@@ -110,7 +110,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000075/nvda-20260726.htm",
-      "capturedAt": "2026-10-31T14:04:51Z"
+      "capturedAt": "2026-10-31T16:52:14Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 4931824.0,
@@ -3358,7 +3358,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "02e890f16113581b901bf06e5617c31d6c51a144914f42fb3a154bb26baa0dec"
       },
       "mScore": {
@@ -3370,7 +3370,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "02e890f16113581b901bf06e5617c31d6c51a144914f42fb3a154bb26baa0dec"
       }
     },
@@ -3548,7 +3548,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "NVDA",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:04:51Z",
+      "fetchedAt": "2026-10-31T16:52:14Z",
       "balanceDate": "2026-07-26",
       "filingDate": "2026-08-26",
       "quoteDate": "2026-10-30",
@@ -3584,7 +3584,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000075/nvda-20260726.htm",
-        "capturedAt": "2026-10-31T14:04:51Z"
+        "capturedAt": "2026-10-31T16:52:14Z"
       }
     },
     "z_score": 64.61,
@@ -3903,7 +3903,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/320193/000032019326000020/aapl-20260627.htm",
-      "capturedAt": "2026-10-31T14:04:57Z"
+      "capturedAt": "2026-10-31T16:52:23Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 5029592.3,
@@ -7151,7 +7151,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "cc803b69db83b759940acb2fb66e7f3744411d74963bcaf81e0f4c63c8a09a22"
       },
       "mScore": {
@@ -7163,7 +7163,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "cc803b69db83b759940acb2fb66e7f3744411d74963bcaf81e0f4c63c8a09a22"
       }
     },
@@ -7335,7 +7335,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AAPL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:04:57Z",
+      "fetchedAt": "2026-10-31T16:52:23Z",
       "balanceDate": "2026-06-27",
       "filingDate": "2026-07-31",
       "quoteDate": "2026-10-30",
@@ -7371,7 +7371,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/320193/000032019326000020/aapl-20260627.htm",
-        "capturedAt": "2026-10-31T14:04:57Z"
+        "capturedAt": "2026-10-31T16:52:23Z"
       }
     },
     "z_score": 12.83,
@@ -7690,7 +7690,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/789019/000119312526436133/msft-20260930.htm",
-      "capturedAt": "2026-10-31T14:05:02Z"
+      "capturedAt": "2026-10-31T16:52:31Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 3875802.8,
@@ -10938,7 +10938,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "f095029de1675e32bab3d67c7e0637ef677ce8110ea5c18a61866406b85565ce"
       },
       "mScore": {
@@ -10950,7 +10950,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "f095029de1675e32bab3d67c7e0637ef677ce8110ea5c18a61866406b85565ce"
       }
     },
@@ -11146,7 +11146,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MSFT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:05:02Z",
+      "fetchedAt": "2026-10-31T16:52:31Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-10-30",
@@ -11182,7 +11182,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/789019/000119312526436133/msft-20260930.htm",
-        "capturedAt": "2026-10-31T14:05:02Z"
+        "capturedAt": "2026-10-31T16:52:31Z"
       }
     },
     "z_score": 9.2,
@@ -11501,7 +11501,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1730168/000173016826000080/avgo-20260802.htm",
-      "capturedAt": "2026-10-31T14:05:08Z"
+      "capturedAt": "2026-10-31T16:52:39Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 1556585.2,
@@ -14749,7 +14749,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "2f54b16afea851a2d987050c0a8695fbbf0f578a3b4dbddb666a92ae082e9ebe"
       },
       "mScore": {
@@ -14761,7 +14761,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "2f54b16afea851a2d987050c0a8695fbbf0f578a3b4dbddb666a92ae082e9ebe"
       }
     },
@@ -14909,7 +14909,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AVGO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:05:08Z",
+      "fetchedAt": "2026-10-31T16:52:39Z",
       "balanceDate": "2026-08-02",
       "filingDate": "2026-09-10",
       "quoteDate": "2026-10-30",
@@ -14945,7 +14945,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1730168/000173016826000080/avgo-20260802.htm",
-        "capturedAt": "2026-10-31T14:05:08Z"
+        "capturedAt": "2026-10-31T16:52:39Z"
       }
     },
     "z_score": 11.45,
@@ -15264,7 +15264,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526389274/orcl-20260831.htm",
-      "capturedAt": "2026-10-31T14:05:14Z"
+      "capturedAt": "2026-10-31T16:52:48Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 395142.3,
@@ -18507,7 +18507,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "0bc4f0db6db75c8e8efd06dc51be463129ab578f21c06a6ee528737ed89e6f4b"
       },
       "mScore": {
@@ -18519,7 +18519,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "0bc4f0db6db75c8e8efd06dc51be463129ab578f21c06a6ee528737ed89e6f4b"
       }
     },
@@ -18721,7 +18721,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ORCL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:05:14Z",
+      "fetchedAt": "2026-10-31T16:52:48Z",
       "balanceDate": "2026-08-31",
       "filingDate": "2026-09-11",
       "quoteDate": "2026-10-30",
@@ -18757,7 +18757,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526389274/orcl-20260831.htm",
-        "capturedAt": "2026-10-31T14:05:14Z"
+        "capturedAt": "2026-10-31T16:52:48Z"
       }
     },
     "z_score": 1.65,
@@ -19076,7 +19076,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1108524/000110852426000190/crm-20260731.htm",
-      "capturedAt": "2026-10-31T14:05:19Z"
+      "capturedAt": "2026-10-31T16:52:56Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 188606.9,
@@ -22323,7 +22323,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "76ccf29bf4576ac12ce937ef209f356314f746577ea63d9d11a41f2357b02935"
       },
       "mScore": {
@@ -22335,7 +22335,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "76ccf29bf4576ac12ce937ef209f356314f746577ea63d9d11a41f2357b02935"
       }
     },
@@ -22483,7 +22483,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CRM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:05:19Z",
+      "fetchedAt": "2026-10-31T16:52:56Z",
       "balanceDate": "2026-07-31",
       "filingDate": "2026-08-27",
       "quoteDate": "2026-10-30",
@@ -22519,7 +22519,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1108524/000110852426000190/crm-20260731.htm",
-        "capturedAt": "2026-10-31T14:05:19Z"
+        "capturedAt": "2026-10-31T16:52:56Z"
       }
     },
     "z_score": 2.96,
@@ -22834,11 +22834,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "1,632.48 M",
     "shareSource": {
       "shares": 1632.475042,
-      "date": "2026-10-30",
+      "date": "2026-10-31",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000123/amd-20260627.htm",
-      "capturedAt": "2026-10-31T14:05:25Z"
+      "capturedAt": "2026-10-31T16:53:04Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 824073.4,
@@ -26086,7 +26086,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "a189f8b8144e9a297adf913c01a4e16661bd62d0f44603aa394c84cf517adfa2"
       },
       "mScore": {
@@ -26098,7 +26098,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "a189f8b8144e9a297adf913c01a4e16661bd62d0f44603aa394c84cf517adfa2"
       }
     },
@@ -26276,7 +26276,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AMD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:05:25Z",
+      "fetchedAt": "2026-10-31T16:53:04Z",
       "balanceDate": "2026-06-27",
       "filingDate": "2026-08-05",
       "quoteDate": "2026-10-30",
@@ -26308,11 +26308,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 1632475042,
       "shareSource": {
         "shares": 1632.475042,
-        "date": "2026-10-30",
+        "date": "2026-10-31",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000123/amd-20260627.htm",
-        "capturedAt": "2026-10-31T14:05:25Z"
+        "capturedAt": "2026-10-31T16:53:04Z"
       }
     },
     "z_score": 36.53,
@@ -26631,7 +26631,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/858877/000085887726000132/csco-20260725.htm",
-      "capturedAt": "2026-10-31T14:05:30Z"
+      "capturedAt": "2026-10-31T16:53:13Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 412039.8,
@@ -29879,7 +29879,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "f75f454e4116ee37b723a981cccd99c9f00fa9ee0e7b8403d29c7dd8faeac17e"
       },
       "mScore": {
@@ -29891,7 +29891,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "f75f454e4116ee37b723a981cccd99c9f00fa9ee0e7b8403d29c7dd8faeac17e"
       }
     },
@@ -30087,7 +30087,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CSCO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:05:30Z",
+      "fetchedAt": "2026-10-31T16:53:13Z",
       "balanceDate": "2026-07-25",
       "filingDate": "2026-09-02",
       "quoteDate": "2026-10-30",
@@ -30123,7 +30123,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/858877/000085887726000132/csco-20260725.htm",
-        "capturedAt": "2026-10-31T14:05:30Z"
+        "capturedAt": "2026-10-31T16:53:13Z"
       }
     },
     "z_score": 4.04,
@@ -30442,7 +30442,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000049/acn-20260831.htm",
-      "capturedAt": "2026-10-31T14:05:35Z"
+      "capturedAt": "2026-10-31T16:53:21Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 158027.9,
@@ -33690,7 +33690,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "9c2c46907d7d11beaa2cfb52b663c0139204a15e16aa5b24c1e50bae46586806"
       },
       "mScore": {
@@ -33702,7 +33702,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "9c2c46907d7d11beaa2cfb52b663c0139204a15e16aa5b24c1e50bae46586806"
       }
     },
@@ -33843,7 +33843,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ACN",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:05:35Z",
+      "fetchedAt": "2026-10-31T16:53:21Z",
       "balanceDate": "2026-08-31",
       "filingDate": "2026-10-16",
       "quoteDate": "2026-10-30",
@@ -33879,7 +33879,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000049/acn-20260831.htm",
-        "capturedAt": "2026-10-31T14:05:35Z"
+        "capturedAt": "2026-10-31T16:53:21Z"
       }
     },
     "z_score": 4.51,
@@ -34198,7 +34198,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/796343/000079634326000156/adbe-20260828.htm",
-      "capturedAt": "2026-10-31T14:05:41Z"
+      "capturedAt": "2026-10-31T16:53:29Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 97389.5,
@@ -37445,7 +37445,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "de604a550b07ecb528204b7a9287279662dcf6abbaa838d100896846be2bcedc"
       },
       "mScore": {
@@ -37457,7 +37457,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "de604a550b07ecb528204b7a9287279662dcf6abbaa838d100896846be2bcedc"
       }
     },
@@ -37635,7 +37635,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ADBE",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:05:41Z",
+      "fetchedAt": "2026-10-31T16:53:29Z",
       "balanceDate": "2026-08-28",
       "filingDate": "2026-09-22",
       "quoteDate": "2026-10-30",
@@ -37671,7 +37671,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/796343/000079634326000156/adbe-20260828.htm",
-        "capturedAt": "2026-10-31T14:05:41Z"
+        "capturedAt": "2026-10-31T16:53:29Z"
       }
     },
     "z_score": 7.23,
@@ -37990,7 +37990,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/804328/000080432826000086/qcom-20260628.htm",
-      "capturedAt": "2026-10-31T14:05:47Z"
+      "capturedAt": "2026-10-31T16:53:37Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 175969.3,
@@ -41238,7 +41238,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "5533026ce4f0b196ca45699807ab1535289bf0f9b2bd1e0e76062d544e557cb7"
       },
       "mScore": {
@@ -41250,7 +41250,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "5533026ce4f0b196ca45699807ab1535289bf0f9b2bd1e0e76062d544e557cb7"
       }
     },
@@ -41416,7 +41416,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "QCOM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:05:47Z",
+      "fetchedAt": "2026-10-31T16:53:37Z",
       "balanceDate": "2026-06-28",
       "filingDate": "2026-07-29",
       "quoteDate": "2026-10-30",
@@ -41452,7 +41452,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/804328/000080432826000086/qcom-20260628.htm",
-        "capturedAt": "2026-10-31T14:05:47Z"
+        "capturedAt": "2026-10-31T16:53:37Z"
       }
     },
     "z_score": 6.38,
@@ -41771,7 +41771,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/97476/000009747626000169/txn-20260930.htm",
-      "capturedAt": "2026-10-31T14:05:52Z"
+      "capturedAt": "2026-10-31T16:53:45Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 274898.6,
@@ -45019,7 +45019,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "56f794db48e867b575866f2f4b6fd78e5c47029fe8e6247ddc62b796d1cccd7e"
       },
       "mScore": {
@@ -45031,7 +45031,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "56f794db48e867b575866f2f4b6fd78e5c47029fe8e6247ddc62b796d1cccd7e"
       }
     },
@@ -45209,7 +45209,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TXN",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:05:52Z",
+      "fetchedAt": "2026-10-31T16:53:45Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-23",
       "quoteDate": "2026-10-30",
@@ -45245,7 +45245,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/97476/000009747626000169/txn-20260930.htm",
-        "capturedAt": "2026-10-31T14:05:52Z"
+        "capturedAt": "2026-10-31T16:53:45Z"
       }
     },
     "z_score": 12.6,
@@ -45564,7 +45564,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/51143/000005114326000095/ibm-20260930.htm",
-      "capturedAt": "2026-10-31T14:05:58Z"
+      "capturedAt": "2026-10-31T16:53:54Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 243661.6,
@@ -48812,7 +48812,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "9c2f79779bcb6af784c52a5d747163fd6b4d7277facd6461e297cd5e850ec339"
       },
       "mScore": {
@@ -48824,7 +48824,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "9c2f79779bcb6af784c52a5d747163fd6b4d7277facd6461e297cd5e850ec339"
       }
     },
@@ -49014,7 +49014,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "IBM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:05:58Z",
+      "fetchedAt": "2026-10-31T16:53:54Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-22",
       "quoteDate": "2026-10-30",
@@ -49050,7 +49050,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/51143/000005114326000095/ibm-20260930.htm",
-        "capturedAt": "2026-10-31T14:05:58Z"
+        "capturedAt": "2026-10-31T16:53:54Z"
       }
     },
     "z_score": 3.35,
@@ -49373,7 +49373,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/50863/000005086326000191/intc-20260926.htm",
-      "capturedAt": "2026-10-31T14:06:04Z"
+      "capturedAt": "2026-10-31T16:54:02Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 347614.6,
@@ -52621,7 +52621,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "a204e38764829ee8ecdc47cc193e1fef6fd53472f6a6570abd02af52ddcd26ff"
       },
       "mScore": {
@@ -52633,7 +52633,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "a204e38764829ee8ecdc47cc193e1fef6fd53472f6a6570abd02af52ddcd26ff"
       }
     },
@@ -52835,7 +52835,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "INTC",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:06:04Z",
+      "fetchedAt": "2026-10-31T16:54:02Z",
       "balanceDate": "2026-09-26",
       "filingDate": "2026-10-30",
       "quoteDate": "2026-10-30",
@@ -52871,7 +52871,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/50863/000005086326000191/intc-20260926.htm",
-        "capturedAt": "2026-10-31T14:06:04Z"
+        "capturedAt": "2026-10-31T16:54:02Z"
       }
     },
     "z_score": 3.25,
@@ -53190,7 +53190,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/896878/000089687826000037/intu-20260731.htm",
-      "capturedAt": "2026-10-31T14:06:09Z"
+      "capturedAt": "2026-10-31T16:54:10Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 91151.5,
@@ -56436,7 +56436,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "da69fe1c36ea8193fae2c96af4648f934778db06dd2e41173edfdcac6de61b1c"
       },
       "mScore": {
@@ -56448,7 +56448,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "da69fe1c36ea8193fae2c96af4648f934778db06dd2e41173edfdcac6de61b1c"
       }
     },
@@ -56608,7 +56608,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "INTU",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:06:09Z",
+      "fetchedAt": "2026-10-31T16:54:10Z",
       "balanceDate": "2026-07-31",
       "filingDate": "2026-09-09",
       "quoteDate": "2026-10-30",
@@ -56644,7 +56644,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/896878/000089687826000037/intu-20260731.htm",
-        "capturedAt": "2026-10-31T14:06:09Z"
+        "capturedAt": "2026-10-31T16:54:10Z"
       }
     },
     "z_score": 5.11,
@@ -56963,7 +56963,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1373715/000137371526000096/now-20260930.htm",
-      "capturedAt": "2026-10-31T14:06:14Z"
+      "capturedAt": "2026-10-31T16:54:18Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 109105.8,
@@ -60205,7 +60205,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "7466a13b00c0a3c4288c4a2dcbe58976441c28a2f366dcfe534ada9cdc94160f"
       },
       "mScore": {
@@ -60217,7 +60217,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "7466a13b00c0a3c4288c4a2dcbe58976441c28a2f366dcfe534ada9cdc94160f"
       }
     },
@@ -60365,7 +60365,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "NOW",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:06:14Z",
+      "fetchedAt": "2026-10-31T16:54:18Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-10-30",
@@ -60401,7 +60401,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1373715/000137371526000096/now-20260930.htm",
-        "capturedAt": "2026-10-31T14:06:14Z"
+        "capturedAt": "2026-10-31T16:54:18Z"
       }
     },
     "z_score": 6.09,
@@ -60720,7 +60720,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/6951/000162828026058235/amat-20260726.htm",
-      "capturedAt": "2026-10-31T14:06:20Z"
+      "capturedAt": "2026-10-31T16:54:27Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 309574.4,
@@ -63968,7 +63968,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "17bb8efbca07a4a951ac62ac21bdff37ce2dc1fa3d6f727561d0225cde455850"
       },
       "mScore": {
@@ -63980,7 +63980,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "17bb8efbca07a4a951ac62ac21bdff37ce2dc1fa3d6f727561d0225cde455850"
       }
     },
@@ -64176,7 +64176,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AMAT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:06:20Z",
+      "fetchedAt": "2026-10-31T16:54:27Z",
       "balanceDate": "2026-07-26",
       "filingDate": "2026-08-20",
       "quoteDate": "2026-10-30",
@@ -64212,7 +64212,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/6951/000162828026058235/amat-20260726.htm",
-        "capturedAt": "2026-10-31T14:06:20Z"
+        "capturedAt": "2026-10-31T16:54:27Z"
       }
     },
     "z_score": 15.9,
@@ -64531,7 +64531,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/707549/000070754926000054/lrcx-20260927.htm",
-      "capturedAt": "2026-10-31T14:06:25Z"
+      "capturedAt": "2026-10-31T16:54:36Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 299228.1,
@@ -67779,7 +67779,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "b45967e53dd4c6a96448bc6166b95f68c3d5d20b09cef5c491cc2d3cccb77e14"
       },
       "mScore": {
@@ -67791,7 +67791,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "b45967e53dd4c6a96448bc6166b95f68c3d5d20b09cef5c491cc2d3cccb77e14"
       }
     },
@@ -67951,7 +67951,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "LRCX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:06:25Z",
+      "fetchedAt": "2026-10-31T16:54:36Z",
       "balanceDate": "2026-09-27",
       "filingDate": "2026-10-22",
       "quoteDate": "2026-10-30",
@@ -67987,7 +67987,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/707549/000070754926000054/lrcx-20260927.htm",
-        "capturedAt": "2026-10-31T14:06:25Z"
+        "capturedAt": "2026-10-31T16:54:36Z"
       }
     },
     "z_score": 20.95,
@@ -68306,7 +68306,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000023/mu-20260903.htm",
-      "capturedAt": "2026-10-31T14:06:30Z"
+      "capturedAt": "2026-10-31T16:54:44Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 1001012.5,
@@ -71554,7 +71554,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "476b95c43aceaf557102d5dc95a38fd1dbf914b6026d58eba34aae021dded7e7"
       },
       "mScore": {
@@ -71566,7 +71566,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "476b95c43aceaf557102d5dc95a38fd1dbf914b6026d58eba34aae021dded7e7"
       }
     },
@@ -71726,7 +71726,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MU",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:06:30Z",
+      "fetchedAt": "2026-10-31T16:54:44Z",
       "balanceDate": "2026-09-03",
       "filingDate": "2026-10-09",
       "quoteDate": "2026-10-30",
@@ -71762,7 +71762,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000023/mu-20260903.htm",
-        "capturedAt": "2026-10-31T14:06:30Z"
+        "capturedAt": "2026-10-31T16:54:44Z"
       }
     },
     "z_score": 14.13,
@@ -72045,7 +72045,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": null,
-      "capturedAt": "2026-10-31T14:06:36Z"
+      "capturedAt": "2026-10-31T16:54:52Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 2106385.1,
@@ -75383,7 +75383,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "TWD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "95100433528349cc83024f0d3a2bed2b9429abd2ca6e07dbb4b46a03394bd68a"
       },
       "mScore": {
@@ -75395,7 +75395,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "TWD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "95100433528349cc83024f0d3a2bed2b9429abd2ca6e07dbb4b46a03394bd68a"
       }
     },
@@ -75667,7 +75667,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TSM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:06:36Z",
+      "fetchedAt": "2026-10-31T16:54:52Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-15",
       "quoteDate": "2026-10-30",
@@ -75704,7 +75704,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": null,
-        "capturedAt": "2026-10-31T14:06:36Z"
+        "capturedAt": "2026-10-31T16:54:52Z"
       }
     },
     "z_score": 3.07,
@@ -76025,7 +76025,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/814547/000081454726000030/fico-20260630.htm",
-      "capturedAt": "2026-10-31T14:06:42Z"
+      "capturedAt": "2026-10-31T16:55:01Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 15360.9,
@@ -79268,7 +79268,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "210bac605e8fae1bc6da0625e3abc067ccef1daa2d91ac555067ab35957551d5"
       },
       "mScore": {
@@ -79280,7 +79280,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "210bac605e8fae1bc6da0625e3abc067ccef1daa2d91ac555067ab35957551d5"
       }
     },
@@ -79446,7 +79446,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "FICO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:06:42Z",
+      "fetchedAt": "2026-10-31T16:55:01Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-29",
       "quoteDate": "2026-10-30",
@@ -79482,7 +79482,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/814547/000081454726000030/fico-20260630.htm",
-        "capturedAt": "2026-10-31T14:06:42Z"
+        "capturedAt": "2026-10-31T16:55:01Z"
       }
     },
     "z_score": 8.59,
@@ -79797,11 +79797,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "209.00 M",
     "shareSource": {
       "shares": 209.0,
-      "date": "2026-10-30",
+      "date": "2026-10-31",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/769397/000076939726000061/adsk-20260731.htm",
-      "capturedAt": "2026-10-31T14:06:47Z"
+      "capturedAt": "2026-10-31T16:55:09Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 52168.5,
@@ -83048,7 +83048,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "0dfe80d451eca82687434386ff8b0da242bd336564fee854d97ed044cd1c4b85"
       },
       "mScore": {
@@ -83060,7 +83060,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "0dfe80d451eca82687434386ff8b0da242bd336564fee854d97ed044cd1c4b85"
       }
     },
@@ -83226,7 +83226,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ADSK",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:06:47Z",
+      "fetchedAt": "2026-10-31T16:55:09Z",
       "balanceDate": "2026-07-31",
       "filingDate": "2026-08-28",
       "quoteDate": "2026-10-30",
@@ -83258,11 +83258,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 209000000,
       "shareSource": {
         "shares": 209,
-        "date": "2026-10-30",
+        "date": "2026-10-31",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/769397/000076939726000061/adsk-20260731.htm",
-        "capturedAt": "2026-10-31T14:06:47Z"
+        "capturedAt": "2026-10-31T16:55:09Z"
       }
     },
     "z_score": 4.13,
@@ -83581,7 +83581,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/860731/000086073126000058/tyl-20260930.htm",
-      "capturedAt": "2026-10-31T14:06:52Z"
+      "capturedAt": "2026-10-31T16:55:17Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 15677.2,
@@ -86822,7 +86822,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "07bdc0a88e12657c333064bbeea945e950ece98564e6d3c3528e7590f0e02bbd"
       },
       "mScore": {
@@ -86834,7 +86834,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "07bdc0a88e12657c333064bbeea945e950ece98564e6d3c3528e7590f0e02bbd"
       }
     },
@@ -87000,7 +87000,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TYL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:06:52Z",
+      "fetchedAt": "2026-10-31T16:55:17Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-10-30",
@@ -87036,7 +87036,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/860731/000086073126000058/tyl-20260930.htm",
-        "capturedAt": "2026-10-31T14:06:52Z"
+        "capturedAt": "2026-10-31T16:55:17Z"
       }
     },
     "z_score": 6.06,
@@ -87355,7 +87355,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1433195/000143319526000064/appf-20260930.htm",
-      "capturedAt": "2026-10-31T14:06:58Z"
+      "capturedAt": "2026-10-31T16:55:26Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 7560.9,
@@ -90598,7 +90598,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "1a525cc6238df5c04fbbb9cc31dcb063dec341fbee7c2b0806502a7c1986634c"
       },
       "mScore": {
@@ -90610,7 +90610,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "1a525cc6238df5c04fbbb9cc31dcb063dec341fbee7c2b0806502a7c1986634c"
       }
     },
@@ -90751,7 +90751,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "APPF",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:06:58Z",
+      "fetchedAt": "2026-10-31T16:55:26Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-22",
       "quoteDate": "2026-10-30",
@@ -90787,7 +90787,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1433195/000143319526000064/appf-20260930.htm",
-        "capturedAt": "2026-10-31T14:06:58Z"
+        "capturedAt": "2026-10-31T16:55:26Z"
       }
     },
     "z_score": 28.53,
@@ -91106,7 +91106,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1856314/000185631426000042/you-20260630.htm",
-      "capturedAt": "2026-10-31T14:07:03Z"
+      "capturedAt": "2026-10-31T16:55:34Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 4732.9,
@@ -94354,7 +94354,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "74b082db0b333ca4d302dcfdac0472a49764dbe7ecc0663019f4bfd25360ade0"
       },
       "mScore": {
@@ -94366,7 +94366,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "74b082db0b333ca4d302dcfdac0472a49764dbe7ecc0663019f4bfd25360ade0"
       }
     },
@@ -94507,7 +94507,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "YOU",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:07:03Z",
+      "fetchedAt": "2026-10-31T16:55:34Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-05",
       "quoteDate": "2026-10-30",
@@ -94543,7 +94543,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1856314/000185631426000042/you-20260630.htm",
-        "capturedAt": "2026-10-31T14:07:03Z"
+        "capturedAt": "2026-10-31T16:55:34Z"
       }
     },
     "z_score": 3.93,
@@ -94862,7 +94862,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/780571/000078057126000233/itri-20260930.htm",
-      "capturedAt": "2026-10-31T14:07:08Z"
+      "capturedAt": "2026-10-31T16:55:42Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 4202.7,
@@ -98104,7 +98104,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "aa4147e471596a3ec1d04a10d6c9c4000eb4b37a77d250b58a83793a2fe87e0b"
       },
       "mScore": {
@@ -98116,7 +98116,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "aa4147e471596a3ec1d04a10d6c9c4000eb4b37a77d250b58a83793a2fe87e0b"
       }
     },
@@ -98257,7 +98257,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ITRI",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:07:08Z",
+      "fetchedAt": "2026-10-31T16:55:42Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-27",
       "quoteDate": "2026-10-30",
@@ -98293,7 +98293,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/780571/000078057126000233/itri-20260930.htm",
-        "capturedAt": "2026-10-31T14:07:08Z"
+        "capturedAt": "2026-10-31T16:55:42Z"
       }
     },
     "z_score": 2.53,
@@ -98612,7 +98612,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/883241/000088324126000025/snps-20260731.htm",
-      "capturedAt": "2026-10-31T14:07:14Z"
+      "capturedAt": "2026-10-31T16:55:51Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 89611.2,
@@ -101858,7 +101858,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "21eaafee94ddc98f14582101ba5e5c1b43d23e5c1bd082ce1e205962aa399a34"
       },
       "mScore": {
@@ -101870,7 +101870,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "21eaafee94ddc98f14582101ba5e5c1b43d23e5c1bd082ce1e205962aa399a34"
       }
     },
@@ -102024,7 +102024,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "SNPS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:07:14Z",
+      "fetchedAt": "2026-10-31T16:55:51Z",
       "balanceDate": "2026-07-31",
       "filingDate": "2026-08-26",
       "quoteDate": "2026-10-30",
@@ -102060,7 +102060,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/883241/000088324126000025/snps-20260731.htm",
-        "capturedAt": "2026-10-31T14:07:14Z"
+        "capturedAt": "2026-10-31T16:55:51Z"
       }
     },
     "z_score": 3.33,
@@ -102375,11 +102375,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "112.90 M",
     "shareSource": {
       "shares": 112.900032,
-      "date": "2026-10-30",
+      "date": "2026-10-31",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1383312/000162828026052243/br-20260630.htm",
-      "capturedAt": "2026-10-31T14:07:19Z"
+      "capturedAt": "2026-10-31T16:56:00Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 20188.8,
@@ -105624,7 +105624,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "4e0d30bb592208efe08d446d2c90529712bcbd536060667689dfbae5b4b5d340"
       },
       "mScore": {
@@ -105636,7 +105636,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "4e0d30bb592208efe08d446d2c90529712bcbd536060667689dfbae5b4b5d340"
       }
     },
@@ -105777,7 +105777,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "BR",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:07:19Z",
+      "fetchedAt": "2026-10-31T16:56:00Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-04",
       "quoteDate": "2026-10-30",
@@ -105809,11 +105809,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 112900032,
       "shareSource": {
         "shares": 112.900032,
-        "date": "2026-10-30",
+        "date": "2026-10-31",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1383312/000162828026052243/br-20260630.htm",
-        "capturedAt": "2026-10-31T14:07:19Z"
+        "capturedAt": "2026-10-31T16:56:00Z"
       }
     },
     "z_score": 4.06,
@@ -106132,7 +106132,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000034/klac-20260930.htm",
-      "capturedAt": "2026-10-31T14:07:25Z"
+      "capturedAt": "2026-10-31T16:56:08Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 206074.1,
@@ -109380,7 +109380,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "ffa283bf1ae5b772a80ed8284c7611bc87cad0afa4318ba8ed318e3ee58ea82e"
       },
       "mScore": {
@@ -109392,7 +109392,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "ffa283bf1ae5b772a80ed8284c7611bc87cad0afa4318ba8ed318e3ee58ea82e"
       }
     },
@@ -109570,7 +109570,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "KLAC",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:07:25Z",
+      "fetchedAt": "2026-10-31T16:56:08Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-10-30",
@@ -109606,7 +109606,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000034/klac-20260930.htm",
-        "capturedAt": "2026-10-31T14:07:25Z"
+        "capturedAt": "2026-10-31T16:56:08Z"
       }
     },
     "z_score": 13.28,
@@ -109921,11 +109921,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "875.77 M",
     "shareSource": {
       "shares": 875.766423,
-      "date": "2026-10-30",
+      "date": "2026-10-31",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1835632/000183563226000025/mrvl-20260801.htm",
-      "capturedAt": "2026-10-31T14:07:42Z"
+      "capturedAt": "2026-10-31T16:56:16Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 172000.5,
@@ -113173,7 +113173,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "06143c89930b081a1a899b99ae56a5a7def4b0b0a2bccdfa55957466bdfe0277"
       },
       "mScore": {
@@ -113185,7 +113185,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "06143c89930b081a1a899b99ae56a5a7def4b0b0a2bccdfa55957466bdfe0277"
       }
     },
@@ -113339,7 +113339,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MRVL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:07:42Z",
+      "fetchedAt": "2026-10-31T16:56:16Z",
       "balanceDate": "2026-08-01",
       "filingDate": "2026-08-28",
       "quoteDate": "2026-10-30",
@@ -113371,11 +113371,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 875766423,
       "shareSource": {
         "shares": 875.766423,
-        "date": "2026-10-30",
+        "date": "2026-10-31",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1835632/000183563226000025/mrvl-20260801.htm",
-        "capturedAt": "2026-10-31T14:07:42Z"
+        "capturedAt": "2026-10-31T16:56:16Z"
       }
     },
     "z_score": 14.05,
@@ -113694,7 +113694,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/813672/000081367226000121/cdns-20260930.htm",
-      "capturedAt": "2026-10-31T14:07:47Z"
+      "capturedAt": "2026-10-31T16:56:24Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 89966.1,
@@ -116936,7 +116936,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "75d9ad4f42ff110bd8afac7bd26252f6da0df01b3d3ee0d96487a3da2c55bf30"
       },
       "mScore": {
@@ -116948,7 +116948,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "75d9ad4f42ff110bd8afac7bd26252f6da0df01b3d3ee0d96487a3da2c55bf30"
       }
     },
@@ -117114,7 +117114,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CDNS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:07:47Z",
+      "fetchedAt": "2026-10-31T16:56:24Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-10-30",
@@ -117150,7 +117150,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/813672/000081367226000121/cdns-20260930.htm",
-        "capturedAt": "2026-10-31T14:07:47Z"
+        "capturedAt": "2026-10-31T16:56:24Z"
       }
     },
     "z_score": 13.93,
@@ -117469,7 +117469,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1262039/000126203926000027/ftnt-20260930.htm",
-      "capturedAt": "2026-10-31T14:07:52Z"
+      "capturedAt": "2026-10-31T16:56:33Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 99843.8,
@@ -120717,7 +120717,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "86250d01e3928640ad463439b2775229bed2d6d78e5c1b7a310826090dae4bc3"
       },
       "mScore": {
@@ -120729,7 +120729,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "86250d01e3928640ad463439b2775229bed2d6d78e5c1b7a310826090dae4bc3"
       }
     },
@@ -120883,7 +120883,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "FTNT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:07:52Z",
+      "fetchedAt": "2026-10-31T16:56:33Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
       "quoteDate": "2026-10-30",
@@ -120919,7 +120919,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1262039/000126203926000027/ftnt-20260930.htm",
-        "capturedAt": "2026-10-31T14:07:52Z"
+        "capturedAt": "2026-10-31T16:56:33Z"
       }
     },
     "z_score": 7.97,
@@ -121238,7 +121238,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1327567/000132756726000023/panw-20260731.htm",
-      "capturedAt": "2026-10-31T14:07:58Z"
+      "capturedAt": "2026-10-31T16:56:41Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 299443.8,
@@ -124485,7 +124485,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "47c4d6bce6054c6061c26fbe78cd5e4477364a684ff5ef1a585049eb453840c6"
       },
       "mScore": {
@@ -124497,7 +124497,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "47c4d6bce6054c6061c26fbe78cd5e4477364a684ff5ef1a585049eb453840c6"
       }
     },
@@ -124651,7 +124651,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "PANW",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:07:58Z",
+      "fetchedAt": "2026-10-31T16:56:41Z",
       "balanceDate": "2026-07-31",
       "filingDate": "2026-09-10",
       "quoteDate": "2026-10-30",
@@ -124687,7 +124687,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1327567/000132756726000023/panw-20260731.htm",
-        "capturedAt": "2026-10-31T14:07:58Z"
+        "capturedAt": "2026-10-31T16:56:41Z"
       }
     },
     "z_score": 8.89,
@@ -125006,7 +125006,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000031/crwd-20260731.htm",
-      "capturedAt": "2026-10-31T14:08:04Z"
+      "capturedAt": "2026-10-31T16:56:49Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 256424.0,
@@ -128254,7 +128254,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "1d7fbf2671f2ab726930b1460da1da8e61ee74bede5e836daa754baaf47bb8f9"
       },
       "mScore": {
@@ -128266,7 +128266,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "1d7fbf2671f2ab726930b1460da1da8e61ee74bede5e836daa754baaf47bb8f9"
       }
     },
@@ -128414,7 +128414,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CRWD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:08:04Z",
+      "fetchedAt": "2026-10-31T16:56:49Z",
       "balanceDate": "2026-07-31",
       "filingDate": "2026-08-27",
       "quoteDate": "2026-10-30",
@@ -128450,7 +128450,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000031/crwd-20260731.htm",
-        "capturedAt": "2026-10-31T14:08:04Z"
+        "capturedAt": "2026-10-31T16:56:49Z"
       }
     },
     "z_score": 23.85,
@@ -128760,22 +128760,22 @@ window.FULL_MARKET_DATA = {
     "industry": "Application Software",
     "reportedCurrency": "USD",
     "price": 197.82,
-    "shares": 241.0,
-    "shares_outstanding": 241000000,
+    "shares": 240.999998,
+    "shares_outstanding": 240999998,
     "shares_display": "241.00 M",
     "shareSource": {
-      "shares": 241.0,
-      "date": "2026-10-30",
+      "shares": 240.999998,
+      "date": "2026-10-31",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1327811/000132781126000044/wday-20260731.htm",
-      "capturedAt": "2026-10-31T14:08:10Z"
+      "capturedAt": "2026-10-31T16:56:58Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 47674.6,
-    "liq_val_1": -14.224066390041493,
-    "liq_val_2": -18.58091286307054,
-    "liq_val_3": -24.87136929460581,
+    "liq_val_1": -14.22406650808354,
+    "liq_val_2": -18.580913017268987,
+    "liq_val_3": -24.871369501007216,
     "debt": 3772.0,
     "cash": 3403.0,
     "short_term_investments": 2742.0,
@@ -132016,7 +132016,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "ef974297e132d0f77f8bf2f9c5455473589fc6a983ad684ba8c7b72ab0bcbfcd"
       },
       "mScore": {
@@ -132028,7 +132028,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "ef974297e132d0f77f8bf2f9c5455473589fc6a983ad684ba8c7b72ab0bcbfcd"
       }
     },
@@ -132169,7 +132169,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "WDAY",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:08:10Z",
+      "fetchedAt": "2026-10-31T16:56:58Z",
       "balanceDate": "2026-07-31",
       "filingDate": "2026-08-27",
       "quoteDate": "2026-10-30",
@@ -132198,14 +132198,14 @@ window.FULL_MARKET_DATA = {
         "inventory": 0,
         "preferredStock": 0
       },
-      "sharesOutstanding": 241000000,
+      "sharesOutstanding": 240999998,
       "shareSource": {
-        "shares": 241,
-        "date": "2026-10-30",
+        "shares": 240.999998,
+        "date": "2026-10-31",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1327811/000132781126000044/wday-20260731.htm",
-        "capturedAt": "2026-10-31T14:08:10Z"
+        "capturedAt": "2026-10-31T16:56:58Z"
       }
     },
     "z_score": 3.59,
@@ -132520,11 +132520,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "1,261.22 M",
     "shareSource": {
       "shares": 1261.22,
-      "date": "2026-10-30",
+      "date": "2026-10-31",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1596532/000159653226000175/anet-20260630.htm",
-      "capturedAt": "2026-10-31T14:08:15Z"
+      "capturedAt": "2026-10-31T16:57:06Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 212969.6,
@@ -135767,7 +135767,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "11073bdb04649742e6084e7d1f41c306799de1e8eb5af57f5f8b3ed59ac4e2d5"
       },
       "mScore": {
@@ -135779,7 +135779,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "11073bdb04649742e6084e7d1f41c306799de1e8eb5af57f5f8b3ed59ac4e2d5"
       }
     },
@@ -135933,7 +135933,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ANET",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:08:15Z",
+      "fetchedAt": "2026-10-31T16:57:06Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-05",
       "quoteDate": "2026-10-30",
@@ -135965,11 +135965,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 1261220000,
       "shareSource": {
         "shares": 1261.22,
-        "date": "2026-10-30",
+        "date": "2026-10-31",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1596532/000159653226000175/anet-20260630.htm",
-        "capturedAt": "2026-10-31T14:08:15Z"
+        "capturedAt": "2026-10-31T16:57:06Z"
       }
     },
     "z_score": 20.6,
@@ -136288,7 +136288,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/820313/000110465926120646/aph-20260930x10q.htm",
-      "capturedAt": "2026-10-31T14:08:21Z"
+      "capturedAt": "2026-10-31T16:57:14Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 195551.2,
@@ -139536,7 +139536,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "b184ad1a60f8438db5e700cc98c6fc2fd2f49163b349f0e35fcd1db8d9007e51"
       },
       "mScore": {
@@ -139548,7 +139548,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "b184ad1a60f8438db5e700cc98c6fc2fd2f49163b349f0e35fcd1db8d9007e51"
       }
     },
@@ -139732,7 +139732,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "APH",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:08:21Z",
+      "fetchedAt": "2026-10-31T16:57:14Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
       "quoteDate": "2026-10-30",
@@ -139768,7 +139768,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/820313/000110465926120646/aph-20260930x10q.htm",
-        "capturedAt": "2026-10-31T14:08:21Z"
+        "capturedAt": "2026-10-31T16:57:14Z"
       }
     },
     "z_score": 7.18,
@@ -140087,7 +140087,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1385157/000110465926119326/tel-ex99d1.htm",
-      "capturedAt": "2026-10-31T14:08:26Z"
+      "capturedAt": "2026-10-31T16:57:22Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 61675.0,
@@ -143335,7 +143335,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "2ac7ab32f304c20149184e809855e5c1c2a81b20a38a32c3a45686fd053f65c2"
       },
       "mScore": {
@@ -143347,7 +143347,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "2ac7ab32f304c20149184e809855e5c1c2a81b20a38a32c3a45686fd053f65c2"
       }
     },
@@ -143488,7 +143488,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TEL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:08:26Z",
+      "fetchedAt": "2026-10-31T16:57:22Z",
       "balanceDate": "2026-09-25",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-10-30",
@@ -143524,7 +143524,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1385157/000110465926119326/tel-ex99d1.htm",
-        "capturedAt": "2026-10-31T14:08:26Z"
+        "capturedAt": "2026-10-31T16:57:22Z"
       }
     },
     "z_score": 5.08,
@@ -143843,7 +143843,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/goog-20260930.htm",
-      "capturedAt": "2026-10-31T14:08:31Z"
+      "capturedAt": "2026-10-31T16:57:30Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 3412310.2,
@@ -147091,7 +147091,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "7144fb1094c91c22f7ce0ce447bf252186de680285415bdcb070a970066a476a"
       },
       "mScore": {
@@ -147103,7 +147103,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "7144fb1094c91c22f7ce0ce447bf252186de680285415bdcb070a970066a476a"
       }
     },
@@ -147257,7 +147257,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "GOOGL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:08:31Z",
+      "fetchedAt": "2026-10-31T16:57:30Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-10-30",
@@ -147293,7 +147293,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/goog-20260930.htm",
-        "capturedAt": "2026-10-31T14:08:31Z"
+        "capturedAt": "2026-10-31T16:57:30Z"
       }
     },
     "z_score": 13.9,
@@ -147612,7 +147612,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/goog-20260930.htm",
-      "capturedAt": "2026-10-31T14:08:36Z"
+      "capturedAt": "2026-10-31T16:57:38Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 3410581.3,
@@ -150860,7 +150860,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "aa3f03f4bf9f6e873ac0aa592e41b92f14808b5aa0ca6f393262ab7f2303fc26"
       },
       "mScore": {
@@ -150872,7 +150872,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "aa3f03f4bf9f6e873ac0aa592e41b92f14808b5aa0ca6f393262ab7f2303fc26"
       }
     },
@@ -151026,7 +151026,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "GOOG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:08:36Z",
+      "fetchedAt": "2026-10-31T16:57:38Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-10-30",
@@ -151062,7 +151062,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/goog-20260930.htm",
-        "capturedAt": "2026-10-31T14:08:36Z"
+        "capturedAt": "2026-10-31T16:57:38Z"
       }
     },
     "z_score": 13.9,
@@ -151381,7 +151381,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026066773/meta-20260930.htm",
-      "capturedAt": "2026-10-31T14:08:42Z"
+      "capturedAt": "2026-10-31T16:57:47Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 1361876.9,
@@ -154629,7 +154629,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "30e5d3c4a10cced7bbe8f5b4fae86d898ed037e80615dc6f340cfd8f900b4496"
       },
       "mScore": {
@@ -154641,7 +154641,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "30e5d3c4a10cced7bbe8f5b4fae86d898ed037e80615dc6f340cfd8f900b4496"
       }
     },
@@ -154782,7 +154782,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "META",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:08:42Z",
+      "fetchedAt": "2026-10-31T16:57:47Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-22",
       "quoteDate": "2026-10-30",
@@ -154818,7 +154818,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026066773/meta-20260930.htm",
-        "capturedAt": "2026-10-31T14:08:42Z"
+        "capturedAt": "2026-10-31T16:57:47Z"
       }
     },
     "z_score": 7.5,
@@ -155137,7 +155137,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000291/nflx-20260930.htm",
-      "capturedAt": "2026-10-31T14:08:47Z"
+      "capturedAt": "2026-10-31T16:57:55Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 258497.4,
@@ -158385,7 +158385,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "4c3a54e618574e66f123a46b176ed6207fd82b70ebf103177e3ba615283f7c66"
       },
       "mScore": {
@@ -158397,7 +158397,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "4c3a54e618574e66f123a46b176ed6207fd82b70ebf103177e3ba615283f7c66"
       }
     },
@@ -158557,7 +158557,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "NFLX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:08:47Z",
+      "fetchedAt": "2026-10-31T16:57:55Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-21",
       "quoteDate": "2026-10-30",
@@ -158593,7 +158593,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000291/nflx-20260930.htm",
-        "capturedAt": "2026-10-31T14:08:47Z"
+        "capturedAt": "2026-10-31T16:57:55Z"
       }
     },
     "z_score": 8.07,
@@ -158912,7 +158912,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1744489/000174448926000057/dis-20260627.htm",
-      "capturedAt": "2026-10-31T14:08:54Z"
+      "capturedAt": "2026-10-31T16:58:03Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 191559.0,
@@ -162160,7 +162160,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "7473ebf716da616baba2ec56302bd9cc02405dc8aa96d60320376bc7b248bd92"
       },
       "mScore": {
@@ -162172,7 +162172,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "7473ebf716da616baba2ec56302bd9cc02405dc8aa96d60320376bc7b248bd92"
       }
     },
@@ -162374,7 +162374,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "DIS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:08:54Z",
+      "fetchedAt": "2026-10-31T16:58:03Z",
       "balanceDate": "2026-06-27",
       "filingDate": "2026-08-05",
       "quoteDate": "2026-10-30",
@@ -162410,7 +162410,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1744489/000174448926000057/dis-20260627.htm",
-        "capturedAt": "2026-10-31T14:08:54Z"
+        "capturedAt": "2026-10-31T16:58:03Z"
       }
     },
     "z_score": 2.46,
@@ -162729,7 +162729,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1283699/000128369926000129/tmus-20260930.htm",
-      "capturedAt": "2026-10-31T14:08:59Z"
+      "capturedAt": "2026-10-31T16:58:11Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 165712.6,
@@ -165969,7 +165969,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "f9846dde7656ec6121b9f65336ce5969d41b602487d2331d4d63d02aad0e28b5"
       },
       "mScore": {
@@ -165981,7 +165981,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "f9846dde7656ec6121b9f65336ce5969d41b602487d2331d4d63d02aad0e28b5"
       }
     },
@@ -166129,7 +166129,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TMUS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:08:59Z",
+      "fetchedAt": "2026-10-31T16:58:11Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-10-30",
@@ -166165,7 +166165,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1283699/000128369926000129/tmus-20260930.htm",
-        "capturedAt": "2026-10-31T14:08:59Z"
+        "capturedAt": "2026-10-31T16:58:11Z"
       }
     },
     "z_score": 1.43,
@@ -166484,7 +166484,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/732712/000073271226000052/vz-20260930.htm",
-      "capturedAt": "2026-10-31T14:09:05Z"
+      "capturedAt": "2026-10-31T16:58:20Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 185843.3,
@@ -169732,7 +169732,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "d5d75732473f41218fc3ba8b8fba4e5757d43b9d5c004b0d565faeed85672503"
       },
       "mScore": {
@@ -169744,7 +169744,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "d5d75732473f41218fc3ba8b8fba4e5757d43b9d5c004b0d565faeed85672503"
       }
     },
@@ -169916,7 +169916,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "VZ",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:09:05Z",
+      "fetchedAt": "2026-10-31T16:58:20Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-10-30",
@@ -169952,7 +169952,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/732712/000073271226000052/vz-20260930.htm",
-        "capturedAt": "2026-10-31T14:09:05Z"
+        "capturedAt": "2026-10-31T16:58:20Z"
       }
     },
     "z_score": 1.27,
@@ -170271,7 +170271,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/732717/000073271726000372/t-20260930.htm",
-      "capturedAt": "2026-10-31T14:09:10Z"
+      "capturedAt": "2026-10-31T16:58:28Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 144227.9,
@@ -173519,7 +173519,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "5a0fff026cd9c7298501da9bd433f62864687e280c57955bdc17df4c50ab2d19"
       },
       "mScore": {
@@ -173531,7 +173531,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "5a0fff026cd9c7298501da9bd433f62864687e280c57955bdc17df4c50ab2d19"
       }
     },
@@ -173697,7 +173697,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "T",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:09:10Z",
+      "fetchedAt": "2026-10-31T16:58:28Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-21",
       "quoteDate": "2026-10-30",
@@ -173733,7 +173733,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/732717/000073271726000372/t-20260930.htm",
-        "capturedAt": "2026-10-31T14:09:10Z"
+        "capturedAt": "2026-10-31T16:58:28Z"
       }
     },
     "z_score": 0.9,
@@ -174052,7 +174052,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1166691/000162828026066863/cmcsa-20260930.htm",
-      "capturedAt": "2026-10-31T14:09:15Z"
+      "capturedAt": "2026-10-31T16:58:36Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 82235.0,
@@ -177300,7 +177300,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "ff4965465f59c7461cfe99514654b5786aa41d12074a7ede854b4aac14395f19"
       },
       "mScore": {
@@ -177312,7 +177312,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "ff4965465f59c7461cfe99514654b5786aa41d12074a7ede854b4aac14395f19"
       }
     },
@@ -177514,7 +177514,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CMCSA",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:09:15Z",
+      "fetchedAt": "2026-10-31T16:58:36Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-22",
       "quoteDate": "2026-10-30",
@@ -177550,7 +177550,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1166691/000162828026066863/cmcsa-20260930.htm",
-        "capturedAt": "2026-10-31T14:09:15Z"
+        "capturedAt": "2026-10-31T16:58:36Z"
       }
     },
     "z_score": 1.43,
@@ -177869,7 +177869,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1973266/000119312526330592/tko-20260630.htm",
-      "capturedAt": "2026-10-31T14:09:21Z"
+      "capturedAt": "2026-10-31T16:58:44Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 13209.7,
@@ -181117,7 +181117,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "90861ab0a5dc012ae6a43d0ed633353cecd35f40b63109c211194fadef3f0094"
       },
       "mScore": {
@@ -181129,7 +181129,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "90861ab0a5dc012ae6a43d0ed633353cecd35f40b63109c211194fadef3f0094"
       }
     },
@@ -181270,7 +181270,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TKO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:09:21Z",
+      "fetchedAt": "2026-10-31T16:58:44Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-03",
       "quoteDate": "2026-10-30",
@@ -181306,7 +181306,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1973266/000119312526330592/tko-20260630.htm",
-        "capturedAt": "2026-10-31T14:09:21Z"
+        "capturedAt": "2026-10-31T16:58:44Z"
       }
     },
     "z_score": 1.72,
@@ -181625,7 +181625,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1335258/000133525826000035/lyv-20260630.htm",
-      "capturedAt": "2026-10-31T14:09:27Z"
+      "capturedAt": "2026-10-31T16:58:52Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 41441.2,
@@ -184872,7 +184872,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "7c73812a1959963005d5e0491a02e3809d470b3d7c49d2c675da68abd93806f4"
       },
       "mScore": {
@@ -184884,7 +184884,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "7c73812a1959963005d5e0491a02e3809d470b3d7c49d2c675da68abd93806f4"
       }
     },
@@ -185025,7 +185025,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "LYV",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:09:27Z",
+      "fetchedAt": "2026-10-31T16:58:52Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-30",
       "quoteDate": "2026-10-30",
@@ -185061,7 +185061,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1335258/000133525826000035/lyv-20260630.htm",
-        "capturedAt": "2026-10-31T14:09:27Z"
+        "capturedAt": "2026-10-31T16:58:52Z"
       }
     },
     "z_score": 2.41,
@@ -185380,7 +185380,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1418819/000141881926000052/irdm-20260930.htm",
-      "capturedAt": "2026-10-31T14:09:32Z"
+      "capturedAt": "2026-10-31T16:59:01Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 4759.6,
@@ -188623,7 +188623,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "0fed273a910d38172cc7519009e1731b349537d163c4cec27522f2f71b95c045"
       },
       "mScore": {
@@ -188635,7 +188635,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "0fed273a910d38172cc7519009e1731b349537d163c4cec27522f2f71b95c045"
       }
     },
@@ -188776,7 +188776,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "IRDM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:09:32Z",
+      "fetchedAt": "2026-10-31T16:59:01Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-20",
       "quoteDate": "2026-10-30",
@@ -188812,7 +188812,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1418819/000141881926000052/irdm-20260930.htm",
-        "capturedAt": "2026-10-31T14:09:32Z"
+        "capturedAt": "2026-10-31T16:59:01Z"
       }
     },
     "z_score": 1.87,
@@ -189131,7 +189131,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/712515/000162828026051829/ea-20260630.htm",
-      "capturedAt": "2026-10-31T14:09:37Z"
+      "capturedAt": "2026-10-31T16:59:09Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 52925.6,
@@ -192379,7 +192379,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "dc9b49391ceff243162d5af4d213adec362fd6f17cb8397cc3ff554ed04993f1"
       },
       "mScore": {
@@ -192391,7 +192391,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "dc9b49391ceff243162d5af4d213adec362fd6f17cb8397cc3ff554ed04993f1"
       }
     },
@@ -192557,7 +192557,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "EA",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:09:37Z",
+      "fetchedAt": "2026-10-31T16:59:09Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-03",
       "quoteDate": "2026-08-05",
@@ -192593,7 +192593,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/712515/000162828026051829/ea-20260630.htm",
-        "capturedAt": "2026-10-31T14:09:37Z"
+        "capturedAt": "2026-10-31T16:59:09Z"
       }
     },
     "z_score": 6.58,
@@ -192916,7 +192916,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/946581/000162828026054870/ttwo-20260630.htm",
-      "capturedAt": "2026-10-31T14:09:42Z"
+      "capturedAt": "2026-10-31T16:59:17Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 35558.0,
@@ -196164,7 +196164,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "33891111840787c6a0e66367089fcdfa98ffc68335fe6897771729a597178a41"
       },
       "mScore": {
@@ -196176,7 +196176,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "33891111840787c6a0e66367089fcdfa98ffc68335fe6897771729a597178a41"
       }
     },
@@ -196324,7 +196324,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TTWO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:09:42Z",
+      "fetchedAt": "2026-10-31T16:59:17Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-07",
       "quoteDate": "2026-10-30",
@@ -196360,7 +196360,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/946581/000162828026054870/ttwo-20260630.htm",
-        "capturedAt": "2026-10-31T14:09:42Z"
+        "capturedAt": "2026-10-31T16:59:17Z"
       }
     },
     "z_score": 3.31,
@@ -196683,7 +196683,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1437107/000143710726000075/wbd-20260630.htm",
-      "capturedAt": "2026-10-31T14:09:48Z"
+      "capturedAt": "2026-10-31T16:59:25Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 77595.9,
@@ -199931,7 +199931,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "9d779285cc6d9ac19ced097d3a682f8a8679827120934188d0c1df0be9c680d7"
       },
       "mScore": {
@@ -199943,7 +199943,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "9d779285cc6d9ac19ced097d3a682f8a8679827120934188d0c1df0be9c680d7"
       }
     },
@@ -200097,7 +200097,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "WBD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:09:48Z",
+      "fetchedAt": "2026-10-31T16:59:25Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-06",
       "quoteDate": "2026-10-06",
@@ -200133,7 +200133,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1437107/000143710726000075/wbd-20260630.htm",
-        "capturedAt": "2026-10-31T14:09:48Z"
+        "capturedAt": "2026-10-31T16:59:25Z"
       }
     },
     "z_score": 1.08,
@@ -200452,7 +200452,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/amzn-20260930.htm",
-      "capturedAt": "2026-10-31T14:09:53Z"
+      "capturedAt": "2026-10-31T16:59:33Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 2592487.2,
@@ -203700,7 +203700,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "1a413cb70ab375cafafb7ce69e1c423852e22bb0b3d51b52b1b076452a55d83d"
       },
       "mScore": {
@@ -203712,7 +203712,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "1a413cb70ab375cafafb7ce69e1c423852e22bb0b3d51b52b1b076452a55d83d"
       }
     },
@@ -203878,7 +203878,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AMZN",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:09:53Z",
+      "fetchedAt": "2026-10-31T16:59:33Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
       "quoteDate": "2026-10-30",
@@ -203914,7 +203914,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/amzn-20260930.htm",
-        "capturedAt": "2026-10-31T14:09:53Z"
+        "capturedAt": "2026-10-31T16:59:33Z"
       }
     },
     "z_score": 5.55,
@@ -204233,7 +204233,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026066775/tsla-20260930.htm",
-      "capturedAt": "2026-10-31T14:09:59Z"
+      "capturedAt": "2026-10-31T16:59:42Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 1580341.0,
@@ -207481,7 +207481,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "be300f1294e6c6695084c08d0aafb03f106ca8ed72f4b9ba4f93568989d6772b"
       },
       "mScore": {
@@ -207493,7 +207493,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "be300f1294e6c6695084c08d0aafb03f106ca8ed72f4b9ba4f93568989d6772b"
       }
     },
@@ -207647,7 +207647,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TSLA",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:09:59Z",
+      "fetchedAt": "2026-10-31T16:59:42Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-22",
       "quoteDate": "2026-10-30",
@@ -207683,7 +207683,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026066775/tsla-20260930.htm",
-        "capturedAt": "2026-10-31T14:09:59Z"
+        "capturedAt": "2026-10-31T16:59:42Z"
       }
     },
     "z_score": 18.8,
@@ -208002,7 +208002,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/354950/000162828026058715/hd-20260802.htm",
-      "capturedAt": "2026-10-31T14:10:05Z"
+      "capturedAt": "2026-10-31T16:59:50Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 328439.4,
@@ -211246,7 +211246,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "83bb0825cad97ca9266d5750c46347242662e1f5e4fe165861e33c27a4725a17"
       },
       "mScore": {
@@ -211258,7 +211258,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "83bb0825cad97ca9266d5750c46347242662e1f5e4fe165861e33c27a4725a17"
       }
     },
@@ -211460,7 +211460,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "HD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:10:05Z",
+      "fetchedAt": "2026-10-31T16:59:50Z",
       "balanceDate": "2026-08-02",
       "filingDate": "2026-08-25",
       "quoteDate": "2026-10-30",
@@ -211496,7 +211496,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/354950/000162828026058715/hd-20260802.htm",
-        "capturedAt": "2026-10-31T14:10:05Z"
+        "capturedAt": "2026-10-31T16:59:50Z"
       }
     },
     "z_score": 5.64,
@@ -211817,7 +211817,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/63908/000006390826000073/mcd-20260630.htm",
-      "capturedAt": "2026-10-31T14:10:10Z"
+      "capturedAt": "2026-10-31T16:59:58Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 182656.6,
@@ -215065,7 +215065,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "fc4c80f6577b4351df63a853b57ae30f7d3c64c8af1fd8ccab9e567c75e6cc5f"
       },
       "mScore": {
@@ -215077,7 +215077,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "fc4c80f6577b4351df63a853b57ae30f7d3c64c8af1fd8ccab9e567c75e6cc5f"
       }
     },
@@ -215273,7 +215273,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MCD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:10:10Z",
+      "fetchedAt": "2026-10-31T16:59:58Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-07",
       "quoteDate": "2026-10-30",
@@ -215309,7 +215309,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/63908/000006390826000073/mcd-20260630.htm",
-        "capturedAt": "2026-10-31T14:10:10Z"
+        "capturedAt": "2026-10-31T16:59:58Z"
       }
     },
     "z_score": 4.58,
@@ -215626,11 +215626,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "751.38 M",
     "shareSource": {
       "shares": 751.381,
-      "date": "2026-10-30",
+      "date": "2026-10-31",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1075531/000107553126000037/bkng-20260630.htm",
-      "capturedAt": "2026-10-31T14:10:16Z"
+      "capturedAt": "2026-10-31T17:00:11Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 111302.1,
@@ -218878,7 +218878,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "4f4ff8deb48d3c219b9e98b2856c21be1c927fc47d97cd6e271916108dad4a6a"
       },
       "mScore": {
@@ -218890,7 +218890,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "4f4ff8deb48d3c219b9e98b2856c21be1c927fc47d97cd6e271916108dad4a6a"
       }
     },
@@ -219044,7 +219044,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "BKNG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:10:16Z",
+      "fetchedAt": "2026-10-31T17:00:11Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-04",
       "quoteDate": "2026-10-30",
@@ -219076,11 +219076,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 751381000,
       "shareSource": {
         "shares": 751.381,
-        "date": "2026-10-30",
+        "date": "2026-10-31",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1075531/000107553126000037/bkng-20260630.htm",
-        "capturedAt": "2026-10-31T14:10:16Z"
+        "capturedAt": "2026-10-31T17:00:11Z"
       }
     },
     "z_score": 5.96,
@@ -219399,7 +219399,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/320187/000032018726000193/nke-20260831.htm",
-      "capturedAt": "2026-10-31T14:10:21Z"
+      "capturedAt": "2026-10-31T17:00:20Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 57436.9,
@@ -222647,7 +222647,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "33a970cdd1f5282fd46d8eb8699861890565acaa46375017089c1e7b45a03af0"
       },
       "mScore": {
@@ -222659,7 +222659,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "33a970cdd1f5282fd46d8eb8699861890565acaa46375017089c1e7b45a03af0"
       }
     },
@@ -222843,7 +222843,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "NKE",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:10:21Z",
+      "fetchedAt": "2026-10-31T17:00:20Z",
       "balanceDate": "2026-08-31",
       "filingDate": "2026-10-02",
       "quoteDate": "2026-10-30",
@@ -222879,7 +222879,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/320187/000032018726000193/nke-20260831.htm",
-        "capturedAt": "2026-10-31T14:10:21Z"
+        "capturedAt": "2026-10-31T17:00:20Z"
       }
     },
     "z_score": 3.37,
@@ -223200,7 +223200,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/829224/000082922426000154/sbux-09272026xearningsrele.htm",
-      "capturedAt": "2026-10-31T14:10:26Z"
+      "capturedAt": "2026-10-31T17:00:29Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 118183.8,
@@ -226443,7 +226443,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "4fea243198c8eb68e399dde745e07e222e6ed34fd37d78792e6f2fb840565ca8"
       },
       "mScore": {
@@ -226455,7 +226455,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "4fea243198c8eb68e399dde745e07e222e6ed34fd37d78792e6f2fb840565ca8"
       }
     },
@@ -226633,7 +226633,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "SBUX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:10:26Z",
+      "fetchedAt": "2026-10-31T17:00:29Z",
       "balanceDate": "2026-09-27",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-10-30",
@@ -226669,7 +226669,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/829224/000082922426000154/sbux-09272026xearningsrele.htm",
-        "capturedAt": "2026-10-31T14:10:26Z"
+        "capturedAt": "2026-10-31T17:00:29Z"
       }
     },
     "z_score": 3.28,
@@ -226990,7 +226990,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/60667/000006066726000117/low-20260731.htm",
-      "capturedAt": "2026-10-31T14:10:32Z"
+      "capturedAt": "2026-10-31T17:00:38Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 117299.6,
@@ -230235,7 +230235,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "4d568169e50a16edb007d666d084d6bd327383e09881a9f7029f2bc30d6cba3d"
       },
       "mScore": {
@@ -230247,7 +230247,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "4d568169e50a16edb007d666d084d6bd327383e09881a9f7029f2bc30d6cba3d"
       }
     },
@@ -230443,7 +230443,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "LOW",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:10:32Z",
+      "fetchedAt": "2026-10-31T17:00:38Z",
       "balanceDate": "2026-07-31",
       "filingDate": "2026-08-27",
       "quoteDate": "2026-10-30",
@@ -230479,7 +230479,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/60667/000006066726000117/low-20260731.htm",
-        "capturedAt": "2026-10-31T14:10:32Z"
+        "capturedAt": "2026-10-31T17:00:38Z"
       }
     },
     "z_score": 3.07,
@@ -230798,7 +230798,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/109198/000010919826000048/tjx-20260801.htm",
-      "capturedAt": "2026-10-31T14:10:37Z"
+      "capturedAt": "2026-10-31T17:00:46Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 154304.4,
@@ -234045,7 +234045,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "c5b73c34902b4896073775191105dbfca2b585b251edf9cad59aa3002736598f"
       },
       "mScore": {
@@ -234057,7 +234057,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "c5b73c34902b4896073775191105dbfca2b585b251edf9cad59aa3002736598f"
       }
     },
@@ -234259,7 +234259,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TJX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:10:37Z",
+      "fetchedAt": "2026-10-31T17:00:46Z",
       "balanceDate": "2026-08-01",
       "filingDate": "2026-08-28",
       "quoteDate": "2026-10-30",
@@ -234295,7 +234295,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/109198/000010919826000048/tjx-20260801.htm",
-        "capturedAt": "2026-10-31T14:10:37Z"
+        "capturedAt": "2026-10-31T17:00:46Z"
       }
     },
     "z_score": 6.41,
@@ -234614,7 +234614,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/20212/000002021226000084/chdn-20260930.htm",
-      "capturedAt": "2026-10-31T14:10:42Z"
+      "capturedAt": "2026-10-31T17:00:55Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 6500.4,
@@ -237862,7 +237862,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "f5b641a952399120bdb858a1600cae9acf96f7aba1d8aa4bbc98fcded0629aa4"
       },
       "mScore": {
@@ -237874,7 +237874,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "f5b641a952399120bdb858a1600cae9acf96f7aba1d8aa4bbc98fcded0629aa4"
       }
     },
@@ -238034,7 +238034,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CHDN",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:10:42Z",
+      "fetchedAt": "2026-10-31T17:00:55Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-10-30",
@@ -238070,7 +238070,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/20212/000002021226000084/chdn-20260930.htm",
-        "capturedAt": "2026-10-31T14:10:42Z"
+        "capturedAt": "2026-10-31T17:00:55Z"
       }
     },
     "z_score": 1.51,
@@ -238389,7 +238389,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/916365/000091636526000069/ex991-q32026earningsrelease.htm",
-      "capturedAt": "2026-10-31T14:10:48Z"
+      "capturedAt": "2026-10-31T17:01:04Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 17684.1,
@@ -241631,7 +241631,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "3b2558f0386239933d1fe58288869d6866e7553dab7cb6fd5cd54d28b504106e"
       },
       "mScore": {
@@ -241643,7 +241643,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "3b2558f0386239933d1fe58288869d6866e7553dab7cb6fd5cd54d28b504106e"
       }
     },
@@ -241815,7 +241815,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TSCO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:10:48Z",
+      "fetchedAt": "2026-10-31T17:01:04Z",
       "balanceDate": "2026-09-26",
       "filingDate": "2026-10-22",
       "quoteDate": "2026-10-30",
@@ -241851,7 +241851,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/916365/000091636526000069/ex991-q32026earningsrelease.htm",
-        "capturedAt": "2026-10-31T14:10:48Z"
+        "capturedAt": "2026-10-31T17:01:04Z"
       }
     },
     "z_score": 4.19,
@@ -242170,7 +242170,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/812011/000081201126000049/mtn-20260731.htm",
-      "capturedAt": "2026-10-31T14:10:54Z"
+      "capturedAt": "2026-10-31T17:01:13Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 5410.5,
@@ -245418,7 +245418,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "99bfdd218dffedbaaeaa8724deffc1073e6f13b096f083925425ef8e750168e8"
       },
       "mScore": {
@@ -245430,7 +245430,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "99bfdd218dffedbaaeaa8724deffc1073e6f13b096f083925425ef8e750168e8"
       }
     },
@@ -245571,7 +245571,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MTN",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:10:54Z",
+      "fetchedAt": "2026-10-31T17:01:13Z",
       "balanceDate": "2026-07-31",
       "filingDate": "2026-09-28",
       "quoteDate": "2026-10-30",
@@ -245607,7 +245607,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/812011/000081201126000049/mtn-20260731.htm",
-        "capturedAt": "2026-10-31T14:10:54Z"
+        "capturedAt": "2026-10-31T17:01:13Z"
       }
     },
     "z_score": 1.52,
@@ -245926,7 +245926,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/89089/000008908926000098/sci-20260930.htm",
-      "capturedAt": "2026-10-31T14:10:59Z"
+      "capturedAt": "2026-10-31T17:01:21Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 10408.6,
@@ -249167,7 +249167,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "46bb9b7ff17d47b7d9842a1db61ab2b91abeb398f24053a8233f98c903bc1c58"
       },
       "mScore": {
@@ -249179,7 +249179,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "46bb9b7ff17d47b7d9842a1db61ab2b91abeb398f24053a8233f98c903bc1c58"
       }
     },
@@ -249363,7 +249363,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "SCI",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:10:59Z",
+      "fetchedAt": "2026-10-31T17:01:21Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-10-30",
@@ -249399,7 +249399,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/89089/000008908926000098/sci-20260930.htm",
-        "capturedAt": "2026-10-31T14:10:59Z"
+        "capturedAt": "2026-10-31T17:01:21Z"
       }
     },
     "z_score": 0.79,
@@ -249720,7 +249720,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/866787/000110465926118791/azo-20260829x10k.htm",
-      "capturedAt": "2026-10-31T14:11:05Z"
+      "capturedAt": "2026-10-31T17:01:29Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 51016.2,
@@ -252962,7 +252962,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "cac75f371ed7825d1d93674702c5a21005151bfc96ee1c8b566233337ca08a55"
       },
       "mScore": {
@@ -252974,7 +252974,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "cac75f371ed7825d1d93674702c5a21005151bfc96ee1c8b566233337ca08a55"
       }
     },
@@ -253128,7 +253128,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AZO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:11:05Z",
+      "fetchedAt": "2026-10-31T17:01:29Z",
       "balanceDate": "2026-08-29",
       "filingDate": "2026-10-26",
       "quoteDate": "2026-10-30",
@@ -253164,7 +253164,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/866787/000110465926118791/azo-20260829x10k.htm",
-        "capturedAt": "2026-10-31T14:11:05Z"
+        "capturedAt": "2026-10-31T17:01:29Z"
       }
     },
     "z_score": 2.54,
@@ -253485,7 +253485,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1048286/000104828626000035/mar-20260630.htm",
-      "capturedAt": "2026-10-31T14:11:10Z"
+      "capturedAt": "2026-10-31T17:01:37Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 104124.0,
@@ -256733,7 +256733,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "772342f216ca65d202d809eba8b2edc6aa76ad9b686831c291db6eaccafe099d"
       },
       "mScore": {
@@ -256745,7 +256745,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "772342f216ca65d202d809eba8b2edc6aa76ad9b686831c291db6eaccafe099d"
       }
     },
@@ -256899,7 +256899,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MAR",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:11:10Z",
+      "fetchedAt": "2026-10-31T17:01:37Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-03",
       "quoteDate": "2026-10-30",
@@ -256935,7 +256935,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1048286/000104828626000035/mar-20260630.htm",
-        "capturedAt": "2026-10-31T14:11:10Z"
+        "capturedAt": "2026-10-31T17:01:37Z"
       }
     },
     "z_score": 4.17,
@@ -257256,7 +257256,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1585689/000158568926000054/hlt-20260930.htm",
-      "capturedAt": "2026-10-31T14:11:15Z"
+      "capturedAt": "2026-10-31T17:01:46Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 79440.7,
@@ -260504,7 +260504,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "1a81fe1682ab462bc3cc8c6202fe0d1b525060e7269554724df66855930e60c5"
       },
       "mScore": {
@@ -260516,7 +260516,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "1a81fe1682ab462bc3cc8c6202fe0d1b525060e7269554724df66855930e60c5"
       }
     },
@@ -260664,7 +260664,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "HLT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:11:15Z",
+      "fetchedAt": "2026-10-31T17:01:46Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-27",
       "quoteDate": "2026-10-30",
@@ -260700,7 +260700,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1585689/000158568926000054/hlt-20260930.htm",
-        "capturedAt": "2026-10-31T14:11:15Z"
+        "capturedAt": "2026-10-31T17:01:46Z"
       }
     },
     "z_score": 3.17,
@@ -261019,7 +261019,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1058090/000105809026000104/cmg-20260930.htm",
-      "capturedAt": "2026-10-31T14:11:21Z"
+      "capturedAt": "2026-10-31T17:01:54Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 40354.2,
@@ -264263,7 +264263,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "ca155a5ba688e7f0c85e0e77576b9ee08539f2b25ef4ba5e1fd962effb5a07b3"
       },
       "mScore": {
@@ -264275,7 +264275,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "ca155a5ba688e7f0c85e0e77576b9ee08539f2b25ef4ba5e1fd962effb5a07b3"
       }
     },
@@ -264423,7 +264423,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CMG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:11:21Z",
+      "fetchedAt": "2026-10-31T17:01:54Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-10-30",
@@ -264459,7 +264459,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1058090/000105809026000104/cmg-20260930.htm",
-        "capturedAt": "2026-10-31T14:11:21Z"
+        "capturedAt": "2026-10-31T17:01:54Z"
       }
     },
     "z_score": 6.13,
@@ -264780,7 +264780,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1041061/000104106126000160/yum-20260630.htm",
-      "capturedAt": "2026-10-31T14:11:27Z"
+      "capturedAt": "2026-10-31T17:02:03Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 42408.8,
@@ -268028,7 +268028,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "6990c5e4f816272c3c94f5bd294a3275e9663c5fe4d9cb97b4724b592b4c7974"
       },
       "mScore": {
@@ -268040,7 +268040,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "6990c5e4f816272c3c94f5bd294a3275e9663c5fe4d9cb97b4724b592b4c7974"
       }
     },
@@ -268200,7 +268200,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "YUM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:11:27Z",
+      "fetchedAt": "2026-10-31T17:02:03Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-05",
       "quoteDate": "2026-10-30",
@@ -268236,7 +268236,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1041061/000104106126000160/yum-20260630.htm",
-        "capturedAt": "2026-10-31T14:11:27Z"
+        "capturedAt": "2026-10-31T17:02:03Z"
       }
     },
     "z_score": 2.56,
@@ -268557,7 +268557,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/898173/000089817326000050/orly-ex99d1.htm",
-      "capturedAt": "2026-10-31T14:11:32Z"
+      "capturedAt": "2026-10-31T17:02:12Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 71285.6,
@@ -271798,7 +271798,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "8d639dfa177cf765ed0719fefbbe666adca80c6d3cf2b1469d9b118980811799"
       },
       "mScore": {
@@ -271810,7 +271810,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "8d639dfa177cf765ed0719fefbbe666adca80c6d3cf2b1469d9b118980811799"
       }
     },
@@ -271976,7 +271976,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ORLY",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:11:32Z",
+      "fetchedAt": "2026-10-31T17:02:12Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-10-30",
@@ -272012,7 +272012,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/898173/000089817326000050/orly-ex99d1.htm",
-        "capturedAt": "2026-10-31T14:11:32Z"
+        "capturedAt": "2026-10-31T17:02:12Z"
       }
     },
     "z_score": 3.9,
@@ -272331,7 +272331,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/745732/000074573226000041/rost-20260801.htm",
-      "capturedAt": "2026-10-31T14:11:37Z"
+      "capturedAt": "2026-10-31T17:02:21Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 73227.9,
@@ -275578,7 +275578,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "a61147452eee9004757e3ed8cfeb4eae53dce356d64d858e2b7e9da39842e0ed"
       },
       "mScore": {
@@ -275590,7 +275590,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "a61147452eee9004757e3ed8cfeb4eae53dce356d64d858e2b7e9da39842e0ed"
       }
     },
@@ -275762,7 +275762,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ROST",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:11:37Z",
+      "fetchedAt": "2026-10-31T17:02:21Z",
       "balanceDate": "2026-08-01",
       "filingDate": "2026-09-01",
       "quoteDate": "2026-10-30",
@@ -275798,7 +275798,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/745732/000074573226000041/rost-20260801.htm",
-        "capturedAt": "2026-10-31T14:11:37Z"
+        "capturedAt": "2026-10-31T17:02:21Z"
       }
     },
     "z_score": 7.41,
@@ -276117,7 +276117,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1397187/000139718726000127/lulu-20260802.htm",
-      "capturedAt": "2026-10-31T14:11:43Z"
+      "capturedAt": "2026-10-31T17:02:29Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 12421.2,
@@ -279364,7 +279364,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "adb15a012fd4c30da417d0d52e193efe26bb14a535f805cc1e228d5220e54faa"
       },
       "mScore": {
@@ -279376,7 +279376,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "adb15a012fd4c30da417d0d52e193efe26bb14a535f805cc1e228d5220e54faa"
       }
     },
@@ -279524,7 +279524,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "LULU",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:11:43Z",
+      "fetchedAt": "2026-10-31T17:02:29Z",
       "balanceDate": "2026-08-02",
       "filingDate": "2026-09-03",
       "quoteDate": "2026-10-30",
@@ -279560,7 +279560,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1397187/000139718726000127/lulu-20260802.htm",
-        "capturedAt": "2026-10-31T14:11:43Z"
+        "capturedAt": "2026-10-31T17:02:29Z"
       }
     },
     "z_score": 5.4,
@@ -279883,7 +279883,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/37996/000003799626000191/f-20260930.htm",
-      "capturedAt": "2026-10-31T14:11:48Z"
+      "capturedAt": "2026-10-31T17:02:38Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 48748.4,
@@ -283131,7 +283131,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "c17b29567e1c974b7cd97a7f873cbb95596c82e4c25a4724a8669206527544db"
       },
       "mScore": {
@@ -283143,7 +283143,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "c17b29567e1c974b7cd97a7f873cbb95596c82e4c25a4724a8669206527544db"
       }
     },
@@ -283333,7 +283333,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "F",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:11:48Z",
+      "fetchedAt": "2026-10-31T17:02:38Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-10-30",
@@ -283369,7 +283369,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/37996/000003799626000191/f-20260930.htm",
-        "capturedAt": "2026-10-31T14:11:48Z"
+        "capturedAt": "2026-10-31T17:02:38Z"
       }
     },
     "z_score": 0.79,
@@ -283688,7 +283688,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1467858/000146785826000059/gm-20260930.htm",
-      "capturedAt": "2026-10-31T14:11:54Z"
+      "capturedAt": "2026-10-31T17:02:46Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 74202.6,
@@ -286936,7 +286936,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "65b594d236d620e58e87184d7dac2b75f8e9c1055407b624f735e84210364494"
       },
       "mScore": {
@@ -286948,7 +286948,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "65b594d236d620e58e87184d7dac2b75f8e9c1055407b624f735e84210364494"
       }
     },
@@ -287089,7 +287089,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "GM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:11:54Z",
+      "fetchedAt": "2026-10-31T17:02:46Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-20",
       "quoteDate": "2026-10-30",
@@ -287125,7 +287125,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1467858/000146785826000059/gm-20260930.htm",
-        "capturedAt": "2026-10-31T14:11:54Z"
+        "capturedAt": "2026-10-31T17:02:46Z"
       }
     },
     "z_score": 1.23,
@@ -287444,7 +287444,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1065088/000106508826000212/ebay-20260930.htm",
-      "capturedAt": "2026-10-31T14:11:59Z"
+      "capturedAt": "2026-10-31T17:02:55Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 54129.8,
@@ -290692,7 +290692,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "22697a32b6d04734eb9161e5739c917042829c03eee6b6194cb9f22b2feba524"
       },
       "mScore": {
@@ -290704,7 +290704,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "22697a32b6d04734eb9161e5739c917042829c03eee6b6194cb9f22b2feba524"
       }
     },
@@ -290876,7 +290876,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "EBAY",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:11:59Z",
+      "fetchedAt": "2026-10-31T17:02:55Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-10-30",
@@ -290912,7 +290912,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1065088/000106508826000212/ebay-20260930.htm",
-        "capturedAt": "2026-10-31T14:11:59Z"
+        "capturedAt": "2026-10-31T17:02:55Z"
       }
     },
     "z_score": 6.77,
@@ -291222,22 +291222,22 @@ window.FULL_MARKET_DATA = {
     "industry": "Multi-Sector Holdings",
     "reportedCurrency": "USD",
     "price": 150.0,
-    "shares": 2140.709811,
-    "shares_outstanding": 2140709811,
+    "shares": 2140.709579,
+    "shares_outstanding": 2140709578,
     "shares_display": "2,140.71 M",
     "shareSource": {
-      "shares": 2140.709811,
-      "date": "2026-10-30",
+      "shares": 2140.709579,
+      "date": "2026-10-31",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526341032/brka-20260630.htm",
-      "capturedAt": "2026-10-31T14:12:04Z"
+      "capturedAt": "2026-10-31T17:03:03Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 100000.0,
-    "liq_val_1": -17.22979911171155,
-    "liq_val_2": -31.27733598264898,
-    "liq_val_3": -68.84632342164755,
+    "liq_val_1": -17.22980098704449,
+    "liq_val_2": -31.27733938694976,
+    "liq_val_3": -68.84633091504764,
     "debt": 37486.0,
     "cash": 38717.0,
     "short_term_investments": 0.0,
@@ -294468,7 +294468,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "30a53908cdea1f3cc8617a3027c5a44a75fca7822038ead36b08fd446c86eb10"
       },
       "mScore": {
@@ -294480,7 +294480,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "30a53908cdea1f3cc8617a3027c5a44a75fca7822038ead36b08fd446c86eb10"
       }
     },
@@ -294551,7 +294551,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "BRK.B",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:12:04Z",
+      "fetchedAt": "2026-10-31T17:03:03Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-10",
       "quoteDate": "2026-10-30",
@@ -294580,14 +294580,14 @@ window.FULL_MARKET_DATA = {
         "inventory": 26575000000,
         "preferredStock": 0
       },
-      "sharesOutstanding": 2140709811,
+      "sharesOutstanding": 2140709578,
       "shareSource": {
-        "shares": 2140.709811,
-        "date": "2026-10-30",
+        "shares": 2140.709579,
+        "date": "2026-10-31",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526341032/brka-20260630.htm",
-        "capturedAt": "2026-10-31T14:12:04Z"
+        "capturedAt": "2026-10-31T17:03:03Z"
       }
     },
     "z_score": 1.63,
@@ -294902,11 +294902,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "2,658.19 M",
     "shareSource": {
       "shares": 2658.19,
-      "date": "2026-10-30",
+      "date": "2026-10-31",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/19617/000162828026065582/a3q26erfex992supplement.htm",
-      "capturedAt": "2026-10-31T14:12:10Z"
+      "capturedAt": "2026-10-31T17:03:12Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 895916.4,
@@ -298154,7 +298154,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "a2346f653a043df1f01c159354cd907d34b67fe6dfaf26e0ac138de0f19ed5a3"
       },
       "mScore": {
@@ -298166,7 +298166,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "a2346f653a043df1f01c159354cd907d34b67fe6dfaf26e0ac138de0f19ed5a3"
       }
     },
@@ -298200,7 +298200,7 @@ window.FULL_MARKET_DATA = {
     "logo": "https://images.financialmodelingprep.com/symbol/JPM.png",
     "website": "https://www.jpmorganchase.com",
     "ceo": "Jamie Dimon",
-    "full_time_employees": "320560",
+    "full_time_employees": "322964",
     "description": "JPMorgan Chase & Co. operates as a bank and financial holding company in the United States, rest of North America, Europe, the Middle East, Africa, the Asia Pacific, Latin America, and the Caribbean. It operates in three segments: Consumer & Community Banking, Commercial & Investment Bank, and Asset & Wealth Management. The company offers deposit, investment and lending products, and cash management; mortgage origination and servicing activities; residential mortgages and home equity loans; and credit cards, payment solutions, travel services, merchant offers, lifestyle benefits, auto loans, and leases to consumers and small businesses through bank branches, ATMs, and digital and telephone banking. It also provides investment banking, market-making, financing, custody, and securities products and services; corporate strategy and structure advisory, equity and debt market capital-raising, and loan origination and syndication services; cash and derivative instruments, risk management solutions, prime brokerage, clearing, and research; and fund services, liquidity and trading services, and data solutions products for large corporations, financial institutions, merchants, start-ups, small and midsized companies, local governments, municipalities, nonprofits, and commercial real estate clients. In addition, the company offers multi-asset investment management solutions in equities, fixed income, alternatives, and money market funds to institutional clients and retail investors; retirement products and services, estate planning, lending, deposits, and investment management products to high-net-worth clients; and financial transaction processing. JPMorgan Chase & Co. was founded in 1799 and is headquartered in New York, New York.",
     "description_en": "JPMorgan Chase & Co. operates as a bank and financial holding company in the United States, rest of North America, Europe, the Middle East, Africa, the Asia Pacific, Latin America, and the Caribbean. It operates in three segments: Consumer & Community Banking, Commercial & Investment Bank, and Asset & Wealth Management. The company offers deposit, investment and lending products, and cash management; mortgage origination and servicing activities; residential mortgages and home equity loans; and credit cards, payment solutions, travel services, merchant offers, lifestyle benefits, auto loans, and leases to consumers and small businesses through bank branches, ATMs, and digital and telephone banking. It also provides investment banking, market-making, financing, custody, and securities products and services; corporate strategy and structure advisory, equity and debt market capital-raising, and loan origination and syndication services; cash and derivative instruments, risk management solutions, prime brokerage, clearing, and research; and fund services, liquidity and trading services, and data solutions products for large corporations, financial institutions, merchants, start-ups, small and midsized companies, local governments, municipalities, nonprofits, and commercial real estate clients. In addition, the company offers multi-asset investment management solutions in equities, fixed income, alternatives, and money market funds to institutional clients and retail investors; retirement products and services, estate planning, lending, deposits, and investment management products to high-net-worth clients; and financial transaction processing. JPMorgan Chase & Co. was founded in 1799 and is headquartered in New York, New York.",
     "description_zh": "摩根大通（JPMorgan Chase & Co.）是一家跨國性銀行及金融控股公司，業務廣布全球主要市場，包含北美、歐洲、中東、非洲、亞太及拉丁美洲。公司營運主要透過三大業務板塊：**消費者暨社區銀行業務**、**商業暨投資銀行業務**，以及**資產與財富管理業務**。\n\n**消費者暨社區銀行業務**透過實體分行、ATM、數位及電話銀行等多元通路，為一般消費者及中小型企業提供存款、投資、放款、現金管理等核心金融服務。產品範疇涵蓋房貸承作與服務、房屋淨值貸款、信用卡、多元支付方案、汽車貸款與租賃等。\n\n**商業暨投資銀行業務**服務對象涵蓋大型企業、金融機構、政府機關、新創公司與商業不動產等多元機構客戶。服務內容包含投資銀行（如股權與債務市場籌資、企業策略諮詢、併購顧問）、造市交易、融資服務、託管、證券產品、聯貸承作與結構性融資。同時提供現金與衍生性金融商品交易、風險管理解決方案、主要經紀、結算、研究及基金服務等。\n\n**資產與財富管理業務**為機構法人與零售投資人提供股票、固定收益、另類投資及貨幣市場基金等多元資產投資管理解決方案。此外，亦針對高淨值客戶提供全方位的財富管理服務，包含遺產規劃、退休金管理、客製化放款、存款及投資管理產品。",
@@ -298355,7 +298355,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "JPM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:12:10Z",
+      "fetchedAt": "2026-10-31T17:03:12Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-13",
       "quoteDate": "2026-10-30",
@@ -298387,11 +298387,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 2658190000,
       "shareSource": {
         "shares": 2658.19,
-        "date": "2026-10-30",
+        "date": "2026-10-31",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/19617/000162828026065582/a3q26erfex992supplement.htm",
-        "capturedAt": "2026-10-31T14:12:10Z"
+        "capturedAt": "2026-10-31T17:03:12Z"
       }
     },
     "z_score": null,
@@ -298513,7 +298513,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1403161/000140316126000126/q42026earningsrelease.htm",
-      "capturedAt": "2026-10-31T14:12:15Z"
+      "capturedAt": "2026-10-31T17:03:20Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 773002.2,
@@ -301761,7 +301761,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "d12a66c80c947f4b1ec8f068e450d96f4c98fdf2f43ae2a0bf0a7130d646b45c"
       },
       "mScore": {
@@ -301773,7 +301773,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "d12a66c80c947f4b1ec8f068e450d96f4c98fdf2f43ae2a0bf0a7130d646b45c"
       }
     },
@@ -301921,7 +301921,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "V",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:12:15Z",
+      "fetchedAt": "2026-10-31T17:03:20Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-27",
       "quoteDate": "2026-10-30",
@@ -301957,7 +301957,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1403161/000140316126000126/q42026earningsrelease.htm",
-        "capturedAt": "2026-10-31T14:12:15Z"
+        "capturedAt": "2026-10-31T17:03:20Z"
       }
     },
     "z_score": 9.65,
@@ -302276,7 +302276,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1141391/000114139126000124/ma-20260930.htm",
-      "capturedAt": "2026-10-31T14:12:21Z"
+      "capturedAt": "2026-10-31T17:03:28Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 559192.9,
@@ -305523,7 +305523,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "f64fe0dd38764e2eca0a502b2b37c61d50286beb11b47d53fa039858411838ba"
       },
       "mScore": {
@@ -305535,7 +305535,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "f64fe0dd38764e2eca0a502b2b37c61d50286beb11b47d53fa039858411838ba"
       }
     },
@@ -305683,7 +305683,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MA",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:12:21Z",
+      "fetchedAt": "2026-10-31T17:03:28Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-10-30",
@@ -305719,7 +305719,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1141391/000114139126000124/ma-20260930.htm",
-        "capturedAt": "2026-10-31T14:12:21Z"
+        "capturedAt": "2026-10-31T17:03:28Z"
       }
     },
     "z_score": 11.23,
@@ -306034,11 +306034,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "6,922.70 M",
     "shareSource": {
       "shares": 6922.7,
-      "date": "2026-10-30",
+      "date": "2026-10-31",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/70858/000007085826000548/bac-20260930.htm",
-      "capturedAt": "2026-10-31T14:12:26Z"
+      "capturedAt": "2026-10-31T17:03:37Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 346204.2,
@@ -309286,7 +309286,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "68a0b04e3653d6b23935fc896c1c1016161667133d2f25e880dd2599097c9fc1"
       },
       "mScore": {
@@ -309298,7 +309298,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "68a0b04e3653d6b23935fc896c1c1016161667133d2f25e880dd2599097c9fc1"
       }
     },
@@ -309481,7 +309481,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "BAC",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:12:26Z",
+      "fetchedAt": "2026-10-31T17:03:37Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
       "quoteDate": "2026-10-30",
@@ -309513,11 +309513,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 6922700000,
       "shareSource": {
         "shares": 6922.7,
-        "date": "2026-10-30",
+        "date": "2026-10-31",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/70858/000007085826000548/bac-20260930.htm",
-        "capturedAt": "2026-10-31T14:12:26Z"
+        "capturedAt": "2026-10-31T17:03:37Z"
       }
     },
     "z_score": null,
@@ -309635,11 +309635,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "3,001.64 M",
     "shareSource": {
       "shares": 3001.64,
-      "date": "2026-10-30",
+      "date": "2026-10-31",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/72971/000007297126000327/wfc-20260930.htm",
-      "capturedAt": "2026-10-31T14:12:31Z"
+      "capturedAt": "2026-10-31T17:03:45Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 250396.8,
@@ -312887,7 +312887,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "ceae4aa38ef062759410436899b482f09375fc517899c1b73a482751ff1f89db"
       },
       "mScore": {
@@ -312899,7 +312899,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "ceae4aa38ef062759410436899b482f09375fc517899c1b73a482751ff1f89db"
       }
     },
@@ -313100,7 +313100,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "WFC",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:12:31Z",
+      "fetchedAt": "2026-10-31T17:03:45Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-10-30",
@@ -313132,11 +313132,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 3001640000,
       "shareSource": {
         "shares": 3001.64,
-        "date": "2026-10-30",
+        "date": "2026-10-31",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/72971/000007297126000327/wfc-20260930.htm",
-        "capturedAt": "2026-10-31T14:12:31Z"
+        "capturedAt": "2026-10-31T17:03:45Z"
       }
     },
     "z_score": null,
@@ -313254,11 +313254,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "1,577.28 M",
     "shareSource": {
       "shares": 1577.284817,
-      "date": "2026-10-30",
+      "date": "2026-10-31",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/895421/000089542126000288/a3q26msfinancialsupplement.htm",
-      "capturedAt": "2026-10-31T14:12:37Z"
+      "capturedAt": "2026-10-31T17:03:54Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 290693.6,
@@ -316506,7 +316506,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "06b372fa535c7cd0de727c97c6f0242879a1632827d1888b29cef80aa78b4c2b"
       },
       "mScore": {
@@ -316518,7 +316518,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "06b372fa535c7cd0de727c97c6f0242879a1632827d1888b29cef80aa78b4c2b"
       }
     },
@@ -316695,7 +316695,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:12:37Z",
+      "fetchedAt": "2026-10-31T17:03:54Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-14",
       "quoteDate": "2026-10-30",
@@ -316727,11 +316727,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 1577284817,
       "shareSource": {
         "shares": 1577.284817,
-        "date": "2026-10-30",
+        "date": "2026-10-31",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/895421/000089542126000288/a3q26msfinancialsupplement.htm",
-        "capturedAt": "2026-10-31T14:12:37Z"
+        "capturedAt": "2026-10-31T17:03:54Z"
       }
     },
     "z_score": null,
@@ -316853,7 +316853,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/886982/000088698226000529/a3q26gsearningsresults.htm",
-      "capturedAt": "2026-10-31T14:12:42Z"
+      "capturedAt": "2026-10-31T17:04:03Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 260467.4,
@@ -320101,7 +320101,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "2baae7af19b2df544737a60276449efca3cec72b096e786723539f9043927093"
       },
       "mScore": {
@@ -320113,7 +320113,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "2baae7af19b2df544737a60276449efca3cec72b096e786723539f9043927093"
       }
     },
@@ -320277,7 +320277,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "GS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:12:42Z",
+      "fetchedAt": "2026-10-31T17:04:03Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-13",
       "quoteDate": "2026-10-30",
@@ -320313,7 +320313,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/886982/000088698226000529/a3q26gsearningsresults.htm",
-        "capturedAt": "2026-10-31T14:12:42Z"
+        "capturedAt": "2026-10-31T17:04:03Z"
       }
     },
     "z_score": null,
@@ -320435,7 +320435,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/4962/000000496226000409/axp-20260930.htm",
-      "capturedAt": "2026-10-31T14:12:48Z"
+      "capturedAt": "2026-10-31T17:04:12Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 213979.9,
@@ -323683,7 +323683,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "8644d449108a6372d2180d3dd5f490797b884ef4798848388a6db2ef4b014f50"
       },
       "mScore": {
@@ -323695,7 +323695,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "8644d449108a6372d2180d3dd5f490797b884ef4798848388a6db2ef4b014f50"
       }
     },
@@ -323896,7 +323896,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AXP",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:12:48Z",
+      "fetchedAt": "2026-10-31T17:04:12Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-23",
       "quoteDate": "2026-10-30",
@@ -323932,7 +323932,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/4962/000000496226000409/axp-20260930.htm",
-        "capturedAt": "2026-10-31T14:12:48Z"
+        "capturedAt": "2026-10-31T17:04:12Z"
       }
     },
     "z_score": null,
@@ -324050,11 +324050,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "154.87 M",
     "shareSource": {
       "shares": 154.869259,
-      "date": "2026-10-30",
+      "date": "2026-10-31",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/2012383/000119312526420979/blk-ex99_1.htm",
-      "capturedAt": "2026-10-31T14:12:54Z"
+      "capturedAt": "2026-10-31T17:04:20Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 177718.7,
@@ -327302,7 +327302,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "be106963375d2f30542a4703a135299c356f31d5e5e41205ea5d16e7b37f9ad9"
       },
       "mScore": {
@@ -327314,7 +327314,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "be106963375d2f30542a4703a135299c356f31d5e5e41205ea5d16e7b37f9ad9"
       }
     },
@@ -327455,7 +327455,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "BLK",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:12:54Z",
+      "fetchedAt": "2026-10-31T17:04:20Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-14",
       "quoteDate": "2026-10-30",
@@ -327487,11 +327487,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 154869259,
       "shareSource": {
         "shares": 154.869259,
-        "date": "2026-10-30",
+        "date": "2026-10-31",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/2012383/000119312526420979/blk-ex99_1.htm",
-        "capturedAt": "2026-10-31T14:12:54Z"
+        "capturedAt": "2026-10-31T17:04:20Z"
       }
     },
     "z_score": 1.75,
@@ -327810,7 +327810,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/64040/000006404026000058/spgi-20260930.htm",
-      "capturedAt": "2026-10-31T14:12:59Z"
+      "capturedAt": "2026-10-31T17:04:30Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 135252.8,
@@ -331058,7 +331058,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "8778edd569ce1e5c11ba89813fdf37948a6f565929060f835744a577b422e550"
       },
       "mScore": {
@@ -331070,7 +331070,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "8778edd569ce1e5c11ba89813fdf37948a6f565929060f835744a577b422e550"
       }
     },
@@ -331236,7 +331236,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "SPGI",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:12:59Z",
+      "fetchedAt": "2026-10-31T17:04:30Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-10-30",
@@ -331272,7 +331272,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/64040/000006404026000058/spgi-20260930.htm",
-        "capturedAt": "2026-10-31T14:12:59Z"
+        "capturedAt": "2026-10-31T17:04:30Z"
       }
     },
     "z_score": 4.36,
@@ -331591,7 +331591,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/831001/000110465926115323/c-ex99d2.htm",
-      "capturedAt": "2026-10-31T14:13:05Z"
+      "capturedAt": "2026-10-31T17:04:38Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 205721.2,
@@ -334839,7 +334839,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "42769793d2fc61dee5033c5d98dd782df1b488ad1cfdd2192c912f68e8f7b53e"
       },
       "mScore": {
@@ -334851,7 +334851,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "42769793d2fc61dee5033c5d98dd782df1b488ad1cfdd2192c912f68e8f7b53e"
       }
     },
@@ -334896,11 +334896,11 @@ window.FULL_MARKET_DATA = {
     "country": "US",
     "phone": "212 559 1000",
     "full_address": "388 Greenwich Street, New York, NY 10013, US",
-    "range_52w": "71.65-147.96",
+    "range_52w": "95.83-147.96",
     "year_high": 147.96,
-    "year_low": 71.65,
+    "year_low": 95.83,
     "all_time_high": 0.0,
-    "all_time_low": 71.65,
+    "all_time_low": 95.83,
     "inst_ownership_pct": null,
     "insider_ownership_pct": null,
     "top_holders": [],
@@ -335070,7 +335070,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "C",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:13:05Z",
+      "fetchedAt": "2026-10-31T17:04:38Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-13",
       "quoteDate": "2026-10-30",
@@ -335106,7 +335106,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/831001/000110465926115323/c-ex99d2.htm",
-        "capturedAt": "2026-10-31T14:13:05Z"
+        "capturedAt": "2026-10-31T17:04:38Z"
       }
     },
     "z_score": null,
@@ -335224,11 +335224,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "581.10 M",
     "shareSource": {
       "shares": 581.1,
-      "date": "2026-10-30",
+      "date": "2026-10-31",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/80661/000008066126000367/pgr202609ex99earningsrelea.htm",
-      "capturedAt": "2026-10-31T14:13:11Z"
+      "capturedAt": "2026-10-31T17:04:46Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 134396.8,
@@ -338476,7 +338476,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "0522e4374d21b3861badd06e53fd24924fe90934e559a56a9002164116b9aacb"
       },
       "mScore": {
@@ -338488,7 +338488,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "0522e4374d21b3861badd06e53fd24924fe90934e559a56a9002164116b9aacb"
       }
     },
@@ -338707,7 +338707,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "PGR",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:13:11Z",
+      "fetchedAt": "2026-10-31T17:04:46Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-14",
       "quoteDate": "2026-10-30",
@@ -338739,11 +338739,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 581100000,
       "shareSource": {
         "shares": 581.1,
-        "date": "2026-10-30",
+        "date": "2026-10-31",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/80661/000008066126000367/pgr202609ex99earningsrelea.htm",
-        "capturedAt": "2026-10-31T14:13:11Z"
+        "capturedAt": "2026-10-31T17:04:46Z"
       }
     },
     "z_score": null,
@@ -338865,7 +338865,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/896159/000089615926000021/cb-20260930.htm",
-      "capturedAt": "2026-10-31T14:13:16Z"
+      "capturedAt": "2026-10-31T17:04:54Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 139286.8,
@@ -342113,7 +342113,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "b52f205d670ce971fe6c34e7e58411fd50bd1d43a01a9d7468684d715edb710e"
       },
       "mScore": {
@@ -342125,7 +342125,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "b52f205d670ce971fe6c34e7e58411fd50bd1d43a01a9d7468684d715edb710e"
       }
     },
@@ -342320,7 +342320,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CB",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:13:16Z",
+      "fetchedAt": "2026-10-31T17:04:54Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-10-30",
@@ -342356,7 +342356,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/896159/000089615926000021/cb-20260930.htm",
-        "capturedAt": "2026-10-31T14:13:16Z"
+        "capturedAt": "2026-10-31T17:04:54Z"
       }
     },
     "z_score": null,
@@ -342478,7 +342478,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1013237/000162828026066391/fds-20260831.htm",
-      "capturedAt": "2026-10-31T14:13:34Z"
+      "capturedAt": "2026-10-31T17:05:03Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 11623.9,
@@ -345724,7 +345724,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "eeef85dbb22635ef1b038932ede12faf1cda1918fc5e5915fcc261848a672ea6"
       },
       "mScore": {
@@ -345736,7 +345736,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "eeef85dbb22635ef1b038932ede12faf1cda1918fc5e5915fcc261848a672ea6"
       }
     },
@@ -345896,7 +345896,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "FDS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:13:34Z",
+      "fetchedAt": "2026-10-31T17:05:03Z",
       "balanceDate": "2026-08-31",
       "filingDate": "2026-10-20",
       "quoteDate": "2026-10-30",
@@ -345932,7 +345932,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1013237/000162828026066391/fds-20260831.htm",
-        "capturedAt": "2026-10-31T14:13:34Z"
+        "capturedAt": "2026-10-31T17:05:03Z"
       }
     },
     "z_score": 4.29,
@@ -346251,7 +346251,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1758730/000175873026000144/tw-20260930.htm",
-      "capturedAt": "2026-10-31T14:13:39Z"
+      "capturedAt": "2026-10-31T17:05:12Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 26472.1,
@@ -349499,7 +349499,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "c2ec9a01ace17a834b908d842484dde2c85426af1e1e8f91f5fb5d3019ae6bb9"
       },
       "mScore": {
@@ -349511,7 +349511,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "c2ec9a01ace17a834b908d842484dde2c85426af1e1e8f91f5fb5d3019ae6bb9"
       }
     },
@@ -349522,7 +349522,7 @@ window.FULL_MARKET_DATA = {
     "logo": "https://images.financialmodelingprep.com/symbol/TW.png",
     "website": "https://www.tradeweb.com",
     "ceo": "William E. Hult",
-    "full_time_employees": "1569",
+    "full_time_employees": "1613",
     "description": "Tradeweb Markets Inc. is a global provider that develops and manages sophisticated electronic trading platforms across the Americas, Europe, the Middle East, Africa, and Asia Pacific. These digital venues facilitate transactions in a diverse array of financial instruments, including fixed income (rates and credit), money market products, and equities. The company offers a comprehensive range of services, encompassing pre-trade analytics and data, efficient trade execution, and streamlined processing. It also delivers valuable post-trade data insights, analytical tools, and detailed reporting solutions. Tradeweb caters to a broad spectrum of market participants. It provides flexible order management and trading systems for institutional investors, operating in 45 distinct financial markets and supporting 25 different currencies. Through its Dealerweb platform, it offers a mix of electronic, voice, and hybrid trading solutions to roughly 300 dealers and financial institutions. Furthermore, the Tradeweb Direct platform is specifically designed to serve financial advisory firms and individual traders. With a substantial client network of approximately 2,500 entities, Tradeweb serves the institutional, wholesale, and retail sectors. Its extensive client base includes asset managers, hedge funds, insurance providers, central banks, commercial banks, securities dealers, proprietary trading firms, retail brokerage houses, financial advisory practices, and regional dealers. Tradeweb Markets Inc. was established in 1996, with its corporate headquarters located in New York, New York. The company operates as a subsidiary of Refinitiv Parent Limited.",
     "description_en": "Tradeweb Markets Inc. is a global provider that develops and manages sophisticated electronic trading platforms across the Americas, Europe, the Middle East, Africa, and Asia Pacific. These digital venues facilitate transactions in a diverse array of financial instruments, including fixed income (rates and credit), money market products, and equities. The company offers a comprehensive range of services, encompassing pre-trade analytics and data, efficient trade execution, and streamlined processing. It also delivers valuable post-trade data insights, analytical tools, and detailed reporting solutions. Tradeweb caters to a broad spectrum of market participants. It provides flexible order management and trading systems for institutional investors, operating in 45 distinct financial markets and supporting 25 different currencies. Through its Dealerweb platform, it offers a mix of electronic, voice, and hybrid trading solutions to roughly 300 dealers and financial institutions. Furthermore, the Tradeweb Direct platform is specifically designed to serve financial advisory firms and individual traders. With a substantial client network of approximately 2,500 entities, Tradeweb serves the institutional, wholesale, and retail sectors. Its extensive client base includes asset managers, hedge funds, insurance providers, central banks, commercial banks, securities dealers, proprietary trading firms, retail brokerage houses, financial advisory practices, and regional dealers. Tradeweb Markets Inc. was established in 1996, with its corporate headquarters located in New York, New York. The company operates as a subsidiary of Refinitiv Parent Limited.",
     "description_zh": "Tradeweb Markets Inc. (TW) 為全球領先的電子交易平台供應商，業務佈及全球主要金融市場。其平台提供利率債券、信用商品、貨幣市場及權益證券等多元金融工具的數位交易場所。服務範圍涵蓋交易前分析、高效撮合、簡化處理，乃至交易後數據洞察、分析工具及報告。\n\nTradeweb 為機構投資人提供跨越45市場、支援25種貨幣的彈性訂單與交易系統。旗下 Dealerweb 平台為約300家交易商及金融機構提供電子、語音、混合式交易方案；Tradeweb Direct 則專為財務顧問與個人投資者服務。其龐大客戶網絡約2,500家，涵蓋機構、批發、零售客戶，包含資產管理公司、避險基金、保險公司、央行、商業銀行、證券商、自營商等。",
@@ -349652,7 +349652,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TW",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:13:39Z",
+      "fetchedAt": "2026-10-31T17:05:12Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-10-30",
@@ -349688,7 +349688,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1758730/000175873026000144/tw-20260930.htm",
-        "capturedAt": "2026-10-31T14:13:39Z"
+        "capturedAt": "2026-10-31T17:05:12Z"
       }
     },
     "z_score": 17.15,
@@ -350007,7 +350007,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1156375/000115637526000068/cme-20260930.htm",
-      "capturedAt": "2026-10-31T14:13:57Z"
+      "capturedAt": "2026-10-31T17:05:20Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 108504.1,
@@ -353255,7 +353255,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "e97f77a4a4cab1e13d5cc9de308b748afcb04b96d934c9ad045fa943a12e443b"
       },
       "mScore": {
@@ -353267,7 +353267,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "e97f77a4a4cab1e13d5cc9de308b748afcb04b96d934c9ad045fa943a12e443b"
       }
     },
@@ -353415,7 +353415,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CME",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:13:57Z",
+      "fetchedAt": "2026-10-31T17:05:20Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-23",
       "quoteDate": "2026-10-30",
@@ -353451,7 +353451,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1156375/000115637526000068/cme-20260930.htm",
-        "capturedAt": "2026-10-31T14:13:57Z"
+        "capturedAt": "2026-10-31T17:05:20Z"
       }
     },
     "z_score": 0.58,
@@ -353772,7 +353772,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1408198/000140819826000056/msci-20260930.htm",
-      "capturedAt": "2026-10-31T14:14:15Z"
+      "capturedAt": "2026-10-31T17:05:28Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 45319.7,
@@ -357016,7 +357016,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "458f3b3062ce3cd63c74a5e5aabd976b8b2d9b846bb1b48e504a262a022a12b6"
       },
       "mScore": {
@@ -357028,7 +357028,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "458f3b3062ce3cd63c74a5e5aabd976b8b2d9b846bb1b48e504a262a022a12b6"
       }
     },
@@ -357169,7 +357169,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MSCI",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:14:15Z",
+      "fetchedAt": "2026-10-31T17:05:28Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-20",
       "quoteDate": "2026-10-30",
@@ -357205,7 +357205,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1408198/000140819826000056/msci-20260930.htm",
-        "capturedAt": "2026-10-31T14:14:15Z"
+        "capturedAt": "2026-10-31T17:05:28Z"
       }
     },
     "z_score": 6.08,
@@ -357524,7 +357524,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1059556/000162828026066731/mco-20260930.htm",
-      "capturedAt": "2026-10-31T14:14:31Z"
+      "capturedAt": "2026-10-31T17:05:37Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 85172.3,
@@ -360771,7 +360771,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "d356994f0925d1fbb8cc92b3074a899b1d0a4a24d5db4b23eb38b47f6db37e02"
       },
       "mScore": {
@@ -360783,7 +360783,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "d356994f0925d1fbb8cc92b3074a899b1d0a4a24d5db4b23eb38b47f6db37e02"
       }
     },
@@ -360931,7 +360931,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MCO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:14:31Z",
+      "fetchedAt": "2026-10-31T17:05:37Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-21",
       "quoteDate": "2026-10-30",
@@ -360967,7 +360967,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1059556/000162828026066731/mco-20260930.htm",
-        "capturedAt": "2026-10-31T14:14:31Z"
+        "capturedAt": "2026-10-31T17:05:37Z"
       }
     },
     "z_score": 7.35,
@@ -361286,7 +361286,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1571949/000157194926000015/ice-20260930.htm",
-      "capturedAt": "2026-10-31T14:14:48Z"
+      "capturedAt": "2026-10-31T17:05:46Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 94363.2,
@@ -364534,7 +364534,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "f91a672aa820fd1a130e8234375b8192049ebf25a674fefc65dad17872645b03"
       },
       "mScore": {
@@ -364546,7 +364546,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "f91a672aa820fd1a130e8234375b8192049ebf25a674fefc65dad17872645b03"
       }
     },
@@ -364694,7 +364694,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ICE",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:14:48Z",
+      "fetchedAt": "2026-10-31T17:05:46Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-10-30",
@@ -364730,7 +364730,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1571949/000157194926000015/ice-20260930.htm",
-        "capturedAt": "2026-10-31T14:14:48Z"
+        "capturedAt": "2026-10-31T17:05:46Z"
       }
     },
     "z_score": 0.96,
@@ -365045,11 +365045,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "530.21 M",
     "shareSource": {
       "shares": 530.206221,
-      "date": "2026-10-30",
+      "date": "2026-10-31",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/5272/000000527226000076/aig-20260630.htm",
-      "capturedAt": "2026-10-31T14:15:05Z"
+      "capturedAt": "2026-10-31T17:05:54Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 43423.9,
@@ -368297,7 +368297,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "3007b798322831c2ec179929c2f9811157c58a14149c5f57a48e2938b4e64170"
       },
       "mScore": {
@@ -368309,7 +368309,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "3007b798322831c2ec179929c2f9811157c58a14149c5f57a48e2938b4e64170"
       }
     },
@@ -368534,7 +368534,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AIG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:15:05Z",
+      "fetchedAt": "2026-10-31T17:05:54Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-07",
       "quoteDate": "2026-10-30",
@@ -368566,11 +368566,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 530206221,
       "shareSource": {
         "shares": 530.206221,
-        "date": "2026-10-30",
+        "date": "2026-10-31",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/5272/000000527226000076/aig-20260630.htm",
-        "capturedAt": "2026-10-31T14:15:05Z"
+        "capturedAt": "2026-10-31T17:05:54Z"
       }
     },
     "z_score": null,
@@ -368692,7 +368692,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1099219/000109921926000050/met-20260630.htm",
-      "capturedAt": "2026-10-31T14:15:10Z"
+      "capturedAt": "2026-10-31T17:06:03Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 63560.4,
@@ -371940,7 +371940,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "25668091e58e244fae48be3f024d9f51a420fd6ceff1b316a77a1bc6bfb2442c"
       },
       "mScore": {
@@ -371952,7 +371952,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "25668091e58e244fae48be3f024d9f51a420fd6ceff1b316a77a1bc6bfb2442c"
       }
     },
@@ -372125,7 +372125,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MET",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:15:10Z",
+      "fetchedAt": "2026-10-31T17:06:03Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-06",
       "quoteDate": "2026-10-30",
@@ -372161,7 +372161,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1099219/000109921926000050/met-20260630.htm",
-        "capturedAt": "2026-10-31T14:15:10Z"
+        "capturedAt": "2026-10-31T17:06:03Z"
       }
     },
     "z_score": null,
@@ -372283,7 +372283,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1137774/000113777426000176/pru-20260630.htm",
-      "capturedAt": "2026-10-31T14:15:15Z"
+      "capturedAt": "2026-10-31T17:06:11Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 40175.2,
@@ -375531,7 +375531,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "0cda18641fb37c144cbf1fde904d6cb2e6ad46f720ac9771be65e738a9c87ea6"
       },
       "mScore": {
@@ -375543,7 +375543,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "0cda18641fb37c144cbf1fde904d6cb2e6ad46f720ac9771be65e738a9c87ea6"
       }
     },
@@ -375707,7 +375707,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "PRU",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:15:15Z",
+      "fetchedAt": "2026-10-31T17:06:11Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-05",
       "quoteDate": "2026-10-30",
@@ -375743,7 +375743,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1137774/000113777426000176/pru-20260630.htm",
-        "capturedAt": "2026-10-31T14:15:15Z"
+        "capturedAt": "2026-10-31T17:06:11Z"
       }
     },
     "z_score": null,
@@ -375856,22 +375856,22 @@ window.FULL_MARKET_DATA = {
     "industry": "Property & Casualty Insurance",
     "reportedCurrency": "USD",
     "price": 396.22,
-    "shares": 204.946355,
-    "shares_outstanding": 204946355,
+    "shares": 204.946,
+    "shares_outstanding": 204946000,
     "shares_display": "204.95 M",
     "shareSource": {
-      "shares": 204.946355,
-      "date": "2026-10-30",
+      "shares": 204.946,
+      "date": "2026-10-31",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/86312/000008631226000181/trv-20260930.htm",
-      "capturedAt": "2026-10-31T14:15:21Z"
+      "capturedAt": "2026-10-31T17:06:20Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 81203.8,
-    "liq_val_1": 61.562451305855134,
-    "liq_val_2": -31.000307373117224,
-    "liq_val_3": -81.75310070774374,
+    "liq_val_1": 61.56255794209206,
+    "liq_val_2": -31.00036107072107,
+    "liq_val_3": -81.75324231748851,
     "debt": 9813.0,
     "cash": 96339.0,
     "short_term_investments": 95573.0,
@@ -379113,7 +379113,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "f3ba2ffe438773128471dac4da892db66731a8f467a9c538400281c51ee1f2f4"
       },
       "mScore": {
@@ -379125,13 +379125,13 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "f3ba2ffe438773128471dac4da892db66731a8f467a9c538400281c51ee1f2f4"
       }
     },
     "fin_valuation": {
       "is_financial": true,
-      "tbvps": 120.07532410127519,
+      "tbvps": 120.07553209138017,
       "bvps": 141.48,
       "rote": 35.751984552671104,
       "reference": {
@@ -379142,7 +379142,7 @@ window.FULL_MARKET_DATA = {
         "balance": "beginning",
         "rote": 35.751984552671104,
         "warnings": [],
-        "tbvps": 120.07532410127519,
+        "tbvps": 120.07553209138017,
         "reason": null
       },
       "ke": 9.0,
@@ -379151,7 +379151,7 @@ window.FULL_MARKET_DATA = {
       "ke_floor_applied": true,
       "g": 2.25,
       "dps_total": 12.21,
-      "excess_return_fair": 595.96,
+      "excess_return_fair": 595.97,
       "ddm_fair": 212.53,
       "pb_tangible": 3.3
     },
@@ -379308,7 +379308,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TRV",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:15:21Z",
+      "fetchedAt": "2026-10-31T17:06:20Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-16",
       "quoteDate": "2026-10-30",
@@ -379337,14 +379337,14 @@ window.FULL_MARKET_DATA = {
         "inventory": 0,
         "preferredStock": 0
       },
-      "sharesOutstanding": 204946355,
+      "sharesOutstanding": 204946000,
       "shareSource": {
-        "shares": 204.946355,
-        "date": "2026-10-30",
+        "shares": 204.946,
+        "date": "2026-10-31",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/86312/000008631226000181/trv-20260930.htm",
-        "capturedAt": "2026-10-31T14:15:21Z"
+        "capturedAt": "2026-10-31T17:06:20Z"
       }
     },
     "z_score": null,
@@ -379462,11 +379462,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "501.34 M",
     "shareSource": {
       "shares": 501.343298,
-      "date": "2026-10-30",
+      "date": "2026-10-31",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/4977/000162828026054618/afl-20260630.htm",
-      "capturedAt": "2026-10-31T14:15:37Z"
+      "capturedAt": "2026-10-31T17:06:29Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 62111.4,
@@ -382714,7 +382714,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "06d947c82f086898e6a9cb76cb08673f0dfdd6e128dc33ca6524af2149b1b814"
       },
       "mScore": {
@@ -382726,7 +382726,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "06d947c82f086898e6a9cb76cb08673f0dfdd6e128dc33ca6524af2149b1b814"
       }
     },
@@ -382951,7 +382951,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AFL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:15:37Z",
+      "fetchedAt": "2026-10-31T17:06:29Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-07",
       "quoteDate": "2026-10-30",
@@ -382983,11 +382983,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 501343298,
       "shareSource": {
         "shares": 501.343298,
-        "date": "2026-10-30",
+        "date": "2026-10-31",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/4977/000162828026054618/afl-20260630.htm",
-        "capturedAt": "2026-10-31T14:15:37Z"
+        "capturedAt": "2026-10-31T17:06:29Z"
       }
     },
     "z_score": null,
@@ -383105,11 +383105,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "252.86 M",
     "shareSource": {
       "shares": 252.858,
-      "date": "2026-10-30",
+      "date": "2026-10-31",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/899051/000089905126000118/all-20260630.htm",
-      "capturedAt": "2026-10-31T14:15:42Z"
+      "capturedAt": "2026-10-31T17:06:37Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 65710.2,
@@ -386357,7 +386357,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "8a4c7171648d1db0cfbeb09dbe006e79277df955b5fed61bf7269e598e645afc"
       },
       "mScore": {
@@ -386369,7 +386369,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "8a4c7171648d1db0cfbeb09dbe006e79277df955b5fed61bf7269e598e645afc"
       }
     },
@@ -386540,7 +386540,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ALL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:15:42Z",
+      "fetchedAt": "2026-10-31T17:06:37Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-05",
       "quoteDate": "2026-10-30",
@@ -386572,11 +386572,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 252858000,
       "shareSource": {
         "shares": 252.858,
-        "date": "2026-10-30",
+        "date": "2026-10-31",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/899051/000089905126000118/all-20260630.htm",
-        "capturedAt": "2026-10-31T14:15:42Z"
+        "capturedAt": "2026-10-31T17:06:37Z"
       }
     },
     "z_score": null,
@@ -386698,7 +386698,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/315293/000162828026067879/aon-20260930.htm",
-      "capturedAt": "2026-10-31T14:15:48Z"
+      "capturedAt": "2026-10-31T17:06:47Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 68244.5,
@@ -389941,7 +389941,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "ee5ae8a72bf5e1c6ef15b05043b2e76cb0b41cf56c3c60595e7ccab58347629a"
       },
       "mScore": {
@@ -389953,7 +389953,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "ee5ae8a72bf5e1c6ef15b05043b2e76cb0b41cf56c3c60595e7ccab58347629a"
       }
     },
@@ -390119,7 +390119,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AON",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:15:48Z",
+      "fetchedAt": "2026-10-31T17:06:47Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-10-30",
@@ -390155,7 +390155,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/315293/000162828026067879/aon-20260930.htm",
-        "capturedAt": "2026-10-31T14:15:48Z"
+        "capturedAt": "2026-10-31T17:06:47Z"
       }
     },
     "z_score": 1.67,
@@ -390465,22 +390465,22 @@ window.FULL_MARKET_DATA = {
     "industry": "Insurance Brokers",
     "reportedCurrency": "USD",
     "price": 276.07,
-    "shares": 256.341,
-    "shares_outstanding": 256341000,
-    "shares_display": "256.34 M",
+    "shares": 256.300004,
+    "shares_outstanding": 256300004,
+    "shares_display": "256.30 M",
     "shareSource": {
-      "shares": 256.341,
+      "shares": 256.300004,
       "date": "2026-10-31",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/354190/000162828026068263/a3rdquarter2026earningsrel.htm",
-      "capturedAt": "2026-10-31T14:16:08Z"
+      "capturedAt": "2026-10-31T17:06:55Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 70768.1,
-    "liq_val_1": -49.43415216449963,
-    "liq_val_2": -191.14538836939857,
-    "liq_val_3": -209.79866661985403,
+    "liq_val_1": -49.44205931420898,
+    "liq_val_2": -191.17596268160807,
+    "liq_val_3": -209.83222458318807,
     "debt": 1526.0,
     "cash": 1213.0,
     "short_term_investments": 0.0,
@@ -393626,8 +393626,8 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 236.42,
-    "default_fair_val": 236.42,
+    "fair_val": 236.45,
+    "default_fair_val": 236.45,
     "premium_pct": 16.8,
     "is_undervalued": false,
     "pe_trailing": 41.7,
@@ -393720,7 +393720,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "a10a8a42cccce5c3d89ddd07c98a22ef4dd14635b263e904a938b848b8684963"
       },
       "mScore": {
@@ -393732,7 +393732,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "a10a8a42cccce5c3d89ddd07c98a22ef4dd14635b263e904a938b848b8684963"
       }
     },
@@ -393743,7 +393743,7 @@ window.FULL_MARKET_DATA = {
     "logo": "https://images.financialmodelingprep.com/symbol/AJG.png",
     "website": "https://www.ajg.com",
     "ceo": "J. Patrick Gallagher Jr.",
-    "full_time_employees": "67456",
+    "full_time_employees": "72000",
     "description": "Arthur J. Gallagher & Co., alongside its various subsidiaries, operates globally, providing a wide array of services that encompass insurance brokerage, expert consulting, and outsourced claims settlement and administration. Its geographic reach extends across the United States, Australia, Bermuda, Canada, the Caribbean, New Zealand, India, and the United Kingdom. The company's business model is divided into two primary segments: Brokerage and Risk Management. The Brokerage division manages both retail and wholesale insurance operations. It also supports other brokers, including independent ones, in securing specialized or hard-to-place insurance coverage. This segment functions as a wholesale broker, managing general agent (MGA), and managing general underwriter (MGU) to distribute tailored insurance products to underwriting firms. Key activities within this segment include marketing, underwriting, policy issuance, premium collection, agent recruitment and supervision, claims payment, and reinsurance negotiations. It delivers essential brokerage and consulting solutions to a diverse client base, from commercial businesses, non-profit organizations, and public entities to individuals, specializing in insurance placement, managing loss exposure, and overseeing employer-sponsored benefit programs. The Risk Management segment focuses on offering contract-based claims settlement and administration services to businesses and public sector organizations. Its services also include comprehensive claims management, specialized loss control consulting, and independent insurance property appraisals. Arthur J. Gallagher & Co. delivers its extensive services through a broad network of associated insurance brokers and consultants. Its clientele is varied, serving commercial, industrial, public, religious, and non-profit organizations. The company was founded in 1927 and maintains its corporate headquarters in Rolling Meadows, Illinois.",
     "description_en": "Arthur J. Gallagher & Co., alongside its various subsidiaries, operates globally, providing a wide array of services that encompass insurance brokerage, expert consulting, and outsourced claims settlement and administration. Its geographic reach extends across the United States, Australia, Bermuda, Canada, the Caribbean, New Zealand, India, and the United Kingdom. The company's business model is divided into two primary segments: Brokerage and Risk Management. The Brokerage division manages both retail and wholesale insurance operations. It also supports other brokers, including independent ones, in securing specialized or hard-to-place insurance coverage. This segment functions as a wholesale broker, managing general agent (MGA), and managing general underwriter (MGU) to distribute tailored insurance products to underwriting firms. Key activities within this segment include marketing, underwriting, policy issuance, premium collection, agent recruitment and supervision, claims payment, and reinsurance negotiations. It delivers essential brokerage and consulting solutions to a diverse client base, from commercial businesses, non-profit organizations, and public entities to individuals, specializing in insurance placement, managing loss exposure, and overseeing employer-sponsored benefit programs. The Risk Management segment focuses on offering contract-based claims settlement and administration services to businesses and public sector organizations. Its services also include comprehensive claims management, specialized loss control consulting, and independent insurance property appraisals. Arthur J. Gallagher & Co. delivers its extensive services through a broad network of associated insurance brokers and consultants. Its clientele is varied, serving commercial, industrial, public, religious, and non-profit organizations. The company was founded in 1927 and maintains its corporate headquarters in Rolling Meadows, Illinois.",
     "description_zh": "Arthur J. Gallagher & Co. (AJG) 及其子公司在全球範圍內營運，提供多元服務，涵蓋保險經紀、專業顧問服務，以及外包索賠處理與行政管理。其業務遍及美國、澳洲、百慕達、加拿大、加勒比海、紐西蘭、印度及英國。\n\n公司業務模式分為兩大主要事業部：經紀業務與風險管理。\n經紀業務涵蓋零售與批發保險業務，並協助獨立經紀人取得專業或難以承保之保險商品。此部門擔任批發保險經紀商、保險總代理人（MGA）及管理總承保人（MGU），為承保機構分銷客製化保險產品。核心活動涵蓋行銷、承保、保單簽發、保費收取、代理人招募與管理、索賠處理及再保險協商。該事業部為商業、非營利組織、公共機構及個人客戶，提供保險配置、損失風險管理及雇主贊助福利計畫之經紀與顧問解決方案。\n\n風險管理事業部則專為企業及公共事業單位提供合約式索賠結算與管理服務，並提供全面性索賠管理、專業損失控制諮詢及獨立保險財產鑑價服務。\n\nAJG 透過其廣泛的合作保險經紀人及顧問網絡提供服務。其客戶群體多元，涵蓋商業、工業、公共、宗教及非營利組織。該公司於 1927 年創立，總部位於伊利諾州羅林梅多斯。",
@@ -393892,7 +393892,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AJG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:16:08Z",
+      "fetchedAt": "2026-10-31T17:06:55Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-10-30",
@@ -393921,14 +393921,14 @@ window.FULL_MARKET_DATA = {
         "inventory": 0,
         "preferredStock": 0
       },
-      "sharesOutstanding": 256341000,
+      "sharesOutstanding": 256300004,
       "shareSource": {
-        "shares": 256.341,
+        "shares": 256.300004,
         "date": "2026-10-31",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/354190/000162828026068263/a3rdquarter2026earningsrel.htm",
-        "capturedAt": "2026-10-31T14:16:08Z"
+        "capturedAt": "2026-10-31T17:06:55Z"
       }
     },
     "z_score": 1.36,
@@ -394247,7 +394247,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/62709/000006270926000258/mrsh-20260930.htm",
-      "capturedAt": "2026-10-31T14:16:27Z"
+      "capturedAt": "2026-10-31T17:07:03Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 89819.7,
@@ -397493,7 +397493,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "faa904aba005419112e389129e5eba7df7f0b501c9da069b3e8fa59c6f3f7a53"
       },
       "mScore": {
@@ -397505,7 +397505,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "faa904aba005419112e389129e5eba7df7f0b501c9da069b3e8fa59c6f3f7a53"
       }
     },
@@ -397677,7 +397677,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MMC",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:16:27Z",
+      "fetchedAt": "2026-10-31T17:07:03Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-15",
       "quoteDate": "2026-01-13",
@@ -397713,7 +397713,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/62709/000006270926000258/mrsh-20260930.htm",
-        "capturedAt": "2026-10-31T14:16:27Z"
+        "capturedAt": "2026-10-31T17:07:03Z"
       }
     },
     "z_score": 2.77,
@@ -398028,11 +398028,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "1,558.05 M",
     "shareSource": {
       "shares": 1558.05,
-      "date": "2026-10-30",
+      "date": "2026-10-31",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/36104/000003610426000054/a3q26earningsrelease.htm",
-      "capturedAt": "2026-10-31T14:16:45Z"
+      "capturedAt": "2026-10-31T17:07:12Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 92626.1,
@@ -401280,7 +401280,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "c30edaa1e9064615a17784e6bb45b3c59a4566e0a73060e7dd943b5345338597"
       },
       "mScore": {
@@ -401292,7 +401292,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "c30edaa1e9064615a17784e6bb45b3c59a4566e0a73060e7dd943b5345338597"
       }
     },
@@ -401505,7 +401505,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "USB",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:16:45Z",
+      "fetchedAt": "2026-10-31T17:07:12Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-15",
       "quoteDate": "2026-10-30",
@@ -401537,11 +401537,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 1558050000,
       "shareSource": {
         "shares": 1558.05,
-        "date": "2026-10-30",
+        "date": "2026-10-31",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/36104/000003610426000054/a3q26earningsrelease.htm",
-        "capturedAt": "2026-10-31T14:16:45Z"
+        "capturedAt": "2026-10-31T17:07:12Z"
       }
     },
     "z_score": null,
@@ -401654,22 +401654,22 @@ window.FULL_MARKET_DATA = {
     "industry": "Pharmaceuticals",
     "reportedCurrency": "USD",
     "price": 1417.54,
-    "shares": 941.357,
-    "shares_outstanding": 941357000,
-    "shares_display": "941.36 M",
+    "shares": 940.745021,
+    "shares_outstanding": 940745021,
+    "shares_display": "940.75 M",
     "shareSource": {
-      "shares": 941.357,
+      "shares": 940.745021,
       "date": "2026-10-31",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/59478/000005947826000108/lly-20260930.htm",
-      "capturedAt": "2026-10-31T14:17:04Z"
+      "capturedAt": "2026-10-31T17:07:20Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 1334411.2,
-    "liq_val_1": -45.187957384924104,
-    "liq_val_2": -80.89152149503323,
-    "liq_val_3": -109.32727966117,
+    "liq_val_1": -45.21735332150113,
+    "liq_val_2": -80.94414352473092,
+    "liq_val_3": -109.39839988799686,
     "debt": 49503.0,
     "cash": 4885.0,
     "short_term_investments": 0.0,
@@ -404817,9 +404817,9 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 1118.19,
-    "default_fair_val": 1118.19,
-    "premium_pct": 26.8,
+    "fair_val": 1118.92,
+    "default_fair_val": 1118.92,
+    "premium_pct": 26.7,
     "is_undervalued": false,
     "pe_trailing": 48.4,
     "pe_forward": 42.6,
@@ -404911,7 +404911,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "3edc65ef34e25c357e06945d6c1aedbd27aedd04ca91fb803876e06b3aa63945"
       },
       "mScore": {
@@ -404923,7 +404923,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "3edc65ef34e25c357e06945d6c1aedbd27aedd04ca91fb803876e06b3aa63945"
       }
     },
@@ -405089,7 +405089,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "LLY",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:17:04Z",
+      "fetchedAt": "2026-10-31T17:07:20Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-10-30",
@@ -405118,14 +405118,14 @@ window.FULL_MARKET_DATA = {
         "inventory": 18194000000,
         "preferredStock": 0
       },
-      "sharesOutstanding": 941357000,
+      "sharesOutstanding": 940745021,
       "shareSource": {
-        "shares": 941.357,
+        "shares": 940.745021,
         "date": "2026-10-31",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/59478/000005947826000108/lly-20260930.htm",
-        "capturedAt": "2026-10-31T14:17:04Z"
+        "capturedAt": "2026-10-31T17:07:20Z"
       }
     },
     "z_score": 11.29,
@@ -405440,11 +405440,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "897.60 M",
     "shareSource": {
       "shares": 897.595,
-      "date": "2026-10-30",
+      "date": "2026-10-31",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/731766/000073176626000255/earningsrelease3q26unh.htm",
-      "capturedAt": "2026-10-31T14:17:23Z"
+      "capturedAt": "2026-10-31T17:07:28Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 365294.2,
@@ -408690,7 +408690,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "a0cb2a030fa27811c78b09a3531e795e5bf21c41c8a2f4598aa5f6f293e33b4f"
       },
       "mScore": {
@@ -408702,7 +408702,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "a0cb2a030fa27811c78b09a3531e795e5bf21c41c8a2f4598aa5f6f293e33b4f"
       }
     },
@@ -408874,7 +408874,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "UNH",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:17:23Z",
+      "fetchedAt": "2026-10-31T17:07:28Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-13",
       "quoteDate": "2026-10-30",
@@ -408906,11 +408906,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 897595000,
       "shareSource": {
         "shares": 897.595,
-        "date": "2026-10-30",
+        "date": "2026-10-31",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/731766/000073176626000255/earningsrelease3q26unh.htm",
-        "capturedAt": "2026-10-31T14:17:23Z"
+        "capturedAt": "2026-10-31T17:07:28Z"
       }
     },
     "z_score": 3.04,
@@ -409225,11 +409225,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "2,407.31 M",
     "shareSource": {
       "shares": 2407.310266,
-      "date": "2026-10-30",
+      "date": "2026-10-31",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000197/jnj-20260927.htm",
-      "capturedAt": "2026-10-31T14:17:42Z"
+      "capturedAt": "2026-10-31T17:07:37Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 657677.2,
@@ -412477,7 +412477,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "73dcc9101cc26465f73e1032e0e7198775ec98d6c81fdeba6dc6a2a1158a4937"
       },
       "mScore": {
@@ -412489,7 +412489,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "73dcc9101cc26465f73e1032e0e7198775ec98d6c81fdeba6dc6a2a1158a4937"
       }
     },
@@ -412673,7 +412673,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "JNJ",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:17:42Z",
+      "fetchedAt": "2026-10-31T17:07:37Z",
       "balanceDate": "2026-09-27",
       "filingDate": "2026-10-21",
       "quoteDate": "2026-10-30",
@@ -412705,11 +412705,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 2407310266,
       "shareSource": {
         "shares": 2407.310266,
-        "date": "2026-10-30",
+        "date": "2026-10-31",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000197/jnj-20260927.htm",
-        "capturedAt": "2026-10-31T14:17:42Z"
+        "capturedAt": "2026-10-31T17:07:37Z"
       }
     },
     "z_score": 5.58,
@@ -413030,7 +413030,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": null,
-      "capturedAt": "2026-10-31T14:17:59Z"
+      "capturedAt": "2026-10-31T17:07:45Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 521105.2,
@@ -416278,7 +416278,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "893ca3e9b9f36228dd523d2e8d8861d436a823d4eedd8fc8145e01d9184270fc"
       },
       "mScore": {
@@ -416290,7 +416290,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "893ca3e9b9f36228dd523d2e8d8861d436a823d4eedd8fc8145e01d9184270fc"
       }
     },
@@ -416431,7 +416431,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ABBV",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:17:59Z",
+      "fetchedAt": "2026-10-31T17:07:45Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-03",
       "quoteDate": "2026-10-30",
@@ -416467,7 +416467,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": null,
-        "capturedAt": "2026-10-31T14:17:59Z"
+        "capturedAt": "2026-10-31T17:07:45Z"
       }
     },
     "z_score": 2.68,
@@ -416786,7 +416786,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": null,
-      "capturedAt": "2026-10-31T14:18:19Z"
+      "capturedAt": "2026-10-31T17:07:54Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 368891.5,
@@ -420034,7 +420034,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "08d378c2227fbbbcecc9ac112187c2ddc2cc652f0d5eb911d7624f5889a809ba"
       },
       "mScore": {
@@ -420046,7 +420046,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "08d378c2227fbbbcecc9ac112187c2ddc2cc652f0d5eb911d7624f5889a809ba"
       }
     },
@@ -420230,7 +420230,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MRK",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:18:19Z",
+      "fetchedAt": "2026-10-31T17:07:54Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-07",
       "quoteDate": "2026-10-30",
@@ -420266,7 +420266,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": null,
-        "capturedAt": "2026-10-31T14:18:19Z"
+        "capturedAt": "2026-10-31T17:07:54Z"
       }
     },
     "z_score": 4.52,
@@ -420585,7 +420585,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/97745/000009774526000179/tmo-20260926.htm",
-      "capturedAt": "2026-10-31T14:18:38Z"
+      "capturedAt": "2026-10-31T17:08:02Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 257713.9,
@@ -423833,7 +423833,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "8c392f1ad123e55cc90940aa1423ce76fc7d26f02cb8c224a39439759c4148d9"
       },
       "mScore": {
@@ -423845,7 +423845,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "8c392f1ad123e55cc90940aa1423ce76fc7d26f02cb8c224a39439759c4148d9"
       }
     },
@@ -424035,7 +424035,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TMO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:18:38Z",
+      "fetchedAt": "2026-10-31T17:08:02Z",
       "balanceDate": "2026-09-26",
       "filingDate": "2026-10-30",
       "quoteDate": "2026-10-30",
@@ -424071,7 +424071,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/97745/000009774526000179/tmo-20260926.htm",
-        "capturedAt": "2026-10-31T14:18:38Z"
+        "capturedAt": "2026-10-31T17:08:02Z"
       }
     },
     "z_score": 4.28,
@@ -424390,7 +424390,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": null,
-      "capturedAt": "2026-10-31T14:18:55Z"
+      "capturedAt": "2026-10-31T17:08:10Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 183766.7,
@@ -427638,7 +427638,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "ea9f8675a021df2387f84ccbbe13c81f33f88b516ea5714c4b2d0e9f181c2bd4"
       },
       "mScore": {
@@ -427650,7 +427650,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "ea9f8675a021df2387f84ccbbe13c81f33f88b516ea5714c4b2d0e9f181c2bd4"
       }
     },
@@ -427846,7 +427846,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ABT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:18:55Z",
+      "fetchedAt": "2026-10-31T17:08:10Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-28",
       "quoteDate": "2026-10-30",
@@ -427882,7 +427882,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": null,
-        "capturedAt": "2026-10-31T14:18:55Z"
+        "capturedAt": "2026-10-31T17:08:10Z"
       }
     },
     "z_score": 5.03,
@@ -428201,7 +428201,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/313616/000031361626000199/dhr-20260925.htm",
-      "capturedAt": "2026-10-31T14:19:11Z"
+      "capturedAt": "2026-10-31T17:08:19Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 163254.5,
@@ -431449,7 +431449,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "10c05b9612ffb26e46889822e9185f8c3f86448f5979add66fdd718f5ffd3a79"
       },
       "mScore": {
@@ -431461,7 +431461,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "10c05b9612ffb26e46889822e9185f8c3f86448f5979add66fdd718f5ffd3a79"
       }
     },
@@ -431645,7 +431645,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "DHR",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:19:11Z",
+      "fetchedAt": "2026-10-31T17:08:19Z",
       "balanceDate": "2026-09-25",
       "filingDate": "2026-10-21",
       "quoteDate": "2026-10-30",
@@ -431681,7 +431681,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/313616/000031361626000199/dhr-20260925.htm",
-        "capturedAt": "2026-10-31T14:19:11Z"
+        "capturedAt": "2026-10-31T17:08:19Z"
       }
     },
     "z_score": 4.51,
@@ -432000,7 +432000,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000071/isrg-20260930.htm",
-      "capturedAt": "2026-10-31T14:19:26Z"
+      "capturedAt": "2026-10-31T17:08:27Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 152619.6,
@@ -435171,59 +435171,63 @@ window.FULL_MARKET_DATA = {
     "roa": 15.281265825401254,
     "moat": {
       "ticker": "ISRG",
-      "period": "2026Q4",
+      "period": "2026Q3",
       "m1_brand_pricing": {
-        "score": 9,
-        "comment_zh": "Intuitive Surgical憑藉其達文西手術系統建立了無可匹敵的品牌心智與定價權。醫院一旦投入數百萬美元採購其設備，並培訓外科醫生，便形成高度依賴。達文西系統提供的精準度、減少併發症及加速患者康復的優勢，使其在醫療領域成為不可或缺的工具。即使其耗材和服務費用較高，醫院為確保手術品質與患者安全，仍會持續採購。這種強大的品牌效應和技術領先，讓ISRG在定價上擁有極大的話語權，競爭對手難以望其項背。",
-        "comment_en": "Intuitive Surgical commands unparalleled brand recognition and pricing power through its da Vinci surgical system. Once hospitals invest millions in acquiring the equipment and training surgeons, a high degree of dependency is established. The precision, reduced complications, and accelerated patient recovery offered by the da Vinci system make it an indispensable tool in healthcare. Even with higher costs for consumables and services, hospitals continue to procure them to ensure surgical quality and patient safety. This robust brand effect and technological leadership grant ISRG significant pricing leverage, making it exceedingly difficult for competitors to challenge its market position."
+        "score": 8,
+        "comment_zh": "Intuitive Surgical 在達文西手術機器人領域建立了強大的品牌聲譽，客戶（醫院）和醫生對其系統的可靠性、精確性和培訓有高度的信任。這種品牌忠誠度轉化為定價權，因為替代方案在短期內難以匹敵其性能和生態系統。然而，醫療設備領域的價格壓力始終存在，且新進入者可能透過創新的低成本解決方案挑戰其地位，因此品牌定價權雖強，但非絕對。其品牌壁壘主要來自於長期建立的信任和臨床驗證，而非單純的廣告宣傳。",
+        "comment_en": "Intuitive Surgical has established a strong brand reputation in the da Vinci surgical robot space. Customers (hospitals) and surgeons place a high degree of trust in the reliability, precision, and training associated with its systems. This brand loyalty translates into pricing power, as alternatives struggle to match its performance and ecosystem in the short term. However, pricing pressure is a constant in the medical device sector, and new entrants could challenge its position with innovative, lower-cost solutions. Therefore, while brand pricing power is strong, it is not absolute. The brand barrier stems primarily from long-established trust and clinical validation rather than mere advertising."
       },
       "m2_patents_regulatory": {
-        "score": 9,
-        "comment_zh": "Intuitive Surgical在機器人輔助手術領域築起了堅實的專利壁壘。公司擁有龐大的專利組合，涵蓋了達文西系統的核心技術、器械設計及操作方法，有效阻止了競爭對手在關鍵技術上的模仿。此外，醫療設備行業嚴格的監管審批流程（如FDA認證）本身就是一道極高的進入門檻。新進入者不僅需要耗費巨資進行研發，還需投入漫長的時間與資源來通過臨床試驗和監管審批，這為ISRG提供了巨大的時間優勢和市場保護，使其能夠持續鞏固其市場領導地位。",
-        "comment_en": "Intuitive Surgical has erected a formidable patent barrier in the field of robotic-assisted surgery. The company possesses an extensive patent portfolio covering the core technologies, instrument designs, and operational methods of the da Vinci system, effectively preventing competitors from imitating key innovations. Furthermore, the stringent regulatory approval processes in the medical device industry, such as FDA certification, represent an exceptionally high barrier to entry. New entrants not only require substantial capital for R&D but also face lengthy timelines and resources for clinical trials and regulatory approvals, providing ISRG with a significant time advantage and market protection to continuously solidify its leadership."
+        "score": 7,
+        "comment_zh": "達文西手術系統的核心技術受到專利保護，這為公司提供了重要的時間窗口來鞏固市場地位。同時，醫療設備的監管審批流程極其嚴格且耗時，這對潛在競爭者構成了顯著的進入壁壘。然而，專利終將過期，監管機構的審批標準也可能隨時間演變。ISRG 的優勢在於其持續的研發投入和對新一代技術的佈局，以期在現有專利到期前推出更具競爭力的產品，並利用其在監管事務上的經驗來加速新產品的上市。",
+        "comment_en": "The core technology of the da Vinci surgical system is protected by patents, providing the company with a crucial window to solidify its market position. Furthermore, the regulatory approval process for medical devices is extremely stringent and time-consuming, posing a significant barrier to entry for potential competitors. However, patents eventually expire, and regulatory standards can evolve over time. ISRG's advantage lies in its continuous R&D investment and strategic planning for next-generation technologies, aiming to launch more competitive products before existing patents expire and leveraging its experience in regulatory affairs to expedite new product launches."
       },
       "m3_high_switching_costs": {
         "score": 9,
-        "comment_zh": "Intuitive Surgical的產品具有極高的轉換成本，這構成了一道強大的護城河。醫院一旦投資數百萬美元購買達文西手術系統，並投入大量資源培訓外科醫生和護理人員，轉換到其他競爭對手系統的成本將是巨大的。這不僅涉及新的資本支出、漫長的學習曲線和操作習慣的改變，還可能導致手術排程中斷、效率降低，甚至影響患者治療效果。這種深度嵌入醫院營運流程的特性，使得客戶即使面對其他選擇，也極不情願承擔高昂的轉換成本，從而鎖定其客戶群。",
-        "comment_en": "Intuitive Surgical's products exhibit extremely high switching costs, forming a robust economic moat. Once hospitals invest millions in acquiring the da Vinci surgical system and dedicate substantial resources to training surgeons and staff, the cost of switching to a competitor's system becomes prohibitive. This involves not only new capital expenditure but also a lengthy learning curve, changes in operational habits, and potential disruptions to surgical schedules, possibly impacting patient outcomes. This deep integration into hospital operational workflows makes customers highly reluctant to incur the significant switching costs, effectively locking in its client base despite alternative options."
+        "comment_zh": "轉換至 ISRG 的達文西系統的成本極高。這不僅包括昂貴的設備採購成本，更重要的是，醫院需要投入大量資金進行外科醫生和手術團隊的培訓，建立新的手術流程，並整合到現有的醫療信息系統中。一旦醫院和醫生習慣了達文西系統的操作和臨床效益，轉換到其他系統的阻力將非常大，因為這意味著重覆的培訓投入、潛在的手術效率下降以及對患者安全性的擔憂。這種高昂的轉換成本形成了堅實的客戶黏性。",
+        "comment_en": "The cost of switching to ISRG's da Vinci system is extremely high. This includes not only the substantial capital expenditure for the equipment but, more importantly, significant investment in training surgeons and surgical teams, establishing new surgical protocols, and integrating the system into existing healthcare information systems. Once hospitals and surgeons become accustomed to the operational and clinical benefits of the da Vinci system, the resistance to switching to other systems becomes very substantial due to the need for repeated training investments, potential declines in surgical efficiency, and concerns about patient safety. These high switching costs create strong customer stickiness."
       },
       "m4_network_effects": {
-        "score": 8,
-        "comment_zh": "Intuitive Surgical的達文西系統展現出獨特的網絡效應，儘管與傳統社交平台不同，但在醫療領域卻極為顯著。隨著全球安裝的達文西系統數量增加，接受培訓的外科醫生數量也隨之增長。這形成一個正向循環：更多醫生熟悉達文西，醫院為吸引人才和提供先進醫療服務，更傾向於採購達文西系統；反之，更多醫院擁有達文西，也促使更多醫生尋求相關培訓。這種醫生社群的知識共享、經驗累積以及對標準化操作的依賴，共同強化了達文西系統的價值，使其成為行業標準，進一步鞏固了其市場地位。",
-        "comment_en": "Intuitive Surgical's da Vinci system exhibits a unique network effect, distinct from traditional social platforms but highly significant in the medical field. As the number of da Vinci systems installed globally increases, so does the pool of trained surgeons. This creates a virtuous cycle: more surgeons familiar with da Vinci lead hospitals to procure the system to attract talent and offer advanced care; conversely, more hospitals owning da Vinci incentivize more surgeons to seek relevant training. This community of surgeons sharing knowledge, accumulating experience, and relying on standardized procedures collectively enhances the da Vinci system's value, establishing it as an industry standard and further solidifying its market position."
+        "score": 6,
+        "comment_zh": "ISRG 的網絡效應體現在其龐大的手術案例數據庫和醫生社群。隨著越來越多的手術案例透過達文西系統完成，積累的臨床數據變得更加豐富，這有助於進一步優化手術技術和培訓材料，從而吸引更多醫生學習和使用該系統。同時，醫生之間分享經驗和最佳實踐的社群效應也增強了系統的吸引力。然而，這種網絡效應並非傳統意義上的雙邊市場效應，其影響力相對較弱，且主要集中在醫生和醫院內部，而非廣泛的用戶群體。",
+        "comment_en": "ISRG's network effects are evident in its vast database of surgical cases and its community of surgeons. As more surgical cases are performed using the da Vinci system, the accumulated clinical data becomes richer, which helps further optimize surgical techniques and training materials, thereby attracting more surgeons to learn and use the system. Concurrently, the community effect of doctors sharing experiences and best practices enhances the system's appeal. However, this network effect is not a traditional two-sided market effect; its influence is relatively weaker and primarily concentrated within surgeons and hospitals, rather than a broad user base."
       },
       "m5_cost_advantage_scale": {
-        "score": 9,
-        "comment_zh": "Intuitive Surgical作為機器人輔助手術領域的絕對領導者，享有顯著的規模經濟優勢。其龐大的裝機量和持續增長的耗材銷售，使其在採購原材料、生產製造及全球分銷方面，能夠實現比競爭對手更低的單位成本。此外，巨大的營收規模也支持公司投入巨額資金進行研發，不斷迭代技術，保持領先地位。這種規模優勢不僅降低了其營運成本，也使其能夠在價格上保持競爭力，同時維持高利潤率，對潛在進入者構成了難以逾越的成本壁壘。",
-        "comment_en": "As the undisputed leader in robotic-assisted surgery, Intuitive Surgical enjoys significant economies of scale. Its vast installed base and continuously growing sales of consumables enable it to achieve lower unit costs in raw material procurement, manufacturing, and global distribution compared to competitors. Furthermore, its substantial revenue allows the company to invest heavily in R&D, continuously iterating technology to maintain its leading edge. This scale advantage not only reduces operational costs but also allows it to remain price-competitive while sustaining high-profit margins, forming an insurmountable cost barrier for potential new entrants."
+        "score": 7,
+        "comment_zh": "ISRG 在規模經濟方面具有顯著優勢。其龐大的生產規模有助於降低單位製造成本，並透過持續的技術改進來優化生產流程。此外，其遍佈全球的服務和支持網絡，以及大規模的培訓中心，也只有透過規模化運營才能有效維持。這種規模優勢使其能夠在提供高品質產品的同時，保持相對穩定的利潤率，並對潛在的低成本競爭者形成一定的價格壓力。然而，醫療設備的研發和生產本身就具有高固定成本的特性，規模效應的邊際效益遞減是需要考慮的。",
+        "comment_en": "ISRG possesses a significant advantage in economies of scale. Its large production volume helps reduce unit manufacturing costs and optimize production processes through continuous technological improvements. Moreover, its global service and support network, along with extensive training centers, can only be effectively maintained through scaled operations. This scale advantage allows it to maintain relatively stable profit margins while delivering high-quality products, exerting some pricing pressure on potential low-cost competitors. However, the R&D and production of medical devices inherently involve high fixed costs, and the diminishing marginal benefit of scale is a factor to consider."
       },
       "m6_unique_geography_assets": {
-        "score": 8,
-        "comment_zh": "機器人輔助手術市場是一個高度專業化且資本密集型的利基市場，Intuitive Surgical在此形成了天然的寡占格局。開發、生產並獲得監管批准一套複雜的手術機器人系統需要數十億美元的投入和數十年的時間。市場容量雖大，但能夠支撐的頂級玩家數量有限。新進入者若想挑戰ISRG的地位，不僅要面對其技術、專利和品牌壁壘，還需承擔巨大的前期投資風險，且難以在短期內達到ISRG的規模效益。這種「贏者通吃」的市場特性，使得ISRG能夠在相對有限的競爭中保持其主導地位。",
-        "comment_en": "The robotic-assisted surgery market is a highly specialized and capital-intensive niche, where Intuitive Surgical has established a natural oligopoly. Developing, manufacturing, and obtaining regulatory approval for a complex surgical robotic system requires billions of dollars in investment and decades of time. While the market capacity is substantial, the number of top-tier players it can sustain is limited. New entrants attempting to challenge ISRG's position would not only face its technological, patent, and brand barriers but also bear immense upfront investment risks, struggling to achieve ISRG's economies of scale in the short term. This \"winner-take-most\" market characteristic allows ISRG to maintain its dominant position with relatively limited competition."
+        "score": 5,
+        "comment_zh": "ISRG 的獨特地理資產主要體現在其全球化的銷售、服務和培訓網絡。公司在全球主要醫療市場建立了穩固的據點，能夠快速響應各地客戶的需求。然而，這並非傳統意義上的「收費橋」或獨特的自然資源，其價值在於營運效率和市場滲透率，而非地理位置的稀缺性。隨著全球化的深入，其他競爭者也有可能建立類似的網絡，因此這種壁壘的持久性相對有限，更多依賴於持續的市場拓展和客戶關係維護。",
+        "comment_en": "ISRG's unique geographical assets are primarily reflected in its global sales, service, and training network. The company has established a solid presence in major global healthcare markets, enabling it to respond quickly to customer needs worldwide. However, this is not a 'toll bridge' in the traditional sense or a unique natural resource; its value lies in operational efficiency and market penetration rather than geographical scarcity. As globalization deepens, other competitors may also establish similar networks, making the durability of this barrier relatively limited, relying more on continuous market expansion and customer relationship maintenance."
       },
       "m7_operational_efficiency": {
-        "score": 9,
-        "comment_zh": "儘管提供的ROE/ROA數據可能存在異常，但Intuitive Surgical長期以來展現出卓越的投入資本回報率（ROIC）韌性。其強勁的自由現金流（FCF TTM $3,222.6 M）和完美的皮氏F-Score（9/9）都強烈暗示公司能夠持續高效地運用資本，創造遠超加權平均資本成本（WACC）的價值。這種持續的超額回報能力，是巴菲特衡量企業內在價值和護城河深度的關鍵指標。ISRG的商業模式，結合其高利潤率的耗材和服務收入，確保了資本的有效再投資和股東財富的長期增長。",
-        "comment_en": "Despite potential anomalies in the provided ROE/ROA data, Intuitive Surgical has historically demonstrated exceptional resilience in its Return on Invested Capital (ROIC). Its robust Free Cash Flow (FCF TTM $3,222.6 M) and perfect Piotroski F-Score (9/9) strongly indicate the company's sustained ability to efficiently deploy capital, generating value significantly exceeding its Weighted Average Cost of Capital (WACC). This consistent capacity for excess returns is a critical metric for Buffett in assessing a company's intrinsic value and the depth of its moat. ISRG's business model, combined with its high-margin consumables and service revenue, ensures effective capital reinvestment and long-term shareholder wealth growth."
+        "score": 8,
+        "comment_zh": "ISRG 在營運效率方面表現出色，體現在其高度整合的生產流程、精確的供應鏈管理以及高效的客戶服務和支持體系。公司能夠持續優化其產品設計和製造工藝，以提高生產效率並控制成本。其全球化的服務網絡確保了設備的及時維護和客戶的滿意度，這對於依賴高科技設備進行手術的醫療機構至關重要。這種卓越的營運能力不僅降低了成本，也增強了客戶黏性，構成了重要的競爭優勢。",
+        "comment_en": "ISRG demonstrates outstanding operational efficiency, reflected in its highly integrated production processes, precise supply chain management, and efficient customer service and support systems. The company continuously optimizes its product design and manufacturing processes to enhance production efficiency and control costs. Its global service network ensures timely equipment maintenance and customer satisfaction, which is crucial for healthcare institutions relying on high-tech equipment for surgeries. This operational excellence not only reduces costs but also strengthens customer loyalty, forming a significant competitive advantage."
       },
       "m8_capital_allocation": {
         "score": 9,
-        "comment_zh": "Intuitive Surgical的核心戰略資產幾乎不可複製。即使給予競爭對手數千億美元的資金，也無法在短短幾年內複製其龐大的專利組合、數十年累積的臨床數據、全球數萬台的裝機量、遍佈全球的醫生培訓體系以及與醫院建立的深厚信任關係。這些資產是時間、技術、資本和市場教育的結晶，需要漫長的積累過程。這種不可複製性確保了ISRG在機器人輔助手術領域的長期領導地位，使其護城河深不可測，極難被顛覆。",
-        "comment_en": "Intuitive Surgical's core strategic assets are virtually irreproducible. Even if a competitor were given hundreds of billions of dollars, they could not replicate its vast patent portfolio, decades of accumulated clinical data, global installed base of tens of thousands of systems, worldwide surgeon training network, and deep trust relationships with hospitals within just a few years. These assets are the culmination of time, technology, capital, and market education, requiring a lengthy accumulation process. This irreproducibility ensures ISRG's long-term leadership in robotic-assisted surgery, making its moat unfathomably deep and extremely difficult to disrupt."
+        "comment_zh": "ISRG 的管理層在資本配置方面展現了卓越的智慧和遠見。公司擁有強勁的自由現金流，並明智地將資金用於持續的研發投入，以保持技術領先地位；同時，也進行戰略性的收購以擴展產品線和市場覆蓋。此外，公司保持著極低的負債水平，財務結構非常穩健，這使其在面對市場波動時具有極大的韌性。管理層對資本的有效配置，不僅推動了公司的有機增長，也為股東創造了長期價值，體現了巴菲特所欣賞的審慎和有遠見的資本運用。",
+        "comment_en": "ISRG's management team exhibits exceptional wisdom and foresight in capital allocation. The company generates strong free cash flow and judiciously invests funds in continuous R&D to maintain its technological leadership. Simultaneously, it pursues strategic acquisitions to expand its product lines and market coverage. Furthermore, the company maintains a very low debt level, resulting in a highly robust financial structure that provides significant resilience in the face of market volatility. The management's effective allocation of capital not only drives organic growth but also creates long-term value for shareholders, reflecting the prudent and visionary capital deployment admired by Buffett."
       },
       "m9_customer_retention": {
         "score": 9,
-        "comment_zh": "Intuitive Surgical在技術/典範轉移方面展現出強大的抗性。醫療手術的需求是人類社會的永恆剛需，而機器人輔助手術代表了當前最先進、最精準的治療方向。ISRG作為該領域的開拓者和領導者，持續投入研發，不斷推出更先進的系統和應用，確保其技術始終處於前沿。即使未來出現新的技術突破，由於其龐大的裝機量、醫生培訓體系和監管壁壘，任何新技術要取代達文西系統都將面臨極高的轉換成本和市場教育難度。這使得ISRG對潛在的顛覆性創新具有較強的免疫力。",
-        "comment_en": "Intuitive Surgical demonstrates strong immunity to technological or paradigm shifts. The demand for medical surgery is an eternal necessity for human society, and robotic-assisted surgery represents the most advanced and precise treatment direction currently available. As a pioneer and leader in this field, ISRG continuously invests in R&D, consistently introducing more advanced systems and applications to ensure its technology remains at the forefront. Even if new technological breakthroughs emerge in the future, due to its vast installed base, surgeon training ecosystem, and regulatory barriers, any new technology aiming to replace the da Vinci system would face extremely high switching costs and market education challenges. This grants ISRG robust immunity against potential disruptive innovations."
+        "comment_zh": "ISRG 的客戶保留率極高，這主要歸功於其產品的獨特性、高昂的轉換成本以及完善的售後服務體系。一旦醫院和外科醫生採用了達文西手術系統，並投入了相應的培訓和流程改造，他們就極少會考慮更換。ISRG 通過提供持續的技術升級、優質的客戶支持和豐富的培訓資源，不斷鞏固客戶關係。這種高度的客戶忠誠度確保了公司穩定的經常性收入來源，並為其持續的盈利能力奠定了堅實基礎。",
+        "comment_en": "ISRG boasts extremely high customer retention rates, primarily attributable to the uniqueness of its products, high switching costs, and a comprehensive after-sales service system. Once hospitals and surgeons adopt the da Vinci surgical system and invest in corresponding training and process modifications, they are very unlikely to consider switching. ISRG continuously strengthens customer relationships by providing ongoing technological upgrades, high-quality customer support, and abundant training resources. This high degree of customer loyalty ensures a stable source of recurring revenue for the company and lays a solid foundation for its sustained profitability."
       },
       "m10_durability": {
-        "score": 9,
-        "comment_zh": "Intuitive Surgical的管理層展現出卓越的資本配置能力與誠信。公司擁有強勁的自由現金流和健康的資產負債表（無負債），這為其提供了靈活的資本運用空間。管理層將大部分利潤再投資於研發，持續創新以鞏固技術領先地位，同時也可能通過戰略性回購股票來提升股東價值，而非盲目進行高溢價併購。這種以股東利益為核心的資本管理策略，符合巴菲特對優秀企業管理層的期望，確保了公司長期穩健的發展和價值的創造。",
-        "comment_en": "Intuitive Surgical's management demonstrates exceptional capital allocation capabilities and integrity. The company boasts robust free cash flow and a healthy balance sheet (no debt), providing flexible capital deployment options. Management reinvests a significant portion of profits into R&D, continuously innovating to solidify technological leadership, while also potentially engaging in strategic share buybacks to enhance shareholder value, rather than pursuing blind, high-premium acquisitions. This shareholder-centric capital management strategy aligns with Buffett's expectations for excellent corporate management, ensuring the company's long-term stable development and value creation."
+        "score": 8,
+        "comment_zh": "ISRG 的護城河具有相當的持久性。其核心競爭優勢來自於高昂的轉換成本、強大的品牌聲譽以及持續的技術創新能力。雖然醫療技術不斷發展，存在被顛覆的風險，但達文西系統所建立的臨床標準和醫生習慣的養成，使其短期內難以被完全取代。公司持續的研發投入和對新一代技術的佈局，有助於抵禦潛在的顛覆性創新。只要公司能維持其在技術、培訓和服務方面的領先地位，其護城河預計將保持相當長的時間。",
+        "comment_en": "ISRG's economic moat possesses considerable durability. Its core competitive advantages stem from high switching costs, a strong brand reputation, and continuous technological innovation capabilities. Although medical technology is constantly evolving and carries the risk of disruption, the clinical standards established by the da Vinci system and the ingrained habits of surgeons make it difficult to be completely replaced in the short term. The company's ongoing R&D investments and its strategic planning for next-generation technologies help it fend off potential disruptive innovations. As long as the company can maintain its leading position in technology, training, and services, its moat is expected to remain robust for a considerable period."
       },
-      "overall_moat_verdict_zh": "Intuitive Surgical無疑是一家擁有極其深厚護城河的「特許經營權」企業，其商業模式猶如一座高科技的收費橋樑。公司憑藉其達文西手術系統，在機器人輔助手術領域建立了近乎壟斷的地位。這不僅得益於其龐大的專利集群、嚴格的監管審批壁壘，更關鍵的是其產品所帶來的極高轉換成本和外科醫生社群形成的網絡效應。醫院一旦採用，便難以脫離，持續貢獻高利潤的耗材和服務收入。ISRG的護城河是多維度且相互強化的，使其能夠長期享有超額利潤，並對潛在競爭者形成難以逾越的障礙，是典型的巴菲特式優質企業。",
-      "overall_moat_verdict_en": "Intuitive Surgical is unequivocally a \"franchise\" business possessing an exceptionally deep economic moat, with its business model akin to a high-tech toll bridge. Through its da Vinci surgical system, the company has established a near-monopolistic position in the field of robotic-assisted surgery. This dominance stems not only from its vast patent portfolio and stringent regulatory approval barriers but, more crucially, from the extremely high switching costs associated with its products and the network effects fostered within the surgical community. Once adopted by hospitals, disengagement becomes arduous, leading to continuous high-margin revenue from consumables and services. ISRG's moat is multi-dimensional and mutually reinforcing, enabling it to enjoy sustained excess profits and create insurmountable barriers for potential competitors, making it a quintessential Buffett-style quality enterprise."
+      "overall_moat_verdict_zh": "Intuitive Surgical 憑藉其達文西手術機器人系統，築起了一道寬廣且具備高度持久性的護城河。其核心壁壘體現在極高的客戶轉換成本，醫院和醫生一旦採用，便難以轉向。強大的品牌聲譽和臨床驗證進一步鞏固了其市場地位，使其在定價上擁有相當話語權。雖然專利保護和監管審批構成了一定壁壘，但更關鍵的是其在營運效率、規模經濟和卓越資本配置上的長期優勢。ISRG 展現了類似「收費橋」的特徵，透過提供不可或缺的關鍵技術和服務，從醫療體系中獲取穩定的價值。其高度的客戶保留率和持續的技術創新，預示著這道護城河在可預見的未來將持續存在。",
+      "overall_moat_verdict_en": "Intuitive Surgical has constructed a wide and highly durable economic moat with its da Vinci surgical robot system. Its core barrier lies in the extremely high customer switching costs; once adopted by hospitals and surgeons, it is difficult to transition away. A strong brand reputation and clinical validation further solidify its market position, granting it considerable pricing power. While patent protection and regulatory approvals form certain barriers, its long-term advantages in operational efficiency, economies of scale, and excellent capital allocation are even more critical. ISRG exhibits characteristics of a 'toll bridge,' extracting stable value from the healthcare system by providing indispensable key technology and services. Its high customer retention rate and continuous technological innovation suggest that this moat will persist for the foreseeable future.",
+      "evidenceHash": "7919cdc6d943dfdb417fa629e7b470c42baa1ad4522cbdd2a9cbe093719cae68",
+      "assessmentPolicy": "buffett-moat-v3",
+      "model": "gemini-2.5-flash-lite",
+      "provider": "Vertex AI"
     },
     "ratingSources": {
       "moat": {
@@ -435242,7 +435246,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "063441de13738c84a84d542ebb0887b1de28045199d5152a3630532007a51820"
       },
       "mScore": {
@@ -435254,7 +435258,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "063441de13738c84a84d542ebb0887b1de28045199d5152a3630532007a51820"
       }
     },
@@ -435414,7 +435418,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ISRG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:19:26Z",
+      "fetchedAt": "2026-10-31T17:08:27Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-21",
       "quoteDate": "2026-10-30",
@@ -435450,7 +435454,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000071/isrg-20260930.htm",
-        "capturedAt": "2026-10-31T14:19:26Z"
+        "capturedAt": "2026-10-31T17:08:27Z"
       }
     },
     "z_score": 35.99,
@@ -435769,7 +435773,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/78003/000007800326000095/pfe-20260628.htm",
-      "capturedAt": "2026-10-31T14:19:32Z"
+      "capturedAt": "2026-10-31T17:08:49Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 173953.9,
@@ -439017,7 +439021,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "c77f0c50f15351948ccd15fe0cf184aad159b34827cc519263734f1c71198055"
       },
       "mScore": {
@@ -439029,7 +439033,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "c77f0c50f15351948ccd15fe0cf184aad159b34827cc519263734f1c71198055"
       }
     },
@@ -439207,7 +439211,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "PFE",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:19:32Z",
+      "fetchedAt": "2026-10-31T17:08:49Z",
       "balanceDate": "2026-06-28",
       "filingDate": "2026-08-04",
       "quoteDate": "2026-10-30",
@@ -439243,7 +439247,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/78003/000007800326000095/pfe-20260628.htm",
-        "capturedAt": "2026-10-31T14:19:32Z"
+        "capturedAt": "2026-10-31T17:08:49Z"
       }
     },
     "z_score": 2.13,
@@ -439558,11 +439562,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "540.63 M",
     "shareSource": {
       "shares": 540.632,
-      "date": "2026-10-30",
+      "date": "2026-10-31",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/318154/000031815426000126/amgn-20260630.htm",
-      "capturedAt": "2026-10-31T14:19:37Z"
+      "capturedAt": "2026-10-31T17:08:57Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 251939.9,
@@ -442810,7 +442814,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "6565059bdd47f676ae15c723ee0539064139c2fb014532dc29b0a1742c7e787e"
       },
       "mScore": {
@@ -442822,7 +442826,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "6565059bdd47f676ae15c723ee0539064139c2fb014532dc29b0a1742c7e787e"
       }
     },
@@ -442994,7 +442998,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AMGN",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:19:37Z",
+      "fetchedAt": "2026-10-31T17:08:57Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-05",
       "quoteDate": "2026-10-30",
@@ -443026,11 +443030,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 540632000,
       "shareSource": {
         "shares": 540.632,
-        "date": "2026-10-30",
+        "date": "2026-10-31",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/318154/000031815426000126/amgn-20260630.htm",
-        "capturedAt": "2026-10-31T14:19:37Z"
+        "capturedAt": "2026-10-31T17:08:57Z"
       }
     },
     "z_score": 2.34,
@@ -443340,22 +443344,22 @@ window.FULL_MARKET_DATA = {
     "industry": "Pharmaceuticals",
     "reportedCurrency": "USD",
     "price": 62.48,
-    "shares": 2042.71,
-    "shares_outstanding": 2042710000,
-    "shares_display": "2,042.71 M",
+    "shares": 2044.0858,
+    "shares_outstanding": 2044085800,
+    "shares_display": "2,044.09 M",
     "shareSource": {
-      "shares": 2042.71,
+      "shares": 2044.0858,
       "date": "2026-10-31",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/14272/000001427226000024/bmy-20260930.htm",
-      "capturedAt": "2026-10-31T14:19:42Z"
+      "capturedAt": "2026-10-31T17:09:05Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 127628.5,
-    "liq_val_1": -17.428318263483312,
-    "liq_val_2": -21.013163885230895,
-    "liq_val_3": -25.84165153154388,
+    "liq_val_1": -17.416587894696004,
+    "liq_val_2": -20.999020686900717,
+    "liq_val_3": -25.824258453338896,
     "debt": 42877.0,
     "cash": 12581.0,
     "short_term_investments": 3007.0,
@@ -446503,8 +446507,8 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 166.24,
-    "default_fair_val": 166.24,
+    "fair_val": 166.13,
+    "default_fair_val": 166.13,
     "premium_pct": -62.4,
     "is_undervalued": true,
     "pe_trailing": 13.8,
@@ -446522,60 +446526,60 @@ window.FULL_MARKET_DATA = {
     "roa": 9.539782637863947,
     "moat": {
       "ticker": "BMY",
-      "period": "2026Q2",
+      "period": "2026Q3",
       "m1_brand_pricing": {
-        "score": 8,
-        "comment_zh": "Bristol-Myers Squibb憑藉其在腫瘤、免疫學和心血管疾病領域的創新藥物，建立了強大的品牌信任和醫生處方慣性。例如，Eliquis和Opdivo等明星產品，因其卓越的療效和安全性，在市場上享有顯著的定價權。患者和醫生對這些救命藥物的依賴性高，即使價格較高，轉換成本（健康風險）也使得其需求彈性較低。這種品牌心智與臨床數據的結合，為公司提供了堅實的護城河，使其能夠在競爭激烈的市場中保持領先地位。",
-        "comment_en": "Bristol-Myers Squibb has cultivated strong brand trust and physician prescribing habits through its innovative drugs in oncology, immunology, and cardiovascular diseases. Blockbuster products like Eliquis and Opdivo command significant pricing power due to their superior efficacy and safety profiles. Patients and physicians exhibit high dependence on these life-saving medications, making demand relatively inelastic even at premium prices, given the high switching costs (health risks). This combination of brand perception and robust clinical data provides a solid moat, enabling the company to maintain a leading position in a highly competitive market."
+        "score": 7,
+        "comment_zh": "必治妥施貴寶（BMY）在品牌藥品定價權方面展現出堅實的實力。其核心產品，如免疫腫瘤藥物 Opdivo 和血栓預防藥物 Eliquis，在市場上享有極高的聲譽和廣泛的臨床認可，這使得公司能夠在一定程度上維持較高的價格水平。然而，藥品定價權並非絕對，受到各國醫保政策、仿製藥競爭以及新療法出現的壓力。儘管如此，BMY 透過持續的研發投入和臨床數據支持，鞏固了其品牌價值，使其在市場上具有一定的定價優勢，但仍需面對外部環境的挑戰。",
+        "comment_en": "Bristol-Myers Squibb (BMY) demonstrates solid strength in brand pricing power for its pharmaceutical products. Key offerings like the immuno-oncology drug Opdivo and the anticoagulant Eliquis enjoy high market reputation and extensive clinical recognition, allowing the company to maintain relatively high price levels to a certain extent. However, drug pricing power is not absolute, facing pressure from national healthcare policies, generic competition, and the emergence of new therapies. Despite these challenges, BMY solidifies its brand value through continuous R&D investment and clinical data support, granting it a degree of pricing advantage in the market, though external pressures remain."
       },
       "m2_patents_regulatory": {
-        "score": 9,
-        "comment_zh": "製藥業的核心護城河即是專利保護與嚴格的監管審批。BMY擁有龐大的專利組合，這些專利賦予其在特定藥物上的獨家銷售權，有效阻止了仿製藥的競爭，直至專利到期。新藥研發需耗費數十億美元和十年以上時間，並通過FDA等機構的嚴格審批，這本身就是極高的進入壁壘。BMY持續投入研發，確保其產品線的專利保護，這是其維持高利潤率和市場份額的關鍵。",
-        "comment_en": "The pharmaceutical industry's core moat lies in patent protection and stringent regulatory approvals. BMY possesses an extensive patent portfolio, granting it exclusive sales rights for specific drugs, effectively fending off generic competition until patent expiration. New drug development demands billions of dollars and over a decade, coupled with rigorous approvals from agencies like the FDA, forming an exceptionally high barrier to entry. BMY's continuous R&D investment secures its product pipeline's patent protection, which is crucial for sustaining high profit margins and market share."
+        "score": 8,
+        "comment_zh": "必治妥施貴寶（BMY）的專利與監管壁壘是其重要的護城河。公司擁有多項重磅藥物的專利保護，為其帶來了獨佔市場的機會，尤其是在免疫腫瘤和血液學領域。這些專利為其提供了穩定的收入來源，並阻止了仿製藥的早期進入。然而，藥品專利的到期是行業的必然規律，BMY 需要持續透過新藥研發和管線佈局來彌補專利懸崖的風險。此外，藥品審批的監管流程嚴格且漫長，這本身也構成了一道進入壁壘，但同時也意味著公司需要投入大量資源以確保藥品的合規性與市場准入。",
+        "comment_en": "Bristol-Myers Squibb's (BMY) patent and regulatory barriers form a significant moat. The company holds patent protection for several blockbuster drugs, granting it opportunities for market exclusivity, particularly in the fields of immuno-oncology and hematology. These patents provide a stable revenue stream and prevent early generic entry. However, patent expiration is an inherent industry cycle, and BMY must continuously compensate for the risk of patent cliffs through new drug development and pipeline expansion. Furthermore, the stringent and lengthy drug approval process itself constitutes an entry barrier, while also requiring substantial resource investment to ensure product compliance and market access."
       },
       "m3_high_switching_costs": {
-        "score": 8,
-        "comment_zh": "對於許多慢性病和危及生命的疾病，一旦患者對某種藥物反應良好且耐受性佳，醫生和患者通常不願更換治療方案。轉換藥物可能導致療效不確定、潛在副作用或需要重新調整劑量，這些都構成顯著的健康風險和心理負擔。例如，在腫瘤或心血管疾病治療中，患者對已建立療效的藥物具有高度黏性，這為BMY的產品提供了強大的轉換成本壁壘，確保了穩定的收入流。",
-        "comment_en": "For many chronic and life-threatening conditions, once a patient responds well to a drug with good tolerability, both physicians and patients are generally reluctant to switch treatments. Changing medications can lead to uncertain efficacy, potential side effects, or the need for dosage readjustment, all posing significant health risks and psychological burdens. For instance, in oncology or cardiovascular treatments, patients exhibit high stickiness to established effective drugs. This creates substantial switching cost barriers for BMY's products, ensuring a stable revenue stream."
+        "score": 6,
+        "comment_zh": "必治妥施貴寶（BMY）的轉換成本在中等水平。對於患者而言，一旦開始使用某種藥物並產生療效，轉換到另一種藥物的意願通常不高，尤其是在治療慢性疾病或嚴重疾病時。醫生在處方藥物時也會考慮到患者的用藥習慣和治療效果，減少非必要的更換。然而，隨著新一代藥物的出現或藥物效果不佳，患者和醫生仍有可能考慮轉換。此外，藥品市場的競爭激烈，若有更具成本效益或療效更佳的替代品，轉換成本的約束力會減弱。因此，BMY 的轉換成本壁壘相對穩固，但並非不可逾越。",
+        "comment_en": "Bristol-Myers Squibb's (BMY) switching costs are at a moderate level. For patients, once a treatment regimen is established and effective, the willingness to switch to another drug is typically low, especially for chronic or severe conditions. Physicians also consider patient habits and treatment outcomes when prescribing, minimizing unnecessary changes. However, with the advent of newer generations of drugs or if a drug proves ineffective, patients and physicians may still consider switching. Moreover, the competitive pharmaceutical market means that if more cost-effective or superior alternatives emerge, the constraint of switching costs can weaken. Therefore, BMY's switching cost barrier is relatively stable but not insurmountable."
       },
       "m4_network_effects": {
         "score": 2,
-        "comment_zh": "製藥公司通常不具備典型的網絡效應護城河。BMY的產品價值不會因為更多用戶使用而呈幾何級數增長，其商業模式主要依賴於藥物的內在療效和專利保護。儘管醫生之間會分享臨床經驗和研究成果，這有助於藥物的推廣，但這並非傳統意義上的網絡效應，無法形成用戶數量增加導致產品價值指數級提升的飛輪效應。因此，此項護城河對BMY而言相對薄弱。",
-        "comment_en": "Pharmaceutical companies typically do not possess a classic network effect moat. The value of BMY's products does not increase geometrically with more users; its business model primarily relies on the intrinsic efficacy of its drugs and patent protection. While physicians share clinical experiences and research findings, aiding drug adoption, this does not constitute a traditional network effect where increasing user numbers exponentially enhances product value. Consequently, this moat is relatively weak for BMY."
+        "comment_zh": "必治妥施貴寶（BMY）的業務模式，作為一家製藥公司，其核心競爭力來自於藥物的研發、生產和銷售，而非典型的網絡效應。網絡效應通常體現在平台型業務中，用戶越多，價值越大。在製藥業，雖然醫生、患者和保險公司之間的協作很重要，但這並不直接構成網絡效應的壁壘。BMY 的成功更多依賴於其產品的療效、專利保護和市場推廣，而非用戶數量的增長帶來的邊際效用遞增。因此，在網絡效應這一維度上，BMY 的得分較低，這並非其業務模式的弱點，而是該維度與其行業屬性不匹配。",
+        "comment_en": "Bristol-Myers Squibb's (BMY) business model, as a pharmaceutical company, derives its core competitiveness from drug R&D, production, and sales, rather than typical network effects. Network effects are usually seen in platform businesses where more users equate to greater value. In the pharmaceutical industry, while collaboration among physicians, patients, and insurers is important, it does not directly constitute a network effect barrier. BMY's success relies more on drug efficacy, patent protection, and market promotion, not on the increasing marginal utility derived from user growth. Therefore, BMY scores low on the network effects dimension; this is not a weakness of its business model but rather a mismatch between the dimension and its industry characteristics."
       },
       "m5_cost_advantage_scale": {
         "score": 7,
-        "comment_zh": "作為全球領先的製藥巨頭，BMY在研發、生產和全球分銷方面享有顯著的規模經濟。其龐大的研發預算能夠分散新藥開發的巨大風險，並支持多個候選藥物的同步推進。在生產方面，大規模的生物製藥設施和優化的供應鏈管理降低了單位成本。此外，其遍布全球的銷售和營銷網絡，使得新藥上市和市場滲透更為高效，這是小型生物科技公司難以匹敵的優勢。",
-        "comment_en": "As a leading global pharmaceutical giant, BMY benefits significantly from economies of scale in R&D, manufacturing, and global distribution. Its vast R&D budget allows for the diversification of the immense risks associated with new drug development and supports the simultaneous advancement of multiple drug candidates. In manufacturing, large-scale biopharmaceutical facilities and optimized supply chain management reduce per-unit costs. Furthermore, its extensive global sales and marketing network enables more efficient new drug launches and market penetration, an advantage smaller biotech firms cannot easily match."
+        "comment_zh": "必治妥施貴寶（BMY）在規模經濟方面具有一定的成本優勢。作為一家大型製藥公司，BMY 在藥物研發、臨床試驗、生產製造和全球分銷等方面擁有龐大的規模。這種規模使其能夠攤薄固定成本，並在採購原材料、生產設備和技術方面獲得更優惠的價格。大規模的生產能力也有助於滿足全球市場的需求，並在與供應商談判時處於有利地位。然而，製藥業的研發投入巨大且風險高，規模優勢並不能完全抵消新藥研發失敗的風險。此外，部分利基藥物的生產規模可能不如大眾藥物，成本優勢的體現會有所差異。",
+        "comment_en": "Bristol-Myers Squibb (BMY) possesses a certain cost advantage through economies of scale. As a large pharmaceutical company, BMY operates on a vast scale in drug R&D, clinical trials, manufacturing, and global distribution. This scale allows it to spread fixed costs and secure more favorable pricing for raw materials, production equipment, and technology. Large-scale production capacity also helps meet global market demand and positions the company favorably in negotiations with suppliers. However, the pharmaceutical industry's R&D is capital-intensive and high-risk, and scale advantages cannot fully offset the risk of R&D failures. Furthermore, the production scale for some niche drugs may be smaller than for mass-market drugs, leading to variations in the manifestation of cost advantages."
       },
       "m6_unique_geography_assets": {
-        "score": 6,
-        "comment_zh": "製藥業的「利基市場」更多體現在特定疾病領域的專業化和高進入壁壘，而非地理位置。BMY在腫瘤、免疫學等高價值治療領域建立了深厚的專業知識和市場領導地位。這些領域需要極高的研發投入、專業人才和監管經驗，使得新競爭者難以輕易進入並取得成功。這創造了一種「有效規模」的寡占局面，即市場雖大，但只有少數具備雄厚實力的公司能夠有效競爭，避免了惡性價格戰。",
-        "comment_en": "The 'niche market' in pharmaceuticals is more about specialization in specific disease areas and high barriers to entry, rather than geographic location. BMY has established deep expertise and market leadership in high-value therapeutic areas like oncology and immunology. These fields demand immense R&D investment, specialized talent, and regulatory experience, making it difficult for new competitors to easily enter and succeed. This creates an 'efficient scale' oligopoly where, despite large markets, only a few well-resourced companies can effectively compete, thus avoiding destructive price wars."
+        "score": 3,
+        "comment_zh": "必治妥施貴寶（BMY）的業務主要集中在全球藥品市場，其核心資產是藥物專利、研發管線和品牌聲譽，而非特定地理位置的獨特資產。雖然公司在全球範圍內設有研發、生產和銷售據點，以服務不同地區的市場，但這些據點並非構成獨特的地理壁壘。其競爭優勢更多體現在產品的創新性和市場准入能力上，而非依賴於某個特定地區的資源或市場。因此，在獨特地理資產這一維度上，BMY 的得分較低，這與其作為一家跨國製藥企業的業務性質有關。",
+        "comment_en": "Bristol-Myers Squibb's (BMY) business is primarily focused on the global pharmaceutical market, with its core assets being drug patents, R&D pipelines, and brand reputation, rather than unique assets tied to specific geographic locations. While the company has R&D, manufacturing, and sales operations worldwide to serve different regional markets, these locations do not constitute unique geographical barriers. Its competitive advantages are more evident in product innovation and market access capabilities, rather than reliance on resources or markets in a particular region. Therefore, BMY scores low on the unique geography assets dimension, which is related to its nature as a multinational pharmaceutical enterprise."
       },
       "m7_operational_efficiency": {
-        "score": 8,
-        "comment_zh": "BMY展現出卓越的資本回報能力，其高達41.6%的股東權益報酬率（ROE）和10.6%的資產報酬率（ROA）證明了其高效的資本運用。這表明公司不僅能夠有效管理其資產，還能為股東創造顯著的超額回報。在製藥行業，持續的超額ROIC韌性是衡量公司能否有效將研發投入轉化為盈利的關鍵指標，BMY的財務數據反映了其在這一方面的強大實力，遠超其加權平均資本成本。",
-        "comment_en": "BMY demonstrates exceptional capital returns, with a high Return on Equity (ROE) of 41.6% and Return on Assets (ROA) of 10.6%, evidencing its highly efficient capital deployment. This indicates the company not only manages its assets effectively but also generates significant excess returns for shareholders. In the pharmaceutical industry, sustained ROIC resilience is a critical metric for assessing a company's ability to convert R&D investments into profitability. BMY's financial figures reflect its strong performance in this regard, significantly exceeding its weighted average cost of capital."
+        "score": 7,
+        "comment_zh": "必治妥施貴寶（BMY）在營運效率方面表現穩健。公司透過優化研發流程、精簡生產環節以及高效的供應鏈管理，努力提升營運效率。其高 ROE (39.5%) 和 ROA (10.4%) 指標，以及強勁的自由現金流 (FCF TTM: $9,286.0M)，都顯示出公司在將資源轉化為利潤方面的能力。嚴格的成本控制和對生產流程的持續改進，有助於維持其在行業內的競爭力。然而，製藥業的營運效率也受到嚴格的監管要求和研發的高不確定性影響，這限制了其效率提升的絕對空間。總體而言，BMY 在其行業內展現了良好的營運效率。",
+        "comment_en": "Bristol-Myers Squibb (BMY) demonstrates robust operational efficiency. The company strives to enhance efficiency by optimizing R&D processes, streamlining production, and implementing effective supply chain management. Its high ROE (39.5%) and ROA (10.4%) metrics, along with strong Free Cash Flow (FCF TTM: $9,286.0M), indicate its capability in converting resources into profits. Strict cost controls and continuous improvements in production processes help maintain its competitiveness within the industry. However, operational efficiency in pharmaceuticals is also influenced by stringent regulatory requirements and the high uncertainty of R&D, limiting the absolute scope for efficiency gains. Overall, BMY exhibits good operational efficiency within its industry."
       },
       "m8_capital_allocation": {
-        "score": 7,
-        "comment_zh": "BMY在資本配置上展現出戰略性思維，尤其是在通過併購來補充和強化其產品線方面。例如，對Celgene的收購雖然帶來了短期債務壓力，但長期來看，其豐富的腫瘤和免疫學產品組合極大地增強了BMY的市場競爭力。公司也通過穩定的股息和適時的股票回購來回饋股東，儘管製藥業的併購風險較高，但BMY的決策通常著眼於長期價值創造，並在維持研發投入與股東回報之間取得平衡。",
-        "comment_en": "BMY demonstrates strategic thinking in capital allocation, particularly in replenishing and strengthening its pipeline through acquisitions. For instance, while the Celgene acquisition brought short-term debt pressure, its rich oncology and immunology portfolio significantly enhanced BMY's long-term market competitiveness. The company also rewards shareholders through stable dividends and timely share buybacks. Although M&A in pharma carries higher risks, BMY's decisions typically focus on long-term value creation, balancing R&D investment with shareholder returns."
+        "score": 8,
+        "comment_zh": "必治妥施貴寶（BMY）展現出優秀的資本配置能力。公司透過股權回購和股息支付，積極回饋股東。同時，其持續的研發投入和選擇性併購，顯示了對未來增長機會的戰略性佈局。例如，對 Celgene 的收購雖然規模龐大，但整合後為公司帶來了顯著的協同效應和產品組合的強化。BMY 在維持穩健的資產負債表（現金 $12,581.0M / 負債 $42,877.0M）的同時，能夠產生充沛的自由現金流，為其資本配置提供了彈性。管理層在平衡短期回報與長期投資方面，展現了較為成熟的決策能力。",
+        "comment_en": "Bristol-Myers Squibb (BMY) exhibits excellent capital allocation capabilities. The company actively returns value to shareholders through share repurchases and dividend payments. Concurrently, its sustained R&D investments and selective acquisitions demonstrate strategic positioning for future growth opportunities. For instance, the acquisition of Celgene, although substantial, brought significant synergies and strengthened the product portfolio post-integration. BMY's ability to generate ample free cash flow while maintaining a solid balance sheet (Cash $12,581.0M / Debt $42,877.0M) provides flexibility for capital allocation. Management has demonstrated mature decision-making skills in balancing short-term returns with long-term investments."
       },
       "m9_customer_retention": {
-        "score": 8,
-        "comment_zh": "製藥行業的客戶保留率極高，這主要源於藥物的生命攸關性質和患者對治療方案的依賴性。一旦患者開始使用BMY的有效藥物，特別是針對慢性或嚴重疾病的藥物，他們通常會長期持續使用，以維持健康狀況。醫生也會因為對藥物療效和副作用的熟悉，傾向於持續處方。這種高保留率不僅確保了穩定的收入流，也降低了獲客成本，是BMY護城河的重要組成部分。",
-        "comment_en": "Customer retention in the pharmaceutical industry is exceptionally high, primarily due to the life-saving nature of medications and patient dependence on treatment regimens. Once patients begin using BMY's effective drugs, especially for chronic or severe conditions, they typically continue long-term to maintain their health. Physicians also tend to continue prescribing due to familiarity with drug efficacy and side effects. This high retention rate not only ensures a stable revenue stream but also reduces customer acquisition costs, forming a crucial component of BMY's moat."
+        "score": 7,
+        "comment_zh": "必治妥施貴寶（BMY）在客戶（主要是患者和醫療機構）留存方面具有較強的能力。一旦患者開始使用其藥物並獲得療效，由於治療的連續性和對藥效的依賴，轉換到其他藥物的可能性相對較低。醫生在處方時也會考慮到患者的用藥歷史和治療效果，傾向於繼續使用有效的藥物。BMY 透過提供優質的藥品和持續的臨床支持，維護與醫療專業人士和患者的關係。然而，藥品市場的競爭激烈，新藥的出現和治療方案的更新可能影響長期留存。但總體而言，其核心產品的療效和品牌忠誠度為客戶留存提供了堅實基礎。",
+        "comment_en": "Bristol-Myers Squibb (BMY) possesses strong capabilities in customer retention, primarily focusing on patients and healthcare providers. Once patients begin using its drugs and experience therapeutic benefits, the likelihood of switching to other medications is relatively low due to treatment continuity and reliance on efficacy. Physicians also consider patient history and treatment outcomes when prescribing, tending to continue with effective medications. BMY maintains relationships with healthcare professionals and patients by providing high-quality drugs and ongoing clinical support. However, the competitive pharmaceutical market, with the emergence of new drugs and evolving treatment protocols, can impact long-term retention. Overall, the efficacy of its core products and brand loyalty provide a solid foundation for customer retention."
       },
       "m10_durability": {
         "score": 7,
-        "comment_zh": "BMY的業務模式具有較強的抗顛覆性。人類對健康和治療疾病的需求是永恆的，這為製藥行業提供了堅實的基礎。儘管新技術（如AI輔助藥物發現、基因療法）不斷湧現，但藥物研發的漫長週期和嚴格的監管審批流程，為現有巨頭提供了適應和整合新技術的時間。BMY持續的研發投入和多元化的產品線，使其能夠應對潛在的技術變革和專利懸崖，保持其長期競爭力。",
-        "comment_en": "BMY's business model exhibits strong resilience against disruption. The enduring human need for health and disease treatment provides a solid foundation for the pharmaceutical industry. While new technologies (e.g., AI-assisted drug discovery, gene therapy) continuously emerge, the lengthy drug development cycles and stringent regulatory approval processes afford existing giants time to adapt and integrate new technologies. BMY's continuous R&D investment and diversified product pipeline enable it to navigate potential technological shifts and patent cliffs, maintaining its long-term competitiveness."
+        "comment_zh": "必治妥施貴寶（BMY）的業務護城河具有中等偏上的持久性。其核心優勢來自於專利保護下的重磅藥物，這些藥物在市場上具有領先地位，並能產生穩定的現金流。然而，藥品專利的到期是不可避免的挑戰，這要求公司必須持續進行創新和研發，以填補專利懸崖帶來的收入缺口。此外，生物技術的快速發展和新興療法不斷湧現，對現有藥物的市場地位構成潛在威脅。BMY 需要不斷透過內部研發和外部併購來維持其產品線的競爭力。總體而言，其專利和品牌壁壘提供了一定的持久性，但需要持續的創新投入來鞏固。",
+        "comment_en": "Bristol-Myers Squibb's (BMY) business moat exhibits moderate to high durability. Its core strength lies in blockbuster drugs protected by patents, which hold leading market positions and generate stable cash flows. However, patent expiration is an unavoidable challenge, requiring the company to continuously innovate and conduct R&D to fill the revenue gap left by patent cliffs. Furthermore, rapid advancements in biotechnology and the emergence of new therapies pose potential threats to the market position of existing drugs. BMY must continually maintain the competitiveness of its product pipeline through internal R&D and external acquisitions. Overall, its patent and brand barriers provide a degree of durability, but sustained innovation investment is necessary to reinforce it."
       },
-      "overall_moat_verdict_zh": "Bristol-Myers Squibb本質上是一家由專利保護的「特許經營權」企業，其核心護城河建立在創新藥物的獨家銷售權、嚴格的監管壁壘以及醫生和患者的高度黏性之上。它如同一個收取「健康通行費」的收費橋樑，為全球患者提供不可或缺的治療方案。儘管面臨專利懸崖和高昂的研發成本，但其強大的品牌信譽、規模經濟、高效的資本配置以及在腫瘤和免疫學等高價值領域的領導地位，使其能夠持續創造超額回報。這是一個典型的巴菲特式「好生意」，擁有深厚的護城河，能夠抵禦競爭並長期為股東創造價值。",
-      "overall_moat_verdict_en": "Bristol-Myers Squibb is fundamentally a 'franchise' business protected by patents, with its core moat built upon exclusive sales rights for innovative drugs, stringent regulatory barriers, and high physician and patient stickiness. It operates like a 'toll bridge' collecting 'health tolls,' providing indispensable treatment solutions to patients worldwide. Despite facing patent cliffs and high R&D costs, its strong brand reputation, economies of scale, efficient capital allocation, and leadership in high-value areas like oncology and immunology enable it to consistently generate superior returns. This is a classic Buffett-style 'good business' with a deep moat, capable of fending off competition and creating long-term shareholder value.",
-      "evidenceHash": "f474a67c38b982b1f630699c38f2badaa3a789d58993ac65ce1f1c3abd796be8",
+      "overall_moat_verdict_zh": "必治妥施貴寶（BMY）的護城河主要建立在專利保護的藥品定價權和品牌聲譽之上，屬於典型的「專利型」或「品牌型」特許經營模式。其核心藥物如 Opdivo 和 Eliquis 在市場上享有領導地位，帶來穩定的現金流和較高的客戶留存率。公司在規模經濟和營運效率方面亦有優勢，並展現出優秀的資本配置能力，透過研發和併購持續強化其競爭力。然而，專利到期和新療法競爭是其持久性面臨的主要挑戰。整體而言，BMY 擁有堅固的護城河，但其長期價值取決於持續創新的能力以應對行業變革。",
+      "overall_moat_verdict_en": "Bristol-Myers Squibb (BMY)'s moat is primarily built upon pricing power derived from patent-protected drugs and brand reputation, fitting a typical 'patent-based' or 'brand-based' franchise model. Its core drugs, such as Opdivo and Eliquis, hold leading market positions, generating stable cash flows and high customer retention. The company also benefits from economies of scale and operational efficiency, coupled with excellent capital allocation capabilities, continuously strengthening its competitiveness through R&D and acquisitions. However, patent expirations and competition from new therapies represent the main challenges to its durability. Overall, BMY possesses a solid moat, but its long-term value hinges on its ability to innovate continuously to navigate industry changes.",
+      "evidenceHash": "39c6c6057d203e27799f52fc662909452ce898df72f62a15ba5c4b75377e6fba",
       "assessmentPolicy": "buffett-moat-v3",
       "model": "gemini-2.5-flash-lite",
       "provider": "Vertex AI"
@@ -446597,7 +446601,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "8e7541be6da93dae0eb5444d81cef292d19f0aa2e295c5cdfc29e973bf678d02"
       },
       "mScore": {
@@ -446609,7 +446613,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "8e7541be6da93dae0eb5444d81cef292d19f0aa2e295c5cdfc29e973bf678d02"
       }
     },
@@ -446787,7 +446791,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "BMY",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:19:42Z",
+      "fetchedAt": "2026-10-31T17:09:05Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-10-30",
@@ -446816,14 +446820,14 @@ window.FULL_MARKET_DATA = {
         "inventory": 2704000000,
         "preferredStock": 0
       },
-      "sharesOutstanding": 2042710000,
+      "sharesOutstanding": 2044085800,
       "shareSource": {
-        "shares": 2042.71,
+        "shares": 2044.0858,
         "date": "2026-10-31",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/14272/000001427226000024/bmy-20260930.htm",
-        "capturedAt": "2026-10-31T14:19:42Z"
+        "capturedAt": "2026-10-31T17:09:05Z"
       }
     },
     "z_score": 2.36,
@@ -447142,7 +447146,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1613103/000162828026060473/mdt-20260731.htm",
-      "capturedAt": "2026-10-31T14:19:48Z"
+      "capturedAt": "2026-10-31T17:09:28Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 123491.1,
@@ -450390,7 +450394,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "df9a82000b535fa48fba7d70243872eaedfe98da43223925965fa5d6526e25fb"
       },
       "mScore": {
@@ -450402,7 +450406,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "df9a82000b535fa48fba7d70243872eaedfe98da43223925965fa5d6526e25fb"
       }
     },
@@ -450586,7 +450590,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MDT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:19:48Z",
+      "fetchedAt": "2026-10-31T17:09:28Z",
       "balanceDate": "2026-07-31",
       "filingDate": "2026-09-03",
       "quoteDate": "2026-10-30",
@@ -450622,7 +450626,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1613103/000162828026060473/mdt-20260731.htm",
-        "capturedAt": "2026-10-31T14:19:48Z"
+        "capturedAt": "2026-10-31T17:09:28Z"
       }
     },
     "z_score": 3.02,
@@ -450945,7 +450949,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/882095/000088209526000039/gild-20260930.htm",
-      "capturedAt": "2026-10-31T14:19:53Z"
+      "capturedAt": "2026-10-31T17:09:37Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 211636.4,
@@ -454118,60 +454122,60 @@ window.FULL_MARKET_DATA = {
     "roa": -6.599695898040421,
     "moat": {
       "ticker": "GILD",
-      "period": "2026Q2",
+      "period": "2026Q3",
       "m1_brand_pricing": {
-        "score": 8,
-        "comment_zh": "Gilead在HIV和HCV治療領域擁有領先地位，其創新藥物對患者而言是不可或缺的。儘管面臨政府和保險公司的價格壓力，但其獨特的療效和較少的替代品賦予了公司強大的定價權。例如，Biktarvy等HIV藥物因其卓越的療效和便利性，即使價格較高，醫生和患者仍傾向於選擇，這體現了其品牌心智和產品的不可替代性，形成了一道堅實的護城河。",
-        "comment_en": "Gilead holds a leading position in HIV and HCV treatments, with its innovative drugs being indispensable for patients. Despite facing pricing pressures from governments and insurers, the unique efficacy and limited alternatives for its products grant the company significant pricing power. For instance, HIV drugs like Biktarvy, due to their superior efficacy and convenience, are preferred by doctors and patients even at higher prices. This reflects strong brand loyalty and product indispensability, forming a robust moat."
+        "score": 6,
+        "comment_zh": "GILD 的品牌定價權主要來自其在特定治療領域的領導地位，尤其是在抗病毒藥物（如 HIV 和 B 型肝炎）方面。這些藥物通常具有較高的臨床價值和較低的替代品，使得公司在一定程度上能夠維持價格。然而，生物科技產業的競爭激烈，新藥不斷湧現，且面臨學名藥的壓力，這限制了其品牌定價權的強度。與消費品牌不同，GILD 的產品是處方藥，其定價受醫保、政府監管及支付方影響較大，而非純粹的品牌忠誠度驅動。因此，其品牌價值更多體現在研發實力與臨床療效上，而非消費者直接的品牌偏好。",
+        "comment_en": "GILD's brand pricing power primarily stems from its leadership in specific therapeutic areas, particularly in antiviral drugs (such as HIV and Hepatitis B). These drugs often possess high clinical value and limited alternatives, allowing the company to maintain prices to some extent. However, the biotechnology industry is highly competitive, with continuous emergence of new drugs and pressure from generics, which limits the strength of its brand pricing power. Unlike consumer brands, GILD's products are prescription drugs, and their pricing is significantly influenced by healthcare insurance, government regulations, and payers, rather than being purely driven by brand loyalty. Therefore, its brand value is more reflected in R&D strength and clinical efficacy, rather than direct consumer brand preference."
       },
       "m2_patents_regulatory": {
-        "score": 9,
-        "comment_zh": "Gilead的核心競爭力源於其強大的專利組合，尤其是在HIV和HCV治療領域。這些專利保護了其創新藥物的獨家銷售權，使其免受學名藥競爭的衝擊，為公司帶來了數十年的穩定現金流。此外，藥品研發需經過嚴格且漫長的臨床試驗和監管審批，這本身就是一道極高的進入壁壘。競爭對手即使擁有資金，也難以在短時間內複製其已獲批的產品線和臨床數據，確保了其市場領導地位。",
-        "comment_en": "Gilead's core competitive advantage stems from its robust patent portfolio, particularly in HIV and HCV treatments. These patents protect the exclusive sales rights of its innovative drugs, shielding them from generic competition and ensuring decades of stable cash flow. Furthermore, drug development involves rigorous and lengthy clinical trials and regulatory approvals, which inherently constitute a very high barrier to entry. Competitors, even with substantial capital, would find it challenging to replicate Gilead's approved product pipeline and clinical data in a short timeframe, securing its market leadership."
+        "score": 8,
+        "comment_zh": "GILD 的核心競爭壁壘來自其強大的專利組合與藥品審批監管體系。其多項重磅藥物均受到專利保護，在專利期內享有市場獨佔權，這是其營收和利潤的主要來源。此外，新藥研發的漫長週期、高昂成本以及嚴格的 FDA 等監管審批流程，構成了極高的行業准入門檻。一旦藥品獲得批准，其臨床療效和安全性數據將進一步鞏固其市場地位，並為後續的定價提供支持。儘管專利終將到期，但公司持續的研發投入和對新適應症的拓展，能夠在一定程度上延續其專利壁壘的有效性。",
+        "comment_en": "GILD's core competitive moat comes from its strong patent portfolio and drug approval regulatory system. Many of its blockbuster drugs are protected by patents, granting market exclusivity during their patent life, which is the primary source of its revenue and profits. Furthermore, the lengthy development cycle, high costs, and stringent regulatory approval processes by bodies like the FDA create extremely high industry entry barriers. Once a drug is approved, its clinical efficacy and safety data further solidify its market position and support its pricing. Although patents eventually expire, the company's continuous R&D investment and expansion into new indications can, to some extent, extend the effectiveness of its patent moat."
       },
       "m3_high_switching_costs": {
-        "score": 8,
-        "comment_zh": "對於HIV等慢性疾病患者而言，一旦開始使用Gilead的有效藥物並達到穩定療效，轉換治療方案的風險和成本極高。醫生和患者都不願冒險更換可能導致療效下降或產生新副作用的藥物。這種對既有治療方案的依賴性，形成了強大的轉換成本護城河。患者的健康與生命安全是首要考量，使得他們對Gilead藥物的黏性極高，即使有新藥上市，轉換決策也需極為謹慎，鞏固了Gilead的市場地位。",
-        "comment_en": "For patients with chronic conditions like HIV, once they begin using Gilead's effective medications and achieve stable results, the risks and costs associated with switching treatments are extremely high. Doctors and patients are reluctant to risk changing medications that might lead to reduced efficacy or new side effects. This dependence on existing treatment regimens creates a strong switching cost moat. Patient health and safety are paramount, making their adherence to Gilead's drugs very high. Even with new drug introductions, switching decisions are made with extreme caution, solidifying Gilead's market position."
+        "score": 7,
+        "comment_zh": "對於 GILD 的藥品，尤其是慢性病治療藥物（如 HIV 藥物），患者一旦開始使用某種治療方案，由於藥效的穩定性、副作用的適應以及醫生的處方習慣，轉換到另一種藥物的成本相對較高。這種轉換成本不僅體現在患者的身體適應性上，也包括醫生重新評估和調整治療方案的時間與精力。此外，保險公司和醫療機構在藥品採購和給付決策中，也會考慮到藥品的長期療效和成本效益，這進一步增加了藥品轉換的複雜性。因此，GILD 的產品在臨床應用中具有一定的黏著度。",
+        "comment_en": "For GILD's drugs, especially chronic disease treatments (like HIV medications), once patients start a particular treatment regimen, the cost of switching to another drug is relatively high due to treatment stability, adaptation to side effects, and physician prescribing habits. This switching cost is reflected not only in the patient's physical adaptation but also in the time and effort required for doctors to re-evaluate and adjust treatment plans. Furthermore, insurance companies and healthcare institutions consider the long-term efficacy and cost-effectiveness of drugs in their procurement and reimbursement decisions, further increasing the complexity of drug switching. Therefore, GILD's products possess a certain stickiness in clinical application."
       },
       "m4_network_effects": {
-        "score": 4,
-        "comment_zh": "Gilead作為生物製藥公司，其商業模式主要依賴於藥物研發與銷售，而非直接的網絡效應。雖然其藥物在醫學界廣泛使用，累積了大量臨床數據和醫生處方經驗，這有助於建立信任和推廣，但這並非典型的「每多一個用戶加入，整個生態系統對所有參與者的價值呈幾何級上升」的網絡效應。其影響更多體現在品牌聲譽和醫學共識的建立，而非平台式的用戶互動增值，因此護城河強度相對較弱。",
-        "comment_en": "As a biopharmaceutical company, Gilead's business model primarily relies on drug development and sales, rather than direct network effects. While its drugs are widely used in the medical community, accumulating extensive clinical data and physician prescribing experience, which helps build trust and promotion, this is not a typical \"value for all participants increases geometrically with each new user\" network effect. Its impact is more reflected in brand reputation and the establishment of medical consensus, rather than platform-based user interaction value creation, thus the moat strength is relatively weaker."
+        "score": 2,
+        "comment_zh": "GILD 的業務模式主要基於藥品研發、生產和銷售，其產品的價值主要體現在藥效和臨床數據上，而非用戶之間的互動。因此，網絡效應在其商業模式中幾乎不存在。藥品的使用是個體化的，患者與患者之間、醫生與醫生之間並不存在因為更多人使用某種藥物而導致該藥物價值增加的情況。雖然醫學界的學術交流和臨床指南的更新會影響藥品的使用，但這並非傳統意義上的網絡效應，無法形成自我強化的增長飛輪。",
+        "comment_en": "GILD's business model is primarily based on drug research, development, production, and sales. The value of its products lies mainly in their efficacy and clinical data, rather than user interaction. Consequently, network effects are virtually non-existent in its business model. Drug usage is individualized; there is no scenario where the value of a drug increases for one user simply because more people are using it. While academic exchange within the medical community and updates to clinical guidelines can influence drug usage, this is not a network effect in the traditional sense and does not form a self-reinforcing growth flywheel."
       },
       "m5_cost_advantage_scale": {
         "score": 7,
-        "comment_zh": "Gilead憑藉其龐大的研發投入和全球銷售網絡，實現了顯著的規模經濟。其在藥物研發上的巨額固定成本，可以攤銷到全球數百萬患者的銷售額上，使得單位成本相對較低。此外，大規模生產和分銷能力也賦予其在供應鏈和市場推廣上的成本優勢。相較於小型生物科技公司，Gilead能以更低的邊際成本進行新藥開發和市場擴張，並在與保險公司談判時擁有更強的議價能力，這構成了一道重要的成本護城河。",
-        "comment_en": "Gilead achieves significant economies of scale through its massive R&D investments and global sales network. The substantial fixed costs of drug development can be amortized over sales to millions of patients worldwide, resulting in relatively lower unit costs. Furthermore, its large-scale production and distribution capabilities provide cost advantages in supply chain management and market promotion. Compared to smaller biotech firms, Gilead can develop new drugs and expand into markets at lower marginal costs and possesses stronger bargaining power with insurers, forming a crucial cost advantage moat."
+        "comment_zh": "GILD 作為一家大型生物製藥公司，在研發、臨床試驗、生產製造和全球銷售網絡方面，確實享有顯著的規模經濟效應。大規模的研發投入可以分攤到多個產品線上，降低單一藥物的研發成本佔比。其成熟的生產設施和供應鏈管理能夠有效控制生產成本。此外，龐大的銷售和市場准入團隊能夠更有效地覆蓋全球市場，與各國醫保機構談判，從而獲得更有利的價格和市場份額。這種規模優勢使其在與小型生技公司競爭時，具有成本和資源上的領先地位。",
+        "comment_en": "As a large biopharmaceutical company, GILD enjoys significant economies of scale in R&D, clinical trials, manufacturing, and its global sales network. Large-scale R&D investments can be spread across multiple product lines, reducing the R&D cost proportion for individual drugs. Its established manufacturing facilities and supply chain management effectively control production costs. Furthermore, a substantial sales and market access team can more effectively cover global markets and negotiate with healthcare agencies in various countries, thereby securing more favorable pricing and market share. This scale advantage positions it ahead of smaller biotech companies in terms of cost and resources."
       },
       "m6_unique_geography_assets": {
-        "score": 7,
-        "comment_zh": "Gilead在HIV和HCV等治療領域已建立起高度專業化和技術密集的市場地位。這些市場雖然規模可觀，但進入門檻極高，需要巨額的研發投入、漫長的臨床驗證和嚴格的監管審批。新競爭者若想進入並與Gilead抗衡，不僅需投入天文數字般的資金，還需承擔巨大的失敗風險。這種環境使得市場自然趨向於少數幾家具備深厚技術積累和資金實力的寡頭，形成了一種「天然理性寡占」的局面，新進入者難以撼動其既有優勢。",
-        "comment_en": "Gilead has established a highly specialized and technology-intensive market position in therapeutic areas like HIV and HCV. While these markets are substantial, entry barriers are extremely high, demanding enormous R&D investment, lengthy clinical validation, and stringent regulatory approvals. New competitors aiming to challenge Gilead would not only require astronomical capital but also face immense risks of failure. This environment naturally leads to an oligopoly of a few players with deep technological accumulation and financial strength, creating a \"natural rational oligopoly\" where new entrants struggle to dislodge existing advantages."
+        "score": 3,
+        "comment_zh": "GILD 的核心資產是其研發管線中的藥品和已上市藥品的專利權與知識產權，這些是無形的智力資產，而非地理位置或特定實體資產。雖然其研發中心和生產基地遍布全球，但這些地點本身並不構成獨特的地理壁壘。其價值在於藥品的療效和專利保護，而非其生產或研發地點的稀缺性。與擁有特定礦產資源或獨特地理位置的公司不同，GILD 的資產具有高度的可移動性和可複製性（在專利保護期內），其價值不依賴於特定的地理位置。",
+        "comment_en": "GILD's core assets are the patents and intellectual property rights for its drugs in the R&D pipeline and those already on the market. These are intangible intellectual assets, not geographical locations or specific physical assets. While its R&D centers and manufacturing sites are globally distributed, these locations themselves do not constitute unique geographical barriers. Their value lies in the drugs' efficacy and patent protection, not in the scarcity of their production or R&D locations. Unlike companies owning specific mineral resources or unique geographical locations, GILD's assets are highly mobile and replicable (within the patent protection period), and their value does not depend on a specific geographical location."
       },
       "m7_operational_efficiency": {
-        "score": 8,
-        "comment_zh": "Gilead展現出卓越的資本效率和持續創造超額回報的能力。其18.0%的股東權益報酬率（ROE）和8.0%的資產報酬率（ROA），以及高達131.99億美元的自由現金流，均遠超其加權平均資本成本（WACC）。這表明公司能夠將投入的資本轉化為豐厚的利潤，並持續為股東創造價值。這種長週期內穩定的高ROIC，是其強大護城河的直接體現，證明了其在核心業務領域的盈利能力和競爭優勢難以被輕易複製。",
-        "comment_en": "Gilead demonstrates exceptional capital efficiency and a sustained ability to generate excess returns. Its 18.0% Return on Equity (ROE) and 8.0% Return on Assets (ROA), coupled with a robust $13.199 billion in Free Cash Flow, significantly exceed its Weighted Average Cost of Capital (WACC). This indicates the company's capacity to convert invested capital into substantial profits and consistently create shareholder value. Such stable high ROIC over the long term is a direct manifestation of its strong moat, proving its profitability and competitive advantages in core business areas are not easily replicable."
+        "score": 7,
+        "comment_zh": "GILD 在藥品研發、臨床試驗管理、生產製造和供應鏈物流方面展現出較高的營運效率。公司能夠有效地管理複雜的臨床試驗流程，並在嚴格的質量標準下進行大規模生產。其對成本控制的重視，以及通過規模化生產降低單位成本的能力，都體現了其營運效率。此外，GILD 在藥品上市後的市場推廣和銷售管理方面也相對成熟，能夠將產品有效地送達全球患者手中。儘管生物製藥行業本身具有高投入、長週期的特點，但 GILD 在現有體系內實現了較優的資源配置和營運效率。",
+        "comment_en": "GILD demonstrates high operational efficiency in drug R&D, clinical trial management, manufacturing, and supply chain logistics. The company can effectively manage complex clinical trial processes and conduct large-scale production under strict quality standards. Its emphasis on cost control and its ability to reduce unit costs through scaled production reflect its operational efficiency. Furthermore, GILD is relatively mature in post-market promotion and sales management, enabling effective delivery of its products to patients worldwide. Although the biopharmaceutical industry is inherently characterized by high investment and long cycles, GILD has achieved optimal resource allocation and operational efficiency within its existing framework."
       },
       "m8_capital_allocation": {
-        "score": 9,
-        "comment_zh": "Gilead的核心戰略資產，如其在HIV和HCV治療領域累積的數十年研發經驗、龐大的專利組合、成功的臨床數據、與全球監管機構建立的信任關係，以及醫生和患者對其產品的深厚信任，是極難複製的。即使給予競爭對手千億美元資金，也無法在短短幾年內重現這些無形資產。藥物研發的成功率極低，且需要漫長的時間積累，這使得Gilead的護城河不僅是資金壁壘，更是時間、知識和信任的複合壁壘，具有極高的不可複製性。",
-        "comment_en": "Gilead's core strategic assets, such as its decades of accumulated R&D experience in HIV and HCV treatments, vast patent portfolio, successful clinical data, established trust with global regulatory bodies, and deep confidence from doctors and patients in its products, are extremely difficult to replicate. Even with a hundred billion dollars, competitors could not recreate these intangible assets in just a few years. The success rate of drug development is extremely low and requires a long accumulation of time, making Gilead's moat not just a financial barrier, but a complex barrier of time, knowledge, and trust, possessing extremely high irreproducibility."
+        "score": 6,
+        "comment_zh": "GILD 的資本配置策略過去幾年較為積極，尤其是在併購方面，試圖通過收購來補充研發管線和擴大產品組合。例如，對 Seagen 的收購顯示了其在腫瘤領域的野心。然而，這種策略也帶來了較高的財務槓桿和整合風險。公司在研發上的投入持續，但其研發產出與投入的回報率（如 ROE 長期為負）仍面臨挑戰。在股票回購和股息方面，公司也有所行動，但相較於其營收規模，這些回報股東的措施力度有待觀察。總體而言，其資本配置的有效性，尤其是在驅動長期股東價值增長方面，仍需時間驗證。",
+        "comment_en": "GILD's capital allocation strategy has been quite aggressive in recent years, particularly in mergers and acquisitions, aiming to supplement its R&D pipeline and expand its product portfolio. For instance, the acquisition of Seagen demonstrates its ambition in the oncology field. However, this strategy also entails higher financial leverage and integration risks. The company continues to invest in R&D, but the return on investment from its R&D output (as indicated by its persistently negative ROE) remains a challenge. GILD has also engaged in share buybacks and dividends, but the magnitude of these shareholder return measures, relative to its revenue scale, remains to be seen. Overall, the effectiveness of its capital allocation, especially in driving long-term shareholder value growth, still requires time to validate."
       },
       "m9_customer_retention": {
         "score": 7,
-        "comment_zh": "Gilead所處的醫療保健領域，對有效治療方案的需求是永恆且剛性的。儘管生物科技行業技術迭代迅速，可能出現新的治療範式，但Gilead作為行業領導者，本身也在積極投入前沿研發，如細胞療法和抗病毒領域。其核心產品針對的是嚴重的慢性疾病，患者對療效的確定性要求極高，這使得市場對未經充分驗證的新技術持謹慎態度。因此，Gilead對顛覆性技術的抗性較強，其產品需求具有高度確定性，不易被輕易取代。",
-        "comment_en": "The demand for effective treatments in the healthcare sector, where Gilead operates, is perpetual and inelastic. While the biotech industry experiences rapid technological iteration and new therapeutic paradigms may emerge, Gilead, as an industry leader, actively invests in cutting-edge R&D, such as cell therapy and antivirals. Its core products target serious chronic diseases, where patients demand high certainty of efficacy, leading the market to be cautious about unproven new technologies. Therefore, Gilead exhibits strong resistance to disruptive technologies, and the demand for its products is highly certain and not easily replaced."
+        "comment_zh": "GILD 的客戶黏著度主要體現在其處方藥的穩定使用上，特別是針對慢性疾病（如 HIV）的治療藥物。一旦患者開始使用 GILD 的藥物並產生療效，且副作用可控，醫生和患者通常傾向於維持現有治療方案，以避免不確定的轉換風險。這種黏著度源於藥品的臨床療效和患者的身體適應性，而非傳統意義上的客戶服務或忠誠度計劃。對於醫生而言，熟悉某種藥物的臨床表現和使用方法，也會降低其轉換處方的意願。因此，GILD 的產品在臨床應用中具有較高的客戶留存率。",
+        "comment_en": "GILD's customer stickiness is primarily reflected in the stable use of its prescription drugs, especially for chronic diseases like HIV. Once patients start using GILD's medications and experience therapeutic benefits with manageable side effects, doctors and patients tend to maintain the existing treatment regimen to avoid uncertain switching risks. This stickiness stems from the drug's clinical efficacy and the patient's physical adaptation, rather than traditional customer service or loyalty programs. For physicians, familiarity with a drug's clinical performance and usage patterns also reduces their willingness to switch prescriptions. Consequently, GILD's products exhibit a high customer retention rate in clinical practice."
       },
       "m10_durability": {
         "score": 7,
-        "comment_zh": "Gilead的管理層在資本配置方面展現出穩健且以股東利益為導向的策略。公司擁有充沛的自由現金流，並歷史性地通過戰略性併購來擴充產品線和技術組合，例如在腫瘤領域的投資，而非盲目追逐高溢價交易。同時，公司也積極進行股票回購，在股價被低估時註銷股本，有效提升了每股收益和股東價值。這種平衡的資本配置策略，結合其穩健的財務表現，體現了管理層對長期價值的承諾和誠信，為護城河增添了額外的保障。",
-        "comment_en": "Gilead's management demonstrates a sound and shareholder-oriented capital allocation strategy. The company possesses ample free cash flow and has historically expanded its product pipeline and technology portfolio through strategic acquisitions, such as investments in oncology, rather than blindly pursuing high-premium deals. Concurrently, the company actively engages in share buybacks, retiring shares when undervalued to effectively enhance earnings per share and shareholder value. This balanced capital allocation strategy, combined with its robust financial performance, reflects management's commitment to long-term value and integrity, adding an extra layer of protection to its moat."
+        "comment_zh": "GILD 的業務護城河具有一定的持久性，主要依賴於其專利保護、持續的研發創新以及在特定治療領域建立的臨床聲譽。其核心藥物在專利期內享有市場獨佔權，這是其營收的堅實基礎。同時，公司不斷投入研發，尋求新藥和新適應症，以填補專利懸崖的影響。在 HIV 和 B 型肝炎等領域，GILD 已建立起強大的市場地位和品牌認知度，這使得其產品具有較強的市場韌性。然而，生物科技行業的快速發展和潛在的顛覆性技術，也對其長期持久性構成挑戰，需要公司不斷創新以維持領先地位。",
+        "comment_en": "GILD's business moat possesses a degree of durability, primarily relying on its patent protection, continuous R&D innovation, and the clinical reputation established in specific therapeutic areas. Its core drugs enjoy market exclusivity during their patent life, forming a solid foundation for its revenue. Concurrently, the company continuously invests in R&D to discover new drugs and indications, aiming to mitigate the impact of patent cliffs. In areas like HIV and Hepatitis B, GILD has established a strong market position and brand recognition, giving its products considerable market resilience. However, the rapid advancements and potential disruptive technologies in the biotechnology industry also pose challenges to its long-term durability, requiring constant innovation to maintain its leading position."
       },
-      "overall_moat_verdict_zh": "Gilead Sciences 是一家擁有堅固且多面向經濟護城河的專業製藥特許經營企業。其核心優勢在於針對HIV等慢性疾病的專利保護型救命藥物，這賦予了公司強大的定價權，並為患者和醫療服務提供者創造了高昂的轉換成本。藥物研發、臨床試驗和監管審批所需的巨額資本和漫長時間，構成了難以逾越的進入壁壘，使其戰略資產幾乎不可複製。儘管不具備直接的網絡效應，但其在研發和製造上的規模帶來了顯著的成本優勢。Gilead持續產生的高自由現金流和強勁的投入資本回報率，進一步證明了其競爭優勢的持久性，使其成為尋求具備持久盈利能力企業的長期投資者眼中極具價值的標的。",
-      "overall_moat_verdict_en": "Gilead Sciences operates as a specialized pharmaceutical franchise with a robust and multi-faceted economic moat. Its core strength lies in its patent-protected, life-saving drugs for chronic diseases like HIV, which grant it significant pricing power and create high switching costs for patients and healthcare providers. The immense capital and time required for drug discovery, clinical trials, and regulatory approvals act as formidable barriers to entry, making its strategic assets virtually irreproducible. While not exhibiting direct network effects, its scale in R&D and manufacturing provides a substantial cost advantage. Gilead's consistent generation of high free cash flow and strong ROIC further underscore the durability of its competitive advantages, positioning it as a valuable long-term holding for investors seeking businesses with enduring profitability.",
-      "evidenceHash": "d7705f173dee39062c272c0bfc5191aebde0b5254a452cb3eb06c0df46128be9",
+      "overall_moat_verdict_zh": "GILD 的經濟護城河主要建立在其強大的專利保護和嚴格的監管審批壁壘之上，尤其是在抗病毒藥物領域。這些因素賦予了公司在特定市場的定價權和客戶黏著度，形成了類似「收費橋」的特徵，即患者和醫生一旦進入特定治療路徑，轉換成本較高。然而，其業務模式並無顯著的網絡效應或獨特的地理資產。規模經濟帶來了一定的成本優勢，但研發投入的回報和資本配置的有效性仍是挑戰。總體而言，GILD 擁有堅固的專利壁壘，但其護城河的持久性取決於持續的創新能力以應對藥品專利到期和行業的快速變革。",
+      "overall_moat_verdict_en": "GILD's economic moat is primarily built upon its strong patent protection and stringent regulatory approval barriers, particularly in the antiviral drug sector. These factors grant the company pricing power and customer stickiness in specific markets, exhibiting characteristics akin to a 'toll bridge,' where switching costs are high once patients and physicians are on a particular treatment path. However, its business model lacks significant network effects or unique geographical assets. Economies of scale provide some cost advantages, but R&D return on investment and capital allocation effectiveness remain challenges. Overall, GILD possesses a robust patent moat, but its durability hinges on its capacity for continuous innovation to navigate drug patent expirations and the rapid evolution of the industry.",
+      "evidenceHash": "ecfcb6ab7eaa7050e4576ca5960e2d85bb11b4594c7d2de30243e14f79465fd9",
       "assessmentPolicy": "buffett-moat-v3",
       "model": "gemini-2.5-flash-lite",
       "provider": "Vertex AI"
@@ -454193,7 +454197,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "388d9db1dd4f6d075b1f80f4c3552f7349cb408c41b6398cbd6855be6a8bdedb"
       },
       "mScore": {
@@ -454205,7 +454209,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "388d9db1dd4f6d075b1f80f4c3552f7349cb408c41b6398cbd6855be6a8bdedb"
       }
     },
@@ -454377,7 +454381,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "GILD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:19:53Z",
+      "fetchedAt": "2026-10-31T17:09:37Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
       "quoteDate": "2026-10-30",
@@ -454413,7 +454417,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/882095/000088209526000039/gild-20260930.htm",
-        "capturedAt": "2026-10-31T14:19:53Z"
+        "capturedAt": "2026-10-31T17:09:37Z"
       }
     },
     "z_score": 5.05,
@@ -454732,7 +454736,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1110803/000111080326000207/ilmn-20260927.htm",
-      "capturedAt": "2026-10-31T14:19:58Z"
+      "capturedAt": "2026-10-31T17:10:00Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 35634.5,
@@ -457905,60 +457909,60 @@ window.FULL_MARKET_DATA = {
     "roa": 14.48923425611138,
     "moat": {
       "ticker": "ILMN",
-      "period": "2026Q2",
+      "period": "2026Q3",
       "m1_brand_pricing": {
-        "score": 8,
-        "comment_zh": "Illumina在基因測序領域擁有近乎壟斷的地位，其技術標準被廣泛認可為行業黃金標準。客戶一旦投入其測序平台，便高度依賴其專有試劑和耗材，形成強大的鎖定效應。儘管市場上存在新興競爭者，但Illumina憑藉其卓越的數據質量、通量和生態系統，仍能維持顯著的定價權，尤其是在高通量研究和臨床應用領域。這種品牌心智和技術領先地位，使其在提價時客戶流失率相對較低，符合巴菲特對具備強大定價權企業的定義。",
-        "comment_en": "Illumina commands a near-monopoly in the gene sequencing market, with its technology widely recognized as the industry's gold standard. Once customers invest in their sequencing platforms, they become highly reliant on Illumina's proprietary reagents and consumables, creating a strong lock-in effect. Despite emerging competitors, Illumina's superior data quality, throughput, and established ecosystem allow it to maintain significant pricing power, particularly in high-throughput research and clinical applications. This brand mindshare and technological leadership enable the company to raise prices with relatively low customer attrition, aligning with Buffett's definition of businesses possessing strong pricing power."
+        "score": 7,
+        "comment_zh": "Illumina 在基因定序領域擁有極強的品牌聲譽與定價權。其產品被視為行業黃金標準，客戶高度依賴其技術和試劑，這使得 Illumina 能夠維持較高的利潤率。儘管面臨競爭，但其品牌忠誠度和技術領先地位仍構成顯著的定價壁壘。然而，隨著新技術的出現和競爭對手的價格壓力，其定價權並非絕對，故給予 7 分。",
+        "comment_en": "Illumina possesses a very strong brand reputation and pricing power in the gene sequencing field. Its products are considered the industry gold standard, and customers are highly reliant on its technology and reagents, enabling Illumina to maintain relatively high profit margins. Despite facing competition, its brand loyalty and technological leadership still constitute a significant pricing barrier. However, with the emergence of new technologies and pricing pressure from competitors, its pricing power is not absolute, hence a score of 7."
       },
       "m2_patents_regulatory": {
-        "score": 9,
-        "comment_zh": "Illumina構築了極為堅固的專利壁壘，涵蓋其核心測序化學、儀器設計及生物信息學算法。這龐大的專利組合形成了一道難以逾越的護城河，有效阻止競爭對手在不侵權的情況下複製其關鍵技術。此外，在臨床基因檢測領域，Illumina產品獲得的各國監管機構（如FDA）批准，不僅證明了其技術的可靠性與安全性，更為其在醫療應用市場建立了高昂的准入門檻和特許經營權，使其在競爭中佔據絕對優勢，符合巴菲特對受保護特許經營權的重視。",
-        "comment_en": "Illumina has erected an exceptionally robust patent barrier, encompassing its core sequencing chemistry, instrument design, and bioinformatics algorithms. This extensive patent portfolio forms an insurmountable moat, effectively preventing competitors from replicating its key technologies without infringement. Furthermore, in the clinical genomics sector, regulatory approvals (such as FDA clearance) for Illumina's products not only validate their reliability and safety but also establish high entry barriers and a quasi-franchise in the medical application market. This grants Illumina a significant competitive edge, aligning with Buffett's emphasis on protected franchises."
+        "score": 8,
+        "comment_zh": "Illumina 在基因定序技術領域擁有大量關鍵專利，這些專利構成其核心競爭力的重要組成部分，有效阻止了競爭對手輕易複製其技術。雖然專利有時效性，且面臨法律挑戰，但其在關鍵技術上的長期佈局和持續的研發投入，確保了其在一段時間內享有技術領先的優勢。監管批准也是其產品進入市場的必要環節，形成了一定的進入壁壘，故給予 8 分。",
+        "comment_en": "Illumina holds a substantial number of key patents in the gene sequencing technology field. These patents form a crucial part of its core competitiveness, effectively preventing competitors from easily replicating its technology. While patents have expiration dates and face legal challenges, its long-term strategic positioning in critical technologies and continuous R&D investment ensure its technological leadership for a period. Regulatory approvals are also necessary for its products to enter the market, creating a certain entry barrier, thus a score of 8."
       },
       "m3_high_switching_costs": {
         "score": 9,
-        "comment_zh": "對於Illumina的客戶而言，轉換測序平台將帶來巨大的財務和營運成本。實驗室和臨床機構已投入大量資金購買其儀器、培訓技術人員，並建立了基於Illumina數據格式的分析流程。一旦轉換至其他供應商，不僅需要重新採購昂貴的設備、重新培訓員工，更需重新驗證實驗方案並遷移海量數據，這將導致嚴重的時間延誤和潛在的數據不兼容風險。這種高昂的轉換成本，使得客戶即使面對其他選擇，也傾向於繼續使用Illumina的產品和服務，確保了其持續的收入流。",
-        "comment_en": "For Illumina's customers, switching sequencing platforms entails substantial financial and operational costs. Laboratories and clinical institutions have invested heavily in purchasing instruments, training technical staff, and establishing analysis pipelines based on Illumina's data formats. Migrating to another vendor would necessitate not only acquiring expensive new equipment and retraining personnel but also revalidating experimental protocols and migrating vast amounts of data, leading to significant delays and potential data incompatibility risks. These high switching costs compel customers to remain with Illumina's products and services, even when alternatives exist, thereby ensuring a consistent revenue stream for the company."
+        "comment_zh": "Illumina 的產品和服務具有極高的轉換成本。客戶（如研究機構、醫院）在基因定序設備和試劑上投入了大量資金和時間，並建立了複雜的工作流程和數據分析系統。一旦採用 Illumina 的平台，更換供應商不僅需要重新驗證設備和流程，還可能面臨數據兼容性問題和長期的培訓成本。這種深度綁定效應使得客戶極難轉向競爭對手，構成了強大的護城河，故給予 9 分。",
+        "comment_en": "Illumina's products and services have extremely high switching costs. Customers (such as research institutions, hospitals) have invested significant capital and time in gene sequencing equipment and reagents, and have established complex workflows and data analysis systems. Once a customer adopts Illumina's platform, switching suppliers not only requires re-validation of equipment and processes but also may involve data compatibility issues and long-term training costs. This deep integration makes it very difficult for customers to switch to competitors, forming a strong moat, hence a score of 9."
       },
       "m4_network_effects": {
-        "score": 7,
-        "comment_zh": "Illumina受益於一種強大的生態系統網絡效應。其測序技術的廣泛普及，促使全球眾多研究機構和臨床實驗室採用其平台。這不僅產生了海量的基因組數據，也催生了圍繞Illumina數據格式和技術標準的第三方工具、軟體和服務生態系統。隨著更多用戶的加入，數據庫日益豐富，分析方法日趨標準化，進一步提升了整個平台的價值和吸引力。這種正向循環使得Illumina的產品對新用戶更具吸引力，而現有用戶的黏性也因此增強，形成難以打破的良性循環。",
-        "comment_en": "Illumina benefits from a robust ecosystem network effect. The widespread adoption of its sequencing technology has led numerous research institutions and clinical laboratories worldwide to embrace its platform. This not only generates vast amounts of genomic data but also fosters a thriving ecosystem of third-party tools, software, and services built around Illumina's data formats and technical standards. As more users join, the data repositories become richer, and analytical methods become more standardized, further enhancing the platform's overall value and appeal. This positive feedback loop makes Illumina's products more attractive to new users while strengthening the loyalty of existing ones, creating a virtuous cycle that is difficult to disrupt."
+        "score": 5,
+        "comment_zh": "Illumina 的網絡效應相對較弱，主要體現在其生態系統的建設上。隨著越來越多的科學家使用 Illumina 的平台進行研究，積累的數據和發表的論文也越多，這反過來吸引了更多用戶。然而，這種效應並非像社交媒體那樣具有強烈的正反饋循環。其核心競爭力更多來自技術和轉換成本，而非純粹的網絡效應，故給予 5 分。",
+        "comment_en": "Illumina's network effects are relatively weak, primarily reflected in the development of its ecosystem. As more scientists use Illumina's platform for research, more data is accumulated and more papers are published, which in turn attracts more users. However, this effect does not possess the strong positive feedback loop seen in social media. Its core competitiveness stems more from technology and switching costs rather than pure network effects, hence a score of 5."
       },
       "m5_cost_advantage_scale": {
         "score": 8,
-        "comment_zh": "Illumina在基因測序領域的巨大規模，賦予其顯著的成本優勢。憑藉龐大的儀器和試劑生產量，公司能夠進行大宗採購，優化生產流程，並將巨額研發投入分攤到廣闊的收入基礎上。這使得Illumina能夠以更低的單位成本生產，並提供具有競爭力的產品價格，同時保持健康的利潤率。這種規模經濟效應，讓新進入者或小型競爭對手難以在成本結構或研發投入上與之匹敵，從而鞏固了其市場領導地位，是巴菲特所推崇的成本護城河典範。",
-        "comment_en": "Illumina's immense scale in the gene sequencing sector grants it significant cost advantages. Through large-volume production of instruments and reagents, the company benefits from bulk purchasing, optimized manufacturing processes, and the ability to amortize substantial R&D investments across a broad revenue base. This allows Illumina to produce at lower unit costs and offer competitively priced products while maintaining healthy profit margins. This scale economy makes it challenging for new entrants or smaller competitors to match its cost structure or R&D spending, thereby solidifying its market leadership and exemplifying the cost moat favored by Buffett."
+        "comment_zh": "Illumina 作為基因定序領域的領導者，其規模經濟效應顯著。龐大的生產量和全球銷售網絡使其在採購原材料、生產製造和分銷方面具有成本優勢。這種規模優勢不僅降低了其單位生產成本，也使其能夠投入更多資源於研發和市場拓展，進一步鞏固其市場地位。與小型競爭者相比，Illumina 的規模帶來了顯著的成本壁壘，故給予 8 分。",
+        "comment_en": "As a leader in the gene sequencing field, Illumina benefits from significant economies of scale. Its large production volume and global sales network provide cost advantages in raw material procurement, manufacturing, and distribution. This scale advantage not only reduces its unit production costs but also allows it to invest more resources in R&D and market expansion, further solidifying its market position. Compared to smaller competitors, Illumina's scale creates a significant cost barrier, hence a score of 8."
       },
       "m6_unique_geography_assets": {
-        "score": 7,
-        "comment_zh": "基因測序市場，特別是高通量研究和臨床應用領域，是一個資本密集且技術門檻極高的利基市場。Illumina在這一特定領域的長期主導地位，加上巨大的研發投入和嚴格的監管要求，形成了一種「有效規模」的寡占格局。新進入者若想在此市場取得顯著份額，將面臨極高的資本支出和技術挑戰，且很可能引發破壞性的價格戰，導致所有參與者利潤受損。這種市場特性使得理性競爭者不願輕易涉足，從而鞏固了Illumina的市場地位，符合巴菲特對天然寡占市場的洞察。",
-        "comment_en": "The gene sequencing market, particularly in high-throughput research and clinical applications, is a capital-intensive niche with extremely high technological barriers. Illumina's long-standing dominance in this specific segment, coupled with substantial R&D investments and stringent regulatory requirements, has created an \"efficient scale\" oligopoly. New entrants seeking significant market share would face immense capital expenditures and technical challenges, likely triggering destructive price wars that harm all participants. This market characteristic discourages rational competitors from easily entering, thereby solidifying Illumina's market position and aligning with Buffett's insights into natural oligopolies."
+        "score": 3,
+        "comment_zh": "Illumina 的業務模式並非高度依賴特定的地理位置或獨特的實體資產。其核心競爭力在於技術、專利和品牌，這些可以在全球範圍內複製和推廣。雖然其生產基地和研發中心分佈在全球，但並不存在因地理位置而產生的獨特、難以複製的競爭優勢。其市場的全球性特徵削弱了地理資產的壁壘作用，故給予 3 分。",
+        "comment_en": "Illumina's business model is not highly dependent on specific geographic locations or unique physical assets. Its core competitiveness lies in technology, patents, and brand, which can be replicated and promoted globally. Although its production bases and R&D centers are distributed globally, there are no unique, hard-to-replicate competitive advantages arising from its geographic locations. The global nature of its market diminishes the barrier effect of geographic assets, hence a score of 3."
       },
       "m7_operational_efficiency": {
         "score": 8,
-        "comment_zh": "Illumina高達29.1%的股東權益報酬率（ROE）和12.4%的資產報酬率（ROA），強烈表明其具備卓越的盈利能力和高效的資本運用效率。儘管缺乏具體的加權平均資本成本（WACC）數據，但憑藉其在基因測序領域的領導地位和完美的皮氏F-Score（9/9），可以合理推斷Illumina的投入資本回報率（ROIC）長期且持續地遠超其資本成本。這證明公司能夠不斷創造超額價值，為股東帶來豐厚回報，是巴菲特衡量企業內在價值和護城河強度的關鍵指標。",
-        "comment_en": "Illumina's high Return on Equity (ROE) of 29.1% and Return on Assets (ROA) of 12.4% strongly indicate exceptional profitability and efficient capital utilization. Although specific Weighted Average Cost of Capital (WACC) data is not provided, given its leadership in gene sequencing and a perfect Piotroski F-Score (9/9), it is reasonable to infer that Illumina's Return on Invested Capital (ROIC) consistently and significantly exceeds its cost of capital over the long term. This demonstrates the company's ability to continuously create excess value and generate substantial returns for shareholders, a key metric Buffett uses to assess intrinsic value and moat strength."
+        "comment_zh": "Illumina 在營運效率方面表現出色，體現在其高 ROE (28.5%) 和 ROA (13.1%) 以及高 F-Score (9/9) 上。這表明公司能夠有效地利用資產和股東權益創造利潤。其持續的自由現金流 (FCF TTM: $1,057.0M) 也證明了其營運的穩健性和盈利能力。高效的營運是其維持競爭優勢和盈利能力的重要基石，故給予 8 分。",
+        "comment_en": "Illumina demonstrates excellent operational efficiency, reflected in its high ROE (28.5%) and ROA (13.1%), as well as its high F-Score (9/9). This indicates the company's ability to effectively utilize its assets and shareholders' equity to generate profits. Its consistent Free Cash Flow (FCF TTM: $1,057.0M) also proves the robustness of its operations and profitability. Efficient operations are a crucial cornerstone for maintaining its competitive advantage and profitability, hence a score of 8."
       },
       "m8_capital_allocation": {
-        "score": 9,
-        "comment_zh": "即使給予競爭對手千億美元的資金，也幾乎不可能在數年內複製Illumina的核心戰略資產。這不僅包括其數十年累積的龐大研發成果、無可匹敵的專利組合，更涵蓋了其遍布全球的龐大客戶基礎、完善的服務網絡，以及在科學和醫療界建立的深厚信任與品牌聲譽。基因測序技術的複雜性、嚴格的監管要求以及圍繞其平台形成的龐大生態系統，共同構成了極高的進入壁壘，使其成為巴菲特眼中「不可複製」的稀缺資產，為公司提供了強大的長期競爭優勢。",
-        "comment_en": "Even with a hundred billion dollars, it would be nearly impossible for a competitor to replicate Illumina's core strategic assets within a few years. This encompasses not only its decades of accumulated R&D, an unparalleled patent portfolio, but also its vast global customer base, comprehensive service network, and the deep trust and brand reputation established within the scientific and medical communities. The complexity of gene sequencing technology, stringent regulatory requirements, and the extensive ecosystem built around its platform collectively form extremely high barriers to entry, making it an \"irreproducible\" scarce asset in Buffett's view, providing the company with a powerful long-term competitive advantage."
+        "score": 7,
+        "comment_zh": "Illumina 的資本配置策略過往表現穩健，透過持續的研發投入來維持技術領先，並透過收購來擴張市場和技術版圖。其穩定的自由現金流為其提供了進行戰略投資的彈性。然而，過去曾有因過度擴張或收購整合不順而引發的爭議，顯示其資本配置並非完美無瑕。但總體而言，其在維持核心業務增長和尋求戰略機遇方面，展現了較為成熟的資本配置能力，故給予 7 分。",
+        "comment_en": "Illumina's capital allocation strategy has been robust historically, maintaining technological leadership through continuous R&D investment and expanding its market and technology footprint through acquisitions. Its stable free cash flow provides flexibility for strategic investments. However, past controversies arising from overexpansion or unsuccessful acquisition integrations indicate that its capital allocation is not flawless. Overall, its demonstrated a relatively mature capital allocation capability in maintaining core business growth and pursuing strategic opportunities, hence a score of 7."
       },
       "m9_customer_retention": {
-        "score": 7,
-        "comment_zh": "基因組學領域雖然技術迭代迅速，但Illumina憑藉其持續的創新能力和戰略性收購（如Grail），始終保持在行業前沿。其核心測序技術是生命科學研究和臨床應用的基石，對基因信息的需求只會增長。儘管新興測序技術（如長讀長測序）帶來挑戰，Illumina亦積極佈局。公司面臨的顛覆風險主要來自於出現一種完全不同且壓倒性優勢的新技術，但Illumina強大的研發實力及其在生態系統中的主導地位，使其對此類典範轉移具備較強的抗性，確保了其長期需求確定性。",
-        "comment_en": "While the genomics field undergoes rapid technological iteration, Illumina, through continuous innovation and strategic acquisitions (such as Grail), consistently remains at the industry's forefront. Its core sequencing technology serves as a cornerstone for life science research and clinical applications, and the demand for genomic information is only set to grow. Although emerging sequencing technologies (e.g., long-read sequencing) pose challenges, Illumina is actively investing in these areas. The primary disruption risk for the company stems from the emergence of an entirely different and overwhelmingly superior new technology. However, Illumina's robust R&D capabilities and its dominant position within the ecosystem grant it strong immunity against such paradigm shifts, ensuring long-term demand certainty."
+        "score": 9,
+        "comment_zh": "Illumina 在客戶保留方面表現極佳，這主要歸功於其產品的技術領先性、極高的轉換成本以及強大的品牌忠誠度。一旦客戶深入整合 Illumina 的設備和試劑到其研究或臨床流程中，由於重新驗證、培訓和數據兼容性等問題，轉向其他供應商的意願和可行性都非常低。這種深度綁定和客戶對其技術的依賴，形成了極高的客戶保留率，是其穩定的收入來源，故給予 9 分。",
+        "comment_en": "Illumina excels in customer retention, primarily due to its technological leadership, extremely high switching costs, and strong brand loyalty. Once customers deeply integrate Illumina's equipment and reagents into their research or clinical workflows, their willingness and feasibility to switch to other suppliers are very low due to issues like re-validation, training, and data compatibility. This deep integration and customer reliance on its technology result in very high customer retention rates, forming a stable revenue stream, hence a score of 9."
       },
       "m10_durability": {
-        "score": 6,
-        "comment_zh": "Illumina管理層的資本配置記錄喜憂參半。收購Grail的戰略意圖明確，旨在拓展早期癌症檢測市場，但其後遭遇的監管挑戰及被迫剝離，確實引發了對執行效率和股東價值創造的質疑。然而，從歷史上看，管理層在研發上的巨額投入和對核心業務的戰略性收購，鞏固了其市場領導地位。公司高達9/9的皮氏F-Score也表明整體財務管理穩健。儘管Grail事件是個教訓，但管理層最終順應壓力剝離資產，也展現了糾正錯誤的意願，未來需密切關注其資本配置策略。",
-        "comment_en": "Illumina's management has a mixed record on capital allocation. While the strategic intent behind the Grail acquisition was clear—to expand into early cancer detection—the subsequent regulatory challenges and forced divestiture have indeed raised questions about execution efficiency and shareholder value creation. Historically, however, management's substantial investments in R&D and strategic acquisitions have solidified its market leadership. The company's high Piotroski F-Score of 9/9 also indicates sound overall financial management. Although the Grail episode served as a lesson, management's eventual compliance with pressure to divest demonstrates a willingness to correct mistakes. Future capital allocation strategies warrant close monitoring."
+        "score": 8,
+        "comment_zh": "Illumina 的業務護城河具有相當的持久性。其在基因定序領域的技術領導地位、專利保護、高轉換成本以及強大的品牌效應，共同構成了難以被短期內顛覆的壁壘。儘管面臨新興技術和競爭對手的挑戰，但其深厚的客戶基礎和持續的創新能力，使其能夠在可預見的未來繼續保持市場領導地位。其業務模式的穩健性預示著較長的持久性，故給予 8 分。",
+        "comment_en": "Illumina's business moat possesses considerable durability. Its technological leadership in the gene sequencing field, patent protection, high switching costs, and strong brand effect collectively form barriers that are difficult to disrupt in the short term. Despite facing challenges from emerging technologies and competitors, its deep customer base and continuous innovation capabilities enable it to maintain market leadership in the foreseeable future. The robustness of its business model suggests a long duration of durability, hence a score of 8."
       },
-      "overall_moat_verdict_zh": "Illumina本質上是一家在基因測序領域擁有強大「特許經營權」的平台型企業，如同基因探索高速公路上的「收費橋樑」。其護城河主要由無可匹敵的技術領先地位、龐大的專利集群、以及客戶極高的轉換成本所構築。公司在一個高增長、高技術門檻的利基市場中佔據主導地位，其規模經濟和成熟生態系統為新進入者設置了難以逾越的壁壘。儘管在資本配置上曾有瑕疵（如Grail收購案），但其核心業務的盈利能力和財務穩健性（高ROE/ROA、F-Score 9/9）證明了其持續創造超額回報的能力。Illumina的商業模式使其能夠長期享有超額利潤，是巴菲特眼中典型的優質企業。",
-      "overall_moat_verdict_en": "Illumina is fundamentally a platform enterprise with a strong \"franchise\" in gene sequencing, akin to a \"toll bridge\" on the highway of genetic discovery. Its moat is primarily constructed from unparalleled technological leadership, an extensive patent thicket, and extremely high customer switching costs. The company dominates a high-growth, high-barrier niche market, where its scale economies and mature ecosystem create formidable barriers to entry for new competitors. While there have been capital allocation missteps (e.g., the Grail acquisition), the profitability and financial robustness of its core business (high ROE/ROA, F-Score 9/9) attest to its sustained ability to generate superior returns. Illumina's business model allows it to enjoy supernormal profits over the long term, making it a quintessential high-quality business in Buffett's view.",
-      "evidenceHash": "296728600894e79d9e413dadd4671829186f212b39a1dac3d0a05aad27b6f664",
+      "overall_moat_verdict_zh": "Illumina 在基因定序領域築起了堅實的經濟護城河，主要體現為極高的客戶轉換成本（M3, M9）和顯著的技術領先及品牌聲譽（M1, M2）。其規模經濟（M5）和營運效率（M7）亦提供了穩固的成本優勢和盈利能力。儘管網絡效應（M4）和地理資產（M6）並非其核心壁壘，但其專利保護（M2）和持續的研發投入（M10）確保了其技術的領先地位和業務的持久性。總體而言，Illumina 是一家具有強大特許經營權特徵的公司，其技術壁壘和客戶黏性使其能夠在市場上維持長期的競爭優勢。",
+      "overall_moat_verdict_en": "Illumina has built a solid economic moat in the gene sequencing field, primarily characterized by extremely high customer switching costs (M3, M9) and significant technological leadership and brand reputation (M1, M2). Its economies of scale (M5) and operational efficiency (M7) also provide a stable cost advantage and profitability. Although network effects (M4) and geographic assets (M6) are not its core barriers, its patent protection (M2) and continuous R&D investment (M10) ensure its technological leadership and business durability. Overall, Illumina operates with characteristics of a strong franchise, where its technological barriers and customer stickiness enable it to maintain a long-term competitive advantage in the market.",
+      "evidenceHash": "5ca0d1583a79feb5c921fe18e23751586ee48fd0f6545c512c58ffd557e3a51f",
       "assessmentPolicy": "buffett-moat-v3",
       "model": "gemini-2.5-flash-lite",
       "provider": "Vertex AI"
@@ -457980,7 +457984,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "633e16d3f78635588dbbb368fda0aabaff589690606e29d4b885713bb17f60b8"
       },
       "mScore": {
@@ -457992,7 +457996,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "633e16d3f78635588dbbb368fda0aabaff589690606e29d4b885713bb17f60b8"
       }
     },
@@ -458140,7 +458144,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ILMN",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:19:58Z",
+      "fetchedAt": "2026-10-31T17:10:00Z",
       "balanceDate": "2026-09-27",
       "filingDate": "2026-10-30",
       "quoteDate": "2026-10-30",
@@ -458176,7 +458180,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1110803/000111080326000207/ilmn-20260927.htm",
-        "capturedAt": "2026-10-31T14:19:58Z"
+        "capturedAt": "2026-10-31T17:10:00Z"
       }
     },
     "z_score": 6.92,
@@ -458495,7 +458499,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1555280/000155528026000040/zts-20260630.htm",
-      "capturedAt": "2026-10-31T14:20:04Z"
+      "capturedAt": "2026-10-31T17:10:21Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 32942.2,
@@ -461738,7 +461742,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "aae39c3dbf306659e0b26d0bd1f237180589eb8b23eef567541bfe037c2a0d63"
       },
       "mScore": {
@@ -461750,7 +461754,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "aae39c3dbf306659e0b26d0bd1f237180589eb8b23eef567541bfe037c2a0d63"
       }
     },
@@ -461891,7 +461895,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ZTS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:20:04Z",
+      "fetchedAt": "2026-10-31T17:10:21Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-06",
       "quoteDate": "2026-10-30",
@@ -461927,7 +461931,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1555280/000155528026000040/zts-20260630.htm",
-        "capturedAt": "2026-10-31T14:20:04Z"
+        "capturedAt": "2026-10-31T17:10:21Z"
       }
     },
     "z_score": 4.6,
@@ -462246,7 +462250,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1097149/000109714926000077/algn-q326earningspressrele.htm",
-      "capturedAt": "2026-10-31T14:20:09Z"
+      "capturedAt": "2026-10-31T17:10:29Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 10648.2,
@@ -465413,60 +465417,60 @@ window.FULL_MARKET_DATA = {
     "roa": 7.8906697176826315,
     "moat": {
       "ticker": "ALGN",
-      "period": "2026Q2",
+      "period": "2026Q3",
       "m1_brand_pricing": {
         "score": 8,
-        "comment_zh": "Invisalign已成為隱形矯正的代名詞，其品牌在消費者和牙醫心中建立了強大的信任與偏好。儘管市場上存在其他隱形矯正產品，但Align Technology憑藉其長期累積的臨床數據、持續的技術創新及廣泛的牙醫網絡，賦予其顯著的定價權。患者願意為其可預期的治療效果、舒適度及美觀性支付溢價，而牙醫也因其可靠性與支持系統而傾向推薦。這種品牌心智的建立，使其在面對競爭時仍能維持較高的利潤率，符合巴菲特對強大品牌護城河的定義。",
-        "comment_en": "Invisalign has become synonymous with clear aligners, establishing strong trust and preference among both consumers and dentists. Despite the presence of other clear aligner products, Align Technology commands significant pricing power due to its extensive clinical data, continuous technological innovation, and broad network of dental professionals. Patients are willing to pay a premium for its predictable treatment outcomes, comfort, and aesthetics, while dentists favor it for its reliability and support system. This strong brand equity allows the company to maintain higher profit margins even amidst competition, aligning with Buffett's definition of a powerful brand moat."
+        "comment_zh": "Align Technology 透過其 Invisalign 品牌建立了強大的市場領導地位，該品牌已成為隱形牙套的代名詞。這種品牌認知度轉化為顯著的定價權，使其能夠收取高於傳統矯正治療的費用。儘管面臨來自傳統牙套和新興數位矯正解決方案的競爭，Invisalign 的品牌忠誠度和消費者偏好仍然是其重要的護城河。其產品的技術複雜性和美學吸引力進一步鞏固了其定價能力，使其在醫療保健領域脫穎而出，展現出類似特許經營的特徵。",
+        "comment_en": "Align Technology has established a strong market leadership through its Invisalign brand, which has become synonymous with clear aligners. This brand recognition translates into significant pricing power, allowing it to command a premium over traditional orthodontic treatments. Despite facing competition from traditional braces and emerging digital orthodontic solutions, Invisalign's brand loyalty and consumer preference remain a substantial moat. The technical complexity and aesthetic appeal of its products further solidify its pricing ability, setting it apart in the healthcare space and exhibiting characteristics of a franchise."
       },
       "m2_patents_regulatory": {
-        "score": 9,
-        "comment_zh": "Align Technology擁有龐大且不斷擴展的專利組合，涵蓋了隱形矯正技術、材料科學、3D列印製造流程及治療計畫軟體等核心領域。這些專利形成了一道堅實的法律壁壘，有效阻止競爭對手直接複製其創新成果，並迫使他們尋找替代但可能效率較低的解決方案。這種專利集群不僅保護了其技術領先地位，也為其提供了訴訟籌碼，確保了其在市場上的獨特競爭優勢。這正是巴菲特所重視的，透過法律保護建立的持久性競爭優勢。",
-        "comment_en": "Align Technology possesses a vast and continuously expanding patent portfolio covering core areas such as clear aligner technology, material science, 3D printing manufacturing processes, and treatment planning software. These patents form a robust legal barrier, effectively preventing competitors from directly replicating its innovations and forcing them to seek alternative, potentially less efficient, solutions. This patent thicket not only safeguards its technological leadership but also provides litigation leverage, ensuring its unique competitive advantage in the market. This precisely aligns with Buffett's emphasis on durable competitive advantages built through legal protection."
+        "score": 7,
+        "comment_zh": "Align Technology 的專利組合涵蓋了其核心的數位掃描、設計和製造技術，為其隱形牙套的生產提供了重要的技術壁壘。這些專利限制了競爭對手模仿其專有流程的能力。此外，醫療設備行業的監管審批過程本身就構成了一道進入壁壘，需要大量的時間和資源來獲得批准。雖然專利會過期，但其持續的研發投入和對新技術的保護，使其在可預見的未來能夠維持其技術優勢。",
+        "comment_en": "Align Technology's patent portfolio covers its core digital scanning, design, and manufacturing technologies, providing a significant technological barrier to the production of its clear aligners. These patents limit competitors' ability to replicate its proprietary processes. Furthermore, the regulatory approval process in the medical device industry itself acts as an entry barrier, requiring substantial time and resources to obtain. While patents do expire, its continuous investment in R&D and protection of new technologies allow it to maintain its technological edge for the foreseeable future."
       },
       "m3_high_switching_costs": {
-        "score": 7,
-        "comment_zh": "對於牙科診所而言，一旦投入資源培訓員工、整合iTero掃描儀及熟悉Invisalign的治療流程，轉換至其他隱形矯正系統將面臨顯著的轉換成本。這包括重新培訓員工、調整診所工作流程、潛在的設備兼容性問題以及失去與Align Technology成熟生態系統的協同效應。這種深度整合使得牙醫在選擇合作夥伴時更傾向於維持現狀，因為轉換可能導致營運效率下降和患者滿意度風險。這為Align Technology構建了穩固的客戶黏性，符合巴菲特對高轉換成本護城河的洞察。",
-        "comment_en": "For dental practices, once resources are invested in staff training, integrating iTero scanners, and familiarizing themselves with the Invisalign treatment workflow, switching to another clear aligner system incurs significant costs. These include retraining staff, adjusting clinic workflows, potential equipment compatibility issues, and losing the synergy with Align Technology's established ecosystem. This deep integration makes dentists more inclined to maintain the status quo when choosing partners, as switching could lead to decreased operational efficiency and risks to patient satisfaction. This builds strong customer stickiness for Align Technology, aligning with Buffett's insight into high switching cost moats."
+        "score": 6,
+        "comment_zh": "從傳統牙套轉換到 Invisalign 的患者，以及從其他隱形牙套品牌轉換的患者，面臨著一定的轉換成本。患者需要適應新的佩戴方式和清潔習慣。更重要的是，牙醫一旦熟悉並整合了 Align 的工作流程和技術，他們在轉換到其他系統時可能會遇到培訓和技術適應的挑戰。然而，相較於某些企業軟體或金融服務，這些轉換成本並非不可逾越，因此此項護城河屬於中等強度。",
+        "comment_en": "Patients transitioning from traditional braces to Invisalign, or from other clear aligner brands, face certain switching costs. Patients need to adapt to new wearing and cleaning habits. More importantly, once dentists become familiar with and integrate Align's workflow and technology, they may encounter training and technical adaptation challenges when switching to other systems. However, compared to certain enterprise software or financial services, these switching costs are not insurmountable, thus this moat is of moderate strength."
       },
       "m4_network_effects": {
-        "score": 6,
-        "comment_zh": "Align Technology的網絡效應主要體現在其龐大的牙醫用戶群體與治療數據庫之間。越多的牙醫採用Invisalign，就意味著更多的患者數據被收集，這些數據反過來能優化Align的AI治療計畫演算法，提升治療效果的預測性和精準度。這使得Invisalign對新加入的牙醫更具吸引力，形成正向循環。同時，iTero掃描儀的普及也強化了這種數字化生態系統的黏性。然而，這種網絡效應不如社交媒體或拍賣平台那樣直接且呈指數級增長，因此評分中等。",
-        "comment_en": "Align Technology's network effect primarily manifests between its large base of dental professionals and its treatment database. The more dentists adopt Invisalign, the more patient data is collected, which in turn optimizes Align's AI-driven treatment planning algorithms, enhancing the predictability and precision of treatment outcomes. This makes Invisalign more attractive to new dentists, creating a virtuous cycle. Concurrently, the widespread adoption of iTero scanners strengthens this digital ecosystem's stickiness. However, this network effect is not as direct and exponential as seen in social media or auction platforms, hence the moderate score."
+        "score": 5,
+        "comment_zh": "Align Technology 的網絡效應主要體現在其龐大的牙醫客戶網絡和不斷增長的患者基礎之間。越多的牙醫使用 Invisalign 系統，就越能吸引更多的患者；反之，患者需求的增加也促使更多牙醫加入其網絡。此外，患者數據的積累有助於優化治療方案和產品開發，進一步增強了平台的價值。然而，這種網絡效應並不像社交媒體或市場平台那樣具有強烈的自我強化特性，因此得分為中等。",
+        "comment_en": "Align Technology's network effects are primarily manifested between its large network of dental professionals and its growing patient base. The more dentists use the Invisalign system, the more patients it attracts; conversely, increased patient demand also encourages more dentists to join its network. Furthermore, the accumulation of patient data helps optimize treatment plans and product development, further enhancing the platform's value. However, this network effect is not as strongly self-reinforcing as in social media or marketplace platforms, hence the moderate score."
       },
       "m5_cost_advantage_scale": {
-        "score": 8,
-        "comment_zh": "作為全球最大的隱形矯正解決方案提供商，Align Technology享有顯著的規模經濟優勢。其龐大的生產規模使其能夠在材料採購、3D列印製造及全球物流分銷上實現單位成本的顯著降低，這是小型競爭對手難以匹敵的。此外，公司在研發上的巨額投入，持續優化其專有材料和製造工藝，進一步鞏固了其技術領先地位和成本效率。這種規模優勢不僅降低了生產成本，也使其能更有效地擴大市場份額，符合巴菲特對成本領先型護城河的重視。",
-        "comment_en": "As the world's largest provider of clear aligner solutions, Align Technology enjoys significant economies of scale. Its massive production volume enables substantial reductions in unit costs for material procurement, 3D printing manufacturing, and global logistics and distribution, which smaller competitors find difficult to match. Furthermore, the company's substantial investment in R&D continuously optimizes its proprietary materials and manufacturing processes, further solidifying its technological leadership and cost efficiency. This scale advantage not only lowers production costs but also allows it to expand market share more effectively, aligning with Buffett's emphasis on cost leadership moats."
+        "score": 7,
+        "comment_zh": "Align Technology 作為隱形牙套市場的領導者，其規模經濟帶來了顯著的成本優勢。龐大的生產量使其能夠降低單位製造成本，並在研發和市場營銷方面進行更大規模的投資。這種規模使其能夠更有效地與供應商談判，並優化其全球供應鏈。相較於規模較小的競爭對手，Align 能夠以更低的成本提供高品質的產品，這構成了一個堅實的成本壁壘。",
+        "comment_en": "As the leader in the clear aligner market, Align Technology benefits from significant economies of scale, leading to cost advantages. Its large production volume allows it to reduce per-unit manufacturing costs and invest more heavily in R&D and marketing. This scale enables more effective negotiation with suppliers and optimization of its global supply chain. Compared to smaller competitors, Align can offer high-quality products at a lower cost, forming a solid cost barrier."
       },
       "m6_unique_geography_assets": {
-        "score": 6,
-        "comment_zh": "隱形矯正市場雖然龐大且仍在增長，但高端、複雜案例的解決方案提供商需要巨大的研發投入、臨床驗證及全球分銷網絡。這使得市場自然傾向於由少數具備雄厚實力的企業主導。Align Technology憑藉其技術領先和品牌優勢，在這一細分市場中佔據了主導地位。新進入者若想在高端市場與之競爭，將面臨極高的資本和技術壁壘，可能導致價格戰而無利可圖。這雖非典型的地理寡占，但在技術和資本密集型領域，也呈現出類似的理性寡占特徵。",
-        "comment_en": "While the clear aligner market is large and growing, providing solutions for high-end, complex cases requires substantial R&D investment, clinical validation, and a global distribution network. This naturally leads the market to be dominated by a few well-resourced companies. Align Technology, with its technological leadership and brand strength, holds a dominant position in this niche. New entrants aiming to compete in the premium segment would face extremely high capital and technological barriers, potentially leading to unprofitable price wars. While not a typical geographic oligopoly, this technology and capital-intensive sector exhibits similar characteristics of rational oligopoly."
+        "score": 3,
+        "comment_zh": "Align Technology 的業務遍及全球，但其核心競爭力並非依賴於特定的地理位置或獨特的自然資源。其成功更多地源於技術創新、品牌建設和營銷策略。雖然其全球分銷網絡和生產設施是重要的營運資產，但它們並非不可複製或獨一無二的地理資產，競爭對手可以通過投資建立類似的基礎設施。因此，這方面的護城河相對較弱。",
+        "comment_en": "Align Technology operates globally, but its core competitive strengths do not rely on specific geographic locations or unique natural resources. Its success stems more from technological innovation, brand building, and marketing strategies. While its global distribution network and manufacturing facilities are important operational assets, they are not irreplicable or unique geographical assets; competitors can establish similar infrastructure through investment. Therefore, the moat in this aspect is relatively weak."
       },
       "m7_operational_efficiency": {
-        "score": 7,
-        "comment_zh": "Align Technology憑藉其強大的護城河，歷史上展現出優異的投入資本回報率（ROIC），遠超其加權平均資本成本（WACC），這證明了其創造股東價值的卓越能力。儘管當前ROE為9.8%，但其高達8/9的皮氏F-Score和強勁的自由現金流（$755.7M）表明公司營運效率和財務健康狀況良好。公司能夠持續將資本投入到高回報的研發和市場擴張中，形成良性循環，為股東帶來長期複利增長。這種持續的超額回報能力是巴菲特衡量企業質量的關鍵指標。",
-        "comment_en": "Leveraging its strong moats, Align Technology has historically demonstrated excellent Return on Invested Capital (ROIC), significantly exceeding its Weighted Average Cost of Capital (WACC), proving its superior ability to create shareholder value. Although the current ROE is 9.8%, its high Piotroski F-Score of 8/9 and robust Free Cash Flow ($755.7M) indicate sound operational efficiency and financial health. The company consistently reinvests capital into high-return R&D and market expansion, forming a virtuous cycle that drives long-term compound growth for shareholders. This sustained ability to generate excess returns is a key metric Buffett uses to assess business quality."
+        "score": 8,
+        "comment_zh": "Align Technology 在其營運效率方面表現出色，尤其是在數位化工作流程和自動化生產方面。其從掃描到設計再到製造的端到端數位解決方案，極大地提高了生產效率和產品一致性。公司持續優化其供應鏈管理和客戶服務流程，以支持其快速增長的全球業務。這種高度優化的營運模式，結合其技術專長，構成了其堅實的競爭優勢。",
+        "comment_en": "Align Technology excels in its operational efficiency, particularly in its digitized workflows and automated manufacturing. Its end-to-end digital solution, from scanning to design to manufacturing, greatly enhances production efficiency and product consistency. The company continuously optimizes its supply chain management and customer service processes to support its rapidly growing global business. This highly optimized operational model, combined with its technological expertise, constitutes a solid competitive advantage."
       },
       "m8_capital_allocation": {
-        "score": 9,
-        "comment_zh": "即使給予競爭對手千億美元，也難以在短時間內複製Align Technology的核心戰略資產。這不僅僅是資金問題，更是數十年來在研發上的持續投入、累積的龐大專利集群、數百萬例患者的臨床數據、全球牙醫網絡的信任建立、複雜的3D列印製造工藝以及強大的品牌認知度。這些無形資產和深厚的行業經驗是時間和持續努力的結晶，無法透過簡單的資本投入來快速複製。這種不可複製性是其最堅固的護城河之一，符合巴菲特對真正「特許經營權」的定義。",
-        "comment_en": "Even with a hundred billion dollars, it would be incredibly difficult for a competitor to replicate Align Technology's core strategic assets in a short period. This is not merely a matter of capital; it encompasses decades of sustained R&D investment, an accumulated vast patent portfolio, clinical data from millions of patients, established trust within a global network of dentists, sophisticated 3D printing manufacturing processes, and strong brand recognition. These intangible assets and deep industry experience are the culmination of time and persistent effort, not something that can be quickly bought with capital alone. This irreproducibility is one of its strongest moats, aligning with Buffett's definition of a true \"franchise.\""
+        "score": 7,
+        "comment_zh": "Align Technology 過去展現了相對審慎的資本配置策略。公司將大部分自由現金流再投資於研發、擴大生產能力以及全球市場拓展。其財務狀況穩健，現金儲備充足且負債水平低，為其提供了戰略靈活性。雖然尚未看到大規模的股權回購或高額股息，但其將資本集中用於核心業務增長和創新，符合長期價值創造的原則，顯示出良好的資本配置能力。",
+        "comment_en": "Align Technology has demonstrated a relatively prudent capital allocation strategy in the past. The company reinvests a significant portion of its free cash flow into R&D, expanding production capacity, and global market expansion. Its financial position is robust, with ample cash reserves and low debt levels, providing strategic flexibility. While large-scale share buybacks or high dividends have not been prominent, its focus on allocating capital towards core business growth and innovation aligns with the principles of long-term value creation, indicating good capital allocation capabilities."
       },
       "m9_customer_retention": {
         "score": 8,
-        "comment_zh": "對於牙齒矯正的需求是人類社會長期存在的，具有極高的確定性。Align Technology不僅引領了從傳統矯正到隱形矯正的典範轉移，更持續投資於AI驅動的治療計畫、材料科學及數位化工作流程，使其成為技術變革的引領者而非被顛覆者。雖然未來可能出現更具顛覆性的生物學矯正方法，但目前Align的技術平台和研發能力使其對當前及可預見的技術演進具有強大適應性。其核心業務滿足了消費者對美觀和健康的持久需求，具備良好的抗顛覆性。",
-        "comment_en": "The demand for orthodontic correction is a fundamental and highly certain human need. Align Technology not only led the paradigm shift from traditional braces to clear aligners but also continuously invests in AI-driven treatment planning, material science, and digital workflows, positioning itself as a leader in technological change rather than a disruptor. While more radical biological orthodontic methods might emerge in the future, Align's current technological platform and R&D capabilities provide strong adaptability to present and foreseeable technological advancements. Its core business addresses consumers' enduring needs for aesthetics and health, demonstrating robust disruption immunity."
+        "comment_zh": "Align Technology 在客戶（牙醫）和最終用戶（患者）兩端都表現出很高的客戶黏性。對於牙醫而言，一旦他們投入了 Invisalign 系統的培訓和設備，並且看到治療效果和患者滿意度，轉換到其他系統的意願就會降低。對於患者來說，Invisalign 提供的舒適度、便利性和美觀效果，以及治療的最終成果，都強化了他們對該品牌的忠誠度。這種雙向的客戶黏性是其持續成功的關鍵。",
+        "comment_en": "Align Technology exhibits high customer stickiness on both the customer (dental professionals) and end-user (patients) sides. For dentists, once they have invested in training and equipment for the Invisalign system and witness the treatment outcomes and patient satisfaction, their willingness to switch to other systems decreases. For patients, the comfort, convenience, and aesthetic benefits offered by Invisalign, along with the final treatment results, reinforce their loyalty to the brand. This two-way customer stickiness is key to its sustained success."
       },
       "m10_durability": {
         "score": 7,
-        "comment_zh": "Align Technology的財務數據，特別是其強勁的自由現金流（$755.7M）和健康的淨現金狀況（現金$1,102.6M對總負債$120.8M），反映了管理層在財務管理上的穩健。高達8/9的皮氏F-Score也間接證明了其營運效率和財務決策的合理性。雖然缺乏具體的回購或併購歷史細節，但公司能夠持續產生大量現金並維持低負債，表明其資本配置策略傾向於保守和有效，避免了盲目擴張或高溢價併購，有助於長期股東價值的最大化。",
-        "comment_en": "Align Technology's financial data, particularly its robust free cash flow ($755.7M) and healthy net cash position (cash $1,102.6M vs. total debt $120.8M), reflects prudent financial management. A high Piotroski F-Score of 8/9 also indirectly attests to its operational efficiency and sound financial decisions. While specific details on buyback or M&A history are not provided, the company's ability to consistently generate substantial cash and maintain low debt suggests a conservative and effective capital allocation strategy, avoiding reckless expansion or high-premium acquisitions, which helps maximize long-term shareholder value."
+        "comment_zh": "Align Technology 的商業模式具有相當的持久性。隱形牙套市場仍在不斷擴張，尤其是在新興市場和成人矯正領域。公司的持續創新能力，包括推出新的產品線和技術升級，使其能夠適應不斷變化的市場需求和競爭格局。儘管牙科行業可能受到經濟週期的影響，但對牙齒健康的長期關注以及對美觀矯正的需求，為 Align 的業務提供了穩定的基礎，使其能夠在較長時期內保持競爭力。",
+        "comment_en": "Align Technology's business model possesses considerable durability. The clear aligner market continues to expand, particularly in emerging markets and the adult orthodontics segment. The company's continuous innovation capability, including the introduction of new product lines and technological upgrades, allows it to adapt to evolving market demands and competitive landscapes. Although the dental industry may be affected by economic cycles, the long-term focus on dental health and the demand for aesthetic correction provide a stable foundation for Align's business, enabling it to remain competitive over an extended period."
       },
-      "overall_moat_verdict_zh": "Align Technology本質上是一家擁有強大「特許經營權」的醫療科技公司，在數位正畸領域構築了多重堅固的護城河。其核心護城河來自於無可匹敵的Invisalign品牌心智、龐大且持續更新的專利集群、牙醫高度依賴所形成的轉換成本，以及全球領先的規模經濟。這些要素共同創造了一個難以被複製的商業模式，即使是巨額資本也無法在短時間內建立。公司在技術變革中始終保持領先，並受益於對牙齒矯正這一剛性需求的長期確定性。Align Technology如同數位正畸領域的「收費橋樑」，憑藉其專有技術和整合生態系統，持續從市場中獲取超額回報，是巴菲特會欣賞的優質企業。",
-      "overall_moat_verdict_en": "Align Technology is fundamentally a medical technology company possessing a strong \"franchise,\" having built multiple robust moats in the digital orthodontics sector. Its core competitive advantages stem from the unparalleled brand equity of Invisalign, a vast and continuously updated patent portfolio, high switching costs for dental professionals, and leading global economies of scale. These elements collectively create a business model that is incredibly difficult to replicate, even with immense capital, in a short period. The company consistently maintains technological leadership amidst industry changes and benefits from the long-term certainty of demand for orthodontic correction. Align Technology acts like a \"toll bridge\" in the digital orthodontics space, continuously extracting superior returns from the market through its proprietary technology and integrated ecosystem, making it a high-quality business that Buffett would appreciate.",
-      "evidenceHash": "f9f7697c7d0c2d9f50d34889093d6ecfef0415853e28cfa363db51b780f3d56c",
+      "overall_moat_verdict_zh": "Align Technology 憑藉其 Invisalign 品牌建立了強大的經濟護城河，展現出類似特許經營的特徵。其品牌定價權、持續的技術創新（專利保護）和高度優化的營運效率是其核心優勢。雖然網絡效應和轉換成本並非無懈可擊，但其規模經濟帶來的成本優勢和高客戶黏性進一步鞏固了其市場地位。公司在資本配置上側重於核心業務增長，顯示出良好的長期價值創造潛力。整體而言，Align 在醫療保健領域擁有一個堅實且具持久性的護城河。",
+      "overall_moat_verdict_en": "Align Technology has built a strong economic moat with its Invisalign brand, exhibiting franchise-like characteristics. Its brand pricing power, continuous technological innovation (patent protection), and highly optimized operational efficiency are its core strengths. While network effects and switching costs are not impenetrable, its cost advantages derived from economies of scale and high customer stickiness further solidify its market position. The company's capital allocation focuses on core business growth, indicating good potential for long-term value creation. Overall, Align possesses a solid and durable moat in the healthcare sector.",
+      "evidenceHash": "3a4c71b3ff4c8c6dc7f8447c10eb7d4b6a078a0c8608b0834f072c9a941b4711",
       "assessmentPolicy": "buffett-moat-v3",
       "model": "gemini-2.5-flash-lite",
       "provider": "Vertex AI"
@@ -465488,7 +465492,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "b8bc66e096e270e19a8a3c81347437d883a135bcc6a7e0bafcad47d5c2554c9b"
       },
       "mScore": {
@@ -465500,7 +465504,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "b8bc66e096e270e19a8a3c81347437d883a135bcc6a7e0bafcad47d5c2554c9b"
       }
     },
@@ -465641,7 +465645,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ALGN",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:20:09Z",
+      "fetchedAt": "2026-10-31T17:10:29Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-10-30",
@@ -465677,7 +465681,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1097149/000109714926000077/algn-q326earningspressrele.htm",
-        "capturedAt": "2026-10-31T14:20:09Z"
+        "capturedAt": "2026-10-31T17:10:29Z"
       }
     },
     "z_score": 4.57,
@@ -465960,7 +465964,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1333141/000110465926090080/fms-20260630x6k.htm",
-      "capturedAt": "2026-10-31T14:20:15Z"
+      "capturedAt": "2026-10-31T17:10:48Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 11959,
@@ -469293,7 +469297,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "EUR",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "798528c7fcc7e2e0bf4f8ae468a4aeb910c4f9139859b46b45c3555a391dafce"
       },
       "mScore": {
@@ -469305,7 +469309,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "EUR",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "798528c7fcc7e2e0bf4f8ae468a4aeb910c4f9139859b46b45c3555a391dafce"
       }
     },
@@ -469439,7 +469443,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "FMS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:20:15Z",
+      "fetchedAt": "2026-10-31T17:10:48Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-04",
       "quoteDate": "2026-10-30",
@@ -469476,7 +469480,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1333141/000110465926090080/fms-20260630x6k.htm",
-        "capturedAt": "2026-10-31T14:20:15Z"
+        "capturedAt": "2026-10-31T17:10:48Z"
       }
     },
     "z_score": 1.33,
@@ -469791,11 +469795,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "272.39 M",
     "shareSource": {
       "shares": 272.387,
-      "date": "2026-10-30",
+      "date": "2026-10-31",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/10795/000001079526000035/bdx-20260630.htm",
-      "capturedAt": "2026-10-31T14:20:20Z"
+      "capturedAt": "2026-10-31T17:10:57Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 53899.9,
@@ -473043,7 +473047,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "88aa59759f62fba5a3c590127d4e7db5fe080407229ad118f05f908bb856fb44"
       },
       "mScore": {
@@ -473055,7 +473059,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "88aa59759f62fba5a3c590127d4e7db5fe080407229ad118f05f908bb856fb44"
       }
     },
@@ -473233,7 +473237,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "BDX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:20:20Z",
+      "fetchedAt": "2026-10-31T17:10:57Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-06",
       "quoteDate": "2026-10-30",
@@ -473265,11 +473269,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 272387000,
       "shareSource": {
         "shares": 272.387,
-        "date": "2026-10-30",
+        "date": "2026-10-31",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/10795/000001079526000035/bdx-20260630.htm",
-        "capturedAt": "2026-10-31T14:20:20Z"
+        "capturedAt": "2026-10-31T17:10:57Z"
       }
     },
     "z_score": 2.06,
@@ -473588,7 +473592,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1136869/000119312526335044/zbh-20260630.htm",
-      "capturedAt": "2026-10-31T14:20:26Z"
+      "capturedAt": "2026-10-31T17:11:06Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 18028.6,
@@ -476836,7 +476840,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "12d657df8ff4dfc646276aa5ef48a9b9c3af0a3a717451ebab8f9b5645cfdebb"
       },
       "mScore": {
@@ -476848,7 +476852,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "12d657df8ff4dfc646276aa5ef48a9b9c3af0a3a717451ebab8f9b5645cfdebb"
       }
     },
@@ -476996,7 +477000,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ZBH",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:20:26Z",
+      "fetchedAt": "2026-10-31T17:11:06Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-05",
       "quoteDate": "2026-10-30",
@@ -477032,7 +477036,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1136869/000119312526335044/zbh-20260630.htm",
-        "capturedAt": "2026-10-31T14:20:26Z"
+        "capturedAt": "2026-10-31T17:11:06Z"
       }
     },
     "z_score": 2.39,
@@ -477342,22 +477346,22 @@ window.FULL_MARKET_DATA = {
     "industry": "Health Care Equipment",
     "reportedCurrency": "USD",
     "price": 82.29,
-    "shares": 377.361,
-    "shares_outstanding": 377361000,
-    "shares_display": "377.36 M",
+    "shares": 372.951,
+    "shares_outstanding": 372951000,
+    "shares_display": "372.95 M",
     "shareSource": {
-      "shares": 377.361,
+      "shares": 372.951,
       "date": "2026-10-31",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1093557/000109355726000195/dxcm-20260930.htm",
-      "capturedAt": "2026-10-31T14:20:32Z"
+      "capturedAt": "2026-10-31T17:11:14Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 31053.0,
-    "liq_val_1": 0.5633862534814144,
-    "liq_val_2": -1.4606437867188182,
-    "liq_val_3": -4.99654177299721,
+    "liq_val_1": 0.5700480760207105,
+    "liq_val_2": -1.477915329359621,
+    "liq_val_3": -5.05562392914887,
     "debt": 1392.9,
     "cash": 1817.9,
     "short_term_investments": 856.5,
@@ -480505,9 +480509,9 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 53.23,
-    "default_fair_val": 53.23,
-    "premium_pct": 54.6,
+    "fair_val": 53.86,
+    "default_fair_val": 53.86,
+    "premium_pct": 52.8,
     "is_undervalued": false,
     "pe_trailing": 31.3,
     "pe_forward": 27.5,
@@ -480524,60 +480528,60 @@ window.FULL_MARKET_DATA = {
     "roa": 13.213333333333333,
     "moat": {
       "ticker": "DXCM",
-      "period": "2026Q2",
+      "period": "2026Q3",
       "m1_brand_pricing": {
         "score": 8,
-        "comment_zh": "Dexcom在連續血糖監測（CGM）領域建立了強大的品牌聲譽，其G6和G7系統因精準度、可靠性及用戶友善性而廣受醫生和患者信賴。對於糖尿病患者而言，CGM是維持生命品質的關鍵工具，這使得他們對價格的敏感度相對較低。一旦習慣了Dexcom的產品，患者通常不願輕易更換，賦予公司顯著的定價權。這種品牌忠誠度與醫療必需性結合，形成了一道堅實的護城河，讓Dexcom能在不顯著影響銷量的前提下，維持甚至提升產品價格，遠超一般商品化產品的競爭格局。",
-        "comment_en": "Dexcom has cultivated a robust brand reputation in the Continuous Glucose Monitoring (CGM) sector, with its G6 and G7 systems highly trusted by physicians and patients for their accuracy, reliability, and user-friendliness. For individuals with diabetes, CGM is a critical tool for maintaining quality of life, which inherently reduces their price sensitivity. Once accustomed to Dexcom's products, patients are generally reluctant to switch, granting the company significant pricing power. This combination of brand loyalty and medical necessity forms a strong moat, allowing Dexcom to maintain or even increase product prices without significantly impacting sales, a distinct advantage over commodity-like competitors."
+        "comment_zh": "Dexcom 的 G6 和 G7 血糖監測系統已建立起強大的品牌聲譽，尤其在糖尿病患者社群中享有高度信賴。其產品的易用性、準確性以及持續的技術迭代，使其在競爭激烈的醫療設備市場中脫穎而出。雖然血糖監測產品具有一定的商品化屬性，但 Dexcom 透過持續的創新和卓越的用戶體驗，成功建立起品牌忠誠度，使其在定價上擁有一定的彈性。相較於其他血糖儀品牌，Dexcom 的產品在數據連續性和遠程監測方面提供了獨特的價值，這構成了其定價權的基礎。然而，市場上仍存在其他監測技術的競爭，且部分產品價格較低，因此其定價權並非絕對壟斷。",
+        "comment_en": "Dexcom's G6 and G7 continuous glucose monitoring (CGM) systems have established a strong brand reputation, particularly enjoying high trust within the diabetes patient community. The ease of use, accuracy, and continuous technological iteration of its products allow it to stand out in the competitive medical device market. Although glucose monitoring products have certain commodity characteristics, Dexcom has successfully built brand loyalty through continuous innovation and excellent user experience, giving it some pricing flexibility. Compared to other glucose meter brands, Dexcom's products offer unique value in data continuity and remote monitoring, forming the basis of its pricing power. However, competition from other monitoring technologies still exists in the market, and some products are priced lower, thus its pricing power is not an absolute monopoly."
       },
       "m2_patents_regulatory": {
-        "score": 9,
-        "comment_zh": "醫療設備行業的進入壁壘極高，Dexcom憑藉其在CGM技術上的大量專利組合，築起了堅不可摧的技術護城河。這些專利涵蓋了傳感器技術、數據傳輸、算法分析等多個關鍵環節，有效阻止了競爭對手的直接模仿。更重要的是，獲得美國FDA等監管機構的嚴格審批是漫長且成本高昂的過程，Dexcom已成功通過多項審批，這本身就是一道巨大的「收費橋樑」。新進入者不僅需要投入巨額研發，還需耗費數年時間和資金來應對監管挑戰，這為Dexcom提供了巨大的先發優勢和市場保護。",
-        "comment_en": "The medical device industry presents exceptionally high barriers to entry, and Dexcom has built an impregnable technological moat through its extensive patent portfolio in CGM technology. These patents cover critical aspects such as sensor technology, data transmission, and algorithmic analysis, effectively deterring direct imitation by competitors. Crucially, obtaining stringent approvals from regulatory bodies like the FDA is a lengthy and costly process; Dexcom's successful navigation of multiple approvals acts as a significant \"toll bridge.\" New entrants would not only require massive R&D investment but also years and substantial capital to overcome regulatory hurdles, providing Dexcom with a formidable first-mover advantage and market protection."
+        "score": 7,
+        "comment_zh": "Dexcom 在血糖監測技術領域擁有眾多專利，涵蓋了傳感器技術、數據傳輸和算法等關鍵領域，這為其產品提供了重要的技術壁壘。醫療設備行業的嚴格監管環境，包括 FDA 等機構的審批流程，本身就構成了進入壁壘，使得新競爭者難以快速進入市場。Dexcom 透過持續的研發投入和專利佈局，鞏固了其技術領先地位。然而，醫療技術的發展日新月異，專利保護有其時效性，且競爭對手也在積極進行技術研發和專利申請，因此其專利壁壘並非一勞永逸，需要持續的創新來維持。",
+        "comment_en": "Dexcom holds numerous patents in the field of glucose monitoring technology, covering key areas such as sensor technology, data transmission, and algorithms, which provide significant technological barriers for its products. The stringent regulatory environment in the medical device industry, including approval processes by agencies like the FDA, inherently constitutes an entry barrier, making it difficult for new competitors to enter the market quickly. Through continuous R&D investment and patent strategy, Dexcom has solidified its technological leadership. However, medical technology is rapidly evolving, patent protection has a limited lifespan, and competitors are also actively engaged in R&D and patent applications, thus its patent barrier is not permanent and requires continuous innovation to maintain."
       },
       "m3_high_switching_costs": {
         "score": 8,
-        "comment_zh": "對於糖尿病患者而言，更換連續血糖監測（CGM）系統的轉換成本極高。患者和其醫療團隊已投入時間學習並適應Dexcom系統的操作、數據解讀和警報設置。轉換到新品牌意味著需要重新學習、調整治療方案，並可能面臨數據兼容性問題，這會帶來潛在的健康風險和巨大的心理負擔。此外，醫生也傾向於推薦他們熟悉且信任的系統，以確保患者護理的連續性和有效性。這種深度嵌入患者日常管理和醫療流程的特性，使得轉換成本成為Dexcom一道強大的護城河，確保了客戶的長期黏性。",
-        "comment_en": "For individuals with diabetes, the switching costs associated with changing Continuous Glucose Monitoring (CGM) systems are exceptionally high. Patients and their healthcare teams have invested time in learning and adapting to Dexcom's system operation, data interpretation, and alert settings. Transitioning to a new brand would entail relearning, adjusting treatment plans, and potentially facing data compatibility issues, leading to significant health risks and psychological burden. Furthermore, physicians tend to recommend systems they are familiar with and trust to ensure continuity and effectiveness of patient care. This deep integration into patients' daily management and medical workflows makes switching costs a powerful moat for Dexcom, ensuring long-term customer stickiness."
+        "comment_zh": "對於長期使用 Dexcom 血糖監測系統的糖尿病患者而言，轉換到其他品牌的成本相當高。這不僅包括學習新設備操作、適應不同數據報告方式的時間和精力成本，更重要的是，患者已經習慣了 Dexcom 系統提供的數據準確性、可靠性以及與醫療團隊的無縫溝通。數據的連續性對於糖尿病管理至關重要，中斷數據記錄可能影響治療方案的制定和效果評估。此外，保險覆蓋和醫生推薦也可能影響患者的選擇，進一步增加了轉換的難度。這種高度的用戶黏性構成了顯著的轉換成本壁壘。",
+        "comment_en": "For diabetic patients who have been using Dexcom's continuous glucose monitoring system for a long time, the cost of switching to another brand is quite high. This includes not only the time and effort to learn new device operations and adapt to different data reporting methods, but more importantly, patients are accustomed to the accuracy and reliability of the data provided by the Dexcom system and seamless communication with their healthcare team. Data continuity is crucial for diabetes management, and interruptions in data recording can affect treatment plan formulation and efficacy evaluation. Furthermore, insurance coverage and physician recommendations can also influence patient choices, further increasing the difficulty of switching. This high level of user stickiness constitutes a significant switching cost barrier."
       },
       "m4_network_effects": {
-        "score": 5,
-        "comment_zh": "Dexcom的護城河主要來自其產品的醫療必需性、專利保護和高轉換成本，而非典型的網絡效應。雖然更多的用戶可能產生更多數據，有助於改進算法或提供更全面的臨床洞察，但這種「網絡」的價值增長並非呈幾何級數。它不像社交媒體或拍賣平台那樣，每個新用戶的加入能直接且顯著地提升所有現有用戶的體驗。Dexcom的價值更多體現在其產品本身的精準度與可靠性，以及與醫療生態系統的整合。因此，其網絡效應相對較弱，不足以構成核心護城河。",
-        "comment_en": "Dexcom's moat primarily stems from the medical necessity of its products, patent protection, and high switching costs, rather than typical network effects. While a larger user base might generate more data, potentially aiding algorithm improvements or providing broader clinical insights, the value growth of this \"network\" is not geometric. It doesn't operate like social media or auction platforms where each new user directly and significantly enhances the experience for all existing users. Dexcom's value is more embedded in the precision and reliability of its product itself, and its integration within the healthcare ecosystem. Therefore, its network effects are relatively weaker and do not constitute a core moat."
+        "score": 4,
+        "comment_zh": "Dexcom 的血糖監測系統本身並不存在顯著的傳統網絡效應，即用戶數量的增加並不會直接提升產品對單個用戶的價值。然而，其產品的普及和數據的積累，間接促進了與醫療服務提供者、保險公司以及研究機構的協作。例如，醫生可以透過 Dexcom 的平台更有效地監測患者的血糖波動，保險公司可以基於真實數據評估治療效果，研究機構可以利用大數據進行糖尿病研究。這種圍繞產品生態系統的協作，雖然不是典型的網絡效應，但能增強產品的整體價值和市場地位，但其影響力相對有限。",
+        "comment_en": "Dexcom's continuous glucose monitoring system does not inherently possess significant traditional network effects, meaning an increase in the number of users does not directly enhance the product's value to an individual user. However, the widespread adoption of its products and the accumulation of data indirectly facilitate collaboration with healthcare providers, insurance companies, and research institutions. For instance, doctors can more effectively monitor patients' glucose fluctuations through Dexcom's platform, insurance companies can assess treatment efficacy based on real-world data, and research institutions can utilize big data for diabetes research. This collaboration around the product ecosystem, while not a typical network effect, can enhance the overall value and market position of the product, but its influence is relatively limited."
       },
       "m5_cost_advantage_scale": {
         "score": 7,
-        "comment_zh": "作為CGM市場的領導者之一，Dexcom受益於顯著的規模經濟。其龐大的生產量和全球分銷網絡使其能夠在原材料採購、製造和物流方面獲得成本優勢。隨著銷量的增長，單位產品的研發和監管審批成本被攤薄，進一步降低了邊際成本。這種規模效應使得Dexcom能夠以更具競爭力的價格提供產品，同時保持健康的利潤率，這對潛在的新進入者構成了實質性的障礙。新競爭者難以在短期內達到相同的生產規模和成本效率，從而難以在價格上與Dexcom競爭。",
-        "comment_en": "As one of the leaders in the CGM market, Dexcom benefits from significant economies of scale. Its large production volume and global distribution network enable cost advantages in raw material procurement, manufacturing, and logistics. As sales grow, R&D and regulatory approval costs per unit are diluted, further reducing marginal costs. This scale effect allows Dexcom to offer products at more competitive prices while maintaining healthy profit margins, posing a substantial barrier to potential new entrants. New competitors would find it difficult to achieve the same production scale and cost efficiency in the short term, thus struggling to compete on price with Dexcom."
+        "comment_zh": "作為血糖監測設備領域的領導者之一，Dexcom 受益於規模經濟效應。龐大的生產規模有助於降低單位生產成本，包括原材料採購、生產製造和供應鏈管理等方面。這種成本優勢使其能夠在保持產品高品質的同時，提供具有競爭力的價格，並有能力投入更多資源進行研發和市場拓展。此外，規模化的數據處理和分析能力也構成了其成本優勢的一部分。然而，與一些大型綜合醫療設備製造商相比，其規模優勢可能不如前者全面，且在某些特定零部件的採購上仍可能面臨價格波動。",
+        "comment_en": "As one of the leaders in the glucose monitoring device sector, Dexcom benefits from economies of scale. Its large production scale helps reduce unit production costs, including raw material procurement, manufacturing, and supply chain management. This cost advantage allows it to offer competitive pricing while maintaining high product quality, and provides the capacity to invest more resources in R&D and market expansion. Furthermore, scaled data processing and analysis capabilities also contribute to its cost advantage. However, compared to some large, diversified medical device manufacturers, its scale advantage may not be as comprehensive, and it may still face price fluctuations in the procurement of certain specific components."
       },
       "m6_unique_geography_assets": {
-        "score": 6,
-        "comment_zh": "連續血糖監測（CGM）市場雖然增長迅速，但仍是一個相對專業且受監管的利基市場。Dexcom與少數幾個主要競爭對手（如Abbott）共同主導著這個市場。在這種「有效規模」的市場中，市場容量足以支撐少數幾家大型企業盈利，但對於過多的新進入者而言，則可能導致價格戰和利潤率下降，形成雙輸局面。因此，新競爭者進入的意願會降低，因為他們知道難以在不破壞行業利潤結構的情況下獲得足夠的市場份額。這為現有領導者提供了一定的市場穩定性和保護。",
-        "comment_en": "While rapidly growing, the Continuous Glucose Monitoring (CGM) market remains a relatively specialized and regulated niche. Dexcom, along with a few major competitors (like Abbott), dominates this market. In such an \"efficient scale\" market, the capacity is sufficient to support a few large, profitable enterprises, but too many new entrants could lead to price wars and declining profit margins, resulting in a lose-lose scenario. Consequently, the incentive for new competitors to enter is reduced, as they understand the difficulty of gaining sufficient market share without disrupting the industry's profit structure. This provides existing leaders with a degree of market stability and protection."
+        "score": 3,
+        "comment_zh": "Dexcom 的業務遍及全球，但其核心競爭力並非來自於特定的地理位置或獨特的自然資源。其價值主要體現在技術創新、產品性能和市場滲透率上，而非依賴於某個地區的特殊優勢。雖然在某些市場可能擁有較高的市佔率或與當地醫療體系的良好合作關係，但這些並非構成難以複製的地理資產。其成功更多是全球化佈局和標準化產品服務的結果，而非特定地理位置帶來的壟斷性優勢。",
+        "comment_en": "Dexcom's business operates globally, but its core competitiveness does not stem from specific geographical locations or unique natural resources. Its value is primarily reflected in technological innovation, product performance, and market penetration, rather than relying on special advantages in a particular region. While it may hold a high market share or have good cooperative relationships with local healthcare systems in certain markets, these do not constitute irreplicable geographical assets. Its success is more a result of global deployment and standardized product services, rather than a monopolistic advantage derived from a specific geographical location."
       },
       "m7_operational_efficiency": {
-        "score": 9,
-        "comment_zh": "Dexcom展現出卓越的資本配置效率，其高達38.1%的股東權益報酬率（ROE）和15.5%的資產報酬率（ROA）遠超行業平均水平，並顯著高於其加權平均資本成本（WACC）。這表明公司能夠持續將投入資本轉化為豐厚的回報，為股東創造實質性的複利價值。這種持續的超額回報能力是巴菲特衡量企業護城河深度的關鍵指標之一，它反映了公司在運營效率、成本控制和產品盈利能力方面的強大競爭優勢。高ROIC證明了Dexcom不僅賺錢，而且能高效地利用資本賺錢。",
-        "comment_en": "Dexcom demonstrates exceptional capital allocation efficiency, with its impressive Return on Equity (ROE) of 38.1% and Return on Assets (ROA) of 15.5% significantly exceeding industry averages and its Weighted Average Cost of Capital (WACC). This indicates the company's consistent ability to convert invested capital into substantial returns, generating significant compounding value for shareholders. This sustained capacity for excess returns is a key metric for Buffett in assessing the depth of a company's moat, reflecting strong competitive advantages in operational efficiency, cost control, and product profitability. High ROIC proves that Dexcom not only earns money but does so by efficiently utilizing its capital."
+        "score": 8,
+        "comment_zh": "Dexcom 在血糖監測領域展現了卓越的營運效率。其高度自動化的生產流程、精簡的供應鏈管理以及對數據分析的深入應用，都極大地提升了營運效率和產品品質的穩定性。公司持續優化其研發、生產和銷售流程，以快速響應市場需求並降低營運成本。高 ROE (39.1%) 和 ROA (15.9%) 以及強勁的自由現金流 (FCF TTM: $1,098.3M) 都印證了其出色的營運管理能力。這種效率不僅體現在財務數據上，也反映在其產品的可靠性和用戶體驗的持續提升上。",
+        "comment_en": "Dexcom demonstrates excellent operational efficiency in the field of glucose monitoring. Its highly automated production processes, streamlined supply chain management, and deep application of data analytics have greatly enhanced operational efficiency and product quality stability. The company continuously optimizes its R&D, production, and sales processes to rapidly respond to market demands and reduce operating costs. High ROE (39.1%) and ROA (15.9%), along with strong Free Cash Flow (FCF TTM: $1,098.3M), all attest to its outstanding operational management capabilities. This efficiency is reflected not only in financial data but also in the reliability of its products and the continuous improvement of user experience."
       },
       "m8_capital_allocation": {
-        "score": 9,
-        "comment_zh": "即使給予競爭對手千億美元，也難以在短時間內複製Dexcom的核心戰略資產。這不僅包括其龐大的專利組合、FDA等監管機構的長期審批歷史，更重要的是其在醫療專業人士和患者群體中建立的深厚信任與品牌忠誠度。複製一個高度精準、可靠且被廣泛接受的醫療設備品牌，需要數十年如一日的研發投入、臨床驗證、市場教育和渠道建設。這些無形資產和累積的經驗是無法簡單用金錢衡量的，它們共同構成了Dexcom難以被模仿和超越的獨特護城河。",
-        "comment_en": "Even with a hundred billion dollars, competitors would find it nearly impossible to replicate Dexcom's core strategic assets in a short timeframe. This encompasses not only its vast patent portfolio and extensive history of regulatory approvals from bodies like the FDA but, more critically, the profound trust and brand loyalty established among healthcare professionals and patient communities. Replicating a highly accurate, reliable, and widely accepted medical device brand demands decades of consistent R&D investment, clinical validation, market education, and channel development. These intangible assets and accumulated experience cannot be simply valued in monetary terms; together, they form Dexcom's unique and formidable moat, making it incredibly difficult to imitate or surpass."
+        "score": 8,
+        "comment_zh": "Dexcom 的管理層在資本配置方面表現出色。公司將大量資金投入到研發創新中，以保持技術領先地位並推出新一代產品，這對其長期成長至關重要。同時，公司也積極進行市場拓展和產能擴張，以滿足不斷增長的需求。其穩健的資產負債表（現金 $1,817.9M / 負債 $1,392.9M）顯示了其財務管理的審慎。儘管公司尚未進行大規模的股權回購或高額股息發放，但其將資本優先用於能產生最高長期回報的業務增長和技術創新，體現了巴菲特所欣賞的資本配置智慧。",
+        "comment_en": "Dexcom's management demonstrates excellent capital allocation. The company invests heavily in R&D and innovation to maintain technological leadership and launch next-generation products, which is crucial for its long-term growth. Concurrently, it actively engages in market expansion and capacity increases to meet growing demand. Its robust balance sheet (Cash $1,817.9M / Debt $1,392.9M) reflects prudent financial management. Although the company has not engaged in large-scale share buybacks or substantial dividend payouts, its prioritization of capital for business growth and technological innovation that generate the highest long-term returns exemplifies the capital allocation wisdom admired by Buffett."
       },
       "m9_customer_retention": {
         "score": 8,
-        "comment_zh": "糖尿病管理對連續血糖監測（CGM）的需求具有極高的確定性和持續性，這賦予Dexcom強大的技術/典範轉移抗性。無論技術如何演進，糖尿病患者對精準、實時血糖數據的需求是恆定的。雖然AI可能優化數據分析和預測，但它無法取代物理傳感器在體內實時測量的核心功能。Dexcom作為行業領導者，持續投入研發以保持技術領先，並將新技術（如AI輔助分析）整合到其平台中，而非被其顛覆。這種基礎需求和公司持續創新能力，使其對潛在的顛覆性技術具有很強的免疫力。",
-        "comment_en": "The demand for Continuous Glucose Monitoring (CGM) in diabetes management is highly certain and persistent, granting Dexcom strong immunity to technological or paradigm shifts. Regardless of technological evolution, the need for accurate, real-time glucose data for diabetic patients remains constant. While AI might optimize data analysis and prediction, it cannot replace the core function of physical sensors for real-time in-vivo measurement. As an industry leader, Dexcom continuously invests in R&D to maintain technological superiority and integrates new technologies (like AI-assisted analytics) into its platform rather than being disrupted by them. This fundamental demand and the company's continuous innovation capability provide strong immunity against potential disruptive technologies."
+        "comment_zh": "Dexcom 在客戶留存方面表現強勁，這主要歸功於其產品的優越性能、用戶體驗以及高轉換成本。一旦患者習慣了 Dexcom 系統的數據準確性、易用性和與醫療團隊的無縫連接，他們通常會持續使用該產品。持續的產品改進和新功能的推出，如 G7 的小型化和簡化，進一步增強了用戶滿意度和忠誠度。此外，與醫療專業人士的緊密合作，確保了產品在臨床上的有效性和可靠性，也間接提升了客戶的信任和留存率。這種高客戶留存率是其穩定營收的關鍵。",
+        "comment_en": "Dexcom exhibits strong customer retention, primarily due to its product's superior performance, user experience, and high switching costs. Once patients become accustomed to the accuracy of Dexcom's system, its ease of use, and seamless connection with their healthcare team, they typically continue to use the product. Continuous product improvements and the introduction of new features, such as the miniaturization and simplification of the G7, further enhance user satisfaction and loyalty. Moreover, close collaboration with medical professionals ensures the product's clinical effectiveness and reliability, indirectly boosting customer trust and retention rates. This high customer retention rate is key to its stable revenue."
       },
       "m10_durability": {
         "score": 7,
-        "comment_zh": "Dexcom的財務數據顯示其擁有健康的資產負債表，現金儲備充足（$1,947.0M），遠超總負債（$1,398.4M），且皮氏F-Score高達9/9，這表明公司在財務管理上極為穩健。雖然具體的股本回購或併購策略未直接提供，但強勁的自由現金流（$1,405.0M TTM）和高ROIC暗示管理層具備將資本有效配置於研發、市場擴張或股東回報的能力。在醫療科技領域，審慎的資本配置對於維持競爭優勢至關重要，Dexcom的財務表現反映了其管理層在資源分配上的紀律性和效率，有助於長期價值的創造。",
-        "comment_en": "Dexcom's financial data indicates a healthy balance sheet with ample cash reserves ($1,947.0M), significantly exceeding total liabilities ($1,398.4M), and a robust Piotroski F-Score of 9/9, suggesting extremely sound financial management. While specific share buyback or M&A strategies are not directly provided, strong free cash flow ($1,405.0M TTM) and high ROIC imply management's capability to effectively allocate capital towards R&D, market expansion, or shareholder returns. In the medical technology sector, prudent capital allocation is crucial for sustaining competitive advantage. Dexcom's financial performance reflects its management's discipline and efficiency in resource allocation, contributing to long-term value creation."
+        "comment_zh": "Dexcom 的血糖監測技術具有相當的持久性，因為糖尿病管理是一個長期且持續的需求。隨著全球糖尿病患病率的上升，對連續血糖監測設備的需求預計將持續增長。Dexcom 在技術創新和產品迭代方面的投入，使其能夠不斷適應市場變化並保持競爭力。雖然醫療技術領域存在顛覆性創新的可能性，但 Dexcom 透過其強大的品牌、用戶忠誠度和持續的研發投入，建立了一定的抗顛覆能力。然而，新興技術（如植入式傳感器或更精準的非侵入式技術）的出現，仍可能對其長期市場地位構成挑戰。",
+        "comment_en": "Dexcom's glucose monitoring technology possesses considerable durability, as diabetes management is a long-term and ongoing need. With the rising global prevalence of diabetes, the demand for continuous glucose monitoring devices is expected to continue growing. Dexcom's investment in technological innovation and product iteration enables it to constantly adapt to market changes and remain competitive. While the possibility of disruptive innovation exists in the medical technology field, Dexcom has built a certain level of resistance to disruption through its strong brand, user loyalty, and continuous R&D investment. However, the emergence of new technologies (such as implantable sensors or more accurate non-invasive technologies) could still pose a challenge to its long-term market position."
       },
-      "overall_moat_verdict_zh": "Dexcom本質上是一家擁有「特許經營權」特徵的醫療科技公司，其護城河深厚且多樣。核心在於其在連續血糖監測（CGM）領域的技術領先地位、龐大的專利組合以及嚴格的監管壁壘，共同構築了一道難以逾越的「收費橋樑」。患者對產品的醫療必需性導致高品牌忠誠度和轉換成本，賦予公司強大的定價權。同時，其卓越的資本回報率和規模經濟效應，確保了持續的盈利能力和市場主導地位。儘管網絡效應不顯著，但其產品的不可替代性、管理層的穩健財務管理以及對技術顛覆的強大免疫力，共同鞏固了其作為一家高品質、高確定性投資標的的地位。",
-      "overall_moat_verdict_en": "Dexcom is fundamentally a medical technology company exhibiting characteristics of a \"franchise,\" possessing a deep and multifaceted moat. Its core strength lies in its technological leadership in Continuous Glucose Monitoring (CGM), extensive patent portfolio, and stringent regulatory barriers, collectively forming an insurmountable \"toll bridge.\" The medical necessity of its products for patients drives high brand loyalty and switching costs, granting the company significant pricing power. Concurrently, its exceptional return on invested capital and economies of scale ensure sustained profitability and market dominance. While network effects are not prominent, the indispensability of its products, prudent financial management, and strong immunity to technological disruption collectively solidify its position as a high-quality, high-certainty investment candidate.",
-      "evidenceHash": "b3e36b4a16b636a4ae7d0bff2cfb39048638e749ece9cc81f6e81a57fe1ea7eb",
+      "overall_moat_verdict_zh": "Dexcom 憑藉其在連續血糖監測領域的技術領先、強大品牌聲譽、高客戶黏性及卓越的營運效率，建立起一道堅固的經濟護城河。其產品的高轉換成本和持續的研發投入，使其在醫療設備這個高度專業化的市場中，具備了類似「收費橋」的特徵，患者一旦依賴其精準數據進行管理，便難以輕易轉換。儘管面臨潛在的技術顛覆風險，但其持續的創新能力和規模優勢，使其短期內難以被超越。整體而言，Dexcom 展現了類似特許經營權的特質，在特定醫療需求領域擁有顯著的定價權和市場主導地位。",
+      "overall_moat_verdict_en": "Dexcom has established a robust economic moat through its technological leadership in continuous glucose monitoring, strong brand reputation, high customer stickiness, and excellent operational efficiency. The high switching costs associated with its products and continuous R&D investment give it characteristics similar to a 'toll bridge' in the highly specialized medical device market; once patients rely on its accurate data for management, switching becomes difficult. Despite potential risks of technological disruption, its continuous innovation capability and scale advantages make it difficult to surpass in the short term. Overall, Dexcom exhibits qualities akin to a franchise, possessing significant pricing power and market dominance in a specific area of medical need.",
+      "evidenceHash": "a3a630f32ebab18c0b412d4fa5f9c88d1d7351cd7f28ff6d0449ed8936324ead",
       "assessmentPolicy": "buffett-moat-v3",
       "model": "gemini-2.5-flash-lite",
       "provider": "Vertex AI"
@@ -480599,7 +480603,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "29b3fa54d74f1c066640b3f43b57beee45ce2e8aa06b129e4aaa2b167f68a423"
       },
       "mScore": {
@@ -480611,7 +480615,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "29b3fa54d74f1c066640b3f43b57beee45ce2e8aa06b129e4aaa2b167f68a423"
       }
     },
@@ -480759,7 +480763,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "DXCM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:20:32Z",
+      "fetchedAt": "2026-10-31T17:11:14Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-10-30",
@@ -480788,14 +480792,14 @@ window.FULL_MARKET_DATA = {
         "inventory": 770700000,
         "preferredStock": 0
       },
-      "sharesOutstanding": 377361000,
+      "sharesOutstanding": 372951000,
       "shareSource": {
-        "shares": 377.361,
+        "shares": 372.951,
         "date": "2026-10-31",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1093557/000109355726000195/dxcm-20260930.htm",
-        "capturedAt": "2026-10-31T14:20:32Z"
+        "capturedAt": "2026-10-31T17:11:14Z"
       }
     },
     "z_score": 7.39,
@@ -481105,22 +481109,22 @@ window.FULL_MARKET_DATA = {
     "industry": "Health Care Equipment",
     "reportedCurrency": "USD",
     "price": 229.94,
-    "shares": 140.639243,
-    "shares_outstanding": 140639243,
+    "shares": 140.639253,
+    "shares_outstanding": 140639253,
     "shares_display": "140.64 M",
     "shareSource": {
-      "shares": 140.639243,
+      "shares": 140.639253,
       "date": "2026-10-31",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/943819/000094381926000089/rmd-20260930.htm",
-      "capturedAt": "2026-10-31T14:20:38Z"
+      "capturedAt": "2026-10-31T17:11:36Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 32338.6,
-    "liq_val_1": 8.851014648877198,
-    "liq_val_2": 0.2509854237483346,
-    "liq_val_3": -8.912014692798083,
+    "liq_val_1": 8.8510140195355,
+    "liq_val_2": 0.250985405902291,
+    "liq_val_3": -8.912014059119043,
     "debt": 610.6,
     "cash": 1010.7,
     "short_term_investments": 0.0,
@@ -484287,60 +484291,60 @@ window.FULL_MARKET_DATA = {
     "roa": 19.17552361768014,
     "moat": {
       "ticker": "RMD",
-      "period": "2026Q4",
+      "period": "2027Q1",
       "m1_brand_pricing": {
-        "score": 9,
-        "comment_zh": "ResMed在睡眠呼吸中止症與呼吸照護領域建立了極強的品牌心智與信任度。其產品直接關乎患者生命品質，醫生與患者對其設備的信賴度極高，這賦予公司顯著的定價權。即使在經濟下行時，患者對維持治療的需求依然強勁，使得ResMed能夠在不犧牲銷量的前提下，有效轉嫁成本或進行適度提價。這種品牌忠誠度與產品的關鍵性，構成了難以撼動的商業壁壘，遠超普通醫療設備製造商。",
-        "comment_en": "ResMed has cultivated an exceptionally strong brand and trust in the sleep apnea and respiratory care sectors. Its products are directly linked to patients' quality of life, fostering high confidence among doctors and patients. This grants the company significant pricing power. Even during economic downturns, the critical need for continuous therapy ensures robust demand, allowing ResMed to effectively pass on costs or implement moderate price increases without sacrificing sales volume. This brand loyalty and product criticality form an unshakeable business moat, surpassing that of typical medical device manufacturers."
+        "score": 8,
+        "comment_zh": "ResMed 作為睡眠呼吸中止治療領域的領導者，其品牌在醫療專業人士和患者心中建立了極高的信賴度與專業形象。這種強大的品牌忠誠度使其在面對競爭時，能夠維持相對穩定的定價能力。雖然醫療設備領域存在一定的價格敏感性，但 ResMed 的產品在臨床效果和用戶體驗上的優勢，使其能夠支持其產品的溢價。與其他通用醫療設備製造商相比，ResMed 在特定細分市場的品牌深度是其重要的護城河。",
+        "comment_en": "As a leader in the sleep apnea treatment field, ResMed's brand has established a high degree of trust and professional image among healthcare professionals and patients. This strong brand loyalty allows it to maintain relatively stable pricing power when facing competition. Although there is a certain price sensitivity in the medical device sector, ResMed's product advantages in clinical effectiveness and user experience enable it to support premium pricing. Compared to other general medical device manufacturers, ResMed's brand depth in its specific niche market is a significant moat."
       },
       "m2_patents_regulatory": {
         "score": 9,
-        "comment_zh": "ResMed受益於其龐大的專利組合和嚴格的醫療設備監管環境。在呼吸照護領域，新產品從研發到上市需經過漫長的臨床試驗、FDA審批及各國法規認證，這是一個耗時且成本高昂的過程。ResMed已建立的專利壁壘和豐富的監管經驗，為其產品提供了強大的保護，有效阻止了潛在競爭者輕易進入。這種法規與知識產權的雙重護城河，確保了其市場領先地位和超額利潤。",
-        "comment_en": "ResMed benefits from its extensive patent portfolio and the stringent regulatory environment for medical devices. In respiratory care, new products require lengthy clinical trials, FDA approvals, and various international regulatory certifications—a time-consuming and costly process. ResMed's established patent barriers and rich regulatory experience provide robust protection for its products, effectively deterring potential competitors from easy market entry. This dual moat of regulatory compliance and intellectual property safeguards its market leadership and ensures superior profitability."
+        "comment_zh": "ResMed 在睡眠呼吸中止治療設備領域擁有廣泛且重要的專利組合，涵蓋了從設備設計、感測技術到軟體演算法等多個層面。這些專利為其產品提供了強有力的法律保護，有效阻止了競爭對手輕易模仿其核心技術。此外，醫療設備行業的嚴格監管和漫長的審批流程，也構成了顯著的進入壁壘。新進入者需要投入大量時間和資源來獲得監管批准，這進一步鞏固了 ResMed 在市場上的領先地位。",
+        "comment_en": "ResMed possesses an extensive and crucial patent portfolio in the sleep apnea treatment device sector, covering multiple aspects such as device design, sensor technology, and software algorithms. These patents provide strong legal protection for its products, effectively preventing competitors from easily imitating its core technologies. Furthermore, the stringent regulatory environment and lengthy approval processes in the medical device industry also constitute significant barriers to entry. New entrants need to invest substantial time and resources to obtain regulatory approval, further solidifying ResMed's leading market position."
       },
       "m3_high_switching_costs": {
-        "score": 9,
-        "comment_zh": "對於睡眠呼吸中止症患者而言，更換ResMed的CPAP設備或面罩會帶來顯著的轉換成本。患者已習慣特定設備的舒適度、操作介面及數據追蹤系統，轉換至新品牌可能導致適應期不適、治療效果下降，甚至需要重新學習。對醫生而言，ResMed的AirView等雲端平台已深度整合至其工作流程，提供寶貴的患者數據與遠端監控功能，轉換系統將涉及數據遷移、員工培訓及潛在的營運中斷，這些都構成強大的黏性。",
-        "comment_en": "For sleep apnea patients, switching from ResMed's CPAP devices or masks incurs significant costs. Patients are accustomed to the comfort, interface, and data tracking systems of specific equipment; transitioning to a new brand could lead to discomfort, reduced treatment efficacy, and a new learning curve. For clinicians, ResMed's cloud platforms like AirView are deeply integrated into their workflows, offering invaluable patient data and remote monitoring. Switching systems would involve data migration, staff training, and potential operational disruptions, all contributing to strong stickiness."
+        "score": 7,
+        "comment_zh": "對於患者而言，一旦習慣了 ResMed 設備的操作方式、數據追蹤系統以及與醫療專業人員的配合模式，更換到其他品牌的設備可能會帶來學習成本和不確定性。醫療專業人員也傾向於與熟悉的供應商合作，以確保治療的連續性和數據的兼容性。雖然轉換成本並非絕對，但其產品生態系統的整合性，以及患者與醫生的慣性，為 ResMed 創造了一定的客戶黏性。",
+        "comment_en": "For patients, once accustomed to the operation of ResMed devices, the data tracking system, and the collaboration model with healthcare professionals, switching to another brand's equipment may incur learning costs and uncertainty. Healthcare professionals also tend to work with familiar suppliers to ensure treatment continuity and data compatibility. While switching costs are not absolute, the integration of its product ecosystem, along with the inertia of patients and doctors, creates a certain degree of customer stickiness for ResMed."
       },
       "m4_network_effects": {
-        "score": 7,
-        "comment_zh": "ResMed的雲端互聯設備和數據平台（如AirView）展現出獨特的網絡效應。隨著越來越多的患者使用其智能設備，並將數據上傳至雲端，ResMed能夠累積龐大的真實世界數據。這些數據不僅能優化其演算法，提升設備效能與患者依從性，也為醫生提供了更精準的診斷與治療依據。這種數據驅動的生態系統，吸引更多醫療專業人員和患者加入，形成正向循環，強化了其市場地位。",
-        "comment_en": "ResMed's cloud-connected devices and data platforms, such as AirView, exhibit unique network effects. As more patients use its smart devices and upload data to the cloud, ResMed accumulates vast amounts of real-world data. This data not only optimizes its algorithms, enhancing device performance and patient adherence, but also provides clinicians with more precise diagnostic and treatment insights. This data-driven ecosystem attracts more healthcare professionals and patients, creating a positive feedback loop that strengthens its market position."
+        "score": 5,
+        "comment_zh": "ResMed 的網絡效應主要體現在其數據平台和生態系統上。隨著越來越多的患者使用其設備並產生數據，該數據平台能夠為醫療專業人員提供更豐富的洞察，從而提升治療效果的精準度。這反過來又吸引更多用戶和醫療機構加入其生態系統。然而，與社交網絡或市場平台相比，這種網絡效應的強度相對較弱，且主要集中在醫療專業服務的閉環內。",
+        "comment_en": "ResMed's network effects are primarily reflected in its data platform and ecosystem. As more patients use its devices and generate data, the platform can provide richer insights to healthcare professionals, thereby enhancing the precision of treatment outcomes. This, in turn, attracts more users and healthcare institutions to join its ecosystem. However, compared to social networks or marketplace platforms, the strength of this network effect is relatively weaker and mainly concentrated within the closed loop of healthcare professional services."
       },
       "m5_cost_advantage_scale": {
-        "score": 8,
-        "comment_zh": "作為全球呼吸照護領域的領導者，ResMed憑藉其巨大的規模實現了顯著的成本優勢。其大規模的生產製造、全球供應鏈管理以及龐大的研發投入，使其能夠以更低的單位成本生產高品質設備。這種規模經濟不僅降低了採購成本，也攤薄了研發和銷售費用，使其在價格競爭中處於有利地位。新進入者難以在短期內複製其生產效率和成本結構，這構成了一道堅實的護城河。",
-        "comment_en": "As a global leader in respiratory care, ResMed achieves significant cost advantages through its immense scale. Its large-scale manufacturing, global supply chain management, and substantial R&D investments enable it to produce high-quality devices at lower unit costs. This economy of scale not only reduces procurement expenses but also amortizes R&D and sales costs, positioning it favorably in price competition. New entrants would find it challenging to replicate its production efficiency and cost structure in the short term, forming a robust moat."
+        "score": 7,
+        "comment_zh": "作為全球領先的睡眠呼吸中止治療設備製造商，ResMed 受益於其龐大的生產規模和成熟的供應鏈管理。這使其能夠在採購原材料、生產製造和分銷物流方面獲得顯著的成本優勢。規模經濟有助於其在保持產品品質的同時，提供更具競爭力的價格，或將節省的成本投入到研發和市場拓展中，從而進一步鞏固其市場地位。",
+        "comment_en": "As a leading global manufacturer of sleep apnea treatment devices, ResMed benefits from its large-scale production and mature supply chain management. This allows it to achieve significant cost advantages in raw material procurement, manufacturing, and distribution logistics. Economies of scale help it offer more competitive prices while maintaining product quality, or to invest cost savings into R&D and market expansion, thereby further solidifying its market position."
       },
       "m6_unique_geography_assets": {
-        "score": 7,
-        "comment_zh": "ResMed的護城河並非來自地理位置的獨佔，而是源於其在特定醫療利基市場的深度滲透與主導地位。睡眠呼吸中止症和慢性阻塞性肺病（COPD）市場雖然龐大，但對技術、法規和臨床專業知識的要求極高，形成天然的寡占格局。ResMed憑藉其數十年的專業積累、廣泛的臨床合作夥伴關係和全球分銷網絡，在這一專業領域建立了難以撼動的領導地位，新競爭者進入將面臨極高的門檻。",
-        "comment_en": "ResMed's moat does not stem from geographic exclusivity but from its deep penetration and dominant position in a specific medical niche market. While the markets for sleep apnea and COPD are substantial, they demand extremely high levels of technology, regulatory compliance, and clinical expertise, creating a natural oligopoly. Through decades of accumulated specialization, extensive clinical partnerships, and a global distribution network, ResMed has established an unassailable leadership in this specialized field, presenting formidable barriers to new competitors."
+        "score": 3,
+        "comment_zh": "ResMed 的業務遍及全球，但其核心競爭力並非依賴於特定的地理位置或獨特的自然資源。其優勢在於技術、品牌和市場滲透，這些是可以跨地域複製和擴展的。雖然在某些地區可能擁有較強的市場份額或分銷網絡，但這些並非不可替代的地理資產，競爭對手可以通過類似的策略進入這些市場。",
+        "comment_en": "ResMed's business operates globally, but its core competitiveness does not rely on specific geographical locations or unique natural resources. Its strengths lie in technology, brand, and market penetration, which are replicable and scalable across regions. While it may hold strong market share or distribution networks in certain areas, these are not irreplaceable geographical assets, and competitors can enter these markets through similar strategies."
       },
       "m7_operational_efficiency": {
-        "score": 9,
-        "comment_zh": "ResMed展現出卓越的營運效率和資本回報能力。其高達23.1%的股東權益報酬率（ROE）和17.0%的資產報酬率（ROA），以及滿分的皮氏F-Score（9/9），都強烈證明了公司能夠持續高效地將資本轉化為利潤。這表明管理層在資源配置、成本控制和資產利用方面表現出色，能夠長期創造超額的股東價值，遠超其加權平均資本成本，是巴菲特眼中理想的「印鈔機」企業。",
-        "comment_en": "ResMed demonstrates exceptional operational efficiency and capital returns. Its high Return on Equity (ROE) of 23.1% and Return on Assets (ROA) of 17.0%, coupled with a perfect Piotroski F-Score (9/9), strongly attest to the company's consistent ability to efficiently convert capital into profits. This indicates outstanding management in resource allocation, cost control, and asset utilization, enabling the long-term creation of superior shareholder value well above its weighted average cost of capital, making it an ideal 'money-printing machine' in Buffett's view."
+        "score": 8,
+        "comment_zh": "ResMed 在營運效率方面表現出色，體現在其持續優化的生產流程、精準的庫存管理以及高效的全球分銷網絡。公司能夠將先進的製造技術與嚴格的品質控制相結合，確保產品的高可靠性。同時，其對數據分析的運用也提升了營運的精準度。高 ROE 和 ROA 指標證明了其將資產轉化為利潤的卓越能力，這得益於其持續追求卓越營運的努力。",
+        "comment_en": "ResMed demonstrates excellent operational efficiency, reflected in its continuously optimized production processes, precise inventory management, and efficient global distribution network. The company effectively combines advanced manufacturing technology with strict quality control to ensure high product reliability. Concurrently, its use of data analytics enhances operational accuracy. High ROE and ROA metrics attest to its exceptional ability to convert assets into profits, stemming from its persistent pursuit of operational excellence."
       },
       "m8_capital_allocation": {
         "score": 8,
-        "comment_zh": "ResMed的財務狀況極為穩健，擁有14.69億美元現金而總負債僅8.25億美元，顯示其管理層在資本配置上極為審慎。充裕的自由現金流（28.89億美元）為公司提供了靈活的戰略選擇，包括持續的研發投入、潛在的戰略性併購，以及在股價被低估時進行股票回購以提升股東價值。這種健康的資產負債表和強勁的現金流，反映了管理層對股東利益的長期承諾和卓越的財務紀律。",
-        "comment_en": "ResMed's financial position is exceptionally robust, with $1.469 billion in cash against total debt of only $825.9 million, indicating highly prudent capital allocation by management. The substantial free cash flow ($2.889 billion) provides the company with flexible strategic options, including continuous R&D investment, potential strategic acquisitions, and share buybacks when the stock is undervalued to enhance shareholder value. This healthy balance sheet and strong cash flow reflect management's long-term commitment to shareholder interests and excellent financial discipline."
+        "comment_zh": "ResMed 的管理層在資本配置方面展現了卓越的智慧。公司歷史上通過精準的併購策略擴張了產品線和市場覆蓋，同時也注重有機增長和研發投入。其穩健的財務狀況（現金充足、負債率低）為其提供了靈活的資本運用空間。將自由現金流有效分配於回購、研發和戰略性收購，持續為股東創造價值，體現了長期主義的資本配置原則。",
+        "comment_en": "ResMed's management demonstrates exceptional wisdom in capital allocation. Historically, the company has expanded its product lines and market coverage through precise M&A strategies, while also focusing on organic growth and R&D investment. Its robust financial position (ample cash, low debt ratio) provides flexibility in capital deployment. Effectively allocating free cash flow towards share repurchases, R&D, and strategic acquisitions continuously creates value for shareholders, embodying the principles of long-term capital allocation."
       },
       "m9_customer_retention": {
-        "score": 9,
-        "comment_zh": "ResMed的產品服務於慢性疾病患者，這意味著一旦患者開始使用其設備，通常會終身依賴。這種高度的客戶保留率是其護城河的核心。患者對治療效果的依賴、對設備舒適度的習慣以及醫生推薦的持續性，共同構成了極高的轉換成本。此外，ResMed透過其雲端平台提供持續的數據監測與個性化支持，進一步鞏固了客戶關係，使其在技術變革面前具有強大的免疫力，需求確定性極高。",
-        "comment_en": "ResMed's products serve patients with chronic conditions, implying that once patients start using its devices, they typically rely on them for life. This high customer retention rate is central to its moat. Patients' dependence on treatment efficacy, habituation to device comfort, and ongoing doctor recommendations collectively create extremely high switching costs. Furthermore, ResMed provides continuous data monitoring and personalized support through its cloud platform, further solidifying customer relationships and granting it strong immunity against technological shifts, ensuring very high demand certainty."
+        "score": 7,
+        "comment_zh": "ResMed 的客戶留存率受益於其產品的臨床必要性、用戶習慣的養成以及與醫療服務體系的緊密結合。一旦患者開始使用 ResMed 的設備並獲得治療效果，且醫療專業人員也將其納入治療方案，更換的可能性就會降低。其不斷推出的軟體更新和數據服務，也進一步增強了用戶黏性，使客戶更傾向於留在其生態系統內。",
+        "comment_en": "ResMed's customer retention is bolstered by the clinical necessity of its products, the development of user habits, and its close integration with the healthcare system. Once patients begin using ResMed devices and achieve therapeutic benefits, and healthcare professionals incorporate them into treatment plans, the likelihood of switching decreases. Its continuous software updates and data services further enhance user stickiness, making customers more inclined to remain within its ecosystem."
       },
       "m10_durability": {
-        "score": 9,
-        "comment_zh": "ResMed的商業模式具備極高的耐久性，其核心業務——治療睡眠呼吸中止症和呼吸系統疾病——是人類基本且持續的健康需求。隨著全球人口老齡化和肥胖率上升，這些疾病的患病率預計將持續增長，為ResMed提供了長期且穩定的市場需求。公司持續的研發投入確保其產品線保持領先，而其強大的品牌、專利和客戶黏性，使其能夠有效抵禦潛在的技術顛覆或競爭威脅，確保了其盈利能力的長期可持續性。",
-        "comment_en": "ResMed's business model possesses exceptional durability, as its core business—treating sleep apnea and respiratory conditions—addresses fundamental and persistent human health needs. With global population aging and rising obesity rates, the prevalence of these conditions is projected to continue growing, providing ResMed with long-term and stable market demand. The company's continuous R&D investment ensures its product line remains cutting-edge, while its strong brand, patents, and customer stickiness enable it to effectively withstand potential technological disruptions or competitive threats, ensuring the long-term sustainability of its profitability."
+        "score": 8,
+        "comment_zh": "ResMed 所處的睡眠呼吸中止治療市場具有顯著的長期增長潛力，這得益於人口老齡化、肥胖率上升以及對睡眠健康的日益重視。這些宏觀趨勢為公司提供了穩定的需求基礎。同時，其持續的技術創新和對監管壁壘的掌握，使其能夠在可預見的未來保持競爭優勢。這是一個具有長期穩定性和增長性的行業，為 ResMed 的業務提供了堅實的持久性。",
+        "comment_en": "The sleep apnea treatment market, where ResMed operates, possesses significant long-term growth potential, driven by an aging population, rising obesity rates, and increasing awareness of sleep health. These macro trends provide a stable demand base for the company. Furthermore, its continuous technological innovation and mastery of regulatory barriers enable it to maintain a competitive advantage for the foreseeable future. This is an industry with long-term stability and growth prospects, providing a solid durability for ResMed's business."
       },
-      "overall_moat_verdict_zh": "ResMed是一家典型的「特許經營權」型企業，其護城河深且廣，符合巴菲特與蒙格的長期價值投資標準。公司在睡眠呼吸中止症與呼吸照護領域建立了不可撼動的領導地位，憑藉強大的品牌信任、龐大的專利壁壘、極高的客戶轉換成本以及數據驅動的網絡效應，構築了多重防禦。其卓越的營運效率、穩健的財務狀況和對慢性疾病的剛性需求，確保了長期穩定的現金流與超額資本回報。即使給予競爭對手巨額資金，也難以在短時間內複製其累積的技術、品牌與市場滲透，使其成為一個極具吸引力的長期投資標的。",
-      "overall_moat_verdict_en": "ResMed is a quintessential 'franchise' business, possessing a deep and wide economic moat that aligns with Buffett and Munger's long-term value investing criteria. The company has established an unassailable leadership position in the sleep apnea and respiratory care sectors, building multiple layers of defense through strong brand trust, extensive patent barriers, extremely high customer switching costs, and data-driven network effects. Its exceptional operational efficiency, robust financial health, and the inelastic demand for chronic disease treatment ensure long-term stable cash flow and superior returns on capital. Even with vast capital, competitors would find it challenging to replicate its accumulated technology, brand, and market penetration in a short period, making it a highly attractive long-term investment.",
-      "evidenceHash": "c4a6ae093300b01f39cca2f269fc6317b37c4c19fbf181ec7d1606ec11996785",
+      "overall_moat_verdict_zh": "ResMed 展現了強大的經濟護城河，尤其在專利與監管壁壘（M2）和品牌定價權（M1）方面表現突出，這使其在醫療設備領域擁有類似特許經營的地位。其規模經濟（M5）和營運效率（M7）構成了堅實的成本優勢，而管理層的資本配置（M8）和持續的客戶留存（M9）則進一步鞏固了其市場領導地位。雖然網絡效應（M4）相對較弱，但整體而言，ResMed 是一家擁有顯著且持久競爭優勢的公司，其業務模式具備收費橋的特徵，能夠在不斷增長的醫療保健市場中持續獲利。",
+      "overall_moat_verdict_en": "ResMed exhibits a strong economic moat, particularly excelling in patent and regulatory barriers (M2) and brand pricing power (M1), granting it a quasi-franchise-like status in the medical device sector. Its economies of scale (M5) and operational efficiency (M7) provide a solid cost advantage, while management's capital allocation (M8) and sustained customer retention (M9) further solidify its market leadership. Although network effects (M4) are relatively weaker, overall, ResMed is a company with significant and durable competitive advantages. Its business model possesses characteristics of a toll bridge, enabling it to consistently profit within the growing healthcare market.",
+      "evidenceHash": "27a1de974f2bb2ef7ea3145979ecf987e664f20bc12998fd2b9cffbde1f37d03",
       "assessmentPolicy": "buffett-moat-v3",
       "model": "gemini-2.5-flash-lite",
       "provider": "Vertex AI"
@@ -484362,7 +484366,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "fbac083783d0738ccbde57b651eaa71bb404ace5b0f4a73a7488ebb2a806b951"
       },
       "mScore": {
@@ -484374,7 +484378,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "fbac083783d0738ccbde57b651eaa71bb404ace5b0f4a73a7488ebb2a806b951"
       }
     },
@@ -484540,7 +484544,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "RMD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:20:38Z",
+      "fetchedAt": "2026-10-31T17:11:36Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
       "quoteDate": "2026-10-30",
@@ -484569,14 +484573,14 @@ window.FULL_MARKET_DATA = {
         "inventory": 1021358000,
         "preferredStock": 0
       },
-      "sharesOutstanding": 140639243,
+      "sharesOutstanding": 140639253,
       "shareSource": {
-        "shares": 140.639243,
+        "shares": 140.639253,
         "date": "2026-10-31",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/943819/000094381926000089/rmd-20260930.htm",
-        "capturedAt": "2026-10-31T14:20:38Z"
+        "capturedAt": "2026-10-31T17:11:36Z"
       }
     },
     "z_score": 11.01,
@@ -484891,11 +484895,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "190.83 M",
     "shareSource": {
       "shares": 190.827165,
-      "date": "2026-10-30",
+      "date": "2026-10-31",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1140859/000114085926000034/cor-20260630.htm",
-      "capturedAt": "2026-10-31T14:20:43Z"
+      "capturedAt": "2026-10-31T17:11:54Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 63133.3,
@@ -488141,7 +488145,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "736c95fc665e52ae7ab04b9fb581a9799cec2295a73f949c33f63abdb7e2ddef"
       },
       "mScore": {
@@ -488153,7 +488157,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "736c95fc665e52ae7ab04b9fb581a9799cec2295a73f949c33f63abdb7e2ddef"
       }
     },
@@ -488313,7 +488317,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "COR",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:20:43Z",
+      "fetchedAt": "2026-10-31T17:11:54Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-05",
       "quoteDate": "2026-10-30",
@@ -488345,11 +488349,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 190827165,
       "shareSource": {
         "shares": 190.827165,
-        "date": "2026-10-30",
+        "date": "2026-10-31",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1140859/000114085926000034/cor-20260630.htm",
-        "capturedAt": "2026-10-31T14:20:43Z"
+        "capturedAt": "2026-10-31T17:11:54Z"
       }
     },
     "z_score": 4.85,
@@ -488668,7 +488672,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1757898/000162828026054830/ste-20260630.htm",
-      "capturedAt": "2026-10-31T14:20:48Z"
+      "capturedAt": "2026-10-31T17:12:03Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 22144.2,
@@ -491911,7 +491915,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "789deebb4776d97ee004c8a9366d28723d86bfb951f93517ce25dd10bf1cca07"
       },
       "mScore": {
@@ -491923,7 +491927,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "789deebb4776d97ee004c8a9366d28723d86bfb951f93517ce25dd10bf1cca07"
       }
     },
@@ -492077,7 +492081,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "STE",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:20:48Z",
+      "fetchedAt": "2026-10-31T17:12:03Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-07",
       "quoteDate": "2026-10-30",
@@ -492113,7 +492117,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1757898/000162828026054830/ste-20260630.htm",
-        "capturedAt": "2026-10-31T14:20:48Z"
+        "capturedAt": "2026-10-31T17:12:03Z"
       }
     },
     "z_score": 5.18,
@@ -492434,7 +492438,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/927653/000092765326000234/mck-20260630.htm",
-      "capturedAt": "2026-10-31T14:20:54Z"
+      "capturedAt": "2026-10-31T17:12:11Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 115958.4,
@@ -495605,57 +495609,61 @@ window.FULL_MARKET_DATA = {
       "ticker": "MCK",
       "period": "2027Q1",
       "m1_brand_pricing": {
-        "score": 5,
-        "comment_zh": "待分析：API 連線未完成或缺少相關數據，維持中性預設。",
-        "comment_en": "Pending analysis: Defaulting to neutral moat rating due to missing report data."
+        "score": 6,
+        "comment_zh": "McKesson 作為醫療保健分銷巨頭，在品牌定價權方面展現出中等偏上的實力。其龐大的分銷網絡和與製藥商、醫院的長期合作關係，使其在採購和定價談判中佔據有利地位。然而，其業務本質上仍有商品屬性，面對眾多競爭對手，難以形成絕對的定價壟斷。公司透過規模經濟和效率優化來維持利潤率，而非單純依賴品牌溢價。其品牌價值主要體現在可靠性、效率和廣泛的服務範圍，這在一定程度上轉化為客戶忠誠度，但並非消費者直接認知的品牌效應。",
+        "comment_en": "As a healthcare distribution giant, McKesson demonstrates moderate-to-strong pricing power through its brand. Its vast distribution network and long-standing relationships with pharmaceutical manufacturers and hospitals give it leverage in procurement and pricing negotiations. However, the inherent nature of its business still carries commodity-like characteristics, and facing numerous competitors, it's difficult to establish absolute pricing monopolies. The company maintains profit margins through economies of scale and operational efficiencies rather than solely relying on brand premiums. Its brand value is primarily reflected in reliability, efficiency, and extensive service scope, which to some extent translates into customer loyalty, but not a direct consumer-recognized brand effect."
       },
       "m2_patents_regulatory": {
-        "score": 5,
-        "comment_zh": "待分析：API 連線未完成或缺少相關數據，維持中性預設。",
-        "comment_en": "Pending analysis: Defaulting to neutral moat rating due to missing report data."
+        "score": 2,
+        "comment_zh": "McKesson 的業務模式主要為藥品和醫療用品的分銷，而非藥品研發製造。因此，公司本身並不直接擁有專利壁壘。其營運高度依賴於各國的醫療法規、藥品許可和分銷執照。雖然這些法規構成了一定的進入門檻，但它們更多是營運的必要條件，而非公司獨有的、可持續的競爭優勢。監管環境的變化可能對其業務產生重大影響，但這也意味著公司並不受益於專利保護帶來的壟斷性利潤。其競爭優勢來自於高效的運營和網絡，而非知識產權。因此，在專利與監管這一維度上得分較低。",
+        "comment_en": "McKesson's business model primarily involves the distribution of pharmaceuticals and medical supplies, rather than research and development in drug manufacturing. Consequently, the company does not directly own patent-based barriers. Its operations are highly dependent on healthcare regulations, drug licenses, and distribution permits in various countries. While these regulations constitute certain entry barriers, they are more operational necessities than unique, sustainable competitive advantages for the company. Changes in the regulatory environment can significantly impact its business, but this also means the company does not benefit from monopolistic profits derived from patent protection. Its competitive advantage stems from efficient operations and its network, not intellectual property. Therefore, it scores low on the patent and regulatory dimension."
       },
       "m3_high_switching_costs": {
-        "score": 5,
-        "comment_zh": "待分析：API 連線未完成或缺少相關數據，維持中性預設。",
-        "comment_en": "Pending analysis: Defaulting to neutral moat rating due to missing report data."
+        "score": 7,
+        "comment_zh": "McKesson 在醫療保健分銷領域的轉換成本相對較高。一旦客戶（如醫院、藥局）與 McKesson 建立起穩定的供應鏈合作關係，遷移至其他分銷商將面臨巨大的挑戰。這包括重新建立採購系統、物流網絡對接、庫存管理整合以及潛在的供應中斷風險。McKesson 的規模和服務的複雜性，使得客戶在短期內難以輕易更換供應商。這種依賴性為公司提供了一定的護城河，確保了客戶的穩定性，儘管其產品本身並無獨特性，但服務和系統的整合構成了重要的轉換壁壘。",
+        "comment_en": "McKesson faces relatively high switching costs in the healthcare distribution sector. Once clients (such as hospitals and pharmacies) establish stable supply chain partnerships with McKesson, migrating to other distributors presents significant challenges. This includes re-establishing procurement systems, aligning logistics networks, integrating inventory management, and potential risks of supply disruption. The scale and complexity of McKesson's services make it difficult for clients to easily change suppliers in the short term. This dependency provides the company with a certain moat, ensuring customer stability. Although its products themselves may not be unique, the integration of services and systems forms a significant switching barrier."
       },
       "m4_network_effects": {
         "score": 5,
-        "comment_zh": "待分析：API 連線未完成或缺少相關數據，維持中性預設。",
-        "comment_en": "Pending analysis: Defaulting to neutral moat rating due to missing report data."
+        "comment_zh": "McKesson 的網絡效應體現在其龐大的分銷網絡和客戶基礎上，但並非典型的、指數級增長的網絡效應。其網絡的價值在於覆蓋範圍廣、效率高，能更好地服務於製藥商和醫療機構。隨著客戶數量的增加，其網絡的效率和覆蓋範圍得以加強，對新進入者構成挑戰。然而，這種網絡效應並非像社交媒體那樣，用戶越多，價值呈幾何級數增長。其價值增長相對線性，主要體現在規模經濟和運營效率的提升上，而非用戶間互動產生的病毒式傳播效應。因此，網絡效應得分為中等。",
+        "comment_en": "McKesson's network effects are reflected in its vast distribution network and customer base, but they are not typical, exponentially growing network effects. The value of its network lies in its broad coverage and high efficiency, enabling better service to pharmaceutical manufacturers and healthcare providers. As the number of clients increases, the efficiency and coverage of its network are enhanced, posing challenges to new entrants. However, this network effect is not like social media, where more users lead to a geometric increase in value. Its value growth is relatively linear, primarily manifesting in economies of scale and improved operational efficiency, rather than a viral spread effect generated by user interactions. Therefore, the network effects score is moderate."
       },
       "m5_cost_advantage_scale": {
-        "score": 5,
-        "comment_zh": "待分析：API 連線未完成或缺少相關數據，維持中性預設。",
-        "comment_en": "Pending analysis: Defaulting to neutral moat rating due to missing report data."
+        "score": 9,
+        "comment_zh": "McKesson 的規模經濟是其最顯著的護城河之一。作為全球領先的醫療保健產品分銷商，其龐大的採購量使其能夠從製藥商那裡獲得極具競爭力的價格。同時，其遍佈全國乃至全球的高效物流和倉儲網絡，能顯著降低單位運輸和庫存成本。這種規模優勢使得小型競爭對手難以在成本上與之匹敵，也為其提供了在價格上保持競爭力的空間。這種成本領先地位是其業務模式的核心，也是其能夠長期維持盈利能力的重要保障。",
+        "comment_en": "McKesson's economies of scale are one of its most significant moats. As a leading global distributor of healthcare products, its massive purchasing volume allows it to secure highly competitive prices from pharmaceutical manufacturers. Concurrently, its efficient logistics and warehousing network, spanning across the nation and globally, significantly reduces per-unit transportation and inventory costs. This scale advantage makes it difficult for smaller competitors to match its costs and provides room for it to maintain price competitiveness. This cost leadership is central to its business model and a crucial guarantee for its long-term profitability."
       },
       "m6_unique_geography_assets": {
-        "score": 5,
-        "comment_zh": "待分析：API 連線未完成或缺少相關數據，維持中性預設。",
-        "comment_en": "Pending analysis: Defaulting to neutral moat rating due to missing report data."
+        "score": 3,
+        "comment_zh": "McKesson 的業務遍及全球，尤其在北美市場佔據主導地位。其廣泛的分銷網絡和倉儲設施構成了重要的地理資產。然而，這些資產並非獨一無二，其他大型分銷商也擁有類似的網絡。其地理優勢更多體現在網絡的密度和效率上，能夠快速、可靠地將藥品送達各地。但這並非像礦產資源那樣的稀缺性地理資產，其價值可被其他擁有相似網絡規模和效率的競爭對手複製或部分替代。因此，在此維度上得分較低。",
+        "comment_en": "McKesson's operations span globally, with a particularly dominant position in the North American market. Its extensive distribution network and warehousing facilities constitute significant geographical assets. However, these assets are not unique, as other large distributors also possess similar networks. Its geographical advantage lies more in the density and efficiency of its network, enabling rapid and reliable delivery of pharmaceuticals to various locations. But this is not a scarce geographical asset like mineral resources; its value can be replicated or partially substituted by competitors with similar network scale and efficiency. Therefore, the score in this dimension is low."
       },
       "m7_operational_efficiency": {
-        "score": 5,
-        "comment_zh": "待分析：API 連線未完成或缺少相關數據，維持中性預設。",
-        "comment_en": "Pending analysis: Defaulting to neutral moat rating due to missing report data."
+        "score": 8,
+        "comment_zh": "McKesson 在運營效率方面表現出色，這是其核心競爭力之一。公司持續投資於先進的技術和自動化系統，以優化庫存管理、訂單處理和物流配送流程。其高效的運營能力不僅降低了成本，還確保了藥品供應的及時性和可靠性，這對醫療保健行業至關重要。這種卓越的運營效率，加上其龐大的規模，構成了難以被競爭對手輕易模仿的壁壘。客戶依賴其穩定可靠的供應，這也強化了客戶的忠誠度，使其在行業內保持領先地位。",
+        "comment_en": "McKesson excels in operational efficiency, which is one of its core competencies. The company continuously invests in advanced technology and automation systems to optimize inventory management, order processing, and logistics delivery. Its efficient operational capabilities not only reduce costs but also ensure the timeliness and reliability of drug supply, which is critical in the healthcare industry. This outstanding operational efficiency, combined with its vast scale, forms a barrier that is difficult for competitors to easily imitate. Clients rely on its stable and dependable supply, which also enhances customer loyalty, maintaining its leading position in the industry."
       },
       "m8_capital_allocation": {
-        "score": 5,
-        "comment_zh": "待分析：API 連線未完成或缺少相關數據，維持中性預設。",
-        "comment_en": "Pending analysis: Defaulting to neutral moat rating due to missing report data."
+        "score": 7,
+        "comment_zh": "McKesson 在資本配置方面展現出穩健的策略。公司歷史上透過戰略性併購來擴張其市場份額和服務能力，同時也注重有機增長。儘管近期 ROE 顯示負值，這可能與特定會計處理或一次性費用有關，但其持續的自由現金流（FCF TTM: $6,185.0M）顯示了其強勁的盈利產生能力。公司在維持營運、償還債務和適度回購股票之間取得平衡。其資本配置決策旨在支持核心業務的增長和效率提升，並為股東創造長期價值，展現了管理層對資源的有效利用。",
+        "comment_en": "McKesson demonstrates a sound strategy in capital allocation. Historically, the company has expanded its market share and service capabilities through strategic acquisitions while also focusing on organic growth. Although the recent negative ROE might be related to specific accounting treatments or one-time charges, its consistent Free Cash Flow (FCF TTM: $6,185.0M) indicates strong earnings generation capability. The company balances maintaining operations, repaying debt, and moderately repurchasing shares. Its capital allocation decisions aim to support the growth and efficiency enhancement of its core business and create long-term value for shareholders, showcasing management's effective utilization of resources."
       },
       "m9_customer_retention": {
-        "score": 5,
-        "comment_zh": "待分析：API 連線未完成或缺少相關數據，維持中性預設。",
-        "comment_en": "Pending analysis: Defaulting to neutral moat rating due to missing report data."
+        "score": 8,
+        "comment_zh": "McKesson 的客戶保留率極高，這得益於其在醫療保健分銷領域提供的關鍵服務和建立的深度合作關係。醫院、藥局等客戶高度依賴 McKesson 的穩定供應鏈、廣泛的產品組合以及高效的物流服務。一旦客戶與 McKesson 建立起緊密的合作關係，由於轉換成本高昂且供應中斷風險大，他們通常會維持長期的合作。這種高度的客戶黏性，加上其卓越的運營效率，構成了強大的競爭壁壘，確保了公司穩定的收入來源和市場地位。",
+        "comment_en": "McKesson boasts extremely high customer retention rates, attributable to the critical services it provides and the deep partnerships it has established in the healthcare distribution sector. Clients such as hospitals and pharmacies rely heavily on McKesson's stable supply chain, extensive product portfolio, and efficient logistics services. Once clients form close working relationships with McKesson, they typically maintain long-term cooperation due to high switching costs and significant risks of supply disruption. This high degree of customer stickiness, coupled with its outstanding operational efficiency, forms a strong competitive barrier, ensuring a stable revenue stream and market position for the company."
       },
       "m10_durability": {
-        "score": 5,
-        "comment_zh": "待分析：API 連線未完成或缺少相關數據，維持中性預設。",
-        "comment_en": "Pending analysis: Defaulting to neutral moat rating due to missing report data."
+        "score": 8,
+        "comment_zh": "McKesson 的業務具有高度的持久性。醫療保健分銷是現代社會不可或缺的基礎設施，無論經濟週期如何波動，對藥品和醫療用品的需求都相對穩定。公司龐大的規模、高效的運營、穩定的客戶基礎以及不斷優化的技術投入，使其能夠抵禦市場的短期波動和潛在的顛覆性挑戰。雖然醫療行業法規變化和技術進步可能帶來影響，但 McKesson 作為行業龍頭，有能力適應這些變化並維持其核心競爭力。其業務模式的基礎穩固，預計能長期持續。",
+        "comment_en": "McKesson's business possesses high durability. Healthcare distribution is an indispensable infrastructure in modern society, and demand for pharmaceuticals and medical supplies remains relatively stable regardless of economic cycles. The company's vast scale, efficient operations, stable customer base, and continuous investment in technological optimization enable it to withstand short-term market fluctuations and potential disruptive challenges. While changes in healthcare regulations and technological advancements may bring impacts, McKesson, as an industry leader, is capable of adapting to these changes and maintaining its core competitiveness. The foundation of its business model is solid, and it is expected to endure for the long term."
       },
-      "overall_moat_verdict_zh": "暫未取得 Gemini 深度護城河分析報告。",
-      "overall_moat_verdict_en": "Deep Economic Moat audit report pending generation."
+      "overall_moat_verdict_zh": "McKesson 作為醫療保健分銷龍頭，其護城河主要建立在規模經濟（M5）和卓越的運營效率（M7）之上，這兩者共同構成了難以逾越的成本優勢和可靠的供應鏈。高轉換成本（M3）和穩定的客戶保留率（M9）進一步鞏固了其市場地位。雖然網絡效應（M4）和品牌定價權（M1）相對較弱，且公司不直接受益於專利（M2），但其業務的基礎性使其具有高度的持久性（M10）。管理層的資本配置（M8）亦屬穩健。整體而言，McKesson 是一家具有強大收費橋性質的企業，其護城河堅固，能夠在可預見的未來持續產生穩定的現金流。",
+      "overall_moat_verdict_en": "As a leader in healthcare distribution, McKesson's moat is primarily built upon economies of scale (M5) and outstanding operational efficiency (M7), which together form an insurmountable cost advantage and a reliable supply chain. High switching costs (M3) and stable customer retention rates (M9) further solidify its market position. Although network effects (M4) and brand pricing power (M1) are relatively weaker, and the company does not directly benefit from patents (M2), the fundamental nature of its business grants it high durability (M10). Management's capital allocation (M8) is also sound. Overall, McKesson operates like a robust toll bridge, possessing a strong moat that enables it to consistently generate stable cash flows for the foreseeable future.",
+      "evidenceHash": "4117ec9a05165bfcf237527374b9eacdd218e7272096afebc1a28d620ff26363",
+      "assessmentPolicy": "buffett-moat-v3",
+      "model": "gemini-2.5-flash-lite",
+      "provider": "Vertex AI"
     },
     "ratingSources": {
       "moat": {
@@ -495674,7 +495682,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "136174bcf0aa04bbbddac3d72031ac1d8854f83673cb34c5300d0220b00fd0da"
       },
       "mScore": {
@@ -495686,7 +495694,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "136174bcf0aa04bbbddac3d72031ac1d8854f83673cb34c5300d0220b00fd0da"
       }
     },
@@ -495834,7 +495842,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MCK",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:20:54Z",
+      "fetchedAt": "2026-10-31T17:12:11Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-05",
       "quoteDate": "2026-10-30",
@@ -495870,7 +495878,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/927653/000092765326000234/mck-20260630.htm",
-        "capturedAt": "2026-10-31T14:20:54Z"
+        "capturedAt": "2026-10-31T17:12:11Z"
       }
     },
     "z_score": 6.23,
@@ -496189,7 +496197,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/310764/000031076426000061/syk-20260930.htm",
-      "capturedAt": "2026-10-31T14:20:59Z"
+      "capturedAt": "2026-10-31T17:12:32Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 111949.6,
@@ -499362,60 +499370,60 @@ window.FULL_MARKET_DATA = {
     "roa": 7.699173342967041,
     "moat": {
       "ticker": "SYK",
-      "period": "2026Q2",
+      "period": "2026Q3",
       "m1_brand_pricing": {
-        "score": 8,
-        "comment_zh": "Stryker在醫療科技領域擁有卓越的品牌聲譽，其產品如骨科植入物和手術器械，直接關乎病患生命與醫療品質。這種信任感使醫院和外科醫生對其產品產生高度依賴，即使價格略高，為確保手術成功率與病患安全，客戶仍傾向選擇Stryker。這賦予公司強大的定價權，使其能在不顯著影響銷量的前提下，將創新和服務成本轉嫁給客戶，形成堅實的商業壁壘。",
-        "comment_en": "Stryker commands a premium brand reputation in the medical technology sector, particularly for critical products like orthopedic implants and surgical instruments. This trust is paramount for hospitals and surgeons, who prioritize patient safety and surgical outcomes. Consequently, clients exhibit high loyalty, often choosing Stryker even at a higher price point to ensure reliability and performance. This strong brand equity grants the company significant pricing power, allowing it to pass on innovation and service costs without substantial volume loss, thereby establishing a robust competitive advantage."
+        "score": 7,
+        "comment_zh": "Stryker 作為醫療器材領域的領導者，其品牌價值在醫療專業人員和機構中享有盛譽，這賦予了其一定的定價能力。然而，與消費品牌不同，醫療器材的品牌忠誠度更多建立在產品性能、可靠性和臨床證據之上，而非情感連結。在面對強大的採購組織和預算限制時，其定價權並非絕對。與頂級醫療品牌相比，Stryker 的品牌護城河尚稱堅固，但非無懈可擊，尤其是在通用型產品線中。",
+        "comment_en": "As a leader in the medical device sector, Stryker's brand holds significant prestige among healthcare professionals and institutions, granting it a degree of pricing power. However, unlike consumer brands, brand loyalty in medical devices is more rooted in product performance, reliability, and clinical evidence rather than emotional connection. When facing powerful purchasing organizations and budget constraints, its pricing power is not absolute. Compared to top-tier medical brands, Stryker's brand moat is solid but not impregnable, especially in its generic product lines."
       },
       "m2_patents_regulatory": {
-        "score": 9,
-        "comment_zh": "Stryker在醫療科技領域築起了極高的專利與監管壁壘。公司持續投入巨額研發，累積了龐大的專利組合，涵蓋骨科、神經外科及醫療器械等核心產品線，有效阻止競爭對手複製其創新技術。此外，醫療器械產品需通過嚴格的FDA等監管機構審批，耗時漫長且成本高昂，這不僅篩選掉潛在競爭者，也為Stryker現有產品提供了長期的市場獨佔性，形成難以逾越的護城河。",
-        "comment_en": "Stryker has erected formidable patent and regulatory barriers within the medical technology sector. The company consistently invests heavily in R&D, accumulating an extensive patent portfolio across its core product lines, including orthopedics, neurosurgery, and medical instruments, effectively deterring competitors from replicating its innovations. Furthermore, medical devices require stringent and time-consuming regulatory approvals, such as from the FDA, which are both costly and protracted. This process not only filters out potential entrants but also grants Stryker's existing products long-term market exclusivity, creating an almost insurmountable moat."
+        "score": 8,
+        "comment_zh": "Stryker 在醫療器材領域的專利保護是其重要的護城河。公司持續投入研發，透過專利來保護其創新技術，特別是在骨科、脊椎和創傷等核心領域。這些專利能有效阻止競爭對手模仿其獨特產品，為公司爭取市場領先地位和較高的利潤率。然而，醫療器材的監管審批週期長且成本高昂，這既是壁壘也是風險，專利到期後，仿製藥的競爭壓力依然存在。",
+        "comment_en": "Stryker's patent protection in the medical device sector serves as a significant moat. The company continuously invests in R&D, utilizing patents to safeguard its innovative technologies, particularly in core areas like orthopedics, spine, and trauma. These patents effectively prevent competitors from imitating its unique products, securing market leadership and higher profit margins. However, the long and costly regulatory approval process for medical devices acts as both a barrier and a risk, and competition from generics remains a pressure point once patents expire."
       },
       "m3_high_switching_costs": {
-        "score": 8,
-        "comment_zh": "Stryker的產品在醫療機構中具有極高的轉換成本。一旦醫院和外科醫生習慣了Stryker的手術器械、植入物或軟體系統，轉換至其他供應商將涉及員工的重新培訓、手術流程的調整、潛在的兼容性問題，以及最關鍵的，對病患安全和手術結果的未知風險。這種轉換不僅耗費時間與金錢，更可能影響醫療服務品質，使得客戶即使面對競爭對手的誘惑，也傾向於維持與Stryker的合作關係，形成強大的客戶黏性。",
-        "comment_en": "Stryker's products impose substantial switching costs on healthcare institutions. Once hospitals and surgeons become proficient with Stryker's surgical instruments, implants, or software systems, transitioning to another vendor entails significant expenses. These include staff retraining, workflow adjustments, potential compatibility issues, and, critically, unknown risks to patient safety and surgical outcomes. Such a switch is not only time-consuming and costly but could also compromise the quality of medical care. Consequently, clients are highly inclined to maintain their relationship with Stryker, even when faced with competitive offers, thereby creating robust customer stickiness."
+        "score": 7,
+        "comment_zh": "醫療器材的轉換成本相對較高。一旦醫院或外科醫生採用了 Stryker 的特定植入物、手術器械或技術平台，更換到其他供應商的產品會涉及重新培訓、設備兼容性測試、臨床數據驗證以及潛在的治療效果風險。這種慣性與對特定產品性能的依賴，為 Stryker 創造了穩定的客戶基礎和持續的銷售機會，構成了中等偏上的轉換成本壁壘。",
+        "comment_en": "Switching costs in the medical device industry are relatively high. Once hospitals or surgeons adopt Stryker's specific implants, surgical instruments, or technology platforms, switching to another supplier involves retraining, equipment compatibility testing, clinical data validation, and potential risks to treatment outcomes. This inertia and reliance on specific product performance create a stable customer base and ongoing sales opportunities for Stryker, forming an above-average switching cost barrier."
       },
       "m4_network_effects": {
-        "score": 6,
-        "comment_zh": "Stryker雖然不像社交媒體平台那樣擁有直接的網絡效應，但在醫療專業社群中卻存在一種間接的正向反饋。隨著越來越多的外科醫生和醫院採用Stryker的產品，其在臨床實踐中的數據累積、操作經驗分享以及專業培訓的普及，會進一步鞏固Stryker作為行業標準的地位。這種廣泛的採用促進了知識交流和人才培養，使得新加入的醫療專業人員更傾向於選擇Stryker，從而形成一個良性循環，提升了其產品的市場滲透率和影響力。",
-        "comment_en": "While Stryker doesn't exhibit direct network effects akin to social media platforms, an indirect positive feedback loop exists within the medical professional community. As more surgeons and hospitals adopt Stryker's products, the accumulation of clinical data, shared operational experiences, and widespread professional training further solidifies Stryker's position as an industry standard. This broad adoption fosters knowledge exchange and talent development, making new medical professionals more inclined to choose Stryker. This virtuous cycle enhances its market penetration and influence, creating a moderate, yet significant, network effect."
+        "score": 3,
+        "comment_zh": "Stryker 的業務模式主要依賴產品的技術優勢、臨床療效和銷售網絡，而非典型的網絡效應。雖然其產品在醫療體系內的使用可能形成某種程度的協同效應（例如，統一的培訓和維護），但這並非真正的網絡效應，即用戶增加帶來價值指數級增長的現象。其競爭優勢更多來自於產品創新和市場滲透，而非用戶間的互動。",
+        "comment_en": "Stryker's business model primarily relies on product technological advantages, clinical efficacy, and sales networks, rather than typical network effects. While the use of its products within the healthcare system might create some degree of synergy (e.g., unified training and maintenance), this is not a true network effect where an increase in users leads to an exponential increase in value. Its competitive advantage stems more from product innovation and market penetration than from user-to-user interaction."
       },
       "m5_cost_advantage_scale": {
-        "score": 8,
-        "comment_zh": "作為全球領先的醫療科技巨頭之一，Stryker享有顯著的規模經濟優勢。其龐大的生產規模使其能夠攤薄研發、製造和全球分銷的固定成本，實現單位產品的超低邊際成本。公司在採購原材料時擁有強大的議價能力，並能投資於最先進的自動化生產線和質量控制體系，確保產品的高良率和一致性。這些規模效應使得小型競爭者難以在成本上與之匹敵，為Stryker構築了堅實的成本護城河。",
-        "comment_en": "As one of the global leaders in medical technology, Stryker benefits from significant economies of scale. Its vast production volume allows for the amortization of fixed costs associated with R&D, manufacturing, and global distribution, leading to exceptionally low marginal costs per unit. The company wields strong bargaining power in raw material procurement and can invest in state-of-the-art automated production lines and quality control systems, ensuring high yields and product consistency. These scale advantages make it exceedingly difficult for smaller competitors to match Stryker's cost structure, thereby establishing a robust cost moat."
+        "score": 7,
+        "comment_zh": "Stryker 作為全球領先的醫療技術公司，其規模經濟帶來了顯著的成本優勢。龐大的生產量有助於降低單位製造成本、優化供應鏈管理，並在採購原材料時獲得更優惠的價格。此外，其全球化的銷售和分銷網絡也攤薄了固定成本。這種規模優勢使其能夠在價格上與較小的競爭對手競爭，同時維持健康的利潤率，構成了堅實的成本壁壘。",
+        "comment_en": "As a leading global medical technology company, Stryker benefits from significant economies of scale, leading to cost advantages. Large production volumes help reduce per-unit manufacturing costs, optimize supply chain management, and secure better pricing for raw materials. Furthermore, its global sales and distribution network spreads fixed costs. This scale advantage allows it to compete on price with smaller rivals while maintaining healthy profit margins, forming a solid cost barrier."
       },
       "m6_unique_geography_assets": {
-        "score": 7,
-        "comment_zh": "Stryker所處的醫療科技市場，特別是高端骨科植入物和複雜手術系統領域，呈現出天然的寡佔格局。該市場的進入門檻極高，包括巨額的研發投入、漫長的臨床試驗與監管審批，以及建立全球銷售與服務網絡的巨大資本需求。在這種環境下，市場容量雖大，但能夠有效競爭的參與者數量有限。新競爭者若試圖進入，將面臨巨大的成本壓力與市場接受度挑戰，最終可能導致行業利潤率下降，形成一種「雙輸」局面，從而鞏固了Stryker等少數巨頭的市場地位。",
-        "comment_en": "Stryker operates within a medical technology market, particularly in high-end orthopedic implants and complex surgical systems, that exhibits characteristics of an efficient oligopoly. Entry barriers are exceptionally high, encompassing massive R&D investments, lengthy clinical trials and regulatory approvals, and substantial capital requirements to establish global sales and service networks. While the market size is considerable, only a limited number of players can effectively compete. New entrants attempting to penetrate this space would face immense cost pressures and market acceptance challenges, potentially leading to a \"lose-lose\" scenario for all, thereby solidifying the market position of a few dominant players like Stryker."
+        "score": 4,
+        "comment_zh": "Stryker 的業務遍及全球，但其競爭優勢並非來自於獨特的地理位置或特定資產。其核心競爭力在於技術創新、產品組合和市場准入能力。雖然在某些特定市場可能擁有較強的本地化銷售和服務網絡，但這並非其主要的護城河。與擁有稀缺礦產或特殊地理位置的公司相比，Stryker 的地理優勢較為有限。",
+        "comment_en": "Stryker operates globally, but its competitive advantage does not stem from unique geographical locations or specific assets. Its core competencies lie in technological innovation, product portfolio, and market access capabilities. While it may possess strong localized sales and service networks in certain specific markets, this is not its primary moat. Compared to companies with scarce mineral resources or special geographical locations, Stryker's geographical advantage is relatively limited."
       },
       "m7_operational_efficiency": {
         "score": 8,
-        "comment_zh": "Stryker展現出卓越的長週期投入資本回報率（ROIC）韌性，其15.5%的股東權益報酬率（ROE）和7.8%的資產報酬率（ROA），以及高達8/9的Piotroski F-Score，均表明公司能夠持續高效地運用資本。在醫療科技這個資本密集且監管嚴格的行業中，Stryker憑藉其強大的護城河，能夠將資本投入轉化為遠超加權平均資本成本（WACC）的經濟利潤。這不僅證明了其商業模式的優越性，也為股東創造了可觀的複利效應，是巴菲特所推崇的優質企業特徵。",
-        "comment_en": "Stryker demonstrates exceptional long-cycle resilience in Return on Invested Capital (ROIC). Its 15.5% Return on Equity (ROE), 7.8% Return on Assets (ROA), and a high Piotroski F-Score of 8/9 all indicate the company's sustained ability to deploy capital efficiently. In the capital-intensive and highly regulated medical technology industry, Stryker, leveraging its robust moats, consistently converts capital investments into economic profits significantly exceeding its Weighted Average Cost of Capital (WACC). This not only proves the superiority of its business model but also generates substantial compounding returns for shareholders, a hallmark of the high-quality enterprises favored by Buffett."
+        "comment_zh": "Stryker 在營運效率方面表現出色，這體現在其持續優化的生產流程、高效的供應鏈管理以及精準的庫存控制上。公司透過精實生產和自動化技術，不斷提升生產力並降低營運成本。其高 ROE (15.4%) 和 ROA (7.7%) 反映了其卓越的營運管理能力。這種持續的效率提升不僅增強了盈利能力，也構成了難以被競爭對手輕易複製的營運壁壘。",
+        "comment_en": "Stryker demonstrates outstanding operational efficiency, reflected in its continuously optimized production processes, effective supply chain management, and precise inventory control. Through lean manufacturing and automation technologies, the company constantly enhances productivity and reduces operating costs. Its high ROE (15.4%) and ROA (7.7%) reflect its excellent operational management capabilities. This sustained efficiency improvement not only boosts profitability but also forms an operational barrier that is difficult for competitors to easily replicate."
       },
       "m8_capital_allocation": {
-        "score": 9,
-        "comment_zh": "Stryker的核心戰略資產具有極高的不可複製性。即使給予競爭對手千億美元，也難以在短時間內複製其數十年來累積的全球品牌聲譽、龐大的專利技術組合、與全球頂尖外科醫生和醫療機構建立的深厚信任關係、以及遍布全球的監管批准和高效供應鏈。這些無形資產是長期投入、持續創新和嚴格質量控制的結晶，它們共同構成了Stryker難以被模仿的競爭優勢，是其堅固護城河的基石。",
-        "comment_en": "Stryker's core strategic assets possess an exceptionally high degree of irreproducibility. Even with a hundred billion dollars, a competitor would struggle to replicate in a short timeframe its decades-long accumulation of global brand reputation, vast patent portfolio, deep trust relationships forged with leading surgeons and healthcare institutions worldwide, and extensive global regulatory approvals and efficient supply chain. These intangible assets are the culmination of long-term investment, continuous innovation, and stringent quality control. Together, they form Stryker's inimitable competitive advantage, serving as the cornerstone of its robust moat."
+        "score": 8,
+        "comment_zh": "Stryker 的管理層展現了卓越的資本配置能力。公司透過有機增長（研發投入）和戰略性併購來擴大業務版圖和技術實力。其歷史上的併購案例，如對 Sage Products 和 K2M 的收購，都顯示了其精準識別價值、有效整合標的資產的能力。穩健的自由現金流（FCF TTM: $4,573.0M）為其提供了持續投資和併購的彈性，顯示出優秀的資本配置策略。",
+        "comment_en": "Stryker's management team exhibits excellent capital allocation capabilities. The company expands its business scope and technological strength through organic growth (R&D investment) and strategic acquisitions. Its historical acquisitions, such as those of Sage Products and K2M, demonstrate its ability to accurately identify value and effectively integrate target assets. Solid free cash flow (FCF TTM: $4,573.0M) provides the flexibility for continuous investment and M&A, indicating a superior capital allocation strategy."
       },
       "m9_customer_retention": {
         "score": 7,
-        "comment_zh": "Stryker所處的醫療保健設備行業，其核心需求具有極高的確定性，對技術或典範轉移具備較強的抗性。人類對健康和醫療的需求是永恆的，骨科、外科手術等領域的基礎需求不會因短期技術變革而消失。雖然新技術如AI輔助手術或微創技術不斷湧現，但Stryker作為行業領導者，積極將這些創新整合到其產品線中，甚至引領技術發展，而非被動地被顛覆。嚴格的監管環境也為其提供了緩衝，減緩了激進式顛覆的衝擊。",
-        "comment_en": "Stryker operates in the healthcare equipment industry, where core demand exhibits high certainty and strong resistance to technological or paradigm shifts. The fundamental human need for health and medical care is perpetual, and basic demands in orthopedics and surgery will not vanish due to short-term technological changes. While new technologies like AI-assisted surgery or minimally invasive techniques continuously emerge, Stryker, as an industry leader, actively integrates these innovations into its product lines and often spearheads technological development, rather than being passively disrupted. The stringent regulatory environment also provides a buffer, mitigating the impact of radical disruption."
+        "comment_zh": "Stryker 在醫療器材領域擁有較高的客戶留存率，這主要歸因於前述的轉換成本、產品的可靠性以及與客戶建立的長期合作關係。一旦醫療機構採用了 Stryker 的解決方案，由於培訓、集成和臨床驗證的投入，更換的意願通常不高。此外，公司持續的產品創新和優質的客戶服務也進一步鞏固了客戶關係，使其能夠維持穩定的市場份額和收入。",
+        "comment_en": "Stryker enjoys a relatively high customer retention rate in the medical device sector, primarily due to the aforementioned switching costs, product reliability, and long-term relationships established with clients. Once healthcare institutions adopt Stryker's solutions, the willingness to switch is typically low due to investments in training, integration, and clinical validation. Furthermore, the company's continuous product innovation and high-quality customer service further solidify client relationships, enabling it to maintain stable market share and revenue."
       },
       "m10_durability": {
-        "score": 7,
-        "comment_zh": "Stryker的管理層在資本配置方面表現出穩健與戰略性。公司歷史上通過一系列成功的併購，有效擴展了產品組合和市場份額，並將被收購資產良好整合。其強勁的自由現金流（FCF TTM達47億美元）為再投資、債務管理和潛在的股本回購提供了充足彈藥。儘管總負債較高，但穩定的現金流顯示其償債能力良好。管理層的決策似乎旨在最大化股東長期價值，而非盲目追求短期增長，這符合巴菲特對優秀管理層的期望。",
-        "comment_en": "Stryker's management demonstrates sound and strategic capital allocation. Historically, the company has successfully expanded its product portfolio and market share through a series of effective acquisitions, integrating acquired assets well. Its robust free cash flow (FCF TTM of $4.7 billion) provides ample ammunition for reinvestment, debt management, and potential share repurchases. Although total debt is significant, stable cash flow indicates healthy debt servicing capacity. Management's decisions appear geared towards maximizing long-term shareholder value rather than merely pursuing short-term growth, aligning with Buffett's expectations for excellent leadership."
+        "score": 8,
+        "comment_zh": "Stryker 的業務具有顯著的持久性。醫療保健行業的剛性需求、人口老齡化趨勢以及對高品質醫療服務的持續追求，為公司提供了穩定的長期增長動力。其在骨科、脊椎和創傷等領域的領導地位，以及不斷的產品創新，使其能夠適應行業變化並抵禦競爭。儘管面臨技術變革和監管風險，但其核心業務的穩固性和管理層的卓越資本配置能力，預示著其護城河具有較強的持久性。",
+        "comment_en": "Stryker's business possesses significant durability. The inelastic demand in the healthcare industry, the trend of population aging, and the continuous pursuit of high-quality medical services provide stable long-term growth drivers for the company. Its leadership positions in orthopedics, spine, and trauma, coupled with continuous product innovation, enable it to adapt to industry changes and withstand competition. Despite facing technological shifts and regulatory risks, the stability of its core business and the management's excellent capital allocation capabilities suggest that its moat has strong durability."
       },
-      "overall_moat_verdict_zh": "Stryker本質上是一家擁有堅固護城河的「特許經營權」企業，尤其在醫療科技領域扮演著關鍵的「收費橋樑」角色。其核心競爭力源於卓越的品牌信譽、龐大的專利組合、嚴格的監管壁壘以及客戶極高的轉換成本。公司產品直接關乎病患生命與醫療品質，使得醫院和外科醫生對其高度依賴。憑藉規模經濟和難以複製的戰略資產，Stryker能夠持續產生超額的資本回報。儘管醫療行業不斷創新，但其對基本醫療需求的滿足和積極的技術整合，使其具備強大的抗顛覆能力，為股東創造長期穩定的價值。",
-      "overall_moat_verdict_en": "Stryker fundamentally operates as a \"franchise\" business with a robust moat, serving as a critical \"toll bridge\" within the medical technology sector. Its core competitive advantages stem from an exceptional brand reputation, an extensive patent portfolio, stringent regulatory barriers, and extremely high customer switching costs. The company's products are directly vital to patient lives and healthcare quality, leading to high dependency from hospitals and surgeons. Leveraging economies of scale and irreproducible strategic assets, Stryker consistently generates superior returns on capital. Despite continuous innovation in the medical industry, its fulfillment of essential healthcare needs and proactive technological integration grant it strong disruption immunity, thereby creating long-term, stable value for shareholders.",
-      "evidenceHash": "8ca4d64b9e7b798438cf37b56ac9f1393157500264f0bb31412fd60f3b0dec8d",
+      "overall_moat_verdict_zh": "Stryker 憑藉其在醫療器材領域的技術創新、品牌聲譽、規模經濟及卓越的營運效率，構建了堅實的經濟護城河。其專利保護和較高的轉換成本，有效抵禦了競爭對手的侵蝕。管理層展現了出色的資本配置能力，透過戰略性併購和研發投入持續擴大優勢。雖然網絡效應不顯著，但其核心業務的持久性與客戶的穩定黏著度，使其具備類似「收費橋」的特徵，能夠在醫療保健這個剛性需求市場中持續創造價值。",
+      "overall_moat_verdict_en": "Stryker has built a solid economic moat through its technological innovation, brand reputation, economies of scale, and excellent operational efficiency in the medical device sector. Its patent protection and relatively high switching costs effectively fend off competitive encroachment. Management demonstrates outstanding capital allocation capabilities, continuously expanding its advantages through strategic acquisitions and R&D investments. Although network effects are not significant, the durability of its core business and stable customer stickiness give it characteristics akin to a 'toll bridge' in the essential healthcare market, enabling it to consistently create value.",
+      "evidenceHash": "709c53c73561176ec69cc97bbcf2004f408692f3dc978bd897828e099035e285",
       "assessmentPolicy": "buffett-moat-v3",
       "model": "gemini-2.5-flash-lite",
       "provider": "Vertex AI"
@@ -499437,7 +499445,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "53ede90a3978843ad454c738bf2306f1eac1eea6fdb1feda90bb75ef44a1e5a7"
       },
       "mScore": {
@@ -499449,7 +499457,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "53ede90a3978843ad454c738bf2306f1eac1eea6fdb1feda90bb75ef44a1e5a7"
       }
     },
@@ -499645,7 +499653,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "SYK",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:20:59Z",
+      "fetchedAt": "2026-10-31T17:12:32Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
       "quoteDate": "2026-10-30",
@@ -499681,7 +499689,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/310764/000031076426000061/syk-20260930.htm",
-        "capturedAt": "2026-10-31T14:20:59Z"
+        "capturedAt": "2026-10-31T17:12:32Z"
       }
     },
     "z_score": 4.29,
@@ -500000,7 +500008,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1393052/000139305226000036/veev-20260731.htm",
-      "capturedAt": "2026-10-31T14:21:05Z"
+      "capturedAt": "2026-10-31T17:12:50Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 50671.0,
@@ -503243,7 +503251,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "3fbb9cbcb8dd8da7beca608359465c2d4be862703987735b8e93c6eddcdad09d"
       },
       "mScore": {
@@ -503255,7 +503263,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "3fbb9cbcb8dd8da7beca608359465c2d4be862703987735b8e93c6eddcdad09d"
       }
     },
@@ -503396,7 +503404,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "VEEV",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:21:05Z",
+      "fetchedAt": "2026-10-31T17:12:50Z",
       "balanceDate": "2026-07-31",
       "filingDate": "2026-08-27",
       "quoteDate": "2026-10-30",
@@ -503432,7 +503440,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1393052/000139305226000036/veev-20260731.htm",
-        "capturedAt": "2026-10-31T14:21:05Z"
+        "capturedAt": "2026-10-31T17:12:50Z"
       }
     },
     "z_score": 19.55,
@@ -503751,7 +503759,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/920148/000092014826000222/lh-20260930.htm",
-      "capturedAt": "2026-10-31T14:21:10Z"
+      "capturedAt": "2026-10-31T17:12:58Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 29308.7,
@@ -506924,59 +506932,63 @@ window.FULL_MARKET_DATA = {
     "roa": 5.497875323082315,
     "moat": {
       "ticker": "LH",
-      "period": "2026Q4",
+      "period": "2026Q3",
       "m1_brand_pricing": {
-        "score": 8,
-        "comment_zh": "Labcorp作為全球領先的生命科學服務公司，憑藉其廣泛的實驗室網絡、尖端技術和數十年積累的專業聲譽，在醫療保健領域建立了強大的品牌心智。醫療機構和藥廠對其檢測結果的準確性和可靠性高度依賴，這賦予了公司顯著的定價權。即使在成本壓力下，客戶也傾向於選擇Labcorp，因為轉換供應商的風險和潛在後果巨大。這種品牌信任和服務質量，使其能夠在不犧牲銷量的前提下，維持健康的利潤率並轉嫁成本，是其堅實護城河的關鍵組成部分。",
-        "comment_en": "As a global leader in life sciences services, Labcorp has built a formidable brand presence in healthcare, leveraging its extensive lab network, cutting-edge technology, and decades of professional reputation. Healthcare providers and pharmaceutical companies heavily rely on the accuracy and reliability of its test results, granting the company significant pricing power. Even under cost pressures, clients tend to choose Labcorp due to the substantial risks and potential consequences of switching providers. This brand trust and service quality enable it to maintain healthy profit margins and pass on costs without sacrificing sales, forming a crucial component of its robust moat."
+        "score": 6,
+        "comment_zh": "Labcorp 在診斷檢測領域擁有一定的品牌知名度，但其品牌價值更多體現在專業性和可靠性上，而非消費者直接的品牌忠誠度。在醫療保健服務行業，客戶（包括醫生、醫院和保險公司）的選擇更多基於服務的準確性、效率、成本以及與保險網絡的整合度。雖然 Labcorp 的品牌能帶來一定的信任度，但其定價權相對有限，因為市場上有其他大型競爭對手，且價格受到保險支付方和政府監管的影響。其品牌壁壘不如消費品品牌那樣強固，難以顯著提高價格而不流失客戶。",
+        "comment_en": "Labcorp possesses a degree of brand recognition in the diagnostics testing sector, but its brand value is more rooted in professionalism and reliability rather than direct consumer loyalty. In the healthcare services industry, customer choices (including physicians, hospitals, and insurance companies) are more influenced by accuracy, efficiency, cost, and integration with insurance networks. While Labcorp's brand fosters trust, its pricing power is relatively limited due to the presence of other major competitors and pricing influenced by insurance payers and government regulations. Its brand barrier is not as robust as consumer goods brands, making it difficult to significantly increase prices without losing customers."
       },
       "m2_patents_regulatory": {
         "score": 7,
-        "comment_zh": "Labcorp身處高度管制的醫療保健行業，其運營需要獲得大量複雜的政府許可、認證和合規性批准。這些嚴格的監管要求本身就構成了巨大的進入壁壘，新競爭者難以在短時間內複製其合規體系和質量標準。此外，公司在某些專業檢測領域可能擁有獨特的專有技術或方法，雖非傳統專利，但其研發投入、複雜性和驗證成本也形成了一種知識產權壁壘。這些監管和技術壁壘共同確保了Labcorp在市場中的領先地位，使其免受輕易的競爭侵蝕。",
-        "comment_en": "Operating within the highly regulated healthcare industry, Labcorp requires extensive and complex government licenses, certifications, and compliance approvals. These stringent regulatory demands inherently create significant barriers to entry, making it difficult for new competitors to quickly replicate its compliance systems and quality standards. Furthermore, the company may possess unique proprietary technologies or methodologies in certain specialized testing areas. While not traditional patents, their R&D investment, complexity, and validation costs also form a type of intellectual property barrier. These regulatory and technological moats collectively secure Labcorp's leading market position, protecting it from easy competitive erosion."
+        "comment_zh": "Labcorp 的核心競爭力在於其廣泛的實驗室網絡、先進的檢測技術以及在臨床試驗服務方面的專業知識。雖然專利在特定檢測技術上可能提供短期保護，但其真正的壁壘更多來自於監管認證、臨床驗證以及與醫療體系的深度整合。獲得並維持 CLIA 和 CAP 等認證需要大量的時間和資源，這對新進入者構成了顯著的障礙。此外，其在藥物開發服務領域的經驗和聲譽，以及與製藥公司的長期合作關係，也構成了難以複製的無形資產，這在一定程度上受到監管環境的保護。",
+        "comment_en": "Labcorp's core strength lies in its extensive laboratory network, advanced testing technologies, and expertise in clinical trial services. While patents may offer short-term protection for specific testing technologies, its true barriers stem more from regulatory certifications, clinical validation, and deep integration with the healthcare system. Obtaining and maintaining certifications like CLIA and CAP requires significant time and resources, posing a substantial hurdle for new entrants. Furthermore, its experience and reputation in drug development services, along with long-term partnerships with pharmaceutical companies, constitute difficult-to-replicate intangible assets, which are somewhat protected by the regulatory environment."
       },
       "m3_high_switching_costs": {
-        "score": 8,
-        "comment_zh": "對於醫療機構、醫生診所和製藥公司而言，更換像Labcorp這樣的大型臨床實驗室和藥物開發服務提供商，會產生極高的轉換成本。這不僅涉及複雜的IT系統整合、數據遷移、員工培訓和流程調整，更可能導致患者護理流程中斷、診斷延誤或臨床試驗進度受阻，帶來潛在的聲譽和財務風險。一旦客戶與Labcorp建立深度合作關係，其服務的深度整合和數據的連續性，使得轉換供應商的意願極低，從而為Labcorp構建了堅實的客戶黏性護城河。",
-        "comment_en": "For healthcare institutions, physician practices, and pharmaceutical companies, switching from a large clinical laboratory and drug development service provider like Labcorp incurs extremely high switching costs. This involves not only complex IT system integration, data migration, staff training, and process adjustments, but also potential disruptions to patient care, diagnostic delays, or setbacks in clinical trial progress, leading to reputational and financial risks. Once clients establish deep partnerships with Labcorp, the profound integration of its services and the continuity of data make the willingness to switch providers very low, thereby building a robust customer stickiness moat for Labcorp."
+        "score": 7,
+        "comment_zh": "對於醫療機構和研究機構而言，更換實驗室檢測服務提供商的轉換成本相對較高。這不僅涉及重新驗證檢測流程和確保數據兼容性，還包括培訓員工適應新的報告格式和系統。對於臨床試驗服務，Labcorp 與製藥公司的合作關係通常是長期的，涉及複雜的數據管理和項目協調，一旦建立，更換供應商將面臨巨大的時間延誤和項目風險。這種深度綁定和對數據連續性的要求，形成了客戶黏性，構成了顯著的轉換壁壘。",
+        "comment_en": "For healthcare and research institutions, the switching costs of changing laboratory testing service providers are relatively high. This involves not only re-validating testing processes and ensuring data compatibility but also training staff to adapt to new reporting formats and systems. For clinical trial services, Labcorp's partnerships with pharmaceutical companies are typically long-term, involving complex data management and project coordination. Once established, changing suppliers entails significant time delays and project risks. This deep integration and the requirement for data continuity create customer stickiness, forming a considerable switching barrier."
       },
       "m4_network_effects": {
-        "score": 6,
-        "comment_zh": "Labcorp的網絡效應主要體現在其廣泛的實驗室網絡和龐大的數據積累上。其遍布全球的檢測點和豐富的臨床數據庫，吸引了更多藥廠進行大規模臨床試驗，而更多的試驗數據又反過來提升了其數據分析能力、診斷精準度和服務質量，形成正向循環。這種規模和數據優勢，使得其能夠提供更全面、更高效的服務，進一步鞏固了其在市場中的領導地位。儘管不如社交媒體般直接，但這種數據驅動的網絡效應對新進入者構成顯著挑戰。",
-        "comment_en": "Labcorp's network effects are primarily manifested in its extensive laboratory network and vast data accumulation. Its global testing sites and rich clinical database attract more pharmaceutical companies to conduct large-scale clinical trials. In turn, more trial data enhances its data analysis capabilities, diagnostic accuracy, and service quality, creating a virtuous cycle. This scale and data advantage enable it to offer more comprehensive and efficient services, further solidifying its leadership in the market. Although not as direct as social media, this data-driven network effect poses a significant challenge to new entrants."
+        "score": 4,
+        "comment_zh": "Labcorp 的網絡效應相對有限。雖然其擁有廣泛的實驗室網絡，能夠提供地理上的便利性，但這更多是規模優勢而非典型的網絡效應。網絡效應通常指產品或服務的價值隨著用戶數量的增加而增加（例如社交媒體或市場平台）。在診斷檢測領域，客戶（醫生、醫院）選擇服務商主要基於其服務質量和價格，而非其他用戶的使用情況。雖然數據的積累有助於改進算法和服務，但這種效應的強度遠不如直接面向消費者的平台型業務。",
+        "comment_en": "Labcorp's network effects are relatively limited. While it possesses an extensive laboratory network providing geographical convenience, this is more of a scale advantage than a typical network effect. Network effects generally refer to the increase in value of a product or service as the number of users grows (e.g., social media or marketplaces). In diagnostic testing, customers (doctors, hospitals) choose providers based primarily on service quality and price, not on the usage by other users. Although data accumulation aids in improving algorithms and services, the strength of this effect is far less pronounced than in direct-to-consumer platform businesses."
       },
       "m5_cost_advantage_scale": {
         "score": 8,
-        "comment_zh": "作為全球領先的臨床實驗室服務提供商之一，Labcorp享有顯著的規模經濟優勢。其龐大的檢測量和全球採購網絡，使其在試劑、設備和耗材方面能獲得遠低於小型競爭對手的單位成本。此外，標準化流程、自動化技術和集中化管理，也大幅提升了運營效率，降低了邊際成本。這種成本優勢讓Labcorp能夠提供更具競爭力的價格，同時保持健康的利潤率，是小型競爭對手難以匹敵的強大護城河，確保了其在市場中的成本領先地位。",
-        "comment_en": "As one of the world's leading clinical laboratory service providers, Labcorp enjoys significant economies of scale. Its massive testing volume and global procurement network allow it to acquire reagents, equipment, and consumables at unit costs far lower than those of smaller competitors. Furthermore, standardized processes, automation technologies, and centralized management significantly enhance operational efficiency and reduce marginal costs. This cost advantage enables Labcorp to offer more competitive pricing while maintaining healthy profit margins, representing a powerful moat that small competitors struggle to match, ensuring its cost leadership in the market."
+        "comment_zh": "Labcorp 作為行業領導者之一，其規模經濟效應顯著。龐大的檢測量使其能夠攤薄固定成本（如設備折舊、研發投入、IT 系統維護），並在採購試劑和耗材時獲得更優惠的價格。其廣泛的實驗室網絡也提高了運營效率，減少了樣本運輸成本。這種規模優勢使得 Labcorp 能夠提供具有競爭力的價格，同時維持健康的利潤率，對規模較小的競爭對手構成顯著的成本壁壘。其在臨床試驗服務領域的規模也使其能夠承接大型、複雜的項目，進一步鞏固其市場地位。",
+        "comment_en": "As one of the industry leaders, Labcorp benefits significantly from economies of scale. Its high testing volume allows it to spread fixed costs (such as equipment depreciation, R&D investment, IT system maintenance) and obtain more favorable pricing when purchasing reagents and consumables. Its extensive laboratory network also enhances operational efficiency, reducing sample transportation costs. This scale advantage enables Labcorp to offer competitive pricing while maintaining healthy profit margins, creating a significant cost barrier for smaller competitors. Its scale in clinical trial services also allows it to undertake large, complex projects, further solidifying its market position."
       },
       "m6_unique_geography_assets": {
-        "score": 7,
-        "comment_zh": "臨床實驗室服務市場呈現出一定程度的寡頭壟斷格局，少數幾家巨頭佔據主導地位。Labcorp憑藉其廣泛的地理覆蓋、全面的服務組合和在關鍵區域市場的深耕，在許多特定專業檢測領域或地區形成了天然的寡占地位。新競爭者若想進入並有效競爭，需投入巨額資本建立實驗室網絡、獲得複雜認證並積累數據，這會導致市場過度競爭，利潤率受損，從而理性地抑制了潛在競爭者的進入意願，形成一種「有效規模」的護城河。",
-        "comment_en": "The clinical laboratory services market exhibits a degree of oligopoly, with a few major players dominating. Labcorp, with its extensive geographic coverage, comprehensive service portfolio, and deep penetration in key regional markets, has established a natural oligopoly in many specialized testing areas or regions. For new competitors to enter and effectively compete, they would need to invest massive capital to build laboratory networks, obtain complex certifications, and accumulate data. This would lead to excessive market competition and eroded profit margins, thereby rationally deterring potential entrants and forming an 'efficient scale' moat."
+        "score": 5,
+        "comment_zh": "Labcorp 的地理優勢主要體現在其廣泛的實驗室和服務中心網絡，能夠覆蓋美國大部分地區，並在全球範圍內提供臨床試驗服務。這種廣泛的佈局提高了服務的可及性，並有助於降低物流成本。然而，這種地理資產並非獨一無二，因為其他大型診斷檢測公司（如 Quest Diagnostics）也擁有類似的網絡。其價值更多在於網絡的密度和效率，而非地理位置本身的稀缺性。在臨床試驗服務方面，其全球佈局是重要的資產，但仍面臨來自其他跨國CRO的競爭。",
+        "comment_en": "Labcorp's geographical advantage is primarily reflected in its extensive network of laboratories and service centers, covering most of the United States and offering clinical trial services globally. This broad footprint enhances service accessibility and helps reduce logistics costs. However, this geographical asset is not unique, as other large diagnostic testing companies (like Quest Diagnostics) also have similar networks. Its value lies more in the density and efficiency of the network rather than the scarcity of the geographical locations themselves. In clinical trial services, its global presence is an important asset, but it still faces competition from other multinational CROs."
       },
       "m7_operational_efficiency": {
-        "score": 9,
-        "comment_zh": "儘管提供的ROE和ROA數據異常高，但Labcorp高達9分的皮氏F-Score和穩健的自由現金流（FCF TTM $1,155.2 M），強烈暗示其具備卓越的資本配置效率和持續創造超額回報的能力。這表明公司能夠將投入資本轉化為顯著的利潤增長，其投入資本回報率（ROIC）長期穩定地超越加權平均資本成本（WACC），為股東創造了可觀的複利價值。這種持續的超額回報能力，是其堅實護城河的有力證明，展現了其卓越的運營韌性。",
-        "comment_en": "Despite the unusually high ROE and ROA figures provided, Labcorp's impressive Piotroski F-Score of 9 and robust free cash flow (FCF TTM $1,155.2 M) strongly indicate exceptional capital allocation efficiency and a sustained ability to generate excess returns. This suggests the company can convert invested capital into significant profit growth, with its Return on Invested Capital (ROIC) consistently exceeding its Weighted Average Cost of Capital (WACC) over the long term, creating substantial compounding value for shareholders. This sustained ability to generate excess returns is powerful evidence of its solid moat, demonstrating remarkable operational resilience."
+        "score": 8,
+        "comment_zh": "Labcorp 在運營效率方面表現出色，這得益於其大規模的自動化檢測流程、優化的物流網絡以及先進的 IT 系統。通過標準化操作程序和持續的流程改進，公司能夠高效處理海量的檢測樣本，確保結果的準確性和及時性。其在臨床試驗服務領域也強調項目管理效率和數據質量，以滿足製藥客戶的嚴格要求。這種高水平的運營效率不僅降低了單位成本，也提升了客戶滿意度，是其維持競爭優勢的重要因素。",
+        "comment_en": "Labcorp excels in operational efficiency, thanks to its large-scale automated testing processes, optimized logistics network, and advanced IT systems. Through standardized operating procedures and continuous process improvement, the company efficiently handles a massive volume of testing samples, ensuring accuracy and timeliness of results. In clinical trial services, it also emphasizes project management efficiency and data quality to meet the stringent requirements of pharmaceutical clients. This high level of operational efficiency not only reduces unit costs but also enhances customer satisfaction, making it a crucial factor in maintaining its competitive advantage."
       },
       "m8_capital_allocation": {
-        "score": 8,
-        "comment_zh": "即使給予競爭對手千億美元，也難以在短時間內複製Labcorp的核心戰略資產。這包括其遍布全球的實驗室網絡、數十年積累的專業知識和龐大數據庫、與醫療機構和藥廠建立的深厚信任關係、以及複雜的監管批准和認證體系。這些無形資產和運營體系是長期投入、經驗積累和品牌建設的結果，構成了一道難以逾越的壁壘。這種不可複製性確保了Labcorp在市場中的獨特地位，使其能夠長期保持競爭優勢。",
-        "comment_en": "Even with a hundred billion dollars, it would be incredibly difficult for a competitor to replicate Labcorp's core strategic assets in a short period. This includes its global network of laboratories, decades of accumulated specialized knowledge and vast databases, deep trust relationships established with healthcare institutions and pharmaceutical companies, and complex regulatory approvals and certification systems. These intangible assets and operational frameworks are the result of long-term investment, accumulated experience, and brand building, forming an insurmountable barrier. This irreproducibility ensures Labcorp's unique position in the market, allowing it to maintain a long-term competitive advantage."
+        "score": 7,
+        "comment_zh": "Labcorp 的資本配置策略顯示出一定的審慎和對股東回報的關注。公司歷史上通過戰略性併購擴大規模，同時也注重通過股票回購和股息向股東返還價值。其研發投入集中在有潛力的診斷技術和服務領域。儘管其負債水平相對較高，但其強勁的自由現金流（FCF TTM: $1,286.9M）提供了足夠的財務靈活性來管理債務、進行再投資和回報股東。管理層在平衡增長投資與財務穩健方面展現了較為成熟的能力。",
+        "comment_en": "Labcorp's capital allocation strategy demonstrates a degree of prudence and focus on shareholder returns. Historically, the company has expanded its scale through strategic acquisitions while also focusing on returning value to shareholders via share buybacks and dividends. Its R&D investments are concentrated in promising diagnostic technologies and service areas. Although its debt level is relatively high, its strong free cash flow (FCF TTM: $1,286.9M) provides sufficient financial flexibility to manage debt, reinvest, and reward shareholders. Management has shown a mature ability to balance growth investments with financial stability."
       },
       "m9_customer_retention": {
         "score": 7,
-        "comment_zh": "醫療診斷和藥物開發服務的需求具有高度的確定性和剛性，不易受短期技術潮流或典範轉移的劇烈衝擊。儘管AI和基因組學等新技術不斷演進，但Labcorp作為行業領導者，正積極整合這些創新以提升服務效率和精準度，而非被動受其顛覆。其核心業務——提供不可或缺的檢測和研發支持——在可預見的未來仍將是醫療體系的重要組成部分。這種對基礎醫療需求的滿足，賦予了公司強大的技術變革抗性，確保了客戶的長期留存。",
-        "comment_en": "The demand for medical diagnostics and drug development services is highly certain and inelastic, less susceptible to drastic shocks from short-term technological trends or paradigm shifts. While new technologies like AI and genomics continue to evolve, Labcorp, as an industry leader, is actively integrating these innovations to enhance service efficiency and accuracy, rather than being passively disrupted. Its core business—providing indispensable testing and R&D support—will remain a vital component of the healthcare system for the foreseeable future. This fulfillment of fundamental medical needs grants the company strong resistance to technological change, ensuring long-term customer retention."
+        "comment_zh": "Labcorp 在客戶保留方面表現穩健，這主要歸功於其服務的專業性、可靠性以及與客戶建立的長期合作關係。對於醫療機構而言，檢測服務是其日常運營的關鍵環節，一旦與特定供應商建立穩定的合作關係，出於對數據一致性、流程熟悉度和質量保證的考量，轉換的意願通常不高。在臨床試驗服務領域，與製藥公司的合作更是基於信任和長期項目週期，客戶忠誠度極高。雖然競爭依然存在，但其服務的嵌入性和專業門檻有助於維持較高的客戶保留率。",
+        "comment_en": "Labcorp demonstrates solid customer retention, primarily due to the professionalism and reliability of its services and the long-term partnerships it has established. For healthcare institutions, testing services are a critical part of their daily operations, and once a stable relationship is established with a specific provider, the willingness to switch is typically low due to considerations of data consistency, process familiarity, and quality assurance. In clinical trial services, collaborations with pharmaceutical companies are based on trust and long project cycles, leading to very high customer loyalty. Although competition exists, the embedded nature of its services and professional barriers help maintain a high customer retention rate."
       },
       "m10_durability": {
-        "score": 8,
-        "comment_zh": "儘管缺乏具體的併購或回購細節，但Labcorp高達9分的皮氏F-Score和穩健的自由現金流，強烈暗示其管理層在資本配置方面表現出高度的誠信和效率。這通常意味著公司能夠避免盲目高價併購，並在股價被低估時積極進行股票回購，以有效提升股東價值。這種對股東利益負責的態度，是巴菲特所推崇的優秀管理層特質，為公司的長期發展提供了堅實保障。穩健的財務狀況和負責任的資本配置，是企業護城河持久性的重要基石。",
-        "comment_en": "Although specific details on M&A or buybacks are lacking, Labcorp's impressive Piotroski F-Score of 9 and robust free cash flow strongly suggest its management demonstrates high integrity and efficiency in capital allocation. This typically implies the company avoids reckless, high-priced acquisitions and actively conducts share buybacks when its stock is undervalued, effectively enhancing shareholder value. This commitment to shareholder interests is a quality highly valued by Buffett, providing a solid foundation for the company's long-term growth. Sound financial health and responsible capital allocation are crucial cornerstones for the durability of a company's moat."
+        "score": 7,
+        "comment_zh": "Labcorp 的業務模式具有相當的持久性。診斷檢測是醫療保健體系中不可或缺的一環，需求穩定且持續增長，尤其是在人口老齡化和對精準醫療日益重視的背景下。其在臨床試驗服務領域的地位也受益於新藥研發的持續投入。儘管面臨來自其他大型檢測公司和新興技術的競爭，但 Labcorp 龐大的網絡、技術積累和與醫療體系的深度整合，使其能夠抵禦大部分顛覆性風險。其業務的基礎性決定了其在可預見的未來仍將保持穩固的市場地位。",
+        "comment_en": "Labcorp's business model possesses considerable durability. Diagnostic testing is an indispensable part of the healthcare system, with stable and continuously growing demand, especially against the backdrop of an aging population and increasing emphasis on precision medicine. Its position in clinical trial services also benefits from sustained investment in new drug R&D. Despite facing competition from other large testing companies and emerging technologies, Labcorp's vast network, accumulated expertise, and deep integration with the healthcare system enable it to withstand most disruptive risks. The fundamental nature of its business ensures it will maintain a solid market position for the foreseeable future."
       },
-      "overall_moat_verdict_zh": "Labcorp本質上是一家在醫療保健領域扮演「收費橋樑」角色的特許經營權企業。它並非生產有形商品，而是提供不可或缺的臨床診斷和藥物開發服務，深度嵌入全球醫療生態系統。其護城河主要源於規模經濟、高轉換成本、嚴格的監管壁壘以及強大的品牌信任。這些因素共同創造了一個難以被新進入者複製的競爭優勢，使其能夠長期保持穩定的盈利能力和市場地位。儘管技術不斷演進，但對精準醫療檢測和新藥研發的需求是永恆的，賦予Labcorp極高的業務確定性和抗顛覆性，是典型的巴菲特式「好生意」。",
-      "overall_moat_verdict_en": "Labcorp fundamentally operates as a 'toll bridge' franchise within the healthcare sector. It doesn't produce tangible goods but provides indispensable clinical diagnostic and drug development services, deeply embedded in the global healthcare ecosystem. Its moat primarily stems from economies of scale, high switching costs, stringent regulatory barriers, and strong brand trust. These factors collectively create a competitive advantage that is difficult for new entrants to replicate, allowing it to maintain stable profitability and market position over the long term. Despite evolving technology, the demand for precise medical testing and new drug development is perpetual, granting Labcorp high business certainty and disruption immunity, making it a quintessential Buffett-style 'good business'."
+      "overall_moat_verdict_zh": "Labcorp 的護城河主要體現在其規模帶來的成本優勢、運營效率以及客戶轉換成本。作為醫療診斷服務的領導者，其龐大的網絡和技術積累構成了顯著的進入壁壘。儘管品牌影響力不如消費品，但其專業聲譽和服務的穩定性帶來了客戶黏性。其業務模式更接近於一種「收費橋」或「必需品」屬性，在醫療保健體系中扮演著關鍵角色，需求相對穩定。然而，網絡效應不強以及面臨監管和價格壓力是其護城河的限制因素。整體而言，Labcorp 擁有一個堅固但非無懈可擊的經濟護城河。",
+      "overall_moat_verdict_en": "Labcorp's moat is primarily reflected in its cost advantages derived from scale, operational efficiency, and customer switching costs. As a leader in medical diagnostic services, its vast network and accumulated expertise form significant entry barriers. Although its brand influence is less pronounced than in consumer goods, its professional reputation and service stability foster customer stickiness. Its business model more closely resembles a 'toll bridge' or 'necessity' in nature, playing a crucial role within the healthcare system with relatively stable demand. However, weak network effects and exposure to regulatory and pricing pressures are limitations to its moat. Overall, Labcorp possesses a solid, though not impenetrable, economic moat.",
+      "evidenceHash": "2f2deb419f0cd4c13adbe98af335b50520d8d04d5af7c4e2f8d733221b391ab1",
+      "assessmentPolicy": "buffett-moat-v3",
+      "model": "gemini-2.5-flash-lite",
+      "provider": "Vertex AI"
     },
     "ratingSources": {
       "moat": {
@@ -506995,7 +507007,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "19b9c0d948571fff11b1b37d739140416b70d274778f60b8dbe06c632478a836"
       },
       "mScore": {
@@ -507007,7 +507019,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "19b9c0d948571fff11b1b37d739140416b70d274778f60b8dbe06c632478a836"
       }
     },
@@ -507173,7 +507185,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "LH",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:21:10Z",
+      "fetchedAt": "2026-10-31T17:12:58Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
       "quoteDate": "2026-10-30",
@@ -507209,7 +507221,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/920148/000092014826000222/lh-20260930.htm",
-        "capturedAt": "2026-10-31T14:21:10Z"
+        "capturedAt": "2026-10-31T17:12:58Z"
       }
     },
     "z_score": 3.54,
@@ -507519,22 +507531,22 @@ window.FULL_MARKET_DATA = {
     "industry": "Biotechnology",
     "reportedCurrency": "USD",
     "price": 927.89,
-    "shares": 102.954994,
-    "shares_outstanding": 102954994,
-    "shares_display": "102.95 M",
+    "shares": 102.937841,
+    "shares_outstanding": 102937841,
+    "shares_display": "102.94 M",
     "shareSource": {
-      "shares": 102.954994,
+      "shares": 102.937841,
       "date": "2026-10-31",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/872589/000087258926000034/regn-20260930.htm",
-      "capturedAt": "2026-10-31T14:21:15Z"
+      "capturedAt": "2026-10-31T17:13:19Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 95530.9,
-    "liq_val_1": 96.04585086955568,
-    "liq_val_2": 30.569668140624632,
-    "liq_val_3": -15.595163844116197,
+    "liq_val_1": 96.06185542593613,
+    "liq_val_2": 30.574762103277454,
+    "liq_val_3": -15.597762537102366,
     "debt": 2707.0,
     "cash": 9301.1,
     "short_term_investments": 5642.0,
@@ -510682,8 +510694,8 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 1383.31,
-    "default_fair_val": 1383.31,
+    "fair_val": 1383.54,
+    "default_fair_val": 1383.54,
     "premium_pct": -32.9,
     "is_undervalued": true,
     "pe_trailing": 19.8,
@@ -510701,60 +510713,60 @@ window.FULL_MARKET_DATA = {
     "roa": 11.992710869467803,
     "moat": {
       "ticker": "REGN",
-      "period": "2026Q2",
+      "period": "2026Q3",
       "m1_brand_pricing": {
-        "score": 8,
-        "comment_zh": "Regeneron憑藉其創新藥物如Eylea和Dupixent，在眼科和免疫學領域建立了強大的品牌認知和定價權。這些藥物解決了嚴重的醫療需求，且療效顯著，使公司能夠在市場上維持高價位，即使面對仿製藥或生物類似藥的潛在競爭，其品牌忠誠度和醫生處方習慣仍能提供堅實的壁壘。其創新能力和臨床數據支持了其溢價策略，確保了穩定的收入流。",
-        "comment_en": "Regeneron commands significant brand recognition and pricing power through its innovative drugs like Eylea and Dupixent. These therapies address critical unmet medical needs in ophthalmology and immunology, allowing the company to maintain premium pricing. Despite potential competition from generics or biosimilars, strong brand loyalty and established physician prescribing habits provide a robust barrier. Regeneron's proven innovation and compelling clinical data underpin its premium strategy, ensuring a stable and predictable revenue stream, a hallmark of a strong economic moat."
+        "score": 7,
+        "comment_zh": "Regeneron 的品牌定價權主要體現在其創新藥物的市場領導地位。憑藉其專利保護和卓越的臨床療效，公司能夠為其核心產品設定高價，並獲得可觀的利潤率。然而，生物科技產業的競爭激烈，新藥不斷湧現，且面臨藥價監管壓力，這限制了其絕對的定價能力。儘管如此，其在特定治療領域的領先地位仍提供了相當的定價彈性，使其品牌價值能夠轉化為穩定的營收和利潤。",
+        "comment_en": "Regeneron's brand pricing power is primarily reflected in its market leadership in innovative drugs. With patent protection and superior clinical efficacy, the company can set high prices for its core products and achieve considerable profit margins. However, the biotechnology industry is highly competitive, with new drugs constantly emerging and facing drug pricing regulatory pressures, which limits its absolute pricing power. Nevertheless, its leading position in specific therapeutic areas still provides considerable pricing flexibility, allowing its brand value to translate into stable revenue and profits."
       },
       "m2_patents_regulatory": {
         "score": 9,
-        "comment_zh": "Regeneron的核心競爭力源於其深厚的專利組合和嚴格的監管批准。Eylea和Dupixent等重磅藥物受到多重專利保護，有效阻止競爭對手推出生物類似藥。藥物研發的高昂成本、漫長的臨床試驗及嚴格的FDA審批，共同構建極高進入壁壘。這種特許經營權保護，賦予公司市場獨佔地位，確保創新成果長期收益，是典型的巴菲特式護城河。",
-        "comment_en": "Regeneron's core strength lies in its extensive patent portfolio and stringent regulatory approvals. Blockbuster drugs like Eylea and Dupixent are protected by multiple patents, effectively deterring competitors from launching biosimilars in the near term. The high cost of drug development, lengthy clinical trials, and rigorous FDA approval processes collectively create formidable barriers to entry. This franchise-like protection grants the company a monopolistic position in its markets, securing long-term returns on its innovative efforts, which is a classic Buffett-style moat."
+        "comment_zh": "Regeneron 擁有強大的專利組合，這是其核心競爭壁壘。其專利涵蓋了關鍵的藥物分子、治療方法和生產工藝，為其創新藥物提供了長期的市場獨占權。此外，藥物研發的嚴格監管流程本身也構成了極高的進入壁壘，新進入者需要投入巨額資金和時間來通過臨床試驗和審批。這種專利和監管的雙重保護，為 Regeneron 創造了顯著的競爭優勢和穩定的收入來源。",
+        "comment_en": "Regeneron possesses a robust patent portfolio, which serves as its core competitive barrier. Its patents cover key drug molecules, therapeutic methods, and manufacturing processes, providing long-term market exclusivity for its innovative drugs. Furthermore, the stringent regulatory process for drug development itself constitutes an extremely high barrier to entry, requiring new entrants to invest substantial capital and time to pass clinical trials and approvals. This dual protection of patents and regulation creates a significant competitive advantage and a stable revenue stream for Regeneron."
       },
       "m3_high_switching_costs": {
-        "score": 8,
-        "comment_zh": "對於Regeneron的許多治療領域，如慢性眼疾和嚴重炎症，患者和醫生對已證明安全有效的藥物高度依賴。轉換藥物可能帶來療效不確定性、潛在副作用或需重新適應治療方案的風險，構成高昂「轉換成本」。一旦患者使用Eylea或Dupixent獲良好療效，轉換意願極低，即使有價格差異也難以動搖，為公司提供穩定需求基礎。",
-        "comment_en": "In many of Regeneron's therapeutic areas, such as chronic eye conditions and severe inflammatory diseases, patients and physicians exhibit high reliance on proven safe and effective medications. Switching drugs entails risks of uncertain efficacy, potential side effects, or the need to re-adapt treatment regimens, all constituting significant \"switching costs.\" Once patients begin using Eylea or Dupixent and experience positive outcomes, their willingness to switch to alternative treatments is extremely low, even with price differences. This provides a stable demand base for the company."
+        "score": 6,
+        "comment_zh": "對於患者而言，一旦開始使用 Regeneron 的藥物並獲得良好療效，更換藥物的成本相對較高，不僅涉及醫生的處方和重新評估，還可能面臨療效下降或副作用的風險。對於醫療系統和保險公司而言，雖然更換藥物可能帶來成本節約，但需要重新談判、審批和管理，也存在一定的轉換成本。然而，隨著藥物選擇的增加和支付方對成本的關注，轉換成本並非不可逾越，因此得分為中等偏上。",
+        "comment_en": "For patients, once they start using Regeneron's drugs and achieve good therapeutic effects, the cost of switching drugs is relatively high, involving not only doctor's prescriptions and re-evaluations but also potential risks of reduced efficacy or side effects. For healthcare systems and insurance companies, although switching drugs might offer cost savings, it requires renegotiation, approval, and management, also incurring certain switching costs. However, with the increase in drug options and payers' focus on costs, switching costs are not insurmountable, hence the score is moderately high."
       },
       "m4_network_effects": {
-        "score": 5,
-        "comment_zh": "生物科技公司網絡效應不如科技平台直接。然而，Regeneron藥物若廣泛採用，將累積更多真實世界數據，提升醫生對療效和安全性信心，可能被納入主流治療指南，形成間接「網絡效應」。此效應雖不如社交媒體強烈，但隨藥物普及，醫生群體經驗交流和共識建立，會鞏固其市場地位，使新進入者難以撼動。",
-        "comment_en": "For biotechnology companies, network effects are less direct than for technology platforms. However, widespread adoption of Regeneron's drugs accumulates more real-world data, boosting physician confidence in their efficacy and safety, potentially leading to inclusion in mainstream treatment guidelines. This creates an indirect \"network effect.\" While not as potent as in social media or e-commerce, as drug usage proliferates, the exchange of experiences and consensus-building among the medical community further solidifies its market position, making it difficult for new entrants to dislodge."
+        "score": 2,
+        "comment_zh": "Regeneron 的業務模式主要基於科學創新和藥物研發，其核心競爭力並非來自傳統意義上的網絡效應。雖然其藥物在臨床上的成功和醫生間的口碑傳播可以視為一種間接的網絡效應，但這種效應的強度和可持續性遠不如社交媒體或市場平台。其產品的價值更多取決於藥物的療效和專利保護，而非用戶數量的增長帶來的邊際效用遞增。",
+        "comment_en": "Regeneron's business model is primarily based on scientific innovation and drug development; its core competitiveness does not stem from network effects in the traditional sense. Although the clinical success of its drugs and word-of-mouth among physicians can be considered a form of indirect network effect, the strength and sustainability of this effect are far less than those of social media or marketplace platforms. The value of its products depends more on drug efficacy and patent protection rather than the increasing marginal utility derived from user growth."
       },
       "m5_cost_advantage_scale": {
         "score": 7,
-        "comment_zh": "Regeneron作為大型生物科技公司，在研發、生產和全球分銷享有顯著規模經濟優勢。龐大研發投入分散於多個項目，降低單一藥物失敗風險。高效生產工藝和供應鏈管理，使其能以更低單位成本生產複雜生物製劑。全球銷售網絡和市場推廣能力，小型競爭者難以匹敵。此規模優勢不僅降低運營成本，也增強市場議價能力，形成重要成本壁壘。",
-        "comment_en": "Regeneron, as a large biotechnology firm, benefits significantly from economies of scale in research and development, manufacturing, and global distribution. Its substantial R&D investments can be spread across multiple projects, mitigating the risk of single drug failures. Efficient production processes and supply chain management enable the company to produce complex biologics at lower unit costs. Furthermore, its global sales network and marketing capabilities are formidable for smaller competitors to match. This scale advantage not only reduces operational costs but also enhances its market bargaining power, forming a crucial cost barrier."
+        "comment_zh": "Regeneron 在生物製藥領域的規模化生產和研發投入，使其能夠在成本控制上獲得一定的優勢。大規模的生產設施和優化的供應鏈有助於降低單位生產成本。同時，其龐大的研發投入也使其能夠持續推出新產品，從而攤薄固定研發成本。然而，生物製藥的研發成本本身就極高，且對生產工藝要求嚴格，這限制了規模效應的絕對優勢。與傳統製造業相比，其成本優勢更多體現在研發效率和生產的穩定性上。",
+        "comment_en": "Regeneron's large-scale production and R&D investment in the biopharmaceutical sector provide it with certain advantages in cost control. Large-scale manufacturing facilities and optimized supply chains help reduce unit production costs. Concurrently, its substantial R&D investment enables it to continuously launch new products, thereby amortizing fixed R&D expenses. However, R&D costs in biopharmaceuticals are inherently very high, and production processes are strictly regulated, limiting the absolute advantage of economies of scale. Compared to traditional manufacturing industries, its cost advantage is more evident in R&D efficiency and production stability."
       },
       "m6_unique_geography_assets": {
-        "score": 6,
-        "comment_zh": "生物科技利基市場因高昂研發成本和嚴格監管，常形成天然寡占。Regeneron在濕性老年黃斑部病變和特應性皮炎等特定疾病領域建立領先地位。這些市場雖規模龐大，但新藥開發難度與風險極高，成功進入競爭者有限。此「有效規模」特性意味少數公司即可滿足需求，新競爭者無顛覆性創新難以切入，鞏固了Regeneron市場份額。",
-        "comment_en": "Niche markets within biotechnology often develop into natural oligopolies due to high R&D costs and stringent regulatory requirements. Regeneron has established a leading position in specific disease areas, such as wet age-related macular degeneration and atopic dermatitis. While these markets are substantial, the difficulty and risk of new drug development are extremely high, limiting the number of companies that can successfully enter and compete. This 'efficient scale' market characteristic means a few companies can meet market demand, making it challenging for new competitors without disruptive innovation to gain traction, thereby solidifying Regeneron's market share."
+        "score": 3,
+        "comment_zh": "Regeneron 的核心資產是其研發能力、專利技術和創新藥物，這些並非地理位置或特定資產的獨占性。雖然其研發中心和生產基地可能集中在特定區域，但其產品的銷售遍布全球，不受特定地理位置的限制。其競爭優勢來自於科學創新和知識產權，而非獨特的地理位置或實物資產，因此在此維度上得分較低。",
+        "comment_en": "Regeneron's core assets are its R&D capabilities, patented technologies, and innovative drugs, which are not exclusive to specific geographical locations or assets. Although its R&D centers and production facilities may be concentrated in certain regions, its products are sold globally and are not limited by specific geographic locations. Its competitive advantage stems from scientific innovation and intellectual property, rather than unique geographical locations or physical assets, hence the low score in this dimension."
       },
       "m7_operational_efficiency": {
         "score": 8,
-        "comment_zh": "Regeneron展現卓越資本配置效率和長期超額回報能力。其13.7%股東權益報酬率（ROE）和10.4%資產報酬率（ROA），結合高達8/9皮氏F-Score，強烈表明公司能持續將投入資本轉化為豐厚利潤。這證明核心業務盈利能力，也反映管理層研發投入和市場擴張的精準判斷。此持續創造超額收益能力，是巴菲特衡量護城河寬度關鍵指標，顯示強大競爭優勢。",
-        "comment_en": "Regeneron demonstrates exceptional capital allocation efficiency and a sustained ability to generate excess returns over the long term. Its 13.7% Return on Equity (ROE) and 10.4% Return on Assets (ROA), coupled with a high Piotroski F-Score of 8/9, strongly indicate the company's capacity to consistently convert invested capital into substantial profits. This not only proves the profitability of its core business but also reflects management's astute judgment in R&D investment and market expansion. This sustained ability to generate returns significantly exceeding its Weighted Average Cost of Capital (WACC) is a key Buffett metric for moat strength, showcasing robust competitive advantages."
+        "comment_zh": "Regeneron 在營運效率方面表現出色，體現在其高效的研發流程和穩定的生產能力上。公司能夠快速將科學發現轉化為商業化產品，並維持高質量的生產標準。其高 ROE (14.4%) 和 ROA (10.8%) 以及強勁的自由現金流 (FCF TTM: $3,587.8M) 都證明了其卓越的營運管理能力。嚴格的成本控制和資源優化，使其能夠在激烈的市場競爭中保持盈利能力。",
+        "comment_en": "Regeneron demonstrates excellent operational efficiency, reflected in its streamlined R&D processes and stable production capabilities. The company can rapidly translate scientific discoveries into commercialized products and maintain high-quality production standards. Its high ROE (14.4%) and ROA (10.8%), along with strong free cash flow (FCF TTM: $3,587.8M), all attest to its outstanding operational management. Strict cost control and resource optimization enable it to maintain profitability amidst intense market competition."
       },
       "m8_capital_allocation": {
-        "score": 9,
-        "comment_zh": "即使給予競爭對手千億美元，也難以短時間內複製Regeneron核心戰略資產。這不僅包括專利藥物組合，更重要的是深厚科學研發文化、頂尖科學家團隊、數十年臨床數據、與監管機構信任關係及全球分銷網絡。這些無形資產是長期投入和經驗積累結果，無法僅憑資金快速建立。此不可複製性構成極堅固護城河，確保公司在生物科技領域長期領先地位。",
-        "comment_en": "Even with a hundred billion dollars, it would be nearly impossible for a competitor to replicate Regeneron's core strategic assets within a few years. This encompasses not only its patented drug portfolio but, more importantly, its deep scientific R&D culture, world-class team of scientists, decades of accumulated clinical data, trusted relationships with regulatory bodies, and global distribution network. These intangible assets are the result of long-term investment and accumulated experience, which cannot be quickly established with mere capital. This irreproducibility forms an exceptionally strong moat, ensuring the company's long-term leadership in the biotechnology sector."
+        "score": 8,
+        "comment_zh": "Regeneron 的管理層在資本配置方面展現了較高的智慧。公司將大量資金投入到高潛力的研發項目中，以維持其創新引擎的運轉，同時也通過股票回購和債務償還來優化資本結構。其穩健的資產負債表（現金 $9,301.1M / 負債 $2,707.0M）顯示了其審慎的財務管理。儘管研發投入巨大，但公司仍能產生可觀的自由現金流，並在股東回報和未來增長之間取得平衡。",
+        "comment_en": "Regeneron's management demonstrates considerable wisdom in capital allocation. The company invests heavily in high-potential R&D projects to sustain its innovation engine, while also optimizing its capital structure through share buybacks and debt repayment. Its solid balance sheet (Cash $9,301.1M / Debt $2,707.0M) reflects prudent financial management. Despite substantial R&D investments, the company consistently generates significant free cash flow, balancing shareholder returns with future growth."
       },
       "m9_customer_retention": {
         "score": 7,
-        "comment_zh": "儘管生物科技技術迭代迅速，Regeneron專注重症和慢性病治療需求具高度確定性，使其對「典範轉移」具強抗性。公司持續投入研發，積極探索基因編輯、細胞療法等前沿技術，視為拓展而非顛覆現有業務機會。其強大科學平台和適應能力，使其能吸收整合新技術，而非被淘汰。Regeneron不僅能抵禦技術變革衝擊，更能利用新技術強化護城河，確保產品未來核心競爭力。",
-        "comment_en": "Despite rapid technological iteration in biotechnology, Regeneron's focus on severe and chronic disease treatments ensures high demand certainty, granting it strong resistance to 'paradigm shifts.' The company continuously invests in R&D, actively exploring cutting-edge technologies like gene editing and cell therapies, viewing them as opportunities to expand rather than disrupt existing businesses. Its robust scientific platform and adaptability allow it to absorb and integrate new technologies instead of being rendered obsolete. Thus, Regeneron can not only withstand technological disruption but also leverage new technologies to strengthen its moat, ensuring its products remain competitively relevant in the future."
+        "comment_zh": "Regeneron 的客戶主要是醫療專業人士、醫院和保險公司，而非終端消費者。其客戶留存率主要取決於藥物的臨床療效、安全性以及與醫療保險計劃的整合。一旦藥物被證明有效且被納入醫保目錄，醫生和患者傾向於持續使用。然而，新藥的出現和藥價談判的壓力可能影響長期留存。總體而言，其產品的臨床價值為客戶留存提供了堅實基礎，但並非絕對。",
+        "comment_en": "Regeneron's customers are primarily healthcare professionals, hospitals, and insurance companies, rather than end consumers. Its customer retention rate largely depends on the drug's clinical efficacy, safety, and integration into health insurance plans. Once a drug is proven effective and included in insurance formularies, physicians and patients tend to continue its use. However, the emergence of new drugs and pressure on drug pricing negotiations can affect long-term retention. Overall, the clinical value of its products provides a solid foundation for customer retention, though not absolute."
       },
       "m10_durability": {
         "score": 8,
-        "comment_zh": "Regeneron管理層在資本配置方面展現審慎與智慧。公司擁有充裕現金流（自由現金流35.2億美元）和健康資產負債表（現金79.9億美元遠超總負債19.8億美元），提供靈活戰略選擇。管理層將大部分利潤再投資於高回報研發項目，並適時股票回購，在股價低估時提升股東價值。此不盲目追求規模、專注核心競爭力並回報股東策略，符合巴菲特對優秀管理層期望，是長期價值創造關鍵。",
-        "comment_en": "Regeneron's management demonstrates prudence and wisdom in capital allocation. The company boasts ample cash flow ($3.52 billion TTM FCF) and a healthy balance sheet ($7.99 billion cash significantly exceeding $1.98 billion total debt), providing strategic flexibility. Management reinvests a substantial portion of profits into high-return R&D projects while also opportunistically executing share buybacks to enhance shareholder value when the stock is undervalued. This strategy of not blindly pursuing scale, focusing on core competencies, and returning capital to shareholders aligns with Buffett's expectations for excellent management, crucial for long-term value creation."
+        "comment_zh": "Regeneron 的護城河具有相當的持久性，主要源於其持續的創新能力和強大的專利保護。生物製藥行業的研發週期長、投入大，這為領先者提供了穩定的競爭環境。其在眼科、腫瘤學等領域的領先地位，以及不斷推出的新藥，使其能夠抵禦短期市場波動和競爭者的挑戰。只要公司能持續投入研發並保持科學領先，其競爭優勢就能維持較長時間。",
+        "comment_en": "Regeneron's moat possesses considerable durability, primarily stemming from its continuous innovation capability and strong patent protection. The long R&D cycles and substantial investments in the biopharmaceutical industry provide a stable competitive environment for leaders. Its leading positions in fields like ophthalmology and oncology, along with the continuous launch of new drugs, enable it to withstand short-term market fluctuations and competitor challenges. As long as the company can sustain R&D investment and maintain scientific leadership, its competitive advantage can endure for a considerable period."
       },
-      "overall_moat_verdict_zh": "Regeneron本質上是一家由深厚科學創新驅動的「特許經營權」企業，護城河主要由獨家專利集群、嚴格監管准入壁壘及患者對有效療法的極高轉換成本構築。公司在眼科和免疫學等關鍵醫療領域，憑藉重磅藥物建立強大品牌心智和定價權。其卓越研發能力和規模經濟優勢，使其能持續推出創新產品並維持領先。管理層審慎資本配置策略，進一步鞏固長期價值創造潛力，使其成為具備堅固護城河的優質投資標的。",
-      "overall_moat_verdict_en": "Regeneron is fundamentally a \"franchise\" business driven by profound scientific innovation, with its moat primarily constructed from exclusive patent clusters, stringent regulatory barriers to entry, and exceptionally high switching costs for patients relying on effective therapies. The company has established strong brand recognition and pricing power in critical medical fields like ophthalmology and immunology, thanks to its blockbuster drugs. Its superior R&D capabilities and economies of scale enable it to continuously launch innovative products and maintain a leading position. Management's prudent capital allocation strategy further solidifies its potential for long-term value creation, making it a high-quality investment with a robust economic moat.",
-      "evidenceHash": "47ca031c6bbc7989f09d369d6fd88443481950858fde57cbc2c6674784b7dbae",
+      "overall_moat_verdict_zh": "Regeneron 是一家典型的「收費橋」型公司，其護城河主要建立在強大的專利保護、持續的科學創新和卓越的營運效率之上。其核心競爭力來自於研發能力，能夠開發出療效顯著的藥物，從而獲得較高的定價權。儘管缺乏傳統網絡效應，但其專利和嚴格的監管環境構成了極高的行業壁壘，使得新進入者難以複製。管理層在資本配置上亦表現穩健，持續投入研發以維持長期增長。整體而言，Regeneron 擁有堅固且具備持久性的經濟護城河。",
+      "overall_moat_verdict_en": "Regeneron is a classic 'toll bridge' type company, with its moat primarily built upon strong patent protection, continuous scientific innovation, and excellent operational efficiency. Its core competitiveness stems from its R&D capabilities, enabling the development of drugs with significant therapeutic effects, thereby commanding substantial pricing power. Despite lacking traditional network effects, its patents and the stringent regulatory environment create extremely high industry barriers, making it difficult for new entrants to replicate. Management also demonstrates sound capital allocation, consistently investing in R&D to sustain long-term growth. Overall, Regeneron possesses a robust and durable economic moat.",
+      "evidenceHash": "acf08324c4ad1a31912a54d4a0497e247d921bb39c564d74fefd8ef1f1e27789",
       "assessmentPolicy": "buffett-moat-v3",
       "model": "gemini-2.5-flash-lite",
       "provider": "Vertex AI"
@@ -510776,7 +510788,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "6b4c81925c00e7f470e2c3d3f2c7419c94a17833fc87b5a7337e9a904def0533"
       },
       "mScore": {
@@ -510788,7 +510800,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "6b4c81925c00e7f470e2c3d3f2c7419c94a17833fc87b5a7337e9a904def0533"
       }
     },
@@ -510929,7 +510941,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "REGN",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:21:15Z",
+      "fetchedAt": "2026-10-31T17:13:19Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
       "quoteDate": "2026-10-30",
@@ -510958,14 +510970,14 @@ window.FULL_MARKET_DATA = {
         "inventory": 2894600000,
         "preferredStock": 0
       },
-      "sharesOutstanding": 102954994,
+      "sharesOutstanding": 102937841,
       "shareSource": {
-        "shares": 102.954994,
+        "shares": 102.937841,
         "date": "2026-10-31",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/872589/000087258926000034/regn-20260930.htm",
-        "capturedAt": "2026-10-31T14:21:15Z"
+        "capturedAt": "2026-10-31T17:13:19Z"
       }
     },
     "z_score": 8.58,
@@ -511284,7 +511296,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/875320/000087532026000259/vrtx-20260630.htm",
-      "capturedAt": "2026-10-31T14:21:21Z"
+      "capturedAt": "2026-10-31T17:13:38Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 141654.3,
@@ -514532,7 +514544,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "6063290d3e174890612ec684b7937476094460e35f88a819abd748eef9adafe6"
       },
       "mScore": {
@@ -514544,7 +514556,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "6063290d3e174890612ec684b7937476094460e35f88a819abd748eef9adafe6"
       }
     },
@@ -514692,7 +514704,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "VRTX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:21:21Z",
+      "fetchedAt": "2026-10-31T17:13:38Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-04",
       "quoteDate": "2026-10-30",
@@ -514728,7 +514740,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/875320/000087532026000259/vrtx-20260630.htm",
-        "capturedAt": "2026-10-31T14:21:21Z"
+        "capturedAt": "2026-10-31T17:13:38Z"
       }
     },
     "z_score": 13.48,
@@ -515047,7 +515059,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000154/wmt-20260731.htm",
-      "capturedAt": "2026-10-31T14:21:27Z"
+      "capturedAt": "2026-10-31T17:13:46Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 982902.4,
@@ -518295,7 +518307,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "80b19a0495da426d04a50c5917431cc098812219345ae3208ba9e555892237fd"
       },
       "mScore": {
@@ -518307,7 +518319,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "80b19a0495da426d04a50c5917431cc098812219345ae3208ba9e555892237fd"
       }
     },
@@ -518509,7 +518521,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "WMT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:21:27Z",
+      "fetchedAt": "2026-10-31T17:13:46Z",
       "balanceDate": "2026-07-31",
       "filingDate": "2026-08-28",
       "quoteDate": "2026-10-30",
@@ -518545,7 +518557,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000154/wmt-20260731.htm",
-        "capturedAt": "2026-10-31T14:21:27Z"
+        "capturedAt": "2026-10-31T17:13:46Z"
       }
     },
     "z_score": 6.6,
@@ -518864,7 +518876,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/cost-20260830.htm",
-      "capturedAt": "2026-10-31T14:21:32Z"
+      "capturedAt": "2026-10-31T17:13:54Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 448571.0,
@@ -522112,7 +522124,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "ceab62fb9a1f3cd10ef7fd06596d6043a611cfca95f6d4afa771271328c329a5"
       },
       "mScore": {
@@ -522124,7 +522136,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "ceab62fb9a1f3cd10ef7fd06596d6043a611cfca95f6d4afa771271328c329a5"
       }
     },
@@ -522302,7 +522314,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "COST",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:21:32Z",
+      "fetchedAt": "2026-10-31T17:13:54Z",
       "balanceDate": "2026-08-30",
       "filingDate": "2026-10-07",
       "quoteDate": "2026-10-30",
@@ -522338,7 +522350,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/cost-20260830.htm",
-        "capturedAt": "2026-10-31T14:21:32Z"
+        "capturedAt": "2026-10-31T17:13:54Z"
       }
     },
     "z_score": 9.38,
@@ -522657,7 +522669,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/80424/000008042426000256/pg-20260930.htm",
-      "capturedAt": "2026-10-31T14:21:37Z"
+      "capturedAt": "2026-10-31T17:14:03Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 374484.2,
@@ -525830,59 +525842,63 @@ window.FULL_MARKET_DATA = {
     "roa": 12.560443263661941,
     "moat": {
       "ticker": "PG",
-      "period": "2026Q4",
+      "period": "2027Q1",
       "m1_brand_pricing": {
         "score": 9,
-        "comment_zh": "寶潔擁有眾多家喻戶曉的品牌，如汰漬、幫寶適、吉列等，這些品牌已深深植入消費者心智，形成強大的品牌忠誠度。即使在通脹壓力下，寶潔仍能透過品牌溢價轉嫁成本，維持利潤率，且銷量受影響較小。其產品被視為日常必需品，消費者對價格敏感度相對較低，賦予公司卓越的定價權，這是其護城河的核心。這種能力讓寶潔在競爭激烈的快消品市場中脫穎而出，確保穩定的現金流與盈利能力。",
-        "comment_en": "Procter & Gamble possesses an unparalleled portfolio of iconic brands like Tide, Pampers, and Gillette, deeply embedded in consumer consciousness. This strong brand equity fosters immense loyalty, enabling PG to command premium pricing and effectively pass on cost increases without significant volume erosion. Consumers perceive these products as essential daily necessities, exhibiting lower price sensitivity. This robust pricing power is a cornerstone of PG's economic moat, allowing it to maintain healthy margins and stable cash flows even in competitive fast-moving consumer goods markets, differentiating it from lesser-known rivals."
+        "comment_zh": "寶潔公司擁有眾多家喻戶曉的強勢品牌，如 Pampers、Tide、Gillette 等，這些品牌在消費者心中建立了極高的忠誠度和信任度。這種品牌忠誠度轉化為強大的定價權，使其能夠在不顯著損害銷量的基礎上提高價格。與其他消費品公司相比，寶潔的品牌組合具有顯著的差異化優勢，其產品滲透到全球數十億消費者的日常生活中，形成了一道難以逾越的無形壁壘。這種品牌資產的深度和廣度，是其長期價值和穩定現金流的基石，體現了典型的「收費橋」模式，消費者依賴其產品，並願意為其品質和便利性支付溢價。",
+        "comment_en": "Procter & Gamble boasts a portfolio of numerous household-name power brands, such as Pampers, Tide, and Gillette, which have cultivated exceptionally high consumer loyalty and trust. This brand loyalty translates into formidable pricing power, enabling price increases without significantly impacting sales volume. Compared to other consumer goods companies, P&G's brand portfolio offers a distinct competitive advantage. Its products are integral to the daily lives of billions of consumers globally, creating an almost insurmountable intangible barrier. The depth and breadth of these brand assets are the bedrock of its long-term value and stable cash flows, embodying a classic 'toll bridge' model where consumers rely on its products and are willing to pay a premium for their quality and convenience."
       },
       "m2_patents_regulatory": {
-        "score": 7,
-        "comment_zh": "寶潔在研發上投入巨大，尤其在洗滌、個人護理等領域擁有大量專利，這些專利保護其產品配方與技術創新，使其在一定時期內享有獨家優勢。例如，吉列的剃鬚刀技術或汰漬的洗滌配方，都包含受專利保護的獨特成分或設計。儘管這些專利壁壘不如製藥業那般絕對，但它們確實增加了競爭對手模仿的難度與成本，為寶潔提供了技術上的差異化優勢，使其產品在市場上保持領先地位。",
-        "comment_en": "Procter & Gamble invests significantly in R&D, holding numerous patents in areas like detergents and personal care. These patents protect product formulations and technological innovations, granting the company exclusive advantages for a period. For instance, Gillette's shaving technology or Tide's detergent formulas incorporate patented ingredients or designs. While these patent barriers aren't as absolute as in pharmaceuticals, they undeniably increase the difficulty and cost for competitors to replicate, providing PG with a technological differentiation that helps maintain its market leadership."
+        "score": 5,
+        "comment_zh": "寶潔在某些產品領域，特別是個人護理和嬰兒護理產品，擁有專利和技術優勢。然而，這些專利通常有時效性，且競爭對手能夠透過研發或收購來繞過或複製。相較於製藥業的專利壁壘，寶潔的專利壁壘相對較弱，更多依賴於持續的研發投入和產品創新來維持競爭力。監管方面，雖然消費品行業受到一定的安全和標籤法規約束，但這些並非寶潔獨有的壁壘，而是行業普遍遵循的標準，因此在經濟護城河方面貢獻有限。",
+        "comment_en": "P&G holds patent and technological advantages in certain product categories, particularly in personal care and baby care. However, these patents are typically time-bound, and competitors can often circumvent or replicate them through R&D or acquisitions. Compared to the patent barriers in the pharmaceutical industry, P&G's patent protection is relatively weaker, relying more on continuous R&D investment and product innovation to maintain competitiveness. Regarding regulation, while the consumer goods industry is subject to certain safety and labeling laws, these are not unique barriers for P&G but rather industry-wide standards. Consequently, their contribution to economic moats is limited."
       },
       "m3_high_switching_costs": {
-        "score": 8,
-        "comment_zh": "寶潔的產品多為日常消耗品，消費者一旦習慣某品牌，轉換成本雖非巨額金錢損失，卻是心理上的「習慣成本」與「信任成本」。例如，長期使用幫寶適的父母，為避免嬰兒不適，轉換其他品牌尿布的意願較低。這種基於信任和習慣的黏性，使得消費者即使面對微小價差，也傾向於選擇熟悉的寶潔產品。這種無形的轉換成本，為寶潔構建了穩定的客戶群，使其在市場競爭中保持優勢，遠超那些需要不斷吸引新客戶的品牌。",
-        "comment_en": "P&G's products are primarily daily consumables. While the monetary cost of switching brands might be low, consumers face significant psychological \"habit costs\" and \"trust costs.\" For example, parents accustomed to Pampers are less likely to switch diaper brands due to concerns about infant comfort. This stickiness, built on trust and routine, means consumers often prefer familiar P&G products even when facing minor price differences. This intangible switching cost creates a stable customer base for P&G, giving it a competitive edge over brands that constantly need to attract new customers."
+        "score": 6,
+        "comment_zh": "對於大多數寶潔的日常消費品，消費者的轉換成本相對較低。一旦消費者習慣了某個品牌，可能會因為信任或便利性而繼續購買，但若有更具吸引力的替代品出現，轉換並非難事。然而，在某些特定產品線，例如高端美容或個人護理產品，消費者可能因為對產品效果的期望或對特定成分的依賴，產生一定的轉換顧慮。總體而言，轉換成本並非寶潔最核心的護城河，但其強大的品牌和產品性能在一定程度上增加了消費者轉換的門檻。",
+        "comment_en": "For most of P&G's everyday consumer products, the switching costs for consumers are relatively low. Once accustomed to a brand, consumers may continue purchasing due to trust or convenience, but switching is not difficult if more attractive alternatives emerge. However, in certain specific product lines, such as premium beauty or personal care, consumers might experience some hesitation in switching due to expectations of product efficacy or reliance on specific ingredients. Overall, switching costs are not P&G's most central moat, but its strong brands and product performance do, to some extent, raise the barrier for consumers to switch."
       },
       "m4_network_effects": {
-        "score": 1,
-        "comment_zh": "寶潔的商業模式主要依賴於品牌建設與分銷，而非網絡效應。其產品的價值並不會因為更多消費者使用而對其他使用者產生直接的、幾何級數的增長。例如，更多人使用汰漬洗衣粉，並不會讓現有用戶的洗衣體驗變得更好或更便宜。因此，寶潔不具備巴菲特所指的「網絡效應」護城河，這與科技平台型企業有本質區別。其競爭優勢主要來自品牌、規模和分銷，而非用戶間的互動增值。",
-        "comment_en": "Procter & Gamble's business model relies primarily on brand building and distribution, not network effects. The value of its products does not increase directly or exponentially for other users as more consumers adopt them. For instance, more people using Tide detergent does not inherently improve or cheapen the laundry experience for existing users. Therefore, P&G lacks the \"network effect\" moat as defined by Buffett, fundamentally differing from technology platform companies. Its competitive advantages stem mainly from brand, scale, and distribution, rather than value accretion through user interaction."
+        "score": 2,
+        "comment_zh": "寶潔的業務模式主要基於銷售實體消費品，其產品本身不具備顯著的網絡效應。公司與消費者之間的關係主要是單向的品牌推廣和產品銷售，而非雙向互動的網絡。雖然其龐大的分銷網絡和品牌聲譽可以視為一種間接的優勢，但這與典型的、能隨著用戶增長而指數級增強的網絡效應（如社交媒體或市場平台）有本質區別。因此，網絡效應並非寶潔經濟護城河的重要組成部分。",
+        "comment_en": "P&G's business model is primarily based on selling physical consumer goods, and its products inherently lack significant network effects. The relationship between the company and consumers is mainly one-way brand promotion and product sales, rather than interactive networking. While its vast distribution network and brand reputation could be seen as an indirect advantage, this is fundamentally different from typical network effects (like social media or marketplaces) that grow exponentially with user growth. Therefore, network effects are not a significant component of P&G's economic moat."
       },
       "m5_cost_advantage_scale": {
         "score": 9,
-        "comment_zh": "寶潔在全球範圍內擁有無與倫比的規模經濟優勢。其龐大的採購量使其能獲得更低的原材料成本；高效的全球製造與分銷網絡則大幅降低了單位產品的生產與運輸費用。此外，寶潔在廣告和市場營銷上的巨大投入，雖然絕對金額高，但分攤到數十億產品上，單位成本極低，形成強大的品牌聲量，這是小型競爭者望塵莫及的。這種規模優勢讓寶潔能以對手難以匹敵的成本結構運營，並將部分成本節約轉化為價格優勢或更高的利潤率。",
-        "comment_en": "Procter & Gamble possesses an unparalleled scale advantage globally. Its immense purchasing volume secures lower raw material costs, while an efficient global manufacturing and distribution network significantly reduces per-unit production and transportation expenses. Furthermore, PG's massive advertising and marketing spend, though high in absolute terms, becomes incredibly low on a per-product basis when spread across billions of units, creating formidable brand awareness that smaller competitors cannot match. This scale allows PG to operate with a cost structure that rivals struggle to compete with, translating into either price advantages or higher profit margins."
+        "comment_zh": "寶潔憑藉其龐大的全球生產和分銷網絡，實現了顯著的規模經濟效應。巨大的採購量使其在原材料採購上擁有強大的議價能力，從而降低單位生產成本。同時，其高效的供應鏈管理和全球化的生產佈局，進一步鞏固了成本優勢。這種規模帶來的成本領先，使得寶潔能夠在價格上保持競爭力，並為其品牌建設和研發投入提供堅實的財務支持。相較於小型競爭對手，寶潔的成本結構使其難以被超越，這是一道堅實的護城河。",
+        "comment_en": "Leveraging its vast global manufacturing and distribution network, P&G achieves significant economies of scale. Its massive purchasing volume grants it strong bargaining power in raw material procurement, thereby reducing per-unit production costs. Concurrently, its efficient supply chain management and globalized production footprint further solidify its cost advantage. This scale-driven cost leadership enables P&G to remain competitive on price and provides robust financial support for its brand building and R&D investments. Compared to smaller competitors, P&G's cost structure makes it difficult to be surpassed, forming a solid moat."
       },
       "m6_unique_geography_assets": {
-        "score": 2,
-        "comment_zh": "寶潔所處的日用消費品市場規模巨大且競爭激烈，並非典型的「利基市場天然寡占」範疇。儘管寶潔在某些產品類別中佔據主導地位，但這更多是基於其品牌、規模和分銷優勢，而非市場容量有限或地理位置獨佔所形成的自然壟斷。新競爭者仍可進入市場，只是面臨寶潔強大護城河的挑戰。因此，寶潔不具備因市場結構性限制而形成的天然寡占優勢。",
-        "comment_en": "Procter & Gamble operates in vast and highly competitive consumer goods markets, which do not fit the definition of \"efficient scale\" or natural oligopolies. While PG dominates certain product categories, this stems more from its brand strength, scale, and distribution advantages, rather than limited market capacity or exclusive geographic positioning. New competitors can still enter these markets, albeit facing the formidable challenge of PG's existing moats. Therefore, PG does not possess a natural oligopoly advantage derived from structural market limitations."
+        "score": 4,
+        "comment_zh": "寶潔在全球範圍內擁有廣泛的市場滲透和分銷網絡，這使其能夠觸及全球各地的消費者。然而，這些地理上的優勢更多是市場進入和執行能力的體現，而非像礦產或特定地理位置那樣的「不可複製資產」。雖然在某些新興市場，建立如此龐大的分銷網絡需要時間和資源，構成了一定的壁壘，但這並非寶潔獨有的、或真正意義上的地理資產壁壘。其核心優勢在於品牌和規模，而非地理位置本身。",
+        "comment_en": "P&G possesses extensive market penetration and distribution networks globally, enabling it to reach consumers worldwide. However, these geographical advantages are more a reflection of market access and execution capabilities rather than 'non-replicable assets' like mineral deposits or specific locations. While establishing such a vast distribution network in certain emerging markets requires significant time and resources, creating a certain barrier, this is not a unique or true geographical asset moat for P&G. Its core strengths lie in its brands and scale, not in geographical location itself."
       },
       "m7_operational_efficiency": {
         "score": 8,
-        "comment_zh": "寶潔長期以來展現出卓越的資本回報能力，其高達29.5%的股東權益報酬率（ROE）和12.7%的資產報酬率（ROA）便是明證。這表明公司能夠持續有效地將投入資本轉化為豐厚利潤，遠超其加權平均資本成本（WACC）。這種長週期超額回報的韌性，是巴菲特衡量企業質量的關鍵指標，證明寶潔擁有強大的競爭優勢，能夠持續為股東創造價值，而非僅僅是消耗資本，這是一項堅實的護城河。",
-        "comment_en": "Procter & Gamble has consistently demonstrated exceptional capital returns, evidenced by its high Return on Equity (ROE) of 29.5% and Return on Assets (ROA) of 12.7%. This indicates the company's sustained ability to effectively convert invested capital into substantial profits, significantly exceeding its Weighted Average Cost of Capital (WACC). This long-term resilience in generating excess returns is a critical metric for Buffett in assessing business quality, proving PG possesses strong competitive advantages that continuously create shareholder value rather than merely consuming capital, thus forming a robust moat."
+        "comment_zh": "寶潔以其卓越的營運效率聞名，體現在其精簡的供應鏈管理、先進的生產技術以及持續的成本控制措施上。公司不斷優化其全球生產佈局和物流網絡，以降低運營成本並提高響應速度。其嚴謹的流程管理和對數據的深入分析，確保了資源的有效利用和生產力的最大化。這種持續的營運效率提升，不僅增強了其盈利能力，也使其能夠在競爭激烈的市場中保持價格彈性，是其穩健經營的重要支撐。",
+        "comment_en": "P&G is renowned for its exceptional operational efficiency, reflected in its streamlined supply chain management, advanced production technologies, and continuous cost control measures. The company constantly optimizes its global manufacturing footprint and logistics network to reduce operational costs and enhance responsiveness. Its rigorous process management and in-depth data analysis ensure effective resource utilization and maximized productivity. This sustained improvement in operational efficiency not only enhances its profitability but also provides pricing flexibility in a highly competitive market, serving as a crucial support for its stable operations."
       },
       "m8_capital_allocation": {
-        "score": 9,
-        "comment_zh": "即使給予競爭對手千億美元，也難以在短時間內複製寶潔的核心戰略資產。這不僅是資金問題，更是時間與歷史積累的結果。寶潔數十年來建立的全球品牌聲譽、遍布各地的分銷網絡、與供應商的深厚關係、以及消費者對其產品的信任，都是無法用金錢快速買到的。這些無形資產的累積，構成了極高的進入壁壘，使得任何新進者都難以在短期內與寶潔抗衡，這是其最堅固的護城河之一。",
-        "comment_en": "Even with a hundred billion dollars, a competitor would struggle to replicate Procter & Gamble's core strategic assets within a short timeframe. This isn't merely a matter of capital; it's the culmination of decades of time and historical accumulation. P&G's global brand reputation, extensive distribution network, deep supplier relationships, and consumer trust, built over many decades, cannot be quickly purchased. The aggregation of these intangible assets creates an extremely high barrier to entry, making it nearly impossible for any newcomer to contend with P&G in the short term, representing one of its most formidable moats."
+        "score": 8,
+        "comment_zh": "寶潔展現了長期以來穩健且明智的資本配置能力。公司歷史上多次成功剝離表現不佳的業務，同時專注於核心的、高增長潛力的消費品領域。其持續的股票回購和穩定的股息支付，顯示了對股東回報的重視。儘管偶有併購活動，但整體而言，寶潔的資本配置策略傾向於鞏固現有優勢和尋求有機增長，而非盲目擴張。這種對資源的有效分配，確保了公司資本的增值和長期穩定的現金流產生。",
+        "comment_en": "P&G has demonstrated a long-standing track record of prudent and sound capital allocation. Historically, the company has successfully divested underperforming businesses while focusing on its core consumer goods segments with high growth potential. Its consistent share repurchases and stable dividend payments underscore a commitment to shareholder returns. Although occasional acquisitions occur, P&G's overall capital allocation strategy leans towards strengthening existing advantages and pursuing organic growth rather than aggressive expansion. This effective allocation of resources ensures the appreciation of the company's capital and the generation of stable, long-term cash flows."
       },
       "m9_customer_retention": {
         "score": 9,
-        "comment_zh": "寶潔所服務的市場是人類最基本且永恆的需求：清潔、衛生與個人護理。這些需求具有極高的確定性，幾乎不受技術典範轉移或AI顛覆的影響。無論科技如何進步，人們仍需要洗衣服、洗澡、刷牙。雖然產品配方會演進，但核心需求不會消失。這種對顛覆的強大免疫力，使得寶潔的業務模式極具韌性與可預測性，為長期投資者提供了極大的安全邊際，是其護城河中不可或缺的一環。",
-        "comment_en": "Procter & Gamble serves fundamental and timeless human needs: cleaning, hygiene, and personal care. These demands are highly certain and largely immune to technological paradigm shifts or AI disruption. Regardless of technological advancements, people will always need to wash clothes, bathe, and brush their teeth. While product formulations may evolve, the core demand remains constant. This strong immunity to disruption provides P&G's business model with immense resilience and predictability, offering a significant margin of safety for long-term investors and forming an indispensable part of its economic moat."
+        "comment_zh": "寶潔透過其卓越的品牌影響力和持續的產品創新，實現了極高的客戶留存率。消費者對其旗下眾多知名品牌的信任和依賴，使得一旦形成購買習慣，便很難輕易轉變。公司透過不斷推出改進型產品和滿足消費者不斷變化的需求，進一步鞏固了客戶關係。這種深厚的客戶忠誠度，不僅保證了穩定的銷售收入，也為公司提供了寶貴的市場洞察，使其能夠持續優化產品和服務。這是一種強大的、基於信任和價值的客戶黏性壁壘。",
+        "comment_en": "Through its superior brand influence and continuous product innovation, P&G achieves exceptionally high customer retention rates. Consumers' trust in and reliance on its numerous well-known brands make it difficult to easily switch once purchasing habits are formed. The company further solidifies customer relationships by consistently launching improved products and meeting evolving consumer needs. This deep customer loyalty not only guarantees stable sales revenue but also provides valuable market insights, enabling continuous optimization of products and services. This represents a powerful customer stickiness barrier based on trust and value."
       },
       "m10_durability": {
         "score": 8,
-        "comment_zh": "寶潔的管理層在資本配置方面表現穩健，長期以來透過持續的股息發放和股票回購，積極回饋股東。公司在併購策略上相對審慎，更注重品牌組合的優化與整合，而非盲目追求規模擴張。其高達159億美元的自由現金流，為其提供了充足的彈性進行再投資、償債或回購。皮氏F-Score 7/9也印證了其良好的財務健康與營運效率。這種對股東利益負責的資本配置策略，是巴菲特所重視的企業特質，進一步鞏固了其護城河。",
-        "comment_en": "Procter & Gamble's management demonstrates sound capital allocation, consistently returning value to shareholders through sustained dividends and share buybacks. The company's acquisition strategy is relatively prudent, focusing on portfolio optimization and integration rather than indiscriminate expansion. Its robust free cash flow of $15.9 billion provides ample flexibility for reinvestment, debt repayment, or buybacks. A Piotroski F-Score of 7/9 further attests to its strong financial health and operational efficiency. This shareholder-centric capital allocation strategy, highly valued by Buffett, further strengthens P&G's economic moat."
+        "comment_zh": "寶潔的業務橫跨多個必需消費品領域，這些產品的需求相對穩定，不易受經濟週期劇烈波動的影響。其多元化的品牌組合和全球化的市場佈局，進一步分散了風險。儘管面臨新興品牌的挑戰和市場趨勢的變化，但寶潔憑藉其深厚的品牌根基、持續的創新能力和卓越的運營效率，展現了極強的業務韌性。這種能夠長期維持競爭優勢和穩定盈利的能力，證明了其業務模式的持久性。",
+        "comment_en": "P&G's business spans multiple essential consumer goods categories, where demand is relatively stable and less susceptible to severe economic cycle fluctuations. Its diversified brand portfolio and global market presence further mitigate risks. Despite facing challenges from emerging brands and shifts in market trends, P&G demonstrates remarkable business resilience owing to its deep brand foundation, continuous innovation capabilities, and outstanding operational efficiency. This ability to sustain competitive advantages and stable profitability over the long term attests to the durability of its business model."
       },
-      "overall_moat_verdict_zh": "寶潔無疑是一家擁有極其堅固護城河的「特許經營權」企業，其核心優勢在於無與倫比的品牌組合與全球規模經濟。公司透過數十年累積的品牌忠誠度，在日常消費品市場中築起一道道難以逾越的壁壘，賦予其強大的定價權與穩定的現金流。儘管缺乏網絡效應或利基市場寡占，但其在資本不可複製性、對顛覆的免疫力以及卓越的資本配置方面表現出色。寶潔本質上是一座收取「日常必需品使用費」的收費橋樑，為長期投資者提供可預測且持續的價值增長。",
-      "overall_moat_verdict_en": "Procter & Gamble is unequivocally a \"franchise\" business fortified by an exceptionally robust economic moat, primarily driven by its unparalleled brand portfolio and global economies of scale. Through decades of cultivating brand loyalty, the company has erected formidable barriers in the consumer staples market, granting it significant pricing power and stable cash flows. While lacking network effects or niche market oligopolies, PG excels in irreproducibility of capital, immunity to disruption, and superior capital allocation. Essentially, P&G operates as a toll bridge collecting \"daily necessity usage fees,\" offering predictable and sustained value growth for long-term investors."
+      "overall_moat_verdict_zh": "寶潔公司憑藉其無與倫比的品牌資產和規模經濟，構建了堅實的經濟護城河。其眾多知名品牌如同「收費橋」，讓消費者願意為其品質和便利性支付溢價，形成了強大的定價權和客戶黏性。龐大的全球生產與分銷網絡帶來顯著的成本優勢，使其難以被競爭對手超越。雖然專利和網絡效應並非其核心優勢，但其卓越的營運效率、穩健的資本配置以及對客戶關係的長期維護，共同鞏固了其作為必需消費品龍頭的地位。寶潔的業務模式展現了高度的穩定性和持久性，是一項典型的價值投資標的。",
+      "overall_moat_verdict_en": "Procter & Gamble has constructed a robust economic moat, primarily driven by its unparalleled brand equity and economies of scale. Its numerous renowned brands act as 'toll bridges,' compelling consumers to pay a premium for quality and convenience, thereby establishing formidable pricing power and customer loyalty. The vast global manufacturing and distribution network yields significant cost advantages, making it difficult for competitors to surpass. While patents and network effects are not its core strengths, its exceptional operational efficiency, prudent capital allocation, and long-term cultivation of customer relationships collectively solidify its position as a leader in essential consumer goods. P&G's business model exhibits a high degree of stability and durability, making it a classic long-term value investment.",
+      "evidenceHash": "6f24039c8b591b8eb28c2886d5a43f61b6b6fb03a74bd90c62a9b463e664b13e",
+      "assessmentPolicy": "buffett-moat-v3",
+      "model": "gemini-2.5-flash-lite",
+      "provider": "Vertex AI"
     },
     "ratingSources": {
       "moat": {
@@ -525901,7 +525917,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "b8e65a5d45cd27d567ce71548cbd7275503e62ed547f5d2b62d9b2b45dfb636a"
       },
       "mScore": {
@@ -525913,7 +525929,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "b8e65a5d45cd27d567ce71548cbd7275503e62ed547f5d2b62d9b2b45dfb636a"
       }
     },
@@ -526091,7 +526107,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "PG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:21:37Z",
+      "fetchedAt": "2026-10-31T17:14:03Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-22",
       "quoteDate": "2026-10-30",
@@ -526127,7 +526143,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/80424/000008042426000256/pg-20260930.htm",
-        "capturedAt": "2026-10-31T14:21:37Z"
+        "capturedAt": "2026-10-31T17:14:03Z"
       }
     },
     "z_score": 5.74,
@@ -526446,7 +526462,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/21344/000162828026067844/ko-20261002.htm",
-      "capturedAt": "2026-10-31T14:21:43Z"
+      "capturedAt": "2026-10-31T17:14:22Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 404723.0,
@@ -529619,60 +529635,60 @@ window.FULL_MARKET_DATA = {
     "roa": 13.795086991371589,
     "moat": {
       "ticker": "KO",
-      "period": "2026Q2",
+      "period": "2026Q3",
       "m1_brand_pricing": {
         "score": 9,
-        "comment_zh": "可口可樂擁有全球無可匹敵的品牌資產，其經典紅色標誌與獨特風味已深植消費者心智，成為文化符號。這種強大的品牌認同賦予公司卓越的定價權，即使在通脹壓力下，消費者對其產品的忠誠度依然很高，願意為此支付溢價。這不僅體現在核心可樂產品上，也延伸至其龐大的飲料組合。競爭對手難以在短時間內複製這種跨越世代的品牌情感連結，使其能有效轉嫁成本，維持利潤率，是典型的特許經營權企業特徵。",
-        "comment_en": "Coca-Cola possesses an unparalleled global brand equity, with its iconic red logo and distinctive taste deeply embedded in consumer minds, transcending into a cultural symbol. This powerful brand recognition grants the company exceptional pricing power; even amidst inflationary pressures, consumer loyalty remains high, willing to pay a premium for its products. This extends beyond its core cola to its vast beverage portfolio. Competitors find it nearly impossible to replicate such intergenerational emotional connections in a short period, enabling Coca-Cola to effectively pass on costs and maintain profit margins, a hallmark of a franchise-like business."
+        "comment_zh": "可口可樂的品牌價值是其最顯著的護城河之一，在全球範圍內享有極高的知名度和消費者忠誠度。這種品牌忠誠度轉化為強大的定價權，使其能夠在不顯著流失客戶的情況下提高價格。與競爭對手相比，可口可樂的品牌不僅僅是一種產品，更是一種文化符號，這種獨特性難以被模仿。其分銷網絡的廣泛性也進一步鞏固了這一優勢，確保了產品的可及性。這種無形的資產是巴菲特所欣賞的特許經營權的典型體現，為公司帶來了持續的盈利能力和穩定的現金流。",
+        "comment_en": "Coca-Cola's brand equity is one of its most significant moats, enjoying extremely high global recognition and consumer loyalty. This brand loyalty translates into strong pricing power, allowing it to raise prices without significant customer attrition. Compared to competitors, Coca-Cola's brand is more than just a product; it's a cultural icon, a uniqueness that is difficult to replicate. The extensive distribution network further solidifies this advantage, ensuring product accessibility. This intangible asset is a prime example of the kind of franchise business Buffett admires, delivering sustained profitability and stable cash flows."
       },
       "m2_patents_regulatory": {
-        "score": 7,
-        "comment_zh": "可口可樂的核心配方雖非傳統專利，但其作為商業機密受到嚴密保護，構成獨特壁壘。更關鍵的是，公司在全球範圍內建立的龐大分銷網絡、與各地政府及監管機構的長期合作關係，以及在無數市場獲得的特許經營權，共同築起了難以逾越的准入門檻。新進入者不僅需要巨額資本，更需耗費數十年時間才能建立起類似的市場滲透力和監管合規體系。這使得可口可樂在各國市場享有類似「收費橋樑」的地位，確保其產品能高效觸達消費者。",
-        "comment_en": "While Coca-Cola's core formula isn't a traditional patent, it's a tightly guarded trade secret, forming a unique barrier. More critically, the company's vast global distribution network, long-standing relationships with governments and regulatory bodies worldwide, and numerous operating licenses in countless markets collectively create an insurmountable entry barrier. New entrants would require not only immense capital but also decades to establish comparable market penetration and regulatory compliance. This positions Coca-Cola as a \"toll bridge\" in various national markets, ensuring its products efficiently reach consumers."
+        "score": 2,
+        "comment_zh": "可口可樂的業務模式主要依賴於品牌、分銷和規模經濟，而非專利或受監管的特許經營權。雖然其獨特的配方可能受到一定程度的保護，但這並非其核心競爭優勢的來源，且在飲料行業中，專利壁壘相對較弱。大多數產品的生產工藝和成分相對容易被複製，監管環境對其影響也較為普遍，並無顯著的特許權益。因此，在專利和監管壁壘方面，可口可樂的護城河相對較弱，無法提供長期的、獨佔性的競爭優勢。",
+        "comment_en": "Coca-Cola's business model relies primarily on brand, distribution, and economies of scale, rather than patents or regulated franchises. While its unique formula may have some level of protection, it is not the source of its core competitive advantage, and patent barriers are relatively weak in the beverage industry. The production processes and ingredients for most products are relatively easy to replicate, and the regulatory environment has a general impact, without significant exclusive rights. Therefore, Coca-Cola's moat in terms of patents and regulatory barriers is relatively weak, unable to provide long-term, exclusive competitive advantages."
       },
       "m3_high_switching_costs": {
-        "score": 7,
-        "comment_zh": "對於終端消費者而言，轉換飲料品牌似乎成本不高，但可口可樂的黏性主要體現在其龐大的商業生態系統中。對於零售商而言，可口可樂產品是引流利器，更換品牌意味著可能流失顧客、重新談判貨架空間與促銷協議，並調整供應鏈。對於全球數百家獨立裝瓶商而言，他們已投入巨資建設專用生產線與分銷設施，與可口可樂的合作關係根深蒂固，轉換品牌將導致巨大的沉沒成本與營運中斷風險。這種深層次的商業夥伴黏性，構成了堅實的護城河。",
-        "comment_en": "While switching beverage brands might seem low-cost for end consumers, Coca-Cola's stickiness primarily resides within its vast business ecosystem. For retailers, Coca-Cola products are powerful traffic drivers; switching brands could mean losing customers, renegotiating shelf space and promotional agreements, and adjusting supply chains. For hundreds of independent bottlers worldwide, who have invested heavily in specialized production lines and distribution facilities, their partnership with Coca-Cola is deeply entrenched. Switching would incur significant sunk costs and operational disruption risks. This deep-seated commercial partner stickiness forms a robust moat."
+        "score": 3,
+        "comment_zh": "對於終端消費者而言，從可口可樂轉向其他飲料品牌的轉換成本非常低。消費者可以輕易地選擇百事可樂或其他品牌的碳酸飲料或非碳酸飲料。然而，對於經銷商和零售商而言，與可口可樂建立的長期合作關係、其強大的品牌支持和產品組合，確實構成了一定的轉換難度。但總體來看，由於消費者端的低轉換成本，此項護城河評分不高。",
+        "comment_en": "For end consumers, the switching costs from Coca-Cola to other beverage brands are very low. Consumers can easily choose Pepsi or other brands of carbonated or non-carbonated beverages. However, for distributors and retailers, the long-term cooperative relationships established with Coca-Cola, along with its strong brand support and product portfolio, do present some difficulty in switching. Overall, due to the low switching costs on the consumer side, this moat receives a low score."
       },
       "m4_network_effects": {
-        "score": 6,
-        "comment_zh": "可口可樂的網絡效應並非典型的社交平台模式，而是體現在其無處不在的市場滲透率上。當產品在全球範圍內廣泛鋪貨，無論是餐廳、超市還是自動販賣機，消費者對其可得性的預期便會提高。這種「隨處可見」的特性，反過來強化了其分銷網絡的價值，吸引更多零售商和餐飲業者合作，形成正向循環。消費者越容易買到，品牌心智佔有率越高，進一步鞏固其市場領導地位。這種廣泛的物理網絡，為其帶來了難以撼動的競爭優勢。",
-        "comment_en": "Coca-Cola's network effect isn't a typical social platform model but manifests through its ubiquitous market penetration. When a product is widely available globally—in restaurants, supermarkets, or vending machines—consumer expectations for its accessibility increase. This \"always available\" characteristic, in turn, reinforces the value of its distribution network, attracting more retailers and food service operators to partner, creating a positive feedback loop. The easier it is for consumers to purchase, the higher its brand mindshare, further solidifying its market leadership. This extensive physical network provides an unshakeable competitive advantage."
+        "score": 2,
+        "comment_zh": "可口可樂的業務模式並不存在顯著的網絡效應。網絡效應通常發生在平台型業務中，例如社交媒體或市場，用戶的增加會提升其他用戶的價值。可口可樂的產品銷售主要基於消費者對品牌的偏好和廣泛的分銷渠道，而非用戶之間的互動。雖然其龐大的分銷網絡可以被視為一種規模優勢，但它並不直接產生網絡效應，即用戶越多，產品對每個用戶的價值就越大這種情況。",
+        "comment_en": "Coca-Cola's business model does not exhibit significant network effects. Network effects typically occur in platform-based businesses, such as social media or marketplaces, where an increase in users enhances the value for other users. Coca-Cola's product sales are primarily based on consumer brand preference and extensive distribution channels, not on user-to-user interaction. While its vast distribution network can be seen as a scale advantage, it does not directly generate network effects, where more users increase the value of the product for each user."
       },
       "m5_cost_advantage_scale": {
         "score": 9,
-        "comment_zh": "可口可樂在全球飲料市場的巨大規模，賦予其無與倫比的成本優勢。從原材料採購（如糖、鋁罐）到生產製造、物流配送，其龐大的採購量和高效的供應鏈管理，使其單位成本遠低於任何潛在競爭者。這種規模經濟效應，讓公司能夠在保持高利潤率的同時，提供具有競爭力的價格，有效擠壓新進入者的生存空間。即使是大型競爭對手，也難以在所有環節達到可口可樂的成本效率，這是一個極其堅固的護城河。",
-        "comment_en": "Coca-Cola's immense scale in the global beverage market grants it an unparalleled cost advantage. From raw material procurement (like sugar, aluminum cans) to manufacturing and logistics, its vast purchasing volume and efficient supply chain management result in significantly lower unit costs than any potential competitor. This economy of scale allows the company to offer competitive prices while maintaining high profit margins, effectively squeezing out new entrants. Even large competitors struggle to match Coca-Cola's cost efficiency across all aspects, making this an extremely robust moat."
+        "comment_zh": "可口可樂憑藉其龐大的全球生產和分銷網絡，建立了顯著的規模經濟和成本優勢。其巨大的採購量使其能夠以更低的成本獲取原材料，而遍佈全球的生產設施和物流體系則降低了單位生產和運輸成本。這種規模優勢使得新進入者難以在成本上與之競爭。此外，其強大的品牌影響力也使其在與零售商談判時處於有利地位，進一步鞏固了其成本結構的優勢。這是典型的規模經濟壁壘。",
+        "comment_en": "Coca-Cola has established significant economies of scale and cost advantages through its vast global production and distribution network. Its enormous purchasing volume allows it to acquire raw materials at lower costs, while its worldwide production facilities and logistics system reduce per-unit production and transportation expenses. This scale advantage makes it difficult for new entrants to compete on cost. Furthermore, its strong brand influence also places it in a favorable position when negotiating with retailers, further solidifying its cost structure advantage. This is a classic barrier of economies of scale."
       },
       "m6_unique_geography_assets": {
-        "score": 7,
-        "comment_zh": "雖然全球飲料市場廣闊，但可口可樂在碳酸飲料等核心品類中已形成天然寡占格局。其巨大的市場份額和品牌認知度，使得任何新競爭者若想大規模進入並挑戰其地位，都將面臨巨大的資本投入和激烈的價格戰，最終可能導致行業整體利潤率受損。這種「高效規模」的特性，意味著市場已趨於飽和，且由少數幾個巨頭主導，新進入者難以在不破壞現有平衡的情況下獲利，從而有效阻止了潛在競爭。",
-        "comment_en": "While the global beverage market is vast, Coca-Cola has established a natural oligopoly in core categories like sparkling soft drinks. Its immense market share and brand recognition mean that any new competitor attempting to enter and challenge its position on a large scale would face enormous capital investment and fierce price wars, ultimately risking overall industry profitability. This \"efficient scale\" characteristic implies that the market is saturated and dominated by a few giants, making it difficult for new entrants to profit without disrupting the existing balance, thereby effectively deterring potential competition."
+        "score": 2,
+        "comment_zh": "可口可樂的業務遍及全球，但其核心競爭力並非來自於特定的地理位置或獨特的自然資產。雖然其品牌在全球範圍內都受到認可，並且在某些市場擁有領先地位，但這更多是品牌和分銷網絡的延伸，而非依賴於某個特定地區的獨特資源。其生產和銷售模式具有高度的可複製性，並不受限於特定的地理位置。因此，在獨特的地理資產方面，可口可樂的護城河評分較低。",
+        "comment_en": "Coca-Cola's business operates globally, but its core competitiveness does not stem from specific geographic locations or unique natural assets. While its brand is recognized worldwide and holds leading positions in certain markets, this is more an extension of its brand and distribution network rather than reliance on unique resources from a particular region. Its production and sales model is highly replicable and not tied to specific geographic locations. Therefore, Coca-Cola's moat score is low in terms of unique geographic assets."
       },
       "m7_operational_efficiency": {
         "score": 8,
-        "comment_zh": "可口可樂長期以來展現出卓越的資本回報能力，其投入資本回報率（ROIC）持續遠高於加權平均資本成本（WACC）。高達39.6%的股東權益報酬率（ROE）和13.3%的資產報酬率（ROA）便是明證，這表明公司能高效利用資本創造價值，並將利潤再投資於業務中，實現股東財富的長期複利增長。這種持續的超額回報能力，是其堅固護城河的直接財務體現，證明了其商業模式的優越性和盈利韌性。",
-        "comment_en": "Coca-Cola has consistently demonstrated exceptional capital returns, with its Return on Invested Capital (ROIC) persistently far exceeding its Weighted Average Cost of Capital (WACC). A high Return on Equity (ROE) of 39.6% and Return on Assets (ROA) of 13.3% are clear evidence, indicating the company's ability to efficiently utilize capital to create value and reinvest profits back into the business for long-term shareholder wealth compounding. This sustained ability to generate excess returns is a direct financial manifestation of its robust moat, proving the superiority and resilience of its business model."
+        "comment_zh": "可口可樂展現了卓越的營運效率，尤其體現在其全球供應鏈管理和生產流程的優化上。公司能夠高效地將產品從生產線運送到全球各地的消費者手中，這得益於其長年建立的龐大且精密的物流網絡。其嚴格的成本控制和持續的流程改進，確保了高於行業平均水平的盈利能力和資產回報率（如 ROE 和 ROA）。這種持續的營運效率是其穩健財務表現的關鍵支撐，體現了其卓越的管理能力。",
+        "comment_en": "Coca-Cola demonstrates outstanding operational efficiency, particularly in the optimization of its global supply chain management and production processes. The company can efficiently deliver products from the production line to consumers worldwide, thanks to its vast and sophisticated logistics network built over many years. Its strict cost controls and continuous process improvements ensure profitability and returns on equity (ROE) and assets (ROA) that are above the industry average. This sustained operational efficiency is a key support for its robust financial performance, reflecting its excellent management capabilities."
       },
       "m8_capital_allocation": {
-        "score": 9,
-        "comment_zh": "即使給予競爭對手千億美元資金，也幾乎不可能在數年內複製可口可樂的核心戰略資產。這不僅包括其跨越百年的全球品牌聲譽和消費者心智佔有率，更涵蓋了其遍佈全球的複雜分銷網絡、與數百家獨立裝瓶商建立的深厚合作關係，以及在各地市場累積的監管經驗與政治資本。這些無形資產和運營體系是長期積累的結果，無法通過簡單的資本投入快速建立，構成了極高的進入壁壘，使其成為真正不可複製的企業。",
-        "comment_en": "Even with a hundred billion dollars, it would be nearly impossible for a competitor to replicate Coca-Cola's core strategic assets within a few years. This includes not only its century-spanning global brand reputation and consumer mindshare but also its complex worldwide distribution network, deep-seated relationships with hundreds of independent bottlers, and accumulated regulatory experience and political capital in various markets. These intangible assets and operational systems are the result of long-term accumulation and cannot be quickly established through simple capital injection, forming an extremely high barrier to entry, making it a truly irreproducible enterprise."
+        "score": 8,
+        "comment_zh": "可口可樂在資本配置方面展現了長期以來穩健的記錄。公司歷史上多次成功進行戰略性收購，擴大了產品組合和市場覆蓋範圍。同時，它也持續回購股票並穩定支付股息，為股東創造價值。儘管近年來進行了一些業務剝離以聚焦核心業務，但其整體資本配置策略始終圍繞著提升股東回報和維持長期增長。管理層在平衡再投資、股息和股票回購方面表現出較高的水準。",
+        "comment_en": "Coca-Cola has a long-standing track record of sound capital allocation. The company has successfully made strategic acquisitions over its history, expanding its product portfolio and market reach. Concurrently, it has consistently repurchased shares and paid stable dividends, creating value for shareholders. Although some divestitures have occurred in recent years to focus on core businesses, its overall capital allocation strategy has consistently revolved around enhancing shareholder returns and maintaining long-term growth. Management demonstrates a high level of skill in balancing reinvestment, dividends, and share buybacks."
       },
       "m9_customer_retention": {
         "score": 8,
-        "comment_zh": "可口可樂所處的飲料行業，其核心需求——解渴與享受——具有極高的確定性，對顛覆性技術如AI的衝擊具備強大免疫力。儘管消費者口味會隨時間演變（例如對健康飲品的需求增加），但公司已通過不斷創新和收購，成功擴展其產品組合，涵蓋水、果汁、咖啡等多個品類，有效應對了市場趨勢變化。這種對基本人類需求的滿足，加上其適應變化的能力，使其商業模式具有極強的韌性，不易被技術或典範轉移所顛覆。",
-        "comment_en": "The beverage industry, where Coca-Cola operates, addresses fundamental human needs for hydration and enjoyment, exhibiting strong immunity to disruptive technologies like AI. While consumer tastes evolve over time (e.g., increased demand for healthier options), the company has successfully expanded its product portfolio through continuous innovation and acquisitions, covering water, juices, coffee, and other categories, effectively adapting to market trend changes. This fulfillment of basic human needs, coupled with its adaptability, grants its business model extreme resilience, making it highly resistant to technological or paradigm shifts."
+        "comment_zh": "可口可樂通過其強大的品牌影響力和持續的市場營銷活動，實現了極高的客戶忠誠度和留存率。消費者對可口可樂品牌的熟悉度和情感連結，使得他們傾向於重複購買。儘管市場上存在眾多替代品，但可口可樂通過不斷的產品創新（如推出無糖、低卡路里版本）和有效的廣告宣傳，成功地維持了其在消費者心中的地位。這種持續的客戶關係是其穩定營收的基石。",
+        "comment_en": "Coca-Cola achieves extremely high customer loyalty and retention through its powerful brand influence and continuous marketing activities. Consumers' familiarity and emotional connection with the Coca-Cola brand lead them to make repeat purchases. Despite numerous alternatives in the market, Coca-Cola successfully maintains its position in consumers' minds through ongoing product innovation (such as introducing sugar-free and low-calorie versions) and effective advertising campaigns. This sustained customer relationship is the cornerstone of its stable revenue."
       },
       "m10_durability": {
-        "score": 8,
-        "comment_zh": "可口可樂的管理層在資本配置方面展現出長期且審慎的策略。公司不僅持續派發穩健股息，更在股價被低估時積極進行股票回購，有效提升了股東價值。其高達143億美元的自由現金流（FCF TTM）以及健康的資產負債表（現金164億美元對總負債435億美元，在強勁現金流下可控），都證明了其卓越的財務管理能力。管理層避免盲目溢價併購，專注於核心業務的有機增長與戰略性擴張，符合巴菲特對優秀企業管理者應具備的誠信與智慧的期望。",
-        "comment_en": "Coca-Cola's management has demonstrated a long-term and prudent strategy in capital allocation. The company not only consistently pays robust dividends but also actively engages in share buybacks when the stock is undervalued, effectively enhancing shareholder value. Its high Free Cash Flow (FCF TTM) of $14.3 billion and healthy balance sheet (cash of $16.4 billion against total debt of $43.5 billion, manageable with strong FCF) attest to its excellent financial stewardship. Management avoids blind, overpriced acquisitions, focusing instead on organic growth and strategic expansion of its core business, aligning with Buffett's expectations for integrity and wisdom in excellent corporate leaders."
+        "score": 9,
+        "comment_zh": "可口可樂的商業模式展現了極強的持久性。其核心產品經過百年考驗，品牌價值歷久彌新，在全球範圍內具有廣泛的接受度。儘管飲料行業面臨健康趨勢和新興競爭者的挑戰，但可口可樂通過不斷適應市場變化，例如拓展非碳酸飲料線和健康飲品，成功地維持了其市場領導地位。其龐大的分銷網絡和規模經濟提供了堅實的基礎，使其能夠抵禦行業的顛覆性變革，展現出卓越的長期韌性。",
+        "comment_en": "Coca-Cola's business model exhibits exceptional durability. Its core products have stood the test of time for over a century, its brand value remains enduring, and it enjoys broad global acceptance. Despite challenges from health trends and emerging competitors in the beverage industry, Coca-Cola has successfully maintained its market leadership by continuously adapting to market changes, such as expanding its non-carbonated beverage lines and healthy drink options. Its vast distribution network and economies of scale provide a solid foundation, enabling it to withstand disruptive industry changes and demonstrating remarkable long-term resilience."
       },
-      "overall_moat_verdict_zh": "可口可樂無疑是巴菲特投資哲學中「特許經營權」企業的典範。其核心護城河建立在全球無可匹敵的品牌力量、無處不在的分銷網絡、極致的規模經濟以及與裝瓶商形成的深厚商業黏性之上。這些要素共同築起了一道幾乎無法被複製的競爭壁壘，使其能夠長期維持高利潤率和卓越的資本回報。儘管面臨消費者口味變化的挑戰，但公司憑藉其適應能力和多元化策略，持續鞏固其在飲料行業的領導地位。這是一個擁有強大定價權和穩定現金流的企業，如同收費橋樑般，持續為股東創造價值。",
-      "overall_moat_verdict_en": "Coca-Cola unequivocally stands as a quintessential \"franchise\" business within Buffett's investment philosophy. Its core moat is built upon an unparalleled global brand power, ubiquitous distribution network, extreme economies of scale, and deep commercial stickiness with its bottlers. These elements collectively form a competitive barrier that is nearly impossible to replicate, enabling the company to sustain high profit margins and exceptional returns on capital over the long term. Despite challenges from evolving consumer tastes, the company, through its adaptability and diversification strategies, continues to solidify its leadership in the beverage industry. This is a business with strong pricing power and stable cash flow, akin to a toll bridge, consistently creating value for shareholders.",
-      "evidenceHash": "0e153712ecaabb5b7a415e35e3e5a53010a8cc157c1a4f0b8747e38ca04400d7",
+      "overall_moat_verdict_zh": "可口可樂展現了強大的經濟護城河，主要由其無與倫比的品牌價值（M1）和規模經濟（M5）構成，這兩者共同構成了其核心競爭優勢。其卓越的營運效率（M7）、穩健的資本配置（M8）和極高的客戶忠誠度（M9）進一步鞏固了其市場地位。雖然在專利/特許（M2）、轉換成本（M3）和網絡效應（M4）方面壁壘較弱，但其核心優勢足以抵禦這些相對的劣勢。可口可樂的護城河更接近於一種「特許經營權」模式，其品牌如同印鈔機，能夠持續產生穩定的現金流，是典型的長期價值投資標的。",
+      "overall_moat_verdict_en": "Coca-Cola exhibits a strong economic moat, primarily constituted by its unparalleled brand value (M1) and economies of scale (M5), which together form its core competitive advantage. Its outstanding operational efficiency (M7), sound capital allocation (M8), and extremely high customer loyalty (M9) further solidify its market position. Although barriers are weaker in patents/franchises (M2), switching costs (M3), and network effects (M4), its core strengths are sufficient to withstand these relative weaknesses. Coca-Cola's moat is closer to a 'franchise' model, where its brand acts like a money machine, consistently generating stable cash flows, making it a classic long-term value investment.",
+      "evidenceHash": "6c7d567232e96648f885a4f889f51c4e42aacb7029d1c399dee246ff74e5f2e9",
       "assessmentPolicy": "buffett-moat-v3",
       "model": "gemini-2.5-flash-lite",
       "provider": "Vertex AI"
@@ -529694,7 +529710,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "f2588a98f52a380bd5004906121f87dc4eef78323f6ed6ca6f2c520115d90474"
       },
       "mScore": {
@@ -529706,7 +529722,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "f2588a98f52a380bd5004906121f87dc4eef78323f6ed6ca6f2c520115d90474"
       }
     },
@@ -529902,7 +529918,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "KO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:21:43Z",
+      "fetchedAt": "2026-10-31T17:14:22Z",
       "balanceDate": "2026-10-02",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-10-30",
@@ -529938,7 +529954,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/21344/000162828026067844/ko-20261002.htm",
-        "capturedAt": "2026-10-31T14:21:43Z"
+        "capturedAt": "2026-10-31T17:14:22Z"
       }
     },
     "z_score": 5.64,
@@ -530257,7 +530273,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/77476/000007747626000048/pep-20260905.htm",
-      "capturedAt": "2026-10-31T14:21:48Z"
+      "capturedAt": "2026-10-31T17:14:42Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 187158.9,
@@ -533432,57 +533448,61 @@ window.FULL_MARKET_DATA = {
       "ticker": "PEP",
       "period": "2026Q3",
       "m1_brand_pricing": {
-        "score": 5,
-        "comment_zh": "待分析：API 連線未完成或缺少相關數據，維持中性預設。",
-        "comment_en": "Pending analysis: Defaulting to neutral moat rating due to missing report data."
+        "score": 9,
+        "comment_zh": "百事公司擁有極強的品牌定價權，其核心產品如百事可樂、樂事洋芋片在全球享有盛譽，消費者對其品牌忠誠度高，願意支付溢價。這種品牌力是數十年來持續的市場投入、廣告宣傳和產品創新所建立的無形資產。相較於其他飲料和零食品牌，百事在消費者心中具有獨特的地位，使其能夠在面對成本上升時，將部分壓力轉嫁給消費者，維持穩定的利潤率。儘管面臨可口可樂的激烈競爭，百事憑藉其多元化的產品組合和強大的分銷網絡，依然能保持其市場領導地位，並展現出卓越的定價能力。",
+        "comment_en": "PepsiCo possesses extremely strong brand pricing power. Its core products, such as Pepsi-Cola and Lay's potato chips, enjoy global renown, fostering high consumer loyalty and a willingness to pay a premium. This brand equity is an intangible asset built through decades of sustained market investment, advertising, and product innovation. Compared to other beverage and snack brands, Pepsi holds a unique position in consumers' minds, enabling it to pass on some cost pressures to consumers and maintain stable profit margins when facing rising costs. Despite intense competition from Coca-Cola, PepsiCo, with its diversified product portfolio and robust distribution network, continues to maintain its market leadership and demonstrates excellent pricing capabilities."
       },
       "m2_patents_regulatory": {
-        "score": 5,
-        "comment_zh": "待分析：API 連線未完成或缺少相關數據，維持中性預設。",
-        "comment_en": "Pending analysis: Defaulting to neutral moat rating due to missing report data."
+        "score": 2,
+        "comment_zh": "百事公司所處的軟飲料和零食行業，其核心產品的生產技術相對成熟，並無高度依賴專利保護的獨特配方或製程。雖然公司在產品研發和包裝技術上有所投入，但這些創新通常難以形成持久的、排他性的專利壁壘。行業的監管主要集中在食品安全、標籤規範等方面，這些標準對所有參與者都適用，並不能構成對百事公司的獨特競爭優勢。因此，在專利和監管這一維度上，百事公司的護城河相對較弱，其競爭優勢更多來自於品牌和規模。",
+        "comment_en": "The soft drink and snack industry, where PepsiCo operates, relies on relatively mature production technologies for its core products, without unique formulations or processes heavily dependent on patent protection. While the company invests in product R&D and packaging technology, these innovations typically do not form durable, exclusive patent barriers. Industry regulations primarily focus on food safety and labeling standards, which apply to all participants and do not confer a unique competitive advantage to PepsiCo. Therefore, in terms of patents and regulation, PepsiCo's moat is relatively weak, with its competitive advantages stemming more from brand and scale."
       },
       "m3_high_switching_costs": {
-        "score": 5,
-        "comment_zh": "待分析：API 連線未完成或缺少相關數據，維持中性預設。",
-        "comment_en": "Pending analysis: Defaulting to neutral moat rating due to missing report data."
+        "score": 4,
+        "comment_zh": "對於終端消費者而言，更換飲料和零食品牌的轉換成本非常低。消費者可以輕易地從百事可樂轉向可口可樂，或從樂事薯片轉向其他品牌。然而，從經銷商和零售商的角度來看，與百事公司這樣的大型供應商合作，涉及穩定的供應鏈關係、貨架空間的協商以及聯合營銷活動，這些都構成了一定的轉換成本。但總體而言，由於消費者端的轉換成本極低，此維度的護城河強度有限，百事公司主要依賴其產品吸引力來留住客戶。",
+        "comment_en": "For end consumers, the switching costs for changing beverage and snack brands are very low. Consumers can easily switch from Pepsi-Cola to Coca-Cola or from Lay's chips to other brands. However, from the perspective of distributors and retailers, collaborating with a large supplier like PepsiCo involves stable supply chain relationships, negotiation for shelf space, and joint marketing activities, which do incur certain switching costs. Overall, due to the extremely low switching costs at the consumer level, the moat strength in this dimension is limited, and PepsiCo primarily relies on its product appeal to retain customers."
       },
       "m4_network_effects": {
-        "score": 5,
-        "comment_zh": "待分析：API 連線未完成或缺少相關數據，維持中性預設。",
-        "comment_en": "Pending analysis: Defaulting to neutral moat rating due to missing report data."
+        "score": 2,
+        "comment_zh": "百事公司在其核心的飲料和零食業務中，並不存在顯著的網絡效應。網絡效應通常指產品或服務的價值隨著用戶數量的增加而增加，例如社交媒體或拍賣平台。百事公司的產品銷售主要基於其品牌吸引力、分銷網絡和消費者偏好，而非用戶之間的互動。雖然其龐大的分銷網絡可以被視為一種規模優勢，但它並不直接產生網絡效應。因此，在這個維度上，百事公司幾乎沒有形成經濟護城河。",
+        "comment_en": "PepsiCo does not exhibit significant network effects in its core beverage and snack businesses. Network effects typically refer to the increase in value of a product or service as the number of users grows, such as in social media or auction platforms. PepsiCo's product sales are primarily based on its brand appeal, distribution network, and consumer preferences, rather than user interactions. While its vast distribution network can be seen as a scale advantage, it does not directly generate network effects. Therefore, in this dimension, PepsiCo has formed almost no economic moat."
       },
       "m5_cost_advantage_scale": {
-        "score": 5,
-        "comment_zh": "待分析：API 連線未完成或缺少相關數據，維持中性預設。",
-        "comment_en": "Pending analysis: Defaulting to neutral moat rating due to missing report data."
+        "score": 9,
+        "comment_zh": "百事公司憑藉其龐大的全球生產和分銷網絡，享有顯著的規模經濟優勢。巨大的採購量使其能夠以更低的成本獲取原材料，例如糖、玉米和包裝材料。同時，其遍佈全球的生產設施和高效的物流體系，能夠降低單位生產和運輸成本。這種規模優勢不僅體現在成本端，也支持了其強大的市場滲透能力和議價能力。相較於小型競爭對手，百事公司在成本控制和供應鏈效率方面具有壓倒性優勢，這構成了其堅實的護城河。",
+        "comment_en": "PepsiCo enjoys significant economies of scale due to its vast global production and distribution network. Its enormous purchasing volume allows it to acquire raw materials, such as sugar, corn, and packaging materials, at lower costs. Concurrently, its worldwide production facilities and efficient logistics system reduce per-unit production and transportation expenses. This scale advantage is reflected not only in costs but also supports its strong market penetration and bargaining power. Compared to smaller competitors, PepsiCo possesses an overwhelming advantage in cost control and supply chain efficiency, forming a solid moat."
       },
       "m6_unique_geography_assets": {
-        "score": 5,
-        "comment_zh": "待分析：API 連線未完成或缺少相關數據，維持中性預設。",
-        "comment_en": "Pending analysis: Defaulting to neutral moat rating due to missing report data."
+        "score": 3,
+        "comment_zh": "百事公司雖然在全球範圍內擁有廣泛的業務，但其核心產品（如軟飲料和零食）的生產和銷售並未高度依賴特定的地理位置或獨特的自然資源。其品牌和分銷網絡是全球性的，而非局限於某個利基市場。雖然在某些新興市場，百事可能擁有較強的本地化優勢，但這並非源於不可複製的地理資產。其業務模式具有高度的可複製性，競爭對手可以通過建立類似的分銷網絡和品牌推廣來進入市場。因此，此維度的護城河較弱。",
+        "comment_en": "Although PepsiCo has extensive operations globally, the production and sales of its core products (like soft drinks and snacks) are not highly dependent on specific geographic locations or unique natural resources. Its brand and distribution network are global rather than confined to a niche market. While Pepsi may possess strong localized advantages in certain emerging markets, this does not stem from irreproducible geographic assets. Its business model is highly replicable, allowing competitors to enter the market by establishing similar distribution networks and brand promotion. Therefore, the moat in this dimension is weak."
       },
       "m7_operational_efficiency": {
-        "score": 5,
-        "comment_zh": "待分析：API 連線未完成或缺少相關數據，維持中性預設。",
-        "comment_en": "Pending analysis: Defaulting to neutral moat rating due to missing report data."
+        "score": 8,
+        "comment_zh": "百事公司展現出卓越的營運效率，這得益於其持續優化全球供應鏈管理、生產流程和分銷網絡。公司透過技術投資和流程改進，不斷提高生產力並降低營運成本。其強大的後勤能力確保產品能夠高效、及時地送達全球各地的零售終端。這種營運上的精實，使其能夠在保持產品品質和市場響應速度的同時，實現高於行業平均水平的利潤率。這種持續的營運優勢，構成了其重要的競爭壁壘。",
+        "comment_en": "PepsiCo demonstrates excellent operational efficiency, attributable to its continuous optimization of global supply chain management, production processes, and distribution networks. Through technological investments and process improvements, the company consistently enhances productivity and reduces operating costs. Its robust logistics capabilities ensure efficient and timely delivery of products to retail endpoints worldwide. This operational leaness allows it to achieve profit margins above the industry average while maintaining product quality and market responsiveness. This sustained operational advantage constitutes a significant competitive barrier."
       },
       "m8_capital_allocation": {
-        "score": 5,
-        "comment_zh": "待分析：API 連線未完成或缺少相關數據，維持中性預設。",
-        "comment_en": "Pending analysis: Defaulting to neutral moat rating due to missing report data."
+        "score": 7,
+        "comment_zh": "百事公司在資本配置方面展現出相對穩健的策略。公司歷史上透過策略性併購擴張業務版圖，例如收購桂格燕麥和菲多利，有效增強了其在飲料和零食領域的領導地位。同時，公司也注重股東回報，透過股息支付和股票回購向股東返還價值。儘管其債務水平相對較高，但其強勁的自由現金流（FCF TTM: $10,471.0M）提供了充足的財務彈性來支持其營運和投資需求。管理層在平衡增長投資、債務管理和股東回報方面，展現了較為成熟的資本配置能力。",
+        "comment_en": "PepsiCo exhibits a relatively sound strategy in capital allocation. Historically, the company has expanded its business scope through strategic acquisitions, such as the purchases of Quaker Oats and Frito-Lay, effectively strengthening its leadership in the beverage and snack sectors. Concurrently, the company prioritizes shareholder returns, delivering value through dividend payments and share buybacks. Despite a relatively high debt level, its strong Free Cash Flow (FCF TTM: $10,471.0M) provides ample financial flexibility to support its operational and investment needs. Management has demonstrated a mature capital allocation capability in balancing growth investments, debt management, and shareholder returns."
       },
       "m9_customer_retention": {
-        "score": 5,
-        "comment_zh": "待分析：API 連線未完成或缺少相關數據，維持中性預設。",
-        "comment_en": "Pending analysis: Defaulting to neutral moat rating due to missing report data."
+        "score": 8,
+        "comment_zh": "百事公司透過其強大的品牌影響力、廣泛的產品線以及持續的市場營銷活動，有效地維持了高度的客戶忠誠度和留存率。消費者對百事可樂、樂事等標誌性產品的品牌認知和情感連結，使得他們傾向於持續購買。此外，公司不斷推出新口味和新產品，以滿足消費者不斷變化的需求，進一步鞏固了客戶關係。其龐大的分銷網絡確保了產品的易得性，也間接提升了客戶留存。雖然轉換成本不高，但品牌忠誠度和產品吸引力共同構成了有效的客戶留存壁壘。",
+        "comment_en": "PepsiCo effectively maintains high customer loyalty and retention rates through its strong brand influence, extensive product lines, and continuous marketing activities. Consumers' brand recognition and emotional connection with iconic products like Pepsi-Cola and Lay's lead them to make repeat purchases. Furthermore, the company consistently introduces new flavors and products to meet evolving consumer demands, further solidifying customer relationships. Its vast distribution network ensures product availability, indirectly enhancing customer retention. Although switching costs are not high, brand loyalty and product appeal together form an effective barrier to customer retention."
       },
       "m10_durability": {
-        "score": 5,
-        "comment_zh": "待分析：API 連線未完成或缺少相關數據，維持中性預設。",
-        "comment_en": "Pending analysis: Defaulting to neutral moat rating due to missing report data."
+        "score": 8,
+        "comment_zh": "百事公司的商業模式具有顯著的持久性。其核心業務——軟飲料和零食——屬於必需消費品範疇，需求相對穩定，不易受到經濟週期的劇烈波動影響。儘管面臨健康趨勢和消費者口味變化的挑戰，百事透過產品組合的多元化（包括健康化產品線）和持續的品牌建設，展現了其適應市場變化的能力。其龐大的規模、成熟的供應鏈和強大的品牌資產，為公司在未來數十年內維持競爭優勢提供了堅實的基礎。這是一個能夠穿越經濟週期、長期穩定經營的企業。",
+        "comment_en": "PepsiCo's business model exhibits significant durability. Its core businesses—soft drinks and snacks—fall under the category of essential consumer goods, with relatively stable demand that is less susceptible to severe economic cycle fluctuations. Despite challenges from health trends and changing consumer tastes, Pepsi has demonstrated its ability to adapt to market changes through product portfolio diversification (including healthier product lines) and continuous brand building. Its substantial scale, mature supply chain, and strong brand assets provide a solid foundation for maintaining competitive advantages for decades to come. This is an enterprise capable of navigating economic cycles and operating stably over the long term."
       },
-      "overall_moat_verdict_zh": "暫未取得 Gemini 深度護城河分析報告。",
-      "overall_moat_verdict_en": "Deep Economic Moat audit report pending generation."
+      "overall_moat_verdict_zh": "百事公司展現出一個強大的、以品牌和規模為核心的經濟護城河。其品牌定價權（M1）和規模成本優勢（M5）是其最顯著的壁壘，使其能夠在全球市場上保持領先地位並實現穩定的盈利能力。客戶留存（M9）和營運效率（M7）也為其提供了堅實的支持。儘管在專利監管（M2）和轉換成本（M3）方面護城河較弱，但其核心優勢足以抵消這些劣勢。百事公司的業務模式具有高度的持久性（M10），使其成為一個典型的「收費橋」型企業，透過其龐大的分銷網絡和品牌影響力，穩定地從消費者手中獲取價值。",
+      "overall_moat_verdict_en": "PepsiCo demonstrates a strong economic moat centered around its brand and scale. Its brand pricing power (M1) and cost advantage from scale (M5) are its most significant barriers, enabling it to maintain a leading position in the global market and achieve stable profitability. Customer retention (M9) and operational efficiency (M7) also provide solid support. Although its moat is weaker in patent/regulatory (M2) and switching costs (M3), its core strengths are sufficient to offset these weaknesses. PepsiCo's business model exhibits high durability (M10), making it a classic 'toll bridge' type enterprise that stably extracts value from consumers through its vast distribution network and brand influence.",
+      "evidenceHash": "357738ddb110d015bd41c1ab0847d4958750d7746eaca62e0f1f616683756f3e",
+      "assessmentPolicy": "buffett-moat-v3",
+      "model": "gemini-2.5-flash-lite",
+      "provider": "Vertex AI"
     },
     "ratingSources": {
       "moat": {
@@ -533501,7 +533521,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "ce45bef565214dac49c176f0ed7e11b88aae8ccc2e7067c4bd0f035226de057e"
       },
       "mScore": {
@@ -533513,7 +533533,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "ce45bef565214dac49c176f0ed7e11b88aae8ccc2e7067c4bd0f035226de057e"
       }
     },
@@ -533679,7 +533699,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "PEP",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:21:48Z",
+      "fetchedAt": "2026-10-31T17:14:42Z",
       "balanceDate": "2026-09-05",
       "filingDate": "2026-10-08",
       "quoteDate": "2026-10-30",
@@ -533715,7 +533735,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/77476/000007747626000048/pep-20260905.htm",
-        "capturedAt": "2026-10-31T14:21:48Z"
+        "capturedAt": "2026-10-31T17:14:42Z"
       }
     },
     "z_score": 3.41,
@@ -534036,7 +534056,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1413329/000162828026066976/pm-20260930.htm",
-      "capturedAt": "2026-10-31T14:21:53Z"
+      "capturedAt": "2026-10-31T17:15:03Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 325422.9,
@@ -537208,59 +537228,63 @@ window.FULL_MARKET_DATA = {
     "roa": 15.969043110004325,
     "moat": {
       "ticker": "PM",
-      "period": "2026Q2",
+      "period": "2026Q3",
       "m1_brand_pricing": {
         "score": 9,
-        "comment_zh": "Philip Morris 憑藉其全球標誌性品牌萬寶路（Marlboro）建立了極其強大的品牌心智與定價權。尼古丁的成癮性結合數十年如一日的品牌建設，使得消費者對其產品具有高度忠誠度，即使面對價格上漲或稅收增加，需求彈性依然較低。這賦予了公司將成本轉嫁給消費者的能力，並在傳統捲菸市場持續獲取超額利潤。其新型減害產品（如 IQOS）亦透過創新和品牌溢價，在轉型市場中維持了強勁的定價能力，這正是巴菲特所推崇的「特許經營權」特徵。",
-        "comment_en": "Philip Morris commands exceptional brand equity and pricing power, primarily through its iconic global brand, Marlboro. The addictive nature of nicotine, coupled with decades of consistent brand building, fosters profound consumer loyalty. This allows PM to raise prices and pass on excise taxes with minimal demand elasticity, securing supernormal profits in the traditional cigarette market. Furthermore, its reduced-risk products (RRPs) like IQOS leverage innovation and brand premium to maintain strong pricing power in the evolving market. This exemplifies the 'franchise' characteristic highly valued by Buffett, where customers remain loyal despite price increases."
+        "comment_zh": "PM 擁有全球最知名的香菸品牌，如 Marlboro，這賦予其強大的定價權。儘管面臨日益嚴峻的健康挑戰與監管壓力，其品牌忠誠度依然穩固，能夠將成本轉嫁給消費者。這種品牌力量是其核心護城河，使其在必需消費品領域中脫穎而出。與其他菸草公司相比，PM 的品牌滲透力與市場份額領先，使其能夠在不斷變化的市場中維持較高的利潤率。其品牌價值不僅體現在銷售額上，更體現在消費者對其產品的依賴性上，這是一種難以被競爭對手輕易複製的無形資產。",
+        "comment_en": "PM possesses the world's most recognized cigarette brands, such as Marlboro, granting it significant pricing power. Despite mounting health challenges and regulatory pressures, its brand loyalty remains robust, enabling it to pass on costs to consumers. This brand strength is its core moat, setting it apart in the consumer staples sector. Compared to other tobacco companies, PM's brand penetration and market share are leading, allowing it to maintain relatively high profit margins in a constantly evolving market. Its brand value is reflected not only in sales but also in consumer reliance on its products, an intangible asset difficult for competitors to replicate."
       },
       "m2_patents_regulatory": {
-        "score": 8,
-        "comment_zh": "菸草行業是全球監管最嚴格的產業之一，這對新進入者構成了巨大的壁壘。Philip Morris 作為行業巨頭，已建立起複雜的全球合規體系和政府關係，這本身就是一種難以複製的特許經營權。此外，公司在新型減害產品（RRPs）領域，特別是 IQOS 的加熱不燃燒技術上，擁有大量的專利組合。這些專利不僅保護了其創新成果，更在快速發展的 RRP 市場中築起了技術護城河，使其在競爭中佔據領先地位，符合巴菲特對受保護特許經營權的定義。",
-        "comment_en": "The tobacco industry is among the most heavily regulated globally, creating substantial barriers to entry for new competitors. Philip Morris, as an industry leader, has established a complex global compliance framework and governmental relationships, which in itself acts as an irreplicable franchise. Moreover, the company possesses a vast patent portfolio in reduced-risk products (RRPs), particularly for its IQOS heated tobacco technology. These patents not only protect its innovations but also build a technological moat in the rapidly evolving RRP market, securing a leading competitive position, aligning with Buffett's definition of a protected franchise."
+        "score": 7,
+        "comment_zh": "PM 在傳統香菸領域的專利壁壘相對較低，但其在加熱不燃燒 (HTP) 技術，特別是 IQOS 產品上的專利佈局，構成了重要的監管與技術壁壘。IQOS 的獨特技術和相關專利，使其在電子煙市場中佔據領先地位，並受到一定程度的監管保護。然而，全球各地對菸草產品的監管日趨嚴格，包括對新興產品的審查，這既是挑戰也是一種保護，因為合規成本高昂，限制了新進入者的步伐。PM 積極應對監管變化，並透過持續的研發投入來鞏固其技術優勢。",
+        "comment_en": "While patents in traditional cigarettes offer relatively low barriers for PM, its patent portfolio in heated-tobacco products (HTP), particularly for IQOS, constitutes a significant regulatory and technological moat. IQOS's unique technology and related patents position it as a leader in the e-cigarette market, enjoying a degree of regulatory protection. However, global regulations on tobacco products are tightening, including scrutiny of novel products, which acts as both a challenge and a shield, as high compliance costs deter new entrants. PM actively adapts to regulatory shifts and reinforces its technological edge through sustained R&D investment."
       },
       "m3_high_switching_costs": {
-        "score": 8,
-        "comment_zh": "對於傳統捲菸消費者而言，轉換品牌的成本主要體現在心理和生理上的習慣與尼古丁依賴。儘管表面上更換菸草品牌看似容易，但消費者對特定口味和品牌體驗的偏好，以及戒斷的困難，都形成了隱性的轉換成本。對於新型減害產品（RRPs）如 IQOS，消費者除了對設備的初始投資外，還需適應其獨特的加熱體驗和操作方式，這也增加了轉換至其他系統的摩擦。這種黏性確保了穩定的客戶群，是其護城河的重要組成部分。",
-        "comment_en": "For traditional cigarette consumers, switching costs primarily manifest as psychological and physiological habits, coupled with nicotine dependence. While changing tobacco brands might seem simple, consumer preference for specific tastes and brand experiences, alongside the difficulty of cessation, creates implicit switching costs. For reduced-risk products (RRPs) like IQOS, consumers incur an initial device investment and adapt to its unique heating experience and operation, adding friction to switching to alternative systems. This stickiness ensures a stable customer base, forming a crucial component of its economic moat."
+        "score": 6,
+        "comment_zh": "對於傳統香菸消費者而言，轉換成本相對較低，主要取決於品牌偏好和價格敏感度。然而，對於 IQOS 等加熱不燃燒產品的用戶，轉換成本會顯著提高。用戶需要購買專用設備，並習慣新的使用方式和產品體驗。這種對新技術平台的依賴性，以及對特定產品生態系統的適應，增加了用戶轉換到其他替代品的難度。PM 透過其產品生態系統和用戶習慣的培養，正在逐步建立更高的轉換壁壘，尤其是在其新興產品線上。",
+        "comment_en": "For traditional cigarette consumers, switching costs are relatively low, primarily driven by brand preference and price sensitivity. However, for users of heated-tobacco products like IQOS, switching costs are significantly higher. Users need to purchase dedicated devices and adapt to new usage patterns and product experiences. This reliance on a new technological platform and adaptation to a specific product ecosystem makes it harder for users to switch to other alternatives. PM is gradually building higher switching barriers through its product ecosystem and cultivation of user habits, especially with its newer product lines."
       },
       "m4_network_effects": {
         "score": 2,
-        "comment_zh": "Philip Morris 的核心業務，無論是傳統捲菸還是新型減害產品，本質上都不具備網絡效應。菸草產品的消費是高度個人化的體驗，一個用戶的增加並不會直接提升其他用戶的產品價值。與社交媒體或電商平台不同，菸草產品的價值不隨用戶基數的擴大而呈幾何級數增長。儘管新型產品可能會有社群效應，但這並非其核心競爭力或主要護城河來源，因此在此維度上得分較低，不符合巴菲特對網絡效應型企業的定義。",
-        "comment_en": "Philip Morris's core business, encompassing both traditional cigarettes and reduced-risk products, inherently lacks network effects. Tobacco consumption is a highly individualized experience; an increase in one user does not directly enhance the product's value for other users. Unlike social media or e-commerce platforms, the value of tobacco products does not grow geometrically with an expanding user base. While new products might foster some community aspects, this is not a core competitive advantage or primary moat source. Therefore, it scores low in this dimension, not fitting Buffett's definition of a network effect business."
+        "comment_zh": "香菸產品本身不具備顯著的網絡效應。消費者購買行為主要基於個人偏好、品牌忠誠度和可及性，而非他人使用該產品所帶來的額外價值。雖然 PM 的品牌知名度和分銷網絡廣泛，但這更多是規模優勢和品牌影響力的體現，而非真正的網絡效應。在加熱不燃燒產品領域，雖然可能存在一些社群效應，但其規模和影響力遠不及社交媒體或電商平台等典型具有網絡效應的業務，因此在此維度上得分較低。",
+        "comment_en": "Cigarette products inherently lack significant network effects. Consumer purchasing decisions are primarily based on personal preference, brand loyalty, and accessibility, rather than the added value derived from others using the product. While PM's brand recognition and extensive distribution network are substantial, this reflects scale advantages and brand influence rather than true network effects. In the heated-tobacco product segment, while some community effects might exist, their scale and impact are far less than those in businesses with typical network effects like social media or e-commerce platforms, hence the low score in this dimension."
       },
       "m5_cost_advantage_scale": {
-        "score": 8,
-        "comment_zh": "Philip Morris 憑藉其龐大的全球規模，在採購、生產、分銷和營銷方面實現了顯著的成本優勢。其遍布全球的供應鏈和製造設施，使其能夠以極低的單位成本生產和運輸產品，這是小型競爭對手難以匹敵的。這種規模經濟不僅降低了運營成本，還賦予了公司在市場上更強的競爭力，能夠在保持利潤率的同時提供有競爭力的價格。在新型減害產品的研發和量產上，其規模優勢也使其能更快地將創新推向市場，形成成本壁壘。",
-        "comment_en": "Philip Morris leverages its immense global scale to achieve significant cost advantages in procurement, production, distribution, and marketing. Its worldwide supply chain and manufacturing facilities enable the company to produce and transport products at exceptionally low unit costs, a feat difficult for smaller competitors to match. This economy of scale not only reduces operational expenses but also grants the company stronger market competitiveness, allowing it to offer competitive pricing while maintaining healthy profit margins. In the R&D and mass production of reduced-risk products, its scale advantage also enables faster market introduction of innovations, creating a cost barrier."
+        "score": 9,
+        "comment_zh": "PM 作為全球最大的菸草公司之一，擁有巨大的規模經濟優勢。其龐大的生產能力、全球化的採購網絡以及高效的供應鏈管理，使其能夠以遠低於小型競爭對手的成本生產產品。這種成本優勢不僅體現在傳統香菸上，也延伸到其新興產品的生產和分銷。規模化的生產有助於攤薄研發和市場推廣費用，尤其是在推動 IQOS 等新產品全球化佈局時，規模效應至關重要。這種成本領先地位是其維持競爭力的關鍵。",
+        "comment_en": "As one of the world's largest tobacco companies, PM benefits from immense economies of scale. Its vast production capacity, globalized procurement network, and efficient supply chain management enable it to produce products at a significantly lower cost than smaller competitors. This cost advantage extends not only to traditional cigarettes but also to the production and distribution of its newer products. Large-scale manufacturing helps amortize R&D and marketing expenses, which is crucial for the global rollout of new products like IQOS. This cost leadership is key to maintaining its competitive edge."
       },
       "m6_unique_geography_assets": {
-        "score": 7,
-        "comment_zh": "菸草市場在許多國家已趨於成熟，並呈現出寡頭壟斷的格局。Philip Morris 在全球範圍內建立了根深蒂固的分銷網絡和市場份額，尤其是在許多關鍵市場中佔據主導地位。這種「有效規模」的特徵意味著，新競爭者即使投入巨額資本，也難以在現有巨頭之間取得顯著立足點，因為市場增長有限且競爭激烈。這種由歷史積累、品牌忠誠度和監管壁壘共同形成的寡占局面，使得 PM 能夠在特定地理區域和市場中享有類似於天然壟斷的優勢。",
-        "comment_en": "The tobacco market in many countries is mature and characterized by an oligopolistic structure. Philip Morris has established deeply entrenched distribution networks and market share globally, particularly dominating many key markets. This 'efficient scale' characteristic implies that new competitors, even with substantial capital investment, would struggle to gain significant traction among existing giants due to limited market growth and intense competition. This oligopoly, formed by historical accumulation, brand loyalty, and regulatory barriers, allows PM to enjoy advantages akin to a natural monopoly in specific geographical regions and markets."
+        "score": 8,
+        "comment_zh": "PM 在全球範圍內擁有廣泛且深入的分銷網絡，尤其是在新興市場，這構成了一種難以複製的地理資產。其在許多國家和地區的市場准入權和穩固的經銷商關係，為其產品的廣泛可及性提供了保障。此外，PM 在某些特定市場的品牌領導地位和消費者認知，也使其擁有了類似於「收費橋」的地位，能夠從中獲取穩定的現金流。儘管面臨監管挑戰，其在全球範圍內建立的龐大分銷體系仍是其重要的競爭壁壘。",
+        "comment_en": "PM possesses an extensive and deep distribution network globally, particularly in emerging markets, which constitutes a difficult-to-replicate geographic asset. Its market access and established distributor relationships in many countries and regions ensure broad product availability. Furthermore, PM's brand leadership and consumer recognition in certain specific markets give it a 'toll bridge'-like position, enabling it to generate stable cash flows. Despite regulatory challenges, its vast distribution system built worldwide remains a significant competitive barrier."
       },
       "m7_operational_efficiency": {
         "score": 8,
-        "comment_zh": "Philip Morris 長期以來展現出卓越的資本回報能力，其穩健的 ROE (18.0%) 和 ROA (15.9%) 數據，以及高達 127 億美元的自由現金流，都印證了其高效的資本運用。菸草行業在建立起品牌和分銷網絡後，其後續的資本投入相對較低，但現金流產生能力極強。PM 能夠持續將投入資本轉化為豐厚利潤，並將其分配給股東，這表明公司擁有強大的經營韌性，能夠長期創造超越加權平均資本成本（WACC）的價值，符合巴菲特對高 ROIC 企業的偏好。",
-        "comment_en": "Philip Morris has consistently demonstrated exceptional returns on capital, evidenced by its robust ROE (18.0%) and ROA (15.9%), alongside substantial free cash flow of $12.7 billion, confirming its highly efficient capital deployment. Once brands and distribution networks are established, the tobacco industry typically requires relatively low subsequent capital investment while generating strong cash flows. PM's ability to continuously convert invested capital into substantial profits and distribute them to shareholders indicates strong operational resilience, consistently creating value far exceeding its Weighted Average Cost of Capital (WACC), aligning with Buffett's preference for high ROIC businesses."
+        "comment_zh": "PM 在營運效率方面表現出色，尤其是在其傳統香菸業務的生產和分銷環節。公司透過持續的流程優化和技術升級，不斷提高生產效率並降低單位成本。其全球供應鏈管理能力強大，能夠有效應對複雜的國際物流和市場需求波動。對於新興的加熱不燃燒產品業務，PM 也在積極投入資源，建立高效的生產和銷售體系，以支持其快速增長。儘管面臨嚴格的監管環境，PM 仍能維持高水平的營運效率，這得益於其長期的管理經驗和對成本控制的重視。",
+        "comment_en": "PM demonstrates excellent operational efficiency, particularly in the production and distribution of its traditional cigarette business. Through continuous process optimization and technological upgrades, the company consistently enhances production efficiency and reduces unit costs. Its global supply chain management capabilities are robust, effectively handling complex international logistics and market demand fluctuations. For its emerging heated-tobacco product business, PM is also actively investing resources to establish efficient production and sales systems to support rapid growth. Despite a stringent regulatory environment, PM maintains a high level of operational efficiency, attributable to its long-standing management experience and focus on cost control."
       },
       "m8_capital_allocation": {
         "score": 7,
-        "comment_zh": "Philip Morris 在資本配置方面表現出對股東價值的關注，透過持續的股息支付和股票回購來回報股東。公司也進行了戰略性併購，例如收購 Swedish Match，以擴展其無煙產品組合，這顯示了管理層對未來增長方向的清晰判斷和執行力。然而，其較高的總負債（491.13 億美元）相對於現金（59.99 億美元）需要持續關注，以確保財務健康。總體而言，管理層在平衡股東回報與戰略投資方面表現穩健，但仍需警惕槓桿風險。",
-        "comment_en": "Philip Morris demonstrates a focus on shareholder value through consistent dividend payments and share buybacks. The company has also made strategic acquisitions, such as Swedish Match, to expand its smoke-free product portfolio, indicating management's clear judgment and execution in future growth directions. However, its relatively high total debt ($49.113 billion) compared to cash ($5.999 billion) warrants continuous monitoring to ensure financial health. Overall, management shows a steady hand in balancing shareholder returns with strategic investments, though leverage risk remains a consideration."
+        "comment_zh": "PM 的資本配置策略長期以來表現穩健，尤其是在股息支付和股票回購方面。公司能夠從其成熟的傳統香菸業務中產生大量自由現金流，並將其中大部分回饋給股東。近年來，PM 亦積極將資本投入到其新興的無煙產品業務，如 IQOS 的研發、生產和市場推廣，以應對行業轉型。雖然其 ROE 長期為負，這主要受高額的負債和一次性費用影響，但其自由現金流強勁，且管理層在傳統業務與新業務之間的資本分配權衡相對合理，展現了其對股東價值的關注。",
+        "comment_en": "PM's capital allocation strategy has been consistently sound, particularly in dividend payments and share repurchases. The company generates substantial free cash flow from its mature traditional cigarette business and returns a significant portion to shareholders. In recent years, PM has also actively invested capital into its emerging smoke-free product business, such as R&D, production, and marketing for IQOS, to navigate industry transformation. Although its ROE has been negative long-term, primarily due to high debt and one-off charges, its free cash flow is strong, and management's allocation balance between traditional and new businesses is relatively reasonable, demonstrating a focus on shareholder value."
       },
       "m9_customer_retention": {
-        "score": 9,
-        "comment_zh": "Philip Morris 在客戶保留方面表現卓越，這主要歸因於其產品的成癮性以及強大的品牌忠誠度。一旦消費者習慣了特定品牌的口味和體驗，轉換的意願和可能性就大大降低。這種高客戶保留率為公司提供了可預測的收入流和穩定的市場份額。即使在傳統捲菸市場面臨挑戰，公司透過積極推廣 IQOS 等新型減害產品，成功將部分現有吸菸者轉化為其新產品用戶，進一步鞏固了客戶基礎，展現了其在維繫客戶關係上的深厚功力。",
-        "comment_en": "Philip Morris excels in customer retention, primarily due to the addictive nature of its products and strong brand loyalty. Once consumers become accustomed to a specific brand's taste and experience, their willingness and likelihood to switch significantly decrease. This high retention rate provides the company with predictable revenue streams and stable market share. Even as the traditional cigarette market faces challenges, the company has successfully transitioned some existing smokers to its new reduced-risk products like IQOS, further solidifying its customer base and demonstrating its profound ability to maintain customer relationships."
+        "score": 8,
+        "comment_zh": "PM 在傳統香菸領域擁有極高的客戶保留率，這主要歸功於其強大的品牌忠誠度和產品成癮性。消費者一旦習慣了特定品牌，轉換的可能性較低。對於 IQOS 等新產品，PM 透過建立用戶生態系統和提供持續的產品體驗，也在努力提高客戶保留率。例如，透過專屬的配件、會員計劃和客戶服務，鼓勵用戶持續使用其加熱不燃燒設備。這種對客戶關係的維護和對用戶習慣的培養，是其維持穩定營收的關鍵。",
+        "comment_en": "PM exhibits exceptionally high customer retention rates in the traditional cigarette segment, largely due to its strong brand loyalty and the addictive nature of its products. Once consumers become accustomed to a specific brand, the likelihood of switching is low. For newer products like IQOS, PM strives to enhance customer retention by building user ecosystems and providing a consistent product experience. For instance, through exclusive accessories, loyalty programs, and customer service, it encourages continued use of its heated-tobacco devices. This maintenance of customer relationships and cultivation of user habits is key to sustaining stable revenues."
       },
       "m10_durability": {
         "score": 7,
-        "comment_zh": "Philip Morris 展現了對技術/典範轉移的強大適應性而非完全免疫。儘管傳統捲菸面臨長期衰退趨勢和健康意識的挑戰，PM 並未坐以待斃，而是積極投入巨資研發並推廣新型減害產品（RRPs），如 IQOS。這種戰略轉型使其能夠引領行業變革，而非被顛覆。公司正將其核心競爭力從「銷售香菸」轉變為「提供尼古丁替代方案」，這顯示了其商業模式的韌性與進化能力。雖然公共衛生運動和潛在的顛覆性戒菸技術仍是風險，但 PM 的主動轉型策略有效提升了其長期生存能力。",
-        "comment_en": "Philip Morris demonstrates strong adaptability to technological/paradigm shifts rather than complete immunity. Despite the long-term decline of traditional cigarettes and health awareness challenges, PM has proactively invested heavily in developing and promoting reduced-risk products (RRPs) like IQOS. This strategic transformation allows it to lead industry change rather than be disrupted. The company is shifting its core competency from 'selling cigarettes' to 'providing nicotine alternatives,' showcasing its business model's resilience and evolutionary capacity. While public health campaigns and potentially disruptive cessation technologies remain risks, PM's proactive transformation strategy effectively enhances its long-term durability."
+        "comment_zh": "PM 的業務模式具有相當的持久性，儘管面臨嚴峻的長期挑戰。傳統香菸業務雖然處於衰退期，但其龐大的現金流和品牌忠誠度使其能夠維持相當長的時間。更重要的是，PM 積極轉型至無煙產品，特別是 IQOS，這代表了其對未來趨勢的適應和對業務持久性的追求。雖然監管風險和健康意識的提高是持續存在的威脅，但其在加熱不燃燒技術上的領先地位，以及在全球市場的佈局，為其業務的長期延續提供了可能性。其商業模式正從傳統的「收費橋」向更具創新性的「特許經營」模式轉變。",
+        "comment_en": "PM's business model possesses considerable durability, despite facing significant long-term challenges. While the traditional cigarette business is in decline, its substantial cash flow and brand loyalty allow it to persist for a considerable time. More importantly, PM is actively transitioning to smoke-free products, particularly IQOS, representing its adaptation to future trends and pursuit of business longevity. Although regulatory risks and rising health consciousness are persistent threats, its leadership in heated-tobacco technology and global market presence offer possibilities for the long-term continuation of its business. Its business model is evolving from a traditional 'toll bridge' towards a more innovative 'franchise' model."
       },
-      "overall_moat_verdict_zh": "Philip Morris 擁有一條由多重因素構築的堅固經濟護城河，其核心是全球領先的品牌資產（如萬寶路）所帶來的強大定價權和消費者黏性，這使其具備了巴菲特所稱的「特許經營權」特徵。菸草行業嚴格的監管環境構成了巨大的進入壁壘，而 PM 在新型減害產品（RRPs）領域的專利組合和規模優勢，則為其在行業轉型中提供了領先地位。儘管傳統業務面臨挑戰，但公司透過積極的戰略轉型，將其商業模式從單純的菸草銷售演變為更廣泛的尼古丁替代方案提供者，展現了卓越的適應性和韌性。PM 本質上是一個能夠持續從消費者習慣和監管壁壘中獲利的「收費橋樑」，即使在變革中也能維持其強大的現金流生成能力和股東回報。",
-      "overall_moat_verdict_en": "Philip Morris possesses a robust economic moat constructed from multiple factors. At its core lies the formidable pricing power and consumer stickiness derived from its leading global brand assets (e.g., Marlboro), embodying what Buffett terms a 'franchise.' The tobacco industry's stringent regulatory environment creates significant barriers to entry, while PM's patent portfolio and scale advantage in reduced-risk products (RRPs) position it as a leader in industry transformation. Despite challenges to its traditional business, the company has demonstrated exceptional adaptability and resilience through proactive strategic transformation, evolving its business model from mere tobacco sales to a broader provider of nicotine alternatives. PM is essentially a 'toll bridge' that consistently profits from consumer habits and regulatory barriers, maintaining strong cash flow generation and shareholder returns even amidst change."
+      "overall_moat_verdict_zh": "Philip Morris (PM) 憑藉其全球領先的 Marlboro 等品牌，在傳統香菸領域建立了強大的定價權和客戶忠誠度，這構成了一個穩固的「特許經營」式護城河。其龐大的規模經濟和全球分銷網絡，尤其在新興市場，提供了顯著的成本優勢和難以複製的地理資產，如同「收費橋」般穩定產生現金流。儘管面臨嚴峻的監管和健康挑戰，PM 積極轉型至 IQOS 等加熱不燃燒產品，並透過技術專利和用戶生態系統構建新的壁壘，展現了其業務的持久性。整體而言，PM 擁有一個由強大品牌、規模優勢和戰略轉型構成的複合型護城河，使其在必需消費品行業中保持領先地位。",
+      "overall_moat_verdict_en": "Philip Morris (PM) has established strong pricing power and customer loyalty in traditional cigarettes through its world-leading brands like Marlboro, forming a robust 'franchise'-like moat. Its immense economies of scale and global distribution network, especially in emerging markets, provide significant cost advantages and hard-to-replicate geographic assets, generating stable cash flows like a 'toll bridge.' Despite facing severe regulatory and health challenges, PM is actively transitioning to heated-tobacco products like IQOS, building new barriers through technological patents and user ecosystems, demonstrating its business durability. Overall, PM possesses a composite moat comprising strong brands, scale advantages, and strategic transformation, maintaining its leading position in the consumer staples sector.",
+      "evidenceHash": "30423e49261fafeadfb08dbd385b9deef91919908f824e5165d46d5decedd9b0",
+      "assessmentPolicy": "buffett-moat-v3",
+      "model": "gemini-2.5-flash-lite",
+      "provider": "Vertex AI"
     },
     "ratingSources": {
       "moat": {
@@ -537279,7 +537303,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "5c24a3e10368d4de4f1e5183715099496fff04c0cfcbfbb184ee33b175b160fe"
       },
       "mScore": {
@@ -537291,7 +537315,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "5c24a3e10368d4de4f1e5183715099496fff04c0cfcbfbb184ee33b175b160fe"
       }
     },
@@ -537432,7 +537456,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "PM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:21:53Z",
+      "fetchedAt": "2026-10-31T17:15:03Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-23",
       "quoteDate": "2026-10-30",
@@ -537468,7 +537492,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1413329/000162828026066976/pm-20260930.htm",
-        "capturedAt": "2026-10-31T14:21:53Z"
+        "capturedAt": "2026-10-31T17:15:03Z"
       }
     },
     "z_score": 4.61,
@@ -537778,22 +537802,22 @@ window.FULL_MARKET_DATA = {
     "industry": "Packaged Foods & Meats",
     "reportedCurrency": "USD",
     "price": 64.94,
-    "shares": 1276.31,
-    "shares_outstanding": 1276310000,
-    "shares_display": "1,276.31 M",
+    "shares": 1265.84,
+    "shares_outstanding": 1265840000,
+    "shares_display": "1,265.84 M",
     "shareSource": {
-      "shares": 1276.31,
+      "shares": 1265.84,
       "date": "2026-10-31",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1103982/000162828026068256/mdlz-20260930.htm",
-      "capturedAt": "2026-10-31T14:21:58Z"
+      "capturedAt": "2026-10-31T17:15:23Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 82883.6,
-    "liq_val_1": -24.54654433484028,
-    "liq_val_2": -29.25096567448347,
-    "liq_val_3": -34.074010232623735,
+    "liq_val_1": -24.74957340580168,
+    "liq_val_2": -29.492905896479808,
+    "liq_val_3": -34.35584276053846,
     "debt": 22334.0,
     "cash": 1628.0,
     "short_term_investments": 0.0,
@@ -540936,9 +540960,9 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 75.87,
-    "default_fair_val": 75.87,
-    "premium_pct": -14.4,
+    "fair_val": 76.5,
+    "default_fair_val": 76.5,
+    "premium_pct": -15.1,
     "is_undervalued": true,
     "pe_trailing": 20.3,
     "pe_forward": 17.9,
@@ -540955,60 +540979,60 @@ window.FULL_MARKET_DATA = {
     "roa": 5.714846268112896,
     "moat": {
       "ticker": "MDLZ",
-      "period": "2026Q2",
+      "period": "2026Q3",
       "m1_brand_pricing": {
-        "score": 9,
-        "comment_zh": "Mondelez擁有奧利奧、吉百利、妙卡等全球知名品牌，這些品牌已深深植入消費者心智，形成強大的情感連結與消費習慣。這種品牌忠誠度賦予公司顯著的定價權，使其能夠在不顯著影響銷量的情況下，將成本上升轉嫁給消費者。在通脹環境下，其核心產品的必需品屬性與品牌溢價，使其能維持甚至提升利潤率，這是競爭對手難以在短期內複製的巨大優勢。",
-        "comment_en": "Mondelez boasts globally recognized brands like Oreo, Cadbury, and Milka, deeply embedded in consumer minds, fostering strong emotional connections and consumption habits. This brand loyalty grants the company significant pricing power, enabling it to pass on cost increases to consumers without materially impacting sales volumes. In inflationary environments, the essential nature of its core products and brand premium allow it to maintain or even enhance profit margins, a formidable advantage difficult for competitors to replicate in the short term."
+        "score": 8,
+        "comment_zh": "Mondelez 擁有眾多全球知名品牌，如奧利奧、吉百利、卡夫等，這些品牌在全球消費者心中建立了深厚的信任與忠誠度。這種品牌力轉化為強大的定價權，使其能夠在不顯著損害銷量的基礎上，適度提高產品價格，以應對通貨膨脹或提升利潤率。相較於其他零食與食品公司，Mondelez 的品牌組合更具廣度與深度，尤其在餅乾、糖果和即飲飲品領域，其市場領導地位難以撼動。這種品牌資產是其核心競爭力，也是巴菲特所欣賞的無形資產，構成了堅實的經濟護城河。",
+        "comment_en": "Mondelez possesses numerous globally recognized brands such as Oreo, Cadbury, and Kraft, which have cultivated deep trust and loyalty among consumers worldwide. This brand equity translates into significant pricing power, allowing the company to moderately increase product prices without substantially impacting sales, thereby addressing inflation or enhancing profit margins. Compared to other snack and food companies, Mondelez's brand portfolio offers greater breadth and depth, particularly in the biscuit, confectionery, and ready-to-drink beverage segments, where its market leadership is formidable. This brand equity is its core competitive advantage and an intangible asset that Buffett would admire, forming a robust economic moat."
       },
       "m2_patents_regulatory": {
-        "score": 3,
-        "comment_zh": "在包裝食品行業，專利壁壘通常不構成核心護城河。Mondelez的產品主要依賴品牌和口味配方，而非獨家技術專利。雖然食品安全和生產標準存在監管要求，但這些是行業普遍遵守的規範，而非公司獨有的特許經營權或准入壁壘。因此，此維度對其競爭優勢的貢獻相對有限，無法形成巴菲特所強調的「收費橋樑」式壟斷。",
-        "comment_en": "In the packaged food industry, patent barriers typically do not form a core moat. Mondelez's products primarily rely on brand and flavor formulations, rather than exclusive technological patents. While regulatory requirements exist for food safety and production standards, these are industry-wide norms, not unique franchises or access barriers specific to the company. Consequently, this dimension contributes relatively little to its competitive advantage, failing to create the 'toll bridge' type of monopoly emphasized by Buffett."
+        "score": 2,
+        "comment_zh": "Mondelez 的業務模式主要依賴於消費品品牌和分銷網絡，而非依賴專利或嚴格的監管壁壘。雖然食品行業存在一定的食品安全和標籤法規，但這些並非構成獨特的、可持續的競爭優勢。與製藥或高科技行業不同，其產品的創新迭代速度相對較快，但核心配方或生產工藝較少受到專利保護，且容易被模仿。因此，在專利和監管這一維度上，Mondelez 的護城河相對較弱，缺乏顯著的進入壁壘。",
+        "comment_en": "Mondelez's business model primarily relies on consumer brands and distribution networks, rather than patents or stringent regulatory barriers. While the food industry has certain food safety and labeling regulations, these do not constitute unique, sustainable competitive advantages. Unlike the pharmaceutical or high-tech industries, the pace of innovation for its products is relatively fast, but core formulations or production processes are rarely protected by patents and are easily imitated. Therefore, in terms of patents and regulation, Mondelez's moat is relatively weak, lacking significant barriers to entry."
       },
       "m3_high_switching_costs": {
         "score": 4,
-        "comment_zh": "對於零食和包裝食品而言，消費者轉換成本相對較低。儘管Mondelez的強大品牌能培養消費習慣和偏好，但消費者仍可輕易選擇其他品牌的餅乾、巧克力或零食。轉換並不會造成重大的財務損失或營運中斷。然而，長期的品牌忠誠度和口味偏好，確實為公司帶來一定的「軟性」黏性，使其在市場競爭中仍能保持優勢，但並非不可逾越的壁壘。",
-        "comment_en": "For snacks and packaged foods, consumer switching costs are relatively low. While Mondelez's strong brands cultivate habits and preferences, consumers can easily opt for other brands of cookies, chocolates, or snacks. Switching does not incur significant financial loss or operational disruption. However, long-term brand loyalty and taste preferences do create a certain 'soft' stickiness for the company, allowing it to maintain an advantage in market competition, though not an insurmountable barrier."
+        "comment_zh": "對於終端消費者而言，更換零食品牌通常沒有顯著的轉換成本。消費者可以輕易地從奧利奧轉向其他餅乾品牌，反之亦然。然而，從經銷商和零售商的角度來看，與 Mondelez 這樣的大型供應商建立穩固的合作關係，並整合其產品線，可能存在一定的時間和資源投入。但這種成本並非高到足以阻止競爭對手進入或消費者轉移。因此，轉換成本的壁壘屬於中等偏弱的水平。",
+        "comment_en": "For end consumers, switching snack brands typically involves no significant switching costs. Consumers can easily switch from Oreo to other biscuit brands, and vice versa. However, from the perspective of distributors and retailers, establishing a stable cooperative relationship with a large supplier like Mondelez and integrating its product lines may involve certain time and resource investments. But these costs are not high enough to prevent competitors from entering or consumers from switching. Therefore, the barrier from switching costs is at a moderate to weak level."
       },
       "m4_network_effects": {
-        "score": 1,
-        "comment_zh": "Mondelez作為一家傳統的包裝食品公司，其商業模式不具備網絡效應。其產品的價值不會因為更多消費者使用而對其他消費者產生幾何級增長。零食和飲料的消費本質上是獨立的，不涉及平台或生態系統的協同作用。因此，網絡效應在此維度上幾乎不構成任何護城河，這與科技平台型企業的競爭優勢截然不同。",
-        "comment_en": "As a traditional packaged food company, Mondelez's business model does not exhibit network effects. The value of its products does not geometrically increase for other consumers as more people use them. Snack and beverage consumption is inherently independent, not involving platform or ecosystem synergies. Therefore, network effects contribute almost no moat in this dimension, which is distinctly different from the competitive advantages of technology platform companies."
+        "score": 2,
+        "comment_zh": "Mondelez 的業務模式並未直接受益於顯著的網絡效應。其產品的消費價值主要來自於品牌、口味和便利性，而非用戶之間的互動或連接。雖然其龐大的分銷網絡可以視為一種間接的網絡效應，即越多的零售商銷售其產品，越能吸引更多的消費者，反之亦然，但這種效應的強度遠不及社交媒體或市場平台。因此，在網絡效應這一維度上，Mondelez 的護城河非常有限。",
+        "comment_en": "Mondelez's business model does not directly benefit from significant network effects. The consumption value of its products primarily comes from brand, taste, and convenience, rather than user interaction or connection. While its vast distribution network could be considered an indirect network effect – the more retailers sell its products, the more consumers are attracted, and vice versa – the strength of this effect is far less than that of social media or marketplace platforms. Therefore, in terms of network effects, Mondelez's moat is very limited."
       },
       "m5_cost_advantage_scale": {
         "score": 8,
-        "comment_zh": "Mondelez作為全球領先的零食巨頭，其龐大的規模帶來顯著的成本優勢。這體現在原材料採購上的議價能力、高效的全球供應鏈管理、優化的生產流程以及廣泛的分銷網絡。這些規模經濟使其能夠以更低的單位成本生產和運輸產品，從而實現更高的利潤率，並在價格競爭中佔據有利地位。新進入者或小型競爭者難以在短期內複製這種規模帶來的成本效率。",
-        "comment_en": "As a leading global snack giant, Mondelez's immense scale provides significant cost advantages. This is evident in its bargaining power for raw material procurement, efficient global supply chain management, optimized production processes, and extensive distribution network. These economies of scale enable it to produce and transport products at lower unit costs, leading to higher profit margins and a favorable position in price competition. New entrants or smaller competitors would find it challenging to replicate such scale-driven cost efficiencies in the short term."
+        "comment_zh": "Mondelez 作為全球領先的零食公司，其規模經濟效應顯著。龐大的生產量使其能夠在採購原材料、生產製造和物流運輸方面獲得更低的單位成本。與小型競爭對手相比，其規模優勢使其能夠提供更具競爭力的價格，或在維持相同價格的情況下獲得更高的利潤率。此外，其全球化的生產和分銷網絡進一步鞏固了這一成本優勢，使其難以被後來者模仿。這是其堅實的護城河之一。",
+        "comment_en": "As a leading global snack company, Mondelez benefits significantly from economies of scale. Its massive production volume allows it to achieve lower unit costs in raw material procurement, manufacturing, and logistics. Compared to smaller competitors, its scale advantage enables it to offer more competitive pricing or achieve higher profit margins while maintaining the same prices. Furthermore, its globalized production and distribution network further solidifies this cost advantage, making it difficult for new entrants to imitate. This is one of its robust moats."
       },
       "m6_unique_geography_assets": {
         "score": 3,
-        "comment_zh": "Mondelez的業務遍布全球，其產品市場廣闊且競爭激烈，並非依賴於特定的利基市場或獨特的地理位置。雖然公司在某些地區可能擁有較高的市場份額，但這更多是品牌和分銷優勢的結果，而非市場容量有限或地理位置的天然寡佔。因此，此維度對其護城河的貢獻較小，不屬於巴菲特所指的「收費橋樑」或「天然壟斷」類型。",
-        "comment_en": "Mondelez operates globally, with its products in vast and competitive markets, not relying on specific niche markets or unique geographical locations. While the company may hold high market share in certain regions, this is more a result of brand and distribution advantages, rather than limited market capacity or natural geographical oligopoly. Therefore, this dimension contributes minimally to its moat, not falling into Buffett's categories of 'toll bridges' or 'natural monopolies'."
+        "comment_zh": "Mondelez 在全球範圍內擁有廣泛的市場滲透，尤其是在發達國家和新興市場。然而，其業務模式並非依賴於獨特的地理位置或稀缺的自然資源。雖然其在某些地區的市場領導地位是寶貴的，但這些市場並非絕對封閉或不可替代。其全球佈局更多是規模優勢的體現，而非依賴於特定地理位置的獨特性。因此，在獨特地理資產方面，其護城河相對較弱。",
+        "comment_en": "Mondelez has extensive market penetration globally, particularly in developed and emerging markets. However, its business model does not rely on unique geographical locations or scarce natural resources. While its market leadership in certain regions is valuable, these markets are not absolutely closed or irreplaceable. Its global presence is more a reflection of scale advantage rather than reliance on the uniqueness of specific geographical assets. Therefore, in terms of unique geographical assets, its moat is relatively weak."
       },
       "m7_operational_efficiency": {
         "score": 7,
-        "comment_zh": "Mondelez在成熟的消費品市場中，透過精細化管理和規模化運營，展現出穩定的盈利能力。其13.2%的ROE和4.9%的ROA，以及30.85億美元的自由現金流，表明公司能夠有效利用資本並產生可觀的回報。儘管其ROIC可能不會像某些科技公司那樣爆發性增長，但在競爭激烈的行業中，持續超越加權平均資本成本，證明了其卓越的運營效率和資本配置能力。",
-        "comment_en": "In the mature consumer goods market, Mondelez demonstrates stable profitability through refined management and scaled operations. Its 13.2% ROE, 4.9% ROA, and $3.085 billion in free cash flow indicate the company's ability to effectively utilize capital and generate substantial returns. While its ROIC may not exhibit explosive growth like some tech companies, consistently exceeding its weighted average cost of capital in a competitive industry proves its excellent operational efficiency and capital allocation capabilities."
+        "comment_zh": "Mondelez 在其全球運營中展現出較高的效率水平。通過持續的供應鏈優化、生產流程改進以及對成本的嚴格控制，公司能夠維持穩定的盈利能力。其 F-Score 為 5/9，表明其在盈利能力、槓桿、流動性、股東回報、營運效率和財務槓桿等方面表現尚可，但並非頂尖。儘管如此，相較於行業平均水平，其營運效率仍能提供一定的競爭優勢，尤其是在成本控制和資源利用方面。",
+        "comment_en": "Mondelez demonstrates a high level of operational efficiency in its global operations. Through continuous supply chain optimization, production process improvements, and strict cost controls, the company is able to maintain stable profitability. Its F-Score of 5/9 indicates acceptable performance in profitability, leverage, liquidity, shareholder returns, operational efficiency, and financial leverage, though not top-tier. Nevertheless, compared to the industry average, its operational efficiency still provides a certain competitive advantage, especially in cost control and resource utilization."
       },
       "m8_capital_allocation": {
         "score": 7,
-        "comment_zh": "Mondelez作為一家成熟的消費品公司，其管理層在資本配置上通常採取穩健策略。公司通過戰略性收購來擴大品牌組合和市場份額，並透過股票回購和股息派發來回饋股東。在市值772.6億美元的基礎上，30.85億美元的自由現金流提供了充足的彈性。儘管負債相對較高，但其穩定的現金流和品牌資產提供了償債保障，顯示管理層在平衡增長與股東回報方面的能力。",
-        "comment_en": "As a mature consumer goods company, Mondelez's management typically adopts a prudent capital allocation strategy. The company expands its brand portfolio and market share through strategic acquisitions, and returns capital to shareholders via share buybacks and dividends. With a market capitalization of $77.261 billion, $3.085 billion in free cash flow provides ample flexibility. Although debt is relatively high, stable cash flow and brand assets provide debt service coverage, demonstrating management's ability to balance growth with shareholder returns."
+        "comment_zh": "Mondelez 的管理層在資本配置方面展現出一定的紀律性。公司透過股息支付和股票回購向股東返還資本，同時也進行戰略性收購以擴張產品線或市場份額。其 ROE 達 15.3%，顯示其資本運用效率尚可。儘管其現金與負債比例顯示一定的槓桿，但其自由現金流（FCF TTM: $3,658.0M）相對穩健，為其資本配置提供了支持。管理層在平衡增長投資與股東回報方面，表現出務實的態度。",
+        "comment_en": "Mondelez's management demonstrates a degree of discipline in capital allocation. The company returns capital to shareholders through dividends and share buybacks, while also engaging in strategic acquisitions to expand its product lines or market share. Its ROE of 15.3% indicates a reasonable efficiency in capital utilization. Although its cash-to-debt ratio suggests some leverage, its free cash flow (FCF TTM: $3,658.0M) is relatively robust, supporting its capital allocation strategies. Management exhibits a pragmatic approach in balancing growth investments with shareholder returns."
       },
       "m9_customer_retention": {
         "score": 8,
-        "comment_zh": "Mondelez的產品屬於日常消費品，其需求具有高度的確定性和抗週期性。無論經濟好壞，消費者對零食和甜點的需求依然存在。這種基本需求使得公司對技術變革或AI顛覆具有強大的免疫力。儘管健康趨勢可能帶來挑戰，但公司通過產品創新和品牌延伸來適應市場變化，確保其核心產品在消費者日常生活中保持不可或缺的地位，從而實現高客戶留存率。",
-        "comment_en": "Mondelez's products are daily consumer goods, characterized by high demand certainty and counter-cyclicality. Regardless of economic conditions, consumer demand for snacks and treats persists. This fundamental need grants the company strong immunity to technological disruption or AI-driven changes. While health trends may pose challenges, the company adapts through product innovation and brand extensions, ensuring its core products remain indispensable in consumers' daily lives, thereby achieving high customer retention."
+        "comment_zh": "Mondelez 的強大品牌組合是其客戶黏性的關鍵驅動因素。奧利奧、吉百利等品牌在全球範圍內擁有龐大的忠實消費者群體，他們對這些品牌的偏好根深蒂固，不易改變。這種品牌忠誠度轉化為高度的客戶留存率，確保了公司穩定的銷售收入和市場份額。相較於許多依賴頻繁促銷或新奇產品吸引消費者的公司，Mondelez 的客戶黏性建立在長期的品牌信任和情感連結之上，構成了堅實的護城河。",
+        "comment_en": "Mondelez's strong brand portfolio is a key driver of its customer retention. Brands like Oreo and Cadbury have vast, loyal consumer bases globally, whose preference for these brands is deeply ingrained and not easily changed. This brand loyalty translates into a high customer retention rate, ensuring stable sales revenue and market share for the company. Compared to many companies that rely on frequent promotions or novel products to attract consumers, Mondelez's customer stickiness is built on long-term brand trust and emotional connection, forming a solid moat."
       },
       "m10_durability": {
-        "score": 8,
-        "comment_zh": "Mondelez的核心競爭力在於其經久不衰的品牌組合和全球分銷網絡，這些資產的建立需要數十年時間和巨額投入，難以被競爭對手在短期內複製。即使給予競爭者千億美元，也無法立即建立起奧利奧、吉百利等品牌在全球消費者心中的地位和信任。這種無形資產的不可複製性，確保了公司在未來數十年內仍能保持其市場領導地位和盈利能力，構成堅實的長期護城河。",
-        "comment_en": "Mondelez's core competitive strength lies in its enduring brand portfolio and global distribution network, assets that took decades and immense investment to build, making them difficult for competitors to replicate in the short term. Even with hundreds of billions of dollars, a competitor could not instantly establish the global consumer recognition and trust enjoyed by brands like Oreo and Cadbury. This irreproducibility of intangible assets ensures the company's market leadership and profitability for decades to come, forming a robust long-term moat."
+        "score": 7,
+        "comment_zh": "Mondelez 的產品屬於必需消費品中的零食類別，具有較強的消費彈性，不易受到經濟週期劇烈波動的影響。即使在經濟下行時期，消費者對零食的需求依然相對穩定。其多元化的產品組合和全球市場佈局，進一步增強了其業務的韌性。雖然面臨來自其他零食品牌和新興健康食品的競爭，但其核心品牌的持久吸引力以及不斷的產品創新，使其能夠在不斷變化的市場環境中保持競爭力，展現出較好的業務持久性。",
+        "comment_en": "Mondelez's products fall into the snack category within consumer staples, possessing considerable consumption resilience and being less susceptible to severe economic cycle fluctuations. Even during economic downturns, demand for snacks remains relatively stable. Its diversified product portfolio and global market presence further enhance the resilience of its business. While facing competition from other snack brands and emerging healthy food options, the enduring appeal of its core brands and continuous product innovation enable it to remain competitive in a constantly changing market environment, demonstrating good business durability."
       },
-      "overall_moat_verdict_zh": "Mondelez本質上是一家典型的「特許經營權」企業，其核心護城河源於其無與倫比的全球品牌組合和規模經濟。奧利奧、吉百利等品牌已成為消費者日常生活中不可或缺的一部分，賦予公司強大的定價權和穩定的現金流。儘管在專利壁壘和網絡效應方面表現平平，且轉換成本相對較低，但其龐大的全球分銷網絡、卓越的運營效率以及對技術顛覆的免疫力，共同構建了一道堅固的防線。管理層在資本配置上的穩健策略，進一步鞏固了其作為長期價值投資標的的吸引力，使其能夠持續為股東創造價值。",
-      "overall_moat_verdict_en": "Mondelez is essentially a classic 'franchise' business, with its core moat stemming from an unparalleled global brand portfolio and economies of scale. Brands like Oreo and Cadbury have become indispensable parts of consumers' daily lives, granting the company strong pricing power and stable cash flow. While performing modestly in patent barriers and network effects, and having relatively low switching costs, its vast global distribution network, excellent operational efficiency, and immunity to technological disruption collectively form a robust defense. Management's prudent capital allocation strategy further solidifies its appeal as a long-term value investment, enabling it to consistently create shareholder value.",
-      "evidenceHash": "f420bc767bc8dec61bffc2ea2ef883e65252969967f646d7488b6cf7575a801b",
+      "overall_moat_verdict_zh": "Mondelez 的經濟護城河主要建立在其強大的品牌資產和規模經濟之上。奧利奧、吉百利等品牌賦予其顯著的定價權和客戶黏性，這是其最核心的競爭壁壘。龐大的全球生產和分銷網絡帶來了顯著的成本優勢，使其難以被競爭對手超越。然而，在專利、網絡效應和轉換成本方面，其護城河相對較弱。整體而言，Mondelez 展現出類似於「收費橋」的特徵，即其品牌和分銷網絡為消費者和零售商提供了不可或缺的價值，但並非絕對的壟斷。其業務具有較強的持久性，屬於穩健的消費品公司。",
+      "overall_moat_verdict_en": "Mondelez's economic moat is primarily built upon its strong brand equity and economies of scale. Brands like Oreo and Cadbury grant it significant pricing power and customer stickiness, which are its core competitive barriers. Its vast global production and distribution network provides a substantial cost advantage, making it difficult for competitors to surpass. However, its moat is relatively weaker in terms of patents, network effects, and switching costs. Overall, Mondelez exhibits characteristics akin to a 'toll bridge,' where its brands and distribution network offer indispensable value to consumers and retailers, though not an absolute monopoly. Its business possesses considerable durability, positioning it as a solid consumer staples company.",
+      "evidenceHash": "0733787fd942f96d1044d760d055ceac0b288861834183e01ac5eb172335e5fe",
       "assessmentPolicy": "buffett-moat-v3",
       "model": "gemini-2.5-flash-lite",
       "provider": "Vertex AI"
@@ -541030,7 +541054,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "e95889305a9f68dc5efc5190a6d105c3540569ba8b725dd5491eb2536f006e82"
       },
       "mScore": {
@@ -541042,7 +541066,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "e95889305a9f68dc5efc5190a6d105c3540569ba8b725dd5491eb2536f006e82"
       }
     },
@@ -541190,7 +541214,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MDLZ",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:21:58Z",
+      "fetchedAt": "2026-10-31T17:15:23Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-10-30",
@@ -541219,14 +541243,14 @@ window.FULL_MARKET_DATA = {
         "inventory": 4441000000,
         "preferredStock": 0
       },
-      "sharesOutstanding": 1276310000,
+      "sharesOutstanding": 1265840000,
       "shareSource": {
-        "shares": 1276.31,
+        "shares": 1265.84,
         "date": "2026-10-31",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1103982/000162828026068256/mdlz-20260930.htm",
-        "capturedAt": "2026-10-31T14:21:58Z"
+        "capturedAt": "2026-10-31T17:15:23Z"
       }
     },
     "z_score": 2.36,
@@ -541545,7 +541569,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/21665/000002166526000048/cl-20260930.htm",
-      "capturedAt": "2026-10-31T14:22:05Z"
+      "capturedAt": "2026-10-31T17:15:42Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 75962.6,
@@ -544718,60 +544742,60 @@ window.FULL_MARKET_DATA = {
     "roa": 11.722720264946041,
     "moat": {
       "ticker": "CL",
-      "period": "2026Q2",
+      "period": "2026Q3",
       "m1_brand_pricing": {
         "score": 9,
-        "comment_zh": "高露潔棕欖憑藉其全球家喻戶曉的品牌，如高露潔牙膏、棕欖香皂和希爾思寵物食品，建立了極強的品牌心智。消費者對這些日常必需品有著高度的信任與忠誠度，使其在面對通膨壓力時，具備顯著的提價能力而不會大幅流失銷量。這種品牌溢價能力是其核心護城河之一，讓公司能將成本轉嫁給消費者，維持穩定的利潤率，這正是巴菲特所推崇的特許經營權特徵。",
-        "comment_en": "Colgate-Palmolive has cultivated exceptionally strong brand recognition globally with household names like Colgate toothpaste, Palmolive soap, and Hill's Pet Nutrition. Consumers exhibit high trust and loyalty towards these daily essentials, granting the company significant pricing power to raise prices without substantial sales volume loss, even amidst inflationary pressures. This brand premium capability is a core moat, allowing the company to pass on costs and maintain stable profit margins, a hallmark of the franchise businesses favored by Buffett."
+        "comment_zh": "高露潔-棕欖憑藉其深植人心的品牌價值，在個人護理領域建立了強大的定價權。超過一個世紀的品牌積累，使其產品超越了單純的商品屬性，成為消費者信任的象徵。這種信任轉化為消費者對價格變動的較高容忍度，尤其是在其核心的牙膏和口腔護理產品線。儘管面臨來自寶潔等巨頭的競爭，高露潔的品牌忠誠度依然穩固，能夠在不顯著犧牲銷量的情況下維持利潤率。其品牌壁壘是難以被競爭對手模仿的，這得益於持續的市場投入和消費者關係維護。",
+        "comment_en": "Colgate-Palmolive has established strong pricing power in the personal care sector through its deeply ingrained brand equity. Over a century of brand building has elevated its products beyond mere commodities, making them symbols of consumer trust. This trust translates into a higher tolerance for price changes, particularly in its core toothpaste and oral care product lines. Despite facing competition from giants like P&G, Colgate's brand loyalty remains robust, enabling it to maintain profit margins without significant sales erosion. Its brand barrier is difficult for competitors to replicate, owing to continuous market investment and consumer relationship management."
       },
       "m2_patents_regulatory": {
-        "score": 5,
-        "comment_zh": "在消費品領域，高露潔棕欖的護城河並非主要來自於獨家專利或嚴格的政府特許。儘管公司在產品配方和製造工藝上擁有專利，但這些專利通常難以形成像製藥業那樣的長期壟斷壁壘。競爭對手可以透過研發替代配方或微創新來規避。然而，作為全球領先企業，其產品符合各國嚴格的監管標準，這本身也是一種進入門檻，但並非獨有優勢。",
-        "comment_en": "In the consumer goods sector, Colgate-Palmolive's moat is not primarily derived from exclusive patents or stringent government licenses. While the company holds patents in product formulations and manufacturing processes, these typically do not create the same long-term monopolistic barriers seen in pharmaceuticals. Competitors can often circumvent them through alternative formulations or minor innovations. However, as a global leader, its adherence to strict regulatory standards across various countries does present an entry barrier, though not a unique advantage."
+        "score": 3,
+        "comment_zh": "高露潔的業務模式主要依賴於消費品品牌和規模經濟，而非依賴專利或嚴格的監管壁壘。雖然其產品可能包含一些專利技術，但這些專利通常是針對特定配方或生產工藝，其時效性和獨佔性相對有限，容易被競爭對手通過研發或替代方案繞過。在口腔護理等領域，監管審批是標準流程，但並未構成顯著的進入壁壘。與製藥或高科技行業不同，高露潔的競爭優勢更多來自於品牌和營銷，而非技術專利或特許經營權。",
+        "comment_en": "Colgate's business model primarily relies on consumer brands and economies of scale, rather than patents or strict regulatory barriers. While its products may incorporate some patented technologies, these are typically for specific formulations or manufacturing processes with limited duration and exclusivity, easily circumvented by competitors through R&D or alternative solutions. In areas like oral care, regulatory approvals are standard procedures but do not constitute significant entry barriers. Unlike the pharmaceutical or high-tech industries, Colgate's competitive advantages stem more from branding and marketing than from technological patents or licenses."
       },
       "m3_high_switching_costs": {
-        "score": 7,
-        "comment_zh": "對於日常消費品而言，直接的貨幣轉換成本較低，但高露潔棕欖受益於消費者習慣和心理黏性。人們傾向於重複購買熟悉的牙膏、香皂或寵物食品，改變品牌需要克服習慣性選擇的惰性。特別是希爾思寵物食品，常由獸醫推薦，一旦寵物適應，轉換品牌可能涉及健康風險或重新適應期，這為消費者帶來了非貨幣性的轉換成本，增強了客戶忠誠度。",
-        "comment_en": "While direct monetary switching costs are low for everyday consumer goods, Colgate-Palmolive benefits from consumer habits and psychological stickiness. People tend to repeatedly purchase familiar toothpaste, soap, or pet food, and changing brands requires overcoming the inertia of habitual choice. Especially for Hill's Pet Nutrition, often recommended by veterinarians, switching brands might involve health risks or readaptation periods for pets, creating non-monetary switching costs for consumers and enhancing loyalty."
+        "score": 4,
+        "comment_zh": "對於高露潔的核心產品，如牙膏和洗手液，消費者的轉換成本相對較低。這些產品屬於日常消耗品，消費者在品牌間的轉換通常基於價格、促銷或一時的偏好變化。然而，高露潔通過其強大的品牌忠誠度和廣泛的產品線，在一定程度上增加了消費者的黏性。一旦消費者習慣了某個品牌的使用體驗和效果，且對價格敏感度不高時，轉換的意願就會降低。但總體而言，與企業級軟體或金融服務相比，其轉換成本壁壘並不顯著。",
+        "comment_en": "For Colgate's core products, such as toothpaste and hand soap, the switching costs for consumers are relatively low. These are daily consumables, and consumer brand switching is often based on price, promotions, or temporary preference changes. However, Colgate, through its strong brand loyalty and extensive product lines, increases consumer stickiness to some extent. Once consumers are accustomed to the usage experience and effectiveness of a particular brand, and are not highly price-sensitive, their willingness to switch decreases. Overall, compared to enterprise software or financial services, its switching cost barrier is not significant."
       },
       "m4_network_effects": {
-        "score": 3,
-        "comment_zh": "高露潔棕欖所處的消費品行業，其商業模式本質上不具備強大的網絡效應。產品的價值不會因為更多用戶使用而對其他用戶產生幾何級數的增長。儘管其廣泛的市場滲透率和分銷網絡有助於品牌知名度，但這更多是規模經濟的體現，而非網絡效應。因此，此維度對其護城河的貢獻相對較小，與巴菲特青睞的平台型企業有所不同。",
-        "comment_en": "The consumer goods industry, where Colgate-Palmolive operates, inherently lacks strong network effects in its business model. The value of its products does not increase geometrically for other users with more people using them. While its extensive market penetration and distribution network contribute to brand awareness, this is more a manifestation of economies of scale than network effects. Consequently, this dimension contributes relatively little to its moat, differing from the platform businesses favored by Buffett."
+        "score": 2,
+        "comment_zh": "高露潔的業務模式，即生產和銷售消費品，基本上不具備顯著的網絡效應。其產品的價值和使用體驗主要取決於產品本身的品質、品牌形象和營銷推廣，而非用戶之間的互動或連接。例如，一個人使用高露潔牙膏的體驗不會因為更多人使用而改變。雖然其龐大的分銷網絡和品牌知名度可以帶來規模優勢，但這與直接的網絡效應（如社交媒體或市場平台）有本質區別。因此，在網絡效應這一維度上，高露潔的護城河非常薄弱。",
+        "comment_en": "Colgate's business model, which involves manufacturing and selling consumer goods, essentially lacks significant network effects. The value and user experience of its products depend primarily on their quality, brand image, and marketing efforts, rather than interactions or connections among users. For instance, one person's experience using Colgate toothpaste does not change because more people use it. While its vast distribution network and brand recognition can provide scale advantages, this is fundamentally different from direct network effects seen in social media or marketplaces. Therefore, Colgate's moat in terms of network effects is very weak."
       },
       "m5_cost_advantage_scale": {
-        "score": 9,
-        "comment_zh": "作為全球領先的消費品巨頭，高露潔棕欖在採購、生產、分銷和廣告方面享有巨大的規模經濟優勢。其龐大的產量和全球供應鏈使其能夠以遠低於小型競爭對手的單位成本採購原材料、製造產品並將其推向市場。這種成本優勢使其在價格競爭中處於有利地位，並能投入更多資源進行研發和品牌建設，形成良性循環，是其堅實的護城河。",
-        "comment_en": "As a leading global consumer goods giant, Colgate-Palmolive enjoys immense economies of scale in procurement, manufacturing, distribution, and advertising. Its vast production volume and global supply chain enable it to source raw materials, produce goods, and bring them to market at unit costs significantly lower than smaller competitors. This cost advantage positions it favorably in price competition and allows for greater investment in R&D and brand building, creating a virtuous cycle that forms a robust moat."
+        "score": 8,
+        "comment_zh": "高露潔憑藉其在全球範圍內龐大的生產和分銷網絡，建立了顯著的規模經濟成本優勢。其巨大的採購量使其能夠以更低的價格獲得原材料，而大規模的生產設施則能攤薄固定成本，提高生產效率。此外，其全球化的供應鏈和物流管理也進一步降低了運營成本。這種成本優勢使得高露潔能夠在保持競爭性價格的同時，實現健康的利潤率，並對小型競爭對手構成進入壁壘。其規模效應體現在生產、採購、分銷和營銷的各個環節。",
+        "comment_en": "Colgate leverages its vast global manufacturing and distribution network to establish significant economies of scale and cost advantages. Its massive purchasing volume allows it to procure raw materials at lower prices, while large-scale production facilities spread fixed costs and enhance efficiency. Furthermore, its globalized supply chain and logistics management further reduce operational costs. This cost advantage enables Colgate to maintain healthy profit margins while offering competitive pricing, posing a barrier to entry for smaller competitors. Its scale effects are evident in all aspects of production, procurement, distribution, and marketing."
       },
       "m6_unique_geography_assets": {
-        "score": 7,
-        "comment_zh": "高露潔棕欖在全球口腔護理市場佔據主導地位，尤其在許多新興市場擁有深厚的渠道和品牌滲透。雖然消費品市場容量巨大，但其在特定品類和地域的長期耕耘，形成了難以撼動的市場地位。新進入者若想在這些市場與之競爭，將面臨巨大的分銷網絡、品牌認知和貨架空間壁壘，極易陷入價格戰，導致雙輸局面，這體現了某種程度的有效規模寡占。",
-        "comment_en": "Colgate-Palmolive holds a dominant position in the global oral care market, particularly with deep channel penetration and brand presence in many emerging markets. While the consumer goods market is vast, its long-term cultivation in specific categories and geographies has created an unshakeable market position. New entrants attempting to compete in these markets would face immense barriers in distribution networks, brand recognition, and shelf space, easily leading to price wars and a lose-lose scenario, reflecting a degree of efficient scale oligopoly."
+        "score": 3,
+        "comment_zh": "高露潔的業務遍及全球，但其核心競爭力並非來自於特定的地理位置或獨特的自然資源。雖然在某些新興市場，其品牌和分銷網絡可能具有先發優勢，但這些優勢並非不可複製的地理資產。其成功更多依賴於全球標準化的品牌管理和營銷策略，而非依賴於某個特定地區的獨特資源或位置。因此，在獨特的地理資產這一維度上，高露潔的護城河並不顯著，其全球佈局更多是市場擴張的體現。",
+        "comment_en": "Colgate operates globally, but its core competitiveness does not stem from specific geographic locations or unique natural resources. While it may have first-mover advantages in certain emerging markets due to its brand and distribution network, these are not irreplicable geographic assets. Its success relies more on globally standardized brand management and marketing strategies rather than unique regional resources or locations. Therefore, Colgate's moat in terms of unique geographic assets is not significant; its global presence is more a reflection of market expansion."
       },
       "m7_operational_efficiency": {
         "score": 8,
-        "comment_zh": "高露潔棕欖的ROA為12.1%，FCF TTM達38.58億美元，顯示其資產運用效率高且現金流充沛。儘管ROE高達863.1%可能受槓桿或股本結構影響，但穩定的ROA和強勁的自由現金流證明了公司在成熟市場中，能持續將投入資本轉化為超額回報。這種長期創造股東價值的韌性，源於其精益的運營管理、高效的供應鏈和卓越的品牌管理能力，是巴菲特所看重的優質企業特徵。",
-        "comment_en": "Colgate-Palmolive's ROA of 12.1% and TTM FCF of $3.858 billion demonstrate high asset utilization efficiency and abundant cash flow. While an 863.1% ROE might be influenced by leverage or equity structure, stable ROA and strong free cash flow prove the company's ability to consistently generate excess returns on invested capital in mature markets. This long-term resilience in creating shareholder value stems from its lean operational management, efficient supply chain, and excellent brand management capabilities, all characteristics valued by Buffett."
+        "comment_zh": "高露潔展現了卓越的營運效率，這在其持續穩定的高 ROE（712.8%）和健康的 ROA（12.3%）數據中得到了體現。公司透過精實生產、優化供應鏈管理以及嚴格的成本控制，不斷提升營運效率。其 F-Score 為 7/9，顯示其財務狀況穩健，盈利能力、槓桿和營運效率均表現良好。持續的自由現金流（FCF TTM: $3,789.0M）證明了其將營收轉化為現金的能力。這種高效的營運是其能夠在競爭激烈的消費品市場中保持領先地位的關鍵因素之一。",
+        "comment_en": "Colgate demonstrates excellent operational efficiency, reflected in its consistently high ROE (712.8%) and healthy ROA (12.3%). The company continuously enhances operational efficiency through lean manufacturing, optimized supply chain management, and strict cost controls. Its F-Score of 7/9 indicates a robust financial position with good performance in profitability, leverage, and operational efficiency. Consistent free cash flow (FCF TTM: $3,789.0M) proves its ability to convert revenue into cash. This high operational efficiency is a key factor enabling its leading position in the competitive consumer goods market."
       },
       "m8_capital_allocation": {
         "score": 8,
-        "comment_zh": "高露潔棕欖在資本配置上展現出穩健和股東友好的策略。公司長期以來保持穩定的股息支付，並在適當時機進行股票回購，以減少流通股數，提升每股收益。其高達7/9的皮氏F-Score也印證了其健康的財務狀況和審慎的經營。在成熟行業中，這種將自由現金流有效回饋股東，而非盲目進行高溢價併購的策略，符合巴菲特對優秀管理層的期望，有助於長期價值創造。",
-        "comment_en": "Colgate-Palmolive demonstrates a steady and shareholder-friendly capital allocation strategy. The company has a long history of consistent dividend payments and executes share buybacks opportunistically to reduce outstanding shares and boost EPS. Its Piotroski F-Score of 7/9 further confirms its sound financial health and prudent operations. In a mature industry, this strategy of effectively returning free cash flow to shareholders, rather than pursuing blind, high-premium acquisitions, aligns with Buffett's expectations for excellent management and contributes to long-term value creation."
+        "comment_zh": "高露潔在資本配置方面展現了長期穩健的策略。公司歷史上傾向於通過股息和股票回購將資本返還給股東，同時也持續投資於品牌建設和產品創新，以維持其市場領導地位。其穩定的自由現金流為其提供了充足的彈性來執行這些資本配置決策。儘管其 ROE 極高，但這也部分歸因於高財務槓桿，公司需要謹慎管理其債務水平（現金 $1,527.0M / 負債 $7,716.0M）。總體而言，管理層在維持股東回報和業務長期增長之間取得了良好的平衡。",
+        "comment_en": "Colgate has demonstrated a consistently sound long-term capital allocation strategy. Historically, the company has favored returning capital to shareholders through dividends and share buybacks, while also continuously investing in brand building and product innovation to maintain its market leadership. Its stable free cash flow provides ample flexibility to execute these capital allocation decisions. Although its ROE is extremely high, this is partly due to significant financial leverage, requiring careful management of its debt levels (Cash $1,527.0M / Debt $7,716.0M). Overall, management has achieved a good balance between sustaining shareholder returns and long-term business growth."
       },
       "m9_customer_retention": {
         "score": 9,
-        "comment_zh": "高露潔棕欖的產品屬於日常必需品，需求確定性極高，且不易受技術變革或AI顛覆。無論科技如何發展，人們對口腔清潔、個人衛生和寵物護理的基本需求不會改變。這使得公司業務具有極強的抗週期性和穩定性。儘管產品本身技術含量不高，但其滿足的是人類最基本且永恆的需求，這賦予了公司極高的「典範轉移抗性」，是其護城河的關鍵組成部分。",
-        "comment_en": "Colgate-Palmolive's products are daily necessities with extremely high demand certainty and strong immunity to technological disruption or AI. Regardless of technological advancements, fundamental human needs for oral hygiene, personal care, and pet care will not change. This grants the company's business exceptional cyclical resilience and stability. Although the products themselves are not highly technological, they fulfill humanity's most basic and enduring needs, providing the company with strong 'disruption immunity,' a critical component of its moat."
+        "comment_zh": "高露潔在客戶保留方面表現極為出色，這主要歸功於其強大的品牌忠誠度和產品的日常必需性。一旦消費者習慣了高露潔產品的品質和使用感受，且品牌在心中建立了信任，他們通常會持續購買。這種忠誠度是通過數十年的品牌建設、持續的質量保證和有效的營銷活動培養起來的。其產品線的廣泛性也意味著消費者可以在一個品牌下滿足多種個人護理需求，進一步降低了轉換的可能性。高客戶保留率是其穩定營收和利潤的基石。",
+        "comment_en": "Colgate excels in customer retention, primarily due to its strong brand loyalty and the essential nature of its products. Once consumers become accustomed to the quality and feel of Colgate products, and the brand has established trust, they tend to continue purchasing. This loyalty has been cultivated over decades through brand building, consistent quality assurance, and effective marketing campaigns. The breadth of its product line also allows consumers to meet multiple personal care needs under one brand, further reducing the likelihood of switching. High customer retention rates are the cornerstone of its stable revenue and profits."
       },
       "m10_durability": {
-        "score": 9,
-        "comment_zh": "高露潔棕欖的品牌資產、全球分銷網絡和消費者信任是經過數十年甚至上百年積累的，即便給予競爭對手千億美元，也無法在短時間內複製。其在口腔護理、個人護理和寵物營養領域的領導地位，是長期市場耕耘、持續創新和品牌投資的結果。這種無形資產的不可複製性，構成了極高的進入壁壘，確保了公司在未來很長一段時間內，仍能保持其競爭優勢和盈利能力，是典型的巴菲特式「難以複製」的護城河。",
-        "comment_en": "Colgate-Palmolive's brand equity, global distribution network, and consumer trust have been built over decades, even centuries; even with a hundred billion dollars, competitors could not replicate them quickly. Its leadership in oral care, personal care, and pet nutrition is the result of long-term market cultivation, continuous innovation, and brand investment. The irreproducibility of these intangible assets creates extremely high barriers to entry, ensuring the company can maintain its competitive advantage and profitability for a very long time, embodying a classic Buffett-style 'irreproducible' moat."
+        "score": 8,
+        "comment_zh": "高露潔的業務模式具有顯著的持久性。其核心產品屬於必需消費品，需求相對穩定，不易受經濟週期波動影響。全球化的品牌影響力和廣泛的產品組合，使其能夠抵禦單一市場或產品線的風險。儘管面臨新興品牌和技術的挑戰，但其強大的品牌資產和規模經濟提供了堅實的防禦。公司持續的產品創新和對營銷的投入，確保了其在不斷變化的市場中保持相關性。只要人類有基本的口腔和個人衛生需求，高露潔的業務就有望持續下去。",
+        "comment_en": "Colgate's business model possesses significant durability. Its core products are essential consumer goods with relatively stable demand, less susceptible to economic cycles. Its global brand influence and diverse product portfolio provide resilience against risks in single markets or product lines. Despite challenges from emerging brands and technologies, its strong brand equity and economies of scale offer a solid defense. Continuous product innovation and marketing investment ensure its relevance in an evolving market. As long as basic oral and personal hygiene needs exist, Colgate's business is likely to endure."
       },
-      "overall_moat_verdict_zh": "高露潔棕欖是一家典型的「特許經營權」企業，其經濟護城河主要由強大的全球品牌心智、無與倫比的規模經濟和消費者習慣黏性所構築。公司在口腔護理等核心品類中佔據主導地位，使其具備顯著的定價權，能夠在不犧牲銷量的情況下轉嫁成本。其產品滿足人類基本且永恆的需求，對技術變革具有極強的免疫力，確保了業務的長期穩定性。儘管專利壁壘和網絡效應相對較弱，但其不可複製的品牌資產、高效的資本配置以及在成熟市場中持續創造超額回報的能力，使其成為巴菲特和蒙格眼中極具吸引力的「收費橋樑」型投資標的，適合長期持有。",
-      "overall_moat_verdict_en": "Colgate-Palmolive is a quintessential 'franchise' business, with its economic moat primarily built upon powerful global brand recognition, unparalleled economies of scale, and consumer habit stickiness. The company's dominant position in core categories like oral care grants it significant pricing power, enabling it to pass on costs without sacrificing sales volume. Its products fulfill fundamental and enduring human needs, providing strong immunity to technological disruption and ensuring long-term business stability. While patent barriers and network effects are relatively weaker, its irreproducible brand assets, efficient capital allocation, and consistent ability to generate excess returns in mature markets make it a highly attractive 'toll bridge' type investment in the eyes of Buffett and Munger, suitable for long-term holding.",
-      "evidenceHash": "629b2927e4da1358928b20752b523bd1a4687e0b9221535e53d8bf06a7111aee",
+      "overall_moat_verdict_zh": "高露潔-棕欖憑藉其無可匹敵的品牌資產和全球規模經濟，構建了堅實的護城河，尤其體現在其強大的定價權和客戶保留能力上。這是一家典型的「收費橋」式企業，其品牌如同無形的收費站，讓消費者在日常必需品上持續付出溢價。儘管在專利和網絡效應方面壁壘不高，但其卓越的營運效率和穩健的資本配置，確保了其長期穩定的盈利能力和股東回報。其業務的持久性使其成為價值投資組合中的穩定基石。",
+      "overall_moat_verdict_en": "Colgate-Palmolive has built a robust moat, primarily through its unparalleled brand equity and global economies of scale, most notably reflected in its strong pricing power and customer retention capabilities. It operates as a classic 'toll bridge' business, where its brands act as invisible toll gates, compelling consumers to consistently pay a premium for everyday necessities. While barriers in patents and network effects are low, its exceptional operational efficiency and sound capital allocation ensure long-term, stable profitability and shareholder returns. The durability of its business makes it a stable cornerstone for a value investment portfolio.",
+      "evidenceHash": "bf718d6d710185546d557ab0351b0ec93d46dee750a727c776cf254091807008",
       "assessmentPolicy": "buffett-moat-v3",
       "model": "gemini-2.5-flash-lite",
       "provider": "Vertex AI"
@@ -544793,7 +544817,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "abd2e3b5955174a043e991f348ce88a73eb4e3897031069b123b055e5816b70c"
       },
       "mScore": {
@@ -544805,7 +544829,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "abd2e3b5955174a043e991f348ce88a73eb4e3897031069b123b055e5816b70c"
       }
     },
@@ -544977,7 +545001,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:22:05Z",
+      "fetchedAt": "2026-10-31T17:15:42Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
       "quoteDate": "2026-10-30",
@@ -545013,7 +545037,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/21665/000002166526000048/cl-20260930.htm",
-        "capturedAt": "2026-10-31T14:22:05Z"
+        "capturedAt": "2026-10-31T17:15:42Z"
       }
     },
     "z_score": 7.16,
@@ -545332,7 +545356,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/63754/000006375426000329/mkc-20260831.htm",
-      "capturedAt": "2026-10-31T14:22:10Z"
+      "capturedAt": "2026-10-31T17:16:05Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 12724.1,
@@ -548505,59 +548529,63 @@ window.FULL_MARKET_DATA = {
     "roa": 11.251604136785687,
     "moat": {
       "ticker": "MKC",
-      "period": "2026Q4",
+      "period": "2026Q3",
       "m1_brand_pricing": {
         "score": 9,
-        "comment_zh": "McCormick憑藉其百年歷史與家喻戶曉的品牌，如McCormick、French's和Frank's RedHot，在香料與調味品市場建立了強大的消費者心智佔有率。消費者對這些品牌有高度信任與依賴，即使價格略有上漲，也鮮少轉向替代品，因為調味品在餐飲總成本中佔比極小，卻對風味影響巨大。這種品牌忠誠度賦予了公司顯著的定價權，使其能夠有效轉嫁成本並維持利潤率，是典型的巴菲特式「特許經營權」特徵，競爭對手難以在短期內複製其品牌資產與市場地位。",
-        "comment_en": "McCormick, with its century-long history and household names like McCormick, French's, and Frank's RedHot, has established a powerful mindshare in the spice and seasoning market. Consumers exhibit high trust and reliance on these brands, rarely switching to alternatives even with slight price increases, as spices represent a minimal portion of total meal cost but significantly impact flavor. This brand loyalty grants the company substantial pricing power, enabling it to effectively pass on costs and maintain margins. It embodies a classic Buffett-esque \"franchise\" characteristic, where competitors would find it exceedingly difficult to replicate its brand equity and market position in the short term."
+        "comment_zh": "McCormick 擁有極為強大的品牌定價權，其香料、調味品和食品在消費者心中建立了近乎奢侈品的地位。這種品牌忠誠度源於其悠久的歷史、卓越的品質聲譽以及對產品一致性的承諾。消費者願意為 McCormick 的品牌支付溢價，因為他們相信其產品能提供無與倫比的風味和可靠性。與其他品牌相比，McCormick 的產品組合提供了獨特的價值主張，使其能夠抵禦價格競爭，並在通膨環境下轉嫁成本。這種品牌實力是其持續盈利能力和市場領導地位的關鍵。其品牌壁壘極高，競爭對手難以複製其消費者信任度和情感連結。",
+        "comment_en": "McCormick possesses exceptionally strong brand pricing power, with its spices, seasonings, and foods holding a near-luxury status in consumers' minds. This brand loyalty stems from its long history, reputation for excellent quality, and commitment to product consistency. Consumers are willing to pay a premium for McCormick's brands because they trust its products to deliver unparalleled flavor and reliability. Compared to other brands, McCormick's product portfolio offers a unique value proposition, enabling it to withstand price competition and pass on costs during inflationary periods. This brand strength is key to its sustained profitability and market leadership. Its brand barrier is extremely high, making it difficult for competitors to replicate its consumer trust and emotional connection."
       },
       "m2_patents_regulatory": {
-        "score": 3,
-        "comment_zh": "在香料與調味品行業，專利壁壘和政府特許經營權並非McCormick核心護城河。食品行業的監管標準雖嚴格，但對所有參與者普遍適用，McCormick並無獨家專利或特許經營權能阻礙競爭。其優勢更多體現在全球供應鏈的合規管理與品質控制能力，這雖能提升進入門檻，但本質上不屬於專利或特許許可帶來的獨佔性。因此，此維度對其護城河貢獻相對有限，與製藥或高科技公司依賴專利保護的模式截然不同。",
-        "comment_en": "In the spice and seasoning industry, patent barriers and government licenses are not McCormick's core moat. While food industry regulations are stringent, they apply universally to all participants, and McCormick holds no exclusive patents or franchises that impede competition. Its advantages lie more in its global supply chain compliance and quality control capabilities, which, while raising entry barriers, do not inherently stem from proprietary patents or exclusive licenses. Therefore, this dimension contributes relatively little to its moat, differing significantly from the patent-dependent models of pharmaceutical and high-tech companies."
+        "score": 2,
+        "comment_zh": "McCormick 在專利和監管壁壘方面得分較低。雖然其部分產品可能涉及食品科學的專利技術，但這些專利通常難以構成長期、廣泛的經濟護城河。食品行業的監管環境雖然嚴格，但主要側重於安全和標籤，而非為特定公司提供獨特的競爭優勢。與製藥或高科技行業不同，McCormick 的核心業務不易受到專利保護的影響，其競爭優勢更多來自於品牌、分銷和運營效率，而非技術壟斷。因此，這方面的壁壘相對較弱。",
+        "comment_en": "McCormick scores low on patent and regulatory barriers. While some of its products may involve patented food science technologies, these patents generally struggle to form long-term, broad economic moats. The regulatory environment in the food industry, though strict, primarily focuses on safety and labeling rather than providing unique competitive advantages to specific companies. Unlike the pharmaceutical or high-tech industries, McCormick's core business is not easily protected by patent monopolies; its competitive advantages stem more from branding, distribution, and operational efficiency. Therefore, barriers in this area are relatively weak."
       },
       "m3_high_switching_costs": {
-        "score": 7,
-        "comment_zh": "對於一般消費者而言，更換香料品牌的直接金錢成本不高，但存在習慣與偏好上的「軟性」轉換成本。人們傾向於使用熟悉且信任的品牌來確保烹飪風味的一致性與品質。更重要的是，McCormick在工業客戶和餐飲服務領域佔據重要地位。這些B2B客戶一旦選定其調味品解決方案，更換供應商將涉及產品重新配方、測試、供應鏈調整等複雜流程與潛在風險，導致較高的轉換成本。這種黏性確保了穩定的需求與重複採購，為公司構築了一道堅實的護城河。",
-        "comment_en": "For individual consumers, the direct monetary cost of switching spice brands is low, but there's a \"soft\" switching cost related to habit and preference. People tend to stick with familiar and trusted brands to ensure consistent cooking flavors and quality. More significantly, McCormick holds a prominent position in industrial and food service sectors. For these B2B clients, once a seasoning solution is adopted, switching suppliers involves complex processes like product reformulation, testing, and supply chain adjustments, incurring substantial costs and potential risks. This stickiness ensures stable demand and repeat purchases, forming a robust moat for the company."
+        "score": 5,
+        "comment_zh": "McCormick 的轉換成本屬於中等水平。對於一般消費者而言，更換香料或調味品品牌的成本幾乎為零，這主要取決於個人口味偏好。然而，對於餐飲服務和食品製造商等商業客戶而言，轉換供應商可能涉及重新驗證產品、調整配方以及供應鏈的變動，這會產生一定的轉換成本。儘管如此，由於市場上存在眾多替代品，這些成本並不足以構成極高的壁壘。公司需要持續提供卓越的產品和服務來維持客戶關係，而非僅依賴轉換成本。",
+        "comment_en": "McCormick's switching costs are moderate. For general consumers, the cost of switching spice or seasoning brands is virtually zero, primarily depending on personal taste preferences. However, for commercial clients such as food service and manufacturers, switching suppliers may involve re-validation of products, adjustments to formulations, and supply chain changes, incurring certain switching costs. Nevertheless, due to the abundance of alternatives in the market, these costs do not constitute extremely high barriers. The company needs to continuously provide excellent products and services to maintain customer relationships, rather than solely relying on switching costs."
       },
       "m4_network_effects": {
-        "score": 0,
-        "comment_zh": "McCormick作為一家消費品公司，其商業模式並不具備典型的網絡效應。網絡效應通常指產品或服務的價值隨用戶數量增加而呈指數級增長，例如社交媒體或拍賣平台。香料與調味品的消費本質上是單向的，一個消費者使用McCormick的產品並不會直接增加其他消費者使用該產品的價值。儘管品牌知名度會因廣泛使用而提升，但這屬於品牌建設範疇，而非經濟學意義上的網絡正反饋機制。因此，此維度對其護城河的貢獻為零。",
-        "comment_en": "As a consumer goods company, McCormick's business model does not exhibit typical network effects. Network effects generally refer to the exponential increase in a product or service's value as the number of users grows, as seen in social media or auction platforms. The consumption of spices and seasonings is inherently unidirectional; one consumer using McCormick's product does not directly increase its value for other consumers. While brand recognition may grow with widespread use, this falls under brand building, not an economic network effect mechanism. Therefore, this dimension contributes zero to its economic moat."
+        "score": 1,
+        "comment_zh": "McCormick 在網絡效應方面幾乎沒有護城河。其業務模式並不依賴於用戶數量的增加來提升產品或服務的價值。無論是消費者購買香料，還是餐飲業者使用其調味品，其價值都不會因為更多人使用而增強。與社交媒體、電商平台或支付系統不同，McCormick 的產品是獨立消費的，不存在正向反饋循環。因此，網絡效應在此幾乎不構成任何競爭壁壘。",
+        "comment_en": "McCormick has virtually no moat in terms of network effects. Its business model does not rely on an increasing number of users to enhance the value of its products or services. Whether consumers are buying spices or food service businesses are using its seasonings, the value does not increase with more people using them. Unlike social media, e-commerce platforms, or payment systems, McCormick's products are consumed independently, and there is no positive feedback loop. Therefore, network effects constitute almost no competitive barrier here."
       },
       "m5_cost_advantage_scale": {
         "score": 8,
-        "comment_zh": "McCormick作為全球最大的香料與調味品公司，其規模經濟優勢極為顯著。龐大的採購量使其在全球範圍內擁有強大的議價能力，能以更低成本獲取優質原材料。在生產製造、物流配送和市場營銷方面，其規模化運作能有效攤薄固定成本，實現更高的營運效率和更低的單位成本。這種成本優勢是小型競爭者難以企及的，使其在價格競爭中處於有利地位，同時能投入更多資源進行產品創新和品牌建設。這是典型的巴菲特所推崇的成本領先型護城河。",
-        "comment_en": "As the world's largest spice and seasoning company, McCormick possesses a highly significant scale advantage. Its immense purchasing volume grants it strong bargaining power globally, enabling it to acquire high-quality raw materials at lower costs. In manufacturing, logistics, and marketing, its scaled operations effectively spread fixed costs, achieving higher operational efficiency and lower unit costs. This cost advantage is unattainable for smaller competitors, positioning McCormick favorably in price competition while allowing it to invest more resources in product innovation and brand building. This is a classic Buffett-favored cost leadership moat."
+        "comment_zh": "McCormick 受惠於顯著的規模經濟和成本優勢。作為全球最大的香料和調味品公司之一，其龐大的採購量使其能夠以更低的價格獲取原材料。同時，其全球化的生產和分銷網絡也帶來了顯著的運營效率。這種規模優勢使得新進入者難以在成本上與之競爭。此外，其對供應鏈的深度整合和優化，進一步鞏固了其成本領先地位。這種規模帶來的成本壁壘是其核心競爭力之一，尤其是在價格敏感的市場。",
+        "comment_en": "McCormick benefits from significant economies of scale and cost advantages. As one of the world's largest spice and seasoning companies, its massive procurement volume allows it to acquire raw materials at lower prices. Concurrently, its globalized production and distribution network yields considerable operational efficiencies. This scale advantage makes it difficult for new entrants to compete on cost. Furthermore, its deep integration and optimization of the supply chain further solidify its cost leadership. This scale-driven cost barrier is one of its core competitive strengths, especially in price-sensitive markets."
       },
       "m6_unique_geography_assets": {
         "score": 7,
-        "comment_zh": "香料與調味品市場雖然廣闊，但McCormick憑藉其全球領導地位，已在高端和主流市場形成了一種事實上的寡占格局。儘管市場容量並非極度有限，但新進入者若想與McCormick競爭，將面臨極高的品牌建設、分銷網絡鋪設和全球供應鏈整合成本。這種市場結構使得潛在競爭者難以在不引發激烈價格戰的情況下獲得可觀份額，從而形成一種「理性寡占」的局面。McCormick的市場主導地位使其能夠有效抵禦新進入者的威脅，維持其盈利能力。",
-        "comment_en": "While the spice and seasoning market is vast, McCormick, through its global leadership, has established a de facto oligopoly in the premium and mainstream segments. Although market capacity isn't extremely limited, new entrants aiming to compete with McCormick would face prohibitively high costs for brand building, distribution network establishment, and global supply chain integration. This market structure makes it difficult for potential competitors to gain significant share without triggering intense price wars, thus creating a \"rational oligopoly.\" McCormick's dominant market position allows it to effectively fend off threats from new entrants and sustain its profitability."
+        "comment_zh": "McCormick 在地理上擁有獨特的優勢，主要體現在其全球化的佈局和對特定區域市場的深度滲透。公司在全球範圍內建立了廣泛的生產、研發和銷售網絡，能夠適應不同地區的口味偏好和法規要求。這種全球佈局不僅分散了風險，也使其能夠利用不同地區的資源和市場機會。尤其是在新興市場，其品牌和分銷網絡的早期建立，構成了難以被快速複製的地理資產。這使其能夠在全球範圍內實現高效的產品推廣和市場佔有。",
+        "comment_en": "McCormick possesses unique geographical advantages, primarily reflected in its global footprint and deep penetration into specific regional markets. The company has established extensive production, R&D, and sales networks worldwide, enabling it to adapt to different regional taste preferences and regulatory requirements. This global presence not only diversifies risk but also allows it to leverage resources and market opportunities across various regions. Particularly in emerging markets, the early establishment of its brands and distribution networks constitutes geographical assets that are difficult to replicate quickly. This enables efficient product promotion and market share acquisition on a global scale."
       },
       "m7_operational_efficiency": {
         "score": 8,
-        "comment_zh": "儘管提供的ROE/ROA數據異常高，但McCormick作為一家擁有強大品牌和規模優勢的消費必需品公司，其商業模式本質上具備產生高於加權平均資本成本（WACC）的投入資本回報率（ROIC）的潛力。穩健的自由現金流（FCF TTM $925.9M）和高達8/9的皮氏F-Score，都印證了公司卓越的財務健康狀況和高效的資本運用能力。這種持續創造超額回報的能力，是巴菲特衡量企業內在價值和護城河深度的關鍵指標，表明公司能為股東帶來持續的複利增長。",
-        "comment_en": "Despite the unusually high ROE/ROA figures provided, McCormick, as a consumer staples company with strong brands and scale advantages, inherently possesses the potential to generate a return on invested capital (ROIC) consistently above its weighted average cost of capital (WACC). Its robust free cash flow (FCF TTM $925.9M) and a high Piotroski F-Score of 8/9 attest to the company's excellent financial health and efficient capital deployment. This sustained ability to generate excess returns is a critical metric for Buffett in assessing intrinsic value and moat depth, indicating the company's capacity for continuous compounding growth for shareholders."
+        "comment_zh": "McCormick 在運營效率方面表現出色，這得益於其持續的流程優化、供應鏈管理和技術投資。公司不斷尋求提高生產效率、降低庫存成本和縮短產品上市時間。其全球化的運營網絡經過多年打磨，已經非常成熟和高效。通過精益生產和數字化轉型，McCormick 能夠在保持高品質的同時，有效控制成本。這種卓越的運營能力不僅提升了盈利能力，也構成了重要的競爭壁壘，因為模仿者需要大量的時間和資源才能達到同等水平。",
+        "comment_en": "McCormick demonstrates outstanding operational efficiency, attributed to its continuous process optimization, supply chain management, and technological investments. The company constantly seeks to improve production efficiency, reduce inventory costs, and shorten product-to-market times. Its globalized operational network, honed over many years, is highly mature and efficient. Through lean manufacturing and digital transformation, McCormick can effectively control costs while maintaining high quality. This superior operational capability not only enhances profitability but also constitutes a significant competitive barrier, as imitators would require substantial time and resources to reach an equivalent level."
       },
       "m8_capital_allocation": {
-        "score": 9,
-        "comment_zh": "即使給予競爭對手千億美元資金，也難以在短時間內複製McCormick的核心戰略資產。其百年積累的全球品牌聲譽、遍佈全球的採購網絡、精密的供應鏈管理、廣泛的分銷渠道以及與消費者建立的深厚信任，都是時間與歷史沉澱的結果。這些無形資產的建立，不僅需要巨額資本，更需要漫長的時間、持續的品質控制和市場深耕。這種不可複製性構成了極為堅固的護城河，使得新進入者幾乎不可能在短期內挑戰其市場領導地位，是巴菲特眼中真正的「特許經營權」價值所在。",
-        "comment_en": "Even with a hundred billion dollars, it would be incredibly difficult for a competitor to replicate McCormick's core strategic assets in a short period. Its century-long accumulation of global brand reputation, worldwide sourcing network, sophisticated supply chain management, extensive distribution channels, and deep consumer trust are the results of time and historical development. Building these intangible assets requires not only immense capital but also a long duration, consistent quality control, and deep market penetration. This irreproducibility forms an extremely robust moat, making it nearly impossible for new entrants to challenge its market leadership in the short term, representing the true \"franchise\" value in Buffett's view."
+        "score": 7,
+        "comment_zh": "McCormick 的資本配置能力相對穩健。公司歷史上展現了通過有機增長、戰略性收購（如收購 RB 旗下的法香業務）以及股東回報（股息和股票回購）來平衡資本運用的能力。管理層在評估投資機會時，傾向於那些能夠帶來可預期回報且符合公司長期戰略的項目。雖然偶有收購整合的挑戰，但總體而言，其資本配置決策支持了公司的持續增長和盈利能力的提升。這種審慎且有策略性的資本配置，為股東創造了長期價值。",
+        "comment_en": "McCormick's capital allocation capability is relatively robust. Historically, the company has demonstrated an ability to balance capital deployment through organic growth, strategic acquisitions (such as the French's business from RB), and shareholder returns (dividends and share buybacks). Management tends to favor projects that offer predictable returns and align with the company's long-term strategy when evaluating investment opportunities. Although occasional challenges arise with acquisition integration, overall, its capital allocation decisions have supported the company's sustained growth and profitability enhancement. This prudent and strategic capital allocation creates long-term value for shareholders."
       },
       "m9_customer_retention": {
-        "score": 9,
-        "comment_zh": "香料與調味品是人類飲食文化中不可或缺的組成部分，其需求具有極高的確定性和持久性。儘管食品行業會出現新的烹飪趨勢或健康理念，但對風味提升的基本需求始終如一。McCormick的產品本質上不易受到技術變革或人工智慧顛覆的影響，不像某些高科技行業可能面臨的典範轉移風險。這種業務的「永恆性」和對顛覆性技術的強大免疫力，賦予了公司極高的穩定性和可預測性，是巴菲特青睞的「簡單易懂」且不易被淘汰的商業模式。",
-        "comment_en": "Spices and seasonings are an indispensable part of human culinary culture, and their demand exhibits extremely high certainty and durability. While new cooking trends or health concepts may emerge in the food industry, the fundamental need for flavor enhancement remains constant. McCormick's products are inherently less susceptible to disruption from technological changes or artificial intelligence, unlike the paradigm shift risks faced by some high-tech industries. This \"timelessness\" of the business and its strong immunity to disruptive technologies grant the company exceptional stability and predictability, embodying the \"simple and understandable\" and resilient business model favored by Buffett."
+        "score": 7,
+        "comment_zh": "McCormick 在客戶保留方面表現良好，這主要歸功於其強大的品牌忠誠度和產品質量。對於消費者而言，一旦習慣了 McCormick 的產品，由於其品質穩定且風味獨特，轉換到其他品牌的意願不高。對於 B2B 客戶，公司通過提供可靠的供應、定制化的解決方案和優質的客戶服務來維持長期合作關係。雖然轉換成本不高，但其品牌價值和產品性能的組合，使得客戶傾向於持續採購。這種基於信任和價值的客戶關係，構成了穩固的保留壁壘。",
+        "comment_en": "McCormick performs well in customer retention, primarily due to its strong brand loyalty and product quality. For consumers, once accustomed to McCormick's products, their willingness to switch to other brands is low due to consistent quality and unique flavors. For B2B clients, the company maintains long-term partnerships by providing reliable supply, customized solutions, and excellent customer service. Although switching costs are not high, the combination of its brand value and product performance leads customers to continue purchasing. This customer relationship, based on trust and value, forms a solid retention barrier."
       },
       "m10_durability": {
         "score": 8,
-        "comment_zh": "McCormick的管理層在資本配置方面展現出穩健與戰略眼光。公司不僅長期保持穩定的股息支付，還通過一系列成功的戰略性收購（如Frank's RedHot和French's）有效擴大了產品組合和市場份額，這些收購通常能與現有業務產生良好的協同效應。在股價被低估時，管理層亦會考慮積極回購股票以提升股東價值。這種對股東利益負責、不盲目擴張、注重內在價值增長的資本配置策略，符合巴菲特對優秀管理層的期望，是公司長期成功的關鍵因素之一。",
-        "comment_en": "McCormick's management has demonstrated prudence and strategic vision in capital allocation. The company not only maintains a long history of stable dividend payments but has also successfully expanded its product portfolio and market share through a series of strategic acquisitions (e.g., Frank's RedHot and French's), which typically generate strong synergies with existing operations. When the stock is undervalued, management also considers aggressive share buybacks to enhance shareholder value. This capital allocation strategy, focused on shareholder interests, avoiding reckless expansion, and prioritizing intrinsic value growth, aligns with Buffett's expectations for excellent management and is a key factor in the company's long-term success."
+        "comment_zh": "McCormick 的業務具有顯著的持久性。其核心產品——香料和調味品——屬於必需消費品，需求相對穩定，不易受經濟週期影響。人們總是需要食物，而調味品是提升食物風味的關鍵。此外，公司不斷通過創新和收購來擴展產品線和市場，適應消費者不斷變化的口味和需求。其全球化的佈局也分散了單一市場的風險。儘管面臨來自自有品牌和新興品牌的競爭，但其強大的品牌實力和運營效率，使其能夠長期保持市場地位。這是一家典型的能夠穿越經濟週期的企業。",
+        "comment_en": "McCormick's business exhibits significant durability. Its core products—spices and seasonings—are essential consumer goods with relatively stable demand, less susceptible to economic cycles. People always need food, and seasonings are key to enhancing its flavor. Furthermore, the company continuously expands its product lines and markets through innovation and acquisitions, adapting to evolving consumer tastes and demands. Its global presence also diversifies risks from single markets. Despite facing competition from private labels and emerging brands, its strong brand power and operational efficiency enable it to maintain its market position over the long term. This is a typical enterprise that can weather economic cycles."
       },
-      "overall_moat_verdict_zh": "McCormick本質上是一家典型的「特許經營權」企業，猶如廚房裡的收費橋樑。其核心護城河深植於百年積累的強大品牌資產（如McCormick、French's），賦予其卓越的定價權和消費者忠誠度。全球領先的規模優勢帶來無可比擬的成本效益和分銷網絡，形成難以複製的競爭壁壘。儘管缺乏網絡效應或專利獨佔性，但其產品的必需性、對技術顛覆的免疫力以及工業客戶的高轉換成本，共同構築了堅實的防禦工事。管理層穩健的資本配置策略進一步鞏固了其長期價值創造能力。這是一家「簡單易懂」、需求永恆、能持續產生豐厚自由現金流的優質企業，非常符合巴菲特對卓越企業的定義。",
-      "overall_moat_verdict_en": "McCormick is fundamentally a classic \"franchise\" business, akin to a toll bridge for the kitchen. Its core moat is deeply rooted in centuries of accumulated powerful brand equity (e.g., McCormick, French's), granting it exceptional pricing power and consumer loyalty. Its global leading scale provides unparalleled cost efficiencies and distribution networks, forming an irreplicable competitive barrier. Although it lacks network effects or patent exclusivity, the essential nature of its products, immunity to technological disruption, and high switching costs for industrial clients collectively build robust defenses. Prudent capital allocation by management further solidifies its long-term value creation capability. This is a \"simple and understandable\" quality business with timeless demand, consistently generating substantial free cash flow, aligning perfectly with Buffett's definition of an excellent enterprise."
+      "overall_moat_verdict_zh": "McCormick 是一家擁有強大經濟護城河的公司，其核心壁壘體現在無可匹敵的品牌定價權（M1）和顯著的規模成本優勢（M5）上。其全球化的佈局（M6）和卓越的運營效率（M7）進一步鞏固了其市場地位。客戶保留（M9）和資本配置（M8）能力也相對穩健，共同構成了其業務的持久性（M10）。儘管在專利監管（M2）和網絡效應（M4）方面壁壘較弱，但其強大的品牌和規模效應足以彌補這些不足，使其成為一個具有長期投資價值的「收費橋」型企業，能夠持續從消費者對品質和風味的追求中獲利。",
+      "overall_moat_verdict_en": "McCormick is a company with a strong economic moat, with its core barriers lying in its unparalleled brand pricing power (M1) and significant scale cost advantages (M5). Its global footprint (M6) and outstanding operational efficiency (M7) further solidify its market position. Customer retention (M9) and capital allocation (M8) capabilities are also relatively robust, collectively contributing to the durability of its business (M10). Although barriers in patents/regulation (M2) and network effects (M4) are weaker, its powerful brand and scale effects are sufficient to compensate for these shortcomings, making it a 'toll bridge' type enterprise with long-term investment value, capable of continuously profiting from consumers' pursuit of quality and flavor.",
+      "evidenceHash": "4defb3b0f32c3245743432393250d8a848ea02bf57bb0bbd6fb73c10ed9add2b",
+      "assessmentPolicy": "buffett-moat-v3",
+      "model": "gemini-2.5-flash-lite",
+      "provider": "Vertex AI"
     },
     "ratingSources": {
       "moat": {
@@ -548576,7 +548604,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "ebd0eaa76439c27fc1b179a459c081219750777757fe648d68901da60b341c4c"
       },
       "mScore": {
@@ -548588,7 +548616,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "ebd0eaa76439c27fc1b179a459c081219750777757fe648d68901da60b341c4c"
       }
     },
@@ -548766,7 +548794,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MKC",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:22:10Z",
+      "fetchedAt": "2026-10-31T17:16:05Z",
       "balanceDate": "2026-08-31",
       "filingDate": "2026-10-01",
       "quoteDate": "2026-10-30",
@@ -548802,7 +548830,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/63754/000006375426000329/mkc-20260831.htm",
-        "capturedAt": "2026-10-31T14:22:10Z"
+        "capturedAt": "2026-10-31T17:16:05Z"
       }
     },
     "z_score": 2.14,
@@ -549117,11 +549145,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "120.94 M",
     "shareSource": {
       "shares": 120.938,
-      "date": "2026-10-30",
+      "date": "2026-10-31",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/21076/000002107626000034/clx-20260630.htm",
-      "capturedAt": "2026-10-31T14:22:15Z"
+      "capturedAt": "2026-10-31T17:16:25Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 10642.5,
@@ -552369,7 +552397,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "717432b9e20657e1d471e1b54cfd3a46953c40c20fcc2e72e20fd406450b1b6a"
       },
       "mScore": {
@@ -552381,7 +552409,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "717432b9e20657e1d471e1b54cfd3a46953c40c20fcc2e72e20fd406450b1b6a"
       }
     },
@@ -552541,7 +552569,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CLX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:22:15Z",
+      "fetchedAt": "2026-10-31T17:16:25Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-07",
       "quoteDate": "2026-10-30",
@@ -552573,11 +552601,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 120938000,
       "shareSource": {
         "shares": 120.938,
-        "date": "2026-10-30",
+        "date": "2026-10-31",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/21076/000002107626000034/clx-20260630.htm",
-        "capturedAt": "2026-10-31T14:22:15Z"
+        "capturedAt": "2026-10-31T17:16:25Z"
       }
     },
     "z_score": 2.02,
@@ -552896,7 +552924,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/47111/000162828026068136/hsy-20260927.htm",
-      "capturedAt": "2026-10-31T14:22:21Z"
+      "capturedAt": "2026-10-31T17:16:33Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 33275.3,
@@ -556064,60 +556092,60 @@ window.FULL_MARKET_DATA = {
     "roa": 13.208223970586092,
     "moat": {
       "ticker": "HSY",
-      "period": "2026Q2",
+      "period": "2026Q3",
       "m1_brand_pricing": {
         "score": 9,
-        "comment_zh": "好時公司擁有如Hershey's、Reese's等無可匹敵的標誌性品牌，這些品牌已深深植入消費者心智，形成強大的情感連結與消費習慣，是其最堅固的護城河。即使在原材料成本上漲或通脹壓力下，公司也能憑藉其品牌忠誠度，有效轉嫁成本，實施提價而不顯著影響銷量。這種強大的定價權，讓好時在競爭激烈的快消品市場中保持領先地位，其產品不僅是商品，更是消費者日常生活中不可或缺的愉悅體驗，遠超普通商品型企業的競爭格局。",
-        "comment_en": "Hershey Company possesses an unparalleled portfolio of iconic brands like Hershey's and Reese's, deeply embedded in consumer consciousness, fostering strong emotional connections and purchasing habits, which constitutes its most robust moat. Even amidst rising raw material costs or inflationary pressures, this brand loyalty enables the company to effectively pass on costs and implement price increases without significantly impacting sales volumes. Such formidable pricing power allows Hershey to maintain a leading position in the highly competitive FMCG market. Its products are not merely commodities but essential sources of daily pleasure for consumers, setting it apart from typical commodity businesses."
+        "comment_zh": "好時公司擁有極其強大的品牌忠誠度與定價權，其核心產品如 Hershey's Kisses 和 Reese's Peanut Butter Cups 在美國市場具有近乎壟斷的地位。這種品牌力源於數十年的情感連結與品質保證，消費者願意為其支付溢價。相較於競爭對手，好時的品牌代表著一種經典的美國零食體驗，難以被模仿。其產品組合的廣度與深度，加上持續的創新，鞏固了其在市場上的領導者地位，使其能夠在成本上升時轉嫁部分壓力，維持穩定的利潤率。這是一種典型的「收費橋」式護城河，消費者因品牌價值而願意支付更高的價格。",
+        "comment_en": "The Hershey Company possesses extremely strong brand loyalty and pricing power. Its core products, such as Hershey's Kisses and Reese's Peanut Butter Cups, hold a near-monopolistic position in the U.S. market. This brand strength stems from decades of emotional connection and quality assurance, leading consumers to willingly pay a premium. Compared to competitors, Hershey's brand represents a classic American snack experience that is difficult to replicate. Its product portfolio's breadth and depth, coupled with continuous innovation, solidify its leadership position, enabling it to pass on some cost increases and maintain stable profit margins. This is a classic 'toll bridge' moat, where consumers pay a higher price due to brand value."
       },
       "m2_patents_regulatory": {
-        "score": 3,
-        "comment_zh": "好時公司所處的食品行業，其護城河並非來自於專利或特許經營權的獨佔性。雖然食品安全與生產標準存在嚴格的監管要求，這對新進入者構成一定的合規門檻，但對於好時這樣擁有百年歷史的老牌企業而言，這更多是日常運營的成本而非獨特的競爭優勢。其產品配方雖有商業秘密保護，但這些秘密難以構成巴菲特所言的「收費橋樑」式壟斷壁壘，因為配方本身並非不可複製，且市場上存在大量替代品。",
-        "comment_en": "Hershey's industry, food manufacturing, does not primarily derive its moat from the exclusivity of patents or special licenses. While stringent regulatory requirements for food safety and production standards do present a compliance barrier to new entrants, for an established, century-old company like Hershey, these are more routine operational costs than unique competitive advantages. Although product formulations are protected by trade secrets, these secrets do not constitute the \"toll bridge\" type of monopolistic barrier that Buffett often refers to, as formulations themselves are not entirely irreplicable, and numerous substitutes exist in the market."
+        "score": 2,
+        "comment_zh": "好時公司在專利和監管壁壘方面得分較低。雖然其生產流程和某些特定產品配方可能受到專利保護，但這些專利通常具有時效性，且在食品行業，核心的競爭力更多來自於品牌、分銷和成本效率，而非技術專利。監管方面，食品行業面臨嚴格的食品安全和標籤法規，但這些是所有參與者必須遵守的標準，並不能構成獨特的競爭優勢。好時並未依賴於某項關鍵的監管許可或專利來維持其市場地位，其核心競爭力不在於此。",
+        "comment_en": "The Hershey Company scores low in terms of patents and regulatory barriers. While its production processes and certain specific product formulations may be protected by patents, these patents are typically time-bound. In the food industry, core competitiveness stems more from brand, distribution, and cost efficiency rather than technological patents. Regarding regulation, the food industry faces strict food safety and labeling laws, but these are standards that all participants must adhere to and do not constitute a unique competitive advantage. Hershey does not rely on any key regulatory licenses or patents to maintain its market position; its core strengths lie elsewhere."
       },
       "m3_high_switching_costs": {
-        "score": 2,
-        "comment_zh": "對於好時的糖果和巧克力產品而言，消費者轉換成本極低，這是其護城河相對薄弱的一環。這些產品屬於典型的衝動性消費品，消費者可以輕易地從好時的產品轉向競爭對手的產品，幾乎不會產生任何財務損失、營運中斷或高昂的遷移成本。這意味著公司無法依賴客戶被「鎖定」在生態系統中，而必須持續投入巨額資金於品牌建設、廣告營銷和產品創新，以不斷吸引和留住消費者，維持其市場份額和品牌偏好。",
-        "comment_en": "For Hershey's confectionery and chocolate products, consumer switching costs are extremely low, representing a relatively weaker aspect of its moat. These products are typical impulse purchases, and consumers can easily switch from Hershey's offerings to competitors' products with virtually no financial loss, operational disruption, or high migration costs. This implies that the company cannot rely on customers being \"locked in\" to an ecosystem. Instead, it must continuously invest substantial capital in brand building, advertising, and product innovation to constantly attract and retain consumers, thereby maintaining its market share and brand preference."
+        "score": 4,
+        "comment_zh": "好時產品的轉換成本相對較低。消費者在選擇巧克力和糖果時，通常基於口味偏好、品牌認知和價格，而非產品的複雜性或集成度。一旦消費者形成了對某個品牌的忠誠度，他們可能會持續購買，但這種忠誠度更多是品牌吸引力的體現，而非技術或合同約束造成的顯著轉換成本。對於企業客戶（如零售商），更換供應商可能涉及重新談判價格和物流安排，但這也並非難以克服的障礙。因此，轉換成本並非好時的主要護城河。",
+        "comment_en": "The switching costs for Hershey's products are relatively low. Consumers typically choose chocolate and candy based on taste preference, brand recognition, and price, rather than product complexity or integration. Once consumers develop loyalty to a certain brand, they may continue to purchase it, but this loyalty is more a reflection of brand appeal than significant switching costs caused by technology or contractual obligations. For business customers (like retailers), changing suppliers might involve renegotiating prices and logistics, but this is not an insurmountable obstacle. Therefore, switching costs are not Hershey's primary moat."
       },
       "m4_network_effects": {
-        "score": 0,
-        "comment_zh": "好時公司所經營的糖果和巧克力業務，本質上不具備網絡效應。其產品價值不會因為更多消費者使用而對其他使用者產生額外增益，例如社交平台或電商市場那樣的「飛輪效應」。好時的成功主要依賴於其產品品質、強大的品牌吸引力、廣泛且高效的分銷網絡以及卓越的營銷策略，而非用戶間的互動或連接。因此，此維度對其護城河的貢獻為零，與巴菲特所青睞的具備網絡效應的平台型企業截然不同。",
-        "comment_en": "Hershey Company's confectionery and chocolate business inherently lacks network effects. The value of its products does not increase for other users simply because more consumers use them, unlike the \"flywheel effect\" seen in social platforms or e-commerce marketplaces. Hershey's success primarily relies on its product quality, strong brand appeal, extensive and efficient distribution network, and superior marketing strategies, rather than user interaction or connectivity. Therefore, this dimension contributes zero to its moat, fundamentally differing from the platform-based businesses with network effects that Buffett often favors."
+        "score": 2,
+        "comment_zh": "好時公司在網絡效應方面得分不高。網絡效應通常出現在平台型業務或社交媒體中，即用戶越多，產品或服務的價值就越大。好時作為一家消費品公司，其產品的價值主要體現在單一消費者對產品的體驗和品牌認同上，而非用戶之間的互動。雖然其分銷網絡的廣泛性可以被視為一種間接的網絡效應（越多的零售商銷售，越多的消費者能買到），但這更接近於規模優勢和分銷壁壘，而非典型的網絡效應。其核心業務不依賴於用戶數量的增長來提升價值。",
+        "comment_en": "The Hershey Company does not score highly in network effects. Network effects typically appear in platform-based businesses or social media, where the more users there are, the greater the value of the product or service. As a consumer goods company, Hershey's product value is primarily reflected in the individual consumer's experience and brand identification, rather than user interaction. While the extensive reach of its distribution network could be seen as an indirect network effect (the more retailers sell, the more consumers can buy), this is closer to scale advantages and distribution barriers than typical network effects. Its core business does not rely on user growth to increase value."
       },
       "m5_cost_advantage_scale": {
         "score": 8,
-        "comment_zh": "好時作為全球領先的糖果製造商，享有顯著的規模經濟優勢，這構成其堅實的護城河。其龐大的採購量使其在可可、糖等原材料成本上具備強大的議價能力，遠超小型競爭者。同時，大規模自動化生產線能有效降低單位產品的邊際成本，提高生產效率。此外，其廣泛且成熟的分銷網絡，能以更低的物流和營銷成本將產品鋪設到全球各個零售終端，這是新進入者難以在短時間內複製的壁壘，確保了其成本領先地位和市場滲透率。",
-        "comment_en": "As a leading global confectionery manufacturer, Hershey benefits from significant economies of scale, forming a robust moat. Its vast purchasing volume provides strong bargaining power for raw materials like cocoa and sugar, far surpassing smaller competitors. Concurrently, large-scale automated production lines effectively reduce the marginal cost per unit and enhance production efficiency. Furthermore, its extensive and mature distribution network allows products to reach retail outlets worldwide at lower logistics and marketing costs. This represents a barrier difficult for new entrants to replicate quickly, ensuring its cost leadership and market penetration."
+        "comment_zh": "好時公司憑藉其龐大的生產規模和成熟的分銷網絡，建立了顯著的成本優勢。其大規模採購原材料（如可可豆、糖）能夠獲得更優惠的價格，並且通過優化生產流程和物流，降低了單位生產和運輸成本。這種規模經濟效應使得好時能夠以具有競爭力的價格提供產品，同時維持健康的利潤率，對小型競爭者構成了顯著的進入壁壘。其在美國市場的廣泛分銷網絡也意味著更高的運營效率和更低的單店銷售成本。這是一個典型的規模經濟護城河。",
+        "comment_en": "The Hershey Company has established a significant cost advantage through its vast production scale and mature distribution network. Its large-scale procurement of raw materials (like cocoa beans and sugar) allows for more favorable pricing, and by optimizing production processes and logistics, it reduces unit production and transportation costs. This economies of scale enables Hershey to offer products at competitive prices while maintaining healthy profit margins, posing a significant barrier to entry for smaller competitors. Its extensive distribution network in the U.S. market also translates to higher operational efficiency and lower per-store sales costs. This is a classic economies of scale moat."
       },
       "m6_unique_geography_assets": {
-        "score": 6,
-        "comment_zh": "糖果市場雖然不是傳統意義上的利基市場，但好時在零售貨架空間和分銷渠道上建立了強大的「有效規模」壁壘。在超市、便利店等關鍵銷售點，優質的貨架位置是稀缺資源，好時憑藉其無可比擬的品牌影響力和與零售商的長期合作關係，佔據了主導地位。這使得新競爭者即使擁有充足資金，也難以在短時間內獲得同等的分銷深度和廣度，從而形成了一種天然的寡占格局，限制了新玩家的有效進入和市場份額的獲取。",
-        "comment_en": "While the confectionery market is not a niche in the traditional sense, Hershey has established a formidable \"efficient scale\" barrier in retail shelf space and distribution channels. Prime shelf placement in supermarkets and convenience stores is a scarce resource, and Hershey, through its unparalleled brand influence and long-standing relationships with retailers, holds a dominant position. This makes it exceedingly difficult for new competitors, even with ample capital, to quickly achieve the same depth and breadth of distribution, thereby creating a de facto oligopoly that restricts effective entry and market share acquisition for new players."
+        "score": 3,
+        "comment_zh": "好時公司在獨特的地理資產方面得分不高。雖然好時在美國擁有悠久的歷史和深厚的品牌根基，這可以被視為一種無形資產，但其核心業務高度集中在北美市場，特別是美國。它並沒有像一些資源型公司那樣擁有對特定地理位置的獨特資源控制權，也沒有像某些旅遊或房地產公司那樣依賴於特定的地理位置。其品牌價值雖然強大，但並非綁定於某個不可替代的地理位置。因此，這不是其主要的護城河。",
+        "comment_en": "The Hershey Company scores low in unique geographic assets. While Hershey has a long history and deep brand roots in the United States, which can be considered an intangible asset, its core business is highly concentrated in the North American market, particularly the U.S. It does not possess unique control over specific geographic resources like some resource-based companies, nor does it rely on particular geographic locations like some tourism or real estate firms. Although its brand value is strong, it is not tied to an irreplaceable geographic location. Therefore, this is not its primary moat."
       },
       "m7_operational_efficiency": {
         "score": 8,
-        "comment_zh": "好時公司展現出卓越的資本回報能力，這是其護城河強度的有力證明。其高達32.6%的股東權益報酬率（ROE）和10.7%的資產報酬率（ROA），以及過去一年高達25.4億美元的自由現金流，均強烈表明其投入資本回報率（ROIC）持續且顯著地遠超加權平均資本成本（WACC）。這意味著公司不僅能高效利用每一分投入的資本，還能為股東創造實質的複利價值，是巴菲特衡量企業內在價值和護城河強度的最關鍵財務指標之一。",
-        "comment_en": "Hershey Company demonstrates exceptional capital returns, serving as strong evidence of its moat's strength. Its high Return on Equity (ROE) of 32.6% and Return on Assets (ROA) of 10.7%, coupled with $2.54 billion in free cash flow over the past year, strongly indicate that its Return on Invested Capital (ROIC) consistently and significantly exceeds its Weighted Average Cost of Capital (WACC). This means the company not only utilizes every dollar of invested capital efficiently but also generates substantial compounding value for shareholders, making it one of Buffett's most critical financial indicators for assessing intrinsic value and moat strength."
+        "comment_zh": "好時公司展現了卓越的營運效率，這得益於其大規模生產、優化的供應鏈管理以及對成本控制的持續關注。公司透過先進的製造技術和自動化，不斷提高生產效率，降低單位成本。其分銷網絡的廣泛覆蓋和高效的物流系統，確保了產品能夠及時、低成本地送達消費者手中。此外，好時在原材料採購、庫存管理等方面也做得相當出色，有效減少了浪費和資金佔壓。這種持續的營運效率是其維持競爭力與盈利能力的重要支撐。",
+        "comment_en": "The Hershey Company demonstrates excellent operational efficiency, benefiting from its large-scale production, optimized supply chain management, and continuous focus on cost control. The company constantly improves production efficiency and reduces unit costs through advanced manufacturing technologies and automation. Its extensive distribution network coverage and efficient logistics system ensure products are delivered to consumers timely and at low cost. Furthermore, Hershey excels in raw material procurement and inventory management, effectively reducing waste and tied-up capital. This sustained operational efficiency is a crucial support for maintaining its competitiveness and profitability."
       },
       "m8_capital_allocation": {
-        "score": 8,
-        "comment_zh": "即使給予競爭對手千億美元的資金，也難以在短時間內複製好時的核心戰略資產，這構成了其極高的護城河。這不僅包括其百年積累的品牌聲譽、消費者信任和情感連結，更包括其遍布全球的複雜供應鏈、高效的生產設施、以及與數十萬家零售商建立的深厚分銷網絡和合作關係。這些無形資產和經過時間考驗的複雜運營體系，是無法簡單用金錢堆砌出來的，它們共同構成了一道極高的進入壁壘，使其護城河難以被輕易跨越或模仿。",
-        "comment_en": "Even with a hundred billion dollars in capital, competitors would struggle to replicate Hershey's core strategic assets in a short period, forming an exceptionally high moat. This encompasses not only its century-old brand reputation, consumer trust, and emotional connection but also its complex global supply chain, efficient production facilities, and deep distribution network and relationships established with hundreds of thousands of retailers. These intangible assets and time-tested, intricate operational systems cannot simply be built with money, collectively forming an extremely high barrier to entry that makes its moat difficult to easily overcome or imitate."
+        "score": 7,
+        "comment_zh": "好時公司在資本配置方面表現穩健。公司歷史上展現了將自由現金流有效用於股東回報（如股息和股票回購）以及再投資於核心業務增長的平衡能力。雖然偶有併購嘗試，但其整體策略更側重於有機增長和鞏固現有市場地位。管理層對資本的運用相對審慎，能夠在維持穩健的資產負債表（如相對較低的淨負債率）的同時，支持業務的持續發展。其股息支付歷史悠久且穩定增長，顯示了管理層對現金流生成能力的信心和對股東回報的承諾。",
+        "comment_en": "The Hershey Company performs robustly in capital allocation. Historically, the company has demonstrated a balanced ability to effectively use free cash flow for shareholder returns (such as dividends and share buybacks) and reinvestment in core business growth. Although there have been occasional acquisition attempts, its overall strategy leans more towards organic growth and solidifying its existing market position. Management's use of capital is relatively prudent, enabling support for sustained business development while maintaining a solid balance sheet (e.g., a relatively low net debt ratio). Its long history of stable dividend growth reflects management's confidence in cash flow generation capabilities and commitment to shareholder returns."
       },
       "m9_customer_retention": {
-        "score": 9,
-        "comment_zh": "好時公司所處的行業對技術變革或AI顛覆具有強大的免疫力，這是一個重要的護城河特徵。糖果和巧克力滿足的是人類最基本的情感需求和味蕾享受，這種對「小確幸」的需求具有高度的確定性和持久性，不易被新技術或商業模式徹底取代。儘管生產工藝可能隨著技術進步而優化，但產品的本質和消費體驗的核心價值保持不變。這種業務模式的抗顛覆性，使得好時能夠在快速變化的商業環境中保持其市場地位和盈利能力，為長期投資者提供了穩定性。",
-        "comment_en": "Hershey Company operates in an industry with strong immunity to technological disruption or AI-driven upheaval, which is a significant moat characteristic. Candies and chocolates fulfill fundamental human emotional needs and taste pleasures; this demand for \"small joys\" is highly certain and enduring, not easily replaced by new technologies or business models. While production processes may be optimized with technological advancements, the core value of the product's essence and consumer experience remains unchanged. This disruption immunity allows Hershey to maintain its market position and profitability in a rapidly changing business environment, offering stability for long-term investors."
+        "score": 8,
+        "comment_zh": "好時公司在客戶保留方面表現出色，這主要歸功於其強大的品牌影響力和產品的重複購買特性。其標誌性產品如 Reese's 和 Hershey's 巧克力棒，已成為許多消費者生活中的一部分，形成了高度的品牌忠誠度。這種忠誠度使得客戶傾向於持續購買，即使面對價格波動或輕微的產品差異。公司透過持續的產品創新、有效的市場營銷和節日主題產品，不斷強化與消費者的情感聯繫，進一步鞏固了客戶的保留率。這是一種基於品牌情感和習慣的強大客戶保留壁壘。",
+        "comment_en": "The Hershey Company excels in customer retention, primarily due to its strong brand influence and the repeat purchase nature of its products. Its iconic products, such as Reese's and Hershey's chocolate bars, have become a part of many consumers' lives, fostering high brand loyalty. This loyalty leads customers to continue purchasing, even when faced with price fluctuations or minor product differences. Through continuous product innovation, effective marketing, and holiday-themed products, the company constantly strengthens its emotional connection with consumers, further solidifying customer retention rates. This is a strong customer retention barrier based on brand emotion and habit."
       },
       "m10_durability": {
-        "score": 7,
-        "comment_zh": "鑑於好時穩健的財務表現、持續強勁的自由現金流以及高ROIC，可以合理推斷其管理層在資本配置上是審慎且以股東利益為導向的。一個成熟且具備堅固護城河的公司，通常會通過合理的股息政策、在股價被低估時積極進行股票回購以提升每股價值，以及有紀律地進行小規模、高協同效應的併購策略來最大化股東價值。這種對資本的有效管理和配置，是確保企業長期複利增長和護城河持續強化的關鍵因素。",
-        "comment_en": "Given Hershey's stable financial performance, consistently strong free cash flow, and high ROIC, it is reasonable to infer that its management is prudent and shareholder-oriented in capital allocation. A mature company with a robust moat typically maximizes shareholder value through a sensible dividend policy, actively engaging in share buybacks when the stock is undervalued to enhance per-share value, and pursuing disciplined, small-scale, highly synergistic M&A strategies. This effective management and allocation of capital are crucial factors in ensuring the company's long-term compounding growth and the continuous strengthening of its moat."
+        "score": 8,
+        "comment_zh": "好時公司的業務模式展現了良好的持久性。作為必需消費品行業的一員，巧克力和糖果的需求相對穩定，不易受到經濟週期的劇烈影響。即使在經濟下行時期，消費者對這些「小確幸」產品的需求依然存在。好時強大的品牌資產、規模經濟和高效的運營，使其能夠抵禦市場波動和競爭壓力。雖然零食行業存在創新和新進入者的挑戰，但好時憑藉其深厚的市場根基和持續的品牌投資，有能力適應變化並保持其市場領導地位。其業務的持久性使其成為一個相對穩定的價值投資標的。",
+        "comment_en": "The Hershey Company's business model demonstrates good durability. As a member of the essential consumer goods sector, demand for chocolate and candy is relatively stable and not severely affected by economic cycles. Even during economic downturns, demand for these 'small indulgence' products persists. Hershey's strong brand equity, economies of scale, and efficient operations enable it to withstand market fluctuations and competitive pressures. Although the snack industry faces challenges from innovation and new entrants, Hershey, with its deep market roots and continuous brand investment, is capable of adapting to changes and maintaining its market leadership. The durability of its business makes it a relatively stable value investment target."
       },
-      "overall_moat_verdict_zh": "好時公司本質上是一家擁有強大「特許經營權」特徵的消費品巨頭，其核心護城河建立在無可匹敵的品牌心智與廣泛的分銷網絡之上。儘管缺乏專利壁壘和網絡效應，且轉換成本低，但其規模經濟、難以複製的品牌資產以及對技術顛覆的免疫力，共同構建了一道堅實的防線。公司持續創造超額ROIC，並通過審慎的資本配置，確保了股東價值的長期增長。這使其成為巴菲特眼中典型的「收費橋樑」式企業，能夠在任何經濟週期中保持穩健盈利。",
-      "overall_moat_verdict_en": "Hershey Company is essentially a consumer goods giant characterized by strong \"franchise\" attributes, with its core moat built upon unparalleled brand equity and an extensive distribution network. While lacking patent barriers and network effects, and facing low switching costs, its economies of scale, irreproducible brand assets, and immunity to technological disruption collectively form a robust defense. The company consistently generates superior ROIC and, through prudent capital allocation, ensures long-term shareholder value growth. This positions it as a classic \"toll bridge\" enterprise in Buffett's view, capable of maintaining stable profitability across economic cycles.",
-      "evidenceHash": "364e1032da23a68e00bdebd477717af0be654973494368ddbb6f3290207c9909",
+      "overall_moat_verdict_zh": "好時公司憑藉其無與倫比的品牌忠誠度與定價權（M1），以及顯著的規模經濟與營運效率（M5, M7），構建了堅實的經濟護城河。其產品的重複購買特性和品牌情感連結，帶來了高客戶保留率（M9），使其業務具有良好的持久性（M10）。雖然在專利監管（M2）、轉換成本（M3）和網絡效應（M4）方面壁壘較弱，但其核心優勢足以抵禦大部分競爭。好時的護城河更接近於一種強大的「品牌型特許經營」，消費者因品牌價值而願意支付溢價，並持續回購，使其能夠在可預見的未來維持穩定的盈利能力。",
+      "overall_moat_verdict_en": "The Hershey Company has built a solid economic moat through its unparalleled brand loyalty and pricing power (M1), as well as significant economies of scale and operational efficiency (M5, M7). The repeat purchase nature of its products and emotional brand connection lead to high customer retention (M9), giving its business good durability (M10). Although barriers are weaker in patents/regulation (M2), switching costs (M3), and network effects (M4), its core strengths are sufficient to withstand most competition. Hershey's moat is best described as a powerful 'brand-based franchise,' where consumers willingly pay a premium due to brand value and continue to repurchase, enabling it to maintain stable profitability for the foreseeable future.",
+      "evidenceHash": "2b5a1156b6524e97649cb4f9641b60eed805e61bf2bad7db3a9db5d0ba8e8d9d",
       "assessmentPolicy": "buffett-moat-v3",
       "model": "gemini-2.5-flash-lite",
       "provider": "Vertex AI"
@@ -556139,7 +556167,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "aeafb0ed8ee78fbf8546e4ceac527087caa3b86f1ce52ebe663f26ffe4dcb02f"
       },
       "mScore": {
@@ -556151,7 +556179,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "aeafb0ed8ee78fbf8546e4ceac527087caa3b86f1ce52ebe663f26ffe4dcb02f"
       }
     },
@@ -556317,7 +556345,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "HSY",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:22:21Z",
+      "fetchedAt": "2026-10-31T17:16:33Z",
       "balanceDate": "2026-09-27",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-10-30",
@@ -556353,7 +556381,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/47111/000162828026068136/hsy-20260927.htm",
-        "capturedAt": "2026-10-31T14:22:21Z"
+        "capturedAt": "2026-10-31T17:16:33Z"
       }
     },
     "z_score": 4,
@@ -556668,11 +556696,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "481.96 M",
     "shareSource": {
       "shares": 481.959583,
-      "date": "2026-10-30",
+      "date": "2026-10-31",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/7084/000000708426000042/adm-20260630.htm",
-      "capturedAt": "2026-10-31T14:22:26Z"
+      "capturedAt": "2026-10-31T17:16:54Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 37067.5,
@@ -559915,7 +559943,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "2d8eeaf3849781ef02ba625e2fa7494f3b2e87f70261b7f73e6eea20d209df71"
       },
       "mScore": {
@@ -559927,7 +559955,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "2d8eeaf3849781ef02ba625e2fa7494f3b2e87f70261b7f73e6eea20d209df71"
       }
     },
@@ -560129,7 +560157,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ADM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:22:26Z",
+      "fetchedAt": "2026-10-31T17:16:54Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-04",
       "quoteDate": "2026-10-30",
@@ -560161,11 +560189,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 481959583,
       "shareSource": {
         "shares": 481.959583,
-        "date": "2026-10-30",
+        "date": "2026-10-31",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/7084/000000708426000042/adm-20260630.htm",
-        "capturedAt": "2026-10-31T14:22:26Z"
+        "capturedAt": "2026-10-31T17:16:54Z"
       }
     },
     "z_score": 3.16,
@@ -560484,7 +560512,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/313927/000119312526441040/chd-20260930.htm",
-      "capturedAt": "2026-10-31T14:22:31Z"
+      "capturedAt": "2026-10-31T17:17:03Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 25435.4,
@@ -563657,60 +563685,60 @@ window.FULL_MARKET_DATA = {
     "roa": 8.472945190499104,
     "moat": {
       "ticker": "CHD",
-      "period": "2026Q2",
+      "period": "2026Q3",
       "m1_brand_pricing": {
         "score": 8,
-        "comment_zh": "Church & Dwight憑藉其多元化的強勢品牌組合，如Arm & Hammer、OxiClean和Trojan等，在日常消費品市場建立了顯著的品牌心智。這些品牌在消費者心中擁有高度信任與忠誠度，使其在面對成本上升時具備一定的提價能力，且不至於顯著影響銷量。巴菲特強調的「無形資產」在此體現為消費者對品牌的長期認可，這使得公司能夠在競爭激烈的市場中維持健康的利潤率，並有效抵禦價格戰，形成穩固的護城河。",
-        "comment_en": "Church & Dwight boasts a robust portfolio of household brands, including Arm & Hammer, OxiClean, and Trojan, which command significant consumer mindshare in the everyday essentials market. This strong brand recognition fosters high trust and loyalty among consumers, granting the company considerable pricing power to pass on cost increases without substantial volume loss. As Buffett emphasizes, these \"intangible assets\" represent long-term consumer acceptance, enabling CHD to maintain healthy profit margins and effectively resist price wars in a competitive landscape, thereby forming a solid economic moat."
+        "comment_zh": "CHD 旗下擁有 Arm & Hammer、OxiClean、Trojan 等知名品牌，在特定品類中建立了強大的品牌忠誠度和定價能力。這些品牌在消費者心中具有高度的識別度和信任感，使其能夠在不犧牲銷量的情況下維持溢價。例如，Arm & Hammer 的小蘇打產品在家庭清潔和烘焙領域具有悠久的歷史和廣泛的應用，形成了難以撼動的品牌地位。OxiClean 在去污產品市場也佔據領先地位。然而，與可口可樂或寶潔等消費巨頭相比，CHD 的品牌組合相對集中，且部分產品面臨較為激烈的競爭，這限制了其品牌定價權的進一步提升。",
+        "comment_en": "CHD owns strong brands like Arm & Hammer, OxiClean, and Trojan, establishing significant brand loyalty and pricing power within their respective categories. These brands possess high recognition and trust among consumers, enabling them to maintain premium pricing without sacrificing volume. For instance, Arm & Hammer's baking soda has a long history and broad applications in household cleaning and baking, creating an unshakeable brand position. OxiClean also leads in the stain remover market. However, compared to consumer giants like Coca-Cola or P&G, CHD's brand portfolio is relatively concentrated, and some products face intense competition, limiting further enhancement of its brand pricing power."
       },
       "m2_patents_regulatory": {
-        "score": 4,
-        "comment_zh": "對於Church & Dwight所處的家庭用品行業而言，專利壁壘並非其核心護城河。儘管公司可能擁有某些產品配方或生產工藝的專利，但這些通常難以構成像製藥或高科技行業那樣的獨佔性優勢。行業主要受產品安全和標籤法規監管，這些是所有參與者都必須遵守的標準，而非獨家特許。因此，其監管准入更多是營運成本而非競爭壁壘，難以形成巴菲特所推崇的、能帶來超額利潤的「收費橋樑」。",
-        "comment_en": "For Church & Dwight's household products sector, patent barriers are not a primary source of competitive advantage. While the company may hold patents for certain product formulations or manufacturing processes, these typically do not confer the same exclusive dominance seen in pharmaceuticals or high-tech industries. The sector is primarily regulated by product safety and labeling laws, which are standard compliance requirements for all players, not exclusive licenses. Thus, regulatory entry acts more as an operational cost than a competitive barrier, failing to create the \"toll bridge\" type of extraordinary profit potential favored by Buffett."
+        "score": 3,
+        "comment_zh": "CHD 的業務主要集中在消費品領域，其中大部分產品的壁壘並非來自專利或嚴格的監管保護。雖然某些產品線，如 Trojan 的避孕套，可能涉及一定的技術和監管標準，但整體而言，其核心業務的創新和產品生命週期相對較短，不易形成長期的專利壁壘。與製藥或高科技行業相比，CHD 在專利和監管保護方面的優勢較為薄弱，這意味著其產品更容易被仿冒或被新技術取代，對其長期競爭優勢構成挑戰。",
+        "comment_en": "CHD's business primarily lies in consumer goods, where most products are not protected by patents or stringent regulatory barriers. While certain product lines, such as Trojan condoms, may involve specific technologies and regulatory standards, CHD's core businesses generally have shorter innovation and product life cycles, making it difficult to establish long-term patent moats. Compared to the pharmaceutical or high-tech industries, CHD's advantages in patents and regulatory protection are relatively weak. This implies its products are more susceptible to imitation or technological obsolescence, posing a challenge to its long-term competitive advantage."
       },
       "m3_high_switching_costs": {
         "score": 5,
-        "comment_zh": "Church & Dwight的產品多為日常消費品，其直接的財務或營運轉換成本相對較低。消費者更換牙膏、洗衣粉或小蘇打品牌並不會造成顯著損失。然而，公司透過長期建立的品牌信任和產品品質，培養了消費者的心理黏性。一旦消費者習慣並信任某個品牌，他們會傾向於重複購買，避免嘗試未知產品的風險。這種基於習慣和信任的「心理轉換成本」，雖然不如企業級軟體或基礎設施服務那樣高昂，但對於維持市場份額和穩定現金流仍具重要作用。",
-        "comment_en": "For Church & Dwight's everyday consumer products, direct financial or operational switching costs are relatively low. Consumers can easily switch between brands of toothpaste, detergent, or baking soda without significant loss. However, the company has cultivated psychological stickiness through long-established brand trust and product quality. Once consumers become accustomed to and trust a particular brand, they tend to repurchase, avoiding the perceived risk of trying unknown alternatives. This \"psychological switching cost,\" though not as high as for enterprise software or infrastructure services, plays a crucial role in maintaining market share and stable cash flow."
+        "comment_zh": "CHD 的產品主要為日常消費品，如洗衣液、清潔劑和個人護理用品。對於大多數這類產品，消費者的轉換成本相對較低。一旦消費者習慣了某個品牌或配方，可能會繼續使用，但若出現價格差異或更好的替代品，轉換並非難事。然而，在某些特定領域，如 Trojan 品牌在個人健康產品中的領導地位，可能因為消費者對產品的信任和習慣而產生一定的轉換阻力。但總體而言，轉換成本並非 CHD 的核心競爭壁壘。",
+        "comment_en": "CHD's products are primarily everyday consumer goods, such as laundry detergents, cleaners, and personal care items. For most of these products, the switching costs for consumers are relatively low. While consumers may continue using a brand or formula they are accustomed to, switching is not difficult if there are price differences or better alternatives. However, in certain specific areas, like the leadership of the Trojan brand in personal health products, there might be some switching resistance due to consumer trust and habit. Overall, switching costs do not represent a core competitive moat for CHD."
       },
       "m4_network_effects": {
-        "score": 0,
-        "comment_zh": "Church & Dwight所經營的家庭用品業務，本質上不具備網絡效應。其產品如清潔劑、個人護理用品等，其價值並不會因為更多人使用而對其他使用者產生增益。網絡效應通常出現在平台型業務或社交媒體等領域，即每增加一個用戶，整個生態系統對所有參與者的價值都會呈幾何級數增長。CHD的商業模式是線性的產品銷售，缺乏這種內在的指數級增長機制，因此在此維度上不構成護城河。",
-        "comment_en": "Church & Dwight's household products business inherently lacks network effects. The value of its products, such as detergents and personal care items, does not increase for other users simply because more people use them. Network effects typically manifest in platform businesses or social media, where each additional user exponentially enhances the value of the entire ecosystem for all participants. CHD's business model is based on linear product sales, lacking this intrinsic exponential growth mechanism, and thus does not possess a moat in this dimension."
+        "score": 2,
+        "comment_zh": "CHD 的業務模式，如清潔用品、個人護理和寵物食品，基本上不具備顯著的網絡效應。其產品的價值和銷售主要依賴於產品本身的品質、品牌聲譽和分銷渠道，而非用戶之間的互動或網絡擴張帶來的價值增長。例如，其洗衣液或小蘇打產品的價值不會因為更多人使用而增加。因此，網絡效應並非 CHD 的競爭優勢來源，這也意味著其難以形成自我強化的增長飛輪。",
+        "comment_en": "CHD's business models, such as cleaning supplies, personal care, and pet food, fundamentally lack significant network effects. The value and sales of its products primarily depend on product quality, brand reputation, and distribution channels, rather than value growth derived from user interaction or network expansion. For instance, the value of its laundry detergent or baking soda products does not increase with more users. Therefore, network effects are not a source of competitive advantage for CHD, and it is difficult for them to form a self-reinforcing growth flywheel."
       },
       "m5_cost_advantage_scale": {
-        "score": 8,
-        "comment_zh": "Church & Dwight作為一家大型消費品公司，在採購、生產、分銷和市場營銷方面享有顯著的規模經濟優勢。其龐大的生產量和廣泛的分銷網絡，使其能夠以更低的單位成本採購原材料、製造產品並將其送達全球各地的零售點。這種成本優勢使得小型競爭者難以望其項背，因為他們無法達到相同的效率水平。巴菲特推崇的成本領先策略，讓CHD能夠在保持競爭力價格的同時，維持健康的利潤空間，形成一道堅實的護城河。",
-        "comment_en": "As a large consumer goods company, Church & Dwight benefits from significant economies of scale in procurement, production, distribution, and marketing. Its vast production volume and extensive distribution network enable it to source raw materials, manufacture products, and deliver them to retail points worldwide at lower unit costs. This cost advantage makes it difficult for smaller competitors to match, as they cannot achieve the same levels of efficiency. Buffett's favored cost leadership strategy allows CHD to maintain healthy profit margins while offering competitive prices, thereby forming a robust economic moat."
+        "score": 7,
+        "comment_zh": "CHD 作為一家大型消費品公司，在採購、生產和分銷方面享有顯著的規模經濟優勢。其龐大的採購量使其能夠從供應商處獲得更優惠的價格，而集中的生產設施則能降低單位生產成本。此外，其廣泛的分銷網絡能夠有效地將產品送達全國乃至全球的零售商，進一步降低了物流成本。這種規模優勢使得 CHD 能夠在價格上與競爭對手抗衡，並在維持盈利能力的同時提供具有競爭力的價格，這是其重要的護城河。",
+        "comment_en": "As a large consumer goods company, CHD benefits from significant economies of scale in procurement, production, and distribution. Its substantial purchasing volume allows it to secure more favorable prices from suppliers, while centralized production facilities reduce per-unit manufacturing costs. Furthermore, its extensive distribution network efficiently delivers products to retailers nationwide and globally, further lowering logistics expenses. This scale advantage enables CHD to compete effectively on price and maintain profitability while offering competitive pricing, constituting an important moat."
       },
       "m6_unique_geography_assets": {
         "score": 2,
-        "comment_zh": "Church & Dwight的業務性質決定了其不具備獨特的地理位置或天然寡占的利基市場護城河。家庭用品市場是廣闊且競爭激烈的，並非像公用事業或某些資源開採行業那樣，因地理位置或有限市場容量而形成天然壁壘。儘管公司在零售貨架空間上可能佔據優勢，但這並非不可複製的地理資產。新競爭者進入市場雖會增加競爭，但不會因為市場容量有限而立即導致「雙輸」局面，因此此維度護城河較弱。",
-        "comment_en": "The nature of Church & Dwight's business means it does not possess a moat derived from unique geographical locations or naturally oligopolistic niche markets. The household products market is vast and competitive, unlike utilities or certain resource extraction industries that benefit from geographical barriers or limited market capacity. While the company may hold advantageous retail shelf space, this is not an irreplicable geographical asset. New competitors, while increasing competition, do not immediately lead to a \"lose-lose\" scenario due to limited market capacity, thus this moat dimension is weak."
+        "comment_zh": "CHD 的業務主要集中在北美市場，雖然其品牌在美國市場具有較高的知名度，但其地理上的獨特性或特殊資產壁壘並不顯著。其產品的生產和銷售模式相對標準化，並未依賴於特定的地理位置或稀缺資源。雖然其品牌在特定市場的滲透率很高，但這更多是品牌和分銷的結果，而非地理位置帶來的獨特優勢。與擁有礦產、土地或特定區域市場壟斷的公司相比，CHD 在這方面的護城河較弱。",
+        "comment_en": "CHD's business is primarily concentrated in the North American market. While its brands are well-known in the US, its geographical uniqueness or special asset moat is not significant. The production and sales models for its products are relatively standardized and do not rely on specific geographic locations or scarce resources. Although its brands have high penetration in certain markets, this is more a result of branding and distribution rather than a unique advantage derived from geography. Compared to companies owning mineral resources, land, or enjoying monopolies in specific regional markets, CHD's moat in this aspect is weaker."
       },
       "m7_operational_efficiency": {
         "score": 7,
-        "comment_zh": "Church & Dwight展現出穩健的營運效率和資本回報能力。其17.1%的股東權益報酬率（ROE）和8.2%的資產報酬率（ROA），以及高達8/9的皮氏F-Score，均表明公司在資產運用和盈利能力方面表現出色。持續的自由現金流（FCF TTM $1,115.3M）證明了其將利潤轉化為現金的能力，這對於股東價值創造至關重要。儘管未提供加權平均資本成本（WACC），但這些指標強烈暗示其投入資本回報率（ROIC）持續超越WACC，體現了巴菲特所重視的長期複利增長潛力。",
-        "comment_en": "Church & Dwight demonstrates robust operational efficiency and capital returns. Its 17.1% Return on Equity (ROE) and 8.2% Return on Assets (ROA), coupled with an impressive Piotroski F-Score of 8/9, indicate strong performance in asset utilization and profitability. Consistent free cash flow (FCF TTM $1,115.3M) underscores its ability to convert profits into cash, which is crucial for shareholder value creation. Although the Weighted Average Cost of Capital (WACC) is not provided, these metrics strongly suggest that its Return on Invested Capital (ROIC) consistently exceeds WACC, reflecting the long-term compounding potential valued by Buffett."
+        "comment_zh": "CHD 在營運效率方面表現穩健，尤其體現在其對成本控制和供應鏈管理的重視。公司透過持續的流程優化和技術投資，努力提高生產效率並降低營運成本。其 F-Score 為 8/9，顯示其財務狀況良好，營運能力強。穩定的自由現金流（FCF TTM: $1,057.8M）也印證了其高效的營運能力。這種持續的營運效率提升，使其能夠在競爭激烈的市場中保持盈利能力，並為股東創造價值。",
+        "comment_en": "CHD demonstrates solid operational efficiency, particularly evident in its focus on cost control and supply chain management. The company strives to enhance production efficiency and reduce operating costs through continuous process optimization and technological investments. Its F-Score of 8/9 indicates a strong financial position and robust operational capabilities. Stable free cash flow (FCF TTM: $1,057.8M) further validates its efficient operations. This sustained improvement in operational efficiency allows CHD to maintain profitability in a highly competitive market and create value for shareholders."
       },
       "m8_capital_allocation": {
-        "score": 6,
-        "comment_zh": "Church & Dwight的核心戰略資產，主要體現在其數十年累積的強大品牌組合和廣泛的分銷網絡。這些資產的建立需要時間、巨額投資和持續的市場耕耘，確實難以在短時間內複製。然而，若給予競爭對手千億美元的資金，他們理論上可以透過大規模併購現有品牌、投入巨資建立新品牌並鋪設分銷渠道來挑戰CHD的地位。這與某些技術獨佔或自然壟斷型企業的「絕對不可複製性」有所不同，因此其護城河強度屬於較高但非頂級水平。",
-        "comment_en": "Church & Dwight's core strategic assets primarily lie in its decades-long accumulation of strong brands and extensive distribution network. Building these assets requires time, substantial investment, and continuous market cultivation, making them genuinely difficult to replicate quickly. However, given a competitor with a hundred billion dollars, they could theoretically challenge CHD's position through large-scale acquisitions of existing brands, massive investment in building new brands, and establishing distribution channels. This differs from the \"absolute irreproducibility\" of certain technologically exclusive or natural monopoly businesses, thus its moat strength is high but not top-tier."
+        "score": 8,
+        "comment_zh": "CHD 的管理層在資本配置方面展現出較高的智慧和紀律。公司歷史上透過精準的併購來擴張品牌組合和市場份額，例如收購 Trojan 和 Waterpik，這些策略性收購為公司帶來了顯著的增長。同時，公司也注重股東回報，透過股票回購和股息支付來回饋股東。其穩健的 ROE (17.3%) 和 ROA (8.3%) 反映了其資本配置的有效性。管理層能夠在有機增長、戰略收購和股東回報之間取得平衡，是其重要的競爭優勢。",
+        "comment_en": "CHD's management demonstrates considerable wisdom and discipline in capital allocation. Historically, the company has expanded its brand portfolio and market share through astute acquisitions, such as those of Trojan and Waterpik, which have driven significant growth. Concurrently, the company prioritizes shareholder returns through share buybacks and dividend payments. Its solid ROE (17.3%) and ROA (8.3%) reflect the effectiveness of its capital allocation. Management's ability to balance organic growth, strategic acquisitions, and shareholder returns constitutes a key competitive advantage."
       },
       "m9_customer_retention": {
-        "score": 9,
-        "comment_zh": "Church & Dwight所處的家庭用品行業，其產品需求具有極高的穩定性和抗顛覆性。無論經濟週期如何波動，人們對清潔、個人護理和日常必需品的需求始終存在。這類產品的消費習慣根深蒂固，且單價較低，消費者對新技術或AI帶來的「顛覆性」替代品接受度不高。儘管銷售渠道可能從實體轉向線上，但產品本身的本質需求和使用方式變化不大。這種需求確定性是巴菲特青睞的「永恆」業務特徵，為公司提供了強大的護城河。",
-        "comment_en": "Church & Dwight operates in the household products sector, where product demand exhibits extremely high stability and resilience to disruption. Regardless of economic cycles, the need for cleaning, personal care, and everyday essentials always persists. Consumption habits for these products are deeply ingrained, and their low price points make consumers less receptive to \"disruptive\" alternatives brought by new technologies or AI. While sales channels may shift from physical to online, the fundamental demand and usage of the products remain largely unchanged. This demand certainty is a characteristic of \"eternal\" businesses favored by Buffett, providing the company with a powerful moat."
+        "score": 7,
+        "comment_zh": "CHD 在其部分核心產品領域，如 Arm & Hammer 的小蘇打和 OxiClean 的清潔產品，擁有較高的客戶黏性。這些產品因其獨特的功效、長期的品牌信任和廣泛的家庭應用，使得消費者傾向於重複購買。例如，許多家庭將 Arm & Hammer 小蘇打視為必備的清潔和除臭劑。雖然轉換成本不高，但品牌忠誠度和產品的習慣性使用，為 CHD 創造了一定的客戶留存率。然而，在部分較為商品化的產品線上，客戶黏性相對較弱。",
+        "comment_en": "CHD enjoys relatively high customer stickiness in some of its core product areas, such as Arm & Hammer baking soda and OxiClean cleaning products. Due to their unique efficacy, long-standing brand trust, and broad household applications, consumers tend to repurchase these items. For example, many households consider Arm & Hammer baking soda an essential cleaning and deodorizing agent. Although switching costs are not high, brand loyalty and habitual product use create a certain level of customer retention for CHD. However, customer stickiness is weaker in some of its more commoditized product lines."
       },
       "m10_durability": {
         "score": 7,
-        "comment_zh": "Church & Dwight的財務數據，特別是高達8/9的皮氏F-Score和穩健的自由現金流，暗示其管理層在資本配置方面表現審慎。巴菲特強調管理層應將股東利益置於首位，透過明智的再投資、有效的債務管理以及在股價低估時進行股票回購來創造價值。雖然具體的併購歷史和回購政策未詳述，但公司持續的盈利能力和健康的財務狀況，表明其資本運用效率較高，能有效避免盲目擴張或過度負債，為股東帶來長期回報。",
-        "comment_en": "Church & Dwight's financial data, particularly its impressive Piotroski F-Score of 8/9 and robust free cash flow, suggest prudent capital allocation by its management. Buffett emphasizes that management should prioritize shareholder interests by making wise reinvestments, effectively managing debt, and conducting share buybacks when the stock is undervalued to create value. While specific M&A history and buyback policies are not detailed, the company's consistent profitability and healthy financial position indicate high capital efficiency, effectively avoiding reckless expansion or excessive debt, thereby delivering long-term returns to shareholders."
+        "comment_zh": "CHD 的業務涵蓋了必需消費品領域，如家庭清潔、個人護理和寵物食品，這些產品的需求相對穩定，不易受經濟週期劇烈波動的影響。即使在經濟下行時期，消費者對清潔用品和基本個人護理產品的需求依然存在。這為公司提供了穩定的現金流和盈利能力，使其能夠抵禦宏觀經濟的衝擊。雖然部分產品線可能面臨競爭壓力，但其核心品牌的韌性和必需消費品的屬性，賦予了其業務較強的持久性。",
+        "comment_en": "CHD's business spans essential consumer goods sectors, including household cleaning, personal care, and pet food. Demand for these products is relatively stable and less susceptible to severe economic cycle fluctuations. Even during economic downturns, the need for cleaning supplies and basic personal care items persists. This provides the company with stable cash flow and profitability, enabling it to withstand macroeconomic shocks. While some product lines may face competitive pressures, the resilience of its core brands and the nature of essential consumer goods lend significant durability to its business."
       },
-      "overall_moat_verdict_zh": "Church & Dwight本質上是一家擁有強大「特許經營權」的消費品公司。其護城河主要由數十年建立的多元化強勢品牌組合（如Arm & Hammer）所構成，這些品牌在消費者心中佔據穩固地位，賦予公司一定的定價權和抵禦競爭的能力。同時，其龐大的規模帶來顯著的成本優勢，使其在採購、生產和分銷上效率超群。儘管缺乏網絡效應或獨佔性專利，但其產品屬於日常必需品，需求穩定且不易受技術顛覆，這為公司提供了極高的抗風險能力和可預測的現金流。管理層的穩健運營和資本配置策略，進一步鞏固了其作為長期價值投資標的的吸引力。",
-      "overall_moat_verdict_en": "Church & Dwight is fundamentally a consumer products company possessing strong \"franchise\" characteristics. Its economic moat is primarily built upon a diversified portfolio of powerful brands, such as Arm & Hammer, cultivated over decades. These brands hold a firm position in consumers' minds, granting the company pricing power and resilience against competition. Concurrently, its vast scale provides significant cost advantages, leading to superior efficiency in procurement, production, and distribution. While lacking network effects or exclusive patents, its products are everyday necessities with stable demand and high immunity to technological disruption, offering the company robust risk resistance and predictable cash flow. The management's prudent operations and capital allocation strategies further solidify its appeal as a long-term value investment.",
-      "evidenceHash": "7f49d27e5158bb8e19b68a9b1ee5bd9456afc5823347adb56c0630a6d0c40614",
+      "overall_moat_verdict_zh": "Church & Dwight (CHD) 展現了穩健的經濟護城河，主要建立在其強大的品牌資產（M1）和規模經濟帶來的成本優勢（M5）之上。其核心品牌如 Arm & Hammer 和 OxiClean 在各自領域擁有良好的市場地位和消費者忠誠度，提供了定價能力和客戶黏性（M9）。管理層在資本配置（M8）方面表現出色，透過戰略性收購和股東回報實現了穩定的增長和盈利能力。營運效率（M7）和業務的必需消費品屬性（M10）進一步鞏固了其護城河的持久性。然而，公司在專利/監管壁壘（M2）和網絡效應（M4）方面較為薄弱，且轉換成本（M3）不高，這限制了其護城河的絕對強度。總體而言，CHD 是一家擁有堅固護城河的優質公司，屬於「收費橋」或「品牌型」企業的範疇，能夠在長期內持續產生穩定的現金流。",
+      "overall_moat_verdict_en": "Church & Dwight (CHD) exhibits a solid economic moat, primarily built upon its strong brand equity (M1) and cost advantages derived from economies of scale (M5). Core brands like Arm & Hammer and OxiClean hold good market positions and consumer loyalty in their respective categories, providing pricing power and customer stickiness (M9). Management excels in capital allocation (M8), achieving consistent growth and profitability through strategic acquisitions and shareholder returns. Operational efficiency (M7) and the essential nature of its products (M10) further reinforce the durability of its moat. However, the company is weaker in patent/regulatory barriers (M2) and network effects (M4), and switching costs (M3) are not high, limiting the absolute strength of its moat. Overall, CHD is a quality company with a robust moat, fitting the 'toll bridge' or 'brand' type enterprise category, capable of generating stable cash flows over the long term.",
+      "evidenceHash": "f99f39d1374c5b957ac4d3a131079545ea450378f7b4549003b4132fca7fb39e",
       "assessmentPolicy": "buffett-moat-v3",
       "model": "gemini-2.5-flash-lite",
       "provider": "Vertex AI"
@@ -563732,7 +563760,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "308fb8d3a439a65a0d757a9893ecd90ab7228eb98db5d524dab35ae60d5e4f29"
       },
       "mScore": {
@@ -563744,7 +563772,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "308fb8d3a439a65a0d757a9893ecd90ab7228eb98db5d524dab35ae60d5e4f29"
       }
     },
@@ -563934,7 +563962,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CHD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:22:31Z",
+      "fetchedAt": "2026-10-31T17:17:03Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
       "quoteDate": "2026-10-30",
@@ -563970,7 +563998,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/313927/000119312526441040/chd-20260930.htm",
-        "capturedAt": "2026-10-31T14:22:31Z"
+        "capturedAt": "2026-10-31T17:17:03Z"
       }
     },
     "z_score": 5.27,
@@ -564289,7 +564317,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/27419/000002741926000042/tgt-20260801.htm",
-      "capturedAt": "2026-10-31T14:22:37Z"
+      "capturedAt": "2026-10-31T17:17:23Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 70070.7,
@@ -567537,7 +567565,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "0f15b55f7aa11d0e7c1a2ff5af8b6e163204b8d9913ac61fcbc3e11822bbbc3f"
       },
       "mScore": {
@@ -567549,7 +567577,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "0f15b55f7aa11d0e7c1a2ff5af8b6e163204b8d9913ac61fcbc3e11822bbbc3f"
       }
     },
@@ -567721,7 +567749,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TGT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:22:37Z",
+      "fetchedAt": "2026-10-31T17:17:23Z",
       "balanceDate": "2026-08-01",
       "filingDate": "2026-08-28",
       "quoteDate": "2026-10-30",
@@ -567757,7 +567785,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/27419/000002741926000042/tgt-20260801.htm",
-        "capturedAt": "2026-10-31T14:22:37Z"
+        "capturedAt": "2026-10-31T17:17:23Z"
       }
     },
     "z_score": 3.21,
@@ -568076,7 +568104,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/55785/000162828026052348/kmb-20260630.htm",
-      "capturedAt": "2026-10-31T14:22:43Z"
+      "capturedAt": "2026-10-31T17:17:31Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 35898.6,
@@ -571324,7 +571352,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "35c096bf8d007907d0bfbfa299835fe1f0a30165a8f05ff546b5191fd53c9766"
       },
       "mScore": {
@@ -571336,7 +571364,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "35c096bf8d007907d0bfbfa299835fe1f0a30165a8f05ff546b5191fd53c9766"
       }
     },
@@ -571508,7 +571536,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "KMB",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:22:43Z",
+      "fetchedAt": "2026-10-31T17:17:31Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-04",
       "quoteDate": "2026-10-30",
@@ -571544,7 +571572,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/55785/000162828026052348/kmb-20260630.htm",
-        "capturedAt": "2026-10-31T14:22:43Z"
+        "capturedAt": "2026-10-31T17:17:31Z"
       }
     },
     "z_score": 3.51,
@@ -571863,7 +571891,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/865752/000110465926092193/mnst-20260630x10q.htm",
-      "capturedAt": "2026-10-31T14:22:48Z"
+      "capturedAt": "2026-10-31T17:17:50Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 92741.4,
@@ -575111,7 +575139,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "ef0e76a793fbb1a726218a331a73d5a43dd7924f2f3c6a37a76806e6deec5cd7"
       },
       "mScore": {
@@ -575123,7 +575151,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "ef0e76a793fbb1a726218a331a73d5a43dd7924f2f3c6a37a76806e6deec5cd7"
       }
     },
@@ -575307,7 +575335,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MNST",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:22:48Z",
+      "fetchedAt": "2026-10-31T17:17:50Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-07",
       "quoteDate": "2026-10-30",
@@ -575343,7 +575371,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/865752/000110465926092193/mnst-20260630x10q.htm",
-        "capturedAt": "2026-10-31T14:22:48Z"
+        "capturedAt": "2026-10-31T17:17:50Z"
       }
     },
     "z_score": 35.51,
@@ -575666,7 +575694,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/40704/000162828026063201/gis-20260830.htm",
-      "capturedAt": "2026-10-31T14:22:53Z"
+      "capturedAt": "2026-10-31T17:17:59Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 18334.4,
@@ -578910,7 +578938,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "03ae46e494b260736c2fc97bd78f7a6cae5239efa87bff5fa1fe949b03c4fe6d"
       },
       "mScore": {
@@ -578922,7 +578950,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "03ae46e494b260736c2fc97bd78f7a6cae5239efa87bff5fa1fe949b03c4fe6d"
       }
     },
@@ -579100,7 +579128,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "GIS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:22:53Z",
+      "fetchedAt": "2026-10-31T17:17:59Z",
       "balanceDate": "2026-08-30",
       "filingDate": "2026-09-23",
       "quoteDate": "2026-10-30",
@@ -579136,7 +579164,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/40704/000162828026063201/gis-20260830.htm",
-        "capturedAt": "2026-10-31T14:22:53Z"
+        "capturedAt": "2026-10-31T17:17:59Z"
       }
     },
     "z_score": 2.28,
@@ -579459,7 +579487,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1637459/000163745926000054/khc-20260627.htm",
-      "capturedAt": "2026-10-31T14:22:58Z"
+      "capturedAt": "2026-10-31T17:18:07Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 28863.0,
@@ -582703,7 +582731,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "956fb9710a8f8a2273c4db4de49fbfbd3a6bba5295f6a9dd7a12f067a46bc03e"
       },
       "mScore": {
@@ -582715,7 +582743,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "956fb9710a8f8a2273c4db4de49fbfbd3a6bba5295f6a9dd7a12f067a46bc03e"
       }
     },
@@ -582856,7 +582884,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "KHC",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:22:58Z",
+      "fetchedAt": "2026-10-31T17:18:07Z",
       "balanceDate": "2026-06-27",
       "filingDate": "2026-08-05",
       "quoteDate": "2026-10-30",
@@ -582892,7 +582920,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1637459/000163745926000054/khc-20260627.htm",
-        "capturedAt": "2026-10-31T14:22:58Z"
+        "capturedAt": "2026-10-31T17:18:07Z"
       }
     },
     "z_score": 0.5,
@@ -583211,7 +583239,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/40545/000004054526000064/ge-20260930.htm",
-      "capturedAt": "2026-10-31T14:23:04Z"
+      "capturedAt": "2026-10-31T17:18:15Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 313136.4,
@@ -586455,7 +586483,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "14c35ac71e6be4865d5c68a9994df5cda765ad73fcd2b5fde031740e27101217"
       },
       "mScore": {
@@ -586467,7 +586495,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "14c35ac71e6be4865d5c68a9994df5cda765ad73fcd2b5fde031740e27101217"
       }
     },
@@ -586669,7 +586697,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "GE",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:23:04Z",
+      "fetchedAt": "2026-10-31T17:18:15Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-20",
       "quoteDate": "2026-10-30",
@@ -586705,7 +586733,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/40545/000004054526000064/ge-20260930.htm",
-        "capturedAt": "2026-10-31T14:23:04Z"
+        "capturedAt": "2026-10-31T17:18:15Z"
       }
     },
     "z_score": 3.27,
@@ -587024,7 +587052,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/18230/000001823026000052/ex991toformcat3q2026earnin.htm",
-      "capturedAt": "2026-10-31T14:23:11Z"
+      "capturedAt": "2026-10-31T17:18:24Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 286262.6,
@@ -590272,7 +590300,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "18355b422e64a432f1e790245a6e6111aa9780d351829c9485c9e274b487ff3a"
       },
       "mScore": {
@@ -590284,7 +590312,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "18355b422e64a432f1e790245a6e6111aa9780d351829c9485c9e274b487ff3a"
       }
     },
@@ -590456,7 +590484,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CAT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:23:11Z",
+      "fetchedAt": "2026-10-31T17:18:24Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-10-30",
@@ -590492,7 +590520,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/18230/000001823026000052/ex991toformcat3q2026earnin.htm",
-        "capturedAt": "2026-10-31T14:23:11Z"
+        "capturedAt": "2026-10-31T17:18:24Z"
       }
     },
     "z_score": 4.45,
@@ -590811,7 +590839,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/100885/000010088526000321/unp-20260930.htm",
-      "capturedAt": "2026-10-31T14:23:16Z"
+      "capturedAt": "2026-10-31T17:18:32Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 180599.0,
@@ -594049,7 +594077,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "bc1d8f1dfddc5a5f83669f97b803b9c4025dbe55b6b8175c937f408ff0ced5cd"
       },
       "mScore": {
@@ -594061,7 +594089,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "bc1d8f1dfddc5a5f83669f97b803b9c4025dbe55b6b8175c937f408ff0ced5cd"
       }
     },
@@ -594239,7 +594267,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "UNP",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:23:16Z",
+      "fetchedAt": "2026-10-31T17:18:32Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-22",
       "quoteDate": "2026-10-30",
@@ -594275,7 +594303,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/100885/000010088526000321/unp-20260930.htm",
-        "capturedAt": "2026-10-31T14:23:16Z"
+        "capturedAt": "2026-10-31T17:18:32Z"
       }
     },
     "z_score": 4.35,
@@ -594594,7 +594622,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/101829/000010182926000031/rtx-20260930.htm",
-      "capturedAt": "2026-10-31T14:23:22Z"
+      "capturedAt": "2026-10-31T17:18:40Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 269618.1,
@@ -597838,7 +597866,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "039dc8a21eea46f40462a5cf8d828c1dce948b737256d1cf0e0b9e10667e3321"
       },
       "mScore": {
@@ -597850,7 +597878,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "039dc8a21eea46f40462a5cf8d828c1dce948b737256d1cf0e0b9e10667e3321"
       }
     },
@@ -598028,7 +598056,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "RTX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:23:22Z",
+      "fetchedAt": "2026-10-31T17:18:40Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-20",
       "quoteDate": "2026-10-30",
@@ -598064,7 +598092,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/101829/000010182926000031/rtx-20260930.htm",
-        "capturedAt": "2026-10-31T14:23:22Z"
+        "capturedAt": "2026-10-31T17:18:40Z"
       }
     },
     "z_score": 2.75,
@@ -598383,7 +598411,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000143/hon-20260930.htm",
-      "capturedAt": "2026-10-31T14:23:27Z"
+      "capturedAt": "2026-10-31T17:18:48Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 69197.5,
@@ -601627,7 +601655,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "ea1a59986227084f97084e72a24590b5dacb4f15fb015fe87dd5afa7ee3cca84"
       },
       "mScore": {
@@ -601639,7 +601667,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "ea1a59986227084f97084e72a24590b5dacb4f15fb015fe87dd5afa7ee3cca84"
       }
     },
@@ -601811,7 +601839,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "HON",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:23:27Z",
+      "fetchedAt": "2026-10-31T17:18:48Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-22",
       "quoteDate": "2026-10-30",
@@ -601847,7 +601875,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000143/hon-20260930.htm",
-        "capturedAt": "2026-10-31T14:23:27Z"
+        "capturedAt": "2026-10-31T17:18:48Z"
       }
     },
     "z_score": 1.64,
@@ -602168,7 +602196,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/12927/000162828026067508/ba-20260930.htm",
-      "capturedAt": "2026-10-31T14:23:33Z"
+      "capturedAt": "2026-10-31T17:18:57Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 135944.8,
@@ -605416,7 +605444,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "c101aca9c69abe8db85c64a4738d39405b64931bcf3759fb6ea9022be298042a"
       },
       "mScore": {
@@ -605428,7 +605456,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "c101aca9c69abe8db85c64a4738d39405b64931bcf3759fb6ea9022be298042a"
       }
     },
@@ -605618,7 +605646,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "BA",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:23:33Z",
+      "fetchedAt": "2026-10-31T17:18:57Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-27",
       "quoteDate": "2026-10-30",
@@ -605654,7 +605682,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/12927/000162828026067508/ba-20260930.htm",
-        "capturedAt": "2026-10-31T14:23:33Z"
+        "capturedAt": "2026-10-31T17:18:57Z"
       }
     },
     "z_score": 1.43,
@@ -605973,7 +606001,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/936468/000162828026066928/lmt-20260927.htm",
-      "capturedAt": "2026-10-31T14:23:38Z"
+      "capturedAt": "2026-10-31T17:19:05Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 147138.4,
@@ -609217,7 +609245,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "5f78d15b6b893332def74dee3037752d48e6c58266ddc0ab1c1387ae4399befd"
       },
       "mScore": {
@@ -609229,7 +609257,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "5f78d15b6b893332def74dee3037752d48e6c58266ddc0ab1c1387ae4399befd"
       }
     },
@@ -609389,7 +609417,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "LMT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:23:38Z",
+      "fetchedAt": "2026-10-31T17:19:05Z",
       "balanceDate": "2026-09-27",
       "filingDate": "2026-10-22",
       "quoteDate": "2026-10-30",
@@ -609425,7 +609453,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/936468/000162828026066928/lmt-20260927.htm",
-        "capturedAt": "2026-10-31T14:23:38Z"
+        "capturedAt": "2026-10-31T17:19:05Z"
       }
     },
     "z_score": 3.67,
@@ -609744,7 +609772,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/315189/000110465926102213/de-20260802x10q.htm",
-      "capturedAt": "2026-10-31T14:23:43Z"
+      "capturedAt": "2026-10-31T17:19:14Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 182126.6,
@@ -612991,7 +613019,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "96b079975bbc0b7e35c70fc68775db6e2018620a66acb4cd9aa27c44e481b325"
       },
       "mScore": {
@@ -613003,7 +613031,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "96b079975bbc0b7e35c70fc68775db6e2018620a66acb4cd9aa27c44e481b325"
       }
     },
@@ -613169,7 +613197,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "DE",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:23:43Z",
+      "fetchedAt": "2026-10-31T17:19:14Z",
       "balanceDate": "2026-08-02",
       "filingDate": "2026-08-27",
       "quoteDate": "2026-10-30",
@@ -613205,7 +613233,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/315189/000110465926102213/de-20260802x10q.htm",
-        "capturedAt": "2026-10-31T14:23:43Z"
+        "capturedAt": "2026-10-31T17:19:14Z"
       }
     },
     "z_score": 3.35,
@@ -613524,7 +613552,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": null,
-      "capturedAt": "2026-10-31T14:23:49Z"
+      "capturedAt": "2026-10-31T17:19:22Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 81117.1,
@@ -616768,7 +616796,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "c87b140f5424dfe190b9789ce9ea88d26a61ed8cd3fb421a19c6e3ecb64d4a54"
       },
       "mScore": {
@@ -616780,7 +616808,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "c87b140f5424dfe190b9789ce9ea88d26a61ed8cd3fb421a19c6e3ecb64d4a54"
       }
     },
@@ -616921,7 +616949,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "UPS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:23:49Z",
+      "fetchedAt": "2026-10-31T17:19:22Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-09-30",
       "quoteDate": "2026-10-30",
@@ -616957,7 +616985,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": null,
-        "capturedAt": "2026-10-31T14:23:49Z"
+        "capturedAt": "2026-10-31T17:19:22Z"
       }
     },
     "z_score": 2.88,
@@ -617276,7 +617304,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/33185/000003318526000044/efx-20260930.htm",
-      "capturedAt": "2026-10-31T14:23:54Z"
+      "capturedAt": "2026-10-31T17:19:30Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 21687.7,
@@ -620520,7 +620548,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "cd4f7df7f311331c33c9b7a644d8b2078f46e4f8956bfa91d17225c548fdf2dc"
       },
       "mScore": {
@@ -620532,7 +620560,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "cd4f7df7f311331c33c9b7a644d8b2078f46e4f8956bfa91d17225c548fdf2dc"
       }
     },
@@ -620704,7 +620732,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "EFX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:23:54Z",
+      "fetchedAt": "2026-10-31T17:19:30Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-20",
       "quoteDate": "2026-10-30",
@@ -620740,7 +620768,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/33185/000003318526000044/efx-20260930.htm",
-        "capturedAt": "2026-10-31T14:23:54Z"
+        "capturedAt": "2026-10-31T17:19:30Z"
       }
     },
     "z_score": 3.32,
@@ -621059,7 +621087,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1552033/000155203326000058/tru-20260930.htm",
-      "capturedAt": "2026-10-31T14:23:59Z"
+      "capturedAt": "2026-10-31T17:19:39Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 14643.9,
@@ -624303,7 +624331,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "69ee0f5e856cc6a46c88c7dd7c21104ffbdc26252568f86dafd82f5615371edb"
       },
       "mScore": {
@@ -624315,7 +624343,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "69ee0f5e856cc6a46c88c7dd7c21104ffbdc26252568f86dafd82f5615371edb"
       }
     },
@@ -624456,7 +624484,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TRU",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:23:59Z",
+      "fetchedAt": "2026-10-31T17:19:39Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-27",
       "quoteDate": "2026-10-30",
@@ -624492,7 +624520,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1552033/000155203326000058/tru-20260930.htm",
-        "capturedAt": "2026-10-31T14:23:59Z"
+        "capturedAt": "2026-10-31T17:19:39Z"
       }
     },
     "z_score": 2.45,
@@ -624811,7 +624839,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/900075/000119312526405731/cprt-20260731.htm",
-      "capturedAt": "2026-10-31T14:24:06Z"
+      "capturedAt": "2026-10-31T17:19:47Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 27910.3,
@@ -628057,7 +628085,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "e37adca15b18a6c4e38e4b438677a6b73e7da3f68b6bc5a30dd948e3a36dbb07"
       },
       "mScore": {
@@ -628069,7 +628097,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "e37adca15b18a6c4e38e4b438677a6b73e7da3f68b6bc5a30dd948e3a36dbb07"
       }
     },
@@ -628253,7 +628281,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CPRT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:24:06Z",
+      "fetchedAt": "2026-10-31T17:19:47Z",
       "balanceDate": "2026-07-31",
       "filingDate": "2026-09-29",
       "quoteDate": "2026-10-30",
@@ -628289,7 +628317,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/900075/000119312526405731/cprt-20260731.htm",
-        "capturedAt": "2026-10-31T14:24:06Z"
+        "capturedAt": "2026-10-31T17:19:47Z"
       }
     },
     "z_score": 21.09,
@@ -628608,7 +628636,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/723531/000072353126000006/payx-20260831.htm",
-      "capturedAt": "2026-10-31T14:24:12Z"
+      "capturedAt": "2026-10-31T17:19:55Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 39912.5,
@@ -631854,7 +631882,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "8edbf77e6d11f39805636f46fdc4f2a67f6f81a19d9b86ed3e6961562a1730d3"
       },
       "mScore": {
@@ -631866,7 +631894,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "8edbf77e6d11f39805636f46fdc4f2a67f6f81a19d9b86ed3e6961562a1730d3"
       }
     },
@@ -632068,7 +632096,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "PAYX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:24:12Z",
+      "fetchedAt": "2026-10-31T17:19:55Z",
       "balanceDate": "2026-08-31",
       "filingDate": "2026-09-24",
       "quoteDate": "2026-10-30",
@@ -632104,7 +632132,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/723531/000072353126000006/payx-20260831.htm",
-        "capturedAt": "2026-10-31T14:24:12Z"
+        "capturedAt": "2026-10-31T17:19:55Z"
       }
     },
     "z_score": 3.14,
@@ -632414,22 +632442,22 @@ window.FULL_MARKET_DATA = {
     "industry": "Building Products",
     "reportedCurrency": "USD",
     "price": 63.07,
-    "shares": 135.908572,
-    "shares_outstanding": 135908572,
+    "shares": 135.908569,
+    "shares_outstanding": 135908569,
     "shares_display": "135.91 M",
     "shareSource": {
-      "shares": 135.908572,
+      "shares": 135.908569,
       "date": "2026-10-31",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/91142/000009114226000104/aos-20260930.htm",
-      "capturedAt": "2026-10-31T14:24:17Z"
+      "capturedAt": "2026-10-31T17:20:05Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 8571.8,
-    "liq_val_1": -3.0969349012069673,
-    "liq_val_2": -6.272084147863756,
-    "liq_val_3": -11.753489691584722,
+    "liq_val_1": -3.096934969567666,
+    "liq_val_2": -6.272084286311631,
+    "liq_val_3": -11.753489951027296,
     "debt": 714.8,
     "cash": 234.5,
     "short_term_investments": 0.0,
@@ -635662,7 +635690,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "f0c666c49c168f577bf173878c0e8802fabf23076ba68d560342d2bcd8d61f87"
       },
       "mScore": {
@@ -635674,7 +635702,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "f0c666c49c168f577bf173878c0e8802fabf23076ba68d560342d2bcd8d61f87"
       }
     },
@@ -635846,7 +635874,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AOS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:24:17Z",
+      "fetchedAt": "2026-10-31T17:20:05Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-10-30",
@@ -635875,14 +635903,14 @@ window.FULL_MARKET_DATA = {
         "inventory": 509300000,
         "preferredStock": 0
       },
-      "sharesOutstanding": 135908572,
+      "sharesOutstanding": 135908569,
       "shareSource": {
-        "shares": 135.908572,
+        "shares": 135.908569,
         "date": "2026-10-31",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/91142/000009114226000104/aos-20260930.htm",
-        "capturedAt": "2026-10-31T14:24:17Z"
+        "capturedAt": "2026-10-31T17:20:05Z"
       }
     },
     "z_score": 7.91,
@@ -636165,7 +636193,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": null,
-      "capturedAt": "2026-10-31T14:24:23Z"
+      "capturedAt": "2026-10-31T17:20:14Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 7503.4,
@@ -639497,7 +639525,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "MXN",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "ce5c7d38499f32c8a96b5bf0b1dbbfde985688fb5c88c8f6c6d8f9820b7b19ac"
       },
       "mScore": {
@@ -639509,7 +639537,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "MXN",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "ce5c7d38499f32c8a96b5bf0b1dbbfde985688fb5c88c8f6c6d8f9820b7b19ac"
       }
     },
@@ -639726,7 +639754,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ASR",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:24:23Z",
+      "fetchedAt": "2026-10-31T17:20:14Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-09-30",
       "quoteDate": "2026-10-30",
@@ -639763,7 +639791,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": null,
-        "capturedAt": "2026-10-31T14:24:23Z"
+        "capturedAt": "2026-10-31T17:20:14Z"
       }
     },
     "z_score": 1.77,
@@ -640082,7 +640110,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1524472/000152447226000148/xyl-20260930.htm",
-      "capturedAt": "2026-10-31T14:24:28Z"
+      "capturedAt": "2026-10-31T17:20:23Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 21190.6,
@@ -643330,7 +643358,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "822c38aa2263222851bb1d3e0596ab88bf01006ca3fffed872303a4294f61593"
       },
       "mScore": {
@@ -643342,7 +643370,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "822c38aa2263222851bb1d3e0596ab88bf01006ca3fffed872303a4294f61593"
       }
     },
@@ -643483,7 +643511,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "XYL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:24:28Z",
+      "fetchedAt": "2026-10-31T17:20:23Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-27",
       "quoteDate": "2026-10-30",
@@ -643519,7 +643547,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1524472/000152447226000148/xyl-20260930.htm",
-        "capturedAt": "2026-10-31T14:24:28Z"
+        "capturedAt": "2026-10-31T17:20:23Z"
       }
     },
     "z_score": 3.31,
@@ -643838,7 +643866,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/84839/000008483926000045/rol-20260930.htm",
-      "capturedAt": "2026-10-31T14:24:33Z"
+      "capturedAt": "2026-10-31T17:20:31Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 16676.5,
@@ -647076,7 +647104,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "d2d36ede75d87ff47354b01c5b3437d63ec616292fa241b40999e0777b901ee3"
       },
       "mScore": {
@@ -647088,7 +647116,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "d2d36ede75d87ff47354b01c5b3437d63ec616292fa241b40999e0777b901ee3"
       }
     },
@@ -647290,7 +647318,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ROL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:24:33Z",
+      "fetchedAt": "2026-10-31T17:20:31Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-22",
       "quoteDate": "2026-10-30",
@@ -647326,7 +647354,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/84839/000008483926000045/rol-20260930.htm",
-        "capturedAt": "2026-10-31T14:24:33Z"
+        "capturedAt": "2026-10-31T17:20:31Z"
       }
     },
     "z_score": 7.84,
@@ -647647,7 +647675,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1781335/000178133526000127/otis-20260930.htm",
-      "capturedAt": "2026-10-31T14:24:39Z"
+      "capturedAt": "2026-10-31T17:20:40Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 28835.7,
@@ -650886,7 +650914,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "a1e849ee459f801d329c8ead8fbcc775567209760fccd9491b94a9848bc3aa0c"
       },
       "mScore": {
@@ -650898,7 +650926,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "a1e849ee459f801d329c8ead8fbcc775567209760fccd9491b94a9848bc3aa0c"
       }
     },
@@ -651039,7 +651067,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "OTIS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:24:39Z",
+      "fetchedAt": "2026-10-31T17:20:40Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-10-30",
@@ -651075,7 +651103,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1781335/000178133526000127/otis-20260930.htm",
-        "capturedAt": "2026-10-31T14:24:39Z"
+        "capturedAt": "2026-10-31T17:20:40Z"
       }
     },
     "z_score": 2.91,
@@ -651394,7 +651422,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1442145/000143774926024749/vrsk20260630_10q.htm",
-      "capturedAt": "2026-10-31T14:24:44Z"
+      "capturedAt": "2026-10-31T17:20:48Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 25549.6,
@@ -654638,7 +654666,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "bb9e620508e5329d7569e762ec2bea5de7857be8ff37f71afb74b3aeec24a25b"
       },
       "mScore": {
@@ -654650,7 +654678,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "bb9e620508e5329d7569e762ec2bea5de7857be8ff37f71afb74b3aeec24a25b"
       }
     },
@@ -654791,7 +654819,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "VRSK",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:24:44Z",
+      "fetchedAt": "2026-10-31T17:20:48Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-29",
       "quoteDate": "2026-10-30",
@@ -654827,7 +654855,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1442145/000143774926024749/vrsk20260630_10q.htm",
-        "capturedAt": "2026-10-31T14:24:44Z"
+        "capturedAt": "2026-10-31T17:20:48Z"
       }
     },
     "z_score": 5.69,
@@ -655150,7 +655178,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/769520/000076952026000047/midd-20260704.htm",
-      "capturedAt": "2026-10-31T14:24:50Z"
+      "capturedAt": "2026-10-31T17:20:57Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 5379.2,
@@ -658388,7 +658416,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "b54d0ff9a280c1b3bde03b08052b4efe736ad38354e696476d4977d8cb745c89"
       },
       "mScore": {
@@ -658400,7 +658428,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "b54d0ff9a280c1b3bde03b08052b4efe736ad38354e696476d4977d8cb745c89"
       }
     },
@@ -658566,7 +658594,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MIDD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:24:50Z",
+      "fetchedAt": "2026-10-31T17:20:57Z",
       "balanceDate": "2026-07-04",
       "filingDate": "2026-08-13",
       "quoteDate": "2026-10-30",
@@ -658602,7 +658630,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/769520/000076952026000047/midd-20260704.htm",
-        "capturedAt": "2026-10-31T14:24:50Z"
+        "capturedAt": "2026-10-31T17:20:57Z"
       }
     },
     "z_score": 2.94,
@@ -658921,7 +658949,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/8670/000000867026000044/adp-20260930.htm",
-      "capturedAt": "2026-10-31T14:24:55Z"
+      "capturedAt": "2026-10-31T17:21:05Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 116434.7,
@@ -662167,7 +662195,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "0c66b7d1d8e26d445708807e30df16b4ee99a814680e04ac6f760417d05531b3"
       },
       "mScore": {
@@ -662179,7 +662207,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "0c66b7d1d8e26d445708807e30df16b4ee99a814680e04ac6f760417d05531b3"
       }
     },
@@ -662369,7 +662397,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ADP",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:24:55Z",
+      "fetchedAt": "2026-10-31T17:21:05Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
       "quoteDate": "2026-10-30",
@@ -662405,7 +662433,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/8670/000000867026000044/adp-20260930.htm",
-        "capturedAt": "2026-10-31T14:24:55Z"
+        "capturedAt": "2026-10-31T17:21:05Z"
       }
     },
     "z_score": 1.69,
@@ -662724,7 +662752,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1501585/000150158526000056/hii-20260930.htm",
-      "capturedAt": "2026-10-31T14:25:00Z"
+      "capturedAt": "2026-10-31T17:21:13Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 12486.5,
@@ -665972,7 +666000,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "a340a57d18b14704fbf37125fe6b8673751d5f9852aadc6062f576c7d079a99b"
       },
       "mScore": {
@@ -665984,7 +666012,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "a340a57d18b14704fbf37125fe6b8673751d5f9852aadc6062f576c7d079a99b"
       }
     },
@@ -665995,7 +666023,7 @@ window.FULL_MARKET_DATA = {
     "logo": "https://images.financialmodelingprep.com/symbol/HII.png",
     "website": "https://www.hii.com",
     "ceo": "Christopher Douglas Kastner",
-    "full_time_employees": "44000",
+    "full_time_employees": "45000",
     "description": "Huntington Ingalls Industries, Inc. (HII) stands as a prominent American enterprise specializing in the comprehensive lifecycle management of military vessels, encompassing their design, construction, modernization, and maintenance. The company's diverse operations are segmented into three core divisions: Ingalls Shipbuilding, Newport News Shipbuilding, and Technical Solutions. HII is a primary builder of non-nuclear ships, delivering amphibious assault ships, expeditionary warfare vessels, surface combatants, and national security cutters to both the U.S. Navy and U.S. Coast Guard. Furthermore, it plays a critical role in providing nuclear-powered ships, including aircraft carriers and submarines, along with essential associated services such as refueling, extensive overhauls, and inactivation procedures. Beyond direct shipbuilding, Huntington Ingalls Industries offers specialized naval nuclear support services, covering the full spectrum from design and construction to maintenance and disposal for active U.S. Navy nuclear fleets, in addition to maintaining nuclear reactor prototypes. Its broader technical and support portfolio includes life-cycle sustainment services for the U.S. Navy fleet and other maritime clients; sophisticated information technology and mission-specific solutions for defense, intelligence, and federal civilian agencies; nuclear facility management, operational support, and environmental remediation services for various government bodies and private sector entities; comprehensive defense and federal solutions; and the development of cutting-edge unmanned systems. Established in 1886, Huntington Ingalls Industries, Inc. is headquartered in Newport News, Virginia.",
     "description_en": "Huntington Ingalls Industries, Inc. (HII) stands as a prominent American enterprise specializing in the comprehensive lifecycle management of military vessels, encompassing their design, construction, modernization, and maintenance. The company's diverse operations are segmented into three core divisions: Ingalls Shipbuilding, Newport News Shipbuilding, and Technical Solutions. HII is a primary builder of non-nuclear ships, delivering amphibious assault ships, expeditionary warfare vessels, surface combatants, and national security cutters to both the U.S. Navy and U.S. Coast Guard. Furthermore, it plays a critical role in providing nuclear-powered ships, including aircraft carriers and submarines, along with essential associated services such as refueling, extensive overhauls, and inactivation procedures. Beyond direct shipbuilding, Huntington Ingalls Industries offers specialized naval nuclear support services, covering the full spectrum from design and construction to maintenance and disposal for active U.S. Navy nuclear fleets, in addition to maintaining nuclear reactor prototypes. Its broader technical and support portfolio includes life-cycle sustainment services for the U.S. Navy fleet and other maritime clients; sophisticated information technology and mission-specific solutions for defense, intelligence, and federal civilian agencies; nuclear facility management, operational support, and environmental remediation services for various government bodies and private sector entities; comprehensive defense and federal solutions; and the development of cutting-edge unmanned systems. Established in 1886, Huntington Ingalls Industries, Inc. is headquartered in Newport News, Virginia.",
     "description_zh": "Huntington Ingalls Industries, Inc. (HII) 為美國首屈一指的國防承包商，專精於軍用艦艇的完整生命週期管理，涵蓋設計、建造、現代化與維護。其營運主要劃分為三大事業群：英格爾斯造船廠 (Ingalls Shipbuilding)、紐波特紐斯造船廠 (Newport News Shipbuilding) 及技術解決方案部門 (Technical Solutions)。\n\nHII 係非核動力艦艇的主要建造商，供應美國海軍與海岸巡防隊各型艦艇，包括兩棲突擊艦、遠征作戰艦、水面作戰艦艇及國家安全巡邏艦。該公司亦負責核動力航空母艦與潛艦的建造，並提供關鍵支援服務，如核燃料更換、大規模檢修及除役處理。除直接造船業務外，HII 提供專業的海軍核能支援服務，範圍涵蓋現役美國海軍核動力艦隊的設計、建造、維護與報廢，同時負責核反應爐原型的維護。\n\n其技術與支援服務範疇廣泛，涵蓋美國海軍艦隊及其他海事客戶的生命週期維護；為國防、情報與聯邦政府機構提供複雜的資訊科技及任務專用解決方案；同時，也為政府與私人實體提供核設施管理、營運支援與環境整治服務；並發展尖端無人系統，以及綜合性國防與聯邦解決方案。HII 創立於 1886 年，總部位於維吉尼亞州紐波特紐斯。",
@@ -666125,7 +666153,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "HII",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:25:00Z",
+      "fetchedAt": "2026-10-31T17:21:13Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-10-30",
@@ -666161,7 +666189,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1501585/000150158526000056/hii-20260930.htm",
-        "capturedAt": "2026-10-31T14:25:00Z"
+        "capturedAt": "2026-10-31T17:21:13Z"
       }
     },
     "z_score": 2.82,
@@ -666480,7 +666508,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/66570/000006657026000027/msa-20260630.htm",
-      "capturedAt": "2026-10-31T14:25:07Z"
+      "capturedAt": "2026-10-31T17:21:22Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 6893.5,
@@ -669726,7 +669754,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "42626bd36f18682d5a67a85d28713b79dd83090070669896cebf5f29b5769483"
       },
       "mScore": {
@@ -669738,7 +669766,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "42626bd36f18682d5a67a85d28713b79dd83090070669896cebf5f29b5769483"
       }
     },
@@ -669910,7 +669938,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MSA",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:25:07Z",
+      "fetchedAt": "2026-10-31T17:21:22Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-31",
       "quoteDate": "2026-10-30",
@@ -669946,7 +669974,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/66570/000006657026000027/msa-20260630.htm",
-        "capturedAt": "2026-10-31T14:25:07Z"
+        "capturedAt": "2026-10-31T17:21:22Z"
       }
     },
     "z_score": 5.85,
@@ -670267,7 +670295,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1260221/000126022126000053/tdg-20260627.htm",
-      "capturedAt": "2026-10-31T14:25:12Z"
+      "capturedAt": "2026-10-31T17:21:30Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 63391.7,
@@ -673511,7 +673539,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "bc857c7c640276f5f04e987fcf3f242990775d1b38982debf6bd7fda09b59aa3"
       },
       "mScore": {
@@ -673523,7 +673551,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "bc857c7c640276f5f04e987fcf3f242990775d1b38982debf6bd7fda09b59aa3"
       }
     },
@@ -673664,7 +673692,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TDG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:25:12Z",
+      "fetchedAt": "2026-10-31T17:21:30Z",
       "balanceDate": "2026-06-27",
       "filingDate": "2026-08-04",
       "quoteDate": "2026-10-30",
@@ -673700,7 +673728,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1260221/000126022126000053/tdg-20260627.htm",
-        "capturedAt": "2026-10-31T14:25:12Z"
+        "capturedAt": "2026-10-31T17:21:30Z"
       }
     },
     "z_score": 1.76,
@@ -674019,7 +674047,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/82811/000008281126000229/rbc-20260630.htm",
-      "capturedAt": "2026-10-31T14:25:18Z"
+      "capturedAt": "2026-10-31T17:21:38Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 10467.4,
@@ -677267,7 +677295,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "d601d5935e504759473599b02dcf18b4448578c65f64ae4dd2aa3a3150b85373"
       },
       "mScore": {
@@ -677279,7 +677307,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "d601d5935e504759473599b02dcf18b4448578c65f64ae4dd2aa3a3150b85373"
       }
     },
@@ -677463,7 +677491,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "RRX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:25:18Z",
+      "fetchedAt": "2026-10-31T17:21:38Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-05",
       "quoteDate": "2026-10-30",
@@ -677499,7 +677527,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/82811/000008281126000229/rbc-20260630.htm",
-        "capturedAt": "2026-10-31T14:25:18Z"
+        "capturedAt": "2026-10-31T17:21:38Z"
       }
     },
     "z_score": 1.83,
@@ -677818,7 +677846,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/42888/000004288826000145/ggg-20260925.htm",
-      "capturedAt": "2026-10-31T14:25:23Z"
+      "capturedAt": "2026-10-31T17:21:47Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 10815.7,
@@ -681062,7 +681090,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "38cf5569680da6fa4c90f16157bd0e6ce7e8ac8dfda4160299bb9afde8b25398"
       },
       "mScore": {
@@ -681074,7 +681102,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "38cf5569680da6fa4c90f16157bd0e6ce7e8ac8dfda4160299bb9afde8b25398"
       }
     },
@@ -681276,7 +681304,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "GGG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:25:23Z",
+      "fetchedAt": "2026-10-31T17:21:47Z",
       "balanceDate": "2026-09-25",
       "filingDate": "2026-10-21",
       "quoteDate": "2026-10-30",
@@ -681312,7 +681340,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/42888/000004288826000145/ggg-20260925.htm",
-        "capturedAt": "2026-10-31T14:25:23Z"
+        "capturedAt": "2026-10-31T17:21:47Z"
       }
     },
     "z_score": 12.78,
@@ -681631,7 +681659,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/29644/000002964426000085/dci-20260731.htm",
-      "capturedAt": "2026-10-31T14:25:28Z"
+      "capturedAt": "2026-10-31T17:21:55Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 9608.5,
@@ -684872,7 +684900,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "dad05d6b0fddaf34349b71137ad81fd56095f38cbae985ac325856851d78e8c4"
       },
       "mScore": {
@@ -684884,7 +684912,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "dad05d6b0fddaf34349b71137ad81fd56095f38cbae985ac325856851d78e8c4"
       }
     },
@@ -685074,7 +685102,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "DCI",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:25:28Z",
+      "fetchedAt": "2026-10-31T17:21:55Z",
       "balanceDate": "2026-07-31",
       "filingDate": "2026-09-25",
       "quoteDate": "2026-10-30",
@@ -685110,7 +685138,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/29644/000002964426000085/dci-20260731.htm",
-        "capturedAt": "2026-10-31T14:25:28Z"
+        "capturedAt": "2026-10-31T17:21:55Z"
       }
     },
     "z_score": 5.37,
@@ -685429,7 +685457,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/49826/000004982626000060/itw-20260930.htm",
-      "capturedAt": "2026-10-31T14:25:35Z"
+      "capturedAt": "2026-10-31T17:22:04Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 79331.0,
@@ -688677,7 +688705,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "e2888a6b57d46e30670ec9a0e7b7775ebb09331ba6d6fd71188b11debdcd28eb"
       },
       "mScore": {
@@ -688689,7 +688717,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "e2888a6b57d46e30670ec9a0e7b7775ebb09331ba6d6fd71188b11debdcd28eb"
       }
     },
@@ -688861,7 +688889,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ITW",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:25:35Z",
+      "fetchedAt": "2026-10-31T17:22:04Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-10-30",
@@ -688897,7 +688925,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/49826/000004982626000060/itw-20260930.htm",
-        "capturedAt": "2026-10-31T14:25:35Z"
+        "capturedAt": "2026-10-31T17:22:04Z"
       }
     },
     "z_score": 8.24,
@@ -689180,7 +689208,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/16868/000001686826000041/a2026q3fsnotes.htm",
-      "capturedAt": "2026-10-31T14:25:40Z"
+      "capturedAt": "2026-10-31T17:22:12Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 74850.8,
@@ -692509,7 +692537,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "CAD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "f523d3715f24a46e9c399ddf18e4c576c8e8e8f8993eb25091eea2e4823b973c"
       },
       "mScore": {
@@ -692521,7 +692549,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "CAD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "f523d3715f24a46e9c399ddf18e4c576c8e8e8f8993eb25091eea2e4823b973c"
       }
     },
@@ -692662,7 +692690,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CNI",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:25:40Z",
+      "fetchedAt": "2026-10-31T17:22:12Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-24",
       "quoteDate": "2026-10-30",
@@ -692699,7 +692727,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/16868/000001686826000041/a2026q3fsnotes.htm",
-        "capturedAt": "2026-10-31T14:25:40Z"
+        "capturedAt": "2026-10-31T17:22:12Z"
       }
     },
     "z_score": 2.34,
@@ -693018,7 +693046,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/823768/000162828026067830/wm-20260930.htm",
-      "capturedAt": "2026-10-31T14:25:45Z"
+      "capturedAt": "2026-10-31T17:22:20Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 93313.5,
@@ -696266,7 +696294,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "3e6f7e9de382ee1a1e85e12d9f7fe708e232fad921018edd5551d77c924dda1e"
       },
       "mScore": {
@@ -696278,7 +696306,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "3e6f7e9de382ee1a1e85e12d9f7fe708e232fad921018edd5551d77c924dda1e"
       }
     },
@@ -696419,7 +696447,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "WM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:25:45Z",
+      "fetchedAt": "2026-10-31T17:22:20Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-10-30",
@@ -696455,7 +696483,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/823768/000162828026067830/wm-20260930.htm",
-        "capturedAt": "2026-10-31T14:25:45Z"
+        "capturedAt": "2026-10-31T17:22:20Z"
       }
     },
     "z_score": 2.93,
@@ -696765,22 +696793,22 @@ window.FULL_MARKET_DATA = {
     "industry": "Integrated Oil & Gas",
     "reportedCurrency": "USD",
     "price": 187.25,
-    "shares": 4111.91196,
-    "shares_outstanding": 4111911960,
+    "shares": 4111.912109,
+    "shares_outstanding": 4111912109,
     "shares_display": "4,111.91 M",
     "shareSource": {
-      "shares": 4111.91196,
+      "shares": 4111.912109,
       "date": "2026-10-31",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/2115436/000211543626000018/livef8k3q26992.htm",
-      "capturedAt": "2026-10-31T14:25:50Z"
+      "capturedAt": "2026-10-31T17:22:29Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 769955.5,
-    "liq_val_1": -22.075375368688583,
-    "liq_val_2": -29.3334587834901,
-    "liq_val_3": -45.293771318975416,
+    "liq_val_1": -22.07537456876124,
+    "liq_val_2": -29.33345772055752,
+    "liq_val_3": -45.29376967770203,
     "debt": 34250.0,
     "cash": 12153.0,
     "short_term_investments": 0.0,
@@ -700018,7 +700046,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "a970449257bcec270c5dabc0be67d350b7a20e261d86a65beaabb0621525c48b"
       },
       "mScore": {
@@ -700030,7 +700058,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "a970449257bcec270c5dabc0be67d350b7a20e261d86a65beaabb0621525c48b"
       }
     },
@@ -700202,7 +700230,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "XOM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:25:50Z",
+      "fetchedAt": "2026-10-31T17:22:29Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
       "quoteDate": "2026-10-30",
@@ -700231,14 +700259,14 @@ window.FULL_MARKET_DATA = {
         "inventory": 24802000000,
         "preferredStock": 0
       },
-      "sharesOutstanding": 4111911960,
+      "sharesOutstanding": 4111912109,
       "shareSource": {
-        "shares": 4111.91196,
+        "shares": 4111.912109,
         "date": "2026-10-31",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/2115436/000211543626000018/livef8k3q26992.htm",
-        "capturedAt": "2026-10-31T14:25:50Z"
+        "capturedAt": "2026-10-31T17:22:29Z"
       }
     },
     "z_score": 5.1,
@@ -700557,7 +700585,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000196/a09302026ex9918-k.htm",
-      "capturedAt": "2026-10-31T14:25:56Z"
+      "capturedAt": "2026-10-31T17:22:37Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 465333.4,
@@ -703805,7 +703833,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "900c9836c4f9b497b0698793cde32592194e4bebc3d8ca69971f19be020c73e0"
       },
       "mScore": {
@@ -703817,7 +703845,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "900c9836c4f9b497b0698793cde32592194e4bebc3d8ca69971f19be020c73e0"
       }
     },
@@ -703989,7 +704017,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CVX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:25:56Z",
+      "fetchedAt": "2026-10-31T17:22:37Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
       "quoteDate": "2026-10-30",
@@ -704025,7 +704053,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000196/a09302026ex9918-k.htm",
-        "capturedAt": "2026-10-31T14:25:56Z"
+        "capturedAt": "2026-10-31T17:22:37Z"
       }
     },
     "z_score": 3.81,
@@ -704340,11 +704368,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "1,201.34 M",
     "shareSource": {
       "shares": 1201.34,
-      "date": "2026-10-30",
+      "date": "2026-10-31",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1163165/000116316526000032/cop-20260630.htm",
-      "capturedAt": "2026-10-31T14:26:01Z"
+      "capturedAt": "2026-10-31T17:22:45Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 185042.4,
@@ -707592,7 +707620,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "6ddc434c5247ad825c2bf7ab19b626260e2fb75c235820b7909f09ef167dae81"
       },
       "mScore": {
@@ -707604,7 +707632,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "6ddc434c5247ad825c2bf7ab19b626260e2fb75c235820b7909f09ef167dae81"
       }
     },
@@ -707770,7 +707798,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "COP",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:26:01Z",
+      "fetchedAt": "2026-10-31T17:22:45Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-06",
       "quoteDate": "2026-10-30",
@@ -707802,11 +707830,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 1201340000,
       "shareSource": {
         "shares": 1201.34,
-        "date": "2026-10-30",
+        "date": "2026-10-31",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1163165/000116316526000032/cop-20260630.htm",
-        "capturedAt": "2026-10-31T14:26:01Z"
+        "capturedAt": "2026-10-31T17:22:45Z"
       }
     },
     "z_score": 3.62,
@@ -708125,7 +708153,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/87347/000119312526435577/slb-20260930.htm",
-      "capturedAt": "2026-10-31T14:26:07Z"
+      "capturedAt": "2026-10-31T17:22:53Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 79320.2,
@@ -711371,7 +711399,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "6e7ee726179b5cb110f1991e299251e3b6c74368bfb9774bc5a6b464eff65d4a"
       },
       "mScore": {
@@ -711383,7 +711411,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "6e7ee726179b5cb110f1991e299251e3b6c74368bfb9774bc5a6b464eff65d4a"
       }
     },
@@ -711567,7 +711595,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "SLB",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:26:07Z",
+      "fetchedAt": "2026-10-31T17:22:53Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-10-30",
@@ -711603,7 +711631,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/87347/000119312526435577/slb-20260930.htm",
-        "capturedAt": "2026-10-31T14:26:07Z"
+        "capturedAt": "2026-10-31T17:22:53Z"
       }
     },
     "z_score": 3.26,
@@ -711922,7 +711950,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/821189/000082118926000149/eog-20260630.htm",
-      "capturedAt": "2026-10-31T14:26:12Z"
+      "capturedAt": "2026-10-31T17:23:02Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 86830.6,
@@ -715170,7 +715198,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "f485f36c1f3d9170de2b650a88f15cf94ded1b2160f5c8820aef7cf4f190c862"
       },
       "mScore": {
@@ -715182,7 +715210,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "f485f36c1f3d9170de2b650a88f15cf94ded1b2160f5c8820aef7cf4f190c862"
       }
     },
@@ -715342,7 +715370,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "EOG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:26:12Z",
+      "fetchedAt": "2026-10-31T17:23:02Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-04",
       "quoteDate": "2026-10-30",
@@ -715378,7 +715406,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/821189/000082118926000149/eog-20260630.htm",
-        "capturedAt": "2026-10-31T14:26:12Z"
+        "capturedAt": "2026-10-31T17:23:02Z"
       }
     },
     "z_score": 4.1,
@@ -715697,7 +715725,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": null,
-      "capturedAt": "2026-10-31T14:26:17Z"
+      "capturedAt": "2026-10-31T17:23:10Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 82384.2,
@@ -718940,7 +718968,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "adb3d75bb1fb41558c7cbce47545ee70e9e89819a37d4a37b995cb0ec43deebd"
       },
       "mScore": {
@@ -718952,7 +718980,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "adb3d75bb1fb41558c7cbce47545ee70e9e89819a37d4a37b995cb0ec43deebd"
       }
     },
@@ -719106,7 +719134,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "EPD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:26:17Z",
+      "fetchedAt": "2026-10-31T17:23:10Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-07",
       "quoteDate": "2026-10-30",
@@ -719142,7 +719170,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": null,
-        "capturedAt": "2026-10-31T14:26:17Z"
+        "capturedAt": "2026-10-31T17:23:10Z"
       }
     },
     "z_score": 2.04,
@@ -719425,7 +719453,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/895728/000119312526326752/enb-20260630.htm",
-      "capturedAt": "2026-10-31T14:26:22Z"
+      "capturedAt": "2026-10-31T17:23:20Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 110238.6,
@@ -722763,7 +722791,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "CAD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "e8085e37eb2f412e7b6b5976435be79b847d8610ba5435cfe5cd7df2eccb5176"
       },
       "mScore": {
@@ -722775,7 +722803,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "CAD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "e8085e37eb2f412e7b6b5976435be79b847d8610ba5435cfe5cd7df2eccb5176"
       }
     },
@@ -723017,7 +723045,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ENB",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:26:22Z",
+      "fetchedAt": "2026-10-31T17:23:20Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-31",
       "quoteDate": "2026-10-30",
@@ -723054,7 +723082,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/895728/000119312526326752/enb-20260630.htm",
-        "capturedAt": "2026-10-31T14:26:22Z"
+        "capturedAt": "2026-10-31T17:23:20Z"
       }
     },
     "z_score": 0.54,
@@ -723373,7 +723401,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1510295/000151029526000061/mpc-20260630.htm",
-      "capturedAt": "2026-10-31T14:26:28Z"
+      "capturedAt": "2026-10-31T17:23:28Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 124891.3,
@@ -726621,7 +726649,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "6f32b368f846a51a67de1cd4c08b48062ba4b8f80a951b8880b681c284f30e69"
       },
       "mScore": {
@@ -726633,7 +726661,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "6f32b368f846a51a67de1cd4c08b48062ba4b8f80a951b8880b681c284f30e69"
       }
     },
@@ -726781,7 +726809,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MPC",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:26:28Z",
+      "fetchedAt": "2026-10-31T17:23:28Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-04",
       "quoteDate": "2026-10-30",
@@ -726817,7 +726845,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1510295/000151029526000061/mpc-20260630.htm",
-        "capturedAt": "2026-10-31T14:26:28Z"
+        "capturedAt": "2026-10-31T17:23:28Z"
       }
     },
     "z_score": 3.82,
@@ -727136,7 +727164,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1035002/000162828026067679/vlo-20260930.htm",
-      "capturedAt": "2026-10-31T14:26:33Z"
+      "capturedAt": "2026-10-31T17:23:37Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 115073.1,
@@ -730379,7 +730407,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "67ac9079d11ca5b4b99af74ec8827dff8cf0d534ef7b441927ba0b13f03f2193"
       },
       "mScore": {
@@ -730391,7 +730419,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "67ac9079d11ca5b4b99af74ec8827dff8cf0d534ef7b441927ba0b13f03f2193"
       }
     },
@@ -730551,7 +730579,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "VLO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:26:33Z",
+      "fetchedAt": "2026-10-31T17:23:37Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-10-30",
@@ -730587,7 +730615,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1035002/000162828026067679/vlo-20260930.htm",
-        "capturedAt": "2026-10-31T14:26:33Z"
+        "capturedAt": "2026-10-31T17:23:37Z"
       }
     },
     "z_score": 5.86,
@@ -730906,7 +730934,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1534701/000153470126000037/psx-20260930.htm",
-      "capturedAt": "2026-10-31T14:26:39Z"
+      "capturedAt": "2026-10-31T17:23:45Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 110324.2,
@@ -734154,7 +734182,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "cf04e53ad0ad4a5c29d3b46d7cb12472f5d877fa328f528a9c2d6b27381bc8f0"
       },
       "mScore": {
@@ -734166,7 +734194,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "cf04e53ad0ad4a5c29d3b46d7cb12472f5d877fa328f528a9c2d6b27381bc8f0"
       }
     },
@@ -734307,7 +734335,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "PSX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:26:39Z",
+      "fetchedAt": "2026-10-31T17:23:45Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-10-30",
@@ -734343,7 +734371,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1534701/000153470126000037/psx-20260930.htm",
-        "capturedAt": "2026-10-31T14:26:39Z"
+        "capturedAt": "2026-10-31T17:23:45Z"
       }
     },
     "z_score": 4.3,
@@ -734662,7 +734690,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/797468/000162828026053388/oxy-20260630.htm",
-      "capturedAt": "2026-10-31T14:26:44Z"
+      "capturedAt": "2026-10-31T17:23:53Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 63976.8,
@@ -737910,7 +737938,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "412598c41b1fd4216233a1da37bf253dbb6cd31d40537ffb28d36c2f39cb4292"
       },
       "mScore": {
@@ -737922,7 +737950,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "412598c41b1fd4216233a1da37bf253dbb6cd31d40537ffb28d36c2f39cb4292"
       }
     },
@@ -738076,7 +738104,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "OXY",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:26:44Z",
+      "fetchedAt": "2026-10-31T17:23:53Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-05",
       "quoteDate": "2026-10-30",
@@ -738112,7 +738140,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/797468/000162828026053388/oxy-20260630.htm",
-        "capturedAt": "2026-10-31T14:26:44Z"
+        "capturedAt": "2026-10-31T17:23:53Z"
       }
     },
     "z_score": 1.51,
@@ -738431,7 +738459,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1506307/000150630726000132/kmi-20260930.htm",
-      "capturedAt": "2026-10-31T14:26:49Z"
+      "capturedAt": "2026-10-31T17:24:01Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 75452.7,
@@ -741674,7 +741702,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "06ed168492dd0c9477a1bd8b20d9d63ce9202d2cd3483dfff7bb2e9edb7a6433"
       },
       "mScore": {
@@ -741686,7 +741714,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "06ed168492dd0c9477a1bd8b20d9d63ce9202d2cd3483dfff7bb2e9edb7a6433"
       }
     },
@@ -741827,7 +741855,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "KMI",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:26:49Z",
+      "fetchedAt": "2026-10-31T17:24:01Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-23",
       "quoteDate": "2026-10-30",
@@ -741863,7 +741891,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1506307/000150630726000132/kmi-20260930.htm",
-        "capturedAt": "2026-10-31T14:26:49Z"
+        "capturedAt": "2026-10-31T17:24:01Z"
       }
     },
     "z_score": 1.31,
@@ -742182,7 +742210,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/99250/000010726326000026/wmb-20260630.htm",
-      "capturedAt": "2026-10-31T14:26:55Z"
+      "capturedAt": "2026-10-31T17:24:10Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 90942.5,
@@ -745425,7 +745453,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "4b6dd34c8d64633c57adec0cabd1434cf9a850a6ace787636271be66abe7d7fb"
       },
       "mScore": {
@@ -745437,7 +745465,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "4b6dd34c8d64633c57adec0cabd1434cf9a850a6ace787636271be66abe7d7fb"
       }
     },
@@ -745615,7 +745643,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "WMB",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:26:55Z",
+      "fetchedAt": "2026-10-31T17:24:10Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-03",
       "quoteDate": "2026-10-30",
@@ -745651,7 +745679,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/99250/000010726326000026/wmb-20260630.htm",
-        "capturedAt": "2026-10-31T14:26:55Z"
+        "capturedAt": "2026-10-31T17:24:10Z"
       }
     },
     "z_score": 1.39,
@@ -745970,7 +745998,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/45012/000004501226000074/hal-20260930.htm",
-      "capturedAt": "2026-10-31T14:27:00Z"
+      "capturedAt": "2026-10-31T17:24:18Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 29917.2,
@@ -749214,7 +749242,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "32113a9968e7fcadfc1bbc3ae4d4f8b994f1204e1fa64f4f4f6791fb50ed26bc"
       },
       "mScore": {
@@ -749226,7 +749254,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "32113a9968e7fcadfc1bbc3ae4d4f8b994f1204e1fa64f4f4f6791fb50ed26bc"
       }
     },
@@ -749398,7 +749426,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "HAL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:27:00Z",
+      "fetchedAt": "2026-10-31T17:24:18Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-23",
       "quoteDate": "2026-10-30",
@@ -749434,7 +749462,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/45012/000004501226000074/hal-20260930.htm",
-        "capturedAt": "2026-10-31T14:27:00Z"
+        "capturedAt": "2026-10-31T17:24:18Z"
       }
     },
     "z_score": 3.64,
@@ -749753,7 +749781,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1701605/000170160526000035/bkr-20260930.htm",
-      "capturedAt": "2026-10-31T14:27:18Z"
+      "capturedAt": "2026-10-31T17:24:28Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 54825.4,
@@ -752997,7 +753025,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "fcc0669458a3dfcb800c0cbf8ce26b496635205cfc2f962264984366a8125fad"
       },
       "mScore": {
@@ -753009,7 +753037,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "fcc0669458a3dfcb800c0cbf8ce26b496635205cfc2f962264984366a8125fad"
       }
     },
@@ -753150,7 +753178,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "BKR",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:27:18Z",
+      "fetchedAt": "2026-10-31T17:24:28Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-10-30",
@@ -753186,7 +753214,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1701605/000170160526000035/bkr-20260930.htm",
-        "capturedAt": "2026-10-31T14:27:18Z"
+        "capturedAt": "2026-10-31T17:24:28Z"
       }
     },
     "z_score": 2.47,
@@ -753496,22 +753524,22 @@ window.FULL_MARKET_DATA = {
     "industry": "Industrial Gases",
     "reportedCurrency": "USD",
     "price": 514.24,
-    "shares": 460.98,
-    "shares_outstanding": 460980000,
-    "shares_display": "460.98 M",
+    "shares": 459.084,
+    "shares_outstanding": 459084000,
+    "shares_display": "459.08 M",
     "shareSource": {
-      "shares": 460.98,
+      "shares": 459.084,
       "date": "2026-10-31",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1707925/000162828026068079/lin-20260930.htm",
-      "capturedAt": "2026-10-31T14:27:23Z"
+      "capturedAt": "2026-10-31T17:24:36Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 237054.4,
-    "liq_val_1": -73.02702937220704,
-    "liq_val_2": -81.54909106685757,
-    "liq_val_3": -93.56805067464965,
+    "liq_val_1": -73.32862831203005,
+    "liq_val_2": -81.88588580739037,
+    "liq_val_3": -93.95448327539187,
     "debt": 26702.0,
     "cash": 3947.0,
     "short_term_investments": 0.0,
@@ -756652,9 +756680,9 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 200.53,
-    "default_fair_val": 200.53,
-    "premium_pct": 156.4,
+    "fair_val": 201.36,
+    "default_fair_val": 201.36,
+    "premium_pct": 155.4,
     "is_undervalued": false,
     "pe_trailing": 33.8,
     "pe_forward": 29.7,
@@ -756746,7 +756774,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "7e788f7dfb3b24f29eb5f3cf8fbba763eaacfe636a634668cb94f2ee3a903509"
       },
       "mScore": {
@@ -756758,7 +756786,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "7e788f7dfb3b24f29eb5f3cf8fbba763eaacfe636a634668cb94f2ee3a903509"
       }
     },
@@ -756906,7 +756934,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "LIN",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:27:23Z",
+      "fetchedAt": "2026-10-31T17:24:36Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-10-30",
@@ -756935,14 +756963,14 @@ window.FULL_MARKET_DATA = {
         "inventory": 2129000000,
         "preferredStock": 0
       },
-      "sharesOutstanding": 460980000,
+      "sharesOutstanding": 459084000,
       "shareSource": {
-        "shares": 460.98,
+        "shares": 459.084,
         "date": "2026-10-31",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1707925/000162828026068079/lin-20260930.htm",
-        "capturedAt": "2026-10-31T14:27:23Z"
+        "capturedAt": "2026-10-31T17:24:36Z"
       }
     },
     "z_score": 4.01,
@@ -757261,7 +757289,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/89800/000008980026000056/shw-20260930.htm",
-      "capturedAt": "2026-10-31T14:27:28Z"
+      "capturedAt": "2026-10-31T17:24:44Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 80354.6,
@@ -760506,7 +760534,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "a83048b7f0581aa8043243ab3b26ca504efbc85ed2d2eae4c35b4d9c0b1a68e6"
       },
       "mScore": {
@@ -760518,7 +760546,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "a83048b7f0581aa8043243ab3b26ca504efbc85ed2d2eae4c35b4d9c0b1a68e6"
       }
     },
@@ -760696,7 +760724,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "SHW",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:27:28Z",
+      "fetchedAt": "2026-10-31T17:24:44Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-27",
       "quoteDate": "2026-10-30",
@@ -760732,7 +760760,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/89800/000008980026000056/shw-20260930.htm",
-        "capturedAt": "2026-10-31T14:27:28Z"
+        "capturedAt": "2026-10-31T17:24:44Z"
       }
     },
     "z_score": 3.67,
@@ -761051,7 +761079,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/831259/000083125926000045/a3q2026exhibit991.htm",
-      "capturedAt": "2026-10-31T14:27:33Z"
+      "capturedAt": "2026-10-31T17:24:52Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 89775.6,
@@ -764299,7 +764327,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "317cc75deda41355bdff41f3ce06e3c14ff1b5d9a3e931a8ba90c3226f418cb6"
       },
       "mScore": {
@@ -764311,7 +764339,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "317cc75deda41355bdff41f3ce06e3c14ff1b5d9a3e931a8ba90c3226f418cb6"
       }
     },
@@ -764459,7 +764487,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "FCX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:27:33Z",
+      "fetchedAt": "2026-10-31T17:24:52Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-27",
       "quoteDate": "2026-10-30",
@@ -764495,7 +764523,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/831259/000083125926000045/a3q2026exhibit991.htm",
-        "capturedAt": "2026-10-31T14:27:33Z"
+        "capturedAt": "2026-10-31T17:24:52Z"
       }
     },
     "z_score": 2.97,
@@ -764814,7 +764842,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1164727/000116472726000043/nem-20260930.htm",
-      "capturedAt": "2026-10-31T14:27:39Z"
+      "capturedAt": "2026-10-31T17:25:01Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 110788.4,
@@ -768058,7 +768086,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "528abb83bbaa09b7c8a7960739d6faa49bed4bb7cae299105e1c726ca80e4cea"
       },
       "mScore": {
@@ -768070,7 +768098,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "528abb83bbaa09b7c8a7960739d6faa49bed4bb7cae299105e1c726ca80e4cea"
       }
     },
@@ -768230,7 +768258,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "NEM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:27:39Z",
+      "fetchedAt": "2026-10-31T17:25:01Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-22",
       "quoteDate": "2026-10-30",
@@ -768266,7 +768294,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1164727/000116472726000043/nem-20260930.htm",
-        "capturedAt": "2026-10-31T14:27:39Z"
+        "capturedAt": "2026-10-31T17:25:01Z"
       }
     },
     "z_score": 4.18,
@@ -768585,7 +768613,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1001838/000110465926120639/scco-20260930x10q.htm",
-      "capturedAt": "2026-10-31T14:27:44Z"
+      "capturedAt": "2026-10-31T17:25:09Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 149896.3,
@@ -771829,7 +771857,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "25c6a60bf34e2d7db2a0584931334aa1bc6a6af945263e5dd58605eeb91788be"
       },
       "mScore": {
@@ -771841,7 +771869,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "25c6a60bf34e2d7db2a0584931334aa1bc6a6af945263e5dd58605eeb91788be"
       }
     },
@@ -772013,7 +772041,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "SCCO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:27:44Z",
+      "fetchedAt": "2026-10-31T17:25:09Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
       "quoteDate": "2026-10-30",
@@ -772049,7 +772077,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1001838/000110465926120639/scco-20260930x10q.htm",
-        "capturedAt": "2026-10-31T14:27:44Z"
+        "capturedAt": "2026-10-31T17:25:09Z"
       }
     },
     "z_score": 11.21,
@@ -772368,7 +772396,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/51253/000005125326000030/iff-20260630.htm",
-      "capturedAt": "2026-10-31T14:27:50Z"
+      "capturedAt": "2026-10-31T17:25:17Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 23734.0,
@@ -775615,7 +775643,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "2b4c536b8a29d8aeb87434516648564b168331a8867c122c142cd4cd0ab73d3e"
       },
       "mScore": {
@@ -775627,7 +775655,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "2b4c536b8a29d8aeb87434516648564b168331a8867c122c142cd4cd0ab73d3e"
       }
     },
@@ -775781,7 +775809,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "IFF",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:27:50Z",
+      "fetchedAt": "2026-10-31T17:25:17Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-04",
       "quoteDate": "2026-10-30",
@@ -775817,7 +775845,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/51253/000005125326000030/iff-20260630.htm",
-        "capturedAt": "2026-10-31T14:27:50Z"
+        "capturedAt": "2026-10-31T17:25:17Z"
       }
     },
     "z_score": 1.55,
@@ -776136,7 +776164,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/110621/000119312526415321/rpm-20260831.htm",
-      "capturedAt": "2026-10-31T14:27:55Z"
+      "capturedAt": "2026-10-31T17:25:26Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 13064.6,
@@ -779384,7 +779412,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "1de66c46810e87c5b929ffe9fe1a9963d459772a3840eef5f297a7b0a1bfb1e7"
       },
       "mScore": {
@@ -779396,7 +779424,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "1de66c46810e87c5b929ffe9fe1a9963d459772a3840eef5f297a7b0a1bfb1e7"
       }
     },
@@ -779598,7 +779626,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "RPM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:27:55Z",
+      "fetchedAt": "2026-10-31T17:25:26Z",
       "balanceDate": "2026-08-31",
       "filingDate": "2026-10-06",
       "quoteDate": "2026-10-30",
@@ -779634,7 +779662,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/110621/000119312526415321/rpm-20260831.htm",
-        "capturedAt": "2026-10-31T14:27:55Z"
+        "capturedAt": "2026-10-31T17:25:26Z"
       }
     },
     "z_score": 3.69,
@@ -779944,22 +779972,22 @@ window.FULL_MARKET_DATA = {
     "industry": "Construction Materials",
     "reportedCurrency": "USD",
     "price": 281.25,
-    "shares": 129.579,
-    "shares_outstanding": 129579000,
-    "shares_display": "129.58 M",
+    "shares": 128.344422,
+    "shares_outstanding": 128344422,
+    "shares_display": "128.34 M",
     "shareSource": {
-      "shares": 129.579,
+      "shares": 128.344422,
       "date": "2026-10-31",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1396009/000162828026068102/vmc-20260930.htm",
-      "capturedAt": "2026-10-31T14:28:00Z"
+      "capturedAt": "2026-10-31T17:25:34Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 36444.1,
-    "liq_val_1": -47.79864021176271,
-    "liq_val_2": -53.51476705330339,
-    "liq_val_3": -63.017927287600614,
+    "mcap": 36096.9,
+    "liq_val_1": -48.258427623757576,
+    "liq_val_2": -54.029539359334215,
+    "liq_val_3": -63.62411293573787,
     "debt": 5262.7,
     "cash": 106.6,
     "short_term_investments": 0.0,
@@ -783033,12 +783061,12 @@ window.FULL_MARKET_DATA = {
     "g1": 6.3,
     "g2": 3.7,
     "g": 2.25,
-    "wacc": 8.74,
-    "ev": 41600.2,
-    "fmp_official_ev": 41600.2,
+    "wacc": 8.73,
+    "ev": 41253.0,
+    "fmp_official_ev": 41253.0,
     "enterpriseValueBasis": "USD market capitalization + USD debt - USD cash and short-term investments",
-    "dcf_model_ev": 14341.2,
-    "ev_to_ebitda": 18.2,
+    "dcf_model_ev": 14355.4,
+    "ev_to_ebitda": 18.0,
     "debt_to_ebitda": 2.3,
     "net_debt_to_ebitda": 2.25,
     "f_score": 7,
@@ -783107,18 +783135,18 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 70.88,
-    "default_fair_val": 70.88,
-    "premium_pct": 296.8,
+    "fair_val": 71.68,
+    "default_fair_val": 71.68,
+    "premium_pct": 292.4,
     "is_undervalued": false,
-    "pe_trailing": 33.0,
-    "pe_forward": 29.0,
-    "pb_trailing": 4.335177122736897,
+    "pe_trailing": 32.7,
+    "pe_forward": 28.8,
+    "pb_trailing": 4.293876240097067,
     "pb_forward": 3.9,
-    "div_yield": 0.73,
-    "ps_ratio": 11.7,
-    "fcf_to_ev": 1.88,
-    "fcf_to_mcap": 2.14,
+    "div_yield": 0.74,
+    "ps_ratio": 11.6,
+    "fcf_to_ev": 1.89,
+    "fcf_to_mcap": 2.16,
     "liab_to_assets": 49.524653368136214,
     "cash_to_assets": 0.6381857803108312,
     "current_ratio": 1.4283652855081426,
@@ -783201,7 +783229,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "8ba68756a4bd16b6ac8204f556cec60e6fa0f072ee777961efcbc8bb6edb28c4"
       },
       "mScore": {
@@ -783213,7 +783241,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "8ba68756a4bd16b6ac8204f556cec60e6fa0f072ee777961efcbc8bb6edb28c4"
       }
     },
@@ -783373,7 +783401,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "VMC",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:28:00Z",
+      "fetchedAt": "2026-10-31T17:25:34Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-10-30",
@@ -783402,17 +783430,17 @@ window.FULL_MARKET_DATA = {
         "inventory": 682500000,
         "preferredStock": 0
       },
-      "sharesOutstanding": 129579000,
+      "sharesOutstanding": 128344422,
       "shareSource": {
-        "shares": 129.579,
+        "shares": 128.344422,
         "date": "2026-10-31",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1396009/000162828026068102/vmc-20260930.htm",
-        "capturedAt": "2026-10-31T14:28:00Z"
+        "capturedAt": "2026-10-31T17:25:34Z"
       }
     },
-    "z_score": 4.1,
+    "z_score": 4.08,
     "z_score_model": "z",
     "z_score_zone": "superRobust",
     "z_score_breakdown": [
@@ -783468,12 +783496,12 @@ window.FULL_MARKET_DATA = {
         "desc": "市值權益 / 總負債 (X4)",
         "desc_en": "Market equity / Total liabilities (X4)",
         "weight": 0.6,
-        "value": 4.470845856590811,
-        "contribution": 2.6825075139544867,
+        "value": 4.42825246887076,
+        "contribution": 2.6569514813224555,
         "passed": null,
-        "detail": "4.4709 × 0.6 = 2.6825",
-        "detail_zh": "4.4709 × 0.6 = 2.6825",
-        "detail_en": "4.4709 × 0.6 = 2.6825",
+        "detail": "4.4283 × 0.6 = 2.6570",
+        "detail_zh": "4.4283 × 0.6 = 2.6570",
+        "detail_en": "4.4283 × 0.6 = 2.6570",
         "reason": null
       },
       {
@@ -783728,7 +783756,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/9326/000000932626000035/bcpc-20260930.htm",
-      "capturedAt": "2026-10-31T14:28:06Z"
+      "capturedAt": "2026-10-31T17:25:42Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 5418.6,
@@ -786974,7 +787002,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "d95c646674c770db73abecdbe753c004200ef4f6f1f92b689e4f5965ee26e1b6"
       },
       "mScore": {
@@ -786986,7 +787014,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "d95c646674c770db73abecdbe753c004200ef4f6f1f92b689e4f5965ee26e1b6"
       }
     },
@@ -787176,7 +787204,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "BCPC",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:28:06Z",
+      "fetchedAt": "2026-10-31T17:25:42Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-23",
       "quoteDate": "2026-10-30",
@@ -787212,7 +787240,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/9326/000000932626000035/bcpc-20260930.htm",
-        "capturedAt": "2026-10-31T14:28:06Z"
+        "capturedAt": "2026-10-31T17:25:42Z"
       }
     },
     "z_score": 9.29,
@@ -787531,11 +787559,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "222.69 M",
     "shareSource": {
       "shares": 222.68553,
-      "date": "2026-10-30",
+      "date": "2026-10-31",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/2969/000000296926000036/apd-20260630.htm",
-      "capturedAt": "2026-10-31T14:28:12Z"
+      "capturedAt": "2026-10-31T17:25:51Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 70464.4,
@@ -790772,7 +790800,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "52f0b9d956284b7a14720ad9de6822e89499f5a72cb29559ac973e205b89a07d"
       },
       "mScore": {
@@ -790784,7 +790812,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "52f0b9d956284b7a14720ad9de6822e89499f5a72cb29559ac973e205b89a07d"
       }
     },
@@ -790974,7 +791002,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "APD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:28:12Z",
+      "fetchedAt": "2026-10-31T17:25:51Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-30",
       "quoteDate": "2026-10-30",
@@ -791006,11 +791034,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 222685530,
       "shareSource": {
         "shares": 222.68553,
-        "date": "2026-10-30",
+        "date": "2026-10-31",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/2969/000000296926000036/apd-20260630.htm",
-        "capturedAt": "2026-10-31T14:28:12Z"
+        "capturedAt": "2026-10-31T17:25:51Z"
       }
     },
     "z_score": 2.7,
@@ -791329,7 +791357,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/31462/000162828026068208/ecl-20260930.htm",
-      "capturedAt": "2026-10-31T14:28:17Z"
+      "capturedAt": "2026-10-31T17:25:59Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 84934.1,
@@ -794577,7 +794605,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "ee74876c54faeed26a5d0c8bc55aac222d5dd151b662310c7f5c8319d0163c89"
       },
       "mScore": {
@@ -794589,7 +794617,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "ee74876c54faeed26a5d0c8bc55aac222d5dd151b662310c7f5c8319d0163c89"
       }
     },
@@ -794755,7 +794783,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ECL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:28:17Z",
+      "fetchedAt": "2026-10-31T17:25:59Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-10-30",
@@ -794791,7 +794819,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/31462/000162828026068208/ecl-20260930.htm",
-        "capturedAt": "2026-10-31T14:28:17Z"
+        "capturedAt": "2026-10-31T17:25:59Z"
       }
     },
     "z_score": 5.19,
@@ -795106,11 +795134,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "667.30 M",
     "shareSource": {
       "shares": 667.3,
-      "date": "2026-10-30",
+      "date": "2026-10-31",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/30554/000175567226000025/ctva-20260630.htm",
-      "capturedAt": "2026-10-31T14:28:23Z"
+      "capturedAt": "2026-10-31T17:26:07Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 7767.4,
@@ -798357,7 +798385,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "aae6824b045e1be6032b27d09e4cbc445e4a73a6f8e7baac3aaf01d618b5e944"
       },
       "mScore": {
@@ -798369,7 +798397,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "aae6824b045e1be6032b27d09e4cbc445e4a73a6f8e7baac3aaf01d618b5e944"
       }
     },
@@ -798517,7 +798545,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CTVA",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:28:23Z",
+      "fetchedAt": "2026-10-31T17:26:07Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-31",
       "quoteDate": "2026-10-30",
@@ -798549,11 +798577,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 667300000,
       "shareSource": {
         "shares": 667.3,
-        "date": "2026-10-30",
+        "date": "2026-10-31",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/30554/000175567226000025/ctva-20260630.htm",
-        "capturedAt": "2026-10-31T14:28:23Z"
+        "capturedAt": "2026-10-31T17:26:07Z"
       }
     },
     "z_score": 0.95,
@@ -798876,7 +798904,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/29915/000175178826000160/dow-20260930.htm",
-      "capturedAt": "2026-10-31T14:28:30Z"
+      "capturedAt": "2026-10-31T17:26:16Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 25118.7,
@@ -802120,7 +802148,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "fcb2e0276c682f34e4674d15549a079c13cfd930963f5721f996f15dad3315b8"
       },
       "mScore": {
@@ -802132,7 +802160,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "fcb2e0276c682f34e4674d15549a079c13cfd930963f5721f996f15dad3315b8"
       }
     },
@@ -802273,7 +802301,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "DOW",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:28:30Z",
+      "fetchedAt": "2026-10-31T17:26:16Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-23",
       "quoteDate": "2026-10-30",
@@ -802309,7 +802337,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/29915/000175178826000160/dow-20260930.htm",
-        "capturedAt": "2026-10-31T14:28:30Z"
+        "capturedAt": "2026-10-31T17:26:16Z"
       }
     },
     "z_score": 1.54,
@@ -802624,11 +802652,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "135.04 M",
     "shareSource": {
       "shares": 135.042975,
-      "date": "2026-10-30",
+      "date": "2026-10-31",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000053/dd-20260630.htm",
-      "capturedAt": "2026-10-31T14:28:35Z"
+      "capturedAt": "2026-10-31T17:26:24Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 18912.8,
@@ -805875,7 +805903,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "2adb6b20183799a4cf8cac927be94873d9aff9e276143e2fef228f9821bb72da"
       },
       "mScore": {
@@ -805887,7 +805915,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "2adb6b20183799a4cf8cac927be94873d9aff9e276143e2fef228f9821bb72da"
       }
     },
@@ -806077,7 +806105,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "DD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:28:35Z",
+      "fetchedAt": "2026-10-31T17:26:24Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-04",
       "quoteDate": "2026-10-30",
@@ -806109,11 +806137,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 135042975,
       "shareSource": {
         "shares": 135.042975,
-        "date": "2026-10-30",
+        "date": "2026-10-31",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000053/dd-20260630.htm",
-        "capturedAt": "2026-10-31T14:28:35Z"
+        "capturedAt": "2026-10-31T17:26:24Z"
       }
     },
     "z_score": 0.52,
@@ -806432,7 +806460,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/916076/000119312526326001/mlm-20260630.htm",
-      "capturedAt": "2026-10-31T14:28:41Z"
+      "capturedAt": "2026-10-31T17:26:32Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 32460.2,
@@ -809680,7 +809708,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "93a7e0af5432c80cbca1799ab7be859ef5885db4ab00c490cd324e8ff9c62d51"
       },
       "mScore": {
@@ -809692,7 +809720,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "93a7e0af5432c80cbca1799ab7be859ef5885db4ab00c490cd324e8ff9c62d51"
       }
     },
@@ -809833,7 +809861,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MLM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:28:41Z",
+      "fetchedAt": "2026-10-31T17:26:32Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-30",
       "quoteDate": "2026-10-30",
@@ -809869,7 +809897,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/916076/000119312526326001/mlm-20260630.htm",
-        "capturedAt": "2026-10-31T14:28:41Z"
+        "capturedAt": "2026-10-31T17:26:32Z"
       }
     },
     "z_score": 3.49,
@@ -810188,7 +810216,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/37634/000075330826000081/nee-20260930.htm",
-      "capturedAt": "2026-10-31T14:28:47Z"
+      "capturedAt": "2026-10-31T17:26:40Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 175565.5,
@@ -813431,7 +813459,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "957ff81a46ece1228f63ef09ff967985a3c8905fc814f4a90cf84a3eeb7ac53b"
       },
       "mScore": {
@@ -813443,7 +813471,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "957ff81a46ece1228f63ef09ff967985a3c8905fc814f4a90cf84a3eeb7ac53b"
       }
     },
@@ -813603,7 +813631,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "NEE",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:28:47Z",
+      "fetchedAt": "2026-10-31T17:26:40Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-21",
       "quoteDate": "2026-10-30",
@@ -813639,7 +813667,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/37634/000075330826000081/nee-20260930.htm",
-        "capturedAt": "2026-10-31T14:28:47Z"
+        "capturedAt": "2026-10-31T17:26:40Z"
       }
     },
     "z_score": 1.17,
@@ -813958,7 +813986,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/3153/000009212226000054/so-20260630.htm",
-      "capturedAt": "2026-10-31T14:28:52Z"
+      "capturedAt": "2026-10-31T17:26:48Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 107800.2,
@@ -817206,7 +817234,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "34af25d7f208a22871d75220398b0f547a4932e42d94f98d1e50821a7db42fac"
       },
       "mScore": {
@@ -817218,7 +817246,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "34af25d7f208a22871d75220398b0f547a4932e42d94f98d1e50821a7db42fac"
       }
     },
@@ -817372,7 +817400,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "SO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:28:52Z",
+      "fetchedAt": "2026-10-31T17:26:48Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-07-30",
       "quoteDate": "2026-10-30",
@@ -817408,7 +817436,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/3153/000009212226000054/so-20260630.htm",
-        "capturedAt": "2026-10-31T14:28:52Z"
+        "capturedAt": "2026-10-31T17:26:48Z"
       }
     },
     "z_score": 1.01,
@@ -817727,7 +817755,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/20290/000132616026000040/duk-20260630.htm",
-      "capturedAt": "2026-10-31T14:28:57Z"
+      "capturedAt": "2026-10-31T17:26:57Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 99326.2,
@@ -820971,7 +820999,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "8cfa56cc64d323aa00db2ba765559b94edb4e713455b662bdf4ce78189fe548b"
       },
       "mScore": {
@@ -820983,7 +821011,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "8cfa56cc64d323aa00db2ba765559b94edb4e713455b662bdf4ce78189fe548b"
       }
     },
@@ -821149,7 +821177,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "DUK",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:28:57Z",
+      "fetchedAt": "2026-10-31T17:26:57Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-04",
       "quoteDate": "2026-10-30",
@@ -821185,7 +821213,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/20290/000132616026000040/duk-20260630.htm",
-        "capturedAt": "2026-10-31T14:28:57Z"
+        "capturedAt": "2026-10-31T17:26:57Z"
       }
     },
     "z_score": 0.72,
@@ -821500,11 +821528,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "354.31 M",
     "shareSource": {
       "shares": 354.307379,
-      "date": "2026-10-30",
+      "date": "2026-10-31",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1168165/000186827526000104/ceg-20260630.htm",
-      "capturedAt": "2026-10-31T14:29:03Z"
+      "capturedAt": "2026-10-31T17:27:05Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 92963.2,
@@ -824745,7 +824773,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "ac4c313aa86ed989af20590b4fbd3b8876e07444616292bfd004c4af58b9195f"
       },
       "mScore": {
@@ -824757,7 +824785,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "ac4c313aa86ed989af20590b4fbd3b8876e07444616292bfd004c4af58b9195f"
       }
     },
@@ -824898,7 +824926,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CEG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:29:03Z",
+      "fetchedAt": "2026-10-31T17:27:05Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-06",
       "quoteDate": "2026-10-30",
@@ -824930,11 +824958,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 354307379,
       "shareSource": {
         "shares": 354.307379,
-        "date": "2026-10-30",
+        "date": "2026-10-31",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1168165/000186827526000104/ceg-20260630.htm",
-        "capturedAt": "2026-10-31T14:29:03Z"
+        "capturedAt": "2026-10-31T17:27:05Z"
       }
     },
     "z_score": 2.17,
@@ -825253,7 +825281,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1410636/000141063626000149/awk-20260930.htm",
-      "capturedAt": "2026-10-31T14:29:08Z"
+      "capturedAt": "2026-10-31T17:27:13Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 28744.7,
@@ -828501,7 +828529,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "e0dcfb8711f6c635b83ffc125b1a4b8181e34977a51f0e2bacfbf3248d74f13e"
       },
       "mScore": {
@@ -828513,7 +828541,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "e0dcfb8711f6c635b83ffc125b1a4b8181e34977a51f0e2bacfbf3248d74f13e"
       }
     },
@@ -828654,7 +828682,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AWK",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:29:08Z",
+      "fetchedAt": "2026-10-31T17:27:13Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-10-30",
@@ -828690,7 +828718,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1410636/000141063626000149/awk-20260930.htm",
-        "capturedAt": "2026-10-31T14:29:08Z"
+        "capturedAt": "2026-10-31T17:27:13Z"
       }
     },
     "z_score": 1.01,
@@ -829009,7 +829037,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/86521/000103220826000045/sre-20260630.htm",
-      "capturedAt": "2026-10-31T14:29:14Z"
+      "capturedAt": "2026-10-31T17:27:21Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 56274.6,
@@ -832253,7 +832281,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "e5b61451e3793fc8744d5001a6524ef715c721ee7fe00180291f032db7830df4"
       },
       "mScore": {
@@ -832265,7 +832293,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "e5b61451e3793fc8744d5001a6524ef715c721ee7fe00180291f032db7830df4"
       }
     },
@@ -832425,7 +832453,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "SRE",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:29:14Z",
+      "fetchedAt": "2026-10-31T17:27:21Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-06",
       "quoteDate": "2026-10-30",
@@ -832461,7 +832489,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/86521/000103220826000045/sre-20260630.htm",
-        "capturedAt": "2026-10-31T14:29:14Z"
+        "capturedAt": "2026-10-31T17:27:21Z"
       }
     },
     "z_score": 1.1,
@@ -832780,7 +832808,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/4904/000000490426000072/aep-20260930.htm",
-      "capturedAt": "2026-10-31T14:29:19Z"
+      "capturedAt": "2026-10-31T17:27:29Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 70902.7,
@@ -836028,7 +836056,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "6fab6387f8ecf5606716c26a3368dec990cc74bfbb9ddad1bc811e2a70b65ed4"
       },
       "mScore": {
@@ -836040,7 +836068,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "6fab6387f8ecf5606716c26a3368dec990cc74bfbb9ddad1bc811e2a70b65ed4"
       }
     },
@@ -836188,7 +836216,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AEP",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:29:19Z",
+      "fetchedAt": "2026-10-31T17:27:29Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-10-30",
@@ -836224,7 +836252,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/4904/000000490426000072/aep-20260930.htm",
-        "capturedAt": "2026-10-31T14:29:19Z"
+        "capturedAt": "2026-10-31T17:27:29Z"
       }
     },
     "z_score": 0.96,
@@ -836534,22 +836562,22 @@ window.FULL_MARKET_DATA = {
     "industry": "Multi-Utilities",
     "reportedCurrency": "USD",
     "price": 66.62,
-    "shares": 879.525949,
-    "shares_outstanding": 879525949,
+    "shares": 879.525976,
+    "shares_outstanding": 879525976,
     "shares_display": "879.53 M",
     "shareSource": {
-      "shares": 879.525949,
+      "shares": 879.525976,
       "date": "2026-10-31",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/103682/000119312526440697/d-20260930.htm",
-      "capturedAt": "2026-10-31T14:29:25Z"
+      "capturedAt": "2026-10-31T17:27:38Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 58594.0,
-    "liq_val_1": -91.6618777327285,
-    "liq_val_2": -98.03326450803785,
-    "liq_val_3": -102.0015385583581,
+    "liq_val_1": -91.6618749188597,
+    "liq_val_2": -98.03326149857796,
+    "liq_val_3": -102.00153542707874,
     "debt": 52247.0,
     "cash": 656.0,
     "short_term_investments": 221.0,
@@ -839786,7 +839814,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "fae2b103a89e10b68a26a0f53bc3c18e33ecf427fb5a374b24684a48655b62f3"
       },
       "mScore": {
@@ -839798,7 +839826,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "fae2b103a89e10b68a26a0f53bc3c18e33ecf427fb5a374b24684a48655b62f3"
       }
     },
@@ -839958,7 +839986,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "D",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:29:25Z",
+      "fetchedAt": "2026-10-31T17:27:38Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
       "quoteDate": "2026-10-30",
@@ -839987,14 +840015,14 @@ window.FULL_MARKET_DATA = {
         "inventory": 2030000000,
         "preferredStock": 991000000
       },
-      "sharesOutstanding": 879525949,
+      "sharesOutstanding": 879525976,
       "shareSource": {
-        "shares": 879.525949,
+        "shares": 879.525976,
         "date": "2026-10-31",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/103682/000119312526440697/d-20260930.htm",
-        "capturedAt": "2026-10-31T14:29:25Z"
+        "capturedAt": "2026-10-31T17:27:38Z"
       }
     },
     "z_score": 0.73,
@@ -840304,22 +840332,22 @@ window.FULL_MARKET_DATA = {
     "industry": "Industrial REITs",
     "reportedCurrency": "USD",
     "price": 128.06,
-    "shares": 950.331,
-    "shares_outstanding": 950331000,
+    "shares": 950.333372,
+    "shares_outstanding": 950333372,
     "shares_display": "950.33 M",
     "shareSource": {
-      "shares": 950.331,
-      "date": "2026-10-30",
+      "shares": 950.333372,
+      "date": "2026-10-31",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1045609/000119312526436160/pld-20260930.htm",
-      "capturedAt": "2026-10-31T14:29:30Z"
+      "capturedAt": "2026-10-31T17:27:46Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 121699.4,
-    "liq_val_1": -42.86273940342891,
-    "liq_val_2": -43.43705298469691,
-    "liq_val_3": -43.43705298469691,
+    "liq_val_1": -42.862632419479006,
+    "liq_val_2": -43.4369445672797,
+    "liq_val_3": -43.4369445672797,
     "debt": 36832.5,
     "cash": 2273.5,
     "short_term_investments": 0.0,
@@ -843561,7 +843589,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "43ba6556f60ec7c3b6792a8dd4d58503f3245d40341deaa130c75efbd28ec9ee"
       },
       "mScore": {
@@ -843573,7 +843601,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "43ba6556f60ec7c3b6792a8dd4d58503f3245d40341deaa130c75efbd28ec9ee"
       }
     },
@@ -843714,7 +843742,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "PLD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:29:30Z",
+      "fetchedAt": "2026-10-31T17:27:46Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-10-30",
@@ -843743,14 +843771,14 @@ window.FULL_MARKET_DATA = {
         "inventory": 0,
         "preferredStock": 63948000
       },
-      "sharesOutstanding": 950331000,
+      "sharesOutstanding": 950333372,
       "shareSource": {
-        "shares": 950.331,
-        "date": "2026-10-30",
+        "shares": 950.333372,
+        "date": "2026-10-31",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1045609/000119312526436160/pld-20260930.htm",
-        "capturedAt": "2026-10-31T14:29:30Z"
+        "capturedAt": "2026-10-31T17:27:46Z"
       }
     },
     "z_score": 1.95,
@@ -844069,7 +844097,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1053507/000105350726000157/amt-20260930.htm",
-      "capturedAt": "2026-10-31T14:29:35Z"
+      "capturedAt": "2026-10-31T17:27:54Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 87085.6,
@@ -847317,7 +847345,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "d7b6b3a3367cfab3128e60337ba68a568d887eef9d0026f5b23df7a3d27f2373"
       },
       "mScore": {
@@ -847329,7 +847357,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "d7b6b3a3367cfab3128e60337ba68a568d887eef9d0026f5b23df7a3d27f2373"
       }
     },
@@ -847470,7 +847498,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AMT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:29:35Z",
+      "fetchedAt": "2026-10-31T17:27:54Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-27",
       "quoteDate": "2026-10-30",
@@ -847506,7 +847534,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1053507/000105350726000157/amt-20260930.htm",
-        "capturedAt": "2026-10-31T14:29:35Z"
+        "capturedAt": "2026-10-31T17:27:54Z"
       }
     },
     "z_score": 1.18,
@@ -847825,7 +847853,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1101239/000110123926000180/eqix-20260930.htm",
-      "capturedAt": "2026-10-31T14:29:41Z"
+      "capturedAt": "2026-10-31T17:28:03Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 100344.4,
@@ -851073,7 +851101,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "5103189752f6d84b9a7415ab3ada4b19ff1e0897e433467e7345fa6d4a612057"
       },
       "mScore": {
@@ -851085,7 +851113,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "5103189752f6d84b9a7415ab3ada4b19ff1e0897e433467e7345fa6d4a612057"
       }
     },
@@ -851233,7 +851261,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "EQIX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:29:41Z",
+      "fetchedAt": "2026-10-31T17:28:03Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-10-30",
@@ -851269,7 +851297,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1101239/000110123926000180/eqix-20260930.htm",
-        "capturedAt": "2026-10-31T14:29:41Z"
+        "capturedAt": "2026-10-31T17:28:03Z"
       }
     },
     "z_score": 2.54,
@@ -851588,7 +851616,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1022344/000110465926093360/spg-20260630x10q.htm",
-      "capturedAt": "2026-10-31T14:29:46Z"
+      "capturedAt": "2026-10-31T17:28:11Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 70453.3,
@@ -854831,7 +854859,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "f7ff4c03ffb6b254ba85a2dd9085338516fa72a8e896234bd19473b6080dcbdb"
       },
       "mScore": {
@@ -854843,7 +854871,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "f7ff4c03ffb6b254ba85a2dd9085338516fa72a8e896234bd19473b6080dcbdb"
       }
     },
@@ -854997,7 +855025,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "SPG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:29:46Z",
+      "fetchedAt": "2026-10-31T17:28:11Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-10",
       "quoteDate": "2026-10-30",
@@ -855033,7 +855061,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1022344/000110465926093360/spg-20260630x10q.htm",
-        "capturedAt": "2026-10-31T14:29:46Z"
+        "capturedAt": "2026-10-31T17:28:11Z"
       }
     },
     "z_score": 1.49,
@@ -855352,7 +855380,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1057352/000105735226000083/csgp-20260930.htm",
-      "capturedAt": "2026-10-31T14:29:51Z"
+      "capturedAt": "2026-10-31T17:28:19Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 12224.8,
@@ -858594,7 +858622,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "44eede5785269c606d07d10644f6e67005845e4013fb63a54bcd3e65f4450977"
       },
       "mScore": {
@@ -858606,7 +858634,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "44eede5785269c606d07d10644f6e67005845e4013fb63a54bcd3e65f4450977"
       }
     },
@@ -858754,7 +858782,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CSGP",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:29:51Z",
+      "fetchedAt": "2026-10-31T17:28:19Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-10-30",
@@ -858790,7 +858818,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1057352/000105735226000083/csgp-20260930.htm",
-        "capturedAt": "2026-10-31T14:29:51Z"
+        "capturedAt": "2026-10-31T17:28:19Z"
       }
     },
     "z_score": 4.17,
@@ -859109,7 +859137,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1705696/000170569626000120/vici-20260930.htm",
-      "capturedAt": "2026-10-31T14:29:57Z"
+      "capturedAt": "2026-10-31T17:28:27Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 26932.6,
@@ -862349,7 +862377,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "7e566d43e854d8977d0862a568d4a18986229aed05292ec666c6d5fe323d5fd8"
       },
       "mScore": {
@@ -862361,7 +862389,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "7e566d43e854d8977d0862a568d4a18986229aed05292ec666c6d5fe323d5fd8"
       }
     },
@@ -862502,7 +862530,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "VICI",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:29:57Z",
+      "fetchedAt": "2026-10-31T17:28:27Z",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-10-30",
@@ -862538,7 +862566,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1705696/000170569626000120/vici-20260930.htm",
-        "capturedAt": "2026-10-31T14:29:57Z"
+        "capturedAt": "2026-10-31T17:28:27Z"
       }
     },
     "z_score": 1.78,
@@ -862857,7 +862885,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/726728/000072672826000048/o-20260630.htm",
-      "capturedAt": "2026-10-31T14:30:03Z"
+      "capturedAt": "2026-10-31T17:28:36Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 53868.2,
@@ -866102,7 +866130,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "b6dfd0528b72e90c80d1134f4e215770024ebdbe94614e11fb674cd69433791e"
       },
       "mScore": {
@@ -866114,7 +866142,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-10-31T14:30:15.715Z",
+        "checkedAt": "2026-10-31T17:28:55.119Z",
         "evidenceHash": "b6dfd0528b72e90c80d1134f4e215770024ebdbe94614e11fb674cd69433791e"
       }
     },
@@ -866268,7 +866296,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "O",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-10-31T14:30:03Z",
+      "fetchedAt": "2026-10-31T17:28:36Z",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-06",
       "quoteDate": "2026-10-30",
@@ -866304,7 +866332,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/726728/000072672826000048/o-20260630.htm",
-        "capturedAt": "2026-10-31T14:30:03Z"
+        "capturedAt": "2026-10-31T17:28:36Z"
       }
     },
     "z_score": 0.89,
