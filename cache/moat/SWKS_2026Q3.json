@@ -1,0 +1,60 @@
+{
+  "ticker": "SWKS",
+  "period": "2026Q3",
+  "m1_brand_pricing": {
+    "score": 6,
+    "comment_zh": "Skyworks Solutions 在無線通訊半導體領域擁有一定的品牌聲譽，尤其是在手機和物聯網設備市場。然而，其產品屬於技術密集型，品牌溢價空間相對有限，難以形成強大的定價權。公司面臨來自其他大型半導體廠商的激烈競爭，尤其是在新興技術領域。其產品的差異化更多體現在技術規格和性能上，而非消費者認知的品牌忠誠度。因此，在品牌定價權方面，Skyworks 處於中等水平，尚不足以構成顯著的護城河。",
+    "comment_en": "Skyworks Solutions possesses a certain brand reputation in the wireless communication semiconductor sector, particularly in the mobile and IoT device markets. However, its products are technology-intensive, limiting the scope for significant brand premium and making it difficult to establish strong pricing power. The company faces intense competition from other major semiconductor manufacturers, especially in emerging technology areas. Product differentiation is more about technical specifications and performance rather than consumer-perceived brand loyalty. Therefore, Skyworks' brand pricing power is at a moderate level, not yet constituting a significant moat."
+  },
+  "m2_patents_regulatory": {
+    "score": 7,
+    "comment_zh": "Skyworks 在半導體設計和製造方面擁有大量專利，這為其產品提供了技術壁壘，尤其是在射頻（RF）前端模組等關鍵領域。這些專利限制了競爭對手模仿其核心技術的能力，並在一定程度上保障了其市場地位。雖然半導體行業的技術迭代迅速，專利保護的時效性會受到挑戰，但現有的專利組合仍能為公司提供一段時間的競爭優勢。監管環境對半導體行業的影響相對較小，主要體現在貿易政策和出口管制方面，但對 Skyworks 的核心業務影響不大。",
+    "comment_en": "Skyworks holds a substantial number of patents in semiconductor design and manufacturing, providing technological barriers for its products, especially in critical areas like radio frequency (RF) front-end modules. These patents limit competitors' ability to imitate its core technologies and, to some extent, secure its market position. Although the rapid technological iteration in the semiconductor industry challenges the timeliness of patent protection, the existing patent portfolio still offers the company a competitive advantage for a period. The regulatory environment has a relatively minor impact on the semiconductor industry, primarily concerning trade policies and export controls, which do not significantly affect Skyworks' core business."
+  },
+  "m3_high_switching_costs": {
+    "score": 6,
+    "comment_zh": "對於採用 Skyworks 產品的設備製造商而言，更換供應商的轉換成本相對較高。這主要源於產品的技術整合度、性能驗證以及供應鏈的穩定性要求。一旦客戶將 Skyworks 的晶片整合到其產品設計中，並經過嚴格的測試和認證流程，更換供應商將需要重新進行大量的工程設計和驗證工作，耗費時間和資源。這種技術整合的深度和供應鏈的長期合作關係，為 Skyworks 建立了一定的客戶黏性，但並非絕對的轉換障礙。",
+    "comment_en": "For equipment manufacturers using Skyworks' products, the switching costs to change suppliers are relatively high. This is primarily due to the technical integration of the products, performance validation, and the stability requirements of the supply chain. Once a customer integrates Skyworks' chips into their product design and undergoes rigorous testing and certification processes, switching suppliers would necessitate significant re-engineering and re-validation efforts, consuming time and resources. This depth of technical integration and long-term supply chain relationships establish a certain degree of customer stickiness for Skyworks, though it is not an absolute barrier to switching."
+  },
+  "m4_network_effects": {
+    "score": 2,
+    "comment_zh": "Skyworks 的業務模式主要基於向設備製造商銷售半導體元件，其產品本身不具備顯著的網絡效應。網絡效應通常出現在平台型或社交型業務中，用戶越多，產品或服務的價值就越大。Skyworks 的產品價值主要體現在其技術性能和可靠性上，而非用戶數量帶來的邊際效應。因此，在網絡效應這一維度上，Skyworks 的護城河非常薄弱，幾乎可以忽略不計。",
+    "comment_en": "Skyworks' business model primarily involves selling semiconductor components to equipment manufacturers; its products themselves do not exhibit significant network effects. Network effects are typically found in platform or social businesses where the value of the product or service increases with the number of users. The value of Skyworks' products lies mainly in their technical performance and reliability, not in the marginal effect derived from user numbers. Therefore, in terms of network effects, Skyworks' moat is very weak and almost negligible."
+  },
+  "m5_cost_advantage_scale": {
+    "score": 7,
+    "comment_zh": "作為一家領先的半導體供應商，Skyworks 受益於規模經濟帶來的成本優勢。龐大的生產規模使其能夠在採購原材料、優化生產流程和分攤研發費用方面獲得更低的單位成本。與小型競爭對手相比，Skyworks 在成本控制上具有顯著優勢，這有助於其在價格競爭中保持有利地位，並為其帶來穩定的利潤空間。這種規模優勢是半導體行業普遍存在的壁壘，對新進入者構成挑戰。",
+    "comment_en": "As a leading semiconductor supplier, Skyworks benefits from cost advantages derived from economies of scale. Its large production volume allows for lower unit costs in raw material procurement, optimization of manufacturing processes, and allocation of R&D expenses. Compared to smaller competitors, Skyworks has a significant advantage in cost control, which helps it maintain a favorable position in price competition and provides stable profit margins. This scale advantage is a common barrier in the semiconductor industry, posing a challenge to new entrants."
+  },
+  "m6_unique_geography_assets": {
+    "score": 2,
+    "comment_zh": "Skyworks 的業務遍及全球，但其核心競爭力在於技術和產品，而非特定的地理位置或獨特的實體資產。公司依賴於全球化的供應鏈和客戶網絡，但沒有像礦產、土地或特定地理資源那樣的、具有排他性的地理資產。其生產基地和研發中心的分佈是基於業務效率和人才獲取考量，而非構成獨特的、難以複製的地理壁壘。因此，在這一維度上，Skyworks 的護城河非常有限。",
+    "comment_en": "Skyworks operates globally, but its core competitiveness lies in technology and products, not in specific geographic locations or unique physical assets. The company relies on a globalized supply chain and customer network but does not possess exclusive geographic assets like mineral resources, land, or specific geographical advantages. The distribution of its production bases and R&D centers is based on business efficiency and talent acquisition considerations, rather than constituting unique, irreplicable geographic barriers. Therefore, Skyworks' moat in this dimension is very limited."
+  },
+  "m7_operational_efficiency": {
+    "score": 7,
+    "comment_zh": "Skyworks 在半導體製造和供應鏈管理方面展現出較高的營運效率。公司能夠有效地控制生產成本，確保產品品質，並及時滿足客戶需求。其精益生產和持續的流程改進有助於提升利潤率和營運現金流。這種營運上的卓越表現，雖然不直接構成專屬的護城河，但能使其在行業競爭中保持領先地位，並在市場波動時展現出更強的韌性。高效的營運是其穩健財務表現的基石。",
+    "comment_en": "Skyworks demonstrates high operational efficiency in semiconductor manufacturing and supply chain management. The company effectively controls production costs, ensures product quality, and meets customer demands in a timely manner. Its lean manufacturing practices and continuous process improvements contribute to enhanced profit margins and operating cash flow. While this operational excellence does not directly constitute an exclusive moat, it allows the company to maintain a leading position in industry competition and exhibit greater resilience during market fluctuations. Efficient operations are the cornerstone of its sound financial performance."
+  },
+  "m8_capital_allocation": {
+    "score": 6,
+    "comment_zh": "Skyworks 的資本配置策略相對穩健，過去幾年公司透過股票回購和股息支付回饋股東，同時也進行了策略性的收購以擴展產品線和市場。然而，其資本配置的決策並未展現出如巴菲特般對價值判斷的極致追求和長期佈局。公司在研發投入和併購決策上，仍需在技術快速變遷的壓力下平衡短期與長期利益。其資本配置能力尚可，但未達到能顯著加寬護城河的頂尖水平。",
+    "comment_en": "Skyworks' capital allocation strategy is relatively sound. In recent years, the company has returned capital to shareholders through share buybacks and dividend payments, while also making strategic acquisitions to expand its product lines and markets. However, its capital allocation decisions do not exhibit the extreme pursuit of value judgment and long-term strategic positioning characteristic of Buffett. The company still needs to balance short-term and long-term interests in R&D investment and M&A decisions under the pressure of rapid technological change. Its capital allocation capability is acceptable but has not reached the top tier that could significantly widen its moat."
+  },
+  "m9_customer_retention": {
+    "score": 6,
+    "comment_zh": "Skyworks 與其主要客戶，如蘋果等大型設備製造商，建立了長期穩定的合作關係。這種關係基於產品的穩定供應、技術支持和共同開發。一旦客戶將 Skyworks 的產品深度整合到其產品線中，更換供應商的成本和風險會顯著增加，從而產生一定的客戶黏性。然而，在技術快速變革的半導體行業，客戶對供應商的忠誠度也受到新技術和新供應商的挑戰。因此，客戶保留率雖高，但並非絕對的。",
+    "comment_en": "Skyworks has established long-term, stable cooperative relationships with its major customers, such as large equipment manufacturers like Apple. This relationship is based on stable product supply, technical support, and joint development. Once customers deeply integrate Skyworks' products into their product lines, the cost and risk of switching suppliers increase significantly, creating a certain degree of customer stickiness. However, in the rapidly evolving semiconductor industry, customer loyalty is also challenged by new technologies and new suppliers. Therefore, while customer retention rates are high, they are not absolute."
+  },
+  "m10_durability": {
+    "score": 6,
+    "comment_zh": "Skyworks 所處的半導體行業，特別是無線通訊領域，技術變革速度快，市場競爭激烈，這對其業務的長期可持續性構成挑戰。雖然公司在射頻前端模組等領域具有領先地位，但新興技術（如 5G、Wi-Fi 6/7 及未來的 6G）的快速發展要求公司持續投入巨額研發，並不斷適應市場變化。其產品的生命週期相對較短，需要不斷創新以維持競爭力。因此，其業務的長期可持續性（Durability）面臨較大考驗，護城河的持久性相對有限。",
+    "comment_en": "The semiconductor industry, particularly in wireless communications where Skyworks operates, is characterized by rapid technological change and intense market competition, posing challenges to the long-term sustainability of its business. Although the company holds a leading position in areas like RF front-end modules, the rapid development of emerging technologies (such as 5G, Wi-Fi 6/7, and future 6G) requires continuous substantial R&D investment and constant adaptation to market changes. The product lifecycle is relatively short, necessitating ongoing innovation to maintain competitiveness. Consequently, the long-term durability of its business faces significant tests, and the persistence of its moat is relatively limited."
+  },
+  "overall_moat_verdict_zh": "Skyworks Solutions 在半導體行業，特別是無線射頻（RF）領域，展現了其技術實力與市場地位。其專利組合、規模經濟帶來的成本優勢以及與主要客戶的長期合作關係，構成了其主要的競爭壁壘。然而，行業技術迭代迅速、競爭者眾多，以及產品本身缺乏網絡效應和顯著的品牌忠誠度，限制了其護城河的深度與廣度。總體而言，Skyworks 擁有一個相對穩固但非無懈可擊的護城河，更接近於一個技術驅動的收費橋模式，而非強大的特許經營權。其長期價值取決於持續的技術創新和有效的資本配置能力。",
+  "overall_moat_verdict_en": "Skyworks Solutions demonstrates its technological strength and market position in the semiconductor industry, particularly in the wireless radio frequency (RF) sector. Its patent portfolio, cost advantages derived from economies of scale, and long-term relationships with key customers form its primary competitive barriers. However, the rapid pace of technological iteration in the industry, numerous competitors, and the inherent lack of network effects and significant brand loyalty in its products limit the depth and breadth of its moat. Overall, Skyworks possesses a relatively solid but not impregnable moat, more akin to a technology-driven toll bridge model than a strong franchise. Its long-term value hinges on continuous technological innovation and effective capital allocation.",
+  "evidenceHash": "0fe390171b66f842a140840587d44a8d97a15bcaa19d8d73e8de968f79d1afdb",
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
+}
