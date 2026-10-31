@@ -57,6 +57,11 @@ PREFERRED_NAME = re.compile(
     re.I,
 )
 NON_COMMON_NAME = re.compile(r"\b(?:ETF|ETN|ETP|Warrants?|Rights?|Units?)\b", re.I)
+# Financing SPVs that issue exchange-traded notes (e.g. AEFC = Aegon Funding Company LLC).
+# Common equity for the parent remains listed separately (AEG).
+FUNDING_VEHICLE_NAME = re.compile(r"\bFunding\s+Company\b", re.I)
+# Hard denylist for known non-equity tickers that FMP may title without Notes/NTS.
+EXCLUDED_NON_EQUITY_TICKERS = frozenset({"AEFC"})
 COMMON_SECURITY_TYPES = {"", "stock", "equity", "common stock", "commonstock"}
 NON_COMMON_TYPE_TOKENS = (
     "etf", "fund", "warrant", "preferred", "unit", "right",
@@ -73,6 +78,8 @@ def is_excluded_security(row: dict) -> str | None:
     symbol = str(row.get("symbol") or row.get("ticker") or "").strip().upper()
     if not symbol or not re.fullmatch(r"[A-Z][A-Z0-9.-]{0,14}", symbol):
         return "invalidSymbol"
+    if symbol in EXCLUDED_NON_EQUITY_TICKERS:
+        return "excludedNonEquityTicker"
     if row.get("isEtf") is True or row.get("isFund") is True:
         return "etfOrFund"
     if PREFERRED_OR_NOTE_SYMBOL.fullmatch(symbol):
@@ -88,6 +95,8 @@ def is_excluded_security(row: dict) -> str | None:
         return "debtNoteName"
     if PREFERRED_NAME.search(name):
         return "preferredName"
+    if FUNDING_VEHICLE_NAME.search(name):
+        return "fundingVehicle"
     if NON_COMMON_NAME.search(name):
         return "nonCommonName"
     security = str(row.get("type") or row.get("securityType") or "").lower().strip()

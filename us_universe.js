@@ -13,13 +13,17 @@
   // Include abbreviated exchange titles such as "GLB NTS" (Global Notes), e.g. TBB.
   const DEBT_NOTE_NAME = /\b(?:Notes?|NTS|Junior\s+Subordinated|Income\s+Capital\s+Obligations|Subordinated\s+Debentures?|Debentures?)\b/i;
   const PREFERRED_NAME = /\b(?:Preferred(?:\s+Stock)?|Pref\.?|Pfd\.?|Cum\.?\s+Pfd|Perp(?:etual)?\.?\s+Pfd)\b/i;
+  // Financing SPVs (e.g. AEFC = Aegon Funding Company LLC); parent common equity is separate (AEG).
+  const FUNDING_VEHICLE_NAME = /\bFunding\s+Company\b/i;
+  const EXCLUDED_NON_EQUITY_TICKERS = new Set(['AEFC']);
 
   function isCommonEquityListing(item) {
     if (!item) return false;
     const ticker = String(item.ticker || '').toUpperCase();
     const name = String(item.name || item.name_en || item.company_name || '');
+    if (EXCLUDED_NON_EQUITY_TICKERS.has(ticker)) return false;
     if (PREFERRED_OR_NOTE_SYMBOL.test(ticker)) return false;
-    if (DEBT_NOTE_NAME.test(name) || PREFERRED_NAME.test(name)) return false;
+    if (DEBT_NOTE_NAME.test(name) || PREFERRED_NAME.test(name) || FUNDING_VEHICLE_NAME.test(name)) return false;
     return true;
   }
 
