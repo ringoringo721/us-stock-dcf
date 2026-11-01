@@ -81,3 +81,45 @@ test('every covered stock has validated daily history or honest unavailability, 
   }
   assert.ok(observations > 0);
 });
+
+test('fromFmpRows builds a validated chart record from real EOD rows without fabrication', () => {
+  const rows = [
+    { symbol: 'PLTR', date: '2024-01-02', close: 16.25, volume: 100 },
+    { symbol: 'PLTR', date: '2024-01-03', close: 16.5, volume: null }
+  ];
+  const record = Price.fromFmpRows('PLTR', rows, '2024-01-01', '2024-12-31');
+  assert.equal(record.ticker, 'PLTR');
+  assert.equal(record.source, 'FMP historical-price-eod/full');
+  assert.deepEqual(record.rows, [['2024-01-02', 16.25, 100], ['2024-01-03', 16.5, null]]);
+  assert.throws(() => Price.fromFmpRows('PLTR',
+    [{ symbol: 'OTHER', date: '2024-01-02', close: 1, volume: 1 }],
+    '2024-01-01', '2024-12-31'), TypeError);
+  assert.throws(() => Price.fromFmpRows('PLTR',
+    [{ symbol: 'PLTR', date: '2024-01-02', close: 0, volume: 1 }],
+    '2024-01-01', '2024-12-31'), TypeError);
+});
+
+test('US expansion catalogue stocks publish real validated price charts (PLTR sample + coverage)', () => {
+  const expansion = JSON.parse(fs.readFileSync(
+    require('node:path').join(__dirname, '..', 'us_expansion_data.js'), 'utf8')
+    .replace(/^window\.US_EXPANSION\s*=\s*/, '').replace(/;\s*$/, ''));
+  const tickers = Object.keys(expansion.stocks || {});
+  assert.ok(tickers.length >= 700);
+  assert.ok(tickers.includes('PLTR'));
+  let missing = 0;
+  for (const ticker of tickers) {
+    const file = require('node:path').join(__dirname, '..', 'cache', 'price_charts', `${ticker}.json`);
+    if (!fs.existsSync(file)) {
+      missing += 1;
+      continue;
+    }
+    const data = Price.validate(JSON.parse(fs.readFileSync(file, 'utf8')), ticker);
+    assert.ok(data.rows.length > 0, ticker);
+  }
+  assert.equal(missing, 0, `missing expansion price charts: ${missing}`);
+  const pltr = Price.validate(JSON.parse(fs.readFileSync(
+    require('node:path').join(__dirname, '..', 'cache', 'price_charts', 'PLTR.json'), 'utf8')), 'PLTR');
+  assert.ok(pltr.rows.length > 1000);
+  assert.equal(pltr.rows.at(-1)[1] > 0, true);
+});
+

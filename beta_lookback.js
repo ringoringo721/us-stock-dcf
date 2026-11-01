@@ -211,16 +211,34 @@
     return promise;
   }
 
+  function stockProviderBeta(ticker) {
+    // Expansion stocks are absent from FCFF betaSources (baseline-only compile).
+    // Fall back to the published catalogue beta from UsUniverse / HkUniverse merge.
+    const context = root.MarketContext || (typeof MarketContext !== 'undefined' ? MarketContext : null);
+    const stocks = typeof context?.stocks === 'function' ? context.stocks() : null;
+    const stock = stocks?.[ticker];
+    if (finite(stock?.beta)) {
+      return { value: stock.beta, source: 'Catalogue FMP profile beta' };
+    }
+    if (finite(stock?.beta_5y)) {
+      return { value: stock.beta_5y, source: 'Catalogue FMP profile beta' };
+    }
+    return null;
+  }
+
   function providerBeta(ticker) {
     const source = root.MarketContext?.fcff?.()?.betaSources?.[ticker]
       || (typeof MarketContext !== 'undefined' ? MarketContext.fcff()?.betaSources?.[ticker] : null);
-    const value = finite(source?.value) ? source.value : null;
+    const catalogue = !finite(source?.value) ? stockProviderBeta(ticker) : null;
+    const value = finite(source?.value) ? source.value
+      : finite(catalogue?.value) ? catalogue.value : null;
     return {
       mode: PROVIDER, beta: value, n: null, r2: null, lookbackYears: null,
       start: null, end: null, reason: value === null ? 'providerBetaUnavailable' : null,
       method: 'fmp-profile', benchmark: null, benchmarkLabel: null,
       cache: { hit: true, key: `beta:v1:${ticker}|provider` },
-      source: source?.source || 'FMP profile beta'
+      source: finite(source?.value) ? (source?.source || 'FMP profile beta')
+        : (catalogue?.source || 'FMP profile beta')
     };
   }
 

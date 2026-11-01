@@ -5,7 +5,9 @@ import tempfile
 import unittest
 from unittest.mock import Mock, patch
 
-from scripts.refresh_price_charts import fetch_prices, main, parse_prices, years_before
+from scripts.refresh_price_charts import (
+    expansion_tickers, fetch_prices, main, parse_prices, years_before,
+)
 
 
 class PriceChartTests(unittest.TestCase):
@@ -58,6 +60,8 @@ class PriceChartTests(unittest.TestCase):
             folder = root / "cache" / "price_charts"
             folder.mkdir(parents=True)
             (root / "full_market_dcf.json").write_text('{"AAPL": {}}', encoding="utf-8")
+            (root / "us_expansion_data.js").write_text(
+                'window.US_EXPANSION = {"version":1,"stocks":{}};', encoding="utf-8")
             previous = json.dumps({"rows": [["2024-01-02", 100, 1000]]})
             target = folder / "AAPL.json"
             target.write_text(previous, encoding="utf-8")
@@ -68,6 +72,50 @@ class PriceChartTests(unittest.TestCase):
                 with self.assertRaisesRegex(RuntimeError, "would erase existing history"):
                     main()
             self.assertEqual(target.read_text(encoding="utf-8"), previous)
+
+    def test_expansion_tickers_are_read_from_us_expansion_catalogue(self):
+        tickers = expansion_tickers(Path(__file__).resolve().parent.parent)
+        self.assertGreaterEqual(len(tickers), 700)
+        self.assertIn("PLTR", tickers)
+        self.assertIn("ABNB", tickers)
+
+    @patch("scripts.refresh_price_charts.time.sleep")
+    @patch("scripts.refresh_price_charts.requests.Session")
+    def test_expansion_soft_fail_still_writes_baseline(self, session_factory, sleep):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            folder = root / "cache" / "price_charts"
+            folder.mkdir(parents=True)
+            (root / "full_market_dcf.json").write_text('{"AAPL": {}}', encoding="utf-8")
+            (root / "us_expansion_data.js").write_text(
+                'window.US_EXPANSION = {"version":1,"stocks":{"PLTR":{}}};', encoding="utf-8")
+            aapl = {"symbol": "AAPL", "date": "2026-10-16", "close": 100, "volume": 10}
+            spy = {"symbol": "SPY", "date": "2026-10-16", "close": 400, "volume": 10}
+            hsi = {"symbol": "2800.HK", "date": "2026-10-16", "close": 20, "volume": 10}
+
+            def respond(*args, **kwargs):
+                params = kwargs.get("params") or {}
+                symbol = params["symbol"]
+                if symbol == "PLTR":
+                    return Mock(status_code=403, json=Mock(return_value={"Error Message": "restricted"}))
+                row = {"AAPL": aapl, "SPY": spy, "2800.HK": hsi}[symbol]
+                # Only return the row when it falls inside the requested window.
+                if not (params["from"] <= row["date"] <= params["to"]):
+                    return Mock(status_code=200, json=Mock(return_value=[]))
+                return Mock(status_code=200, json=Mock(return_value=[row]))
+
+            session = Mock()
+            session.get.side_effect = respond
+            context = Mock()
+            context.__enter__ = Mock(return_value=session)
+            context.__exit__ = Mock(return_value=False)
+            session_factory.return_value = context
+            with patch("scripts.refresh_price_charts.__file__", str(root / "scripts" / "refresh_price_charts.py")), \
+                    patch.dict("os.environ", {"FMP_API_KEY": "secret"}):
+                main()
+            written = json.loads((folder / "AAPL.json").read_text(encoding="utf-8"))
+            self.assertEqual(written["rows"], [["2026-10-16", 100, 10]])
+            self.assertFalse((folder / "PLTR.json").exists())
 
 
 if __name__ == "__main__":

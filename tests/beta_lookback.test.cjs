@@ -251,3 +251,26 @@ test('price-load failure reasons distinguish missing chart vs invalid vs API', (
   assert.match(Beta.reasonText('priceHistoryApiUnavailable', 'en'), /PriceHistory API/i);
   assert.match(Beta.reasonText('priceChartHttp404', 'en'), /HTTP 404/);
 });
+
+test('provider beta falls back to catalogue stock.beta for expansion tickers', () => {
+  const previous = globalThis.MarketContext;
+  globalThis.MarketContext = {
+    fcff: () => ({ betaSources: { AAPL: { value: 1.069, source: 'FMP profile beta' } } }),
+    stocks: () => ({ PLTR: { beta: 1.6 }, AAPL: { beta: 1.07 } })
+  };
+  try {
+    const expansion = Beta.providerBeta('PLTR');
+    assert.equal(expansion.beta, 1.6);
+    assert.equal(expansion.reason, null);
+    assert.match(expansion.source, /Catalogue/i);
+    const baseline = Beta.providerBeta('AAPL');
+    assert.equal(baseline.beta, 1.069);
+    assert.equal(baseline.reason, null);
+    const missing = Beta.providerBeta('ZZZZ');
+    assert.equal(missing.beta, null);
+    assert.equal(missing.reason, 'providerBetaUnavailable');
+  } finally {
+    if (previous === undefined) delete globalThis.MarketContext;
+    else globalThis.MarketContext = previous;
+  }
+});

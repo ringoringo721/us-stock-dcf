@@ -72,15 +72,103 @@
       + rows.map(row => `${row[0]},${row[1]},${row[2] ?? ''}`).join('\r\n') + '\r\n';
   }
 
+  const Cache = () => (typeof module === 'object' && module.exports
+    ? require('./fmp_cache.js') : (typeof FmpCache !== 'undefined' ? FmpCache : null));
+
+  function yearsBeforeIso(iso, years) {
+    const date = new Date(`${iso}T00:00:00Z`);
+    date.setUTCFullYear(date.getUTCFullYear() - years);
+    const year = date.getUTCFullYear(), month = date.getUTCMonth();
+    const day = Math.min(date.getUTCDate(), new Date(Date.UTC(year, month + 1, 0)).getUTCDate());
+    return new Date(Date.UTC(year, month, day)).toISOString().slice(0, 10);
+  }
+
+  function fromFmpRows(ticker, rows, from, to) {
+    const currency = /\.HK$/i.test(ticker) ? 'HKD' : 'USD';
+    const provider = ticker.endsWith('.HK') ? ticker : ticker.replaceAll('.', '-');
+    const by = new Map();
+    for (const row of rows) {
+      const day = String(row?.date || '').slice(0, 10);
+      const close = row?.close;
+      const volume = row?.volume;
+      if (!validDate(day) || day < from || day > to
+          || typeof close !== 'number' || !Number.isFinite(close) || close <= 0) {
+        throw new TypeError('Invalid on-demand EOD price');
+      }
+      if (row.symbol != null && row.symbol !== ticker && row.symbol !== provider) {
+        throw new TypeError('On-demand EOD symbol mismatch');
+      }
+      const vol = volume == null ? null : Number(volume);
+      if (vol !== null && (!Number.isSafeInteger(vol) || vol < 0)) {
+        throw new TypeError('Invalid on-demand EOD volume');
+      }
+      by.set(day, [day, close, vol]);
+    }
+    return validate({
+      version: 1, ticker, providerSymbol: provider, currency,
+      source: 'FMP historical-price-eod/full', priceBasis: 'splitAdjustedClose',
+      volumeBasis: 'providerReported', requestedFrom: from, requestedTo: to,
+      fetchedAt: new Date().toISOString(), columns: ['date', 'close', 'volume'],
+      rows: [...by.keys()].sort().map(day => by.get(day))
+    }, ticker);
+  }
+
+  async function loadFromFmp(ticker, reload = false) {
+    const api = Cache();
+    if (!api || typeof api.request !== 'function') {
+      throw new Error('FMP cache unavailable for on-demand historical prices');
+    }
+    const to = new Date().toISOString().slice(0, 10);
+    const from = yearsBeforeIso(to, 20);
+    const middle = yearsBeforeIso(to, 10);
+    const firstEndDate = new Date(`${middle}T00:00:00Z`);
+    firstEndDate.setUTCDate(firstEndDate.getUTCDate() - 1);
+    const firstEnd = firstEndDate.toISOString().slice(0, 10);
+    // Mirror refresh_price_charts.py: two decade halves avoid FMP's ~5000-row truncation.
+    const windows = [[from, firstEnd], [middle, to]];
+    const rows = [];
+    for (const [start, end] of windows) {
+      if (start > end) continue;
+      const query = new URLSearchParams({ action: 'historical-price', symbol: ticker, from: start, to: end });
+      const result = await api.request(query, { refresh: reload });
+      if (!Array.isArray(result?.data)) throw new Error('FMP_INVALID_HISTORICAL_PRICE');
+      if (result.data.length >= 5000) {
+        throw new Error('FMP_HISTORICAL_PRICE_TRUNCATED');
+      }
+      rows.push(...result.data);
+    }
+    return fromFmpRows(ticker, rows, from, to);
+  }
+
   const cache = new Map();
   async function load(ticker, reload = false) {
     if (!/^[A-Z0-9]+(?:[.-][A-Z0-9]+)*$/.test(ticker)) throw new TypeError('Invalid price ticker');
     if (reload || !cache.has(ticker)) {
-      const promise = fetch(`cache/price_charts/${encodeURIComponent(ticker)}.json`, { cache: reload ? 'reload' : 'default' })
-        .then(response => {
-          if (!response.ok) throw new Error(`Historical prices HTTP ${response.status}`);
-          return response.json();
-        }).then(record => validate(record, ticker));
+      const promise = (async () => {
+        const path = `cache/price_charts/${encodeURIComponent(ticker)}.json`;
+        let chartError = null;
+        try {
+          const response = await fetch(path, { cache: reload ? 'reload' : 'default' });
+          if (!response.ok) {
+            const err = new Error(`Historical prices HTTP ${response.status}`);
+            err.status = response.status;
+            throw err;
+          }
+          return validate(await response.json(), ticker);
+        } catch (error) {
+          chartError = error;
+        }
+        // Expansion (and any missing published chart): fetch real FMP EOD on demand — never invent rows.
+        try {
+          return await loadFromFmp(ticker, reload);
+        } catch (fmpError) {
+          const err = new Error(String(chartError?.message || chartError || fmpError.message || fmpError));
+          err.cause = fmpError;
+          err.chartDetail = String(chartError?.message || chartError || '');
+          err.fmpDetail = String(fmpError.message || fmpError);
+          throw err;
+        }
+      })();
       cache.set(ticker, promise);
       while (cache.size > 8) cache.delete(cache.keys().next().value);
       promise.catch(() => { if (cache.get(ticker) === promise) cache.delete(ticker); });
@@ -479,5 +567,5 @@
       get('retry').hidden = false;
     }
   }
-  return { validate, periodRange, select, summarize, csv, load, render, deactivate };
+  return { validate, periodRange, select, summarize, csv, fromFmpRows, loadFromFmp, load, render, deactivate };
 });
