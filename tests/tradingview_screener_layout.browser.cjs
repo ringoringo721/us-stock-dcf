@@ -73,6 +73,32 @@ const root = path.resolve(__dirname, '..');
     assert.equal(await page.locator('#screener-tbody tr').evaluateAll(rows => rows.every(row =>
       row.querySelectorAll('[data-fmp-reference]').length === 2
       && row.querySelectorAll('[data-catalogue-fair]').length === 1)), true);
+    // Sticky offsets: ticker 200px; name follows (exchange hidden in valuation → 200).
+    assert.equal(await page.evaluate(() =>
+      getComputedStyle(document.querySelector('#screener-table .col-fixed-1')).width), '200px');
+    assert.equal(await page.evaluate(() =>
+      getComputedStyle(document.querySelector('#screener-table .col-fixed-3')).left), '200px');
+    await page.locator('#screener-view-chips .view-chip[data-view="all"]').click();
+    assert.equal(await page.evaluate(() =>
+      getComputedStyle(document.querySelector('#screener-table .col-fixed-2')).left), '200px');
+    assert.equal(await page.evaluate(() =>
+      getComputedStyle(document.querySelector('#screener-table .col-fixed-3')).left), '285px');
+    // Row click opens drawer; a post-drag click (flag set, no fresh mousedown) must not.
+    await page.locator('#screener-view-chips .view-chip[data-view="overview"]').click();
+    await page.locator('#screener-tbody tr').first().locator('td').nth(5).click();
+    assert.equal(await page.locator('#screener-detail-drawer').isVisible(), true);
+    await page.locator('#screener-detail-drawer .tv-drawer-close').click();
+    assert.equal(await page.locator('#screener-detail-drawer').isHidden(), true);
+    const openedAfterDrag = await page.evaluate(() => {
+      window.__screenerDragMoved = true;
+      document.getElementById('main-scroll-box').dataset.dragMoved = '1';
+      // Dispatch click only — Playwright's full click() sends mousedown first and clears the flag.
+      document.querySelectorAll('#screener-tbody tr')[1]?.querySelectorAll('td')[5]
+        ?.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+      const drawer = document.getElementById('screener-detail-drawer');
+      return drawer && !drawer.hidden;
+    });
+    assert.equal(openedAfterDrag, false);
 
     // Clickable undervalued screen filters rows; does not wipe columns.
     // Stat HTML is `${n}<small>…%</small>` — read the leading text node, not innerText.

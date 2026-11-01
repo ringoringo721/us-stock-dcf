@@ -975,8 +975,11 @@
     .tv-metric-menu button:hover, .tv-metric-menu button[aria-selected="true"] { background: var(--hover-bg); }
     .tv-metric-wrap { position: relative; display: inline-flex; }
     #screener-view #screener-table { width: 100% !important; min-width: var(--screener-min-width, 1200px) !important; font-size: 13px; }
+    /* Symbol cell widened to 200px — keep sticky exchange/name left offsets in sync
+       (exchange @ ticker width; name @ ticker[+exchange] via --screener-name-left). */
     #screener-table .col-fixed-1 { width: 200px !important; min-width: 200px !important; max-width: 220px; white-space: normal; }
-    #screener-table .col-fixed-3 { left: var(--screener-name-left, 110px) !important; width: 220px !important; min-width: 220px !important; max-width: 220px; white-space: normal; }
+    #screener-table .col-fixed-2 { left: 200px !important; }
+    #screener-table .col-fixed-3 { left: var(--screener-name-left, 200px) !important; width: 220px !important; min-width: 220px !important; max-width: 220px; white-space: normal; }
     #screener-table .symbol-cell { display: flex; align-items: flex-start; gap: 8px; text-align: left; }
     #screener-table .symbol-cell .fav-btn { flex: 0 0 auto; margin-top: 2px; }
     #screener-table .symbol-meta { min-width: 0; display: flex; flex-direction: column; gap: 1px; }
@@ -5276,6 +5279,9 @@
 
   function onScreenerRowClick(event, ticker) {
     if (event.target.closest('a, button, .fav-btn, .badge-moat, .badge-fscore, .badge-zscore, .badge-mscore, .btn-nav, .ticker-link')) return;
+    // Horizontal drag-to-scroll must not open the drawer (click still fires after mouseup).
+    const box = event.target.closest('.table-scroll-wrapper');
+    if (box?.dataset.dragMoved === '1' || window.__screenerDragMoved) return;
     openScreenerDetailDrawer(ticker);
   }
 
@@ -5501,7 +5507,9 @@
     const valuationKey = document.getElementById('screener-valuation-key');
     if (valuationKey) valuationKey.hidden = mode !== 'valuation' && mode !== 'all';
     table.style.setProperty('--screener-min-width', `${preset.width}px`);
-    table.style.setProperty('--screener-name-left', mode === 'all' ? '195px' : '110px');
+    // Ticker sticky width is 200px; when exchange is visible, name starts after 200+85.
+    const exchangeVisible = preset.fields === null || preset.fields.includes('exchange');
+    table.style.setProperty('--screener-name-left', exchangeVisible ? '285px' : '200px');
     const hidden = [...table.tHead.rows[0].cells].map(header => {
       const sort = header.getAttribute('onclick') || header.querySelector('[onclick^="sortTable"]')?.getAttribute('onclick') || '';
       const field = sort.match(/sortTable\('([^']+)'\)/)?.[1] || 'action';
@@ -6047,36 +6055,63 @@
     let isDown = false;
     let startX = 0;
     let scrollLeft = 0;
+    let dragMoved = false;
+    const DRAG_THRESHOLD_PX = 6;
 
     box.addEventListener('mousedown', (e) => {
       if (['A', 'BUTTON', 'INPUT', 'SELECT'].includes(e.target.tagName)) return;
       isDown = true;
+      dragMoved = false;
+      box.dataset.dragMoved = '0';
+      window.__screenerDragMoved = false;
       box.style.cursor = 'grabbing';
       box.style.userSelect = 'none';
       startX = e.pageX - box.offsetLeft;
       scrollLeft = box.scrollLeft;
     });
 
-    window.addEventListener('mouseup', () => {
+    const endDrag = () => {
+      if (!isDown) return;
       isDown = false;
       if (box) {
         box.style.cursor = 'grab';
         box.style.removeProperty('user-select');
+        if (dragMoved) {
+          box.dataset.dragMoved = '1';
+          window.__screenerDragMoved = true;
+          // Clear after the synthetic click that follows mouseup.
+          setTimeout(() => {
+            box.dataset.dragMoved = '0';
+            window.__screenerDragMoved = false;
+          }, 0);
+        }
       }
-    });
+    };
 
-    box.addEventListener('mouseleave', () => {
-      isDown = false;
-      box.style.cursor = 'grab';
-    });
+    window.addEventListener('mouseup', endDrag);
+    box.addEventListener('mouseleave', endDrag);
 
     box.addEventListener('mousemove', (e) => {
       if (!isDown) return;
       e.preventDefault();
       const x = e.pageX - box.offsetLeft;
+      if (Math.abs(x - startX) >= DRAG_THRESHOLD_PX) {
+        dragMoved = true;
+        box.dataset.dragMoved = '1';
+        window.__screenerDragMoved = true;
+      }
       const walk = (x - startX) * 1.6;
       box.scrollLeft = scrollLeft - walk;
     });
+
+    // Capture-phase: swallow the click that browsers fire after a drag release.
+    box.addEventListener('click', (e) => {
+      if (box.dataset.dragMoved !== '1' && !window.__screenerDragMoved) return;
+      e.preventDefault();
+      e.stopPropagation();
+      box.dataset.dragMoved = '0';
+      window.__screenerDragMoved = false;
+    }, true);
   }
 
   function initInteractions() {

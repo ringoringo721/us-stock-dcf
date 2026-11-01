@@ -76,6 +76,21 @@ test('overview keeps primary market columns without dropping DCF accessibility',
   assert.match(html, /data-i18n="th_liq_1"/);
 });
 
+test('sticky name/exchange offsets follow 200px ticker width', () => {
+  assert.match(html, /#screener-table\s+\.col-fixed-1\s*\{[^}]*width:\s*200px/);
+  assert.match(html, /#screener-table\s+\.col-fixed-2\s*\{[^}]*left:\s*200px/);
+  assert.match(html, /--screener-name-left',\s*exchangeVisible\s*\?\s*'285px'\s*:\s*'200px'/);
+  assert.equal(/--screener-name-left',\s*mode === 'all' \? '195px'/.test(html), false);
+});
+
+test('drag-to-scroll suppresses screener row click / drawer open', () => {
+  assert.match(html, /dataset\.dragMoved/);
+  assert.match(html, /__screenerDragMoved/);
+  assert.match(html, /function onScreenerRowClick/);
+  assert.match(html, /box\?\.dataset\.dragMoved === '1'/);
+  assert.match(html, /addEventListener\('click',\s*\(e\)\s*=>\s*\{[\s\S]*?stopPropagation\(\)/);
+});
+
 test('hydration / pagination guards remain (no show-all freeze path)', () => {
   assert.equal(html.includes('function showAllStocks'), false);
   assert.equal(/screenerVisibleRows\s*=\s*Infinity/.test(html), false);
