@@ -76,7 +76,7 @@ const priceRows = ticker => JSON.parse(fs.readFileSync(path.join(root, 'cache', 
     }
     assert.equal(await page.locator('#screener-table th[data-i18n="th_premium"]').count(), 0);
     assert.equal(await page.locator('#screener-tbody .badge-undervalued, #screener-tbody .badge-overvalued').count(), 0);
-    for (const [preset, expected] of [['overview', 9], ['valuation', 18], ['financial', 22], ['all', 38]]) {
+    for (const [preset, expected] of [['overview', 9], ['valuation', 15], ['financial', 22], ['all', 38]]) {
       await page.selectOption('#screener-columns', preset);
       assert.equal(await page.locator('#screener-table thead th:visible').count(), expected);
       assert.equal(await page.locator('#screener-tbody tr').first().locator('td:visible').count(), expected);
