@@ -14,6 +14,14 @@ test('screener no longer exposes show-all; keeps +100 pagination', () => {
   assert.match(html, /v=show-all-1/);
 });
 
+test('fcf_ratios browser suite does not assume full-universe paint', () => {
+  const source = fs.readFileSync(path.join(__dirname, 'fcf_ratios.browser.cjs'), 'utf8');
+  assert.equal(/values\.length,\s*stockCount\s*\*\s*3/.test(source), false);
+  assert.match(source, /paintedRows\s*\*\s*3/);
+  assert.match(source, /openCompanyProfile\(ticker\)/);
+  assert.equal(/locator\(`a\[onclick="openCompanyProfile\('\$\{ticker\}'\)"\]`\)\.click\(\)/.test(source), false);
+});
+
 test('large market payloads keep long-cache headers after the HTML catch-all', () => {
   const config = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'vercel.json'), 'utf8'));
   const headers = config.headers || [];

@@ -281,15 +281,18 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
       const info = headers.filter(header => header.infoTop !== undefined);
       assert.equal(info.length, 3);
       assert.ok(Math.max(...info.map(header => header.infoTop)) - Math.min(...info.map(header => header.infoTop)) < 1);
+      const paintedRows = await page.locator('#screener-tbody tr').count();
       const values = await page.locator('#screener-tbody .liquidation-value').evaluateAll(cells => cells.map(cell => ({
         value: Number(cell.dataset.value),
         positive: cell.classList.contains('text-green'), negative: cell.classList.contains('text-red'),
         neutral: cell.classList.contains('text-muted')
       })));
-      assert.equal(values.length, stockCount * 3);
+      // Paginated UI: only painted rows have liquidation cells (not stockCount * 3).
+      assert.equal(values.length, paintedRows * 3);
       assert.ok(values.every(cell => cell.value > 0 ? cell.positive : cell.value < 0 ? cell.negative : cell.neutral));
       assert.ok(await page.locator('#screener-liquidation-key').isVisible());
     }
+    await page.locator('#search-ticker').fill('NVDA');
     const priorLiquidation = await page.evaluate(() => {
       const original = structuredClone(stockUniverse.NVDA.liquidation);
       stockUniverse.NVDA.liquidation.quote.price = 100;
@@ -309,6 +312,7 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
       ['liquidation-value text-green', 'liquidation-value text-muted', 'liquidation-value text-red']);
     await page.evaluate(original => {
       stockUniverse.NVDA.liquidation = original;
+      document.getElementById('search-ticker').value = '';
       renderScreenerTable();
     }, priorLiquidation);
     await page.locator('#main-scroll-box').evaluate(box => { box.scrollLeft = 1500; });
@@ -355,7 +359,8 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
     }
     for (const ticker of ['NVDA', 'AAPL', 'JPM', 'DE', 'HD', 'PFE', 'PGR', 'AZO', 'TSM']) {
       await page.evaluate(() => showView('screener', false));
-      await page.locator(`a[onclick="openCompanyProfile('${ticker}')"]`).click();
+      // Paginated screener: tickers may be off the first page — open by API, not row click.
+      await page.evaluate(ticker => openCompanyProfile(ticker), ticker);
       assert.equal(await page.locator('#fcf-ratio-panel').isVisible(), false);
       await page.locator('button[onclick="switchSubPage(\'charts\')"]').click();
       await page.waitForFunction(ticker => document.querySelector('#fcf-ratio-status').textContent.startsWith(ticker), ticker);
