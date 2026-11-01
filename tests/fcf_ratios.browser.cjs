@@ -139,12 +139,15 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
     await page.waitForFunction(() => document.querySelector('#screener-tbody').children.length > 0 && isAppReady);
     const stockCount = await page.evaluate(() => Object.keys(stockUniverse).length);
     assert.ok(stockCount > 0);
-    // US paginates like HKEX when >200 rows; reveal all for full-table assertions.
+    // Paginate when >200; show-all removed (Chrome freeze on ~966/2787 rich rows).
+    const visibleCount = stockCount > 200 ? 100 : stockCount;
+    assert.equal(await page.locator('#screener-tbody tr').count(), visibleCount);
+    assert.equal(await page.locator('#screener-all').count(), 0);
     if (stockCount > 200) {
-      await page.locator('#screener-all').click();
-      await page.waitForFunction(n => document.querySelectorAll('#screener-tbody tr').length === n, stockCount);
+      assert.equal(await page.locator('#screener-more').isVisible(), true);
+      await page.locator('#screener-more').click();
+      assert.equal(await page.locator('#screener-tbody tr').count(), 200);
     }
-    assert.equal(await page.locator('#screener-tbody tr').count(), stockCount);
     assert.ok((await page.locator('#stat-total').innerText()).includes(String(stockCount)));
     const initialTickers = await page.locator('#screener-tbody .ticker-link').allTextContents();
     for (const [preset, count] of [['overview', 9], ['valuation', 18], ['financial', 22], ['all', 38]]) {
@@ -175,11 +178,8 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
     assert.equal(await page.locator('#screener-tbody tr').count(), 0);
     assert.ok((await page.locator('#screener-results').innerText()).length > 0);
     await page.locator('button[onclick="resetScreenerFilters()"]').click();
-    if (stockCount > 200) {
-      await page.locator('#screener-all').click();
-      await page.waitForFunction(n => document.querySelectorAll('#screener-tbody tr').length === n, stockCount);
-    }
-    assert.equal(await page.locator('#screener-tbody tr').count(), stockCount);
+    assert.equal(await page.locator('#screener-tbody tr').count(), visibleCount);
+    assert.equal(await page.locator('#screener-all').count(), 0);
     await page.locator('.screener-industries summary').click();
     for (const [lang, width] of ['zh', 'en'].flatMap(lang => [390, 768, 1440, 1920].map(width => [lang, width]))) {
       await page.evaluate(lang => applyLanguage(lang), lang);

@@ -80,6 +80,8 @@ async function withPage(server, pathAndQuery, fn) {
           stat: document.getElementById('stat-total').textContent,
           rows: document.querySelectorAll('#screener-tbody tr').length,
           moreHidden: document.getElementById('screener-more')?.hidden,
+          showAllPresent: !!document.getElementById('screener-all'),
+          tip: document.getElementById('screener-page-tip')?.textContent || '',
         }));
         assert.equal(probe.waitMs, 8000, `bootWaitMs must default to 8000, got ${probe.waitMs}`);
         assert.ok(probe.universe > 900, `expected ~966, got ${probe.universe}`);
@@ -88,6 +90,10 @@ async function withPage(server, pathAndQuery, fn) {
         // US screener must paginate — rendering all ~966 rows (~4MB HTML) freezes paint.
         assert.equal(probe.rows, 100, `expected first page 100 rows, got ${probe.rows}`);
         assert.equal(probe.moreHidden, false);
+        assert.equal(probe.showAllPresent, false, 'show-all must stay removed (Chrome unresponsive)');
+        assert.match(probe.tip, /\+100/);
+        await page.locator('#screener-more').click();
+        assert.equal(await page.locator('#screener-tbody tr').count(), 200);
         assert.equal(errors.length, 0, errors.join('\n'));
         console.log('happy', probe);
       });
