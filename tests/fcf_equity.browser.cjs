@@ -40,7 +40,7 @@ const percent = (fcf, equity, unavailable) => !unavailable && Number.isFinite(fc
       for (const lang of ['en', 'zh']) {
         await page.evaluate(lang => applyLanguage(lang), lang);
         await page.selectOption('#screener-columns', 'financial');
-        assert.equal(await page.locator('#screener-table thead th:visible').count(), 20);
+        assert.equal(await page.locator('#screener-table thead th:visible').count(), 22);
         const fields = await page.locator('#screener-table thead th').evaluateAll(headers =>
           headers.map(header => header.getAttribute('onclick')));
         const index = fields.indexOf("sortTable('fcf_to_equity')");
