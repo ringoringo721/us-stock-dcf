@@ -74,6 +74,28 @@ class StatementFieldAliasTests(unittest.TestCase):
         ):
             self.assertIn(field, self.aliases)
 
+    def test_rematerialize_skips_foreign_currency_filings(self):
+        import importlib.util
+
+        path = Path(__file__).resolve().parents[1] / "scripts" / "rematerialize_us_cff_aliases.py"
+        spec = importlib.util.spec_from_file_location("rematerialize_us_cff_aliases", path)
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        twd_statements = {
+            "annual": {"cashflow": [{"reportedCurrency": "TWD", "operatingCashFlow": 1e9}]},
+            "quarterly": {"cashflow": [{"reportedCurrency": "TWD", "operatingCashFlow": 1e9}]},
+        }
+        usd_statements = {
+            "annual": {"cashflow": [{"reportedCurrency": "USD", "operatingCashFlow": 1e9}]},
+            "quarterly": {"cashflow": [{"reportedCurrency": "USD", "operatingCashFlow": 1e9}]},
+        }
+        self.assertFalse(mod._is_usd_native({"reportedCurrency": "USD"}, twd_statements))
+        self.assertFalse(mod._is_usd_native(
+            {"currencyConversion": {"sourceCurrency": "TWD"}, "reportedCurrency": "TWD"},
+            twd_statements,
+        ))
+        self.assertTrue(mod._is_usd_native({"reportedCurrency": "USD"}, usd_statements))
+
 
 if __name__ == "__main__":
     unittest.main()

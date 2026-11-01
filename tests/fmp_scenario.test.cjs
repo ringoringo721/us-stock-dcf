@@ -529,6 +529,10 @@ test('five-year history accepts USD-normalized ADR filings keyed by sourceCurren
   assert.equal(history.years.length, 5);
   assert.deepEqual(history.years.map(row => row.year), [2021, 2022, 2023, 2024, 2025]);
   assert.ok(Number.isFinite(history.summary.revenueCagr));
+  assert.equal(history.ttm?.included, true,
+    'USD-normalized ADR quarters must still build the optional TTM history row');
+  assert.ok(history.ttm.row.date > history.years.at(-1).date);
+  assert.notEqual(history.ttm?.reason, 'TTM_QUARTERS_UNAVAILABLE');
 
   const tax = Scenario.fiveYearEffectiveTax(
     converted, company.forecastBase, company.currencyCheck.sourceCurrency
