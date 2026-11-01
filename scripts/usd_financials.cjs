@@ -271,9 +271,34 @@ function normalizeStock(stock, source, rates) {
   return output;
 }
 
+function latestStatementDate(source, period = 'quarterly') {
+  const dates = ['income', 'balance', 'cashflow']
+    .flatMap(type => (source?.[period]?.[type] || []).map(row => row?.date).filter(Boolean));
+  return dates.sort().at(-1) || null;
+}
+
+function publishedQuarterEnd(stock) {
+  const dates = stock?.statements_raw?.quarterly_raw?.dates;
+  if (!Array.isArray(dates) || !dates.length) return null;
+  const ym = dates.at(-1);
+  if (typeof ym !== 'string' || !/^\d{4}-\d{2}$/.test(ym)) return null;
+  const [year, month] = ym.split('-').map(Number);
+  const day = new Date(Date.UTC(year, month, 0)).getUTCDate();
+  return `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+}
+
+/** Refuse a full rewrite when on-disk statements lag the already-published quarter window. */
+function wouldRollbackQuarterWindow(stock, source) {
+  const published = publishedQuarterEnd(stock);
+  const cached = latestStatementDate(source, 'quarterly');
+  if (!published || !cached) return null;
+  return cached < published ? { published, cached } : null;
+}
+
 function main() {
   const root = path.join(__dirname, '..');
   const files = ['full_market_dcf.json', 'market_data.js'];
+  const force = process.argv.includes('--force');
   const market = JSON.parse(fs.readFileSync(path.join(root, files[0]), 'utf8'));
   const rates = JSON.parse(fs.readFileSync(path.join(root, 'cache', 'fx', 'usd_rates.json'), 'utf8'));
   for (const [ticker, stock] of Object.entries(market)) {
@@ -281,6 +306,11 @@ function main() {
     const foreign = ['annual', 'quarterly'].some(period => Object.values(raw[period] || {})
       .filter(Array.isArray).flat().some(row => row.reportedCurrency !== 'USD'));
     if (!foreign && stock.reportedCurrency === 'USD') continue;
+    const rollback = wouldRollbackQuarterWindow(stock, raw);
+    if (rollback && !force) {
+      console.log(`${ticker}: skip USD rewrite; statements cache ends ${rollback.cached} but published window ends ${rollback.published} (pass --force to override)`);
+      continue;
+    }
     const normalized = normalizeStock(stock, raw, rates);
     for (const file of files) {
       const target = path.join(root, file);
@@ -304,4 +334,7 @@ if (require.main === module) {
     process.stdout.write(JSON.stringify(convertStatements(JSON.parse(fs.readFileSync(0, 'utf8')), rates)));
   } else main();
 }
-module.exports = { normalizeStock, value, marketBalanceRatios, updateRatioBlocks };
+module.exports = {
+  normalizeStock, value, marketBalanceRatios, updateRatioBlocks,
+  latestStatementDate, publishedQuarterEnd, wouldRollbackQuarterWindow
+};
