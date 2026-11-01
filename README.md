@@ -165,14 +165,15 @@ allowlisted browser assets and financial/price/FX caches in `public/`. Backend
 programs, raw source captures and private rating inputs are not public assets.
 `vercel.json` makes browsers revalidate data rather than retaining stale scores.
 
-The shared interface has a US/HKEX selector, the same 32 screener columns and all
+The shared interface has a US/HKEX selector, the same 38 screener columns and all
 nine company subpages. Company names and stock codes in peer-comparison headers
 link to that stock's company profile, including lazily loaded HK listings.
 Keyboard activation and browser Back are supported.
-The automatic site fair-value and FMP DCF / Levered DCF screener reference
-columns (and their market-premium neighbours) are omitted from every screener
-view in both markets; company-page FMP valuation panels and saved target prices
-remain available.
+Beside latest price, the screener shows FMP DCF and FMP Levered DCF reference
+prices plus their market-premium neighbours (`(price / valuation − 1) × 100%`).
+These are vendor direct references (provider share basis), not the site
+issued-share custom value. Banks/insurers show「不適用」/ Not applicable.
+Company-page FMP valuation panels and saved target prices remain available.
 The HKEX universe contains all **95 Hang Seng Index
 constituents effective 7 September 2026**, verified against Appendix 1 of
 [Hang Seng Indexes' 21 August 2026 review](https://www.hsi.com.hk/static/uploads/contents/en/news/pressRelease/20260821T174500.pdf).
@@ -485,9 +486,11 @@ invented analyst forecasts. They are vendor projections/extrapolations, not
 necessarily issuer guidance or analyst consensus. Site custom per-share values
 divide vendor equity value by verified outstanding common shares, excluding
 treasury shares; A/H companies use all ordinary classes. Vendor diluted-share
-values remain separately identified. Company-page FMP DCF and Levered DCF
-panels retain the vendor's direct per-share values; those references are not
-shown as screener columns.
+values remain separately identified. Screener and company-page FMP DCF /
+Levered DCF surfaces both retain the vendor's direct per-share values; the
+site issued-share custom value remains a separate company-page / saved-target
+path. Expansion packs store slim `dcf`＋`levered` rows in
+`US_EXPANSION.models` (refresh via `scripts/backfill_us_fmp_reference_dcf.cjs`).
 Existing bank/insurance models are preserved. The old non-FMP FCFF workspace is
 no longer exposed; its calculation/source modules remain for audit and regression
 coverage. Missing coverage, unverified currency and missing issued
