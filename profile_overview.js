@@ -231,7 +231,10 @@
       get('overview-groups').replaceChildren();
       const betaResult = Beta?.lastResult?.get(ticker);
       const betaValue = betaResult && betaResult.mode !== Beta.PROVIDER
-        ? betaResult.beta : context.fcff()?.betaSources?.[ticker]?.value;
+        ? betaResult.beta
+          : (Number.isFinite(context.fcff()?.betaSources?.[ticker]?.value)
+            ? context.fcff().betaSources[ticker].value
+            : (Number.isFinite(Number(stock?.beta)) ? Number(stock.beta) : null));
       const betaTitle = betaResult?.reason
         ? (labels[`beta_reason_${betaResult.reason}`] || Beta.reasonText(betaResult.reason, lang))
         : (betaResult && betaResult.mode !== Beta.PROVIDER

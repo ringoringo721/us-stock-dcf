@@ -13,6 +13,7 @@ import time
 import requests
 
 ENDPOINT = "https://financialmodelingprep.com/stable/historical-price-eod/full"
+TICKER_RE = re.compile(r"[A-Z0-9]+(?:[.-][A-Z0-9]+)*")
 
 
 def years_before(day, years):
@@ -52,6 +53,17 @@ def parse_prices(payload, symbol, start, end):
 
 def provider_symbol(ticker):
     return ticker if ticker.endswith(".HK") else ticker.replace(".", "-")
+
+
+def expansion_tickers(root):
+    """US expansion catalogue tickers (same source as liquidation refresh)."""
+    path = root / "us_expansion_data.js"
+    if not path.exists():
+        return []
+    text = path.read_text(encoding="utf-8")
+    payload = text.split("=", 1)[1].strip().rstrip(";")
+    data = json.loads(payload)
+    return sorted(data.get("stocks", {}))
 
 
 def fetch_prices(session, ticker, api_key, today):
@@ -100,30 +112,64 @@ def write_price_record(folder, ticker, record):
         temporary.unlink(missing_ok=True)
 
 
+def read_previous(folder, ticker):
+    path = folder / f"{ticker}.json"
+    if not path.exists():
+        return None
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (TypeError, ValueError, json.JSONDecodeError):
+        return None
+
+
+def guard_empty_erase(ticker, record, previous):
+    if not record["rows"] and previous and previous.get("rows"):
+        raise RuntimeError(f"{ticker}: empty provider response would erase existing history; all caches retained")
+
+
 def main():
     root = Path(__file__).resolve().parent.parent
     key = os.environ.get("FMP_API_KEY")
     if not key:
         raise RuntimeError("FMP_API_KEY is required; price charts were not refreshed")
     market = json.loads((root / "full_market_dcf.json").read_text(encoding="utf-8"))
+    folder = root / "cache" / "price_charts"
     prices = {}
     today = datetime.now(timezone.utc).date()
+    expansion = [ticker for ticker in expansion_tickers(root) if ticker not in market]
+    expansion_ok = expansion_retained = expansion_failed = 0
     with requests.Session() as session:
         for ticker in market:
-            if not re.fullmatch(r"[A-Z0-9]+(?:[.-][A-Z0-9]+)*", ticker):
+            if not TICKER_RE.fullmatch(ticker):
                 raise ValueError("Invalid market ticker")
             prices[ticker] = fetch_prices(session, ticker, key, today)
-            previous = root / "cache" / "price_charts" / f"{ticker}.json"
-            if not prices[ticker]["rows"] and previous.exists():
-                if json.loads(previous.read_text(encoding="utf-8")).get("rows"):
-                    raise RuntimeError(f"{ticker}: empty provider response would erase existing history; all caches retained")
+            guard_empty_erase(ticker, prices[ticker], read_previous(folder, ticker))
             print(f"{ticker}: {len(prices[ticker]['rows'])} real daily price records", flush=True)
         # Low-cost beta benchmarks: S&P 500 (SPY) + HSI proxy (TraHK 2800.HK).
         for ticker in ("SPY", "2800.HK"):
             prices[ticker] = fetch_prices(session, ticker, key, today)
             print(f"{ticker}: {len(prices[ticker]['rows'])} beta-benchmark daily price records", flush=True)
+        # Expansion US stocks (e.g. PLTR) — soft-fail so one missing name cannot wipe baseline charts.
+        for ticker in expansion:
+            if not TICKER_RE.fullmatch(ticker):
+                raise ValueError("Invalid expansion ticker")
+            previous = read_previous(folder, ticker)
+            try:
+                record = fetch_prices(session, ticker, key, today)
+                guard_empty_erase(ticker, record, previous)
+                prices[ticker] = record
+                expansion_ok += 1
+                print(f"{ticker}: {len(record['rows'])} real daily price records (expansion)", flush=True)
+            except (ValueError, RuntimeError) as error:
+                if previous and previous.get("rows"):
+                    prices[ticker] = previous
+                    expansion_retained += 1
+                    print(f"{ticker}: retained previous price chart ({error})", flush=True)
+                else:
+                    expansion_failed += 1
+                    print(f"{ticker}: skipped without cache ({error})", flush=True)
     # Fetch and validate every company before replacing any published cache.
-    folder = root / "cache" / "price_charts"
+    # Expansion soft-failures omit that ticker from `prices` so baseline/benchmark writes still proceed.
     benchmarks = root / "cache" / "beta_benchmarks"
     for ticker, record in prices.items():
         write_price_record(folder, ticker, record)
@@ -133,6 +179,11 @@ def main():
             write_price_record(benchmarks, ticker, mirrored)
     unavailable = [ticker for ticker, record in prices.items() if not record["rows"]]
     print(f"Refreshed {len(prices)} Profile price histories; financial and DCF datasets unchanged", flush=True)
+    print(
+        f"Expansion price charts: ok={expansion_ok} retained={expansion_retained} "
+        f"failed={expansion_failed} universe={len(expansion)}",
+        flush=True,
+    )
     if unavailable:
         print(f"No provider history available for: {', '.join(unavailable)}", flush=True)
 

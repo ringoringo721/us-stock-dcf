@@ -7320,8 +7320,10 @@
       const preferred = BetaLookback.getPreference(activeCompanyTicker);
       betaSelect.value = preferred === BetaLookback.PROVIDER ? 'provider' : String(preferred);
     }
+    const providerBeta = MarketContext.fcff()?.betaSources?.[activeCompanyTicker]?.value;
     document.getElementById('cmp-meta-beta').innerText = profileFormat(
-      MarketContext.fcff()?.betaSources?.[activeCompanyTicker]?.value, '', 6);
+      Number.isFinite(providerBeta) ? providerBeta
+        : Number.isFinite(Number(s.beta)) ? Number(s.beta) : null, '', 6);
     const betaPref = BetaLookback.getPreference(activeCompanyTicker);
     refreshBetaLookback(activeCompanyTicker, undefined, {
       wireInputs: betaPref !== BetaLookback.PROVIDER
