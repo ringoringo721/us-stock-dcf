@@ -5,27 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>美股 DCF 估值雷達</title>
   <script src="site_theme.js"></script>
-  <script src="market_data.js?v=us-zm-coverage-3"></script>
+  <script src="market_data.js?v=blank-load-1"></script>
   <script src="fcff_data.js"></script>
   <script src="market_context.js"></script>
   <script src="hkex_universe.js"></script>
   <script src="us_universe.js"></script>
   <script>
-    if (MarketContext.market === 'HKEX') {
-      for (const filename of ['hkex_universe_data.js', 'hkex_expansion_data.js', 'hk_market_data.js', 'hk_fcff_data.js']) {
+    // Keep createElement (not document.write): a hung expansion payload must still
+    // allow the UI shell to paint. markAppLoaded soft-times out if US_EXPANSION never
+    // arrives — previously the gate waited forever and left counts at 0.
+    window.__marketScriptBoot = { expected: 0, settled: 0, failed: 0, done: false };
+    (function loadMarketScripts(filenames) {
+      window.__marketScriptBoot.expected = filenames.length;
+      if (!filenames.length) { window.__marketScriptBoot.done = true; return; }
+      for (const filename of filenames) {
         const script = document.createElement('script');
         script.src = filename;
         script.async = false;
+        const settle = failed => {
+          if (failed) window.__marketScriptBoot.failed += 1;
+          window.__marketScriptBoot.settled += 1;
+          if (window.__marketScriptBoot.settled >= window.__marketScriptBoot.expected) {
+            window.__marketScriptBoot.done = true;
+          }
+        };
+        script.onload = () => settle(false);
+        script.onerror = () => settle(true);
         document.head.append(script);
       }
-    } else {
-      for (const filename of ['us_universe_data.js', 'us_expansion_data.js', 'us_chinese_names_data.js']) {
-        const script = document.createElement('script');
-        script.src = filename;
-        script.async = false;
-        document.head.append(script);
-      }
-    }
+    })(MarketContext.market === 'HKEX'
+      ? [
+          'hkex_universe_data.js?v=blank-load-1',
+          'hkex_expansion_data.js?v=blank-load-1',
+          'hk_market_data.js?v=blank-load-1',
+          'hk_fcff_data.js?v=blank-load-1',
+        ]
+      : [
+          'us_universe_data.js?v=blank-load-1',
+          'us_expansion_data.js?v=blank-load-1',
+          'us_chinese_names_data.js?v=blank-load-1',
+        ]);
   </script>
   <script src="dcf_drivers.js?v=official-operating-2"></script>
   <script src="fcff.js"></script>
@@ -8238,14 +8257,58 @@
   }
 
   let isAppReady = false;
+  const bootStartedAt = Date.now();
+  // Prefer full US_EXPANSION before locking ready; never stay at 0 forever if it hangs.
+  const bootExpansionWaitMs = (() => {
+    const raw = Number(new URLSearchParams(location.search).get('bootWaitMs'));
+    return Number.isFinite(raw) && raw >= 0 ? raw : 12000;
+  })();
+
+  function parseMarketPayload(text, assignName) {
+    const assign = `window.${assignName} = `;
+    const start = text.indexOf(assign);
+    if (start < 0) return null;
+    const jsonStart = start + assign.length;
+    const end = text.lastIndexOf('};');
+    if (end < jsonStart) return null;
+    return JSON.parse(text.slice(jsonStart, end + 1));
+  }
+
+  function usBootDepsReady() {
+    if (window.US_LISTINGS?.stocks?.length) {
+      if (window.US_EXPANSION) return true;
+      // Expansion script errored, or soft timeout after large-deploy stalls.
+      if (window.__marketScriptBoot?.done && window.__marketScriptBoot.failed) return true;
+      return Date.now() - bootStartedAt >= bootExpansionWaitMs;
+    }
+    // Listings also missing: after wait, allow baseline-only (≈230) rather than blank 0.
+    return Date.now() - bootStartedAt >= bootExpansionWaitMs && !!window.FULL_MARKET_DATA;
+  }
+
+  function hkBootDepsReady() {
+    // Original gate: FCFF + listings. After wait, allow market-data-only so a hung
+    // dynamic HK payload cannot blank the screener the same way US expansion did.
+    if (MarketContext.fcff() && window.HKEX_LISTINGS) return true;
+    return Date.now() - bootStartedAt >= bootExpansionWaitMs
+      && !!(window.HK_MARKET_DATA || window.HKEX_LISTINGS || MarketContext.fcff());
+  }
+
+  function markLoadingStats() {
+    const el = document.getElementById('stat-total');
+    if (!el || isAppReady) return;
+    if (!/^(0|載入|Load)/i.test((el.textContent || '').trim())) return;
+    el.textContent = currentLang === 'zh' ? '載入中…' : 'Loading…';
+  }
 
   function markAppLoaded(data) {
     if (isAppReady || !data || Object.keys(data).length === 0) return;
-    if (MarketContext.market === 'HKEX' && !MarketContext.fcff()) return;
-    if (MarketContext.market === 'HKEX' && !window.HKEX_LISTINGS) return;
-    // Match HK: wait for dynamically injected universe/expansion before locking ready,
-    // otherwise sync market_data.js (≈230) wins and UsUniverse.merge is skipped forever.
-    if (MarketContext.market === 'US' && (!window.US_LISTINGS?.stocks?.length || !window.US_EXPANSION)) return;
+    if (MarketContext.market === 'HKEX' && !hkBootDepsReady()) return;
+    // Wait for listings + expansion when possible; after bootExpansionWaitMs proceed
+    // with listings+baseline so a hung us_expansion_data.js cannot blank the site.
+    if (MarketContext.market === 'US' && !usBootDepsReady()) return;
+    if (MarketContext.market === 'US' && !window.US_EXPANSION) {
+      console.warn('[boot] US_EXPANSION missing after wait; merging listings + baseline only');
+    }
     HkUniverse.install();
     UsUniverse.install();
     if (MarketContext.market === 'HKEX') data = HkUniverse.merge(window.HK_MARKET_DATA || data);
@@ -8292,26 +8355,33 @@
   }
 
   document.addEventListener('DOMContentLoaded', () => {
-    if (!checkGlobalData()) {
-      // Bump market_data.js?v= when US-core Z/M (or other baseline fields) republish so
-      // tabs that cached the pre-score payload cannot keep showing N/A after deploy.
-      const marketFile = MarketContext.market === 'HKEX'
-        ? 'hk_market_data.js'
-        : 'market_data.js?v=us-zm-coverage-3';
-      fetch(marketFile + (marketFile.includes('?') ? '&' : '?') + 't=' + Date.now())
-        .then(r => r.text())
-        .then(text => {
-          const m = text.match(MarketContext.market === 'HKEX' ? /window\.HK_MARKET_DATA\s*=\s*({[\s\S]*?});/ : /window\.FULL_MARKET_DATA\s*=\s*({[\s\S]*?});/);
-          if (m && m[1]) markAppLoaded(JSON.parse(m[1]));
-        })
-        .catch(e => console.warn(e));
-    }
+    markLoadingStats();
+    if (checkGlobalData()) return;
+    // Baseline already present: keep polling for universe/expansion. Do not re-fetch
+    // the ~22MB market_data.js — that second download contended with expansion after
+    // large deploys and could leave the screener stuck at 0.
+    const hasBaseline = MarketContext.market === 'HKEX'
+      ? !!window.HK_MARKET_DATA
+      : !!window.FULL_MARKET_DATA;
+    if (hasBaseline) return;
+    const marketFile = MarketContext.market === 'HKEX'
+      ? 'hk_market_data.js?v=blank-load-1'
+      : 'market_data.js?v=blank-load-1';
+    fetch(marketFile + (marketFile.includes('?') ? '&' : '?') + 't=' + Date.now())
+      .then(r => r.text())
+      .then(text => {
+        const payload = parseMarketPayload(
+          text,
+          MarketContext.market === 'HKEX' ? 'HK_MARKET_DATA' : 'FULL_MARKET_DATA'
+        );
+        if (payload) markAppLoaded(payload);
+      })
+      .catch(e => console.warn(e));
   });
 
   const pollTimer = setInterval(() => {
-    if (checkGlobalData() || isAppReady) {
-      clearInterval(pollTimer);
-    }
+    markLoadingStats();
+    if (checkGlobalData() || isAppReady) clearInterval(pollTimer);
   }, 100);
 </script>
 </body>
