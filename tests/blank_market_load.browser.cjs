@@ -78,10 +78,16 @@ async function withPage(server, pathAndQuery, fn) {
           expansion: Object.keys(window.US_EXPANSION.stocks).length,
           listings: window.US_LISTINGS.stocks.length,
           stat: document.getElementById('stat-total').textContent,
+          rows: document.querySelectorAll('#screener-tbody tr').length,
+          moreHidden: document.getElementById('screener-more')?.hidden,
         }));
         assert.equal(probe.waitMs, 8000, `bootWaitMs must default to 8000, got ${probe.waitMs}`);
         assert.ok(probe.universe > 900, `expected ~966, got ${probe.universe}`);
         assert.ok(!/載入|Load/i.test(probe.stat), `still loading: ${probe.stat}`);
+        assert.ok(String(probe.stat).includes('966') || Number(probe.stat) > 900, `stat ${probe.stat}`);
+        // US screener must paginate — rendering all ~966 rows (~4MB HTML) freezes paint.
+        assert.equal(probe.rows, 100, `expected first page 100 rows, got ${probe.rows}`);
+        assert.equal(probe.moreHidden, false);
         assert.equal(errors.length, 0, errors.join('\n'));
         console.log('happy', probe);
       });
