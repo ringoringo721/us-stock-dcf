@@ -493,6 +493,54 @@ test('revenue growth suggestion prefers historical CAGR then peers then mature d
   assert.equal(manual.reason, 'GROWTH_REQUIRES_MANUAL_INPUT');
 });
 
+test('five-year history accepts USD-normalized ADR filings keyed by sourceCurrency (TSM)', () => {
+  const UsdCurrency = require('../usd_currency.js');
+  const company = read('TSM');
+  const raw = require('../cache/financials/TSM_statements_v2.json');
+  assert.equal(company.currencyCheck?.sourceCurrency, 'TWD');
+  assert.equal(company.currency, 'USD');
+  assert.equal(company.forecastBase?.year, 2025);
+
+  const rawHistory = Scenario.fiveYearHistory(raw, company, 'advanced');
+  assert.equal(rawHistory.reason, null);
+  assert.equal(rawHistory.years.length, 5);
+
+  const observations = [];
+  for (let year = 2020; year <= 2026; year++) {
+    for (let month = 1; month <= 12; month++) {
+      for (let day = 1; day <= 28; day++) {
+        observations.push([
+          `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`,
+          0.0318
+        ]);
+      }
+    }
+  }
+  const converted = UsdCurrency.convertStatements(
+    { ...raw, calculationCurrency: 'USD' },
+    { currencies: { TWD: { series: 'TWDUSD', observations } } },
+    'USD'
+  );
+  assert.equal(converted.annual.income[0].reportedCurrency, 'USD');
+  assert.equal(converted.annual.income[0].sourceReportedCurrency, 'TWD');
+
+  const history = Scenario.fiveYearHistory(converted, company, 'advanced');
+  assert.equal(history.reason, null, 'USD-normalized TWD filings must not trip HISTORY_FIVE_YEAR_INCOMPLETE');
+  assert.equal(history.years.length, 5);
+  assert.deepEqual(history.years.map(row => row.year), [2021, 2022, 2023, 2024, 2025]);
+  assert.ok(Number.isFinite(history.summary.revenueCagr));
+
+  const tax = Scenario.fiveYearEffectiveTax(
+    converted, company.forecastBase, company.currencyCheck.sourceCurrency
+  );
+  assert.equal(tax.reason, null);
+  assert.ok(Number.isFinite(tax.percent));
+
+  const actual = Scenario.actualReference(company, converted);
+  assert.equal(actual.reason, null);
+  assert.ok(actual.items.growth.amount > 0);
+});
+
 test('TSM builds a ten-year scenario from cached model rows despite unverified FX', () => {
   const data = read('TSM');
   const market = require('../full_market_dcf.json').TSM;
