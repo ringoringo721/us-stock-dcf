@@ -8261,7 +8261,7 @@
   // Prefer full US_EXPANSION before locking ready; never stay at 0 forever if it hangs.
   const bootExpansionWaitMs = (() => {
     const raw = Number(new URLSearchParams(location.search).get('bootWaitMs'));
-    return Number.isFinite(raw) && raw >= 0 ? raw : 12000;
+    return Number.isFinite(raw) && raw >= 0 ? raw : 20000;
   })();
 
   function parseMarketPayload(text, assignName) {
