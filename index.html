@@ -5,45 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>美股 DCF 估值雷達</title>
   <script src="site_theme.js"></script>
-  <script src="market_data.js?v=blank-load-1"></script>
+  <script src="market_data.js?v=blank-load-2"></script>
   <script src="fcff_data.js"></script>
   <script src="market_context.js"></script>
   <script src="hkex_universe.js"></script>
   <script src="us_universe.js"></script>
   <script>
     // Keep createElement (not document.write): a hung expansion payload must still
-    // allow the UI shell to paint. markAppLoaded soft-times out if US_EXPANSION never
-    // arrives — previously the gate waited forever and left counts at 0.
+    // allow the UI shell to paint. markAppLoaded waits for listings/expansion, retries
+    // failed scripts, and can late-upgrade if baseline locked first.
     window.__marketScriptBoot = { expected: 0, settled: 0, failed: 0, done: false };
     (function loadMarketScripts(filenames) {
-      window.__marketScriptBoot.expected = filenames.length;
-      if (!filenames.length) { window.__marketScriptBoot.done = true; return; }
-      for (const filename of filenames) {
+      const boot = window.__marketScriptBoot;
+      const maxAttempts = 3;
+      boot.expected = filenames.length;
+      if (!filenames.length) { boot.done = true; return; }
+      function settle(failed) {
+        if (failed) boot.failed += 1;
+        boot.settled += 1;
+        if (boot.settled >= boot.expected) boot.done = true;
+      }
+      function loadOne(filename, attempt) {
         const script = document.createElement('script');
-        script.src = filename;
+        script.src = attempt > 1
+          ? filename + (filename.includes('?') ? '&' : '?') + 'retry=' + attempt + '&t=' + Date.now()
+          : filename;
         script.async = false;
-        const settle = failed => {
-          if (failed) window.__marketScriptBoot.failed += 1;
-          window.__marketScriptBoot.settled += 1;
-          if (window.__marketScriptBoot.settled >= window.__marketScriptBoot.expected) {
-            window.__marketScriptBoot.done = true;
-          }
-        };
         script.onload = () => settle(false);
-        script.onerror = () => settle(true);
+        script.onerror = () => {
+          if (attempt < maxAttempts) loadOne(filename, attempt + 1);
+          else settle(true);
+        };
         document.head.append(script);
       }
+      for (const filename of filenames) loadOne(filename, 1);
     })(MarketContext.market === 'HKEX'
       ? [
-          'hkex_universe_data.js?v=blank-load-1',
-          'hkex_expansion_data.js?v=blank-load-1',
-          'hk_market_data.js?v=blank-load-1',
-          'hk_fcff_data.js?v=blank-load-1',
+          'hkex_universe_data.js?v=blank-load-2',
+          'hkex_expansion_data.js?v=blank-load-2',
+          'hk_market_data.js?v=blank-load-2',
+          'hk_fcff_data.js?v=blank-load-2',
         ]
       : [
-          'us_universe_data.js?v=blank-load-1',
-          'us_expansion_data.js?v=blank-load-1',
-          'us_chinese_names_data.js?v=blank-load-1',
+          'us_universe_data.js?v=blank-load-2',
+          'us_expansion_data.js?v=blank-load-2',
+          'us_chinese_names_data.js?v=blank-load-2',
         ]);
   </script>
   <script src="dcf_drivers.js?v=official-operating-2"></script>
@@ -8257,12 +8263,19 @@
   }
 
   let isAppReady = false;
+  let lastHydrateHadExpansion = false;
   const bootStartedAt = Date.now();
   // Prefer full US_EXPANSION before locking ready; never stay at 0 forever if it hangs.
+  // IMPORTANT: URLSearchParams.get() returns null when absent — Number(null) === 0,
+  // which previously made the soft-timeout fire immediately and lock the screener at
+  // baseline 230 before listings/expansion arrived (#72 regression).
   const bootExpansionWaitMs = (() => {
-    const raw = Number(new URLSearchParams(location.search).get('bootWaitMs'));
+    const param = new URLSearchParams(location.search).get('bootWaitMs');
+    if (param == null || param === '') return 20000;
+    const raw = Number(param);
     return Number.isFinite(raw) && raw >= 0 ? raw : 20000;
   })();
+  window.__bootExpansionWaitMs = bootExpansionWaitMs;
 
   function parseMarketPayload(text, assignName) {
     const assign = `window.${assignName} = `;
@@ -8274,23 +8287,45 @@
     return JSON.parse(text.slice(jsonStart, end + 1));
   }
 
+  function bootWaitElapsed() {
+    return Date.now() - bootStartedAt >= bootExpansionWaitMs;
+  }
+
   function usBootDepsReady() {
+    const boot = window.__marketScriptBoot;
     if (window.US_LISTINGS?.stocks?.length) {
       if (window.US_EXPANSION) return true;
-      // Expansion script errored, or soft timeout after large-deploy stalls.
-      if (window.__marketScriptBoot?.done && window.__marketScriptBoot.failed) return true;
-      return Date.now() - bootStartedAt >= bootExpansionWaitMs;
+      // Listings present: proceed without expansion once scripts settled or wait elapsed.
+      if (boot?.done) return true;
+      return bootWaitElapsed();
     }
-    // Listings also missing: after wait, allow baseline-only (≈230) rather than blank 0.
-    return Date.now() - bootStartedAt >= bootExpansionWaitMs && !!window.FULL_MARKET_DATA;
+    // No listings yet — never baseline-lock while market scripts are still in flight.
+    if (boot && !boot.done && !bootWaitElapsed()) return false;
+    return bootWaitElapsed() && !!window.FULL_MARKET_DATA;
   }
 
   function hkBootDepsReady() {
-    // Original gate: FCFF + listings. After wait, allow market-data-only so a hung
-    // dynamic HK payload cannot blank the screener the same way US expansion did.
     if (MarketContext.fcff() && window.HKEX_LISTINGS) return true;
-    return Date.now() - bootStartedAt >= bootExpansionWaitMs
+    const boot = window.__marketScriptBoot;
+    if (boot && !boot.done && !bootWaitElapsed()) return false;
+    return bootWaitElapsed()
       && !!(window.HK_MARKET_DATA || window.HKEX_LISTINGS || MarketContext.fcff());
+  }
+
+  function baselineTickerCount() {
+    const baseline = MarketContext.market === 'HKEX' ? window.HK_MARKET_DATA : window.FULL_MARKET_DATA;
+    return baseline ? Object.keys(baseline).length : 0;
+  }
+
+  function universeNeedsUpgrade() {
+    if (!isAppReady || MarketContext.market !== 'US') return false;
+    const n = Object.keys(stockUniverse || {}).length;
+    const baseline = baselineTickerCount();
+    // Locked at baseline before listings merged.
+    if (window.US_LISTINGS?.stocks?.length && baseline && n <= baseline) return true;
+    // Expansion arrived after a listings-only (or baseline-only) hydrate.
+    if (window.US_EXPANSION && !lastHydrateHadExpansion) return true;
+    return false;
   }
 
   function markLoadingStats() {
@@ -8300,21 +8335,15 @@
     el.textContent = currentLang === 'zh' ? '載入中…' : 'Loading…';
   }
 
-  function markAppLoaded(data) {
-    if (isAppReady || !data || Object.keys(data).length === 0) return;
-    if (MarketContext.market === 'HKEX' && !hkBootDepsReady()) return;
-    // Wait for listings + expansion when possible; after bootExpansionWaitMs proceed
-    // with listings+baseline so a hung us_expansion_data.js cannot blank the site.
-    if (MarketContext.market === 'US' && !usBootDepsReady()) return;
-    if (MarketContext.market === 'US' && !window.US_EXPANSION) {
-      console.warn('[boot] US_EXPANSION missing after wait; merging listings + baseline only');
-    }
+  function hydrateUniverse(data, { initial }) {
     HkUniverse.install();
     UsUniverse.install();
     if (MarketContext.market === 'HKEX') data = HkUniverse.merge(window.HK_MARKET_DATA || data);
     else data = UsUniverse.merge(window.FULL_MARKET_DATA || data);
-    isAppReady = true;
     stockUniverse = JSON.parse(JSON.stringify(data));
+    lastHydrateHadExpansion = MarketContext.market === 'US'
+      ? !!window.US_EXPANSION
+      : !!window.HKEX_EXPANSION;
     for (const [ticker, stock] of Object.entries(stockUniverse)) {
       stock.ticker = ticker;
       Object.assign(stock, CompanyData.metadata(FmpModels.record(ticker), stock));
@@ -8324,32 +8353,47 @@
       Chart.defaults.font.family = themeColor('--font-family');
       Chart.defaults.color = themeColor('--text-secondary');
     }
-
     Object.keys(stockUniverse).forEach(ticker => {
       try {
         const originalDcf = computeDCF(stockUniverse[ticker], ticker);
-        if (originalDcf) {
-          stockUniverse[ticker].default_fair_val = originalDcf.fairVal;
-        }
+        if (originalDcf) stockUniverse[ticker].default_fair_val = originalDcf.fairVal;
       } catch (err) {
         console.warn(`[${ticker}] computeDCF 初始化略過:`, err);
       }
     });
-
     applyLanguage(currentLang);
-    initInteractions();
-    handleInitialNavigation();
-
+    if (initial) {
+      initInteractions();
+      handleInitialNavigation();
+    }
     const rView = document.getElementById('subpage-ratios');
     if (rView && rView.classList.contains('active')) {
       renderRatiosSubPage(stockUniverse[activeCompanyTicker]);
     }
   }
 
+  function markAppLoaded(data) {
+    if (!data || Object.keys(data).length === 0) return;
+    if (isAppReady) {
+      if (universeNeedsUpgrade()) {
+        console.warn('[boot] late-upgrading universe after listings/expansion arrived');
+        hydrateUniverse(data, { initial: false });
+      }
+      return;
+    }
+    if (MarketContext.market === 'HKEX' && !hkBootDepsReady()) return;
+    if (MarketContext.market === 'US' && !usBootDepsReady()) return;
+    if (MarketContext.market === 'US' && !window.US_EXPANSION) {
+      console.warn('[boot] US_EXPANSION missing after wait; merging listings + baseline only');
+    }
+    isAppReady = true;
+    hydrateUniverse(data, { initial: true });
+  }
+
   function checkGlobalData() {
     if (MarketContext.stocks() && Object.keys(MarketContext.stocks()).length > 0) {
       markAppLoaded(MarketContext.stocks());
-      return isAppReady;
+      return isAppReady && !universeNeedsUpgrade();
     }
     return false;
   }
@@ -8365,8 +8409,8 @@
       : !!window.FULL_MARKET_DATA;
     if (hasBaseline) return;
     const marketFile = MarketContext.market === 'HKEX'
-      ? 'hk_market_data.js?v=blank-load-1'
-      : 'market_data.js?v=blank-load-1';
+      ? 'hk_market_data.js?v=blank-load-2'
+      : 'market_data.js?v=blank-load-2';
     fetch(marketFile + (marketFile.includes('?') ? '&' : '?') + 't=' + Date.now())
       .then(r => r.text())
       .then(text => {
@@ -8381,7 +8425,14 @@
 
   const pollTimer = setInterval(() => {
     markLoadingStats();
-    if (checkGlobalData() || isAppReady) clearInterval(pollTimer);
+    checkGlobalData();
+    if (!isAppReady) return;
+    if (universeNeedsUpgrade()) return;
+    // Keep polling while market scripts are still in flight so a late listings/
+    // expansion arrival can upgrade a premature baseline lock (230 → ~966).
+    const boot = window.__marketScriptBoot;
+    if (MarketContext.market === 'US' && !lastHydrateHadExpansion && boot && !boot.done) return;
+    clearInterval(pollTimer);
   }, 100);
 </script>
 </body>
