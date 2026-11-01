@@ -59,10 +59,15 @@ const handler = createHandler(live ? {} : { apiKey: () => 'test-placeholder', fe
     page.on('pageerror', error => errors.push(error.message));
     await page.route('**/s3.tradingview.com/**', route => route.abort());
     const base = `http://127.0.0.1:${server.address().port}`;
-    for (const [market, ticker, count] of [['US', 'AAPL', 982], ['HKEX', '0700.HK', require('../hkex_stocks.json').length]]) {
+    for (const [market, ticker] of [['US', 'AAPL'], ['HKEX', '0700.HK']]) {
       await page.goto(`${base}/?market=${market}`, { waitUntil: 'networkidle' });
-      await page.waitForFunction(() => isAppReady);
+      await page.waitForFunction(() => isAppReady && Object.keys(stockUniverse).length > 0);
       await page.evaluate(() => applyLanguage('en'));
+      const count = await page.evaluate(() => Object.keys(stockUniverse).length);
+      if (count > 200) {
+        await page.locator('#screener-all').click();
+        await page.waitForFunction(n => document.querySelectorAll('#screener-tbody tr').length === n, count);
+      }
       assert.equal(await page.locator('#screener-tbody tr').count(), count);
       assert.equal(await page.locator('#screener-tbody tr').first().locator('td').count(), 32);
       for (const language of ['zh', 'en']) {

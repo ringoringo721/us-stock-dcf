@@ -136,9 +136,14 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
       }
     });
     await page.goto(baseUrl, { waitUntil: 'networkidle' });
-    await page.waitForFunction(() => document.querySelector('#screener-tbody').children.length > 0);
-    const stockCount = await page.evaluate(() => Object.keys(window.FULL_MARKET_DATA).length);
+    await page.waitForFunction(() => document.querySelector('#screener-tbody').children.length > 0 && isAppReady);
+    const stockCount = await page.evaluate(() => Object.keys(stockUniverse).length);
     assert.ok(stockCount > 0);
+    // US paginates like HKEX when >200 rows; reveal all for full-table assertions.
+    if (stockCount > 200) {
+      await page.locator('#screener-all').click();
+      await page.waitForFunction(n => document.querySelectorAll('#screener-tbody tr').length === n, stockCount);
+    }
     assert.equal(await page.locator('#screener-tbody tr').count(), stockCount);
     assert.ok((await page.locator('#stat-total').innerText()).includes(String(stockCount)));
     const initialTickers = await page.locator('#screener-tbody .ticker-link').allTextContents();
@@ -170,6 +175,10 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
     assert.equal(await page.locator('#screener-tbody tr').count(), 0);
     assert.ok((await page.locator('#screener-results').innerText()).length > 0);
     await page.locator('button[onclick="resetScreenerFilters()"]').click();
+    if (stockCount > 200) {
+      await page.locator('#screener-all').click();
+      await page.waitForFunction(n => document.querySelectorAll('#screener-tbody tr').length === n, stockCount);
+    }
     assert.equal(await page.locator('#screener-tbody tr').count(), stockCount);
     await page.locator('.screener-industries summary').click();
     for (const [lang, width] of ['zh', 'en'].flatMap(lang => [390, 768, 1440, 1920].map(width => [lang, width]))) {

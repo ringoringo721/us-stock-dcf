@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>美股 DCF 估值雷達</title>
   <script src="site_theme.js"></script>
-  <script src="market_data.js?v=blank-load-3"></script>
+  <script src="market_data.js?v=blank-load-4"></script>
   <script src="fcff_data.js"></script>
   <script src="market_context.js"></script>
   <script src="hkex_universe.js"></script>
@@ -41,17 +41,17 @@
       for (const filename of filenames) loadOne(filename, 1);
     })(MarketContext.market === 'HKEX'
       ? [
-          'hkex_universe_data.js?v=blank-load-3',
-          'hkex_expansion_data.js?v=blank-load-3',
-          'hk_market_data.js?v=blank-load-3',
-          'hk_fcff_data.js?v=blank-load-3',
+          'hkex_universe_data.js?v=blank-load-4',
+          'hkex_expansion_data.js?v=blank-load-4',
+          'hk_market_data.js?v=blank-load-4',
+          'hk_fcff_data.js?v=blank-load-4',
         ]
       : [
           // Names + listings before expansion so a slow/hung expansion cannot
           // keep the screener on「載入中…」while US_LISTINGS is already ready.
-          'us_chinese_names_data.js?v=blank-load-3',
-          'us_universe_data.js?v=blank-load-3',
-          'us_expansion_data.js?v=blank-load-3',
+          'us_chinese_names_data.js?v=blank-load-4',
+          'us_universe_data.js?v=blank-load-4',
+          'us_expansion_data.js?v=blank-load-4',
         ]);
   </script>
   <script src="dcf_drivers.js?v=official-operating-2"></script>
@@ -5263,7 +5263,9 @@
 
     const pageKey = JSON.stringify([MarketContext.market, searchVal, currentValFilter, currentSectorFilter, currentIndustryParentFilter, currentSubIndustryFilter, sortField, sortAsc]);
     if (pageKey !== screenerPageKey) { screenerVisibleRows = 100; screenerPageKey = pageKey; }
-    const visible = MarketContext.market === 'HKEX' && list.length > 200 ? list.slice(0, screenerVisibleRows) : list;
+    // Paginate US the same as HKEX: rendering all ~966 rows builds ~4MB of HTML and
+    // can freeze the main thread on「載入中…」before paint (seen after #74).
+    const visible = list.length > 200 ? list.slice(0, screenerVisibleRows) : list;
     let more = document.getElementById('screener-more');
     if (!more) {
       more = document.createElement('button'); more.id = 'screener-more'; more.className = 'f-btn';
@@ -8338,6 +8340,13 @@
     el.textContent = currentLang === 'zh' ? '載入中…' : 'Loading…';
   }
 
+  function paintBootCount() {
+    const el = document.getElementById('stat-total');
+    if (!el) return;
+    const n = Object.keys(stockUniverse || {}).length;
+    if (n) el.textContent = String(n);
+  }
+
   function hydrateUniverse(data, { initial }) {
     HkUniverse.install();
     UsUniverse.install();
@@ -8355,6 +8364,11 @@
         console.warn(`[${ticker}] metadata 初始化略過:`, err);
       }
     }
+    // Clear「載入中…」and flip ready before the expensive screener HTML build so a
+    // slow ~966-row paint cannot look like a permanent hang (and so the boot poll
+    // cannot overwrite the count back to「載入中…」).
+    paintBootCount();
+    if (initial) isAppReady = true;
     const marketSelect = document.getElementById('market-select');
     if (marketSelect) marketSelect.value = MarketContext.market;
     if (typeof Chart !== 'undefined') {
@@ -8387,7 +8401,8 @@
     stockUniverse = JSON.parse(JSON.stringify(baseline));
     for (const [ticker, stock] of Object.entries(stockUniverse)) stock.ticker = ticker;
     lastHydrateHadExpansion = false;
-    applyLanguage(currentLang);
+    paintBootCount();
+    try { applyLanguage(currentLang); } catch (err) { console.error('[boot] baseline render failed', err); }
     return true;
   }
 
@@ -8411,10 +8426,12 @@
     }
     try {
       hydrateUniverse(data, { initial: true });
-      isAppReady = true;
+      paintBootCount();
     } catch (err) {
-      if (hydrateBaselineFallback(err)) isAppReady = true;
-      else console.error('[boot] unable to hydrate screener', err);
+      if (hydrateBaselineFallback(err)) {
+        isAppReady = true;
+        paintBootCount();
+      } else console.error('[boot] unable to hydrate screener', err);
     }
   }
 
@@ -8437,8 +8454,8 @@
       : !!window.FULL_MARKET_DATA;
     if (hasBaseline) return;
     const marketFile = MarketContext.market === 'HKEX'
-      ? 'hk_market_data.js?v=blank-load-3'
-      : 'market_data.js?v=blank-load-3';
+      ? 'hk_market_data.js?v=blank-load-4'
+      : 'market_data.js?v=blank-load-4';
     fetch(marketFile + (marketFile.includes('?') ? '&' : '?') + 't=' + Date.now())
       .then(r => r.text())
       .then(text => {
