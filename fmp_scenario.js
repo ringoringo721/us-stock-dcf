@@ -8,6 +8,12 @@
   const fullAnnualPeriod = row => !!row && row.reportType !== 'secondInterim'
     && (row.period === undefined || row.period === 'FY') && (row.periodLength === 12
     || row.periodLength === undefined && row.period === 'FY' && !row.symbol?.endsWith('.HK'));
+  // Valuation loads statements through UsdCurrency.normalize, which rewrites reportedCurrency to
+  // the calculation currency (USD/HKD) and keeps the filing currency on sourceReportedCurrency.
+  // History/tax gates key off currencyCheck.sourceCurrency (filing currency), so accept either.
+  const matchesReportingCurrency = (row, currency) => !currency
+    || row.reportedCurrency === currency
+    || row.sourceReportedCurrency === currency;
   const fail = code => { throw new Error(code); };
   const kinds = ['advanced', 'customLevered'];
   // Mature-market long-term nominal growth band used in Damodaran / sell-side Gordon practice
@@ -136,7 +142,7 @@
     for (let offset = 0; offset < 5; offset++) {
       const year = base.year - offset;
       const matches = statements.annual.income.filter(row => Number(row.fiscalYear || row.calendarYear) === year
-        && fullAnnualPeriod(row) && (!currency || row.reportedCurrency === currency));
+        && fullAnnualPeriod(row) && matchesReportingCurrency(row, currency));
       if (matches.length !== 1) return unavailable('TAX_FIVE_YEAR_INCOMPLETE');
       const row = matches[0];
       if (!(row.incomeBeforeTax > 0) || !finite(row.incomeTaxExpense)) return unavailable('TAX_PRETAX_OR_EXPENSE_UNAVAILABLE');
@@ -244,11 +250,11 @@
     for (let offset = 4; offset >= 0; offset--) {
       const year = base.year - offset;
       const incomeMatches = statements.annual.income.filter(row => Number(row.fiscalYear || row.calendarYear) === year
-        && fullAnnualPeriod(row) && (!currency || row.reportedCurrency === currency));
+        && fullAnnualPeriod(row) && matchesReportingCurrency(row, currency));
       if (incomeMatches.length !== 1 || !(incomeMatches[0].revenue > 0)) return unavailable('HISTORY_FIVE_YEAR_INCOMPLETE');
       const income = incomeMatches[0];
       const cashMatches = (statements.annual.cashflow || []).filter(row => row.date === income.date
-        && fullAnnualPeriod(row) && (!currency || row.reportedCurrency === currency));
+        && fullAnnualPeriod(row) && matchesReportingCurrency(row, currency));
       const cashflow = cashMatches.length === 1 ? cashMatches[0] : null;
       const prior = years.at(-1);
       const growth = prior?.revenue > 0 ? (income.revenue / prior.revenue - 1) * 100 : null;
