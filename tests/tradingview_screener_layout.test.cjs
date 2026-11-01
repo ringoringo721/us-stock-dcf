@@ -49,8 +49,11 @@ test('undervalued / overvalued screens are clickable and wired to catalogue filt
 test('column view chips coexist with select; sticky chrome present', () => {
   assert.match(html, /id="screener-view-chips"/);
   assert.match(html, /function setScreenerColumnView/);
-  assert.match(html, /screener-chrome/);
+  assert.match(html, /\.screener-chrome\s*\{[^}]*position:\s*sticky[^}]*top:\s*0/);
   assert.match(html, /id="screener-columns"/);
+  // Hint bar must not also stick at top:0 (would hide under chrome).
+  assert.match(html, /#screener-view\s+\.scroll-hint-bar\s*\{[^}]*position:\s*static/);
+  assert.equal(/#screener-view\s+\.scroll-hint-bar\s*\{[^}]*position:\s*sticky/.test(html), false);
   for (const view of ['overview', 'valuation', 'financial', 'all']) {
     assert.match(html, new RegExp(`data-view="${view}"`));
   }

@@ -263,7 +263,7 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
     await page.selectOption('#screener-columns', 'all');
     for (const lang of ['en', 'zh', 'en', 'zh']) {
       await page.evaluate(lang => applyLanguage(lang), lang);
-      assert.equal(await page.locator('#screener-table thead .screener-heading').count(), 38);
+      assert.equal(await page.locator('#screener-table thead .screener-heading').count(), 40);
       const headers = await page.locator('#screener-table thead th').evaluateAll(cells => cells.map(cell => {
         const heading = cell.querySelector('.screener-heading');
         const label = heading.querySelector('.screener-heading-label');

@@ -921,7 +921,9 @@
     :root[data-theme="light"] .table-scroll-wrapper:active :is(th, a, button, [onclick]) { cursor: var(--table-drag-cursor), grabbing !important; }
     :root[data-theme="light"] #screener-table tbody tr:is(:hover, :focus-within) .text-green { color: #166534; }
     #screener-table td { height: 44px; padding-top: 6px; padding-bottom: 6px; }
-    #screener-view .scroll-hint-bar { position: sticky; top: 0; z-index: 24; }
+    /* Results/scroll hint stays in document flow — only .screener-chrome sticks at top:0
+       so the hint bar is not pinned underneath the taller filter chrome. */
+    #screener-view .scroll-hint-bar { position: static; z-index: auto; }
     #screener-results-count { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--text); min-width: 7ch; text-align: right; }
     .theme-icon-button { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; padding: 8px; }
     .theme-icon-button svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
