@@ -856,52 +856,146 @@
     #balance-table th, #balance-table td, #earnings-table th, #earnings-table td { min-width: 160px; }
     #balance-table .balance-selected, #earnings-table .balance-selected { background: var(--gold-bg); }
     #balance-table .balance-total { font-weight: 700; }
-    .screener-intro { margin: 4px 0 12px; }
-    .screener-intro h2 { font-size: 20px; margin-bottom: 4px; }
-    .screener-intro p { color: var(--text-muted); font-size: 13px; }
-    #screener-view .top-stats { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; border: 1px solid var(--card-border); border-radius: 10px; overflow: hidden; background: var(--card-bg); }
-    #screener-view .stat-box { border: 0; border-right: 1px solid var(--card-border); border-radius: 0; padding: 12px 16px; cursor: pointer; transition: background .15s ease, box-shadow .15s ease; }
+    .screener-intro { margin: 4px 0 10px; display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .screener-intro h2 { font-size: 22px; margin: 0; font-weight: 700; letter-spacing: -0.02em; }
+    .screener-intro p { color: var(--text-muted); font-size: 12px; margin: 0; max-width: 52rem; }
+    /* TradingView-like: compact universe counts as a slim strip (still visible — no data loss) */
+    #screener-view .top-stats {
+      display: flex; flex-wrap: wrap; gap: 0; border: 1px solid var(--card-border);
+      border-radius: 8px; overflow: hidden; background: var(--card-bg); margin-bottom: 8px;
+    }
+    #screener-view .stat-box {
+      flex: 1 1 120px; border: 0; border-right: 1px solid var(--card-border); border-radius: 0;
+      padding: 8px 12px; cursor: pointer; min-width: 0;
+    }
     #screener-view .stat-box:last-child { border-right: 0; }
     #screener-view .stat-box:hover { background: var(--hover-bg); }
     #screener-view .stat-box:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; z-index: 1; }
-    #screener-view .stat-box.active { background: color-mix(in srgb, var(--accent) 12%, var(--card-bg)); box-shadow: inset 0 -3px 0 var(--accent); }
-    #screener-view .stat-label { min-height: 28px; letter-spacing: normal; text-transform: none; font-size: 12px; }
-    #screener-view .stat-num { font-size: 22px; font-variant-numeric: tabular-nums; }
-    #screener-view .stat-num small { font-size: 12px; font-weight: 500; margin-left: 8px; color: var(--text-muted); }
-    #screener-view .filter-panel { border-radius: 10px; padding: 14px 16px; gap: 12px; }
-    .screener-chrome { position: sticky; top: 0; z-index: 25; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(8px); padding-bottom: 8px; margin-bottom: 4px; }
-    .screener-toolbar { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(220px, 1fr) auto; gap: 12px 16px; align-items: end; }
-    .screener-toolbar label { display: flex; flex-direction: column; gap: 6px; color: var(--text-muted); font-size: 12px; }
-    #screener-view .search-input { width: 100%; margin-left: 0; padding: 8px 11px; font-size: 13px; }
-    .screener-toolbar select { width: 100%; padding: 8px 11px; font-size: 13px; border-radius: 6px; background: var(--surface-bg); color: var(--text); border: 1px solid var(--card-border); }
-    .screener-view-chips { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
-    .screener-view-chips .view-chip { padding: 6px 10px; border-radius: 999px; border: 1px solid var(--card-border); background: var(--surface-bg); color: var(--text-secondary); font-size: 12px; font-weight: 600; cursor: pointer; }
-    .screener-view-chips .view-chip.active { border-color: var(--accent); color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, var(--surface-bg)); }
+    #screener-view .stat-box.active { background: color-mix(in srgb, var(--accent) 12%, var(--card-bg)); box-shadow: inset 0 -2px 0 var(--accent); }
+    #screener-view .stat-label { min-height: 0; letter-spacing: normal; text-transform: none; font-size: 11px; }
+    #screener-view .stat-num { font-size: 18px; font-variant-numeric: tabular-nums; }
+    #screener-view .stat-num small { font-size: 11px; font-weight: 500; margin-left: 6px; color: var(--text-muted); }
+    #screener-view .filter-panel { border-radius: 0; border: 0; border-bottom: 1px solid var(--card-border); padding: 8px 0 0; gap: 0; background: transparent; box-shadow: none; }
+    .screener-chrome { position: sticky; top: 0; z-index: 25; background: color-mix(in srgb, var(--bg) 94%, transparent); backdrop-filter: blur(10px); padding-bottom: 0; margin-bottom: 0; }
+    .tv-filter-bar { display: flex; flex-direction: column; gap: 8px; padding: 8px 0 10px; }
+    .tv-filter-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .tv-filter-chip, #screener-view .f-btn.tv-filter-chip {
+      appearance: none; border: 1px solid var(--card-border); background: var(--surface-bg);
+      color: var(--text-secondary); border-radius: 8px; padding: 6px 11px; font-size: 12px;
+      font-weight: 600; cursor: pointer; line-height: 1.2; white-space: nowrap;
+    }
+    .tv-filter-chip:hover, #screener-view .f-btn.tv-filter-chip:hover { border-color: color-mix(in srgb, var(--text) 35%, var(--card-border)); color: var(--text); background: var(--hover-bg); }
+    .tv-filter-chip.active, #screener-view .f-btn.tv-filter-chip.active,
+    .tv-filter-chip[aria-pressed="true"] {
+      background: var(--text); color: var(--bg); border-color: var(--text);
+    }
+    .tv-filter-chip.has-filter { box-shadow: inset 0 0 0 1px var(--text); }
+    .tv-active-filters { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; min-height: 0; }
+    .tv-active-filters:empty { display: none; }
+    .tv-active-tag {
+      display: inline-flex; align-items: center; gap: 6px; border-radius: 6px;
+      background: var(--text); color: var(--bg); font-size: 12px; font-weight: 600;
+      padding: 5px 8px; line-height: 1.2;
+    }
+    .tv-active-tag button {
+      appearance: none; border: 0; background: transparent; color: inherit;
+      cursor: pointer; font-size: 14px; line-height: 1; padding: 0 2px; opacity: .8;
+    }
+    .tv-active-tag button:hover { opacity: 1; }
+    .screener-toolbar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .screener-toolbar label { display: flex; flex-direction: column; gap: 4px; color: var(--text-muted); font-size: 11px; }
+    #screener-view .search-input { width: min(320px, 100%); margin-left: 0; padding: 7px 10px; font-size: 13px; border-radius: 8px; }
+    .screener-toolbar select#screener-columns {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+    }
+    /* View tabs under filters — text tabs with underline, not bolted pill chips */
+    .screener-view-chips, .tv-view-tabs {
+      display: flex; flex-wrap: wrap; gap: 0; align-items: stretch;
+      border-bottom: 1px solid var(--card-border); margin: 0; padding: 0;
+    }
+    .screener-view-chips .view-chip, .tv-view-tabs .view-chip {
+      appearance: none; border: 0; border-bottom: 2px solid transparent; border-radius: 0;
+      background: transparent; color: var(--text-muted); font-size: 13px; font-weight: 600;
+      padding: 10px 14px 9px; cursor: pointer; margin-bottom: -1px;
+    }
+    .screener-view-chips .view-chip:hover { color: var(--text); background: var(--hover-bg); }
+    .screener-view-chips .view-chip.active {
+      color: var(--text); border-bottom-color: var(--text);
+      background: transparent;
+    }
     .screener-screen-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
-    .screener-screen-row .filter-title { margin: 0; white-space: nowrap; }
+    .screener-screen-row .filter-title { margin: 0; white-space: nowrap; font-size: 11px; color: var(--text-muted); }
+    .screener-screen-row .filter-btns .f-btn { border-radius: 8px; }
     #screener-view .filter-row { align-items: center; }
     #screener-view .filter-title { margin-top: 0; font-size: 12px; }
     #screener-view .filter-btns { display: flex; flex-wrap: wrap; gap: 6px; flex: 1; min-width: 0; }
-    #screener-view .f-btn { padding: 6px 10px; border-radius: 999px; }
-    .screener-industries { border-top: 1px solid var(--card-border); padding-top: 16px; }
-    .screener-industries summary { cursor: pointer; color: var(--text-secondary); font-size: 13px; font-weight: 600; }
-    .screener-industries .filter-row { margin-top: 16px; }
-    #screener-view .screener-industries .filter-row { display: grid; grid-template-columns: 110px minmax(0, 1fr); align-items: start; gap: 16px; }
-    #screener-view .screener-industries .filter-title { padding-top: 12px; }
-    #screener-view .screener-industries .filter-btns { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); grid-auto-rows: 1fr; gap: 8px; }
-    #screener-view .screener-industries .f-btn { min-height: 48px; padding: 10px 12px; line-height: 1.5; white-space: normal; overflow-wrap: anywhere; text-align: center; }
+    #screener-view .f-btn { padding: 6px 10px; border-radius: 8px; }
+    .screener-industries { border-top: 1px solid var(--card-border); padding: 10px 0 4px; margin-top: 4px; }
+    .screener-industries summary { cursor: pointer; color: var(--text-secondary); font-size: 12px; font-weight: 600; }
+    .screener-industries .filter-row { margin-top: 12px; }
+    #screener-view .screener-industries .filter-row { display: grid; grid-template-columns: 110px minmax(0, 1fr); align-items: start; gap: 12px; }
+    #screener-view .screener-industries .filter-title { padding-top: 8px; }
+    #screener-view .screener-industries .filter-btns { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); grid-auto-rows: 1fr; gap: 6px; }
+    #screener-view .screener-industries .f-btn { min-height: 40px; padding: 8px 10px; line-height: 1.4; white-space: normal; overflow-wrap: anywhere; text-align: center; }
     #screener-view .screener-industries .f-btn:hover { border-color: var(--accent); background: var(--hover-bg); }
     .screener-table-tip { display: block; font-size: 12px; margin-top: 4px; }
-    #screener-results { font-size: 14px; color: var(--text); }
-    #screener-view .scroll-hint-bar { padding: 12px 16px; gap: 16px; background: transparent; border: 0; }
-    #screener-view #screener-table { width: 100% !important; min-width: var(--screener-min-width, 1200px) !important; font-size: var(--table-font-size); }
+    #screener-results { font-size: 13px; color: var(--text); }
+    #screener-view .scroll-hint-bar { padding: 8px 0; gap: 12px; background: transparent; border: 0; }
+    .tv-screener-body { display: grid; grid-template-columns: minmax(0, 1fr) 0; gap: 0; align-items: start; }
+    .tv-screener-body.has-drawer { grid-template-columns: minmax(0, 1fr) minmax(260px, 300px); gap: 12px; }
+    .tv-table-pane { min-width: 0; }
+    .tv-detail-drawer {
+      position: sticky; top: 72px; align-self: start; border: 1px solid var(--card-border);
+      border-radius: 10px; background: var(--card-bg); padding: 14px 14px 16px;
+      max-height: calc(100vh - 96px); overflow: auto;
+    }
+    .tv-detail-drawer[hidden] { display: none !important; }
+    .tv-detail-drawer .tv-drawer-head { display: flex; justify-content: space-between; gap: 8px; align-items: start; margin-bottom: 10px; }
+    .tv-detail-drawer .tv-drawer-ticker { font-size: 18px; font-weight: 700; letter-spacing: -0.02em; }
+    .tv-detail-drawer .tv-drawer-name { font-size: 12px; color: var(--text-secondary); margin-top: 2px; overflow-wrap: anywhere; }
+    .tv-detail-drawer .tv-drawer-close { appearance: none; border: 0; background: transparent; color: var(--text-muted); cursor: pointer; font-size: 18px; line-height: 1; }
+    .tv-detail-drawer .tv-drawer-price { font-size: 26px; font-weight: 700; font-variant-numeric: tabular-nums; margin: 8px 0 4px; }
+    .tv-detail-drawer .tv-drawer-premium { font-size: 14px; font-weight: 700; font-variant-numeric: tabular-nums; margin-bottom: 12px; }
+    .tv-detail-drawer .tv-drawer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 10px; font-size: 12px; }
+    .tv-detail-drawer .tv-drawer-grid dt { color: var(--text-muted); margin: 0; }
+    .tv-detail-drawer .tv-drawer-grid dd { margin: 2px 0 0; font-weight: 600; font-variant-numeric: tabular-nums; }
+    .tv-detail-drawer .tv-drawer-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+    .tv-metric-menu {
+      position: absolute; z-index: 40; margin-top: 4px; min-width: 180px;
+      border: 1px solid var(--card-border); border-radius: 8px; background: var(--card-bg);
+      box-shadow: 0 8px 24px var(--shadow); padding: 6px; display: none;
+    }
+    .tv-metric-menu.open { display: block; }
+    .tv-metric-menu button {
+      display: block; width: 100%; text-align: left; appearance: none; border: 0;
+      background: transparent; color: var(--text); padding: 7px 8px; border-radius: 6px;
+      font-size: 12px; cursor: pointer;
+    }
+    .tv-metric-menu button:hover, .tv-metric-menu button[aria-selected="true"] { background: var(--hover-bg); }
+    .tv-metric-wrap { position: relative; display: inline-flex; }
+    #screener-view #screener-table { width: 100% !important; min-width: var(--screener-min-width, 1200px) !important; font-size: 13px; }
+    #screener-table .col-fixed-1 { width: 200px !important; min-width: 200px !important; max-width: 220px; white-space: normal; }
     #screener-table .col-fixed-3 { left: var(--screener-name-left, 110px) !important; width: 220px !important; min-width: 220px !important; max-width: 220px; white-space: normal; }
-    #screener-table th { white-space: normal; line-height: 1.5; }
-    #screener-table thead th { height: 64px; padding: 8px 8px; text-align: center !important; vertical-align: middle; }
-    #screener-table thead .screener-heading { display: grid; grid-template-rows: 28px 16px; gap: 2px; justify-items: center; align-items: center; }
-    #screener-table .screener-heading-label { display: flex; align-items: center; justify-content: center; text-align: center; line-height: 16px; min-width: 0; font-size: 12px; }
-    #screener-table .screener-heading-unit { font-size: 11px; font-weight: 500; line-height: 16px; white-space: nowrap; color: var(--text-muted); }
-    #screener-table .screener-heading .info-circle-btn { margin: 0; width: 16px; height: 16px; }
+    #screener-table .symbol-cell { display: flex; align-items: flex-start; gap: 8px; text-align: left; }
+    #screener-table .symbol-cell .fav-btn { flex: 0 0 auto; margin-top: 2px; }
+    #screener-table .symbol-meta { min-width: 0; display: flex; flex-direction: column; gap: 1px; }
+    #screener-table .symbol-meta .ticker-link { font-weight: 700; font-size: 13px; }
+    #screener-table .symbol-meta .symbol-name { font-size: 11px; color: var(--text-muted); font-weight: 400; line-height: 1.3; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+    #screener-table .symbol-meta .symbol-exch { font-size: 10px; color: var(--text-muted); }
+    #screener-table th { white-space: normal; line-height: 1.35; }
+    #screener-table thead th { height: 40px; padding: 4px 8px; text-align: right !important; vertical-align: middle; font-size: 11px; font-weight: 600; color: var(--text-muted); }
+    #screener-table thead th.col-fixed-1,
+    #screener-table thead th.col-fixed-2,
+    #screener-table thead th.col-fixed-3,
+    #screener-table thead th[onclick="sortTable('sector')"],
+    #screener-table thead th[onclick="sortTable('industry')"] { text-align: left !important; }
+    #screener-table thead .screener-heading { display: grid; grid-template-rows: auto auto; gap: 1px; justify-items: end; align-items: center; }
+    #screener-table thead th.col-fixed-1 .screener-heading,
+    #screener-table thead th.col-fixed-3 .screener-heading { justify-items: start; }
+    #screener-table .screener-heading-label { display: flex; align-items: center; justify-content: inherit; text-align: inherit; line-height: 14px; min-width: 0; font-size: 11px; }
+    #screener-table .screener-heading-unit { font-size: 10px; font-weight: 500; line-height: 12px; white-space: nowrap; color: var(--text-muted); }
+    #screener-table .screener-heading .info-circle-btn { margin: 0; width: 14px; height: 14px; }
     #screener-table :is(th, td).col-group-start { border-left: 2px solid color-mix(in srgb, var(--accent) 35%, var(--border)); }
     #screener-table .target-kind { display: block; margin-top: 3px; font-size: 10px; font-weight: 500; color: var(--text-muted); white-space: nowrap; }
     #screener-table .target-exit { display: block; margin-top: 2px; font-size: 10px; font-weight: 500; color: var(--text-secondary); white-space: nowrap; }
@@ -913,6 +1007,8 @@
     #screener-table .liquidation-asof { display: block; margin-top: 3px; font-size: 10px; font-weight: 400; color: var(--text-muted); white-space: nowrap; }
     #screener-liquidation-method summary { cursor: pointer; color: var(--text-secondary); }
     #screener-liquidation-method p { margin: 8px 0; line-height: 1.7; }
+    #screener-table tbody tr { cursor: pointer; }
+    #screener-table tbody tr.is-selected > td { background-color: color-mix(in srgb, var(--accent) 10%, var(--card-bg)) !important; }
     #screener-table tbody tr:is(:hover, :focus-within) > td { background-color: var(--row-hover-bg) !important; box-shadow: inset 0 1px var(--row-hover-edge), inset 0 -1px var(--row-hover-edge); }
     #screener-table tbody tr:is(:hover, :focus-within) > td.col-fixed-3 { box-shadow: inset 0 1px var(--row-hover-edge), inset 0 -1px var(--row-hover-edge), 6px 0 10px var(--shadow) !important; }
     :root[data-theme="light"] .table-scroll-wrapper { cursor: var(--table-cursor), grab !important; }
@@ -920,11 +1016,15 @@
     :root[data-theme="light"] .table-scroll-wrapper:active { cursor: var(--table-drag-cursor), grabbing !important; }
     :root[data-theme="light"] .table-scroll-wrapper:active :is(th, a, button, [onclick]) { cursor: var(--table-drag-cursor), grabbing !important; }
     :root[data-theme="light"] #screener-table tbody tr:is(:hover, :focus-within) .text-green { color: #166534; }
-    #screener-table td { height: 44px; padding-top: 6px; padding-bottom: 6px; }
+    #screener-table td { height: 36px; padding-top: 4px; padding-bottom: 4px; font-variant-numeric: tabular-nums; }
     /* Results/scroll hint stays in document flow — only .screener-chrome sticks at top:0
        so the hint bar is not pinned underneath the taller filter chrome. */
     #screener-view .scroll-hint-bar { position: static; z-index: auto; }
     #screener-results-count { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--text); min-width: 7ch; text-align: right; }
+    @media (max-width: 900px) {
+      .tv-screener-body.has-drawer { grid-template-columns: minmax(0, 1fr); }
+      .tv-detail-drawer { position: static; max-height: none; }
+    }
     .theme-icon-button { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; padding: 8px; }
     .theme-icon-button svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
     .theme-icon-button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
@@ -1236,8 +1336,8 @@
   <!-- ==================== 頁面 1：總表 ==================== -->
   <div id="screener-view">
     <div class="screener-intro">
-      <h2 data-i18n="screener_heading">股票概覽</h2>
-      <p data-i18n="screener_description">結果優先：先掃市價與主公允價溢折價，再切「估值」對照其他模型。點選上方螢幕或晶片篩選；欄位檢視切換詳細資料。</p>
+      <h2 data-i18n="screener_heading">全部股票</h2>
+      <p data-i18n="screener_description">TradingView 風格：頂部宇宙／指標晶片 → Overview｜Valuation 分頁 → 密表。點列開右側摘要。全部資料與 +100 分頁保留。</p>
     </div>
     <div class="top-stats" role="toolbar" aria-label="Screener screens">
       <div class="stat-box active" role="button" tabindex="0" data-screen="ALL" onclick="setValFilter('ALL')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();setValFilter('ALL')}"><div class="stat-label" data-i18n="stat_total">追蹤標的</div><div class="stat-num" id="stat-total">0</div></div>
@@ -1247,31 +1347,63 @@
       <div class="stat-box" role="button" tabindex="0" data-screen="SAVED" onclick="setValFilter('SAVED')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();setValFilter('SAVED')}"><div class="stat-label" data-i18n="stat_saved">已存目標價</div><div class="stat-num text-gold" id="stat-saved-count">0</div></div>
     </div>
 
-    <!-- 篩選面板（TradingView 風格：搜尋／欄位檢視晶片／快捷螢幕） -->
+    <!-- TradingView-like chrome: filter chip bar → view tabs → dense table (+ optional drawer). All data kept. -->
     <div class="filter-panel screener-chrome">
-      <div class="screener-toolbar">
-        <label class="screener-search" for="search-ticker">
-          <span data-i18n="screener_search">搜尋股票</span>
-          <input type="search" class="search-input" id="search-ticker" placeholder="搜尋代號、名稱、主板塊或細分子行業..." oninput="renderScreenerTable()">
-        </label>
-        <label for="screener-columns">
-          <span data-i18n="screener_columns">欄位檢視</span>
-          <select id="screener-columns" onchange="syncScreenerColumnChips(); applyScreenerColumns(true)">
-            <option value="overview" data-i18n="screener_overview">重點概覽</option>
-            <option value="valuation" data-i18n="screener_valuation">DCF 估值對照</option>
-            <option value="financial" data-i18n="screener_financial">財務與品質</option>
-            <option value="all" data-i18n="screener_all_columns">全部欄位</option>
-          </select>
-        </label>
-        <div class="screener-view-chips" id="screener-view-chips" role="group" aria-label="Column views">
-          <button type="button" class="view-chip active" data-view="overview" onclick="setScreenerColumnView('overview')" data-i18n="screener_overview">重點概覽</button>
-          <button type="button" class="view-chip" data-view="valuation" onclick="setScreenerColumnView('valuation')" data-i18n="screener_valuation">DCF 估值對照</button>
-          <button type="button" class="view-chip" data-view="financial" onclick="setScreenerColumnView('financial')" data-i18n="screener_financial">財務與品質</button>
-          <button type="button" class="view-chip" data-view="all" onclick="setScreenerColumnView('all')" data-i18n="screener_all_columns">全部欄位</button>
+      <div class="tv-filter-bar">
+        <div class="tv-filter-row" role="toolbar" aria-label="Universe and metric filters">
+          <button type="button" class="tv-filter-chip active" data-screen-chip="ALL" onclick="setValFilter('ALL')" data-i18n="opt_all">全部標的</button>
+          <button type="button" class="tv-filter-chip" data-screen-chip="FAVORITES" onclick="setValFilter('FAVORITES')" data-i18n="opt_fav">自選</button>
+          <button type="button" class="tv-filter-chip" data-screen-chip="UNDERVALUED" onclick="setValFilter('UNDERVALUED')" data-i18n="opt_undervalued" data-i18n-title="stat_undervalued_note">目錄公允低估</button>
+          <button type="button" class="tv-filter-chip" data-screen-chip="OVERVALUED" onclick="setValFilter('OVERVALUED')" data-i18n="opt_overvalued" data-i18n-title="stat_overvalued_note">目錄公允高估</button>
+          <button type="button" class="tv-filter-chip" data-screen-chip="SAVED" onclick="setValFilter('SAVED')" data-i18n="opt_saved">已存目標價</button>
+          <span class="tv-filter-sep" aria-hidden="true" style="width:1px;height:20px;background:var(--card-border);margin:0 2px;"></span>
+          <div class="tv-metric-wrap">
+            <button type="button" class="tv-filter-chip" id="tv-filter-price" aria-haspopup="true" aria-expanded="false" onclick="toggleTvMetricMenu('price', event)" data-i18n="tv_filter_price">Price</button>
+            <div class="tv-metric-menu" id="tv-menu-price" role="menu"></div>
+          </div>
+          <div class="tv-metric-wrap">
+            <button type="button" class="tv-filter-chip" id="tv-filter-premiumPct" aria-haspopup="true" aria-expanded="false" onclick="toggleTvMetricMenu('premiumPct', event)" data-i18n="tv_filter_premium">溢折價 %</button>
+            <div class="tv-metric-menu" id="tv-menu-premiumPct" role="menu"></div>
+          </div>
+          <div class="tv-metric-wrap">
+            <button type="button" class="tv-filter-chip" id="tv-filter-mcap" aria-haspopup="true" aria-expanded="false" onclick="toggleTvMetricMenu('mcap', event)" data-i18n="tv_filter_mcap">Mkt cap</button>
+            <div class="tv-metric-menu" id="tv-menu-mcap" role="menu"></div>
+          </div>
+          <div class="tv-metric-wrap">
+            <button type="button" class="tv-filter-chip" id="tv-filter-pe_trailing" aria-haspopup="true" aria-expanded="false" onclick="toggleTvMetricMenu('pe_trailing', event)" data-i18n="tv_filter_pe">P/E</button>
+            <div class="tv-metric-menu" id="tv-menu-pe_trailing" role="menu"></div>
+          </div>
+          <button type="button" class="tv-filter-chip" id="tv-filter-sector" onclick="toggleScreenerIndustries()" data-i18n="filter_sector">Sector</button>
+          <button type="button" class="tv-filter-chip" onclick="resetScreenerFilters()" data-i18n="screener_reset">清除篩選</button>
+          <strong id="screener-results-count" aria-live="polite"></strong>
+        </div>
+        <div class="tv-active-filters" id="tv-active-filters" aria-live="polite"></div>
+        <div class="screener-toolbar">
+          <label class="screener-search" for="search-ticker">
+            <span data-i18n="screener_search">搜尋股票</span>
+            <input type="search" class="search-input" id="search-ticker" placeholder="搜尋代號、名稱、主板塊或細分子行業..." oninput="renderScreenerTable()">
+          </label>
+          <label for="screener-columns">
+            <span data-i18n="screener_columns">欄位檢視</span>
+            <select id="screener-columns" onchange="syncScreenerColumnChips(); applyScreenerColumns(true)">
+              <option value="overview" data-i18n="screener_overview">Overview</option>
+              <option value="valuation" data-i18n="screener_valuation">Valuation</option>
+              <option value="financial" data-i18n="screener_financial">財務與品質</option>
+              <option value="all" data-i18n="screener_all_columns">全部欄位</option>
+            </select>
+          </label>
         </div>
       </div>
+      <!-- View tabs under filter bar (TV pattern) -->
+      <div class="screener-view-chips tv-view-tabs" id="screener-view-chips" role="tablist" aria-label="Column views">
+        <button type="button" role="tab" class="view-chip active" data-view="overview" onclick="setScreenerColumnView('overview')" data-i18n="screener_overview">Overview</button>
+        <button type="button" role="tab" class="view-chip" data-view="valuation" onclick="setScreenerColumnView('valuation')" data-i18n="screener_valuation">Valuation</button>
+        <button type="button" role="tab" class="view-chip" data-view="financial" onclick="setScreenerColumnView('financial')" data-i18n="screener_financial">財務與品質</button>
+        <button type="button" role="tab" class="view-chip" data-view="all" onclick="setScreenerColumnView('all')" data-i18n="screener_all_columns">全部欄位</button>
+      </div>
       <p id="screener-valuation-key" class="analysis-note" data-i18n="screener_valuation_key" hidden>估值欄分兩組：① FMP 供應商「指示 DCF／槓桿 DCF」參考價與溢價；② 本站已存目標價（十年 Gordon 為主；Advanced 可另見出場 EV／EBITDA；Levered 為 CFO 槓桿；亦可自訂）。頂部低估／高估件數依目錄內建公允價，不是 FMP 欄或已存目標價。</p>
-      <div class="filter-row screener-screen-row">
+      <!-- Keep legacy screen buttons in DOM for sync/tests; visually mirrored by top chip bar -->
+      <div class="filter-row screener-screen-row" hidden>
         <span class="filter-title" data-i18n="filter_dim">快捷螢幕：</span>
         <div class="filter-btns" id="val-filters">
           <button class="f-btn active" onclick="setValFilter('ALL')" data-i18n="opt_all">全部標的</button>
@@ -1280,11 +1412,9 @@
           <button class="f-btn" onclick="setValFilter('OVERVALUED')" data-i18n="opt_overvalued" data-i18n-title="stat_overvalued_note">🔴 目錄公允高估</button>
           <button class="f-btn" onclick="setValFilter('SAVED')" data-i18n="opt_saved">💾 已存目標價</button>
         </div>
-        <button class="f-btn" type="button" onclick="resetScreenerFilters()" data-i18n="screener_reset">清除篩選</button>
-        <strong id="screener-results-count" aria-live="polite"></strong>
       </div>
 
-      <details class="screener-industries">
+      <details class="screener-industries" id="screener-industries">
         <summary><span data-i18n="screener_industries">板塊與子行業篩選</span> <span id="screener-industry-count"></span></summary>
       <div class="filter-row">
         <span class="filter-title" data-i18n="filter_sector">主板塊：</span>
@@ -1320,8 +1450,10 @@
       </details>
     </div>
 
+    <div class="tv-screener-body" id="tv-screener-body">
+    <div class="tv-table-pane">
     <div class="scroll-hint-bar">
-      <div><strong id="screener-results" role="status"></strong><span data-i18n="screener_table_tip" class="screener-table-tip">點選代號開啟公司頁；點選欄名排序。更多欄位可左右捲動。</span></div>
+      <div><strong id="screener-results" role="status"></strong><span data-i18n="screener_table_tip" class="screener-table-tip">點選代號開啟公司頁；點選欄名排序。更多欄位可左右捲動。點列可開啟右側摘要。</span></div>
       <div class="scroll-btn-grp">
         <button class="scroll-arrow-btn" onclick="scrollTableBy(-400)" data-i18n="scroll_left">◀ 向左滑</button>
         <button class="scroll-arrow-btn" onclick="scrollTableBy(400)" data-i18n="scroll_right">向右滑 ▶</button>
@@ -1417,7 +1549,32 @@
         <tbody id="screener-tbody"></tbody>
       </table>
     </div>
-  </div>
+    </div><!-- /.tv-table-pane -->
+    <aside class="tv-detail-drawer" id="screener-detail-drawer" hidden aria-live="polite">
+      <div class="tv-drawer-head">
+        <div>
+          <div class="tv-drawer-ticker" id="tv-drawer-ticker">—</div>
+          <div class="tv-drawer-name" id="tv-drawer-name"></div>
+        </div>
+        <button type="button" class="tv-drawer-close" onclick="closeScreenerDetailDrawer()" aria-label="Close">×</button>
+      </div>
+      <div class="tv-drawer-price" id="tv-drawer-price">—</div>
+      <div class="tv-drawer-premium" id="tv-drawer-premium"></div>
+      <dl class="tv-drawer-grid">
+        <div><dt data-i18n="th_catalogue_fair">目錄公允價</dt><dd id="tv-drawer-fair">—</dd></div>
+        <div><dt data-i18n="th_mcap">市值 ($M)</dt><dd id="tv-drawer-mcap">—</dd></div>
+        <div><dt data-i18n="th_pe_trailing">靜態 P/E</dt><dd id="tv-drawer-pe">—</dd></div>
+        <div><dt data-i18n="th_moat">巴菲特護城河</dt><dd id="tv-drawer-moat">—</dd></div>
+        <div><dt data-i18n="th_fmp_dcf">指示 DCF</dt><dd id="tv-drawer-fmp">—</dd></div>
+        <div><dt data-i18n="th_target">本站目標價</dt><dd id="tv-drawer-target">—</dd></div>
+      </dl>
+      <div class="tv-drawer-actions">
+        <button type="button" class="btn-nav" id="tv-drawer-open-profile" data-i18n="screener_open_profile">公司頁</button>
+        <button type="button" class="btn-nav" id="tv-drawer-open-dcf" data-i18n="screener_open_dcf">深度模型 →</button>
+      </div>
+    </aside>
+    </div><!-- /.tv-screener-body -->
+  </div><!-- /#screener-view -->
 
   <!-- ==================== 頁面 2：深度估值詳情頁 ==================== -->
   <template id="valuation-template">
@@ -2541,6 +2698,9 @@
   
   let currentValFilter = 'ALL';
   let currentSectorFilter = 'ALL';
+  /** Optional metric-range filters (TradingView-style chips). Never delete columns — only narrow rows. */
+  let screenerMetricFilters = { price: null, premiumPct: null, mcap: null, pe_trailing: null };
+  let selectedScreenerTicker = null;
   let currentIndustryParentFilter = 'ALL';
   let currentSubIndustryFilter = 'ALL';
   let sortField = 'mcap';
@@ -2568,13 +2728,19 @@
     zh: {
       title: "美股 DCF 估值雷達",
       subtitle: "估值篩選 · 公司財報 · 趨勢分析",
-      screener_heading: "股票概覽",
-      screener_description: "結果優先：先掃市價與主公允價溢折價，再切「估值」對照其他模型。點選上方螢幕或晶片篩選；欄位檢視切換詳細資料。",
+      screener_heading: "全部股票",
+      screener_description: "TradingView 風格：頂部宇宙／指標晶片 → Overview｜Valuation 分頁 → 密表。點列開右側摘要。全部資料與 +100 分頁保留。",
       screener_search: "搜尋股票",
       screener_columns: "欄位檢視",
-      screener_overview: "重點概覽",
-      screener_valuation: "DCF 估值對照",
+      screener_overview: "Overview",
+      screener_valuation: "Valuation",
       screener_financial: "財務與品質",
+      screener_open_profile: "公司頁",
+      screener_open_dcf: "深度模型 →",
+      tv_filter_price: "Price",
+      tv_filter_premium: "溢折價 %",
+      tv_filter_mcap: "Mkt cap",
+      tv_filter_pe: "P/E",
       filter_dim: "快捷螢幕：",
       fcf_equity_label: "FCF / 股東應佔權益 (%)",
       moat_unassessed: "未評分",
@@ -2773,7 +2939,7 @@
       scroll_tip: "💡 提示：支援滑鼠直接拖動、觸控板左右滑、按住 <b>Shift + 滾輪</b>、或點擊右側按鈕滑動",
       scroll_left: "◀ 向左滑",
       scroll_right: "向右滑 ▶",
-      th_ticker: "收藏 / 代碼",
+      th_ticker: "Symbol",
       th_exchange: "市場",
       th_name: "企業名稱",
       th_sector: "主板塊",
@@ -3093,13 +3259,19 @@
     en: {
       title: "US Stock DCF Radar",
       subtitle: "Valuation Screener · Company Financials · Trend Analysis",
-      screener_heading: "Stock Overview",
-      screener_description: "Results first: scan price vs primary fair value, then open the Valuation view for other models. Use screen chips to filter; column views add detail.",
+      screener_heading: "All stocks",
+      screener_description: "TradingView-style: universe/metric chips → Overview|Valuation tabs → dense table. Click a row for the side snapshot. All data and +100 pagination kept.",
       screener_search: "Find a stock",
       screener_columns: "Column view",
-      screener_overview: "Essential overview",
-      screener_valuation: "DCF valuation compare",
+      screener_overview: "Overview",
+      screener_valuation: "Valuation",
       screener_financial: "Financials & quality",
+      screener_open_profile: "Profile",
+      screener_open_dcf: "DCF Model →",
+      tv_filter_price: "Price",
+      tv_filter_premium: "Premium %",
+      tv_filter_mcap: "Mkt cap",
+      tv_filter_pe: "P/E",
       filter_dim: "Screens:",
       fcf_equity_label: "FCF / Parent equity (%)",
       moat_unassessed: "Not assessed",
@@ -3298,7 +3470,7 @@
       scroll_tip: "💡 Tip: Supports horizontal drag, trackpad, Shift + Wheel, or directional buttons",
       scroll_left: "◀ Scroll Left",
       scroll_right: "Scroll Right ▶",
-      th_ticker: "Watch / Ticker",
+      th_ticker: "Symbol",
       th_exchange: "Exchange",
       th_name: "Company Name",
       th_sector: "Sector",
@@ -4928,12 +5100,183 @@
       box.classList.toggle('active', box.getAttribute('data-screen') === val);
       box.setAttribute('aria-pressed', box.getAttribute('data-screen') === val ? 'true' : 'false');
     });
+    document.querySelectorAll('.tv-filter-chip[data-screen-chip]').forEach(chip => {
+      const on = chip.getAttribute('data-screen-chip') === val;
+      chip.classList.toggle('active', on);
+      chip.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
   }
 
   function setValFilter(val) {
     currentValFilter = val;
     syncScreenerScreenState(val);
     renderScreenerTable();
+  }
+
+  function toggleScreenerIndustries() {
+    const panel = document.getElementById('screener-industries');
+    if (!panel) return;
+    panel.open = !panel.open;
+    if (panel.open) panel.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  }
+
+  const TV_METRIC_PRESETS = {
+    price: [
+      { id: null, zh: '不限 Price', en: 'Any Price' },
+      { id: 'lt50', zh: 'Price < 50', en: 'Price < 50', test: v => v < 50 },
+      { id: '50to200', zh: 'Price 50–200', en: 'Price 50–200', test: v => v >= 50 && v <= 200 },
+      { id: 'gt200', zh: 'Price > 200', en: 'Price > 200', test: v => v > 200 },
+    ],
+    premiumPct: [
+      { id: null, zh: '不限溢折價', en: 'Any premium' },
+      { id: 'under', zh: '溢折價 < 0%（低估）', en: 'Premium < 0% (cheap)', test: v => v < 0 },
+      { id: '0to20', zh: '溢折價 0–20%', en: 'Premium 0–20%', test: v => v >= 0 && v <= 20 },
+      { id: 'gt20', zh: '溢折價 > 20%', en: 'Premium > 20%', test: v => v > 20 },
+    ],
+    mcap: [
+      { id: null, zh: '不限市值', en: 'Any Mkt cap' },
+      { id: 'lt50b', zh: '市值 < $50B', en: 'Mkt cap < $50B', test: v => v < 5e4 },
+      { id: '50to200b', zh: '市值 $50–200B', en: 'Mkt cap $50–200B', test: v => v >= 5e4 && v <= 2e5 },
+      { id: 'gt200b', zh: '市值 > $200B', en: 'Mkt cap > $200B', test: v => v > 2e5 },
+    ],
+    pe_trailing: [
+      { id: null, zh: '不限 P/E', en: 'Any P/E' },
+      { id: 'lt15', zh: 'P/E < 15', en: 'P/E < 15', test: v => v > 0 && v < 15 },
+      { id: '15to30', zh: 'P/E 15–30', en: 'P/E 15–30', test: v => v >= 15 && v <= 30 },
+      { id: 'gt30', zh: 'P/E > 30', en: 'P/E > 30', test: v => v > 30 },
+    ],
+  };
+
+  function tvMetricFieldValue(item, field) {
+    if (field === 'price') return Number.isFinite(item.price) ? item.price : null;
+    if (field === 'premiumPct') return Number.isFinite(item.premiumPct) ? item.premiumPct : null;
+    if (field === 'mcap') return Number.isFinite(item.mcap) ? item.mcap : null;
+    if (field === 'pe_trailing') return Number.isFinite(item.pe_trailing) ? item.pe_trailing : null;
+    return null;
+  }
+
+  function closeTvMetricMenus() {
+    document.querySelectorAll('.tv-metric-menu.open').forEach(menu => menu.classList.remove('open'));
+    document.querySelectorAll('.tv-filter-chip[aria-expanded="true"]').forEach(btn => btn.setAttribute('aria-expanded', 'false'));
+  }
+
+  function toggleTvMetricMenu(field, event) {
+    event?.stopPropagation?.();
+    const menu = document.getElementById(`tv-menu-${field}`);
+    const btn = document.getElementById(`tv-filter-${field}`);
+    if (!menu || !btn) return;
+    const willOpen = !menu.classList.contains('open');
+    closeTvMetricMenus();
+    if (!willOpen) return;
+    const presets = TV_METRIC_PRESETS[field] || [];
+    const lang = currentLang === 'en' ? 'en' : 'zh';
+    menu.innerHTML = presets.map(preset => {
+      const selected = screenerMetricFilters[field] === preset.id;
+      const label = preset[lang] || preset.en;
+      return `<button type="button" role="menuitem" aria-selected="${selected ? 'true' : 'false'}" onclick="setTvMetricFilter('${field}', ${preset.id == null ? 'null' : `'${preset.id}'`})">${label}</button>`;
+    }).join('');
+    menu.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+  }
+
+  function setTvMetricFilter(field, id) {
+    screenerMetricFilters[field] = id;
+    closeTvMetricMenus();
+    syncTvMetricFilterChips();
+    renderScreenerTable();
+  }
+
+  function syncTvMetricFilterChips() {
+    for (const field of Object.keys(TV_METRIC_PRESETS)) {
+      const btn = document.getElementById(`tv-filter-${field}`);
+      if (!btn) continue;
+      const active = screenerMetricFilters[field] != null;
+      btn.classList.toggle('has-filter', active);
+      btn.classList.toggle('active', active);
+    }
+    const host = document.getElementById('tv-active-filters');
+    if (!host) return;
+    const lang = currentLang === 'en' ? 'en' : 'zh';
+    const tags = [];
+    for (const [field, id] of Object.entries(screenerMetricFilters)) {
+      if (id == null) continue;
+      const preset = (TV_METRIC_PRESETS[field] || []).find(row => row.id === id);
+      if (!preset) continue;
+      tags.push(`<span class="tv-active-tag">${preset[lang] || preset.en}<button type="button" aria-label="Remove" onclick="setTvMetricFilter('${field}', null)">×</button></span>`);
+    }
+    if (currentValFilter && currentValFilter !== 'ALL') {
+      const screenLabels = {
+        FAVORITES: lang === 'en' ? 'Watchlist' : '自選',
+        UNDERVALUED: lang === 'en' ? 'Catalogue undervalued' : '目錄公允低估',
+        OVERVALUED: lang === 'en' ? 'Catalogue overvalued' : '目錄公允高估',
+        SAVED: lang === 'en' ? 'Saved targets' : '已存目標價',
+      };
+      if (screenLabels[currentValFilter]) {
+        tags.unshift(`<span class="tv-active-tag">${screenLabels[currentValFilter]}<button type="button" aria-label="Remove" onclick="setValFilter('ALL')">×</button></span>`);
+      }
+    }
+    if (currentSectorFilter !== 'ALL') {
+                tags.push(`<span class="tv-active-tag">${currentSectorFilter}<button type="button" aria-label="Remove" onclick="clearSectorChip()">×</button></span>`);
+    }
+    host.innerHTML = tags.join('');
+  }
+
+  document.addEventListener('click', (event) => {
+    if (!event.target.closest?.('.tv-metric-wrap')) closeTvMetricMenus();
+  });
+
+  function closeScreenerDetailDrawer() {
+    selectedScreenerTicker = null;
+    const drawer = document.getElementById('screener-detail-drawer');
+    const body = document.getElementById('tv-screener-body');
+    if (drawer) drawer.hidden = true;
+    body?.classList.remove('has-drawer');
+    document.querySelectorAll('#screener-tbody tr.is-selected').forEach(row => row.classList.remove('is-selected'));
+  }
+
+  function openScreenerDetailDrawer(ticker) {
+    const stock = stockUniverse[ticker];
+    if (!stock) return;
+    selectedScreenerTicker = ticker;
+    const drawer = document.getElementById('screener-detail-drawer');
+    const body = document.getElementById('tv-screener-body');
+    if (!drawer || !body) return;
+    const row = window.__screenerRowByTicker?.[ticker]
+      || (window.__screenerLastList || []).find(entry => entry.ticker === ticker);
+    const price = Number.isFinite(row?.price) ? row.price : (Number.isFinite(stock.price) ? stock.price : null);
+    const fair = Number.isFinite(row?.fairVal) ? row.fairVal : null;
+    const premium = Number.isFinite(row?.premiumPct) ? row.premiumPct : null;
+    const mcap = Number.isFinite(row?.mcap) ? row.mcap : (Number.isFinite(stock.mcap) ? stock.mcap : null);
+    const pe = Number.isFinite(row?.pe_trailing) ? row.pe_trailing : (Number.isFinite(stock.pe_trailing) ? stock.pe_trailing : null);
+    document.getElementById('tv-drawer-ticker').textContent = ticker;
+    document.getElementById('tv-drawer-name').textContent = getStockDisplayName(stock);
+    document.getElementById('tv-drawer-price').textContent = price == null ? 'N/A' : moneyPrefix() + price.toFixed(2);
+    const premEl = document.getElementById('tv-drawer-premium');
+    premEl.innerHTML = premium == null ? 'N/A' : renderMarketPremium(premium);
+    document.getElementById('tv-drawer-fair').textContent = fair == null ? 'N/A' : moneyPrefix() + Number(fair).toFixed(2);
+    document.getElementById('tv-drawer-mcap').textContent = mcap == null ? 'N/A' : moneyPrefix() + Number(mcap).toLocaleString(undefined, { maximumFractionDigits: 0 });
+    document.getElementById('tv-drawer-pe').textContent = pe == null ? 'N/A' : Number(pe).toFixed(1);
+    const moat = row?.moat;
+    document.getElementById('tv-drawer-moat').textContent = moat?.excluded ? (moat.scoreText || 'N/A')
+      : moat?.scoredTotal == null ? 'N/A'
+        : moat.total !== null ? `${moat.total}` : (moat.scoreText || 'N/A');
+    const fmp = typeof FmpModels !== 'undefined' ? FmpModels.reference(FmpModels.record(ticker), 'dcf', stock) : null;
+    document.getElementById('tv-drawer-fmp').textContent = fmp == null ? 'N/A' : moneyPrefix() + fmp.toFixed(2);
+    const target = row?.isSaved && Number.isFinite(row.target_price) ? row.target_price : null;
+    document.getElementById('tv-drawer-target').textContent = target == null ? '—' : moneyPrefix() + Number(target).toFixed(2);
+    const profileBtn = document.getElementById('tv-drawer-open-profile');
+    const dcfBtn = document.getElementById('tv-drawer-open-dcf');
+    if (profileBtn) profileBtn.onclick = () => openCompanyProfile(ticker);
+    if (dcfBtn) dcfBtn.onclick = () => openDetail(ticker);
+    drawer.hidden = false;
+    body.classList.add('has-drawer');
+    document.querySelectorAll('#screener-tbody tr.is-selected').forEach(el => el.classList.remove('is-selected'));
+    document.querySelector(`#screener-tbody tr[data-ticker="${CSS.escape(ticker)}"]`)?.classList.add('is-selected');
+  }
+
+  function onScreenerRowClick(event, ticker) {
+    if (event.target.closest('a, button, .fav-btn, .badge-moat, .badge-fscore, .badge-zscore, .badge-mscore, .btn-nav, .ticker-link')) return;
+    openScreenerDetailDrawer(ticker);
   }
 
   function syncScreenerColumnChips(mode = document.getElementById('screener-columns')?.value) {
@@ -4958,10 +5301,22 @@
     currentSectorFilter = sec;
     currentIndustryParentFilter = 'ALL';
     currentSubIndustryFilter = 'ALL';
-    document.querySelectorAll('#sector-filters .f-btn').forEach(btn => btn.classList.remove('active'));
-    if (event && event.target) event.target.classList.add('active');
+    document.querySelectorAll('#sector-filters .f-btn').forEach(btn => {
+      const onclick = btn.getAttribute('onclick') || '';
+      const active = onclick.includes(`('${sec}')`);
+      btn.classList.toggle('active', active);
+    });
+    if (typeof event !== 'undefined' && event?.target?.classList?.contains('f-btn')) {
+      document.querySelectorAll('#sector-filters .f-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+    }
     updateSubIndustryButtons();
+    syncTvMetricFilterChips();
     renderScreenerTable();
+  }
+
+  function clearSectorChip() {
+    setSectorFilter('ALL');
   }
 
   function industriesInScope() {
@@ -5116,8 +5471,9 @@
   function applyScreenerColumns(resetScroll = false) {
     const mode = document.getElementById('screener-columns').value;
     const presets = {
-      // Results-first overview: one primary catalogue fair value + premium (no FMP dump).
-      overview: { width: 1280, fields: ['ticker', 'name', 'price', 'fairVal', 'premiumPct', 'action', 'moat_score', 'f_score', 'z_score', 'm_score'] },
+      // TV-like overview: Symbol(+name in cell), Price, 溢折價%, Mkt cap, Fair, P/E first.
+      // FMP dump stays out of default; all columns remain in DOM for other views / "all".
+      overview: { width: 1320, fields: ['ticker', 'price', 'premiumPct', 'mcap', 'fairVal', 'pe_trailing', 'moat_score', 'f_score', 'z_score', 'action'] },
       // DCF compare (#83): FMP vendor pair, then site-saved target/premium; liquidation lives in "all".
       valuation: { width: 1880, fields: ['ticker', 'name', 'sector', 'price', 'fmp_dcf', 'fmp_dcf_upside', 'fmp_levered', 'fmp_levered_upside', 'target_price', 'target_spread', 'action', 'moat_score', 'WACC', 'EV', 'mcap'] },
       financial: { width: 2620, fields: ['ticker', 'name', 'price', 'mcap', 'pe_trailing', 'pe_forward', 'pb_trailing', 'div_yield', 'fcf_to_ev', 'fcf_to_equity', 'fcf_to_mcap', 'cash_to_assets', 'liab_to_assets', 'current_ratio', 'roe', 'roa', 'f_score', 'z_score', 'm_score', 'ev_to_ebitda', 'debt_to_ebitda', 'net_debt_to_ebitda'] },
@@ -5166,12 +5522,15 @@
     currentSectorFilter = 'ALL';
     currentIndustryParentFilter = 'ALL';
     currentSubIndustryFilter = 'ALL';
+    screenerMetricFilters = { price: null, premiumPct: null, mcap: null, pe_trailing: null };
     document.getElementById('search-ticker').value = '';
     document.querySelectorAll('#sector-filters button').forEach(button => {
       button.classList.toggle('active', button.getAttribute('onclick').includes("('ALL')"));
     });
     syncScreenerScreenState('ALL');
+    syncTvMetricFilterChips();
     updateSubIndustryButtons();
+    closeScreenerDetailDrawer();
     renderScreenerTable();
   }
 
@@ -5397,6 +5756,16 @@
     else if (currentValFilter === 'SAVED') list = list.filter(item => item.isSaved);
     else if (currentValFilter === 'FAVORITES') list = list.filter(item => item.isFav);
 
+    for (const [field, id] of Object.entries(screenerMetricFilters)) {
+      if (id == null) continue;
+      const preset = (TV_METRIC_PRESETS[field] || []).find(row => row.id === id);
+      if (!preset?.test) continue;
+      list = list.filter(item => {
+        const value = tvMetricFieldValue(item, field);
+        return value != null && preset.test(value);
+      });
+    }
+
     if (currentSectorFilter !== 'ALL') {
       list = list.filter(item => IndustryTaxonomy.canonicalSector(item.sector) === currentSectorFilter);
     }
@@ -5434,8 +5803,11 @@
     document.getElementById('stat-overvalued').innerHTML = `${overCount}<small>${totalCount > 0 ? ((overCount/totalCount)*100).toFixed(0) : 0}%</small>`;
     document.getElementById('stat-saved-count').textContent = savedCount;
     syncScreenerScreenState(currentValFilter);
+    syncTvMetricFilterChips();
+    window.__screenerLastList = list;
+    window.__screenerRowByTicker = Object.fromEntries(list.map(item => [item.ticker, item]));
 
-    const pageKey = JSON.stringify([MarketContext.market, searchVal, currentValFilter, currentSectorFilter, currentIndustryParentFilter, currentSubIndustryFilter, sortField, sortAsc]);
+    const pageKey = JSON.stringify([MarketContext.market, searchVal, currentValFilter, currentSectorFilter, currentIndustryParentFilter, currentSubIndustryFilter, screenerMetricFilters, sortField, sortAsc]);
     if (pageKey !== screenerPageKey) { screenerVisibleRows = 100; screenerPageKey = pageKey; }
     // Paginate US the same as HKEX: rendering all ~966 rows builds ~4MB of HTML and
     // can freeze the main thread (boot「載入中…」after #74;「顯示全部」Chrome hang after #75).
@@ -5534,14 +5906,22 @@
       })();
       const mcapVal = Number.isFinite(item.mcap) ? item.mcap : null;
 
+      const displayName = getStockDisplayName(item);
+      const selectedClass = selectedScreenerTicker === item.ticker ? ' is-selected' : '';
       return `
-        <tr>
+        <tr class="${selectedClass.trim()}" data-ticker="${item.ticker}" onclick="onScreenerRowClick(event, '${item.ticker}')">
           <td class="col-fixed-1">
-            <button class="fav-btn ${favActiveClass}" onclick="toggleFavorite('${item.ticker}', event)">${favHeart}</button>
-            <a class="ticker-link" onclick="openCompanyProfile('${item.ticker}')">${item.ticker}</a>
+            <div class="symbol-cell">
+              <button class="fav-btn ${favActiveClass}" onclick="toggleFavorite('${item.ticker}', event)">${favHeart}</button>
+              <div class="symbol-meta">
+                <a class="ticker-link" onclick="openCompanyProfile('${item.ticker}')">${item.ticker}</a>
+                <span class="symbol-name">${displayName}</span>
+                <span class="symbol-exch">${item.exchange || 'US'}</span>
+              </div>
+            </div>
           </td>
           <td class="col-fixed-2"><span class="badge ${exchClass}">${item.exchange || 'US'}</span></td>
-          <td class="col-fixed-3" style="font-weight: 600; color: var(--text);">${getStockDisplayName(item)}</td>
+          <td class="col-fixed-3" style="font-weight: 600; color: var(--text);">${displayName}</td>
           <td style="color: var(--text-secondary); text-align: left;">${getStockDisplaySector(item)}</td>
           <td style="color: var(--text-muted); font-size: 11px; text-align: left;">${getStockDisplayIndustry(item.industry) || '--'}</td>
           <td style="font-weight: 700; color: var(--accent);">${priceNum === null ? 'N/A' : moneyPrefix() + priceNum.toFixed(2)}</td>

@@ -12,13 +12,14 @@ const path = require('node:path');
 const html = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
 
 test('overview preset exposes catalogue fair + premium only as primary valuation pair', () => {
-  assert.match(html, /overview:\s*\{\s*width:\s*\d+,\s*fields:\s*\[[^\]]*'\s*fairVal\s*'[^\]]*'\s*premiumPct\s*'/);
+  const overview = html.match(/overview:\s*\{[^}]+\}/)?.[0] || '';
+  assert.match(overview, /'fairVal'/);
+  assert.match(overview, /'premiumPct'/);
   assert.match(html, /data-i18n="th_catalogue_fair"/);
   assert.match(html, /data-i18n="th_catalogue_premium"/);
   assert.match(html, /sortTable\('fairVal'\)/);
   assert.match(html, /sortTable\('premiumPct'\)/);
   // Overview must not dump every FMP DCF column into the default view.
-  const overview = html.match(/overview:\s*\{[^}]+\}/)?.[0] || '';
   assert.equal(/fmp_dcf/.test(overview), false);
   assert.equal(/fmp_levered/.test(overview), false);
 });
@@ -46,17 +47,33 @@ test('undervalued / overvalued screens are clickable and wired to catalogue filt
   assert.match(html, /item\.isUndervalued/);
 });
 
-test('column view chips coexist with select; sticky chrome present', () => {
+test('column view tabs coexist with select; sticky chrome + filter chips present', () => {
   assert.match(html, /id="screener-view-chips"/);
   assert.match(html, /function setScreenerColumnView/);
   assert.match(html, /\.screener-chrome\s*\{[^}]*position:\s*sticky[^}]*top:\s*0/);
   assert.match(html, /id="screener-columns"/);
+  assert.match(html, /class="tv-filter-bar"/);
+  assert.match(html, /id="screener-detail-drawer"/);
+  assert.match(html, /data-screen-chip="UNDERVALUED"/);
   // Hint bar must not also stick at top:0 (would hide under chrome).
   assert.match(html, /#screener-view\s+\.scroll-hint-bar\s*\{[^}]*position:\s*static/);
   assert.equal(/#screener-view\s+\.scroll-hint-bar\s*\{[^}]*position:\s*sticky/.test(html), false);
   for (const view of ['overview', 'valuation', 'financial', 'all']) {
     assert.match(html, new RegExp(`data-view="${view}"`));
   }
+});
+
+test('overview keeps primary market columns without dropping DCF accessibility', () => {
+  const overview = html.match(/overview:\s*\{[^}]+\}/)?.[0] || '';
+  assert.match(overview, /'price'/);
+  assert.match(overview, /'mcap'/);
+  assert.match(overview, /'pe_trailing'/);
+  assert.match(overview, /'fairVal'/);
+  assert.match(overview, /'premiumPct'/);
+  // All FMP / site / liquidation headers remain in thead for other views.
+  assert.match(html, /data-i18n="th_fmp_dcf"/);
+  assert.match(html, /data-i18n="th_target"/);
+  assert.match(html, /data-i18n="th_liq_1"/);
 });
 
 test('hydration / pagination guards remain (no show-all freeze path)', () => {
