@@ -5,6 +5,7 @@ const { calculateReturns, financialReference } = require('../fcf_ratios.js');
 const FinancialModels = require('../financial_models.js');
 const { normalizeBankStatements } = require('../financial_industry.js');
 
+// Keep in sync with build_full_market.py STATEMENT_FIELD_ALIASES (USD-native path).
 const aliases = {
   epsdiluted: ['epsDiluted'], ebitdaratio: ['ebitdaRatio'],
   netCashProvidedByOperatingActivities: ['netCashProvidedByOperatingActivities', 'operatingCashFlow'],
@@ -12,6 +13,8 @@ const aliases = {
   netCashUsedProvidedByFinancingActivities: ['netCashProvidedByFinancingActivities'],
   otherInvestingActivites: ['otherInvestingActivities'], otherFinancingActivites: ['otherFinancingActivities'],
   dividendsPaid: ['commonDividendsPaid', 'commonStockDividendsPaid', 'netDividendsPaid'],
+  commonStockIssued: ['commonStockIssuance'],
+  debtRepayment: ['netDebtIssuance'],
   tradeAccountsReceivables: ['accountsReceivables', 'netReceivables']
 };
 const ratios = { grossProfitRatio: 'grossProfit', operatingIncomeRatio: 'operatingIncome',
