@@ -401,16 +401,27 @@ test('new defaults label net cash vs net debt with snapshot date and suggested t
   assert.ok(Number.isFinite(history.ttm.row.ebitda));
 });
 
-test('optional TTM history row is omitted when it equals the latest full fiscal year', () => {
+test('optional TTM history row is omitted when end date is on or before the latest full fiscal year', () => {
   const data = read('GOOGL');
-  const statements = structuredClone(require('../cache/financials/GOOGL_statements_v2.json'));
   const latestFy = data.forecastBase.date;
-  statements.quarterly.income = statements.quarterly.income.filter(row => row.date <= latestFy);
-  statements.quarterly.cashflow = statements.quarterly.cashflow.filter(row => row.date <= latestFy);
-  const history = Scenario.fiveYearHistory(statements, data, 'advanced');
-  assert.equal(history.reason, null);
-  assert.equal(history.ttm?.included, false);
-  assert.equal(history.ttm?.reason, 'TTM_EQUALS_LATEST_FY');
+  const equal = structuredClone(require('../cache/financials/GOOGL_statements_v2.json'));
+  equal.quarterly.income = equal.quarterly.income.filter(row => row.date <= latestFy);
+  equal.quarterly.cashflow = equal.quarterly.cashflow.filter(row => row.date <= latestFy);
+  const equalHistory = Scenario.fiveYearHistory(equal, data, 'advanced');
+  assert.equal(equalHistory.reason, null);
+  assert.equal(equalHistory.ttm?.included, false);
+  assert.equal(equalHistory.ttm?.reason, 'TTM_NOT_NEWER_THAN_LATEST_FY');
+
+  // Stale overlapping window: last four quarters end before FY close (missing FY-end Q).
+  const earlier = structuredClone(require('../cache/financials/GOOGL_statements_v2.json'));
+  earlier.quarterly.income = earlier.quarterly.income.filter(row => row.date < latestFy);
+  earlier.quarterly.cashflow = earlier.quarterly.cashflow.filter(row => row.date < latestFy);
+  const earlierHistory = Scenario.fiveYearHistory(earlier, data, 'advanced');
+  assert.equal(earlierHistory.ttm?.included, false);
+  assert.equal(earlierHistory.ttm?.reason, 'TTM_NOT_NEWER_THAN_LATEST_FY');
+  const endDates = earlier.quarterly.income.slice().sort((a, b) => a.date.localeCompare(b.date)).slice(-4)
+    .map(row => row.date);
+  assert.ok(endDates.at(-1) < latestFy, endDates.join(','));
 
   const live = Scenario.fiveYearHistory(
     require('../cache/financials/GOOGL_statements_v2.json'), data, 'advanced');

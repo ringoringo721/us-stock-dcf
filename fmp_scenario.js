@@ -189,8 +189,9 @@
       && other.period === row.period && (!currency || other.reportedCurrency === currency)));
     if (cashflow.some(row => !row)) return unavailable('TTM_CASHFLOW_UNAVAILABLE');
     const end = income.at(-1);
-    // Same reporting window as the latest full FY → redundant; omit the TTM row.
-    if (end.date === latestFy.date) return unavailable('TTM_EQUALS_LATEST_FY');
+    // TTM must be strictly newer than the latest full FY. An equal or earlier
+    // window end is stale / overlapping (missing FY-end quarter or date skew).
+    if (end.date <= latestFy.date) return unavailable('TTM_NOT_NEWER_THAN_LATEST_FY');
 
     const revenue = sumField(income, 'revenue');
     if (!(revenue > 0)) return unavailable('TTM_REVENUE_UNAVAILABLE');
