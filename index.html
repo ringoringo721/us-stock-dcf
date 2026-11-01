@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>美股 DCF 估值雷達</title>
   <script src="site_theme.js"></script>
-  <script src="market_data.js?v=blank-load-2"></script>
+  <script src="market_data.js?v=blank-load-3"></script>
   <script src="fcff_data.js"></script>
   <script src="market_context.js"></script>
   <script src="hkex_universe.js"></script>
@@ -41,15 +41,17 @@
       for (const filename of filenames) loadOne(filename, 1);
     })(MarketContext.market === 'HKEX'
       ? [
-          'hkex_universe_data.js?v=blank-load-2',
-          'hkex_expansion_data.js?v=blank-load-2',
-          'hk_market_data.js?v=blank-load-2',
-          'hk_fcff_data.js?v=blank-load-2',
+          'hkex_universe_data.js?v=blank-load-3',
+          'hkex_expansion_data.js?v=blank-load-3',
+          'hk_market_data.js?v=blank-load-3',
+          'hk_fcff_data.js?v=blank-load-3',
         ]
       : [
-          'us_universe_data.js?v=blank-load-2',
-          'us_expansion_data.js?v=blank-load-2',
-          'us_chinese_names_data.js?v=blank-load-2',
+          // Names + listings before expansion so a slow/hung expansion cannot
+          // keep the screener on「載入中…」while US_LISTINGS is already ready.
+          'us_chinese_names_data.js?v=blank-load-3',
+          'us_universe_data.js?v=blank-load-3',
+          'us_expansion_data.js?v=blank-load-3',
         ]);
   </script>
   <script src="dcf_drivers.js?v=official-operating-2"></script>
@@ -8265,15 +8267,15 @@
   let isAppReady = false;
   let lastHydrateHadExpansion = false;
   const bootStartedAt = Date.now();
-  // Prefer full US_EXPANSION before locking ready; never stay at 0 forever if it hangs.
-  // IMPORTANT: URLSearchParams.get() returns null when absent — Number(null) === 0,
-  // which previously made the soft-timeout fire immediately and lock the screener at
-  // baseline 230 before listings/expansion arrived (#72 regression).
+  // Soft deadline only for the no-listings fallback (baseline-only). Once US_LISTINGS
+  // exists we hydrate immediately and late-upgrade expansion — waiting here caused
+  //「載入中…」for up to 20s (or forever if hydrate threw after isAppReady=true).
+  // IMPORTANT: URLSearchParams.get() returns null when absent — Number(null) === 0.
   const bootExpansionWaitMs = (() => {
     const param = new URLSearchParams(location.search).get('bootWaitMs');
-    if (param == null || param === '') return 20000;
+    if (param == null || param === '') return 8000;
     const raw = Number(param);
-    return Number.isFinite(raw) && raw >= 0 ? raw : 20000;
+    return Number.isFinite(raw) && raw >= 0 ? raw : 8000;
   })();
   window.__bootExpansionWaitMs = bootExpansionWaitMs;
 
@@ -8292,13 +8294,9 @@
   }
 
   function usBootDepsReady() {
+    // Listings alone are enough to leave「載入中…」; expansion late-upgrades.
+    if (window.US_LISTINGS?.stocks?.length) return true;
     const boot = window.__marketScriptBoot;
-    if (window.US_LISTINGS?.stocks?.length) {
-      if (window.US_EXPANSION) return true;
-      // Listings present: proceed without expansion once scripts settled or wait elapsed.
-      if (boot?.done) return true;
-      return bootWaitElapsed();
-    }
     // No listings yet — never baseline-lock while market scripts are still in flight.
     if (boot && !boot.done && !bootWaitElapsed()) return false;
     return bootWaitElapsed() && !!window.FULL_MARKET_DATA;
@@ -8321,16 +8319,21 @@
     if (!isAppReady || MarketContext.market !== 'US') return false;
     const n = Object.keys(stockUniverse || {}).length;
     const baseline = baselineTickerCount();
-    // Locked at baseline before listings merged.
     if (window.US_LISTINGS?.stocks?.length && baseline && n <= baseline) return true;
-    // Expansion arrived after a listings-only (or baseline-only) hydrate.
     if (window.US_EXPANSION && !lastHydrateHadExpansion) return true;
     return false;
   }
 
   function markLoadingStats() {
     const el = document.getElementById('stat-total');
-    if (!el || isAppReady) return;
+    if (!el) return;
+    // Recover stale「載入中…」if hydrate partially failed after ready.
+    if (isAppReady) {
+      if (/^(載入|Load)/i.test((el.textContent || '').trim()) && Object.keys(stockUniverse || {}).length) {
+        applyLanguage(currentLang);
+      }
+      return;
+    }
     if (!/^(0|載入|Load)/i.test((el.textContent || '').trim())) return;
     el.textContent = currentLang === 'zh' ? '載入中…' : 'Loading…';
   }
@@ -8346,9 +8349,14 @@
       : !!window.HKEX_EXPANSION;
     for (const [ticker, stock] of Object.entries(stockUniverse)) {
       stock.ticker = ticker;
-      Object.assign(stock, CompanyData.metadata(FmpModels.record(ticker), stock));
+      try {
+        Object.assign(stock, CompanyData.metadata(FmpModels.record(ticker), stock));
+      } catch (err) {
+        console.warn(`[${ticker}] metadata 初始化略過:`, err);
+      }
     }
-    document.getElementById('market-select').value = MarketContext.market;
+    const marketSelect = document.getElementById('market-select');
+    if (marketSelect) marketSelect.value = MarketContext.market;
     if (typeof Chart !== 'undefined') {
       Chart.defaults.font.family = themeColor('--font-family');
       Chart.defaults.color = themeColor('--text-secondary');
@@ -8372,22 +8380,42 @@
     }
   }
 
+  function hydrateBaselineFallback(reason) {
+    console.error('[boot] hydrate failed; falling back to baseline', reason);
+    const baseline = MarketContext.market === 'HKEX' ? window.HK_MARKET_DATA : window.FULL_MARKET_DATA;
+    if (!baseline || !Object.keys(baseline).length) return false;
+    stockUniverse = JSON.parse(JSON.stringify(baseline));
+    for (const [ticker, stock] of Object.entries(stockUniverse)) stock.ticker = ticker;
+    lastHydrateHadExpansion = false;
+    applyLanguage(currentLang);
+    return true;
+  }
+
   function markAppLoaded(data) {
     if (!data || Object.keys(data).length === 0) return;
     if (isAppReady) {
       if (universeNeedsUpgrade()) {
         console.warn('[boot] late-upgrading universe after listings/expansion arrived');
-        hydrateUniverse(data, { initial: false });
+        try {
+          hydrateUniverse(data, { initial: false });
+        } catch (err) {
+          console.error('[boot] late-upgrade failed', err);
+        }
       }
       return;
     }
     if (MarketContext.market === 'HKEX' && !hkBootDepsReady()) return;
     if (MarketContext.market === 'US' && !usBootDepsReady()) return;
     if (MarketContext.market === 'US' && !window.US_EXPANSION) {
-      console.warn('[boot] US_EXPANSION missing after wait; merging listings + baseline only');
+      console.warn('[boot] hydrating listings before US_EXPANSION; will late-upgrade');
     }
-    isAppReady = true;
-    hydrateUniverse(data, { initial: true });
+    try {
+      hydrateUniverse(data, { initial: true });
+      isAppReady = true;
+    } catch (err) {
+      if (hydrateBaselineFallback(err)) isAppReady = true;
+      else console.error('[boot] unable to hydrate screener', err);
+    }
   }
 
   function checkGlobalData() {
@@ -8409,8 +8437,8 @@
       : !!window.FULL_MARKET_DATA;
     if (hasBaseline) return;
     const marketFile = MarketContext.market === 'HKEX'
-      ? 'hk_market_data.js?v=blank-load-2'
-      : 'market_data.js?v=blank-load-2';
+      ? 'hk_market_data.js?v=blank-load-3'
+      : 'market_data.js?v=blank-load-3';
     fetch(marketFile + (marketFile.includes('?') ? '&' : '?') + 't=' + Date.now())
       .then(r => r.text())
       .then(text => {
@@ -8426,10 +8454,18 @@
   const pollTimer = setInterval(() => {
     markLoadingStats();
     checkGlobalData();
-    if (!isAppReady) return;
+    if (!isAppReady) {
+      // Absolute ceiling: never leave「載入中…」past the soft deadline if baseline exists.
+      if (bootWaitElapsed() && (window.FULL_MARKET_DATA || window.HK_MARKET_DATA)) {
+        try {
+          markAppLoaded(MarketContext.stocks() || window.FULL_MARKET_DATA || window.HK_MARKET_DATA);
+        } catch (err) {
+          console.error('[boot] deadline hydrate failed', err);
+        }
+      }
+      return;
+    }
     if (universeNeedsUpgrade()) return;
-    // Keep polling while market scripts are still in flight so a late listings/
-    // expansion arrival can upgrade a premature baseline lock (230 → ~966).
     const boot = window.__marketScriptBoot;
     if (MarketContext.market === 'US' && !lastHydrateHadExpansion && boot && !boot.done) return;
     clearInterval(pollTimer);
