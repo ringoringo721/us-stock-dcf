@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
  * Boot regressions for US screener load:
- * 1) Default bootWaitMs must NOT be Number(null)===0 (locks at baseline 230).
- * 2) Hung us_expansion_data.js must not leave counts at 0; listings+baseline merge.
+ * 1) Default bootWaitMs must NOT be Number(null)===0.
+ * 2) Hung us_expansion_data.js must hydrate from listings immediately (no「載入中…」wait).
  * 3) Late-arriving expansion must upgrade a premature baseline lock.
  */
 const assert = require('node:assert/strict');
@@ -62,7 +62,7 @@ async function withPage(server, pathAndQuery, fn) {
 }
 
 (async () => {
-  // --- 1) Happy path: absent bootWaitMs must default to 20s, not 0 ---
+  // --- 1) Happy path: absent bootWaitMs defaults to 8s, merges ~966 ---
   {
     const server = await startServer();
     try {
@@ -79,9 +79,9 @@ async function withPage(server, pathAndQuery, fn) {
           listings: window.US_LISTINGS.stocks.length,
           stat: document.getElementById('stat-total').textContent,
         }));
-        assert.equal(probe.waitMs, 20000, `bootWaitMs must default to 20000, got ${probe.waitMs}`);
+        assert.equal(probe.waitMs, 8000, `bootWaitMs must default to 8000, got ${probe.waitMs}`);
         assert.ok(probe.universe > 900, `expected ~966, got ${probe.universe}`);
-        assert.ok(!/^230\b/.test(probe.stat.trim()), `still baseline: ${probe.stat}`);
+        assert.ok(!/載入|Load/i.test(probe.stat), `still loading: ${probe.stat}`);
         assert.equal(errors.length, 0, errors.join('\n'));
         console.log('happy', probe);
       });
@@ -90,14 +90,21 @@ async function withPage(server, pathAndQuery, fn) {
     }
   }
 
-  // --- 2) Hung expansion: recover above 0 via listings merge ---
+  // --- 2) Hung expansion: listings alone must clear「載入中…」quickly (<2s) ---
   {
     const server = await startServer({
       'us_expansion_data.js': () => { /* hang */ },
     });
     try {
-      await withPage(server, '/?market=US&bootWaitMs=1500', async (page, errors) => {
-        await page.waitForFunction(() => isAppReady, null, { timeout: 20000 });
+      await withPage(server, '/?market=US', async (page, errors) => {
+        const t0 = Date.now();
+        await page.waitForFunction(
+          () => isAppReady && Object.keys(stockUniverse || {}).length > 200
+            && !/載入|Load/i.test(document.getElementById('stat-total')?.textContent || ''),
+          null,
+          { timeout: 15000 },
+        );
+        const elapsed = Date.now() - t0;
         const probe = await page.evaluate(() => ({
           expansion: !!window.US_EXPANSION,
           listings: window.US_LISTINGS?.stocks?.length || 0,
@@ -107,9 +114,9 @@ async function withPage(server, pathAndQuery, fn) {
         assert.equal(probe.expansion, false);
         assert.ok(probe.listings > 200, `expected listings, got ${probe.listings}`);
         assert.ok(probe.universe > 200, `expected merged universe, got ${probe.universe}`);
-        assert.ok(!/^0\b/.test(probe.stat.trim()), `stat still blank: ${probe.stat}`);
+        assert.ok(elapsed < 5000, `listings hydrate took too long: ${elapsed}ms`);
         assert.equal(errors.length, 0, errors.join('\n'));
-        console.log('hung-expansion', probe);
+        console.log('hung-expansion', { elapsed, probe });
       });
     } finally {
       server.close();
@@ -127,11 +134,6 @@ async function withPage(server, pathAndQuery, fn) {
         res.setHeader('Content-Type', 'application/javascript; charset=utf-8');
         res.end(fs.readFileSync(file));
       },
-      // Delay listings slightly so first ready can be baseline if wait is tiny — then
-      // release both; with bootWaitMs=0 intentionally via bug would lock at 230, but
-      // we use bootWaitMs=500 and delay expansion only: listings arrive, merge ~966
-      // stubs, then expansion upgrades rich rows. Also cover upgrade from baseline:
-      // delay BOTH listings and expansion past a short wait.
       'us_universe_data.js': async (req, res) => {
         await new Promise(r => setTimeout(r, 800));
         const file = path.join(root, 'us_universe_data.js');
@@ -141,13 +143,12 @@ async function withPage(server, pathAndQuery, fn) {
     });
     try {
       await withPage(server, '/?market=US&bootWaitMs=300', async (page, errors) => {
-        // Short wait + delayed listings → may lock baseline first.
         await page.waitForFunction(() => isAppReady, null, { timeout: 20000 });
         const early = await page.evaluate(() => Object.keys(stockUniverse).length);
-        // Release expansion (and listings may already be in).
         releaseExpansion();
         await page.waitForFunction(
-          () => window.US_EXPANSION && Object.keys(stockUniverse).length > 500,
+          () => window.US_EXPANSION && Object.keys(stockUniverse).length > 500
+            && !/載入|Load/i.test(document.getElementById('stat-total')?.textContent || ''),
           null,
           { timeout: 30000 },
         );
