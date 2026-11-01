@@ -856,24 +856,33 @@
     #balance-table th, #balance-table td, #earnings-table th, #earnings-table td { min-width: 160px; }
     #balance-table .balance-selected, #earnings-table .balance-selected { background: var(--gold-bg); }
     #balance-table .balance-total { font-weight: 700; }
-    .screener-intro { margin: 4px 0 20px; }
-    .screener-intro h2 { font-size: 20px; margin-bottom: 6px; }
-    .screener-intro p { color: var(--text-muted); font-size: 14px; }
-    #screener-view .top-stats { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; border: 1px solid var(--card-border); border-radius: 12px; overflow: hidden; background: var(--card-bg); }
-    #screener-view .stat-box { border: 0; border-right: 1px solid var(--card-border); border-radius: 0; padding: 18px 20px; }
+    .screener-intro { margin: 4px 0 12px; }
+    .screener-intro h2 { font-size: 20px; margin-bottom: 4px; }
+    .screener-intro p { color: var(--text-muted); font-size: 13px; }
+    #screener-view .top-stats { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; border: 1px solid var(--card-border); border-radius: 10px; overflow: hidden; background: var(--card-bg); }
+    #screener-view .stat-box { border: 0; border-right: 1px solid var(--card-border); border-radius: 0; padding: 12px 16px; cursor: pointer; transition: background .15s ease, box-shadow .15s ease; }
     #screener-view .stat-box:last-child { border-right: 0; }
-    #screener-view .stat-label { min-height: 36px; letter-spacing: normal; text-transform: none; }
-    #screener-view .stat-num { font-size: 21px; font-variant-numeric: tabular-nums; }
+    #screener-view .stat-box:hover { background: var(--hover-bg); }
+    #screener-view .stat-box:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; z-index: 1; }
+    #screener-view .stat-box.active { background: color-mix(in srgb, var(--accent) 12%, var(--card-bg)); box-shadow: inset 0 -3px 0 var(--accent); }
+    #screener-view .stat-label { min-height: 28px; letter-spacing: normal; text-transform: none; font-size: 12px; }
+    #screener-view .stat-num { font-size: 22px; font-variant-numeric: tabular-nums; }
     #screener-view .stat-num small { font-size: 12px; font-weight: 500; margin-left: 8px; color: var(--text-muted); }
-    #screener-view .filter-panel { border-radius: 12px; padding: 20px; gap: 18px; }
-    .screener-toolbar { display: grid; grid-template-columns: minmax(0, 1fr) 240px; gap: 20px; }
-    .screener-toolbar label { display: flex; flex-direction: column; gap: 7px; color: var(--text-muted); font-size: 13px; }
-    #screener-view .search-input { width: 100%; margin-left: 0; padding: 10px 12px; font-size: 14px; }
-    .screener-toolbar select { width: 100%; padding: 10px 12px; font-size: 14px; border-radius: 6px; background: var(--surface-bg); color: var(--text); border: 1px solid var(--card-border); }
+    #screener-view .filter-panel { border-radius: 10px; padding: 14px 16px; gap: 12px; }
+    .screener-chrome { position: sticky; top: 0; z-index: 25; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(8px); padding-bottom: 8px; margin-bottom: 4px; }
+    .screener-toolbar { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(220px, 1fr) auto; gap: 12px 16px; align-items: end; }
+    .screener-toolbar label { display: flex; flex-direction: column; gap: 6px; color: var(--text-muted); font-size: 12px; }
+    #screener-view .search-input { width: 100%; margin-left: 0; padding: 8px 11px; font-size: 13px; }
+    .screener-toolbar select { width: 100%; padding: 8px 11px; font-size: 13px; border-radius: 6px; background: var(--surface-bg); color: var(--text); border: 1px solid var(--card-border); }
+    .screener-view-chips { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+    .screener-view-chips .view-chip { padding: 6px 10px; border-radius: 999px; border: 1px solid var(--card-border); background: var(--surface-bg); color: var(--text-secondary); font-size: 12px; font-weight: 600; cursor: pointer; }
+    .screener-view-chips .view-chip.active { border-color: var(--accent); color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, var(--surface-bg)); }
+    .screener-screen-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .screener-screen-row .filter-title { margin: 0; white-space: nowrap; }
     #screener-view .filter-row { align-items: center; }
-    #screener-view .filter-title { margin-top: 0; }
-    #screener-view .filter-btns { display: flex; flex-wrap: wrap; gap: 7px; flex: 1; min-width: 0; }
-    #screener-view .f-btn { padding: 7px 11px; border-radius: 6px; }
+    #screener-view .filter-title { margin-top: 0; font-size: 12px; }
+    #screener-view .filter-btns { display: flex; flex-wrap: wrap; gap: 6px; flex: 1; min-width: 0; }
+    #screener-view .f-btn { padding: 6px 10px; border-radius: 999px; }
     .screener-industries { border-top: 1px solid var(--card-border); padding-top: 16px; }
     .screener-industries summary { cursor: pointer; color: var(--text-secondary); font-size: 13px; font-weight: 600; }
     .screener-industries .filter-row { margin-top: 16px; }
@@ -888,16 +897,16 @@
     #screener-view #screener-table { width: 100% !important; min-width: var(--screener-min-width, 1200px) !important; font-size: var(--table-font-size); }
     #screener-table .col-fixed-3 { left: var(--screener-name-left, 110px) !important; width: 220px !important; min-width: 220px !important; max-width: 220px; white-space: normal; }
     #screener-table th { white-space: normal; line-height: 1.5; }
-    #screener-table thead th { height: 92px; padding: 12px 10px; text-align: center !important; vertical-align: middle; }
-    #screener-table thead .screener-heading { display: grid; grid-template-rows: 40px 20px; gap: 4px; justify-items: center; align-items: center; }
-    #screener-table .screener-heading-label { display: flex; align-items: center; justify-content: center; text-align: center; line-height: 20px; min-width: 0; }
-    #screener-table .screener-heading-unit { font-size: 12px; font-weight: 500; line-height: 20px; white-space: nowrap; color: var(--text-muted); }
-    #screener-table .screener-heading .info-circle-btn { margin: 0; width: 18px; height: 18px; }
+    #screener-table thead th { height: 64px; padding: 8px 8px; text-align: center !important; vertical-align: middle; }
+    #screener-table thead .screener-heading { display: grid; grid-template-rows: 28px 16px; gap: 2px; justify-items: center; align-items: center; }
+    #screener-table .screener-heading-label { display: flex; align-items: center; justify-content: center; text-align: center; line-height: 16px; min-width: 0; font-size: 12px; }
+    #screener-table .screener-heading-unit { font-size: 11px; font-weight: 500; line-height: 16px; white-space: nowrap; color: var(--text-muted); }
+    #screener-table .screener-heading .info-circle-btn { margin: 0; width: 16px; height: 16px; }
     #screener-table :is(th, td).col-group-start { border-left: 2px solid color-mix(in srgb, var(--accent) 35%, var(--border)); }
     #screener-table .target-kind { display: block; margin-top: 3px; font-size: 10px; font-weight: 500; color: var(--text-muted); white-space: nowrap; }
     #screener-table .target-exit { display: block; margin-top: 2px; font-size: 10px; font-weight: 500; color: var(--text-secondary); white-space: nowrap; }
-    #screener-valuation-key { margin: 8px 0 0; font-size: 12px; line-height: 1.6; color: var(--text-muted); max-width: 1100px; }
-    .top-stats .stat-box[title] { cursor: help; }
+    #screener-valuation-key { margin: 4px 0 0; font-size: 12px; line-height: 1.5; color: var(--text-muted); max-width: 1100px; }
+    .top-stats .stat-box[title] { cursor: pointer; }
     #screener-table thead th:has(.info-circle-btn:is(:hover, :focus)) { z-index: 35; }
     #screener-table .liquidation-value { font-weight: 600; font-variant-numeric: tabular-nums; }
     #screener-table .liquidation-value.text-muted { color: var(--text-muted); }
@@ -911,7 +920,9 @@
     :root[data-theme="light"] .table-scroll-wrapper:active { cursor: var(--table-drag-cursor), grabbing !important; }
     :root[data-theme="light"] .table-scroll-wrapper:active :is(th, a, button, [onclick]) { cursor: var(--table-drag-cursor), grabbing !important; }
     :root[data-theme="light"] #screener-table tbody tr:is(:hover, :focus-within) .text-green { color: #166534; }
-    #screener-table td { height: 58px; }
+    #screener-table td { height: 44px; padding-top: 6px; padding-bottom: 6px; }
+    #screener-view .scroll-hint-bar { position: sticky; top: 0; z-index: 24; }
+    #screener-results-count { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--text); min-width: 7ch; text-align: right; }
     .theme-icon-button { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; padding: 8px; }
     .theme-icon-button svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
     .theme-icon-button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
@@ -1224,18 +1235,18 @@
   <div id="screener-view">
     <div class="screener-intro">
       <h2 data-i18n="screener_heading">股票概覽</h2>
-      <p data-i18n="screener_description">先比較價格與估值，再進入公司頁查看財報及趨勢。欄位檢視可切換詳細資料。</p>
+      <p data-i18n="screener_description">結果優先：先掃市價與主公允價溢折價，再切「估值」對照其他模型。點選上方螢幕或晶片篩選；欄位檢視切換詳細資料。</p>
     </div>
-    <div class="top-stats">
-      <div class="stat-box"><div class="stat-label" data-i18n="stat_total">追蹤標的</div><div class="stat-num" id="stat-total">0 檔</div></div>
-      <div class="stat-box"><div class="stat-label" data-i18n="stat_fav">❤ 自選監控標的</div><div class="stat-num text-pink" id="stat-fav-count">0 檔</div></div>
-      <div class="stat-box" id="stat-undervalued-box" data-i18n-title="stat_undervalued_note"><div class="stat-label" data-i18n="stat_undervalued">目錄公允低估</div><div class="stat-num text-green" id="stat-undervalued">0 檔</div></div>
-      <div class="stat-box" id="stat-overvalued-box" data-i18n-title="stat_overvalued_note"><div class="stat-label" data-i18n="stat_overvalued">目錄公允高估</div><div class="stat-num text-red" id="stat-overvalued">0 檔</div></div>
-      <div class="stat-box"><div class="stat-label" data-i18n="stat_saved">已設定目標價標的</div><div class="stat-num text-gold" id="stat-saved-count">0 檔</div></div>
+    <div class="top-stats" role="toolbar" aria-label="Screener screens">
+      <div class="stat-box active" role="button" tabindex="0" data-screen="ALL" onclick="setValFilter('ALL')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();setValFilter('ALL')}"><div class="stat-label" data-i18n="stat_total">追蹤標的</div><div class="stat-num" id="stat-total">0</div></div>
+      <div class="stat-box" role="button" tabindex="0" data-screen="FAVORITES" onclick="setValFilter('FAVORITES')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();setValFilter('FAVORITES')}"><div class="stat-label" data-i18n="stat_fav">自選清單</div><div class="stat-num text-pink" id="stat-fav-count">0</div></div>
+      <div class="stat-box" role="button" tabindex="0" id="stat-undervalued-box" data-screen="UNDERVALUED" data-i18n-title="stat_undervalued_note" onclick="setValFilter('UNDERVALUED')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();setValFilter('UNDERVALUED')}"><div class="stat-label" data-i18n="stat_undervalued">目錄公允低估</div><div class="stat-num text-green" id="stat-undervalued">0</div></div>
+      <div class="stat-box" role="button" tabindex="0" id="stat-overvalued-box" data-screen="OVERVALUED" data-i18n-title="stat_overvalued_note" onclick="setValFilter('OVERVALUED')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();setValFilter('OVERVALUED')}"><div class="stat-label" data-i18n="stat_overvalued">目錄公允高估</div><div class="stat-num text-red" id="stat-overvalued">0</div></div>
+      <div class="stat-box" role="button" tabindex="0" data-screen="SAVED" onclick="setValFilter('SAVED')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();setValFilter('SAVED')}"><div class="stat-label" data-i18n="stat_saved">已存目標價</div><div class="stat-num text-gold" id="stat-saved-count">0</div></div>
     </div>
 
-    <!-- 篩選面板 -->
-    <div class="filter-panel">
+    <!-- 篩選面板（TradingView 風格：搜尋／欄位檢視晶片／快捷螢幕） -->
+    <div class="filter-panel screener-chrome">
       <div class="screener-toolbar">
         <label class="screener-search" for="search-ticker">
           <span data-i18n="screener_search">搜尋股票</span>
@@ -1243,17 +1254,23 @@
         </label>
         <label for="screener-columns">
           <span data-i18n="screener_columns">欄位檢視</span>
-          <select id="screener-columns" onchange="applyScreenerColumns(true)">
+          <select id="screener-columns" onchange="syncScreenerColumnChips(); applyScreenerColumns(true)">
             <option value="overview" data-i18n="screener_overview">重點概覽</option>
-            <option value="valuation" data-i18n="screener_valuation">估值與目標價</option>
+            <option value="valuation" data-i18n="screener_valuation">DCF 估值對照</option>
             <option value="financial" data-i18n="screener_financial">財務與品質</option>
             <option value="all" data-i18n="screener_all_columns">全部欄位</option>
           </select>
         </label>
+        <div class="screener-view-chips" id="screener-view-chips" role="group" aria-label="Column views">
+          <button type="button" class="view-chip active" data-view="overview" onclick="setScreenerColumnView('overview')" data-i18n="screener_overview">重點概覽</button>
+          <button type="button" class="view-chip" data-view="valuation" onclick="setScreenerColumnView('valuation')" data-i18n="screener_valuation">DCF 估值對照</button>
+          <button type="button" class="view-chip" data-view="financial" onclick="setScreenerColumnView('financial')" data-i18n="screener_financial">財務與品質</button>
+          <button type="button" class="view-chip" data-view="all" onclick="setScreenerColumnView('all')" data-i18n="screener_all_columns">全部欄位</button>
+        </div>
       </div>
       <p id="screener-valuation-key" class="analysis-note" data-i18n="screener_valuation_key" hidden>估值欄分兩組：① FMP 供應商「指示 DCF／槓桿 DCF」參考價與溢價；② 本站已存目標價（十年 Gordon 為主；Advanced 可另見出場 EV／EBITDA；Levered 為 CFO 槓桿；亦可自訂）。頂部低估／高估件數依目錄內建公允價，不是 FMP 欄或已存目標價。</p>
-      <div class="filter-row">
-        <span class="filter-title" data-i18n="filter_dim">篩選維度：</span>
+      <div class="filter-row screener-screen-row">
+        <span class="filter-title" data-i18n="filter_dim">快捷螢幕：</span>
         <div class="filter-btns" id="val-filters">
           <button class="f-btn active" onclick="setValFilter('ALL')" data-i18n="opt_all">全部標的</button>
           <button class="f-btn btn-fav" onclick="setValFilter('FAVORITES')" data-i18n="opt_fav">❤ 我的自選收藏</button>
@@ -1262,6 +1279,7 @@
           <button class="f-btn" onclick="setValFilter('SAVED')" data-i18n="opt_saved">💾 已存目標價</button>
         </div>
         <button class="f-btn" type="button" onclick="resetScreenerFilters()" data-i18n="screener_reset">清除篩選</button>
+        <strong id="screener-results-count" aria-live="polite"></strong>
       </div>
 
       <details class="screener-industries">
@@ -1324,6 +1342,8 @@
             <th onclick="sortTable('sector')" style="text-align: left; width: 120px;" data-i18n="th_sector">主板塊</th>
             <th onclick="sortTable('industry')" style="text-align: left; width: 180px;" data-i18n="th_industry">細分子行業</th>
             <th onclick="sortTable('price')" style="width: 110px;" data-i18n="th_price">最新股價 ($)</th>
+            <th onclick="sortTable('fairVal')" class="col-group-start" data-col-group="catalogue" data-heading-group="th_group_catalogue" style="width: 110px;" data-i18n="th_catalogue_fair" data-i18n-title="stat_undervalued_note">目錄公允價</th>
+            <th onclick="sortTable('premiumPct')" data-col-group="catalogue" data-heading-group="th_group_catalogue" style="width: 120px;" data-i18n="th_catalogue_premium" data-i18n-title="stat_undervalued_note">公允溢折價 %</th>
             <th onclick="sortTable('fmp_dcf')" class="col-group-start" data-col-group="fmp" data-heading-group="th_group_fmp" data-i18n="th_fmp_dcf">指示 DCF</th>
             <th onclick="sortTable('fmp_dcf_upside')" data-col-group="fmp" data-heading-group="th_group_fmp" data-i18n="th_fmp_dcf_upside">指示溢價 %</th>
             <th onclick="sortTable('fmp_levered')" data-col-group="fmp" data-heading-group="th_group_fmp" data-i18n="th_fmp_levered">槓桿 DCF</th>
@@ -2547,12 +2567,13 @@
       title: "美股 DCF 估值雷達",
       subtitle: "估值篩選 · 公司財報 · 趨勢分析",
       screener_heading: "股票概覽",
-      screener_description: "先比較價格與估值，再進入公司頁查看財報及趨勢。欄位檢視可切換詳細資料。",
+      screener_description: "結果優先：先掃市價與主公允價溢折價，再切「估值」對照其他模型。點選上方螢幕或晶片篩選；欄位檢視切換詳細資料。",
       screener_search: "搜尋股票",
       screener_columns: "欄位檢視",
       screener_overview: "重點概覽",
       screener_valuation: "DCF 估值對照",
       screener_financial: "財務與品質",
+      filter_dim: "快捷螢幕：",
       fcf_equity_label: "FCF / 股東應佔權益 (%)",
       moat_unassessed: "未評分",
       moat_unassessed_help: "目前證據不足以評分；不代表零分，也不代表沒有護城河。",
@@ -2736,7 +2757,6 @@
       stat_undervalued: "目錄公允低估",
       stat_overvalued: "目錄公允高估",
       stat_saved: "已存目標價",
-      filter_dim: "篩選維度：",
       opt_all: "全部標的",
       opt_fav: "❤ 我的自選收藏",
       opt_undervalued: "🟢 目錄公允低估",
@@ -2757,12 +2777,15 @@
       th_sector: "主板塊",
       th_industry: "細分子行業",
       th_price: "最新股價 ($)",
+      th_catalogue_fair: "目錄公允價",
+      th_catalogue_premium: "公允溢折價 %",
       th_target: "本站目標價",
       th_action: "操作",
       th_target_spread: "目標溢價 %",
+      th_group_catalogue: "主公允",
       th_group_fmp: "FMP 供應商",
       th_group_site: "本站已存",
-      screener_valuation_key: "估值欄分兩組：① FMP 供應商「指示 DCF／槓桿 DCF」參考價與溢價；② 本站已存目標價（十年 Gordon 為主；Advanced 可另見出場 EV／EBITDA；Levered 為 CFO 槓桿；亦可自訂）。頂部低估／高估件數依目錄內建公允價，不是 FMP 欄或已存目標價。",
+      screener_valuation_key: "預設概覽只露目錄公允價＋溢折價。此「估值」檢視另分兩組：① FMP 供應商指示／槓桿 DCF；② 本站已存目標（Gordon／出場／CFO／自訂）。頂部件數仍依目錄公允價。",
       stat_undervalued_note: "件數依目錄內建公允價（舊 FCFF／金融模型）相對最新股價；不是 FMP 指示／槓桿 DCF，也不是本站十年 Gordon／出場／CFO 目標價。",
       stat_overvalued_note: "件數依目錄內建公允價（舊 FCFF／金融模型）相對最新股價；不是 FMP 指示／槓桿 DCF，也不是本站十年 Gordon／出場／CFO 目標價。",
       target_kind_gordon: "Gordon 十年",
@@ -3069,12 +3092,13 @@
       title: "US Stock DCF Radar",
       subtitle: "Valuation Screener · Company Financials · Trend Analysis",
       screener_heading: "Stock Overview",
-      screener_description: "Compare price and valuation first, then open a company for financials and trends. Switch column views for more detail.",
+      screener_description: "Results first: scan price vs primary fair value, then open the Valuation view for other models. Use screen chips to filter; column views add detail.",
       screener_search: "Find a stock",
       screener_columns: "Column view",
       screener_overview: "Essential overview",
       screener_valuation: "DCF valuation compare",
       screener_financial: "Financials & quality",
+      filter_dim: "Screens:",
       fcf_equity_label: "FCF / Parent equity (%)",
       moat_unassessed: "Not assessed",
       moat_unassessed_help: "Insufficient evidence to assess this dimension; not a zero score or evidence of no moat.",
@@ -3258,7 +3282,6 @@
       stat_undervalued: "Catalogue undervalued",
       stat_overvalued: "Catalogue overvalued",
       stat_saved: "Saved targets",
-      filter_dim: "Valuation Dimension:",
       opt_all: "All Stocks",
       opt_fav: "❤ Watchlist",
       opt_undervalued: "🟢 Catalogue undervalued",
@@ -3279,12 +3302,15 @@
       th_sector: "Sector",
       th_industry: "Sub-Industry",
       th_price: "Current Price ($)",
+      th_catalogue_fair: "Catalogue fair",
+      th_catalogue_premium: "Fair premium %",
       th_target: "Site target",
       th_action: "Action",
       th_target_spread: "Target premium %",
+      th_group_catalogue: "Primary fair",
       th_group_fmp: "FMP vendor",
       th_group_site: "Site saved",
-      screener_valuation_key: "Valuation columns form two groups: (1) FMP vendor indicated DCF / levered DCF reference and premium; (2) site-saved targets (ten-year Gordon primary; Advanced may also show exit EV/EBITDA; Levered is CFO-levered; custom overrides allowed). Header undervalued/overvalued counts use catalogue fair value, not the FMP columns or saved targets.",
+      screener_valuation_key: "Overview shows catalogue fair value + premium only. This Valuation view adds two groups: (1) FMP indicated/levered DCF; (2) site-saved targets (Gordon / exit / CFO / custom). Header counts still use catalogue fair value.",
       stat_undervalued_note: "Counts use catalogue fair value (legacy FCFF / financial models) versus latest price — not FMP indicated/levered DCF, and not site ten-year Gordon / exit / CFO targets.",
       stat_overvalued_note: "Counts use catalogue fair value (legacy FCFF / financial models) versus latest price — not FMP indicated/levered DCF, and not site ten-year Gordon / exit / CFO targets.",
       target_kind_gordon: "Gordon 10y",
@@ -4891,11 +4917,39 @@
     return { total, scoredTotal, scoreText, coverage, grade, badgeClass, criteria, comment: overallComment, ref, m, excluded };
   }
 
+  function syncScreenerScreenState(val = currentValFilter) {
+    document.querySelectorAll('#val-filters .f-btn').forEach(btn => {
+      const onclick = btn.getAttribute('onclick') || '';
+      btn.classList.toggle('active', onclick.includes(`('${val}')`));
+    });
+    document.querySelectorAll('#screener-view .top-stats .stat-box').forEach(box => {
+      box.classList.toggle('active', box.getAttribute('data-screen') === val);
+      box.setAttribute('aria-pressed', box.getAttribute('data-screen') === val ? 'true' : 'false');
+    });
+  }
+
   function setValFilter(val) {
     currentValFilter = val;
-    document.querySelectorAll('#val-filters .f-btn').forEach(btn => btn.classList.remove('active'));
-    if (event && event.target) event.target.classList.add('active');
+    syncScreenerScreenState(val);
     renderScreenerTable();
+  }
+
+  function syncScreenerColumnChips(mode = document.getElementById('screener-columns')?.value) {
+    document.querySelectorAll('#screener-view-chips .view-chip').forEach(chip => {
+      chip.classList.toggle('active', chip.getAttribute('data-view') === mode);
+    });
+  }
+
+  function setScreenerColumnView(mode) {
+    const select = document.getElementById('screener-columns');
+    if (!select || select.value === mode) {
+      syncScreenerColumnChips(mode);
+      applyScreenerColumns(true);
+      return;
+    }
+    select.value = mode;
+    syncScreenerColumnChips(mode);
+    applyScreenerColumns(true);
   }
 
   function setSectorFilter(sec) {
@@ -5060,22 +5114,29 @@
   function applyScreenerColumns(resetScroll = false) {
     const mode = document.getElementById('screener-columns').value;
     const presets = {
-      // Lean overview: price + site target + quality scores (no FMP clutter).
-      overview: { width: 1240, fields: ['ticker', 'name', 'price', 'target_price', 'action', 'moat_score', 'f_score', 'z_score', 'm_score'] },
-      // DCF compare: FMP vendor pair, then site-saved target/premium; liquidation lives in "all".
+      // Results-first overview: one primary catalogue fair value + premium (no FMP dump).
+      overview: { width: 1280, fields: ['ticker', 'name', 'price', 'fairVal', 'premiumPct', 'action', 'moat_score', 'f_score', 'z_score', 'm_score'] },
+      // DCF compare (#83): FMP vendor pair, then site-saved target/premium; liquidation lives in "all".
       valuation: { width: 1880, fields: ['ticker', 'name', 'sector', 'price', 'fmp_dcf', 'fmp_dcf_upside', 'fmp_levered', 'fmp_levered_upside', 'target_price', 'target_spread', 'action', 'moat_score', 'WACC', 'EV', 'mcap'] },
       financial: { width: 2620, fields: ['ticker', 'name', 'price', 'mcap', 'pe_trailing', 'pe_forward', 'pb_trailing', 'div_yield', 'fcf_to_ev', 'fcf_to_equity', 'fcf_to_mcap', 'cash_to_assets', 'liab_to_assets', 'current_ratio', 'roe', 'roa', 'f_score', 'z_score', 'm_score', 'ev_to_ebitda', 'debt_to_ebitda', 'net_debt_to_ebitda'] },
-      all: { width: 4770, fields: null }
+      all: { width: 4990, fields: null }
     };
     const preset = presets[mode];
     if (!preset) throw new RangeError('Invalid screener column view');
     const table = document.getElementById('screener-table');
     table.querySelector('th[onclick="sortTable(\'fcf_to_equity\')"]').title = I18N_DICT[currentLang].fcf_equity_basis;
-    for (const field of ['fmp_dcf_upside', 'fmp_levered_upside', 'target_spread']) {
+    for (const field of ['fmp_dcf_upside', 'fmp_levered_upside', 'target_spread', 'premiumPct']) {
       const header = table.querySelector(`th[onclick="sortTable('${field}')"]`);
-      if (header) header.title = I18N_DICT[currentLang].valuation_price_difference_note;
+      if (header) {
+        header.title = field === 'premiumPct'
+          ? I18N_DICT[currentLang].stat_undervalued_note
+          : I18N_DICT[currentLang].valuation_price_difference_note;
+      }
     }
+    const fairHeader = table.querySelector('th[onclick="sortTable(\'fairVal\')"]');
+    if (fairHeader) fairHeader.title = I18N_DICT[currentLang].stat_undervalued_note;
     formatScreenerHeaders();
+    syncScreenerColumnChips(mode);
     const hideLiquidation = preset.fields !== null && !preset.fields.includes('liq_val_1');
     document.getElementById('screener-liquidation-key').hidden = hideLiquidation;
     document.getElementById('screener-liquidation-method').hidden = hideLiquidation;
@@ -5104,11 +5165,10 @@
     currentIndustryParentFilter = 'ALL';
     currentSubIndustryFilter = 'ALL';
     document.getElementById('search-ticker').value = '';
-    for (const id of ['val-filters', 'sector-filters']) {
-      document.querySelectorAll(`#${id} button`).forEach(button => {
-        button.classList.toggle('active', button.getAttribute('onclick').includes("('ALL')"));
-      });
-    }
+    document.querySelectorAll('#sector-filters button').forEach(button => {
+      button.classList.toggle('active', button.getAttribute('onclick').includes("('ALL')"));
+    });
+    syncScreenerScreenState('ALL');
     updateSubIndustryButtons();
     renderScreenerTable();
   }
@@ -5371,6 +5431,7 @@
     document.getElementById('stat-undervalued').innerHTML = `${underCount}<small>${totalCount > 0 ? ((underCount/totalCount)*100).toFixed(0) : 0}%</small>`;
     document.getElementById('stat-overvalued').innerHTML = `${overCount}<small>${totalCount > 0 ? ((overCount/totalCount)*100).toFixed(0) : 0}%</small>`;
     document.getElementById('stat-saved-count').textContent = savedCount;
+    syncScreenerScreenState(currentValFilter);
 
     const pageKey = JSON.stringify([MarketContext.market, searchVal, currentValFilter, currentSectorFilter, currentIndustryParentFilter, currentSubIndustryFilter, sortField, sortAsc]);
     if (pageKey !== screenerPageKey) { screenerVisibleRows = 100; screenerPageKey = pageKey; }
@@ -5482,6 +5543,8 @@
           <td style="color: var(--text-secondary); text-align: left;">${getStockDisplaySector(item)}</td>
           <td style="color: var(--text-muted); font-size: 11px; text-align: left;">${getStockDisplayIndustry(item.industry) || '--'}</td>
           <td style="font-weight: 700; color: var(--accent);">${priceNum === null ? 'N/A' : moneyPrefix() + priceNum.toFixed(2)}</td>
+          <td class="col-group-start" data-catalogue-fair="${item.fairVal ?? ''}" title="${escapeAttribute(I18N_DICT[currentLang].stat_undervalued_note)}">${Number.isFinite(item.fairVal) ? moneyPrefix() + Number(item.fairVal).toFixed(2) : 'N/A'}</td>
+          <td data-price-difference="catalogue" data-value="${item.premiumPct ?? ''}" class="${!Number.isFinite(item.premiumPct) ? 'text-muted' : ''}" title="${escapeAttribute(I18N_DICT[currentLang].stat_undervalued_note)}">${Number.isFinite(item.premiumPct) ? renderMarketPremium(item.premiumPct) : 'N/A'}</td>
           ${['dcf', 'levered'].map((kind, index) => {
             const start = index === 0 ? 'col-group-start' : '';
             const applicable = FmpModels.dcfApplicable(item);
@@ -5550,9 +5613,12 @@
       `;
     }).join('');
     const labels = I18N_DICT[currentLang];
-    document.getElementById('screener-results').textContent = list.length
-      ? labels.screener_results.replace('{shown}', visible.length).replace('{total}', totalCount)
+    const resultsText = list.length
+      ? labels.screener_results.replace('{shown}', visible.length).replace('{total}', list.length)
       : labels.screener_empty;
+    document.getElementById('screener-results').textContent = resultsText;
+    const resultsCount = document.getElementById('screener-results-count');
+    if (resultsCount) resultsCount.textContent = list.length ? `${visible.length}/${list.length}` : '0';
     let universeNote = document.getElementById('hk-universe-note');
     if (MarketContext.market === 'HKEX' && window.HKEX_LISTINGS) {
       if (!universeNote) {

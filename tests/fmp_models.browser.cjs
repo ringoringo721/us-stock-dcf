@@ -68,20 +68,24 @@ const handler = createHandler(live ? {} : { apiKey: () => 'test-placeholder', fe
       // Show-all removed — assert on the first page, then search for the sample ticker.
       assert.equal(await page.locator('#screener-tbody tr').count(), visibleCount);
       assert.equal(await page.locator('#screener-all').count(), 0);
-      assert.equal(await page.locator('#screener-tbody tr').first().locator('td').count(), 38);
+      assert.equal(await page.locator('#screener-tbody tr').first().locator('td').count(), 40);
       for (const language of ['zh', 'en']) {
         await page.evaluate(language => applyLanguage(language), language);
-        for (const [preset, columns] of [['overview', 9], ['valuation', 15], ['financial', 22], ['all', 38]]) {
+        for (const [preset, columns] of [['overview', 10], ['valuation', 15], ['financial', 22], ['all', 40]]) {
           await page.selectOption('#screener-columns', preset);
           assert.equal(await page.locator('#screener-table thead th:visible').count(), columns);
+          // Legacy removed labels stay gone; catalogue fair uses distinct i18n keys.
           assert.equal(await page.locator('#screener-table th[data-i18n="th_fair"], #screener-table th[data-i18n="th_fair_upside"]').count(), 0);
+          assert.equal(await page.locator('#screener-table th[data-i18n="th_catalogue_fair"], #screener-table [onclick="sortTable(\'fairVal\')"]').count(), 2);
           assert.equal(await page.locator('#screener-table th[data-i18n="th_fmp_dcf"], #screener-table th[data-i18n="th_fmp_levered"], #screener-table [onclick="sortTable(\'fmp_dcf\')"], #screener-table [onclick="sortTable(\'fmp_levered\')"]').count(), 4);
-          assert.equal(await page.locator('#screener-table [onclick="sortTable(\'fairVal\')"], #screener-table [onclick="sortTable(\'fair_upside\')"], #screener-tbody [data-price-difference="fair"]').count(), 0);
+          assert.equal(await page.locator('#screener-tbody [data-price-difference="fair"]').count(), 0);
           assert.equal(await page.locator('#screener-tbody tr').evaluateAll((rows, columns) => rows.every(row =>
-            row.cells.length === 38 && [...row.cells].filter(cell => !cell.hidden).length === columns
+            row.cells.length === 40 && [...row.cells].filter(cell => !cell.hidden).length === columns
             && row.querySelectorAll('[data-fmp-reference]').length === 2
-            && row.querySelectorAll('[data-price-difference]').length === 2), columns), true,
-          `${market}/${language}/${preset}: visible page rows have aligned columns and retain both FMP references`);
+            && row.querySelectorAll('[data-price-difference="dcf"], [data-price-difference="levered"]').length === 2
+            && row.querySelectorAll('[data-catalogue-fair]').length === 1
+            && row.querySelectorAll('[data-price-difference="catalogue"]').length === 1), columns), true,
+          `${market}/${language}/${preset}: visible page rows keep catalogue fair + both FMP references`);
         }
       }
       await page.locator('#search-ticker').fill(ticker);

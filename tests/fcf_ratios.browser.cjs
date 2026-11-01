@@ -150,7 +150,7 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
     }
     assert.ok((await page.locator('#stat-total').innerText()).includes(String(stockCount)));
     const initialTickers = await page.locator('#screener-tbody .ticker-link').allTextContents();
-    for (const [preset, count] of [['overview', 9], ['valuation', 15], ['financial', 22], ['all', 38]]) {
+    for (const [preset, count] of [['overview', 10], ['valuation', 15], ['financial', 22], ['all', 40]]) {
       await page.selectOption('#screener-columns', preset);
       assert.equal(await page.locator('#screener-table thead th:visible').count(), count);
       assert.equal(await page.locator('#screener-tbody tr').first().locator('td:visible').count(), count);
