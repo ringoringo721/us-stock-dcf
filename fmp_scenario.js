@@ -181,8 +181,10 @@
       return unavailable('TTM_US_ONLY');
     }
     const currency = data?.currencyCheck?.sourceCurrency;
+    // Same gate as fiveYearHistory: after UsdCurrency.normalize, reportedCurrency is USD/HKD
+    // while currencyCheck.sourceCurrency stays on the filing currency (TWD/CAD/…).
     const incomeRows = (statements?.quarterly?.income || [])
-      .filter(row => /^Q[1-4]$/.test(row?.period) && (!currency || row.reportedCurrency === currency)
+      .filter(row => /^Q[1-4]$/.test(row?.period) && matchesReportingCurrency(row, currency)
         && Number.isFinite(quarterPeriodIndex(row)))
       .slice().sort((a, b) => a.date.localeCompare(b.date) || quarterPeriodIndex(a) - quarterPeriodIndex(b));
     if (incomeRows.length < 4) return unavailable('TTM_QUARTERS_UNAVAILABLE');
@@ -192,7 +194,7 @@
       return unavailable('TTM_QUARTERS_NON_CONSECUTIVE');
     }
     const cashflow = income.map(row => (statements.quarterly.cashflow || []).find(other => other.date === row.date
-      && other.period === row.period && (!currency || other.reportedCurrency === currency)));
+      && other.period === row.period && matchesReportingCurrency(other, currency)));
     if (cashflow.some(row => !row)) return unavailable('TTM_CASHFLOW_UNAVAILABLE');
     const end = income.at(-1);
     // TTM must be strictly newer than the latest full FY. An equal or earlier

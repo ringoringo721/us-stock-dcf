@@ -123,24 +123,49 @@ function updateRatioBlocks(text, updates) {
   return chunks.join('');
 }
 
-function refreshMarketRatios(root) {
+function refreshMarketRatios(root, { force = false, dryRun = false } = {}) {
   const market = JSON.parse(fs.readFileSync(path.join(root, 'full_market_dcf.json'), 'utf8'));
   const rates = JSON.parse(fs.readFileSync(path.join(root, 'cache', 'fx', 'usd_rates.json'), 'utf8'));
   const updates = {};
+  const skipped = [];
   for (const [ticker, stock] of Object.entries(market)) {
     const source = JSON.parse(fs.readFileSync(path.join(root, 'cache', 'financials', `${ticker}_statements_v2.json`), 'utf8'));
+    const rollback = wouldRollbackQuarterWindow(stock, source);
+    if (rollback && !force) {
+      // Keep published Qn ratios aligned with cash/debt/fcf0; do not patch from older cache.
+      skipped.push(ticker);
+      continue;
+    }
     updates[ticker] = marketBalanceRatios(stock, convertStatements(source, rates));
+  }
+  if (dryRun || !Object.keys(updates).length) {
+    if (!dryRun) {
+      console.log(`Skipped statement-backed ratio refresh for ${skipped.length} listings with newer published windows; no files changed.`);
+    }
+    return { updated: Object.keys(updates).length, skipped, dryRun: !!dryRun };
   }
   for (const file of ['full_market_dcf.json', 'market_data.js']) {
     const target = path.join(root, file);
     const original = fs.readFileSync(target, 'utf8');
-    const updated = updateRatioBlocks(original, updates);
+    // updateRatioBlocks requires every market ticker; merge skips as no-op keep-current.
+    const merged = { ...Object.fromEntries(skipped.map(ticker => {
+      const stock = market[ticker];
+      return [ticker, Object.fromEntries([
+        ...['pb_trailing', 'current_ratio', 'cash_to_assets', 'liab_to_assets', 'roe', 'roa']
+          .map(field => [field, stock[field]]),
+        ['marketRatioSources', stock.marketRatioSources]
+      ])];
+    })), ...updates };
+    const updated = updateRatioBlocks(original, merged);
     if (updated === original) continue;
     const temporary = `${target}.ratios-${process.pid}.tmp`;
     fs.writeFileSync(temporary, updated);
     fs.renameSync(temporary, target);
   }
-  console.log(`Refreshed statement-backed balance/return ratios for ${Object.keys(updates).length} US listings; no DCF inputs changed.`);
+  console.log(`Refreshed statement-backed balance/return ratios for ${Object.keys(updates).length} US listings`
+    + (skipped.length ? `; skipped ${skipped.length} newer-window (${skipped.join(', ')})` : '')
+    + '; no DCF inputs changed.');
+  return { updated: Object.keys(updates).length, skipped };
 }
 
 function normalizeStock(stock, source, rates) {
@@ -271,9 +296,46 @@ function normalizeStock(stock, source, rates) {
   return output;
 }
 
+function latestStatementDate(source, period = 'quarterly') {
+  const dates = ['income', 'balance', 'cashflow']
+    .flatMap(type => (source?.[period]?.[type] || []).map(row => row?.date).filter(Boolean));
+  return dates.sort().at(-1) || null;
+}
+
+/** Published financials tab window as YYYY-MM (not calendar month-end). */
+function publishedQuarterYm(stock) {
+  const dates = stock?.statements_raw?.quarterly_raw?.dates;
+  if (!Array.isArray(dates) || !dates.length) return null;
+  const ym = dates.at(-1);
+  return typeof ym === 'string' && /^\d{4}-\d{2}$/.test(ym) ? ym : null;
+}
+
+/** @deprecated Prefer publishedQuarterYm — month-end synthesis false-stales mid-month filings. */
+function publishedQuarterEnd(stock) {
+  const ym = publishedQuarterYm(stock);
+  if (!ym) return null;
+  const [year, month] = ym.split('-').map(Number);
+  const day = new Date(Date.UTC(year, month, 0)).getUTCDate();
+  return `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+}
+
+/**
+ * Refuse rewrites when on-disk statements lag the published quarter *month*.
+ * Compare YYYY-MM only: inventing calendar month-end for published "2026-09"
+ * would treat a current cache row dated 2026-09-27 as stale vs 2026-09-30.
+ */
+function wouldRollbackQuarterWindow(stock, source) {
+  const published = publishedQuarterYm(stock);
+  const cachedDate = latestStatementDate(source, 'quarterly');
+  const cached = cachedDate && /^\d{4}-\d{2}-\d{2}$/.test(cachedDate) ? cachedDate.slice(0, 7) : null;
+  if (!published || !cached) return null;
+  return cached < published ? { published, cached, cachedDate } : null;
+}
+
 function main() {
   const root = path.join(__dirname, '..');
   const files = ['full_market_dcf.json', 'market_data.js'];
+  const force = process.argv.includes('--force');
   const market = JSON.parse(fs.readFileSync(path.join(root, files[0]), 'utf8'));
   const rates = JSON.parse(fs.readFileSync(path.join(root, 'cache', 'fx', 'usd_rates.json'), 'utf8'));
   for (const [ticker, stock] of Object.entries(market)) {
@@ -281,6 +343,11 @@ function main() {
     const foreign = ['annual', 'quarterly'].some(period => Object.values(raw[period] || {})
       .filter(Array.isArray).flat().some(row => row.reportedCurrency !== 'USD'));
     if (!foreign && stock.reportedCurrency === 'USD') continue;
+    const rollback = wouldRollbackQuarterWindow(stock, raw);
+    if (rollback && !force) {
+      console.log(`${ticker}: skip USD rewrite; statements cache month ${rollback.cached} lags published ${rollback.published} (pass --force to override)`);
+      continue;
+    }
     const normalized = normalizeStock(stock, raw, rates);
     for (const file of files) {
       const target = path.join(root, file);
@@ -297,11 +364,14 @@ function main() {
 }
 if (require.main === module) {
   if (process.argv.includes('--market-ratios')) {
-    refreshMarketRatios(path.join(__dirname, '..'));
+    refreshMarketRatios(path.join(__dirname, '..'), { force: process.argv.includes('--force') });
   } else if (process.argv.includes('--statements')) {
     const root = path.join(__dirname, '..');
     const rates = JSON.parse(fs.readFileSync(path.join(root, 'cache', 'fx', 'usd_rates.json'), 'utf8'));
     process.stdout.write(JSON.stringify(convertStatements(JSON.parse(fs.readFileSync(0, 'utf8')), rates)));
   } else main();
 }
-module.exports = { normalizeStock, value, marketBalanceRatios, updateRatioBlocks };
+module.exports = {
+  normalizeStock, value, marketBalanceRatios, updateRatioBlocks, refreshMarketRatios,
+  latestStatementDate, publishedQuarterYm, publishedQuarterEnd, wouldRollbackQuarterWindow
+};

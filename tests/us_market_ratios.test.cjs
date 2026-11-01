@@ -2,7 +2,9 @@ const { test } = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
-const { marketBalanceRatios, updateRatioBlocks } = require('../scripts/usd_financials.cjs');
+const {
+  marketBalanceRatios, updateRatioBlocks, wouldRollbackQuarterWindow
+} = require('../scripts/usd_financials.cjs');
 const { convertStatements } = require('../usd_currency.js');
 const { calculateReturns } = require('../fcf_ratios.js');
 const market = require('../full_market_dcf.json');
@@ -72,7 +74,10 @@ test('market-ratio output patching preserves other fields and JS wrappers and is
 test('Morgan Stanley and all US listings persist the exact same statement-backed ratios as the shared engine', () => {
   assert.equal(Object.keys(market).length, 230);
   for (const [ticker, stock] of Object.entries(market)) {
-    const data = convertStatements(read(ticker), rates);
+    const source = read(ticker);
+    // Newer published windows intentionally diverge from a lagging statements cache (CNI Q3).
+    if (wouldRollbackQuarterWindow(stock, source)) continue;
+    const data = convertStatements(source, rates);
     const expected = marketBalanceRatios(stock, data);
     for (const field of fields) assert.equal(stock[field], expected[field], `${ticker}/${field}`);
     assert.deepEqual(stock.marketRatioSources, expected.marketRatioSources, ticker);

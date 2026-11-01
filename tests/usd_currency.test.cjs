@@ -4,7 +4,10 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { rateFor, convertStatements } = require('../usd_currency.js');
 const { calculate, calculateBalances, calculateEarnings, calculateReturns, financialReference } = require('../fcf_ratios.js');
-const { normalizeStock } = require('../scripts/usd_financials.cjs');
+const {
+  normalizeStock, wouldRollbackQuarterWindow, publishedQuarterYm, publishedQuarterEnd,
+  latestStatementDate, refreshMarketRatios
+} = require('../scripts/usd_financials.cjs');
 const rates = require('../cache/fx/usd_rates.json');
 const market = require('../full_market_dcf.json');
 const raw = ticker => JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'cache', 'financials', `${ticker}_statements_v2.json`)));
@@ -91,8 +94,9 @@ test('Unavailable FX yields explicit N/A throughout balances, earnings and retur
 test('Every foreign stock uses the same USD records in summaries, statements, ratios and valuations', () => {
   for (const [ticker, stock] of Object.entries(market)) {
     if (stock.reportedCurrency === 'USD') continue;
-    const data = convertStatements(raw(ticker), rates);
-    const rebuilt = normalizeStock(stock, raw(ticker), rates);
+    const source = raw(ticker);
+    const data = convertStatements(source, rates);
+    const rebuilt = normalizeStock(stock, source, rates);
     const income = data.quarterly.income.slice(0, 4);
     const flows = data.quarterly.cashflow.slice(0, 4);
     assert.equal(rebuilt.calculationCurrency, 'USD');
@@ -105,8 +109,75 @@ test('Every foreign stock uses the same USD records in summaries, statements, ra
     assert.equal(rebuilt.roe, calculateReturns(data).at(-1).ratios.roe.value);
     assert.equal(rebuilt.currencyConversion.income.basis, 'average');
     assert.equal(rebuilt.currencyConversion.balance.basis, 'closing');
+    // Published rows may intentionally keep a newer quarter than a stale statements cache
+    // (e.g. CNI 2026Q3 vs cache through 2026-06). Skip deep equality in that case.
+    if (wouldRollbackQuarterWindow(stock, source)) {
+      const cfo = stock.statements_raw.quarterly_raw.cashflow.netCashProvidedByOperatingActivities.at(-1);
+      const capex = stock.statements_raw.quarterly_raw.cashflow.capitalExpenditure.at(-1);
+      assert.ok(Number.isFinite(cfo) && Number.isFinite(capex), ticker);
+      assert.ok(Math.abs(cfo / capex) < 8, `${ticker} CFO/CapEx still look mixed-currency`);
+      continue;
+    }
     assert.deepEqual(rebuilt, stock, `${ticker} published values match the shared USD engine`);
   }
+});
+
+test('USD rewrite refuses to roll published quarters back to a stale statements cache', () => {
+  const stock = market.CNI;
+  const source = raw('CNI');
+  assert.equal(publishedQuarterYm(stock), '2026-09');
+  assert.equal(publishedQuarterEnd(stock), '2026-09-30');
+  assert.equal(latestStatementDate(source, 'quarterly'), '2026-06-30');
+  assert.deepEqual(wouldRollbackQuarterWindow(stock, source), {
+    published: '2026-09', cached: '2026-06', cachedDate: '2026-06-30'
+  });
+  assert.equal(stock.statements_raw.quarterly_raw.periods.at(-1), '2026Q3');
+  assert.equal(stock.moat?.period, '2026Q3');
+  assert.equal(stock.cash, 534.5929985925404);
+  assert.equal(stock.fcf0, 2746.629744916036);
+  const cfo = stock.statements_raw.quarterly_raw.cashflow.netCashProvidedByOperatingActivities.at(-1);
+  const capex = stock.statements_raw.quarterly_raw.cashflow.capitalExpenditure.at(-1);
+  assert.ok(Math.abs(cfo - 1325.070243786005) < 1e-9);
+  assert.ok(Math.abs(capex - -560.2319044157692) < 1e-9);
+});
+
+test('Quarter-window rollback compares YYYY-MM so mid-month filings are not false-stale', () => {
+  const stock = { statements_raw: { quarterly_raw: { dates: ['2026-06', '2026-09'] } } };
+  const current = {
+    quarterly: {
+      income: [{ date: '2026-09-27' }],
+      balance: [{ date: '2026-09-27' }],
+      cashflow: [{ date: '2026-09-27' }]
+    }
+  };
+  assert.equal(publishedQuarterYm(stock), '2026-09');
+  assert.equal(publishedQuarterEnd(stock), '2026-09-30');
+  assert.equal(latestStatementDate(current, 'quarterly'), '2026-09-27');
+  // Old month-end compare would mark 2026-09-27 < 2026-09-30 as rollback.
+  assert.equal(wouldRollbackQuarterWindow(stock, current), null);
+  const older = {
+    quarterly: {
+      income: [{ date: '2026-06-30' }],
+      balance: [{ date: '2026-06-30' }],
+      cashflow: [{ date: '2026-06-30' }]
+    }
+  };
+  assert.deepEqual(wouldRollbackQuarterWindow(stock, older), {
+    published: '2026-09', cached: '2026-06', cachedDate: '2026-06-30'
+  });
+});
+
+test('Market-ratio refresh skips tickers whose statements cache lags the published window', () => {
+  const stock = market.CNI;
+  assert.ok(wouldRollbackQuarterWindow(stock, raw('CNI')));
+  assert.equal(stock.marketRatioSources.pb.date, '2026-09-30');
+  const result = refreshMarketRatios(path.join(__dirname, '..'), { force: false, dryRun: true });
+  assert.ok(result.skipped.includes('CNI'));
+  assert.equal(result.dryRun, true);
+  // Stale-cache ratios must not replace the published Q3 ratio pack.
+  const stale = require('../scripts/usd_financials.cjs')
+    .marketBalanceRatios(stock, convertStatements(raw('CNI'), rates));
+  assert.notEqual(stale.marketRatioSources.pb.date, stock.marketRatioSources.pb.date);
 });
 
 test('A missing required flow or unsupported currency cannot produce a zero-shaped DCF valuation', () => {

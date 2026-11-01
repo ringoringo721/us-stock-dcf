@@ -4,6 +4,10 @@
 USD-native tickers skip scripts/usd_financials.cjs rewrite, so market_data.js kept
 legacy UI keys at 0 while FMP stable only ships renamed fields. This pass rewrites
 only the aliased cash-flow series in market_data.js / full_market_dcf.json.
+
+Foreign-currency filers (ADR / dual-listed) already have FX-normalized series from
+usd_financials.cjs. Rematerializing raw /1e6 without FX mixes source-currency millions
+into a $M USD table (e.g. TSM CFO/CFF vs CapEx). Skip those tickers here.
 """
 
 from __future__ import annotations
@@ -16,6 +20,39 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 FIN_DIR = ROOT / "cache" / "financials"
+
+
+def _normalize_currency(value: str | None) -> str | None:
+    if not isinstance(value, str) or not value:
+        return None
+    return {"NTD": "TWD", "RMB": "CNY"}.get(value, value)
+
+
+def _statement_currencies(statements: dict) -> set[str]:
+    found: set[str] = set()
+    for period in ("annual", "quarterly"):
+        for rows in (statements.get(period) or {}).values():
+            if not isinstance(rows, list):
+                continue
+            for row in rows:
+                if not isinstance(row, dict):
+                    continue
+                cur = _normalize_currency(row.get("reportedCurrency"))
+                if cur:
+                    found.add(cur)
+    return found
+
+
+def _is_usd_native(stock: dict, statements: dict) -> bool:
+    """True only when filings are USD; foreign ADRs must stay on usd_financials.cjs."""
+    currencies = _statement_currencies(statements)
+    if currencies:
+        return currencies == {"USD"}
+    meta = _normalize_currency(
+        (stock.get("currencyConversion") or {}).get("sourceCurrency")
+        or stock.get("reportedCurrency")
+    )
+    return meta == "USD"
 
 
 def _load_aliases():
@@ -132,12 +169,16 @@ def main() -> None:
     tickers_changed = 0
     field_updates = 0
     missing_cache = []
+    skipped_foreign = []
     for ticker, stock in market.items():
         cache_path = FIN_DIR / f"{ticker}_statements_v2.json"
         if not cache_path.exists():
             missing_cache.append(ticker)
             continue
         statements = json.loads(cache_path.read_text(encoding="utf-8"))
+        if not _is_usd_native(stock, statements):
+            skipped_foreign.append(ticker)
+            continue
         n = rematerialize_stock(stock, statements)
         if n:
             tickers_changed += 1
@@ -149,6 +190,7 @@ def main() -> None:
         "tickers": len(market),
         "tickersChanged": tickers_changed,
         "seriesUpdates": field_updates,
+        "skippedForeign": skipped_foreign,
         "missingCache": missing_cache,
         "dryRun": dry_run,
     }
