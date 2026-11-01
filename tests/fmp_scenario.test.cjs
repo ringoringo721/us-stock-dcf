@@ -396,6 +396,42 @@ test('new defaults label net cash vs net debt with snapshot date and suggested t
   assert.equal(history.reason, null);
   assert.equal(history.years.length, 5);
   assert.ok(Number.isFinite(history.summary.revenueCagr));
+  assert.equal(history.ttm?.included, true);
+  assert.ok(history.ttm.row.date > history.years.at(-1).date);
+  assert.ok(Number.isFinite(history.ttm.row.ebitda));
+});
+
+test('optional TTM history row is omitted when it equals the latest full fiscal year', () => {
+  const data = read('GOOGL');
+  const statements = structuredClone(require('../cache/financials/GOOGL_statements_v2.json'));
+  const latestFy = data.forecastBase.date;
+  statements.quarterly.income = statements.quarterly.income.filter(row => row.date <= latestFy);
+  statements.quarterly.cashflow = statements.quarterly.cashflow.filter(row => row.date <= latestFy);
+  const history = Scenario.fiveYearHistory(statements, data, 'advanced');
+  assert.equal(history.reason, null);
+  assert.equal(history.ttm?.included, false);
+  assert.equal(history.ttm?.reason, 'TTM_EQUALS_LATEST_FY');
+
+  const live = Scenario.fiveYearHistory(
+    require('../cache/financials/GOOGL_statements_v2.json'), data, 'advanced');
+  assert.equal(live.ttm?.included, true);
+  assert.equal(live.ttm.row.label, 'TTM');
+  assert.ok(live.ttm.row.date > latestFy);
+  const keys = ['growth', 'ebitda', 'da', 'nwcChange', 'capex', 'tax'];
+  for (const key of keys) assert.equal(key in live.ttm.metrics, true);
+});
+
+test('TTM history reference stays US-only and does not rewrite five-year averages', () => {
+  const data = { ...read('AAPL'), symbol: '0700.HK' };
+  const statements = require('../cache/financials/AAPL_statements_v2.json');
+  const history = Scenario.fiveYearHistory(statements, data, 'advanced');
+  assert.equal(history.ttm?.included, false);
+  assert.equal(history.ttm?.reason, 'TTM_US_ONLY');
+  const us = Scenario.fiveYearHistory(statements, read('AAPL'), 'advanced');
+  assert.equal(us.ttm?.included, true);
+  const avgBefore = us.summary.ebitda.average;
+  assert.ok(Number.isFinite(avgBefore));
+  assert.equal(us.metrics.ebitda.length, 5);
 });
 
 test('suggested terminal growth does not overwrite an existing user terminal growth value', () => {

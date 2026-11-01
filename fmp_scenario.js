@@ -150,8 +150,91 @@
       basis: 'Arithmetic mean of five consecutive full-FY effective tax rates (income tax expense / pretax income).' };
   }
 
+  const quarterPeriodIndex = row => {
+    const year = Number(row?.fiscalYear || row?.calendarYear);
+    const quarter = /^Q[1-4]$/.test(row?.period) ? Number(row.period[1]) : NaN;
+    return Number.isInteger(year) && Number.isInteger(quarter) ? year * 4 + quarter : NaN;
+  };
+  const sumField = (rows, field) => rows.length && rows.every(row => finite(row?.[field]))
+    ? rows.reduce((total, row) => total + row[field], 0) : null;
+  const historyMetricKeys = kind => kind === 'customLevered'
+    ? ['growth', 'cfo', 'capex', 'tax']
+    : ['growth', 'ebitda', 'da', 'nwcChange', 'capex', 'tax'];
+  const ratiosEqual = (left, right, keys) => keys.every(key => {
+    const a = left?.[key], b = right?.[key];
+    if (!finite(a) && !finite(b)) return true;
+    return finite(a) && finite(b) && Math.abs(a - b) < 1e-6;
+  });
+
+  // Optional TTM reference row for the FY history table. Skip when the trailing
+  // four quarters are the same as the latest full fiscal year (no newer interim).
+  function ttmHistoryReference(statements, data, latestFy, kind = 'advanced') {
+    const unavailable = reason => ({ included: false, reason, row: null, metrics: null });
+    if (!latestFy || !(latestFy.revenue > 0)) return unavailable('TTM_LATEST_FY_UNAVAILABLE');
+    if (typeof data?.symbol === 'string' && data.symbol.endsWith('.HK')) {
+      return unavailable('TTM_US_ONLY');
+    }
+    const currency = data?.currencyCheck?.sourceCurrency;
+    const incomeRows = (statements?.quarterly?.income || [])
+      .filter(row => /^Q[1-4]$/.test(row?.period) && (!currency || row.reportedCurrency === currency)
+        && Number.isFinite(quarterPeriodIndex(row)))
+      .slice().sort((a, b) => a.date.localeCompare(b.date) || quarterPeriodIndex(a) - quarterPeriodIndex(b));
+    if (incomeRows.length < 4) return unavailable('TTM_QUARTERS_UNAVAILABLE');
+    const income = incomeRows.slice(-4);
+    if (!income.every((row, index) => index === 0
+      || quarterPeriodIndex(row) === quarterPeriodIndex(income[index - 1]) + 1)) {
+      return unavailable('TTM_QUARTERS_NON_CONSECUTIVE');
+    }
+    const cashflow = income.map(row => (statements.quarterly.cashflow || []).find(other => other.date === row.date
+      && other.period === row.period && (!currency || other.reportedCurrency === currency)));
+    if (cashflow.some(row => !row)) return unavailable('TTM_CASHFLOW_UNAVAILABLE');
+    const end = income.at(-1);
+    // Same reporting window as the latest full FY → redundant; omit the TTM row.
+    if (end.date === latestFy.date) return unavailable('TTM_EQUALS_LATEST_FY');
+
+    const revenue = sumField(income, 'revenue');
+    if (!(revenue > 0)) return unavailable('TTM_REVENUE_UNAVAILABLE');
+    const priorIncome = incomeRows.slice(-8, -4);
+    const priorOk = priorIncome.length === 4 && priorIncome.every((row, index) => index === 0
+      || quarterPeriodIndex(row) === quarterPeriodIndex(priorIncome[index - 1]) + 1)
+      && quarterPeriodIndex(income[0]) === quarterPeriodIndex(priorIncome.at(-1)) + 1;
+    const priorRevenue = priorOk ? sumField(priorIncome, 'revenue') : null;
+    const growth = priorRevenue > 0 ? (revenue / priorRevenue - 1) * 100 : null;
+    const ratio = amount => finite(amount) ? amount / revenue * 100 : null;
+    const daIncome = sumField(income, 'depreciationAndAmortization');
+    const daCash = sumField(cashflow, 'depreciationAndAmortization');
+    const da = finite(daIncome) ? daIncome : daCash;
+    const pretax = sumField(income, 'incomeBeforeTax');
+    const taxExpense = sumField(income, 'incomeTaxExpense');
+    const tax = pretax > 0 && finite(taxExpense) ? taxExpense / pretax * 100 : null;
+    const nwcCash = sumField(cashflow, 'changeInWorkingCapital');
+    const row = {
+      label: 'TTM', year: null, date: end.date, revenue, growth,
+      ebitda: ratio(sumField(income, 'ebitda')), da: ratio(da),
+      capex: ratio(sumField(cashflow, 'capitalExpenditure')),
+      cfo: ratio(sumField(cashflow, 'operatingCashFlow')
+        ?? sumField(cashflow, 'netCashProvidedByOperatingActivities')),
+      nwcChange: finite(nwcCash) ? -nwcCash / revenue * 100 : null,
+      tax,
+      basis: 'Sum of last four consecutive quarterly statements (US); ratios vs TTM revenue.',
+      quarters: income.map(item => ({ date: item.date, period: item.period,
+        fiscalYear: Number(item.fiscalYear || item.calendarYear) }))
+    };
+    const keys = historyMetricKeys(kind);
+    if (ratiosEqual(row, latestFy, keys.filter(key => key !== 'growth'))
+      && finite(row.revenue) && finite(latestFy.revenue) && Math.abs(row.revenue - latestFy.revenue) < 1e-2
+      && ((finite(row.growth) && finite(latestFy.growth) && Math.abs(row.growth - latestFy.growth) < 1e-6)
+        || !finite(row.growth) && !finite(latestFy.growth))) {
+      return unavailable('TTM_EQUALS_LATEST_FY');
+    }
+    return {
+      included: true, reason: null, row,
+      metrics: Object.fromEntries(keys.map(key => [key, row[key]]))
+    };
+  }
+
   function fiveYearHistory(statements, data, kind = 'advanced') {
-    const unavailable = reason => ({ reason, years: [], metrics: {}, summary: {} });
+    const unavailable = reason => ({ reason, years: [], metrics: {}, summary: {}, ttm: null });
     const base = data?.forecastBase;
     if (!base || !Number.isInteger(base.year)) return unavailable('HISTORY_BASE_UNAVAILABLE');
     if (!statements?.annual?.income) return unavailable('HISTORY_STATEMENTS_UNAVAILABLE');
@@ -182,9 +265,7 @@
         tax
       });
     }
-    const keys = kind === 'customLevered'
-      ? ['growth', 'cfo', 'capex', 'tax']
-      : ['growth', 'ebitda', 'da', 'nwcChange', 'capex', 'tax'];
+    const keys = historyMetricKeys(kind);
     const metrics = Object.fromEntries(keys.map(key => [key, years.map(row => row[key])]));
     const first = years[0], last = years.at(-1);
     const summary = {
@@ -199,7 +280,8 @@
         changePp: finite(first[key]) && finite(last[key]) ? last[key] - first[key] : null
       };
     }
-    return { reason: null, years, metrics, summary };
+    const ttm = ttmHistoryReference(statements, data, last, kind);
+    return { reason: null, years, metrics, summary, ttm };
   }
 
   function suggestRevenueGrowth({ statements, data, peers = [] } = {}) {
@@ -658,5 +740,5 @@
     operatingDefaults: 'Missing consensus CapEx/CFO/D&A/EBITDA use latest full-FY revenue ratios (labeled latest-fy), then year-specific FMP model projection percentages (labeled fmp), then model base-year ratios (fmp-base-year). NWC uses five-year average change/revenue. Missing revenue growth uses FMP model revenuePercentage/YoY when present, else suggestRevenueGrowth. Flat fill for uncovered years only; no invented fade path. Soft ANALYST_FX_UNVERIFIED keeps consensus rows with a warning.',
     growthDefaults: 'Hierarchy when consensus growth is missing: (1) year-specific FMP model projection growth; (2) historical revenue CAGR up to 5y if |CAGR|<=30 and not hyper-volatile; (3) peer median of growth_10y[0] from PeerComparison; (4) mature 2.5% band midpoint; else N/A + GROWTH_REQUIRES_MANUAL_INPUT. Labeled suggested defaults; never overwrites analyst, FMP model, or user values.'
   };
-  return { fields, activeFields, fullAnnualPeriod, verifiedIncomeDocument, baseSource, resolveForecastBase, verifiedRevenueCorrection, defaults, update, calculate, actualReference, missingInputs, upgradeWorkingCapital, exitMultipleTerminal, fiveYearEffectiveTax, fiveYearHistory, suggestRevenueGrowth, TERMINAL_GROWTH_REFERENCE, GROWTH_AUTOFILL_ABS_MAX, MATURE_GROWTH_DEFAULT, formulas };
+  return { fields, activeFields, fullAnnualPeriod, verifiedIncomeDocument, baseSource, resolveForecastBase, verifiedRevenueCorrection, defaults, update, calculate, actualReference, missingInputs, upgradeWorkingCapital, exitMultipleTerminal, fiveYearEffectiveTax, fiveYearHistory, ttmHistoryReference, suggestRevenueGrowth, TERMINAL_GROWTH_REFERENCE, GROWTH_AUTOFILL_ABS_MAX, MATURE_GROWTH_DEFAULT, formulas };
 });

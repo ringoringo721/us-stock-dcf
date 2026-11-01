@@ -458,6 +458,10 @@
     const body = history.years.map((row, index) => `<tr><th>${row.year}<small>${escape(row.date)}</small></th>${
       metricKeys.map(key => `<td>${finite(history.metrics[key][index]) ? `${history.metrics[key][index].toFixed(2)}%` : 'N/A'}</td>`).join('')
     }</tr>`).join('');
+    const ttm = history.ttm?.included ? history.ttm.row : null;
+    const ttmRow = ttm ? `<tr id="fmp-fy-history-ttm"><th>TTM<small>${escape(ttm.date)}</small></th>${
+      metricKeys.map(key => `<td>${finite(ttm[key]) ? `${ttm[key].toFixed(2)}%` : 'N/A'}</td>`).join('')
+    }</tr>` : '';
     const summaryBits = [
       finite(history.summary.revenueCagr) ? `${text('營收 CAGR', 'Revenue CAGR')} ${history.summary.revenueCagr.toFixed(2)}%` : null,
       ...metricKeys.map(key => {
@@ -465,11 +469,13 @@
         if (!item || !finite(item.average)) return null;
         const delta = finite(item.changePp) ? ` · Δ ${item.changePp >= 0 ? '+' : ''}${item.changePp.toFixed(2)}pt` : '';
         return `${labels[key]} ${text('五年平均', '5y avg')} ${item.average.toFixed(2)}%${delta}`;
-      })
+      }),
+      ttm ? text('TTM 列僅供參考（較最新完整財年更新）；不改寫輸入或五年平均',
+        'TTM row is reference only (newer than the latest full FY); does not rewrite inputs or 5y averages') : null
     ].filter(Boolean);
     return `<section id="fmp-fy-history"><h4>${text('近五年實績參考（數字摘要，不改寫輸入）', 'Last five FY reference (numeric summary; does not rewrite inputs)')}</h4>
       <p class="analysis-note" id="fmp-fy-history-summary">${escape(summaryBits.join(' · '))}</p>
-      <div class="table-scroll-wrapper"><table id="fmp-fy-history-table"><thead><tr><th>${text('財年', 'FY')}</th>${head}</tr></thead><tbody>${body}</tbody></table></div></section>`;
+      <div class="table-scroll-wrapper"><table id="fmp-fy-history-table"><thead><tr><th>${text('財年', 'FY')}</th>${head}</tr></thead><tbody>${body}${ttmRow}</tbody></table></div></section>`;
   }
 
   function growthDefaultNoteHtml(text, scenario) {
