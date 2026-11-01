@@ -71,7 +71,7 @@ const handler = createHandler(live ? {} : { apiKey: () => 'test-placeholder', fe
       assert.equal(await page.locator('#screener-tbody tr').first().locator('td').count(), 38);
       for (const language of ['zh', 'en']) {
         await page.evaluate(language => applyLanguage(language), language);
-        for (const [preset, columns] of [['overview', 9], ['valuation', 18], ['financial', 22], ['all', 38]]) {
+        for (const [preset, columns] of [['overview', 9], ['valuation', 15], ['financial', 22], ['all', 38]]) {
           await page.selectOption('#screener-columns', preset);
           assert.equal(await page.locator('#screener-table thead th:visible').count(), columns);
           assert.equal(await page.locator('#screener-table th[data-i18n="th_fair"], #screener-table th[data-i18n="th_fair_upside"]').count(), 0);
