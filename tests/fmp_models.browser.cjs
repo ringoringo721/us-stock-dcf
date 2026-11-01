@@ -64,11 +64,10 @@ const handler = createHandler(live ? {} : { apiKey: () => 'test-placeholder', fe
       await page.waitForFunction(() => isAppReady && Object.keys(stockUniverse).length > 0);
       await page.evaluate(() => applyLanguage('en'));
       const count = await page.evaluate(() => Object.keys(stockUniverse).length);
-      if (count > 200) {
-        await page.locator('#screener-all').click();
-        await page.waitForFunction(n => document.querySelectorAll('#screener-tbody tr').length === n, count);
-      }
-      assert.equal(await page.locator('#screener-tbody tr').count(), count);
+      const visibleCount = count > 200 ? 100 : count;
+      // Show-all removed — assert on the first page, then search for the sample ticker.
+      assert.equal(await page.locator('#screener-tbody tr').count(), visibleCount);
+      assert.equal(await page.locator('#screener-all').count(), 0);
       assert.equal(await page.locator('#screener-tbody tr').first().locator('td').count(), 38);
       for (const language of ['zh', 'en']) {
         await page.evaluate(language => applyLanguage(language), language);
@@ -82,10 +81,14 @@ const handler = createHandler(live ? {} : { apiKey: () => 'test-placeholder', fe
             row.cells.length === 38 && [...row.cells].filter(cell => !cell.hidden).length === columns
             && row.querySelectorAll('[data-fmp-reference]').length === 2
             && row.querySelectorAll('[data-price-difference]').length === 2), columns), true,
-          `${market}/${language}/${preset}: all ${count} stocks have aligned columns and retain both FMP references`);
+          `${market}/${language}/${preset}: visible page rows have aligned columns and retain both FMP references`);
         }
       }
+      await page.locator('#search-ticker').fill(ticker);
+      assert.equal(await page.locator('#screener-tbody tr').count(), 1);
       assert.notEqual(await page.locator('#screener-tbody tr').filter({ hasText: ticker }).locator('[data-fmp-reference="dcf"]').innerText(), 'N/A');
+      await page.locator('#search-ticker').fill('');
+      await page.waitForFunction(n => document.querySelectorAll('#screener-tbody tr').length === n, visibleCount);
       await page.evaluate(ticker => openCompanyProfile(ticker), ticker);
       await page.waitForFunction(ticker => stockUniverse[ticker].companyDataLoaded, ticker);
       await page.evaluate(() => switchSubPage('valuation'));

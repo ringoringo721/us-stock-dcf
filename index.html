@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>美股 DCF 估值雷達</title>
   <script src="site_theme.js"></script>
-  <script src="market_data.js?v=blank-load-4"></script>
+  <script src="market_data.js?v=show-all-1"></script>
   <script src="fcff_data.js"></script>
   <script src="market_context.js"></script>
   <script src="hkex_universe.js"></script>
@@ -41,17 +41,17 @@
       for (const filename of filenames) loadOne(filename, 1);
     })(MarketContext.market === 'HKEX'
       ? [
-          'hkex_universe_data.js?v=blank-load-4',
-          'hkex_expansion_data.js?v=blank-load-4',
-          'hk_market_data.js?v=blank-load-4',
-          'hk_fcff_data.js?v=blank-load-4',
+          'hkex_universe_data.js?v=show-all-1',
+          'hkex_expansion_data.js?v=show-all-1',
+          'hk_market_data.js?v=show-all-1',
+          'hk_fcff_data.js?v=show-all-1',
         ]
       : [
           // Names + listings before expansion so a slow/hung expansion cannot
           // keep the screener on「載入中…」while US_LISTINGS is already ready.
-          'us_chinese_names_data.js?v=blank-load-4',
-          'us_universe_data.js?v=blank-load-4',
-          'us_expansion_data.js?v=blank-load-4',
+          'us_chinese_names_data.js?v=show-all-1',
+          'us_universe_data.js?v=show-all-1',
+          'us_expansion_data.js?v=show-all-1',
         ]);
   </script>
   <script src="dcf_drivers.js?v=official-operating-2"></script>
@@ -5200,7 +5200,8 @@
 
   let screenerVisibleRows = 100, screenerPageKey = '';
   function showMoreStocks() { screenerVisibleRows += 100; renderScreenerTable(); }
-  function showAllStocks() { screenerVisibleRows = Infinity; renderScreenerTable(); }
+  // No show-all: painting ~966 US / ~2787 HK rows (~4MB+ HTML, rich cells) freezes Chrome
+  // (「一個網頁無回應」). Keep +100 only; filter/search for full coverage.
   function renderScreenerTable() {
     const tbody = document.getElementById('screener-tbody');
     if (!tbody) return;
@@ -5293,7 +5294,7 @@
     const pageKey = JSON.stringify([MarketContext.market, searchVal, currentValFilter, currentSectorFilter, currentIndustryParentFilter, currentSubIndustryFilter, sortField, sortAsc]);
     if (pageKey !== screenerPageKey) { screenerVisibleRows = 100; screenerPageKey = pageKey; }
     // Paginate US the same as HKEX: rendering all ~966 rows builds ~4MB of HTML and
-    // can freeze the main thread on「載入中…」before paint (seen after #74).
+    // can freeze the main thread (boot「載入中…」after #74;「顯示全部」Chrome hang after #75).
     const visible = list.length > 200 ? list.slice(0, screenerVisibleRows) : list;
     let more = document.getElementById('screener-more');
     if (!more) {
@@ -5303,13 +5304,19 @@
     }
     more.hidden = visible.length >= list.length;
     more.textContent = currentLang === 'en' ? `Show 100 more (${visible.length} / ${list.length})` : `再顯示 100 家（${visible.length} / ${list.length}）`;
-    let all = document.getElementById('screener-all');
-    if (!all) {
-      all = document.createElement('button'); all.id = 'screener-all'; all.className = 'f-btn';
-      all.onclick = showAllStocks; more.after(all);
+    // Drop legacy show-all control if an older session still has the node.
+    document.getElementById('screener-all')?.remove();
+    let pageTip = document.getElementById('screener-page-tip');
+    if (!pageTip) {
+      pageTip = document.createElement('small');
+      pageTip.id = 'screener-page-tip';
+      pageTip.className = 'screener-table-tip';
+      more.after(pageTip);
     }
-    all.hidden = more.hidden;
-    all.textContent = currentLang === 'en' ? `Show all ${list.length} stocks` : `顯示全部 ${list.length} 家`;
+    pageTip.hidden = more.hidden;
+    pageTip.textContent = currentLang === 'en'
+      ? 'Large lists stay paginated (+100). Use search or filters instead of painting every row.'
+      : '清單維持分頁（每次 +100）。請用搜尋或篩選，勿一次繪製全部列以免瀏覽器卡死。';
     tbody.innerHTML = visible.map(item => {
       const priceNum = Number.isFinite(item.price) ? item.price : null;
       const targetPriceHtml = (item.isSaved && Number.isFinite(item.target_price))
@@ -8494,8 +8501,8 @@
       : !!window.FULL_MARKET_DATA;
     if (hasBaseline) return;
     const marketFile = MarketContext.market === 'HKEX'
-      ? 'hk_market_data.js?v=blank-load-4'
-      : 'market_data.js?v=blank-load-4';
+      ? 'hk_market_data.js?v=show-all-1'
+      : 'market_data.js?v=show-all-1';
     fetch(marketFile + (marketFile.includes('?') ? '&' : '?') + 't=' + Date.now())
       .then(r => r.text())
       .then(text => {

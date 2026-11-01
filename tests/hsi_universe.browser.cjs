@@ -137,19 +137,18 @@ function expectedAnnualCells(stock) {
       rows.map(row => row.cells[0].textContent.match(/\b\d{4,5}\.HK\b/)[0])), top100);
     await page.locator('#screener-more').click();
     assert.equal(await page.locator('#screener-tbody tr').count(), 200);
+    // Show-all removed: painting 2787 rich rows freezes Chrome. +100 + tip remain.
+    assert.equal(await page.locator('#screener-all').count(), 0);
     await page.evaluate(() => applyLanguage('en'));
-    assert.match(await page.locator('#screener-all').innerText(), /Show all 2787 stocks/);
+    assert.match(await page.locator('#screener-page-tip').innerText(), /paginated \(\+100\)/i);
     await page.evaluate(() => applyLanguage('zh'));
-    assert.match(await page.locator('#screener-all').innerText(), /顯示全部 2787 家/);
+    assert.match(await page.locator('#screener-page-tip').innerText(), /分頁（每次 \+100）/);
     const names = await page.evaluate(() => Object.fromEntries(Object.entries(stockUniverse)
       .map(([ticker, stock]) => [ticker, getStockDisplayName(stock)])));
     for (const listing of catalogue.stocks) {
       assert.equal(names[listing.ticker], market[listing.ticker]?.name || listing.name_zh,
         `${listing.ticker}: every HK listing has its reviewed or official Chinese-list name`);
     }
-    await page.locator('#screener-all').click();
-    assert.equal(await page.locator('#screener-tbody tr').count(), 2787);
-    assert.equal(await page.locator('#screener-all').isVisible(), false);
     await page.evaluate(() => {
       document.getElementById('search-ticker').value = '上美';
       renderScreenerTable();
