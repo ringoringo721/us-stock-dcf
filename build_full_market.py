@@ -223,6 +223,52 @@ if HAS_GENAI:
 CACHE_DIR = "cache/moat"
 DESC_CACHE_DIR = "cache/descriptions"
 FIN_CACHE_DIR = "cache/financials"
+
+# Canonical UI / statements_raw keys → FMP stable cash-flow (and related) aliases.
+# Keep in sync with scripts/usd_financials.cjs `aliases` (USD FX rewrite path).
+# FMP stable renamed several CFF keys (Issued→Issuance, UsedProvided→Provided, etc.).
+STATEMENT_FIELD_ALIASES = {
+    "otherInvestingActivites": ["otherInvestingActivites", "otherInvestingActivities"],
+    "netCashUsedForInvestingActivites": [
+        "netCashUsedForInvestingActivites",
+        "netCashUsedForInvestingActivities",
+        "netCashProvidedByInvestingActivities",
+    ],
+    "otherFinancingActivites": ["otherFinancingActivites", "otherFinancingActivities"],
+    "purchasesOfInvestments": ["purchasesOfInvestments", "investmentsInPropertyPlantAndEquipment"],
+    "salesMaturitiesOfInvestments": ["salesMaturitiesOfInvestments", "salesOfInvestments"],
+    "commonStockIssued": ["commonStockIssued", "commonStockIssuance"],
+    "dividendsPaid": [
+        "dividendsPaid",
+        "commonDividendsPaid",
+        "commonStockDividendsPaid",
+        "netDividendsPaid",
+    ],
+    "debtRepayment": ["debtRepayment", "netDebtIssuance"],
+    "netCashUsedProvidedByFinancingActivities": [
+        "netCashUsedProvidedByFinancingActivities",
+        "netCashProvidedByFinancingActivities",
+    ],
+    "netCashProvidedByOperatingActivities": [
+        "netCashProvidedByOperatingActivities",
+        "operatingCashFlow",
+    ],
+}
+
+
+def get_safe_field(d_item, field_name):
+    """Read a statement cell, following STATEMENT_FIELD_ALIASES. Missing → 0.0."""
+    if not d_item or not isinstance(d_item, dict):
+        return 0.0
+    for key in STATEMENT_FIELD_ALIASES.get(field_name, [field_name]):
+        value = d_item.get(key)
+        if value is not None:
+            try:
+                return float(value)
+            except (TypeError, ValueError):
+                continue
+    return 0.0
+
 META_CACHE_DIR = "cache/company_meta"
 PEER_CACHE_DIR = "cache/peers"
 os.makedirs(CACHE_DIR, exist_ok=True)
@@ -1726,22 +1772,6 @@ def main():
         inc_5y = list(reversed(inc_annual))[:5] if inc_annual else []
         bs_5y = list(reversed(bs_annual))[:5] if bs_annual else []
         cf_5y = list(reversed(cf_annual))[:5] if cf_annual else []
-
-        def get_safe_field(d_item, field_name):
-            if not d_item or not isinstance(d_item, dict):
-                return 0.0
-            alias_map = {
-                "otherInvestingActivites": ["otherInvestingActivites", "otherInvestingActivities"],
-                "netCashUsedForInvestingActivites": ["netCashUsedForInvestingActivites", "netCashUsedForInvestingActivities"],
-                "otherFinancingActivites": ["otherFinancingActivites", "otherFinancingActivities"],
-                "purchasesOfInvestments": ["purchasesOfInvestments", "investmentsInPropertyPlantAndEquipment"],
-                "salesMaturitiesOfInvestments": ["salesMaturitiesOfInvestments", "salesOfInvestments"]
-            }
-            for k in alias_map.get(field_name, [field_name]):
-                v = d_item.get(k)
-                if v is not None:
-                    return float(v)
-            return 0.0
 
         def extract_series(dataset, key, is_ratio_or_per_share=False):
             series = []
