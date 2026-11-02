@@ -6,7 +6,7 @@ const path = require('node:path');
 const vm = require('node:vm');
 const universe = require('../us_universe.js');
 const {
-  needsMoatRecovery, ingest, packageResults, integrate, writeMoatCaches
+  needsMoatRecovery, ingest, packageResults, integrate, writeMoatCaches, applyBatchWindow
 } = require('../scripts/build_us_expansion.cjs');
 const root = path.resolve(__dirname, '..');
 
@@ -52,6 +52,79 @@ test('shipped US universe+expansion merge is baseline+catalogue (not market_data
   assert.equal(expansionWithMoat, 723);
   assert.equal(context.US_EXPANSION.stocks.AEFC, undefined);
   assert.equal(merged.AEFC, undefined);
+});
+
+test('financial refresh batch window is gated and rotates', () => {
+  const batches = Array.from({ length: 4 }, (_, batch) => ({ batch, symbols: `T${batch}` }));
+  delete process.env.EXPANSION_FINANCIAL_REFRESH;
+  assert.equal(applyBatchWindow(batches, '1', '2').length, 4);
+  process.env.EXPANSION_FINANCIAL_REFRESH = '1';
+  assert.deepEqual(applyBatchWindow(batches, '2', '2').map(item => item.batch), [2, 3]);
+  delete process.env.EXPANSION_FINANCIAL_REFRESH;
+});
+
+test('ingest preserves saved moat as staleEvidence when rebuild omits moat', () => {
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'us-expansion-stale-'));
+  const cataloguePath = path.join(root, 'cache', 'us_universe.json');
+  const previous = fs.readFileSync(cataloguePath, 'utf8');
+  const companiesDir = path.join(root, 'cache', 'us_companies');
+  const savedPath = path.join(companiesDir, 'ZZZZ.json');
+  const hadSaved = fs.existsSync(savedPath);
+  const previousSaved = hadSaved ? fs.readFileSync(savedPath, 'utf8') : null;
+  const zh = '繁體護城河評分註解用以通過字數門檻測試用字串補滿到足夠長度並確認回收邏輯。'.repeat(4);
+  const moat = Object.fromEntries(Array.from({ length: 10 }, (_, i) =>
+    [`m${i + 1}_test`, { score: 8, comment_zh: zh, comment_en: 'ok' }]));
+  moat.overall_moat_verdict_zh = zh;
+  moat.overall_moat_verdict_en = 'ok';
+  const catalogue = {
+    version: 1,
+    source: { provider: 'Financial Modeling Prep company/stock screener', retrievedAt: '2026-10-21T00:00:00Z' },
+    screen: { exchanges: ['NYSE', 'NASDAQ', 'AMEX'], marketCapMoreThanUsd: 1e10 },
+    stocks: [
+      { ticker: 'ZZZZ', name_en: 'Zeta Test', exchange: 'NYSE', sector: 'Test', industry: 'Test', marketCap: 12e9,
+        universeMembership: 'test' }
+    ]
+  };
+  fs.writeFileSync(cataloguePath, JSON.stringify(catalogue));
+  fs.mkdirSync(companiesDir, { recursive: true });
+  fs.writeFileSync(savedPath, JSON.stringify({
+    version: 1, ticker: 'ZZZZ',
+    stock: {
+      ticker: 'ZZZZ', moat,
+      ratingSources: { moat: { evidenceHash: 'old', currentEvidenceHash: 'old', reason: null, updatedAt: '2026-10-20T00:00:00Z' } }
+    }
+  }));
+  const finDir = path.join(root, 'cache', 'financials');
+  const finPath = path.join(finDir, 'ZZZZ_statements_v2.json');
+  const hadFin = fs.existsSync(finPath);
+  const previousFin = hadFin ? fs.readFileSync(finPath, 'utf8') : null;
+  fs.mkdirSync(finDir, { recursive: true });
+  fs.writeFileSync(finPath, JSON.stringify({
+    annual: { income: [{ date: '2025-12-31' }], balance: [], cashflow: [] },
+    quarterly: { income: [{ date: '2026-06-30' }], balance: [], cashflow: [] }
+  }));
+  try {
+    const marketFile = path.join(tmp, 'market.json');
+    fs.writeFileSync(marketFile, JSON.stringify({
+      ZZZZ: {
+        name: 'Zeta Test', exchange: 'NYSE', price: 12, mcap: 12000, f_score: 7, moat: null,
+        ratingSources: { moat: { reason: 'analysisUnavailable' } },
+        expansion: { capturedAt: '2026-11-02T00:00:00Z' }
+      }
+    }));
+    const manifest = ingest(tmp, marketFile);
+    assert.equal(manifest[0].status, 'available');
+    const record = JSON.parse(fs.readFileSync(path.join(tmp, 'cache', 'us_companies', 'ZZZZ.json'), 'utf8'));
+    assert.ok(record.stock.moat);
+    assert.equal(record.stock.ratingSources.moat.reason, 'staleEvidence');
+    assert.equal(record.stock.ratingSources.moat.evidenceHash, 'old');
+  } finally {
+    fs.writeFileSync(cataloguePath, previous);
+    if (hadSaved) fs.writeFileSync(savedPath, previousSaved);
+    else fs.rmSync(savedPath, { force: true });
+    if (hadFin) fs.writeFileSync(finPath, previousFin);
+    else fs.rmSync(finPath, { force: true });
+  }
 });
 
 test('incomplete US moat recovery refuses invented or partial scores', () => {

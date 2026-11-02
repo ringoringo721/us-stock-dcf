@@ -158,6 +158,17 @@ Required secrets: `FMP_API_KEY` (screen + capture + DCF), plus `GCP_SA_KEY`
 `node scripts/build_us_expansion.cjs integrate <download-directory>` and review
 before publishing. Artifacts alone do not update production.
 
+### Scheduled financial refresh (which cron covers which universe)
+
+| Universe | Workflow | What refreshes | Remoat |
+|----------|----------|----------------|--------|
+| US baseline (~230) | `daily_update.yml` | Statements, DCF, prices, liquidation, capped Gemini | Daily moat cap |
+| US expansion (~723) | `refresh_us_expansion_financials.yml` | Statements／catalogue via `US_EXPANSION_*` batches (rolling ~12 batches/weekday) | **No** — reuse moat cache; mark stale when statements move |
+| HK reviewed (114) | `refresh_hkex.yml` | Statements, prices, evidence-based moat | Evidence-hash only |
+| HK expansion (~2.6k) | `refresh_hkex_expansion_financials.yml` | Capture + `build_hkex_expansion` financial-only (rolling ~8 batches/weekday) | **No** — preserve prior moat as `staleEvidence` |
+
+Dispatch either expansion financial workflow with `batch_limit`／`batch_offset`／`symbols` for catch-up. Artifacts still integrate onto main through the job persist allowlist; baseline／reviewed files are never overwritten by expansion jobs.
+
 ## Hang Seng Index and gaming extension
 
 Production builds run `node scripts/build_site.cjs` and publish only the

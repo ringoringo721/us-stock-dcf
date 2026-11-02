@@ -6,7 +6,10 @@ const vm = require('node:vm');
 const universe = require('../hkex_universe.js');
 const catalogue = require('../cache/hkex_universe.json');
 const market = require('../hk_market_dcf.json');
-const { matrix, build, packageResults, integrate, preferSavedMoat, needsMoatRecovery } = require('../scripts/build_hkex_expansion.cjs');
+const {
+  matrix, build, packageResults, integrate, preferSavedMoat, needsMoatRecovery,
+  staleMoatFromSaved, applyBatchWindow
+} = require('../scripts/build_hkex_expansion.cjs');
 const { prepareStatements, priceHistory, hash } = require('../scripts/build_hkex.cjs');
 const root = path.resolve(__dirname, '..');
 test('official full-market namespace retains every reviewed company without inventing financials', () => {
@@ -49,7 +52,8 @@ test('targeted recovery preserves original artifact batch identities and selects
     /Invalid selected HKEX symbols/);
 });
 test('incomplete recovery skips current complete and below-cap reports without treating unknown cap as zero', () => {
-  const stock = { ticker: '1911.HK', calculationCurrency: 'HKD', mcap: 1500,
+  // Moat floor is HKD 5B (= 5000 in mcap millions). Use 15000 for above-cap incomplete recovery.
+  const stock = { ticker: '1911.HK', calculationCurrency: 'HKD', mcap: 15000,
     ratingSources: { moat: { evidenceHash: 'same', currentEvidenceHash: 'same', updatedAt: '2026-10-20T00:00:00Z' } },
     moat: Object.fromEntries(Array.from({ length: 10 }, (_, i) =>
       [`m${i + 1}_test`, { score: 0, comment_zh: 'Evidence-based.', comment_en: 'Evidence-based.' }])) };
@@ -82,6 +86,37 @@ test('ratings recovery reuses newer verified assessments without inventing updat
   assert.equal(JSON.stringify(stock), saved);
   stock.ratingSources.moat.reason = 'staleEvidence';
   assert.equal(preferSavedMoat(stock, 'same', previous), previous);
+});
+test('financial refresh keeps prior moat as staleEvidence when the fingerprint moves', () => {
+  const report = Object.fromEntries(Array.from({ length: 10 }, (_, i) =>
+    [`m${i + 1}_test`, { score: 5, comment_zh: '保留', comment_en: 'keep' }]));
+  report.overall_moat_verdict_zh = report.overall_moat_verdict_en = 'keep';
+  const saved = {
+    moat: report,
+    description_zh: '描述',
+    ratingSources: { moat: {
+      evidenceHash: 'old-hash', currentEvidenceHash: 'old-hash', updatedAt: '2026-10-20T00:00:00Z',
+      assessmentPolicy: 'buffett-moat-v3', model: 'gemini-2.5-flash-lite'
+    } }
+  };
+  const stale = staleMoatFromSaved(saved, 'new-hash');
+  assert.equal(stale.reason, 'staleEvidence');
+  assert.equal(stale.evidenceHash, 'old-hash');
+  assert.equal(stale.currentEvidenceHash, 'new-hash');
+  assert.equal(stale.report, report);
+  assert.equal(staleMoatFromSaved(saved, 'old-hash'), null);
+  assert.equal(staleMoatFromSaved(null, 'new-hash'), null);
+});
+test('financial refresh batch window rotates without dropping the refresh flag gate', () => {
+  const batches = Array.from({ length: 5 }, (_, batch) => ({ batch, symbols: `T${batch}` }));
+  delete process.env.EXPANSION_FINANCIAL_REFRESH;
+  assert.equal(applyBatchWindow(batches, '2', '1').length, 5);
+  process.env.EXPANSION_FINANCIAL_REFRESH = '1';
+  assert.deepEqual(applyBatchWindow(batches, '2', '3').map(item => item.batch), [3, 4]);
+  assert.deepEqual(applyBatchWindow(batches, '3', '4').map(item => item.batch), [4, 0, 1]);
+  delete process.env.EXPANSION_FINANCIAL_REFRESH;
+  delete process.env.EXPANSION_FINANCIAL_BATCH_LIMIT;
+  delete process.env.EXPANSION_FINANCIAL_BATCH_OFFSET;
 });
 test('official Chinese names enrich both compact listings and lazy full company records', async () => {
   assert.ok(catalogue.stocks.every(stock => typeof stock.name_zh === 'string' && stock.name_zh.length > 0));
@@ -193,7 +228,11 @@ test('partial provider evidence persists real missingness, and artifact integrat
     const result = build(sources, output, ['0004.HK', other]);
     assert.equal(result[0].status, 'available');
     assert.equal(result[0].fScore, null);
-    assert.equal(result[0].moat, false);
+    // Financial rebuild must not wipe a previously saved moat; mark staleEvidence instead.
+    assert.equal(result[0].moat, true);
+    const rebuilt = JSON.parse(fs.readFileSync(path.join(output, 'cache', 'hk_companies', '0004.HK.json'), 'utf8'));
+    assert.equal(rebuilt.stock.ratingSources.moat.reason, 'staleEvidence');
+    assert.ok(rebuilt.stock.moat);
     const input = JSON.parse(fs.readFileSync(path.join(output, 'moat-inputs.json'), 'utf8'))[0];
     const { evidenceHash, existing, businessResearch, moatScreen, ...financialEvidence } = input;
     assert.deepEqual(moatScreen, { calculationCurrency: 'HKD', marketCapMillions: null });
@@ -210,7 +249,8 @@ test('partial provider evidence persists real missingness, and artifact integrat
     assert.equal(integrate(output, integrated), 2);
     const full = JSON.parse(fs.readFileSync(path.join(integrated, 'cache', 'hk_companies', '0004.HK.json')));
     assert.equal(full.stock.price, null);
-    assert.equal(full.stock.moat, null);
+    assert.ok(full.stock.moat);
+    assert.equal(full.stock.ratingSources.moat.reason, 'staleEvidence');
     const financials = JSON.parse(fs.readFileSync(path.join(integrated, 'cache', 'financials', '0004.HK_statements_v2.json')));
     assert.deepEqual(financials.annual.income, []);
     const foreign = JSON.parse(fs.readFileSync(path.join(integrated, 'cache', 'financials', `${other}_statements_v2.json`)));

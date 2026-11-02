@@ -48,6 +48,25 @@ function needsMoatRecovery(stock) {
     || typeof report.overall_moat_verdict_en !== 'string' || !report.overall_moat_verdict_en.trim();
 }
 
+function applyBatchWindow(batches, limitRaw = process.env.EXPANSION_FINANCIAL_BATCH_LIMIT || '',
+    offsetRaw = process.env.EXPANSION_FINANCIAL_BATCH_OFFSET || '') {
+  if (!process.env.EXPANSION_FINANCIAL_REFRESH) return batches;
+  if (!batches.length) return batches;
+  let limit = batches.length, offset = 0;
+  if (limitRaw !== '') {
+    if (!/^\d+$/.test(String(limitRaw).trim())) throw new Error('EXPANSION_FINANCIAL_BATCH_LIMIT must be digits');
+    limit = Number(String(limitRaw).trim());
+    if (limit < 1) throw new Error('EXPANSION_FINANCIAL_BATCH_LIMIT must be >= 1');
+  }
+  if (offsetRaw !== '') {
+    if (!/^\d+$/.test(String(offsetRaw).trim())) throw new Error('EXPANSION_FINANCIAL_BATCH_OFFSET must be digits');
+    offset = Number(String(offsetRaw).trim()) % batches.length;
+  }
+  if (limit >= batches.length && offset === 0) return batches;
+  const rotated = batches.slice(offset).concat(batches.slice(0, offset));
+  return rotated.slice(0, Math.min(limit, rotated.length));
+}
+
 function matrix(size = 20, selected = '', symbols = '', incompleteOnly = false) {
   if (!Number.isInteger(size) || size < 1 || size > 20) throw new Error('Batch size must be 1-20');
   const catalogue = loadCatalogue();
@@ -81,6 +100,7 @@ function matrix(size = 20, selected = '', symbols = '', incompleteOnly = false) 
   if (!listed.length) {
     throw new Error('No US expansion candidates above USD 10B outside the reviewed baseline');
   }
+  result = applyBatchWindow(result);
   if (!result.length) {
     throw new Error('No US expansion batches selected');
   }
@@ -107,10 +127,34 @@ function ingest(output, marketFile, reports = {}) {
       throw new Error(`Invalid US expansion stock identity: ${ticker}`);
     }
     const listing = approved.get(ticker);
-    const moat = reports[ticker]?.report || stock.moat || null;
-    const ratingMoat = reports[ticker]
+    const savedPath = path.join(root, 'cache', 'us_companies', `${ticker}.json`);
+    const saved = fs.existsSync(savedPath) ? read(savedPath) : null;
+    if (saved && (saved.ticker !== ticker || (saved.stock?.ticker != null && saved.stock.ticker !== ticker))) {
+      throw new Error(`Invalid saved US expansion company identity: ${ticker}`);
+    }
+    let moat = reports[ticker]?.report || stock.moat || null;
+    let ratingMoat = reports[ticker]
       ? { ...reports[ticker], report: undefined, reason: null, currentEvidenceHash: reports[ticker].evidenceHash }
       : stock.ratingSources?.moat || { reason: moat ? null : 'analysisUnavailable' };
+    // Financial-only rebuilds often omit Gemini; keep prior moat and mark stale when statements moved.
+    const finSrcEarly = path.join(root, 'cache', 'financials', `${ticker}_statements_v2.json`);
+    const statementsEarly = fs.existsSync(finSrcEarly) ? read(finSrcEarly) : null;
+    const statementHash = statementsEarly
+      ? crypto.createHash('sha256').update(JSON.stringify({
+        annual: statementsEarly.annual, interim: statementsEarly.quarterly
+      })).digest('hex')
+      : null;
+    if (!moat && saved?.stock?.moat) {
+      moat = saved.stock.moat;
+      const prior = saved.stock.ratingSources?.moat || {};
+      const priorHash = prior.evidenceHash || null;
+      ratingMoat = {
+        ...prior,
+        reason: statementHash && priorHash && statementHash !== priorHash ? 'staleEvidence' : (prior.reason || null),
+        evidenceHash: priorHash,
+        currentEvidenceHash: statementHash || prior.currentEvidenceHash || priorHash,
+      };
+    }
     let recordStock = {
       ...stock,
       ticker,
@@ -125,7 +169,7 @@ function ingest(output, marketFile, reports = {}) {
       expansion: { status: 'available', capturedAt: stock.expansion?.capturedAt || new Date().toISOString(),
         reason: stock.expansion?.reason || null, detailPath: `cache/us_companies/${ticker}.json` }
     };
-    const finSrc = path.join(root, 'cache', 'financials', `${ticker}_statements_v2.json`);
+    const finSrc = finSrcEarly;
     if (usesFinancialValuationModel(recordStock.industry, ticker) && fs.existsSync(finSrc)) {
       recordStock = applyFinancialValuation(recordStock, read(finSrc));
     } else if (!recordStock.fin_valuation) {
@@ -133,12 +177,8 @@ function ingest(output, marketFile, reports = {}) {
         is_financial: usesFinancialValuationModel(recordStock.industry, ticker)
       };
     }
-    const statements = fs.existsSync(finSrc) ? read(finSrc) : null;
-    const evidenceHash = statements
-      ? crypto.createHash('sha256').update(JSON.stringify({
-        annual: statements.annual, interim: statements.quarterly
-      })).digest('hex')
-      : null;
+    const statements = statementsEarly;
+    const evidenceHash = statementHash;
     attachDistressScores(recordStock, statements || {}, {
       ticker,
       checkedAt: recordStock.expansion?.capturedAt || new Date().toISOString(),
@@ -353,5 +393,6 @@ if (require.main === module) {
 }
 
 module.exports = {
-  matrix, ingest, packageResults, integrate, writeMoatCaches, needsMoatRecovery, listingStock
+  matrix, ingest, packageResults, integrate, writeMoatCaches, needsMoatRecovery, listingStock,
+  applyBatchWindow
 };
