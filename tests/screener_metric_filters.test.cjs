@@ -49,3 +49,14 @@ test('sticky chrome keeps primary chips + more-metrics popover (no display:conte
   assert.equal(/\.tv-metric-filters\s*\{\s*display:\s*contents/.test(html), false);
   assert.match(html, /\.tv-metric-filters\s*\{[^}]*display:\s*inline-flex/);
 });
+
+test('metric menus support custom gt/lt/range and Liq vs-price; more menus portal to body', () => {
+  assert.match(html, /function applyTvMetricCustom/);
+  assert.match(html, /function applyTvMetricVsPrice/);
+  assert.match(html, /kind === 'vsPrice'/);
+  assert.match(html, /LIQ_VS_PRICE_FIELDS/);
+  assert.match(html, /document\.body\.appendChild\(menu\)/);
+  assert.match(html, /tv-metric-menu-portaled/);
+  assert.match(html, /function metricFilterMatches/);
+  assert.equal(/\.tv-more-metrics-panel \.tv-metric-menu\s*\{\s*position:\s*fixed/.test(html), false);
+});

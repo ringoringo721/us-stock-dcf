@@ -37,14 +37,19 @@ test('valuation preset keeps DCF-75 15-column FMP + site-target group', () => {
   assert.equal(fields.split(',').map(s => s.trim().replace(/'/g, '')).filter(Boolean).length, 15);
 });
 
-test('undervalued / overvalued screens are clickable and wired to catalogue filter', () => {
-  assert.match(html, /data-screen="UNDERVALUED"[^>]*onclick="setValFilter\('UNDERVALUED'\)"/);
-  assert.match(html, /data-screen="OVERVALUED"[^>]*onclick="setValFilter\('OVERVALUED'\)"/);
-  assert.match(html, /id="stat-undervalued-box"/);
-  assert.match(html, /id="stat-overvalued-box"/);
-  assert.match(html, /function syncScreenerScreenState/);
-  assert.match(html, /currentValFilter === 'UNDERVALUED'/);
-  assert.match(html, /item\.isUndervalued/);
+test('three fair-value model under/over screens replace catalogue KPI strip', () => {
+  for (const screen of ['FMP_UNDER', 'FMP_OVER', 'LEV_UNDER', 'LEV_OVER', 'TARGET_UNDER', 'TARGET_OVER']) {
+    assert.match(html, new RegExp(`data-screen="${screen}"[^>]*onclick="setValFilter\\('${screen}'\\)"`));
+    assert.match(html, new RegExp(`data-screen-chip="${screen}"`));
+  }
+  assert.match(html, /id="stat-fmp-under"/);
+  assert.match(html, /id="stat-lev-over"/);
+  assert.match(html, /id="stat-target-under"/);
+  assert.match(html, /function screenFilterMatches/);
+  assert.match(html, /fmp_dcf_upside < 0/);
+  assert.match(html, /fmp_levered_upside > 0/);
+  assert.match(html, /target_spread < 0/);
+  assert.equal(/id="stat-undervalued-box"/.test(html), false);
 });
 
 test('column view tabs coexist with select; sticky chrome + filter chips present', () => {
@@ -57,7 +62,7 @@ test('column view tabs coexist with select; sticky chrome + filter chips present
   assert.match(html, /const TV_METRIC_FILTERS\s*=/);
   assert.match(html, /function mountTvMetricFilters/);
   assert.match(html, /id="screener-detail-drawer"/);
-  assert.match(html, /data-screen-chip="UNDERVALUED"/);
+  assert.match(html, /data-screen-chip="FMP_UNDER"/);
   // Hint bar must not also stick at top:0 (would hide under chrome).
   assert.match(html, /#screener-view\s+\.scroll-hint-bar\s*\{[^}]*position:\s*static/);
   assert.equal(/#screener-view\s+\.scroll-hint-bar\s*\{[^}]*position:\s*sticky/.test(html), false);
@@ -121,7 +126,7 @@ test('browser smoke suite exists for live row counts', () => {
   assert.match(source, /overview',\s*10/);
   assert.match(source, /valuation',\s*15/);
   assert.match(source, /all',\s*40/);
-  assert.match(source, /UNDERVALUED/);
+  assert.match(source, /FMP_UNDER/);
   assert.match(source, /data-fmp-reference/);
   assert.match(source, /data-catalogue-fair/);
   assert.match(source, /screener-more/);

@@ -962,7 +962,7 @@
     .tv-detail-drawer .tv-drawer-grid dd { margin: 2px 0 0; font-weight: 600; font-variant-numeric: tabular-nums; }
     .tv-detail-drawer .tv-drawer-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
     .tv-metric-menu {
-      position: absolute; z-index: 40; margin-top: 4px; min-width: 180px;
+      position: absolute; z-index: 40; margin-top: 4px; min-width: 220px;
       border: 1px solid var(--card-border); border-radius: 8px; background: var(--card-bg);
       box-shadow: 0 8px 24px var(--shadow); padding: 6px; display: none;
     }
@@ -973,6 +973,42 @@
       font-size: 12px; cursor: pointer;
     }
     .tv-metric-menu button:hover, .tv-metric-menu button[aria-selected="true"] { background: var(--hover-bg); }
+    .tv-metric-menu .tv-metric-custom {
+      margin-top: 6px; padding-top: 8px; border-top: 1px solid var(--card-border);
+      display: flex; flex-direction: column; gap: 6px;
+    }
+    .tv-metric-menu .tv-metric-custom-title {
+      font-size: 11px; font-weight: 700; color: var(--text-muted); padding: 0 4px;
+    }
+    .tv-metric-menu .tv-metric-custom-row {
+      display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 6px; align-items: center;
+      padding: 0 4px;
+    }
+    .tv-metric-menu .tv-metric-custom-row.range {
+      grid-template-columns: auto minmax(0, 1fr) auto minmax(0, 1fr) auto;
+    }
+    .tv-metric-menu .tv-metric-custom-row.vs-price {
+      grid-template-columns: auto auto minmax(0, 1fr) auto;
+    }
+    .tv-metric-menu .tv-metric-custom label {
+      font-size: 11px; color: var(--text-secondary); white-space: nowrap;
+    }
+    .tv-metric-menu .tv-metric-custom input[type="number"],
+    .tv-metric-menu .tv-metric-custom select {
+      width: 100%; min-width: 0; border: 1px solid var(--card-border); border-radius: 6px;
+      background: var(--surface-bg); color: var(--text); padding: 5px 6px; font-size: 12px;
+    }
+    .tv-metric-menu .tv-metric-custom .tv-metric-apply {
+      appearance: none; border: 1px solid var(--card-border); border-radius: 6px;
+      background: var(--hover-bg); color: var(--text); padding: 5px 8px; font-size: 11px;
+      font-weight: 700; cursor: pointer; white-space: nowrap;
+    }
+    .tv-metric-menu .tv-metric-custom .tv-metric-apply:hover { border-color: var(--text); }
+    #screener-view .top-stats .stat-box[data-screen-group] .stat-label { font-size: 10px; }
+    #screener-view .top-stats .stat-model-sep {
+      flex: 0 0 1px; align-self: stretch; background: var(--card-border); width: 1px; padding: 0; border: 0;
+      pointer-events: none; min-width: 1px;
+    }
     .tv-metric-wrap { position: relative; display: inline-flex; }
     /* Primary metric chips stay inline; the rest live in a compact popover so sticky
        chrome does not grow multi-row and cover the table (Bugbot #84). */
@@ -987,8 +1023,10 @@
     }
     .tv-more-metrics-panel.open { display: flex; }
     .tv-more-metrics-panel .tv-metric-wrap { flex: 0 0 auto; }
-    .tv-more-metrics-panel .tv-metric-menu {
-      position: fixed; z-index: 50; min-width: 180px;
+    /* Menus from “更多指標” are teleported to <body> (backdrop-filter on sticky
+       chrome creates a containing block that breaks position:fixed + overflow clips). */
+    .tv-metric-menu.tv-metric-menu-portaled {
+      position: fixed !important; z-index: 80; margin-top: 0; min-width: 220px;
     }
     #tv-filter-more-metrics .tv-more-count {
       display: inline-block; min-width: 1.25em; margin-left: 4px; font-variant-numeric: tabular-nums;
@@ -1366,9 +1404,16 @@
     <div class="top-stats" role="toolbar" aria-label="Screener screens">
       <div class="stat-box active" role="button" tabindex="0" data-screen="ALL" onclick="setValFilter('ALL')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();setValFilter('ALL')}"><div class="stat-label" data-i18n="stat_total">追蹤標的</div><div class="stat-num" id="stat-total">0</div></div>
       <div class="stat-box" role="button" tabindex="0" data-screen="FAVORITES" onclick="setValFilter('FAVORITES')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();setValFilter('FAVORITES')}"><div class="stat-label" data-i18n="stat_fav">自選清單</div><div class="stat-num text-pink" id="stat-fav-count">0</div></div>
-      <div class="stat-box" role="button" tabindex="0" id="stat-undervalued-box" data-screen="UNDERVALUED" data-i18n-title="stat_undervalued_note" onclick="setValFilter('UNDERVALUED')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();setValFilter('UNDERVALUED')}"><div class="stat-label" data-i18n="stat_undervalued">目錄公允低估</div><div class="stat-num text-green" id="stat-undervalued">0</div></div>
-      <div class="stat-box" role="button" tabindex="0" id="stat-overvalued-box" data-screen="OVERVALUED" data-i18n-title="stat_overvalued_note" onclick="setValFilter('OVERVALUED')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();setValFilter('OVERVALUED')}"><div class="stat-label" data-i18n="stat_overvalued">目錄公允高估</div><div class="stat-num text-red" id="stat-overvalued">0</div></div>
       <div class="stat-box" role="button" tabindex="0" data-screen="SAVED" onclick="setValFilter('SAVED')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();setValFilter('SAVED')}"><div class="stat-label" data-i18n="stat_saved">已存目標價</div><div class="stat-num text-gold" id="stat-saved-count">0</div></div>
+      <span class="stat-model-sep" aria-hidden="true"></span>
+      <div class="stat-box" role="button" tabindex="0" id="stat-fmp-under-box" data-screen="FMP_UNDER" data-screen-group="fmp" data-i18n-title="stat_fmp_value_note" onclick="setValFilter('FMP_UNDER')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();setValFilter('FMP_UNDER')}"><div class="stat-label" data-i18n="stat_fmp_under">FMP DCF 低估</div><div class="stat-num text-green" id="stat-fmp-under">0</div></div>
+      <div class="stat-box" role="button" tabindex="0" id="stat-fmp-over-box" data-screen="FMP_OVER" data-screen-group="fmp" data-i18n-title="stat_fmp_value_note" onclick="setValFilter('FMP_OVER')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();setValFilter('FMP_OVER')}"><div class="stat-label" data-i18n="stat_fmp_over">FMP DCF 高估</div><div class="stat-num text-red" id="stat-fmp-over">0</div></div>
+      <span class="stat-model-sep" aria-hidden="true"></span>
+      <div class="stat-box" role="button" tabindex="0" id="stat-lev-under-box" data-screen="LEV_UNDER" data-screen-group="levered" data-i18n-title="stat_levered_value_note" onclick="setValFilter('LEV_UNDER')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();setValFilter('LEV_UNDER')}"><div class="stat-label" data-i18n="stat_lev_under">槓桿 DCF 低估</div><div class="stat-num text-green" id="stat-lev-under">0</div></div>
+      <div class="stat-box" role="button" tabindex="0" id="stat-lev-over-box" data-screen="LEV_OVER" data-screen-group="levered" data-i18n-title="stat_levered_value_note" onclick="setValFilter('LEV_OVER')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();setValFilter('LEV_OVER')}"><div class="stat-label" data-i18n="stat_lev_over">槓桿 DCF 高估</div><div class="stat-num text-red" id="stat-lev-over">0</div></div>
+      <span class="stat-model-sep" aria-hidden="true"></span>
+      <div class="stat-box" role="button" tabindex="0" id="stat-target-under-box" data-screen="TARGET_UNDER" data-screen-group="target" data-i18n-title="stat_target_value_note" onclick="setValFilter('TARGET_UNDER')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();setValFilter('TARGET_UNDER')}"><div class="stat-label" data-i18n="stat_target_under">目標價低估</div><div class="stat-num text-green" id="stat-target-under">0</div></div>
+      <div class="stat-box" role="button" tabindex="0" id="stat-target-over-box" data-screen="TARGET_OVER" data-screen-group="target" data-i18n-title="stat_target_value_note" onclick="setValFilter('TARGET_OVER')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();setValFilter('TARGET_OVER')}"><div class="stat-label" data-i18n="stat_target_over">目標價高估</div><div class="stat-num text-red" id="stat-target-over">0</div></div>
     </div>
 
     <!-- TradingView-like chrome: filter chip bar → view tabs → dense table (+ optional drawer). All data kept. -->
@@ -1377,9 +1422,13 @@
         <div class="tv-filter-row" role="toolbar" aria-label="Universe and metric filters">
           <button type="button" class="tv-filter-chip active" data-screen-chip="ALL" onclick="setValFilter('ALL')" data-i18n="opt_all">全部標的</button>
           <button type="button" class="tv-filter-chip" data-screen-chip="FAVORITES" onclick="setValFilter('FAVORITES')" data-i18n="opt_fav">自選</button>
-          <button type="button" class="tv-filter-chip" data-screen-chip="UNDERVALUED" onclick="setValFilter('UNDERVALUED')" data-i18n="opt_undervalued" data-i18n-title="stat_undervalued_note">目錄公允低估</button>
-          <button type="button" class="tv-filter-chip" data-screen-chip="OVERVALUED" onclick="setValFilter('OVERVALUED')" data-i18n="opt_overvalued" data-i18n-title="stat_overvalued_note">目錄公允高估</button>
           <button type="button" class="tv-filter-chip" data-screen-chip="SAVED" onclick="setValFilter('SAVED')" data-i18n="opt_saved">已存目標價</button>
+          <button type="button" class="tv-filter-chip" data-screen-chip="FMP_UNDER" onclick="setValFilter('FMP_UNDER')" data-i18n="opt_fmp_under" data-i18n-title="stat_fmp_value_note">FMP 低估</button>
+          <button type="button" class="tv-filter-chip" data-screen-chip="FMP_OVER" onclick="setValFilter('FMP_OVER')" data-i18n="opt_fmp_over" data-i18n-title="stat_fmp_value_note">FMP 高估</button>
+          <button type="button" class="tv-filter-chip" data-screen-chip="LEV_UNDER" onclick="setValFilter('LEV_UNDER')" data-i18n="opt_lev_under" data-i18n-title="stat_levered_value_note">槓桿低估</button>
+          <button type="button" class="tv-filter-chip" data-screen-chip="LEV_OVER" onclick="setValFilter('LEV_OVER')" data-i18n="opt_lev_over" data-i18n-title="stat_levered_value_note">槓桿高估</button>
+          <button type="button" class="tv-filter-chip" data-screen-chip="TARGET_UNDER" onclick="setValFilter('TARGET_UNDER')" data-i18n="opt_target_under" data-i18n-title="stat_target_value_note">目標低估</button>
+          <button type="button" class="tv-filter-chip" data-screen-chip="TARGET_OVER" onclick="setValFilter('TARGET_OVER')" data-i18n="opt_target_over" data-i18n-title="stat_target_value_note">目標高估</button>
           <span class="tv-filter-sep" aria-hidden="true" style="width:1px;height:20px;background:var(--card-border);margin:0 2px;"></span>
           <!-- Primary metric chips + “更多指標” popover (all TV_METRIC_FILTERS remain filterable). -->
           <div class="tv-metric-filters" id="tv-metric-filters" aria-label="Primary metric filters"></div>
@@ -1422,9 +1471,13 @@
         <div class="filter-btns" id="val-filters">
           <button class="f-btn active" onclick="setValFilter('ALL')" data-i18n="opt_all">全部標的</button>
           <button class="f-btn btn-fav" onclick="setValFilter('FAVORITES')" data-i18n="opt_fav">❤ 我的自選收藏</button>
-          <button class="f-btn" onclick="setValFilter('UNDERVALUED')" data-i18n="opt_undervalued" data-i18n-title="stat_undervalued_note">🟢 目錄公允低估</button>
-          <button class="f-btn" onclick="setValFilter('OVERVALUED')" data-i18n="opt_overvalued" data-i18n-title="stat_overvalued_note">🔴 目錄公允高估</button>
           <button class="f-btn" onclick="setValFilter('SAVED')" data-i18n="opt_saved">💾 已存目標價</button>
+          <button class="f-btn" onclick="setValFilter('FMP_UNDER')" data-i18n="opt_fmp_under" data-i18n-title="stat_fmp_value_note">🟢 FMP DCF 低估</button>
+          <button class="f-btn" onclick="setValFilter('FMP_OVER')" data-i18n="opt_fmp_over" data-i18n-title="stat_fmp_value_note">🔴 FMP DCF 高估</button>
+          <button class="f-btn" onclick="setValFilter('LEV_UNDER')" data-i18n="opt_lev_under" data-i18n-title="stat_levered_value_note">🟢 槓桿 DCF 低估</button>
+          <button class="f-btn" onclick="setValFilter('LEV_OVER')" data-i18n="opt_lev_over" data-i18n-title="stat_levered_value_note">🔴 槓桿 DCF 高估</button>
+          <button class="f-btn" onclick="setValFilter('TARGET_UNDER')" data-i18n="opt_target_under" data-i18n-title="stat_target_value_note">🟢 目標價低估</button>
+          <button class="f-btn" onclick="setValFilter('TARGET_OVER')" data-i18n="opt_target_over" data-i18n-title="stat_target_value_note">🔴 目標價高估</button>
         </div>
       </div>
 
@@ -2946,6 +2999,30 @@
       opt_undervalued: "🟢 目錄公允低估",
       opt_overvalued: "🔴 目錄公允高估",
       opt_saved: "💾 已存目標價",
+      stat_fmp_under: "FMP DCF 低估",
+      stat_fmp_over: "FMP DCF 高估",
+      stat_lev_under: "槓桿 DCF 低估",
+      stat_lev_over: "槓桿 DCF 高估",
+      stat_target_under: "目標價低估",
+      stat_target_over: "目標價高估",
+      opt_fmp_under: "FMP 低估",
+      opt_fmp_over: "FMP 高估",
+      opt_lev_under: "槓桿低估",
+      opt_lev_over: "槓桿高估",
+      opt_target_under: "目標低估",
+      opt_target_over: "目標高估",
+      stat_fmp_value_note: "依 FMP 指示 DCF 相對最新股價的溢折價%（股價／DCF − 1）；負＝低估、正＝高估。",
+      stat_levered_value_note: "依 FMP 槓桿 DCF 相對最新股價的溢折價%；負＝低估、正＝高估。",
+      stat_target_value_note: "依本站已存目標價相對最新股價的溢折價%；僅計有儲存目標者。負＝低估、正＝高估。",
+      tv_filter_custom: "自訂數值",
+      tv_filter_gt: "大於",
+      tv_filter_lt: "小於",
+      tv_filter_range: "區間",
+      tv_filter_apply: "套用",
+      tv_filter_vs_price: "相對股價",
+      tv_filter_vs_price_gt: "高於",
+      tv_filter_vs_price_lt: "低於",
+      tv_filter_vs_price_times: "股價 ×",
       filter_sector: "主板塊：",
       opt_all_sectors: "全部板塊",
       filter_industry: "產業：",
@@ -2969,7 +3046,7 @@
       th_group_catalogue: "主公允",
       th_group_fmp: "FMP 供應商",
       th_group_site: "本站已存",
-      screener_valuation_key: "預設概覽只露目錄公允價＋溢折價。此「估值」檢視另分兩組：① FMP 供應商指示／槓桿 DCF；② 本站已存目標（Gordon／出場／CFO／自訂）。頂部件數仍依目錄公允價。",
+      screener_valuation_key: "預設概覽只露目錄公允價＋溢折價。此「估值」檢視另分兩組：① FMP 供應商指示／槓桿 DCF；② 本站已存目標（Gordon／出場／CFO／自訂）。頂部 KPI 低估／高估改為三種模型：FMP DCF、槓桿 DCF、本站目標價。",
       stat_undervalued_note: "件數依目錄內建公允價（舊 FCFF／金融模型）相對最新股價；不是 FMP 指示／槓桿 DCF，也不是本站十年 Gordon／出場／CFO 目標價。",
       stat_overvalued_note: "件數依目錄內建公允價（舊 FCFF／金融模型）相對最新股價；不是 FMP 指示／槓桿 DCF，也不是本站十年 Gordon／出場／CFO 目標價。",
       target_kind_gordon: "Gordon 十年",
@@ -3478,6 +3555,30 @@
       opt_undervalued: "🟢 Catalogue undervalued",
       opt_overvalued: "🔴 Catalogue overvalued",
       opt_saved: "💾 Saved Targets",
+      stat_fmp_under: "FMP DCF undervalued",
+      stat_fmp_over: "FMP DCF overvalued",
+      stat_lev_under: "Levered DCF undervalued",
+      stat_lev_over: "Levered DCF overvalued",
+      stat_target_under: "Target undervalued",
+      stat_target_over: "Target overvalued",
+      opt_fmp_under: "FMP under",
+      opt_fmp_over: "FMP over",
+      opt_lev_under: "Levered under",
+      opt_lev_over: "Levered over",
+      opt_target_under: "Target under",
+      opt_target_over: "Target over",
+      stat_fmp_value_note: "Uses FMP indicated DCF premium % versus latest price (price / DCF − 1); negative = undervalued, positive = overvalued.",
+      stat_levered_value_note: "Uses FMP levered DCF premium % versus latest price; negative = undervalued, positive = overvalued.",
+      stat_target_value_note: "Uses site-saved target premium % versus latest price; only tickers with a saved target. Negative = undervalued, positive = overvalued.",
+      tv_filter_custom: "Custom value",
+      tv_filter_gt: "Above",
+      tv_filter_lt: "Below",
+      tv_filter_range: "Range",
+      tv_filter_apply: "Apply",
+      tv_filter_vs_price: "Vs price",
+      tv_filter_vs_price_gt: "Above",
+      tv_filter_vs_price_lt: "Below",
+      tv_filter_vs_price_times: "Price ×",
       filter_sector: "Sectors:",
       opt_all_sectors: "All Sectors",
       filter_industry: "Industries:",
@@ -3501,7 +3602,7 @@
       th_group_catalogue: "Primary fair",
       th_group_fmp: "FMP vendor",
       th_group_site: "Site saved",
-      screener_valuation_key: "Overview shows catalogue fair value + premium only. This Valuation view adds two groups: (1) FMP indicated/levered DCF; (2) site-saved targets (Gordon / exit / CFO / custom). Header counts still use catalogue fair value.",
+      screener_valuation_key: "Overview shows catalogue fair value + premium only. This Valuation view adds two groups: (1) FMP indicated/levered DCF; (2) site-saved targets (Gordon / exit / CFO / custom). Header undervalued/overvalued KPIs use three models: FMP DCF, levered DCF, and site-saved targets.",
       stat_undervalued_note: "Counts use catalogue fair value (legacy FCFF / financial models) versus latest price — not FMP indicated/levered DCF, and not site ten-year Gordon / exit / CFO targets.",
       stat_overvalued_note: "Counts use catalogue fair value (legacy FCFF / financial models) versus latest price — not FMP indicated/levered DCF, and not site ten-year Gordon / exit / CFO targets.",
       target_kind_gordon: "Gordon 10y",
@@ -5362,6 +5463,92 @@
     return Number.isFinite(value) ? value : null;
   }
 
+  const LIQ_VS_PRICE_FIELDS = new Set(['liq_val_1', 'liq_val_2', 'liq_val_3']);
+  function isCustomMetricFilter(filter) {
+    return !!(filter && typeof filter === 'object' && (filter.kind === 'custom' || filter.kind === 'vsPrice'));
+  }
+  function metricFilterIsActive(filter) {
+    return filter != null && filter !== '';
+  }
+  function parseFiniteInput(raw) {
+    if (raw == null || raw === '') return null;
+    const value = Number(raw);
+    return Number.isFinite(value) ? value : null;
+  }
+  function metricFilterMatches(item, field, filter) {
+    if (!metricFilterIsActive(filter)) return true;
+    if (typeof filter === 'string') {
+      const preset = (TV_METRIC_PRESETS[field] || []).find(row => row.id === filter);
+      if (!preset?.test) return true;
+      const value = tvMetricFieldValue(item, field);
+      return value != null && preset.test(value);
+    }
+    if (filter.kind === 'vsPrice') {
+      const liq = tvMetricFieldValue(item, field);
+      const price = tvMetricFieldValue(item, 'price');
+      const ratio = Number(filter.ratio);
+      if (!Number.isFinite(liq) || !Number.isFinite(price) || !Number.isFinite(ratio)) return false;
+      const threshold = price * ratio;
+      return filter.op === 'lt' ? liq < threshold : liq > threshold;
+    }
+    if (filter.kind === 'custom') {
+      const value = tvMetricFieldValue(item, field);
+      if (value == null) return false;
+      if (filter.op === 'gt') return Number.isFinite(filter.value) && value > filter.value;
+      if (filter.op === 'lt') return Number.isFinite(filter.value) && value < filter.value;
+      if (filter.op === 'range') {
+        const minOk = !Number.isFinite(filter.min) || value >= filter.min;
+        const maxOk = !Number.isFinite(filter.max) || value <= filter.max;
+        return minOk && maxOk && (Number.isFinite(filter.min) || Number.isFinite(filter.max));
+      }
+    }
+    return true;
+  }
+  function metricFilterLabel(field, filter, lang) {
+    const chip = TV_METRIC_CHIP_LABELS[field] || { zh: field, en: field };
+    const name = chip[lang] || chip.en || field;
+    if (!metricFilterIsActive(filter)) return name;
+    if (typeof filter === 'string') {
+      const preset = (TV_METRIC_PRESETS[field] || []).find(row => row.id === filter);
+      return preset ? (preset[lang] || preset.en) : name;
+    }
+    if (filter.kind === 'vsPrice') {
+      const op = filter.op === 'lt'
+        ? (lang === 'en' ? '<' : '低於')
+        : (lang === 'en' ? '>' : '高於');
+      const times = lang === 'en' ? 'price ×' : '股價 ×';
+      return `${name} ${op} ${times} ${filter.ratio}`;
+    }
+    if (filter.kind === 'custom') {
+      if (filter.op === 'gt') return `${name} > ${filter.value}`;
+      if (filter.op === 'lt') return `${name} < ${filter.value}`;
+      if (filter.op === 'range') {
+        const min = Number.isFinite(filter.min) ? filter.min : '…';
+        const max = Number.isFinite(filter.max) ? filter.max : '…';
+        return `${name} ${min}–${max}`;
+      }
+    }
+    return name;
+  }
+  function screenFilterMatches(item, screen) {
+    if (!screen || screen === 'ALL') return true;
+    if (screen === 'FAVORITES') return !!item.isFav;
+    if (screen === 'SAVED') return !!item.isSaved;
+    if (screen === 'UNDERVALUED') return item.isUndervalued === true;
+    if (screen === 'OVERVALUED') return item.isUndervalued === false;
+    if (screen === 'FMP_UNDER') return Number.isFinite(item.fmp_dcf_upside) && item.fmp_dcf_upside < 0;
+    if (screen === 'FMP_OVER') return Number.isFinite(item.fmp_dcf_upside) && item.fmp_dcf_upside > 0;
+    if (screen === 'LEV_UNDER') return Number.isFinite(item.fmp_levered_upside) && item.fmp_levered_upside < 0;
+    if (screen === 'LEV_OVER') return Number.isFinite(item.fmp_levered_upside) && item.fmp_levered_upside > 0;
+    if (screen === 'TARGET_UNDER') return item.isSaved && Number.isFinite(item.target_spread) && item.target_spread < 0;
+    if (screen === 'TARGET_OVER') return item.isSaved && Number.isFinite(item.target_spread) && item.target_spread > 0;
+    return true;
+  }
+  function formatStatCount(count, total) {
+    const pct = total > 0 ? ((count / total) * 100).toFixed(0) : 0;
+    return `${count}<small>${pct}%</small>`;
+  }
+
   function tvMetricChipHtml(row, lang) {
     const label = (TV_METRIC_CHIP_LABELS[row.field] || {})[lang] || row.en;
     return `<div class="tv-metric-wrap" data-metric-field="${row.field}">
@@ -5375,7 +5562,6 @@
     const moreHost = document.getElementById('tv-more-metrics-panel');
     if (!primaryHost || !moreHost) return;
     const lang = currentLang === 'en' ? 'en' : 'zh';
-    // Preserve declared primary order even if registry order changes.
     primaryHost.innerHTML = TV_METRIC_PRIMARY_FIELDS
       .map(field => TV_METRIC_FILTERS.find(row => row.field === field))
       .filter(Boolean)
@@ -5408,31 +5594,98 @@
     btn.setAttribute('aria-expanded', 'true');
   }
 
+  function restoreTvMetricMenuHome(menu) {
+    if (!menu?.dataset?.metricField) return;
+    const wrap = document.querySelector(`.tv-metric-wrap[data-metric-field="${menu.dataset.metricField}"]`);
+    if (wrap && menu.parentElement !== wrap) wrap.appendChild(menu);
+    menu.classList.remove('tv-metric-menu-portaled', 'open');
+    menu.style.top = '';
+    menu.style.left = '';
+    menu.style.right = '';
+    menu.style.bottom = '';
+  }
+
   function closeTvMetricMenus(opts = {}) {
-    document.querySelectorAll('.tv-metric-menu.open').forEach(menu => menu.classList.remove('open'));
+    document.querySelectorAll('.tv-metric-menu.open, .tv-metric-menu.tv-metric-menu-portaled').forEach(menu => {
+      restoreTvMetricMenuHome(menu);
+      menu.classList.remove('open');
+    });
     document.querySelectorAll('.tv-metric-wrap .tv-filter-chip[aria-expanded="true"]').forEach(btn => btn.setAttribute('aria-expanded', 'false'));
     if (!opts.keepMoreOpen) closeTvMoreMetrics();
   }
 
   function placeTvMetricMenu(menu, btn) {
-    // Menus inside the scrollable “更多指標” panel use fixed coords so they are not clipped.
-    if (!menu.closest?.('.tv-more-metrics-panel')) {
+    // Escape sticky chrome backdrop-filter containing block + overflow:auto clip by
+    // portaling menus opened from #tv-more-metrics-panel onto document.body.
+    const fromMore = !!btn.closest('.tv-more-metrics-panel');
+    menu.dataset.metricField = btn.id.replace(/^tv-filter-/, '');
+    if (fromMore) {
+      if (menu.parentElement !== document.body) document.body.appendChild(menu);
+      menu.classList.add('tv-metric-menu-portaled');
+    } else {
+      restoreTvMetricMenuHome(menu);
+      menu.classList.remove('tv-metric-menu-portaled');
       menu.style.top = '';
       menu.style.left = '';
       return;
     }
     const rect = btn.getBoundingClientRect();
-    const width = Math.max(180, menu.offsetWidth || 180);
-    const left = Math.min(Math.max(8, rect.left), window.innerWidth - width - 8);
-    let top = rect.bottom + 4;
     menu.style.visibility = 'hidden';
     menu.classList.add('open');
-    const height = menu.offsetHeight || 160;
+    const width = Math.max(220, menu.offsetWidth || 220);
+    const height = menu.offsetHeight || 220;
     menu.classList.remove('open');
     menu.style.visibility = '';
+    let left = Math.min(Math.max(8, rect.left), window.innerWidth - width - 8);
+    let top = rect.bottom + 4;
     if (top + height > window.innerHeight - 8) top = Math.max(8, rect.top - height - 4);
     menu.style.top = `${top}px`;
     menu.style.left = `${left}px`;
+  }
+
+  function tvMetricCustomFormHtml(field) {
+    const dict = I18N_DICT[currentLang] || {};
+    const lang = currentLang === 'en' ? 'en' : 'zh';
+    const current = screenerMetricFilters[field];
+    const gt = current?.kind === 'custom' && current.op === 'gt' ? current.value : '';
+    const lt = current?.kind === 'custom' && current.op === 'lt' ? current.value : '';
+    const min = current?.kind === 'custom' && current.op === 'range' ? (current.min ?? '') : '';
+    const max = current?.kind === 'custom' && current.op === 'range' ? (current.max ?? '') : '';
+    const vsRatio = current?.kind === 'vsPrice' ? current.ratio : 1;
+    const vsOp = current?.kind === 'vsPrice' ? current.op : 'gt';
+    const vsBlock = LIQ_VS_PRICE_FIELDS.has(field) ? `
+      <div class="tv-metric-custom-title">${dict.tv_filter_vs_price || (lang === 'en' ? 'Vs price' : '相對股價')}</div>
+      <div class="tv-metric-custom-row vs-price">
+        <select id="tv-custom-vs-op-${field}" aria-label="${dict.tv_filter_vs_price || ''}">
+          <option value="gt" ${vsOp === 'gt' ? 'selected' : ''}>${dict.tv_filter_vs_price_gt || (lang === 'en' ? 'Above' : '高於')}</option>
+          <option value="lt" ${vsOp === 'lt' ? 'selected' : ''}>${dict.tv_filter_vs_price_lt || (lang === 'en' ? 'Below' : '低於')}</option>
+        </select>
+        <label>${dict.tv_filter_vs_price_times || (lang === 'en' ? 'Price ×' : '股價 ×')}</label>
+        <input type="number" id="tv-custom-vs-ratio-${field}" step="0.05" min="0" value="${vsRatio}">
+        <button type="button" class="tv-metric-apply" onclick="applyTvMetricVsPrice('${field}', event)">${dict.tv_filter_apply || (lang === 'en' ? 'Apply' : '套用')}</button>
+      </div>` : '';
+    return `
+      <div class="tv-metric-custom" onclick="event.stopPropagation()">
+        <div class="tv-metric-custom-title">${dict.tv_filter_custom || (lang === 'en' ? 'Custom value' : '自訂數值')}</div>
+        <div class="tv-metric-custom-row">
+          <label>${dict.tv_filter_gt || (lang === 'en' ? 'Above' : '大於')}</label>
+          <input type="number" id="tv-custom-gt-${field}" step="any" value="${gt}">
+          <button type="button" class="tv-metric-apply" onclick="applyTvMetricCustom('${field}', 'gt', event)">${dict.tv_filter_apply || (lang === 'en' ? 'Apply' : '套用')}</button>
+        </div>
+        <div class="tv-metric-custom-row">
+          <label>${dict.tv_filter_lt || (lang === 'en' ? 'Below' : '小於')}</label>
+          <input type="number" id="tv-custom-lt-${field}" step="any" value="${lt}">
+          <button type="button" class="tv-metric-apply" onclick="applyTvMetricCustom('${field}', 'lt', event)">${dict.tv_filter_apply || (lang === 'en' ? 'Apply' : '套用')}</button>
+        </div>
+        <div class="tv-metric-custom-row range">
+          <label>${dict.tv_filter_range || (lang === 'en' ? 'Range' : '區間')}</label>
+          <input type="number" id="tv-custom-min-${field}" step="any" value="${min}" placeholder="min">
+          <span>–</span>
+          <input type="number" id="tv-custom-max-${field}" step="any" value="${max}" placeholder="max">
+          <button type="button" class="tv-metric-apply" onclick="applyTvMetricCustom('${field}', 'range', event)">${dict.tv_filter_apply || (lang === 'en' ? 'Apply' : '套用')}</button>
+        </div>
+        ${vsBlock}
+      </div>`;
   }
 
   function toggleTvMetricMenu(field, event) {
@@ -5445,11 +5698,12 @@
     if (!willOpen) return;
     const presets = TV_METRIC_PRESETS[field] || [];
     const lang = currentLang === 'en' ? 'en' : 'zh';
+    const current = screenerMetricFilters[field];
     menu.innerHTML = presets.map(preset => {
-      const selected = screenerMetricFilters[field] === preset.id;
+      const selected = typeof current === 'string' ? current === preset.id : (current == null && preset.id == null);
       const label = preset[lang] || preset.en;
       return `<button type="button" role="menuitem" aria-selected="${selected ? 'true' : 'false'}" onclick="setTvMetricFilter('${field}', ${preset.id == null ? 'null' : `'${preset.id}'`})">${label}</button>`;
-    }).join('');
+    }).join('') + tvMetricCustomFormHtml(field);
     placeTvMetricMenu(menu, btn);
     menu.classList.add('open');
     btn.setAttribute('aria-expanded', 'true');
@@ -5457,7 +5711,38 @@
 
   function setTvMetricFilter(field, id) {
     screenerMetricFilters[field] = id;
-    closeTvMetricMenus({ keepMoreOpen: !TV_METRIC_PRIMARY.has(field) && id != null });
+    const keepMore = !TV_METRIC_PRIMARY.has(field) && id != null;
+    closeTvMetricMenus({ keepMoreOpen: keepMore });
+    syncTvMetricFilterChips();
+    renderScreenerTable();
+  }
+
+  function applyTvMetricCustom(field, op, event) {
+    event?.stopPropagation?.();
+    if (op === 'gt' || op === 'lt') {
+      const value = parseFiniteInput(document.getElementById(`tv-custom-${op}-${field}`)?.value);
+      if (value == null) return;
+      screenerMetricFilters[field] = { kind: 'custom', op, value };
+    } else if (op === 'range') {
+      const min = parseFiniteInput(document.getElementById(`tv-custom-min-${field}`)?.value);
+      const max = parseFiniteInput(document.getElementById(`tv-custom-max-${field}`)?.value);
+      if (min == null && max == null) return;
+      if (min != null && max != null && min > max) return;
+      screenerMetricFilters[field] = { kind: 'custom', op: 'range', min, max };
+    } else return;
+    closeTvMetricMenus({ keepMoreOpen: !TV_METRIC_PRIMARY.has(field) });
+    syncTvMetricFilterChips();
+    renderScreenerTable();
+  }
+
+  function applyTvMetricVsPrice(field, event) {
+    event?.stopPropagation?.();
+    if (!LIQ_VS_PRICE_FIELDS.has(field)) return;
+    const op = document.getElementById(`tv-custom-vs-op-${field}`)?.value === 'lt' ? 'lt' : 'gt';
+    const ratio = parseFiniteInput(document.getElementById(`tv-custom-vs-ratio-${field}`)?.value);
+    if (ratio == null || ratio < 0) return;
+    screenerMetricFilters[field] = { kind: 'vsPrice', op, ratio };
+    closeTvMetricMenus({ keepMoreOpen: true });
     syncTvMetricFilterChips();
     renderScreenerTable();
   }
@@ -5467,7 +5752,7 @@
     for (const field of Object.keys(TV_METRIC_PRESETS)) {
       const btn = document.getElementById(`tv-filter-${field}`);
       if (!btn) continue;
-      const active = screenerMetricFilters[field] != null;
+      const active = metricFilterIsActive(screenerMetricFilters[field]);
       if (active && !TV_METRIC_PRIMARY.has(field)) moreActive += 1;
       btn.classList.toggle('has-filter', active);
       btn.classList.toggle('active', active);
@@ -5475,39 +5760,40 @@
       if (labels) btn.textContent = currentLang === 'en' ? labels.en : labels.zh;
     }
     const moreBtn = document.getElementById('tv-filter-more-metrics');
-    const moreCount = document.getElementById('tv-more-metrics-count');
     if (moreBtn) {
       const dict = I18N_DICT[currentLang] || {};
       const label = dict.tv_filter_more_metrics || (currentLang === 'en' ? 'More metrics' : '更多指標');
       moreBtn.innerHTML = `${label}<span class="tv-more-count" id="tv-more-metrics-count">${moreActive ? moreActive : ''}</span>`;
       moreBtn.classList.toggle('has-filter', moreActive > 0);
       moreBtn.classList.toggle('active', moreActive > 0 || document.getElementById('tv-more-metrics-panel')?.classList.contains('open'));
-    } else if (moreCount) {
-      moreCount.textContent = moreActive ? String(moreActive) : '';
     }
     const host = document.getElementById('tv-active-filters');
     if (!host) return;
     const lang = currentLang === 'en' ? 'en' : 'zh';
     const tags = [];
-    for (const [field, id] of Object.entries(screenerMetricFilters)) {
-      if (id == null) continue;
-      const preset = (TV_METRIC_PRESETS[field] || []).find(row => row.id === id);
-      if (!preset) continue;
-      tags.push(`<span class="tv-active-tag">${preset[lang] || preset.en}<button type="button" aria-label="Remove" onclick="setTvMetricFilter('${field}', null)">×</button></span>`);
+    for (const [field, filter] of Object.entries(screenerMetricFilters)) {
+      if (!metricFilterIsActive(filter)) continue;
+      tags.push(`<span class="tv-active-tag">${metricFilterLabel(field, filter, lang)}<button type="button" aria-label="Remove" onclick="setTvMetricFilter('${field}', null)">×</button></span>`);
     }
     if (currentValFilter && currentValFilter !== 'ALL') {
       const screenLabels = {
         FAVORITES: lang === 'en' ? 'Watchlist' : '自選',
+        SAVED: lang === 'en' ? 'Saved targets' : '已存目標價',
         UNDERVALUED: lang === 'en' ? 'Catalogue undervalued' : '目錄公允低估',
         OVERVALUED: lang === 'en' ? 'Catalogue overvalued' : '目錄公允高估',
-        SAVED: lang === 'en' ? 'Saved targets' : '已存目標價',
+        FMP_UNDER: lang === 'en' ? 'FMP DCF undervalued' : 'FMP DCF 低估',
+        FMP_OVER: lang === 'en' ? 'FMP DCF overvalued' : 'FMP DCF 高估',
+        LEV_UNDER: lang === 'en' ? 'Levered DCF undervalued' : '槓桿 DCF 低估',
+        LEV_OVER: lang === 'en' ? 'Levered DCF overvalued' : '槓桿 DCF 高估',
+        TARGET_UNDER: lang === 'en' ? 'Target undervalued' : '目標價低估',
+        TARGET_OVER: lang === 'en' ? 'Target overvalued' : '目標價高估',
       };
       if (screenLabels[currentValFilter]) {
         tags.unshift(`<span class="tv-active-tag">${screenLabels[currentValFilter]}<button type="button" aria-label="Remove" onclick="setValFilter('ALL')">×</button></span>`);
       }
     }
     if (currentSectorFilter !== 'ALL') {
-                tags.push(`<span class="tv-active-tag">${currentSectorFilter}<button type="button" aria-label="Remove" onclick="clearSectorChip()">×</button></span>`);
+      tags.push(`<span class="tv-active-tag">${currentSectorFilter}<button type="button" aria-label="Remove" onclick="clearSectorChip()">×</button></span>`);
     }
     host.innerHTML = tags.join('');
   }
@@ -5515,11 +5801,13 @@
   document.addEventListener('click', (event) => {
     const inMetric = event.target.closest?.('.tv-metric-wrap');
     const inMore = event.target.closest?.('.tv-more-metrics-wrap');
-    if (!inMetric && !inMore) closeTvMetricMenus();
-    else if (!inMetric) closeTvMetricMenus({ keepMoreOpen: true });
+    const inPortaled = event.target.closest?.('.tv-metric-menu-portaled');
+    if (!inMetric && !inMore && !inPortaled) closeTvMetricMenus();
+    else if (!inMetric && !inPortaled) closeTvMetricMenus({ keepMoreOpen: true });
   });
 
-  function closeScreenerDetailDrawer() {
+
+    function closeScreenerDetailDrawer() {
     selectedScreenerTicker = null;
     const drawer = document.getElementById('screener-detail-drawer');
     const body = document.getElementById('tv-screener-body');
@@ -6052,19 +6340,13 @@
     }).filter(x => x !== null);
 
     const allCalc = list;
-    if (currentValFilter === 'UNDERVALUED') list = list.filter(item => item.isUndervalued);
-    else if (currentValFilter === 'OVERVALUED') list = list.filter(item => item.isUndervalued === false);
-    else if (currentValFilter === 'SAVED') list = list.filter(item => item.isSaved);
-    else if (currentValFilter === 'FAVORITES') list = list.filter(item => item.isFav);
+    if (currentValFilter && currentValFilter !== 'ALL') {
+      list = list.filter(item => screenFilterMatches(item, currentValFilter));
+    }
 
-    for (const [field, id] of Object.entries(screenerMetricFilters)) {
-      if (id == null) continue;
-      const preset = (TV_METRIC_PRESETS[field] || []).find(row => row.id === id);
-      if (!preset?.test) continue;
-      list = list.filter(item => {
-        const value = tvMetricFieldValue(item, field);
-        return value != null && preset.test(value);
-      });
+    for (const [field, filter] of Object.entries(screenerMetricFilters)) {
+      if (!metricFilterIsActive(filter)) continue;
+      list = list.filter(item => metricFilterMatches(item, field, filter));
     }
 
     if (currentSectorFilter !== 'ALL') {
@@ -6093,16 +6375,25 @@
     });
 
     const totalCount = allCalc.length;
-    const underCount = allCalc.filter(x => x.isUndervalued).length;
-    const overCount = allCalc.filter(x => x.isUndervalued === false).length;
+    const fmpUnder = allCalc.filter(x => Number.isFinite(x.fmp_dcf_upside) && x.fmp_dcf_upside < 0).length;
+    const fmpOver = allCalc.filter(x => Number.isFinite(x.fmp_dcf_upside) && x.fmp_dcf_upside > 0).length;
+    const levUnder = allCalc.filter(x => Number.isFinite(x.fmp_levered_upside) && x.fmp_levered_upside < 0).length;
+    const levOver = allCalc.filter(x => Number.isFinite(x.fmp_levered_upside) && x.fmp_levered_upside > 0).length;
+    const targetUnder = allCalc.filter(x => x.isSaved && Number.isFinite(x.target_spread) && x.target_spread < 0).length;
+    const targetOver = allCalc.filter(x => x.isSaved && Number.isFinite(x.target_spread) && x.target_spread > 0).length;
     const savedCount = Object.keys(savedModels).filter(ticker => stockUniverse[ticker]).length;
     const favCount = favs.filter(ticker => stockUniverse[ticker]).length;
 
     document.getElementById('stat-total').textContent = totalCount;
     document.getElementById('stat-fav-count').textContent = favCount;
-    document.getElementById('stat-undervalued').innerHTML = `${underCount}<small>${totalCount > 0 ? ((underCount/totalCount)*100).toFixed(0) : 0}%</small>`;
-    document.getElementById('stat-overvalued').innerHTML = `${overCount}<small>${totalCount > 0 ? ((overCount/totalCount)*100).toFixed(0) : 0}%</small>`;
     document.getElementById('stat-saved-count').textContent = savedCount;
+    const setStat = (id, count) => { const el = document.getElementById(id); if (el) el.innerHTML = formatStatCount(count, totalCount); };
+    setStat('stat-fmp-under', fmpUnder);
+    setStat('stat-fmp-over', fmpOver);
+    setStat('stat-lev-under', levUnder);
+    setStat('stat-lev-over', levOver);
+    setStat('stat-target-under', targetUnder);
+    setStat('stat-target-over', targetOver);
     syncScreenerScreenState(currentValFilter);
     syncTvMetricFilterChips();
     window.__screenerLastList = list;

@@ -100,13 +100,13 @@ const root = path.resolve(__dirname, '..');
     });
     assert.equal(openedAfterDrag, false);
 
-    // Clickable undervalued screen filters rows; does not wipe columns.
+    // Clickable FMP DCF undervalued screen filters rows; does not wipe columns.
     // Stat HTML is `${n}<small>…%</small>` — read the leading text node, not innerText.
-    const underCount = await page.locator('#stat-undervalued').evaluate(el =>
+    const underCount = await page.locator('#stat-fmp-under').evaluate(el =>
       Number((el.childNodes[0]?.textContent || '').trim()));
-    await page.locator('#stat-undervalued-box').click();
-    assert.equal(await page.evaluate(() => currentValFilter), 'UNDERVALUED');
-    assert.ok(await page.locator('#stat-undervalued-box').evaluate(el => el.classList.contains('active')));
+    await page.locator('#stat-fmp-under-box').click();
+    assert.equal(await page.evaluate(() => currentValFilter), 'FMP_UNDER');
+    assert.ok(await page.locator('#stat-fmp-under-box').evaluate(el => el.classList.contains('active')));
     const filtered = await page.locator('#screener-tbody tr').count();
     if (underCount === 0) {
       assert.equal(filtered, 0);
