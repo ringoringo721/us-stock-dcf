@@ -1,0 +1,63 @@
+name: Capture FMP dividends and revenue segments
+
+on:
+  workflow_dispatch:
+    inputs:
+      tickers:
+        description: Comma-separated tickers (empty = curated US dividend/segment set)
+        type: string
+        default: ''
+      branch:
+        description: Branch to checkout and push caches onto
+        type: string
+        default: 'cursor/div-growth-debt-fcf-db61'
+
+permissions:
+  contents: write
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.branch }}
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Capture dividends and revenue segments
+        env:
+          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+          CAPTURE_REQUEST_DELAY: '180'
+        run: |
+          set -euo pipefail
+          if [ -z "${FMP_API_KEY:-}" ]; then
+            echo "FMP_API_KEY secret is missing"
+            exit 1
+          fi
+          TICKERS='${{ inputs.tickers }}'
+          if [ -z "$TICKERS" ]; then
+            TICKERS='AAPL,MSFT,NVDA,MCD,KO,PEP,JNJ,PG,XOM,CVX,IBM,INTC,CSCO,WMT,T,VZ,MRK,ABBV,AVGO,ORCL,AMD,META,GOOGL,AMZN,TSLA,DIS,NKE,BA,CAT,UNH,HD,MA,V,COST,ADBE,CRM,QCOM,TXN,AMGN,PFE,LLY,BRK.B,JPM,BAC,WFC,GS,MS,C,0700.HK,0005.HK,0939.HK,1398.HK,2318.HK,1299.HK,0388.HK,9988.HK'
+          fi
+          mkdir -p cache/dividends cache/revenue_segments
+          node scripts/capture_dividends.cjs "$TICKERS"
+          node scripts/capture_revenue_segments.cjs "$TICKERS" || true
+
+      - name: Commit caches when changed
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add cache/dividends cache/revenue_segments
+          if git diff --cached --quiet; then
+            echo "No cache changes"
+            exit 0
+          fi
+          git commit -m "Cache FMP dividends and revenue segments for preview"
+          git push origin HEAD
