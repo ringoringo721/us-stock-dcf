@@ -2345,6 +2345,9 @@
         <p class="analysis-note" data-i18n="analysis_dividend_payments_note">TradingView-style dividend summary, KPIs, and history from FMP dividend cache/API.</p>
         <div id="dividend-insights" class="tv-div-insights" role="status"></div>
         <div id="dividend-kpi-grid" class="tv-kpi-grid" aria-live="polite"></div>
+        <div class="table-scroll-wrapper" style="margin-bottom: 16px; padding: 12px 8px; border: 1px solid var(--card-border); border-radius: 10px; background: var(--surface-bg);">
+          <canvas id="dividend-tv-chart" height="120" aria-label="Dividend history chart"></canvas>
+        </div>
         <div class="balance-controls company-analysis-controls" style="margin-top: 4px; margin-bottom: 8px;">
           <div class="form-group">
             <label data-i18n="lbl_div_grain">Period</label>
@@ -2377,7 +2380,7 @@
             <tbody id="cmp-dividend-tbody"></tbody>
           </table>
         </div>
-        <div class="panel-title" style="font-size:15px;" data-i18n="sec_dividend_payments_detail">Dividend payments</div>
+        <div class="panel-title" style="font-size:15px;" data-i18n="sec_dividend_payments_detail">Dividend payout history</div>
         <div class="table-scroll-wrapper company-analysis-scroll">
           <table id="cmp-dividend-payments" class="historical-ratio-table company-analysis-table">
             <thead><tr id="cmp-dividend-pay-thead"></tr></thead>
@@ -3287,7 +3290,7 @@
       analysis_revenue_breakdown_note: "與財報相同期間視圖（年度 5年＋TTM／近 20 季）；FMP 有拆解的股票才顯示金額，缺資料為 N/A，不補造。涵蓋因股票而異，非全市場皆有。",
       sec_dividend_payments: "公司股利洞察",
       analysis_dividend_payments_note: "TradingView 風格：頻率／最近 DPS／殖利率、KPI（含連續股息成長）、年度／季度歷史表與明細。優先 FMP 股利快取／API。",
-      sec_dividend_payments_detail: "股利發放明細",
+      sec_dividend_payments_detail: "股利發放歷史",
       sec_documents: "申報／文件",
       analysis_documents_note: "財務報表申報與法說逐字稿；連結可立即開啟（SEC EDGAR；有 FMP 金鑰時另列 FMP 申報／逐字稿）。",
       sec_documents_filings: "財務報表申報",
@@ -3867,7 +3870,7 @@
       analysis_revenue_breakdown_note: "Same period views as statements (annual 5Y+TTM / last 20Q). Amounts only when FMP publishes segments; missing stays N/A. Coverage is ticker-specific, not universal.",
       sec_dividend_payments: "Company dividend insights",
       analysis_dividend_payments_note: "TradingView-style frequency / last DPS / yield, KPIs (incl. Cont div growth), annual/quarterly history, and payment detail. Prefer FMP dividend cache/API.",
-      sec_dividend_payments_detail: "Dividend payments",
+      sec_dividend_payments_detail: "Dividend payout history",
       sec_documents: "Filings / Documents",
       analysis_documents_note: "Financial statement filings and earnings call transcripts with links that open immediately (SEC EDGAR; FMP rows when the Preview key is configured).",
       sec_documents_filings: "Financial statement filings",
@@ -8261,6 +8264,22 @@
       return isEn ? 'annual' : '每年';
     }
 
+    const fmtDate = iso => {
+      if (!iso || !/^\d{4}-\d{2}-\d{2}$/.test(String(iso).slice(0, 10))) return '—';
+      const d = new Date(`${String(iso).slice(0, 10)}T00:00:00Z`);
+      return d.toLocaleDateString(isEn ? 'en-US' : 'zh-TW', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+    };
+    const paymentFrequency = (row, peers = []) => {
+      if (row.annualOnly) return isEn ? 'Annual' : '每年';
+      const amt = Number(row.adjDividend != null ? row.adjDividend : row.dividend);
+      // Special / other: amount much larger than recent regular peers.
+      const regs = peers.filter(p => Number.isFinite(Number(p.dividend)) && Number(p.dividend) > 0)
+        .slice(0, 8).map(p => Number(p.adjDividend != null ? p.adjDividend : p.dividend));
+      const med = regs.length ? [...regs].sort((a, b) => a - b)[Math.floor((regs.length - 1) / 2)] : null;
+      if (med && Number.isFinite(amt) && amt > med * 2.5) return isEn ? 'Other' : '其他';
+      return isEn ? 'Quarterly' : '每季';
+    };
+
     function paint(record, payoutByYear, yieldOpts = null) {
       if (activeCompanyTicker !== ticker) return;
       const table = DividendHistory.aggregateCalendar(record.rows, {
@@ -8271,31 +8290,55 @@
       const cont = DividendHistory.continuousDividendGrowth(series);
       const completeYears = table.years.filter(row => Number.isFinite(row.fy) && row.fy > 0);
       const latest = completeYears[0] || table.years[0];
-      const prior = completeYears[1];
-      const lastDps = latest && Number.isFinite(latest.fy) ? latest.fy : null;
-      const yieldTtm = latest && Number.isFinite(latest.yieldPct) ? latest.yieldPct : null;
+      const paymentsChrono = [...(record.rows || [])]
+        .filter(row => row && row.date)
+        .sort((a, b) => String(b.date).localeCompare(String(a.date)));
+      const todayIso = new Date().toISOString().slice(0, 10);
+      const upcoming = paymentsChrono.find(row => String(row.date).slice(0, 10) >= todayIso);
+      const lastPayment = paymentsChrono.find(row => String(row.date).slice(0, 10) < todayIso) || paymentsChrono[0];
+      const nextEx = upcoming?.date || null;
+      const nextPay = upcoming?.paymentDate || null;
+      const nextAmt = upcoming
+        ? Number(upcoming.adjDividend != null ? upcoming.adjDividend : upcoming.dividend)
+        : (lastPayment ? Number(lastPayment.adjDividend != null ? lastPayment.adjDividend : lastPayment.dividend) : null);
+      const yieldTtm = (() => {
+        // Prefer TTM from last 4 payments / current price when available.
+        const price = yieldOpts?.currentPrice;
+        const last4 = paymentsChrono.filter(row => String(row.date).slice(0, 10) <= todayIso).slice(0, 4);
+        if (Number.isFinite(price) && price > 0 && last4.length) {
+          const sum = last4.reduce((s, row) => s + Number(row.adjDividend != null ? row.adjDividend : row.dividend || 0), 0);
+          if (sum > 0) return (sum / price) * 100;
+        }
+        return latest && Number.isFinite(latest.yieldPct) ? latest.yieldPct : null;
+      })();
       const payout = latest && Number.isFinite(latest.payoutRatioPct) ? latest.payoutRatioPct : null;
-      const yoy = (latest && prior && prior.fy > 0 && Number.isFinite(latest.fy))
-        ? ((latest.fy / prior.fy) - 1) * 100 : null;
       const freq = detectFrequency(table.years);
 
       if (insights) {
         insights.innerHTML = isEn
-          ? `Payouts are made <strong>${freq}</strong>. The last dividend per share (FY) was <strong>${fmtAmt(lastDps)}</strong>`
-            + (Number.isFinite(yieldTtm) ? `. As of the latest year, dividend yield is <strong>${fmtPct(yieldTtm)}</strong>` : '')
-            + `. Cont div growth = <strong>${fmtInt(cont)}</strong>.`
-          : `發放頻率為<strong>${freq}</strong>。最近全年每股股息 <strong>${fmtAmt(lastDps)}</strong>`
-            + (Number.isFinite(yieldTtm) ? `；最近殖利率 <strong>${fmtPct(yieldTtm)}</strong>` : '')
-            + `。連續股息成長 = <strong>${fmtInt(cont)}</strong>。`;
+          ? `Payouts are made <strong>${freq}</strong>.`
+            + (Number.isFinite(nextAmt) && nextEx
+              ? ` The next dividend per share is expected to be <strong>${fmtAmt(nextAmt)}</strong>, buy before <strong>${fmtDate(nextEx)}</strong> to get paid.`
+              : (Number.isFinite(nextAmt)
+                ? ` The last dividend per share was <strong>${fmtAmt(nextAmt)}</strong>.`
+                : ''))
+            + (Number.isFinite(yieldTtm) ? ` As of today, dividend yield (TTM)% is <strong>${fmtPct(yieldTtm)}</strong>.` : '')
+            + ` Cont div growth = <strong>${fmtInt(cont)}</strong>.`
+          : `發放頻率為<strong>${freq}</strong>。`
+            + (Number.isFinite(nextAmt) && nextEx
+              ? ` 預期下一每股股息 <strong>${fmtAmt(nextAmt)}</strong>，請於 <strong>${fmtDate(nextEx)}</strong> 前買入。`
+              : (Number.isFinite(nextAmt) ? ` 最近每股股息 <strong>${fmtAmt(nextAmt)}</strong>。` : ''))
+            + (Number.isFinite(yieldTtm) ? ` 目前殖利率（TTM）為 <strong>${fmtPct(yieldTtm)}</strong>。` : '')
+            + ` 連續股息成長 = <strong>${fmtInt(cont)}</strong>。`;
       }
 
       if (kpiGrid) {
         const cards = [
-          { zh: '殖利率 %', en: 'Div yield %', value: fmtPct(yieldTtm) },
-          { zh: '發放率 %', en: 'Payout %', value: fmtPct(payout) },
+          { zh: '下次除息日', en: 'Next ex-dividend date', value: fmtDate(nextEx) },
+          { zh: '下次發放日', en: 'Next payment date', value: fmtDate(nextPay) },
+          { zh: '股息金額', en: 'Dividend amount', value: Number.isFinite(nextAmt) ? `${fmtAmt(nextAmt)} USD` : '—' },
+          { zh: '殖利率 TTM', en: 'Dividend yield TTM', value: fmtPct(yieldTtm) },
           { zh: '連續股息成長', en: 'Cont div growth', value: fmtInt(cont) },
-          { zh: '全年 DPS', en: 'Div per share FY', value: fmtAmt(lastDps) },
-          { zh: 'DPS 年增 %', en: 'DPS growth % YoY', value: fmtPct(yoy) },
         ];
         kpiGrid.innerHTML = cards.map(card => `<div class="tv-kpi-card"><div class="tv-kpi-label">${
           isEn ? card.en : card.zh}</div><div class="tv-kpi-value">${card.value}</div></div>`).join('');
@@ -8330,37 +8373,81 @@
             periods.map(row => `<td>${fmtPct(row.yieldPct)}</td>`).join('')}</tr>`;
       } else {
         tbody.innerHTML = `
-          <tr><td class="table-sticky-col" style="text-align:left;font-weight:600;">${isEn ? 'Div per share FY' : '全年 DPS'}</td>${
+          <tr><td class="table-sticky-col" style="text-align:left;font-weight:600;">${isEn ? 'Dividends per share (FY)' : '每股股息（全年）'}</td>${
             periods.map(row => `<td style="font-weight:700;">${fmtAmt(row.fy)}</td>`).join('')}</tr>
-          <tr><td class="table-sticky-col" style="text-align:left;font-weight:600;">${isEn ? 'Div yield %' : '殖利率 %'}</td>${
+          <tr><td class="table-sticky-col" style="text-align:left;font-weight:600;">${isEn ? 'Dividend yield (FY) %' : '股息殖利率（全年）%'}</td>${
             periods.map(row => `<td>${fmtPct(row.yieldPct)}</td>`).join('')}</tr>
-          <tr><td class="table-sticky-col" style="text-align:left;font-weight:600;">${isEn ? 'Payout %' : '發放率 %'}</td>${
-            periods.map(row => `<td>${fmtPct(row.payoutRatioPct)}</td>`).join('')}</tr>
-          <tr><td class="table-sticky-col" style="text-align:left;font-weight:600;">${isEn ? 'DPS growth % YoY' : 'DPS 年增 %'}</td>${
-            periods.map((row, index) => {
-              const older = periods[index + 1];
-              const growth = (Number.isFinite(row.fy) && older && older.fy > 0)
-                ? ((row.fy / older.fy) - 1) * 100 : null;
-              return `<td>${fmtPct(growth)}</td>`;
-            }).join('')}</tr>`;
+          <tr><td class="table-sticky-col" style="text-align:left;font-weight:600;">${isEn ? 'Payout ratio (FY) %' : '發放率（全年）%'}</td>${
+            periods.map(row => `<td>${fmtPct(row.payoutRatioPct)}</td>`).join('')}</tr>`;
       }
 
       if (payHead && payBody) {
-        payHead.innerHTML = `<th class="table-sticky-col">${isEn ? 'Ex-date' : '除息日'}</th>`
-          + `<th>${isEn ? 'Dividend' : '每股股息'}</th>`
-          + `<th>${isEn ? 'Adj. dividend' : '調整後股息'}</th>`;
-        const payments = [...(record.rows || [])]
-          .filter(row => row && row.date)
-          .sort((a, b) => String(b.date).localeCompare(String(a.date)))
-          .slice(0, Math.max(20, years * 4));
+        payHead.innerHTML = `<th class="table-sticky-col">${isEn ? 'Ex-dividend date' : '除息日'}</th>`
+          + `<th>${isEn ? 'Record date' : '基準日'}</th>`
+          + `<th>${isEn ? 'Payment date' : '發放日'}</th>`
+          + `<th>${isEn ? 'Amount' : '金額'}</th>`
+          + `<th>${isEn ? 'Frequency' : '頻率'}</th>`;
+        const payments = paymentsChrono.slice(0, Math.max(20, years * 4));
         payBody.innerHTML = payments.length
-          ? payments.map(row => `<tr>
-              <td class="table-sticky-col" style="text-align:left;">${String(row.date).slice(0, 10)}</td>
-              <td>${fmtAmt(row.dividend)}</td>
-              <td>${fmtAmt(row.adjDividend != null ? row.adjDividend : row.dividend)}</td>
-            </tr>`).join('')
-          : `<tr><td class="table-sticky-col text-muted" colspan="3">${
+          ? payments.map((row, index) => {
+              const amt = row.adjDividend != null ? row.adjDividend : row.dividend;
+              return `<tr>
+              <td class="table-sticky-col" style="text-align:left;">${fmtDate(row.date)}</td>
+              <td>${fmtDate(row.recordDate)}</td>
+              <td>${fmtDate(row.paymentDate)}</td>
+              <td>${fmtAmt(amt)}</td>
+              <td>${paymentFrequency(row, payments.slice(index + 1))}</td>
+            </tr>`;
+            }).join('')
+          : `<tr><td class="table-sticky-col text-muted" colspan="5">${
             isEn ? 'No individual payment rows.' : '無逐筆發放紀錄。'}</td></tr>`;
+      }
+
+      // TV-style DPS bars + yield line (annual complete years, oldest→newest).
+      const chartCanvas = document.getElementById('dividend-tv-chart');
+      if (chartCanvas && typeof Chart !== 'undefined') {
+        const annual = [...completeYears].reverse().slice(-Math.min(years, 12));
+        const labels = annual.map(row => String(row.year));
+        const dps = annual.map(row => Number.isFinite(row.fy) ? row.fy : null);
+        const yld = annual.map(row => Number.isFinite(row.yieldPct) ? row.yieldPct : null);
+        if (window.__dividendTvChart) {
+          try { window.__dividendTvChart.destroy(); } catch (_) { /* ignore */ }
+        }
+        window.__dividendTvChart = new Chart(chartCanvas.getContext('2d'), {
+          data: {
+            labels,
+            datasets: [
+              {
+                type: 'bar',
+                label: isEn ? 'Dividends per share (FY)' : '每股股息（全年）',
+                data: dps,
+                yAxisID: 'yDps',
+                backgroundColor: 'rgba(41, 98, 255, 0.55)',
+                borderRadius: 3,
+              },
+              {
+                type: 'line',
+                label: isEn ? 'Dividend yield (FY) %' : '殖利率（全年）%',
+                data: yld,
+                yAxisID: 'yYield',
+                borderColor: 'rgba(0, 188, 212, 0.95)',
+                backgroundColor: 'rgba(0, 188, 212, 0.15)',
+                tension: 0.25,
+                pointRadius: 3,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { position: 'bottom' } },
+            scales: {
+              yDps: { position: 'right', title: { display: true, text: 'USD' }, grid: { drawOnChartArea: false } },
+              yYield: { position: 'left', title: { display: true, text: '%' } },
+            },
+          },
+        });
+        chartCanvas.parentElement.style.height = '260px';
       }
 
       const paidYears = shaped.rows.filter(row => Number.isFinite(row.fy)).length;
