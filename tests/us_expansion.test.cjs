@@ -7,7 +7,7 @@ const vm = require('node:vm');
 const universe = require('../us_universe.js');
 const {
   needsMoatRecovery, ingest, packageResults, integrate, writeMoatCaches, applyBatchWindow,
-  usMoatEvidenceHash
+  usMoatEvidenceHash, roundFin
 } = require('../scripts/build_us_expansion.cjs');
 const root = path.resolve(__dirname, '..');
 
@@ -74,6 +74,30 @@ test('usMoatEvidenceHash matches Python us_moat_evidence_hash domain (not statem
   assert.equal(a, b);
   assert.notEqual(a, usMoatEvidenceHash({ ...fin, f_score: 6 }));
   assert.match(a, /^[a-f0-9]{64}$/);
+});
+
+test('roundFin matches Python 3 banker’s rounding (not Math.round half-up)', () => {
+  // Exact halfway ties (digits=0) — Math.round diverges.
+  assert.equal(roundFin(0.5, 0), 0);
+  assert.equal(roundFin(1.5, 0), 2);
+  assert.equal(roundFin(2.5, 0), 2); // Math.round(2.5) === 3
+  assert.equal(roundFin(3.5, 0), 4);
+  assert.equal(roundFin(100.5, 0), 100); // Math.round(100.5) === 101
+  assert.equal(roundFin(101.5, 0), 102);
+  assert.equal(roundFin(-1.5, 0), -2);
+  assert.equal(roundFin(-2.5, 0), -2);
+  // Float dtoa / Decimal.from_float quantize parity (not naive scale-half-even).
+  assert.equal(roundFin(12.345, 2), 12.35);
+  assert.equal(roundFin(12.355, 2), 12.36);
+  assert.equal(roundFin(4.565, 2), 4.57);
+  assert.equal(roundFin(null, 0), null);
+  assert.notEqual(roundFin(2.5, 0), Math.round(2.5));
+  // Half-up would flip fcf0 100.5 → 101 and desync the hash vs build_full_market.
+  const base = {
+    name: 'Tie', sector: 'S', industry: 'I', roe: 1, roa: 1, f_score: 1,
+    fcf0: 100.5, debt: 2.5, cash: 0.5
+  };
+  assert.match(usMoatEvidenceHash(base), /^[a-f0-9]{64}$/);
 });
 
 test('ingest preserves saved moat; staleEvidence uses moat evidenceHash not statement SHA', () => {

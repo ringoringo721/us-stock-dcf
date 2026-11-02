@@ -48,14 +48,38 @@ function needsMoatRecovery(stock) {
     || typeof report.overall_moat_verdict_en !== 'string' || !report.overall_moat_verdict_en.trim();
 }
 
-/** Match build_full_market.us_moat_evidence_hash (name/sector/ROE/FCF… — not statement SHA). */
+/**
+ * Match Python 3 `round(x, ndigits)` on IEEE floats (banker's rounding).
+ * Math.round is half-away-from-zero and would desync us_moat_evidence_hash → false staleEvidence.
+ *
+ * Naive `roundHalfEven(x * 10**d) / 10**d` is NOT enough: CPython rounds the true
+ * real value of the float (dtoa / Decimal.from_float semantics). Compare distances
+ * to the two candidate quanta; only true ties use half-to-even. Finish with
+ * toFixed so chosen quanta never serialize as 4.569999999999999 (≠ Python 4.57).
+ */
 function roundFin(value, digits) {
   // Number(null) === 0 in JS; treat nullish like Python float(None) failure → null.
   if (value === null || value === undefined || value === '') return null;
   const number = Number(value);
   if (!Number.isFinite(number)) return null;
+  const sign = number < 0 ? -1 : 1;
+  const abs = Math.abs(number);
   const factor = 10 ** digits;
-  return Math.round(number * factor) / factor;
+  const lowerInt = Math.floor(abs * factor);
+  const lower = lowerInt / factor;
+  const upper = (lowerInt + 1) / factor;
+  const dLower = abs - lower;
+  const dUpper = upper - abs;
+  let chosenInt;
+  if (dLower < dUpper) chosenInt = lowerInt;
+  else if (dUpper < dLower) chosenInt = lowerInt + 1;
+  else chosenInt = (lowerInt % 2 === 0) ? lowerInt : lowerInt + 1;
+  const result = Number(((sign * chosenInt) / factor).toFixed(digits));
+  return Object.is(result, -0) ? 0 : result;
+}
+
+function roundHalfEvenInteger(scaled) {
+  return roundFin(scaled, 0);
 }
 
 function usMoatEvidencePayload(finContext = {}) {
@@ -457,5 +481,5 @@ if (require.main === module) {
 
 module.exports = {
   matrix, ingest, packageResults, integrate, writeMoatCaches, needsMoatRecovery, listingStock,
-  applyBatchWindow, usMoatEvidenceHash, usMoatEvidencePayload
+  applyBatchWindow, usMoatEvidenceHash, usMoatEvidencePayload, roundFin, roundHalfEvenInteger
 };
