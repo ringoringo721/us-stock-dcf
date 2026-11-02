@@ -107,14 +107,22 @@
     const ebitda = reported ? reported.ebitda : quotedTtm?.ebitda;
     const fcf = snapshot?.quotedTtm ? quotedTtm.reportedFcf : quotedTtm?.reportedFcf ?? stock.fcf0;
     const ratio = (a, b, scale = 1) => finite(a) && finite(b) && b > 0 ? a / b * scale : null;
+    // US expansion / incomplete FCFF stubs often omit TTM EBITDA while catalogue still
+    // carries statement-backed leverage. Prefer live multiples when EBITDA is known
+    // (including ≤0 → N/A); otherwise keep catalogue values instead of blanking the table.
+    const leverageOrCatalogue = (live, key) => {
+      if (reported) return reported.values[key];
+      if (finite(ebitda)) return live;
+      return finite(stock[key]) ? stock[key] : null;
+    };
     return {
       ...result, premiumPct, mcap, EV: ev, quotedNetDebt: net, localFCF0: fcf, localDebt: debt, localCash: cash,
       reportedEbitda: ebitda,
       isUndervalued: premiumPct === null ? null : premiumPct < 0,
       fcf_to_ev: ratio(fcf, ev, 100), fcf_to_mcap: ratio(fcf, mcap, 100),
-      ev_to_ebitda: reported ? reported.values.ev_to_ebitda : ratio(ev, ebitda),
-      debt_to_ebitda: reported ? reported.values.debt_to_ebitda : ratio(debt, ebitda),
-      net_debt_to_ebitda: reported ? reported.values.net_debt_to_ebitda : ratio(net, ebitda),
+      ev_to_ebitda: leverageOrCatalogue(ratio(ev, ebitda), 'ev_to_ebitda'),
+      debt_to_ebitda: leverageOrCatalogue(ratio(debt, ebitda), 'debt_to_ebitda'),
+      net_debt_to_ebitda: leverageOrCatalogue(ratio(net, ebitda), 'net_debt_to_ebitda'),
       div_yield: stock.div_yield, f_score: stock.f_score,
       f_score_breakdown: stock.f_score_breakdown || []
     };

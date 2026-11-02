@@ -52,7 +52,7 @@ const priceRows = ticker => JSON.parse(fs.readFileSync(path.join(root, 'cache', 
     await page.evaluate(() => applyLanguage('en'));
     for (const ticker of ['0388.HK', '0700.HK', '9988.HK', '0823.HK', '0005.HK', '0939.HK']) {
       const result = await page.locator('#screener-tbody tr').filter({ hasText: ticker }).evaluate(row =>
-        [...row.querySelectorAll('[data-price-difference]')].map(cell => ({
+        [...row.querySelectorAll('[data-price-difference="dcf"], [data-price-difference="levered"]')].map(cell => ({
           field: cell.dataset.priceDifference, value: cell.dataset.value,
           applicable: cell.dataset.applicable, text: cell.textContent,
           preceding: cell.previousElementSibling?.textContent,
@@ -60,6 +60,8 @@ const priceRows = ticker => JSON.parse(fs.readFileSync(path.join(root, 'cache', 
         })));
       assert.equal(result.length, 2);
       assert.deepEqual(result.map(cell => cell.field), ['dcf', 'levered']);
+      assert.equal(await page.locator('#screener-tbody tr').filter({ hasText: ticker })
+        .locator('[data-price-difference="catalogue"]').count(), 1);
       for (const cell of result) {
         if (cell.applicable === 'false') assert.equal(cell.text, 'Not applicable');
         else if (!cell.value) assert.equal(cell.text, 'N/A');
@@ -76,7 +78,7 @@ const priceRows = ticker => JSON.parse(fs.readFileSync(path.join(root, 'cache', 
     }
     assert.equal(await page.locator('#screener-table th[data-i18n="th_premium"]').count(), 0);
     assert.equal(await page.locator('#screener-tbody .badge-undervalued, #screener-tbody .badge-overvalued').count(), 0);
-    for (const [preset, expected] of [['overview', 9], ['valuation', 15], ['financial', 22], ['all', 38]]) {
+    for (const [preset, expected] of [['overview', 10], ['valuation', 15], ['financial', 22], ['all', 40]]) {
       await page.selectOption('#screener-columns', preset);
       assert.equal(await page.locator('#screener-table thead th:visible').count(), expected);
       assert.equal(await page.locator('#screener-tbody tr').first().locator('td:visible').count(), expected);

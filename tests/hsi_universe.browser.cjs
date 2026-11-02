@@ -172,7 +172,7 @@ function expectedAnnualCells(stock) {
       currentValFilter = 'FAVORITES'; renderScreenerTable();
     }, config.map(item => item.ticker));
     assert.equal(await page.locator('#screener-tbody tr').count(), config.length);
-    assert.equal(await page.locator('#screener-table thead th').count(), 38);
+    assert.equal(await page.locator('#screener-table thead th').count(), 40);
     assert.equal(await page.locator('[data-i18n="th_premium"]').count(), 0);
     for (const language of ['zh', 'en']) {
       await page.evaluate(language => applyLanguage(language), language);
