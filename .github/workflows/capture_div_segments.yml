@@ -35,19 +35,35 @@ jobs:
         env:
           FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
           CAPTURE_REQUEST_DELAY: '180'
+          # Pass workflow inputs via env — never interpolate into bash with secrets present.
+          INPUT_TICKERS: ${{ inputs.tickers }}
         run: |
           set -euo pipefail
           if [ -z "${FMP_API_KEY:-}" ]; then
             echo "FMP_API_KEY secret is missing"
             exit 1
           fi
-          TICKERS='${{ inputs.tickers }}'
+          TICKERS="${INPUT_TICKERS:-}"
           if [ -z "$TICKERS" ]; then
             TICKERS='AAPL,MSFT,NVDA,MCD,KO,PEP,JNJ,PG,XOM,CVX,IBM,INTC,CSCO,WMT,T,VZ,MRK,ABBV,AVGO,ORCL,AMD,META,GOOGL,AMZN,TSLA,DIS,NKE,BA,CAT,UNH,HD,MA,V,COST,ADBE,CRM,QCOM,TXN,AMGN,PFE,LLY,BRK.B,JPM,BAC,WFC,GS,MS,C,0700.HK,0005.HK,0939.HK,1398.HK,2318.HK,1299.HK,0388.HK,9988.HK'
           fi
           mkdir -p cache/dividends cache/revenue_segments
+          # Soft-continue: empty dividend lists (non-payers) and missing segments must not
+          # abort revenue capture or the cache commit under set -e.
+          set +e
           node scripts/capture_dividends.cjs "$TICKERS"
-          node scripts/capture_revenue_segments.cjs "$TICKERS" || true
+          DIV_STATUS=$?
+          node scripts/capture_revenue_segments.cjs "$TICKERS"
+          SEG_STATUS=$?
+          set -e
+          echo "capture_exit dividends=${DIV_STATUS} segments=${SEG_STATUS}"
+          # Only fail the step if both captures hard-failed with no files written.
+          if [ "$DIV_STATUS" -ne 0 ] && [ "$SEG_STATUS" -ne 0 ] \
+              && [ -z "$(ls -A cache/dividends 2>/dev/null)" ] \
+              && [ -z "$(ls -A cache/revenue_segments 2>/dev/null)" ]; then
+            echo "Both captures failed and no cache files were written"
+            exit 1
+          fi
 
       - name: Commit caches when changed
         run: |
