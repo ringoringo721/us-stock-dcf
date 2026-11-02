@@ -83,6 +83,7 @@
   <script src="beta_lookback.js"></script>
   <script src="dividend_history.js"></script>
   <script src="revenue_segments.js"></script>
+  <script src="company_documents.js"></script>
   <script src="dividend_leverage_metrics_data.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   
@@ -850,6 +851,50 @@
     .company-analysis-table .financial-group-label { position: static; white-space: normal; }
     .company-analysis-table .fin-group-header-row td { text-transform: none; letter-spacing: normal; font-weight: 600 !important; }
     .company-analysis-table .fcf-trend-col { min-width: 140px; }
+
+    /* TradingView-style dividend + documents panels */
+    .tv-div-insights {
+      border: 1px solid var(--card-border); border-radius: 10px; padding: 16px 18px;
+      background: var(--surface-bg); margin: 12px 0 16px; line-height: 1.7;
+    }
+    .tv-div-insights strong { color: var(--text-primary); }
+    .tv-kpi-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px; margin-bottom: 16px;
+    }
+    .tv-kpi-card {
+      border: 1px solid var(--card-border); border-radius: 10px; padding: 14px 16px;
+      background: var(--surface-bg); min-width: 0;
+    }
+    .tv-kpi-card .tv-kpi-label {
+      font-size: 12px; color: var(--text-muted); line-height: 1.4; min-height: 32px;
+    }
+    .tv-kpi-card .tv-kpi-value {
+      font-size: clamp(18px, 2vw, 26px); font-weight: 700; font-variant-numeric: tabular-nums;
+      margin-top: 6px; color: var(--text-primary);
+    }
+    .tv-period-toggle { display: inline-flex; gap: 6px; flex-wrap: wrap; }
+    .tv-period-toggle .stmt-btn.active {
+      background: var(--accent); color: #fff; border-color: var(--accent);
+    }
+    #cmp-dividend-matrix th, #cmp-dividend-matrix td,
+    #cmp-dividend-payments th, #cmp-dividend-payments td,
+    #cmp-documents-filings th, #cmp-documents-filings td,
+    #cmp-documents-transcripts th, #cmp-documents-transcripts td {
+      padding: 11px 12px !important; border-right: 1px solid var(--card-border);
+      border-bottom: 1px solid var(--card-border); font-variant-numeric: tabular-nums;
+    }
+    #cmp-documents-filings a, #cmp-documents-transcripts a, .tv-doc-links a {
+      color: var(--accent); text-decoration: none; font-weight: 600;
+    }
+    #cmp-documents-filings a:hover, #cmp-documents-transcripts a:hover, .tv-doc-links a:hover {
+      text-decoration: underline;
+    }
+    .tv-doc-links { display: flex; flex-wrap: wrap; gap: 10px 16px; margin: 10px 0 16px; }
+    .tv-doc-links a {
+      border: 1px solid var(--card-border); border-radius: 999px; padding: 8px 14px;
+      background: var(--surface-bg);
+    }
     #cmp-ratio-table td, #cmp-ratio-table th { min-width: 140px; }
     #cmp-ratio-table thead .fcf-trend-col, #cmp-fin-table thead .fcf-trend-col { z-index: 30 !important; }
     #cmp-peers-table .peer-current { background: color-mix(in srgb, var(--card-bg) 85%, var(--gold) 15%) !important; font-weight: 700; }
@@ -1603,12 +1648,7 @@
             <th onclick="sortTable('pe_forward')" style="width: 90px;" data-i18n="th_pe_forward">動態 P/E</th>
             <th onclick="sortTable('pb_trailing')" style="width: 90px;" data-i18n="th_pb">靜態 P/B</th>
             <th onclick="sortTable('div_yield')" style="width: 105px;" data-i18n="th_div">股息率 (%)</th>
-            <th onclick="sortTable('div_cagr_5y')" style="width: 100px;" data-i18n="th_div_cagr_5">股息 CAGR 5年 (%)</th>
-            <th onclick="sortTable('div_cagr_10y')" style="width: 105px;" data-i18n="th_div_cagr_10">股息 CAGR 10年 (%)</th>
-            <th onclick="sortTable('div_cagr_15y')" style="width: 105px;" data-i18n="th_div_cagr_15">股息 CAGR 15年 (%)</th>
-            <th onclick="sortTable('div_cagr_20y')" style="width: 105px;" data-i18n="th_div_cagr_20">股息 CAGR 20年 (%)</th>
-            <th onclick="sortTable('div_cagr_25y')" style="width: 105px;" data-i18n="th_div_cagr_25">股息 CAGR 25年 (%)</th>
-            <th onclick="sortTable('div_cagr_30y')" style="width: 105px;" data-i18n="th_div_cagr_30">股息 CAGR 30年 (%)</th>
+            <th onclick="sortTable('cont_div_growth')" style="width: 110px;" data-i18n="th_cont_div_growth">連續股息成長 (年)</th>
             <th onclick="sortTable('fcf_to_ev')" style="width: 110px;">FCF / EV (%)</th>
             <th onclick="sortTable('fcf_to_equity')" style="width: 170px;" data-i18n="fcf_equity_label">FCF / 股東應佔權益 (%)</th>
             <th onclick="sortTable('fcf_to_mcap')" style="width: 120px;">FCF / Mcap (%)</th>
@@ -1986,8 +2026,9 @@
       <button class="sub-tab-btn active" onclick="switchSubPage('basic')" data-i18n="tab_basic">📁 1. 基本資料</button>
       <button class="sub-tab-btn" onclick="switchSubPage('rating')" data-i18n="tab_rating">🏅 2. 企業評分</button>
       <button class="sub-tab-btn" onclick="switchSubPage('financials')" data-i18n="tab_financials">📑 3. 財務報表 (5年/TTM)</button>
-      <button class="sub-tab-btn" onclick="switchSubPage('dividend')" data-i18n="tab_dividend">💵 4. 股利發放 (30年)</button>
-      <button class="sub-tab-btn" onclick="switchSubPage('ratios')" data-i18n="tab_ratios">⚖️ 5. 關鍵比率</button>
+      <button class="sub-tab-btn" onclick="switchSubPage('dividend')" data-i18n="tab_dividend">💵 4. 股利 (TV)</button>
+      <button class="sub-tab-btn" onclick="switchSubPage('documents')" data-i18n="tab_documents">📂 5. 申報／文件</button>
+      <button class="sub-tab-btn" onclick="switchSubPage('ratios')" data-i18n="tab_ratios">⚖️ 6. 關鍵比率</button>
       <button class="sub-tab-btn" onclick="switchSubPage('peers')" data-i18n="tab_peers">👥 6. 同行業對比</button>
       <button class="sub-tab-btn" onclick="switchSubPage('charts')" data-i18n="tab_charts">📊 7. 趨勢分析</button>
       <button class="sub-tab-btn" onclick="switchSubPage('valuation')" data-i18n="tab_valuation">📐 8. 估值模型</button>
@@ -2300,36 +2341,70 @@
     <!-- 子分頁：近 30 年股利發放 -->
     <div id="subpage-dividend" class="subpage-content">
       <div class="panel historical-ratio-panel company-analysis-panel">
-        <div class="panel-title" data-i18n="sec_dividend_payments">股利發放紀錄（近 30 年）</div>
-        <p class="analysis-note" data-i18n="analysis_dividend_payments_note">以除息日彙整每股發放金額與全年發放率；優先 FMP 股利快取／API，缺則財報代理或 N/A。</p>
-        <div class="balance-controls company-analysis-controls" style="margin-top: 12px; margin-bottom: 8px;">
+        <div class="panel-title" data-i18n="sec_dividend_payments">Company dividend insights</div>
+        <p class="analysis-note" data-i18n="analysis_dividend_payments_note">TradingView-style dividend summary, KPIs, and history from FMP dividend cache/API.</p>
+        <div id="dividend-insights" class="tv-div-insights" role="status"></div>
+        <div id="dividend-kpi-grid" class="tv-kpi-grid" aria-live="polite"></div>
+        <div class="balance-controls company-analysis-controls" style="margin-top: 4px; margin-bottom: 8px;">
           <div class="form-group">
-            <label for="dividend-grain" data-i18n="lbl_div_grain">彙整期間</label>
-            <select id="dividend-grain" onchange="onDividendViewChange()">
-              <option value="quarter" data-i18n="opt_div_quarter">季度（Q1–Q4）</option>
-              <option value="half" data-i18n="opt_div_half">半年（H1／H2）</option>
-              <option value="year" data-i18n="opt_div_year">全年</option>
+            <label data-i18n="lbl_div_grain">Period</label>
+            <div class="tv-period-toggle" id="dividend-period-toggle">
+              <button type="button" class="stmt-btn active" data-div-grain="year" onclick="setDividendGrain('year')" data-i18n="opt_div_year">Annual</button>
+              <button type="button" class="stmt-btn" data-div-grain="quarter" onclick="setDividendGrain('quarter')" data-i18n="opt_div_quarter">Quarterly</button>
+            </div>
+            <select id="dividend-grain" hidden onchange="onDividendViewChange()">
+              <option value="quarter">quarter</option>
+              <option value="half">half</option>
+              <option value="year" selected>year</option>
             </select>
           </div>
           <div class="form-group">
-            <label for="dividend-years" data-i18n="lbl_div_years">年期（最長 30 年）</label>
+            <label for="dividend-years" data-i18n="lbl_div_years">Years</label>
             <select id="dividend-years" onchange="onDividendViewChange()">
               <option value="5">5</option>
-              <option value="10">10</option>
+              <option value="10" selected>10</option>
               <option value="15">15</option>
               <option value="20">20</option>
               <option value="25">25</option>
-              <option value="30" selected>30</option>
+              <option value="30">30</option>
             </select>
           </div>
         </div>
         <p id="dividend-payments-status" class="analysis-note" role="status"></p>
-        <div class="table-scroll-wrapper company-analysis-scroll">
-          <table id="cmp-dividend-table" class="historical-ratio-table company-analysis-table">
-            <thead>
-              <tr id="cmp-dividend-thead"></tr>
-            </thead>
+        <div class="table-scroll-wrapper company-analysis-scroll" style="margin-bottom: 18px;">
+          <table id="cmp-dividend-matrix" class="historical-ratio-table company-analysis-table">
+            <thead><tr id="cmp-dividend-thead"></tr></thead>
             <tbody id="cmp-dividend-tbody"></tbody>
+          </table>
+        </div>
+        <div class="panel-title" style="font-size:15px;" data-i18n="sec_dividend_payments_detail">Dividend payments</div>
+        <div class="table-scroll-wrapper company-analysis-scroll">
+          <table id="cmp-dividend-payments" class="historical-ratio-table company-analysis-table">
+            <thead><tr id="cmp-dividend-pay-thead"></tr></thead>
+            <tbody id="cmp-dividend-pay-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div id="subpage-documents" class="subpage-content">
+      <div class="panel historical-ratio-panel company-analysis-panel">
+        <div class="panel-title" data-i18n="sec_documents">Filings / Documents</div>
+        <p class="analysis-note" data-i18n="analysis_documents_note">Financial statement filings and earnings call transcripts with links that open immediately (SEC EDGAR + FMP when configured).</p>
+        <div id="documents-public-links" class="tv-doc-links"></div>
+        <p id="documents-status" class="analysis-note" role="status"></p>
+        <div class="panel-title" style="font-size:15px;" data-i18n="sec_documents_filings">Financial statement filings</div>
+        <div class="table-scroll-wrapper company-analysis-scroll" style="margin-bottom: 18px;">
+          <table id="cmp-documents-filings" class="historical-ratio-table company-analysis-table">
+            <thead><tr id="cmp-documents-filings-thead"></tr></thead>
+            <tbody id="cmp-documents-filings-tbody"></tbody>
+          </table>
+        </div>
+        <div class="panel-title" style="font-size:15px;" data-i18n="sec_documents_transcripts">Earnings call transcripts</div>
+        <div class="table-scroll-wrapper company-analysis-scroll">
+          <table id="cmp-documents-transcripts" class="historical-ratio-table company-analysis-table">
+            <thead><tr id="cmp-documents-transcripts-thead"></tr></thead>
+            <tbody id="cmp-documents-transcripts-tbody"></tbody>
           </table>
         </div>
       </div>
@@ -3205,12 +3280,18 @@
       tab_basic: "📁 1. 基本資料",
       tab_rating: "🏅 2. 企業評分",
       tab_financials: "📑 3. 財務報表 (5年/TTM)",
-      tab_dividend: "💵 4. 股利發放 (30年)",
-      tab_ratios: "⚖️ 5. 關鍵比率",
+      tab_dividend: "💵 4. 股利 (TV)",
+      tab_documents: "📂 5. 申報／文件",
+      tab_ratios: "⚖️ 6. 關鍵比率",
       sec_revenue_breakdown: "營收拆解（產品／地區）",
       analysis_revenue_breakdown_note: "與財報相同期間視圖（年度 5年＋TTM／近 20 季）；FMP 有拆解的股票才顯示金額，缺資料為 N/A，不補造。涵蓋因股票而異，非全市場皆有。",
-      sec_dividend_payments: "股利發放紀錄（近 30 年）",
-      analysis_dividend_payments_note: "以除息日彙整每股發放金額與全年發放率；優先 FMP 股利快取／API，缺則財報代理或 N/A。",
+      sec_dividend_payments: "公司股利洞察",
+      analysis_dividend_payments_note: "TradingView 風格：頻率／最近 DPS／殖利率、KPI（含連續股息成長）、年度／季度歷史表與明細。優先 FMP 股利快取／API。",
+      sec_dividend_payments_detail: "股利發放明細",
+      sec_documents: "申報／文件",
+      analysis_documents_note: "財務報表申報與法說逐字稿；連結可立即開啟（SEC EDGAR；有 FMP 金鑰時另列 FMP 申報／逐字稿）。",
+      sec_documents_filings: "財務報表申報",
+      sec_documents_transcripts: "法說會逐字稿",
       lbl_div_grain: "彙整期間",
       opt_div_quarter: "季度（Q1–Q4）",
       opt_div_half: "半年（H1／H2）",
@@ -3221,12 +3302,7 @@
       th_div_payout: "發放率 %",
       th_div_yield: "殖利率 %",
       th_div_count: "筆數",
-      th_div_cagr_5: "股息 CAGR 5年 (%)",
-      th_div_cagr_10: "股息 CAGR 10年 (%)",
-      th_div_cagr_15: "股息 CAGR 15年 (%)",
-      th_div_cagr_20: "股息 CAGR 20年 (%)",
-      th_div_cagr_25: "股息 CAGR 25年 (%)",
-      th_div_cagr_30: "股息 CAGR 30年 (%)",
+      th_cont_div_growth: "連續股息成長 (年)",
       earnings_title: "稀釋每股盈餘、FCF 與股息趨勢",
       earnings_definition: "三項皆以 USD／稀釋股呈現；先以各期平均匯率換算 EPS 及現金流。每稀釋股 FCF＝美元自由現金流 ÷ 同期稀釋加權平均股數；每稀釋股股息＝美元普通股現金股息支出 ÷ 同期股數（支出負號轉正，不取絕對值）。股息為實際支付現金換算，不等同公告每股股息。",
       earnings_chart_note: "單季／年度使用該期稀釋加權平均股數；TTM 的 FCF 與股息採逐季換匯後的四季合計 ÷ 四季股數的簡單平均。TTM EPS 合計四季各自換算的稀釋 EPS，可能不同於年度加權股數 EPS。未另做拆股或 ADR 倍數調整；缺值及匯率不足保留斷點。三項共用美元每股刻度。",
@@ -3784,12 +3860,18 @@
       tab_basic: "📁 1. Profile",
       tab_rating: "🏅 2. Company Rating",
       tab_financials: "📑 3. Financial Statements (5Y/TTM)",
-      tab_dividend: "💵 4. Dividend payments (30Y)",
-      tab_ratios: "⚖️ 5. Key Ratios",
+      tab_dividend: "💵 4. Dividends (TV)",
+      tab_documents: "📂 5. Filings / Documents",
+      tab_ratios: "⚖️ 6. Key Ratios",
       sec_revenue_breakdown: "Revenue breakdown (product / geographic)",
       analysis_revenue_breakdown_note: "Same period views as statements (annual 5Y+TTM / last 20Q). Amounts only when FMP publishes segments; missing stays N/A. Coverage is ticker-specific, not universal.",
-      sec_dividend_payments: "Dividend payments (last 30 years)",
-      analysis_dividend_payments_note: "Ex-dividend DPS amounts plus full-year payout ratio; prefer FMP dividend cache/API, else statement proxy.",
+      sec_dividend_payments: "Company dividend insights",
+      analysis_dividend_payments_note: "TradingView-style frequency / last DPS / yield, KPIs (incl. Cont div growth), annual/quarterly history, and payment detail. Prefer FMP dividend cache/API.",
+      sec_dividend_payments_detail: "Dividend payments",
+      sec_documents: "Filings / Documents",
+      analysis_documents_note: "Financial statement filings and earnings call transcripts with links that open immediately (SEC EDGAR; FMP rows when the Preview key is configured).",
+      sec_documents_filings: "Financial statement filings",
+      sec_documents_transcripts: "Earnings call transcripts",
       lbl_div_grain: "Aggregation",
       opt_div_quarter: "Quarter (Q1–Q4)",
       opt_div_half: "Half-year (H1/H2)",
@@ -3800,12 +3882,7 @@
       th_div_payout: "Payout %",
       th_div_yield: "Yield %",
       th_div_count: "Count",
-      th_div_cagr_5: "Div CAGR 5y (%)",
-      th_div_cagr_10: "Div CAGR 10y (%)",
-      th_div_cagr_15: "Div CAGR 15y (%)",
-      th_div_cagr_20: "Div CAGR 20y (%)",
-      th_div_cagr_25: "Div CAGR 25y (%)",
-      th_div_cagr_30: "Div CAGR 30y (%)",
+      th_cont_div_growth: "Cont div growth (y)",
       tab_peers: "👥 6. Peer Comparison",
       tab_charts: "📊 7. Trend Analysis",
       earnings_title: "Diluted EPS, FCF & Dividends per Diluted Share",
@@ -5492,41 +5569,12 @@
       tvOpt('1to3', '股息率 1–3%', 'Div yield 1–3%', v => v >= 1 && v <= 3),
       tvOpt('gt3', '股息率 > 3%', 'Div yield > 3%', v => v > 3),
     ]},
-    { field: 'div_cagr_5y', zh: '股息 CAGR 5年', en: 'Div CAGR 5y', presets: [
-      tvAny('不限股息 CAGR 5年', 'Any Div CAGR 5y'),
-      tvOpt('neg', '股息 CAGR 5年 < 0%', 'Div CAGR 5y < 0%', v => v < 0),
-      tvOpt('0to8', '股息 CAGR 5年 0–8%', 'Div CAGR 5y 0–8%', v => v >= 0 && v <= 8),
-      tvOpt('gt8', '股息 CAGR 5年 > 8%', 'Div CAGR 5y > 8%', v => v > 8),
-    ]},
-    { field: 'div_cagr_10y', zh: '股息 CAGR 10年', en: 'Div CAGR 10y', presets: [
-      tvAny('不限股息 CAGR 10年', 'Any Div CAGR 10y'),
-      tvOpt('neg', '股息 CAGR 10年 < 0%', 'Div CAGR 10y < 0%', v => v < 0),
-      tvOpt('0to8', '股息 CAGR 10年 0–8%', 'Div CAGR 10y 0–8%', v => v >= 0 && v <= 8),
-      tvOpt('gt8', '股息 CAGR 10年 > 8%', 'Div CAGR 10y > 8%', v => v > 8),
-    ]},
-    { field: 'div_cagr_15y', zh: '股息 CAGR 15年', en: 'Div CAGR 15y', presets: [
-      tvAny('不限股息 CAGR 15年', 'Any Div CAGR 15y'),
-      tvOpt('neg', '股息 CAGR 15年 < 0%', 'Div CAGR 15y < 0%', v => v < 0),
-      tvOpt('0to8', '股息 CAGR 15年 0–8%', 'Div CAGR 15y 0–8%', v => v >= 0 && v <= 8),
-      tvOpt('gt8', '股息 CAGR 15年 > 8%', 'Div CAGR 15y > 8%', v => v > 8),
-    ]},
-    { field: 'div_cagr_20y', zh: '股息 CAGR 20年', en: 'Div CAGR 20y', presets: [
-      tvAny('不限股息 CAGR 20年', 'Any Div CAGR 20y'),
-      tvOpt('neg', '股息 CAGR 20年 < 0%', 'Div CAGR 20y < 0%', v => v < 0),
-      tvOpt('0to8', '股息 CAGR 20年 0–8%', 'Div CAGR 20y 0–8%', v => v >= 0 && v <= 8),
-      tvOpt('gt8', '股息 CAGR 20年 > 8%', 'Div CAGR 20y > 8%', v => v > 8),
-    ]},
-    { field: 'div_cagr_25y', zh: '股息 CAGR 25年', en: 'Div CAGR 25y', presets: [
-      tvAny('不限股息 CAGR 25年', 'Any Div CAGR 25y'),
-      tvOpt('neg', '股息 CAGR 25年 < 0%', 'Div CAGR 25y < 0%', v => v < 0),
-      tvOpt('0to8', '股息 CAGR 25年 0–8%', 'Div CAGR 25y 0–8%', v => v >= 0 && v <= 8),
-      tvOpt('gt8', '股息 CAGR 25年 > 8%', 'Div CAGR 25y > 8%', v => v > 8),
-    ]},
-    { field: 'div_cagr_30y', zh: '股息 CAGR 30年', en: 'Div CAGR 30y', presets: [
-      tvAny('不限股息 CAGR 30年', 'Any Div CAGR 30y'),
-      tvOpt('neg', '股息 CAGR 30年 < 0%', 'Div CAGR 30y < 0%', v => v < 0),
-      tvOpt('0to8', '股息 CAGR 30年 0–8%', 'Div CAGR 30y 0–8%', v => v >= 0 && v <= 8),
-      tvOpt('gt8', '股息 CAGR 30年 > 8%', 'Div CAGR 30y > 8%', v => v > 8),
+    { field: 'cont_div_growth', zh: '連續股息成長', en: 'Cont div growth', presets: [
+      tvAny('不限連續股息成長', 'Any Cont div growth'),
+      tvOpt('0', '連續股息成長 = 0', 'Cont div growth = 0', v => v === 0),
+      tvOpt('1to3', '連續股息成長 1–3', 'Cont div growth 1–3', v => v >= 1 && v <= 3),
+      tvOpt('4to7', '連續股息成長 4–7', 'Cont div growth 4–7', v => v >= 4 && v <= 7),
+      tvOpt('gt3', '連續股息成長 > 3', 'Cont div growth > 3', v => v > 3),
     ]},
     { field: 'fcf_to_ev', zh: 'FCF/EV', en: 'FCF/EV', presets: [
       tvAny('不限 FCF/EV', 'Any FCF/EV'),
@@ -6219,7 +6267,7 @@
 
   function sortTable(field) {
     if (sortField === field) sortAsc = !sortAsc;
-    else { sortField = field; sortAsc = (field === 'mcap' || field === 'price' || field === 'f_score' || field === 'moat_score' || field === 'div_yield') ? false : true; }
+    else { sortField = field; sortAsc = (field === 'mcap' || field === 'price' || field === 'f_score' || field === 'moat_score' || field === 'div_yield' || field === 'cont_div_growth') ? false : true; }
     renderScreenerTable();
   }
 
@@ -6275,7 +6323,7 @@
       overview: { width: 1320, fields: ['ticker', 'price', 'premiumPct', 'mcap', 'fairVal', 'pe_trailing', 'moat_score', 'f_score', 'z_score', 'action'] },
       // DCF compare (#83): FMP vendor pair, then site-saved target/premium; liquidation lives in "all".
       valuation: { width: 1880, fields: ['ticker', 'name', 'sector', 'price', 'fmp_dcf', 'fmp_dcf_upside', 'fmp_levered', 'fmp_levered_upside', 'target_price', 'target_spread', 'action', 'moat_score', 'WACC', 'EV', 'mcap'] },
-      financial: { width: 3480, fields: ['ticker', 'name', 'price', 'mcap', 'pe_trailing', 'pe_forward', 'pb_trailing', 'div_yield', 'div_cagr_5y', 'div_cagr_10y', 'div_cagr_15y', 'div_cagr_20y', 'div_cagr_25y', 'div_cagr_30y', 'fcf_to_ev', 'fcf_to_equity', 'fcf_to_mcap', 'cash_to_assets', 'liab_to_assets', 'current_ratio', 'roe', 'roa', 'f_score', 'z_score', 'm_score', 'ev_to_ebitda', 'debt_to_ebitda', 'net_debt_to_ebitda', 'debt_to_fcf', 'net_debt_to_fcf'] },
+      financial: { width: 2980, fields: ['ticker', 'name', 'price', 'mcap', 'pe_trailing', 'pe_forward', 'pb_trailing', 'div_yield', 'cont_div_growth', 'fcf_to_ev', 'fcf_to_equity', 'fcf_to_mcap', 'cash_to_assets', 'liab_to_assets', 'current_ratio', 'roe', 'roa', 'f_score', 'z_score', 'm_score', 'ev_to_ebitda', 'debt_to_ebitda', 'net_debt_to_ebitda', 'debt_to_fcf', 'net_debt_to_fcf'] },
       all: { width: 5900, fields: null }
     };
     const preset = presets[mode];
@@ -6772,12 +6820,9 @@
           <td data-metric="pe_forward" title="${escapeAttribute(forwardPeNote(item))}">${Number.isFinite(item.pe_forward) && item.pe_forward > 0 ? item.pe_forward.toFixed(1) : '--'}</td>
           <td data-metric="pb_trailing" title="${escapeAttribute(marketRatioNote(item, 'pb'))}">${Number.isFinite(item.pb_trailing) ? item.pb_trailing.toFixed(1) : 'N/A'}</td>
           <td style="color: var(--accent); font-weight: 700;">${Number.isFinite(item.div_yield) ? item.div_yield.toFixed(2) + '%' : 'N/A'}</td>
-          ${[5, 10, 15, 20, 25, 30].map(years => {
-            const value = item[`div_cagr_${years}y`];
-            return `<td data-metric="div_cagr_${years}y" title="${escapeAttribute(currentLang === 'en'
-              ? `Geometric average DPS growth over ~${years}y (FMP dividends when cached; else statement cash dividends ÷ diluted shares).`
-              : `約 ${years} 年每股股息幾何平均成長（優先 FMP 股利快取；否則財報現金股息÷稀釋股數）。`)}" style="color: ${!Number.isFinite(value) ? 'var(--text-muted)' : value < 0 ? 'var(--red)' : 'var(--accent)'};">${Number.isFinite(value) ? value.toFixed(2) + '%' : 'N/A'}</td>`;
-          }).join('')}
+          <td data-metric="cont_div_growth" title="${escapeAttribute(currentLang === 'en'
+            ? 'TradingView Cont div growth: trailing years of uninterrupted DPS increases (1–7; 0 if none). From dividend cache when present.'
+            : 'TradingView 連續股息成長：序列末端不間斷 DPS 上升年數（1–7；無則 0）。優先股利快取。')}" style="color: ${!Number.isFinite(item.cont_div_growth) ? 'var(--text-muted)' : item.cont_div_growth > 0 ? 'var(--accent)' : 'var(--text-secondary)'}; font-weight: ${item.cont_div_growth > 0 ? 700 : 400};">${Number.isFinite(item.cont_div_growth) ? item.cont_div_growth : 'N/A'}</td>
           <td style="color: var(--accent); font-weight: 600;">${Number.isFinite(item.fcf_to_ev) ? item.fcf_to_ev.toFixed(2) + '%' : 'N/A'}</td>
           <td data-metric="fcf_to_equity" title="${I18N_DICT[currentLang].fcf_equity_basis}" style="color: var(--accent); font-weight: 600;">${Number.isFinite(item.fcf_to_equity) ? item.fcf_to_equity.toFixed(2) + '%' : 'N/A'}</td>
           <td style="color: var(--nasdaq-purple); font-weight: 600;">${Number.isFinite(item.fcf_to_mcap) ? item.fcf_to_mcap.toFixed(2) + '%' : 'N/A'}</td>
@@ -7113,6 +7158,8 @@
       renderFinancialsSubPage(curStock);
     } else if (tabKey === 'dividend') {
       renderDividendPaymentsSubPage(curStock);
+    } else if (tabKey === 'documents') {
+      renderDocumentsSubPage(curStock);
     } else if (tabKey === 'ratios') {
       renderRatiosSubPage(curStock);
     } else if (tabKey === 'peers') {
@@ -8073,13 +8120,19 @@
       status.textContent = isEn ? 'Revenue segment module unavailable.' : '營收拆解模組不可用。';
       return;
     }
-    RevenueSegments.load(ticker, { period: viewPeriod }).then(record => {
+    const annualView = viewPeriod === 'annual';
+    const quarterPromise = annualView
+      ? RevenueSegments.load(ticker, { period: 'quarterly' }).catch(() => null)
+      : Promise.resolve(null);
+    Promise.all([
+      RevenueSegments.load(ticker, { period: viewPeriod }),
+      quarterPromise,
+    ]).then(([record, quarterRecord]) => {
       if (activeCompanyTicker !== ticker || requestId !== revenueBreakdownRequestId
           || activeRevenueSegmentPeriod !== viewPeriod) return;
       // Prefer statement period labels (incl. TTM) so TTM never matches a prior FY date.
       const labelAxis = (periods && periods.length) ? periods
         : (datesList && datesList.length) ? datesList : [];
-      const annualView = viewPeriod === 'annual';
       const axis = labelAxis.map((label, i) => {
         const lab = String(label ?? '');
         const dateHint = datesList?.[i] && /^\d{4}-\d{2}/.test(String(datesList[i]))
@@ -8097,7 +8150,7 @@
         return { label: display, date: dateHint, kind };
       });
       const dropEmptyTtm = (aligned) => {
-        // Omit TTM when FMP has no true TTM segments (avoid blank or FY-duplicated last col).
+        // Omit TTM when no quarterly sum is available (honest empty — no FY dup).
         const columns = aligned.columns.filter(col => col.kind !== 'ttm' || col.segments);
         const nameSet = new Set();
         for (const col of columns) {
@@ -8105,14 +8158,22 @@
         }
         return { names: [...nameSet].sort((a, b) => a.localeCompare(b)), columns };
       };
-      const product = dropEmptyTtm(RevenueSegments.alignToPeriods(record.product, axis, ticker));
-      const geographic = dropEmptyTtm(RevenueSegments.alignToPeriods(record.geographic, axis, ticker));
+      let product = RevenueSegments.alignToPeriods(record.product, axis, ticker);
+      let geographic = RevenueSegments.alignToPeriods(record.geographic, axis, ticker);
+      // Annual TTM: sum last 4 quarters from quarter cache/API when available.
+      if (annualView && quarterRecord) {
+        product = RevenueSegments.applyTtmFromQuarters(product, quarterRecord.product, ticker);
+        geographic = RevenueSegments.applyTtmFromQuarters(geographic, quarterRecord.geographic, ticker);
+      }
+      product = dropEmptyTtm(product);
+      geographic = dropEmptyTtm(geographic);
       fillSegmentTable('product', product, isEn);
       fillSegmentTable('geographic', geographic, isEn);
       const productHits = product.columns.filter(col => col.segments).length;
       const geoHits = geographic.columns.filter(col => col.segments).length;
       const emptyAll = !product.names.length && !geographic.names.length;
       const usedPeriod = record.period || viewPeriod;
+      const ttmFilled = annualView && product.columns.some(col => col.kind === 'ttm' && col.segments);
       if (emptyAll) {
         status.textContent = isEn
           ? `${ticker} · FMP has no product/geographic revenue for period=${usedPeriod}. Segmentation is not universal — many tickers genuinely lack this feed; when FMP publishes (e.g. AAPL/NVDA annual), rows appear here.`
@@ -8121,6 +8182,7 @@
         status.textContent = `${ticker} · ${isEn ? 'Product matches' : '產品對齊'} ${productHits}/${product.columns.length}`
           + ` · ${isEn ? 'Geographic matches' : '地區對齊'} ${geoHits}/${geographic.columns.length}`
           + ` · ${isEn ? 'view' : '視圖'} ${viewPeriod}`
+          + (ttmFilled ? (isEn ? ' · TTM=sum last 4Q' : ' · TTM＝近四季合計') : '')
           + ` · ${record.source || 'FMP'}`;
       }
       document.querySelectorAll('#subpage-financials .table-scroll-wrapper').forEach(box => makeScrollable(box));
@@ -8139,8 +8201,18 @@
     });
   }
 
+
   let dividendHistoryCache = null;
   let dividendHistoryTicker = null;
+
+  function setDividendGrain(grain) {
+    const el = document.getElementById('dividend-grain');
+    if (el) el.value = grain === 'quarter' ? 'quarter' : 'year';
+    document.querySelectorAll('#dividend-period-toggle [data-div-grain]').forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('data-div-grain') === (el?.value || 'year'));
+    });
+    onDividendViewChange();
+  }
 
   function onDividendViewChange() {
     const stock = (typeof stockUniverse !== 'undefined' && activeCompanyTicker)
@@ -8151,73 +8223,159 @@
   function renderDividendPaymentsSubPage(stockObj) {
     const ticker = activeCompanyTicker || stockObj?.ticker || 'NVDA';
     const status = document.getElementById('dividend-payments-status');
+    const insights = document.getElementById('dividend-insights');
+    const kpiGrid = document.getElementById('dividend-kpi-grid');
     const thead = document.getElementById('cmp-dividend-thead');
     const tbody = document.getElementById('cmp-dividend-tbody');
+    const payHead = document.getElementById('cmp-dividend-pay-thead');
+    const payBody = document.getElementById('cmp-dividend-pay-tbody');
     const grainEl = document.getElementById('dividend-grain');
     const yearsEl = document.getElementById('dividend-years');
     const isEn = currentLang === 'en';
     if (!status || !tbody || !thead) return;
-    const grain = grainEl?.value || 'quarter';
-    const years = Math.max(1, Math.min(30, Number(yearsEl?.value) || 30));
+    const grain = grainEl?.value === 'quarter' ? 'quarter' : 'year';
+    const years = Math.max(1, Math.min(30, Number(yearsEl?.value) || 10));
+    document.querySelectorAll('#dividend-period-toggle [data-div-grain]').forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('data-div-grain') === grain);
+    });
     status.textContent = isEn ? 'Loading dividend history…' : '載入股利紀錄中…';
+    if (insights) insights.textContent = '';
+    if (kpiGrid) kpiGrid.innerHTML = '';
     tbody.innerHTML = '';
+    if (payBody) payBody.innerHTML = '';
     if (typeof DividendHistory === 'undefined') {
       status.textContent = isEn ? 'Dividend module unavailable.' : '股利模組不可用。';
       return;
     }
 
     const fmtAmt = value => Number.isFinite(value) ? value.toFixed(4) : '—';
-    const fmtPct = value => Number.isFinite(value) ? `${value.toFixed(1)}%` : '—';
-    const colLabels = {
-      q1: 'Q1', q2: 'Q2', q3: 'Q3', q4: 'Q4',
-      h1: 'H1', h2: 'H2',
-      fy: isEn ? 'FY amount' : '全年金額',
-    };
+    const fmtPct = value => Number.isFinite(value) ? `${value.toFixed(2)}%` : '—';
+    const fmtInt = value => Number.isFinite(value) ? String(value) : '—';
+
+    function detectFrequency(rows) {
+      const counts = (rows || []).slice(0, 8).map(row => row.count || 0).filter(n => n > 0);
+      if (!counts.length) return isEn ? 'unknown' : '未知';
+      const avg = counts.reduce((a, b) => a + b, 0) / counts.length;
+      if (avg >= 3.5) return isEn ? 'quarterly' : '每季';
+      if (avg >= 1.5) return isEn ? 'semi-annual' : '半年';
+      return isEn ? 'annual' : '每年';
+    }
 
     function paint(record, payoutByYear, yieldOpts = null) {
       if (activeCompanyTicker !== ticker) return;
       const table = DividendHistory.aggregateCalendar(record.rows, {
         years, payoutByYear: payoutByYear || record.payoutByYear || null,
       });
-      const shaped = DividendHistory.tableForGrain(table, grain, yieldOpts);
-      const amountHeaders = shaped.columns.map(key => `<th>${colLabels[key] || key}</th>`).join('');
-      thead.innerHTML = `<th class="table-sticky-col" data-i18n="th_div_year">${isEn ? 'Year' : '年度'}</th>${amountHeaders}`
-        + `<th data-i18n="th_div_payout">${isEn ? 'Payout %' : '發放率 %'}</th>`
-        + `<th data-i18n="th_div_yield">${isEn ? 'Yield %' : '殖利率 %'}</th>`
-        + `<th data-i18n="th_div_count">${isEn ? 'Count' : '筆數'}</th>`;
-      if (!shaped.rows.length) {
-        tbody.innerHTML = `<tr><td class="table-sticky-col text-muted" colspan="${shaped.columns.length + 4}">${
+      const shaped = DividendHistory.tableForGrain(table, grain === 'quarter' ? 'quarter' : 'year', yieldOpts);
+      const series = DividendHistory.annualDpsFromPayments(record.rows);
+      const cont = DividendHistory.continuousDividendGrowth(series);
+      const completeYears = table.years.filter(row => Number.isFinite(row.fy) && row.fy > 0);
+      const latest = completeYears[0] || table.years[0];
+      const prior = completeYears[1];
+      const lastDps = latest && Number.isFinite(latest.fy) ? latest.fy : null;
+      const yieldTtm = latest && Number.isFinite(latest.yieldPct) ? latest.yieldPct : null;
+      const payout = latest && Number.isFinite(latest.payoutRatioPct) ? latest.payoutRatioPct : null;
+      const yoy = (latest && prior && prior.fy > 0 && Number.isFinite(latest.fy))
+        ? ((latest.fy / prior.fy) - 1) * 100 : null;
+      const freq = detectFrequency(table.years);
+
+      if (insights) {
+        insights.innerHTML = isEn
+          ? `Payouts are made <strong>${freq}</strong>. The last dividend per share (FY) was <strong>${fmtAmt(lastDps)}</strong>`
+            + (Number.isFinite(yieldTtm) ? `. As of the latest year, dividend yield is <strong>${fmtPct(yieldTtm)}</strong>` : '')
+            + `. Cont div growth = <strong>${fmtInt(cont)}</strong>.`
+          : `發放頻率為<strong>${freq}</strong>。最近全年每股股息 <strong>${fmtAmt(lastDps)}</strong>`
+            + (Number.isFinite(yieldTtm) ? `；最近殖利率 <strong>${fmtPct(yieldTtm)}</strong>` : '')
+            + `。連續股息成長 = <strong>${fmtInt(cont)}</strong>。`;
+      }
+
+      if (kpiGrid) {
+        const cards = [
+          { zh: '殖利率 %', en: 'Div yield %', value: fmtPct(yieldTtm) },
+          { zh: '發放率 %', en: 'Payout %', value: fmtPct(payout) },
+          { zh: '連續股息成長', en: 'Cont div growth', value: fmtInt(cont) },
+          { zh: '全年 DPS', en: 'Div per share FY', value: fmtAmt(lastDps) },
+          { zh: 'DPS 年增 %', en: 'DPS growth % YoY', value: fmtPct(yoy) },
+        ];
+        kpiGrid.innerHTML = cards.map(card => `<div class="tv-kpi-card"><div class="tv-kpi-label">${
+          isEn ? card.en : card.zh}</div><div class="tv-kpi-value">${card.value}</div></div>`).join('');
+      }
+
+      // TV matrix: periods as columns (newest first), metrics as rows.
+      const periods = shaped.rows.slice(0, years);
+      thead.innerHTML = `<th class="table-sticky-col">${isEn ? 'Metric' : '指標'}</th>${
+        periods.map(row => `<th>${grain === 'quarter'
+          ? `${row.year}`
+          : row.year}</th>`).join('')}`;
+
+      if (!periods.length) {
+        tbody.innerHTML = `<tr><td class="table-sticky-col text-muted" colspan="2">${
           isEn ? 'No dividend payment history available (cache/API/statements).'
             : '暫無股利發放紀錄（快取／API／財報）。'}</td></tr>`;
+      } else if (grain === 'quarter') {
+        const metricRows = [
+          { key: 'q1', zh: 'Q1 DPS', en: 'Q1 DPS' },
+          { key: 'q2', zh: 'Q2 DPS', en: 'Q2 DPS' },
+          { key: 'q3', zh: 'Q3 DPS', en: 'Q3 DPS' },
+          { key: 'q4', zh: 'Q4 DPS', en: 'Q4 DPS' },
+          { key: 'fy', zh: 'FY DPS', en: 'FY DPS' },
+        ];
+        tbody.innerHTML = metricRows.map(metric => `<tr>
+          <td class="table-sticky-col" style="text-align:left;font-weight:600;">${isEn ? metric.en : metric.zh}</td>
+          ${periods.map(row => `<td>${fmtAmt(row.amount?.[metric.key])}</td>`).join('')}
+        </tr>`).join('')
+          + `<tr><td class="table-sticky-col" style="text-align:left;font-weight:600;">${isEn ? 'Payout %' : '發放率 %'}</td>${
+            periods.map(row => `<td>${fmtPct(row.payoutRatioPct)}</td>`).join('')}</tr>`
+          + `<tr><td class="table-sticky-col" style="text-align:left;font-weight:600;">${isEn ? 'Yield %' : '殖利率 %'}</td>${
+            periods.map(row => `<td>${fmtPct(row.yieldPct)}</td>`).join('')}</tr>`;
       } else {
-        tbody.innerHTML = shaped.rows.map(row => `<tr>
-          <td class="table-sticky-col" style="text-align:left; font-weight:600;">${row.year}</td>
-          ${shaped.columns.map(key => `<td style="${key === 'fy' ? 'font-weight:700;' : ''}">${
-            fmtAmt(row.amount[key])}</td>`).join('')}
-          <td>${fmtPct(row.payoutRatioPct)}</td>
-          <td>${fmtPct(row.yieldPct)}</td>
-          <td>${row.count || '—'}</td>
-        </tr>`).join('');
+        tbody.innerHTML = `
+          <tr><td class="table-sticky-col" style="text-align:left;font-weight:600;">${isEn ? 'Div per share FY' : '全年 DPS'}</td>${
+            periods.map(row => `<td style="font-weight:700;">${fmtAmt(row.fy)}</td>`).join('')}</tr>
+          <tr><td class="table-sticky-col" style="text-align:left;font-weight:600;">${isEn ? 'Div yield %' : '殖利率 %'}</td>${
+            periods.map(row => `<td>${fmtPct(row.yieldPct)}</td>`).join('')}</tr>
+          <tr><td class="table-sticky-col" style="text-align:left;font-weight:600;">${isEn ? 'Payout %' : '發放率 %'}</td>${
+            periods.map(row => `<td>${fmtPct(row.payoutRatioPct)}</td>`).join('')}</tr>
+          <tr><td class="table-sticky-col" style="text-align:left;font-weight:600;">${isEn ? 'DPS growth % YoY' : 'DPS 年增 %'}</td>${
+            periods.map((row, index) => {
+              const older = periods[index + 1];
+              const growth = (Number.isFinite(row.fy) && older && older.fy > 0)
+                ? ((row.fy / older.fy) - 1) * 100 : null;
+              return `<td>${fmtPct(growth)}</td>`;
+            }).join('')}</tr>`;
       }
+
+      if (payHead && payBody) {
+        payHead.innerHTML = `<th class="table-sticky-col">${isEn ? 'Ex-date' : '除息日'}</th>`
+          + `<th>${isEn ? 'Dividend' : '每股股息'}</th>`
+          + `<th>${isEn ? 'Adj. dividend' : '調整後股息'}</th>`;
+        const payments = [...(record.rows || [])]
+          .filter(row => row && row.date)
+          .sort((a, b) => String(b.date).localeCompare(String(a.date)))
+          .slice(0, Math.max(20, years * 4));
+        payBody.innerHTML = payments.length
+          ? payments.map(row => `<tr>
+              <td class="table-sticky-col" style="text-align:left;">${String(row.date).slice(0, 10)}</td>
+              <td>${fmtAmt(row.dividend)}</td>
+              <td>${fmtAmt(row.adjDividend != null ? row.adjDividend : row.dividend)}</td>
+            </tr>`).join('')
+          : `<tr><td class="table-sticky-col text-muted" colspan="3">${
+            isEn ? 'No individual payment rows.' : '無逐筆發放紀錄。'}</td></tr>`;
+      }
+
       const paidYears = shaped.rows.filter(row => Number.isFinite(row.fy)).length;
       const annualOnly = record.annualOnly || table.years.some(row => row.annualOnly);
       status.textContent = `${ticker} · ${isEn ? 'years with payments' : '有發放年'} ${paidYears}/${years}`
-        + ` · ${isEn ? 'grain' : '彙整'} ${grain}`
-        + ` · ${isEn ? 'payments' : '筆數'} ${table.payments.length}`
+        + ` · ${isEn ? 'view' : '視圖'} ${grain}`
         + ` · ${record.source || 'FMP dividends'}`
         + (annualOnly
           ? (isEn
-            ? ' · FY statement DPS only — Q1–Q4 stay N/A (not lumped into one quarter). Prefer FMP payment history for true quarterly splits / 30y depth.'
-            : ' · 僅財報全年 DPS — Q1–Q4 維持 N/A（不塞進單一季度）。真實季度／30 年請以 FMP 股利歷史為準。')
-          : (isEn
-            ? ' · Amounts = split-adjusted DPS when adjDividend present; payout % = cash dividends ÷ net income (FY); yield % = FY DPS ÷ calendar year-end close (price chart), else current quote for the open year.'
-            : ' · 金額優先 adjDividend；發放率＝全年現金股息÷淨利（財報）；殖利率＝全年 DPS÷該年最後收盤（price chart），當年未收盤則用現價。'));
-      const box = document.querySelector('#subpage-dividend .table-scroll-wrapper');
-      if (box) makeScrollable(box);
+            ? ' · FY statement DPS only — prefer FMP payment history for true quarterly splits.'
+            : ' · 僅財報全年 DPS — 真實季度請以 FMP 股利歷史為準。')
+          : '');
+      document.querySelectorAll('#subpage-dividend .table-scroll-wrapper').forEach(box => makeScrollable(box));
     }
 
-    // Reuse in-memory record (including statement fallback) when only grain/years change.
-    // Do not re-hit FMP on every control tweak after a known fallback.
     const reuse = dividendHistoryTicker === ticker && dividendHistoryCache
       ? Promise.resolve(dividendHistoryCache)
       : DividendHistory.load(ticker).then(record => {
@@ -8237,7 +8395,6 @@
         if (raw && DividendHistory.paymentsFromStatementRaw) {
           const fromRaw = DividendHistory.paymentsFromStatementRaw(raw);
           payoutByYear = fromRaw.payoutByYear;
-          // If FMP/cache returned no rows, use statement FY DPS (quarters stay N/A).
           if ((!record.rows || !record.rows.length) && fromRaw.payments.length) {
             record = {
               ...record,
@@ -8257,35 +8414,158 @@
     }).catch((error) => {
       if (activeCompanyTicker !== ticker) return;
       const detail = error && error.message ? String(error.message) : '';
-      // Last-resort: statements_raw only (FY amounts; quarters N/A).
       const raw = stockObj?.statements_raw;
       if (raw && DividendHistory.paymentsFromStatementRaw) {
         const fromRaw = DividendHistory.paymentsFromStatementRaw(raw);
         if (fromRaw.payments.length) {
-          const fallback = {
+          const record = {
             version: 1,
             ticker,
-            source: /503|FMP_NOT_CONFIGURED/i.test(detail)
-              ? 'statements_raw FY DPS only (FMP_API_KEY missing on preview — quarters N/A)'
-              : 'statements_raw FY DPS only (FMP dividends unavailable — quarters N/A)',
+            source: 'statements_raw FY DPS only (dividend load failed)',
             rows: fromRaw.payments,
+            payoutByYear: fromRaw.payoutByYear,
             fallback: true,
             annualOnly: true,
           };
           dividendHistoryTicker = ticker;
-          dividendHistoryCache = fallback;
-          paint(fallback, fromRaw.payoutByYear);
+          dividendHistoryCache = record;
+          paint(record, fromRaw.payoutByYear, {
+            currentPrice: Number.isFinite(stockObj?.price) ? stockObj.price : null,
+          });
+          status.textContent += isEn
+            ? ` · fallback after error (${detail || 'load failed'})`
+            : ` · 錯誤後改用財報（${detail || '載入失敗'}）`;
           return;
         }
       }
-      thead.innerHTML = `<th class="table-sticky-col">${isEn ? 'Year' : '年度'}</th>`;
-      tbody.innerHTML = `<tr><td class="table-sticky-col text-muted" colspan="1">${
-        isEn ? 'No dividend payment history available (cache/API).' : '暫無股利發放紀錄（快取或 API）。'}</td></tr>`;
       status.textContent = isEn
-        ? 'Dividend history unavailable for this ticker.'
-        : '此股票暫無股利發放歷史。';
+        ? `${ticker} · Could not load dividends (${detail || 'cache/API'}).`
+        : `${ticker} · 無法載入股利（${detail || '快取／API'}）。`;
     });
   }
+
+
+  async function openEarningsTranscript(event, ticker, year, quarter) {
+    if (event) event.preventDefault();
+    const Docs = typeof CompanyDocuments !== 'undefined' ? CompanyDocuments : null;
+    const url = Docs?.transcriptOpenUrl?.(ticker, year, quarter);
+    if (!url) return false;
+    try {
+      const response = await fetch(url);
+      const body = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(body.error || `HTTP ${response.status}`);
+      const row = Array.isArray(body.data) ? body.data[0] : body.data;
+      const content = row?.content || row?.transcript || '';
+      const win = window.open('', '_blank');
+      if (!win) {
+        window.open(url, '_blank', 'noopener,noreferrer');
+        return false;
+      }
+      const title = `${ticker} FY${year} Q${quarter} earnings call`;
+      win.document.write(`<!doctype html><meta charset="utf-8"><title>${title}</title>
+        <body style="font-family:Georgia,serif;max-width:820px;margin:24px auto;padding:0 16px;line-height:1.6;white-space:pre-wrap;">
+        <h1 style="font-size:20px;">${title}</h1>
+        <p style="color:#666;font-size:13px;">Source: FMP earning-call-transcript</p>
+        <div>${String(content || 'Transcript content empty.').replace(/[<>&]/g, ch => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[ch]))}</div>
+        </body>`);
+      win.document.close();
+    } catch (error) {
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }
+    return false;
+  }
+
+  function renderDocumentsSubPage(stockObj) {
+    const ticker = activeCompanyTicker || stockObj?.ticker || 'NVDA';
+    const status = document.getElementById('documents-status');
+    const linksHost = document.getElementById('documents-public-links');
+    const filingsHead = document.getElementById('cmp-documents-filings-thead');
+    const filingsBody = document.getElementById('cmp-documents-filings-tbody');
+    const txHead = document.getElementById('cmp-documents-transcripts-thead');
+    const txBody = document.getElementById('cmp-documents-transcripts-tbody');
+    const isEn = currentLang === 'en';
+    if (!status || !filingsBody || !txBody) return;
+    status.textContent = isEn ? 'Loading filings & transcripts…' : '載入申報／逐字稿中…';
+    filingsBody.innerHTML = '';
+    txBody.innerHTML = '';
+
+    const Docs = typeof CompanyDocuments !== 'undefined' ? CompanyDocuments : null;
+    if (linksHost) {
+      const links = Docs?.publicLinks?.(ticker, stockObj) || [];
+      linksHost.innerHTML = links.map(link => `<a href="${escapeAttribute(link.url)}" target="_blank" rel="noopener noreferrer">${
+        escapeAttribute(isEn ? link.labelEn : link.labelZh)} ↗</a>`).join('')
+        || `<span class="text-muted">${isEn
+          ? 'No public SEC links for this listing (non-US).'
+          : '此上市地無公開 SEC 連結（非美股）。'}</span>`;
+    }
+
+    if (filingsHead) {
+      filingsHead.innerHTML = `<th class="table-sticky-col">${isEn ? 'Filing date' : '申報日'}</th>`
+        + `<th>${isEn ? 'Form' : '表單'}</th>`
+        + `<th>${isEn ? 'Open' : '開啟'}</th>`;
+    }
+    if (txHead) {
+      txHead.innerHTML = `<th class="table-sticky-col">${isEn ? 'Period' : '期間'}</th>`
+        + `<th>${isEn ? 'Date' : '日期'}</th>`
+        + `<th>${isEn ? 'Open transcript' : '開啟逐字稿'}</th>`;
+    }
+
+    if (!Docs) {
+      status.textContent = isEn ? 'Documents module unavailable.' : '文件模組不可用。';
+      return;
+    }
+
+    const openLabel = isEn ? 'Open ↗' : '開啟 ↗';
+    Promise.all([
+      Docs.loadFilings(ticker, { years: 5, limit: 40 }).catch(error => ({ error })),
+      Docs.loadTranscriptDates(ticker).catch(error => ({ error })),
+    ]).then(([filings, transcripts]) => {
+      if (activeCompanyTicker !== ticker) return;
+      const filingRows = filings?.rows || [];
+      const txRows = (transcripts?.rows || []).slice(0, 24);
+      filingsBody.innerHTML = filingRows.length
+        ? filingRows.map(row => `<tr>
+            <td class="table-sticky-col" style="text-align:left;">${row.filingDate || '—'}</td>
+            <td>${escapeAttribute(row.form)}</td>
+            <td>${row.link
+              ? `<a href="${escapeAttribute(row.link)}" target="_blank" rel="noopener noreferrer">${openLabel}</a>`
+              : '—'}</td>
+          </tr>`).join('')
+        : `<tr><td class="table-sticky-col text-muted" colspan="3">${
+          filings?.error
+            ? (isEn
+              ? `FMP filings unavailable (${String(filings.error.message || filings.error)}). Use SEC links above.`
+              : `FMP 申報不可用（${String(filings.error.message || filings.error)}）。請用上方 SEC 連結。`)
+            : (isEn ? 'No FMP filing rows returned.' : 'FMP 未回傳申報列。')}</td></tr>`;
+
+      txBody.innerHTML = txRows.length
+        ? txRows.map(row => {
+          const url = Docs.transcriptOpenUrl(ticker, row.year, row.quarter);
+          return `<tr>
+            <td class="table-sticky-col" style="text-align:left;">${escapeAttribute(row.label)}</td>
+            <td>${row.date || '—'}</td>
+            <td><a href="${escapeAttribute(url)}" target="_blank" rel="noopener noreferrer"
+              onclick="return openEarningsTranscript(event, '${escapeAttribute(ticker)}', ${row.year}, ${row.quarter})">${
+              isEn ? 'Open transcript ↗' : '開啟逐字稿 ↗'}</a></td>
+          </tr>`;
+        }).join('')
+        : `<tr><td class="table-sticky-col text-muted" colspan="3">${
+          transcripts?.error
+            ? (isEn
+              ? `Transcript dates unavailable (${String(transcripts.error.message || transcripts.error)}).`
+              : `逐字稿日期不可用（${String(transcripts.error.message || transcripts.error)}）。`)
+            : (isEn ? 'No earnings-call transcript dates.' : '無法說會逐字稿日期。')}</td></tr>`;
+
+      const fCount = filingRows.length;
+      const tCount = txRows.length;
+      status.textContent = `${ticker} · ${isEn ? 'filings' : '申報'} ${fCount}`
+        + ` · ${isEn ? 'transcripts' : '逐字稿'} ${tCount}`
+        + (filings?.source ? ` · filings:${filings.source}` : '')
+        + (transcripts?.source ? ` · transcripts:${transcripts.source}` : '');
+      document.querySelectorAll('#subpage-documents .table-scroll-wrapper').forEach(box => makeScrollable(box));
+    });
+  }
+
 
   // ========================================================
   // 2. 關鍵比率子頁面渲染 (包含頂部 57 項全維度指標表)

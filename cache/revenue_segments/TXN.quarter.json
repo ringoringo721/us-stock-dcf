@@ -67,14 +67,6 @@
       }
     },
     {
-      "date": "2013-12-31",
-      "segments": {
-        "All Other Segments": -1449000000,
-        "Analog": 3332000000,
-        "Embedded Processing": -1244000000
-      }
-    },
-    {
       "date": "2014-03-31",
       "segments": {
         "Analog": 1837000000,
@@ -759,5 +751,5 @@
       }
     }
   ],
-  "sanitizedAt": "2026-11-02T14:38:30.349Z"
+  "sanitizedAt": "2026-11-02T14:51:27.870Z"
 }

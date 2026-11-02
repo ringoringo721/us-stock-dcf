@@ -49,6 +49,12 @@
       }
     },
     {
+      "date": "2010-12-31",
+      "segments": {
+        "Finance and Financial Products Reportable Segment": 3267000000
+      }
+    },
+    {
       "date": "2011-03-31",
       "segments": {
         "Railroad Utilities And Energy": 7413000000,
@@ -70,6 +76,12 @@
         "Railroad Utilities And Energy": 7828000000,
         "Finance and Financial Products Reportable Segment": -1450000000,
         "Insurance And Other": 27361000000
+      }
+    },
+    {
+      "date": "2011-12-31",
+      "segments": {
+        "Finance and Financial Products Reportable Segment": 3301000000
       }
     },
     {
@@ -723,5 +735,5 @@
     }
   ],
   "geographic": [],
-  "sanitizedAt": "2026-11-02T14:38:30.349Z"
+  "sanitizedAt": "2026-11-02T14:51:27.870Z"
 }

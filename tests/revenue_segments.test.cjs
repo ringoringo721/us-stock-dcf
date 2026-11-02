@@ -127,6 +127,32 @@ test('sanitizeQuarterlyRows de-cumulates near-YTD year-end and drops annual-scal
     { date: '2014-12-31', data: { A: 9981 } },
   ]);
   assert.deepEqual(cascade.map(row => row.date), ['2014-03-31', '2014-06-30']);
+
+  // Coincident total match with mismatched keys must DROP — never invent negatives.
+  const falseYtd = RevenueSegments.sanitizeQuarterlyRows([
+    { date: '2025-03-31', data: { Construction: 10, Resource: 5 } },
+    { date: '2025-06-30', data: { Construction: 12, Resource: 6 } },
+    { date: '2025-09-30', data: { Construction: 11, Resource: 7 } },
+    // Totals ≈ priorSum but rollup key differs → subtraction would go negative.
+    { date: '2025-12-31', data: { Construction: 5, ReportableSubsegments: 46 } },
+  ]);
+  assert.deepEqual(falseYtd.map(row => row.date),
+    ['2025-03-31', '2025-06-30', '2025-09-30']);
+  assert.ok(falseYtd.every(row => Object.values(row.segments).every(v => v >= 0)));
+
+  // Same keys but one residual negative → drop, do not keep partial residual.
+  const negResidual = RevenueSegments.sanitizeQuarterlyRows([
+    { date: '2025-03-31', data: { A: 10, B: 10 } },
+    { date: '2025-06-30', data: { A: 10, B: 10 } },
+    { date: '2025-09-30', data: { A: 10, B: 10 } },
+    { date: '2025-12-31', data: { A: 40, B: 20 } }, // A residual 10, B residual −10
+  ]);
+  assert.equal(negResidual.length, 3);
+
+  // Idempotent: a leftover de-cumulated Q4 must survive a second sanitize pass.
+  const again = RevenueSegments.sanitizeQuarterlyRows(softYtd);
+  assert.equal(again.length, 4);
+  assert.equal(again[3].segments.A, 1);
 });
 
 test('validateCache period=quarter runs sanitizeQuarterlyRows', () => {
@@ -143,4 +169,45 @@ test('validateCache period=quarter runs sanitizeQuarterlyRows', () => {
     geographic: [],
   }, 'ABBV');
   assert.equal(record.product.length, 3);
+});
+
+test('validateCache skips re-sanitize when sanitizedAt is set', () => {
+  const leftoverQ4 = [
+    { date: '2025-03-31', segments: { A: 10 } },
+    { date: '2025-06-30', segments: { A: 10 } },
+    { date: '2025-09-30', segments: { A: 10 } },
+    { date: '2025-12-31', segments: { A: 1 } }, // de-cumulated leftover
+  ];
+  const record = RevenueSegments.validateCache({
+    version: 1,
+    ticker: 'TEST',
+    period: 'quarter',
+    sanitizedAt: '2026-11-02T00:00:00.000Z',
+    product: leftoverQ4,
+    geographic: [],
+  }, 'TEST');
+  assert.equal(record.product.length, 4);
+  assert.equal(record.product[3].segments.A, 1);
+});
+
+test('sumTrailingQuarters / applyTtmFromQuarters fill annual TTM from last 4Q', () => {
+  const quarters = [
+    { date: '2025-12-31', data: { AWS: 10 } },
+    { date: '2026-03-31', data: { AWS: 11 } },
+    { date: '2026-06-30', data: { AWS: 12 } },
+    { date: '2026-09-30', data: { AWS: 13 } },
+  ];
+  const sum = RevenueSegments.sumTrailingQuarters(quarters);
+  assert.equal(sum.segments.AWS, 46);
+  assert.equal(sum.date, '2026-09-30');
+  assert.equal(RevenueSegments.sumTrailingQuarters(quarters.slice(0, 3)), null);
+
+  const aligned = RevenueSegments.alignToPeriods(
+    [{ date: '2025-12-31', data: { AWS: 40 } }],
+    [{ label: '2025', date: '2025-12-31' }, { label: 'TTM', date: '2026-09-30', kind: 'ttm' }],
+  );
+  assert.equal(aligned.columns[1].segments, null);
+  const filled = RevenueSegments.applyTtmFromQuarters(aligned, quarters);
+  assert.equal(filled.columns[1].segments.AWS, 46);
+  assert.equal(filled.columns[1].date, '2026-09-30');
 });

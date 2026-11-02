@@ -11,6 +11,9 @@ const endpoints = {
   dividends: 'dividends',
   'revenue-product-segmentation': 'revenue-product-segmentation',
   'revenue-geographic-segmentation': 'revenue-geographic-segmentation',
+  'sec-filings': 'sec-filings-search/symbol',
+  'transcript-dates': 'earning-call-transcript-dates',
+  'earning-call-transcript': 'earning-call-transcript',
 };
 const customParameters = {
   revenueGrowthPct: [-0.9, 2], ebitdaPct: [-1, 1], ebitPct: [-1, 1],
@@ -41,6 +44,9 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
     const dividends = action === 'dividends';
     const revenueSegments = action === 'revenue-product-segmentation'
       || action === 'revenue-geographic-segmentation';
+    const secFilings = action === 'sec-filings';
+    const transcriptDates = action === 'transcript-dates';
+    const transcriptBody = action === 'earning-call-transcript';
     if (!Object.hasOwn(endpoints, action) || !/^[A-Z0-9][A-Z0-9.-]{0,14}$/.test(symbol || '')
         || [...new Set(query.keys())].some(key => query.getAll(key).length !== 1)
         || [...query.keys()].some(key => !['action', 'symbol', 'page'].includes(key)
@@ -49,11 +55,15 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
           && !(estimates && ['period', 'limit'].includes(key))
           && !(dividends && ['limit', 'from', 'to'].includes(key))
           && !(revenueSegments && ['period', 'structure'].includes(key))
+          && !(secFilings && ['from', 'to', 'limit', 'page'].includes(key))
+          && !(transcriptDates && [].includes(key))
+          && !(transcriptBody && ['year', 'quarter'].includes(key))
           && !(custom && Object.hasOwn(customParameters, key)))) {
       return send(400, { error: 'INVALID_REQUEST' });
     }
     const page = query.get('page') || '0';
-    if (!/^\d{1,4}$/.test(page) || Number(page) > 1000 || action !== 'news' && query.has('page')) {
+    if (!/^\d{1,4}$/.test(page) || Number(page) > 1000
+        || (action !== 'news' && action !== 'sec-filings' && query.has('page'))) {
       return send(400, { error: 'INVALID_PAGE' });
     }
     const indicator = query.get('indicator'), period = query.get('periodLength');
@@ -61,6 +71,9 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
     const estimatePeriod = query.get('period'), estimateLimit = query.get('limit');
     const segmentPeriod = query.get('period');
     const segmentStructure = query.get('structure');
+    const transcriptYear = query.get('year');
+    const transcriptQuarter = query.get('quarter');
+    const filingsLimit = query.get('limit');
     if (technical && (!/^\d{1,3}$/.test(period || '')
         || !technicals.validRequest(indicator, Number(period), from, to))) {
       return send(400, { error: 'INVALID_TECHNICAL_REQUEST' });
@@ -85,6 +98,16 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
     if (revenueSegments && ((segmentPeriod && segmentPeriod !== 'annual' && segmentPeriod !== 'quarter')
         || (segmentStructure && segmentStructure !== 'flat'))) {
       return send(400, { error: 'INVALID_REVENUE_SEGMENT_REQUEST' });
+    }
+    if (secFilings && ((from && !validDate(from)) || (to && !validDate(to))
+        || (from && to && from > to)
+        || (filingsLimit && (!/^\d{1,3}$/.test(filingsLimit) || Number(filingsLimit) < 1
+          || Number(filingsLimit) > 100)))) {
+      return send(400, { error: 'INVALID_SEC_FILINGS_REQUEST' });
+    }
+    if (transcriptBody && (!/^\d{4}$/.test(transcriptYear || '')
+        || !/^[1-4]$/.test(transcriptQuarter || ''))) {
+      return send(400, { error: 'INVALID_TRANSCRIPT_REQUEST' });
     }
     const key = apiKey();
     if (!key) return send(503, { error: 'FMP_NOT_CONFIGURED' });
@@ -120,6 +143,22 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
     if (revenueSegments) {
       url.searchParams.set('period', segmentPeriod || 'annual');
       url.searchParams.set('structure', 'flat');
+    }
+    if (secFilings) {
+      const end = to || new Date().toISOString().slice(0, 10);
+      const start = from || (() => {
+        const d = new Date(`${end}T00:00:00Z`);
+        d.setUTCFullYear(d.getUTCFullYear() - 5);
+        return d.toISOString().slice(0, 10);
+      })();
+      url.searchParams.set('from', start);
+      url.searchParams.set('to', end);
+      url.searchParams.set('page', page);
+      url.searchParams.set('limit', filingsLimit || '40');
+    }
+    if (transcriptBody) {
+      url.searchParams.set('year', transcriptYear);
+      url.searchParams.set('quarter', transcriptQuarter);
     }
     for (const [name, [minimum, maximum]] of Object.entries(customParameters)) {
       if (!query.has(name)) continue;
@@ -158,10 +197,15 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
       return send(502, { error: 'FMP_INVALID_RESPONSE' });
     }
     // Stable dividends occasionally wrap rows; segmentation must remain a list.
+    // Earning-call transcript may return a single object with `content`.
     let rows = Array.isArray(payload) ? payload
       : Array.isArray(payload?.data) ? payload.data
       : Array.isArray(payload?.historical) ? payload.historical
       : null;
+    if (!Array.isArray(rows) && transcriptBody && payload && typeof payload === 'object'
+        && !payload['Error Message'] && !payload.error) {
+      rows = [payload];
+    }
     if (!Array.isArray(rows)) {
       console.error('FMP returned a non-array response', { action, symbol,
         message: payload && typeof payload === 'object' ? payload['Error Message'] || payload.error : null });
@@ -185,20 +229,21 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
         close: row.close, volume: row.volume == null ? null : row.volume
       }));
     } else {
-      // Dividends / segment feeds sometimes omit symbol; accept empty-symbol rows for those actions.
+      // Dividends / segment / filings / transcripts sometimes omit symbol.
+      const softSymbol = revenueSegments || dividends || secFilings || transcriptDates || transcriptBody;
       data = rows.filter(row => row && (row.symbol == null || row.symbol === ''
         || row.symbol === provider || row.symbol === symbol));
-      if (!revenueSegments && !dividends && data.length !== rows.length) {
+      if (!softSymbol && data.length !== rows.length) {
         console.error('FMP returned another security', { action, symbol });
         return send(502, { error: 'FMP_SECURITY_MISMATCH' });
       }
-      if ((revenueSegments || dividends) && rows.some(row => row?.symbol
+      if (softSymbol && rows.some(row => row?.symbol
           && row.symbol !== provider && row.symbol !== symbol)) {
         console.error('FMP returned another security', { action, symbol });
         return send(502, { error: 'FMP_SECURITY_MISMATCH' });
       }
       if (provider !== symbol) data = data.map(row => ({ ...row, symbol, providerSymbol: provider }));
-      else if (dividends || revenueSegments) {
+      else if (softSymbol) {
         data = data.map(row => ({ ...row, symbol }));
       }
     }

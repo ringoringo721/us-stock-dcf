@@ -38,13 +38,6 @@
       }
     },
     {
-      "date": "2011-12-31",
-      "segments": {
-        "Wireless": 1806000000,
-        "Wireline": -106000000
-      }
-    },
-    {
       "date": "2012-03-31",
       "segments": {
         "Wireline": 9945000000
@@ -455,5 +448,5 @@
     }
   ],
   "geographic": [],
-  "sanitizedAt": "2026-11-02T14:38:30.349Z"
+  "sanitizedAt": "2026-11-02T14:51:27.870Z"
 }

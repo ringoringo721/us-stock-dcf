@@ -384,6 +384,27 @@
     return out;
   }
 
+  /**
+   * TradingView "Cont div growth": length of the trailing strictly-increasing
+   * annual DPS run (years in the streak), capped 1–7. Example chronological
+   * DPS [100, 90, 80, 80, 90, 100] → streak [80, 90, 100] → 3. Flat/down at the
+   * end → 0. Needs at least one increase (streak length ≥ 2).
+   */
+  function continuousDividendGrowth(series, asOf = null, { cap = 7 } = {}) {
+    if (!Array.isArray(series) || series.length < 2) return 0;
+    let rows = series.filter(row => row && row.dps > 0 && row.date)
+      .sort((a, b) => a.date.localeCompare(b.date));
+    if (asOf) rows = rows.filter(row => row.date <= asOf);
+    if (rows.length < 2) return 0;
+    let streak = 1;
+    for (let i = rows.length - 1; i >= 1; i -= 1) {
+      if (rows[i].dps > rows[i - 1].dps) streak += 1;
+      else break;
+    }
+    if (streak < 2) return 0;
+    return Math.min(cap, streak);
+  }
+
   function leverageToFcf(stock) {
     const debt = finite(stock?.debt);
     const net = finite(stock?.net_debt) ?? (debt !== null && finite(stock?.cash_and_short_term) != null
@@ -401,6 +422,7 @@
     const series = annualDpsFromStatements(statements);
     return {
       ...growthWindows(series, asOf),
+      cont_div_growth: continuousDividendGrowth(series, asOf),
       ...leverageToFcf(stock || {}),
       dividendSeriesSource: series.length ? 'statements' : null,
       dividendSeriesPoints: series.length,
@@ -412,6 +434,7 @@
     const resolvedAsOf = asOf || completeYearAsOf(series);
     return {
       ...growthWindows(series, resolvedAsOf),
+      cont_div_growth: continuousDividendGrowth(series, resolvedAsOf),
       ...leverageToFcf(stock || {}),
       dividendSeriesSource: series.length ? 'dividends' : null,
       dividendSeriesPoints: series.length,
@@ -507,6 +530,7 @@
     yearEndCloseByYear,
     yieldPctForYear,
     completeYearAsOf,
+    continuousDividendGrowth,
     annualDpsFromPayments,
     annualDpsFromStatements,
     paymentsFromStatements,

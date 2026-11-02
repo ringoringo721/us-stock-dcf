@@ -260,21 +260,6 @@
       }
     },
     {
-      "date": "2018-12-31",
-      "segments": {
-        "Products And Services Other": -55000000,
-        "Application Management Services": 18000000,
-        "Global Process Services": 21000000,
-        "Infrastructure Services": 167000000,
-        "Integration Software": 475000000,
-        "Operating Systems Software": 63000000,
-        "Solutions Software": 1169000000,
-        "Systems Hardware": 1499000000,
-        "Technical Support Services": -17000000,
-        "Transaction Processing Software": 420000000
-      }
-    },
-    {
       "date": "2019-03-31",
       "segments": {
         "Global Business Services": 4119000000,
@@ -610,6 +595,12 @@
       }
     },
     {
+      "date": "2014-12-31",
+      "segments": {
+        "Total Segments": 3227000000
+      }
+    },
+    {
       "date": "2018-03-31",
       "segments": {
         "Americas": 8707000000,
@@ -890,5 +881,5 @@
       }
     }
   ],
-  "sanitizedAt": "2026-11-02T14:38:30.349Z"
+  "sanitizedAt": "2026-11-02T14:51:27.870Z"
 }

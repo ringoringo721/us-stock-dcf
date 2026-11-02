@@ -13,7 +13,7 @@ const assets = [
   'fmp_model_data.js', 'fmp_scenario.js', 'fmp_models.js', 'custom_target_price.js', 'fmp_cache.js', 'beta_lookback.js',
   'hkex_universe.js', 'hkex_universe_data.js', 'hkex_expansion_data.js', 'cache/hkex_universe.json',
   'us_universe.js', 'us_universe_data.js', 'us_expansion_data.js', 'us_chinese_names_data.js',
-  'dividend_history.js', 'revenue_segments.js', 'dividend_leverage_metrics_data.js',
+  'dividend_history.js', 'revenue_segments.js', 'company_documents.js', 'dividend_leverage_metrics_data.js',
   'cache/us_universe.json', 'cache/us_chinese_names.json',
   'full_market_dcf.json', 'hk_market_dcf.json',
   'cache/news_translations.json', 'cache/hsi_constituents.json',

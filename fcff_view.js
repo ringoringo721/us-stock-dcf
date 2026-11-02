@@ -136,12 +136,7 @@
         if (finite(fcf) && fcf > 0 && finite(net)) return ratio(net, fcf);
         return finite(stock.net_debt_to_fcf) ? stock.net_debt_to_fcf : null;
       })(),
-      div_cagr_5y: finite(stock.div_cagr_5y) ? stock.div_cagr_5y : null,
-      div_cagr_10y: finite(stock.div_cagr_10y) ? stock.div_cagr_10y : null,
-      div_cagr_15y: finite(stock.div_cagr_15y) ? stock.div_cagr_15y : null,
-      div_cagr_20y: finite(stock.div_cagr_20y) ? stock.div_cagr_20y : null,
-      div_cagr_25y: finite(stock.div_cagr_25y) ? stock.div_cagr_25y : null,
-      div_cagr_30y: finite(stock.div_cagr_30y) ? stock.div_cagr_30y : null,
+      cont_div_growth: Number.isFinite(stock.cont_div_growth) ? stock.cont_div_growth : null,
       div_yield: stock.div_yield, f_score: stock.f_score,
       f_score_breakdown: stock.f_score_breakdown || []
     };

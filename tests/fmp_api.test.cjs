@@ -161,3 +161,37 @@ test('News pagination discloses its bound instead of offering an invalid next pa
   assert.equal(result.body.hasMore, false);
   assert.equal(result.body.limitReached, true);
 });
+
+
+test('sec-filings action forwards from/to/limit to search-by-symbol', async () => {
+  const handler = createHandler({ apiKey: () => 'test-placeholder', fetch: async url => {
+    assert.equal(url.pathname, '/stable/sec-filings-search/symbol');
+    assert.equal(url.searchParams.get('symbol'), 'PCAR');
+    assert.equal(url.searchParams.get('from'), '2024-01-01');
+    assert.equal(url.searchParams.get('to'), '2025-01-01');
+    assert.equal(url.searchParams.get('limit'), '20');
+    return { ok: true, json: async () => [{ symbol: 'PCAR', formType: '10-K', filingDate: '2024-06-01', finalLink: 'https://www.sec.gov/x' }] };
+  } });
+  const result = await call(handler, '/api/fmp?action=sec-filings&symbol=PCAR&from=2024-01-01&to=2025-01-01&limit=20');
+  assert.equal(result.status, 200);
+  assert.equal(result.body.data[0].formType, '10-K');
+});
+
+test('transcript-dates and earning-call-transcript actions', async () => {
+  const seen = [];
+  const handler = createHandler({ apiKey: () => 'test-placeholder', fetch: async url => {
+    seen.push({ path: url.pathname, year: url.searchParams.get('year'), quarter: url.searchParams.get('quarter') });
+    if (url.pathname.endsWith('earning-call-transcript-dates')) {
+      return { ok: true, json: async () => [{ symbol: 'AAPL', fiscalYear: 2024, quarter: 1, date: '2024-02-01' }] };
+    }
+    return { ok: true, json: async () => ({ symbol: 'AAPL', year: 2024, quarter: 1, content: 'Hello investors' }) };
+  } });
+  const dates = await call(handler, '/api/fmp?action=transcript-dates&symbol=AAPL');
+  assert.equal(dates.status, 200);
+  assert.equal(dates.body.data[0].quarter, 1);
+  const body = await call(handler, '/api/fmp?action=earning-call-transcript&symbol=AAPL&year=2024&quarter=1');
+  assert.equal(body.status, 200);
+  assert.equal(body.body.data[0].content, 'Hello investors');
+  assert.equal(seen[1].year, '2024');
+  assert.equal(seen[1].quarter, '1');
+});

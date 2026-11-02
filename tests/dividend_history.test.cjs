@@ -146,6 +146,36 @@ test('annualDpsFromPayments keeps a window longer than 30y for CAGR publish', ()
   assert.ok(growth.div_cagr_30y != null);
 });
 
+test('continuousDividendGrowth matches TradingView Cont div growth example', () => {
+  // Chronological DPS $100,$90,$80,$80,$90,$100 → trailing streak [80,90,100] → 3.
+  const series = [100, 90, 80, 80, 90, 100].map((dps, i) => ({
+    date: `${2019 + i}-12-31`,
+    dps,
+  }));
+  assert.equal(DividendHistory.continuousDividendGrowth(series), 3);
+  assert.equal(DividendHistory.continuousDividendGrowth([
+    { date: '2023-12-31', dps: 1 },
+    { date: '2024-12-31', dps: 1 },
+  ]), 0);
+  assert.equal(DividendHistory.continuousDividendGrowth([
+    { date: '2018-12-31', dps: 1 },
+    { date: '2019-12-31', dps: 2 },
+    { date: '2020-12-31', dps: 3 },
+    { date: '2021-12-31', dps: 4 },
+    { date: '2022-12-31', dps: 5 },
+    { date: '2023-12-31', dps: 6 },
+    { date: '2024-12-31', dps: 7 },
+    { date: '2025-12-31', dps: 8 },
+  ]), 7); // capped
+  const metrics = DividendHistory.metricsFromPayments([
+    { date: '2022-03-15', adjDividend: 80 },
+    { date: '2023-03-15', adjDividend: 80 },
+    { date: '2024-03-15', adjDividend: 90 },
+    { date: '2025-03-15', adjDividend: 100 },
+  ], null, '2025-12-31');
+  assert.equal(metrics.cont_div_growth, 3);
+});
+
 test('yieldPct uses year-end close then current quote for open year', () => {
   const closes = DividendHistory.yearEndCloseByYear([
     ['2024-12-31', 200],

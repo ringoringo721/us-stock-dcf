@@ -3,10 +3,10 @@
 /**
  * Publish compact front-table metrics for ALL US+HK stocks that have statement
  * and/or dividend caches:
- *   - div_cagr_{5,10,15,20,25,30}y  (prefer FMP dividend payments; else statement DPS)
+ *   - cont_div_growth  (TradingView Cont div growth; prefer FMP dividend cache)
  *   - debt_to_fcf / net_debt_to_fcf (from catalogue debt/net_debt/fcf0)
  *
- * Does not call FMP. Optional cache/dividends/{ticker}.json improves long windows.
+ * Does not call FMP. Optional cache/dividends/{ticker}.json improves coverage.
  */
 const fs = require('node:fs');
 const path = require('node:path');
@@ -14,7 +14,6 @@ const vm = require('node:vm');
 const DividendHistory = require('../dividend_history.js');
 
 const root = path.resolve(__dirname, '..');
-const WINDOWS = DividendHistory.WINDOWS;
 
 function readJson(file) {
   return JSON.parse(fs.readFileSync(file, 'utf8'));
@@ -82,15 +81,16 @@ function publish() {
       const statements = loadStatements(ticker);
       if (statements) {
         growth = DividendHistory.metricsFromStatements(statements, stock);
-        if (WINDOWS.some(years => growth[`div_cagr_${years}y`] != null)) fromStatements += 1;
+        if (growth.cont_div_growth > 0) fromStatements += 1;
       }
     }
-    const row = { ...leverage };
-    for (const years of WINDOWS) {
-      const key = `div_cagr_${years}y`;
-      row[key] = growth?.[key] ?? null;
-    }
-    if (Object.values(row).every(value => value == null)) {
+    const row = {
+      ...leverage,
+      cont_div_growth: Number.isFinite(growth?.cont_div_growth) ? growth.cont_div_growth : null,
+    };
+    const hasLeverage = row.debt_to_fcf != null || row.net_debt_to_fcf != null;
+    const hasGrowth = row.cont_div_growth != null;
+    if (!hasLeverage && !hasGrowth) {
       leverageOnly += 1;
       continue;
     }
@@ -98,11 +98,11 @@ function publish() {
   }
 
   const payload = {
-    version: 1,
+    version: 2,
     generatedAt: new Date().toISOString(),
     source: {
-      dividends: 'cache/dividends/*.json when present',
-      statements: 'cache/financials/*_statements_v2.json DPS proxy (cash dividends ÷ diluted shares)',
+      dividends: 'cache/dividends/*.json when present → cont_div_growth',
+      statements: 'cache/financials/*_statements_v2.json DPS proxy when no dividend cache',
       leverage: 'catalogue debt / net_debt / fcf0',
     },
     counts: {
@@ -118,8 +118,6 @@ function publish() {
   const js = `window.DIVIDEND_LEVERAGE_METRICS = ${JSON.stringify(payload)};\n`;
   const target = path.join(root, 'dividend_leverage_metrics_data.js');
   fs.writeFileSync(target, js);
-  // Also patch catalogue objects in-memory is done at boot; optionally stamp scalars
-  // onto baseline JSON snapshots would bloat diffs — keep sidecar only.
   console.log(JSON.stringify(payload.counts));
   return payload;
 }

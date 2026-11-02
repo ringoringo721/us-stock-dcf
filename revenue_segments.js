@@ -83,11 +83,44 @@
   /**
    * FMP period=quarter feeds sometimes mix YTD-cumulative or full-FY snapshots into
    * year-end rows (Bugbot: ABBV/AMGN/AMD). Detect within each calendar year:
-   *  - last ≈ sum(prior) → de-cumulate segment-wise (YTD → quarter)
-   *  - last >> / << peer-quarter median → drop the bad year-end row (no FY-in-Q4)
+   *  - last ≈ sum(prior) AND same segment keys AND non-negative residuals → de-cumulate
+   *  - otherwise last ≈ sum(prior) with mismatched keys/negatives → DROP (no invented rev)
+   *  - last >> peer-quarter median → drop (no FY-in-Q4)
    * Iterate: ABBV 2014 dumps FY into both Sep and Dec — dropping Dec alone still
    * leaves an annual-scale "Q3" that would paint FY into the quarterly UI.
    */
+  function segmentKeys(row) {
+    return Object.keys(row.segments || {}).sort();
+  }
+
+  function sameSegmentKeys(a, b) {
+    const ka = segmentKeys(a);
+    const kb = segmentKeys(b);
+    if (ka.length !== kb.length) return false;
+    return ka.every((key, index) => key === kb[index]);
+  }
+
+  function tryDecumulateYtd(prior, last, median) {
+    // True YTD: identical segment keys across the year, every residual ≥ 0, residual
+    // looks like one peer quarter — otherwise totals can match by coincidence (rollups,
+    // missing quarters) and subtraction invents multi-billion negative "revenue".
+    if (!prior.every(row => sameSegmentKeys(row, last))) return { ok: false };
+    const residual = {};
+    for (const name of Object.keys(last.segments)) {
+      const priorValue = prior.reduce((sum, row) => sum + (row.segments[name] || 0), 0);
+      const quarterValue = last.segments[name] - priorValue;
+      if (!Number.isFinite(quarterValue)) return { ok: false };
+      if (quarterValue < 0) return { ok: false };
+      if (quarterValue > 0) residual[name] = quarterValue;
+    }
+    const residualTotal = Object.values(residual).reduce((sum, value) => sum + value, 0);
+    if (!(residualTotal > 0) || !Object.keys(residual).length) return { ok: false };
+    // Reject only annual-sized residuals. A tiny leftover Q4 after true YTD is valid
+    // (and must survive; do not treat it as a junk stub).
+    if (median > 0 && residualTotal >= median * 2.8) return { ok: false };
+    return { ok: true, row: { ...last, segments: residual } };
+  }
+
   function sanitizeQuarterlyRows(rows) {
     const normalized = asNormalizedRows(rows);
     if (normalized.length < 2) return normalized;
@@ -113,24 +146,18 @@
         // prior, last≈priorSum is normal QoQ stability — do not de-cumulate.
         if (prior.length >= 2 && priorSum > 0
             && Math.abs(lastTotal - priorSum) / priorSum <= 0.12) {
-          const residual = {};
-          for (const [name, value] of Object.entries(last.segments)) {
-            const priorValue = prior.reduce((sum, row) => sum + (row.segments[name] || 0), 0);
-            const quarterValue = value - priorValue;
-            if (Number.isFinite(quarterValue) && Math.abs(quarterValue) > 0) residual[name] = quarterValue;
+          const decum = tryDecumulateYtd(prior, last, median);
+          if (decum.ok) {
+            rowsInYear = [...prior, decum.row];
+            break;
           }
-          const residualTotal = Object.values(residual).reduce((sum, value) => sum + value, 0);
-          // Keep a positive de-cumulated quarter when it is not an annual-sized residual.
-          if (residualTotal > 0 && Object.keys(residual).length
-              && (median <= 0 || residualTotal < median * 2.8)) {
-            rowsInYear = [...prior, { ...last, segments: residual }];
-          } else {
-            rowsInYear = prior;
-          }
-          break;
+          // Coincident total match / rollup mismatch — drop and re-check new trailing row.
+          rowsInYear = prior;
+          continue;
         }
-        if (median > 0 && (lastTotal > median * 2.8 || lastTotal < median * 0.15)) {
-          // Annual/YTD scale painted into year-end (or junk stub) — omit and re-check.
+        // Oversized year-end only (FY dump). Do NOT drop undersized leftovers — a
+        // de-cumulated Q4 can be << median, and re-running sanitize must stay idempotent.
+        if (median > 0 && lastTotal > median * 2.8) {
           rowsInYear = prior;
           continue;
         }
@@ -150,7 +177,10 @@
     const period = record.period || null;
     let product = normalizeRows(record.product || [], ticker);
     let geographic = normalizeRows(record.geographic || [], ticker);
-    if (period === 'quarter') {
+    // Already-scrubbed quarter caches carry sanitizedAt — skip a second pass that
+    // would otherwise treat a leftover de-cumulated Q4 as a junk stub and drop it.
+    const alreadySanitized = period === 'quarter' && !!record.sanitizedAt;
+    if (period === 'quarter' && !alreadySanitized) {
       product = sanitizeQuarterlyRows(product);
       geographic = sanitizeQuarterlyRows(geographic);
     }
@@ -161,6 +191,7 @@
       period,
       product,
       geographic,
+      ...(record.sanitizedAt ? { sanitizedAt: record.sanitizedAt } : {}),
     };
   }
 
@@ -194,11 +225,60 @@
   }
 
   /**
+   * Sum the last `count` quarterly segment rows into one TTM snapshot.
+   * Returns null when fewer than `count` quarters exist (caller should omit TTM).
+   */
+  function sumTrailingQuarters(segmentRows, count = 4, ticker = null) {
+    const rows = asNormalizedRows(segmentRows, ticker);
+    if (rows.length < count) return null;
+    const window = rows.slice(-count);
+    const segments = {};
+    for (const row of window) {
+      for (const [name, value] of Object.entries(row.segments || {})) {
+        if (!Number.isFinite(value)) continue;
+        segments[name] = (segments[name] || 0) + value;
+      }
+    }
+    if (!Object.keys(segments).length) return null;
+    return {
+      date: window.at(-1).date,
+      from: window[0].date,
+      to: window.at(-1).date,
+      quarters: count,
+      segments,
+    };
+  }
+
+  /** Fill empty TTM columns from trailing quarterly sums; leave null when impossible. */
+  function applyTtmFromQuarters(aligned, quarterRows, ticker = null) {
+    if (!aligned?.columns?.length) return aligned || { names: [], columns: [] };
+    const ttm = sumTrailingQuarters(quarterRows, 4, ticker);
+    if (!ttm) return aligned;
+    const nameSet = new Set(aligned.names || []);
+    Object.keys(ttm.segments).forEach(name => nameSet.add(name));
+    const columns = aligned.columns.map((col) => {
+      if (col.kind !== 'ttm') return col;
+      return {
+        ...col,
+        date: ttm.date,
+        segments: { ...ttm.segments },
+        ttmFrom: ttm.from,
+        ttmTo: ttm.to,
+      };
+    });
+    return {
+      names: [...nameSet].sort((a, b) => a.localeCompare(b)),
+      columns,
+    };
+  }
+
+  /**
    * Align segment series to the financials period labels/dates (annual or interim).
    * `periodDates` may be strings or `{ label, date?, kind? }` specs.
    * Matching is by calendar date prefix (YYYY-MM) then nearest prior segment date.
    * TTM / "latest balance" columns never reuse a prior FY segment snapshot (avoids
    * fake headers like 2026-06 paired with a duplicated 2025-09 FY amount).
+   * Call `applyTtmFromQuarters` afterward to fill TTM from last-4 quarterly rows.
    */
   function alignToPeriods(segmentRows, periodDates, ticker = null) {
     const rows = asNormalizedRows(segmentRows, ticker);
@@ -323,6 +403,8 @@
     extractSegmentMap,
     validateCache,
     sanitizeQuarterlyRows,
+    sumTrailingQuarters,
+    applyTtmFromQuarters,
     alignToPeriods,
     fmpPeriod,
     load,

@@ -294,6 +294,14 @@
       }
     },
     {
+      "date": "2019-12-31",
+      "segments": {
+        "Institutional Clients Group": -28444000000,
+        "Global Consumer Banking": -25292000000,
+        "Commissions And Fees": 7695000000
+      }
+    },
+    {
       "date": "2020-03-31",
       "segments": {
         "Global Consumer Banking": 8174000000,
@@ -312,6 +320,14 @@
       "segments": {
         "Global Consumer Banking": 7173000000,
         "Institutional Clients Group": 10353000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Institutional Clients Group": -34479000000,
+        "Global Consumer Banking": -22396000000,
+        "Commissions And Fees": 7160000000
       }
     },
     {
@@ -336,6 +352,14 @@
       }
     },
     {
+      "date": "2021-12-31",
+      "segments": {
+        "Institutional Clients Group": -32754000000,
+        "Global Consumer Banking": -19857000000,
+        "Commissions And Fees": 8516000000
+      }
+    },
+    {
       "date": "2022-03-31",
       "segments": {
         "Institutional Clients Group": 11160000000,
@@ -357,6 +381,14 @@
         "Institutional Clients Group": 9468000000,
         "Legacy Franchises": 2554000000,
         "Personal Banking and Wealth Management": 6187000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Institutional Clients Group": -31509000000,
+        "Global Consumer Banking": 201000000,
+        "Commissions And Fees": 11008000000
       }
     },
     {
@@ -744,5 +776,5 @@
       }
     }
   ],
-  "sanitizedAt": "2026-11-02T14:38:30.349Z"
+  "sanitizedAt": "2026-11-02T14:51:27.870Z"
 }
