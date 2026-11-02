@@ -155,9 +155,20 @@
           rowsInYear = prior;
           continue;
         }
-        // Oversized year-end only (FY dump). Do NOT drop undersized leftovers — a
-        // de-cumulated Q4 can be << median, and re-running sanitize must stay idempotent.
+        // Negative year-end artifacts (e.g. Citigroup FMP Q4 dumps) poison TTM.
+        if (lastTotal < 0) {
+          rowsInYear = prior;
+          continue;
+        }
+        // Oversized year-end (FY dump into Q4).
         if (median > 0 && lastTotal > median * 2.8) {
+          rowsInYear = prior;
+          continue;
+        }
+        // Undersized junk YE stub (<< peers) with mismatched segment keys — not a
+        // legitimate de-cumulated leftover (those keep the same keys as priors).
+        if (median > 0 && lastTotal >= 0 && lastTotal < median * 0.15
+            && prior.length && !sameSegmentKeys(last, prior[prior.length - 1])) {
           rowsInYear = prior;
           continue;
         }
@@ -165,8 +176,9 @@
       }
       out.push(...rowsInYear);
     }
+    // Final sweep: drop any remaining negative-total quarters (mid-year junk too).
     out.sort((a, b) => a.date.localeCompare(b.date));
-    return out;
+    return out.filter(row => rowTotal(row) >= 0);
   }
 
   function validateCache(record, ticker) {
@@ -179,7 +191,10 @@
     let geographic = normalizeRows(record.geographic || [], ticker);
     // Already-scrubbed quarter caches carry sanitizedAt — skip a second pass that
     // would otherwise treat a leftover de-cumulated Q4 as a junk stub and drop it.
-    const alreadySanitized = period === 'quarter' && !!record.sanitizedAt;
+    // Re-run when any row still has a negative total (poison YE kept under an old tip).
+    const hasNegative = rows => rows.some(row => rowTotal(row) < 0);
+    const alreadySanitized = period === 'quarter' && !!record.sanitizedAt
+      && !hasNegative(product) && !hasNegative(geographic);
     if (period === 'quarter' && !alreadySanitized) {
       product = sanitizeQuarterlyRows(product);
       geographic = sanitizeQuarterlyRows(geographic);

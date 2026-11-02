@@ -389,6 +389,8 @@
    * annual DPS run (years in the streak), capped 1–7. Example chronological
    * DPS [100, 90, 80, 80, 90, 100] → streak [80, 90, 100] → 3. Flat/down at the
    * end → 0. Needs at least one increase (streak length ≥ 2).
+   * Calendar years must be consecutive — a dividend holiday omitted from the
+   * series breaks the streak (no skip across a suspension).
    */
   function continuousDividendGrowth(series, asOf = null, { cap = 7 } = {}) {
     if (!Array.isArray(series) || series.length < 2) return 0;
@@ -398,11 +400,33 @@
     if (rows.length < 2) return 0;
     let streak = 1;
     for (let i = rows.length - 1; i >= 1; i -= 1) {
+      const year = Number(String(rows[i].date).slice(0, 4));
+      const priorYear = Number(String(rows[i - 1].date).slice(0, 4));
+      if (!Number.isFinite(year) || !Number.isFinite(priorYear) || year !== priorYear + 1) break;
       if (rows[i].dps > rows[i - 1].dps) streak += 1;
       else break;
     }
     if (streak < 2) return 0;
     return Math.min(cap, streak);
+  }
+
+  /** Sum payment DPS with ex-date in (asOf − 365d, asOf] — cadence-agnostic TTM. */
+  function trailingTwelveMonthDps(payments, asOfIso = null) {
+    const asOf = coerceIsoDate(asOfIso) || new Date().toISOString().slice(0, 10);
+    const endMs = Date.parse(asOf);
+    if (!Number.isFinite(endMs)) return null;
+    const startIso = new Date(endMs - 365 * DAY).toISOString().slice(0, 10);
+    const rows = normalizePayments(payments).filter(row => row.date > startIso && row.date <= asOf);
+    if (!rows.length) return null;
+    const sum = rows.reduce((total, row) => total + row.dividend, 0);
+    return sum > 0 ? sum : null;
+  }
+
+  function trailingTwelveMonthYieldPct(payments, price, asOfIso = null) {
+    const dps = trailingTwelveMonthDps(payments, asOfIso);
+    const px = finite(price);
+    if (!(dps > 0) || !(px > 0)) return null;
+    return roundPct((dps / px) * 100);
   }
 
   function leverageToFcf(stock) {
@@ -531,6 +555,8 @@
     yieldPctForYear,
     completeYearAsOf,
     continuousDividendGrowth,
+    trailingTwelveMonthDps,
+    trailingTwelveMonthYieldPct,
     annualDpsFromPayments,
     annualDpsFromStatements,
     paymentsFromStatements,

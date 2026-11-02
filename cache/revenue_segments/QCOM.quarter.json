@@ -6,7 +6,7 @@
   "product": [
     {
       "date": "2011-06-26",
-      "segments": {
+      "data": {
         "QCT": 2194000000,
         "QTL": 1257000000,
         "QWI": 164000000,
@@ -17,7 +17,7 @@
     },
     {
       "date": "2011-09-25",
-      "segments": {
+      "data": {
         "QCT": 6665000000,
         "QTL": 4165000000,
         "QWI": 492000000,
@@ -26,7 +26,7 @@
     },
     {
       "date": "2011-12-25",
-      "segments": {
+      "data": {
         "QCT": 3085000000,
         "QTL": 1440000000,
         "QWI": 152000000,
@@ -37,7 +37,7 @@
     },
     {
       "date": "2012-03-25",
-      "segments": {
+      "data": {
         "QCT": 3059000000,
         "QTL": 1723000000,
         "QWI": 159000000,
@@ -48,7 +48,7 @@
     },
     {
       "date": "2012-06-24",
-      "segments": {
+      "data": {
         "QCT": 2869000000,
         "QTL": 1593000000,
         "QWI": 160000000,
@@ -59,7 +59,7 @@
     },
     {
       "date": "2012-09-30",
-      "segments": {
+      "data": {
         "QCT": 3128000000,
         "QTL": 1571000000,
         "QWI": 162000000,
@@ -68,7 +68,7 @@
     },
     {
       "date": "2012-12-30",
-      "segments": {
+      "data": {
         "QCT": 4120000000,
         "QTL": 1757000000,
         "QWI": 146000000,
@@ -79,7 +79,7 @@
     },
     {
       "date": "2013-03-31",
-      "segments": {
+      "data": {
         "QTL": 2057000000,
         "QWI": 155000000,
         "Other Nonreportable Segments": -3000000,
@@ -89,7 +89,7 @@
     },
     {
       "date": "2013-06-30",
-      "segments": {
+      "data": {
         "QTL": 1867000000,
         "QWI": 158000000,
         "Other Nonreportable Segments": -2000000,
@@ -99,7 +99,7 @@
     },
     {
       "date": "2014-03-30",
-      "segments": {
+      "data": {
         "Other Segments": 53000000,
         "QCT": 4243000000,
         "QTL": 2071000000,
@@ -108,7 +108,7 @@
     },
     {
       "date": "2014-06-29",
-      "segments": {
+      "data": {
         "Intersegment Elimination": -1000000,
         "Other Segments": 47000000,
         "QCT": 4957000000,
@@ -118,7 +118,7 @@
     },
     {
       "date": "2014-09-28",
-      "segments": {
+      "data": {
         "Other Segments": 50000000,
         "QCT": 4849000000,
         "QTL": 1795000000
@@ -126,7 +126,7 @@
     },
     {
       "date": "2014-12-28",
-      "segments": {
+      "data": {
         "Other Segments": 43000000,
         "QCT": 5242000000,
         "QTL": 1816000000,
@@ -135,7 +135,7 @@
     },
     {
       "date": "2015-03-29",
-      "segments": {
+      "data": {
         "Other Segments": 47000000,
         "QCT": 4434000000,
         "QTL": 2414000000,
@@ -144,7 +144,7 @@
     },
     {
       "date": "2015-06-28",
-      "segments": {
+      "data": {
         "Other Segments": 49000000,
         "QCT": 3853000000,
         "QTL": 1931000000,
@@ -153,7 +153,7 @@
     },
     {
       "date": "2015-09-27",
-      "segments": {
+      "data": {
         "Other Segments": 42000000,
         "QCT": 3625000000,
         "QTL": 1786000000,
@@ -162,7 +162,7 @@
     },
     {
       "date": "2015-12-27",
-      "segments": {
+      "data": {
         "Segment Reconciling Items": 150000000,
         "Intersegment Elimination": -1000000,
         "Other Segments": 64000000,
@@ -173,7 +173,7 @@
     },
     {
       "date": "2016-03-27",
-      "segments": {
+      "data": {
         "Other Segments": 68000000,
         "QCT": 3337000000,
         "QSI": 12000000,
@@ -182,7 +182,7 @@
     },
     {
       "date": "2016-06-26",
-      "segments": {
+      "data": {
         "Other Segments": 142000000,
         "QCT": 3853000000,
         "QSI": 12000000,
@@ -191,7 +191,7 @@
     },
     {
       "date": "2016-09-25",
-      "segments": {
+      "data": {
         "Other Segments": 164000000,
         "QCT": 4123000000,
         "QSI": 14000000,
@@ -200,7 +200,7 @@
     },
     {
       "date": "2016-12-25",
-      "segments": {
+      "data": {
         "Other Segments": 73000000,
         "QCT": 4101000000,
         "QSI": 14000000,
@@ -209,7 +209,7 @@
     },
     {
       "date": "2017-03-26",
-      "segments": {
+      "data": {
         "Other Segments": 65000000,
         "QCT": 3676000000,
         "QTL": 2249000000
@@ -217,7 +217,7 @@
     },
     {
       "date": "2017-06-25",
-      "segments": {
+      "data": {
         "Other Segments": 79000000,
         "QCT": 4052000000,
         "QSI": 56000000,
@@ -226,7 +226,7 @@
     },
     {
       "date": "2017-09-24",
-      "segments": {
+      "data": {
         "QTL": 1213000000,
         "Other Segments": 94000000,
         "QCT": 4650000000,
@@ -235,7 +235,7 @@
     },
     {
       "date": "2017-12-24",
-      "segments": {
+      "data": {
         "Other Segments": 88000000,
         "QCT": 4651000000,
         "QSI": 30000000,
@@ -244,7 +244,7 @@
     },
     {
       "date": "2018-03-25",
-      "segments": {
+      "data": {
         "Other Segments": 74000000,
         "QCT": 3897000000,
         "QSI": 30000000,
@@ -253,7 +253,7 @@
     },
     {
       "date": "2018-06-24",
-      "segments": {
+      "data": {
         "Other Segments": 77000000,
         "QCT": 4087000000,
         "QSI": 20000000,
@@ -262,7 +262,7 @@
     },
     {
       "date": "2018-09-30",
-      "segments": {
+      "data": {
         "Other Segments": 48000000,
         "QCT": 4647000000,
         "QSI": 20000000,
@@ -271,7 +271,7 @@
     },
     {
       "date": "2018-12-30",
-      "segments": {
+      "data": {
         "Other Segments": 58000000,
         "QCT": 3739000000,
         "QSI": 27000000,
@@ -280,7 +280,7 @@
     },
     {
       "date": "2019-03-31",
-      "segments": {
+      "data": {
         "Other Segments": 40000000,
         "QCT": 3722000000,
         "QSI": 98000000,
@@ -289,7 +289,7 @@
     },
     {
       "date": "2019-06-30",
-      "segments": {
+      "data": {
         "Other Segments": 35000000,
         "QCT": 3567000000,
         "QSI": 18000000,
@@ -298,7 +298,7 @@
     },
     {
       "date": "2019-09-29",
-      "segments": {
+      "data": {
         "Other Segments": 35000000,
         "QCT": 3611000000,
         "QSI": 9000000,
@@ -307,7 +307,7 @@
     },
     {
       "date": "2019-12-29",
-      "segments": {
+      "data": {
         "Other Segments": 35000000,
         "QCT": 3618000000,
         "QSI": 20000000,
@@ -316,7 +316,7 @@
     },
     {
       "date": "2020-03-29",
-      "segments": {
+      "data": {
         "Other Segments": 34000000,
         "QCT": 4100000000,
         "QSI": 10000000,
@@ -325,7 +325,7 @@
     },
     {
       "date": "2020-06-28",
-      "segments": {
+      "data": {
         "Other Segments": 39000000,
         "QCT": 3807000000,
         "QSI": 3000000,
@@ -334,7 +334,7 @@
     },
     {
       "date": "2020-09-27",
-      "segments": {
+      "data": {
         "Other Segments": 25000000,
         "QCT": 4968000000,
         "QSI": 3000000,
@@ -343,7 +343,7 @@
     },
     {
       "date": "2020-12-27",
-      "segments": {
+      "data": {
         "Other Segments": 33000000,
         "QCT": 6533000000,
         "QSI": 9000000,
@@ -352,7 +352,7 @@
     },
     {
       "date": "2021-03-28",
-      "segments": {
+      "data": {
         "Other Segments": 30000000,
         "QCT": 6281000000,
         "QSI": 10000000,
@@ -361,7 +361,7 @@
     },
     {
       "date": "2021-06-27",
-      "segments": {
+      "data": {
         "Other Segments": 34000000,
         "QCT": 6472000000,
         "QSI": 11000000,
@@ -370,7 +370,7 @@
     },
     {
       "date": "2021-09-26",
-      "segments": {
+      "data": {
         "Other Segments": 31000000,
         "QCT": 7733000000,
         "QSI": 15000000,
@@ -379,7 +379,7 @@
     },
     {
       "date": "2021-12-26",
-      "segments": {
+      "data": {
         "QCT": 8847000000,
         "QSI": 8000000,
         "QTL": 1818000000
@@ -387,7 +387,7 @@
     },
     {
       "date": "2022-03-27",
-      "segments": {
+      "data": {
         "Other Segments": 30000000,
         "QCT": 9548000000,
         "QSI": 6000000,
@@ -396,7 +396,7 @@
     },
     {
       "date": "2022-06-26",
-      "segments": {
+      "data": {
         "Other Segments": 31000000,
         "QCT": 9378000000,
         "QSI": 8000000,
@@ -405,7 +405,7 @@
     },
     {
       "date": "2022-09-25",
-      "segments": {
+      "data": {
         "Other Segments": 73000000,
         "QCT": 9904000000,
         "QSI": 9000000,
@@ -414,7 +414,7 @@
     },
     {
       "date": "2022-12-25",
-      "segments": {
+      "data": {
         "Other Segments": 40000000,
         "QCT": 7892000000,
         "QSI": 7000000,
@@ -423,7 +423,7 @@
     },
     {
       "date": "2023-03-26",
-      "segments": {
+      "data": {
         "Other Segments": 36000000,
         "QCT": 7942000000,
         "QSI": 7000000,
@@ -432,7 +432,7 @@
     },
     {
       "date": "2023-06-25",
-      "segments": {
+      "data": {
         "Other Segments": 38000000,
         "QCT": 7174000000,
         "QSI": 9000000,
@@ -441,7 +441,7 @@
     },
     {
       "date": "2023-09-24",
-      "segments": {
+      "data": {
         "Other Segments": 30000000,
         "QCT": 7374000000,
         "QSI": 5000000,
@@ -450,7 +450,7 @@
     },
     {
       "date": "2023-12-24",
-      "segments": {
+      "data": {
         "Other Segments": 39000000,
         "QCT": 8423000000,
         "QSI": 13000000,
@@ -459,7 +459,7 @@
     },
     {
       "date": "2024-03-24",
-      "segments": {
+      "data": {
         "Other Segments": 42000000,
         "QCT": 8026000000,
         "QSI": 3000000,
@@ -468,7 +468,7 @@
     },
     {
       "date": "2024-06-23",
-      "segments": {
+      "data": {
         "Other Segments": 49000000,
         "QCT": 8069000000,
         "QSI": 2000000,
@@ -477,7 +477,7 @@
     },
     {
       "date": "2024-09-29",
-      "segments": {
+      "data": {
         "QCT": 8678000000,
         "QSI": 0,
         "QTL": 1521000000
@@ -485,49 +485,49 @@
     },
     {
       "date": "2024-12-29",
-      "segments": {
+      "data": {
         "QCT": 10084000000,
         "QTL": 1535000000
       }
     },
     {
       "date": "2025-03-30",
-      "segments": {
+      "data": {
         "QCT": 9469000000,
         "QTL": 1319000000
       }
     },
     {
       "date": "2025-06-29",
-      "segments": {
+      "data": {
         "QCT": 8993000000,
         "QTL": 1318000000
       }
     },
     {
       "date": "2025-09-28",
-      "segments": {
+      "data": {
         "QCT": 9821000000,
         "QTL": 1410000000
       }
     },
     {
       "date": "2025-12-28",
-      "segments": {
+      "data": {
         "QCT": 10613000000,
         "QTL": 1592000000
       }
     },
     {
       "date": "2026-03-29",
-      "segments": {
+      "data": {
         "QCT": 9076000000,
         "QTL": 1382000000
       }
     },
     {
       "date": "2026-06-28",
-      "segments": {
+      "data": {
         "QCT": 8504000000,
         "QTL": 1278000000
       }
@@ -535,209 +535,197 @@
   ],
   "geographic": [
     {
-      "date": "2013-03-31",
-      "segments": {
-        "Other Segments": -3000000
-      }
-    },
-    {
-      "date": "2013-06-30",
-      "segments": {
-        "Other Segments": -2000000
-      }
-    },
-    {
       "date": "2013-12-29",
-      "segments": {
+      "data": {
         "Other Segments": 108000000
       }
     },
     {
       "date": "2014-03-30",
-      "segments": {
+      "data": {
         "Other Segments": 53000000
       }
     },
     {
       "date": "2014-06-29",
-      "segments": {
+      "data": {
         "Other Segments": 47000000
       }
     },
     {
       "date": "2014-12-28",
-      "segments": {
+      "data": {
         "Other Segments": 43000000
       }
     },
     {
       "date": "2015-03-29",
-      "segments": {
+      "data": {
         "Other Segments": 47000000
       }
     },
     {
       "date": "2015-06-28",
-      "segments": {
+      "data": {
         "Other Segments": 49000000
       }
     },
     {
       "date": "2015-12-27",
-      "segments": {
+      "data": {
         "Other Segments": 64000000
       }
     },
     {
       "date": "2016-03-27",
-      "segments": {
+      "data": {
         "Other Segments": 68000000
       }
     },
     {
       "date": "2016-06-26",
-      "segments": {
+      "data": {
         "Other Segments": 142000000
       }
     },
     {
       "date": "2016-12-25",
-      "segments": {
+      "data": {
         "Other Segments": 73000000
       }
     },
     {
       "date": "2017-03-26",
-      "segments": {
+      "data": {
         "Other Segments": 65000000
       }
     },
     {
       "date": "2017-06-25",
-      "segments": {
+      "data": {
         "Other Segments": 79000000
       }
     },
     {
       "date": "2017-12-24",
-      "segments": {
+      "data": {
         "Other Segments": 88000000
       }
     },
     {
       "date": "2018-03-25",
-      "segments": {
+      "data": {
         "Other Segments": 74000000
       }
     },
     {
       "date": "2018-06-24",
-      "segments": {
+      "data": {
         "Other Segments": 77000000
       }
     },
     {
       "date": "2018-12-30",
-      "segments": {
+      "data": {
         "Other Segments": 58000000
       }
     },
     {
       "date": "2019-03-31",
-      "segments": {
+      "data": {
         "Other Segments": 40000000
       }
     },
     {
       "date": "2019-06-30",
-      "segments": {
+      "data": {
         "Other Segments": 35000000
       }
     },
     {
       "date": "2019-12-29",
-      "segments": {
+      "data": {
         "Other Segments": 35000000
       }
     },
     {
       "date": "2020-03-29",
-      "segments": {
+      "data": {
         "Other Segments": 34000000
       }
     },
     {
       "date": "2020-06-28",
-      "segments": {
+      "data": {
         "Other Segments": 39000000
       }
     },
     {
       "date": "2020-12-27",
-      "segments": {
+      "data": {
         "Other Segments": 33000000
       }
     },
     {
       "date": "2021-03-28",
-      "segments": {
+      "data": {
         "Other Segments": 30000000
       }
     },
     {
       "date": "2021-06-27",
-      "segments": {
+      "data": {
         "Other Segments": 34000000
       }
     },
     {
       "date": "2022-03-27",
-      "segments": {
+      "data": {
         "Other Segments": 30000000
       }
     },
     {
       "date": "2022-06-26",
-      "segments": {
+      "data": {
         "Other Segments": 31000000
       }
     },
     {
       "date": "2022-12-25",
-      "segments": {
+      "data": {
         "Other Segments": 40000000
       }
     },
     {
       "date": "2023-03-26",
-      "segments": {
+      "data": {
         "Other Segments": 36000000
       }
     },
     {
       "date": "2023-06-25",
-      "segments": {
+      "data": {
         "Other Segments": 38000000
       }
     },
     {
       "date": "2023-12-24",
-      "segments": {
+      "data": {
         "Other Segments": 39000000
       }
     },
     {
       "date": "2024-03-24",
-      "segments": {
+      "data": {
         "Other Segments": 42000000
       }
     },
     {
       "date": "2024-06-23",
-      "segments": {
+      "data": {
         "Other Segments": 49000000
       }
     }
   ],
-  "sanitizedAt": "2026-11-02T14:51:27.870Z"
+  "sanitizedAt": "2026-11-02T15:12:56.807Z"
 }

@@ -2029,11 +2029,11 @@
       <button class="sub-tab-btn" onclick="switchSubPage('dividend')" data-i18n="tab_dividend">💵 4. 股利 (TV)</button>
       <button class="sub-tab-btn" onclick="switchSubPage('documents')" data-i18n="tab_documents">📂 5. 申報／文件</button>
       <button class="sub-tab-btn" onclick="switchSubPage('ratios')" data-i18n="tab_ratios">⚖️ 6. 關鍵比率</button>
-      <button class="sub-tab-btn" onclick="switchSubPage('peers')" data-i18n="tab_peers">👥 6. 同行業對比</button>
-      <button class="sub-tab-btn" onclick="switchSubPage('charts')" data-i18n="tab_charts">📊 7. 趨勢分析</button>
-      <button class="sub-tab-btn" onclick="switchSubPage('valuation')" data-i18n="tab_valuation">📐 8. 估值模型</button>
-      <button class="sub-tab-btn" onclick="switchSubPage('news')" data-i18n="tab_news">📰 9. 公司新聞</button>
-      <button class="sub-tab-btn" onclick="switchSubPage('chart')" data-i18n="tab_tradingview">📈 10. TradingView 圖表</button>
+      <button class="sub-tab-btn" onclick="switchSubPage('peers')" data-i18n="tab_peers">👥 7. 同行業對比</button>
+      <button class="sub-tab-btn" onclick="switchSubPage('charts')" data-i18n="tab_charts">📊 8. 趨勢分析</button>
+      <button class="sub-tab-btn" onclick="switchSubPage('valuation')" data-i18n="tab_valuation">📐 9. 估值模型</button>
+      <button class="sub-tab-btn" onclick="switchSubPage('news')" data-i18n="tab_news">📰 10. 公司新聞</button>
+      <button class="sub-tab-btn" onclick="switchSubPage('chart')" data-i18n="tab_tradingview">📈 11. TradingView 圖表</button>
     </div>
     <p class="analysis-note company-currency-note" id="cmp-currency-note" role="status"></p>
     <p class="analysis-note" id="cmp-property-fv-note" hidden></p>
@@ -3319,11 +3319,11 @@
       earnings_reason_incompleteTtm: "N/A：此指標缺少連續四季資料，無法計算 TTM。",
       earnings_reason_invalidPeriodLength: "N/A：過渡財年或期間長度未核實，不與一般年度／TTM 比較。",
       earnings_reason_accountingBasisMismatch: "N/A：持續經營／會計列報口徑不一致，不自動視為同口徑增長。",
-      tab_peers: "👥 6. 同行業對比",
-      tab_charts: "📊 7. 趨勢分析",
-      tab_valuation: "📐 8. 估值模型",
-      tab_tradingview: "📈 10. TradingView 圖表",
-      tab_news: "📰 9. 公司新聞",
+      tab_peers: "👥 7. 同行業對比",
+      tab_charts: "📊 8. 趨勢分析",
+      tab_valuation: "📐 9. 估值模型",
+      tab_tradingview: "📈 11. TradingView 圖表",
+      tab_news: "📰 10. 公司新聞",
       sec_profile_title: "企業核心業務與營運全貌",
       lbl_hq: "總部:",
       lbl_reg_addr: "註冊地址:",
@@ -3886,8 +3886,8 @@
       th_div_yield: "Yield %",
       th_div_count: "Count",
       th_cont_div_growth: "Cont div growth (y)",
-      tab_peers: "👥 6. Peer Comparison",
-      tab_charts: "📊 7. Trend Analysis",
+      tab_peers: "👥 7. Peer Comparison",
+      tab_charts: "📊 8. Trend Analysis",
       earnings_title: "Diluted EPS, FCF & Dividends per Diluted Share",
       earnings_definition: "All three metrics use USD per diluted share. Reported EPS and cash flows are translated using each period's average exchange rate. FCF per share divides USD free cash flow by same-period diluted weighted-average shares; cash dividends per share divide USD common cash dividends paid by those shares (outflows are sign-reversed, not made absolute). This cash-paid measure is not the announced dividend per share.",
       earnings_chart_note: "Single-quarter and annual cash flows use same-period diluted weighted-average shares. TTM divides separately translated quarterly cash-flow totals by the simple average of four quarterly share counts. TTM EPS sums four separately translated reported diluted EPS figures and may differ from annual weighted-share EPS. No additional split or ADR multiplier is applied; missing data or FX leaves gaps. All three series share one USD-per-share axis.",
@@ -3901,9 +3901,9 @@
       earnings_reason_incompleteTtm: "N/A: Four consecutive quarters are unavailable for this metric.",
       earnings_reason_invalidPeriodLength: "N/A: Transition or unverified-duration periods cannot be compared as ordinary years/TTM.",
       earnings_reason_accountingBasisMismatch: "N/A: Continuing-operation/accounting bases differ; like-for-like growth is not assumed.",
-      tab_valuation: "📐 8. Valuation Model",
-      tab_tradingview: "📈 10. TradingView",
-      tab_news: "📰 9. News Feed",
+      tab_valuation: "📐 9. Valuation Model",
+      tab_tradingview: "📈 11. TradingView",
+      tab_news: "📰 10. News Feed",
       sec_profile_title: "Core Business & Corporate Profile",
       lbl_hq: "HQ:",
       lbl_reg_addr: "Registered Address:",
@@ -8264,12 +8264,13 @@
       return isEn ? 'annual' : '每年';
     }
 
+    const divCurrency = stockObj?.calculationCurrency === 'HKD' || /\.HK$/i.test(ticker) ? 'HKD' : 'USD';
     const fmtDate = iso => {
       if (!iso || !/^\d{4}-\d{2}-\d{2}$/.test(String(iso).slice(0, 10))) return '—';
       const d = new Date(`${String(iso).slice(0, 10)}T00:00:00Z`);
       return d.toLocaleDateString(isEn ? 'en-US' : 'zh-TW', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
     };
-    const paymentFrequency = (row, peers = []) => {
+    const paymentFrequency = (row, peers = [], cadence = null) => {
       if (row.annualOnly) return isEn ? 'Annual' : '每年';
       const amt = Number(row.adjDividend != null ? row.adjDividend : row.dividend);
       // Special / other: amount much larger than recent regular peers.
@@ -8277,7 +8278,8 @@
         .slice(0, 8).map(p => Number(p.adjDividend != null ? p.adjDividend : p.dividend));
       const med = regs.length ? [...regs].sort((a, b) => a - b)[Math.floor((regs.length - 1) / 2)] : null;
       if (med && Number.isFinite(amt) && amt > med * 2.5) return isEn ? 'Other' : '其他';
-      return isEn ? 'Quarterly' : '每季';
+      if (cadence) return cadence;
+      return isEn ? '—' : '—';
     };
 
     function paint(record, payoutByYear, yieldOpts = null) {
@@ -8287,7 +8289,9 @@
       });
       const shaped = DividendHistory.tableForGrain(table, grain === 'quarter' ? 'quarter' : 'year', yieldOpts);
       const series = DividendHistory.annualDpsFromPayments(record.rows);
-      const cont = DividendHistory.continuousDividendGrowth(series);
+      // Exclude incomplete current calendar year so YTD DPS does not zero the streak.
+      const contAsOf = DividendHistory.completeYearAsOf(series);
+      const cont = DividendHistory.continuousDividendGrowth(series, contAsOf);
       const completeYears = table.years.filter(row => Number.isFinite(row.fy) && row.fy > 0);
       const latest = completeYears[0] || table.years[0];
       const paymentsChrono = [...(record.rows || [])]
@@ -8302,13 +8306,10 @@
         ? Number(upcoming.adjDividend != null ? upcoming.adjDividend : upcoming.dividend)
         : (lastPayment ? Number(lastPayment.adjDividend != null ? lastPayment.adjDividend : lastPayment.dividend) : null);
       const yieldTtm = (() => {
-        // Prefer TTM from last 4 payments / current price when available.
+        // Trailing 365d sum ÷ price — works for quarterly / semi / annual cadence.
         const price = yieldOpts?.currentPrice;
-        const last4 = paymentsChrono.filter(row => String(row.date).slice(0, 10) <= todayIso).slice(0, 4);
-        if (Number.isFinite(price) && price > 0 && last4.length) {
-          const sum = last4.reduce((s, row) => s + Number(row.adjDividend != null ? row.adjDividend : row.dividend || 0), 0);
-          if (sum > 0) return (sum / price) * 100;
-        }
+        const fromTtm = DividendHistory.trailingTwelveMonthYieldPct?.(record.rows, price, todayIso);
+        if (Number.isFinite(fromTtm)) return fromTtm;
         return latest && Number.isFinite(latest.yieldPct) ? latest.yieldPct : null;
       })();
       const payout = latest && Number.isFinite(latest.payoutRatioPct) ? latest.payoutRatioPct : null;
@@ -8336,7 +8337,7 @@
         const cards = [
           { zh: '下次除息日', en: 'Next ex-dividend date', value: fmtDate(nextEx) },
           { zh: '下次發放日', en: 'Next payment date', value: fmtDate(nextPay) },
-          { zh: '股息金額', en: 'Dividend amount', value: Number.isFinite(nextAmt) ? `${fmtAmt(nextAmt)} USD` : '—' },
+          { zh: '股息金額', en: 'Dividend amount', value: Number.isFinite(nextAmt) ? `${fmtAmt(nextAmt)} ${divCurrency}` : '—' },
           { zh: '殖利率 TTM', en: 'Dividend yield TTM', value: fmtPct(yieldTtm) },
           { zh: '連續股息成長', en: 'Cont div growth', value: fmtInt(cont) },
         ];
@@ -8396,7 +8397,7 @@
               <td>${fmtDate(row.recordDate)}</td>
               <td>${fmtDate(row.paymentDate)}</td>
               <td>${fmtAmt(amt)}</td>
-              <td>${paymentFrequency(row, payments.slice(index + 1))}</td>
+              <td>${paymentFrequency(row, payments.slice(index + 1), freq)}</td>
             </tr>`;
             }).join('')
           : `<tr><td class="table-sticky-col text-muted" colspan="5">${
@@ -8537,27 +8538,41 @@
     const Docs = typeof CompanyDocuments !== 'undefined' ? CompanyDocuments : null;
     const url = Docs?.transcriptOpenUrl?.(ticker, year, quarter);
     if (!url) return false;
+    // Open synchronously under the user gesture — await fetch would lose the popup.
+    const win = window.open('about:blank', '_blank');
+    const title = `${ticker} FY${year} Q${quarter} earnings call`;
+    if (win) {
+      try {
+        win.document.title = title;
+        win.document.body.textContent = 'Loading transcript…';
+      } catch (_) { /* ignore cross-origin race */ }
+    }
     try {
       const response = await fetch(url);
       const body = await response.json().catch(() => ({}));
       if (!response.ok) throw new Error(body.error || `HTTP ${response.status}`);
       const row = Array.isArray(body.data) ? body.data[0] : body.data;
       const content = row?.content || row?.transcript || '';
-      const win = window.open('', '_blank');
-      if (!win) {
+      const safe = String(content || 'Transcript content empty.')
+        .replace(/[<>&]/g, ch => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;' }[ch]));
+      if (win && !win.closed) {
+        win.document.open();
+        win.document.write(`<!doctype html><meta charset="utf-8"><title>${title}</title>
+          <body style="font-family:Georgia,serif;max-width:820px;margin:24px auto;padding:0 16px;line-height:1.6;white-space:pre-wrap;">
+          <h1 style="font-size:20px;">${title}</h1>
+          <p style="color:#666;font-size:13px;">Source: FMP earning-call-transcript</p>
+          <div>${safe}</div>
+          </body>`);
+        win.document.close();
+      } else {
         window.open(url, '_blank', 'noopener,noreferrer');
-        return false;
       }
-      const title = `${ticker} FY${year} Q${quarter} earnings call`;
-      win.document.write(`<!doctype html><meta charset="utf-8"><title>${title}</title>
-        <body style="font-family:Georgia,serif;max-width:820px;margin:24px auto;padding:0 16px;line-height:1.6;white-space:pre-wrap;">
-        <h1 style="font-size:20px;">${title}</h1>
-        <p style="color:#666;font-size:13px;">Source: FMP earning-call-transcript</p>
-        <div>${String(content || 'Transcript content empty.').replace(/[<>&]/g, ch => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[ch]))}</div>
-        </body>`);
-      win.document.close();
     } catch (error) {
-      window.open(url, '_blank', 'noopener,noreferrer');
+      if (win && !win.closed) {
+        try { win.location.replace(url); } catch (_) { win.location = url; }
+      } else {
+        window.open(url, '_blank', 'noopener,noreferrer');
+      }
     }
     return false;
   }

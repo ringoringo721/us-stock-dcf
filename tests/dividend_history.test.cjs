@@ -174,6 +174,42 @@ test('continuousDividendGrowth matches TradingView Cont div growth example', () 
     { date: '2025-03-15', adjDividend: 100 },
   ], null, '2025-12-31');
   assert.equal(metrics.cont_div_growth, 3);
+  // Dividend holiday omitted from series must break the streak (no year skip).
+  assert.equal(DividendHistory.continuousDividendGrowth([
+    { date: '2020-12-31', dps: 1 },
+    { date: '2021-12-31', dps: 2 },
+    // 2022 suspended — missing
+    { date: '2023-12-31', dps: 3 },
+    { date: '2024-12-31', dps: 4 },
+  ]), 2);
+  // Incomplete open year (asOf = last complete) excludes YTD that would zero the streak.
+  assert.equal(DividendHistory.continuousDividendGrowth([
+    { date: '2023-12-31', dps: 1 },
+    { date: '2024-12-31', dps: 2 },
+    { date: '2025-12-31', dps: 3 },
+    { date: '2026-12-31', dps: 0.5 }, // YTD partial
+  ], '2025-12-31'), 3);
+});
+
+test('trailingTwelveMonthYieldPct sums last 365d (not last 4 rows)', () => {
+  // Annual payer: four yearly rows must NOT inflate to 4×.
+  const annual = [
+    { date: '2022-03-15', adjDividend: 1 },
+    { date: '2023-03-15', adjDividend: 1 },
+    { date: '2024-03-15', adjDividend: 1 },
+    { date: '2025-03-15', adjDividend: 1 },
+  ];
+  assert.equal(DividendHistory.trailingTwelveMonthDps(annual, '2025-06-01'), 1);
+  assert.equal(DividendHistory.trailingTwelveMonthYieldPct(annual, 50, '2025-06-01'), 2);
+  // Quarterly: four pays inside the window sum.
+  const quarterly = [
+    { date: '2024-09-15', adjDividend: 0.25 },
+    { date: '2024-12-15', adjDividend: 0.25 },
+    { date: '2025-03-15', adjDividend: 0.25 },
+    { date: '2025-06-15', adjDividend: 0.25 },
+  ];
+  assert.equal(DividendHistory.trailingTwelveMonthDps(quarterly, '2025-07-01'), 1);
+  assert.equal(DividendHistory.trailingTwelveMonthYieldPct(quarterly, 25, '2025-07-01'), 4);
 });
 
 test('yieldPct uses year-end close then current quote for open year', () => {

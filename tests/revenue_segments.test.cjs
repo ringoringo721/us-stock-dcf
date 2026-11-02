@@ -153,6 +153,44 @@ test('sanitizeQuarterlyRows de-cumulates near-YTD year-end and drops annual-scal
   const again = RevenueSegments.sanitizeQuarterlyRows(softYtd);
   assert.equal(again.length, 4);
   assert.equal(again[3].segments.A, 1);
+
+  // Citigroup-style negative year-end dump must drop (do not poison TTM).
+  const negYe = RevenueSegments.sanitizeQuarterlyRows([
+    { date: '2021-03-31', data: { A: 190, B: 3 } },
+    { date: '2021-06-30', data: { A: 170, B: 2 } },
+    { date: '2021-09-30', data: { A: 170, B: 0 } },
+    { date: '2021-12-31', data: { A: -327, B: -198, C: 85 } },
+  ]);
+  assert.deepEqual(negYe.map(row => row.date),
+    ['2021-03-31', '2021-06-30', '2021-09-30']);
+  assert.ok(negYe.every(row => Object.values(row.segments).reduce((s, v) => s + v, 0) >= 0));
+
+  // Undersized YE stub with mismatched keys drops; same-key tiny residual stays.
+  const undersizedJunk = RevenueSegments.sanitizeQuarterlyRows([
+    { date: '2020-03-31', data: { A: 100 } },
+    { date: '2020-06-30', data: { A: 110 } },
+    { date: '2020-09-30', data: { A: 105 } },
+    { date: '2020-12-31', data: { Other: 1 } },
+  ]);
+  assert.deepEqual(undersizedJunk.map(row => row.date),
+    ['2020-03-31', '2020-06-30', '2020-09-30']);
+});
+
+test('validateCache re-sanitizes quarter cache when negative totals remain', () => {
+  const record = RevenueSegments.validateCache({
+    version: 1,
+    ticker: 'C',
+    period: 'quarter',
+    sanitizedAt: '2026-11-02T00:00:00.000Z',
+    product: [
+      { date: '2021-03-31', data: { A: 190 } },
+      { date: '2021-06-30', data: { A: 170 } },
+      { date: '2021-09-30', data: { A: 170 } },
+      { date: '2021-12-31', data: { A: -441 } },
+    ],
+    geographic: [],
+  }, 'C');
+  assert.ok(!record.product.some(row => row.date === '2021-12-31'));
 });
 
 test('validateCache period=quarter runs sanitizeQuarterlyRows', () => {
