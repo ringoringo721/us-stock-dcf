@@ -89,6 +89,6 @@ jobs:
           # Soft Empty/NormalizedEmpty already exit 0. Fail the job only when BOTH
           # scripts hard-failed (partial caches were still committed above when present).
           if [ "$DIV_STATUS" -ne 0 ] && [ "$SEG_STATUS" -ne 0 ]; then
-            echo "Both captures hard-failed (partial caches committed if any were written)"
+            echo "Both captures hard-failed (partial caches were committed if any were written)"
             exit 1
           fi
