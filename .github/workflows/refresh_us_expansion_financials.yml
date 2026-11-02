@@ -1,0 +1,206 @@
+name: Refresh US expansion financials (scheduled)
+
+# Financial-only refresh for ~723 US expansion names (baseline stays on daily_update.yml).
+# No Gemini remoat: omit GEMINI/GCP secrets so build_full_market reuses moat caches.
+# Batches ≤20; optional rotating window via EXPANSION_FINANCIAL_BATCH_LIMIT/OFFSET.
+
+on:
+  schedule:
+    # After baseline daily_update (~21:30 UTC Mon–Fri): start expansion financials at 01:00 UTC Tue–Sat.
+    - cron: '0 1 * * 2-6'
+  workflow_dispatch:
+    inputs:
+      us_batches:
+        description: Optional comma-separated batch indices (empty = windowed/all)
+        type: string
+        default: ''
+      symbols:
+        description: Optional ≤20 tickers (must sit in selected batches)
+        type: string
+        default: ''
+      batch_limit:
+        description: Max batches this run (digits; empty = all remaining in window). Schedule default 12 (~240 names).
+        type: string
+        default: ''
+      batch_offset:
+        description: Rotate starting batch index (digits). Empty on schedule → day-of-year rotation.
+        type: string
+        default: ''
+
+permissions:
+  contents: write
+
+concurrency:
+  group: us-expansion-financial-refresh
+  cancel-in-progress: false
+
+jobs:
+  plan:
+    if: github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.plan.outputs.matrix }}
+      empty: ${{ steps.plan.outputs.empty }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - id: plan
+        env:
+          US_EXPANSION_BATCHES: ${{ github.event.inputs.us_batches || '' }}
+          US_EXPANSION_SYMBOLS: ${{ github.event.inputs.symbols || '' }}
+          EXPANSION_FINANCIAL_REFRESH: '1'
+          BATCH_LIMIT_INPUT: ${{ github.event.inputs.batch_limit || '' }}
+          BATCH_OFFSET_INPUT: ${{ github.event.inputs.batch_offset || '' }}
+        run: |
+          set -euo pipefail
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            export EXPANSION_FINANCIAL_BATCH_LIMIT=12
+            DOY=$(date -u +%j | sed 's/^0*//')
+            TOTAL=$(EXPANSION_FINANCIAL_REFRESH= node -e "console.log(require('./scripts/build_us_expansion.cjs').matrix().length)")
+            if [ "${TOTAL}" -lt 1 ]; then TOTAL=1; fi
+            export EXPANSION_FINANCIAL_BATCH_OFFSET=$(( (DOY * EXPANSION_FINANCIAL_BATCH_LIMIT) % TOTAL ))
+          else
+            if [ -n "${BATCH_LIMIT_INPUT}" ]; then
+              case "${BATCH_LIMIT_INPUT}" in
+                ''|*[!0-9]*) echo "::error::batch_limit must be digits"; exit 1 ;;
+              esac
+              export EXPANSION_FINANCIAL_BATCH_LIMIT="${BATCH_LIMIT_INPUT}"
+            fi
+            if [ -n "${BATCH_OFFSET_INPUT}" ]; then
+              case "${BATCH_OFFSET_INPUT}" in
+                ''|*[!0-9]*) echo "::error::batch_offset must be digits"; exit 1 ;;
+              esac
+              export EXPANSION_FINANCIAL_BATCH_OFFSET="${BATCH_OFFSET_INPUT}"
+            fi
+          fi
+          MATRIX=$(node scripts/build_us_expansion.cjs matrix)
+          COUNT=$(node -e "const m=JSON.parse(process.argv[1]); console.log((m.include||[]).length)" "$MATRIX")
+          echo "Planned ${COUNT} US expansion financial batch(es) limit=${EXPANSION_FINANCIAL_BATCH_LIMIT:-all} offset=${EXPANSION_FINANCIAL_BATCH_OFFSET:-0}"
+          if [ "$COUNT" = "0" ]; then
+            echo "empty=true" >> "$GITHUB_OUTPUT"
+            echo 'matrix={"include":[]}' >> "$GITHUB_OUTPUT"
+          else
+            echo "empty=false" >> "$GITHUB_OUTPUT"
+            # MATRIX is already {"include":[...]} from the CLI.
+            echo "matrix=${MATRIX}" >> "$GITHUB_OUTPUT"
+          fi
+
+  refresh-batch:
+    needs: plan
+    if: needs.plan.outputs.empty != 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix: ${{ fromJSON(needs.plan.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: pip install requests pydantic
+      - name: Ensure cache folders
+        run: mkdir -p cache/moat cache/financials cache/us_companies cache/company_meta cache/peers
+      - name: Build expansion financials without Gemini remoat
+        env:
+          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+          US_EXPANSION_SYMBOLS: ${{ matrix.symbols }}
+          US_EXPANSION_OUTPUT: us-data-output
+          # Cap at 0 new Gemini calls via absent client (no GEMINI/GCP secrets here).
+          FINANCIALS_CACHE_ONLY: ''
+        run: |
+          set -euo pipefail
+          python -u build_full_market.py
+      - name: Ingest, package and integrate into catalogue
+        run: |
+          set -euo pipefail
+          node scripts/build_us_expansion.cjs ingest us-data-output/market.json us-data-output
+          node scripts/build_us_expansion.cjs package us-data-output
+          # Copy financial snapshots into repo cache for distress / integrate consumers.
+          mkdir -p cache/financials
+          if [ -d us-data-output/cache/financials ]; then
+            cp -a us-data-output/cache/financials/. cache/financials/
+          fi
+          if [ -d us-data-output/cache/us_companies ]; then
+            mkdir -p cache/us_companies
+            cp -a us-data-output/cache/us_companies/. cache/us_companies/
+          fi
+          node scripts/build_us_expansion.cjs integrate us-data-output .
+      - name: Upload batch checkpoint
+        if: always()
+        continue-on-error: true
+        uses: actions/upload-artifact@v4
+        with:
+          name: us-expansion-financial-${{ matrix.batch }}
+          path: us-data-output/
+          retention-days: 7
+          if-no-files-found: warn
+      - name: Persist US expansion financial refresh
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ ! -f us-data-output/manifest.json ]; then
+            echo "::error::Missing us-data-output checkpoint"
+            exit 1
+          fi
+          git fetch origin main
+          git reset --hard origin/main
+          mkdir -p cache/financials cache/us_companies
+          if [ -d us-data-output/cache/financials ]; then
+            cp -a us-data-output/cache/financials/. cache/financials/
+          fi
+          if [ -d us-data-output/cache/us_companies ]; then
+            cp -a us-data-output/cache/us_companies/. cache/us_companies/
+          fi
+          node scripts/build_us_expansion.cjs integrate us-data-output .
+          git add us_expansion_data.js
+          git add -f cache/us_companies/ cache/financials/ || true
+          if git diff --cached --name-only | grep -Eiv '^(us_expansion_data\.js|cache/(us_companies|financials)/)'; then
+            echo "::error::Persist staging outside US expansion financial allowlist:"
+            git diff --cached --name-only
+            exit 1
+          fi
+          if git diff --cached --quiet; then
+            echo "No US expansion financial changes for batch ${{ matrix.batch }}."
+            exit 0
+          fi
+          git commit -m "Refresh US expansion financials batch ${{ matrix.batch }} [skip ci]"
+          for attempt in 1 2 3 4; do
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            echo "::warning::Push rejected (attempt ${attempt}); re-integrate onto newer main"
+            git fetch origin main
+            git reset --hard origin/main
+            mkdir -p cache/financials cache/us_companies
+            if [ -d us-data-output/cache/financials ]; then
+              cp -a us-data-output/cache/financials/. cache/financials/
+            fi
+            if [ -d us-data-output/cache/us_companies ]; then
+              cp -a us-data-output/cache/us_companies/. cache/us_companies/
+            fi
+            node scripts/build_us_expansion.cjs integrate us-data-output .
+            git add us_expansion_data.js
+            git add -f cache/us_companies/ cache/financials/ || true
+            if git diff --cached --quiet; then
+              echo "No changes after re-integrate."
+              exit 0
+            fi
+            git commit -m "Refresh US expansion financials batch ${{ matrix.batch }} [skip ci]"
+            sleep $((attempt * 3))
+          done
+          echo "::error::Failed to push US expansion financial batch after retries"
+          exit 1

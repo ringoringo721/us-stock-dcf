@@ -6,7 +6,8 @@ const path = require('node:path');
 const vm = require('node:vm');
 const universe = require('../us_universe.js');
 const {
-  needsMoatRecovery, ingest, packageResults, integrate, writeMoatCaches
+  needsMoatRecovery, ingest, packageResults, integrate, writeMoatCaches, applyBatchWindow,
+  usMoatEvidenceHash, roundFin
 } = require('../scripts/build_us_expansion.cjs');
 const root = path.resolve(__dirname, '..');
 
@@ -52,6 +53,150 @@ test('shipped US universe+expansion merge is baseline+catalogue (not market_data
   assert.equal(expansionWithMoat, 723);
   assert.equal(context.US_EXPANSION.stocks.AEFC, undefined);
   assert.equal(merged.AEFC, undefined);
+});
+
+test('financial refresh batch window is gated and rotates', () => {
+  const batches = Array.from({ length: 4 }, (_, batch) => ({ batch, symbols: `T${batch}` }));
+  delete process.env.EXPANSION_FINANCIAL_REFRESH;
+  assert.equal(applyBatchWindow(batches, '1', '2').length, 4);
+  process.env.EXPANSION_FINANCIAL_REFRESH = '1';
+  assert.deepEqual(applyBatchWindow(batches, '2', '2').map(item => item.batch), [2, 3]);
+  delete process.env.EXPANSION_FINANCIAL_REFRESH;
+});
+
+test('usMoatEvidenceHash matches Python us_moat_evidence_hash domain (not statement SHA)', () => {
+  const fin = {
+    name: 'Zeta Test', sector: 'Test', industry: 'Widgets',
+    roe: 12.345, roa: 4.567, f_score: 7, fcf0: 100.4, debt: 50.2, cash: 20.6, mcap: 999
+  };
+  const a = usMoatEvidenceHash(fin);
+  const b = usMoatEvidenceHash({ ...fin, mcap: 1 });
+  assert.equal(a, b);
+  assert.notEqual(a, usMoatEvidenceHash({ ...fin, f_score: 6 }));
+  assert.match(a, /^[a-f0-9]{64}$/);
+});
+
+test('roundFin matches Python 3 banker’s rounding (not Math.round half-up)', () => {
+  // Exact halfway ties (digits=0) — Math.round diverges.
+  assert.equal(roundFin(0.5, 0), 0);
+  assert.equal(roundFin(1.5, 0), 2);
+  assert.equal(roundFin(2.5, 0), 2); // Math.round(2.5) === 3
+  assert.equal(roundFin(3.5, 0), 4);
+  assert.equal(roundFin(100.5, 0), 100); // Math.round(100.5) === 101
+  assert.equal(roundFin(101.5, 0), 102);
+  assert.equal(roundFin(-1.5, 0), -2);
+  assert.equal(roundFin(-2.5, 0), -2);
+  // Float dtoa / Decimal.from_float quantize parity (not naive scale-half-even).
+  assert.equal(roundFin(12.345, 2), 12.35);
+  assert.equal(roundFin(12.355, 2), 12.36);
+  assert.equal(roundFin(4.565, 2), 4.57);
+  assert.equal(roundFin(null, 0), null);
+  assert.notEqual(roundFin(2.5, 0), Math.round(2.5));
+  // Half-up would flip fcf0 100.5 → 101 and desync the hash vs build_full_market.
+  const base = {
+    name: 'Tie', sector: 'S', industry: 'I', roe: 1, roa: 1, f_score: 1,
+    fcf0: 100.5, debt: 2.5, cash: 0.5
+  };
+  assert.match(usMoatEvidenceHash(base), /^[a-f0-9]{64}$/);
+});
+
+test('ingest preserves saved moat; staleEvidence uses moat evidenceHash not statement SHA', () => {
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'us-expansion-stale-'));
+  const cataloguePath = path.join(root, 'cache', 'us_universe.json');
+  const previous = fs.readFileSync(cataloguePath, 'utf8');
+  const companiesDir = path.join(root, 'cache', 'us_companies');
+  const savedPath = path.join(companiesDir, 'ZZZZ.json');
+  const hadSaved = fs.existsSync(savedPath);
+  const previousSaved = hadSaved ? fs.readFileSync(savedPath, 'utf8') : null;
+  const zh = '繁體護城河評分註解用以通過字數門檻測試用字串補滿到足夠長度並確認回收邏輯。'.repeat(4);
+  const fin = {
+    name: 'Zeta Test', sector: 'Test', industry: 'Widgets',
+    roe: 10, roa: 5, f_score: 7, fcf0: 100, debt: 50, cash: 20
+  };
+  const currentHash = usMoatEvidenceHash(fin);
+  const moat = Object.fromEntries(Array.from({ length: 10 }, (_, i) =>
+    [`m${i + 1}_test`, { score: 8, comment_zh: zh, comment_en: 'ok' }]));
+  moat.overall_moat_verdict_zh = zh;
+  moat.overall_moat_verdict_en = 'ok';
+  moat.evidenceHash = 'old-moat-hash';
+  const catalogue = {
+    version: 1,
+    source: { provider: 'Financial Modeling Prep company/stock screener', retrievedAt: '2026-10-21T00:00:00Z' },
+    screen: { exchanges: ['NYSE', 'NASDAQ', 'AMEX'], marketCapMoreThanUsd: 1e10 },
+    stocks: [
+      { ticker: 'ZZZZ', name_en: 'Zeta Test', exchange: 'NYSE', sector: 'Test', industry: 'Widgets', marketCap: 12e9,
+        universeMembership: 'test' }
+    ]
+  };
+  fs.writeFileSync(cataloguePath, JSON.stringify(catalogue));
+  fs.mkdirSync(companiesDir, { recursive: true });
+  fs.writeFileSync(savedPath, JSON.stringify({
+    version: 1, ticker: 'ZZZZ',
+    stock: {
+      ticker: 'ZZZZ', moat,
+      ratingSources: {
+        moat: {
+          evidenceHash: 'old-moat-hash', currentEvidenceHash: 'old-moat-hash',
+          reason: null, updatedAt: '2026-10-20T00:00:00Z'
+        }
+      }
+    }
+  }));
+  const finDir = path.join(root, 'cache', 'financials');
+  const finPath = path.join(finDir, 'ZZZZ_statements_v2.json');
+  const hadFin = fs.existsSync(finPath);
+  const previousFin = hadFin ? fs.readFileSync(finPath, 'utf8') : null;
+  fs.mkdirSync(finDir, { recursive: true });
+  // Statement content differs wildly; stale labeling must NOT key off this SHA.
+  fs.writeFileSync(finPath, JSON.stringify({
+    annual: { income: [{ date: '2025-12-31' }], balance: [], cashflow: [] },
+    quarterly: { income: [{ date: '2026-06-30' }], balance: [], cashflow: [] }
+  }));
+  try {
+    // Keep input market.json separate from ingest output (ingest rewrites output/market.json).
+    const out = path.join(tmp, 'out');
+    const marketFile = path.join(tmp, 'input-market.json');
+    const payload = {
+      ZZZZ: {
+        ...fin, exchange: 'NYSE', price: 12, mcap: 12000, moat: null,
+        ratingSources: { moat: { reason: 'analysisUnavailable' } },
+        expansion: { capturedAt: '2026-11-02T00:00:00Z' }
+      }
+    };
+    fs.writeFileSync(marketFile, JSON.stringify(payload));
+    ingest(out, marketFile);
+    const record = JSON.parse(fs.readFileSync(path.join(out, 'cache', 'us_companies', 'ZZZZ.json'), 'utf8'));
+    assert.ok(record.stock.moat);
+    assert.equal(record.stock.ratingSources.moat.reason, 'staleEvidence');
+    assert.equal(record.stock.ratingSources.moat.evidenceHash, 'old-moat-hash');
+    assert.equal(record.stock.ratingSources.moat.currentEvidenceHash, currentHash);
+    assert.notEqual(record.stock.ratingSources.moat.currentEvidenceHash, 'old-moat-hash');
+
+    // Matching moat evidenceHash → not stale (even if statements file changed).
+    moat.evidenceHash = currentHash;
+    fs.writeFileSync(savedPath, JSON.stringify({
+      version: 1, ticker: 'ZZZZ',
+      stock: {
+        ticker: 'ZZZZ', moat,
+        ratingSources: {
+          moat: {
+            evidenceHash: currentHash, currentEvidenceHash: currentHash,
+            reason: null, updatedAt: '2026-10-20T00:00:00Z'
+          }
+        }
+      }
+    }));
+    ingest(out, marketFile);
+    const fresh = JSON.parse(fs.readFileSync(path.join(out, 'cache', 'us_companies', 'ZZZZ.json'), 'utf8'));
+    assert.equal(fresh.stock.ratingSources.moat.reason, null);
+    assert.equal(fresh.stock.ratingSources.moat.evidenceHash, currentHash);
+  } finally {
+    fs.writeFileSync(cataloguePath, previous);
+    if (hadSaved) fs.writeFileSync(savedPath, previousSaved);
+    else fs.rmSync(savedPath, { force: true });
+    if (hadFin) fs.writeFileSync(finPath, previousFin);
+    else fs.rmSync(finPath, { force: true });
+  }
 });
 
 test('incomplete US moat recovery refuses invented or partial scores', () => {

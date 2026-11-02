@@ -1,0 +1,210 @@
+name: Refresh HKEX expansion financials (scheduled)
+
+# Financial-only refresh for ~2.6k HK expansion names (reviewed 114 stay on refresh_hkex.yml).
+# Skips Gemini research/remoat; build_hkex_expansion preserves prior moat as staleEvidence.
+# Rolling window: schedule processes 8 batches/day (~160 names) with day-of-year rotation.
+
+on:
+  schedule:
+    # Stagger vs reviewed HK refresh (11:30 / 23:30 UTC): expansion financials at 03:00 UTC Tue–Sat.
+    - cron: '0 3 * * 2-6'
+  workflow_dispatch:
+    inputs:
+      hk_batches:
+        description: Optional comma-separated batch indices (empty = windowed/all)
+        type: string
+        default: ''
+      symbols:
+        description: Optional ≤20 tickers (must sit in selected batches)
+        type: string
+        default: ''
+      batch_limit:
+        description: Max batches this run (digits). Schedule default 8.
+        type: string
+        default: ''
+      batch_offset:
+        description: Rotate starting batch index (digits). Empty on schedule → day-of-year rotation.
+        type: string
+        default: ''
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hkex-expansion-financial-refresh
+  cancel-in-progress: false
+
+jobs:
+  plan:
+    if: github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.plan.outputs.matrix }}
+      empty: ${{ steps.plan.outputs.empty }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - id: plan
+        env:
+          HK_EXPANSION_BATCHES: ${{ github.event.inputs.hk_batches || '' }}
+          HK_EXPANSION_SYMBOLS: ${{ github.event.inputs.symbols || '' }}
+          EXPANSION_FINANCIAL_REFRESH: '1'
+          BATCH_LIMIT_INPUT: ${{ github.event.inputs.batch_limit || '' }}
+          BATCH_OFFSET_INPUT: ${{ github.event.inputs.batch_offset || '' }}
+        run: |
+          set -euo pipefail
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            export EXPANSION_FINANCIAL_BATCH_LIMIT=8
+            DOY=$(date -u +%j | sed 's/^0*//')
+            TOTAL=$(EXPANSION_FINANCIAL_REFRESH= node -e "console.log(require('./scripts/build_hkex_expansion.cjs').matrix().length)")
+            if [ "${TOTAL}" -lt 1 ]; then TOTAL=1; fi
+            export EXPANSION_FINANCIAL_BATCH_OFFSET=$(( (DOY * EXPANSION_FINANCIAL_BATCH_LIMIT) % TOTAL ))
+          else
+            if [ -n "${BATCH_LIMIT_INPUT}" ]; then
+              case "${BATCH_LIMIT_INPUT}" in
+                ''|*[!0-9]*) echo "::error::batch_limit must be digits"; exit 1 ;;
+              esac
+              export EXPANSION_FINANCIAL_BATCH_LIMIT="${BATCH_LIMIT_INPUT}"
+            fi
+            if [ -n "${BATCH_OFFSET_INPUT}" ]; then
+              case "${BATCH_OFFSET_INPUT}" in
+                ''|*[!0-9]*) echo "::error::batch_offset must be digits"; exit 1 ;;
+              esac
+              export EXPANSION_FINANCIAL_BATCH_OFFSET="${BATCH_OFFSET_INPUT}"
+            fi
+          fi
+          MATRIX=$(node scripts/build_hkex_expansion.cjs matrix)
+          COUNT=$(node -e "const m=JSON.parse(process.argv[1]); console.log((m.include||[]).length)" "$MATRIX")
+          echo "Planned ${COUNT} HKEX expansion financial batch(es) limit=${EXPANSION_FINANCIAL_BATCH_LIMIT:-all} offset=${EXPANSION_FINANCIAL_BATCH_OFFSET:-0}"
+          if [ "$COUNT" = "0" ]; then
+            echo "empty=true" >> "$GITHUB_OUTPUT"
+            echo 'matrix={"include":[]}' >> "$GITHUB_OUTPUT"
+          else
+            echo "empty=false" >> "$GITHUB_OUTPUT"
+            echo "matrix=${MATRIX}" >> "$GITHUB_OUTPUT"
+          fi
+
+  refresh-batch:
+    needs: plan
+    if: needs.plan.outputs.empty != 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix: ${{ fromJSON(needs.plan.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - run: pip install requests
+      - name: Refresh dated HKD FX observations
+        run: |
+          node scripts/refresh_usd_rates.cjs --hkd --all-hkd-currencies
+          mkdir -p hkex-data-output/cache/fx
+          cp cache/fx/hkd_rates.json hkex-data-output/cache/fx/hkd_rates.json
+      - name: Capture FMP sources for expansion batch (no remoat)
+        env:
+          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+          CAPTURE_MARKET: HKEX
+          CAPTURE_ALL_HK: 'true'
+          CAPTURE_RESUME: 'true'
+          CAPTURE_REQUEST_DELAY: '1'
+          CAPTURE_SYMBOLS: ${{ matrix.symbols }}
+          CAPTURE_OUTPUT: hkex-data-output/sources
+        run: |
+          mkdir -p hkex-data-output/sources
+          python -u scripts/capture_valuation_sources.py
+      - name: Build financials and preserve stale moat
+        env:
+          SYMBOLS: ${{ matrix.symbols }}
+        run: |
+          set -euo pipefail
+          node scripts/build_hkex_expansion.cjs build \
+            hkex-data-output/sources hkex-data-output "$SYMBOLS"
+          node scripts/build_hkex_expansion.cjs package hkex-data-output
+          mkdir -p hkex-data-output/cache/fx
+          cp cache/fx/hkd_rates.json hkex-data-output/cache/fx/hkd_rates.json
+      - name: Upload batch checkpoint
+        if: always()
+        continue-on-error: true
+        uses: actions/upload-artifact@v4
+        with:
+          name: hkex-expansion-financial-${{ matrix.batch }}
+          path: hkex-data-output/
+          retention-days: 7
+          if-no-files-found: warn
+      - name: Persist HKEX expansion financial refresh
+        env:
+          VERCEL_DEPLOY_HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ ! -f hkex-data-output/manifest.json ]; then
+            echo "::error::Missing hkex-data-output checkpoint"
+            exit 1
+          fi
+          git fetch origin main
+          git reset --hard origin/main
+          # reset drops worktree FX; restore the rates captured before integrate/persist.
+          mkdir -p cache/fx
+          if [ -f hkex-data-output/cache/fx/hkd_rates.json ]; then
+            cp hkex-data-output/cache/fx/hkd_rates.json cache/fx/hkd_rates.json
+          fi
+          node scripts/build_hkex_expansion.cjs integrate hkex-data-output .
+          git add hkex_expansion_data.js
+          git add -f cache/hk_companies/ cache/financials/*.HK_statements_v2.json \
+            cache/price_charts/*.HK.json cache/fx/hk_expansion_*.json cache/fx/hkd_rates.json \
+            cache/company/*.HK.json 2>/dev/null || true
+          if git diff --cached --name-only | grep -Eiv '^(hkex_expansion_data\.js|cache/(hk_companies|financials|price_charts|fx|company)/)'; then
+            echo "::error::Persist staging outside HKEX expansion financial allowlist:"
+            git diff --cached --name-only
+            exit 1
+          fi
+          if git diff --cached --quiet; then
+            echo "No HKEX expansion financial changes for batch ${{ matrix.batch }}."
+            exit 0
+          fi
+          git commit -m "Refresh HKEX expansion financials batch ${{ matrix.batch }} [skip ci]"
+          for attempt in 1 2 3 4; do
+            if git push origin HEAD:main; then
+              if [ -n "${VERCEL_DEPLOY_HOOK}" ]; then
+                curl --fail --silent --show-error --request POST "$VERCEL_DEPLOY_HOOK" --output /tmp/hkex-exp-deploy.json || \
+                  echo "::warning::Deploy hook failed; data commit is on main"
+              fi
+              exit 0
+            fi
+            echo "::warning::Push rejected (attempt ${attempt}); re-integrate onto newer main"
+            git fetch origin main
+            git reset --hard origin/main
+            mkdir -p cache/fx
+            if [ -f hkex-data-output/cache/fx/hkd_rates.json ]; then
+              cp hkex-data-output/cache/fx/hkd_rates.json cache/fx/hkd_rates.json
+            fi
+            node scripts/build_hkex_expansion.cjs integrate hkex-data-output .
+            git add hkex_expansion_data.js
+            git add -f cache/hk_companies/ cache/financials/*.HK_statements_v2.json \
+              cache/price_charts/*.HK.json cache/fx/hk_expansion_*.json cache/fx/hkd_rates.json \
+              cache/company/*.HK.json 2>/dev/null || true
+            if git diff --cached --quiet; then
+              echo "No changes after re-integrate."
+              exit 0
+            fi
+            git commit -m "Refresh HKEX expansion financials batch ${{ matrix.batch }} [skip ci]"
+            sleep $((attempt * 3))
+          done
+          echo "::error::Failed to push HKEX expansion financial batch after retries"
+          exit 1

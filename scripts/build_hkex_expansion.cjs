@@ -57,7 +57,7 @@ function matrix(size = 20, selected = '', symbols = '', incompleteOnly = false) 
     }).join(',') })).filter(item => item.symbols);
     if (!result.length) throw new Error('No eligible incomplete HKEX assessments selected');
   }
-  return result;
+  return applyBatchWindow(result);
 }
 function preferSavedMoat(stock, fingerprint, previous) {
   const source = stock?.ratingSources?.moat;
@@ -67,6 +67,51 @@ function preferSavedMoat(stock, fingerprint, previous) {
       && Date.parse(previous.updatedAt) >= Date.parse(source.updatedAt)) return previous;
   const { evidenceHash, updatedAt, model, assessmentPolicy, provider, businessResearch, lastError } = source;
   return { evidenceHash, updatedAt, model, assessmentPolicy, provider, businessResearch, lastError, report: stock.moat };
+}
+
+/** Keep prior moat scores when financial refresh changes the evidence fingerprint (no remoat). */
+function staleMoatFromSaved(savedStock, fingerprint) {
+  const report = savedStock?.moat;
+  const source = savedStock?.ratingSources?.moat;
+  if (!report || typeof report !== 'object') return null;
+  const dimensions = Object.entries(report).filter(([key]) => /^m\d+_/.test(key)).map(([, value]) => value);
+  if (!dimensions.length) return null;
+  const evidenceHash = typeof source?.evidenceHash === 'string' && source.evidenceHash
+    ? source.evidenceHash
+    : null;
+  if (evidenceHash && evidenceHash === fingerprint) return null;
+  return {
+    report,
+    evidenceHash,
+    currentEvidenceHash: fingerprint,
+    updatedAt: source?.updatedAt || null,
+    model: source?.model,
+    assessmentPolicy: source?.assessmentPolicy,
+    provider: source?.provider,
+    businessResearch: source?.businessResearch,
+    lastError: source?.lastError,
+    reason: 'staleEvidence',
+    description_zh: report.description_zh || savedStock.description_zh || null
+  };
+}
+
+function applyBatchWindow(batches, limitRaw = process.env.EXPANSION_FINANCIAL_BATCH_LIMIT || '',
+    offsetRaw = process.env.EXPANSION_FINANCIAL_BATCH_OFFSET || '') {
+  if (!process.env.EXPANSION_FINANCIAL_REFRESH) return batches;
+  if (!batches.length) return batches;
+  let limit = batches.length, offset = 0;
+  if (limitRaw !== '') {
+    if (!/^\d+$/.test(String(limitRaw).trim())) throw new Error('EXPANSION_FINANCIAL_BATCH_LIMIT must be digits');
+    limit = Number(String(limitRaw).trim());
+    if (limit < 1) throw new Error('EXPANSION_FINANCIAL_BATCH_LIMIT must be >= 1');
+  }
+  if (offsetRaw !== '') {
+    if (!/^\d+$/.test(String(offsetRaw).trim())) throw new Error('EXPANSION_FINANCIAL_BATCH_OFFSET must be digits');
+    offset = Number(String(offsetRaw).trim()) % batches.length;
+  }
+  if (limit >= batches.length && offset === 0) return batches;
+  const rotated = batches.slice(offset).concat(batches.slice(0, offset));
+  return rotated.slice(0, Math.min(limit, rotated.length));
 }
 function partial(item, original, error, reports, treasury, capturedRates = rates) {
   const evidence = structuredClone(original), sourceWarnings = [];
@@ -169,6 +214,25 @@ function build(input, output, symbols, reports = {}) {
         result.stock.description_zh = candidate.report.description_zh;
         result.stock.ratingSources.moat = { ...result.stock.ratingSources.moat, ...candidate, report: undefined, reason: null,
           currentEvidenceHash: result.fingerprint, checkedAt: evidence.capturedAt };
+      } else {
+        // Financial-only refresh: keep prior moat with staleEvidence when the fingerprint moved.
+        const stale = staleMoatFromSaved(saved?.stock, result.fingerprint);
+        if (stale?.report && !result.stock.moat) {
+          result.stock.moat = stale.report;
+          if (stale.description_zh) result.stock.description_zh = stale.description_zh;
+          result.stock.ratingSources.moat = {
+            ...result.stock.ratingSources.moat,
+            evidenceHash: stale.evidenceHash,
+            currentEvidenceHash: result.fingerprint,
+            updatedAt: stale.updatedAt,
+            reason: 'staleEvidence',
+            checkedAt: evidence.capturedAt,
+            ...(stale.model ? { model: stale.model } : {}),
+            ...(stale.assessmentPolicy ? { assessmentPolicy: stale.assessmentPolicy, provider: stale.provider } : {}),
+            ...(stale.businessResearch ? { businessResearch: stale.businessResearch } : {}),
+            ...(stale.lastError ? { lastError: stale.lastError } : {})
+          };
+        }
       }
       result.stock.expansion = { status: 'available', capturedAt: evidence.capturedAt,
         reason: result.limitation || null, detailPath: `cache/hk_companies/${ticker}.json` };
@@ -332,4 +396,7 @@ if (require.main === module) {
   else if (command === 'integrate') console.log(`Integrated ${integrate(input, output)} additional company outcomes without replacing reviewed stocks.`);
   else throw new Error('Expected matrix, build, package or integrate');
 }
-module.exports = { matrix, build, packageResults, integrate, preferSavedMoat, needsMoatRecovery };
+module.exports = {
+  matrix, build, packageResults, integrate, preferSavedMoat, needsMoatRecovery,
+  staleMoatFromSaved, applyBatchWindow
+};

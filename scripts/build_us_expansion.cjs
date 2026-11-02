@@ -48,6 +48,91 @@ function needsMoatRecovery(stock) {
     || typeof report.overall_moat_verdict_en !== 'string' || !report.overall_moat_verdict_en.trim();
 }
 
+/**
+ * Match Python 3 `round(x, ndigits)` on IEEE floats (banker's rounding).
+ * Math.round is half-away-from-zero and would desync us_moat_evidence_hash → false staleEvidence.
+ *
+ * Naive `roundHalfEven(x * 10**d) / 10**d` is NOT enough: CPython rounds the true
+ * real value of the float (dtoa / Decimal.from_float semantics). Compare distances
+ * to the two candidate quanta; only true ties use half-to-even. Finish with
+ * toFixed so chosen quanta never serialize as 4.569999999999999 (≠ Python 4.57).
+ */
+function roundFin(value, digits) {
+  // Number(null) === 0 in JS; treat nullish like Python float(None) failure → null.
+  if (value === null || value === undefined || value === '') return null;
+  const number = Number(value);
+  if (!Number.isFinite(number)) return null;
+  const sign = number < 0 ? -1 : 1;
+  const abs = Math.abs(number);
+  const factor = 10 ** digits;
+  const lowerInt = Math.floor(abs * factor);
+  const lower = lowerInt / factor;
+  const upper = (lowerInt + 1) / factor;
+  const dLower = abs - lower;
+  const dUpper = upper - abs;
+  let chosenInt;
+  if (dLower < dUpper) chosenInt = lowerInt;
+  else if (dUpper < dLower) chosenInt = lowerInt + 1;
+  else chosenInt = (lowerInt % 2 === 0) ? lowerInt : lowerInt + 1;
+  const result = Number(((sign * chosenInt) / factor).toFixed(digits));
+  return Object.is(result, -0) ? 0 : result;
+}
+
+function roundHalfEvenInteger(scaled) {
+  return roundFin(scaled, 0);
+}
+
+function usMoatEvidencePayload(finContext = {}) {
+  return {
+    name: String(finContext.name || '').trim(),
+    sector: String(finContext.sector || '').trim(),
+    industry: String(finContext.industry || '').trim(),
+    roe: roundFin(finContext.roe, 2),
+    roa: roundFin(finContext.roa, 2),
+    f_score: Number.parseInt(finContext.f_score, 10) || 0,
+    fcf0: roundFin(finContext.fcf0, 0),
+    debt: roundFin(finContext.debt, 0),
+    cash: roundFin(finContext.cash, 0)
+  };
+}
+
+function usMoatEvidenceHash(finContext) {
+  // Mirror Python json.dumps(..., sort_keys=True, ensure_ascii=False, separators=(",", ":")).
+  // round(..., 0) stays a float in Python, so encode 100 as "100.0" (not "100").
+  const payload = usMoatEvidencePayload(finContext);
+  const floatKeys = new Set(['roe', 'roa', 'fcf0', 'debt', 'cash']);
+  const encoded = `{${Object.keys(payload).sort().map((key) => {
+    const value = payload[key];
+    let body;
+    if (value === null) body = 'null';
+    else if (typeof value === 'string') body = JSON.stringify(value);
+    else if (floatKeys.has(key) && typeof value === 'number') {
+      body = Number.isInteger(value) ? value.toFixed(1) : String(value);
+    } else body = String(value);
+    return `${JSON.stringify(key)}:${body}`;
+  }).join(',')}}`;
+  return crypto.createHash('sha256').update(encoded, 'utf8').digest('hex');
+}
+
+function applyBatchWindow(batches, limitRaw = process.env.EXPANSION_FINANCIAL_BATCH_LIMIT || '',
+    offsetRaw = process.env.EXPANSION_FINANCIAL_BATCH_OFFSET || '') {
+  if (!process.env.EXPANSION_FINANCIAL_REFRESH) return batches;
+  if (!batches.length) return batches;
+  let limit = batches.length, offset = 0;
+  if (limitRaw !== '') {
+    if (!/^\d+$/.test(String(limitRaw).trim())) throw new Error('EXPANSION_FINANCIAL_BATCH_LIMIT must be digits');
+    limit = Number(String(limitRaw).trim());
+    if (limit < 1) throw new Error('EXPANSION_FINANCIAL_BATCH_LIMIT must be >= 1');
+  }
+  if (offsetRaw !== '') {
+    if (!/^\d+$/.test(String(offsetRaw).trim())) throw new Error('EXPANSION_FINANCIAL_BATCH_OFFSET must be digits');
+    offset = Number(String(offsetRaw).trim()) % batches.length;
+  }
+  if (limit >= batches.length && offset === 0) return batches;
+  const rotated = batches.slice(offset).concat(batches.slice(0, offset));
+  return rotated.slice(0, Math.min(limit, rotated.length));
+}
+
 function matrix(size = 20, selected = '', symbols = '', incompleteOnly = false) {
   if (!Number.isInteger(size) || size < 1 || size > 20) throw new Error('Batch size must be 1-20');
   const catalogue = loadCatalogue();
@@ -81,6 +166,7 @@ function matrix(size = 20, selected = '', symbols = '', incompleteOnly = false) 
   if (!listed.length) {
     throw new Error('No US expansion candidates above USD 10B outside the reviewed baseline');
   }
+  result = applyBatchWindow(result);
   if (!result.length) {
     throw new Error('No US expansion batches selected');
   }
@@ -107,25 +193,70 @@ function ingest(output, marketFile, reports = {}) {
       throw new Error(`Invalid US expansion stock identity: ${ticker}`);
     }
     const listing = approved.get(ticker);
-    const moat = reports[ticker]?.report || stock.moat || null;
-    const ratingMoat = reports[ticker]
-      ? { ...reports[ticker], report: undefined, reason: null, currentEvidenceHash: reports[ticker].evidenceHash }
-      : stock.ratingSources?.moat || { reason: moat ? null : 'analysisUnavailable' };
+    const savedPath = path.join(root, 'cache', 'us_companies', `${ticker}.json`);
+    const saved = fs.existsSync(savedPath) ? read(savedPath) : null;
+    if (saved && (saved.ticker !== ticker || (saved.stock?.ticker != null && saved.stock.ticker !== ticker))) {
+      throw new Error(`Invalid saved US expansion company identity: ${ticker}`);
+    }
+    let moat = reports[ticker]?.report || stock.moat || null;
+    const usedSavedMoat = !moat && !!saved?.stock?.moat;
+    if (usedSavedMoat) moat = saved.stock.moat;
+    const finSrcEarly = path.join(root, 'cache', 'financials', `${ticker}_statements_v2.json`);
+    const statementsEarly = fs.existsSync(finSrcEarly) ? read(finSrcEarly) : null;
+    // Distress Z/M provenance uses statement content hash (separate from moat evidence).
+    const statementHash = statementsEarly
+      ? crypto.createHash('sha256').update(JSON.stringify({
+        annual: statementsEarly.annual, interim: statementsEarly.quarterly
+      })).digest('hex')
+      : null;
+    const name = stock.name || listing.name_en;
+    const sector = stock.sector || listing.sector;
+    const industry = stock.industry || listing.industry;
+    // Moat stale check must use us_moat_evidence_hash domain (name/sector/ROE/FCF…),
+    // never statement SHA vs ratingSources.moat.evidenceHash.
+    const currentMoatHash = usMoatEvidenceHash({
+      name, sector, industry,
+      roe: stock.roe, roa: stock.roa, f_score: stock.f_score,
+      fcf0: stock.fcf0, debt: stock.debt, cash: stock.cash
+    });
+    let ratingMoat;
+    if (reports[ticker]) {
+      ratingMoat = {
+        ...reports[ticker], report: undefined, reason: null,
+        currentEvidenceHash: reports[ticker].evidenceHash
+      };
+    } else if (moat) {
+      const prior = usedSavedMoat
+        ? (saved.stock.ratingSources?.moat || {})
+        : (stock.ratingSources?.moat || saved?.stock?.ratingSources?.moat || {});
+      const priorHash = (typeof moat.evidenceHash === 'string' && moat.evidenceHash)
+        ? moat.evidenceHash
+        : (typeof prior.evidenceHash === 'string' && prior.evidenceHash ? prior.evidenceHash : null);
+      const stale = !!(priorHash && currentMoatHash && priorHash !== currentMoatHash);
+      ratingMoat = {
+        ...prior,
+        reason: stale ? 'staleEvidence' : null,
+        evidenceHash: priorHash,
+        currentEvidenceHash: currentMoatHash || prior.currentEvidenceHash || priorHash,
+      };
+    } else {
+      ratingMoat = stock.ratingSources?.moat || { reason: 'analysisUnavailable' };
+    }
     let recordStock = {
       ...stock,
       ticker,
       calculationCurrency: 'USD',
-      name: stock.name || listing.name_en,
+      name,
       name_en: stock.name_en || listing.name_en,
       exchange: stock.exchange || listing.exchange,
-      sector: stock.sector || listing.sector,
-      industry: stock.industry || listing.industry,
+      sector,
+      industry,
       moat,
       ratingSources: { ...(stock.ratingSources || {}), moat: ratingMoat },
       expansion: { status: 'available', capturedAt: stock.expansion?.capturedAt || new Date().toISOString(),
         reason: stock.expansion?.reason || null, detailPath: `cache/us_companies/${ticker}.json` }
     };
-    const finSrc = path.join(root, 'cache', 'financials', `${ticker}_statements_v2.json`);
+    const finSrc = finSrcEarly;
     if (usesFinancialValuationModel(recordStock.industry, ticker) && fs.existsSync(finSrc)) {
       recordStock = applyFinancialValuation(recordStock, read(finSrc));
     } else if (!recordStock.fin_valuation) {
@@ -133,12 +264,8 @@ function ingest(output, marketFile, reports = {}) {
         is_financial: usesFinancialValuationModel(recordStock.industry, ticker)
       };
     }
-    const statements = fs.existsSync(finSrc) ? read(finSrc) : null;
-    const evidenceHash = statements
-      ? crypto.createHash('sha256').update(JSON.stringify({
-        annual: statements.annual, interim: statements.quarterly
-      })).digest('hex')
-      : null;
+    const statements = statementsEarly;
+    const evidenceHash = statementHash;
     attachDistressScores(recordStock, statements || {}, {
       ticker,
       checkedAt: recordStock.expansion?.capturedAt || new Date().toISOString(),
@@ -353,5 +480,6 @@ if (require.main === module) {
 }
 
 module.exports = {
-  matrix, ingest, packageResults, integrate, writeMoatCaches, needsMoatRecovery, listingStock
+  matrix, ingest, packageResults, integrate, writeMoatCaches, needsMoatRecovery, listingStock,
+  applyBatchWindow, usMoatEvidenceHash, usMoatEvidencePayload, roundFin, roundHalfEvenInteger
 };
