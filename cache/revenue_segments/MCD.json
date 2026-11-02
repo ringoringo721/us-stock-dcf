@@ -1,0 +1,223 @@
+{
+  "version": 1,
+  "ticker": "MCD",
+  "source": "FMP revenue segmentation (annual)",
+  "period": "annual",
+  "product": [
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "High-Growth Markets": 16854100000,
+        "UNITED STATES": 8558900000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "High-Growth Markets": 16369200000,
+        "UNITED STATES": 8252700000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "High-Growth Markets": 14814000000,
+        "UNITED STATES": 8006400000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "High-Growth Markets": 13359400000,
+        "UNITED STATES": 7665800000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "International Developmental Licensed Markets and Corporate": 1835200000,
+        "High-Growth Markets": 11398600000,
+        "UNITED STATES": 7842700000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "International Developmental Licensed Markets and Corporate": 1808600000,
+        "High-Growth Markets": 9570700000,
+        "UNITED STATES": 7828500000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "International Developmental Licensed Markets and Corporate": 2138100000,
+        "High-Growth Markets": 12219800000,
+        "UNITED STATES": 8865000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "International Developmental Licensed Markets and Corporate": 2297200000,
+        "High-Growth Markets": 11297000000,
+        "UNITED STATES": 9588400000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "International Developmental Licensed Markets and Corporate": 2543300000,
+        "High-Growth Markets": 12382000000,
+        "UNITED STATES": 10568400000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "International Developmental Licensed Markets and Corporate": 2661000000,
+        "High-Growth Markets": 12628000000,
+        "UNITED STATES": 10631000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "International Developmental Licensed Markets and Corporate": 2427000000,
+        "High-Growth Markets": 13633000000,
+        "UNITED STATES": 10825000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2010-12-31",
+      "segments": {
+        "Asia Pacific Middle East Africa": 5065500000,
+        "Europe": 9569200000,
+        "Other Countries And Corporate": 1328300000,
+        "UNITED STATES": 8111600000
+      }
+    },
+    {
+      "date": "2011-12-31",
+      "segments": {
+        "Asia Pacific Middle East Africa": 6019500000,
+        "Europe": 10886400000,
+        "Other Countries And Corporate": 1571900000,
+        "UNITED STATES": 8528200000
+      }
+    },
+    {
+      "date": "2012-12-31",
+      "segments": {
+        "Asia Pacific Middle East Africa": 6391100000,
+        "Europe": 10827400000,
+        "Other Countries And Corporate": 1534800000,
+        "UNITED STATES": 8813700000
+      }
+    },
+    {
+      "date": "2013-12-31",
+      "segments": {
+        "Asia Pacific Middle East Africa": 6477200000,
+        "Europe": 11299800000,
+        "Other Countries And Corporate": 1477400000,
+        "UNITED STATES": 8851300000
+      }
+    },
+    {
+      "date": "2014-12-31",
+      "segments": {
+        "Asia Pacific Middle East Africa": 6324400000,
+        "Europe": 11077400000,
+        "Other Countries And Corporate": 1388500000,
+        "UNITED STATES": 8651000000
+      }
+    },
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "International Operated Markets": 7614900000,
+        "UNITED STATES": 8558900000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "International Operated Markets": 7223400000,
+        "UNITED STATES": 8252700000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "International Operated Markets": 7340300000,
+        "UNITED STATES": 8006400000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "International Operated Markets": 7600100000,
+        "UNITED STATES": 7665800000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "International Developmental Licensed Markets and Corporate": 1835200000,
+        "International Operated Markets": 11398600000,
+        "UNITED STATES": 7842700000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "International Developmental Licensed Markets and Corporate": 1808600000,
+        "International Operated Markets": 9570700000,
+        "UNITED STATES": 7828500000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "International Developmental Licensed Markets and Corporate": 2138100000,
+        "International Operated Markets": 12219800000,
+        "UNITED STATES": 8865000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "International Developmental Licensed Markets and Corporate": 2297200000,
+        "International Operated Markets": 11297000000,
+        "UNITED STATES": 9588400000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "International Developmental Licensed Markets and Corporate": 2543300000,
+        "International Operated Markets": 12382000000,
+        "UNITED STATES": 10568400000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "International Developmental Licensed Markets and Corporate": 2661000000,
+        "International Operated Markets": 12628000000,
+        "UNITED STATES": 10631000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "International Developmental Licensed Markets and Corporate": 2427000000,
+        "International Operated Markets": 13633000000,
+        "UNITED STATES": 10825000000
+      }
+    }
+  ]
+}

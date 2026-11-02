@@ -1,0 +1,134 @@
+{
+  "version": 1,
+  "ticker": "MA",
+  "source": "FMP revenue segmentation (annual)",
+  "period": "annual",
+  "product": [
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Cross-border Volume Fees": 4954000000,
+        "Domestic Assessments": 6138000000,
+        "Other Revenues": 3348000000,
+        "Transaction Processing": 7391000000,
+        "Rebates": -6881000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Cross-border Volume Fees": 5606000000,
+        "Domestic Assessments": 6781000000,
+        "Other Revenues": 4124000000,
+        "Transaction Processing": 8469000000,
+        "Rebates": -8097000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Cross-border Volume Fees": 3512000000,
+        "Domestic Assessments": 6656000000,
+        "Other Revenues": 4717000000,
+        "Transaction Processing": 8731000000,
+        "Rebates": -8315000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Cross-border Volume Fees": 4664000000,
+        "Domestic Assessments": 8158000000,
+        "Other Revenues": 6224000000,
+        "Transaction Processing": 10799000000,
+        "Rebates": -10961000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Payment Network": 14358000000,
+        "Value-Added Services And Solutions": 7879000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Payment Network": 15824000000,
+        "Value-Added Services And Solutions": 9274000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Payment Network": 17335000000,
+        "Value-Added Services And Solutions": 10832000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Payment Network": 19476000000,
+        "Value-Added Services And Solutions": 13315000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "International Markets": 9441000000,
+        "North America": 5311000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "International Markets": 10869000000,
+        "North America": 5843000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "International Markets": 9701000000,
+        "North America": 5424000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "International Markets": 12068000000,
+        "North America": 6594000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "International Markets": 14428000000,
+        "North America": 7809000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "International Markets": 16739000000,
+        "North America": 8359000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "International Markets": 15792000000,
+        "North America": 12375000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Americas": 14044000000,
+        "International Markets": 18747000000
+      }
+    }
+  ]
+}

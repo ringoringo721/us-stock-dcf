@@ -1,0 +1,271 @@
+{
+  "version": 1,
+  "ticker": "CSCO",
+  "source": "FMP revenue segmentation (annual)",
+  "period": "annual",
+  "product": [
+    {
+      "date": "2012-07-28",
+      "segments": {
+        "Product": 37353000000,
+        "Service": 9735000000
+      }
+    },
+    {
+      "date": "2013-07-27",
+      "segments": {
+        "Product": 38693000000,
+        "Service": 10578000000
+      }
+    },
+    {
+      "date": "2014-07-26",
+      "segments": {
+        "Product": 36452000000,
+        "Service": 10970000000
+      }
+    },
+    {
+      "date": "2015-07-25",
+      "segments": {
+        "Product": 37991000000,
+        "Service": 11411000000
+      }
+    },
+    {
+      "date": "2016-07-30",
+      "segments": {
+        "Product": 37619000000,
+        "Service": 11993000000
+      }
+    },
+    {
+      "date": "2017-07-28",
+      "segments": {
+        "Switching": 13949000000,
+        "Services": 12300000000,
+        "Next-Generation Network Routing": 7831000000,
+        "Collaboration": 4278000000,
+        "Data Center": 3228000000,
+        "Wireless": 2766000000,
+        "Security": 2153000000,
+        "Service Provider Video": 946000000,
+        "Other": 554000000
+      }
+    },
+    {
+      "date": "2018-07-27",
+      "segments": {
+        "Infrastructure Platforms": 28270000000,
+        "Services": 12621000000,
+        "Applications": 5035000000,
+        "Security": 2353000000,
+        "Other": 1050000000
+      }
+    },
+    {
+      "date": "2019-07-26",
+      "segments": {
+        "Infrastructure Platforms": 30191000000,
+        "Services": 12899000000,
+        "Applications": 5803000000,
+        "Security": 2730000000,
+        "Other": 281000000
+      }
+    },
+    {
+      "date": "2020-07-24",
+      "segments": {
+        "Infrastructure Platforms": 27122000000,
+        "Services": 13323000000,
+        "Applications": 5568000000,
+        "Security": 3154000000,
+        "Other": 135000000
+      }
+    },
+    {
+      "date": "2021-07-31",
+      "segments": {
+        "Applications": 5504000000,
+        "Infrastructure Platforms": 27109000000,
+        "Other Products": 19000000,
+        "Security": 3382000000,
+        "Service": 13804000000
+      }
+    },
+    {
+      "date": "2022-07-30",
+      "segments": {
+        "Secure, Agile Networks": 23829000000,
+        "Internet for the Future": 5278000000,
+        "Collaboration": 4472000000,
+        "End-to-End Security": 3699000000,
+        "Optimized Application Experiences": 729000000,
+        "Other Products": 11000000,
+        "Service": 13539000000
+      }
+    },
+    {
+      "date": "2023-07-29",
+      "segments": {
+        "Secure, Agile Networks": 29105000000,
+        "Internet for the Future": 5306000000,
+        "Collaboration": 4052000000,
+        "End-to-End Security": 3859000000,
+        "Optimized Application Experiences": 811000000,
+        "Other Products": 9000000,
+        "Service": 13856000000
+      }
+    },
+    {
+      "date": "2024-07-27",
+      "segments": {
+        "Networking": 29229000000,
+        "Security": 5075000000,
+        "Collaboration": 4113000000,
+        "Observability": 837000000,
+        "Services": 14550000000
+      }
+    },
+    {
+      "date": "2025-07-26",
+      "segments": {
+        "Networking": 28304000000,
+        "Security": 8094000000,
+        "Collaboration": 4154000000,
+        "Observability": 1055000000,
+        "Services": 15046000000
+      }
+    },
+    {
+      "date": "2026-07-25",
+      "segments": {
+        "Networking": 34668000000,
+        "Security": 8232000000,
+        "Collaboration": 4300000000,
+        "Observability": 1095000000,
+        "Services": 15030000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2012-07-28",
+      "segments": {
+        "UNITED STATES": 26501000000,
+        "Asia Pacific Japan And China": 7485000000,
+        "Europe Middle East And Africa": 12075000000
+      }
+    },
+    {
+      "date": "2013-07-27",
+      "segments": {
+        "UNITED STATES": 28639000000,
+        "Asia Pacific Japan And China": 7758000000,
+        "Europe Middle East And Africa": 12210000000
+      }
+    },
+    {
+      "date": "2014-07-26",
+      "segments": {
+        "UNITED STATES": 27781000000,
+        "Asia Pacific Japan And China": 7355000000,
+        "Europe Middle East And Africa": 12006000000
+      }
+    },
+    {
+      "date": "2015-07-25",
+      "segments": {
+        "UNITED STATES": 29655000000,
+        "Asia Pacific Japan And China": 7184000000,
+        "Europe Middle East And Africa": 12322000000
+      }
+    },
+    {
+      "date": "2016-07-30",
+      "segments": {
+        "UNITED STATES": 29411000000,
+        "Asia Pacific Japan And China": 7555000000,
+        "Europe Middle East And Africa": 12281000000
+      }
+    },
+    {
+      "date": "2017-07-29",
+      "segments": {
+        "UNITED STATES": 28351000000,
+        "Asia Pacific Japan And China": 7650000000,
+        "Europe Middle East And Africa": 12004000000
+      }
+    },
+    {
+      "date": "2018-07-28",
+      "segments": {
+        "UNITED STATES": 25500000000
+      }
+    },
+    {
+      "date": "2019-07-27",
+      "segments": {
+        "UNITED STATES": 30927000000,
+        "Asia Pacific Japan And China": 7877000000,
+        "Europe Middle East And Africa": 13100000000
+      }
+    },
+    {
+      "date": "2020-07-25",
+      "segments": {
+        "UNITED STATES": 29291000000,
+        "Asia Pacific Japan And China": 7352000000,
+        "Europe Middle East And Africa": 12659000000
+      }
+    },
+    {
+      "date": "2021-07-31",
+      "segments": {
+        "UNITED STATES": 29161000000,
+        "Asia Pacific Japan And China": 7706000000,
+        "Europe Middle East And Africa": 12951000000
+      }
+    },
+    {
+      "date": "2022-07-30",
+      "segments": {
+        "UNITED STATES": 29814000000,
+        "Asia Pacific Japan And China": 8027000000,
+        "Europe Middle East And Africa": 13715000000
+      }
+    },
+    {
+      "date": "2023-07-29",
+      "segments": {
+        "UNITED STATES": 33447000000,
+        "Asia Pacific Japan And China": 8417000000,
+        "Europe Middle East And Africa": 15135000000
+      }
+    },
+    {
+      "date": "2024-07-27",
+      "segments": {
+        "UNITED STATES": 31971000000,
+        "Asia Pacific Japan And China": 7716000000,
+        "Europe Middle East And Africa": 14117000000
+      }
+    },
+    {
+      "date": "2025-07-26",
+      "segments": {
+        "UNITED STATES": 33656000000,
+        "Asia Pacific Japan And China": 8174000000,
+        "Europe Middle East And Africa": 14824000000
+      }
+    },
+    {
+      "date": "2026-07-25",
+      "segments": {
+        "UNITED STATES": 37799000000,
+        "Asia Pacific Japan And China": 8914000000,
+        "Europe Middle East And Africa": 16613000000
+      }
+    }
+  ]
+}

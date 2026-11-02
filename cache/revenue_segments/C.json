@@ -1,0 +1,253 @@
+{
+  "version": 1,
+  "ticker": "C",
+  "source": "FMP revenue segmentation (annual)",
+  "period": "annual",
+  "product": [
+    {
+      "date": "2010-12-31",
+      "segments": {
+        "Brokerage and Asset Management": -37000000,
+        "Corporate and Other": 1754000000,
+        "Institutional Clients Group": 33118000000
+      }
+    },
+    {
+      "date": "2011-12-31",
+      "segments": {
+        "Brokerage and Asset Management": -11000000,
+        "Corporate and Other": 886000000,
+        "Global Consumer Banking": 32585000000,
+        "Institutional Clients Group": 31986000000
+      }
+    },
+    {
+      "date": "2012-12-31",
+      "segments": {
+        "Brokerage and Asset Management": 5000000,
+        "Corporate and Other": 192000000,
+        "Global Consumer Banking": 40214000000,
+        "Institutional Clients Group": 30600000000
+      }
+    },
+    {
+      "date": "2013-12-31",
+      "segments": {
+        "Corporate and Other": 77000000,
+        "Global Consumer Banking": 38169000000,
+        "Institutional Clients Group": 33578000000,
+        "Citicorp Segment and Corporate and Other": 71824000000
+      }
+    },
+    {
+      "date": "2014-12-31",
+      "segments": {
+        "Corporate and Other": 47000000,
+        "Global Consumer Banking": 37753000000,
+        "Institutional Clients Group": 33267000000,
+        "Citicorp Segment and Corporate and Other": 71067000000
+      }
+    },
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "Corporate and Other": 907000000,
+        "Global Consumer Banking": 33862000000,
+        "Institutional Clients Group": 33748000000,
+        "Citicorp Segment and Corporate and Other": 68517000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Corporate and Other": 410000000,
+        "Global Consumer Banking": 31763000000,
+        "Institutional Clients Group": 33850000000,
+        "Citicorp Segment and Corporate and Other": 66023000000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "Corporate and Other": 3085000000,
+        "Global Consumer Banking": 32697000000,
+        "Institutional Clients Group": 35667000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Institutional Clients Group": 521000000,
+        "Global Consumer Banking": 386000000,
+        "Commissions And Fees": 6766000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Institutional Clients Group": 485000000,
+        "Global Consumer Banking": 322000000,
+        "Commissions And Fees": 7695000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Institutional Clients Group": 495000000,
+        "Global Consumer Banking": 290000000,
+        "Commissions And Fees": 7160000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Institutional Clients Group": 639000000,
+        "Global Consumer Banking": 260000000,
+        "Commissions And Fees": 8516000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Institutional Clients Group": 538000000,
+        "Global Consumer Banking": 201000000,
+        "Commissions And Fees": 11008000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Banking Segment": 4568000000,
+        "Markets": 18857000000,
+        "Services": 18050000000,
+        "U.S. Personal Banking": 19187000000,
+        "Personal Banking and Wealth Management": 7091000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Banking Segment": 6201000000,
+        "Markets": 19836000000,
+        "Services": 19649000000,
+        "U.S. Personal Banking": 20374000000,
+        "Personal Banking and Wealth Management": 7512000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Banking Segment": 8215000000,
+        "Markets": 21970000000,
+        "Services": 21256000000,
+        "U.S. Personal Banking": 20971000000,
+        "Personal Banking and Wealth Management": 8559000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2011-12-31",
+      "segments": {
+        "Asia": 15200000000,
+        "EMEA": 12200000000,
+        "Latin America": 13600000000,
+        "North America": 23600000000
+      }
+    },
+    {
+      "date": "2012-12-31",
+      "segments": {
+        "Asia": 15000000000,
+        "EMEA": 11500000000,
+        "Latin America": 14500000000,
+        "North America": 29800000000
+      }
+    },
+    {
+      "date": "2013-12-31",
+      "segments": {
+        "Asia": 15000000000,
+        "EMEA": 11400000000,
+        "Latin America": 14000000000,
+        "North America": 31300000000
+      }
+    },
+    {
+      "date": "2014-12-31",
+      "segments": {
+        "Asia": 14700000000,
+        "EMEA": 10900000000,
+        "Latin America": 13400000000,
+        "North America": 32000000000
+      }
+    },
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "Asia": 13000000000,
+        "EMEA": 10800000000,
+        "Latin America": 11200000000,
+        "North America": 32600000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Asia": 13800000000,
+        "EMEA": 10000000000,
+        "Latin America": 9000000000,
+        "North America": 32800000000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "Asia": 14400000000,
+        "EMEA": 10700000000,
+        "Latin America": 9400000000,
+        "North America": 33900000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "North America": 76145000000,
+        "EMEA": 28460000000,
+        "Latin America": 48374000000,
+        "Asia": 70465000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "North America": 34912000000,
+        "International": 38911000000,
+        "other": 1510000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "North America": 36707000000,
+        "International": 39640000000,
+        "other": 668000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "North America": 40079000000,
+        "International": 40392000000,
+        "other": 668000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "North America": 44012000000,
+        "EMEA": 7600000000
+      }
+    }
+  ]
+}

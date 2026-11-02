@@ -1,0 +1,345 @@
+{
+  "version": 1,
+  "ticker": "INTC",
+  "source": "FMP revenue segmentation (annual)",
+  "period": "annual",
+  "product": [
+    {
+      "date": "2010-12-25",
+      "segments": {
+        "Data Center Group": 8693000000,
+        "Client Computing Group": 31598000000,
+        "Other Intel Architecture Operating Segments": 1784000000,
+        "Other Segments": 1501000000
+      }
+    },
+    {
+      "date": "2011-12-31",
+      "segments": {
+        "Other Segments": 1589000000,
+        "Data Center Group": 10129000000,
+        "Other Intel Architecture Operating Segments": 5005000000,
+        "Client Computing Group": 35406000000,
+        "Software And Services Operating Segments": 1870000000
+      }
+    },
+    {
+      "date": "2012-12-29",
+      "segments": {
+        "Other Segments": 1567000000,
+        "Data Center Group": 10741000000,
+        "Other Intel Architecture Operating Segments": 4378000000,
+        "Client Computing Group": 34274000000,
+        "Software And Services Operating Segments": 2381000000
+      }
+    },
+    {
+      "date": "2013-12-28",
+      "segments": {
+        "Data Center Group": 11238000000,
+        "Other Intel Architecture Operating Segments": 4092000000,
+        "Other Segments": 1837000000,
+        "Client Computing Group": 33039000000,
+        "Software And Services Operating Segments": 2502000000
+      }
+    },
+    {
+      "date": "2014-12-27",
+      "segments": {
+        "Data Center Group": 14387000000,
+        "Internet Of Things Group": 2142000000,
+        "Mobile And Communications Group": 202000000,
+        "Other Segments": 2254000000,
+        "Client Computing Group": 34669000000,
+        "Software And Services Operating Segments": 2216000000
+      }
+    },
+    {
+      "date": "2015-12-26",
+      "segments": {
+        "Client Computing Group": 32219000000,
+        "Data Center Group": 15977000000,
+        "Internet Of Things Group": 2298000000,
+        "Other Segments": 2694000000,
+        "Software And Services Operating Segments": 2167000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Client Computing Group": 32908000000,
+        "Data Center Group": 17236000000,
+        "Internet Of Things Group": 2638000000,
+        "Intel Security Group": 2161000000,
+        "Non-Volatile Memory Solutions Group": 2576000000,
+        "Other Segments": 199000000,
+        "Programmable Solutions Group": 1669000000
+      }
+    },
+    {
+      "date": "2017-12-30",
+      "segments": {
+        "Client Computing Group": 34003000000,
+        "Data Center Group": 19064000000,
+        "Intel Security Group": 534000000,
+        "Internet Of Things Group": 3169000000,
+        "Non-Volatile Memory Solutions Group": 3520000000,
+        "Other Segments": 1103000000,
+        "Programmable Solutions Group": 1902000000
+      }
+    },
+    {
+      "date": "2018-12-29",
+      "segments": {
+        "Client Computing Group": 37004000000,
+        "Data Center Group": 22991000000,
+        "Internet Of Things Group": 3455000000,
+        "Non-Volatile Memory Solutions Group": 4307000000,
+        "Other Segments": 968000000,
+        "Programmable Solutions Group": 2123000000
+      }
+    },
+    {
+      "date": "2019-12-28",
+      "segments": {
+        "Client Computing Group": 37146000000,
+        "Data Center Group": 23481000000,
+        "Internet Of Things Group": 3821000000,
+        "Mobileye": 879000000,
+        "Non-Volatile Memory Solutions Group": 4362000000,
+        "Other Segments": 289000000,
+        "Programmable Solutions Group": 1987000000
+      }
+    },
+    {
+      "date": "2020-12-26",
+      "segments": {
+        "Client Computing Group": 40057000000,
+        "Data Center Group": 26103000000,
+        "Internet Of Things Group": 3007000000,
+        "Mobileye": 967000000,
+        "Non-Volatile Memory Solutions Group": 5358000000,
+        "Other Segments": 522000000,
+        "Programmable Solutions Group": 1853000000
+      }
+    },
+    {
+      "date": "2021-12-25",
+      "segments": {
+        "Client Computing Group": 40511000000,
+        "Data Center Group": 25821000000,
+        "Internet Of Things Group": 3998000000,
+        "Mobileye": 1386000000,
+        "Non-Volatile Memory Solutions Group": 4306000000,
+        "Other Segments": 1068000000,
+        "Programmable Solutions Group": 1934000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Client Computing Group": 31708000000,
+        "Accelerated Computing Systems and Graphics": 837000000,
+        "Data Center Group": 19196000000,
+        "Intel Foundry Services": 895000000,
+        "Mobileye": 1869000000,
+        "Internet Of Things Group": 8873000000,
+        "Other Segments": 196000000
+      }
+    },
+    {
+      "date": "2023-12-30",
+      "segments": {
+        "Client Computing Group": 29258000000,
+        "Data Center Group": 15521000000,
+        "Intel Foundry Services": 952000000,
+        "Mobileye": 2079000000,
+        "Internet Of Things Group": 5774000000,
+        "Other Segments": 644000000
+      }
+    },
+    {
+      "date": "2024-12-28",
+      "segments": {
+        "Client Computing Group": 30290000000,
+        "Data Center Group": 12817000000,
+        "Intel Foundry Services": 17543000000,
+        "Internet Of Things Group": 5842000000,
+        "Other Segments": 3824000000,
+        "Intersegment Eliminations": -17215000000
+      }
+    },
+    {
+      "date": "2025-12-27",
+      "segments": {
+        "Client Computing Group": 32228000000,
+        "Data Center Group": 16919000000,
+        "Intel Foundry Services": 17826000000,
+        "Other Segments": 3563000000,
+        "Intersegment Eliminations": -17683000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2010-12-25",
+      "segments": {
+        "UNITED STATES": 2066000000,
+        "Asia-Pacific, Total": 24972000000,
+        "Europe": 5606000000,
+        "JAPAN": 4430000000
+      }
+    },
+    {
+      "date": "2011-12-31",
+      "segments": {
+        "UNITED STATES": 11298000000,
+        "Asia-Pacific, Total": 30722000000,
+        "Europe": 6955000000,
+        "JAPAN": 5024000000
+      }
+    },
+    {
+      "date": "2012-12-29",
+      "segments": {
+        "China (Including Hong Kong)": 8299000000,
+        "JAPAN": 4303000000,
+        "Other Countries": 10442000000,
+        "SINGAPORE": 12622000000,
+        "TAIWAN, PROVINCE OF CHINA": 9327000000,
+        "UNITED STATES": 8348000000
+      }
+    },
+    {
+      "date": "2013-12-28",
+      "segments": {
+        "China (Including Hong Kong)": 9890000000,
+        "JAPAN": 3725000000,
+        "Other Countries": 10117000000,
+        "SINGAPORE": 10997000000,
+        "TAIWAN, PROVINCE OF CHINA": 8888000000,
+        "UNITED STATES": 9091000000
+      }
+    },
+    {
+      "date": "2014-12-27",
+      "segments": {
+        "China (Including Hong Kong)": 11197000000,
+        "JAPAN": 2776000000,
+        "Other Countries": 11541000000,
+        "SINGAPORE": 11573000000,
+        "TAIWAN, PROVINCE OF CHINA": 8955000000,
+        "UNITED STATES": 9828000000
+      }
+    },
+    {
+      "date": "2015-12-26",
+      "segments": {
+        "China (Including Hong Kong)": 11679000000,
+        "Other Countries": 10350000000,
+        "SINGAPORE": 11544000000,
+        "TAIWAN, PROVINCE OF CHINA": 10661000000,
+        "UNITED STATES": 11121000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "China (Including Hong Kong)": 13977000000,
+        "Other Countries": 9720000000,
+        "SINGAPORE": 12780000000,
+        "TAIWAN, PROVINCE OF CHINA": 9953000000,
+        "UNITED STATES": 12957000000
+      }
+    },
+    {
+      "date": "2017-12-30",
+      "segments": {
+        "China (Including Hong Kong)": 14796000000,
+        "Other Countries": 10619000000,
+        "SINGAPORE": 14285000000,
+        "TAIWAN, PROVINCE OF CHINA": 10518000000,
+        "UNITED STATES": 12543000000
+      }
+    },
+    {
+      "date": "2018-12-29",
+      "segments": {
+        "China (Including Hong Kong)": 18824000000,
+        "Other Countries": 11666000000,
+        "SINGAPORE": 15409000000,
+        "TAIWAN, PROVINCE OF CHINA": 10646000000,
+        "UNITED STATES": 14303000000
+      }
+    },
+    {
+      "date": "2019-12-28",
+      "segments": {
+        "China (Including Hong Kong)": 20026000000,
+        "Other Countries": 10614000000,
+        "SINGAPORE": 15650000000,
+        "TAIWAN, PROVINCE OF CHINA": 10058000000,
+        "UNITED STATES": 15617000000
+      }
+    },
+    {
+      "date": "2020-12-26",
+      "segments": {
+        "China (Including Hong Kong)": 20257000000,
+        "Other Countries": 11587000000,
+        "SINGAPORE": 17845000000,
+        "TAIWAN, PROVINCE OF CHINA": 11605000000,
+        "UNITED STATES": 16573000000
+      }
+    },
+    {
+      "date": "2021-12-25",
+      "segments": {
+        "China (Including Hong Kong)": 21141000000,
+        "Other Countries": 16061000000,
+        "SINGAPORE": 14254000000,
+        "TAIWAN, PROVINCE OF CHINA": 13461000000,
+        "UNITED STATES": 14107000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "China (Including Hong Kong)": 17125000000,
+        "Other Countries": 11449000000,
+        "SINGAPORE": 9664000000,
+        "TAIWAN, PROVINCE OF CHINA": 8287000000,
+        "UNITED STATES": 16529000000
+      }
+    },
+    {
+      "date": "2023-12-30",
+      "segments": {
+        "China (Including Hong Kong)": 14854000000,
+        "Other Countries": 9947000000,
+        "SINGAPORE": 8602000000,
+        "TAIWAN, PROVINCE OF CHINA": 6867000000,
+        "UNITED STATES": 13958000000
+      }
+    },
+    {
+      "date": "2024-12-28",
+      "segments": {
+        "China (Including Hong Kong)": 15532000000,
+        "Other Countries": 6584000000,
+        "SINGAPORE": 10187000000,
+        "TAIWAN, PROVINCE OF CHINA": 7804000000,
+        "UNITED STATES": 12994000000
+      }
+    },
+    {
+      "date": "2025-12-27",
+      "segments": {
+        "Other Countries": 7195000000,
+        "SINGAPORE": 9535000000,
+        "TAIWAN, PROVINCE OF CHINA": 7672000000,
+        "UNITED STATES": 15757000000
+      }
+    }
+  ]
+}

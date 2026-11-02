@@ -1,0 +1,261 @@
+{
+  "version": 1,
+  "ticker": "LLY",
+  "source": "FMP revenue segmentation (annual)",
+  "period": "annual",
+  "product": [
+    {
+      "date": "2011-12-31",
+      "segments": {
+        "Animal Health Products": 681700000,
+        "Human Pharmaceutical Products": 23604800000
+      }
+    },
+    {
+      "date": "2012-12-31",
+      "segments": {
+        "Animal Health Products": 2036500000,
+        "Cardiovascular": 2632500000,
+        "Endocrinology": 6810900000,
+        "Neuroscience": 7575100000,
+        "Oncology": 3281600000
+      }
+    },
+    {
+      "date": "2013-12-31",
+      "segments": {
+        "Animal Health Products": 2151500000,
+        "Cardiovascular": 2923200000,
+        "Endocrinology": 7304400000,
+        "Neuroscience": 7216200000,
+        "Oncology": 3268500000,
+        "Other Pharmaceuticals": 249300000
+      }
+    },
+    {
+      "date": "2014-12-31",
+      "segments": {
+        "Oncology": 3393000000,
+        "Cardiovascular": 3053500000,
+        "Neuroscience": 3596500000,
+        "Endocrinology": 6939000000,
+        "Animal Health Products": 2346600000
+      }
+    },
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "Oncology": 3509800000,
+        "Cardiovascular": 3068000000,
+        "Neuroscience": 2935400000,
+        "Endocrinology": 7036800000,
+        "Animal Health Products": 3181000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Human Pharmaceutical Products": 18063900000,
+        "Animal Health Products": 3158200000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "Human Pharmaceutical Products": 19785700000,
+        "Animal Health Products": 3085600000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Animal Health Products": 1619500000,
+        "Human Pharmaceutical Products": 12352200000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Collaboration and Other Revenue": 1942200000,
+        "Product": 20377300000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Collaboration and Other Revenue": 1845000000,
+        "Product": 22694800000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Collaboration and Other Revenue": 2360500000,
+        "Product": 25957900000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Collaboration and Other Revenue": 3078600000,
+        "Product": 25462800000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Collaboration and Other Revenue": 5310200000,
+        "Product": 28813900000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Collaboration and Other Revenue": 4294800000,
+        "Product": 40747900000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Collaboration and Other Revenue": 4221000000,
+        "Product": 60958000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2012-12-31",
+      "segments": {
+        "Europe": 4259700000,
+        "JAPAN": 2246200000,
+        "Non-US": 3784400000,
+        "UNITED STATES": 12313100000
+      }
+    },
+    {
+      "date": "2013-12-31",
+      "segments": {
+        "Animal Health Products": 2151500000,
+        "Cardiovascular": 2923200000,
+        "Endocrinology": 7304400000,
+        "Neuroscience": 7216200000,
+        "Oncology": 3268500000,
+        "Other Pharmaceuticals": 249300000
+      }
+    },
+    {
+      "date": "2014-12-31",
+      "segments": {
+        "Europe": 4506700000,
+        "JAPAN": 2027100000,
+        "Other Foreign Countries": 3947700000,
+        "UNITED STATES": 9134100000
+      }
+    },
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "Europe": 3943600000,
+        "JAPAN": 2033100000,
+        "Other Foreign Countries": 3884600000,
+        "UNITED STATES": 10097400000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Europe": 3768100000,
+        "JAPAN": 2330900000,
+        "Non-US": 3616900000,
+        "UNITED STATES": 11506200000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "Europe": 3943200000,
+        "JAPAN": 2419700000,
+        "Non-US": 3723300000,
+        "UNITED STATES": 12785100000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Europe": 4231100000,
+        "Non-US": 14636200000,
+        "JAPAN": 2493700000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Europe": 3765000000,
+        "JAPAN": 2547600000,
+        "Other Foreign Countries": 3284300000,
+        "UNITED STATES": 12722600000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "CHINA": 1116900000,
+        "Europe": 4187700000,
+        "JAPAN": 2583100000,
+        "Other Foreign Countries": 2422700000,
+        "UNITED STATES": 14229300000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "CHINA": 1661400000,
+        "Europe": 4776800000,
+        "JAPAN": 2367000000,
+        "Non-US": 2702200000,
+        "UNITED STATES": 16811000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "CHINA": 1452800000,
+        "Europe": 4299200000,
+        "JAPAN": 1747300000,
+        "Non-US": 2852000000,
+        "UNITED STATES": 18190000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "CHINA": 1539700000,
+        "Europe": 6174700000,
+        "JAPAN": 1672600000,
+        "Non-US": 2946200000,
+        "UNITED STATES": 21791000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "CHINA": 1660400000,
+        "Europe": 6920700000,
+        "JAPAN": 1814900000,
+        "Non-US": 4271400000,
+        "UNITED STATES": 30375200000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "CHINA": 1951000000,
+        "Europe": 11558000000,
+        "JAPAN": 2132000000,
+        "Non-US": 6057000000,
+        "UNITED STATES": 43481000000
+      }
+    }
+  ]
+}

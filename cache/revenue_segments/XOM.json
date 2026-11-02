@@ -1,0 +1,223 @@
+{
+  "version": 1,
+  "ticker": "XOM",
+  "source": "FMP revenue segmentation (annual)",
+  "period": "annual",
+  "product": [
+    {
+      "date": "2011-12-31",
+      "segments": {
+        "Chemical Products": 41942000000,
+        "Upstream": 46442000000,
+        "Downstream": 378623000000
+      }
+    },
+    {
+      "date": "2012-12-31",
+      "segments": {
+        "Upstream": 38726000000,
+        "Downstream": 40326000000,
+        "Chemical Products": 374047000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Downstream": 172349000000,
+        "Chemical Products": 26058000000,
+        "Upstream": 20180000000
+      }
+    },
+    {
+      "date": "2017-12-30",
+      "segments": {
+        "Downstream": 184576000000,
+        "Upstream": 23857000000,
+        "Chemical Products": 28694000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Chemical Non Us": 20204000000,
+        "Chemical United States": 12239000000,
+        "Upstream Non Us": 15158000000,
+        "Upstream United States": 10359000000,
+        "Downstream Non US": 147007000000,
+        "Downstream United States": 74327000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Chemical Non Us": 17693000000,
+        "Chemical United States": 9723000000,
+        "Upstream Non Us": 13779000000,
+        "Upstream United States": 9364000000,
+        "Downstream Non US": 70523000000,
+        "Downstream United States": 134460000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Chemical Non Us": 14562000000,
+        "Chemical United States": 8529000000,
+        "Upstream Non Us": 8673000000,
+        "Upstream United States": 5876000000,
+        "Downstream Non US": 92640000000,
+        "Downstream United States": 48256000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Chemical Non Us": 16633000000,
+        "Chemical United States": 11995000000,
+        "Energy Products Non US": 130406000000,
+        "Energy Products United States": 78500000000,
+        "Specialty Products Non US": 12473000000,
+        "Specialty Products United States": 4858000000,
+        "Upstream Non Us": 12914000000,
+        "Upstream United States": 8883000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Chemical Non Us": 16949000000,
+        "Chemical United States": 10670000000,
+        "Energy Products Non US": 188153000000,
+        "Energy Products United States": 117824000000,
+        "Specialty Products Non US": 13727000000,
+        "Specialty Products United States": 6152000000,
+        "Upstream United States": 14579000000,
+        "Upstream Non Us": 30585000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Upstream": 39389000000,
+        "Energy Products": 244451000000,
+        "Chemical Products": 22209000000,
+        "Specialty Products": 17771000000,
+        "Corporate and financing": 85000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2010-12-31",
+      "segments": {
+        "Non-US": 254219000000,
+        "United States": 115906000000
+      }
+    },
+    {
+      "date": "2011-12-31",
+      "segments": {
+        "United States": 150343000000,
+        "Non-US": 316686000000
+      }
+    },
+    {
+      "date": "2012-12-31",
+      "segments": {
+        "United States": 151298000000,
+        "Non-US": 301825000000
+      }
+    },
+    {
+      "date": "2013-12-31",
+      "segments": {
+        "Non-US": 268016000000,
+        "United States": 152820000000
+      }
+    },
+    {
+      "date": "2014-12-31",
+      "segments": {
+        "Non-US": 245392000000,
+        "United States": 148713000000
+      }
+    },
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "Non-US": 167304000000,
+        "United States": 92184000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Non-US": 145127000000,
+        "United States": 73481000000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "Non-US": 155083000000,
+        "United States": 82079000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Non-US": 182402000000,
+        "United States": 96930000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Non-US": 165971000000,
+        "United States": 89612000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Non-US": 115911000000,
+        "United States": 62663000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Non-US": 172456000000,
+        "United States": 104236000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "United States": 149225000000,
+        "Non-US": 249450000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "United States": 127374000000,
+        "Non-US": 207323000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Non-US": 200590000000,
+        "United States": 138657000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "United States": 137639000000,
+        "Non-US": 186266000000
+      }
+    }
+  ]
+}

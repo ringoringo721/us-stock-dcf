@@ -1,0 +1,268 @@
+{
+  "version": 1,
+  "ticker": "CAT",
+  "source": "FMP revenue segmentation (annual)",
+  "period": "annual",
+  "product": [
+    {
+      "date": "2011-12-31",
+      "segments": {
+        "Construction Industries": 19667000000,
+        "Financial Products": 3003000000,
+        "Resource Industries": 15629000000,
+        "Energy and Transportation": 20114000000,
+        "Other Segments": 2021000000,
+        "Intersegment Elimination": -296000000
+      }
+    },
+    {
+      "date": "2012-12-31",
+      "segments": {
+        "Construction Industries": 19334000000,
+        "Financial Products": 3090000000,
+        "Resource Industries": 21122000000,
+        "Energy and Transportation": 21122000000,
+        "Other Segments": 1501000000,
+        "Intersegment Elimination": -330000000
+      }
+    },
+    {
+      "date": "2013-12-31",
+      "segments": {
+        "Construction Industries": 18532000000,
+        "Energy and Transportation": 20155000000,
+        "Other Segments": 2263000000,
+        "Resource Industries": 11805000000,
+        "Financial Products": 3224000000,
+        "Intersegment Elimination": -323000000
+      }
+    },
+    {
+      "date": "2014-12-31",
+      "segments": {
+        "Construction Industries": 19362000000,
+        "Energy and Transportation": 21727000000,
+        "Other Segments": 2251000000,
+        "Resource Industries": 8921000000,
+        "Financial Products": 3313000000,
+        "Intersegment Elimination": -390000000
+      }
+    },
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "Construction Industries": 17797000000,
+        "Energy and Transportation": 18519000000,
+        "Other Segments": 203000000,
+        "Resource Industries": 7739000000,
+        "Financial Products": 3078000000,
+        "Intersegment Elimination": -325000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Construction Industries": 15612000000,
+        "Energy and Transportation": 14411000000,
+        "Other Segments": 139000000,
+        "Resource Industries": 5762000000,
+        "Financial Products": 2993000000,
+        "Intersegment Elimination": -344000000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "Construction Industries": 19240000000,
+        "Energy and Transportation": 19382000000,
+        "Other Segments": 570000000,
+        "Resource Industries": 7861000000,
+        "Financial Products": 3093000000,
+        "Intersegment Elimination": -4684000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Construction Industries": 23116000000,
+        "Energy and Transportation": 18832000000,
+        "Other Segments": 154000000,
+        "Resource Industries": 9888000000,
+        "Financial Products": 3279000000,
+        "Intersegment Elimination": -547000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Construction Industries": 22649000000,
+        "Energy and Transportation": 22097000000,
+        "Other Segments": 500000000,
+        "Resource Industries": 10276000000,
+        "Financial Products": 3434000000,
+        "Intersegment Elimination": -5156000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Construction Industries": 16918000000,
+        "Energy and Transportation": 17470000000,
+        "Other Segments": 467000000,
+        "Resource Industries": 7906000000,
+        "Financial Products": 3044000000,
+        "Intersegment Elimination": -4057000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Construction Industries": 22106000000,
+        "Energy and Transportation": 20287000000,
+        "Other Segments": 511000000,
+        "Resource Industries": 9963000000,
+        "Financial Products": 3073000000,
+        "Intersegment Elimination": -4969000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Construction Industries": 25269000000,
+        "Energy and Transportation": 23752000000,
+        "Other Segments": 450000000,
+        "Resource Industries": 12314000000,
+        "Financial Products": 3253000000,
+        "Intersegment Elimination": -5611000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Construction Industries": 27418000000,
+        "Energy and Transportation": 28001000000,
+        "Other Segments": 449000000,
+        "Resource Industries": 13583000000,
+        "Financial Products": 3785000000,
+        "Intersegment Elimination": -6176000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Construction Industries": 25455000000,
+        "Energy and Transportation": 28854000000,
+        "Resource Industries": 12389000000,
+        "Other Segments": 425000000,
+        "Financial Products": 4053000000,
+        "Intersegment Elimination": -6367000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Construction Industries": 24800000000,
+        "Resource Industries": 12185000000,
+        "Power & Energy": 27143000000,
+        "Financial Products": 4220000000,
+        "All Other Segment": 46000000,
+        "Corporate Items and Eliminations": -805000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "Non-US": 27793000000,
+        "UNITED STATES": 19218000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Non-US": 22581000000,
+        "UNITED STATES": 15956000000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "Non-US": 26910000000,
+        "UNITED STATES": 18552000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Asia Pacific": 12475000000,
+        "EMEA": 11929000000,
+        "Latin America": 4695000000,
+        "North America": 25623000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Asia Pacific": 12082000000,
+        "EMEA": 11223000000,
+        "Latin America": 4710000000,
+        "North America": 25785000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Asia Pacific": 10244000000,
+        "EMEA": 9858000000,
+        "Latin America": 3432000000,
+        "North America": 18214000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Asia Pacific": 11725000000,
+        "EMEA": 12137000000,
+        "Latin America": 5086000000,
+        "North America": 22023000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Asia Pacific": 11894000000,
+        "EMEA": 12814000000,
+        "Latin America": 6738000000,
+        "North America": 27981000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Asia Pacific": 12116000000,
+        "EMEA": 13673000000,
+        "Latin America": 6665000000,
+        "North America": 34606000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Asia Pacific": 11388000000,
+        "EMEA": 12316000000,
+        "Latin America": 6708000000,
+        "North America": 34397000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Asia Pacific": 11199000000,
+        "EMEA": 12793000000,
+        "Latin America": 6988000000,
+        "North America": 36609000000
+      }
+    }
+  ]
+}

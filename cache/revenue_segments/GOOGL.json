@@ -1,0 +1,232 @@
+{
+  "version": 1,
+  "ticker": "GOOGL",
+  "source": "FMP revenue segmentation (annual)",
+  "period": "annual",
+  "product": [
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "Google Properties": 52357000000,
+        "Google Network Members' Properties": 15033000000,
+        "Google Other Revenues": 7154000000,
+        "Other Bets Revenues": 445000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Google properties": 63785000000,
+        "Google Network": 15598000000,
+        "Google other": 10601000000,
+        "Other Bets": 288000000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "Google properties": 77788000000,
+        "Google Network": 17587000000,
+        "Google other": 15003000000,
+        "Other Bets": 477000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Google Search & other": 85296000000,
+        "YouTube ads": 11155000000,
+        "Google Network": 20010000000,
+        "Google subscriptions, platforms, and devices": 14063000000,
+        "Google Cloud": 5838000000,
+        "Other Bets": 595000000,
+        "Hedging gains (losses)": -138000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Google Search & other": 98115000000,
+        "YouTube ads": 15149000000,
+        "Google Network": 21547000000,
+        "Google subscriptions, platforms, and devices": 17014000000,
+        "Google Cloud": 8918000000,
+        "Other Bets": 659000000,
+        "Hedging gains (losses)": 455000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Google Search & other": 104062000000,
+        "YouTube ads": 19772000000,
+        "Google Network": 23090000000,
+        "Google subscriptions, platforms, and devices": 21711000000,
+        "Google Cloud": 13059000000,
+        "Other Bets": 657000000,
+        "Hedging gains (losses)": 176000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Google Search & other": 148951000000,
+        "YouTube ads": 28845000000,
+        "Google Network": 31701000000,
+        "Google subscriptions, platforms, and devices": 28032000000,
+        "Google Cloud": 19206000000,
+        "Other Bets": 753000000,
+        "Hedging gains (losses)": 149000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Google Search & other": 162450000000,
+        "YouTube ads": 29243000000,
+        "Google Network": 32780000000,
+        "Google subscriptions, platforms, and devices": 29055000000,
+        "Google Cloud": 26280000000,
+        "Other Bets": 1068000000,
+        "Hedging gains (losses)": 1960000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Google Search & other": 175033000000,
+        "YouTube ads": 31510000000,
+        "Google Network": 31312000000,
+        "Google subscriptions, platforms, and devices": 34688000000,
+        "Google Cloud": 33088000000,
+        "Other Bets": 1527000000,
+        "Hedging gains (losses)": 236000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Google Search & other": 198084000000,
+        "YouTube ads": 36147000000,
+        "Google Network": 30359000000,
+        "Google subscriptions, platforms, and devices": 40340000000,
+        "Google Cloud": 43229000000,
+        "Other Bets": 1648000000,
+        "Hedging gains (losses)": 211000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Google Search & other": 224532000000,
+        "YouTube ads": 40367000000,
+        "Google Network": 29792000000,
+        "Google subscriptions, platforms, and devices": 48030000000,
+        "Google Cloud": 58705000000,
+        "Other Bets": 1537000000,
+        "Hedging gains (losses)": -127000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "UNITED STATES": 34810000000,
+        "EMEA": 26368000000,
+        "Asia Pacific": 9887000000,
+        "Americas Excluding United States": 3924000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "UNITED STATES": 42781000000,
+        "EMEA": 30304000000,
+        "Asia Pacific": 12559000000,
+        "Americas Excluding United States": 4628000000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "Americas Excluding United States": 6125000000,
+        "Asia Pacific": 16235000000,
+        "EMEA": 36046000000,
+        "UNITED STATES": 52449000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Americas Excluding United States": 7609000000,
+        "Asia Pacific": 21374000000,
+        "EMEA": 44567000000,
+        "UNITED STATES": 63269000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Americas Excluding United States": 8986000000,
+        "Asia Pacific": 26928000000,
+        "EMEA": 50645000000,
+        "UNITED STATES": 74843000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Americas Excluding United States": 9417000000,
+        "Asia Pacific": 32550000000,
+        "EMEA": 55370000000,
+        "UNITED STATES": 85014000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Americas Excluding United States": 14404000000,
+        "Asia Pacific": 46123000000,
+        "EMEA": 79107000000,
+        "UNITED STATES": 117854000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Americas Excluding United States": 16976000000,
+        "Asia Pacific": 47024000000,
+        "EMEA": 82062000000,
+        "UNITED STATES": 134814000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Americas Excluding United States": 18320000000,
+        "Asia Pacific": 51514000000,
+        "EMEA": 91038000000,
+        "UNITED STATES": 146286000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Americas Excluding United States": 20418000000,
+        "Asia Pacific": 56815000000,
+        "EMEA": 102127000000,
+        "UNITED STATES": 170447000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Americas Excluding United States": 23902000000,
+        "Asia Pacific": 67680000000,
+        "EMEA": 117045000000,
+        "UNITED STATES": 194209000000
+      }
+    }
+  ]
+}

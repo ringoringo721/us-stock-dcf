@@ -1,0 +1,253 @@
+{
+  "version": 1,
+  "ticker": "CRM",
+  "source": "FMP revenue segmentation (annual)",
+  "period": "annual",
+  "product": [
+    {
+      "date": "2016-01-30",
+      "segments": {
+        "Software License": 3060600000,
+        "Service": 2320700000,
+        "Platform and Other": 1441600000,
+        "Marketing and Commerce": 933300000,
+        "Professional Services and Other": 635800000
+      }
+    },
+    {
+      "date": "2017-01-30",
+      "segments": {
+        "Software License": 3554300000,
+        "Service": 2877100000,
+        "Platform and Other": 1929200000,
+        "Marketing and Commerce": 1349900000,
+        "Professional Services and Other": 769500000
+      }
+    },
+    {
+      "date": "2018-01-30",
+      "segments": {
+        "Software License": 4040000000,
+        "Service": 3621000000,
+        "Platform and Other": 2854000000,
+        "Marketing and Commerce": 1898000000,
+        "Professional Services and Other": 869000000
+      }
+    },
+    {
+      "date": "2019-01-31",
+      "segments": {
+        "Marketing and Commerce Cloud": 1898000000,
+        "Sales Cloud": 4040000000,
+        "Salesforce Platform and Other": 2854000000,
+        "Service Cloud": 3621000000,
+        "Professional Services and Other": 869000000
+      }
+    },
+    {
+      "date": "2020-01-31",
+      "segments": {
+        "Marketing and Commerce Cloud": 2506000000,
+        "Sales Cloud": 4598000000,
+        "Salesforce Platform and Other": 4473000000,
+        "Service Cloud": 4466000000,
+        "Professional Services and Other": 1055000000
+      }
+    },
+    {
+      "date": "2021-01-31",
+      "segments": {
+        "Marketing and Commerce Cloud": 3133000000,
+        "Sales Cloud": 5191000000,
+        "Salesforce Platform and Other": 6275000000,
+        "Service Cloud": 5377000000,
+        "Professional Services and Other": 1276000000
+      }
+    },
+    {
+      "date": "2022-01-31",
+      "segments": {
+        "Integration And Analytics": 3783000000,
+        "Marketing and Commerce Cloud": 3902000000,
+        "Sales Cloud": 5989000000,
+        "Salesforce Platform and Other": 4509000000,
+        "Service Cloud": 6474000000,
+        "Professional Services and Other": 1835000000
+      }
+    },
+    {
+      "date": "2023-01-31",
+      "segments": {
+        "Integration And Analytics": 4338000000,
+        "Marketing and Commerce Cloud": 4516000000,
+        "Sales Cloud": 6831000000,
+        "Salesforce Platform and Other": 5967000000,
+        "Service Cloud": 7369000000,
+        "Professional Services and Other": 2331000000
+      }
+    },
+    {
+      "date": "2024-01-31",
+      "segments": {
+        "Integration And Analytics": 5189000000,
+        "Marketing and Commerce Cloud": 4912000000,
+        "Sales Cloud": 7580000000,
+        "Salesforce Platform and Other": 6611000000,
+        "Service Cloud": 8245000000,
+        "Professional Services and Other": 2320000000
+      }
+    },
+    {
+      "date": "2025-01-31",
+      "segments": {
+        "Integration And Analytics": 5775000000,
+        "Marketing and Commerce Cloud": 5281000000,
+        "Sales Cloud": 8322000000,
+        "Salesforce Platform and Other": 7247000000,
+        "Service Cloud": 9054000000,
+        "Professional Services and Other": 2216000000
+      }
+    },
+    {
+      "date": "2026-01-31",
+      "segments": {
+        "Salesforce Platform and Other": 8882000000,
+        "Integration And Analytics": 6232000000,
+        "Marketing and Commerce Cloud": 5428000000,
+        "Sales Cloud": 9028000000,
+        "Service Cloud": 9818000000,
+        "Professional Services and Other": 2137000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2011-01-31",
+      "segments": {
+        "Americas": 1135019000,
+        "Asia Pacific": 230336000,
+        "Europe": 291784000
+      }
+    },
+    {
+      "date": "2012-01-31",
+      "segments": {
+        "Asia Pacific": 317794000,
+        "Europe": 408456000,
+        "Americas": 1540289000
+      }
+    },
+    {
+      "date": "2013-01-31",
+      "segments": {
+        "Americas": 2123736000,
+        "Asia Pacific": 401155000,
+        "Europe": 525304000
+      }
+    },
+    {
+      "date": "2014-01-31",
+      "segments": {
+        "Americas": 2899837000,
+        "Asia Pacific": 429946000,
+        "Europe": 741220000
+      }
+    },
+    {
+      "date": "2015-01-31",
+      "segments": {
+        "Americas": 3868329000,
+        "Asia Pacific": 520338000,
+        "Europe": 984919000
+      }
+    },
+    {
+      "date": "2016-01-31",
+      "segments": {
+        "Americas": 4910745000,
+        "Asia Pacific": 593663000,
+        "Europe": 1162808000
+      }
+    },
+    {
+      "date": "2017-01-31",
+      "segments": {
+        "Americas": 6224971000,
+        "Asia Pacific": 793466000,
+        "Europe": 1373547000
+      }
+    },
+    {
+      "date": "2018-01-31",
+      "segments": {
+        "Americas": 7579116000,
+        "Asia Pacific": 997372000,
+        "Europe": 1903524000
+      }
+    },
+    {
+      "date": "2019-01-31",
+      "segments": {
+        "Americas": 9445000000,
+        "Asia Pacific": 1284000000,
+        "Europe": 2553000000
+      }
+    },
+    {
+      "date": "2020-01-31",
+      "segments": {
+        "Americas": 12051000000,
+        "Asia Pacific": 1617000000,
+        "Europe": 3430000000
+      }
+    },
+    {
+      "date": "2021-01-31",
+      "segments": {
+        "Americas": 14736000000,
+        "Asia Pacific": 2015000000,
+        "Europe": 4501000000
+      }
+    },
+    {
+      "date": "2022-01-31",
+      "segments": {
+        "Americas": 17983000000,
+        "Asia Pacific": 2493000000,
+        "Europe": 6016000000
+      }
+    },
+    {
+      "date": "2023-01-31",
+      "segments": {
+        "Americas": 21250000000,
+        "Asia Pacific": 2939000000,
+        "Europe": 7163000000
+      }
+    },
+    {
+      "date": "2024-01-31",
+      "segments": {
+        "Americas": 23289000000,
+        "Asia Pacific": 3440000000,
+        "Europe": 8128000000
+      }
+    },
+    {
+      "date": "2025-01-31",
+      "segments": {
+        "Americas": 25143000000,
+        "Asia Pacific": 3861000000,
+        "Europe": 8891000000
+      }
+    },
+    {
+      "date": "2026-01-31",
+      "segments": {
+        "Americas": 27193000000,
+        "Asia Pacific": 4315000000,
+        "Europe": 10017000000
+      }
+    }
+  ]
+}

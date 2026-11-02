@@ -1,0 +1,88 @@
+{
+  "version": 1,
+  "ticker": "WFC",
+  "source": "FMP revenue segmentation (annual)",
+  "period": "annual",
+  "product": [
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "Community Banking": 48707000000,
+        "Wealth And Investment Management": 16926000000,
+        "Wholesale Banking": 28173000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Community Banking": 46913000000,
+        "Wealth And Investment Management": 16376000000,
+        "Wholesale Banking": 28706000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Credit Card Rewards and Rebates": 1500000000,
+        "Trailing Commission": 1200000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Wholesale Banking": 9738000000,
+        "Community Banking": 34016000000,
+        "Corporate and Investment Banking": 13820000000,
+        "Wealth And Investment Management": 14512000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Wholesale Banking": 8549000000,
+        "Community Banking": 34877000000,
+        "Corporate and Investment Banking": 13839000000,
+        "Wealth And Investment Management": 14346000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Wholesale Banking": 10920000000,
+        "Community Banking": 35810000000,
+        "Corporate and Investment Banking": 15242000000,
+        "Wealth And Investment Management": 14822000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Wholesale Banking": 13449000000,
+        "Community Banking": 37919000000,
+        "Corporate and Investment Banking": 19191000000,
+        "Wealth And Investment Management": 14691000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Wholesale Banking": 12778000000,
+        "Community Banking": 36201000000,
+        "Corporate and Investment Banking": 19344000000,
+        "Wealth And Investment Management": 15436000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Consumer Banking and Lending": 37362000000,
+        "Commercial Banking": 11978000000,
+        "Corporate and Investment Banking": 19232000000,
+        "Wealth and Investment Management": 16328000000,
+        "Corporate": 747000000,
+        "Reconciling Items": -1948000000
+      }
+    }
+  ],
+  "geographic": []
+}

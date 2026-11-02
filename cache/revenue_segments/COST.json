@@ -1,0 +1,228 @@
+{
+  "version": 1,
+  "ticker": "COST",
+  "source": "FMP revenue segmentation (annual)",
+  "period": "annual",
+  "product": [
+    {
+      "date": "2019-09-01",
+      "segments": {
+        "Food and Sundries": 59672000000,
+        "Fresh Food": 19948000000,
+        "Hardlines": 24570000000,
+        "Other": 28571000000,
+        "Softlines": 16590000000,
+        "Membership": 3352000000
+      }
+    },
+    {
+      "date": "2020-08-30",
+      "segments": {
+        "Food and Sundries": 68659000000,
+        "Fresh Food": 23204000000,
+        "Hardlines": 27729000000,
+        "Other": 26550000000,
+        "Softlines": 17078000000,
+        "Membership": 3541000000
+      }
+    },
+    {
+      "date": "2021-08-29",
+      "segments": {
+        "Food and Sundries": 77277000000,
+        "Fresh Food": 27183000000,
+        "Non-Foods": 55966000000,
+        "Other": 31626000000,
+        "Membership": 3877000000
+      }
+    },
+    {
+      "date": "2022-08-28",
+      "segments": {
+        "Food and Sundries": 85629000000,
+        "Fresh Food": 29527000000,
+        "Non-Foods": 61100000000,
+        "Other": 46474000000,
+        "Membership": 4224000000
+      }
+    },
+    {
+      "date": "2023-09-03",
+      "segments": {
+        "Food and Sundries": 96175000000,
+        "Fresh Food": 31977000000,
+        "Non-Foods": 60865000000,
+        "Other": 48693000000,
+        "Membership": 4580000000
+      }
+    },
+    {
+      "date": "2024-09-01",
+      "segments": {
+        "Food and Sundries": 101463000000,
+        "Fresh Food": 34220000000,
+        "Non-Foods": 63973000000,
+        "Other": 49969000000,
+        "Membership": 4828000000
+      }
+    },
+    {
+      "date": "2025-08-31",
+      "segments": {
+        "Food and Sundries": 109564000000,
+        "Fresh Food": 37988000000,
+        "Non-Foods": 71190000000,
+        "Other": 51170000000,
+        "Membership": 5323000000
+      }
+    },
+    {
+      "date": "2026-08-30",
+      "segments": {
+        "Food and Sundries": 116788000000,
+        "Fresh Food": 41715000000,
+        "Non-Foods": 77375000000,
+        "Other": 61369000000,
+        "Membership": 5907000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2010-08-29",
+      "segments": {
+        "CANADA": 12051000000,
+        "Other International Operations": 6271000000,
+        "UNITED STATES": 59624000000
+      }
+    },
+    {
+      "date": "2011-08-28",
+      "segments": {
+        "CANADA": 14020000000,
+        "Other International Operations": 9991000000,
+        "UNITED STATES": 64904000000
+      }
+    },
+    {
+      "date": "2012-09-02",
+      "segments": {
+        "CANADA": 15717000000,
+        "Other International Operations": 11644000000,
+        "UNITED STATES": 71776000000
+      }
+    },
+    {
+      "date": "2013-09-01",
+      "segments": {
+        "CANADA": 17179000000,
+        "Other International Operations": 12484000000,
+        "UNITED STATES": 75493000000
+      }
+    },
+    {
+      "date": "2014-08-31",
+      "segments": {
+        "CANADA": 17943000000,
+        "Other International Operations": 14220000000,
+        "UNITED STATES": 80477000000
+      }
+    },
+    {
+      "date": "2015-08-30",
+      "segments": {
+        "CANADA": 17341000000,
+        "Other International Operations": 14507000000,
+        "UNITED STATES": 84351000000
+      }
+    },
+    {
+      "date": "2016-08-28",
+      "segments": {
+        "CANADA": 17028000000,
+        "Other International Operations": 15112000000,
+        "UNITED STATES": 86579000000
+      }
+    },
+    {
+      "date": "2017-09-03",
+      "segments": {
+        "CANADA": 18775000000,
+        "Other International Operations": 16361000000,
+        "UNITED STATES": 93889000000
+      }
+    },
+    {
+      "date": "2018-09-02",
+      "segments": {
+        "CANADA": 20689000000,
+        "Other International Operations": 18601000000,
+        "UNITED STATES": 102286000000
+      }
+    },
+    {
+      "date": "2019-09-01",
+      "segments": {
+        "CANADA": 21366000000,
+        "Other International Operations": 19586000000,
+        "UNITED STATES": 111751000000
+      }
+    },
+    {
+      "date": "2020-08-30",
+      "segments": {
+        "CANADA": 22434000000,
+        "Other International Operations": 22185000000,
+        "UNITED STATES": 122142000000
+      }
+    },
+    {
+      "date": "2021-08-29",
+      "segments": {
+        "CANADA": 27298000000,
+        "Other International Operations": 27233000000,
+        "UNITED STATES": 141398000000
+      }
+    },
+    {
+      "date": "2022-08-28",
+      "segments": {
+        "CANADA": 31675000000,
+        "Other International Operations": 29985000000,
+        "UNITED STATES": 165294000000
+      }
+    },
+    {
+      "date": "2023-09-03",
+      "segments": {
+        "CANADA": 33056000000,
+        "Other International Operations": 32604000000,
+        "UNITED STATES": 176630000000
+      }
+    },
+    {
+      "date": "2024-09-01",
+      "segments": {
+        "CANADA": 34874000000,
+        "Other International Operations": 35436000000,
+        "UNITED STATES": 184143000000
+      }
+    },
+    {
+      "date": "2025-08-31",
+      "segments": {
+        "Other International Operations": 38266000000,
+        "CANADA": 36923000000,
+        "UNITED STATES": 200046000000
+      }
+    },
+    {
+      "date": "2026-08-30",
+      "segments": {
+        "CANADA": 40561000000,
+        "Other International Operations": 42770000000,
+        "UNITED STATES": 219823000000
+      }
+    }
+  ]
+}
