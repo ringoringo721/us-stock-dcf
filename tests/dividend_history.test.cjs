@@ -53,4 +53,7 @@ test('leverage stays N/A when FCF is non-positive', () => {
   assert.deepEqual(DividendHistory.leverageToFcf({ debt: 10, net_debt: -5, fcf0: 0 }), {
     debt_to_fcf: null, net_debt_to_fcf: null,
   });
+  assert.deepEqual(DividendHistory.leverageToFcf({ debt: 10, net_debt: -5, fcf0: -20 }), {
+    debt_to_fcf: null, net_debt_to_fcf: null,
+  });
 });

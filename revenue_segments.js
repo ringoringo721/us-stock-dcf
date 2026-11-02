@@ -54,12 +54,24 @@
     };
   }
 
+  /** Accept raw FMP rows or already-normalized `{ date, segments }` from validateCache/load. */
+  function asNormalizedRows(segmentRows) {
+    if (!Array.isArray(segmentRows) || !segmentRows.length) return [];
+    if (segmentRows.every(row => row && validDate(row.date)
+        && row.segments && typeof row.segments === 'object' && !Array.isArray(row.segments))) {
+      return segmentRows
+        .map(row => ({ date: row.date.slice(0, 10), segments: row.segments }))
+        .sort((a, b) => a.date.localeCompare(b.date));
+    }
+    return normalizeRows(segmentRows);
+  }
+
   /**
    * Align segment series to the financials period labels/dates (annual or interim).
    * Matching is by calendar date prefix (YYYY-MM) then nearest prior segment date.
    */
   function alignToPeriods(segmentRows, periodDates) {
-    const rows = normalizeRows(segmentRows);
+    const rows = asNormalizedRows(segmentRows);
     if (!Array.isArray(periodDates) || !periodDates.length) {
       return { names: [], columns: [] };
     }

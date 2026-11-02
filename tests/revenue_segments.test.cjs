@@ -23,3 +23,13 @@ test('alignToPeriods matches YYYY-MM prefixes then prior dates', () => {
   assert.equal(aligned.columns[1].segments.Mac, 2);
   assert.equal(aligned.columns[2].segments, null);
 });
+
+test('alignToPeriods keeps already-normalized {date, segments} rows from load()', () => {
+  const normalized = RevenueSegments.normalizeRows([
+    { date: '2024-09-28', data: { iPhone: 10, Mac: 2 } },
+  ]);
+  assert.equal(normalized[0].segments.iPhone, 10);
+  const aligned = RevenueSegments.alignToPeriods(normalized, ['2024-09']);
+  assert.equal(aligned.columns[0].segments.iPhone, 10);
+  assert.equal(aligned.columns[0].segments.Mac, 2);
+});

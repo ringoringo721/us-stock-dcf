@@ -7320,6 +7320,7 @@
         MarketContext.statementsUnavailableMessage(currentLang)}`;
       tbody.innerHTML = `<tr><td class="table-sticky-col text-muted" style="text-align: left; padding: 18px;">${
         MarketContext.statementsUnavailableMessage(currentLang)}</td></tr>`;
+      clearRevenueBreakdown(MarketContext.statementsUnavailableMessage(currentLang));
       const finBox = document.querySelector('#subpage-financials .table-scroll-wrapper');
       if (finBox) makeScrollable(finBox);
       return;
@@ -7923,6 +7924,19 @@
     const millions = Math.abs(value) >= 1e6 ? value / 1e6 : value;
     const abs = Math.abs(Math.round(millions)).toLocaleString();
     return millions < 0 ? `-${moneyPrefix()}${abs}` : `${moneyPrefix()}${abs}`;
+  }
+
+  function clearRevenueBreakdown(statusText) {
+    const isEn = currentLang === 'en';
+    const empty = { names: [], columns: [] };
+    fillSegmentTable('product', empty, isEn);
+    fillSegmentTable('geographic', empty, isEn);
+    const status = document.getElementById('revenue-segment-status');
+    if (status) {
+      status.textContent = statusText || (isEn
+        ? 'Revenue breakdown unavailable while statements are missing.'
+        : '財報缺資料時不顯示營收拆解。');
+    }
   }
 
   function fillSegmentTable(kind, aligned, isEn) {
