@@ -974,6 +974,7 @@
     }
     .tv-metric-menu button:hover, .tv-metric-menu button[aria-selected="true"] { background: var(--hover-bg); }
     .tv-metric-wrap { position: relative; display: inline-flex; }
+    .tv-metric-filters { display: contents; }
     #screener-view #screener-table { width: 100% !important; min-width: var(--screener-min-width, 1200px) !important; font-size: 13px; }
     /* Symbol cell widened to 200px — keep sticky exchange/name left offsets in sync
        (exchange @ ticker width; name @ ticker[+exchange] via --screener-name-left). */
@@ -1360,22 +1361,8 @@
           <button type="button" class="tv-filter-chip" data-screen-chip="OVERVALUED" onclick="setValFilter('OVERVALUED')" data-i18n="opt_overvalued" data-i18n-title="stat_overvalued_note">目錄公允高估</button>
           <button type="button" class="tv-filter-chip" data-screen-chip="SAVED" onclick="setValFilter('SAVED')" data-i18n="opt_saved">已存目標價</button>
           <span class="tv-filter-sep" aria-hidden="true" style="width:1px;height:20px;background:var(--card-border);margin:0 2px;"></span>
-          <div class="tv-metric-wrap">
-            <button type="button" class="tv-filter-chip" id="tv-filter-price" aria-haspopup="true" aria-expanded="false" onclick="toggleTvMetricMenu('price', event)" data-i18n="tv_filter_price">Price</button>
-            <div class="tv-metric-menu" id="tv-menu-price" role="menu"></div>
-          </div>
-          <div class="tv-metric-wrap">
-            <button type="button" class="tv-filter-chip" id="tv-filter-premiumPct" aria-haspopup="true" aria-expanded="false" onclick="toggleTvMetricMenu('premiumPct', event)" data-i18n="tv_filter_premium">溢折價 %</button>
-            <div class="tv-metric-menu" id="tv-menu-premiumPct" role="menu"></div>
-          </div>
-          <div class="tv-metric-wrap">
-            <button type="button" class="tv-filter-chip" id="tv-filter-mcap" aria-haspopup="true" aria-expanded="false" onclick="toggleTvMetricMenu('mcap', event)" data-i18n="tv_filter_mcap">Mkt cap</button>
-            <div class="tv-metric-menu" id="tv-menu-mcap" role="menu"></div>
-          </div>
-          <div class="tv-metric-wrap">
-            <button type="button" class="tv-filter-chip" id="tv-filter-pe_trailing" aria-haspopup="true" aria-expanded="false" onclick="toggleTvMetricMenu('pe_trailing', event)" data-i18n="tv_filter_pe">P/E</button>
-            <div class="tv-metric-menu" id="tv-menu-pe_trailing" role="menu"></div>
-          </div>
+          <!-- Metric chips are mounted from TV_METRIC_FILTERS (every All-columns ratio/indicator). -->
+          <div class="tv-metric-filters" id="tv-metric-filters" aria-label="Metric filters"></div>
           <button type="button" class="tv-filter-chip" id="tv-filter-sector" onclick="toggleScreenerIndustries()" data-i18n="filter_sector">Sector</button>
           <button type="button" class="tv-filter-chip" onclick="resetScreenerFilters()" data-i18n="screener_reset">清除篩選</button>
           <strong id="screener-results-count" aria-live="polite"></strong>
@@ -2701,8 +2688,9 @@
   
   let currentValFilter = 'ALL';
   let currentSectorFilter = 'ALL';
-  /** Optional metric-range filters (TradingView-style chips). Never delete columns — only narrow rows. */
-  let screenerMetricFilters = { price: null, premiumPct: null, mcap: null, pe_trailing: null };
+  /** Optional metric-range filters (TradingView-style chips). Never delete columns — only narrow rows.
+   *  Keys are filled from TV_METRIC_FILTERS after that registry is declared. */
+  let screenerMetricFilters = {};
   let selectedScreenerTicker = null;
   let currentIndustryParentFilter = 'ALL';
   let currentSubIndustryFilter = 'ALL';
@@ -4027,6 +4015,7 @@
     }
     
     updateSubIndustryButtons();
+    mountTvMetricFilters();
     renderScreenerTable();
     if (document.getElementById('hk-expansion-status')?.hidden === false) {
       showExpansionStock(activeCompanyTicker, stockUniverse[activeCompanyTicker]?.expansion?.requestedTab || 'basic');
@@ -5123,39 +5112,239 @@
     if (panel.open) panel.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
   }
 
-  const TV_METRIC_PRESETS = {
-    price: [
-      { id: null, zh: '不限 Price', en: 'Any Price' },
-      { id: 'lt50', zh: 'Price < 50', en: 'Price < 50', test: v => v < 50 },
-      { id: '50to200', zh: 'Price 50–200', en: 'Price 50–200', test: v => v >= 50 && v <= 200 },
-      { id: 'gt200', zh: 'Price > 200', en: 'Price > 200', test: v => v > 200 },
-    ],
-    premiumPct: [
-      { id: null, zh: '不限溢折價', en: 'Any premium' },
-      { id: 'under', zh: '溢折價 < 0%（低估）', en: 'Premium < 0% (cheap)', test: v => v < 0 },
-      { id: '0to20', zh: '溢折價 0–20%', en: 'Premium 0–20%', test: v => v >= 0 && v <= 20 },
-      { id: 'gt20', zh: '溢折價 > 20%', en: 'Premium > 20%', test: v => v > 20 },
-    ],
-    mcap: [
-      { id: null, zh: '不限市值', en: 'Any Mkt cap' },
-      { id: 'lt50b', zh: '市值 < $50B', en: 'Mkt cap < $50B', test: v => v < 5e4 },
-      { id: '50to200b', zh: '市值 $50–200B', en: 'Mkt cap $50–200B', test: v => v >= 5e4 && v <= 2e5 },
-      { id: 'gt200b', zh: '市值 > $200B', en: 'Mkt cap > $200B', test: v => v > 2e5 },
-    ],
-    pe_trailing: [
-      { id: null, zh: '不限 P/E', en: 'Any P/E' },
-      { id: 'lt15', zh: 'P/E < 15', en: 'P/E < 15', test: v => v > 0 && v < 15 },
-      { id: '15to30', zh: 'P/E 15–30', en: 'P/E 15–30', test: v => v >= 15 && v <= 30 },
-      { id: 'gt30', zh: 'P/E > 30', en: 'P/E > 30', test: v => v > 30 },
-    ],
-  };
+  // Pattern: every numeric All-columns indicator/ratio must have a filter entry here.
+  // Adding a new screener metric column ⇒ append { field, zh, en, presets } (and a test will fail otherwise).
+  const tvAny = (zh, en) => ({ id: null, zh, en });
+  const tvOpt = (id, zh, en, test) => ({ id, zh, en, test });
+  const TV_METRIC_FILTERS = [
+    { field: 'price', zh: 'Price', en: 'Price', presets: [
+      tvAny('不限 Price', 'Any Price'),
+      tvOpt('lt50', 'Price < 50', 'Price < 50', v => v < 50),
+      tvOpt('50to200', 'Price 50–200', 'Price 50–200', v => v >= 50 && v <= 200),
+      tvOpt('gt200', 'Price > 200', 'Price > 200', v => v > 200),
+    ]},
+    { field: 'fairVal', zh: '目錄公允', en: 'Catalogue fair', presets: [
+      tvAny('不限公允價', 'Any fair value'),
+      tvOpt('lt50', '公允 < 50', 'Fair < 50', v => v < 50),
+      tvOpt('50to200', '公允 50–200', 'Fair 50–200', v => v >= 50 && v <= 200),
+      tvOpt('gt200', '公允 > 200', 'Fair > 200', v => v > 200),
+    ]},
+    { field: 'premiumPct', zh: '溢折價 %', en: 'Premium %', presets: [
+      tvAny('不限溢折價', 'Any premium'),
+      tvOpt('under', '溢折價 < 0%（低估）', 'Premium < 0% (cheap)', v => v < 0),
+      tvOpt('0to20', '溢折價 0–20%', 'Premium 0–20%', v => v >= 0 && v <= 20),
+      tvOpt('gt20', '溢折價 > 20%', 'Premium > 20%', v => v > 20),
+    ]},
+    { field: 'fmp_dcf', zh: '指示 DCF', en: 'Indicated DCF', presets: [
+      tvAny('不限指示 DCF', 'Any indicated DCF'),
+      tvOpt('lt50', '指示 DCF < 50', 'Indicated DCF < 50', v => v < 50),
+      tvOpt('50to200', '指示 DCF 50–200', 'Indicated DCF 50–200', v => v >= 50 && v <= 200),
+      tvOpt('gt200', '指示 DCF > 200', 'Indicated DCF > 200', v => v > 200),
+    ]},
+    { field: 'fmp_dcf_upside', zh: '指示溢價 %', en: 'Indicated premium %', presets: [
+      tvAny('不限指示溢價', 'Any indicated premium'),
+      tvOpt('under', '指示溢價 < 0%', 'Indicated premium < 0%', v => v < 0),
+      tvOpt('0to20', '指示溢價 0–20%', 'Indicated premium 0–20%', v => v >= 0 && v <= 20),
+      tvOpt('gt20', '指示溢價 > 20%', 'Indicated premium > 20%', v => v > 20),
+    ]},
+    { field: 'fmp_levered', zh: '槓桿 DCF', en: 'Levered DCF', presets: [
+      tvAny('不限槓桿 DCF', 'Any levered DCF'),
+      tvOpt('lt50', '槓桿 DCF < 50', 'Levered DCF < 50', v => v < 50),
+      tvOpt('50to200', '槓桿 DCF 50–200', 'Levered DCF 50–200', v => v >= 50 && v <= 200),
+      tvOpt('gt200', '槓桿 DCF > 200', 'Levered DCF > 200', v => v > 200),
+    ]},
+    { field: 'fmp_levered_upside', zh: '槓桿溢價 %', en: 'Levered premium %', presets: [
+      tvAny('不限槓桿溢價', 'Any levered premium'),
+      tvOpt('under', '槓桿溢價 < 0%', 'Levered premium < 0%', v => v < 0),
+      tvOpt('0to20', '槓桿溢價 0–20%', 'Levered premium 0–20%', v => v >= 0 && v <= 20),
+      tvOpt('gt20', '槓桿溢價 > 20%', 'Levered premium > 20%', v => v > 20),
+    ]},
+    { field: 'target_price', zh: '目標價', en: 'Target', presets: [
+      tvAny('不限目標價', 'Any target'),
+      tvOpt('lt50', '目標價 < 50', 'Target < 50', v => v < 50),
+      tvOpt('50to200', '目標價 50–200', 'Target 50–200', v => v >= 50 && v <= 200),
+      tvOpt('gt200', '目標價 > 200', 'Target > 200', v => v > 200),
+    ]},
+    { field: 'target_spread', zh: '目標溢價 %', en: 'Target premium %', presets: [
+      tvAny('不限目標溢價', 'Any target premium'),
+      tvOpt('under', '目標溢價 < 0%', 'Target premium < 0%', v => v < 0),
+      tvOpt('0to20', '目標溢價 0–20%', 'Target premium 0–20%', v => v >= 0 && v <= 20),
+      tvOpt('gt20', '目標溢價 > 20%', 'Target premium > 20%', v => v > 20),
+    ]},
+    { field: 'moat_score', zh: '護城河', en: 'Moat', presets: [
+      tvAny('不限護城河', 'Any moat'),
+      tvOpt('lt40', '護城河 < 40', 'Moat < 40', v => v < 40),
+      tvOpt('40to70', '護城河 40–70', 'Moat 40–70', v => v >= 40 && v <= 70),
+      tvOpt('gt70', '護城河 > 70', 'Moat > 70', v => v > 70),
+    ]},
+    { field: 'WACC', zh: 'WACC', en: 'WACC', presets: [
+      tvAny('不限 WACC', 'Any WACC'),
+      tvOpt('lt8', 'WACC < 8%', 'WACC < 8%', v => v < 0.08),
+      tvOpt('8to12', 'WACC 8–12%', 'WACC 8–12%', v => v >= 0.08 && v <= 0.12),
+      tvOpt('gt12', 'WACC > 12%', 'WACC > 12%', v => v > 0.12),
+    ]},
+    { field: 'EV', zh: 'EV', en: 'EV', presets: [
+      tvAny('不限 EV', 'Any EV'),
+      tvOpt('lt50b', 'EV < $50B', 'EV < $50B', v => v < 5e4),
+      tvOpt('50to200b', 'EV $50–200B', 'EV $50–200B', v => v >= 5e4 && v <= 2e5),
+      tvOpt('gt200b', 'EV > $200B', 'EV > $200B', v => v > 2e5),
+    ]},
+    { field: 'mcap', zh: 'Mkt cap', en: 'Mkt cap', presets: [
+      tvAny('不限市值', 'Any Mkt cap'),
+      tvOpt('lt50b', '市值 < $50B', 'Mkt cap < $50B', v => v < 5e4),
+      tvOpt('50to200b', '市值 $50–200B', 'Mkt cap $50–200B', v => v >= 5e4 && v <= 2e5),
+      tvOpt('gt200b', '市值 > $200B', 'Mkt cap > $200B', v => v > 2e5),
+    ]},
+    { field: 'liq_val_1', zh: '清算價 I', en: 'Liq I', presets: [
+      tvAny('不限清算價 I', 'Any Liq I'),
+      tvOpt('neg', '清算價 I < 0', 'Liq I < 0', v => v < 0),
+      tvOpt('0to20', '清算價 I 0–20', 'Liq I 0–20', v => v >= 0 && v <= 20),
+      tvOpt('gt20', '清算價 I > 20', 'Liq I > 20', v => v > 20),
+    ]},
+    { field: 'liq_val_2', zh: '清算價 II', en: 'Liq II', presets: [
+      tvAny('不限清算價 II', 'Any Liq II'),
+      tvOpt('neg', '清算價 II < 0', 'Liq II < 0', v => v < 0),
+      tvOpt('0to20', '清算價 II 0–20', 'Liq II 0–20', v => v >= 0 && v <= 20),
+      tvOpt('gt20', '清算價 II > 20', 'Liq II > 20', v => v > 20),
+    ]},
+    { field: 'liq_val_3', zh: '清算價 III', en: 'Liq III', presets: [
+      tvAny('不限清算價 III', 'Any Liq III'),
+      tvOpt('neg', '清算價 III < 0', 'Liq III < 0', v => v < 0),
+      tvOpt('0to20', '清算價 III 0–20', 'Liq III 0–20', v => v >= 0 && v <= 20),
+      tvOpt('gt20', '清算價 III > 20', 'Liq III > 20', v => v > 20),
+    ]},
+    { field: 'pe_trailing', zh: 'P/E', en: 'P/E', presets: [
+      tvAny('不限 P/E', 'Any P/E'),
+      tvOpt('lt15', 'P/E < 15', 'P/E < 15', v => v > 0 && v < 15),
+      tvOpt('15to30', 'P/E 15–30', 'P/E 15–30', v => v >= 15 && v <= 30),
+      tvOpt('gt30', 'P/E > 30', 'P/E > 30', v => v > 30),
+    ]},
+    { field: 'pe_forward', zh: 'Forward P/E', en: 'Forward P/E', presets: [
+      tvAny('不限動態 P/E', 'Any forward P/E'),
+      tvOpt('lt15', 'Forward P/E < 15', 'Forward P/E < 15', v => v > 0 && v < 15),
+      tvOpt('15to30', 'Forward P/E 15–30', 'Forward P/E 15–30', v => v >= 15 && v <= 30),
+      tvOpt('gt30', 'Forward P/E > 30', 'Forward P/E > 30', v => v > 30),
+    ]},
+    { field: 'pb_trailing', zh: 'P/B', en: 'P/B', presets: [
+      tvAny('不限 P/B', 'Any P/B'),
+      tvOpt('lt1', 'P/B < 1', 'P/B < 1', v => v > 0 && v < 1),
+      tvOpt('1to5', 'P/B 1–5', 'P/B 1–5', v => v >= 1 && v <= 5),
+      tvOpt('gt5', 'P/B > 5', 'P/B > 5', v => v > 5),
+    ]},
+    { field: 'div_yield', zh: '股息率', en: 'Div yield', presets: [
+      tvAny('不限股息率', 'Any div yield'),
+      tvOpt('lt1', '股息率 < 1%', 'Div yield < 1%', v => v < 1),
+      tvOpt('1to3', '股息率 1–3%', 'Div yield 1–3%', v => v >= 1 && v <= 3),
+      tvOpt('gt3', '股息率 > 3%', 'Div yield > 3%', v => v > 3),
+    ]},
+    { field: 'fcf_to_ev', zh: 'FCF/EV', en: 'FCF/EV', presets: [
+      tvAny('不限 FCF/EV', 'Any FCF/EV'),
+      tvOpt('lt3', 'FCF/EV < 3%', 'FCF/EV < 3%', v => v < 3),
+      tvOpt('3to8', 'FCF/EV 3–8%', 'FCF/EV 3–8%', v => v >= 3 && v <= 8),
+      tvOpt('gt8', 'FCF/EV > 8%', 'FCF/EV > 8%', v => v > 8),
+    ]},
+    { field: 'fcf_to_equity', zh: 'FCF/權益', en: 'FCF/Equity', presets: [
+      tvAny('不限 FCF/權益', 'Any FCF/Equity'),
+      tvOpt('lt5', 'FCF/權益 < 5%', 'FCF/Equity < 5%', v => v < 5),
+      tvOpt('5to15', 'FCF/權益 5–15%', 'FCF/Equity 5–15%', v => v >= 5 && v <= 15),
+      tvOpt('gt15', 'FCF/權益 > 15%', 'FCF/Equity > 15%', v => v > 15),
+    ]},
+    { field: 'fcf_to_mcap', zh: 'FCF/Mcap', en: 'FCF/Mcap', presets: [
+      tvAny('不限 FCF/Mcap', 'Any FCF/Mcap'),
+      tvOpt('lt3', 'FCF/Mcap < 3%', 'FCF/Mcap < 3%', v => v < 3),
+      tvOpt('3to8', 'FCF/Mcap 3–8%', 'FCF/Mcap 3–8%', v => v >= 3 && v <= 8),
+      tvOpt('gt8', 'FCF/Mcap > 8%', 'FCF/Mcap > 8%', v => v > 8),
+    ]},
+    { field: 'cash_to_assets', zh: '現金/資產', en: 'Cash/Assets', presets: [
+      tvAny('不限現金/資產', 'Any cash/assets'),
+      tvOpt('lt10', '現金/資產 < 10%', 'Cash/Assets < 10%', v => v < 10),
+      tvOpt('10to30', '現金/資產 10–30%', 'Cash/Assets 10–30%', v => v >= 10 && v <= 30),
+      tvOpt('gt30', '現金/資產 > 30%', 'Cash/Assets > 30%', v => v > 30),
+    ]},
+    { field: 'liab_to_assets', zh: '負債/資產', en: 'Liab/Assets', presets: [
+      tvAny('不限負債/資產', 'Any liab/assets'),
+      tvOpt('lt40', '負債/資產 < 40%', 'Liab/Assets < 40%', v => v < 40),
+      tvOpt('40to70', '負債/資產 40–70%', 'Liab/Assets 40–70%', v => v >= 40 && v <= 70),
+      tvOpt('gt70', '負債/資產 > 70%', 'Liab/Assets > 70%', v => v > 70),
+    ]},
+    { field: 'current_ratio', zh: '流動比率', en: 'Current ratio', presets: [
+      tvAny('不限流動比率', 'Any current ratio'),
+      tvOpt('lt1', '流動比率 < 1', 'Current < 1', v => v < 1),
+      tvOpt('1to2', '流動比率 1–2', 'Current 1–2', v => v >= 1 && v <= 2),
+      tvOpt('gt2', '流動比率 > 2', 'Current > 2', v => v > 2),
+    ]},
+    { field: 'roe', zh: 'ROE', en: 'ROE', presets: [
+      tvAny('不限 ROE', 'Any ROE'),
+      tvOpt('lt10', 'ROE < 10%', 'ROE < 10%', v => v < 10),
+      tvOpt('10to20', 'ROE 10–20%', 'ROE 10–20%', v => v >= 10 && v <= 20),
+      tvOpt('gt20', 'ROE > 20%', 'ROE > 20%', v => v > 20),
+    ]},
+    { field: 'roa', zh: 'ROA', en: 'ROA', presets: [
+      tvAny('不限 ROA', 'Any ROA'),
+      tvOpt('lt5', 'ROA < 5%', 'ROA < 5%', v => v < 5),
+      tvOpt('5to10', 'ROA 5–10%', 'ROA 5–10%', v => v >= 5 && v <= 10),
+      tvOpt('gt10', 'ROA > 10%', 'ROA > 10%', v => v > 10),
+    ]},
+    { field: 'f_score', zh: 'PF score', en: 'PF score', presets: [
+      tvAny('不限 PF', 'Any PF'),
+      tvOpt('weak', 'PF ≤ 3', 'PF ≤ 3', v => v <= 3),
+      tvOpt('mid', 'PF 4–6', 'PF 4–6', v => v >= 4 && v <= 6),
+      tvOpt('strong', 'PF ≥ 7', 'PF ≥ 7', v => v >= 7),
+    ]},
+    { field: 'z_score', zh: 'Altman Z', en: 'Altman Z', presets: [
+      tvAny('不限 Z', 'Any Z'),
+      tvOpt('distress', 'Z < 1.8', 'Z < 1.8', v => v < 1.8),
+      tvOpt('grey', 'Z 1.8–3', 'Z 1.8–3', v => v >= 1.8 && v <= 3),
+      tvOpt('safe', 'Z > 3', 'Z > 3', v => v > 3),
+    ]},
+    { field: 'm_score', zh: 'Beneish M', en: 'Beneish M', presets: [
+      tvAny('不限 M', 'Any M'),
+      tvOpt('likely', 'M > −1.78', 'M > −1.78', v => v > -1.78),
+      tvOpt('unlikely', 'M ≤ −1.78', 'M ≤ −1.78', v => v <= -1.78),
+    ]},
+    { field: 'ev_to_ebitda', zh: 'EV/EBITDA', en: 'EV/EBITDA', presets: [
+      tvAny('不限 EV/EBITDA', 'Any EV/EBITDA'),
+      tvOpt('lt10', 'EV/EBITDA < 10x', 'EV/EBITDA < 10x', v => v > 0 && v < 10),
+      tvOpt('10to20', 'EV/EBITDA 10–20x', 'EV/EBITDA 10–20x', v => v >= 10 && v <= 20),
+      tvOpt('gt20', 'EV/EBITDA > 20x', 'EV/EBITDA > 20x', v => v > 20),
+    ]},
+    { field: 'debt_to_ebitda', zh: 'Debt/EBITDA', en: 'Debt/EBITDA', presets: [
+      tvAny('不限 Debt/EBITDA', 'Any Debt/EBITDA'),
+      tvOpt('lt1', 'Debt/EBITDA < 1x', 'Debt/EBITDA < 1x', v => v < 1),
+      tvOpt('1to3', 'Debt/EBITDA 1–3x', 'Debt/EBITDA 1–3x', v => v >= 1 && v <= 3),
+      tvOpt('gt3', 'Debt/EBITDA > 3x', 'Debt/EBITDA > 3x', v => v > 3),
+    ]},
+    { field: 'net_debt_to_ebitda', zh: 'Net Debt/EBITDA', en: 'Net Debt/EBITDA', presets: [
+      tvAny('不限 Net Debt/EBITDA', 'Any Net Debt/EBITDA'),
+      tvOpt('cash', '淨現金（< 0）', 'Net cash (< 0)', v => v < 0),
+      tvOpt('0to2', 'Net Debt/EBITDA 0–2x', 'Net Debt/EBITDA 0–2x', v => v >= 0 && v <= 2),
+      tvOpt('gt2', 'Net Debt/EBITDA > 2x', 'Net Debt/EBITDA > 2x', v => v > 2),
+    ]},
+  ];
+  const TV_METRIC_PRESETS = Object.fromEntries(TV_METRIC_FILTERS.map(row => [row.field, row.presets]));
+  const TV_METRIC_CHIP_LABELS = Object.fromEntries(TV_METRIC_FILTERS.map(row => [row.field, { zh: row.zh, en: row.en }]));
+  function emptyScreenerMetricFilters() {
+    return Object.fromEntries(TV_METRIC_FILTERS.map(row => [row.field, null]));
+  }
+  screenerMetricFilters = emptyScreenerMetricFilters();
 
   function tvMetricFieldValue(item, field) {
-    if (field === 'price') return Number.isFinite(item.price) ? item.price : null;
-    if (field === 'premiumPct') return Number.isFinite(item.premiumPct) ? item.premiumPct : null;
-    if (field === 'mcap') return Number.isFinite(item.mcap) ? item.mcap : null;
-    if (field === 'pe_trailing') return Number.isFinite(item.pe_trailing) ? item.pe_trailing : null;
-    return null;
+    const value = item?.[field];
+    return Number.isFinite(value) ? value : null;
+  }
+
+  function mountTvMetricFilters() {
+    const host = document.getElementById('tv-metric-filters');
+    if (!host) return;
+    const lang = currentLang === 'en' ? 'en' : 'zh';
+    host.innerHTML = TV_METRIC_FILTERS.map(row => {
+      const label = (TV_METRIC_CHIP_LABELS[row.field] || {})[lang] || row.en;
+      return `<div class="tv-metric-wrap">
+        <button type="button" class="tv-filter-chip" id="tv-filter-${row.field}" aria-haspopup="true" aria-expanded="false" onclick="toggleTvMetricMenu('${row.field}', event)">${label}</button>
+        <div class="tv-metric-menu" id="tv-menu-${row.field}" role="menu"></div>
+      </div>`;
+    }).join('');
+    syncTvMetricFilterChips();
   }
 
   function closeTvMetricMenus() {
@@ -5196,6 +5385,8 @@
       const active = screenerMetricFilters[field] != null;
       btn.classList.toggle('has-filter', active);
       btn.classList.toggle('active', active);
+      const labels = TV_METRIC_CHIP_LABELS[field];
+      if (labels) btn.textContent = currentLang === 'en' ? labels.en : labels.zh;
     }
     const host = document.getElementById('tv-active-filters');
     if (!host) return;
@@ -5530,12 +5721,13 @@
     currentSectorFilter = 'ALL';
     currentIndustryParentFilter = 'ALL';
     currentSubIndustryFilter = 'ALL';
-    screenerMetricFilters = { price: null, premiumPct: null, mcap: null, pe_trailing: null };
+    screenerMetricFilters = emptyScreenerMetricFilters();
     document.getElementById('search-ticker').value = '';
     document.querySelectorAll('#sector-filters button').forEach(button => {
       button.classList.toggle('active', button.getAttribute('onclick').includes("('ALL')"));
     });
     syncScreenerScreenState('ALL');
+    mountTvMetricFilters();
     syncTvMetricFilterChips();
     updateSubIndustryButtons();
     closeScreenerDetailDrawer();
@@ -5715,6 +5907,7 @@
   function renderScreenerTable() {
     const tbody = document.getElementById('screener-tbody');
     if (!tbody) return;
+    if (!document.getElementById('tv-filter-price')) mountTvMetricFilters();
     const searchInput = document.getElementById('search-ticker');
     const searchVal = searchInput ? searchInput.value.trim().toUpperCase() : '';
     const savedModels = getSavedModels();

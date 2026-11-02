@@ -70,9 +70,9 @@ test('US expansion EV coverage is nearly complete (mcap + debt − cash)', () =>
       missing.push(ticker);
     }
   }
-  assert.equal(total, 724);
-  assert.ok(withEv >= 723, `expected ≥723 EV rows, got ${withEv}; missing ${missing.join(',')}`);
-  // AEFC-class stubs without debt/cash remain N/A by design.
+  assert.equal(total, 723);
+  assert.ok(withEv >= 722, `expected ≥722 EV rows, got ${withEv}; missing ${missing.join(',')}`);
+  // Listing-only stubs without debt/cash remain N/A by design (AEFC already excluded).
   for (const ticker of missing) {
     const stock = stocks[ticker];
     assert.equal(computedEnterpriseValue(stock), null, ticker);

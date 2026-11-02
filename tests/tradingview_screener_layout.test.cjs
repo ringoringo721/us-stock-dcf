@@ -53,6 +53,9 @@ test('column view tabs coexist with select; sticky chrome + filter chips present
   assert.match(html, /\.screener-chrome\s*\{[^}]*position:\s*sticky[^}]*top:\s*0/);
   assert.match(html, /id="screener-columns"/);
   assert.match(html, /class="tv-filter-bar"/);
+  assert.match(html, /id="tv-metric-filters"/);
+  assert.match(html, /const TV_METRIC_FILTERS\s*=/);
+  assert.match(html, /function mountTvMetricFilters/);
   assert.match(html, /id="screener-detail-drawer"/);
   assert.match(html, /data-screen-chip="UNDERVALUED"/);
   // Hint bar must not also stick at top:0 (would hide under chrome).

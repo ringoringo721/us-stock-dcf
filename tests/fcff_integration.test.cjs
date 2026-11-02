@@ -63,9 +63,13 @@ test('unverified lease sources never fall back to legacy prices or fabricated EB
   const value = metrics({ ...market.NVDA, fair_val: 99999, fcf0: 99999 }, snapshot, result);
   assert.equal(value.fairVal, null);
   // Quoted EV (mcap + debt − cash) may still resolve via MarketEv; FCFF fair value must not.
-  assert.equal(value.ev_to_ebitda, null);
+  // Without FCFF TTM EBITDA, screener keeps catalogue statement-backed leverage (not invented).
+  assert.equal(value.ev_to_ebitda, market.NVDA.ev_to_ebitda);
   assert.equal(value.isUndervalued, null);
   assert.notEqual(value.fairVal, 99999);
+  // Explicitly blank catalogue + missing EBITDA stays N/A (no fabricated multiple).
+  assert.equal(metrics({ ...market.NVDA, ev_to_ebitda: null, debt_to_ebitda: null, net_debt_to_ebitda: null },
+    snapshot, result).ev_to_ebitda, null);
   assert.equal(calculate({ reason: 'leaseMappingUnverified' }).reason, 'leaseMappingUnverified');
 });
 
