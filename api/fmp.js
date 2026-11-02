@@ -47,7 +47,7 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
           && !(technical && ['indicator', 'periodLength', 'from', 'to'].includes(key))
           && !(historical && ['from', 'to'].includes(key))
           && !(estimates && ['period', 'limit'].includes(key))
-          && !(dividends && key === 'limit')
+          && !(dividends && ['limit', 'from', 'to'].includes(key))
           && !(revenueSegments && ['period', 'structure'].includes(key))
           && !(custom && Object.hasOwn(customParameters, key)))) {
       return send(400, { error: 'INVALID_REQUEST' });
@@ -77,6 +77,10 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
         || Number(estimateLimit) < 1 || Number(estimateLimit) > 500)) {
       return send(400, { error: 'INVALID_DIVIDENDS_REQUEST' });
     }
+    if (dividends && ((from && !validDate(from)) || (to && !validDate(to))
+        || (from && to && from > to))) {
+      return send(400, { error: 'INVALID_DIVIDENDS_REQUEST' });
+    }
     // FMP stable segmentation requires period=annual|quarter and structure=flat.
     if (revenueSegments && ((segmentPeriod && segmentPeriod !== 'annual' && segmentPeriod !== 'quarter')
         || (segmentStructure && segmentStructure !== 'flat'))) {
@@ -102,7 +106,16 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
       url.searchParams.set('limit', estimateLimit);
     }
     if (dividends) {
-      url.searchParams.set('limit', estimateLimit || '400');
+      // Prefer a long lookback so 30y tables get real quarterly payments when FMP has them.
+      if (estimateLimit) url.searchParams.set('limit', estimateLimit);
+      else url.searchParams.set('limit', '500');
+      if (from) url.searchParams.set('from', from);
+      else {
+        const start = new Date();
+        start.setUTCFullYear(start.getUTCFullYear() - 40);
+        url.searchParams.set('from', start.toISOString().slice(0, 10));
+      }
+      if (to) url.searchParams.set('to', to);
     }
     if (revenueSegments) {
       url.searchParams.set('period', segmentPeriod || 'annual');

@@ -49,3 +49,14 @@ test('fmpPeriod maps statement cadence to FMP annual|quarter', () => {
   assert.equal(RevenueSegments.fmpPeriod('annual'), 'annual');
   assert.equal(RevenueSegments.fmpPeriod('semiannual'), 'annual');
 });
+
+test('validateCache marks unset period as annual-compatible only', () => {
+  const record = RevenueSegments.validateCache({
+    version: 1,
+    ticker: 'AAPL',
+    product: [{ date: '2024-09-28', data: { iPhone: 1 } }],
+    geographic: [],
+  }, 'AAPL');
+  assert.equal(record.period, null);
+  assert.equal(record.product[0].segments.iPhone, 1);
+});

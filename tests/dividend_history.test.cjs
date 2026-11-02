@@ -111,3 +111,37 @@ test('paymentsFromStatementRaw builds DPS and scale-invariant payout %', () => {
   assert.ok(payments[0].dividend > 0);
   assert.equal(payoutByYear.get(2024), Math.round((24082 / 101832) * 10000) / 100);
 });
+
+test('statement FY DPS fallback does not dump into Q4', () => {
+  const payments = DividendHistory.paymentsFromStatements({
+    annual: {
+      income: [{ date: '2024-12-31', weightedAverageShsOutDil: 100 }],
+      cashflow: [{ date: '2024-12-31', commonDividendsPaid: -500 }],
+    },
+  });
+  assert.equal(payments[0].annualOnly, true);
+  const table = DividendHistory.aggregateCalendar(payments, { years: 5, asOf: '2024-12-31' });
+  const y2024 = table.years.find(row => row.year === 2024);
+  assert.equal(y2024.fy, 5);
+  assert.equal(y2024.q1, null);
+  assert.equal(y2024.q2, null);
+  assert.equal(y2024.q3, null);
+  assert.equal(y2024.q4, null);
+  assert.equal(y2024.annualOnly, true);
+});
+
+test('annualDpsFromPayments keeps a window longer than 30y for CAGR publish', () => {
+  const payments = [];
+  for (let year = 1990; year <= 2024; year++) {
+    payments.push(
+      { date: `${year}-03-15`, adjDividend: 0.2 },
+      { date: `${year}-06-15`, adjDividend: 0.2 },
+      { date: `${year}-09-15`, adjDividend: 0.2 },
+      { date: `${year}-12-15`, adjDividend: 0.2 },
+    );
+  }
+  const series = DividendHistory.annualDpsFromPayments(payments);
+  assert.ok(series.length >= 30, `expected ≥30 annual points, got ${series.length}`);
+  const growth = DividendHistory.growthWindows(series, '2024-12-31');
+  assert.ok(growth.div_cagr_30y != null);
+});

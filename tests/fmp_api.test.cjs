@@ -78,11 +78,25 @@ test('dividends action forwards limit and returns payment rows', async () => {
     assert.equal(url.pathname, '/stable/dividends');
     assert.equal(url.searchParams.get('symbol'), 'AAPL');
     assert.equal(url.searchParams.get('limit'), '400');
+    assert.ok(url.searchParams.get('from'));
     return { ok: true, json: async () => [{ symbol: 'AAPL', date: '2024-02-09', adjDividend: 0.24 }] };
   } });
   const result = await call(handler, '/api/fmp?action=dividends&symbol=AAPL&limit=400');
   assert.equal(result.status, 200);
   assert.equal(result.body.data[0].adjDividend, 0.24);
+});
+
+test('dividends action defaults a long from lookback when omitted', async () => {
+  const handler = createHandler({ apiKey: () => 'test-placeholder', fetch: async url => {
+    assert.equal(url.searchParams.get('limit'), '500');
+    const from = url.searchParams.get('from');
+    assert.ok(/^\d{4}-\d{2}-\d{2}$/.test(from));
+    assert.ok(Number(from.slice(0, 4)) <= new Date().getUTCFullYear() - 35);
+    return { ok: true, json: async () => [{ symbol: 'MCD', date: '2024-02-29', adjDividend: 0.67 }] };
+  } });
+  const result = await call(handler, '/api/fmp?action=dividends&symbol=MCD');
+  assert.equal(result.status, 200);
+  assert.equal(result.body.data[0].adjDividend, 0.67);
 });
 
 test('revenue segmentation injects period+structure=flat and accepts nested-free rows', async () => {

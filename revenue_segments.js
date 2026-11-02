@@ -146,11 +146,12 @@
       .then(async (response) => {
         if (!response.ok) throw new Error('MISSING_SEGMENT_CACHE');
         const record = validateCache(await response.json(), ticker);
-        // Cached captures are typically annual; only reuse when requesting annual.
-        if (period !== 'annual' && record.period && record.period !== period) {
+        // Local files are annual captures (period often unset). Never reuse for quarter.
+        const cachePeriod = record.period || 'annual';
+        if (period !== 'annual' && cachePeriod !== period) {
           throw new Error('SEGMENT_CACHE_PERIOD_MISMATCH');
         }
-        return { ...record, period: record.period || 'annual' };
+        return { ...record, period: cachePeriod };
       });
 
     async function fetchPeriod(requestedPeriod) {

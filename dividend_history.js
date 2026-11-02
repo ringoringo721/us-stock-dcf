@@ -45,24 +45,34 @@
 
   /** Prefer adjDividend (split-adjusted), then dividend. */
   function paymentAmount(row) {
-    const adj = finite(row?.adjDividend);
+    const adj = finite(row?.adjDividend) ?? finite(row?.adjustedDividend);
     if (adj !== null) return adj;
-    return finite(row?.dividend);
+    const raw = finite(row?.dividend) ?? finite(row?.dividendAmount) ?? finite(row?.value);
+    return raw;
+  }
+
+  function coerceIsoDate(value) {
+    if (typeof value !== 'string') return null;
+    const day = value.slice(0, 10);
+    return validDate(day) ? day : null;
   }
 
   function normalizePayments(rows) {
     if (!Array.isArray(rows)) return [];
     const out = [];
     for (const row of rows) {
-      if (!row || !validDate(row.date)) continue;
+      if (!row) continue;
+      const date = coerceIsoDate(row.date) || coerceIsoDate(row.paymentDate) || coerceIsoDate(row.recordDate);
+      if (!date) continue;
       const amount = paymentAmount(row);
       if (amount === null || amount < 0) continue;
       out.push({
-        date: row.date.slice(0, 10),
+        date,
         dividend: amount,
-        declarationDate: validDate(row.declarationDate) ? row.declarationDate.slice(0, 10) : null,
-        recordDate: validDate(row.recordDate) ? row.recordDate.slice(0, 10) : null,
-        paymentDate: validDate(row.paymentDate) ? row.paymentDate.slice(0, 10) : null,
+        annualOnly: row.annualOnly === true,
+        declarationDate: coerceIsoDate(row.declarationDate),
+        recordDate: coerceIsoDate(row.recordDate),
+        paymentDate: coerceIsoDate(row.paymentDate),
       });
     }
     out.sort((a, b) => a.date.localeCompare(b.date));
@@ -108,10 +118,19 @@
   /**
    * Aggregate payment rows into calendar-year buckets with Q1–Q4, H1/H2, and FY totals.
    * Optional statement-derived payoutRatioPct attaches to each year (full-year basis).
+   * `maxYears` defaults high so CAGR publish (25y/30y) can use the full FMP series;
+   * the dividend UI passes years≤30 without needing a tighter clamp here.
+   * Statement DPS proxies set `annualOnly` so FY fills without dumping into Q4.
    */
-  function aggregateCalendar(payments, { years = 30, asOf = null, payoutByYear = null } = {}) {
+  function aggregateCalendar(payments, {
+    years = 30, asOf = null, payoutByYear = null, maxYears = 100,
+  } = {}) {
     const rows = normalizePayments(payments);
-    const span = Math.max(1, Math.min(30, Number(years) || 30));
+    const requested = Number(years);
+    const span = Math.max(1, Math.min(
+      Number.isFinite(maxYears) && maxYears > 0 ? maxYears : 100,
+      Number.isFinite(requested) && requested > 0 ? requested : 30,
+    ));
     if (!rows.length) {
       return { years: [], payments: [], asOf: asOf || null, span };
     }
@@ -121,7 +140,7 @@
     for (let year = startYear; year <= Number(end.slice(0, 4)); year++) {
       byYear.set(year, {
         year, q1: null, q2: null, q3: null, q4: null, h1: null, h2: null, fy: null,
-        count: 0, payoutRatioPct: payoutByYear?.get?.(year) ?? null,
+        count: 0, payoutRatioPct: payoutByYear?.get?.(year) ?? null, annualOnly: false,
       });
     }
     for (const row of rows) {
@@ -129,11 +148,16 @@
       if (year < startYear || row.date > end) continue;
       const bucket = byYear.get(year);
       if (!bucket) continue;
+      bucket.fy = (bucket.fy || 0) + row.dividend;
+      bucket.count += 1;
+      if (row.annualOnly) {
+        // FY statement DPS proxy — never attribute the whole year to one calendar quarter.
+        bucket.annualOnly = true;
+        continue;
+      }
       const q = calendarQuarter(row.date);
       const key = `q${q}`;
       bucket[key] = (bucket[key] || 0) + row.dividend;
-      bucket.fy = (bucket.fy || 0) + row.dividend;
-      bucket.count += 1;
     }
     for (const bucket of byYear.values()) {
       if (bucket.q1 != null || bucket.q2 != null) {
@@ -208,12 +232,13 @@
     return series;
   }
 
-  /** Synthetic one-per-year payment rows from statement DPS (fallback when FMP dividends fail). */
+  /** Synthetic FY-only rows from statement DPS (fallback when FMP dividends fail). */
   function paymentsFromStatements(statements) {
     return annualDpsFromStatements(statements).map(row => ({
       date: row.date,
       dividend: row.dps,
       adjDividend: row.dps,
+      annualOnly: true,
     }));
   }
 
@@ -260,7 +285,9 @@
       if (shares > 0 && absDiv > 0) {
         dps = absDiv < 1e6 && shares > 1e6 ? (absDiv * 1e6) / shares : absDiv / shares;
       }
-      if (dps !== null && dps > 0) payments.push({ date, dividend: dps, adjDividend: dps });
+      if (dps !== null && dps > 0) {
+        payments.push({ date, dividend: dps, adjDividend: dps, annualOnly: true });
+      }
       if (ni !== null && ni > 0) payoutByYear.set(year, roundPct((absDiv / Math.abs(ni)) * 100));
     }
     return { payments: normalizePayments(payments), payoutByYear };
@@ -345,6 +372,15 @@
 
   const pending = new Map();
 
+  function parseDividendPayload(payload, ticker) {
+    const rows = Array.isArray(payload) ? payload
+      : payload?.data || payload?.rows || payload?.historical || [];
+    if (!Array.isArray(rows)) throw new Error('DIVIDEND_API_INVALID');
+    const normalized = validateCache({ version: 1, ticker, source: 'FMP dividends', rows }, ticker);
+    if (!normalized.rows.length) throw new Error('DIVIDEND_API_EMPTY');
+    return normalized;
+  }
+
   function load(ticker, options = {}) {
     const reload = options === true || options.reload === true;
     if (!reload && pending.has(ticker)) return pending.get(ticker);
@@ -352,23 +388,34 @@
       ? null
       : (typeof FmpCache !== 'undefined' ? FmpCache : null);
     const cached = Cache?.get?.(`dividends:${ticker}`);
-    if (!reload && cached) return Promise.resolve(cached);
+    // Never reuse a statements-only fallback from memory when we can retry FMP.
+    if (!reload && cached && !cached.fallback) return Promise.resolve(cached);
 
     const local = fetch(`cache/dividends/${encodeURIComponent(ticker)}.json`)
       .then(async (response) => {
         if (!response.ok) throw new Error('MISSING_DIVIDEND_CACHE');
-        return validateCache(await response.json(), ticker);
+        const record = validateCache(await response.json(), ticker);
+        if (!record.rows.length) throw new Error('EMPTY_DIVIDEND_CACHE');
+        return record;
       });
 
-    const remote = () => fetch(`/api/fmp?action=dividends&symbol=${encodeURIComponent(ticker)}&limit=400`)
-      .then(async (response) => {
-        if (!response.ok) throw new Error(`DIVIDEND_API_FAILED:${response.status}`);
-        const payload = await response.json();
-        const rows = Array.isArray(payload) ? payload
-          : payload?.data || payload?.rows || payload?.historical || [];
-        if (!Array.isArray(rows)) throw new Error('DIVIDEND_API_INVALID');
-        return validateCache({ version: 1, ticker, source: 'FMP dividends', rows }, ticker);
-      });
+    const remote = () => {
+      const from = new Date();
+      from.setUTCFullYear(from.getUTCFullYear() - 40);
+      const qs = `symbol=${encodeURIComponent(ticker)}&limit=500&from=${from.toISOString().slice(0, 10)}`;
+      return fetch(`/api/fmp?action=dividends&${qs}`)
+        .then(async (response) => {
+          if (!response.ok) {
+            let detail = String(response.status);
+            try {
+              const body = await response.json();
+              if (body?.error) detail = `${response.status}:${body.error}`;
+            } catch { /* ignore */ }
+            throw new Error(`DIVIDEND_API_FAILED:${detail}`);
+          }
+          return parseDividendPayload(await response.json(), ticker);
+        });
+    };
 
     const statementsFallback = () => fetch(`cache/financials/${encodeURIComponent(ticker)}_statements_v2.json`)
       .then(async (response) => {
@@ -379,15 +426,17 @@
         return {
           version: 1,
           ticker,
-          source: 'statements_v2 DPS fallback (FMP dividends unavailable)',
+          source: 'statements_v2 FY DPS only (FMP dividends unavailable — quarters N/A)',
           rows: normalizePayments(rows),
           payoutByYear: payoutRatiosFromStatements(statements),
           fallback: true,
+          annualOnly: true,
         };
       });
 
     const task = local.catch(() => remote()).catch(() => statementsFallback()).then((record) => {
-      Cache?.set?.(`dividends:${ticker}`, record);
+      // Cache real FMP/file history only — fallbacks must not block later FMP retries.
+      if (!record.fallback) Cache?.set?.(`dividends:${ticker}`, record);
       return record;
     }).finally(() => { if (pending.get(ticker) === task) pending.delete(ticker); });
     pending.set(ticker, task);
