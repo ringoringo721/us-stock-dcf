@@ -109,18 +109,6 @@
       }
     },
     {
-      "date": "2014-09-30",
-      "segments": {
-        "Corporate and Other, Including Intersegment Eliminations": 485000000
-      }
-    },
-    {
-      "date": "2014-12-31",
-      "segments": {
-        "Corporate and Other, Including Intersegment Eliminations": 385000000
-      }
-    },
-    {
       "date": "2015-03-31",
       "segments": {
         "Corporate and Other, Including Intersegment Eliminations": 332000000
@@ -131,19 +119,6 @@
       "segments": {
         "Downstream Equipment": 63774000000,
         "Upstream Equipment": 16048000000
-      }
-    },
-    {
-      "date": "2015-09-30",
-      "segments": {
-        "Downstream Equipment": 56192000000,
-        "Upstream Equipment": 14555000000
-      }
-    },
-    {
-      "date": "2015-12-31",
-      "segments": {
-        "Corporate and Other, Including Intersegment Eliminations": 1223000000
       }
     },
     {
@@ -158,12 +133,6 @@
       "segments": {
         "Downstream Equipment": 48310000000,
         "Upstream Equipment": 11600000000
-      }
-    },
-    {
-      "date": "2016-09-30",
-      "segments": {
-        "Corporate and Other, Including Intersegment Eliminations": 290000000
       }
     },
     {
@@ -392,13 +361,6 @@
       }
     },
     {
-      "date": "2012-12-31",
-      "segments": {
-        "Segment, Geographical, Groups of Countries, Group Two": 0,
-        "UNITED STATES": 2160000000
-      }
-    },
-    {
       "date": "2013-03-31",
       "segments": {
         "Segment, Geographical, Groups of Countries, Group One": 67170000000,
@@ -470,13 +432,6 @@
       }
     },
     {
-      "date": "2025-12-31",
-      "segments": {
-        "Downstream Segment": 35543000000,
-        "Upstream Segment": 22972000000
-      }
-    },
-    {
       "date": "2026-03-31",
       "segments": {
         "Downstream Segment": 18801000000,
@@ -490,5 +445,6 @@
         "Upstream Segment": 18523000000
       }
     }
-  ]
+  ],
+  "sanitizedAt": "2026-11-02T14:38:30.349Z"
 }

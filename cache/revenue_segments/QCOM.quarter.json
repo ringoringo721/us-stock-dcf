@@ -98,24 +98,6 @@
       }
     },
     {
-      "date": "2013-09-29",
-      "segments": {
-        "QCT": 12595000000,
-        "QTL": 1873000000,
-        "QWI": 154000000
-      }
-    },
-    {
-      "date": "2013-12-29",
-      "segments": {
-        "QCT": 4616000000,
-        "Intersegment Elimination": -2000000,
-        "Other Segments": 108000000,
-        "QTL": 1900000000,
-        "Segment Reconciling Items": 106000000
-      }
-    },
-    {
       "date": "2014-03-30",
       "segments": {
         "Other Segments": 53000000,
@@ -756,5 +738,6 @@
         "Other Segments": 49000000
       }
     }
-  ]
+  ],
+  "sanitizedAt": "2026-11-02T14:38:30.349Z"
 }

@@ -52,31 +52,6 @@
       }
     },
     {
-      "date": "2014-09-30",
-      "segments": {
-        "Andro Gel": 232000000,
-        "Creon": 148000000,
-        "Duodopa": 56000000,
-        "Dyslipidemia Products": 63000000,
-        "H U M I R A": 3255000000,
-        "Kaletra": 256000000,
-        "Lupron": 196000000,
-        "Other Products": 370000000,
-        "Sevoflurane": 134000000,
-        "Synagis": 109000000,
-        "Synthroid": 200000000
-      }
-    },
-    {
-      "date": "2014-12-31",
-      "segments": {
-        "Creon": 151000000,
-        "Duodopa": 56000000,
-        "H U M I R A": 9288000000,
-        "Other Products": 486000000
-      }
-    },
-    {
       "date": "2015-03-31",
       "segments": {
         "Andro Gel": 153000000,
@@ -1165,13 +1140,6 @@
       }
     },
     {
-      "date": "2025-12-31",
-      "segments": {
-        "Non-US": 0,
-        "UNITED STATES": 35165000000
-      }
-    },
-    {
       "date": "2026-03-31",
       "segments": {
         "UNITED STATES": 3775000000,
@@ -1185,5 +1153,6 @@
         "Non-US": 760000000
       }
     }
-  ]
+  ],
+  "sanitizedAt": "2026-11-02T14:38:30.349Z"
 }

@@ -74,18 +74,93 @@
     return out;
   }
 
+  function rowTotal(row) {
+    if (!row?.segments) return 0;
+    return Object.values(row.segments).reduce((sum, value) => (
+      typeof value === 'number' && Number.isFinite(value) ? sum + value : sum), 0);
+  }
+
+  /**
+   * FMP period=quarter feeds sometimes mix YTD-cumulative or full-FY snapshots into
+   * year-end rows (Bugbot: ABBV/AMGN/AMD). Detect within each calendar year:
+   *  - last ≈ sum(prior) → de-cumulate segment-wise (YTD → quarter)
+   *  - last >> / << peer-quarter median → drop the bad year-end row (no FY-in-Q4)
+   * Iterate: ABBV 2014 dumps FY into both Sep and Dec — dropping Dec alone still
+   * leaves an annual-scale "Q3" that would paint FY into the quarterly UI.
+   */
+  function sanitizeQuarterlyRows(rows) {
+    const normalized = asNormalizedRows(rows);
+    if (normalized.length < 2) return normalized;
+    const byYear = new Map();
+    for (const row of normalized) {
+      const year = row.date.slice(0, 4);
+      if (!byYear.has(year)) byYear.set(year, []);
+      byYear.get(year).push({ ...row, segments: { ...row.segments } });
+    }
+    const out = [];
+    for (const yearRows of byYear.values()) {
+      let rowsInYear = yearRows.sort((a, b) => a.date.localeCompare(b.date));
+      // Keep trimming / de-cumulating the trailing row until peers look quarterly-scaled.
+      while (rowsInYear.length >= 2) {
+        const prior = rowsInYear.slice(0, -1);
+        const last = rowsInYear.at(-1);
+        const priorTotals = prior.map(rowTotal);
+        const priorSum = priorTotals.reduce((sum, value) => sum + value, 0);
+        const lastTotal = rowTotal(last);
+        const median = [...priorTotals].sort((a, b) => a - b)[Math.floor((priorTotals.length - 1) / 2)] || 0;
+
+        // YTD needs ≥2 prior quarters (Q3≈Q1+Q2 or Q4≈Q1+Q2+Q3). With only one
+        // prior, last≈priorSum is normal QoQ stability — do not de-cumulate.
+        if (prior.length >= 2 && priorSum > 0
+            && Math.abs(lastTotal - priorSum) / priorSum <= 0.12) {
+          const residual = {};
+          for (const [name, value] of Object.entries(last.segments)) {
+            const priorValue = prior.reduce((sum, row) => sum + (row.segments[name] || 0), 0);
+            const quarterValue = value - priorValue;
+            if (Number.isFinite(quarterValue) && Math.abs(quarterValue) > 0) residual[name] = quarterValue;
+          }
+          const residualTotal = Object.values(residual).reduce((sum, value) => sum + value, 0);
+          // Keep a positive de-cumulated quarter when it is not an annual-sized residual.
+          if (residualTotal > 0 && Object.keys(residual).length
+              && (median <= 0 || residualTotal < median * 2.8)) {
+            rowsInYear = [...prior, { ...last, segments: residual }];
+          } else {
+            rowsInYear = prior;
+          }
+          break;
+        }
+        if (median > 0 && (lastTotal > median * 2.8 || lastTotal < median * 0.15)) {
+          // Annual/YTD scale painted into year-end (or junk stub) — omit and re-check.
+          rowsInYear = prior;
+          continue;
+        }
+        break;
+      }
+      out.push(...rowsInYear);
+    }
+    out.sort((a, b) => a.date.localeCompare(b.date));
+    return out;
+  }
+
   function validateCache(record, ticker) {
     if (record?.version !== 1 || record.ticker !== ticker
         || !record.product && !record.geographic) {
       throw new TypeError('Unsupported revenue segment record');
     }
+    const period = record.period || null;
+    let product = normalizeRows(record.product || [], ticker);
+    let geographic = normalizeRows(record.geographic || [], ticker);
+    if (period === 'quarter') {
+      product = sanitizeQuarterlyRows(product);
+      geographic = sanitizeQuarterlyRows(geographic);
+    }
     return {
       version: 1,
       ticker,
       source: record.source || 'FMP revenue segmentation',
-      period: record.period || null,
-      product: normalizeRows(record.product || [], ticker),
-      geographic: normalizeRows(record.geographic || [], ticker),
+      period,
+      product,
+      geographic,
     };
   }
 
@@ -243,5 +318,13 @@
     return task;
   }
 
-  return { normalizeRows, extractSegmentMap, validateCache, alignToPeriods, fmpPeriod, load };
+  return {
+    normalizeRows,
+    extractSegmentMap,
+    validateCache,
+    sanitizeQuarterlyRows,
+    alignToPeriods,
+    fmpPeriod,
+    load,
+  };
 });

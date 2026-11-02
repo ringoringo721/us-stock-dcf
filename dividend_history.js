@@ -334,25 +334,46 @@
     const target = new Date(`${endRow.date}T00:00:00Z`);
     target.setUTCFullYear(target.getUTCFullYear() - years);
     const startIso = target.toISOString().slice(0, 10);
-    // Prefer the observation nearest to (but not after) the target lookback date.
+    // Window floor/ceiling around the lookback date (±1.25y). Refuses pre-gap
+    // ancient DPS that previously made every long label share one CAGR.
+    const earliest = new Date(`${endRow.date}T00:00:00Z`);
+    earliest.setUTCFullYear(earliest.getUTCFullYear() - years - 1.25);
+    const earliestIso = earliest.toISOString().slice(0, 10);
+    const latestStart = new Date(`${startIso}T00:00:00Z`);
+    latestStart.setUTCMonth(latestStart.getUTCMonth() + 15); // +1.25y
+    const latestStartIso = latestStart.toISOString().slice(0, 10);
     let startRow = null;
+    let bestDist = Infinity;
     for (const row of series) {
-      if (row.date > endRow.date) break;
-      if (row.dps > 0 && row.date <= startIso) startRow = row;
+      if (!(row.dps > 0) || row.date >= endRow.date) continue;
+      if (row.date < earliestIso || row.date > latestStartIso) continue;
+      const dist = Math.abs(Date.parse(row.date) - Date.parse(startIso));
+      if (dist < bestDist) {
+        bestDist = dist;
+        startRow = row;
+      }
     }
-    // Five FY statement rows typically span ~4 calendar years; allow −1.25y slack
-    // so a labelled 5y window still publishes from the longest available annual DPS.
+    // Five FY statement rows typically span ~4 calendar years; allow −1.25y slack.
     const minSpan = years - 1.25;
-    if (!startRow) {
-      const first = series.find(row => row.dps > 0 && row.date < endRow.date);
-      if (!first) return null;
-      const span = yearsBetween(first.date, endRow.date);
-      if (span < minSpan) return null;
-      return cagrPct(first.dps, endRow.dps, span);
-    }
+    if (!startRow) return null;
     const span = yearsBetween(startRow.date, endRow.date);
     if (span < minSpan) return null;
+    // Require enough annual points in-window so a dividend suspension cannot
+    // fabricate a 30y CAGR from a 1995 DPS and a 2012 restart. Short windows
+    // still allow sparse statement proxies (2–3 FY endpoints).
+    const points = series.filter(row => row.dps > 0
+      && row.date >= startRow.date && row.date <= endRow.date).length;
+    if (points < Math.max(2, years - 7)) return null;
     return cagrPct(startRow.dps, endRow.dps, span);
+  }
+
+  /** Prefer last complete calendar year when the series ends on an open/partial year. */
+  function completeYearAsOf(series, today = new Date()) {
+    if (!Array.isArray(series) || !series.length) return null;
+    const currentYear = today.getUTCFullYear();
+    const complete = [...series].reverse().find(row => row.dps > 0
+      && Number(row.date.slice(0, 4)) < currentYear);
+    return complete?.date || series.at(-1).date;
   }
 
   function growthWindows(series, asOf = null) {
@@ -388,11 +409,13 @@
 
   function metricsFromPayments(payments, stock = null, asOf = null) {
     const series = annualDpsFromPayments(payments);
+    const resolvedAsOf = asOf || completeYearAsOf(series);
     return {
-      ...growthWindows(series, asOf),
+      ...growthWindows(series, resolvedAsOf),
       ...leverageToFcf(stock || {}),
       dividendSeriesSource: series.length ? 'dividends' : null,
       dividendSeriesPoints: series.length,
+      dividendCagrAsOf: resolvedAsOf,
     };
   }
 
@@ -483,6 +506,7 @@
     tableForGrain,
     yearEndCloseByYear,
     yieldPctForYear,
+    completeYearAsOf,
     annualDpsFromPayments,
     annualDpsFromStatements,
     paymentsFromStatements,

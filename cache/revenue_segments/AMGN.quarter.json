@@ -11,12 +11,6 @@
       }
     },
     {
-      "date": "2013-12-31",
-      "segments": {
-        "NEUPOGEN": 1243000000
-      }
-    },
-    {
       "date": "2018-03-31",
       "segments": {
         "Aranesp": 454000000,
@@ -100,12 +94,6 @@
         "Sensipar Mimpara": 109000000,
         "XGEVA": 476000000,
         "Product and Service, Other": 274000000
-      }
-    },
-    {
-      "date": "2019-12-31",
-      "segments": {
-        "Product and Service, Other": 316000000
       }
     },
     {
@@ -762,5 +750,6 @@
         "UNITED STATES": 6990000000
       }
     }
-  ]
+  ],
+  "sanitizedAt": "2026-11-02T14:38:30.349Z"
 }

@@ -89,3 +89,58 @@ test('validateCache marks unset period as annual-compatible only', () => {
   assert.equal(record.period, null);
   assert.equal(record.product[0].segments.iPhone, 1);
 });
+
+test('sanitizeQuarterlyRows de-cumulates near-YTD year-end and drops annual-scale Q4', () => {
+  const ytd = RevenueSegments.sanitizeQuarterlyRows([
+    { date: '2025-03-31', data: { A: 10 } },
+    { date: '2025-06-30', data: { A: 10 } },
+    { date: '2025-09-30', data: { A: 10 } },
+    // Reported YTD ≈ sum(Q1–Q3) + small Q4 → de-cumulate to ~10
+    { date: '2025-12-31', data: { A: 40 } },
+  ]);
+  // 40 vs priorSum 30 is >12% → treated as annual-scale (>> median) and dropped
+  assert.deepEqual(ytd.map(row => row.date), ['2025-03-31', '2025-06-30', '2025-09-30']);
+
+  const softYtd = RevenueSegments.sanitizeQuarterlyRows([
+    { date: '2025-03-31', data: { A: 10 } },
+    { date: '2025-06-30', data: { A: 10 } },
+    { date: '2025-09-30', data: { A: 10 } },
+    { date: '2025-12-31', data: { A: 31 } }, // ~YTD through Q3 + 1
+  ]);
+  assert.equal(softYtd.length, 4);
+  assert.equal(softYtd[3].segments.A, 1);
+
+  const annualScale = RevenueSegments.sanitizeQuarterlyRows([
+    { date: '2014-03-31', data: { A: 500 } },
+    { date: '2014-06-30', data: { A: 550 } },
+    { date: '2014-09-30', data: { A: 560 } },
+    { date: '2014-12-31', data: { A: 9981 } }, // FY dump into Q4 (ABBV-style)
+  ]);
+  assert.equal(annualScale.length, 3);
+  assert.ok(!annualScale.some(row => row.date === '2014-12-31'));
+
+  // Cascade: FY-scale into both Sep and Dec (real ABBV 2014 product feed).
+  const cascade = RevenueSegments.sanitizeQuarterlyRows([
+    { date: '2014-03-31', data: { A: 539 } },
+    { date: '2014-06-30', data: { A: 559 } },
+    { date: '2014-09-30', data: { A: 5019 } },
+    { date: '2014-12-31', data: { A: 9981 } },
+  ]);
+  assert.deepEqual(cascade.map(row => row.date), ['2014-03-31', '2014-06-30']);
+});
+
+test('validateCache period=quarter runs sanitizeQuarterlyRows', () => {
+  const record = RevenueSegments.validateCache({
+    version: 1,
+    ticker: 'ABBV',
+    period: 'quarter',
+    product: [
+      { date: '2014-03-31', data: { Humira: 500 } },
+      { date: '2014-06-30', data: { Humira: 550 } },
+      { date: '2014-09-30', data: { Humira: 560 } },
+      { date: '2014-12-31', data: { Humira: 9981 } },
+    ],
+    geographic: [],
+  }, 'ABBV');
+  assert.equal(record.product.length, 3);
+});

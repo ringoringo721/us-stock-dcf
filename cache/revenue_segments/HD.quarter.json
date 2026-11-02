@@ -263,15 +263,6 @@
         "Major Product Line, Décor": 12605000000,
         "Other Segment": 4002000000
       }
-    },
-    {
-      "date": "2026-08-02",
-      "segments": {
-        "Major Product Line - Building Materials": 14432000000,
-        "Major Product Line - Hardlines": 14445000000,
-        "Major Product Line, Décor": 13929000000,
-        "Other Segment": 5055000000
-      }
     }
   ],
   "geographic": [
@@ -506,5 +497,6 @@
         "UNITED STATES": 43907000000
       }
     }
-  ]
+  ],
+  "sanitizedAt": "2026-11-02T14:38:30.349Z"
 }

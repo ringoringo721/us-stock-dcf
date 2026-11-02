@@ -30,9 +30,13 @@ function buildSite(output = path.join(root, 'public')) {
     'us_companies', 'ke_history', 'beta_benchmarks', 'dividends', 'revenue_segments']) {
     if (!fs.existsSync(path.join(root, 'cache', directory))) continue;
     for (const filename of fs.readdirSync(path.join(root, 'cache', directory))) {
+      // revenue_segments: allow `{TICKER}.json` and `{TICKER}.quarter.json` (Preview Q UI).
       const pattern = directory === 'financials'
         ? /^[A-Z0-9.-]+_statements_v2\.json$/
-        : directory === 'ke_history' ? /^[a-z0-9_]+\.json$/ : /^[A-Z0-9.-]+\.json$/;
+        : directory === 'ke_history' ? /^[a-z0-9_]+\.json$/
+          : directory === 'revenue_segments'
+            ? /^[A-Z0-9.-]+(?:\.quarter)?\.json$/
+            : /^[A-Z0-9.-]+\.json$/;
       if (pattern.test(filename)) files.push(path.join('cache', directory, filename));
     }
   }

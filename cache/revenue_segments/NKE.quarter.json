@@ -75,18 +75,6 @@
       }
     },
     {
-      "date": "2013-08-31",
-      "segments": {
-        "Corporate": 9000000
-      }
-    },
-    {
-      "date": "2013-11-30",
-      "segments": {
-        "Corporate": 1000000
-      }
-    },
-    {
       "date": "2014-02-28",
       "segments": {
         "Converse Segment": 420000000,
@@ -1015,5 +1003,6 @@
         "North America": 5127000000
       }
     }
-  ]
+  ],
+  "sanitizedAt": "2026-11-02T14:38:30.349Z"
 }

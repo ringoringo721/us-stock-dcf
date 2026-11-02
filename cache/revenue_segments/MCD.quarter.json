@@ -12,13 +12,6 @@
       }
     },
     {
-      "date": "2015-12-31",
-      "segments": {
-        "High-Growth Markets": 12428300000,
-        "UNITED STATES": 6369600000
-      }
-    },
-    {
       "date": "2016-03-31",
       "segments": {
         "High-Growth Markets": 3884000000,
@@ -351,15 +344,6 @@
         "Europe": 2499300000,
         "Other Countries And Corporate": 351400000,
         "UNITED STATES": 2120900000
-      }
-    },
-    {
-      "date": "2010-12-31",
-      "segments": {
-        "Asia Pacific Middle East Africa": 3732200000,
-        "Europe": 7069900000,
-        "Other Countries And Corporate": 976900000,
-        "UNITED STATES": 5990700000
       }
     },
     {
@@ -862,5 +846,6 @@
         "UNITED STATES": 2827000000
       }
     }
-  ]
+  ],
+  "sanitizedAt": "2026-11-02T14:38:30.349Z"
 }

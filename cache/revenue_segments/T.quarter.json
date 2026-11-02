@@ -22,9 +22,9 @@
     {
       "date": "2011-12-31",
       "segments": {
-        "Other Segment": 345000000,
+        "Other Segment": 237000000,
         "Wireless Service": 32004000000,
-        "Business Wireline": 29869000000
+        "Business Wireline": -27000000
       }
     },
     {
@@ -103,9 +103,9 @@
     {
       "date": "2014-12-31",
       "segments": {
-        "Corporate and Other": 13000000,
-        "Wireless Service": 38196000000,
-        "Business Wireline": 29187000000
+        "Corporate and Other": -4000000,
+        "Wireless Service": 20330000000,
+        "Business Wireline": -51000000
       }
     },
     {
@@ -581,15 +581,6 @@
       }
     },
     {
-      "date": "2025-12-31",
-      "segments": {
-        "Legacy Voice and Data": 4896000000,
-        "Other Service": 579000000,
-        "IP Broadband": 1732000000,
-        "Wireless Service": 35318000000
-      }
-    },
-    {
       "date": "2026-03-31",
       "segments": {
         "Wireless service": 17694000000,
@@ -614,5 +605,6 @@
       }
     }
   ],
-  "geographic": []
+  "geographic": [],
+  "sanitizedAt": "2026-11-02T14:38:30.349Z"
 }

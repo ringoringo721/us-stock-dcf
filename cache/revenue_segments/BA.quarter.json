@@ -25,15 +25,6 @@
       }
     },
     {
-      "date": "2011-12-31",
-      "segments": {
-        "Boeing Capital Corporation": 259000000,
-        "Commercial Airplanes Segment": 17813000000,
-        "Other Segment": 67000000,
-        "Boeing Defense Space Security Segment": 23429000000
-      }
-    },
-    {
       "date": "2012-03-31",
       "segments": {
         "Boeing Capital Corporation": 125000000,
@@ -565,5 +556,6 @@
         "Boeing Defense Space Security Segment": 7935000000
       }
     }
-  ]
+  ],
+  "sanitizedAt": "2026-11-02T14:38:30.349Z"
 }

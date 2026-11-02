@@ -8079,19 +8079,34 @@
       // Prefer statement period labels (incl. TTM) so TTM never matches a prior FY date.
       const labelAxis = (periods && periods.length) ? periods
         : (datesList && datesList.length) ? datesList : [];
+      const annualView = viewPeriod === 'annual';
       const axis = labelAxis.map((label, i) => {
         const lab = String(label ?? '');
         const dateHint = datesList?.[i] && /^\d{4}-\d{2}/.test(String(datesList[i]))
-          ? String(datesList[i]).slice(0, 10) : null;
-        const kind = /^TTM$/i.test(lab) || /latest balance/i.test(lab) || /最新期末/.test(lab)
-          ? 'ttm' : 'period';
-        // Display year for full ISO FY labels when periods still carry raw dates.
-        const display = kind === 'ttm' ? lab
-          : (/^\d{4}-\d{2}-\d{2}/.test(lab) ? lab.slice(0, 4) : lab);
+          ? String(datesList[i]).slice(0, 10)
+          : (/^\d{4}-\d{2}/.test(lab) ? lab.slice(0, 10) : null);
+        const explicitTtm = /^TTM$/i.test(lab) || /latest balance/i.test(lab) || /最新期末/.test(lab);
+        // Annual statements put a TTM/as-of date in the last column (often mid-year like 2026-06)
+        // while FMP product/geo rows are FY-end only — treat that last column as TTM.
+        const trailingAnnualTtm = annualView && labelAxis.length >= 6 && i === labelAxis.length - 1;
+        const kind = (explicitTtm || trailingAnnualTtm) ? 'ttm' : 'period';
+        const display = kind === 'ttm'
+          ? (explicitTtm ? lab : 'TTM')
+          : (/^\d{4}-\d{2}-\d{2}/.test(lab) ? lab.slice(0, 4)
+            : (/^\d{4}-\d{2}/.test(lab) ? lab.slice(0, 4) : lab));
         return { label: display, date: dateHint, kind };
       });
-      const product = RevenueSegments.alignToPeriods(record.product, axis, ticker);
-      const geographic = RevenueSegments.alignToPeriods(record.geographic, axis, ticker);
+      const dropEmptyTtm = (aligned) => {
+        // Omit TTM when FMP has no true TTM segments (avoid blank or FY-duplicated last col).
+        const columns = aligned.columns.filter(col => col.kind !== 'ttm' || col.segments);
+        const nameSet = new Set();
+        for (const col of columns) {
+          if (col.segments) Object.keys(col.segments).forEach(name => nameSet.add(name));
+        }
+        return { names: [...nameSet].sort((a, b) => a.localeCompare(b)), columns };
+      };
+      const product = dropEmptyTtm(RevenueSegments.alignToPeriods(record.product, axis, ticker));
+      const geographic = dropEmptyTtm(RevenueSegments.alignToPeriods(record.geographic, axis, ticker));
       fillSegmentTable('product', product, isEn);
       fillSegmentTable('geographic', geographic, isEn);
       const productHits = product.columns.filter(col => col.segments).length;

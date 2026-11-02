@@ -96,14 +96,6 @@
       }
     },
     {
-      "date": "2017-12-31",
-      "segments": {
-        "Institutional Securities Segment": 8899000000,
-        "Investment Management Segment": 1312000000,
-        "Wealth Management Segment": 8627000000
-      }
-    },
-    {
       "date": "2018-03-31",
       "segments": {
         "Wealth Management Segment": 3192000000,
@@ -127,12 +119,6 @@
         "Contract with Customer, Other": 5000000,
         "Investment Advice": -2000000,
         "Underwriting": 59000000
-      }
-    },
-    {
-      "date": "2018-12-31",
-      "segments": {
-        "Wealth Management Segment": 17241000000
       }
     },
     {
@@ -702,5 +688,6 @@
         "EMEA": 1956000000
       }
     }
-  ]
+  ],
+  "sanitizedAt": "2026-11-02T14:38:30.349Z"
 }

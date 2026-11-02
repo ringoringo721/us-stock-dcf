@@ -478,9 +478,9 @@
     {
       "date": "2025-12-31",
       "segments": {
-        "Investment Management": 9222000000,
-        "Global Markets": 20626000000,
-        "Platform Solutions": 0
+        "Investment Management": 1765000000,
+        "Global Markets": -201000000,
+        "Platform Solutions": -1361000000
       }
     }
   ],
@@ -947,14 +947,7 @@
         "Asia": 1790000000,
         "EMEA": 3811000000
       }
-    },
-    {
-      "date": "2025-12-31",
-      "segments": {
-        "Americas": 17700000000,
-        "Asia": 4085000000,
-        "EMEA": 6853000000
-      }
     }
-  ]
+  ],
+  "sanitizedAt": "2026-11-02T14:38:30.349Z"
 }

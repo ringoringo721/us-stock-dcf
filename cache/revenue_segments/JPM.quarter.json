@@ -71,12 +71,6 @@
       }
     },
     {
-      "date": "2014-12-31",
-      "segments": {
-        "Consumer & Community Banking": 529000000
-      }
-    },
-    {
       "date": "2015-03-31",
       "segments": {
         "Consumer & Community Banking": 10704000000,
@@ -506,5 +500,6 @@
       }
     }
   ],
-  "geographic": []
+  "geographic": [],
+  "sanitizedAt": "2026-11-02T14:38:30.349Z"
 }

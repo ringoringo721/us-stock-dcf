@@ -122,14 +122,6 @@
       }
     },
     {
-      "date": "2014-12-31",
-      "segments": {
-        "Global Business Services": 9099000000,
-        "Global Financing": 2249000000,
-        "Global Technology Services": 18932000000
-      }
-    },
-    {
       "date": "2015-03-31",
       "segments": {
         "Global Business Services": 4449000000,
@@ -270,16 +262,16 @@
     {
       "date": "2018-12-31",
       "segments": {
-        "Products And Services Other": 76000000,
-        "Application Management Services": 3935000000,
-        "Global Process Services": 640000000,
-        "Infrastructure Services": 11587000000,
-        "Integration Software": 2484000000,
-        "Operating Systems Software": 867000000,
-        "Solutions Software": 7036000000,
-        "Systems Hardware": 3931000000,
-        "Technical Support Services": 3472000000,
-        "Transaction Processing Software": 2999000000
+        "Products And Services Other": -55000000,
+        "Application Management Services": 18000000,
+        "Global Process Services": 21000000,
+        "Infrastructure Services": 167000000,
+        "Integration Software": 475000000,
+        "Operating Systems Software": 63000000,
+        "Solutions Software": 1169000000,
+        "Systems Hardware": 1499000000,
+        "Technical Support Services": -17000000,
+        "Transaction Processing Software": 420000000
       }
     },
     {
@@ -618,12 +610,6 @@
       }
     },
     {
-      "date": "2014-12-31",
-      "segments": {
-        "Total Segments": 3227000000
-      }
-    },
-    {
       "date": "2018-03-31",
       "segments": {
         "Americas": 8707000000,
@@ -903,5 +889,6 @@
         "E M E A": 5426000000
       }
     }
-  ]
+  ],
+  "sanitizedAt": "2026-11-02T14:38:30.349Z"
 }

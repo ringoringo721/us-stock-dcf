@@ -630,11 +630,11 @@
     {
       "date": "2025-12-31",
       "segments": {
-        "Construction Industries": 6926000000,
-        "Reportable Subsegments": 54612000000,
-        "Resource Industries": 3393000000,
-        "Other Segments": 59000000,
-        "Financial Products": 1095000000
+        "Construction Industries": -11208000000,
+        "Reportable Subsegments": 35269000000,
+        "Resource Industries": -5688000000,
+        "Other Segments": -209000000,
+        "Financial Products": -2030000000
       }
     },
     {
@@ -966,5 +966,6 @@
         "North America": 12094000000
       }
     }
-  ]
+  ],
+  "sanitizedAt": "2026-11-02T14:38:30.349Z"
 }

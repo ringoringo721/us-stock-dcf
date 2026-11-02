@@ -28,14 +28,6 @@
       }
     },
     {
-      "date": "2018-12-31",
-      "segments": {
-        "Community Banking": 23277000000,
-        "Wealth And Investment Management": 8183000000,
-        "Wholesale Banking": 14230000000
-      }
-    },
-    {
       "date": "2019-03-31",
       "segments": {
         "Community Banking": 11750000000,
@@ -76,22 +68,6 @@
       "segments": {
         "Credit Card Rewards and Rebates": 266000000,
         "Trailing Commission": 257000000
-      }
-    },
-    {
-      "date": "2020-09-30",
-      "segments": {
-        "Community Banking": 10722000000,
-        "Wealth And Investment Management": 3794000000,
-        "Wholesale Banking": 5594000000
-      }
-    },
-    {
-      "date": "2020-12-31",
-      "segments": {
-        "Wholesale Banking": 4144000000,
-        "Community Banking": 23294000000,
-        "Wealth And Investment Management": 10718000000
       }
     },
     {
@@ -307,5 +283,6 @@
       }
     }
   ],
-  "geographic": []
+  "geographic": [],
+  "sanitizedAt": "2026-11-02T14:38:30.349Z"
 }

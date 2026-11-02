@@ -20,13 +20,6 @@
       }
     },
     {
-      "date": "2011-12-31",
-      "segments": {
-        "Pharmaceutical segment": 20575000000,
-        "Other Segments": 38806000000
-      }
-    },
-    {
       "date": "2012-03-31",
       "segments": {
         "Unallocated Amount To Segment": 56000000,
@@ -138,13 +131,6 @@
       }
     },
     {
-      "date": "2015-12-31",
-      "segments": {
-        "Pharmaceutical segment": 17650000000,
-        "Other Segments": 1490000000
-      }
-    },
-    {
       "date": "2016-03-31",
       "segments": {
         "Pharmaceutical segment": 8104000000,
@@ -222,14 +208,6 @@
         "Animal Health segment": 1021000000,
         "Pharmaceutical segment": 60000000,
         "Other Segments": 55000000
-      }
-    },
-    {
-      "date": "2018-12-31",
-      "segments": {
-        "Animal Health segment": 1036000000,
-        "Other Segments": 192000000,
-        "Pharmaceutical segment": 19428000000
       }
     },
     {
@@ -854,5 +832,6 @@
         "UNITED STATES": 9367000000
       }
     }
-  ]
+  ],
+  "sanitizedAt": "2026-11-02T14:38:30.349Z"
 }

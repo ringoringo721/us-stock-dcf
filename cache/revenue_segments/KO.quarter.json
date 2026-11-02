@@ -122,15 +122,6 @@
       }
     },
     {
-      "date": "2014-12-31",
-      "segments": {
-        "Bottling investments": 1483000000,
-        "Intersegment Eliminations": -251000000,
-        "Pacific": 28906000000,
-        "Corporate Segment": 10000000
-      }
-    },
-    {
       "date": "2015-04-03",
       "segments": {
         "Bottling investments": 1678000000,
@@ -539,13 +530,6 @@
         "Intersegment Eliminations": -253000000,
         "Pacific": 11328000000,
         "Corporate Segment": 34000000
-      }
-    },
-    {
-      "date": "2025-12-31",
-      "segments": {
-        "Pacific": 0,
-        "Bottling investments": 1515000000
       }
     },
     {
@@ -1111,5 +1095,6 @@
         "Latin America": 1958000000
       }
     }
-  ]
+  ],
+  "sanitizedAt": "2026-11-02T14:38:30.349Z"
 }

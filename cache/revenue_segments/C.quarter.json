@@ -21,14 +21,6 @@
       }
     },
     {
-      "date": "2010-12-31",
-      "segments": {
-        "Brokerage and Asset Management": 0,
-        "Corporate and Other": 495000000,
-        "Institutional Clients Group": 16533000000
-      }
-    },
-    {
       "date": "2011-03-31",
       "segments": {
         "Brokerage and Asset Management": 12000000,
@@ -50,15 +42,6 @@
         "Brokerage and Asset Management": -14000000,
         "Corporate and Other": 300000000,
         "Institutional Clients Group": 9437000000
-      }
-    },
-    {
-      "date": "2011-12-31",
-      "segments": {
-        "Brokerage and Asset Management": -12000000,
-        "Corporate and Other": 136000000,
-        "Global Consumer Banking": 32585000000,
-        "Institutional Clients Group": 5853000000
       }
     },
     {
@@ -125,15 +108,6 @@
       }
     },
     {
-      "date": "2013-12-31",
-      "segments": {
-        "Corporate and Other": -74000000,
-        "Global Consumer Banking": 9210000000,
-        "Institutional Clients Group": 7059000000,
-        "Citicorp Segment and Corporate and Other": 55196000000
-      }
-    },
-    {
       "date": "2014-03-31",
       "segments": {
         "Corporate and Other": 141000000,
@@ -194,15 +168,6 @@
         "Corporate and Other": 218000000,
         "Global Consumer Banking": 8460000000,
         "Institutional Clients Group": 8597000000
-      }
-    },
-    {
-      "date": "2015-12-31",
-      "segments": {
-        "Corporate and Other": 107000000,
-        "Global Consumer Banking": 8191000000,
-        "Institutional Clients Group": 7245000000,
-        "Citicorp Segment and Corporate and Other": 50615000000
       }
     },
     {
@@ -329,14 +294,6 @@
       }
     },
     {
-      "date": "2019-12-31",
-      "segments": {
-        "Institutional Clients Group": -28444000000,
-        "Global Consumer Banking": -25292000000,
-        "Commissions And Fees": 7695000000
-      }
-    },
-    {
       "date": "2020-03-31",
       "segments": {
         "Global Consumer Banking": 8174000000,
@@ -355,14 +312,6 @@
       "segments": {
         "Global Consumer Banking": 7173000000,
         "Institutional Clients Group": 10353000000
-      }
-    },
-    {
-      "date": "2020-12-31",
-      "segments": {
-        "Institutional Clients Group": -34479000000,
-        "Global Consumer Banking": -22396000000,
-        "Commissions And Fees": 7160000000
       }
     },
     {
@@ -387,14 +336,6 @@
       }
     },
     {
-      "date": "2021-12-31",
-      "segments": {
-        "Institutional Clients Group": -32754000000,
-        "Global Consumer Banking": -19857000000,
-        "Commissions And Fees": 8516000000
-      }
-    },
-    {
       "date": "2022-03-31",
       "segments": {
         "Institutional Clients Group": 11160000000,
@@ -416,14 +357,6 @@
         "Institutional Clients Group": 9468000000,
         "Legacy Franchises": 2554000000,
         "Personal Banking and Wealth Management": 6187000000
-      }
-    },
-    {
-      "date": "2022-12-31",
-      "segments": {
-        "Institutional Clients Group": -31509000000,
-        "Global Consumer Banking": 201000000,
-        "Commissions And Fees": 11008000000
       }
     },
     {
@@ -810,5 +743,6 @@
         "North America": 8400000000
       }
     }
-  ]
+  ],
+  "sanitizedAt": "2026-11-02T14:38:30.349Z"
 }
