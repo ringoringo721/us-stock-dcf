@@ -974,7 +974,27 @@
     }
     .tv-metric-menu button:hover, .tv-metric-menu button[aria-selected="true"] { background: var(--hover-bg); }
     .tv-metric-wrap { position: relative; display: inline-flex; }
-    .tv-metric-filters { display: contents; }
+    /* Primary metric chips stay inline; the rest live in a compact popover so sticky
+       chrome does not grow multi-row and cover the table (Bugbot #84). */
+    .tv-metric-filters { display: inline-flex; flex-wrap: nowrap; gap: 8px; align-items: center; max-width: 100%; }
+    .tv-more-metrics-wrap { position: relative; display: inline-flex; }
+    .tv-more-metrics-panel {
+      display: none; position: absolute; z-index: 45; top: calc(100% + 6px); left: 0;
+      width: min(560px, calc(100vw - 32px)); max-height: min(360px, 50vh); overflow: auto;
+      border: 1px solid var(--card-border); border-radius: 10px; background: var(--card-bg);
+      box-shadow: 0 10px 28px var(--shadow); padding: 10px; gap: 8px;
+      flex-wrap: wrap; align-content: flex-start;
+    }
+    .tv-more-metrics-panel.open { display: flex; }
+    .tv-more-metrics-panel .tv-metric-wrap { flex: 0 0 auto; }
+    .tv-more-metrics-panel .tv-metric-menu {
+      position: fixed; z-index: 50; min-width: 180px;
+    }
+    #tv-filter-more-metrics .tv-more-count {
+      display: inline-block; min-width: 1.25em; margin-left: 4px; font-variant-numeric: tabular-nums;
+      opacity: .85;
+    }
+    #tv-filter-more-metrics .tv-more-count:empty { display: none; }
     #screener-view #screener-table { width: 100% !important; min-width: var(--screener-min-width, 1200px) !important; font-size: 13px; }
     /* Symbol cell widened to 200px — keep sticky exchange/name left offsets in sync
        (exchange @ ticker width; name @ ticker[+exchange] via --screener-name-left). */
@@ -1361,8 +1381,12 @@
           <button type="button" class="tv-filter-chip" data-screen-chip="OVERVALUED" onclick="setValFilter('OVERVALUED')" data-i18n="opt_overvalued" data-i18n-title="stat_overvalued_note">目錄公允高估</button>
           <button type="button" class="tv-filter-chip" data-screen-chip="SAVED" onclick="setValFilter('SAVED')" data-i18n="opt_saved">已存目標價</button>
           <span class="tv-filter-sep" aria-hidden="true" style="width:1px;height:20px;background:var(--card-border);margin:0 2px;"></span>
-          <!-- Metric chips are mounted from TV_METRIC_FILTERS (every All-columns ratio/indicator). -->
-          <div class="tv-metric-filters" id="tv-metric-filters" aria-label="Metric filters"></div>
+          <!-- Primary metric chips + “更多指標” popover (all TV_METRIC_FILTERS remain filterable). -->
+          <div class="tv-metric-filters" id="tv-metric-filters" aria-label="Primary metric filters"></div>
+          <div class="tv-more-metrics-wrap" id="tv-more-metrics-wrap">
+            <button type="button" class="tv-filter-chip" id="tv-filter-more-metrics" aria-haspopup="true" aria-expanded="false" onclick="toggleTvMoreMetrics(event)" data-i18n="tv_filter_more_metrics">更多指標</button>
+            <div class="tv-more-metrics-panel" id="tv-more-metrics-panel" role="dialog" aria-label="More metric filters"></div>
+          </div>
           <button type="button" class="tv-filter-chip" id="tv-filter-sector" onclick="toggleScreenerIndustries()" data-i18n="filter_sector">Sector</button>
           <button type="button" class="tv-filter-chip" onclick="resetScreenerFilters()" data-i18n="screener_reset">清除篩選</button>
           <strong id="screener-results-count" aria-live="polite"></strong>
@@ -2732,6 +2756,7 @@
       tv_filter_premium: "溢折價 %",
       tv_filter_mcap: "Mkt cap",
       tv_filter_pe: "P/E",
+      tv_filter_more_metrics: "更多指標",
       filter_dim: "快捷螢幕：",
       fcf_equity_label: "FCF / 股東應佔權益 (%)",
       moat_unassessed: "未評分",
@@ -3263,6 +3288,7 @@
       tv_filter_premium: "Premium %",
       tv_filter_mcap: "Mkt cap",
       tv_filter_pe: "P/E",
+      tv_filter_more_metrics: "More metrics",
       filter_dim: "Screens:",
       fcf_equity_label: "FCF / Parent equity (%)",
       moat_unassessed: "Not assessed",
@@ -5323,6 +5349,9 @@
   ];
   const TV_METRIC_PRESETS = Object.fromEntries(TV_METRIC_FILTERS.map(row => [row.field, row.presets]));
   const TV_METRIC_CHIP_LABELS = Object.fromEntries(TV_METRIC_FILTERS.map(row => [row.field, { zh: row.zh, en: row.en }]));
+  // Keep sticky chrome to one primary chip row; remaining metrics stay in the popover.
+  const TV_METRIC_PRIMARY_FIELDS = ['price', 'premiumPct', 'mcap', 'pe_trailing'];
+  const TV_METRIC_PRIMARY = new Set(TV_METRIC_PRIMARY_FIELDS);
   function emptyScreenerMetricFilters() {
     return Object.fromEntries(TV_METRIC_FILTERS.map(row => [row.field, null]));
   }
@@ -5333,23 +5362,77 @@
     return Number.isFinite(value) ? value : null;
   }
 
+  function tvMetricChipHtml(row, lang) {
+    const label = (TV_METRIC_CHIP_LABELS[row.field] || {})[lang] || row.en;
+    return `<div class="tv-metric-wrap" data-metric-field="${row.field}">
+      <button type="button" class="tv-filter-chip" id="tv-filter-${row.field}" aria-haspopup="true" aria-expanded="false" onclick="toggleTvMetricMenu('${row.field}', event)">${label}</button>
+      <div class="tv-metric-menu" id="tv-menu-${row.field}" role="menu"></div>
+    </div>`;
+  }
+
   function mountTvMetricFilters() {
-    const host = document.getElementById('tv-metric-filters');
-    if (!host) return;
+    const primaryHost = document.getElementById('tv-metric-filters');
+    const moreHost = document.getElementById('tv-more-metrics-panel');
+    if (!primaryHost || !moreHost) return;
     const lang = currentLang === 'en' ? 'en' : 'zh';
-    host.innerHTML = TV_METRIC_FILTERS.map(row => {
-      const label = (TV_METRIC_CHIP_LABELS[row.field] || {})[lang] || row.en;
-      return `<div class="tv-metric-wrap">
-        <button type="button" class="tv-filter-chip" id="tv-filter-${row.field}" aria-haspopup="true" aria-expanded="false" onclick="toggleTvMetricMenu('${row.field}', event)">${label}</button>
-        <div class="tv-metric-menu" id="tv-menu-${row.field}" role="menu"></div>
-      </div>`;
-    }).join('');
+    // Preserve declared primary order even if registry order changes.
+    primaryHost.innerHTML = TV_METRIC_PRIMARY_FIELDS
+      .map(field => TV_METRIC_FILTERS.find(row => row.field === field))
+      .filter(Boolean)
+      .map(row => tvMetricChipHtml(row, lang)).join('');
+    moreHost.innerHTML = TV_METRIC_FILTERS
+      .filter(row => !TV_METRIC_PRIMARY.has(row.field))
+      .map(row => tvMetricChipHtml(row, lang)).join('');
     syncTvMetricFilterChips();
   }
 
-  function closeTvMetricMenus() {
+  function closeTvMoreMetrics() {
+    const panel = document.getElementById('tv-more-metrics-panel');
+    const btn = document.getElementById('tv-filter-more-metrics');
+    panel?.classList.remove('open');
+    btn?.setAttribute('aria-expanded', 'false');
+  }
+
+  function toggleTvMoreMetrics(event) {
+    event?.stopPropagation?.();
+    const panel = document.getElementById('tv-more-metrics-panel');
+    const btn = document.getElementById('tv-filter-more-metrics');
+    if (!panel || !btn) return;
+    const willOpen = !panel.classList.contains('open');
+    closeTvMetricMenus({ keepMoreOpen: true });
+    if (!willOpen) {
+      closeTvMoreMetrics();
+      return;
+    }
+    panel.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+  }
+
+  function closeTvMetricMenus(opts = {}) {
     document.querySelectorAll('.tv-metric-menu.open').forEach(menu => menu.classList.remove('open'));
-    document.querySelectorAll('.tv-filter-chip[aria-expanded="true"]').forEach(btn => btn.setAttribute('aria-expanded', 'false'));
+    document.querySelectorAll('.tv-metric-wrap .tv-filter-chip[aria-expanded="true"]').forEach(btn => btn.setAttribute('aria-expanded', 'false'));
+    if (!opts.keepMoreOpen) closeTvMoreMetrics();
+  }
+
+  function placeTvMetricMenu(menu, btn) {
+    // Menus inside the scrollable “更多指標” panel use fixed coords so they are not clipped.
+    if (!menu.closest?.('.tv-more-metrics-panel')) {
+      menu.style.top = '';
+      menu.style.left = '';
+      return;
+    }
+    const rect = btn.getBoundingClientRect();
+    const width = Math.max(180, menu.offsetWidth || 180);
+    const left = Math.min(Math.max(8, rect.left), window.innerWidth - width - 8);
+    let top = rect.bottom + 4;
+    menu.style.visibility = 'hidden';
+    menu.classList.add('open');
+    const height = menu.offsetHeight || 160;
+    menu.classList.remove('open');
+    menu.style.visibility = '';
+    if (top + height > window.innerHeight - 8) top = Math.max(8, rect.top - height - 4);
+    menu.style.top = `${top}px`;
+    menu.style.left = `${left}px`;
   }
 
   function toggleTvMetricMenu(field, event) {
@@ -5358,7 +5441,7 @@
     const btn = document.getElementById(`tv-filter-${field}`);
     if (!menu || !btn) return;
     const willOpen = !menu.classList.contains('open');
-    closeTvMetricMenus();
+    closeTvMetricMenus({ keepMoreOpen: !!btn.closest('.tv-more-metrics-panel') });
     if (!willOpen) return;
     const presets = TV_METRIC_PRESETS[field] || [];
     const lang = currentLang === 'en' ? 'en' : 'zh';
@@ -5367,26 +5450,40 @@
       const label = preset[lang] || preset.en;
       return `<button type="button" role="menuitem" aria-selected="${selected ? 'true' : 'false'}" onclick="setTvMetricFilter('${field}', ${preset.id == null ? 'null' : `'${preset.id}'`})">${label}</button>`;
     }).join('');
+    placeTvMetricMenu(menu, btn);
     menu.classList.add('open');
     btn.setAttribute('aria-expanded', 'true');
   }
 
   function setTvMetricFilter(field, id) {
     screenerMetricFilters[field] = id;
-    closeTvMetricMenus();
+    closeTvMetricMenus({ keepMoreOpen: !TV_METRIC_PRIMARY.has(field) && id != null });
     syncTvMetricFilterChips();
     renderScreenerTable();
   }
 
   function syncTvMetricFilterChips() {
+    let moreActive = 0;
     for (const field of Object.keys(TV_METRIC_PRESETS)) {
       const btn = document.getElementById(`tv-filter-${field}`);
       if (!btn) continue;
       const active = screenerMetricFilters[field] != null;
+      if (active && !TV_METRIC_PRIMARY.has(field)) moreActive += 1;
       btn.classList.toggle('has-filter', active);
       btn.classList.toggle('active', active);
       const labels = TV_METRIC_CHIP_LABELS[field];
       if (labels) btn.textContent = currentLang === 'en' ? labels.en : labels.zh;
+    }
+    const moreBtn = document.getElementById('tv-filter-more-metrics');
+    const moreCount = document.getElementById('tv-more-metrics-count');
+    if (moreBtn) {
+      const dict = I18N_DICT[currentLang] || {};
+      const label = dict.tv_filter_more_metrics || (currentLang === 'en' ? 'More metrics' : '更多指標');
+      moreBtn.innerHTML = `${label}<span class="tv-more-count" id="tv-more-metrics-count">${moreActive ? moreActive : ''}</span>`;
+      moreBtn.classList.toggle('has-filter', moreActive > 0);
+      moreBtn.classList.toggle('active', moreActive > 0 || document.getElementById('tv-more-metrics-panel')?.classList.contains('open'));
+    } else if (moreCount) {
+      moreCount.textContent = moreActive ? String(moreActive) : '';
     }
     const host = document.getElementById('tv-active-filters');
     if (!host) return;
@@ -5416,7 +5513,10 @@
   }
 
   document.addEventListener('click', (event) => {
-    if (!event.target.closest?.('.tv-metric-wrap')) closeTvMetricMenus();
+    const inMetric = event.target.closest?.('.tv-metric-wrap');
+    const inMore = event.target.closest?.('.tv-more-metrics-wrap');
+    if (!inMetric && !inMore) closeTvMetricMenus();
+    else if (!inMetric) closeTvMetricMenus({ keepMoreOpen: true });
   });
 
   function closeScreenerDetailDrawer() {

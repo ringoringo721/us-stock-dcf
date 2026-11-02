@@ -34,7 +34,18 @@ test('TV_METRIC_FILTERS covers every numeric All-columns sort field', () => {
 });
 
 test('metric filter chips are mounted from registry (not hard-coded subset)', () => {
-  assert.match(html, /host\.innerHTML = TV_METRIC_FILTERS\.map/);
+  assert.match(html, /function tvMetricChipHtml/);
+  assert.match(html, /TV_METRIC_FILTERS\s*\n?\s*\.filter\(row => !TV_METRIC_PRIMARY\.has\(row\.field\)\)/);
   assert.equal(/id="tv-filter-price"[^>]*data-i18n="tv_filter_price"/.test(html), false);
   assert.match(html, /screenerMetricFilters = emptyScreenerMetricFilters\(\)/);
+});
+
+test('sticky chrome keeps primary chips + more-metrics popover (no display:contents dump)', () => {
+  assert.match(html, /const TV_METRIC_PRIMARY_FIELDS\s*=\s*\['price',\s*'premiumPct',\s*'mcap',\s*'pe_trailing'\]/);
+  assert.match(html, /id="tv-more-metrics-panel"/);
+  assert.match(html, /id="tv-filter-more-metrics"/);
+  assert.match(html, /function toggleTvMoreMetrics/);
+  assert.match(html, /\.tv-more-metrics-panel\.open\s*\{\s*display:\s*flex/);
+  assert.equal(/\.tv-metric-filters\s*\{\s*display:\s*contents/.test(html), false);
+  assert.match(html, /\.tv-metric-filters\s*\{[^}]*display:\s*inline-flex/);
 });
