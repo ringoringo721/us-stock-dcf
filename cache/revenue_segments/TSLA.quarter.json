@@ -1,0 +1,821 @@
+{
+  "version": 1,
+  "ticker": "TSLA",
+  "source": "FMP revenue segmentation (quarter)",
+  "period": "quarter",
+  "product": [
+    {
+      "date": "2013-06-30",
+      "segments": {
+        "Automotive": 401535000
+      }
+    },
+    {
+      "date": "2013-09-30",
+      "segments": {
+        "Automotive": 430196000
+      }
+    },
+    {
+      "date": "2014-03-31",
+      "segments": {
+        "Automotive": 618811000
+      }
+    },
+    {
+      "date": "2014-06-30",
+      "segments": {
+        "Automotive": 768242000
+      }
+    },
+    {
+      "date": "2014-09-30",
+      "segments": {
+        "Automotive": 849009000
+      }
+    },
+    {
+      "date": "2015-03-31",
+      "segments": {
+        "Automotive": 893320000,
+        "Services And Other": 46560000
+      }
+    },
+    {
+      "date": "2015-06-30",
+      "segments": {
+        "Automotive": 878090000,
+        "Services And Other": 76886000
+      }
+    },
+    {
+      "date": "2015-09-30",
+      "segments": {
+        "Automotive": 852555000,
+        "Services And Other": 84234000
+      }
+    },
+    {
+      "date": "2016-03-31",
+      "segments": {
+        "Automotive": 1026064000,
+        "Services And Other": 120984000
+      }
+    },
+    {
+      "date": "2016-06-30",
+      "segments": {
+        "Automotive": 1181852000,
+        "Services And Other": 88165000
+      }
+    },
+    {
+      "date": "2016-09-30",
+      "segments": {
+        "Automotive": 2148727000,
+        "Services And Other": 149709000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Automotive": 2462095000
+      }
+    },
+    {
+      "date": "2017-03-31",
+      "segments": {
+        "Automotive": 2289600000,
+        "Energy Generation And Storage Segment": 213944000,
+        "Services And Other": 192726000
+      }
+    },
+    {
+      "date": "2017-06-30",
+      "segments": {
+        "Automotive": 2286616000,
+        "Energy Generation And Storage Segment": 286780000,
+        "Services And Other": 216161000
+      }
+    },
+    {
+      "date": "2017-09-30",
+      "segments": {
+        "Automotive": 2362889000,
+        "Energy Generation And Storage Segment": 317505000,
+        "Services And Other": 304281000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "Energy Generation And Storage Segment": 298037000,
+        "Services And Other": 288017000,
+        "Automotive": 2702195000
+      }
+    },
+    {
+      "date": "2018-03-31",
+      "segments": {
+        "Automotive": 2735317000,
+        "Energy Generation And Storage Segment": 410022000,
+        "Services And Other": 263412000
+      }
+    },
+    {
+      "date": "2018-06-30",
+      "segments": {
+        "Automotive": 3357681000,
+        "Energy Generation And Storage Segment": 374408000,
+        "Services And Other": 270142000
+      }
+    },
+    {
+      "date": "2018-09-30",
+      "segments": {
+        "Automotive": 6068766000,
+        "Energy Generation And Storage Segment": 399317000,
+        "Services And Other": 326330000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Services And Other": 531157000,
+        "Energy Generation And Storage Segment": -1028503000,
+        "Automotive": 6353219000
+      }
+    },
+    {
+      "date": "2019-03-31",
+      "segments": {
+        "Automotive": 3723861000,
+        "Energy Generation And Storage Segment": 324661000,
+        "Services And Other": 492942000
+      }
+    },
+    {
+      "date": "2019-06-30",
+      "segments": {
+        "Automotive": 5376389000,
+        "Energy Generation And Storage Segment": 368208000,
+        "Services And Other": 605079000
+      }
+    },
+    {
+      "date": "2019-09-30",
+      "segments": {
+        "Automotive": 5353000000,
+        "Energy Generation And Storage Segment": 402000000,
+        "Services And Other": 548000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Energy Generation And Storage Segment": 436131000,
+        "Services And Other": 579979000,
+        "Automotive": 6367750000
+      }
+    },
+    {
+      "date": "2020-03-31",
+      "segments": {
+        "Automotive": 5132000000,
+        "Energy Generation And Storage Segment": 293000000,
+        "Services And Other": 560000000
+      }
+    },
+    {
+      "date": "2020-06-30",
+      "segments": {
+        "Automotive": 5179000000,
+        "Energy Generation And Storage Segment": 370000000,
+        "Services And Other": 487000000
+      }
+    },
+    {
+      "date": "2020-09-30",
+      "segments": {
+        "Automotive": 7611000000,
+        "Energy Generation And Storage Segment": 579000000,
+        "Services And Other": 581000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Energy Generation And Storage Segment": 752000000,
+        "Services And Other": 678000000,
+        "Automotive": 9341000000
+      }
+    },
+    {
+      "date": "2021-03-31",
+      "segments": {
+        "Automotive": 9002000000,
+        "Services And Other": 893000000,
+        "Energy Generation And Storage Segment": 494000000
+      }
+    },
+    {
+      "date": "2021-06-30",
+      "segments": {
+        "Automotive": 10206000000,
+        "Services And Other": 951000000,
+        "Energy Generation And Storage Segment": 801000000
+      }
+    },
+    {
+      "date": "2021-09-30",
+      "segments": {
+        "Automotive": 12057000000,
+        "Energy Generation And Storage Segment": 806000000,
+        "Services And Other": 894000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Automotive": 15967000000,
+        "Energy Generation And Storage Segment": 688000000,
+        "Services And Other": 1064000000
+      }
+    },
+    {
+      "date": "2022-03-31",
+      "segments": {
+        "Automotive": 16861000000,
+        "Energy Generation And Storage Segment": 616000000,
+        "Services And Other": 1279000000
+      }
+    },
+    {
+      "date": "2022-06-30",
+      "segments": {
+        "Automotive": 14602000000,
+        "Energy Generation And Storage Segment": 866000000,
+        "Services And Other": 1466000000
+      }
+    },
+    {
+      "date": "2022-09-30",
+      "segments": {
+        "Automotive": 18692000000,
+        "Energy Generation And Storage Segment": 1117000000,
+        "Services And Other": 1645000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Automotive": 21307000000,
+        "Energy Generation And Storage Segment": 1310000000,
+        "Services And Other": 1701000000
+      }
+    },
+    {
+      "date": "2023-03-31",
+      "segments": {
+        "Automotive": 19963000000,
+        "Energy Generation And Storage Segment": 1529000000,
+        "Services And Other": 1837000000
+      }
+    },
+    {
+      "date": "2023-06-30",
+      "segments": {
+        "Automotive": 21268000000,
+        "Energy Generation And Storage Segment": 1509000000,
+        "Services And Other": 2150000000
+      }
+    },
+    {
+      "date": "2023-09-30",
+      "segments": {
+        "Automotive": 19625000000,
+        "Energy Generation And Storage Segment": 1559000000,
+        "Services And Other": 2166000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Automotive": 21563000000,
+        "Energy Generation And Storage Segment": 1438000000,
+        "Services And Other": 2166000000
+      }
+    },
+    {
+      "date": "2024-03-31",
+      "segments": {
+        "Automotive": 17378000000,
+        "Energy Generation And Storage Segment": 1635000000,
+        "Services And Other": 2288000000
+      }
+    },
+    {
+      "date": "2024-06-30",
+      "segments": {
+        "Automotive": 19878000000,
+        "Energy Generation And Storage Segment": 3014000000,
+        "Services And Other": 2608000000
+      }
+    },
+    {
+      "date": "2024-09-30",
+      "segments": {
+        "Automotive": 20016000000,
+        "Energy Generation And Storage Segment": 2376000000,
+        "Services And Other": 2790000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Automotive": 19798000000,
+        "Energy Generation And Storage Segment": 3061000000,
+        "Services And Other": 2848000000
+      }
+    },
+    {
+      "date": "2025-03-31",
+      "segments": {
+        "Automotive": 13967000000,
+        "Energy Generation And Storage Segment": 2730000000,
+        "Services And Other": 2638000000
+      }
+    },
+    {
+      "date": "2025-06-30",
+      "segments": {
+        "Automotive": 16661000000,
+        "Energy Generation And Storage Segment": 2789000000,
+        "Services And Other": 3046000000
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "segments": {
+        "Automotive": 21205000000,
+        "Energy Generation And Storage Segment": 3415000000,
+        "Services And Other": 3475000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Automotive": 17693000000,
+        "Energy Generation And Storage Segment": 3837000000,
+        "Services And Other": 3371000000
+      }
+    },
+    {
+      "date": "2026-03-31",
+      "segments": {
+        "Automotive": 16234000000,
+        "Energy Generation And Storage Segment": 2408000000,
+        "Services And Other": 3745000000
+      }
+    },
+    {
+      "date": "2026-06-30",
+      "segments": {
+        "Automotive": 20516000000,
+        "Energy Generation And Storage Segment": 3139000000,
+        "Services And Other": 4581000000
+      }
+    },
+    {
+      "date": "2026-09-30",
+      "segments": {
+        "Automotive": 20560000000,
+        "Energy Generation And Storage Segment": 2881000000,
+        "Services And Other": 4605000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2012-03-31",
+      "segments": {
+        "Asia": 3828000,
+        "Europe": 9231000,
+        "North America": 17108000,
+        "UNITED STATES": 17000000
+      }
+    },
+    {
+      "date": "2012-06-30",
+      "segments": {
+        "Asia": 1753000,
+        "Europe": 16756000,
+        "North America": 8144000,
+        "UNITED STATES": 8000000
+      }
+    },
+    {
+      "date": "2012-09-30",
+      "segments": {
+        "Asia": 1345000,
+        "Europe": 7606000,
+        "North America": 41153000
+      }
+    },
+    {
+      "date": "2013-03-31",
+      "segments": {
+        "Asia": 445000,
+        "Europe": 8851000,
+        "North America": 552496000
+      }
+    },
+    {
+      "date": "2013-06-30",
+      "segments": {
+        "Asia": 259000,
+        "Europe": 4743000,
+        "North America": 400137000
+      }
+    },
+    {
+      "date": "2013-09-30",
+      "segments": {
+        "Asia": 157000,
+        "Europe": 145978000,
+        "North America": 285211000
+      }
+    },
+    {
+      "date": "2013-12-31",
+      "segments": {
+        "Asia": 143000,
+        "Europe": 307507000,
+        "North America": 307569000
+      }
+    },
+    {
+      "date": "2014-03-31",
+      "segments": {
+        "Asia": 55000,
+        "Europe": 332108000,
+        "North America": 288379000
+      }
+    },
+    {
+      "date": "2014-06-30",
+      "segments": {
+        "Asia": 141472000,
+        "Europe": 276300000,
+        "North America": 351577000
+      }
+    },
+    {
+      "date": "2014-09-30",
+      "segments": {
+        "CHINA": 342800000,
+        "NORWAY": 371700000,
+        "UNITED STATES": 984000000
+      }
+    },
+    {
+      "date": "2014-12-31",
+      "segments": {
+        "CHINA": 134282000,
+        "NORWAY": 40498000,
+        "UNITED STATES": 487643000
+      }
+    },
+    {
+      "date": "2017-03-31",
+      "segments": {
+        "CHINA": 503933000,
+        "NORWAY": 135402000,
+        "Other Countries": 781727000,
+        "UNITED STATES": 1275208000
+      }
+    },
+    {
+      "date": "2017-06-30",
+      "segments": {
+        "CHINA": 463587000,
+        "NORWAY": 122102000,
+        "Other Countries": 680826000,
+        "UNITED STATES": 1523042000
+      }
+    },
+    {
+      "date": "2017-09-30",
+      "segments": {
+        "CHINA": 563561000,
+        "NORWAY": 225461000,
+        "Other Countries": 613510000,
+        "UNITED STATES": 1582143000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "CHINA": 495981000,
+        "NORWAY": 340116000,
+        "Other Countries": 611106000,
+        "UNITED STATES": 1841046000
+      }
+    },
+    {
+      "date": "2018-03-31",
+      "segments": {
+        "CHINA": 508703000,
+        "NORWAY": 162319000,
+        "Other Countries": 893282000,
+        "UNITED STATES": 1844447000
+      }
+    },
+    {
+      "date": "2018-06-30",
+      "segments": {
+        "CHINA": 527230000,
+        "NORWAY": 224421000,
+        "Other Countries": 1003943000,
+        "UNITED STATES": 2246637000
+      }
+    },
+    {
+      "date": "2018-09-30",
+      "segments": {
+        "CHINA": 409300000,
+        "NETHERLANDS": 273750000,
+        "NORWAY": 224481000,
+        "Other Countries": 783934000,
+        "UNITED STATES": 5132948000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "CHINA": 311914000,
+        "NETHERLANDS": 691846000,
+        "NORWAY": 201509000,
+        "Other Countries": 373129000,
+        "UNITED STATES": 5647475000
+      }
+    },
+    {
+      "date": "2019-03-31",
+      "segments": {
+        "CHINA": 779413000,
+        "NETHERLANDS": 113351000,
+        "NORWAY": 416060000,
+        "Other Countries": 903071000,
+        "UNITED STATES": 2329569000
+      }
+    },
+    {
+      "date": "2019-06-30",
+      "segments": {
+        "CHINA": 689735000,
+        "NETHERLANDS": 248102000,
+        "NORWAY": 380373000,
+        "Other Countries": 1551466000,
+        "UNITED STATES": 3480000000
+      }
+    },
+    {
+      "date": "2019-09-30",
+      "segments": {
+        "CHINA": 669000000,
+        "NETHERLANDS": 427000000,
+        "NORWAY": 253000000,
+        "Other Countries": 1827000000,
+        "UNITED STATES": 3127000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "CHINA": 840852000,
+        "NETHERLANDS": 801547000,
+        "NORWAY": 151567000,
+        "Other Countries": 1873463000,
+        "UNITED STATES": 3716431000
+      }
+    },
+    {
+      "date": "2020-03-31",
+      "segments": {
+        "CHINA": 900000000,
+        "Other Countries": 2317000000,
+        "UNITED STATES": 2768000000
+      }
+    },
+    {
+      "date": "2020-06-30",
+      "segments": {
+        "CHINA": 1400000000,
+        "Other Countries": 1546000000,
+        "UNITED STATES": 3090000000
+      }
+    },
+    {
+      "date": "2020-09-30",
+      "segments": {
+        "CHINA": 1744000000,
+        "Other Countries": 2812000000,
+        "UNITED STATES": 4215000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "CHINA": 2618000000,
+        "Other Countries": 2992000000,
+        "UNITED STATES": 5134000000
+      }
+    },
+    {
+      "date": "2021-03-31",
+      "segments": {
+        "CHINA": 3043000000,
+        "Other Countries": 2922000000,
+        "UNITED STATES": 4424000000
+      }
+    },
+    {
+      "date": "2021-06-30",
+      "segments": {
+        "CHINA": 2859000000,
+        "Other Countries": 3894000000,
+        "UNITED STATES": 5205000000
+      }
+    },
+    {
+      "date": "2021-09-30",
+      "segments": {
+        "CHINA": 3113000000,
+        "Other Countries": 4230000000,
+        "UNITED STATES": 6414000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "CHINA": 4829000000,
+        "Other Countries": 4960000000,
+        "UNITED STATES": 7930000000
+      }
+    },
+    {
+      "date": "2022-03-31",
+      "segments": {
+        "CHINA": 4650000000,
+        "Other Countries": 5372000000,
+        "UNITED STATES": 8734000000
+      }
+    },
+    {
+      "date": "2022-06-30",
+      "segments": {
+        "CHINA": 3787000000,
+        "Other Countries": 3533000000,
+        "UNITED STATES": 9614000000
+      }
+    },
+    {
+      "date": "2022-09-30",
+      "segments": {
+        "CHINA": 5131000000,
+        "Other Countries": 6087000000,
+        "UNITED STATES": 10236000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "CHINA": 4577000000,
+        "Other Countries": 7772000000,
+        "UNITED STATES": 11969000000
+      }
+    },
+    {
+      "date": "2023-03-31",
+      "segments": {
+        "CHINA": 4891000000,
+        "Other Countries": 7191000000,
+        "UNITED STATES": 11247000000
+      }
+    },
+    {
+      "date": "2023-06-30",
+      "segments": {
+        "CHINA": 5731000000,
+        "Other Countries": 7864000000,
+        "UNITED STATES": 11332000000
+      }
+    },
+    {
+      "date": "2023-09-30",
+      "segments": {
+        "CHINA": 5020000000,
+        "Other Countries": 7437000000,
+        "UNITED STATES": 10893000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "CHINA": 6103000000,
+        "Other Countries": 7301000000,
+        "UNITED STATES": 11763000000
+      }
+    },
+    {
+      "date": "2024-03-31",
+      "segments": {
+        "CHINA": 4592000000,
+        "Other Countries": 6947000000,
+        "UNITED STATES": 9762000000
+      }
+    },
+    {
+      "date": "2024-06-30",
+      "segments": {
+        "CHINA": 4636000000,
+        "Other Countries": 7608000000,
+        "UNITED STATES": 13256000000
+      }
+    },
+    {
+      "date": "2024-09-30",
+      "segments": {
+        "CHINA": 5665000000,
+        "Other Countries": 6933000000,
+        "UNITED STATES": 12584000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "CHINA": 6051000000,
+        "Other Countries": 7533000000,
+        "UNITED STATES": 12123000000
+      }
+    },
+    {
+      "date": "2025-03-31",
+      "segments": {
+        "CHINA": 4303000000,
+        "Other Countries": 4699000000,
+        "UNITED STATES": 10333000000
+      }
+    },
+    {
+      "date": "2025-06-30",
+      "segments": {
+        "CHINA": 4305000000,
+        "Other Countries": 6382000000,
+        "UNITED STATES": 11809000000
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "segments": {
+        "CHINA": 5653000000,
+        "Other Countries": 7844000000,
+        "UNITED STATES": 14598000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "CHINA": 6701000000,
+        "Other Countries": 7313000000,
+        "UNITED STATES": 10887000000
+      }
+    },
+    {
+      "date": "2026-03-31",
+      "segments": {
+        "CHINA": 4184000000,
+        "Other Countries": 7526000000,
+        "UNITED STATES": 10677000000
+      }
+    },
+    {
+      "date": "2026-06-30",
+      "segments": {
+        "CHINA": 4675000000,
+        "Other Countries": 10353000000,
+        "UNITED STATES": 13208000000
+      }
+    },
+    {
+      "date": "2026-09-30",
+      "segments": {
+        "CHINA": 5209000000,
+        "Other Countries": 10342000000,
+        "UNITED STATES": 12495000000
+      }
+    }
+  ],
+  "sanitizedAt": "2026-11-02T14:51:27.870Z"
+}

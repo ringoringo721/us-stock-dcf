@@ -1,0 +1,270 @@
+{
+  "version": 1,
+  "ticker": "QCOM",
+  "source": "FMP revenue segmentation (annual)",
+  "period": "annual",
+  "product": [
+    {
+      "date": "2011-09-25",
+      "segments": {
+        "QCT": 8859000000,
+        "QTL": 5422000000,
+        "QWI": 656000000,
+        "Segment Reconciling Items": 20000000
+      }
+    },
+    {
+      "date": "2012-09-30",
+      "segments": {
+        "QCT": 12141000000,
+        "QTL": 6327000000,
+        "QWI": 633000000,
+        "Other Nonreportable Segments": 24000000
+      }
+    },
+    {
+      "date": "2013-09-29",
+      "segments": {
+        "Other Segments": -12000000,
+        "QCT": 16715000000,
+        "QTL": 7554000000,
+        "QWI": 613000000
+      }
+    },
+    {
+      "date": "2014-09-28",
+      "segments": {
+        "Other Segments": 258000000,
+        "QCT": 18665000000,
+        "QTL": 7569000000
+      }
+    },
+    {
+      "date": "2015-09-27",
+      "segments": {
+        "Intersegment Elimination": -5000000,
+        "Other Segments": 181000000,
+        "QCT": 17154000000,
+        "QSI": 4000000,
+        "QTL": 7947000000,
+        "Segment Reconciling Items": 176000000
+      }
+    },
+    {
+      "date": "2016-09-25",
+      "segments": {
+        "Other Segments": 438000000,
+        "QCT": 15409000000,
+        "QSI": 47000000,
+        "QTL": 7664000000
+      }
+    },
+    {
+      "date": "2017-09-24",
+      "segments": {
+        "QTL": 6445000000,
+        "Other Segments": 311000000,
+        "QCT": 16479000000,
+        "QSI": 113000000
+      }
+    },
+    {
+      "date": "2018-09-30",
+      "segments": {
+        "Other Segments": 287000000,
+        "QCT": 17282000000,
+        "QSI": 100000000,
+        "QTL": 5163000000
+      }
+    },
+    {
+      "date": "2019-09-29",
+      "segments": {
+        "Other Segments": 168000000,
+        "QCT": 14639000000,
+        "QSI": 152000000,
+        "QTL": 4591000000
+      }
+    },
+    {
+      "date": "2020-09-27",
+      "segments": {
+        "Other Segments": 133000000,
+        "QCT": 16493000000,
+        "QSI": 36000000,
+        "QTL": 5028000000
+      }
+    },
+    {
+      "date": "2021-09-26",
+      "segments": {
+        "Other Segments": 128000000,
+        "QCT": 27019000000,
+        "QSI": 45000000,
+        "QTL": 6320000000
+      }
+    },
+    {
+      "date": "2022-09-25",
+      "segments": {
+        "Other Segments": 134000000,
+        "QCT": 37677000000,
+        "QSI": 31000000,
+        "QTL": 6358000000
+      }
+    },
+    {
+      "date": "2023-09-24",
+      "segments": {
+        "Other Segments": 144000000,
+        "QCT": 30382000000,
+        "QSI": 28000000,
+        "QTL": 5306000000
+      }
+    },
+    {
+      "date": "2024-09-29",
+      "segments": {
+        "QCT": 33196000000,
+        "QSI": 18000000,
+        "QTL": 5572000000
+      }
+    },
+    {
+      "date": "2025-09-28",
+      "segments": {
+        "QCT": 38367000000,
+        "QTL": 5582000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2011-09-25",
+      "segments": {
+        "UNITED STATES": 897000000,
+        "CHINA": 4744000000,
+        "Japan": 1165000000,
+        "KOREA, REPUBLIC OF": 2887000000,
+        "TAIWAN, PROVINCE OF CHINA": 2550000000
+      }
+    },
+    {
+      "date": "2012-09-30",
+      "segments": {
+        "UNITED STATES": 967000000,
+        "CHINA": 7971000000,
+        "KOREA, REPUBLIC OF": 4203000000,
+        "TAIWAN, PROVINCE OF CHINA": 2648000000
+      }
+    },
+    {
+      "date": "2013-09-29",
+      "segments": {
+        "CHINA": 12288000000,
+        "KOREA, REPUBLIC OF": 4983000000,
+        "Other Foreign": 4107000000,
+        "TAIWAN, PROVINCE OF CHINA": 2683000000,
+        "UNITED STATES": 805000000
+      }
+    },
+    {
+      "date": "2014-09-28",
+      "segments": {
+        "CHINA": 13200000000,
+        "KOREA, REPUBLIC OF": 6172000000,
+        "Other Foreign": 3867000000,
+        "TAIWAN, PROVINCE OF CHINA": 2876000000,
+        "UNITED STATES": 372000000
+      }
+    },
+    {
+      "date": "2015-09-27",
+      "segments": {
+        "CHINA": 13337000000,
+        "KOREA, REPUBLIC OF": 4107000000,
+        "Other Foreign": 4297000000,
+        "TAIWAN, PROVINCE OF CHINA": 3294000000,
+        "UNITED STATES": 246000000
+      }
+    },
+    {
+      "date": "2016-09-25",
+      "segments": {
+        "CHINA": 13503000000,
+        "KOREA, REPUBLIC OF": 3918000000,
+        "Other Foreign": 2901000000,
+        "TAIWAN, PROVINCE OF CHINA": 2846000000,
+        "UNITED STATES": 386000000
+      }
+    },
+    {
+      "date": "2017-09-24",
+      "segments": {
+        "CHINA": 14579000000,
+        "KOREA, REPUBLIC OF": 3538000000,
+        "Other Foreign": 3661000000,
+        "UNITED STATES": 513000000
+      }
+    },
+    {
+      "date": "2018-09-30",
+      "segments": {
+        "CHINA": 15149000000,
+        "KOREA, REPUBLIC OF": 3175000000,
+        "Other Foreign": 3805000000,
+        "UNITED STATES": 603000000
+      }
+    },
+    {
+      "date": "2019-09-29",
+      "segments": {
+        "CHINA": 11610000000,
+        "IRELAND": 2957000000,
+        "KOREA, REPUBLIC OF": 2400000000,
+        "Other Foreign": 4532000000,
+        "UNITED STATES": 2774000000
+      }
+    },
+    {
+      "date": "2020-09-27",
+      "segments": {
+        "CHINA": 14001000000,
+        "IRELAND": 867000000,
+        "KOREA, REPUBLIC OF": 2964000000,
+        "Other Foreign": 4570000000,
+        "UNITED STATES": 1129000000
+      }
+    },
+    {
+      "date": "2021-09-26",
+      "segments": {
+        "CHINA": 22512000000,
+        "IRELAND": 1160000000,
+        "KOREA, REPUBLIC OF": 2368000000,
+        "Other Foreign": 6120000000,
+        "UNITED STATES": 1406000000
+      }
+    },
+    {
+      "date": "2022-09-25",
+      "segments": {
+        "CHINA": 28119000000,
+        "KOREA, REPUBLIC OF": 3164000000,
+        "Other Foreign": 5372000000,
+        "UNITED STATES": 1482000000,
+        "VIET NAM": 6063000000
+      }
+    },
+    {
+      "date": "2023-09-24",
+      "segments": {
+        "CHINA": 22382000000,
+        "KOREA, REPUBLIC OF": 3272000000,
+        "Other Foreign": 4356000000,
+        "UNITED STATES": 1259000000,
+        "VIET NAM": 4551000000
+      }
+    }
+  ]
+}

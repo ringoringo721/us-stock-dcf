@@ -1,0 +1,285 @@
+{
+  "version": 1,
+  "ticker": "GS",
+  "source": "FMP revenue segmentation (annual)",
+  "period": "annual",
+  "product": [
+    {
+      "date": "2012-12-31",
+      "segments": {
+        "Institutional Client Services": 18124000000,
+        "Investing And Lending": 5891000000,
+        "Investment Banking": 4926000000,
+        "Investment Management": 5222000000
+      }
+    },
+    {
+      "date": "2013-12-31",
+      "segments": {
+        "Institutional Client Services - Commissions and Fees": 3103000000,
+        "Institutional Client Services - Equities Client Execution": 2594000000,
+        "Institutional Client Services - Equities": 7070000000,
+        "Institutional Client Services - Fixed Income, Currency and Commodities Client Execution": 8651000000,
+        "Institutional Client Services - Securities Services": 1373000000,
+        "Institutional Client Services": 15721000000,
+        "Investing And Lending": 7018000000,
+        "Investing and Lending - Debt Securities and Loans": 1947000000,
+        "Investing and Lending - Equity Securities": 3930000000,
+        "Investing and Lending - Other": 1141000000,
+        "Investment Banking - Debt Underwriting": 2367000000,
+        "Investment Banking - Equity Underwriting": 1659000000,
+        "Investment Banking - Financial Advisory": 1978000000,
+        "Investment Banking - Underwriting": 4026000000,
+        "Investment Banking": 6004000000,
+        "Investment Management - Management and Other Fees": 4386000000,
+        "Investment Management - Transaction Revenues": 415000000,
+        "Investment Management -Incentive Fees": 662000000,
+        "Investment Management": 5463000000
+      }
+    },
+    {
+      "date": "2014-12-31",
+      "segments": {
+        "Institutional Client Services Commissions And Fees": 3153000000,
+        "Institutional Client Services Equities Client Execution": 2079000000,
+        "Institutional Client Services Equities": 6736000000,
+        "Institutional Client Services Fixed Income Currency And Commodities Client Execution": 8461000000,
+        "Institutional Client Services Securities Services": 1504000000,
+        "Institutional Client Services": 15197000000,
+        "Investing And Lending Debt Securities And Loans": 2165000000,
+        "Investing And Lending Equity Securities": 3813000000,
+        "Investing And Lending Other": 847000000,
+        "Investing And Lending": 6825000000,
+        "Investment Banking Debt Underwriting": 2240000000,
+        "Investment Banking Equity Underwriting": 1750000000,
+        "Investment Banking Financial Advisory": 2474000000,
+        "Investment Banking Underwriting": 3990000000,
+        "Investment Banking": 6464000000,
+        "Investment Management Incentive Fees": 776000000,
+        "Investment Management Management And Other Fees": 4800000000,
+        "Investment Management Transaction Revenues": 466000000,
+        "Investment Management": 6042000000
+      }
+    },
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "Institutional Client Services": 15151000000,
+        "Investing And Lending": 5436000000,
+        "Investment Banking": 7027000000,
+        "Investment Management": 6206000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Institutional Client Services": 14467000000,
+        "Investing And Lending": 4080000000,
+        "Investment Banking": 6273000000,
+        "Investment Management": 5788000000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "Institutional Client Services": 11902000000,
+        "Investing And Lending": 6581000000,
+        "Investment Banking": 7371000000,
+        "Investment Management": 6219000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Institutional Client Services": 13482000000,
+        "Investing And Lending": 8250000000,
+        "Investment Banking": 7862000000,
+        "Investment Management": 7022000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Investment Management": 14168000000,
+        "Global Markets": 14779000000,
+        "Investment Banking": 7599000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Investment Management": 13980000000,
+        "Global Markets": 21157000000,
+        "Investment Banking": 9423000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Investment Management": 22386000000,
+        "Global Markets": 22077000000,
+        "Investment Banking": 14876000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Investment Management": 13376000000,
+        "Global Markets": 32487000000,
+        "Platform Solutions": 1502000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Investment Management": 13880000000,
+        "Global Markets": 29996000000,
+        "Platform Solutions": 2378000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Investment Management": 16142000000,
+        "Global Markets": 34943000000,
+        "Platform Solutions": 2427000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Investment Management": 16679000000,
+        "Global Markets": 41453000000,
+        "Platform Solutions": 151000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2010-12-31",
+      "segments": {
+        "Americas": 21564000000,
+        "Asia": 7148000000,
+        "EMEA": 10449000000
+      }
+    },
+    {
+      "date": "2011-12-31",
+      "segments": {
+        "Americas": 17873000000,
+        "EMEA": 7074000000
+      }
+    },
+    {
+      "date": "2012-12-31",
+      "segments": {
+        "Americas": 20159000000,
+        "EMEA": 8612000000
+      }
+    },
+    {
+      "date": "2013-12-31",
+      "segments": {
+        "Americas": 19858000000,
+        "Asia": 5520000000,
+        "EMEA": 8828000000
+      }
+    },
+    {
+      "date": "2014-12-31",
+      "segments": {
+        "Americas": 20062000000,
+        "Asia": 5409000000,
+        "EMEA": 9057000000
+      }
+    },
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "Americas": 19202000000,
+        "Asia": 5637000000,
+        "EMEA": 8981000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Americas": 18144000000,
+        "Asia": 4424000000,
+        "EMEA": 8040000000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "Americas": 19405000000,
+        "Asia": 4816000000,
+        "EMEA": 7852000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Americas": 22339000000,
+        "Asia": 5033000000,
+        "EMEA": 9244000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Americas": 22148000000,
+        "Asia": 4653000000,
+        "EMEA": 9745000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Americas": 27508000000,
+        "Asia": 6184000000,
+        "EMEA": 10868000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Americas": 37379000000,
+        "Asia": 7588000000,
+        "EMEA": 14372000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Americas": 28669000000,
+        "Asia": 5836000000,
+        "EMEA": 12860000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Americas": 29335000000,
+        "Asia": 5175000000,
+        "EMEA": 11744000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Americas": 34448000000,
+        "Asia": 6814000000,
+        "EMEA": 12250000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Americas": 36548000000,
+        "Asia": 7580000000,
+        "EMEA": 14155000000
+      }
+    }
+  ]
+}

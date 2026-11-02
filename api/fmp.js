@@ -8,7 +8,42 @@ const endpoints = {
   'custom-levered-dcf': 'custom-levered-discounted-cash-flow',
   'historical-price': 'historical-price-eod/full',
   'analyst-estimates': 'analyst-estimates',
+  dividends: 'dividends',
+  'revenue-product-segmentation': 'revenue-product-segmentation',
+  'revenue-geographic-segmentation': 'revenue-geographic-segmentation',
+  'sec-filings': 'sec-filings-search/symbol',
+  // Metadata only — full earning-call-transcript bodies are NOT proxied (paid scrape risk).
+  'transcript-dates': 'earning-call-transcript-dates',
 };
+
+/** In-memory per-IP budgets for document metadata actions (best-effort on serverless). */
+const documentRateBuckets = new Map();
+const DOCUMENT_RATE_WINDOW_MS = 60_000;
+const DOCUMENT_RATE_MAX = 40;
+
+function clientIp(req) {
+  const forwarded = req.headers?.['x-forwarded-for'];
+  if (typeof forwarded === 'string' && forwarded.trim()) return forwarded.split(',')[0].trim();
+  return req.socket?.remoteAddress || req.headers?.['x-real-ip'] || 'unknown';
+}
+
+function documentRateLimited(req, action) {
+  if (action !== 'sec-filings' && action !== 'transcript-dates') return false;
+  const key = `${clientIp(req)}:${action}`;
+  const now = Date.now();
+  let bucket = documentRateBuckets.get(key);
+  if (!bucket || now >= bucket.resetAt) {
+    bucket = { count: 0, resetAt: now + DOCUMENT_RATE_WINDOW_MS };
+    documentRateBuckets.set(key, bucket);
+  }
+  bucket.count += 1;
+  if (documentRateBuckets.size > 5000) {
+    for (const [id, entry] of documentRateBuckets) {
+      if (now >= entry.resetAt) documentRateBuckets.delete(id);
+    }
+  }
+  return bucket.count > DOCUMENT_RATE_MAX;
+}
 const customParameters = {
   revenueGrowthPct: [-0.9, 2], ebitdaPct: [-1, 1], ebitPct: [-1, 1],
   depreciationAndAmortizationPct: [0, 1], cashAndShortTermInvestmentsPct: [0, 5],
@@ -35,22 +70,47 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
     const technical = action === 'technical';
     const historical = action === 'historical-price';
     const estimates = action === 'analyst-estimates';
+    const dividends = action === 'dividends';
+    const revenueSegments = action === 'revenue-product-segmentation'
+      || action === 'revenue-geographic-segmentation';
+    const secFilings = action === 'sec-filings';
+    const transcriptDates = action === 'transcript-dates';
+    // Reject legacy full-transcript action explicitly (was a paid-content scrape surface).
+    if (action === 'earning-call-transcript') {
+      return send(403, {
+        error: 'TRANSCRIPT_BODY_NOT_PROXIED',
+        hint: 'Full FMP earning-call-transcript text is not exposed. Open SEC EDGAR 8-K instead.',
+      });
+    }
     if (!Object.hasOwn(endpoints, action) || !/^[A-Z0-9][A-Z0-9.-]{0,14}$/.test(symbol || '')
         || [...new Set(query.keys())].some(key => query.getAll(key).length !== 1)
         || [...query.keys()].some(key => !['action', 'symbol', 'page'].includes(key)
           && !(technical && ['indicator', 'periodLength', 'from', 'to'].includes(key))
           && !(historical && ['from', 'to'].includes(key))
           && !(estimates && ['period', 'limit'].includes(key))
+          && !(dividends && ['limit', 'from', 'to'].includes(key))
+          && !(revenueSegments && ['period', 'structure'].includes(key))
+          && !(secFilings && ['from', 'to', 'limit', 'page'].includes(key))
+          && !(transcriptDates && [].includes(key))
           && !(custom && Object.hasOwn(customParameters, key)))) {
       return send(400, { error: 'INVALID_REQUEST' });
     }
+    if (documentRateLimited(req, action)) {
+      res.setHeader('Cache-Control', 'private, no-store');
+      res.setHeader('Retry-After', '60');
+      return send(429, { error: 'DOCUMENT_RATE_LIMITED' });
+    }
     const page = query.get('page') || '0';
-    if (!/^\d{1,4}$/.test(page) || Number(page) > 1000 || action !== 'news' && query.has('page')) {
+    if (!/^\d{1,4}$/.test(page) || Number(page) > 1000
+        || (action !== 'news' && action !== 'sec-filings' && query.has('page'))) {
       return send(400, { error: 'INVALID_PAGE' });
     }
     const indicator = query.get('indicator'), period = query.get('periodLength');
     const from = query.get('from'), to = query.get('to');
     const estimatePeriod = query.get('period'), estimateLimit = query.get('limit');
+    const segmentPeriod = query.get('period');
+    const segmentStructure = query.get('structure');
+    const filingsLimit = query.get('limit');
     if (technical && (!/^\d{1,3}$/.test(period || '')
         || !technicals.validRequest(indicator, Number(period), from, to))) {
       return send(400, { error: 'INVALID_TECHNICAL_REQUEST' });
@@ -62,6 +122,25 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
     if (estimates && (estimatePeriod !== 'annual' || !/^\d{1,2}$/.test(estimateLimit || '')
         || Number(estimateLimit) < 1 || Number(estimateLimit) > 40)) {
       return send(400, { error: 'INVALID_ANALYST_ESTIMATES_REQUEST' });
+    }
+    if (dividends && query.has('limit') && (!/^\d{1,3}$/.test(estimateLimit || '')
+        || Number(estimateLimit) < 1 || Number(estimateLimit) > 500)) {
+      return send(400, { error: 'INVALID_DIVIDENDS_REQUEST' });
+    }
+    if (dividends && ((from && !validDate(from)) || (to && !validDate(to))
+        || (from && to && from > to))) {
+      return send(400, { error: 'INVALID_DIVIDENDS_REQUEST' });
+    }
+    // FMP stable segmentation requires period=annual|quarter and structure=flat.
+    if (revenueSegments && ((segmentPeriod && segmentPeriod !== 'annual' && segmentPeriod !== 'quarter')
+        || (segmentStructure && segmentStructure !== 'flat'))) {
+      return send(400, { error: 'INVALID_REVENUE_SEGMENT_REQUEST' });
+    }
+    if (secFilings && ((from && !validDate(from)) || (to && !validDate(to))
+        || (from && to && from > to)
+        || (filingsLimit && (!/^\d{1,3}$/.test(filingsLimit) || Number(filingsLimit) < 1
+          || Number(filingsLimit) > 100)))) {
+      return send(400, { error: 'INVALID_SEC_FILINGS_REQUEST' });
     }
     const key = apiKey();
     if (!key) return send(503, { error: 'FMP_NOT_CONFIGURED' });
@@ -81,6 +160,34 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
     if (estimates) {
       url.searchParams.set('period', estimatePeriod);
       url.searchParams.set('limit', estimateLimit);
+    }
+    if (dividends) {
+      // Prefer a long lookback so 30y tables get real quarterly payments when FMP has them.
+      if (estimateLimit) url.searchParams.set('limit', estimateLimit);
+      else url.searchParams.set('limit', '500');
+      if (from) url.searchParams.set('from', from);
+      else {
+        const start = new Date();
+        start.setUTCFullYear(start.getUTCFullYear() - 40);
+        url.searchParams.set('from', start.toISOString().slice(0, 10));
+      }
+      if (to) url.searchParams.set('to', to);
+    }
+    if (revenueSegments) {
+      url.searchParams.set('period', segmentPeriod || 'annual');
+      url.searchParams.set('structure', 'flat');
+    }
+    if (secFilings) {
+      const end = to || new Date().toISOString().slice(0, 10);
+      const start = from || (() => {
+        const d = new Date(`${end}T00:00:00Z`);
+        d.setUTCFullYear(d.getUTCFullYear() - 5);
+        return d.toISOString().slice(0, 10);
+      })();
+      url.searchParams.set('from', start);
+      url.searchParams.set('to', end);
+      url.searchParams.set('page', page);
+      url.searchParams.set('limit', filingsLimit || '40');
     }
     for (const [name, [minimum, maximum]] of Object.entries(customParameters)) {
       if (!query.has(name)) continue;
@@ -112,14 +219,20 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
       console.error('FMP upstream rejected request', { action, symbol, status: response.status });
       return send(502, { error, upstreamStatus: response.status });
     }
-    let rows;
-    try { rows = await response.json(); }
+    let payload;
+    try { payload = await response.json(); }
     catch {
       console.error('FMP returned invalid JSON', { action, symbol });
       return send(502, { error: 'FMP_INVALID_RESPONSE' });
     }
+    // Stable dividends occasionally wrap rows; segmentation must remain a list.
+    let rows = Array.isArray(payload) ? payload
+      : Array.isArray(payload?.data) ? payload.data
+      : Array.isArray(payload?.historical) ? payload.historical
+      : null;
     if (!Array.isArray(rows)) {
-      console.error('FMP returned a non-array response', { action, symbol });
+      console.error('FMP returned a non-array response', { action, symbol,
+        message: payload && typeof payload === 'object' ? payload['Error Message'] || payload.error : null });
       return send(502, { error: 'FMP_INVALID_RESPONSE' });
     }
     let data;
@@ -140,14 +253,37 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
         close: row.close, volume: row.volume == null ? null : row.volume
       }));
     } else {
-      data = rows.filter(row => row && row.symbol === provider);
-      if (data.length !== rows.length) {
+      // Dividends / segment / filings / transcript-dates sometimes omit symbol.
+      const softSymbol = revenueSegments || dividends || secFilings || transcriptDates;
+      data = rows.filter(row => row && (row.symbol == null || row.symbol === ''
+        || row.symbol === provider || row.symbol === symbol));
+      if (!softSymbol && data.length !== rows.length) {
+        console.error('FMP returned another security', { action, symbol });
+        return send(502, { error: 'FMP_SECURITY_MISMATCH' });
+      }
+      if (softSymbol && rows.some(row => row?.symbol
+          && row.symbol !== provider && row.symbol !== symbol)) {
         console.error('FMP returned another security', { action, symbol });
         return send(502, { error: 'FMP_SECURITY_MISMATCH' });
       }
       if (provider !== symbol) data = data.map(row => ({ ...row, symbol, providerSymbol: provider }));
+      else if (softSymbol) {
+        data = data.map(row => ({ ...row, symbol }));
+      }
+      // Never forward accidental transcript body fields on metadata endpoints.
+      if (transcriptDates) {
+        data = data.map(row => {
+          const { content, transcript, ...meta } = row || {};
+          return meta;
+        });
+      }
     }
-    res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=600');
+    // Paid / document metadata must not be edge-cached publicly.
+    if (secFilings || transcriptDates) {
+      res.setHeader('Cache-Control', 'private, no-store');
+    } else {
+      res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=600');
+    }
     return send(200, { data, source: { provider: 'FMP', endpoint, symbol,
       capturedAt: new Date().toISOString(),
       ...(technical ? { indicator, periodLength: Number(period),

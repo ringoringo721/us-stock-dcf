@@ -1,0 +1,330 @@
+{
+  "version": 1,
+  "ticker": "BA",
+  "source": "FMP revenue segmentation (annual)",
+  "period": "annual",
+  "product": [
+    {
+      "date": "2011-12-31",
+      "segments": {
+        "Boeing Capital Corporation": 532000000,
+        "Commercial Airplanes Segment": 36171000000,
+        "Other Segment": 138000000,
+        "Boeing Defense Space Security Segment": 46923000000
+      }
+    },
+    {
+      "date": "2012-12-31",
+      "segments": {
+        "Boeing Capital Corporation": 441000000,
+        "Boeing Defense Space Security Segment": 32607000000,
+        "Commercial Airplanes Segment": 49127000000,
+        "Other Segment": 133000000
+      }
+    },
+    {
+      "date": "2013-12-31",
+      "segments": {
+        "Other Segment": 102000000,
+        "Boeing Capital Corporation": 408000000,
+        "Boeing Defense Space Security Segment": 33197000000,
+        "Commercial Airplanes Segment": 52981000000
+      }
+    },
+    {
+      "date": "2014-12-31",
+      "segments": {
+        "Boeing Capital Corporation": 416000000,
+        "Boeing Defense Space Security Segment": 30881000000,
+        "Commercial Airplanes Segment": 59990000000
+      }
+    },
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "Boeing Capital Corporation": 413000000,
+        "Boeing Defense Space Security Segment": 30388000000,
+        "Commercial Airplanes Segment": 66048000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Boeing Capital Corporation": 298000000,
+        "Boeing Defense Space Security Segment": 29498000000,
+        "Commercial Airplanes Segment": 65069000000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "Boeing Capital Corporation": 307000000,
+        "Boeing Defense Space Security Segment": 21057000000,
+        "Commercial Airplanes Segment": 56729000000,
+        "Global Services": 14639000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Boeing Defense Space Security Segment": 23195000000,
+        "Commercial Airplanes Segment": 60715000000,
+        "Global Services": 17018000000,
+        "Boeing Capital Corporation": 274000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Boeing Defense Space Security Segment": 26227000000,
+        "Commercial Airplanes Segment": 32255000000,
+        "Global Services": 18468000000,
+        "Boeing Capital Corporation": 244000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Boeing Defense Space Security Segment": 26257000000,
+        "Commercial Airplanes Segment": 16162000000,
+        "Global Services": 15543000000,
+        "Boeing Capital Corporation": 261000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Boeing Defense Space Security Segment": 26540000000,
+        "Commercial Airplanes Segment": 19493000000,
+        "Global Services": 16328000000,
+        "Boeing Capital Corporation": 272000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Boeing Defense Space Security Segment": 23162000000,
+        "Commercial Airplanes Segment": 25867000000,
+        "Global Services": 17611000000,
+        "Boeing Capital Corporation": 199000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Commercial Airplanes Segment": 33901000000,
+        "Global Services": 19127000000,
+        "Boeing Defense Space Security Segment": 24933000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Commercial Airplanes Segment": 22861000000,
+        "Global Services": 19954000000,
+        "Boeing Defense Space Security Segment": 23918000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Commercial Airplanes": 41494000000,
+        "Defense, Space & Security": 27234000000,
+        "Global Services": 20923000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2011-12-31",
+      "segments": {
+        "UNITED STATES": 34391000000,
+        "Africa": 1759000000,
+        "Asia Other Than China": 7438000000,
+        "CANADA": 618000000,
+        "CHINA": 4779000000,
+        "Europe": 9850000000,
+        "Latin America": 1356000000,
+        "Middle East": 5477000000
+      }
+    },
+    {
+      "date": "2012-12-31",
+      "segments": {
+        "UNITED STATES": 37202000000,
+        "Africa": 1282000000,
+        "Asia Other Than China": 10390000000,
+        "CANADA": 586000000,
+        "CHINA": 6086000000,
+        "Europe": 10269000000,
+        "Latin America": 3555000000,
+        "Middle East": 10285000000
+      }
+    },
+    {
+      "date": "2013-12-31",
+      "segments": {
+        "Africa": 621000000,
+        "Asia Other Than China": 12200000000,
+        "CANADA": 1486000000,
+        "CHINA": 10555000000,
+        "Europe": 10622000000,
+        "Latin America": 2725000000,
+        "Middle East": 9165000000,
+        "UNITED STATES": 37592000000
+      }
+    },
+    {
+      "date": "2014-12-31",
+      "segments": {
+        "Africa": 2596000000,
+        "Asia Other Than China": 11900000000,
+        "CANADA": 1901000000,
+        "CHINA": 11029000000,
+        "Europe": 11898000000,
+        "Latin America": 2596000000,
+        "Middle East": 9243000000,
+        "UNITED STATES": 37842000000
+      }
+    },
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "Africa": 1398000000,
+        "Asia Other Than China": 13433000000,
+        "CANADA": 1870000000,
+        "CHINA": 12556000000,
+        "Europe": 12248000000,
+        "Latin America": 1875000000,
+        "Middle East": 10846000000,
+        "UNITED STATES": 39287000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Africa": 1999000000,
+        "Asia Other Than China": 10553000000,
+        "CANADA": 2076000000,
+        "CHINA": 10312000000,
+        "Europe": 13790000000,
+        "Latin America": 1936000000,
+        "Middle East": 13297000000,
+        "UNITED STATES": 38765000000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "Africa": 755000000,
+        "Asia Other Than China": 8899000000,
+        "CANADA": 2197000000,
+        "CHINA": 11911000000,
+        "Europe": 11457000000,
+        "Latin America": 1494000000,
+        "Middle East": 12287000000,
+        "UNITED STATES": 42331000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Africa": 1486000000,
+        "Asia Other Than China": 12141000000,
+        "CANADA": 2583000000,
+        "CHINA": 13764000000,
+        "Europe": 12976000000,
+        "Latin America": 1458000000,
+        "Middle East": 9745000000,
+        "UNITED STATES": 44676000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Africa": 1113000000,
+        "Asia Other Than China": 10662000000,
+        "CANADA": 2019000000,
+        "CHINA": 5684000000,
+        "Europe": 10366000000,
+        "Latin America": 1015000000,
+        "Middle East": 9272000000,
+        "UNITED STATES": 42681000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Africa": 114000000,
+        "Asia Other Than China": 4128000000,
+        "CANADA": 1302000000,
+        "CHINA": 1803000000,
+        "Europe": 7961000000,
+        "Latin America": 229000000,
+        "Middle East": 5308000000,
+        "UNITED STATES": 36979000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Africa": 239000000,
+        "Asia Other Than China": 5845000000,
+        "CANADA": 969000000,
+        "Europe": 8967000000,
+        "Latin America": 1376000000,
+        "Middle East": 4653000000,
+        "UNITED STATES": 39076000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Africa": 418000000,
+        "Asia Other Than China": 8393000000,
+        "CANADA": 1612000000,
+        "Europe": 7916000000,
+        "Latin America": 2412000000,
+        "Middle East": 5047000000,
+        "UNITED STATES": 39218000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Africa": 825000000,
+        "Asia Other Than China": 10013000000,
+        "CANADA": 1256000000,
+        "Europe": 10520000000,
+        "Latin America": 1524000000,
+        "Middle East": 6594000000,
+        "UNITED STATES": 45380000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Africa": 1143000000,
+        "Asia Other Than China": 11994000000,
+        "CANADA": 1472000000,
+        "Europe": 8734000000,
+        "Latin America": 1246000000,
+        "Middle East": 4635000000,
+        "UNITED STATES": 36171000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Africa": 1625000000,
+        "Asia Other Than China": 16466000000,
+        "CANADA": 1781000000,
+        "Europe": 11419000000,
+        "Latin America": 1479000000,
+        "Middle East": 7023000000,
+        "Non-US": 41380000000,
+        "UNITED STATES": 48083000000
+      }
+    }
+  ]
+}

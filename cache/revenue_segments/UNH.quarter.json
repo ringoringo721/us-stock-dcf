@@ -1,0 +1,447 @@
+{
+  "version": 1,
+  "ticker": "UNH",
+  "source": "FMP revenue segmentation (quarter)",
+  "period": "quarter",
+  "product": [
+    {
+      "date": "2015-03-31",
+      "segments": {
+        "Optumhealth": 7073000000,
+        "Optuminsight": 3359000000,
+        "Optumrx": 17818000000,
+        "Unitedhealthcare": 66734000000,
+        "Intersegment Eliminations": -9682000000
+      }
+    },
+    {
+      "date": "2015-06-30",
+      "segments": {
+        "Optumhealth": 7424000000,
+        "Optuminsight": 3376000000,
+        "Optumrx": 19049000000,
+        "Unitedhealthcare": 67691000000,
+        "Intersegment Eliminations": -10398000000
+      }
+    },
+    {
+      "date": "2015-09-30",
+      "segments": {
+        "Optumhealth": 7626000000,
+        "Optuminsight": 3792000000,
+        "Optumrx": 35397000000,
+        "Unitedhealthcare": 67215000000,
+        "Intersegment Eliminations": -10630000000
+      }
+    },
+    {
+      "date": "2016-03-31",
+      "segments": {
+        "Optumhealth": 3998000000,
+        "Optuminsight": 1667000000,
+        "Optumrx": 14273000000,
+        "Unitedhealthcare": 35900000000,
+        "Intersegment Eliminations": -11057000000
+      }
+    },
+    {
+      "date": "2016-06-30",
+      "segments": {
+        "Optumhealth": 4065000000,
+        "Optuminsight": 1762000000,
+        "Optumrx": 15073000000,
+        "Unitedhealthcare": 37556000000,
+        "Intersegment Eliminations": -11694000000
+      }
+    },
+    {
+      "date": "2016-09-30",
+      "segments": {
+        "Optumhealth": 4332000000,
+        "Optuminsight": 1825000000,
+        "Optumrx": 15237000000,
+        "Unitedhealthcare": 37177000000,
+        "Intersegment Eliminations": -12003000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Optumhealth": 4513000000,
+        "Optuminsight": 2079000000,
+        "Optumrx": 15857000000,
+        "Unitedhealthcare": 37948000000,
+        "Intersegment Eliminations": -12580000000
+      }
+    },
+    {
+      "date": "2017-03-31",
+      "segments": {
+        "Optumhealth": 4733000000,
+        "Optuminsight": 1843000000,
+        "Optumrx": 14947000000,
+        "Unitedhealthcare": 40136000000,
+        "Intersegment Eliminations": -12650000000
+      }
+    },
+    {
+      "date": "2017-06-30",
+      "segments": {
+        "Optumhealth": 5122000000,
+        "Optuminsight": 1993000000,
+        "Optumrx": 15840000000,
+        "Unitedhealthcare": 40788000000,
+        "Intersegment Eliminations": -13406000000
+      }
+    },
+    {
+      "date": "2017-09-30",
+      "segments": {
+        "Optumhealth": 5252000000,
+        "Optuminsight": 2004000000,
+        "Optumrx": 15953000000,
+        "Unitedhealthcare": 40734000000,
+        "Intersegment Eliminations": -13297000000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "Optumhealth": 5463000000,
+        "Optuminsight": 2247000000,
+        "Optumrx": 17015000000,
+        "Unitedhealthcare": 41599000000,
+        "Intersegment Eliminations": -13930000000
+      }
+    },
+    {
+      "date": "2018-03-31",
+      "segments": {
+        "Optumhealth": 5759000000,
+        "Optuminsight": 2069000000,
+        "Optumrx": 16106000000,
+        "Unitedhealthcare": 45459000000,
+        "Intersegment Eliminations": -1387200000
+      }
+    },
+    {
+      "date": "2018-06-30",
+      "segments": {
+        "Optumhealth": 5941000000,
+        "Optuminsight": 2185000000,
+        "Optumrx": 16941000000,
+        "Unitedhealthcare": 45846000000,
+        "Intersegment Eliminations": -14486000000
+      }
+    },
+    {
+      "date": "2018-09-30",
+      "segments": {
+        "Optumhealth": 6052000000,
+        "Optuminsight": 2254000000,
+        "Optumrx": 17437000000,
+        "Unitedhealthcare": 45937000000,
+        "Intersegment Eliminations": -14772000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Optumhealth": 6393000000,
+        "Optuminsight": 2500000000,
+        "Optumrx": 19052000000,
+        "Unitedhealthcare": 46234000000,
+        "Intersegment Eliminations": -27863800000
+      }
+    },
+    {
+      "date": "2019-03-31",
+      "segments": {
+        "Optumhealth": 6713000000,
+        "Optuminsight": 2189000000,
+        "Optumrx": 17817000000,
+        "Unitedhealthcare": 48896000000,
+        "Intersegment Eliminations": -14948000000
+      }
+    },
+    {
+      "date": "2019-06-30",
+      "segments": {
+        "Optumhealth": 7148000000,
+        "Optuminsight": 2339000000,
+        "Optumrx": 18923000000,
+        "Unitedhealthcare": 48594000000,
+        "Intersegment Eliminations": -16028000000
+      }
+    },
+    {
+      "date": "2019-09-30",
+      "segments": {
+        "Optumhealth": 8133000000,
+        "Optuminsight": 2617000000,
+        "Optumrx": 18454000000,
+        "Unitedhealthcare": 48105000000,
+        "Intersegment Eliminations": -16517000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Optumhealth": 8323000000,
+        "Optuminsight": 2861000000,
+        "Optumrx": 19094000000,
+        "Unitedhealthcare": 48247000000,
+        "Intersegment Eliminations": -17144000000
+      }
+    },
+    {
+      "date": "2020-03-31",
+      "segments": {
+        "Optumhealth": 9192000000,
+        "Unitedhealthcare": 51068000000,
+        "Optuminsight": 2494000000,
+        "Optumrx": 21557000000,
+        "Intersegment Eliminations": -19486000000
+      }
+    },
+    {
+      "date": "2020-06-30",
+      "segments": {
+        "Optumhealth": 9139000000,
+        "Unitedhealthcare": 49107000000,
+        "Optuminsight": 2632000000,
+        "Optumrx": 21371000000,
+        "Intersegment Eliminations": -19664000000
+      }
+    },
+    {
+      "date": "2020-09-30",
+      "segments": {
+        "Optumhealth": 10499000000,
+        "Unitedhealthcare": 50373000000,
+        "Optuminsight": 2767000000,
+        "Optumrx": 22081000000,
+        "Intersegment Eliminations": -20181000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Optumhealth": 10978000000,
+        "Unitedhealthcare": 50327000000,
+        "Optuminsight": 2909000000,
+        "Optumrx": 22489000000,
+        "Intersegment Eliminations": -20711000000
+      }
+    },
+    {
+      "date": "2021-03-31",
+      "segments": {
+        "Optumhealth": 12403000000,
+        "Optuminsight": 2852000000,
+        "Optumrx": 21604000000,
+        "Unitedhealthcare": 55114000000,
+        "Intersegment Eliminations": -21302000000
+      }
+    },
+    {
+      "date": "2021-06-30",
+      "segments": {
+        "Intersegment Eliminations": -22456000000,
+        "Optumhealth": 13300000000,
+        "Optuminsight": 2957000000,
+        "Optumrx": 22524000000,
+        "Unitedhealthcare": 55474000000
+      }
+    },
+    {
+      "date": "2021-09-30",
+      "segments": {
+        "Optumhealth": 13812000000,
+        "Optuminsight": 3139000000,
+        "Optumrx": 23337000000,
+        "Unitedhealthcare": 55927000000,
+        "Intersegment Eliminations": -23375000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Intersegment Eliminations": -23734000000,
+        "Optumhealth": 14550000000,
+        "Optuminsight": 3251000000,
+        "Optumrx": 23849000000,
+        "Unitedhealthcare": 56384000000
+      }
+    },
+    {
+      "date": "2022-03-31",
+      "segments": {
+        "Intersegment Eliminations": -25705000000,
+        "Optumhealth": 16682000000,
+        "Optuminsight": 3219000000,
+        "Optumrx": 23911000000,
+        "Unitedhealthcare": 62595000000
+      }
+    },
+    {
+      "date": "2022-06-30",
+      "segments": {
+        "Intersegment Eliminations": -26855000000,
+        "Optumhealth": 17583000000,
+        "Optuminsight": 3282000000,
+        "Optumrx": 24805000000,
+        "Unitedhealthcare": 62105000000
+      }
+    },
+    {
+      "date": "2022-09-30",
+      "segments": {
+        "Intersegment Eliminations": -27660000000,
+        "Optumhealth": 18463000000,
+        "Optuminsight": 3693000000,
+        "Optumrx": 25203000000,
+        "Unitedhealthcare": 61995000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Intersegment Eliminations": -28127000000,
+        "Optumhealth": 18446000000,
+        "Optuminsight": 4387000000,
+        "Optumrx": 25854000000,
+        "Unitedhealthcare": 63046000000
+      }
+    },
+    {
+      "date": "2023-03-31",
+      "segments": {
+        "Intersegment Eliminations": -32596000000,
+        "Optumhealth": 23004000000,
+        "Optuminsight": 4496000000,
+        "Optumrx": 27418000000,
+        "Unitedhealthcare": 70468000000
+      }
+    },
+    {
+      "date": "2023-06-30",
+      "segments": {
+        "Intersegment Eliminations": -33672000000,
+        "Optumhealth": 23917000000,
+        "Optuminsight": 4674000000,
+        "Optumrx": 28646000000,
+        "Unitedhealthcare": 70231000000
+      }
+    },
+    {
+      "date": "2023-09-30",
+      "segments": {
+        "Intersegment Eliminations": -34229000000,
+        "Optumhealth": 23864000000,
+        "Optuminsight": 4977000000,
+        "Optumrx": 28857000000,
+        "Unitedhealthcare": 69853000000
+      }
+    },
+    {
+      "date": "2024-03-31",
+      "segments": {
+        "Optumhealth": 26731000000,
+        "Optuminsight": 4502000000,
+        "Optumrx": 30835000000,
+        "Unitedhealthcare": 75357000000,
+        "Intersegment Eliminations": -36613000000
+      }
+    },
+    {
+      "date": "2024-06-30",
+      "segments": {
+        "Optumhealth": 27050000000,
+        "Optuminsight": 4543000000,
+        "Optumrx": 32415000000,
+        "Unitedhealthcare": 73866000000,
+        "Intersegment Eliminations": -37890000000
+      }
+    },
+    {
+      "date": "2024-09-30",
+      "segments": {
+        "Unitedhealthcare": 74853000000,
+        "Optumhealth": 25917000000,
+        "Optuminsight": 4931000000,
+        "Optumrx": 34207000000,
+        "Intersegment Eliminations": -37958000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Optumhealth": 25660000000,
+        "Optuminsight": 4781000000,
+        "Optumrx": 35774000000,
+        "Unitedhealthcare": 74132000000,
+        "Intersegment Eliminations": -38426000000
+      }
+    },
+    {
+      "date": "2025-03-31",
+      "segments": {
+        "Optumhealth": 25309000000,
+        "Optuminsight": 4630000000,
+        "Optumrx": 35132000000,
+        "Unitedhealthcare": 84617000000,
+        "Intersegment Eliminations": -38927000000
+      }
+    },
+    {
+      "date": "2025-06-30",
+      "segments": {
+        "Optumhealth": 25205000000,
+        "Unitedhealthcare": 86103000000,
+        "Optuminsight": 4828000000,
+        "Optumrx": 38459000000,
+        "Intersegment Eliminations": -41712000000
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "segments": {
+        "Optumhealth": 25900000000,
+        "Unitedhealthcare": 87070000000,
+        "Optuminsight": 4915000000,
+        "Optumrx": 39679000000,
+        "Intersegment Eliminations": -43086000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Optumhealth": 0,
+        "Unitedhealthcare": 74600000000
+      }
+    },
+    {
+      "date": "2026-03-31",
+      "segments": {
+        "UnitedHealthcare": 86265000000,
+        "Optum Health": 24109000000,
+        "Optum Insight": 5125000000,
+        "Optum Rx": 35736000000,
+        "Optum Eliminations": -1221000000,
+        "Corporate and Eliminations": -38293000000
+      }
+    },
+    {
+      "date": "2026-06-30",
+      "segments": {
+        "Premiums": 86956000000,
+        "Products": 13835000000,
+        "Services": 10018000000,
+        "Investment and other income": 1223000000
+      }
+    }
+  ],
+  "geographic": [],
+  "sanitizedAt": "2026-11-02T14:51:27.870Z"
+}

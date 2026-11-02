@@ -1,0 +1,290 @@
+{
+  "version": 1,
+  "ticker": "KO",
+  "source": "FMP revenue segmentation (annual)",
+  "period": "annual",
+  "product": [
+    {
+      "date": "2011-12-31",
+      "segments": {
+        "Bottling investments": 8591000000,
+        "Corporate Segment": 159000000,
+        "Pacific": 36573000000,
+        "Intersegment Eliminations": -1622000000
+      }
+    },
+    {
+      "date": "2012-12-31",
+      "segments": {
+        "Bottling investments": 8895000000,
+        "Corporate Segment": 127000000,
+        "Pacific": 37669000000,
+        "Intersegment Eliminations": -1644000000
+      }
+    },
+    {
+      "date": "2013-12-31",
+      "segments": {
+        "Bottling investments": 7676000000,
+        "Intersegment Eliminations": -1471000000,
+        "Pacific": 37732000000,
+        "Corporate Segment": 154000000
+      }
+    },
+    {
+      "date": "2014-12-31",
+      "segments": {
+        "Bottling investments": 7039000000,
+        "Intersegment Eliminations": -1325000000,
+        "Pacific": 37418000000,
+        "Corporate Segment": 136000000
+      }
+    },
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "Bottling investments": 6731000000,
+        "Corporate Segment": 166000000,
+        "Intersegment Eliminations": -1318000000,
+        "Pacific": 36256000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Bottling investments": 19885000000,
+        "Corporate Segment": 132000000,
+        "Intersegment Eliminations": -4755000000,
+        "Pacific": 26601000000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "Bottling investments": 10605000000,
+        "Intersegment Eliminations": -2549000000,
+        "Pacific": 27216000000,
+        "Corporate Segment": 138000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Bottling investments": 3771000000,
+        "Intersegment Eliminations": -701000000,
+        "Pacific": 28681000000,
+        "Corporate Segment": 105000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Bottling investments": 7440000000,
+        "Global Ventures": 2562000000,
+        "Intersegment Eliminations": -1248000000,
+        "Pacific": 28418000000,
+        "Corporate Segment": 94000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Bottling investments": 6265000000,
+        "Intersegment Eliminations": -1043000000,
+        "Pacific": 25755000000,
+        "Corporate Segment": 46000000,
+        "Global Ventures": 1991000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Bottling investments": 7203000000,
+        "Corporate Segment": 85000000,
+        "Intersegment Eliminations": -1255000000,
+        "Pacific": 29817000000,
+        "Global Ventures": 2805000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Bottling investments": 7891000000,
+        "Intersegment Eliminations": -1376000000,
+        "Pacific": 33552000000,
+        "Corporate Segment": 94000000,
+        "Global Ventures": 2843000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Bottling investments": 7860000000,
+        "Intersegment Eliminations": -1433000000,
+        "Pacific": 36137000000,
+        "Corporate Segment": 126000000,
+        "Global Ventures": 3064000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Pacific": 38776000000,
+        "Bottling investments": 6223000000,
+        "Intersegment Eliminations": -1164000000,
+        "Corporate Segment": 97000000,
+        "Global Ventures": 3129000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Concentrate operations": 28462000000,
+        "Finished product operations": 19479000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2010-12-31",
+      "segments": {
+        "International": 24490000000,
+        "United States": 10629000000
+      }
+    },
+    {
+      "date": "2011-12-31",
+      "segments": {
+        "Europe": 8315000000,
+        "Latin America": 4690000000,
+        "North America": 20571000000,
+        "Pacific": 5838000000
+      }
+    },
+    {
+      "date": "2012-12-31",
+      "segments": {
+        "Europe": 8093000000,
+        "Latin America": 4831000000,
+        "North America": 21680000000,
+        "Pacific": 6035000000
+      }
+    },
+    {
+      "date": "2013-12-31",
+      "segments": {
+        "Europe": 8097000000,
+        "Latin America": 4939000000,
+        "North America": 21590000000,
+        "Pacific": 5869000000
+      }
+    },
+    {
+      "date": "2014-12-31",
+      "segments": {
+        "Europe": 8266000000,
+        "Latin America": 4657000000,
+        "North America": 21479000000,
+        "Pacific": 5746000000
+      }
+    },
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "Europe": 7587000000,
+        "Latin America": 4074000000,
+        "North America": 21802000000,
+        "Pacific": 5252000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Europe": 7278000000,
+        "Latin America": 3819000000,
+        "North America": 10210000000,
+        "Pacific": 5294000000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "Europe": 7374000000,
+        "Latin America": 4029000000,
+        "North America": 10637000000,
+        "Pacific": 5176000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Europe": 7702000000,
+        "Latin America": 4014000000,
+        "North America": 11768000000,
+        "Pacific": 5197000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Europe": 7058000000,
+        "North America": 11915000000,
+        "Pacific": 5327000000,
+        "Latin America": 4118000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Europe": 6057000000,
+        "North America": 11477000000,
+        "Pacific": 4722000000,
+        "Latin America": 3499000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Europe": 7193000000,
+        "North America": 13190000000,
+        "Pacific": 5291000000,
+        "Latin America": 4143000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Europe": 7523000000,
+        "North America": 15674000000,
+        "Pacific": 5445000000,
+        "Latin America": 4910000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Europe": 8078000000,
+        "North America": 16774000000,
+        "Pacific": 5455000000,
+        "Latin America": 5830000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Pacific": 5546000000,
+        "Europe": 8122000000,
+        "North America": 18649000000,
+        "Latin America": 6459000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Pacific": 5638000000,
+        "Latin America": 6334000000,
+        "North America": 19586000000
+      }
+    }
+  ]
+}

@@ -1,0 +1,748 @@
+{
+  "version": 1,
+  "ticker": "C",
+  "source": "FMP revenue segmentation (quarter)",
+  "period": "quarter",
+  "product": [
+    {
+      "date": "2010-06-30",
+      "data": {
+        "Brokerage and Asset Management": -3000000,
+        "Corporate and Other": 663000000,
+        "Institutional Clients Group": 8457000000
+      }
+    },
+    {
+      "date": "2010-09-30",
+      "data": {
+        "Brokerage and Asset Management": 1000000,
+        "Corporate and Other": 596000000,
+        "Institutional Clients Group": 8128000000
+      }
+    },
+    {
+      "date": "2011-03-31",
+      "data": {
+        "Brokerage and Asset Management": 12000000,
+        "Corporate and Other": 187000000,
+        "Institutional Clients Group": 8562000000
+      }
+    },
+    {
+      "date": "2011-06-30",
+      "data": {
+        "Brokerage and Asset Management": 3000000,
+        "Corporate and Other": 263000000,
+        "Institutional Clients Group": 8134000000
+      }
+    },
+    {
+      "date": "2011-09-30",
+      "data": {
+        "Brokerage and Asset Management": -14000000,
+        "Corporate and Other": 300000000,
+        "Institutional Clients Group": 9437000000
+      }
+    },
+    {
+      "date": "2012-03-31",
+      "data": {
+        "Brokerage and Asset Management": 5000000,
+        "Corporate and Other": 500000000,
+        "Global Consumer Banking": 10014000000,
+        "Institutional Clients Group": 8018000000
+      }
+    },
+    {
+      "date": "2012-06-30",
+      "data": {
+        "Brokerage and Asset Management": -9000000,
+        "Corporate and Other": -44000000,
+        "Global Consumer Banking": 9771000000,
+        "Institutional Clients Group": 8212000000
+      }
+    },
+    {
+      "date": "2012-09-30",
+      "data": {
+        "Brokerage and Asset Management": 3000000,
+        "Corporate and Other": 55000000,
+        "Global Consumer Banking": 10180000000,
+        "Institutional Clients Group": 7428000000
+      }
+    },
+    {
+      "date": "2012-12-31",
+      "data": {
+        "Brokerage and Asset Management": 0,
+        "Corporate and Other": -319000000,
+        "Global Consumer Banking": 10249000000,
+        "Institutional Clients Group": 6942000000
+      }
+    },
+    {
+      "date": "2013-03-31",
+      "data": {
+        "Brokerage and Asset Management": -5000000,
+        "Corporate and Other": -7000000,
+        "Global Consumer Banking": 10013000000,
+        "Institutional Clients Group": 9584000000
+      }
+    },
+    {
+      "date": "2013-06-30",
+      "data": {
+        "Brokerage and Asset Management": -2000000,
+        "Corporate and Other": 103000000,
+        "Global Consumer Banking": 9711000000,
+        "Institutional Clients Group": 9573000000
+      }
+    },
+    {
+      "date": "2013-09-30",
+      "data": {
+        "Corporate and Other": 55000000,
+        "Global Consumer Banking": 9235000000,
+        "Institutional Clients Group": 7362000000,
+        "Citicorp Segment and Corporate and Other": 16628000000
+      }
+    },
+    {
+      "date": "2014-03-31",
+      "data": {
+        "Corporate and Other": 141000000,
+        "Global Consumer Banking": 9293000000,
+        "Institutional Clients Group": 9234000000,
+        "Citicorp Segment and Corporate and Other": 18668000000
+      }
+    },
+    {
+      "date": "2014-06-30",
+      "data": {
+        "Corporate and Other": 35000000,
+        "Global Consumer Banking": 9381000000,
+        "Institutional Clients Group": 8463000000,
+        "Citicorp Segment and Corporate and Other": 17879000000
+      }
+    },
+    {
+      "date": "2014-09-30",
+      "data": {
+        "Corporate and Other": 8000000,
+        "Global Consumer Banking": 9637000000,
+        "Institutional Clients Group": 8371000000,
+        "Citicorp Segment and Corporate and Other": 18016000000
+      }
+    },
+    {
+      "date": "2014-12-31",
+      "data": {
+        "Corporate and Other": -137000000,
+        "Global Consumer Banking": 9442000000,
+        "Institutional Clients Group": 7199000000,
+        "Citicorp Segment and Corporate and Other": 16504000000
+      }
+    },
+    {
+      "date": "2015-03-31",
+      "data": {
+        "Corporate and Other": 212000000,
+        "Global Consumer Banking": 8662000000,
+        "Institutional Clients Group": 9028000000,
+        "Citicorp Segment and Corporate and Other": 17902000000
+      }
+    },
+    {
+      "date": "2015-06-30",
+      "data": {
+        "Citi Holdings Segment": 1673000000,
+        "Corporate and Other": 370000000,
+        "Global Consumer Banking": 8549000000,
+        "Institutional Clients Group": 8878000000
+      }
+    },
+    {
+      "date": "2015-09-30",
+      "data": {
+        "Citi Holdings Segment": 1417000000,
+        "Corporate and Other": 218000000,
+        "Global Consumer Banking": 8460000000,
+        "Institutional Clients Group": 8597000000
+      }
+    },
+    {
+      "date": "2016-03-31",
+      "data": {
+        "Corporate and Other": 274000000,
+        "Global Consumer Banking": 7770000000,
+        "Institutional Clients Group": 8036000000,
+        "Citicorp Segment and Corporate and Other": 16080000000
+      }
+    },
+    {
+      "date": "2016-06-30",
+      "data": {
+        "Corporate and Other": 126000000,
+        "Global Consumer Banking": 7733000000,
+        "Institutional Clients Group": 8846000000,
+        "Citicorp Segment and Corporate and Other": 16705000000
+      }
+    },
+    {
+      "date": "2016-09-30",
+      "data": {
+        "Corporate and Other": 28000000,
+        "Global Consumer Banking": 8227000000,
+        "Institutional Clients Group": 8628000000,
+        "Citicorp Segment and Corporate and Other": 16883000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "data": {
+        "Corporate and Other": -18000000,
+        "Global Consumer Banking": 8033000000,
+        "Institutional Clients Group": 8340000000,
+        "Citicorp Segment and Corporate and Other": 16355000000
+      }
+    },
+    {
+      "date": "2017-03-31",
+      "data": {
+        "Corporate and Other": 1177000000,
+        "Global Consumer Banking": 7817000000,
+        "Institutional Clients Group": 9126000000
+      }
+    },
+    {
+      "date": "2017-06-30",
+      "data": {
+        "Corporate and Other": 653000000,
+        "Global Consumer Banking": 8035000000,
+        "Institutional Clients Group": 9213000000
+      }
+    },
+    {
+      "date": "2017-09-30",
+      "data": {
+        "Corporate and Other": 509000000,
+        "Global Consumer Banking": 8433000000,
+        "Institutional Clients Group": 9231000000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "data": {
+        "Corporate and Other": 746000000,
+        "Global Consumer Banking": 8412000000,
+        "Institutional Clients Group": 8097000000
+      }
+    },
+    {
+      "date": "2018-03-31",
+      "data": {
+        "Institutional Clients Group": 148000000,
+        "Global Consumer Banking": 103000000,
+        "Commissions And Fees": 1545000000
+      }
+    },
+    {
+      "date": "2018-06-30",
+      "data": {
+        "Institutional Clients Group": 124000000,
+        "Global Consumer Banking": 101000000,
+        "Commissions And Fees": 1648000000
+      }
+    },
+    {
+      "date": "2018-09-30",
+      "data": {
+        "Institutional Clients Group": 130000000,
+        "Global Consumer Banking": 92000000,
+        "Commissions And Fees": 1774000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "data": {
+        "Institutional Clients Group": 119000000,
+        "Global Consumer Banking": 90000000,
+        "Commissions And Fees": 1799000000
+      }
+    },
+    {
+      "date": "2019-03-31",
+      "data": {
+        "Global Consumer Banking": 8451000000,
+        "Institutional Clients Group": 9694000000,
+        "Corporate and Other": 431000000
+      }
+    },
+    {
+      "date": "2019-06-30",
+      "data": {
+        "Global Consumer Banking": 8505000000,
+        "Institutional Clients Group": 9721000000,
+        "Corporate and Other": 532000000
+      }
+    },
+    {
+      "date": "2019-09-30",
+      "data": {
+        "Global Consumer Banking": 8658000000,
+        "Institutional Clients Group": 9514000000
+      }
+    },
+    {
+      "date": "2020-03-31",
+      "data": {
+        "Global Consumer Banking": 8174000000,
+        "Institutional Clients Group": 12484000000
+      }
+    },
+    {
+      "date": "2020-06-30",
+      "data": {
+        "Global Consumer Banking": 7339000000,
+        "Institutional Clients Group": 12137000000
+      }
+    },
+    {
+      "date": "2020-09-30",
+      "data": {
+        "Global Consumer Banking": 7173000000,
+        "Institutional Clients Group": 10353000000
+      }
+    },
+    {
+      "date": "2021-03-31",
+      "data": {
+        "Global Consumer Banking": 7037000000,
+        "Institutional Clients Group": 12220000000
+      }
+    },
+    {
+      "date": "2021-06-30",
+      "data": {
+        "Global Consumer Banking": 6820000000,
+        "Institutional Clients Group": 10387000000
+      }
+    },
+    {
+      "date": "2021-09-30",
+      "data": {
+        "Global Consumer Banking": 6260000000,
+        "Institutional Clients Group": 10786000000
+      }
+    },
+    {
+      "date": "2022-03-31",
+      "data": {
+        "Institutional Clients Group": 11160000000,
+        "Legacy Franchises": 1931000000,
+        "Personal Banking and Wealth Management": 5905000000
+      }
+    },
+    {
+      "date": "2022-06-30",
+      "data": {
+        "Institutional Clients Group": 11419000000,
+        "Legacy Franchises": 1935000000,
+        "Personal Banking and Wealth Management": 6029000000
+      }
+    },
+    {
+      "date": "2022-09-30",
+      "data": {
+        "Institutional Clients Group": 9468000000,
+        "Legacy Franchises": 2554000000,
+        "Personal Banking and Wealth Management": 6187000000
+      }
+    },
+    {
+      "date": "2023-03-31",
+      "data": {
+        "Institutional Clients Group": 11233000000,
+        "Legacy Franchises": 2852000000,
+        "Personal Banking and Wealth Management": 6448000000
+      }
+    },
+    {
+      "date": "2023-06-30",
+      "data": {
+        "Institutional Clients Group": 10441000000,
+        "Legacy Franchises": 1923000000,
+        "Personal Banking and Wealth Management": 6395000000
+      }
+    },
+    {
+      "date": "2023-09-30",
+      "data": {
+        "Institutional Clients Group": 10644000000,
+        "Legacy Franchises": 2217000000,
+        "Personal Banking and Wealth Management": 6778000000
+      }
+    },
+    {
+      "date": "2024-03-31",
+      "data": {
+        "Banking Segment": 1714000000,
+        "Markets": 5378000000,
+        "Services": 4766000000,
+        "U.S. Personal Banking": 5178000000,
+        "Personal Banking and Wealth Management": 1695000000
+      }
+    },
+    {
+      "date": "2024-06-30",
+      "data": {
+        "Banking Segment": 1627000000,
+        "Markets": 5086000000,
+        "Services": 4680000000,
+        "U.S. Personal Banking": 4919000000,
+        "Personal Banking and Wealth Management": 1814000000
+      }
+    },
+    {
+      "date": "2024-09-30",
+      "data": {
+        "Banking Segment": 1597000000,
+        "Markets": 4817000000,
+        "Services": 5028000000,
+        "U.S. Personal Banking": 5045000000,
+        "Personal Banking and Wealth Management": 2002000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "data": {
+        "Banking Segment": 2890000000,
+        "Markets": 9641000000,
+        "Services": 9855000000,
+        "U.S. Personal Banking": 10151000000,
+        "Personal Banking and Wealth Management": 3815000000
+      }
+    },
+    {
+      "date": "2025-03-31",
+      "data": {
+        "Banking Segment": 1952000000,
+        "Markets": 5986000000,
+        "Services": 4889000000,
+        "U.S. Personal Banking": 5228000000,
+        "Personal Banking and Wealth Management": 2096000000
+      }
+    },
+    {
+      "date": "2025-06-30",
+      "data": {
+        "Banking Segment": 1921000000,
+        "Markets": 5879000000,
+        "Services": 5062000000,
+        "U.S. Personal Banking": 5119000000,
+        "Personal Banking and Wealth Management": 2166000000
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "data": {
+        "Banking Segment": 2132000000,
+        "Markets": 5563000000,
+        "Services": 5363000000,
+        "U.S. Personal Banking": 5331000000,
+        "Personal Banking and Wealth Management": 2164000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "data": {
+        "Banking Segment": 2210000000,
+        "Markets": 4542000000,
+        "Services": 5942000000,
+        "U.S. Personal Banking": 5293000000,
+        "Personal Banking and Wealth Management": 2133000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2010-06-30",
+      "data": {
+        "Asia": 3500000000,
+        "EMEA": 3000000000,
+        "Latin America": 3000000000,
+        "North America": 7000000000
+      }
+    },
+    {
+      "date": "2010-09-30",
+      "data": {
+        "Asia": 3500000000,
+        "EMEA": 2900000000,
+        "Latin America": 3300000000,
+        "North America": 6600000000
+      }
+    },
+    {
+      "date": "2011-03-31",
+      "data": {
+        "Asia": 3600000000,
+        "North America": 6300000000,
+        "Latin America": 3300000000
+      }
+    },
+    {
+      "date": "2011-06-30",
+      "data": {
+        "Asia": 3800000000,
+        "EMEA": 2900000000,
+        "North America": 6100000000,
+        "Latin America": 3500000000
+      }
+    },
+    {
+      "date": "2011-09-30",
+      "data": {
+        "Asia": 4300000000,
+        "EMEA": 3600000000,
+        "Latin America": 3400000000,
+        "North America": 6500000000
+      }
+    },
+    {
+      "date": "2011-12-31",
+      "data": {
+        "Asia": 3500000000,
+        "EMEA": 5700000000,
+        "Latin America": 3400000000,
+        "North America": 4700000000
+      }
+    },
+    {
+      "date": "2012-03-31",
+      "data": {
+        "Asia": 4000000000,
+        "EMEA": 3200000000,
+        "Latin America": 3600000000,
+        "North America": 7200000000
+      }
+    },
+    {
+      "date": "2012-06-30",
+      "data": {
+        "Asia": 3800000000,
+        "EMEA": 2900000000,
+        "Latin America": 3500000000,
+        "North America": 7700000000
+      }
+    },
+    {
+      "date": "2012-09-30",
+      "data": {
+        "Asia": 3700000000,
+        "EMEA": 2800000000,
+        "Latin America": 3700000000,
+        "North America": 7400000000
+      }
+    },
+    {
+      "date": "2012-12-31",
+      "data": {
+        "Asia": 3500000000,
+        "EMEA": 2600000000,
+        "Latin America": 3700000000,
+        "North America": 7500000000
+      }
+    },
+    {
+      "date": "2013-03-31",
+      "data": {
+        "Asia": 4000000000,
+        "EMEA": 3100000000,
+        "Latin America": 3800000000,
+        "North America": 8700000000
+      }
+    },
+    {
+      "date": "2013-06-30",
+      "data": {
+        "Asia": 4000000000,
+        "EMEA": 3500000000,
+        "Latin America": 3500000000,
+        "North America": 8300000000
+      }
+    },
+    {
+      "date": "2013-09-30",
+      "data": {
+        "Asia": 3500000000,
+        "EMEA": 2500000000,
+        "Latin America": 3400000000,
+        "North America": 7200000000
+      }
+    },
+    {
+      "date": "2013-12-31",
+      "data": {
+        "Asia": 3500000000,
+        "EMEA": 2300000000,
+        "Latin America": 3300000000,
+        "North America": 7100000000
+      }
+    },
+    {
+      "date": "2014-03-31",
+      "data": {
+        "Asia": 3700000000,
+        "EMEA": 3100000000,
+        "Latin America": 3400000000,
+        "North America": 8300000000
+      }
+    },
+    {
+      "date": "2014-06-30",
+      "data": {
+        "Asia": 3600000000,
+        "EMEA": 2800000000,
+        "Latin America": 3500000000,
+        "North America": 7900000000
+      }
+    },
+    {
+      "date": "2014-09-30",
+      "data": {
+        "Asia": 3900000000,
+        "EMEA": 2600000000,
+        "Latin America": 3400000000,
+        "North America": 8100000000
+      }
+    },
+    {
+      "date": "2014-12-31",
+      "data": {
+        "Asia": 3500000000,
+        "EMEA": 2400000000,
+        "Latin America": 3100000000,
+        "North America": 7700000000
+      }
+    },
+    {
+      "date": "2015-03-31",
+      "data": {
+        "Asia": 3500000000,
+        "EMEA": 3000000000,
+        "Latin America": 2900000000,
+        "North America": 8300000000
+      }
+    },
+    {
+      "date": "2015-06-30",
+      "data": {
+        "Asia": 3600000000,
+        "EMEA": 2800000000,
+        "Latin America": 3000000000,
+        "North America": 8000000000
+      }
+    },
+    {
+      "date": "2015-09-30",
+      "data": {
+        "Asia": 3300000000,
+        "EMEA": 2700000000,
+        "Latin America": 3000000000,
+        "North America": 8100000000
+      }
+    },
+    {
+      "date": "2015-12-31",
+      "data": {
+        "Asia": 2600000000,
+        "EMEA": 2300000000,
+        "Latin America": 2300000000,
+        "North America": 8200000000
+      }
+    },
+    {
+      "date": "2016-03-31",
+      "data": {
+        "Asia": 3500000000,
+        "EMEA": 2200000000,
+        "Latin America": 2200000000,
+        "North America": 7900000000
+      }
+    },
+    {
+      "date": "2016-06-30",
+      "data": {
+        "Asia": 3400000000,
+        "EMEA": 2600000000,
+        "Latin America": 2300000000,
+        "North America": 8300000000
+      }
+    },
+    {
+      "date": "2016-09-30",
+      "data": {
+        "Asia": 3500000000,
+        "EMEA": 2600000000,
+        "Latin America": 2300000000,
+        "North America": 8500000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "data": {
+        "Asia": 3400000000,
+        "EMEA": 2600000000,
+        "Latin America": 2200000000,
+        "North America": 8100000000
+      }
+    },
+    {
+      "date": "2017-03-31",
+      "data": {
+        "Asia": 3500000000,
+        "EMEA": 2800000000,
+        "Latin America": 2300000000,
+        "North America": 8300000000
+      }
+    },
+    {
+      "date": "2017-06-30",
+      "data": {
+        "Asia": 3600000000,
+        "EMEA": 2800000000,
+        "Latin America": 2300000000,
+        "North America": 8500000000
+      }
+    },
+    {
+      "date": "2017-09-30",
+      "data": {
+        "Asia": 3700000000,
+        "EMEA": 2700000000,
+        "Latin America": 2400000000,
+        "North America": 8900000000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "data": {
+        "Asia": 3600000000,
+        "EMEA": 2400000000,
+        "Latin America": 2400000000,
+        "North America": 8200000000
+      }
+    },
+    {
+      "date": "2018-03-31",
+      "data": {
+        "Asia": 4100000000,
+        "EMEA": 3200000000,
+        "Latin America": 2600000000,
+        "North America": 8400000000
+      }
+    }
+  ],
+  "sanitizedAt": "2026-11-02T15:12:31.630Z"
+}

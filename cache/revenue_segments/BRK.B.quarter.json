@@ -1,0 +1,739 @@
+{
+  "version": 1,
+  "ticker": "BRK.B",
+  "source": "FMP revenue segmentation (quarter)",
+  "period": "quarter",
+  "product": [
+    {
+      "date": "2009-06-30",
+      "segments": {
+        "Railroad Utilities And Energy": 2655000000,
+        "Finance and Financial Products Reportable Segment": 3423000000
+      }
+    },
+    {
+      "date": "2009-09-30",
+      "segments": {
+        "Railroad Utilities And Energy": 2812000000,
+        "Finance and Financial Products Reportable Segment": 2868000000
+      }
+    },
+    {
+      "date": "2009-12-31",
+      "segments": {
+        "Finance and Financial Products Reportable Segment": 1979000000
+      }
+    },
+    {
+      "date": "2010-03-31",
+      "segments": {
+        "Railroad Utilities And Energy": 5050000000,
+        "Finance and Financial Products Reportable Segment": 1420000000,
+        "Insurance And Other": 25567000000
+      }
+    },
+    {
+      "date": "2010-06-30",
+      "segments": {
+        "Railroad Utilities And Energy": 6766000000,
+        "Finance and Financial Products Reportable Segment": -1026000000,
+        "Insurance And Other": 25969000000
+      }
+    },
+    {
+      "date": "2010-09-30",
+      "segments": {
+        "Railroad Utilities And Energy": 7215000000,
+        "Finance and Financial Products Reportable Segment": 900000000,
+        "Insurance And Other": 28159000000
+      }
+    },
+    {
+      "date": "2010-12-31",
+      "segments": {
+        "Finance and Financial Products Reportable Segment": 3267000000
+      }
+    },
+    {
+      "date": "2011-03-31",
+      "segments": {
+        "Railroad Utilities And Energy": 7413000000,
+        "Finance and Financial Products Reportable Segment": 1196000000,
+        "Insurance And Other": 25111000000
+      }
+    },
+    {
+      "date": "2011-06-30",
+      "segments": {
+        "Railroad Utilities And Energy": 7468000000,
+        "Finance and Financial Products Reportable Segment": 967000000,
+        "Insurance And Other": 29839000000
+      }
+    },
+    {
+      "date": "2011-09-30",
+      "segments": {
+        "Railroad Utilities And Energy": 7828000000,
+        "Finance and Financial Products Reportable Segment": -1450000000,
+        "Insurance And Other": 27361000000
+      }
+    },
+    {
+      "date": "2011-12-31",
+      "segments": {
+        "Finance and Financial Products Reportable Segment": 3301000000
+      }
+    },
+    {
+      "date": "2012-03-31",
+      "segments": {
+        "Berkshire Hathaway Insurance Group": 9121000000,
+        "Berkshire Hathaway Other Businesses": 9296000000,
+        "Burlington Northern Santa Fe Corporation": 5002000000,
+        "Finance and Financial Products Reportable Segment": 959000000,
+        "Marmon": 1793000000,
+        "Mc Lane Company": 8073000000,
+        "Midamerican": 2894000000
+      }
+    },
+    {
+      "date": "2012-06-30",
+      "segments": {
+        "Berkshire Hathaway Insurance Group": 9827000000,
+        "Berkshire Hathaway Other Businesses": 9888000000,
+        "Burlington Northern Santa Fe Corporation": 5062000000,
+        "Finance and Financial Products Reportable Segment": 1016000000,
+        "Marmon": 1863000000,
+        "Mc Lane Company": 9004000000,
+        "Midamerican": 2748000000
+      }
+    },
+    {
+      "date": "2012-09-30",
+      "segments": {
+        "Berkshire Hathaway Insurance Group": 9832000000,
+        "Berkshire Hathaway Other Businesses": 9616000000,
+        "Burlington Northern Santa Fe Corporation": 5343000000,
+        "Finance and Financial Products Reportable Segment": 1006000000,
+        "Marmon": 1795000000,
+        "Mc Lane Company": 9534000000,
+        "Midamerican": 3076000000
+      }
+    },
+    {
+      "date": "2012-12-31",
+      "segments": {
+        "Berkshire Hathaway Insurance Group": 10239000000,
+        "Berkshire Hathaway Other Businesses": 9847000000,
+        "Burlington Northern Santa Fe Corporation": 5428000000,
+        "Finance and Financial Products Reportable Segment": 1129000000,
+        "Marmon": 1720000000,
+        "Mc Lane Company": 10826000000,
+        "Midamerican": 3029000000
+      }
+    },
+    {
+      "date": "2013-03-31",
+      "segments": {
+        "Berkshire Hathaway Insurance Group": 10378000000,
+        "Berkshire Hathaway Other Businesses": 9945000000,
+        "Burlington Northern Santa Fe Corporation": 5284000000,
+        "Finance and Financial Products Reportable Segment": 950000000,
+        "Marmon": 1730000000,
+        "Mc Lane Company": 10785000000,
+        "Midamerican": 3116000000
+      }
+    },
+    {
+      "date": "2013-06-30",
+      "segments": {
+        "Berkshire Hathaway Insurance Group": 10358000000,
+        "Berkshire Hathaway Other Businesses": 10856000000,
+        "Burlington Northern Santa Fe Corporation": 5322000000,
+        "Finance and Financial Products Reportable Segment": 1064000000,
+        "Marmon": 1816000000,
+        "Mc Lane Company": 11375000000,
+        "Midamerican": 3056000000
+      }
+    },
+    {
+      "date": "2013-09-30",
+      "segments": {
+        "Berkshire Hathaway Insurance Group": 10354000000,
+        "Berkshire Hathaway Other Businesses": 10691000000,
+        "Burlington Northern Santa Fe Corporation": 5651000000,
+        "Finance and Financial Products Reportable Segment": 1078000000,
+        "Marmon": 1753000000,
+        "Mc Lane Company": 11547000000,
+        "Midamerican": 3392000000
+      }
+    },
+    {
+      "date": "2013-12-31",
+      "segments": {
+        "Berkshire Hathaway Insurance Group": 10329000000,
+        "Berkshire Hathaway Other Businesses": 10890000000,
+        "Burlington Northern Santa Fe Corporation": 5757000000,
+        "Finance and Financial Products Reportable Segment": 1199000000,
+        "Marmon": 1680000000,
+        "Mc Lane Company": 12223000000,
+        "Midamerican": 3179000000
+      }
+    },
+    {
+      "date": "2014-03-31",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 4306000000,
+        "Berkshire Hathaway Insurance Group": 10367000000,
+        "Berkshire Hathaway Other Businesses": 3358000000,
+        "Burlington Northern Santa Fe Corporation": 5447000000,
+        "Finance and Financial Products Reportable Segment": 1435000000,
+        "Manufacturing Businesses": 8641000000,
+        "Mc Lane Company": 10454000000
+      }
+    },
+    {
+      "date": "2014-06-30",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 4185000000,
+        "Berkshire Hathaway Insurance Group": 10824000000,
+        "Berkshire Hathaway Other Businesses": 3605000000,
+        "Burlington Northern Santa Fe Corporation": 5735000000,
+        "Finance and Financial Products Reportable Segment": 1642000000,
+        "Manufacturing Businesses": 9613000000,
+        "Mc Lane Company": 11722000000
+      }
+    },
+    {
+      "date": "2014-09-30",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 4853000000,
+        "Berkshire Hathaway Insurance Group": 13674000000,
+        "Berkshire Hathaway Other Businesses": 3493000000,
+        "Burlington Northern Santa Fe Corporation": 5881000000,
+        "Finance and Financial Products Reportable Segment": 1654000000,
+        "Manufacturing Businesses": 9534000000,
+        "Mc Lane Company": 12151000000
+      }
+    },
+    {
+      "date": "2014-12-31",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 4270000000,
+        "Berkshire Hathaway Insurance Group": 10758000000,
+        "Burlington Northern Santa Fe Corporation": 6176000000,
+        "Finance and Financial Products Reportable Segment": 1795000000,
+        "Manufacturing Businesses": 8985000000,
+        "Mc Lane Company": 12313000000
+      }
+    },
+    {
+      "date": "2015-03-31",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 4331000000,
+        "Berkshire Hathaway Insurance Group": 10630000000,
+        "Burlington Northern Santa Fe Corporation": 5602000000,
+        "Finance and Financial Products Reportable Segment": 1554000000,
+        "Manufacturing Businesses": 8863000000,
+        "Mc Lane Company": 11643000000,
+        "Service and Retailing Businesses": 4521000000
+      }
+    },
+    {
+      "date": "2015-06-30",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 4543000000,
+        "Berkshire Hathaway Insurance Group": 11738000000,
+        "Burlington Northern Santa Fe Corporation": 5369000000,
+        "Finance and Financial Products Reportable Segment": 1799000000,
+        "Manufacturing Businesses": 9524000000,
+        "Mc Lane Company": 12293000000,
+        "Service and Retailing Businesses": 6294000000
+      }
+    },
+    {
+      "date": "2015-09-30",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 5144000000,
+        "Berkshire Hathaway Insurance Group": 11560000000,
+        "Burlington Northern Santa Fe Corporation": 5600000000,
+        "Finance and Financial Products Reportable Segment": 1725000000,
+        "Manufacturing Businesses": 9181000000,
+        "Mc Lane Company": 12264000000,
+        "Service and Retailing Businesses": 6151000000
+      }
+    },
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 4213000000,
+        "Berkshire Hathaway Insurance Group": 11928000000,
+        "Burlington Northern Santa Fe Corporation": 5396000000,
+        "Finance and Financial Products Reportable Segment": 1886000000,
+        "Manufacturing Businesses": 8568000000,
+        "Mc Lane Company": 12023000000,
+        "Service And Retailing Businesses": 6500000000
+      }
+    },
+    {
+      "date": "2016-03-31",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 4118000000,
+        "Berkshire Hathaway Insurance Group": 12273000000,
+        "Burlington Northern Santa Fe Corporation": 4767000000,
+        "Finance and Financial Products Reportable Segment": 1726000000,
+        "Manufacturing Businesses": 10554000000,
+        "Mc Lane Company": 11801000000,
+        "Service and Retailing Businesses": 5891000000
+      }
+    },
+    {
+      "date": "2016-06-30",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 4299000000,
+        "Berkshire Hathaway Insurance Group": 12035000000,
+        "Burlington Northern Santa Fe Corporation": 4585000000,
+        "Finance and Financial Products Reportable Segment": 1989000000,
+        "Manufacturing Businesses": 12201000000,
+        "Mc Lane Company": 12049000000,
+        "Service and Retailing Businesses": 6385000000
+      }
+    },
+    {
+      "date": "2016-09-30",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 5198000000,
+        "Berkshire Hathaway Insurance Group": 12407000000,
+        "Burlington Northern Santa Fe Corporation": 5167000000,
+        "Finance and Financial Products Reportable Segment": 1962000000,
+        "Manufacturing Businesses": 12082000000,
+        "Mc Lane Company": 12271000000,
+        "Service and Retailing Businesses": 6331000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 4244000000,
+        "Berkshire Hathaway Insurance Group": 13688000000,
+        "Burlington Northern Santa Fe Corporation": 5310000000,
+        "Finance and Financial Products Reportable Segment": 1998000000,
+        "Manufacturing Businesses": 11669000000,
+        "Mc Lane Company": 11954000000,
+        "Service And Retailing Businesses": 6871000000
+      }
+    },
+    {
+      "date": "2017-03-31",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 4257000000,
+        "Berkshire Hathaway Insurance Group": 22885000000,
+        "Burlington Northern Santa Fe Corporation": 5185000000,
+        "Finance and Financial Products Reportable Segment": 1865000000,
+        "Manufacturing Businesses": 12097000000,
+        "Mc Lane Company": 12101000000,
+        "Service and Retailing Businesses": 6093000000
+      }
+    },
+    {
+      "date": "2017-06-30",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 4623000000,
+        "Berkshire Hathaway Insurance Group": 13651000000,
+        "Burlington Northern Santa Fe Corporation": 5250000000,
+        "Finance and Financial Products Reportable Segment": 2033000000,
+        "Manufacturing Businesses": 12738000000,
+        "Mc Lane Company": 12581000000,
+        "Service and Retailing Businesses": 6550000000
+      }
+    },
+    {
+      "date": "2017-09-30",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 5370000000,
+        "Berkshire Hathaway Insurance Group": 14597000000,
+        "Burlington Northern Santa Fe Corporation": 5314000000,
+        "Finance and Financial Products Reportable Segment": 2187000000,
+        "Manufacturing Businesses": 12819000000,
+        "Mc Lane Company": 12798000000,
+        "Service and Retailing Businesses": 6527000000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 4689000000,
+        "Berkshire Hathaway Insurance Group": 14375000000,
+        "Burlington Northern Santa Fe Corporation": 5638000000,
+        "Finance and Financial Products Reportable Segment": 2291000000,
+        "Manufacturing Businesses": 12791000000,
+        "Mc Lane Company": 12295000000,
+        "Service And Retailing Businesses": 7143000000
+      }
+    },
+    {
+      "date": "2018-03-31",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 4512000000,
+        "Burlington Northern Santa Fe Corporation": 5624000000,
+        "Finance and Financial Products Reportable Segment": 2063000000,
+        "Manufacturing Businesses": 12934000000,
+        "Mc Lane Company": 12189000000,
+        "Service and Retailing Businesses": 6587000000,
+        "Berkshire Hathaway Insurance Group": 14586000000
+      }
+    },
+    {
+      "date": "2018-06-30",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 9562000000,
+        "Burlington Northern Santa Fe Corporation": 11435000000,
+        "Finance and Financial Products Reportable Segment": 4426000000,
+        "Manufacturing Businesses": 26752000000,
+        "Mc Lane Company": 24616000000,
+        "Service and Retailing Businesses": 13597000000,
+        "Berkshire Hathaway Insurance Group": 15548000000
+      }
+    },
+    {
+      "date": "2018-09-30",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 5706000000,
+        "Burlington Northern Santa Fe Corporation": 6147000000,
+        "Finance and Financial Products Reportable Segment": 2432000000,
+        "Manufacturing Businesses": 13552000000,
+        "Mc Lane Company": 12822000000,
+        "Service and Retailing Businesses": 6974000000,
+        "Berkshire Hathaway Insurance Group": 15779000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 207000000,
+        "Burlington Northern Santa Fe Corporation": 649000000,
+        "Manufacturing Businesses": 8645000000,
+        "Mc Lane Company": 360000000,
+        "Service And Retailing Businesses": 1781000000,
+        "Berkshire Hathaway Insurance Group": 17023000000
+      }
+    },
+    {
+      "date": "2019-03-31",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 4672000000,
+        "Burlington Northern Santa Fe Corporation": 5762000000,
+        "Manufacturing Businesses": 15070000000,
+        "Mc Lane Company": 12199000000,
+        "Service and Retailing Businesses": 7025000000,
+        "Berkshire Hathaway Insurance Group": 15806000000
+      }
+    },
+    {
+      "date": "2019-06-30",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 4970000000,
+        "Burlington Northern Santa Fe Corporation": 5893000000,
+        "Manufacturing Businesses": 16206000000,
+        "Mc Lane Company": 12411000000,
+        "Berkshire Hathaway Insurance Group": 16517000000
+      }
+    },
+    {
+      "date": "2019-09-30",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 5720000000,
+        "Burlington Northern Santa Fe Corporation": 6021000000,
+        "Manufacturing Businesses": 15897000000,
+        "Mc Lane Company": 12604000000,
+        "Berkshire Hathaway Insurance Group": 17112000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 4752000000,
+        "Burlington Northern Santa Fe Corporation": 5839000000,
+        "Manufacturing Businesses": 15557000000,
+        "Mc Lane Company": 13244000000,
+        "Service And Retailing Businesses": 22462000000,
+        "Berkshire Hathaway Insurance Group": 18258000000
+      }
+    },
+    {
+      "date": "2020-03-31",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 4507000000,
+        "Burlington Northern Santa Fe Corporation": 5417000000,
+        "Manufacturing Businesses": 15035000000,
+        "Mc Lane Company": 11821000000,
+        "Berkshire Hathaway Insurance Group": 17396000000
+      }
+    },
+    {
+      "date": "2020-06-30",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 4659000000,
+        "Burlington Northern Santa Fe Corporation": 4602000000,
+        "Manufacturing Businesses": 13033000000,
+        "Mc Lane Company": 11218000000,
+        "Berkshire Hathaway Insurance Group": 17210000000
+      }
+    },
+    {
+      "date": "2020-09-30",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 6226000000,
+        "Burlington Northern Santa Fe Corporation": 5176000000,
+        "Manufacturing Businesses": 15170000000,
+        "Mc Lane Company": 12040000000,
+        "Berkshire Hathaway Insurance Group": 17136000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 5639000000,
+        "Burlington Northern Santa Fe Corporation": 5674000000,
+        "Manufacturing Businesses": 15841000000,
+        "Mc Lane Company": 11761000000,
+        "Berkshire Hathaway Insurance Group": 17619000000
+      }
+    },
+    {
+      "date": "2021-03-31",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 5924000000,
+        "Burlington Northern Santa Fe Corporation": 5401000000,
+        "Manufacturing Businesses": 15913000000,
+        "Mc Lane Company": 11622000000,
+        "Berkshire Hathaway Insurance Group": 17838000000
+      }
+    },
+    {
+      "date": "2021-06-30",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 6085000000,
+        "Burlington Northern Santa Fe Corporation": 5809000000,
+        "Manufacturing Businesses": 17412000000,
+        "Mc Lane Company": 12295000000,
+        "Berkshire Hathaway Insurance Group": 18622000000
+      }
+    },
+    {
+      "date": "2021-09-30",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 7013000000,
+        "Burlington Northern Santa Fe Corporation": 5790000000,
+        "Manufacturing Businesses": 17496000000,
+        "Mc Lane Company": 12612000000,
+        "Berkshire Hathaway Insurance Group": 19066000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 5965000000,
+        "Burlington Northern Santa Fe Corporation": 6282000000,
+        "Manufacturing Businesses": 17909000000,
+        "Mc Lane Company": 12921000000,
+        "Berkshire Hathaway Insurance Group": 19614000000
+      }
+    },
+    {
+      "date": "2022-03-31",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 5983000000,
+        "Burlington Northern Santa Fe Corporation": 5968000000,
+        "Manufacturing Businesses": 18421000000,
+        "Mc Lane Company": 12515000000,
+        "Berkshire Hathaway Insurance Group": 18856000000
+      }
+    },
+    {
+      "date": "2022-06-30",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 6518000000,
+        "Burlington Northern Santa Fe Corporation": 6640000000,
+        "Manufacturing Businesses": 19772000000,
+        "Mc Lane Company": 13262000000,
+        "Berkshire Hathaway Insurance Group": 20371000000
+      }
+    },
+    {
+      "date": "2022-09-30",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 7531000000,
+        "Burlington Northern Santa Fe Corporation": 6693000000,
+        "Manufacturing Businesses": 19000000000,
+        "Mc Lane Company": 32000000,
+        "Service And Retailing Businesses": 9567000000,
+        "Berkshire Hathaway Insurance Group": 20493000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 6361000000,
+        "Burlington Northern Santa Fe Corporation": 6587000000,
+        "Manufacturing Businesses": 18588000000,
+        "Mc Lane Company": 27400000000,
+        "Service And Retailing Businesses": 28736000000,
+        "Berkshire Hathaway Insurance Group": 22659000000
+      }
+    },
+    {
+      "date": "2023-03-31",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 6451000000,
+        "Burlington Northern Santa Fe Corporation": 6019000000,
+        "Manufacturing Businesses": 18289000000,
+        "Mc Lane Company": 13059000000,
+        "Berkshire Hathaway Insurance Group": 22188000000
+      }
+    },
+    {
+      "date": "2023-06-30",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 6362000000,
+        "Burlington Northern Santa Fe Corporation": 5828000000,
+        "Manufacturing Businesses": 19102000000,
+        "Mc Lane Company": 12883000000,
+        "Service And Retailing Businesses": 10141000000,
+        "Berkshire Hathaway Insurance Group": 23479000000
+      }
+    },
+    {
+      "date": "2023-09-30",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 6945000000,
+        "Burlington Northern Santa Fe Corporation": 18000000,
+        "Manufacturing Businesses": 19168000000,
+        "Mc Lane Company": 13237000000,
+        "Berkshire Hathaway Insurance Group": 24308000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 6250000000,
+        "Burlington Northern Santa Fe Corporation": 12011000000,
+        "Manufacturing Businesses": 18846000000,
+        "Mc Lane Company": 13428000000,
+        "Service And Retailing Businesses": 29855000000,
+        "Berkshire Hathaway Insurance Group": 25047000000
+      }
+    },
+    {
+      "date": "2024-03-31",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 6277000000,
+        "Burlington Northern Santa Fe Corporation": 5660000000,
+        "Manufacturing Businesses": 18529000000,
+        "Mc Lane Company": 12475000000,
+        "Berkshire Hathaway Insurance Group": 24638000000
+      }
+    },
+    {
+      "date": "2024-06-30",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 6492000000,
+        "Burlington Northern Santa Fe Corporation": 5805000000,
+        "Manufacturing Businesses": 19840000000,
+        "Mc Lane Company": 12458000000,
+        "Berkshire Hathaway Insurance Group": 26030000000
+      }
+    },
+    {
+      "date": "2024-09-30",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 7335000000,
+        "Burlington Northern Santa Fe Corporation": 5940000000,
+        "Manufacturing Businesses": 19675000000,
+        "Mc Lane Company": 12723000000,
+        "Berkshire Hathaway Insurance Group": 26664000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 6244000000,
+        "Burlington Northern Santa Fe Corporation": 6167000000,
+        "Manufacturing Businesses": 19187000000,
+        "Mc Lane Company": 14251000000,
+        "Berkshire Hathaway Insurance Group": 27737000000
+      }
+    },
+    {
+      "date": "2025-03-31",
+      "segments": {
+        "Burlington Northern Santa Fe Corporation": 5720000000,
+        "Manufacturing Businesses": 18766000000,
+        "Mc Lane Company": 12175000000,
+        "Berkshire Hathaway Insurance Group": 25375000000
+      }
+    },
+    {
+      "date": "2025-06-30",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 6418000000,
+        "Burlington Northern Santa Fe Corporation": 5769000000,
+        "Manufacturing Businesses": 19969000000,
+        "Mc Lane Company": 12601000000,
+        "Pilot Travel Centers (\"Pilot)": 10109000000,
+        "Service And Retailing Businesses": 10688000000,
+        "Berkshire Hathaway Insurance Group": 26248000000
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 7304000000,
+        "Burlington Northern Santa Fe Corporation": 6039000000,
+        "Manufacturing Businesses": 20047000000,
+        "Mc Lane Company": 13191000000,
+        "Pilot Travel Centers (\"Pilot)": 10882000000,
+        "Service And Retailing Businesses": 10593000000,
+        "Berkshire Hathaway Insurance Group": 26181000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 12575000000,
+        "Burlington Northern Santa Fe Corporation": 6005000000,
+        "Manufacturing Businesses": 19705000000,
+        "Mc Lane Company": 13031000000,
+        "Pilot Travel Centers (\"Pilot)": 21207000000,
+        "Service And Retailing Businesses": 21366000000,
+        "Berkshire Hathaway Insurance Group": 26408000000
+      }
+    },
+    {
+      "date": "2026-03-31",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 6661000000,
+        "Burlington Northern Santa Fe Corporation": 5994000000,
+        "Manufacturing Businesses": 20672000000,
+        "Mc Lane Company": 11936000000,
+        "Pilot Travel Centers (\"Pilot)": 11245000000,
+        "Service And Retailing Businesses": 10989000000,
+        "Berkshire Hathaway Insurance Group": 25312000000
+      }
+    },
+    {
+      "date": "2026-06-30",
+      "segments": {
+        "Berkshire Hathaway Energy Company": 6735000000,
+        "Burlington Northern Santa Fe Corporation": 6601000000,
+        "Manufacturing Businesses": 22568000000,
+        "Mc Lane Company": 12118000000,
+        "Pilot Travel Centers (\"Pilot)": 14932000000,
+        "Service And Retailing Businesses": 11884000000,
+        "Berkshire Hathaway Insurance Group": 26176000000
+      }
+    }
+  ],
+  "geographic": [],
+  "sanitizedAt": "2026-11-02T14:51:27.870Z"
+}

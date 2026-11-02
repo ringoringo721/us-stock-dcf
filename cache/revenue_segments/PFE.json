@@ -1,0 +1,254 @@
+{
+  "version": 1,
+  "ticker": "PFE",
+  "source": "FMP revenue segmentation (annual)",
+  "period": "annual",
+  "product": [
+    {
+      "date": "2011-12-31",
+      "segments": {
+        "Animal Health and Consumer Healthcare": 7241000000,
+        "Established Products And Emerging Markets": 18509000000,
+        "Nutrition and other business activities": 2437000000,
+        "Primary Care": 22670000000,
+        "Specialty Care And Oncology": 16568000000
+      }
+    },
+    {
+      "date": "2012-12-31",
+      "segments": {
+        "Lipitor": 5600000000,
+        "Other Products": 4299000000,
+        "Biopharmaceutical": 51214000000
+      }
+    },
+    {
+      "date": "2013-12-31",
+      "segments": {
+        "Lipitor": 1725000000,
+        "Other Products": 3342000000,
+        "Biopharmaceutical": 47878000000
+      }
+    },
+    {
+      "date": "2014-12-31",
+      "segments": {
+        "Global Innovative Pharmaceutical": 13861000000,
+        "Global Established Pharmaceutical": 25149000000,
+        "Global Vaccines, Oncology and Consumer Healthcare": 10144000000
+      }
+    },
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "Global Established Pharmaceutical": 21587000000,
+        "Global Innovative Pharmaceutical": 13954000000,
+        "Global Vaccines, Oncology and Consumer Healthcare": 12803000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Essential Health Segment": 23627000000,
+        "Innovative Health Segment": 29197000000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "Essential Health Segment": 21124000000,
+        "Innovative Health Segment": 31422000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Essential Health Segment": 20221000000,
+        "Innovative Health Segment": 33426000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Biopharma Segment": 39419000000,
+        "Upjohn Segment": 10233000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Biopharma Segment": 79557000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Biopharma Segment": 98988000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Biopharma Segment": 57186000000,
+        "Business Innovation Segment": 1310000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Biopharma Segment": 62400000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Segment Reporting, Reconciling Item, Corporate Nonsegment": 1380000000,
+        "Biopharma Segment": 61199000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2010-12-31",
+      "segments": {
+        "Developed Europe": 16665000000,
+        "Developed Rest Of World": 10091000000,
+        "Emerging Markets": 12007000000,
+        "UNITED STATES": 29046000000
+      }
+    },
+    {
+      "date": "2011-12-31",
+      "segments": {
+        "Developed Europe": 16297000000,
+        "Developed Rest Of World": 11091000000,
+        "Emerging Markets": 13104000000,
+        "UNITED STATES": 26933000000
+      }
+    },
+    {
+      "date": "2012-12-31",
+      "segments": {
+        "Developed Europe": 13375000000,
+        "Developed Rest Of World": 10554000000,
+        "Emerging Markets": 11971000000,
+        "UNITED STATES": 23086000000
+      }
+    },
+    {
+      "date": "2013-12-31",
+      "segments": {
+        "Developed Europe": 11739000000,
+        "Developed Rest Of World": 8346000000,
+        "Emerging Markets": 11225000000,
+        "UNITED STATES": 20274000000
+      }
+    },
+    {
+      "date": "2014-12-31",
+      "segments": {
+        "Developed Europe": 11719000000,
+        "Developed Rest Of World": 7314000000,
+        "Emerging Markets": 11499000000,
+        "UNITED STATES": 19073000000
+      }
+    },
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "Developed Europe": 9714000000,
+        "Developed Rest Of World": 6298000000,
+        "Emerging Markets": 11136000000,
+        "UNITED STATES": 21704000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Developed Europe": 9306000000,
+        "Developed Rest Of World": 6729000000,
+        "Emerging Markets": 10420000000,
+        "UNITED STATES": 26369000000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "Developed Europe": 8508000000,
+        "Developed Rest Of World": 6612000000,
+        "Emerging Markets": 11399000000,
+        "UNITED STATES": 26026000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Developed Europe": 9116000000,
+        "Developed Rest Of World": 6551000000,
+        "Emerging Markets": 12651000000,
+        "UNITED STATES": 25329000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Developed Europe": 8701000000,
+        "Developed Rest Of World": 6465000000,
+        "Emerging Markets": 12733000000,
+        "UNITED STATES": 23852000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Developed Europe": 7788000000,
+        "Developed Rest Of World": 4036000000,
+        "Emerging Markets": 8372000000,
+        "UNITED STATES": 21712000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Developed Europe": 18336000000,
+        "Developed Rest Of World": 12506000000,
+        "Emerging Markets": 20701000000,
+        "UNITED STATES": 29746000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Developed Europe": 21982000000,
+        "Developed Rest Of World": 15778000000,
+        "Emerging Markets": 20097000000,
+        "UNITED STATES": 42473000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Developed Europe": 11650000000,
+        "Developed Rest Of World": 7761000000,
+        "Emerging Markets": 11996000000,
+        "UNITED STATES": 27088000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Developed Rest Of World": 16057000000,
+        "Emerging Markets": 8879000000,
+        "UNITED STATES": 38691000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Developed Rest Of World": 16188000000,
+        "Emerging Markets": 9313000000,
+        "UNITED STATES": 37078000000
+      }
+    }
+  ]
+}

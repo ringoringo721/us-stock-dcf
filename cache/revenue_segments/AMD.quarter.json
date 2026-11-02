@@ -1,0 +1,458 @@
+{
+  "version": 1,
+  "ticker": "AMD",
+  "source": "FMP revenue segmentation (quarter)",
+  "period": "quarter",
+  "product": [
+    {
+      "date": "2011-07-02",
+      "segments": {
+        "Computing and Graphics": 1207000000,
+        "Graphics and Visual Solutions": 367000000
+      }
+    },
+    {
+      "date": "2011-10-01",
+      "segments": {
+        "Computing and Graphics": 1689000000
+      }
+    },
+    {
+      "date": "2012-03-31",
+      "segments": {
+        "Computing and Graphics": 1203000000,
+        "Graphics and Visual Solutions": 382000000
+      }
+    },
+    {
+      "date": "2012-06-30",
+      "segments": {
+        "Computing and Graphics": 1046000000,
+        "Graphics and Visual Solutions": 367000000
+      }
+    },
+    {
+      "date": "2012-09-29",
+      "segments": {
+        "Computing and Graphics": 927000000,
+        "Graphics and Visual Solutions": 342000000
+      }
+    },
+    {
+      "date": "2012-12-29",
+      "segments": {
+        "Computing and Graphics": 829000000,
+        "Graphics and Visual Solutions": 326000000
+      }
+    },
+    {
+      "date": "2013-03-31",
+      "segments": {
+        "Computing and Graphics": 751000000,
+        "Graphics and Visual Solutions": 337000000
+      }
+    },
+    {
+      "date": "2013-06-29",
+      "segments": {
+        "Computing and Graphics": 841000000,
+        "Graphics and Visual Solutions": 320000000
+      }
+    },
+    {
+      "date": "2013-09-28",
+      "segments": {
+        "Computing and Graphics": 790000000,
+        "Graphics and Visual Solutions": 671000000
+      }
+    },
+    {
+      "date": "2013-12-28",
+      "segments": {
+        "Computing and Graphics": 722000000,
+        "Graphics and Visual Solutions": 865000000
+      }
+    },
+    {
+      "date": "2014-03-29",
+      "segments": {
+        "Computing and Graphics": 663000000,
+        "Graphics and Visual Solutions": 734000000
+      }
+    },
+    {
+      "date": "2014-06-28",
+      "segments": {
+        "Computing and Graphics": 669000000,
+        "Graphics and Visual Solutions": 772000000
+      }
+    },
+    {
+      "date": "2014-09-27",
+      "segments": {
+        "Computing and Graphics": 781000000,
+        "Graphics and Visual Solutions": 648000000
+      }
+    },
+    {
+      "date": "2014-12-27",
+      "segments": {
+        "Computing and Graphics": 1019000000,
+        "Graphics and Visual Solutions": 220000000
+      }
+    },
+    {
+      "date": "2015-03-28",
+      "segments": {
+        "Computing and Graphics": 532000000,
+        "Graphics and Visual Solutions": 498000000
+      }
+    },
+    {
+      "date": "2015-06-27",
+      "segments": {
+        "Computing and Graphics": 379000000,
+        "Graphics and Visual Solutions": 563000000
+      }
+    },
+    {
+      "date": "2015-09-26",
+      "segments": {
+        "Computing and Graphics": 424000000,
+        "Graphics and Visual Solutions": 637000000
+      }
+    },
+    {
+      "date": "2015-12-26",
+      "segments": {
+        "Computing and Graphics": 470000000,
+        "Graphics and Visual Solutions": 488000000
+      }
+    },
+    {
+      "date": "2016-03-26",
+      "segments": {
+        "Computing and Graphics": 460000000,
+        "Graphics and Visual Solutions": 372000000
+      }
+    },
+    {
+      "date": "2016-06-25",
+      "segments": {
+        "Computing and Graphics": 435000000,
+        "Graphics and Visual Solutions": 592000000
+      }
+    },
+    {
+      "date": "2016-09-24",
+      "segments": {
+        "Computing and Graphics": 472000000,
+        "Graphics and Visual Solutions": 835000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Computing and Graphics": 600000000,
+        "Graphics and Visual Solutions": 506000000
+      }
+    },
+    {
+      "date": "2017-04-01",
+      "segments": {
+        "Computing and Graphics": 573000000,
+        "Graphics and Visual Solutions": 605000000
+      }
+    },
+    {
+      "date": "2017-07-01",
+      "segments": {
+        "Computing and Graphics": 661000000,
+        "Graphics and Visual Solutions": 490000000
+      }
+    },
+    {
+      "date": "2017-09-30",
+      "segments": {
+        "Computing and Graphics": 819000000,
+        "Graphics and Visual Solutions": 824000000
+      }
+    },
+    {
+      "date": "2017-12-30",
+      "segments": {
+        "Computing and Graphics": 976000000,
+        "Graphics and Visual Solutions": 381000000
+      }
+    },
+    {
+      "date": "2018-03-31",
+      "segments": {
+        "Computing and Graphics": 1115000000,
+        "Graphics and Visual Solutions": 532000000
+      }
+    },
+    {
+      "date": "2018-06-30",
+      "segments": {
+        "Computing and Graphics": 1086000000,
+        "Graphics and Visual Solutions": 670000000
+      }
+    },
+    {
+      "date": "2018-09-29",
+      "segments": {
+        "Computing and Graphics": 938000000,
+        "Graphics and Visual Solutions": 715000000
+      }
+    },
+    {
+      "date": "2018-12-29",
+      "segments": {
+        "Computing and Graphics": 986000000,
+        "Graphics and Visual Solutions": 433000000
+      }
+    },
+    {
+      "date": "2019-03-30",
+      "segments": {
+        "Computing and Graphics": 831000000,
+        "Graphics and Visual Solutions": 441000000
+      }
+    },
+    {
+      "date": "2019-06-29",
+      "segments": {
+        "Computing and Graphics": 940000000,
+        "Graphics and Visual Solutions": 591000000
+      }
+    },
+    {
+      "date": "2019-09-28",
+      "segments": {
+        "Computing and Graphics": 1276000000,
+        "Graphics and Visual Solutions": 525000000
+      }
+    },
+    {
+      "date": "2019-12-28",
+      "segments": {
+        "Computing and Graphics": 1662000000,
+        "Graphics and Visual Solutions": 465000000
+      }
+    },
+    {
+      "date": "2020-03-28",
+      "segments": {
+        "Computing and Graphics": 1438000000,
+        "Graphics and Visual Solutions": 348000000
+      }
+    },
+    {
+      "date": "2020-06-27",
+      "segments": {
+        "Computing and Graphics": 1367000000,
+        "Graphics and Visual Solutions": 565000000
+      }
+    },
+    {
+      "date": "2020-09-26",
+      "segments": {
+        "Computing and Graphics": 1667000000,
+        "Graphics and Visual Solutions": 1134000000
+      }
+    },
+    {
+      "date": "2020-12-26",
+      "segments": {
+        "Computing and Graphics": 1960000000,
+        "Graphics and Visual Solutions": 1284000000
+      }
+    },
+    {
+      "date": "2021-03-27",
+      "segments": {
+        "Computing and Graphics": 2100000000,
+        "Graphics and Visual Solutions": 1345000000
+      }
+    },
+    {
+      "date": "2021-06-26",
+      "segments": {
+        "Computing and Graphics": 2250000000,
+        "Graphics and Visual Solutions": 1600000000
+      }
+    },
+    {
+      "date": "2021-09-25",
+      "segments": {
+        "Computing and Graphics": 2398000000,
+        "Graphics and Visual Solutions": 1915000000
+      }
+    },
+    {
+      "date": "2021-12-25",
+      "segments": {
+        "Computing and Graphics": 2584000000,
+        "Graphics and Visual Solutions": 2242000000
+      }
+    },
+    {
+      "date": "2022-03-26",
+      "segments": {
+        "Computing and Graphics": 2802000000,
+        "Graphics and Visual Solutions": 2526000000,
+        "Xilinx": 559000000
+      }
+    },
+    {
+      "date": "2022-06-25",
+      "segments": {
+        "Client": 2152000000,
+        "Data Center": 1486000000,
+        "Embedded": 1257000000,
+        "Gaming": 1655000000
+      }
+    },
+    {
+      "date": "2022-09-24",
+      "segments": {
+        "Client": 1022000000,
+        "Data Center": 1609000000,
+        "Embedded": 1303000000,
+        "Gaming": 1631000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Client": 3027000000,
+        "Data Center": 2948000000,
+        "Embedded": 1992000000,
+        "Gaming": 3519000000
+      }
+    },
+    {
+      "date": "2023-04-01",
+      "segments": {
+        "Client": 1295000000,
+        "Data Center": 1757000000,
+        "Embedded": 1562000000,
+        "Gaming": 739000000
+      }
+    },
+    {
+      "date": "2023-07-01",
+      "segments": {
+        "Client": 1321000000,
+        "Data Center": 1581000000,
+        "Embedded": 1459000000,
+        "Gaming": 998000000
+      }
+    },
+    {
+      "date": "2023-09-30",
+      "segments": {
+        "Client": 1598000000,
+        "Data Center": 1506000000,
+        "Embedded": 1243000000,
+        "Gaming": 1453000000
+      }
+    },
+    {
+      "date": "2023-12-30",
+      "segments": {
+        "Client": 437000000,
+        "Data Center": 1652000000,
+        "Embedded": 1057000000,
+        "Gaming": 3022000000
+      }
+    },
+    {
+      "date": "2024-03-30",
+      "segments": {
+        "Client": 1368000000,
+        "Data Center": 2337000000,
+        "Embedded": 846000000,
+        "Gaming": 922000000
+      }
+    },
+    {
+      "date": "2024-06-29",
+      "segments": {
+        "Client": 1492000000,
+        "Data Center": 2834000000,
+        "Embedded": 861000000,
+        "Gaming": 648000000
+      }
+    },
+    {
+      "date": "2024-09-28",
+      "segments": {
+        "Client": 1881000000,
+        "Data Center": 3549000000,
+        "Embedded": 927000000,
+        "Gaming": 462000000
+      }
+    },
+    {
+      "date": "2024-12-28",
+      "segments": {
+        "Client": 2313000000,
+        "Data Center": 3859000000,
+        "Embedded": 923000000,
+        "Gaming": 563000000
+      }
+    },
+    {
+      "date": "2025-03-29",
+      "segments": {
+        "Client and Gaming": 2941000000,
+        "Data Center": 3674000000,
+        "Embedded": 823000000
+      }
+    },
+    {
+      "date": "2025-06-28",
+      "segments": {
+        "Client and Gaming": 3621000000,
+        "Data Center": 3240000000,
+        "Embedded": 824000000
+      }
+    },
+    {
+      "date": "2025-09-27",
+      "segments": {
+        "Client and Gaming": 4048000000,
+        "Data Center": 4341000000,
+        "Embedded": 857000000
+      }
+    },
+    {
+      "date": "2025-12-27",
+      "segments": {
+        "Client and Gaming": 3940000000,
+        "Data Center": 5380000000,
+        "Embedded": 950000000
+      }
+    },
+    {
+      "date": "2026-03-28",
+      "segments": {
+        "Client and Gaming": 3605000000,
+        "Data Center": 5775000000,
+        "Embedded": 873000000
+      }
+    },
+    {
+      "date": "2026-06-27",
+      "segments": {
+        "Client and Gaming": 3841000000,
+        "Data Center": 6718000000,
+        "Embedded": 977000000
+      }
+    }
+  ],
+  "geographic": [],
+  "sanitizedAt": "2026-11-02T14:51:27.870Z"
+}

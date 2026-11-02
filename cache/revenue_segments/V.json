@@ -1,0 +1,129 @@
+{
+  "version": 1,
+  "ticker": "V",
+  "source": "FMP revenue segmentation (annual)",
+  "period": "annual",
+  "product": [
+    {
+      "date": "2019-09-30",
+      "segments": {
+        "Client Incentives": -6173000000,
+        "Data Processing Revenues": 10333000000,
+        "International Transaction Revenues": 7804000000,
+        "Service": 9700000000,
+        "Service, Other": 1313000000
+      }
+    },
+    {
+      "date": "2020-09-30",
+      "segments": {
+        "Client Incentives": -6664000000,
+        "Data Processing Revenues": 10975000000,
+        "International Transaction Revenues": 6299000000,
+        "Service": 9804000000,
+        "Service, Other": 1432000000
+      }
+    },
+    {
+      "date": "2021-09-30",
+      "segments": {
+        "Client Incentives": -8367000000,
+        "Data Processing Revenues": 12792000000,
+        "International Transaction Revenues": 6530000000,
+        "Service": 11475000000,
+        "Service, Other": 1675000000
+      }
+    },
+    {
+      "date": "2022-09-30",
+      "segments": {
+        "Client Incentives": -10295000000,
+        "Data Processing Revenues": 14438000000,
+        "International Transaction Revenues": 9815000000,
+        "Service": 13361000000,
+        "Service, Other": 1991000000
+      }
+    },
+    {
+      "date": "2023-09-30",
+      "segments": {
+        "Client Incentives": -12297000000,
+        "Data Processing Revenues": 16007000000,
+        "International Transaction Revenues": 11638000000,
+        "Service": 14826000000,
+        "Service, Other": 2479000000
+      }
+    },
+    {
+      "date": "2024-09-30",
+      "segments": {
+        "Client Incentives": -13764000000,
+        "Data Processing Revenues": 17714000000,
+        "International Transaction Revenues": 12665000000,
+        "Service": 16114000000,
+        "Service, Other": 3197000000
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "segments": {
+        "Client Incentives": -15751000000,
+        "Data Processing Revenues": 19993000000,
+        "International Transaction Revenues": 14166000000,
+        "Service": 17539000000,
+        "Service, Other": 4053000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2019-09-30",
+      "segments": {
+        "Non-US": 12698000000,
+        "UNITED STATES": 10279000000
+      }
+    },
+    {
+      "date": "2020-09-30",
+      "segments": {
+        "Non-US": 11721000000,
+        "UNITED STATES": 10125000000
+      }
+    },
+    {
+      "date": "2021-09-30",
+      "segments": {
+        "Non-US": 12945000000,
+        "UNITED STATES": 11160000000
+      }
+    },
+    {
+      "date": "2022-09-30",
+      "segments": {
+        "Non-US": 16459000000,
+        "UNITED STATES": 12851000000
+      }
+    },
+    {
+      "date": "2023-09-30",
+      "segments": {
+        "Non-US": 18515000000,
+        "UNITED STATES": 14138000000
+      }
+    },
+    {
+      "date": "2024-09-30",
+      "segments": {
+        "Non-US": 21146000000,
+        "UNITED STATES": 14780000000
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "segments": {
+        "Non-US": 24367000000,
+        "UNITED STATES": 15633000000
+      }
+    }
+  ]
+}

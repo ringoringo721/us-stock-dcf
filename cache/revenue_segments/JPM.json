@@ -1,0 +1,266 @@
+{
+  "version": 1,
+  "ticker": "JPM",
+  "source": "FMP revenue segmentation (annual)",
+  "period": "annual",
+  "product": [
+    {
+      "date": "2013-12-31",
+      "segments": {
+        "Consumer & Community Banking": 2191000000,
+        "Asset Management Segment": 11320000000,
+        "Commercial Banking": 6973000000,
+        "Corporate & Investment Bank": 34225000000,
+        "Corporate Private Equity": 1254000000,
+        "Segment Reconciling Items": -3192000000
+      }
+    },
+    {
+      "date": "2014-12-31",
+      "segments": {
+        "Commercial Banking": 6882000000,
+        "Consumer & Community Banking": 2370000000,
+        "Asset Management Segment": 12028000000,
+        "Corporate & Investment Bank": 34633000000,
+        "Corporate Segment": 12000000
+      }
+    },
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "Consumer & Community Banking": 43820000000,
+        "Asset & Wealth Management": 12119000000,
+        "Commercial Banking": 6885000000,
+        "Corporate & Investment Bank": 33542000000,
+        "Corporate Segment": 267000000
+      }
+    },
+    {
+      "date": "2016-12-30",
+      "segments": {
+        "Consumer & Community Banking": 44915000000,
+        "Corporate & Investment Bank": 35216000000,
+        "Asset & Wealth Management": 12045000000,
+        "Commercial Banking": 7453000000,
+        "Corporate Segment": -487000000,
+        "Reconciling Items": -3474000000
+      }
+    },
+    {
+      "date": "2017-12-30",
+      "segments": {
+        "Consumer & Community Banking": 46485000000,
+        "Corporate & Investment Bank": 34493000000,
+        "Asset & Wealth Management": 12918000000,
+        "Commercial Banking": 8605000000,
+        "Corporate Segment": 1140000000,
+        "Reconciling Items": -4017000000
+      }
+    },
+    {
+      "date": "2018-12-30",
+      "segments": {
+        "Consumer & Community Banking": 52079000000,
+        "Corporate & Investment Bank": 36448000000,
+        "Asset & Wealth Management": 14076000000,
+        "Commercial Banking": 9059000000,
+        "Corporate Segment": -128000000,
+        "Reconciling Items": -2505000000
+      }
+    },
+    {
+      "date": "2019-12-30",
+      "segments": {
+        "Consumer & Community Banking": 55883000000,
+        "Corporate & Investment Bank": 38298000000,
+        "Asset & Wealth Management": 14316000000,
+        "Commercial Banking": 8984000000,
+        "Corporate Segment": 1211000000,
+        "Reconciling Items": -3065000000
+      }
+    },
+    {
+      "date": "2020-12-30",
+      "segments": {
+        "Consumer & Community Banking": 51268000000,
+        "Corporate & Investment Bank": 49284000000,
+        "Asset & Wealth Management": 14240000000,
+        "Commercial Banking": 9313000000,
+        "Corporate Segment": -1176000000,
+        "Reconciling Items": -3386000000
+      }
+    },
+    {
+      "date": "2021-12-30",
+      "segments": {
+        "Corporate & Investment Bank": 51749000000,
+        "Consumer & Community Banking": 50073000000,
+        "Asset & Wealth Management": 16957000000,
+        "Commercial Banking": 10008000000,
+        "Corporate Segment": -3483000000,
+        "Reconciling Items": -3655000000
+      }
+    },
+    {
+      "date": "2022-12-30",
+      "segments": {
+        "Consumer & Community Banking": 55017000000,
+        "Corporate & Investment Bank": 47899000000,
+        "Asset & Wealth Management": 17748000000,
+        "Commercial Banking": 11533000000,
+        "Corporate Segment": 80000000,
+        "Reconciling Items": -3582000000
+      }
+    },
+    {
+      "date": "2023-12-30",
+      "segments": {
+        "Consumer & Community Banking": 70148000000,
+        "Corporate & Investment Bank": 48807000000,
+        "Asset & Wealth Management": 19827000000,
+        "Commercial Banking": 15546000000,
+        "Corporate Segment": 8038000000,
+        "Reconciling Items": -4262000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Segment Reconciling Items": -3037000000,
+        "Asset and Wealth Management Segment": 21578000000,
+        "Commercial And Investment Bank": 70114000000,
+        "Consumer & Community Banking": 71507000000,
+        "Segment Reporting, Reconciling Item, Corporate Nonsegment": 17394000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Segment Reconciling Items": -3134000000,
+        "Asset and Wealth Management Segment": 24073000000,
+        "Commercial And Investment Bank": 78454000000,
+        "Consumer & Community Banking": 76029000000,
+        "Segment Reporting, Reconciling Item, Corporate Nonsegment": 7025000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2013-12-31",
+      "segments": {
+        "Asia-Pacific": 6168000000,
+        "Europe/Middle East/Africa": 15585000000,
+        "Latin America/Caribbean": 2251000000,
+        "North America": 72602000000
+      }
+    },
+    {
+      "date": "2014-12-31",
+      "segments": {
+        "Asia-Pacific": 6083000000,
+        "Europe/Middle East/Africa": 16013000000,
+        "Latin America/Caribbean": 2047000000,
+        "North America": 70062000000
+      }
+    },
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "Asia-Pacific": 6151000000,
+        "Europe/Middle East/Africa": 14206000000,
+        "Latin America/Caribbean": 1923000000,
+        "North America": 71263000000
+      }
+    },
+    {
+      "date": "2016-12-30",
+      "segments": {
+        "North America": 73755000000,
+        "Europe/Middle East/Africa": 13842000000,
+        "Asia-Pacific": 6112000000,
+        "Latin America/Caribbean": 1959000000
+      }
+    },
+    {
+      "date": "2017-12-30",
+      "segments": {
+        "North America": 77399000000,
+        "Europe/Middle East/Africa": 14426000000,
+        "Asia-Pacific": 5805000000,
+        "Latin America/Caribbean": 1994000000
+      }
+    },
+    {
+      "date": "2018-12-30",
+      "segments": {
+        "North America": 83294000000,
+        "Europe/Middle East/Africa": 16181000000,
+        "Asia-Pacific": 7119000000,
+        "Latin America/Caribbean": 2435000000
+      }
+    },
+    {
+      "date": "2019-12-30",
+      "segments": {
+        "North America": 90044000000,
+        "Europe/Middle East/Africa": 15902000000,
+        "Asia-Pacific": 7270000000,
+        "Latin America/Caribbean": 2411000000
+      }
+    },
+    {
+      "date": "2020-12-30",
+      "segments": {
+        "North America": 90948000000,
+        "Europe/Middle East/Africa": 16566000000,
+        "Asia-Pacific": 9289000000,
+        "Latin America/Caribbean": 2740000000
+      }
+    },
+    {
+      "date": "2021-12-30",
+      "segments": {
+        "North America": 92678000000,
+        "Europe/Middle East/Africa": 16561000000,
+        "Asia-Pacific": 9654000000,
+        "Latin America/Caribbean": 2756000000
+      }
+    },
+    {
+      "date": "2022-12-30",
+      "segments": {
+        "North America": 96727000000,
+        "Europe/Middle East/Africa": 18765000000,
+        "Asia-Pacific": 10025000000,
+        "Latin America/Caribbean": 3178000000
+      }
+    },
+    {
+      "date": "2023-12-30",
+      "segments": {
+        "North America": 123231000000,
+        "Europe/Middle East/Africa": 20974000000,
+        "Asia-Pacific": 10605000000,
+        "Latin America/Caribbean": 3294000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "North America": 139323000000,
+        "Latin America/Caribbean": 3885000000,
+        "Europe/Middle East/Africa": 22353000000,
+        "Asia-Pacific": 11995000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Asia Pacific": 14065000000,
+        "EMEA": 24478000000,
+        "Latin America": 4215000000,
+        "North America": 139689000000
+      }
+    }
+  ]
+}

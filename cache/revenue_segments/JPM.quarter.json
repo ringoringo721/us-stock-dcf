@@ -1,0 +1,511 @@
+{
+  "version": 1,
+  "ticker": "JPM",
+  "source": "FMP revenue segmentation (quarter)",
+  "period": "quarter",
+  "product": [
+    {
+      "date": "2013-03-31",
+      "segments": {
+        "Consumer & Community Banking": 11615000000,
+        "Asset and Wealth Management Segment": 2653000000,
+        "Commercial Banking": 1673000000,
+        "Corporate & Investment Bank": 10140000000,
+        "Corporate": -233000000
+      }
+    },
+    {
+      "date": "2013-06-30",
+      "segments": {
+        "Consumer & Community Banking": 12015000000,
+        "Asset and Wealth Management Segment": 2725000000,
+        "Commercial Banking": 1728000000,
+        "Corporate & Investment Bank": 9876000000
+      }
+    },
+    {
+      "date": "2013-09-30",
+      "segments": {
+        "Consumer & Community Banking": 11082000000,
+        "Asset and Wealth Management Segment": 2763000000,
+        "Commercial Banking": 1725000000,
+        "Corporate & Investment Bank": 8189000000
+      }
+    },
+    {
+      "date": "2013-12-31",
+      "segments": {
+        "Consumer & Community Banking": 563000000,
+        "Asset Management Segment": 3179000000,
+        "Commercial Banking": 1847000000,
+        "Corporate & Investment Bank": 6020000000,
+        "Corporate Private Equity": 1752000000,
+        "Segment Reconciling Items": -956000000
+      }
+    },
+    {
+      "date": "2014-03-31",
+      "segments": {
+        "Consumer & Community Banking": 10460000000,
+        "Asset and Wealth Management Segment": 2778000000,
+        "Commercial Banking": 1651000000,
+        "Corporate & Investment Bank": 8606000000
+      }
+    },
+    {
+      "date": "2014-06-30",
+      "segments": {
+        "Consumer & Community Banking": 11431000000,
+        "Asset and Wealth Management Segment": 2956000000,
+        "Commercial Banking": 1701000000,
+        "Corporate & Investment Bank": 8991000000
+      }
+    },
+    {
+      "date": "2014-09-30",
+      "segments": {
+        "Consumer & Community Banking": 11267000000,
+        "Asset and Wealth Management Segment": 3016000000,
+        "Commercial Banking": 1667000000,
+        "Corporate & Investment Bank": 8787000000
+      }
+    },
+    {
+      "date": "2014-12-31",
+      "segments": {
+        "Consumer & Community Banking": 529000000
+      }
+    },
+    {
+      "date": "2015-03-31",
+      "segments": {
+        "Consumer & Community Banking": 10704000000,
+        "Asset and Wealth Management Segment": 3005000000,
+        "Commercial Banking": 1742000000,
+        "Corporate & Investment Bank": 9582000000
+      }
+    },
+    {
+      "date": "2015-06-30",
+      "segments": {
+        "Consumer & Community Banking": 11015000000,
+        "Asset and Wealth Management Segment": 3175000000,
+        "Commercial Banking": 1739000000,
+        "Corporate & Investment Bank": 8723000000
+      }
+    },
+    {
+      "date": "2015-09-30",
+      "segments": {
+        "Consumer & Community Banking": 10879000000,
+        "Asset and Wealth Management Segment": 2894000000,
+        "Commercial Banking": 1644000000,
+        "Corporate & Investment Bank": 8168000000
+      }
+    },
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "Consumer & Community Banking": 11222000000,
+        "Asset and Wealth Management Segment": 3045000000,
+        "Commercial Banking": 1760000000,
+        "Corporate & Investment Bank": 7069000000
+      }
+    },
+    {
+      "date": "2016-03-31",
+      "segments": {
+        "Consumer & Community Banking": 11117000000,
+        "Asset and Wealth Management Segment": 2972000000,
+        "Commercial Banking": 1803000000,
+        "Corporate & Investment Bank": 8135000000,
+        "Corporate": 56000000
+      }
+    },
+    {
+      "date": "2016-06-30",
+      "segments": {
+        "Consumer & Community Banking": 11451000000,
+        "Asset and Wealth Management Segment": 2939000000,
+        "Commercial Banking": 1817000000,
+        "Corporate & Investment Bank": 9165000000,
+        "Corporate": -158000000
+      }
+    },
+    {
+      "date": "2016-09-30",
+      "segments": {
+        "Consumer & Community Banking": 11328000000,
+        "Asset and Wealth Management Segment": 3047000000,
+        "Commercial Banking": 1870000000,
+        "Corporate & Investment Bank": 9455000000,
+        "Corporate": -188000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Consumer & Community Banking": 11019000000,
+        "Asset and Wealth Management Segment": 3087000000,
+        "Commercial Banking": 1963000000,
+        "Corporate & Investment Bank": 8461000000,
+        "Corporate": -197000000
+      }
+    },
+    {
+      "date": "2017-03-31",
+      "segments": {
+        "Consumer & Community Banking": 10970000000,
+        "Asset and Wealth Management Segment": 3087000000,
+        "Commercial Banking": 2018000000,
+        "Corporate & Investment Bank": 9536000000,
+        "Corporate": -25000000
+      }
+    },
+    {
+      "date": "2017-06-30",
+      "segments": {
+        "Consumer & Community Banking": 11412000000,
+        "Asset and Wealth Management Segment": 3212000000,
+        "Commercial Banking": 2088000000,
+        "Corporate & Investment Bank": 8889000000,
+        "Corporate": 804000000
+      }
+    },
+    {
+      "date": "2017-09-30",
+      "segments": {
+        "Consumer & Community Banking": 12033000000,
+        "Asset and Wealth Management Segment": 3245000000,
+        "Commercial Banking": 2146000000,
+        "Corporate & Investment Bank": 8590000000,
+        "Corporate": 186000000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "Consumer & Community Banking": 12070000000,
+        "Asset and Wealth Management Segment": 3374000000,
+        "Commercial Banking": 2353000000,
+        "Corporate & Investment Bank": 747800000,
+        "Corporate": 1750000000
+      }
+    },
+    {
+      "date": "2018-03-31",
+      "segments": {
+        "Consumer & Community Banking": 12597000000,
+        "Asset and Wealth Management Segment": 3506000000,
+        "Commercial Banking": 2166000000,
+        "Corporate & Investment Bank": 10483000000,
+        "Corporate": -232000000
+      }
+    },
+    {
+      "date": "2018-06-30",
+      "segments": {
+        "Consumer & Community Banking": 12497000000,
+        "Asset and Wealth Management Segment": 3572000000,
+        "Commercial Banking": 2316000000,
+        "Corporate & Investment Bank": 9923000000,
+        "Corporate": 80000000
+      }
+    },
+    {
+      "date": "2018-09-30",
+      "segments": {
+        "Consumer & Community Banking": 152000000,
+        "Asset and Wealth Management Segment": 3559000000,
+        "Commercial Banking": 2271000000,
+        "Corporate & Investment Bank": 8805000000,
+        "Corporate": -103000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Consumer & Community Banking": 231000000,
+        "Asset and Wealth Management Segment": 3439000000,
+        "Commercial Banking": 2306000000,
+        "Corporate & Investment Bank": 7237000000,
+        "Corporate": 127000000
+      }
+    },
+    {
+      "date": "2019-03-31",
+      "segments": {
+        "Consumer & Community Banking": 13751000000,
+        "Asset and Wealth Management Segment": 3489000000,
+        "Commercial Banking": 2338000000,
+        "Corporate & Investment Bank": 9848000000,
+        "Corporate": 425000000
+      }
+    },
+    {
+      "date": "2019-06-30",
+      "segments": {
+        "Consumer & Community Banking": 13833000000,
+        "Asset and Wealth Management Segment": 3559000000,
+        "Commercial Banking": 2211000000,
+        "Corporate & Investment Bank": 9641000000,
+        "Corporate": 322000000
+      }
+    },
+    {
+      "date": "2019-09-30",
+      "segments": {
+        "Consumer & Community Banking": 148000000,
+        "Asset and Wealth Management Segment": 3568000000,
+        "Commercial Banking": 2207000000,
+        "Corporate & Investment Bank": 9338000000,
+        "Corporate": 692000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Consumer & Community Banking": 147000000,
+        "Asset and Wealth Management Segment": 3700000000,
+        "Commercial Banking": 2228000000,
+        "Corporate & Investment Bank": 9471000000,
+        "Corporate": -228000000
+      }
+    },
+    {
+      "date": "2020-03-31",
+      "segments": {
+        "Asset and Wealth Management Segment": 3606000000,
+        "Commercial Banking": 2178000000,
+        "Consumer & Community Banking": 13171000000,
+        "Corporate & Investment Bank": 9948000000,
+        "Corporate": 166000000
+      }
+    },
+    {
+      "date": "2020-06-30",
+      "segments": {
+        "Asset and Wealth Management Segment": 3610000000,
+        "Commercial Banking": 2392000000,
+        "Consumer & Community Banking": 12217000000,
+        "Corporate & Investment Bank": 16352000000,
+        "Corporate": -754000000
+      }
+    },
+    {
+      "date": "2020-09-30",
+      "segments": {
+        "Consumer & Community Banking": 12755000000,
+        "Asset and Wealth Management Segment": 3737000000,
+        "Commercial Banking": 2285000000,
+        "Corporate & Investment Bank": 11503000000,
+        "Corporate": -339000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Consumer & Community Banking": 13125000000,
+        "Asset and Wealth Management Segment": 3287000000,
+        "Commercial Banking": 2458000000,
+        "Corporate & Investment Bank": 11481000000,
+        "Corporate": -249000000
+      }
+    },
+    {
+      "date": "2021-03-31",
+      "segments": {
+        "Consumer & Community Banking": 12517000000,
+        "Asset and Wealth Management Segment": 4077000000,
+        "Commercial Banking": 2393000000,
+        "Corporate & Investment Bank": 14605000000,
+        "Corporate": -473000000
+      }
+    },
+    {
+      "date": "2021-06-30",
+      "segments": {
+        "Consumer & Community Banking": 12760000000,
+        "Asset and Wealth Management Segment": 4107000000,
+        "Commercial Banking": 2483000000,
+        "Corporate & Investment Bank": 13214000000,
+        "Corporate": -1169000000
+      }
+    },
+    {
+      "date": "2021-09-30",
+      "segments": {
+        "Consumer & Community Banking": 12521000000,
+        "Asset and Wealth Management Segment": 4300000000,
+        "Commercial Banking": 2520000000,
+        "Corporate & Investment Bank": 12396000000,
+        "Corporate": -1296000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Consumer & Community Banking": 12275000000,
+        "Asset and Wealth Management Segment": 4473000000,
+        "Commercial Banking": 2612000000,
+        "Corporate & Investment Bank": 11534000000,
+        "Corporate": 545000000
+      }
+    },
+    {
+      "date": "2022-03-31",
+      "segments": {
+        "Consumer & Community Banking": 12229000000,
+        "Asset and Wealth Management Segment": 4315000000,
+        "Commercial Banking": 2398000000,
+        "Corporate & Investment Bank": 13529000000,
+        "Corporate": -881000000
+      }
+    },
+    {
+      "date": "2022-06-30",
+      "segments": {
+        "Consumer & Community Banking": 12614000000,
+        "Asset and Wealth Management Segment": 4306000000,
+        "Commercial Banking": 2683000000,
+        "Corporate & Investment Bank": 11947000000,
+        "Corporate": 80000000
+      }
+    },
+    {
+      "date": "2022-09-30",
+      "segments": {
+        "Consumer & Community Banking": 14331000000,
+        "Asset and Wealth Management Segment": 4539000000,
+        "Commercial Banking": 3048000000,
+        "Corporate & Investment Bank": 11875000000,
+        "Corporate": -302000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Consumer & Community Banking": 15843000000,
+        "Asset and Wealth Management Segment": 4588000000,
+        "Commercial Banking": 3404000000,
+        "Corporate & Investment Bank": 10548000000,
+        "Corporate": 1183000000
+      }
+    },
+    {
+      "date": "2023-03-31",
+      "segments": {
+        "Consumer & Community Banking": 16456000000,
+        "Asset and Wealth Management Segment": 4784000000,
+        "Commercial Banking": 3511000000,
+        "Corporate & Investment Bank": 13600000000,
+        "Corporate": 985000000
+      }
+    },
+    {
+      "date": "2023-06-30",
+      "segments": {
+        "Consumer & Community Banking": 17233000000,
+        "Asset and Wealth Management Segment": 4943000000,
+        "Commercial Banking": 3988000000,
+        "Corporate & Investment Bank": 12519000000,
+        "Corporate": 3718000000
+      }
+    },
+    {
+      "date": "2023-09-30",
+      "segments": {
+        "Consumer & Community Banking": 18362000000,
+        "Asset and Wealth Management Segment": 5005000000,
+        "Commercial Banking": 4031000000,
+        "Corporate & Investment Bank": 11730000000,
+        "Corporate": 1558000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Consumer & Community Banking": 18097000000,
+        "Asset and Wealth Management Segment": 5095000000,
+        "Commercial Banking": 4016000000,
+        "Corporate & Investment Bank": 10958000000,
+        "Corporate": 1777000000
+      }
+    },
+    {
+      "date": "2024-03-31",
+      "segments": {
+        "Consumer & Community Banking": 17653000000,
+        "Asset and Wealth Management Segment": 5109000000,
+        "Commercial Banking": 3951000000,
+        "Corporate & Investment Bank": 13633000000,
+        "Corporate": 2202000000
+      }
+    },
+    {
+      "date": "2024-06-30",
+      "segments": {
+        "Consumer & Community Banking": 17701000000,
+        "Asset and Wealth Management Segment": 5252000000,
+        "Corporate & Investment Bank": 17917000000
+      }
+    },
+    {
+      "date": "2024-09-30",
+      "segments": {
+        "Consumer & Community Banking": 17791000000,
+        "Asset and Wealth Management Segment": 5439000000,
+        "Corporate & Investment Bank": 17015000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Asset and Wealth Management Segment": 5778000000,
+        "Consumer & Community Banking": 18362000000
+      }
+    },
+    {
+      "date": "2025-03-31",
+      "segments": {
+        "Segment Reconciling Items": -704000000,
+        "Asset and Wealth Management Segment": 5731000000,
+        "Commercial And Investment Bank": 19666000000,
+        "Consumer & Community Banking": 18313000000,
+        "Segment Reporting, Reconciling Item, Corporate Nonsegment": 2304000000
+      }
+    },
+    {
+      "date": "2025-06-30",
+      "segments": {
+        "Segment Reconciling Items": -768000000,
+        "Asset and Wealth Management Segment": 5760000000,
+        "Commercial And Investment Bank": 19535000000,
+        "Consumer & Community Banking": 18847000000,
+        "Segment Reporting, Reconciling Item, Corporate Nonsegment": 1538000000
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "segments": {
+        "Segment Reconciling Items": -693000000,
+        "Asset and Wealth Management Segment": 6066000000,
+        "Commercial And Investment Bank": 19878000000,
+        "Consumer & Community Banking": 19473000000,
+        "Segment Reporting, Reconciling Item, Corporate Nonsegment": 1703000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Segment Reconciling Items": -969000000,
+        "Asset and Wealth Management Segment": 6516000000,
+        "Commercial And Investment Bank": 19375000000,
+        "Consumer & Community Banking": 19396000000,
+        "Segment Reporting, Reconciling Item, Corporate Nonsegment": 1480000000
+      }
+    }
+  ],
+  "geographic": [],
+  "sanitizedAt": "2026-11-02T14:51:27.870Z"
+}

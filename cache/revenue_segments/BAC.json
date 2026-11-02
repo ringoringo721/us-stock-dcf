@@ -1,0 +1,363 @@
+{
+  "version": 1,
+  "ticker": "BAC",
+  "source": "FMP revenue segmentation (annual)",
+  "period": "annual",
+  "product": [
+    {
+      "date": "2010-12-31",
+      "segments": {
+        "All Other": 5869000000,
+        "Deposits Segment": 13181000000,
+        "Global Banking & Markets": 28498000000,
+        "Global Card Services": 25621000000,
+        "Global Commercial Banking": 10903000000,
+        "Global Wealth & Investment Management": 16671000000,
+        "Home Loans & Insurance": 10647000000
+      }
+    },
+    {
+      "date": "2011-12-31",
+      "segments": {
+        "All Other Company Segments": 15201000000,
+        "Card Services Segment": 18143000000,
+        "Consumer Real Estate Services Segment": -3154000000,
+        "Deposits Segment": 12689000000,
+        "Global Banking and Markets Segment": 23618000000,
+        "Global Commercial Banking Segment": 10553000000,
+        "Global Wealth and Investment Management Segment": 17376000000
+      }
+    },
+    {
+      "date": "2012-12-31",
+      "segments": {
+        "All Other Company Segments": -790000000,
+        "Consumer & Business Banking Segment": 29023000000,
+        "Consumer Real Estate Services Segment": 8759000000,
+        "Global Banking Segment": 17207000000,
+        "Global Markets Segment": 13519000000,
+        "Global Wealth and Investment Management Segment": 16517000000
+      }
+    },
+    {
+      "date": "2013-12-31",
+      "segments": {
+        "All Other Company Segments": 1889000000,
+        "Consumer & Business Banking Segment": 29867000000,
+        "Consumer Real Estate Services Segment": 7716000000,
+        "Global Banking Segment": 16481000000,
+        "Global Markets Segment": 16058000000,
+        "Global Wealth and Investment Management Segment": 17790000000
+      }
+    },
+    {
+      "date": "2014-12-31",
+      "segments": {
+        "Consumer & Business Banking Segment": 29862000000,
+        "Consumer Real Estate Services Segment": 4848000000,
+        "Global Banking Segment": 16598000000,
+        "Global Markets Segment": 16119000000,
+        "Global Wealth and Investment Management Segment": 18404000000
+      }
+    },
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "Consumer Banking Segment": 30618000000,
+        "Global Banking Segment": 16919000000,
+        "Global Markets Segment": 15067000000,
+        "Global Wealth and Investment Management Segment": 18001000000,
+        "Legacy Assets and Servicing Segment": 3430000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Consumer Banking Segment": 31731000000,
+        "Global Banking Segment": 18430000000,
+        "Global Markets Segment": 16090000000,
+        "Global Wealth and Investment Management Segment": 17650000000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "Consumer Banking Segment": 34521000000,
+        "Global Banking Segment": 19999000000,
+        "Global Markets Segment": 15951000000,
+        "Global Wealth and Investment Management Segment": 18590000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Card income": 6051000000,
+        "Service Charges": 7767000000,
+        "Investment And Brokerage Services": 14160000000,
+        "Investment Banking Fees": 5327000000,
+        "other income": 1970000000,
+        "Market making and similar activities": 8540000000,
+        "Loans and Leases": 40811000000,
+        "Debt securities": 11724000000,
+        "Federal funds sold and securities borrowed or purchased under agreements to resell": 3176000000,
+        "Trading account assets": 4811000000,
+        "other interest income": 6247000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Market making and similar activities": 9034000000,
+        "other income": 304000000,
+        "Loans and Leases": 43086000000,
+        "Debt securities": 11806000000,
+        "Federal funds sold and securities borrowed or purchased under agreements to resell": 4843000000,
+        "Trading account assets": 5196000000,
+        "other interest income": 6305000000,
+        "Card income": 5797000000,
+        "Service Charges": 7674000000,
+        "Investment And Brokerage Services": 13902000000,
+        "Investment Banking Fees": 5642000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Market making and similar activities": 8355000000,
+        "other income": -738000000,
+        "Loans and Leases": 34029000000,
+        "Debt securities": 9790000000,
+        "Federal funds sold and securities borrowed or purchased under agreements to resell": 903000000,
+        "Trading account assets": 4128000000,
+        "other interest income": 2735000000,
+        "Card income": 5656000000,
+        "Service Charges": 7141000000,
+        "Investment And Brokerage Services": 14574000000,
+        "Investment Banking Fees": 7180000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Market making and similar activities": 8691000000,
+        "other income": -1811000000,
+        "Loans and Leases": 29282000000,
+        "Debt securities": 12376000000,
+        "Federal funds sold and securities borrowed or purchased under agreements to resell": -90000000,
+        "Trading account assets": 3770000000,
+        "other interest income": 2334000000,
+        "Card income": 6218000000,
+        "Service Charges": 7504000000,
+        "Investment And Brokerage Services": 16690000000,
+        "Investment Banking Fees": 8887000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Market making and similar activities": 12075000000,
+        "other income": -2799000000,
+        "Loans and Leases": 37919000000,
+        "Debt securities": 17127000000,
+        "Federal funds sold and securities borrowed or purchased under agreements to resell": 4560000000,
+        "Trading account assets": 5521000000,
+        "other interest income": 7438000000,
+        "Card income": 6083000000,
+        "Service Charges": 6405000000,
+        "Investment And Brokerage Services": 15901000000,
+        "Investment Banking Fees": 4823000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Market making and similar activities": 12732000000,
+        "other income": -3091000000,
+        "Loans and Leases": 57124000000,
+        "Debt securities": 20226000000,
+        "Federal funds sold and securities borrowed or purchased under agreements to resell": 18679000000,
+        "Trading account assets": 8773000000,
+        "other interest income": 25460000000,
+        "Card income": 6054000000,
+        "Service Charges": 5684000000,
+        "Investment And Brokerage Services": 15563000000,
+        "Investment Banking Fees": 4708000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Market making and similar activities": 12967000000,
+        "other income": -3431000000,
+        "Loans and Leases": 61993000000,
+        "Debt securities": 26007000000,
+        "Federal funds sold and securities borrowed or purchased under agreements to resell": 19911000000,
+        "Trading account assets": 10376000000,
+        "other interest income": 28320000000,
+        "Card income": 6284000000,
+        "Service Charges": 6055000000,
+        "Investment And Brokerage Services": 17766000000,
+        "Investment Banking Fees": 6186000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Consumer Banking Segment": 43673000000,
+        "Global Wealth and Investment Management Segment": 24883000000,
+        "Global Banking Segment": 24108000000,
+        "Global Markets Segment": 24096000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2010-12-31",
+      "segments": {
+        "Asia": 6115000000,
+        "Canada": 1500000000,
+        "Europe, Middle East and Africa": 12369000000,
+        "Latin America and the Caribbean": 3057000000
+      }
+    },
+    {
+      "date": "2011-12-31",
+      "segments": {
+        "CANADA": 1300000000,
+        "Segment Geographical Groups Of Countries Group Three Member": 1631000000,
+        "Segment, Geographical, Groups of Countries, Group One": 10890000000,
+        "Segment, Geographical, Groups of Countries, Group Two": 7320000000
+      }
+    },
+    {
+      "date": "2012-12-31",
+      "segments": {
+        "CANADA": 317000000,
+        "Segment Geographical Groups Of Countries Group Three Member": 1670000000,
+        "Segment, Geographical, Groups of Countries, Group One": 3478000000,
+        "Segment, Geographical, Groups of Countries, Group Two": 6011000000
+      }
+    },
+    {
+      "date": "2013-12-31",
+      "segments": {
+        "Asia": 4442000000,
+        "CANADA": 364000000,
+        "EMEA": 6353000000,
+        "Foreign": 12330000000,
+        "Latin America": 1535000000,
+        "North America": 76612000000
+      }
+    },
+    {
+      "date": "2014-12-31",
+      "segments": {
+        "Asia": 3605000000,
+        "EMEA": 6409000000,
+        "Foreign": 11287000000,
+        "Latin America": 1273000000,
+        "North America": 72960000000
+      }
+    },
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "Asia": 3524000000,
+        "EMEA": 6081000000,
+        "Latin America": 1243000000,
+        "UNITED STATES": 71659000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Asia": 3365000000,
+        "EMEA": 6608000000,
+        "Latin America": 1310000000,
+        "UNITED STATES": 72418000000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "Asia": 3405000000,
+        "EMEA": 7907000000,
+        "Latin America": 1210000000,
+        "UNITED STATES": 74830000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Asia": 3507000000,
+        "EMEA": 5632000000,
+        "Latin America": 1104000000,
+        "UNITED STATES": 81004000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Asia": 3491000000,
+        "EMEA": 5310000000,
+        "Latin America": 1207000000,
+        "UNITED STATES": 81236000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Asia": 4232000000,
+        "EMEA": 4491000000,
+        "Latin America": 1229000000,
+        "UNITED STATES": 75576000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Asia": 4439000000,
+        "EMEA": 5423000000,
+        "Latin America": 1239000000,
+        "UNITED STATES": 78012000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Asia": 4597000000,
+        "EMEA": 6044000000,
+        "Latin America": 1419000000,
+        "UNITED STATES": 82890000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Asia": 4952000000,
+        "EMEA": 6393000000,
+        "Latin America": 1665000000,
+        "UNITED STATES": 85571000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Asia": 5184000000,
+        "EMEA": 6499000000,
+        "Latin America": 1739000000,
+        "UNITED STATES": 88465000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Asia": 6004000000,
+        "EMEA": 7561000000,
+        "Latin America": 1845000000,
+        "Non-US": 15410000000,
+        "UNITED STATES": 97687000000
+      }
+    }
+  ]
+}

@@ -1,0 +1,682 @@
+{
+  "version": 1,
+  "ticker": "PG",
+  "source": "FMP revenue segmentation (quarter)",
+  "period": "quarter",
+  "product": [
+    {
+      "date": "2010-09-30",
+      "segments": {
+        "HOUSEHOLD CARE GBU": 6297000000,
+        "Grooming Segment Member": 4929000000,
+        "Health Care Segment Member": 2984000000,
+        "Corporate Segment": -347000000
+      }
+    },
+    {
+      "date": "2010-12-31",
+      "segments": {
+        "HOUSEHOLD CARE GBU": 6308000000,
+        "Grooming Segment Member": 5290000000,
+        "Health Care Segment Member": 3138000000,
+        "Corporate Segment": -281000000
+      }
+    },
+    {
+      "date": "2011-03-31",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 3968000000,
+        "Beauty Segment": 4870000000,
+        "Corporate Segment": -364000000,
+        "Fabric Care And Home Care Segment Member": 6088000000,
+        "Grooming Segment Member": 1907000000,
+        "Health Care Segment Member": 2962000000
+      }
+    },
+    {
+      "date": "2011-09-30",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 4079000000,
+        "Beauty Segment": 5390000000,
+        "Corporate Segment": -393000000,
+        "Fabric Care And Home Care Segment Member": 6681000000,
+        "Grooming Segment Member": 2093000000,
+        "Health Care Segment Member": 3291000000
+      }
+    },
+    {
+      "date": "2011-12-31",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 4162000000,
+        "Beauty Segment": 5353000000,
+        "Corporate Segment": -194000000,
+        "Fabric Care And Home Care Segment Member": 6605000000,
+        "Grooming Segment Member": 2202000000,
+        "Health Care Segment Member": 3183000000
+      }
+    },
+    {
+      "date": "2012-03-31",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 4153000000,
+        "Beauty Segment": 4844000000,
+        "Corporate Segment": -378000000,
+        "Fabric Care And Home Care Segment Member": 6595000000,
+        "Grooming Segment Member": 1962000000,
+        "Health Care Segment Member": 3018000000
+      }
+    },
+    {
+      "date": "2012-09-30",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 3999000000,
+        "Beauty Segment": 4940000000,
+        "Corporate Segment": -281000000,
+        "Fabric Care And Home Care Segment Member": 6900000000,
+        "Grooming Segment Member": 2007000000,
+        "Health Care Segment Member": 3174000000
+      }
+    },
+    {
+      "date": "2012-12-31",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 4322000000,
+        "Beauty Segment": 5403000000,
+        "Corporate Segment": -159000000,
+        "Fabric Care And Home Care Segment Member": 7223000000,
+        "Grooming Segment Member": 2119000000,
+        "Health Care Segment Member": 3267000000
+      }
+    },
+    {
+      "date": "2013-03-31",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 4277000000,
+        "Beauty Segment": 4763000000,
+        "Corporate Segment": -234000000,
+        "Fabric Care And Home Care Segment Member": 6587000000,
+        "Grooming Segment Member": 1931000000,
+        "Health Care Segment Member": 3274000000
+      }
+    },
+    {
+      "date": "2013-09-30",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 5503000000,
+        "Beauty Segment": 4903000000,
+        "Corporate Segment": -163000000,
+        "Fabric Care And Home Care Segment Member": 6700000000,
+        "Grooming Segment Member": 1956000000,
+        "Health Care Segment Member": 2306000000
+      }
+    },
+    {
+      "date": "2013-12-31",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 5603000000,
+        "Beauty Segment": 5284000000,
+        "Corporate Segment": -150000000,
+        "Fabric Care And Home Care Segment Member": 6851000000,
+        "Grooming Segment Member": 2118000000,
+        "Health Care Segment Member": 2574000000
+      }
+    },
+    {
+      "date": "2014-03-31",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 5453000000,
+        "Beauty Segment": 4691000000,
+        "Corporate Segment": -149000000,
+        "Fabric Care And Home Care Segment Member": 6340000000,
+        "Grooming Segment Member": 1863000000,
+        "Health Care Segment Member": 2361000000
+      }
+    },
+    {
+      "date": "2014-06-30",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 4391000000,
+        "Beauty Segment": 4629000000,
+        "Corporate Segment": 1200000000,
+        "Fabric Care And Home Care Segment Member": 6169000000,
+        "Grooming Segment Member": 2072000000,
+        "Health Care Segment Member": 557000000
+      }
+    },
+    {
+      "date": "2014-09-30",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 5322000000,
+        "Beauty Segment": 4857000000,
+        "Corporate Segment": 123000000,
+        "Fabric Care And Home Care Segment Member": 6538000000,
+        "Grooming Segment Member": 1941000000,
+        "Health Care Segment Member": 2011000000
+      }
+    },
+    {
+      "date": "2014-12-31",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 5217000000,
+        "Beauty Segment": 4962000000,
+        "Corporate Segment": 112000000,
+        "Fabric Care And Home Care Segment Member": 5775000000,
+        "Grooming Segment Member": 2007000000,
+        "Health Care Segment Member": 2088000000
+      }
+    },
+    {
+      "date": "2015-03-31",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 4890000000,
+        "Beauty Segment": 4172000000,
+        "Corporate Segment": 122000000,
+        "Fabric Care And Home Care Segment Member": 5248000000,
+        "Grooming Segment Member": 1801000000,
+        "Health Care Segment Member": 1909000000
+      }
+    },
+    {
+      "date": "2015-06-30",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 4818000000,
+        "Beauty Segment": 4144000000,
+        "Corporate Segment": 109000000,
+        "Fabric Care And Home Care Segment Member": 4716000000,
+        "Grooming Segment Member": 1692000000,
+        "Health Care Segment Member": 1705000000
+      }
+    },
+    {
+      "date": "2015-09-30",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 4658000000,
+        "Beauty Segment": 3041000000,
+        "Corporate Segment": 107000000,
+        "Fabric Care And Home Care Segment Member": 5251000000,
+        "Grooming Segment Member": 1674000000,
+        "Health Care Segment Member": 1796000000
+      }
+    },
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 4710000000,
+        "Beauty Segment": 2963000000,
+        "Corporate Segment": 111000000,
+        "Fabric Care And Home Care Segment Member": 5347000000,
+        "Grooming Segment Member": 1806000000,
+        "Health Care Segment Member": 1978000000
+      }
+    },
+    {
+      "date": "2016-03-31",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 4506000000,
+        "Beauty Segment": 2719000000,
+        "Corporate Segment": 106000000,
+        "Fabric Care And Home Care Segment Member": 5028000000,
+        "Grooming Segment Member": 1623000000,
+        "Health Care Segment Member": 1773000000
+      }
+    },
+    {
+      "date": "2016-06-30",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 4631000000,
+        "Beauty Segment": 2754000000,
+        "Corporate Segment": 98000000,
+        "Fabric Care And Home Care Segment Member": 5104000000,
+        "Grooming Segment Member": 1712000000,
+        "Health Care Segment Member": 1803000000
+      }
+    },
+    {
+      "date": "2016-09-30",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 4595000000,
+        "Beauty Segment": 2996000000,
+        "Corporate Segment": 106000000,
+        "Fabric Care And Home Care Segment Member": 5302000000,
+        "Grooming Segment Member": 1658000000,
+        "Health Care Segment Member": 1861000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 4645000000,
+        "Beauty Segment": 2942000000,
+        "Corporate Segment": 138000000,
+        "Fabric Care And Home Care Segment Member": 5270000000,
+        "Grooming Segment Member": 1789000000,
+        "Health Care Segment Member": 2072000000
+      }
+    },
+    {
+      "date": "2017-03-31",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 4471000000,
+        "Beauty Segment": 2675000000,
+        "Corporate Segment": 136000000,
+        "Fabric Care And Home Care Segment Member": 4957000000,
+        "Grooming Segment Member": 1525000000,
+        "Health Care Segment Member": 1841000000
+      }
+    },
+    {
+      "date": "2017-06-30",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 4541000000,
+        "Beauty Segment": 2816000000,
+        "Corporate Segment": 125000000,
+        "Fabric Care And Home Care Segment Member": 5188000000,
+        "Grooming Segment Member": 1670000000,
+        "Health Care Segment Member": 1739000000
+      }
+    },
+    {
+      "date": "2017-09-30",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 4545000000,
+        "Beauty Segment": 3138000000,
+        "Corporate Segment": 108000000,
+        "Fabric Care And Home Care Segment Member": 5383000000,
+        "Grooming Segment Member": 1577000000,
+        "Health Care Segment Member": 1902000000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 4613000000,
+        "Beauty Segment": 3233000000,
+        "Corporate Segment": 127000000,
+        "Fabric Care And Home Care Segment Member": 5434000000,
+        "Grooming Segment Member": 1776000000,
+        "Health Care Segment Member": 2212000000
+      }
+    },
+    {
+      "date": "2018-03-31",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 4458000000,
+        "Beauty Segment": 2934000000,
+        "Corporate Segment": 143000000,
+        "Fabric Care And Home Care Segment Member": 5262000000,
+        "Grooming Segment Member": 1550000000,
+        "Health Care Segment Member": 1934000000
+      }
+    },
+    {
+      "date": "2018-06-30",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 4464000000,
+        "Beauty Segment": 3101000000,
+        "Corporate Segment": 119000000,
+        "Fabric Care And Home Care Segment Member": 5362000000,
+        "Grooming Segment Member": 1648000000,
+        "Health Care Segment Member": 1809000000
+      }
+    },
+    {
+      "date": "2018-09-30",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 4390000000,
+        "Beauty Segment": 3289000000,
+        "Corporate Segment": 116000000,
+        "Fabric Care And Home Care Segment Member": 5488000000,
+        "Grooming Segment Member": 1562000000,
+        "Health Care Segment Member": 1845000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 4558000000,
+        "Beauty Segment": 3357000000,
+        "Corporate Segment": 129000000,
+        "Fabric Care And Home Care Segment Member": 5557000000,
+        "Grooming Segment Member": 1617000000,
+        "Health Care Segment Member": 2220000000
+      }
+    },
+    {
+      "date": "2019-03-31",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 4357000000,
+        "Beauty Segment": 3061000000,
+        "Corporate Segment": 123000000,
+        "Fabric Care And Home Care Segment Member": 5382000000,
+        "Grooming Segment Member": 1424000000,
+        "Health Care Segment Member": 2115000000
+      }
+    },
+    {
+      "date": "2019-06-30",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 4501000000,
+        "Beauty Segment": 3190000000,
+        "Corporate Segment": 116000000,
+        "Fabric Care And Home Care Segment Member": 5653000000,
+        "Grooming Segment Member": 1596000000,
+        "Health Care Segment Member": 2038000000
+      }
+    },
+    {
+      "date": "2019-09-30",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 4567000000,
+        "Beauty Segment": 3552000000,
+        "Corporate Segment": 95000000,
+        "Fabric Care And Home Care Segment Member": 5832000000,
+        "Grooming Segment Member": 1531000000,
+        "Health Care Segment Member": 2221000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 4582000000,
+        "Beauty Segment": 3598000000,
+        "Corporate Segment": 95000000,
+        "Fabric Care And Home Care Segment Member": 5787000000,
+        "Grooming Segment Member": 1648000000,
+        "Health Care Segment Member": 2530000000
+      }
+    },
+    {
+      "date": "2020-03-31",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 4597000000,
+        "Beauty Segment": 3033000000,
+        "Corporate Segment": 116000000,
+        "Fabric Care And Home Care Segment Member": 5826000000,
+        "Grooming Segment Member": 1380000000,
+        "Health Care Segment Member": 2262000000
+      }
+    },
+    {
+      "date": "2020-06-30",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 4618000000,
+        "Beauty Segment": 3176000000,
+        "Corporate Segment": 89000000,
+        "Fabric Care And Home Care Segment Member": 6290000000,
+        "Grooming Segment Member": 1510000000,
+        "Health Care Segment Member": 2015000000
+      }
+    },
+    {
+      "date": "2020-09-30",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 4723000000,
+        "Beauty Segment": 3786000000,
+        "Corporate Segment": 93000000,
+        "Fabric Care And Home Care Segment Member": 6644000000,
+        "Grooming Segment Member": 1601000000,
+        "Health Care Segment Member": 2471000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 4858000000,
+        "Beauty Segment": 3806000000,
+        "Corporate Segment": 102000000,
+        "Fabric Care And Home Care Segment Member": 6498000000,
+        "Grooming Segment Member": 1735000000,
+        "Health Care Segment Member": 2746000000
+      }
+    },
+    {
+      "date": "2021-03-31",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 4604000000,
+        "Beauty Segment": 3316000000,
+        "Corporate Segment": 120000000,
+        "Fabric Care And Home Care Segment Member": 6275000000,
+        "Grooming Segment Member": 1438000000,
+        "Health Care Segment Member": 2356000000
+      }
+    },
+    {
+      "date": "2021-06-30",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 4665000000,
+        "Beauty Segment": 3509000000,
+        "Corporate Segment": 126000000,
+        "Fabric Care And Home Care Segment Member": 6597000000,
+        "Grooming Segment Member": 1666000000,
+        "Health Care Segment Member": 2383000000
+      }
+    },
+    {
+      "date": "2021-09-30",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 4864000000,
+        "Beauty Segment": 3964000000,
+        "Corporate Segment": 138000000,
+        "Fabric Care And Home Care Segment Member": 7009000000,
+        "Grooming Segment Member": 1687000000,
+        "Health Care Segment Member": 2676000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 5116000000,
+        "Beauty Segment": 3926000000,
+        "Corporate Segment": 152000000,
+        "Fabric Care And Home Care Segment Member": 6972000000,
+        "Grooming Segment Member": 1811000000,
+        "Health Care Segment Member": 2976000000
+      }
+    },
+    {
+      "date": "2022-03-31",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 4935000000,
+        "Beauty Segment": 3389000000,
+        "Corporate Segment": 215000000,
+        "Fabric Care And Home Care Segment Member": 6699000000,
+        "Grooming Segment Member": 1481000000,
+        "Health Care Segment Member": 2662000000
+      }
+    },
+    {
+      "date": "2022-06-30",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 4821000000,
+        "Beauty Segment": 3461000000,
+        "Corporate Segment": 239000000,
+        "Fabric Care And Home Care Segment Member": 6876000000,
+        "Grooming Segment Member": 1608000000,
+        "Health Care Segment Member": 2510000000
+      }
+    },
+    {
+      "date": "2022-09-30",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 4934000000,
+        "Beauty Segment": 3961000000,
+        "Corporate Segment": 253000000,
+        "Fabric Care And Home Care Segment Member": 7082000000,
+        "Grooming Segment Member": 1625000000,
+        "Health Care Segment Member": 2757000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 5065000000,
+        "Beauty Segment": 3807000000,
+        "Corporate Segment": 175000000,
+        "Fabric Care And Home Care Segment Member": 7032000000,
+        "Grooming Segment Member": 1643000000,
+        "Health Care Segment Member": 3051000000
+      }
+    },
+    {
+      "date": "2023-03-31",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 5062000000,
+        "Beauty Segment": 3494000000,
+        "Corporate Segment": 173000000,
+        "Fabric Care And Home Care Segment Member": 7016000000,
+        "Grooming Segment Member": 1495000000,
+        "Health Care Segment Member": 2828000000
+      }
+    },
+    {
+      "date": "2023-06-30",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 5156000000,
+        "Beauty Segment": 3746000000,
+        "Corporate Segment": 164000000,
+        "Fabric Care And Home Care Segment Member": 7241000000,
+        "Grooming Segment Member": 1656000000,
+        "Health Care Segment Member": 2590000000
+      }
+    },
+    {
+      "date": "2023-09-30",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 5186000000,
+        "Beauty Segment": 4097000000,
+        "Corporate Segment": 144000000,
+        "Fabric Care And Home Care Segment Member": 7646000000,
+        "Grooming Segment Member": 1724000000,
+        "Health Care Segment Member": 3074000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 5146000000,
+        "Beauty Segment": 3849000000,
+        "Corporate Segment": 126000000,
+        "Fabric Care And Home Care Segment Member": 7415000000,
+        "Grooming Segment Member": 1734000000,
+        "Health Care Segment Member": 3172000000
+      }
+    },
+    {
+      "date": "2024-03-31",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 4936000000,
+        "Beauty Segment": 3550000000,
+        "Corporate Segment": 128000000,
+        "Fabric Care And Home Care Segment Member": 7169000000,
+        "Grooming Segment Member": 1539000000,
+        "Health Care Segment Member": 2873000000
+      }
+    },
+    {
+      "date": "2024-06-30",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 5009000000,
+        "Beauty Segment": 3724000000,
+        "Corporate Segment": 203000000,
+        "Fabric Care And Home Care Segment Member": 7265000000,
+        "Grooming Segment Member": 1657000000,
+        "Health Care Segment Member": 2674000000
+      }
+    },
+    {
+      "date": "2024-09-30",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 5102000000,
+        "Beauty Segment": 3892000000,
+        "Corporate Segment": 163000000,
+        "Fabric Care And Home Care Segment Member": 7710000000,
+        "Grooming Segment Member": 1723000000,
+        "Health Care Segment Member": 3147000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 5298000000,
+        "Beauty Segment": 3848000000,
+        "Fabric Care And Home Care Segment Member": 7575000000,
+        "Grooming Segment Member": 1752000000,
+        "Health Care Segment Member": 3249000000,
+        "Corporate Segment": 159000000
+      }
+    },
+    {
+      "date": "2025-03-31",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 4755000000,
+        "Beauty Segment": 3490000000,
+        "Fabric Care And Home Care Segment Member": 6948000000,
+        "Grooming Segment Member": 1505000000,
+        "Health Care Segment Member": 2880000000,
+        "Corporate Segment": 198000000
+      }
+    },
+    {
+      "date": "2025-06-30",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 5093000000,
+        "Beauty Segment": 3734000000,
+        "Fabric Care And Home Care Segment Member": 7384000000,
+        "Grooming Segment Member": 1682000000,
+        "Health Care Segment Member": 2722000000
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 5171000000,
+        "Beauty Segment": 4143000000,
+        "Fabric Care And Home Care Segment Member": 7793000000,
+        "Grooming Segment Member": 1817000000,
+        "Health Care Segment Member": 3220000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 5123000000,
+        "Beauty Segment": 4039000000,
+        "Fabric Care And Home Care Segment Member": 7686000000,
+        "Grooming Segment Member": 1794000000,
+        "Health Care Segment Member": 3406000000
+      }
+    },
+    {
+      "date": "2026-03-31",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 5058000000,
+        "Beauty Segment": 3866000000,
+        "Fabric Care And Home Care Segment Member": 7403000000,
+        "Grooming Segment Member": 1608000000,
+        "Health Care Segment Member": 3073000000
+      }
+    },
+    {
+      "date": "2026-06-30",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 5049000000,
+        "Beauty Segment": 3975000000,
+        "Fabric Care And Home Care Segment Member": 7432000000,
+        "Grooming Segment Member": 1699000000,
+        "Health Care Segment Member": 2757000000
+      }
+    },
+    {
+      "date": "2026-09-30",
+      "segments": {
+        "Baby, Feminine and Family Care Segment Member": 5322000000,
+        "Beauty Segment": 4410000000,
+        "Fabric Care And Home Care Segment Member": 8204000000,
+        "Grooming Segment Member": 1889000000,
+        "Health Care Segment Member": 3318000000
+      }
+    }
+  ],
+  "geographic": [],
+  "sanitizedAt": "2026-11-02T14:51:27.870Z"
+}

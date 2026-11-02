@@ -1,0 +1,512 @@
+{
+  "version": 1,
+  "ticker": "WMT",
+  "source": "FMP revenue segmentation (quarter)",
+  "period": "quarter",
+  "product": [
+    {
+      "date": "2012-04-30",
+      "segments": {
+        "Sams Club": 13854000000,
+        "Walmart International": 32077000000,
+        "Walmart U S": 66341000000
+      }
+    },
+    {
+      "date": "2012-07-31",
+      "segments": {
+        "Sams Club": 14161000000,
+        "Walmart International": 32016000000,
+        "Walmart U S": 67357000000
+      }
+    },
+    {
+      "date": "2012-10-31",
+      "segments": {
+        "Sams Club": 13918000000,
+        "Walmart International": 33159000000,
+        "Walmart U S": 66127000000
+      }
+    },
+    {
+      "date": "2013-01-31",
+      "segments": {
+        "Sams Club": 14490000000,
+        "Walmart International": 37949000000,
+        "Walmart U S": 74665000000
+      }
+    },
+    {
+      "date": "2013-04-30",
+      "segments": {
+        "Sams Club": 13871000000,
+        "Walmart International": 33005000000,
+        "Walmart U S": 66553000000
+      }
+    },
+    {
+      "date": "2013-07-31",
+      "segments": {
+        "Sams Club": 14532000000,
+        "Walmart International": 32956000000,
+        "Walmart U S": 68728000000
+      }
+    },
+    {
+      "date": "2013-10-31",
+      "segments": {
+        "Sams Club": 14075000000,
+        "Walmart International": 33109000000,
+        "Walmart U S": 67692000000
+      }
+    },
+    {
+      "date": "2014-01-31",
+      "segments": {
+        "Sams Club": 14679000000,
+        "Walmart International": 37443000000,
+        "Walmart U S": 76433000000
+      }
+    },
+    {
+      "date": "2014-04-30",
+      "segments": {
+        "Sams Club": 13891000000,
+        "Walmart International": 32424000000,
+        "Walmart U S": 67852000000
+      }
+    },
+    {
+      "date": "2014-07-31",
+      "segments": {
+        "Sams Club": 14863000000,
+        "Walmart International": 33872000000,
+        "Walmart U S": 70601000000
+      }
+    },
+    {
+      "date": "2014-10-31",
+      "segments": {
+        "Sams Club": 14392000000,
+        "Walmart International": 33659000000,
+        "Walmart U S": 70025000000
+      }
+    },
+    {
+      "date": "2015-01-31",
+      "segments": {
+        "Sams Club": 14874000000,
+        "Walmart International": 36205000000,
+        "Walmart U S": 79571000000
+      }
+    },
+    {
+      "date": "2015-04-30",
+      "segments": {
+        "Sams Club": 13479000000,
+        "Walmart International": 30278000000,
+        "Walmart U S": 70245000000
+      }
+    },
+    {
+      "date": "2015-07-31",
+      "segments": {
+        "Sams Club": 14734000000,
+        "Walmart International": 30637000000,
+        "Walmart U S": 73959000000
+      }
+    },
+    {
+      "date": "2015-10-31",
+      "segments": {
+        "Sams Club": 14075000000,
+        "Walmart International": 29811000000,
+        "Walmart U S": 72712000000
+      }
+    },
+    {
+      "date": "2016-01-31",
+      "segments": {
+        "Sams Club": 14540000000,
+        "Walmart International": 32682000000,
+        "Walmart U S": 81462000000
+      }
+    },
+    {
+      "date": "2016-04-30",
+      "segments": {
+        "Sams Club": 13608000000,
+        "Walmart International": 28083000000,
+        "Walmart U S": 73295000000
+      }
+    },
+    {
+      "date": "2016-07-31",
+      "segments": {
+        "Sams Club": 14543000000,
+        "Walmart International": 28621000000,
+        "Walmart U S": 76241000000
+      }
+    },
+    {
+      "date": "2016-10-31",
+      "segments": {
+        "Sams Club": 14236000000,
+        "Walmart International": 28390000000,
+        "Walmart U S": 74550000000
+      }
+    },
+    {
+      "date": "2017-01-31",
+      "segments": {
+        "Sams Club": 14978000000,
+        "Walmart International": 31025000000,
+        "Walmart U S": 83747000000
+      }
+    },
+    {
+      "date": "2017-04-30",
+      "segments": {
+        "Sams Club": 13993000000,
+        "Walmart International": 27097000000,
+        "Walmart U S": 75436000000
+      }
+    },
+    {
+      "date": "2017-07-31",
+      "segments": {
+        "Sams Club": 14880000000,
+        "Walmart International": 28331000000,
+        "Walmart U S": 78738000000
+      }
+    },
+    {
+      "date": "2017-10-31",
+      "segments": {
+        "Sams Club": 14864000000,
+        "Walmart International": 29548000000,
+        "Walmart U S": 77724000000
+      }
+    },
+    {
+      "date": "2018-01-31",
+      "segments": {
+        "Sams Club": 15479000000,
+        "Walmart International": 33092000000,
+        "Walmart U S": 86579000000
+      }
+    },
+    {
+      "date": "2018-04-30",
+      "segments": {
+        "Sams Club": 13622000000,
+        "Walmart U S": 77748000000,
+        "Walmart International": 30260000000
+      }
+    },
+    {
+      "date": "2018-07-31",
+      "segments": {
+        "Sams Club": 14790000000,
+        "Walmart U S": 82815000000,
+        "Walmart International": 29454000000
+      }
+    },
+    {
+      "date": "2018-10-31",
+      "segments": {
+        "Sams Club": 14521000000,
+        "Walmart International": 28793000000,
+        "Walmart U S": 80583000000
+      }
+    },
+    {
+      "date": "2019-01-31",
+      "segments": {
+        "Sams Club": 14906000000,
+        "Walmart International": 32317000000,
+        "Walmart U S": 90520000000
+      }
+    },
+    {
+      "date": "2019-04-30",
+      "segments": {
+        "Sams Club": 13830000000,
+        "Walmart International": 28775000000,
+        "Walmart U S": 80344000000
+      }
+    },
+    {
+      "date": "2019-07-31",
+      "segments": {
+        "Sams Club": 15049000000,
+        "Walmart International": 29139000000,
+        "Walmart U S": 85200000000
+      }
+    },
+    {
+      "date": "2019-10-31",
+      "segments": {
+        "Sams Club": 14625000000,
+        "Walmart International": 29167000000,
+        "Walmart U S": 83189000000
+      }
+    },
+    {
+      "date": "2020-01-31",
+      "segments": {
+        "Sams Club": 15288000000,
+        "Walmart International": 33049000000,
+        "Walmart U S": 92271000000
+      }
+    },
+    {
+      "date": "2020-04-30",
+      "segments": {
+        "Sams Club": 15163000000,
+        "Walmart International": 29766000000,
+        "Walmart U S": 88743000000
+      }
+    },
+    {
+      "date": "2020-07-31",
+      "segments": {
+        "Sams Club": 16375000000,
+        "Walmart International": 27167000000,
+        "Walmart U S": 93282000000
+      }
+    },
+    {
+      "date": "2020-10-31",
+      "segments": {
+        "Sams Club": 15845000000,
+        "Walmart International": 29554000000,
+        "Walmart U S": 88353000000
+      }
+    },
+    {
+      "date": "2021-01-31",
+      "segments": {
+        "Sams Club": 16527000000,
+        "Walmart International": 34873000000,
+        "Walmart U S": 99585000000
+      }
+    },
+    {
+      "date": "2021-04-30",
+      "segments": {
+        "Sams Club": 16692000000,
+        "Walmart International": 27300000000,
+        "Walmart U S": 93167000000
+      }
+    },
+    {
+      "date": "2021-07-31",
+      "segments": {
+        "Sams Club": 18644000000,
+        "Walmart International": 23035000000,
+        "Walmart U S": 98192000000
+      }
+    },
+    {
+      "date": "2021-10-31",
+      "segments": {
+        "Sams Club": 18971000000,
+        "Walmart International": 23627000000,
+        "Walmart U S": 96609000000
+      }
+    },
+    {
+      "date": "2022-01-31",
+      "segments": {
+        "Sams Club": 19249000000,
+        "Walmart International": 26997000000,
+        "Walmart U S": 105279000000
+      }
+    },
+    {
+      "date": "2022-04-30",
+      "segments": {
+        "Sams Club": 19621000000,
+        "Walmart International": 23763000000,
+        "Walmart U S": 96904000000
+      }
+    },
+    {
+      "date": "2022-07-31",
+      "segments": {
+        "Sams Club": 21901000000,
+        "Walmart International": 24350000000,
+        "Walmart U S": 105130000000
+      }
+    },
+    {
+      "date": "2022-10-31",
+      "segments": {
+        "Sams Club": 21399000000,
+        "Walmart International": 25295000000,
+        "Walmart U S": 104775000000
+      }
+    },
+    {
+      "date": "2023-01-31",
+      "segments": {
+        "Sams Club": 21424000000,
+        "Walmart International": 27575000000,
+        "Walmart U S": 113744000000
+      }
+    },
+    {
+      "date": "2023-04-30",
+      "segments": {
+        "Sams Club": 20499000000,
+        "Walmart International": 26604000000,
+        "Walmart U S": 103901000000
+      }
+    },
+    {
+      "date": "2023-07-31",
+      "segments": {
+        "Sams Club": 21830000000,
+        "Walmart International": 27596000000,
+        "Walmart U S": 110854000000
+      }
+    },
+    {
+      "date": "2023-10-31",
+      "segments": {
+        "Sams Club": 21998000000,
+        "Walmart International": 28022000000,
+        "Walmart U S": 109419000000
+      }
+    },
+    {
+      "date": "2024-01-31",
+      "segments": {
+        "Sams Club": 21852000000,
+        "Walmart International": 32419000000,
+        "Walmart U S": 117643000000
+      }
+    },
+    {
+      "date": "2024-04-30",
+      "segments": {
+        "Sams Club": 21435000000,
+        "Walmart International": 29833000000,
+        "Walmart U S": 108670000000
+      }
+    },
+    {
+      "date": "2024-07-31",
+      "segments": {
+        "Sams Club": 22853000000,
+        "Walmart International": 29567000000,
+        "Walmart U S": 115347000000
+      }
+    },
+    {
+      "date": "2024-10-31",
+      "segments": {
+        "Sams Club": 22851000000,
+        "Walmart International": 30277000000,
+        "Walmart U S": 114875000000
+      }
+    },
+    {
+      "date": "2025-01-31",
+      "segments": {
+        "Sams Club": 23099000000,
+        "Walmart International": 32208000000,
+        "Walmart U S": 123523000000
+      }
+    },
+    {
+      "date": "2025-04-30",
+      "segments": {
+        "Sams Club": 22064000000,
+        "Walmart U S": 112163000000,
+        "Walmart International": 29754000000
+      }
+    },
+    {
+      "date": "2025-07-31",
+      "segments": {
+        "Sams Club": 23638000000,
+        "Walmart International": 31201000000,
+        "Walmart U S": 120911000000
+      }
+    },
+    {
+      "date": "2025-10-31",
+      "segments": {
+        "Sams Club": 23550000000,
+        "Walmart International": 33541000000,
+        "Walmart U S": 120678000000
+      }
+    },
+    {
+      "date": "2026-01-31",
+      "segments": {
+        "Sams Club": 23763000000,
+        "Walmart International": 35927000000,
+        "Walmart U S": 129223000000
+      }
+    },
+    {
+      "date": "2026-04-30",
+      "segments": {
+        "Sams Club": 23405000000,
+        "Walmart International": 35110000000,
+        "Walmart U S": 117169000000
+      }
+    },
+    {
+      "date": "2026-07-31",
+      "segments": {
+        "Sams Club": 25713000000,
+        "Walmart International": 35198000000,
+        "Walmart U S": 125189000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2025-04-30",
+      "segments": {
+        "United States": 135476000000,
+        "Non-United States": 30133000000
+      }
+    },
+    {
+      "date": "2025-07-31",
+      "segments": {
+        "Walmart International": 31582000000
+      }
+    },
+    {
+      "date": "2025-10-31",
+      "segments": {
+        "Walmart International": 33932000000
+      }
+    },
+    {
+      "date": "2026-01-31",
+      "segments": {
+        "Walmart International": 66474000000
+      }
+    },
+    {
+      "date": "2026-04-30",
+      "segments": {
+        "Walmart International": 35535000000
+      }
+    },
+    {
+      "date": "2026-07-31",
+      "segments": {
+        "Walmart International": 35624000000
+      }
+    }
+  ],
+  "sanitizedAt": "2026-11-02T14:51:27.870Z"
+}

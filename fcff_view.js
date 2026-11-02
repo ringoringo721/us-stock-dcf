@@ -123,6 +123,20 @@
       ev_to_ebitda: leverageOrCatalogue(ratio(ev, ebitda), 'ev_to_ebitda'),
       debt_to_ebitda: leverageOrCatalogue(ratio(debt, ebitda), 'debt_to_ebitda'),
       net_debt_to_ebitda: leverageOrCatalogue(ratio(net, ebitda), 'net_debt_to_ebitda'),
+      // FCF leverage: N/A when FCF ≤ 0; use live ratio when FCF > 0; else catalogue if present.
+      debt_to_fcf: (() => {
+        if (finite(fcf) && fcf <= 0) return null;
+        if (reported && finite(reported.values?.debt_to_fcf)) return reported.values.debt_to_fcf;
+        if (finite(fcf) && fcf > 0 && finite(debt)) return ratio(debt, fcf);
+        return finite(stock.debt_to_fcf) ? stock.debt_to_fcf : null;
+      })(),
+      net_debt_to_fcf: (() => {
+        if (finite(fcf) && fcf <= 0) return null;
+        if (reported && finite(reported.values?.net_debt_to_fcf)) return reported.values.net_debt_to_fcf;
+        if (finite(fcf) && fcf > 0 && finite(net)) return ratio(net, fcf);
+        return finite(stock.net_debt_to_fcf) ? stock.net_debt_to_fcf : null;
+      })(),
+      cont_div_growth: Number.isFinite(stock.cont_div_growth) ? stock.cont_div_growth : null,
       div_yield: stock.div_yield, f_score: stock.f_score,
       f_score_breakdown: stock.f_score_breakdown || []
     };

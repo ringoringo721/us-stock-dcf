@@ -1,0 +1,1022 @@
+{
+  "version": 1,
+  "ticker": "AAPL",
+  "source": "FMP revenue segmentation (quarter)",
+  "period": "quarter",
+  "product": [
+    {
+      "date": "2010-12-25",
+      "segments": {
+        "Retail": 3847000000
+      }
+    },
+    {
+      "date": "2011-03-26",
+      "segments": {
+        "Retail": 3191000000
+      }
+    },
+    {
+      "date": "2011-06-25",
+      "segments": {
+        "Retail": 3505000000
+      }
+    },
+    {
+      "date": "2011-09-24",
+      "segments": {
+        "Retail": 3584000000
+      }
+    },
+    {
+      "date": "2012-03-31",
+      "segments": {
+        "J P": 2645000000,
+        "Retail": 4399000000
+      }
+    },
+    {
+      "date": "2012-06-30",
+      "segments": {
+        "J P": 2009000000,
+        "Retail": 4084000000
+      }
+    },
+    {
+      "date": "2012-09-29",
+      "segments": {
+        "J P": 2367000000,
+        "Retail": 4229000000
+      }
+    },
+    {
+      "date": "2012-12-29",
+      "segments": {
+        "J P": 4443000000,
+        "Retail": 6441000000
+      }
+    },
+    {
+      "date": "2013-03-30",
+      "segments": {
+        "J P": 3135000000,
+        "Retail": 5241000000
+      }
+    },
+    {
+      "date": "2013-06-29",
+      "segments": {
+        "J P": 2543000000,
+        "Retail": 4074000000
+      }
+    },
+    {
+      "date": "2013-09-28",
+      "segments": {
+        "J P": 3341000000,
+        "Retail": 4472000000
+      }
+    },
+    {
+      "date": "2013-12-28",
+      "segments": {
+        "J P": 4948000000,
+        "Retail": 6998000000
+      }
+    },
+    {
+      "date": "2014-03-29",
+      "segments": {
+        "J P": 3963000000,
+        "Retail": 5227000000
+      }
+    },
+    {
+      "date": "2014-06-28",
+      "segments": {
+        "Retail": 4104000000
+      }
+    },
+    {
+      "date": "2018-12-29",
+      "segments": {
+        "Mac": 7416000000,
+        "Service": 10875000000,
+        "Wearables, Home and Accessories": 7308000000,
+        "iPad": 6729000000,
+        "iPhone": 51982000000
+      }
+    },
+    {
+      "date": "2019-03-30",
+      "segments": {
+        "Mac": 5513000000,
+        "Service": 11450000000,
+        "Wearables, Home and Accessories": 5129000000,
+        "iPad": 4872000000,
+        "iPhone": 31051000000
+      }
+    },
+    {
+      "date": "2019-06-29",
+      "segments": {
+        "Mac": 5820000000,
+        "Service": 11455000000,
+        "Wearables, Home and Accessories": 5525000000,
+        "iPad": 5023000000,
+        "iPhone": 25986000000
+      }
+    },
+    {
+      "date": "2019-09-28",
+      "segments": {
+        "Mac": 6991000000,
+        "Service": 12511000000,
+        "Wearables, Home and Accessories": 6520000000,
+        "iPad": 4656000000,
+        "iPhone": 33362000000
+      }
+    },
+    {
+      "date": "2019-12-28",
+      "segments": {
+        "Mac": 7160000000,
+        "Service": 12715000000,
+        "Wearables, Home and Accessories": 10010000000,
+        "iPad": 5977000000,
+        "iPhone": 55957000000
+      }
+    },
+    {
+      "date": "2020-03-28",
+      "segments": {
+        "Mac": 5351000000,
+        "Service": 13348000000,
+        "Wearables, Home and Accessories": 6284000000,
+        "iPad": 4368000000,
+        "iPhone": 28962000000
+      }
+    },
+    {
+      "date": "2020-06-27",
+      "segments": {
+        "Mac": 7079000000,
+        "Service": 13156000000,
+        "Wearables, Home and Accessories": 6450000000,
+        "iPad": 6582000000,
+        "iPhone": 26418000000
+      }
+    },
+    {
+      "date": "2020-09-26",
+      "segments": {
+        "Mac": 9032000000,
+        "Service": 14549000000,
+        "Wearables, Home and Accessories": 7876000000,
+        "iPad": 6797000000,
+        "iPhone": 26444000000
+      }
+    },
+    {
+      "date": "2020-12-26",
+      "segments": {
+        "Mac": 8675000000,
+        "Service": 15761000000,
+        "Wearables, Home and Accessories": 12971000000,
+        "iPad": 8435000000,
+        "iPhone": 65597000000
+      }
+    },
+    {
+      "date": "2021-03-27",
+      "segments": {
+        "Mac": 9102000000,
+        "Service": 16901000000,
+        "Wearables, Home and Accessories": 7836000000,
+        "iPad": 7807000000,
+        "iPhone": 47938000000
+      }
+    },
+    {
+      "date": "2021-06-26",
+      "segments": {
+        "Mac": 8235000000,
+        "Service": 17486000000,
+        "Wearables, Home and Accessories": 8775000000,
+        "iPad": 7368000000,
+        "iPhone": 39570000000
+      }
+    },
+    {
+      "date": "2021-09-25",
+      "segments": {
+        "Mac": 9178000000,
+        "Service": 18277000000,
+        "Wearables, Home and Accessories": 8785000000,
+        "iPad": 8252000000,
+        "iPhone": 38868000000
+      }
+    },
+    {
+      "date": "2021-12-25",
+      "segments": {
+        "Mac": 10852000000,
+        "Service": 19516000000,
+        "Wearables, Home and Accessories": 14701000000,
+        "iPad": 7248000000,
+        "iPhone": 71628000000
+      }
+    },
+    {
+      "date": "2022-03-26",
+      "segments": {
+        "Mac": 10435000000,
+        "Service": 19821000000,
+        "Wearables, Home and Accessories": 8806000000,
+        "iPad": 7646000000,
+        "iPhone": 50570000000
+      }
+    },
+    {
+      "date": "2022-06-25",
+      "segments": {
+        "Mac": 7382000000,
+        "Service": 19604000000,
+        "Wearables, Home and Accessories": 8084000000,
+        "iPad": 7224000000,
+        "iPhone": 40665000000
+      }
+    },
+    {
+      "date": "2022-09-24",
+      "segments": {
+        "Mac": 11508000000,
+        "Service": 19188000000,
+        "Wearables, Home and Accessories": 9650000000,
+        "iPad": 7174000000,
+        "iPhone": 42626000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Mac": 7735000000,
+        "Service": 20766000000,
+        "Wearables, Home and Accessories": 13482000000,
+        "iPad": 9396000000,
+        "iPhone": 65775000000
+      }
+    },
+    {
+      "date": "2023-04-01",
+      "segments": {
+        "Mac": 7168000000,
+        "Service": 20907000000,
+        "Wearables, Home and Accessories": 8757000000,
+        "iPad": 6670000000,
+        "iPhone": 51334000000
+      }
+    },
+    {
+      "date": "2023-07-01",
+      "segments": {
+        "Mac": 6840000000,
+        "Service": 21213000000,
+        "Wearables, Home and Accessories": 8284000000,
+        "iPad": 5791000000,
+        "iPhone": 39669000000
+      }
+    },
+    {
+      "date": "2023-09-30",
+      "segments": {
+        "Mac": 7614000000,
+        "Service": 22314000000,
+        "Wearables, Home and Accessories": 9322000000,
+        "iPad": 6443000000,
+        "iPhone": 43805000000
+      }
+    },
+    {
+      "date": "2023-12-30",
+      "segments": {
+        "Mac": 7780000000,
+        "Service": 23117000000,
+        "Wearables, Home and Accessories": 11953000000,
+        "iPad": 7023000000,
+        "iPhone": 69702000000
+      }
+    },
+    {
+      "date": "2024-03-30",
+      "segments": {
+        "Mac": 7451000000,
+        "Service": 23867000000,
+        "Wearables, Home and Accessories": 7913000000,
+        "iPad": 5559000000,
+        "iPhone": 45963000000
+      }
+    },
+    {
+      "date": "2024-06-29",
+      "segments": {
+        "Mac": 7009000000,
+        "Service": 24213000000,
+        "Wearables, Home and Accessories": 8097000000,
+        "iPad": 7162000000,
+        "iPhone": 39296000000
+      }
+    },
+    {
+      "date": "2024-09-28",
+      "segments": {
+        "Mac": 7744000000,
+        "Service": 24972000000,
+        "Wearables, Home and Accessories": 9042000000,
+        "iPad": 6950000000,
+        "iPhone": 46222000000
+      }
+    },
+    {
+      "date": "2024-12-28",
+      "segments": {
+        "Mac": 8987000000,
+        "Service": 26340000000,
+        "Wearables, Home and Accessories": 11747000000,
+        "iPad": 8088000000,
+        "iPhone": 69138000000
+      }
+    },
+    {
+      "date": "2025-03-29",
+      "segments": {
+        "Mac": 7949000000,
+        "Service": 26645000000,
+        "Wearables, Home and Accessories": 7522000000,
+        "iPad": 6402000000,
+        "iPhone": 46841000000
+      }
+    },
+    {
+      "date": "2025-06-28",
+      "segments": {
+        "Mac": 8046000000,
+        "Service": 27423000000,
+        "Wearables, Home and Accessories": 7404000000,
+        "iPad": 6581000000,
+        "iPhone": 44582000000
+      }
+    },
+    {
+      "date": "2025-09-27",
+      "segments": {
+        "Mac": 8726000000,
+        "Service": 28750000000,
+        "Wearables, Home and Accessories": 9013000000,
+        "iPad": 6952000000,
+        "iPhone": 49025000000
+      }
+    },
+    {
+      "date": "2025-12-27",
+      "segments": {
+        "Mac": 8386000000,
+        "Service": 30013000000,
+        "Wearables, Home and Accessories": 11493000000,
+        "iPad": 8595000000,
+        "iPhone": 85269000000
+      }
+    },
+    {
+      "date": "2026-03-28",
+      "segments": {
+        "Mac": 8399000000,
+        "Service": 30976000000,
+        "Wearables, Home and Accessories": 7901000000,
+        "iPad": 6914000000,
+        "iPhone": 56994000000
+      }
+    },
+    {
+      "date": "2026-06-27",
+      "segments": {
+        "Mac": 10352000000,
+        "Service": 30739000000,
+        "Wearables, Home and Accessories": 7883000000,
+        "iPad": 6191000000,
+        "iPhone": 54252000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2010-12-25",
+      "segments": {
+        "Americas Segment": 9218000000,
+        "Asia-Pacific": 4987000000,
+        "Europe Segment": 7256000000,
+        "Japan Segment": 1433000000
+      }
+    },
+    {
+      "date": "2011-03-26",
+      "segments": {
+        "Americas Segment": 9323000000,
+        "Asia-Pacific": 4743000000,
+        "Europe Segment": 6027000000,
+        "Japan Segment": 1383000000
+      }
+    },
+    {
+      "date": "2011-06-25",
+      "segments": {
+        "Americas Segment": 10126000000,
+        "Asia-Pacific": 6332000000,
+        "Europe Segment": 7098000000,
+        "Japan Segment": 1510000000
+      }
+    },
+    {
+      "date": "2011-09-24",
+      "segments": {
+        "Americas Segment": 9648000000,
+        "Asia-Pacific": 6530000000,
+        "Europe Segment": 7397000000,
+        "Japan Segment": 1111000000
+      }
+    },
+    {
+      "date": "2011-12-31",
+      "segments": {
+        "Americas Segment": 17714000000,
+        "Asia-Pacific": 7697000000,
+        "Europe Segment": 11256000000,
+        "Japan Segment": 3550000000
+      }
+    },
+    {
+      "date": "2012-03-31",
+      "segments": {
+        "Americas Segment": 13182000000,
+        "Asia-Pacific": 10153000000,
+        "Europe Segment": 8807000000,
+        "Japan Segment": 2645000000
+      }
+    },
+    {
+      "date": "2012-06-30",
+      "segments": {
+        "Americas Segment": 12806000000,
+        "Asia-Pacific": 7887000000,
+        "Europe Segment": 8237000000,
+        "Japan Segment": 2009000000
+      }
+    },
+    {
+      "date": "2012-09-29",
+      "segments": {
+        "Americas Segment": 17247000000
+      }
+    },
+    {
+      "date": "2012-12-29",
+      "segments": {
+        "Americas Segment": 20341000000,
+        "Asia-Pacific": 3993000000,
+        "Europe Segment": 12464000000,
+        "Greater China Segment": 6830000000,
+        "Japan Segment": 4443000000
+      }
+    },
+    {
+      "date": "2013-03-30",
+      "segments": {
+        "Americas Segment": 14052000000,
+        "Asia-Pacific": 3162000000,
+        "Europe Segment": 9800000000,
+        "Greater China Segment": 8213000000,
+        "Japan Segment": 3135000000
+      }
+    },
+    {
+      "date": "2013-06-29",
+      "segments": {
+        "Americas Segment": 14405000000,
+        "Asia-Pacific": 2046000000,
+        "Europe Segment": 7614000000,
+        "Greater China Segment": 4641000000,
+        "Japan Segment": 2543000000
+      }
+    },
+    {
+      "date": "2013-09-28",
+      "segments": {
+        "Greater China Segment": 6262000000,
+        "Americas Segment": 17399000000
+      }
+    },
+    {
+      "date": "2013-12-28",
+      "segments": {
+        "Americas Segment": 20098000000,
+        "Asia-Pacific": 3633000000,
+        "Europe Segment": 13073000000,
+        "Greater China Segment": 8844000000,
+        "Japan Segment": 4948000000
+      }
+    },
+    {
+      "date": "2014-03-29",
+      "segments": {
+        "Americas Segment": 14310000000,
+        "Asia-Pacific": 2627000000,
+        "Europe Segment": 10230000000,
+        "Greater China Segment": 9289000000
+      }
+    },
+    {
+      "date": "2014-06-28",
+      "segments": {
+        "Americas Segment": 14577000000,
+        "Europe Segment": 8091000000,
+        "Greater China Segment": 5935000000,
+        "Japan Segment": 2564000000
+      }
+    },
+    {
+      "date": "2014-09-27",
+      "segments": {
+        "Greater China Segment": 6570000000,
+        "Americas Segment": 19924000000
+      }
+    },
+    {
+      "date": "2014-12-27",
+      "segments": {
+        "Americas Segment": 30566000000,
+        "Europe Segment": 17214000000,
+        "Greater China Segment": 16144000000,
+        "Japan Segment": 5448000000,
+        "Rest of Asia Pacific Segment": 5227000000
+      }
+    },
+    {
+      "date": "2015-03-28",
+      "segments": {
+        "Americas Segment": 21316000000,
+        "Europe Segment": 12204000000,
+        "Greater China Segment": 16823000000,
+        "Japan Segment": 3457000000
+      }
+    },
+    {
+      "date": "2015-06-27",
+      "segments": {
+        "Americas Segment": 20209000000,
+        "Europe Segment": 10342000000,
+        "Greater China Segment": 13230000000,
+        "Japan Segment": 2872000000
+      }
+    },
+    {
+      "date": "2015-09-26",
+      "segments": {
+        "Americas Segment": 21773000000,
+        "Europe Segment": 10577000000,
+        "Greater China Segment": 12518000000,
+        "Japan Segment": 3929000000
+      }
+    },
+    {
+      "date": "2015-12-26",
+      "segments": {
+        "Americas Segment": 29325000000,
+        "Europe Segment": 17932000000,
+        "Greater China Segment": 18373000000,
+        "Japan Segment": 4794000000,
+        "Rest of Asia Pacific Segment": 5448000000
+      }
+    },
+    {
+      "date": "2016-03-26",
+      "segments": {
+        "Americas Segment": 19096000000,
+        "Europe Segment": 11535000000,
+        "Greater China Segment": 12486000000,
+        "Japan Segment": 4281000000,
+        "Rest of Asia Pacific Segment": 3159000000
+      }
+    },
+    {
+      "date": "2016-06-25",
+      "segments": {
+        "Americas Segment": 17963000000,
+        "Europe Segment": 9643000000,
+        "Greater China Segment": 8848000000,
+        "Japan Segment": 3529000000,
+        "Rest of Asia Pacific Segment": 2375000000
+      }
+    },
+    {
+      "date": "2016-09-24",
+      "segments": {
+        "Americas Segment": 20229000000,
+        "Europe Segment": 10842000000,
+        "Greater China Segment": 8785000000,
+        "Japan Segment": 4324000000,
+        "Rest of Asia Pacific Segment": 2672000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Americas Segment": 31968000000,
+        "Europe Segment": 18521000000,
+        "Greater China Segment": 16233000000,
+        "Japan Segment": 5766000000,
+        "Rest of Asia Pacific Segment": 5863000000
+      }
+    },
+    {
+      "date": "2017-04-01",
+      "segments": {
+        "Americas Segment": 21157000000,
+        "Europe Segment": 12733000000,
+        "Greater China Segment": 10726000000,
+        "Japan Segment": 4485000000,
+        "Rest of Asia Pacific Segment": 3795000000
+      }
+    },
+    {
+      "date": "2017-07-01",
+      "segments": {
+        "Americas Segment": 20376000000,
+        "Europe Segment": 10675000000,
+        "Greater China Segment": 8004000000,
+        "Japan Segment": 3624000000,
+        "Rest of Asia Pacific Segment": 2729000000
+      }
+    },
+    {
+      "date": "2017-09-30",
+      "segments": {
+        "Americas Segment": 23099000000,
+        "Europe Segment": 13009000000,
+        "Greater China Segment": 9801000000,
+        "Japan Segment": 3858000000,
+        "Rest of Asia Pacific Segment": 2812000000
+      }
+    },
+    {
+      "date": "2017-12-30",
+      "segments": {
+        "Americas Segment": 35193000000,
+        "Europe Segment": 21054000000,
+        "Greater China Segment": 17956000000,
+        "Japan Segment": 7237000000,
+        "Rest of Asia Pacific Segment": 6853000000
+      }
+    },
+    {
+      "date": "2018-03-31",
+      "segments": {
+        "Americas Segment": 24841000000,
+        "Europe Segment": 13846000000,
+        "Greater China Segment": 13024000000,
+        "Japan Segment": 5468000000,
+        "Rest of Asia Pacific Segment": 3958000000
+      }
+    },
+    {
+      "date": "2018-06-30",
+      "segments": {
+        "Americas Segment": 24542000000,
+        "Europe Segment": 12138000000,
+        "Greater China Segment": 9551000000,
+        "Japan Segment": 3867000000,
+        "Rest of Asia Pacific Segment": 3167000000
+      }
+    },
+    {
+      "date": "2018-09-29",
+      "segments": {
+        "Americas Segment": 27517000000,
+        "Europe Segment": 15382000000,
+        "Greater China Segment": 11411000000,
+        "Japan Segment": 5161000000,
+        "Rest of Asia Pacific Segment": 3429000000
+      }
+    },
+    {
+      "date": "2018-12-29",
+      "segments": {
+        "Americas Segment": 36940000000,
+        "Europe Segment": 20363000000,
+        "Greater China Segment": 13169000000,
+        "Japan Segment": 6910000000,
+        "Rest of Asia Pacific Segment": 6928000000
+      }
+    },
+    {
+      "date": "2019-03-30",
+      "segments": {
+        "Americas Segment": 25596000000,
+        "Europe Segment": 13054000000,
+        "Greater China Segment": 10218000000,
+        "Japan Segment": 5532000000,
+        "Rest of Asia Pacific Segment": 3615000000
+      }
+    },
+    {
+      "date": "2019-06-29",
+      "segments": {
+        "Americas Segment": 25056000000,
+        "Europe Segment": 11925000000,
+        "Greater China Segment": 9157000000,
+        "Japan Segment": 4082000000,
+        "Rest of Asia Pacific Segment": 3589000000
+      }
+    },
+    {
+      "date": "2019-09-28",
+      "segments": {
+        "Americas Segment": 29322000000,
+        "Europe Segment": 14946000000,
+        "Greater China Segment": 11134000000,
+        "Japan Segment": 4982000000,
+        "Rest of Asia Pacific Segment": 3656000000
+      }
+    },
+    {
+      "date": "2019-12-28",
+      "segments": {
+        "Americas Segment": 41367000000,
+        "Europe Segment": 23273000000,
+        "Greater China Segment": 13578000000,
+        "Japan Segment": 6223000000,
+        "Rest of Asia Pacific Segment": 7378000000
+      }
+    },
+    {
+      "date": "2020-03-28",
+      "segments": {
+        "Americas Segment": 25473000000,
+        "Europe Segment": 14294000000,
+        "Greater China Segment": 9455000000,
+        "Japan Segment": 5206000000,
+        "Rest of Asia Pacific Segment": 3885000000
+      }
+    },
+    {
+      "date": "2020-06-27",
+      "segments": {
+        "Americas Segment": 27018000000,
+        "Europe Segment": 14173000000,
+        "Greater China Segment": 9329000000,
+        "Japan Segment": 4966000000,
+        "Rest of Asia Pacific Segment": 4199000000
+      }
+    },
+    {
+      "date": "2020-09-26",
+      "segments": {
+        "Americas Segment": 30698000000,
+        "Europe Segment": 16900000000,
+        "Greater China Segment": 7946000000,
+        "Japan Segment": 5023000000,
+        "Rest of Asia Pacific Segment": 4131000000
+      }
+    },
+    {
+      "date": "2020-12-26",
+      "segments": {
+        "Americas Segment": 46310000000,
+        "Europe Segment": 27306000000,
+        "Greater China Segment": 21313000000,
+        "Japan Segment": 8285000000,
+        "Rest of Asia Pacific Segment": 8225000000
+      }
+    },
+    {
+      "date": "2021-03-27",
+      "segments": {
+        "Americas Segment": 34306000000,
+        "Europe Segment": 22264000000,
+        "Greater China Segment": 17728000000,
+        "Japan Segment": 7742000000,
+        "Rest of Asia Pacific Segment": 7544000000
+      }
+    },
+    {
+      "date": "2021-06-26",
+      "segments": {
+        "Americas Segment": 35870000000,
+        "Europe Segment": 18943000000,
+        "Greater China Segment": 14762000000,
+        "Japan Segment": 6464000000,
+        "Rest of Asia Pacific Segment": 5395000000
+      }
+    },
+    {
+      "date": "2021-09-25",
+      "segments": {
+        "Americas Segment": 36820000000,
+        "Europe Segment": 20794000000,
+        "Greater China Segment": 14563000000,
+        "Japan Segment": 5991000000,
+        "Rest of Asia Pacific Segment": 5192000000
+      }
+    },
+    {
+      "date": "2021-12-25",
+      "segments": {
+        "Americas Segment": 51496000000,
+        "Europe Segment": 29749000000,
+        "Greater China Segment": 25783000000,
+        "Japan Segment": 7107000000,
+        "Rest of Asia Pacific Segment": 9810000000
+      }
+    },
+    {
+      "date": "2022-03-26",
+      "segments": {
+        "Americas Segment": 40882000000,
+        "Europe Segment": 23287000000,
+        "Greater China Segment": 18343000000,
+        "Japan Segment": 7724000000,
+        "Rest of Asia Pacific Segment": 7042000000
+      }
+    },
+    {
+      "date": "2022-06-25",
+      "segments": {
+        "Americas Segment": 37472000000,
+        "Europe Segment": 19287000000,
+        "Greater China Segment": 14604000000,
+        "Japan Segment": 5446000000,
+        "Rest of Asia Pacific Segment": 6150000000
+      }
+    },
+    {
+      "date": "2022-09-24",
+      "segments": {
+        "Americas Segment": 39808000000,
+        "Europe Segment": 22795000000,
+        "Greater China Segment": 15470000000,
+        "Japan Segment": 5700000000,
+        "Rest of Asia Pacific Segment": 6373000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Americas Segment": 49278000000,
+        "Europe Segment": 27681000000,
+        "Greater China Segment": 23905000000,
+        "Japan Segment": 6755000000,
+        "Rest of Asia Pacific Segment": 9535000000
+      }
+    },
+    {
+      "date": "2023-04-01",
+      "segments": {
+        "Americas Segment": 37784000000,
+        "Europe Segment": 23945000000,
+        "Greater China Segment": 17812000000,
+        "Japan Segment": 7176000000,
+        "Rest of Asia Pacific Segment": 8119000000
+      }
+    },
+    {
+      "date": "2023-07-01",
+      "segments": {
+        "Americas Segment": 35383000000,
+        "Europe Segment": 20205000000,
+        "Greater China Segment": 15758000000,
+        "Japan Segment": 4821000000,
+        "Rest of Asia Pacific Segment": 5630000000
+      }
+    },
+    {
+      "date": "2023-09-30",
+      "segments": {
+        "Americas Segment": 40115000000,
+        "Europe Segment": 22463000000,
+        "Greater China Segment": 15084000000,
+        "Japan Segment": 5505000000,
+        "Rest of Asia Pacific Segment": 6331000000
+      }
+    },
+    {
+      "date": "2023-12-30",
+      "segments": {
+        "Americas Segment": 50430000000,
+        "Europe Segment": 30397000000,
+        "Greater China Segment": 20819000000,
+        "Japan Segment": 7767000000,
+        "Rest of Asia Pacific Segment": 10162000000
+      }
+    },
+    {
+      "date": "2024-03-30",
+      "segments": {
+        "Americas Segment": 37273000000,
+        "Europe Segment": 24123000000,
+        "Greater China Segment": 16372000000,
+        "Japan Segment": 6262000000,
+        "Rest of Asia Pacific Segment": 6723000000
+      }
+    },
+    {
+      "date": "2024-06-29",
+      "segments": {
+        "Americas Segment": 37678000000,
+        "Europe Segment": 21884000000,
+        "Greater China Segment": 14728000000,
+        "Japan Segment": 5097000000,
+        "Rest of Asia Pacific Segment": 6390000000
+      }
+    },
+    {
+      "date": "2024-09-28",
+      "segments": {
+        "Americas Segment": 41664000000,
+        "Europe Segment": 24924000000,
+        "Greater China Segment": 15033000000,
+        "Japan Segment": 5926000000,
+        "Rest of Asia Pacific Segment": 7383000000
+      }
+    },
+    {
+      "date": "2024-12-28",
+      "segments": {
+        "Americas Segment": 52648000000,
+        "Europe Segment": 33861000000,
+        "Greater China Segment": 18513000000,
+        "Japan Segment": 8987000000,
+        "Rest of Asia Pacific Segment": 10291000000
+      }
+    },
+    {
+      "date": "2025-03-29",
+      "segments": {
+        "Americas Segment": 40315000000,
+        "Europe Segment": 24454000000,
+        "Greater China Segment": 16002000000,
+        "Japan Segment": 7298000000,
+        "Rest of Asia Pacific Segment": 7290000000
+      }
+    },
+    {
+      "date": "2025-06-28",
+      "segments": {
+        "Americas Segment": 41198000000,
+        "Europe Segment": 24014000000,
+        "Greater China Segment": 15369000000,
+        "Japan Segment": 5782000000,
+        "Rest of Asia Pacific Segment": 7673000000
+      }
+    },
+    {
+      "date": "2025-09-27",
+      "segments": {
+        "Americas Segment": 44192000000,
+        "Europe Segment": 28703000000,
+        "Greater China Segment": 14493000000,
+        "Japan Segment": 6636000000,
+        "Rest of Asia Pacific Segment": 8442000000
+      }
+    },
+    {
+      "date": "2025-12-27",
+      "segments": {
+        "Americas Segment": 58529000000,
+        "Europe Segment": 38146000000,
+        "Greater China Segment": 25526000000,
+        "Japan Segment": 9413000000,
+        "Rest of Asia Pacific Segment": 12142000000
+      }
+    },
+    {
+      "date": "2026-03-28",
+      "segments": {
+        "Americas Segment": 45093000000,
+        "Europe Segment": 28055000000,
+        "Greater China Segment": 20497000000,
+        "Japan Segment": 8401000000,
+        "Rest of Asia Pacific Segment": 9138000000
+      }
+    },
+    {
+      "date": "2026-06-27",
+      "segments": {
+        "Americas Segment": 45781000000,
+        "Europe Segment": 29395000000,
+        "Greater China Segment": 18816000000,
+        "Japan Segment": 6554000000,
+        "Rest of Asia Pacific Segment": 8871000000
+      }
+    }
+  ],
+  "sanitizedAt": "2026-11-02T14:51:27.870Z"
+}

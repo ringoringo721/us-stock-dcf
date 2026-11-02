@@ -1,0 +1,329 @@
+{
+  "version": 1,
+  "ticker": "AAPL",
+  "source": "FMP revenue segmentation (annual)",
+  "period": "annual",
+  "product": [
+    {
+      "date": "2010-09-25",
+      "segments": {
+        "Retail": 9798000000
+      }
+    },
+    {
+      "date": "2011-09-24",
+      "segments": {
+        "Desktops": 6439000000,
+        "Other music related products and services": 6314000000,
+        "Peripherals and Other Hardware": 2330000000,
+        "Portables": 15344000000,
+        "Software, service and other net sales": 2954000000,
+        "Total Mac net sales": 21783000000,
+        "iPad and related products and services": 20358000000,
+        "iPhone and related products and services": 47057000000,
+        "iPod": 7453000000
+      }
+    },
+    {
+      "date": "2012-09-29",
+      "segments": {
+        "iPad": 32424000000,
+        "iPhone": 80477000000,
+        "iPod": 5615000000,
+        "Mac": 23221000000
+      }
+    },
+    {
+      "date": "2013-09-28",
+      "segments": {
+        "Wearables, Home and Accessories": 5706000000,
+        "iPad": 31980000000,
+        "iPhone": 91279000000,
+        "Mac": 21483000000,
+        "iPod": 4411000000,
+        "iTunes, Software And Service": 16051000000
+      }
+    },
+    {
+      "date": "2014-09-27",
+      "segments": {
+        "Mac": 24079000000,
+        "Wearables, Home and Accessories": 6093000000,
+        "iPad": 30283000000,
+        "iPhone": 101991000000,
+        "iPod": 2286000000,
+        "iTunes, Software And Service": 18063000000
+      }
+    },
+    {
+      "date": "2015-09-26",
+      "segments": {
+        "Mac": 25471000000,
+        "iPad": 23227000000,
+        "iPhone": 155041000000,
+        "Service": 19909000000
+      }
+    },
+    {
+      "date": "2016-09-24",
+      "segments": {
+        "Mac": 22831000000,
+        "iPad": 20628000000,
+        "iPhone": 136700000000,
+        "Service": 24348000000
+      }
+    },
+    {
+      "date": "2017-09-30",
+      "segments": {
+        "Mac": 25850000000,
+        "Service": 29980000000,
+        "iPad": 19222000000,
+        "iPhone": 141319000000
+      }
+    },
+    {
+      "date": "2018-09-29",
+      "segments": {
+        "Mac": 25484000000,
+        "Service": 37190000000,
+        "iPad": 18805000000,
+        "iPhone": 166699000000
+      }
+    },
+    {
+      "date": "2019-09-28",
+      "segments": {
+        "Mac": 25740000000,
+        "Service": 46291000000,
+        "Wearables, Home and Accessories": 24482000000,
+        "iPad": 21280000000,
+        "iPhone": 142381000000
+      }
+    },
+    {
+      "date": "2020-09-26",
+      "segments": {
+        "Mac": 28622000000,
+        "Service": 53768000000,
+        "Wearables, Home and Accessories": 30620000000,
+        "iPad": 23724000000,
+        "iPhone": 137781000000
+      }
+    },
+    {
+      "date": "2021-09-25",
+      "segments": {
+        "Mac": 35190000000,
+        "Service": 68425000000,
+        "Wearables, Home and Accessories": 38367000000,
+        "iPad": 31862000000,
+        "iPhone": 191973000000
+      }
+    },
+    {
+      "date": "2022-09-24",
+      "segments": {
+        "Mac": 40177000000,
+        "Service": 78129000000,
+        "Wearables, Home and Accessories": 41241000000,
+        "iPad": 29292000000,
+        "iPhone": 205489000000
+      }
+    },
+    {
+      "date": "2023-09-30",
+      "segments": {
+        "Mac": 29357000000,
+        "Service": 85200000000,
+        "Wearables, Home and Accessories": 39845000000,
+        "iPad": 28300000000,
+        "iPhone": 200583000000
+      }
+    },
+    {
+      "date": "2024-09-28",
+      "segments": {
+        "Mac": 29984000000,
+        "Service": 96169000000,
+        "Wearables, Home and Accessories": 37005000000,
+        "iPad": 26694000000,
+        "iPhone": 201183000000
+      }
+    },
+    {
+      "date": "2025-09-27",
+      "segments": {
+        "Mac": 33708000000,
+        "Service": 109158000000,
+        "Wearables, Home and Accessories": 35686000000,
+        "iPad": 28023000000,
+        "iPhone": 209586000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2010-09-25",
+      "segments": {
+        "Americas Segment": 24498000000,
+        "Europe Segment": 18692000000,
+        "Japan Segment": 3981000000,
+        "Rest of Asia Pacific Segment": 8256000000,
+        "Other Countries": 9798000000
+      }
+    },
+    {
+      "date": "2011-09-24",
+      "segments": {
+        "Americas Segment": 38315000000,
+        "Europe Segment": 27778000000,
+        "Japan Segment": 5437000000,
+        "Rest of Asia Pacific Segment": 22592000000,
+        "Other Countries": 14127000000
+      }
+    },
+    {
+      "date": "2012-09-29",
+      "segments": {
+        "Americas Segment": 57512000000,
+        "Europe Segment": 36323000000,
+        "Japan Segment": 10571000000,
+        "Rest of Asia Pacific Segment": 33274000000,
+        "Other Countries": 18828000000
+      }
+    },
+    {
+      "date": "2013-09-28",
+      "segments": {
+        "Americas Segment": 62739000000,
+        "Europe Segment": 37883000000,
+        "Greater China Segment": 25417000000,
+        "Japan Segment": 13462000000,
+        "Rest of Asia Pacific Segment": 11181000000,
+        "Other Countries": 20228000000
+      }
+    },
+    {
+      "date": "2014-09-27",
+      "segments": {
+        "Americas Segment": 65232000000,
+        "Europe Segment": 40929000000,
+        "Greater China Segment": 29846000000,
+        "Japan Segment": 14982000000,
+        "Rest of Asia Pacific Segment": 10344000000,
+        "Other Countries": 21462000000
+      }
+    },
+    {
+      "date": "2015-09-26",
+      "segments": {
+        "Americas Segment": 93864000000,
+        "Europe Segment": 50337000000,
+        "Greater China Segment": 58715000000,
+        "Japan Segment": 15706000000,
+        "Rest of Asia Pacific Segment": 15093000000
+      }
+    },
+    {
+      "date": "2016-09-24",
+      "segments": {
+        "Americas Segment": 86613000000,
+        "Europe Segment": 49952000000,
+        "Greater China Segment": 48492000000,
+        "Japan Segment": 16928000000,
+        "Rest of Asia Pacific Segment": 13654000000
+      }
+    },
+    {
+      "date": "2017-09-30",
+      "segments": {
+        "Americas Segment": 96600000000,
+        "Europe Segment": 54938000000,
+        "Greater China Segment": 44764000000,
+        "Japan Segment": 17733000000,
+        "Rest of Asia Pacific Segment": 15199000000
+      }
+    },
+    {
+      "date": "2018-09-29",
+      "segments": {
+        "Americas Segment": 112093000000,
+        "Europe Segment": 62420000000,
+        "Greater China Segment": 51942000000,
+        "Japan Segment": 21733000000,
+        "Rest of Asia Pacific Segment": 17407000000
+      }
+    },
+    {
+      "date": "2019-09-28",
+      "segments": {
+        "Americas Segment": 116914000000,
+        "Europe Segment": 60288000000,
+        "Greater China Segment": 43678000000,
+        "Japan Segment": 21506000000,
+        "Rest of Asia Pacific Segment": 17788000000
+      }
+    },
+    {
+      "date": "2020-09-26",
+      "segments": {
+        "Americas Segment": 124556000000,
+        "Europe Segment": 68640000000,
+        "Greater China Segment": 40308000000,
+        "Japan Segment": 21418000000,
+        "Rest of Asia Pacific Segment": 19593000000
+      }
+    },
+    {
+      "date": "2021-09-25",
+      "segments": {
+        "Americas Segment": 153306000000,
+        "Europe Segment": 89307000000,
+        "Greater China Segment": 68366000000,
+        "Japan Segment": 28482000000,
+        "Rest of Asia Pacific Segment": 26356000000
+      }
+    },
+    {
+      "date": "2022-09-24",
+      "segments": {
+        "Americas Segment": 169658000000,
+        "Europe Segment": 95118000000,
+        "Greater China Segment": 74200000000,
+        "Japan Segment": 25977000000,
+        "Rest of Asia Pacific Segment": 29375000000
+      }
+    },
+    {
+      "date": "2023-09-30",
+      "segments": {
+        "Americas Segment": 162560000000,
+        "Europe Segment": 94294000000,
+        "Greater China Segment": 72559000000,
+        "Japan Segment": 24257000000,
+        "Rest of Asia Pacific Segment": 29615000000
+      }
+    },
+    {
+      "date": "2024-09-28",
+      "segments": {
+        "Americas Segment": 167045000000,
+        "Europe Segment": 101328000000,
+        "Greater China Segment": 66952000000,
+        "Japan Segment": 25052000000,
+        "Rest of Asia Pacific Segment": 30658000000
+      }
+    },
+    {
+      "date": "2025-09-27",
+      "segments": {
+        "Americas Segment": 178353000000,
+        "Europe Segment": 111032000000,
+        "Greater China Segment": 64377000000,
+        "Japan Segment": 28703000000,
+        "Rest of Asia Pacific Segment": 33696000000
+      }
+    }
+  ]
+}

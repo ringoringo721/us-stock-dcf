@@ -1,0 +1,594 @@
+{
+  "version": 1,
+  "ticker": "T",
+  "source": "FMP revenue segmentation (quarter)",
+  "period": "quarter",
+  "product": [
+    {
+      "date": "2011-06-30",
+      "segments": {
+        "Wireless": 15602000000,
+        "Business Wireline": 14935000000
+      }
+    },
+    {
+      "date": "2011-09-30",
+      "segments": {
+        "Other Segment": 108000000,
+        "Wireless": 15606000000,
+        "Business Wireline": 14961000000
+      }
+    },
+    {
+      "date": "2012-03-31",
+      "segments": {
+        "Wireless": 16136000000,
+        "Business Wireline": 14928000000
+      }
+    },
+    {
+      "date": "2012-06-30",
+      "segments": {
+        "Wireless": 16353000000,
+        "Business Wireline": 14904000000
+      }
+    },
+    {
+      "date": "2012-09-30",
+      "segments": {
+        "Wireless": 16632000000,
+        "Business Wireline": 14813000000
+      }
+    },
+    {
+      "date": "2012-12-31",
+      "segments": {
+        "Wireless Service": 17642000000,
+        "Business Wireline": 14922000000
+      }
+    },
+    {
+      "date": "2013-03-31",
+      "segments": {
+        "Other Segment": 10000000,
+        "Wireless Service": 16691000000,
+        "Business Wireline": 14655000000
+      }
+    },
+    {
+      "date": "2013-06-30",
+      "segments": {
+        "Wireless": 17291000000,
+        "Business Wireline": 14773000000
+      }
+    },
+    {
+      "date": "2013-09-30",
+      "segments": {
+        "Wireless": 17480000000,
+        "Business Wireline": 14670000000
+      }
+    },
+    {
+      "date": "2013-12-31",
+      "segments": {
+        "Wireless": 18437000000,
+        "Business Wireline": 14716000000
+      }
+    },
+    {
+      "date": "2014-03-31",
+      "segments": {
+        "Corporate and Other": 9000000,
+        "Wireless Service": 17866000000,
+        "Business Wireline": 14601000000
+      }
+    },
+    {
+      "date": "2014-06-30",
+      "segments": {
+        "Corporate and Other": 8000000,
+        "Wireless": 17930000000,
+        "Business Wireline": 14637000000
+      }
+    },
+    {
+      "date": "2015-03-31",
+      "segments": {
+        "Corporate and Other": 6000000,
+        "International": 236000000,
+        "Wireless": 18186000000,
+        "Business Wireline": 14148000000
+      }
+    },
+    {
+      "date": "2015-06-30",
+      "segments": {
+        "Corporate and Other": 6000000,
+        "International": 491000000,
+        "Wireless Service": 18304000000,
+        "Business Wireline": 14214000000
+      }
+    },
+    {
+      "date": "2016-03-31",
+      "segments": {
+        "Corporate and Other": 273000000,
+        "Business Solutions": 17609000000,
+        "Mobility": 8328000000,
+        "Entertainment Group": 12658000000,
+        "International": 1667000000
+      }
+    },
+    {
+      "date": "2016-06-30",
+      "segments": {
+        "Corporate and Other": 216000000,
+        "Business Solutions": 17579000000,
+        "Mobility": 8186000000,
+        "Entertainment Group": 12711000000,
+        "International": 1828000000
+      }
+    },
+    {
+      "date": "2016-09-30",
+      "segments": {
+        "Certain Significant Items": -13000000,
+        "Corporate and Other": 270000000,
+        "Business Solutions": 17767000000,
+        "Mobility": 8267000000,
+        "Entertainment Group": 12720000000,
+        "International": 1879000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Certain Significant Items": 0,
+        "Corporate and Other": 500000000,
+        "Business Solutions": 18033000000,
+        "Mobility": 8419000000,
+        "Entertainment Group": 13206000000,
+        "International": 3737000000
+      }
+    },
+    {
+      "date": "2017-03-31",
+      "segments": {
+        "Corporate and Other": 225000000,
+        "Business Solutions": 16848000000,
+        "Mobility": 7740000000,
+        "Entertainment Group": 12623000000,
+        "International": 1929000000
+      }
+    },
+    {
+      "date": "2017-06-30",
+      "segments": {
+        "Corporate and Other": 231000000,
+        "Business Solutions": 17107000000,
+        "Mobility": 7791000000,
+        "Entertainment Group": 12682000000,
+        "International": 2026000000
+      }
+    },
+    {
+      "date": "2017-09-30",
+      "segments": {
+        "Certain Significant Items": -89000000,
+        "Corporate and Other": 201000000,
+        "Business Solutions": 17061000000,
+        "Mobility": 7748000000,
+        "Entertainment Group": 12648000000,
+        "International": 2099000000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "Certain Significant Items": 0,
+        "Corporate and Other": 207000000,
+        "Business Solutions": 18390000000,
+        "Mobility": 8273000000,
+        "Entertainment Group": 12745000000,
+        "International": 2215000000
+      }
+    },
+    {
+      "date": "2018-03-31",
+      "segments": {
+        "Entertainment Group": 11577000000,
+        "Business Solutions": 9185000000,
+        "Corporate and Other": 265000000,
+        "International": 2025000000,
+        "Mobility": 14986000000
+      }
+    },
+    {
+      "date": "2018-06-30",
+      "segments": {
+        "Corporate and Other": 319000000,
+        "WarnerMedia": 1275000000,
+        "Mobility": 14869000000,
+        "Business Solutions": 9063000000,
+        "Entertainment Group": 11650000000,
+        "International": 1951000000
+      }
+    },
+    {
+      "date": "2018-09-30",
+      "segments": {
+        "Corporate and Other": 308000000,
+        "Business Wireline": 6703000000,
+        "Entertainment Group": 11589000000,
+        "Eliminations and other": 27000000,
+        "Mobility": 17938000000,
+        "Turner": 2988000000,
+        "Warner Bros.": 3720000000,
+        "Xandr": 445000000,
+        "Home Box Office": 1644000000,
+        "Mexico Segment": 731000000,
+        "Vrio": 1102000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Business Wireline": 20124000000,
+        "Entertainment Group": 11644000000,
+        "Mobility": 23551000000,
+        "Eliminations and other": 51000000,
+        "Turner": 3991000000,
+        "Warner Bros.": 4983000000,
+        "Home Box Office": 1954000000,
+        "Mexico Segment": 2137000000,
+        "Vrio": 3682000000
+      }
+    },
+    {
+      "date": "2019-03-31",
+      "segments": {
+        "Advanced Data": 5256000000,
+        "Advertising": 1772000000,
+        "Legacy Voice and Data": 3087000000,
+        "Media Content Service Revenue": 2651000000,
+        "Product": 4143000000,
+        "Other Service": 1591000000,
+        "Subscription Arrangement Service Revenue": 12160000000,
+        "Wireless Service": 14167000000
+      }
+    },
+    {
+      "date": "2019-06-30",
+      "segments": {
+        "Advertising": 1841000000,
+        "Media Content Service Revenue": 2407000000,
+        "Other Service": 1870000000,
+        "Advanced Data": 5330000000,
+        "Legacy Voice and Data": 2989000000,
+        "Product": 3934000000,
+        "Subscription Arrangement Service Revenue": 12204000000,
+        "Wireless Service": 14382000000
+      }
+    },
+    {
+      "date": "2019-09-30",
+      "segments": {
+        "Advertising": 1523000000,
+        "Media Content Service Revenue": 2317000000,
+        "Other Service": 1692000000,
+        "Advanced Data": 5399000000,
+        "Legacy Voice and Data": 2886000000,
+        "Product": 4271000000,
+        "Subscription Arrangement Service Revenue": 12065000000,
+        "Wireless Service": 14435000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Advertising": -6808000000,
+        "Media Content Service Revenue": 3256000000,
+        "Other Service": 1594000000,
+        "Advanced Data": 5395000000,
+        "Legacy Voice and Data": 2946000000,
+        "Product": 5346000000,
+        "Subscription Arrangement Service Revenue": 11963000000,
+        "Wireless Service": 14468000000
+      }
+    },
+    {
+      "date": "2020-03-31",
+      "segments": {
+        "Advertising": 1544000000,
+        "Media Content Service Revenue": 1863000000,
+        "Other Service": 1429000000,
+        "Advanced Data": 5398000000,
+        "Legacy Voice and Data": 2844000000,
+        "Product": 3896000000,
+        "Subscription Arrangement Service Revenue": 11329000000,
+        "Wireless Service": 14476000000
+      }
+    },
+    {
+      "date": "2020-06-30",
+      "segments": {
+        "Advertising": 1233000000,
+        "Media Content Service Revenue": 1413000000,
+        "Other Service": 1304000000,
+        "Advanced Data": 5422000000,
+        "Legacy Voice and Data": 2779000000,
+        "Product": 3899000000,
+        "Subscription Arrangement Service Revenue": 10766000000,
+        "Wireless Service": 14134000000
+      }
+    },
+    {
+      "date": "2020-09-30",
+      "segments": {
+        "Advertising": 1679000000,
+        "Other Service": 1330000000,
+        "Subscription Arrangement Service Revenue": 10081000000,
+        "Advanced Data": 5490000000,
+        "Legacy Voice and Data": 2707000000,
+        "Product": 4558000000,
+        "Wireless Service": 14365000000,
+        "Media Content Service Revenue": 2130000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Advertising": 1960000000,
+        "Other Service": 1618000000,
+        "Subscription Arrangement Service Revenue": 8380000000,
+        "Advanced Data": 5600000000,
+        "Legacy Voice and Data": 2620000000,
+        "Product": 6640000000,
+        "Wireless Service": 14460000000,
+        "Media Content Service Revenue": 4413000000
+      }
+    },
+    {
+      "date": "2021-03-31",
+      "segments": {
+        "Advertising": 1833000000,
+        "Other Service": 643000000,
+        "Business Solutions": 5942000000,
+        "Legacy Voice and Data": 642000000,
+        "Product": 5435000000,
+        "Video Service": 7038000000,
+        "Wireless Service": 14414000000,
+        "Content Service": 2777000000,
+        "IP Broadband": 2205000000,
+        "Subscription Service": 3010000000
+      }
+    },
+    {
+      "date": "2021-06-30",
+      "segments": {
+        "Advertising": 1833000000,
+        "Other Service": 694000000,
+        "Legacy Voice and Data": 617000000,
+        "Product": 5089000000,
+        "Video Service": 6946000000,
+        "Wireless Service": 14726000000,
+        "Business Solutions": 5860000000,
+        "Content Service": 2876000000,
+        "IP Broadband": 2266000000,
+        "Subscription Service": 3138000000
+      }
+    },
+    {
+      "date": "2021-09-30",
+      "segments": {
+        "Advertising": 1478000000,
+        "Other Service": 707000000,
+        "Legacy Voice and Data": 581000000,
+        "Product": 5079000000,
+        "Video Service": 2797000000,
+        "Wireless Service": 14941000000,
+        "Business Solutions": 5765000000,
+        "Content Service": 2783000000,
+        "IP Broadband": 2290000000,
+        "Subscription Service": 3501000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Advertising": 1708000000,
+        "Other Service": 666000000,
+        "Business Solutions": 5727000000,
+        "Legacy Voice and Data": 566000000,
+        "Product": 6870000000,
+        "Video Service": 340000000,
+        "Wireless Service": 15087000000,
+        "Content Service": 4186000000,
+        "IP Broadband": 2324000000,
+        "Subscription Service": 3484000000
+      }
+    },
+    {
+      "date": "2022-03-31",
+      "segments": {
+        "Other Service": 587000000,
+        "Legacy Voice and Data": 549000000,
+        "Wireless Service": 15155000000,
+        "Advertising": 1761000000,
+        "Business Solutions": 5478000000,
+        "Content Service": 2820000000,
+        "IP Broadband": 2355000000,
+        "Product": 5713000000,
+        "Subscription Service": 3687000000
+      }
+    },
+    {
+      "date": "2022-06-30",
+      "segments": {
+        "Legacy Voice and Data": 511000000,
+        "Other Service": 390000000,
+        "Wireless Service": 15475000000,
+        "Advertising": 83000000,
+        "Business Solutions": 5416000000,
+        "IP Broadband": 2393000000,
+        "Product": 5375000000
+      }
+    },
+    {
+      "date": "2022-09-30",
+      "segments": {
+        "Legacy Voice and Data": 514000000,
+        "Other Service": 364000000,
+        "Product": 5312000000,
+        "Wireless Service": 15819000000,
+        "Advertising": 81000000,
+        "Business Solutions": 5524000000,
+        "IP Broadband": 2429000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Legacy Voice and Data": 495000000,
+        "Other Service": 187000000,
+        "Wireless Service": 16225000000,
+        "Business Solutions": 5473000000,
+        "IP Broadband": 2492000000,
+        "Product": 12223000000
+      }
+    },
+    {
+      "date": "2023-03-31",
+      "segments": {
+        "Legacy Voice and Data": 479000000,
+        "Other Service": 337000000,
+        "Business Solutions": 5200000000,
+        "IP Broadband": 2527000000,
+        "Product": 5522000000,
+        "Wireless Service": 16074000000
+      }
+    },
+    {
+      "date": "2023-06-30",
+      "segments": {
+        "Legacy Voice and Data": 463000000,
+        "Other Service": 332000000,
+        "Business Solutions": 5114000000,
+        "IP Broadband": 2561000000,
+        "Product": 5067000000,
+        "Wireless Service": 16380000000
+      }
+    },
+    {
+      "date": "2023-09-30",
+      "segments": {
+        "Legacy Voice and Data": 437000000,
+        "Other Service": 341000000,
+        "Business Solutions": 5087000000,
+        "IP Broadband": 2667000000,
+        "Product": 5238000000,
+        "Wireless Service": 16580000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Legacy Voice and Data": 423000000,
+        "Other Service": 364000000,
+        "Business Solutions": 4873000000,
+        "IP Broadband": 2700000000,
+        "Wireless Service": 16710000000,
+        "Product": 6952000000
+      }
+    },
+    {
+      "date": "2024-03-31",
+      "segments": {
+        "Legacy Voice and Data": 404000000,
+        "Other Service": 332000000,
+        "Business Solutions": 4700000000,
+        "IP Broadband": 2722000000,
+        "Product": 5186000000,
+        "Wireless Service": 16684000000
+      }
+    },
+    {
+      "date": "2024-06-30",
+      "segments": {
+        "Legacy Voice and Data": 385000000,
+        "Other Service": 333000000,
+        "Business Solutions": 4571000000,
+        "IP Broadband": 2741000000,
+        "Product": 4791000000,
+        "Wireless Service": 16976000000
+      }
+    },
+    {
+      "date": "2024-09-30",
+      "segments": {
+        "Legacy Voice and Data": 373000000,
+        "Other Service": 322000000,
+        "Business Solutions": 4417000000,
+        "IP Broadband": 2838000000,
+        "Product": 5079000000,
+        "Wireless Service": 17184000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Legacy Voice and Data": 356000000,
+        "Other Service": 313000000,
+        "Business Solutions": 4376000000,
+        "IP Broadband": 2911000000,
+        "Wireless Service": 17197000000,
+        "Product": 7145000000
+      }
+    },
+    {
+      "date": "2025-03-31",
+      "segments": {
+        "Legacy Voice and Data": 2807000000,
+        "Other Service": 301000000,
+        "IP Broadband": 918000000,
+        "Wireless Service": 17266000000
+      }
+    },
+    {
+      "date": "2025-06-30",
+      "segments": {
+        "Legacy Voice and Data": 2659000000,
+        "Other Service": 297000000,
+        "IP Broadband": 892000000,
+        "Wireless Service": 17515000000
+      }
+    },
+    {
+      "date": "2026-03-31",
+      "segments": {
+        "Wireless service": 17694000000,
+        "Advanced home internet": 2799000000,
+        "Business fiber and advanced connectivity": 1882000000,
+        "Business transitional and other": 1083000000,
+        "Other service": 2020000000,
+        "Equipment": 6028000000
+      }
+    },
+    {
+      "date": "2026-06-30",
+      "segments": {
+        "Service": 25977000000,
+        "Equipment": 5581000000
+      }
+    },
+    {
+      "date": "2026-09-30",
+      "segments": {
+        "Wireless Service": 18562000000
+      }
+    }
+  ],
+  "geographic": [],
+  "sanitizedAt": "2026-11-02T14:51:27.870Z"
+}

@@ -1,0 +1,711 @@
+{
+  "version": 1,
+  "ticker": "ADBE",
+  "source": "FMP revenue segmentation (quarter)",
+  "period": "quarter",
+  "product": [
+    {
+      "date": "2011-03-04",
+      "segments": {
+        "Digital Media": 151654000,
+        "Print And Publishing": 53696000
+      }
+    },
+    {
+      "date": "2011-06-03",
+      "segments": {
+        "Digital Media": 136652000,
+        "Print And Publishing": 53977000
+      }
+    },
+    {
+      "date": "2011-09-02",
+      "segments": {
+        "Digital Media": 151107000,
+        "Print And Publishing": 55611000
+      }
+    },
+    {
+      "date": "2011-12-02",
+      "segments": {
+        "Digital Media": 186423000,
+        "Print And Publishing": 55036000
+      }
+    },
+    {
+      "date": "2012-03-02",
+      "segments": {
+        "Digital Media": 990190000,
+        "Print And Publishing": 55030000
+      }
+    },
+    {
+      "date": "2012-06-01",
+      "segments": {
+        "Digital Media": 1069391000,
+        "Print And Publishing": 55058000
+      }
+    },
+    {
+      "date": "2012-08-31",
+      "segments": {
+        "Digital Media": 1026152000,
+        "Print And Publishing": 54428000
+      }
+    },
+    {
+      "date": "2012-11-30",
+      "segments": {
+        "Digital Media": 1101172000,
+        "Print And Publishing": 52256000
+      }
+    },
+    {
+      "date": "2013-03-01",
+      "segments": {
+        "Digital Media": 956100000,
+        "Print And Publishing": 51773000
+      }
+    },
+    {
+      "date": "2013-05-31",
+      "segments": {
+        "Digital Media": 955397000,
+        "Print And Publishing": 55152000
+      }
+    },
+    {
+      "date": "2013-08-30",
+      "segments": {
+        "Digital Media": 948411000,
+        "Print And Publishing": 46708000
+      }
+    },
+    {
+      "date": "2013-11-29",
+      "segments": {
+        "Digital Media": 994873000,
+        "Print And Publishing": 46826000
+      }
+    },
+    {
+      "date": "2014-02-28",
+      "segments": {
+        "Digital Media": 955534000,
+        "Print And Publishing": 44586000
+      }
+    },
+    {
+      "date": "2014-05-30",
+      "segments": {
+        "Digital Media": 1021932000,
+        "Print And Publishing": 46276000
+      }
+    },
+    {
+      "date": "2014-08-29",
+      "segments": {
+        "Digital Media": 958034000,
+        "Print And Publishing": 47375000
+      }
+    },
+    {
+      "date": "2014-11-28",
+      "segments": {
+        "Digital Media": 1022895000,
+        "Print And Publishing": 50433000
+      }
+    },
+    {
+      "date": "2015-02-27",
+      "segments": {
+        "Digital Media": 1059940000,
+        "Print And Publishing": 49241000
+      }
+    },
+    {
+      "date": "2015-05-29",
+      "segments": {
+        "Digital Media": 1113939000,
+        "Print And Publishing": 48219000
+      }
+    },
+    {
+      "date": "2015-08-28",
+      "segments": {
+        "Digital Media": 1172157000,
+        "Print And Publishing": 45611000
+      }
+    },
+    {
+      "date": "2015-11-27",
+      "segments": {
+        "Digital Media": 1257982000,
+        "Print And Publishing": 48422000
+      }
+    },
+    {
+      "date": "2016-03-04",
+      "segments": {
+        "Digital Media": 1337964000,
+        "Print And Publishing": 45371000
+      }
+    },
+    {
+      "date": "2016-06-03",
+      "segments": {
+        "Digital Media": 1355309000,
+        "Print And Publishing": 43400000
+      }
+    },
+    {
+      "date": "2016-09-02",
+      "segments": {
+        "Digital Media": 1419574000,
+        "Print And Publishing": 44393000
+      }
+    },
+    {
+      "date": "2016-12-02",
+      "segments": {
+        "Digital Media": 1564749000,
+        "Print And Publishing": 43670000
+      }
+    },
+    {
+      "date": "2017-03-03",
+      "segments": {
+        "Digital Media": 1639222000,
+        "Print And Publishing": 42424000
+      }
+    },
+    {
+      "date": "2017-06-02",
+      "segments": {
+        "Digital Media": 1728667000,
+        "Print And Publishing": 43523000
+      }
+    },
+    {
+      "date": "2017-09-01",
+      "segments": {
+        "Digital Media": 1799712000,
+        "Print And Publishing": 41362000
+      }
+    },
+    {
+      "date": "2017-12-01",
+      "segments": {
+        "Digital Media": 1963010000,
+        "Print And Publishing": 43585000
+      }
+    },
+    {
+      "date": "2018-03-02",
+      "segments": {
+        "Digital Experience": 554107000,
+        "Digital Media": 1460561000,
+        "Print And Publishing": 64279000
+      }
+    },
+    {
+      "date": "2018-06-01",
+      "segments": {
+        "Digital Experience": 585952000,
+        "Digital Media": 1546424000,
+        "Print And Publishing": 62984000
+      }
+    },
+    {
+      "date": "2018-08-31",
+      "segments": {
+        "Digital Experience": 613983000,
+        "Digital Media": 1608875000,
+        "Print And Publishing": 68218000
+      }
+    },
+    {
+      "date": "2018-11-30",
+      "segments": {
+        "Digital Experience": 689703000,
+        "Digital Media": 1709455000,
+        "Print And Publishing": 65467000
+      }
+    },
+    {
+      "date": "2019-03-01",
+      "segments": {
+        "Digital Experience": 743276000,
+        "Digital Media": 1776643000,
+        "Print And Publishing": 81027000
+      }
+    },
+    {
+      "date": "2019-05-31",
+      "segments": {
+        "Digital Experience": 783542000,
+        "Digital Media": 1890151000,
+        "Print And Publishing": 70587000
+      }
+    },
+    {
+      "date": "2019-08-30",
+      "segments": {
+        "Digital Experience": 820935000,
+        "Digital Media": 1962160000,
+        "Print And Publishing": 51031000
+      }
+    },
+    {
+      "date": "2019-11-29",
+      "segments": {
+        "Digital Experience": 858416000,
+        "Digital Media": 2078029000,
+        "Print And Publishing": 55500000
+      }
+    },
+    {
+      "date": "2020-02-28",
+      "segments": {
+        "Digital Experience": 858000000,
+        "Digital Media": 2169000000,
+        "Print And Publishing": 64000000
+      }
+    },
+    {
+      "date": "2020-05-29",
+      "segments": {
+        "Digital Experience": 826000000,
+        "Digital Media": 2232000000,
+        "Print And Publishing": 70000000
+      }
+    },
+    {
+      "date": "2020-08-28",
+      "segments": {
+        "Digital Experience": 838000000,
+        "Digital Media": 2337000000,
+        "Print And Publishing": 50000000
+      }
+    },
+    {
+      "date": "2020-11-27",
+      "segments": {
+        "Digital Experience": 603000000,
+        "Digital Media": 2495000000,
+        "Print And Publishing": 326000000
+      }
+    },
+    {
+      "date": "2021-03-05",
+      "segments": {
+        "Digital Experience": 934000000,
+        "Digital Media": 2859000000,
+        "Print And Publishing": 112000000
+      }
+    },
+    {
+      "date": "2021-06-04",
+      "segments": {
+        "Digital Experience": 938000000,
+        "Digital Media": 2787000000,
+        "Print And Publishing": 110000000
+      }
+    },
+    {
+      "date": "2021-09-03",
+      "segments": {
+        "Digital Experience": 985000000,
+        "Digital Media": 2865000000,
+        "Print And Publishing": 85000000
+      }
+    },
+    {
+      "date": "2021-12-03",
+      "segments": {
+        "Digital Experience": 1010000000,
+        "Digital Media": 3009000000,
+        "Print And Publishing": 91000000
+      }
+    },
+    {
+      "date": "2022-03-04",
+      "segments": {
+        "Digital Experience": 1057000000,
+        "Digital Media": 3110000000,
+        "Print And Publishing": 95000000
+      }
+    },
+    {
+      "date": "2022-06-03",
+      "segments": {
+        "Digital Experience": 1095000000,
+        "Digital Media": 3200000000,
+        "Print And Publishing": 91000000
+      }
+    },
+    {
+      "date": "2022-09-02",
+      "segments": {
+        "Digital Experience": 1120000000,
+        "Digital Media": 3232000000,
+        "Print And Publishing": 81000000
+      }
+    },
+    {
+      "date": "2022-12-02",
+      "segments": {
+        "Digital Experience": 1150000000,
+        "Digital Media": 3300000000,
+        "Print And Publishing": 75000000
+      }
+    },
+    {
+      "date": "2023-03-03",
+      "segments": {
+        "Digital Experience": 1176000000,
+        "Digital Media": 3395000000,
+        "Print And Publishing": 84000000
+      }
+    },
+    {
+      "date": "2023-06-02",
+      "segments": {
+        "Digital Experience": 1222000000,
+        "Digital Media": 3511000000,
+        "Print And Publishing": 83000000
+      }
+    },
+    {
+      "date": "2023-09-01",
+      "segments": {
+        "Digital Experience": 1229000000,
+        "Digital Media": 3594000000,
+        "Print And Publishing": 67000000
+      }
+    },
+    {
+      "date": "2023-12-01",
+      "segments": {
+        "Digital Experience": 1266000000,
+        "Digital Media": 3716000000,
+        "Print And Publishing": 66000000
+      }
+    },
+    {
+      "date": "2024-03-01",
+      "segments": {
+        "Digital Experience": 1289000000,
+        "Digital Media": 3816000000,
+        "Print And Publishing": 77000000
+      }
+    },
+    {
+      "date": "2024-05-31",
+      "segments": {
+        "Digital Experience": 1327000000,
+        "Digital Media": 3908000000,
+        "Print And Publishing": 74000000
+      }
+    },
+    {
+      "date": "2024-08-30",
+      "segments": {
+        "Digital Experience": 1354000000,
+        "Digital Media": 3995000000,
+        "Print And Publishing": 59000000
+      }
+    },
+    {
+      "date": "2024-11-29",
+      "segments": {
+        "Digital Experience": 1396000000,
+        "Digital Media": 4145000000,
+        "Print And Publishing": 65000000
+      }
+    },
+    {
+      "date": "2025-02-28",
+      "segments": {
+        "Digital Experience": 1414000000,
+        "Digital Media": 4227000000,
+        "Print And Publishing": 73000000
+      }
+    },
+    {
+      "date": "2025-05-30",
+      "segments": {
+        "Digital Experience": 1457000000,
+        "Digital Media": 4345000000,
+        "Print And Publishing": 71000000
+      }
+    },
+    {
+      "date": "2025-08-29",
+      "segments": {
+        "Digital Experience": 1476000000,
+        "Digital Media": 4459000000,
+        "Print And Publishing": 53000000
+      }
+    },
+    {
+      "date": "2025-11-28",
+      "segments": {
+        "Digital Experience": 1517000000,
+        "Digital Media": 4618000000,
+        "Print And Publishing": 59000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2019-03-01",
+      "segments": {
+        "Americas": 1509895000,
+        "Asia": 388090000,
+        "EMEA": 702961000
+      }
+    },
+    {
+      "date": "2019-05-31",
+      "segments": {
+        "Americas": 1599176000,
+        "Asia": 415762000,
+        "EMEA": 729342000
+      }
+    },
+    {
+      "date": "2019-08-30",
+      "segments": {
+        "Americas": 1639391000,
+        "Asia": 439823000,
+        "EMEA": 754912000
+      }
+    },
+    {
+      "date": "2019-11-29",
+      "segments": {
+        "Americas": 1757444000,
+        "Asia": 446473000,
+        "EMEA": 788028000
+      }
+    },
+    {
+      "date": "2020-02-28",
+      "segments": {
+        "Americas": 1797000000,
+        "Asia": 477000000,
+        "EMEA": 817000000
+      }
+    },
+    {
+      "date": "2020-05-29",
+      "segments": {
+        "Americas": 1811000000,
+        "Asia": 492000000,
+        "EMEA": 825000000
+      }
+    },
+    {
+      "date": "2020-08-28",
+      "segments": {
+        "Americas": 1873000000,
+        "Asia": 501000000,
+        "EMEA": 851000000
+      }
+    },
+    {
+      "date": "2020-11-27",
+      "segments": {
+        "Americas": 1973000000,
+        "Asia": 544000000,
+        "EMEA": 907000000
+      }
+    },
+    {
+      "date": "2021-03-05",
+      "segments": {
+        "Americas": 2224000000,
+        "Asia": 629000000,
+        "EMEA": 1052000000
+      }
+    },
+    {
+      "date": "2021-06-04",
+      "segments": {
+        "Americas": 2185000000,
+        "Asia": 624000000,
+        "EMEA": 1026000000
+      }
+    },
+    {
+      "date": "2021-09-03",
+      "segments": {
+        "Americas": 2242000000,
+        "Asia": 632000000,
+        "EMEA": 1061000000
+      }
+    },
+    {
+      "date": "2021-12-03",
+      "segments": {
+        "Americas": 2345000000,
+        "Asia": 652000000,
+        "EMEA": 1113000000
+      }
+    },
+    {
+      "date": "2022-03-04",
+      "segments": {
+        "Americas": 2446000000,
+        "Asia": 680000000,
+        "EMEA": 1136000000
+      }
+    },
+    {
+      "date": "2022-06-03",
+      "segments": {
+        "Americas": 2524000000,
+        "Asia": 705000000,
+        "EMEA": 1157000000
+      }
+    },
+    {
+      "date": "2022-09-02",
+      "segments": {
+        "Americas": 2600000000,
+        "Asia": 690000000,
+        "EMEA": 1143000000
+      }
+    },
+    {
+      "date": "2022-12-02",
+      "segments": {
+        "Americas": 2681000000,
+        "Asia": 687000000,
+        "EMEA": 1157000000
+      }
+    },
+    {
+      "date": "2023-03-03",
+      "segments": {
+        "Americas": 2779000000,
+        "Asia": 703000000,
+        "EMEA": 1173000000
+      }
+    },
+    {
+      "date": "2023-06-02",
+      "segments": {
+        "Americas": 2879000000,
+        "Asia": 724000000,
+        "EMEA": 1213000000
+      }
+    },
+    {
+      "date": "2023-09-01",
+      "segments": {
+        "Americas": 2943000000,
+        "Asia": 718000000,
+        "EMEA": 1229000000
+      }
+    },
+    {
+      "date": "2023-12-01",
+      "segments": {
+        "Americas": 3053000000,
+        "Asia": 729000000,
+        "EMEA": 1266000000
+      }
+    },
+    {
+      "date": "2024-03-01",
+      "segments": {
+        "Americas": 3110000000,
+        "Asia": 753000000,
+        "EMEA": 1319000000
+      }
+    },
+    {
+      "date": "2024-05-31",
+      "segments": {
+        "Americas": 3188000000,
+        "Asia": 760000000,
+        "EMEA": 1361000000
+      }
+    },
+    {
+      "date": "2024-08-30",
+      "segments": {
+        "Americas": 3241000000,
+        "Asia": 762000000,
+        "EMEA": 1405000000
+      }
+    },
+    {
+      "date": "2024-11-29",
+      "segments": {
+        "Americas": 3352000000,
+        "Asia": 785000000,
+        "EMEA": 1469000000
+      }
+    },
+    {
+      "date": "2025-02-28",
+      "segments": {
+        "Americas": 3405000000,
+        "Asia": 807000000,
+        "EMEA": 1502000000
+      }
+    },
+    {
+      "date": "2025-05-30",
+      "segments": {
+        "Americas": 3500000000,
+        "Asia": 832000000,
+        "EMEA": 1541000000
+      }
+    },
+    {
+      "date": "2025-08-29",
+      "segments": {
+        "Americas": 3555000000,
+        "Asia": 847000000,
+        "EMEA": 1586000000
+      }
+    },
+    {
+      "date": "2025-11-28",
+      "segments": {
+        "Americas": 3660000000,
+        "Asia": 874000000,
+        "EMEA": 1660000000
+      }
+    },
+    {
+      "date": "2026-02-27",
+      "segments": {
+        "Americas": 3755000000,
+        "Asia": 904000000,
+        "EMEA": 1739000000
+      }
+    },
+    {
+      "date": "2026-05-29",
+      "segments": {
+        "Americas": 3872000000,
+        "Asia": 937000000,
+        "EMEA": 1809000000
+      }
+    },
+    {
+      "date": "2026-08-28",
+      "segments": {
+        "Americas": 3974000000,
+        "Asia": 934000000,
+        "EMEA": 1852000000
+      }
+    }
+  ],
+  "sanitizedAt": "2026-11-02T14:51:27.870Z"
+}

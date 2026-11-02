@@ -1,0 +1,236 @@
+{
+  "version": 1,
+  "ticker": "CVX",
+  "source": "FMP revenue segmentation (annual)",
+  "period": "annual",
+  "product": [
+    {
+      "date": "2011-12-31",
+      "segments": {
+        "All Other Segments": 1644000000,
+        "Downstream": 214299000000,
+        "Upstream": 82836000000
+      }
+    },
+    {
+      "date": "2012-12-31",
+      "segments": {
+        "All Other Segments": 1730000000,
+        "Downstream": 204462000000,
+        "Upstream": 77198000000
+      }
+    },
+    {
+      "date": "2013-12-31",
+      "segments": {
+        "Corporate and Other, Including Intersegment Eliminations": 1916000000,
+        "Downstream": 195034000000,
+        "Upstream": 75558000000
+      }
+    },
+    {
+      "date": "2014-12-31",
+      "segments": {
+        "Corporate and Other, Including Intersegment Eliminations": 1758000000
+      }
+    },
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "Corporate and Other, Including Intersegment Eliminations": 1555000000
+      }
+    },
+    {
+      "date": "2016-12-30",
+      "segments": {
+        "Downstream": 86754000000,
+        "Upstream": 16410000000,
+        "All Other": 146000000
+      }
+    },
+    {
+      "date": "2017-12-30",
+      "segments": {
+        "Downstream": 106166000000,
+        "Upstream": 21110000000,
+        "All Other": 209000000
+      }
+    },
+    {
+      "date": "2018-12-30",
+      "segments": {
+        "Downstream": 125597000000,
+        "Upstream": 33069000000,
+        "All Other": 236000000
+      }
+    },
+    {
+      "date": "2019-12-30",
+      "segments": {
+        "Downstream": 107912000000,
+        "Upstream": 31707000000,
+        "All Other": 246000000
+      }
+    },
+    {
+      "date": "2020-12-30",
+      "segments": {
+        "Downstream": 68083000000,
+        "Upstream": 26311000000,
+        "All Other": 77000000
+      }
+    },
+    {
+      "date": "2021-12-30",
+      "segments": {
+        "Downstream": 111490000000,
+        "Upstream": 43992000000,
+        "All Other": 124000000
+      }
+    },
+    {
+      "date": "2022-12-30",
+      "segments": {
+        "Downstream": 172308000000,
+        "Upstream": 63293000000,
+        "All Other": 116000000
+      }
+    },
+    {
+      "date": "2023-12-30",
+      "segments": {
+        "Downstream": 151038000000,
+        "Upstream": 45742000000,
+        "All Other": 133000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Downstream": 146434000000,
+        "Upstream": 46848000000,
+        "All Other": 132000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Upstream": 53452000000,
+        "Downstream": 130876000000,
+        "All Other": 104000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2011-12-31",
+      "segments": {
+        "Segment, Geographical, Groups of Countries, Group Two": 123221000000,
+        "United States": 91078000000,
+        "Excise and Similar Taxes": 3886000000,
+        "United State Include Excise and Similar Taxes": 4199000000
+      }
+    },
+    {
+      "date": "2012-12-31",
+      "segments": {
+        "Segment, Geographical, Groups of Countries, Group Two": 116705000000,
+        "United States": 87757000000,
+        "Excise and Similar Taxes": 3346000000,
+        "United State Include Excise and Similar Taxes": 4665000000
+      }
+    },
+    {
+      "date": "2013-12-31",
+      "segments": {
+        "International": 109931000000,
+        "United States": 85103000000
+      }
+    },
+    {
+      "date": "2014-12-31",
+      "segments": {
+        "International": 146186000000,
+        "United States": 103243000000
+      }
+    },
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "International": 85878000000,
+        "United States": 67133000000
+      }
+    },
+    {
+      "date": "2016-12-30",
+      "segments": {
+        "International": 59651000000,
+        "United States": 43659000000
+      }
+    },
+    {
+      "date": "2017-12-30",
+      "segments": {
+        "International": 74648000000,
+        "United States": 52837000000
+      }
+    },
+    {
+      "date": "2018-12-30",
+      "segments": {
+        "International": 93106000000,
+        "United States": 65796000000
+      }
+    },
+    {
+      "date": "2019-12-30",
+      "segments": {
+        "International": 79858000000,
+        "United States": 60007000000
+      }
+    },
+    {
+      "date": "2020-12-30",
+      "segments": {
+        "International": 57446000000,
+        "United States": 37025000000
+      }
+    },
+    {
+      "date": "2021-12-30",
+      "segments": {
+        "International": 86504000000,
+        "United States": 69102000000
+      }
+    },
+    {
+      "date": "2022-12-30",
+      "segments": {
+        "International": 128355000000,
+        "United States": 107362000000
+      }
+    },
+    {
+      "date": "2023-12-30",
+      "segments": {
+        "International": 108198000000,
+        "United States": 88715000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "International": 107970000000,
+        "United States": 85312000000,
+        "Global": 132000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Downstream Segment": 72485000000,
+        "Upstream Segment": 45518000000
+      }
+    }
+  ]
+}

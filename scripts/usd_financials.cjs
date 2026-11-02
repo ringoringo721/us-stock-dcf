@@ -243,6 +243,8 @@ function normalizeStock(stock, source, rates) {
   output.ev_to_ebitda = ratio(output.ev, ebitda);
   output.debt_to_ebitda = ratio(output.debt, ebitda);
   output.net_debt_to_ebitda = ratio(output.net_debt, ebitda);
+  output.debt_to_fcf = output.fcf0 != null && output.fcf0 > 0 ? ratio(output.debt, output.fcf0) : null;
+  output.net_debt_to_fcf = output.fcf0 != null && output.fcf0 > 0 ? ratio(output.net_debt, output.fcf0) : null;
   output.fcf_to_ev = ratio(output.fcf0, output.ev, 100);
   output.fcf_to_mcap = ratio(output.fcf0, output.mcap, 100);
   const dividends = flow('cashflow', 'dividendsPaid');

@@ -1,0 +1,287 @@
+{
+  "version": 1,
+  "ticker": "NKE",
+  "source": "FMP revenue segmentation (annual)",
+  "period": "annual",
+  "product": [
+    {
+      "date": "2011-05-31",
+      "segments": {
+        "Apparel": 5475000000,
+        "Equipment": 1013000000,
+        "Footwear": 11493000000,
+        "Other Products": 2881000000
+      }
+    },
+    {
+      "date": "2012-05-31",
+      "segments": {
+        "Apparel": 6333000000,
+        "Equipment": 1202000000,
+        "Footwear": 13426000000,
+        "Other Products": 3167000000
+      }
+    },
+    {
+      "date": "2013-05-31",
+      "segments": {
+        "Apparel": 6820000000,
+        "Equipment": 1405000000,
+        "Footwear": 14539000000,
+        "Other Products": 2549000000
+      }
+    },
+    {
+      "date": "2014-05-31",
+      "segments": {
+        "Apparel": 8109000000,
+        "Equipment": 1670000000,
+        "Footwear": 16208000000,
+        "Other Products": 1812000000
+      }
+    },
+    {
+      "date": "2015-05-31",
+      "segments": {
+        "Apparel": 8636000000,
+        "Equipment": 1632000000,
+        "Footwear": 18318000000,
+        "Other Products": 2015000000
+      }
+    },
+    {
+      "date": "2016-05-31",
+      "segments": {
+        "Apparel": 10563000000,
+        "Footwear": 19871000000,
+        "Other Products": 1942000000
+      }
+    },
+    {
+      "date": "2017-05-31",
+      "segments": {
+        "Apparel": 11079000000,
+        "Footwear": 21081000000,
+        "Other Products": 2190000000
+      }
+    },
+    {
+      "date": "2018-05-31",
+      "segments": {
+        "Apparel": 12129000000,
+        "Footwear": 22268000000,
+        "Other Products": 2000000000
+      }
+    },
+    {
+      "date": "2019-05-31",
+      "segments": {
+        "Apparel": 13096000000,
+        "Footwear": 25880000000
+      }
+    },
+    {
+      "date": "2020-05-31",
+      "segments": {
+        "Apparel": 12347000000,
+        "Footwear": 24947000000
+      }
+    },
+    {
+      "date": "2021-05-31",
+      "segments": {
+        "Apparel": 14380000000,
+        "Footwear": 30007000000
+      }
+    },
+    {
+      "date": "2022-05-31",
+      "segments": {
+        "Product and Service, Other": 153000000,
+        "Apparel": 15320000000,
+        "Footwear": 31237000000
+      }
+    },
+    {
+      "date": "2023-05-31",
+      "segments": {
+        "Product and Service, Other": 239000000,
+        "Apparel": 15688000000,
+        "Footwear": 35290000000
+      }
+    },
+    {
+      "date": "2024-05-31",
+      "segments": {
+        "Product and Service, Other": 155000000,
+        "Apparel": 15980000000,
+        "Footwear": 35227000000
+      }
+    },
+    {
+      "date": "2025-05-31",
+      "segments": {
+        "Product and Service, Other": 74000000,
+        "Apparel": 15268000000,
+        "Footwear": 30967000000
+      }
+    },
+    {
+      "date": "2026-05-31",
+      "segments": {
+        "Product and Service, Other": 143000000,
+        "Apparel": 15717000000,
+        "Footwear": 30538000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2011-05-31",
+      "segments": {
+        "NIKE Brand": 7578000000
+      }
+    },
+    {
+      "date": "2012-05-31",
+      "segments": {
+        "Central And Eastern Europe": 1200000000,
+        "Greater China": 2539000000,
+        "JAPAN": 829000000,
+        "North America": 8839000000,
+        "Western Europe": 4144000000
+      }
+    },
+    {
+      "date": "2013-05-31",
+      "segments": {
+        "Central And Eastern Europe": 1287000000,
+        "Greater China": 2453000000,
+        "JAPAN": 791000000,
+        "North America": 10387000000,
+        "Western Europe": 4128000000
+      }
+    },
+    {
+      "date": "2014-05-31",
+      "segments": {
+        "Central And Eastern Europe": 1387000000,
+        "Greater China": 2602000000,
+        "JAPAN": 771000000,
+        "North America": 12299000000,
+        "Western Europe": 4979000000
+      }
+    },
+    {
+      "date": "2015-05-31",
+      "segments": {
+        "Central And Eastern Europe": 1417000000,
+        "Greater China": 3067000000,
+        "JAPAN": 755000000,
+        "North America": 13740000000,
+        "Western Europe": 5709000000
+      }
+    },
+    {
+      "date": "2016-05-31",
+      "segments": {
+        "Central And Eastern Europe": 1431000000,
+        "Greater China": 3785000000,
+        "JAPAN": 869000000,
+        "North America": 14764000000,
+        "Western Europe": 5884000000
+      }
+    },
+    {
+      "date": "2017-05-31",
+      "segments": {
+        "Central And Eastern Europe": 1487000000,
+        "Greater China": 4237000000,
+        "JAPAN": 1014000000,
+        "North America": 15216000000,
+        "Western Europe": 6211000000
+      }
+    },
+    {
+      "date": "2018-05-31",
+      "segments": {
+        "Asia Pacific And Latin America Segment": 5166000000,
+        "Europe, Middle East And Africa Segment": 9242000000,
+        "Greater China": 5134000000,
+        "North America": 14855000000
+      }
+    },
+    {
+      "date": "2019-05-31",
+      "segments": {
+        "Asia Pacific And Latin America Segment": 5254000000,
+        "Europe, Middle East And Africa Segment": 9812000000,
+        "Greater China": 6208000000,
+        "North America": 15902000000
+      }
+    },
+    {
+      "date": "2020-05-31",
+      "segments": {
+        "Asia Pacific And Latin America Segment": 5028000000,
+        "Europe, Middle East And Africa Segment": 9347000000,
+        "Greater China": 6679000000,
+        "North America": 14484000000
+      }
+    },
+    {
+      "date": "2021-05-31",
+      "segments": {
+        "Asia Pacific And Latin America Segment": 5343000000,
+        "Europe, Middle East And Africa Segment": 11456000000,
+        "Greater China": 8290000000,
+        "North America": 17179000000
+      }
+    },
+    {
+      "date": "2022-05-31",
+      "segments": {
+        "Asia Pacific And Latin America Segment": 5955000000,
+        "Europe, Middle East And Africa Segment": 12479000000,
+        "Greater China": 7547000000,
+        "North America": 18353000000
+      }
+    },
+    {
+      "date": "2023-05-31",
+      "segments": {
+        "Asia Pacific And Latin America Segment": 6431000000,
+        "Europe, Middle East And Africa Segment": 13418000000,
+        "Greater China": 7248000000,
+        "North America": 21608000000
+      }
+    },
+    {
+      "date": "2024-05-31",
+      "segments": {
+        "Asia Pacific And Latin America Segment": 6729000000,
+        "Europe, Middle East And Africa Segment": 13607000000,
+        "Greater China": 7545000000,
+        "North America": 21396000000
+      }
+    },
+    {
+      "date": "2025-05-31",
+      "segments": {
+        "Asia Pacific And Latin America Segment": 6251000000,
+        "Europe, Middle East And Africa Segment": 12257000000,
+        "Greater China": 6586000000,
+        "North America": 19572000000
+      }
+    },
+    {
+      "date": "2026-05-31",
+      "segments": {
+        "Asia Pacific And Latin America Segment": 6243000000,
+        "Europe, Middle East And Africa Segment": 12572000000,
+        "Greater China": 5847000000,
+        "North America": 20511000000
+      }
+    }
+  ]
+}

@@ -1,0 +1,1238 @@
+{
+  "version": 1,
+  "ticker": "NVDA",
+  "source": "FMP revenue segmentation (quarter)",
+  "period": "quarter",
+  "product": [
+    {
+      "date": "2011-10-30",
+      "segments": {
+        "All Other": 0,
+        "CPB": 191083000,
+        "GPU": 644802000,
+        "PSB": 230295000
+      }
+    },
+    {
+      "date": "2012-01-29",
+      "segments": {
+        "CPB": 400083000,
+        "GPU": 1897628000,
+        "PSB": 634039000
+      }
+    },
+    {
+      "date": "2012-04-29",
+      "segments": {
+        "All Other": 0,
+        "CPB": 132512000,
+        "GPU": 579721000,
+        "PSB": 212644000
+      }
+    },
+    {
+      "date": "2012-07-29",
+      "segments": {
+        "All Other": 0,
+        "CPB": 179646000,
+        "GPU": 668298000,
+        "PSB": 196326000
+      }
+    },
+    {
+      "date": "2012-10-28",
+      "segments": {
+        "All Other": 0,
+        "CPB": 243901000,
+        "GPU": 739652000,
+        "PSB": 220557000
+      }
+    },
+    {
+      "date": "2013-01-27",
+      "segments": {
+        "GPU": 1264041000
+      }
+    },
+    {
+      "date": "2013-04-28",
+      "segments": {
+        "All Other": 66000000,
+        "GPU": 785612000,
+        "Tegra Processor": 103127000
+      }
+    },
+    {
+      "date": "2013-07-28",
+      "segments": {
+        "All Other": 66000000,
+        "GPU": 858613000,
+        "Tegra Processor": 52625000
+      }
+    },
+    {
+      "date": "2013-10-27",
+      "segments": {
+        "All Other": 66000000,
+        "GPU": 876833000,
+        "Tegra Processor": 111134000
+      }
+    },
+    {
+      "date": "2014-01-26",
+      "segments": {
+        "All Other": 66000000,
+        "GPU": 947086000,
+        "Tegra Processor": 131132000
+      }
+    },
+    {
+      "date": "2014-04-27",
+      "segments": {
+        "All Other": 66000000,
+        "GPU": 897363000,
+        "Tegra Processor": 139424000
+      }
+    },
+    {
+      "date": "2014-07-27",
+      "segments": {
+        "All Other": 66000000,
+        "GPU": 877980000,
+        "Tegra Processor": 158844000
+      }
+    },
+    {
+      "date": "2014-10-26",
+      "segments": {
+        "All Other": 66000000,
+        "GPU": 991217000,
+        "Tegra Processor": 168165000
+      }
+    },
+    {
+      "date": "2015-01-25",
+      "segments": {
+        "All Other": 66000000,
+        "GPU": 1072346000,
+        "Tegra Processor": 112168000
+      }
+    },
+    {
+      "date": "2015-04-26",
+      "segments": {
+        "All Other": 66000000,
+        "GPU": 940000000,
+        "Tegra Processor": 145000000
+      }
+    },
+    {
+      "date": "2015-07-26",
+      "segments": {
+        "All Other": 66000000,
+        "GPU": 959000000,
+        "Tegra Processor": 128000000
+      }
+    },
+    {
+      "date": "2015-10-25",
+      "segments": {
+        "All Other": 66000000,
+        "GPU": 1110000000,
+        "Tegra Processor": 129000000
+      }
+    },
+    {
+      "date": "2016-01-31",
+      "segments": {
+        "All Other": 66000000,
+        "GPU": 1178000000,
+        "Tegra Processor": 157000000
+      }
+    },
+    {
+      "date": "2016-05-01",
+      "segments": {
+        "All Other": 66000000,
+        "GPU": 1079000000,
+        "Tegra Processor": 160000000
+      }
+    },
+    {
+      "date": "2016-07-31",
+      "segments": {
+        "All Other": 66000000,
+        "GPU": 1196000000,
+        "Tegra Processor": 166000000
+      }
+    },
+    {
+      "date": "2016-10-30",
+      "segments": {
+        "All Other": 66000000,
+        "GPU": 1697000000,
+        "Tegra Processor": 241000000
+      }
+    },
+    {
+      "date": "2017-01-29",
+      "segments": {
+        "All Other": 66000000,
+        "GPU": 1850000000,
+        "Tegra Processor": 257000000
+      }
+    },
+    {
+      "date": "2017-04-30",
+      "segments": {
+        "All Other": 43000000,
+        "GPU": 1562000000,
+        "Tegra Processor": 332000000
+      }
+    },
+    {
+      "date": "2017-07-30",
+      "segments": {
+        "All Other": 0,
+        "GPU": 1897000000,
+        "Tegra Processor": 333000000
+      }
+    },
+    {
+      "date": "2017-10-29",
+      "segments": {
+        "All Other": 0,
+        "GPU": 2217000000,
+        "Tegra Processor": 419000000
+      }
+    },
+    {
+      "date": "2018-01-28",
+      "segments": {
+        "All Other": 0,
+        "GPU": 2461000000,
+        "Tegra Processor": 450000000
+      }
+    },
+    {
+      "date": "2018-04-29",
+      "segments": {
+        "All Other": 0,
+        "GPU": 2765000000,
+        "Tegra Processor": 442000000
+      }
+    },
+    {
+      "date": "2018-07-29",
+      "segments": {
+        "Automotive": 161000000,
+        "Data Center": 760000000,
+        "Gaming": 1805000000,
+        "OEM And Other": 116000000,
+        "Professional Visualization": 281000000
+      }
+    },
+    {
+      "date": "2018-10-28",
+      "segments": {
+        "Automotive": 172000000,
+        "Data Center": 792000000,
+        "Gaming": 1764000000,
+        "OEM And Other": 148000000,
+        "Professional Visualization": 305000000
+      }
+    },
+    {
+      "date": "2019-01-27",
+      "segments": {
+        "Automotive": 308000000,
+        "Data Center": 1380000000,
+        "Gaming": 2677000000,
+        "OEM And Other": 503000000,
+        "Professional Visualization": 544000000
+      }
+    },
+    {
+      "date": "2019-04-28",
+      "segments": {
+        "Automotive": 166000000,
+        "Data Center": 634000000,
+        "Gaming": 1055000000,
+        "OEM And Other": 99000000,
+        "Professional Visualization": 266000000
+      }
+    },
+    {
+      "date": "2019-07-28",
+      "segments": {
+        "Automotive": 209000000,
+        "Data Center": 655000000,
+        "Gaming": 1313000000,
+        "OEM And Other": 111000000,
+        "Professional Visualization": 291000000
+      }
+    },
+    {
+      "date": "2019-10-27",
+      "segments": {
+        "Automotive": 162000000,
+        "Data Center": 726000000,
+        "Gaming": 1659000000,
+        "OEM And Other": 143000000,
+        "Professional Visualization": 324000000
+      }
+    },
+    {
+      "date": "2020-01-26",
+      "segments": {
+        "Automotive": 163000000,
+        "Data Center": 968000000,
+        "Gaming": 1491000000,
+        "OEM And Other": 152000000,
+        "Professional Visualization": 331000000
+      }
+    },
+    {
+      "date": "2020-04-26",
+      "segments": {
+        "Automotive": 155000000,
+        "Data Center": 1141000000,
+        "Gaming": 1339000000,
+        "OEM And Other": 138000000,
+        "Professional Visualization": 307000000
+      }
+    },
+    {
+      "date": "2020-07-26",
+      "segments": {
+        "Automotive": 111000000,
+        "Data Center": 1752000000,
+        "Gaming": 1654000000,
+        "OEM And Other": 146000000,
+        "Professional Visualization": 203000000
+      }
+    },
+    {
+      "date": "2020-10-25",
+      "segments": {
+        "Automotive": 125000000,
+        "Data Center": 1900000000,
+        "Gaming": 2271000000,
+        "OEM And Other": 194000000,
+        "Professional Visualization": 236000000
+      }
+    },
+    {
+      "date": "2021-01-31",
+      "segments": {
+        "Automotive": 145000000,
+        "Data Center": 1903000000,
+        "Gaming": 2495000000,
+        "OEM And Other": 153000000,
+        "Professional Visualization": 307000000
+      }
+    },
+    {
+      "date": "2021-05-02",
+      "segments": {
+        "Automotive": 154000000,
+        "Data Center": 2048000000,
+        "Gaming": 2760000000,
+        "OEM And Other": 327000000,
+        "Professional Visualization": 372000000
+      }
+    },
+    {
+      "date": "2021-08-01",
+      "segments": {
+        "Automotive": 152000000,
+        "Data Center": 2366000000,
+        "Gaming": 3061000000,
+        "OEM And Other": 409000000,
+        "Professional Visualization": 519000000
+      }
+    },
+    {
+      "date": "2021-10-31",
+      "segments": {
+        "Automotive": 135000000,
+        "Data Center": 2936000000,
+        "Gaming": 3221000000,
+        "OEM And Other": 234000000,
+        "Professional Visualization": 577000000
+      }
+    },
+    {
+      "date": "2022-01-30",
+      "segments": {
+        "Automotive": 125000000,
+        "Data Center": 3263000000,
+        "Gaming": 3420000000,
+        "OEM And Other": 192000000,
+        "Professional Visualization": 643000000
+      }
+    },
+    {
+      "date": "2022-05-01",
+      "segments": {
+        "Automotive": 138000000,
+        "Data Center": 3750000000,
+        "Gaming": 3620000000,
+        "OEM And Other": 158000000,
+        "Professional Visualization": 622000000
+      }
+    },
+    {
+      "date": "2022-07-31",
+      "segments": {
+        "Automotive": 220000000,
+        "Data Center": 3806000000,
+        "Gaming": 2042000000,
+        "OEM And Other": 140000000,
+        "Professional Visualization": 496000000
+      }
+    },
+    {
+      "date": "2022-10-30",
+      "segments": {
+        "Automotive": 251000000,
+        "Data Center": 3833000000,
+        "Gaming": 1574000000,
+        "OEM And Other": 73000000,
+        "Professional Visualization": 200000000
+      }
+    },
+    {
+      "date": "2023-01-29",
+      "segments": {
+        "Automotive": 294000000,
+        "Data Center": 3616000000,
+        "Gaming": 1831000000,
+        "OEM And Other": 84000000,
+        "Professional Visualization": 226000000
+      }
+    },
+    {
+      "date": "2023-04-30",
+      "segments": {
+        "Automotive": 296000000,
+        "Data Center": 4284000000,
+        "Gaming": 2240000000,
+        "OEM And Other": 77000000,
+        "Professional Visualization": 295000000
+      }
+    },
+    {
+      "date": "2023-07-30",
+      "segments": {
+        "Automotive": 253000000,
+        "Data Center": 10323000000,
+        "Gaming": 2486000000,
+        "OEM And Other": 66000000,
+        "Professional Visualization": 379000000
+      }
+    },
+    {
+      "date": "2023-10-29",
+      "segments": {
+        "Automotive": 261000000,
+        "Data Center": 14514000000,
+        "Gaming": 2856000000,
+        "OEM And Other": 73000000,
+        "Professional Visualization": 416000000
+      }
+    },
+    {
+      "date": "2024-01-28",
+      "segments": {
+        "Automotive": 281000000,
+        "Data Center": 18404000000,
+        "Gaming": 2865000000,
+        "OEM And Other": 90000000,
+        "Professional Visualization": 463000000
+      }
+    },
+    {
+      "date": "2024-04-28",
+      "segments": {
+        "Automotive": 329000000,
+        "Data Center": 22563000000,
+        "Gaming": 2647000000,
+        "OEM And Other": 78000000,
+        "Professional Visualization": 427000000
+      }
+    },
+    {
+      "date": "2024-07-28",
+      "segments": {
+        "Automotive": 346000000,
+        "Data Center": 26272000000,
+        "Gaming": 2880000000,
+        "OEM And Other": 88000000,
+        "Professional Visualization": 454000000
+      }
+    },
+    {
+      "date": "2024-10-27",
+      "segments": {
+        "Automotive": 449000000,
+        "Data Center": 30771000000,
+        "Gaming": 3279000000,
+        "OEM And Other": 97000000,
+        "Professional Visualization": 486000000
+      }
+    },
+    {
+      "date": "2025-01-26",
+      "segments": {
+        "Automotive": 570000000,
+        "Data Center": 35580000000,
+        "Gaming": 2544000000,
+        "OEM And Other": 126000000,
+        "Professional Visualization": 511000000
+      }
+    },
+    {
+      "date": "2025-04-27",
+      "segments": {
+        "Automotive": 567000000,
+        "Data Center": 39112000000,
+        "Gaming": 3763000000,
+        "OEM And Other": 111000000,
+        "Professional Visualization": 509000000
+      }
+    },
+    {
+      "date": "2025-07-27",
+      "segments": {
+        "Automotive": 586000000,
+        "Data Center": 41096000000,
+        "Gaming": 4287000000,
+        "OEM And Other": 173000000,
+        "Professional Visualization": 601000000
+      }
+    },
+    {
+      "date": "2025-10-26",
+      "segments": {
+        "Automotive": 592000000,
+        "Data Center": 51215000000,
+        "Gaming": 4265000000,
+        "OEM And Other": 174000000,
+        "Professional Visualization": 760000000
+      }
+    },
+    {
+      "date": "2026-01-25",
+      "segments": {
+        "Automotive": 604000000,
+        "Data Center": 62314000000,
+        "Gaming": 3727000000,
+        "OEM And Other": 161000000,
+        "Professional Visualization": 1321000000
+      }
+    },
+    {
+      "date": "2026-04-26",
+      "segments": {
+        "Data Center": 75246000000,
+        "Edge Computing": 6369000000
+      }
+    },
+    {
+      "date": "2026-07-26",
+      "segments": {
+        "Data Center": 89023000000,
+        "Edge Computing": 7198000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2010-08-01",
+      "segments": {
+        "CHINA": 271362000,
+        "Europe": 61731000,
+        "Other Americas": 72781000,
+        "Other Asia Pacific": 155164000,
+        "TAIWAN, PROVINCE OF CHINA": 189027000,
+        "UNITED STATES": 61143000
+      }
+    },
+    {
+      "date": "2010-10-31",
+      "segments": {
+        "CHINA": 282300000,
+        "Europe": 70787000,
+        "Other Americas": 78737000,
+        "Other Asia Pacific": 112292000,
+        "TAIWAN, PROVINCE OF CHINA": 220322000,
+        "UNITED STATES": 79474000
+      }
+    },
+    {
+      "date": "2011-01-30",
+      "segments": {
+        "CHINA": 669537000,
+        "Europe": 128903000,
+        "Other Americas": 153636000,
+        "Other Asia Pacific": 252017000,
+        "TAIWAN, PROVINCE OF CHINA": 527448000,
+        "UNITED STATES": 156648000
+      }
+    },
+    {
+      "date": "2011-05-01",
+      "segments": {
+        "CHINA": 289484000,
+        "Europe": 72583000,
+        "Other Americas": 75130000,
+        "Other Asia Pacific": 132587000,
+        "TAIWAN, PROVINCE OF CHINA": 282937000,
+        "UNITED STATES": 109318000
+      }
+    },
+    {
+      "date": "2011-07-31",
+      "segments": {
+        "CHINA": 232732000,
+        "Europe": 75257000,
+        "Other Americas": 68224000,
+        "Other Asia Pacific": 205524000,
+        "TAIWAN, PROVINCE OF CHINA": 281609000,
+        "UNITED STATES": 153171000
+      }
+    },
+    {
+      "date": "2011-10-30",
+      "segments": {
+        "CHINA": 209986000,
+        "Europe": 74313000,
+        "Other Americas": 84868000,
+        "Other Asia Pacific": 223597000,
+        "TAIWAN, PROVINCE OF CHINA": 293171000,
+        "UNITED STATES": 180245000
+      }
+    },
+    {
+      "date": "2012-01-29",
+      "segments": {
+        "CHINA": 209609000,
+        "Europe": 74438000,
+        "Other Americas": 66892000,
+        "Other Asia Pacific": 169267000,
+        "TAIWAN, PROVINCE OF CHINA": 279458000,
+        "UNITED STATES": 153530000
+      }
+    },
+    {
+      "date": "2012-04-29",
+      "segments": {
+        "CHINA": 178610000,
+        "Europe": 69508000,
+        "Other Americas": 75822000,
+        "Other Asia Pacific": 178677000,
+        "TAIWAN, PROVINCE OF CHINA": 276318000,
+        "UNITED STATES": 145942000
+      }
+    },
+    {
+      "date": "2012-07-29",
+      "segments": {
+        "CHINA": 196687000,
+        "Europe": 58998000,
+        "Other Americas": 81260000,
+        "Other Asia Pacific": 212367000,
+        "TAIWAN, PROVINCE OF CHINA": 340144000,
+        "UNITED STATES": 154814000
+      }
+    },
+    {
+      "date": "2012-10-28",
+      "segments": {
+        "CHINA": 205636000,
+        "Europe": 62877000,
+        "Other Americas": 81463000,
+        "Other Asia Pacific": 192814000,
+        "TAIWAN, PROVINCE OF CHINA": 403769000,
+        "UNITED STATES": 257551000
+      }
+    },
+    {
+      "date": "2013-01-27",
+      "segments": {
+        "CHINA": 199560000,
+        "Europe": 72105000,
+        "Other Americas": 57792000,
+        "Other Asia Pacific": 199715000,
+        "TAIWAN, PROVINCE OF CHINA": 336607000,
+        "UNITED STATES": 241123000
+      }
+    },
+    {
+      "date": "2013-04-28",
+      "segments": {
+        "CHINA": 175044000,
+        "Europe": 71572000,
+        "Other Americas": 65007000,
+        "Other Asia Pacific": 167257000,
+        "TAIWAN, PROVINCE OF CHINA": 289881000,
+        "UNITED STATES": 185978000
+      }
+    },
+    {
+      "date": "2013-07-28",
+      "segments": {
+        "CHINA": 184086000,
+        "Europe": 68704000,
+        "Other Americas": 76531000,
+        "Other Asia Pacific": 165117000,
+        "TAIWAN, PROVINCE OF CHINA": 319004000,
+        "UNITED STATES": 163796000
+      }
+    },
+    {
+      "date": "2013-10-27",
+      "segments": {
+        "CHINA": 206374000,
+        "Europe": 78973000,
+        "Other Americas": 79382000,
+        "Other Asia Pacific": 174691000,
+        "TAIWAN, PROVINCE OF CHINA": 319018000,
+        "UNITED STATES": 195529000
+      }
+    },
+    {
+      "date": "2014-01-26",
+      "segments": {
+        "CHINA": 228286000,
+        "Europe": 75911000,
+        "Other Americas": 96620000,
+        "Other Asia Pacific": 168274000,
+        "TAIWAN, PROVINCE OF CHINA": 393600000,
+        "UNITED STATES": 181527000
+      }
+    },
+    {
+      "date": "2014-04-27",
+      "segments": {
+        "CHINA": 223462000,
+        "Europe": 86918000,
+        "Other Americas": 91763000,
+        "Other Asia Pacific": 154850000,
+        "TAIWAN, PROVINCE OF CHINA": 372859000,
+        "UNITED STATES": 172935000
+      }
+    },
+    {
+      "date": "2014-07-27",
+      "segments": {
+        "CHINA": 251768000,
+        "Europe": 80157000,
+        "Other Americas": 83055000,
+        "Other Asia Pacific": 150799000,
+        "TAIWAN, PROVINCE OF CHINA": 330917000,
+        "UNITED STATES": 206128000
+      }
+    },
+    {
+      "date": "2014-10-26",
+      "segments": {
+        "CHINA": 238212000,
+        "Europe": 95750000,
+        "Other Americas": 100531000,
+        "Other Asia Pacific": 169793000,
+        "TAIWAN, PROVINCE OF CHINA": 405612000,
+        "UNITED STATES": 215484000
+      }
+    },
+    {
+      "date": "2015-01-25",
+      "segments": {
+        "CHINA": 208679000,
+        "Europe": 106096000,
+        "Other Americas": 267856000,
+        "Other Asia Pacific": 161587000,
+        "TAIWAN, PROVINCE OF CHINA": 485047000,
+        "UNITED STATES": 196067000
+      }
+    },
+    {
+      "date": "2015-04-26",
+      "segments": {
+        "CHINA": 173000000,
+        "Europe": 119000000,
+        "Other Americas": 103000000,
+        "Other Asia Pacific": 188000000,
+        "TAIWAN, PROVINCE OF CHINA": 388000000,
+        "UNITED STATES": 180000000
+      }
+    },
+    {
+      "date": "2015-07-26",
+      "segments": {
+        "CHINA": 181000000,
+        "Europe": 106000000,
+        "Other Americas": 98000000,
+        "Other Asia Pacific": 185000000,
+        "TAIWAN, PROVINCE OF CHINA": 445000000,
+        "UNITED STATES": 138000000
+      }
+    },
+    {
+      "date": "2015-10-25",
+      "segments": {
+        "CHINA": 229000000,
+        "Europe": 116000000,
+        "Other Americas": 108000000,
+        "Other Asia Pacific": 181000000,
+        "TAIWAN, PROVINCE OF CHINA": 515000000,
+        "UNITED STATES": 156000000
+      }
+    },
+    {
+      "date": "2016-01-31",
+      "segments": {
+        "CHINA": 223000000,
+        "Europe": 141000000,
+        "Other Americas": 109000000,
+        "Other Asia Pacific": 195000000,
+        "TAIWAN, PROVINCE OF CHINA": 564000000,
+        "UNITED STATES": 169000000
+      }
+    },
+    {
+      "date": "2016-05-01",
+      "segments": {
+        "CHINA": 247000000,
+        "Europe": 156000000,
+        "Other Americas": 103000000,
+        "Other Asia Pacific": 160000000,
+        "TAIWAN, PROVINCE OF CHINA": 445000000,
+        "UNITED STATES": 194000000
+      }
+    },
+    {
+      "date": "2016-07-31",
+      "segments": {
+        "CHINA": 256000000,
+        "Europe": 167000000,
+        "Other Americas": 103000000,
+        "Other Asia Pacific": 191000000,
+        "TAIWAN, PROVINCE OF CHINA": 505000000,
+        "UNITED STATES": 206000000
+      }
+    },
+    {
+      "date": "2016-10-30",
+      "segments": {
+        "CHINA": 341000000,
+        "Europe": 171000000,
+        "Other Americas": 154000000,
+        "Other Asia Pacific": 309000000,
+        "TAIWAN, PROVINCE OF CHINA": 747000000,
+        "UNITED STATES": 282000000
+      }
+    },
+    {
+      "date": "2017-01-29",
+      "segments": {
+        "CHINA": 461000000,
+        "Europe": 165000000,
+        "Other Americas": 126000000,
+        "Other Asia Pacific": 350000000,
+        "TAIWAN, PROVINCE OF CHINA": 849000000,
+        "UNITED STATES": 222000000
+      }
+    },
+    {
+      "date": "2017-04-30",
+      "segments": {
+        "CHINA": 330000000,
+        "Europe": 182000000,
+        "Other Americas": 93000000,
+        "Other Asia Pacific": 377000000,
+        "TAIWAN, PROVINCE OF CHINA": 602000000,
+        "UNITED STATES": 353000000
+      }
+    },
+    {
+      "date": "2017-07-30",
+      "segments": {
+        "CHINA": 481000000,
+        "Europe": 178000000,
+        "Other Americas": 199000000,
+        "Other Asia Pacific": 420000000,
+        "TAIWAN, PROVINCE OF CHINA": 674000000,
+        "UNITED STATES": 278000000
+      }
+    },
+    {
+      "date": "2017-10-29",
+      "segments": {
+        "CHINA": 515000000,
+        "Europe": 195000000,
+        "Other Americas": 187000000,
+        "Other Asia Pacific": 612000000,
+        "TAIWAN, PROVINCE OF CHINA": 864000000,
+        "UNITED STATES": 263000000
+      }
+    },
+    {
+      "date": "2018-01-28",
+      "segments": {
+        "CHINA": 570000000,
+        "Europe": 213000000,
+        "Other Americas": 520000000,
+        "Other Asia Pacific": 657000000,
+        "TAIWAN, PROVINCE OF CHINA": 851000000,
+        "UNITED STATES": 380000000
+      }
+    },
+    {
+      "date": "2018-04-29",
+      "segments": {
+        "CHINA": 754000000,
+        "Europe": 235000000,
+        "Other Americas": 234000000,
+        "Other Asia Pacific": 583000000,
+        "TAIWAN, PROVINCE OF CHINA": 967000000,
+        "UNITED STATES": 434000000
+      }
+    },
+    {
+      "date": "2018-07-29",
+      "segments": {
+        "CHINA": 760000000,
+        "Europe": 234000000,
+        "Other Americas": 197000000,
+        "Other Asia Pacific": 676000000,
+        "TAIWAN, PROVINCE OF CHINA": 843000000,
+        "UNITED STATES": 413000000
+      }
+    },
+    {
+      "date": "2018-10-28",
+      "segments": {
+        "CHINA": 704000000,
+        "Europe": 230000000,
+        "Other Americas": 169000000,
+        "Other Asia Pacific": 742000000,
+        "TAIWAN, PROVINCE OF CHINA": 929000000,
+        "UNITED STATES": 407000000
+      }
+    },
+    {
+      "date": "2019-01-27",
+      "segments": {
+        "CHINA": 583000000,
+        "Europe": 215000000,
+        "Other Asia Pacific": 367000000,
+        "Other Americas": 598000000,
+        "TAIWAN, PROVINCE OF CHINA": 621000000,
+        "UNITED STATES": 252000000
+      }
+    },
+    {
+      "date": "2019-04-28",
+      "segments": {
+        "CHINA": 553000000,
+        "Europe": 249000000,
+        "Other Americas": 133000000,
+        "Other Asia Pacific": 422000000,
+        "TAIWAN, PROVINCE OF CHINA": 698000000,
+        "UNITED STATES": 165000000
+      }
+    },
+    {
+      "date": "2019-07-28",
+      "segments": {
+        "CHINA": 583000000,
+        "Europe": 288000000,
+        "Other Americas": 129000000,
+        "Other Asia Pacific": 756000000,
+        "TAIWAN, PROVINCE OF CHINA": 635000000,
+        "UNITED STATES": 188000000
+      }
+    },
+    {
+      "date": "2019-10-27",
+      "segments": {
+        "Other Americas": 161000000,
+        "CHINA": 758000000,
+        "Europe": 216000000,
+        "Other Asia Pacific": 805000000,
+        "TAIWAN, PROVINCE OF CHINA": 838000000,
+        "UNITED STATES": 236000000
+      }
+    },
+    {
+      "date": "2020-01-26",
+      "segments": {
+        "CHINA": 837000000,
+        "Europe": 239000000,
+        "Other Asia Pacific": 702000000,
+        "Other Americas": 438000000,
+        "TAIWAN, PROVINCE OF CHINA": 854000000,
+        "UNITED STATES": 297000000
+      }
+    },
+    {
+      "date": "2020-04-26",
+      "segments": {
+        "Other Americas": 151000000,
+        "CHINA": 758000000,
+        "Europe": 254000000,
+        "Other Asia Pacific": 607000000,
+        "TAIWAN, PROVINCE OF CHINA": 813000000,
+        "UNITED STATES": 497000000
+      }
+    },
+    {
+      "date": "2020-07-26",
+      "segments": {
+        "Other Americas": 175000000,
+        "CHINA": 855000000,
+        "Europe": 240000000,
+        "Other Asia Pacific": 698000000,
+        "TAIWAN, PROVINCE OF CHINA": 954000000,
+        "UNITED STATES": 944000000
+      }
+    },
+    {
+      "date": "2020-10-25",
+      "segments": {
+        "Other Americas": 225000000,
+        "CHINA": 1113000000,
+        "Europe": 247000000,
+        "Other Asia Pacific": 955000000,
+        "TAIWAN, PROVINCE OF CHINA": 1296000000,
+        "UNITED STATES": 890000000
+      }
+    },
+    {
+      "date": "2021-01-31",
+      "segments": {
+        "CHINA": 1160000000,
+        "Europe": 377000000,
+        "Other Asia Pacific": 833000000,
+        "Other Americas": 282000000,
+        "TAIWAN, PROVINCE OF CHINA": 1468000000,
+        "UNITED STATES": 883000000
+      }
+    },
+    {
+      "date": "2021-05-02",
+      "segments": {
+        "Other Americas": 336000000,
+        "CHINA": 1391000000,
+        "Europe": 381000000,
+        "Other Asia Pacific": 1001000000,
+        "TAIWAN, PROVINCE OF CHINA": 1784000000,
+        "UNITED STATES": 768000000
+      }
+    },
+    {
+      "date": "2021-08-01",
+      "segments": {
+        "Other Americas": 354000000,
+        "CHINA": 1720000000,
+        "Europe": 429000000,
+        "Other Asia Pacific": 1047000000,
+        "TAIWAN, PROVINCE OF CHINA": 1961000000,
+        "UNITED STATES": 996000000
+      }
+    },
+    {
+      "date": "2021-10-31",
+      "segments": {
+        "Other Americas": 366000000,
+        "CHINA": 2017000000,
+        "Europe": 340000000,
+        "Other Asia Pacific": 1067000000,
+        "TAIWAN, PROVINCE OF CHINA": 2187000000,
+        "UNITED STATES": 1126000000
+      }
+    },
+    {
+      "date": "2022-01-30",
+      "segments": {
+        "CHINA": 1983000000,
+        "Other Americas": 5854000000,
+        "TAIWAN, PROVINCE OF CHINA": 2612000000,
+        "UNITED STATES": 1459000000
+      }
+    },
+    {
+      "date": "2022-05-01",
+      "segments": {
+        "Other Americas": 1498000000,
+        "CHINA": 2081000000,
+        "TAIWAN, PROVINCE OF CHINA": 2777000000,
+        "UNITED STATES": 1932000000
+      }
+    },
+    {
+      "date": "2022-07-31",
+      "segments": {
+        "Other Americas": 1910000000,
+        "CHINA": 1602000000,
+        "TAIWAN, PROVINCE OF CHINA": 1204000000,
+        "UNITED STATES": 1988000000
+      }
+    },
+    {
+      "date": "2022-10-30",
+      "segments": {
+        "Other Americas": 1482000000,
+        "CHINA": 1148000000,
+        "TAIWAN, PROVINCE OF CHINA": 1153000000,
+        "UNITED STATES": 2148000000
+      }
+    },
+    {
+      "date": "2023-01-29",
+      "segments": {
+        "CHINA": 954000000,
+        "Other Americas": 1021000000,
+        "TAIWAN, PROVINCE OF CHINA": 1852000000,
+        "UNITED STATES": 2224000000
+      }
+    },
+    {
+      "date": "2023-04-30",
+      "segments": {
+        "Other Americas": 659000000,
+        "CHINA": 1590000000,
+        "SINGAPORE": 762000000,
+        "TAIWAN, PROVINCE OF CHINA": 1796000000,
+        "UNITED STATES": 2385000000
+      }
+    },
+    {
+      "date": "2023-07-30",
+      "segments": {
+        "Other Americas": 1885000000,
+        "CHINA": 2740000000,
+        "TAIWAN, PROVINCE OF CHINA": 2839000000,
+        "UNITED STATES": 6043000000
+      }
+    },
+    {
+      "date": "2023-10-29",
+      "segments": {
+        "Other Americas": 753000000,
+        "CHINA": 4030000000,
+        "SINGAPORE": 2702000000,
+        "TAIWAN, PROVINCE OF CHINA": 4333000000,
+        "UNITED STATES": 6302000000
+      }
+    },
+    {
+      "date": "2024-01-28",
+      "segments": {
+        "CHINA": 1946000000,
+        "Other Americas": 6948000000,
+        "TAIWAN, PROVINCE OF CHINA": 4437000000,
+        "UNITED STATES": 12236000000
+      }
+    },
+    {
+      "date": "2024-04-28",
+      "segments": {
+        "Other Americas": 1647000000,
+        "CHINA": 2491000000,
+        "SINGAPORE": 4037000000,
+        "TAIWAN, PROVINCE OF CHINA": 4373000000,
+        "UNITED STATES": 13496000000
+      }
+    },
+    {
+      "date": "2024-07-28",
+      "segments": {
+        "Other Americas": 1989000000,
+        "CHINA": 3667000000,
+        "SINGAPORE": 5622000000,
+        "TAIWAN, PROVINCE OF CHINA": 5740000000,
+        "UNITED STATES": 13022000000
+      }
+    },
+    {
+      "date": "2024-10-27",
+      "segments": {
+        "Other Americas": 2016000000,
+        "CHINA": 5416000000,
+        "SINGAPORE": 7697000000,
+        "TAIWAN, PROVINCE OF CHINA": 5153000000,
+        "UNITED STATES": 14800000000
+      }
+    },
+    {
+      "date": "2025-01-26",
+      "segments": {
+        "CHINA": 5534000000,
+        "Other Americas": 5886000000,
+        "SINGAPORE": 6328000000,
+        "TAIWAN, PROVINCE OF CHINA": 5307000000,
+        "UNITED STATES": 19939000000
+      }
+    },
+    {
+      "date": "2025-04-27",
+      "segments": {
+        "Other Americas": 1626000000,
+        "CHINA": 5522000000,
+        "SINGAPORE": 9017000000,
+        "TAIWAN, PROVINCE OF CHINA": 7158000000,
+        "UNITED STATES": 20739000000
+      }
+    },
+    {
+      "date": "2025-07-27",
+      "segments": {
+        "Other Americas": 1819000000,
+        "CHINA": 2769000000,
+        "SINGAPORE": 10156000000,
+        "TAIWAN, PROVINCE OF CHINA": 8529000000,
+        "UNITED STATES": 23470000000
+      }
+    },
+    {
+      "date": "2025-10-26",
+      "segments": {
+        "Other Americas": 1105000000,
+        "CHINA": 2973000000,
+        "TAIWAN, PROVINCE OF CHINA": 13751000000,
+        "UNITED STATES": 39177000000
+      }
+    },
+    {
+      "date": "2026-01-25",
+      "segments": {
+        "CHINA": 8413000000,
+        "Other Americas": 0,
+        "TAIWAN, PROVINCE OF CHINA": 12907000000,
+        "UNITED STATES": 66231000000
+      }
+    },
+    {
+      "date": "2026-04-26",
+      "segments": {
+        "CHINA": 4550000000,
+        "Other Americas": 1290000000,
+        "TAIWAN, PROVINCE OF CHINA": 12006000000,
+        "UNITED STATES": 63769000000
+      }
+    },
+    {
+      "date": "2026-07-26",
+      "segments": {
+        "CHINA": 7880000000,
+        "Other Americas": 1282000000,
+        "TAIWAN, PROVINCE OF CHINA": 26985000000,
+        "UNITED STATES": 60074000000
+      }
+    }
+  ],
+  "sanitizedAt": "2026-11-02T14:51:27.870Z"
+}

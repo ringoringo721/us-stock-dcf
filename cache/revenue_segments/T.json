@@ -1,0 +1,295 @@
+{
+  "version": 1,
+  "ticker": "T",
+  "source": "FMP revenue segmentation (annual)",
+  "period": "annual",
+  "product": [
+    {
+      "date": "2011-12-31",
+      "segments": {
+        "Other Segment": 453000000,
+        "Wireless Service": 63212000000,
+        "Business Wireline": 59765000000
+      }
+    },
+    {
+      "date": "2012-12-31",
+      "segments": {
+        "Other Segment": 55000000,
+        "Wireless Service": 66763000000,
+        "Business Wireline": 59567000000
+      }
+    },
+    {
+      "date": "2013-12-31",
+      "segments": {
+        "Wireless": 69899000000,
+        "Business Wireline": 58814000000
+      }
+    },
+    {
+      "date": "2014-12-31",
+      "segments": {
+        "Corporate and Other": 30000000,
+        "Wireless Service": 73992000000,
+        "Business Wireline": 58425000000
+      }
+    },
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "Acquisition-related items": -85000000,
+        "Corporate and Other": 1297000000,
+        "Business Solutions": 71127000000,
+        "Mobility": 35066000000,
+        "Entertainment Group": 35294000000,
+        "International": 4102000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Certain Significant Items": -23000000,
+        "Corporate and Other": 1043000000,
+        "Business Solutions": 70988000000,
+        "Mobility": 33200000000,
+        "Entertainment Group": 51295000000,
+        "International": 7283000000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "Certain Significant Items": -243000000,
+        "Corporate and Other": 864000000,
+        "Business Solutions": 69406000000,
+        "Mobility": 31552000000,
+        "Entertainment Group": 50698000000,
+        "International": 8269000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Business Wireline": 26827000000,
+        "Entertainment Group": 46460000000,
+        "Mobility": 71344000000,
+        "Eliminations and other": 78000000,
+        "Turner": 6979000000,
+        "Warner Bros.": 8703000000,
+        "Home Box Office": 3598000000,
+        "Mexico Segment": 2868000000,
+        "Vrio": 4784000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Advertising": -1672000000,
+        "Media Content Service Revenue": 10631000000,
+        "Other Service": 6747000000,
+        "Advanced Data": 21380000000,
+        "Legacy Voice and Data": 11908000000,
+        "Product": 17694000000,
+        "Subscription Arrangement Service Revenue": 48392000000,
+        "Wireless Service": 57452000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Advertising": 6416000000,
+        "Other Service": 5681000000,
+        "Subscription Arrangement Service Revenue": 40556000000,
+        "Advanced Data": 21910000000,
+        "Legacy Voice and Data": 10950000000,
+        "Product": 18993000000,
+        "Wireless Service": 57435000000,
+        "Media Content Service Revenue": 9819000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Advertising": 6852000000,
+        "Other Service": 2710000000,
+        "Business Solutions": 23294000000,
+        "Legacy Voice and Data": 2406000000,
+        "Product": 22473000000,
+        "Video Service": 17121000000,
+        "Wireless Service": 59168000000,
+        "Content Service": 12622000000,
+        "IP Broadband": 9085000000,
+        "Subscription Service": 13133000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Legacy Voice and Data": 2069000000,
+        "Other Service": 1528000000,
+        "Wireless Service": 62674000000,
+        "Business Service": 21891000000,
+        "IP Broadband": 9669000000,
+        "Other Capitalized Property Plant and Equipment": 22910000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Legacy Voice and Data": 1802000000,
+        "Other Service": 1374000000,
+        "Business Service": 20274000000,
+        "IP Broadband": 10455000000,
+        "Other Capitalized Property Plant and Equipment": 22779000000,
+        "Wireless Service": 65744000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Legacy Voice and Data": 1518000000,
+        "Other Service": 1300000000,
+        "Business Service": 18064000000,
+        "IP Broadband": 11212000000,
+        "Other Capitalized Property Plant and Equipment": 22201000000,
+        "Wireless Service": 68041000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Legacy Voice and Data": 10362000000,
+        "Other Service": 1177000000,
+        "Business Service": 15978000000,
+        "IP Broadband": 3542000000,
+        "Other Capitalized Property Plant and Equipment": 24490000000,
+        "Wireless Service": 70099000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "Brazil": 1224000000,
+        "Mexico": 2046000000,
+        "International": 2140000000,
+        "Region of Latin America and Caribbean excluding Brazil": 1157000000,
+        "United States": 140234000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Brazil": 2797000000,
+        "Mexico": 2472000000,
+        "International": 2130000000,
+        "Region of Latin America and Caribbean excluding Brazil": 2348000000,
+        "United States": 154039000000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "Brazil": 2948000000,
+        "Mexico": 2913000000,
+        "International": 2101000000,
+        "Region of Latin America and Caribbean excluding Brazil": 2743000000,
+        "United States": 149841000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Asia Pacific": 2214000000,
+        "Brazil": 2724000000,
+        "Europe": 4073000000,
+        "Mexico": 3100000000,
+        "International": 795000000,
+        "Region of Latin America and Caribbean excluding Brazil": 3055000000,
+        "United States": 154795000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Asia Pacific": 2651000000,
+        "Brazil": 2761000000,
+        "Europe": 6137000000,
+        "Mexico": 3198000000,
+        "International": 883000000,
+        "Region of Latin America and Caribbean excluding Brazil": 3219000000,
+        "United States": 162344000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "International": 804000000,
+        "Asia Pacific": 2322000000,
+        "Brazil": 1807000000,
+        "Europe": 5387000000,
+        "Mexico": 2862000000,
+        "Region of Latin America and Caribbean excluding Brazil": 2679000000,
+        "United States": 155899000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "International": 870000000,
+        "Asia Pacific": 2637000000,
+        "Brazil": 1486000000,
+        "Europe": 6079000000,
+        "Mexico": 3043000000,
+        "Region of Latin America and Caribbean excluding Brazil": 3118000000,
+        "United States": 151631000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "International": 132000000,
+        "Asia Pacific": 592000000,
+        "Europe": 584000000,
+        "Mexico": 3210000000,
+        "Region of Latin America and Caribbean excluding Brazil": 217000000,
+        "United States": 116006000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "International": 119000000,
+        "Asia Pacific": 521000000,
+        "Europe": 504000000,
+        "Mexico": 3993000000,
+        "Region of Latin America and Caribbean excluding Brazil": 194000000,
+        "United States": 117097000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "International": 116000000,
+        "Asia Pacific": 462000000,
+        "Europe": 441000000,
+        "Mexico": 4286000000,
+        "Region of Latin America and Caribbean excluding Brazil": 149000000,
+        "United States": 116882000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "International": 114000000,
+        "Asia Pacific": 395000000,
+        "Europe": 382000000,
+        "Mexico": 4428000000,
+        "Region of Latin America and Caribbean excluding Brazil": 110000000,
+        "United States": 120219000000
+      }
+    }
+  ]
+}

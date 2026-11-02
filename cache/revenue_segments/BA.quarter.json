@@ -1,0 +1,561 @@
+{
+  "version": 1,
+  "ticker": "BA",
+  "source": "FMP revenue segmentation (quarter)",
+  "period": "quarter",
+  "product": [
+    {
+      "date": "2011-06-30",
+      "segments": {
+        "Commercial Airplanes Segment": 8843000000,
+        "Boeing Capital Corporation": 147000000,
+        "Other Segment": 38000000,
+        "Boeing Defense Space Security Segment": 11330000000,
+        "Unallocated Items and Eliminations": -173000000
+      }
+    },
+    {
+      "date": "2011-09-30",
+      "segments": {
+        "Boeing Capital Corporation": 126000000,
+        "Commercial Airplanes Segment": 9515000000,
+        "Other Segment": 33000000,
+        "Boeing Defense Space Security Segment": 12164000000,
+        "Unallocated Items and Eliminations": -147000000
+      }
+    },
+    {
+      "date": "2012-03-31",
+      "segments": {
+        "Boeing Capital Corporation": 125000000,
+        "Commercial Airplanes Segment": 10937000000,
+        "Other Segment": 24000000,
+        "Boeing Defense Space Security Segment": 12541000000
+      }
+    },
+    {
+      "date": "2012-06-30",
+      "segments": {
+        "Boeing Defense Space Security Segment": 8192000000,
+        "Boeing Capital Corporation": 99000000,
+        "Commercial Airplanes Segment": 11843000000,
+        "Other Segment": 42000000
+      }
+    },
+    {
+      "date": "2012-09-30",
+      "segments": {
+        "Boeing Capital Corporation": 101000000,
+        "Boeing Defense Space Security Segment": 7839000000,
+        "Commercial Airplanes Segment": 12186000000,
+        "Other Segment": 27000000
+      }
+    },
+    {
+      "date": "2012-12-31",
+      "segments": {
+        "Boeing Capital Corporation": 116000000,
+        "Boeing Defense Space Security Segment": 4035000000,
+        "Commercial Airplanes Segment": 14161000000,
+        "Other Segment": 40000000
+      }
+    },
+    {
+      "date": "2013-03-31",
+      "segments": {
+        "Boeing Capital Corporation": 105000000,
+        "Boeing Defense Space Security Segment": 8110000000,
+        "Commercial Airplanes Segment": 10690000000,
+        "Other Segment": 27000000
+      }
+    },
+    {
+      "date": "2013-06-30",
+      "segments": {
+        "Boeing Capital Corporation": 104000000,
+        "Boeing Defense Space Security Segment": 8186000000,
+        "Commercial Airplanes Segment": 13624000000,
+        "Other Segment": 27000000
+      }
+    },
+    {
+      "date": "2013-09-30",
+      "segments": {
+        "Other Segment": 26000000,
+        "Boeing Capital Corporation": 94000000,
+        "Boeing Defense Space Security Segment": 8046000000,
+        "Commercial Airplanes Segment": 13987000000
+      }
+    },
+    {
+      "date": "2013-12-31",
+      "segments": {
+        "Other Segment": 22000000,
+        "Boeing Capital Corporation": 105000000,
+        "Boeing Defense Space Security Segment": 8855000000,
+        "Commercial Airplanes Segment": 14680000000
+      }
+    },
+    {
+      "date": "2014-03-31",
+      "segments": {
+        "Other Segment": 20000000,
+        "Boeing Capital Corporation": 82000000,
+        "Boeing Defense Space Security Segment": 7633000000,
+        "Commercial Airplanes Segment": 12737000000
+      }
+    },
+    {
+      "date": "2014-06-30",
+      "segments": {
+        "Other Segment": 22000000,
+        "Boeing Capital Corporation": 90000000,
+        "Boeing Defense Space Security Segment": 7747000000,
+        "Commercial Airplanes Segment": 14304000000
+      }
+    },
+    {
+      "date": "2014-09-30",
+      "segments": {
+        "Boeing Capital Corporation": 91000000,
+        "Boeing Defense Space Security Segment": 7913000000,
+        "Commercial Airplanes Segment": 16110000000
+      }
+    },
+    {
+      "date": "2014-12-31",
+      "segments": {
+        "Boeing Capital Corporation": 153000000,
+        "Boeing Defense Space Security Segment": 7588000000,
+        "Commercial Airplanes Segment": 16839000000
+      }
+    },
+    {
+      "date": "2015-03-31",
+      "segments": {
+        "Boeing Capital Corporation": 86000000,
+        "Boeing Defense Space Security Segment": 6709000000,
+        "Commercial Airplanes Segment": 15381000000
+      }
+    },
+    {
+      "date": "2015-06-30",
+      "segments": {
+        "Boeing Capital Corporation": 115000000,
+        "Boeing Defense Space Security Segment": 7544000000,
+        "Commercial Airplanes Segment": 16877000000
+      }
+    },
+    {
+      "date": "2015-09-30",
+      "segments": {
+        "Boeing Capital Corporation": 114000000,
+        "Boeing Defense Space Security Segment": 8350000000,
+        "Commercial Airplanes Segment": 17692000000
+      }
+    },
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "Boeing Capital Corporation": 98000000,
+        "Boeing Defense Space Security Segment": 7785000000,
+        "Commercial Airplanes Segment": 16098000000
+      }
+    },
+    {
+      "date": "2016-03-31",
+      "segments": {
+        "Boeing Capital Corporation": 64000000,
+        "Boeing Defense Space Security Segment": 7956000000,
+        "Commercial Airplanes Segment": 14399000000
+      }
+    },
+    {
+      "date": "2016-06-30",
+      "segments": {
+        "Boeing Capital Corporation": 84000000,
+        "Boeing Defense Space Security Segment": 7174000000,
+        "Commercial Airplanes Segment": 17456000000
+      }
+    },
+    {
+      "date": "2016-09-30",
+      "segments": {
+        "Boeing Capital Corporation": 63000000,
+        "Boeing Defense Space Security Segment": 7508000000,
+        "Commercial Airplanes Segment": 16973000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Boeing Capital Corporation": 87000000,
+        "Boeing Defense Space Security Segment": 6860000000,
+        "Commercial Airplanes Segment": 16241000000
+      }
+    },
+    {
+      "date": "2017-03-31",
+      "segments": {
+        "Boeing Capital Corporation": 92000000,
+        "Boeing Defense Space Security Segment": 6532000000,
+        "Commercial Airplanes Segment": 14305000000
+      }
+    },
+    {
+      "date": "2017-06-30",
+      "segments": {
+        "Boeing Capital Corporation": 72000000,
+        "Boeing Defense Space Security Segment": 6886000000,
+        "Commercial Airplanes Segment": 15713000000
+      }
+    },
+    {
+      "date": "2017-09-30",
+      "segments": {
+        "Boeing Capital Corporation": 70000000,
+        "Boeing Defense Space Security Segment": 5470000000,
+        "Commercial Airplanes Segment": 14982000000,
+        "Global Services": 3568000000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "Boeing Capital Corporation": 73000000,
+        "Boeing Defense Space Security Segment": 2169000000,
+        "Commercial Airplanes Segment": 11729000000,
+        "Global Services": 11071000000
+      }
+    },
+    {
+      "date": "2018-03-31",
+      "segments": {
+        "Commercial Airplanes Segment": 13652000000,
+        "Global Services": 3943000000,
+        "Boeing Capital Corporation": 65000000,
+        "Boeing Defense Space Security Segment": 5762000000
+      }
+    },
+    {
+      "date": "2018-06-30",
+      "segments": {
+        "Commercial Airplanes Segment": 14481000000,
+        "Global Services": 4090000000,
+        "Boeing Capital Corporation": 72000000,
+        "Boeing Defense Space Security Segment": 5593000000
+      }
+    },
+    {
+      "date": "2018-09-30",
+      "segments": {
+        "Boeing Defense Space Security Segment": 5729000000,
+        "Commercial Airplanes Segment": 15276000000,
+        "Global Services": 4091000000,
+        "Boeing Capital Corporation": 77000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Boeing Defense Space Security Segment": 6111000000,
+        "Commercial Airplanes Segment": 17306000000,
+        "Global Services": 4894000000,
+        "Boeing Capital Corporation": 60000000
+      }
+    },
+    {
+      "date": "2019-03-31",
+      "segments": {
+        "Boeing Defense Space Security Segment": 6611000000,
+        "Commercial Airplanes Segment": 11822000000,
+        "Global Services": 4619000000,
+        "Boeing Capital Corporation": 66000000
+      }
+    },
+    {
+      "date": "2019-06-30",
+      "segments": {
+        "Boeing Defense Space Security Segment": 6612000000,
+        "Commercial Airplanes Segment": 4722000000,
+        "Global Services": 4543000000,
+        "Boeing Capital Corporation": 75000000
+      }
+    },
+    {
+      "date": "2019-09-30",
+      "segments": {
+        "Boeing Defense Space Security Segment": 7042000000,
+        "Commercial Airplanes Segment": 8249000000,
+        "Global Services": 4658000000,
+        "Boeing Capital Corporation": 66000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Boeing Defense Space Security Segment": 5962000000,
+        "Commercial Airplanes Segment": 7462000000,
+        "Global Services": 4648000000,
+        "Boeing Capital Corporation": 37000000
+      }
+    },
+    {
+      "date": "2020-03-31",
+      "segments": {
+        "Boeing Defense Space Security Segment": 6042000000,
+        "Commercial Airplanes Segment": 6205000000,
+        "Global Services": 4628000000,
+        "Boeing Capital Corporation": 65000000
+      }
+    },
+    {
+      "date": "2020-06-30",
+      "segments": {
+        "Boeing Defense Space Security Segment": 6588000000,
+        "Commercial Airplanes Segment": 1633000000,
+        "Global Services": 3488000000,
+        "Boeing Capital Corporation": 69000000
+      }
+    },
+    {
+      "date": "2020-09-30",
+      "segments": {
+        "Boeing Defense Space Security Segment": 6848000000,
+        "Commercial Airplanes Segment": 3596000000,
+        "Global Services": 3694000000,
+        "Boeing Capital Corporation": 71000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Boeing Defense Space Security Segment": 6779000000,
+        "Commercial Airplanes Segment": 4728000000,
+        "Global Services": 3733000000,
+        "Boeing Capital Corporation": 56000000
+      }
+    },
+    {
+      "date": "2021-03-31",
+      "segments": {
+        "Boeing Defense Space Security Segment": 7185000000,
+        "Commercial Airplanes Segment": 4269000000,
+        "Global Services": 3749000000,
+        "Boeing Capital Corporation": 60000000
+      }
+    },
+    {
+      "date": "2021-06-30",
+      "segments": {
+        "Boeing Defense Space Security Segment": 6876000000,
+        "Commercial Airplanes Segment": 6015000000,
+        "Global Services": 4067000000,
+        "Boeing Capital Corporation": 78000000
+      }
+    },
+    {
+      "date": "2021-09-30",
+      "segments": {
+        "Boeing Defense Space Security Segment": 6617000000,
+        "Commercial Airplanes Segment": 4459000000,
+        "Global Services": 4221000000,
+        "Boeing Capital Corporation": 71000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Boeing Defense Space Security Segment": 5862000000,
+        "Commercial Airplanes Segment": 4750000000,
+        "Global Services": 4291000000,
+        "Boeing Capital Corporation": 63000000
+      }
+    },
+    {
+      "date": "2022-03-31",
+      "segments": {
+        "Boeing Defense Space Security Segment": 5483000000,
+        "Commercial Airplanes Segment": 4161000000,
+        "Global Services": 4314000000,
+        "Boeing Capital Corporation": 46000000
+      }
+    },
+    {
+      "date": "2022-06-30",
+      "segments": {
+        "Boeing Defense Space Security Segment": 6191000000,
+        "Commercial Airplanes Segment": 6219000000,
+        "Global Services": 4298000000,
+        "Boeing Capital Corporation": 52000000
+      }
+    },
+    {
+      "date": "2022-09-30",
+      "segments": {
+        "Boeing Defense Space Security Segment": 5307000000,
+        "Commercial Airplanes Segment": 6263000000,
+        "Global Services": 4432000000,
+        "Boeing Capital Corporation": 52000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Boeing Defense Space Security Segment": 6181000000,
+        "Commercial Airplanes Segment": 9224000000,
+        "Global Services": 4567000000,
+        "Boeing Capital Corporation": 49000000
+      }
+    },
+    {
+      "date": "2023-03-31",
+      "segments": {
+        "Global Services": 4720000000,
+        "Commercial Airplanes Segment": 6704000000,
+        "Boeing Defense Space Security Segment": 6539000000
+      }
+    },
+    {
+      "date": "2023-06-30",
+      "segments": {
+        "Commercial Airplanes Segment": 8840000000,
+        "Global Services": 4746000000,
+        "Boeing Defense Space Security Segment": 6167000000
+      }
+    },
+    {
+      "date": "2023-09-30",
+      "segments": {
+        "Commercial Airplanes Segment": 7876000000,
+        "Global Services": 4812000000,
+        "Boeing Defense Space Security Segment": 5481000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Commercial Airplanes Segment": 10481000000,
+        "Global Services": 4849000000,
+        "Boeing Defense Space Security Segment": 6746000000
+      }
+    },
+    {
+      "date": "2024-03-31",
+      "segments": {
+        "Commercial Airplanes Segment": 4653000000,
+        "Global Services": 5045000000,
+        "Boeing Defense Space Security Segment": 6950000000
+      }
+    },
+    {
+      "date": "2024-06-30",
+      "segments": {
+        "Commercial Airplanes Segment": 6003000000,
+        "Global Services": 4889000000,
+        "Boeing Defense Space Security Segment": 6021000000
+      }
+    },
+    {
+      "date": "2024-09-30",
+      "segments": {
+        "Commercial Airplanes Segment": 7443000000,
+        "Global Services": 4901000000,
+        "Boeing Defense Space Security Segment": 5536000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Commercial Airplanes Segment": 4762000000,
+        "Global Services": 5119000000,
+        "Boeing Defense Space Security Segment": 5411000000
+      }
+    },
+    {
+      "date": "2025-03-31",
+      "segments": {
+        "Global Services": 5063000000,
+        "Commercial Airplanes Segment": 8147000000,
+        "Boeing Defense Space Security Segment": 6298000000
+      }
+    },
+    {
+      "date": "2025-06-30",
+      "segments": {
+        "Commercial Airplanes Segment": 10874000000,
+        "Global Services": 5281000000,
+        "Boeing Defense Space Security Segment": 6617000000
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "segments": {
+        "Commercial Airplanes Segment": 11094000000,
+        "Global Services": 5370000000,
+        "Boeing Defense Space Security Segment": 6902000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Commercial Airplanes Segment": 11379000000
+      }
+    },
+    {
+      "date": "2026-03-31",
+      "segments": {
+        "Global Services": 5370000000,
+        "Commercial Airplanes Segment": 9203000000,
+        "Boeing Defense Space Security Segment": 7599000000
+      }
+    },
+    {
+      "date": "2026-06-30",
+      "segments": {
+        "Commercial Airplanes Segment": 11751000000,
+        "Global Services": 5344000000,
+        "Boeing Defense Space Security Segment": 7483000000
+      }
+    },
+    {
+      "date": "2026-09-30",
+      "segments": {
+        "Commercial Airplanes Segment": 10720000000,
+        "Global Services": 5574000000,
+        "Boeing Defense Space Security Segment": 7935000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2025-09-30",
+      "segments": {
+        "Commercial Airplanes Segment": 11029000000,
+        "Boeing Defense Space Security Segment": 6902000000
+      }
+    },
+    {
+      "date": "2026-03-31",
+      "segments": {
+        "Commercial Airplanes Segment": 9160000000,
+        "Boeing Defense Space Security Segment": 7599000000
+      }
+    },
+    {
+      "date": "2026-06-30",
+      "segments": {
+        "Commercial Airplanes Segment": 8105000000,
+        "Boeing Defense Space Security Segment": 7483000000
+      }
+    },
+    {
+      "date": "2026-09-30",
+      "segments": {
+        "Commercial Airplanes Segment": 10604000000,
+        "Boeing Defense Space Security Segment": 7935000000
+      }
+    }
+  ],
+  "sanitizedAt": "2026-11-02T14:51:27.870Z"
+}

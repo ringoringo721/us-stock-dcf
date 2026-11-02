@@ -1,0 +1,808 @@
+{
+  "version": 1,
+  "ticker": "DIS",
+  "source": "FMP dividends",
+  "capturedAt": "2026-11-02T14:09:03.930Z",
+  "rows": [
+    {
+      "date": "1982-03-08",
+      "dividend": 0.006166,
+      "annualOnly": false,
+      "declarationDate": null,
+      "recordDate": null,
+      "paymentDate": null
+    },
+    {
+      "date": "1982-06-28",
+      "dividend": 0.006166,
+      "annualOnly": false,
+      "declarationDate": null,
+      "recordDate": null,
+      "paymentDate": null
+    },
+    {
+      "date": "1982-09-27",
+      "dividend": 0.006166,
+      "annualOnly": false,
+      "declarationDate": null,
+      "recordDate": null,
+      "paymentDate": null
+    },
+    {
+      "date": "1982-11-29",
+      "dividend": 0.006166,
+      "annualOnly": false,
+      "declarationDate": null,
+      "recordDate": null,
+      "paymentDate": null
+    },
+    {
+      "date": "1983-03-07",
+      "dividend": 0.006166,
+      "annualOnly": false,
+      "declarationDate": null,
+      "recordDate": null,
+      "paymentDate": null
+    },
+    {
+      "date": "1983-07-01",
+      "dividend": 0.006166,
+      "annualOnly": false,
+      "declarationDate": null,
+      "recordDate": null,
+      "paymentDate": null
+    },
+    {
+      "date": "1983-10-07",
+      "dividend": 0.006166,
+      "annualOnly": false,
+      "declarationDate": null,
+      "recordDate": null,
+      "paymentDate": null
+    },
+    {
+      "date": "1983-12-12",
+      "dividend": 0.006166,
+      "annualOnly": false,
+      "declarationDate": null,
+      "recordDate": null,
+      "paymentDate": null
+    },
+    {
+      "date": "1984-03-08",
+      "dividend": 0.006166,
+      "annualOnly": false,
+      "declarationDate": null,
+      "recordDate": null,
+      "paymentDate": null
+    },
+    {
+      "date": "1984-06-07",
+      "dividend": 0.006166,
+      "annualOnly": false,
+      "declarationDate": null,
+      "recordDate": null,
+      "paymentDate": null
+    },
+    {
+      "date": "1984-09-13",
+      "dividend": 0.006166,
+      "annualOnly": false,
+      "declarationDate": null,
+      "recordDate": null,
+      "paymentDate": null
+    },
+    {
+      "date": "1984-12-04",
+      "dividend": 0.006166,
+      "annualOnly": false,
+      "declarationDate": null,
+      "recordDate": null,
+      "paymentDate": null
+    },
+    {
+      "date": "1985-03-05",
+      "dividend": 0.006166,
+      "annualOnly": false,
+      "declarationDate": null,
+      "recordDate": null,
+      "paymentDate": null
+    },
+    {
+      "date": "1985-05-30",
+      "dividend": 0.006166,
+      "annualOnly": false,
+      "declarationDate": null,
+      "recordDate": null,
+      "paymentDate": null
+    },
+    {
+      "date": "1985-09-10",
+      "dividend": 0.006166,
+      "annualOnly": false,
+      "declarationDate": null,
+      "recordDate": null,
+      "paymentDate": null
+    },
+    {
+      "date": "1985-12-09",
+      "dividend": 0.006166,
+      "annualOnly": false,
+      "declarationDate": null,
+      "recordDate": null,
+      "paymentDate": null
+    },
+    {
+      "date": "1986-03-12",
+      "dividend": 0.006577,
+      "annualOnly": false,
+      "declarationDate": null,
+      "recordDate": null,
+      "paymentDate": null
+    },
+    {
+      "date": "1986-06-02",
+      "dividend": 0.006577,
+      "annualOnly": false,
+      "declarationDate": null,
+      "recordDate": null,
+      "paymentDate": null
+    },
+    {
+      "date": "1986-09-15",
+      "dividend": 0.006577,
+      "annualOnly": false,
+      "declarationDate": null,
+      "recordDate": null,
+      "paymentDate": null
+    },
+    {
+      "date": "1986-12-02",
+      "dividend": 0.006577,
+      "annualOnly": false,
+      "declarationDate": "1986-11-26",
+      "recordDate": "1986-12-08",
+      "paymentDate": "1987-01-05"
+    },
+    {
+      "date": "1987-03-09",
+      "dividend": 0.006577,
+      "annualOnly": false,
+      "declarationDate": "1987-02-12",
+      "recordDate": "1987-03-13",
+      "paymentDate": "1987-04-06"
+    },
+    {
+      "date": "1987-06-01",
+      "dividend": 0.006577,
+      "annualOnly": false,
+      "declarationDate": "1987-04-29",
+      "recordDate": "1987-06-05",
+      "paymentDate": "1987-07-06"
+    },
+    {
+      "date": "1987-09-16",
+      "dividend": 0.006577,
+      "annualOnly": false,
+      "declarationDate": "1987-09-16",
+      "recordDate": "1987-09-22",
+      "paymentDate": "1987-10-07"
+    },
+    {
+      "date": "1988-01-12",
+      "dividend": 0.006577,
+      "annualOnly": false,
+      "declarationDate": "1987-11-25",
+      "recordDate": "1988-01-19",
+      "paymentDate": "1988-02-15"
+    },
+    {
+      "date": "1988-04-13",
+      "dividend": 0.008221,
+      "annualOnly": false,
+      "declarationDate": "1988-01-13",
+      "recordDate": "1988-04-19",
+      "paymentDate": "1988-05-16"
+    },
+    {
+      "date": "1988-07-11",
+      "dividend": 0.008221,
+      "annualOnly": false,
+      "declarationDate": "1988-06-29",
+      "recordDate": "1988-07-15",
+      "paymentDate": "1988-08-15"
+    },
+    {
+      "date": "1988-10-07",
+      "dividend": 0.008221,
+      "annualOnly": false,
+      "declarationDate": null,
+      "recordDate": null,
+      "paymentDate": null
+    },
+    {
+      "date": "1989-01-09",
+      "dividend": 0.008221,
+      "annualOnly": false,
+      "declarationDate": "1988-11-16",
+      "recordDate": "1989-01-13",
+      "paymentDate": "1989-02-15"
+    },
+    {
+      "date": "1989-04-10",
+      "dividend": 0.009865,
+      "annualOnly": false,
+      "declarationDate": "1989-02-16",
+      "recordDate": "1989-04-14",
+      "paymentDate": "1989-05-15"
+    },
+    {
+      "date": "1989-07-10",
+      "dividend": 0.009865,
+      "annualOnly": false,
+      "declarationDate": "1989-06-23",
+      "recordDate": "1989-07-14",
+      "paymentDate": "1989-08-15"
+    },
+    {
+      "date": "1989-10-06",
+      "dividend": 0.009865,
+      "annualOnly": false,
+      "declarationDate": "1989-09-27",
+      "recordDate": "1989-10-13",
+      "paymentDate": "1989-11-15"
+    },
+    {
+      "date": "1990-01-08",
+      "dividend": 0.009865,
+      "annualOnly": false,
+      "declarationDate": "1989-11-29",
+      "recordDate": "1990-01-12",
+      "paymentDate": "1990-02-15"
+    },
+    {
+      "date": "1990-04-06",
+      "dividend": 0.01192,
+      "annualOnly": false,
+      "declarationDate": "1990-02-22",
+      "recordDate": "1990-04-13",
+      "paymentDate": "1990-05-15"
+    },
+    {
+      "date": "1990-07-09",
+      "dividend": 0.01192,
+      "annualOnly": false,
+      "declarationDate": "1990-06-19",
+      "recordDate": "1990-07-13",
+      "paymentDate": "1990-08-15"
+    },
+    {
+      "date": "1990-10-05",
+      "dividend": 0.01192,
+      "annualOnly": false,
+      "declarationDate": "1990-09-26",
+      "recordDate": "1990-10-12",
+      "paymentDate": "1990-11-15"
+    },
+    {
+      "date": "1991-01-14",
+      "dividend": 0.01192,
+      "annualOnly": false,
+      "declarationDate": "1990-11-30",
+      "recordDate": "1991-01-18",
+      "paymentDate": "1991-02-20"
+    },
+    {
+      "date": "1991-04-08",
+      "dividend": 0.014386,
+      "annualOnly": false,
+      "declarationDate": "1991-03-22",
+      "recordDate": "1991-04-12",
+      "paymentDate": "1991-05-20"
+    },
+    {
+      "date": "1991-07-08",
+      "dividend": 0.014386,
+      "annualOnly": false,
+      "declarationDate": "1991-07-01",
+      "recordDate": "1991-07-12",
+      "paymentDate": "1991-08-20"
+    },
+    {
+      "date": "1991-10-07",
+      "dividend": 0.014386,
+      "annualOnly": false,
+      "declarationDate": "1991-10-04",
+      "recordDate": "1991-10-14",
+      "paymentDate": "1991-11-20"
+    },
+    {
+      "date": "1992-01-06",
+      "dividend": 0.014386,
+      "annualOnly": false,
+      "declarationDate": "1991-11-29",
+      "recordDate": "1992-01-10",
+      "paymentDate": "1992-02-20"
+    },
+    {
+      "date": "1992-04-06",
+      "dividend": 0.017264,
+      "annualOnly": false,
+      "declarationDate": null,
+      "recordDate": "1992-04-10",
+      "paymentDate": "1992-05-20"
+    },
+    {
+      "date": "1992-07-06",
+      "dividend": 0.017099,
+      "annualOnly": false,
+      "declarationDate": null,
+      "recordDate": "1992-07-10",
+      "paymentDate": "1992-08-20"
+    },
+    {
+      "date": "1992-10-05",
+      "dividend": 0.017099,
+      "annualOnly": false,
+      "declarationDate": "1992-09-25",
+      "recordDate": "1992-10-09",
+      "paymentDate": "1992-11-20"
+    },
+    {
+      "date": "1993-01-05",
+      "dividend": 0.017099,
+      "annualOnly": false,
+      "declarationDate": "1992-11-27",
+      "recordDate": "1993-01-11",
+      "paymentDate": "1993-02-19"
+    },
+    {
+      "date": "1993-04-05",
+      "dividend": 0.020388,
+      "annualOnly": false,
+      "declarationDate": "1993-01-29",
+      "recordDate": "1993-04-12",
+      "paymentDate": "1993-05-20"
+    },
+    {
+      "date": "1993-07-02",
+      "dividend": 0.020388,
+      "annualOnly": false,
+      "declarationDate": "1993-07-01",
+      "recordDate": "1993-07-09",
+      "paymentDate": "1993-08-20"
+    },
+    {
+      "date": "1993-10-06",
+      "dividend": 0.020388,
+      "annualOnly": false,
+      "declarationDate": "1993-09-30",
+      "recordDate": "1993-10-13",
+      "paymentDate": "1993-11-19"
+    },
+    {
+      "date": "1994-01-04",
+      "dividend": 0.020388,
+      "annualOnly": false,
+      "declarationDate": "1993-11-25",
+      "recordDate": "1994-01-10",
+      "paymentDate": "1994-02-18"
+    },
+    {
+      "date": "1994-04-11",
+      "dividend": 0.024663,
+      "annualOnly": false,
+      "declarationDate": "1994-01-27",
+      "recordDate": "1994-04-15",
+      "paymentDate": "1994-05-20"
+    },
+    {
+      "date": "1994-07-05",
+      "dividend": 0.024663,
+      "annualOnly": false,
+      "declarationDate": null,
+      "recordDate": "1994-07-11",
+      "paymentDate": "1994-08-19"
+    },
+    {
+      "date": "1994-10-07",
+      "dividend": 0.024663,
+      "annualOnly": false,
+      "declarationDate": null,
+      "recordDate": "1994-10-14",
+      "paymentDate": "1994-11-18"
+    },
+    {
+      "date": "1995-01-03",
+      "dividend": 0.024663,
+      "annualOnly": false,
+      "declarationDate": null,
+      "recordDate": "1995-01-09",
+      "paymentDate": "1995-02-17"
+    },
+    {
+      "date": "1995-04-07",
+      "dividend": 0.029595,
+      "annualOnly": false,
+      "declarationDate": null,
+      "recordDate": "1995-04-14",
+      "paymentDate": "1995-05-19"
+    },
+    {
+      "date": "1995-07-06",
+      "dividend": 0.029595,
+      "annualOnly": false,
+      "declarationDate": "1995-06-26",
+      "recordDate": "1995-07-10",
+      "paymentDate": "1995-08-18"
+    },
+    {
+      "date": "1995-10-11",
+      "dividend": 0.029595,
+      "annualOnly": false,
+      "declarationDate": "1995-09-26",
+      "recordDate": "1995-10-13",
+      "paymentDate": "1995-11-17"
+    },
+    {
+      "date": "1995-12-29",
+      "dividend": 0.029595,
+      "annualOnly": false,
+      "declarationDate": "1995-11-27",
+      "recordDate": "1996-01-03",
+      "paymentDate": "1996-02-16"
+    },
+    {
+      "date": "1996-04-10",
+      "dividend": 0.036172,
+      "annualOnly": false,
+      "declarationDate": "1996-01-22",
+      "recordDate": "1996-04-12",
+      "paymentDate": "1996-05-17"
+    },
+    {
+      "date": "1996-07-10",
+      "dividend": 0.036172,
+      "annualOnly": false,
+      "declarationDate": "1996-06-24",
+      "recordDate": "1996-07-12",
+      "paymentDate": "1996-08-16"
+    },
+    {
+      "date": "1996-10-09",
+      "dividend": 0.036172,
+      "annualOnly": false,
+      "declarationDate": "1996-09-30",
+      "recordDate": "1996-10-11",
+      "paymentDate": "1996-11-22"
+    },
+    {
+      "date": "1997-01-08",
+      "dividend": 0.036172,
+      "annualOnly": false,
+      "declarationDate": "1996-11-25",
+      "recordDate": "1997-01-10",
+      "paymentDate": "1997-02-21"
+    },
+    {
+      "date": "1997-04-09",
+      "dividend": 0.043406,
+      "annualOnly": false,
+      "declarationDate": "1997-01-27",
+      "recordDate": "1997-04-11",
+      "paymentDate": "1997-05-16"
+    },
+    {
+      "date": "1997-07-09",
+      "dividend": 0.043406,
+      "annualOnly": false,
+      "declarationDate": "1997-06-23",
+      "recordDate": "1997-07-11",
+      "paymentDate": "1997-08-22"
+    },
+    {
+      "date": "1997-10-15",
+      "dividend": 0.043406,
+      "annualOnly": false,
+      "declarationDate": "1997-09-22",
+      "recordDate": "1997-10-17",
+      "paymentDate": "1997-11-21"
+    },
+    {
+      "date": "1998-01-07",
+      "dividend": 0.043406,
+      "annualOnly": false,
+      "declarationDate": "1997-11-24",
+      "recordDate": "1998-01-09",
+      "paymentDate": "1998-02-20"
+    },
+    {
+      "date": "1998-04-07",
+      "dividend": 0.051956,
+      "annualOnly": false,
+      "declarationDate": "1998-01-30",
+      "recordDate": "1998-04-10",
+      "paymentDate": "1998-05-22"
+    },
+    {
+      "date": "1998-07-22",
+      "dividend": 0.051298,
+      "annualOnly": false,
+      "declarationDate": "1998-06-24",
+      "recordDate": "1998-07-24",
+      "paymentDate": "1998-08-21"
+    },
+    {
+      "date": "1998-10-07",
+      "dividend": 0.051298,
+      "annualOnly": false,
+      "declarationDate": "1998-09-29",
+      "recordDate": "1998-10-09",
+      "paymentDate": "1998-11-20"
+    },
+    {
+      "date": "1999-10-07",
+      "dividend": 0.052285,
+      "annualOnly": false,
+      "declarationDate": null,
+      "recordDate": null,
+      "paymentDate": null
+    },
+    {
+      "date": "1999-11-12",
+      "dividend": 0.20717,
+      "annualOnly": false,
+      "declarationDate": "1999-11-04",
+      "recordDate": "1999-11-16",
+      "paymentDate": "1999-12-17"
+    },
+    {
+      "date": "2000-12-06",
+      "dividend": 0.20717,
+      "annualOnly": false,
+      "declarationDate": "2000-11-28",
+      "recordDate": "2000-12-08",
+      "paymentDate": "2000-12-22"
+    },
+    {
+      "date": "2001-12-05",
+      "dividend": 0.20717,
+      "annualOnly": false,
+      "declarationDate": "2001-11-27",
+      "recordDate": "2001-12-07",
+      "paymentDate": "2001-12-21"
+    },
+    {
+      "date": "2002-12-11",
+      "dividend": 0.20717,
+      "annualOnly": false,
+      "declarationDate": "2002-12-05",
+      "recordDate": "2002-12-13",
+      "paymentDate": "2003-01-09"
+    },
+    {
+      "date": "2003-12-10",
+      "dividend": 0.20717,
+      "annualOnly": false,
+      "declarationDate": "2003-12-02",
+      "recordDate": "2003-12-12",
+      "paymentDate": "2004-01-06"
+    },
+    {
+      "date": "2004-12-08",
+      "dividend": 0.23676,
+      "annualOnly": false,
+      "declarationDate": "2004-12-01",
+      "recordDate": "2004-12-10",
+      "paymentDate": "2005-01-06"
+    },
+    {
+      "date": "2005-12-08",
+      "dividend": 0.26636,
+      "annualOnly": false,
+      "declarationDate": "2005-12-02",
+      "recordDate": "2005-12-12",
+      "paymentDate": "2006-01-06"
+    },
+    {
+      "date": "2006-12-13",
+      "dividend": 0.30582,
+      "annualOnly": false,
+      "declarationDate": "2006-11-28",
+      "recordDate": "2006-12-15",
+      "paymentDate": "2007-01-12"
+    },
+    {
+      "date": "2007-12-05",
+      "dividend": 0.35,
+      "annualOnly": false,
+      "declarationDate": "2007-11-28",
+      "recordDate": "2007-12-07",
+      "paymentDate": "2008-01-11"
+    },
+    {
+      "date": "2008-12-11",
+      "dividend": 0.35,
+      "annualOnly": false,
+      "declarationDate": "2008-12-04",
+      "recordDate": "2008-12-15",
+      "paymentDate": "2009-01-20"
+    },
+    {
+      "date": "2009-12-10",
+      "dividend": 0.35,
+      "annualOnly": false,
+      "declarationDate": "2009-12-03",
+      "recordDate": "2009-12-14",
+      "paymentDate": "2010-01-19"
+    },
+    {
+      "date": "2010-12-09",
+      "dividend": 0.4,
+      "annualOnly": false,
+      "declarationDate": "2010-12-02",
+      "recordDate": "2010-12-13",
+      "paymentDate": "2011-01-18"
+    },
+    {
+      "date": "2011-12-14",
+      "dividend": 0.6,
+      "annualOnly": false,
+      "declarationDate": "2011-12-02",
+      "recordDate": "2011-12-16",
+      "paymentDate": "2012-01-18"
+    },
+    {
+      "date": "2012-12-06",
+      "dividend": 0.75,
+      "annualOnly": false,
+      "declarationDate": "2012-11-28",
+      "recordDate": "2012-12-10",
+      "paymentDate": "2012-12-28"
+    },
+    {
+      "date": "2013-12-12",
+      "dividend": 0.86,
+      "annualOnly": false,
+      "declarationDate": "2013-12-05",
+      "recordDate": "2013-12-16",
+      "paymentDate": "2014-01-16"
+    },
+    {
+      "date": "2014-12-11",
+      "dividend": 1.15,
+      "annualOnly": false,
+      "declarationDate": "2014-12-04",
+      "recordDate": "2014-12-15",
+      "paymentDate": "2015-01-08"
+    },
+    {
+      "date": "2015-07-01",
+      "dividend": 0.66,
+      "annualOnly": false,
+      "declarationDate": "2015-06-25",
+      "recordDate": "2015-07-06",
+      "paymentDate": "2015-07-29"
+    },
+    {
+      "date": "2015-12-10",
+      "dividend": 0.71,
+      "annualOnly": false,
+      "declarationDate": "2015-12-03",
+      "recordDate": "2015-12-14",
+      "paymentDate": "2016-01-11"
+    },
+    {
+      "date": "2016-07-07",
+      "dividend": 0.71,
+      "annualOnly": false,
+      "declarationDate": "2016-06-29",
+      "recordDate": "2016-07-11",
+      "paymentDate": "2016-07-28"
+    },
+    {
+      "date": "2016-12-08",
+      "dividend": 0.78,
+      "annualOnly": false,
+      "declarationDate": "2016-12-01",
+      "recordDate": "2016-12-12",
+      "paymentDate": "2017-01-11"
+    },
+    {
+      "date": "2017-07-06",
+      "dividend": 0.78,
+      "annualOnly": false,
+      "declarationDate": "2017-06-29",
+      "recordDate": "2017-07-10",
+      "paymentDate": "2017-07-27"
+    },
+    {
+      "date": "2017-12-08",
+      "dividend": 0.84,
+      "annualOnly": false,
+      "declarationDate": "2017-11-29",
+      "recordDate": "2017-12-11",
+      "paymentDate": "2018-01-11"
+    },
+    {
+      "date": "2018-07-06",
+      "dividend": 0.84,
+      "annualOnly": false,
+      "declarationDate": "2018-06-26",
+      "recordDate": "2018-07-09",
+      "paymentDate": "2018-07-26"
+    },
+    {
+      "date": "2018-12-07",
+      "dividend": 0.88,
+      "annualOnly": false,
+      "declarationDate": "2018-11-28",
+      "recordDate": "2018-12-10",
+      "paymentDate": "2019-01-10"
+    },
+    {
+      "date": "2019-07-05",
+      "dividend": 0.88,
+      "annualOnly": false,
+      "declarationDate": "2019-06-26",
+      "recordDate": "2019-07-08",
+      "paymentDate": "2019-07-25"
+    },
+    {
+      "date": "2019-12-13",
+      "dividend": 0.88,
+      "annualOnly": false,
+      "declarationDate": "2019-12-04",
+      "recordDate": "2019-12-16",
+      "paymentDate": "2020-01-16"
+    },
+    {
+      "date": "2023-12-08",
+      "dividend": 0.3,
+      "annualOnly": false,
+      "declarationDate": "2023-11-30",
+      "recordDate": "2023-12-11",
+      "paymentDate": "2024-01-10"
+    },
+    {
+      "date": "2024-07-08",
+      "dividend": 0.45,
+      "annualOnly": false,
+      "declarationDate": "2024-02-07",
+      "recordDate": "2024-07-08",
+      "paymentDate": "2024-07-25"
+    },
+    {
+      "date": "2024-12-16",
+      "dividend": 0.5,
+      "annualOnly": false,
+      "declarationDate": "2024-12-04",
+      "recordDate": "2024-12-16",
+      "paymentDate": "2025-01-16"
+    },
+    {
+      "date": "2025-06-24",
+      "dividend": 0.5,
+      "annualOnly": false,
+      "declarationDate": "2024-12-04",
+      "recordDate": "2025-06-24",
+      "paymentDate": "2025-07-23"
+    },
+    {
+      "date": "2025-12-15",
+      "dividend": 0.75,
+      "annualOnly": false,
+      "declarationDate": "2025-11-13",
+      "recordDate": "2025-12-15",
+      "paymentDate": "2026-01-15"
+    },
+    {
+      "date": "2026-06-30",
+      "dividend": 0.75,
+      "annualOnly": false,
+      "declarationDate": "2025-11-13",
+      "recordDate": "2026-06-30",
+      "paymentDate": "2026-07-22"
+    }
+  ]
+}

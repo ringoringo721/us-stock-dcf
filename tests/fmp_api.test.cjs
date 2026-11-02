@@ -73,6 +73,72 @@ test('Custom parameter units, model restrictions and Berkshire provider aliases 
     'UNSUPPORTED_MODEL_INPUT');
 });
 
+test('dividends action forwards limit and returns payment rows', async () => {
+  const handler = createHandler({ apiKey: () => 'test-placeholder', fetch: async url => {
+    assert.equal(url.pathname, '/stable/dividends');
+    assert.equal(url.searchParams.get('symbol'), 'AAPL');
+    assert.equal(url.searchParams.get('limit'), '400');
+    assert.ok(url.searchParams.get('from'));
+    return { ok: true, json: async () => [{ symbol: 'AAPL', date: '2024-02-09', adjDividend: 0.24 }] };
+  } });
+  const result = await call(handler, '/api/fmp?action=dividends&symbol=AAPL&limit=400');
+  assert.equal(result.status, 200);
+  assert.equal(result.body.data[0].adjDividend, 0.24);
+});
+
+test('dividends action defaults a long from lookback when omitted', async () => {
+  const handler = createHandler({ apiKey: () => 'test-placeholder', fetch: async url => {
+    assert.equal(url.searchParams.get('limit'), '500');
+    const from = url.searchParams.get('from');
+    assert.ok(/^\d{4}-\d{2}-\d{2}$/.test(from));
+    assert.ok(Number(from.slice(0, 4)) <= new Date().getUTCFullYear() - 35);
+    return { ok: true, json: async () => [{ symbol: 'MCD', date: '2024-02-29', adjDividend: 0.67 }] };
+  } });
+  const result = await call(handler, '/api/fmp?action=dividends&symbol=MCD');
+  assert.equal(result.status, 200);
+  assert.equal(result.body.data[0].adjDividend, 0.67);
+});
+
+test('revenue segmentation injects period+structure=flat and accepts nested-free rows', async () => {
+  const seen = [];
+  const handler = createHandler({ apiKey: () => 'test-placeholder', fetch: async url => {
+    const symbol = url.searchParams.get('symbol');
+    seen.push({
+      path: url.pathname,
+      period: url.searchParams.get('period'),
+      structure: url.searchParams.get('structure'),
+      symbol,
+    });
+    return { ok: true, json: async () => [
+      { date: '2024-09-28', symbol, data: { iPhone: 201e9, Americas: 100e9 } },
+    ] };
+  } });
+  const annual = await call(handler, '/api/fmp?action=revenue-product-segmentation&symbol=AAPL');
+  assert.equal(annual.status, 200);
+  assert.equal(seen[0].period, 'annual');
+  assert.equal(seen[0].structure, 'flat');
+  assert.equal(annual.body.data[0].data.iPhone, 201e9);
+
+  const quarter = await call(handler,
+    '/api/fmp?action=revenue-geographic-segmentation&symbol=NVDA&period=quarter&structure=flat');
+  assert.equal(quarter.status, 200);
+  assert.equal(seen[1].period, 'quarter');
+  assert.equal(seen[1].structure, 'flat');
+
+  assert.equal((await call(handler,
+    '/api/fmp?action=revenue-product-segmentation&symbol=AAPL&period=monthly')).status, 400);
+});
+
+test('dividends unwraps historical-wrapped FMP payloads', async () => {
+  const handler = createHandler({ apiKey: () => 'test-placeholder', fetch: async () => ({
+    ok: true,
+    json: async () => ({ historical: [{ symbol: 'MSFT', date: '2024-02-14', adjDividend: 0.75 }] }),
+  }) });
+  const result = await call(handler, '/api/fmp?action=dividends&symbol=MSFT&limit=10');
+  assert.equal(result.status, 200);
+  assert.equal(result.body.data[0].adjDividend, 0.75);
+});
+
 test('historical-price action forwards dated EOD queries for beta benchmarks only when configured', async () => {
   const handler = createHandler({ apiKey: () => 'test-placeholder', fetch: async url => {
     assert.equal(url.pathname, '/stable/historical-price-eod/full');
@@ -94,4 +160,41 @@ test('News pagination discloses its bound instead of offering an invalid next pa
   const result = await call(handler, '/api/fmp?action=news&symbol=AAPL&page=1000');
   assert.equal(result.body.hasMore, false);
   assert.equal(result.body.limitReached, true);
+});
+
+
+test('sec-filings action forwards from/to/limit to search-by-symbol', async () => {
+  const handler = createHandler({ apiKey: () => 'test-placeholder', fetch: async url => {
+    assert.equal(url.pathname, '/stable/sec-filings-search/symbol');
+    assert.equal(url.searchParams.get('symbol'), 'PCAR');
+    assert.equal(url.searchParams.get('from'), '2024-01-01');
+    assert.equal(url.searchParams.get('to'), '2025-01-01');
+    assert.equal(url.searchParams.get('limit'), '20');
+    return { ok: true, json: async () => [{ symbol: 'PCAR', formType: '10-K', filingDate: '2024-06-01', finalLink: 'https://www.sec.gov/x' }] };
+  } });
+  const result = await call(handler, '/api/fmp?action=sec-filings&symbol=PCAR&from=2024-01-01&to=2025-01-01&limit=20');
+  assert.equal(result.status, 200);
+  assert.equal(result.body.data[0].formType, '10-K');
+});
+
+test('transcript-dates allowed; full transcript body blocked; private cache', async () => {
+  const handler = createHandler({ apiKey: () => 'test-placeholder', fetch: async url => {
+    assert.ok(url.pathname.endsWith('earning-call-transcript-dates'));
+    return {
+      ok: true,
+      json: async () => [{
+        symbol: 'AAPL', fiscalYear: 2024, quarter: 1, date: '2024-02-01',
+        content: 'SECRET_SHOULD_STRIP',
+      }],
+    };
+  } });
+  const dates = await call(handler, '/api/fmp?action=transcript-dates&symbol=AAPL');
+  assert.equal(dates.status, 200);
+  assert.equal(dates.body.data[0].quarter, 1);
+  assert.equal(dates.body.data[0].content, undefined);
+  assert.match(String(dates.headers['Cache-Control'] || ''), /private/);
+  const blocked = await call(handler,
+    '/api/fmp?action=earning-call-transcript&symbol=AAPL&year=2024&quarter=1');
+  assert.equal(blocked.status, 403);
+  assert.equal(blocked.body.error, 'TRANSCRIPT_BODY_NOT_PROXIED');
 });

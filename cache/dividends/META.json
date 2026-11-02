@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "ticker": "META",
+  "source": "FMP dividends",
+  "capturedAt": "2026-11-02T14:09:03.142Z",
+  "rows": [
+    {
+      "date": "2024-02-21",
+      "dividend": 0.5,
+      "annualOnly": false,
+      "declarationDate": "2024-02-01",
+      "recordDate": "2024-02-22",
+      "paymentDate": "2024-03-26"
+    },
+    {
+      "date": "2024-06-14",
+      "dividend": 0.5,
+      "annualOnly": false,
+      "declarationDate": "2024-05-30",
+      "recordDate": "2024-06-14",
+      "paymentDate": "2024-06-26"
+    },
+    {
+      "date": "2024-09-16",
+      "dividend": 0.5,
+      "annualOnly": false,
+      "declarationDate": "2024-09-05",
+      "recordDate": "2024-09-16",
+      "paymentDate": "2024-09-26"
+    },
+    {
+      "date": "2024-12-16",
+      "dividend": 0.5,
+      "annualOnly": false,
+      "declarationDate": "2024-12-05",
+      "recordDate": "2024-12-16",
+      "paymentDate": "2024-12-27"
+    },
+    {
+      "date": "2025-03-14",
+      "dividend": 0.525,
+      "annualOnly": false,
+      "declarationDate": "2025-02-13",
+      "recordDate": "2025-03-14",
+      "paymentDate": "2025-03-26"
+    },
+    {
+      "date": "2025-06-16",
+      "dividend": 0.525,
+      "annualOnly": false,
+      "declarationDate": "2025-05-29",
+      "recordDate": "2025-06-16",
+      "paymentDate": "2025-06-26"
+    },
+    {
+      "date": "2025-09-22",
+      "dividend": 0.525,
+      "annualOnly": false,
+      "declarationDate": "2025-09-11",
+      "recordDate": "2025-09-22",
+      "paymentDate": "2025-09-29"
+    },
+    {
+      "date": "2025-12-15",
+      "dividend": 0.525,
+      "annualOnly": false,
+      "declarationDate": "2025-12-03",
+      "recordDate": "2025-12-15",
+      "paymentDate": "2025-12-23"
+    },
+    {
+      "date": "2026-03-16",
+      "dividend": 0.525,
+      "annualOnly": false,
+      "declarationDate": "2026-02-12",
+      "recordDate": "2026-03-16",
+      "paymentDate": "2026-03-26"
+    },
+    {
+      "date": "2026-06-15",
+      "dividend": 0.525,
+      "annualOnly": false,
+      "declarationDate": "2026-05-28",
+      "recordDate": "2026-06-15",
+      "paymentDate": "2026-06-25"
+    },
+    {
+      "date": "2026-09-21",
+      "dividend": 0.525,
+      "annualOnly": false,
+      "declarationDate": "2026-09-10",
+      "recordDate": "2026-09-21",
+      "paymentDate": "2026-09-28"
+    }
+  ]
+}

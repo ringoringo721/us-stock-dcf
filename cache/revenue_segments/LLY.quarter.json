@@ -1,0 +1,909 @@
+{
+  "version": 1,
+  "ticker": "LLY",
+  "source": "FMP revenue segmentation (quarter)",
+  "period": "quarter",
+  "product": [
+    {
+      "date": "2010-09-30",
+      "segments": {
+        "Other Pharmaceuticals": 46800000,
+        "Cardiovascular": 517600000,
+        "Animal Health Products": 353300000,
+        "Endocrinology": 1510400000,
+        "Neuroscience": 2246400000,
+        "Oncology": 980300000
+      }
+    },
+    {
+      "date": "2011-03-31",
+      "segments": {
+        "Other Pharmaceuticals": 53600000,
+        "Animal Health Products": 369800000,
+        "Cardiovascular": 581800000,
+        "Endocrinology": 1589000000,
+        "Neuroscience": 2405100000,
+        "Oncology": 839900000
+      }
+    },
+    {
+      "date": "2011-06-30",
+      "segments": {
+        "Animal Health Products": 389500000,
+        "Cardiovascular": 640600000,
+        "Endocrinology": 1683600000,
+        "Neuroscience": 2653800000,
+        "Oncology": 825800000,
+        "Other Pharmaceuticals": 59500000
+      }
+    },
+    {
+      "date": "2011-09-30",
+      "segments": {
+        "Animal Health Products": 451000000,
+        "Cardiovascular": 630100000,
+        "Endocrinology": 1692900000,
+        "Other Pharmaceuticals": 68100000,
+        "Neuroscience": 2488000000,
+        "Oncology": 817800000
+      }
+    },
+    {
+      "date": "2012-03-31",
+      "segments": {
+        "Animal Health Products": 490700000,
+        "Cardiovascular": 638400000,
+        "Endocrinology": 1690900000,
+        "Neuroscience": 1903700000,
+        "Oncology": 803900000
+      }
+    },
+    {
+      "date": "2012-06-30",
+      "segments": {
+        "Animal Health Products": 512200000,
+        "Cardiovascular": 646900000,
+        "Endocrinology": 1704100000,
+        "Neuroscience": 1824500000,
+        "Oncology": 846800000
+      }
+    },
+    {
+      "date": "2012-09-30",
+      "segments": {
+        "Animal Health Products": 479400000,
+        "Cardiovascular": 650900000,
+        "Endocrinology": 1646100000,
+        "Neuroscience": 1815800000,
+        "Oncology": 791700000
+      }
+    },
+    {
+      "date": "2012-12-31",
+      "segments": {
+        "Animal Health Products": 554200000,
+        "Cardiovascular": 696300000,
+        "Endocrinology": 1769800000,
+        "Neuroscience": 2031100000,
+        "Oncology": 839200000
+      }
+    },
+    {
+      "date": "2013-03-31",
+      "segments": {
+        "Animal Health Products": 499100000,
+        "Cardiovascular": 693900000,
+        "Endocrinology": 1724900000,
+        "Neuroscience": 1848800000,
+        "Oncology": 764200000
+      }
+    },
+    {
+      "date": "2013-06-30",
+      "segments": {
+        "Animal Health Products": 543500000,
+        "Cardiovascular": 731300000,
+        "Endocrinology": 1784300000,
+        "Neuroscience": 2004500000,
+        "Oncology": 808100000
+      }
+    },
+    {
+      "date": "2013-09-30",
+      "segments": {
+        "Animal Health Products": 530300000,
+        "Cardiovascular": 715600000,
+        "Endocrinology": 1764700000,
+        "Neuroscience": 1878100000,
+        "Oncology": 821800000
+      }
+    },
+    {
+      "date": "2013-12-31",
+      "segments": {
+        "Animal Health Products": 578600000,
+        "Cardiovascular": 782400000,
+        "Endocrinology": 2030500000,
+        "Neuroscience": 1484800000,
+        "Oncology": 874400000
+      }
+    },
+    {
+      "date": "2014-03-31",
+      "segments": {
+        "Animal Health Products": 527400000,
+        "Cardiovascular": 712800000,
+        "Endocrinology": 1639200000,
+        "Neuroscience": 964400000,
+        "Oncology": 764300000
+      }
+    },
+    {
+      "date": "2014-06-30",
+      "segments": {
+        "Animal Health Products": 601200000,
+        "Cardiovascular": 765300000,
+        "Endocrinology": 1739600000,
+        "Neuroscience": 893700000,
+        "Oncology": 858400000
+      }
+    },
+    {
+      "date": "2014-09-30",
+      "segments": {
+        "Animal Health Products": 584700000,
+        "Cardiovascular": 757200000,
+        "Endocrinology": 1708300000,
+        "Neuroscience": 869900000,
+        "Oncology": 882400000
+      }
+    },
+    {
+      "date": "2014-12-31",
+      "segments": {
+        "Oncology": 887900000,
+        "Cardiovascular": 818200000,
+        "Neuroscience": 868500000,
+        "Endocrinology": 1851900000,
+        "Animal Health Products": 633300000
+      }
+    },
+    {
+      "date": "2015-03-31",
+      "segments": {
+        "Oncology": 759000000,
+        "Cardiovascular": 715200000,
+        "Neuroscience": 725300000,
+        "Endocrinology": 1626300000,
+        "Animal Health Products": 749800000
+      }
+    },
+    {
+      "date": "2015-06-30",
+      "segments": {
+        "Oncology": 922600000,
+        "Cardiovascular": 763200000,
+        "Neuroscience": 763900000,
+        "Endocrinology": 1637900000,
+        "Animal Health Products": 840800000
+      }
+    },
+    {
+      "date": "2015-09-30",
+      "segments": {
+        "Endocrinology": 1786400000,
+        "Oncology": 861300000,
+        "Cardiovascular": 759900000,
+        "Neuroscience": 724500000,
+        "Animal Health Products": 778800000
+      }
+    },
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "Oncology": 966900000,
+        "Cardiovascular": 829700000,
+        "Neuroscience": 721700000,
+        "Endocrinology": 1986200000,
+        "Animal Health Products": 811600000
+      }
+    },
+    {
+      "date": "2016-03-31",
+      "segments": {
+        "Animal Health Products": 754600000,
+        "Human Pharmaceutical Products": 4110500000
+      }
+    },
+    {
+      "date": "2016-06-30",
+      "segments": {
+        "Human Pharmaceutical Products": 4545000000,
+        "Animal Health Products": 859800000
+      }
+    },
+    {
+      "date": "2016-09-30",
+      "segments": {
+        "Human Pharmaceutical Products": 4485500000,
+        "Animal Health Products": 706200000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Human Pharmaceutical Products": 4922900000,
+        "Animal Health Products": 837600000
+      }
+    },
+    {
+      "date": "2017-03-31",
+      "segments": {
+        "Human Pharmaceutical Products": 4987900000,
+        "Animal Health Products": 240400000
+      }
+    },
+    {
+      "date": "2017-06-30",
+      "segments": {
+        "Human Pharmaceutical Products": 5039400000,
+        "Animal Health Products": 784800000
+      }
+    },
+    {
+      "date": "2017-09-30",
+      "segments": {
+        "Human Pharmaceutical Products": 4917400000,
+        "Animal Health Products": 740600000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "Human Pharmaceutical Products": 4841000000,
+        "Animal Health Products": 1319800000
+      }
+    },
+    {
+      "date": "2018-03-31",
+      "segments": {
+        "Human Pharmaceutical Products": 4938700000,
+        "Animal Health Products": 761300000
+      }
+    },
+    {
+      "date": "2018-06-30",
+      "segments": {
+        "Collaboration and Other Revenue": 455600000,
+        "Product": 5899600000
+      }
+    },
+    {
+      "date": "2018-09-30",
+      "segments": {
+        "Collaboration and Other Revenue": 397400000,
+        "Product": 5664500000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Animal Health Products": 858200000,
+        "Human Pharmaceutical Products": 7413500000
+      }
+    },
+    {
+      "date": "2019-03-31",
+      "segments": {
+        "Endocrinology": 3052200000,
+        "Immunology": 334700000,
+        "Neuroscience": 393100000,
+        "Oncology": 1012700000,
+        "Other Product, Total": 421600000
+      }
+    },
+    {
+      "date": "2019-06-30",
+      "segments": {
+        "Endocrinology": 3348400000,
+        "Immunology": 456100000,
+        "Neuroscience": 452700000,
+        "Oncology": 1197200000,
+        "Other Product, Total": 323500000
+      }
+    },
+    {
+      "date": "2019-09-30",
+      "segments": {
+        "Endocrinology": 3276500000,
+        "Immunology": 454600000,
+        "Neuroscience": 426700000,
+        "Oncology": 1147400000,
+        "Other Product, Total": 303500000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Collaboration and Other Revenue": 579700000,
+        "Product": 5534300000,
+        "Royalty": 138500000
+      }
+    },
+    {
+      "date": "2020-03-31",
+      "segments": {
+        "Diabetes": 2968900000,
+        "Immunology": 585800000,
+        "Neuroscience": 463500000,
+        "Oncology": 1201500000,
+        "Other Product, Total": 640100000
+      }
+    },
+    {
+      "date": "2020-06-30",
+      "segments": {
+        "Diabetes": 2779000000,
+        "Immunology": 548300000,
+        "Neuroscience": 422500000,
+        "Oncology": 1268600000,
+        "Other Product, Total": 481000000
+      }
+    },
+    {
+      "date": "2020-09-30",
+      "segments": {
+        "Diabetes": 2783000000,
+        "Immunology": 627100000,
+        "Neuroscience": 470700000,
+        "Oncology": 1333400000,
+        "Other Product, Total": 526400000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Collaboration and Other Revenue": 507500000,
+        "Product": 6932500000,
+        "Royalty": 34100000
+      }
+    },
+    {
+      "date": "2021-03-31",
+      "segments": {
+        "Diabetes": 3111100000,
+        "Immunology": 613900000,
+        "Neuroscience": 538900000,
+        "Oncology": 1443800000,
+        "Other Product, Total": 1242900000
+      }
+    },
+    {
+      "date": "2021-06-30",
+      "segments": {
+        "Diabetes": 3175500000,
+        "Immunology": 785400000,
+        "Neuroscience": 597100000,
+        "Oncology": 1635400000,
+        "Other Product, Total": 712900000
+      }
+    },
+    {
+      "date": "2021-09-30",
+      "segments": {
+        "Diabetes": 3274100000,
+        "Immunology": 1004900000,
+        "Neuroscience": 526700000,
+        "Oncology": 1506400000,
+        "Other Product, Total": 637700000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Collaboration and Other Revenue": 621500000,
+        "Product": 7378400000,
+        "Royalty": 38900000,
+        "Trajenta (BI)": 92600000
+      }
+    },
+    {
+      "date": "2022-03-31",
+      "segments": {
+        "Diabetes": 3388200000,
+        "Immunology": 748100000,
+        "Neuroscience": 471900000,
+        "Oncology": 1454200000,
+        "Other Product, Total": 1923000000
+      }
+    },
+    {
+      "date": "2022-06-30",
+      "segments": {
+        "Diabetes": 3438200000,
+        "Immunology": 796500000,
+        "Neuroscience": 459500000,
+        "Oncology": 1475500000,
+        "Other Product, Total": 494700000
+      }
+    },
+    {
+      "date": "2022-09-30",
+      "segments": {
+        "Diabetes": 3662600000,
+        "Immunology": 866400000,
+        "Neuroscience": 433800000,
+        "Oncology": 1395700000,
+        "Other Product, Total": 746000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Collaboration and Other Revenue": 962000000,
+        "Product": 6339800000,
+        "Royalty": 32500000,
+        "Trajenta (BI)": 90700000
+      }
+    },
+    {
+      "date": "2023-03-31",
+      "segments": {
+        "Diabetes": 4190400000,
+        "Immunology": 777800000,
+        "Neuroscience": 360500000,
+        "Oncology": 1356000000,
+        "Other Product, Total": 275300000
+      }
+    },
+    {
+      "date": "2023-06-30",
+      "segments": {
+        "Diabetes": 5010900000,
+        "Immunology": 928500000,
+        "Neuroscience": 387200000,
+        "Oncology": 1671000000,
+        "Other Product, Total": 314600000
+      }
+    },
+    {
+      "date": "2023-09-30",
+      "segments": {
+        "Diabetes": 4720400000,
+        "Immunology": 986900000,
+        "Neuroscience": 1768100000,
+        "Oncology": 1747100000,
+        "Other Product, Total": 276100000
+      }
+    },
+    {
+      "date": "2024-03-31",
+      "segments": {
+        "Diabetes": 5493000000,
+        "Immunology": 834000000,
+        "Neuroscience": 552500000,
+        "Oncology": 2078500000,
+        "Other Product, Total": 241900000
+      }
+    },
+    {
+      "date": "2024-06-30",
+      "segments": {
+        "Cardiometabolic Health": 7514600000,
+        "Immunology": 1082400000,
+        "Neuroscience": 487000000,
+        "Oncology": 2457800000,
+        "Other Product, Total": 207600000
+      }
+    },
+    {
+      "date": "2024-09-30",
+      "segments": {
+        "Cardiometabolic Health": 7407000000,
+        "Immunology": 1185700000,
+        "Neuroscience": 469000000,
+        "Oncology": 2556100000,
+        "Other Product, Total": 262800000
+      }
+    },
+    {
+      "date": "2025-03-31",
+      "segments": {
+        "Cardiometabolic Health": 9208100000,
+        "Immunology": 1088000000,
+        "Neuroscience": 272100000,
+        "Oncology": 1947500000,
+        "Other Product, Total": 212900000
+      }
+    },
+    {
+      "date": "2025-06-30",
+      "segments": {
+        "Cardiometabolic Health": 11342900000,
+        "Immunology": 1255600000,
+        "Neuroscience": 344000000,
+        "Oncology": 2413600000,
+        "Other Product, Total": 201500000
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "segments": {
+        "Cardiometabolic Health": 13177900000,
+        "Immunology": 1362400000,
+        "Neuroscience": 315700000,
+        "Oncology": 2407600000,
+        "Other Product, Total": 337200000
+      }
+    },
+    {
+      "date": "2026-03-31",
+      "segments": {
+        "Cardiometabolic Health": 15760000000,
+        "Immunology": 1203000000,
+        "Neuroscience": 382000000,
+        "Oncology": 2268000000
+      }
+    },
+    {
+      "date": "2026-06-30",
+      "segments": {
+        "Cardiometabolic Health": 18353000000,
+        "Immunology": 1417000000,
+        "Neuroscience": 429000000,
+        "Oncology": 2570000000
+      }
+    },
+    {
+      "date": "2026-09-30",
+      "segments": {
+        "Cardiometabolic Health": 19764000000,
+        "Immunology": 1435000000,
+        "Neuroscience": 444000000,
+        "Oncology": 2600000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2018-03-31",
+      "segments": {
+        "UNITED STATES": 3154700000,
+        "Europe": 1035200000,
+        "JAPAN": 555800000,
+        "Other Foreign Countries": 954300000
+      }
+    },
+    {
+      "date": "2018-06-30",
+      "segments": {
+        "Europe": 1090700000,
+        "Non-US": 3751500000,
+        "JAPAN": 664300000
+      }
+    },
+    {
+      "date": "2018-09-30",
+      "segments": {
+        "Europe": 1017000000,
+        "Non-US": 3604800000,
+        "JAPAN": 608800000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Europe": 1088200000,
+        "Non-US": 6325600000,
+        "JAPAN": 664800000
+      }
+    },
+    {
+      "date": "2019-03-31",
+      "segments": {
+        "Europe": 900300000,
+        "JAPAN": 543700000,
+        "Other Foreign Countries": 757400000,
+        "UNITED STATES": 2890800000
+      }
+    },
+    {
+      "date": "2019-06-30",
+      "segments": {
+        "Europe": 928200000,
+        "JAPAN": 653200000,
+        "Other Foreign Countries": 802800000,
+        "UNITED STATES": 3252500000
+      }
+    },
+    {
+      "date": "2019-09-30",
+      "segments": {
+        "Europe": 923400000,
+        "JAPAN": 641500000,
+        "Other Foreign Countries": 851400000,
+        "UNITED STATES": 3060200000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Europe": 1013100000,
+        "JAPAN": 709200000,
+        "Other Foreign Countries": 872700000,
+        "UNITED STATES": 3519100000
+      }
+    },
+    {
+      "date": "2020-03-31",
+      "segments": {
+        "CHINA": 267300000,
+        "Europe": 1061000000,
+        "JAPAN": 592300000,
+        "Other Foreign Countries": 610400000,
+        "UNITED STATES": 3328800000
+      }
+    },
+    {
+      "date": "2020-06-30",
+      "segments": {
+        "CHINA": 239800000,
+        "Europe": 873000000,
+        "JAPAN": 666700000,
+        "Other Foreign Countries": 575200000,
+        "UNITED STATES": 3144800000
+      }
+    },
+    {
+      "date": "2020-09-30",
+      "segments": {
+        "CHINA": 289100000,
+        "Europe": 1046700000,
+        "JAPAN": 660100000,
+        "Other Foreign Countries": 583200000,
+        "UNITED STATES": 3161400000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "CHINA": 320700000,
+        "Europe": 1207000000,
+        "JAPAN": 664000000,
+        "Other Foreign Countries": 653900000,
+        "UNITED STATES": 4594300000
+      }
+    },
+    {
+      "date": "2021-03-31",
+      "segments": {
+        "CHINA": 362200000,
+        "Europe": 1321200000,
+        "JAPAN": 571800000,
+        "Non-US": 609100000,
+        "UNITED STATES": 3941300000
+      }
+    },
+    {
+      "date": "2021-06-30",
+      "segments": {
+        "CHINA": 522500000,
+        "Europe": 1209800000,
+        "JAPAN": 665400000,
+        "Non-US": 638100000,
+        "UNITED STATES": 3704200000
+      }
+    },
+    {
+      "date": "2021-09-30",
+      "segments": {
+        "CHINA": 400300000,
+        "Europe": 1098600000,
+        "JAPAN": 595000000,
+        "Non-US": 689400000,
+        "UNITED STATES": 3989600000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "CHINA": 376400000,
+        "Europe": 1147200000,
+        "JAPAN": 534800000,
+        "Non-US": 765600000,
+        "UNITED STATES": 5175900000
+      }
+    },
+    {
+      "date": "2022-03-31",
+      "segments": {
+        "CHINA": 406500000,
+        "Europe": 1067300000,
+        "JAPAN": 410200000,
+        "Non-US": 751500000,
+        "UNITED STATES": 5174600000
+      }
+    },
+    {
+      "date": "2022-06-30",
+      "segments": {
+        "CHINA": 352100000,
+        "Europe": 1101100000,
+        "JAPAN": 454400000,
+        "Non-US": 645700000,
+        "UNITED STATES": 3934800000
+      }
+    },
+    {
+      "date": "2022-09-30",
+      "segments": {
+        "CHINA": 343400000,
+        "Europe": 1056400000,
+        "JAPAN": 487700000,
+        "Non-US": 632000000,
+        "UNITED STATES": 4422100000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "CHINA": 350800000,
+        "Europe": 1074400000,
+        "JAPAN": 395000000,
+        "Non-US": 822800000,
+        "UNITED STATES": 4658500000
+      }
+    },
+    {
+      "date": "2023-03-31",
+      "segments": {
+        "CHINA": 372700000,
+        "Europe": 1090900000,
+        "JAPAN": 387200000,
+        "Non-US": 673100000,
+        "UNITED STATES": 4436200000
+      }
+    },
+    {
+      "date": "2023-06-30",
+      "segments": {
+        "CHINA": 399000000,
+        "Europe": 1177600000,
+        "JAPAN": 455600000,
+        "Non-US": 748500000,
+        "UNITED STATES": 5531400000
+      }
+    },
+    {
+      "date": "2023-09-30",
+      "segments": {
+        "CHINA": 390800000,
+        "Europe": 2568600000,
+        "JAPAN": 390800000,
+        "Non-US": 780300000,
+        "UNITED STATES": 5368100000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "CHINA": 377200000,
+        "Europe": 1337600000,
+        "JAPAN": 439000000,
+        "Non-US": 744300000,
+        "UNITED STATES": 6455300000
+      }
+    },
+    {
+      "date": "2024-03-31",
+      "segments": {
+        "CHINA": 376200000,
+        "Europe": 1440700000,
+        "JAPAN": 363900000,
+        "Non-US": 892900000,
+        "UNITED STATES": 5694400000
+      }
+    },
+    {
+      "date": "2024-06-30",
+      "segments": {
+        "CHINA": 395100000,
+        "Europe": 1403700000,
+        "JAPAN": 462700000,
+        "Non-US": 1206100000,
+        "UNITED STATES": 7835200000
+      }
+    },
+    {
+      "date": "2024-09-30",
+      "segments": {
+        "CHINA": 459900000,
+        "Europe": 1628300000,
+        "JAPAN": 429100000,
+        "Non-US": 1108200000,
+        "UNITED STATES": 7813600000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "CHINA": 429200000,
+        "Europe": 2448000000,
+        "JAPAN": 559200000,
+        "Non-US": 1064200000,
+        "UNITED STATES": 9032000000
+      }
+    },
+    {
+      "date": "2025-03-31",
+      "segments": {
+        "CHINA": 450800000,
+        "Europe": 2388700000,
+        "JAPAN": 402200000,
+        "Non-US": 997400000,
+        "UNITED STATES": 8489400000
+      }
+    },
+    {
+      "date": "2025-06-30",
+      "segments": {
+        "CHINA": 465900000,
+        "Europe": 2574400000,
+        "JAPAN": 521000000,
+        "Non-US": 1182100000,
+        "UNITED STATES": 10814200000
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "segments": {
+        "CHINA": 560400000,
+        "Europe": 3498100000,
+        "JAPAN": 554700000,
+        "Non-US": 1687700000,
+        "UNITED STATES": 11300000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "CHINA": 473900000,
+        "Europe": 3096800000,
+        "JAPAN": 654100000,
+        "Non-US": 2189800000,
+        "UNITED STATES": 12877400000
+      }
+    },
+    {
+      "date": "2026-03-31",
+      "segments": {
+        "CHINA": 693000000,
+        "Europe": 3646000000,
+        "JAPAN": 571000000,
+        "Non-US": 10451000000,
+        "UNITED STATES": 12119000000
+      }
+    },
+    {
+      "date": "2026-06-30",
+      "segments": {
+        "CHINA": 941000000,
+        "Europe": 4115000000,
+        "JAPAN": 628000000,
+        "Non-US": 2877000000,
+        "UNITED STATES": 14413000000
+      }
+    },
+    {
+      "date": "2026-09-30",
+      "segments": {
+        "CHINA": 947000000,
+        "Europe": 4459000000,
+        "JAPAN": 648000000,
+        "Non-US": 3206000000,
+        "UNITED STATES": 15136000000
+      }
+    }
+  ],
+  "sanitizedAt": "2026-11-02T14:51:27.870Z"
+}

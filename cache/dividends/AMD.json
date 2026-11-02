@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "ticker": "AMD",
+  "source": "FMP dividends",
+  "capturedAt": "2026-11-02T14:09:02.945Z",
+  "rows": [
+    {
+      "date": "1995-04-27",
+      "dividend": 0.005,
+      "annualOnly": false,
+      "declarationDate": "1995-04-18",
+      "recordDate": "1995-05-03",
+      "paymentDate": "1995-05-24"
+    }
+  ]
+}

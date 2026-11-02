@@ -381,8 +381,8 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
     }
     await page.evaluate(() => openCompanyProfile('NVDA'));
     assert.deepEqual(await page.locator('.sub-tab-btn').evaluateAll(buttons => buttons.map(button => button.getAttribute('onclick'))),
-      ['basic', 'rating', 'financials', 'ratios', 'peers', 'charts', 'valuation', 'news', 'chart'].map(key => `switchSubPage('${key}')`));
-    assert.equal(await page.locator('#subpage-dividend').count(), 0);
+      ['basic', 'rating', 'financials', 'dividend', 'ratios', 'peers', 'charts', 'valuation', 'news', 'chart'].map(key => `switchSubPage('${key}')`));
+    assert.equal(await page.locator('#subpage-dividend').count(), 1);
     assert.equal(await page.locator('#moat-total-score').isVisible(), false);
     assert.equal(await page.locator('#fscore-breakdown-body').isVisible(), false);
     const originalProfileLanguage = await page.evaluate(() => currentLang);
