@@ -84,6 +84,7 @@
   <script src="dividend_history.js"></script>
   <script src="revenue_segments.js"></script>
   <script src="company_documents.js"></script>
+  <script src="smart_money.js"></script>
   <script src="dividend_leverage_metrics_data.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   
@@ -2028,6 +2029,7 @@
       <button class="sub-tab-btn" onclick="switchSubPage('financials')" data-i18n="tab_financials">📑 3. 財務報表 (5年/TTM)</button>
       <button class="sub-tab-btn" onclick="switchSubPage('dividend')" data-i18n="tab_dividend">💵 4. 股利 (TV)</button>
       <button class="sub-tab-btn" onclick="switchSubPage('documents')" data-i18n="tab_documents">📂 5. 申報／文件</button>
+      <button class="sub-tab-btn" onclick="switchSubPage('smart-money')" data-i18n="tab_smart_money">🧠 5b. 智資／Smart Money</button>
       <button class="sub-tab-btn" onclick="switchSubPage('ratios')" data-i18n="tab_ratios">⚖️ 6. 關鍵比率</button>
       <button class="sub-tab-btn" onclick="switchSubPage('peers')" data-i18n="tab_peers">👥 7. 同行業對比</button>
       <button class="sub-tab-btn" onclick="switchSubPage('charts')" data-i18n="tab_charts">📊 8. 趨勢分析</button>
@@ -2408,6 +2410,29 @@
           <table id="cmp-documents-transcripts" class="historical-ratio-table company-analysis-table">
             <thead><tr id="cmp-documents-transcripts-thead"></tr></thead>
             <tbody id="cmp-documents-transcripts-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div id="subpage-smart-money" class="subpage-content">
+      <div class="panel historical-ratio-panel company-analysis-panel">
+        <div class="panel-title" data-i18n="sec_smart_money">智資／Smart Money（策展 20 家）</div>
+        <p class="analysis-note" data-i18n="analysis_smart_money_note">追蹤人工策展的 20 家智能投資機構之美國 13F 持倉（非全市場機構榜）。資料來自 FMP 機構持倉端點。</p>
+        <p id="smart-money-disclaimer" class="analysis-note" role="note" data-i18n="analysis_smart_money_lag">13F 為季度申報，法定可於季末後最多約 45 日才公開；本站快取可能再延遲。數字為歷史已申報多頭倉，非即時持倉，亦非投資建議。</p>
+        <p id="smart-money-status" class="analysis-note" role="status"></p>
+        <div class="panel-title" style="font-size:15px;" data-i18n="sec_smart_money_holders">誰在持有（最近一季）</div>
+        <div class="table-scroll-wrapper company-analysis-scroll" style="margin-bottom: 18px;">
+          <table id="cmp-smart-money-holders" class="historical-ratio-table company-analysis-table">
+            <thead><tr id="cmp-smart-money-holders-thead"></tr></thead>
+            <tbody id="cmp-smart-money-holders-tbody"></tbody>
+          </table>
+        </div>
+        <div class="panel-title" style="font-size:15px;" data-i18n="sec_smart_money_matrix">近數季動作矩陣</div>
+        <div class="table-scroll-wrapper company-analysis-scroll">
+          <table id="cmp-smart-money-matrix" class="historical-ratio-table company-analysis-table">
+            <thead><tr id="cmp-smart-money-matrix-thead"></tr></thead>
+            <tbody id="cmp-smart-money-matrix-tbody"></tbody>
           </table>
         </div>
       </div>
@@ -3285,6 +3310,7 @@
       tab_financials: "📑 3. 財務報表 (5年/TTM)",
       tab_dividend: "💵 4. 股利 (TV)",
       tab_documents: "📂 5. 申報／文件",
+      tab_smart_money: "🧠 5b. 智資／Smart Money",
       tab_ratios: "⚖️ 6. 關鍵比率",
       sec_revenue_breakdown: "營收拆解（產品／地區）",
       analysis_revenue_breakdown_note: "與財報相同期間視圖（年度 5年＋TTM／近 20 季）；FMP 有拆解的股票才顯示金額，缺資料為 N/A，不補造。涵蓋因股票而異，非全市場皆有。",
@@ -3295,6 +3321,12 @@
       analysis_documents_note: "財務報表申報與法說日期；申報可開 SEC／FMP 連結。逐字稿全文不經本站代理，改開 SEC 8-K。",
       sec_documents_filings: "財務報表申報",
       sec_documents_transcripts: "法說會（SEC 8-K）",
+      sec_smart_money: "智資／Smart Money（策展 20 家）",
+      analysis_smart_money_note: "追蹤人工策展的 20 家智能投資機構之美國 13F 持倉（非全市場機構榜）。資料來自 FMP 機構持倉端點。",
+      analysis_smart_money_lag: "13F 為季度申報，法定可於季末後最多約 45 日才公開；本站快取可能再延遲。數字為歷史已申報多頭倉，非即時持倉，亦非投資建議。",
+      analysis_smart_money_hk: "港股不適用美國 13F 智資追蹤（無對等公開機構持倉節奏）。",
+      sec_smart_money_holders: "誰在持有（最近一季）",
+      sec_smart_money_matrix: "近數季動作矩陣",
       lbl_div_grain: "彙整期間",
       opt_div_quarter: "季度（Q1–Q4）",
       opt_div_half: "半年（H1／H2）",
@@ -3865,6 +3897,7 @@
       tab_financials: "📑 3. Financial Statements (5Y/TTM)",
       tab_dividend: "💵 4. Dividends (TV)",
       tab_documents: "📂 5. Filings / Documents",
+      tab_smart_money: "🧠 5b. Smart Money",
       tab_ratios: "⚖️ 6. Key Ratios",
       sec_revenue_breakdown: "Revenue breakdown (product / geographic)",
       analysis_revenue_breakdown_note: "Same period views as statements (annual 5Y+TTM / last 20Q). Amounts only when FMP publishes segments; missing stays N/A. Coverage is ticker-specific, not universal.",
@@ -3875,6 +3908,12 @@
       analysis_documents_note: "Financial statement filings and earnings-call dates with links that open immediately. Full FMP transcript text is not proxied — open SEC 8-K instead.",
       sec_documents_filings: "Financial statement filings",
       sec_documents_transcripts: "Earnings calls (SEC 8-K)",
+      sec_smart_money: "Smart Money (curated 20)",
+      analysis_smart_money_note: "Tracks a curated list of 20 intelligent investors via US 13F filings (not the full institutional holder board). Data from FMP institutional endpoints.",
+      analysis_smart_money_lag: "13F filings are quarterly and may publish up to ~45 days after quarter-end; site cache may lag further. Figures are historical reported long holdings — not real-time positions or investment advice.",
+      analysis_smart_money_hk: "HK listings are N/A for US 13F Smart Money tracking (no equivalent public institutional cadence).",
+      sec_smart_money_holders: "Who holds (latest quarter)",
+      sec_smart_money_matrix: "Recent-quarter action matrix",
       lbl_div_grain: "Aggregation",
       opt_div_quarter: "Quarter (Q1–Q4)",
       opt_div_half: "Half-year (H1/H2)",
@@ -7163,6 +7202,8 @@
       renderDividendPaymentsSubPage(curStock);
     } else if (tabKey === 'documents') {
       renderDocumentsSubPage(curStock);
+    } else if (tabKey === 'smart-money') {
+      renderSmartMoneySubPage(curStock);
     } else if (tabKey === 'ratios') {
       renderRatiosSubPage(curStock);
     } else if (tabKey === 'peers') {
@@ -8541,6 +8582,130 @@
     if (!url) return false;
     window.open(url, '_blank', 'noopener,noreferrer');
     return false;
+  }
+
+  function formatSmartMoneyShares(value) {
+    const n = Number(value);
+    if (!Number.isFinite(n)) return '—';
+    const abs = Math.abs(n);
+    if (abs >= 1e9) return `${(n / 1e9).toFixed(2)}B`;
+    if (abs >= 1e6) return `${(n / 1e6).toFixed(2)}M`;
+    if (abs >= 1e3) return `${(n / 1e3).toFixed(1)}K`;
+    return String(Math.round(n));
+  }
+
+  function formatSmartMoneyMoney(value) {
+    const n = Number(value);
+    if (!Number.isFinite(n)) return '—';
+    const abs = Math.abs(n);
+    if (abs >= 1e9) return `$${(n / 1e9).toFixed(2)}B`;
+    if (abs >= 1e6) return `$${(n / 1e6).toFixed(1)}M`;
+    if (abs >= 1e3) return `$${(n / 1e3).toFixed(0)}K`;
+    return `$${Math.round(n)}`;
+  }
+
+  function renderSmartMoneySubPage(stockObj) {
+    const ticker = activeCompanyTicker || stockObj?.ticker || 'NVDA';
+    const stock = stockObj || stockUniverse[ticker];
+    const status = document.getElementById('smart-money-status');
+    const holdersHead = document.getElementById('cmp-smart-money-holders-thead');
+    const holdersBody = document.getElementById('cmp-smart-money-holders-tbody');
+    const matrixHead = document.getElementById('cmp-smart-money-matrix-thead');
+    const matrixBody = document.getElementById('cmp-smart-money-matrix-tbody');
+    const isEn = currentLang === 'en';
+    if (!status || !holdersBody || !matrixBody) return;
+
+    const SM = typeof SmartMoney !== 'undefined' ? SmartMoney : null;
+    holdersBody.innerHTML = '';
+    matrixBody.innerHTML = '';
+
+    if (!SM) {
+      status.textContent = isEn ? 'Smart Money module unavailable.' : '智資模組不可用。';
+      return;
+    }
+    if (!SM.isUsListed(stock || { ticker })) {
+      status.textContent = isEn
+        ? (I18N_DICT.en.analysis_smart_money_hk || 'HK listings are N/A for US 13F Smart Money tracking.')
+        : (I18N_DICT.zh.analysis_smart_money_hk || '港股不適用美國 13F 智資追蹤。');
+      holdersBody.innerHTML = `<tr><td class="table-sticky-col text-muted" colspan="6">N/A</td></tr>`;
+      matrixBody.innerHTML = `<tr><td class="table-sticky-col text-muted" colspan="2">N/A</td></tr>`;
+      return;
+    }
+
+    status.textContent = isEn ? 'Loading Smart Money 13F…' : '載入智資 13F 中…';
+    if (holdersHead) {
+      holdersHead.innerHTML = `<th class="table-sticky-col">${isEn ? 'Investor' : '投資人'}</th>`
+        + `<th>${isEn ? 'Action' : '動作'}</th>`
+        + `<th>${isEn ? 'Shares' : '股數'}</th>`
+        + `<th>${isEn ? 'Market value' : '市值'}</th>`
+        + `<th>${isEn ? 'Port. weight %' : '組合權重 %'}</th>`
+        + `<th>${isEn ? 'Ownership %' : '持股 %'}</th>`;
+    }
+
+    SM.load(ticker, { quarters: 5 }).then((result) => {
+      if (activeCompanyTicker !== ticker) return;
+      const snap = result.snapshot;
+      const holders = snap?.holders || [];
+      const quarters = snap?.quarters || [];
+      const investors = (snap?.investors || []).filter(row =>
+        row.holding || row.history?.some(h => h.action && h.action !== 'none'));
+
+      holdersBody.innerHTML = holders.length
+        ? holders.map(row => {
+          const label = SM.investorLabel(row.investor, isEn ? 'en' : 'zh');
+          const action = SM.actionLabel(row.latestAction, isEn ? 'en' : 'zh');
+          const weight = row.latestWeight != null ? row.latestWeight.toFixed(2) : '—';
+          const own = row.latestOwnership != null ? row.latestOwnership.toFixed(3) : '—';
+          return `<tr>
+            <td class="table-sticky-col" style="text-align:left;">${escapeAttribute(label)}</td>
+            <td>${escapeAttribute(action)}</td>
+            <td>${formatSmartMoneyShares(row.latestShares)}</td>
+            <td>${formatSmartMoneyMoney(row.latestMarketValue)}</td>
+            <td>${weight}</td>
+            <td>${own}</td>
+          </tr>`;
+        }).join('')
+        : `<tr><td class="table-sticky-col text-muted" colspan="6">${isEn
+          ? 'None of the curated 20 reported a position in the latest available quarter.'
+          : '策展 20 家於最近可取得季度皆未申報持有此股。'}</td></tr>`;
+
+      if (matrixHead) {
+        matrixHead.innerHTML = `<th class="table-sticky-col">${isEn ? 'Investor' : '投資人'}</th>`
+          + quarters.map(q => `<th>${escapeAttribute(q)}</th>`).join('');
+      }
+      const matrixRows = investors.length ? investors : (snap?.investors || []).slice(0, 20);
+      matrixBody.innerHTML = matrixRows.map(row => {
+        const label = SM.investorLabel(row.investor, isEn ? 'en' : 'zh');
+        const cells = quarters.map(key => {
+          const cell = (row.history || []).find(h => h.key === key);
+          if (!cell || cell.action === 'none') return '<td>—</td>';
+          const tag = SM.actionLabel(cell.action, isEn ? 'en' : 'zh');
+          const shares = cell.shares > 0 ? formatSmartMoneyShares(cell.shares) : '';
+          return `<td title="${escapeAttribute(shares)}">${escapeAttribute(tag)}${
+            shares ? `<div class="text-muted" style="font-size:11px;">${shares}</div>` : ''}</td>`;
+        }).join('');
+        return `<tr><td class="table-sticky-col" style="text-align:left;">${escapeAttribute(label)}</td>${cells}</tr>`;
+      }).join('') || `<tr><td class="table-sticky-col text-muted" colspan="${Math.max(2, quarters.length + 1)}">${
+        isEn ? 'No matrix rows.' : '無矩陣資料。'}</td></tr>`;
+
+      const src = result.source === 'cache'
+        ? (isEn ? 'cache' : '快取')
+        : (isEn ? 'live FMP' : '即時 FMP');
+      status.textContent = `${ticker} · ${isEn ? 'holders' : '持有'} ${holders.length}/${snap?.curatedCount || 20}`
+        + ` · ${isEn ? 'quarters' : '季數'} ${quarters.length}`
+        + ` · ${src}`
+        + (result.capturedAt ? ` · ${String(result.capturedAt).slice(0, 10)}` : '')
+        + (result.liveErrors?.length
+          ? ` · ${isEn ? 'partial errors' : '部分錯誤'} ${result.liveErrors.length}` : '');
+      document.querySelectorAll('#subpage-smart-money .table-scroll-wrapper').forEach(box => makeScrollable(box));
+    }).catch((error) => {
+      if (activeCompanyTicker !== ticker) return;
+      status.textContent = isEn
+        ? `Smart Money unavailable (${String(error.message || error)}).`
+        : `智資資料不可用（${String(error.message || error)}）。`;
+      holdersBody.innerHTML = `<tr><td class="table-sticky-col text-muted" colspan="6">${
+        isEn ? 'Failed to load.' : '載入失敗。'}</td></tr>`;
+    });
   }
 
   function renderDocumentsSubPage(stockObj) {
@@ -10353,7 +10518,7 @@
   function handleInitialNavigation() {
     const hash = window.location.hash.replace('#', '').toUpperCase();
     const [routeTicker, routeTab] = hash.split('/');
-    if (stockUniverse[routeTicker] && ['BASIC', 'PROFILE', 'RATING', 'FINANCIALS', 'RATIOS', 'PEERS', 'CHARTS', 'VALUATION', 'NEWS', 'CHART'].includes(routeTab)) {
+    if (stockUniverse[routeTicker] && ['BASIC', 'PROFILE', 'RATING', 'FINANCIALS', 'DIVIDEND', 'DOCUMENTS', 'SMART-MONEY', 'RATIOS', 'PEERS', 'CHARTS', 'VALUATION', 'NEWS', 'CHART'].includes(routeTab)) {
       activeCompanyTicker = routeTicker;
       showView('company', false);
       const tab = routeTab === 'PROFILE' ? 'basic' : routeTab.toLowerCase();

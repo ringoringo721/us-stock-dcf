@@ -1,4 +1,5 @@
 const technicals = require('../technical_indicators.js');
+const SmartMoney = require('../smart_money.js');
 const endpoints = {
   technical: 'technical-indicators',
   news: 'news/stock',
@@ -14,12 +15,19 @@ const endpoints = {
   'sec-filings': 'sec-filings-search/symbol',
   // Metadata only — full earning-call-transcript bodies are NOT proxied (paid scrape risk).
   'transcript-dates': 'earning-call-transcript-dates',
+  // 13F / institutional — Smart Money subpage (rate-limited).
+  'institutional-holders': 'institutional-ownership/extract-analytics/holder',
+  'institutional-extract': 'institutional-ownership/extract',
 };
 
-/** In-memory per-IP budgets for document metadata actions (best-effort on serverless). */
+/** In-memory per-IP budgets for document + 13F metadata actions (best-effort on serverless). */
 const documentRateBuckets = new Map();
 const DOCUMENT_RATE_WINDOW_MS = 60_000;
 const DOCUMENT_RATE_MAX = 40;
+const INSTITUTIONAL_RATE_MAX = 30;
+const RATE_LIMITED_ACTIONS = new Set([
+  'sec-filings', 'transcript-dates', 'institutional-holders', 'institutional-extract',
+]);
 
 function clientIp(req) {
   const forwarded = req.headers?.['x-forwarded-for'];
@@ -28,7 +36,7 @@ function clientIp(req) {
 }
 
 function documentRateLimited(req, action) {
-  if (action !== 'sec-filings' && action !== 'transcript-dates') return false;
+  if (!RATE_LIMITED_ACTIONS.has(action)) return false;
   const key = `${clientIp(req)}:${action}`;
   const now = Date.now();
   let bucket = documentRateBuckets.get(key);
@@ -42,7 +50,9 @@ function documentRateLimited(req, action) {
       if (now >= entry.resetAt) documentRateBuckets.delete(id);
     }
   }
-  return bucket.count > DOCUMENT_RATE_MAX;
+  const max = (action === 'institutional-holders' || action === 'institutional-extract')
+    ? INSTITUTIONAL_RATE_MAX : DOCUMENT_RATE_MAX;
+  return bucket.count > max;
 }
 const customParameters = {
   revenueGrowthPct: [-0.9, 2], ebitdaPct: [-1, 1], ebitPct: [-1, 1],
@@ -75,12 +85,20 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
       || action === 'revenue-geographic-segmentation';
     const secFilings = action === 'sec-filings';
     const transcriptDates = action === 'transcript-dates';
+    const institutionalHolders = action === 'institutional-holders';
+    const institutionalExtract = action === 'institutional-extract';
     // Reject legacy full-transcript action explicitly (was a paid-content scrape surface).
     if (action === 'earning-call-transcript') {
       return send(403, {
         error: 'TRANSCRIPT_BODY_NOT_PROXIED',
         hint: 'Full FMP earning-call-transcript text is not exposed. Open SEC EDGAR 8-K instead.',
       });
+    }
+    // institutional-extract is CIK-keyed (curated Smart Money only); symbol is still required
+    // as a security filter so callers cannot dump unrelated full 13F books through this proxy.
+    const cikParam = SmartMoney.padCik(query.get('cik'));
+    if (institutionalExtract && !SmartMoney.allowedCik(cikParam)) {
+      return send(400, { error: 'INVALID_SMART_MONEY_CIK' });
     }
     if (!Object.hasOwn(endpoints, action) || !/^[A-Z0-9][A-Z0-9.-]{0,14}$/.test(symbol || '')
         || [...new Set(query.keys())].some(key => query.getAll(key).length !== 1)
@@ -92,17 +110,21 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
           && !(revenueSegments && ['period', 'structure'].includes(key))
           && !(secFilings && ['from', 'to', 'limit', 'page'].includes(key))
           && !(transcriptDates && [].includes(key))
+          && !(institutionalHolders && ['year', 'quarter', 'limit', 'page'].includes(key))
+          && !(institutionalExtract && ['cik', 'year', 'quarter'].includes(key))
           && !(custom && Object.hasOwn(customParameters, key)))) {
       return send(400, { error: 'INVALID_REQUEST' });
     }
     if (documentRateLimited(req, action)) {
       res.setHeader('Cache-Control', 'private, no-store');
       res.setHeader('Retry-After', '60');
-      return send(429, { error: 'DOCUMENT_RATE_LIMITED' });
+      return send(429, { error: institutionalHolders || institutionalExtract
+        ? 'INSTITUTIONAL_RATE_LIMITED' : 'DOCUMENT_RATE_LIMITED' });
     }
     const page = query.get('page') || '0';
     if (!/^\d{1,4}$/.test(page) || Number(page) > 1000
-        || (action !== 'news' && action !== 'sec-filings' && query.has('page'))) {
+        || (action !== 'news' && action !== 'sec-filings' && action !== 'institutional-holders'
+          && query.has('page'))) {
       return send(400, { error: 'INVALID_PAGE' });
     }
     const indicator = query.get('indicator'), period = query.get('periodLength');
@@ -111,6 +133,9 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
     const segmentPeriod = query.get('period');
     const segmentStructure = query.get('structure');
     const filingsLimit = query.get('limit');
+    const instYear = query.get('year');
+    const instQuarter = query.get('quarter');
+    const instLimit = query.get('limit');
     if (technical && (!/^\d{1,3}$/.test(period || '')
         || !technicals.validRequest(indicator, Number(period), from, to))) {
       return send(400, { error: 'INVALID_TECHNICAL_REQUEST' });
@@ -142,12 +167,29 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
           || Number(filingsLimit) > 100)))) {
       return send(400, { error: 'INVALID_SEC_FILINGS_REQUEST' });
     }
+    if ((institutionalHolders || institutionalExtract)
+        && (!/^\d{4}$/.test(instYear || '') || Number(instYear) < 1999 || Number(instYear) > 2100
+          || !/^[1-4]$/.test(instQuarter || ''))) {
+      return send(400, { error: 'INVALID_INSTITUTIONAL_REQUEST' });
+    }
+    if (institutionalHolders && instLimit && (!/^\d{1,3}$/.test(instLimit)
+        || Number(instLimit) < 1 || Number(instLimit) > 100)) {
+      return send(400, { error: 'INVALID_INSTITUTIONAL_REQUEST' });
+    }
+    if (institutionalHolders && Number(page) > 20) {
+      return send(400, { error: 'INVALID_PAGE' });
+    }
     const key = apiKey();
     if (!key) return send(503, { error: 'FMP_NOT_CONFIGURED' });
     const endpoint = technical ? `${endpoints[action]}/${indicator}` : endpoints[action];
     const url = new URL(`https://financialmodelingprep.com/stable/${endpoint}`);
     const provider = symbol.endsWith('.HK') ? symbol : symbol.replaceAll('.', '-');
-    url.searchParams.set(action === 'news' ? 'symbols' : 'symbol', provider);
+    // institutional-extract is CIK-primary; still require symbol for response filtering.
+    if (institutionalExtract) {
+      url.searchParams.set('cik', cikParam);
+    } else {
+      url.searchParams.set(action === 'news' ? 'symbols' : 'symbol', provider);
+    }
     if (technical) {
       for (const [name, value] of Object.entries({ periodLength: period, timeframe: '1day', from, to })) {
         url.searchParams.set(name, value);
@@ -188,6 +230,16 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
       url.searchParams.set('to', end);
       url.searchParams.set('page', page);
       url.searchParams.set('limit', filingsLimit || '40');
+    }
+    if (institutionalHolders) {
+      url.searchParams.set('year', instYear);
+      url.searchParams.set('quarter', instQuarter);
+      url.searchParams.set('page', page);
+      url.searchParams.set('limit', instLimit || '100');
+    }
+    if (institutionalExtract) {
+      url.searchParams.set('year', instYear);
+      url.searchParams.set('quarter', instQuarter);
     }
     for (const [name, [minimum, maximum]] of Object.entries(customParameters)) {
       if (!query.has(name)) continue;
@@ -252,9 +304,22 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
         symbol, providerSymbol: provider, date: String(row.date).slice(0, 10),
         close: row.close, volume: row.volume == null ? null : row.volume
       }));
+    } else if (institutionalExtract) {
+      // Full 13F books are large — only return the requested symbol rows for curated CIKs.
+      data = rows.filter(row => row && (row.symbol === provider || row.symbol === symbol
+        || String(row.symbol || '').replaceAll('.', '-') === provider));
+      data = data.map(row => ({
+        ...row,
+        symbol,
+        providerSymbol: provider,
+        cik: cikParam,
+        year: Number(instYear),
+        quarter: Number(instQuarter),
+      }));
     } else {
-      // Dividends / segment / filings / transcript-dates sometimes omit symbol.
-      const softSymbol = revenueSegments || dividends || secFilings || transcriptDates;
+      // Dividends / segment / filings / transcript-dates / 13F analytics sometimes omit symbol.
+      const softSymbol = revenueSegments || dividends || secFilings || transcriptDates
+        || institutionalHolders;
       data = rows.filter(row => row && (row.symbol == null || row.symbol === ''
         || row.symbol === provider || row.symbol === symbol));
       if (!softSymbol && data.length !== rows.length) {
@@ -277,9 +342,18 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
           return meta;
         });
       }
+      // Smart Money: keep only curated CIK rows server-side (avoid leaking top-100 noise).
+      if (institutionalHolders) {
+        data = data.filter(row => SmartMoney.allowedCik(row?.cik)).map(row => ({
+          ...row,
+          cik: SmartMoney.padCik(row.cik),
+          year: Number(instYear),
+          quarter: Number(instQuarter),
+        }));
+      }
     }
-    // Paid / document metadata must not be edge-cached publicly.
-    if (secFilings || transcriptDates) {
+    // Paid / document / 13F metadata must not be edge-cached publicly.
+    if (secFilings || transcriptDates || institutionalHolders || institutionalExtract) {
       res.setHeader('Cache-Control', 'private, no-store');
     } else {
       res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=600');
@@ -288,7 +362,10 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
       capturedAt: new Date().toISOString(),
       ...(technical ? { indicator, periodLength: Number(period),
         timeframe: '1day', from, to, priceBasis: 'FMP technical-indicator OHLC close; alignment checked against the displayed price history' } : {}),
-      ...(historical ? { from, to, priceBasis: 'splitAdjustedClose' } : {}) },
+      ...(historical ? { from, to, priceBasis: 'splitAdjustedClose' } : {}),
+      ...(institutionalHolders || institutionalExtract
+        ? { year: Number(instYear), quarter: Number(instQuarter),
+          ...(institutionalExtract ? { cik: cikParam } : {}) } : {}) },
       ...(action === 'news' ? {
         page: Number(page), hasMore: rows.length === 50 && Number(page) < 1000,
         limitReached: rows.length === 50 && Number(page) === 1000

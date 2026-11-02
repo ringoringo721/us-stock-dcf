@@ -198,3 +198,50 @@ test('transcript-dates allowed; full transcript body blocked; private cache', as
   assert.equal(blocked.status, 403);
   assert.equal(blocked.body.error, 'TRANSCRIPT_BODY_NOT_PROXIED');
 });
+
+test('institutional-holders filters to curated CIKs and stays private', async () => {
+  const handler = createHandler({ apiKey: () => 'test-placeholder', fetch: async url => {
+    assert.equal(url.pathname, '/stable/institutional-ownership/extract-analytics/holder');
+    assert.equal(url.searchParams.get('symbol'), 'AAPL');
+    assert.equal(url.searchParams.get('year'), '2025');
+    assert.equal(url.searchParams.get('quarter'), '2');
+    assert.equal(url.searchParams.get('limit'), '100');
+    return {
+      ok: true,
+      json: async () => [
+        { symbol: 'AAPL', cik: '0001067983', investorName: 'BERKSHIRE', sharesNumber: 1 },
+        { symbol: 'AAPL', cik: '0002012383', investorName: 'BLACKROCK', sharesNumber: 9 },
+      ],
+    };
+  } });
+  const result = await call(handler,
+    '/api/fmp?action=institutional-holders&symbol=AAPL&year=2025&quarter=2&limit=100');
+  assert.equal(result.status, 200);
+  assert.equal(result.body.data.length, 1);
+  assert.equal(result.body.data[0].cik, '0001067983');
+  assert.match(String(result.headers['Cache-Control'] || ''), /private/);
+  assert.equal((await call(handler,
+    '/api/fmp?action=institutional-holders&symbol=AAPL&year=2025&quarter=5')).status, 400);
+});
+
+test('institutional-extract only allows curated CIK and filters to symbol', async () => {
+  const handler = createHandler({ apiKey: () => 'test-placeholder', fetch: async url => {
+    assert.equal(url.pathname, '/stable/institutional-ownership/extract');
+    assert.equal(url.searchParams.get('cik'), '0001067983');
+    assert.equal(url.searchParams.has('symbol'), false);
+    return {
+      ok: true,
+      json: async () => [
+        { symbol: 'AAPL', shares: 100, value: 1 },
+        { symbol: 'MSFT', shares: 50, value: 2 },
+      ],
+    };
+  } });
+  const ok = await call(handler,
+    '/api/fmp?action=institutional-extract&symbol=AAPL&cik=0001067983&year=2025&quarter=2');
+  assert.equal(ok.status, 200);
+  assert.equal(ok.body.data.length, 1);
+  assert.equal(ok.body.data[0].symbol, 'AAPL');
+  assert.equal((await call(handler,
+    '/api/fmp?action=institutional-extract&symbol=AAPL&cik=0002012383&year=2025&quarter=2')).status, 400);
+});
