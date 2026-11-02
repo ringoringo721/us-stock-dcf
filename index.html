@@ -1004,6 +1004,9 @@
       font-weight: 700; cursor: pointer; white-space: nowrap;
     }
     .tv-metric-menu .tv-metric-custom .tv-metric-apply:hover { border-color: var(--text); }
+    .tv-metric-menu .tv-metric-custom .tv-metric-unit {
+      color: var(--text-muted); font-size: 11px; font-variant-numeric: tabular-nums;
+    }
     #screener-view .top-stats .stat-box[data-screen-group] .stat-label { font-size: 10px; }
     #screener-view .top-stats .stat-model-sep {
       flex: 0 0 1px; align-self: stretch; background: var(--card-border); width: 1px; padding: 0; border: 0;
@@ -3015,6 +3018,8 @@
       stat_levered_value_note: "依 FMP 槓桿 DCF 相對最新股價的溢折價%；負＝低估、正＝高估。",
       stat_target_value_note: "依本站已存目標價相對最新股價的溢折價%；僅計有儲存目標者。負＝低估、正＝高估。",
       tv_filter_custom: "自訂數值",
+      tv_filter_custom_percent: "自訂數值（%）",
+      tv_filter_percent_unit: "%",
       tv_filter_gt: "大於",
       tv_filter_lt: "小於",
       tv_filter_range: "區間",
@@ -3571,6 +3576,8 @@
       stat_levered_value_note: "Uses FMP levered DCF premium % versus latest price; negative = undervalued, positive = overvalued.",
       stat_target_value_note: "Uses site-saved target premium % versus latest price; only tickers with a saved target. Negative = undervalued, positive = overvalued.",
       tv_filter_custom: "Custom value",
+      tv_filter_custom_percent: "Custom value (%)",
+      tv_filter_percent_unit: "%",
       tv_filter_gt: "Above",
       tv_filter_lt: "Below",
       tv_filter_range: "Range",
@@ -5464,6 +5471,9 @@
   }
 
   const LIQ_VS_PRICE_FIELDS = new Set(['liq_val_1', 'liq_val_2', 'liq_val_3']);
+  // Stored as fractions (0.08) but table/presets show percent (8%). Other % metrics
+  // (premiumPct, ROE, div yield, FCF ratios, …) are already percent points in storage.
+  const TV_METRIC_PERCENT_FRACTION_FIELDS = new Set(['WACC']);
   function isCustomMetricFilter(filter) {
     return !!(filter && typeof filter === 'object' && (filter.kind === 'custom' || filter.kind === 'vsPrice'));
   }
@@ -5474,6 +5484,29 @@
     if (raw == null || raw === '') return null;
     const value = Number(raw);
     return Number.isFinite(value) ? value : null;
+  }
+  function metricCustomInputToStored(field, typed) {
+    if (!Number.isFinite(typed)) return null;
+    // Accept percent input for fraction-stored metrics (type 8 → compare to 0.08).
+    if (TV_METRIC_PERCENT_FRACTION_FIELDS.has(field)) return typed / 100;
+    return typed;
+  }
+  function metricCustomStoredToInput(field, stored) {
+    if (!Number.isFinite(stored)) return '';
+    if (TV_METRIC_PERCENT_FRACTION_FIELDS.has(field)) {
+      const pct = stored * 100;
+      return Number.isInteger(pct) ? String(pct) : String(Number(pct.toFixed(6)));
+    }
+    return String(stored);
+  }
+  function metricCustomThresholdLabel(field, stored) {
+    if (!Number.isFinite(stored)) return '…';
+    if (TV_METRIC_PERCENT_FRACTION_FIELDS.has(field)) {
+      const pct = stored * 100;
+      const text = Number.isInteger(pct) ? String(pct) : String(Number(pct.toFixed(4)));
+      return `${text}%`;
+    }
+    return String(stored);
   }
   function metricFilterMatches(item, field, filter) {
     if (!metricFilterIsActive(filter)) return true;
@@ -5520,11 +5553,11 @@
       return `${name} ${op} ${times} ${filter.ratio}`;
     }
     if (filter.kind === 'custom') {
-      if (filter.op === 'gt') return `${name} > ${filter.value}`;
-      if (filter.op === 'lt') return `${name} < ${filter.value}`;
+      if (filter.op === 'gt') return `${name} > ${metricCustomThresholdLabel(field, filter.value)}`;
+      if (filter.op === 'lt') return `${name} < ${metricCustomThresholdLabel(field, filter.value)}`;
       if (filter.op === 'range') {
-        const min = Number.isFinite(filter.min) ? filter.min : '…';
-        const max = Number.isFinite(filter.max) ? filter.max : '…';
+        const min = metricCustomThresholdLabel(field, filter.min);
+        const max = metricCustomThresholdLabel(field, filter.max);
         return `${name} ${min}–${max}`;
       }
     }
@@ -5647,12 +5680,17 @@
     const dict = I18N_DICT[currentLang] || {};
     const lang = currentLang === 'en' ? 'en' : 'zh';
     const current = screenerMetricFilters[field];
-    const gt = current?.kind === 'custom' && current.op === 'gt' ? current.value : '';
-    const lt = current?.kind === 'custom' && current.op === 'lt' ? current.value : '';
-    const min = current?.kind === 'custom' && current.op === 'range' ? (current.min ?? '') : '';
-    const max = current?.kind === 'custom' && current.op === 'range' ? (current.max ?? '') : '';
+    const asPercent = TV_METRIC_PERCENT_FRACTION_FIELDS.has(field);
+    const gt = current?.kind === 'custom' && current.op === 'gt' ? metricCustomStoredToInput(field, current.value) : '';
+    const lt = current?.kind === 'custom' && current.op === 'lt' ? metricCustomStoredToInput(field, current.value) : '';
+    const min = current?.kind === 'custom' && current.op === 'range' ? metricCustomStoredToInput(field, current.min) : '';
+    const max = current?.kind === 'custom' && current.op === 'range' ? metricCustomStoredToInput(field, current.max) : '';
     const vsRatio = current?.kind === 'vsPrice' ? current.ratio : 1;
     const vsOp = current?.kind === 'vsPrice' ? current.op : 'gt';
+    const unitHint = asPercent ? `<span class="tv-metric-unit">${dict.tv_filter_percent_unit || '%'}</span>` : '';
+    const customTitle = asPercent
+      ? (dict.tv_filter_custom_percent || (lang === 'en' ? 'Custom value (%)' : '自訂數值（%）'))
+      : (dict.tv_filter_custom || (lang === 'en' ? 'Custom value' : '自訂數值'));
     const vsBlock = LIQ_VS_PRICE_FIELDS.has(field) ? `
       <div class="tv-metric-custom-title">${dict.tv_filter_vs_price || (lang === 'en' ? 'Vs price' : '相對股價')}</div>
       <div class="tv-metric-custom-row vs-price">
@@ -5666,22 +5704,26 @@
       </div>` : '';
     return `
       <div class="tv-metric-custom" onclick="event.stopPropagation()">
-        <div class="tv-metric-custom-title">${dict.tv_filter_custom || (lang === 'en' ? 'Custom value' : '自訂數值')}</div>
+        <div class="tv-metric-custom-title">${customTitle}</div>
         <div class="tv-metric-custom-row">
           <label>${dict.tv_filter_gt || (lang === 'en' ? 'Above' : '大於')}</label>
-          <input type="number" id="tv-custom-gt-${field}" step="any" value="${gt}">
+          <input type="number" id="tv-custom-gt-${field}" step="${asPercent ? '0.01' : 'any'}" value="${gt}">
+          ${unitHint}
           <button type="button" class="tv-metric-apply" onclick="applyTvMetricCustom('${field}', 'gt', event)">${dict.tv_filter_apply || (lang === 'en' ? 'Apply' : '套用')}</button>
         </div>
         <div class="tv-metric-custom-row">
           <label>${dict.tv_filter_lt || (lang === 'en' ? 'Below' : '小於')}</label>
-          <input type="number" id="tv-custom-lt-${field}" step="any" value="${lt}">
+          <input type="number" id="tv-custom-lt-${field}" step="${asPercent ? '0.01' : 'any'}" value="${lt}">
+          ${unitHint}
           <button type="button" class="tv-metric-apply" onclick="applyTvMetricCustom('${field}', 'lt', event)">${dict.tv_filter_apply || (lang === 'en' ? 'Apply' : '套用')}</button>
         </div>
         <div class="tv-metric-custom-row range">
           <label>${dict.tv_filter_range || (lang === 'en' ? 'Range' : '區間')}</label>
-          <input type="number" id="tv-custom-min-${field}" step="any" value="${min}" placeholder="min">
+          <input type="number" id="tv-custom-min-${field}" step="${asPercent ? '0.01' : 'any'}" value="${min}" placeholder="min">
+          ${unitHint}
           <span>–</span>
-          <input type="number" id="tv-custom-max-${field}" step="any" value="${max}" placeholder="max">
+          <input type="number" id="tv-custom-max-${field}" step="${asPercent ? '0.01' : 'any'}" value="${max}" placeholder="max">
+          ${unitHint}
           <button type="button" class="tv-metric-apply" onclick="applyTvMetricCustom('${field}', 'range', event)">${dict.tv_filter_apply || (lang === 'en' ? 'Apply' : '套用')}</button>
         </div>
         ${vsBlock}
@@ -5720,12 +5762,15 @@
   function applyTvMetricCustom(field, op, event) {
     event?.stopPropagation?.();
     if (op === 'gt' || op === 'lt') {
-      const value = parseFiniteInput(document.getElementById(`tv-custom-${op}-${field}`)?.value);
+      const typed = parseFiniteInput(document.getElementById(`tv-custom-${op}-${field}`)?.value);
+      const value = metricCustomInputToStored(field, typed);
       if (value == null) return;
       screenerMetricFilters[field] = { kind: 'custom', op, value };
     } else if (op === 'range') {
-      const min = parseFiniteInput(document.getElementById(`tv-custom-min-${field}`)?.value);
-      const max = parseFiniteInput(document.getElementById(`tv-custom-max-${field}`)?.value);
+      const typedMin = parseFiniteInput(document.getElementById(`tv-custom-min-${field}`)?.value);
+      const typedMax = parseFiniteInput(document.getElementById(`tv-custom-max-${field}`)?.value);
+      const min = typedMin == null ? null : metricCustomInputToStored(field, typedMin);
+      const max = typedMax == null ? null : metricCustomInputToStored(field, typedMax);
       if (min == null && max == null) return;
       if (min != null && max != null && min > max) return;
       screenerMetricFilters[field] = { kind: 'custom', op: 'range', min, max };

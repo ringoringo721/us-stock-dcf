@@ -60,3 +60,18 @@ test('metric menus support custom gt/lt/range and Liq vs-price; more menus porta
   assert.match(html, /function metricFilterMatches/);
   assert.equal(/\.tv-more-metrics-panel \.tv-metric-menu\s*\{\s*position:\s*fixed/.test(html), false);
 });
+
+test('WACC custom filters accept percent input; other % metrics stay percent points', () => {
+  assert.match(html, /TV_METRIC_PERCENT_FRACTION_FIELDS\s*=\s*new Set\(\['WACC'\]\)/);
+  assert.match(html, /function metricCustomInputToStored/);
+  assert.match(html, /function metricCustomStoredToInput/);
+  assert.match(html, /typed \/ 100/);
+  // Presets already compare WACC as a fraction.
+  assert.match(html, /field: 'WACC'[\s\S]*?v => v < 0\.08/);
+  // Other labeled-% metrics store percent points (type 8 → compare to 8).
+  for (const field of ['premiumPct', 'div_yield', 'fcf_to_ev', 'roe', 'roa', 'cash_to_assets', 'liab_to_assets']) {
+    assert.match(html, new RegExp(`field: '${field}'`));
+  }
+  assert.equal(/TV_METRIC_PERCENT_FRACTION_FIELDS\s*=\s*new Set\(\[[^\]]*premiumPct/.test(html), false);
+  assert.equal(/TV_METRIC_PERCENT_FRACTION_FIELDS\s*=\s*new Set\(\[[^\]]*roe/.test(html), false);
+});
