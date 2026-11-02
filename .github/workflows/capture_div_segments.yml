@@ -32,6 +32,7 @@ jobs:
           node-version: '24'
 
       - name: Capture dividends and revenue segments
+        id: capture
         env:
           FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
           CAPTURE_REQUEST_DELAY: '180'
@@ -49,8 +50,8 @@ jobs:
           fi
           mkdir -p cache/dividends cache/revenue_segments
           # Soft-continue: empty dividend lists (non-payers) and genuine empty segments
-          # must not abort the sibling capture or the cache commit under set -e.
-          # Scripts exit 0 on soft Empty/NormalizedEmpty; exit 1 on hard HTTP/parse fails.
+          # must not abort the sibling capture. Scripts exit 0 on soft Empty/NormalizedEmpty;
+          # exit 1 when any ticker hard-failed — but partial JSON may already be on disk.
           set +e
           node scripts/capture_dividends.cjs "$TICKERS"
           DIV_STATUS=$?
@@ -58,15 +59,14 @@ jobs:
           SEG_STATUS=$?
           set -e
           echo "capture_exit dividends=${DIV_STATUS} segments=${SEG_STATUS}"
-          # Fail when BOTH captures hard-failed. Do NOT use `ls cache/…` — after the first
-          # successful commit those dirs are already populated on checkout, so a file-count
-          # gate never fires on later runs.
-          if [ "$DIV_STATUS" -ne 0 ] && [ "$SEG_STATUS" -ne 0 ]; then
-            echo "Both captures hard-failed (exit dividends=${DIV_STATUS} segments=${SEG_STATUS})"
-            exit 1
-          fi
+          printf '%s\n' "$DIV_STATUS" > /tmp/capture_div_status
+          printf '%s\n' "$SEG_STATUS" > /tmp/capture_seg_status
+          # Never fail this step on hard exits — the commit step must still push partial
+          # successful caches. Job failure is deferred to "Assess capture outcome".
 
       - name: Commit caches when changed
+        # Always attempt commit after capture (including when some tickers hard-failed).
+        if: ${{ !cancelled() }}
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
@@ -78,3 +78,17 @@ jobs:
           fi
           git commit -m "Cache FMP dividends and revenue segments for preview"
           git push origin HEAD
+
+      - name: Assess capture outcome
+        if: ${{ !cancelled() }}
+        run: |
+          set -euo pipefail
+          DIV_STATUS="$(cat /tmp/capture_div_status 2>/dev/null || echo 1)"
+          SEG_STATUS="$(cat /tmp/capture_seg_status 2>/dev/null || echo 1)"
+          echo "assess dividends=${DIV_STATUS} segments=${SEG_STATUS}"
+          # Soft Empty/NormalizedEmpty already exit 0. Fail the job only when BOTH
+          # scripts hard-failed (partial caches were still committed above when present).
+          if [ "$DIV_STATUS" -ne 0 ] && [ "$SEG_STATUS" -ne 0 ]; then
+            echo "Both captures hard-failed (partial caches committed if any were written)"
+            exit 1
+          fi
