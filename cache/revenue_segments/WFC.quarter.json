@@ -1,0 +1,311 @@
+{
+  "version": 1,
+  "ticker": "WFC",
+  "source": "FMP revenue segmentation (quarter)",
+  "period": "quarter",
+  "product": [
+    {
+      "date": "2018-03-31",
+      "segments": {
+        "Community Banking": 11830000000,
+        "Wealth And Investment Management": 4242000000,
+        "Wholesale Banking": 7279000000
+      }
+    },
+    {
+      "date": "2018-06-30",
+      "segments": {
+        "Community Banking": 11806000000,
+        "Wealth And Investment Management": 3951000000,
+        "Wholesale Banking": 7197000000
+      }
+    },
+    {
+      "date": "2018-09-30",
+      "segments": {
+        "Credit Card Rewards and Rebates": 335000000,
+        "Trailing Commission": 323000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Community Banking": 23277000000,
+        "Wealth And Investment Management": 8183000000,
+        "Wholesale Banking": 14230000000
+      }
+    },
+    {
+      "date": "2019-03-31",
+      "segments": {
+        "Community Banking": 11750000000,
+        "Wealth And Investment Management": 4079000000,
+        "Wholesale Banking": 7111000000
+      }
+    },
+    {
+      "date": "2019-06-30",
+      "segments": {
+        "Credit Card Rewards and Rebates": 375000000,
+        "Trailing Commission": 289000000
+      }
+    },
+    {
+      "date": "2019-09-30",
+      "segments": {
+        "Credit Card Rewards and Rebates": 383000000,
+        "Trailing Commission": 289000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Credit Card Rewards and Rebates": 400000000,
+        "Trailing Commission": 342000000
+      }
+    },
+    {
+      "date": "2020-03-31",
+      "segments": {
+        "Credit Card Rewards and Rebates": 385000000,
+        "Trailing Commission": 275000000
+      }
+    },
+    {
+      "date": "2020-06-30",
+      "segments": {
+        "Credit Card Rewards and Rebates": 266000000,
+        "Trailing Commission": 257000000
+      }
+    },
+    {
+      "date": "2020-09-30",
+      "segments": {
+        "Community Banking": 10722000000,
+        "Wealth And Investment Management": 3794000000,
+        "Wholesale Banking": 5594000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Wholesale Banking": 4144000000,
+        "Community Banking": 23294000000,
+        "Wealth And Investment Management": 10718000000
+      }
+    },
+    {
+      "date": "2021-03-31",
+      "segments": {
+        "Wholesale Banking": 2208000000,
+        "Community Banking": 8654000000,
+        "Corporate and Investment Banking": 3623000000,
+        "Wealth And Investment Management": 3544000000
+      }
+    },
+    {
+      "date": "2021-06-30",
+      "segments": {
+        "Wholesale Banking": 2108000000,
+        "Community Banking": 8686000000,
+        "Corporate and Investment Banking": 3338000000,
+        "Wealth And Investment Management": 3536000000
+      }
+    },
+    {
+      "date": "2021-09-30",
+      "segments": {
+        "Wholesale Banking": 2076000000,
+        "Community Banking": 8804000000,
+        "Corporate and Investment Banking": 3385000000,
+        "Wealth And Investment Management": 3618000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Wholesale Banking": 2157000000,
+        "Community Banking": 8733000000,
+        "Corporate and Investment Banking": 3493000000,
+        "Wealth And Investment Management": 3648000000
+      }
+    },
+    {
+      "date": "2022-03-31",
+      "segments": {
+        "Wholesale Banking": 2327000000,
+        "Community Banking": 8563000000,
+        "Corporate and Investment Banking": 3470000000,
+        "Wealth And Investment Management": 3757000000
+      }
+    },
+    {
+      "date": "2022-06-30",
+      "segments": {
+        "Wholesale Banking": 2492000000,
+        "Community Banking": 8507000000,
+        "Corporate and Investment Banking": 3573000000,
+        "Wealth And Investment Management": 3705000000
+      }
+    },
+    {
+      "date": "2022-09-30",
+      "segments": {
+        "Wholesale Banking": 2952000000,
+        "Community Banking": 9277000000,
+        "Corporate and Investment Banking": 4060000000,
+        "Wealth And Investment Management": 3665000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Wholesale Banking": 3149000000,
+        "Community Banking": 9463000000,
+        "Corporate and Investment Banking": 4139000000,
+        "Wealth And Investment Management": 3695000000
+      }
+    },
+    {
+      "date": "2023-03-31",
+      "segments": {
+        "Wholesale Banking": 3307000000,
+        "Community Banking": 9364000000,
+        "Corporate and Investment Banking": 4902000000,
+        "Wealth And Investment Management": 3681000000
+      }
+    },
+    {
+      "date": "2023-06-30",
+      "segments": {
+        "Wholesale Banking": 3369000000,
+        "Community Banking": 9455000000,
+        "Corporate and Investment Banking": 4631000000,
+        "Wealth And Investment Management": 3648000000
+      }
+    },
+    {
+      "date": "2023-09-30",
+      "segments": {
+        "Wholesale Banking": 3405000000,
+        "Community Banking": 9581000000,
+        "Corporate and Investment Banking": 4923000000,
+        "Wealth And Investment Management": 3702000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Wholesale Banking": 3368000000,
+        "Community Banking": 9519000000,
+        "Corporate and Investment Banking": 4735000000,
+        "Wealth And Investment Management": 3660000000
+      }
+    },
+    {
+      "date": "2024-03-31",
+      "segments": {
+        "Wholesale Banking": 3152000000,
+        "Community Banking": 9091000000,
+        "Corporate and Investment Banking": 4982000000,
+        "Wealth And Investment Management": 3742000000
+      }
+    },
+    {
+      "date": "2024-06-30",
+      "segments": {
+        "Wholesale Banking": 3122000000,
+        "Community Banking": 9006000000,
+        "Corporate and Investment Banking": 4838000000,
+        "Wealth And Investment Management": 3858000000
+      }
+    },
+    {
+      "date": "2024-09-30",
+      "segments": {
+        "Wholesale Banking": 3333000000,
+        "Community Banking": 9124000000,
+        "Corporate and Investment Banking": 4911000000,
+        "Wealth And Investment Management": 3878000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Wholesale Banking": 6293000000,
+        "Community Banking": 17986000000,
+        "Corporate and Investment Banking": 9451000000,
+        "Wealth And Investment Management": 7816000000
+      }
+    },
+    {
+      "date": "2025-03-31",
+      "segments": {
+        "Wholesale Banking": 2925000000,
+        "Community Banking": 8913000000,
+        "Corporate and Investment Banking": 5064000000,
+        "Wealth And Investment Management": 3874000000
+      }
+    },
+    {
+      "date": "2025-06-30",
+      "segments": {
+        "Wholesale Banking": 2933000000,
+        "Community Banking": 9228000000,
+        "Corporate and Investment Banking": 4673000000,
+        "Wealth And Investment Management": 3898000000
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "segments": {
+        "Card Interchange And Network Revenues": 1772000000,
+        "Deposit Account": 1290000000,
+        "Investment Advice": 4391000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Consumer Banking and Lending": 9571000000,
+        "Commercial Banking": 3079000000,
+        "Corporate and Investment Banking": 4616000000,
+        "Wealth and Investment Management": 4360000000,
+        "Corporate": 189000000,
+        "Reconciling Items": -523000000
+      }
+    },
+    {
+      "date": "2026-03-31",
+      "segments": {
+        "Consumer Banking and Lending": 9998000000,
+        "Commercial Banking": 3120000000,
+        "Corporate and Investment Banking": 5278000000,
+        "Wealth and Investment Management": 3875000000,
+        "Corporate": -232000000,
+        "Reconciling Items": -593000000
+      }
+    },
+    {
+      "date": "2026-06-30",
+      "segments": {
+        "Consumer Banking and Lending": 10288000000,
+        "Commercial Banking": 3118000000,
+        "Corporate and Investment Banking": 5425000000,
+        "Wealth and Investment Management": 3892000000,
+        "Corporate": 413000000,
+        "Reconciling Items": -514000000
+      }
+    },
+    {
+      "date": "2026-09-30",
+      "segments": {
+        "Credit Card, Merchant Discount": -2000000,
+        "Card Interchange And Network Revenues": 852000000,
+        "Deposit Account": 1415000000,
+        "Investment Advice": 4874000000
+      }
+    }
+  ],
+  "geographic": []
+}

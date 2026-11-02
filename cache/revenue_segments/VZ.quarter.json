@@ -1,0 +1,458 @@
+{
+  "version": 1,
+  "ticker": "VZ",
+  "source": "FMP revenue segmentation (quarter)",
+  "period": "quarter",
+  "product": [
+    {
+      "date": "2010-06-30",
+      "segments": {
+        "Intersegment Revenue": 338000000,
+        "Total Operating Revenue": 27118000000
+      }
+    },
+    {
+      "date": "2010-09-30",
+      "segments": {
+        "Total Operating Revenue": 26536000000
+      }
+    },
+    {
+      "date": "2011-03-31",
+      "segments": {
+        "Wireless": 16881000000,
+        "Wireline": 10147000000
+      }
+    },
+    {
+      "date": "2011-06-30",
+      "segments": {
+        "Wireless": 17293000000,
+        "Wireline": 10247000000
+      }
+    },
+    {
+      "date": "2011-09-30",
+      "segments": {
+        "Corporate Eliminations And Other": 38000000
+      }
+    },
+    {
+      "date": "2011-12-31",
+      "segments": {
+        "Wireless": 35980000000,
+        "Wireline": 20288000000
+      }
+    },
+    {
+      "date": "2012-03-31",
+      "segments": {
+        "Wireline": 9945000000
+      }
+    },
+    {
+      "date": "2012-06-30",
+      "segments": {
+        "Wireline": 9931000000
+      }
+    },
+    {
+      "date": "2012-09-30",
+      "segments": {
+        "Wireline": 9914000000
+      }
+    },
+    {
+      "date": "2012-12-31",
+      "segments": {
+        "Wireline": 9990000000
+      }
+    },
+    {
+      "date": "2013-03-31",
+      "segments": {
+        "Wireless": 19523000000,
+        "Wireline": 9830000000
+      }
+    },
+    {
+      "date": "2013-06-30",
+      "segments": {
+        "Wireless": 19976000000,
+        "Wireline": 9734000000
+      }
+    },
+    {
+      "date": "2013-09-30",
+      "segments": {
+        "Wireless": 20399000000,
+        "Wireline": 9814000000
+      }
+    },
+    {
+      "date": "2013-12-31",
+      "segments": {
+        "Wireless": 21125000000,
+        "Wireline": 9845000000
+      }
+    },
+    {
+      "date": "2014-03-31",
+      "segments": {
+        "Wireless": 20879000000,
+        "Wireline": 9790000000
+      }
+    },
+    {
+      "date": "2014-06-30",
+      "segments": {
+        "Wireless": 21483000000,
+        "Wireline": 9759000000
+      }
+    },
+    {
+      "date": "2014-09-30",
+      "segments": {
+        "Wireless": 21835000000,
+        "Wireline": 9576000000
+      }
+    },
+    {
+      "date": "2014-12-31",
+      "segments": {
+        "Wireless": 23449000000,
+        "Wireline": 9304000000
+      }
+    },
+    {
+      "date": "2015-03-31",
+      "segments": {
+        "Wireless": 22328000000,
+        "Wireline": 9469000000
+      }
+    },
+    {
+      "date": "2015-06-30",
+      "segments": {
+        "Wireless": 22613000000,
+        "Wireline": 9423000000
+      }
+    },
+    {
+      "date": "2015-09-30",
+      "segments": {
+        "Wireless": 23005000000,
+        "Wireline": 9355000000
+      }
+    },
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "Wireless": 23734000000,
+        "Wireline": 9473000000
+      }
+    },
+    {
+      "date": "2016-03-31",
+      "segments": {
+        "Wireless": 22004000000,
+        "Wireline": 9290000000
+      }
+    },
+    {
+      "date": "2016-06-30",
+      "segments": {
+        "Wireless": 21704000000,
+        "Wireline": 7823000000
+      }
+    },
+    {
+      "date": "2016-09-30",
+      "segments": {
+        "Wireless": 22101000000,
+        "Wireline": 7787000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Wireless": 23377000000,
+        "Wireline": 6445000000
+      }
+    },
+    {
+      "date": "2017-03-31",
+      "segments": {
+        "Wireline": 7876000000,
+        "Wireless": 20878000000
+      }
+    },
+    {
+      "date": "2017-06-30",
+      "segments": {
+        "Wireline": 7802000000,
+        "Wireless": 21282000000
+      }
+    },
+    {
+      "date": "2017-09-30",
+      "segments": {
+        "Wireline": 7662000000,
+        "Wireless": 21580000000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "Wireline": 7340000000,
+        "Wireless": 23771000000
+      }
+    },
+    {
+      "date": "2018-03-31",
+      "segments": {
+        "Wireline": 7557000000,
+        "Wireless": 21900000000
+      }
+    },
+    {
+      "date": "2018-06-30",
+      "segments": {
+        "Wireline": 7459000000,
+        "Wireless": 22449000000
+      }
+    },
+    {
+      "date": "2018-09-30",
+      "segments": {
+        "Wireline": 7371000000,
+        "Wireless": 22973000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Wireline": 7373000000,
+        "Wireless": 24412000000
+      }
+    },
+    {
+      "date": "2019-03-31",
+      "segments": {
+        "Wireline": 7264000000,
+        "Wireless": 22700000000
+      }
+    },
+    {
+      "date": "2019-06-30",
+      "segments": {
+        "Verizon Business Group": 7768000000,
+        "Verizon Consumer Group": 21995000000
+      }
+    },
+    {
+      "date": "2019-09-30",
+      "segments": {
+        "Verizon Business Group": 7885000000,
+        "Verizon Consumer Group": 22706000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Verizon Business Group": 15790000000,
+        "Verizon Consumer Group": 46355000000
+      }
+    },
+    {
+      "date": "2020-03-31",
+      "segments": {
+        "Verizon Business Group": 7681000000,
+        "Verizon Consumer Group": 21765000000
+      }
+    },
+    {
+      "date": "2020-06-30",
+      "segments": {
+        "Verizon Business Group": 7482000000,
+        "Verizon Consumer Group": 21113000000
+      }
+    },
+    {
+      "date": "2020-09-30",
+      "segments": {
+        "Verizon Business Group": 7749000000,
+        "Verizon Consumer Group": 21736000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Verizon Business Group": 8050000000,
+        "Verizon Consumer Group": 23919000000
+      }
+    },
+    {
+      "date": "2021-03-31",
+      "segments": {
+        "Verizon Business Group": 7781000000,
+        "Verizon Consumer Group": 22798000000
+      }
+    },
+    {
+      "date": "2021-06-30",
+      "segments": {
+        "Verizon Business Group": 7762000000,
+        "Verizon Consumer Group": 23477000000
+      }
+    },
+    {
+      "date": "2021-09-30",
+      "segments": {
+        "Verizon Business Group": 7689000000,
+        "Verizon Consumer Group": 23328000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Verizon Business Group": 7810000000,
+        "Verizon Consumer Group": 25697000000
+      }
+    },
+    {
+      "date": "2022-03-31",
+      "segments": {
+        "Verizon Business Group": 7709000000,
+        "Verizon Consumer Group": 25292000000
+      }
+    },
+    {
+      "date": "2022-06-30",
+      "segments": {
+        "Verizon Business Group": 7626000000,
+        "Verizon Consumer Group": 25604000000
+      }
+    },
+    {
+      "date": "2022-09-30",
+      "segments": {
+        "Verizon Business Group": 7837000000,
+        "Verizon Consumer Group": 25840000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Verizon Business Group": 7900000000,
+        "Verizon Consumer Group": 26770000000
+      }
+    },
+    {
+      "date": "2023-03-31",
+      "segments": {
+        "Verizon Business Group": 7494000000,
+        "Verizon Consumer Group": 24857000000
+      }
+    },
+    {
+      "date": "2023-06-30",
+      "segments": {
+        "Verizon Business Group": 7483000000,
+        "Verizon Consumer Group": 24558000000
+      }
+    },
+    {
+      "date": "2023-09-30",
+      "segments": {
+        "Verizon Business Group": 7527000000,
+        "Verizon Consumer Group": 25257000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Verizon Business Group": 7618000000,
+        "Verizon Consumer Group": 26954000000
+      }
+    },
+    {
+      "date": "2024-03-31",
+      "segments": {
+        "Verizon Business Group": 7376000000,
+        "Verizon Consumer Group": 25057000000
+      }
+    },
+    {
+      "date": "2024-06-30",
+      "segments": {
+        "Verizon Business Group": 7300000000,
+        "Verizon Consumer Group": 24927000000
+      }
+    },
+    {
+      "date": "2024-09-30",
+      "segments": {
+        "Verizon Business Group": 7351000000,
+        "Verizon Consumer Group": 25360000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Verizon Business Group": 7504000000,
+        "Verizon Consumer Group": 27560000000
+      }
+    },
+    {
+      "date": "2025-03-31",
+      "segments": {
+        "Verizon Business Group": 7286000000,
+        "Verizon Consumer Group": 25618000000
+      }
+    },
+    {
+      "date": "2025-06-30",
+      "segments": {
+        "Verizon Business Group": 7275000000,
+        "Verizon Consumer Group": 26648000000
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "segments": {
+        "Verizon Business Group": 7142000000,
+        "Verizon Consumer Group": 26105000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Verizon Business Group": 7366000000,
+        "Verizon Consumer Group": 28436000000
+      }
+    },
+    {
+      "date": "2026-03-31",
+      "segments": {
+        "Verizon Business Group": 7419000000,
+        "Verizon Consumer Group": 26453000000
+      }
+    },
+    {
+      "date": "2026-06-30",
+      "segments": {
+        "Verizon Business Group": 7155000000,
+        "Verizon Consumer Group": 26242000000
+      }
+    },
+    {
+      "date": "2026-09-30",
+      "segments": {
+        "Verizon Business Group": 7023000000,
+        "Verizon Consumer Group": 26432000000
+      }
+    }
+  ],
+  "geographic": []
+}

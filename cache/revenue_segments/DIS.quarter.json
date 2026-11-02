@@ -1,0 +1,971 @@
+{
+  "version": 1,
+  "ticker": "DIS",
+  "source": "FMP revenue segmentation (quarter)",
+  "period": "quarter",
+  "product": [
+    {
+      "date": "2011-01-01",
+      "segments": {
+        "Consumer Products": 922000000,
+        "Interactive Media": 349000000,
+        "Media Networks": 4645000000,
+        "Parks and Resorts": 2868000000,
+        "Studio Entertainment": 1932000000
+      }
+    },
+    {
+      "date": "2011-04-02",
+      "segments": {
+        "Consumer Products": 626000000,
+        "Interactive Media": 159000000,
+        "Media Networks": 4322000000,
+        "Parks and Resorts": 2630000000,
+        "Studio Entertainment": 1340000000
+      }
+    },
+    {
+      "date": "2011-07-02",
+      "segments": {
+        "Consumer Products": 685000000,
+        "Interactive Media": 251000000,
+        "Media Networks": 4949000000,
+        "Parks and Resorts": 3170000000,
+        "Studio Entertainment": 1620000000
+      }
+    },
+    {
+      "date": "2011-10-01",
+      "segments": {
+        "Consumer Products": 816000000,
+        "Interactive Media": 223000000,
+        "Media Networks": 4798000000,
+        "Parks and Resorts": 3129000000,
+        "Studio Entertainment": 1459000000
+      }
+    },
+    {
+      "date": "2011-12-31",
+      "segments": {
+        "Consumer Products": 948000000,
+        "Studio Entertainment": 1618000000,
+        "Interactive Media": 279000000,
+        "Media Networks": 4779000000,
+        "Parks And Resorts": 3155000000
+      }
+    },
+    {
+      "date": "2012-03-31",
+      "segments": {
+        "Consumer Products": 679000000,
+        "Interactive Media": 179000000,
+        "Studio Entertainment": 1180000000,
+        "Media Networks": 4692000000,
+        "Parks And Resorts": 2899000000
+      }
+    },
+    {
+      "date": "2012-06-30",
+      "segments": {
+        "Consumer Products": 742000000,
+        "Interactive": 196000000,
+        "Studio Entertainment": 1625000000,
+        "Media Networks": 5084000000,
+        "Parks And Resorts": 3441000000
+      }
+    },
+    {
+      "date": "2012-12-29",
+      "segments": {
+        "Consumer Products": 1013000000,
+        "Interactive": 291000000,
+        "Studio Entertainment": 1545000000,
+        "Media Networks": 5101000000,
+        "Parks And Resorts": 3391000000
+      }
+    },
+    {
+      "date": "2013-03-30",
+      "segments": {
+        "Consumer Products": 763000000,
+        "Interactive": 194000000,
+        "Studio Entertainment": 1338000000,
+        "Media Networks": 4957000000,
+        "Parks And Resorts": 3302000000
+      }
+    },
+    {
+      "date": "2013-06-29",
+      "segments": {
+        "Consumer Products": 775000000,
+        "Interactive": 183000000,
+        "Studio Entertainment": 1590000000,
+        "Media Networks": 5352000000,
+        "Parks And Resorts": 3678000000
+      }
+    },
+    {
+      "date": "2013-09-28",
+      "segments": {
+        "Consumer Products": 1004000000,
+        "Interactive": 396000000,
+        "Media Networks": 4946000000,
+        "Parks And Resorts": 3716000000,
+        "Studio Entertainment": 1506000000
+      }
+    },
+    {
+      "date": "2013-12-28",
+      "segments": {
+        "Media Networks": 5290000000
+      }
+    },
+    {
+      "date": "2014-03-29",
+      "segments": {
+        "Media Networks": 5134000000
+      }
+    },
+    {
+      "date": "2014-06-28",
+      "segments": {
+        "Media Networks": 5511000000
+      }
+    },
+    {
+      "date": "2014-09-27",
+      "segments": {
+        "Consumer Products": 1072000000,
+        "Interactive": 362000000,
+        "Media Networks": 5217000000,
+        "Parks And Resorts": 3960000000,
+        "Studio Entertainment": 1778000000
+      }
+    },
+    {
+      "date": "2014-12-27",
+      "segments": {
+        "Media Networks": 5860000000
+      }
+    },
+    {
+      "date": "2015-03-28",
+      "segments": {
+        "Media Networks": 5810000000
+      }
+    },
+    {
+      "date": "2015-06-27",
+      "segments": {
+        "Media Networks": 5768000000
+      }
+    },
+    {
+      "date": "2015-10-03",
+      "segments": {
+        "Consumer Products": 1195000000,
+        "Interactive": 347000000,
+        "Media Networks": 5826000000,
+        "Parks And Resorts": 4361000000,
+        "Studio Entertainment": 1783000000
+      }
+    },
+    {
+      "date": "2016-01-02",
+      "segments": {
+        "Media Networks": 6332000000
+      }
+    },
+    {
+      "date": "2016-04-02",
+      "segments": {
+        "Media Networks": 5793000000
+      }
+    },
+    {
+      "date": "2016-07-02",
+      "segments": {
+        "Media Networks": 5906000000
+      }
+    },
+    {
+      "date": "2016-10-01",
+      "segments": {
+        "Consumer Products and Interactive": 1287000000,
+        "Studio Entertainment": 1811000000,
+        "Media Networks": 5658000000,
+        "Parks And Resorts": 4386000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Consumer Products and Interactive": 1476000000,
+        "Studio Entertainment": 2520000000,
+        "Media Networks": 6233000000,
+        "Parks And Resorts": 4555000000
+      }
+    },
+    {
+      "date": "2017-04-01",
+      "segments": {
+        "Consumer Products and Interactive": 1057000000,
+        "Studio Entertainment": 2034000000,
+        "Media Networks": 5946000000,
+        "Parks And Resorts": 4299000000
+      }
+    },
+    {
+      "date": "2017-07-01",
+      "segments": {
+        "Consumer Products and Interactive": 1085000000,
+        "Studio Entertainment": 2393000000,
+        "Media Networks": 5866000000,
+        "Parks And Resorts": 4894000000
+      }
+    },
+    {
+      "date": "2017-09-30",
+      "segments": {
+        "Consumer Products and Interactive": 1215000000,
+        "Studio Entertainment": 1432000000,
+        "Media Networks": 5465000000,
+        "Parks And Resorts": 4667000000
+      }
+    },
+    {
+      "date": "2018-03-31",
+      "segments": {
+        "Consumer Products and Interactive": 1077000000,
+        "Studio Entertainment": 2454000000,
+        "Media Networks": 6138000000,
+        "Parks And Resorts": 4879000000
+      }
+    },
+    {
+      "date": "2018-06-30",
+      "segments": {
+        "Consumer Products and Interactive": 1001000000,
+        "Studio Entertainment": 2878000000,
+        "Media Networks": 6156000000,
+        "Parks And Resorts": 5193000000
+      }
+    },
+    {
+      "date": "2018-12-29",
+      "segments": {
+        "Media Networks": 5921000000,
+        "Parks And Resorts": 6824000000,
+        "Studio Entertainment": 1824000000,
+        "Consumer Products and Interactive": 734000000
+      }
+    },
+    {
+      "date": "2019-03-30",
+      "segments": {
+        "Admission": 1768000000,
+        "Advertising": 2072000000,
+        "Affiliate fees": 3634000000,
+        "Entertainment": 294000000,
+        "License": 773000000,
+        "Other Revenue": 1079000000,
+        "Resort and vacations": 1502000000,
+        "Retail and wholesale sales of merchandise, food and beverage": 1768000000,
+        "TV/SVOD distribution licensing": 1280000000,
+        "Theatrical distribution licensing": 752000000
+      }
+    },
+    {
+      "date": "2019-06-29",
+      "segments": {
+        "Admission": 1956000000,
+        "Advertising": 3363000000,
+        "Affiliate fees": 4449000000,
+        "Entertainment": 456000000,
+        "License": 769000000,
+        "Other Revenue": 2040000000,
+        "Resort and vacations": 1610000000,
+        "Retail and wholesale sales of merchandise, food and beverage": 1877000000,
+        "TV/SVOD distribution licensing": 1485000000,
+        "Theatrical distribution licensing": 2240000000
+      }
+    },
+    {
+      "date": "2019-09-28",
+      "segments": {
+        "Admission": 3816000000,
+        "Advertising": 5070000000,
+        "Affiliate fees": 7837000000,
+        "Entertainment": 1081000000,
+        "License": 1838000000,
+        "Other Revenue": 658000000,
+        "Resort and vacations": 3154000000,
+        "Retail and wholesale sales of merchandise, food and beverage": 4071000000,
+        "TV/SVOD distribution licensing": 2900000000,
+        "Theatrical distribution licensing": 1734000000
+      }
+    },
+    {
+      "date": "2019-12-28",
+      "segments": {
+        "Admission": 2067000000,
+        "Advertising": 3392000000,
+        "Affiliate fees": 4427000000,
+        "Entertainment": 538000000,
+        "License": 1056000000,
+        "Other Revenue": 1073000000,
+        "Resort and vacations": 1631000000,
+        "Retail and wholesale sales of merchandise, food and beverage": 2313000000,
+        "Subscription fees": 1326000000,
+        "TV/SVOD distribution licensing": 1627000000,
+        "Theatrical distribution licensing": 1408000000
+      }
+    },
+    {
+      "date": "2020-03-28",
+      "segments": {
+        "Admission": 1554000000,
+        "Advertising": 2785000000,
+        "Affiliate fees": 4517000000,
+        "Entertainment": 446000000,
+        "License": 716000000,
+        "Other Revenue": 923000000,
+        "Resort and vacations": 1377000000,
+        "Retail and wholesale sales of merchandise, food and beverage": 1584000000,
+        "Subscription fees": 1796000000,
+        "TV/SVOD distribution licensing": 1708000000,
+        "Theatrical distribution licensing": 603000000
+      }
+    },
+    {
+      "date": "2020-06-27",
+      "segments": {
+        "Admission": 34000000,
+        "Advertising": 1902000000,
+        "Affiliate fees": 4304000000,
+        "Entertainment": 416000000,
+        "License": 528000000,
+        "Other Revenue": 504000000,
+        "Resort and vacations": 80000000,
+        "Retail and wholesale sales of merchandise, food and beverage": 264000000,
+        "Subscription fees": 2129000000,
+        "TV/SVOD distribution licensing": 1567000000,
+        "Theatrical distribution licensing": 51000000
+      }
+    },
+    {
+      "date": "2020-10-03",
+      "segments": {
+        "Admission": 383000000,
+        "Advertising": 2776000000,
+        "Affiliate fees": 4681000000,
+        "Entertainment": 212000000,
+        "License": 942000000,
+        "Other Revenue": 636000000,
+        "Resort and vacations": 314000000,
+        "Retail and wholesale sales of merchandise, food and beverage": 791000000,
+        "Subscription fees": 2394000000,
+        "TV/SVOD distribution licensing": 1541000000,
+        "Theatrical distribution licensing": 72000000
+      }
+    },
+    {
+      "date": "2021-01-02",
+      "segments": {
+        "Admission": 549000000,
+        "Advertising": 3764000000,
+        "Affiliate fees": 4402000000,
+        "Entertainment": 300000000,
+        "License": 1095000000,
+        "Other Revenue": 798000000,
+        "Resort and vacations": 432000000,
+        "Retail and wholesale sales of merchandise, food and beverage": 1163000000,
+        "Subscription fees": 2546000000,
+        "TV/SVOD distribution licensing": 1169000000,
+        "Theatrical distribution licensing": 31000000
+      }
+    },
+    {
+      "date": "2021-04-03",
+      "segments": {
+        "Admission": 597000000,
+        "Advertising": 2583000000,
+        "Affiliate fees": 4594000000,
+        "Entertainment": 219000000,
+        "License": 796000000,
+        "Other Revenue": 666000000,
+        "Resort and vacations": 514000000,
+        "Retail and wholesale sales of merchandise, food and beverage": 911000000,
+        "Subscription fees": 3000000000,
+        "TV/SVOD distribution licensing": 1624000000,
+        "Theatrical distribution licensing": 109000000
+      }
+    },
+    {
+      "date": "2021-07-03",
+      "segments": {
+        "Admission": 1152000000,
+        "Advertising": 3163000000,
+        "Affiliate fees": 4431000000,
+        "Entertainment": 236000000,
+        "License": 790000000,
+        "Other Revenue": 686000000,
+        "Resort and vacations": 776000000,
+        "Retail and wholesale sales of merchandise, food and beverage": 1262000000,
+        "Subscription fees": 3156000000,
+        "TV/SVOD distribution licensing": 1230000000,
+        "Theatrical distribution licensing": 140000000
+      }
+    },
+    {
+      "date": "2021-10-02",
+      "segments": {
+        "Admission": 1550000000,
+        "Advertising": 2919000000,
+        "Affiliate fees": 4333000000,
+        "Entertainment": 259000000,
+        "License": 917000000,
+        "Other Revenue": 755000000,
+        "Resort and vacations": 979000000,
+        "Retail and wholesale sales of merchandise, food and beverage": 1621000000,
+        "Subscription fees": 3318000000,
+        "TV/SVOD distribution licensing": 1243000000,
+        "Theatrical distribution licensing": 640000000
+      }
+    },
+    {
+      "date": "2022-01-01",
+      "segments": {
+        "Admission": 2152000000,
+        "Advertising": 3869000000,
+        "Affiliate fees": 4371000000,
+        "Entertainment": 294000000,
+        "License": 1119000000,
+        "Other Revenue": 957000000,
+        "Resort and vacations": 1445000000,
+        "Retail and wholesale sales of merchandise, food and beverage": 2089000000,
+        "Subscription fees": 3598000000,
+        "TV/SVOD distribution licensing": 1396000000,
+        "Theatrical distribution licensing": 529000000
+      }
+    },
+    {
+      "date": "2022-04-02",
+      "segments": {
+        "Admission": 1973000000,
+        "Advertising": 3024000000,
+        "Affiliate fees": 4602000000,
+        "Entertainment": 230000000,
+        "License": 893000000,
+        "Other Revenue": 1048000000,
+        "Resort and vacations": 1451000000,
+        "Retail and wholesale sales of merchandise, food and beverage": 1816000000,
+        "Subscription fees": 3887000000,
+        "TV/SVOD distribution licensing": 101000000,
+        "Theatrical distribution licensing": 224000000
+      }
+    },
+    {
+      "date": "2022-07-02",
+      "segments": {
+        "Admission": 2312000000,
+        "Advertising": 3535000000,
+        "Affiliate fees": 4337000000,
+        "Entertainment": 149000000,
+        "License": 916000000,
+        "Other Revenue": 926000000,
+        "Resort and vacations": 1805000000,
+        "Retail and wholesale sales of merchandise, food and beverage": 1896000000,
+        "Subscription fees": 3889000000,
+        "TV/SVOD distribution licensing": 1119000000,
+        "Theatrical distribution licensing": 620000000
+      }
+    },
+    {
+      "date": "2022-10-01",
+      "segments": {
+        "Admission": 2165000000,
+        "Advertising": 2620000000,
+        "Affiliate fees": 4215000000,
+        "Entertainment": 147000000,
+        "License": 1041000000,
+        "Other Revenue": 984000000,
+        "Resort and vacations": 1709000000,
+        "Retail and wholesale sales of merchandise, food and beverage": 2037000000,
+        "Subscription fees": 3917000000,
+        "TV/SVOD distribution licensing": 813000000,
+        "Theatrical distribution licensing": 502000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Admission": 2641000000,
+        "Advertising": 3443000000,
+        "Affiliate fees": 4242000000,
+        "Entertainment": 135000000,
+        "License": 1143000000,
+        "Other Revenue": 1187000000,
+        "Resort and vacations": 1980000000,
+        "Retail and wholesale sales of merchandise, food and beverage": 2382000000,
+        "Subscription fees": 4240000000,
+        "TV/SVOD distribution licensing": 979000000,
+        "Theatrical distribution licensing": 1140000000
+      }
+    },
+    {
+      "date": "2023-04-01",
+      "segments": {
+        "Admission": 2428000000,
+        "Advertising": 2564000000,
+        "Affiliate fees": 4394000000,
+        "Entertainment": 148000000,
+        "License": 772000000,
+        "Other Revenue": 1013000000,
+        "Resort and vacations": 1949000000,
+        "Retail and wholesale sales of merchandise, food and beverage": 2142000000,
+        "Subscription fees": 4605000000,
+        "TV/SVOD distribution licensing": 1033000000,
+        "Theatrical distribution licensing": 767000000
+      }
+    },
+    {
+      "date": "2023-07-01",
+      "segments": {
+        "Admission": 2731000000,
+        "Advertising": 3043000000,
+        "Affiliate fees": 4234000000,
+        "Entertainment": 209000000,
+        "License": 876000000,
+        "Other Revenue": 1000000000,
+        "Resort and vacations": 1990000000,
+        "Retail and wholesale sales of merchandise, food and beverage": 2226000000,
+        "Subscription fees": 4537000000,
+        "TV/SVOD distribution licensing": 646000000,
+        "Theatrical distribution licensing": 838000000
+      }
+    },
+    {
+      "date": "2023-09-30",
+      "segments": {
+        "Admission": 2623000000,
+        "Advertising": 2468000000,
+        "Affiliate fees": 4005000000,
+        "Entertainment": 439000000,
+        "License": 337000000,
+        "Other Revenue": 1850000000,
+        "Resort and vacations": 2030000000,
+        "Retail and wholesale sales of merchandise, food and beverage": 2171000000,
+        "Subscription fees": 4555000000,
+        "TV/SVOD distribution licensing": 334000000,
+        "Theatrical distribution licensing": 429000000
+      }
+    },
+    {
+      "date": "2023-12-30",
+      "segments": {
+        "Admission": 2982000000,
+        "Advertising": 3348000000,
+        "Affiliate fees": 4142000000,
+        "Entertainment": 209000000,
+        "License": 1159000000,
+        "Other Revenue": 1348000000,
+        "Resort and vacations": 2118000000,
+        "Retail and wholesale sales of merchandise, food and beverage": 2477000000,
+        "Subscription fees": 4922000000,
+        "TV/SVOD distribution licensing": 593000000,
+        "Theatrical distribution licensing": 251000000
+      }
+    },
+    {
+      "date": "2024-03-30",
+      "segments": {
+        "Admission": 2806000000,
+        "Advertising": 2721000000,
+        "Affiliate fees": 4138000000,
+        "Entertainment": 189000000,
+        "License": 788000000,
+        "Other Revenue": 1179000000,
+        "Resort and vacations": 2101000000,
+        "Retail and wholesale sales of merchandise, food and beverage": 2266000000,
+        "Subscription fees": 5222000000,
+        "TV/SVOD distribution licensing": 550000000,
+        "Theatrical distribution licensing": 123000000
+      }
+    },
+    {
+      "date": "2024-06-29",
+      "segments": {
+        "Admission": 2780000000,
+        "Advertising": 3280000000,
+        "Affiliate fees": 4006000000,
+        "Entertainment": 142000000,
+        "License": 845000000,
+        "Other Revenue": 1096000000,
+        "Resort and vacations": 2115000000,
+        "Retail and wholesale sales of merchandise, food and beverage": 2246000000,
+        "Subscription fees": 5143000000,
+        "TV/SVOD distribution licensing": 778000000,
+        "Theatrical distribution licensing": 724000000
+      }
+    },
+    {
+      "date": "2024-09-28",
+      "segments": {
+        "Admission": 2603000000,
+        "Advertising": 2545000000,
+        "Affiliate fees": 3821000000,
+        "Entertainment": 213000000,
+        "License": 992000000,
+        "Other Revenue": 1135000000,
+        "Resort and vacations": 2041000000,
+        "Retail and wholesale sales of merchandise, food and beverage": 2215000000,
+        "Subscription fees": 5159000000,
+        "TV/SVOD distribution licensing": 682000000,
+        "Theatrical distribution licensing": 1168000000
+      }
+    },
+    {
+      "date": "2024-12-28",
+      "segments": {
+        "Subscription and affiliate fees": 9456000000,
+        "Advertising": 3240000000,
+        "Theme park admissions": 3087000000,
+        "Resorts and vacations": 2221000000,
+        "Retail and wholesale sales of merchandise, food and beverage": 2572000000,
+        "Merchandise licensing": 1092000000,
+        "Content sales": 1663000000,
+        "Other": 1359000000
+      }
+    },
+    {
+      "date": "2025-03-29",
+      "segments": {
+        "Subscription and affiliate fees": 9606000000,
+        "Advertising": 2755000000,
+        "Theme park admissions": 2919000000,
+        "Resorts and vacations": 2359000000,
+        "Retail and wholesale sales of merchandise, food and beverage": 2333000000,
+        "Merchandise licensing": 852000000,
+        "Content sales": 1644000000,
+        "Other": 1153000000
+      }
+    },
+    {
+      "date": "2025-06-28",
+      "segments": {
+        "Subscription and affiliate fees": 9349000000,
+        "Advertising": 2789000000,
+        "Theme park admissions": 2996000000,
+        "Resorts and vacations": 2373000000,
+        "Retail and wholesale sales of merchandise, food and beverage": 2397000000,
+        "Merchandise licensing": 875000000,
+        "Content sales": 1782000000,
+        "Other": 1089000000
+      }
+    },
+    {
+      "date": "2025-09-27",
+      "segments": {
+        "Subscription and affiliate fees": 9368000000,
+        "Advertising": 2339000000,
+        "Theme park admissions": 2705000000,
+        "Resorts and vacations": 2257000000,
+        "Retail and wholesale sales of merchandise, food and beverage": 2340000000,
+        "Merchandise licensing": 1060000000,
+        "Content sales": 1277000000,
+        "Other": 1118000000
+      }
+    },
+    {
+      "date": "2025-12-27",
+      "segments": {
+        "Subscription and affiliate fees": 9817000000,
+        "Advertising": 3252000000,
+        "Theme park admissions": 3301000000,
+        "Resorts and vacations": 2410000000,
+        "Retail and wholesale sales of merchandise, food and beverage": 2741000000,
+        "Merchandise licensing": 1137000000,
+        "Content sales": 1996000000,
+        "Other": 1327000000
+      }
+    },
+    {
+      "date": "2026-03-28",
+      "segments": {
+        "Subscription and affiliate fees": 10582000000,
+        "Advertising": 2802000000,
+        "Theme park admissions": 3092000000,
+        "Resorts and vacations": 2564000000,
+        "Retail and wholesale sales of merchandise, food and beverage": 2442000000,
+        "Merchandise licensing": 865000000,
+        "Content sales": 1725000000,
+        "Other": 1096000000
+      }
+    },
+    {
+      "date": "2026-06-27",
+      "segments": {
+        "Subscription and affiliate fees": 10254000000,
+        "Advertising": 2829000000,
+        "Theme park admissions": 3253000000,
+        "Resorts and vacations": 2766000000,
+        "Retail and wholesale sales of merchandise, food and beverage": 2536000000,
+        "Merchandise licensing": 974000000,
+        "Content sales": 1596000000,
+        "Other": 1040000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2018-09-29",
+      "segments": {
+        "Asia Pacific": 5531000000,
+        "Europe": 7026000000,
+        "Latin America": 1839000000,
+        "United States And Canada": 45038000000
+      }
+    },
+    {
+      "date": "2019-03-30",
+      "segments": {
+        "Asia Pacific": 1481000000,
+        "Europe": 1541000000,
+        "Americas": 11900000000
+      }
+    },
+    {
+      "date": "2019-06-29",
+      "segments": {
+        "Asia Pacific": 2905000000,
+        "Europe": 2353000000,
+        "Americas": 14987000000
+      }
+    },
+    {
+      "date": "2019-09-28",
+      "segments": {
+        "Asia Pacific": 3410000000,
+        "Europe": 4112000000,
+        "Americas": 26881000000
+      }
+    },
+    {
+      "date": "2019-12-28",
+      "segments": {
+        "Asia Pacific": 2086000000,
+        "Europe": 2496000000,
+        "Americas": 16276000000
+      }
+    },
+    {
+      "date": "2020-03-28",
+      "segments": {
+        "Asia Pacific": 1498000000,
+        "Europe": 1884000000,
+        "Americas": 14627000000
+      }
+    },
+    {
+      "date": "2020-06-27",
+      "segments": {
+        "Asia Pacific": 1092000000,
+        "Europe": 1302000000,
+        "Americas": 9385000000
+      }
+    },
+    {
+      "date": "2020-10-03",
+      "segments": {
+        "Asia Pacific": 1387000000,
+        "Europe": 1651000000,
+        "Americas": 11704000000
+      }
+    },
+    {
+      "date": "2021-01-02",
+      "segments": {
+        "Americas": 12747000000,
+        "Asia Pacific": 1722000000,
+        "Europe": 1780000000
+      }
+    },
+    {
+      "date": "2021-04-03",
+      "segments": {
+        "Americas": 12707000000,
+        "Asia Pacific": 1420000000,
+        "Europe": 1486000000
+      }
+    },
+    {
+      "date": "2021-07-03",
+      "segments": {
+        "Americas": 13704000000,
+        "Asia Pacific": 1801000000,
+        "Europe": 1517000000
+      }
+    },
+    {
+      "date": "2021-10-02",
+      "segments": {
+        "Americas": 14999000000,
+        "Asia Pacific": 1628000000,
+        "Europe": 1907000000
+      }
+    },
+    {
+      "date": "2022-01-01",
+      "segments": {
+        "Americas": 17541000000,
+        "Asia Pacific": 1875000000,
+        "Europe": 2403000000
+      }
+    },
+    {
+      "date": "2022-04-02",
+      "segments": {
+        "Disney Media and Entertainment Distribution": 11191000000,
+        "Disney Parks, Experiences and Products": 5559000000,
+        "Total Segments": 16750000000
+      }
+    },
+    {
+      "date": "2022-07-02",
+      "segments": {
+        "Disney Media and Entertainment Distribution": 11444000000,
+        "Disney Parks, Experiences and Products": 6130000000,
+        "Total Segments": 17574000000
+      }
+    },
+    {
+      "date": "2022-10-01",
+      "segments": {
+        "Americas": 50677000000,
+        "Asia Pacific": 4972000000,
+        "Europe": 6277000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Americas": 18971000000,
+        "Asia Pacific": 1901000000,
+        "Europe": 2640000000
+      }
+    },
+    {
+      "date": "2023-04-01",
+      "segments": {
+        "Disney Media and Entertainment Distribution": 11525000000,
+        "Disney Parks, Experiences and Products": 6105000000,
+        "Total Segments": 17630000000
+      }
+    },
+    {
+      "date": "2023-07-01",
+      "segments": {
+        "Disney Media and Entertainment Distribution": 11466000000,
+        "Disney Parks, Experiences and Products": 6299000000,
+        "Total Segments": 17765000000
+      }
+    },
+    {
+      "date": "2023-09-30",
+      "segments": {
+        "Americas": 52234000000,
+        "Asia Pacific": 6259000000,
+        "Europe": 6893000000
+      }
+    },
+    {
+      "date": "2023-12-30",
+      "segments": {
+        "Americas": 18584000000,
+        "Asia Pacific": 2355000000,
+        "Europe": 2610000000
+      }
+    },
+    {
+      "date": "2024-03-30",
+      "segments": {
+        "Americas": 17641000000,
+        "Asia Pacific": 2161000000,
+        "Europe": 2281000000
+      }
+    },
+    {
+      "date": "2024-06-29",
+      "segments": {
+        "Americas": 18293000000,
+        "Asia Pacific": 2290000000,
+        "Europe": 2572000000
+      }
+    },
+    {
+      "date": "2024-09-28",
+      "segments": {
+        "Americas": 17644000000,
+        "Asia Pacific": 2114000000,
+        "Europe": 2816000000
+      }
+    },
+    {
+      "date": "2024-12-28",
+      "segments": {
+        "Americas": 19882000000,
+        "Asia Pacific": 1953000000,
+        "Europe": 2855000000
+      }
+    },
+    {
+      "date": "2025-03-29",
+      "segments": {
+        "Americas": 19485000000,
+        "Asia Pacific": 1686000000,
+        "Europe": 2450000000
+      }
+    },
+    {
+      "date": "2025-06-28",
+      "segments": {
+        "Americas": 19163000000,
+        "Asia Pacific": 1658000000,
+        "Europe": 2829000000
+      }
+    },
+    {
+      "date": "2025-09-27",
+      "segments": {
+        "Americas": 17900000000,
+        "Asia Pacific": 1608000000,
+        "Europe": 2956000000
+      }
+    },
+    {
+      "date": "2025-12-27",
+      "segments": {
+        "Americas": 20862000000,
+        "Asia Pacific": 2040000000,
+        "Europe": 3079000000
+      }
+    },
+    {
+      "date": "2026-03-28",
+      "segments": {
+        "Americas": 20399000000,
+        "Asia Pacific": 1915000000,
+        "Europe": 2854000000
+      }
+    },
+    {
+      "date": "2026-06-27",
+      "segments": {
+        "Americas": 20059000000,
+        "Asia Pacific": 2013000000,
+        "Europe": 3176000000
+      }
+    }
+  ]
+}

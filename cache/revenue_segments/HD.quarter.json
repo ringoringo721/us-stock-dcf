@@ -1,0 +1,510 @@
+{
+  "version": 1,
+  "ticker": "HD",
+  "source": "FMP revenue segmentation (quarter)",
+  "period": "quarter",
+  "product": [
+    {
+      "date": "2018-04-29",
+      "segments": {
+        "Major Product Line - Building Materials": 9326000000,
+        "Major Product Line, Décor": 7206000000,
+        "Major Product Line - Hardlines": 8415000000
+      }
+    },
+    {
+      "date": "2018-07-29",
+      "segments": {
+        "Major Product Line - Building Materials": 10678000000,
+        "Major Product Line, Décor": 9642000000,
+        "Major Product Line - Hardlines": 10143000000
+      }
+    },
+    {
+      "date": "2018-10-28",
+      "segments": {
+        "Major Product Line - Building Materials": 10253000000,
+        "Major Product Line, Décor": 8916000000,
+        "Major Product Line - Hardlines": 7133000000
+      }
+    },
+    {
+      "date": "2019-02-03",
+      "segments": {
+        "Major Product Line - Building Materials": 9710000000,
+        "Major Product Line, Décor": 10474000000,
+        "Major Product Line - Hardlines": 6307000000
+      }
+    },
+    {
+      "date": "2019-05-05",
+      "segments": {
+        "Major Product Line - Building Materials": 9404000000,
+        "Major Product Line - Hardlines": 8232000000,
+        "Major Product Line, Décor": 8745000000
+      }
+    },
+    {
+      "date": "2019-08-04",
+      "segments": {
+        "Major Product Line - Building Materials": 10495000000,
+        "Major Product Line - Hardlines": 10294000000,
+        "Major Product Line, Décor": 10050000000
+      }
+    },
+    {
+      "date": "2019-11-03",
+      "segments": {
+        "Major Product Line - Building Materials": 10299000000,
+        "Major Product Line - Hardlines": 7541000000,
+        "Major Product Line, Décor": 9383000000
+      }
+    },
+    {
+      "date": "2020-02-02",
+      "segments": {
+        "Major Product Line - Building Materials": 9140000000,
+        "Major Product Line, Décor": 9212000000,
+        "Major Product Line - Hardlines": 7430000000
+      }
+    },
+    {
+      "date": "2020-05-03",
+      "segments": {
+        "Major Product Line - Building Materials": 9816000000,
+        "Major Product Line - Hardlines": 9138000000,
+        "Major Product Line, Décor": 9306000000
+      }
+    },
+    {
+      "date": "2020-08-02",
+      "segments": {
+        "Major Product Line - Building Materials": 12556000000,
+        "Major Product Line - Hardlines": 13707000000,
+        "Major Product Line, Décor": 11790000000
+      }
+    },
+    {
+      "date": "2020-11-01",
+      "segments": {
+        "Major Product Line - Building Materials": 12594000000,
+        "Major Product Line - Hardlines": 9729000000,
+        "Major Product Line, Décor": 11213000000
+      }
+    },
+    {
+      "date": "2021-01-31",
+      "segments": {
+        "Major Product Line - Building Materials": 11570000000,
+        "Major Product Line, Décor": 11100000000,
+        "Major Product Line - Hardlines": 9591000000
+      }
+    },
+    {
+      "date": "2021-05-02",
+      "segments": {
+        "Major Product Line - Building Materials": 13660000000,
+        "Major Product Line - Hardlines": 11958000000,
+        "Major Product Line, Décor": 11882000000
+      }
+    },
+    {
+      "date": "2021-08-01",
+      "segments": {
+        "Major Product Line - Building Materials": 14411000000,
+        "Major Product Line - Hardlines": 13312000000,
+        "Major Product Line, Décor": 13395000000
+      }
+    },
+    {
+      "date": "2021-10-31",
+      "segments": {
+        "Major Product Line - Building Materials": 13809000000,
+        "Major Product Line - Hardlines": 10228000000,
+        "Major Product Line, Décor": 12783000000
+      }
+    },
+    {
+      "date": "2022-01-30",
+      "segments": {
+        "Major Product Line - Building Materials": 13110000000,
+        "Major Product Line, Décor": 12377000000,
+        "Major Product Line - Hardlines": 10232000000
+      }
+    },
+    {
+      "date": "2022-05-01",
+      "segments": {
+        "Major Product Line - Building Materials": 14869000000,
+        "Major Product Line - Hardlines": 11165000000,
+        "Major Product Line, Décor": 12874000000
+      }
+    },
+    {
+      "date": "2022-07-31",
+      "segments": {
+        "Major Product Line - Building Materials": 15883000000,
+        "Major Product Line - Hardlines": 13813000000,
+        "Major Product Line, Décor": 14096000000
+      }
+    },
+    {
+      "date": "2022-10-30",
+      "segments": {
+        "Major Product Line - Building Materials": 15343000000,
+        "Major Product Line - Hardlines": 10459000000,
+        "Major Product Line, Décor": 13070000000
+      }
+    },
+    {
+      "date": "2023-01-29",
+      "segments": {
+        "Major Product Line - Building Materials": 13438000000,
+        "Major Product Line, Décor": 12282000000,
+        "Major Product Line - Hardlines": 10111000000
+      }
+    },
+    {
+      "date": "2023-04-30",
+      "segments": {
+        "Major Product Line - Building Materials": 12993000000,
+        "Major Product Line - Hardlines": 11560000000,
+        "Major Product Line, Décor": 12704000000
+      }
+    },
+    {
+      "date": "2023-07-30",
+      "segments": {
+        "Major Product Line - Building Materials": 14268000000,
+        "Major Product Line - Hardlines": 14785000000,
+        "Major Product Line, Décor": 13863000000
+      }
+    },
+    {
+      "date": "2023-10-29",
+      "segments": {
+        "Major Product Line - Building Materials": 13646000000,
+        "Major Product Line - Hardlines": 10973000000,
+        "Major Product Line, Décor": 13091000000
+      }
+    },
+    {
+      "date": "2024-01-28",
+      "segments": {
+        "Major Product Line - Building Materials": 11754000000,
+        "Major Product Line - Hardlines": 10745000000,
+        "Major Product Line, Décor": 12287000000
+      }
+    },
+    {
+      "date": "2024-04-28",
+      "segments": {
+        "Major Product Line - Building Materials": 12614000000,
+        "Major Product Line - Hardlines": 11460000000,
+        "Major Product Line, Décor": 12344000000
+      }
+    },
+    {
+      "date": "2024-07-28",
+      "segments": {
+        "Major Product Line - Building Materials": 13935000000,
+        "Major Product Line - Hardlines": 14375000000,
+        "Major Product Line, Décor": 13591000000,
+        "Other Segment": 1274000000
+      }
+    },
+    {
+      "date": "2024-10-27",
+      "segments": {
+        "Major Product Line - Building Materials": 13479000000,
+        "Major Product Line - Hardlines": 11128000000,
+        "Major Product Line, Décor": 12682000000,
+        "Other Segment": 2928000000
+      }
+    },
+    {
+      "date": "2025-02-02",
+      "segments": {
+        "Major Product Line - Building Materials": 12728000000,
+        "Major Product Line - Hardlines": 11599000000,
+        "Major Product Line, Décor": 13173000000,
+        "Other Segment": 2204000000
+      }
+    },
+    {
+      "date": "2025-05-04",
+      "segments": {
+        "Major Product Line - Building Materials": 12931000000,
+        "Major Product Line - Hardlines": 11877000000,
+        "Major Product Line, Décor": 12479000000,
+        "Other Segment": 2569000000
+      }
+    },
+    {
+      "date": "2025-08-03",
+      "segments": {
+        "Major Product Line - Building Materials": 14172000000,
+        "Major Product Line - Hardlines": 14129000000,
+        "Major Product Line, Décor": 13856000000,
+        "Other Segment": 3120000000
+      }
+    },
+    {
+      "date": "2026-02-01",
+      "segments": {
+        "Other Segment": 7028000000
+      }
+    },
+    {
+      "date": "2026-05-03",
+      "segments": {
+        "Major Product Line - Building Materials": 12971000000,
+        "Major Product Line - Hardlines": 12187000000,
+        "Major Product Line, Décor": 12605000000,
+        "Other Segment": 4002000000
+      }
+    },
+    {
+      "date": "2026-08-02",
+      "segments": {
+        "Major Product Line - Building Materials": 14432000000,
+        "Major Product Line - Hardlines": 14445000000,
+        "Major Product Line, Décor": 13929000000,
+        "Other Segment": 5055000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2018-04-29",
+      "segments": {
+        "Non-US": 1904000000,
+        "UNITED STATES": 23043000000
+      }
+    },
+    {
+      "date": "2018-07-29",
+      "segments": {
+        "Non-US": 2611000000,
+        "UNITED STATES": 27852000000
+      }
+    },
+    {
+      "date": "2018-10-28",
+      "segments": {
+        "Non-US": 2219000000,
+        "UNITED STATES": 24083000000
+      }
+    },
+    {
+      "date": "2019-02-03",
+      "segments": {
+        "Non-US": 2083000000,
+        "UNITED STATES": 24408000000
+      }
+    },
+    {
+      "date": "2019-05-05",
+      "segments": {
+        "Non-US": 1928000000,
+        "UNITED STATES": 24453000000
+      }
+    },
+    {
+      "date": "2019-08-04",
+      "segments": {
+        "Non-US": 2653000000,
+        "UNITED STATES": 28186000000
+      }
+    },
+    {
+      "date": "2019-11-03",
+      "segments": {
+        "Non-US": 2228000000,
+        "UNITED STATES": 24995000000
+      }
+    },
+    {
+      "date": "2020-02-02",
+      "segments": {
+        "UNITED STATES": 23699000000,
+        "Non-US": 2083000000
+      }
+    },
+    {
+      "date": "2020-05-03",
+      "segments": {
+        "Non-US": 1842000000,
+        "UNITED STATES": 26418000000
+      }
+    },
+    {
+      "date": "2020-08-02",
+      "segments": {
+        "Non-US": 2848000000,
+        "UNITED STATES": 35205000000
+      }
+    },
+    {
+      "date": "2020-11-01",
+      "segments": {
+        "Non-US": 2691000000,
+        "UNITED STATES": 30845000000
+      }
+    },
+    {
+      "date": "2021-01-31",
+      "segments": {
+        "UNITED STATES": 29690000000,
+        "Non-US": 2571000000
+      }
+    },
+    {
+      "date": "2021-05-02",
+      "segments": {
+        "Non-US": 2783000000,
+        "UNITED STATES": 34717000000
+      }
+    },
+    {
+      "date": "2021-08-01",
+      "segments": {
+        "Non-US": 3476000000,
+        "UNITED STATES": 37642000000
+      }
+    },
+    {
+      "date": "2021-10-31",
+      "segments": {
+        "Non-US": 3084000000,
+        "UNITED STATES": 33736000000
+      }
+    },
+    {
+      "date": "2022-01-30",
+      "segments": {
+        "Non-US": 2894000000,
+        "UNITED STATES": 32825000000
+      }
+    },
+    {
+      "date": "2022-05-01",
+      "segments": {
+        "Non-US": 2902000000,
+        "UNITED STATES": 36006000000
+      }
+    },
+    {
+      "date": "2022-07-31",
+      "segments": {
+        "Non-US": 3748000000,
+        "UNITED STATES": 40044000000
+      }
+    },
+    {
+      "date": "2022-10-30",
+      "segments": {
+        "Non-US": 3088000000,
+        "UNITED STATES": 35784000000
+      }
+    },
+    {
+      "date": "2023-01-29",
+      "segments": {
+        "Non-US": 2825000000,
+        "UNITED STATES": 33006000000
+      }
+    },
+    {
+      "date": "2023-04-30",
+      "segments": {
+        "Non-US": 2750000000,
+        "UNITED STATES": 34507000000
+      }
+    },
+    {
+      "date": "2023-07-30",
+      "segments": {
+        "Non-US": 3725000000,
+        "UNITED STATES": 39191000000
+      }
+    },
+    {
+      "date": "2023-10-29",
+      "segments": {
+        "Non-US": 3166000000,
+        "UNITED STATES": 34544000000
+      }
+    },
+    {
+      "date": "2024-01-28",
+      "segments": {
+        "Non-US": 2945000000,
+        "UNITED STATES": 31841000000
+      }
+    },
+    {
+      "date": "2024-04-28",
+      "segments": {
+        "Non-US": 2849000000,
+        "UNITED STATES": 33569000000
+      }
+    },
+    {
+      "date": "2024-07-28",
+      "segments": {
+        "Non-US": 3662000000,
+        "UNITED STATES": 39513000000
+      }
+    },
+    {
+      "date": "2024-10-27",
+      "segments": {
+        "Non-US": 3082000000,
+        "UNITED STATES": 37135000000
+      }
+    },
+    {
+      "date": "2025-02-02",
+      "segments": {
+        "Non-US": 2914000000,
+        "UNITED STATES": 36790000000
+      }
+    },
+    {
+      "date": "2025-05-04",
+      "segments": {
+        "Non-US": 2632000000,
+        "UNITED STATES": 37224000000
+      }
+    },
+    {
+      "date": "2025-08-03",
+      "segments": {
+        "Non-US": 3548000000,
+        "UNITED STATES": 41729000000
+      }
+    },
+    {
+      "date": "2026-02-01",
+      "segments": {
+        "Non-US": 6333000000,
+        "UNITED STATES": 73217000000
+      }
+    },
+    {
+      "date": "2026-05-03",
+      "segments": {
+        "Non-US": 3032000000,
+        "UNITED STATES": 38733000000
+      }
+    },
+    {
+      "date": "2026-08-02",
+      "segments": {
+        "Non-US": 3954000000,
+        "UNITED STATES": 43907000000
+      }
+    }
+  ]
+}

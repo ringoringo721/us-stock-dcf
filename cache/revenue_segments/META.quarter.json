@@ -1,0 +1,744 @@
+{
+  "version": 1,
+  "ticker": "META",
+  "source": "FMP revenue segmentation (quarter)",
+  "period": "quarter",
+  "product": [
+    {
+      "date": "2018-03-31",
+      "segments": {
+        "Family of Apps": 11966000000
+      }
+    },
+    {
+      "date": "2018-06-30",
+      "segments": {
+        "Advertising": 13038000000,
+        "Payments and Other Fees": 193000000
+      }
+    },
+    {
+      "date": "2018-09-30",
+      "segments": {
+        "Advertising": 13539000000,
+        "Payments and Other Fees": 188000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Advertising": 16640000000,
+        "Payments and Other Fees": 274000000
+      }
+    },
+    {
+      "date": "2019-03-31",
+      "segments": {
+        "Advertising": 14912000000,
+        "Payments and Other Fees": 165000000
+      }
+    },
+    {
+      "date": "2019-06-30",
+      "segments": {
+        "Advertising": 16624000000,
+        "Payments and Other Fees": 262000000
+      }
+    },
+    {
+      "date": "2019-09-30",
+      "segments": {
+        "Advertising": 17383000000,
+        "Payments and Other Fees": 269000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Advertising": 20736000000
+      }
+    },
+    {
+      "date": "2020-03-31",
+      "segments": {
+        "Advertising": 17440000000,
+        "Service, Other": 297000000
+      }
+    },
+    {
+      "date": "2020-06-30",
+      "segments": {
+        "Advertising": 18321000000,
+        "Service, Other": 366000000
+      }
+    },
+    {
+      "date": "2020-09-30",
+      "segments": {
+        "Advertising": 21221000000,
+        "Service, Other": 249000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Advertising": 27188000000,
+        "Service, Other": 884000000
+      }
+    },
+    {
+      "date": "2021-03-31",
+      "segments": {
+        "Advertising": 25439000000,
+        "Other revenue": 198000000,
+        "Reality Labs": 534000000
+      }
+    },
+    {
+      "date": "2021-06-30",
+      "segments": {
+        "Advertising": 28580000000,
+        "Other revenue": 192000000,
+        "Reality Labs": 305000000
+      }
+    },
+    {
+      "date": "2021-09-30",
+      "segments": {
+        "Advertising": 28276000000,
+        "Other revenue": 176000000,
+        "Reality Labs": 558000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Advertising": 32639000000,
+        "Other revenue": 155000000,
+        "Reality Labs": 877000000
+      }
+    },
+    {
+      "date": "2022-03-31",
+      "segments": {
+        "Advertising": 26998000000,
+        "Other revenue": 215000000,
+        "Reality Labs": 695000000
+      }
+    },
+    {
+      "date": "2022-06-30",
+      "segments": {
+        "Advertising": 28152000000,
+        "Other revenue": 218000000,
+        "Reality Labs": 452000000
+      }
+    },
+    {
+      "date": "2022-09-30",
+      "segments": {
+        "Advertising": 27237000000,
+        "Other revenue": 192000000,
+        "Reality Labs": 285000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Advertising": 31254000000,
+        "Other revenue": 184000000,
+        "Reality Labs": 727000000
+      }
+    },
+    {
+      "date": "2023-03-31",
+      "segments": {
+        "Advertising": 28101000000,
+        "Other revenue": 205000000,
+        "Reality Labs": 339000000
+      }
+    },
+    {
+      "date": "2023-06-30",
+      "segments": {
+        "Advertising": 31498000000,
+        "Other revenue": 225000000,
+        "Reality Labs": 276000000
+      }
+    },
+    {
+      "date": "2023-09-30",
+      "segments": {
+        "Advertising": 33643000000,
+        "Other revenue": 293000000,
+        "Reality Labs": 210000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Advertising": 38706000000,
+        "Other revenue": 334000000,
+        "Reality Labs": 1071000000
+      }
+    },
+    {
+      "date": "2024-03-31",
+      "segments": {
+        "Advertising": 35635000000,
+        "Other revenue": 380000000,
+        "Reality Labs": 440000000
+      }
+    },
+    {
+      "date": "2024-06-30",
+      "segments": {
+        "Advertising": 38329000000,
+        "Other revenue": 389000000,
+        "Reality Labs": 353000000
+      }
+    },
+    {
+      "date": "2024-09-30",
+      "segments": {
+        "Advertising": 39885000000,
+        "Other revenue": 434000000,
+        "Reality Labs": 270000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Advertising": 46783000000,
+        "Other revenue": 519000000,
+        "Reality Labs": 1083000000
+      }
+    },
+    {
+      "date": "2025-03-31",
+      "segments": {
+        "Advertising": 41392000000,
+        "Other revenue": 510000000,
+        "Reality Labs": 412000000
+      }
+    },
+    {
+      "date": "2025-06-30",
+      "segments": {
+        "Advertising": 46563000000,
+        "Other revenue": 583000000,
+        "Reality Labs": 370000000
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "segments": {
+        "Advertising": 50082000000,
+        "Other revenue": 690000000,
+        "Reality Labs": 470000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Advertising": 58137000000,
+        "Other revenue": 801000000,
+        "Reality Labs": 955000000
+      }
+    },
+    {
+      "date": "2026-03-31",
+      "segments": {
+        "Advertising": 55024000000,
+        "Other revenue": 885000000,
+        "Reality Labs": 402000000
+      }
+    },
+    {
+      "date": "2026-06-30",
+      "segments": {
+        "Advertising": 59363000000,
+        "Other revenue": 1007000000,
+        "Reality Labs": 431000000
+      }
+    },
+    {
+      "date": "2026-09-30",
+      "segments": {
+        "Family of Apps": 64158000000,
+        "Reality Labs": 443000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2012-06-30",
+      "segments": {
+        "Rest Of World": 596000000,
+        "UNITED STATES": 588000000
+      }
+    },
+    {
+      "date": "2012-09-30",
+      "segments": {
+        "Rest Of World": 597000000,
+        "UNITED STATES": 665000000
+      }
+    },
+    {
+      "date": "2013-03-31",
+      "segments": {
+        "Rest Of World": 777000000,
+        "UNITED STATES": 681000000
+      }
+    },
+    {
+      "date": "2013-06-30",
+      "segments": {
+        "Rest Of World": 995000000,
+        "UNITED STATES": 818000000
+      }
+    },
+    {
+      "date": "2013-09-30",
+      "segments": {
+        "Rest Of World": 1076000000,
+        "UNITED STATES": 940000000
+      }
+    },
+    {
+      "date": "2013-12-31",
+      "segments": {
+        "Rest Of World": 1411000000,
+        "UNITED STATES": 1174000000
+      }
+    },
+    {
+      "date": "2014-03-31",
+      "segments": {
+        "Rest Of World": 1373000000,
+        "UNITED STATES": 1129000000
+      }
+    },
+    {
+      "date": "2014-06-30",
+      "segments": {
+        "Rest Of World": 1650000000,
+        "UNITED STATES": 1260000000
+      }
+    },
+    {
+      "date": "2014-09-30",
+      "segments": {
+        "Rest Of World": 1735000000,
+        "UNITED STATES": 1468000000
+      }
+    },
+    {
+      "date": "2014-12-31",
+      "segments": {
+        "Rest Of World": 2059000000,
+        "UNITED STATES": 1792000000
+      }
+    },
+    {
+      "date": "2015-03-31",
+      "segments": {
+        "Rest Of World": 1891000000,
+        "UNITED STATES": 1652000000
+      }
+    },
+    {
+      "date": "2015-06-30",
+      "segments": {
+        "Rest Of World": 2162000000,
+        "UNITED STATES": 1880000000
+      }
+    },
+    {
+      "date": "2015-09-30",
+      "segments": {
+        "Rest Of World": 2335000000,
+        "UNITED STATES": 2166000000
+      }
+    },
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "Rest Of World": 3027000000,
+        "UNITED STATES": 2815000000
+      }
+    },
+    {
+      "date": "2016-03-31",
+      "segments": {
+        "Rest Of World": 2873000000,
+        "UNITED STATES": 2509000000
+      }
+    },
+    {
+      "date": "2016-06-30",
+      "segments": {
+        "Rest Of World": 3584000000,
+        "UNITED STATES": 2852000000
+      }
+    },
+    {
+      "date": "2016-09-30",
+      "segments": {
+        "Rest Of World": 3827000000,
+        "UNITED STATES": 3184000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Rest Of World": 4775000000,
+        "UNITED STATES": 4034000000
+      }
+    },
+    {
+      "date": "2017-03-31",
+      "segments": {
+        "Rest Of World": 4505000000,
+        "UNITED STATES": 3527000000
+      }
+    },
+    {
+      "date": "2017-06-30",
+      "segments": {
+        "Rest Of World": 5273000000,
+        "UNITED STATES": 4048000000
+      }
+    },
+    {
+      "date": "2017-09-30",
+      "segments": {
+        "Rest Of World": 5846000000,
+        "UNITED STATES": 4482000000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "Rest Of World": 7295000000,
+        "UNITED STATES": 5677000000
+      }
+    },
+    {
+      "date": "2018-03-31",
+      "segments": {
+        "Asia Pacific": 2475000000,
+        "Europe": 3027000000,
+        "Rest Of World": 1022000000,
+        "US & Canada": 5442000000
+      }
+    },
+    {
+      "date": "2018-06-30",
+      "segments": {
+        "Asia Pacific": 2772000000,
+        "Europe": 3307000000,
+        "Rest Of World": 1170000000,
+        "US & Canada": 5982000000
+      }
+    },
+    {
+      "date": "2018-09-30",
+      "segments": {
+        "Asia Pacific": 3007000000,
+        "Europe": 3234000000,
+        "Rest Of World": 1161000000,
+        "US & Canada": 6325000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Asia Pacific": 3479000000,
+        "Europe": 4063000000,
+        "Rest Of World": 1394000000,
+        "US & Canada": 7978000000
+      }
+    },
+    {
+      "date": "2019-03-31",
+      "segments": {
+        "Asia Pacific": 3337000000,
+        "Europe": 3624000000,
+        "Rest Of World": 1339000000,
+        "US & Canada": 6777000000
+      }
+    },
+    {
+      "date": "2019-06-30",
+      "segments": {
+        "Asia Pacific": 3628000000,
+        "Europe": 4097000000,
+        "Rest Of World": 1529000000,
+        "US & Canada": 7632000000
+      }
+    },
+    {
+      "date": "2019-09-30",
+      "segments": {
+        "Asia Pacific": 3958000000,
+        "Europe": 4053000000,
+        "Rest Of World": 1615000000,
+        "US & Canada": 8026000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Asia Pacific": 4483000000,
+        "Europe": 5052000000,
+        "Rest Of World": 1776000000,
+        "US & Canada": 9771000000
+      }
+    },
+    {
+      "date": "2020-03-31",
+      "segments": {
+        "Asia Pacific": 3971000000,
+        "Europe": 4150000000,
+        "Rest Of World": 1604000000,
+        "US & Canada": 8012000000
+      }
+    },
+    {
+      "date": "2020-06-30",
+      "segments": {
+        "Asia Pacific": 4611000000,
+        "Europe": 4249000000,
+        "Rest Of World": 1535000000,
+        "US & Canada": 8292000000
+      }
+    },
+    {
+      "date": "2020-09-30",
+      "segments": {
+        "Asia Pacific": 5311000000,
+        "Europe": 5055000000,
+        "Rest Of World": 1875000000,
+        "US & Canada": 9229000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Asia Pacific": 5955000000,
+        "Europe": 6895000000,
+        "Rest Of World": 2321000000,
+        "US & Canada": 12900000000
+      }
+    },
+    {
+      "date": "2021-03-31",
+      "segments": {
+        "Asia Pacific": 6101000000,
+        "Europe": 6384000000,
+        "Rest Of World": 2250000000,
+        "US & Canada": 11436000000
+      }
+    },
+    {
+      "date": "2021-06-30",
+      "segments": {
+        "Asia Pacific": 6677000000,
+        "Europe": 7220000000,
+        "Rest Of World": 2568000000,
+        "US & Canada": 12612000000
+      }
+    },
+    {
+      "date": "2021-09-30",
+      "segments": {
+        "Asia Pacific": 6592000000,
+        "Europe": 7018000000,
+        "Rest Of World": 2732000000,
+        "US & Canada": 12668000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Asia Pacific": 7369000000,
+        "Europe": 8435000000,
+        "Rest Of World": 3042000000,
+        "US & Canada": 14825000000
+      }
+    },
+    {
+      "date": "2022-03-31",
+      "segments": {
+        "Asia Pacific": 6722000000,
+        "Europe": 6638000000,
+        "Rest Of World": 2768000000,
+        "US & Canada": 11780000000
+      }
+    },
+    {
+      "date": "2022-06-30",
+      "segments": {
+        "Asia Pacific": 6960000000,
+        "Europe": 6650000000,
+        "Rest Of World": 3026000000,
+        "US & Canada": 12186000000
+      }
+    },
+    {
+      "date": "2022-09-30",
+      "segments": {
+        "Asia Pacific": 6797000000,
+        "Europe": 5996000000,
+        "Rest Of World": 2955000000,
+        "US & Canada": 11966000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Asia Pacific": 7281000000,
+        "Europe": 7397000000,
+        "Rest Of World": 3269000000,
+        "US & Canada": 14218000000
+      }
+    },
+    {
+      "date": "2023-03-31",
+      "segments": {
+        "Asia Pacific": 7292000000,
+        "Europe": 6759000000,
+        "Rest Of World": 3145000000,
+        "US & Canada": 11449000000
+      }
+    },
+    {
+      "date": "2023-06-30",
+      "segments": {
+        "Asia Pacific": 8551000000,
+        "Europe": 7515000000,
+        "Rest Of World": 3529000000,
+        "US & Canada": 12404000000
+      }
+    },
+    {
+      "date": "2023-09-30",
+      "segments": {
+        "Asia Pacific": 9790000000,
+        "Europe": 7578000000,
+        "Rest Of World": 3870000000,
+        "US & Canada": 12908000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Asia Pacific": 10521000000,
+        "Europe": 9358000000,
+        "Rest Of World": 4106000000,
+        "US & Canada": 16127000000
+      }
+    },
+    {
+      "date": "2024-03-31",
+      "segments": {
+        "Asia Pacific": 10312000000,
+        "Europe": 8404000000,
+        "Rest Of World": 4093000000,
+        "US & Canada": 13646000000
+      }
+    },
+    {
+      "date": "2024-06-30",
+      "segments": {
+        "Asia Pacific": 10967000000,
+        "Europe": 9153000000,
+        "Rest Of World": 4311000000,
+        "US & Canada": 14640000000
+      }
+    },
+    {
+      "date": "2024-09-30",
+      "segments": {
+        "Asia Pacific": 11243000000,
+        "Europe": 9205000000,
+        "Rest Of World": 4522000000,
+        "US & Canada": 15619000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Asia Pacific": 12487000000,
+        "Europe": 11599000000,
+        "Rest Of World": 4998000000,
+        "US & Canada": 19302000000
+      }
+    },
+    {
+      "date": "2025-03-31",
+      "segments": {
+        "US & Canada": 16869000000,
+        "Asia Pacific": 11239000000,
+        "Europe": 9621000000,
+        "Rest Of World": 4585000000
+      }
+    },
+    {
+      "date": "2025-06-30",
+      "segments": {
+        "Asia Pacific": 12858000000,
+        "Europe": 11128000000,
+        "Rest Of World": 5076000000,
+        "US & Canada": 18454000000
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "segments": {
+        "Asia Pacific": 14304000000,
+        "Europe": 11566000000,
+        "Rest Of World": 5664000000,
+        "US & Canada": 19708000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Asia Pacific": 15416000000,
+        "Europe": 14254000000,
+        "Rest Of World": 6389000000,
+        "US & Canada": 23835000000
+      }
+    },
+    {
+      "date": "2026-03-31",
+      "segments": {
+        "Asia Pacific": 15445000000,
+        "Europe": 13240000000,
+        "Rest Of World": 6359000000,
+        "US & Canada": 21267000000
+      }
+    },
+    {
+      "date": "2026-06-30",
+      "segments": {
+        "Asia Pacific": 16073000000,
+        "Europe": 14009000000,
+        "Rest Of World": 6856000000,
+        "US & Canada": 23863000000
+      }
+    },
+    {
+      "date": "2026-09-30",
+      "segments": {
+        "Asia Pacific": 16993000000,
+        "Europe": 14023000000,
+        "Rest Of World": 7368000000,
+        "US & Canada": 26217000000
+      }
+    }
+  ]
+}

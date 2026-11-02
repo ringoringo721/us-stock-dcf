@@ -1,0 +1,858 @@
+{
+  "version": 1,
+  "ticker": "MRK",
+  "source": "FMP revenue segmentation (quarter)",
+  "period": "quarter",
+  "product": [
+    {
+      "date": "2011-06-30",
+      "segments": {
+        "Unallocated Amount To Segment": 126000000,
+        "Other Segments": 1665000000,
+        "Pharmaceutical segment": 10360000000
+      }
+    },
+    {
+      "date": "2011-09-30",
+      "segments": {
+        "Other Segments": 13472000000,
+        "Pharmaceutical segment": 10354000000
+      }
+    },
+    {
+      "date": "2011-12-31",
+      "segments": {
+        "Pharmaceutical segment": 20575000000,
+        "Other Segments": 38806000000
+      }
+    },
+    {
+      "date": "2012-03-31",
+      "segments": {
+        "Unallocated Amount To Segment": 56000000,
+        "Pharmaceutical segment": 10082000000,
+        "Other Segments": 1593000000
+      }
+    },
+    {
+      "date": "2012-06-30",
+      "segments": {
+        "Other Miscellaneous": 71000000,
+        "Other Segments": 1680000000,
+        "Pharmaceutical segment": 10560000000
+      }
+    },
+    {
+      "date": "2012-09-30",
+      "segments": {
+        "Other Miscellaneous": 57000000,
+        "Other Segments": 1556000000,
+        "Pharmaceutical segment": 9875000000
+      }
+    },
+    {
+      "date": "2012-12-31",
+      "segments": {
+        "Other Miscellaneous": 126000000,
+        "Other Segments": 1583000000,
+        "Pharmaceutical segment": 10084000000
+      }
+    },
+    {
+      "date": "2013-03-31",
+      "segments": {
+        "Primary Care And Womens Health": 68000000,
+        "Other Segments": 1712000000,
+        "Pharmaceutical segment": 8891000000
+      }
+    },
+    {
+      "date": "2013-06-30",
+      "segments": {
+        "Other Miscellaneous": 69000000,
+        "Other Segments": 1631000000,
+        "Pharmaceutical segment": 9310000000
+      }
+    },
+    {
+      "date": "2013-09-30",
+      "segments": {
+        "Other Segments": 1557000000,
+        "Pharmaceutical segment": 9475000000
+      }
+    },
+    {
+      "date": "2013-12-31",
+      "segments": {
+        "Other Segments": 1696000000,
+        "Pharmaceutical segment": 9761000000
+      }
+    },
+    {
+      "date": "2014-03-31",
+      "segments": {
+        "Other Segments": 1813000000,
+        "Pharmaceutical segment": 8451000000
+      }
+    },
+    {
+      "date": "2014-06-30",
+      "segments": {
+        "Other Segments": 1847000000,
+        "Pharmaceutical segment": 9087000000
+      }
+    },
+    {
+      "date": "2014-09-30",
+      "segments": {
+        "Other Segments": 1423000000,
+        "Pharmaceutical segment": 9134000000
+      }
+    },
+    {
+      "date": "2014-12-31",
+      "segments": {
+        "Other Segments": 1112000000,
+        "Pharmaceutical segment": 9370000000
+      }
+    },
+    {
+      "date": "2015-03-31",
+      "segments": {
+        "Other Segments": 1159000000,
+        "Pharmaceutical segment": 8266000000
+      }
+    },
+    {
+      "date": "2015-06-30",
+      "segments": {
+        "Other Segments": 1221000000,
+        "Pharmaceutical segment": 8564000000
+      }
+    },
+    {
+      "date": "2015-09-30",
+      "segments": {
+        "Pharmaceutical segment": 302000000,
+        "Other Segments": 846000000
+      }
+    },
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "Pharmaceutical segment": 17650000000,
+        "Other Segments": 1490000000
+      }
+    },
+    {
+      "date": "2016-03-31",
+      "segments": {
+        "Pharmaceutical segment": 8104000000,
+        "Other Segments": 1208000000
+      }
+    },
+    {
+      "date": "2016-06-30",
+      "segments": {
+        "Pharmaceutical segment": 8700000000,
+        "Other Segments": 1144000000
+      }
+    },
+    {
+      "date": "2016-09-30",
+      "segments": {
+        "Pharmaceutical segment": 9443000000,
+        "Other Segments": 1093000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Pharmaceutical segment": 8904000000,
+        "Other Segments": 1211000000
+      }
+    },
+    {
+      "date": "2017-03-31",
+      "segments": {
+        "Pharmaceutical segment": 8185000000,
+        "Other Segments": 1249000000
+      }
+    },
+    {
+      "date": "2017-06-30",
+      "segments": {
+        "Pharmaceutical segment": 8759000000,
+        "Other Segments": 1171000000
+      }
+    },
+    {
+      "date": "2017-09-30",
+      "segments": {
+        "Pharmaceutical segment": 9156000000,
+        "Other Segments": 1169000000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "Pharmaceutical segment": 9290000000,
+        "Other Segments": 1143000000
+      }
+    },
+    {
+      "date": "2018-03-31",
+      "segments": {
+        "Pharmaceutical segment": 8919000000,
+        "Animal Health segment": 1065000000,
+        "Other Segments": 53000000
+      }
+    },
+    {
+      "date": "2018-06-30",
+      "segments": {
+        "Animal Health segment": 1090000000,
+        "Pharmaceutical segment": 9282000000,
+        "Other Segments": 93000000
+      }
+    },
+    {
+      "date": "2018-09-30",
+      "segments": {
+        "Animal Health segment": 1021000000,
+        "Pharmaceutical segment": 60000000,
+        "Other Segments": 55000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Animal Health segment": 1036000000,
+        "Other Segments": 192000000,
+        "Pharmaceutical segment": 19428000000
+      }
+    },
+    {
+      "date": "2019-03-31",
+      "segments": {
+        "Animal Health segment": 1025000000,
+        "Pharmaceutical segment": 9663000000,
+        "Other Segments": 128000000
+      }
+    },
+    {
+      "date": "2019-06-30",
+      "segments": {
+        "Animal Health segment": 1124000000,
+        "Pharmaceutical segment": 10460000000,
+        "Other Segments": 176000000
+      }
+    },
+    {
+      "date": "2019-09-30",
+      "segments": {
+        "Animal Health segment": 1122000000,
+        "Pharmaceutical segment": 11095000000,
+        "Other Segments": 180000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Animal Health segment": 1122000000,
+        "Other Segments": 212000000,
+        "Pharmaceutical segment": 10533000000
+      }
+    },
+    {
+      "date": "2020-03-31",
+      "segments": {
+        "Animal Health segment": 1214000000,
+        "Pharmaceutical segment": 10655000000,
+        "Other Segments": 188000000
+      }
+    },
+    {
+      "date": "2020-06-30",
+      "segments": {
+        "Animal Health segment": 1101000000,
+        "Pharmaceutical segment": 9679000000
+      }
+    },
+    {
+      "date": "2020-09-30",
+      "segments": {
+        "Animal Health segment": 1220000000,
+        "Pharmaceutical segment": 11320000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Animal Health segment": 1168000000,
+        "Pharmaceutical segment": 11367000000,
+        "Other Segments": -268000000
+      }
+    },
+    {
+      "date": "2021-03-31",
+      "segments": {
+        "Animal Health segment": 1418000000,
+        "Pharmaceutical segment": 10675000000
+      }
+    },
+    {
+      "date": "2021-06-30",
+      "segments": {
+        "Animal Health segment": 1472000000,
+        "Pharmaceutical segment": 9980000000,
+        "Other Segments": -50000000
+      }
+    },
+    {
+      "date": "2021-09-30",
+      "segments": {
+        "Animal Health segment": 1417000000,
+        "Pharmaceutical segment": 11496000000,
+        "Other Segments": 241000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Animal Health segment": 1261000000,
+        "Pharmaceutical segment": 10603000000,
+        "Other Segments": 204000000
+      }
+    },
+    {
+      "date": "2022-03-31",
+      "segments": {
+        "Animal Health segment": 1482000000,
+        "Pharmaceutical segment": 14107000000,
+        "Other Segments": 312000000
+      }
+    },
+    {
+      "date": "2022-06-30",
+      "segments": {
+        "Animal Health segment": 1467000000,
+        "Pharmaceutical segment": 12756000000,
+        "Other Segments": 370000000
+      }
+    },
+    {
+      "date": "2022-09-30",
+      "segments": {
+        "Animal Health segment": 1371000000,
+        "Pharmaceutical segment": 12963000000,
+        "Other Segments": 625000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Animal Health segment": 1230000000,
+        "Pharmaceutical segment": 12179000000,
+        "Other Segments": 421000000
+      }
+    },
+    {
+      "date": "2023-03-31",
+      "segments": {
+        "Animal Health segment": 1491000000,
+        "Pharmaceutical segment": 275000000
+      }
+    },
+    {
+      "date": "2023-06-30",
+      "segments": {
+        "Animal Health segment": 1456000000,
+        "Pharmaceutical segment": 13457000000,
+        "Other Segments": 122000000
+      }
+    },
+    {
+      "date": "2023-09-30",
+      "segments": {
+        "Pharmaceutical segment": 299000000,
+        "Animal Health segment": 1400000000
+      }
+    },
+    {
+      "date": "2024-03-31",
+      "segments": {
+        "Animal Health segment": 1511000000,
+        "Pharmaceutical segment": 14006000000,
+        "Other Segments": 258000000
+      }
+    },
+    {
+      "date": "2024-06-30",
+      "segments": {
+        "Animal Health segment": 1482000000,
+        "Pharmaceutical segment": 14408000000,
+        "Other Segments": 222000000
+      }
+    },
+    {
+      "date": "2024-09-30",
+      "segments": {
+        "Animal Health segment": 1487000000,
+        "Pharmaceutical segment": 14943000000,
+        "Other Segments": 227000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Animal Health segment": 1397000000,
+        "Pharmaceutical segment": 14043000000,
+        "Other Segments": 184000000
+      }
+    },
+    {
+      "date": "2025-03-31",
+      "segments": {
+        "Animal Health segment": 1588000000,
+        "Pharmaceutical segment": 13638000000,
+        "Other Segments": 303000000
+      }
+    },
+    {
+      "date": "2025-06-30",
+      "segments": {
+        "Animal Health segment": 1646000000,
+        "Pharmaceutical segment": 14050000000,
+        "Other Segments": 110000000
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "segments": {
+        "Animal Health segment": 1615000000,
+        "Pharmaceutical segment": 15611000000,
+        "Other Segments": 50000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Animal Health segment": 1505000000,
+        "Pharmaceutical segment": 14843000000,
+        "Other Segments": 52000000
+      }
+    },
+    {
+      "date": "2026-03-31",
+      "segments": {
+        "Animal Health segment": 1791000000,
+        "Pharmaceutical segment": 14349000000,
+        "Other Segments": 146000000
+      }
+    },
+    {
+      "date": "2026-06-30",
+      "segments": {
+        "Animal Health segment": 1775000000,
+        "Pharmaceutical segment": 14760000000,
+        "Other Segments": 72000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2018-03-31",
+      "segments": {
+        "UNITED STATES": 4133000000,
+        "Asia Pacific": 1238000000,
+        "EMEA": 3191000000,
+        "JAPAN": 737000000,
+        "Latin America": 532000000,
+        "International": 206000000
+      }
+    },
+    {
+      "date": "2018-06-30",
+      "segments": {
+        "Asia Pacific": 1350000000,
+        "EMEA": 3144000000,
+        "JAPAN": 855000000,
+        "Latin America": 594000000,
+        "International": 279000000,
+        "UNITED STATES": 4243000000
+      }
+    },
+    {
+      "date": "2018-09-30",
+      "segments": {
+        "Asia Pacific": 1178000000,
+        "EMEA": 2884000000,
+        "JAPAN": 761000000,
+        "Latin America": 622000000,
+        "International": 319000000,
+        "UNITED STATES": 5030000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Asia Pacific": -857000000,
+        "CHINA": 2184000000,
+        "EMEA": 2994000000,
+        "JAPAN": 859000000,
+        "Latin America": 667000000,
+        "International": 345000000,
+        "UNITED STATES": 4806000000
+      }
+    },
+    {
+      "date": "2019-03-31",
+      "segments": {
+        "Asia Pacific": 745000000,
+        "CHINA": 746000000,
+        "EMEA": 3103000000,
+        "JAPAN": 799000000,
+        "Latin America": 561000000,
+        "International": 347000000,
+        "UNITED STATES": 4515000000
+      }
+    },
+    {
+      "date": "2019-06-30",
+      "segments": {
+        "Asia Pacific": 716000000,
+        "CHINA": 763000000,
+        "EMEA": 3163000000,
+        "JAPAN": 921000000,
+        "Latin America": 658000000,
+        "International": 395000000,
+        "UNITED STATES": 5144000000
+      }
+    },
+    {
+      "date": "2019-09-30",
+      "segments": {
+        "Asia Pacific": 756000000,
+        "CHINA": 914000000,
+        "EMEA": 3189000000,
+        "JAPAN": 919000000,
+        "Latin America": 671000000,
+        "International": 423000000,
+        "UNITED STATES": 5525000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Asia Pacific": 726000000,
+        "CHINA": 784000000,
+        "EMEA": 3252000000,
+        "JAPAN": 944000000,
+        "Latin America": 579000000,
+        "International": 441000000,
+        "UNITED STATES": 5141000000
+      }
+    },
+    {
+      "date": "2020-03-31",
+      "segments": {
+        "Asia Pacific": 728000000,
+        "CHINA": 864000000,
+        "EMEA": 3534000000,
+        "JAPAN": 811000000,
+        "Latin America": 556000000,
+        "International": 427000000,
+        "UNITED STATES": 5137000000
+      }
+    },
+    {
+      "date": "2020-06-30",
+      "segments": {
+        "Asia Pacific": 666000000,
+        "CHINA": 834000000,
+        "EMEA": 3071000000,
+        "JAPAN": 867000000,
+        "Latin America": 510000000,
+        "International": 290000000,
+        "UNITED STATES": 4634000000
+      }
+    },
+    {
+      "date": "2020-09-30",
+      "segments": {
+        "Asia Pacific": 735000000,
+        "CHINA": 1016000000,
+        "EMEA": 3454000000,
+        "JAPAN": 828000000,
+        "Latin America": 604000000,
+        "International": 289000000,
+        "UNITED STATES": 5625000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Asia Pacific": 735000000,
+        "CHINA": 910000000,
+        "EMEA": 3541000000,
+        "JAPAN": 870000000,
+        "Latin America": 604000000,
+        "International": 223000000,
+        "UNITED STATES": 5631000000
+      }
+    },
+    {
+      "date": "2021-03-31",
+      "segments": {
+        "Asia Pacific": 751000000,
+        "CHINA": 927000000,
+        "EMEA": 3729000000,
+        "JAPAN": 730000000,
+        "Latin America": 569000000,
+        "International": 238000000,
+        "UNITED STATES": 5136000000
+      }
+    },
+    {
+      "date": "2021-06-30",
+      "segments": {
+        "Asia Pacific": 594000000,
+        "CHINA": 975000000,
+        "EMEA": 3333000000,
+        "JAPAN": 661000000,
+        "Latin America": 532000000,
+        "International": 207000000,
+        "UNITED STATES": 5100000000
+      }
+    },
+    {
+      "date": "2021-09-30",
+      "segments": {
+        "Asia Pacific": 613000000,
+        "CHINA": 1307000000,
+        "EMEA": 3342000000,
+        "JAPAN": 638000000,
+        "Latin America": 599000000,
+        "International": 379000000,
+        "UNITED STATES": 6276000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Asia Pacific": 449000000,
+        "CHINA": 1169000000,
+        "EMEA": 2937000000,
+        "JAPAN": 697000000,
+        "Latin America": 506000000,
+        "International": 397000000,
+        "UNITED STATES": 5913000000
+      }
+    },
+    {
+      "date": "2022-03-31",
+      "segments": {
+        "Asia Pacific": 930000000,
+        "CHINA": 1143000000,
+        "EMEA": 4359000000,
+        "JAPAN": 989000000,
+        "Latin America": 607000000,
+        "International": 534000000,
+        "UNITED STATES": 7339000000
+      }
+    },
+    {
+      "date": "2022-06-30",
+      "segments": {
+        "Asia Pacific": 1008000000,
+        "CHINA": 1372000000,
+        "EMEA": 3582000000,
+        "JAPAN": 1114000000,
+        "Latin America": 642000000,
+        "International": 637000000,
+        "UNITED STATES": 6238000000
+      }
+    },
+    {
+      "date": "2022-09-30",
+      "segments": {
+        "Asia Pacific": 854000000,
+        "CHINA": 1442000000,
+        "EMEA": 3286000000,
+        "JAPAN": 673000000,
+        "Latin America": 684000000,
+        "International": 698000000,
+        "UNITED STATES": 7322000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Asia Pacific": 822000000,
+        "CHINA": 1234000000,
+        "EMEA": 3266000000,
+        "JAPAN": 853000000,
+        "Latin America": 649000000,
+        "International": 699000000,
+        "UNITED STATES": 6307000000
+      }
+    },
+    {
+      "date": "2023-03-31",
+      "segments": {
+        "Asia Pacific": 846000000,
+        "CHINA": 1715000000,
+        "EMEA": 3303000000,
+        "JAPAN": 758000000,
+        "Latin America": 661000000,
+        "International": 545000000,
+        "UNITED STATES": 6659000000
+      }
+    },
+    {
+      "date": "2023-06-30",
+      "segments": {
+        "Asia Pacific": 848000000,
+        "CHINA": 1913000000,
+        "EMEA": 3348000000,
+        "JAPAN": 675000000,
+        "Latin America": 742000000,
+        "International": 491000000,
+        "UNITED STATES": 7018000000
+      }
+    },
+    {
+      "date": "2023-09-30",
+      "segments": {
+        "Asia Pacific": 781000000,
+        "CHINA": 1694000000,
+        "EMEA": 3327000000,
+        "JAPAN": 1081000000,
+        "Latin America": 895000000,
+        "International": 469000000,
+        "UNITED STATES": 7715000000
+      }
+    },
+    {
+      "date": "2024-03-31",
+      "segments": {
+        "Asia Pacific": 724000000,
+        "CHINA": 1772000000,
+        "EMEA": 3563000000,
+        "JAPAN": 821000000,
+        "Latin America": 796000000,
+        "International": 621000000,
+        "UNITED STATES": 7478000000
+      }
+    },
+    {
+      "date": "2024-06-30",
+      "segments": {
+        "Asia Pacific": 748000000,
+        "CHINA": 1817000000,
+        "EMEA": 3515000000,
+        "JAPAN": 686000000,
+        "Latin America": 858000000,
+        "International": 612000000,
+        "UNITED STATES": 7876000000
+      }
+    },
+    {
+      "date": "2024-09-30",
+      "segments": {
+        "Asia Pacific": 823000000,
+        "CHINA": 1017000000,
+        "EMEA": 3583000000,
+        "JAPAN": 938000000,
+        "Latin America": 936000000,
+        "International": 624000000,
+        "UNITED STATES": 8736000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Asia Pacific": 763000000,
+        "CHINA": 888000000,
+        "EMEA": 3380000000,
+        "JAPAN": 835000000,
+        "Latin America": 869000000,
+        "International": 702000000,
+        "UNITED STATES": 8187000000
+      }
+    },
+    {
+      "date": "2025-03-31",
+      "segments": {
+        "Asia Pacific": 689000000,
+        "CHINA": 702000000,
+        "EMEA": 3454000000,
+        "JAPAN": 669000000,
+        "Latin America": 792000000,
+        "International": 701000000,
+        "UNITED STATES": 8522000000
+      }
+    },
+    {
+      "date": "2025-06-30",
+      "segments": {
+        "Asia Pacific": 785000000,
+        "CHINA": 446000000,
+        "EMEA": 3659000000,
+        "JAPAN": 626000000,
+        "Latin America": 859000000,
+        "International": 595000000,
+        "UNITED STATES": 8836000000
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "segments": {
+        "Asia Pacific": 764000000,
+        "CHINA": 405000000,
+        "EMEA": 3680000000,
+        "JAPAN": 712000000,
+        "Latin America": 905000000,
+        "International": 798000000,
+        "UNITED STATES": 10012000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Asia Pacific": 745000000,
+        "CHINA": 386000000,
+        "EMEA": 3787000000,
+        "JAPAN": 704000000,
+        "Latin America": 854000000,
+        "International": 784000000,
+        "UNITED STATES": 9140000000
+      }
+    },
+    {
+      "date": "2026-03-31",
+      "segments": {
+        "Asia Pacific": 738000000,
+        "CHINA": 390000000,
+        "EMEA": 3886000000,
+        "JAPAN": 555000000,
+        "Latin America": 874000000,
+        "International": 679000000,
+        "UNITED STATES": 9164000000
+      }
+    },
+    {
+      "date": "2026-06-30",
+      "segments": {
+        "Asia Pacific": 820000000,
+        "CHINA": 408000000,
+        "EMEA": 3920000000,
+        "JAPAN": 577000000,
+        "Latin America": 875000000,
+        "International": 640000000,
+        "UNITED STATES": 9367000000
+      }
+    }
+  ]
+}

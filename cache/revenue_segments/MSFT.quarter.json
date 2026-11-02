@@ -1,0 +1,1100 @@
+{
+  "version": 1,
+  "ticker": "MSFT",
+  "source": "FMP revenue segmentation (quarter)",
+  "period": "quarter",
+  "product": [
+    {
+      "date": "2010-09-30",
+      "segments": {
+        "Windows & Windows Live Division": 4785000000,
+        "Server and Tools": 3963000000,
+        "Microsoft Business Division": 5130000000,
+        "Online Services Division": 5270000000,
+        "Entertainment and Devices Division": 1798000000,
+        "Unallocated and Other": -8000000
+      }
+    },
+    {
+      "date": "2010-12-31",
+      "segments": {
+        "Windows & Windows Live Division": 5054000000,
+        "Server and Tools": 4390000000,
+        "Online Services Division": 6910000000,
+        "Microsoft Business Division": 6032000000,
+        "Entertainment and Devices Division": 3698000000,
+        "Unallocated and other": 88000000
+      }
+    },
+    {
+      "date": "2011-03-31",
+      "segments": {
+        "Microsoft Business Division": 5252000000,
+        "Windows & Windows Live Division": 4445000000,
+        "Server and Tools": 4102000000,
+        "Entertainment and Devices Division": 1935000000,
+        "Online Services Division": 648000000,
+        "Unallocated and other": 46000000
+      }
+    },
+    {
+      "date": "2011-06-30",
+      "segments": {
+        "Microsoft Business Division": 5777000000,
+        "Windows & Windows Live Division": 4740000000,
+        "Server and Tools": 4643000000,
+        "Entertainment and Devices Division": 1485000000,
+        "Online Services Division": 662000000,
+        "Unallocated and Other": 60000000
+      }
+    },
+    {
+      "date": "2011-09-30",
+      "segments": {
+        "Windows & Windows Live Division": 4871000000,
+        "Server and Tools": 4250000000,
+        "Online Services Division": 6250000000,
+        "Microsoft Business Division": 5622000000,
+        "Entertainment and Devices Division": 1965000000,
+        "Corporate and Other": 39000000
+      }
+    },
+    {
+      "date": "2011-12-31",
+      "segments": {
+        "Windows & Windows Live Division": 4744000000,
+        "Server and Tools": 4769000000,
+        "Online Services Division": 784000000,
+        "Microsoft Business Division": 6282000000,
+        "Entertainment and Devices Division": 4235000000,
+        "Unallocated and Other": 76000000
+      }
+    },
+    {
+      "date": "2012-03-31",
+      "segments": {
+        "Windows & Windows Live Division": 4624000000,
+        "Server and Tools": 4572000000,
+        "Online Services Division": 707000000,
+        "Microsoft Business Division": 5814000000,
+        "Entertainment and Devices Division": 1620000000,
+        "Unallocated and Other": 70000000
+      }
+    },
+    {
+      "date": "2012-06-30",
+      "segments": {
+        "Windows & Windows Live Division": 4145000000,
+        "Server and Tools": 5092000000,
+        "Microsoft Business Division": 6297000000,
+        "Online Services Division": 735000000,
+        "Entertainment and Devices Division": 1783000000,
+        "Corporate and Other": 7000000
+      }
+    },
+    {
+      "date": "2012-09-30",
+      "segments": {
+        "Microsoft Business Division": 5683000000,
+        "Server And Tools": 4555000000,
+        "Windows & Windows Live Division": 4401000000,
+        "Devices": 1938000000,
+        "Online Services Division": 713000000,
+        "Other Products And Services": -1282000000
+      }
+    },
+    {
+      "date": "2012-12-31",
+      "segments": {
+        "Windows Division": 5881000000,
+        "Server and Tools": 5186000000,
+        "Online Services Division": 869000000,
+        "Microsoft Business Division": 5691000000,
+        "Entertainment and Devices Division": 3772000000,
+        "Corporate and Other": 57000000
+      }
+    },
+    {
+      "date": "2013-03-31",
+      "segments": {
+        "Windows Division": 5703000000,
+        "Server and Tools": 5039000000,
+        "Online Services Division": 832000000,
+        "Microsoft Business Division": 6319000000,
+        "Entertainment and Devices Division": 2531000000,
+        "Corporate-and-Other": 65000000
+      }
+    },
+    {
+      "date": "2013-06-30",
+      "segments": {
+        "Windows Division": 4411000000,
+        "Server and Tools": 5502000000,
+        "Online Services Division": 804000000,
+        "Microsoft Business Division": 7213000000,
+        "Entertainment and Devices Division": 1915000000,
+        "Corporate and Other": 51000000
+      }
+    },
+    {
+      "date": "2013-09-30",
+      "segments": {
+        "Commercial Licensing": 9594000000,
+        "Commercial Other": 1603000000,
+        "Devices And Consumer Hardware": 1485000000,
+        "Devices and Consumer Licensing": 4343000000,
+        "Devices and Consumer Other": 1635000000,
+        "Corporate and Reconciling Items": -131000000
+      }
+    },
+    {
+      "date": "2013-12-31",
+      "segments": {
+        "Commercial Licensing": 10888000000,
+        "Commercial Other": 1780000000,
+        "Devices And Consumer Hardware": 4729000000,
+        "Devices and Consumer Licensing": 5384000000,
+        "Devices and Consumer Other": 1793000000,
+        "Corporate and Reconciling Items": -55000000
+      }
+    },
+    {
+      "date": "2014-03-31",
+      "segments": {
+        "Commercial Licensing": 10323000000,
+        "Commercial Other": 1902000000,
+        "Devices And Consumer Hardware": 1973000000,
+        "Devices and Consumer Licensing": 4382000000,
+        "Devices and Consumer Other": 1950000000,
+        "Corporate and Reconciling Items": -127000000
+      }
+    },
+    {
+      "date": "2014-06-30",
+      "segments": {
+        "Commercial Licensing": 11222000000,
+        "Commercial Other": 2262000000,
+        "Devices and Consumer Licensing": 4694000000,
+        "Devices and Consumer Other": 1880000000,
+        "Devices And Consumer Hardware": 3426000000,
+        "Corporate and Other": -415000000
+      }
+    },
+    {
+      "date": "2014-09-30",
+      "segments": {
+        "Commercial Licensing": 9873000000,
+        "Commercial Other": 2407000000,
+        "Devices and Consumer Licensing": 4093000000,
+        "Devices and Consumer Other": 1809000000,
+        "Computing and Gaming Hardware": 2453000000,
+        "Phone Hardware": 2609000000,
+        "Corporate and Reconciling Items": -43000000
+      }
+    },
+    {
+      "date": "2014-12-31",
+      "segments": {
+        "Commercial Licensing": 10679000000,
+        "Commercial Other": 2593000000,
+        "Devices and Consumer Licensing": 4167000000,
+        "Devices and Consumer Other": 2436000000,
+        "Computing and Gaming Hardware": 3997000000,
+        "Phone Hardware": 2284000000,
+        "Corporate and Reconciling Items": 314000000
+      }
+    },
+    {
+      "date": "2015-03-31",
+      "segments": {
+        "Commercial Licensing": 10036000000,
+        "Commercial Other": 2760000000,
+        "Devices and Consumer Licensing": 3476000000,
+        "Devices and Consumer Other": 2280000000,
+        "Computing and Gaming Hardware": 1800000000,
+        "Phone Hardware": 1397000000,
+        "Corporate and Reconciling Items": -20000000
+      }
+    },
+    {
+      "date": "2015-06-30",
+      "segments": {
+        "Commercial Licensing": 10451000000,
+        "Commercial Other": 3076000000,
+        "Devices and Consumer Licensing": 3233000000,
+        "Devices and Consumer Other": 2300000000,
+        "Computing and Gaming Hardware": 1933000000,
+        "Phone Hardware": 1234000000,
+        "Corporate and Other": 204000000
+      }
+    },
+    {
+      "date": "2015-09-30",
+      "segments": {
+        "Intelligent Cloud": 5892000000,
+        "More Personal Computing": 9381000000,
+        "Productivity And Business Processes": 6306000000,
+        "Corporate and Reconciling Items": -1200000000
+      }
+    },
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "Intelligent Cloud": 6343000000,
+        "More Personal Computing": 12660000000,
+        "Productivity And Business Processes": 6690000000,
+        "Corporate and Reconciling Items": -1897000000
+      }
+    },
+    {
+      "date": "2016-03-31",
+      "segments": {
+        "Intelligent Cloud": 6096000000,
+        "More Personal Computing": 9458000000,
+        "Productivity And Business Processes": 6522000000,
+        "Corporate and Reconciling Items": -1545000000
+      }
+    },
+    {
+      "date": "2016-06-30",
+      "segments": {
+        "Intelligent Cloud": 6621000000,
+        "More Personal Computing": 8911000000,
+        "Productivity And Business Processes": 6274000000
+      }
+    },
+    {
+      "date": "2016-09-30",
+      "segments": {
+        "Devices": 1362000000,
+        "Enterprise Services": 1355000000,
+        "Gaming": 1885000000,
+        "Linked In Corporation": 0,
+        "Office Products And Cloud Services": 5982000000,
+        "Other Products And Services": 583000000,
+        "Search Advertising": 1429000000,
+        "Server Products And Cloud Services": 4689000000,
+        "Windows": 4643000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Devices": 1697000000,
+        "Enterprise Services": 1371000000,
+        "Gaming": 3617000000,
+        "Linked In Corporation": 228000000,
+        "Office Products And Cloud Services": 6439000000,
+        "Other Products And Services": 732000000,
+        "Search Advertising": 1605000000,
+        "Server Products And Cloud Services": 5332000000,
+        "Windows": 4805000000
+      }
+    },
+    {
+      "date": "2017-03-31",
+      "segments": {
+        "Devices": 958000000,
+        "Enterprise Services": 1383000000,
+        "Gaming": 1906000000,
+        "Linked In Corporation": 976000000,
+        "Office Products And Cloud Services": 6234000000,
+        "Other Products And Services": 606000000,
+        "Search Advertising": 1599000000,
+        "Server Products And Cloud Services": 5297000000,
+        "Windows": 4253000000
+      }
+    },
+    {
+      "date": "2017-06-30",
+      "segments": {
+        "Devices": 1045000000,
+        "Enterprise Services": 1433000000,
+        "Gaming": 1643000000,
+        "Linked In Corporation": 1067000000,
+        "Office Products And Cloud Services": 6918000000,
+        "Other Products And Services": 690000000,
+        "Search Advertising": 1586000000,
+        "Server Products And Cloud Services": 6331000000,
+        "Windows": 4892000000
+      }
+    },
+    {
+      "date": "2017-09-30",
+      "segments": {
+        "Devices": 1154000000,
+        "Enterprise Services": 1371000000,
+        "Gaming": 1896000000,
+        "Linked In Corporation": 1148000000,
+        "Office Products And Cloud Services": 6575000000,
+        "Other Products And Services": 616000000,
+        "Search Advertising": 1639000000,
+        "Server Products And Cloud Services": 5496000000,
+        "Windows": 4643000000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "Devices": 1478000000,
+        "Enterprise Services": 1435000000,
+        "Gaming": 3920000000,
+        "Linked In Corporation": 1312000000,
+        "Office Products And Cloud Services": 7075000000,
+        "Other Products And Services": 740000000,
+        "Search Advertising": 1820000000,
+        "Server Products And Cloud Services": 6299000000,
+        "Windows": 4839000000
+      }
+    },
+    {
+      "date": "2018-03-31",
+      "segments": {
+        "Devices": 1219000000,
+        "Enterprise Services": 1489000000,
+        "Gaming": 2251000000,
+        "Linked In Corporation": 1335000000,
+        "Office Products And Cloud Services": 7088000000,
+        "Other Products And Services": 698000000,
+        "Search Advertising": 1784000000,
+        "Server Products And Cloud Services": 6343000000,
+        "Windows": 4612000000
+      }
+    },
+    {
+      "date": "2018-06-30",
+      "segments": {
+        "Devices": 1283000000,
+        "Enterprise Services": 1551000000,
+        "Gaming": 2286000000,
+        "Linked In Corporation": 1464000000,
+        "Office Products And Cloud Services": 7578000000,
+        "Other Products And Services": 739000000,
+        "Search Advertising": 1769000000,
+        "Server Products And Cloud Services": 7991000000,
+        "Windows": 5424000000
+      }
+    },
+    {
+      "date": "2018-09-30",
+      "segments": {
+        "Devices": 1261000000,
+        "Enterprise Services": 1450000000,
+        "Gaming": 2738000000,
+        "Linked In Corporation": 1530000000,
+        "Office Products And Cloud Services": 7622000000,
+        "Other Products And Services": 736000000,
+        "Search Advertising": 1788000000,
+        "Server Products And Cloud Services": 7058000000,
+        "Windows": 4901000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Devices": 1948000000,
+        "Enterprise Services": 1521000000,
+        "Gaming": 4232000000,
+        "Linked In Corporation": 1693000000,
+        "Office Products And Cloud Services": 7747000000,
+        "Other Products And Services": 805000000,
+        "Search Advertising": 1976000000,
+        "Server Products And Cloud Services": 7791000000,
+        "Windows": 4758000000
+      }
+    },
+    {
+      "date": "2019-03-31",
+      "segments": {
+        "Devices": 1423000000,
+        "Enterprise Services": 1542000000,
+        "Gaming": 2363000000,
+        "Linked In Corporation": 1696000000,
+        "Office Products And Cloud Services": 7889000000,
+        "Other Products And Services": 750000000,
+        "Search Advertising": 1911000000,
+        "Server Products And Cloud Services": 8053000000,
+        "Windows": 4944000000
+      }
+    },
+    {
+      "date": "2019-06-30",
+      "segments": {
+        "Devices": 1463000000,
+        "Enterprise Services": 1611000000,
+        "Gaming": 2053000000,
+        "Linked In Corporation": 1835000000,
+        "Office Products And Cloud Services": 8511000000,
+        "Other Products And Services": 779000000,
+        "Search Advertising": 1953000000,
+        "Server Products And Cloud Services": 9720000000,
+        "Windows": 5792000000
+      }
+    },
+    {
+      "date": "2019-09-30",
+      "segments": {
+        "Devices": 1202000000,
+        "Enterprise Services": 1545000000,
+        "Gaming": 2542000000,
+        "Linked In Corporation": 1909000000,
+        "Office Products And Cloud Services": 8466000000,
+        "Other Products And Services": 855000000,
+        "Search Advertising": 1991000000,
+        "Server Products And Cloud Services": 9192000000,
+        "Windows": 5353000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Devices": 2048000000,
+        "Enterprise Services": 1612000000,
+        "Gaming": 3327000000,
+        "Linked In Corporation": 2102000000,
+        "Office Products And Cloud Services": 8983000000,
+        "Other Products And Services": 959000000,
+        "Search Advertising": 2163000000,
+        "Server Products And Cloud Services": 10119000000,
+        "Windows": 5593000000
+      }
+    },
+    {
+      "date": "2020-03-31",
+      "segments": {
+        "Devices": 1412000000,
+        "Enterprise Services": 1633000000,
+        "Gaming": 2349000000,
+        "Linked In Corporation": 2050000000,
+        "Office Products And Cloud Services": 8920000000,
+        "Other Products And Services": 961000000,
+        "Search Advertising": 1986000000,
+        "Server Products And Cloud Services": 10490000000,
+        "Windows": 5220000000
+      }
+    },
+    {
+      "date": "2020-06-30",
+      "segments": {
+        "Devices": 1795000000,
+        "Enterprise Services": 1619000000,
+        "Gaming": 3357000000,
+        "Linked In Corporation": 2016000000,
+        "Office Products And Cloud Services": 8947000000,
+        "Other Products And Services": 993000000,
+        "Search Advertising": 1600000000,
+        "Server Products And Cloud Services": 11578000000,
+        "Windows": 6128000000
+      }
+    },
+    {
+      "date": "2020-09-30",
+      "segments": {
+        "Devices": 1620000000,
+        "Enterprise Services": 1637000000,
+        "Gaming": 3092000000,
+        "Linked In Corporation": 2206000000,
+        "Office Products And Cloud Services": 9278000000,
+        "Other Products And Services": 1032000000,
+        "Search Advertising": 1789000000,
+        "Server Products And Cloud Services": 11195000000,
+        "Windows": 5305000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Devices": 2120000000,
+        "Enterprise Services": 1695000000,
+        "Gaming": 5031000000,
+        "Linked In Corporation": 2577000000,
+        "Office Products And Cloud Services": 9881000000,
+        "Other Products And Services": 1143000000,
+        "Search Advertising": 2184000000,
+        "Server Products And Cloud Services": 12729000000,
+        "Windows": 5716000000
+      }
+    },
+    {
+      "date": "2021-03-31",
+      "segments": {
+        "Devices": 1599000000,
+        "Enterprise Services": 1803000000,
+        "Gaming": 3533000000,
+        "Linked In Corporation": 2562000000,
+        "Office Products And Cloud Services": 10016000000,
+        "Other Products And Services": 1125000000,
+        "Search Advertising": 2218000000,
+        "Server Products And Cloud Services": 13204000000,
+        "Windows": 5646000000
+      }
+    },
+    {
+      "date": "2021-06-30",
+      "segments": {
+        "Devices": 1452000000,
+        "Enterprise Services": 1808000000,
+        "Gaming": 3714000000,
+        "Linked In Corporation": 2944000000,
+        "Office Products And Cloud Services": 10697000000,
+        "Other Products And Services": 1179000000,
+        "Search Advertising": 2337000000,
+        "Server Products And Cloud Services": 15461000000,
+        "Windows": 6560000000
+      }
+    },
+    {
+      "date": "2021-09-30",
+      "segments": {
+        "Server products and cloud services": 15069000000,
+        "Office products and cloud services": 10808000000,
+        "Windows": 5676000000,
+        "Gaming": 3593000000,
+        "LinkedIn": 3136000000,
+        "Search and news advertising": 2656000000,
+        "Enterprise Services": 1791000000,
+        "Devices": 1361000000,
+        "Other": 1227000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Server products and cloud services": 16375000000,
+        "Office products and cloud services": 11251000000,
+        "Windows": 6600000000,
+        "Gaming": 5442000000,
+        "LinkedIn": 3531000000,
+        "Search and news advertising": 3064000000,
+        "Devices": 2285000000,
+        "Enterprise Services": 1823000000,
+        "Other": 1357000000
+      }
+    },
+    {
+      "date": "2022-03-31",
+      "segments": {
+        "Server products and cloud services": 17038000000,
+        "Office products and cloud services": 11164000000,
+        "Windows": 6077000000,
+        "Gaming": 3740000000,
+        "LinkedIn": 3437000000,
+        "Search and news advertising": 2945000000,
+        "Enterprise Services": 1891000000,
+        "Devices": 1764000000,
+        "Other": 1304000000
+      }
+    },
+    {
+      "date": "2022-06-30",
+      "segments": {
+        "Server products and cloud services": 18839000000,
+        "Office products and cloud services": 11639000000,
+        "Windows": 6408000000,
+        "Gaming": 3455000000,
+        "LinkedIn": 3712000000,
+        "Search and news advertising": 2926000000,
+        "Enterprise Services": 1902000000,
+        "Devices": 1581000000,
+        "Other": 1403000000
+      }
+    },
+    {
+      "date": "2022-09-30",
+      "segments": {
+        "Server products and cloud services": 18388000000,
+        "Office products and cloud services": 11548000000,
+        "Windows": 5313000000,
+        "LinkedIn": 3663000000,
+        "Gaming": 3610000000,
+        "Search and news advertising": 2928000000,
+        "Enterprise Services": 1876000000,
+        "Devices": 1448000000,
+        "Other": 1348000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Server products and cloud services": 19594000000,
+        "Office products and cloud services": 11837000000,
+        "Windows": 4808000000,
+        "LinkedIn": 3876000000,
+        "Gaming": 4758000000,
+        "Search and news advertising": 3223000000,
+        "Enterprise Services": 1862000000,
+        "Devices": 1430000000,
+        "Other": 1359000000
+      }
+    },
+    {
+      "date": "2023-03-31",
+      "segments": {
+        "Server products and cloud services": 20025000000,
+        "Office products and cloud services": 12438000000,
+        "Windows": 5328000000,
+        "Gaming": 3607000000,
+        "LinkedIn": 3697000000,
+        "Search and news advertising": 3045000000,
+        "Enterprise Services": 2007000000,
+        "Devices": 1282000000,
+        "Other": 1428000000
+      }
+    },
+    {
+      "date": "2023-06-30",
+      "segments": {
+        "Server products and cloud services": 21963000000,
+        "Office products and cloud services": 12905000000,
+        "Windows": 6058000000,
+        "Gaming": 3491000000,
+        "LinkedIn": 3909000000,
+        "Search and news advertising": 3012000000,
+        "Enterprise Services": 1977000000,
+        "Devices": 1361000000,
+        "Other": 1513000000
+      }
+    },
+    {
+      "date": "2023-09-30",
+      "segments": {
+        "Server products and cloud services": 22308000000,
+        "Office products and cloud services": 13140000000,
+        "Windows": 5567000000,
+        "Gaming": 3919000000,
+        "LinkedIn": 3913000000,
+        "Search and news advertising": 3053000000,
+        "Enterprise and partner services": 1944000000,
+        "Dynamics": 1540000000,
+        "Devices": 1125000000,
+        "Other": 8000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Server products and cloud services": 23953000000,
+        "Office products and cloud services": 13477000000,
+        "Gaming": 7111000000,
+        "Windows": 5262000000,
+        "LinkedIn": 4195000000,
+        "Search and news advertising": 3220000000,
+        "Enterprise and partner services": 1917000000,
+        "Dynamics products and cloud services": 1576000000,
+        "Devices": 1298000000,
+        "Other": 11000000
+      }
+    },
+    {
+      "date": "2024-03-31",
+      "segments": {
+        "Server products and cloud services": 24832000000,
+        "Office products and cloud services": 13911000000,
+        "Windows": 5929000000,
+        "Gaming": 5451000000,
+        "LinkedIn": 4013000000,
+        "Search and news advertising": 3134000000,
+        "Enterprise and partner services": 1861000000,
+        "Dynamics products and cloud services": 1646000000,
+        "Devices": 1067000000,
+        "Other": 14000000
+      }
+    },
+    {
+      "date": "2024-06-30",
+      "segments": {
+        "Server products and cloud services": 26633000000,
+        "Office products and cloud services": 14347000000,
+        "Windows": 6486000000,
+        "Gaming": 5022000000,
+        "LinkedIn": 4251000000,
+        "Search and news advertising": 3169000000,
+        "Enterprise and partner services": 1872000000,
+        "Dynamics products and cloud services": 1719000000,
+        "Devices": 1216000000,
+        "Other": 12000000
+      }
+    },
+    {
+      "date": "2024-09-30",
+      "segments": {
+        "Server products and cloud services": 22155000000,
+        "Microsoft 365 Commercial products and cloud services": 20449000000,
+        "Gaming": 5621000000,
+        "Windows and Devices": 4329000000,
+        "LinkedIn": 4292000000,
+        "Search and news advertising": 3225000000,
+        "Enterprise and partner services": 1928000000,
+        "Dynamics products and cloud services": 1849000000,
+        "Microsoft 365 Consumer products and cloud services": 1727000000,
+        "Other": 10000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Server products and cloud services": 23641000000,
+        "Microsoft 365 Commercial products and cloud services": 21117000000,
+        "Gaming": 6581000000,
+        "LinkedIn": 4587000000,
+        "Windows and Devices": 4512000000,
+        "Search and news advertising": 3558000000,
+        "Enterprise and partner services": 1892000000,
+        "Dynamics products and cloud services": 1913000000,
+        "Microsoft 365 Consumer products and cloud services": 1821000000,
+        "Other": 10000000
+      }
+    },
+    {
+      "date": "2025-03-31",
+      "segments": {
+        "Server products and cloud services": 24761000000,
+        "Microsoft 365 Commercial products and cloud services": 21883000000,
+        "Gaming": 5721000000,
+        "LinkedIn": 4311000000,
+        "Windows and Devices": 4144000000,
+        "Search and news advertising": 3504000000,
+        "Enterprise and partner services": 1946000000,
+        "Dynamics products and cloud services": 1929000000,
+        "Microsoft 365 Consumer products and cloud services": 1821000000,
+        "Other": 46000000
+      }
+    },
+    {
+      "date": "2025-06-30",
+      "segments": {
+        "Server products and cloud services": 27878000000,
+        "Microsoft 365 Commercial products and cloud services": 24318000000,
+        "Gaming": 5532000000,
+        "LinkedIn": 4622000000,
+        "Windows and Devices": 4329000000,
+        "Search and news advertising": 3591000000,
+        "Dynamics products and cloud services": 2136000000,
+        "Enterprise and partner services": 1994000000,
+        "Microsoft 365 Consumer products and cloud services": 2035000000,
+        "Other": 6000000
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "segments": {
+        "Server products and cloud services": 28872000000,
+        "Microsoft 365 Commercial products and cloud services": 23966000000,
+        "Gaming": 5508000000,
+        "LinkedIn": 4714000000,
+        "Windows and Devices": 4551000000,
+        "Search and news advertising": 3697000000,
+        "Microsoft 365 Consumer products and cloud services": 2204000000,
+        "Dynamics products and cloud services": 2136000000,
+        "Enterprise and partner services": 2022000000,
+        "Other": 3000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Server products and cloud services": 30865000000,
+        "Microsoft 365 Commercial products and cloud services": 24524000000,
+        "Gaming": 5958000000,
+        "LinkedIn": 5082000000,
+        "Windows and Devices": 4479000000,
+        "Search and news advertising": 3812000000,
+        "Microsoft 365 Consumer products and cloud services": 2305000000,
+        "Dynamics products and cloud services": 2204000000,
+        "Enterprise and partner services": 2038000000,
+        "Other": 6000000
+      }
+    },
+    {
+      "date": "2026-03-31",
+      "segments": {
+        "Server products and cloud services": 32592000000,
+        "Microsoft 365 Commercial products and cloud services": 25593000000,
+        "Gaming": 5341000000,
+        "LinkedIn": 4832000000,
+        "Windows and Devices": 4041000000,
+        "Search advertising": 3808000000,
+        "Microsoft 365 Consumer products and cloud services": 2297000000,
+        "Dynamics products and cloud services": 2292000000,
+        "Enterprise and partner services": 2087000000,
+        "Other": 3000000
+      }
+    },
+    {
+      "date": "2026-06-30",
+      "segments": {
+        "Server products and cloud services": 37096000000,
+        "Microsoft 365 Commercial products and cloud services": 27914000000,
+        "XBOX": 4983000000,
+        "LinkedIn": 5189000000,
+        "Windows and Devices": 4013000000,
+        "Search advertising": 3859000000,
+        "Microsoft 365 Consumer products and cloud services": 2369000000,
+        "Dynamics products and cloud services": 2374000000,
+        "Enterprise and partner services": 2113000000,
+        "Other": 97000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2017-09-30",
+      "segments": {
+        "Non Us": 12011000000,
+        "UNITED STATES": 12527000000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "Non Us": 13808000000,
+        "UNITED STATES": 15110000000
+      }
+    },
+    {
+      "date": "2018-03-31",
+      "segments": {
+        "Non Us": 13362000000,
+        "UNITED STATES": 13457000000
+      }
+    },
+    {
+      "date": "2018-06-30",
+      "segments": {
+        "Non Us": 15253000000,
+        "UNITED STATES": 14832000000
+      }
+    },
+    {
+      "date": "2018-09-30",
+      "segments": {
+        "Non Us": 14344000000,
+        "UNITED STATES": 14740000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Non Us": 15684000000,
+        "UNITED STATES": 16787000000
+      }
+    },
+    {
+      "date": "2019-03-31",
+      "segments": {
+        "Non Us": 15199000000,
+        "UNITED STATES": 15372000000
+      }
+    },
+    {
+      "date": "2019-06-30",
+      "segments": {
+        "Non Us": 16417000000,
+        "UNITED STATES": 17300000000
+      }
+    },
+    {
+      "date": "2019-09-30",
+      "segments": {
+        "Non Us": 15785000000,
+        "UNITED STATES": 17270000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Non Us": 17757000000,
+        "UNITED STATES": 19149000000
+      }
+    },
+    {
+      "date": "2020-03-31",
+      "segments": {
+        "Non Us": 17593000000,
+        "UNITED STATES": 17428000000
+      }
+    },
+    {
+      "date": "2020-06-30",
+      "segments": {
+        "Non Us": 18720000000,
+        "UNITED STATES": 19313000000
+      }
+    },
+    {
+      "date": "2020-09-30",
+      "segments": {
+        "Non Us": 18129000000,
+        "UNITED STATES": 19025000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Non Us": 21240000000,
+        "UNITED STATES": 21836000000
+      }
+    },
+    {
+      "date": "2021-03-31",
+      "segments": {
+        "Non Us": 21333000000,
+        "UNITED STATES": 20373000000
+      }
+    },
+    {
+      "date": "2021-06-30",
+      "segments": {
+        "Non Us": 23433000000,
+        "UNITED STATES": 22719000000
+      }
+    },
+    {
+      "date": "2021-09-30",
+      "segments": {
+        "Non Us": 22487000000,
+        "UNITED STATES": 22830000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Non Us": 25265000000,
+        "UNITED STATES": 26463000000
+      }
+    },
+    {
+      "date": "2022-03-31",
+      "segments": {
+        "Non Us": 24589000000,
+        "UNITED STATES": 24771000000
+      }
+    },
+    {
+      "date": "2022-06-30",
+      "segments": {
+        "Non Us": 25711000000,
+        "UNITED STATES": 26154000000
+      }
+    },
+    {
+      "date": "2022-09-30",
+      "segments": {
+        "Non Us": 24255000000,
+        "UNITED STATES": 25867000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Non Us": 25771000000,
+        "UNITED STATES": 26976000000
+      }
+    },
+    {
+      "date": "2023-03-31",
+      "segments": {
+        "Non Us": 26850000000,
+        "UNITED STATES": 26007000000
+      }
+    },
+    {
+      "date": "2023-06-30",
+      "segments": {
+        "Non Us": 28295000000,
+        "UNITED STATES": 27894000000
+      }
+    },
+    {
+      "date": "2023-09-30",
+      "segments": {
+        "Non Us": 27705000000,
+        "UNITED STATES": 28812000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Non Us": 29725000000,
+        "UNITED STATES": 32295000000
+      }
+    },
+    {
+      "date": "2024-03-31",
+      "segments": {
+        "Non Us": 30421000000,
+        "UNITED STATES": 31437000000
+      }
+    },
+    {
+      "date": "2024-06-30",
+      "segments": {
+        "Non Us": 32567000000,
+        "UNITED STATES": 32160000000
+      }
+    },
+    {
+      "date": "2024-09-30",
+      "segments": {
+        "Non Us": 31672000000,
+        "UNITED STATES": 33913000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Non Us": 34095000000,
+        "UNITED STATES": 35537000000
+      }
+    },
+    {
+      "date": "2025-03-31",
+      "segments": {
+        "Non Us": 33982000000,
+        "UNITED STATES": 36084000000
+      }
+    },
+    {
+      "date": "2025-06-30",
+      "segments": {
+        "Non Us": 37429000000,
+        "UNITED STATES": 39012000000
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "segments": {
+        "Non Us": 37596000000,
+        "UNITED STATES": 40077000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Non Us": 39863000000,
+        "UNITED STATES": 41410000000
+      }
+    },
+    {
+      "date": "2026-03-31",
+      "segments": {
+        "Non Us": 40550000000,
+        "UNITED STATES": 42336000000
+      }
+    },
+    {
+      "date": "2026-06-30",
+      "segments": {
+        "Non Us": 43036000000,
+        "UNITED STATES": 46971000000
+      }
+    },
+    {
+      "date": "2026-09-30",
+      "segments": {
+        "Non Us": 42820000000,
+        "UNITED STATES": 49459000000
+      }
+    }
+  ]
+}

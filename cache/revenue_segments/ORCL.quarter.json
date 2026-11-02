@@ -1,0 +1,705 @@
+{
+  "version": 1,
+  "ticker": "ORCL",
+  "source": "FMP revenue segmentation (quarter)",
+  "period": "quarter",
+  "product": [
+    {
+      "date": "2012-11-30",
+      "segments": {
+        "Hardware Business": 1324000000,
+        "Cloud And License Business": 6662000000,
+        "Services Business": 1127000000
+      }
+    },
+    {
+      "date": "2013-02-28",
+      "segments": {
+        "Hardware Business": 1243000000,
+        "Cloud And License Business": 6678000000,
+        "Services Business": 1049000000
+      }
+    },
+    {
+      "date": "2013-08-31",
+      "segments": {
+        "Hardware Business": 1266000000,
+        "Cloud And License Business": 6085000000,
+        "Services Business": 1030000000
+      }
+    },
+    {
+      "date": "2013-11-30",
+      "segments": {
+        "Hardware Business": 1327000000,
+        "Cloud And License Business": 6895000000,
+        "Services Business": 1061000000
+      }
+    },
+    {
+      "date": "2014-08-31",
+      "segments": {
+        "Hardware Business": 1166000000,
+        "Services Business": 857000000,
+        "Cloud And License Business": 6576000000
+      }
+    },
+    {
+      "date": "2014-11-30",
+      "segments": {
+        "Hardware Business": 1336000000,
+        "Services Business": 937000000,
+        "Cloud And License Business": 7335000000
+      }
+    },
+    {
+      "date": "2015-02-28",
+      "segments": {
+        "Hardware Business": 1300000000,
+        "Services Business": 859000000,
+        "Cloud And License Business": 7175000000
+      }
+    },
+    {
+      "date": "2015-05-31",
+      "segments": {
+        "Hardware Business": 1407000000,
+        "Services Business": 900000000,
+        "Cloud And License Business": 8405000000
+      }
+    },
+    {
+      "date": "2015-08-31",
+      "segments": {
+        "Hardware Business": 1129000000,
+        "Services Business": 862000000,
+        "Cloud And License Business": 6460000000
+      }
+    },
+    {
+      "date": "2015-11-30",
+      "segments": {
+        "Hardware Business": 1123000000,
+        "Services Business": 862000000,
+        "Cloud And License Business": 7011000000
+      }
+    },
+    {
+      "date": "2016-02-29",
+      "segments": {
+        "Hardware Business": 1135000000,
+        "Services Business": 793000000,
+        "Cloud And License Business": 7086000000
+      }
+    },
+    {
+      "date": "2016-05-31",
+      "segments": {
+        "Hardware Business": 1282000000,
+        "Services Business": 874000000,
+        "Cloud And License Business": 8440000000
+      }
+    },
+    {
+      "date": "2016-08-31",
+      "segments": {
+        "Hardware Business": 996000000,
+        "Services Business": 808000000,
+        "Cloud And License Business": 6809000000
+      }
+    },
+    {
+      "date": "2016-11-30",
+      "segments": {
+        "Cloud And License Business": 7212000000,
+        "Hardware Business": 1014000000,
+        "Services Business": 844000000
+      }
+    },
+    {
+      "date": "2017-02-28",
+      "segments": {
+        "Cloud And License Business": 7434000000,
+        "Hardware Business": 1028000000,
+        "Services Business": 812000000
+      }
+    },
+    {
+      "date": "2017-05-31",
+      "segments": {
+        "Hardware Business": 1114000000,
+        "Services Business": 894000000,
+        "Cloud And License Business": 8934000000
+      }
+    },
+    {
+      "date": "2017-08-31",
+      "segments": {
+        "Cloud And License Business": 7409000000,
+        "Hardware Business": 943000000,
+        "Services Business": 860000000
+      }
+    },
+    {
+      "date": "2017-11-30",
+      "segments": {
+        "Cloud And License Business": 7834000000,
+        "Hardware Business": 940000000,
+        "Services Business": 856000000
+      }
+    },
+    {
+      "date": "2018-02-28",
+      "segments": {
+        "Cloud And License Business": 7986000000,
+        "Hardware Business": 994000000,
+        "Services Business": 796000000
+      }
+    },
+    {
+      "date": "2018-05-31",
+      "segments": {
+        "Cloud And License Business": 9262000000,
+        "Hardware Business": 1116000000,
+        "Services Business": 882000000
+      }
+    },
+    {
+      "date": "2018-08-31",
+      "segments": {
+        "Cloud And License Business": 7484000000,
+        "Hardware Business": 904000000,
+        "Services Business": 813000000
+      }
+    },
+    {
+      "date": "2018-11-30",
+      "segments": {
+        "Cloud And License Business": 7859000000,
+        "Hardware Business": 891000000,
+        "Services Business": 817000000
+      }
+    },
+    {
+      "date": "2019-02-28",
+      "segments": {
+        "Cloud And License Business": 7917000000,
+        "Hardware Business": 915000000,
+        "Services Business": 786000000
+      }
+    },
+    {
+      "date": "2019-05-31",
+      "segments": {
+        "Cloud And License Business": 9322000000,
+        "Hardware Business": 994000000,
+        "Services Business": 824000000
+      }
+    },
+    {
+      "date": "2019-08-31",
+      "segments": {
+        "Cloud And License Business": 7619000000,
+        "Hardware Business": 815000000,
+        "Services Business": 786000000
+      }
+    },
+    {
+      "date": "2019-11-30",
+      "segments": {
+        "Cloud And License Business": 7938000000,
+        "Hardware Business": 871000000,
+        "Services Business": 806000000
+      }
+    },
+    {
+      "date": "2020-02-29",
+      "segments": {
+        "Cloud And License Business": 8162000000,
+        "Hardware Business": 857000000,
+        "Services Business": 778000000
+      }
+    },
+    {
+      "date": "2020-05-31",
+      "segments": {
+        "Cloud And License Business": 8804000000,
+        "Hardware Business": 900000000,
+        "Services Business": 736000000
+      }
+    },
+    {
+      "date": "2020-08-31",
+      "segments": {
+        "Cloud And License Business": 7834000000,
+        "Hardware Business": 814000000,
+        "Services Business": 720000000,
+        "Reconciling": -1000000
+      }
+    },
+    {
+      "date": "2020-11-30",
+      "segments": {
+        "Cloud And License Business": 8204000000,
+        "Hardware Business": 844000000,
+        "Services Business": 752000000
+      }
+    },
+    {
+      "date": "2021-02-28",
+      "segments": {
+        "Cloud And License Business": 8529000000,
+        "Hardware Business": 820000000,
+        "Services Business": 737000000,
+        "Reconciling": -1000000
+      }
+    },
+    {
+      "date": "2021-05-31",
+      "segments": {
+        "Cloud And License Business": 9534000000,
+        "Hardware Business": 881000000,
+        "Services Business": 812000000
+      }
+    },
+    {
+      "date": "2021-08-31",
+      "segments": {
+        "Cloud": 2461000000,
+        "Software": 5723000000,
+        "Hardware": 763000000,
+        "Services": 781000000
+      }
+    },
+    {
+      "date": "2021-11-30",
+      "segments": {
+        "Cloud": 2667000000,
+        "Software": 6124000000,
+        "Hardware": 767000000,
+        "Services": 802000000
+      }
+    },
+    {
+      "date": "2022-02-28",
+      "segments": {
+        "Cloud": 2791000000,
+        "Software": 6135000000,
+        "Hardware": 798000000,
+        "Services": 789000000
+      }
+    },
+    {
+      "date": "2022-05-31",
+      "segments": {
+        "Cloud": 2890000000,
+        "Software": 7261000000,
+        "Hardware": 856000000,
+        "Services": 833000000
+      }
+    },
+    {
+      "date": "2022-08-31",
+      "segments": {
+        "Cloud": 3579000000,
+        "Software": 5742000000,
+        "Hardware": 763000000,
+        "Services": 1361000000
+      }
+    },
+    {
+      "date": "2022-11-30",
+      "segments": {
+        "Cloud": 3813000000,
+        "Software": 6220000000,
+        "Hardware": 850000000,
+        "Services": 1392000000
+      }
+    },
+    {
+      "date": "2023-02-28",
+      "segments": {
+        "Cloud": 4053000000,
+        "Software": 6158000000,
+        "Hardware": 811000000,
+        "Services": 1376000000
+      }
+    },
+    {
+      "date": "2023-05-31",
+      "segments": {
+        "Cloud": 4437000000,
+        "Software": 7085000000,
+        "Hardware": 850000000,
+        "Services": 1465000000
+      }
+    },
+    {
+      "date": "2023-08-31",
+      "segments": {
+        "Cloud": 4635000000,
+        "Software": 5721000000,
+        "Hardware": 714000000,
+        "Services": 1383000000
+      }
+    },
+    {
+      "date": "2023-11-30",
+      "segments": {
+        "Cloud": 4775000000,
+        "Software": 6042000000,
+        "Hardware": 756000000,
+        "Services": 1368000000
+      }
+    },
+    {
+      "date": "2024-02-29",
+      "segments": {
+        "Cloud": 5054000000,
+        "Software": 6165000000,
+        "Hardware": 754000000,
+        "Services": 1307000000
+      }
+    },
+    {
+      "date": "2024-05-31",
+      "segments": {
+        "Cloud": 5311000000,
+        "Software": 6761000000,
+        "Hardware": 842000000,
+        "Services": 1373000000
+      }
+    },
+    {
+      "date": "2024-08-31",
+      "segments": {
+        "Cloud": 5623000000,
+        "Software": 5766000000,
+        "Hardware": 655000000,
+        "Services": 1263000000
+      }
+    },
+    {
+      "date": "2024-11-30",
+      "segments": {
+        "Cloud": 5937000000,
+        "Software": 6064000000,
+        "Hardware": 728000000,
+        "Services": 1330000000
+      }
+    },
+    {
+      "date": "2025-02-28",
+      "segments": {
+        "Cloud": 6210000000,
+        "Software": 5926000000,
+        "Hardware": 703000000,
+        "Services": 1291000000
+      }
+    },
+    {
+      "date": "2025-05-31",
+      "segments": {
+        "Cloud": 6737000000,
+        "Software": 6968000000,
+        "Hardware": 850000000,
+        "Services": 1348000000
+      }
+    },
+    {
+      "date": "2025-08-31",
+      "segments": {
+        "Cloud": 7186000000,
+        "Software": 5721000000,
+        "Hardware": 670000000,
+        "Services": 1349000000
+      }
+    },
+    {
+      "date": "2025-11-30",
+      "segments": {
+        "Cloud": 7977000000,
+        "Software": 5877000000,
+        "Hardware": 776000000,
+        "Services": 1428000000
+      }
+    },
+    {
+      "date": "2026-02-28",
+      "segments": {
+        "Cloud": 8914000000,
+        "Software": 6119000000,
+        "Hardware": 714000000,
+        "Services": 1443000000
+      }
+    },
+    {
+      "date": "2026-05-31",
+      "segments": {
+        "Cloud": 9913000000,
+        "Software": 6824000000,
+        "Hardware": 924000000,
+        "Services": 1523000000
+      }
+    },
+    {
+      "date": "2026-08-31",
+      "segments": {
+        "Cloud": 11607000000,
+        "Software": 5550000000,
+        "Hardware": 774000000,
+        "Services": 1414000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2018-08-31",
+      "segments": {
+        "Americas": 5161000000,
+        "Asia Pacific": 1456000000,
+        "E M E A": 2576000000
+      }
+    },
+    {
+      "date": "2018-11-30",
+      "segments": {
+        "Americas": 5243000000,
+        "Asia Pacific": 1537000000,
+        "E M E A": 2782000000
+      }
+    },
+    {
+      "date": "2019-02-28",
+      "segments": {
+        "Americas": 5266000000,
+        "Asia Pacific": 1567000000,
+        "E M E A": 2781000000
+      }
+    },
+    {
+      "date": "2019-05-31",
+      "segments": {
+        "Americas": 6186000000,
+        "E M E A": 3131000000,
+        "Asia Pacific": 1820000000
+      }
+    },
+    {
+      "date": "2019-08-31",
+      "segments": {
+        "Americas": 5150000000,
+        "Asia Pacific": 1515000000,
+        "E M E A": 2553000000
+      }
+    },
+    {
+      "date": "2019-11-30",
+      "segments": {
+        "Americas": 5304000000,
+        "Asia Pacific": 1615000000,
+        "E M E A": 2695000000
+      }
+    },
+    {
+      "date": "2020-02-29",
+      "segments": {
+        "Americas": 5363000000,
+        "Asia Pacific": 1598000000,
+        "E M E A": 2835000000
+      }
+    },
+    {
+      "date": "2020-05-31",
+      "segments": {
+        "Americas": 5746000000,
+        "Asia Pacific": 1742000000,
+        "E M E A": 2952000000
+      }
+    },
+    {
+      "date": "2020-08-31",
+      "segments": {
+        "Americas": 5068000000,
+        "Asia Pacific": 1561000000,
+        "E M E A": 2738000000
+      }
+    },
+    {
+      "date": "2020-11-30",
+      "segments": {
+        "Americas": 5259000000,
+        "Asia Pacific": 1689000000,
+        "E M E A": 2852000000
+      }
+    },
+    {
+      "date": "2021-02-28",
+      "segments": {
+        "Americas": 5424000000,
+        "Asia Pacific": 1680000000,
+        "E M E A": 2981000000
+      }
+    },
+    {
+      "date": "2021-05-31",
+      "segments": {
+        "Americas": 6077000000,
+        "Asia Pacific": 1827000000,
+        "E M E A": 3323000000
+      }
+    },
+    {
+      "date": "2021-08-31",
+      "segments": {
+        "Americas": 5321000000,
+        "Asia Pacific": 1623000000,
+        "E M E A": 2784000000
+      }
+    },
+    {
+      "date": "2021-11-30",
+      "segments": {
+        "Americas": 5736000000,
+        "Asia Pacific": 1671000000,
+        "E M E A": 2953000000
+      }
+    },
+    {
+      "date": "2022-02-28",
+      "segments": {
+        "Americas": 5849000000,
+        "Asia Pacific": 1650000000,
+        "E M E A": 3014000000
+      }
+    },
+    {
+      "date": "2022-05-31",
+      "segments": {
+        "Americas": 6773000000,
+        "Asia Pacific": 1806000000,
+        "E M E A": 3260000000
+      }
+    },
+    {
+      "date": "2022-08-31",
+      "segments": {
+        "Americas": 7192000000,
+        "Asia Pacific": 1562000000,
+        "E M E A": 2691000000
+      }
+    },
+    {
+      "date": "2022-11-30",
+      "segments": {
+        "Americas": 7786000000,
+        "Asia Pacific": 1594000000,
+        "E M E A": 2895000000
+      }
+    },
+    {
+      "date": "2023-02-28",
+      "segments": {
+        "Americas": 7671000000,
+        "Asia Pacific": 1660000000,
+        "E M E A": 3067000000
+      }
+    },
+    {
+      "date": "2023-05-31",
+      "segments": {
+        "E M E A": 3456000000,
+        "Asia Pacific": 1803000000,
+        "Americas": 8577000000
+      }
+    },
+    {
+      "date": "2023-08-31",
+      "segments": {
+        "Americas": 7841000000,
+        "Asia Pacific": 1607000000,
+        "E M E A": 3005000000
+      }
+    },
+    {
+      "date": "2023-11-30",
+      "segments": {
+        "Americas": 8067000000,
+        "Asia Pacific": 1704000000,
+        "E M E A": 3170000000
+      }
+    },
+    {
+      "date": "2024-02-29",
+      "segments": {
+        "Americas": 8270000000,
+        "Asia Pacific": 1694000000,
+        "E M E A": 3316000000
+      }
+    },
+    {
+      "date": "2024-05-31",
+      "segments": {
+        "Americas": 8944000000,
+        "Asia Pacific": 1804000000,
+        "E M E A": 3539000000
+      }
+    },
+    {
+      "date": "2024-08-31",
+      "segments": {
+        "Americas": 8372000000,
+        "Asia Pacific": 1707000000,
+        "E M E A": 3228000000
+      }
+    },
+    {
+      "date": "2024-11-30",
+      "segments": {
+        "Americas": 8933000000,
+        "Asia Pacific": 1745000000,
+        "E M E A": 3381000000
+      }
+    },
+    {
+      "date": "2025-02-28",
+      "segments": {
+        "Americas": 9000000000,
+        "Asia Pacific": 1709000000,
+        "E M E A": 3421000000
+      }
+    },
+    {
+      "date": "2025-05-31",
+      "segments": {
+        "E M E A": 3995000000,
+        "Asia Pacific": 1874000000,
+        "Americas": 10034000000
+      }
+    },
+    {
+      "date": "2025-08-31",
+      "segments": {
+        "Americas": 9662000000,
+        "Asia Pacific": 1783000000,
+        "E M E A": 3481000000
+      }
+    },
+    {
+      "date": "2026-02-28",
+      "segments": {
+        "Americas": 11361000000,
+        "Asia Pacific": 1865000000,
+        "E M E A": 3964000000
+      }
+    },
+    {
+      "date": "2026-08-31",
+      "segments": {
+        "Americas": 13711000000,
+        "Asia Pacific": 1908000000,
+        "E M E A": 3726000000
+      }
+    }
+  ]
+}

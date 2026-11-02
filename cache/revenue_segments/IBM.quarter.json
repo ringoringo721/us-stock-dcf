@@ -1,0 +1,907 @@
+{
+  "version": 1,
+  "ticker": "IBM",
+  "source": "FMP revenue segmentation (quarter)",
+  "period": "quarter",
+  "product": [
+    {
+      "date": "2011-06-30",
+      "segments": {
+        "Global Business Services": 5071000000,
+        "Global Financing": 1066000000,
+        "Global Technology Services": 10561000000,
+        "Software": 6961000000,
+        "Systems": 4899000000
+      }
+    },
+    {
+      "date": "2011-09-30",
+      "segments": {
+        "Global Business Services": 5031000000,
+        "Global Financing": 999000000,
+        "Global Technology Services": 10638000000,
+        "Software": 6621000000,
+        "Systems": 4672000000
+      }
+    },
+    {
+      "date": "2011-12-31",
+      "segments": {
+        "Global Financing": 2130000000,
+        "Global Technology Services": 20922000000,
+        "Systems": 10252000000,
+        "Global Business Services": 9979000000
+      }
+    },
+    {
+      "date": "2012-03-31",
+      "segments": {
+        "Global Business Services": 4820000000,
+        "Global Financing": 975000000,
+        "Global Technology Services": 10328000000,
+        "Systems": 3900000000
+      }
+    },
+    {
+      "date": "2012-06-30",
+      "segments": {
+        "Global Business Services": 4847000000,
+        "Global Financing": 1032000000,
+        "Global Technology Services": 10286000000,
+        "Systems": 4418000000
+      }
+    },
+    {
+      "date": "2012-09-30",
+      "segments": {
+        "Global Business Services": 4717000000,
+        "Global Financing": 963000000,
+        "Global Technology Services": 10206000000,
+        "Systems": 4076000000
+      }
+    },
+    {
+      "date": "2012-12-31",
+      "segments": {
+        "Global Business Services": 4902000000,
+        "Global Financing": 1103000000,
+        "Global Technology Services": 10582000000,
+        "Systems": 5949000000
+      }
+    },
+    {
+      "date": "2013-03-31",
+      "segments": {
+        "Global Business Services": 4664000000,
+        "Global Financing": 1040000000,
+        "Global Technology Services": 9852000000,
+        "Systems": 3226000000
+      }
+    },
+    {
+      "date": "2013-06-30",
+      "segments": {
+        "Global Business Services": 4795000000,
+        "Global Financing": 1061000000,
+        "Global Technology Services": 9828000000,
+        "Systems": 3893000000
+      }
+    },
+    {
+      "date": "2013-09-30",
+      "segments": {
+        "Global Business Services": 4735000000,
+        "Global Financing": 1015000000,
+        "Global Technology Services": 9755000000,
+        "Systems": 3415000000
+      }
+    },
+    {
+      "date": "2013-12-31",
+      "segments": {
+        "Global Business Services": 4915000000,
+        "Global Financing": 1188000000,
+        "Global Technology Services": 10180000000,
+        "Systems": 4430000000
+      }
+    },
+    {
+      "date": "2014-06-30",
+      "segments": {
+        "Global Business Services": 4674000000,
+        "Global Financing": 1189000000,
+        "Global Technology Services": 9661000000
+      }
+    },
+    {
+      "date": "2014-09-30",
+      "segments": {
+        "Global Business Services": 4594000000,
+        "Global Financing": 1084000000,
+        "Global Technology Services": 9470000000
+      }
+    },
+    {
+      "date": "2014-12-31",
+      "segments": {
+        "Global Business Services": 9099000000,
+        "Global Financing": 2249000000,
+        "Global Technology Services": 18932000000
+      }
+    },
+    {
+      "date": "2015-03-31",
+      "segments": {
+        "Global Business Services": 4449000000,
+        "Global Financing": 1048000000,
+        "Global Technology Services": 8081000000,
+        "Systems Hardware": 1751000000
+      }
+    },
+    {
+      "date": "2015-06-30",
+      "segments": {
+        "Global Business Services": 4475000000,
+        "Global Financing": 1182000000,
+        "Global Technology Services": 8272000000,
+        "Systems Hardware": 2165000000
+      }
+    },
+    {
+      "date": "2015-09-30",
+      "segments": {
+        "Global Business Services": 4326000000,
+        "Global Financing": 1031000000,
+        "Global Technology Services": 8127000000,
+        "Systems Hardware": 1613000000
+      }
+    },
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "Global Financing": 0,
+        "Global Technology Services": 7537000000,
+        "Systems Hardware": 2052000000,
+        "Global Business Services": 3916000000
+      }
+    },
+    {
+      "date": "2016-03-31",
+      "segments": {
+        "Global Business Services": 4245000000,
+        "Global Financing": 896000000,
+        "Systems": 1888000000
+      }
+    },
+    {
+      "date": "2016-06-30",
+      "segments": {
+        "Global Business Services": 4359000000,
+        "Global Financing": 926000000,
+        "Systems": 2156000000
+      }
+    },
+    {
+      "date": "2016-09-30",
+      "segments": {
+        "Global Business Services": 4284000000,
+        "Global Financing": 763000000,
+        "Systems": 1734000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Global Business Services": 4221000000,
+        "Global Financing": 909000000,
+        "Systems": 2686000000
+      }
+    },
+    {
+      "date": "2017-03-31",
+      "segments": {
+        "Global Business Services": 4092000000,
+        "Global Financing": 768000000,
+        "Systems": 1562000000
+      }
+    },
+    {
+      "date": "2017-06-30",
+      "segments": {
+        "Global Business Services": 4190000000,
+        "Global Financing": 705000000,
+        "Systems": 1924000000
+      }
+    },
+    {
+      "date": "2017-09-30",
+      "segments": {
+        "Global Business Services": 4185000000,
+        "Global Financing": 698000000,
+        "Systems": 1948000000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "Global Business Services": 4244000000,
+        "Global Financing": 997000000,
+        "Systems": 3511000000
+      }
+    },
+    {
+      "date": "2018-03-31",
+      "segments": {
+        "Products And Services Other": 69000000,
+        "Application Management Services": 2002000000,
+        "Global Process Services": 305000000,
+        "Infrastructure Services": 5825000000,
+        "Integration Software": 1019000000,
+        "Operating Systems Software": 407000000,
+        "Solutions Software": 2957000000,
+        "Systems Hardware": 1093000000,
+        "Technical Support Services": 1782000000,
+        "Transaction Processing Software": 1341000000
+      }
+    },
+    {
+      "date": "2018-06-30",
+      "segments": {
+        "Global Business Services": 4192000000,
+        "Systems": 2177000000,
+        "Global Financing": 394000000
+      }
+    },
+    {
+      "date": "2018-09-30",
+      "segments": {
+        "Products And Services Other": 62000000,
+        "Application Management Services": 1915000000,
+        "Global Process Services": 314000000,
+        "Infrastructure Services": 5595000000,
+        "Integration Software": 990000000,
+        "Operating Systems Software": 397000000,
+        "Solutions Software": 2910000000,
+        "Systems Hardware": 1339000000,
+        "Technical Support Services": 1707000000,
+        "Transaction Processing Software": 1238000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Products And Services Other": 76000000,
+        "Application Management Services": 3935000000,
+        "Global Process Services": 640000000,
+        "Infrastructure Services": 11587000000,
+        "Integration Software": 2484000000,
+        "Operating Systems Software": 867000000,
+        "Solutions Software": 7036000000,
+        "Systems Hardware": 3931000000,
+        "Technical Support Services": 3472000000,
+        "Transaction Processing Software": 2999000000
+      }
+    },
+    {
+      "date": "2019-03-31",
+      "segments": {
+        "Global Business Services": 4119000000,
+        "Cloud And Cognitive Software": 5037000000,
+        "Global Technology Services": 6875000000,
+        "Systems": 1328000000,
+        "Global Financing": 406000000
+      }
+    },
+    {
+      "date": "2019-06-30",
+      "segments": {
+        "Global Business Services": 4155000000,
+        "Cloud And Cognitive Software": 5645000000,
+        "Global Technology Services": 6837000000,
+        "Systems": 1753000000,
+        "Global Financing": 351000000
+      }
+    },
+    {
+      "date": "2019-09-30",
+      "segments": {
+        "Global Business Services": 4117000000,
+        "Cloud And Cognitive Software": 5280000000,
+        "Global Technology Services": 6700000000,
+        "Systems": 1481000000,
+        "Global Financing": 343000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Global Business Services": 4243000000,
+        "Cloud And Cognitive Software": 7238000000,
+        "Global Technology Services": 6949000000,
+        "Systems": 3042000000,
+        "Global Financing": 300000000
+      }
+    },
+    {
+      "date": "2020-03-31",
+      "segments": {
+        "Global Business Services": 4136000000,
+        "Cloud And Cognitive Software": 5238000000,
+        "Global Technology Services": 6467000000,
+        "Systems": 1368000000,
+        "Global Financing": 299000000
+      }
+    },
+    {
+      "date": "2020-06-30",
+      "segments": {
+        "Global Business Services": 3890000000,
+        "Cloud And Cognitive Software": 5748000000,
+        "Global Technology Services": 6316000000,
+        "Systems": 1852000000,
+        "Global Financing": 265000000
+      }
+    },
+    {
+      "date": "2020-09-30",
+      "segments": {
+        "Global Business Services": 3965000000,
+        "Cloud And Cognitive Software": 5553000000,
+        "Global Technology Services": 6462000000,
+        "Systems": 1257000000,
+        "Global Financing": 273000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Global Business Services": 4171000000,
+        "Cloud And Cognitive Software": 6837000000,
+        "Global Technology Services": 6567000000,
+        "Systems": 2501000000,
+        "Global Financing": 286000000
+      }
+    },
+    {
+      "date": "2021-03-31",
+      "segments": {
+        "Material Reconciling Items": 23000000,
+        "Global Business Services": 4234000000,
+        "Cloud And Cognitive Software": 5437000000,
+        "Global Technology Services": 6370000000,
+        "Systems": 1427000000,
+        "Global Financing": 240000000
+      }
+    },
+    {
+      "date": "2021-06-30",
+      "segments": {
+        "Global Business Services": 4341000000,
+        "Cloud And Cognitive Software": 6098000000,
+        "Global Technology Services": 6342000000,
+        "Systems": 1717000000,
+        "Global Financing": 242000000,
+        "Material Reconciling Items": 5000000
+      }
+    },
+    {
+      "date": "2021-09-30",
+      "segments": {
+        "Global Business Services": 4427000000,
+        "Cloud And Cognitive Software": 5692000000,
+        "Global Technology Services": 6154000000,
+        "Systems": 1107000000,
+        "Global Financing": 220000000,
+        "Material Reconciling Items": 18000000
+      }
+    },
+    {
+      "date": "2022-03-31",
+      "segments": {
+        "Other": 223000000,
+        "Consulting": 4829000000,
+        "Infrastructure Services": 3219000000,
+        "Software": 5772000000,
+        "Financing": 154000000
+      }
+    },
+    {
+      "date": "2022-06-30",
+      "segments": {
+        "Other": 180000000,
+        "Consulting": 4809000000,
+        "Infrastructure Services": 4235000000,
+        "Software": 6166000000,
+        "Financing": 146000000
+      }
+    },
+    {
+      "date": "2022-09-30",
+      "segments": {
+        "Other": 70000000,
+        "Consulting": 4700000000,
+        "Infrastructure Services": 3352000000,
+        "Software": 5811000000,
+        "Financing": 174000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Software": 7288000000,
+        "Consulting": 4770000000,
+        "Infrastructure Services": 4483000000,
+        "Financing": 172000000,
+        "Other": -22000000
+      }
+    },
+    {
+      "date": "2023-03-31",
+      "segments": {
+        "Other": 75000000,
+        "Consulting": 4962000000,
+        "Infrastructure Services": 3098000000,
+        "Software": 5921000000,
+        "Financing": 196000000
+      }
+    },
+    {
+      "date": "2023-06-30",
+      "segments": {
+        "Segment Reconciling Items": 51000000,
+        "Consulting": 5013000000,
+        "Infrastructure Services": 3618000000,
+        "Software": 6608000000,
+        "Financing": 185000000
+      }
+    },
+    {
+      "date": "2023-09-30",
+      "segments": {
+        "Segment Reconciling Items": 66000000,
+        "Consulting": 4963000000,
+        "Infrastructure Services": 3272000000,
+        "Software": 6265000000,
+        "Financing": 186000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Software": 7319000000,
+        "Consulting": 5047000000,
+        "Infrastructure": 4608000000,
+        "Financing": 174000000,
+        "Other": 233000000
+      }
+    },
+    {
+      "date": "2024-03-31",
+      "segments": {
+        "Segment Reconciling Items": 108000000,
+        "Consulting": 5186000000,
+        "Infrastructure Services": 3076000000,
+        "Software": 5899000000,
+        "Financing": 193000000
+      }
+    },
+    {
+      "date": "2024-06-30",
+      "segments": {
+        "Segment Reconciling Items": 38000000,
+        "Consulting": 5179000000,
+        "Infrastructure Services": 3645000000,
+        "Software": 6739000000,
+        "Financing": 169000000
+      }
+    },
+    {
+      "date": "2024-09-30",
+      "segments": {
+        "Segment Reconciling Items": 68000000,
+        "Consulting": 5152000000,
+        "Infrastructure Services": 3042000000,
+        "Software": 6526000000,
+        "Financing": 181000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Consulting": 5175000000,
+        "Financing": 170000000,
+        "Infrastructure Services": 4257000000,
+        "Software": 7921000000,
+        "Segment Reconciling Items": 29000000
+      }
+    },
+    {
+      "date": "2025-03-31",
+      "segments": {
+        "Consulting": 5068000000,
+        "Financing": 191000000,
+        "Infrastructure Services": 2885000000,
+        "Software": 6336000000,
+        "Segment Reconciling Items": 61000000
+      }
+    },
+    {
+      "date": "2025-06-30",
+      "segments": {
+        "Consulting": 5314000000,
+        "Financing": 166000000,
+        "Infrastructure Services": 4142000000,
+        "Software": 7387000000,
+        "Segment Reconciling Items": -31000000
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "segments": {
+        "Consulting": 5324000000,
+        "Financing": 200000000,
+        "Infrastructure Services": 3559000000,
+        "Software": 7209000000,
+        "Segment Reconciling Items": 38000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Consulting": 5349000000,
+        "Financing": 180000000,
+        "Infrastructure Services": 5132000000,
+        "Software": 9030000000,
+        "Segment Reconciling Items": -70000000
+      }
+    },
+    {
+      "date": "2026-03-31",
+      "segments": {
+        "Consulting": 5272000000,
+        "Financing": 220000000,
+        "Infrastructure Services": 3326000000,
+        "Software": 7052000000,
+        "Segment Reconciling Items": 48000000
+      }
+    },
+    {
+      "date": "2026-06-30",
+      "segments": {
+        "Consulting": 5327000000,
+        "Financing": 186000000,
+        "Infrastructure Services": 3835000000,
+        "Software": 7761000000,
+        "Segment Reconciling Items": 52000000
+      }
+    },
+    {
+      "date": "2026-09-30",
+      "segments": {
+        "Consulting": 5335000000,
+        "Financing": 192000000,
+        "Infrastructure Services": 3707000000,
+        "Software": 7804000000,
+        "Segment Reconciling Items": 66000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2011-06-30",
+      "segments": {
+        "Total segments": 28558000000
+      }
+    },
+    {
+      "date": "2011-09-30",
+      "segments": {
+        "Total segments": 27963000000
+      }
+    },
+    {
+      "date": "2013-06-30",
+      "segments": {
+        "Total Segments": 24809000000
+      }
+    },
+    {
+      "date": "2014-06-30",
+      "segments": {
+        "Total Segments": 50661000000
+      }
+    },
+    {
+      "date": "2014-09-30",
+      "segments": {
+        "Total Segments": 46639000000
+      }
+    },
+    {
+      "date": "2014-12-31",
+      "segments": {
+        "Total Segments": 3227000000
+      }
+    },
+    {
+      "date": "2018-03-31",
+      "segments": {
+        "Americas": 8707000000,
+        "Asia Pacific": 4188000000,
+        "E M E A": 6176000000
+      }
+    },
+    {
+      "date": "2018-06-30",
+      "segments": {
+        "Americas": 9212000000,
+        "Asia Pacific": 4384000000,
+        "E M E A": 6407000000
+      }
+    },
+    {
+      "date": "2018-09-30",
+      "segments": {
+        "Americas": 8853000000,
+        "Asia Pacific": 4076000000,
+        "E M E A": 5827000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Americas": 10222000000,
+        "Asia Pacific": 4458000000,
+        "E M E A": 7081000000
+      }
+    },
+    {
+      "date": "2019-03-31",
+      "segments": {
+        "Americas": 8493000000,
+        "Asia Pacific": 3961000000,
+        "E M E A": 5727000000
+      }
+    },
+    {
+      "date": "2019-06-30",
+      "segments": {
+        "Americas": 8806000000,
+        "Asia Pacific": 4205000000,
+        "E M E A": 6149000000
+      }
+    },
+    {
+      "date": "2019-09-30",
+      "segments": {
+        "Americas": 8514000000,
+        "Asia Pacific": 4036000000,
+        "E M E A": 5477000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Americas": 10461000000,
+        "Asia Pacific": 4228000000,
+        "E M E A": 7090000000
+      }
+    },
+    {
+      "date": "2020-03-31",
+      "segments": {
+        "Americas": 8166000000,
+        "Asia Pacific": 3888000000,
+        "E M E A": 5517000000
+      }
+    },
+    {
+      "date": "2020-06-30",
+      "segments": {
+        "Americas": 8450000000,
+        "Asia Pacific": 3977000000,
+        "E M E A": 5695000000
+      }
+    },
+    {
+      "date": "2020-09-30",
+      "segments": {
+        "Americas": 8139000000,
+        "Asia Pacific": 3857000000,
+        "E M E A": 5564000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Americas": 9359000000,
+        "Asia Pacific": 4141000000,
+        "E M E A": 6868000000
+      }
+    },
+    {
+      "date": "2021-03-31",
+      "segments": {
+        "Americas": 8179000000,
+        "Asia Pacific": 3909000000,
+        "E M E A": 5641000000
+      }
+    },
+    {
+      "date": "2021-06-30",
+      "segments": {
+        "Americas": 8820000000,
+        "Asia Pacific": 3887000000,
+        "E M E A": 6038000000
+      }
+    },
+    {
+      "date": "2021-09-30",
+      "segments": {
+        "Americas": 8217000000,
+        "Asia Pacific": 3808000000,
+        "E M E A": 5593000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Americas": 3083000000,
+        "Asia Pacific": 0,
+        "E M E A": 175000000
+      }
+    },
+    {
+      "date": "2022-03-31",
+      "segments": {
+        "Americas": 7056000000,
+        "Asia Pacific": 2910000000,
+        "E M E A": 4231000000
+      }
+    },
+    {
+      "date": "2022-06-30",
+      "segments": {
+        "Americas": 8142000000,
+        "Asia Pacific": 2868000000,
+        "E M E A": 4526000000
+      }
+    },
+    {
+      "date": "2022-09-30",
+      "segments": {
+        "Americas": 7416000000,
+        "Asia Pacific": 2732000000,
+        "E M E A": 3959000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Americas": 8443000000,
+        "Asia Pacific": 3013000000,
+        "E M E A": 5234000000
+      }
+    },
+    {
+      "date": "2023-03-31",
+      "segments": {
+        "Americas": 7078000000,
+        "Asia Pacific": 2843000000,
+        "E M E A": 4331000000
+      }
+    },
+    {
+      "date": "2023-06-30",
+      "segments": {
+        "Americas": 8046000000,
+        "Asia Pacific": 2827000000,
+        "E M E A": 4602000000
+      }
+    },
+    {
+      "date": "2023-09-30",
+      "segments": {
+        "Americas": 7686000000,
+        "Asia Pacific": 2843000000,
+        "E M E A": 4223000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Americas": 8856000000,
+        "Asia Pacific": 3189000000,
+        "E M E A": 5336000000
+      }
+    },
+    {
+      "date": "2024-03-31",
+      "segments": {
+        "Americas": 7296000000,
+        "Asia Pacific": 2853000000,
+        "E M E A": 4313000000
+      }
+    },
+    {
+      "date": "2024-06-30",
+      "segments": {
+        "Americas": 7979000000,
+        "Asia Pacific": 3069000000,
+        "E M E A": 4722000000
+      }
+    },
+    {
+      "date": "2024-09-30",
+      "segments": {
+        "Americas": 7453000000,
+        "Asia Pacific": 2932000000,
+        "E M E A": 4584000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Americas": 8538000000,
+        "Asia Pacific": 3204000000,
+        "E M E A": 5810000000
+      }
+    },
+    {
+      "date": "2025-03-31",
+      "segments": {
+        "Americas": 7206000000,
+        "Asia Pacific": 2783000000,
+        "E M E A": 4552000000
+      }
+    },
+    {
+      "date": "2025-06-30",
+      "segments": {
+        "Americas": 8462000000,
+        "Asia Pacific": 3103000000,
+        "E M E A": 5413000000
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "segments": {
+        "Americas": 8143000000,
+        "Asia Pacific": 2936000000,
+        "E M E A": 5251000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Americas": 9531000000,
+        "Asia Pacific": 3182000000,
+        "E M E A": 6973000000
+      }
+    },
+    {
+      "date": "2026-03-31",
+      "segments": {
+        "Americas": 7861000000,
+        "Asia Pacific": 2814000000,
+        "E M E A": 5242000000
+      }
+    },
+    {
+      "date": "2026-06-30",
+      "segments": {
+        "Americas": 8417000000,
+        "Asia Pacific": 3112000000,
+        "E M E A": 5633000000
+      }
+    },
+    {
+      "date": "2026-09-30",
+      "segments": {
+        "Americas": 8576000000,
+        "Asia Pacific": 3101000000,
+        "E M E A": 5426000000
+      }
+    }
+  ]
+}

@@ -1,0 +1,1189 @@
+{
+  "version": 1,
+  "ticker": "ABBV",
+  "source": "FMP revenue segmentation (quarter)",
+  "period": "quarter",
+  "product": [
+    {
+      "date": "2013-03-31",
+      "segments": {
+        "Creon": 90000000,
+        "Other Products": 277000000
+      }
+    },
+    {
+      "date": "2013-06-30",
+      "segments": {
+        "Creon": 106000000,
+        "Duodopa": 44000000,
+        "Other Products": 395000000
+      }
+    },
+    {
+      "date": "2013-09-30",
+      "segments": {
+        "Creon": 101000000,
+        "Duodopa": 46000000,
+        "Other Products": 323000000
+      }
+    },
+    {
+      "date": "2013-12-31",
+      "segments": {
+        "Creon": 115000000,
+        "Duodopa": 88000000,
+        "Other Products": 671000000
+      }
+    },
+    {
+      "date": "2014-03-31",
+      "segments": {
+        "Creon": 107000000,
+        "Duodopa": 52000000,
+        "Other Products": 380000000
+      }
+    },
+    {
+      "date": "2014-06-30",
+      "segments": {
+        "Creon": 110000000,
+        "Duodopa": 56000000,
+        "Other Products": 393000000
+      }
+    },
+    {
+      "date": "2014-09-30",
+      "segments": {
+        "Andro Gel": 232000000,
+        "Creon": 148000000,
+        "Duodopa": 56000000,
+        "Dyslipidemia Products": 63000000,
+        "H U M I R A": 3255000000,
+        "Kaletra": 256000000,
+        "Lupron": 196000000,
+        "Other Products": 370000000,
+        "Sevoflurane": 134000000,
+        "Synagis": 109000000,
+        "Synthroid": 200000000
+      }
+    },
+    {
+      "date": "2014-12-31",
+      "segments": {
+        "Creon": 151000000,
+        "Duodopa": 56000000,
+        "H U M I R A": 9288000000,
+        "Other Products": 486000000
+      }
+    },
+    {
+      "date": "2015-03-31",
+      "segments": {
+        "Andro Gel": 153000000,
+        "Creon": 127000000,
+        "Duodopa": 53000000,
+        "Dyslipidemia Products": 43000000,
+        "H U M I R A": 3111000000,
+        "Kaletra": 180000000,
+        "Lupron": 192000000,
+        "Other Products": 303000000,
+        "Sevoflurane": 126000000,
+        "Synagis": 335000000,
+        "Synthroid": 186000000,
+        "Viekira": 231000000
+      }
+    },
+    {
+      "date": "2015-06-30",
+      "segments": {
+        "Andro Gel": 170000000,
+        "Creon": 159000000,
+        "Duodopa": 55000000,
+        "Dyslipidemia Products": 38000000,
+        "H U M I R A": 3537000000,
+        "Imbruvica": 107000000,
+        "Kaletra": 167000000,
+        "Lupron": 198000000,
+        "Other Products": 308000000,
+        "Sevoflurane": 118000000,
+        "Synagis": 46000000,
+        "Synthroid": 187000000,
+        "Viekira": 385000000
+      }
+    },
+    {
+      "date": "2015-09-30",
+      "segments": {
+        "Andro Gel": 177000000,
+        "Creon": 161000000,
+        "Duodopa": 61000000,
+        "Dyslipidemia Products": 43000000,
+        "H U M I R A": 3647000000,
+        "Imbruvica": 304000000,
+        "Kaletra": 168000000,
+        "Lupron": 201000000,
+        "Other Products": 310000000,
+        "Sevoflurane": 122000000,
+        "Synagis": 93000000,
+        "Synthroid": 188000000,
+        "Viekira": 469000000
+      }
+    },
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "Creon": 185000000,
+        "Duodopa": 62000000,
+        "H U M I R A": 3717000000,
+        "Imbruvica": 343000000,
+        "Other Products": 302000000
+      }
+    },
+    {
+      "date": "2016-03-31",
+      "segments": {
+        "Andro Gel": 156000000,
+        "Creon": 150000000,
+        "Duodopa": 68000000,
+        "H U M I R A": 3577000000,
+        "Imbruvica": 381000000,
+        "Kaletra": 133000000,
+        "Lupron": 190000000,
+        "Other Products": 277000000,
+        "Sevoflurane": 111000000,
+        "Synagis": 319000000,
+        "Synthroid": 182000000,
+        "Viekira": 414000000
+      }
+    },
+    {
+      "date": "2016-06-30",
+      "segments": {
+        "Andro Gel": 171000000,
+        "Creon": 180000000,
+        "Duodopa": 73000000,
+        "H U M I R A": 4149000000,
+        "Imbruvica": 439000000,
+        "Kaletra": 146000000,
+        "Lupron": 219000000,
+        "Other Products": 309000000,
+        "Sevoflurane": 114000000,
+        "Synagis": 45000000,
+        "Synthroid": 188000000,
+        "Viekira": 419000000
+      }
+    },
+    {
+      "date": "2016-09-30",
+      "segments": {
+        "Creon": 187000000,
+        "Duodopa": 74000000,
+        "H U M I R A": 4060000000,
+        "Imbruvica": 501000000,
+        "Other Products": 342000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Creon": 213000000,
+        "Duodopa": 78000000,
+        "H U M I R A": 4292000000,
+        "Imbruvica": 511000000,
+        "Other Products": 289000000
+      }
+    },
+    {
+      "date": "2017-03-31",
+      "segments": {
+        "Creon": 185000000,
+        "Duodopa": 80000000,
+        "H U M I R A": 4118000000,
+        "Imbruvica": 551000000,
+        "Other Products": 297000000
+      }
+    },
+    {
+      "date": "2017-06-30",
+      "segments": {
+        "Creon": 196000000,
+        "Duodopa": 81000000,
+        "H U M I R A": 4716000000,
+        "Imbruvica": 626000000,
+        "Other Products": 289000000
+      }
+    },
+    {
+      "date": "2017-09-30",
+      "segments": {
+        "Creon": 215000000,
+        "Duodopa": 94000000,
+        "H U M I R A": 4701000000,
+        "Imbruvica": 688000000,
+        "Other Products": 181000000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "Creon": 235000000,
+        "Duodopa": 100000000,
+        "H U M I R A": 4892000000,
+        "Imbruvica": 708000000,
+        "Other Products": 231000000
+      }
+    },
+    {
+      "date": "2018-03-31",
+      "segments": {
+        "Duodopa": 103000000,
+        "H U M I R A": 4709000000,
+        "Imbruvica": 762000000,
+        "Other Products": 201000000
+      }
+    },
+    {
+      "date": "2018-06-30",
+      "segments": {
+        "Duodopa": 108000000,
+        "H U M I R A": 5185000000,
+        "Imbruvica": 850000000,
+        "Other Products": 151000000
+      }
+    },
+    {
+      "date": "2018-09-30",
+      "segments": {
+        "MAVYRET": 839000000,
+        "Imbruvica": 972000000,
+        "VENCLEXTA": 96000000,
+        "H U M I R A": 5124000000,
+        "Duodopa": 106000000,
+        "Other Products": 25000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "MAVYRET": 2599000000,
+        "Imbruvica": 1006000000,
+        "VENCLEXTA": 248000000,
+        "H U M I R A": 4918000000,
+        "Duodopa": 113000000,
+        "Other Products": 0
+      }
+    },
+    {
+      "date": "2019-03-31",
+      "segments": {
+        "MAVYRET": 790000000,
+        "Imbruvica": 1022000000,
+        "VENCLEXTA": 151000000,
+        "H U M I R A": 4446000000,
+        "Duodopa": 111000000,
+        "Other Products": 114000000
+      }
+    },
+    {
+      "date": "2019-06-30",
+      "segments": {
+        "MAVYRET": 780000000,
+        "Imbruvica": 1099000000,
+        "VENCLEXTA": 169000000,
+        "H U M I R A": 4870000000,
+        "SKYRIZI": 48000000,
+        "Duodopa": 115000000,
+        "Other Products": 254000000
+      }
+    },
+    {
+      "date": "2019-09-30",
+      "segments": {
+        "MAVYRET": 695000000,
+        "Imbruvica": 1257000000,
+        "VENCLEXTA": 221000000,
+        "H U M I R A": 4936000000,
+        "SKYRIZI": 91000000,
+        "Duodopa": 117000000,
+        "Other Products": 83000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "MAVYRET": 628000000,
+        "Imbruvica": 1296000000,
+        "VENCLEXTA": 251000000,
+        "H U M I R A": 4917000000,
+        "SKYRIZI": 216000000,
+        "Duodopa": 118000000,
+        "Other Products": 60000000
+      }
+    },
+    {
+      "date": "2020-03-31",
+      "segments": {
+        "MAVYRET": 559000000,
+        "Imbruvica": 1232000000,
+        "VENCLEXTA": 317000000,
+        "H U M I R A": 4703000000,
+        "RINVOQ": 86000000,
+        "SKYRIZI": 300000000,
+        "Duodopa": 124000000,
+        "Other Products": 105000000
+      }
+    },
+    {
+      "date": "2020-06-30",
+      "segments": {
+        "Botox Cosmetic": 226000000,
+        "Juvederm Collection": 113000000,
+        "Other Aesthetics": 142000000,
+        "Alphagan/Combigan": 69000000,
+        "Lumigan/Ganfort": 76000000,
+        "Other Eye Care": 128000000,
+        "Restasis": 144000000,
+        "Imbruvica": 1288000000,
+        "VENCLEXTA": 303000000,
+        "H U M I R A": 4837000000,
+        "RINVOQ": 149000000,
+        "SKYRIZI": 330000000,
+        "Botox Therapeutic": 297000000,
+        "Duodopa": 118000000,
+        "Other Neuroscience": 105000000,
+        "Linzess/Constella": 133000000,
+        "MAVYRET": 376000000,
+        "Other Products": 590000000
+      }
+    },
+    {
+      "date": "2020-09-30",
+      "segments": {
+        "Botox Cosmetic": 393000000,
+        "Juvederm Collection": 274000000,
+        "Other Aesthetics": 300000000,
+        "Alphagan/Combigan": 123000000,
+        "Lumigan/Ganfort": 149000000,
+        "Other Eye Care": 269000000,
+        "Restasis": 299000000,
+        "Imbruvica": 1370000000,
+        "VENCLEXTA": 352000000,
+        "H U M I R A": 5140000000,
+        "RINVOQ": 215000000,
+        "SKYRIZI": 435000000,
+        "Botox Therapeutic": 523000000,
+        "Duodopa": 123000000,
+        "Other Neuroscience": 207000000,
+        "Linzess/Constella": 248000000,
+        "MAVYRET": 414000000,
+        "Other Products": 829000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Botox Cosmetic": 493000000,
+        "Juvederm Collection": 331000000,
+        "Other Aesthetics": 318000000,
+        "Alphagan/Combigan": 134000000,
+        "Lumigan/Ganfort": 153000000,
+        "Other Eye Care": 296000000,
+        "Restasis": 344000000,
+        "Imbruvica": 1424000000,
+        "VENCLEXTA": 365000000,
+        "H U M I R A": 5152000000,
+        "RINVOQ": 281000000,
+        "SKYRIZI": 525000000,
+        "Botox Therapeutic": 567000000,
+        "Duodopa": 129000000,
+        "Other Neuroscience": 227000000,
+        "Linzess/Constella": 286000000,
+        "MAVYRET": 481000000,
+        "Other Products": 1399000000
+      }
+    },
+    {
+      "date": "2021-03-31",
+      "segments": {
+        "Botox Cosmetic": 477000000,
+        "Juvederm Collection": 321000000,
+        "Other Aesthetics": 343000000,
+        "Alphagan/Combigan": 118000000,
+        "Lumigan/Ganfort": 143000000,
+        "Other Eye Care": 276000000,
+        "Restasis": 280000000,
+        "Imbruvica": 1268000000,
+        "VENCLEXTA": 405000000,
+        "H U M I R A": 4867000000,
+        "RINVOQ": 303000000,
+        "SKYRIZI": 574000000,
+        "Botox Therapeutic": 532000000,
+        "Duodopa": 129000000,
+        "Other Neuroscience": 160000000,
+        "Linzess/Constella": 222000000,
+        "MAVYRET": 415000000,
+        "Other Products": 892000000
+      }
+    },
+    {
+      "date": "2021-06-30",
+      "segments": {
+        "Botox Cosmetic": 584000000,
+        "Juvederm Collection": 428000000,
+        "Other Aesthetics": 422000000,
+        "Alphagan/Combigan": 142000000,
+        "Lumigan/Ganfort": 149000000,
+        "Other Eye Care": 301000000,
+        "Restasis": 327000000,
+        "Imbruvica": 1381000000,
+        "VENCLEXTA": 435000000,
+        "H U M I R A": 5068000000,
+        "RINVOQ": 378000000,
+        "SKYRIZI": 674000000,
+        "Botox Therapeutic": 603000000,
+        "Duodopa": 127000000,
+        "Other Neuroscience": 171000000,
+        "Linzess/Constella": 268000000,
+        "MAVYRET": 442000000,
+        "Other Products": 640000000
+      }
+    },
+    {
+      "date": "2021-09-30",
+      "segments": {
+        "Botox Cosmetic": 545000000,
+        "Juvederm Collection": 354000000,
+        "Other Aesthetics": 352000000,
+        "Alphagan/Combigan": 128000000,
+        "Lumigan/Ganfort": 138000000,
+        "Other Eye Care": 286000000,
+        "Restasis": 319000000,
+        "Imbruvica": 1374000000,
+        "VENCLEXTA": 492000000,
+        "H U M I R A": 5425000000,
+        "RINVOQ": 453000000,
+        "SKYRIZI": 796000000,
+        "Botox Therapeutic": 645000000,
+        "Duodopa": 127000000,
+        "Other Neuroscience": 171000000,
+        "Linzess/Constella": 261000000,
+        "MAVYRET": 426000000,
+        "Other Products": 547000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Botox Cosmetic": 626000000,
+        "Juvederm Collection": 432000000,
+        "Other Aesthetics": 349000000,
+        "Alphagan/Combigan": 141000000,
+        "Lumigan/Ganfort": 149000000,
+        "Other Eye Care": 306000000,
+        "Restasis": 364000000,
+        "Imbruvica": 1385000000,
+        "VENCLEXTA": 488000000,
+        "H U M I R A": 5334000000,
+        "RINVOQ": 517000000,
+        "SKYRIZI": 895000000,
+        "Botox Therapeutic": 671000000,
+        "Duodopa": 128000000,
+        "Other Neuroscience": 183000000,
+        "Linzess/Constella": 287000000,
+        "MAVYRET": 427000000,
+        "Other Products": 594000000
+      }
+    },
+    {
+      "date": "2022-03-31",
+      "segments": {
+        "Botox Cosmetic": 641000000,
+        "Juvederm Collection": 410000000,
+        "Other Aesthetics": 323000000,
+        "Alphagan/Combigan": 107000000,
+        "Lumigan/Ganfort": 140000000,
+        "Other Eye Care": 278000000,
+        "Restasis": 246000000,
+        "Imbruvica": 1173000000,
+        "VENCLEXTA": 473000000,
+        "H U M I R A": 4736000000,
+        "RINVOQ": 465000000,
+        "SKYRIZI": 940000000,
+        "Botox Therapeutic": 614000000,
+        "Duodopa": 121000000,
+        "Other Neuroscience": 177000000,
+        "Linzess/Constella": 240000000,
+        "MAVYRET": 380000000,
+        "Other Products": 1211000000
+      }
+    },
+    {
+      "date": "2022-06-30",
+      "segments": {
+        "Botox Cosmetic": 695000000,
+        "Juvederm Collection": 344000000,
+        "Other Aesthetics": 332000000,
+        "Alphagan/Combigan": 92000000,
+        "Lumigan/Ganfort": 130000000,
+        "Other Eye Care": 327000000,
+        "Restasis": 168000000,
+        "Imbruvica": 1145000000,
+        "VENCLEXTA": 505000000,
+        "H U M I R A": 5363000000,
+        "RINVOQ": 592000000,
+        "SKYRIZI": 1252000000,
+        "Botox Therapeutic": 678000000,
+        "Duodopa": 120000000,
+        "Other Neuroscience": 150000000,
+        "Linzess/Constella": 255000000,
+        "MAVYRET": 398000000,
+        "Other Products": 1009000000
+      }
+    },
+    {
+      "date": "2022-09-30",
+      "segments": {
+        "Botox Cosmetic": 637000000,
+        "Juvederm Collection": 352000000,
+        "Other Aesthetics": 312000000,
+        "Alphagan/Combigan": 73000000,
+        "Lumigan/Ganfort": 121000000,
+        "Other Eye Care": 287000000,
+        "Restasis": 142000000,
+        "Imbruvica": 1135000000,
+        "VENCLEXTA": 515000000,
+        "H U M I R A": 5559000000,
+        "RINVOQ": 695000000,
+        "SKYRIZI": 1397000000,
+        "Botox Therapeutic": 699000000,
+        "Duodopa": 110000000,
+        "Other Neuroscience": 87000000,
+        "Linzess/Constella": 271000000,
+        "MAVYRET": 383000000,
+        "Other Products": 925000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Botox Cosmetic": 642000000,
+        "Juvederm Collection": 322000000,
+        "Other Aesthetics": 323000000,
+        "Alphagan/Combigan": 74000000,
+        "Lumigan/Ganfort": 123000000,
+        "Other Eye Care": 283000000,
+        "Restasis": 110000000,
+        "Imbruvica": 1115000000,
+        "VENCLEXTA": 516000000,
+        "H U M I R A": 5579000000,
+        "RINVOQ": 770000000,
+        "SKYRIZI": 1576000000,
+        "Botox Therapeutic": 728000000,
+        "Duodopa": 107000000,
+        "Other Neuroscience": 61000000,
+        "Linzess/Constella": 269000000,
+        "MAVYRET": 380000000,
+        "Other Products": 992000000
+      }
+    },
+    {
+      "date": "2023-03-31",
+      "segments": {
+        "Botox Cosmetic": 659000000,
+        "Juvederm Collection": 355000000,
+        "Other Aesthetics": 286000000,
+        "Alphagan/Combigan": 71000000,
+        "Lumigan/Ganfort": 130000000,
+        "Other Eye Care": 200000000,
+        "Ozurdex": 115000000,
+        "Restasis": 92000000,
+        "Imbruvica": 878000000,
+        "VENCLEXTA": 538000000,
+        "H U M I R A": 3541000000,
+        "RINVOQ": 686000000,
+        "SKYRIZI": 1360000000,
+        "Botox Therapeutic": 719000000,
+        "Duodopa": 118000000,
+        "Other Neuroscience": 79000000,
+        "Ubrelvy": 152000000,
+        "Vraylar": 561000000,
+        "Linzess/Constella": 259000000,
+        "MAVYRET": 364000000,
+        "Other Products": 691000000
+      }
+    },
+    {
+      "date": "2023-06-30",
+      "segments": {
+        "Botox Cosmetic": 685000000,
+        "Juvederm Collection": 368000000,
+        "Other Aesthetics": 331000000,
+        "Alphagan/Combigan": 65000000,
+        "Lumigan/Ganfort": 119000000,
+        "Other Eye Care": 215000000,
+        "Ozurdex": 119000000,
+        "Restasis": 99000000,
+        "Imbruvica": 907000000,
+        "VENCLEXTA": 571000000,
+        "H U M I R A": 4012000000,
+        "RINVOQ": 918000000,
+        "SKYRIZI": 1883000000,
+        "Botox Therapeutic": 748000000,
+        "Duodopa": 117000000,
+        "Other Neuroscience": 70000000,
+        "Qulipta": 96000000,
+        "Ubrelvy": 196000000,
+        "Vraylar": 658000000,
+        "Linzess/Constella": 278000000,
+        "MAVYRET": 387000000,
+        "Other Products": 741000000
+      }
+    },
+    {
+      "date": "2023-09-30",
+      "segments": {
+        "Botox Cosmetic": 620000000,
+        "Juvederm Collection": 321000000,
+        "Other Aesthetics": 298000000,
+        "Alphagan/Combigan": 70000000,
+        "Lumigan/Ganfort": 91000000,
+        "Other Eye Care": 207000000,
+        "Ozurdex": 120000000,
+        "Restasis": 117000000,
+        "Imbruvica": 908000000,
+        "VENCLEXTA": 590000000,
+        "H U M I R A": 3547000000,
+        "RINVOQ": 1110000000,
+        "SKYRIZI": 2126000000,
+        "Botox Therapeutic": 748000000,
+        "Duodopa": 118000000,
+        "Other Neuroscience": 61000000,
+        "Qulipta": 132000000,
+        "Ubrelvy": 233000000,
+        "Vraylar": 751000000,
+        "Linzess/Constella": 288000000,
+        "MAVYRET": 370000000,
+        "Other Products": 782000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Botox Cosmetic": 718000000,
+        "Juvederm Collection": 334000000,
+        "Other Aesthetics": 319000000,
+        "Alphagan/Combigan": 66000000,
+        "Lumigan/Ganfort": 92000000,
+        "Other Eye Care": 181000000,
+        "Ozurdex": 118000000,
+        "Restasis": 128000000,
+        "Imbruvica": 903000000,
+        "VENCLEXTA": 589000000,
+        "H U M I R A": 3304000000,
+        "RINVOQ": 1255000000,
+        "SKYRIZI": 2394000000,
+        "Botox Therapeutic": 776000000,
+        "Duodopa": 115000000,
+        "Other Neuroscience": 66000000,
+        "Qulipta": 180000000,
+        "Ubrelvy": 234000000,
+        "Vraylar": 789000000,
+        "Linzess/Constella": 283000000,
+        "MAVYRET": 309000000,
+        "Other Products": 821000000
+      }
+    },
+    {
+      "date": "2024-03-31",
+      "segments": {
+        "Botox Cosmetic": 633000000,
+        "Juvederm Collection": 297000000,
+        "Other Aesthetics": 319000000,
+        "Alphagan/Combigan": 59000000,
+        "Lumigan/Ganfort": 91000000,
+        "Other Eye Care": 200000000,
+        "Ozurdex": 131000000,
+        "Restasis": 57000000,
+        "Imbruvica": 838000000,
+        "VENCLEXTA": 614000000,
+        "H U M I R A": 2270000000,
+        "RINVOQ": 1093000000,
+        "SKYRIZI": 2008000000,
+        "Botox Therapeutic": 748000000,
+        "Duodopa": 115000000,
+        "Other Neuroscience": 74000000,
+        "Qulipta": 131000000,
+        "Ubrelvy": 203000000,
+        "Vraylar": 694000000,
+        "Linzess/Constella": 266000000,
+        "MAVYRET": 349000000,
+        "Other Products": 744000000
+      }
+    },
+    {
+      "date": "2024-06-30",
+      "segments": {
+        "Botox Cosmetic": 729000000,
+        "Juvederm Collection": 343000000,
+        "Other Aesthetics": 318000000,
+        "Alphagan/Combigan": 49000000,
+        "Lumigan/Ganfort": 103000000,
+        "Other Eye Care": 225000000,
+        "Ozurdex": 124000000,
+        "Restasis": 32000000,
+        "Imbruvica": 833000000,
+        "VENCLEXTA": 637000000,
+        "H U M I R A": 2814000000,
+        "RINVOQ": 1430000000,
+        "SKYRIZI": 2727000000,
+        "Botox Therapeutic": 814000000,
+        "Duodopa": 113000000,
+        "Other Neuroscience": 80000000,
+        "Qulipta": 150000000,
+        "Ubrelvy": 231000000,
+        "Vraylar": 774000000,
+        "Linzess/Constella": 221000000,
+        "MAVYRET": 369000000,
+        "Other Products": 810000000
+      }
+    },
+    {
+      "date": "2024-09-30",
+      "segments": {
+        "Botox Cosmetic": 671000000,
+        "Juvederm Collection": 258000000,
+        "Other Aesthetics": 310000000,
+        "Alphagan/Combigan": 62000000,
+        "Lumigan/Ganfort": 116000000,
+        "Other Eye Care": 207000000,
+        "Ozurdex": 119000000,
+        "Restasis": 21000000,
+        "Imbruvica": 828000000,
+        "VENCLEXTA": 677000000,
+        "H U M I R A": 2227000000,
+        "RINVOQ": 1614000000,
+        "SKYRIZI": 3205000000,
+        "Botox Therapeutic": 848000000,
+        "Duodopa": 111000000,
+        "Other Neuroscience": 84000000,
+        "Qulipta": 176000000,
+        "Ubrelvy": 269000000,
+        "Vraylar": 875000000,
+        "Linzess/Constella": 234000000,
+        "MAVYRET": 302000000,
+        "Other Products": 726000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Botox Cosmetic": 687000000,
+        "Juvederm Collection": 279000000,
+        "Other Aesthetics": 332000000,
+        "Alphagan/Combigan": 78000000,
+        "Lumigan/Ganfort": 119000000,
+        "Other Eye Care": 215000000,
+        "Ozurdex": 120000000,
+        "Restasis": 114000000,
+        "Imbruvica": 848000000,
+        "VENCLEXTA": 655000000,
+        "H U M I R A": 1682000000,
+        "RINVOQ": 1834000000,
+        "SKYRIZI": 3778000000,
+        "Botox Therapeutic": 873000000,
+        "Duodopa": 108000000,
+        "Other Neuroscience": 100000000,
+        "Qulipta": 201000000,
+        "Ubrelvy": 303000000,
+        "Vraylar": 924000000,
+        "Linzess/Constella": 233000000,
+        "MAVYRET": 291000000,
+        "Other Products": 752000000
+      }
+    },
+    {
+      "date": "2025-03-31",
+      "segments": {
+        "Botox Cosmetic": 556000000,
+        "Juvederm Collection": 231000000,
+        "Other Aesthetics": 315000000,
+        "Alphagan/Combigan": 60000000,
+        "Lumigan/Ganfort": 106000000,
+        "Other Eye Care": 217000000,
+        "Ozurdex": 123000000,
+        "Imbruvica": 738000000,
+        "VENCLEXTA": 665000000,
+        "H U M I R A": 1121000000,
+        "RINVOQ": 1718000000,
+        "SKYRIZI": 3425000000,
+        "Botox Therapeutic": 866000000,
+        "Duodopa": 96000000,
+        "Other Neuroscience": 59000000,
+        "Qulipta": 193000000,
+        "Ubrelvy": 240000000,
+        "Vraylar": 765000000,
+        "Linzess/Constella": 148000000,
+        "MAVYRET": 306000000,
+        "Other Products": 747000000
+      }
+    },
+    {
+      "date": "2025-06-30",
+      "segments": {
+        "Botox Cosmetic": 692000000,
+        "Juvederm Collection": 260000000,
+        "Other Aesthetics": 327000000,
+        "Alphagan/Combigan": 36000000,
+        "Lumigan/Ganfort": 103000000,
+        "Other Eye Care": 250000000,
+        "Ozurdex": 125000000,
+        "H U M I R A": 1180000000,
+        "RINVOQ": 2028000000,
+        "SKYRIZI": 4423000000,
+        "Botox Therapeutic": 928000000,
+        "Duodopa": 97000000,
+        "Other Neuroscience": 55000000,
+        "Qulipta": 267000000,
+        "Ubrelvy": 338000000,
+        "Vraylar": 900000000,
+        "Imbruvica": 754000000,
+        "VENCLEXTA": 691000000,
+        "Linzess/Constella": 258000000,
+        "MAVYRET": 375000000,
+        "Other Products": 603000000
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "segments": {
+        "Botox Cosmetic": 637000000,
+        "Juvederm Collection": 253000000,
+        "Other Aesthetics": 303000000,
+        "Alphagan/Combigan": 47000000,
+        "Lumigan/Ganfort": 97000000,
+        "Other Eye Care": 248000000,
+        "Ozurdex": 117000000,
+        "H U M I R A": 993000000,
+        "RINVOQ": 2184000000,
+        "SKYRIZI": 4708000000,
+        "Botox Therapeutic": 985000000,
+        "Duodopa": 96000000,
+        "Other Neuroscience": 46000000,
+        "Qulipta": 288000000,
+        "Ubrelvy": 354000000,
+        "Vraylar": 934000000,
+        "Imbruvica": 706000000,
+        "VENCLEXTA": 726000000,
+        "Linzess/Constella": 326000000,
+        "MAVYRET": 312000000,
+        "Other Products": 660000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Botox Cosmetic": 717000000,
+        "Juvederm Collection": 249000000,
+        "Other Aesthetics": 320000000,
+        "Alphagan/Combigan": 54000000,
+        "Lumigan/Ganfort": 104000000,
+        "Other Eye Care": 294000000,
+        "Ozurdex": 128000000,
+        "H U M I R A": 1246000000,
+        "RINVOQ": 2374000000,
+        "SKYRIZI": 5006000000,
+        "Botox Therapeutic": 990000000,
+        "Duodopa": 92000000,
+        "Other Neuroscience": 47000000,
+        "Qulipta": 288000000,
+        "Ubrelvy": 339000000,
+        "Vraylar": 1022000000,
+        "Imbruvica": 671000000,
+        "VENCLEXTA": 710000000,
+        "Linzess/Constella": 175000000,
+        "MAVYRET": 324000000,
+        "Other Products": 617000000
+      }
+    },
+    {
+      "date": "2026-03-31",
+      "segments": {
+        "Botox Cosmetic": 668000000,
+        "Juvederm Collection": 232000000,
+        "Other Aesthetics": 286000000,
+        "H U M I R A": 688000000,
+        "RINVOQ": 2119000000,
+        "SKYRIZI": 4483000000,
+        "Botox Therapeutic": 1009000000,
+        "Other Neuroscience": 125000000,
+        "Qulipta": 296000000,
+        "Ubrelvy": 339000000,
+        "Vraylar": 905000000,
+        "Imbruvica": 556000000,
+        "VENCLEXTA": 770000000,
+        "Linzess/Constella": 283000000,
+        "MAVYRET": 351000000,
+        "Other Products": 1025000000
+      }
+    },
+    {
+      "date": "2026-06-30",
+      "segments": {
+        "Botox Cosmetic": 728000000,
+        "Juvederm Collection": 245000000,
+        "Other Aesthetics": 309000000,
+        "H U M I R A": 756000000,
+        "RINVOQ": 2525000000,
+        "SKYRIZI": 5505000000,
+        "Botox Therapeutic": 1042000000,
+        "Other Neuroscience": 117000000,
+        "Qulipta": 350000000,
+        "Ubrelvy": 392000000,
+        "Vraylar": 1071000000,
+        "Imbruvica": 532000000,
+        "VENCLEXTA": 771000000,
+        "Linzess/Constella": 295000000,
+        "MAVYRET": 295000000,
+        "Other Products": 1109000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2018-03-31",
+      "segments": {
+        "UNITED STATES": 3003000000,
+        "Non-US": 1706000000
+      }
+    },
+    {
+      "date": "2018-06-30",
+      "segments": {
+        "UNITED STATES": 3521000000,
+        "Non-US": 1664000000
+      }
+    },
+    {
+      "date": "2018-09-30",
+      "segments": {
+        "Non-US": 1578000000,
+        "UNITED STATES": 3546000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "UNITED STATES": 11454000000
+      }
+    },
+    {
+      "date": "2019-03-31",
+      "segments": {
+        "Non-US": 1231000000,
+        "UNITED STATES": 3215000000
+      }
+    },
+    {
+      "date": "2019-06-30",
+      "segments": {
+        "Non-US": 2047000000,
+        "UNITED STATES": 5936000000
+      }
+    },
+    {
+      "date": "2019-09-30",
+      "segments": {
+        "Non-US": 1049000000,
+        "UNITED STATES": 3887000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "UNITED STATES": 10869000000
+      }
+    },
+    {
+      "date": "2020-03-31",
+      "segments": {
+        "UNITED STATES": 6158000000,
+        "Non-US": 2461000000
+      }
+    },
+    {
+      "date": "2020-06-30",
+      "segments": {
+        "Non-US": 2278000000,
+        "UNITED STATES": 8147000000
+      }
+    },
+    {
+      "date": "2020-09-30",
+      "segments": {
+        "Non-US": 2993000000,
+        "UNITED STATES": 9909000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Non-US": 3193000000,
+        "UNITED STATES": 10665000000
+      }
+    },
+    {
+      "date": "2021-03-31",
+      "segments": {
+        "Non-US": 3260000000,
+        "UNITED STATES": 9750000000
+      }
+    },
+    {
+      "date": "2021-06-30",
+      "segments": {
+        "Non-US": 3155000000,
+        "UNITED STATES": 10804000000
+      }
+    },
+    {
+      "date": "2021-09-30",
+      "segments": {
+        "Non-US": 3063000000,
+        "UNITED STATES": 11279000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Non-US": 3209000000,
+        "UNITED STATES": 11677000000
+      }
+    },
+    {
+      "date": "2022-03-31",
+      "segments": {
+        "Non-US": 3190000000,
+        "UNITED STATES": 10348000000
+      }
+    },
+    {
+      "date": "2022-06-30",
+      "segments": {
+        "Non-US": 3173000000,
+        "UNITED STATES": 11410000000
+      }
+    },
+    {
+      "date": "2022-09-30",
+      "segments": {
+        "Non-US": 3049000000,
+        "UNITED STATES": 11763000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Non-US": 2929000000,
+        "UNITED STATES": 12192000000
+      }
+    },
+    {
+      "date": "2023-03-31",
+      "segments": {
+        "Non-US": 3024000000,
+        "UNITED STATES": 9201000000
+      }
+    },
+    {
+      "date": "2023-06-30",
+      "segments": {
+        "Non-US": 3145000000,
+        "UNITED STATES": 10720000000
+      }
+    },
+    {
+      "date": "2023-09-30",
+      "segments": {
+        "Non-US": 3075000000,
+        "UNITED STATES": 10852000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "UNITED STATES": 11110000000,
+        "Non-US": 3191000000
+      }
+    },
+    {
+      "date": "2024-03-31",
+      "segments": {
+        "Non-US": 3269000000,
+        "UNITED STATES": 9041000000
+      }
+    },
+    {
+      "date": "2024-06-30",
+      "segments": {
+        "Non-US": 3356000000,
+        "UNITED STATES": 11106000000
+      }
+    },
+    {
+      "date": "2024-09-30",
+      "segments": {
+        "Non-US": 3312000000,
+        "UNITED STATES": 11148000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "UNITED STATES": 11734000000,
+        "Non-US": 3368000000
+      }
+    },
+    {
+      "date": "2025-03-31",
+      "segments": {
+        "Non-US": 9979000000,
+        "UNITED STATES": 3364000000
+      }
+    },
+    {
+      "date": "2025-06-30",
+      "segments": {
+        "Non-US": 580000000,
+        "UNITED STATES": 3843000000
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "segments": {
+        "UNITED STATES": 4231000000,
+        "Non-US": 625000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Non-US": 0,
+        "UNITED STATES": 35165000000
+      }
+    },
+    {
+      "date": "2026-03-31",
+      "segments": {
+        "UNITED STATES": 3775000000,
+        "Non-US": 714000000
+      }
+    },
+    {
+      "date": "2026-06-30",
+      "segments": {
+        "UNITED STATES": 4767000000,
+        "Non-US": 760000000
+      }
+    }
+  ]
+}

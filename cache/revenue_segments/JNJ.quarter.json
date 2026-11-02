@@ -1,0 +1,1063 @@
+{
+  "version": 1,
+  "ticker": "JNJ",
+  "source": "FMP revenue segmentation (quarter)",
+  "period": "quarter",
+  "product": [
+    {
+      "date": "2010-07-04",
+      "segments": {
+        "Consumer": 3647000000,
+        "MedTech": 6130000000,
+        "Pharmaceutical": 5553000000
+      }
+    },
+    {
+      "date": "2010-10-03",
+      "segments": {
+        "Consumer": 3567000000,
+        "MedTech": 5920000000,
+        "Pharmaceutical": 5495000000
+      }
+    },
+    {
+      "date": "2011-01-02",
+      "segments": {
+        "Consumer": 3610000000,
+        "Medical Devices": 6324000000,
+        "Pharmaceutical": 5710000000
+      }
+    },
+    {
+      "date": "2011-07-03",
+      "segments": {
+        "Consumer": 3793000000,
+        "Medical Devices": 6571000000,
+        "Pharmaceutical": 6233000000
+      }
+    },
+    {
+      "date": "2011-10-02",
+      "segments": {
+        "Consumer": 3740000000,
+        "Medical Devices": 6283000000,
+        "Pharmaceutical": 5982000000
+      }
+    },
+    {
+      "date": "2012-01-01",
+      "segments": {
+        "Consumer": 3668000000,
+        "Medical Devices": 6493000000,
+        "Pharmaceutical": 6094000000
+      }
+    },
+    {
+      "date": "2012-04-01",
+      "segments": {
+        "Consumer": 3595000000,
+        "Medical Devices": 6411000000,
+        "Pharmaceutical": 6133000000
+      }
+    },
+    {
+      "date": "2012-07-01",
+      "segments": {
+        "Consumer": 3619000000,
+        "Medical Devices": 6565000000,
+        "Pharmaceutical": 6291000000
+      }
+    },
+    {
+      "date": "2012-09-30",
+      "segments": {
+        "Consumer": 3581000000,
+        "Medical Devices": 7069000000,
+        "Pharmaceutical": 6402000000
+      }
+    },
+    {
+      "date": "2012-12-30",
+      "segments": {
+        "Consumer": 3652000000,
+        "Medical Devices": 7381000000,
+        "Pharmaceutical": 6525000000
+      }
+    },
+    {
+      "date": "2013-03-31",
+      "segments": {
+        "Consumer": 3675000000,
+        "Medical Devices": 7062000000,
+        "Pharmaceutical": 6768000000
+      }
+    },
+    {
+      "date": "2013-06-30",
+      "segments": {
+        "Consumer": 3658000000,
+        "Medical Devices": 7194000000,
+        "Pharmaceutical": 7025000000
+      }
+    },
+    {
+      "date": "2013-09-29",
+      "segments": {
+        "Consumer": 3611000000,
+        "Medical Devices": 6928000000,
+        "Pharmaceutical": 7036000000
+      }
+    },
+    {
+      "date": "2013-12-29",
+      "segments": {
+        "Consumer": 3753000000,
+        "Medical Devices": 7306000000,
+        "Pharmaceutical": 7296000000
+      }
+    },
+    {
+      "date": "2014-03-30",
+      "segments": {
+        "Consumer": 3557000000,
+        "Medical Devices": 7060000000,
+        "Pharmaceutical": 7498000000
+      }
+    },
+    {
+      "date": "2014-06-29",
+      "segments": {
+        "Consumer": 3744000000,
+        "Medical Devices": 7242000000,
+        "Pharmaceutical": 8509000000
+      }
+    },
+    {
+      "date": "2014-09-28",
+      "segments": {
+        "Consumer": 3589000000,
+        "Medical Devices": 6571000000,
+        "Pharmaceutical": 8307000000
+      }
+    },
+    {
+      "date": "2014-12-28",
+      "segments": {
+        "Consumer": 3606000000,
+        "Medical Devices": 6649000000,
+        "Pharmaceutical": 7999000000
+      }
+    },
+    {
+      "date": "2015-03-29",
+      "segments": {
+        "Consumer": 3390000000,
+        "Medical Devices": 6258000000,
+        "Pharmaceutical": 7726000000
+      }
+    },
+    {
+      "date": "2015-06-28",
+      "segments": {
+        "Consumer": 3483000000,
+        "Medical Devices": 6358000000,
+        "Pharmaceutical": 7946000000
+      }
+    },
+    {
+      "date": "2015-09-27",
+      "segments": {
+        "Consumer": 3314000000,
+        "Medical Devices": 6094000000,
+        "Pharmaceutical": 7694000000
+      }
+    },
+    {
+      "date": "2016-01-03",
+      "segments": {
+        "Consumer": 3320000000,
+        "Medical Devices": 6427000000,
+        "Pharmaceutical": 8064000000
+      }
+    },
+    {
+      "date": "2016-04-03",
+      "segments": {
+        "Consumer": 3195000000,
+        "Medical Devices": 6109000000,
+        "Pharmaceutical": 8178000000
+      }
+    },
+    {
+      "date": "2016-07-03",
+      "segments": {
+        "Consumer": 3419000000,
+        "Medical Devices": 6409000000,
+        "Pharmaceutical": 8654000000
+      }
+    },
+    {
+      "date": "2016-10-02",
+      "segments": {
+        "Consumer": 3261000000,
+        "Medical Devices": 6159000000,
+        "Pharmaceutical": 8400000000
+      }
+    },
+    {
+      "date": "2017-01-01",
+      "segments": {
+        "Consumer": 3432000000,
+        "Medical Devices": 6442000000,
+        "Pharmaceutical": 8232000000
+      }
+    },
+    {
+      "date": "2017-04-02",
+      "segments": {
+        "Consumer": 3228000000,
+        "Medical Devices": 6293000000,
+        "Pharmaceutical": 8245000000
+      }
+    },
+    {
+      "date": "2017-07-02",
+      "segments": {
+        "Pharmaceutical": 8635000000,
+        "Consumer": 3478000000,
+        "Medical Devices": 6726000000
+      }
+    },
+    {
+      "date": "2017-10-01",
+      "segments": {
+        "Pharmaceutical": 9695000000,
+        "Consumer": 3356000000,
+        "Medical Devices": 6599000000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "Consumer": 3540000000,
+        "Medical Devices": 6974000000,
+        "Pharmaceutical": 9681000000
+      }
+    },
+    {
+      "date": "2018-04-01",
+      "segments": {
+        "Consumer": 3398000000,
+        "Medical Devices": 6767000000,
+        "Pharmaceutical": 9844000000
+      }
+    },
+    {
+      "date": "2018-07-01",
+      "segments": {
+        "Consumer": 3504000000,
+        "Medical Devices": 6972000000,
+        "Pharmaceutical": 10354000000
+      }
+    },
+    {
+      "date": "2018-09-30",
+      "segments": {
+        "Consumer": 3415000000,
+        "Medical Devices": 6587000000,
+        "Pharmaceutical": 10346000000
+      }
+    },
+    {
+      "date": "2018-12-30",
+      "segments": {
+        "Consumer": 3536000000,
+        "Medical Devices": 6668000000,
+        "Pharmaceutical": 10190000000
+      }
+    },
+    {
+      "date": "2019-03-31",
+      "segments": {
+        "Consumer": 3318000000,
+        "Medical Devices": 6459000000,
+        "Pharmaceutical": 10244000000
+      }
+    },
+    {
+      "date": "2019-06-30",
+      "segments": {
+        "Consumer": 3544000000,
+        "Medical Devices": 6489000000,
+        "Pharmaceutical": 10529000000
+      }
+    },
+    {
+      "date": "2019-09-29",
+      "segments": {
+        "Consumer": 3469000000,
+        "Medical Devices": 6383000000,
+        "Pharmaceutical": 10877000000
+      }
+    },
+    {
+      "date": "2019-12-29",
+      "segments": {
+        "Consumer": 3567000000,
+        "Pharmaceutical": 10548000000
+      }
+    },
+    {
+      "date": "2020-03-29",
+      "segments": {
+        "Consumer": 3625000000,
+        "Medical Devices": 5932000000,
+        "Pharmaceutical": 11134000000
+      }
+    },
+    {
+      "date": "2020-06-28",
+      "segments": {
+        "Consumer": 3296000000,
+        "Medical Devices": 4288000000,
+        "Pharmaceutical": 10752000000
+      }
+    },
+    {
+      "date": "2020-09-27",
+      "segments": {
+        "Consumer": 3514000000,
+        "Medical Devices": 6150000000,
+        "Pharmaceutical": 11418000000
+      }
+    },
+    {
+      "date": "2021-01-03",
+      "segments": {
+        "Consumer": 3618000000,
+        "Medical Devices": 6589000000,
+        "Pharmaceutical": 12268000000
+      }
+    },
+    {
+      "date": "2021-04-04",
+      "segments": {
+        "Consumer": 3543000000,
+        "Medical Devices": 6579000000,
+        "Pharmaceutical": 12199000000
+      }
+    },
+    {
+      "date": "2021-07-04",
+      "segments": {
+        "Consumer": 3735000000,
+        "Medical Devices": 6978000000,
+        "Pharmaceutical": 12599000000
+      }
+    },
+    {
+      "date": "2021-10-03",
+      "segments": {
+        "Consumer": 3700000000,
+        "Medical Devices": 6644000000,
+        "Pharmaceutical": 12994000000
+      }
+    },
+    {
+      "date": "2022-01-02",
+      "segments": {
+        "Consumer": 3657000000,
+        "Medical Devices": 6859000000,
+        "Pharmaceutical": 14288000000
+      }
+    },
+    {
+      "date": "2022-04-03",
+      "segments": {
+        "Consumer": 3586000000,
+        "Medical Devices": 6971000000,
+        "Pharmaceutical": 12869000000
+      }
+    },
+    {
+      "date": "2022-07-03",
+      "segments": {
+        "Consumer": 3805000000,
+        "Medical Devices": 6898000000,
+        "Pharmaceutical": 13317000000
+      }
+    },
+    {
+      "date": "2022-10-02",
+      "segments": {
+        "Consumer": 3795000000,
+        "Medical Devices": 6782000000,
+        "Pharmaceutical": 13214000000
+      }
+    },
+    {
+      "date": "2023-01-01",
+      "segments": {
+        "Consumer": 3767000000,
+        "Pharmaceutical": 13163000000
+      }
+    },
+    {
+      "date": "2023-04-02",
+      "segments": {
+        "Consumer": 3852000000,
+        "Medical Devices": 7481000000,
+        "Pharmaceutical": 13413000000
+      }
+    },
+    {
+      "date": "2023-07-02",
+      "segments": {
+        "Consumer": 4011000000,
+        "Medical Devices": 7788000000,
+        "Pharmaceutical": 13731000000
+      }
+    },
+    {
+      "date": "2023-10-01",
+      "segments": {
+        "Innovative Medicine": 13893000000,
+        "MedTech": 7458000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Innovative Medicine": 13722000000,
+        "MedTech": 7673000000
+      }
+    },
+    {
+      "date": "2024-03-31",
+      "segments": {
+        "Innovative Medicine": 13562000000,
+        "MedTech": 7821000000
+      }
+    },
+    {
+      "date": "2024-06-30",
+      "segments": {
+        "Innovative Medicine": 14490000000,
+        "MedTech": 7957000000
+      }
+    },
+    {
+      "date": "2024-09-29",
+      "segments": {
+        "Innovative Medicine": 14580000000,
+        "MedTech": 7891000000
+      }
+    },
+    {
+      "date": "2024-12-29",
+      "segments": {
+        "Innovative Medicine": 14332000000,
+        "MedTech": 8188000000
+      }
+    },
+    {
+      "date": "2025-03-30",
+      "segments": {
+        "MedTech": 8020000000,
+        "Innovative Medicine": 13873000000
+      }
+    },
+    {
+      "date": "2025-06-29",
+      "segments": {
+        "Innovative Medicine": 15202000000,
+        "MedTech": 8541000000
+      }
+    },
+    {
+      "date": "2025-09-28",
+      "segments": {
+        "Innovative Medicine": 15563000000,
+        "MedTech": 8430000000
+      }
+    },
+    {
+      "date": "2025-12-28",
+      "segments": {
+        "Innovative Medicine": 15763000000,
+        "MedTech": 8801000000
+      }
+    },
+    {
+      "date": "2026-03-29",
+      "segments": {
+        "Innovative Medicine": 15426000000,
+        "MedTech": 8636000000
+      }
+    },
+    {
+      "date": "2026-06-28",
+      "segments": {
+        "Innovative Medicine": 16384000000,
+        "MedTech": 8926000000
+      }
+    },
+    {
+      "date": "2026-09-27",
+      "segments": {
+        "Innovative Medicine": 16757000000,
+        "MedTech": 8642000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2010-07-04",
+      "segments": {
+        "Asia-Pacific, Africa": 2685000000,
+        "Europe": 3832000000,
+        "UNITED STATES": 7438000000
+      }
+    },
+    {
+      "date": "2010-10-03",
+      "segments": {
+        "Asia-Pacific, Africa": 2798000000,
+        "Europe": 3629000000,
+        "UNITED STATES": 7131000000
+      }
+    },
+    {
+      "date": "2011-04-03",
+      "segments": {
+        "Europe": 4183000000,
+        "UNITED STATES": 7608000000
+      }
+    },
+    {
+      "date": "2011-07-03",
+      "segments": {
+        "Europe": 4543000000,
+        "UNITED STATES": 7447000000
+      }
+    },
+    {
+      "date": "2011-10-02",
+      "segments": {
+        "Europe": 4124000000,
+        "UNITED STATES": 6868000000
+      }
+    },
+    {
+      "date": "2012-01-01",
+      "segments": {
+        "Europe": 8462000000,
+        "Segment Geographical Groups Of Countries Group Two": 6249000000,
+        "Segment Geographical Groups Of Countries Group": 3124000000,
+        "U S": 27384000000
+      }
+    },
+    {
+      "date": "2012-04-01",
+      "segments": {
+        "Europe": 4194000000,
+        "UNITED STATES": 7219000000
+      }
+    },
+    {
+      "date": "2012-07-01",
+      "segments": {
+        "Europe": 4165000000,
+        "UNITED STATES": 7360000000
+      }
+    },
+    {
+      "date": "2012-09-30",
+      "segments": {
+        "Europe": 3983000000,
+        "UNITED STATES": 7791000000
+      }
+    },
+    {
+      "date": "2012-12-30",
+      "segments": {
+        "Europe": 4603000000,
+        "Segment, Geographical, Groups of Countries, Group One": 1941000000,
+        "Segment, Geographical, Groups of Countries, Group Two": 3554000000
+      }
+    },
+    {
+      "date": "2013-03-31",
+      "segments": {
+        "Europe": 4481000000,
+        "UNITED STATES": 8025000000
+      }
+    },
+    {
+      "date": "2013-06-30",
+      "segments": {
+        "Asia-Pacific, Africa": 3354000000,
+        "Europe": 4672000000,
+        "Western Hemisphere, excluding U.S.": 1905000000
+      }
+    },
+    {
+      "date": "2013-09-29",
+      "segments": {
+        "Asia-Pacific, Africa": 3330000000,
+        "Europe": 4478000000,
+        "Western Hemisphere, excluding U.S.": 1842000000
+      }
+    },
+    {
+      "date": "2013-12-29",
+      "segments": {
+        "Asia-Pacific, Africa": 6698000000,
+        "Europe": 4968000000,
+        "Western Hemisphere, excluding U.S.": 3674000000
+      }
+    },
+    {
+      "date": "2014-03-30",
+      "segments": {
+        "Asia-Pacific, Africa": 3331000000,
+        "Europe": 4885000000,
+        "Western Hemisphere, excluding U.S.": 1695000000
+      }
+    },
+    {
+      "date": "2014-06-29",
+      "segments": {
+        "Asia-Pacific, Africa": 3444000000,
+        "Europe": 5056000000,
+        "Western Hemisphere, excluding U.S.": 1863000000
+      }
+    },
+    {
+      "date": "2014-09-28",
+      "segments": {
+        "Asia-Pacific, Africa": 3359000000,
+        "Europe": 4446000000,
+        "Western Hemisphere, excluding U.S.": 1820000000
+      }
+    },
+    {
+      "date": "2014-12-28",
+      "segments": {
+        "Asia-Pacific, Africa": 3308000000,
+        "Europe": 4560000000,
+        "Western Hemisphere, excluding U.S.": 1782000000
+      }
+    },
+    {
+      "date": "2015-03-29",
+      "segments": {
+        "Asia-Pacific, Africa": 3003000000,
+        "Europe": 4040000000,
+        "UNITED STATES": 8692000000,
+        "Western Hemisphere, excluding U.S.": 1639000000
+      }
+    },
+    {
+      "date": "2015-06-28",
+      "segments": {
+        "Asia-Pacific, Africa": 3224000000,
+        "Europe": 4151000000,
+        "UNITED STATES": 8911000000,
+        "Western Hemisphere, excluding U.S.": 1501000000
+      }
+    },
+    {
+      "date": "2015-09-27",
+      "segments": {
+        "Asia-Pacific, Africa": 3046000000,
+        "Europe": 3802000000,
+        "UNITED STATES": 8791000000,
+        "Western Hemisphere, excluding U.S.": 1463000000
+      }
+    },
+    {
+      "date": "2016-01-03",
+      "segments": {
+        "Asia-Pacific, Africa": 3074000000,
+        "Europe": 4002000000,
+        "UNITED STATES": 9293000000,
+        "Western Hemisphere, excluding U.S.": 1442000000
+      }
+    },
+    {
+      "date": "2016-04-03",
+      "segments": {
+        "Asia-Pacific, Africa": 2983000000,
+        "Europe": 3847000000,
+        "UNITED STATES": 9321000000,
+        "Western Hemisphere, excluding U.S.": 1331000000
+      }
+    },
+    {
+      "date": "2016-07-03",
+      "segments": {
+        "Asia-Pacific, Africa": 3278000000,
+        "Europe": 4090000000,
+        "UNITED STATES": 9572000000,
+        "Western Hemisphere, excluding U.S.": 1542000000
+      }
+    },
+    {
+      "date": "2016-10-02",
+      "segments": {
+        "Asia-Pacific, Africa": 3211000000,
+        "Europe": 3832000000,
+        "UNITED STATES": 9381000000,
+        "Western Hemisphere, excluding U.S.": 1396000000
+      }
+    },
+    {
+      "date": "2017-01-01",
+      "segments": {
+        "Asia-Pacific, Africa": 3103000000,
+        "Europe": 4001000000,
+        "UNITED STATES": 9537000000,
+        "Western Hemisphere, excluding U.S.": 1465000000
+      }
+    },
+    {
+      "date": "2017-04-02",
+      "segments": {
+        "Asia-Pacific, Africa": 3076000000,
+        "Europe": 3858000000,
+        "UNITED STATES": 9378000000,
+        "Western Hemisphere, excluding U.S.": 1454000000
+      }
+    },
+    {
+      "date": "2017-07-02",
+      "segments": {
+        "Asia-Pacific, Africa": 3382000000,
+        "Europe": 4232000000,
+        "UNITED STATES": 9726000000,
+        "Western Hemisphere, excluding U.S.": 1499000000
+      }
+    },
+    {
+      "date": "2017-10-01",
+      "segments": {
+        "Asia-Pacific, Africa": 3483000000,
+        "Europe": 4308000000,
+        "UNITED STATES": 10290000000,
+        "Western Hemisphere, excluding U.S.": 1569000000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "Asia-Pacific, Africa": 3479000000,
+        "Europe": 4728000000,
+        "UNITED STATES": 10469000000,
+        "Western Hemisphere, excluding U.S.": 1519000000
+      }
+    },
+    {
+      "date": "2018-04-01",
+      "segments": {
+        "Asia-Pacific, Africa": 3694000000,
+        "Europe": 4797000000,
+        "UNITED STATES": 9951000000,
+        "Western Hemisphere, excluding U.S.": 1567000000
+      }
+    },
+    {
+      "date": "2018-07-01",
+      "segments": {
+        "Asia-Pacific, Africa": 3840000000,
+        "Europe": 4810000000,
+        "UNITED STATES": 10640000000,
+        "Western Hemisphere, excluding U.S.": 1540000000
+      }
+    },
+    {
+      "date": "2018-09-30",
+      "segments": {
+        "Asia-Pacific, Africa": 3718000000,
+        "Europe": 4416000000,
+        "UNITED STATES": 10664000000,
+        "Western Hemisphere, excluding U.S.": 1550000000
+      }
+    },
+    {
+      "date": "2018-12-30",
+      "segments": {
+        "Asia-Pacific, Africa": 3579000000,
+        "Europe": 4730000000,
+        "UNITED STATES": 10629000000,
+        "Western Hemisphere, excluding U.S.": 1456000000
+      }
+    },
+    {
+      "date": "2019-03-31",
+      "segments": {
+        "Asia-Pacific, Africa": 3780000000,
+        "Europe": 4609000000,
+        "Western Hemisphere, excluding U.S.": 1503000000,
+        "UNITED STATES": 10129000000
+      }
+    },
+    {
+      "date": "2019-06-30",
+      "segments": {
+        "Asia-Pacific, Africa": 3971000000,
+        "Europe": 4733000000,
+        "Western Hemisphere, excluding U.S.": 1455000000,
+        "UNITED STATES": 10403000000
+      }
+    },
+    {
+      "date": "2019-09-29",
+      "segments": {
+        "Asia-Pacific, Africa": 3989000000,
+        "Europe": 4461000000,
+        "Western Hemisphere, excluding U.S.": 1488000000,
+        "UNITED STATES": 10791000000
+      }
+    },
+    {
+      "date": "2019-12-29",
+      "segments": {
+        "Asia-Pacific, Africa": 3815000000,
+        "Europe": 4663000000,
+        "Western Hemisphere, excluding U.S.": 1495000000,
+        "UNITED STATES": 10774000000
+      }
+    },
+    {
+      "date": "2020-03-29",
+      "segments": {
+        "Asia-Pacific, Africa": 3663000000,
+        "Europe": 4827000000,
+        "Western Hemisphere, excluding U.S.": 1502000000,
+        "UNITED STATES": 10699000000
+      }
+    },
+    {
+      "date": "2020-06-28",
+      "segments": {
+        "Asia-Pacific, Africa": 3601000000,
+        "Europe": 4063000000,
+        "Western Hemisphere, excluding U.S.": 1133000000,
+        "UNITED STATES": 9539000000
+      }
+    },
+    {
+      "date": "2020-09-27",
+      "segments": {
+        "Asia-Pacific, Africa": 3881000000,
+        "Europe": 4819000000,
+        "Western Hemisphere, excluding U.S.": 1296000000,
+        "UNITED STATES": 11086000000
+      }
+    },
+    {
+      "date": "2021-01-03",
+      "segments": {
+        "Asia-Pacific, Africa": 3991000000,
+        "Europe": 5271000000,
+        "Western Hemisphere, excluding U.S.": 1404000000,
+        "UNITED STATES": 11809000000
+      }
+    },
+    {
+      "date": "2021-04-04",
+      "segments": {
+        "Asia-Pacific, Africa": 4372000000,
+        "Europe": 5414000000,
+        "Western Hemisphere, excluding U.S.": 1424000000,
+        "UNITED STATES": 11111000000
+      }
+    },
+    {
+      "date": "2021-07-04",
+      "segments": {
+        "Asia-Pacific, Africa": 4358000000,
+        "Europe": 5668000000,
+        "Western Hemisphere, excluding U.S.": 1367000000,
+        "UNITED STATES": 11919000000
+      }
+    },
+    {
+      "date": "2021-10-03",
+      "segments": {
+        "Asia-Pacific, Africa": 4288000000,
+        "Europe": 5587000000,
+        "Western Hemisphere, excluding U.S.": 1500000000,
+        "UNITED STATES": 11963000000
+      }
+    },
+    {
+      "date": "2022-01-02",
+      "segments": {
+        "Asia-Pacific, Africa": 4257000000,
+        "Europe": 6925000000,
+        "Western Hemisphere, excluding U.S.": 1459000000,
+        "UNITED STATES": 12163000000
+      }
+    },
+    {
+      "date": "2022-04-03",
+      "segments": {
+        "Asia-Pacific, Africa": 4506000000,
+        "Europe": 6024000000,
+        "Western Hemisphere, excluding U.S.": 1482000000,
+        "UNITED STATES": 11414000000
+      }
+    },
+    {
+      "date": "2022-07-03",
+      "segments": {
+        "Asia-Pacific, Africa": 4202000000,
+        "Europe": 6085000000,
+        "Western Hemisphere, excluding U.S.": 1536000000,
+        "UNITED STATES": 12197000000
+      }
+    },
+    {
+      "date": "2022-10-02",
+      "segments": {
+        "Asia-Pacific, Africa": 4252000000,
+        "Europe": 5524000000,
+        "Western Hemisphere, excluding U.S.": 1562000000,
+        "UNITED STATES": 12453000000
+      }
+    },
+    {
+      "date": "2023-01-01",
+      "segments": {
+        "Asia-Pacific, Africa": 3829000000,
+        "Europe": 5816000000,
+        "UNITED STATES": 12516000000,
+        "Western Hemisphere, excluding U.S.": 1545000000
+      }
+    },
+    {
+      "date": "2023-04-02",
+      "segments": {
+        "Asia-Pacific, Africa": 4310000000,
+        "Europe": 6332000000,
+        "Western Hemisphere, excluding U.S.": 1587000000,
+        "UNITED STATES": 12517000000
+      }
+    },
+    {
+      "date": "2023-07-02",
+      "segments": {
+        "Asia-Pacific, Africa": 4479000000,
+        "Europe": 5894000000,
+        "Western Hemisphere, excluding U.S.": 1713000000,
+        "UNITED STATES": 13444000000
+      }
+    },
+    {
+      "date": "2023-10-01",
+      "segments": {
+        "Asia-Pacific, Africa": 3457000000,
+        "Europe": 4727000000,
+        "Western Hemisphere, excluding U.S.": 1171000000,
+        "UNITED STATES": 11996000000
+      }
+    },
+    {
+      "date": "2024-03-31",
+      "segments": {
+        "Asia-Pacific, Africa": 3406000000,
+        "Europe": 5163000000,
+        "Western Hemisphere, excluding U.S.": 1194000000,
+        "UNITED STATES": 11620000000
+      }
+    },
+    {
+      "date": "2024-06-30",
+      "segments": {
+        "Asia-Pacific, Africa": 3452000000,
+        "Europe": 5214000000,
+        "Western Hemisphere, excluding U.S.": 1212000000,
+        "UNITED STATES": 12569000000
+      }
+    },
+    {
+      "date": "2024-09-29",
+      "segments": {
+        "Asia-Pacific, Africa": 3475000000,
+        "Europe": 4914000000,
+        "Western Hemisphere, excluding U.S.": 1173000000,
+        "UNITED STATES": 12909000000
+      }
+    },
+    {
+      "date": "2024-12-29",
+      "segments": {
+        "Asia-Pacific, Africa": 3260000000,
+        "Europe": 4921000000,
+        "UNITED STATES": 13204000000,
+        "Western Hemisphere, excluding U.S.": 1135000000
+      }
+    },
+    {
+      "date": "2025-03-30",
+      "segments": {
+        "Asia-Pacific, Africa": 3311000000,
+        "Europe": 5110000000,
+        "Western Hemisphere, excluding U.S.": 1167000000,
+        "UNITED STATES": 12305000000
+      }
+    },
+    {
+      "date": "2025-06-29",
+      "segments": {
+        "Asia-Pacific, Africa": 3606000000,
+        "Europe": 5387000000,
+        "Western Hemisphere, excluding U.S.": 1206000000,
+        "UNITED STATES": 13544000000
+      }
+    },
+    {
+      "date": "2025-09-28",
+      "segments": {
+        "Asia-Pacific, Africa": 3614000000,
+        "Europe": 5440000000,
+        "Western Hemisphere, excluding U.S.": 1231000000
+      }
+    },
+    {
+      "date": "2025-12-28",
+      "segments": {
+        "Asia-Pacific, Africa": 3500000000,
+        "Europe": 5598000000,
+        "UNITED STATES": 27903000000,
+        "Western Hemisphere, excluding U.S.": 1271000000
+      }
+    },
+    {
+      "date": "2026-03-29",
+      "segments": {
+        "Asia-Pacific, Africa": 3591000000,
+        "Europe": 5848000000,
+        "Western Hemisphere, excluding U.S.": 1293000000
+      }
+    },
+    {
+      "date": "2026-06-28",
+      "segments": {
+        "Asia-Pacific, Africa": 3742000000,
+        "Europe": 5726000000,
+        "Western Hemisphere, excluding U.S.": 1309000000
+      }
+    },
+    {
+      "date": "2026-09-27",
+      "segments": {
+        "Asia-Pacific, Africa": 3650000000,
+        "Europe": 5405000000,
+        "Western Hemisphere, excluding U.S.": 1385000000
+      }
+    }
+  ]
+}

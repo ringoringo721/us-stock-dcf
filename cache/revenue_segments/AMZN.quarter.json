@@ -1,0 +1,1043 @@
+{
+  "version": 1,
+  "ticker": "AMZN",
+  "source": "FMP revenue segmentation (quarter)",
+  "period": "quarter",
+  "product": [
+    {
+      "date": "2011-09-30",
+      "segments": {
+        "Electronics And Other General Merchandise": 6316000000,
+        "Media": 4153000000,
+        "Other Non Retail": 407000000
+      }
+    },
+    {
+      "date": "2011-12-31",
+      "segments": {
+        "Electronics And Other General Merchandise": 10913000000,
+        "Media": 6009000000,
+        "Other Non Retail": 509000000
+      }
+    },
+    {
+      "date": "2012-03-31",
+      "segments": {
+        "Electronics And Other General Merchandise": 7975000000,
+        "Media": 4710000000,
+        "Other Non Retail": 500000000
+      }
+    },
+    {
+      "date": "2012-06-30",
+      "segments": {
+        "Electronics And Other General Merchandise": 8161000000,
+        "Media": 4119000000,
+        "Other Non Retail": 554000000
+      }
+    },
+    {
+      "date": "2012-09-30",
+      "segments": {
+        "Electronics And Other General Merchandise": 8558000000,
+        "Media": 4600000000,
+        "Other Non Retail": 648000000
+      }
+    },
+    {
+      "date": "2012-12-31",
+      "segments": {
+        "Electronics And Other General Merchandise": 13934000000,
+        "Media": 6513000000,
+        "Other Non Retail": 821000000
+      }
+    },
+    {
+      "date": "2013-03-31",
+      "segments": {
+        "Electronics And Other General Merchandise": 10214000000,
+        "Media": 5058000000,
+        "Other Non Retail": 798000000
+      }
+    },
+    {
+      "date": "2013-06-30",
+      "segments": {
+        "Electronics And Other General Merchandise": 10415000000,
+        "Media": 4397000000,
+        "Other Non Retail": 892000000
+      }
+    },
+    {
+      "date": "2013-09-30",
+      "segments": {
+        "Electronics And Other General Merchandise": 11048000000,
+        "Media": 5033000000,
+        "Other Non Retail": 1011000000
+      }
+    },
+    {
+      "date": "2013-12-31",
+      "segments": {
+        "Electronics And Other General Merchandise": 17125000000,
+        "Media": 7228000000,
+        "Other Non Retail": 1233000000
+      }
+    },
+    {
+      "date": "2014-03-31",
+      "segments": {
+        "Electronics And Other General Merchandise": 13017000000,
+        "Media": 5467000000,
+        "Other Non Retail": 1257000000
+      }
+    },
+    {
+      "date": "2014-06-30",
+      "segments": {
+        "Electronics And Other General Merchandise": 13278000000,
+        "Media": 4844000000,
+        "Other Non Retail": 1218000000
+      }
+    },
+    {
+      "date": "2014-09-30",
+      "segments": {
+        "Electronics And Other General Merchandise": 13953000000,
+        "Media": 5244000000,
+        "Other Non Retail": 1382000000
+      }
+    },
+    {
+      "date": "2014-12-31",
+      "segments": {
+        "Electronics And Other General Merchandise": 20638000000,
+        "Media": 6950000000,
+        "Other Non Retail": 1740000000
+      }
+    },
+    {
+      "date": "2015-03-31",
+      "segments": {
+        "Amazon Web Services": 1566000000,
+        "Electronics And Other General Merchandise": 15628000000,
+        "Media": 5289000000,
+        "Other Non Retail": 234000000
+      }
+    },
+    {
+      "date": "2015-06-30",
+      "segments": {
+        "Amazon Web Services": 1824000000,
+        "Electronics And Other General Merchandise": 16412000000,
+        "Media": 4714000000,
+        "Other Non Retail": 235000000
+      }
+    },
+    {
+      "date": "2015-09-30",
+      "segments": {
+        "Amazon Web Services": 2085000000,
+        "Electronics And Other General Merchandise": 17741000000,
+        "Media": 5283000000,
+        "Other Non Retail": 249000000
+      }
+    },
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "Amazon Web Services": 2405000000,
+        "Electronics And Other General Merchandise": 25816000000,
+        "Media": 7223000000,
+        "Other Non Retail": 302000000
+      }
+    },
+    {
+      "date": "2016-03-31",
+      "segments": {
+        "Amazon Web Services": 2566000000,
+        "Electronics And Other General Merchandise": 20545000000,
+        "Media": 5688000000,
+        "Other Non Retail": 329000000
+      }
+    },
+    {
+      "date": "2016-06-30",
+      "segments": {
+        "Amazon Web Services": 2886000000,
+        "Electronics And Other General Merchandise": 21963000000,
+        "Media": 5211000000,
+        "Other Non Retail": 344000000
+      }
+    },
+    {
+      "date": "2016-09-30",
+      "segments": {
+        "Amazon Web Services": 3231000000,
+        "Electronics And Other General Merchandise": 23383000000,
+        "Media": 5728000000,
+        "Other Non Retail": 372000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Amazon Web Services": 3536000000,
+        "Other Services": 1903000000,
+        "Online Stores": 31935000000,
+        "Third-Party Seller Services": 6367000000
+      }
+    },
+    {
+      "date": "2017-03-31",
+      "segments": {
+        "Amazon Web Services": 3661000000,
+        "Other Services": 850000000,
+        "Online Stores": 22826000000,
+        "Subscription Services": 1939000000,
+        "Third-Party Seller Services": 6438000000
+      }
+    },
+    {
+      "date": "2017-06-30",
+      "segments": {
+        "Amazon Web Services": 4100000000,
+        "Other Services": 945000000,
+        "Online Stores": 23754000000,
+        "Subscription Services": 2165000000,
+        "Third-Party Seller Services": 6991000000
+      }
+    },
+    {
+      "date": "2017-09-30",
+      "segments": {
+        "Amazon Web Services": 4584000000,
+        "Other Services": 1123000000,
+        "Physical Stores": 1276000000,
+        "Online Stores": 26392000000,
+        "Subscription Services": 2441000000,
+        "Third-Party Seller Services": 7928000000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "Amazon Web Services": 5114000000,
+        "Online Stores": 35382000000,
+        "Other Services": 1735000000,
+        "Physical Stores": 4522000000,
+        "Subscription Services": 3176000000,
+        "Third-Party Seller Services": 10524000000
+      }
+    },
+    {
+      "date": "2018-03-31",
+      "segments": {
+        "Amazon Web Services": 5442000000,
+        "Other Services": 2031000000,
+        "Physical Stores": 4263000000,
+        "Online Stores": 26939000000,
+        "Subscription Services": 3102000000,
+        "Third-Party Seller Services": 9265000000
+      }
+    },
+    {
+      "date": "2018-06-30",
+      "segments": {
+        "Amazon Web Services": 6105000000,
+        "Other Services": 2194000000,
+        "Physical Stores": 4312000000,
+        "Online Stores": 27165000000,
+        "Subscription Services": 3408000000,
+        "Third-Party Seller Services": 9702000000
+      }
+    },
+    {
+      "date": "2018-09-30",
+      "segments": {
+        "Amazon Web Services": 6679000000,
+        "Online Stores": 29061000000,
+        "Other Services": 2495000000,
+        "Physical Stores": 4248000000,
+        "Subscription Services": 3698000000,
+        "Third-Party Seller Services": 10395000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Amazon Web Services": 7429000000,
+        "Online Stores": 39822000000,
+        "Other Services": 3388000000,
+        "Physical Stores": 4401000000,
+        "Subscription Services": 3960000000,
+        "Third-Party Seller Services": 13383000000
+      }
+    },
+    {
+      "date": "2019-03-31",
+      "segments": {
+        "Amazon Web Services": 7696000000,
+        "Online Stores": 29498000000,
+        "Other Services": 2716000000,
+        "Physical Stores": 4307000000,
+        "Subscription Services": 4342000000,
+        "Third-Party Seller Services": 11141000000
+      }
+    },
+    {
+      "date": "2019-06-30",
+      "segments": {
+        "Amazon Web Services": 8381000000,
+        "Online Stores": 31053000000,
+        "Other Services": 3002000000,
+        "Physical Stores": 4330000000,
+        "Subscription Services": 4676000000,
+        "Third-Party Seller Services": 11962000000
+      }
+    },
+    {
+      "date": "2019-09-30",
+      "segments": {
+        "Amazon Web Services": 8995000000,
+        "Online Stores": 35039000000,
+        "Other Services": 3586000000,
+        "Physical Stores": 4192000000,
+        "Subscription Services": 4957000000,
+        "Third-Party Seller Services": 13212000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Amazon Web Services": 9954000000,
+        "Online Stores": 45657000000,
+        "Other Services": 4781000000,
+        "Physical Stores": 4363000000,
+        "Subscription Services": 5235000000,
+        "Third-Party Seller Services": 17447000000
+      }
+    },
+    {
+      "date": "2020-03-31",
+      "segments": {
+        "Amazon Web Services": 10219000000,
+        "Online Stores": 36652000000,
+        "Other Services": 3906000000,
+        "Physical Stores": 4640000000,
+        "Subscription Services": 5556000000,
+        "Third-Party Seller Services": 14479000000
+      }
+    },
+    {
+      "date": "2020-06-30",
+      "segments": {
+        "Amazon Web Services": 10808000000,
+        "Online Stores": 45896000000,
+        "Other Services": 4221000000,
+        "Physical Stores": 3774000000,
+        "Subscription Services": 6018000000,
+        "Third-Party Seller Services": 18195000000
+      }
+    },
+    {
+      "date": "2020-09-30",
+      "segments": {
+        "Amazon Web Services": 11601000000,
+        "Online Stores": 48350000000,
+        "Other Services": 5398000000,
+        "Physical Stores": 3788000000,
+        "Subscription Services": 6572000000,
+        "Third-Party Seller Services": 20436000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Amazon Web Services": 12742000000,
+        "Online Stores": 66448000000,
+        "Other Services": 7928000000,
+        "Physical Stores": 4025000000,
+        "Subscription Services": 7061000000,
+        "Third-Party Seller Services": 27351000000
+      }
+    },
+    {
+      "date": "2021-03-31",
+      "segments": {
+        "Amazon Web Services": 13503000000,
+        "Online Stores": 52901000000,
+        "Other Services": 6905000000,
+        "Physical Stores": 3920000000,
+        "Subscription Services": 7580000000,
+        "Third-Party Seller Services": 23709000000
+      }
+    },
+    {
+      "date": "2021-06-30",
+      "segments": {
+        "Amazon Web Services": 14809000000,
+        "Online Stores": 53157000000,
+        "Other Services": 7914000000,
+        "Physical Stores": 4198000000,
+        "Subscription Services": 7917000000,
+        "Third-Party Seller Services": 25085000000
+      }
+    },
+    {
+      "date": "2021-09-30",
+      "segments": {
+        "Amazon Web Services": 16110000000,
+        "Online Stores": 49942000000,
+        "Other Services": 8091000000,
+        "Physical Stores": 4269000000,
+        "Subscription Services": 8148000000,
+        "Third-Party Seller Services": 24252000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Advertising Services": 0,
+        "Amazon Web Services": 17780000000,
+        "Online Stores": 66075000000,
+        "Other Services": 10426000000,
+        "Physical Stores": 4688000000,
+        "Subscription Services": 8123000000,
+        "Third-Party Seller Services": 30320000000
+      }
+    },
+    {
+      "date": "2022-03-31",
+      "segments": {
+        "Advertising Services": 7877000000,
+        "Amazon Web Services": 18441000000,
+        "Online Stores": 51129000000,
+        "Other Services": 661000000,
+        "Physical Stores": 4591000000,
+        "Subscription Services": 8410000000,
+        "Third-Party Seller Services": 25335000000
+      }
+    },
+    {
+      "date": "2022-06-30",
+      "segments": {
+        "Advertising Services": 8757000000,
+        "Amazon Web Services": 19739000000,
+        "Online Stores": 50855000000,
+        "Other Services": 1070000000,
+        "Physical Stores": 4721000000,
+        "Subscription Services": 8716000000,
+        "Third-Party Seller Services": 27376000000
+      }
+    },
+    {
+      "date": "2022-09-30",
+      "segments": {
+        "Advertising Services": 9548000000,
+        "Amazon Web Services": 20538000000,
+        "Online Stores": 53489000000,
+        "Other Services": 1263000000,
+        "Physical Stores": 4694000000,
+        "Subscription Services": 8903000000,
+        "Third-Party Seller Services": 28666000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Advertising Services": 11557000000,
+        "Amazon Web Services": 21378000000,
+        "Online Stores": 64531000000,
+        "Other Services": 1253000000,
+        "Physical Stores": 4957000000,
+        "Subscription Services": 9189000000,
+        "Third-Party Seller Services": 36339000000
+      }
+    },
+    {
+      "date": "2023-03-31",
+      "segments": {
+        "Advertising Services": 9509000000,
+        "Amazon Web Services": 21354000000,
+        "Online Stores": 51096000000,
+        "Other Services": 1027000000,
+        "Physical Stores": 4895000000,
+        "Subscription Services": 9657000000,
+        "Third-Party Seller Services": 29820000000
+      }
+    },
+    {
+      "date": "2023-06-30",
+      "segments": {
+        "Advertising Services": 10683000000,
+        "Amazon Web Services": 22140000000,
+        "Online Stores": 52966000000,
+        "Other Services": 1344000000,
+        "Physical Stores": 5024000000,
+        "Subscription Services": 9894000000,
+        "Third-Party Seller Services": 32332000000
+      }
+    },
+    {
+      "date": "2023-09-30",
+      "segments": {
+        "Advertising Services": 12060000000,
+        "Amazon Web Services": 23059000000,
+        "Online Stores": 57267000000,
+        "Other Services": 1226000000,
+        "Physical Stores": 4959000000,
+        "Subscription Services": 10170000000,
+        "Third-Party Seller Services": 34342000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Advertising Services": 14654000000,
+        "Amazon Web Services": 24204000000,
+        "Online Stores": 70543000000,
+        "Other Services": 1361000000,
+        "Physical Stores": 5152000000,
+        "Subscription Services": 10488000000,
+        "Third-Party Seller Services": 43559000000
+      }
+    },
+    {
+      "date": "2024-03-31",
+      "segments": {
+        "Advertising Services": 11824000000,
+        "Amazon Web Services": 25037000000,
+        "Online Stores": 54670000000,
+        "Other Services": 1262000000,
+        "Physical Stores": 5202000000,
+        "Subscription Services": 10722000000,
+        "Third-Party Seller Services": 34596000000
+      }
+    },
+    {
+      "date": "2024-06-30",
+      "segments": {
+        "Advertising Services": 12771000000,
+        "Amazon Web Services": 26281000000,
+        "Online Stores": 55392000000,
+        "Other Services": 1260000000,
+        "Physical Stores": 5206000000,
+        "Subscription Services": 10866000000,
+        "Third-Party Seller Services": 36201000000
+      }
+    },
+    {
+      "date": "2024-09-30",
+      "segments": {
+        "Advertising Services": 14331000000,
+        "Amazon Web Services": 27452000000,
+        "Online Stores": 61411000000,
+        "Other Services": 1313000000,
+        "Physical Stores": 5228000000,
+        "Subscription Services": 11278000000,
+        "Third-Party Seller Services": 37864000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Advertising Services": 17288000000,
+        "Amazon Web Services": 28786000000,
+        "Online Stores": 75556000000,
+        "Other Services": 1590000000,
+        "Physical Stores": 5579000000,
+        "Subscription Services": 11508000000,
+        "Third-Party Seller Services": 47485000000
+      }
+    },
+    {
+      "date": "2025-03-31",
+      "segments": {
+        "Advertising Services": 13921000000,
+        "Amazon Web Services": 29267000000,
+        "Online Stores": 57407000000,
+        "Other Services": 1312000000,
+        "Physical Stores": 5533000000,
+        "Subscription Services": 11715000000,
+        "Third-Party Seller Services": 36512000000
+      }
+    },
+    {
+      "date": "2025-06-30",
+      "segments": {
+        "Advertising Services": 15694000000,
+        "Amazon Web Services": 30873000000,
+        "Online Stores": 61485000000,
+        "Other Services": 1499000000,
+        "Physical Stores": 5595000000,
+        "Subscription Services": 12208000000,
+        "Third-Party Seller Services": 40348000000
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "segments": {
+        "Advertising Services": 17703000000,
+        "Amazon Web Services": 33006000000,
+        "Online Stores": 67407000000,
+        "Other Services": 1415000000,
+        "Physical Stores": 5578000000,
+        "Subscription Services": 12574000000,
+        "Third-Party Seller Services": 42486000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Advertising Services": 21317000000,
+        "Amazon Web Services": 35579000000,
+        "Online Stores": 82988000000,
+        "Other Services": 1709000000,
+        "Physical Stores": 5855000000,
+        "Subscription Services": 13122000000,
+        "Third-Party Seller Services": 52816000000
+      }
+    },
+    {
+      "date": "2026-03-31",
+      "segments": {
+        "Advertising Services": 17243000000,
+        "Amazon Web Services": 37587000000,
+        "Online Stores": 64254000000,
+        "Other Services": 1645000000,
+        "Physical Stores": 5785000000,
+        "Subscription Services": 13427000000,
+        "Third-Party Seller Services": 41578000000
+      }
+    },
+    {
+      "date": "2026-06-30",
+      "segments": {
+        "Advertising Services": 19809000000,
+        "Amazon Web Services": 42232000000,
+        "Online Stores": 70432000000,
+        "Other Services": 1829000000,
+        "Physical Stores": 5794000000,
+        "Subscription Services": 13730000000,
+        "Third-Party Seller Services": 46780000000
+      }
+    },
+    {
+      "date": "2026-09-30",
+      "segments": {
+        "Advertising Services": 19637000000,
+        "Amazon Web Services": 45984000000,
+        "Online Stores": 68470000000,
+        "Other Services": 1645000000,
+        "Physical Stores": 5710000000,
+        "Subscription Services": 14006000000,
+        "Third-Party Seller Services": 46492000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2013-09-30",
+      "segments": {
+        "International Segment": 6791000000,
+        "North America Segment": 10301000000
+      }
+    },
+    {
+      "date": "2014-03-31",
+      "segments": {
+        "International Segment": 7883000000,
+        "North America Segment": 11858000000
+      }
+    },
+    {
+      "date": "2014-06-30",
+      "segments": {
+        "International Segment": 7342000000,
+        "North America Segment": 11998000000
+      }
+    },
+    {
+      "date": "2014-09-30",
+      "segments": {
+        "International Segment": 7712000000,
+        "North America Segment": 12867000000
+      }
+    },
+    {
+      "date": "2014-12-31",
+      "segments": {
+        "International Segment": 10582000000,
+        "North America Segment": 18746000000
+      }
+    },
+    {
+      "date": "2015-03-31",
+      "segments": {
+        "Amazon Web Services Segment": 1566000000,
+        "International Segment": 7745000000,
+        "North America Segment": 13406000000
+      }
+    },
+    {
+      "date": "2015-06-30",
+      "segments": {
+        "Amazon Web Services Segment": 1824000000,
+        "International Segment": 7565000000,
+        "North America Segment": 13796000000
+      }
+    },
+    {
+      "date": "2015-09-30",
+      "segments": {
+        "Amazon Web Services Segment": 2085000000,
+        "International Segment": 8267000000,
+        "North America Segment": 15006000000
+      }
+    },
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "Amazon Web Services Segment": 2405000000,
+        "International Segment": 11841000000,
+        "North America Segment": 21500000000
+      }
+    },
+    {
+      "date": "2016-03-31",
+      "segments": {
+        "Amazon Web Services Segment": 2566000000,
+        "International Segment": 9566000000,
+        "North America Segment": 16996000000
+      }
+    },
+    {
+      "date": "2016-06-30",
+      "segments": {
+        "Amazon Web Services Segment": 2886000000,
+        "International Segment": 9844000000,
+        "North America Segment": 17674000000
+      }
+    },
+    {
+      "date": "2016-09-30",
+      "segments": {
+        "Amazon Web Services Segment": 3231000000,
+        "International Segment": 10609000000,
+        "North America Segment": 18874000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "International Segment": 6936000000,
+        "North America Segment": 36805000000
+      }
+    },
+    {
+      "date": "2017-03-31",
+      "segments": {
+        "Amazon Web Services Segment": 3661000000,
+        "International Segment": 11061000000,
+        "North America Segment": 20992000000
+      }
+    },
+    {
+      "date": "2017-06-30",
+      "segments": {
+        "Amazon Web Services Segment": 4100000000,
+        "International Segment": 11485000000,
+        "North America Segment": 22370000000
+      }
+    },
+    {
+      "date": "2017-09-30",
+      "segments": {
+        "Amazon Web Services Segment": 4584000000,
+        "International Segment": 13714000000,
+        "North America Segment": 25446000000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "International Segment": 8775000000,
+        "North America Segment": 51678000000
+      }
+    },
+    {
+      "date": "2018-03-31",
+      "segments": {
+        "Amazon Web Services Segment": 5442000000,
+        "International Segment": 14875000000,
+        "North America Segment": 30725000000
+      }
+    },
+    {
+      "date": "2018-06-30",
+      "segments": {
+        "Amazon Web Services Segment": 6105000000,
+        "International Segment": 14612000000,
+        "North America Segment": 32169000000
+      }
+    },
+    {
+      "date": "2018-09-30",
+      "segments": {
+        "Amazon Web Services Segment": 6679000000,
+        "International Segment": 15549000000,
+        "North America Segment": 34348000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "International Segment": 9479000000,
+        "North America Segment": 62904000000
+      }
+    },
+    {
+      "date": "2019-03-31",
+      "segments": {
+        "Amazon Web Services Segment": 7696000000,
+        "International Segment": 16192000000,
+        "North America Segment": 35812000000
+      }
+    },
+    {
+      "date": "2019-06-30",
+      "segments": {
+        "Amazon Web Services Segment": 8381000000,
+        "International Segment": 16370000000,
+        "North America Segment": 38653000000
+      }
+    },
+    {
+      "date": "2019-09-30",
+      "segments": {
+        "Amazon Web Services Segment": 8995000000,
+        "International Segment": 18348000000,
+        "North America Segment": 42638000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "International Segment": 10904000000,
+        "North America Segment": 76533000000
+      }
+    },
+    {
+      "date": "2020-03-31",
+      "segments": {
+        "Amazon Web Services Segment": 10219000000,
+        "International Segment": 19106000000,
+        "North America Segment": 46127000000
+      }
+    },
+    {
+      "date": "2020-06-30",
+      "segments": {
+        "Amazon Web Services Segment": 10808000000,
+        "International Segment": 22668000000,
+        "North America Segment": 55436000000
+      }
+    },
+    {
+      "date": "2020-09-30",
+      "segments": {
+        "Amazon Web Services Segment": 11601000000,
+        "International Segment": 25171000000,
+        "North America Segment": 59373000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "International Segment": 22971000000,
+        "North America Segment": 102584000000
+      }
+    },
+    {
+      "date": "2021-03-31",
+      "segments": {
+        "Amazon Web Services Segment": 13503000000,
+        "International Segment": 30649000000,
+        "North America Segment": 64366000000
+      }
+    },
+    {
+      "date": "2021-06-30",
+      "segments": {
+        "Amazon Web Services Segment": 14809000000,
+        "International Segment": 30721000000,
+        "North America Segment": 67550000000
+      }
+    },
+    {
+      "date": "2021-09-30",
+      "segments": {
+        "Amazon Web Services Segment": 16110000000,
+        "International Segment": 29145000000,
+        "North America Segment": 65557000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "International Segment": 20879000000,
+        "North America Segment": 116533000000
+      }
+    },
+    {
+      "date": "2022-03-31",
+      "segments": {
+        "Amazon Web Services Segment": 18441000000,
+        "International Segment": 28759000000,
+        "North America Segment": 69244000000
+      }
+    },
+    {
+      "date": "2022-06-30",
+      "segments": {
+        "Amazon Web Services Segment": 19739000000,
+        "International Segment": 27065000000,
+        "North America Segment": 74430000000
+      }
+    },
+    {
+      "date": "2022-09-30",
+      "segments": {
+        "Amazon Web Services Segment": 20538000000,
+        "International Segment": 27720000000,
+        "North America Segment": 78843000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "International Segment": 15608000000,
+        "North America Segment": 133596000000
+      }
+    },
+    {
+      "date": "2023-03-31",
+      "segments": {
+        "Amazon Web Services Segment": 21354000000,
+        "International Segment": 29123000000,
+        "North America Segment": 76881000000
+      }
+    },
+    {
+      "date": "2023-06-30",
+      "segments": {
+        "Amazon Web Services Segment": 22140000000,
+        "International Segment": 29697000000,
+        "North America Segment": 82546000000
+      }
+    },
+    {
+      "date": "2023-09-30",
+      "segments": {
+        "Amazon Web Services Segment": 23059000000,
+        "International Segment": 32137000000,
+        "North America Segment": 87887000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "International Segment": 21638000000,
+        "North America Segment": 148323000000
+      }
+    },
+    {
+      "date": "2024-03-31",
+      "segments": {
+        "Amazon Web Services Segment": 25037000000,
+        "International Segment": 31935000000,
+        "North America Segment": 86341000000
+      }
+    },
+    {
+      "date": "2024-06-30",
+      "segments": {
+        "Amazon Web Services Segment": 26281000000,
+        "International Segment": 31663000000,
+        "North America Segment": 90033000000
+      }
+    },
+    {
+      "date": "2024-09-30",
+      "segments": {
+        "Amazon Web Services Segment": 27452000000,
+        "International Segment": 35888000000,
+        "North America Segment": 95537000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "International Segment": 21688000000,
+        "North America Segment": 166104000000
+      }
+    },
+    {
+      "date": "2025-03-31",
+      "segments": {
+        "Amazon Web Services Segment": 29267000000,
+        "International Segment": 33513000000,
+        "North America Segment": 92887000000
+      }
+    },
+    {
+      "date": "2025-06-30",
+      "segments": {
+        "Amazon Web Services Segment": 30873000000,
+        "International Segment": 36761000000,
+        "North America Segment": 100068000000
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "segments": {
+        "Amazon Web Services Segment": 33006000000,
+        "International Segment": 40896000000,
+        "North America Segment": 106267000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Amazon Web Services Segment": 35579000000,
+        "International Segment": 50724000000,
+        "North America Segment": 127083000000
+      }
+    },
+    {
+      "date": "2026-03-31",
+      "segments": {
+        "Amazon Web Services Segment": 37587000000,
+        "International Segment": 39789000000,
+        "North America Segment": 104143000000
+      }
+    },
+    {
+      "date": "2026-06-30",
+      "segments": {
+        "Amazon Web Services Segment": 42232000000,
+        "International Segment": 42197000000,
+        "North America Segment": 116177000000
+      }
+    },
+    {
+      "date": "2026-09-30",
+      "segments": {
+        "Amazon Web Services Segment": 45984000000,
+        "International Segment": 43108000000,
+        "North America Segment": 112852000000
+      }
+    }
+  ]
+}

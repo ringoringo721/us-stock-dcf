@@ -1,0 +1,766 @@
+{
+  "version": 1,
+  "ticker": "AMGN",
+  "source": "FMP revenue segmentation (quarter)",
+  "period": "quarter",
+  "product": [
+    {
+      "date": "2013-09-30",
+      "segments": {
+        "NEUPOGEN": 155000000
+      }
+    },
+    {
+      "date": "2013-12-31",
+      "segments": {
+        "NEUPOGEN": 1243000000
+      }
+    },
+    {
+      "date": "2018-03-31",
+      "segments": {
+        "Aranesp": 454000000,
+        "ENBREL": 1105000000,
+        "EPOGEN": 244000000,
+        "Neulasta": 1155000000,
+        "Other Products": 949000000,
+        "Prolia": 494000000,
+        "Sensipar Mimpara": 497000000,
+        "XGEVA": 445000000
+      }
+    },
+    {
+      "date": "2018-06-30",
+      "segments": {
+        "Aranesp": 472000000,
+        "ENBREL": 1302000000,
+        "EPOGEN": 250000000,
+        "Neulasta": 1100000000,
+        "Other Products": 1073000000,
+        "Prolia": 610000000,
+        "Sensipar Mimpara": 420000000,
+        "XGEVA": 452000000,
+        "Product and Service, Other": 380000000
+      }
+    },
+    {
+      "date": "2018-09-30",
+      "segments": {
+        "Aranesp": 477000000,
+        "ENBREL": 1292000000,
+        "EPOGEN": 252000000,
+        "Neulasta": 1051000000,
+        "Other Products": 1064000000,
+        "Prolia": 532000000,
+        "Sensipar Mimpara": 409000000,
+        "XGEVA": 433000000,
+        "Product and Service, Other": 394000000
+      }
+    },
+    {
+      "date": "2019-03-31",
+      "segments": {
+        "Aranesp": 414000000,
+        "ENBREL": 1151000000,
+        "EPOGEN": 219000000,
+        "Kyprolis": 245000000,
+        "Neulasta": 1021000000,
+        "Other Products": 960000000,
+        "Prolia": 592000000,
+        "Sensipar Mimpara": 213000000,
+        "XGEVA": 471000000,
+        "Product and Service, Other": 271000000
+      }
+    },
+    {
+      "date": "2019-06-30",
+      "segments": {
+        "Aranesp": 436000000,
+        "ENBREL": 1363000000,
+        "EPOGEN": 223000000,
+        "Kyprolis": 267000000,
+        "Neulasta": 824000000,
+        "Other Products": 1142000000,
+        "Prolia": 698000000,
+        "Sensipar Mimpara": 122000000,
+        "XGEVA": 499000000,
+        "Product and Service, Other": 297000000
+      }
+    },
+    {
+      "date": "2019-09-30",
+      "segments": {
+        "Aranesp": 452000000,
+        "ENBREL": 1366000000,
+        "EPOGEN": 215000000,
+        "Kyprolis": 266000000,
+        "Neulasta": 711000000,
+        "Other Products": 1238000000,
+        "Prolia": 630000000,
+        "Sensipar Mimpara": 109000000,
+        "XGEVA": 476000000,
+        "Product and Service, Other": 274000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Product and Service, Other": 316000000
+      }
+    },
+    {
+      "date": "2020-03-31",
+      "segments": {
+        "Aranesp": 422000000,
+        "ENBREL": 1153000000,
+        "Kyprolis": 280000000,
+        "Neulasta": 609000000,
+        "Otezla": 479000000,
+        "Other Products": 1587000000,
+        "Prolia": 654000000,
+        "Repatha (evolocumab)": 229000000,
+        "XGEVA": 481000000,
+        "Product and Service, Other": 267000000
+      }
+    },
+    {
+      "date": "2020-06-30",
+      "segments": {
+        "Aranesp": 387000000,
+        "ENBREL": 1246000000,
+        "Kyprolis": 253000000,
+        "Neulasta": 593000000,
+        "Otezla": 561000000,
+        "Other Products": 1574000000,
+        "Prolia": 659000000,
+        "Repatha (evolocumab)": 200000000,
+        "XGEVA": 435000000,
+        "Product and Service, Other": 298000000
+      }
+    },
+    {
+      "date": "2020-09-30",
+      "segments": {
+        "Aranesp": 384000000,
+        "ENBREL": 1325000000,
+        "Kyprolis": 260000000,
+        "Neulasta": 555000000,
+        "Otezla": 538000000,
+        "Other Products": 1655000000,
+        "Prolia": 701000000,
+        "Repatha (evolocumab)": 205000000,
+        "XGEVA": 481000000,
+        "Product and Service, Other": 319000000
+      }
+    },
+    {
+      "date": "2021-03-31",
+      "segments": {
+        "Aranesp": 355000000,
+        "ENBREL": 924000000,
+        "Kyprolis": 251000000,
+        "Neulasta": 482000000,
+        "Otezla": 476000000,
+        "Other Products": 1592000000,
+        "Prolia": 758000000,
+        "Repatha (evolocumab)": 286000000,
+        "XGEVA": 468000000,
+        "Product and Service, Other": 309000000
+      }
+    },
+    {
+      "date": "2021-06-30",
+      "segments": {
+        "Aranesp": 367000000,
+        "ENBREL": 1144000000,
+        "Kyprolis": 280000000,
+        "Neulasta": 486000000,
+        "Otezla": 534000000,
+        "Other Products": 1715000000,
+        "Prolia": 814000000,
+        "Repatha (evolocumab)": 286000000,
+        "XGEVA": 488000000,
+        "Product and Service, Other": 412000000
+      }
+    },
+    {
+      "date": "2021-09-30",
+      "segments": {
+        "Aranesp": 396000000,
+        "ENBREL": 1289000000,
+        "Kyprolis": 293000000,
+        "Neulasta": 415000000,
+        "Otezla": 609000000,
+        "Other Products": 1726000000,
+        "Product and Service, Other": 386000000,
+        "Prolia": 803000000,
+        "Repatha (evolocumab)": 272000000,
+        "XGEVA": 517000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Product and Service, Other": 575000000,
+        "Aranesp": 362000000,
+        "ENBREL": 1108000000,
+        "Kyprolis": 284000000,
+        "Neulasta": 351000000,
+        "Otezla": 630000000,
+        "Other Products": 818000000,
+        "Prolia": 873000000,
+        "Repatha (evolocumab)": 273000000,
+        "XGEVA": 545000000
+      }
+    },
+    {
+      "date": "2022-03-31",
+      "segments": {
+        "Aranesp": 358000000,
+        "ENBREL": 862000000,
+        "Kyprolis": 287000000,
+        "Neulasta": 348000000,
+        "Nplate": 266000000,
+        "Otezla": 451000000,
+        "Other Products": 1476000000,
+        "Product and Service, Other": 507000000,
+        "Prolia": 852000000,
+        "Repatha (evolocumab)": 329000000,
+        "XGEVA": 502000000
+      }
+    },
+    {
+      "date": "2022-06-30",
+      "segments": {
+        "Aranesp": 357000000,
+        "ENBREL": 1051000000,
+        "Kyprolis": 317000000,
+        "Neulasta": 310000000,
+        "Nplate": 284000000,
+        "Otezla": 594000000,
+        "Other Products": 1588000000,
+        "Product and Service, Other": 313000000,
+        "Prolia": 922000000,
+        "Repatha (evolocumab)": 325000000,
+        "XGEVA": 533000000
+      }
+    },
+    {
+      "date": "2022-09-30",
+      "segments": {
+        "Aranesp": 358000000,
+        "ENBREL": 1106000000,
+        "Kyprolis": 318000000,
+        "Neulasta": 247000000,
+        "Nplate": 288000000,
+        "Otezla": 627000000,
+        "Other Products": 1627000000,
+        "Product and Service, Other": 415000000,
+        "Prolia": 862000000,
+        "Repatha (evolocumab)": 309000000,
+        "XGEVA": 495000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Product and Service, Other": 287000000,
+        "Aranesp": 348000000,
+        "ENBREL": 1098000000,
+        "Kyprolis": 325000000,
+        "Neulasta": 221000000,
+        "Nplate": 469000000,
+        "Otezla": 616000000,
+        "Other Products": 879000000,
+        "Prolia": 992000000,
+        "Repatha (evolocumab)": 333000000,
+        "XGEVA": 484000000
+      }
+    },
+    {
+      "date": "2023-03-31",
+      "segments": {
+        "Aranesp": 355000000,
+        "ENBREL": 579000000,
+        "EVENITY": 254000000,
+        "Kyprolis": 358000000,
+        "Nplate": 362000000,
+        "Otezla": 392000000,
+        "Other Products": 1695000000,
+        "Product and Service, Other": 259000000,
+        "Prolia": 927000000,
+        "Repatha (evolocumab)": 388000000,
+        "XGEVA": 536000000
+      }
+    },
+    {
+      "date": "2023-06-30",
+      "segments": {
+        "Aranesp": 365000000,
+        "ENBREL": 1068000000,
+        "EVENITY": 281000000,
+        "Kyprolis": 346000000,
+        "Nplate": 310000000,
+        "Otezla": 600000000,
+        "Other Products": 1731000000,
+        "Product and Service, Other": 303000000,
+        "Prolia": 1028000000,
+        "Repatha (evolocumab)": 424000000,
+        "XGEVA": 530000000
+      }
+    },
+    {
+      "date": "2023-09-30",
+      "segments": {
+        "Aranesp": 323000000,
+        "ENBREL": 1035000000,
+        "EVENITY": 307000000,
+        "Kyprolis": 349000000,
+        "Nplate": 419000000,
+        "Otezla": 567000000,
+        "Other Products": 1637000000,
+        "Product and Service, Other": 355000000,
+        "Prolia": 986000000,
+        "Repatha (evolocumab)": 406000000,
+        "XGEVA": 519000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Aranesp": 319000000,
+        "ENBREL": 1015000000,
+        "Kyprolis": 350000000,
+        "Nplate": 386000000,
+        "Otezla": 629000000,
+        "Other Products": 200000000,
+        "Product and Service, Other": 363000000,
+        "Prolia": 1107000000,
+        "Repatha (evolocumab)": 417000000,
+        "XGEVA": 527000000
+      }
+    },
+    {
+      "date": "2024-03-31",
+      "segments": {
+        "Aranesp": 349000000,
+        "BLINCYTO": 244000000,
+        "ENBREL": 567000000,
+        "EVENITY": 342000000,
+        "KRYSTEXXA": 235000000,
+        "Kyprolis": 376000000,
+        "Nplate": 317000000,
+        "Otezla": 394000000,
+        "Other Products": 1373000000,
+        "Product and Service, Other": 329000000,
+        "Prolia": 999000000,
+        "Repatha (evolocumab)": 517000000,
+        "TEPEZZA": 424000000,
+        "TEZSPIRE": 173000000,
+        "Vectibix": 247000000,
+        "XGEVA": 561000000
+      }
+    },
+    {
+      "date": "2024-06-30",
+      "segments": {
+        "Aranesp": 348000000,
+        "BLINCYTO": 264000000,
+        "ENBREL": 909000000,
+        "EVENITY": 391000000,
+        "KRYSTEXXA": 294000000,
+        "Kyprolis": 377000000,
+        "Nplate": 346000000,
+        "Otezla": 544000000,
+        "Other Products": 1326000000,
+        "Product and Service, Other": 347000000,
+        "Prolia": 1165000000,
+        "Repatha (evolocumab)": 532000000,
+        "TEPEZZA": 479000000,
+        "TEZSPIRE": 234000000,
+        "Vectibix": 270000000,
+        "XGEVA": 562000000
+      }
+    },
+    {
+      "date": "2024-09-30",
+      "segments": {
+        "Aranesp": 337000000,
+        "BLINCYTO": 327000000,
+        "ENBREL": 825000000,
+        "EVENITY": 399000000,
+        "KRYSTEXXA": 310000000,
+        "Kyprolis": 378000000,
+        "Nplate": 456000000,
+        "Otezla": 564000000,
+        "Other Products": 1363000000,
+        "Product and Service, Other": 352000000,
+        "Prolia": 1045000000,
+        "Repatha (evolocumab)": 567000000,
+        "TEPEZZA": 488000000,
+        "TEZSPIRE": 269000000,
+        "Vectibix": 282000000,
+        "XGEVA": 541000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Aranesp": 308000000,
+        "BLINCYTO": 381000000,
+        "ENBREL": 1015000000,
+        "EVENITY": 431000000,
+        "KRYSTEXXA": 346000000,
+        "Kyprolis": 372000000,
+        "Nplate": 337000000,
+        "Otezla": 624000000,
+        "Other Products": 4267000000,
+        "Product and Service, Other": 1046000000,
+        "Prolia": 1165000000,
+        "Repatha (evolocumab)": 606000000,
+        "TEPEZZA": 460000000,
+        "TEZSPIRE": 296000000,
+        "Vectibix": 246000000,
+        "XGEVA": 561000000
+      }
+    },
+    {
+      "date": "2025-03-31",
+      "segments": {
+        "Aranesp": 340000000,
+        "BLINCYTO": 370000000,
+        "ENBREL": 510000000,
+        "EVENITY": 442000000,
+        "KRYSTEXXA": 236000000,
+        "Kyprolis": 324000000,
+        "Nplate": 313000000,
+        "Otezla": 437000000,
+        "Other Products": 1647000000,
+        "Product and Service, Other": 276000000,
+        "Prolia": 1099000000,
+        "Repatha (evolocumab)": 656000000,
+        "TEPEZZA": 381000000,
+        "TEZSPIRE": 285000000,
+        "Vectibix": 267000000,
+        "XGEVA": 566000000
+      }
+    },
+    {
+      "date": "2025-06-30",
+      "segments": {
+        "Aranesp": 359000000,
+        "BLINCYTO": 384000000,
+        "ENBREL": 604000000,
+        "EVENITY": 518000000,
+        "KRYSTEXXA": 349000000,
+        "Kyprolis": 378000000,
+        "Nplate": 369000000,
+        "Otezla": 618000000,
+        "Other Products": 1690000000,
+        "Product and Service, Other": 408000000,
+        "Prolia": 1122000000,
+        "Repatha (evolocumab)": 696000000,
+        "TEPEZZA": 505000000,
+        "TEZSPIRE": 342000000,
+        "Vectibix": 305000000,
+        "XGEVA": 532000000
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "segments": {
+        "Aranesp": 357000000,
+        "BLINCYTO": 392000000,
+        "ENBREL": 580000000,
+        "EVENITY": 541000000,
+        "KRYSTEXXA": 320000000,
+        "Kyprolis": 359000000,
+        "Nplate": 457000000,
+        "Otezla": 585000000,
+        "Other Products": 1853000000,
+        "Product and Service, Other": 420000000,
+        "Prolia": 1139000000,
+        "Repatha (evolocumab)": 794000000,
+        "TEPEZZA": 560000000,
+        "TEZSPIRE": 377000000,
+        "Vectibix": 284000000,
+        "XGEVA": 539000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Aranesp": 333000000,
+        "BLINCYTO": 413000000,
+        "ENBREL": 532000000,
+        "EVENITY": 599000000,
+        "KRYSTEXXA": 435000000,
+        "Nplate": 385000000,
+        "Otezla": 625000000,
+        "Other Products": 2073000000,
+        "Product and Service, Other": 499000000,
+        "Prolia": 1054000000,
+        "TEPEZZA": 457000000,
+        "TEZSPIRE": 474000000,
+        "Vectibix": 319000000,
+        "XGEVA": 447000000
+      }
+    },
+    {
+      "date": "2026-06-30",
+      "segments": {
+        "Repatha": 953000000,
+        "Prolia": 759000000,
+        "EVENITY": 714000000,
+        "TEPEZZA": 576000000,
+        "Otezla": 491000000,
+        "ENBREL": 580000000,
+        "BLINCYTO": 472000000,
+        "Nplate": 430000000,
+        "TEZSPIRE": 486000000,
+        "XGEVA": 352000000,
+        "Aranesp": 352000000,
+        "KRYSTEXXA": 400000000,
+        "KYPROLIS": 314000000,
+        "Vectibix": 338000000,
+        "UPLIZNA": 335000000,
+        "IMDELLTRA/IMDYLLTRA": 288000000,
+        "Other products": 1697000000,
+        "Other revenues": 517000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2018-03-31",
+      "segments": {
+        "Non-US": 1196000000,
+        "UNITED STATES": 4147000000
+      }
+    },
+    {
+      "date": "2018-06-30",
+      "segments": {
+        "Non-US": 1312000000,
+        "UNITED STATES": 4367000000
+      }
+    },
+    {
+      "date": "2018-09-30",
+      "segments": {
+        "Non-US": 1250000000,
+        "UNITED STATES": 4260000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Non-US": 1631000000,
+        "UNITED STATES": 5584000000
+      }
+    },
+    {
+      "date": "2019-03-31",
+      "segments": {
+        "Non-US": 1295000000,
+        "UNITED STATES": 3991000000
+      }
+    },
+    {
+      "date": "2019-06-30",
+      "segments": {
+        "Non-US": 1432000000,
+        "UNITED STATES": 4142000000
+      }
+    },
+    {
+      "date": "2019-09-30",
+      "segments": {
+        "Non-US": 1434000000,
+        "UNITED STATES": 4029000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Non-US": 1977000000,
+        "UNITED STATES": 5062000000
+      }
+    },
+    {
+      "date": "2020-03-31",
+      "segments": {
+        "Non-US": 1615000000,
+        "UNITED STATES": 4279000000
+      }
+    },
+    {
+      "date": "2020-06-30",
+      "segments": {
+        "Non-US": 1480000000,
+        "UNITED STATES": 4428000000
+      }
+    },
+    {
+      "date": "2020-09-30",
+      "segments": {
+        "Non-US": 1486000000,
+        "UNITED STATES": 4618000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Non-US": 2347000000,
+        "UNITED STATES": 5171000000
+      }
+    },
+    {
+      "date": "2021-03-31",
+      "segments": {
+        "Non-US": 1689000000,
+        "UNITED STATES": 3903000000
+      }
+    },
+    {
+      "date": "2021-06-30",
+      "segments": {
+        "Non-US": 1740000000,
+        "UNITED STATES": 4374000000
+      }
+    },
+    {
+      "date": "2021-09-30",
+      "segments": {
+        "Non-US": 1762000000,
+        "UNITED STATES": 4558000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Non-US": 2594000000,
+        "UNITED STATES": 5359000000
+      }
+    },
+    {
+      "date": "2022-03-31",
+      "segments": {
+        "Non-US": 1694000000,
+        "UNITED STATES": 4037000000
+      }
+    },
+    {
+      "date": "2022-06-30",
+      "segments": {
+        "Non-US": 1835000000,
+        "UNITED STATES": 4446000000
+      }
+    },
+    {
+      "date": "2022-09-30",
+      "segments": {
+        "Non-US": 1771000000,
+        "UNITED STATES": 4466000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Non-US": 2428000000,
+        "UNITED STATES": 5646000000
+      }
+    },
+    {
+      "date": "2023-03-31",
+      "segments": {
+        "Non-US": 1871000000,
+        "UNITED STATES": 3975000000
+      }
+    },
+    {
+      "date": "2023-06-30",
+      "segments": {
+        "Non-US": 1947000000,
+        "UNITED STATES": 4736000000
+      }
+    },
+    {
+      "date": "2023-09-30",
+      "segments": {
+        "Non-US": 1857000000,
+        "UNITED STATES": 4691000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Non-US": 2709000000,
+        "UNITED STATES": 6404000000
+      }
+    },
+    {
+      "date": "2024-03-31",
+      "segments": {
+        "Non-US": 2145000000,
+        "UNITED STATES": 4973000000
+      }
+    },
+    {
+      "date": "2024-06-30",
+      "segments": {
+        "Non-US": 2201000000,
+        "UNITED STATES": 5840000000
+      }
+    },
+    {
+      "date": "2024-09-30",
+      "segments": {
+        "Non-US": 2172000000,
+        "UNITED STATES": 5979000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Non-US": 3043000000,
+        "UNITED STATES": 7071000000
+      }
+    },
+    {
+      "date": "2025-03-31",
+      "segments": {
+        "Non-US": 2211000000,
+        "UNITED STATES": 5662000000
+      }
+    },
+    {
+      "date": "2025-06-30",
+      "segments": {
+        "Non-US": 2447000000,
+        "UNITED STATES": 6324000000
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "segments": {
+        "Non-US": 2386000000,
+        "UNITED STATES": 6751000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Non-US": 3288000000,
+        "UNITED STATES": 7682000000
+      }
+    },
+    {
+      "date": "2026-06-30",
+      "segments": {
+        "Non-US": 2547000000,
+        "UNITED STATES": 6990000000
+      }
+    }
+  ]
+}

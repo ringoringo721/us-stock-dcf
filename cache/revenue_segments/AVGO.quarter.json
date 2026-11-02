@@ -1,0 +1,493 @@
+{
+  "version": 1,
+  "ticker": "AVGO",
+  "source": "FMP revenue segmentation (quarter)",
+  "period": "quarter",
+  "product": [
+    {
+      "date": "2018-05-06",
+      "segments": {
+        "Enterprise Storage": 1162000000,
+        "Industrial And Other": 263000000,
+        "Wired Infrastructure": 2295000000,
+        "Wireless Communications": 1294000000
+      }
+    },
+    {
+      "date": "2018-08-05",
+      "segments": {
+        "Enterprise Storage": 1253000000,
+        "Industrial And Other": 225000000,
+        "Wired Infrastructure": 2297000000,
+        "Wireless Communications": 1288000000
+      }
+    },
+    {
+      "date": "2019-02-03",
+      "segments": {
+        "Infrastructure Software": 1403000000,
+        "Semiconductor Solutions": 4374000000
+      }
+    },
+    {
+      "date": "2019-05-05",
+      "segments": {
+        "Infrastructure Software": 1413000000,
+        "Semiconductor Solutions": 4088000000
+      }
+    },
+    {
+      "date": "2019-08-04",
+      "segments": {
+        "Infrastructure Software": 1140000000,
+        "Semiconductor Solutions": 4353000000
+      }
+    },
+    {
+      "date": "2019-11-03",
+      "segments": {
+        "Infrastructure Software": 1200000000,
+        "Semiconductor Solutions": 4553000000
+      }
+    },
+    {
+      "date": "2020-02-02",
+      "segments": {
+        "Infrastructure Software": 1667000000,
+        "Semiconductor Solutions": 4191000000
+      }
+    },
+    {
+      "date": "2020-05-03",
+      "segments": {
+        "Infrastructure Software": 1715000000,
+        "Semiconductor Solutions": 4027000000
+      }
+    },
+    {
+      "date": "2020-08-02",
+      "segments": {
+        "Infrastructure Software": 1602000000,
+        "Semiconductor Solutions": 4219000000
+      }
+    },
+    {
+      "date": "2020-11-01",
+      "segments": {
+        "Infrastructure Software": 1637000000,
+        "Semiconductor Solutions": 4830000000
+      }
+    },
+    {
+      "date": "2021-01-31",
+      "segments": {
+        "Infrastructure Software": 1747000000,
+        "Semiconductor Solutions": 4908000000
+      }
+    },
+    {
+      "date": "2021-05-02",
+      "segments": {
+        "Infrastructure Software": 1790000000,
+        "Semiconductor Solutions": 4820000000
+      }
+    },
+    {
+      "date": "2021-08-01",
+      "segments": {
+        "Infrastructure Software": 1757000000,
+        "Semiconductor Solutions": 5021000000
+      }
+    },
+    {
+      "date": "2021-10-31",
+      "segments": {
+        "Infrastructure Software": 1773000000,
+        "Semiconductor Solutions": 5634000000
+      }
+    },
+    {
+      "date": "2022-01-30",
+      "segments": {
+        "Infrastructure Software": 1833000000,
+        "Semiconductor Solutions": 5873000000
+      }
+    },
+    {
+      "date": "2022-05-01",
+      "segments": {
+        "Infrastructure Software": 1874000000,
+        "Semiconductor Solutions": 6229000000
+      }
+    },
+    {
+      "date": "2022-07-31",
+      "segments": {
+        "Infrastructure Software": 1840000000,
+        "Semiconductor Solutions": 6624000000
+      }
+    },
+    {
+      "date": "2022-10-30",
+      "segments": {
+        "Infrastructure Software": 1838000000,
+        "Semiconductor Solutions": 7092000000
+      }
+    },
+    {
+      "date": "2023-01-29",
+      "segments": {
+        "Infrastructure Software": 1808000000,
+        "Semiconductor Solutions": 7107000000
+      }
+    },
+    {
+      "date": "2023-04-30",
+      "segments": {
+        "Infrastructure Software": 1925000000,
+        "Semiconductor Solutions": 6808000000
+      }
+    },
+    {
+      "date": "2023-07-30",
+      "segments": {
+        "Infrastructure Software": 1935000000,
+        "Semiconductor Solutions": 6941000000
+      }
+    },
+    {
+      "date": "2023-10-29",
+      "segments": {
+        "Infrastructure Software": 1969000000,
+        "Semiconductor Solutions": 7326000000
+      }
+    },
+    {
+      "date": "2024-02-04",
+      "segments": {
+        "Infrastructure Software": 4571000000,
+        "Semiconductor Solutions": 7390000000
+      }
+    },
+    {
+      "date": "2024-05-05",
+      "segments": {
+        "Infrastructure Software": 5285000000,
+        "Semiconductor Solutions": 7202000000
+      }
+    },
+    {
+      "date": "2024-08-04",
+      "segments": {
+        "Infrastructure Software": 5798000000,
+        "Semiconductor Solutions": 7274000000
+      }
+    },
+    {
+      "date": "2024-11-03",
+      "segments": {
+        "Infrastructure Software": 5824000000,
+        "Semiconductor Solutions": 8230000000
+      }
+    },
+    {
+      "date": "2025-02-02",
+      "segments": {
+        "Infrastructure Software": 6704000000,
+        "Semiconductor Solutions": 8212000000
+      }
+    },
+    {
+      "date": "2025-05-04",
+      "segments": {
+        "Infrastructure Software": 6596000000,
+        "Semiconductor Solutions": 8408000000
+      }
+    },
+    {
+      "date": "2025-08-03",
+      "segments": {
+        "Infrastructure Software": 6786000000,
+        "Semiconductor Solutions": 9166000000
+      }
+    },
+    {
+      "date": "2025-11-02",
+      "segments": {
+        "Infrastructure Software": 6943000000,
+        "Semiconductor Solutions": 11072000000
+      }
+    },
+    {
+      "date": "2026-02-01",
+      "segments": {
+        "Infrastructure Software": 6796000000,
+        "Semiconductor Solutions": 12515000000
+      }
+    },
+    {
+      "date": "2026-05-03",
+      "segments": {
+        "Infrastructure Software": 7178000000,
+        "Semiconductor Solutions": 15009000000
+      }
+    },
+    {
+      "date": "2026-08-02",
+      "segments": {
+        "Infrastructure Software": 8752000000,
+        "Semiconductor Solutions": 20839000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2019-02-03",
+      "segments": {
+        "Americas": 1433000000,
+        "Asia Pacific": 3834000000,
+        "EMEA": 522000000
+      }
+    },
+    {
+      "date": "2019-05-05",
+      "segments": {
+        "Americas": 1357000000,
+        "Asia Pacific": 3473000000,
+        "EMEA": 687000000
+      }
+    },
+    {
+      "date": "2019-08-04",
+      "segments": {
+        "Americas": 1217000000,
+        "Asia Pacific": 3706000000,
+        "EMEA": 592000000
+      }
+    },
+    {
+      "date": "2019-11-03",
+      "segments": {
+        "Americas": 1142000000,
+        "Asia Pacific": 4218000000,
+        "EMEA": 416000000
+      }
+    },
+    {
+      "date": "2020-02-02",
+      "segments": {
+        "Americas": 1539000000,
+        "Asia Pacific": 3620000000,
+        "EMEA": 699000000
+      }
+    },
+    {
+      "date": "2020-05-03",
+      "segments": {
+        "Americas": 1466000000,
+        "Asia Pacific": 3600000000,
+        "EMEA": 676000000
+      }
+    },
+    {
+      "date": "2020-08-02",
+      "segments": {
+        "Americas": 1410000000,
+        "Asia Pacific": 3742000000,
+        "EMEA": 669000000
+      }
+    },
+    {
+      "date": "2020-11-01",
+      "segments": {
+        "Americas": 1419000000,
+        "Asia Pacific": 4361000000,
+        "EMEA": 687000000
+      }
+    },
+    {
+      "date": "2021-01-31",
+      "segments": {
+        "Americas": 1394000000,
+        "Asia Pacific": 4511000000,
+        "EMEA": 750000000
+      }
+    },
+    {
+      "date": "2021-05-02",
+      "segments": {
+        "Americas": 1521000000,
+        "Asia Pacific": 4228000000,
+        "EMEA": 861000000
+      }
+    },
+    {
+      "date": "2021-08-01",
+      "segments": {
+        "Americas": 1588000000,
+        "Asia Pacific": 4321000000,
+        "EMEA": 869000000
+      }
+    },
+    {
+      "date": "2021-10-31",
+      "segments": {
+        "Americas": 1596000000,
+        "Asia Pacific": 4918000000,
+        "EMEA": 893000000
+      }
+    },
+    {
+      "date": "2022-01-30",
+      "segments": {
+        "Americas": 1657000000,
+        "Asia Pacific": 5112000000,
+        "EMEA": 937000000
+      }
+    },
+    {
+      "date": "2022-05-01",
+      "segments": {
+        "Americas": 1812000000,
+        "Asia Pacific": 5385000000,
+        "EMEA": 906000000
+      }
+    },
+    {
+      "date": "2022-07-31",
+      "segments": {
+        "Americas": 1762000000,
+        "Asia Pacific": 5845000000,
+        "EMEA": 857000000
+      }
+    },
+    {
+      "date": "2022-10-30",
+      "segments": {
+        "Americas": 1713000000,
+        "Asia Pacific": 6163000000,
+        "EMEA": 1054000000
+      }
+    },
+    {
+      "date": "2023-01-29",
+      "segments": {
+        "Americas": 1839000000,
+        "Asia Pacific": 6137000000,
+        "EMEA": 939000000
+      }
+    },
+    {
+      "date": "2023-04-30",
+      "segments": {
+        "Americas": 2234000000,
+        "Asia Pacific": 5584000000,
+        "EMEA": 915000000
+      }
+    },
+    {
+      "date": "2023-07-30",
+      "segments": {
+        "Americas": 2089000000,
+        "Asia Pacific": 5947000000,
+        "EMEA": 840000000
+      }
+    },
+    {
+      "date": "2023-10-29",
+      "segments": {
+        "Americas": 2117000000,
+        "Asia Pacific": 6252000000,
+        "EMEA": 926000000
+      }
+    },
+    {
+      "date": "2024-02-04",
+      "segments": {
+        "Americas": 3085000000,
+        "Asia Pacific": 6697000000,
+        "EMEA": 2179000000
+      }
+    },
+    {
+      "date": "2024-05-05",
+      "segments": {
+        "Americas": 3874000000,
+        "Asia Pacific": 6754000000,
+        "EMEA": 1859000000
+      }
+    },
+    {
+      "date": "2024-08-04",
+      "segments": {
+        "Americas": 3991000000,
+        "Asia Pacific": 7041000000,
+        "EMEA": 2040000000
+      }
+    },
+    {
+      "date": "2024-11-03",
+      "segments": {
+        "Americas": 4020000000,
+        "Asia Pacific": 7930000000,
+        "EMEA": 2104000000
+      }
+    },
+    {
+      "date": "2025-02-02",
+      "segments": {
+        "Americas": 4632000000,
+        "Asia Pacific": 8032000000,
+        "EMEA": 2252000000
+      }
+    },
+    {
+      "date": "2025-05-04",
+      "segments": {
+        "Americas": 4706000000,
+        "Asia Pacific": 8100000000,
+        "EMEA": 2198000000
+      }
+    },
+    {
+      "date": "2025-08-03",
+      "segments": {
+        "Americas": 4724000000,
+        "Asia Pacific": 8960000000,
+        "EMEA": 2268000000
+      }
+    },
+    {
+      "date": "2025-11-02",
+      "segments": {
+        "Americas": 4877000000,
+        "Asia Pacific": 10804000000,
+        "EMEA": 2334000000
+      }
+    },
+    {
+      "date": "2026-02-01",
+      "segments": {
+        "Americas": 5081000000,
+        "Asia Pacific": 11615000000,
+        "EMEA": 2615000000
+      }
+    },
+    {
+      "date": "2026-05-03",
+      "segments": {
+        "Americas": 5202000000,
+        "Asia Pacific": 14535000000,
+        "EMEA": 2450000000
+      }
+    },
+    {
+      "date": "2026-08-02",
+      "segments": {
+        "Americas": 5513000000,
+        "Asia Pacific": 20944000000,
+        "EMEA": 3134000000
+      }
+    }
+  ]
+}

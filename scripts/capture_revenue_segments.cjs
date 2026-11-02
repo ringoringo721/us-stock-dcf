@@ -2,7 +2,8 @@
 'use strict';
 /**
  * Capture FMP product + geographic revenue segmentation into
- * cache/revenue_segments/{ticker}.json for the financials subpage.
+ * cache/revenue_segments/{ticker}.json (annual) or {ticker}.quarter.json
+ * (PERIOD=quarter) for the financials subpage.
  *
  * Usage:
  *   FMP_API_KEY=… node scripts/capture_revenue_segments.cjs AAPL,NVDA,MCD,MSFT
@@ -99,12 +100,15 @@ async function captureOne(ticker) {
     throw new Error('NormalizedEmpty');
   }
   fs.mkdirSync(outDir, { recursive: true });
-  fs.writeFileSync(path.join(outDir, `${ticker}.json`), `${JSON.stringify(record, null, 2)}\n`);
+  // Keep annual `{ticker}.json` untouched when capturing quarters.
+  const outName = period === 'quarter' ? `${ticker}.quarter.json` : `${ticker}.json`;
+  fs.writeFileSync(path.join(outDir, outName), `${JSON.stringify(record, null, 2)}\n`);
   return {
     product: record.product.length,
     geographic: record.geographic.length,
     productError,
     geoError,
+    file: outName,
   };
 }
 

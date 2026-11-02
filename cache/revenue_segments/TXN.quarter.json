@@ -1,0 +1,770 @@
+{
+  "version": 1,
+  "ticker": "TXN",
+  "source": "FMP revenue segmentation (quarter)",
+  "period": "quarter",
+  "product": [
+    {
+      "date": "2011-09-30",
+      "segments": {
+        "All Other Segments": 790000000,
+        "Embedded Processing": 539000000,
+        "Reporting Segment Wireless": 580000000
+      }
+    },
+    {
+      "date": "2011-12-31",
+      "segments": {
+        "All Other Segments": 1942000000,
+        "Embedded Processing": 1571000000,
+        "Reporting Segment Wireless": 1938000000
+      }
+    },
+    {
+      "date": "2012-03-31",
+      "segments": {
+        "All Other Segments": 589000000,
+        "Embedded Processing": 473000000,
+        "Reporting Segment Wireless": 373000000
+      }
+    },
+    {
+      "date": "2012-06-30",
+      "segments": {
+        "All Other Segments": 684000000,
+        "Embedded Processing": 509000000,
+        "Reporting Segment Wireless": 342000000
+      }
+    },
+    {
+      "date": "2012-09-30",
+      "segments": {
+        "All Other Segments": 702000000,
+        "Embedded Processing": 520000000,
+        "Reporting Segment Wireless": 325000000
+      }
+    },
+    {
+      "date": "2012-12-31",
+      "segments": {
+        "All Other Segments": 524000000,
+        "Embedded Processing": 469000000,
+        "Reporting Segment Wireless": 317000000
+      }
+    },
+    {
+      "date": "2013-03-31",
+      "segments": {
+        "All Other Segments": 676000000,
+        "Embedded Processing": 561000000
+      }
+    },
+    {
+      "date": "2013-06-30",
+      "segments": {
+        "All Other Segments": 684000000,
+        "Embedded Processing": 618000000
+      }
+    },
+    {
+      "date": "2013-09-30",
+      "segments": {
+        "Analog": 1931000000,
+        "All Other Segments": 645000000,
+        "Embedded Processing": 668000000
+      }
+    },
+    {
+      "date": "2013-12-31",
+      "segments": {
+        "All Other Segments": 556000000,
+        "Analog": 5263000000,
+        "Embedded Processing": 603000000
+      }
+    },
+    {
+      "date": "2014-03-31",
+      "segments": {
+        "Analog": 1837000000,
+        "All Other Segments": 490000000,
+        "Embedded Processing": 656000000
+      }
+    },
+    {
+      "date": "2014-06-30",
+      "segments": {
+        "Analog": 1995000000,
+        "All Other Segments": 594000000,
+        "Embedded Processing": 703000000
+      }
+    },
+    {
+      "date": "2014-09-30",
+      "segments": {
+        "Analog": 2149000000,
+        "All Other Segments": 641000000,
+        "Embedded Processing": 711000000
+      }
+    },
+    {
+      "date": "2014-12-31",
+      "segments": {
+        "All Other Segments": 476000000,
+        "Analog": 2123000000,
+        "Embedded Processing": 670000000
+      }
+    },
+    {
+      "date": "2015-03-31",
+      "segments": {
+        "All Other Segments": 443000000,
+        "Analog": 2035000000,
+        "Embedded Processing": 672000000
+      }
+    },
+    {
+      "date": "2015-06-30",
+      "segments": {
+        "All Other Segments": 493000000,
+        "Analog": 2049000000,
+        "Embedded Processing": 690000000
+      }
+    },
+    {
+      "date": "2015-09-30",
+      "segments": {
+        "All Other Segments": 522000000,
+        "Analog": 2182000000,
+        "Embedded Processing": 725000000
+      }
+    },
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "All Other Segments": 416000000,
+        "Analog": 2073000000,
+        "Embedded Processing": 700000000
+      }
+    },
+    {
+      "date": "2016-03-31",
+      "segments": {
+        "All Other Segments": 400000000,
+        "Analog": 1879000000,
+        "Embedded Processing": 729000000
+      }
+    },
+    {
+      "date": "2016-06-30",
+      "segments": {
+        "All Other Segments": 474000000,
+        "Analog": 2044000000,
+        "Embedded Processing": 755000000
+      }
+    },
+    {
+      "date": "2016-09-30",
+      "segments": {
+        "All Other Segments": 557000000,
+        "Analog": 2323000000,
+        "Embedded Processing": 795000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "All Other Segments": 380000000,
+        "Analog": 2290000000,
+        "Embedded Processing": 744000000
+      }
+    },
+    {
+      "date": "2017-03-31",
+      "segments": {
+        "All Other Segments": 343000000,
+        "Analog": 2256000000,
+        "Embedded Processing": 803000000
+      }
+    },
+    {
+      "date": "2017-06-30",
+      "segments": {
+        "All Other Segments": 414000000,
+        "Analog": 2411000000,
+        "Embedded Processing": 868000000
+      }
+    },
+    {
+      "date": "2017-09-30",
+      "segments": {
+        "All Other Segments": 487000000,
+        "Analog": 2698000000,
+        "Embedded Processing": 931000000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "All Other Segments": 319000000,
+        "Analog": 2535000000,
+        "Embedded Processing": 896000000
+      }
+    },
+    {
+      "date": "2018-03-31",
+      "segments": {
+        "All Other Segments": 297000000,
+        "Analog": 2566000000,
+        "Embedded Processing": 926000000
+      }
+    },
+    {
+      "date": "2018-06-30",
+      "segments": {
+        "All Other Segments": 384000000,
+        "Analog": 2690000000,
+        "Embedded Processing": 943000000
+      }
+    },
+    {
+      "date": "2018-09-30",
+      "segments": {
+        "All Other Segments": 460000000,
+        "Analog": 2907000000,
+        "Embedded Processing": 894000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "All Other Segments": 288000000,
+        "Analog": 2638000000,
+        "Embedded Processing": 791000000
+      }
+    },
+    {
+      "date": "2019-03-31",
+      "segments": {
+        "All Other Segments": 280000000,
+        "Analog": 2518000000,
+        "Embedded Processing": 796000000
+      }
+    },
+    {
+      "date": "2019-06-30",
+      "segments": {
+        "All Other Segments": 344000000,
+        "Analog": 2534000000,
+        "Embedded Processing": 790000000
+      }
+    },
+    {
+      "date": "2019-09-30",
+      "segments": {
+        "Analog": 2674000000,
+        "Embedded Processing": 724000000,
+        "All Other Segments": 373000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Analog": 2497000000,
+        "Embedded Processing": 633000000,
+        "All Other Segments": 220000000
+      }
+    },
+    {
+      "date": "2020-03-31",
+      "segments": {
+        "Analog": 2460000000,
+        "Embedded Processing": 653000000,
+        "All Other Segments": 216000000
+      }
+    },
+    {
+      "date": "2020-06-30",
+      "segments": {
+        "Analog": 2434000000,
+        "Embedded Processing": 546000000,
+        "All Other Segments": 259000000
+      }
+    },
+    {
+      "date": "2020-09-30",
+      "segments": {
+        "Analog": 2865000000,
+        "Embedded Processing": 651000000,
+        "All Other Segments": 301000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Analog": 3127000000,
+        "Embedded Processing": 720000000,
+        "All Other Segments": 229000000
+      }
+    },
+    {
+      "date": "2021-03-31",
+      "segments": {
+        "Analog": 3280000000,
+        "Embedded Processing": 767000000,
+        "All Other Segments": 242000000
+      }
+    },
+    {
+      "date": "2021-06-30",
+      "segments": {
+        "Analog": 3464000000,
+        "Embedded Processing": 780000000,
+        "All Other Segments": 336000000
+      }
+    },
+    {
+      "date": "2021-09-30",
+      "segments": {
+        "Analog": 3548000000,
+        "Embedded Processing": 738000000,
+        "All Other Segments": 357000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Analog": 3758000000,
+        "Embedded Processing": 764000000,
+        "All Other Segments": 310000000
+      }
+    },
+    {
+      "date": "2022-03-31",
+      "segments": {
+        "Analog": 3816000000,
+        "Embedded Processing": 782000000,
+        "All Other Segments": 307000000
+      }
+    },
+    {
+      "date": "2022-06-30",
+      "segments": {
+        "Analog": 3992000000,
+        "Embedded Processing": 821000000,
+        "All Other Segments": 399000000
+      }
+    },
+    {
+      "date": "2022-09-30",
+      "segments": {
+        "Analog": 3993000000,
+        "Embedded Processing": 821000000,
+        "All Other Segments": 427000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Analog": 3558000000,
+        "Embedded Processing": 837000000,
+        "All Other Segments": 275000000
+      }
+    },
+    {
+      "date": "2023-03-31",
+      "segments": {
+        "Analog": 3289000000,
+        "Embedded Processing": 832000000,
+        "All Other Segments": 258000000
+      }
+    },
+    {
+      "date": "2023-06-30",
+      "segments": {
+        "Analog": 3278000000,
+        "Embedded Processing": 894000000,
+        "All Other Segments": 359000000
+      }
+    },
+    {
+      "date": "2023-09-30",
+      "segments": {
+        "Analog": 3353000000,
+        "Embedded Processing": 890000000,
+        "All Other Segments": 289000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Analog": 3120000000,
+        "Embedded Processing": 752000000,
+        "All Other Segments": 205000000
+      }
+    },
+    {
+      "date": "2024-03-31",
+      "segments": {
+        "Analog": 2836000000,
+        "Embedded Processing": 652000000,
+        "All Other Segments": 173000000
+      }
+    },
+    {
+      "date": "2024-06-30",
+      "segments": {
+        "Analog": 2928000000,
+        "Embedded Processing": 615000000
+      }
+    },
+    {
+      "date": "2024-09-30",
+      "segments": {
+        "Analog": 3223000000,
+        "Embedded Processing": 653000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Analog": 3174000000,
+        "Embedded Processing": 613000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2018-03-31",
+      "segments": {
+        "Asia": 2215000000,
+        "EMEA": 771000000,
+        "JAPAN": 220000000,
+        "Rest Of World": 79000000,
+        "UNITED STATES": 504000000
+      }
+    },
+    {
+      "date": "2018-06-30",
+      "segments": {
+        "Asia": 2340000000,
+        "EMEA": 764000000,
+        "JAPAN": 218000000,
+        "Rest Of World": 81000000,
+        "UNITED STATES": 614000000
+      }
+    },
+    {
+      "date": "2018-09-30",
+      "segments": {
+        "Asia": 2520000000,
+        "EMEA": 769000000,
+        "JAPAN": 218000000,
+        "Rest Of World": 89000000,
+        "UNITED STATES": 665000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Asia": 2165000000,
+        "EMEA": 743000000,
+        "JAPAN": 213000000,
+        "Rest Of World": 91000000,
+        "UNITED STATES": 505000000
+      }
+    },
+    {
+      "date": "2019-03-31",
+      "segments": {
+        "Asia": 2092000000,
+        "EMEA": 743000000,
+        "JAPAN": 191000000,
+        "Rest Of World": 91000000,
+        "UNITED STATES": 477000000
+      }
+    },
+    {
+      "date": "2019-06-30",
+      "segments": {
+        "Asia": 2157000000,
+        "EMEA": 709000000,
+        "JAPAN": 218000000,
+        "Rest Of World": 97000000,
+        "UNITED STATES": 487000000
+      }
+    },
+    {
+      "date": "2019-09-30",
+      "segments": {
+        "Asia": 2263000000,
+        "EMEA": 699000000,
+        "JAPAN": 198000000,
+        "Rest Of World": 107000000,
+        "UNITED STATES": 504000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Asia": 2138000000,
+        "EMEA": 556000000,
+        "JAPAN": 189000000,
+        "Rest Of World": 108000000,
+        "UNITED STATES": 359000000
+      }
+    },
+    {
+      "date": "2020-03-31",
+      "segments": {
+        "Asia": 2027000000,
+        "EMEA": 619000000,
+        "JAPAN": 190000000,
+        "Rest Of World": 103000000,
+        "UNITED STATES": 390000000
+      }
+    },
+    {
+      "date": "2020-06-30",
+      "segments": {
+        "Asia": 2174000000,
+        "EMEA": 451000000,
+        "JAPAN": 193000000,
+        "Rest Of World": 72000000,
+        "UNITED STATES": 349000000
+      }
+    },
+    {
+      "date": "2020-09-30",
+      "segments": {
+        "Asia": 2555000000,
+        "EMEA": 578000000,
+        "JAPAN": 140000000,
+        "Rest Of World": 104000000,
+        "UNITED STATES": 440000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Asia": 2785000000,
+        "EMEA": 601000000,
+        "JAPAN": 211000000,
+        "Rest Of World": 111000000,
+        "UNITED STATES": 368000000
+      }
+    },
+    {
+      "date": "2021-03-31",
+      "segments": {
+        "Asia": 2858000000,
+        "EMEA": 682000000,
+        "JAPAN": 239000000,
+        "Rest Of World": 117000000,
+        "UNITED STATES": 393000000
+      }
+    },
+    {
+      "date": "2021-06-30",
+      "segments": {
+        "Asia": 2993000000,
+        "EMEA": 696000000,
+        "JAPAN": 235000000,
+        "Rest Of World": 127000000,
+        "UNITED STATES": 529000000
+      }
+    },
+    {
+      "date": "2021-09-30",
+      "segments": {
+        "Asia": 3082000000,
+        "EMEA": 683000000,
+        "JAPAN": 242000000,
+        "Rest Of World": 121000000,
+        "UNITED STATES": 515000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Asia": 3252000000,
+        "EMEA": 741000000,
+        "JAPAN": 243000000,
+        "Rest Of World": 127000000,
+        "UNITED STATES": 469000000
+      }
+    },
+    {
+      "date": "2022-03-31",
+      "segments": {
+        "Asia": 3203000000,
+        "EMEA": 814000000,
+        "JAPAN": 263000000,
+        "Rest Of World": 131000000,
+        "UNITED STATES": 494000000
+      }
+    },
+    {
+      "date": "2022-06-30",
+      "segments": {
+        "Asia": 3395000000,
+        "EMEA": 822000000,
+        "JAPAN": 276000000,
+        "Rest Of World": 142000000,
+        "UNITED STATES": 577000000
+      }
+    },
+    {
+      "date": "2022-09-30",
+      "segments": {
+        "Asia": 3135000000,
+        "EMEA": 942000000,
+        "JAPAN": 310000000,
+        "Rest Of World": 160000000,
+        "UNITED STATES": 694000000
+      }
+    },
+    {
+      "date": "2023-03-31",
+      "segments": {
+        "CHINA": 876000000,
+        "EMEA": 1270000000,
+        "JAPAN": 438000000,
+        "Rest Of World": 44000000,
+        "UNITED STATES": 1357000000,
+        "Rest of Asia": 394000000
+      }
+    },
+    {
+      "date": "2023-06-30",
+      "segments": {
+        "CHINA": 872000000,
+        "EMEA": 1194000000,
+        "JAPAN": 480000000,
+        "Rest Of World": 57000000,
+        "Rest of Asia": 435000000,
+        "UNITED STATES": 1493000000
+      }
+    },
+    {
+      "date": "2023-09-30",
+      "segments": {
+        "CHINA": 813000000,
+        "EMEA": 1193000000,
+        "JAPAN": 455000000,
+        "Rest Of World": 96000000,
+        "Rest of Asia": 434000000,
+        "UNITED STATES": 1541000000
+      }
+    },
+    {
+      "date": "2024-03-31",
+      "segments": {
+        "CHINA": 623000000,
+        "EMEA": 955000000,
+        "JAPAN": 330000000,
+        "Rest Of World": 64000000,
+        "Rest of Asia": 401000000,
+        "UNITED STATES": 1288000000
+      }
+    },
+    {
+      "date": "2024-06-30",
+      "segments": {
+        "CHINA": 745000000,
+        "EMEA": 898000000,
+        "JAPAN": 292000000,
+        "Rest Of World": 62000000,
+        "Rest of Asia": 417000000,
+        "UNITED STATES": 1408000000
+      }
+    },
+    {
+      "date": "2024-09-30",
+      "segments": {
+        "CHINA": 823000000,
+        "EMEA": 880000000,
+        "JAPAN": 313000000,
+        "Rest Of World": 65000000,
+        "Rest of Asia": 431000000,
+        "UNITED STATES": 1639000000
+      }
+    },
+    {
+      "date": "2025-03-31",
+      "segments": {
+        "CHINA": 826000000,
+        "EMEA": 936000000,
+        "JAPAN": 275000000,
+        "Rest Of World": 76000000,
+        "Rest of Asia": 438000000,
+        "UNITED STATES": 1518000000
+      }
+    },
+    {
+      "date": "2025-06-30",
+      "segments": {
+        "CHINA": 985000000,
+        "EMEA": 891000000,
+        "JAPAN": 295000000,
+        "Rest Of World": 83000000,
+        "Rest of Asia": 487000000,
+        "UNITED STATES": 1707000000
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "segments": {
+        "CHINA": 1019000000,
+        "EMEA": 972000000,
+        "JAPAN": 313000000,
+        "Rest Of World": 74000000,
+        "Rest of Asia": 505000000,
+        "UNITED STATES": 1859000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "CHINA": 951000000,
+        "EMEA": 948000000,
+        "JAPAN": 290000000,
+        "Rest Of World": 98000000,
+        "Rest of Asia": 457000000,
+        "UNITED STATES": 1679000000
+      }
+    },
+    {
+      "date": "2026-03-31",
+      "segments": {
+        "CHINA": 1024000000,
+        "EMEA": 1070000000,
+        "JAPAN": 289000000,
+        "Rest Of World": 91000000,
+        "Rest of Asia": 555000000,
+        "UNITED STATES": 1796000000
+      }
+    },
+    {
+      "date": "2026-06-30",
+      "segments": {
+        "CHINA": 1223000000,
+        "EMEA": 1075000000,
+        "JAPAN": 330000000,
+        "Rest Of World": 98000000,
+        "Rest of Asia": 606000000,
+        "UNITED STATES": 2131000000
+      }
+    },
+    {
+      "date": "2026-09-30",
+      "segments": {
+        "CHINA": 1392000000,
+        "EMEA": 1207000000,
+        "JAPAN": 369000000,
+        "Rest Of World": 104000000,
+        "Rest of Asia": 635000000,
+        "UNITED STATES": 2348000000
+      }
+    }
+  ]
+}

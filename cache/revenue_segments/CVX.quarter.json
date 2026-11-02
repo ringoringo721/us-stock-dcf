@@ -1,0 +1,494 @@
+{
+  "version": 1,
+  "ticker": "CVX",
+  "source": "FMP revenue segmentation (quarter)",
+  "period": "quarter",
+  "product": [
+    {
+      "date": "2011-06-30",
+      "segments": {
+        "All Other Segments": 132000000,
+        "Downstream": 58738000000,
+        "Upstream": 7801000000
+      }
+    },
+    {
+      "date": "2011-09-30",
+      "segments": {
+        "All Other Segments": 124000000,
+        "Downstream": 53493000000,
+        "Upstream": 7644000000
+      }
+    },
+    {
+      "date": "2011-12-31",
+      "segments": {
+        "All Other Segments": 1388000000,
+        "Downstream": 102068000000,
+        "Upstream": 67391000000
+      }
+    },
+    {
+      "date": "2012-03-31",
+      "segments": {
+        "All Other Segments": 95000000,
+        "Downstream": 51908000000,
+        "Upstream": 6893000000
+      }
+    },
+    {
+      "date": "2012-06-30",
+      "segments": {
+        "All Other Segments": 106000000,
+        "Downstream": 53223000000,
+        "Upstream": 6451000000
+      }
+    },
+    {
+      "date": "2012-09-30",
+      "segments": {
+        "All Other Segments": 91000000,
+        "Downstream": 49560000000,
+        "Upstream": 6009000000
+      }
+    },
+    {
+      "date": "2012-12-31",
+      "segments": {
+        "All Other Segments": 1438000000,
+        "Downstream": 49771000000,
+        "Upstream": 57845000000
+      }
+    },
+    {
+      "date": "2013-03-31",
+      "segments": {
+        "All Other Segments": 87000000,
+        "Downstream": 47581000000,
+        "Upstream": 6628000000
+      }
+    },
+    {
+      "date": "2013-06-30",
+      "segments": {
+        "Corporate and Other, Including Intersegment Eliminations": 458000000,
+        "Downstream": 48777000000,
+        "Upstream": 18159000000
+      }
+    },
+    {
+      "date": "2013-09-30",
+      "segments": {
+        "Corporate and Other, Including Intersegment Eliminations": 503000000,
+        "Downstream": 50440000000,
+        "Upstream": 19395000000
+      }
+    },
+    {
+      "date": "2013-12-31",
+      "segments": {
+        "Corporate and Other, Including Intersegment Eliminations": 955000000,
+        "Downstream": 48236000000,
+        "Upstream": 31376000000
+      }
+    },
+    {
+      "date": "2014-03-31",
+      "segments": {
+        "Corporate and Other, Including Intersegment Eliminations": 394000000,
+        "Downstream": 44022000000,
+        "Upstream": 18626000000
+      }
+    },
+    {
+      "date": "2014-06-30",
+      "segments": {
+        "Corporate and Other, Including Intersegment Eliminations": 494000000,
+        "Downstream": 49801000000,
+        "Upstream": 19419000000
+      }
+    },
+    {
+      "date": "2014-09-30",
+      "segments": {
+        "Corporate and Other, Including Intersegment Eliminations": 485000000
+      }
+    },
+    {
+      "date": "2014-12-31",
+      "segments": {
+        "Corporate and Other, Including Intersegment Eliminations": 385000000
+      }
+    },
+    {
+      "date": "2015-03-31",
+      "segments": {
+        "Corporate and Other, Including Intersegment Eliminations": 332000000
+      }
+    },
+    {
+      "date": "2015-06-30",
+      "segments": {
+        "Downstream Equipment": 63774000000,
+        "Upstream Equipment": 16048000000
+      }
+    },
+    {
+      "date": "2015-09-30",
+      "segments": {
+        "Downstream Equipment": 56192000000,
+        "Upstream Equipment": 14555000000
+      }
+    },
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "Corporate and Other, Including Intersegment Eliminations": 1223000000
+      }
+    },
+    {
+      "date": "2016-03-31",
+      "segments": {
+        "Downstream Equipment": 38683000000,
+        "Upstream Equipment": 10926000000
+      }
+    },
+    {
+      "date": "2016-06-30",
+      "segments": {
+        "Downstream Equipment": 48310000000,
+        "Upstream Equipment": 11600000000
+      }
+    },
+    {
+      "date": "2016-09-30",
+      "segments": {
+        "Corporate and Other, Including Intersegment Eliminations": 290000000
+      }
+    },
+    {
+      "date": "2021-03-31",
+      "segments": {
+        "Downstream": 21701000000,
+        "Upstream": 9351000000,
+        "All Other": 240000000
+      }
+    },
+    {
+      "date": "2021-06-30",
+      "segments": {
+        "Downstream": 26559000000,
+        "Upstream": 9533000000,
+        "All Other": 25000000
+      }
+    },
+    {
+      "date": "2021-09-30",
+      "segments": {
+        "Downstream": 30538000000,
+        "Upstream": 11975000000,
+        "All Other": 39000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Downstream": 32692000000,
+        "Upstream": 13133000000,
+        "All Other": -180000000
+      }
+    },
+    {
+      "date": "2022-03-31",
+      "segments": {
+        "Downstream": 38048000000,
+        "Upstream": 14250000000,
+        "All Other": 16000000
+      }
+    },
+    {
+      "date": "2022-06-30",
+      "segments": {
+        "Downstream": 49485000000,
+        "Upstream": 15849000000,
+        "All Other": 38000000
+      }
+    },
+    {
+      "date": "2022-09-30",
+      "segments": {
+        "Downstream": 45247000000,
+        "Upstream": 18229000000,
+        "All Other": 32000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Downstream": 39528000000,
+        "Upstream": 14965000000,
+        "All Other": 30000000
+      }
+    },
+    {
+      "date": "2023-03-31",
+      "segments": {
+        "Downstream": 36501000000,
+        "Upstream": 12311000000,
+        "All Other": 30000000
+      }
+    },
+    {
+      "date": "2023-06-30",
+      "segments": {
+        "Downstream": 37035000000,
+        "Upstream": 10145000000,
+        "All Other": 36000000
+      }
+    },
+    {
+      "date": "2023-09-30",
+      "segments": {
+        "Downstream": 41032000000,
+        "Upstream": 10858000000,
+        "All Other": 32000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Downstream": 36470000000,
+        "Upstream": 12428000000,
+        "All Other": 35000000
+      }
+    },
+    {
+      "date": "2024-03-31",
+      "segments": {
+        "Downstream": 35117000000,
+        "Upstream": 11436000000,
+        "All Other": 27000000
+      }
+    },
+    {
+      "date": "2024-06-30",
+      "segments": {
+        "Downstream": 38995000000,
+        "Upstream": 10546000000,
+        "All Other": 33000000
+      }
+    },
+    {
+      "date": "2024-09-30",
+      "segments": {
+        "All Other": 27000000,
+        "Downstream": 37016000000,
+        "Upstream": 11883000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Downstream": 35306000000,
+        "Upstream": 12983000000,
+        "All Other": 45000000
+      }
+    },
+    {
+      "date": "2025-03-31",
+      "segments": {
+        "Downstream": 13373000000,
+        "Upstream": 33839000000,
+        "All Other": 398000000
+      }
+    },
+    {
+      "date": "2025-06-30",
+      "segments": {
+        "Downstream": 18708000000,
+        "Upstream": 10385000000,
+        "All Other Segments": 149000000
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "segments": {
+        "Downstream": 18234000000,
+        "Upstream": 12161000000,
+        "All Other Segments": 286000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Downstream": 22170000000,
+        "Upstream": 0,
+        "All Other Segments": 209000000
+      }
+    },
+    {
+      "date": "2026-03-31",
+      "segments": {
+        "Upstream": 13179000000,
+        "Downstream": 34363000000,
+        "All Other": 14000000
+      }
+    },
+    {
+      "date": "2026-06-30",
+      "segments": {
+        "Upstream": 17528000000,
+        "Downstream": 49646000000,
+        "All Other": 25000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2011-06-30",
+      "segments": {
+        "Segment Geographical Groups Global Group": 81096000000,
+        "Segment, Geographical, Groups of Countries, Group One": 32366000000,
+        "Segment, Geographical, Groups of Countries, Group Two": 48730000000
+      }
+    },
+    {
+      "date": "2011-09-30",
+      "segments": {
+        "Segment, Geographical, Groups of Countries, Group One": 74597000000,
+        "Segment, Geographical, Groups of Countries, Group Two": 44177000000,
+        "UNITED STATES": 30420000000
+      }
+    },
+    {
+      "date": "2011-12-31",
+      "segments": {
+        "Segment, Geographical, Groups of Countries, Group Two": 30314000000,
+        "UNITED STATES": 60658000000
+      }
+    },
+    {
+      "date": "2012-03-31",
+      "segments": {
+        "Segment, Geographical, Groups of Countries, Group One": 72988000000,
+        "Segment, Geographical, Groups of Countries, Group Two": 43777000000,
+        "UNITED STATES": 29211000000
+      }
+    },
+    {
+      "date": "2012-06-30",
+      "segments": {
+        "Segment, Geographical, Groups of Countries, Group One": 72621000000,
+        "Segment, Geographical, Groups of Countries, Group Two": 43796000000,
+        "UNITED STATES": 28825000000
+      }
+    },
+    {
+      "date": "2012-09-30",
+      "segments": {
+        "Segment, Geographical, Groups of Countries, Group One": 68415000000,
+        "Segment, Geographical, Groups of Countries, Group Two": 40854000000,
+        "UNITED STATES": 27561000000
+      }
+    },
+    {
+      "date": "2012-12-31",
+      "segments": {
+        "Segment, Geographical, Groups of Countries, Group Two": 0,
+        "UNITED STATES": 2160000000
+      }
+    },
+    {
+      "date": "2013-03-31",
+      "segments": {
+        "Segment, Geographical, Groups of Countries, Group One": 67170000000,
+        "Segment, Geographical, Groups of Countries, Group Two": 40095000000,
+        "UNITED STATES": 27075000000
+      }
+    },
+    {
+      "date": "2013-06-30",
+      "segments": {
+        "International": 27222000000,
+        "UNITED STATES": 21555000000
+      }
+    },
+    {
+      "date": "2013-09-30",
+      "segments": {
+        "International": 28015000000,
+        "UNITED STATES": 22425000000
+      }
+    },
+    {
+      "date": "2013-12-31",
+      "segments": {
+        "International": 54694000000,
+        "UNITED STATES": 14048000000
+      }
+    },
+    {
+      "date": "2014-03-31",
+      "segments": {
+        "International": 23804000000,
+        "UNITED STATES": 20218000000
+      }
+    },
+    {
+      "date": "2014-06-30",
+      "segments": {
+        "International": 28599000000,
+        "UNITED STATES": 21202000000
+      }
+    },
+    {
+      "date": "2014-09-30",
+      "segments": {
+        "International": 26071000000,
+        "UNITED STATES": 20623000000
+      }
+    },
+    {
+      "date": "2014-12-31",
+      "segments": {
+        "International": 67712000000,
+        "UNITED STATES": 41200000000
+      }
+    },
+    {
+      "date": "2025-06-30",
+      "segments": {
+        "Downstream Segment": 18708000000,
+        "Upstream Segment": 10385000000
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "segments": {
+        "Downstream Segment": 18234000000,
+        "Upstream Segment": 12161000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Downstream Segment": 35543000000,
+        "Upstream Segment": 22972000000
+      }
+    },
+    {
+      "date": "2026-03-31",
+      "segments": {
+        "Downstream Segment": 18801000000,
+        "Upstream Segment": 12842000000
+      }
+    },
+    {
+      "date": "2026-06-30",
+      "segments": {
+        "Downstream Segment": 28503000000,
+        "Upstream Segment": 18523000000
+      }
+    }
+  ]
+}

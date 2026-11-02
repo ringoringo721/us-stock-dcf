@@ -1,0 +1,537 @@
+{
+  "version": 1,
+  "ticker": "V",
+  "source": "FMP revenue segmentation (quarter)",
+  "period": "quarter",
+  "product": [
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Client Incentives": -1456000000,
+        "Data Processing Revenues": 2470000000,
+        "International Transaction Revenues": 1851000000,
+        "Service": 2342000000,
+        "Service, Other": 299000000
+      }
+    },
+    {
+      "date": "2019-03-31",
+      "segments": {
+        "Client Incentives": -1478000000,
+        "Data Processing Revenues": 2432000000,
+        "International Transaction Revenues": 1796000000,
+        "Service": 2417000000,
+        "Service, Other": 327000000
+      }
+    },
+    {
+      "date": "2019-06-30",
+      "segments": {
+        "Client Incentives": -1546000000,
+        "Data Processing Revenues": 2662000000,
+        "International Transaction Revenues": 1977000000,
+        "Service": 2405000000,
+        "Service, Other": 342000000
+      }
+    },
+    {
+      "date": "2019-09-30",
+      "segments": {
+        "Client Incentives": -1693000000,
+        "Data Processing Revenues": 2769000000,
+        "International Transaction Revenues": 2180000000,
+        "Service": 2536000000,
+        "Service, Other": 345000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Client Incentives": -1748000000,
+        "Data Processing Revenues": 2864000000,
+        "International Transaction Revenues": 2018000000,
+        "Service": 2555000000,
+        "Service, Other": 365000000
+      }
+    },
+    {
+      "date": "2020-03-31",
+      "segments": {
+        "Client Incentives": -1705000000,
+        "Data Processing Revenues": 2711000000,
+        "International Transaction Revenues": 1833000000,
+        "Service": 2623000000,
+        "Service, Other": 392000000
+      }
+    },
+    {
+      "date": "2020-06-30",
+      "segments": {
+        "Client Incentives": -1513000000,
+        "Data Processing Revenues": 2525000000,
+        "International Transaction Revenues": 1102000000,
+        "Service": 2409000000,
+        "Service, Other": 314000000
+      }
+    },
+    {
+      "date": "2020-09-30",
+      "segments": {
+        "Client Incentives": -1698000000,
+        "Data Processing Revenues": 2875000000,
+        "International Transaction Revenues": 1346000000,
+        "Service": 2217000000,
+        "Service, Other": 361000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Client Incentives": -1858000000,
+        "Data Processing Revenues": 3033000000,
+        "International Transaction Revenues": 1451000000,
+        "Service": 2677000000,
+        "Service, Other": 384000000
+      }
+    },
+    {
+      "date": "2021-03-31",
+      "segments": {
+        "Client Incentives": -1992000000,
+        "Data Processing Revenues": 2996000000,
+        "International Transaction Revenues": 1488000000,
+        "Service": 2845000000,
+        "Service, Other": 392000000
+      }
+    },
+    {
+      "date": "2021-06-30",
+      "segments": {
+        "Client Incentives": -2130000000,
+        "Data Processing Revenues": 3327000000,
+        "International Transaction Revenues": 1696000000,
+        "Service": 2828000000,
+        "Service, Other": 409000000
+      }
+    },
+    {
+      "date": "2021-09-30",
+      "segments": {
+        "Client Incentives": -2387000000,
+        "Data Processing Revenues": 3436000000,
+        "International Transaction Revenues": 1895000000,
+        "Service": 3125000000,
+        "Service, Other": 490000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Client Incentives": -2371000000,
+        "Data Processing Revenues": 3614000000,
+        "International Transaction Revenues": 2174000000,
+        "Service": 3193000000,
+        "Service, Other": 449000000
+      }
+    },
+    {
+      "date": "2022-03-31",
+      "segments": {
+        "Client Incentives": -2494000000,
+        "Data Processing Revenues": 3480000000,
+        "International Transaction Revenues": 2208000000,
+        "Service": 3521000000,
+        "Service, Other": 474000000
+      }
+    },
+    {
+      "date": "2022-06-30",
+      "segments": {
+        "Client Incentives": -2570000000,
+        "Data Processing Revenues": 3579000000,
+        "International Transaction Revenues": 2560000000,
+        "Service": 3189000000,
+        "Service, Other": 517000000
+      }
+    },
+    {
+      "date": "2022-09-30",
+      "segments": {
+        "Client Incentives": -2860000000,
+        "Data Processing Revenues": 3765000000,
+        "International Transaction Revenues": 2873000000,
+        "Service": 3458000000,
+        "Service, Other": 551000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Client Incentives": -2786000000,
+        "Data Processing Revenues": 3827000000,
+        "International Transaction Revenues": 2797000000,
+        "Service": 3511000000,
+        "Service, Other": 587000000
+      }
+    },
+    {
+      "date": "2023-03-31",
+      "segments": {
+        "Client Incentives": -2905000000,
+        "Data Processing Revenues": 3819000000,
+        "International Transaction Revenues": 2749000000,
+        "Service": 3771000000,
+        "Service, Other": 551000000
+      }
+    },
+    {
+      "date": "2023-06-30",
+      "segments": {
+        "Client Incentives": -3167000000,
+        "Data Processing Revenues": 4105000000,
+        "International Transaction Revenues": 2920000000,
+        "Service": 3668000000,
+        "Service, Other": 597000000
+      }
+    },
+    {
+      "date": "2023-09-30",
+      "segments": {
+        "Client Incentives": -3439000000,
+        "Data Processing Revenues": 4256000000,
+        "International Transaction Revenues": 3172000000,
+        "Service": 3876000000,
+        "Service, Other": 744000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Client Incentives": -3348000000,
+        "Data Processing Revenues": 4356000000,
+        "International Transaction Revenues": 3019000000,
+        "Service": 3915000000,
+        "Service, Other": 692000000
+      }
+    },
+    {
+      "date": "2024-03-31",
+      "segments": {
+        "Client Incentives": -3257000000,
+        "Data Processing Revenues": 4259000000,
+        "International Transaction Revenues": 2984000000,
+        "Service": 4033000000,
+        "Service, Other": 756000000
+      }
+    },
+    {
+      "date": "2024-06-30",
+      "segments": {
+        "Client Incentives": -3530000000,
+        "Data Processing Revenues": 4489000000,
+        "International Transaction Revenues": 3194000000,
+        "Service": 3967000000,
+        "Service, Other": 780000000
+      }
+    },
+    {
+      "date": "2024-09-30",
+      "segments": {
+        "Client Incentives": -3629000000,
+        "Data Processing Revenues": 4610000000,
+        "International Transaction Revenues": 3468000000,
+        "Service": 4199000000,
+        "Service, Other": 969000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Client Incentives": -3797000000,
+        "Data Processing Revenues": 4745000000,
+        "International Transaction Revenues": 3442000000,
+        "Service": 4208000000,
+        "Service, Other": 912000000
+      }
+    },
+    {
+      "date": "2025-03-31",
+      "segments": {
+        "Client Incentives": -3734000000,
+        "Data Processing Revenues": 4701000000,
+        "International Transaction Revenues": 3291000000,
+        "Service": 4399000000,
+        "Service, Other": 937000000
+      }
+    },
+    {
+      "date": "2025-06-30",
+      "segments": {
+        "Client Incentives": -3972000000,
+        "Data Processing Revenues": 5153000000,
+        "International Transaction Revenues": 3633000000,
+        "Service": 4330000000,
+        "Service, Other": 1028000000
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "segments": {
+        "Client Incentives": -4248000000,
+        "Data Processing Revenues": 5394000000,
+        "International Transaction Revenues": 3800000000,
+        "Service": 4602000000,
+        "Service, Other": 1176000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Client Incentives": -4269000000,
+        "Data Processing Revenues": 5544000000,
+        "International Transaction Revenues": 3652000000,
+        "Service": 4760000000,
+        "Service, Other": 1214000000
+      }
+    },
+    {
+      "date": "2026-03-31",
+      "segments": {
+        "Client Incentives": -4245000000,
+        "Data Processing Revenues": 5543000000,
+        "International Transaction Revenues": 3631000000,
+        "Service": 4981000000,
+        "Service, Other": 1320000000
+      }
+    },
+    {
+      "date": "2026-06-30",
+      "segments": {
+        "Client Incentives": -4680000000,
+        "Data Processing Revenues": 6042000000,
+        "International Transaction Revenues": 3853000000,
+        "Service": 4922000000,
+        "Service, Other": 1496000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Non-US": 2998000000,
+        "UNITED STATES": 2508000000
+      }
+    },
+    {
+      "date": "2019-03-31",
+      "segments": {
+        "Non-US": 3015000000,
+        "UNITED STATES": 2479000000
+      }
+    },
+    {
+      "date": "2019-06-30",
+      "segments": {
+        "Non-US": 3253000000,
+        "UNITED STATES": 2587000000
+      }
+    },
+    {
+      "date": "2019-09-30",
+      "segments": {
+        "Non-US": 3431000000,
+        "UNITED STATES": 2706000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Non-US": 3337000000,
+        "UNITED STATES": 2717000000
+      }
+    },
+    {
+      "date": "2020-03-31",
+      "segments": {
+        "Non-US": 3204000000,
+        "UNITED STATES": 2650000000
+      }
+    },
+    {
+      "date": "2020-06-30",
+      "segments": {
+        "Non-US": 2457000000,
+        "UNITED STATES": 2380000000
+      }
+    },
+    {
+      "date": "2020-09-30",
+      "segments": {
+        "Non-US": 2723000000,
+        "UNITED STATES": 2378000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Non-US": 3020000000,
+        "UNITED STATES": 2667000000
+      }
+    },
+    {
+      "date": "2021-03-31",
+      "segments": {
+        "Non-US": 3046000000,
+        "UNITED STATES": 2683000000
+      }
+    },
+    {
+      "date": "2021-06-30",
+      "segments": {
+        "Non-US": 3324000000,
+        "UNITED STATES": 2806000000
+      }
+    },
+    {
+      "date": "2021-09-30",
+      "segments": {
+        "Non-US": 3555000000,
+        "UNITED STATES": 3004000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Non-US": 3881000000,
+        "UNITED STATES": 3178000000
+      }
+    },
+    {
+      "date": "2022-03-31",
+      "segments": {
+        "Non-US": 4110000000,
+        "UNITED STATES": 3079000000
+      }
+    },
+    {
+      "date": "2022-06-30",
+      "segments": {
+        "Non-US": 4105000000,
+        "UNITED STATES": 3170000000
+      }
+    },
+    {
+      "date": "2022-09-30",
+      "segments": {
+        "Non-US": 4363000000,
+        "UNITED STATES": 3424000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Non-US": 4369000000,
+        "UNITED STATES": 3567000000
+      }
+    },
+    {
+      "date": "2023-03-31",
+      "segments": {
+        "Non-US": 4445000000,
+        "UNITED STATES": 3540000000
+      }
+    },
+    {
+      "date": "2023-06-30",
+      "segments": {
+        "Non-US": 4680000000,
+        "UNITED STATES": 3443000000
+      }
+    },
+    {
+      "date": "2023-09-30",
+      "segments": {
+        "Non-US": 5021000000,
+        "UNITED STATES": 3588000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Non-US": 4989000000,
+        "UNITED STATES": 3645000000
+      }
+    },
+    {
+      "date": "2024-03-31",
+      "segments": {
+        "Non-US": 5132000000,
+        "UNITED STATES": 3643000000
+      }
+    },
+    {
+      "date": "2024-06-30",
+      "segments": {
+        "Non-US": 5279000000,
+        "UNITED STATES": 3621000000
+      }
+    },
+    {
+      "date": "2024-09-30",
+      "segments": {
+        "Non-US": 5746000000,
+        "UNITED STATES": 3871000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Non-US": 5772000000,
+        "UNITED STATES": 3738000000
+      }
+    },
+    {
+      "date": "2025-03-31",
+      "segments": {
+        "Non-US": 5783000000,
+        "UNITED STATES": 3811000000
+      }
+    },
+    {
+      "date": "2025-06-30",
+      "segments": {
+        "Non-US": 6245000000,
+        "UNITED STATES": 3927000000
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "segments": {
+        "Non-US": 6567000000,
+        "UNITED STATES": 4157000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Non-US": 6738000000,
+        "UNITED STATES": 4163000000
+      }
+    },
+    {
+      "date": "2026-03-31",
+      "segments": {
+        "Non-US": 6911000000,
+        "UNITED STATES": 4319000000
+      }
+    },
+    {
+      "date": "2026-06-30",
+      "segments": {
+        "Non-US": 7223000000,
+        "UNITED STATES": 4410000000
+      }
+    }
+  ]
+}

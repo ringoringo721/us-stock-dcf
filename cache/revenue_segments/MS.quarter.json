@@ -1,0 +1,706 @@
+{
+  "version": 1,
+  "ticker": "MS",
+  "source": "FMP revenue segmentation (quarter)",
+  "period": "quarter",
+  "product": [
+    {
+      "date": "2011-03-31",
+      "segments": {
+        "CMB": 6000000
+      }
+    },
+    {
+      "date": "2011-06-30",
+      "segments": {
+        "Wealth Management Segment": 645000000
+      }
+    },
+    {
+      "date": "2011-09-30",
+      "segments": {
+        "CMB": -2000000,
+        "Other Entity": 0,
+        "Retail Asset Management Segment": 4000000,
+        "Revel": 0
+      }
+    },
+    {
+      "date": "2011-12-31",
+      "segments": {
+        "Retail Asset Management Segment": 7000000
+      }
+    },
+    {
+      "date": "2014-03-31",
+      "segments": {
+        "Institutional Securities Segment": 4609000000,
+        "Investment Management Segment": 740000000,
+        "Wealth Management Segment": 3622000000
+      }
+    },
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "Institutional Securities Segment": 3419000000,
+        "Investment Management Segment": 621000000,
+        "Wealth Management Segment": 3751000000
+      }
+    },
+    {
+      "date": "2016-03-31",
+      "segments": {
+        "Institutional Securities Segment": 3714000000,
+        "Investment Management Segment": 477000000,
+        "Wealth Management Segment": 3668000000
+      }
+    },
+    {
+      "date": "2016-06-30",
+      "segments": {
+        "Institutional Securities Segment": 4578000000,
+        "Investment Management Segment": 583000000,
+        "Wealth Management Segment": 3811000000
+      }
+    },
+    {
+      "date": "2016-09-30",
+      "segments": {
+        "Institutional Securities Segment": 4553000000,
+        "Investment Management Segment": 552000000,
+        "Wealth Management Segment": 3881000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Institutional Securities Segment": 4614000000,
+        "Investment Management Segment": 500000000,
+        "Wealth Management Segment": 3990000000
+      }
+    },
+    {
+      "date": "2017-03-31",
+      "segments": {
+        "Institutional Securities Segment": 5152000000,
+        "Investment Management Segment": 609000000,
+        "Wealth Management Segment": 4058000000
+      }
+    },
+    {
+      "date": "2017-06-30",
+      "segments": {
+        "Institutional Securities Segment": 4762000000,
+        "Investment Management Segment": 665000000,
+        "Wealth Management Segment": 4151000000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "Institutional Securities Segment": 8899000000,
+        "Investment Management Segment": 1312000000,
+        "Wealth Management Segment": 8627000000
+      }
+    },
+    {
+      "date": "2018-03-31",
+      "segments": {
+        "Wealth Management Segment": 3192000000,
+        "Commission-and-Fee-Generated Services": 1173000000,
+        "Investment Banking Services": 1429000000
+      }
+    },
+    {
+      "date": "2018-06-30",
+      "segments": {
+        "Asset Management": 7000000,
+        "Contract with Customer, Other": 15000000,
+        "Investment Advice": 29000000,
+        "Underwriting": 57000000
+      }
+    },
+    {
+      "date": "2018-09-30",
+      "segments": {
+        "Asset Management": -15000000,
+        "Contract with Customer, Other": 5000000,
+        "Investment Advice": -2000000,
+        "Underwriting": 59000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Wealth Management Segment": 17241000000
+      }
+    },
+    {
+      "date": "2019-03-31",
+      "segments": {
+        "Institutional Securities Segment": 5196000000,
+        "Wealth Management Segment": 4389000000,
+        "Investment Management Segment": 804000000
+      }
+    },
+    {
+      "date": "2019-06-30",
+      "segments": {
+        "Institutional Securities Segment": 5113000000,
+        "Investment Management Segment": 839000000,
+        "Wealth Management Segment": 4408000000
+      }
+    },
+    {
+      "date": "2019-09-30",
+      "segments": {
+        "Institutional Securities Segment": 5023000000,
+        "Investment Management Segment": 764000000,
+        "Wealth Management Segment": 4358000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Institutional Securities Segment": 5054000000,
+        "Investment Management Segment": 1356000000,
+        "Wealth Management Segment": 4582000000
+      }
+    },
+    {
+      "date": "2020-03-31",
+      "segments": {
+        "Institutional Securities Segment": 4905000000,
+        "Wealth Management Segment": 4037000000,
+        "Investment Management Segment": 692000000
+      }
+    },
+    {
+      "date": "2020-06-30",
+      "segments": {
+        "Institutional Securities Segment": 7977000000,
+        "Wealth Management Segment": 4680000000,
+        "Investment Management Segment": 886000000
+      }
+    },
+    {
+      "date": "2020-09-30",
+      "segments": {
+        "Institutional Securities Segment": 6062000000,
+        "Investment Management Segment": 1056000000,
+        "Wealth Management Segment": 4657000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Institutional Securities Segment": 7004000000
+      }
+    },
+    {
+      "date": "2021-03-31",
+      "segments": {
+        "Institutional Securities Segment": 8577000000,
+        "Wealth Management Segment": 5959000000,
+        "Investment Management Segment": 1314000000
+      }
+    },
+    {
+      "date": "2021-06-30",
+      "segments": {
+        "Institutional Securities Segment": 7092000000,
+        "Investment Management Segment": 1702000000,
+        "Wealth Management Segment": 6095000000
+      }
+    },
+    {
+      "date": "2021-09-30",
+      "segments": {
+        "Institutional Securities Segment": 7495000000,
+        "Wealth Management Segment": 5935000000,
+        "Investment Management Segment": 1453000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Institutional Securities Segment": 6669000000,
+        "Investment Management Segment": 4767000000,
+        "Wealth Management Segment": 18308000000
+      }
+    },
+    {
+      "date": "2022-03-31",
+      "segments": {
+        "Institutional Securities Segment": 7657000000,
+        "Investment Management Segment": 1335000000,
+        "Wealth Management Segment": 5935000000
+      }
+    },
+    {
+      "date": "2022-06-30",
+      "segments": {
+        "Institutional Securities Segment": 6119000000,
+        "Investment Management Segment": 1411000000,
+        "Wealth Management Segment": 5736000000
+      }
+    },
+    {
+      "date": "2022-09-30",
+      "segments": {
+        "Institutional Securities Segment": 5817000000,
+        "Investment Management Segment": 1168000000,
+        "Wealth Management Segment": 6120000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Institutional Securities Segment": 4800000000,
+        "Wealth Management Segment": 6626000000,
+        "Investment Management Segment": 1461000000
+      }
+    },
+    {
+      "date": "2023-03-31",
+      "segments": {
+        "Institutional Securities Segment": 6797000000,
+        "Wealth Management Segment": 6559000000,
+        "Investment Management Segment": 1289000000
+      }
+    },
+    {
+      "date": "2023-06-30",
+      "segments": {
+        "Institutional Securities Segment": 5654000000,
+        "Investment Management Segment": 1281000000,
+        "Wealth Management Segment": 6660000000
+      }
+    },
+    {
+      "date": "2023-09-30",
+      "segments": {
+        "Institutional Securities Segment": 5669000000,
+        "Investment Management Segment": 1336000000,
+        "Wealth Management Segment": 6404000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Institutional Securities Segment": 4940000000,
+        "Investment Management Segment": 1464000000,
+        "Wealth Management Segment": 6645000000
+      }
+    },
+    {
+      "date": "2024-03-31",
+      "segments": {
+        "Institutional Securities Segment": 7016000000,
+        "Investment Management Segment": 1377000000,
+        "Wealth Management Segment": 6880000000
+      }
+    },
+    {
+      "date": "2024-06-30",
+      "segments": {
+        "Institutional Securities Segment": 6982000000,
+        "Wealth Management Segment": 6792000000,
+        "Investment Management Segment": 1386000000
+      }
+    },
+    {
+      "date": "2024-09-30",
+      "segments": {
+        "Institutional Securities Segment": 6815000000,
+        "Wealth Management Segment": 7270000000,
+        "Investment Management Segment": 1455000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Institutional Securities Segment": 14249000000,
+        "Wealth Management Segment": 14270000000,
+        "Investment Management Segment": 3029000000
+      }
+    },
+    {
+      "date": "2025-03-31",
+      "segments": {
+        "Institutional Securities Segment": 8983000000,
+        "Wealth Management Segment": 7327000000,
+        "Investment Management Segment": 1602000000
+      }
+    },
+    {
+      "date": "2025-06-30",
+      "segments": {
+        "Institutional Securities Segment": 7643000000,
+        "Wealth Management Segment": 7764000000,
+        "Investment Management Segment": 1552000000
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "segments": {
+        "Institutional Securities Segment": 8523000000,
+        "Wealth Management Segment": 8234000000,
+        "Investment Management Segment": 1651000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Institutional Securities Segment": 7931000000,
+        "Wealth Management Segment": 8429000000,
+        "Investment Management Segment": 1720000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2011-06-30",
+      "segments": {
+        "Americas": 6629000000,
+        "Asia": 1081000000
+      }
+    },
+    {
+      "date": "2014-03-31",
+      "segments": {
+        "Americas": 6515000000,
+        "Asia": 992000000,
+        "EMEA": 1422000000
+      }
+    },
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "Americas": 5721000000,
+        "Asia": 1060000000,
+        "Europe, Middle East, and Africa": 957000000
+      }
+    },
+    {
+      "date": "2016-03-31",
+      "segments": {
+        "Americas": 5752000000,
+        "Asia": 911000000,
+        "EMEA": 1129000000
+      }
+    },
+    {
+      "date": "2016-06-30",
+      "segments": {
+        "Americas": 6538000000,
+        "Asia": 1059000000,
+        "Europe, Middle East, and Africa": 1312000000
+      }
+    },
+    {
+      "date": "2016-09-30",
+      "segments": {
+        "Americas": 6624000000,
+        "Asia": 1049000000,
+        "Europe, Middle East, and Africa": 1236000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Americas": 6573000000,
+        "Asia": 1131000000,
+        "EMEA": 1317000000
+      }
+    },
+    {
+      "date": "2017-03-31",
+      "segments": {
+        "Americas": 7088000000,
+        "Asia": 1168000000,
+        "Europe, Middle East, and Africa": 1489000000
+      }
+    },
+    {
+      "date": "2017-06-30",
+      "segments": {
+        "Americas": 6746000000,
+        "Asia": 1151000000,
+        "Europe, Middle East, and Africa": 1606000000
+      }
+    },
+    {
+      "date": "2017-09-30",
+      "segments": {
+        "Americas": 6833000000,
+        "Asia": 1039000000,
+        "Europe, Middle East, and Africa": 1325000000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "Americas": 7150000000,
+        "Asia": 1056000000,
+        "EMEA": 1294000000
+      }
+    },
+    {
+      "date": "2018-03-31",
+      "segments": {
+        "Americas": 8018000000,
+        "Asia": 1351000000,
+        "EMEA": 1708000000
+      }
+    },
+    {
+      "date": "2018-06-30",
+      "segments": {
+        "Americas": 7614000000,
+        "Asia": 1167000000,
+        "EMEA": 1829000000
+      }
+    },
+    {
+      "date": "2018-09-30",
+      "segments": {
+        "Americas": 7357000000,
+        "Asia": 1160000000,
+        "EMEA": 1355000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Americas": 6312000000,
+        "Asia": 1036000000,
+        "EMEA": 1200000000
+      }
+    },
+    {
+      "date": "2019-03-31",
+      "segments": {
+        "Americas": 7321000000,
+        "Asia": 1263000000,
+        "EMEA": 1702000000
+      }
+    },
+    {
+      "date": "2019-06-30",
+      "segments": {
+        "Americas": 7526000000,
+        "Asia": 1142000000,
+        "EMEA": 1576000000
+      }
+    },
+    {
+      "date": "2019-09-30",
+      "segments": {
+        "Americas": 7489000000,
+        "Asia": 1134000000,
+        "EMEA": 1409000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Americas": 7890000000,
+        "Asia": 1593000000,
+        "EMEA": 1374000000
+      }
+    },
+    {
+      "date": "2020-03-31",
+      "segments": {
+        "Americas": 6646000000,
+        "Asia": 1693000000,
+        "EMEA": 1148000000
+      }
+    },
+    {
+      "date": "2020-06-30",
+      "segments": {
+        "Americas": 9765000000,
+        "Asia": 1600000000,
+        "EMEA": 2049000000
+      }
+    },
+    {
+      "date": "2020-09-30",
+      "segments": {
+        "Americas": 8387000000,
+        "Asia": 1797000000,
+        "EMEA": 1473000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Americas": 10219000000,
+        "Asia": 1661000000,
+        "EMEA": 1760000000
+      }
+    },
+    {
+      "date": "2021-03-31",
+      "segments": {
+        "Americas": 11191000000,
+        "Asia": 2369000000,
+        "EMEA": 2159000000
+      }
+    },
+    {
+      "date": "2021-06-30",
+      "segments": {
+        "Americas": 10885000000,
+        "Asia": 1781000000,
+        "EMEA": 2093000000
+      }
+    },
+    {
+      "date": "2021-09-30",
+      "segments": {
+        "Americas": 11255000000,
+        "Asia": 1746000000,
+        "EMEA": 1752000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Americas": 11274000000,
+        "Asia": 1555000000,
+        "EMEA": 1695000000
+      }
+    },
+    {
+      "date": "2022-03-31",
+      "segments": {
+        "Americas": 10464000000,
+        "Asia": 2026000000,
+        "EMEA": 2311000000
+      }
+    },
+    {
+      "date": "2022-06-30",
+      "segments": {
+        "Americas": 9662000000,
+        "Asia": 1792000000,
+        "EMEA": 1678000000
+      }
+    },
+    {
+      "date": "2022-09-30",
+      "segments": {
+        "Americas": 10094000000,
+        "Asia": 1500000000,
+        "EMEA": 1392000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Americas": 9897000000,
+        "Asia": 1422000000,
+        "EMEA": 1430000000
+      }
+    },
+    {
+      "date": "2023-03-31",
+      "segments": {
+        "Americas": 10791000000,
+        "Asia": 1989000000,
+        "EMEA": 1737000000
+      }
+    },
+    {
+      "date": "2023-06-30",
+      "segments": {
+        "Americas": 10394000000,
+        "Asia": 1563000000,
+        "EMEA": 1500000000
+      }
+    },
+    {
+      "date": "2023-09-30",
+      "segments": {
+        "Americas": 10268000000,
+        "Asia": 1526000000,
+        "EMEA": 1479000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Americas": 10198000000,
+        "Asia": 1356000000,
+        "EMEA": 1342000000
+      }
+    },
+    {
+      "date": "2024-03-31",
+      "segments": {
+        "Americas": 11567000000,
+        "Asia": 1743000000,
+        "EMEA": 1826000000
+      }
+    },
+    {
+      "date": "2024-06-30",
+      "segments": {
+        "Americas": 11268000000,
+        "Asia": 1880000000,
+        "EMEA": 1871000000
+      }
+    },
+    {
+      "date": "2024-09-30",
+      "segments": {
+        "Americas": 11557000000,
+        "Asia": 1998000000,
+        "EMEA": 1828000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Americas": 12537000000,
+        "Asia": 2014000000,
+        "EMEA": 1672000000
+      }
+    },
+    {
+      "date": "2025-03-31",
+      "segments": {
+        "Americas": 13103000000,
+        "Asia": 2345000000,
+        "EMEA": 2291000000
+      }
+    },
+    {
+      "date": "2025-06-30",
+      "segments": {
+        "Americas": 12347000000,
+        "Asia": 2303000000,
+        "EMEA": 2142000000
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "segments": {
+        "Americas": 13663000000,
+        "Asia": 2622000000,
+        "EMEA": 1939000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Americas": 13784000000,
+        "Asia": 2150000000,
+        "EMEA": 1956000000
+      }
+    }
+  ]
+}

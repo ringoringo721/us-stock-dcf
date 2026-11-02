@@ -1,0 +1,831 @@
+{
+  "version": 1,
+  "ticker": "BAC",
+  "source": "FMP revenue segmentation (quarter)",
+  "period": "quarter",
+  "product": [
+    {
+      "date": "2010-06-30",
+      "segments": {
+        "Global Wealth and Investment Management Segment": 4331000000
+      }
+    },
+    {
+      "date": "2010-09-30",
+      "segments": {
+        "Global Wealth and Investment Management Segment": 4072000000
+      }
+    },
+    {
+      "date": "2011-03-31",
+      "segments": {
+        "Product Line Five Member": 7887000000,
+        "Product Line Four Member": 2648000000,
+        "Product Line One Member": 3189000000,
+        "Product Line Seven Member": 1128000000,
+        "Product Line Six Member": 4490000000,
+        "Product Line Three Member": 2182000000,
+        "Product Line Two Member": 5571000000
+      }
+    },
+    {
+      "date": "2011-06-30",
+      "segments": {
+        "Product Line Five": 6796000000,
+        "Product Line Four": 2810000000,
+        "Product Line One": 3301000000,
+        "Product Line Seven": 1865000000,
+        "Product Line Six": 4490000000,
+        "Product Line Three": -11315000000,
+        "Product Line Two": 5536000000
+      }
+    },
+    {
+      "date": "2011-09-30",
+      "segments": {
+        "All Other Company Segments": 6269000000,
+        "Card Services Segment": 4507000000,
+        "Consumer Real Estate Services Segment": 2822000000,
+        "Deposits Segment": 3119000000,
+        "Global Banking and Markets Segment": 5222000000,
+        "Global Commercial Banking Segment": 2533000000,
+        "Global Wealth and Investment Management Segment": 4230000000
+      }
+    },
+    {
+      "date": "2011-12-31",
+      "segments": {
+        "All Other Company Segments": 4290000000,
+        "Card Services Segment": 4058000000,
+        "Consumer Real Estate Services Segment": 3276000000,
+        "Deposits Segment": 3080000000,
+        "Global Banking and Markets Segment": 3722000000,
+        "Global Commercial Banking Segment": 2556000000,
+        "Global Wealth and Investment Management Segment": 4164000000
+      }
+    },
+    {
+      "date": "2012-03-31",
+      "segments": {
+        "Operating Segments": 23098000000,
+        "Asset And Liability Management Activities": -1170000000,
+        "Equity Investment Income": 417000000,
+        "Fully Taxable Equivalent Basis Adjustment": -207000000,
+        "Liquidating Businesses": 363000000,
+        "Other Adjustment": -223000000
+      }
+    },
+    {
+      "date": "2012-06-30",
+      "segments": {
+        "Operating Segments": 21814000000,
+        "Asset And Liability Management Activities": 477000000,
+        "Equity Investment Income": -63000000,
+        "Fully Taxable Equivalent Basis Adjustment": -234000000,
+        "Liquidating Businesses": 539000000,
+        "Other Adjustment": -565000000
+      }
+    },
+    {
+      "date": "2012-09-30",
+      "segments": {
+        "Operating Segments": 21697000000,
+        "Asset And Liability Management Activities": -930000000,
+        "Equity Investment Income": 165000000,
+        "Fully Taxable Equivalent Basis Adjustment": -229000000,
+        "Liquidating Businesses": 271000000,
+        "Other Adjustment": -546000000
+      }
+    },
+    {
+      "date": "2012-12-31",
+      "segments": {
+        "Operating Segments": 18415000000,
+        "Asset And Liability Management Activities": -789000000,
+        "Equity Investment Income": 616000000,
+        "Fully Taxable Equivalent Basis Adjustment": -231000000,
+        "Liquidating Businesses": 1106000000,
+        "Other Adjustment": -457000000
+      }
+    },
+    {
+      "date": "2013-03-31",
+      "segments": {
+        "Consumer & Business Banking Segment": 7214000000,
+        "Operating Segments": 23044000000,
+        "Asset And Liability Management Activities": -316000000,
+        "Equity Investment Income": 520000000,
+        "Fully Taxable Equivalent Basis Adjustment": -211000000,
+        "Liquidating Businesses": 529000000,
+        "Other Adjustment": -369000000
+      }
+    },
+    {
+      "date": "2013-06-30",
+      "segments": {
+        "All Other Company Segments": 573000000,
+        "Consumer & Business Banking Segment": 7434000000,
+        "Consumer Real Estate Services Segment": 2115000000,
+        "Global Banking Segment": 4139000000,
+        "Global Markets Segment": 4189000000,
+        "Global Wealth and Investment Management Segment": 4499000000
+      }
+    },
+    {
+      "date": "2013-09-30",
+      "segments": {
+        "All Other Company Segments": 867000000,
+        "Consumer & Business Banking Segment": 7524000000,
+        "Consumer Real Estate Services Segment": 1577000000,
+        "Global Banking Segment": 4009000000,
+        "Global Markets Segment": 3376000000,
+        "Global Wealth and Investment Management Segment": 4390000000
+      }
+    },
+    {
+      "date": "2013-12-31",
+      "segments": {
+        "All Other Company Segments": 84000000,
+        "Consumer & Business Banking Segment": 7497000000,
+        "Consumer Real Estate Services Segment": 1712000000,
+        "Global Banking Segment": 4304000000,
+        "Global Markets Segment": 3624000000,
+        "Global Wealth and Investment Management Segment": 4480000000
+      }
+    },
+    {
+      "date": "2014-03-31",
+      "segments": {
+        "All Other Company Segments": 306000000,
+        "Consumer & Business Banking Segment": 7438000000,
+        "Consumer Real Estate Services Segment": 1192000000,
+        "Global Banking Segment": 4269000000,
+        "Global Markets Segment": 5015000000,
+        "Global Wealth and Investment Management Segment": 4547000000
+      }
+    },
+    {
+      "date": "2014-06-30",
+      "segments": {
+        "All Other Company Segments": -154000000,
+        "Consumer & Business Banking Segment": 7373000000,
+        "Consumer Real Estate Services Segment": 1390000000,
+        "Global Banking Segment": 4179000000,
+        "Global Markets Segment": 4583000000,
+        "Global Wealth and Investment Management Segment": 4589000000
+      }
+    },
+    {
+      "date": "2014-09-30",
+      "segments": {
+        "Consumer & Business Banking Segment": 7511000000,
+        "Consumer Real Estate Services Segment": 1093000000,
+        "Global Banking Segment": 4093000000,
+        "Global Markets Segment": 4136000000,
+        "Global Wealth and Investment Management Segment": 4666000000
+      }
+    },
+    {
+      "date": "2014-12-31",
+      "segments": {
+        "Consumer & Business Banking Segment": 7542000000,
+        "Consumer Real Estate Services Segment": 1173000000,
+        "Global Banking Segment": 4057000000,
+        "Global Markets Segment": 2388000000,
+        "Global Wealth and Investment Management Segment": 4602000000
+      }
+    },
+    {
+      "date": "2015-03-31",
+      "segments": {
+        "Consumer Banking Segment": 7450000000,
+        "Global Banking Segment": 4289000000,
+        "Global Markets Segment": 4603000000,
+        "Global Wealth and Investment Management Segment": 4517000000,
+        "Legacy Assets and Servicing Segment": 914000000
+      }
+    },
+    {
+      "date": "2015-06-30",
+      "segments": {
+        "Consumer Banking Segment": 7544000000,
+        "Global Banking Segment": 4115000000,
+        "Global Markets Segment": 4259000000,
+        "Global Wealth and Investment Management Segment": 4573000000,
+        "Legacy Assets and Servicing Segment": 1089000000
+      }
+    },
+    {
+      "date": "2015-09-30",
+      "segments": {
+        "Consumer Banking Segment": 7832000000,
+        "Global Banking Segment": 4191000000,
+        "Global Markets Segment": 4071000000,
+        "Global Wealth and Investment Management Segment": 4468000000,
+        "Legacy Assets and Servicing Segment": 841000000
+      }
+    },
+    {
+      "date": "2015-12-31",
+      "segments": {
+        "Consumer Banking Segment": 7792000000,
+        "Global Banking Segment": 4352000000,
+        "Global Markets Segment": 2106000000,
+        "Global Wealth and Investment Management Segment": 4443000000,
+        "Legacy Assets and Servicing Segment": 586000000
+      }
+    },
+    {
+      "date": "2016-03-31",
+      "segments": {
+        "Consumer Banking Segment": 7648000000,
+        "Global Banking Segment": 4398000000,
+        "Global Markets Segment": 3951000000,
+        "Global Wealth and Investment Management Segment": 4445000000,
+        "Legacy Assets and Servicing Segment": 679000000
+      }
+    },
+    {
+      "date": "2016-06-30",
+      "segments": {
+        "Consumer Banking Segment": 7864000000,
+        "Global Banking Segment": 4690000000,
+        "Global Markets Segment": 4313000000,
+        "Global Wealth and Investment Management Segment": 4456000000
+      }
+    },
+    {
+      "date": "2016-09-30",
+      "segments": {
+        "Consumer Banking Segment": 7968000000,
+        "Global Banking Segment": 4748000000,
+        "Global Markets Segment": 4359000000,
+        "Global Wealth and Investment Management Segment": 4379000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Consumer Banking Segment": 8111000000,
+        "Global Banking Segment": 4534000000,
+        "Global Markets Segment": 3472000000,
+        "Global Wealth and Investment Management Segment": 4377000000
+      }
+    },
+    {
+      "date": "2017-03-31",
+      "segments": {
+        "Consumer Banking Segment": 8284000000,
+        "Global Banking Segment": 4955000000,
+        "Global Markets Segment": 4708000000,
+        "Global Wealth and Investment Management Segment": 4592000000
+      }
+    },
+    {
+      "date": "2017-06-30",
+      "segments": {
+        "Consumer Banking Segment": 8508000000,
+        "Global Banking Segment": 5039000000,
+        "Global Markets Segment": 3946000000,
+        "Global Wealth and Investment Management Segment": 4695000000
+      }
+    },
+    {
+      "date": "2017-09-30",
+      "segments": {
+        "Consumer Banking Segment": 8774000000,
+        "Global Banking Segment": 4986000000,
+        "Global Markets Segment": 3900000000,
+        "Global Wealth and Investment Management Segment": 4620000000
+      }
+    },
+    {
+      "date": "2017-12-31",
+      "segments": {
+        "Consumer Banking Segment": 8955000000,
+        "Global Banking Segment": 5019000000,
+        "Global Markets Segment": 3397000000,
+        "Global Wealth and Investment Management Segment": 4683000000
+      }
+    },
+    {
+      "date": "2018-03-31",
+      "segments": {
+        "Card income": 1457000000,
+        "Service Charges": 1921000000,
+        "Investment And Brokerage Services": 3664000000,
+        "Investment Banking Fees": 1353000000,
+        "Market making and similar activities": 2699000000,
+        "other income": 423000000,
+        "Loans and Leases": 9623000000,
+        "Debt securities": 2804000000,
+        "Federal funds sold and securities borrowed or purchased under agreements to resell": 622000000,
+        "Trading account assets": 1316000000,
+        "other interest income": 1414000000
+      }
+    },
+    {
+      "date": "2018-06-30",
+      "segments": {
+        "Card income": 1542000000,
+        "Service Charges": 1954000000,
+        "Investment And Brokerage Services": 3458000000,
+        "Investment Banking Fees": 1422000000,
+        "Market making and similar activities": 2315000000,
+        "other income": 268000000,
+        "Loans and Leases": 10071000000,
+        "Debt securities": 2856000000,
+        "Federal funds sold and securities borrowed or purchased under agreements to resell": 709000000,
+        "Trading account assets": 1198000000,
+        "other interest income": 1535000000
+      }
+    },
+    {
+      "date": "2018-09-30",
+      "segments": {
+        "Card income": 1470000000,
+        "Service Charges": 1961000000,
+        "Investment And Brokerage Services": 3494000000,
+        "Investment Banking Fees": 1204000000,
+        "other income": 885000000,
+        "Market making and similar activities": 1893000000,
+        "Loans and Leases": 10401000000,
+        "Debt securities": 2986000000,
+        "Federal funds sold and securities borrowed or purchased under agreements to resell": 799000000,
+        "Trading account assets": 1172000000,
+        "other interest income": 1607000000
+      }
+    },
+    {
+      "date": "2018-12-31",
+      "segments": {
+        "Card income": 1582000000,
+        "Service Charges": 1931000000,
+        "Investment And Brokerage Services": 3544000000,
+        "Investment Banking Fees": 1348000000,
+        "other income": 394000000,
+        "Market making and similar activities": 1633000000,
+        "Loans and Leases": 10716000000,
+        "Debt securities": 3078000000,
+        "Federal funds sold and securities borrowed or purchased under agreements to resell": 1046000000,
+        "Trading account assets": 1125000000,
+        "other interest income": 1691000000
+      }
+    },
+    {
+      "date": "2019-03-31",
+      "segments": {
+        "Market making and similar activities": 2768000000,
+        "other income": 23000000,
+        "Loans and Leases": 10885000000,
+        "Debt securities": 3119000000,
+        "Federal funds sold and securities borrowed or purchased under agreements to resell": 1195000000,
+        "Trading account assets": 1322000000,
+        "other interest income": 1649000000,
+        "Card income": 1375000000,
+        "Service Charges": 1839000000,
+        "Investment And Brokerage Services": 3360000000,
+        "Investment Banking Fees": 1264000000
+      }
+    },
+    {
+      "date": "2019-06-30",
+      "segments": {
+        "Market making and similar activities": 2381000000,
+        "other income": 324000000,
+        "Loans and Leases": 10942000000,
+        "Debt securities": 3017000000,
+        "Federal funds sold and securities borrowed or purchased under agreements to resell": 1309000000,
+        "Trading account assets": 1321000000,
+        "other interest income": 1635000000,
+        "Card income": 1446000000,
+        "Service Charges": 1903000000,
+        "Investment And Brokerage Services": 3470000000,
+        "Investment Banking Fees": 1371000000
+      }
+    },
+    {
+      "date": "2019-09-30",
+      "segments": {
+        "other income": 35000000,
+        "Market making and similar activities": 2118000000,
+        "Loans and Leases": 10894000000,
+        "Debt securities": 2829000000,
+        "Federal funds sold and securities borrowed or purchased under agreements to resell": 1242000000,
+        "Trading account assets": 1319000000,
+        "other interest income": 1632000000,
+        "Card income": 1465000000,
+        "Service Charges": 1975000000,
+        "Investment And Brokerage Services": 3494000000,
+        "Investment Banking Fees": 1533000000
+      }
+    },
+    {
+      "date": "2019-12-31",
+      "segments": {
+        "Market making and similar activities": 1767000000,
+        "other income": -78000000,
+        "Loans and Leases": 10365000000,
+        "Debt securities": 2841000000,
+        "Federal funds sold and securities borrowed or purchased under agreements to resell": 1097000000,
+        "Trading account assets": 1234000000,
+        "other interest income": 1389000000,
+        "Card income": 1511000000,
+        "Service Charges": 1957000000,
+        "Investment And Brokerage Services": 3578000000,
+        "Investment Banking Fees": 1474000000
+      }
+    },
+    {
+      "date": "2020-03-31",
+      "segments": {
+        "Market making and similar activities": 2807000000,
+        "other income": -491000000,
+        "Loans and Leases": 9963000000,
+        "Debt securities": 2843000000,
+        "Federal funds sold and securities borrowed or purchased under agreements to resell": 819000000,
+        "Trading account assets": 1247000000,
+        "other interest income": 1226000000,
+        "Card income": 1272000000,
+        "Service Charges": 1903000000,
+        "Investment And Brokerage Services": 3758000000,
+        "Investment Banking Fees": 1388000000
+      }
+    },
+    {
+      "date": "2020-06-30",
+      "segments": {
+        "Market making and similar activities": 2487000000,
+        "other income": 599000000,
+        "Loans and Leases": 8569000000,
+        "Debt securities": 2440000000,
+        "Federal funds sold and securities borrowed or purchased under agreements to resell": 26000000,
+        "Trading account assets": 1008000000,
+        "other interest income": 497000000,
+        "Card income": 1249000000,
+        "Service Charges": 1562000000,
+        "Investment And Brokerage Services": 3422000000,
+        "Investment Banking Fees": 2159000000
+      }
+    },
+    {
+      "date": "2020-09-30",
+      "segments": {
+        "Market making and similar activities": 1689000000,
+        "other income": -259000000,
+        "Loans and Leases": 7894000000,
+        "Debt securities": 2130000000,
+        "Federal funds sold and securities borrowed or purchased under agreements to resell": 55000000,
+        "Trading account assets": 948000000,
+        "other interest income": 459000000,
+        "Card income": 1568000000,
+        "Service Charges": 1817000000,
+        "Investment And Brokerage Services": 3623000000,
+        "Investment Banking Fees": 1769000000
+      }
+    },
+    {
+      "date": "2020-12-31",
+      "segments": {
+        "Market making and similar activities": 1372000000,
+        "other income": -587000000,
+        "Loans and Leases": 7603000000,
+        "Debt securities": 2377000000,
+        "Federal funds sold and securities borrowed or purchased under agreements to resell": 3000000,
+        "Trading account assets": 925000000,
+        "other interest income": 553000000,
+        "Card income": 1567000000,
+        "Service Charges": 1859000000,
+        "Investment And Brokerage Services": 3771000000,
+        "Investment Banking Fees": 1864000000
+      }
+    },
+    {
+      "date": "2021-03-31",
+      "segments": {
+        "other income": -441000000,
+        "Market making and similar activities": 3529000000,
+        "Loans and Leases": 7234000000,
+        "Debt securities": 2730000000,
+        "Federal funds sold and securities borrowed or purchased under agreements to resell": -7000000,
+        "Trading account assets": 872000000,
+        "other interest income": 566000000,
+        "Card income": 1435000000,
+        "Service Charges": 1792000000,
+        "Investment And Brokerage Services": 4063000000,
+        "Investment Banking Fees": 2246000000
+      }
+    },
+    {
+      "date": "2021-06-30",
+      "segments": {
+        "Market making and similar activities": 1826000000,
+        "other income": -298000000,
+        "Loans and Leases": 7123000000,
+        "Debt securities": 2820000000,
+        "Federal funds sold and securities borrowed or purchased under agreements to resell": -42000000,
+        "Trading account assets": 954000000,
+        "other interest income": 532000000,
+        "Card income": 1586000000,
+        "Service Charges": 1874000000,
+        "Investment And Brokerage Services": 4123000000,
+        "Investment Banking Fees": 2122000000
+      }
+    },
+    {
+      "date": "2021-09-30",
+      "segments": {
+        "Market making and similar activities": 2005000000,
+        "other income": -332000000,
+        "Loans and Leases": 7502000000,
+        "Debt securities": 3282000000,
+        "Federal funds sold and securities borrowed or purchased under agreements to resell": 6000000,
+        "Trading account assets": 967000000,
+        "other interest income": 579000000,
+        "Card income": 1583000000,
+        "Service Charges": 1928000000,
+        "Investment And Brokerage Services": 4236000000,
+        "Investment Banking Fees": 2168000000
+      }
+    },
+    {
+      "date": "2021-12-31",
+      "segments": {
+        "Market making and similar activities": 1331000000,
+        "other income": -740000000,
+        "Loans and Leases": 7423000000,
+        "Debt securities": 3544000000,
+        "Federal funds sold and securities borrowed or purchased under agreements to resell": -47000000,
+        "Trading account assets": 977000000,
+        "other interest income": 657000000,
+        "Card income": 1614000000,
+        "Service Charges": 1910000000,
+        "Investment And Brokerage Services": 4268000000,
+        "Investment Banking Fees": 2351000000
+      }
+    },
+    {
+      "date": "2022-03-31",
+      "segments": {
+        "Market making and similar activities": 3238000000,
+        "other income": -567000000,
+        "Loans and Leases": 7352000000,
+        "Debt securities": 3823000000,
+        "Federal funds sold and securities borrowed or purchased under agreements to resell": -7000000,
+        "Trading account assets": 1081000000,
+        "other interest income": 645000000,
+        "Card income": 1403000000,
+        "Service Charges": 1833000000,
+        "Investment And Brokerage Services": 4292000000,
+        "Investment Banking Fees": 1457000000
+      }
+    },
+    {
+      "date": "2022-06-30",
+      "segments": {
+        "Market making and similar activities": 2717000000,
+        "other income": -964000000,
+        "Loans and Leases": 8222000000,
+        "Debt securities": 4049000000,
+        "Federal funds sold and securities borrowed or purchased under agreements to resell": 396000000,
+        "Trading account assets": 1223000000,
+        "other interest income": 1085000000,
+        "Card income": 1555000000,
+        "Service Charges": 1717000000,
+        "Investment And Brokerage Services": 4091000000,
+        "Investment Banking Fees": 1128000000
+      }
+    },
+    {
+      "date": "2022-09-30",
+      "segments": {
+        "Market making and similar activities": 3068000000,
+        "other income": -332000000,
+        "Loans and Leases": 10231000000,
+        "Debt securities": 4239000000,
+        "Federal funds sold and securities borrowed or purchased under agreements to resell": 1446000000,
+        "Trading account assets": 1449000000,
+        "other interest income": 2256000000,
+        "Card income": 1573000000,
+        "Service Charges": 1466000000,
+        "Investment And Brokerage Services": 3795000000,
+        "Investment Banking Fees": 1167000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Market making and similar activities": 3052000000,
+        "other income": -936000000,
+        "Loans and Leases": 12114000000,
+        "Debt securities": 5016000000,
+        "Federal funds sold and securities borrowed or purchased under agreements to resell": 2725000000,
+        "Trading account assets": 1768000000,
+        "other interest income": 3452000000,
+        "Card income": 1552000000,
+        "Service Charges": 1389000000,
+        "Investment And Brokerage Services": 3723000000,
+        "Investment Banking Fees": 1071000000
+      }
+    },
+    {
+      "date": "2023-03-31",
+      "segments": {
+        "Market making and similar activities": 4712000000,
+        "other income": -796000000,
+        "Loans and Leases": 13097000000,
+        "Debt securities": 5460000000,
+        "Federal funds sold and securities borrowed or purchased under agreements to resell": 3712000000,
+        "Trading account assets": 2028000000,
+        "other interest income": 4358000000,
+        "Card income": 1469000000,
+        "Service Charges": 1410000000,
+        "Investment And Brokerage Services": 3852000000,
+        "Investment Banking Fees": 1163000000
+      }
+    },
+    {
+      "date": "2023-06-30",
+      "segments": {
+        "Market making and similar activities": 3697000000,
+        "other income": -619000000,
+        "Loans and Leases": 13970000000,
+        "Debt securities": 4691000000,
+        "Federal funds sold and securities borrowed or purchased under agreements to resell": 4955000000,
+        "Trading account assets": 2076000000,
+        "other interest income": 6662000000,
+        "Card income": 1546000000,
+        "Service Charges": 1364000000,
+        "Investment And Brokerage Services": 3839000000,
+        "Investment Banking Fees": 1212000000
+      }
+    },
+    {
+      "date": "2023-09-30",
+      "segments": {
+        "Market making and similar activities": 3325000000,
+        "other income": 672000000,
+        "Loans and Leases": 14830000000,
+        "Debt securities": 4658000000,
+        "Federal funds sold and securities borrowed or purchased under agreements to resell": 4888000000,
+        "Trading account assets": 2217000000,
+        "other interest income": 7031000000,
+        "Card income": 1520000000,
+        "Service Charges": 1464000000,
+        "Investment And Brokerage Services": 3963000000,
+        "Investment Banking Fees": 1188000000
+      }
+    },
+    {
+      "date": "2023-12-31",
+      "segments": {
+        "Market making and similar activities": 998000000,
+        "other income": -2348000000,
+        "Loans and Leases": 15227000000,
+        "Debt securities": 5417000000,
+        "Federal funds sold and securities borrowed or purchased under agreements to resell": 5124000000,
+        "Trading account assets": 2452000000,
+        "other interest income": 7409000000,
+        "Card income": 1519000000,
+        "Service Charges": 1446000000,
+        "Investment And Brokerage Services": 3909000000,
+        "Investment Banking Fees": 1145000000
+      }
+    },
+    {
+      "date": "2024-03-31",
+      "segments": {
+        "Market making and similar activities": 3888000000,
+        "other income": -762000000,
+        "Loans and Leases": 15240000000,
+        "Debt securities": 6137000000,
+        "Federal funds sold and securities borrowed or purchased under agreements to resell": 5175000000,
+        "Trading account assets": 2455000000,
+        "other interest income": 7278000000,
+        "Card income": 1463000000,
+        "Service Charges": 1442000000,
+        "Investment And Brokerage Services": 4187000000,
+        "Investment Banking Fees": 1568000000
+      }
+    },
+    {
+      "date": "2024-06-30",
+      "segments": {
+        "Market making and similar activities": 3298000000,
+        "other income": -592000000,
+        "Loans and Leases": 15338000000,
+        "Debt securities": 6325000000,
+        "Federal funds sold and securities borrowed or purchased under agreements to resell": 5159000000,
+        "Trading account assets": 2516000000,
+        "other interest income": 7516000000,
+        "Card income": 1581000000,
+        "Service Charges": 1507000000,
+        "Investment And Brokerage Services": 4320000000,
+        "Investment Banking Fees": 1561000000
+      }
+    },
+    {
+      "date": "2024-09-30",
+      "segments": {
+        "Market making and similar activities": 3278000000,
+        "other income": -1019000000,
+        "Loans and Leases": 15725000000,
+        "Debt securities": 6833000000,
+        "Federal funds sold and securities borrowed or purchased under agreements to resell": 5196000000,
+        "Trading account assets": 2726000000,
+        "other interest income": 7011000000,
+        "Card income": 1618000000,
+        "Service Charges": 1552000000,
+        "Investment And Brokerage Services": 4546000000,
+        "Investment Banking Fees": 1403000000
+      }
+    },
+    {
+      "date": "2024-12-31",
+      "segments": {
+        "Market making and similar activities": 2503000000,
+        "other income": -1058000000,
+        "Loans and Leases": 15690000000,
+        "Debt securities": 6712000000,
+        "Federal funds sold and securities borrowed or purchased under agreements to resell": 4381000000,
+        "Trading account assets": 2679000000,
+        "other interest income": 6515000000,
+        "Card income": 1622000000,
+        "Service Charges": 1554000000,
+        "Investment And Brokerage Services": 4713000000,
+        "Investment Banking Fees": 1654000000
+      }
+    },
+    {
+      "date": "2025-03-31",
+      "segments": {
+        "Loans and Leases": 15223000000,
+        "Debt securities": 6767000000,
+        "Federal funds sold and securities borrowed or purchased under agreements to resell": 3774000000,
+        "Trading account assets": 3008000000,
+        "other interest income": 5294000000,
+        "Card income": 1518000000,
+        "Service Charges": 1561000000,
+        "Investment And Brokerage Services": 4813000000,
+        "Investment Banking Fees": 1523000000,
+        "Market making and similar activities": 3584000000,
+        "other income": -76000000
+      }
+    },
+    {
+      "date": "2025-06-30",
+      "segments": {
+        "Consumer Banking Segment": 10813000000,
+        "Global Wealth and Investment Management Segment": 5937000000,
+        "Global Banking Segment": 5690000000,
+        "Global Markets Segment": 5980000000
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "segments": {
+        "Consumer Banking Segment": 11166000000,
+        "Global Wealth and Investment Management Segment": 6312000000,
+        "Global Banking Segment": 6245000000,
+        "Global Markets Segment": 6224000000
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "segments": {
+        "Consumer Banking Segment": 21694000000,
+        "Global Wealth and Investment Management Segment": 12634000000,
+        "Global Banking Segment": 12173000000,
+        "Global Markets Segment": 11892000000
+      }
+    },
+    {
+      "date": "2026-03-31",
+      "segments": {
+        "Consumer Banking Segment": 11049000000,
+        "Global Wealth and Investment Management Segment": 6712000000,
+        "Global Banking Segment": 6287000000,
+        "Global Markets Segment": 7109000000
+      }
+    },
+    {
+      "date": "2026-09-30",
+      "segments": {
+        "Consumer Banking Segment": 11572000000,
+        "Global Wealth and Investment Management Segment": 7118000000,
+        "Global Banking Segment": 6205000000,
+        "Global Markets Segment": 5867000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2011-03-31",
+      "segments": {
+        "Segment Geographical Groups Of Countries Group Three Member": 459000000,
+        "Segment, Geographical, Groups of Countries, Group One": 957000000,
+        "Segment, Geographical, Groups of Countries, Group Two": 2619000000
+      }
+    }
+  ]
+}

@@ -1,0 +1,973 @@
+{
+  "version": 1,
+  "ticker": "CSCO",
+  "source": "FMP revenue segmentation (quarter)",
+  "period": "quarter",
+  "product": [
+    {
+      "date": "2012-01-28",
+      "segments": {
+        "Product": 9405000000,
+        "Service": 2409000000
+      }
+    },
+    {
+      "date": "2012-04-28",
+      "segments": {
+        "Product": 9355000000,
+        "Service": 2482000000
+      }
+    },
+    {
+      "date": "2012-07-28",
+      "segments": {
+        "Product": 18593000000,
+        "Service": 4844000000
+      }
+    },
+    {
+      "date": "2012-10-27",
+      "segments": {
+        "Product": 9517000000,
+        "Service": 2579000000
+      }
+    },
+    {
+      "date": "2013-01-26",
+      "segments": {
+        "Product": 9635000000,
+        "Service": 2661000000
+      }
+    },
+    {
+      "date": "2013-04-27",
+      "segments": {
+        "Product": 9703000000,
+        "Service": 2657000000
+      }
+    },
+    {
+      "date": "2013-07-27",
+      "segments": {
+        "Product": 9838000000,
+        "Service": 2681000000
+      }
+    },
+    {
+      "date": "2013-10-26",
+      "segments": {
+        "Product": 9477000000,
+        "Service": 2688000000
+      }
+    },
+    {
+      "date": "2014-01-25",
+      "segments": {
+        "Product": 8487000000,
+        "Service": 2732000000
+      }
+    },
+    {
+      "date": "2014-04-26",
+      "segments": {
+        "Product": 8895000000,
+        "Service": 2725000000
+      }
+    },
+    {
+      "date": "2014-07-26",
+      "segments": {
+        "Product": 18413000000,
+        "Service": 2825000000
+      }
+    },
+    {
+      "date": "2014-10-25",
+      "segments": {
+        "Product": 9502000000,
+        "Service": 2810000000
+      }
+    },
+    {
+      "date": "2015-01-24",
+      "segments": {
+        "Product": 9137000000,
+        "Service": 2858000000
+      }
+    },
+    {
+      "date": "2015-04-25",
+      "segments": {
+        "Product": 9382000000,
+        "Service": 2811000000
+      }
+    },
+    {
+      "date": "2015-07-25",
+      "segments": {
+        "Product": 9970000000,
+        "Service": 2932000000
+      }
+    },
+    {
+      "date": "2015-10-24",
+      "segments": {
+        "Product": 9919000000,
+        "Service": 2838000000
+      }
+    },
+    {
+      "date": "2016-01-23",
+      "segments": {
+        "Product": 9060000000,
+        "Service": 2944000000
+      }
+    },
+    {
+      "date": "2016-04-30",
+      "segments": {
+        "Product": 8964000000,
+        "Service": 3125000000
+      }
+    },
+    {
+      "date": "2016-07-30",
+      "segments": {
+        "Product": 9676000000,
+        "Service": 3086000000
+      }
+    },
+    {
+      "date": "2016-10-29",
+      "segments": {
+        "Product": 9441000000,
+        "Service": 3050000000
+      }
+    },
+    {
+      "date": "2017-01-28",
+      "segments": {
+        "Product": 8607000000,
+        "Service": 3089000000
+      }
+    },
+    {
+      "date": "2017-04-29",
+      "segments": {
+        "Product": 9023000000,
+        "Service": 3055000000
+      }
+    },
+    {
+      "date": "2017-07-29",
+      "segments": {
+        "Product": 9188000000,
+        "Service": 3106000000
+      }
+    },
+    {
+      "date": "2017-10-28",
+      "segments": {
+        "Product": 9350000000,
+        "Service": 3082000000
+      }
+    },
+    {
+      "date": "2018-01-27",
+      "segments": {
+        "Product": 8982000000,
+        "Service": 3178000000
+      }
+    },
+    {
+      "date": "2018-04-28",
+      "segments": {
+        "Product": 9553000000,
+        "Service": 3159000000
+      }
+    },
+    {
+      "date": "2018-07-28",
+      "segments": {
+        "Product": 9874000000,
+        "Service": 3202000000
+      }
+    },
+    {
+      "date": "2018-10-27",
+      "segments": {
+        "Product": 10068000000,
+        "Service": 3182000000
+      }
+    },
+    {
+      "date": "2019-01-26",
+      "segments": {
+        "Product": 9295000000,
+        "Service": 3173000000
+      }
+    },
+    {
+      "date": "2019-04-27",
+      "segments": {
+        "Product": 9761000000,
+        "Service": 3236000000
+      }
+    },
+    {
+      "date": "2019-07-27",
+      "segments": {
+        "Product": 10162000000,
+        "Service": 3308000000
+      }
+    },
+    {
+      "date": "2019-10-26",
+      "segments": {
+        "Product": 9904000000,
+        "Service": 3281000000
+      }
+    },
+    {
+      "date": "2020-01-25",
+      "segments": {
+        "Product": 8717000000,
+        "Service": 3334000000
+      }
+    },
+    {
+      "date": "2020-04-25",
+      "segments": {
+        "Product": 8625000000,
+        "Service": 3386000000
+      }
+    },
+    {
+      "date": "2020-07-25",
+      "segments": {
+        "Product": 8867000000,
+        "Service": 7092000000
+      }
+    },
+    {
+      "date": "2020-10-24",
+      "segments": {
+        "Applications": 1380000000,
+        "Infrastructure Platforms": 6341000000,
+        "Other Products": 5000000,
+        "Security": 861000000,
+        "Service": 3342000000
+      }
+    },
+    {
+      "date": "2021-01-23",
+      "segments": {
+        "Applications": 1354000000,
+        "Infrastructure Platforms": 6391000000,
+        "Other Products": 4000000,
+        "Security": 823000000,
+        "Service": 3388000000
+      }
+    },
+    {
+      "date": "2021-05-01",
+      "segments": {
+        "Applications": 1426000000,
+        "Infrastructure Platforms": 6832000000,
+        "Other Products": 6000000,
+        "Security": 876000000,
+        "Service": 3662000000
+      }
+    },
+    {
+      "date": "2021-07-31",
+      "segments": {
+        "Applications": 1344000000,
+        "Infrastructure Platforms": 7545000000,
+        "Other Products": 4000000,
+        "Security": 822000000,
+        "Service": 3412000000
+      }
+    },
+    {
+      "date": "2021-10-30",
+      "segments": {
+        "Secure, Agile Networks": 5967000000,
+        "Internet for the Future": 1374000000,
+        "Hybrid Work": 1109000000,
+        "End-to-End Security": 895000000,
+        "Optimized Application Experiences": 181000000,
+        "Other Products": 3000000,
+        "Services": 3371000000
+      }
+    },
+    {
+      "date": "2022-01-29",
+      "segments": {
+        "Secure, Agile Networks": 5898000000,
+        "Internet for the Future": 1322000000,
+        "Hybrid Work": 1067000000,
+        "End-to-End Security": 883000000,
+        "Optimized Application Experiences": 180000000,
+        "Other Products": 2000000,
+        "Services": 3367000000
+      }
+    },
+    {
+      "date": "2022-04-30",
+      "segments": {
+        "Secure, Agile Networks": 5869000000,
+        "Internet for the Future": 1324000000,
+        "Collaboration": 1132000000,
+        "End-to-End Security": 938000000,
+        "Optimized Application Experiences": 183000000,
+        "Other Products": 2000000,
+        "Services": 3387000000
+      }
+    },
+    {
+      "date": "2022-07-30",
+      "segments": {
+        "Secure, Agile Networks": 6094000000,
+        "Internet for the Future": 1257000000,
+        "Collaboration": 1164000000,
+        "End-to-End Security": 983000000,
+        "Optimized Application Experiences": 185000000,
+        "Other Products": 4000000,
+        "Services": 3414000000
+      }
+    },
+    {
+      "date": "2022-10-29",
+      "segments": {
+        "Secure, Agile Networks": 6684000000,
+        "Internet for the Future": 1310000000,
+        "Collaboration": 1086000000,
+        "End-to-End Security": 971000000,
+        "Optimized Application Experiences": 193000000,
+        "Other Products": 2000000,
+        "Services": 3387000000
+      }
+    },
+    {
+      "date": "2023-01-28",
+      "segments": {
+        "Secure, Agile Networks": 6746000000,
+        "Internet for the Future": 1306000000,
+        "Collaboration": 958000000,
+        "End-to-End Security": 943000000,
+        "Optimized Application Experiences": 199000000,
+        "Other Products": 3000000,
+        "Services": 3437000000
+      }
+    },
+    {
+      "date": "2023-04-29",
+      "segments": {
+        "Secure, Agile Networks": 7550000000,
+        "Internet for the Future": 1392000000,
+        "Collaboration": 985000000,
+        "End-to-End Security": 958000000,
+        "Optimized Application Experiences": 204000000,
+        "Other Products": 3000000,
+        "Services": 3479000000
+      }
+    },
+    {
+      "date": "2023-07-29",
+      "segments": {
+        "Secure, Agile Networks": 8125000000,
+        "Internet for the Future": 1299000000,
+        "Collaboration": 1023000000,
+        "End-to-End Security": 987000000,
+        "Optimized Application Experiences": 214000000,
+        "Other Products": 2000000,
+        "Services": 3553000000
+      }
+    },
+    {
+      "date": "2023-10-28",
+      "segments": {
+        "Networking": 8822000000,
+        "Security": 1010000000,
+        "Collaboration": 1117000000,
+        "Observability": 190000000,
+        "Services": 3529000000
+      }
+    },
+    {
+      "date": "2024-01-27",
+      "segments": {
+        "Networking": 7081000000,
+        "Security": 973000000,
+        "Collaboration": 989000000,
+        "Observability": 188000000,
+        "Services": 3559000000
+      }
+    },
+    {
+      "date": "2024-04-27",
+      "segments": {
+        "Networking": 6522000000,
+        "Security": 1304000000,
+        "Collaboration": 987000000,
+        "Observability": 211000000,
+        "Services": 3678000000
+      }
+    },
+    {
+      "date": "2024-07-27",
+      "segments": {
+        "Networking": 6804000000,
+        "Security": 1787000000,
+        "Collaboration": 1020000000,
+        "Observability": 248000000,
+        "Services": 3784000000
+      }
+    },
+    {
+      "date": "2024-10-26",
+      "segments": {
+        "Networking": 6753000000,
+        "Security": 2017000000,
+        "Collaboration": 1085000000,
+        "Observability": 258000000,
+        "Services": 3727000000
+      }
+    },
+    {
+      "date": "2025-01-25",
+      "segments": {
+        "Networking": 6850000000,
+        "Security": 2111000000,
+        "Collaboration": 996000000,
+        "Observability": 277000000,
+        "Services": 3757000000
+      }
+    },
+    {
+      "date": "2025-04-26",
+      "segments": {
+        "Networking": 7068000000,
+        "Security": 2013000000,
+        "Collaboration": 1031000000,
+        "Observability": 261000000,
+        "Services": 3775000000
+      }
+    },
+    {
+      "date": "2025-07-26",
+      "segments": {
+        "Networking": 7633000000,
+        "Security": 1952000000,
+        "Collaboration": 1042000000,
+        "Observability": 259000000,
+        "Services": 3787000000
+      }
+    },
+    {
+      "date": "2025-10-25",
+      "segments": {
+        "Networking": 7768000000,
+        "Security": 1980000000,
+        "Collaboration": 1055000000,
+        "Observability": 274000000,
+        "Services": 3806000000
+      }
+    },
+    {
+      "date": "2026-01-24",
+      "segments": {
+        "Networking": 8294000000,
+        "Security": 2018000000,
+        "Collaboration": 1054000000,
+        "Observability": 277000000,
+        "Services": 3707000000
+      }
+    },
+    {
+      "date": "2026-04-25",
+      "segments": {
+        "Networking": 8815000000,
+        "Security": 2008000000,
+        "Collaboration": 1024000000,
+        "Observability": 269000000,
+        "Services": 3724000000
+      }
+    },
+    {
+      "date": "2026-07-25",
+      "segments": {
+        "Networking": 9791000000,
+        "Security": 2226000000,
+        "Collaboration": 1167000000,
+        "Observability": 275000000,
+        "Services": 3793000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2012-01-28",
+      "segments": {
+        "UNITED STATES": 12152000000,
+        "Asia Pacific Japan And China": 1725000000,
+        "Europe Middle East And Africa": 3250000000
+      }
+    },
+    {
+      "date": "2012-04-28",
+      "segments": {
+        "UNITED STATES": 6466000000,
+        "Asia Pacific Japan And China": 1962000000,
+        "Europe Middle East And Africa": 3160000000
+      }
+    },
+    {
+      "date": "2012-07-28",
+      "segments": {
+        "UNITED STATES": 7883000000,
+        "Asia Pacific Japan And China": 3798000000,
+        "Europe Middle East And Africa": 5665000000
+      }
+    },
+    {
+      "date": "2012-10-27",
+      "segments": {
+        "UNITED STATES": 13123000000,
+        "Asia Pacific Japan And China": 2012000000,
+        "Europe Middle East And Africa": 2841000000
+      }
+    },
+    {
+      "date": "2013-01-26",
+      "segments": {
+        "UNITED STATES": 13236000000,
+        "Asia Pacific Japan And China": 1869000000,
+        "Europe Middle East And Africa": 3093000000
+      }
+    },
+    {
+      "date": "2013-04-27",
+      "segments": {
+        "UNITED STATES": 13227000000,
+        "Asia Pacific Japan And China": 1958000000,
+        "Europe Middle East And Africa": 3131000000
+      }
+    },
+    {
+      "date": "2013-07-27",
+      "segments": {
+        "UNITED STATES": 0,
+        "Asia Pacific Japan And China": 1919000000,
+        "Europe Middle East And Africa": 3145000000
+      }
+    },
+    {
+      "date": "2013-10-26",
+      "segments": {
+        "UNITED STATES": 7316000000,
+        "Asia Pacific Japan And China": 1836000000,
+        "Europe Middle East And Africa": 2933000000
+      }
+    },
+    {
+      "date": "2014-01-25",
+      "segments": {
+        "UNITED STATES": 6460000000,
+        "Asia Pacific Japan And China": 1799000000,
+        "Europe Middle East And Africa": 2896000000
+      }
+    },
+    {
+      "date": "2014-04-26",
+      "segments": {
+        "UNITED STATES": 6689000000,
+        "Asia Pacific Japan And China": 1788000000,
+        "Europe Middle East And Africa": 3068000000
+      }
+    },
+    {
+      "date": "2014-07-26",
+      "segments": {
+        "UNITED STATES": 7316000000,
+        "Asia Pacific Japan And China": 1932000000,
+        "Europe Middle East And Africa": 3109000000
+      }
+    },
+    {
+      "date": "2014-10-25",
+      "segments": {
+        "UNITED STATES": 7501000000,
+        "Asia Pacific Japan And China": 1742000000,
+        "Europe Middle East And Africa": 3002000000
+      }
+    },
+    {
+      "date": "2015-01-24",
+      "segments": {
+        "UNITED STATES": 7101000000,
+        "Asia Pacific Japan And China": 1744000000,
+        "Europe Middle East And Africa": 3091000000
+      }
+    },
+    {
+      "date": "2015-04-25",
+      "segments": {
+        "UNITED STATES": 7252000000,
+        "Asia Pacific Japan And China": 1766000000,
+        "Europe Middle East And Africa": 3119000000
+      }
+    },
+    {
+      "date": "2015-07-25",
+      "segments": {
+        "UNITED STATES": 7801000000,
+        "Asia Pacific Japan And China": 1932000000,
+        "Europe Middle East And Africa": 3110000000
+      }
+    },
+    {
+      "date": "2015-10-24",
+      "segments": {
+        "UNITED STATES": 7799000000,
+        "Asia Pacific Japan And China": 1796000000,
+        "Europe Middle East And Africa": 3087000000
+      }
+    },
+    {
+      "date": "2016-01-23",
+      "segments": {
+        "UNITED STATES": 6912000000,
+        "Asia Pacific Japan And China": 1927000000,
+        "Europe Middle East And Africa": 3088000000
+      }
+    },
+    {
+      "date": "2016-04-30",
+      "segments": {
+        "UNITED STATES": 7062000000,
+        "Asia Pacific Japan And China": 1937000000,
+        "Europe Middle East And Africa": 3001000000
+      }
+    },
+    {
+      "date": "2016-07-30",
+      "segments": {
+        "UNITED STATES": 7638000000,
+        "Asia Pacific Japan And China": 1895000000,
+        "Europe Middle East And Africa": 3105000000
+      }
+    },
+    {
+      "date": "2016-10-29",
+      "segments": {
+        "UNITED STATES": 7443000000,
+        "Asia Pacific Japan And China": 1896000000,
+        "Europe Middle East And Africa": 3013000000
+      }
+    },
+    {
+      "date": "2017-01-28",
+      "segments": {
+        "UNITED STATES": 6660000000,
+        "Asia Pacific Japan And China": 1855000000,
+        "Europe Middle East And Africa": 3065000000
+      }
+    },
+    {
+      "date": "2017-04-29",
+      "segments": {
+        "UNITED STATES": 7046000000,
+        "Asia Pacific Japan And China": 1895000000,
+        "Europe Middle East And Africa": 2999000000
+      }
+    },
+    {
+      "date": "2017-07-29",
+      "segments": {
+        "UNITED STATES": 7202000000,
+        "Asia Pacific Japan And China": 2004000000,
+        "Europe Middle East And Africa": 2927000000
+      }
+    },
+    {
+      "date": "2017-10-28",
+      "segments": {
+        "UNITED STATES": 7350000000,
+        "Asia Pacific Japan And China": 1877000000,
+        "Europe Middle East And Africa": 2909000000
+      }
+    },
+    {
+      "date": "2018-01-27",
+      "segments": {
+        "UNITED STATES": 7004000000,
+        "Asia Pacific Japan And China": 1821000000,
+        "Europe Middle East And Africa": 3062000000
+      }
+    },
+    {
+      "date": "2018-04-28",
+      "segments": {
+        "UNITED STATES": 7161000000,
+        "Asia Pacific Japan And China": 2021000000,
+        "Europe Middle East And Africa": 3281000000
+      }
+    },
+    {
+      "date": "2018-07-28",
+      "segments": {
+        "UNITED STATES": 3985000000
+      }
+    },
+    {
+      "date": "2018-10-27",
+      "segments": {
+        "UNITED STATES": 7751000000,
+        "Asia Pacific Japan And China": 2096000000,
+        "Europe Middle East And Africa": 3224000000
+      }
+    },
+    {
+      "date": "2019-01-26",
+      "segments": {
+        "UNITED STATES": 7352000000,
+        "Asia Pacific Japan And China": 1872000000,
+        "Europe Middle East And Africa": 3223000000
+      }
+    },
+    {
+      "date": "2019-04-27",
+      "segments": {
+        "UNITED STATES": 7695000000,
+        "Asia Pacific Japan And China": 1907000000,
+        "Europe Middle East And Africa": 3356000000
+      }
+    },
+    {
+      "date": "2019-07-27",
+      "segments": {
+        "UNITED STATES": 8129000000,
+        "Asia Pacific Japan And China": 2002000000,
+        "Europe Middle East And Africa": 3297000000
+      }
+    },
+    {
+      "date": "2019-10-26",
+      "segments": {
+        "UNITED STATES": 7977000000,
+        "Asia Pacific Japan And China": 1899000000,
+        "Europe Middle East And Africa": 3283000000
+      }
+    },
+    {
+      "date": "2020-01-25",
+      "segments": {
+        "UNITED STATES": 7013000000,
+        "Asia Pacific Japan And China": 1859000000,
+        "Europe Middle East And Africa": 3134000000
+      }
+    },
+    {
+      "date": "2020-04-25",
+      "segments": {
+        "UNITED STATES": 7116000000,
+        "Asia Pacific Japan And China": 1730000000,
+        "Europe Middle East And Africa": 3136000000
+      }
+    },
+    {
+      "date": "2020-07-25",
+      "segments": {
+        "UNITED STATES": 7185000000,
+        "Asia Pacific Japan And China": 1864000000,
+        "Europe Middle East And Africa": 3106000000
+      }
+    },
+    {
+      "date": "2020-10-24",
+      "segments": {
+        "UNITED STATES": 7198000000,
+        "Asia Pacific Japan And China": 1767000000,
+        "Europe Middle East And Africa": 2964000000
+      }
+    },
+    {
+      "date": "2021-01-23",
+      "segments": {
+        "UNITED STATES": 6969000000,
+        "Asia Pacific Japan And China": 1784000000,
+        "Europe Middle East And Africa": 3207000000
+      }
+    },
+    {
+      "date": "2021-05-01",
+      "segments": {
+        "UNITED STATES": 7262000000,
+        "Asia Pacific Japan And China": 2057000000,
+        "Europe Middle East And Africa": 3483000000
+      }
+    },
+    {
+      "date": "2021-07-31",
+      "segments": {
+        "UNITED STATES": 7732000000,
+        "Asia Pacific Japan And China": 2098000000,
+        "Europe Middle East And Africa": 3297000000
+      }
+    },
+    {
+      "date": "2021-10-30",
+      "segments": {
+        "UNITED STATES": 7561000000,
+        "Asia Pacific Japan And China": 2036000000,
+        "Europe Middle East And Africa": 3303000000
+      }
+    },
+    {
+      "date": "2022-01-29",
+      "segments": {
+        "UNITED STATES": 7146000000,
+        "Asia Pacific Japan And China": 2010000000,
+        "Europe Middle East And Africa": 3564000000
+      }
+    },
+    {
+      "date": "2022-04-30",
+      "segments": {
+        "UNITED STATES": 7638000000,
+        "Asia Pacific Japan And China": 1926000000,
+        "Europe Middle East And Africa": 3271000000
+      }
+    },
+    {
+      "date": "2022-07-30",
+      "segments": {
+        "UNITED STATES": 7469000000,
+        "Asia Pacific Japan And China": 2055000000,
+        "Europe Middle East And Africa": 3577000000
+      }
+    },
+    {
+      "date": "2022-10-29",
+      "segments": {
+        "UNITED STATES": 7914000000,
+        "Asia Pacific Japan And China": 2043000000,
+        "Europe Middle East And Africa": 3675000000
+      }
+    },
+    {
+      "date": "2023-01-28",
+      "segments": {
+        "UNITED STATES": 7825000000,
+        "Asia Pacific Japan And China": 2039000000,
+        "Europe Middle East And Africa": 3728000000
+      }
+    },
+    {
+      "date": "2023-04-29",
+      "segments": {
+        "UNITED STATES": 8634000000,
+        "Asia Pacific Japan And China": 2131000000,
+        "Europe Middle East And Africa": 3806000000
+      }
+    },
+    {
+      "date": "2023-07-29",
+      "segments": {
+        "UNITED STATES": 9074000000,
+        "Asia Pacific Japan And China": 2204000000,
+        "Europe Middle East And Africa": 3926000000
+      }
+    },
+    {
+      "date": "2023-10-28",
+      "segments": {
+        "UNITED STATES": 9022000000,
+        "Asia Pacific Japan And China": 1982000000,
+        "Europe Middle East And Africa": 3664000000
+      }
+    },
+    {
+      "date": "2024-01-27",
+      "segments": {
+        "UNITED STATES": 7510000000,
+        "Asia Pacific Japan And China": 1798000000,
+        "Europe Middle East And Africa": 3484000000
+      }
+    },
+    {
+      "date": "2024-04-27",
+      "segments": {
+        "UNITED STATES": 7372000000,
+        "Asia Pacific Japan And China": 1873000000,
+        "Europe Middle East And Africa": 3458000000
+      }
+    },
+    {
+      "date": "2024-07-27",
+      "segments": {
+        "UNITED STATES": 8067000000,
+        "Asia Pacific Japan And China": 2063000000,
+        "Europe Middle East And Africa": 3511000000
+      }
+    },
+    {
+      "date": "2024-10-26",
+      "segments": {
+        "UNITED STATES": 8252000000,
+        "Asia Pacific Japan And China": 2001000000,
+        "Europe Middle East And Africa": 3588000000
+      }
+    },
+    {
+      "date": "2025-01-25",
+      "segments": {
+        "UNITED STATES": 8202000000,
+        "Asia Pacific Japan And China": 1934000000,
+        "Europe Middle East And Africa": 3855000000
+      }
+    },
+    {
+      "date": "2025-04-26",
+      "segments": {
+        "UNITED STATES": 8380000000,
+        "Asia Pacific Japan And China": 2034000000,
+        "Europe Middle East And Africa": 3736000000
+      }
+    },
+    {
+      "date": "2025-07-26",
+      "segments": {
+        "UNITED STATES": 8822000000,
+        "Asia Pacific Japan And China": 2205000000,
+        "Europe Middle East And Africa": 3645000000
+      }
+    },
+    {
+      "date": "2026-01-24",
+      "segments": {
+        "UNITED STATES": 8845000000,
+        "Asia Pacific Japan And China": 2080000000,
+        "Europe Middle East And Africa": 4425000000
+      }
+    },
+    {
+      "date": "2026-04-25",
+      "segments": {
+        "UNITED STATES": 9569000000,
+        "Asia Pacific Japan And China": 2218000000,
+        "Europe Middle East And Africa": 4054000000
+      }
+    },
+    {
+      "date": "2026-07-25",
+      "segments": {
+        "UNITED STATES": 19385000000,
+        "Asia Pacific Japan And China": 4616000000,
+        "Europe Middle East And Africa": 8134000000
+      }
+    }
+  ]
+}

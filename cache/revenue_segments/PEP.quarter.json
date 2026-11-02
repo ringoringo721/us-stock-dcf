@@ -1,0 +1,1194 @@
+{
+  "version": 1,
+  "ticker": "PEP",
+  "source": "FMP revenue segmentation (quarter)",
+  "period": "quarter",
+  "product": [
+    {
+      "date": "2011-09-03",
+      "segments": {
+        "Africa, Middle East and South Asia": 2098000000,
+        "Europe Member": 3909000000,
+        "Quaker Foods North America": 614000000
+      }
+    },
+    {
+      "date": "2011-12-31",
+      "segments": {
+        "Africa, Middle East and South Asia": 5294000000,
+        "Quaker Foods North America": 2042000000
+      }
+    },
+    {
+      "date": "2012-03-24",
+      "segments": {
+        "Frito Lay North America": 3010000000,
+        "Latin America (Segment)": 1235000000,
+        "PepsiCo Beverages North America": 4448000000,
+        "Africa, Middle East and South Asia": 1267000000,
+        "Quaker Foods North America": 623000000
+      }
+    },
+    {
+      "date": "2012-06-16",
+      "segments": {
+        "Frito Lay North America": 3193000000,
+        "Latin America (Segment)": 1948000000,
+        "PepsiCo Beverages North America": 5352000000,
+        "Africa, Middle East and South Asia": 1765000000,
+        "Quaker Foods North America": 583000000
+      }
+    },
+    {
+      "date": "2012-09-08",
+      "segments": {
+        "Frito Lay North America": 3269000000,
+        "Latin America (Segment)": 1883000000,
+        "PepsiCo Beverages North America": 5530000000,
+        "Africa, Middle East and South Asia": 1664000000,
+        "Quaker Foods North America": 615000000
+      }
+    },
+    {
+      "date": "2012-12-29",
+      "segments": {
+        "Frito Lay North America": 4102000000,
+        "Latin America (Segment)": 2714000000,
+        "PepsiCo Beverages North America": 6078000000,
+        "Africa, Middle East and South Asia": 1957000000,
+        "Quaker Foods North America": 815000000
+      }
+    },
+    {
+      "date": "2013-03-23",
+      "segments": {
+        "Frito Lay North America": 3123000000,
+        "Latin America (Segment)": 1367000000,
+        "PepsiCo Beverages North America": 4420000000,
+        "Africa, Middle East and South Asia": 1095000000,
+        "Quaker Foods North America": 634000000
+      }
+    },
+    {
+      "date": "2013-06-15",
+      "segments": {
+        "Frito Lay North America": 3332000000,
+        "Latin America (Segment)": 2116000000,
+        "PepsiCo Beverages North America": 5260000000,
+        "Africa, Middle East and South Asia": 1869000000,
+        "Quaker Foods North America": 577000000
+      }
+    },
+    {
+      "date": "2013-09-07",
+      "segments": {
+        "Frito Lay North America": 3424000000,
+        "Latin America (Segment)": 2049000000,
+        "PepsiCo Beverages North America": 5406000000,
+        "Africa, Middle East and South Asia": 1608000000,
+        "Quaker Foods North America": 604000000
+      }
+    },
+    {
+      "date": "2013-12-28",
+      "segments": {
+        "Frito Lay North America": 4247000000,
+        "Latin America (Segment)": 2818000000,
+        "PepsiCo Beverages North America": 5982000000,
+        "Africa, Middle East and South Asia": 1935000000,
+        "Quaker Foods North America": 797000000
+      }
+    },
+    {
+      "date": "2014-03-22",
+      "segments": {
+        "Frito Lay North America": 3219000000,
+        "Latin America (Segment)": 1338000000,
+        "PepsiCo Beverages North America": 4426000000,
+        "Africa, Middle East and South Asia": 1045000000,
+        "Quaker Foods North America": 634000000
+      }
+    },
+    {
+      "date": "2014-06-14",
+      "segments": {
+        "Frito Lay North America": 3387000000,
+        "Latin America (Segment)": 2122000000,
+        "PepsiCo Beverages North America": 5281000000,
+        "Africa, Middle East and South Asia": 1883000000,
+        "Quaker Foods North America": 564000000
+      }
+    },
+    {
+      "date": "2014-09-06",
+      "segments": {
+        "Frito Lay North America": 3526000000,
+        "Latin America (Segment)": 2178000000,
+        "PepsiCo Beverages North America": 5383000000,
+        "Africa, Middle East and South Asia": 1781000000,
+        "Quaker Foods North America": 586000000
+      }
+    },
+    {
+      "date": "2014-12-27",
+      "segments": {
+        "Frito Lay North America": 4370000000,
+        "Latin America (Segment)": 2804000000,
+        "PepsiCo Beverages North America": 6064000000,
+        "Africa, Middle East and South Asia": 2018000000,
+        "Quaker Foods North America": 784000000
+      }
+    },
+    {
+      "date": "2015-03-21",
+      "segments": {
+        "Frito Lay North America": 3319000000,
+        "Latin America (Segment)": 1279000000,
+        "PepsiCo Beverages North America": 4433000000,
+        "Africa, Middle East and South Asia": 1070000000,
+        "Quaker Foods North America": 639000000
+      }
+    },
+    {
+      "date": "2015-06-13",
+      "segments": {
+        "Frito Lay North America": 3452000000,
+        "Latin America (Segment)": 2000000000,
+        "PepsiCo Beverages North America": 5337000000,
+        "Africa, Middle East and South Asia": 1800000000,
+        "Quaker Foods North America": 546000000
+      }
+    },
+    {
+      "date": "2015-09-05",
+      "segments": {
+        "Africa, Middle East and South Asia": 1632000000,
+        "Frito Lay North America": 3555000000,
+        "PepsiCo Beverages North America": 5360000000,
+        "Quaker Foods North America": 583000000
+      }
+    },
+    {
+      "date": "2015-12-26",
+      "segments": {
+        "Africa, Middle East and South Asia": 1873000000,
+        "Frito Lay North America": 4456000000,
+        "PepsiCo Beverages North America": 5488000000,
+        "Quaker Foods North America": 775000000
+      }
+    },
+    {
+      "date": "2016-03-19",
+      "segments": {
+        "Africa, Middle East and South Asia": 1065000000,
+        "Frito Lay North America": 3418000000,
+        "PepsiCo Beverages North America": 4361000000,
+        "Quaker Foods North America": 617000000
+      }
+    },
+    {
+      "date": "2016-06-11",
+      "segments": {
+        "Africa, Middle East and South Asia": 1748000000,
+        "Frito Lay North America": 3564000000,
+        "PepsiCo Beverages North America": 5145000000,
+        "Quaker Foods North America": 561000000
+      }
+    },
+    {
+      "date": "2016-09-03",
+      "segments": {
+        "Africa, Middle East and South Asia": 1636000000,
+        "Frito Lay North America": 3676000000,
+        "PepsiCo Beverages North America": 5518000000,
+        "Quaker Foods North America": 571000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Africa, Middle East and South Asia": 1889000000,
+        "Frito Lay North America": 4891000000,
+        "PepsiCo Beverages North America": 6288000000,
+        "Quaker Foods North America": 815000000
+      }
+    },
+    {
+      "date": "2017-03-25",
+      "segments": {
+        "Africa, Middle East and South Asia": 970000000,
+        "Frito Lay North America": 3499000000,
+        "PepsiCo Beverages North America": 4460000000,
+        "Quaker Foods North America": 598000000
+      }
+    },
+    {
+      "date": "2017-06-17",
+      "segments": {
+        "Africa, Middle East and South Asia": 1602000000,
+        "Frito Lay North America": 3678000000,
+        "PepsiCo Beverages North America": 5242000000,
+        "Quaker Foods North America": 553000000
+      }
+    },
+    {
+      "date": "2017-09-09",
+      "segments": {
+        "Africa, Middle East and South Asia": 1567000000,
+        "Frito Lay North America": 3792000000,
+        "PepsiCo Beverages North America": 5332000000,
+        "Quaker Foods North America": 578000000
+      }
+    },
+    {
+      "date": "2017-12-30",
+      "segments": {
+        "Africa, Middle East and South Asia": 1891000000,
+        "Frito Lay North America": 4829000000,
+        "PepsiCo Beverages North America": 5902000000,
+        "Quaker Foods North America": 774000000
+      }
+    },
+    {
+      "date": "2018-03-24",
+      "segments": {
+        "Africa, Middle East and South Asia": 1037000000,
+        "Frito Lay North America": 3617000000,
+        "PepsiCo Beverages North America": 4415000000,
+        "Quaker Foods North America": 601000000
+      }
+    },
+    {
+      "date": "2018-06-16",
+      "segments": {
+        "Africa, Middle East and South Asia": 1574000000,
+        "Frito Lay North America": 3837000000,
+        "PepsiCo Beverages North America": 5193000000,
+        "Quaker Foods North America": 527000000
+      }
+    },
+    {
+      "date": "2018-09-08",
+      "segments": {
+        "Africa, Middle East and South Asia": 1542000000,
+        "Frito Lay North America": 3891000000,
+        "PepsiCo Beverages North America": 5456000000,
+        "Quaker Foods North America": 567000000
+      }
+    },
+    {
+      "date": "2018-12-29",
+      "segments": {
+        "Africa, Middle East and South Asia": 1748000000,
+        "Frito Lay North America": 5001000000,
+        "PepsiCo Beverages North America": 6008000000,
+        "Quaker Foods North America": 770000000
+      }
+    },
+    {
+      "date": "2019-03-23",
+      "segments": {
+        "Africa, Middle East and South Asia": 1031000000,
+        "Frito Lay North America": 3815000000,
+        "PepsiCo Beverages North America": 4510000000,
+        "Quaker Foods North America": 594000000
+      }
+    },
+    {
+      "date": "2019-06-15",
+      "segments": {
+        "Africa, Middle East and South Asia": 1558000000,
+        "Frito Lay North America": 4010000000,
+        "PepsiCo Beverages North America": 5322000000,
+        "Quaker Foods North America": 540000000
+      }
+    },
+    {
+      "date": "2019-09-07",
+      "segments": {
+        "Africa, Middle East and South Asia": 1613000000,
+        "Frito Lay North America": 4105000000,
+        "PepsiCo Beverages North America": 5643000000,
+        "Quaker Foods North America": 576000000
+      }
+    },
+    {
+      "date": "2019-12-28",
+      "segments": {
+        "Africa, Middle East and South Asia": 0,
+        "Frito Lay North America": 5148000000,
+        "PepsiCo Beverages North America": 6255000000,
+        "Quaker Foods North America": 772000000
+      }
+    },
+    {
+      "date": "2020-03-21",
+      "segments": {
+        "Africa, Middle East and South Asia": 631000000,
+        "Asia Pacific, Australia and New Zealand, and China Region": 555000000,
+        "Frito Lay North America": 4074000000,
+        "PepsiCo Beverages North America": 4838000000,
+        "Quaker Foods North America": 634000000
+      }
+    },
+    {
+      "date": "2020-06-13",
+      "segments": {
+        "Africa, Middle East and South Asia": 983000000,
+        "Asia Pacific, Australia and New Zealand, and China Region": 763000000,
+        "Frito Lay North America": 4273000000,
+        "PepsiCo Beverages North America": 4970000000,
+        "Quaker Foods North America": 664000000
+      }
+    },
+    {
+      "date": "2020-09-05",
+      "segments": {
+        "Africa, Middle East and South Asia": 1252000000,
+        "Asia Pacific, Australia and New Zealand, and China Region": 897000000,
+        "Frito Lay North America": 4399000000,
+        "PepsiCo Beverages North America": 5958000000,
+        "Quaker Foods North America": 608000000
+      }
+    },
+    {
+      "date": "2020-12-26",
+      "segments": {
+        "Africa, Middle East and South Asia": 1707000000,
+        "Asia Pacific, Australia and New Zealand, and China Region": 1230000000,
+        "Frito Lay North America": 5443000000,
+        "PepsiCo Beverages North America": 6793000000,
+        "Quaker Foods North America": 836000000
+      }
+    },
+    {
+      "date": "2021-03-20",
+      "segments": {
+        "Africa, Middle East and South Asia": 883000000,
+        "Asia Pacific, Australia and New Zealand, and China Region": 944000000,
+        "Europe (Segment)": 1795000000,
+        "Frito Lay North America": 4236000000,
+        "Latin America (Segment)": 1242000000,
+        "PepsiCo Beverages North America": 5074000000,
+        "Quaker Foods North America": 646000000
+      }
+    },
+    {
+      "date": "2021-06-12",
+      "segments": {
+        "Africa, Middle East and South Asia": 1602000000,
+        "Asia Pacific, Australia and New Zealand, and China Region": 1079000000,
+        "Europe (Segment)": 3286000000,
+        "Frito Lay North America": 4552000000,
+        "Latin America (Segment)": 1967000000,
+        "PepsiCo Beverages North America": 6156000000,
+        "Quaker Foods North America": 575000000
+      }
+    },
+    {
+      "date": "2021-09-04",
+      "segments": {
+        "Africa, Middle East and South Asia": 1665000000,
+        "Asia Pacific, Australia and New Zealand, and China Region": 1139000000,
+        "Europe (Segment)": 3612000000,
+        "Frito Lay North America": 4653000000,
+        "Latin America (Segment)": 2100000000,
+        "PepsiCo Beverages North America": 6402000000,
+        "Quaker Foods North America": 618000000
+      }
+    },
+    {
+      "date": "2021-12-25",
+      "segments": {
+        "Africa, Middle East and South Asia": 1928000000,
+        "Asia Pacific, Australia and New Zealand, and China Region": 1453000000,
+        "Europe (Segment)": 4345000000,
+        "Frito Lay North America": 6167000000,
+        "Latin America (Segment)": 2799000000,
+        "PepsiCo Beverages North America": 7644000000,
+        "Quaker Foods North America": 912000000
+      }
+    },
+    {
+      "date": "2022-03-19",
+      "segments": {
+        "Africa, Middle East and South Asia": 1004000000,
+        "Asia Pacific, Australia and New Zealand, and China Region": 1020000000,
+        "Europe (Segment)": 1797000000,
+        "Frito Lay North America": 4839000000,
+        "Latin America (Segment)": 1474000000,
+        "PepsiCo Beverages North America": 5353000000,
+        "Quaker Foods North America": 713000000
+      }
+    },
+    {
+      "date": "2022-06-11",
+      "segments": {
+        "Africa, Middle East and South Asia": 1696000000,
+        "Asia Pacific, Australia and New Zealand, and China Region": 1115000000,
+        "Europe (Segment)": 3023000000,
+        "Frito Lay North America": 5181000000,
+        "Latin America (Segment)": 2415000000,
+        "PepsiCo Beverages North America": 6120000000,
+        "Quaker Foods North America": 675000000
+      }
+    },
+    {
+      "date": "2022-09-03",
+      "segments": {
+        "Africa, Middle East and South Asia": 1726000000,
+        "Asia Pacific, Australia and New Zealand, and China Region": 1171000000,
+        "Europe (Segment)": 3646000000,
+        "Frito Lay North America": 5563000000,
+        "Latin America (Segment)": 2517000000,
+        "PepsiCo Beverages North America": 6635000000,
+        "Quaker Foods North America": 713000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Africa, Middle East and South Asia": 2012000000,
+        "Asia Pacific, Australia and New Zealand, and China Region": 1481000000,
+        "Europe (Segment)": 4258000000,
+        "Frito Lay North America": 7708000000,
+        "Latin America (Segment)": 3373000000,
+        "PepsiCo Beverages North America": 8105000000,
+        "Quaker Foods North America": 1059000000
+      }
+    },
+    {
+      "date": "2023-03-25",
+      "segments": {
+        "Africa, Middle East and South Asia": 1019000000,
+        "Asia Pacific, Australia and New Zealand, and China Region": 1006000000,
+        "Europe (Segment)": 1886000000,
+        "Frito Lay North America": 5583000000,
+        "Latin America (Segment)": 1777000000,
+        "PepsiCo Beverages North America": 5798000000,
+        "Quaker Foods North America": 777000000
+      }
+    },
+    {
+      "date": "2023-06-17",
+      "segments": {
+        "Africa, Middle East and South Asia": 1568000000,
+        "Asia Pacific, Australia and New Zealand, and China Region": 1127000000,
+        "Europe (Segment)": 3428000000,
+        "Frito Lay North America": 5904000000,
+        "Latin America (Segment)": 2856000000,
+        "PepsiCo Beverages North America": 6755000000,
+        "Quaker Foods North America": 684000000
+      }
+    },
+    {
+      "date": "2023-09-09",
+      "segments": {
+        "Africa, Middle East and South Asia": 1615000000,
+        "Asia Pacific, Australia and New Zealand, and China Region": 1217000000,
+        "Europe (Segment)": 3704000000,
+        "Frito Lay North America": 5954000000,
+        "Latin America (Segment)": 3055000000,
+        "PepsiCo Beverages North America": 7161000000,
+        "Quaker Foods North America": 747000000
+      }
+    },
+    {
+      "date": "2023-12-30",
+      "segments": {
+        "Africa, Middle East and South Asia": 1937000000,
+        "Asia Pacific, Australia and New Zealand, and China Region": 1453000000,
+        "Europe (Segment)": 4216000000,
+        "Frito Lay North America": 7473000000,
+        "Latin America (Segment)": 3966000000,
+        "PepsiCo Beverages North America": 7912000000,
+        "Quaker Foods North America": 893000000
+      }
+    },
+    {
+      "date": "2024-03-23",
+      "segments": {
+        "Africa, Middle East and South Asia": 1040000000,
+        "Asia Pacific, Australia and New Zealand, and China Region": 1064000000,
+        "Europe (Segment)": 1936000000,
+        "Frito Lay North America": 5676000000,
+        "Latin America (Segment)": 2067000000,
+        "PepsiCo Beverages North America": 5874000000,
+        "Quaker Foods North America": 593000000
+      }
+    },
+    {
+      "date": "2024-06-15",
+      "segments": {
+        "Africa, Middle East and South Asia": 1592000000,
+        "Asia Pacific, Australia and New Zealand, and China Region": 1103000000,
+        "Europe (Segment)": 3515000000,
+        "Frito Lay North America": 5874000000,
+        "Latin America (Segment)": 3045000000,
+        "PepsiCo Beverages North America": 6811000000,
+        "Quaker Foods North America": 561000000
+      }
+    },
+    {
+      "date": "2024-09-07",
+      "segments": {
+        "Africa, Middle East and South Asia": 1552000000,
+        "Asia Pacific, Australia and New Zealand, and China Region": 1195000000,
+        "Europe (Segment)": 3946000000,
+        "Frito Lay North America": 5888000000,
+        "Latin America (Segment)": 2915000000,
+        "PepsiCo Beverages North America": 7175000000,
+        "Quaker Foods North America": 648000000
+      }
+    },
+    {
+      "date": "2024-12-28",
+      "segments": {
+        "Africa, Middle East and South Asia": 2033000000,
+        "Asia Pacific, Australia and New Zealand, and China Region": 1483000000,
+        "Europe (Segment)": 4477000000,
+        "Frito Lay North America": 7317000000,
+        "Latin America (Segment)": 3691000000,
+        "PepsiCo Beverages North America": 7909000000,
+        "Quaker Foods North America": 874000000
+      }
+    },
+    {
+      "date": "2025-03-22",
+      "segments": {
+        "Asia Pacific, Australia and New Zealand, and China Region": 1022000000,
+        "Africa, Middle East and South Asia": 2388000000,
+        "International Beverage Franchise": 759000000,
+        "Latin America (Segment)": 1661000000,
+        "PepsiCo Beverages North America": 5876000000,
+        "PepsiCo Foods North America": 6213000000
+      }
+    },
+    {
+      "date": "2025-09-06",
+      "segments": {
+        "Asia Pacific, Australia and New Zealand, and China Region": 1115000000,
+        "Africa, Middle East and South Asia": 5022000000,
+        "International Beverage Franchise": 1291000000,
+        "Latin America (Segment)": 2656000000,
+        "PepsiCo Beverages North America": 7327000000,
+        "PepsiCo Foods North America": 6526000000
+      }
+    },
+    {
+      "date": "2025-12-27",
+      "segments": {
+        "Asia Pacific, Australia and New Zealand, and China Region": 2492000000,
+        "Africa, Middle East and South Asia": 10615000000,
+        "International Beverage Franchise": 2947000000,
+        "Latin America (Segment)": 6232000000,
+        "PepsiCo Beverages North America": 14994000000,
+        "PepsiCo Foods North America": 14789000000
+      }
+    },
+    {
+      "date": "2026-03-21",
+      "segments": {
+        "Asia Pacific, Australia and New Zealand, and China Region": 1139000000,
+        "Africa, Middle East and South Asia": 2823000000,
+        "International Beverage Franchise": 824000000,
+        "Latin America (Segment)": 1934000000,
+        "PepsiCo Beverages North America": 6391000000,
+        "PepsiCo Foods North America": 6332000000
+      }
+    },
+    {
+      "date": "2026-06-13",
+      "segments": {
+        "Asia Pacific, Australia and New Zealand, and China Region": 1124000000,
+        "Africa, Middle East and South Asia": 4983000000,
+        "International Beverage Franchise": 1523000000,
+        "Latin America (Segment)": 2940000000,
+        "PepsiCo Beverages North America": 7243000000,
+        "PepsiCo Foods North America": 6368000000
+      }
+    },
+    {
+      "date": "2026-09-05",
+      "segments": {
+        "Asia Pacific, Australia and New Zealand, and China Region": 1229000000,
+        "Africa, Middle East and South Asia": 5413000000,
+        "International Beverage Franchise": 1401000000,
+        "Latin America (Segment)": 3021000000,
+        "PepsiCo Beverages North America": 7706000000,
+        "PepsiCo Foods North America": 6504000000
+      }
+    }
+  ],
+  "geographic": [
+    {
+      "date": "2011-09-03",
+      "segments": {
+        "Africa, Middle East and South Asia": 2098000000,
+        "Europe": 3909000000,
+        "Frito Lay North America": 3173000000,
+        "Pepsico Americas Beverages": 5947000000,
+        "Quaker Foods North America": 614000000
+      }
+    },
+    {
+      "date": "2012-03-24",
+      "segments": {
+        "Europe": 1845000000,
+        "Frito Lay North America": 3010000000,
+        "Latin America Foods": 1235000000,
+        "Pepsico Americas Beverages": 4448000000,
+        "Quaker Foods North America": 623000000
+      }
+    },
+    {
+      "date": "2012-06-16",
+      "segments": {
+        "Europe": 3617000000,
+        "Frito Lay North America": 3193000000,
+        "Latin America Foods": 1948000000,
+        "Pepsico Americas Beverages": 5352000000,
+        "Quaker Foods North America": 583000000
+      }
+    },
+    {
+      "date": "2012-09-08",
+      "segments": {
+        "Europe": 3691000000,
+        "Frito Lay North America": 3269000000,
+        "Latin America Foods": 1883000000,
+        "Pepsico Americas Beverages": 5530000000,
+        "Quaker Foods North America": 615000000
+      }
+    },
+    {
+      "date": "2013-03-23",
+      "segments": {
+        "Europe": 1942000000,
+        "Frito Lay North America": 3123000000,
+        "Latin America Foods": 1367000000,
+        "Pepsico Americas Beverages": 4420000000,
+        "Quaker Foods North America": 634000000
+      }
+    },
+    {
+      "date": "2013-06-15",
+      "segments": {
+        "Europe": 3653000000,
+        "Frito Lay North America": 3332000000,
+        "Latin America Foods": 2116000000,
+        "Pepsico Americas Beverages": 5260000000,
+        "Quaker Foods North America": 577000000
+      }
+    },
+    {
+      "date": "2013-09-07",
+      "segments": {
+        "Europe": 3818000000,
+        "Frito Lay North America": 3424000000,
+        "Latin America Foods": 2049000000,
+        "Pepsico Americas Beverages": 5406000000,
+        "Quaker Foods North America": 604000000
+      }
+    },
+    {
+      "date": "2014-03-22",
+      "segments": {
+        "Europe": 1961000000,
+        "Frito Lay North America": 3219000000,
+        "Latin America Foods": 1338000000,
+        "Pepsico Americas Beverages": 4426000000,
+        "Quaker Foods North America": 634000000
+      }
+    },
+    {
+      "date": "2014-06-14",
+      "segments": {
+        "Europe": 3657000000,
+        "Frito Lay North America": 3387000000,
+        "Latin America Foods": 2122000000,
+        "Pepsico Americas Beverages": 5281000000,
+        "Quaker Foods North America": 564000000
+      }
+    },
+    {
+      "date": "2014-09-06",
+      "segments": {
+        "Europe": 3764000000,
+        "Frito Lay North America": 3526000000,
+        "Latin America Foods": 2178000000,
+        "Pepsico Americas Beverages": 5383000000,
+        "Quaker Foods North America": 586000000
+      }
+    },
+    {
+      "date": "2015-03-21",
+      "segments": {
+        "Europe": 1477000000,
+        "Frito Lay North America": 3319000000,
+        "Latin America Foods": 1279000000,
+        "Pepsico Americas Beverages": 4433000000,
+        "Quaker Foods North America": 639000000
+      }
+    },
+    {
+      "date": "2015-06-13",
+      "segments": {
+        "Europe": 2788000000,
+        "Frito Lay North America": 3452000000,
+        "Latin America Foods": 2000000000,
+        "Pepsico Americas Beverages": 5337000000,
+        "Quaker Foods North America": 546000000
+      }
+    },
+    {
+      "date": "2015-09-05",
+      "segments": {
+        "Africa, Middle East and South Asia": 1632000000,
+        "Frito Lay North America": 3555000000,
+        "Latin America": 2283000000,
+        "North America Beverages": 5360000000,
+        "Quaker Foods North America": 583000000
+      }
+    },
+    {
+      "date": "2016-03-19",
+      "segments": {
+        "Africa, Middle East and South Asia": 1065000000,
+        "Frito Lay North America": 3418000000,
+        "Latin America": 1042000000,
+        "North America Beverages": 4361000000,
+        "Quaker Foods North America": 617000000
+      }
+    },
+    {
+      "date": "2016-06-11",
+      "segments": {
+        "Africa, Middle East and South Asia": 1748000000,
+        "Frito Lay North America": 3564000000,
+        "Latin America": 1717000000,
+        "North America Beverages": 5145000000,
+        "Quaker Foods North America": 561000000
+      }
+    },
+    {
+      "date": "2016-09-03",
+      "segments": {
+        "Africa, Middle East and South Asia": 1636000000,
+        "Frito Lay North America": 3676000000,
+        "Latin America": 1762000000,
+        "North America Beverages": 5518000000,
+        "Quaker Foods North America": 571000000
+      }
+    },
+    {
+      "date": "2016-12-31",
+      "segments": {
+        "Asia, Middle East and North Africa": 1889000000,
+        "Europe Sub-Saharan Africa": 3333000000,
+        "Frito Lay North America": 4891000000,
+        "Latin America": 2299000000,
+        "North America Beverages": 6288000000,
+        "Quaker Foods North America": 815000000
+      }
+    },
+    {
+      "date": "2017-03-25",
+      "segments": {
+        "Africa, Middle East and South Asia": 970000000,
+        "Frito Lay North America": 3499000000,
+        "Latin America": 1077000000,
+        "North America Beverages": 4460000000,
+        "Quaker Foods North America": 598000000
+      }
+    },
+    {
+      "date": "2017-06-17",
+      "segments": {
+        "Africa, Middle East and South Asia": 1602000000,
+        "Frito Lay North America": 3678000000,
+        "Latin America": 1823000000,
+        "North America Beverages": 5242000000,
+        "Quaker Foods North America": 553000000
+      }
+    },
+    {
+      "date": "2017-09-09",
+      "segments": {
+        "Africa, Middle East and South Asia": 1567000000,
+        "Frito Lay North America": 3792000000,
+        "Latin America": 1873000000,
+        "North America Beverages": 5332000000,
+        "Quaker Foods North America": 578000000
+      }
+    },
+    {
+      "date": "2017-12-30",
+      "segments": {
+        "Asia, Middle East and North Africa": 1891000000,
+        "Europe Sub-Saharan Africa": 3695000000,
+        "Frito Lay North America": 4829000000,
+        "Latin America": 2435000000,
+        "North America Beverages": 5902000000,
+        "Quaker Foods North America": 774000000
+      }
+    },
+    {
+      "date": "2018-03-24",
+      "segments": {
+        "Africa, Middle East and South Asia": 1037000000,
+        "Frito Lay North America": 3617000000,
+        "Latin America": 1224000000,
+        "North America Beverages": 4415000000,
+        "Quaker Foods North America": 601000000
+      }
+    },
+    {
+      "date": "2018-06-16",
+      "segments": {
+        "Africa, Middle East and South Asia": 1574000000,
+        "Frito Lay North America": 3837000000,
+        "Latin America": 1843000000,
+        "North America Beverages": 5193000000,
+        "Quaker Foods North America": 527000000
+      }
+    },
+    {
+      "date": "2018-09-08",
+      "segments": {
+        "Africa, Middle East and South Asia": 1542000000,
+        "Frito Lay North America": 3891000000,
+        "Latin America": 1868000000,
+        "North America Beverages": 5456000000,
+        "Quaker Foods North America": 567000000
+      }
+    },
+    {
+      "date": "2018-12-29",
+      "segments": {
+        "Asia, Middle East and North Africa": 1748000000,
+        "Europe Sub-Saharan Africa": 3578000000,
+        "Frito Lay North America": 5001000000,
+        "Latin America": 2419000000,
+        "North America Beverages": 6008000000,
+        "Quaker Foods North America": 770000000
+      }
+    },
+    {
+      "date": "2019-03-23",
+      "segments": {
+        "Africa, Middle East and South Asia": 1031000000,
+        "Frito Lay North America": 3815000000,
+        "Latin America": 1241000000,
+        "PepsiCo Beverages North America": 4510000000,
+        "Quaker Foods North America": 594000000
+      }
+    },
+    {
+      "date": "2019-06-15",
+      "segments": {
+        "Africa, Middle East and South Asia": 1558000000,
+        "Frito Lay North America": 4010000000,
+        "Latin America": 1886000000,
+        "PepsiCo Beverages North America": 5322000000,
+        "Quaker Foods North America": 540000000
+      }
+    },
+    {
+      "date": "2019-09-07",
+      "segments": {
+        "Africa, Middle East and South Asia": 1613000000,
+        "Frito Lay North America": 4105000000,
+        "Latin America": 1904000000,
+        "PepsiCo Beverages North America": 5643000000,
+        "Quaker Foods North America": 576000000
+      }
+    },
+    {
+      "date": "2019-12-28",
+      "segments": {
+        "Frito Lay North America": 5148000000,
+        "Latin America": 2542000000,
+        "PepsiCo Beverages North America": 6255000000,
+        "Quaker Foods North America": 772000000
+      }
+    },
+    {
+      "date": "2020-03-21",
+      "segments": {
+        "Africa, Middle East and South Asia": 631000000,
+        "Asia Pacific, Australia and New Zealand, and China Region": 555000000,
+        "Europe": 1839000000,
+        "Frito Lay North America": 4074000000,
+        "Latin America": 1310000000,
+        "PepsiCo Beverages North America": 4838000000,
+        "Quaker Foods North America": 634000000
+      }
+    },
+    {
+      "date": "2020-06-13",
+      "segments": {
+        "Africa, Middle East and South Asia": 983000000,
+        "Asia Pacific, Australia and New Zealand, and China Region": 763000000,
+        "Europe": 2725000000,
+        "Frito Lay North America": 4273000000,
+        "Latin America": 1567000000,
+        "PepsiCo Beverages North America": 4970000000,
+        "Quaker Foods North America": 664000000
+      }
+    },
+    {
+      "date": "2020-09-05",
+      "segments": {
+        "Africa, Middle East and South Asia": 1252000000,
+        "Asia Pacific, Australia and New Zealand, and China Region": 897000000,
+        "Europe": 3323000000,
+        "Frito Lay North America": 4399000000,
+        "Latin America": 1654000000,
+        "PepsiCo Beverages North America": 5958000000,
+        "Quaker Foods North America": 608000000
+      }
+    },
+    {
+      "date": "2020-12-26",
+      "segments": {
+        "Africa, Middle East and South Asia": 1707000000,
+        "Frito Lay North America": 5443000000,
+        "PepsiCo Beverages North America": 6793000000,
+        "Quaker Foods North America": 836000000
+      }
+    },
+    {
+      "date": "2021-03-20",
+      "segments": {
+        "Africa, Middle East and South Asia": 883000000,
+        "Asia Pacific, Australia and New Zealand, and China Region": 944000000,
+        "Europe": 1795000000,
+        "Frito Lay North America": 4236000000,
+        "Latin America (Segment)": 1242000000,
+        "PepsiCo Beverages North America": 5074000000,
+        "Quaker Foods North America": 646000000
+      }
+    },
+    {
+      "date": "2021-06-12",
+      "segments": {
+        "Africa, Middle East and South Asia": 1602000000,
+        "Asia Pacific, Australia and New Zealand, and China Region": 1079000000,
+        "Europe": 3286000000,
+        "Frito Lay North America": 4552000000,
+        "Latin America (Segment)": 1967000000,
+        "PepsiCo Beverages North America": 6156000000,
+        "Quaker Foods North America": 575000000
+      }
+    },
+    {
+      "date": "2021-09-04",
+      "segments": {
+        "Africa, Middle East and South Asia": 1665000000,
+        "Asia Pacific, Australia and New Zealand, and China Region": 1139000000,
+        "Europe": 3612000000,
+        "Frito Lay North America": 4653000000,
+        "Latin America (Segment)": 2100000000,
+        "PepsiCo Beverages North America": 6402000000,
+        "Quaker Foods North America": 618000000
+      }
+    },
+    {
+      "date": "2021-12-25",
+      "segments": {
+        "Africa, Middle East and South Asia": 1928000000,
+        "Europe (Segment)": 4345000000,
+        "Frito Lay North America": 6167000000,
+        "Latin America (Segment)": 2799000000,
+        "PepsiCo Beverages North America": 7644000000,
+        "Quaker Foods North America": 912000000
+      }
+    },
+    {
+      "date": "2022-03-19",
+      "segments": {
+        "Africa, Middle East and South Asia": 1004000000,
+        "Asia Pacific, Australia and New Zealand, and China Region": 1020000000,
+        "Europe": 1797000000,
+        "Frito Lay North America": 4839000000,
+        "Latin America (Segment)": 1474000000,
+        "PepsiCo Beverages North America": 5353000000,
+        "Quaker Foods North America": 713000000
+      }
+    },
+    {
+      "date": "2022-06-11",
+      "segments": {
+        "Africa, Middle East and South Asia": 1696000000,
+        "Asia Pacific, Australia and New Zealand, and China Region": 1115000000,
+        "Europe": 3023000000,
+        "Frito Lay North America": 5181000000,
+        "Latin America (Segment)": 2415000000,
+        "PepsiCo Beverages North America": 6120000000,
+        "Quaker Foods North America": 675000000
+      }
+    },
+    {
+      "date": "2022-09-03",
+      "segments": {
+        "Africa, Middle East and South Asia": 1726000000,
+        "Asia Pacific, Australia and New Zealand, and China Region": 1171000000,
+        "Europe": 3646000000,
+        "Frito Lay North America": 5563000000,
+        "Latin America (Segment)": 2517000000,
+        "PepsiCo Beverages North America": 6635000000,
+        "Quaker Foods North America": 713000000
+      }
+    },
+    {
+      "date": "2022-12-31",
+      "segments": {
+        "Africa, Middle East and South Asia": 2012000000,
+        "Europe (Segment)": 4258000000,
+        "Frito Lay North America": 7708000000,
+        "Latin America (Segment)": 3373000000,
+        "PepsiCo Beverages North America": 8105000000,
+        "Quaker Foods North America": 1059000000
+      }
+    },
+    {
+      "date": "2023-03-25",
+      "segments": {
+        "Africa, Middle East and South Asia": 1019000000,
+        "Asia Pacific, Australia and New Zealand, and China Region": 1006000000,
+        "Europe": 1886000000,
+        "Frito Lay North America": 5583000000,
+        "Latin America (Segment)": 1777000000,
+        "PepsiCo Beverages North America": 5798000000,
+        "Quaker Foods North America": 777000000
+      }
+    },
+    {
+      "date": "2023-06-17",
+      "segments": {
+        "Africa, Middle East and South Asia": 1568000000,
+        "Asia Pacific, Australia and New Zealand, and China Region": 1127000000,
+        "Europe": 3428000000,
+        "Frito Lay North America": 5904000000,
+        "Latin America (Segment)": 2856000000,
+        "PepsiCo Beverages North America": 6755000000,
+        "Quaker Foods North America": 684000000
+      }
+    },
+    {
+      "date": "2023-09-09",
+      "segments": {
+        "Africa, Middle East and South Asia": 1615000000,
+        "Asia Pacific, Australia and New Zealand, and China Region": 1217000000,
+        "Europe": 3704000000,
+        "Frito Lay North America": 5954000000,
+        "Latin America (Segment)": 3055000000,
+        "PepsiCo Beverages North America": 7161000000,
+        "Quaker Foods North America": 747000000
+      }
+    },
+    {
+      "date": "2023-12-30",
+      "segments": {
+        "Africa, Middle East and South Asia": 1937000000,
+        "Europe (Segment)": 4216000000,
+        "Frito Lay North America": 7473000000,
+        "Latin America (Segment)": 3966000000,
+        "PepsiCo Beverages North America": 7912000000,
+        "Quaker Foods North America": 893000000
+      }
+    },
+    {
+      "date": "2024-03-23",
+      "segments": {
+        "Africa, Middle East and South Asia": 1040000000,
+        "Asia Pacific, Australia and New Zealand, and China Region": 1064000000,
+        "Europe": 1936000000,
+        "Frito Lay North America": 5676000000,
+        "Latin America (Segment)": 2067000000,
+        "PepsiCo Beverages North America": 5874000000,
+        "Quaker Foods North America": 593000000
+      }
+    },
+    {
+      "date": "2024-06-15",
+      "segments": {
+        "Africa, Middle East and South Asia": 1592000000,
+        "Asia Pacific, Australia and New Zealand, and China Region": 1103000000,
+        "Europe": 3515000000,
+        "Frito Lay North America": 5874000000,
+        "Latin America (Segment)": 3045000000,
+        "PepsiCo Beverages North America": 6811000000,
+        "Quaker Foods North America": 561000000
+      }
+    },
+    {
+      "date": "2024-09-07",
+      "segments": {
+        "Africa, Middle East and South Asia": 1552000000,
+        "Asia Pacific, Australia and New Zealand, and China Region": 1195000000,
+        "Europe": 3946000000,
+        "Frito Lay North America": 5888000000,
+        "Latin America (Segment)": 2915000000,
+        "PepsiCo Beverages North America": 7175000000,
+        "Quaker Foods North America": 648000000
+      }
+    },
+    {
+      "date": "2025-03-22",
+      "segments": {
+        "Asia Pacific Foods (Segment)": 1022000000,
+        "Europe, Middle East & Africa (Segment)": 2388000000,
+        "International Beverage Franchise": 759000000,
+        "Latin America Foods (Segment)": 1661000000,
+        "PepsiCo Beverages North America": 5876000000,
+        "PepsiCo Foods North America": 6213000000
+      }
+    },
+    {
+      "date": "2025-09-06",
+      "segments": {
+        "Asia Pacific Foods (Segment)": 1115000000,
+        "Europe, Middle East & Africa (Segment)": 5022000000,
+        "International Beverage Franchise": 1291000000,
+        "Latin America Foods (Segment)": 2656000000,
+        "PepsiCo Beverages North America": 7327000000,
+        "PepsiCo Foods North America": 6526000000
+      }
+    },
+    {
+      "date": "2026-03-21",
+      "segments": {
+        "Asia Pacific Foods (Segment)": 1139000000,
+        "Europe, Middle East & Africa (Segment)": 2823000000,
+        "International Beverage Franchise": 824000000,
+        "Latin America Foods (Segment)": 1934000000,
+        "PepsiCo Beverages North America": 6391000000,
+        "PepsiCo Foods North America": 6332000000
+      }
+    },
+    {
+      "date": "2026-06-13",
+      "segments": {
+        "Asia Pacific Foods (Segment)": 1124000000,
+        "Europe, Middle East & Africa (Segment)": 4983000000,
+        "International Beverage Franchise": 1523000000,
+        "Latin America Foods (Segment)": 2940000000,
+        "PepsiCo Beverages North America": 7243000000,
+        "PepsiCo Foods North America": 6368000000
+      }
+    },
+    {
+      "date": "2026-09-05",
+      "segments": {
+        "Asia Pacific Foods (Segment)": 1229000000,
+        "Europe, Middle East & Africa (Segment)": 5413000000,
+        "International Beverage Franchise": 1401000000,
+        "Latin America Foods (Segment)": 3021000000,
+        "PepsiCo Beverages North America": 7706000000,
+        "PepsiCo Foods North America": 6504000000
+      }
+    }
+  ]
+}
