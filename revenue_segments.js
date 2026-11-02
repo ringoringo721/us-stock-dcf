@@ -142,22 +142,14 @@
     const cached = Cache?.get?.(cacheKey);
     if (!reload && cached) return Promise.resolve(cached);
 
-    function readLocalCache({ allowAnnualFallback = false } = {}) {
+    function readLocalCache() {
       return fetch(`cache/revenue_segments/${encodeURIComponent(ticker)}.json`)
         .then(async (response) => {
           if (!response.ok) throw new Error('MISSING_SEGMENT_CACHE');
           const record = validateCache(await response.json(), ticker);
-          // Local files are annual captures (period often unset).
+          // Local files are annual captures (period often unset). Never reuse for quarter UI.
           const cachePeriod = record.period || 'annual';
           if (period !== 'annual' && cachePeriod !== period) {
-            if (allowAnnualFallback && cachePeriod === 'annual'
-                && (record.product.length || record.geographic.length)) {
-              return {
-                ...record,
-                period: cachePeriod,
-                source: `${record.source || 'FMP revenue segmentation'}; annual cache (quarter API unavailable)`,
-              };
-            }
             throw new Error('SEGMENT_CACHE_PERIOD_MISMATCH');
           }
           return { ...record, period: cachePeriod };
@@ -193,26 +185,13 @@
     }
 
     const remote = async () => {
-      try {
-        const record = await fetchPeriod(period);
-        // Many names only publish annual product/geo mixes; fall back when quarter is empty.
-        if (period === 'quarter' && !record.product.length && !record.geographic.length) {
-          const annual = await fetchPeriod('annual');
-          return {
-            ...annual,
-            source: `${annual.source}; quarter empty → annual`,
-          };
-        }
-        return record;
-      } catch (error) {
-        // Preview without FMP_API_KEY (503): reuse annual file cache when present.
-        if (period === 'quarter') {
-          return readLocalCache({ allowAnnualFallback: true }).catch(() => { throw error; });
-        }
-        throw error;
-      }
+      const record = await fetchPeriod(period);
+      // Quarter empty from FMP: return empty quarter record (do NOT paint annual FY into Q columns).
+      // Annual file/API data is only used when the UI period is annual.
+      return record;
     };
 
+    // Never reuse annual local cache for quarterly UI — FY amounts must not appear in Q columns.
     const task = readLocalCache().catch(() => remote()).then((record) => {
       Cache?.set?.(cacheKey, record);
       return record;

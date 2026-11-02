@@ -7988,10 +7988,11 @@
       ? (isEn ? 'Product / segment revenue ($M)' : '產品／分部營收 ($M)')
       : (isEn ? 'Geographic revenue ($M)' : '地區營收 ($M)');
     const trendTitle = isEn ? 'Trend' : '趨勢';
-    thead.innerHTML = `<th class="table-sticky-col">${title}</th>${
-      aligned.columns.map(col => `<th style="text-align:right;">${col.label}${
-        col.date && col.date !== col.label ? `<span class="th-period-subdate">(${col.date})</span>` : ''
-      }</th>`).join('')}<th class="fcf-trend-col">${trendTitle}</th>`;
+    thead.innerHTML = `<th class="table-sticky-col">${escapeAttribute(title)}</th>${
+      aligned.columns.map(col => `<th style="text-align:right;">${escapeAttribute(col.label)}${
+        col.date && col.date !== col.label
+          ? `<span class="th-period-subdate">(${escapeAttribute(col.date)})</span>` : ''
+      }</th>`).join('')}<th class="fcf-trend-col">${escapeAttribute(trendTitle)}</th>`;
     if (!aligned.names.length) {
       tbody.innerHTML = `<tr><td class="table-sticky-col text-muted" colspan="${aligned.columns.length + 2}">${
         isEn ? 'No segment breakdown for these periods (FMP has no product/geo rows for this ticker/period, or fetch failed).'
@@ -8005,7 +8006,7 @@
         return Math.abs(raw) >= 1e6 ? raw / 1e6 : raw;
       });
       return `<tr>
-      <td class="table-sticky-col" style="text-align:left;">${name}</td>
+      <td class="table-sticky-col" style="text-align:left;">${escapeAttribute(name)}</td>
       ${aligned.columns.map(col => `<td style="text-align:right;">${
         formatSegmentAmount(col.segments?.[name], isEn)}</td>`).join('')}
       <td class="fcf-trend-col">${renderAnalysisSparkline(series)}</td>

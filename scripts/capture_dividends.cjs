@@ -83,19 +83,23 @@ async function main() {
     console.error('Pass tickers or CAPTURE_ALL=1');
     process.exit(1);
   }
-  let ok = 0, fail = 0;
+  let ok = 0, fail = 0, empty = 0;
   for (const ticker of tickers) {
     try {
       const count = await captureOne(ticker);
       console.log(JSON.stringify({ ticker, rows: count }));
       ok += 1;
     } catch (error) {
-      console.error(JSON.stringify({ ticker, error: error.message }));
-      fail += 1;
+      // Non-payers / no FMP history are expected — do not fail the whole capture job.
+      const miss = /^(Empty|NormalizedEmpty)$/i.test(error.message);
+      console.error(JSON.stringify({ ticker, error: error.message, empty: miss }));
+      if (miss) empty += 1;
+      else fail += 1;
     }
     await new Promise(resolve => setTimeout(resolve, Number(process.env.CAPTURE_REQUEST_DELAY || 160)));
   }
-  console.log(JSON.stringify({ ok, fail, total: tickers.length }));
+  console.log(JSON.stringify({ ok, fail, empty, total: tickers.length }));
+  // Only hard upstream/parse failures fail the process; empty lists stay soft.
   if (fail) process.exitCode = 1;
 }
 
