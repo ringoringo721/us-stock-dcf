@@ -48,6 +48,48 @@ function needsMoatRecovery(stock) {
     || typeof report.overall_moat_verdict_en !== 'string' || !report.overall_moat_verdict_en.trim();
 }
 
+/** Match build_full_market.us_moat_evidence_hash (name/sector/ROE/FCF… — not statement SHA). */
+function roundFin(value, digits) {
+  // Number(null) === 0 in JS; treat nullish like Python float(None) failure → null.
+  if (value === null || value === undefined || value === '') return null;
+  const number = Number(value);
+  if (!Number.isFinite(number)) return null;
+  const factor = 10 ** digits;
+  return Math.round(number * factor) / factor;
+}
+
+function usMoatEvidencePayload(finContext = {}) {
+  return {
+    name: String(finContext.name || '').trim(),
+    sector: String(finContext.sector || '').trim(),
+    industry: String(finContext.industry || '').trim(),
+    roe: roundFin(finContext.roe, 2),
+    roa: roundFin(finContext.roa, 2),
+    f_score: Number.parseInt(finContext.f_score, 10) || 0,
+    fcf0: roundFin(finContext.fcf0, 0),
+    debt: roundFin(finContext.debt, 0),
+    cash: roundFin(finContext.cash, 0)
+  };
+}
+
+function usMoatEvidenceHash(finContext) {
+  // Mirror Python json.dumps(..., sort_keys=True, ensure_ascii=False, separators=(",", ":")).
+  // round(..., 0) stays a float in Python, so encode 100 as "100.0" (not "100").
+  const payload = usMoatEvidencePayload(finContext);
+  const floatKeys = new Set(['roe', 'roa', 'fcf0', 'debt', 'cash']);
+  const encoded = `{${Object.keys(payload).sort().map((key) => {
+    const value = payload[key];
+    let body;
+    if (value === null) body = 'null';
+    else if (typeof value === 'string') body = JSON.stringify(value);
+    else if (floatKeys.has(key) && typeof value === 'number') {
+      body = Number.isInteger(value) ? value.toFixed(1) : String(value);
+    } else body = String(value);
+    return `${JSON.stringify(key)}:${body}`;
+  }).join(',')}}`;
+  return crypto.createHash('sha256').update(encoded, 'utf8').digest('hex');
+}
+
 function applyBatchWindow(batches, limitRaw = process.env.EXPANSION_FINANCIAL_BATCH_LIMIT || '',
     offsetRaw = process.env.EXPANSION_FINANCIAL_BATCH_OFFSET || '') {
   if (!process.env.EXPANSION_FINANCIAL_REFRESH) return batches;
@@ -133,37 +175,58 @@ function ingest(output, marketFile, reports = {}) {
       throw new Error(`Invalid saved US expansion company identity: ${ticker}`);
     }
     let moat = reports[ticker]?.report || stock.moat || null;
-    let ratingMoat = reports[ticker]
-      ? { ...reports[ticker], report: undefined, reason: null, currentEvidenceHash: reports[ticker].evidenceHash }
-      : stock.ratingSources?.moat || { reason: moat ? null : 'analysisUnavailable' };
-    // Financial-only rebuilds often omit Gemini; keep prior moat and mark stale when statements moved.
+    const usedSavedMoat = !moat && !!saved?.stock?.moat;
+    if (usedSavedMoat) moat = saved.stock.moat;
     const finSrcEarly = path.join(root, 'cache', 'financials', `${ticker}_statements_v2.json`);
     const statementsEarly = fs.existsSync(finSrcEarly) ? read(finSrcEarly) : null;
+    // Distress Z/M provenance uses statement content hash (separate from moat evidence).
     const statementHash = statementsEarly
       ? crypto.createHash('sha256').update(JSON.stringify({
         annual: statementsEarly.annual, interim: statementsEarly.quarterly
       })).digest('hex')
       : null;
-    if (!moat && saved?.stock?.moat) {
-      moat = saved.stock.moat;
-      const prior = saved.stock.ratingSources?.moat || {};
-      const priorHash = prior.evidenceHash || null;
+    const name = stock.name || listing.name_en;
+    const sector = stock.sector || listing.sector;
+    const industry = stock.industry || listing.industry;
+    // Moat stale check must use us_moat_evidence_hash domain (name/sector/ROE/FCF…),
+    // never statement SHA vs ratingSources.moat.evidenceHash.
+    const currentMoatHash = usMoatEvidenceHash({
+      name, sector, industry,
+      roe: stock.roe, roa: stock.roa, f_score: stock.f_score,
+      fcf0: stock.fcf0, debt: stock.debt, cash: stock.cash
+    });
+    let ratingMoat;
+    if (reports[ticker]) {
+      ratingMoat = {
+        ...reports[ticker], report: undefined, reason: null,
+        currentEvidenceHash: reports[ticker].evidenceHash
+      };
+    } else if (moat) {
+      const prior = usedSavedMoat
+        ? (saved.stock.ratingSources?.moat || {})
+        : (stock.ratingSources?.moat || saved?.stock?.ratingSources?.moat || {});
+      const priorHash = (typeof moat.evidenceHash === 'string' && moat.evidenceHash)
+        ? moat.evidenceHash
+        : (typeof prior.evidenceHash === 'string' && prior.evidenceHash ? prior.evidenceHash : null);
+      const stale = !!(priorHash && currentMoatHash && priorHash !== currentMoatHash);
       ratingMoat = {
         ...prior,
-        reason: statementHash && priorHash && statementHash !== priorHash ? 'staleEvidence' : (prior.reason || null),
+        reason: stale ? 'staleEvidence' : null,
         evidenceHash: priorHash,
-        currentEvidenceHash: statementHash || prior.currentEvidenceHash || priorHash,
+        currentEvidenceHash: currentMoatHash || prior.currentEvidenceHash || priorHash,
       };
+    } else {
+      ratingMoat = stock.ratingSources?.moat || { reason: 'analysisUnavailable' };
     }
     let recordStock = {
       ...stock,
       ticker,
       calculationCurrency: 'USD',
-      name: stock.name || listing.name_en,
+      name,
       name_en: stock.name_en || listing.name_en,
       exchange: stock.exchange || listing.exchange,
-      sector: stock.sector || listing.sector,
-      industry: stock.industry || listing.industry,
+      sector,
+      industry,
       moat,
       ratingSources: { ...(stock.ratingSources || {}), moat: ratingMoat },
       expansion: { status: 'available', capturedAt: stock.expansion?.capturedAt || new Date().toISOString(),
@@ -394,5 +457,5 @@ if (require.main === module) {
 
 module.exports = {
   matrix, ingest, packageResults, integrate, writeMoatCaches, needsMoatRecovery, listingStock,
-  applyBatchWindow
+  applyBatchWindow, usMoatEvidenceHash, usMoatEvidencePayload
 };

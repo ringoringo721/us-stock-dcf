@@ -159,7 +159,11 @@ jobs:
           fi
           git fetch origin main
           git reset --hard origin/main
-          # Re-apply tooling from this workflow run is unnecessary: build scripts are on main after merge.
+          # reset drops worktree FX; restore the rates captured before integrate/persist.
+          mkdir -p cache/fx
+          if [ -f hkex-data-output/cache/fx/hkd_rates.json ]; then
+            cp hkex-data-output/cache/fx/hkd_rates.json cache/fx/hkd_rates.json
+          fi
           node scripts/build_hkex_expansion.cjs integrate hkex-data-output .
           git add hkex_expansion_data.js
           git add -f cache/hk_companies/ cache/financials/*.HK_statements_v2.json \
@@ -186,6 +190,10 @@ jobs:
             echo "::warning::Push rejected (attempt ${attempt}); re-integrate onto newer main"
             git fetch origin main
             git reset --hard origin/main
+            mkdir -p cache/fx
+            if [ -f hkex-data-output/cache/fx/hkd_rates.json ]; then
+              cp hkex-data-output/cache/fx/hkd_rates.json cache/fx/hkd_rates.json
+            fi
             node scripts/build_hkex_expansion.cjs integrate hkex-data-output .
             git add hkex_expansion_data.js
             git add -f cache/hk_companies/ cache/financials/*.HK_statements_v2.json \
