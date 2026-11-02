@@ -164,5 +164,7 @@ test('yieldPct uses year-end close then current quote for open year', () => {
     'year',
     { yearEndCloseByYear: closes, currentPrice: 260 },
   );
-  assert.equal(shaped.rows[0].yieldPct, 1);
+  // FY DPS = 1.00; year-end close 250 → 0.4%
+  assert.equal(shaped.rows[0].fy, 1);
+  assert.equal(shaped.rows[0].yieldPct, 0.4);
 });
