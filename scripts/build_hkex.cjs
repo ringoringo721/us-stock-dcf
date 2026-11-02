@@ -832,6 +832,8 @@ function compileStock(item, evidence, rates, moatReports = {}, previousStock = {
   stock.ev_to_ebitda = divide(stock.ev, millions(flow('income', 'ebitda')));
   stock.debt_to_ebitda = divide(stock.debt, millions(flow('income', 'ebitda')));
   stock.net_debt_to_ebitda = divide(stock.net_debt, millions(flow('income', 'ebitda')));
+  stock.debt_to_fcf = divide(stock.debt, stock.fcf0);
+  stock.net_debt_to_fcf = divide(stock.net_debt, stock.fcf0);
   if (!item.financial) Object.assign(stock, marketLeverage(data, stock));
   stock.fcf_to_ev = divide(stock.fcf0, stock.ev, 100); stock.fcf_to_mcap = divide(stock.fcf0, stock.mcap, 100);
   // Persist for expansion compact payloads that omit statements_raw on the screener.

@@ -73,6 +73,18 @@ test('Custom parameter units, model restrictions and Berkshire provider aliases 
     'UNSUPPORTED_MODEL_INPUT');
 });
 
+test('dividends action forwards limit and returns payment rows', async () => {
+  const handler = createHandler({ apiKey: () => 'test-placeholder', fetch: async url => {
+    assert.equal(url.pathname, '/stable/dividends');
+    assert.equal(url.searchParams.get('symbol'), 'AAPL');
+    assert.equal(url.searchParams.get('limit'), '400');
+    return { ok: true, json: async () => [{ symbol: 'AAPL', date: '2024-02-09', adjDividend: 0.24 }] };
+  } });
+  const result = await call(handler, '/api/fmp?action=dividends&symbol=AAPL&limit=400');
+  assert.equal(result.status, 200);
+  assert.equal(result.body.data[0].adjDividend, 0.24);
+});
+
 test('historical-price action forwards dated EOD queries for beta benchmarks only when configured', async () => {
   const handler = createHandler({ apiKey: () => 'test-placeholder', fetch: async url => {
     assert.equal(url.pathname, '/stable/historical-price-eod/full');

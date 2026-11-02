@@ -8,6 +8,9 @@ const endpoints = {
   'custom-levered-dcf': 'custom-levered-discounted-cash-flow',
   'historical-price': 'historical-price-eod/full',
   'analyst-estimates': 'analyst-estimates',
+  dividends: 'dividends',
+  'revenue-product-segmentation': 'revenue-product-segmentation',
+  'revenue-geographic-segmentation': 'revenue-geographic-segmentation',
 };
 const customParameters = {
   revenueGrowthPct: [-0.9, 2], ebitdaPct: [-1, 1], ebitPct: [-1, 1],
@@ -35,12 +38,16 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
     const technical = action === 'technical';
     const historical = action === 'historical-price';
     const estimates = action === 'analyst-estimates';
+    const dividends = action === 'dividends';
+    const revenueSegments = action === 'revenue-product-segmentation'
+      || action === 'revenue-geographic-segmentation';
     if (!Object.hasOwn(endpoints, action) || !/^[A-Z0-9][A-Z0-9.-]{0,14}$/.test(symbol || '')
         || [...new Set(query.keys())].some(key => query.getAll(key).length !== 1)
         || [...query.keys()].some(key => !['action', 'symbol', 'page'].includes(key)
           && !(technical && ['indicator', 'periodLength', 'from', 'to'].includes(key))
           && !(historical && ['from', 'to'].includes(key))
           && !(estimates && ['period', 'limit'].includes(key))
+          && !(dividends && key === 'limit')
           && !(custom && Object.hasOwn(customParameters, key)))) {
       return send(400, { error: 'INVALID_REQUEST' });
     }
@@ -63,6 +70,10 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
         || Number(estimateLimit) < 1 || Number(estimateLimit) > 40)) {
       return send(400, { error: 'INVALID_ANALYST_ESTIMATES_REQUEST' });
     }
+    if (dividends && query.has('limit') && (!/^\d{1,3}$/.test(estimateLimit || '')
+        || Number(estimateLimit) < 1 || Number(estimateLimit) > 500)) {
+      return send(400, { error: 'INVALID_DIVIDENDS_REQUEST' });
+    }
     const key = apiKey();
     if (!key) return send(503, { error: 'FMP_NOT_CONFIGURED' });
     const endpoint = technical ? `${endpoints[action]}/${indicator}` : endpoints[action];
@@ -81,6 +92,9 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
     if (estimates) {
       url.searchParams.set('period', estimatePeriod);
       url.searchParams.set('limit', estimateLimit);
+    }
+    if (dividends) {
+      url.searchParams.set('limit', estimateLimit || '400');
     }
     for (const [name, [minimum, maximum]] of Object.entries(customParameters)) {
       if (!query.has(name)) continue;
@@ -140,12 +154,22 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
         close: row.close, volume: row.volume == null ? null : row.volume
       }));
     } else {
-      data = rows.filter(row => row && row.symbol === provider);
-      if (data.length !== rows.length) {
+      // Dividends / segment feeds sometimes omit symbol; accept empty-symbol rows for those actions.
+      data = rows.filter(row => row && (row.symbol == null || row.symbol === ''
+        || row.symbol === provider || row.symbol === symbol));
+      if (!revenueSegments && !dividends && data.length !== rows.length) {
+        console.error('FMP returned another security', { action, symbol });
+        return send(502, { error: 'FMP_SECURITY_MISMATCH' });
+      }
+      if ((revenueSegments || dividends) && rows.some(row => row?.symbol
+          && row.symbol !== provider && row.symbol !== symbol)) {
         console.error('FMP returned another security', { action, symbol });
         return send(502, { error: 'FMP_SECURITY_MISMATCH' });
       }
       if (provider !== symbol) data = data.map(row => ({ ...row, symbol, providerSymbol: provider }));
+      else if (dividends || revenueSegments) {
+        data = data.map(row => ({ ...row, symbol }));
+      }
     }
     res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=600');
     return send(200, { data, source: { provider: 'FMP', endpoint, symbol,

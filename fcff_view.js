@@ -123,6 +123,23 @@
       ev_to_ebitda: leverageOrCatalogue(ratio(ev, ebitda), 'ev_to_ebitda'),
       debt_to_ebitda: leverageOrCatalogue(ratio(debt, ebitda), 'debt_to_ebitda'),
       net_debt_to_ebitda: leverageOrCatalogue(ratio(net, ebitda), 'net_debt_to_ebitda'),
+      // FCF leverage: same live debt/net + TTM FCF as catalogue; keep published values when FCF unknown.
+      debt_to_fcf: (() => {
+        if (reported && finite(reported.values?.debt_to_fcf)) return reported.values.debt_to_fcf;
+        if (finite(fcf) && fcf > 0 && finite(debt)) return ratio(debt, fcf);
+        return finite(stock.debt_to_fcf) ? stock.debt_to_fcf : null;
+      })(),
+      net_debt_to_fcf: (() => {
+        if (reported && finite(reported.values?.net_debt_to_fcf)) return reported.values.net_debt_to_fcf;
+        if (finite(fcf) && fcf > 0 && finite(net)) return ratio(net, fcf);
+        return finite(stock.net_debt_to_fcf) ? stock.net_debt_to_fcf : null;
+      })(),
+      div_cagr_5y: finite(stock.div_cagr_5y) ? stock.div_cagr_5y : null,
+      div_cagr_10y: finite(stock.div_cagr_10y) ? stock.div_cagr_10y : null,
+      div_cagr_15y: finite(stock.div_cagr_15y) ? stock.div_cagr_15y : null,
+      div_cagr_20y: finite(stock.div_cagr_20y) ? stock.div_cagr_20y : null,
+      div_cagr_25y: finite(stock.div_cagr_25y) ? stock.div_cagr_25y : null,
+      div_cagr_30y: finite(stock.div_cagr_30y) ? stock.div_cagr_30y : null,
       div_yield: stock.div_yield, f_score: stock.f_score,
       f_score_breakdown: stock.f_score_breakdown || []
     };
