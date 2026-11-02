@@ -19,6 +19,39 @@ test('calendar aggregation fills Q/H/FY from ex-dividend dates', () => {
   assert.equal(y2024.count, 4);
 });
 
+test('aggregateCalendar respects adjustable tenor up to 30y and attaches payout ratio', () => {
+  const payments = [];
+  for (let year = 1995; year <= 2024; year++) {
+    payments.push({ date: `${year}-03-15`, adjDividend: 0.1 });
+  }
+  const payoutByYear = new Map([[2024, 35.5], [2023, 40]]);
+  const table = DividendHistory.aggregateCalendar(payments, {
+    years: 10, asOf: '2024-12-31', payoutByYear,
+  });
+  assert.equal(table.span, 10);
+  assert.equal(table.years.length, 10);
+  assert.equal(table.years[0].year, 2024);
+  assert.equal(table.years[0].payoutRatioPct, 35.5);
+  assert.equal(table.years.at(-1).year, 2015);
+});
+
+test('tableForGrain exposes amount columns plus payout for Q/H/FY', () => {
+  const aggregated = DividendHistory.aggregateCalendar([
+    { date: '2024-02-15', adjDividend: 0.24 },
+    { date: '2024-05-15', adjDividend: 0.25 },
+    { date: '2024-08-15', adjDividend: 0.25 },
+    { date: '2024-11-15', adjDividend: 0.26 },
+  ], { years: 1, asOf: '2024-12-31', payoutByYear: new Map([[2024, 28]]) });
+  const quarter = DividendHistory.tableForGrain(aggregated, 'quarter');
+  assert.deepEqual(quarter.columns, ['q1', 'q2', 'q3', 'q4', 'fy']);
+  assert.equal(quarter.rows[0].payoutRatioPct, 28);
+  assert.equal(quarter.rows[0].amount.fy, 1);
+  const half = DividendHistory.tableForGrain(aggregated, 'half');
+  assert.deepEqual(half.columns, ['h1', 'h2', 'fy']);
+  const year = DividendHistory.tableForGrain(aggregated, 'year');
+  assert.deepEqual(year.columns, ['fy']);
+});
+
 test('CAGR windows use positive DPS endpoints', () => {
   const series = [
     { date: '2015-12-31', dps: 1 },
@@ -31,22 +64,29 @@ test('CAGR windows use positive DPS endpoints', () => {
   assert.equal(growth.div_cagr_15y, null);
 });
 
-test('statement DPS proxy and leverage-to-FCF helpers', () => {
-  const metrics = DividendHistory.metricsFromStatements({
+test('statement DPS proxy, payout ratio, and leverage-to-FCF helpers', () => {
+  const statements = {
     annual: {
       income: [
-        { date: '2020-12-31', weightedAverageShsOutDil: 100 },
-        { date: '2025-12-31', weightedAverageShsOutDil: 100 },
+        { date: '2020-12-31', weightedAverageShsOutDil: 100, netIncome: 200, epsdiluted: 2 },
+        { date: '2025-12-31', weightedAverageShsOutDil: 100, netIncome: 300, epsdiluted: 3 },
       ],
       cashflow: [
         { date: '2020-12-31', commonDividendsPaid: -100 },
         { date: '2025-12-31', commonDividendsPaid: -150 },
       ],
     },
-  }, { debt: 300, net_debt: 100, fcf0: 50 });
+  };
+  const metrics = DividendHistory.metricsFromStatements(statements, { debt: 300, net_debt: 100, fcf0: 50 });
   assert.equal(metrics.div_cagr_5y, 8.45);
   assert.equal(metrics.debt_to_fcf, 6);
   assert.equal(metrics.net_debt_to_fcf, 2);
+  const payout = DividendHistory.payoutRatiosFromStatements(statements);
+  assert.equal(payout.get(2025), 50);
+  assert.equal(payout.get(2020), 50);
+  const synthetic = DividendHistory.paymentsFromStatements(statements);
+  assert.equal(synthetic.length, 2);
+  assert.equal(synthetic[1].dividend, 1.5);
 });
 
 test('leverage stays N/A when FCF is non-positive', () => {
@@ -56,4 +96,18 @@ test('leverage stays N/A when FCF is non-positive', () => {
   assert.deepEqual(DividendHistory.leverageToFcf({ debt: 10, net_debt: -5, fcf0: -20 }), {
     debt_to_fcf: null, net_debt_to_fcf: null,
   });
+});
+
+test('paymentsFromStatementRaw builds DPS and scale-invariant payout %', () => {
+  const { payments, payoutByYear } = DividendHistory.paymentsFromStatementRaw({
+    annual_dates: ['2023-06', '2024-06'],
+    cashflow: { dividendsPaid: [-21771, -24082] },
+    income: {
+      netIncome: [88136, 101832],
+      weightedAverageShsOutDil: [7469000000, 7465000000],
+    },
+  });
+  assert.equal(payments.length, 2);
+  assert.ok(payments[0].dividend > 0);
+  assert.equal(payoutByYear.get(2024), Math.round((24082 / 101832) * 10000) / 100);
 });

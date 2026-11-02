@@ -48,6 +48,7 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
           && !(historical && ['from', 'to'].includes(key))
           && !(estimates && ['period', 'limit'].includes(key))
           && !(dividends && key === 'limit')
+          && !(revenueSegments && ['period', 'structure'].includes(key))
           && !(custom && Object.hasOwn(customParameters, key)))) {
       return send(400, { error: 'INVALID_REQUEST' });
     }
@@ -58,6 +59,8 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
     const indicator = query.get('indicator'), period = query.get('periodLength');
     const from = query.get('from'), to = query.get('to');
     const estimatePeriod = query.get('period'), estimateLimit = query.get('limit');
+    const segmentPeriod = query.get('period');
+    const segmentStructure = query.get('structure');
     if (technical && (!/^\d{1,3}$/.test(period || '')
         || !technicals.validRequest(indicator, Number(period), from, to))) {
       return send(400, { error: 'INVALID_TECHNICAL_REQUEST' });
@@ -73,6 +76,11 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
     if (dividends && query.has('limit') && (!/^\d{1,3}$/.test(estimateLimit || '')
         || Number(estimateLimit) < 1 || Number(estimateLimit) > 500)) {
       return send(400, { error: 'INVALID_DIVIDENDS_REQUEST' });
+    }
+    // FMP stable segmentation requires period=annual|quarter and structure=flat.
+    if (revenueSegments && ((segmentPeriod && segmentPeriod !== 'annual' && segmentPeriod !== 'quarter')
+        || (segmentStructure && segmentStructure !== 'flat'))) {
+      return send(400, { error: 'INVALID_REVENUE_SEGMENT_REQUEST' });
     }
     const key = apiKey();
     if (!key) return send(503, { error: 'FMP_NOT_CONFIGURED' });
@@ -95,6 +103,10 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
     }
     if (dividends) {
       url.searchParams.set('limit', estimateLimit || '400');
+    }
+    if (revenueSegments) {
+      url.searchParams.set('period', segmentPeriod || 'annual');
+      url.searchParams.set('structure', 'flat');
     }
     for (const [name, [minimum, maximum]] of Object.entries(customParameters)) {
       if (!query.has(name)) continue;
@@ -126,14 +138,20 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
       console.error('FMP upstream rejected request', { action, symbol, status: response.status });
       return send(502, { error, upstreamStatus: response.status });
     }
-    let rows;
-    try { rows = await response.json(); }
+    let payload;
+    try { payload = await response.json(); }
     catch {
       console.error('FMP returned invalid JSON', { action, symbol });
       return send(502, { error: 'FMP_INVALID_RESPONSE' });
     }
+    // Stable dividends occasionally wrap rows; segmentation must remain a list.
+    let rows = Array.isArray(payload) ? payload
+      : Array.isArray(payload?.data) ? payload.data
+      : Array.isArray(payload?.historical) ? payload.historical
+      : null;
     if (!Array.isArray(rows)) {
-      console.error('FMP returned a non-array response', { action, symbol });
+      console.error('FMP returned a non-array response', { action, symbol,
+        message: payload && typeof payload === 'object' ? payload['Error Message'] || payload.error : null });
       return send(502, { error: 'FMP_INVALID_RESPONSE' });
     }
     let data;

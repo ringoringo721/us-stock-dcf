@@ -85,6 +85,46 @@ test('dividends action forwards limit and returns payment rows', async () => {
   assert.equal(result.body.data[0].adjDividend, 0.24);
 });
 
+test('revenue segmentation injects period+structure=flat and accepts nested-free rows', async () => {
+  const seen = [];
+  const handler = createHandler({ apiKey: () => 'test-placeholder', fetch: async url => {
+    const symbol = url.searchParams.get('symbol');
+    seen.push({
+      path: url.pathname,
+      period: url.searchParams.get('period'),
+      structure: url.searchParams.get('structure'),
+      symbol,
+    });
+    return { ok: true, json: async () => [
+      { date: '2024-09-28', symbol, data: { iPhone: 201e9, Americas: 100e9 } },
+    ] };
+  } });
+  const annual = await call(handler, '/api/fmp?action=revenue-product-segmentation&symbol=AAPL');
+  assert.equal(annual.status, 200);
+  assert.equal(seen[0].period, 'annual');
+  assert.equal(seen[0].structure, 'flat');
+  assert.equal(annual.body.data[0].data.iPhone, 201e9);
+
+  const quarter = await call(handler,
+    '/api/fmp?action=revenue-geographic-segmentation&symbol=NVDA&period=quarter&structure=flat');
+  assert.equal(quarter.status, 200);
+  assert.equal(seen[1].period, 'quarter');
+  assert.equal(seen[1].structure, 'flat');
+
+  assert.equal((await call(handler,
+    '/api/fmp?action=revenue-product-segmentation&symbol=AAPL&period=monthly')).status, 400);
+});
+
+test('dividends unwraps historical-wrapped FMP payloads', async () => {
+  const handler = createHandler({ apiKey: () => 'test-placeholder', fetch: async () => ({
+    ok: true,
+    json: async () => ({ historical: [{ symbol: 'MSFT', date: '2024-02-14', adjDividend: 0.75 }] }),
+  }) });
+  const result = await call(handler, '/api/fmp?action=dividends&symbol=MSFT&limit=10');
+  assert.equal(result.status, 200);
+  assert.equal(result.body.data[0].adjDividend, 0.75);
+});
+
 test('historical-price action forwards dated EOD queries for beta benchmarks only when configured', async () => {
   const handler = createHandler({ apiKey: () => 'test-placeholder', fetch: async url => {
     assert.equal(url.pathname, '/stable/historical-price-eod/full');

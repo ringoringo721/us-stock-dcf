@@ -13,6 +13,15 @@ test('normalizeRows flattens FMP product segmentation payloads', () => {
   assert.equal(rows[1].segments.iPhone, 201e9);
 });
 
+test('normalizeRows unwraps symbol-keyed nested segment maps', () => {
+  const rows = RevenueSegments.normalizeRows([
+    { date: '2024-01-28', NVDA: { 'Compute & Networking': 18e9, 'Graphics': 3e9 } },
+  ], 'NVDA');
+  assert.equal(rows.length, 1);
+  assert.equal(rows[0].segments['Compute & Networking'], 18e9);
+  assert.equal(rows[0].segments.Graphics, 3e9);
+});
+
 test('alignToPeriods matches YYYY-MM prefixes then prior dates', () => {
   const aligned = RevenueSegments.alignToPeriods([
     { date: '2024-09-28', data: { iPhone: 10, Mac: 2 } },
@@ -32,4 +41,11 @@ test('alignToPeriods keeps already-normalized {date, segments} rows from load()'
   const aligned = RevenueSegments.alignToPeriods(normalized, ['2024-09']);
   assert.equal(aligned.columns[0].segments.iPhone, 10);
   assert.equal(aligned.columns[0].segments.Mac, 2);
+});
+
+test('fmpPeriod maps statement cadence to FMP annual|quarter', () => {
+  assert.equal(RevenueSegments.fmpPeriod('quarterly'), 'quarter');
+  assert.equal(RevenueSegments.fmpPeriod('quarter'), 'quarter');
+  assert.equal(RevenueSegments.fmpPeriod('annual'), 'annual');
+  assert.equal(RevenueSegments.fmpPeriod('semiannual'), 'annual');
 });
