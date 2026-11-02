@@ -75,8 +75,16 @@ async function captureOne(ticker) {
   await new Promise(resolve => setTimeout(resolve, Number(process.env.CAPTURE_REQUEST_DELAY || 120)));
   try { geographic = await fetchSegments(ticker, 'geographic'); }
   catch (error) { geoError = error.message; }
+  // HTTP/parse errors are hard failures — do NOT fold them into soft "Empty"
+  // (the old `empty (…HTTP 503…)` message matched /empty/i and exited 0).
+  if (productError && geoError) {
+    throw new Error(`BothFailed:${productError}/${geoError}`);
+  }
   if (!product.length && !geographic.length) {
-    throw new Error(`empty (${productError || 'ok'}/${geoError || 'ok'})`);
+    if (productError || geoError) {
+      throw new Error(`PartialFailed:${productError || 'ok'}/${geoError || 'ok'}`);
+    }
+    throw new Error('Empty');
   }
   const record = RevenueSegments.validateCache({
     version: 1,
@@ -88,7 +96,7 @@ async function captureOne(ticker) {
     capturedAt: new Date().toISOString(),
   }, ticker);
   if (!record.product.length && !record.geographic.length) {
-    throw new Error('normalized empty');
+    throw new Error('NormalizedEmpty');
   }
   fs.mkdirSync(outDir, { recursive: true });
   fs.writeFileSync(path.join(outDir, `${ticker}.json`), `${JSON.stringify(record, null, 2)}\n`);
@@ -115,7 +123,8 @@ async function main() {
       console.log(JSON.stringify({ ticker, period, ...counts }));
       ok += 1;
     } catch (error) {
-      const miss = /empty|normalized empty/i.test(error.message);
+      // Soft miss = genuine empty coverage only (exact tokens). HTTP/InvalidJSON stay hard.
+      const miss = /^(Empty|NormalizedEmpty)$/i.test(error.message);
       console.error(JSON.stringify({ ticker, period, error: error.message, empty: miss }));
       if (miss) empty += 1;
       else fail += 1;

@@ -48,8 +48,9 @@ jobs:
             TICKERS='AAPL,MSFT,NVDA,MCD,KO,PEP,JNJ,PG,XOM,CVX,IBM,INTC,CSCO,WMT,T,VZ,MRK,ABBV,AVGO,ORCL,AMD,META,GOOGL,AMZN,TSLA,DIS,NKE,BA,CAT,UNH,HD,MA,V,COST,ADBE,CRM,QCOM,TXN,AMGN,PFE,LLY,BRK.B,JPM,BAC,WFC,GS,MS,C,0700.HK,0005.HK,0939.HK,1398.HK,2318.HK,1299.HK,0388.HK,9988.HK'
           fi
           mkdir -p cache/dividends cache/revenue_segments
-          # Soft-continue: empty dividend lists (non-payers) and missing segments must not
-          # abort revenue capture or the cache commit under set -e.
+          # Soft-continue: empty dividend lists (non-payers) and genuine empty segments
+          # must not abort the sibling capture or the cache commit under set -e.
+          # Scripts exit 0 on soft Empty/NormalizedEmpty; exit 1 on hard HTTP/parse fails.
           set +e
           node scripts/capture_dividends.cjs "$TICKERS"
           DIV_STATUS=$?
@@ -57,11 +58,11 @@ jobs:
           SEG_STATUS=$?
           set -e
           echo "capture_exit dividends=${DIV_STATUS} segments=${SEG_STATUS}"
-          # Only fail the step if both captures hard-failed with no files written.
-          if [ "$DIV_STATUS" -ne 0 ] && [ "$SEG_STATUS" -ne 0 ] \
-              && [ -z "$(ls -A cache/dividends 2>/dev/null)" ] \
-              && [ -z "$(ls -A cache/revenue_segments 2>/dev/null)" ]; then
-            echo "Both captures failed and no cache files were written"
+          # Fail when BOTH captures hard-failed. Do NOT use `ls cache/…` — after the first
+          # successful commit those dirs are already populated on checkout, so a file-count
+          # gate never fires on later runs.
+          if [ "$DIV_STATUS" -ne 0 ] && [ "$SEG_STATUS" -ne 0 ]; then
+            echo "Both captures hard-failed (exit dividends=${DIV_STATUS} segments=${SEG_STATUS})"
             exit 1
           fi
 
