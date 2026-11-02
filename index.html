@@ -2393,7 +2393,7 @@
     <div id="subpage-documents" class="subpage-content">
       <div class="panel historical-ratio-panel company-analysis-panel">
         <div class="panel-title" data-i18n="sec_documents">Filings / Documents</div>
-        <p class="analysis-note" data-i18n="analysis_documents_note">Financial statement filings and earnings call transcripts with links that open immediately (SEC EDGAR + FMP when configured).</p>
+        <p class="analysis-note" data-i18n="analysis_documents_note">Financial statement filings and earnings-call dates with links that open immediately. Full FMP transcript text is not proxied — open SEC 8-K instead.</p>
         <div id="documents-public-links" class="tv-doc-links"></div>
         <p id="documents-status" class="analysis-note" role="status"></p>
         <div class="panel-title" style="font-size:15px;" data-i18n="sec_documents_filings">Financial statement filings</div>
@@ -2403,7 +2403,7 @@
             <tbody id="cmp-documents-filings-tbody"></tbody>
           </table>
         </div>
-        <div class="panel-title" style="font-size:15px;" data-i18n="sec_documents_transcripts">Earnings call transcripts</div>
+        <div class="panel-title" style="font-size:15px;" data-i18n="sec_documents_transcripts">Earnings calls (SEC 8-K)</div>
         <div class="table-scroll-wrapper company-analysis-scroll">
           <table id="cmp-documents-transcripts" class="historical-ratio-table company-analysis-table">
             <thead><tr id="cmp-documents-transcripts-thead"></tr></thead>
@@ -3292,9 +3292,9 @@
       analysis_dividend_payments_note: "TradingView 風格：頻率／最近 DPS／殖利率、KPI（含連續股息成長）、年度／季度歷史表與明細。優先 FMP 股利快取／API。",
       sec_dividend_payments_detail: "股利發放歷史",
       sec_documents: "申報／文件",
-      analysis_documents_note: "財務報表申報與法說逐字稿；連結可立即開啟（SEC EDGAR；有 FMP 金鑰時另列 FMP 申報／逐字稿）。",
+      analysis_documents_note: "財務報表申報與法說日期；申報可開 SEC／FMP 連結。逐字稿全文不經本站代理，改開 SEC 8-K。",
       sec_documents_filings: "財務報表申報",
-      sec_documents_transcripts: "法說會逐字稿",
+      sec_documents_transcripts: "法說會（SEC 8-K）",
       lbl_div_grain: "彙整期間",
       opt_div_quarter: "季度（Q1–Q4）",
       opt_div_half: "半年（H1／H2）",
@@ -3872,9 +3872,9 @@
       analysis_dividend_payments_note: "TradingView-style frequency / last DPS / yield, KPIs (incl. Cont div growth), annual/quarterly history, and payment detail. Prefer FMP dividend cache/API.",
       sec_dividend_payments_detail: "Dividend payout history",
       sec_documents: "Filings / Documents",
-      analysis_documents_note: "Financial statement filings and earnings call transcripts with links that open immediately (SEC EDGAR; FMP rows when the Preview key is configured).",
+      analysis_documents_note: "Financial statement filings and earnings-call dates with links that open immediately. Full FMP transcript text is not proxied — open SEC 8-K instead.",
       sec_documents_filings: "Financial statement filings",
-      sec_documents_transcripts: "Earnings call transcripts",
+      sec_documents_transcripts: "Earnings calls (SEC 8-K)",
       lbl_div_grain: "Aggregation",
       opt_div_quarter: "Quarter (Q1–Q4)",
       opt_div_half: "Half-year (H1/H2)",
@@ -8533,47 +8533,13 @@
   }
 
 
-  async function openEarningsTranscript(event, ticker, year, quarter) {
+  function openEarningsTranscript(event, ticker, year, quarter) {
     if (event) event.preventDefault();
     const Docs = typeof CompanyDocuments !== 'undefined' ? CompanyDocuments : null;
+    // SEC 8-K search under the click gesture — FMP full transcript text is not proxied.
     const url = Docs?.transcriptOpenUrl?.(ticker, year, quarter);
     if (!url) return false;
-    // Open synchronously under the user gesture — await fetch would lose the popup.
-    const win = window.open('about:blank', '_blank');
-    const title = `${ticker} FY${year} Q${quarter} earnings call`;
-    if (win) {
-      try {
-        win.document.title = title;
-        win.document.body.textContent = 'Loading transcript…';
-      } catch (_) { /* ignore cross-origin race */ }
-    }
-    try {
-      const response = await fetch(url);
-      const body = await response.json().catch(() => ({}));
-      if (!response.ok) throw new Error(body.error || `HTTP ${response.status}`);
-      const row = Array.isArray(body.data) ? body.data[0] : body.data;
-      const content = row?.content || row?.transcript || '';
-      const safe = String(content || 'Transcript content empty.')
-        .replace(/[<>&]/g, ch => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;' }[ch]));
-      if (win && !win.closed) {
-        win.document.open();
-        win.document.write(`<!doctype html><meta charset="utf-8"><title>${title}</title>
-          <body style="font-family:Georgia,serif;max-width:820px;margin:24px auto;padding:0 16px;line-height:1.6;white-space:pre-wrap;">
-          <h1 style="font-size:20px;">${title}</h1>
-          <p style="color:#666;font-size:13px;">Source: FMP earning-call-transcript</p>
-          <div>${safe}</div>
-          </body>`);
-        win.document.close();
-      } else {
-        window.open(url, '_blank', 'noopener,noreferrer');
-      }
-    } catch (error) {
-      if (win && !win.closed) {
-        try { win.location.replace(url); } catch (_) { win.location = url; }
-      } else {
-        window.open(url, '_blank', 'noopener,noreferrer');
-      }
-    }
+    window.open(url, '_blank', 'noopener,noreferrer');
     return false;
   }
 
@@ -8642,20 +8608,20 @@
 
       txBody.innerHTML = txRows.length
         ? txRows.map(row => {
-          const url = Docs.transcriptOpenUrl(ticker, row.year, row.quarter);
+          const url = Docs.transcriptOpenUrl(ticker, row.year, row.quarter, row.date);
           return `<tr>
             <td class="table-sticky-col" style="text-align:left;">${escapeAttribute(row.label)}</td>
             <td>${row.date || '—'}</td>
             <td><a href="${escapeAttribute(url)}" target="_blank" rel="noopener noreferrer"
               onclick="return openEarningsTranscript(event, '${escapeAttribute(ticker)}', ${row.year}, ${row.quarter})">${
-              isEn ? 'Open transcript ↗' : '開啟逐字稿 ↗'}</a></td>
+              isEn ? 'Open SEC 8-K ↗' : '開啟 SEC 8-K ↗'}</a></td>
           </tr>`;
         }).join('')
         : `<tr><td class="table-sticky-col text-muted" colspan="3">${
           transcripts?.error
             ? (isEn
-              ? `Transcript dates unavailable (${String(transcripts.error.message || transcripts.error)}).`
-              : `逐字稿日期不可用（${String(transcripts.error.message || transcripts.error)}）。`)
+              ? `Transcript dates unavailable (${String(transcripts.error.message || transcripts.error)}). Use SEC links above.`
+              : `逐字稿日期不可用（${String(transcripts.error.message || transcripts.error)}）。請用上方 SEC 連結。`)
             : (isEn ? 'No earnings-call transcript dates.' : '無法說會逐字稿日期。')}</td></tr>`;
 
       const fCount = filingRows.length;

@@ -12,13 +12,15 @@ test('normalizeFilings keeps SEC open links and sorts newest first', () => {
   assert.equal(rows[0].link, 'https://www.sec.gov/b.htm');
 });
 
-test('normalizeTranscriptDates and open URL', () => {
+test('normalizeTranscriptDates and open URL prefers SEC 8-K', () => {
   const rows = Docs.normalizeTranscriptDates([
     { fiscalYear: 2024, quarter: 2, date: '2024-05-01' },
     { year: 2025, quarter: 1, date: '2025-02-01' },
   ], 'AAPL');
   assert.equal(rows[0].year, 2025);
-  assert.match(Docs.transcriptOpenUrl('AAPL', 2025, 1), /earning-call-transcript/);
+  assert.match(Docs.transcriptOpenUrl('AAPL', 2025, 1), /sec\.gov\/edgar\/search/);
+  assert.match(Docs.transcriptOpenUrl('AAPL', 2025, 1), /8-K/);
+  assert.doesNotMatch(Docs.transcriptOpenUrl('AAPL', 2025, 1), /earning-call-transcript/);
 });
 
 test('publicLinks expose SEC search for US names', () => {

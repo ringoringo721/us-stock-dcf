@@ -12,9 +12,38 @@ const endpoints = {
   'revenue-product-segmentation': 'revenue-product-segmentation',
   'revenue-geographic-segmentation': 'revenue-geographic-segmentation',
   'sec-filings': 'sec-filings-search/symbol',
+  // Metadata only — full earning-call-transcript bodies are NOT proxied (paid scrape risk).
   'transcript-dates': 'earning-call-transcript-dates',
-  'earning-call-transcript': 'earning-call-transcript',
 };
+
+/** In-memory per-IP budgets for document metadata actions (best-effort on serverless). */
+const documentRateBuckets = new Map();
+const DOCUMENT_RATE_WINDOW_MS = 60_000;
+const DOCUMENT_RATE_MAX = 40;
+
+function clientIp(req) {
+  const forwarded = req.headers?.['x-forwarded-for'];
+  if (typeof forwarded === 'string' && forwarded.trim()) return forwarded.split(',')[0].trim();
+  return req.socket?.remoteAddress || req.headers?.['x-real-ip'] || 'unknown';
+}
+
+function documentRateLimited(req, action) {
+  if (action !== 'sec-filings' && action !== 'transcript-dates') return false;
+  const key = `${clientIp(req)}:${action}`;
+  const now = Date.now();
+  let bucket = documentRateBuckets.get(key);
+  if (!bucket || now >= bucket.resetAt) {
+    bucket = { count: 0, resetAt: now + DOCUMENT_RATE_WINDOW_MS };
+    documentRateBuckets.set(key, bucket);
+  }
+  bucket.count += 1;
+  if (documentRateBuckets.size > 5000) {
+    for (const [id, entry] of documentRateBuckets) {
+      if (now >= entry.resetAt) documentRateBuckets.delete(id);
+    }
+  }
+  return bucket.count > DOCUMENT_RATE_MAX;
+}
 const customParameters = {
   revenueGrowthPct: [-0.9, 2], ebitdaPct: [-1, 1], ebitPct: [-1, 1],
   depreciationAndAmortizationPct: [0, 1], cashAndShortTermInvestmentsPct: [0, 5],
@@ -46,7 +75,13 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
       || action === 'revenue-geographic-segmentation';
     const secFilings = action === 'sec-filings';
     const transcriptDates = action === 'transcript-dates';
-    const transcriptBody = action === 'earning-call-transcript';
+    // Reject legacy full-transcript action explicitly (was a paid-content scrape surface).
+    if (action === 'earning-call-transcript') {
+      return send(403, {
+        error: 'TRANSCRIPT_BODY_NOT_PROXIED',
+        hint: 'Full FMP earning-call-transcript text is not exposed. Open SEC EDGAR 8-K instead.',
+      });
+    }
     if (!Object.hasOwn(endpoints, action) || !/^[A-Z0-9][A-Z0-9.-]{0,14}$/.test(symbol || '')
         || [...new Set(query.keys())].some(key => query.getAll(key).length !== 1)
         || [...query.keys()].some(key => !['action', 'symbol', 'page'].includes(key)
@@ -57,9 +92,13 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
           && !(revenueSegments && ['period', 'structure'].includes(key))
           && !(secFilings && ['from', 'to', 'limit', 'page'].includes(key))
           && !(transcriptDates && [].includes(key))
-          && !(transcriptBody && ['year', 'quarter'].includes(key))
           && !(custom && Object.hasOwn(customParameters, key)))) {
       return send(400, { error: 'INVALID_REQUEST' });
+    }
+    if (documentRateLimited(req, action)) {
+      res.setHeader('Cache-Control', 'private, no-store');
+      res.setHeader('Retry-After', '60');
+      return send(429, { error: 'DOCUMENT_RATE_LIMITED' });
     }
     const page = query.get('page') || '0';
     if (!/^\d{1,4}$/.test(page) || Number(page) > 1000
@@ -71,8 +110,6 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
     const estimatePeriod = query.get('period'), estimateLimit = query.get('limit');
     const segmentPeriod = query.get('period');
     const segmentStructure = query.get('structure');
-    const transcriptYear = query.get('year');
-    const transcriptQuarter = query.get('quarter');
     const filingsLimit = query.get('limit');
     if (technical && (!/^\d{1,3}$/.test(period || '')
         || !technicals.validRequest(indicator, Number(period), from, to))) {
@@ -104,10 +141,6 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
         || (filingsLimit && (!/^\d{1,3}$/.test(filingsLimit) || Number(filingsLimit) < 1
           || Number(filingsLimit) > 100)))) {
       return send(400, { error: 'INVALID_SEC_FILINGS_REQUEST' });
-    }
-    if (transcriptBody && (!/^\d{4}$/.test(transcriptYear || '')
-        || !/^[1-4]$/.test(transcriptQuarter || ''))) {
-      return send(400, { error: 'INVALID_TRANSCRIPT_REQUEST' });
     }
     const key = apiKey();
     if (!key) return send(503, { error: 'FMP_NOT_CONFIGURED' });
@@ -156,10 +189,6 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
       url.searchParams.set('page', page);
       url.searchParams.set('limit', filingsLimit || '40');
     }
-    if (transcriptBody) {
-      url.searchParams.set('year', transcriptYear);
-      url.searchParams.set('quarter', transcriptQuarter);
-    }
     for (const [name, [minimum, maximum]] of Object.entries(customParameters)) {
       if (!query.has(name)) continue;
       const raw = query.get(name), value = raw.trim() ? Number(raw) : NaN;
@@ -197,15 +226,10 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
       return send(502, { error: 'FMP_INVALID_RESPONSE' });
     }
     // Stable dividends occasionally wrap rows; segmentation must remain a list.
-    // Earning-call transcript may return a single object with `content`.
     let rows = Array.isArray(payload) ? payload
       : Array.isArray(payload?.data) ? payload.data
       : Array.isArray(payload?.historical) ? payload.historical
       : null;
-    if (!Array.isArray(rows) && transcriptBody && payload && typeof payload === 'object'
-        && !payload['Error Message'] && !payload.error) {
-      rows = [payload];
-    }
     if (!Array.isArray(rows)) {
       console.error('FMP returned a non-array response', { action, symbol,
         message: payload && typeof payload === 'object' ? payload['Error Message'] || payload.error : null });
@@ -229,8 +253,8 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
         close: row.close, volume: row.volume == null ? null : row.volume
       }));
     } else {
-      // Dividends / segment / filings / transcripts sometimes omit symbol.
-      const softSymbol = revenueSegments || dividends || secFilings || transcriptDates || transcriptBody;
+      // Dividends / segment / filings / transcript-dates sometimes omit symbol.
+      const softSymbol = revenueSegments || dividends || secFilings || transcriptDates;
       data = rows.filter(row => row && (row.symbol == null || row.symbol === ''
         || row.symbol === provider || row.symbol === symbol));
       if (!softSymbol && data.length !== rows.length) {
@@ -246,8 +270,20 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
       else if (softSymbol) {
         data = data.map(row => ({ ...row, symbol }));
       }
+      // Never forward accidental transcript body fields on metadata endpoints.
+      if (transcriptDates) {
+        data = data.map(row => {
+          const { content, transcript, ...meta } = row || {};
+          return meta;
+        });
+      }
     }
-    res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=600');
+    // Paid / document metadata must not be edge-cached publicly.
+    if (secFilings || transcriptDates) {
+      res.setHeader('Cache-Control', 'private, no-store');
+    } else {
+      res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=600');
+    }
     return send(200, { data, source: { provider: 'FMP', endpoint, symbol,
       capturedAt: new Date().toISOString(),
       ...(technical ? { indicator, periodLength: Number(period),

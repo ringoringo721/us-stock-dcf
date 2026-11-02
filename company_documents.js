@@ -150,15 +150,18 @@
     });
   }
 
-  /** URL that immediately fetches one transcript via our proxy (open in new tab). */
-  function transcriptOpenUrl(ticker, year, quarter) {
-    const qs = new URLSearchParams({
-      action: 'earning-call-transcript',
-      symbol: ticker,
-      year: String(year),
-      quarter: String(quarter),
-    });
-    return `/api/fmp?${qs}`;
+  /**
+   * Open target for an earnings-call row. Prefer public SEC 8-K (earnings releases);
+   * do NOT hit `/api/fmp?action=earning-call-transcript` — full paid text is not proxied.
+   */
+  function transcriptOpenUrl(ticker, year, quarter, date = null) {
+    void year;
+    void quarter;
+    void date;
+    if (/\.HK$/i.test(String(ticker || ''))) {
+      return edgarBrowseUrl(ticker);
+    }
+    return edgarSearchUrl(ticker, '8-K');
   }
 
   return {
