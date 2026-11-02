@@ -101,9 +101,29 @@
     return normalizeRows(segmentRows, ticker);
   }
 
+  function periodSpec(entry, index) {
+    if (entry && typeof entry === 'object' && !Array.isArray(entry)) {
+      const label = String(entry.label ?? `P${index + 1}`);
+      const kind = entry.kind
+        || (/^TTM$/i.test(label) || /latest balance/i.test(label) || /最新期末/.test(label)
+          ? 'ttm' : 'period');
+      const dateHint = entry.date && /^\d{4}-\d{2}/.test(String(entry.date))
+        ? String(entry.date).slice(0, 10) : null;
+      return { label, kind, dateHint };
+    }
+    const raw = typeof entry === 'string' ? entry : '';
+    const kind = /^TTM$/i.test(raw) || /latest balance/i.test(raw) || /最新期末/.test(raw)
+      ? 'ttm' : 'period';
+    const dateHint = /^\d{4}-\d{2}/.test(raw) ? raw.slice(0, 10) : null;
+    return { label: raw || `P${index + 1}`, kind, dateHint };
+  }
+
   /**
    * Align segment series to the financials period labels/dates (annual or interim).
+   * `periodDates` may be strings or `{ label, date?, kind? }` specs.
    * Matching is by calendar date prefix (YYYY-MM) then nearest prior segment date.
+   * TTM / "latest balance" columns never reuse a prior FY segment snapshot (avoids
+   * fake headers like 2026-06 paired with a duplicated 2025-09 FY amount).
    */
   function alignToPeriods(segmentRows, periodDates, ticker = null) {
     const rows = asNormalizedRows(segmentRows, ticker);
@@ -111,17 +131,26 @@
       return { names: [], columns: [] };
     }
     const nameSet = new Set();
-    const columns = periodDates.map((label, index) => {
-      const raw = typeof label === 'string' ? label : '';
-      const iso = /^\d{4}-\d{2}/.test(raw) ? raw.slice(0, 10) : null;
+    const columns = periodDates.map((entry, index) => {
+      const { label, kind, dateHint } = periodSpec(entry, index);
+      if (kind === 'ttm') {
+        // Keep the statement TTM as-of date for the sub-label only — never attach FY segments.
+        return { label, date: dateHint, segments: null, kind: 'ttm' };
+      }
       let match = null;
-      if (iso) {
+      if (dateHint) {
+        const iso = dateHint.length === 7 ? `${dateHint}-28` : dateHint;
         const prefix = iso.slice(0, 7);
         match = [...rows].reverse().find(row => row.date.slice(0, 7) === prefix)
-          || [...rows].reverse().find(row => row.date <= (iso.length === 7 ? `${iso}-28` : iso));
+          || [...rows].reverse().find(row => row.date <= iso);
       }
       if (match) Object.keys(match.segments).forEach(name => nameSet.add(name));
-      return { label: raw || `P${index + 1}`, date: match?.date || null, segments: match?.segments || null };
+      return {
+        label,
+        date: match?.date || null,
+        segments: match?.segments || null,
+        kind: 'period',
+      };
     });
     const names = [...nameSet].sort((a, b) => a.localeCompare(b));
     return { names, columns };
@@ -142,18 +171,32 @@
     const cached = Cache?.get?.(cacheKey);
     if (!reload && cached) return Promise.resolve(cached);
 
+    function readOneCache(path) {
+      return fetch(path).then(async (response) => {
+        if (!response.ok) throw new Error('MISSING_SEGMENT_CACHE');
+        const record = validateCache(await response.json(), ticker);
+        const cachePeriod = record.period || 'annual';
+        return { ...record, period: cachePeriod };
+      });
+    }
+
     function readLocalCache() {
-      return fetch(`cache/revenue_segments/${encodeURIComponent(ticker)}.json`)
-        .then(async (response) => {
-          if (!response.ok) throw new Error('MISSING_SEGMENT_CACHE');
-          const record = validateCache(await response.json(), ticker);
-          // Local files are annual captures (period often unset). Never reuse for quarter UI.
-          const cachePeriod = record.period || 'annual';
-          if (period !== 'annual' && cachePeriod !== period) {
-            throw new Error('SEGMENT_CACHE_PERIOD_MISMATCH');
-          }
-          return { ...record, period: cachePeriod };
+      const enc = encodeURIComponent(ticker);
+      // Prefer period-specific files so Preview without FMP_API_KEY can still show quarters.
+      // Annual `{ticker}.json` must never satisfy a quarterly UI (no FY amounts in Q columns).
+      if (period === 'quarter') {
+        return readOneCache(`cache/revenue_segments/${enc}.quarter.json`).then((record) => {
+          if (record.period !== 'quarter') throw new Error('SEGMENT_CACHE_PERIOD_MISMATCH');
+          return record;
         });
+      }
+      return readOneCache(`cache/revenue_segments/${enc}.json`).then((record) => {
+        const cachePeriod = record.period || 'annual';
+        if (period !== 'annual' && cachePeriod !== period) {
+          throw new Error('SEGMENT_CACHE_PERIOD_MISMATCH');
+        }
+        return { ...record, period: cachePeriod };
+      });
     }
 
     async function fetchPeriod(requestedPeriod) {

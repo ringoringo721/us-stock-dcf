@@ -100,7 +100,7 @@ async function captureOne(ticker) {
     throw new Error('NormalizedEmpty');
   }
   fs.mkdirSync(outDir, { recursive: true });
-  // Keep annual `{ticker}.json` untouched when capturing quarters.
+  // Annual → {ticker}.json; quarter → {ticker}.quarter.json (Preview Q without live FMP).
   const outName = period === 'quarter' ? `${ticker}.quarter.json` : `${ticker}.json`;
   fs.writeFileSync(path.join(outDir, outName), `${JSON.stringify(record, null, 2)}\n`);
   return {

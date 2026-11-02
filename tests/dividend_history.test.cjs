@@ -145,3 +145,24 @@ test('annualDpsFromPayments keeps a window longer than 30y for CAGR publish', ()
   const growth = DividendHistory.growthWindows(series, '2024-12-31');
   assert.ok(growth.div_cagr_30y != null);
 });
+
+test('yieldPct uses year-end close then current quote for open year', () => {
+  const closes = DividendHistory.yearEndCloseByYear([
+    ['2024-12-31', 200],
+    ['2025-06-01', 210],
+    ['2025-12-30', 250],
+  ]);
+  assert.equal(closes.get(2025), 250);
+  assert.equal(DividendHistory.yieldPctForYear(2.5, 2025, { yearEndCloseByYear: closes }), 1);
+  const shaped = DividendHistory.tableForGrain(
+    DividendHistory.aggregateCalendar([
+      { date: '2025-02-15', adjDividend: 0.25 },
+      { date: '2025-05-15', adjDividend: 0.25 },
+      { date: '2025-08-15', adjDividend: 0.25 },
+      { date: '2025-11-15', adjDividend: 0.25 },
+    ], { years: 1, asOf: '2025-12-31' }),
+    'year',
+    { yearEndCloseByYear: closes, currentPrice: 260 },
+  );
+  assert.equal(shaped.rows[0].yieldPct, 1);
+});

@@ -3219,6 +3219,7 @@
       th_div_year: "年度",
       th_div_fy: "全年金額",
       th_div_payout: "發放率 %",
+      th_div_yield: "殖利率 %",
       th_div_count: "筆數",
       th_div_cagr_5: "股息 CAGR 5年 (%)",
       th_div_cagr_10: "股息 CAGR 10年 (%)",
@@ -3797,6 +3798,7 @@
       th_div_year: "Year",
       th_div_fy: "FY amount",
       th_div_payout: "Payout %",
+      th_div_yield: "Yield %",
       th_div_count: "Count",
       th_div_cagr_5: "Div CAGR 5y (%)",
       th_div_cagr_10: "Div CAGR 10y (%)",
@@ -8074,7 +8076,20 @@
     RevenueSegments.load(ticker, { period: viewPeriod }).then(record => {
       if (activeCompanyTicker !== ticker || requestId !== revenueBreakdownRequestId
           || activeRevenueSegmentPeriod !== viewPeriod) return;
-      const axis = datesList?.length ? datesList : periods;
+      // Prefer statement period labels (incl. TTM) so TTM never matches a prior FY date.
+      const labelAxis = (periods && periods.length) ? periods
+        : (datesList && datesList.length) ? datesList : [];
+      const axis = labelAxis.map((label, i) => {
+        const lab = String(label ?? '');
+        const dateHint = datesList?.[i] && /^\d{4}-\d{2}/.test(String(datesList[i]))
+          ? String(datesList[i]).slice(0, 10) : null;
+        const kind = /^TTM$/i.test(lab) || /latest balance/i.test(lab) || /最新期末/.test(lab)
+          ? 'ttm' : 'period';
+        // Display year for full ISO FY labels when periods still carry raw dates.
+        const display = kind === 'ttm' ? lab
+          : (/^\d{4}-\d{2}-\d{2}/.test(lab) ? lab.slice(0, 4) : lab);
+        return { label: display, date: dateHint, kind };
+      });
       const product = RevenueSegments.alignToPeriods(record.product, axis, ticker);
       const geographic = RevenueSegments.alignToPeriods(record.geographic, axis, ticker);
       fillSegmentTable('product', product, isEn);
@@ -8144,18 +8159,19 @@
       fy: isEn ? 'FY amount' : '全年金額',
     };
 
-    function paint(record, payoutByYear) {
+    function paint(record, payoutByYear, yieldOpts = null) {
       if (activeCompanyTicker !== ticker) return;
       const table = DividendHistory.aggregateCalendar(record.rows, {
         years, payoutByYear: payoutByYear || record.payoutByYear || null,
       });
-      const shaped = DividendHistory.tableForGrain(table, grain);
+      const shaped = DividendHistory.tableForGrain(table, grain, yieldOpts);
       const amountHeaders = shaped.columns.map(key => `<th>${colLabels[key] || key}</th>`).join('');
       thead.innerHTML = `<th class="table-sticky-col" data-i18n="th_div_year">${isEn ? 'Year' : '年度'}</th>${amountHeaders}`
         + `<th data-i18n="th_div_payout">${isEn ? 'Payout %' : '發放率 %'}</th>`
+        + `<th data-i18n="th_div_yield">${isEn ? 'Yield %' : '殖利率 %'}</th>`
         + `<th data-i18n="th_div_count">${isEn ? 'Count' : '筆數'}</th>`;
       if (!shaped.rows.length) {
-        tbody.innerHTML = `<tr><td class="table-sticky-col text-muted" colspan="${shaped.columns.length + 3}">${
+        tbody.innerHTML = `<tr><td class="table-sticky-col text-muted" colspan="${shaped.columns.length + 4}">${
           isEn ? 'No dividend payment history available (cache/API/statements).'
             : '暫無股利發放紀錄（快取／API／財報）。'}</td></tr>`;
       } else {
@@ -8164,6 +8180,7 @@
           ${shaped.columns.map(key => `<td style="${key === 'fy' ? 'font-weight:700;' : ''}">${
             fmtAmt(row.amount[key])}</td>`).join('')}
           <td>${fmtPct(row.payoutRatioPct)}</td>
+          <td>${fmtPct(row.yieldPct)}</td>
           <td>${row.count || '—'}</td>
         </tr>`).join('');
       }
@@ -8178,8 +8195,8 @@
             ? ' · FY statement DPS only — Q1–Q4 stay N/A (not lumped into one quarter). Prefer FMP payment history for true quarterly splits / 30y depth.'
             : ' · 僅財報全年 DPS — Q1–Q4 維持 N/A（不塞進單一季度）。真實季度／30 年請以 FMP 股利歷史為準。')
           : (isEn
-            ? ' · Amounts = split-adjusted DPS when adjDividend present; payout % = cash dividends ÷ net income (FY).'
-            : ' · 金額優先 adjDividend；發放率＝全年現金股息÷淨利（財報）。'));
+            ? ' · Amounts = split-adjusted DPS when adjDividend present; payout % = cash dividends ÷ net income (FY); yield % = FY DPS ÷ calendar year-end close (price chart), else current quote for the open year.'
+            : ' · 金額優先 adjDividend；發放率＝全年現金股息÷淨利（財報）；殖利率＝全年 DPS÷該年最後收盤（price chart），當年未收盤則用現價。'));
       const box = document.querySelector('#subpage-dividend .table-scroll-wrapper');
       if (box) makeScrollable(box);
     }
@@ -8194,7 +8211,11 @@
         return record;
       });
 
-    reuse.then(record => {
+    const priceChart = fetch(`cache/price_charts/${encodeURIComponent(ticker)}.json`)
+      .then(async (response) => (response.ok ? response.json() : null))
+      .catch(() => null);
+
+    reuse.then(async (record) => {
       let payoutByYear = record.payoutByYear || null;
       if (!payoutByYear || (payoutByYear instanceof Map && !payoutByYear.size)) {
         const raw = stockObj?.statements_raw;
@@ -8214,7 +8235,10 @@
           }
         }
       }
-      paint(record, payoutByYear);
+      const chart = await priceChart;
+      const closes = DividendHistory.yearEndCloseByYear?.(chart?.rows) || null;
+      const currentPrice = Number.isFinite(stockObj?.price) && stockObj.price > 0 ? stockObj.price : null;
+      paint(record, payoutByYear, { yearEndCloseByYear: closes, currentPrice });
     }).catch((error) => {
       if (activeCompanyTicker !== ticker) return;
       const detail = error && error.message ? String(error.message) : '';

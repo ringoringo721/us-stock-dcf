@@ -179,10 +179,40 @@
   }
 
   /**
+   * Last close per calendar year from price-chart rows (`[date, close, …]` or `{date,close}`).
+   */
+  function yearEndCloseByYear(priceRows) {
+    const out = new Map();
+    if (!Array.isArray(priceRows)) return out;
+    for (const row of priceRows) {
+      const date = Array.isArray(row) ? row[0] : row?.date;
+      const close = Array.isArray(row) ? finite(row[1]) : finite(row?.close);
+      if (!validDate(String(date || '').slice(0, 10)) || !(close > 0)) continue;
+      out.set(Number(String(date).slice(0, 4)), close);
+    }
+    return out;
+  }
+
+  /**
+   * Dividend yield % = FY DPS ÷ price × 100.
+   * Prefer that calendar year's last close from the price chart; for the open
+   * (latest) year fall back to the current quote when year-end is unavailable.
+   */
+  function yieldPctForYear(fyDps, year, { yearEndCloseByYear: closes = null, currentPrice = null, asOfYear = null } = {}) {
+    if (!(fyDps > 0)) return null;
+    const close = closes?.get?.(year) ?? null;
+    const latest = asOfYear ?? (closes && closes.size ? Math.max(...closes.keys()) : null);
+    const price = close > 0 ? close
+      : ((latest == null || year >= latest) && currentPrice > 0 ? currentPrice : null);
+    if (!(price > 0)) return null;
+    return roundPct((fyDps / price) * 100);
+  }
+
+  /**
    * Shape calendar buckets for UI grain: quarter | half | year.
    * Always keeps payout amount columns for the selected grain plus payout ratio.
    */
-  function tableForGrain(aggregated, grain = 'quarter') {
+  function tableForGrain(aggregated, grain = 'quarter', yieldOpts = null) {
     const mode = grain === 'half' || grain === 'year' || grain === 'fy' ? grain === 'fy' ? 'year' : grain : 'quarter';
     const columns = mode === 'quarter'
       ? ['q1', 'q2', 'q3', 'q4', 'fy']
@@ -198,6 +228,9 @@
         fy: row.fy,
         count: row.count,
         payoutRatioPct: row.payoutRatioPct,
+        yieldPct: yieldOpts
+          ? yieldPctForYear(row.fy, row.year, yieldOpts)
+          : (row.yieldPct ?? null),
       })),
     };
   }
@@ -448,6 +481,8 @@
     normalizePayments,
     aggregateCalendar,
     tableForGrain,
+    yearEndCloseByYear,
+    yieldPctForYear,
     annualDpsFromPayments,
     annualDpsFromStatements,
     paymentsFromStatements,

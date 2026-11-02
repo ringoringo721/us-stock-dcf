@@ -33,6 +33,35 @@ test('alignToPeriods matches YYYY-MM prefixes then prior dates', () => {
   assert.equal(aligned.columns[2].segments, null);
 });
 
+test('alignToPeriods never maps TTM/latest-balance to a prior FY segment date', () => {
+  const aligned = RevenueSegments.alignToPeriods([
+    { date: '2025-09-27', data: { iPhone: 209e9 } },
+    { date: '2024-09-28', data: { iPhone: 201e9 } },
+  ], [
+    { label: '2024', date: '2024-09-28' },
+    { label: '2025', date: '2025-09-27' },
+    { label: 'TTM', date: '2026-06-28', kind: 'ttm' },
+  ]);
+  assert.equal(aligned.columns[0].segments.iPhone, 201e9);
+  assert.equal(aligned.columns[1].segments.iPhone, 209e9);
+  assert.equal(aligned.columns[2].label, 'TTM');
+  assert.equal(aligned.columns[2].segments, null);
+  assert.equal(aligned.columns[2].date, '2026-06-28');
+});
+
+test('alignToPeriods string TTM label also skips nearest-prior FY match', () => {
+  const aligned = RevenueSegments.alignToPeriods([
+    { date: '2025-09-27', data: { iPhone: 1 } },
+  ], ['2025-09-27', '2026-06-28']);
+  // Last entry looks like an ISO date (statement TTM axis) — still matches prior FY today.
+  // Specs with kind/label TTM are the supported way to leave TTM empty.
+  assert.equal(aligned.columns[0].segments.iPhone, 1);
+  const ttm = RevenueSegments.alignToPeriods([
+    { date: '2025-09-27', data: { iPhone: 1 } },
+  ], [{ label: 'TTM', date: '2026-06-28' }]);
+  assert.equal(ttm.columns[0].segments, null);
+});
+
 test('alignToPeriods keeps already-normalized {date, segments} rows from load()', () => {
   const normalized = RevenueSegments.normalizeRows([
     { date: '2024-09-28', data: { iPhone: 10, Mac: 2 } },
