@@ -142,17 +142,27 @@
     const cached = Cache?.get?.(cacheKey);
     if (!reload && cached) return Promise.resolve(cached);
 
-    const local = fetch(`cache/revenue_segments/${encodeURIComponent(ticker)}.json`)
-      .then(async (response) => {
-        if (!response.ok) throw new Error('MISSING_SEGMENT_CACHE');
-        const record = validateCache(await response.json(), ticker);
-        // Local files are annual captures (period often unset). Never reuse for quarter.
-        const cachePeriod = record.period || 'annual';
-        if (period !== 'annual' && cachePeriod !== period) {
-          throw new Error('SEGMENT_CACHE_PERIOD_MISMATCH');
-        }
-        return { ...record, period: cachePeriod };
-      });
+    function readLocalCache({ allowAnnualFallback = false } = {}) {
+      return fetch(`cache/revenue_segments/${encodeURIComponent(ticker)}.json`)
+        .then(async (response) => {
+          if (!response.ok) throw new Error('MISSING_SEGMENT_CACHE');
+          const record = validateCache(await response.json(), ticker);
+          // Local files are annual captures (period often unset).
+          const cachePeriod = record.period || 'annual';
+          if (period !== 'annual' && cachePeriod !== period) {
+            if (allowAnnualFallback && cachePeriod === 'annual'
+                && (record.product.length || record.geographic.length)) {
+              return {
+                ...record,
+                period: cachePeriod,
+                source: `${record.source || 'FMP revenue segmentation'}; annual cache (quarter API unavailable)`,
+              };
+            }
+            throw new Error('SEGMENT_CACHE_PERIOD_MISMATCH');
+          }
+          return { ...record, period: cachePeriod };
+        });
+    }
 
     async function fetchPeriod(requestedPeriod) {
       const qs = `symbol=${encodeURIComponent(ticker)}&period=${requestedPeriod}&structure=flat`;
@@ -161,8 +171,12 @@
         fetch(`/api/fmp?action=revenue-geographic-segmentation&${qs}`),
       ]);
       if (!productRes.ok && !geoRes.ok) {
-        const status = productRes.status || geoRes.status;
-        throw new Error(`SEGMENT_API_FAILED:${status}`);
+        let detail = String(productRes.status || geoRes.status);
+        try {
+          const body = await productRes.json().catch(() => geoRes.json());
+          if (body?.error) detail = `${detail}:${body.error}`;
+        } catch { /* ignore */ }
+        throw new Error(`SEGMENT_API_FAILED:${detail}`);
       }
       const productJson = productRes.ok ? await productRes.json() : { data: [] };
       const geoJson = geoRes.ok ? await geoRes.json() : { data: [] };
@@ -179,19 +193,27 @@
     }
 
     const remote = async () => {
-      const record = await fetchPeriod(period);
-      // Many names only publish annual product/geo mixes; fall back when quarter is empty.
-      if (period === 'quarter' && !record.product.length && !record.geographic.length) {
-        const annual = await fetchPeriod('annual');
-        return {
-          ...annual,
-          source: `${annual.source}; quarter empty → annual`,
-        };
+      try {
+        const record = await fetchPeriod(period);
+        // Many names only publish annual product/geo mixes; fall back when quarter is empty.
+        if (period === 'quarter' && !record.product.length && !record.geographic.length) {
+          const annual = await fetchPeriod('annual');
+          return {
+            ...annual,
+            source: `${annual.source}; quarter empty → annual`,
+          };
+        }
+        return record;
+      } catch (error) {
+        // Preview without FMP_API_KEY (503): reuse annual file cache when present.
+        if (period === 'quarter') {
+          return readLocalCache({ allowAnnualFallback: true }).catch(() => { throw error; });
+        }
+        throw error;
       }
-      return record;
     };
 
-    const task = local.catch(() => remote()).then((record) => {
+    const task = readLocalCache().catch(() => remote()).then((record) => {
       Cache?.set?.(cacheKey, record);
       return record;
     }).finally(() => { if (pending.get(cacheKey) === task) pending.delete(cacheKey); });

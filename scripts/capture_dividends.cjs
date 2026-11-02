@@ -48,12 +48,20 @@ function providerSymbol(ticker) {
 async function captureOne(ticker) {
   const url = new URL('https://financialmodelingprep.com/stable/dividends');
   url.searchParams.set('symbol', providerSymbol(ticker));
-  url.searchParams.set('limit', '400');
+  url.searchParams.set('limit', '500');
+  const from = new Date();
+  from.setUTCFullYear(from.getUTCFullYear() - 40);
+  url.searchParams.set('from', from.toISOString().slice(0, 10));
   url.searchParams.set('apikey', key);
   const response = await fetch(url);
   if (!response.ok) throw new Error(`HTTP ${response.status}`);
-  const rows = await response.json();
+  const payload = await response.json();
+  const rows = Array.isArray(payload) ? payload
+    : Array.isArray(payload?.data) ? payload.data
+    : Array.isArray(payload?.historical) ? payload.historical
+    : null;
   if (!Array.isArray(rows)) throw new Error('InvalidJSON');
+  if (!rows.length) throw new Error('Empty');
   const record = DividendHistory.validateCache({
     version: 1,
     ticker,
@@ -61,6 +69,7 @@ async function captureOne(ticker) {
     capturedAt: new Date().toISOString(),
     rows,
   }, ticker);
+  if (!record.rows.length) throw new Error('NormalizedEmpty');
   fs.mkdirSync(outDir, { recursive: true });
   fs.writeFileSync(path.join(outDir, `${ticker}.json`), `${JSON.stringify(record, null, 2)}\n`);
   return record.rows.length;

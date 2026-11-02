@@ -426,7 +426,7 @@
         return {
           version: 1,
           ticker,
-          source: 'statements_v2 FY DPS only (FMP dividends unavailable — quarters N/A)',
+          source: 'statements_v2 FY DPS only (FMP dividends unavailable — quarters N/A; ship cache/dividends or set Preview FMP_API_KEY)',
           rows: normalizePayments(rows),
           payoutByYear: payoutRatiosFromStatements(statements),
           fallback: true,

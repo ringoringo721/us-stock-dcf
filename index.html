@@ -8013,19 +8013,32 @@
     }).join('');
   }
 
+  let revenueBreakdownRequestId = 0;
+
   function revenueAxisFromStock(stockObj, period) {
     const s = stockObj || {};
     const raw = s.statements_raw || {};
     const isQuarter = period === 'quarterly' || period === 'semiannual' || period === 'quarter';
     if (isQuarter) {
-      const qRaw = (period === 'semiannual' ? raw.semiannual_raw : raw.quarterly_raw) || {};
+      // HK / half-year reporters store interim columns in semiannual_raw.
+      const cadence = typeof MarketContext !== 'undefined' && MarketContext.cadence
+        ? MarketContext.cadence(s) : null;
+      const useSemi = period === 'semiannual'
+        || cadence?.frequency === 'semiannual'
+        || cadence?.stride === 2
+        || (!raw.quarterly_raw?.dates?.length && raw.semiannual_raw?.dates?.length);
+      const qRaw = (useSemi ? raw.semiannual_raw : raw.quarterly_raw) || raw.semiannual_raw || {};
       const dates = qRaw.dates || [];
       const labels = qRaw.periods || dates;
-      return { datesList: dates.length ? dates : labels, periods: labels };
+      return {
+        datesList: dates.length ? dates : labels,
+        periods: labels,
+        interimKind: useSemi ? 'semiannual' : 'quarterly',
+      };
     }
     const dates = raw.annual_dates || [];
     const periods = dates.map((d, i) => (i === dates.length - 1 && dates.length >= 6 ? 'TTM' : (d || '').slice(0, 4) || d));
-    return { datesList: dates, periods: periods.length ? periods : dates };
+    return { datesList: dates, periods: periods.length ? periods : dates, interimKind: 'annual' };
   }
 
   function onRevenueSegmentPeriodChange(period) {
@@ -8047,6 +8060,8 @@
         && activeStatementPeriod !== 'annual') ? 'quarterly' : 'annual';
     }
     if (periodEl) periodEl.value = activeRevenueSegmentPeriod;
+    const requestId = ++revenueBreakdownRequestId;
+    const viewPeriod = activeRevenueSegmentPeriod || 'annual';
     status.textContent = isEn ? 'Loading revenue breakdown…' : '載入營收拆解中…';
     const empty = { names: [], columns: (periods || []).map(label => ({ label, date: null, segments: null })) };
     fillSegmentTable('product', empty, isEn);
@@ -8055,9 +8070,9 @@
       status.textContent = isEn ? 'Revenue segment module unavailable.' : '營收拆解模組不可用。';
       return;
     }
-    const viewPeriod = activeRevenueSegmentPeriod || 'annual';
     RevenueSegments.load(ticker, { period: viewPeriod }).then(record => {
-      if (activeCompanyTicker !== ticker) return;
+      if (activeCompanyTicker !== ticker || requestId !== revenueBreakdownRequestId
+          || activeRevenueSegmentPeriod !== viewPeriod) return;
       const axis = datesList?.length ? datesList : periods;
       const product = RevenueSegments.alignToPeriods(record.product, axis, ticker);
       const geographic = RevenueSegments.alignToPeriods(record.geographic, axis, ticker);
@@ -8079,11 +8094,17 @@
       }
       document.querySelectorAll('#subpage-financials .table-scroll-wrapper').forEach(box => makeScrollable(box));
     }).catch((error) => {
-      if (activeCompanyTicker !== ticker) return;
+      if (activeCompanyTicker !== ticker || requestId !== revenueBreakdownRequestId
+          || activeRevenueSegmentPeriod !== viewPeriod) return;
       const detail = error && error.message ? String(error.message) : '';
+      const noKey = /503|FMP_NOT_CONFIGURED/i.test(detail);
       status.textContent = isEn
-        ? `${ticker} · Could not load revenue segments (${detail || 'cache/API'}). If FMP publishes product/geo for this name, check period+structure=flat and API plan; otherwise the feed is unavailable for this ticker.`
-        : `${ticker} · 無法載入營收拆解（${detail || '快取／API'}）。若 FMP 有此股票產品／地區資料，請確認 period＋structure=flat 與方案；否則即為此股票無此資料源。`;
+        ? `${ticker} · Could not load revenue segments (${detail || 'cache/API'}).${
+          noKey ? ' Preview API key missing (503) — use committed cache/revenue_segments or configure FMP_API_KEY for Preview.'
+            : ' If FMP publishes product/geo for this name, check period+structure=flat; otherwise the feed is unavailable for this ticker.'}`
+        : `${ticker} · 無法載入營收拆解（${detail || '快取／API'}）。${
+          noKey ? ' Preview 缺 FMP_API_KEY（503）— 請用已提交的 cache/revenue_segments，或於 Preview 設定金鑰。'
+            : '若 FMP 有此股票產品／地區資料，請確認 period＋structure=flat；否則即為此股票無此資料源。'}`;
     });
   }
 
@@ -8162,10 +8183,11 @@
       if (box) makeScrollable(box);
     }
 
-    // Always prefer a fresh FMP/cache load; do not reuse in-memory statement fallbacks.
-    const reuse = dividendHistoryTicker === ticker && dividendHistoryCache && !dividendHistoryCache.fallback
+    // Reuse in-memory record (including statement fallback) when only grain/years change.
+    // Do not re-hit FMP on every control tweak after a known fallback.
+    const reuse = dividendHistoryTicker === ticker && dividendHistoryCache
       ? Promise.resolve(dividendHistoryCache)
-      : DividendHistory.load(ticker, { reload: !!(dividendHistoryCache && dividendHistoryCache.fallback) }).then(record => {
+      : DividendHistory.load(ticker).then(record => {
         dividendHistoryTicker = ticker;
         dividendHistoryCache = record;
         return record;
@@ -8192,21 +8214,27 @@
         }
       }
       paint(record, payoutByYear);
-    }).catch(() => {
+    }).catch((error) => {
       if (activeCompanyTicker !== ticker) return;
+      const detail = error && error.message ? String(error.message) : '';
       // Last-resort: statements_raw only (FY amounts; quarters N/A).
       const raw = stockObj?.statements_raw;
       if (raw && DividendHistory.paymentsFromStatementRaw) {
         const fromRaw = DividendHistory.paymentsFromStatementRaw(raw);
         if (fromRaw.payments.length) {
-          paint({
+          const fallback = {
             version: 1,
             ticker,
-            source: 'statements_raw FY DPS only (FMP dividends unavailable)',
+            source: /503|FMP_NOT_CONFIGURED/i.test(detail)
+              ? 'statements_raw FY DPS only (FMP_API_KEY missing on preview — quarters N/A)'
+              : 'statements_raw FY DPS only (FMP dividends unavailable — quarters N/A)',
             rows: fromRaw.payments,
             fallback: true,
             annualOnly: true,
-          }, fromRaw.payoutByYear);
+          };
+          dividendHistoryTicker = ticker;
+          dividendHistoryCache = fallback;
+          paint(fallback, fromRaw.payoutByYear);
           return;
         }
       }
