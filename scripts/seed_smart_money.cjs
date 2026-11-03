@@ -29,14 +29,16 @@ const outDir = path.join(root, 'cache', 'smart-money');
 const fundsDir = path.join(outDir, 'funds');
 fs.mkdirSync(fundsDir, { recursive: true });
 
-const STOCK_HOLDER_CAP = 65;
-// Liquid stock demos: 4Q keeps Δ + timeline useful while bounding PR size (~2× prior 2Q seeds).
-const STOCK_QUARTERS = 4;
-// Curated funds: 8–12Q; non-curated full books: 8Q × capped holdings (WhaleCreep detail).
+// Keep PR/Bugbot under size limits (#88 ~0.7–4MB; avoid multi‑MB JSON dumps).
+const STOCK_HOLDER_CAP = 40;
+const STOCK_QUARTERS = 2;
+// Curated: 8–12Q × ~22. Non-curated: same 8Q depth, same holding cap (history KPI without megabyte books).
 const FUND_QUARTERS = 8;
 const FUND_HOLDING_CAP = 22;
 const EXTRA_FUND_QUARTERS = 8;
-const EXTRA_FUND_HOLDING_CAP = 100;
+const EXTRA_FUND_HOLDING_CAP = 22;
+/** Max committed fund-{cik} books (priority + heaviest); others rely on names + live extract. */
+const EXTRA_FUND_COMMIT_MAX = 28;
 /** Liquid / mega-cap US — full holder tables on Preview without FMP_API_KEY. */
 const STOCK_SEEDS = [
   'NVDA', 'AAPL', 'MSFT', 'META', 'GOOGL', 'AMZN', 'TSLA', 'TSM', 'STZ',
@@ -44,15 +46,14 @@ const STOCK_SEEDS = [
   'AVGO', 'COST', 'KO', 'PEP', 'ABBV', 'CRM', 'AMD', 'ORCL', 'NFLX', 'PLTR',
 ];
 const SEED_FIELDS = [
-  'date', 'filingDate', 'cik', 'investorName', 'symbol',
+  'cik', 'investorName', 'symbol',
   'sharesNumber', 'lastSharesNumber', 'changeInSharesNumber',
-  'changeInSharesNumberPercentage', 'marketValue', 'lastMarketValue',
-  'weight', 'ownership', 'year', 'quarter', 'isNew', 'isSoldOut', 'isCurated',
+  'changeInSharesNumberPercentage', 'marketValue',
+  'weight', 'year', 'quarter', 'isNew', 'isSoldOut', 'isCurated',
 ];
 const FUND_FIELDS = [
-  'symbol', 'nameOfIssuer', 'industryTitle', 'sector', 'shares', 'value',
-  'marketValue', 'weight', 'filingDate', 'date', 'securityCusip', 'cusip',
-  'titleOfClass',
+  'symbol', 'nameOfIssuer', 'shares', 'value', 'weight',
+  'securityCusip', 'titleOfClass',
 ];
 
 function pick(row, fields) {
@@ -383,11 +384,13 @@ function readFundSource(inv) {
   SmartMoney.registerHolderNames(holderFundsSlim.names);
   console.log(`Wrote ${holderFundsPath} ciks=${holderFundsSlim.count} names=${Object.keys(holderFundsSlim.names).length} bytes=${fs.statSync(holderFundsPath).size}`);
 
-  // Slim full 13F books for non-curated managers: funds/fund-{cik}.json
-  // (from capture_holder_fund_books.cjs / local CIK captures).
-  let extraFundCount = 0;
+  // Slim non-curated books: keep 8Q depth but top-N holdings only; commit only a shortlist.
+  const PRIORITY_EXTRA = new Set([
+    '0001484150', '0002147005', '0001848138', '0001622346', '0001759760',
+    '0001532262', '0000937729', '0001731012', '0001475365', '0000902528',
+  ]);
+  const candidates = [];
   const seenExtra = new Set();
-  const extraManagers = [];
   for (const filename of fs.readdirSync(fundsDir)) {
     const cikMatch = /^(?:fund-)?(\d{10})\.json$/.exec(filename);
     if (!cikMatch) continue;
@@ -410,13 +413,37 @@ function readFundSource(inv) {
       slug: `fund-${cik}`,
       investorName,
     }, { quarters: EXTRA_FUND_QUARTERS, holdingCap: EXTRA_FUND_HOLDING_CAP });
-    const outName = `fund-${cik}.json`;
-    const outPath = path.join(fundsDir, outName);
-    fs.writeFileSync(outPath, `${JSON.stringify(seeded)}\n`);
-    extraFundCount += 1;
-    const entry = SmartMoney.buildFundDirectoryEntry(seeded);
+    const latestBook = Number(seeded.history?.[0]?.book) || 0;
+    const qCount = seeded.quarters.length;
+    candidates.push({
+      cik,
+      seeded,
+      investorName,
+      priority: PRIORITY_EXTRA.has(cik) ? 1 : 0,
+      qCount,
+      latestBook,
+    });
+  }
+  candidates.sort((a, b) => b.priority - a.priority
+    || b.qCount - a.qCount
+    || b.latestBook - a.latestBook);
+  const keep = candidates.slice(0, EXTRA_FUND_COMMIT_MAX);
+  const keepCiks = new Set(keep.map(row => row.cik));
+  // Drop non-kept fund-{cik} dumps so Bugbot/PR stay small (names remain in holder-funds).
+  for (const filename of fs.readdirSync(fundsDir)) {
+    const m = /^fund-(\d{10})\.json$/.exec(filename);
+    if (!m) continue;
+    if (keepCiks.has(m[1])) continue;
+    fs.unlinkSync(path.join(fundsDir, filename));
+    console.log(`Dropped bulky seed ${filename} (name retained in holder-funds)`);
+  }
+  const extraManagers = [];
+  for (const row of keep) {
+    const outPath = path.join(fundsDir, `fund-${row.cik}.json`);
+    fs.writeFileSync(outPath, `${JSON.stringify(row.seeded)}\n`);
+    const entry = SmartMoney.buildFundDirectoryEntry(row.seeded);
     if (entry) extraManagers.push(entry);
-    console.log(`Wrote ${outPath} name=${investorName || '—'} positions=${seeded.quarters[0]?.rows.length || 0} q=${seeded.quarters.length} bytes=${fs.statSync(outPath).size}`);
+    console.log(`Wrote ${outPath} name=${row.investorName || '—'} positions=${row.seeded.quarters[0]?.rows.length || 0} q=${row.seeded.quarters.length} bytes=${fs.statSync(outPath).size}`);
   }
 
   const index = writeIndex([...managers, ...extraManagers].filter(Boolean));
@@ -426,7 +453,7 @@ function readFundSource(inv) {
     console.warn(`Missing fund captures (need capture_smart_money.cjs --funds-only): ${missing.join(', ')}`);
     process.exitCode = 1;
   } else {
-    console.log(`Seed complete — stocks + curated-by-ticker (${byTicker.count}) + holder-funds (${holderFunds.count}) + curated (${SmartMoney.INVESTORS.length}) + fund-CIK books (${extraFundCount})`);
+    console.log(`Seed complete — stocks + curated-by-ticker (${byTicker.count}) + holder-funds (${holderFundsSlim.count}) + curated (${SmartMoney.INVESTORS.length}) + fund-CIK books (${keep.length}/${candidates.length})`);
   }
 })().catch(error => {
   console.error(error);
