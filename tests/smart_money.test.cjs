@@ -301,7 +301,32 @@ test('allowedCik / resolveFundIdentity / fundHref', () => {
   assert.equal(SmartMoney.resolveFundIdentity('0002147005').openable, true);
   assert.equal(SmartMoney.resolveFundIdentity('0002147005').slug, 'fund-0002147005');
   assert.equal(SmartMoney.resolveFundIdentity('fund-0001475365').cik, '0001475365');
+  // #fund/CIK and #fund/fund-CIK must resolve to the same openable identity.
+  const bamcoBare = SmartMoney.resolveFundIdentity('0001017918');
+  const bamcoPrefixed = SmartMoney.resolveFundIdentity('fund-0001017918');
+  assert.equal(bamcoBare.cik, '0001017918');
+  assert.equal(bamcoBare.slug, 'fund-0001017918');
+  assert.equal(bamcoPrefixed.slug, bamcoBare.slug);
+  assert.equal(bamcoPrefixed.cik, bamcoBare.cik);
+  assert.equal(bamcoBare.openable, true);
   assert.equal(SmartMoney.isOpenableFundKey('framtiden-holdings-management-co-llc'), false);
+});
+
+test('expandHolderFundEntry builds partial Preview books without FMP', () => {
+  const expanded = SmartMoney.expandHolderFundEntry({
+    n: 'BAMCO INC /NY/',
+    q: [
+      { y: 2026, q: 2, r: [{ s: 'TSLA', sh: 100, v: 1e9, w: 8 }] },
+      { y: 2026, q: 1, r: [{ s: 'TSLA', sh: 90, v: 9e8, w: 13 }] },
+    ],
+  }, '0001017918');
+  assert.ok(expanded);
+  assert.equal(expanded.cik, '0001017918');
+  assert.equal(expanded.slug, 'fund-0001017918');
+  assert.equal(expanded.investorName, 'BAMCO INC /NY/');
+  assert.equal(expanded.source.partial, true);
+  assert.equal(expanded.quarters.length, 2);
+  assert.equal(expanded.quarters[0].rows[0].symbol, 'TSLA');
 });
 
 test('resolveInvestorName never returns bare CIK as primary title', () => {

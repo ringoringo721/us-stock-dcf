@@ -111,12 +111,14 @@ const PRIORITY_CIKS = [
   '0001731012', // Alphinity
   '0001475365', // Sumitomo Mitsui Trust (CIK-title bug example)
   '0000902528', // Bank Hapoalim (2Q bug example)
+  '0001017918', // BAMCO (Baron) — TSLA holder link / #fund/fund-CIK
 ];
 /** Hard names when stock seeds / search-cik omit the 13F manager title. */
 const PRIORITY_NAMES = {
   '0001622346': 'SHANDA ASSET MANAGEMENT HOLDINGS LTD',
   '0001475365': 'SUMITOMO MITSUI TRUST GROUP, INC.',
   '0000902528': 'BANK HAPOALIM BM',
+  '0001017918': 'BAMCO INC /NY/',
 };
 
 function collectTargets(nameHints) {

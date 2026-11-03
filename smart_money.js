@@ -1415,30 +1415,45 @@
       if (!identity.cik) throw new Error('FUND_IDENTITY_UNKNOWN');
 
       // Prefer dedicated fund-{cik} / slug seeds (already tried above) or live extract.
-      // Do NOT invent a 1-stock "book" from stock-holder invert — that looks like a full
-      // 13F (WhaleCreep) but only shows symbols present in stock demos.
-      function fromFullSeedOrEmpty(liveErrors) {
-        return loadFundCache(`fund-${identity.cik}`).then((cached) => {
-          if (cached.investorName) {
-            registerHolderNames({ [cached.cik || identity.cik]: cached.investorName });
+      // Last resort: stock-holder invert from holder-funds.funds (Preview without Vercel
+      // FMP_API_KEY). Clearly labeled partial — only symbols present in stock demo seeds.
+      function packCachedBook(cached, liveErrors, sourceTag) {
+        if (cached.investorName) {
+          registerHolderNames({ [cached.cik || identity.cik]: cached.investorName });
+        }
+        const quarters = cached.quarters || [];
+        const current = selectFundQuarter(quarters, vsParsed);
+        if (!current) return emptyFundResult(identity, 'FUND_BOOK_EMPTY', liveErrors);
+        const idx = quarters.indexOf(current);
+        const prior = idx >= 0 ? quarters[idx + 1] : quarters[1];
+        const currentHoldings = (current?.rows || []).map(row => normalizeFundHolding(row, cached.cik || identity.cik)).filter(Boolean);
+        const priorHoldings = (prior?.rows || []).map(row => normalizeFundHolding(row, cached.cik || identity.cik)).filter(Boolean);
+        const compared = compareFundHoldings(currentHoldings, priorHoldings);
+        return packFundResult(titledMeta({
+          source: sourceTag || 'cache',
+          cik: cached.cik || identity.cik,
+          slug: cached.slug || identity.slug,
+          curated: identity.curated,
+          capturedAt: cached.capturedAt || null,
+          partial: Boolean(cached.source?.partial || sourceTag === 'seed-partial'),
+          liveErrors: liveErrors || [],
+        }, cached.investorName), current, prior, compared, cached.history?.length ? cached.history : quarters);
+      }
+
+      function fromPartialInvert(liveErrors) {
+        return loadHolderFundsIndex().then((index) => {
+          const entry = index?.funds?.[identity.cik];
+          const expanded = expandHolderFundEntry(entry, identity.cik);
+          if (!expanded?.quarters?.length) {
+            return emptyFundResult(identity, 'FUND_BOOK_EMPTY', liveErrors);
           }
-          const quarters = cached.quarters || [];
-          const current = selectFundQuarter(quarters, vsParsed);
-          if (!current) return emptyFundResult(identity, 'FUND_BOOK_EMPTY', liveErrors);
-          const idx = quarters.indexOf(current);
-          const prior = idx >= 0 ? quarters[idx + 1] : quarters[1];
-          const currentHoldings = (current?.rows || []).map(row => normalizeFundHolding(row, cached.cik || identity.cik)).filter(Boolean);
-          const priorHoldings = (prior?.rows || []).map(row => normalizeFundHolding(row, cached.cik || identity.cik)).filter(Boolean);
-          const compared = compareFundHoldings(currentHoldings, priorHoldings);
-          return packFundResult(titledMeta({
-            source: 'cache',
-            cik: cached.cik || identity.cik,
-            slug: cached.slug || identity.slug,
-            curated: identity.curated,
-            capturedAt: cached.capturedAt || null,
-            liveErrors: liveErrors || [],
-          }, cached.investorName), current, prior, compared, cached.history?.length ? cached.history : quarters);
+          return packCachedBook(expanded, liveErrors, 'seed-partial');
         }).catch(() => emptyFundResult(identity, 'FUND_BOOK_EMPTY', liveErrors));
+      }
+
+      function fromFullSeedOrEmpty(liveErrors) {
+        return loadFundCache(`fund-${identity.cik}`).then((cached) => packCachedBook(cached, liveErrors, 'cache'))
+          .catch(() => fromPartialInvert(liveErrors));
       }
 
       const liveCount = Math.max(2, Math.min(12, Number(options.liveQuarters) || LIVE_FUND_QUARTERS));

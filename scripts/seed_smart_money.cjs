@@ -428,13 +428,20 @@ if (require.main !== module) {
   }
   const uniqueAllow = [...new Set(allowCiks)];
   const holderFundsPath = path.join(fundsDir, 'holder-funds.json');
+  // Compact invert map so #fund/fund-{cik} holder links open with data on Preview
+  // without Vercel FMP_API_KEY (partial — only symbols present in stock seeds).
+  const invertFunds = Object.create(null);
+  for (const [cik, entry] of Object.entries(holderFunds.funds || {})) {
+    const n = displayFundName(cik, entry?.n, nameByCik[cik]) || entry?.n || null;
+    invertFunds[cik] = n && n !== entry?.n ? { ...entry, n } : entry;
+  }
   const holderFundsSlim = {
     capturedAt: new Date().toISOString(),
     seed: true,
     source: {
       provider: 'FMP',
-      method: 'extract-allowlist',
-      note: 'CIK allowlist + names for institutional-extract; full books in fund-{cik}.json / curated slugs',
+      method: 'extract-allowlist+stock-invert',
+      note: 'CIK allowlist + names + partial invert books; full 13F in fund-{cik}.json / curated / Vercel FMP extract',
     },
     count: uniqueAllow.length,
     ciks: uniqueAllow,
@@ -444,7 +451,8 @@ if (require.main !== module) {
         .map(cik => [cik, nameByCik[cik] || null])
         .filter(([cik, n]) => n && !SmartMoney.looksLikeBareCik(n, cik)),
     ),
-    disclaimer: 'Allowlist only — open fund-{cik} seeds or live extract for full 13F books.',
+    funds: invertFunds,
+    disclaimer: 'Allowlist + partial invert — dedicated fund-{cik} / curated seeds preferred; live extract needs Vercel FMP_API_KEY.',
   };
   fs.writeFileSync(holderFundsPath, `${JSON.stringify(holderFundsSlim)}\n`);
   SmartMoney.registerExtractAllowlist(uniqueAllow);
@@ -455,6 +463,7 @@ if (require.main !== module) {
   const PRIORITY_EXTRA = new Set([
     '0001484150', '0002147005', '0001848138', '0001622346', '0001759760',
     '0001532262', '0000937729', '0001731012', '0001475365', '0000902528',
+    '0001017918', // BAMCO — linked from TSLA holders; must not dead-empty on Preview
   ]);
   const candidates = [];
   const seenExtra = new Set();

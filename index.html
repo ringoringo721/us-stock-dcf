@@ -9457,18 +9457,27 @@
         status.className = 'sm-alert-empty';
         status.innerHTML = isEn
           ? `<strong>No fund book on file</strong> · ${escapeAttribute(title)}<br>`
-            + 'No dedicated seed and live extract unavailable. Not a dead link — configure <code>FMP_API_KEY</code> for full 13F, or open managers that appear in stock seeds.'
+            + 'No dedicated seed and no stock-seed invert. Live extract needs <code>FMP_API_KEY</code> in the '
+            + '<strong>Vercel project</strong> env (Production + Preview) — Cursor/GitHub secrets do not reach Vercel.'
           : `<strong>無管理人組合種子</strong> · ${escapeAttribute(title)}<br>`
-            + '無專屬種子且即時 extract 不可用。不是失效連結 — 完整 13F 需 <code>FMP_API_KEY</code>，或開啟股票種子中出現的管理人。';
+            + '無專屬種子、亦無股票種子反推。即時 extract 需在 <strong>Vercel 專案</strong>環境變數設定 '
+            + '<code>FMP_API_KEY</code>（Production + Preview）— Cursor／GitHub secrets 不會傳到 Vercel。';
         holdingsBody.innerHTML = `<tr class="sm-alert-empty-row"><td class="table-sticky-col" colspan="7">${
           isEn ? 'No holdings on file.' : '無持倉種子。'}</td></tr>`;
       } else {
         status.className = 'analysis-note';
         const src = result.source === 'cache' ? (isEn ? 'cache' : '快取')
           : result.source === 'live' ? (isEn ? 'live FMP' : '即時 FMP')
-            : escapeAttribute(String(result.source || ''));
+            : result.source === 'seed-partial'
+              ? (isEn ? 'partial (stock-seed invert)' : '部分（股票種子反推）')
+              : escapeAttribute(String(result.source || ''));
         status.textContent = `${title} · ${qLabel} · ${src}`
           + (result.capturedAt ? ` · ${String(result.capturedAt).slice(0, 10)}` : '')
+          + (result.partial
+            ? (isEn
+              ? ' · not a full 13F — only symbols in stock demos; set Vercel FMP_API_KEY for full books'
+              : ' · 非完整 13F（僅股票演示種子中的標的）；完整帳本請於 Vercel 設定 FMP_API_KEY')
+            : '')
           + (result.liveErrors?.length
             ? ` · ${isEn ? 'partial errors' : '部分錯誤'} ${result.liveErrors.length}` : '');
       }
