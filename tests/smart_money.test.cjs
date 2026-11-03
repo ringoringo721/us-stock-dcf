@@ -437,6 +437,47 @@ test('slimFundPayload unions holding identities across quarters (no false top-N 
   assert.equal(compared.holdings.find(r => r.securityCusip === '037833100').action, 'held');
 });
 
+test('slimFundPayload keeps largest lot per CUSIP (not first / not sum)', () => {
+  const { slimFundPayload, collapseFundLotsByIdentity } = require('../scripts/seed_smart_money.cjs');
+  // FMP often emits duplicate / split lines for the same CUSIP; first-wins dropped the
+  // ~$1.4B BRK-B and kept ~$520M (Check Capital). Summing would inflate vs history KPIs.
+  const collapsed = collapseFundLotsByIdentity([
+    { symbol: 'BRK-B', securityCusip: '084670702', value: 520_776_904, shares: 1_072_065 },
+    { symbol: 'BRK-B', securityCusip: '084670702', value: 1_440_550_935, shares: 2_965_500 },
+    { symbol: 'BRK-B', securityCusip: '084670702', value: 1_440_550_935, shares: 2_965_500 },
+    { symbol: 'VIST', securityCusip: '92837L109', value: 5_816_400, shares: 120_000 },
+    { symbol: 'VIST', securityCusip: '92837L109', value: 8_320_860, shares: 171_000 },
+  ]);
+  assert.equal(collapsed.length, 2);
+  const brk = collapsed.find(r => r.securityCusip === '084670702');
+  const vist = collapsed.find(r => r.securityCusip === '92837L109');
+  assert.equal(brk.value, 1_440_550_935);
+  assert.equal(brk.shares, 2_965_500);
+  assert.equal(vist.value, 8_320_860);
+
+  const seeded = slimFundPayload({
+    cik: '0001032814',
+    slug: 'fund-0001032814',
+    investorName: 'CHECK CAPITAL MANAGEMENT INC/CA',
+    quarters: [{
+      year: 2025, quarter: 2,
+      rows: [
+        { symbol: 'BRK-B', securityCusip: '084670702', value: 520_776_904, shares: 1_072_065 },
+        { symbol: 'AAPL', securityCusip: '037833100', value: 100_000_000, shares: 1 },
+        { symbol: 'BRK-B', securityCusip: '084670702', value: 1_440_550_935, shares: 2_965_500 },
+      ],
+    }],
+    history: [{
+      year: 2025, quarter: 2, positions: 50, book: 2_957_613_794,
+      largestWeight: 48.7, topSymbol: 'BRK-B',
+    }],
+  }, { quarters: 1, holdingCap: 22 });
+  const rows = seeded.quarters[0].rows.filter(r => r.securityCusip === '084670702');
+  assert.equal(rows.length, 1);
+  assert.equal(rows[0].value, 1_440_550_935);
+  assert.equal(seeded.history[0].largestWeight, 48.7);
+});
+
 test('effectivePositions treats percent-of-book weights like WhaleCreep', () => {
   const n = SmartMoney.effectivePositions([22, 17, 11, 9, 9, 5, 4, 4, 4, 3]);
   assert.ok(n > 7 && n < 12);

@@ -64,6 +64,39 @@ function pick(row, fields) {
   return out;
 }
 
+/** Market value for ranking fund lots (FMP `value` or `marketValue`). */
+function fundLotValue(row) {
+  return Number(row?.value ?? row?.marketValue) || 0;
+}
+
+function fundLotShares(row) {
+  return Number(row?.shares) || 0;
+}
+
+/**
+ * Collapse duplicate FMP lots that share a holdingIdentity (same CUSIP / symbol+class).
+ * Keep the largest by marketValue, then shares — do NOT sum: extracts often repeat the
+ * same filing line, and summing invents inflated BRK-B books vs history KPIs.
+ */
+function collapseFundLotsByIdentity(rows) {
+  const byId = new Map();
+  for (const row of rows || []) {
+    const id = SmartMoney.holdingIdentity(row);
+    if (!id) continue;
+    const prev = byId.get(id);
+    if (!prev) {
+      byId.set(id, row);
+      continue;
+    }
+    const pv = fundLotValue(prev);
+    const rv = fundLotValue(row);
+    if (rv > pv || (rv === pv && fundLotShares(row) > fundLotShares(prev))) {
+      byId.set(id, row);
+    }
+  }
+  return [...byId.values()];
+}
+
 function slimStockPayload(payload, { holderCap = STOCK_HOLDER_CAP, quarters = STOCK_QUARTERS } = {}) {
   const sourceQuarters = (payload.quarters || []).slice(0, quarters);
   // Union CIKs across quarters first (top-N per Q + curated). Independent per-quarter
@@ -134,29 +167,28 @@ function slimFundPayload(payload, {
   holdingCap = FUND_HOLDING_CAP,
 } = {}) {
   const sourceQuarters = (payload.quarters || []).slice(0, quarters);
-  // Union holding identities across quarters (CUSIP / symbol+class) — same idea as stock
-  // CIK union. Independent per-Q top-N invents false exits when a name only drops off the
-  // newer top-N (Bank Hapoalim etc.).
+  // Collapse duplicate CUSIP lots first (keep largest), then union identities across
+  // quarters — same idea as stock CIK union. Independent per-Q top-N invents false
+  // exits when a name only drops off the newer top-N (Bank Hapoalim etc.). First-wins
+  // dedupe previously dropped ~$1.4–1.9B BRK-B when a smaller duplicate appeared first.
   const seedIds = new Set();
   for (const q of sourceQuarters) {
-    const ranked = [...(q.rows || [])]
-      .sort((a, b) => (Number(b.value ?? b.marketValue) || 0) - (Number(a.value ?? a.marketValue) || 0)
-        || (Number(b.weight) || 0) - (Number(a.weight) || 0));
+    const ranked = collapseFundLotsByIdentity(q.rows)
+      .sort((a, b) => fundLotValue(b) - fundLotValue(a)
+        || (Number(b.weight) || 0) - (Number(a.weight) || 0)
+        || fundLotShares(b) - fundLotShares(a));
     for (const row of ranked.slice(0, holdingCap)) {
       seedIds.add(SmartMoney.holdingIdentity(row));
     }
   }
 
   const kept = sourceQuarters.map(q => {
-    const byId = new Map();
-    for (const row of q.rows || []) {
-      const id = SmartMoney.holdingIdentity(row);
-      if (!seedIds.has(id) || byId.has(id)) continue;
-      byId.set(id, pick(row, FUND_FIELDS));
-    }
-    const rows = [...byId.values()]
-      .sort((a, b) => (Number(b.value ?? b.marketValue) || 0) - (Number(a.value ?? a.marketValue) || 0)
-        || (Number(b.weight) || 0) - (Number(a.weight) || 0));
+    const rows = collapseFundLotsByIdentity(q.rows)
+      .filter(row => seedIds.has(SmartMoney.holdingIdentity(row)))
+      .map(row => pick(row, FUND_FIELDS))
+      .sort((a, b) => fundLotValue(b) - fundLotValue(a)
+        || (Number(b.weight) || 0) - (Number(a.weight) || 0)
+        || fundLotShares(b) - fundLotShares(a));
     return {
       year: q.year,
       quarter: q.quarter,
@@ -266,6 +298,7 @@ function readFundSource(inv) {
 module.exports = {
   slimFundPayload,
   slimStockPayload,
+  collapseFundLotsByIdentity,
   STOCK_HOLDER_CAP,
   STOCK_QUARTERS,
   EXTRA_FUND_QUARTERS,
