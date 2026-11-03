@@ -227,8 +227,10 @@ test('institutional-holders returns broad holders with curated flags and stays p
     '/api/fmp?action=institutional-holders&symbol=AAPL&year=2025&quarter=5')).status, 400);
 });
 
-test('institutional-extract is capped, CIK-validated, and rate-private', async () => {
+test('institutional-extract is capped, CIK-allowlisted, and rate-private', async () => {
+  let upstreamCalls = 0;
   const handler = createHandler({ apiKey: () => 'test-placeholder', fetch: async url => {
+    upstreamCalls += 1;
     assert.equal(url.pathname, '/stable/institutional-ownership/extract');
     assert.equal(url.searchParams.get('cik'), '0001067983');
     assert.equal(url.searchParams.get('year'), '2025');
@@ -250,4 +252,17 @@ test('institutional-extract is capped, CIK-validated, and rate-private', async (
   assert.match(String(result.headers['Cache-Control'] || ''), /private/);
   assert.equal((await call(handler,
     '/api/fmp?action=institutional-extract&cik=bad&year=2025&quarter=2')).status, 400);
+  // Non-curated 10-digit CIK must not burn shared FMP quota.
+  const blocked = await call(handler,
+    '/api/fmp?action=institutional-extract&cik=0002012383&year=2025&quarter=2');
+  assert.equal(blocked.status, 403);
+  assert.equal(blocked.body.error, 'INSTITUTIONAL_CIK_NOT_ALLOWLISTED');
+  assert.equal(upstreamCalls, 1);
+  // Tight extract budget (4/min) after the successful curated call above.
+  for (let i = 0; i < 3; i += 1) {
+    assert.equal((await call(handler,
+      '/api/fmp?action=institutional-extract&cik=0001067983&year=2025&quarter=2')).status, 200);
+  }
+  assert.equal((await call(handler,
+    '/api/fmp?action=institutional-extract&cik=0001067983&year=2025&quarter=2')).status, 429);
 });

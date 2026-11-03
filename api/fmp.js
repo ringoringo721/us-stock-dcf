@@ -26,7 +26,8 @@ const documentRateBuckets = new Map();
 const DOCUMENT_RATE_WINDOW_MS = 60_000;
 const DOCUMENT_RATE_MAX = 40;
 const INSTITUTIONAL_RATE_MAX = 30;
-const INSTITUTIONAL_EXTRACT_RATE_MAX = 8;
+/** Tight cap — extract is allowlisted to curated CIKs only; still budget shared FMP quota. */
+const INSTITUTIONAL_EXTRACT_RATE_MAX = 4;
 const RATE_LIMITED_ACTIONS = new Set([
   'sec-filings', 'transcript-dates', 'institutional-holders', 'institutional-extract',
 ]);
@@ -100,6 +101,13 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
     const cikParam = SmartMoney.padCik(query.get('cik'));
     if (institutionalExtract && !/^\d{10}$/.test(cikParam || '')) {
       return send(400, { error: 'INVALID_INSTITUTIONAL_CIK' });
+    }
+    // Public extract is curated/seed CIKs only — no open CIK scrape against shared FMP quota.
+    if (institutionalExtract && !SmartMoney.allowedCik(cikParam)) {
+      return send(403, {
+        error: 'INSTITUTIONAL_CIK_NOT_ALLOWLISTED',
+        hint: 'institutional-extract accepts curated Smart Money fund CIKs only.',
+      });
     }
     // institutional-extract is CIK-primary (fund book); symbol is not required.
     const symbolOk = institutionalExtract

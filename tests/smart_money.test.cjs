@@ -128,6 +128,48 @@ test('compareFundHoldings marks new/added/reduced/exited vs prior quarter', () =
   assert.ok(compared.kpis.book > 0);
 });
 
+test('compareFundHoldings keys dual-class lots by CUSIP / class not symbol alone', () => {
+  const compared = SmartMoney.compareFundHoldings([
+    { symbol: 'GOOG', securityCusip: '02079K107', titleOfClass: 'CAP STK CL C', shares: 100, marketValue: 10e6, weight: 60 },
+    { symbol: 'GOOG', securityCusip: '02079K305', titleOfClass: 'CAP STK CL A', shares: 50, marketValue: 5e6, weight: 30 },
+  ], [
+    { symbol: 'GOOG', securityCusip: '02079K107', titleOfClass: 'CAP STK CL C', shares: 80, marketValue: 8e6, weight: 50 },
+    { symbol: 'GOOG', securityCusip: '02079K305', titleOfClass: 'CAP STK CL A', shares: 50, marketValue: 5e6, weight: 30 },
+    { symbol: 'GOOG', securityCusip: '02079K999', titleOfClass: 'CAP STK CL B', shares: 10, marketValue: 1e6, weight: 5 },
+  ]);
+  assert.equal(compared.holdings.length, 2);
+  assert.equal(compared.holdings.find(r => r.securityCusip === '02079K107').action, 'added');
+  assert.equal(compared.holdings.find(r => r.securityCusip === '02079K305').action, 'held');
+  assert.equal(compared.exited.length, 1);
+  assert.equal(compared.exited[0].securityCusip, '02079K999');
+  // Without CUSIP, symbol + titleOfClass still keeps dual-class lots distinct.
+  const byClass = SmartMoney.compareFundHoldings([
+    { symbol: 'BRK', titleOfClass: 'CL A', shares: 1, marketValue: 100 },
+    { symbol: 'BRK', titleOfClass: 'CL B', shares: 200, marketValue: 50 },
+  ], [
+    { symbol: 'BRK', titleOfClass: 'CL A', shares: 1, marketValue: 90 },
+    { symbol: 'BRK', titleOfClass: 'CL B', shares: 100, marketValue: 40 },
+  ]);
+  assert.equal(byClass.holdings.length, 2);
+  assert.equal(byClass.holdings.find(r => r.titleOfClass === 'CL A').action, 'held');
+  assert.equal(byClass.holdings.find(r => r.titleOfClass === 'CL B').action, 'added');
+});
+
+test('selectFundQuarter rejects missing / invalid ?vs= instead of silent latest', () => {
+  const quarters = [
+    { year: 2025, quarter: 2, rows: [{ symbol: 'AAPL' }] },
+    { year: 2025, quarter: 1, rows: [{ symbol: 'AAPL' }] },
+  ];
+  assert.equal(SmartMoney.selectFundQuarter(quarters, null).quarter, 2);
+  assert.equal(SmartMoney.selectFundQuarter(quarters, { year: 2025, quarter: 1 }).quarter, 1);
+  assert.throws(
+    () => SmartMoney.selectFundQuarter(quarters, { year: 2024, quarter: 4 }),
+    /FUND_QUARTER_NOT_FOUND:2024-Q4/,
+  );
+  assert.match(SmartMoney.parseQuarterKey('2025-q2') && 'ok', /ok/);
+  assert.equal(SmartMoney.parseQuarterKey('2025-q9'), null);
+});
+
 test('HK listings are not US 13F eligible', () => {
   assert.equal(SmartMoney.isUsListed({ ticker: '0700.HK', calculationCurrency: 'HKD' }), false);
   assert.equal(SmartMoney.isUsListed({ ticker: 'AAPL', calculationCurrency: 'USD' }), true);

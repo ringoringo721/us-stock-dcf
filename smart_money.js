@@ -102,6 +102,18 @@
     return `sv:${finite(row?.shares)}|${finite(row?.marketValue)}`;
   }
 
+  /** Stable fund-lot key across quarters — CUSIP first, else symbol+class (not symbol alone). */
+  function holdingIdentity(row) {
+    const cusip = String(row?.securityCusip || row?.cusip || '').trim().toUpperCase();
+    if (cusip) return `cusip:${cusip}`;
+    const cls = String(row?.titleOfClass || '').trim().toUpperCase();
+    const symbol = String(row?.symbol || '').trim().toUpperCase();
+    if (symbol) return `sym:${symbol}|cls:${cls}`;
+    const name = String(row?.nameOfIssuer || '').trim().toUpperCase();
+    if (name) return `name:${name}|cls:${cls}`;
+    return `sv:${finite(row?.shares)}|${finite(row?.marketValue)}`;
+  }
+
   function mergeRowsByCik(rows) {
     const byCik = new Map();
     for (const row of rows || []) {
@@ -354,10 +366,13 @@
   }
 
   function compareFundHoldings(current, prior) {
-    const priorBy = new Map((prior || []).map(row => [row.symbol || row.securityCusip || row.nameOfIssuer, row]));
+    const priorBy = new Map();
+    for (const row of prior || []) {
+      priorBy.set(holdingIdentity(row), row);
+    }
     const currentKeys = new Set();
     const rows = (current || []).map(row => {
-      const key = row.symbol || row.securityCusip || row.nameOfIssuer;
+      const key = holdingIdentity(row);
       currentKeys.add(key);
       const prev = priorBy.get(key);
       const lastShares = prev?.shares ?? null;
@@ -379,7 +394,7 @@
     const priorBook = sumFinite((prior || []).map(row => row.marketValue));
     const exited = (prior || [])
       .filter(row => {
-        const key = row.symbol || row.securityCusip || row.nameOfIssuer;
+        const key = holdingIdentity(row);
         return !currentKeys.has(key) && row.shares > 0;
       })
       .map(row => {
@@ -689,10 +704,26 @@
     return { cik: null, slug, curated: null };
   }
 
+  function selectFundQuarter(quarters, vsParsed) {
+    const list = quarters || [];
+    if (!vsParsed) return list[0] || null;
+    const hit = list.find(q => Number(q.year) === vsParsed.year && Number(q.quarter) === vsParsed.quarter);
+    if (!hit) {
+      throw new Error(`FUND_QUARTER_NOT_FOUND:${vsParsed.year}-Q${vsParsed.quarter}`);
+    }
+    return hit;
+  }
+
   function loadFund(slugOrCik, options = {}) {
     const identity = resolveFundIdentity(slugOrCik);
     const vs = options.vs || options.quarterKey || null;
-    const vsParsed = vs ? parseQuarterKey(String(vs).replace(/^vs=/i, '').toUpperCase().replace(/-q/, '-Q')) : null;
+    let vsParsed = null;
+    if (vs) {
+      vsParsed = parseQuarterKey(String(vs).replace(/^vs=/i, '').toUpperCase().replace(/-q/, '-Q'));
+      if (!vsParsed) {
+        return Promise.reject(new Error(`FUND_QUARTER_INVALID:${vs}`));
+      }
+    }
 
     const fromCache = loadFundCache(identity.slug)
       .catch(() => (identity.cik ? loadFundCache(identity.cik) : Promise.reject(new Error('FUND_CACHE_MISS'))));
@@ -731,11 +762,8 @@
 
     return fromCache.then((cached) => {
       const quarters = cached.quarters || [];
-      let current = quarters[0];
-      if (vsParsed) {
-        const hit = quarters.find(q => q.year === vsParsed.year && q.quarter === vsParsed.quarter);
-        if (hit) current = hit;
-      }
+      const current = selectFundQuarter(quarters, vsParsed);
+      if (!current) throw new Error('FUND_CACHE_EMPTY');
       const idx = quarters.indexOf(current);
       const prior = idx >= 0 ? quarters[idx + 1] : quarters[1];
       const currentHoldings = (current?.rows || []).map(row => normalizeFundHolding(row, cached.cik || identity.cik)).filter(Boolean);
@@ -752,7 +780,11 @@
         curated: identity.curated || BY_CIK[cached.cik] || null,
         capturedAt: cached.capturedAt || null,
       }, current, prior, compared, historySource);
-    }).catch(() => {
+    }).catch((cacheError) => {
+      // Invalid ?vs= must not fall through to "latest" — surface the parse error.
+      if (String(cacheError?.message || '').startsWith('FUND_QUARTER_INVALID:')) {
+        throw cacheError;
+      }
       if (!identity.cik) throw new Error('FUND_IDENTITY_UNKNOWN');
       const specs = vsParsed
         ? [vsParsed, priorQuarter(vsParsed.year, vsParsed.quarter)]
@@ -760,6 +792,28 @@
       return Promise.all(specs.map(spec => loadFundLive(identity.cik, spec.year, spec.quarter)
         .catch(error => ({ year: spec.year, quarter: spec.quarter, rows: [], error, incomplete: true }))))
         .then((quarters) => {
+          if (vsParsed) {
+            const current = selectFundQuarter(
+              quarters.filter(q => !q.incomplete && !q.error),
+              vsParsed,
+            );
+            const priorSpec = priorQuarter(vsParsed.year, vsParsed.quarter);
+            const prior = quarters.find(q => !q.incomplete && !q.error
+              && Number(q.year) === priorSpec.year && Number(q.quarter) === priorSpec.quarter) || null;
+            const currentHoldings = (current.rows || []).map(row => normalizeFundHolding(row, identity.cik)).filter(Boolean);
+            const priorHoldings = (prior?.rows || []).map(row => normalizeFundHolding(row, identity.cik)).filter(Boolean);
+            const compared = compareFundHoldings(currentHoldings, priorHoldings);
+            const usable = quarters.filter(q => !q.incomplete && !q.error);
+            return packFundResult({
+              source: 'live',
+              cik: identity.cik,
+              slug: identity.slug,
+              investorName: current.investorName || identity.curated?.nameEn || identity.slug,
+              curated: identity.curated,
+              capturedAt: new Date().toISOString(),
+              liveErrors: quarters.filter(q => q.error).map(q => String(q.error.message || q.error)),
+            }, current, prior, compared, usable);
+          }
           const usable = quarters.filter(q => !q.incomplete && !q.error);
           if (!usable.length) throw new Error('FUND_LIVE_EMPTY');
           const current = usable[0];
@@ -829,6 +883,9 @@
     quarterSpecsFromDates,
     normalizeAnalyticsRow,
     normalizeFundHolding,
+    holdingIdentity,
+    lotIdentity,
+    selectFundQuarter,
     buildStockSnapshot,
     buildStockKpis,
     compareFundHoldings,
