@@ -123,7 +123,7 @@ function normalizeHolderRows(ticker, year, quarter, rows) {
     quarter,
     isNew: row.isNew === true,
     isSoldOut: row.isSoldOut === true,
-    isCurated: Boolean(SmartMoney.allowedCik(row.cik)),
+    isCurated: SmartMoney.isCuratedCik(row.cik),
   }));
   return merged;
 }

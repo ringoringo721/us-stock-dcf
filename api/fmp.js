@@ -368,7 +368,8 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
           cik: SmartMoney.padCik(row.cik),
           year: Number(instYear),
           quarter: Number(instQuarter),
-          isCurated: Boolean(SmartMoney.allowedCik(row?.cik)),
+          // Curated-20 badge only — extract allowlist (holder-funds) must not inflate isCurated.
+          isCurated: SmartMoney.isCuratedCik(row?.cik),
         }));
       }
     }

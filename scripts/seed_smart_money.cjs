@@ -71,7 +71,7 @@ function slimStockPayload(payload, { holderCap = STOCK_HOLDER_CAP, quarters = ST
       if (cik) seedCiks.add(cik);
     }
     for (const row of ranked) {
-      if (!SmartMoney.allowedCik(row.cik)) continue;
+      if (!SmartMoney.isCuratedCik(row.cik)) continue;
       const cik = SmartMoney.padCik(row.cik);
       if (cik) seedCiks.add(cik);
     }

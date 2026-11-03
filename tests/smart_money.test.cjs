@@ -287,6 +287,9 @@ test('allowedCik / resolveFundIdentity / fundHref', () => {
   assert.equal(SmartMoney.allowedCik('0009999998'), null);
   SmartMoney.registerExtractAllowlist(['0002147005']);
   assert.equal(SmartMoney.allowedCik('0002147005'), '0002147005');
+  // Extract allowlist ≠ curated-20 badge set.
+  assert.equal(SmartMoney.isCuratedCik('0002147005'), false);
+  assert.equal(SmartMoney.isCuratedCik('0001067983'), true);
   const id = SmartMoney.resolveFundIdentity('berkshire-hathaway');
   assert.equal(id.cik, '0001067983');
   assert.equal(id.slug, 'berkshire-hathaway');

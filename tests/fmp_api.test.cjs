@@ -200,6 +200,11 @@ test('transcript-dates allowed; full transcript body blocked; private cache', as
 });
 
 test('institutional-holders returns broad holders with curated flags and stays private', async () => {
+  // Extract allowlist expansion must not mark seed-holder CIKs as curated.
+  const SmartMoney = require('../smart_money.js');
+  SmartMoney.registerExtractAllowlist(['0002012383', '0002147005']);
+  assert.equal(SmartMoney.allowedCik('0002012383'), '0002012383');
+  assert.equal(SmartMoney.isCuratedCik('0002012383'), false);
   const handler = createHandler({ apiKey: () => 'test-placeholder', fetch: async url => {
     assert.equal(url.pathname, '/stable/institutional-ownership/extract-analytics/holder');
     assert.equal(url.searchParams.get('symbol'), 'AAPL');
