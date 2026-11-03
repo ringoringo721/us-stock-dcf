@@ -103,17 +103,31 @@ async function extract(cik, year, quarter) {
         if (!matched.length) continue;
         const bucket = byTicker.get(ticker);
         if (!bucket.has(key)) bucket.set(key, []);
-        for (const row of matched) {
+        // Merge split lots for the same CIK before storing.
+        const shares = matched.reduce((sum, row) => {
+          const n = Number(row.shares);
+          return Number.isFinite(n) ? sum + n : sum;
+        }, 0);
+        const marketValue = matched.reduce((sum, row) => {
+          const n = Number(row.value);
+          return Number.isFinite(n) ? sum + n : sum;
+        }, 0);
+        const first = matched[0];
+        const existing = bucket.get(key).find(row => row.cik === investor.cik);
+        if (existing) {
+          existing.sharesNumber = (Number(existing.sharesNumber) || 0) + shares;
+          existing.marketValue = (Number(existing.marketValue) || 0) + marketValue;
+        } else {
           bucket.get(key).push({
-            date: row.date,
-            filingDate: row.filingDate,
+            date: first.date,
+            filingDate: first.filingDate,
             cik: investor.cik,
             investorName: investor.nameEn,
             symbol: ticker,
-            sharesNumber: row.shares,
+            sharesNumber: shares,
             lastSharesNumber: null,
             changeInSharesNumber: null,
-            marketValue: row.value,
+            marketValue,
             weight: null,
             ownership: null,
             year: filing.year,
@@ -138,40 +152,43 @@ async function extract(cik, year, quarter) {
       const prior = SmartMoney.priorQuarter(year, quarter);
       const priorKey = SmartMoney.quarterKey(prior.year, prior.quarter);
       const priorRows = quarterMap.get(priorKey) || [];
+      // Dedupe any residual multi-lot rows; buildSnapshot also merges + synthesizes exits.
+      const merged = SmartMoney.mergeRowsByCik(rows.map(row => ({
+        ...row,
+        shares: row.sharesNumber,
+        lastShares: row.lastSharesNumber,
+        marketValue: row.marketValue,
+      }))).map(row => ({
+        date: row.date,
+        filingDate: row.filingDate,
+        cik: row.cik,
+        investorName: row.investorName,
+        symbol: ticker,
+        sharesNumber: row.shares,
+        lastSharesNumber: null,
+        changeInSharesNumber: null,
+        marketValue: row.marketValue,
+        weight: row.weight,
+        ownership: row.ownership,
+        year,
+        quarter,
+        isNew: false,
+        isSoldOut: false,
+      }));
       const priorByCik = new Map(priorRows.map(row => [row.cik, row]));
-      const enriched = rows.map(row => {
+      const enriched = merged.map(row => {
         const prev = priorByCik.get(row.cik);
-        const lastShares = prev ? Number(prev.sharesNumber) : 0;
-        const shares = Number(row.sharesNumber) || 0;
+        const lastShares = prev && Number.isFinite(Number(prev.sharesNumber))
+          ? Number(prev.sharesNumber) : null;
+        const shares = Number.isFinite(Number(row.sharesNumber)) ? Number(row.sharesNumber) : null;
         return {
           ...row,
-          lastSharesNumber: prev ? lastShares : 0,
-          changeInSharesNumber: shares - (prev ? lastShares : 0),
-          isNew: !prev && shares > 0,
+          lastSharesNumber: lastShares,
+          changeInSharesNumber: shares != null && lastShares != null ? shares - lastShares : null,
+          isNew: lastShares == null && shares > 0,
           isSoldOut: false,
         };
       });
-      // Explicit exits: held prior quarter, missing this quarter.
-      for (const prev of priorRows) {
-        if (enriched.some(row => row.cik === prev.cik)) continue;
-        enriched.push({
-          date: null,
-          filingDate: null,
-          cik: prev.cik,
-          investorName: prev.investorName,
-          symbol: ticker,
-          sharesNumber: 0,
-          lastSharesNumber: Number(prev.sharesNumber) || 0,
-          changeInSharesNumber: -(Number(prev.sharesNumber) || 0),
-          marketValue: 0,
-          weight: null,
-          ownership: null,
-          year,
-          quarter,
-          isNew: false,
-          isSoldOut: true,
-        });
-      }
       return { year, quarter, key, rows: enriched };
     });
 

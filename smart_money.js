@@ -43,8 +43,49 @@
   }
 
   function finite(value) {
+    // Number(null) === 0 — treat null/undefined/'' as missing, not zero.
+    if (value == null || value === '') return null;
     const n = Number(value);
     return Number.isFinite(n) ? n : null;
+  }
+
+  function sumFinite(values) {
+    let total = 0;
+    let any = false;
+    for (const value of values) {
+      const n = finite(value);
+      if (n == null) continue;
+      total += n;
+      any = true;
+    }
+    return any ? total : null;
+  }
+
+  /** Collapse split 13F lots for the same CIK into one row (sum shares / value). */
+  function mergeRowsByCik(rows) {
+    const map = new Map();
+    for (const row of rows || []) {
+      if (!row?.cik) continue;
+      const existing = map.get(row.cik);
+      if (!existing) {
+        map.set(row.cik, { ...row });
+        continue;
+      }
+      existing.shares = sumFinite([existing.shares, row.shares]);
+      existing.lastShares = sumFinite([existing.lastShares, row.lastShares]);
+      existing.changeInShares = sumFinite([existing.changeInShares, row.changeInShares])
+        ?? (existing.shares != null && existing.lastShares != null
+          ? existing.shares - existing.lastShares : null);
+      existing.marketValue = sumFinite([existing.marketValue, row.marketValue]);
+      existing.weight = sumFinite([existing.weight, row.weight]);
+      existing.ownership = sumFinite([existing.ownership, row.ownership]);
+      existing.isNew = existing.isNew === true && row.isNew === true;
+      existing.isSoldOut = existing.isSoldOut === true || row.isSoldOut === true;
+      if (!existing.date && row.date) existing.date = row.date;
+      if (!existing.filingDate && row.filingDate) existing.filingDate = row.filingDate;
+      if (!existing.investorName && row.investorName) existing.investorName = row.investorName;
+    }
+    return [...map.values()];
   }
 
   function isUsListed(stock) {
@@ -166,11 +207,35 @@
 
   function filterCurated(rows, ticker) {
     if (!Array.isArray(rows)) return [];
-    return rows.map(row => normalizeHolderRow(row, ticker)).filter(Boolean);
+    return mergeRowsByCik(rows.map(row => normalizeHolderRow(row, ticker)).filter(Boolean));
+  }
+
+  function synthesizeExit(investor, priorRow, year, quarter) {
+    const lastShares = priorRow?.shares ?? null;
+    return {
+      cik: investor.cik,
+      investor,
+      ticker: priorRow?.ticker || null,
+      date: null,
+      filingDate: null,
+      year,
+      quarter,
+      shares: 0,
+      lastShares,
+      changeInShares: lastShares != null ? -lastShares : null,
+      marketValue: 0,
+      weight: null,
+      ownership: null,
+      isNew: false,
+      isSoldOut: true,
+      investorName: priorRow?.investorName || investor.nameEn,
+    };
   }
 
   /**
    * Build per-investor series across quarters.
+   * Synthesizes sold-out rows when a CIK vanishes between consecutive quarters
+   * (live FMP analytics only returns names still on the book).
    * @param {Array<{year:number,quarter:number,rows:object[]}>} quarters
    */
   function buildSnapshot(ticker, quarters) {
@@ -183,6 +248,22 @@
       }))
       .filter(q => q.key)
       .sort((a, b) => (b.year - a.year) || (b.quarter - a.quarter));
+
+    // Fill gaps: held in older quarter Q+1, missing in newer Q → synthetic exit in Q.
+    for (let i = 0; i < ordered.length - 1; i += 1) {
+      const newer = ordered[i];
+      const older = ordered[i + 1];
+      const newerByCik = new Map(newer.rows.map(row => [row.cik, row]));
+      for (const prior of older.rows) {
+        if (!(prior.shares > 0)) continue;
+        if (newerByCik.has(prior.cik)) continue;
+        const investor = BY_CIK[prior.cik];
+        if (!investor) continue;
+        const exitRow = synthesizeExit(investor, prior, newer.year, newer.quarter);
+        newer.rows.push(exitRow);
+        newerByCik.set(prior.cik, exitRow);
+      }
+    }
 
     const byInvestor = INVESTORS.map(investor => {
       const history = ordered.map(q => {
@@ -201,7 +282,8 @@
           filingDate: row?.filingDate ?? null,
         };
       });
-      const latest = history.find(h => h.row && (h.row.shares > 0 || h.action === 'exit')) || history[0] || null;
+      // Current status is always the newest quarter cell — never an older still-held lot.
+      const latest = history[0] || null;
       return {
         investor,
         cik: investor.cik,
@@ -215,13 +297,14 @@
       };
     });
 
-    const holders = byInvestor.filter(row => row.holding || row.latestAction === 'exit');
+    const holders = byInvestor.filter(row => row.holding);
+    const exits = byInvestor.filter(row => row.latestAction === 'exit');
     return {
       ticker: String(ticker || '').toUpperCase(),
       quarters: ordered.map(q => q.key),
       investors: byInvestor,
-      holders: holders.filter(row => row.holding),
-      exits: holders.filter(row => row.latestAction === 'exit'),
+      holders,
+      exits,
       curatedCount: INVESTORS.length,
     };
   }
@@ -311,6 +394,8 @@
     investorLabel,
     normalizeHolderRow,
     filterCurated,
+    mergeRowsByCik,
+    finite,
     classifyAction,
     actionLabel,
     quarterKey,

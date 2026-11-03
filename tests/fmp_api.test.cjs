@@ -224,24 +224,12 @@ test('institutional-holders filters to curated CIKs and stays private', async ()
     '/api/fmp?action=institutional-holders&symbol=AAPL&year=2025&quarter=5')).status, 400);
 });
 
-test('institutional-extract only allows curated CIK and filters to symbol', async () => {
-  const handler = createHandler({ apiKey: () => 'test-placeholder', fetch: async url => {
-    assert.equal(url.pathname, '/stable/institutional-ownership/extract');
-    assert.equal(url.searchParams.get('cik'), '0001067983');
-    assert.equal(url.searchParams.has('symbol'), false);
-    return {
-      ok: true,
-      json: async () => [
-        { symbol: 'AAPL', shares: 100, value: 1 },
-        { symbol: 'MSFT', shares: 50, value: 2 },
-      ],
-    };
+test('institutional-extract full books are not proxied', async () => {
+  const handler = createHandler({ apiKey: () => 'test-placeholder', fetch: () => {
+    throw new Error('Must not fetch full 13F extract');
   } });
-  const ok = await call(handler,
+  const blocked = await call(handler,
     '/api/fmp?action=institutional-extract&symbol=AAPL&cik=0001067983&year=2025&quarter=2');
-  assert.equal(ok.status, 200);
-  assert.equal(ok.body.data.length, 1);
-  assert.equal(ok.body.data[0].symbol, 'AAPL');
-  assert.equal((await call(handler,
-    '/api/fmp?action=institutional-extract&symbol=AAPL&cik=0002012383&year=2025&quarter=2')).status, 400);
+  assert.equal(blocked.status, 403);
+  assert.equal(blocked.body.error, 'INSTITUTIONAL_EXTRACT_NOT_PROXIED');
 });

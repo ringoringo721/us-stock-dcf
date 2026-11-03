@@ -21,18 +21,30 @@ test('classifyAction covers new/add/trim/exit/hold', () => {
   assert.equal(SmartMoney.classifyAction({ shares: 100, lastShares: 100, changeInShares: 0 }), 'hold');
 });
 
-test('filterCurated keeps only allowlisted CIKs for the ticker', () => {
+test('finite treats null as missing, not zero', () => {
+  assert.equal(SmartMoney.finite(null), null);
+  assert.equal(SmartMoney.finite(undefined), null);
+  assert.equal(SmartMoney.finite(''), null);
+  assert.equal(SmartMoney.finite(0), 0);
+  assert.equal(SmartMoney.finite('12.5'), 12.5);
+});
+
+test('filterCurated keeps only allowlisted CIKs and merges split lots', () => {
   const rows = SmartMoney.filterCurated([
-    { cik: '0001067983', symbol: 'AAPL', sharesNumber: 1e6, date: '2025-06-30', isNew: false },
+    { cik: '0001067983', symbol: 'AAPL', sharesNumber: 1e6, marketValue: 10, date: '2025-06-30' },
+    { cik: '0001067983', symbol: 'AAPL', sharesNumber: 500e3, marketValue: 5, date: '2025-06-30' },
     { cik: '0002012383', symbol: 'AAPL', sharesNumber: 9e9, investorName: 'BLACKROCK' },
     { cik: '1067983', symbol: 'MSFT', sharesNumber: 1 },
   ], 'AAPL');
   assert.equal(rows.length, 1);
   assert.equal(rows[0].cik, '0001067983');
+  assert.equal(rows[0].shares, 1.5e6);
+  assert.equal(rows[0].marketValue, 15);
   assert.equal(SmartMoney.classifyAction(rows[0]), 'hold');
+  assert.equal(rows[0].weight, null);
 });
 
-test('buildSnapshot builds holder and matrix history', () => {
+test('buildSnapshot builds holder history and synthesizes live-path exits', () => {
   const snap = SmartMoney.buildSnapshot('AAPL', [
     {
       year: 2025, quarter: 2, rows: [
@@ -44,6 +56,8 @@ test('buildSnapshot builds holder and matrix history', () => {
       year: 2025, quarter: 1, rows: [
         { cik: '0001067983', symbol: 'AAPL', sharesNumber: 300e6, lastSharesNumber: 300e6,
           changeInSharesNumber: 0, marketValue: 60e9, date: '2025-03-31' },
+        // Appaloosa held Q1 but missing from Q2 analytics → must become exit, not stale holder.
+        { cik: '0001656456', symbol: 'AAPL', sharesNumber: 835e3, marketValue: 200e6, date: '2025-03-31' },
       ],
     },
   ]);
@@ -54,6 +68,12 @@ test('buildSnapshot builds holder and matrix history', () => {
   const brk = snap.investors.find(row => row.cik === '0001067983');
   assert.equal(brk.history[0].action, 'trim');
   assert.equal(brk.history[1].action, 'hold');
+  const app = snap.investors.find(row => row.cik === '0001656456');
+  assert.equal(app.holding, false);
+  assert.equal(app.latestAction, 'exit');
+  assert.equal(app.history[0].action, 'exit');
+  assert.equal(app.history[0].shares, 0);
+  assert.equal(snap.exits.some(row => row.cik === '0001656456'), true);
 });
 
 test('HK listings are not US 13F eligible', () => {
