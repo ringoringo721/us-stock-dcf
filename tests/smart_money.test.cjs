@@ -396,6 +396,47 @@ test('buildHolderFundIndex inverts stock seeds into partial fund books', () => {
   assert.ok(expanded.quarters[0].rows.some(r => r.symbol === 'AAPL'));
 });
 
+test('slimFundPayload unions holding identities across quarters (no false top-N exits)', () => {
+  const { slimFundPayload } = require('../scripts/seed_smart_money.cjs');
+  const payload = {
+    cik: '0000902528',
+    slug: 'fund-0000902528',
+    investorName: 'BANK HAPOALIM BM',
+    quarters: [
+      {
+        year: 2026, quarter: 2,
+        rows: [
+          { symbol: 'AAPL', securityCusip: '037833100', value: 100, shares: 1 },
+          { symbol: 'MSFT', securityCusip: '594918104', value: 90, shares: 1 },
+          // Still held, but outside independent top-2 — must not become a false exit.
+          { symbol: 'OLD', securityCusip: 'OLDOLDOLD1', value: 50, shares: 1 },
+        ],
+      },
+      {
+        year: 2026, quarter: 1,
+        rows: [
+          { symbol: 'AAPL', securityCusip: '037833100', value: 95, shares: 1 },
+          { symbol: 'OLD', securityCusip: 'OLDOLDOLD1', value: 88, shares: 1 },
+          { symbol: 'MSFT', securityCusip: '594918104', value: 70, shares: 1 },
+        ],
+      },
+    ],
+  };
+  const seeded = slimFundPayload(payload, { quarters: 2, holdingCap: 2 });
+  // Top-2 union = {AAPL,MSFT} ∪ {AAPL,OLD} → keep all three when present in source.
+  const q2 = seeded.quarters[0].rows.map(r => r.securityCusip).sort();
+  const q1 = seeded.quarters[1].rows.map(r => r.securityCusip).sort();
+  assert.deepEqual(q2, ['037833100', '594918104', 'OLDOLDOLD1']);
+  assert.deepEqual(q1, ['037833100', '594918104', 'OLDOLDOLD1']);
+  const compared = SmartMoney.compareFundHoldings(
+    seeded.quarters[0].rows.map(r => SmartMoney.normalizeFundHolding(r)),
+    seeded.quarters[1].rows.map(r => SmartMoney.normalizeFundHolding(r)),
+  );
+  assert.equal(compared.exited.length, 0);
+  assert.equal(compared.holdings.find(r => r.securityCusip === 'OLDOLDOLD1').action, 'held');
+  assert.equal(compared.holdings.find(r => r.securityCusip === '037833100').action, 'held');
+});
+
 test('effectivePositions treats percent-of-book weights like WhaleCreep', () => {
   const n = SmartMoney.effectivePositions([22, 17, 11, 9, 9, 5, 4, 4, 4, 3]);
   assert.ok(n > 7 && n < 12);

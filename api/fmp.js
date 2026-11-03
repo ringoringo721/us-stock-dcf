@@ -389,11 +389,21 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
       ...(historical ? { from, to, priceBasis: 'splitAdjustedClose' } : {}),
       ...(institutionalHolders || institutionalExtract
         ? { year: Number(instYear), quarter: Number(instQuarter),
-          ...(institutionalExtract ? {
-            cik: cikParam,
-            cappedAt: SmartMoney.FUND_EXTRACT_MAX,
-            investorName: SmartMoney.resolveInvestorName({ cik: cikParam }) || null,
-          } : {}) } : {}) },
+          ...(institutionalExtract ? (() => {
+            // Prefer a live FMP manager label on extract rows when holder-funds map is thin.
+            const fromRows = (Array.isArray(rows) ? rows : []).map(row => (
+              row?.investorName || row?.filingManager || row?.managerName || row?.companyName || null
+            )).find(name => name && !SmartMoney.looksLikeBareCik(name, cikParam));
+            if (fromRows) SmartMoney.registerHolderNames({ [cikParam]: fromRows });
+            return {
+              cik: cikParam,
+              cappedAt: SmartMoney.FUND_EXTRACT_MAX,
+              investorName: SmartMoney.resolveInvestorName({
+                cik: cikParam,
+                investorName: fromRows,
+              }) || fromRows || null,
+            };
+          })() : {}) } : {}) },
       ...(action === 'news' ? {
         page: Number(page), hasMore: rows.length === 50 && Number(page) < 1000,
         limitReached: rows.length === 50 && Number(page) === 1000

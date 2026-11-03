@@ -8883,20 +8883,44 @@
     return `sm-action-${action || 'held'}`;
   }
 
+  function smartMoneyDisplayName(SM, opts, isEn) {
+    const curated = opts?.curated || null;
+    if (curated) return SM.investorLabel(curated, isEn ? 'en' : 'zh');
+    const raw = opts?.investorName;
+    if (raw && !SM.looksLikeBareCik?.(raw, opts?.cik)) {
+      SM.registerHolderNames?.({ [SM.padCik(opts.cik)]: raw });
+    }
+    const resolved = SM.resolveInvestorName?.({
+      cik: opts?.cik,
+      curated,
+      investorName: raw,
+      slug: opts?.slug,
+    });
+    if (resolved && !SM.looksLikeBareCik?.(resolved, opts?.cik)) return resolved;
+    // Never fall back to digit-only investorName / slug.
+    return isEn ? 'Institutional manager' : '機構管理人';
+  }
+
+  function ensureSmartMoneyNames(SM) {
+    if (!SM?.loadHolderFundsIndex || ensureSmartMoneyNames._warmed) {
+      return Promise.resolve(null);
+    }
+    return SM.loadHolderFundsIndex()
+      .then(() => { ensureSmartMoneyNames._warmed = true; })
+      .catch(() => null);
+  }
+
   function smartMoneyManagerCell(row, SM, isEn) {
     const link = SM.fundLinkForHolder?.(row) || null;
     const curated = link?.curated
       || row.curated
       || (row.isCurated && SM.INVESTORS.find(inv => inv.cik === row.cik));
-    const resolved = SM.resolveInvestorName?.({
+    const label = smartMoneyDisplayName(SM, {
       cik: row.cik,
       curated,
       investorName: row.investorName || link?.investorName,
       slug: link?.slug,
-    });
-    const label = curated
-      ? SM.investorLabel(curated, isEn ? 'en' : 'zh')
-      : (resolved || row.investorName || (isEn ? 'Institutional manager' : '機構管理人'));
+    }, isEn);
     // Curated badge only for the WhaleCreep 20 — every CIK still gets a fund link.
     const badge = curated
       ? `<span class="badge" style="margin-left:6px;font-size:10px;">${isEn ? 'curated' : '策展'}</span>`
@@ -8967,7 +8991,7 @@
     status.className = 'analysis-note';
     status.textContent = isEn ? 'Loading Smart Money 13F…' : '載入智資 13F 中…';
 
-    SM.loadStock(ticker).then((result) => {
+    ensureSmartMoneyNames(SM).then(() => SM.loadStock(ticker)).then((result) => {
       if (activeCompanyTicker !== ticker) return;
       const snap = result.snapshot || {};
       const holders = (snap.holders || []).filter(row => row.shares > 0);
@@ -9135,15 +9159,12 @@
       const identity = SM.resolveFundIdentity(row.slug || row.cik);
       const openSlug = identity.openable ? identity.slug : null;
       const curated = row.curated || identity.curated || null;
-      const resolved = SM.resolveInvestorName?.({
+      const label = smartMoneyDisplayName(SM, {
         cik: row.cik || identity.cik,
         curated,
         investorName: row.investorName || identity.investorName,
         slug: row.slug || identity.slug,
-      });
-      const label = curated
-        ? SM.investorLabel(curated, isEn ? 'en' : 'zh')
-        : (resolved || row.investorName || (isEn ? 'Institutional manager' : '機構管理人'));
+      }, isEn);
       const latest = row.year != null ? `Q${row.quarter} ${row.year}` : '—';
       const top = row.topWeight != null ? `${Number(row.topWeight).toFixed(1)}%` : '—';
       const top10 = row.top10Weight != null ? `${Number(row.top10Weight).toFixed(1)}%` : '—';
@@ -9190,7 +9211,7 @@
         + `<th>${dict.th_sm_quarters}</th>`;
     }
     status.textContent = isEn ? 'Loading funds directory…' : '載入管理人目錄中…';
-    SM.loadFundsDirectory().then((result) => {
+    ensureSmartMoneyNames(SM).then(() => SM.loadFundsDirectory()).then((result) => {
       fundsDirectoryCache = result;
       if (badge) {
         badge.textContent = isEn
@@ -9264,14 +9285,12 @@
     status.className = 'analysis-note';
     status.textContent = isEn ? 'Loading fund 13F book…' : '載入管理人 13F 組合中…';
     const bootIdentity = SM.resolveFundIdentity?.(slug) || null;
-    const bootTitle = bootIdentity?.curated
-      ? SM.investorLabel(bootIdentity.curated, isEn ? 'en' : 'zh')
-      : (SM.resolveInvestorName?.({
-        cik: bootIdentity?.cik,
-        curated: bootIdentity?.curated,
-        investorName: bootIdentity?.investorName,
-        slug: bootIdentity?.slug || slug,
-      }) || (isEn ? 'Institutional manager' : '機構管理人'));
+    const bootTitle = smartMoneyDisplayName(SM, {
+      cik: bootIdentity?.cik,
+      curated: bootIdentity?.curated,
+      investorName: bootIdentity?.investorName,
+      slug: bootIdentity?.slug || slug,
+    }, isEn);
     if (nameEl) nameEl.textContent = bootTitle;
     if (cikEl) cikEl.textContent = bootIdentity?.cik ? `CIK ${bootIdentity.cik}` : '';
     if (kpiGrid) kpiGrid.innerHTML = '';
@@ -9297,18 +9316,15 @@
         + `<th>${dict.th_sm_positions}</th><th>${dict.th_sm_book}</th>`;
     }
 
-    SM.loadFund(slug, { vs }).then((result) => {
+    ensureSmartMoneyNames(SM).then(() => SM.loadFund(slug, { vs })).then((result) => {
       if (activeFundSlug !== String(slug).toLowerCase()) return;
       const curated = result.curated;
-      const resolvedName = SM.resolveInvestorName?.({
+      const title = smartMoneyDisplayName(SM, {
         cik: result.cik,
         curated,
         investorName: result.investorName,
         slug: result.slug,
-      });
-      const title = curated
-        ? SM.investorLabel(curated, isEn ? 'en' : 'zh')
-        : (resolvedName || result.investorName || (isEn ? 'Institutional manager' : '機構管理人'));
+      }, isEn);
       if (nameEl) nameEl.textContent = title;
       if (cikEl) cikEl.textContent = result.cik ? `CIK ${result.cik}` : '';
       const qLabel = result.year != null ? `Q${result.quarter} ${result.year}` : '—';
@@ -11518,6 +11534,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', () => {
+    if (typeof SmartMoney !== 'undefined') ensureSmartMoneyNames(SmartMoney);
     markLoadingStats();
     if (checkGlobalData()) return;
     // Baseline already present: keep polling for universe/expansion. Do not re-fetch

@@ -133,21 +133,41 @@ function slimFundPayload(payload, {
   quarters = FUND_QUARTERS,
   holdingCap = FUND_HOLDING_CAP,
 } = {}) {
-  const kept = (payload.quarters || []).slice(0, quarters).map(q => {
+  const sourceQuarters = (payload.quarters || []).slice(0, quarters);
+  // Union holding identities across quarters (CUSIP / symbol+class) — same idea as stock
+  // CIK union. Independent per-Q top-N invents false exits when a name only drops off the
+  // newer top-N (Bank Hapoalim etc.).
+  const seedIds = new Set();
+  for (const q of sourceQuarters) {
     const ranked = [...(q.rows || [])]
       .sort((a, b) => (Number(b.value ?? b.marketValue) || 0) - (Number(a.value ?? a.marketValue) || 0)
         || (Number(b.weight) || 0) - (Number(a.weight) || 0));
-    // Small books stay whole; large books truncate to keep PR slim.
-    const rows = ranked.slice(0, holdingCap).map(row => pick(row, FUND_FIELDS));
+    for (const row of ranked.slice(0, holdingCap)) {
+      seedIds.add(SmartMoney.holdingIdentity(row));
+    }
+  }
+
+  const kept = sourceQuarters.map(q => {
+    const byId = new Map();
+    for (const row of q.rows || []) {
+      const id = SmartMoney.holdingIdentity(row);
+      if (!seedIds.has(id) || byId.has(id)) continue;
+      byId.set(id, pick(row, FUND_FIELDS));
+    }
+    const rows = [...byId.values()]
+      .sort((a, b) => (Number(b.value ?? b.marketValue) || 0) - (Number(a.value ?? a.marketValue) || 0)
+        || (Number(b.weight) || 0) - (Number(a.weight) || 0));
     return {
       year: q.year,
       quarter: q.quarter,
       key: q.key || SmartMoney.quarterKey(q.year, q.quarter),
       rows,
+      truncated: true,
     };
   }).filter(q => q.rows.length);
 
   // History must align with seeded quarters so ?vs= options always resolve to a book.
+  // Prefer full-book history (pre-cap) so KPIs are not distorted by the seed union.
   const fullHistory = Array.isArray(payload.history) ? payload.history : [];
   const historyOut = kept.map(q => {
     const fromFull = fullHistory.find(h => Number(h.year) === Number(q.year)
@@ -183,7 +203,9 @@ function slimFundPayload(payload, {
       seed: true,
       quarters: kept.length,
       holdingCap,
-      note: 'Demo seed — holdings capped per quarter; full books via capture or allowlisted live',
+      seedIdCount: seedIds.size,
+      truncated: true,
+      note: 'Demo seed — identities unioned across quarters (no false top-N exits); full books via capture or allowlisted live',
     },
     quarters: kept,
     history: historyOut,
@@ -241,7 +263,19 @@ function readFundSource(inv) {
   return best || { slug, payload: null, path: null };
 }
 
-(async () => {
+module.exports = {
+  slimFundPayload,
+  slimStockPayload,
+  STOCK_HOLDER_CAP,
+  STOCK_QUARTERS,
+  EXTRA_FUND_QUARTERS,
+  EXTRA_FUND_HOLDING_CAP,
+  EXTRA_FUND_COMMIT_MAX,
+};
+
+if (require.main !== module) {
+  // Imported by tests — do not run capture/seed side effects.
+} else (async () => {
   const key = process.env.FMP_API_KEY;
   if (!fromCacheOnly && !key) throw new Error('FMP_API_KEY required unless --from-cache');
 
@@ -459,3 +493,4 @@ function readFundSource(inv) {
   console.error(error);
   process.exitCode = 1;
 });
+
