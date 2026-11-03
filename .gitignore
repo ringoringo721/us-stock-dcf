@@ -9,18 +9,11 @@ __pycache__/
 /cache/smart-money/**
 !/cache/smart-money/README.md
 !/cache/smart-money/curated-by-ticker.json
-!/cache/smart-money/NVDA.json
-!/cache/smart-money/AAPL.json
-!/cache/smart-money/MSFT.json
-!/cache/smart-money/META.json
-!/cache/smart-money/GOOGL.json
-!/cache/smart-money/AMZN.json
-!/cache/smart-money/TSLA.json
-!/cache/smart-money/TSM.json
-!/cache/smart-money/STZ.json
+# Liquid / mega-cap stock holder seeds (uppercase tickers)
+!/cache/smart-money/[A-Z0-9]*.json
 !/cache/smart-money/funds/
 /cache/smart-money/funds/**
-# Slug seeds + index (not CIK-named duplicates / full captures)
+# Slug curated seeds + fund-{cik} full books + index (not bare CIK duplicates)
 !/cache/smart-money/funds/[a-z]*.json
 
 /.vercel/

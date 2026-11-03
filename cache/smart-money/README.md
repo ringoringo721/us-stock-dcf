@@ -1,24 +1,26 @@
 # Smart Money cache
 
-Committed **demo seeds** (Preview works without `FMP_API_KEY`):
+Committed **demo seeds** (Preview works without `FMP_API_KEY` for liquid names):
 
 | Path | Purpose |
 |------|---------|
-| `curated-by-ticker.json` | Curated-20 fund books inverted → US tickers they hold (`#TICKER/smart-money` fallback) |
-| `NVDA.json` … `STZ.json` | Richer broad-holder demos (≤45 holders × 2Q; CIKs **unioned** across quarters; no false −100% exits) |
-| `funds/holder-funds.json` | Stock-seed invert → partial `#fund/{CIK}` books so **every** holder row is clickable |
-| `funds/[slug].json` | Curated-20 manager books (8Q; Berkshire 12Q) |
-| `funds/index.json` | `#funds` directory summaries |
+| `{TICKER}.json` | Liquid/mega US holder tables (~65 holders × 2Q, CIKs unioned; no false −100% exits) |
+| `curated-by-ticker.json` | Curated-20 invert fallback for other US tickers when live FMP is down |
+| `funds/fund-{cik}.json` | **Full** 13F books (2Q, ≤150 positions) for non-curated managers linked from stock tables |
+| `funds/{slug}.json` | Curated-20 manager books (8Q; Berkshire 12Q) |
+| `funds/holder-funds.json` | Extract **allowlist** (CIKs) — not a holdings UI source |
+| `funds/index.json` | `#funds` directory |
 | `README.md` | This file |
 
-**Preview without FMP — stock page:** seed → live → curated invert → honest empty (`無策展／無機構申報`). Never leave common names on dim `FMP_NOT_CONFIGURED` alone.
+**Stock page load order:** per-ticker seed → live FMP (≤6Q) → curated invert → bright empty.  
+**Fund page load order:** slug / `fund-{cik}` seed → live allowlisted extract → bright empty (no 1-stock stub books).
 
-**Preview without FMP — fund page:** dedicated slug seed → live extract (allowlisted) → **holder-funds invert** (partial) → honest empty. Extract allowlist = curated-20 ∪ CIKs in `holder-funds.json` (no open arbitrary CIK scrape).
-
-Everything else under this tree (full captures, CIK duplicates, non-seed stocks) is **gitignored**.
+Extract allowlist = curated-20 ∪ seed-holder CIKs ∪ `fund-*` books. Arbitrary CIKs stay 403.
 
 ```bash
-FMP_API_KEY=… node scripts/capture_smart_money.cjs --stocks-only NVDA,AAPL,MSFT,META,GOOGL,AMZN,TSLA,TSM,STZ 2 2
-FMP_API_KEY=… node scripts/capture_smart_money.cjs --funds-only 12
+FMP_API_KEY=… node scripts/capture_smart_money.cjs --stocks-only JPM,V,MA,… 2 2
+FMP_API_KEY=… node scripts/capture_holder_fund_books.cjs 35 2
 node scripts/seed_smart_money.cjs --from-cache
 ```
+
+For **all** screener US names beyond liquid seeds, set `FMP_API_KEY` on Vercel so live institutional-holders / extract fill full books.

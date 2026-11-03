@@ -28,14 +28,18 @@ const outDir = path.join(root, 'cache', 'smart-money');
 const fundsDir = path.join(outDir, 'funds');
 fs.mkdirSync(fundsDir, { recursive: true });
 
-const STOCK_HOLDER_CAP = 45;
+const STOCK_HOLDER_CAP = 65;
 const STOCK_QUARTERS = 2;
-// 8–12 filing quarters; holdings capped so the PR stays Bugbot-reviewable.
+// Curated funds: 8–12Q; non-curated full books: 2Q × deep holdings (WhaleCreep detail).
 const FUND_QUARTERS = 8;
 const FUND_HOLDING_CAP = 22;
-/** Liquid US demos — Preview must work without Vercel FMP_API_KEY. */
+const EXTRA_FUND_QUARTERS = 2;
+const EXTRA_FUND_HOLDING_CAP = 150;
+/** Liquid / mega-cap US — full holder tables on Preview without FMP_API_KEY. */
 const STOCK_SEEDS = [
   'NVDA', 'AAPL', 'MSFT', 'META', 'GOOGL', 'AMZN', 'TSLA', 'TSM', 'STZ',
+  'JPM', 'V', 'MA', 'BRK-B', 'JNJ', 'WMT', 'XOM', 'UNH', 'HD', 'BAC',
+  'AVGO', 'COST', 'KO', 'PEP', 'ABBV', 'CRM', 'AMD', 'ORCL', 'NFLX', 'PLTR',
 ];
 const SEED_FIELDS = [
   'date', 'filingDate', 'cik', 'investorName', 'symbol',
@@ -315,8 +319,7 @@ function readFundSource(inv) {
   fs.writeFileSync(byTickerPath, `${JSON.stringify(byTicker)}\n`);
   console.log(`Wrote ${byTickerPath} tickers=${byTicker.count} bytes=${fs.statSync(byTickerPath).size}`);
 
-  // Invert stock holder seeds → per-CIK partial fund books so every displayed
-  // manager link opens a WhaleCreep-style page on Preview without FMP.
+  // Allowlist + optional partial invert index (links / extract gate — not shown as full books).
   const stockPayloads = [];
   for (const ticker of STOCK_SEEDS) {
     const stockPath = path.join(outDir, `${ticker}.json`);
@@ -324,17 +327,69 @@ function readFundSource(inv) {
     try { stockPayloads.push(JSON.parse(fs.readFileSync(stockPath, 'utf8'))); }
     catch { /* skip */ }
   }
+  // Slim allowlist index (CIKs only) — full books live in fund-{cik}.json, not stock-invert stubs.
   const holderFunds = SmartMoney.buildHolderFundIndex(stockPayloads);
+  const allowCiks = Object.keys(holderFunds.funds || {}).sort();
+  // Also allow every committed fund-{cik} book.
+  for (const filename of fs.readdirSync(fundsDir)) {
+    const m = /^fund-(\d{10})\.json$/.exec(filename);
+    if (m) allowCiks.push(m[1]);
+  }
+  const uniqueAllow = [...new Set(allowCiks)];
   const holderFundsPath = path.join(fundsDir, 'holder-funds.json');
-  fs.writeFileSync(holderFundsPath, `${JSON.stringify(holderFunds)}\n`);
-  SmartMoney.registerExtractAllowlist(Object.keys(holderFunds.funds || {}));
-  console.log(`Wrote ${holderFundsPath} managers=${holderFunds.count} bytes=${fs.statSync(holderFundsPath).size}`);
+  const holderFundsSlim = {
+    capturedAt: new Date().toISOString(),
+    seed: true,
+    source: {
+      provider: 'FMP',
+      method: 'extract-allowlist',
+      note: 'CIK allowlist for institutional-extract; full books in fund-{cik}.json / curated slugs',
+    },
+    count: uniqueAllow.length,
+    ciks: uniqueAllow,
+    // Keep compact name map for fund page titles when opening by CIK.
+    names: Object.fromEntries(
+      uniqueAllow.map(cik => [cik, holderFunds.funds?.[cik]?.n || null]).filter(([, n]) => n),
+    ),
+    disclaimer: 'Allowlist only — open fund-{cik} seeds or live extract for full 13F books.',
+  };
+  fs.writeFileSync(holderFundsPath, `${JSON.stringify(holderFundsSlim)}\n`);
+  SmartMoney.registerExtractAllowlist(uniqueAllow);
+  console.log(`Wrote ${holderFundsPath} ciks=${holderFundsSlim.count} bytes=${fs.statSync(holderFundsPath).size}`);
+
+  // Slim full 13F books for non-curated managers: funds/fund-{cik}.json
+  // (from capture_holder_fund_books.cjs / local CIK captures).
+  let extraFundCount = 0;
+  const seenExtra = new Set();
+  for (const filename of fs.readdirSync(fundsDir)) {
+    const cikMatch = /^(?:fund-)?(\d{10})\.json$/.exec(filename);
+    if (!cikMatch) continue;
+    const cik = cikMatch[1];
+    if (seenExtra.has(cik) || SmartMoney.isCuratedCik(cik)) continue;
+    seenExtra.add(cik);
+    let payload;
+    try { payload = JSON.parse(fs.readFileSync(path.join(fundsDir, filename), 'utf8')); }
+    catch { continue; }
+    if (!(payload.quarters || []).length) continue;
+    const seeded = slimFundPayload({
+      ...payload,
+      cik,
+      slug: payload.slug || `fund-${cik}`,
+      investorName: payload.investorName || holderFunds.funds?.[cik]?.n || cik,
+    }, { quarters: EXTRA_FUND_QUARTERS, holdingCap: EXTRA_FUND_HOLDING_CAP });
+    // Keep deeper books for WhaleCreep fund detail (not the curated 22-cap).
+    const outName = `fund-${cik}.json`;
+    const outPath = path.join(fundsDir, outName);
+    fs.writeFileSync(outPath, `${JSON.stringify(seeded)}\n`);
+    extraFundCount += 1;
+    console.log(`Wrote ${outPath} positions=${seeded.quarters[0]?.rows.length || 0} q=${seeded.quarters.length} bytes=${fs.statSync(outPath).size}`);
+  }
 
   if (missing.length) {
     console.warn(`Missing fund captures (need capture_smart_money.cjs --funds-only): ${missing.join(', ')}`);
     process.exitCode = 1;
   } else {
-    console.log(`Seed complete — stocks + curated-by-ticker (${byTicker.count}) + holder-funds (${holderFunds.count}) + funds (${SmartMoney.INVESTORS.length})`);
+    console.log(`Seed complete — stocks + curated-by-ticker (${byTicker.count}) + holder-funds (${holderFunds.count}) + curated (${SmartMoney.INVESTORS.length}) + fund-CIK books (${extraFundCount})`);
   }
 })().catch(error => {
   console.error(error);

@@ -493,12 +493,29 @@
     });
   }
 
+  function fundSeedFilename(cik) {
+    const padded = padCik(cik);
+    return padded ? `fund-${padded}.json` : null;
+  }
+
   function loadFundCache(slugOrCik) {
-    const key = encodeURIComponent(String(slugOrCik || '').toLowerCase());
-    return fetch(`cache/smart-money/funds/${key}.json`, { cache: 'no-store' }).then(async (response) => {
-      if (!response.ok) throw new Error(`FUND_CACHE_MISS:${response.status}`);
-      return response.json();
-    });
+    const raw = String(slugOrCik || '').trim();
+    const asCik = padCik(raw);
+    const keys = [];
+    // Curated slug, bare CIK, then committed fund-{cik} full-book seed (letter prefix for git).
+    if (raw) keys.push(encodeURIComponent(raw.toLowerCase()));
+    if (asCik && /^\d{10}$/.test(asCik)) {
+      keys.push(encodeURIComponent(asCik));
+      keys.push(encodeURIComponent(`fund-${asCik}`));
+    }
+    const tryNext = (index) => {
+      if (index >= keys.length) return Promise.reject(new Error('FUND_CACHE_MISS'));
+      return fetch(`cache/smart-money/funds/${keys[index]}.json`, { cache: 'no-store' }).then(async (response) => {
+        if (!response.ok) return tryNext(index + 1);
+        return response.json();
+      }).catch(() => tryNext(index + 1));
+    };
+    return tryNext(0);
   }
 
   /**
@@ -1097,7 +1114,7 @@
       .then(async (response) => {
         if (!response.ok) throw new Error(`HOLDER_FUNDS_MISS:${response.status}`);
         const body = await response.json();
-        registerExtractAllowlist(Object.keys(body.funds || {}));
+        registerExtractAllowlist(body.ciks || Object.keys(body.funds || {}));
         return body;
       })
       .catch((error) => {
@@ -1219,37 +1236,28 @@
       }
       if (!identity.cik) throw new Error('FUND_IDENTITY_UNKNOWN');
 
-      function fromHolderInvert(liveErrors) {
-        return loadHolderFundsIndex().then((index) => {
-          const raw = index.funds?.[identity.cik];
-          const expanded = expandHolderFundEntry(raw, identity.cik);
-          if (!expanded?.quarters?.length) {
-            return emptyFundResult(identity, 'FUND_BOOK_EMPTY', liveErrors);
-          }
-          const quarters = expanded.quarters;
-          let current;
-          let prior;
-          try {
-            current = selectFundQuarter(quarters, vsParsed);
-          } catch (error) {
-            if (vsParsed) throw error;
-            current = quarters[0];
-          }
+      // Prefer dedicated fund-{cik} / slug seeds (already tried above) or live extract.
+      // Do NOT invent a 1-stock "book" from stock-holder invert — that looks like a full
+      // 13F (WhaleCreep) but only shows symbols present in stock demos.
+      function fromFullSeedOrEmpty(liveErrors) {
+        return loadFundCache(`fund-${identity.cik}`).then((cached) => {
+          const quarters = cached.quarters || [];
+          const current = selectFundQuarter(quarters, vsParsed);
+          if (!current) return emptyFundResult(identity, 'FUND_BOOK_EMPTY', liveErrors);
           const idx = quarters.indexOf(current);
-          prior = idx >= 0 ? quarters[idx + 1] : quarters[1];
-          const currentHoldings = (current?.rows || []).map(row => normalizeFundHolding(row, identity.cik)).filter(Boolean);
-          const priorHoldings = (prior?.rows || []).map(row => normalizeFundHolding(row, identity.cik)).filter(Boolean);
+          const prior = idx >= 0 ? quarters[idx + 1] : quarters[1];
+          const currentHoldings = (current?.rows || []).map(row => normalizeFundHolding(row, cached.cik || identity.cik)).filter(Boolean);
+          const priorHoldings = (prior?.rows || []).map(row => normalizeFundHolding(row, cached.cik || identity.cik)).filter(Boolean);
           const compared = compareFundHoldings(currentHoldings, priorHoldings);
           return packFundResult({
-            source: 'holder-invert',
-            notice: 'PARTIAL_FROM_STOCK_SEEDS',
-            cik: identity.cik,
-            slug: identity.slug,
-            investorName: expanded.investorName || identity.curated?.nameEn || identity.slug,
+            source: 'cache',
+            cik: cached.cik || identity.cik,
+            slug: cached.slug || identity.slug,
+            investorName: cached.investorName || identity.curated?.nameEn || identity.slug,
             curated: identity.curated,
-            capturedAt: index.capturedAt || null,
+            capturedAt: cached.capturedAt || null,
             liveErrors: liveErrors || [],
-          }, current, prior, compared, expanded.history || quarters);
+          }, current, prior, compared, cached.history?.length ? cached.history : quarters);
         }).catch(() => emptyFundResult(identity, 'FUND_BOOK_EMPTY', liveErrors));
       }
 
@@ -1262,7 +1270,7 @@
           if (vsParsed) {
             const usableForVs = quarters.filter(q => !q.incomplete && !q.error);
             if (!usableForVs.length) {
-              return fromHolderInvert(quarters.filter(q => q.error).map(q => String(q.error.message || q.error)));
+              return fromFullSeedOrEmpty(quarters.filter(q => q.error).map(q => String(q.error.message || q.error)));
             }
             const current = selectFundQuarter(usableForVs, vsParsed);
             const priorSpec = priorQuarter(vsParsed.year, vsParsed.quarter);
@@ -1284,7 +1292,7 @@
           }
           const usable = quarters.filter(q => !q.incomplete && !q.error);
           if (!usable.length) {
-            return fromHolderInvert(quarters.filter(q => q.error).map(q => String(q.error.message || q.error)));
+            return fromFullSeedOrEmpty(quarters.filter(q => q.error).map(q => String(q.error.message || q.error)));
           }
           const current = usable[0];
           const prior = usable[1];
@@ -1375,6 +1383,7 @@
     loadFund,
     loadStockCache,
     loadFundCache,
+    fundSeedFilename,
     loadCuratedByTickerIndex,
     resetCuratedByTickerCache,
     buildCuratedByTickerIndex,

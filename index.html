@@ -9409,13 +9409,6 @@
             + '無專屬種子且即時 extract 不可用。不是失效連結 — 完整 13F 需 <code>FMP_API_KEY</code>，或開啟股票種子中出現的管理人。';
         holdingsBody.innerHTML = `<tr class="sm-alert-empty-row"><td class="table-sticky-col" colspan="7">${
           isEn ? 'No holdings on file.' : '無持倉種子。'}</td></tr>`;
-      } else if (result.source === 'holder-invert') {
-        status.className = 'sm-alert-empty';
-        status.innerHTML = isEn
-          ? `<strong>${escapeAttribute(title)} · partial from stock seeds</strong> · ${escapeAttribute(qLabel)}<br>`
-            + 'Preview without live extract — holdings limited to symbols in committed stock seeds (not the full 13F book).'
-          : `<strong>${escapeAttribute(title)} · 股票種子反查（部分）</strong> · ${escapeAttribute(qLabel)}<br>`
-            + 'Preview 無即時 extract — 僅顯示已提交股票種子中的標的（非完整 13F 組合）。';
       } else {
         status.className = 'analysis-note';
         const src = result.source === 'cache' ? (isEn ? 'cache' : '快取')

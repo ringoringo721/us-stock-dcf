@@ -38,8 +38,8 @@ function buildSite(output = path.join(root, 'public')) {
           : directory === 'revenue_segments'
             ? /^[A-Z0-9.-]+(?:\.quarter)?\.json$/
             : directory === 'smart-money'
-              // Liquid demos + curated-20 invert index (Preview without FMP_API_KEY).
-              ? /^(curated-by-ticker|NVDA|AAPL|MSFT|META|GOOGL|AMZN|TSLA|TSM|STZ)\.json$/
+              // Liquid/mega stock seeds + curated invert (Preview without FMP_API_KEY).
+              ? /^(curated-by-ticker|[A-Z0-9][A-Z0-9.-]*)\.json$/
               : /^[A-Z0-9.-]+\.json$/;
       if (pattern.test(filename)) files.push(path.join('cache', directory, filename));
     }

@@ -7,7 +7,7 @@ try {
   const holderFundsPath = path.join(__dirname, '..', 'cache', 'smart-money', 'funds', 'holder-funds.json');
   if (fs.existsSync(holderFundsPath)) {
     const body = JSON.parse(fs.readFileSync(holderFundsPath, 'utf8'));
-    SmartMoney.registerExtractAllowlist(Object.keys(body.funds || {}));
+    SmartMoney.registerExtractAllowlist(body.ciks || Object.keys(body.funds || {}));
   }
 } catch { /* optional seed */ }
 const endpoints = {
