@@ -61,31 +61,55 @@
     return any ? total : null;
   }
 
-  /** Collapse split 13F lots for the same CIK into one row (sum shares / value). */
+  function lotIdentity(row) {
+    const cusip = String(row?.securityCusip || row?.cusip || '').trim();
+    if (cusip) return `cusip:${cusip}`;
+    // Amendment restatements repeat the same shares+value with a newer filingDate.
+    return `sv:${finite(row?.shares)}|${finite(row?.marketValue)}`;
+  }
+
+  /**
+   * Collapse same-CIK rows: drop amendment duplicates (same lot identity, keep latest
+   * filingDate), then sum remaining true split lots.
+   */
   function mergeRowsByCik(rows) {
-    const map = new Map();
+    const byCik = new Map();
     for (const row of rows || []) {
       if (!row?.cik) continue;
-      const existing = map.get(row.cik);
-      if (!existing) {
-        map.set(row.cik, { ...row });
-        continue;
-      }
-      existing.shares = sumFinite([existing.shares, row.shares]);
-      existing.lastShares = sumFinite([existing.lastShares, row.lastShares]);
-      existing.changeInShares = sumFinite([existing.changeInShares, row.changeInShares])
-        ?? (existing.shares != null && existing.lastShares != null
-          ? existing.shares - existing.lastShares : null);
-      existing.marketValue = sumFinite([existing.marketValue, row.marketValue]);
-      existing.weight = sumFinite([existing.weight, row.weight]);
-      existing.ownership = sumFinite([existing.ownership, row.ownership]);
-      existing.isNew = existing.isNew === true && row.isNew === true;
-      existing.isSoldOut = existing.isSoldOut === true || row.isSoldOut === true;
-      if (!existing.date && row.date) existing.date = row.date;
-      if (!existing.filingDate && row.filingDate) existing.filingDate = row.filingDate;
-      if (!existing.investorName && row.investorName) existing.investorName = row.investorName;
+      if (!byCik.has(row.cik)) byCik.set(row.cik, []);
+      byCik.get(row.cik).push(row);
     }
-    return [...map.values()];
+    const out = [];
+    for (const lots of byCik.values()) {
+      const bestByLot = new Map();
+      for (const lot of lots) {
+        const id = lotIdentity(lot);
+        const prev = bestByLot.get(id);
+        if (!prev || String(lot.filingDate || '') > String(prev.filingDate || '')) {
+          bestByLot.set(id, lot);
+        }
+      }
+      const distinct = [...bestByLot.values()];
+      const merged = { ...distinct[0] };
+      for (let i = 1; i < distinct.length; i += 1) {
+        const row = distinct[i];
+        merged.shares = sumFinite([merged.shares, row.shares]);
+        merged.lastShares = sumFinite([merged.lastShares, row.lastShares]);
+        merged.marketValue = sumFinite([merged.marketValue, row.marketValue]);
+        merged.weight = sumFinite([merged.weight, row.weight]);
+        merged.ownership = sumFinite([merged.ownership, row.ownership]);
+        merged.isNew = merged.isNew === true && row.isNew === true;
+        merged.isSoldOut = merged.isSoldOut === true || row.isSoldOut === true;
+        if (String(row.filingDate || '') > String(merged.filingDate || '')) {
+          merged.filingDate = row.filingDate;
+        }
+      }
+      merged.changeInShares = sumFinite(distinct.map(row => row.changeInShares))
+        ?? (merged.shares != null && merged.lastShares != null
+          ? merged.shares - merged.lastShares : null);
+      out.push(merged);
+    }
+    return out;
   }
 
   function isUsListed(stock) {
@@ -134,6 +158,7 @@
       marketValue: finite(row.marketValue ?? row.value),
       weight: finite(row.weight),
       ownership: finite(row.ownership ?? row.ownershipPercent),
+      securityCusip: row.securityCusip || row.cusip || null,
       isNew: row.isNew === true,
       isSoldOut: row.isSoldOut === true,
       investorName: row.investorName || BY_CIK[cik]?.nameEn || cik,
@@ -244,12 +269,15 @@
         year: Number(q.year),
         quarter: Number(q.quarter),
         key: quarterKey(q.year, q.quarter),
+        // Failed / incomplete live fetches must not invent mass exits.
+        incomplete: Boolean(q.error || q.incomplete),
         rows: filterCurated(q.rows || q.data || [], ticker),
       }))
-      .filter(q => q.key)
+      .filter(q => q.key && !q.incomplete)
       .sort((a, b) => (b.year - a.year) || (b.quarter - a.quarter));
 
     // Fill gaps: held in older quarter Q+1, missing in newer Q → synthetic exit in Q.
+    // Only when the newer quarter was successfully observed (incomplete already filtered).
     for (let i = 0; i < ordered.length - 1; i += 1) {
       const newer = ordered[i];
       const older = ordered[i + 1];
@@ -369,9 +397,12 @@
     }).catch(() => {
       const specs = recentQuarterSpecs(quarterCount);
       return Promise.all(specs.map(spec => loadQuarterLive(symbol, spec.year, spec.quarter)
-        .catch(error => ({ year: spec.year, quarter: spec.quarter, rows: [], error }))))
+        .catch(error => ({
+          year: spec.year, quarter: spec.quarter, rows: [], error, incomplete: true,
+        }))))
         .then((quarters) => {
-          const snapshot = buildSnapshot(symbol, quarters);
+          const usable = quarters.filter(q => !q.incomplete && !q.error);
+          const snapshot = buildSnapshot(symbol, usable);
           const liveErrors = quarters.filter(q => q.error).map(q => String(q.error.message || q.error));
           return {
             ticker: symbol,

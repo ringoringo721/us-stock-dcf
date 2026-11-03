@@ -103,20 +103,28 @@ async function extract(cik, year, quarter) {
         if (!matched.length) continue;
         const bucket = byTicker.get(ticker);
         if (!bucket.has(key)) bucket.set(key, []);
-        // Merge split lots for the same CIK before storing.
-        const shares = matched.reduce((sum, row) => {
-          const n = Number(row.shares);
-          return Number.isFinite(n) ? sum + n : sum;
-        }, 0);
-        const marketValue = matched.reduce((sum, row) => {
-          const n = Number(row.value);
-          return Number.isFinite(n) ? sum + n : sum;
-        }, 0);
-        const first = matched[0];
+        // Dedupe amendment restatements (same shares+value / cusip), then sum true split lots.
+        const mergedLots = SmartMoney.mergeRowsByCik(matched.map(row => ({
+          cik: investor.cik,
+          shares: row.shares,
+          marketValue: row.value,
+          filingDate: row.filingDate,
+          date: row.date,
+          securityCusip: row.securityCusip || row.cusip || null,
+          investorName: investor.nameEn,
+        })));
+        const first = mergedLots[0];
+        const shares = mergedLots.reduce((sum, row) => sum + (Number(row.shares) || 0), 0);
+        const marketValue = mergedLots.reduce((sum, row) => sum + (Number(row.marketValue) || 0), 0);
         const existing = bucket.get(key).find(row => row.cik === investor.cik);
         if (existing) {
-          existing.sharesNumber = (Number(existing.sharesNumber) || 0) + shares;
-          existing.marketValue = (Number(existing.marketValue) || 0) + marketValue;
+          // Same CIK already stored for this quarter — keep the later filing, don't double-count.
+          if (String(first.filingDate || '') >= String(existing.filingDate || '')) {
+            existing.sharesNumber = shares;
+            existing.marketValue = marketValue;
+            existing.filingDate = first.filingDate || existing.filingDate;
+            existing.date = first.date || existing.date;
+          }
         } else {
           bucket.get(key).push({
             date: first.date,

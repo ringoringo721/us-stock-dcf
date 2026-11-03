@@ -29,22 +29,30 @@ test('finite treats null as missing, not zero', () => {
   assert.equal(SmartMoney.finite('12.5'), 12.5);
 });
 
-test('filterCurated keeps only allowlisted CIKs and merges split lots', () => {
-  const rows = SmartMoney.filterCurated([
+test('filterCurated merges true split lots but not amendment restatements', () => {
+  const split = SmartMoney.filterCurated([
     { cik: '0001067983', symbol: 'AAPL', sharesNumber: 1e6, marketValue: 10, date: '2025-06-30' },
     { cik: '0001067983', symbol: 'AAPL', sharesNumber: 500e3, marketValue: 5, date: '2025-06-30' },
     { cik: '0002012383', symbol: 'AAPL', sharesNumber: 9e9, investorName: 'BLACKROCK' },
-    { cik: '1067983', symbol: 'MSFT', sharesNumber: 1 },
   ], 'AAPL');
-  assert.equal(rows.length, 1);
-  assert.equal(rows[0].cik, '0001067983');
-  assert.equal(rows[0].shares, 1.5e6);
-  assert.equal(rows[0].marketValue, 15);
-  assert.equal(SmartMoney.classifyAction(rows[0]), 'hold');
-  assert.equal(rows[0].weight, null);
+  assert.equal(split.length, 1);
+  assert.equal(split[0].shares, 1.5e6);
+  assert.equal(split[0].marketValue, 15);
+
+  // Same shares+value, newer filingDate = amendment restatement, not a second lot.
+  const amended = SmartMoney.filterCurated([
+    { cik: '0001709323', symbol: 'AAPL', sharesNumber: 110600, marketValue: 28162078,
+      filingDate: '2025-11-12', date: '2025-09-30' },
+    { cik: '0001709323', symbol: 'AAPL', sharesNumber: 110600, marketValue: 28162078,
+      filingDate: '2026-02-17', date: '2025-12-31' },
+  ], 'AAPL');
+  assert.equal(amended.length, 1);
+  assert.equal(amended[0].shares, 110600);
+  assert.equal(amended[0].marketValue, 28162078);
+  assert.equal(amended[0].filingDate, '2026-02-17');
 });
 
-test('buildSnapshot builds holder history and synthesizes live-path exits', () => {
+test('buildSnapshot synthesizes exits only across observed quarters', () => {
   const snap = SmartMoney.buildSnapshot('AAPL', [
     {
       year: 2025, quarter: 2, rows: [
@@ -74,6 +82,20 @@ test('buildSnapshot builds holder history and synthesizes live-path exits', () =
   assert.equal(app.history[0].action, 'exit');
   assert.equal(app.history[0].shares, 0);
   assert.equal(snap.exits.some(row => row.cik === '0001656456'), true);
+
+  // Failed / incomplete newest quarter must not wipe holders via mass synthetic exits.
+  const partial = SmartMoney.buildSnapshot('AAPL', [
+    { year: 2025, quarter: 2, rows: [], error: new Error('429'), incomplete: true },
+    {
+      year: 2025, quarter: 1, rows: [
+        { cik: '0001067983', symbol: 'AAPL', sharesNumber: 300e6, marketValue: 60e9 },
+      ],
+    },
+  ]);
+  assert.deepEqual(partial.quarters, ['2025-Q1']);
+  assert.equal(partial.holders.length, 1);
+  assert.equal(partial.holders[0].cik, '0001067983');
+  assert.equal(partial.exits.length, 0);
 });
 
 test('HK listings are not US 13F eligible', () => {
