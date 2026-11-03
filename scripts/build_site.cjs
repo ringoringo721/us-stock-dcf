@@ -37,8 +37,21 @@ function buildSite(output = path.join(root, 'public')) {
         : directory === 'ke_history' ? /^[a-z0-9_]+\.json$/
           : directory === 'revenue_segments'
             ? /^[A-Z0-9.-]+(?:\.quarter)?\.json$/
-            : /^[A-Z0-9.-]+\.json$/;
+            : directory === 'smart-money'
+              ? /^[A-Z0-9.-]+\.json$/
+              : /^[A-Z0-9.-]+\.json$/;
       if (pattern.test(filename)) files.push(path.join('cache', directory, filename));
+    }
+  }
+  // WhaleCreep manager pages + directory index: cache/smart-money/funds/{slug|cik|index}.json
+  const fundsDir = path.join(root, 'cache', 'smart-money', 'funds');
+  if (fs.existsSync(fundsDir)) {
+    for (const filename of fs.readdirSync(fundsDir)) {
+      if (filename === 'index.json'
+          || /^[a-z0-9][a-z0-9.-]*\.json$/.test(filename)
+          || /^\d{10}\.json$/.test(filename)) {
+        files.push(path.join('cache', 'smart-money', 'funds', filename));
+      }
     }
   }
   for (const filename of ['usd_rates.json', 'hkd_rates.json']) {

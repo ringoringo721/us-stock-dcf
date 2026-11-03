@@ -5,6 +5,15 @@ __pycache__/
 /hkex-data-output/
 /us-data-output/
 /cache/edgar/
+# Smart Money: commit demo seeds only (see cache/smart-money/README.md)
+/cache/smart-money/**
+!/cache/smart-money/README.md
+!/cache/smart-money/TSM.json
+!/cache/smart-money/funds/
+/cache/smart-money/funds/**
+!/cache/smart-money/funds/index.json
+!/cache/smart-money/funds/berkshire-hathaway.json
+
 /.vercel/
 /public/
 .vercel

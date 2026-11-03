@@ -199,7 +199,7 @@ test('transcript-dates allowed; full transcript body blocked; private cache', as
   assert.equal(blocked.body.error, 'TRANSCRIPT_BODY_NOT_PROXIED');
 });
 
-test('institutional-holders filters to curated CIKs and stays private', async () => {
+test('institutional-holders returns broad holders with curated flags and stays private', async () => {
   const handler = createHandler({ apiKey: () => 'test-placeholder', fetch: async url => {
     assert.equal(url.pathname, '/stable/institutional-ownership/extract-analytics/holder');
     assert.equal(url.searchParams.get('symbol'), 'AAPL');
@@ -217,19 +217,37 @@ test('institutional-holders filters to curated CIKs and stays private', async ()
   const result = await call(handler,
     '/api/fmp?action=institutional-holders&symbol=AAPL&year=2025&quarter=2&limit=100');
   assert.equal(result.status, 200);
-  assert.equal(result.body.data.length, 1);
+  assert.equal(result.body.data.length, 2);
   assert.equal(result.body.data[0].cik, '0001067983');
+  assert.equal(result.body.data[0].isCurated, true);
+  assert.equal(result.body.data[1].cik, '0002012383');
+  assert.equal(result.body.data[1].isCurated, false);
   assert.match(String(result.headers['Cache-Control'] || ''), /private/);
   assert.equal((await call(handler,
     '/api/fmp?action=institutional-holders&symbol=AAPL&year=2025&quarter=5')).status, 400);
 });
 
-test('institutional-extract full books are not proxied', async () => {
-  const handler = createHandler({ apiKey: () => 'test-placeholder', fetch: () => {
-    throw new Error('Must not fetch full 13F extract');
+test('institutional-extract is capped, CIK-validated, and rate-private', async () => {
+  const handler = createHandler({ apiKey: () => 'test-placeholder', fetch: async url => {
+    assert.equal(url.pathname, '/stable/institutional-ownership/extract');
+    assert.equal(url.searchParams.get('cik'), '0001067983');
+    assert.equal(url.searchParams.get('year'), '2025');
+    assert.equal(url.searchParams.get('quarter'), '2');
+    assert.equal(url.searchParams.has('symbol'), false);
+    return {
+      ok: true,
+      json: async () => Array.from({ length: 500 }, (_, i) => ({
+        symbol: `T${i}`, value: i, shares: i, nameOfIssuer: `Name ${i}`,
+      })),
+    };
   } });
-  const blocked = await call(handler,
-    '/api/fmp?action=institutional-extract&symbol=AAPL&cik=0001067983&year=2025&quarter=2');
-  assert.equal(blocked.status, 403);
-  assert.equal(blocked.body.error, 'INSTITUTIONAL_EXTRACT_NOT_PROXIED');
+  const result = await call(handler,
+    '/api/fmp?action=institutional-extract&cik=0001067983&year=2025&quarter=2');
+  assert.equal(result.status, 200);
+  assert.equal(result.body.data.length, 400);
+  assert.equal(result.body.source.cik, '0001067983');
+  assert.equal(result.body.source.cappedAt, 400);
+  assert.match(String(result.headers['Cache-Control'] || ''), /private/);
+  assert.equal((await call(handler,
+    '/api/fmp?action=institutional-extract&cik=bad&year=2025&quarter=2')).status, 400);
 });

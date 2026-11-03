@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 /**
- * Invert curated 13F books into per-ticker Smart Money cache files.
+ * WhaleCreep-style Smart Money capture.
+ * 1) Per-ticker broad FMP extract-analytics/holder → cache/smart-money/{TICKER}.json
+ * 2) Curated (and optional extra) fund books via extract → cache/smart-money/funds/{slug}.json
+ *
  * Usage:
- *   FMP_API_KEY=… node scripts/capture_smart_money.cjs [TICKER,TICKER] [quarters=5]
- * With no tickers: builds for a small demo universe (AAPL,MSFT,NVDA,GOOGL,AMZN,META,BRK.B).
+ *   FMP_API_KEY=… node scripts/capture_smart_money.cjs [TICKER,TICKER] [quarters=4] [holderPages=3]
  */
 'use strict';
 
@@ -18,13 +20,16 @@ const key = process.env.FMP_API_KEY;
 if (!key) throw new Error('FMP_API_KEY is required');
 
 const tickersArg = process.argv[2];
-const quarterCount = Math.max(2, Math.min(6, Number(process.argv[3]) || 5));
+const quarterCount = Math.max(2, Math.min(6, Number(process.argv[3]) || 4));
+const holderPages = Math.max(1, Math.min(8, Number(process.argv[4]) || 3));
 const focusTickers = tickersArg
   ? tickersArg.split(',').map(t => t.trim().toUpperCase()).filter(Boolean)
-  : ['AAPL', 'MSFT', 'NVDA', 'GOOGL', 'AMZN', 'META', 'BRK.B'];
+  : ['AAPL', 'MSFT', 'NVDA', 'GOOGL', 'AMZN', 'META', 'BRK.B', 'TSM'];
 
 const outDir = path.join(root, 'cache', 'smart-money');
+const fundsDir = path.join(outDir, 'funds');
 fs.mkdirSync(outDir, { recursive: true });
+fs.mkdirSync(fundsDir, { recursive: true });
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -34,7 +39,7 @@ async function fmp(pathname, params) {
     if (value != null && value !== '') url.searchParams.set(name, String(value));
   }
   url.searchParams.set('apikey', key);
-  const response = await fetch(url, { signal: AbortSignal.timeout(45000), redirect: 'error' });
+  const response = await fetch(url, { signal: AbortSignal.timeout(60000), redirect: 'error' });
   if (!response.ok) {
     const err = new Error(`FMP_${response.status}`);
     err.status = response.status;
@@ -45,6 +50,29 @@ async function fmp(pathname, params) {
 
 function providerSymbol(symbol) {
   return symbol.endsWith('.HK') ? symbol : symbol.replaceAll('.', '-');
+}
+
+async function holderPagesFor(symbol, year, quarter) {
+  const rows = [];
+  for (let page = 0; page < holderPages; page += 1) {
+    const chunk = await fmp('institutional-ownership/extract-analytics/holder', {
+      symbol: providerSymbol(symbol),
+      year,
+      quarter,
+      page,
+      limit: 100,
+    });
+    const list = Array.isArray(chunk) ? chunk : [];
+    rows.push(...list);
+    if (list.length < 100) break;
+    await sleep(120);
+  }
+  return rows;
+}
+
+async function extract(cik, year, quarter) {
+  const rows = await fmp('institutional-ownership/extract', { cik, year, quarter });
+  return Array.isArray(rows) ? rows : [];
 }
 
 async function datesFor(cik) {
@@ -60,159 +88,204 @@ async function datesFor(cik) {
     .sort((a, b) => (b.year - a.year) || (b.quarter - a.quarter));
 }
 
-async function extract(cik, year, quarter) {
-  const rows = await fmp('institutional-ownership/extract', { cik, year, quarter });
-  return Array.isArray(rows) ? rows : [];
+function normalizeHolderRows(ticker, year, quarter, rows) {
+  const merged = SmartMoney.mergeRowsByCik(rows.map(row => ({
+    ...row,
+    cik: SmartMoney.padCik(row.cik),
+    shares: row.sharesNumber ?? row.shares,
+    lastShares: row.lastSharesNumber,
+    marketValue: row.marketValue ?? row.value,
+    filingDate: row.filingDate,
+    securityCusip: row.securityCusip || row.cusip || null,
+  }))).map(row => ({
+    date: row.date,
+    filingDate: row.filingDate,
+    cik: row.cik,
+    investorName: row.investorName,
+    symbol: ticker,
+    sharesNumber: row.shares,
+    lastSharesNumber: row.lastShares,
+    changeInSharesNumber: row.changeInShares
+      ?? (row.shares != null && row.lastShares != null ? row.shares - row.lastShares : null),
+    changeInSharesNumberPercentage: row.changeInSharesPct ?? row.changeInSharesNumberPercentage ?? null,
+    marketValue: row.marketValue,
+    lastMarketValue: row.lastMarketValue ?? null,
+    weight: row.weight,
+    ownership: row.ownership,
+    securityCusip: row.securityCusip || null,
+    year,
+    quarter,
+    isNew: row.isNew === true,
+    isSoldOut: row.isSoldOut === true,
+    isCurated: Boolean(SmartMoney.allowedCik(row.cik)),
+  }));
+  return merged;
 }
 
 (async () => {
-  const focus = new Set(focusTickers);
-  /** @type {Map<string, Map<string, object[]>>} ticker -> quarterKey -> rows */
-  const byTicker = new Map();
-  for (const ticker of focus) byTicker.set(ticker, new Map());
+  const capturedAt = new Date().toISOString();
+  // Anchor on Berkshire filing calendar so we skip incomplete newest calendar quarters.
+  let specs = SmartMoney.recentQuarterSpecs(quarterCount);
+  try {
+    const brkDates = await datesFor('0001067983');
+    specs = SmartMoney.quarterSpecsFromDates(brkDates, quarterCount);
+    console.log(`Anchored quarters on Berkshire filings: ${specs.map(s => s.key).join(', ')}`);
+  } catch (error) {
+    console.warn(`Berkshire dates unavailable (${error.message}); using calendar priors`);
+  }
+  console.log(`Capturing broad holders for ${focusTickers.join(',')} · ${specs.map(s => s.key).join(', ')} · pages≤${holderPages}`);
 
-  const investors = SmartMoney.INVESTORS;
-  console.log(`Capturing Smart Money for ${[...focus].join(',')} across up to ${quarterCount} quarters × ${investors.length} CIKs`);
-
-  for (const investor of investors) {
-    let filings;
-    try {
-      filings = (await datesFor(investor.cik)).slice(0, quarterCount + 1);
-    } catch (error) {
-      console.warn(`${investor.id} dates failed: ${error.message}`);
-      await sleep(250);
-      continue;
-    }
-    await sleep(120);
-    for (const filing of filings.slice(0, quarterCount)) {
-      let rows;
+  for (const ticker of focusTickers) {
+    const quarters = [];
+    for (const spec of specs) {
+      let rows = [];
       try {
-        rows = await extract(investor.cik, filing.year, filing.quarter);
+        rows = await holderPagesFor(ticker, spec.year, spec.quarter);
       } catch (error) {
-        console.warn(`${investor.id} ${filing.year}Q${filing.quarter} extract failed: ${error.message}`);
+        console.warn(`${ticker} ${spec.key} holders failed: ${error.message}`);
         await sleep(300);
         continue;
       }
-      await sleep(120);
-      const key = SmartMoney.quarterKey(filing.year, filing.quarter);
-      for (const ticker of focus) {
-        const matched = rows.filter(row => {
-          const sym = String(row.symbol || '').toUpperCase();
-          return sym === ticker || sym === providerSymbol(ticker);
-        });
-        if (!matched.length) continue;
-        const bucket = byTicker.get(ticker);
-        if (!bucket.has(key)) bucket.set(key, []);
-        // Dedupe amendment restatements (same shares+value / cusip), then sum true split lots.
-        const mergedLots = SmartMoney.mergeRowsByCik(matched.map(row => ({
-          cik: investor.cik,
-          shares: row.shares,
-          marketValue: row.value,
-          filingDate: row.filingDate,
-          date: row.date,
-          securityCusip: row.securityCusip || row.cusip || null,
-          investorName: investor.nameEn,
-        })));
-        const first = mergedLots[0];
-        const shares = mergedLots.reduce((sum, row) => sum + (Number(row.shares) || 0), 0);
-        const marketValue = mergedLots.reduce((sum, row) => sum + (Number(row.marketValue) || 0), 0);
-        const existing = bucket.get(key).find(row => row.cik === investor.cik);
-        if (existing) {
-          // Same CIK already stored for this quarter — keep the later filing, don't double-count.
-          if (String(first.filingDate || '') >= String(existing.filingDate || '')) {
-            existing.sharesNumber = shares;
-            existing.marketValue = marketValue;
-            existing.filingDate = first.filingDate || existing.filingDate;
-            existing.date = first.date || existing.date;
-          }
-        } else {
-          bucket.get(key).push({
-            date: first.date,
-            filingDate: first.filingDate,
-            cik: investor.cik,
-            investorName: investor.nameEn,
-            symbol: ticker,
-            sharesNumber: shares,
-            lastSharesNumber: null,
-            changeInSharesNumber: null,
-            marketValue,
-            weight: null,
-            ownership: null,
-            year: filing.year,
-            quarter: filing.quarter,
-            isNew: false,
-            isSoldOut: false,
-          });
-        }
+      await sleep(150);
+      const normalized = normalizeHolderRows(ticker, spec.year, spec.quarter, rows);
+      if (!normalized.length) {
+        console.warn(`${ticker} ${spec.key}: empty holders — skip incomplete quarter`);
+        continue;
       }
-      console.log(`${investor.id} ${key}: ${rows.length} positions`);
+      quarters.push({ year: spec.year, quarter: spec.quarter, key: spec.key, rows: normalized });
+      console.log(`${ticker} ${spec.key}: ${normalized.length} holders`);
     }
-  }
-
-  // Enrich QoQ change fields within each ticker cache.
-  const capturedAt = new Date().toISOString();
-  for (const ticker of focus) {
-    const quarterMap = byTicker.get(ticker);
-    const keys = [...quarterMap.keys()].sort((a, b) => b.localeCompare(a));
-    const quarters = keys.map(key => {
-      const { year, quarter } = SmartMoney.parseQuarterKey(key);
-      const rows = quarterMap.get(key) || [];
-      const prior = SmartMoney.priorQuarter(year, quarter);
-      const priorKey = SmartMoney.quarterKey(prior.year, prior.quarter);
-      const priorRows = quarterMap.get(priorKey) || [];
-      // Dedupe any residual multi-lot rows; buildSnapshot also merges + synthesizes exits.
-      const merged = SmartMoney.mergeRowsByCik(rows.map(row => ({
-        ...row,
-        shares: row.sharesNumber,
-        lastShares: row.lastSharesNumber,
-        marketValue: row.marketValue,
-      }))).map(row => ({
-        date: row.date,
-        filingDate: row.filingDate,
-        cik: row.cik,
-        investorName: row.investorName,
-        symbol: ticker,
-        sharesNumber: row.shares,
-        lastSharesNumber: null,
-        changeInSharesNumber: null,
-        marketValue: row.marketValue,
-        weight: row.weight,
-        ownership: row.ownership,
-        year,
-        quarter,
-        isNew: false,
-        isSoldOut: false,
-      }));
-      const priorByCik = new Map(priorRows.map(row => [row.cik, row]));
-      const enriched = merged.map(row => {
-        const prev = priorByCik.get(row.cik);
-        const lastShares = prev && Number.isFinite(Number(prev.sharesNumber))
-          ? Number(prev.sharesNumber) : null;
-        const shares = Number.isFinite(Number(row.sharesNumber)) ? Number(row.sharesNumber) : null;
-        return {
-          ...row,
-          lastSharesNumber: lastShares,
-          changeInSharesNumber: shares != null && lastShares != null ? shares - lastShares : null,
-          isNew: lastShares == null && shares > 0,
-          isSoldOut: false,
-        };
-      });
-      return { year, quarter, key, rows: enriched };
-    });
-
-    const snapshot = SmartMoney.buildSnapshot(ticker, quarters);
+    if (quarters.length < 1) {
+      console.warn(`${ticker}: no usable quarters`);
+      continue;
+    }
+    const snapshot = SmartMoney.buildStockSnapshot(
+      ticker,
+      quarters[0].rows,
+      quarters[1]?.rows || [],
+      { year: quarters[0].year, quarter: quarters[0].quarter },
+    );
     const payload = {
       ticker,
       capturedAt,
-      source: { provider: 'FMP', method: 'institutional-ownership/extract-inverted', quarters: quarterCount },
+      source: {
+        provider: 'FMP',
+        method: 'institutional-ownership/extract-analytics/holder',
+        quarters: quarters.length,
+        holderPages,
+      },
       quarters,
       snapshot,
       disclaimer: '13F filings lag up to ~45 days after quarter-end; not real-time holdings.',
     };
     const target = path.join(outDir, `${ticker}.json`);
     fs.writeFileSync(target, `${JSON.stringify(payload)}\n`);
-    console.log(`Wrote ${target} holders=${snapshot.holders.length} quarters=${quarters.length}`);
+    console.log(`Wrote ${target} holders=${snapshot.holders.length} exits=${snapshot.exits.length} curated=${snapshot.kpis.curatedHolders}`);
   }
+
+  // Fund books: curated 20 + a few high-conviction demo managers.
+  const fundTargets = [
+    ...SmartMoney.INVESTORS.map(row => ({
+      cik: row.cik,
+      slug: SmartMoney.slugify(row.nameEn),
+      investorName: row.nameEn,
+    })),
+  ];
+  // HCEP Management (WhaleCreep demo) if discoverable from TSM top weights — optional CIK probe skipped;
+  // curated list is the guaranteed fund cache set.
+
+  console.log(`Capturing fund books for ${fundTargets.length} managers × ${quarterCount} quarters`);
+  for (const fund of fundTargets) {
+    let filings;
+    try {
+      filings = (await datesFor(fund.cik)).slice(0, quarterCount + 1);
+    } catch (error) {
+      console.warn(`${fund.slug} dates failed: ${error.message}`);
+      await sleep(250);
+      continue;
+    }
+    await sleep(120);
+    const quarters = [];
+    for (const filing of filings.slice(0, quarterCount)) {
+      let rows;
+      try {
+        rows = await extract(fund.cik, filing.year, filing.quarter);
+      } catch (error) {
+        console.warn(`${fund.slug} ${filing.year}Q${filing.quarter} extract failed: ${error.message}`);
+        await sleep(300);
+        continue;
+      }
+      await sleep(120);
+      const capped = rows.slice(0, SmartMoney.FUND_EXTRACT_MAX).map(row => ({
+        ...row,
+        cik: fund.cik,
+        year: filing.year,
+        quarter: filing.quarter,
+      }));
+      if (!capped.length) continue;
+      quarters.push({
+        year: filing.year,
+        quarter: filing.quarter,
+        key: SmartMoney.quarterKey(filing.year, filing.quarter),
+        rows: capped,
+      });
+      console.log(`${fund.slug} ${filing.year}-Q${filing.quarter}: ${capped.length} positions`);
+    }
+    if (!quarters.length) continue;
+    const history = quarters.map(q => {
+      const summary = SmartMoney.summarizeFundQuarter(q.rows);
+      return {
+        year: q.year,
+        quarter: q.quarter,
+        positions: summary.positions,
+        book: summary.book,
+        largestWeight: summary.topWeight,
+        top10Weight: summary.top10Weight,
+        effectiveN: summary.effectiveN,
+        topSymbol: summary.topSymbol,
+      };
+    });
+    const payload = {
+      cik: fund.cik,
+      slug: fund.slug,
+      investorName: fund.investorName,
+      capturedAt,
+      source: { provider: 'FMP', method: 'institutional-ownership/extract', cappedAt: SmartMoney.FUND_EXTRACT_MAX },
+      quarters,
+      history,
+      disclaimer: '13F filings lag up to ~45 days after quarter-end; not real-time holdings.',
+    };
+    const bySlug = path.join(fundsDir, `${fund.slug}.json`);
+    const byCik = path.join(fundsDir, `${fund.cik}.json`);
+    fs.writeFileSync(bySlug, `${JSON.stringify(payload)}\n`);
+    fs.writeFileSync(byCik, `${JSON.stringify(payload)}\n`);
+    console.log(`Wrote ${bySlug} quarters=${quarters.length}`);
+  }
+
+  // WhaleCreep-style funds directory index
+  const managers = [];
+  for (const filename of fs.readdirSync(fundsDir)) {
+    if (!/^[a-z][a-z0-9.-]*\.json$/.test(filename) || filename === 'index.json') continue;
+    try {
+      const payload = JSON.parse(fs.readFileSync(path.join(fundsDir, filename), 'utf8'));
+      const entry = SmartMoney.buildFundDirectoryEntry(payload);
+      if (entry) managers.push(entry);
+    } catch (error) {
+      console.warn(`index skip ${filename}: ${error.message}`);
+    }
+  }
+  managers.sort((a, b) => (b.book ?? 0) - (a.book ?? 0));
+  const indexPayload = {
+    capturedAt,
+    source: { provider: 'FMP', method: 'institutional-ownership/extract-summaries' },
+    latestKey: managers[0]?.key || null,
+    count: managers.length,
+    managers,
+    disclaimer: '13F filings lag up to ~45 days after quarter-end; not real-time holdings.',
+  };
+  const indexPath = path.join(fundsDir, 'index.json');
+  fs.writeFileSync(indexPath, `${JSON.stringify(indexPayload)}\n`);
+  console.log(`Wrote funds directory ${indexPath} managers=${managers.length}`);
 })().catch(error => {
   console.error(error);
   process.exitCode = 1;
