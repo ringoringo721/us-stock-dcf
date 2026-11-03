@@ -37,8 +37,8 @@ const FUND_QUARTERS = 8;
 const FUND_HOLDING_CAP = 22;
 const EXTRA_FUND_QUARTERS = 8;
 const EXTRA_FUND_HOLDING_CAP = 22;
-/** Max committed fund-{cik} books (priority + heaviest); others rely on names + live extract. */
-const EXTRA_FUND_COMMIT_MAX = 28;
+/** Max committed fund-{cik} books (priority + heaviest); others rely on invert + live extract. */
+const EXTRA_FUND_COMMIT_MAX = 29;
 /** Liquid / mega-cap US — full holder tables on Preview without FMP_API_KEY. */
 const STOCK_SEEDS = [
   'NVDA', 'AAPL', 'MSFT', 'META', 'GOOGL', 'AMZN', 'TSLA', 'TSM', 'STZ',

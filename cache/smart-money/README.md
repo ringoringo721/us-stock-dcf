@@ -32,4 +32,4 @@ FMP_API_KEY=… node scripts/capture_holder_fund_books.cjs 45 8
 node scripts/seed_smart_money.cjs --from-cache
 ```
 
-Seed caps (see `seed_smart_money.cjs`): stock 40×2Q; extra funds ≤28 books × 8Q × 22 holdings (priority includes BAMCO / Hapoalim / Sumitomo).
+Seed caps (see `seed_smart_money.cjs`): stock 40×2Q; extra funds ≤29 books × 8Q × 22 holdings (priority includes BAMCO / Hapoalim / Sumitomo).
