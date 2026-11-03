@@ -297,34 +297,85 @@ test('allowedCik / resolveFundIdentity / fundHref', () => {
   assert.equal(SmartMoney.resolveFundIdentity('brk').cik, '0001067983');
   assert.equal(SmartMoney.fundHref('berkshire-hathaway', '2025-Q4'), '#fund/berkshire-hathaway?vs=2025-q4');
   assert.equal(SmartMoney.slugify('HCEP Management Ltd'), 'hcep-management-ltd');
-  // Bare CIK is always openable (seed invert / live / empty) — slug-only unknown is not.
+  // Bare CIK is always openable — non-curated slug is fund-{cik}, never digits-as-title route.
   assert.equal(SmartMoney.resolveFundIdentity('0002147005').openable, true);
-  assert.equal(SmartMoney.resolveFundIdentity('0002147005').slug, '0002147005');
+  assert.equal(SmartMoney.resolveFundIdentity('0002147005').slug, 'fund-0002147005');
+  assert.equal(SmartMoney.resolveFundIdentity('fund-0001475365').cik, '0001475365');
+  // #fund/CIK and #fund/fund-CIK must resolve to the same openable identity.
+  const bamcoBare = SmartMoney.resolveFundIdentity('0001017918');
+  const bamcoPrefixed = SmartMoney.resolveFundIdentity('fund-0001017918');
+  assert.equal(bamcoBare.cik, '0001017918');
+  assert.equal(bamcoBare.slug, 'fund-0001017918');
+  assert.equal(bamcoPrefixed.slug, bamcoBare.slug);
+  assert.equal(bamcoPrefixed.cik, bamcoBare.cik);
+  assert.equal(bamcoBare.openable, true);
   assert.equal(SmartMoney.isOpenableFundKey('framtiden-holdings-management-co-llc'), false);
 });
 
-test('fundLinkForHolder links every CIK (curated slug; others CIK route)', () => {
+test('expandHolderFundEntry builds partial Preview books without FMP', () => {
+  const expanded = SmartMoney.expandHolderFundEntry({
+    n: 'BAMCO INC /NY/',
+    q: [
+      { y: 2026, q: 2, r: [{ s: 'TSLA', sh: 100, v: 1e9, w: 8 }] },
+      { y: 2026, q: 1, r: [{ s: 'TSLA', sh: 90, v: 9e8, w: 13 }] },
+    ],
+  }, '0001017918');
+  assert.ok(expanded);
+  assert.equal(expanded.cik, '0001017918');
+  assert.equal(expanded.slug, 'fund-0001017918');
+  assert.equal(expanded.investorName, 'BAMCO INC /NY/');
+  assert.equal(expanded.source.partial, true);
+  assert.equal(expanded.quarters.length, 2);
+  assert.equal(expanded.quarters[0].rows[0].symbol, 'TSLA');
+});
+
+test('resolveInvestorName never returns bare CIK as primary title', () => {
+  SmartMoney.resetHolderNameMap();
+  SmartMoney.registerHolderNames({
+    '0001475365': 'SUMITOMO MITSUI TRUST GROUP, INC.',
+    '0000902528': 'BANK HAPOALIM BM',
+  });
+  assert.equal(SmartMoney.looksLikeBareCik('0001475365', '0001475365'), true);
+  assert.equal(SmartMoney.looksLikeBareCik('BANK HAPOALIM BM', '0000902528'), false);
+  assert.equal(
+    SmartMoney.resolveInvestorName({ cik: '0001475365', investorName: '0001475365' }),
+    'SUMITOMO MITSUI TRUST GROUP, INC.',
+  );
+  assert.equal(
+    SmartMoney.resolveInvestorName({ cik: '0000902528', slug: 'fund-0000902528' }),
+    'BANK HAPOALIM BM',
+  );
+  assert.equal(
+    SmartMoney.resolveInvestorName({ cik: '0001067983', investorName: '0001067983' }),
+    'Berkshire Hathaway',
+  );
+  // Unknown CIK with only digit label → null (UI shows generic, not digits).
+  assert.equal(SmartMoney.resolveInvestorName({ cik: '0009999991', investorName: '0009999991' }), null);
+});
+
+test('fundLinkForHolder links every CIK (curated slug; others fund-{cik})', () => {
   const brk = SmartMoney.fundLinkForHolder({
     cik: '0001067983', investorName: 'Berkshire Hathaway', isCurated: true,
   });
   assert.equal(brk.slug, 'berkshire-hathaway');
   assert.match(brk.href, /#fund\/berkshire-hathaway/);
   assert.ok(brk.curated);
-  // Broad holders (Fenelon / Framtiden / Greenwoods) get CIK fund links — WhaleCreep parity.
+  // Broad holders get fund-{cik} routes — titles resolve from investorName / holder-funds.
   const fenelon = SmartMoney.fundLinkForHolder({
     cik: '0002147005',
     investorName: 'FENELON OPPORTUNITY FUND INC.',
     isCurated: false,
   });
-  assert.equal(fenelon.slug, '0002147005');
-  assert.match(fenelon.href, /#fund\/0002147005/);
+  assert.equal(fenelon.slug, 'fund-0002147005');
+  assert.match(fenelon.href, /#fund\/fund-0002147005/);
   assert.equal(fenelon.curated, null);
+  assert.equal(fenelon.investorName, 'FENELON OPPORTUNITY FUND INC.');
   const framtiden = SmartMoney.fundLinkForHolder({
     cik: '0002112734',
     investorName: 'FRAMTIDEN HOLDINGS MANAGEMENT CO LLC',
     isCurated: false,
   });
-  assert.equal(framtiden.slug, '0002112734');
+  assert.equal(framtiden.slug, 'fund-0002112734');
   assert.equal(SmartMoney.fundLinkForHolder({ investorName: 'No CIK Inc' }), null);
   assert.equal(SmartMoney.isOpenableFundKey('lone-pine-capital'), true);
   for (const inv of SmartMoney.INVESTORS) {
@@ -368,6 +419,88 @@ test('buildHolderFundIndex inverts stock seeds into partial fund books', () => {
   assert.equal(expanded.quarters[0].rows.length, 2);
   assert.ok(expanded.quarters[0].rows.some(r => r.symbol === 'GOOGL'));
   assert.ok(expanded.quarters[0].rows.some(r => r.symbol === 'AAPL'));
+});
+
+test('slimFundPayload unions holding identities across quarters (no false top-N exits)', () => {
+  const { slimFundPayload } = require('../scripts/seed_smart_money.cjs');
+  const payload = {
+    cik: '0000902528',
+    slug: 'fund-0000902528',
+    investorName: 'BANK HAPOALIM BM',
+    quarters: [
+      {
+        year: 2026, quarter: 2,
+        rows: [
+          { symbol: 'AAPL', securityCusip: '037833100', value: 100, shares: 1 },
+          { symbol: 'MSFT', securityCusip: '594918104', value: 90, shares: 1 },
+          // Still held, but outside independent top-2 — must not become a false exit.
+          { symbol: 'OLD', securityCusip: 'OLDOLDOLD1', value: 50, shares: 1 },
+        ],
+      },
+      {
+        year: 2026, quarter: 1,
+        rows: [
+          { symbol: 'AAPL', securityCusip: '037833100', value: 95, shares: 1 },
+          { symbol: 'OLD', securityCusip: 'OLDOLDOLD1', value: 88, shares: 1 },
+          { symbol: 'MSFT', securityCusip: '594918104', value: 70, shares: 1 },
+        ],
+      },
+    ],
+  };
+  const seeded = slimFundPayload(payload, { quarters: 2, holdingCap: 2 });
+  // Top-2 union = {AAPL,MSFT} ∪ {AAPL,OLD} → keep all three when present in source.
+  const q2 = seeded.quarters[0].rows.map(r => r.securityCusip).sort();
+  const q1 = seeded.quarters[1].rows.map(r => r.securityCusip).sort();
+  assert.deepEqual(q2, ['037833100', '594918104', 'OLDOLDOLD1']);
+  assert.deepEqual(q1, ['037833100', '594918104', 'OLDOLDOLD1']);
+  const compared = SmartMoney.compareFundHoldings(
+    seeded.quarters[0].rows.map(r => SmartMoney.normalizeFundHolding(r)),
+    seeded.quarters[1].rows.map(r => SmartMoney.normalizeFundHolding(r)),
+  );
+  assert.equal(compared.exited.length, 0);
+  assert.equal(compared.holdings.find(r => r.securityCusip === 'OLDOLDOLD1').action, 'held');
+  assert.equal(compared.holdings.find(r => r.securityCusip === '037833100').action, 'held');
+});
+
+test('slimFundPayload keeps largest lot per CUSIP (not first / not sum)', () => {
+  const { slimFundPayload, collapseFundLotsByIdentity } = require('../scripts/seed_smart_money.cjs');
+  // FMP often emits duplicate / split lines for the same CUSIP; first-wins dropped the
+  // ~$1.4B BRK-B and kept ~$520M (Check Capital). Summing would inflate vs history KPIs.
+  const collapsed = collapseFundLotsByIdentity([
+    { symbol: 'BRK-B', securityCusip: '084670702', value: 520_776_904, shares: 1_072_065 },
+    { symbol: 'BRK-B', securityCusip: '084670702', value: 1_440_550_935, shares: 2_965_500 },
+    { symbol: 'BRK-B', securityCusip: '084670702', value: 1_440_550_935, shares: 2_965_500 },
+    { symbol: 'VIST', securityCusip: '92837L109', value: 5_816_400, shares: 120_000 },
+    { symbol: 'VIST', securityCusip: '92837L109', value: 8_320_860, shares: 171_000 },
+  ]);
+  assert.equal(collapsed.length, 2);
+  const brk = collapsed.find(r => r.securityCusip === '084670702');
+  const vist = collapsed.find(r => r.securityCusip === '92837L109');
+  assert.equal(brk.value, 1_440_550_935);
+  assert.equal(brk.shares, 2_965_500);
+  assert.equal(vist.value, 8_320_860);
+
+  const seeded = slimFundPayload({
+    cik: '0001032814',
+    slug: 'fund-0001032814',
+    investorName: 'CHECK CAPITAL MANAGEMENT INC/CA',
+    quarters: [{
+      year: 2025, quarter: 2,
+      rows: [
+        { symbol: 'BRK-B', securityCusip: '084670702', value: 520_776_904, shares: 1_072_065 },
+        { symbol: 'AAPL', securityCusip: '037833100', value: 100_000_000, shares: 1 },
+        { symbol: 'BRK-B', securityCusip: '084670702', value: 1_440_550_935, shares: 2_965_500 },
+      ],
+    }],
+    history: [{
+      year: 2025, quarter: 2, positions: 50, book: 2_957_613_794,
+      largestWeight: 48.7, topSymbol: 'BRK-B',
+    }],
+  }, { quarters: 1, holdingCap: 22 });
+  const rows = seeded.quarters[0].rows.filter(r => r.securityCusip === '084670702');
+  assert.equal(rows.length, 1);
+  assert.equal(rows[0].value, 1_440_550_935);
+  assert.equal(seeded.history[0].largestWeight, 48.7);
 });
 
 test('effectivePositions treats percent-of-book weights like WhaleCreep', () => {

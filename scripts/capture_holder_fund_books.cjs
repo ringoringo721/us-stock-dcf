@@ -4,7 +4,7 @@
  * Writes cache/smart-money/funds/fund-{cik}.json (letter prefix → gitallow).
  *
  * Usage:
- *   FMP_API_KEY=… node scripts/capture_holder_fund_books.cjs [maxFunds=40] [quarters=2]
+ *   FMP_API_KEY=… node scripts/capture_holder_fund_books.cjs [maxFunds=40] [quarters=8]
  */
 'use strict';
 
@@ -19,10 +19,44 @@ const key = process.env.FMP_API_KEY;
 if (!key) throw new Error('FMP_API_KEY is required');
 
 const maxFunds = Math.max(5, Math.min(120, Number(process.argv[2]) || 40));
-const quarterCount = Math.max(2, Math.min(4, Number(process.argv[3]) || 2));
+const quarterCount = Math.max(2, Math.min(12, Number(process.argv[3]) || 8));
 const outDir = path.join(root, 'cache', 'smart-money');
 const fundsDir = path.join(outDir, 'funds');
 fs.mkdirSync(fundsDir, { recursive: true });
+
+/** Prefer existing holder-funds names / prior captures over bare CIK. */
+function loadNameHints() {
+  const hints = Object.create(null);
+  Object.assign(hints, PRIORITY_NAMES);
+  const holderPath = path.join(fundsDir, 'holder-funds.json');
+  if (fs.existsSync(holderPath)) {
+    try {
+      const body = JSON.parse(fs.readFileSync(holderPath, 'utf8'));
+      Object.assign(hints, body.names || {});
+    } catch { /* ignore */ }
+  }
+  for (const filename of fs.readdirSync(fundsDir)) {
+    if (!/^fund-\d{10}\.json$/.test(filename)) continue;
+    try {
+      const payload = JSON.parse(fs.readFileSync(path.join(fundsDir, filename), 'utf8'));
+      const cik = SmartMoney.padCik(payload.cik || filename);
+      if (cik && payload.investorName && !SmartMoney.looksLikeBareCik(payload.investorName, cik)) {
+        hints[cik] = payload.investorName;
+      }
+    } catch { /* ignore */ }
+  }
+  return hints;
+}
+
+async function lookupCikName(cik) {
+  try {
+    const rows = await fmp('search-cik', { cik });
+    const hit = Array.isArray(rows) ? rows.find(row => SmartMoney.padCik(row.cik) === cik) : null;
+    const name = hit?.companyName || hit?.name || null;
+    if (name && !SmartMoney.looksLikeBareCik(name, cik)) return name;
+  } catch { /* optional */ }
+  return null;
+}
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -75,9 +109,19 @@ const PRIORITY_CIKS = [
   '0001532262', // Greenbrier
   '0000937729', // Fayez Sarofim
   '0001731012', // Alphinity
+  '0001475365', // Sumitomo Mitsui Trust (CIK-title bug example)
+  '0000902528', // Bank Hapoalim (2Q bug example)
+  '0001017918', // BAMCO (Baron) — TSLA holder link / #fund/fund-CIK
 ];
+/** Hard names when stock seeds / search-cik omit the 13F manager title. */
+const PRIORITY_NAMES = {
+  '0001622346': 'SHANDA ASSET MANAGEMENT HOLDINGS LTD',
+  '0001475365': 'SUMITOMO MITSUI TRUST GROUP, INC.',
+  '0000902528': 'BANK HAPOALIM BM',
+  '0001017918': 'BAMCO INC /NY/',
+};
 
-function collectTargets() {
+function collectTargets(nameHints) {
   const byCik = new Map();
   for (const filename of fs.readdirSync(outDir)) {
     if (!/^[A-Z0-9][A-Z0-9.-]*\.json$/.test(filename)) continue;
@@ -85,14 +129,19 @@ function collectTargets() {
     try { payload = JSON.parse(fs.readFileSync(path.join(outDir, filename), 'utf8')); }
     catch { continue; }
     const ticker = payload.ticker || filename.replace(/\.json$/, '');
-    for (const q of (payload.quarters || []).slice(0, 1)) {
+    // Scan all seeded stock quarters so older-quarter managers still get full books.
+    for (const q of (payload.quarters || [])) {
       for (const row of q.rows || []) {
         const cik = SmartMoney.padCik(row.cik);
         if (!cik || SmartMoney.isCuratedCik(cik) || MEGA_CUSTODIAN.has(cik)) continue;
+        const hinted = nameHints[cik];
+        const rowName = row.investorName && !SmartMoney.looksLikeBareCik(row.investorName, cik)
+          ? row.investorName
+          : null;
         if (!byCik.has(cik)) {
           byCik.set(cik, {
             cik,
-            investorName: row.investorName || cik,
+            investorName: rowName || hinted || null,
             maxWeight: 0,
             maxValue: 0,
             tickers: new Set(),
@@ -101,7 +150,8 @@ function collectTargets() {
         }
         const entry = byCik.get(cik);
         entry.tickers.add(ticker);
-        if (row.investorName) entry.investorName = row.investorName;
+        if (rowName) entry.investorName = rowName;
+        else if (!entry.investorName && hinted) entry.investorName = hinted;
         entry.maxWeight = Math.max(entry.maxWeight, Number(row.weight) || 0);
         entry.maxValue = Math.max(entry.maxValue, Number(row.marketValue) || 0);
         if (PRIORITY_CIKS.includes(cik)) entry.priority = 1;
@@ -111,7 +161,12 @@ function collectTargets() {
   for (const cik of PRIORITY_CIKS) {
     if (byCik.has(cik) || MEGA_CUSTODIAN.has(cik) || SmartMoney.isCuratedCik(cik)) continue;
     byCik.set(cik, {
-      cik, investorName: cik, maxWeight: 0, maxValue: 0, tickers: new Set(), priority: 1,
+      cik,
+      investorName: nameHints[cik] || null,
+      maxWeight: 0,
+      maxValue: 0,
+      tickers: new Set(),
+      priority: 1,
     });
   }
   return [...byCik.values()]
@@ -122,10 +177,16 @@ function collectTargets() {
 }
 
 (async () => {
-  const targets = collectTargets();
+  const nameHints = loadNameHints();
+  const targets = collectTargets(nameHints);
   console.log(`Capturing ${targets.length} non-curated fund books × ${quarterCount}Q`);
   for (const fund of targets) {
     const outPath = path.join(fundsDir, `fund-${fund.cik}.json`);
+    if (!fund.investorName) {
+      const lookedUp = await lookupCikName(fund.cik);
+      if (lookedUp) fund.investorName = lookedUp;
+      await sleep(120);
+    }
     let filings;
     try {
       filings = (await datesFor(fund.cik)).slice(0, quarterCount + 1);
@@ -165,7 +226,7 @@ function collectTargets() {
         key: SmartMoney.quarterKey(filing.year, filing.quarter),
         rows: capped,
       });
-      console.log(`fund-${fund.cik} ${filing.year}-Q${filing.quarter}: ${capped.length} positions (${fund.investorName})`);
+      console.log(`fund-${fund.cik} ${filing.year}-Q${filing.quarter}: ${capped.length} positions (${fund.investorName || 'unnamed'})`);
     }
     if (!quarters.length) continue;
     const history = quarters.map(q => {
@@ -177,23 +238,28 @@ function collectTargets() {
         effectiveN: summary.effectiveN, topSymbol: summary.topSymbol,
       };
     });
+    const investorName = SmartMoney.resolveInvestorName({
+      cik: fund.cik,
+      investorName: fund.investorName || nameHints[fund.cik],
+    });
     const payload = {
       cik: fund.cik,
       slug: `fund-${fund.cik}`,
-      investorName: fund.investorName,
+      investorName,
       capturedAt: new Date().toISOString(),
       source: {
         provider: 'FMP',
         method: 'institutional-ownership/extract',
         cappedAt: SmartMoney.FUND_EXTRACT_MAX,
         fullBook: true,
+        quartersRequested: quarterCount,
       },
       quarters,
       history,
       disclaimer: '13F filings lag up to ~45 days after quarter-end; not real-time holdings.',
     };
     fs.writeFileSync(outPath, `${JSON.stringify(payload)}\n`);
-    console.log(`Wrote ${outPath} q=${quarters.length} bytes=${fs.statSync(outPath).size}`);
+    console.log(`Wrote ${outPath} name=${investorName || '—'} q=${quarters.length} bytes=${fs.statSync(outPath).size}`);
   }
   console.log('Done. Run: node scripts/seed_smart_money.cjs --from-cache');
 })().catch(error => {

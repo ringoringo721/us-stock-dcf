@@ -1,11 +1,12 @@
 const assert = require('node:assert/strict');
 const { test } = require('node:test');
 const { createHandler } = require('../api/fmp.js');
-const call = async (handler, url, method = 'GET') => {
+const SmartMoney = require('../smart_money.js');
+const call = async (handler, url, method = 'GET', reqHeaders = {}) => {
   const headers = {};
   const res = { statusCode: 200, setHeader(name, value) { headers[name] = value; },
     end(body) { this.body = JSON.parse(body); } };
-  await handler({ method, url }, res);
+  await handler({ method, url, headers: reqHeaders }, res);
   return { status: res.statusCode, body: res.body, headers };
 };
 
@@ -232,6 +233,26 @@ test('institutional-holders returns broad holders with curated flags and stays p
     '/api/fmp?action=institutional-holders&symbol=AAPL&year=2025&quarter=5')).status, 400);
 });
 
+test('institutional-extract prefers FMP row investorName when map missing', async () => {
+  SmartMoney.resetHolderNameMap();
+  SmartMoney.registerExtractAllowlist(['0002147005']);
+  const handler = createHandler({ apiKey: () => 'test-placeholder', fetch: async () => ({
+    ok: true,
+    json: async () => ([
+      {
+        symbol: 'GOOGL', shares: 10, value: 1e6,
+        investorName: 'FENELON OPPORTUNITY FUND INC.',
+      },
+      { symbol: 'AAPL', shares: 5, value: 5e5 },
+    ]),
+  }) });
+  const result = await call(handler,
+    '/api/fmp?action=institutional-extract&cik=0002147005&year=2026&quarter=2');
+  assert.equal(result.status, 200);
+  assert.equal(result.body.source.investorName, 'FENELON OPPORTUNITY FUND INC.');
+  assert.equal(SmartMoney.holderNameForCik('0002147005'), 'FENELON OPPORTUNITY FUND INC.');
+});
+
 test('institutional-extract is capped, CIK-allowlisted, and rate-private', async () => {
   let upstreamCalls = 0;
   const handler = createHandler({ apiKey: () => 'test-placeholder', fetch: async url => {
@@ -248,26 +269,30 @@ test('institutional-extract is capped, CIK-allowlisted, and rate-private', async
       })),
     };
   } });
+  // Isolate extract rate bucket from sibling tests (shared in-memory Map).
+  const ip = { 'x-forwarded-for': '203.0.113.50' };
   const result = await call(handler,
-    '/api/fmp?action=institutional-extract&cik=0001067983&year=2025&quarter=2');
+    '/api/fmp?action=institutional-extract&cik=0001067983&year=2025&quarter=2', 'GET', ip);
   assert.equal(result.status, 200);
   assert.equal(result.body.data.length, 400);
   assert.equal(result.body.source.cik, '0001067983');
   assert.equal(result.body.source.cappedAt, 400);
+  // Curated CIK resolves from INVESTORS even without row-level investorName.
+  assert.equal(result.body.source.investorName, 'Berkshire Hathaway');
   assert.match(String(result.headers['Cache-Control'] || ''), /private/);
   assert.equal((await call(handler,
-    '/api/fmp?action=institutional-extract&cik=bad&year=2025&quarter=2')).status, 400);
+    '/api/fmp?action=institutional-extract&cik=bad&year=2025&quarter=2', 'GET', ip)).status, 400);
   // CIK outside curated ∪ seed-holder allowlist must not burn shared FMP quota.
   const blocked = await call(handler,
-    '/api/fmp?action=institutional-extract&cik=0009999998&year=2025&quarter=2');
+    '/api/fmp?action=institutional-extract&cik=0009999998&year=2025&quarter=2', 'GET', ip);
   assert.equal(blocked.status, 403);
   assert.equal(blocked.body.error, 'INSTITUTIONAL_CIK_NOT_ALLOWLISTED');
   assert.equal(upstreamCalls, 1);
   // Tight extract budget (4/min) after the successful curated call above.
   for (let i = 0; i < 3; i += 1) {
     assert.equal((await call(handler,
-      '/api/fmp?action=institutional-extract&cik=0001067983&year=2025&quarter=2')).status, 200);
+      '/api/fmp?action=institutional-extract&cik=0001067983&year=2025&quarter=2', 'GET', ip)).status, 200);
   }
   assert.equal((await call(handler,
-    '/api/fmp?action=institutional-extract&cik=0001067983&year=2025&quarter=2')).status, 429);
+    '/api/fmp?action=institutional-extract&cik=0001067983&year=2025&quarter=2', 'GET', ip)).status, 429);
 });
