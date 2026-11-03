@@ -226,8 +226,36 @@ test('allowedCik / resolveFundIdentity / fundHref', () => {
   const id = SmartMoney.resolveFundIdentity('berkshire-hathaway');
   assert.equal(id.cik, '0001067983');
   assert.equal(id.slug, 'berkshire-hathaway');
+  assert.equal(id.openable, true);
+  assert.equal(SmartMoney.resolveFundIdentity('brk').cik, '0001067983');
   assert.equal(SmartMoney.fundHref('berkshire-hathaway', '2025-Q4'), '#fund/berkshire-hathaway?vs=2025-q4');
   assert.equal(SmartMoney.slugify('HCEP Management Ltd'), 'hcep-management-ltd');
+});
+
+test('fundLinkForHolder only links curated / allowlisted managers', () => {
+  const brk = SmartMoney.fundLinkForHolder({
+    cik: '0001067983', investorName: 'Berkshire Hathaway', isCurated: true,
+  });
+  assert.equal(brk.slug, 'berkshire-hathaway');
+  assert.match(brk.href, /#fund\/berkshire-hathaway/);
+  // Broad-holder names like Framtiden must not become dead #fund links.
+  assert.equal(SmartMoney.fundLinkForHolder({
+    cik: '0002112734',
+    investorName: 'FRAMTIDEN HOLDINGS MANAGEMENT CO LLC',
+    slug: 'framtiden-holdings-management-co-llc',
+    isCurated: false,
+  }), null);
+  assert.equal(SmartMoney.isOpenableFundKey('framtiden-holdings-management-co-llc'), false);
+  assert.equal(SmartMoney.isOpenableFundKey('lone-pine-capital'), true);
+  // Every curated investor resolves slug ↔ CIK.
+  for (const inv of SmartMoney.INVESTORS) {
+    const slug = SmartMoney.slugify(inv.nameEn);
+    const bySlug = SmartMoney.resolveFundIdentity(slug);
+    const byCik = SmartMoney.resolveFundIdentity(inv.cik);
+    assert.equal(bySlug.cik, inv.cik, slug);
+    assert.equal(byCik.slug, slug, inv.cik);
+    assert.equal(bySlug.openable, true);
+  }
 });
 
 test('effectivePositions treats percent-of-book weights like WhaleCreep', () => {

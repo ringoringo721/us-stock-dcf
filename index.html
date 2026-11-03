@@ -722,6 +722,36 @@
       color: var(--on-accent);
       border-color: var(--accent);
     }
+    /* High-contrast CTA → #funds (smart-money + fund detail headers) */
+    .sm-funds-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 11px 18px;
+      border-radius: 8px;
+      border: 1px solid color-mix(in srgb, var(--accent) 70%, #fff);
+      background: linear-gradient(180deg,
+        color-mix(in srgb, var(--accent) 92%, #fff) 0%,
+        var(--accent) 100%);
+      color: var(--on-accent, #061018);
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+      cursor: pointer;
+      box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 35%, transparent),
+        0 6px 18px color-mix(in srgb, var(--accent) 28%, transparent);
+      transition: transform 0.12s ease, filter 0.12s ease;
+    }
+    .sm-funds-cta:hover {
+      filter: brightness(1.08);
+      transform: translateY(-1px);
+    }
+    .sm-funds-cta:focus-visible {
+      outline: 2px solid color-mix(in srgb, var(--accent) 80%, #fff);
+      outline-offset: 3px;
+    }
 
     /* 財務報表分組標題列樣式 */
     .fin-group-header-row td {
@@ -2437,7 +2467,7 @@
       <div class="panel historical-ratio-panel company-analysis-panel">
         <div class="panel-title" style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;">
           <span data-i18n="sec_smart_money">智資／Smart Money（機構持倉）</span>
-          <button type="button" class="stmt-btn" onclick="openFundsDirectory()" data-i18n="btn_funds_directory">瀏覽管理人目錄</button>
+          <button type="button" class="sm-funds-cta" onclick="openFundsDirectory()" data-i18n="btn_funds_directory">瀏覽管理人目錄</button>
         </div>
         <p class="analysis-note" data-i18n="analysis_smart_money_note">WhaleCreep 風格：追蹤該股近期 13F 申報的機構／對沖基金持倉（組合權重、市值、股數、Δ、動作）。策展 20 家僅作亮點標示。資料來自 FMP 機構持倉端點。</p>
         <p id="smart-money-disclaimer" class="analysis-note" role="note" data-i18n="analysis_smart_money_lag">13F 為季度申報，法定可於季末後最多約 45 日才公開；本站快取可能再延遲。數字為歷史已申報多頭倉，非即時持倉，亦非投資建議。</p>
@@ -2900,7 +2930,7 @@
         <span id="fund-quarter-badge" class="badge">—</span>
       </div>
       <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
-        <button type="button" class="stmt-btn" onclick="openFundsDirectory()" data-i18n="btn_funds_directory">瀏覽管理人目錄</button>
+        <button type="button" class="sm-funds-cta" onclick="openFundsDirectory()" data-i18n="btn_funds_directory">瀏覽管理人目錄</button>
         <label for="fund-vs-select" class="analysis-note" style="margin:0;" data-i18n="fund_vs_label">對照季度</label>
         <select id="fund-vs-select" onchange="onFundVsChange(this.value)"></select>
         <button class="btn-back" onclick="navigateBackFromFund()" data-i18n="btn_back_list">← 返回</button>
@@ -8799,16 +8829,22 @@
   }
 
   function smartMoneyManagerCell(row, SM, isEn) {
-    const curated = row.curated || (row.isCurated && SM.INVESTORS.find(inv => inv.cik === row.cik));
+    const link = SM.fundLinkForHolder?.(row) || null;
+    const curated = link?.curated
+      || row.curated
+      || (row.isCurated && SM.INVESTORS.find(inv => inv.cik === row.cik));
     const label = curated
       ? SM.investorLabel(curated, isEn ? 'en' : 'zh')
       : (row.investorName || row.cik || '—');
-    const slug = row.slug || SM.slugify(row.investorName || curated?.nameEn || row.cik);
-    const href = SM.fundHref(slug);
-    const badge = row.isCurated || curated
+    const badge = curated || link
       ? `<span class="badge" style="margin-left:6px;font-size:10px;">${isEn ? 'curated' : '策展'}</span>`
       : '';
-    return `<a class="sm-manager-link" href="${escapeAttribute(href)}" onclick="event.preventDefault(); openFundPage('${escapeAttribute(slug)}');">${escapeAttribute(label)}</a>${badge}`;
+    // Only curated / allowlisted managers link to #fund — avoids FUND_IDENTITY_UNKNOWN dead ends
+    // (e.g. Framtiden from broad STZ holders has no seed and is not extract-allowlisted).
+    if (!link) {
+      return `<span>${escapeAttribute(label)}</span>${badge}`;
+    }
+    return `<a class="sm-manager-link" href="${escapeAttribute(link.href)}" onclick="event.preventDefault(); openFundPage('${escapeAttribute(link.slug)}');">${escapeAttribute(label)}</a>${badge}`;
   }
 
   function renderSmartMoneyHolderRows(rows, SM, isEn, emptyMsg) {
@@ -8961,12 +8997,13 @@
     openFundPage(activeFundSlug, value || null, true);
   }
 
-  function openFundsDirectory(replace) {
+  function openFundsDirectory(replace, notice) {
     const SM = typeof SmartMoney !== 'undefined' ? SmartMoney : null;
     hideSmartMoneyViews();
     const fundsView = document.getElementById('funds-view');
     if (fundsView) fundsView.style.display = 'block';
     cameFromFundsDirectory = true;
+    openFundsDirectory._notice = notice || null;
     const route = SM ? SM.fundsDirectoryHref() : '#funds';
     const state = { view: 'funds' };
     if (replace) history.replaceState(state, '', route);
@@ -8995,18 +9032,23 @@
       return;
     }
     tbody.innerHTML = managers.map(row => {
-      const label = row.curated
-        ? SM.investorLabel(row.curated, isEn ? 'en' : 'zh')
+      const identity = SM.resolveFundIdentity(row.slug || row.cik);
+      const openSlug = identity.openable ? identity.slug : null;
+      const label = row.curated || identity.curated
+        ? SM.investorLabel(row.curated || identity.curated, isEn ? 'en' : 'zh')
         : (row.investorName || row.slug);
       const latest = row.year != null ? `Q${row.quarter} ${row.year}` : '—';
       const top = row.topWeight != null ? `${Number(row.topWeight).toFixed(1)}%` : '—';
       const top10 = row.top10Weight != null ? `${Number(row.top10Weight).toFixed(1)}%` : '—';
       const eff = row.effectiveN != null ? Number(row.effectiveN).toFixed(0) : '—';
+      const nameCell = openSlug
+        ? `<a class="sm-manager-link" href="${escapeAttribute(SM.fundHref(openSlug))}"
+            onclick="event.preventDefault(); cameFromFundsDirectory=true; openFundPage('${escapeAttribute(openSlug)}');">${escapeAttribute(label)}</a>
+          <span class="badge" style="margin-left:6px;font-size:10px;">${isEn ? 'curated' : '策展'}</span>`
+        : `<span>${escapeAttribute(label)}</span>`;
       return `<tr>
         <td class="table-sticky-col" style="text-align:left;">
-          <a class="sm-manager-link" href="${escapeAttribute(SM.fundHref(row.slug))}"
-            onclick="event.preventDefault(); cameFromFundsDirectory=true; openFundPage('${escapeAttribute(row.slug)}');">${escapeAttribute(label)}</a>
-          ${row.isCurated ? `<span class="badge" style="margin-left:6px;font-size:10px;">${isEn ? 'curated' : '策展'}</span>` : ''}
+          ${nameCell}
         </td>
         <td>${escapeAttribute(latest)}</td>
         <td>${SM.formatMoney(row.book)}</td>
@@ -9046,7 +9088,10 @@
       const search = document.getElementById('funds-search');
       renderFundsDirectoryRows(result, search?.value || '');
       const src = result.source === 'cache' ? (isEn ? 'cache' : '快取') : (isEn ? 'curated fallback' : '策展後備');
-      status.textContent = `${isEn ? 'Managers' : '管理人'} ${result.managers.length} · ${src}`
+      const notice = openFundsDirectory._notice;
+      openFundsDirectory._notice = null;
+      status.textContent = (notice ? `${notice} · ` : '')
+        + `${isEn ? 'Managers' : '管理人'} ${result.managers.length} · ${src}`
         + (result.capturedAt ? ` · ${String(result.capturedAt).slice(0, 10)}` : '');
       document.querySelectorAll('#funds-view .table-scroll-wrapper').forEach(box => makeScrollable(box));
     }).catch((error) => {
@@ -9061,7 +9106,17 @@
   function openFundPage(slug, vs, replace) {
     const SM = typeof SmartMoney !== 'undefined' ? SmartMoney : null;
     if (!SM || !slug) return;
-    activeFundSlug = String(slug).toLowerCase();
+    const identity = SM.resolveFundIdentity(slug);
+    // Unknown managers (non-curated broad holders) have no seed / extract allowlist entry.
+    // Bounce to the directory instead of a FUND_IDENTITY_UNKNOWN dead page.
+    if (!identity.openable) {
+      const isEn = currentLang === 'en';
+      openFundsDirectory(!!replace, isEn
+        ? `Manager “${identity.slug}” is not in the curated directory (no openable fund page)`
+        : `管理人「${identity.slug}」不在策展目錄（無可開啟頁面）`);
+      return;
+    }
+    activeFundSlug = identity.slug;
     activeFundVs = vs || null;
     const route = SM.fundHref(activeFundSlug, activeFundVs);
     hideSmartMoneyViews();

@@ -71,6 +71,11 @@
       .slice(0, 80) || 'fund';
   }
 
+  const BY_SLUG = Object.fromEntries(INVESTORS.flatMap(row => [
+    [slugify(row.nameEn), row],
+    [row.id, row],
+  ]));
+
   function isUsListed(stock) {
     const ticker = String(stock?.ticker || stock?.symbol || '');
     if (/\.HK$/i.test(ticker)) return false;
@@ -722,13 +727,41 @@
     const raw = String(slugOrCik || '').trim();
     const asCik = padCik(raw);
     if (asCik && /^\d{10}$/.test(asCik) && raw.replace(/\D/g, '').length >= 7) {
-      const curated = BY_CIK[asCik];
-      return { cik: asCik, slug: curated ? slugify(curated.nameEn) : asCik, curated };
+      const curated = BY_CIK[asCik] || null;
+      // Non-curated bare CIK is still a usable identity for cache/allowlisted live.
+      return {
+        cik: asCik,
+        slug: curated ? slugify(curated.nameEn) : asCik,
+        curated,
+        openable: Boolean(curated || allowedCik(asCik)),
+      };
     }
     const slug = slugify(raw);
-    const curated = INVESTORS.find(row => slugify(row.nameEn) === slug || row.id === slug);
-    if (curated) return { cik: curated.cik, slug: slugify(curated.nameEn), curated };
-    return { cik: null, slug, curated: null };
+    const curated = BY_SLUG[slug] || null;
+    if (curated) {
+      return { cik: curated.cik, slug: slugify(curated.nameEn), curated, openable: true };
+    }
+    // Unknown slug (e.g. Framtiden from broad holders) — not openable without seed/CIK.
+    return { cik: null, slug, curated: null, openable: false };
+  }
+
+  /** Only curated / allowlisted managers get fund-page links (slug↔CIK↔seed). */
+  function fundLinkForHolder(row) {
+    if (!row || typeof row !== 'object') return null;
+    const byCik = allowedCik(row.cik);
+    const curated = BY_CIK[byCik] || row.curated
+      || (row.slug ? BY_SLUG[slugify(row.slug)] : null)
+      || (row.investorName ? BY_SLUG[slugify(row.investorName)] : null)
+      || null;
+    if (!curated && !byCik) return null;
+    const inv = curated || BY_CIK[byCik];
+    if (!inv) return null;
+    const slug = slugify(inv.nameEn);
+    return { slug, cik: inv.cik, href: fundHref(slug), curated: inv };
+  }
+
+  function isOpenableFundKey(slugOrCik) {
+    return Boolean(resolveFundIdentity(slugOrCik).openable);
   }
 
   function selectFundQuarter(quarters, vsParsed) {
@@ -892,6 +925,8 @@
   return {
     INVESTORS,
     CIK_SET,
+    BY_CIK,
+    BY_SLUG,
     FUND_EXTRACT_MAX,
     padCik,
     finite,
@@ -899,6 +934,8 @@
     isUsListed,
     allowedCik,
     isCuratedCik,
+    fundLinkForHolder,
+    isOpenableFundKey,
     investorLabel,
     mergeRowsByCik,
     classifyAction,
