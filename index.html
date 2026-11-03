@@ -752,6 +752,36 @@
       outline: 2px solid color-mix(in srgb, var(--accent) 80%, #fff);
       outline-offset: 3px;
     }
+    /* High-contrast Smart Money / fund load failures (not gray-on-gray) */
+    .sm-alert-error {
+      display: block;
+      margin: 12px 0 16px;
+      padding: 14px 16px;
+      border-radius: 8px;
+      border: 1px solid #f87171;
+      background: linear-gradient(180deg, #7f1d1d 0%, #450a0a 100%);
+      color: #fef2f2;
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.45;
+      box-shadow: 0 0 0 1px rgba(248, 113, 113, 0.35),
+        0 8px 20px rgba(127, 29, 29, 0.35);
+    }
+    .sm-alert-error code {
+      font-size: 13px;
+      font-weight: 600;
+      color: #fecaca;
+      word-break: break-all;
+    }
+    tr.sm-alert-error-row td {
+      background: linear-gradient(180deg, #7f1d1d 0%, #450a0a 100%) !important;
+      color: #fef2f2 !important;
+      font-size: 15px !important;
+      font-weight: 700 !important;
+      padding: 16px 14px !important;
+      border: 1px solid #f87171 !important;
+      text-align: left !important;
+    }
 
     /* 財務報表分組標題列樣式 */
     .fin-group-header-row td {
@@ -8904,6 +8934,7 @@
     if (holdersHead) holdersHead.innerHTML = headHtml;
     if (exitsHead) exitsHead.innerHTML = headHtml;
     if (curatedHead) curatedHead.innerHTML = headHtml;
+    status.className = 'analysis-note';
     status.textContent = isEn ? 'Loading Smart Money 13F…' : '載入智資 13F 中…';
 
     SM.loadStock(ticker).then((result) => {
@@ -8913,6 +8944,7 @@
       const exits = snap.exits || [];
       const curated = holders.filter(row => row.isCurated);
       const kpis = snap.kpis || {};
+      status.className = 'analysis-note';
 
       if (kpiGrid) {
         const cards = [
@@ -8948,11 +8980,24 @@
       document.querySelectorAll('#subpage-smart-money .table-scroll-wrapper').forEach(box => makeScrollable(box));
     }).catch((error) => {
       if (activeCompanyTicker !== ticker) return;
-      status.textContent = isEn
-        ? `Smart Money unavailable (${String(error.message || error)}).`
-        : `智資資料不可用（${String(error.message || error)}）。`;
-      holdersBody.innerHTML = `<tr><td class="table-sticky-col text-muted" colspan="6">${
-        isEn ? 'Failed to load.' : '載入失敗。'}</td></tr>`;
+      const detail = String(error.message || error);
+      const noFmp = /FMP_NOT_CONFIGURED/i.test(detail);
+      status.className = 'sm-alert-error';
+      status.innerHTML = isEn
+        ? `<strong>Smart Money unavailable</strong><br><code>${escapeAttribute(detail)}</code>`
+          + (noFmp
+            ? '<br>Preview has no FMP key — open a seeded ticker (NVDA, AAPL, MSFT, META, GOOGL, AMZN, TSLA, TSM, STZ) or configure <code>FMP_API_KEY</code>.'
+            : '')
+        : `<strong>智資資料不可用</strong><br><code>${escapeAttribute(detail)}</code>`
+          + (noFmp
+            ? '<br>Preview 未設定 FMP 金鑰 — 請開有種子的標的（NVDA／AAPL／MSFT／META／GOOGL／AMZN／TSLA／TSM／STZ）或設定 <code>FMP_API_KEY</code>。'
+            : '');
+      holdersBody.innerHTML = `<tr class="sm-alert-error-row"><td class="table-sticky-col" colspan="6">${
+        isEn ? 'Failed to load holders.' : '載入失敗。'}</td></tr>`;
+      exitsBody.innerHTML = `<tr class="sm-alert-error-row"><td class="table-sticky-col" colspan="6">${
+        isEn ? 'Failed to load exits.' : '載入失敗。'}</td></tr>`;
+      curatedBody.innerHTML = `<tr class="sm-alert-error-row"><td class="table-sticky-col" colspan="6">${
+        isEn ? 'Failed to load curated list.' : '載入失敗。'}</td></tr>`;
     });
   }
 
@@ -9149,6 +9194,7 @@
     const vsSelect = document.getElementById('fund-vs-select');
     if (!SM || !status || !holdingsBody) return;
 
+    status.className = 'analysis-note';
     status.textContent = isEn ? 'Loading fund 13F book…' : '載入管理人 13F 組合中…';
     if (nameEl) nameEl.textContent = slug;
     if (kpiGrid) kpiGrid.innerHTML = '';
@@ -9315,10 +9361,12 @@
       document.querySelectorAll('#fund-view .table-scroll-wrapper').forEach(box => makeScrollable(box));
     }).catch((error) => {
       if (activeFundSlug !== String(slug).toLowerCase()) return;
-      status.textContent = isEn
-        ? `Fund book unavailable (${String(error.message || error)}).`
-        : `管理人組合不可用（${String(error.message || error)}）。`;
-      holdingsBody.innerHTML = `<tr><td class="table-sticky-col text-muted" colspan="7">${
+      const detail = String(error.message || error);
+      status.className = 'sm-alert-error';
+      status.innerHTML = isEn
+        ? `<strong>Fund book unavailable</strong><br><code>${escapeAttribute(detail)}</code>`
+        : `<strong>管理人組合不可用</strong><br><code>${escapeAttribute(detail)}</code>`;
+      holdingsBody.innerHTML = `<tr class="sm-alert-error-row"><td class="table-sticky-col" colspan="7">${
         isEn ? 'Failed to load.' : '載入失敗。'}</td></tr>`;
     });
   }

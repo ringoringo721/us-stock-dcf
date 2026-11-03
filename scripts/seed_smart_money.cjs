@@ -4,8 +4,8 @@
  * Full captures stay local / CI-only via capture_smart_money.cjs.
  *
  * Seeds:
- *   cache/smart-money/TSM.json, STZ.json   (stock holders × 2 quarters)
- *   cache/smart-money/funds/{slug}.json    (all curated 20, multi-quarter)
+ *   cache/smart-money/{NVDA,AAPL,MSFT,…}.json  (liquid US holders × 2Q — Preview w/o FMP key)
+ *   cache/smart-money/funds/{slug}.json         (all curated 20, multi-quarter)
  *   cache/smart-money/funds/index.json
  *
  * Usage:
@@ -27,12 +27,15 @@ const outDir = path.join(root, 'cache', 'smart-money');
 const fundsDir = path.join(outDir, 'funds');
 fs.mkdirSync(fundsDir, { recursive: true });
 
-const STOCK_HOLDER_CAP = 60;
+const STOCK_HOLDER_CAP = 45;
 const STOCK_QUARTERS = 2;
 // 8–12 filing quarters; holdings capped so the PR stays Bugbot-reviewable.
 const FUND_QUARTERS = 8;
 const FUND_HOLDING_CAP = 22;
-const STOCK_SEEDS = ['TSM', 'STZ'];
+/** Liquid US demos — Preview must work without Vercel FMP_API_KEY. */
+const STOCK_SEEDS = [
+  'NVDA', 'AAPL', 'MSFT', 'META', 'GOOGL', 'AMZN', 'TSLA', 'TSM', 'STZ',
+];
 const SEED_FIELDS = [
   'date', 'filingDate', 'cik', 'investorName', 'symbol',
   'sharesNumber', 'lastSharesNumber', 'changeInSharesNumber',
@@ -203,7 +206,7 @@ function readFundSource(inv) {
   const key = process.env.FMP_API_KEY;
   if (!fromCacheOnly && !key) throw new Error('FMP_API_KEY required unless --from-cache');
 
-  // --- Stock seeds (TSM + STZ demo; arbitrary tickers use live path) ---
+  // --- Stock seeds (liquid US demos; other tickers use live when FMP is configured) ---
   for (const ticker of STOCK_SEEDS) {
     const stockPath = path.join(outDir, `${ticker}.json`);
     let src = null;
@@ -277,7 +280,7 @@ function readFundSource(inv) {
     console.warn(`Missing fund captures (need capture_smart_money.cjs --funds-only): ${missing.join(', ')}`);
     process.exitCode = 1;
   } else {
-    console.log(`Seed complete — commit TSM/STZ + funds/[a-z]*.json + index (${SmartMoney.INVESTORS.length} managers)`);
+    console.log(`Seed complete — commit ${STOCK_SEEDS.join('/')} + funds/[a-z]*.json + index (${SmartMoney.INVESTORS.length} managers)`);
   }
 })().catch(error => {
   console.error(error);

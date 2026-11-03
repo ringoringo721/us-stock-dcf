@@ -38,8 +38,8 @@ function buildSite(output = path.join(root, 'public')) {
           : directory === 'revenue_segments'
             ? /^[A-Z0-9.-]+(?:\.quarter)?\.json$/
             : directory === 'smart-money'
-              // Demo stock seeds only — arbitrary tickers use live /api/fmp holders.
-              ? /^(TSM|STZ)\.json$/
+              // Liquid US demo seeds — Preview works without FMP_API_KEY; others use live.
+              ? /^(NVDA|AAPL|MSFT|META|GOOGL|AMZN|TSLA|TSM|STZ)\.json$/
               : /^[A-Z0-9.-]+\.json$/;
       if (pattern.test(filename)) files.push(path.join('cache', directory, filename));
     }
