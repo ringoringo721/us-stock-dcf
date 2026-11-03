@@ -5,6 +5,17 @@ __pycache__/
 /hkex-data-output/
 /us-data-output/
 /cache/edgar/
+# Smart Money: commit demo seeds only (see cache/smart-money/README.md)
+/cache/smart-money/**
+!/cache/smart-money/README.md
+!/cache/smart-money/curated-by-ticker.json
+# Liquid / mega-cap stock holder seeds (uppercase tickers)
+!/cache/smart-money/[A-Z0-9]*.json
+!/cache/smart-money/funds/
+/cache/smart-money/funds/**
+# Slug curated seeds + fund-{cik} full books + index (not bare CIK duplicates)
+!/cache/smart-money/funds/[a-z]*.json
+
 /.vercel/
 /public/
 .vercel

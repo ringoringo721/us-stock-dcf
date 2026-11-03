@@ -84,6 +84,7 @@
   <script src="dividend_history.js"></script>
   <script src="revenue_segments.js"></script>
   <script src="company_documents.js"></script>
+  <script src="smart_money.js"></script>
   <script src="dividend_leverage_metrics_data.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   
@@ -721,6 +722,90 @@
       color: var(--on-accent);
       border-color: var(--accent);
     }
+    /* High-contrast CTA → #funds (smart-money + fund detail headers) */
+    .sm-funds-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 11px 18px;
+      border-radius: 8px;
+      border: 1px solid color-mix(in srgb, var(--accent) 70%, #fff);
+      background: linear-gradient(180deg,
+        color-mix(in srgb, var(--accent) 92%, #fff) 0%,
+        var(--accent) 100%);
+      color: var(--on-accent, #061018);
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+      cursor: pointer;
+      box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 35%, transparent),
+        0 6px 18px color-mix(in srgb, var(--accent) 28%, transparent);
+      transition: transform 0.12s ease, filter 0.12s ease;
+    }
+    .sm-funds-cta:hover {
+      filter: brightness(1.08);
+      transform: translateY(-1px);
+    }
+    .sm-funds-cta:focus-visible {
+      outline: 2px solid color-mix(in srgb, var(--accent) 80%, #fff);
+      outline-offset: 3px;
+    }
+    /* High-contrast Smart Money / fund load failures (not gray-on-gray) */
+    .sm-alert-error {
+      display: block;
+      margin: 12px 0 16px;
+      padding: 14px 16px;
+      border-radius: 8px;
+      border: 1px solid #f87171;
+      background: linear-gradient(180deg, #7f1d1d 0%, #450a0a 100%);
+      color: #fef2f2;
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.45;
+      box-shadow: 0 0 0 1px rgba(248, 113, 113, 0.35),
+        0 8px 20px rgba(127, 29, 29, 0.35);
+    }
+    .sm-alert-error code {
+      font-size: 13px;
+      font-weight: 600;
+      color: #fecaca;
+      word-break: break-all;
+    }
+    tr.sm-alert-error-row td {
+      background: linear-gradient(180deg, #7f1d1d 0%, #450a0a 100%) !important;
+      color: #fef2f2 !important;
+      font-size: 15px !important;
+      font-weight: 700 !important;
+      padding: 16px 14px !important;
+      border: 1px solid #f87171 !important;
+      text-align: left !important;
+    }
+    /* Honest empty (no curated / no filings) — high contrast, not gray-on-gray */
+    .sm-alert-empty {
+      display: block;
+      margin: 12px 0 16px;
+      padding: 14px 16px;
+      border-radius: 8px;
+      border: 1px solid #fbbf24;
+      background: linear-gradient(180deg, #78350f 0%, #451a03 100%);
+      color: #fffbeb;
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.45;
+      box-shadow: 0 0 0 1px rgba(251, 191, 36, 0.35),
+        0 8px 20px rgba(120, 53, 15, 0.35);
+    }
+    tr.sm-alert-empty-row td {
+      background: linear-gradient(180deg, #78350f 0%, #451a03 100%) !important;
+      color: #fffbeb !important;
+      font-size: 15px !important;
+      font-weight: 700 !important;
+      padding: 16px 14px !important;
+      border: 1px solid #fbbf24 !important;
+      text-align: left !important;
+    }
 
     /* 財務報表分組標題列樣式 */
     .fin-group-header-row td {
@@ -880,7 +965,25 @@
     #cmp-dividend-matrix th, #cmp-dividend-matrix td,
     #cmp-dividend-payments th, #cmp-dividend-payments td,
     #cmp-documents-filings th, #cmp-documents-filings td,
-    #cmp-documents-transcripts th, #cmp-documents-transcripts td {
+    #cmp-documents-transcripts th, #cmp-documents-transcripts td,
+    #cmp-smart-money-holders th, #cmp-smart-money-holders td,
+    #cmp-smart-money-exits th, #cmp-smart-money-exits td,
+    #cmp-smart-money-curated th, #cmp-smart-money-curated td,
+    #fund-holdings th, #fund-holdings td,
+    #fund-exits th, #fund-exits td,
+    #fund-history th, #fund-history td {
+      padding: 11px 12px !important; border-right: 1px solid var(--card-border);
+      border-bottom: 1px solid var(--card-border); font-variant-numeric: tabular-nums;
+    }
+    .sm-action-new { color: var(--accent, #16a34a); font-weight: 700; }
+    .sm-action-added { color: #15803d; font-weight: 600; }
+    .sm-action-reduced { color: #b45309; font-weight: 600; }
+    .sm-action-exited { color: #b91c1c; font-weight: 700; }
+    .sm-action-held { color: var(--text-muted); }
+    .sm-manager-link { color: var(--accent); text-decoration: none; font-weight: 600; }
+    .sm-manager-link:hover { text-decoration: underline; }
+    #fund-view, #funds-view { display: none; }
+    #funds-directory th, #funds-directory td {
       padding: 11px 12px !important; border-right: 1px solid var(--card-border);
       border-bottom: 1px solid var(--card-border); font-variant-numeric: tabular-nums;
     }
@@ -2028,6 +2131,7 @@
       <button class="sub-tab-btn" onclick="switchSubPage('financials')" data-i18n="tab_financials">📑 3. 財務報表 (5年/TTM)</button>
       <button class="sub-tab-btn" onclick="switchSubPage('dividend')" data-i18n="tab_dividend">💵 4. 股利 (TV)</button>
       <button class="sub-tab-btn" onclick="switchSubPage('documents')" data-i18n="tab_documents">📂 5. 申報／文件</button>
+      <button class="sub-tab-btn" onclick="switchSubPage('smart-money')" data-i18n="tab_smart_money">🧠 5b. 智資／Smart Money</button>
       <button class="sub-tab-btn" onclick="switchSubPage('ratios')" data-i18n="tab_ratios">⚖️ 6. 關鍵比率</button>
       <button class="sub-tab-btn" onclick="switchSubPage('peers')" data-i18n="tab_peers">👥 7. 同行業對比</button>
       <button class="sub-tab-btn" onclick="switchSubPage('charts')" data-i18n="tab_charts">📊 8. 趨勢分析</button>
@@ -2408,6 +2512,41 @@
           <table id="cmp-documents-transcripts" class="historical-ratio-table company-analysis-table">
             <thead><tr id="cmp-documents-transcripts-thead"></tr></thead>
             <tbody id="cmp-documents-transcripts-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div id="subpage-smart-money" class="subpage-content">
+      <div class="panel historical-ratio-panel company-analysis-panel">
+        <div class="panel-title" style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;">
+          <span data-i18n="sec_smart_money">智資／Smart Money（機構持倉）</span>
+          <button type="button" class="sm-funds-cta" onclick="openFundsDirectory()" data-i18n="btn_funds_directory">瀏覽管理人目錄</button>
+        </div>
+        <p class="analysis-note" data-i18n="analysis_smart_money_note">WhaleCreep 風格：追蹤該股近期 13F 申報的機構／對沖基金持倉（組合權重、市值、股數、Δ、動作）。策展 20 家僅作亮點標示。資料來自 FMP 機構持倉端點。</p>
+        <p id="smart-money-disclaimer" class="analysis-note" role="note" data-i18n="analysis_smart_money_lag">13F 為季度申報，法定可於季末後最多約 45 日才公開；本站快取可能再延遲。數字為歷史已申報多頭倉，非即時持倉，亦非投資建議。</p>
+        <p id="smart-money-status" class="analysis-note" role="status"></p>
+        <div id="smart-money-kpi-grid" class="tv-kpi-grid" aria-live="polite"></div>
+        <div class="panel-title" style="font-size:15px;" data-i18n="sec_smart_money_holders">持有者（最近一季）</div>
+        <div class="table-scroll-wrapper company-analysis-scroll" style="margin-bottom: 18px;">
+          <table id="cmp-smart-money-holders" class="historical-ratio-table company-analysis-table">
+            <thead><tr id="cmp-smart-money-holders-thead"></tr></thead>
+            <tbody id="cmp-smart-money-holders-tbody"></tbody>
+          </table>
+        </div>
+        <div class="panel-title" style="font-size:15px;" data-i18n="sec_smart_money_exits">本季出清</div>
+        <div class="table-scroll-wrapper company-analysis-scroll" style="margin-bottom: 18px;">
+          <table id="cmp-smart-money-exits" class="historical-ratio-table company-analysis-table">
+            <thead><tr id="cmp-smart-money-exits-thead"></tr></thead>
+            <tbody id="cmp-smart-money-exits-tbody"></tbody>
+          </table>
+        </div>
+        <div class="panel-title" style="font-size:15px;" data-i18n="sec_smart_money_curated">策展 20 亮點</div>
+        <p class="analysis-note" data-i18n="analysis_smart_money_curated_note">人工策展的智資名單若出現在上方持倉表，會在此再次彙總以便快速掃描。</p>
+        <div class="table-scroll-wrapper company-analysis-scroll">
+          <table id="cmp-smart-money-curated" class="historical-ratio-table company-analysis-table">
+            <thead><tr id="cmp-smart-money-curated-thead"></tr></thead>
+            <tbody id="cmp-smart-money-curated-tbody"></tbody>
           </table>
         </div>
       </div>
@@ -2809,6 +2948,81 @@
   </div>
   </div>
 </div>
+
+  <!-- ==================== 智資管理人目錄（WhaleCreep /funds/） ==================== -->
+  <div id="funds-view">
+    <div class="detail-header">
+      <div class="detail-title">
+        <span style="color: var(--accent); font-size: 22px;" data-i18n="sec_funds_directory">智資管理人目錄</span>
+        <span id="funds-count-badge" class="badge">—</span>
+      </div>
+      <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+        <input id="funds-search" type="search" class="search-input" style="min-width:220px;"
+          placeholder="搜尋管理人…" data-i18n-placeholder="funds_search_ph"
+          oninput="filterFundsDirectory(this.value)">
+        <button class="btn-back" onclick="navigateBackFromFunds()" data-i18n="btn_back_list">← 返回</button>
+      </div>
+    </div>
+    <div class="panel historical-ratio-panel company-analysis-panel">
+      <p class="analysis-note" data-i18n="analysis_funds_directory_note">WhaleCreep 風格管理人瀏覽：點名稱進入持倉明細與歷史 QoQ。目前以策展智資＋已快取 13F 組合為主。</p>
+      <p id="funds-disclaimer" class="analysis-note" role="note" data-i18n="analysis_smart_money_lag">13F 為季度申報，法定可於季末後最多約 45 日才公開；本站快取可能再延遲。數字為歷史已申報多頭倉，非即時持倉，亦非投資建議。</p>
+      <p id="funds-status" class="analysis-note" role="status"></p>
+      <div class="table-scroll-wrapper company-analysis-scroll">
+        <table id="funds-directory" class="historical-ratio-table company-analysis-table">
+          <thead><tr id="funds-directory-thead"></tr></thead>
+          <tbody id="funds-directory-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 智資管理人頁（WhaleCreep fund） ==================== -->
+  <div id="fund-view">
+    <div class="detail-header">
+      <div class="detail-title">
+        <span id="fund-name" style="color: var(--accent); font-size: 22px;">—</span>
+        <span id="fund-quarter-badge" class="badge">—</span>
+      </div>
+      <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+        <button type="button" class="sm-funds-cta" onclick="openFundsDirectory()" data-i18n="btn_funds_directory">瀏覽管理人目錄</button>
+        <label for="fund-vs-select" class="analysis-note" style="margin:0;" data-i18n="fund_vs_label">對照季度</label>
+        <select id="fund-vs-select" onchange="onFundVsChange(this.value)"></select>
+        <button class="btn-back" onclick="navigateBackFromFund()" data-i18n="btn_back_list">← 返回</button>
+      </div>
+    </div>
+    <div class="panel historical-ratio-panel company-analysis-panel">
+      <p id="fund-lead" class="analysis-note" style="font-size:14px;line-height:1.55;"></p>
+      <p id="fund-disclaimer" class="analysis-note" role="note" data-i18n="analysis_smart_money_lag">13F 為季度申報，法定可於季末後最多約 45 日才公開；本站快取可能再延遲。數字為歷史已申報多頭倉，非即時持倉，亦非投資建議。</p>
+      <p id="fund-status" class="analysis-note" role="status"></p>
+      <div id="fund-kpi-grid" class="tv-kpi-grid" aria-live="polite"></div>
+      <div class="panel-title" style="font-size:15px;" data-i18n="sec_fund_holdings">持倉明細</div>
+      <p id="fund-vs-summary" class="analysis-note"></p>
+      <div class="table-scroll-wrapper company-analysis-scroll" style="margin-bottom: 18px;">
+        <table id="fund-holdings" class="historical-ratio-table company-analysis-table">
+          <thead><tr id="fund-holdings-thead"></tr></thead>
+          <tbody id="fund-holdings-tbody"></tbody>
+        </table>
+      </div>
+      <div class="panel-title" style="font-size:15px;" data-i18n="sec_fund_exits">出清部位</div>
+      <div class="table-scroll-wrapper company-analysis-scroll" style="margin-bottom: 18px;">
+        <table id="fund-exits" class="historical-ratio-table company-analysis-table">
+          <thead><tr id="fund-exits-thead"></tr></thead>
+          <tbody id="fund-exits-tbody"></tbody>
+        </table>
+      </div>
+      <div class="panel-title" style="font-size:15px;" data-i18n="sec_fund_sectors">產業配置</div>
+      <div id="fund-sector-mix" class="analysis-note" style="margin-bottom: 18px;"></div>
+      <div class="panel-title" style="font-size:15px;" data-i18n="sec_fund_history">歷史組合（各季）</div>
+      <div class="table-scroll-wrapper company-analysis-scroll" style="margin-bottom: 18px;">
+        <table id="fund-history" class="historical-ratio-table company-analysis-table">
+          <thead><tr id="fund-history-thead"></tr></thead>
+          <tbody id="fund-history-tbody"></tbody>
+        </table>
+      </div>
+      <div class="panel-title" style="font-size:15px;" data-i18n="sec_fund_concentration">集中度與任期</div>
+      <div id="fund-concentration-grid" class="tv-kpi-grid" aria-live="polite"></div>
+    </div>
+  </div>
 
 <script>
 
@@ -3285,6 +3499,7 @@
       tab_financials: "📑 3. 財務報表 (5年/TTM)",
       tab_dividend: "💵 4. 股利 (TV)",
       tab_documents: "📂 5. 申報／文件",
+      tab_smart_money: "🧠 5b. 智資／Smart Money",
       tab_ratios: "⚖️ 6. 關鍵比率",
       sec_revenue_breakdown: "營收拆解（產品／地區）",
       analysis_revenue_breakdown_note: "與財報相同期間視圖（年度 5年＋TTM／近 20 季）；FMP 有拆解的股票才顯示金額，缺資料為 N/A，不補造。涵蓋因股票而異，非全市場皆有。",
@@ -3295,6 +3510,42 @@
       analysis_documents_note: "財務報表申報與法說日期；申報可開 SEC／FMP 連結。逐字稿全文不經本站代理，改開 SEC 8-K。",
       sec_documents_filings: "財務報表申報",
       sec_documents_transcripts: "法說會（SEC 8-K）",
+      sec_smart_money: "智資／Smart Money（機構持倉）",
+      analysis_smart_money_note: "WhaleCreep 風格：追蹤該股近期 13F 申報的機構／對沖基金持倉（組合權重、市值、股數、Δ、動作）。策展 20 家僅作亮點標示。資料來自 FMP 機構持倉端點。",
+      analysis_smart_money_lag: "13F 為季度申報，法定可於季末後最多約 45 日才公開；本站快取可能再延遲。數字為歷史已申報多頭倉，非即時持倉，亦非投資建議。",
+      analysis_smart_money_hk: "港股不適用美國 13F 智資追蹤（無對等公開機構持倉節奏）。",
+      analysis_smart_money_curated_note: "人工策展的智資名單若出現在上方持倉表，會在此再次彙總以便快速掃描。",
+      sec_smart_money_holders: "持有者（最近一季）",
+      sec_smart_money_exits: "本季出清",
+      sec_smart_money_curated: "策展 20 亮點",
+      sec_fund_holdings: "持倉明細",
+      sec_fund_exits: "出清部位",
+      sec_fund_sectors: "產業配置",
+      sec_fund_history: "歷史組合（各季）",
+      sec_fund_concentration: "集中度與任期",
+      sec_funds_directory: "智資管理人目錄",
+      analysis_funds_directory_note: "WhaleCreep 風格管理人瀏覽：點名稱進入持倉明細與歷史 QoQ。目前以策展智資＋已快取 13F 組合為主。",
+      btn_funds_directory: "瀏覽管理人目錄",
+      funds_search_ph: "搜尋管理人…",
+      fund_vs_label: "對照季度",
+      th_sm_manager: "管理人",
+      th_sm_weight: "組合權重",
+      th_sm_value: "市值",
+      th_sm_shares: "股數",
+      th_sm_delta: "Δ 股數",
+      th_sm_action: "動作",
+      th_sm_stock: "標的",
+      th_sm_sector: "產業",
+      th_sm_quarter: "季度",
+      th_sm_positions: "檔數",
+      th_sm_book: "權益帳面",
+      th_sm_latest: "最近一季",
+      th_sm_top: "最大部位",
+      th_sm_top10: "前十大",
+      th_sm_effective_n: "有效檔數",
+      th_sm_quarters: "季數",
+      th_sm_prior_weight: "前季權重",
+      th_sm_prior_value: "前季市值",
       lbl_div_grain: "彙整期間",
       opt_div_quarter: "季度（Q1–Q4）",
       opt_div_half: "半年（H1／H2）",
@@ -3865,6 +4116,7 @@
       tab_financials: "📑 3. Financial Statements (5Y/TTM)",
       tab_dividend: "💵 4. Dividends (TV)",
       tab_documents: "📂 5. Filings / Documents",
+      tab_smart_money: "🧠 5b. Smart Money",
       tab_ratios: "⚖️ 6. Key Ratios",
       sec_revenue_breakdown: "Revenue breakdown (product / geographic)",
       analysis_revenue_breakdown_note: "Same period views as statements (annual 5Y+TTM / last 20Q). Amounts only when FMP publishes segments; missing stays N/A. Coverage is ticker-specific, not universal.",
@@ -3875,6 +4127,42 @@
       analysis_documents_note: "Financial statement filings and earnings-call dates with links that open immediately. Full FMP transcript text is not proxied — open SEC 8-K instead.",
       sec_documents_filings: "Financial statement filings",
       sec_documents_transcripts: "Earnings calls (SEC 8-K)",
+      sec_smart_money: "Smart Money (institutional holders)",
+      analysis_smart_money_note: "WhaleCreep-style: tracked 13F institutional / hedge holders for the ticker (weight of book, value, shares, Δ, action). Curated 20 is an optional highlight only. Data from FMP institutional endpoints.",
+      analysis_smart_money_lag: "13F filings are quarterly and may publish up to ~45 days after quarter-end; site cache may lag further. Figures are historical reported long holdings — not real-time positions or investment advice.",
+      analysis_smart_money_hk: "HK listings are N/A for US 13F Smart Money tracking (no equivalent public institutional cadence).",
+      analysis_smart_money_curated_note: "Curated smart-money names that appear in the holders table are re-listed here for a quick scan.",
+      sec_smart_money_holders: "Holders (latest quarter)",
+      sec_smart_money_exits: "Exited this quarter",
+      sec_smart_money_curated: "Curated 20 highlight",
+      sec_fund_holdings: "Holdings",
+      sec_fund_exits: "Exited positions",
+      sec_fund_sectors: "Sector mix",
+      sec_fund_history: "Book over time",
+      sec_fund_concentration: "Concentration and tenure",
+      sec_funds_directory: "Smart Money managers",
+      analysis_funds_directory_note: "WhaleCreep-style manager directory: click a name for holdings and QoQ history. Curated smart-money names plus cached 13F books.",
+      btn_funds_directory: "Browse managers",
+      funds_search_ph: "Search managers…",
+      fund_vs_label: "Compare vs",
+      th_sm_manager: "Manager",
+      th_sm_weight: "Weight of book",
+      th_sm_value: "Value",
+      th_sm_shares: "Shares",
+      th_sm_delta: "Δ shares",
+      th_sm_action: "Action",
+      th_sm_stock: "Stock",
+      th_sm_sector: "Sector",
+      th_sm_quarter: "Quarter",
+      th_sm_positions: "Positions",
+      th_sm_book: "Equity book",
+      th_sm_latest: "Latest",
+      th_sm_top: "Top position",
+      th_sm_top10: "Top 10",
+      th_sm_effective_n: "Effective N",
+      th_sm_quarters: "Quarters",
+      th_sm_prior_weight: "Prior weight",
+      th_sm_prior_value: "Prior value",
       lbl_div_grain: "Aggregation",
       opt_div_quarter: "Quarter (Q1–Q4)",
       opt_div_half: "Half-year (H1/H2)",
@@ -7001,6 +7289,10 @@
     document.getElementById('screener-view').style.display = 'none';
     document.getElementById('detail-view').style.display = 'none';
     document.getElementById('company-view').style.display = 'none';
+    const fundView = document.getElementById('fund-view');
+    const fundsView = document.getElementById('funds-view');
+    if (fundView) fundView.style.display = 'none';
+    if (fundsView) fundsView.style.display = 'none';
 
     if (viewName === 'screener') {
       document.getElementById('screener-view').style.display = 'block';
@@ -7010,6 +7302,18 @@
       document.getElementById('company-view').style.display = 'block';
       loadCompanyProfile(activeCompanyTicker);
       if (pushState) history.pushState({ view: 'company', ticker: activeCompanyTicker, tab: 'basic' }, '', `#${activeCompanyTicker}/profile`);
+    } else if (viewName === 'funds') {
+      if (fundsView) fundsView.style.display = 'block';
+      if (pushState) history.pushState({ view: 'funds' }, '', '#funds');
+      renderFundsDirectory();
+    } else if (viewName === 'fund') {
+      if (fundView) fundView.style.display = 'block';
+      if (pushState && activeFundSlug) {
+        const SM = typeof SmartMoney !== 'undefined' ? SmartMoney : null;
+        const route = SM ? SM.fundHref(activeFundSlug, activeFundVs) : `#fund/${activeFundSlug}`;
+        history.pushState({ view: 'fund', slug: activeFundSlug, vs: activeFundVs }, '', route);
+      }
+      if (activeFundSlug) renderFundPage(activeFundSlug, activeFundVs);
     }
   }
 
@@ -7022,6 +7326,15 @@
       activeCompanyTicker = e.state.ticker;
       showView('company', false);
       switchSubPage(e.state.tab || 'basic', false);
+    }
+    else if (e.state && e.state.view === 'funds') {
+      cameFromFundsDirectory = true;
+      showView('funds', false);
+    }
+    else if (e.state && e.state.view === 'fund' && e.state.slug) {
+      activeFundSlug = e.state.slug;
+      activeFundVs = e.state.vs || null;
+      showView('fund', false);
     }
     else if (e.state && e.state.view === 'moat' && e.state.ticker) { activeMoatTicker = e.state.ticker; showView('moat', false); }
     else if (e.state && e.state.view === 'fscore' && e.state.ticker) { activeFScoreTicker = e.state.ticker; showView('fscore', false); }
@@ -7163,6 +7476,8 @@
       renderDividendPaymentsSubPage(curStock);
     } else if (tabKey === 'documents') {
       renderDocumentsSubPage(curStock);
+    } else if (tabKey === 'smart-money') {
+      renderSmartMoneySubPage(curStock);
     } else if (tabKey === 'ratios') {
       renderRatiosSubPage(curStock);
     } else if (tabKey === 'peers') {
@@ -8542,6 +8857,581 @@
     window.open(url, '_blank', 'noopener,noreferrer');
     return false;
   }
+
+  function formatSmartMoneyShares(value) {
+    const n = Number(value);
+    if (!Number.isFinite(n)) return '—';
+    const abs = Math.abs(n);
+    if (abs >= 1e9) return `${(n / 1e9).toFixed(2)}B`;
+    if (abs >= 1e6) return `${(n / 1e6).toFixed(2)}M`;
+    if (abs >= 1e3) return `${(n / 1e3).toFixed(1)}K`;
+    return String(Math.round(n));
+  }
+
+  function formatSmartMoneyMoney(value) {
+    const n = Number(value);
+    if (!Number.isFinite(n)) return '—';
+    const abs = Math.abs(n);
+    if (abs >= 1e9) return `$${(n / 1e9).toFixed(2)}B`;
+    if (abs >= 1e6) return `$${(n / 1e6).toFixed(1)}M`;
+    if (abs >= 1e3) return `$${(n / 1e3).toFixed(0)}K`;
+    return `$${Math.round(n)}`;
+  }
+
+  function smartMoneyActionClass(action) {
+    return `sm-action-${action || 'held'}`;
+  }
+
+  function smartMoneyManagerCell(row, SM, isEn) {
+    const link = SM.fundLinkForHolder?.(row) || null;
+    const curated = link?.curated
+      || row.curated
+      || (row.isCurated && SM.INVESTORS.find(inv => inv.cik === row.cik));
+    const label = curated
+      ? SM.investorLabel(curated, isEn ? 'en' : 'zh')
+      : (row.investorName || row.cik || '—');
+    // Curated badge only for the WhaleCreep 20 — every CIK still gets a fund link.
+    const badge = curated
+      ? `<span class="badge" style="margin-left:6px;font-size:10px;">${isEn ? 'curated' : '策展'}</span>`
+      : '';
+    if (!link) {
+      return `<span>${escapeAttribute(label)}</span>${badge}`;
+    }
+    return `<a class="sm-manager-link" href="${escapeAttribute(link.href)}" onclick="event.preventDefault(); openFundPage('${escapeAttribute(link.slug)}');">${escapeAttribute(label)}</a>${badge}`;
+  }
+
+  function renderSmartMoneyHolderRows(rows, SM, isEn, emptyMsg) {
+    if (!rows?.length) {
+      return `<tr><td class="table-sticky-col text-muted" colspan="6">${escapeAttribute(emptyMsg)}</td></tr>`;
+    }
+    return rows.map(row => {
+      const weight = row.weight != null ? `${Number(row.weight).toFixed(1)}%` : '—';
+      const action = row.action || SM.classifyAction(row);
+      return `<tr>
+        <td class="table-sticky-col" style="text-align:left;">${smartMoneyManagerCell(row, SM, isEn)}</td>
+        <td>${weight}</td>
+        <td>${SM.formatMoney(row.marketValue ?? row.lastMarketValue)}</td>
+        <td>${SM.formatShares(row.shares ?? row.lastShares)}</td>
+        <td>${SM.formatDeltaPct(row.changeInSharesPct, action)}</td>
+        <td class="${smartMoneyActionClass(action)}">${escapeAttribute(SM.actionLabel(action, isEn ? 'en' : 'zh'))}</td>
+      </tr>`;
+    }).join('');
+  }
+
+  function renderSmartMoneySubPage(stockObj) {
+    const ticker = activeCompanyTicker || stockObj?.ticker || 'NVDA';
+    const stock = stockObj || stockUniverse[ticker];
+    const status = document.getElementById('smart-money-status');
+    const kpiGrid = document.getElementById('smart-money-kpi-grid');
+    const holdersHead = document.getElementById('cmp-smart-money-holders-thead');
+    const holdersBody = document.getElementById('cmp-smart-money-holders-tbody');
+    const exitsHead = document.getElementById('cmp-smart-money-exits-thead');
+    const exitsBody = document.getElementById('cmp-smart-money-exits-tbody');
+    const curatedHead = document.getElementById('cmp-smart-money-curated-thead');
+    const curatedBody = document.getElementById('cmp-smart-money-curated-tbody');
+    const isEn = currentLang === 'en';
+    const dict = I18N_DICT[isEn ? 'en' : 'zh'];
+    if (!status || !holdersBody || !exitsBody || !curatedBody) return;
+
+    const SM = typeof SmartMoney !== 'undefined' ? SmartMoney : null;
+    holdersBody.innerHTML = '';
+    exitsBody.innerHTML = '';
+    curatedBody.innerHTML = '';
+    if (kpiGrid) kpiGrid.innerHTML = '';
+
+    if (!SM) {
+      status.textContent = isEn ? 'Smart Money module unavailable.' : '智資模組不可用。';
+      return;
+    }
+    if (!SM.isUsListed(stock || { ticker })) {
+      status.textContent = dict.analysis_smart_money_hk;
+      holdersBody.innerHTML = `<tr><td class="table-sticky-col text-muted" colspan="6">N/A</td></tr>`;
+      exitsBody.innerHTML = `<tr><td class="table-sticky-col text-muted" colspan="6">N/A</td></tr>`;
+      curatedBody.innerHTML = `<tr><td class="table-sticky-col text-muted" colspan="6">N/A</td></tr>`;
+      return;
+    }
+
+    const headHtml = `<th class="table-sticky-col">${dict.th_sm_manager}</th>`
+      + `<th>${dict.th_sm_weight}</th><th>${dict.th_sm_value}</th>`
+      + `<th>${dict.th_sm_shares}</th><th>${dict.th_sm_delta}</th><th>${dict.th_sm_action}</th>`;
+    if (holdersHead) holdersHead.innerHTML = headHtml;
+    if (exitsHead) exitsHead.innerHTML = headHtml;
+    if (curatedHead) curatedHead.innerHTML = headHtml;
+    status.className = 'analysis-note';
+    status.textContent = isEn ? 'Loading Smart Money 13F…' : '載入智資 13F 中…';
+
+    SM.loadStock(ticker).then((result) => {
+      if (activeCompanyTicker !== ticker) return;
+      const snap = result.snapshot || {};
+      const holders = (snap.holders || []).filter(row => row.shares > 0);
+      const exits = snap.exits || [];
+      const curated = holders.filter(row => row.isCurated);
+      const kpis = snap.kpis || {};
+      const isEmpty = result.source === 'empty' || (!holders.length && !exits.length
+        && (result.source === 'curated-index' || result.notice === 'SMART_MONEY_NO_CURATED'
+          || String(result.notice || '').startsWith('SMART_MONEY_NO_CURATED')));
+      const isCuratedOnly = result.source === 'curated-index';
+
+      if (kpiGrid) {
+        const cards = [
+          [isEn ? 'Holders' : '持有家數', kpis.holders ?? holders.length],
+          [isEn ? 'New this quarter' : '本季新建倉', kpis.newCount ?? 0],
+          [isEn ? 'Exited this quarter' : '本季出清', kpis.exitedCount ?? exits.length],
+          [isEn ? 'Inflow, new holders' : '新建倉流入', SM.formatMoney(kpis.inflow)],
+          [isEn ? 'Outflow, exits' : '出清流出', SM.formatMoney(kpis.outflow)],
+          [isEn ? 'Combined value' : '合計市值', SM.formatMoney(kpis.combinedValue)],
+          [isEn ? 'Curated in view' : '策展亮點', kpis.curatedHolders ?? curated.length],
+        ];
+        kpiGrid.innerHTML = cards.map(([label, value]) => `<div class="tv-kpi-card">
+          <div class="tv-kpi-label">${escapeAttribute(label)}</div>
+          <div class="tv-kpi-value">${escapeAttribute(String(value ?? '—'))}</div>
+        </div>`).join('');
+      }
+
+      if (isEmpty) {
+        status.className = 'sm-alert-empty';
+        status.innerHTML = isEn
+          ? '<strong>No curated / seeded institutional filings</strong><br>'
+            + 'None of the curated 20 report this ticker in committed seeds, and live FMP is unavailable. '
+            + 'Not a load failure — configure <code>FMP_API_KEY</code> for the full holder universe.'
+          : '<strong>無策展／無機構申報</strong><br>'
+            + '策展 20 家種子未持有此股，且即時 FMP 不可用。這不是載入失敗 — '
+            + '完整機構持倉需設定 <code>FMP_API_KEY</code>。';
+        const emptyRow = (msg) => `<tr class="sm-alert-empty-row"><td class="table-sticky-col" colspan="6">${msg}</td></tr>`;
+        holdersBody.innerHTML = emptyRow(isEn ? 'No curated holders.' : '無策展持倉。');
+        exitsBody.innerHTML = emptyRow(isEn ? 'No exits on file.' : '無出清紀錄。');
+        curatedBody.innerHTML = emptyRow(isEn ? 'No curated holders.' : '無策展持倉。');
+      } else {
+        holdersBody.innerHTML = renderSmartMoneyHolderRows(holders, SM, isEn,
+          isEn ? 'No holders reported for the latest available quarter.' : '最近可取得季度尚無持倉申報。');
+        exitsBody.innerHTML = renderSmartMoneyHolderRows(exits, SM, isEn,
+          isEn ? 'No exits versus the prior observed quarter.' : '相對前一觀察季無出清。');
+        curatedBody.innerHTML = renderSmartMoneyHolderRows(curated, SM, isEn,
+          isEn ? 'None of the curated 20 hold this ticker in the latest quarter.' : '策展 20 家本季未持有此股。');
+
+        if (isCuratedOnly) {
+          status.className = 'sm-alert-empty';
+          status.innerHTML = isEn
+            ? `<strong>${escapeAttribute(ticker)} · curated-20 invert</strong> · ${escapeAttribute(snap.key || '')}`
+              + ` · holders ${holders.length}`
+              + '<br>Preview has no live institutional-holders — showing curated managers from committed fund seeds (not the full 13F universe).'
+            : `<strong>${escapeAttribute(ticker)} · 策展 20 反查</strong> · ${escapeAttribute(snap.key || '')}`
+              + ` · 持有 ${holders.length}`
+              + '<br>Preview 無即時機構持倉 — 顯示已提交基金種子中的策展管理人（非完整 13F 宇宙）。';
+        } else {
+          status.className = 'analysis-note';
+          const src = result.source === 'cache' ? (isEn ? 'cache' : '快取')
+            : result.source === 'live' ? (isEn ? 'live FMP' : '即時 FMP')
+              : escapeAttribute(String(result.source || ''));
+          status.textContent = `${ticker} · ${snap.key || ''}`
+            + ` · ${isEn ? 'holders' : '持有'} ${holders.length}`
+            + ` · ${isEn ? 'exits' : '出清'} ${exits.length}`
+            + ` · ${src}`
+            + (result.capturedAt ? ` · ${String(result.capturedAt).slice(0, 10)}` : '')
+            + (result.liveErrors?.length
+              ? ` · ${isEn ? 'partial errors' : '部分錯誤'} ${result.liveErrors.length}` : '');
+        }
+      }
+      document.querySelectorAll('#subpage-smart-money .table-scroll-wrapper').forEach(box => makeScrollable(box));
+    }).catch((error) => {
+      if (activeCompanyTicker !== ticker) return;
+      const detail = String(error.message || error);
+      status.className = 'sm-alert-error';
+      status.innerHTML = isEn
+        ? `<strong>Smart Money unavailable</strong><br><code>${escapeAttribute(detail)}</code>`
+        : `<strong>智資資料不可用</strong><br><code>${escapeAttribute(detail)}</code>`;
+      holdersBody.innerHTML = `<tr class="sm-alert-error-row"><td class="table-sticky-col" colspan="6">${
+        isEn ? 'Failed to load holders.' : '載入失敗。'}</td></tr>`;
+      exitsBody.innerHTML = `<tr class="sm-alert-error-row"><td class="table-sticky-col" colspan="6">${
+        isEn ? 'Failed to load exits.' : '載入失敗。'}</td></tr>`;
+      curatedBody.innerHTML = `<tr class="sm-alert-error-row"><td class="table-sticky-col" colspan="6">${
+        isEn ? 'Failed to load curated list.' : '載入失敗。'}</td></tr>`;
+    });
+  }
+
+  let activeFundSlug = null;
+  let activeFundVs = null;
+  let fundsDirectoryCache = null;
+  let cameFromFundsDirectory = false;
+
+  function hideSmartMoneyViews() {
+    document.getElementById('screener-view').style.display = 'none';
+    document.getElementById('detail-view').style.display = 'none';
+    document.getElementById('company-view').style.display = 'none';
+    const fundView = document.getElementById('fund-view');
+    const fundsView = document.getElementById('funds-view');
+    if (fundView) fundView.style.display = 'none';
+    if (fundsView) fundsView.style.display = 'none';
+  }
+
+  function navigateBackFromFund() {
+    if (cameFromFundsDirectory) {
+      openFundsDirectory(true);
+      return;
+    }
+    if (activeCompanyTicker && stockUniverse[activeCompanyTicker]) {
+      showView('company', false);
+      switchSubPage('smart-money', true);
+      return;
+    }
+    openFundsDirectory(true);
+  }
+
+  function navigateBackFromFunds() {
+    if (activeCompanyTicker && stockUniverse[activeCompanyTicker]) {
+      showView('company', false);
+      switchSubPage('smart-money', true);
+      return;
+    }
+    showView('screener', true);
+  }
+
+  function onFundVsChange(value) {
+    openFundPage(activeFundSlug, value || null, true);
+  }
+
+  function openFundsDirectory(replace, notice) {
+    const SM = typeof SmartMoney !== 'undefined' ? SmartMoney : null;
+    hideSmartMoneyViews();
+    const fundsView = document.getElementById('funds-view');
+    if (fundsView) fundsView.style.display = 'block';
+    cameFromFundsDirectory = true;
+    openFundsDirectory._notice = notice || null;
+    const route = SM ? SM.fundsDirectoryHref() : '#funds';
+    const state = { view: 'funds' };
+    if (replace) history.replaceState(state, '', route);
+    else history.pushState(state, '', route);
+    renderFundsDirectory();
+  }
+
+  function filterFundsDirectory(query) {
+    renderFundsDirectoryRows(fundsDirectoryCache, query);
+  }
+
+  function renderFundsDirectoryRows(result, query) {
+    const tbody = document.getElementById('funds-directory-tbody');
+    const SM = typeof SmartMoney !== 'undefined' ? SmartMoney : null;
+    if (!tbody || !SM) return;
+    const isEn = currentLang === 'en';
+    const q = String(query || '').trim().toLowerCase();
+    const managers = (result?.managers || []).filter(row => {
+      if (!q) return true;
+      const hay = `${row.investorName || ''} ${row.slug || ''} ${row.cik || ''} ${row.curated?.nameZh || ''} ${row.curated?.managerZh || ''}`.toLowerCase();
+      return hay.includes(q);
+    });
+    if (!managers.length) {
+      tbody.innerHTML = `<tr><td class="table-sticky-col text-muted" colspan="8">${
+        isEn ? 'No managers match.' : '無符合的管理人。'}</td></tr>`;
+      return;
+    }
+    tbody.innerHTML = managers.map(row => {
+      const identity = SM.resolveFundIdentity(row.slug || row.cik);
+      const openSlug = identity.openable ? identity.slug : null;
+      const label = row.curated || identity.curated
+        ? SM.investorLabel(row.curated || identity.curated, isEn ? 'en' : 'zh')
+        : (row.investorName || row.slug);
+      const latest = row.year != null ? `Q${row.quarter} ${row.year}` : '—';
+      const top = row.topWeight != null ? `${Number(row.topWeight).toFixed(1)}%` : '—';
+      const top10 = row.top10Weight != null ? `${Number(row.top10Weight).toFixed(1)}%` : '—';
+      const eff = row.effectiveN != null ? Number(row.effectiveN).toFixed(0) : '—';
+      const nameCell = openSlug
+        ? `<a class="sm-manager-link" href="${escapeAttribute(SM.fundHref(openSlug))}"
+            onclick="event.preventDefault(); cameFromFundsDirectory=true; openFundPage('${escapeAttribute(openSlug)}');">${escapeAttribute(label)}</a>
+          <span class="badge" style="margin-left:6px;font-size:10px;">${isEn ? 'curated' : '策展'}</span>`
+        : `<span>${escapeAttribute(label)}</span>`;
+      return `<tr>
+        <td class="table-sticky-col" style="text-align:left;">
+          ${nameCell}
+        </td>
+        <td>${escapeAttribute(latest)}</td>
+        <td>${SM.formatMoney(row.book)}</td>
+        <td>${row.positions ?? '—'}</td>
+        <td>${top}${row.topSymbol ? `<div class="text-muted" style="font-size:11px;">${escapeAttribute(row.topSymbol)}</div>` : ''}</td>
+        <td>${top10}</td>
+        <td>${eff}</td>
+        <td>${row.quartersOnFile ?? '—'}</td>
+      </tr>`;
+    }).join('');
+  }
+
+  function renderFundsDirectory() {
+    const SM = typeof SmartMoney !== 'undefined' ? SmartMoney : null;
+    const isEn = currentLang === 'en';
+    const dict = I18N_DICT[isEn ? 'en' : 'zh'];
+    const status = document.getElementById('funds-status');
+    const badge = document.getElementById('funds-count-badge');
+    const thead = document.getElementById('funds-directory-thead');
+    const tbody = document.getElementById('funds-directory-tbody');
+    if (!SM || !status || !tbody) return;
+    if (thead) {
+      thead.innerHTML = `<th class="table-sticky-col">${dict.th_sm_manager}</th>`
+        + `<th>${dict.th_sm_latest}</th><th>${dict.th_sm_book}</th>`
+        + `<th>${dict.th_sm_positions}</th><th>${dict.th_sm_top}</th>`
+        + `<th>${dict.th_sm_top10}</th><th>${dict.th_sm_effective_n}</th>`
+        + `<th>${dict.th_sm_quarters}</th>`;
+    }
+    status.textContent = isEn ? 'Loading funds directory…' : '載入管理人目錄中…';
+    SM.loadFundsDirectory().then((result) => {
+      fundsDirectoryCache = result;
+      if (badge) {
+        badge.textContent = isEn
+          ? `${result.managers.length} managers${result.latestKey ? ` · ${result.latestKey}` : ''}`
+          : `${result.managers.length} 家${result.latestKey ? ` · ${result.latestKey}` : ''}`;
+      }
+      const search = document.getElementById('funds-search');
+      renderFundsDirectoryRows(result, search?.value || '');
+      const src = result.source === 'cache' ? (isEn ? 'cache' : '快取') : (isEn ? 'curated fallback' : '策展後備');
+      const notice = openFundsDirectory._notice;
+      openFundsDirectory._notice = null;
+      status.textContent = (notice ? `${notice} · ` : '')
+        + `${isEn ? 'Managers' : '管理人'} ${result.managers.length} · ${src}`
+        + (result.capturedAt ? ` · ${String(result.capturedAt).slice(0, 10)}` : '');
+      document.querySelectorAll('#funds-view .table-scroll-wrapper').forEach(box => makeScrollable(box));
+    }).catch((error) => {
+      status.textContent = isEn
+        ? `Funds directory unavailable (${String(error.message || error)}).`
+        : `管理人目錄不可用（${String(error.message || error)}）。`;
+      tbody.innerHTML = `<tr><td class="table-sticky-col text-muted" colspan="8">${
+        isEn ? 'Failed to load.' : '載入失敗。'}</td></tr>`;
+    });
+  }
+
+  function openFundPage(slug, vs, replace) {
+    const SM = typeof SmartMoney !== 'undefined' ? SmartMoney : null;
+    if (!SM || !slug) return;
+    const identity = SM.resolveFundIdentity(slug);
+    // Slug-only unknowns (no CIK) bounce to the directory — CIK routes always open.
+    if (!identity.openable) {
+      const isEn = currentLang === 'en';
+      openFundsDirectory(!!replace, isEn
+        ? `Manager “${identity.slug}” has no CIK identity (cannot open fund page)`
+        : `管理人「${identity.slug}」無 CIK 身分（無法開啟組合頁）`);
+      return;
+    }
+    activeFundSlug = identity.slug;
+    activeFundVs = vs || null;
+    const route = SM.fundHref(activeFundSlug, activeFundVs);
+    hideSmartMoneyViews();
+    const fundView = document.getElementById('fund-view');
+    if (fundView) fundView.style.display = 'block';
+    const state = { view: 'fund', slug: activeFundSlug, vs: activeFundVs };
+    if (replace) history.replaceState(state, '', route);
+    else history.pushState(state, '', route);
+    renderFundPage(activeFundSlug, activeFundVs);
+  }
+
+  function renderFundPage(slug, vs) {
+    const SM = typeof SmartMoney !== 'undefined' ? SmartMoney : null;
+    const isEn = currentLang === 'en';
+    const dict = I18N_DICT[isEn ? 'en' : 'zh'];
+    const status = document.getElementById('fund-status');
+    const lead = document.getElementById('fund-lead');
+    const nameEl = document.getElementById('fund-name');
+    const badge = document.getElementById('fund-quarter-badge');
+    const kpiGrid = document.getElementById('fund-kpi-grid');
+    const concGrid = document.getElementById('fund-concentration-grid');
+    const vsSummary = document.getElementById('fund-vs-summary');
+    const sectorMix = document.getElementById('fund-sector-mix');
+    const holdingsHead = document.getElementById('fund-holdings-thead');
+    const holdingsBody = document.getElementById('fund-holdings-tbody');
+    const exitsHead = document.getElementById('fund-exits-thead');
+    const exitsBody = document.getElementById('fund-exits-tbody');
+    const historyHead = document.getElementById('fund-history-thead');
+    const historyBody = document.getElementById('fund-history-tbody');
+    const vsSelect = document.getElementById('fund-vs-select');
+    if (!SM || !status || !holdingsBody) return;
+
+    status.className = 'analysis-note';
+    status.textContent = isEn ? 'Loading fund 13F book…' : '載入管理人 13F 組合中…';
+    if (nameEl) nameEl.textContent = slug;
+    if (kpiGrid) kpiGrid.innerHTML = '';
+    if (concGrid) concGrid.innerHTML = '';
+    if (lead) lead.textContent = '';
+    holdingsBody.innerHTML = '';
+    if (exitsBody) exitsBody.innerHTML = '';
+    if (historyBody) historyBody.innerHTML = '';
+    if (sectorMix) sectorMix.textContent = '';
+    if (vsSummary) vsSummary.textContent = '';
+
+    const holdHead = `<th class="table-sticky-col">${dict.th_sm_stock}</th>`
+      + `<th>${dict.th_sm_sector}</th><th>${dict.th_sm_weight}</th>`
+      + `<th>${dict.th_sm_value}</th><th>${dict.th_sm_shares}</th>`
+      + `<th>${dict.th_sm_delta}</th><th>${dict.th_sm_action}</th>`;
+    if (holdingsHead) holdingsHead.innerHTML = holdHead;
+    if (exitsHead) {
+      exitsHead.innerHTML = `<th class="table-sticky-col">${dict.th_sm_stock}</th>`
+        + `<th>${dict.th_sm_prior_weight}</th><th>${dict.th_sm_prior_value}</th>`;
+    }
+    if (historyHead) {
+      historyHead.innerHTML = `<th class="table-sticky-col">${dict.th_sm_quarter}</th>`
+        + `<th>${dict.th_sm_positions}</th><th>${dict.th_sm_book}</th>`;
+    }
+
+    SM.loadFund(slug, { vs }).then((result) => {
+      if (activeFundSlug !== String(slug).toLowerCase()) return;
+      const curated = result.curated;
+      const title = curated
+        ? SM.investorLabel(curated, isEn ? 'en' : 'zh')
+        : (result.investorName || result.slug);
+      if (nameEl) nameEl.textContent = title;
+      const qLabel = result.year != null ? `Q${result.quarter} ${result.year}` : '—';
+      if (badge) badge.textContent = qLabel;
+
+      if (vsSelect) {
+        const options = (result.history || []).map(h => {
+          const key = `${h.year}-q${h.quarter}`;
+          const label = `Q${h.quarter} ${h.year}`;
+          const selected = result.year === h.year && result.quarter === h.quarter ? ' selected' : '';
+          return `<option value="${key}"${selected}>${label}</option>`;
+        }).join('');
+        vsSelect.innerHTML = options || `<option value="">${qLabel}</option>`;
+      }
+
+      const kpis = result.kpis || {};
+      const topFollowers = (result.holdings || []).slice(0, 3).map(r => r.symbol || r.nameOfIssuer).filter(Boolean);
+      const vsLabel = result.vsYear != null
+        ? `Q${result.vsQuarter} ${result.vsYear}`
+        : (isEn ? 'prior quarter' : '前一季');
+      if (lead) {
+        lead.textContent = isEn
+          ? `${title} disclosed ${kpis.positions || 0} US equity positions worth ${SM.formatMoney(kpis.book)} in its ${qLabel} 13F filing.`
+            + (kpis.topSymbol ? ` Its largest position is ${kpis.topSymbol} at ${Number(kpis.largestWeight).toFixed(1)}% of the reported book`
+              + (topFollowers[1] ? `, followed by ${topFollowers.slice(1).join(' and ')}` : '') + '.' : '')
+            + ` Versus ${vsLabel} it opened ${kpis.newCount || 0} new position(s), added to ${kpis.addedCount || 0}, reduced ${kpis.reducedCount || 0} and exited ${kpis.exitedCount || 0}.`
+          : `${title} 於 ${qLabel} 13F 申報 ${kpis.positions || 0} 檔美股多頭、合計 ${SM.formatMoney(kpis.book)}。`
+            + (kpis.topSymbol ? `最大部位為 ${kpis.topSymbol}（占帳面 ${Number(kpis.largestWeight).toFixed(1)}%）`
+              + (topFollowers[1] ? `，其後為 ${topFollowers.slice(1).join('、')}` : '') + '。' : '')
+            + `相對 ${vsLabel}：新建倉 ${kpis.newCount || 0}、加碼 ${kpis.addedCount || 0}、減碼 ${kpis.reducedCount || 0}、出清 ${kpis.exitedCount || 0}。`;
+      }
+
+      if (kpiGrid) {
+        const cards = [
+          [isEn ? 'Reported equity book' : '申報權益帳面', SM.formatMoney(kpis.book)],
+          [isEn ? 'Positions' : '檔數', kpis.positions ?? 0],
+          [isEn ? 'Largest position' : '最大部位', kpis.largestWeight != null ? `${Number(kpis.largestWeight).toFixed(1)}%` : '—'],
+          [isEn ? 'Top 10 weight' : '前十大權重', kpis.top10Weight != null ? `${Number(kpis.top10Weight).toFixed(1)}%` : '—'],
+          [isEn ? 'Effective positions' : '有效檔數 (1/HHI)', kpis.effectiveN != null ? Number(kpis.effectiveN).toFixed(0) : '—'],
+          [isEn ? 'Quarters on file' : '有紀錄季數', kpis.quartersOnFile ?? (result.history || []).length],
+        ];
+        kpiGrid.innerHTML = cards.map(([label, value]) => `<div class="tv-kpi-card">
+          <div class="tv-kpi-label">${escapeAttribute(label)}</div>
+          <div class="tv-kpi-value">${escapeAttribute(String(value ?? '—'))}</div>
+        </div>`).join('');
+      }
+
+      if (vsSummary) {
+        vsSummary.textContent = isEn
+          ? `Against ${vsLabel}: ${kpis.newCount || 0} new, ${kpis.addedCount || 0} added, ${kpis.reducedCount || 0} reduced, ${kpis.exitedCount || 0} exited`
+          : `相對 ${vsLabel}：新建倉 ${kpis.newCount || 0}、加碼 ${kpis.addedCount || 0}、減碼 ${kpis.reducedCount || 0}、出清 ${kpis.exitedCount || 0}`;
+      }
+
+      const holdRows = result.holdings || [];
+      holdingsBody.innerHTML = holdRows.length
+        ? holdRows.map(row => {
+          const action = row.action || 'held';
+          const stockLabel = row.symbol
+            ? `<a class="sm-manager-link" href="#${escapeAttribute(row.symbol)}/smart-money" onclick="event.preventDefault(); openCompanyProfile('${escapeAttribute(row.symbol)}'); switchSubPage('smart-money');">${escapeAttribute(row.symbol)}</a>
+               <div class="text-muted" style="font-size:11px;">${escapeAttribute(row.nameOfIssuer || '')}</div>`
+            : escapeAttribute(row.nameOfIssuer || '—');
+          return `<tr>
+            <td class="table-sticky-col" style="text-align:left;">${stockLabel}</td>
+            <td>${escapeAttribute(row.sector || '—')}</td>
+            <td>${row.weight != null ? `${Number(row.weight).toFixed(1)}%` : '—'}</td>
+            <td>${SM.formatMoney(row.marketValue)}</td>
+            <td>${SM.formatShares(row.shares)}</td>
+            <td>${SM.formatDeltaPct(row.changeInSharesPct, action)}</td>
+            <td class="${smartMoneyActionClass(action)}">${escapeAttribute(SM.actionLabel(action, isEn ? 'en' : 'zh'))}</td>
+          </tr>`;
+        }).join('')
+        : `<tr><td class="table-sticky-col text-muted" colspan="7">${isEn ? 'No holdings for this quarter.' : '本季無持倉。'}</td></tr>`;
+
+      if (exitsBody) {
+        const exited = result.exited || [];
+        exitsBody.innerHTML = exited.length
+          ? exited.map(row => {
+            const stockLabel = row.symbol
+              ? `<a class="sm-manager-link" href="#${escapeAttribute(row.symbol)}/smart-money" onclick="event.preventDefault(); openCompanyProfile('${escapeAttribute(row.symbol)}'); switchSubPage('smart-money');">${escapeAttribute(row.symbol)}</a>
+                 <div class="text-muted" style="font-size:11px;">${escapeAttribute(row.nameOfIssuer || '')}</div>`
+              : escapeAttribute(row.nameOfIssuer || '—');
+            return `<tr>
+              <td class="table-sticky-col" style="text-align:left;">${stockLabel}</td>
+              <td>${row.priorWeight != null ? `${Number(row.priorWeight).toFixed(2)}%` : '—'}</td>
+              <td>${SM.formatMoney(row.priorValue)}</td>
+            </tr>`;
+          }).join('')
+          : `<tr><td class="table-sticky-col text-muted" colspan="3">${isEn ? 'No exits versus prior quarter.' : '相對前季無出清。'}</td></tr>`;
+      }
+
+      if (sectorMix) {
+        const entries = Object.entries(result.sectorMix || {}).sort((a, b) => b[1] - a[1]);
+        sectorMix.innerHTML = entries.length
+          ? `<ul style="margin:0;padding-left:18px;">${entries.map(([sec, w]) =>
+            `<li>${escapeAttribute(sec)} · ${Number(w).toFixed(1)}%</li>`).join('')}</ul>`
+          : (isEn ? 'No sector mix.' : '無產業配置。');
+      }
+
+      if (historyBody) {
+        historyBody.innerHTML = (result.history || []).map(h => `<tr>
+          <td class="table-sticky-col"><a class="sm-manager-link" href="${escapeAttribute(SM.fundHref(result.slug, `${h.year}-Q${h.quarter}`))}"
+            onclick="event.preventDefault(); openFundPage('${escapeAttribute(result.slug)}', '${h.year}-q${h.quarter}');">Q${h.quarter} ${h.year}</a></td>
+          <td>${h.positions ?? '—'}</td>
+          <td>${SM.formatMoney(h.book)}</td>
+        </tr>`).join('') || `<tr><td class="table-sticky-col text-muted" colspan="3">${
+          isEn ? 'No history.' : '無歷史。'}</td></tr>`;
+      }
+
+      const conc = result.concentration || {};
+      if (concGrid) {
+        const styleLabel = conc.style === 'concentrated'
+          ? (isEn ? 'Concentrated' : '集中')
+          : conc.style === 'balanced'
+            ? (isEn ? 'Balanced' : '均衡')
+            : conc.style === 'diversified'
+              ? (isEn ? 'Diversified' : '分散')
+              : '—';
+        const cards = [
+          [isEn ? 'Median largest position' : '歷季最大部位中位數', conc.medianLargest != null ? `${Number(conc.medianLargest).toFixed(1)}%` : '—'],
+          [isEn ? 'Median top 10 weight' : '歷季前十大中位數', conc.medianTop10 != null ? `${Number(conc.medianTop10).toFixed(1)}%` : '—'],
+          [isEn ? 'Style (by median largest)' : '風格（依最大部位）', styleLabel],
+        ];
+        concGrid.innerHTML = cards.map(([label, value]) => `<div class="tv-kpi-card">
+          <div class="tv-kpi-label">${escapeAttribute(label)}</div>
+          <div class="tv-kpi-value">${escapeAttribute(String(value ?? '—'))}</div>
+        </div>`).join('');
+      }
+
+      if (result.source === 'empty') {
+        status.className = 'sm-alert-empty';
+        status.innerHTML = isEn
+          ? `<strong>No fund book on file</strong> · ${escapeAttribute(title)}<br>`
+            + 'No dedicated seed and live extract unavailable. Not a dead link — configure <code>FMP_API_KEY</code> for full 13F, or open managers that appear in stock seeds.'
+          : `<strong>無管理人組合種子</strong> · ${escapeAttribute(title)}<br>`
+            + '無專屬種子且即時 extract 不可用。不是失效連結 — 完整 13F 需 <code>FMP_API_KEY</code>，或開啟股票種子中出現的管理人。';
+        holdingsBody.innerHTML = `<tr class="sm-alert-empty-row"><td class="table-sticky-col" colspan="7">${
+          isEn ? 'No holdings on file.' : '無持倉種子。'}</td></tr>`;
+      } else {
+        status.className = 'analysis-note';
+        const src = result.source === 'cache' ? (isEn ? 'cache' : '快取')
+          : result.source === 'live' ? (isEn ? 'live FMP' : '即時 FMP')
+            : escapeAttribute(String(result.source || ''));
+        status.textContent = `${title} · ${qLabel} · ${src}`
+          + (result.capturedAt ? ` · ${String(result.capturedAt).slice(0, 10)}` : '')
+          + (result.liveErrors?.length
+            ? ` · ${isEn ? 'partial errors' : '部分錯誤'} ${result.liveErrors.length}` : '');
+      }
+      document.querySelectorAll('#fund-view .table-scroll-wrapper').forEach(box => makeScrollable(box));
+    }).catch((error) => {
+      if (activeFundSlug !== String(slug).toLowerCase()) return;
+      const detail = String(error.message || error);
+      status.className = 'sm-alert-error';
+      status.innerHTML = isEn
+        ? `<strong>Fund book unavailable</strong><br><code>${escapeAttribute(detail)}</code>`
+        : `<strong>管理人組合不可用</strong><br><code>${escapeAttribute(detail)}</code>`;
+      holdingsBody.innerHTML = `<tr class="sm-alert-error-row"><td class="table-sticky-col" colspan="7">${
+        isEn ? 'Failed to load.' : '載入失敗。'}</td></tr>`;
+    });
+  }
+
 
   function renderDocumentsSubPage(stockObj) {
     const ticker = activeCompanyTicker || stockObj?.ticker || 'NVDA';
@@ -10351,33 +11241,53 @@
   // 9. 路由導航與全域數據輪詢
   // ========================================================
   function handleInitialNavigation() {
-    const hash = window.location.hash.replace('#', '').toUpperCase();
-    const [routeTicker, routeTab] = hash.split('/');
-    if (stockUniverse[routeTicker] && ['BASIC', 'PROFILE', 'RATING', 'FINANCIALS', 'RATIOS', 'PEERS', 'CHARTS', 'VALUATION', 'NEWS', 'CHART'].includes(routeTab)) {
+    const rawHash = window.location.hash.replace(/^#/, '');
+    const hashUpper = rawHash.toUpperCase();
+    const [pathPart, queryPart] = rawHash.split('?');
+    const pathSegs = pathPart.split('/').filter(Boolean);
+    const vsParam = new URLSearchParams(queryPart || '').get('vs');
+
+    // #funds  or  #smart-money/funds  — WhaleCreep-style manager directory
+    if (pathSegs.length && /^funds$/i.test(pathSegs[pathSegs.length - 1])
+        && !pathSegs.some((seg, i) => /^fund$/i.test(seg) && pathSegs[i + 1])) {
+      openFundsDirectory(true);
+      return;
+    }
+
+    // #fund/SLUG?vs=YYYY-qN  or  #smart-money/fund/SLUG?vs=…
+    const fundIdx = pathSegs.findIndex(seg => /^fund$/i.test(seg));
+    if (fundIdx >= 0 && pathSegs[fundIdx + 1]) {
+      const slug = decodeURIComponent(pathSegs[fundIdx + 1]).toLowerCase();
+      openFundPage(slug, vsParam, true);
+      return;
+    }
+
+    const [routeTicker, routeTab] = hashUpper.split('/');
+    if (stockUniverse[routeTicker] && ['BASIC', 'PROFILE', 'RATING', 'FINANCIALS', 'DIVIDEND', 'DOCUMENTS', 'SMART-MONEY', 'RATIOS', 'PEERS', 'CHARTS', 'VALUATION', 'NEWS', 'CHART'].includes(routeTab)) {
       activeCompanyTicker = routeTicker;
       showView('company', false);
       const tab = routeTab === 'PROFILE' ? 'basic' : routeTab.toLowerCase();
       switchSubPage(tab, false);
       history.replaceState({ view: 'company', ticker: routeTicker, tab }, '', location.href);
-    } else if (hash.endsWith('/PROFILE')) {
-      const ticker = hash.split('/')[0];
+    } else if (hashUpper.endsWith('/PROFILE')) {
+      const ticker = hashUpper.split('/')[0];
       if (stockUniverse[ticker]) { activeCompanyTicker = ticker; showView('company', false); }
-    } else if (hash.endsWith('/MOAT')) {
-      const ticker = hash.split('/')[0];
+    } else if (hashUpper.endsWith('/MOAT')) {
+      const ticker = hashUpper.split('/')[0];
       if (stockUniverse[ticker]) {
         activeMoatTicker = ticker; showView('moat', false);
         history.replaceState({ view: 'company', ticker, tab: 'rating' }, '', location.href);
       }
-    } else if (hash.endsWith('/FSCORE')) {
-      const ticker = hash.split('/')[0];
+    } else if (hashUpper.endsWith('/FSCORE')) {
+      const ticker = hashUpper.split('/')[0];
       if (stockUniverse[ticker]) {
         activeFScoreTicker = ticker; showView('fscore', false);
         history.replaceState({ view: 'company', ticker, tab: 'rating' }, '', location.href);
       }
-    } else if (hash && stockUniverse[hash]) {
-      activeDetailTicker = hash;
+    } else if (hashUpper && stockUniverse[hashUpper]) {
+      activeDetailTicker = hashUpper;
       showView('detail', false);
-      history.replaceState({ view: 'company', ticker: hash, tab: 'valuation' }, '', location.href);
+      history.replaceState({ view: 'company', ticker: hashUpper, tab: 'valuation' }, '', location.href);
     } else {
       showView('screener', false);
     }

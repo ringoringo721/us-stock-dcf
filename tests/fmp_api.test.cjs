@@ -198,3 +198,76 @@ test('transcript-dates allowed; full transcript body blocked; private cache', as
   assert.equal(blocked.status, 403);
   assert.equal(blocked.body.error, 'TRANSCRIPT_BODY_NOT_PROXIED');
 });
+
+test('institutional-holders returns broad holders with curated flags and stays private', async () => {
+  // Extract allowlist expansion must not mark seed-holder CIKs as curated.
+  const SmartMoney = require('../smart_money.js');
+  SmartMoney.registerExtractAllowlist(['0002012383', '0002147005']);
+  assert.equal(SmartMoney.allowedCik('0002012383'), '0002012383');
+  assert.equal(SmartMoney.isCuratedCik('0002012383'), false);
+  const handler = createHandler({ apiKey: () => 'test-placeholder', fetch: async url => {
+    assert.equal(url.pathname, '/stable/institutional-ownership/extract-analytics/holder');
+    assert.equal(url.searchParams.get('symbol'), 'AAPL');
+    assert.equal(url.searchParams.get('year'), '2025');
+    assert.equal(url.searchParams.get('quarter'), '2');
+    assert.equal(url.searchParams.get('limit'), '100');
+    return {
+      ok: true,
+      json: async () => [
+        { symbol: 'AAPL', cik: '0001067983', investorName: 'BERKSHIRE', sharesNumber: 1 },
+        { symbol: 'AAPL', cik: '0002012383', investorName: 'BLACKROCK', sharesNumber: 9 },
+      ],
+    };
+  } });
+  const result = await call(handler,
+    '/api/fmp?action=institutional-holders&symbol=AAPL&year=2025&quarter=2&limit=100');
+  assert.equal(result.status, 200);
+  assert.equal(result.body.data.length, 2);
+  assert.equal(result.body.data[0].cik, '0001067983');
+  assert.equal(result.body.data[0].isCurated, true);
+  assert.equal(result.body.data[1].cik, '0002012383');
+  assert.equal(result.body.data[1].isCurated, false);
+  assert.match(String(result.headers['Cache-Control'] || ''), /private/);
+  assert.equal((await call(handler,
+    '/api/fmp?action=institutional-holders&symbol=AAPL&year=2025&quarter=5')).status, 400);
+});
+
+test('institutional-extract is capped, CIK-allowlisted, and rate-private', async () => {
+  let upstreamCalls = 0;
+  const handler = createHandler({ apiKey: () => 'test-placeholder', fetch: async url => {
+    upstreamCalls += 1;
+    assert.equal(url.pathname, '/stable/institutional-ownership/extract');
+    assert.equal(url.searchParams.get('cik'), '0001067983');
+    assert.equal(url.searchParams.get('year'), '2025');
+    assert.equal(url.searchParams.get('quarter'), '2');
+    assert.equal(url.searchParams.has('symbol'), false);
+    return {
+      ok: true,
+      json: async () => Array.from({ length: 500 }, (_, i) => ({
+        symbol: `T${i}`, value: i, shares: i, nameOfIssuer: `Name ${i}`,
+      })),
+    };
+  } });
+  const result = await call(handler,
+    '/api/fmp?action=institutional-extract&cik=0001067983&year=2025&quarter=2');
+  assert.equal(result.status, 200);
+  assert.equal(result.body.data.length, 400);
+  assert.equal(result.body.source.cik, '0001067983');
+  assert.equal(result.body.source.cappedAt, 400);
+  assert.match(String(result.headers['Cache-Control'] || ''), /private/);
+  assert.equal((await call(handler,
+    '/api/fmp?action=institutional-extract&cik=bad&year=2025&quarter=2')).status, 400);
+  // CIK outside curated ∪ seed-holder allowlist must not burn shared FMP quota.
+  const blocked = await call(handler,
+    '/api/fmp?action=institutional-extract&cik=0009999998&year=2025&quarter=2');
+  assert.equal(blocked.status, 403);
+  assert.equal(blocked.body.error, 'INSTITUTIONAL_CIK_NOT_ALLOWLISTED');
+  assert.equal(upstreamCalls, 1);
+  // Tight extract budget (4/min) after the successful curated call above.
+  for (let i = 0; i < 3; i += 1) {
+    assert.equal((await call(handler,
+      '/api/fmp?action=institutional-extract&cik=0001067983&year=2025&quarter=2')).status, 200);
+  }
+  assert.equal((await call(handler,
+    '/api/fmp?action=institutional-extract&cik=0001067983&year=2025&quarter=2')).status, 429);
+});
