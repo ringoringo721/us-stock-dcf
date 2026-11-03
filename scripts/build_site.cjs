@@ -38,18 +38,17 @@ function buildSite(output = path.join(root, 'public')) {
           : directory === 'revenue_segments'
             ? /^[A-Z0-9.-]+(?:\.quarter)?\.json$/
             : directory === 'smart-money'
-              ? /^[A-Z0-9.-]+\.json$/
+              // Demo stock seeds only — arbitrary tickers use live /api/fmp holders.
+              ? /^(TSM|STZ)\.json$/
               : /^[A-Z0-9.-]+\.json$/;
       if (pattern.test(filename)) files.push(path.join('cache', directory, filename));
     }
   }
-  // WhaleCreep manager pages + directory index: cache/smart-money/funds/{slug|cik|index}.json
+  // WhaleCreep manager pages + directory: slug seeds + index (not CIK duplicates).
   const fundsDir = path.join(root, 'cache', 'smart-money', 'funds');
   if (fs.existsSync(fundsDir)) {
     for (const filename of fs.readdirSync(fundsDir)) {
-      if (filename === 'index.json'
-          || /^[a-z0-9][a-z0-9.-]*\.json$/.test(filename)
-          || /^\d{10}\.json$/.test(filename)) {
+      if (filename === 'index.json' || /^[a-z][a-z0-9.-]*\.json$/.test(filename)) {
         files.push(path.join('cache', 'smart-money', 'funds', filename));
       }
     }

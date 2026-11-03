@@ -94,6 +94,50 @@ test('recentQuarterSpecs skips filing-window incomplete quarter', () => {
     { year: 2026, quarter: 2 }, { year: 2026, quarter: 1 }, { year: 2025, quarter: 4 },
   ], 2);
   assert.deepEqual(fromDates.map(s => s.key), ['2026-Q2', '2026-Q1']);
+  assert.equal(SmartMoney.recentQuarterSpecs(6, new Date(Date.UTC(2026, 10, 2))).length, 6);
+});
+
+test('loadStock live walks empty quarters and surfaces API errors', async () => {
+  const calls = [];
+  globalThis.fetch = async (url) => {
+    const u = String(url);
+    if (u.startsWith('cache/')) return { ok: false, status: 404, json: async () => ({}) };
+    calls.push(u);
+    const qs = new URL(u, 'http://local').searchParams;
+    const year = Number(qs.get('year'));
+    const quarter = Number(qs.get('quarter'));
+    // Newest two quarters empty / failing — older one succeeds.
+    if (year === 2026 && quarter === 2) {
+      return { ok: true, status: 200, json: async () => ({ data: [] }) };
+    }
+    if (year === 2026 && quarter === 1) {
+      return {
+        ok: false, status: 503,
+        json: async () => ({ error: 'FMP_NOT_CONFIGURED' }),
+      };
+    }
+    return {
+      ok: true, status: 200,
+      json: async () => ({
+        data: [{
+          cik: '0001067983', investorName: 'Berkshire Hathaway', symbol: 'NKE',
+          sharesNumber: 100, marketValue: 1e6, weight: 1, year, quarter,
+          date: `${year}-0${quarter * 3}-28`,
+        }],
+      }),
+    };
+  };
+  const result = await SmartMoney.loadStock('NKE', { liveQuarters: 4 });
+  assert.equal(result.source, 'live');
+  assert.ok(result.snapshot.holders.length >= 1);
+  assert.ok(calls.some(u => u.includes('year=2025') || u.includes('quarter=4')
+    || u.includes('year=2026')));
+  // With no usable quarters, error includes upstream detail.
+  globalThis.fetch = async (url) => {
+    if (String(url).startsWith('cache/')) return { ok: false, status: 404, json: async () => ({}) };
+    return { ok: false, status: 503, json: async () => ({ error: 'FMP_NOT_CONFIGURED' }) };
+  };
+  await assert.rejects(() => SmartMoney.loadStock('ZZZ'), /SMART_MONEY_LIVE_EMPTY:.*FMP_NOT_CONFIGURED/);
 });
 
 test('sparse coverage suppresses mass synthetic exits', () => {

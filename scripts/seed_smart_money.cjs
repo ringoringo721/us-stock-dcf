@@ -1,16 +1,16 @@
 #!/usr/bin/env node
 /**
- * Write small demo Smart Money seeds for git (WhaleCreep UX preview).
- * Full captures stay local / CI-only via capture_smart_money.cjs — do not commit megabyte books.
+ * Write slim Smart Money demo seeds for git (WhaleCreep UX preview).
+ * Full captures stay local / CI-only via capture_smart_money.cjs.
  *
- * Prefer FMP live + these seeds:
- *   cache/smart-money/TSM.json          (top holders × 2 quarters)
- *   cache/smart-money/funds/berkshire-hathaway.json
- *   cache/smart-money/funds/index.json  (curated directory summaries)
+ * Seeds:
+ *   cache/smart-money/TSM.json, STZ.json   (stock holders × 2 quarters)
+ *   cache/smart-money/funds/{slug}.json    (all curated 20, multi-quarter)
+ *   cache/smart-money/funds/index.json
  *
  * Usage:
  *   FMP_API_KEY=… node scripts/seed_smart_money.cjs
- *   node scripts/seed_smart_money.cjs --from-cache   # slim existing local captures
+ *   node scripts/seed_smart_money.cjs --from-cache
  */
 'use strict';
 
@@ -29,7 +29,10 @@ fs.mkdirSync(fundsDir, { recursive: true });
 
 const STOCK_HOLDER_CAP = 60;
 const STOCK_QUARTERS = 2;
-const FUND_QUARTERS = 4;
+// 8–12 filing quarters; holdings capped so the PR stays Bugbot-reviewable.
+const FUND_QUARTERS = 8;
+const FUND_HOLDING_CAP = 22;
+const STOCK_SEEDS = ['TSM', 'STZ'];
 const SEED_FIELDS = [
   'date', 'filingDate', 'cik', 'investorName', 'symbol',
   'sharesNumber', 'lastSharesNumber', 'changeInSharesNumber',
@@ -39,7 +42,7 @@ const SEED_FIELDS = [
 const FUND_FIELDS = [
   'symbol', 'nameOfIssuer', 'industryTitle', 'sector', 'shares', 'value',
   'marketValue', 'weight', 'filingDate', 'date', 'securityCusip', 'cusip',
-  'titleOfClass', 'cik', 'year', 'quarter',
+  'titleOfClass',
 ];
 
 function pick(row, fields) {
@@ -64,7 +67,11 @@ function slimStockPayload(payload, { holderCap = STOCK_HOLDER_CAP, quarters = ST
       if (!byCik.has(cik)) byCik.set(cik, pick(row, SEED_FIELDS));
     }
     const slimRows = [...byCik.values()];
-    return { year: q.year, quarter: q.quarter, key: q.key || SmartMoney.quarterKey(q.year, q.quarter), rows: slimRows };
+    return {
+      year: q.year, quarter: q.quarter,
+      key: q.key || SmartMoney.quarterKey(q.year, q.quarter),
+      rows: slimRows,
+    };
   }).filter(q => q.rows.length);
 
   const snapshot = kept.length
@@ -90,15 +97,40 @@ function slimStockPayload(payload, { holderCap = STOCK_HOLDER_CAP, quarters = ST
   };
 }
 
-function slimFundPayload(payload, { quarters = FUND_QUARTERS } = {}) {
-  const kept = (payload.quarters || []).slice(0, quarters).map(q => ({
-    year: q.year,
-    quarter: q.quarter,
-    key: q.key || SmartMoney.quarterKey(q.year, q.quarter),
-    rows: (q.rows || []).map(row => pick(row, FUND_FIELDS)),
-  })).filter(q => q.rows.length);
+function slimFundPayload(payload, {
+  quarters = FUND_QUARTERS,
+  holdingCap = FUND_HOLDING_CAP,
+} = {}) {
+  const kept = (payload.quarters || []).slice(0, quarters).map(q => {
+    const ranked = [...(q.rows || [])]
+      .sort((a, b) => (Number(b.value ?? b.marketValue) || 0) - (Number(a.value ?? a.marketValue) || 0)
+        || (Number(b.weight) || 0) - (Number(a.weight) || 0));
+    // Small books stay whole; large books truncate to keep PR slim.
+    const rows = ranked.slice(0, holdingCap).map(row => pick(row, FUND_FIELDS));
+    return {
+      year: q.year,
+      quarter: q.quarter,
+      key: q.key || SmartMoney.quarterKey(q.year, q.quarter),
+      rows,
+    };
+  }).filter(q => q.rows.length);
 
-  const history = kept.map(q => {
+  // History must align with seeded quarters so ?vs= options always resolve to a book.
+  const fullHistory = Array.isArray(payload.history) ? payload.history : [];
+  const historyOut = kept.map(q => {
+    const fromFull = fullHistory.find(h => Number(h.year) === Number(q.year)
+      && Number(h.quarter) === Number(q.quarter));
+    if (fromFull && (fromFull.positions != null || fromFull.book != null)) {
+      return {
+        year: q.year, quarter: q.quarter,
+        positions: fromFull.positions,
+        book: fromFull.book,
+        largestWeight: fromFull.largestWeight,
+        top10Weight: fromFull.top10Weight,
+        effectiveN: fromFull.effectiveN,
+        topSymbol: fromFull.topSymbol,
+      };
+    }
     const summary = SmartMoney.summarizeFundQuarter(q.rows);
     return {
       year: q.year, quarter: q.quarter,
@@ -118,10 +150,11 @@ function slimFundPayload(payload, { quarters = FUND_QUARTERS } = {}) {
       ...(payload.source || {}),
       seed: true,
       quarters: kept.length,
-      note: 'Demo seed — full history via capture_smart_money.cjs or live FMP',
+      holdingCap,
+      note: 'Demo seed — holdings capped per quarter; full books via capture or allowlisted live',
     },
     quarters: kept,
-    history,
+    history: historyOut,
     disclaimer: '13F filings lag up to ~45 days after quarter-end; not real-time holdings.',
   };
 }
@@ -131,7 +164,11 @@ function writeIndex(managers) {
   const index = {
     capturedAt: new Date().toISOString(),
     seed: true,
-    source: { provider: 'FMP', method: 'seed-directory', note: 'Summaries only; fund books load from seed or live extract' },
+    source: {
+      provider: 'FMP',
+      method: 'seed-directory',
+      note: 'Summaries for curated 20; fund books load from seed JSON then allowlisted live extract',
+    },
     latestKey: managers[0]?.key || null,
     count: managers.length,
     managers,
@@ -141,118 +178,107 @@ function writeIndex(managers) {
   return index;
 }
 
+function readFundSource(inv) {
+  const slug = SmartMoney.slugify(inv.nameEn);
+  const slugPath = path.join(fundsDir, `${slug}.json`);
+  const cikPath = path.join(fundsDir, `${inv.cik}.json`);
+  let best = null;
+  for (const candidate of [cikPath, slugPath]) {
+    if (!fs.existsSync(candidate)) continue;
+    try {
+      const payload = JSON.parse(fs.readFileSync(candidate, 'utf8'));
+      const q = (payload.quarters || []).filter(row => (row.rows || []).length);
+      if (!q.length) continue;
+      // Prefer fuller (usually non-seed CIK) captures when re-sliming.
+      if (!best || q.length > (best.payload.quarters || []).length
+          || (q.length === (best.payload.quarters || []).length && !payload.seed && best.payload.seed)) {
+        best = { slug, payload, path: candidate };
+      }
+    } catch { /* try next */ }
+  }
+  return best || { slug, payload: null, path: null };
+}
+
 (async () => {
   const key = process.env.FMP_API_KEY;
   if (!fromCacheOnly && !key) throw new Error('FMP_API_KEY required unless --from-cache');
 
-  // --- TSM stock seed ---
-  let tsmSrc;
-  const tsmPath = path.join(outDir, 'TSM.json');
-  if (fromCacheOnly || fs.existsSync(tsmPath)) {
-    tsmSrc = JSON.parse(fs.readFileSync(tsmPath, 'utf8'));
-  } else {
-    // Minimal inline capture for TSM only
-    const { spawnSync } = require('node:child_process');
-    const run = spawnSync(process.execPath, [
-      path.join(__dirname, 'capture_smart_money.cjs'), 'TSM', String(STOCK_QUARTERS), '2',
-    ], { env: process.env, encoding: 'utf8' });
-    if (run.status !== 0) {
-      console.error(run.stderr || run.stdout);
-      throw new Error('capture_smart_money failed for TSM seed');
-    }
-    tsmSrc = JSON.parse(fs.readFileSync(tsmPath, 'utf8'));
-  }
-  const tsmSeed = slimStockPayload(tsmSrc);
-  fs.writeFileSync(tsmPath, `${JSON.stringify(tsmSeed)}\n`);
-  console.log(`Wrote ${tsmPath} holders=${tsmSeed.quarters[0]?.rows.length || 0} bytes=${fs.statSync(tsmPath).size}`);
-
-  // --- Berkshire fund seed ---
-  const brkSlugPath = path.join(fundsDir, 'berkshire-hathaway.json');
-  let brkSrc;
-  if (fs.existsSync(brkSlugPath)) {
-    brkSrc = JSON.parse(fs.readFileSync(brkSlugPath, 'utf8'));
-  } else if (!fromCacheOnly) {
-    // Fetch a few quarters directly
-    const sleep = ms => new Promise(r => setTimeout(r, ms));
-    async function fmp(pathname, params) {
-      const url = new URL(`https://financialmodelingprep.com/stable/${pathname}`);
-      for (const [n, v] of Object.entries(params)) if (v != null) url.searchParams.set(n, String(v));
-      url.searchParams.set('apikey', key);
-      const res = await fetch(url, { signal: AbortSignal.timeout(60000) });
-      if (!res.ok) throw new Error(`FMP_${res.status}`);
-      return res.json();
-    }
-    const cik = '0001067983';
-    const dates = await fmp('institutional-ownership/dates', { cik });
-    const filings = (dates || [])
-      .map(r => ({ year: Number(r.year), quarter: Number(r.quarter) }))
-      .filter(r => r.year && r.quarter >= 1 && r.quarter <= 4)
-      .sort((a, b) => (b.year - a.year) || (b.quarter - a.quarter))
-      .slice(0, FUND_QUARTERS);
-    const quarters = [];
-    for (const f of filings) {
-      const rows = await fmp('institutional-ownership/extract', { cik, year: f.year, quarter: f.quarter });
-      await sleep(120);
-      const list = Array.isArray(rows) ? rows.slice(0, SmartMoney.FUND_EXTRACT_MAX) : [];
-      if (!list.length) continue;
-      quarters.push({
-        year: f.year, quarter: f.quarter, key: SmartMoney.quarterKey(f.year, f.quarter),
-        rows: list.map(row => ({ ...row, cik, year: f.year, quarter: f.quarter })),
-      });
-    }
-    brkSrc = {
-      cik, slug: 'berkshire-hathaway', investorName: 'Berkshire Hathaway',
-      capturedAt: new Date().toISOString(), quarters,
-    };
-  } else {
-    throw new Error('Missing berkshire-hathaway.json for --from-cache');
-  }
-  const brkSeed = slimFundPayload(brkSrc);
-  fs.writeFileSync(brkSlugPath, `${JSON.stringify(brkSeed)}\n`);
-  console.log(`Wrote ${brkSlugPath} positions=${brkSeed.quarters[0]?.rows.length || 0} q=${brkSeed.quarters.length} bytes=${fs.statSync(brkSlugPath).size}`);
-
-  // --- Directory index: curated 20 summaries (Berkshire from seed; others stub/live) ---
-  const managers = [];
-  for (const inv of SmartMoney.INVESTORS) {
-    const slug = SmartMoney.slugify(inv.nameEn);
-    if (slug === 'berkshire-hathaway') {
-      managers.push(SmartMoney.buildFundDirectoryEntry(brkSeed));
+  // --- Stock seeds (TSM + STZ demo; arbitrary tickers use live path) ---
+  for (const ticker of STOCK_SEEDS) {
+    const stockPath = path.join(outDir, `${ticker}.json`);
+    let src = null;
+    if (fs.existsSync(stockPath)) {
+      src = JSON.parse(fs.readFileSync(stockPath, 'utf8'));
+    } else if (!fromCacheOnly) {
+      const { spawnSync } = require('node:child_process');
+      const run = spawnSync(process.execPath, [
+        path.join(__dirname, 'capture_smart_money.cjs'),
+        '--stocks-only', ticker, String(STOCK_QUARTERS), '2',
+      ], { env: process.env, encoding: 'utf8' });
+      if (run.status !== 0) {
+        console.warn(run.stderr || run.stdout);
+        console.warn(`skip stock seed ${ticker}: capture failed`);
+        continue;
+      }
+      src = JSON.parse(fs.readFileSync(stockPath, 'utf8'));
+    } else {
+      console.warn(`skip stock seed ${ticker}: missing cache`);
       continue;
     }
-    const local = path.join(fundsDir, `${slug}.json`);
-    if (fs.existsSync(local) && !String(fs.readFileSync(local, 'utf8')).includes('"seed": true')) {
-      // Optional: summarize a local full capture without committing it
-      try {
-        const full = JSON.parse(fs.readFileSync(local, 'utf8'));
-        const entry = SmartMoney.buildFundDirectoryEntry(slimFundPayload(full, { quarters: 1 }));
-        if (entry) {
-          managers.push(entry);
-          continue;
-        }
-      } catch { /* fall through */ }
-    }
-    managers.push({
-      cik: inv.cik,
-      slug,
-      investorName: inv.nameEn,
-      curated: inv,
-      isCurated: true,
-      style: inv.style,
-      year: null,
-      quarter: null,
-      key: null,
-      quartersOnFile: 0,
-      positions: null,
-      book: null,
-      topWeight: null,
-      topSymbol: null,
-      top10Weight: null,
-      effectiveN: null,
-    });
+    const seed = slimStockPayload(src);
+    fs.writeFileSync(stockPath, `${JSON.stringify(seed)}\n`);
+    console.log(`Wrote ${stockPath} holders=${seed.quarters[0]?.rows.length || 0} q=${seed.quarters.length} bytes=${fs.statSync(stockPath).size}`);
   }
+
+  // --- Curated fund seeds (all 20, multi-quarter, holdings capped) ---
+  const managers = [];
+  const missing = [];
+  for (const inv of SmartMoney.INVESTORS) {
+    const { slug, payload } = readFundSource(inv);
+    if (!payload) {
+      missing.push(slug);
+      managers.push({
+        cik: inv.cik,
+        slug,
+        investorName: inv.nameEn,
+        curated: inv,
+        isCurated: true,
+        style: inv.style,
+        year: null,
+        quarter: null,
+        key: null,
+        quartersOnFile: 0,
+        positions: null,
+        book: null,
+        topWeight: null,
+        topSymbol: null,
+        top10Weight: null,
+        effectiveN: null,
+      });
+      continue;
+    }
+    // Berkshire gets deeper history (WhaleCreep-style); others stay 8Q for PR size.
+    const quarterBudget = slug === 'berkshire-hathaway' ? 12 : FUND_QUARTERS;
+    const seeded = slimFundPayload({
+      ...payload,
+      cik: payload.cik || inv.cik,
+      slug,
+      investorName: payload.investorName || inv.nameEn,
+    }, { quarters: quarterBudget });
+    const outPath = path.join(fundsDir, `${slug}.json`);
+    fs.writeFileSync(outPath, `${JSON.stringify(seeded)}\n`);
+    console.log(`Wrote ${outPath} positions=${seeded.quarters[0]?.rows.length || 0} q=${seeded.quarters.length} hist=${seeded.history.length} bytes=${fs.statSync(outPath).size}`);
+    managers.push(SmartMoney.buildFundDirectoryEntry(seeded));
+  }
+
   const index = writeIndex(managers.filter(Boolean));
   console.log(`Wrote funds/index.json managers=${index.count} bytes=${fs.statSync(path.join(fundsDir, 'index.json')).size}`);
-  console.log('Seed complete — commit only TSM.json, funds/berkshire-hathaway.json, funds/index.json');
+  if (missing.length) {
+    console.warn(`Missing fund captures (need capture_smart_money.cjs --funds-only): ${missing.join(', ')}`);
+    process.exitCode = 1;
+  } else {
+    console.log(`Seed complete — commit TSM/STZ + funds/[a-z]*.json + index (${SmartMoney.INVESTORS.length} managers)`);
+  }
 })().catch(error => {
   console.error(error);
   process.exitCode = 1;

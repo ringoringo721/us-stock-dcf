@@ -9,10 +9,11 @@ __pycache__/
 /cache/smart-money/**
 !/cache/smart-money/README.md
 !/cache/smart-money/TSM.json
+!/cache/smart-money/STZ.json
 !/cache/smart-money/funds/
 /cache/smart-money/funds/**
-!/cache/smart-money/funds/index.json
-!/cache/smart-money/funds/berkshire-hathaway.json
+# Slug seeds + index (not CIK-named duplicates / full captures)
+!/cache/smart-money/funds/[a-z]*.json
 
 /.vercel/
 /public/

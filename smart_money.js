@@ -500,10 +500,17 @@
         throw new Error(`INSTITUTIONAL_HOLDERS_FAILED:${detail}`);
       }
       const body = await response.json();
+      const rows = Array.isArray(body) ? body : body?.data || [];
+      // Empty books are incomplete — walk older quarters instead of treating as success.
+      if (!rows.length) {
+        const err = new Error(`INSTITUTIONAL_HOLDERS_EMPTY:${year}-Q${quarter}`);
+        err.empty = true;
+        throw err;
+      }
       return {
         year,
         quarter,
-        rows: Array.isArray(body) ? body : body?.data || [],
+        rows,
         source: body?.source?.provider || 'FMP',
       };
     });
@@ -652,13 +659,13 @@
     return loadStockCache(symbol).then((cached) => {
       const current = (cached.quarters || [])[0];
       const prior = (cached.quarters || [])[1];
-      if (current?.rows) {
+      if (current?.rows?.length) {
         const snapshot = buildStockSnapshot(symbol, current.rows, prior?.rows || [], {
           year: current.year, quarter: current.quarter,
         });
         return { ticker: symbol, source: 'cache', capturedAt: cached.capturedAt || null, snapshot, raw: cached };
       }
-      if (cached.snapshot?.holders) {
+      if (cached.snapshot?.holders?.length) {
         return {
           ticker: symbol,
           source: 'cache',
@@ -668,26 +675,46 @@
         };
       }
       throw new Error('SMART_MONEY_CACHE_EMPTY');
-    }).catch(() => {
-      const specs = recentQuarterSpecs(2);
-      return Promise.all(specs.map(spec => loadQuarterLive(symbol, spec.year, spec.quarter)
-        .catch(error => ({ year: spec.year, quarter: spec.quarter, rows: [], error, incomplete: true }))))
-        .then((quarters) => {
-          const usable = quarters.filter(q => !q.incomplete && !q.error);
-          const current = usable[0];
-          const prior = usable[1];
-          if (!current) throw new Error('SMART_MONEY_LIVE_EMPTY');
-          const snapshot = buildStockSnapshot(symbol, current.rows, prior?.rows || [], {
-            year: current.year, quarter: current.quarter,
-          });
-          return {
-            ticker: symbol,
-            source: 'live',
-            capturedAt: new Date().toISOString(),
-            snapshot,
-            liveErrors: quarters.filter(q => q.error).map(q => String(q.error.message || q.error)),
-          };
+    }).catch((cacheError) => {
+      // Walk several filing quarters — newest calendar quarter is often sparse/empty.
+      const want = Math.max(2, Math.min(6, Number(options.liveQuarters) || 6));
+      const specs = recentQuarterSpecs(want);
+      // Sequential walk so we stop once we have current+prior (saves shared FMP quota).
+      const loaded = [];
+      const liveErrors = [];
+      const step = (index) => {
+        if (index >= specs.length) return Promise.resolve();
+        if (loaded.filter(q => q.rows?.length).length >= 2) return Promise.resolve();
+        const spec = specs[index];
+        return loadQuarterLive(symbol, spec.year, spec.quarter)
+          .then((quarter) => { loaded.push(quarter); })
+          .catch((error) => {
+            liveErrors.push(String(error.message || error));
+            loaded.push({
+              year: spec.year, quarter: spec.quarter, rows: [], error, incomplete: true,
+            });
+          })
+          .then(() => step(index + 1));
+      };
+      return step(0).then(() => {
+        const usable = loaded.filter(q => !q.incomplete && !q.error && q.rows?.length);
+        const current = usable[0];
+        const prior = usable[1];
+        if (!current) {
+          const detail = liveErrors[0] || String(cacheError?.message || 'no-quarters');
+          throw new Error(`SMART_MONEY_LIVE_EMPTY:${detail}`);
+        }
+        const snapshot = buildStockSnapshot(symbol, current.rows, prior?.rows || [], {
+          year: current.year, quarter: current.quarter,
         });
+        return {
+          ticker: symbol,
+          source: 'live',
+          capturedAt: new Date().toISOString(),
+          snapshot,
+          liveErrors,
+        };
+      });
     });
   }
 

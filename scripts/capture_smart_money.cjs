@@ -6,6 +6,8 @@
  *
  * Usage:
  *   FMP_API_KEY=… node scripts/capture_smart_money.cjs [TICKER,TICKER] [quarters=4] [holderPages=3]
+ *   FMP_API_KEY=… node scripts/capture_smart_money.cjs --funds-only 12
+ *   FMP_API_KEY=… node scripts/capture_smart_money.cjs --stocks-only STZ 2 2
  */
 'use strict';
 
@@ -19,12 +21,16 @@ if (fs.existsSync(env)) process.loadEnvFile(env);
 const key = process.env.FMP_API_KEY;
 if (!key) throw new Error('FMP_API_KEY is required');
 
-const tickersArg = process.argv[2];
-const quarterCount = Math.max(2, Math.min(6, Number(process.argv[3]) || 4));
-const holderPages = Math.max(1, Math.min(8, Number(process.argv[4]) || 3));
-const focusTickers = tickersArg
+const fundsOnly = process.argv.includes('--funds-only');
+const stocksOnly = process.argv.includes('--stocks-only');
+const args = process.argv.slice(2).filter(a => a !== '--funds-only' && a !== '--stocks-only');
+const tickersArg = fundsOnly ? '' : args[0];
+const quarterCount = Math.max(2, Math.min(12, Number(fundsOnly ? args[0] : args[1]) || 4));
+const holderPages = Math.max(1, Math.min(8, Number(fundsOnly ? args[1] : args[2]) || 3));
+const focusTickers = fundsOnly ? [] : (tickersArg
   ? tickersArg.split(',').map(t => t.trim().toUpperCase()).filter(Boolean)
-  : ['AAPL', 'MSFT', 'NVDA', 'GOOGL', 'AMZN', 'META', 'BRK.B', 'TSM'];
+  : ['AAPL', 'MSFT', 'NVDA', 'GOOGL', 'AMZN', 'META', 'BRK.B', 'TSM']);
+const captureFunds = !stocksOnly;
 
 const outDir = path.join(root, 'cache', 'smart-money');
 const fundsDir = path.join(outDir, 'funds');
@@ -133,7 +139,11 @@ function normalizeHolderRows(ticker, year, quarter, rows) {
   } catch (error) {
     console.warn(`Berkshire dates unavailable (${error.message}); using calendar priors`);
   }
-  console.log(`Capturing broad holders for ${focusTickers.join(',')} · ${specs.map(s => s.key).join(', ')} · pages≤${holderPages}`);
+  if (focusTickers.length) {
+    console.log(`Capturing broad holders for ${focusTickers.join(',')} · ${specs.map(s => s.key).join(', ')} · pages≤${holderPages}`);
+  } else {
+    console.log(`Funds-only capture · up to ${quarterCount} quarters per manager`);
+  }
 
   for (const ticker of focusTickers) {
     const quarters = [];
@@ -183,18 +193,20 @@ function normalizeHolderRows(ticker, year, quarter, rows) {
     console.log(`Wrote ${target} holders=${snapshot.holders.length} exits=${snapshot.exits.length} curated=${snapshot.kpis.curatedHolders}`);
   }
 
-  // Fund books: curated 20 + a few high-conviction demo managers.
-  const fundTargets = [
-    ...SmartMoney.INVESTORS.map(row => ({
+  // Fund books: curated 20 (skip when --stocks-only so a ticker capture cannot wipe multi-Q seeds).
+  const fundTargets = captureFunds
+    ? SmartMoney.INVESTORS.map(row => ({
       cik: row.cik,
       slug: SmartMoney.slugify(row.nameEn),
       investorName: row.nameEn,
-    })),
-  ];
-  // HCEP Management (WhaleCreep demo) if discoverable from TSM top weights — optional CIK probe skipped;
-  // curated list is the guaranteed fund cache set.
+    }))
+    : [];
 
-  console.log(`Capturing fund books for ${fundTargets.length} managers × ${quarterCount} quarters`);
+  if (captureFunds) {
+    console.log(`Capturing fund books for ${fundTargets.length} managers × ${quarterCount} quarters`);
+  } else {
+    console.log('Skipping fund books (--stocks-only)');
+  }
   for (const fund of fundTargets) {
     let filings;
     try {
@@ -262,30 +274,32 @@ function normalizeHolderRows(ticker, year, quarter, rows) {
     console.log(`Wrote ${bySlug} quarters=${quarters.length}`);
   }
 
-  // WhaleCreep-style funds directory index
-  const managers = [];
-  for (const filename of fs.readdirSync(fundsDir)) {
-    if (!/^[a-z][a-z0-9.-]*\.json$/.test(filename) || filename === 'index.json') continue;
-    try {
-      const payload = JSON.parse(fs.readFileSync(path.join(fundsDir, filename), 'utf8'));
-      const entry = SmartMoney.buildFundDirectoryEntry(payload);
-      if (entry) managers.push(entry);
-    } catch (error) {
-      console.warn(`index skip ${filename}: ${error.message}`);
+  if (captureFunds) {
+    // WhaleCreep-style funds directory index
+    const managers = [];
+    for (const filename of fs.readdirSync(fundsDir)) {
+      if (!/^[a-z][a-z0-9.-]*\.json$/.test(filename) || filename === 'index.json') continue;
+      try {
+        const payload = JSON.parse(fs.readFileSync(path.join(fundsDir, filename), 'utf8'));
+        const entry = SmartMoney.buildFundDirectoryEntry(payload);
+        if (entry) managers.push(entry);
+      } catch (error) {
+        console.warn(`index skip ${filename}: ${error.message}`);
+      }
     }
+    managers.sort((a, b) => (b.book ?? 0) - (a.book ?? 0));
+    const indexPayload = {
+      capturedAt,
+      source: { provider: 'FMP', method: 'institutional-ownership/extract-summaries' },
+      latestKey: managers[0]?.key || null,
+      count: managers.length,
+      managers,
+      disclaimer: '13F filings lag up to ~45 days after quarter-end; not real-time holdings.',
+    };
+    const indexPath = path.join(fundsDir, 'index.json');
+    fs.writeFileSync(indexPath, `${JSON.stringify(indexPayload)}\n`);
+    console.log(`Wrote funds directory ${indexPath} managers=${managers.length}`);
   }
-  managers.sort((a, b) => (b.book ?? 0) - (a.book ?? 0));
-  const indexPayload = {
-    capturedAt,
-    source: { provider: 'FMP', method: 'institutional-ownership/extract-summaries' },
-    latestKey: managers[0]?.key || null,
-    count: managers.length,
-    managers,
-    disclaimer: '13F filings lag up to ~45 days after quarter-end; not real-time holdings.',
-  };
-  const indexPath = path.join(fundsDir, 'index.json');
-  fs.writeFileSync(indexPath, `${JSON.stringify(indexPayload)}\n`);
-  console.log(`Wrote funds directory ${indexPath} managers=${managers.length}`);
 })().catch(error => {
   console.error(error);
   process.exitCode = 1;
