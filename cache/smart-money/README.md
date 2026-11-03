@@ -21,3 +21,5 @@ node scripts/seed_smart_money.cjs --from-cache
 ```
 
 UI prefers seed/cache, then live rate-limited `/api/fmp` (`institutional-holders` / `institutional-extract`).
+
+Slimmed further after Bugbot TOO_LARGE false-positive on pre-slim push.
