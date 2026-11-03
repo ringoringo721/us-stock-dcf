@@ -297,34 +297,60 @@ test('allowedCik / resolveFundIdentity / fundHref', () => {
   assert.equal(SmartMoney.resolveFundIdentity('brk').cik, '0001067983');
   assert.equal(SmartMoney.fundHref('berkshire-hathaway', '2025-Q4'), '#fund/berkshire-hathaway?vs=2025-q4');
   assert.equal(SmartMoney.slugify('HCEP Management Ltd'), 'hcep-management-ltd');
-  // Bare CIK is always openable (seed invert / live / empty) — slug-only unknown is not.
+  // Bare CIK is always openable — non-curated slug is fund-{cik}, never digits-as-title route.
   assert.equal(SmartMoney.resolveFundIdentity('0002147005').openable, true);
-  assert.equal(SmartMoney.resolveFundIdentity('0002147005').slug, '0002147005');
+  assert.equal(SmartMoney.resolveFundIdentity('0002147005').slug, 'fund-0002147005');
+  assert.equal(SmartMoney.resolveFundIdentity('fund-0001475365').cik, '0001475365');
   assert.equal(SmartMoney.isOpenableFundKey('framtiden-holdings-management-co-llc'), false);
 });
 
-test('fundLinkForHolder links every CIK (curated slug; others CIK route)', () => {
+test('resolveInvestorName never returns bare CIK as primary title', () => {
+  SmartMoney.resetHolderNameMap();
+  SmartMoney.registerHolderNames({
+    '0001475365': 'SUMITOMO MITSUI TRUST GROUP, INC.',
+    '0000902528': 'BANK HAPOALIM BM',
+  });
+  assert.equal(SmartMoney.looksLikeBareCik('0001475365', '0001475365'), true);
+  assert.equal(SmartMoney.looksLikeBareCik('BANK HAPOALIM BM', '0000902528'), false);
+  assert.equal(
+    SmartMoney.resolveInvestorName({ cik: '0001475365', investorName: '0001475365' }),
+    'SUMITOMO MITSUI TRUST GROUP, INC.',
+  );
+  assert.equal(
+    SmartMoney.resolveInvestorName({ cik: '0000902528', slug: 'fund-0000902528' }),
+    'BANK HAPOALIM BM',
+  );
+  assert.equal(
+    SmartMoney.resolveInvestorName({ cik: '0001067983', investorName: '0001067983' }),
+    'Berkshire Hathaway',
+  );
+  // Unknown CIK with only digit label → null (UI shows generic, not digits).
+  assert.equal(SmartMoney.resolveInvestorName({ cik: '0009999991', investorName: '0009999991' }), null);
+});
+
+test('fundLinkForHolder links every CIK (curated slug; others fund-{cik})', () => {
   const brk = SmartMoney.fundLinkForHolder({
     cik: '0001067983', investorName: 'Berkshire Hathaway', isCurated: true,
   });
   assert.equal(brk.slug, 'berkshire-hathaway');
   assert.match(brk.href, /#fund\/berkshire-hathaway/);
   assert.ok(brk.curated);
-  // Broad holders (Fenelon / Framtiden / Greenwoods) get CIK fund links — WhaleCreep parity.
+  // Broad holders get fund-{cik} routes — titles resolve from investorName / holder-funds.
   const fenelon = SmartMoney.fundLinkForHolder({
     cik: '0002147005',
     investorName: 'FENELON OPPORTUNITY FUND INC.',
     isCurated: false,
   });
-  assert.equal(fenelon.slug, '0002147005');
-  assert.match(fenelon.href, /#fund\/0002147005/);
+  assert.equal(fenelon.slug, 'fund-0002147005');
+  assert.match(fenelon.href, /#fund\/fund-0002147005/);
   assert.equal(fenelon.curated, null);
+  assert.equal(fenelon.investorName, 'FENELON OPPORTUNITY FUND INC.');
   const framtiden = SmartMoney.fundLinkForHolder({
     cik: '0002112734',
     investorName: 'FRAMTIDEN HOLDINGS MANAGEMENT CO LLC',
     isCurated: false,
   });
-  assert.equal(framtiden.slug, '0002112734');
+  assert.equal(framtiden.slug, 'fund-0002112734');
   assert.equal(SmartMoney.fundLinkForHolder({ investorName: 'No CIK Inc' }), null);
   assert.equal(SmartMoney.isOpenableFundKey('lone-pine-capital'), true);
   for (const inv of SmartMoney.INVESTORS) {

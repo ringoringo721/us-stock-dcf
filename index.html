@@ -2981,6 +2981,7 @@
     <div class="detail-header">
       <div class="detail-title">
         <span id="fund-name" style="color: var(--accent); font-size: 22px;">—</span>
+        <span id="fund-cik" class="text-muted" style="font-size:12px;margin-left:8px;"></span>
         <span id="fund-quarter-badge" class="badge">—</span>
       </div>
       <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
@@ -8887,9 +8888,15 @@
     const curated = link?.curated
       || row.curated
       || (row.isCurated && SM.INVESTORS.find(inv => inv.cik === row.cik));
+    const resolved = SM.resolveInvestorName?.({
+      cik: row.cik,
+      curated,
+      investorName: row.investorName || link?.investorName,
+      slug: link?.slug,
+    });
     const label = curated
       ? SM.investorLabel(curated, isEn ? 'en' : 'zh')
-      : (row.investorName || row.cik || '—');
+      : (resolved || row.investorName || (isEn ? 'Institutional manager' : '機構管理人'));
     // Curated badge only for the WhaleCreep 20 — every CIK still gets a fund link.
     const badge = curated
       ? `<span class="badge" style="margin-left:6px;font-size:10px;">${isEn ? 'curated' : '策展'}</span>`
@@ -9127,18 +9134,30 @@
     tbody.innerHTML = managers.map(row => {
       const identity = SM.resolveFundIdentity(row.slug || row.cik);
       const openSlug = identity.openable ? identity.slug : null;
-      const label = row.curated || identity.curated
-        ? SM.investorLabel(row.curated || identity.curated, isEn ? 'en' : 'zh')
-        : (row.investorName || row.slug);
+      const curated = row.curated || identity.curated || null;
+      const resolved = SM.resolveInvestorName?.({
+        cik: row.cik || identity.cik,
+        curated,
+        investorName: row.investorName || identity.investorName,
+        slug: row.slug || identity.slug,
+      });
+      const label = curated
+        ? SM.investorLabel(curated, isEn ? 'en' : 'zh')
+        : (resolved || row.investorName || (isEn ? 'Institutional manager' : '機構管理人'));
       const latest = row.year != null ? `Q${row.quarter} ${row.year}` : '—';
       const top = row.topWeight != null ? `${Number(row.topWeight).toFixed(1)}%` : '—';
       const top10 = row.top10Weight != null ? `${Number(row.top10Weight).toFixed(1)}%` : '—';
       const eff = row.effectiveN != null ? Number(row.effectiveN).toFixed(0) : '—';
+      const badge = curated
+        ? `<span class="badge" style="margin-left:6px;font-size:10px;">${isEn ? 'curated' : '策展'}</span>`
+        : '';
+      const cikHint = row.cik
+        ? `<div class="text-muted" style="font-size:11px;">CIK ${escapeAttribute(row.cik)}</div>`
+        : '';
       const nameCell = openSlug
         ? `<a class="sm-manager-link" href="${escapeAttribute(SM.fundHref(openSlug))}"
-            onclick="event.preventDefault(); cameFromFundsDirectory=true; openFundPage('${escapeAttribute(openSlug)}');">${escapeAttribute(label)}</a>
-          <span class="badge" style="margin-left:6px;font-size:10px;">${isEn ? 'curated' : '策展'}</span>`
-        : `<span>${escapeAttribute(label)}</span>`;
+            onclick="event.preventDefault(); cameFromFundsDirectory=true; openFundPage('${escapeAttribute(openSlug)}');">${escapeAttribute(label)}</a>${badge}${cikHint}`
+        : `<span>${escapeAttribute(label)}</span>${badge}${cikHint}`;
       return `<tr>
         <td class="table-sticky-col" style="text-align:left;">
           ${nameCell}
@@ -9227,6 +9246,7 @@
     const status = document.getElementById('fund-status');
     const lead = document.getElementById('fund-lead');
     const nameEl = document.getElementById('fund-name');
+    const cikEl = document.getElementById('fund-cik');
     const badge = document.getElementById('fund-quarter-badge');
     const kpiGrid = document.getElementById('fund-kpi-grid');
     const concGrid = document.getElementById('fund-concentration-grid');
@@ -9243,7 +9263,17 @@
 
     status.className = 'analysis-note';
     status.textContent = isEn ? 'Loading fund 13F book…' : '載入管理人 13F 組合中…';
-    if (nameEl) nameEl.textContent = slug;
+    const bootIdentity = SM.resolveFundIdentity?.(slug) || null;
+    const bootTitle = bootIdentity?.curated
+      ? SM.investorLabel(bootIdentity.curated, isEn ? 'en' : 'zh')
+      : (SM.resolveInvestorName?.({
+        cik: bootIdentity?.cik,
+        curated: bootIdentity?.curated,
+        investorName: bootIdentity?.investorName,
+        slug: bootIdentity?.slug || slug,
+      }) || (isEn ? 'Institutional manager' : '機構管理人'));
+    if (nameEl) nameEl.textContent = bootTitle;
+    if (cikEl) cikEl.textContent = bootIdentity?.cik ? `CIK ${bootIdentity.cik}` : '';
     if (kpiGrid) kpiGrid.innerHTML = '';
     if (concGrid) concGrid.innerHTML = '';
     if (lead) lead.textContent = '';
@@ -9270,10 +9300,17 @@
     SM.loadFund(slug, { vs }).then((result) => {
       if (activeFundSlug !== String(slug).toLowerCase()) return;
       const curated = result.curated;
+      const resolvedName = SM.resolveInvestorName?.({
+        cik: result.cik,
+        curated,
+        investorName: result.investorName,
+        slug: result.slug,
+      });
       const title = curated
         ? SM.investorLabel(curated, isEn ? 'en' : 'zh')
-        : (result.investorName || result.slug);
+        : (resolvedName || result.investorName || (isEn ? 'Institutional manager' : '機構管理人'));
       if (nameEl) nameEl.textContent = title;
+      if (cikEl) cikEl.textContent = result.cik ? `CIK ${result.cik}` : '';
       const qLabel = result.year != null ? `Q${result.quarter} ${result.year}` : '—';
       if (badge) badge.textContent = qLabel;
 

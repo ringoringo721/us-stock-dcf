@@ -3,11 +3,13 @@ const path = require('node:path');
 const technicals = require('../technical_indicators.js');
 const SmartMoney = require('../smart_money.js');
 // Seed-holder CIKs (committed invert) may use institutional-extract; arbitrary CIKs stay 403.
+// Also load CIK→name map so extract responses never force the UI to title by digits.
 try {
   const holderFundsPath = path.join(__dirname, '..', 'cache', 'smart-money', 'funds', 'holder-funds.json');
   if (fs.existsSync(holderFundsPath)) {
     const body = JSON.parse(fs.readFileSync(holderFundsPath, 'utf8'));
     SmartMoney.registerExtractAllowlist(body.ciks || Object.keys(body.funds || {}));
+    if (body.names) SmartMoney.registerHolderNames(body.names);
   }
 } catch { /* optional seed */ }
 const endpoints = {
@@ -387,7 +389,11 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
       ...(historical ? { from, to, priceBasis: 'splitAdjustedClose' } : {}),
       ...(institutionalHolders || institutionalExtract
         ? { year: Number(instYear), quarter: Number(instQuarter),
-          ...(institutionalExtract ? { cik: cikParam, cappedAt: SmartMoney.FUND_EXTRACT_MAX } : {}) } : {}) },
+          ...(institutionalExtract ? {
+            cik: cikParam,
+            cappedAt: SmartMoney.FUND_EXTRACT_MAX,
+            investorName: SmartMoney.resolveInvestorName({ cik: cikParam }) || null,
+          } : {}) } : {}) },
       ...(action === 'news' ? {
         page: Number(page), hasMore: rows.length === 50 && Number(page) < 1000,
         limitReached: rows.length === 50 && Number(page) === 1000

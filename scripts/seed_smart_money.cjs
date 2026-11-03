@@ -4,9 +4,10 @@
  * Full captures stay local / CI-only via capture_smart_money.cjs.
  *
  * Seeds:
- *   cache/smart-money/{NVDA,AAPL,MSFT,…}.json  (liquid US holders × 2Q — richer demos)
+ *   cache/smart-money/{NVDA,AAPL,MSFT,…}.json  (liquid US holders × 4Q — richer demos)
  *   cache/smart-money/curated-by-ticker.json    (curated-20 invert → all US tickers they hold)
  *   cache/smart-money/funds/{slug}.json         (all curated 20, multi-quarter)
+ *   cache/smart-money/funds/fund-{cik}.json     (non-curated full books × 8Q)
  *   cache/smart-money/funds/index.json
  *
  * Usage:
@@ -29,12 +30,13 @@ const fundsDir = path.join(outDir, 'funds');
 fs.mkdirSync(fundsDir, { recursive: true });
 
 const STOCK_HOLDER_CAP = 65;
-const STOCK_QUARTERS = 2;
-// Curated funds: 8–12Q; non-curated full books: 2Q × deep holdings (WhaleCreep detail).
+// Liquid stock demos: 4Q keeps Δ + timeline useful while bounding PR size (~2× prior 2Q seeds).
+const STOCK_QUARTERS = 4;
+// Curated funds: 8–12Q; non-curated full books: 8Q × capped holdings (WhaleCreep detail).
 const FUND_QUARTERS = 8;
 const FUND_HOLDING_CAP = 22;
-const EXTRA_FUND_QUARTERS = 2;
-const EXTRA_FUND_HOLDING_CAP = 150;
+const EXTRA_FUND_QUARTERS = 8;
+const EXTRA_FUND_HOLDING_CAP = 100;
 /** Liquid / mega-cap US — full holder tables on Preview without FMP_API_KEY. */
 const STOCK_SEEDS = [
   'NVDA', 'AAPL', 'MSFT', 'META', 'GOOGL', 'AMZN', 'TSLA', 'TSM', 'STZ',
@@ -188,17 +190,27 @@ function slimFundPayload(payload, {
   };
 }
 
+function displayFundName(cik, ...candidates) {
+  return SmartMoney.resolveInvestorName({ cik, investorName: candidates.find(Boolean) })
+    || null;
+}
+
 function writeIndex(managers) {
-  managers.sort((a, b) => (b.book ?? 0) - (a.book ?? 0));
+  managers.sort((a, b) => {
+    const ac = a.isCurated ? 1 : 0;
+    const bc = b.isCurated ? 1 : 0;
+    if (bc !== ac) return bc - ac;
+    return (b.book ?? 0) - (a.book ?? 0);
+  });
   const index = {
     capturedAt: new Date().toISOString(),
     seed: true,
     source: {
       provider: 'FMP',
       method: 'seed-directory',
-      note: 'Summaries for curated 20; fund books load from seed JSON then allowlisted live extract',
+      note: 'Curated 20 + committed fund-{cik} books; titles never bare CIK',
     },
-    latestKey: managers[0]?.key || null,
+    latestKey: managers.find(row => row.key)?.key || managers[0]?.key || null,
     count: managers.length,
     managers,
     disclaimer: '13F filings lag up to ~45 days after quarter-end; not real-time holdings.',
@@ -300,9 +312,6 @@ function readFundSource(inv) {
     managers.push(SmartMoney.buildFundDirectoryEntry(seeded));
   }
 
-  const index = writeIndex(managers.filter(Boolean));
-  console.log(`Wrote funds/index.json managers=${index.count} bytes=${fs.statSync(path.join(fundsDir, 'index.json')).size}`);
-
   // Invert curated fund books → per-ticker index so Preview without FMP covers
   // every US name the curated 20 hold (not just a mega-cap seed list).
   const fundPayloads = [];
@@ -314,12 +323,12 @@ function readFundSource(inv) {
       fundPayloads.push(JSON.parse(fs.readFileSync(slugPath, 'utf8')));
     } catch { /* skip */ }
   }
-  const byTicker = SmartMoney.buildCuratedByTickerIndex(fundPayloads, { quarters: 2 });
+  const byTicker = SmartMoney.buildCuratedByTickerIndex(fundPayloads, { quarters: Math.min(4, STOCK_QUARTERS) });
   const byTickerPath = path.join(outDir, 'curated-by-ticker.json');
   fs.writeFileSync(byTickerPath, `${JSON.stringify(byTicker)}\n`);
   console.log(`Wrote ${byTickerPath} tickers=${byTicker.count} bytes=${fs.statSync(byTickerPath).size}`);
 
-  // Allowlist + optional partial invert index (links / extract gate — not shown as full books).
+  // Allowlist + name map — full books live in fund-{cik}.json, not stock-invert stubs.
   const stockPayloads = [];
   for (const ticker of STOCK_SEEDS) {
     const stockPath = path.join(outDir, `${ticker}.json`);
@@ -327,13 +336,27 @@ function readFundSource(inv) {
     try { stockPayloads.push(JSON.parse(fs.readFileSync(stockPath, 'utf8'))); }
     catch { /* skip */ }
   }
-  // Slim allowlist index (CIKs only) — full books live in fund-{cik}.json, not stock-invert stubs.
   const holderFunds = SmartMoney.buildHolderFundIndex(stockPayloads);
   const allowCiks = Object.keys(holderFunds.funds || {}).sort();
-  // Also allow every committed fund-{cik} book.
+  const nameByCik = Object.create(null);
+  for (const [cik, entry] of Object.entries(holderFunds.funds || {})) {
+    const n = displayFundName(cik, entry?.n);
+    if (n) nameByCik[cik] = n;
+  }
+  // Also allow every committed fund-{cik} book; harvest names from payloads.
   for (const filename of fs.readdirSync(fundsDir)) {
     const m = /^fund-(\d{10})\.json$/.exec(filename);
-    if (m) allowCiks.push(m[1]);
+    if (!m) continue;
+    allowCiks.push(m[1]);
+    try {
+      const payload = JSON.parse(fs.readFileSync(path.join(fundsDir, filename), 'utf8'));
+      const n = displayFundName(m[1], payload.investorName, nameByCik[m[1]]);
+      if (n) nameByCik[m[1]] = n;
+    } catch { /* skip */ }
+  }
+  for (const inv of SmartMoney.INVESTORS) {
+    allowCiks.push(inv.cik);
+    nameByCik[inv.cik] = inv.nameEn;
   }
   const uniqueAllow = [...new Set(allowCiks)];
   const holderFundsPath = path.join(fundsDir, 'holder-funds.json');
@@ -343,24 +366,28 @@ function readFundSource(inv) {
     source: {
       provider: 'FMP',
       method: 'extract-allowlist',
-      note: 'CIK allowlist for institutional-extract; full books in fund-{cik}.json / curated slugs',
+      note: 'CIK allowlist + names for institutional-extract; full books in fund-{cik}.json / curated slugs',
     },
     count: uniqueAllow.length,
     ciks: uniqueAllow,
-    // Keep compact name map for fund page titles when opening by CIK.
+    // Compact name map for fund page titles when opening by CIK / fund-{cik}.
     names: Object.fromEntries(
-      uniqueAllow.map(cik => [cik, holderFunds.funds?.[cik]?.n || null]).filter(([, n]) => n),
+      uniqueAllow
+        .map(cik => [cik, nameByCik[cik] || null])
+        .filter(([cik, n]) => n && !SmartMoney.looksLikeBareCik(n, cik)),
     ),
     disclaimer: 'Allowlist only — open fund-{cik} seeds or live extract for full 13F books.',
   };
   fs.writeFileSync(holderFundsPath, `${JSON.stringify(holderFundsSlim)}\n`);
   SmartMoney.registerExtractAllowlist(uniqueAllow);
-  console.log(`Wrote ${holderFundsPath} ciks=${holderFundsSlim.count} bytes=${fs.statSync(holderFundsPath).size}`);
+  SmartMoney.registerHolderNames(holderFundsSlim.names);
+  console.log(`Wrote ${holderFundsPath} ciks=${holderFundsSlim.count} names=${Object.keys(holderFundsSlim.names).length} bytes=${fs.statSync(holderFundsPath).size}`);
 
   // Slim full 13F books for non-curated managers: funds/fund-{cik}.json
   // (from capture_holder_fund_books.cjs / local CIK captures).
   let extraFundCount = 0;
   const seenExtra = new Set();
+  const extraManagers = [];
   for (const filename of fs.readdirSync(fundsDir)) {
     const cikMatch = /^(?:fund-)?(\d{10})\.json$/.exec(filename);
     if (!cikMatch) continue;
@@ -371,19 +398,29 @@ function readFundSource(inv) {
     try { payload = JSON.parse(fs.readFileSync(path.join(fundsDir, filename), 'utf8')); }
     catch { continue; }
     if (!(payload.quarters || []).length) continue;
+    const investorName = displayFundName(
+      cik,
+      payload.investorName,
+      holderFundsSlim.names[cik],
+      holderFunds.funds?.[cik]?.n,
+    );
     const seeded = slimFundPayload({
       ...payload,
       cik,
-      slug: payload.slug || `fund-${cik}`,
-      investorName: payload.investorName || holderFunds.funds?.[cik]?.n || cik,
+      slug: `fund-${cik}`,
+      investorName,
     }, { quarters: EXTRA_FUND_QUARTERS, holdingCap: EXTRA_FUND_HOLDING_CAP });
-    // Keep deeper books for WhaleCreep fund detail (not the curated 22-cap).
     const outName = `fund-${cik}.json`;
     const outPath = path.join(fundsDir, outName);
     fs.writeFileSync(outPath, `${JSON.stringify(seeded)}\n`);
     extraFundCount += 1;
-    console.log(`Wrote ${outPath} positions=${seeded.quarters[0]?.rows.length || 0} q=${seeded.quarters.length} bytes=${fs.statSync(outPath).size}`);
+    const entry = SmartMoney.buildFundDirectoryEntry(seeded);
+    if (entry) extraManagers.push(entry);
+    console.log(`Wrote ${outPath} name=${investorName || '—'} positions=${seeded.quarters[0]?.rows.length || 0} q=${seeded.quarters.length} bytes=${fs.statSync(outPath).size}`);
   }
+
+  const index = writeIndex([...managers, ...extraManagers].filter(Boolean));
+  console.log(`Wrote funds/index.json managers=${index.count} bytes=${fs.statSync(path.join(fundsDir, 'index.json')).size}`);
 
   if (missing.length) {
     console.warn(`Missing fund captures (need capture_smart_money.cjs --funds-only): ${missing.join(', ')}`);

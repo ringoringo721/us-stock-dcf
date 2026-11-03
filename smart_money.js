@@ -36,12 +36,80 @@
   const BY_CIK = Object.fromEntries(INVESTORS.map(row => [row.cik, row]));
   /** Extra extract-allowlisted CIKs (from committed stock-seed holders) — not open scrape. */
   const EXTRA_CIK_SET = new Set();
+  /** CIK → display name from holder-funds / stock seeds (never use bare CIK as title). */
+  const HOLDER_NAME_BY_CIK = Object.create(null);
   const FUND_EXTRACT_MAX = 400;
+  /** Live fund books: pull this many recent filing quarters when seed is thin/missing. */
+  const LIVE_FUND_QUARTERS = 8;
+  /** Live stock holder walk upper bound (seed still slim; Preview uses committed quarters). */
+  const LIVE_STOCK_QUARTERS = 8;
 
   function padCik(value) {
     const digits = String(value == null ? '' : value).replace(/\D/g, '');
     if (!digits) return null;
     return digits.padStart(10, '0').slice(-10);
+  }
+
+  /** True when a label is missing or is just the padded CIK digits (never show as primary title). */
+  function looksLikeBareCik(label, cik) {
+    const raw = String(label == null ? '' : label).trim();
+    if (!raw) return true;
+    const digits = raw.replace(/\D/g, '');
+    if (!digits || digits.length < 7 || digits.length > 10) return false;
+    if (!/^\d+$/.test(raw.replace(/^#/, '').trim())) return false;
+    const padded = padCik(raw);
+    if (!padded) return false;
+    if (cik) return padded === padCik(cik);
+    return true;
+  }
+
+  function registerHolderNames(names) {
+    if (!names || typeof names !== 'object') return Object.keys(HOLDER_NAME_BY_CIK).length;
+    for (const [key, value] of Object.entries(names)) {
+      const cik = padCik(key);
+      const name = String(value == null ? '' : value).trim();
+      if (!cik || !name || looksLikeBareCik(name, cik)) continue;
+      HOLDER_NAME_BY_CIK[cik] = name;
+    }
+    return Object.keys(HOLDER_NAME_BY_CIK).length;
+  }
+
+  function holderNameForCik(cik) {
+    const padded = padCik(cik);
+    if (!padded) return null;
+    return HOLDER_NAME_BY_CIK[padded] || null;
+  }
+
+  /**
+   * Resolve a human manager title. Prefer curated → explicit name → holder-funds map.
+   * Never returns a bare CIK digit string (falls back to "Fund {cik}" only as last resort
+   * when even that would be digits-only — returns null so UI can show a generic label).
+   */
+  function resolveInvestorName(opts = {}) {
+    const cik = padCik(opts.cik);
+    const curated = opts.curated || (cik && BY_CIK[cik]) || null;
+    if (curated?.nameEn) return curated.nameEn;
+    const candidates = [
+      opts.investorName,
+      opts.name,
+      cik ? HOLDER_NAME_BY_CIK[cik] : null,
+      opts.slug && !looksLikeBareCik(opts.slug, cik) && !/^fund-\d{10}$/i.test(String(opts.slug))
+        ? String(opts.slug).replace(/-/g, ' ')
+        : null,
+    ];
+    for (const candidate of candidates) {
+      const name = String(candidate == null ? '' : candidate).trim();
+      if (!name || looksLikeBareCik(name, cik)) continue;
+      if (/^fund-\d{10}$/i.test(name)) continue;
+      return name;
+    }
+    return null;
+  }
+
+  function fundSlugForCik(cik, curated) {
+    if (curated?.nameEn) return slugify(curated.nameEn);
+    const padded = padCik(cik);
+    return padded ? `fund-${padded}` : 'fund';
   }
 
   function finite(value) {
@@ -92,6 +160,10 @@
       if (padded) EXTRA_CIK_SET.add(padded);
     }
     return EXTRA_CIK_SET.size;
+  }
+
+  function resetHolderNameMap() {
+    for (const key of Object.keys(HOLDER_NAME_BY_CIK)) delete HOLDER_NAME_BY_CIK[key];
   }
 
   function allowedCik(cik) {
@@ -793,8 +865,15 @@
   function buildFundDirectoryEntry(payload) {
     if (!payload || typeof payload !== 'object') return null;
     const cik = padCik(payload.cik);
-    const slug = payload.slug || slugify(payload.investorName) || cik;
-    const curated = BY_CIK[cik] || INVESTORS.find(row => slugify(row.nameEn) === slug) || null;
+    const curated = BY_CIK[cik]
+      || INVESTORS.find(row => slugify(row.nameEn) === slugify(payload.slug || payload.investorName || ''))
+      || null;
+    const slug = curated
+      ? slugify(curated.nameEn)
+      : (payload.slug && !looksLikeBareCik(payload.slug, cik)
+        ? slugify(payload.slug)
+        : fundSlugForCik(cik, curated));
+    if (payload.investorName) registerHolderNames({ [cik]: payload.investorName });
     const quarters = payload.quarters || [];
     const latest = quarters[0];
     const summary = summarizeFundQuarter(latest?.rows || []);
@@ -804,7 +883,9 @@
     return {
       cik,
       slug,
-      investorName: payload.investorName || curated?.nameEn || slug,
+      investorName: resolveInvestorName({
+        cik, curated, investorName: payload.investorName, slug,
+      }),
       curated,
       isCurated: Boolean(curated),
       style: curated?.style || null,
@@ -880,10 +961,22 @@
     ));
   }
 
+  function registerNamesFromStockRows(rows) {
+    for (const row of rows || []) {
+      const cik = padCik(row.cik);
+      if (cik && row.investorName && !looksLikeBareCik(row.investorName, cik)) {
+        registerHolderNames({ [cik]: row.investorName });
+      }
+    }
+  }
+
   function loadStock(ticker, options = {}) {
     const symbol = String(ticker || '').toUpperCase();
     const skipLive = options.skipLive === true;
-    return loadStockCache(symbol).then((cached) => {
+    // Warm CIK→name map so holder links never fall back to digits.
+    const warmNames = loadHolderFundsIndex().catch(() => null);
+    return warmNames.then(() => loadStockCache(symbol)).then((cached) => {
+      for (const q of cached.quarters || []) registerNamesFromStockRows(q.rows);
       const current = (cached.quarters || [])[0];
       const prior = (cached.quarters || [])[1];
       const truncated = cached.source?.truncated === true
@@ -893,7 +986,14 @@
         const snapshot = buildStockSnapshot(symbol, current.rows, prior?.rows || [], {
           year: current.year, quarter: current.quarter, truncated,
         });
-        return { ticker: symbol, source: 'cache', capturedAt: cached.capturedAt || null, snapshot, raw: cached };
+        return {
+          ticker: symbol,
+          source: 'cache',
+          capturedAt: cached.capturedAt || null,
+          snapshot,
+          raw: cached,
+          quartersOnFile: (cached.quarters || []).length,
+        };
       }
       if (cached.snapshot?.holders?.length) {
         let snapshot = cached.snapshot;
@@ -921,17 +1021,25 @@
         return loadStockFromCuratedOrEmpty(symbol, [], cacheError);
       }
       // Walk several filing quarters — newest calendar quarter is often sparse/empty.
-      const want = Math.max(2, Math.min(6, Number(options.liveQuarters) || 6));
+      // Keep walking so holder timelines / allowlist names cover ≥8Q when FMP is live.
+      const want = Math.max(2, Math.min(12, Number(options.liveQuarters) || LIVE_STOCK_QUARTERS));
+      const needUsable = Math.max(2, Math.min(want, Number(options.needUsableQuarters) || 2));
       const specs = recentQuarterSpecs(want);
-      // Sequential walk so we stop once we have current+prior (saves shared FMP quota).
+      // Sequential walk so we stop once we have enough usable quarters (saves shared FMP quota).
       const loaded = [];
       const liveErrors = [];
       const step = (index) => {
         if (index >= specs.length) return Promise.resolve();
-        if (loaded.filter(q => q.rows?.length).length >= 2) return Promise.resolve();
+        if (loaded.filter(q => q.rows?.length).length >= needUsable) return Promise.resolve();
         const spec = specs[index];
         return loadQuarterLive(symbol, spec.year, spec.quarter)
-          .then((quarter) => { loaded.push(quarter); })
+          .then((quarter) => {
+            loaded.push(quarter);
+            for (const row of quarter.rows || []) {
+              const cik = padCik(row.cik);
+              if (cik && row.investorName) registerHolderNames({ [cik]: row.investorName });
+            }
+          })
           .catch((error) => {
             liveErrors.push(String(error.message || error));
             loaded.push({
@@ -958,6 +1066,7 @@
           capturedAt: new Date().toISOString(),
           snapshot,
           liveErrors,
+          quartersOnFile: usable.length,
         };
       });
     });
@@ -965,41 +1074,69 @@
 
   function resolveFundIdentity(slugOrCik) {
     const raw = String(slugOrCik || '').trim();
+    // fund-{cik} seed slug → treat as CIK identity with letter-prefixed route.
+    const fundPrefixed = /^fund-(\d{7,10})$/i.exec(raw);
+    if (fundPrefixed) {
+      const asCik = padCik(fundPrefixed[1]);
+      const curated = BY_CIK[asCik] || null;
+      return {
+        cik: asCik,
+        slug: fundSlugForCik(asCik, curated),
+        curated,
+        openable: true,
+        investorName: resolveInvestorName({ cik: asCik, curated }),
+      };
+    }
     const asCik = padCik(raw);
     if (asCik && /^\d{10}$/.test(asCik) && raw.replace(/\D/g, '').length >= 7) {
       const curated = BY_CIK[asCik] || null;
-      // Any bare CIK is openable (seed invert / allowlisted live / honest empty).
-      // Live extract remains gated by allowedCik (curated ∪ seed-holder allowlist).
+      // Any bare CIK is openable (seed / allowlisted live / honest empty).
+      // Non-curated use fund-{cik} slug so titles/links never present digits as the route brand.
       return {
         cik: asCik,
-        slug: curated ? slugify(curated.nameEn) : asCik,
+        slug: fundSlugForCik(asCik, curated),
         curated,
         openable: true,
+        investorName: resolveInvestorName({ cik: asCik, curated }),
       };
     }
     const slug = slugify(raw);
     const curated = BY_SLUG[slug] || null;
     if (curated) {
-      return { cik: curated.cik, slug: slugify(curated.nameEn), curated, openable: true };
+      return {
+        cik: curated.cik,
+        slug: slugify(curated.nameEn),
+        curated,
+        openable: true,
+        investorName: curated.nameEn,
+      };
     }
     // Unknown slug without CIK — not openable (no identity to load).
-    return { cik: null, slug, curated: null, openable: false };
+    return { cik: null, slug, curated: null, openable: false, investorName: null };
   }
 
-  /** Every holder with a CIK links to #fund — curated use slug; others use CIK route. */
+  /** Every holder with a CIK links to #fund — curated use name slug; others use fund-{cik}. */
   function fundLinkForHolder(row) {
     if (!row || typeof row !== 'object') return null;
     const cik = padCik(row.cik);
     if (!cik) return null;
+    if (row.investorName && !looksLikeBareCik(row.investorName, cik)) {
+      registerHolderNames({ [cik]: row.investorName });
+    }
     const curated = BY_CIK[cik] || row.curated
       || (row.slug ? BY_SLUG[slugify(row.slug)] : null)
       || (row.investorName ? BY_SLUG[slugify(row.investorName)] : null)
       || null;
-    if (curated) {
-      const slug = slugify(curated.nameEn);
-      return { slug, cik: curated.cik, href: fundHref(slug), curated };
-    }
-    return { slug: cik, cik, href: fundHref(cik), curated: null };
+    const slug = fundSlugForCik(cik, curated);
+    return {
+      slug,
+      cik: curated?.cik || cik,
+      href: fundHref(slug),
+      curated: curated || null,
+      investorName: resolveInvestorName({
+        cik, curated, investorName: row.investorName, slug,
+      }),
+    };
   }
 
   function isOpenableFundKey(slugOrCik) {
@@ -1069,6 +1206,7 @@
   function expandHolderFundEntry(entry, cik) {
     if (!entry) return null;
     const padded = padCik(cik);
+    if (entry.n) registerHolderNames({ [padded]: entry.n });
     const quarters = (entry.q || entry.quarters || []).map(q => ({
       year: q.y ?? q.year,
       quarter: q.q ?? q.quarter,
@@ -1087,8 +1225,10 @@
     if (!quarters.length) return null;
     return {
       cik: padded,
-      slug: padded,
-      investorName: entry.n || entry.investorName || padded,
+      slug: fundSlugForCik(padded),
+      investorName: resolveInvestorName({
+        cik: padded, investorName: entry.n || entry.investorName,
+      }),
       capturedAt: null,
       seed: true,
       source: { method: 'stock-holder-invert', seed: true, partial: true },
@@ -1115,6 +1255,16 @@
         if (!response.ok) throw new Error(`HOLDER_FUNDS_MISS:${response.status}`);
         const body = await response.json();
         registerExtractAllowlist(body.ciks || Object.keys(body.funds || {}));
+        if (body.names) registerHolderNames(body.names);
+        // Legacy invert payloads: funds[cik].n
+        if (body.funds && typeof body.funds === 'object') {
+          const fromFunds = {};
+          for (const [cik, entry] of Object.entries(body.funds)) {
+            if (entry?.n) fromFunds[cik] = entry.n;
+            else if (entry?.investorName) fromFunds[cik] = entry.investorName;
+          }
+          registerHolderNames(fromFunds);
+        }
         return body;
       })
       .catch((error) => {
@@ -1135,7 +1285,12 @@
       notice: notice || 'FUND_BOOK_EMPTY',
       cik: identity.cik,
       slug: identity.slug,
-      investorName: identity.curated?.nameEn || identity.slug,
+      investorName: resolveInvestorName({
+        cik: identity.cik,
+        curated: identity.curated,
+        investorName: identity.investorName,
+        slug: identity.slug,
+      }),
       curated: identity.curated,
       capturedAt: null,
       liveErrors: liveErrors || [],
@@ -1171,8 +1326,29 @@
       }
     }
 
-    const fromCache = loadFundCache(identity.slug)
-      .catch(() => (identity.cik ? loadFundCache(identity.cik) : Promise.reject(new Error('FUND_CACHE_MISS'))));
+    function titledMeta(partial, cachedName, liveName) {
+      const cik = partial.cik || identity.cik;
+      const curated = partial.curated || identity.curated || BY_CIK[cik] || null;
+      const slug = partial.slug || identity.slug || fundSlugForCik(cik, curated);
+      return {
+        ...partial,
+        cik,
+        slug,
+        curated,
+        investorName: resolveInvestorName({
+          cik,
+          curated,
+          investorName: cachedName || liveName || identity.investorName,
+          slug,
+        }),
+      };
+    }
+
+    // Ensure holder-funds names are warm before resolving titles (no-op if already loaded).
+    const ensureNames = loadHolderFundsIndex().catch(() => null);
+
+    const fromCache = ensureNames.then(() => loadFundCache(identity.slug)
+      .catch(() => (identity.cik ? loadFundCache(identity.cik) : Promise.reject(new Error('FUND_CACHE_MISS')))));
 
     function packFundResult(meta, current, prior, compared, historyRows) {
       const history = (historyRows || []).map(q => {
@@ -1207,6 +1383,9 @@
     }
 
     return fromCache.then((cached) => {
+      if (cached.investorName) {
+        registerHolderNames({ [cached.cik || identity.cik]: cached.investorName });
+      }
       const quarters = cached.quarters || [];
       const current = selectFundQuarter(quarters, vsParsed);
       if (!current) throw new Error('FUND_CACHE_EMPTY');
@@ -1218,14 +1397,13 @@
       const historySource = cached.history?.length
         ? cached.history
         : quarters;
-      return packFundResult({
+      return packFundResult(titledMeta({
         source: 'cache',
         cik: cached.cik || identity.cik,
         slug: cached.slug || identity.slug,
-        investorName: cached.investorName || identity.curated?.nameEn || identity.slug,
         curated: identity.curated || BY_CIK[cached.cik] || null,
         capturedAt: cached.capturedAt || null,
-      }, current, prior, compared, historySource);
+      }, cached.investorName), current, prior, compared, historySource);
     }).catch((cacheError) => {
       // Invalid ?vs= must not fall through to "latest" — surface the parse error.
       if (String(cacheError?.message || '').startsWith('FUND_QUARTER_INVALID:')) {
@@ -1241,6 +1419,9 @@
       // 13F (WhaleCreep) but only shows symbols present in stock demos.
       function fromFullSeedOrEmpty(liveErrors) {
         return loadFundCache(`fund-${identity.cik}`).then((cached) => {
+          if (cached.investorName) {
+            registerHolderNames({ [cached.cik || identity.cik]: cached.investorName });
+          }
           const quarters = cached.quarters || [];
           const current = selectFundQuarter(quarters, vsParsed);
           if (!current) return emptyFundResult(identity, 'FUND_BOOK_EMPTY', liveErrors);
@@ -1249,22 +1430,22 @@
           const currentHoldings = (current?.rows || []).map(row => normalizeFundHolding(row, cached.cik || identity.cik)).filter(Boolean);
           const priorHoldings = (prior?.rows || []).map(row => normalizeFundHolding(row, cached.cik || identity.cik)).filter(Boolean);
           const compared = compareFundHoldings(currentHoldings, priorHoldings);
-          return packFundResult({
+          return packFundResult(titledMeta({
             source: 'cache',
             cik: cached.cik || identity.cik,
             slug: cached.slug || identity.slug,
-            investorName: cached.investorName || identity.curated?.nameEn || identity.slug,
             curated: identity.curated,
             capturedAt: cached.capturedAt || null,
             liveErrors: liveErrors || [],
-          }, current, prior, compared, cached.history?.length ? cached.history : quarters);
+          }, cached.investorName), current, prior, compared, cached.history?.length ? cached.history : quarters);
         }).catch(() => emptyFundResult(identity, 'FUND_BOOK_EMPTY', liveErrors));
       }
 
+      const liveCount = Math.max(2, Math.min(12, Number(options.liveQuarters) || LIVE_FUND_QUARTERS));
       const specs = vsParsed
         ? [vsParsed, priorQuarter(vsParsed.year, vsParsed.quarter)]
-        : recentQuarterSpecs(2);
-      return Promise.all(specs.map(spec => loadFundLive(identity.cik, spec.year, spec.quarter)
+        : recentQuarterSpecs(liveCount);
+      return ensureNames.then(() => Promise.all(specs.map(spec => loadFundLive(identity.cik, spec.year, spec.quarter)
         .catch(error => ({ year: spec.year, quarter: spec.quarter, rows: [], error, incomplete: true }))))
         .then((quarters) => {
           if (vsParsed) {
@@ -1280,15 +1461,14 @@
             const priorHoldings = (prior?.rows || []).map(row => normalizeFundHolding(row, identity.cik)).filter(Boolean);
             const compared = compareFundHoldings(currentHoldings, priorHoldings);
             const usable = quarters.filter(q => !q.incomplete && !q.error);
-            return packFundResult({
+            return packFundResult(titledMeta({
               source: 'live',
               cik: identity.cik,
               slug: identity.slug,
-              investorName: current.investorName || identity.curated?.nameEn || identity.slug,
               curated: identity.curated,
               capturedAt: new Date().toISOString(),
               liveErrors: quarters.filter(q => q.error).map(q => String(q.error.message || q.error)),
-            }, current, prior, compared, usable);
+            }, null, current.investorName), current, prior, compared, usable);
           }
           const usable = quarters.filter(q => !q.incomplete && !q.error);
           if (!usable.length) {
@@ -1299,16 +1479,15 @@
           const currentHoldings = current.rows.map(row => normalizeFundHolding(row, identity.cik)).filter(Boolean);
           const priorHoldings = (prior?.rows || []).map(row => normalizeFundHolding(row, identity.cik)).filter(Boolean);
           const compared = compareFundHoldings(currentHoldings, priorHoldings);
-          return packFundResult({
+          return packFundResult(titledMeta({
             source: 'live',
             cik: identity.cik,
             slug: identity.slug,
-            investorName: current.investorName || identity.curated?.nameEn || identity.slug,
             curated: identity.curated,
             capturedAt: new Date().toISOString(),
             liveErrors: quarters.filter(q => q.error).map(q => String(q.error.message || q.error)),
-          }, current, prior, compared, usable);
-        });
+          }, null, current.investorName), current, prior, compared, usable);
+        }));
     });
   }
 
@@ -1344,12 +1523,21 @@
     INVESTORS,
     CIK_SET,
     EXTRA_CIK_SET,
+    HOLDER_NAME_BY_CIK,
     BY_CIK,
     BY_SLUG,
     FUND_EXTRACT_MAX,
+    LIVE_FUND_QUARTERS,
+    LIVE_STOCK_QUARTERS,
     padCik,
     finite,
     slugify,
+    looksLikeBareCik,
+    registerHolderNames,
+    resetHolderNameMap,
+    holderNameForCik,
+    resolveInvestorName,
+    fundSlugForCik,
     isUsListed,
     registerExtractAllowlist,
     allowedCik,
