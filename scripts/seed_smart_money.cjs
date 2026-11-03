@@ -4,7 +4,8 @@
  * Full captures stay local / CI-only via capture_smart_money.cjs.
  *
  * Seeds:
- *   cache/smart-money/{NVDA,AAPL,MSFT,…}.json  (liquid US holders × 2Q — Preview w/o FMP key)
+ *   cache/smart-money/{NVDA,AAPL,MSFT,…}.json  (liquid US holders × 2Q — richer demos)
+ *   cache/smart-money/curated-by-ticker.json    (curated-20 invert → all US tickers they hold)
  *   cache/smart-money/funds/{slug}.json         (all curated 20, multi-quarter)
  *   cache/smart-money/funds/index.json
  *
@@ -57,29 +58,48 @@ function pick(row, fields) {
 }
 
 function slimStockPayload(payload, { holderCap = STOCK_HOLDER_CAP, quarters = STOCK_QUARTERS } = {}) {
-  const kept = (payload.quarters || []).slice(0, quarters).map(q => {
-    const rows = [...(q.rows || [])]
+  const sourceQuarters = (payload.quarters || []).slice(0, quarters);
+  // Union CIKs across quarters first (top-N per Q + curated). Independent per-quarter
+  // caps invent false −100% exits when a manager only drops off the newer top-N.
+  const seedCiks = new Set();
+  for (const q of sourceQuarters) {
+    const ranked = [...(q.rows || [])]
       .sort((a, b) => (Number(b.weight) || 0) - (Number(a.weight) || 0)
         || (Number(b.marketValue) || 0) - (Number(a.marketValue) || 0));
-    const curated = rows.filter(row => SmartMoney.allowedCik(row.cik));
-    const top = rows.slice(0, holderCap);
-    const byCik = new Map();
-    for (const row of [...top, ...curated]) {
+    for (const row of ranked.slice(0, holderCap)) {
       const cik = SmartMoney.padCik(row.cik);
-      if (!cik) continue;
-      if (!byCik.has(cik)) byCik.set(cik, pick(row, SEED_FIELDS));
+      if (cik) seedCiks.add(cik);
     }
-    const slimRows = [...byCik.values()];
+    for (const row of ranked) {
+      if (!SmartMoney.allowedCik(row.cik)) continue;
+      const cik = SmartMoney.padCik(row.cik);
+      if (cik) seedCiks.add(cik);
+    }
+  }
+
+  const kept = sourceQuarters.map(q => {
+    const byCik = new Map();
+    for (const row of q.rows || []) {
+      const cik = SmartMoney.padCik(row.cik);
+      if (!cik || !seedCiks.has(cik) || byCik.has(cik)) continue;
+      byCik.set(cik, pick(row, SEED_FIELDS));
+    }
+    const slimRows = [...byCik.values()]
+      .sort((a, b) => (Number(b.weight) || 0) - (Number(a.weight) || 0)
+        || (Number(b.marketValue) || 0) - (Number(a.marketValue) || 0));
     return {
       year: q.year, quarter: q.quarter,
       key: q.key || SmartMoney.quarterKey(q.year, q.quarter),
       rows: slimRows,
+      truncated: true,
     };
   }).filter(q => q.rows.length);
 
+  // Truncated books: never synthesize exits (−100%) — union above keeps continuity
+  // for still-held names; true full-universe exits need live/uncapped captures.
   const snapshot = kept.length
     ? SmartMoney.buildStockSnapshot(payload.ticker, kept[0].rows, kept[1]?.rows || [], {
-      year: kept[0].year, quarter: kept[0].quarter,
+      year: kept[0].year, quarter: kept[0].quarter, truncated: true,
     })
     : null;
 
@@ -92,7 +112,9 @@ function slimStockPayload(payload, { holderCap = STOCK_HOLDER_CAP, quarters = ST
       seed: true,
       holderCap,
       quarters: kept.length,
-      note: 'Demo seed — full books via capture_smart_money.cjs or live FMP',
+      truncated: true,
+      seedCikCount: seedCiks.size,
+      note: 'Demo seed — CIKs unioned across quarters; exits incomplete under holderCap (no false −100%)',
     },
     quarters: kept,
     snapshot,
@@ -276,11 +298,43 @@ function readFundSource(inv) {
 
   const index = writeIndex(managers.filter(Boolean));
   console.log(`Wrote funds/index.json managers=${index.count} bytes=${fs.statSync(path.join(fundsDir, 'index.json')).size}`);
+
+  // Invert curated fund books → per-ticker index so Preview without FMP covers
+  // every US name the curated 20 hold (not just a mega-cap seed list).
+  const fundPayloads = [];
+  for (const inv of SmartMoney.INVESTORS) {
+    const slug = SmartMoney.slugify(inv.nameEn);
+    const slugPath = path.join(fundsDir, `${slug}.json`);
+    if (!fs.existsSync(slugPath)) continue;
+    try {
+      fundPayloads.push(JSON.parse(fs.readFileSync(slugPath, 'utf8')));
+    } catch { /* skip */ }
+  }
+  const byTicker = SmartMoney.buildCuratedByTickerIndex(fundPayloads, { quarters: 2 });
+  const byTickerPath = path.join(outDir, 'curated-by-ticker.json');
+  fs.writeFileSync(byTickerPath, `${JSON.stringify(byTicker)}\n`);
+  console.log(`Wrote ${byTickerPath} tickers=${byTicker.count} bytes=${fs.statSync(byTickerPath).size}`);
+
+  // Invert stock holder seeds → per-CIK partial fund books so every displayed
+  // manager link opens a WhaleCreep-style page on Preview without FMP.
+  const stockPayloads = [];
+  for (const ticker of STOCK_SEEDS) {
+    const stockPath = path.join(outDir, `${ticker}.json`);
+    if (!fs.existsSync(stockPath)) continue;
+    try { stockPayloads.push(JSON.parse(fs.readFileSync(stockPath, 'utf8'))); }
+    catch { /* skip */ }
+  }
+  const holderFunds = SmartMoney.buildHolderFundIndex(stockPayloads);
+  const holderFundsPath = path.join(fundsDir, 'holder-funds.json');
+  fs.writeFileSync(holderFundsPath, `${JSON.stringify(holderFunds)}\n`);
+  SmartMoney.registerExtractAllowlist(Object.keys(holderFunds.funds || {}));
+  console.log(`Wrote ${holderFundsPath} managers=${holderFunds.count} bytes=${fs.statSync(holderFundsPath).size}`);
+
   if (missing.length) {
     console.warn(`Missing fund captures (need capture_smart_money.cjs --funds-only): ${missing.join(', ')}`);
     process.exitCode = 1;
   } else {
-    console.log(`Seed complete — commit ${STOCK_SEEDS.join('/')} + funds/[a-z]*.json + index (${SmartMoney.INVESTORS.length} managers)`);
+    console.log(`Seed complete — stocks + curated-by-ticker (${byTicker.count}) + holder-funds (${holderFunds.count}) + funds (${SmartMoney.INVESTORS.length})`);
   }
 })().catch(error => {
   console.error(error);

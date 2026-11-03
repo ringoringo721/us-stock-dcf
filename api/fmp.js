@@ -1,5 +1,15 @@
+const fs = require('node:fs');
+const path = require('node:path');
 const technicals = require('../technical_indicators.js');
 const SmartMoney = require('../smart_money.js');
+// Seed-holder CIKs (committed invert) may use institutional-extract; arbitrary CIKs stay 403.
+try {
+  const holderFundsPath = path.join(__dirname, '..', 'cache', 'smart-money', 'funds', 'holder-funds.json');
+  if (fs.existsSync(holderFundsPath)) {
+    const body = JSON.parse(fs.readFileSync(holderFundsPath, 'utf8'));
+    SmartMoney.registerExtractAllowlist(Object.keys(body.funds || {}));
+  }
+} catch { /* optional seed */ }
 const endpoints = {
   technical: 'technical-indicators',
   news: 'news/stock',
@@ -26,7 +36,7 @@ const documentRateBuckets = new Map();
 const DOCUMENT_RATE_WINDOW_MS = 60_000;
 const DOCUMENT_RATE_MAX = 40;
 const INSTITUTIONAL_RATE_MAX = 30;
-/** Tight cap — extract is allowlisted to curated CIKs only; still budget shared FMP quota. */
+/** Tight cap — extract is allowlisted (curated ∪ seed-holder CIKs); still budget shared FMP quota. */
 const INSTITUTIONAL_EXTRACT_RATE_MAX = 4;
 const RATE_LIMITED_ACTIONS = new Set([
   'sec-filings', 'transcript-dates', 'institutional-holders', 'institutional-extract',
@@ -102,11 +112,11 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
     if (institutionalExtract && !/^\d{10}$/.test(cikParam || '')) {
       return send(400, { error: 'INVALID_INSTITUTIONAL_CIK' });
     }
-    // Public extract is curated/seed CIKs only — no open CIK scrape against shared FMP quota.
+    // Public extract is curated ∪ committed stock-seed holder CIKs only — no open scrape.
     if (institutionalExtract && !SmartMoney.allowedCik(cikParam)) {
       return send(403, {
         error: 'INSTITUTIONAL_CIK_NOT_ALLOWLISTED',
-        hint: 'institutional-extract accepts curated Smart Money fund CIKs only.',
+        hint: 'institutional-extract accepts curated or seed-holder allowlisted CIKs only.',
       });
     }
     // institutional-extract is CIK-primary (fund book); symbol is not required.

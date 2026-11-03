@@ -252,9 +252,9 @@ test('institutional-extract is capped, CIK-allowlisted, and rate-private', async
   assert.match(String(result.headers['Cache-Control'] || ''), /private/);
   assert.equal((await call(handler,
     '/api/fmp?action=institutional-extract&cik=bad&year=2025&quarter=2')).status, 400);
-  // Non-curated 10-digit CIK must not burn shared FMP quota.
+  // CIK outside curated ∪ seed-holder allowlist must not burn shared FMP quota.
   const blocked = await call(handler,
-    '/api/fmp?action=institutional-extract&cik=0002012383&year=2025&quarter=2');
+    '/api/fmp?action=institutional-extract&cik=0009999998&year=2025&quarter=2');
   assert.equal(blocked.status, 403);
   assert.equal(blocked.body.error, 'INSTITUTIONAL_CIK_NOT_ALLOWLISTED');
   assert.equal(upstreamCalls, 1);

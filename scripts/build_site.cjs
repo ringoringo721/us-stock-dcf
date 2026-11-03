@@ -38,8 +38,8 @@ function buildSite(output = path.join(root, 'public')) {
           : directory === 'revenue_segments'
             ? /^[A-Z0-9.-]+(?:\.quarter)?\.json$/
             : directory === 'smart-money'
-              // Liquid US demo seeds — Preview works without FMP_API_KEY; others use live.
-              ? /^(NVDA|AAPL|MSFT|META|GOOGL|AMZN|TSLA|TSM|STZ)\.json$/
+              // Liquid demos + curated-20 invert index (Preview without FMP_API_KEY).
+              ? /^(curated-by-ticker|NVDA|AAPL|MSFT|META|GOOGL|AMZN|TSLA|TSM|STZ)\.json$/
               : /^[A-Z0-9.-]+\.json$/;
       if (pattern.test(filename)) files.push(path.join('cache', directory, filename));
     }

@@ -782,6 +782,30 @@
       border: 1px solid #f87171 !important;
       text-align: left !important;
     }
+    /* Honest empty (no curated / no filings) — high contrast, not gray-on-gray */
+    .sm-alert-empty {
+      display: block;
+      margin: 12px 0 16px;
+      padding: 14px 16px;
+      border-radius: 8px;
+      border: 1px solid #fbbf24;
+      background: linear-gradient(180deg, #78350f 0%, #451a03 100%);
+      color: #fffbeb;
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.45;
+      box-shadow: 0 0 0 1px rgba(251, 191, 36, 0.35),
+        0 8px 20px rgba(120, 53, 15, 0.35);
+    }
+    tr.sm-alert-empty-row td {
+      background: linear-gradient(180deg, #78350f 0%, #451a03 100%) !important;
+      color: #fffbeb !important;
+      font-size: 15px !important;
+      font-weight: 700 !important;
+      padding: 16px 14px !important;
+      border: 1px solid #fbbf24 !important;
+      text-align: left !important;
+    }
 
     /* 財務報表分組標題列樣式 */
     .fin-group-header-row td {
@@ -8866,11 +8890,10 @@
     const label = curated
       ? SM.investorLabel(curated, isEn ? 'en' : 'zh')
       : (row.investorName || row.cik || '—');
-    const badge = curated || link
+    // Curated badge only for the WhaleCreep 20 — every CIK still gets a fund link.
+    const badge = curated
       ? `<span class="badge" style="margin-left:6px;font-size:10px;">${isEn ? 'curated' : '策展'}</span>`
       : '';
-    // Only curated / allowlisted managers link to #fund — avoids FUND_IDENTITY_UNKNOWN dead ends
-    // (e.g. Framtiden from broad STZ holders has no seed and is not extract-allowlisted).
     if (!link) {
       return `<span>${escapeAttribute(label)}</span>${badge}`;
     }
@@ -8944,7 +8967,10 @@
       const exits = snap.exits || [];
       const curated = holders.filter(row => row.isCurated);
       const kpis = snap.kpis || {};
-      status.className = 'analysis-note';
+      const isEmpty = result.source === 'empty' || (!holders.length && !exits.length
+        && (result.source === 'curated-index' || result.notice === 'SMART_MONEY_NO_CURATED'
+          || String(result.notice || '').startsWith('SMART_MONEY_NO_CURATED')));
+      const isCuratedOnly = result.source === 'curated-index';
 
       if (kpiGrid) {
         const cards = [
@@ -8962,36 +8988,58 @@
         </div>`).join('');
       }
 
-      holdersBody.innerHTML = renderSmartMoneyHolderRows(holders, SM, isEn,
-        isEn ? 'No holders reported for the latest available quarter.' : '最近可取得季度尚無持倉申報。');
-      exitsBody.innerHTML = renderSmartMoneyHolderRows(exits, SM, isEn,
-        isEn ? 'No exits versus the prior observed quarter.' : '相對前一觀察季無出清。');
-      curatedBody.innerHTML = renderSmartMoneyHolderRows(curated, SM, isEn,
-        isEn ? 'None of the curated 20 hold this ticker in the latest quarter.' : '策展 20 家本季未持有此股。');
+      if (isEmpty) {
+        status.className = 'sm-alert-empty';
+        status.innerHTML = isEn
+          ? '<strong>No curated / seeded institutional filings</strong><br>'
+            + 'None of the curated 20 report this ticker in committed seeds, and live FMP is unavailable. '
+            + 'Not a load failure — configure <code>FMP_API_KEY</code> for the full holder universe.'
+          : '<strong>無策展／無機構申報</strong><br>'
+            + '策展 20 家種子未持有此股，且即時 FMP 不可用。這不是載入失敗 — '
+            + '完整機構持倉需設定 <code>FMP_API_KEY</code>。';
+        const emptyRow = (msg) => `<tr class="sm-alert-empty-row"><td class="table-sticky-col" colspan="6">${msg}</td></tr>`;
+        holdersBody.innerHTML = emptyRow(isEn ? 'No curated holders.' : '無策展持倉。');
+        exitsBody.innerHTML = emptyRow(isEn ? 'No exits on file.' : '無出清紀錄。');
+        curatedBody.innerHTML = emptyRow(isEn ? 'No curated holders.' : '無策展持倉。');
+      } else {
+        holdersBody.innerHTML = renderSmartMoneyHolderRows(holders, SM, isEn,
+          isEn ? 'No holders reported for the latest available quarter.' : '最近可取得季度尚無持倉申報。');
+        exitsBody.innerHTML = renderSmartMoneyHolderRows(exits, SM, isEn,
+          isEn ? 'No exits versus the prior observed quarter.' : '相對前一觀察季無出清。');
+        curatedBody.innerHTML = renderSmartMoneyHolderRows(curated, SM, isEn,
+          isEn ? 'None of the curated 20 hold this ticker in the latest quarter.' : '策展 20 家本季未持有此股。');
 
-      const src = result.source === 'cache' ? (isEn ? 'cache' : '快取') : (isEn ? 'live FMP' : '即時 FMP');
-      status.textContent = `${ticker} · ${snap.key || ''}`
-        + ` · ${isEn ? 'holders' : '持有'} ${holders.length}`
-        + ` · ${isEn ? 'exits' : '出清'} ${exits.length}`
-        + ` · ${src}`
-        + (result.capturedAt ? ` · ${String(result.capturedAt).slice(0, 10)}` : '')
-        + (result.liveErrors?.length
-          ? ` · ${isEn ? 'partial errors' : '部分錯誤'} ${result.liveErrors.length}` : '');
+        if (isCuratedOnly) {
+          status.className = 'sm-alert-empty';
+          status.innerHTML = isEn
+            ? `<strong>${escapeAttribute(ticker)} · curated-20 invert</strong> · ${escapeAttribute(snap.key || '')}`
+              + ` · holders ${holders.length}`
+              + '<br>Preview has no live institutional-holders — showing curated managers from committed fund seeds (not the full 13F universe).'
+            : `<strong>${escapeAttribute(ticker)} · 策展 20 反查</strong> · ${escapeAttribute(snap.key || '')}`
+              + ` · 持有 ${holders.length}`
+              + '<br>Preview 無即時機構持倉 — 顯示已提交基金種子中的策展管理人（非完整 13F 宇宙）。';
+        } else {
+          status.className = 'analysis-note';
+          const src = result.source === 'cache' ? (isEn ? 'cache' : '快取')
+            : result.source === 'live' ? (isEn ? 'live FMP' : '即時 FMP')
+              : escapeAttribute(String(result.source || ''));
+          status.textContent = `${ticker} · ${snap.key || ''}`
+            + ` · ${isEn ? 'holders' : '持有'} ${holders.length}`
+            + ` · ${isEn ? 'exits' : '出清'} ${exits.length}`
+            + ` · ${src}`
+            + (result.capturedAt ? ` · ${String(result.capturedAt).slice(0, 10)}` : '')
+            + (result.liveErrors?.length
+              ? ` · ${isEn ? 'partial errors' : '部分錯誤'} ${result.liveErrors.length}` : '');
+        }
+      }
       document.querySelectorAll('#subpage-smart-money .table-scroll-wrapper').forEach(box => makeScrollable(box));
     }).catch((error) => {
       if (activeCompanyTicker !== ticker) return;
       const detail = String(error.message || error);
-      const noFmp = /FMP_NOT_CONFIGURED/i.test(detail);
       status.className = 'sm-alert-error';
       status.innerHTML = isEn
         ? `<strong>Smart Money unavailable</strong><br><code>${escapeAttribute(detail)}</code>`
-          + (noFmp
-            ? '<br>Preview has no FMP key — open a seeded ticker (NVDA, AAPL, MSFT, META, GOOGL, AMZN, TSLA, TSM, STZ) or configure <code>FMP_API_KEY</code>.'
-            : '')
-        : `<strong>智資資料不可用</strong><br><code>${escapeAttribute(detail)}</code>`
-          + (noFmp
-            ? '<br>Preview 未設定 FMP 金鑰 — 請開有種子的標的（NVDA／AAPL／MSFT／META／GOOGL／AMZN／TSLA／TSM／STZ）或設定 <code>FMP_API_KEY</code>。'
-            : '');
+        : `<strong>智資資料不可用</strong><br><code>${escapeAttribute(detail)}</code>`;
       holdersBody.innerHTML = `<tr class="sm-alert-error-row"><td class="table-sticky-col" colspan="6">${
         isEn ? 'Failed to load holders.' : '載入失敗。'}</td></tr>`;
       exitsBody.innerHTML = `<tr class="sm-alert-error-row"><td class="table-sticky-col" colspan="6">${
@@ -9152,13 +9200,12 @@
     const SM = typeof SmartMoney !== 'undefined' ? SmartMoney : null;
     if (!SM || !slug) return;
     const identity = SM.resolveFundIdentity(slug);
-    // Unknown managers (non-curated broad holders) have no seed / extract allowlist entry.
-    // Bounce to the directory instead of a FUND_IDENTITY_UNKNOWN dead page.
+    // Slug-only unknowns (no CIK) bounce to the directory — CIK routes always open.
     if (!identity.openable) {
       const isEn = currentLang === 'en';
       openFundsDirectory(!!replace, isEn
-        ? `Manager “${identity.slug}” is not in the curated directory (no openable fund page)`
-        : `管理人「${identity.slug}」不在策展目錄（無可開啟頁面）`);
+        ? `Manager “${identity.slug}” has no CIK identity (cannot open fund page)`
+        : `管理人「${identity.slug}」無 CIK 身分（無法開啟組合頁）`);
       return;
     }
     activeFundSlug = identity.slug;
@@ -9353,11 +9400,32 @@
         </div>`).join('');
       }
 
-      const src = result.source === 'cache' ? (isEn ? 'cache' : '快取') : (isEn ? 'live FMP' : '即時 FMP');
-      status.textContent = `${title} · ${qLabel} · ${src}`
-        + (result.capturedAt ? ` · ${String(result.capturedAt).slice(0, 10)}` : '')
-        + (result.liveErrors?.length
-          ? ` · ${isEn ? 'partial errors' : '部分錯誤'} ${result.liveErrors.length}` : '');
+      if (result.source === 'empty') {
+        status.className = 'sm-alert-empty';
+        status.innerHTML = isEn
+          ? `<strong>No fund book on file</strong> · ${escapeAttribute(title)}<br>`
+            + 'No dedicated seed and live extract unavailable. Not a dead link — configure <code>FMP_API_KEY</code> for full 13F, or open managers that appear in stock seeds.'
+          : `<strong>無管理人組合種子</strong> · ${escapeAttribute(title)}<br>`
+            + '無專屬種子且即時 extract 不可用。不是失效連結 — 完整 13F 需 <code>FMP_API_KEY</code>，或開啟股票種子中出現的管理人。';
+        holdingsBody.innerHTML = `<tr class="sm-alert-empty-row"><td class="table-sticky-col" colspan="7">${
+          isEn ? 'No holdings on file.' : '無持倉種子。'}</td></tr>`;
+      } else if (result.source === 'holder-invert') {
+        status.className = 'sm-alert-empty';
+        status.innerHTML = isEn
+          ? `<strong>${escapeAttribute(title)} · partial from stock seeds</strong> · ${escapeAttribute(qLabel)}<br>`
+            + 'Preview without live extract — holdings limited to symbols in committed stock seeds (not the full 13F book).'
+          : `<strong>${escapeAttribute(title)} · 股票種子反查（部分）</strong> · ${escapeAttribute(qLabel)}<br>`
+            + 'Preview 無即時 extract — 僅顯示已提交股票種子中的標的（非完整 13F 組合）。';
+      } else {
+        status.className = 'analysis-note';
+        const src = result.source === 'cache' ? (isEn ? 'cache' : '快取')
+          : result.source === 'live' ? (isEn ? 'live FMP' : '即時 FMP')
+            : escapeAttribute(String(result.source || ''));
+        status.textContent = `${title} · ${qLabel} · ${src}`
+          + (result.capturedAt ? ` · ${String(result.capturedAt).slice(0, 10)}` : '')
+          + (result.liveErrors?.length
+            ? ` · ${isEn ? 'partial errors' : '部分錯誤'} ${result.liveErrors.length}` : '');
+      }
       document.querySelectorAll('#fund-view .table-scroll-wrapper').forEach(box => makeScrollable(box));
     }).catch((error) => {
       if (activeFundSlug !== String(slug).toLowerCase()) return;

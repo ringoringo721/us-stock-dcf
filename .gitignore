@@ -8,6 +8,7 @@ __pycache__/
 # Smart Money: commit demo seeds only (see cache/smart-money/README.md)
 /cache/smart-money/**
 !/cache/smart-money/README.md
+!/cache/smart-money/curated-by-ticker.json
 !/cache/smart-money/NVDA.json
 !/cache/smart-money/AAPL.json
 !/cache/smart-money/MSFT.json

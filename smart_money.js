@@ -34,6 +34,8 @@
 
   const CIK_SET = new Set(INVESTORS.map(row => row.cik));
   const BY_CIK = Object.fromEntries(INVESTORS.map(row => [row.cik, row]));
+  /** Extra extract-allowlisted CIKs (from committed stock-seed holders) — not open scrape. */
+  const EXTRA_CIK_SET = new Set();
   const FUND_EXTRACT_MAX = 400;
 
   function padCik(value) {
@@ -84,13 +86,24 @@
     return true;
   }
 
+  function registerExtractAllowlist(ciks) {
+    for (const value of ciks || []) {
+      const padded = padCik(value);
+      if (padded) EXTRA_CIK_SET.add(padded);
+    }
+    return EXTRA_CIK_SET.size;
+  }
+
   function allowedCik(cik) {
     const padded = padCik(cik);
-    return padded && CIK_SET.has(padded) ? padded : null;
+    if (!padded) return null;
+    if (CIK_SET.has(padded) || EXTRA_CIK_SET.has(padded)) return padded;
+    return null;
   }
 
   function isCuratedCik(cik) {
-    return Boolean(allowedCik(cik));
+    const padded = padCik(cik);
+    return Boolean(padded && CIK_SET.has(padded));
   }
 
   function investorLabel(investor, lang = 'zh') {
@@ -335,12 +348,13 @@
     const holders = withActions((currentRows || []).map(row => normalizeAnalyticsRow(row, ticker)).filter(Boolean));
     const prior = withActions((priorRows || []).map(row => normalizeAnalyticsRow(row, ticker)).filter(Boolean));
     const currentCiks = new Set(holders.filter(row => row.shares > 0).map(row => row.cik));
-    // Top-N-by-weight pages are not a closed universe — only treat material / curated
-    // disappearances as exits (avoids mass false exits when newest quarter is sparse).
+    // Top-N / holderCap slices are not a closed universe — synthesizing −100% exits
+    // for CIKs that merely dropped off the cap invents false churn (Bugbot MEDIUM).
+    const truncated = meta.truncated === true;
     const priorActive = prior.filter(row => row.shares > 0);
     const coverage = priorActive.length
       ? currentCiks.size / priorActive.length : 1;
-    const allowSyntheticExits = coverage >= 0.45;
+    const allowSyntheticExits = !truncated && coverage >= 0.45;
     const exits = allowSyntheticExits
       ? priorActive
         .filter(row => !currentCiks.has(row.cik) && (
@@ -366,6 +380,7 @@
       key: quarterKey(meta.year ?? holders[0]?.year, meta.quarter ?? holders[0]?.quarter),
       holders,
       exits,
+      exitsIncomplete: truncated,
       kpis,
     };
   }
@@ -484,6 +499,167 @@
       if (!response.ok) throw new Error(`FUND_CACHE_MISS:${response.status}`);
       return response.json();
     });
+  }
+
+  /**
+   * Invert curated fund books → per-ticker holder rows (Preview without FMP).
+   * `funds` is [{ cik, slug, investorName, quarters:[{year,quarter,rows}] }].
+   */
+  function buildCuratedByTickerIndex(funds, { quarters = 2 } = {}) {
+    const tickers = Object.create(null);
+    const keyCounts = Object.create(null);
+    for (const fund of funds || []) {
+      const cik = padCik(fund.cik);
+      if (!cik) continue;
+      const investorName = fund.investorName || BY_CIK[cik]?.nameEn || cik;
+      const kept = (fund.quarters || []).slice(0, Math.max(1, quarters));
+      kept.forEach((q, qi) => {
+        const year = finite(q.year);
+        const quarter = finite(q.quarter);
+        const key = q.key || quarterKey(year, quarter);
+        if (qi === 0 && key) keyCounts[key] = (keyCounts[key] || 0) + 1;
+        for (const row of q.rows || []) {
+          const symbol = String(row.symbol || '').toUpperCase();
+          if (!symbol) continue;
+          if (!tickers[symbol]) tickers[symbol] = { current: [], prior: [] };
+          const bucket = qi === 0 ? 'current' : 'prior';
+          tickers[symbol][bucket].push({
+            cik,
+            investorName,
+            symbol,
+            sharesNumber: finite(row.shares ?? row.sharesNumber),
+            marketValue: finite(row.value ?? row.marketValue),
+            weight: finite(row.weight),
+            year,
+            quarter,
+            filingDate: row.filingDate || null,
+            date: row.date || null,
+            securityCusip: row.securityCusip || row.cusip || null,
+            isCurated: true,
+          });
+        }
+      });
+    }
+    const rankedKeys = Object.keys(keyCounts).sort((a, b) => keyCounts[b] - keyCounts[a]);
+    const latestKey = rankedKeys[0] || null;
+    const prior = latestKey ? priorQuarter(
+      Number(String(latestKey).slice(0, 4)),
+      Number(String(latestKey).slice(6)),
+    ) : null;
+    // Slim payload for git / static Preview (~50KB for curated-20 × ~22 holdings).
+    const slim = Object.create(null);
+    for (const symbol of Object.keys(tickers).sort()) {
+      const entry = tickers[symbol];
+      if (!entry.current.length && !entry.prior.length) continue;
+      slim[symbol] = {
+        c: entry.current.map(compactCuratedHolderRow),
+        p: entry.prior.map(compactCuratedHolderRow),
+      };
+    }
+    return {
+      capturedAt: new Date().toISOString(),
+      seed: true,
+      source: {
+        provider: 'FMP',
+        method: 'curated-fund-invert',
+        note: 'Curated-20 books inverted for Preview when institutional-holders live is unavailable',
+      },
+      latestKey,
+      priorKey: prior ? quarterKey(prior.year, prior.quarter) : null,
+      count: Object.keys(slim).length,
+      tickers: slim,
+      disclaimer: 'Curated managers only — not a full 13F holder universe. Filings lag up to ~45 days.',
+    };
+  }
+
+  function compactCuratedHolderRow(row) {
+    return {
+      cik: row.cik,
+      n: row.investorName,
+      s: row.sharesNumber,
+      v: row.marketValue,
+      w: row.weight,
+      y: row.year,
+      q: row.quarter,
+      d: row.date || undefined,
+      f: row.filingDate || undefined,
+      u: row.securityCusip || undefined,
+    };
+  }
+
+  function expandCuratedHolderRow(row, symbol) {
+    if (!row || typeof row !== 'object') return null;
+    return {
+      cik: row.cik,
+      investorName: row.n || row.investorName,
+      symbol,
+      sharesNumber: row.s ?? row.sharesNumber,
+      marketValue: row.v ?? row.marketValue,
+      weight: row.w ?? row.weight,
+      year: row.y ?? row.year,
+      quarter: row.q ?? row.quarter,
+      date: row.d || row.date || null,
+      filingDate: row.f || row.filingDate || null,
+      securityCusip: row.u || row.securityCusip || null,
+      isCurated: true,
+    };
+  }
+
+  let curatedByTickerPromise = null;
+
+  function loadCuratedByTickerIndex() {
+    if (curatedByTickerPromise) return curatedByTickerPromise;
+    curatedByTickerPromise = fetch('cache/smart-money/curated-by-ticker.json', { cache: 'no-store' })
+      .then(async (response) => {
+        if (!response.ok) throw new Error(`CURATED_INDEX_MISS:${response.status}`);
+        return response.json();
+      })
+      .catch((error) => {
+        curatedByTickerPromise = null;
+        throw error;
+      });
+    return curatedByTickerPromise;
+  }
+
+  /** Reset memo (tests). */
+  function resetCuratedByTickerCache() {
+    curatedByTickerPromise = null;
+  }
+
+  function snapshotFromCuratedIndex(symbol, index) {
+    const entry = index?.tickers?.[symbol];
+    if (!entry) return null;
+    const currentRows = (entry.c || entry.current || [])
+      .map(row => expandCuratedHolderRow(row, symbol)).filter(Boolean);
+    const priorRows = (entry.p || entry.prior || [])
+      .map(row => expandCuratedHolderRow(row, symbol)).filter(Boolean);
+    if (!currentRows.length && !priorRows.length) return null;
+    // Prefer modal filing quarter among current rows for the page header key.
+    const keyCounts = Object.create(null);
+    for (const row of currentRows) {
+      const key = quarterKey(row.year, row.quarter);
+      if (key) keyCounts[key] = (keyCounts[key] || 0) + 1;
+    }
+    const topKey = Object.keys(keyCounts).sort((a, b) => keyCounts[b] - keyCounts[a])[0]
+      || index.latestKey
+      || null;
+    const parsed = topKey ? parseQuarterKey(topKey) : null;
+    const snapshot = buildStockSnapshot(symbol, currentRows, priorRows, {
+      year: parsed?.year ?? currentRows[0]?.year ?? null,
+      quarter: parsed?.quarter ?? currentRows[0]?.quarter ?? null,
+    });
+    return snapshot;
+  }
+
+  function emptyStockResult(symbol, notice, liveErrors) {
+    return {
+      ticker: symbol,
+      source: 'empty',
+      notice: notice || 'SMART_MONEY_NO_CURATED',
+      capturedAt: null,
+      liveErrors: liveErrors || [],
+      snapshot: buildStockSnapshot(symbol, [], [], {}),
+    };
   }
 
   function loadQuarterLive(ticker, year, quarter) {
@@ -659,28 +835,74 @@
     });
   }
 
+  function loadStockFromCuratedOrEmpty(symbol, liveErrors, cacheError) {
+    return loadCuratedByTickerIndex().then((index) => {
+      const snapshot = snapshotFromCuratedIndex(symbol, index);
+      if (snapshot && (snapshot.holders?.length || snapshot.exits?.length)) {
+        return {
+          ticker: symbol,
+          source: 'curated-index',
+          notice: 'CURATED_INVERT',
+          capturedAt: index.capturedAt || null,
+          snapshot,
+          liveErrors: liveErrors || [],
+          cacheError: cacheError ? String(cacheError.message || cacheError) : null,
+        };
+      }
+      return emptyStockResult(
+        symbol,
+        'SMART_MONEY_NO_CURATED',
+        liveErrors,
+      );
+    }).catch(() => emptyStockResult(
+      symbol,
+      liveErrors?.[0]
+        ? `SMART_MONEY_NO_CURATED:${liveErrors[0]}`
+        : 'SMART_MONEY_NO_CURATED',
+      liveErrors,
+    ));
+  }
+
   function loadStock(ticker, options = {}) {
     const symbol = String(ticker || '').toUpperCase();
+    const skipLive = options.skipLive === true;
     return loadStockCache(symbol).then((cached) => {
       const current = (cached.quarters || [])[0];
       const prior = (cached.quarters || [])[1];
+      const truncated = cached.source?.truncated === true
+        || current?.truncated === true
+        || cached.seed === true;
       if (current?.rows?.length) {
         const snapshot = buildStockSnapshot(symbol, current.rows, prior?.rows || [], {
-          year: current.year, quarter: current.quarter,
+          year: current.year, quarter: current.quarter, truncated,
         });
         return { ticker: symbol, source: 'cache', capturedAt: cached.capturedAt || null, snapshot, raw: cached };
       }
       if (cached.snapshot?.holders?.length) {
+        let snapshot = cached.snapshot;
+        // Stale slim seeds may have invented −100% exits under per-Q caps — drop them.
+        if (truncated && Array.isArray(snapshot.exits) && snapshot.exits.length) {
+          const holders = snapshot.holders || [];
+          snapshot = {
+            ...snapshot,
+            exits: [],
+            exitsIncomplete: true,
+            kpis: buildStockKpis(holders, []),
+          };
+        }
         return {
           ticker: symbol,
           source: 'cache',
           capturedAt: cached.capturedAt || null,
-          snapshot: cached.snapshot,
+          snapshot,
           raw: cached,
         };
       }
       throw new Error('SMART_MONEY_CACHE_EMPTY');
     }).catch((cacheError) => {
+      if (skipLive || options.preferCurated === true) {
+        return loadStockFromCuratedOrEmpty(symbol, [], cacheError);
+      }
       // Walk several filing quarters — newest calendar quarter is often sparse/empty.
       const want = Math.max(2, Math.min(6, Number(options.liveQuarters) || 6));
       const specs = recentQuarterSpecs(want);
@@ -706,8 +928,9 @@
         const current = usable[0];
         const prior = usable[1];
         if (!current) {
-          const detail = liveErrors[0] || String(cacheError?.message || 'no-quarters');
-          throw new Error(`SMART_MONEY_LIVE_EMPTY:${detail}`);
+          // Preview / no FMP: never hard-fail common US names on FMP_NOT_CONFIGURED —
+          // invert curated-20 seeds, or return an honest empty snapshot.
+          return loadStockFromCuratedOrEmpty(symbol, liveErrors, cacheError);
         }
         const snapshot = buildStockSnapshot(symbol, current.rows, prior?.rows || [], {
           year: current.year, quarter: current.quarter,
@@ -728,12 +951,13 @@
     const asCik = padCik(raw);
     if (asCik && /^\d{10}$/.test(asCik) && raw.replace(/\D/g, '').length >= 7) {
       const curated = BY_CIK[asCik] || null;
-      // Non-curated bare CIK is still a usable identity for cache/allowlisted live.
+      // Any bare CIK is openable (seed invert / allowlisted live / honest empty).
+      // Live extract remains gated by allowedCik (curated ∪ seed-holder allowlist).
       return {
         cik: asCik,
         slug: curated ? slugify(curated.nameEn) : asCik,
         curated,
-        openable: Boolean(curated || allowedCik(asCik)),
+        openable: true,
       };
     }
     const slug = slugify(raw);
@@ -741,27 +965,172 @@
     if (curated) {
       return { cik: curated.cik, slug: slugify(curated.nameEn), curated, openable: true };
     }
-    // Unknown slug (e.g. Framtiden from broad holders) — not openable without seed/CIK.
+    // Unknown slug without CIK — not openable (no identity to load).
     return { cik: null, slug, curated: null, openable: false };
   }
 
-  /** Only curated / allowlisted managers get fund-page links (slug↔CIK↔seed). */
+  /** Every holder with a CIK links to #fund — curated use slug; others use CIK route. */
   function fundLinkForHolder(row) {
     if (!row || typeof row !== 'object') return null;
-    const byCik = allowedCik(row.cik);
-    const curated = BY_CIK[byCik] || row.curated
+    const cik = padCik(row.cik);
+    if (!cik) return null;
+    const curated = BY_CIK[cik] || row.curated
       || (row.slug ? BY_SLUG[slugify(row.slug)] : null)
       || (row.investorName ? BY_SLUG[slugify(row.investorName)] : null)
       || null;
-    if (!curated && !byCik) return null;
-    const inv = curated || BY_CIK[byCik];
-    if (!inv) return null;
-    const slug = slugify(inv.nameEn);
-    return { slug, cik: inv.cik, href: fundHref(slug), curated: inv };
+    if (curated) {
+      const slug = slugify(curated.nameEn);
+      return { slug, cik: curated.cik, href: fundHref(slug), curated };
+    }
+    return { slug: cik, cik, href: fundHref(cik), curated: null };
   }
 
   function isOpenableFundKey(slugOrCik) {
     return Boolean(resolveFundIdentity(slugOrCik).openable);
+  }
+
+  /**
+   * Invert stock holder seeds → per-CIK partial fund books (Preview without FMP).
+   * Only symbols present in the stock seeds appear (not a full 13F universe).
+   */
+  function buildHolderFundIndex(stockPayloads) {
+    const funds = Object.create(null);
+    for (const payload of stockPayloads || []) {
+      const symbol = String(payload?.ticker || '').toUpperCase();
+      if (!symbol) continue;
+      for (const q of payload.quarters || []) {
+        const year = finite(q.year);
+        const quarter = finite(q.quarter);
+        const key = q.key || quarterKey(year, quarter);
+        if (!key) continue;
+        for (const row of q.rows || []) {
+          const cik = padCik(row.cik);
+          if (!cik) continue;
+          if (!funds[cik]) {
+            funds[cik] = {
+              n: row.investorName || cik,
+              q: Object.create(null),
+            };
+          }
+          if (row.investorName) funds[cik].n = row.investorName;
+          if (!funds[cik].q[key]) {
+            funds[cik].q[key] = { y: year, q: quarter, r: [] };
+          }
+          funds[cik].q[key].r.push({
+            s: symbol,
+            sh: finite(row.sharesNumber ?? row.shares),
+            v: finite(row.marketValue ?? row.value),
+            w: finite(row.weight),
+            d: row.date || undefined,
+            f: row.filingDate || undefined,
+          });
+        }
+      }
+    }
+    const slim = Object.create(null);
+    for (const cik of Object.keys(funds).sort()) {
+      const entry = funds[cik];
+      const quarters = Object.keys(entry.q)
+        .sort((a, b) => b.localeCompare(a))
+        .map(key => entry.q[key]);
+      slim[cik] = { n: entry.n, q: quarters };
+    }
+    return {
+      capturedAt: new Date().toISOString(),
+      seed: true,
+      source: {
+        provider: 'FMP',
+        method: 'stock-holder-invert',
+        note: 'Partial fund books inverted from committed stock holder seeds (Preview w/o FMP)',
+      },
+      count: Object.keys(slim).length,
+      funds: slim,
+      disclaimer: 'Partial books from stock demos only — not a full 13F filing. Filings lag up to ~45 days.',
+    };
+  }
+
+  function expandHolderFundEntry(entry, cik) {
+    if (!entry) return null;
+    const padded = padCik(cik);
+    const quarters = (entry.q || entry.quarters || []).map(q => ({
+      year: q.y ?? q.year,
+      quarter: q.q ?? q.quarter,
+      key: quarterKey(q.y ?? q.year, q.q ?? q.quarter),
+      rows: (q.r || q.rows || []).map(row => ({
+        symbol: row.s || row.symbol,
+        nameOfIssuer: row.s || row.symbol,
+        shares: row.sh ?? row.shares,
+        value: row.v ?? row.value ?? row.marketValue,
+        marketValue: row.v ?? row.marketValue ?? row.value,
+        weight: row.w ?? row.weight,
+        date: row.d || row.date || null,
+        filingDate: row.f || row.filingDate || null,
+      })),
+    })).filter(q => q.rows.length);
+    if (!quarters.length) return null;
+    return {
+      cik: padded,
+      slug: padded,
+      investorName: entry.n || entry.investorName || padded,
+      capturedAt: null,
+      seed: true,
+      source: { method: 'stock-holder-invert', seed: true, partial: true },
+      quarters,
+      history: quarters.map(q => {
+        const summary = summarizeFundQuarter(q.rows);
+        return {
+          year: q.year, quarter: q.quarter,
+          positions: summary.positions, book: summary.book,
+          largestWeight: summary.topWeight, top10Weight: summary.top10Weight,
+          effectiveN: summary.effectiveN, topSymbol: summary.topSymbol,
+        };
+      }),
+      disclaimer: 'Partial book from stock holder seeds — not the manager’s full 13F.',
+    };
+  }
+
+  let holderFundsPromise = null;
+
+  function loadHolderFundsIndex() {
+    if (holderFundsPromise) return holderFundsPromise;
+    holderFundsPromise = fetch('cache/smart-money/funds/holder-funds.json', { cache: 'no-store' })
+      .then(async (response) => {
+        if (!response.ok) throw new Error(`HOLDER_FUNDS_MISS:${response.status}`);
+        const body = await response.json();
+        registerExtractAllowlist(Object.keys(body.funds || {}));
+        return body;
+      })
+      .catch((error) => {
+        holderFundsPromise = null;
+        throw error;
+      });
+    return holderFundsPromise;
+  }
+
+  function resetHolderFundsCache() {
+    holderFundsPromise = null;
+  }
+
+  function emptyFundResult(identity, notice, liveErrors) {
+    const compared = compareFundHoldings([], []);
+    return {
+      source: 'empty',
+      notice: notice || 'FUND_BOOK_EMPTY',
+      cik: identity.cik,
+      slug: identity.slug,
+      investorName: identity.curated?.nameEn || identity.slug,
+      curated: identity.curated,
+      capturedAt: null,
+      liveErrors: liveErrors || [],
+      year: null,
+      quarter: null,
+      vsYear: null,
+      vsQuarter: null,
+      history: [],
+      ...compared,
+      kpis: { ...compared.kpis, quartersOnFile: 0 },
+      concentration: concentrationFromHistory([]),
+    };
   }
 
   function selectFundQuarter(quarters, vsParsed) {
@@ -845,7 +1214,45 @@
       if (String(cacheError?.message || '').startsWith('FUND_QUARTER_INVALID:')) {
         throw cacheError;
       }
+      if (String(cacheError?.message || '').startsWith('FUND_QUARTER_NOT_FOUND:')) {
+        throw cacheError;
+      }
       if (!identity.cik) throw new Error('FUND_IDENTITY_UNKNOWN');
+
+      function fromHolderInvert(liveErrors) {
+        return loadHolderFundsIndex().then((index) => {
+          const raw = index.funds?.[identity.cik];
+          const expanded = expandHolderFundEntry(raw, identity.cik);
+          if (!expanded?.quarters?.length) {
+            return emptyFundResult(identity, 'FUND_BOOK_EMPTY', liveErrors);
+          }
+          const quarters = expanded.quarters;
+          let current;
+          let prior;
+          try {
+            current = selectFundQuarter(quarters, vsParsed);
+          } catch (error) {
+            if (vsParsed) throw error;
+            current = quarters[0];
+          }
+          const idx = quarters.indexOf(current);
+          prior = idx >= 0 ? quarters[idx + 1] : quarters[1];
+          const currentHoldings = (current?.rows || []).map(row => normalizeFundHolding(row, identity.cik)).filter(Boolean);
+          const priorHoldings = (prior?.rows || []).map(row => normalizeFundHolding(row, identity.cik)).filter(Boolean);
+          const compared = compareFundHoldings(currentHoldings, priorHoldings);
+          return packFundResult({
+            source: 'holder-invert',
+            notice: 'PARTIAL_FROM_STOCK_SEEDS',
+            cik: identity.cik,
+            slug: identity.slug,
+            investorName: expanded.investorName || identity.curated?.nameEn || identity.slug,
+            curated: identity.curated,
+            capturedAt: index.capturedAt || null,
+            liveErrors: liveErrors || [],
+          }, current, prior, compared, expanded.history || quarters);
+        }).catch(() => emptyFundResult(identity, 'FUND_BOOK_EMPTY', liveErrors));
+      }
+
       const specs = vsParsed
         ? [vsParsed, priorQuarter(vsParsed.year, vsParsed.quarter)]
         : recentQuarterSpecs(2);
@@ -853,10 +1260,11 @@
         .catch(error => ({ year: spec.year, quarter: spec.quarter, rows: [], error, incomplete: true }))))
         .then((quarters) => {
           if (vsParsed) {
-            const current = selectFundQuarter(
-              quarters.filter(q => !q.incomplete && !q.error),
-              vsParsed,
-            );
+            const usableForVs = quarters.filter(q => !q.incomplete && !q.error);
+            if (!usableForVs.length) {
+              return fromHolderInvert(quarters.filter(q => q.error).map(q => String(q.error.message || q.error)));
+            }
+            const current = selectFundQuarter(usableForVs, vsParsed);
             const priorSpec = priorQuarter(vsParsed.year, vsParsed.quarter);
             const prior = quarters.find(q => !q.incomplete && !q.error
               && Number(q.year) === priorSpec.year && Number(q.quarter) === priorSpec.quarter) || null;
@@ -875,7 +1283,9 @@
             }, current, prior, compared, usable);
           }
           const usable = quarters.filter(q => !q.incomplete && !q.error);
-          if (!usable.length) throw new Error('FUND_LIVE_EMPTY');
+          if (!usable.length) {
+            return fromHolderInvert(quarters.filter(q => q.error).map(q => String(q.error.message || q.error)));
+          }
           const current = usable[0];
           const prior = usable[1];
           const currentHoldings = current.rows.map(row => normalizeFundHolding(row, identity.cik)).filter(Boolean);
@@ -925,6 +1335,7 @@
   return {
     INVESTORS,
     CIK_SET,
+    EXTRA_CIK_SET,
     BY_CIK,
     BY_SLUG,
     FUND_EXTRACT_MAX,
@@ -932,10 +1343,15 @@
     finite,
     slugify,
     isUsListed,
+    registerExtractAllowlist,
     allowedCik,
     isCuratedCik,
     fundLinkForHolder,
     isOpenableFundKey,
+    buildHolderFundIndex,
+    expandHolderFundEntry,
+    loadHolderFundsIndex,
+    resetHolderFundsCache,
     investorLabel,
     mergeRowsByCik,
     classifyAction,
@@ -959,6 +1375,10 @@
     loadFund,
     loadStockCache,
     loadFundCache,
+    loadCuratedByTickerIndex,
+    resetCuratedByTickerCache,
+    buildCuratedByTickerIndex,
+    snapshotFromCuratedIndex,
     loadQuarterLive,
     loadFundLive,
     formatMoney,

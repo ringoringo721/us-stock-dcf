@@ -132,12 +132,55 @@ test('loadStock live walks empty quarters and surfaces API errors', async () => 
   assert.ok(result.snapshot.holders.length >= 1);
   assert.ok(calls.some(u => u.includes('year=2025') || u.includes('quarter=4')
     || u.includes('year=2026')));
-  // With no usable quarters, error includes upstream detail.
+  // No usable live quarters + no curated hit → honest empty (not FMP_NOT_CONFIGURED throw).
+  SmartMoney.resetCuratedByTickerCache();
   globalThis.fetch = async (url) => {
-    if (String(url).startsWith('cache/')) return { ok: false, status: 404, json: async () => ({}) };
+    const u = String(url);
+    if (u.includes('curated-by-ticker.json')) {
+      return { ok: true, status: 200, json: async () => ({ tickers: {} }) };
+    }
+    if (u.startsWith('cache/')) return { ok: false, status: 404, json: async () => ({}) };
     return { ok: false, status: 503, json: async () => ({ error: 'FMP_NOT_CONFIGURED' }) };
   };
-  await assert.rejects(() => SmartMoney.loadStock('ZZZ'), /SMART_MONEY_LIVE_EMPTY:.*FMP_NOT_CONFIGURED/);
+  const empty = await SmartMoney.loadStock('ZZZ');
+  assert.equal(empty.source, 'empty');
+  assert.equal(empty.snapshot.holders.length, 0);
+  assert.match(String(empty.notice), /SMART_MONEY_NO_CURATED/);
+  assert.ok((empty.liveErrors || []).some(msg => /FMP_NOT_CONFIGURED/.test(msg)));
+});
+
+test('loadStock falls back to curated-by-ticker invert when FMP is down', async () => {
+  SmartMoney.resetCuratedByTickerCache();
+  const index = SmartMoney.buildCuratedByTickerIndex([{
+    cik: '0001067983',
+    slug: 'berkshire-hathaway',
+    investorName: 'Berkshire Hathaway',
+    quarters: [
+      {
+        year: 2026, quarter: 2, key: '2026-Q2',
+        rows: [{ symbol: 'KO', shares: 4e8, value: 32e9, weight: 12 }],
+      },
+      {
+        year: 2026, quarter: 1, key: '2026-Q1',
+        rows: [{ symbol: 'KO', shares: 4e8, value: 30e9, weight: 11 }],
+      },
+    ],
+  }]);
+  assert.ok(index.tickers.KO);
+  assert.equal(index.count, 1);
+
+  globalThis.fetch = async (url) => {
+    const u = String(url);
+    if (u.includes('curated-by-ticker.json')) {
+      return { ok: true, status: 200, json: async () => index };
+    }
+    if (u.startsWith('cache/')) return { ok: false, status: 404, json: async () => ({}) };
+    return { ok: false, status: 503, json: async () => ({ error: 'FMP_NOT_CONFIGURED' }) };
+  };
+  const result = await SmartMoney.loadStock('KO', { liveQuarters: 2 });
+  assert.equal(result.source, 'curated-index');
+  assert.ok(result.snapshot.holders.some(row => row.cik === '0001067983'));
+  assert.equal(result.snapshot.holders[0].investorName, 'Berkshire Hathaway');
 });
 
 test('sparse coverage suppresses mass synthetic exits', () => {
@@ -153,6 +196,25 @@ test('sparse coverage suppresses mass synthetic exits', () => {
   }));
   const snap = SmartMoney.buildStockSnapshot('AAPL', current, prior, { year: 2025, quarter: 2 });
   assert.equal(snap.exits.length, 0);
+});
+
+test('truncated books do not invent −100% exits from holderCap churn', () => {
+  const current = [
+    { cik: '0001067983', symbol: 'AAPL', sharesNumber: 200e6, marketValue: 50e9,
+      weight: 20, year: 2025, quarter: 2, investorName: 'Berkshire Hathaway' },
+  ];
+  const prior = [
+    { cik: '0001067983', symbol: 'AAPL', sharesNumber: 200e6, marketValue: 48e9,
+      weight: 19, year: 2025, quarter: 1, investorName: 'Berkshire Hathaway' },
+    { cik: '0002012383', symbol: 'AAPL', sharesNumber: 1e6, marketValue: 200e6,
+      weight: 0.6, year: 2025, quarter: 1, investorName: 'BLACKROCK, INC.' },
+  ];
+  const snap = SmartMoney.buildStockSnapshot('AAPL', current, prior, {
+    year: 2025, quarter: 2, truncated: true,
+  });
+  assert.equal(snap.exits.length, 0);
+  assert.equal(snap.exitsIncomplete, true);
+  assert.equal(snap.kpis.exitedCount, 0);
 });
 
 test('compareFundHoldings marks new/added/reduced/exited vs prior quarter', () => {
@@ -222,7 +284,9 @@ test('HK listings are not US 13F eligible', () => {
 test('allowedCik / resolveFundIdentity / fundHref', () => {
   assert.equal(SmartMoney.allowedCik('0001067983'), '0001067983');
   assert.equal(SmartMoney.allowedCik('1067983'), '0001067983');
-  assert.equal(SmartMoney.allowedCik('0002012383'), null);
+  assert.equal(SmartMoney.allowedCik('0009999998'), null);
+  SmartMoney.registerExtractAllowlist(['0002147005']);
+  assert.equal(SmartMoney.allowedCik('0002147005'), '0002147005');
   const id = SmartMoney.resolveFundIdentity('berkshire-hathaway');
   assert.equal(id.cik, '0001067983');
   assert.equal(id.slug, 'berkshire-hathaway');
@@ -230,24 +294,36 @@ test('allowedCik / resolveFundIdentity / fundHref', () => {
   assert.equal(SmartMoney.resolveFundIdentity('brk').cik, '0001067983');
   assert.equal(SmartMoney.fundHref('berkshire-hathaway', '2025-Q4'), '#fund/berkshire-hathaway?vs=2025-q4');
   assert.equal(SmartMoney.slugify('HCEP Management Ltd'), 'hcep-management-ltd');
+  // Bare CIK is always openable (seed invert / live / empty) — slug-only unknown is not.
+  assert.equal(SmartMoney.resolveFundIdentity('0002147005').openable, true);
+  assert.equal(SmartMoney.resolveFundIdentity('0002147005').slug, '0002147005');
+  assert.equal(SmartMoney.isOpenableFundKey('framtiden-holdings-management-co-llc'), false);
 });
 
-test('fundLinkForHolder only links curated / allowlisted managers', () => {
+test('fundLinkForHolder links every CIK (curated slug; others CIK route)', () => {
   const brk = SmartMoney.fundLinkForHolder({
     cik: '0001067983', investorName: 'Berkshire Hathaway', isCurated: true,
   });
   assert.equal(brk.slug, 'berkshire-hathaway');
   assert.match(brk.href, /#fund\/berkshire-hathaway/);
-  // Broad-holder names like Framtiden must not become dead #fund links.
-  assert.equal(SmartMoney.fundLinkForHolder({
+  assert.ok(brk.curated);
+  // Broad holders (Fenelon / Framtiden / Greenwoods) get CIK fund links — WhaleCreep parity.
+  const fenelon = SmartMoney.fundLinkForHolder({
+    cik: '0002147005',
+    investorName: 'FENELON OPPORTUNITY FUND INC.',
+    isCurated: false,
+  });
+  assert.equal(fenelon.slug, '0002147005');
+  assert.match(fenelon.href, /#fund\/0002147005/);
+  assert.equal(fenelon.curated, null);
+  const framtiden = SmartMoney.fundLinkForHolder({
     cik: '0002112734',
     investorName: 'FRAMTIDEN HOLDINGS MANAGEMENT CO LLC',
-    slug: 'framtiden-holdings-management-co-llc',
     isCurated: false,
-  }), null);
-  assert.equal(SmartMoney.isOpenableFundKey('framtiden-holdings-management-co-llc'), false);
+  });
+  assert.equal(framtiden.slug, '0002112734');
+  assert.equal(SmartMoney.fundLinkForHolder({ investorName: 'No CIK Inc' }), null);
   assert.equal(SmartMoney.isOpenableFundKey('lone-pine-capital'), true);
-  // Every curated investor resolves slug ↔ CIK.
   for (const inv of SmartMoney.INVESTORS) {
     const slug = SmartMoney.slugify(inv.nameEn);
     const bySlug = SmartMoney.resolveFundIdentity(slug);
@@ -256,6 +332,39 @@ test('fundLinkForHolder only links curated / allowlisted managers', () => {
     assert.equal(byCik.slug, slug, inv.cik);
     assert.equal(bySlug.openable, true);
   }
+});
+
+test('buildHolderFundIndex inverts stock seeds into partial fund books', () => {
+  const index = SmartMoney.buildHolderFundIndex([
+    {
+      ticker: 'GOOGL',
+      quarters: [{
+        year: 2026, quarter: 2, key: '2026-Q2',
+        rows: [
+          { cik: '0002147005', investorName: 'FENELON OPPORTUNITY FUND INC.',
+            sharesNumber: 1000, marketValue: 2e6, weight: 1.2 },
+          { cik: '0001709323', investorName: 'Himalaya Capital',
+            sharesNumber: 500, marketValue: 1e6, weight: 0.5 },
+        ],
+      }],
+    },
+    {
+      ticker: 'AAPL',
+      quarters: [{
+        year: 2026, quarter: 2, key: '2026-Q2',
+        rows: [
+          { cik: '0002147005', investorName: 'FENELON OPPORTUNITY FUND INC.',
+            sharesNumber: 2000, marketValue: 3e6, weight: 0.8 },
+        ],
+      }],
+    },
+  ]);
+  assert.equal(index.count, 2);
+  assert.ok(index.funds['0002147005']);
+  const expanded = SmartMoney.expandHolderFundEntry(index.funds['0002147005'], '0002147005');
+  assert.equal(expanded.quarters[0].rows.length, 2);
+  assert.ok(expanded.quarters[0].rows.some(r => r.symbol === 'GOOGL'));
+  assert.ok(expanded.quarters[0].rows.some(r => r.symbol === 'AAPL'));
 });
 
 test('effectivePositions treats percent-of-book weights like WhaleCreep', () => {
