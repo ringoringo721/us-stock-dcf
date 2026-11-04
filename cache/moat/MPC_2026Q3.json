@@ -1,0 +1,60 @@
+{
+  "ticker": "MPC",
+  "period": "2026Q3",
+  "m1_brand_pricing": {
+    "score": 7,
+    "comment_zh": "Marathon Petroleum (MPC) 在品牌定價權方面展現出穩健實力，主要得益於其在美國煉油與行銷市場的領導地位。其品牌如 Marathon、Speedway 等在消費者心中具有高度辨識度與信賴感，尤其在加油站零售業務中，品牌忠誠度能支撐一定的價格彈性。然而，原油價格的波動性是其定價能力的最大制約因素，MPC 雖能透過精煉價差獲利，但終究受制於大宗商品市場的供需基本面。與其他品牌相比，MPC 的品牌壁壘相對堅固，但非獨一無二，故給予 7 分。",
+    "comment_en": "Marathon Petroleum (MPC) demonstrates solid strength in brand pricing power, primarily due to its leading position in the US refining and marketing market. Its brands like Marathon and Speedway have high recognition and trust among consumers, especially in the gas station retail business, where brand loyalty can support some pricing flexibility. However, crude oil price volatility is the biggest constraint on its pricing ability. While MPC can profit from refining margins, it is ultimately subject to the supply and demand fundamentals of the commodity market. Compared to other brands, MPC's brand barrier is relatively strong but not unique, hence a score of 7."
+  },
+  "m2_patents_regulatory": {
+    "score": 2,
+    "comment_zh": "Marathon Petroleum (MPC) 所處的煉油與行銷產業，其核心競爭力並非來自專利或獨特技術，而是依賴於規模經濟、營運效率及市場准入。雖然公司需遵守嚴格的環保法規，並可能因技術升級而產生相關支出，但這些法規並未構成獨特的專利壁壘，反而可能增加營運成本。其競爭優勢更多體現在對現有技術的優化應用與規模化生產，而非專利保護。因此，在專利與監管壁壘方面得分較低，為 2 分。",
+    "comment_en": "The refining and marketing industry in which Marathon Petroleum (MPC) operates does not derive its core competitiveness from patents or unique technologies, but rather relies on economies of scale, operational efficiency, and market access. Although the company must comply with strict environmental regulations and may incur related expenses for technological upgrades, these regulations do not constitute a unique patent barrier and may even increase operating costs. Its competitive advantages are more reflected in the optimized application of existing technologies and large-scale production, rather than patent protection. Therefore, the score for patents and regulatory barriers is low, at 2 points."
+  },
+  "m3_high_switching_costs": {
+    "score": 4,
+    "comment_zh": "Marathon Petroleum (MPC) 的轉換成本相對較低，尤其是在其零售加油站業務。消費者選擇加油站時，價格、便利性及品牌偏好是主要考量，更換品牌的成本幾乎為零。對於 B2B 客戶，如批發商或企業客戶，雖然有供應鏈的穩定性考量，但若有更優惠的價格或服務，轉換供應商的可能性依然存在。MPC 的業務模式並未內建高昂的客戶轉換成本，這限制了其定價權的持久性，故此項評分為 4 分。",
+    "comment_en": "Marathon Petroleum (MPC) has relatively low switching costs, especially in its retail gas station business. When consumers choose a gas station, price, convenience, and brand preference are the main considerations, and the cost of switching brands is almost zero. For B2B customers, such as wholesalers or corporate clients, while there are considerations for supply chain stability, the possibility of switching suppliers still exists if there are more favorable prices or services. MPC's business model does not inherently build in high customer switching costs, which limits the durability of its pricing power, hence this rating is 4."
+  },
+  "m4_network_effects": {
+    "score": 3,
+    "comment_zh": "Marathon Petroleum (MPC) 的業務模式，特別是煉油與批發分銷，較少受到網絡效應的顯著影響。雖然其龐大的加油站網絡（如 Speedway）能帶來一定的規模優勢和品牌可見度，但這更多是規模經濟的體現，而非典型的網絡效應，即用戶越多，服務價值越高的情況。在加油站零售端，網絡效應微弱；在煉油與批發端，客戶關係和供應鏈效率更為關鍵。因此，網絡效應並非 MPC 的核心競爭壁壘，評分為 3 分。",
+    "comment_en": "Marathon Petroleum (MPC)'s business model, particularly refining and wholesale distribution, is less significantly impacted by network effects. While its extensive network of gas stations (like Speedway) offers some scale advantages and brand visibility, this is more a reflection of economies of scale rather than typical network effects, where more users lead to greater service value. On the retail gas station side, network effects are weak; on the refining and wholesale side, customer relationships and supply chain efficiency are more critical. Therefore, network effects are not a core competitive barrier for MPC, scoring 3 points."
+  },
+  "m5_cost_advantage_scale": {
+    "score": 9,
+    "comment_zh": "Marathon Petroleum (MPC) 在規模經濟方面擁有顯著且強大的優勢。作為美國最大的煉油商之一，其龐大的煉油產能、廣泛的運輸網絡（包括管道、碼頭和鐵路）以及龐大的零售加油站網絡，共同構成了難以逾越的成本壁壘。規模化運營降低了單位生產成本、採購成本和物流成本。這種規模優勢使其在行業整合和應對市場波動時具有極強的競爭力，能夠以更低的成本生產和分銷，從而擠壓小型競爭對手的生存空間。此項壁壘極為堅固，給予 9 分。",
+    "comment_en": "Marathon Petroleum (MPC) possesses a significant and strong advantage in economies of scale. As one of the largest refiners in the US, its vast refining capacity, extensive transportation network (including pipelines, terminals, and railways), and large retail gas station network collectively form an insurmountable cost barrier. Large-scale operations reduce unit production costs, procurement costs, and logistics costs. This scale advantage gives it strong competitiveness in industry consolidation and market volatility response, enabling it to produce and distribute at a lower cost, thereby squeezing out smaller competitors. This barrier is extremely robust, earning a score of 9."
+  },
+  "m6_unique_geography_assets": {
+    "score": 7,
+    "comment_zh": "Marathon Petroleum (MPC) 擁有獨特的地理資產配置，尤其是在美國關鍵的煉油中心和運輸樞紐。其煉油廠大多位於戰略位置，靠近原油供應源或主要消費市場，並擁有連接這些地點的專屬或優先使用的管道網絡。這些地理上的優勢，結合其龐大的基礎設施，使得其物流效率和供應鏈韌性遠超一般競爭者。這種對關鍵地理位置和基礎設施的控制，構成了顯著的競爭壁壘，難以被複製，故評為 7 分。",
+    "comment_en": "Marathon Petroleum (MPC) possesses a unique geographical asset allocation, particularly in key US refining hubs and transportation corridors. Most of its refineries are strategically located near crude oil supply sources or major consumer markets, and it owns dedicated or priority access to pipeline networks connecting these locations. These geographical advantages, combined with its extensive infrastructure, result in significantly higher logistics efficiency and supply chain resilience compared to typical competitors. This control over critical geographic locations and infrastructure constitutes a significant and difficult-to-replicate competitive barrier, hence the score of 7."
+  },
+  "m7_operational_efficiency": {
+    "score": 8,
+    "comment_zh": "Marathon Petroleum (MPC) 在營運效率方面表現卓越，這得益於其先進的煉油技術、精細化的生產管理以及龐大網絡帶來的協同效應。公司持續投資於技術升級和流程優化，以提高煉油效率、降低能耗和排放。其 F-Score 高達 8/9，顯示其財務狀況穩健，營運管理水平優秀。結合其極高的 ROE (63.0%) 和 ROA (14.3%)，證明了其將資產轉化為利潤的強大能力。這種持續的營運優勢是其堅實的護城河之一，評為 8 分。",
+    "comment_en": "Marathon Petroleum (MPC) excels in operational efficiency, thanks to its advanced refining technologies, meticulous production management, and the synergistic effects derived from its vast network. The company continuously invests in technological upgrades and process optimization to enhance refining efficiency, reduce energy consumption, and lower emissions. Its high F-Score of 8/9 indicates a robust financial position and excellent operational management. Combined with its very high ROE (63.0%) and ROA (14.3%), it demonstrates a strong ability to convert assets into profits. This sustained operational advantage is one of its solid moats, scoring 8."
+  },
+  "m8_capital_allocation": {
+    "score": 8,
+    "comment_zh": "Marathon Petroleum (MPC) 的管理層在資本配置方面展現出高度的紀律性和智慧。公司在維持強勁的自由現金流（FCF TTM: $20,842.0M）的同時，積極進行股票回購和股息支付，有效提升股東回報。其資產負債表相對健康，現金儲備充足（$13,609.0M），負債水平可控（$34,454.0M）。管理層能夠在擴張、回購和償債之間取得平衡，並專注於能產生高額回報的業務。這種明智的資本配置策略，是其長期價值創造的關鍵，故評為 8 分。",
+    "comment_en": "Marathon Petroleum (MPC)'s management demonstrates high discipline and wisdom in capital allocation. While maintaining strong free cash flow (FCF TTM: $20,842.0M), the company actively engages in share buybacks and dividend payments, effectively enhancing shareholder returns. Its balance sheet is relatively healthy, with ample cash reserves ($13,609.0M) and manageable debt levels ($34,454.0M). Management effectively balances expansion, buybacks, and debt repayment, focusing on businesses that generate high returns. This prudent capital allocation strategy is key to its long-term value creation, earning a score of 8."
+  },
+  "m9_customer_retention": {
+    "score": 6,
+    "comment_zh": "Marathon Petroleum (MPC) 在客戶保留方面具有一定的實力，尤其是在其 Speedway 加油站品牌。忠誠的客戶群體和會員計劃有助於維持穩定的銷售額。然而，在批發和工業客戶層面，雖然有長期合約和供應鏈關係，但價格和服務的競爭依然激烈，客戶轉換的可能性不能完全排除。與其強大的規模經濟相比，客戶忠誠度帶來的壁壘相對較弱，不足以形成絕對的壟斷地位。因此，此項評分為 6 分。",
+    "comment_en": "Marathon Petroleum (MPC) has some strength in customer retention, particularly with its Speedway gas station brand. A loyal customer base and loyalty programs help maintain stable sales. However, at the wholesale and industrial customer levels, while long-term contracts and supply chain relationships exist, competition based on price and service remains intense, and the possibility of customer switching cannot be entirely ruled out. Compared to its strong economies of scale, the barrier created by customer loyalty is relatively weaker and insufficient to form an absolute monopoly. Therefore, this rating is 6."
+  },
+  "m10_durability": {
+    "score": 7,
+    "comment_zh": "Marathon Petroleum (MPC) 的業務模式具有相當的持久性，儘管能源產業面臨轉型壓力。其核心的煉油與燃料分銷業務，在可預見的未來仍是經濟體運轉的必需品。公司龐大的基礎設施和規模經濟提供了顯著的競爭優勢，使其能夠抵禦短期市場波動和競爭壓力。雖然長期來看，向可再生能源轉型是趨勢，但 MPC 透過其卓越的營運效率和明智的資本配置，有能力適應變化並維持其市場地位。其業務的基礎性使其具有較強的持久性，評為 7 分。",
+    "comment_en": "Marathon Petroleum (MPC)'s business model possesses considerable durability, despite the energy industry facing transformation pressures. Its core refining and fuel distribution business remains essential for the economy's operation in the foreseeable future. The company's vast infrastructure and economies of scale provide significant competitive advantages, enabling it to withstand short-term market volatility and competitive pressures. Although the long-term trend is a transition to renewable energy, MPC, through its excellent operational efficiency and prudent capital allocation, is capable of adapting to changes and maintaining its market position. The fundamental nature of its business gives it strong durability, scoring 7."
+  },
+  "overall_moat_verdict_zh": "Marathon Petroleum (MPC) 展現出一個典型的「商品型」企業的護城河特徵，其核心競爭力主要來自於無與倫比的規模經濟（M5）和獨特的地理資產配置（M6），這兩者共同構成了極高的進入壁壘和成本優勢。此外，卓越的營運效率（M7）和明智的資本配置（M8）進一步鞏固了其市場地位和盈利能力。品牌（M1）和客戶保留（M9）提供了一定的支持，但並非其最核心的壁壘。專利/監管（M2）和網絡效應（M4）則相對較弱。總體而言，MPC 擁有堅固的經濟護城河，使其能夠在競爭激烈的能源煉製與行銷市場中持續獲利，但其業務本質使其難以完全擺脫大宗商品價格波動的影響。",
+  "overall_moat_verdict_en": "Marathon Petroleum (MPC) exhibits moat characteristics typical of a 'commodity-like' business, with its core competitive strengths stemming primarily from unparalleled economies of scale (M5) and unique geographical asset configuration (M6), which together form extremely high entry barriers and cost advantages. Furthermore, excellent operational efficiency (M7) and prudent capital allocation (M8) further solidify its market position and profitability. Brand (M1) and customer retention (M9) offer some support but are not its most critical barriers. Patents/regulatory (M2) and network effects (M4) are relatively weaker. Overall, MPC possesses a robust economic moat that enables it to consistently profit in the competitive energy refining and marketing market, though the nature of its business makes it difficult to completely escape the impact of commodity price volatility.",
+  "evidenceHash": "14ecab40770688e8fa554030d03be81c885255b1c2bbca25064c6bd870ea1db1",
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
+}
