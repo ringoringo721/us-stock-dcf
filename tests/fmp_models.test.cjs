@@ -176,6 +176,9 @@ test('Detail and ten-year UI expose confidence and dual-terminal hooks', () => {
   assert.match(models, /id="fmp-peer-multiples"/);
   assert.match(models, /id="fmp-fy-history"/);
   assert.match(models, /id="fmp-fy-history-ttm"/);
+  assert.match(models, /id="fmp-fy-history-ttm-status"/);
+  assert.match(models, /TTM_CASHFLOW_UNAVAILABLE/);
+  assert.match(models, /TTM_NOT_NEWER_THAN_LATEST_FY/);
   assert.doesNotMatch(models, /id="fmp-fy-history-chart"/);
   assert.match(models, /id="fmp-growth-default-note"/);
   assert.match(models, /id="fmp-capital-provenance"/);

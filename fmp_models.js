@@ -119,7 +119,15 @@
       OFFICIAL_CORRECTION_REVIEW: ['官方財報已更正或需審閱口徑差異；信心降為中。', 'Official statement corrections or basis differences require review; confidence is medium.'],
       GROWTH_REQUIRES_MANUAL_INPUT: ['歷史營收成長過高或波動過大，不自動填入以免假精度；請手動輸入。', 'Historical revenue growth is too high or volatile to autofill without false precision; enter growth manually.'],
       HISTORICAL_GROWTH_OUTLIER: ['歷史營收 CAGR 超出自動填入上限，僅作參考。', 'Historical revenue CAGR exceeds the autofill ceiling; shown as reference only.'],
-      DATED_CURVE_TENOR_UNAVAILABLE: ['此年期在已標日期的美元公債常數到期曲線中無官方刊載（常見缺 4／6／8／9Y）；未改寫 retained-capital 無風險利率。', 'This tenor has no official constant-maturity Treasury publication on the dated USD curve (typically 4/6/8/9Y); the retained-capital risk-free rate was not overwritten.']
+      DATED_CURVE_TENOR_UNAVAILABLE: ['此年期在已標日期的美元公債常數到期曲線中無官方刊載（常見缺 4／6／8／9Y）；未改寫 retained-capital 無風險利率。', 'This tenor has no official constant-maturity Treasury publication on the dated USD curve (typically 4/6/8/9Y); the retained-capital risk-free rate was not overwritten.'],
+      TTM_LATEST_FY_UNAVAILABLE: ['缺少可用的最新完整財年，無法建立 TTM 參考列。', 'Latest full fiscal year is unavailable; a TTM reference row cannot be built.'],
+      TTM_US_ONLY: ['TTM 參考列僅適用非港股上市代號。', 'TTM reference row applies only to non-HK listing symbols.'],
+      TTM_QUARTERS_UNAVAILABLE: ['不足四個連續季報收入列（含幣別核對後），無法建立 TTM。', 'Fewer than four consecutive quarterly income rows (after currency matching); TTM cannot be built.'],
+      TTM_QUARTERS_NON_CONSECUTIVE: ['最近四個季報並非連續財季，略過 TTM 參考列。', 'The latest four quarterly income rows are not consecutive fiscal quarters; TTM is omitted.'],
+      TTM_CASHFLOW_UNAVAILABLE: ['最近四個季報收入缺同日同季現金流量表，略過 TTM（常見於最新一季現金流尚未入庫）。', 'A matching same-date/period cash-flow row is missing for the trailing four income quarters; TTM is omitted (often the newest quarter’s cash flow is not yet in cache).'],
+      TTM_NOT_NEWER_THAN_LATEST_FY: ['TTM 窗口並未新於最新完整財年（季報止於財年末），故不另列 TTM。', 'TTM window is not newer than the latest full fiscal year (quarters end on the FY close); no separate TTM row.'],
+      TTM_REVENUE_UNAVAILABLE: ['TTM 營收非正數，略過參考列。', 'TTM revenue is nonpositive; the reference row is omitted.'],
+      TTM_EQUALS_LATEST_FY: ['TTM 與最新完整財年比率／營收實質相同，不重複列示。', 'TTM ratios/revenue essentially match the latest full fiscal year; the duplicate row is omitted.']
     };
     return messages[reason]?.[language === 'en' ? 1 : 0] || reason || '';
   }
@@ -252,7 +260,12 @@
     if (!scenario.netDebtBasis) {
       scenario.netDebtBasis = finite(scenario.netDebt) && scenario.netDebt < 0 ? 'net-cash' : 'net-debt';
     }
-    if (!scenario.terminalGrowthReference) scenario.terminalGrowthReference = { ...Scenario.TERMINAL_GROWTH_REFERENCE };
+    // Repair missing or incomplete refs (empty {} is truthy and would break .toFixed in the UI).
+    if (!finite(scenario.terminalGrowthReference?.bandLow)
+        || !finite(scenario.terminalGrowthReference?.bandHigh)
+        || !finite(scenario.terminalGrowthReference?.value)) {
+      scenario.terminalGrowthReference = { ...Scenario.TERMINAL_GROWTH_REFERENCE };
+    }
     if (!finite(scenario.terminalGrowth) && scenario.terminalGrowthOrigin !== 'user') {
       scenario.terminalGrowth = Scenario.TERMINAL_GROWTH_REFERENCE.value;
       scenario.terminalGrowthOrigin = Scenario.TERMINAL_GROWTH_REFERENCE.origin;
@@ -462,6 +475,12 @@
     const ttmRow = ttm ? `<tr id="fmp-fy-history-ttm"><th>TTM<small>${escape(ttm.date)}</small></th>${
       metricKeys.map(key => `<td>${finite(ttm[key]) ? `${ttm[key].toFixed(2)}%` : 'N/A'}</td>`).join('')
     }</tr>` : '';
+    // When TTM is gated off, still show an explicit N/A + reason (MU FY-end quarters,
+    // SKHY missing newest cash-flow quarter, HK listings, etc.) instead of a silent gap.
+    const ttmStatus = !ttm && history.ttm?.reason
+      ? `<p class="analysis-note" id="fmp-fy-history-ttm-status">TTM: N/A — ${escape(
+        reasonText(history.ttm.reason, state.language()) || history.ttm.reason)}</p>`
+      : '';
     const summaryBits = [
       finite(history.summary.revenueCagr) ? `${text('營收 CAGR', 'Revenue CAGR')} ${history.summary.revenueCagr.toFixed(2)}%` : null,
       ...metricKeys.map(key => {
@@ -475,7 +494,8 @@
     ].filter(Boolean);
     return `<section id="fmp-fy-history"><h4>${text('近五年實績參考（數字摘要，不改寫輸入）', 'Last five FY reference (numeric summary; does not rewrite inputs)')}</h4>
       <p class="analysis-note" id="fmp-fy-history-summary">${escape(summaryBits.join(' · '))}</p>
-      <div class="table-scroll-wrapper"><table id="fmp-fy-history-table"><thead><tr><th>${text('財年', 'FY')}</th>${head}</tr></thead><tbody>${body}${ttmRow}</tbody></table></div></section>`;
+      <div class="table-scroll-wrapper"><table id="fmp-fy-history-table"><thead><tr><th>${text('財年', 'FY')}</th>${head}</tr></thead><tbody>${body}${ttmRow}</tbody></table></div>
+      ${ttmStatus}</section>`;
   }
 
   function growthDefaultNoteHtml(text, scenario) {
@@ -842,7 +862,9 @@
         '模型金額幣別／FX 尚未與財報完全核對；十年情境仍可用快取模型列，但請審閱換匯假設。',
         'Model currency/FX is not fully reconciled with financials; the ten-year scenario still uses cached model rows — review the FX assumptions.')} ${escape(reasonText(scenario.currencyWarning, state.language()) || scenario.currencyWarning)}</p>` : ''}
       ${(() => {
-        const ref = scenario.terminalGrowthReference || Scenario.TERMINAL_GROWTH_REFERENCE;
+        const rawRef = scenario.terminalGrowthReference;
+        const ref = finite(rawRef?.bandLow) && finite(rawRef?.bandHigh) && finite(rawRef?.value)
+          ? rawRef : Scenario.TERMINAL_GROWTH_REFERENCE;
         const tax = scenario.taxFiveYear;
         const netCash = scenario.netDebtBasis === 'net-cash' || scenario.netDebt < 0;
         const netLabel = netCash ? text('建議淨現金（可調整）', 'Suggested net cash (editable)')

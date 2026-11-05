@@ -432,13 +432,45 @@ test('optional TTM history row is omitted when end date is on or before the late
   for (const key of keys) assert.equal(key in live.ttm.metrics, true);
 });
 
+
+test('MU omits TTM when trailing quarters end on the latest FY close', () => {
+  const data = read('MU');
+  const statements = require('../cache/financials/MU_statements_v2.json');
+  const history = Scenario.fiveYearHistory(statements, data, 'advanced');
+  assert.equal(history.reason, null);
+  assert.equal(history.ttm?.included, false);
+  assert.equal(history.ttm?.reason, 'TTM_NOT_NEWER_THAN_LATEST_FY');
+});
+
+test('SKHY omits TTM when newest income quarter lacks matching cash flow', () => {
+  const statements = require('../cache/financials/SKHY_statements_v2.json');
+  const data = {
+    symbol: 'SKHY', currency: 'USD',
+    forecastBase: { year: 2025, date: '2025-12-31', source: 'test', reason: null },
+    currencyCheck: { sourceCurrency: 'KRW', currency: 'USD', reason: null }
+  };
+  const history = Scenario.fiveYearHistory(statements, data, 'advanced');
+  assert.equal(history.reason, null);
+  assert.equal(history.years.length, 5);
+  assert.equal(history.ttm?.included, false);
+  assert.equal(history.ttm?.reason, 'TTM_CASHFLOW_UNAVAILABLE');
+  const lastIncome = statements.quarterly.income
+    .filter(row => /^Q[1-4]$/.test(row.period))
+    .sort((a, b) => a.date.localeCompare(b.date)).at(-1);
+  assert.equal(lastIncome.date, '2026-09-30');
+  const hasCf = statements.quarterly.cashflow.some(row =>
+    row.date === lastIncome.date && row.period === lastIncome.period);
+  assert.equal(hasCf, false);
+});
+
 test('TTM history reference stays US-only and does not rewrite five-year averages', () => {
-  const data = { ...read('AAPL'), symbol: '0700.HK' };
-  const statements = require('../cache/financials/AAPL_statements_v2.json');
+  // AMD has post-FY quarters so TTM includes; AAPL/MU currently end TTM on FY close.
+  const data = { ...read('AMD'), symbol: '0700.HK' };
+  const statements = require('../cache/financials/AMD_statements_v2.json');
   const history = Scenario.fiveYearHistory(statements, data, 'advanced');
   assert.equal(history.ttm?.included, false);
   assert.equal(history.ttm?.reason, 'TTM_US_ONLY');
-  const us = Scenario.fiveYearHistory(statements, read('AAPL'), 'advanced');
+  const us = Scenario.fiveYearHistory(statements, read('AMD'), 'advanced');
   assert.equal(us.ttm?.included, true);
   const avgBefore = us.summary.ebitda.average;
   assert.ok(Number.isFinite(avgBefore));
