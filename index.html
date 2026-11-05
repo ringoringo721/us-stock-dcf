@@ -7209,108 +7209,111 @@
 
   // Shared LMB / RMB grab-to-pan for .table-scroll-wrapper (statements + DCF grids).
   // Natural pan: drag right → decrease scrollLeft (content follows the pointer).
-  function makeScrollable(box) {
-    if (!box || box.dataset.dragReady === 'true') return;
-    box.dataset.dragReady = 'true';
+  // One window controller (no per-box window listeners) so FMP/FCFF innerHTML rebinds do not leak.
+  const TABLE_DRAG_THRESHOLD_PX = 6;
+  const TABLE_PAN_SCALE = 1.6;
+  let tableDragActive = null;
 
-    let isDown = false;
-    let isRightButton = false;
-    let startX = 0;
-    let startY = 0;
-    let scrollLeft = 0;
-    let scrollTop = 0;
-    let dragMoved = false;
-    let suppressContextMenu = false;
-    const DRAG_THRESHOLD_PX = 6;
-    const PAN_SCALE = 1.6;
+  function isTableDragInteractiveTarget(target) {
+    if (!target || target.nodeType !== 1) return false;
+    const tag = target.tagName;
+    if (tag === 'A' || tag === 'BUTTON' || tag === 'INPUT' || tag === 'SELECT'
+        || tag === 'TEXTAREA' || tag === 'OPTION' || tag === 'LABEL') return true;
+    if (target.isContentEditable) return true;
+    return !!target.closest('a, button, input, select, textarea, label, [contenteditable="true"]');
+  }
 
-    const isInteractiveTarget = (target) => {
-      if (!target || target.nodeType !== 1) return false;
-      const tag = target.tagName;
-      if (tag === 'A' || tag === 'BUTTON' || tag === 'INPUT' || tag === 'SELECT'
-          || tag === 'TEXTAREA' || tag === 'OPTION' || tag === 'LABEL') return true;
-      if (target.isContentEditable) return true;
-      return !!target.closest('a, button, input, select, textarea, label, [contenteditable="true"]');
-    };
-
-    box.addEventListener('mousedown', (e) => {
-      // Primary (LMB) keeps screener / table drag; secondary (RMB) is explicit hold-to-pan.
-      if (e.button !== 0 && e.button !== 2) return;
-      if (isInteractiveTarget(e.target)) return;
-      isDown = true;
-      isRightButton = e.button === 2;
-      dragMoved = false;
-      suppressContextMenu = false;
+  function endTableDrag() {
+    const active = tableDragActive;
+    if (!active) return;
+    const { box, dragMoved, isRightButton } = active;
+    tableDragActive = null;
+    box.style.cursor = 'grab';
+    box.style.removeProperty('user-select');
+    if (!dragMoved) return;
+    // Suppress only the contextmenu that browsers fire right after an RMB drag release.
+    if (isRightButton) box.dataset.suppressContextMenu = '1';
+    box.dataset.dragMoved = '1';
+    window.__screenerDragMoved = true;
+    setTimeout(() => {
       box.dataset.dragMoved = '0';
+      window.__screenerDragMoved = false;
+      setTimeout(() => { box.dataset.suppressContextMenu = '0'; }, 50);
+    }, 0);
+  }
+
+  function ensureTableDragPan() {
+    if (window.__tableDragPanReady) return;
+    window.__tableDragPanReady = true;
+
+    document.addEventListener('mousedown', (e) => {
+      if (e.button !== 0 && e.button !== 2) return;
+      const box = e.target.closest?.('.table-scroll-wrapper');
+      if (!box) return;
+      if (isTableDragInteractiveTarget(e.target)) return;
+      tableDragActive = {
+        box,
+        isRightButton: e.button === 2,
+        startX: e.pageX,
+        startY: e.pageY,
+        scrollLeft: box.scrollLeft,
+        scrollTop: box.scrollTop,
+        dragMoved: false
+      };
+      box.dataset.dragMoved = '0';
+      box.dataset.suppressContextMenu = '0';
       window.__screenerDragMoved = false;
       box.style.cursor = 'grabbing';
       box.style.userSelect = 'none';
-      startX = e.pageX;
-      startY = e.pageY;
-      scrollLeft = box.scrollLeft;
-      scrollTop = box.scrollTop;
-    });
+    }, true);
 
-    const endDrag = () => {
-      if (!isDown) return;
-      const moved = dragMoved;
-      const wasRight = isRightButton;
-      isDown = false;
-      isRightButton = false;
-      box.style.cursor = 'grab';
-      box.style.removeProperty('user-select');
-      if (moved) {
-        // Suppress the context menu that browsers fire after an RMB drag release.
-        if (wasRight) suppressContextMenu = true;
-        box.dataset.dragMoved = '1';
-        window.__screenerDragMoved = true;
-        // Clear after the synthetic click that follows mouseup.
-        setTimeout(() => {
-          box.dataset.dragMoved = '0';
-          window.__screenerDragMoved = false;
-          setTimeout(() => { suppressContextMenu = false; }, 50);
-        }, 0);
-      }
-    };
-
-    window.addEventListener('mouseup', endDrag);
-    box.addEventListener('mouseleave', () => {
-      // Preserve prior LMB leave-to-cancel; keep RMB pan alive via window listeners.
-      if (!isRightButton) endDrag();
-    });
-
-    // Window move so RMB pan continues outside the overflow box.
     window.addEventListener('mousemove', (e) => {
-      if (!isDown) return;
-      const dx = e.pageX - startX;
-      const dy = e.pageY - startY;
-      if (Math.hypot(dx, dy) >= DRAG_THRESHOLD_PX) {
-        dragMoved = true;
-        if (isRightButton) suppressContextMenu = true;
-        box.dataset.dragMoved = '1';
+      const active = tableDragActive;
+      if (!active) return;
+      const dx = e.pageX - active.startX;
+      const dy = e.pageY - active.startY;
+      if (Math.hypot(dx, dy) >= TABLE_DRAG_THRESHOLD_PX) {
+        active.dragMoved = true;
+        if (active.isRightButton) active.box.dataset.suppressContextMenu = '1';
+        active.box.dataset.dragMoved = '1';
         window.__screenerDragMoved = true;
       }
       // RMB: wait for a short drag before panning so a plain right-click can still open a menu.
-      if (isRightButton && !dragMoved) return;
+      if (active.isRightButton && !active.dragMoved) return;
       e.preventDefault();
-      box.scrollLeft = scrollLeft - dx * PAN_SCALE;
-      box.scrollTop = scrollTop - dy * PAN_SCALE;
+      active.box.scrollLeft = active.scrollLeft - dx * TABLE_PAN_SCALE;
+      active.box.scrollTop = active.scrollTop - dy * TABLE_PAN_SCALE;
     });
 
-    box.addEventListener('contextmenu', (e) => {
-      if (!suppressContextMenu && !dragMoved) return;
+    window.addEventListener('mouseup', endTableDrag);
+
+    document.addEventListener('contextmenu', (e) => {
+      const box = e.target.closest?.('.table-scroll-wrapper');
+      if (!box || box.dataset.suppressContextMenu !== '1') return;
       e.preventDefault();
       e.stopPropagation();
-    });
+    }, true);
 
     // Capture-phase: swallow the click that browsers fire after a drag release.
-    box.addEventListener('click', (e) => {
+    document.addEventListener('click', (e) => {
+      const box = e.target.closest?.('.table-scroll-wrapper');
+      if (!box) return;
       if (box.dataset.dragMoved !== '1' && !window.__screenerDragMoved) return;
       e.preventDefault();
       e.stopPropagation();
       box.dataset.dragMoved = '0';
       window.__screenerDragMoved = false;
     }, true);
+  }
+
+  function makeScrollable(box) {
+    if (!box || box.dataset.dragReady === 'true') return;
+    box.dataset.dragReady = 'true';
+    ensureTableDragPan();
+    // mouseleave does not bubble — keep a lightweight per-box LMB leave-to-cancel.
+    box.addEventListener('mouseleave', () => {
+      if (tableDragActive?.box === box && !tableDragActive.isRightButton) endTableDrag();
+    });
   }
   window.makeScrollable = makeScrollable;
 
@@ -7321,14 +7324,15 @@
   }
 
   function initInteractions() {
+    ensureTableDragPan();
     // 綁定首頁總表
     const mainBox = document.getElementById('main-scroll-box');
     if (mainBox) makeScrollable(mainBox);
 
-    // 綁定所有帶有橫向滾動的表格容器
+    // 綁定所有帶有橫向滾動的表格容器（LMB leave-to-cancel + cursor helpers）
     bindTableScrollWrappers(document);
 
-    // FMP / FCFF / statement panels recreate wrappers via innerHTML — auto-bind newcomers.
+    // FMP / FCFF / statement panels recreate wrappers via innerHTML — refresh leave handlers.
     if (!window.__tableScrollObserver && typeof MutationObserver === 'function') {
       window.__tableScrollObserver = new MutationObserver((mutations) => {
         for (const mutation of mutations) {
