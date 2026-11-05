@@ -824,14 +824,14 @@
       ${growthDefaultNoteHtml(text, scenario)}
       ${capitalProvenanceHtml(text, scenario)}
       ${historyPanelHtml(text)}
-      <div class="table-scroll-wrapper"><table id="fmp-ten-year-inputs"><thead><tr><th>${text('假設／來源', 'Assumption / source')}</th><th id="fmp-actual-period">${actual.header}</th>${scenario.years.map(item => `<th>${item.year}</th>`).join('')}</tr></thead><tbody>
+      <div class="table-scroll-wrapper"><table id="fmp-ten-year-inputs"><thead><tr><th class="fmp-sticky-col fmp-sticky-label">${text('假設／來源', 'Assumption / source')}</th><th class="fmp-sticky-col fmp-sticky-actual" id="fmp-actual-period">${actual.header}</th>${scenario.years.map(item => `<th>${item.year}</th>`).join('')}</tr></thead><tbody>
         ${Scenario.activeFields(state.kind, scenario).map(([key, zh, en, min, max]) => {
           const label = key === 'rf'
             ? `${escape(text(zh, en))}${rfTenorControlHtml(text, scenario)}`
             : key === 'beta'
               ? `${escape(text(zh, en))}${betaRowLookbackHtml(text)}`
               : escape(text(zh, en));
-          return `<tr data-scenario-field="${key}"><th>${label}</th><td data-actual-key="${key}">${actual.cells[key]}</td>${scenario.years.map((item, index) => `<td class="fmp-assumption-cell" data-year-index="${index}" data-year="${item.year}">
+          return `<tr data-scenario-field="${key}"><th class="fmp-sticky-col fmp-sticky-label">${label}</th><td class="fmp-sticky-col fmp-sticky-actual" data-actual-key="${key}">${actual.cells[key]}</td>${scenario.years.map((item, index) => `<td class="fmp-assumption-cell" data-year-index="${index}" data-year="${item.year}">
           <div class="fmp-assumption-stack">
           <input aria-label="${escape(text(zh, en))} ${item.year}" data-scenario-key="${key}" data-scenario-year="${index}" type="number" step="any" min="${min}" max="${max}" required placeholder="N/A" title="${escape(item.values[key] ?? '')}" value="${inputValue(key, item.values[key])}">
           <small class="fmp-assumption-origin" data-origin="${index}-${key}">${escape(originText(item.origins[key], text))}</small>
