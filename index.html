@@ -504,6 +504,14 @@
     #earnings-panel .balance-controls { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     .detail-header { display: flex; justify-content: space-between; align-items: center; background: var(--card-bg); border: 1px solid var(--card-border); padding: 14px 20px; border-radius: 8px; margin-bottom: 20px; flex-wrap: wrap; gap: 12px; }
     .detail-title { font-size: 18px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+    .company-nav-group { display: inline-flex; align-items: center; gap: 4px; margin-right: 4px; }
+    .company-nav-btn {
+      background: var(--card-border); color: var(--text); border: none; width: 30px; height: 30px;
+      border-radius: 6px; cursor: pointer; font-weight: 700; font-size: 14px; line-height: 1;
+      display: inline-flex; align-items: center; justify-content: center; padding: 0;
+    }
+    .company-nav-btn:hover:not(:disabled) { background: var(--button-bg); color: var(--accent); }
+    .company-nav-btn:disabled { opacity: 0.35; cursor: default; }
     .btn-back { background: var(--card-border); color: var(--text); border: none; padding: 7px 14px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 13px; }
     .btn-back:hover { background: var(--button-bg); }
     .btn-save { background: var(--accent-hover); color: var(--text); border: none; padding: 7px 14px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 13px; }
@@ -2097,6 +2105,10 @@
   <div id="company-view">
     <div class="detail-header">
       <div class="detail-title">
+        <span class="company-nav-group" role="group" aria-label="Adjacent stocks">
+          <button type="button" id="cmp-nav-prev" class="company-nav-btn" onclick="navigateAdjacentCompany(-1)" data-i18n-title="btn_prev_stock" title="上一檔（←）" aria-label="上一檔">‹</button>
+          <button type="button" id="cmp-nav-next" class="company-nav-btn" onclick="navigateAdjacentCompany(1)" data-i18n-title="btn_next_stock" title="下一檔（→）" aria-label="下一檔">›</button>
+        </span>
         <span id="cmp-ticker" style="color: var(--accent); font-size: 24px;">NVDA</span>
         <span id="cmp-name" style="font-size: 18px; color: var(--text);">輝達</span>
         <span id="cmp-exchange" class="badge">NASDAQ</span>
@@ -3451,6 +3463,8 @@
       btn_reset_defaults: "恢復來源與模型預設",
       btn_back_list: "← 返回總表",
       btn_goto_dcf: "📈 前往估值模型",
+      btn_prev_stock: "上一檔（←）",
+      btn_next_stock: "下一檔（→）",
       det_label_fair: "每股合理內在價值 (公允價值 / 自訂目標)",
       det_label_price: "當前市價 vs 溢價幅度",
       det_label_wacc: "加權折現成本 (WACC / Ke) / 終值 g",
@@ -4068,6 +4082,8 @@
       btn_reset_defaults: "Reset Source / Model Defaults",
       btn_back_list: "← Back to List",
       btn_goto_dcf: "📈 DCF Valuation Model",
+      btn_prev_stock: "Previous stock (←)",
+      btn_next_stock: "Next stock (→)",
       det_label_fair: "Fair Intrinsic Value per Share (DCF / Target)",
       det_label_price: "Market Price vs Premium %",
       det_label_wacc: "Discount Cost (WACC / Ke) / Terminal g",
@@ -6952,6 +6968,7 @@
     syncTvMetricFilterChips();
     window.__screenerLastList = list;
     window.__screenerRowByTicker = Object.fromEntries(list.map(item => [item.ticker, item]));
+    syncCompanyNavControls();
 
     const pageKey = JSON.stringify([MarketContext.market, searchVal, currentValFilter, currentSectorFilter, currentIndustryParentFilter, currentSubIndustryFilter, screenerMetricFilters, sortField, sortAsc]);
     if (pageKey !== screenerPageKey) { screenerVisibleRows = 100; screenerPageKey = pageKey; }
@@ -7302,6 +7319,7 @@
     } else if (viewName === 'company') {
       document.getElementById('company-view').style.display = 'block';
       loadCompanyProfile(activeCompanyTicker);
+      syncCompanyNavControls();
       if (pushState) history.pushState({ view: 'company', ticker: activeCompanyTicker, tab: 'basic' }, '', `#${activeCompanyTicker}/profile`);
     } else if (viewName === 'funds') {
       if (fundsView) fundsView.style.display = 'block';
@@ -7322,11 +7340,98 @@
     showView('screener', true);
   }
 
+  // Adjacent company navigation (←/→). Order: last screener filtered+sorted list
+  // when it still contains the current ticker; otherwise Object.keys(stockUniverse).
+  // No wrap at ends — first/last disable the corresponding control.
+  function companyNavTickers() {
+    const universe = Object.keys(stockUniverse);
+    const fromScreener = Array.isArray(window.__screenerLastList)
+      ? window.__screenerLastList.map(item => item?.ticker).filter(ticker => ticker && stockUniverse[ticker])
+      : [];
+    if (fromScreener.length && (!activeCompanyTicker || fromScreener.includes(activeCompanyTicker))) {
+      return fromScreener;
+    }
+    return universe;
+  }
+
+  function getActiveCompanyTab() {
+    const activeBtn = document.querySelector('#company-view .sub-tab-btn.active');
+    const onclick = activeBtn?.getAttribute('onclick') || '';
+    const match = onclick.match(/switchSubPage\(\s*['"]([^'"]+)['"]/);
+    if (match) return match[1];
+    const activePage = document.querySelector('#company-view .subpage-content.active');
+    if (activePage?.id?.startsWith('subpage-')) return activePage.id.slice('subpage-'.length);
+    return history.state?.tab || 'basic';
+  }
+
+  function isCompanyNavTypingTarget(target) {
+    if (!target || target === document.body || target === document.documentElement) return false;
+    const el = target.nodeType === 1 ? target : target.parentElement;
+    if (!el) return false;
+    if (el.isContentEditable || el.closest?.('[contenteditable="true"]')) return true;
+    const tag = (el.tagName || '').toUpperCase();
+    if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return true;
+    if (el.closest?.('input, textarea, select, [contenteditable="true"]')) return true;
+    return false;
+  }
+
+  function syncCompanyNavControls() {
+    const prev = document.getElementById('cmp-nav-prev');
+    const next = document.getElementById('cmp-nav-next');
+    if (!prev || !next) return;
+    const company = document.getElementById('company-view');
+    const onCompany = company && company.style.display === 'block';
+    const list = companyNavTickers();
+    const idx = list.indexOf(activeCompanyTicker);
+    prev.disabled = !onCompany || idx <= 0;
+    next.disabled = !onCompany || idx < 0 || idx >= list.length - 1;
+    const dict = I18N_DICT[currentLang] || {};
+    if (dict.btn_prev_stock) {
+      prev.title = dict.btn_prev_stock;
+      prev.setAttribute('aria-label', dict.btn_prev_stock);
+    }
+    if (dict.btn_next_stock) {
+      next.title = dict.btn_next_stock;
+      next.setAttribute('aria-label', dict.btn_next_stock);
+    }
+  }
+
+  function navigateAdjacentCompany(delta) {
+    const company = document.getElementById('company-view');
+    if (!company || company.style.display !== 'block') return false;
+    const list = companyNavTickers();
+    const idx = list.indexOf(activeCompanyTicker);
+    if (idx < 0) return false;
+    const nextIdx = idx + delta;
+    if (nextIdx < 0 || nextIdx >= list.length) return false;
+    const tab = getActiveCompanyTab();
+    const nextTicker = list[nextIdx];
+    if (!nextTicker || nextTicker === activeCompanyTicker) return false;
+    activeCompanyTicker = nextTicker;
+    showView('company', false);
+    switchSubPage(tab, true);
+    syncCompanyNavControls();
+    return true;
+  }
+
+  document.addEventListener('keydown', event => {
+    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+    if (event.ctrlKey || event.metaKey || event.altKey) return;
+    if (isCompanyNavTypingTarget(event.target)) return;
+    const company = document.getElementById('company-view');
+    if (!company || company.style.display !== 'block') return;
+    // Price chart owns ←/→ when the canvas has focus.
+    if (event.target?.closest?.('#price-chart, #price-volume-chart')) return;
+    const moved = navigateAdjacentCompany(event.key === 'ArrowLeft' ? -1 : 1);
+    if (moved) event.preventDefault();
+  });
+
   window.onpopstate = function(e) {
     if (e.state && e.state.view === 'company' && e.state.ticker) {
       activeCompanyTicker = e.state.ticker;
       showView('company', false);
       switchSubPage(e.state.tab || 'basic', false);
+      syncCompanyNavControls();
     }
     else if (e.state && e.state.view === 'funds') {
       cameFromFundsDirectory = true;
