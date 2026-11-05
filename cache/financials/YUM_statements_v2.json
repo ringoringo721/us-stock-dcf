@@ -780,7 +780,7 @@
         "reportedCurrency": "USD",
         "cik": "0001041061",
         "filingDate": "2026-11-03",
-        "acceptedDate": "2026-11-02 19:00:00",
+        "acceptedDate": "2026-11-03 08:07:58",
         "fiscalYear": "2026",
         "period": "Q3",
         "revenue": 2054000000,
@@ -2863,8 +2863,8 @@
         "symbol": "YUM",
         "reportedCurrency": "USD",
         "cik": "0001041061",
-        "filingDate": null,
-        "acceptedDate": null,
+        "filingDate": "2026-11-03",
+        "acceptedDate": "2026-11-03 08:07:58",
         "fiscalYear": "2026",
         "period": "Q3",
         "netIncome": 1623000000,
@@ -2904,8 +2904,8 @@
         "operatingCashFlow": 475000000,
         "capitalExpenditure": -87000000,
         "freeCashFlow": 388000000,
-        "incomeTaxesPaid": null,
-        "interestPaid": null
+        "incomeTaxesPaid": 0,
+        "interestPaid": 0
       },
       {
         "date": "2026-06-30",
