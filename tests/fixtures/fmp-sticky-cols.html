@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>FMP sticky cols smoke</title>
+<style>
+  :root {
+    --sticky-bg: #181818;
+    --header-bg: #222;
+    --card-bg: #1a1a1a;
+    --card-border: #444;
+    --shadow: rgba(0,0,0,0.45);
+    --text: #eee;
+    --accent: #38bdf8;
+    --bg: #111;
+  }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: sans-serif; }
+  .table-scroll-wrapper {
+    width: 640px; max-height: 320px; overflow: auto; position: relative;
+    background: var(--card-bg); border: 1px solid var(--card-border);
+  }
+  #fmp-ten-year-inputs {
+    --fmp-sticky-label-w: 260px;
+    --fmp-sticky-actual-w: 150px;
+    display: table !important;
+    width: max-content !important;
+    min-width: 2050px !important;
+    table-layout: fixed !important;
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+  }
+  #fmp-ten-year-inputs th, #fmp-ten-year-inputs td {
+    padding: 12px 14px; border-bottom: 1px solid var(--card-border);
+    border-right: 1px solid var(--card-border); text-align: right;
+  }
+  #fmp-ten-year-inputs .fmp-sticky-col {
+    position: sticky !important;
+    background: var(--sticky-bg) !important;
+    z-index: 12 !important;
+    white-space: normal;
+    box-sizing: border-box !important;
+  }
+  #fmp-ten-year-inputs .fmp-sticky-label {
+    left: 0 !important;
+    width: var(--fmp-sticky-label-w) !important;
+    min-width: var(--fmp-sticky-label-w) !important;
+    max-width: var(--fmp-sticky-label-w) !important;
+    text-align: left !important;
+  }
+  #fmp-ten-year-inputs .fmp-sticky-actual {
+    left: var(--fmp-sticky-label-w) !important;
+    width: var(--fmp-sticky-actual-w) !important;
+    min-width: var(--fmp-sticky-actual-w) !important;
+    max-width: var(--fmp-sticky-actual-w) !important;
+    text-align: right !important;
+    border-right: 2px solid var(--card-border) !important;
+    box-shadow: 4px 0 8px var(--shadow) !important;
+  }
+  #fmp-ten-year-inputs thead th.fmp-sticky-col {
+    top: 0 !important;
+    z-index: 40 !important;
+    background: var(--header-bg) !important;
+  }
+  #fmp-ten-year-inputs td.fmp-assumption-cell { min-width: 158px; width: 158px; }
+</style>
+</head>
+<body>
+  <div class="table-scroll-wrapper" id="wrap">
+    <table id="fmp-ten-year-inputs">
+      <thead>
+        <tr>
+          <th class="fmp-sticky-col fmp-sticky-label">假設／來源</th>
+          <th class="fmp-sticky-col fmp-sticky-actual" id="fmp-actual-period">實際全年參考<small>2026-09-26</small></th>
+          <th>2027</th><th>2028</th><th>2029</th><th>2030</th><th>2031</th>
+          <th>2032</th><th>2033</th><th>2034</th><th>2035</th><th>2036</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-scenario-field="growth">
+          <th class="fmp-sticky-col fmp-sticky-label">營收增長 (%)</th>
+          <td class="fmp-sticky-col fmp-sticky-actual" data-actual-key="growth">12.34</td>
+          <td class="fmp-assumption-cell">1</td><td class="fmp-assumption-cell">2</td>
+          <td class="fmp-assumption-cell">3</td><td class="fmp-assumption-cell">4</td>
+          <td class="fmp-assumption-cell">5</td><td class="fmp-assumption-cell">6</td>
+          <td class="fmp-assumption-cell">7</td><td class="fmp-assumption-cell">8</td>
+          <td class="fmp-assumption-cell">9</td><td class="fmp-assumption-cell">10</td>
+        </tr>
+        <tr data-scenario-field="tax">
+          <th class="fmp-sticky-col fmp-sticky-label">稅率 (%)</th>
+          <td class="fmp-sticky-col fmp-sticky-actual" data-actual-key="tax">21.00</td>
+          <td class="fmp-assumption-cell">a</td><td class="fmp-assumption-cell">b</td>
+          <td class="fmp-assumption-cell">c</td><td class="fmp-assumption-cell">d</td>
+          <td class="fmp-assumption-cell">e</td><td class="fmp-assumption-cell">f</td>
+          <td class="fmp-assumption-cell">g</td><td class="fmp-assumption-cell">h</td>
+          <td class="fmp-assumption-cell">i</td><td class="fmp-assumption-cell">j</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <pre id="out"></pre>
+  <script>
+    const wrap = document.getElementById('wrap');
+    const label = document.querySelector('.fmp-sticky-label');
+    const actual = document.querySelector('.fmp-sticky-actual');
+    const year = document.querySelector('.fmp-assumption-cell');
+    const before = {
+      label: label.getBoundingClientRect().left,
+      actual: actual.getBoundingClientRect().left,
+      year: year.getBoundingClientRect().left
+    };
+    wrap.scrollLeft = 420;
+    const after = {
+      label: label.getBoundingClientRect().left,
+      actual: actual.getBoundingClientRect().left,
+      year: year.getBoundingClientRect().left
+    };
+    const result = {
+      before, after,
+      labelStuck: Math.abs(after.label - before.label) < 1,
+      actualStuck: Math.abs(after.actual - before.actual) < 1,
+      yearMoved: after.year < before.year - 100,
+      actualLeftOfYears: after.actual < after.year,
+      gap: after.actual - after.label
+    };
+    document.getElementById('out').textContent = JSON.stringify(result, null, 2);
+    document.title = (result.labelStuck && result.actualStuck && result.yearMoved) ? 'PASS' : 'FAIL';
+  </script>
+</body>
+</html>
