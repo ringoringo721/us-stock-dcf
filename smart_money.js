@@ -1,7 +1,7 @@
-/**
- * Smart Money / 13F helpers — WhaleCreep-style stock holders + fund books.
- * Curated 20 remain an optional highlight; primary stock view is broad FMP analytics.
- */
+  /**
+   * Smart Money helpers — WhaleCreep-style 13F holders/fund books + timely Form 4 moves.
+   * Curated 20 remain an optional 13F highlight; Form 4 is a separate near-real-time lane.
+   */
 (function (root, factory) {
   const api = factory();
   if (typeof module === 'object' && module.exports) module.exports = api;
@@ -43,6 +43,14 @@
   const LIVE_FUND_QUARTERS = 8;
   /** Live stock holder walk upper bound (seed still slim; Preview uses committed quarters). */
   const LIVE_STOCK_QUARTERS = 8;
+  /** Form 4 / Section 16 timely trades shown on #TICKER/smart-money (not a full 13F book). */
+  const FORM4_TRADE_CAP = 40;
+  const FORM4_LIVE_LIMIT = 40;
+
+  const FORM4_SIDE_LABELS = {
+    zh: { buy: '買入', sell: '賣出', other: '其他' },
+    en: { buy: 'Buy', sell: 'Sell', other: 'Other' },
+  };
 
   function padCik(value) {
     const digits = String(value == null ? '' : value).replace(/\D/g, '');
@@ -749,6 +757,232 @@
       liveErrors: liveErrors || [],
       snapshot: buildStockSnapshot(symbol, [], [], {}),
     };
+  }
+
+  function safeHttpUrl(value) {
+    try {
+      const url = new URL(String(value || ''));
+      return url.protocol === 'https:' || url.protocol === 'http:' ? url.href : null;
+    } catch {
+      return null;
+    }
+  }
+
+  function form4SideLabel(isBuy, lang = 'zh') {
+    const dict = lang === 'en' ? FORM4_SIDE_LABELS.en : FORM4_SIDE_LABELS.zh;
+    if (isBuy === true) return dict.buy;
+    if (isBuy === false) return dict.sell;
+    return dict.other;
+  }
+
+  /**
+   * Normalize FMP insider-trading/search (Form 4) rows into the Smart Money Form 4 shape.
+   * Marks curated-20 when reportingCik matches (e.g. Berkshire as 10% owner on SIRI).
+   */
+  function normalizeForm4Trade(row, symbol) {
+    const ticker = String(symbol || row?.symbol || '').toUpperCase();
+    if (!ticker || !row || typeof row !== 'object') return null;
+    if (row.symbol && String(row.symbol).toUpperCase() !== ticker) return null;
+    // Already-slim seed / meta shape
+    if (row.name && (row.filingDate || row.transactionDate || row.date)
+        && (row.action || row.is_buy != null) && row.securitiesTransacted == null
+        && row.reportingName == null) {
+      const cik = padCik(row.reportingCik);
+      const shares = finite(row.shares);
+      const price = finite(row.price);
+      let isBuy = row.is_buy;
+      if (isBuy !== true && isBuy !== false) {
+        const action = String(row.action || '');
+        isBuy = /^P(?:-|$)/.test(action) ? true : /^S(?:-|$)/.test(action) ? false : null;
+      }
+      return {
+        symbol: ticker,
+        filingDate: row.filingDate || null,
+        transactionDate: row.transactionDate || null,
+        date: row.date || row.filingDate || row.transactionDate || null,
+        name: String(row.name || 'Filer'),
+        title: row.title || null,
+        reportingCik: cik,
+        companyCik: padCik(row.companyCik),
+        formType: row.formType || '4',
+        is_buy: isBuy,
+        action: row.action || null,
+        acquisitionOrDisposition: row.acquisitionOrDisposition || null,
+        shares: shares == null ? null : Math.abs(shares),
+        price,
+        total_val: finite(row.total_val) ?? (price != null && shares != null
+          ? Math.abs(shares) * price / 1e6 : null),
+        securitiesOwned: finite(row.securitiesOwned),
+        url: safeHttpUrl(row.url),
+        isCurated: row.isCurated === true || isCuratedCik(cik),
+        securityName: row.securityName || null,
+      };
+    }
+    const sharesRaw = finite(row.securitiesTransacted);
+    if (sharesRaw == null) return null;
+    const price = finite(row.price);
+    const action = String(row.transactionType || row.action || '');
+    const isBuy = /^P(?:-|$)/.test(action) ? true
+      : /^S(?:-|$)/.test(action) ? false : null;
+    const cik = padCik(row.reportingCik);
+    return {
+      symbol: ticker,
+      filingDate: row.filingDate || null,
+      transactionDate: row.transactionDate || null,
+      date: row.filingDate || row.transactionDate || null,
+      name: String(row.reportingName || row.name || 'Filer'),
+      title: row.typeOfOwner || row.title || null,
+      reportingCik: cik,
+      companyCik: padCik(row.companyCik),
+      formType: row.formType || '4',
+      is_buy: isBuy,
+      action: action || null,
+      acquisitionOrDisposition: row.acquisitionOrDisposition || null,
+      shares: Math.abs(sharesRaw),
+      price,
+      total_val: price != null ? Math.abs(sharesRaw) * price / 1e6 : null,
+      securitiesOwned: finite(row.securitiesOwned),
+      url: safeHttpUrl(row.url),
+      isCurated: isCuratedCik(cik),
+      securityName: row.securityName || null,
+    };
+  }
+
+  function slimForm4Trades(rows, symbol, { limit = FORM4_TRADE_CAP } = {}) {
+    const ticker = String(symbol || '').toUpperCase();
+    const out = [];
+    const seen = new Set();
+    for (const row of rows || []) {
+      const trade = normalizeForm4Trade(row, ticker);
+      if (!trade) continue;
+      const key = [
+        trade.filingDate || '', trade.transactionDate || '', trade.reportingCik || '',
+        trade.action || '', trade.shares ?? '', trade.price ?? '', trade.url || '',
+      ].join('|');
+      if (seen.has(key)) continue;
+      seen.add(key);
+      out.push(trade);
+      if (out.length >= limit) break;
+    }
+    return out;
+  }
+
+  function loadForm4Cache(ticker) {
+    const symbol = encodeURIComponent(String(ticker || '').toUpperCase());
+    return fetch(`cache/smart-money/form4/${symbol}.json`, { cache: 'no-store' }).then(async (response) => {
+      if (!response.ok) throw new Error(`FORM4_CACHE_MISS:${response.status}`);
+      const body = await response.json();
+      if (!body || body.ticker !== String(ticker).toUpperCase()) throw new Error('FORM4_CACHE_MISMATCH');
+      const trades = slimForm4Trades(body.trades || body.insider_trades || [], body.ticker);
+      return {
+        ticker: body.ticker,
+        source: body.seed ? 'cache' : (body.source?.provider || 'cache'),
+        seed: body.seed === true,
+        capturedAt: body.capturedAt || null,
+        disclaimer: body.disclaimer || null,
+        trades,
+        raw: body,
+      };
+    });
+  }
+
+  function loadForm4Live(ticker, options = {}) {
+    const symbol = String(ticker || '').toUpperCase();
+    const limit = Math.max(1, Math.min(FORM4_LIVE_LIMIT, Number(options.limit) || FORM4_LIVE_LIMIT));
+    const qs = new URLSearchParams({
+      action: 'insider-trading',
+      symbol,
+      page: '0',
+      limit: String(limit),
+    });
+    return fetch(`/api/fmp?${qs}`).then(async (response) => {
+      if (!response.ok) {
+        let detail = String(response.status);
+        try {
+          const body = await response.json();
+          if (body?.error) detail = `${response.status}:${body.error}`;
+        } catch { /* ignore */ }
+        throw new Error(`FORM4_LIVE_FAILED:${detail}`);
+      }
+      const body = await response.json();
+      const rows = Array.isArray(body) ? body : body?.data || [];
+      return {
+        ticker: symbol,
+        source: 'live',
+        seed: false,
+        capturedAt: body?.source?.capturedAt || new Date().toISOString(),
+        disclaimer: null,
+        trades: slimForm4Trades(rows, symbol, { limit }),
+        raw: body,
+      };
+    });
+  }
+
+  /**
+   * Form 4 load order: committed seed → live FMP proxy → empty (honest).
+   * Optional `stock.insider_trades` / `fallbackTrades` can fill when both miss (Profile meta).
+   */
+  function loadForm4(ticker, options = {}) {
+    const symbol = String(ticker || '').toUpperCase();
+    const skipLive = options.skipLive === true;
+    const fallback = slimForm4Trades(
+      options.fallbackTrades || options.stock?.insider_trades || [],
+      symbol,
+    );
+    return loadForm4Cache(symbol).then((cached) => {
+      if (cached.trades.length) return cached;
+      throw new Error('FORM4_CACHE_EMPTY');
+    }).catch((cacheError) => {
+      if (skipLive) {
+        if (fallback.length) {
+          return {
+            ticker: symbol,
+            source: 'stock-meta',
+            seed: false,
+            capturedAt: null,
+            disclaimer: null,
+            trades: fallback,
+            notice: String(cacheError.message || cacheError),
+          };
+        }
+        return {
+          ticker: symbol,
+          source: 'empty',
+          seed: false,
+          capturedAt: null,
+          trades: [],
+          notice: String(cacheError.message || cacheError),
+        };
+      }
+      return loadForm4Live(symbol, options).then((live) => {
+        if (live.trades.length) return live;
+        if (fallback.length) {
+          return { ...live, source: 'stock-meta', trades: fallback, notice: 'FORM4_LIVE_EMPTY' };
+        }
+        return { ...live, source: 'empty', notice: 'FORM4_LIVE_EMPTY' };
+      }).catch((liveError) => {
+        if (fallback.length) {
+          return {
+            ticker: symbol,
+            source: 'stock-meta',
+            seed: false,
+            capturedAt: null,
+            trades: fallback,
+            notice: String(liveError.message || liveError),
+            cacheError: String(cacheError.message || cacheError),
+          };
+        }
+        return {
+          ticker: symbol,
+          source: 'empty',
+          seed: false,
+          capturedAt: null,
+          trades: [],
+          notice: String(liveError.message || liveError),
+          cacheError: String(cacheError.message || cacheError),
+        };
+      });
+    });
   }
 
   function loadQuarterLive(ticker, year, quarter) {
@@ -1544,6 +1778,8 @@
     FUND_EXTRACT_MAX,
     LIVE_FUND_QUARTERS,
     LIVE_STOCK_QUARTERS,
+    FORM4_TRADE_CAP,
+    FORM4_LIVE_LIMIT,
     padCik,
     finite,
     slugify,
@@ -1586,6 +1822,12 @@
     loadFund,
     loadStockCache,
     loadFundCache,
+    normalizeForm4Trade,
+    slimForm4Trades,
+    form4SideLabel,
+    loadForm4Cache,
+    loadForm4Live,
+    loadForm4,
     fundSeedFilename,
     loadCuratedByTickerIndex,
     resetCuratedByTickerCache,

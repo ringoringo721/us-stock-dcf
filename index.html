@@ -977,6 +977,7 @@
     #cmp-smart-money-holders th, #cmp-smart-money-holders td,
     #cmp-smart-money-exits th, #cmp-smart-money-exits td,
     #cmp-smart-money-curated th, #cmp-smart-money-curated td,
+    #cmp-smart-money-form4 th, #cmp-smart-money-form4 td,
     #fund-holdings th, #fund-holdings td,
     #fund-exits th, #fund-exits td,
     #fund-history th, #fund-history td {
@@ -2602,6 +2603,19 @@
         </div>
         <p class="analysis-note" data-i18n="analysis_smart_money_note">WhaleCreep 風格：追蹤該股近期 13F 申報的機構／對沖基金持倉（組合權重、市值、股數、Δ、動作）。策展 20 家僅作亮點標示。資料來自 FMP 機構持倉端點。</p>
         <p id="smart-money-disclaimer" class="analysis-note" role="note" data-i18n="analysis_smart_money_lag">13F 為季度申報，法定可於季末後最多約 45 日才公開；本站快取可能再延遲。數字為歷史已申報多頭倉，非即時持倉，亦非投資建議。</p>
+
+        <div class="panel-title" style="font-size:15px;margin-top:8px;" data-i18n="sec_smart_money_form4">近期 Form 4／內部人與 10% 大戶動向</div>
+        <p class="analysis-note" data-i18n="analysis_smart_money_form4_note">Form 4（及相關及時申報）反映內部人、董事與部分 10% 大戶的買賣，通常比季度 13F 快許多日。此處<strong>不是</strong>完整 13F 持倉帳簿；策展機構若以 Form 4 申報（例如波克夏），會另外標示。</p>
+        <p id="smart-money-form4-disclaimer" class="analysis-note" role="note" data-i18n="analysis_smart_money_form4_lag">Form 4 多在交易後兩個營業日內申報；本站經 FMP 轉送並可能再延遲。種子／Preview 可能顯示快照而非即時。非投資建議。</p>
+        <p id="smart-money-form4-status" class="analysis-note" role="status"></p>
+        <div class="table-scroll-wrapper company-analysis-scroll" style="margin-bottom: 22px;">
+          <table id="cmp-smart-money-form4" class="historical-ratio-table company-analysis-table">
+            <thead><tr id="cmp-smart-money-form4-thead"></tr></thead>
+            <tbody id="cmp-smart-money-form4-tbody"></tbody>
+          </table>
+        </div>
+
+        <div class="panel-title" style="font-size:15px;" data-i18n="sec_smart_money_13f">季度 13F 機構持倉</div>
         <p id="smart-money-status" class="analysis-note" role="status"></p>
         <div id="smart-money-kpi-grid" class="tv-kpi-grid" aria-live="polite"></div>
         <div class="panel-title" style="font-size:15px;" data-i18n="sec_smart_money_holders">持有者（最近一季）</div>
@@ -3595,6 +3609,22 @@
       analysis_smart_money_lag: "13F 為季度申報，法定可於季末後最多約 45 日才公開；本站快取可能再延遲。數字為歷史已申報多頭倉，非即時持倉，亦非投資建議。",
       analysis_smart_money_hk: "港股不適用美國 13F 智資追蹤（無對等公開機構持倉節奏）。",
       analysis_smart_money_curated_note: "人工策展的智資名單若出現在上方持倉表，會在此再次彙總以便快速掃描。",
+      sec_smart_money_form4: "近期 Form 4／內部人與 10% 大戶動向",
+      analysis_smart_money_form4_note: "Form 4（及相關及時申報）反映內部人、董事與部分 10% 大戶的買賣，通常比季度 13F 快許多日。此處<strong>不是</strong>完整 13F 持倉帳簿；策展機構若以 Form 4 申報（例如波克夏），會另外標示。",
+      analysis_smart_money_form4_lag: "Form 4 多在交易後兩個營業日內申報；本站經 FMP 轉送並可能再延遲。種子／Preview 可能顯示快照而非即時。非投資建議。",
+      analysis_smart_money_form4_hk: "港股不適用美國 Form 4／Section 16 申報追蹤。",
+      sec_smart_money_13f: "季度 13F 機構持倉",
+      th_sm_form4_filing: "申報日",
+      th_sm_form4_txn: "交易日",
+      th_sm_form4_filer: "申報人",
+      th_sm_form4_relation: "關係／職位",
+      th_sm_form4_type: "類型",
+      th_sm_form4_shares: "股數",
+      th_sm_form4_price: "價格 ($)",
+      th_sm_form4_value: "金額 ($M)",
+      th_sm_form4_link: "申報",
+      lbl_sm_form4_filing: "EDGAR",
+      lbl_sm_form4_curated: "策展",
       sec_smart_money_holders: "持有者（最近一季）",
       sec_smart_money_exits: "本季出清",
       sec_smart_money_curated: "策展 20 亮點",
@@ -4214,6 +4244,22 @@
       analysis_smart_money_lag: "13F filings are quarterly and may publish up to ~45 days after quarter-end; site cache may lag further. Figures are historical reported long holdings — not real-time positions or investment advice.",
       analysis_smart_money_hk: "HK listings are N/A for US 13F Smart Money tracking (no equivalent public institutional cadence).",
       analysis_smart_money_curated_note: "Curated smart-money names that appear in the holders table are re-listed here for a quick scan.",
+      sec_smart_money_form4: "Recent Form 4 / insider & 10% owner moves",
+      analysis_smart_money_form4_note: "Form 4 (and related timely filings) show insider, director, and some 10%+ owner buys/sells — usually days, not ~45 days like 13F. This is <strong>not</strong> a full 13F book; curated names that file Form 4 (e.g. Berkshire) are badge-highlighted.",
+      analysis_smart_money_form4_lag: "Form 4 is often due within two business days of the trade; FMP relay and site cache may add lag. Seeds / Preview may show a snapshot, not live. Not investment advice.",
+      analysis_smart_money_form4_hk: "HK listings are N/A for US Form 4 / Section 16 tracking.",
+      sec_smart_money_13f: "Quarterly 13F institutional holders",
+      th_sm_form4_filing: "Filed",
+      th_sm_form4_txn: "Trade date",
+      th_sm_form4_filer: "Reporting owner",
+      th_sm_form4_relation: "Relation / title",
+      th_sm_form4_type: "Type",
+      th_sm_form4_shares: "Shares",
+      th_sm_form4_price: "Price ($)",
+      th_sm_form4_value: "Value ($M)",
+      th_sm_form4_link: "Filing",
+      lbl_sm_form4_filing: "EDGAR",
+      lbl_sm_form4_curated: "Curated",
       sec_smart_money_holders: "Holders (latest quarter)",
       sec_smart_money_exits: "Exited this quarter",
       sec_smart_money_curated: "Curated 20 highlight",
@@ -9162,6 +9208,102 @@
     return `<a class="sm-manager-link" href="${escapeAttribute(link.href)}" onclick="event.preventDefault(); openFundPage('${escapeAttribute(link.slug)}');">${escapeAttribute(label)}</a>${badge}`;
   }
 
+  function renderSmartMoneyForm4Rows(trades, SM, isEn, dict, emptyMsg) {
+    if (!trades?.length) {
+      return `<tr><td class="table-sticky-col text-muted" colspan="9">${escapeAttribute(emptyMsg)}</td></tr>`;
+    }
+    return trades.map((t) => {
+      const side = t.is_buy === true
+        ? `<span class="badge badge-undervalued">${escapeAttribute(SM.form4SideLabel(true, isEn ? 'en' : 'zh'))}</span>`
+        : t.is_buy === false
+          ? `<span class="badge badge-overvalued">${escapeAttribute(SM.form4SideLabel(false, isEn ? 'en' : 'zh'))}</span>`
+          : `<span class="badge">${escapeAttribute(t.action || SM.form4SideLabel(null, isEn ? 'en' : 'zh'))}</span>`;
+      const curated = t.isCurated
+        ? ` <span class="badge" title="curated">${escapeAttribute(dict.lbl_sm_form4_curated)}</span>`
+        : '';
+      const link = t.url
+        ? `<a href="${escapeAttribute(t.url)}" target="_blank" rel="noopener noreferrer">${escapeAttribute(dict.lbl_sm_form4_filing)}</a>`
+        : '—';
+      const valColor = t.is_buy === true ? 'text-green' : t.is_buy === false ? 'text-red' : 'text-muted';
+      const shares = Number.isFinite(t.shares) ? Number(t.shares).toLocaleString() : '—';
+      const price = Number.isFinite(t.price) ? t.price.toFixed(2) : 'N/A';
+      const total = Number.isFinite(t.total_val) ? `${t.total_val.toFixed(2)}M` : 'N/A';
+      return `<tr>
+        <td class="table-sticky-col" style="text-align:left;color:var(--text-muted);">${escapeAttribute(t.filingDate || t.date || '—')}</td>
+        <td style="text-align:left;color:var(--text-muted);">${escapeAttribute(t.transactionDate || '—')}</td>
+        <td style="text-align:left;font-weight:700;color:var(--text);">${escapeAttribute(t.name || '—')}${curated}</td>
+        <td style="text-align:left;color:var(--text-secondary);">${escapeAttribute(t.title || '—')}</td>
+        <td style="text-align:center;">${side}</td>
+        <td style="font-weight:600;">${shares}</td>
+        <td>${price}</td>
+        <td class="${valColor}" style="font-weight:700;">${total}</td>
+        <td>${link}</td>
+      </tr>`;
+    }).join('');
+  }
+
+  function renderSmartMoneyForm4Section(ticker, stock, SM, isEn, dict) {
+    const status = document.getElementById('smart-money-form4-status');
+    const head = document.getElementById('cmp-smart-money-form4-thead');
+    const body = document.getElementById('cmp-smart-money-form4-tbody');
+    if (!status || !body || !SM) return Promise.resolve();
+    if (head) {
+      head.innerHTML = `<th class="table-sticky-col">${dict.th_sm_form4_filing}</th>`
+        + `<th>${dict.th_sm_form4_txn}</th><th>${dict.th_sm_form4_filer}</th>`
+        + `<th>${dict.th_sm_form4_relation}</th><th>${dict.th_sm_form4_type}</th>`
+        + `<th>${dict.th_sm_form4_shares}</th><th>${dict.th_sm_form4_price}</th>`
+        + `<th>${dict.th_sm_form4_value}</th><th>${dict.th_sm_form4_link}</th>`;
+    }
+    if (!SM.isUsListed(stock || { ticker })) {
+      status.className = 'analysis-note';
+      status.textContent = dict.analysis_smart_money_form4_hk;
+      body.innerHTML = `<tr><td class="table-sticky-col text-muted" colspan="9">N/A</td></tr>`;
+      return Promise.resolve();
+    }
+    status.className = 'analysis-note';
+    status.textContent = isEn ? 'Loading Form 4…' : '載入 Form 4 中…';
+    body.innerHTML = '';
+    return SM.loadForm4(ticker, {
+      fallbackTrades: stock?.insider_trades || [],
+    }).then((result) => {
+      if (activeCompanyTicker !== ticker) return;
+      const trades = result.trades || [];
+      const curatedN = trades.filter(row => row.isCurated).length;
+      const buys = trades.filter(row => row.is_buy === true).length;
+      const sells = trades.filter(row => row.is_buy === false).length;
+      if (!trades.length) {
+        status.className = 'sm-alert-empty';
+        status.innerHTML = isEn
+          ? '<strong>No recent Form 4 rows</strong><br>No seed, live FMP, or Profile insider meta for this ticker.'
+          : '<strong>尚無近期 Form 4</strong><br>此股無種子、即時 FMP 或 Profile 內部人快取。';
+        body.innerHTML = renderSmartMoneyForm4Rows([], SM, isEn, dict,
+          isEn ? 'No Form 4 / insider filings on file.' : '尚無 Form 4／內部人申報。');
+        return;
+      }
+      status.className = 'analysis-note';
+      const src = result.source === 'cache' ? (isEn ? 'seed/cache' : '種子／快取')
+        : result.source === 'live' ? (isEn ? 'live FMP' : '即時 FMP')
+          : result.source === 'stock-meta' ? (isEn ? 'Profile meta' : 'Profile 快取')
+            : escapeAttribute(String(result.source || ''));
+      status.textContent = `${ticker} · Form 4 · ${trades.length}`
+        + ` · ${isEn ? 'buys' : '買'} ${buys} · ${isEn ? 'sells' : '賣'} ${sells}`
+        + (curatedN ? ` · ${isEn ? 'curated filers' : '策展申報'} ${curatedN}` : '')
+        + ` · ${src}`
+        + (result.capturedAt ? ` · ${String(result.capturedAt).slice(0, 10)}` : '');
+      body.innerHTML = renderSmartMoneyForm4Rows(trades, SM, isEn, dict,
+        isEn ? 'No Form 4 / insider filings on file.' : '尚無 Form 4／內部人申報。');
+      document.querySelectorAll('#subpage-smart-money .table-scroll-wrapper').forEach(box => makeScrollable(box));
+    }).catch((error) => {
+      if (activeCompanyTicker !== ticker) return;
+      status.className = 'sm-alert-error';
+      status.innerHTML = isEn
+        ? `<strong>Form 4 unavailable</strong><br><code>${escapeAttribute(String(error.message || error))}</code>`
+        : `<strong>Form 4 不可用</strong><br><code>${escapeAttribute(String(error.message || error))}</code>`;
+      body.innerHTML = `<tr class="sm-alert-error-row"><td class="table-sticky-col" colspan="9">${
+        isEn ? 'Failed to load Form 4.' : '載入 Form 4 失敗。'}</td></tr>`;
+    });
+  }
+
   function renderSmartMoneyHolderRows(rows, SM, isEn, emptyMsg) {
     if (!rows?.length) {
       return `<tr><td class="table-sticky-col text-muted" colspan="6">${escapeAttribute(emptyMsg)}</td></tr>`;
@@ -9184,6 +9326,8 @@
     const ticker = activeCompanyTicker || stockObj?.ticker || 'NVDA';
     const stock = stockObj || stockUniverse[ticker];
     const status = document.getElementById('smart-money-status');
+    const form4Status = document.getElementById('smart-money-form4-status');
+    const form4Body = document.getElementById('cmp-smart-money-form4-tbody');
     const kpiGrid = document.getElementById('smart-money-kpi-grid');
     const holdersHead = document.getElementById('cmp-smart-money-holders-thead');
     const holdersBody = document.getElementById('cmp-smart-money-holders-tbody');
@@ -9199,12 +9343,16 @@
     holdersBody.innerHTML = '';
     exitsBody.innerHTML = '';
     curatedBody.innerHTML = '';
+    if (form4Body) form4Body.innerHTML = '';
     if (kpiGrid) kpiGrid.innerHTML = '';
 
     if (!SM) {
       status.textContent = isEn ? 'Smart Money module unavailable.' : '智資模組不可用。';
+      if (form4Status) form4Status.textContent = status.textContent;
       return;
     }
+    // Form 4 lane loads in parallel with 13F (seed → live → Profile meta).
+    renderSmartMoneyForm4Section(ticker, stock, SM, isEn, dict);
     if (!SM.isUsListed(stock || { ticker })) {
       status.textContent = dict.analysis_smart_money_hk;
       holdersBody.innerHTML = `<tr><td class="table-sticky-col text-muted" colspan="6">N/A</td></tr>`;

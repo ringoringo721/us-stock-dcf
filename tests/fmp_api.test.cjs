@@ -253,6 +253,64 @@ test('institutional-extract prefers FMP row investorName when map missing', asyn
   assert.equal(SmartMoney.holderNameForCik('0002147005'), 'FENELON OPPORTUNITY FUND INC.');
 });
 
+test('insider-trading proxies Form 4 search with curated reporting CIKs and stays private', async () => {
+  const handler = createHandler({ apiKey: () => 'test-placeholder', fetch: async url => {
+    assert.equal(url.pathname, '/stable/insider-trading/search');
+    assert.equal(url.searchParams.get('symbol'), 'SIRI');
+    assert.equal(url.searchParams.get('page'), '0');
+    assert.equal(url.searchParams.get('limit'), '40');
+    return {
+      ok: true,
+      json: async () => ([
+        {
+          symbol: 'SIRI', filingDate: '2026-11-03', transactionDate: '2026-11-02',
+          reportingCik: '1067983', reportingName: 'BERKSHIRE HATHAWAY INC',
+          transactionType: 'P-Purchase', securitiesTransacted: 100, price: 30,
+          formType: '4', url: 'https://www.sec.gov/x',
+        },
+        {
+          symbol: 'SIRI', filingDate: '2026-10-01', transactionDate: '2026-09-30',
+          reportingCik: '9999999999', reportingName: 'RANDOM OFFICER',
+          transactionType: 'S-Sale', securitiesTransacted: 5, price: 20,
+          formType: '4',
+        },
+      ]),
+    };
+  } });
+  const result = await call(handler,
+    '/api/fmp?action=insider-trading&symbol=SIRI&page=0&limit=40');
+  assert.equal(result.status, 200);
+  assert.equal(result.body.data.length, 2);
+  assert.equal(result.body.data[0].reportingCik, '0001067983');
+  assert.equal(result.body.data[0].isCurated, true);
+  assert.equal(result.body.data[1].isCurated, false);
+  assert.equal(result.body.source.cappedAt, SmartMoney.FORM4_TRADE_CAP);
+  assert.match(String(result.headers['Cache-Control'] || ''), /private/);
+  assert.equal((await call(handler,
+    '/api/fmp?action=insider-trading&symbol=SIRI&limit=99')).status, 400);
+  assert.equal((await call(createHandler({
+    apiKey: () => undefined,
+    fetch: () => { throw new Error('Must not fetch'); },
+  }), '/api/fmp?action=insider-trading&symbol=SIRI')).body.error, 'FMP_NOT_CONFIGURED');
+});
+
+test('insider-trading is rate-limited per IP', async () => {
+  const handler = createHandler({ apiKey: () => 'test-placeholder', fetch: async () => ({
+    ok: true,
+    json: async () => ([{ symbol: 'AAPL', reportingCik: '1', securitiesTransacted: 1,
+      transactionType: 'S-Sale', filingDate: '2026-01-01', reportingName: 'X' }]),
+  }) });
+  const ip = { 'x-forwarded-for': '203.0.113.77' };
+  for (let i = 0; i < 30; i += 1) {
+    assert.equal((await call(handler,
+      '/api/fmp?action=insider-trading&symbol=AAPL&limit=10', 'GET', ip)).status, 200);
+  }
+  const limited = await call(handler,
+    '/api/fmp?action=insider-trading&symbol=AAPL&limit=10', 'GET', ip);
+  assert.equal(limited.status, 429);
+  assert.equal(limited.body.error, 'INSIDER_TRADING_RATE_LIMITED');
+});
+
 test('institutional-extract is capped, CIK-allowlisted, and rate-private', async () => {
   let upstreamCalls = 0;
   const handler = createHandler({ apiKey: () => 'test-placeholder', fetch: async url => {

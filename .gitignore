@@ -15,6 +15,11 @@ __pycache__/
 /cache/smart-money/funds/**
 # Slug curated seeds + fund-{cik} full books + index (not bare CIK duplicates)
 !/cache/smart-money/funds/[a-z]*.json
+# Form 4 / Section 16 timely seeds (Preview without live FMP)
+!/cache/smart-money/form4/
+/cache/smart-money/form4/**
+!/cache/smart-money/form4/[A-Z0-9]*.json
+!/cache/smart-money/form4/README.md
 
 /.vercel/
 /public/

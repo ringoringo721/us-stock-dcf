@@ -31,6 +31,8 @@ const endpoints = {
   'institutional-holders': 'institutional-ownership/extract-analytics/holder',
   // Fund book extract — capped + rate-limited (used by #fund/SLUG manager page).
   'institutional-extract': 'institutional-ownership/extract',
+  // Form 4 / Section 16 timely trades — Smart Money near-real-time lane (not 13F).
+  'insider-trading': 'insider-trading/search',
 };
 
 /** In-memory per-IP budgets for document + 13F metadata actions (best-effort on serverless). */
@@ -42,6 +44,7 @@ const INSTITUTIONAL_RATE_MAX = 30;
 const INSTITUTIONAL_EXTRACT_RATE_MAX = 4;
 const RATE_LIMITED_ACTIONS = new Set([
   'sec-filings', 'transcript-dates', 'institutional-holders', 'institutional-extract',
+  'insider-trading',
 ]);
 
 function clientIp(req) {
@@ -66,7 +69,7 @@ function documentRateLimited(req, action) {
     }
   }
   const max = action === 'institutional-extract' ? INSTITUTIONAL_EXTRACT_RATE_MAX
-    : action === 'institutional-holders' ? INSTITUTIONAL_RATE_MAX
+    : action === 'institutional-holders' || action === 'insider-trading' ? INSTITUTIONAL_RATE_MAX
       : DOCUMENT_RATE_MAX;
   return bucket.count > max;
 }
@@ -103,6 +106,7 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
     const transcriptDates = action === 'transcript-dates';
     const institutionalHolders = action === 'institutional-holders';
     const institutionalExtract = action === 'institutional-extract';
+    const insiderTrading = action === 'insider-trading';
     // Reject legacy full-transcript action explicitly (was a paid-content scrape surface).
     if (action === 'earning-call-transcript') {
       return send(403, {
@@ -136,6 +140,7 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
           && !(transcriptDates && [].includes(key))
           && !(institutionalHolders && ['year', 'quarter', 'limit', 'page'].includes(key))
           && !(institutionalExtract && ['cik', 'year', 'quarter'].includes(key))
+          && !(insiderTrading && ['page', 'limit'].includes(key))
           && !(custom && Object.hasOwn(customParameters, key)))) {
       return send(400, { error: 'INVALID_REQUEST' });
     }
@@ -143,11 +148,13 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
       res.setHeader('Cache-Control', 'private, no-store');
       res.setHeader('Retry-After', '60');
       return send(429, { error: institutionalHolders || institutionalExtract
-        ? 'INSTITUTIONAL_RATE_LIMITED' : 'DOCUMENT_RATE_LIMITED' });
+        ? 'INSTITUTIONAL_RATE_LIMITED'
+        : insiderTrading ? 'INSIDER_TRADING_RATE_LIMITED' : 'DOCUMENT_RATE_LIMITED' });
     }
     const page = query.get('page') || '0';
     if (!/^\d{1,4}$/.test(page) || Number(page) > 1000
         || (action !== 'news' && action !== 'sec-filings' && action !== 'institutional-holders'
+          && action !== 'insider-trading'
           && query.has('page'))) {
       return send(400, { error: 'INVALID_PAGE' });
     }
@@ -202,6 +209,14 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
     }
     if (institutionalHolders && Number(page) > 20) {
       return send(400, { error: 'INVALID_PAGE' });
+    }
+    const insiderLimit = query.get('limit');
+    if (insiderTrading && Number(page) > 20) {
+      return send(400, { error: 'INVALID_PAGE' });
+    }
+    if (insiderTrading && insiderLimit && (!/^\d{1,3}$/.test(insiderLimit)
+        || Number(insiderLimit) < 1 || Number(insiderLimit) > 50)) {
+      return send(400, { error: 'INVALID_INSIDER_TRADING_REQUEST' });
     }
     const key = apiKey();
     if (!key) return send(503, { error: 'FMP_NOT_CONFIGURED' });
@@ -265,6 +280,10 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
     if (institutionalExtract) {
       url.searchParams.set('year', instYear);
       url.searchParams.set('quarter', instQuarter);
+    }
+    if (insiderTrading) {
+      url.searchParams.set('page', page);
+      url.searchParams.set('limit', insiderLimit || '40');
     }
     for (const [name, [minimum, maximum]] of Object.entries(customParameters)) {
       if (!query.has(name)) continue;
@@ -338,9 +357,9 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
         quarter: Number(instQuarter),
       }));
     } else {
-      // Dividends / segment / filings / transcript-dates / 13F analytics sometimes omit symbol.
+      // Dividends / segment / filings / transcript-dates / 13F / Form 4 sometimes omit symbol.
       const softSymbol = revenueSegments || dividends || secFilings || transcriptDates
-        || institutionalHolders;
+        || institutionalHolders || insiderTrading;
       data = rows.filter(row => row && (row.symbol == null || row.symbol === ''
         || row.symbol === provider || row.symbol === symbol));
       if (!softSymbol && data.length !== rows.length) {
@@ -374,9 +393,19 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
           isCurated: SmartMoney.isCuratedCik(row?.cik),
         }));
       }
+      // Form 4 — annotate curated reporting owners (e.g. Berkshire 10% owner); cap rows.
+      if (insiderTrading) {
+        data = data.slice(0, SmartMoney.FORM4_TRADE_CAP).map(row => ({
+          ...row,
+          reportingCik: SmartMoney.padCik(row.reportingCik),
+          companyCik: SmartMoney.padCik(row.companyCik),
+          isCurated: SmartMoney.isCuratedCik(row?.reportingCik),
+        }));
+      }
     }
-    // Paid / document / 13F metadata must not be edge-cached publicly.
-    if (secFilings || transcriptDates || institutionalHolders || institutionalExtract) {
+    // Paid / document / 13F / Form 4 metadata must not be edge-cached publicly.
+    if (secFilings || transcriptDates || institutionalHolders || institutionalExtract
+        || insiderTrading) {
       res.setHeader('Cache-Control', 'private, no-store');
     } else {
       res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=600');
@@ -403,7 +432,12 @@ function createHandler({ fetch: fetcher = globalThis.fetch, apiKey = () => proce
                 investorName: fromRows,
               }) || fromRows || null,
             };
-          })() : {}) } : {}) },
+          })() : {}) } : {}),
+      ...(insiderTrading ? {
+        page: Number(page),
+        limit: Number(insiderLimit || 40),
+        cappedAt: SmartMoney.FORM4_TRADE_CAP,
+      } : {}) },
       ...(action === 'news' ? {
         page: Number(page), hasMore: rows.length === 50 && Number(page) < 1000,
         limitReached: rows.length === 50 && Number(page) === 1000
