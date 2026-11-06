@@ -144,7 +144,34 @@
     return 'highRisk';
   }
 
-  function calculateAltman(data, {
+  // FMP (and some ADR packs) sometimes collapse equity into one bucket and zero
+  // retainedEarnings / APIC. Treating that as true RE=0 tanks X2. Detect the
+  // collapsed/missing breakdown so callers can walk back to an earlier FY.
+  function retainedEarningsUnusable(balance) {
+    const retainedEarnings = number(balance, 'retainedEarnings');
+    if (!finite(retainedEarnings)) return true;
+    if (retainedEarnings !== 0) return false;
+    const equity = number(balance, 'totalStockholdersEquity', 'totalEquity');
+    if (!(finite(equity) && equity > 0)) return false;
+    const common = number(balance, 'commonStock');
+    const apic = number(balance, 'additionalPaidInCapital');
+    const treasury = number(balance, 'treasuryStock');
+    const oci = number(balance, 'accumulatedOtherComprehensiveIncomeLoss');
+    const otherEquity = number(balance, 'otherTotalStockholdersEquity');
+    const near = (part) => finite(part) && Math.abs(part - equity) / equity <= 0.02;
+    const zeroish = value => !finite(value) || value === 0;
+    // Entire equity parked in commonStock (NTES/BIDU FY2025-style FMP collapse).
+    if (near(common) && zeroish(apic) && zeroish(otherEquity)) return true;
+    // Entire equity parked in otherTotalStockholdersEquity (JD/TCOM-style).
+    if (near(otherEquity) && zeroish(common) && zeroish(apic)) return true;
+    // Positive equity but every disclosed component is zero/missing.
+    if (zeroish(common) && zeroish(apic) && zeroish(treasury) && zeroish(oci) && zeroish(otherEquity)) {
+      return true;
+    }
+    return false;
+  }
+
+  function calculateAltmanAtLatest(data, {
     mcapMillions = null,
     isFinancial = false,
     model = 'z'
@@ -160,7 +187,8 @@
     const totalLiabilities = number(balance, 'totalLiabilities');
     const currentAssets = number(balance, 'totalCurrentAssets');
     const currentLiabilities = number(balance, 'totalCurrentLiabilities');
-    const retainedEarnings = number(balance, 'retainedEarnings');
+    const reUnusable = retainedEarningsUnusable(balance);
+    const retainedEarnings = reUnusable ? null : number(balance, 'retainedEarnings');
     const equity = number(balance, 'totalStockholdersEquity', 'totalEquity');
     const ebit = number(income, 'ebit', 'operatingIncome');
     const revenue = number(income, 'revenue');
@@ -189,7 +217,7 @@
           basis: source.basis, reason: 'missingMarketCap', scoringCurrency: source.scoringCurrency
         };
       }
-      // Site mcap is millions of statement currency units; statement balances are absolute units.
+      // mcapMillions must already be in statement (scoring) currency units.
       x4 = positiveRatio(mcapMillions * 1e6, totalLiabilities);
       x4Basis = 'marketEquity';
     }
@@ -199,6 +227,13 @@
       : { x1: 1.2, x2: 1.4, x3: 3.3, x4: 0.6, x5: 1.0 };
 
     const ratios = { x1, x2, x3, x4, x5 };
+    if (reUnusable) {
+      return {
+        score: null, zone: null, model, items: [], date: source.date, period: source.period,
+        basis: source.basis, reason: 'undisclosedRetainedEarnings', scoringCurrency: source.scoringCurrency,
+        ratios
+      };
+    }
     if (!Object.values(ratios).every(finite)) {
       return {
         score: null, zone: null, model, items: [], date: source.date, period: source.period,
@@ -272,6 +307,32 @@
       scoringCurrency: source.scoringCurrency,
       mcapMillions: model === 'z' ? mcapMillions : null
     };
+  }
+
+  // Newest FY can ship collapsed equity (RE=0). Walk older comparable annual rows
+  // so classic Z still publishes when an earlier year has a usable breakdown.
+  function calculateAltman(data, options = {}) {
+    if (options.isFinancial) {
+      return naResult('altman', 'financialSectorNotApplicable', { model: null, applicability: 'financialSector' });
+    }
+    const annualIncome = sorted(data?.annual?.income);
+    let last = naResult('altman', 'missingComparableStatements', {
+      model: options.model || 'z'
+    });
+    for (let end = annualIncome.length - 1; end >= 0; end--) {
+      const truncated = {
+        annual: {
+          income: annualIncome.slice(0, end + 1),
+          balance: data?.annual?.balance || [],
+          cashflow: data?.annual?.cashflow || []
+        },
+        quarterly: data?.quarterly
+      };
+      const result = calculateAltmanAtLatest(truncated, options);
+      if (Number.isFinite(result.score)) return result;
+      last = result;
+    }
+    return last;
   }
 
   function depRateOf(da, ppe) {
@@ -457,6 +518,7 @@
     calculateAll,
     altmanZone,
     beneishZone,
-    annualObservation
+    annualObservation,
+    retainedEarningsUnusable
   };
 });
