@@ -28,6 +28,24 @@ test('compactForExpansion persists fcf_to_equity before stripping statements_raw
   assert.equal(compact.fcf_to_equity, 12.5);
 });
 
+test('compactForExpansion keeps score-only moat when ratingSources.moat.reason is staleEvidence', () => {
+  const stock = {
+    ticker: 'BABA',
+    moat: {
+      m1_brand_pricing: { score: 7, comment_zh: 'x'.repeat(120), comment_en: 'en' },
+      m2_patents_regulatory: { score: 4, comment_zh: 'x'.repeat(120), comment_en: 'en' },
+      overall_moat_verdict_zh: '總評',
+      overall_moat_verdict_en: 'verdict'
+    },
+    ratingSources: { moat: { reason: 'staleEvidence', evidenceHash: 'old', currentEvidenceHash: 'new' } }
+  };
+  const compact = compactForExpansion(stock);
+  assert.equal(compact.moat.m1_brand_pricing.score, 7);
+  assert.equal(compact.moat.m1_brand_pricing.comment_zh, undefined);
+  assert.equal(compact.moat.overall_moat_verdict_zh, '總評');
+  assert.equal(compact.ratingSources.moat.reason, 'staleEvidence');
+});
+
 test('AMRO trailing P/B is not raw mcap digits after repair', () => {
   const stocks = loadExpansion();
   const amro = stocks.AMRO;

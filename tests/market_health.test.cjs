@@ -73,6 +73,34 @@ test('Moat partial coverage shows N/A overall without inventing a /100 or partia
   context.currentLang = 'zh';
   assert.equal(context.evaluateMoat(incomplete).scoreText, 'N/A · 部分評分（8/10）');
   assert.match(context.evaluateMoat(incomplete).comment, /供應商尚未提供/);
+
+  // Complete archived (staleEvidence) assessments keep scores visible — not blank N/A.
+  const archived = {
+    ticker: 'BABA',
+    calculationCurrency: 'USD',
+    ratingSources: { moat: { reason: 'staleEvidence', updatedAt: '2026-10-01T00:00:00Z' } },
+    moat: Object.fromEntries(keys.map((key, i) => [key, {
+      score: i === 0 ? 7 : 6,
+      comment_zh: '繁體測試註解'.repeat(20),
+      comment_en: 'archived comment'
+    }]))
+  };
+  archived.moat.overall_moat_verdict_zh = '封存總評';
+  archived.moat.overall_moat_verdict_en = 'Archived verdict';
+  context.currentLang = 'en';
+  const staleComplete = context.evaluateMoat(archived);
+  assert.equal(staleComplete.total, 61);
+  assert.equal(staleComplete.scoreText, '61 / 100');
+  assert.match(staleComplete.ref, /Archived assessment; not refreshed/);
+  assert.match(staleComplete.comment, /archived; not a new AI remoat/i);
+  assert.match(staleComplete.comment, /Archived verdict/);
+  assert.equal(staleComplete.criteria.filter(row => Number.isFinite(row.score)).length, 10);
+  // Partial archived still honest N/A — never invent /100 from remaining dims.
+  archived.moat.m7_operational_efficiency.score = null;
+  const stalePartial = context.evaluateMoat(archived);
+  assert.equal(stalePartial.total, null);
+  assert.equal(stalePartial.scoreText, 'N/A · Partial (9/10)');
+  assert.equal(stalePartial.criteria[6].score, null);
 });
 test('a model-only noncontrolling claim scenario cannot rewrite quoted book-based enterprise value', () => {
   const stock = { price: 20, mcap: 2000 };

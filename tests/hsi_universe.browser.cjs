@@ -311,9 +311,16 @@ function expectedAnnualCells(stock) {
           assert.equal(await page.locator('#moat-research-note').count(), 0, ticker);
           assert.ok((await page.locator('.moat-comment-cell').allTextContents()).every(text => !text.trim()), ticker);
         } else if (tab === 'rating' && stock.ratingSources?.moat?.reason === 'staleEvidence') {
-          assert.equal(await page.locator('#moat-total-score').innerText(), 'N/A', ticker);
+          const staleDims = Object.entries(stock.moat || {})
+            .filter(([key, item]) => /^m\d+_/.test(key) && Number.isFinite(item.score));
+          const expectedStale = staleDims.length === 10
+            ? `${staleDims.reduce((total, [, item]) => total + item.score, 0)} / 100`
+            : staleDims.length ? `N/A · Partial (${staleDims.length}/10)` : 'N/A';
+          assert.equal(await page.locator('#moat-total-score').innerText(), expectedStale, ticker);
           assert.match(await page.locator('#moat-updated-date').innerText(), /Archived assessment; not refreshed/);
-          assert.equal(await page.locator('#moat-previous-assessment').count(), stock.moat ? 1 : 0);
+          // Complete archived scores render in the main breakdown — no duplicate dump.
+          assert.equal(await page.locator('#moat-previous-assessment').count(),
+            staleDims.length ? 0 : (stock.moat ? 1 : 0), ticker);
         } else if (tab === 'rating') {
           const dimensions = Object.entries(stock.moat).filter(([key]) => /^m\d+_/.test(key));
           assert.equal(dimensions.filter(([, item]) => Number.isFinite(item.score)).length, 10, ticker);
@@ -358,8 +365,16 @@ function expectedAnnualCells(stock) {
       const stock = full.stock, dimensions = Object.entries(stock.moat || {})
         .filter(([key, value]) => /^m\d+_/.test(key) && Number.isFinite(value.score));
       const fresh = stock.ratingSources?.moat?.reason !== 'staleEvidence';
-      const expectedMoat = fresh && dimensions.length
-        ? `${dimensions.reduce((sum, [, value]) => sum + value.score, 0)} / ${dimensions.length * 10}` : 'N/A';
+      const expectedMoat = (() => {
+        if (HkUniverse.belowMoatMarketCap(stock)) {
+          return null; // handled per-language below
+        }
+        if (dimensions.length === 10) {
+          return `${dimensions.reduce((sum, [, value]) => sum + value.score, 0)} / 100`;
+        }
+        if (dimensions.length) return `N/A · Partial (${dimensions.length}/10)`;
+        return 'N/A';
+      })();
       for (const language of ['en', 'zh']) {
         await page.evaluate(({ ticker, language }) => { applyLanguage(language); openCompanyProfile(ticker); }, { ticker, language });
         await page.waitForFunction(ticker => stockUniverse[ticker]?.expansion?.status === 'loaded'
@@ -379,8 +394,12 @@ function expectedAnnualCells(stock) {
           await page.evaluate(tab => switchSubPage(tab), tab);
           if (tab === 'rating') {
             const excluded = HkUniverse.belowMoatMarketCap(stock);
-            assert.equal(await page.locator('#moat-total-score').innerText(), excluded
-              ? language === 'zh' ? 'N/A - 尚無評分' : 'N/A - Not assessed' : expectedMoat, ticker);
+            const want = excluded
+              ? (language === 'zh' ? 'N/A - 尚無評分' : 'N/A - Not assessed')
+              : (dimensions.length && dimensions.length < 10 && language === 'zh'
+                ? `N/A · 部分評分（${dimensions.length}/10）`
+                : expectedMoat);
+            assert.equal(await page.locator('#moat-total-score').innerText(), want, ticker);
             const fScore = Number.isInteger(stock.f_score)
               ? `${stock.f_score} / ${stock.ratingSources.fScore.applicableTests || 9}${language === 'zh' ? ' 分' : ''}` : 'N/A';
             assert.equal(await page.locator('#fsc-total-score').innerText(), fScore, ticker);
@@ -389,8 +408,14 @@ function expectedAnnualCells(stock) {
               assert.equal(await page.locator('#moat-research-note').count(), 0);
               assert.ok((await page.locator('.moat-comment-cell').allTextContents()).every(text => !text.trim()));
             }
-            if (!excluded && fresh && stock.moat) assert.ok((await page.locator('#moat-overall-text').innerText())
-              .includes(stock.moat[`overall_moat_verdict_${language}`]), `${ticker}: complete localized research is lazy-loaded`);
+            if (!excluded && stock.moat && dimensions.length === 10) {
+              assert.ok((await page.locator('#moat-overall-text').innerText())
+                .includes(stock.moat[`overall_moat_verdict_${language}`]), `${ticker}: complete localized research is lazy-loaded`);
+              if (!fresh) {
+                assert.match(await page.locator('#moat-updated-date').innerText(),
+                  language === 'zh' ? /已封存舊評估/ : /Archived assessment/);
+              }
+            }
           }
         }
         assert.doesNotMatch(await page.locator('#company-view').innerText(), /\bNaN\b|\bundefined\b/, ticker);

@@ -5735,7 +5735,9 @@
     const sym = rawSym.toUpperCase().trim();
     const excluded = HkUniverse.belowMoatMarketCap(s, sym);
     const stale = s?.ratingSources?.moat?.reason === 'staleEvidence';
-    const moatObj = !excluded && !stale && s?.moat || {};
+    // Keep complete archived scores visible (screener + rating). Do not blank to fake
+    // "never scored" N/A when M1–M10 still exist — null dims stay null / honest partial.
+    const moatObj = !excluded && s?.moat || {};
     const isEn = (currentLang === 'en');
     
     let m = Array(10).fill(null);
@@ -5748,9 +5750,13 @@
       : isEn ? 'Updated' : '更新日期'}: ${updatedDate}`;
     let overallComment = isEn ? (moatObj.overall_moat_verdict_en || moatObj.overall_moat_verdict || ratingSource?.reason || "Evidence-grounded analysis unavailable.")
       : (moatObj.overall_moat_verdict_zh || moatObj.overall_moat_verdict || ratingSource?.reason || "尚無具證據支持的分析。");
-    if (stale) overallComment = isEn
-      ? 'The financial evidence has changed. Previous figures and judgments are archived, not presented as a current assessment; no new AI research or update date is invented.'
-      : '財報依據已更正。舊數字及判斷只作封存參考，不當作現行評估；未虛構新 AI 研究或更新日期。';
+    if (stale) {
+      const warning = isEn
+        ? 'The financial evidence has changed. Scores below are the last complete assessment (archived; not a new AI remoat).'
+        : '財報依據已更正。下列分數為封存的完整舊評估（非新 AI remoat），不當作已依新財報重評。';
+      overallComment = overallComment && overallComment !== 'staleEvidence'
+        ? `${warning} ${overallComment}` : warning;
+    }
 
     const dimKeys = [
       "m1_brand_pricing", "m2_patents_regulatory", "m3_high_switching_costs",
@@ -11297,7 +11303,10 @@
         <div id="moat-overall-text">${escapeAttribute(moat.comment || '')}</div>
       `;
       const commentPanel = document.getElementById('moat-ai-comment');
-      if (!moat.excluded && s.ratingSources?.moat?.reason === 'staleEvidence' && s.moat) {
+      // Archived complete scores already render in the main breakdown; only keep the
+      // collapsible prior dump when the main UI still has zero scored dimensions.
+      const mainHasScores = Array.isArray(moat.criteria) && moat.criteria.some(row => Number.isFinite(row.score));
+      if (!moat.excluded && s.ratingSources?.moat?.reason === 'staleEvidence' && s.moat && !mainHasScores) {
         const previous = document.createElement('details');
         previous.id = 'moat-previous-assessment';
         previous.className = 'analysis-note';
