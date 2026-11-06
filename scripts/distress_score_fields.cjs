@@ -23,13 +23,39 @@ function normalizeCurrency(code) {
   return ({ NTD: 'TWD', RMB: 'CNY' })[upper] || upper || null;
 }
 
+// Currencies absent from Fed H10 but with a durable official peg.
+// MOP is pegged near 1.03 per HKD; USD/MOP = (USD/HKD) / mopPerHkd.
+const FX_PEGS = Object.freeze({
+  MOP: { via: 'HKD', unitsPerVia: 1.03 }
+});
+
+function usdPerUnit(rates, currency, asOf) {
+  const code = normalizeCurrency(currency);
+  if (!code) return { rate: null, reason: 'missingFxCurrency', observationDate: null, peg: null };
+  if (code === 'USD') return { rate: 1, reason: null, observationDate: asOf || null, peg: null };
+  const peg = FX_PEGS[code];
+  if (peg) {
+    const via = closingFxRaw(rates, peg.via, asOf, 'USD');
+    if (!(Number.isFinite(via.rate) && via.rate > 0)) {
+      return { rate: null, reason: via.reason || 'missingFxCurrency', observationDate: null, peg };
+    }
+    return {
+      rate: via.rate / peg.unitsPerVia,
+      reason: null,
+      observationDate: via.observationDate,
+      peg: { currency: code, via: peg.via, unitsPerVia: peg.unitsPerVia }
+    };
+  }
+  return { ...closingFxRaw(rates, code, asOf, 'USD'), peg: null };
+}
+
 function latestFxObservationDate(rates, currency) {
   const observations = rates?.currencies?.[normalizeCurrency(currency)]?.observations;
   if (!Array.isArray(observations) || !observations.length) return null;
   return observations.at(-1)?.[0] || null;
 }
 
-function closingFx(rates, currency, asOf, target = 'USD') {
+function closingFxRaw(rates, currency, asOf, target = 'USD') {
   const source = normalizeCurrency(currency);
   const dest = normalizeCurrency(target);
   if (!source || !dest) return { rate: null, reason: 'missingFxCurrency', observationDate: null };
@@ -42,6 +68,10 @@ function closingFx(rates, currency, asOf, target = 'USD') {
     fx = rateFor(rates, source, null, last, 'closing', dest);
   }
   return fx;
+}
+
+function closingFx(rates, currency, asOf, target = 'USD') {
+  return closingFxRaw(rates, currency, asOf, target);
 }
 
 // Site mcap is millions of calculationCurrency; Altman X4 needs statement currency.
@@ -66,8 +96,8 @@ function mcapMillionsInStatementCurrency(stock, scoringCurrency, {
     || stock?.shareSource?.date
     || latestFxObservationDate(book, from === 'USD' ? to : from);
   // Bridge via USD: mcap_to = mcap_from * (USD/from) / (USD/to).
-  const fromUsd = closingFx(book, from, quoteAsOf, 'USD');
-  const toUsd = closingFx(book, to, quoteAsOf, 'USD');
+  const fromUsd = usdPerUnit(book, from, quoteAsOf);
+  const toUsd = usdPerUnit(book, to, quoteAsOf);
   if (!(Number.isFinite(fromUsd.rate) && fromUsd.rate > 0
       && Number.isFinite(toUsd.rate) && toUsd.rate > 0)) {
     return {
@@ -86,7 +116,8 @@ function mcapMillionsInStatementCurrency(stock, scoringCurrency, {
       fromUsdPerUnit: fromUsd.rate,
       toUsdPerUnit: toUsd.rate,
       fromObservationDate: fromUsd.observationDate,
-      toObservationDate: toUsd.observationDate
+      toObservationDate: toUsd.observationDate,
+      ...(fromUsd.peg || toUsd.peg ? { peg: fromUsd.peg || toUsd.peg } : {})
     }
   };
 }

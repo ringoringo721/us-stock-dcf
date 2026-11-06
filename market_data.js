@@ -3358,7 +3358,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "d3f6366d1873b0ec90aa17b190490c356ec6a1ddf16294f0fc842fffe3a4108c"
       },
       "mScore": {
@@ -3370,7 +3370,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "d3f6366d1873b0ec90aa17b190490c356ec6a1ddf16294f0fc842fffe3a4108c"
       }
     },
@@ -7151,7 +7151,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "2b4d7b2355c31707a8fc4fbba62dc2876e1933d7e745736bfaa13519dbd648ee"
       },
       "mScore": {
@@ -7163,7 +7163,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "2b4d7b2355c31707a8fc4fbba62dc2876e1933d7e745736bfaa13519dbd648ee"
       }
     },
@@ -10938,7 +10938,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "f095029de1675e32bab3d67c7e0637ef677ce8110ea5c18a61866406b85565ce"
       },
       "mScore": {
@@ -10950,7 +10950,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "f095029de1675e32bab3d67c7e0637ef677ce8110ea5c18a61866406b85565ce"
       }
     },
@@ -14749,7 +14749,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "2f54b16afea851a2d987050c0a8695fbbf0f578a3b4dbddb666a92ae082e9ebe"
       },
       "mScore": {
@@ -14761,7 +14761,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "2f54b16afea851a2d987050c0a8695fbbf0f578a3b4dbddb666a92ae082e9ebe"
       }
     },
@@ -18507,7 +18507,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "0bc4f0db6db75c8e8efd06dc51be463129ab578f21c06a6ee528737ed89e6f4b"
       },
       "mScore": {
@@ -18519,7 +18519,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "0bc4f0db6db75c8e8efd06dc51be463129ab578f21c06a6ee528737ed89e6f4b"
       }
     },
@@ -22323,7 +22323,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "76ccf29bf4576ac12ce937ef209f356314f746577ea63d9d11a41f2357b02935"
       },
       "mScore": {
@@ -22335,7 +22335,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "76ccf29bf4576ac12ce937ef209f356314f746577ea63d9d11a41f2357b02935"
       }
     },
@@ -26086,7 +26086,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "f187e5a7b8a74149cf4fa4b9c426575c563f1a6efe7b570e7516268e17602a3c"
       },
       "mScore": {
@@ -26098,7 +26098,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "f187e5a7b8a74149cf4fa4b9c426575c563f1a6efe7b570e7516268e17602a3c"
       }
     },
@@ -29879,7 +29879,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "f75f454e4116ee37b723a981cccd99c9f00fa9ee0e7b8403d29c7dd8faeac17e"
       },
       "mScore": {
@@ -29891,7 +29891,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "f75f454e4116ee37b723a981cccd99c9f00fa9ee0e7b8403d29c7dd8faeac17e"
       }
     },
@@ -33690,7 +33690,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "9c2c46907d7d11beaa2cfb52b663c0139204a15e16aa5b24c1e50bae46586806"
       },
       "mScore": {
@@ -33702,7 +33702,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "9c2c46907d7d11beaa2cfb52b663c0139204a15e16aa5b24c1e50bae46586806"
       }
     },
@@ -37445,7 +37445,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "de604a550b07ecb528204b7a9287279662dcf6abbaa838d100896846be2bcedc"
       },
       "mScore": {
@@ -37457,7 +37457,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "de604a550b07ecb528204b7a9287279662dcf6abbaa838d100896846be2bcedc"
       }
     },
@@ -41238,7 +41238,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "5b9790e6b2fc0da0c2e3471c743c44aa571c53a1da0b27cfa7b90c168e89bd9c"
       },
       "mScore": {
@@ -41250,7 +41250,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "5b9790e6b2fc0da0c2e3471c743c44aa571c53a1da0b27cfa7b90c168e89bd9c"
       }
     },
@@ -45019,7 +45019,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "56f794db48e867b575866f2f4b6fd78e5c47029fe8e6247ddc62b796d1cccd7e"
       },
       "mScore": {
@@ -45031,7 +45031,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "56f794db48e867b575866f2f4b6fd78e5c47029fe8e6247ddc62b796d1cccd7e"
       }
     },
@@ -48812,7 +48812,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "9c2f79779bcb6af784c52a5d747163fd6b4d7277facd6461e297cd5e850ec339"
       },
       "mScore": {
@@ -48824,7 +48824,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "9c2f79779bcb6af784c52a5d747163fd6b4d7277facd6461e297cd5e850ec339"
       }
     },
@@ -52621,7 +52621,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "a204e38764829ee8ecdc47cc193e1fef6fd53472f6a6570abd02af52ddcd26ff"
       },
       "mScore": {
@@ -52633,7 +52633,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "a204e38764829ee8ecdc47cc193e1fef6fd53472f6a6570abd02af52ddcd26ff"
       }
     },
@@ -56436,7 +56436,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "da69fe1c36ea8193fae2c96af4648f934778db06dd2e41173edfdcac6de61b1c"
       },
       "mScore": {
@@ -56448,7 +56448,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "da69fe1c36ea8193fae2c96af4648f934778db06dd2e41173edfdcac6de61b1c"
       }
     },
@@ -60205,7 +60205,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "7466a13b00c0a3c4288c4a2dcbe58976441c28a2f366dcfe534ada9cdc94160f"
       },
       "mScore": {
@@ -60217,7 +60217,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "7466a13b00c0a3c4288c4a2dcbe58976441c28a2f366dcfe534ada9cdc94160f"
       }
     },
@@ -63968,7 +63968,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "17bb8efbca07a4a951ac62ac21bdff37ce2dc1fa3d6f727561d0225cde455850"
       },
       "mScore": {
@@ -63980,7 +63980,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "17bb8efbca07a4a951ac62ac21bdff37ce2dc1fa3d6f727561d0225cde455850"
       }
     },
@@ -67779,7 +67779,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "b45967e53dd4c6a96448bc6166b95f68c3d5d20b09cef5c491cc2d3cccb77e14"
       },
       "mScore": {
@@ -67791,7 +67791,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "b45967e53dd4c6a96448bc6166b95f68c3d5d20b09cef5c491cc2d3cccb77e14"
       }
     },
@@ -71554,7 +71554,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "476b95c43aceaf557102d5dc95a38fd1dbf914b6026d58eba34aae021dded7e7"
       },
       "mScore": {
@@ -71566,7 +71566,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "476b95c43aceaf557102d5dc95a38fd1dbf914b6026d58eba34aae021dded7e7"
       }
     },
@@ -75379,12 +75379,21 @@ window.FULL_MARKET_DATA = {
         "period": "FY 2025",
         "basis": "comparableAnnual",
         "model": "z",
-        "zone": "safe",
+        "zone": "superRobust",
         "reason": null,
         "scoringCurrency": "TWD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
-        "evidenceHash": "2867052a71b3e1e95aeb88833c24f7067cedad83fec66961a613cb34f851d81a"
+        "checkedAt": "2026-11-06T12:17:55.370Z",
+        "evidenceHash": "2867052a71b3e1e95aeb88833c24f7067cedad83fec66961a613cb34f851d81a",
+        "mcapFx": {
+          "asOf": "2026-11-05",
+          "from": "USD",
+          "to": "TWD",
+          "fromUsdPerUnit": 1,
+          "toUsdPerUnit": 0.030684258975145748,
+          "fromObservationDate": "2026-11-05",
+          "toObservationDate": "2026-10-30"
+        }
       },
       "mScore": {
         "asOfDate": "2025-12-31",
@@ -75395,7 +75404,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "TWD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "2867052a71b3e1e95aeb88833c24f7067cedad83fec66961a613cb34f851d81a"
       }
     },
@@ -75709,9 +75718,9 @@ window.FULL_MARKET_DATA = {
         "capturedAt": "2026-11-06T01:44:40Z"
       }
     },
-    "z_score": 3,
+    "z_score": 16.69,
     "z_score_model": "z",
-    "z_score_zone": "safe",
+    "z_score_zone": "superRobust",
     "z_score_breakdown": [
       {
         "id": 1,
@@ -75765,12 +75774,12 @@ window.FULL_MARKET_DATA = {
         "desc": "市值權益 / 總負債 (X4)",
         "desc_en": "Market equity / Total liabilities (X4)",
         "weight": 0.6,
-        "value": 0.7219621849251325,
-        "contribution": 0.4331773109550795,
+        "value": 23.528747606710073,
+        "contribution": 14.117248564026044,
         "passed": null,
-        "detail": "0.7220 × 0.6 = 0.4332",
-        "detail_zh": "0.7220 × 0.6 = 0.4332",
-        "detail_en": "0.7220 × 0.6 = 0.4332",
+        "detail": "23.5287 × 0.6 = 14.1172",
+        "detail_zh": "23.5287 × 0.6 = 14.1172",
+        "detail_en": "23.5287 × 0.6 = 14.1172",
         "reason": null
       },
       {
@@ -79270,7 +79279,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "ab31942d328f2d52215963268ddcbe3168e9888cd72fd29b8ff84d340bfc2fa4"
       },
       "mScore": {
@@ -79282,7 +79291,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "ab31942d328f2d52215963268ddcbe3168e9888cd72fd29b8ff84d340bfc2fa4"
       }
     },
@@ -83050,7 +83059,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "0dfe80d451eca82687434386ff8b0da242bd336564fee854d97ed044cd1c4b85"
       },
       "mScore": {
@@ -83062,7 +83071,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "0dfe80d451eca82687434386ff8b0da242bd336564fee854d97ed044cd1c4b85"
       }
     },
@@ -86824,7 +86833,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "07bdc0a88e12657c333064bbeea945e950ece98564e6d3c3528e7590f0e02bbd"
       },
       "mScore": {
@@ -86836,7 +86845,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "07bdc0a88e12657c333064bbeea945e950ece98564e6d3c3528e7590f0e02bbd"
       }
     },
@@ -90600,7 +90609,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "1a525cc6238df5c04fbbb9cc31dcb063dec341fbee7c2b0806502a7c1986634c"
       },
       "mScore": {
@@ -90612,7 +90621,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "1a525cc6238df5c04fbbb9cc31dcb063dec341fbee7c2b0806502a7c1986634c"
       }
     },
@@ -94356,7 +94365,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "42540b3817f3721f60977d53aaccf218a4c8179b5d519b3d1c2b3bec7d256dcc"
       },
       "mScore": {
@@ -94368,7 +94377,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "42540b3817f3721f60977d53aaccf218a4c8179b5d519b3d1c2b3bec7d256dcc"
       }
     },
@@ -98106,7 +98115,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "aa4147e471596a3ec1d04a10d6c9c4000eb4b37a77d250b58a83793a2fe87e0b"
       },
       "mScore": {
@@ -98118,7 +98127,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "aa4147e471596a3ec1d04a10d6c9c4000eb4b37a77d250b58a83793a2fe87e0b"
       }
     },
@@ -101860,7 +101869,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "a9a8d37b46d21b489d39f13c27f1f67c0d516552941f6ec6d32c76636df509e7"
       },
       "mScore": {
@@ -101872,7 +101881,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "a9a8d37b46d21b489d39f13c27f1f67c0d516552941f6ec6d32c76636df509e7"
       }
     },
@@ -105626,7 +105635,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "5962071ea748afa097ae35726ae1c8aed24c1a33f546550377db6e965ce89491"
       },
       "mScore": {
@@ -105638,7 +105647,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "5962071ea748afa097ae35726ae1c8aed24c1a33f546550377db6e965ce89491"
       }
     },
@@ -109382,7 +109391,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "ffa283bf1ae5b772a80ed8284c7611bc87cad0afa4318ba8ed318e3ee58ea82e"
       },
       "mScore": {
@@ -109394,7 +109403,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "ffa283bf1ae5b772a80ed8284c7611bc87cad0afa4318ba8ed318e3ee58ea82e"
       }
     },
@@ -113175,7 +113184,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "06143c89930b081a1a899b99ae56a5a7def4b0b0a2bccdfa55957466bdfe0277"
       },
       "mScore": {
@@ -113187,7 +113196,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "06143c89930b081a1a899b99ae56a5a7def4b0b0a2bccdfa55957466bdfe0277"
       }
     },
@@ -116938,7 +116947,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "75d9ad4f42ff110bd8afac7bd26252f6da0df01b3d3ee0d96487a3da2c55bf30"
       },
       "mScore": {
@@ -116950,7 +116959,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "75d9ad4f42ff110bd8afac7bd26252f6da0df01b3d3ee0d96487a3da2c55bf30"
       }
     },
@@ -120719,7 +120728,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "c03df2eef4ffd1ae762d87f682af19dc2cc8f11346e27e63467d323d23de62ff"
       },
       "mScore": {
@@ -120731,7 +120740,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "c03df2eef4ffd1ae762d87f682af19dc2cc8f11346e27e63467d323d23de62ff"
       }
     },
@@ -124487,7 +124496,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "47c4d6bce6054c6061c26fbe78cd5e4477364a684ff5ef1a585049eb453840c6"
       },
       "mScore": {
@@ -124499,7 +124508,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "47c4d6bce6054c6061c26fbe78cd5e4477364a684ff5ef1a585049eb453840c6"
       }
     },
@@ -128256,7 +128265,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "1d7fbf2671f2ab726930b1460da1da8e61ee74bede5e836daa754baaf47bb8f9"
       },
       "mScore": {
@@ -128268,7 +128277,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "1d7fbf2671f2ab726930b1460da1da8e61ee74bede5e836daa754baaf47bb8f9"
       }
     },
@@ -132018,7 +132027,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "ef974297e132d0f77f8bf2f9c5455473589fc6a983ad684ba8c7b72ab0bcbfcd"
       },
       "mScore": {
@@ -132030,7 +132039,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "ef974297e132d0f77f8bf2f9c5455473589fc6a983ad684ba8c7b72ab0bcbfcd"
       }
     },
@@ -135769,7 +135778,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "6cb44db4414937bd2766c592ff9f159182ec4a8ef8a0f722f5ae688f47633d92"
       },
       "mScore": {
@@ -135781,7 +135790,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "6cb44db4414937bd2766c592ff9f159182ec4a8ef8a0f722f5ae688f47633d92"
       }
     },
@@ -139538,7 +139547,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "b184ad1a60f8438db5e700cc98c6fc2fd2f49163b349f0e35fcd1db8d9007e51"
       },
       "mScore": {
@@ -139550,7 +139559,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "b184ad1a60f8438db5e700cc98c6fc2fd2f49163b349f0e35fcd1db8d9007e51"
       }
     },
@@ -143337,7 +143346,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "2ac7ab32f304c20149184e809855e5c1c2a81b20a38a32c3a45686fd053f65c2"
       },
       "mScore": {
@@ -143349,7 +143358,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "2ac7ab32f304c20149184e809855e5c1c2a81b20a38a32c3a45686fd053f65c2"
       }
     },
@@ -147093,7 +147102,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "7144fb1094c91c22f7ce0ce447bf252186de680285415bdcb070a970066a476a"
       },
       "mScore": {
@@ -147105,7 +147114,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "7144fb1094c91c22f7ce0ce447bf252186de680285415bdcb070a970066a476a"
       }
     },
@@ -150862,7 +150871,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "aa3f03f4bf9f6e873ac0aa592e41b92f14808b5aa0ca6f393262ab7f2303fc26"
       },
       "mScore": {
@@ -150874,7 +150883,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "aa3f03f4bf9f6e873ac0aa592e41b92f14808b5aa0ca6f393262ab7f2303fc26"
       }
     },
@@ -154631,7 +154640,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "30e5d3c4a10cced7bbe8f5b4fae86d898ed037e80615dc6f340cfd8f900b4496"
       },
       "mScore": {
@@ -154643,7 +154652,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "30e5d3c4a10cced7bbe8f5b4fae86d898ed037e80615dc6f340cfd8f900b4496"
       }
     },
@@ -158387,7 +158396,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "4c3a54e618574e66f123a46b176ed6207fd82b70ebf103177e3ba615283f7c66"
       },
       "mScore": {
@@ -158399,7 +158408,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "4c3a54e618574e66f123a46b176ed6207fd82b70ebf103177e3ba615283f7c66"
       }
     },
@@ -162162,7 +162171,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "7473ebf716da616baba2ec56302bd9cc02405dc8aa96d60320376bc7b248bd92"
       },
       "mScore": {
@@ -162174,7 +162183,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "7473ebf716da616baba2ec56302bd9cc02405dc8aa96d60320376bc7b248bd92"
       }
     },
@@ -165971,7 +165980,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "f9846dde7656ec6121b9f65336ce5969d41b602487d2331d4d63d02aad0e28b5"
       },
       "mScore": {
@@ -165983,7 +165992,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "f9846dde7656ec6121b9f65336ce5969d41b602487d2331d4d63d02aad0e28b5"
       }
     },
@@ -169734,7 +169743,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "d5d75732473f41218fc3ba8b8fba4e5757d43b9d5c004b0d565faeed85672503"
       },
       "mScore": {
@@ -169746,7 +169755,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "d5d75732473f41218fc3ba8b8fba4e5757d43b9d5c004b0d565faeed85672503"
       }
     },
@@ -173521,7 +173530,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "5a0fff026cd9c7298501da9bd433f62864687e280c57955bdc17df4c50ab2d19"
       },
       "mScore": {
@@ -173533,7 +173542,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "5a0fff026cd9c7298501da9bd433f62864687e280c57955bdc17df4c50ab2d19"
       }
     },
@@ -177302,7 +177311,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "ff4965465f59c7461cfe99514654b5786aa41d12074a7ede854b4aac14395f19"
       },
       "mScore": {
@@ -177314,7 +177323,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "ff4965465f59c7461cfe99514654b5786aa41d12074a7ede854b4aac14395f19"
       }
     },
@@ -181119,7 +181128,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "117d5db7ddd8e891b2abc4bd797cc391006b8ef286dbd44d9ba3dc381412ecee"
       },
       "mScore": {
@@ -181131,7 +181140,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "117d5db7ddd8e891b2abc4bd797cc391006b8ef286dbd44d9ba3dc381412ecee"
       }
     },
@@ -184874,7 +184883,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "bedbc908828b85b38933ba3a1dfb0120ca9b8f2e9e1213886a17cae65350ad01"
       },
       "mScore": {
@@ -184886,7 +184895,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "bedbc908828b85b38933ba3a1dfb0120ca9b8f2e9e1213886a17cae65350ad01"
       }
     },
@@ -188625,7 +188634,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "0fed273a910d38172cc7519009e1731b349537d163c4cec27522f2f71b95c045"
       },
       "mScore": {
@@ -188637,7 +188646,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "0fed273a910d38172cc7519009e1731b349537d163c4cec27522f2f71b95c045"
       }
     },
@@ -192381,7 +192390,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "dc9b49391ceff243162d5af4d213adec362fd6f17cb8397cc3ff554ed04993f1"
       },
       "mScore": {
@@ -192393,7 +192402,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "dc9b49391ceff243162d5af4d213adec362fd6f17cb8397cc3ff554ed04993f1"
       }
     },
@@ -196166,7 +196175,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "33891111840787c6a0e66367089fcdfa98ffc68335fe6897771729a597178a41"
       },
       "mScore": {
@@ -196178,7 +196187,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "33891111840787c6a0e66367089fcdfa98ffc68335fe6897771729a597178a41"
       }
     },
@@ -199933,7 +199942,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "9d779285cc6d9ac19ced097d3a682f8a8679827120934188d0c1df0be9c680d7"
       },
       "mScore": {
@@ -199945,7 +199954,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "9d779285cc6d9ac19ced097d3a682f8a8679827120934188d0c1df0be9c680d7"
       }
     },
@@ -203702,7 +203711,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "1a413cb70ab375cafafb7ce69e1c423852e22bb0b3d51b52b1b076452a55d83d"
       },
       "mScore": {
@@ -203714,7 +203723,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "1a413cb70ab375cafafb7ce69e1c423852e22bb0b3d51b52b1b076452a55d83d"
       }
     },
@@ -207483,7 +207492,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "a0c46e11bf479035ae0ffa3e4968f8d1ce8bd73ecd48c5af0a4b10a1848b7096"
       },
       "mScore": {
@@ -207495,7 +207504,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "a0c46e11bf479035ae0ffa3e4968f8d1ce8bd73ecd48c5af0a4b10a1848b7096"
       }
     },
@@ -211248,7 +211257,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "83bb0825cad97ca9266d5750c46347242662e1f5e4fe165861e33c27a4725a17"
       },
       "mScore": {
@@ -211260,7 +211269,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "83bb0825cad97ca9266d5750c46347242662e1f5e4fe165861e33c27a4725a17"
       }
     },
@@ -215067,7 +215076,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "d2f9f732239abe2664cecf26f27b4b4c5ff834fb0098c7e5607e7de73c7a7290"
       },
       "mScore": {
@@ -215079,7 +215088,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "d2f9f732239abe2664cecf26f27b4b4c5ff834fb0098c7e5607e7de73c7a7290"
       }
     },
@@ -218880,7 +218889,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "f47565d2addfef4873aab1f9e766c1fd46b3562944c4d38334684333c3223f72"
       },
       "mScore": {
@@ -218892,7 +218901,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "f47565d2addfef4873aab1f9e766c1fd46b3562944c4d38334684333c3223f72"
       }
     },
@@ -222641,15 +222650,15 @@ window.FULL_MARKET_DATA = {
         "checkedAt": null
       },
       "zScore": {
-        "asOfDate": "2026-05-31",
-        "period": "FY 2026",
+        "asOfDate": "2025-05-31",
+        "period": "FY 2025",
         "basis": "comparableAnnual",
         "model": "z",
         "zone": "safe",
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "33a970cdd1f5282fd46d8eb8699861890565acaa46375017089c1e7b45a03af0"
       },
       "mScore": {
@@ -222661,7 +222670,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "33a970cdd1f5282fd46d8eb8699861890565acaa46375017089c1e7b45a03af0"
       }
     },
@@ -222884,7 +222893,7 @@ window.FULL_MARKET_DATA = {
         "capturedAt": "2026-11-06T01:48:36Z"
       }
     },
-    "z_score": 3.41,
+    "z_score": 3.54,
     "z_score_model": "z",
     "z_score_zone": "safe",
     "z_score_breakdown": [
@@ -222895,12 +222904,12 @@ window.FULL_MARKET_DATA = {
         "desc": "營運資金 / 總資產 (X1)",
         "desc_en": "Working capital / Total assets (X1)",
         "weight": 1.2,
-        "value": 0.31387659463681333,
-        "contribution": 0.376651913564176,
+        "value": 0.3498182017004292,
+        "contribution": 0.41978184204051505,
         "passed": null,
-        "detail": "0.3139 × 1.2 = 0.3767",
-        "detail_zh": "0.3139 × 1.2 = 0.3767",
-        "detail_en": "0.3139 × 1.2 = 0.3767",
+        "detail": "0.3498 × 1.2 = 0.4198",
+        "detail_zh": "0.3498 × 1.2 = 0.4198",
+        "detail_en": "0.3498 × 1.2 = 0.4198",
         "reason": null
       },
       {
@@ -222910,12 +222919,12 @@ window.FULL_MARKET_DATA = {
         "desc": "保留盈餘 / 總資產 (X2)",
         "desc_en": "Retained earnings / Total assets (X2)",
         "weight": 1.4,
-        "value": 0,
-        "contribution": 0,
+        "value": -0.019874791547062523,
+        "contribution": -0.02782470816588753,
         "passed": null,
-        "detail": "0.0000 × 1.4 = 0.0000",
-        "detail_zh": "0.0000 × 1.4 = 0.0000",
-        "detail_en": "0.0000 × 1.4 = 0.0000",
+        "detail": "-0.0199 × 1.4 = -0.0278",
+        "detail_zh": "-0.0199 × 1.4 = -0.0278",
+        "detail_en": "-0.0199 × 1.4 = -0.0278",
         "reason": null
       },
       {
@@ -222925,12 +222934,12 @@ window.FULL_MARKET_DATA = {
         "desc": "EBIT / 總資產 (X3)",
         "desc_en": "EBIT / Total assets (X3)",
         "weight": 3.3,
-        "value": 0.09885446498307732,
-        "contribution": 0.32621973444415514,
+        "value": 0.11410918833210312,
+        "contribution": 0.37656032149594026,
         "passed": null,
-        "detail": "0.0989 × 3.3 = 0.3262",
-        "detail_zh": "0.0989 × 3.3 = 0.3262",
-        "detail_en": "0.0989 × 3.3 = 0.3262",
+        "detail": "0.1141 × 3.3 = 0.3766",
+        "detail_zh": "0.1141 × 3.3 = 0.3766",
+        "detail_en": "0.1141 × 3.3 = 0.3766",
         "reason": null
       },
       {
@@ -222940,12 +222949,12 @@ window.FULL_MARKET_DATA = {
         "desc": "市值權益 / 總負債 (X4)",
         "desc_en": "Market equity / Total liabilities (X4)",
         "weight": 0.6,
-        "value": 2.495595667870036,
-        "contribution": 1.4973574007220216,
+        "value": 2.5147136865531112,
+        "contribution": 1.5088282119318668,
         "passed": null,
-        "detail": "2.4956 × 0.6 = 1.4974",
-        "detail_zh": "2.4956 × 0.6 = 1.4974",
-        "detail_en": "2.4956 × 0.6 = 1.4974",
+        "detail": "2.5147 × 0.6 = 1.5088",
+        "detail_zh": "2.5147 × 0.6 = 1.5088",
+        "detail_en": "2.5147 × 0.6 = 1.5088",
         "reason": null
       },
       {
@@ -222955,12 +222964,12 @@ window.FULL_MARKET_DATA = {
         "desc": "營收 / 總資產 (X5)",
         "desc_en": "Sales / Total assets (X5)",
         "weight": 1,
-        "value": 1.2079666753449623,
-        "contribution": 1.2079666753449623,
+        "value": 1.2659996172667378,
+        "contribution": 1.2659996172667378,
         "passed": null,
-        "detail": "1.2080 × 1 = 1.2080",
-        "detail_zh": "1.2080 × 1 = 1.2080",
-        "detail_en": "1.2080 × 1 = 1.2080",
+        "detail": "1.2660 × 1 = 1.2660",
+        "detail_zh": "1.2660 × 1 = 1.2660",
+        "detail_en": "1.2660 × 1 = 1.2660",
         "reason": null
       }
     ],
@@ -226445,7 +226454,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "4fea243198c8eb68e399dde745e07e222e6ed34fd37d78792e6f2fb840565ca8"
       },
       "mScore": {
@@ -226457,7 +226466,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "4fea243198c8eb68e399dde745e07e222e6ed34fd37d78792e6f2fb840565ca8"
       }
     },
@@ -230237,7 +230246,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "4d568169e50a16edb007d666d084d6bd327383e09881a9f7029f2bc30d6cba3d"
       },
       "mScore": {
@@ -230249,7 +230258,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "4d568169e50a16edb007d666d084d6bd327383e09881a9f7029f2bc30d6cba3d"
       }
     },
@@ -234047,7 +234056,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "c5b73c34902b4896073775191105dbfca2b585b251edf9cad59aa3002736598f"
       },
       "mScore": {
@@ -234059,7 +234068,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "c5b73c34902b4896073775191105dbfca2b585b251edf9cad59aa3002736598f"
       }
     },
@@ -237864,7 +237873,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "f5b641a952399120bdb858a1600cae9acf96f7aba1d8aa4bbc98fcded0629aa4"
       },
       "mScore": {
@@ -237876,7 +237885,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "f5b641a952399120bdb858a1600cae9acf96f7aba1d8aa4bbc98fcded0629aa4"
       }
     },
@@ -241633,7 +241642,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "a2f02a8acc64506032699ba48b95edbc697dc45758a31368ba69a579cfa4d559"
       },
       "mScore": {
@@ -241645,7 +241654,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "a2f02a8acc64506032699ba48b95edbc697dc45758a31368ba69a579cfa4d559"
       }
     },
@@ -245420,7 +245429,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "99bfdd218dffedbaaeaa8724deffc1073e6f13b096f083925425ef8e750168e8"
       },
       "mScore": {
@@ -245432,7 +245441,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "99bfdd218dffedbaaeaa8724deffc1073e6f13b096f083925425ef8e750168e8"
       }
     },
@@ -249169,7 +249178,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "46bb9b7ff17d47b7d9842a1db61ab2b91abeb398f24053a8233f98c903bc1c58"
       },
       "mScore": {
@@ -249181,7 +249190,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "46bb9b7ff17d47b7d9842a1db61ab2b91abeb398f24053a8233f98c903bc1c58"
       }
     },
@@ -252964,7 +252973,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "1895ce846248853ce46c6c83779e6379f164403320846725e70f3c7d86277dbc"
       },
       "mScore": {
@@ -252976,7 +252985,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "1895ce846248853ce46c6c83779e6379f164403320846725e70f3c7d86277dbc"
       }
     },
@@ -256735,7 +256744,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "721ff70342bd35add10bde0ee3adf6b8aa81ed29efb612469e15a44a56d1a0ba"
       },
       "mScore": {
@@ -256747,7 +256756,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "721ff70342bd35add10bde0ee3adf6b8aa81ed29efb612469e15a44a56d1a0ba"
       }
     },
@@ -260506,7 +260515,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "1a81fe1682ab462bc3cc8c6202fe0d1b525060e7269554724df66855930e60c5"
       },
       "mScore": {
@@ -260518,7 +260527,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "1a81fe1682ab462bc3cc8c6202fe0d1b525060e7269554724df66855930e60c5"
       }
     },
@@ -264265,7 +264274,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "ca155a5ba688e7f0c85e0e77576b9ee08539f2b25ef4ba5e1fd962effb5a07b3"
       },
       "mScore": {
@@ -264277,7 +264286,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "ca155a5ba688e7f0c85e0e77576b9ee08539f2b25ef4ba5e1fd962effb5a07b3"
       }
     },
@@ -268030,7 +268039,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "dc94e750c9db4320b3edf2af668c4ff738548274235d976c43ce63ea59b4b4d6"
       },
       "mScore": {
@@ -268042,7 +268051,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "dc94e750c9db4320b3edf2af668c4ff738548274235d976c43ce63ea59b4b4d6"
       }
     },
@@ -271800,7 +271809,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "8d639dfa177cf765ed0719fefbbe666adca80c6d3cf2b1469d9b118980811799"
       },
       "mScore": {
@@ -271812,7 +271821,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "8d639dfa177cf765ed0719fefbbe666adca80c6d3cf2b1469d9b118980811799"
       }
     },
@@ -275580,7 +275589,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "a61147452eee9004757e3ed8cfeb4eae53dce356d64d858e2b7e9da39842e0ed"
       },
       "mScore": {
@@ -275592,7 +275601,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "a61147452eee9004757e3ed8cfeb4eae53dce356d64d858e2b7e9da39842e0ed"
       }
     },
@@ -279366,7 +279375,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "adb15a012fd4c30da417d0d52e193efe26bb14a535f805cc1e228d5220e54faa"
       },
       "mScore": {
@@ -279378,7 +279387,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "adb15a012fd4c30da417d0d52e193efe26bb14a535f805cc1e228d5220e54faa"
       }
     },
@@ -283133,7 +283142,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "c17b29567e1c974b7cd97a7f873cbb95596c82e4c25a4724a8669206527544db"
       },
       "mScore": {
@@ -283145,7 +283154,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "c17b29567e1c974b7cd97a7f873cbb95596c82e4c25a4724a8669206527544db"
       }
     },
@@ -286938,7 +286947,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "65b594d236d620e58e87184d7dac2b75f8e9c1055407b624f735e84210364494"
       },
       "mScore": {
@@ -286950,7 +286959,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "65b594d236d620e58e87184d7dac2b75f8e9c1055407b624f735e84210364494"
       }
     },
@@ -290694,7 +290703,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "22697a32b6d04734eb9161e5739c917042829c03eee6b6194cb9f22b2feba524"
       },
       "mScore": {
@@ -290706,7 +290715,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "22697a32b6d04734eb9161e5739c917042829c03eee6b6194cb9f22b2feba524"
       }
     },
@@ -294470,7 +294479,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "6bc3753c6aa5729b9b108c94d83c84e116fe30d6285080287f2e4ec9898c6f18"
       },
       "mScore": {
@@ -294482,7 +294491,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "6bc3753c6aa5729b9b108c94d83c84e116fe30d6285080287f2e4ec9898c6f18"
       }
     },
@@ -298156,7 +298165,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "6cd45beab9d672b6271cc4a864984781a17642a969b22fe4d92697bced792b35"
       },
       "mScore": {
@@ -298168,7 +298177,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "6cd45beab9d672b6271cc4a864984781a17642a969b22fe4d92697bced792b35"
       }
     },
@@ -301763,7 +301772,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "f6c65f8c44d7afc1ba039dd823112da5f98625c776ec58d10960f45a5e7ef28b"
       },
       "mScore": {
@@ -301775,7 +301784,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "f6c65f8c44d7afc1ba039dd823112da5f98625c776ec58d10960f45a5e7ef28b"
       }
     },
@@ -305525,7 +305534,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "f64fe0dd38764e2eca0a502b2b37c61d50286beb11b47d53fa039858411838ba"
       },
       "mScore": {
@@ -305537,7 +305546,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "f64fe0dd38764e2eca0a502b2b37c61d50286beb11b47d53fa039858411838ba"
       }
     },
@@ -309288,7 +309297,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "5b6fe53f5933d5b2d3308e99c40a0a6c20182a69b5d62d1c48e9a83b871663ec"
       },
       "mScore": {
@@ -309300,7 +309309,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "5b6fe53f5933d5b2d3308e99c40a0a6c20182a69b5d62d1c48e9a83b871663ec"
       }
     },
@@ -312889,7 +312898,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "ceae4aa38ef062759410436899b482f09375fc517899c1b73a482751ff1f89db"
       },
       "mScore": {
@@ -312901,7 +312910,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "ceae4aa38ef062759410436899b482f09375fc517899c1b73a482751ff1f89db"
       }
     },
@@ -316508,7 +316517,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "c35804778b28b21c835f3a5de4ed7d2049e0e1f134d21166d3cebb10de027e9b"
       },
       "mScore": {
@@ -316520,7 +316529,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "c35804778b28b21c835f3a5de4ed7d2049e0e1f134d21166d3cebb10de027e9b"
       }
     },
@@ -320103,7 +320112,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "2ef86500f867176ef54286e7d44b78f8d654bcb5839ec341d72c3d9aa6f9e964"
       },
       "mScore": {
@@ -320115,7 +320124,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "2ef86500f867176ef54286e7d44b78f8d654bcb5839ec341d72c3d9aa6f9e964"
       }
     },
@@ -323685,7 +323694,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "8644d449108a6372d2180d3dd5f490797b884ef4798848388a6db2ef4b014f50"
       },
       "mScore": {
@@ -323697,7 +323706,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "8644d449108a6372d2180d3dd5f490797b884ef4798848388a6db2ef4b014f50"
       }
     },
@@ -327304,7 +327313,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "f7c69b7096205d990e6305728b7df317f62fb9eb666ff10e1da4553f9d2a1133"
       },
       "mScore": {
@@ -327316,7 +327325,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "f7c69b7096205d990e6305728b7df317f62fb9eb666ff10e1da4553f9d2a1133"
       }
     },
@@ -331060,7 +331069,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "8778edd569ce1e5c11ba89813fdf37948a6f565929060f835744a577b422e550"
       },
       "mScore": {
@@ -331072,7 +331081,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "8778edd569ce1e5c11ba89813fdf37948a6f565929060f835744a577b422e550"
       }
     },
@@ -334841,7 +334850,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "2730c58e5a91dd7da794c6fe926bb6cc2afd8f2fccfceb704ea5e3376403b3c7"
       },
       "mScore": {
@@ -334853,7 +334862,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "2730c58e5a91dd7da794c6fe926bb6cc2afd8f2fccfceb704ea5e3376403b3c7"
       }
     },
@@ -338478,7 +338487,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "83d2d9860fdb81b04a583bc3abbf02994fdcb9deb176b0655e98ad491bb7641c"
       },
       "mScore": {
@@ -338490,7 +338499,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "83d2d9860fdb81b04a583bc3abbf02994fdcb9deb176b0655e98ad491bb7641c"
       }
     },
@@ -342115,7 +342124,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "256f5ebefdca2f27552a0b58837b751ad7a124e2064c646c6b73bca98c5dc9d3"
       },
       "mScore": {
@@ -342127,7 +342136,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "256f5ebefdca2f27552a0b58837b751ad7a124e2064c646c6b73bca98c5dc9d3"
       }
     },
@@ -345718,15 +345727,15 @@ window.FULL_MARKET_DATA = {
         "checkedAt": null
       },
       "zScore": {
-        "asOfDate": "2026-08-31",
-        "period": "FY 2026",
+        "asOfDate": "2025-08-31",
+        "period": "FY 2025",
         "basis": "comparableAnnual",
         "model": "z",
         "zone": "superRobust",
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "eeef85dbb22635ef1b038932ede12faf1cda1918fc5e5915fcc261848a672ea6"
       },
       "mScore": {
@@ -345738,7 +345747,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "eeef85dbb22635ef1b038932ede12faf1cda1918fc5e5915fcc261848a672ea6"
       }
     },
@@ -345937,7 +345946,7 @@ window.FULL_MARKET_DATA = {
         "capturedAt": "2026-11-06T01:52:11Z"
       }
     },
-    "z_score": 4.39,
+    "z_score": 5.35,
     "z_score_model": "z",
     "z_score_zone": "superRobust",
     "z_score_breakdown": [
@@ -345948,12 +345957,12 @@ window.FULL_MARKET_DATA = {
         "desc": "營運資金 / 總資產 (X1)",
         "desc_en": "Working capital / Total assets (X1)",
         "weight": 1.2,
-        "value": -0.10563011922006217,
-        "contribution": -0.1267561430640746,
+        "value": 0.04842932788634176,
+        "contribution": 0.058115193463610104,
         "passed": null,
-        "detail": "-0.1056 × 1.2 = -0.1268",
-        "detail_zh": "-0.1056 × 1.2 = -0.1268",
-        "detail_en": "-0.1056 × 1.2 = -0.1268",
+        "detail": "0.0484 × 1.2 = 0.0581",
+        "detail_zh": "0.0484 × 1.2 = 0.0581",
+        "detail_en": "0.0484 × 1.2 = 0.0581",
         "reason": null
       },
       {
@@ -345963,12 +345972,12 @@ window.FULL_MARKET_DATA = {
         "desc": "保留盈餘 / 總資產 (X2)",
         "desc_en": "Retained earnings / Total assets (X2)",
         "weight": 1.4,
-        "value": 0,
-        "contribution": 0,
+        "value": 0.539790933286744,
+        "contribution": 0.7557073066014416,
         "passed": null,
-        "detail": "0.0000 × 1.4 = 0.0000",
-        "detail_zh": "0.0000 × 1.4 = 0.0000",
-        "detail_en": "0.0000 × 1.4 = 0.0000",
+        "detail": "0.5398 × 1.4 = 0.7557",
+        "detail_zh": "0.5398 × 1.4 = 0.7557",
+        "detail_en": "0.5398 × 1.4 = 0.7557",
         "reason": null
       },
       {
@@ -345978,12 +345987,12 @@ window.FULL_MARKET_DATA = {
         "desc": "EBIT / 總資產 (X3)",
         "desc_en": "EBIT / Total assets (X3)",
         "weight": 3.3,
-        "value": 0.16895571471088816,
-        "contribution": 0.5575538585459309,
+        "value": 0.18058384786091586,
+        "contribution": 0.5959266979410223,
         "passed": null,
-        "detail": "0.1690 × 3.3 = 0.5576",
-        "detail_zh": "0.1690 × 3.3 = 0.5576",
-        "detail_en": "0.1690 × 3.3 = 0.5576",
+        "detail": "0.1806 × 3.3 = 0.5959",
+        "detail_zh": "0.1806 × 3.3 = 0.5959",
+        "detail_en": "0.1806 × 3.3 = 0.5959",
         "reason": null
       },
       {
@@ -345993,12 +346002,12 @@ window.FULL_MARKET_DATA = {
         "desc": "市值權益 / 總負債 (X4)",
         "desc_en": "Market equity / Total liabilities (X4)",
         "weight": 0.6,
-        "value": 5.608794489618525,
-        "contribution": 3.365276693771115,
+        "value": 5.670018636745883,
+        "contribution": 3.40201118204753,
         "passed": null,
-        "detail": "5.6088 × 0.6 = 3.3653",
-        "detail_zh": "5.6088 × 0.6 = 3.3653",
-        "detail_en": "5.6088 × 0.6 = 3.3653",
+        "detail": "5.6700 × 0.6 = 3.4020",
+        "detail_zh": "5.6700 × 0.6 = 3.4020",
+        "detail_en": "5.6700 × 0.6 = 3.4020",
         "reason": null
       },
       {
@@ -346008,12 +346017,12 @@ window.FULL_MARKET_DATA = {
         "desc": "營收 / 總資產 (X5)",
         "desc_en": "Sales / Total assets (X5)",
         "weight": 1,
-        "value": 0.5977190060062619,
-        "contribution": 0.5977190060062619,
+        "value": 0.5394055022545043,
+        "contribution": 0.5394055022545043,
         "passed": null,
-        "detail": "0.5977 × 1 = 0.5977",
-        "detail_zh": "0.5977 × 1 = 0.5977",
-        "detail_en": "0.5977 × 1 = 0.5977",
+        "detail": "0.5394 × 1 = 0.5394",
+        "detail_zh": "0.5394 × 1 = 0.5394",
+        "detail_en": "0.5394 × 1 = 0.5394",
         "reason": null
       }
     ],
@@ -349501,7 +349510,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "c2ec9a01ace17a834b908d842484dde2c85426af1e1e8f91f5fb5d3019ae6bb9"
       },
       "mScore": {
@@ -349513,7 +349522,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "c2ec9a01ace17a834b908d842484dde2c85426af1e1e8f91f5fb5d3019ae6bb9"
       }
     },
@@ -353257,7 +353266,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "e97f77a4a4cab1e13d5cc9de308b748afcb04b96d934c9ad045fa943a12e443b"
       },
       "mScore": {
@@ -353269,7 +353278,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "e97f77a4a4cab1e13d5cc9de308b748afcb04b96d934c9ad045fa943a12e443b"
       }
     },
@@ -357018,7 +357027,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "458f3b3062ce3cd63c74a5e5aabd976b8b2d9b846bb1b48e504a262a022a12b6"
       },
       "mScore": {
@@ -357030,7 +357039,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "458f3b3062ce3cd63c74a5e5aabd976b8b2d9b846bb1b48e504a262a022a12b6"
       }
     },
@@ -360773,7 +360782,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "1f4254574a586a76e621136371d4e5a1ca50fca365a962842ed9cf4ad9d5b129"
       },
       "mScore": {
@@ -360785,7 +360794,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "1f4254574a586a76e621136371d4e5a1ca50fca365a962842ed9cf4ad9d5b129"
       }
     },
@@ -364536,7 +364545,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "f91a672aa820fd1a130e8234375b8192049ebf25a674fefc65dad17872645b03"
       },
       "mScore": {
@@ -364548,7 +364557,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "f91a672aa820fd1a130e8234375b8192049ebf25a674fefc65dad17872645b03"
       }
     },
@@ -368299,7 +368308,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "83e5c620e3854010e050042fd22144b6976fd8e4eec4350b61413dca42ef6ddb"
       },
       "mScore": {
@@ -368311,7 +368320,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "83e5c620e3854010e050042fd22144b6976fd8e4eec4350b61413dca42ef6ddb"
       }
     },
@@ -371942,7 +371951,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "e2695ba704768887837cf3f88f3ae4bdb8b5adf32c63b44cfc678cc151fc08a6"
       },
       "mScore": {
@@ -371954,7 +371963,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "e2695ba704768887837cf3f88f3ae4bdb8b5adf32c63b44cfc678cc151fc08a6"
       }
     },
@@ -375533,7 +375542,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "d543743e2d9965e5a54f74e0869f6bc1a492850f0a6a1ef9b2ed32e2c51885b1"
       },
       "mScore": {
@@ -375545,7 +375554,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "d543743e2d9965e5a54f74e0869f6bc1a492850f0a6a1ef9b2ed32e2c51885b1"
       }
     },
@@ -379115,7 +379124,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "085c1c0f4caaa4e3d0c0d65e61ba43c2b715142d8dade6a17a5decb8db7eb85a"
       },
       "mScore": {
@@ -379127,7 +379136,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "085c1c0f4caaa4e3d0c0d65e61ba43c2b715142d8dade6a17a5decb8db7eb85a"
       }
     },
@@ -382716,7 +382725,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "1456e68a7e54cf08b7111c3c1b68006b50c3e94cb40ab50a532ea3bde24bc733"
       },
       "mScore": {
@@ -382728,7 +382737,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "1456e68a7e54cf08b7111c3c1b68006b50c3e94cb40ab50a532ea3bde24bc733"
       }
     },
@@ -386359,7 +386368,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "f60cfd05da61e06f7dc45ca0a3b38d58bc3c17b8ee624a18f9cd728ea64245ce"
       },
       "mScore": {
@@ -386371,7 +386380,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "f60cfd05da61e06f7dc45ca0a3b38d58bc3c17b8ee624a18f9cd728ea64245ce"
       }
     },
@@ -389943,7 +389952,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "ee5ae8a72bf5e1c6ef15b05043b2e76cb0b41cf56c3c60595e7ccab58347629a"
       },
       "mScore": {
@@ -389955,7 +389964,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "ee5ae8a72bf5e1c6ef15b05043b2e76cb0b41cf56c3c60595e7ccab58347629a"
       }
     },
@@ -393722,7 +393731,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "83a9634014bc657c2e03722b2ac0b9bdee9331ca7039dd10247d784397009e33"
       },
       "mScore": {
@@ -393734,7 +393743,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "83a9634014bc657c2e03722b2ac0b9bdee9331ca7039dd10247d784397009e33"
       }
     },
@@ -397495,7 +397504,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "faa904aba005419112e389129e5eba7df7f0b501c9da069b3e8fa59c6f3f7a53"
       },
       "mScore": {
@@ -397507,7 +397516,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "faa904aba005419112e389129e5eba7df7f0b501c9da069b3e8fa59c6f3f7a53"
       }
     },
@@ -401282,7 +401291,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "e0b2a5aec4002b77ece4b3cfcaea994158501177cf8868028d71fa70b5225bd6"
       },
       "mScore": {
@@ -401294,7 +401303,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "e0b2a5aec4002b77ece4b3cfcaea994158501177cf8868028d71fa70b5225bd6"
       }
     },
@@ -404913,7 +404922,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "3edc65ef34e25c357e06945d6c1aedbd27aedd04ca91fb803876e06b3aa63945"
       },
       "mScore": {
@@ -404925,7 +404934,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "3edc65ef34e25c357e06945d6c1aedbd27aedd04ca91fb803876e06b3aa63945"
       }
     },
@@ -408692,7 +408701,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "89abdf2690eb1e8db917ae6fd1f9c3d7069e21e6d9cf148d8c289746c6a28818"
       },
       "mScore": {
@@ -408704,7 +408713,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "89abdf2690eb1e8db917ae6fd1f9c3d7069e21e6d9cf148d8c289746c6a28818"
       }
     },
@@ -412479,7 +412488,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "73dcc9101cc26465f73e1032e0e7198775ec98d6c81fdeba6dc6a2a1158a4937"
       },
       "mScore": {
@@ -412491,7 +412500,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "73dcc9101cc26465f73e1032e0e7198775ec98d6c81fdeba6dc6a2a1158a4937"
       }
     },
@@ -416280,7 +416289,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "1fee99ad5d9a2820292bdd29ec05a14e05a01dec36c7cfbe0ce537e851392d5c"
       },
       "mScore": {
@@ -416292,7 +416301,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "1fee99ad5d9a2820292bdd29ec05a14e05a01dec36c7cfbe0ce537e851392d5c"
       }
     },
@@ -420036,7 +420045,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "62517ce1fe5d5f9a23036404fa2adad3ac1491d6c91e057a265dbf8c391d102c"
       },
       "mScore": {
@@ -420048,7 +420057,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "62517ce1fe5d5f9a23036404fa2adad3ac1491d6c91e057a265dbf8c391d102c"
       }
     },
@@ -423835,7 +423844,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "bd1fbcb2d62db622e964b9cc4b9963c1c55ba7c72cb264a1da8fe769fde690fc"
       },
       "mScore": {
@@ -423847,7 +423856,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "bd1fbcb2d62db622e964b9cc4b9963c1c55ba7c72cb264a1da8fe769fde690fc"
       }
     },
@@ -427640,7 +427649,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "739bc947a9ea6beb7a510fe7b7c27ec1b5622c5d20f516f3582d968dfdeda038"
       },
       "mScore": {
@@ -427652,7 +427661,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "739bc947a9ea6beb7a510fe7b7c27ec1b5622c5d20f516f3582d968dfdeda038"
       }
     },
@@ -431451,7 +431460,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "10c05b9612ffb26e46889822e9185f8c3f86448f5979add66fdd718f5ffd3a79"
       },
       "mScore": {
@@ -431463,7 +431472,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "10c05b9612ffb26e46889822e9185f8c3f86448f5979add66fdd718f5ffd3a79"
       }
     },
@@ -435248,7 +435257,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "fd21bb1f9f425dccf8090f17f0c9ae922badcc7d838057f4e2a71805dd61e1f3"
       },
       "mScore": {
@@ -435260,7 +435269,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "fd21bb1f9f425dccf8090f17f0c9ae922badcc7d838057f4e2a71805dd61e1f3"
       }
     },
@@ -439023,7 +439032,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "4dedff7f0d140f46e45094ccc6cf36eb869e43670c8c862be44b4e914e7f27f4"
       },
       "mScore": {
@@ -439035,7 +439044,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "4dedff7f0d140f46e45094ccc6cf36eb869e43670c8c862be44b4e914e7f27f4"
       }
     },
@@ -442816,7 +442825,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "e8dde6e107e30f4006ceb2a0bddc781f7b3a9923fecb0bfb7d65e7f4eb76bf1c"
       },
       "mScore": {
@@ -442828,7 +442837,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "e8dde6e107e30f4006ceb2a0bddc781f7b3a9923fecb0bfb7d65e7f4eb76bf1c"
       }
     },
@@ -446603,7 +446612,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "6feeeb6bb9de3997186e3845ddac02bacd903c2c590bba6d73f12a5654d598df"
       },
       "mScore": {
@@ -446615,7 +446624,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "6feeeb6bb9de3997186e3845ddac02bacd903c2c590bba6d73f12a5654d598df"
       }
     },
@@ -450396,7 +450405,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "df9a82000b535fa48fba7d70243872eaedfe98da43223925965fa5d6526e25fb"
       },
       "mScore": {
@@ -450408,7 +450417,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "df9a82000b535fa48fba7d70243872eaedfe98da43223925965fa5d6526e25fb"
       }
     },
@@ -454199,7 +454208,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "388d9db1dd4f6d075b1f80f4c3552f7349cb408c41b6398cbd6855be6a8bdedb"
       },
       "mScore": {
@@ -454211,7 +454220,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "388d9db1dd4f6d075b1f80f4c3552f7349cb408c41b6398cbd6855be6a8bdedb"
       }
     },
@@ -457986,7 +457995,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "f7bf1f0e98624a7f089426df2ad2c05eb63aff6c94b0c172725c8d1ee91cf684"
       },
       "mScore": {
@@ -457998,7 +458007,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "f7bf1f0e98624a7f089426df2ad2c05eb63aff6c94b0c172725c8d1ee91cf684"
       }
     },
@@ -461744,7 +461753,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "80bd7c5a28036fd6025bab1284c910372f4e5defb12de3f3993bc79fbe8ed61f"
       },
       "mScore": {
@@ -461756,7 +461765,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "80bd7c5a28036fd6025bab1284c910372f4e5defb12de3f3993bc79fbe8ed61f"
       }
     },
@@ -465494,7 +465503,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "6711a7d9d7b59eeabfd21299110cda0e8414ab8525701d32d9ebd07a9a202a34"
       },
       "mScore": {
@@ -465506,7 +465515,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "6711a7d9d7b59eeabfd21299110cda0e8414ab8525701d32d9ebd07a9a202a34"
       }
     },
@@ -469291,16 +469300,25 @@ window.FULL_MARKET_DATA = {
         "checkedAt": null
       },
       "zScore": {
-        "asOfDate": "2025-12-31",
-        "period": "FY 2025",
+        "asOfDate": "2024-12-31",
+        "period": "FY 2024",
         "basis": "comparableAnnual",
         "model": "z",
         "zone": "distress",
         "reason": null,
         "scoringCurrency": "EUR",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
-        "evidenceHash": "9b3119466b8ef78b26065f848497904579d5a7ba614777b09494b8d56e1f8f47"
+        "checkedAt": "2026-11-06T12:17:55.370Z",
+        "evidenceHash": "9b3119466b8ef78b26065f848497904579d5a7ba614777b09494b8d56e1f8f47",
+        "mcapFx": {
+          "asOf": "2026-11-05",
+          "from": "USD",
+          "to": "EUR",
+          "fromUsdPerUnit": 1,
+          "toUsdPerUnit": 1.1163,
+          "fromObservationDate": "2026-11-05",
+          "toObservationDate": "2026-10-30"
+        }
       },
       "mScore": {
         "asOfDate": "2025-12-31",
@@ -469311,7 +469329,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "EUR",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "9b3119466b8ef78b26065f848497904579d5a7ba614777b09494b8d56e1f8f47"
       }
     },
@@ -469487,7 +469505,7 @@ window.FULL_MARKET_DATA = {
         "capturedAt": "2026-11-06T01:56:25Z"
       }
     },
-    "z_score": 1.35,
+    "z_score": 1.65,
     "z_score_model": "z",
     "z_score_zone": "distress",
     "z_score_breakdown": [
@@ -469498,12 +469516,12 @@ window.FULL_MARKET_DATA = {
         "desc": "營運資金 / 總資產 (X1)",
         "desc_en": "Working capital / Total assets (X1)",
         "weight": 1.2,
-        "value": 0.05331914070059996,
-        "contribution": 0.06398296884071995,
+        "value": 0.06740883543717696,
+        "contribution": 0.08089060252461235,
         "passed": null,
-        "detail": "0.0533 × 1.2 = 0.0640",
-        "detail_zh": "0.0533 × 1.2 = 0.0640",
-        "detail_en": "0.0533 × 1.2 = 0.0640",
+        "detail": "0.0674 × 1.2 = 0.0809",
+        "detail_zh": "0.0674 × 1.2 = 0.0809",
+        "detail_en": "0.0674 × 1.2 = 0.0809",
         "reason": null
       },
       {
@@ -469513,12 +469531,12 @@ window.FULL_MARKET_DATA = {
         "desc": "保留盈餘 / 總資產 (X2)",
         "desc_en": "Retained earnings / Total assets (X2)",
         "weight": 1.4,
-        "value": 0,
-        "contribution": 0,
+        "value": 0.3356400126447202,
+        "contribution": 0.46989601770260825,
         "passed": null,
-        "detail": "0.0000 × 1.4 = 0.0000",
-        "detail_zh": "0.0000 × 1.4 = 0.0000",
-        "detail_en": "0.0000 × 1.4 = 0.0000",
+        "detail": "0.3356 × 1.4 = 0.4699",
+        "detail_zh": "0.3356 × 1.4 = 0.4699",
+        "detail_en": "0.3356 × 1.4 = 0.4699",
         "reason": null
       },
       {
@@ -469528,12 +469546,12 @@ window.FULL_MARKET_DATA = {
         "desc": "EBIT / 總資產 (X3)",
         "desc_en": "EBIT / Total assets (X3)",
         "weight": 3.3,
-        "value": 0.061178214308754274,
-        "contribution": 0.20188810721888908,
+        "value": 0.04361391728361714,
+        "contribution": 0.14392592703593654,
         "passed": null,
-        "detail": "0.0612 × 3.3 = 0.2019",
-        "detail_zh": "0.0612 × 3.3 = 0.2019",
-        "detail_en": "0.0612 × 3.3 = 0.2019",
+        "detail": "0.0436 × 3.3 = 0.1439",
+        "detail_zh": "0.0436 × 3.3 = 0.1439",
+        "detail_en": "0.0436 × 3.3 = 0.1439",
         "reason": null
       },
       {
@@ -469543,12 +469561,12 @@ window.FULL_MARKET_DATA = {
         "desc": "市值權益 / 總負債 (X4)",
         "desc_en": "Market equity / Total liabilities (X4)",
         "weight": 0.6,
-        "value": 0.7531730366648723,
-        "contribution": 0.45190382199892337,
+        "value": 0.63379867093481,
+        "contribution": 0.380279202560886,
         "passed": null,
-        "detail": "0.7532 × 0.6 = 0.4519",
-        "detail_zh": "0.7532 × 0.6 = 0.4519",
-        "detail_en": "0.7532 × 0.6 = 0.4519",
+        "detail": "0.6338 × 0.6 = 0.3803",
+        "detail_zh": "0.6338 × 0.6 = 0.3803",
+        "detail_en": "0.6338 × 0.6 = 0.3803",
         "reason": null
       },
       {
@@ -469558,12 +469576,12 @@ window.FULL_MARKET_DATA = {
         "desc": "營收 / 總資產 (X5)",
         "desc_en": "Sales / Total assets (X5)",
         "weight": 1,
-        "value": 0.6331076059609058,
-        "contribution": 0.6331076059609058,
+        "value": 0.5760464597837033,
+        "contribution": 0.5760464597837033,
         "passed": null,
-        "detail": "0.6331 × 1 = 0.6331",
-        "detail_zh": "0.6331 × 1 = 0.6331",
-        "detail_en": "0.6331 × 1 = 0.6331",
+        "detail": "0.5760 × 1 = 0.5760",
+        "detail_zh": "0.5760 × 1 = 0.5760",
+        "detail_en": "0.5760 × 1 = 0.5760",
         "reason": null
       }
     ],
@@ -473043,15 +473061,15 @@ window.FULL_MARKET_DATA = {
         "checkedAt": null
       },
       "zScore": {
-        "asOfDate": "2026-09-30",
-        "period": "FY 2026",
+        "asOfDate": "2025-09-30",
+        "period": "FY 2025",
         "basis": "comparableAnnual",
         "model": "z",
         "zone": "grey",
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "c3d1c44cef3a6d1c2bdb88afd30542017e3f49e6c612ac3a019d9d34c64d1018"
       },
       "mScore": {
@@ -473063,7 +473081,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "c3d1c44cef3a6d1c2bdb88afd30542017e3f49e6c612ac3a019d9d34c64d1018"
       }
     },
@@ -473280,7 +473298,7 @@ window.FULL_MARKET_DATA = {
         "capturedAt": "2026-11-06T01:56:30Z"
       }
     },
-    "z_score": 2.82,
+    "z_score": 2.15,
     "z_score_model": "z",
     "z_score_zone": "grey",
     "z_score_breakdown": [
@@ -473291,12 +473309,12 @@ window.FULL_MARKET_DATA = {
         "desc": "營運資金 / 總資產 (X1)",
         "desc_en": "Working capital / Total assets (X1)",
         "weight": 1.2,
-        "value": 0.14516351322084622,
-        "contribution": 0.17419621586501546,
+        "value": 0.017026660641662902,
+        "contribution": 0.020431992769995484,
         "passed": null,
-        "detail": "0.1452 × 1.2 = 0.1742",
-        "detail_zh": "0.1452 × 1.2 = 0.1742",
-        "detail_en": "0.1452 × 1.2 = 0.1742",
+        "detail": "0.0170 × 1.2 = 0.0204",
+        "detail_zh": "0.0170 × 1.2 = 0.0204",
+        "detail_en": "0.0170 × 1.2 = 0.0204",
         "reason": null
       },
       {
@@ -473306,12 +473324,12 @@ window.FULL_MARKET_DATA = {
         "desc": "保留盈餘 / 總資產 (X2)",
         "desc_en": "Retained earnings / Total assets (X2)",
         "weight": 1.4,
-        "value": 0,
-        "contribution": 0,
+        "value": 0.3004428377767736,
+        "contribution": 0.42061997288748304,
         "passed": null,
-        "detail": "0.0000 × 1.4 = 0.0000",
-        "detail_zh": "0.0000 × 1.4 = 0.0000",
-        "detail_en": "0.0000 × 1.4 = 0.0000",
+        "detail": "0.3004 × 1.4 = 0.4206",
+        "detail_zh": "0.3004 × 1.4 = 0.4206",
+        "detail_en": "0.3004 × 1.4 = 0.4206",
         "reason": null
       },
       {
@@ -473321,12 +473339,12 @@ window.FULL_MARKET_DATA = {
         "desc": "EBIT / 總資產 (X3)",
         "desc_en": "EBIT / Total assets (X3)",
         "weight": 3.3,
-        "value": 0.046642121635722865,
-        "contribution": 0.15391900139788545,
+        "value": 0.04509715318572074,
+        "contribution": 0.14882060551287843,
         "passed": null,
-        "detail": "0.0466 × 3.3 = 0.1539",
-        "detail_zh": "0.0466 × 3.3 = 0.1539",
-        "detail_en": "0.0466 × 3.3 = 0.1539",
+        "detail": "0.0451 × 3.3 = 0.1488",
+        "detail_zh": "0.0451 × 3.3 = 0.1488",
+        "detail_en": "0.0451 × 3.3 = 0.1488",
         "reason": null
       },
       {
@@ -473336,12 +473354,12 @@ window.FULL_MARKET_DATA = {
         "desc": "市值權益 / 總負債 (X4)",
         "desc_en": "Market equity / Total liabilities (X4)",
         "weight": 0.6,
-        "value": 3.511300253531329,
-        "contribution": 2.106780152118797,
+        "value": 1.9430852485301977,
+        "contribution": 1.1658511491181185,
         "passed": null,
-        "detail": "3.5113 × 0.6 = 2.1068",
-        "detail_zh": "3.5113 × 0.6 = 2.1068",
-        "detail_en": "3.5113 × 0.6 = 2.1068",
+        "detail": "1.9431 × 0.6 = 1.1659",
+        "detail_zh": "1.9431 × 0.6 = 1.1659",
+        "detail_en": "1.9431 × 0.6 = 1.1659",
         "reason": null
       },
       {
@@ -473351,12 +473369,12 @@ window.FULL_MARKET_DATA = {
         "desc": "營收 / 總資產 (X5)",
         "desc_en": "Sales / Total assets (X5)",
         "weight": 1,
-        "value": 0.38307967947077237,
-        "contribution": 0.38307967947077237,
+        "value": 0.39474017171260734,
+        "contribution": 0.39474017171260734,
         "passed": null,
-        "detail": "0.3831 × 1 = 0.3831",
-        "detail_zh": "0.3831 × 1 = 0.3831",
-        "detail_en": "0.3831 × 1 = 0.3831",
+        "detail": "0.3947 × 1 = 0.3947",
+        "detail_zh": "0.3947 × 1 = 0.3947",
+        "detail_en": "0.3947 × 1 = 0.3947",
         "reason": null
       }
     ],
@@ -476844,7 +476862,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "9827f359523e82df623b6a39d29da3361a534f79f52f466b8fcb456619795621"
       },
       "mScore": {
@@ -476856,7 +476874,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "9827f359523e82df623b6a39d29da3361a534f79f52f466b8fcb456619795621"
       }
     },
@@ -480607,7 +480625,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "29b3fa54d74f1c066640b3f43b57beee45ce2e8aa06b129e4aaa2b167f68a423"
       },
       "mScore": {
@@ -480619,7 +480637,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "29b3fa54d74f1c066640b3f43b57beee45ce2e8aa06b129e4aaa2b167f68a423"
       }
     },
@@ -484370,7 +484388,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "fbac083783d0738ccbde57b651eaa71bb404ace5b0f4a73a7488ebb2a806b951"
       },
       "mScore": {
@@ -484382,7 +484400,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "fbac083783d0738ccbde57b651eaa71bb404ace5b0f4a73a7488ebb2a806b951"
       }
     },
@@ -488141,15 +488159,15 @@ window.FULL_MARKET_DATA = {
         "checkedAt": null
       },
       "zScore": {
-        "asOfDate": "2026-09-30",
-        "period": "FY 2026",
+        "asOfDate": "2025-09-30",
+        "period": "FY 2025",
         "basis": "comparableAnnual",
         "model": "z",
         "zone": "superRobust",
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "8e8f8c2beec8419ad95e5530d6cfecacc1eebe55f7c71f0f57a62a3b17fc58d6"
       },
       "mScore": {
@@ -488161,7 +488179,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "8e8f8c2beec8419ad95e5530d6cfecacc1eebe55f7c71f0f57a62a3b17fc58d6"
       }
     },
@@ -488360,7 +488378,7 @@ window.FULL_MARKET_DATA = {
         "capturedAt": "2026-11-06T01:57:11Z"
       }
     },
-    "z_score": 4.48,
+    "z_score": 4.86,
     "z_score_model": "z",
     "z_score_zone": "superRobust",
     "z_score_breakdown": [
@@ -488371,12 +488389,12 @@ window.FULL_MARKET_DATA = {
         "desc": "營運資金 / 總資產 (X1)",
         "desc_en": "Working capital / Total assets (X1)",
         "weight": 1.2,
-        "value": -0.04511032704824662,
-        "contribution": -0.054132392457895945,
+        "value": -0.07287449847311883,
+        "contribution": -0.0874493981677426,
         "passed": null,
-        "detail": "-0.0451 × 1.2 = -0.0541",
-        "detail_zh": "-0.0451 × 1.2 = -0.0541",
-        "detail_en": "-0.0451 × 1.2 = -0.0541",
+        "detail": "-0.0729 × 1.2 = -0.0874",
+        "detail_zh": "-0.0729 × 1.2 = -0.0874",
+        "detail_en": "-0.0729 × 1.2 = -0.0874",
         "reason": null
       },
       {
@@ -488386,12 +488404,12 @@ window.FULL_MARKET_DATA = {
         "desc": "保留盈餘 / 總資產 (X2)",
         "desc_en": "Retained earnings / Total assets (X2)",
         "weight": 1.4,
-        "value": 0,
-        "contribution": 0,
+        "value": 0.08531423743054456,
+        "contribution": 0.11943993240276238,
         "passed": null,
-        "detail": "0.0000 × 1.4 = 0.0000",
-        "detail_zh": "0.0000 × 1.4 = 0.0000",
-        "detail_en": "0.0000 × 1.4 = 0.0000",
+        "detail": "0.0853 × 1.4 = 0.1194",
+        "detail_zh": "0.0853 × 1.4 = 0.1194",
+        "detail_en": "0.0853 × 1.4 = 0.1194",
         "reason": null
       },
       {
@@ -488401,12 +488419,12 @@ window.FULL_MARKET_DATA = {
         "desc": "EBIT / 總資產 (X3)",
         "desc_en": "EBIT / Total assets (X3)",
         "weight": 3.3,
-        "value": 0.05821339003395868,
-        "contribution": 0.19210418711206365,
+        "value": 0.03496651108174382,
+        "contribution": 0.11538948656975459,
         "passed": null,
-        "detail": "0.0582 × 3.3 = 0.1921",
-        "detail_zh": "0.0582 × 3.3 = 0.1921",
-        "detail_en": "0.0582 × 3.3 = 0.1921",
+        "detail": "0.0350 × 3.3 = 0.1154",
+        "detail_zh": "0.0350 × 3.3 = 0.1154",
+        "detail_en": "0.0350 × 3.3 = 0.1154",
         "reason": null
       },
       {
@@ -488416,12 +488434,12 @@ window.FULL_MARKET_DATA = {
         "desc": "市值權益 / 總負債 (X4)",
         "desc_en": "Market equity / Total liabilities (X4)",
         "weight": 0.6,
-        "value": 0.7769994767796125,
-        "contribution": 0.46619968606776746,
+        "value": 0.866082019905475,
+        "contribution": 0.519649211943285,
         "passed": null,
-        "detail": "0.7770 × 0.6 = 0.4662",
-        "detail_zh": "0.7770 × 0.6 = 0.4662",
-        "detail_en": "0.7770 × 0.6 = 0.4662",
+        "detail": "0.8661 × 0.6 = 0.5196",
+        "detail_zh": "0.8661 × 0.6 = 0.5196",
+        "detail_en": "0.8661 × 0.6 = 0.5196",
         "reason": null
       },
       {
@@ -488431,12 +488449,12 @@ window.FULL_MARKET_DATA = {
         "desc": "營收 / 總資產 (X5)",
         "desc_en": "Sales / Total assets (X5)",
         "weight": 1,
-        "value": 3.873456036846207,
-        "contribution": 3.873456036846207,
+        "value": 4.195486997068238,
+        "contribution": 4.195486997068238,
         "passed": null,
-        "detail": "3.8735 × 1 = 3.8735",
-        "detail_zh": "3.8735 × 1 = 3.8735",
-        "detail_en": "3.8735 × 1 = 3.8735",
+        "detail": "4.1955 × 1 = 4.1955",
+        "detail_zh": "4.1955 × 1 = 4.1955",
+        "detail_en": "4.1955 × 1 = 4.1955",
         "reason": null
       }
     ],
@@ -491919,7 +491937,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "93ebc4c3d40ec059afbdb80b7e3222930fd26f2f8037ab98df92b41982b9d230"
       },
       "mScore": {
@@ -491931,7 +491949,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "93ebc4c3d40ec059afbdb80b7e3222930fd26f2f8037ab98df92b41982b9d230"
       }
     },
@@ -495686,7 +495704,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "1449a2a1c2162c4ebb0541652e2d40866775f3ddc90951b53302b8942fcd7f08"
       },
       "mScore": {
@@ -495698,7 +495716,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "1449a2a1c2162c4ebb0541652e2d40866775f3ddc90951b53302b8942fcd7f08"
       }
     },
@@ -499449,7 +499467,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "c23d63d614ac2ab1394866806c5cf76262021f0ce8e2bb5725498f36b77fc0c7"
       },
       "mScore": {
@@ -499461,7 +499479,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "c23d63d614ac2ab1394866806c5cf76262021f0ce8e2bb5725498f36b77fc0c7"
       }
     },
@@ -503255,7 +503273,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "3fbb9cbcb8dd8da7beca608359465c2d4be862703987735b8e93c6eddcdad09d"
       },
       "mScore": {
@@ -503267,7 +503285,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "3fbb9cbcb8dd8da7beca608359465c2d4be862703987735b8e93c6eddcdad09d"
       }
     },
@@ -507011,7 +507029,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "19b9c0d948571fff11b1b37d739140416b70d274778f60b8dbe06c632478a836"
       },
       "mScore": {
@@ -507023,7 +507041,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "19b9c0d948571fff11b1b37d739140416b70d274778f60b8dbe06c632478a836"
       }
     },
@@ -510792,7 +510810,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "6b4c81925c00e7f470e2c3d3f2c7419c94a17833fc87b5a7337e9a904def0533"
       },
       "mScore": {
@@ -510804,7 +510822,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "6b4c81925c00e7f470e2c3d3f2c7419c94a17833fc87b5a7337e9a904def0533"
       }
     },
@@ -514548,7 +514566,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "e90f4d10eda1de29b942b77aadd383f58b005eb71aa6e2a94227f1a0d9c017bf"
       },
       "mScore": {
@@ -514560,7 +514578,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "e90f4d10eda1de29b942b77aadd383f58b005eb71aa6e2a94227f1a0d9c017bf"
       }
     },
@@ -518311,7 +518329,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "80b19a0495da426d04a50c5917431cc098812219345ae3208ba9e555892237fd"
       },
       "mScore": {
@@ -518323,7 +518341,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "80b19a0495da426d04a50c5917431cc098812219345ae3208ba9e555892237fd"
       }
     },
@@ -522128,7 +522146,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "ceab62fb9a1f3cd10ef7fd06596d6043a611cfca95f6d4afa771271328c329a5"
       },
       "mScore": {
@@ -522140,7 +522158,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "ceab62fb9a1f3cd10ef7fd06596d6043a611cfca95f6d4afa771271328c329a5"
       }
     },
@@ -525921,7 +525939,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "b8e65a5d45cd27d567ce71548cbd7275503e62ed547f5d2b62d9b2b45dfb636a"
       },
       "mScore": {
@@ -525933,7 +525951,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "b8e65a5d45cd27d567ce71548cbd7275503e62ed547f5d2b62d9b2b45dfb636a"
       }
     },
@@ -529714,7 +529732,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "f2588a98f52a380bd5004906121f87dc4eef78323f6ed6ca6f2c520115d90474"
       },
       "mScore": {
@@ -529726,7 +529744,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "f2588a98f52a380bd5004906121f87dc4eef78323f6ed6ca6f2c520115d90474"
       }
     },
@@ -533525,7 +533543,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "ce45bef565214dac49c176f0ed7e11b88aae8ccc2e7067c4bd0f035226de057e"
       },
       "mScore": {
@@ -533537,7 +533555,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "ce45bef565214dac49c176f0ed7e11b88aae8ccc2e7067c4bd0f035226de057e"
       }
     },
@@ -537307,7 +537325,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "5c24a3e10368d4de4f1e5183715099496fff04c0cfcbfbb184ee33b175b160fe"
       },
       "mScore": {
@@ -537319,7 +537337,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "5c24a3e10368d4de4f1e5183715099496fff04c0cfcbfbb184ee33b175b160fe"
       }
     },
@@ -541058,7 +541076,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "e95889305a9f68dc5efc5190a6d105c3540569ba8b725dd5491eb2536f006e82"
       },
       "mScore": {
@@ -541070,7 +541088,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "e95889305a9f68dc5efc5190a6d105c3540569ba8b725dd5491eb2536f006e82"
       }
     },
@@ -544821,7 +544839,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "09d01c30cba3a6036f2ace6252fcfd6617dcb345867fc7eef80bd20af52b6b7f"
       },
       "mScore": {
@@ -544833,7 +544851,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "09d01c30cba3a6036f2ace6252fcfd6617dcb345867fc7eef80bd20af52b6b7f"
       }
     },
@@ -548608,7 +548626,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "ebd0eaa76439c27fc1b179a459c081219750777757fe648d68901da60b341c4c"
       },
       "mScore": {
@@ -548620,7 +548638,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "ebd0eaa76439c27fc1b179a459c081219750777757fe648d68901da60b341c4c"
       }
     },
@@ -552403,7 +552421,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "a9c1af1fff581a8b00afe05ab1eef9b187b6f84d57b6fd4766eac4bf23f3e59b"
       },
       "mScore": {
@@ -552415,7 +552433,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "a9c1af1fff581a8b00afe05ab1eef9b187b6f84d57b6fd4766eac4bf23f3e59b"
       }
     },
@@ -556173,7 +556191,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "3e07ce4d31f25431a45bee5c5c47510342dcf30f60b6a6a7ee3873d15af01086"
       },
       "mScore": {
@@ -556185,7 +556203,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "3e07ce4d31f25431a45bee5c5c47510342dcf30f60b6a6a7ee3873d15af01086"
       }
     },
@@ -559949,7 +559967,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "1cd3ab1e2c33d91c47365582544a65e5a120be7bf47bcafad114f364a7d1392f"
       },
       "mScore": {
@@ -559961,7 +559979,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "1cd3ab1e2c33d91c47365582544a65e5a120be7bf47bcafad114f364a7d1392f"
       }
     },
@@ -563766,7 +563784,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "bb0abcf8391f9927a46c5654c99635a7fac2c47ecbde1f5d5ead4f580dbe8328"
       },
       "mScore": {
@@ -563778,7 +563796,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "bb0abcf8391f9927a46c5654c99635a7fac2c47ecbde1f5d5ead4f580dbe8328"
       }
     },
@@ -567571,7 +567589,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "0f15b55f7aa11d0e7c1a2ff5af8b6e163204b8d9913ac61fcbc3e11822bbbc3f"
       },
       "mScore": {
@@ -567583,7 +567601,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "0f15b55f7aa11d0e7c1a2ff5af8b6e163204b8d9913ac61fcbc3e11822bbbc3f"
       }
     },
@@ -571358,7 +571376,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "aa0abc9be4e1fb4db407116b3170b7b12e3fe8d839a34d7b01a45516dd13df31"
       },
       "mScore": {
@@ -571370,7 +571388,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "aa0abc9be4e1fb4db407116b3170b7b12e3fe8d839a34d7b01a45516dd13df31"
       }
     },
@@ -575145,7 +575163,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "08c0afe15c60c5ac9e8df2b5536aec678fbf41f889f85c2dae5113035ac83afe"
       },
       "mScore": {
@@ -575157,7 +575175,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "08c0afe15c60c5ac9e8df2b5536aec678fbf41f889f85c2dae5113035ac83afe"
       }
     },
@@ -578948,7 +578966,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "03ae46e494b260736c2fc97bd78f7a6cae5239efa87bff5fa1fe949b03c4fe6d"
       },
       "mScore": {
@@ -578960,7 +578978,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "03ae46e494b260736c2fc97bd78f7a6cae5239efa87bff5fa1fe949b03c4fe6d"
       }
     },
@@ -582745,7 +582763,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "918e38f4527cec6df127727888b3f326ae8d0617c1c70f059ca22074c8998e42"
       },
       "mScore": {
@@ -582757,7 +582775,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "918e38f4527cec6df127727888b3f326ae8d0617c1c70f059ca22074c8998e42"
       }
     },
@@ -586501,7 +586519,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "14c35ac71e6be4865d5c68a9994df5cda765ad73fcd2b5fde031740e27101217"
       },
       "mScore": {
@@ -586513,7 +586531,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "14c35ac71e6be4865d5c68a9994df5cda765ad73fcd2b5fde031740e27101217"
       }
     },
@@ -590318,7 +590336,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "65004811695a754143d54c7040687afbe607af0d4a50cf5161baf2e6654f39da"
       },
       "mScore": {
@@ -590330,7 +590348,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "65004811695a754143d54c7040687afbe607af0d4a50cf5161baf2e6654f39da"
       }
     },
@@ -594099,7 +594117,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "bc1d8f1dfddc5a5f83669f97b803b9c4025dbe55b6b8175c937f408ff0ced5cd"
       },
       "mScore": {
@@ -594111,7 +594129,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "bc1d8f1dfddc5a5f83669f97b803b9c4025dbe55b6b8175c937f408ff0ced5cd"
       }
     },
@@ -597892,7 +597910,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "039dc8a21eea46f40462a5cf8d828c1dce948b737256d1cf0e0b9e10667e3321"
       },
       "mScore": {
@@ -597904,7 +597922,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "039dc8a21eea46f40462a5cf8d828c1dce948b737256d1cf0e0b9e10667e3321"
       }
     },
@@ -601677,15 +601695,15 @@ window.FULL_MARKET_DATA = {
         "checkedAt": null
       },
       "zScore": {
-        "asOfDate": "2025-12-31",
-        "period": "FY 2025",
+        "asOfDate": "2024-12-31",
+        "period": "FY 2024",
         "basis": "comparableAnnual",
         "model": "z",
-        "zone": "distress",
+        "zone": "grey",
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "ea1a59986227084f97084e72a24590b5dacb4f15fb015fe87dd5afa7ee3cca84"
       },
       "mScore": {
@@ -601697,7 +601715,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "ea1a59986227084f97084e72a24590b5dacb4f15fb015fe87dd5afa7ee3cca84"
       }
     },
@@ -601908,9 +601926,9 @@ window.FULL_MARKET_DATA = {
         "capturedAt": "2026-11-06T02:00:05Z"
       }
     },
-    "z_score": 1.63,
+    "z_score": 2.57,
     "z_score_model": "z",
-    "z_score_zone": "distress",
+    "z_score_zone": "grey",
     "z_score_breakdown": [
       {
         "id": 1,
@@ -601919,12 +601937,12 @@ window.FULL_MARKET_DATA = {
         "desc": "營運資金 / 總資產 (X1)",
         "desc_en": "Working capital / Total assets (X1)",
         "weight": 1.2,
-        "value": 0.09999325372731566,
-        "contribution": 0.11999190447277878,
+        "value": 0.08846215224214055,
+        "contribution": 0.10615458269056866,
         "passed": null,
-        "detail": "0.1000 × 1.2 = 0.1200",
-        "detail_zh": "0.1000 × 1.2 = 0.1200",
-        "detail_en": "0.1000 × 1.2 = 0.1200",
+        "detail": "0.0885 × 1.2 = 0.1062",
+        "detail_zh": "0.0885 × 1.2 = 0.1062",
+        "detail_en": "0.0885 × 1.2 = 0.1062",
         "reason": null
       },
       {
@@ -601934,12 +601952,12 @@ window.FULL_MARKET_DATA = {
         "desc": "保留盈餘 / 總資產 (X2)",
         "desc_en": "Retained earnings / Total assets (X2)",
         "weight": 1.4,
-        "value": 0,
-        "contribution": 0,
+        "value": 0.676033299643598,
+        "contribution": 0.9464466195010371,
         "passed": null,
-        "detail": "0.0000 × 1.4 = 0.0000",
-        "detail_zh": "0.0000 × 1.4 = 0.0000",
-        "detail_en": "0.0000 × 1.4 = 0.0000",
+        "detail": "0.6760 × 1.4 = 0.9464",
+        "detail_zh": "0.6760 × 1.4 = 0.9464",
+        "detail_en": "0.6760 × 1.4 = 0.9464",
         "reason": null
       },
       {
@@ -601949,12 +601967,12 @@ window.FULL_MARKET_DATA = {
         "desc": "EBIT / 總資產 (X3)",
         "desc_en": "EBIT / Total assets (X3)",
         "weight": 3.3,
-        "value": 0.09201915941442353,
-        "contribution": 0.3036632260675976,
+        "value": 0.09697324325762009,
+        "contribution": 0.3200117027501463,
         "passed": null,
-        "detail": "0.0920 × 3.3 = 0.3037",
-        "detail_zh": "0.0920 × 3.3 = 0.3037",
-        "detail_en": "0.0920 × 3.3 = 0.3037",
+        "detail": "0.0970 × 3.3 = 0.3200",
+        "detail_zh": "0.0970 × 3.3 = 0.3200",
+        "detail_en": "0.0970 × 3.3 = 0.3200",
         "reason": null
       },
       {
@@ -601964,12 +601982,12 @@ window.FULL_MARKET_DATA = {
         "desc": "市值權益 / 總負債 (X4)",
         "desc_en": "Market equity / Total liabilities (X4)",
         "weight": 0.6,
-        "value": 1.1655611418832552,
-        "contribution": 0.6993366851299531,
+        "value": 1.220474703310431,
+        "contribution": 0.7322848219862587,
         "passed": null,
-        "detail": "1.1656 × 0.6 = 0.6993",
-        "detail_zh": "1.1656 × 0.6 = 0.6993",
-        "detail_en": "1.1656 × 0.6 = 0.6993",
+        "detail": "1.2205 × 0.6 = 0.7323",
+        "detail_zh": "1.2205 × 0.6 = 0.7323",
+        "detail_en": "1.2205 × 0.6 = 0.7323",
         "reason": null
       },
       {
@@ -601979,12 +601997,12 @@ window.FULL_MARKET_DATA = {
         "desc": "營收 / 總資產 (X5)",
         "desc_en": "Sales / Total assets (X5)",
         "weight": 1,
-        "value": 0.5051878836942589,
-        "contribution": 0.5051878836942589,
+        "value": 0.46168679185063033,
+        "contribution": 0.46168679185063033,
         "passed": null,
-        "detail": "0.5052 × 1 = 0.5052",
-        "detail_zh": "0.5052 × 1 = 0.5052",
-        "detail_en": "0.5052 × 1 = 0.5052",
+        "detail": "0.4617 × 1 = 0.4617",
+        "detail_zh": "0.4617 × 1 = 0.4617",
+        "detail_en": "0.4617 × 1 = 0.4617",
         "reason": null
       }
     ],
@@ -605474,7 +605492,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "c101aca9c69abe8db85c64a4738d39405b64931bcf3759fb6ea9022be298042a"
       },
       "mScore": {
@@ -605486,7 +605504,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "c101aca9c69abe8db85c64a4738d39405b64931bcf3759fb6ea9022be298042a"
       }
     },
@@ -609279,7 +609297,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "5f78d15b6b893332def74dee3037752d48e6c58266ddc0ab1c1387ae4399befd"
       },
       "mScore": {
@@ -609291,7 +609309,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "5f78d15b6b893332def74dee3037752d48e6c58266ddc0ab1c1387ae4399befd"
       }
     },
@@ -613053,7 +613071,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "96b079975bbc0b7e35c70fc68775db6e2018620a66acb4cd9aa27c44e481b325"
       },
       "mScore": {
@@ -613065,7 +613083,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "96b079975bbc0b7e35c70fc68775db6e2018620a66acb4cd9aa27c44e481b325"
       }
     },
@@ -616834,7 +616852,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "d899bc234a6d6ee80436ebdf625cabae0df95ec094981a4471cd228aabeca86f"
       },
       "mScore": {
@@ -616846,7 +616864,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "d899bc234a6d6ee80436ebdf625cabae0df95ec094981a4471cd228aabeca86f"
       }
     },
@@ -620590,7 +620608,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "cd4f7df7f311331c33c9b7a644d8b2078f46e4f8956bfa91d17225c548fdf2dc"
       },
       "mScore": {
@@ -620602,7 +620620,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "cd4f7df7f311331c33c9b7a644d8b2078f46e4f8956bfa91d17225c548fdf2dc"
       }
     },
@@ -624373,7 +624391,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "69ee0f5e856cc6a46c88c7dd7c21104ffbdc26252568f86dafd82f5615371edb"
       },
       "mScore": {
@@ -624385,7 +624403,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "69ee0f5e856cc6a46c88c7dd7c21104ffbdc26252568f86dafd82f5615371edb"
       }
     },
@@ -628127,7 +628145,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "1fd26ac635d0c03861f91f4a1cd5120b1b3a2aa95603e4bd5eeb58bd8e9704cd"
       },
       "mScore": {
@@ -628139,7 +628157,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "1fd26ac635d0c03861f91f4a1cd5120b1b3a2aa95603e4bd5eeb58bd8e9704cd"
       }
     },
@@ -631924,7 +631942,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "8edbf77e6d11f39805636f46fdc4f2a67f6f81a19d9b86ed3e6961562a1730d3"
       },
       "mScore": {
@@ -631936,7 +631954,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "8edbf77e6d11f39805636f46fdc4f2a67f6f81a19d9b86ed3e6961562a1730d3"
       }
     },
@@ -635736,7 +635754,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "f0c666c49c168f577bf173878c0e8802fabf23076ba68d560342d2bcd8d61f87"
       },
       "mScore": {
@@ -635748,7 +635766,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "f0c666c49c168f577bf173878c0e8802fabf23076ba68d560342d2bcd8d61f87"
       }
     },
@@ -639567,12 +639585,21 @@ window.FULL_MARKET_DATA = {
         "period": "FY 2025",
         "basis": "comparableAnnual",
         "model": "z",
-        "zone": "distress",
+        "zone": "safe",
         "reason": null,
         "scoringCurrency": "MXN",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
-        "evidenceHash": "9e01842b418dc6c879202c724af5b723ae2ea29b064f78b91a694322428c5512"
+        "checkedAt": "2026-11-06T12:17:55.370Z",
+        "evidenceHash": "9e01842b418dc6c879202c724af5b723ae2ea29b064f78b91a694322428c5512",
+        "mcapFx": {
+          "asOf": "2026-11-05",
+          "from": "USD",
+          "to": "MXN",
+          "fromUsdPerUnit": 1,
+          "toUsdPerUnit": 0.053207904566302366,
+          "fromObservationDate": "2026-11-05",
+          "toObservationDate": "2026-10-30"
+        }
       },
       "mScore": {
         "asOfDate": "2025-12-31",
@@ -639583,7 +639610,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "MXN",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "9e01842b418dc6c879202c724af5b723ae2ea29b064f78b91a694322428c5512"
       }
     },
@@ -639842,9 +639869,9 @@ window.FULL_MARKET_DATA = {
         "capturedAt": "2026-11-06T02:01:05Z"
       }
     },
-    "z_score": 1.77,
+    "z_score": 3.74,
     "z_score_model": "z",
-    "z_score_zone": "distress",
+    "z_score_zone": "safe",
     "z_score_breakdown": [
       {
         "id": 1,
@@ -639898,12 +639925,12 @@ window.FULL_MARKET_DATA = {
         "desc": "市值權益 / 總負債 (X4)",
         "desc_en": "Market equity / Total liabilities (X4)",
         "weight": 0.6,
-        "value": 0.18449997057584885,
-        "contribution": 0.1106999823455093,
+        "value": 3.4675293469966184,
+        "contribution": 2.080517608197971,
         "passed": null,
-        "detail": "0.1845 × 0.6 = 0.1107",
-        "detail_zh": "0.1845 × 0.6 = 0.1107",
-        "detail_en": "0.1845 × 0.6 = 0.1107",
+        "detail": "3.4675 × 0.6 = 2.0805",
+        "detail_zh": "3.4675 × 0.6 = 2.0805",
+        "detail_en": "3.4675 × 0.6 = 2.0805",
         "reason": null
       },
       {
@@ -643406,7 +643433,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "822c38aa2263222851bb1d3e0596ab88bf01006ca3fffed872303a4294f61593"
       },
       "mScore": {
@@ -643418,7 +643445,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "822c38aa2263222851bb1d3e0596ab88bf01006ca3fffed872303a4294f61593"
       }
     },
@@ -647156,7 +647183,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "d2d36ede75d87ff47354b01c5b3437d63ec616292fa241b40999e0777b901ee3"
       },
       "mScore": {
@@ -647168,7 +647195,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "d2d36ede75d87ff47354b01c5b3437d63ec616292fa241b40999e0777b901ee3"
       }
     },
@@ -650966,7 +650993,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "a1e849ee459f801d329c8ead8fbcc775567209760fccd9491b94a9848bc3aa0c"
       },
       "mScore": {
@@ -650978,7 +651005,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "a1e849ee459f801d329c8ead8fbcc775567209760fccd9491b94a9848bc3aa0c"
       }
     },
@@ -654718,7 +654745,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "31a5303497ef08e0adf31a2372e5bd26db84cb6cc9bd3a9301b04226e2fd2077"
       },
       "mScore": {
@@ -654730,7 +654757,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "31a5303497ef08e0adf31a2372e5bd26db84cb6cc9bd3a9301b04226e2fd2077"
       }
     },
@@ -658472,7 +658499,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "08a787d9bb0d4f906d85e6b3675b08326c8f847c133996f23f4d8949d7d8897e"
       },
       "mScore": {
@@ -658484,7 +658511,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "08a787d9bb0d4f906d85e6b3675b08326c8f847c133996f23f4d8949d7d8897e"
       }
     },
@@ -662251,7 +662278,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "0c66b7d1d8e26d445708807e30df16b4ee99a814680e04ac6f760417d05531b3"
       },
       "mScore": {
@@ -662263,7 +662290,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "0c66b7d1d8e26d445708807e30df16b4ee99a814680e04ac6f760417d05531b3"
       }
     },
@@ -666056,7 +666083,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "a340a57d18b14704fbf37125fe6b8673751d5f9852aadc6062f576c7d079a99b"
       },
       "mScore": {
@@ -666068,7 +666095,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "a340a57d18b14704fbf37125fe6b8673751d5f9852aadc6062f576c7d079a99b"
       }
     },
@@ -669810,7 +669837,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "17d70e05e3d2f1efb429df09900c95c049d33ea2de5882df701443d69b5e9805"
       },
       "mScore": {
@@ -669822,7 +669849,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "17d70e05e3d2f1efb429df09900c95c049d33ea2de5882df701443d69b5e9805"
       }
     },
@@ -673599,7 +673626,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "bc857c7c640276f5f04e987fcf3f242990775d1b38982debf6bd7fda09b59aa3"
       },
       "mScore": {
@@ -673611,7 +673638,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "bc857c7c640276f5f04e987fcf3f242990775d1b38982debf6bd7fda09b59aa3"
       }
     },
@@ -677355,7 +677382,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "df7bb5da314f05ea943db7d085a77d2c002160986113461d6f36356e558293c8"
       },
       "mScore": {
@@ -677367,7 +677394,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "df7bb5da314f05ea943db7d085a77d2c002160986113461d6f36356e558293c8"
       }
     },
@@ -681154,7 +681181,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "38cf5569680da6fa4c90f16157bd0e6ce7e8ac8dfda4160299bb9afde8b25398"
       },
       "mScore": {
@@ -681166,7 +681193,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "38cf5569680da6fa4c90f16157bd0e6ce7e8ac8dfda4160299bb9afde8b25398"
       }
     },
@@ -684964,7 +684991,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "dad05d6b0fddaf34349b71137ad81fd56095f38cbae985ac325856851d78e8c4"
       },
       "mScore": {
@@ -684976,7 +685003,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "dad05d6b0fddaf34349b71137ad81fd56095f38cbae985ac325856851d78e8c4"
       }
     },
@@ -688769,7 +688796,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "e2888a6b57d46e30670ec9a0e7b7775ebb09331ba6d6fd71188b11debdcd28eb"
       },
       "mScore": {
@@ -688781,7 +688808,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "e2888a6b57d46e30670ec9a0e7b7775ebb09331ba6d6fd71188b11debdcd28eb"
       }
     },
@@ -692605,8 +692632,17 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "CAD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
-        "evidenceHash": "240dce2d2c350717effb8081e79c085ec4a045c85f1163380ffee0d28cc4c661"
+        "checkedAt": "2026-11-06T12:17:55.370Z",
+        "evidenceHash": "240dce2d2c350717effb8081e79c085ec4a045c85f1163380ffee0d28cc4c661",
+        "mcapFx": {
+          "asOf": "2026-11-05",
+          "from": "USD",
+          "to": "CAD",
+          "fromUsdPerUnit": 1,
+          "toUsdPerUnit": 0.7164863509350147,
+          "fromObservationDate": "2026-11-05",
+          "toObservationDate": "2026-10-30"
+        }
       },
       "mScore": {
         "asOfDate": "2025-12-31",
@@ -692617,7 +692653,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "CAD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "240dce2d2c350717effb8081e79c085ec4a045c85f1163380ffee0d28cc4c661"
       }
     },
@@ -692800,7 +692836,7 @@ window.FULL_MARKET_DATA = {
         "capturedAt": "2026-11-06T02:02:12Z"
       }
     },
-    "z_score": 2.37,
+    "z_score": 2.86,
     "z_score_model": "z",
     "z_score_zone": "grey",
     "z_score_breakdown": [
@@ -692856,12 +692892,12 @@ window.FULL_MARKET_DATA = {
         "desc": "市值權益 / 總負債 (X4)",
         "desc_en": "Market equity / Total liabilities (X4)",
         "weight": 0.6,
-        "value": 2.071204211284321,
-        "contribution": 1.2427225267705926,
+        "value": 2.8907797176895267,
+        "contribution": 1.734467830613716,
         "passed": null,
-        "detail": "2.0712 × 0.6 = 1.2427",
-        "detail_zh": "2.0712 × 0.6 = 1.2427",
-        "detail_en": "2.0712 × 0.6 = 1.2427",
+        "detail": "2.8908 × 0.6 = 1.7345",
+        "detail_zh": "2.8908 × 0.6 = 1.7345",
+        "detail_en": "2.8908 × 0.6 = 1.7345",
         "reason": null
       },
       {
@@ -696364,7 +696400,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "3e6f7e9de382ee1a1e85e12d9f7fe708e232fad921018edd5551d77c924dda1e"
       },
       "mScore": {
@@ -696376,7 +696412,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "3e6f7e9de382ee1a1e85e12d9f7fe708e232fad921018edd5551d77c924dda1e"
       }
     },
@@ -700120,7 +700156,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "db340c2715de91ad5325177bddfbce6046faf0513831c899bb666ad357b95ef7"
       },
       "mScore": {
@@ -700132,7 +700168,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "db340c2715de91ad5325177bddfbce6046faf0513831c899bb666ad357b95ef7"
       }
     },
@@ -703907,7 +703943,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "217f2310b803dae1f37f40af26a9f605bc6373c2b35c73537c30c2ee022ab87c"
       },
       "mScore": {
@@ -703919,7 +703955,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "217f2310b803dae1f37f40af26a9f605bc6373c2b35c73537c30c2ee022ab87c"
       }
     },
@@ -707694,7 +707730,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "01520a388b54e8e883f2bd1c4f4001ad0f67d42473c7529e6669da79dfd98960"
       },
       "mScore": {
@@ -707706,7 +707742,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "01520a388b54e8e883f2bd1c4f4001ad0f67d42473c7529e6669da79dfd98960"
       }
     },
@@ -711475,7 +711511,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "6e7ee726179b5cb110f1991e299251e3b6c74368bfb9774bc5a6b464eff65d4a"
       },
       "mScore": {
@@ -711487,7 +711523,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "6e7ee726179b5cb110f1991e299251e3b6c74368bfb9774bc5a6b464eff65d4a"
       }
     },
@@ -715270,7 +715306,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "4a84ee86f53be16f8b392e6bff56e2bb8518e50f2e10dba6e289e2214bfff446"
       },
       "mScore": {
@@ -715282,7 +715318,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "4a84ee86f53be16f8b392e6bff56e2bb8518e50f2e10dba6e289e2214bfff446"
       }
     },
@@ -719044,7 +719080,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "6da701b246b3ad53bdb3bbe5ab728ed12913ec823d2afc85ece346a67e1cd12e"
       },
       "mScore": {
@@ -719056,7 +719092,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "6da701b246b3ad53bdb3bbe5ab728ed12913ec823d2afc85ece346a67e1cd12e"
       }
     },
@@ -722867,8 +722903,17 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "CAD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
-        "evidenceHash": "e8085e37eb2f412e7b6b5976435be79b847d8610ba5435cfe5cd7df2eccb5176"
+        "checkedAt": "2026-11-06T12:17:55.370Z",
+        "evidenceHash": "e8085e37eb2f412e7b6b5976435be79b847d8610ba5435cfe5cd7df2eccb5176",
+        "mcapFx": {
+          "asOf": "2026-11-05",
+          "from": "USD",
+          "to": "CAD",
+          "fromUsdPerUnit": 1,
+          "toUsdPerUnit": 0.7164863509350147,
+          "fromObservationDate": "2026-11-05",
+          "toObservationDate": "2026-10-30"
+        }
       },
       "mScore": {
         "asOfDate": "2025-12-31",
@@ -722879,7 +722924,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "CAD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "e8085e37eb2f412e7b6b5976435be79b847d8610ba5435cfe5cd7df2eccb5176"
       }
     },
@@ -723163,7 +723208,7 @@ window.FULL_MARKET_DATA = {
         "capturedAt": "2026-11-06T02:02:47Z"
       }
     },
-    "z_score": 0.53,
+    "z_score": 0.65,
     "z_score_model": "z",
     "z_score_zone": "distress",
     "z_score_breakdown": [
@@ -723219,12 +723264,12 @@ window.FULL_MARKET_DATA = {
         "desc": "市值權益 / 總負債 (X4)",
         "desc_en": "Market equity / Total liabilities (X4)",
         "weight": 0.6,
-        "value": 0.512276898558533,
-        "contribution": 0.3073661391351198,
+        "value": 0.7149848673181445,
+        "contribution": 0.42899092039088665,
         "passed": null,
-        "detail": "0.5123 × 0.6 = 0.3074",
-        "detail_zh": "0.5123 × 0.6 = 0.3074",
-        "detail_en": "0.5123 × 0.6 = 0.3074",
+        "detail": "0.7150 × 0.6 = 0.4290",
+        "detail_zh": "0.7150 × 0.6 = 0.4290",
+        "detail_en": "0.7150 × 0.6 = 0.4290",
         "reason": null
       },
       {
@@ -726727,7 +726772,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "592ea655f165d69bc16c30170e0ad9b835af3d4fb802778ee09744f3c7b6ae14"
       },
       "mScore": {
@@ -726739,7 +726784,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "592ea655f165d69bc16c30170e0ad9b835af3d4fb802778ee09744f3c7b6ae14"
       }
     },
@@ -730489,7 +730534,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "67ac9079d11ca5b4b99af74ec8827dff8cf0d534ef7b441927ba0b13f03f2193"
       },
       "mScore": {
@@ -730501,7 +730546,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "67ac9079d11ca5b4b99af74ec8827dff8cf0d534ef7b441927ba0b13f03f2193"
       }
     },
@@ -734264,7 +734309,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "cf04e53ad0ad4a5c29d3b46d7cb12472f5d877fa328f528a9c2d6b27381bc8f0"
       },
       "mScore": {
@@ -734276,7 +734321,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "cf04e53ad0ad4a5c29d3b46d7cb12472f5d877fa328f528a9c2d6b27381bc8f0"
       }
     },
@@ -738020,7 +738065,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "412598c41b1fd4216233a1da37bf253dbb6cd31d40537ffb28d36c2f39cb4292"
       },
       "mScore": {
@@ -738032,7 +738077,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "412598c41b1fd4216233a1da37bf253dbb6cd31d40537ffb28d36c2f39cb4292"
       }
     },
@@ -741788,7 +741833,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "de8a999b484d83fc08e60ac32a7169b3bd06fc4a281a48e9b16981dd88f6a7cb"
       },
       "mScore": {
@@ -741800,7 +741845,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "de8a999b484d83fc08e60ac32a7169b3bd06fc4a281a48e9b16981dd88f6a7cb"
       }
     },
@@ -745543,7 +745588,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "cc9a0dbc31bb39182234e0c6e652ee08cd4fc49da571bc02443d7fd149b86c81"
       },
       "mScore": {
@@ -745555,7 +745600,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "cc9a0dbc31bb39182234e0c6e652ee08cd4fc49da571bc02443d7fd149b86c81"
       }
     },
@@ -749336,7 +749381,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "efe50f8aa5622d51efe3d5a714bed364138eec5983325614acdf16b99aecae25"
       },
       "mScore": {
@@ -749348,7 +749393,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "efe50f8aa5622d51efe3d5a714bed364138eec5983325614acdf16b99aecae25"
       }
     },
@@ -753123,7 +753168,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "fcc0669458a3dfcb800c0cbf8ce26b496635205cfc2f962264984366a8125fad"
       },
       "mScore": {
@@ -753135,7 +753180,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "fcc0669458a3dfcb800c0cbf8ce26b496635205cfc2f962264984366a8125fad"
       }
     },
@@ -756872,7 +756917,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "7e788f7dfb3b24f29eb5f3cf8fbba763eaacfe636a634668cb94f2ee3a903509"
       },
       "mScore": {
@@ -756884,7 +756929,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "7e788f7dfb3b24f29eb5f3cf8fbba763eaacfe636a634668cb94f2ee3a903509"
       }
     },
@@ -760632,7 +760677,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "a83048b7f0581aa8043243ab3b26ca504efbc85ed2d2eae4c35b4d9c0b1a68e6"
       },
       "mScore": {
@@ -760644,7 +760689,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "a83048b7f0581aa8043243ab3b26ca504efbc85ed2d2eae4c35b4d9c0b1a68e6"
       }
     },
@@ -764425,7 +764470,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "317cc75deda41355bdff41f3ce06e3c14ff1b5d9a3e931a8ba90c3226f418cb6"
       },
       "mScore": {
@@ -764437,7 +764482,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "317cc75deda41355bdff41f3ce06e3c14ff1b5d9a3e931a8ba90c3226f418cb6"
       }
     },
@@ -768188,7 +768233,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "528abb83bbaa09b7c8a7960739d6faa49bed4bb7cae299105e1c726ca80e4cea"
       },
       "mScore": {
@@ -768200,7 +768245,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "528abb83bbaa09b7c8a7960739d6faa49bed4bb7cae299105e1c726ca80e4cea"
       }
     },
@@ -771963,7 +772008,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "25c6a60bf34e2d7db2a0584931334aa1bc6a6af945263e5dd58605eeb91788be"
       },
       "mScore": {
@@ -771975,7 +772020,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "25c6a60bf34e2d7db2a0584931334aa1bc6a6af945263e5dd58605eeb91788be"
       }
     },
@@ -775749,7 +775794,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "1bfbaf58c84d27f718bcbe000e0b427a652ac86f17b647c33946063706eaf31e"
       },
       "mScore": {
@@ -775761,7 +775806,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "1bfbaf58c84d27f718bcbe000e0b427a652ac86f17b647c33946063706eaf31e"
       }
     },
@@ -779518,7 +779563,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "1de66c46810e87c5b929ffe9fe1a9963d459772a3840eef5f297a7b0a1bfb1e7"
       },
       "mScore": {
@@ -779530,7 +779575,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "1de66c46810e87c5b929ffe9fe1a9963d459772a3840eef5f297a7b0a1bfb1e7"
       }
     },
@@ -783335,7 +783380,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "8ba68756a4bd16b6ac8204f556cec60e6fa0f072ee777961efcbc8bb6edb28c4"
       },
       "mScore": {
@@ -783347,7 +783392,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "8ba68756a4bd16b6ac8204f556cec60e6fa0f072ee777961efcbc8bb6edb28c4"
       }
     },
@@ -787110,7 +787155,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "d95c646674c770db73abecdbe753c004200ef4f6f1f92b689e4f5965ee26e1b6"
       },
       "mScore": {
@@ -787122,7 +787167,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "d95c646674c770db73abecdbe753c004200ef4f6f1f92b689e4f5965ee26e1b6"
       }
     },
@@ -790908,7 +790953,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "738386b5e64ee5d6c702363afa49551508295f18e61ba101a0f7e1f92b4ec7b3"
       },
       "mScore": {
@@ -790920,7 +790965,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "738386b5e64ee5d6c702363afa49551508295f18e61ba101a0f7e1f92b4ec7b3"
       }
     },
@@ -794713,7 +794758,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "ee74876c54faeed26a5d0c8bc55aac222d5dd151b662310c7f5c8319d0163c89"
       },
       "mScore": {
@@ -794725,7 +794770,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "ee74876c54faeed26a5d0c8bc55aac222d5dd151b662310c7f5c8319d0163c89"
       }
     },
@@ -798493,7 +798538,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "aae6824b045e1be6032b27d09e4cbc445e4a73a6f8e7baac3aaf01d618b5e944"
       },
       "mScore": {
@@ -798505,7 +798550,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "aae6824b045e1be6032b27d09e4cbc445e4a73a6f8e7baac3aaf01d618b5e944"
       }
     },
@@ -802260,7 +802305,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "fcb2e0276c682f34e4674d15549a079c13cfd930963f5721f996f15dad3315b8"
       },
       "mScore": {
@@ -802272,7 +802317,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "fcb2e0276c682f34e4674d15549a079c13cfd930963f5721f996f15dad3315b8"
       }
     },
@@ -806015,7 +806060,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "a47e7131dd6be1af44c080f4aa450d13d1abb55770974091d630c9677b51fb48"
       },
       "mScore": {
@@ -806027,7 +806072,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "a47e7131dd6be1af44c080f4aa450d13d1abb55770974091d630c9677b51fb48"
       }
     },
@@ -809820,7 +809865,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "c9d9b4ca841a427fa16f0fc98bd3e735c1eee904f56ed8cff6e01cde311259dc"
       },
       "mScore": {
@@ -809832,7 +809877,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "c9d9b4ca841a427fa16f0fc98bd3e735c1eee904f56ed8cff6e01cde311259dc"
       }
     },
@@ -813571,7 +813616,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "957ff81a46ece1228f63ef09ff967985a3c8905fc814f4a90cf84a3eeb7ac53b"
       },
       "mScore": {
@@ -813583,7 +813628,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "957ff81a46ece1228f63ef09ff967985a3c8905fc814f4a90cf84a3eeb7ac53b"
       }
     },
@@ -817342,7 +817387,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "083e3d37f6ed80494b88590205022509516bc2ed1e520cefb9e795788d5aedae"
       },
       "mScore": {
@@ -817354,7 +817399,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "083e3d37f6ed80494b88590205022509516bc2ed1e520cefb9e795788d5aedae"
       }
     },
@@ -821111,7 +821156,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "aec3f159ecd4038c1eafc4a3dec75f2eefa5feb79dfb6fbd69da79e98e3befe4"
       },
       "mScore": {
@@ -821123,7 +821168,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "aec3f159ecd4038c1eafc4a3dec75f2eefa5feb79dfb6fbd69da79e98e3befe4"
       }
     },
@@ -824885,7 +824930,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "f95070a83d00c343bb250a26bd1a87ade03b18202c58b9589857b892ada15d76"
       },
       "mScore": {
@@ -824897,7 +824942,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "f95070a83d00c343bb250a26bd1a87ade03b18202c58b9589857b892ada15d76"
       }
     },
@@ -828641,7 +828686,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "e0dcfb8711f6c635b83ffc125b1a4b8181e34977a51f0e2bacfbf3248d74f13e"
       },
       "mScore": {
@@ -828653,7 +828698,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "e0dcfb8711f6c635b83ffc125b1a4b8181e34977a51f0e2bacfbf3248d74f13e"
       }
     },
@@ -832397,7 +832442,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "a0d70981a99a0da2a5dd3d59af4f24fc81726f3580332a8fe4ccff42d0617b46"
       },
       "mScore": {
@@ -832409,7 +832454,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "a0d70981a99a0da2a5dd3d59af4f24fc81726f3580332a8fe4ccff42d0617b46"
       }
     },
@@ -836172,7 +836217,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "6fab6387f8ecf5606716c26a3368dec990cc74bfbb9ddad1bc811e2a70b65ed4"
       },
       "mScore": {
@@ -836184,7 +836229,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "6fab6387f8ecf5606716c26a3368dec990cc74bfbb9ddad1bc811e2a70b65ed4"
       }
     },
@@ -839930,7 +839975,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "b6d3691c4c2501342ee40fc4198e8766afcb95c1dec62ae2aebdf130f4159ee1"
       },
       "mScore": {
@@ -839942,7 +839987,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "b6d3691c4c2501342ee40fc4198e8766afcb95c1dec62ae2aebdf130f4159ee1"
       }
     },
@@ -843705,7 +843750,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "43ba6556f60ec7c3b6792a8dd4d58503f3245d40341deaa130c75efbd28ec9ee"
       },
       "mScore": {
@@ -843717,7 +843762,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "43ba6556f60ec7c3b6792a8dd4d58503f3245d40341deaa130c75efbd28ec9ee"
       }
     },
@@ -847461,7 +847506,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "d7b6b3a3367cfab3128e60337ba68a568d887eef9d0026f5b23df7a3d27f2373"
       },
       "mScore": {
@@ -847473,7 +847518,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "d7b6b3a3367cfab3128e60337ba68a568d887eef9d0026f5b23df7a3d27f2373"
       }
     },
@@ -851217,7 +851262,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "5103189752f6d84b9a7415ab3ada4b19ff1e0897e433467e7345fa6d4a612057"
       },
       "mScore": {
@@ -851229,7 +851274,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "5103189752f6d84b9a7415ab3ada4b19ff1e0897e433467e7345fa6d4a612057"
       }
     },
@@ -854975,7 +855020,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "ef9c3bcc55ff445df3a7c0ab832a57dd5f35f6407e6514e42d34a51df34eb28c"
       },
       "mScore": {
@@ -854987,7 +855032,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "ef9c3bcc55ff445df3a7c0ab832a57dd5f35f6407e6514e42d34a51df34eb28c"
       }
     },
@@ -858738,7 +858783,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "44eede5785269c606d07d10644f6e67005845e4013fb63a54bcd3e65f4450977"
       },
       "mScore": {
@@ -858750,7 +858795,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "44eede5785269c606d07d10644f6e67005845e4013fb63a54bcd3e65f4450977"
       }
     },
@@ -862493,7 +862538,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "7e566d43e854d8977d0862a568d4a18986229aed05292ec666c6d5fe323d5fd8"
       },
       "mScore": {
@@ -862505,7 +862550,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "7e566d43e854d8977d0862a568d4a18986229aed05292ec666c6d5fe323d5fd8"
       }
     },
@@ -866246,7 +866291,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "6984d893ea466363c7097f99f0487e2b250c3fda810f85693c25179fe345fa6b"
       },
       "mScore": {
@@ -866258,7 +866303,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-06T02:05:51.044Z",
+        "checkedAt": "2026-11-06T12:17:55.370Z",
         "evidenceHash": "6984d893ea466363c7097f99f0487e2b250c3fda810f85693c25179fe345fa6b"
       }
     },

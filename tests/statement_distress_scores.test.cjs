@@ -264,3 +264,62 @@ test('NTES FY2025 collapsed RE walks back; USD mcap converts to CNY for X4', () 
   assert.equal(stock.ratingSources.zScore.mcapFx.from, 'USD');
   assert.equal(stock.ratingSources.zScore.mcapFx.to, 'CNY');
 });
+
+test('AAPL USD reporter keeps identity FX and publishes classic Z > 4', () => {
+  const fs = require('fs');
+  const path = require('path');
+  const { attachDistressScores } = require('../scripts/distress_score_fields.cjs');
+  const file = path.join(__dirname, '../cache/financials/AAPL_statements_v2.json');
+  if (!fs.existsSync(file)) return;
+  const statements = JSON.parse(fs.readFileSync(file, 'utf8'));
+  const market = JSON.parse(fs.readFileSync(path.join(__dirname, '../full_market_dcf.json'), 'utf8'));
+  const stock = JSON.parse(JSON.stringify(market.AAPL));
+  const raw = calculateAltman(statements, { mcapMillions: stock.mcap, model: 'z' });
+  const { altman, mcapFx } = attachDistressScores(stock, statements, { ticker: 'AAPL' });
+  assert.equal(stock.calculationCurrency, 'USD');
+  assert.equal(altman.scoringCurrency, 'USD');
+  assert.equal(mcapFx.fx, null, 'same-currency mcap needs no FX metadata');
+  assert.equal(altman.score, raw.score);
+  assert.ok(altman.score > 4);
+  assert.equal(altman.zone, 'superRobust');
+  assert.ok(altman.ratios.x2 > 0);
+});
+
+test('0700.HK CNY statements convert HKD mcap before classic X4', () => {
+  const fs = require('fs');
+  const path = require('path');
+  const {
+    attachDistressScores,
+    mcapMillionsInStatementCurrency
+  } = require('../scripts/distress_score_fields.cjs');
+  const file = path.join(__dirname, '../cache/financials/0700.HK_statements_v2.json');
+  if (!fs.existsSync(file)) return;
+  const statements = JSON.parse(fs.readFileSync(file, 'utf8'));
+  const market = JSON.parse(fs.readFileSync(path.join(__dirname, '../hk_market_dcf.json'), 'utf8'));
+  const stock = JSON.parse(JSON.stringify(market['0700.HK']));
+  assert.equal(stock.calculationCurrency, 'HKD');
+  assert.equal(stock.reportedCurrency, 'CNY');
+
+  const unconverted = calculateAltman(statements, { mcapMillions: stock.mcap, model: 'z' });
+  const converted = mcapMillionsInStatementCurrency(stock, 'CNY');
+  assert.equal(converted.reason, null);
+  assert.ok(converted.mcapMillions < stock.mcap, 'CNY mcap from HKD should be slightly smaller');
+  assert.ok(converted.fx && converted.fx.from === 'HKD' && converted.fx.to === 'CNY');
+
+  const { altman } = attachDistressScores(stock, statements, { ticker: '0700.HK' });
+  assert.equal(altman.reason, null);
+  assert.equal(altman.scoringCurrency, 'CNY');
+  assert.ok(Number.isFinite(altman.score));
+  assert.ok(altman.score < unconverted.score, 'FX-corrected Z must not use raw HKD mcap vs CNY liabilities');
+  assert.equal(stock.ratingSources.zScore.mcapFx.from, 'HKD');
+  assert.equal(stock.ratingSources.zScore.mcapFx.to, 'CNY');
+});
+
+test('MOP statement currency uses HKD peg for mcap conversion', () => {
+  const { mcapMillionsInStatementCurrency } = require('../scripts/distress_score_fields.cjs');
+  const stock = { mcap: 1000, calculationCurrency: 'HKD', quoteDate: '2025-12-31' };
+  const converted = mcapMillionsInStatementCurrency(stock, 'MOP');
+  assert.equal(converted.reason, null);
+  assert.ok(Math.abs(converted.mcapMillions - 1030) < 1e-6);
+  assert.equal(converted.fx.peg.via, 'HKD');
+});
