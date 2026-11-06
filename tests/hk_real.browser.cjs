@@ -48,7 +48,7 @@ const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
     assert.match(await page.locator('#market-select').innerText(), /🇺🇸 United States \(USD\)/);
     assert.match(await page.locator('#market-select').innerText(), /🇭🇰 Hong Kong \(HKD\)/);
     assert.equal(await page.locator('#screener-tbody tr').count(), Object.keys(market).length);
-    assert.equal(await page.locator('#screener-tbody tr').first().locator('td').count(), 40);
+    assert.equal(await page.locator('#screener-tbody tr').first().locator('td').count(), 41);
     assert.deepEqual(await page.evaluate(() => Object.keys(stockUniverse)), Object.keys(market));
     for (const ticker of ['0005.HK', '0939.HK']) {
       const row = page.locator('#screener-tbody tr').filter({ hasText: ticker });

@@ -40,30 +40,30 @@ const root = path.resolve(__dirname, '..');
     assert.equal(await page.locator('#screener-tbody tr').count(), expectedRows);
     assert.equal(await page.locator('#screener-all').count(), 0);
 
-    // Default overview: primary market + fair/premium; FMP DCF headers exist but hidden.
+    // Default overview: primary market + scores; catalogue fair gone; FMP DCF headers exist but hidden.
     assert.equal(await page.locator('#screener-columns').inputValue(), 'overview');
     assert.equal(await page.locator('#screener-view-chips .view-chip.active').getAttribute('data-view'), 'overview');
-    assert.equal(await page.locator('#screener-table thead th:visible').count(), 10);
-    assert.equal(await page.locator('#screener-table th[data-i18n="th_catalogue_fair"]:visible').count(), 1);
-    assert.equal(await page.locator('#screener-table th[data-i18n="th_catalogue_premium"]:visible').count(), 1);
+    assert.equal(await page.locator('#screener-table thead th:visible').count(), 8);
+    assert.equal(await page.locator('#screener-table th[data-i18n="th_catalogue_fair"]').count(), 0);
+    assert.equal(await page.locator('#screener-table th[data-i18n="th_catalogue_premium"]').count(), 0);
     assert.equal(await page.locator('#screener-table th[onclick="sortTable(\'price\')"]:visible').count(), 1);
     assert.equal(await page.locator('#screener-table th[onclick="sortTable(\'mcap\')"]:visible').count(), 1);
     assert.equal(await page.locator('#screener-table th[data-i18n="th_fmp_dcf"]:visible').count(), 0);
     assert.ok(await page.locator('.tv-filter-bar').count());
-    assert.equal(await page.locator('#screener-tbody [data-catalogue-fair]').count(), expectedRows);
+    assert.equal(await page.locator('#screener-tbody [data-catalogue-fair]').count(), 0);
     assert.equal(await page.locator('#screener-tbody [data-fmp-reference="dcf"]').count(), expectedRows);
-    // Hidden columns still in every row DOM (no data loss).
-    assert.equal(await page.locator('#screener-tbody tr').first().locator('td').count(), 40);
+    // Hidden columns still in every row DOM (no data loss of remaining columns).
+    assert.equal(await page.locator('#screener-tbody tr').first().locator('td').count(), 41);
 
-    for (const [preset, columns] of [['overview', 10], ['valuation', 15], ['financial', 22], ['all', 40]]) {
+    for (const [preset, columns] of [['overview', 8], ['valuation', 15], ['financial', 22], ['all', 41]]) {
       await page.locator(`#screener-view-chips .view-chip[data-view="${preset}"]`).click();
       assert.equal(await page.locator('#screener-columns').inputValue(), preset);
       assert.equal(await page.locator('#screener-table thead th:visible').count(), columns);
       assert.equal(await page.locator('#screener-tbody tr').first().locator('td:visible').count(), columns);
-      assert.equal(await page.locator('#screener-tbody tr').first().locator('td').count(), 40);
+      assert.equal(await page.locator('#screener-tbody tr').first().locator('td').count(), 41);
     }
 
-    // Valuation view: FMP + site target groups visible; catalogue fair stays in DOM (hidden).
+    // Valuation view: FMP + site target groups visible; catalogue fair fully removed.
     await page.locator('#screener-view-chips .view-chip[data-view="valuation"]').click();
     assert.equal(await page.locator('#screener-table th[data-i18n="th_fmp_dcf"]:visible').count(), 1);
     assert.equal(await page.locator('#screener-table th[data-i18n="th_fmp_levered"]:visible').count(), 1);
@@ -72,7 +72,7 @@ const root = path.resolve(__dirname, '..');
     assert.equal(await page.locator('#screener-valuation-key').isVisible(), true);
     assert.equal(await page.locator('#screener-tbody tr').evaluateAll(rows => rows.every(row =>
       row.querySelectorAll('[data-fmp-reference]').length === 2
-      && row.querySelectorAll('[data-catalogue-fair]').length === 1)), true);
+      && row.querySelectorAll('[data-catalogue-fair]').length === 0)), true);
     // Sticky offsets: ticker 200px; name follows (exchange hidden in valuation → 200).
     assert.equal(await page.evaluate(() =>
       getComputedStyle(document.querySelector('#screener-table .col-fixed-1')).width), '200px');
@@ -87,6 +87,7 @@ const root = path.resolve(__dirname, '..');
     await page.locator('#screener-view-chips .view-chip[data-view="overview"]').click();
     await page.locator('#screener-tbody tr').first().locator('td').nth(5).click();
     assert.equal(await page.locator('#screener-detail-drawer').isVisible(), true);
+    assert.equal(await page.locator('#tv-drawer-fair').count(), 0);
     await page.locator('#screener-detail-drawer .tv-drawer-close').click();
     assert.equal(await page.locator('#screener-detail-drawer').isHidden(), true);
     const openedAfterDrag = await page.evaluate(() => {
@@ -114,7 +115,7 @@ const root = path.resolve(__dirname, '..');
       // Same pagination rule as renderScreenerTable: page only when filtered list > 200.
       const expectedFiltered = underCount > 200 ? 100 : underCount;
       assert.equal(filtered, expectedFiltered);
-      assert.equal(await page.locator('#screener-tbody [data-catalogue-fair]').count(), filtered);
+      assert.equal(await page.locator('#screener-tbody [data-catalogue-fair]').count(), 0);
       assert.equal(await page.locator('#screener-tbody [data-fmp-reference="dcf"]').count(), filtered);
     }
 
@@ -127,7 +128,7 @@ const root = path.resolve(__dirname, '..');
       await page.locator('#screener-more').click();
       assert.equal(await page.locator('#screener-tbody tr').count(), 200);
       assert.equal(await page.locator('#screener-tbody [data-fmp-reference="dcf"]').count(), 200);
-      assert.equal(await page.locator('#screener-tbody [data-catalogue-fair]').count(), 200);
+      assert.equal(await page.locator('#screener-tbody [data-catalogue-fair]').count(), 0);
     }
 
     console.log(`tradingview_screener_layout.browser.cjs OK (universe=${universe}, page=${expectedRows})`);

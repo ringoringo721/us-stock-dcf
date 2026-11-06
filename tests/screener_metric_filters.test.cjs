@@ -41,7 +41,7 @@ test('metric filter chips are mounted from registry (not hard-coded subset)', ()
 });
 
 test('sticky chrome keeps primary chips + more-metrics popover (no display:contents dump)', () => {
-  assert.match(html, /const TV_METRIC_PRIMARY_FIELDS\s*=\s*\['price',\s*'premiumPct',\s*'mcap',\s*'pe_trailing'\]/);
+  assert.match(html, /const TV_METRIC_PRIMARY_FIELDS\s*=\s*\['price',\s*'mcap',\s*'pe_trailing',\s*'moat_score'\]/);
   assert.match(html, /id="tv-more-metrics-panel"/);
   assert.match(html, /id="tv-filter-more-metrics"/);
   assert.match(html, /function toggleTvMoreMetrics/);
@@ -69,9 +69,9 @@ test('WACC custom filters accept percent input; other % metrics stay percent poi
   // Presets already compare WACC as a fraction.
   assert.match(html, /field: 'WACC'[\s\S]*?v => v < 0\.08/);
   // Other labeled-% metrics store percent points (type 8 → compare to 8).
-  for (const field of ['premiumPct', 'div_yield', 'fcf_to_ev', 'roe', 'roa', 'cash_to_assets', 'liab_to_assets']) {
+  for (const field of ['fmp_dcf_upside', 'div_yield', 'fcf_to_ev', 'roe', 'roa', 'cash_to_assets', 'liab_to_assets']) {
     assert.match(html, new RegExp(`field: '${field}'`));
   }
-  assert.equal(/TV_METRIC_PERCENT_FRACTION_FIELDS\s*=\s*new Set\(\[[^\]]*premiumPct/.test(html), false);
+  assert.equal(/TV_METRIC_PERCENT_FRACTION_FIELDS\s*=\s*new Set\(\[[^\]]*fmp_dcf_upside/.test(html), false);
   assert.equal(/TV_METRIC_PERCENT_FRACTION_FIELDS\s*=\s*new Set\(\[[^\]]*roe/.test(html), false);
 });

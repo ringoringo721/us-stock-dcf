@@ -1692,7 +1692,7 @@
         <button type="button" role="tab" class="view-chip" data-view="financial" onclick="setScreenerColumnView('financial')" data-i18n="screener_financial">財務與品質</button>
         <button type="button" role="tab" class="view-chip" data-view="all" onclick="setScreenerColumnView('all')" data-i18n="screener_all_columns">全部欄位</button>
       </div>
-      <p id="screener-valuation-key" class="analysis-note" data-i18n="screener_valuation_key" hidden>估值欄分兩組：① FMP 供應商「指示 DCF／槓桿 DCF」參考價與溢價；② 本站已存目標價（十年 Gordon 為主；Advanced 可另見出場 EV／EBITDA；Levered 為 CFO 槓桿；亦可自訂）。頂部低估／高估件數依目錄內建公允價，不是 FMP 欄或已存目標價。</p>
+      <p id="screener-valuation-key" class="analysis-note" data-i18n="screener_valuation_key" hidden>估值欄分兩組：① FMP 供應商「指示 DCF／槓桿 DCF」參考價與溢價；② 本站已存目標價（十年 Gordon 為主；Advanced 可另見出場 EV／EBITDA；Levered 為 CFO 槓桿；亦可自訂）。頂部低估／高估件數依 FMP DCF、槓桿 DCF、本站目標價。</p>
       <!-- Keep legacy screen buttons in DOM for sync/tests; visually mirrored by top chip bar -->
       <div class="filter-row screener-screen-row" hidden>
         <span class="filter-title" data-i18n="filter_dim">快捷螢幕：</span>
@@ -1771,8 +1771,6 @@
             <th onclick="sortTable('sector')" style="text-align: left; width: 120px;" data-i18n="th_sector">主板塊</th>
             <th onclick="sortTable('industry')" style="text-align: left; width: 180px;" data-i18n="th_industry">細分子行業</th>
             <th onclick="sortTable('price')" style="width: 110px;" data-i18n="th_price">最新股價 ($)</th>
-            <th onclick="sortTable('fairVal')" class="col-group-start" data-col-group="catalogue" data-heading-group="th_group_catalogue" style="width: 110px;" data-i18n="th_catalogue_fair" data-i18n-title="stat_undervalued_note">目錄公允價</th>
-            <th onclick="sortTable('premiumPct')" data-col-group="catalogue" data-heading-group="th_group_catalogue" style="width: 120px;" data-i18n="th_catalogue_premium" data-i18n-title="stat_undervalued_note">公允溢折價 %</th>
             <th onclick="sortTable('fmp_dcf')" class="col-group-start" data-col-group="fmp" data-heading-group="th_group_fmp" data-i18n="th_fmp_dcf">指示 DCF</th>
             <th onclick="sortTable('fmp_dcf_upside')" data-col-group="fmp" data-heading-group="th_group_fmp" data-i18n="th_fmp_dcf_upside">指示溢價 %</th>
             <th onclick="sortTable('fmp_levered')" data-col-group="fmp" data-heading-group="th_group_fmp" data-i18n="th_fmp_levered">槓桿 DCF</th>
@@ -1859,7 +1857,6 @@
       <div class="tv-drawer-price" id="tv-drawer-price">—</div>
       <div class="tv-drawer-premium" id="tv-drawer-premium"></div>
       <dl class="tv-drawer-grid">
-        <div><dt data-i18n="th_catalogue_fair">目錄公允價</dt><dd id="tv-drawer-fair">—</dd></div>
         <div><dt data-i18n="th_mcap">市值 ($M)</dt><dd id="tv-drawer-mcap">—</dd></div>
         <div><dt data-i18n="th_pe_trailing">靜態 P/E</dt><dd id="tv-drawer-pe">—</dd></div>
         <div><dt data-i18n="th_moat">巴菲特護城河</dt><dd id="tv-drawer-moat">—</dd></div>
@@ -3502,15 +3499,12 @@
       th_sector: "主板塊",
       th_industry: "細分子行業",
       th_price: "最新股價 ($)",
-      th_catalogue_fair: "目錄公允價",
-      th_catalogue_premium: "公允溢折價 %",
       th_target: "本站目標價",
       th_action: "操作",
       th_target_spread: "目標溢價 %",
-      th_group_catalogue: "主公允",
       th_group_fmp: "FMP 供應商",
       th_group_site: "本站已存",
-      screener_valuation_key: "預設概覽只露目錄公允價＋溢折價。此「估值」檢視另分兩組：① FMP 供應商指示／槓桿 DCF；② 本站已存目標（Gordon／出場／CFO／自訂）。頂部 KPI 低估／高估改為三種模型：FMP DCF、槓桿 DCF、本站目標價。",
+      screener_valuation_key: "此「估值」檢視分兩組：① FMP 供應商指示／槓桿 DCF；② 本站已存目標（Gordon／出場／CFO／自訂）。頂部 KPI 低估／高估依三種模型：FMP DCF、槓桿 DCF、本站目標價。",
       stat_undervalued_note: "件數依目錄內建公允價（舊 FCFF／金融模型）相對最新股價；不是 FMP 指示／槓桿 DCF，也不是本站十年 Gordon／出場／CFO 目標價。",
       stat_overvalued_note: "件數依目錄內建公允價（舊 FCFF／金融模型）相對最新股價；不是 FMP 指示／槓桿 DCF，也不是本站十年 Gordon／出場／CFO 目標價。",
       target_kind_gordon: "Gordon 十年",
@@ -4137,15 +4131,12 @@
       th_sector: "Sector",
       th_industry: "Sub-Industry",
       th_price: "Current Price ($)",
-      th_catalogue_fair: "Catalogue fair",
-      th_catalogue_premium: "Fair premium %",
       th_target: "Site target",
       th_action: "Action",
       th_target_spread: "Target premium %",
-      th_group_catalogue: "Primary fair",
       th_group_fmp: "FMP vendor",
       th_group_site: "Site saved",
-      screener_valuation_key: "Overview shows catalogue fair value + premium only. This Valuation view adds two groups: (1) FMP indicated/levered DCF; (2) site-saved targets (Gordon / exit / CFO / custom). Header undervalued/overvalued KPIs use three models: FMP DCF, levered DCF, and site-saved targets.",
+      screener_valuation_key: "This Valuation view has two groups: (1) FMP indicated/levered DCF; (2) site-saved targets (Gordon / exit / CFO / custom). Header undervalued/overvalued KPIs use three models: FMP DCF, levered DCF, and site-saved targets.",
       stat_undervalued_note: "Counts use catalogue fair value (legacy FCFF / financial models) versus latest price — not FMP indicated/levered DCF, and not site ten-year Gordon / exit / CFO targets.",
       stat_overvalued_note: "Counts use catalogue fair value (legacy FCFF / financial models) versus latest price — not FMP indicated/levered DCF, and not site ten-year Gordon / exit / CFO targets.",
       target_kind_gordon: "Gordon 10y",
@@ -5880,18 +5871,6 @@
       tvOpt('50to200', 'Price 50–200', 'Price 50–200', v => v >= 50 && v <= 200),
       tvOpt('gt200', 'Price > 200', 'Price > 200', v => v > 200),
     ]},
-    { field: 'fairVal', zh: '目錄公允', en: 'Catalogue fair', presets: [
-      tvAny('不限公允價', 'Any fair value'),
-      tvOpt('lt50', '公允 < 50', 'Fair < 50', v => v < 50),
-      tvOpt('50to200', '公允 50–200', 'Fair 50–200', v => v >= 50 && v <= 200),
-      tvOpt('gt200', '公允 > 200', 'Fair > 200', v => v > 200),
-    ]},
-    { field: 'premiumPct', zh: '溢折價 %', en: 'Premium %', presets: [
-      tvAny('不限溢折價', 'Any premium'),
-      tvOpt('under', '溢折價 < 0%（低估）', 'Premium < 0% (cheap)', v => v < 0),
-      tvOpt('0to20', '溢折價 0–20%', 'Premium 0–20%', v => v >= 0 && v <= 20),
-      tvOpt('gt20', '溢折價 > 20%', 'Premium > 20%', v => v > 20),
-    ]},
     { field: 'fmp_dcf', zh: '指示 DCF', en: 'Indicated DCF', presets: [
       tvAny('不限指示 DCF', 'Any indicated DCF'),
       tvOpt('lt50', '指示 DCF < 50', 'Indicated DCF < 50', v => v < 50),
@@ -6100,7 +6079,7 @@
   const TV_METRIC_PRESETS = Object.fromEntries(TV_METRIC_FILTERS.map(row => [row.field, row.presets]));
   const TV_METRIC_CHIP_LABELS = Object.fromEntries(TV_METRIC_FILTERS.map(row => [row.field, { zh: row.zh, en: row.en }]));
   // Keep sticky chrome to one primary chip row; remaining metrics stay in the popover.
-  const TV_METRIC_PRIMARY_FIELDS = ['price', 'premiumPct', 'mcap', 'pe_trailing'];
+  const TV_METRIC_PRIMARY_FIELDS = ['price', 'mcap', 'pe_trailing', 'moat_score'];
   const TV_METRIC_PRIMARY = new Set(TV_METRIC_PRIMARY_FIELDS);
   function emptyScreenerMetricFilters() {
     return Object.fromEntries(TV_METRIC_FILTERS.map(row => [row.field, null]));
@@ -6114,7 +6093,7 @@
 
   const LIQ_VS_PRICE_FIELDS = new Set(['liq_val_1', 'liq_val_2', 'liq_val_3']);
   // Stored as fractions (0.08) but table/presets show percent (8%). Other % metrics
-  // (premiumPct, ROE, div yield, FCF ratios, …) are already percent points in storage.
+  // (FMP/site premiums, ROE, div yield, FCF ratios, …) are already percent points in storage.
   const TV_METRIC_PERCENT_FRACTION_FIELDS = new Set(['WACC']);
   function isCustomMetricFilter(filter) {
     return !!(filter && typeof filter === 'object' && (filter.kind === 'custom' || filter.kind === 'vsPrice'));
@@ -6513,16 +6492,14 @@
     const row = window.__screenerRowByTicker?.[ticker]
       || (window.__screenerLastList || []).find(entry => entry.ticker === ticker);
     const price = Number.isFinite(row?.price) ? row.price : (Number.isFinite(stock.price) ? stock.price : null);
-    const fair = Number.isFinite(row?.fairVal) ? row.fairVal : null;
-    const premium = Number.isFinite(row?.premiumPct) ? row.premiumPct : null;
+    const fmpUpside = Number.isFinite(row?.fmp_dcf_upside) ? row.fmp_dcf_upside : null;
     const mcap = Number.isFinite(row?.mcap) ? row.mcap : (Number.isFinite(stock.mcap) ? stock.mcap : null);
     const pe = Number.isFinite(row?.pe_trailing) ? row.pe_trailing : (Number.isFinite(stock.pe_trailing) ? stock.pe_trailing : null);
     document.getElementById('tv-drawer-ticker').textContent = ticker;
     document.getElementById('tv-drawer-name').textContent = getStockDisplayName(stock);
     document.getElementById('tv-drawer-price').textContent = price == null ? 'N/A' : moneyPrefix() + price.toFixed(2);
     const premEl = document.getElementById('tv-drawer-premium');
-    premEl.innerHTML = premium == null ? 'N/A' : renderMarketPremium(premium);
-    document.getElementById('tv-drawer-fair').textContent = fair == null ? 'N/A' : moneyPrefix() + Number(fair).toFixed(2);
+    premEl.innerHTML = fmpUpside == null ? 'N/A' : renderMarketPremium(fmpUpside);
     document.getElementById('tv-drawer-mcap').textContent = mcap == null ? 'N/A' : moneyPrefix() + Number(mcap).toLocaleString(undefined, { maximumFractionDigits: 0 });
     document.getElementById('tv-drawer-pe').textContent = pe == null ? 'N/A' : Number(pe).toFixed(1);
     const moat = row?.moat;
@@ -6743,28 +6720,22 @@
   function applyScreenerColumns(resetScroll = false) {
     const mode = document.getElementById('screener-columns').value;
     const presets = {
-      // TV-like overview: Symbol(+name in cell), Price, 溢折價%, Mkt cap, Fair, P/E first.
+      // TV-like overview: Symbol(+name in cell), Price, Mkt cap, P/E, scores first.
       // FMP dump stays out of default; all columns remain in DOM for other views / "all".
-      overview: { width: 1320, fields: ['ticker', 'price', 'premiumPct', 'mcap', 'fairVal', 'pe_trailing', 'moat_score', 'f_score', 'z_score', 'action'] },
+      overview: { width: 1100, fields: ['ticker', 'price', 'mcap', 'pe_trailing', 'moat_score', 'f_score', 'z_score', 'action'] },
       // DCF compare (#83): FMP vendor pair, then site-saved target/premium; liquidation lives in "all".
       valuation: { width: 1880, fields: ['ticker', 'name', 'sector', 'price', 'fmp_dcf', 'fmp_dcf_upside', 'fmp_levered', 'fmp_levered_upside', 'target_price', 'target_spread', 'action', 'moat_score', 'WACC', 'EV', 'mcap'] },
       financial: { width: 2980, fields: ['ticker', 'name', 'price', 'mcap', 'pe_trailing', 'pe_forward', 'pb_trailing', 'div_yield', 'cont_div_growth', 'fcf_to_ev', 'fcf_to_equity', 'fcf_to_mcap', 'cash_to_assets', 'liab_to_assets', 'current_ratio', 'roe', 'roa', 'f_score', 'z_score', 'm_score', 'ev_to_ebitda', 'debt_to_ebitda', 'net_debt_to_ebitda', 'debt_to_fcf', 'net_debt_to_fcf'] },
-      all: { width: 5900, fields: null }
+      all: { width: 5680, fields: null }
     };
     const preset = presets[mode];
     if (!preset) throw new RangeError('Invalid screener column view');
     const table = document.getElementById('screener-table');
     table.querySelector('th[onclick="sortTable(\'fcf_to_equity\')"]').title = I18N_DICT[currentLang].fcf_equity_basis;
-    for (const field of ['fmp_dcf_upside', 'fmp_levered_upside', 'target_spread', 'premiumPct']) {
+    for (const field of ['fmp_dcf_upside', 'fmp_levered_upside', 'target_spread']) {
       const header = table.querySelector(`th[onclick="sortTable('${field}')"]`);
-      if (header) {
-        header.title = field === 'premiumPct'
-          ? I18N_DICT[currentLang].stat_undervalued_note
-          : I18N_DICT[currentLang].valuation_price_difference_note;
-      }
+      if (header) header.title = I18N_DICT[currentLang].valuation_price_difference_note;
     }
-    const fairHeader = table.querySelector('th[onclick="sortTable(\'fairVal\')"]');
-    if (fairHeader) fairHeader.title = I18N_DICT[currentLang].stat_undervalued_note;
     formatScreenerHeaders();
     syncScreenerColumnChips(mode);
     const hideLiquidation = preset.fields !== null && !preset.fields.includes('liq_val_1');
@@ -7205,8 +7176,6 @@
           <td style="color: var(--text-secondary); text-align: left;">${getStockDisplaySector(item)}</td>
           <td style="color: var(--text-muted); font-size: 11px; text-align: left;">${getStockDisplayIndustry(item.industry) || '--'}</td>
           <td style="font-weight: 700; color: var(--accent);">${priceNum === null ? 'N/A' : moneyPrefix() + priceNum.toFixed(2)}</td>
-          <td class="col-group-start" data-catalogue-fair="${item.fairVal ?? ''}" title="${escapeAttribute(I18N_DICT[currentLang].stat_undervalued_note)}">${Number.isFinite(item.fairVal) ? moneyPrefix() + Number(item.fairVal).toFixed(2) : 'N/A'}</td>
-          <td data-price-difference="catalogue" data-value="${item.premiumPct ?? ''}" class="${!Number.isFinite(item.premiumPct) ? 'text-muted' : ''}" title="${escapeAttribute(I18N_DICT[currentLang].stat_undervalued_note)}">${Number.isFinite(item.premiumPct) ? renderMarketPremium(item.premiumPct) : 'N/A'}</td>
           ${['dcf', 'levered'].map((kind, index) => {
             const start = index === 0 ? 'col-group-start' : '';
             const applicable = FmpModels.dcfApplicable(item);
