@@ -11,14 +11,17 @@ const path = require('node:path');
 
 const html = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
 
-test('overview preset exposes catalogue fair + premium only as primary valuation pair', () => {
+test('overview preset drops catalogue fair + premium; keeps market + score columns', () => {
   const overview = html.match(/overview:\s*\{[^}]+\}/)?.[0] || '';
-  assert.match(overview, /'fairVal'/);
-  assert.match(overview, /'premiumPct'/);
-  assert.match(html, /data-i18n="th_catalogue_fair"/);
-  assert.match(html, /data-i18n="th_catalogue_premium"/);
-  assert.match(html, /sortTable\('fairVal'\)/);
-  assert.match(html, /sortTable\('premiumPct'\)/);
+  assert.equal(/'fairVal'/.test(overview), false);
+  assert.equal(/'premiumPct'/.test(overview), false);
+  assert.equal(/data-i18n="th_catalogue_fair"/.test(html), false);
+  assert.equal(/data-i18n="th_catalogue_premium"/.test(html), false);
+  assert.equal(/sortTable\('fairVal'\)/.test(html), false);
+  assert.equal(/sortTable\('premiumPct'\)/.test(html), false);
+  assert.equal(/data-catalogue-fair/.test(html), false);
+  assert.equal(/data-price-difference="catalogue"/.test(html), false);
+  assert.equal(/data-col-group="catalogue"/.test(html), false);
   // Overview must not dump every FMP DCF column into the default view.
   assert.equal(/fmp_dcf/.test(overview), false);
   assert.equal(/fmp_levered/.test(overview), false);
@@ -76,8 +79,8 @@ test('overview keeps primary market columns without dropping DCF accessibility',
   assert.match(overview, /'price'/);
   assert.match(overview, /'mcap'/);
   assert.match(overview, /'pe_trailing'/);
-  assert.match(overview, /'fairVal'/);
-  assert.match(overview, /'premiumPct'/);
+  assert.equal(/'fairVal'/.test(overview), false);
+  assert.equal(/'premiumPct'/.test(overview), false);
   // All FMP / site / liquidation headers remain in thead for other views.
   assert.match(html, /data-i18n="th_fmp_dcf"/);
   assert.match(html, /data-i18n="th_target"/);
@@ -106,9 +109,8 @@ test('hydration / pagination guards remain (no show-all freeze path)', () => {
   assert.match(html, /list\.length > 200 \? list\.slice\(0, screenerVisibleRows\)/);
 });
 
-test('key DCF column headers remain in thead (not removed by layout)', () => {
+test('key DCF column headers remain in thead (catalogue fair removed)', () => {
   for (const key of [
-    'th_catalogue_fair', 'th_catalogue_premium',
     'th_fmp_dcf', 'th_fmp_dcf_upside', 'th_fmp_levered', 'th_fmp_levered_upside',
     'th_target', 'th_target_spread', 'th_price', 'th_mcap',
   ]) {
@@ -116,18 +118,20 @@ test('key DCF column headers remain in thead (not removed by layout)', () => {
   }
   assert.match(html, /data-col-group="fmp"/);
   assert.match(html, /data-col-group="site"/);
-  assert.match(html, /data-col-group="catalogue"/);
+  assert.equal(/data-col-group="catalogue"/.test(html), false);
+  assert.equal(/data-i18n="th_catalogue_fair"/.test(html), false);
+  assert.equal(/data-i18n="th_catalogue_premium"/.test(html), false);
 });
 
 test('browser smoke suite exists for live row counts', () => {
   const smoke = path.join(__dirname, 'tradingview_screener_layout.browser.cjs');
   assert.equal(fs.existsSync(smoke), true);
   const source = fs.readFileSync(smoke, 'utf8');
-  assert.match(source, /overview',\s*10/);
+  assert.match(source, /overview',\s*8/);
   assert.match(source, /valuation',\s*15/);
-  assert.match(source, /all',\s*40/);
+  assert.match(source, /all',\s*41/);
   assert.match(source, /FMP_UNDER/);
   assert.match(source, /data-fmp-reference/);
-  assert.match(source, /data-catalogue-fair/);
+  assert.match(source, /\[data-catalogue-fair\]'\)\.count\(\),\s*0/);
   assert.match(source, /screener-more/);
 });

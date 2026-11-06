@@ -61,7 +61,7 @@ const priceRows = ticker => JSON.parse(fs.readFileSync(path.join(root, 'cache', 
       assert.equal(result.length, 2);
       assert.deepEqual(result.map(cell => cell.field), ['dcf', 'levered']);
       assert.equal(await page.locator('#screener-tbody tr').filter({ hasText: ticker })
-        .locator('[data-price-difference="catalogue"]').count(), 1);
+        .locator('[data-price-difference="catalogue"]').count(), 0);
       for (const cell of result) {
         if (cell.applicable === 'false') assert.equal(cell.text, 'Not applicable');
         else if (!cell.value) assert.equal(cell.text, 'N/A');
@@ -78,7 +78,7 @@ const priceRows = ticker => JSON.parse(fs.readFileSync(path.join(root, 'cache', 
     }
     assert.equal(await page.locator('#screener-table th[data-i18n="th_premium"]').count(), 0);
     assert.equal(await page.locator('#screener-tbody .badge-undervalued, #screener-tbody .badge-overvalued').count(), 0);
-    for (const [preset, expected] of [['overview', 10], ['valuation', 15], ['financial', 22], ['all', 40]]) {
+    for (const [preset, expected] of [['overview', 8], ['valuation', 15], ['financial', 22], ['all', 41]]) {
       await page.selectOption('#screener-columns', preset);
       assert.equal(await page.locator('#screener-table thead th:visible').count(), expected);
       assert.equal(await page.locator('#screener-tbody tr').first().locator('td:visible').count(), expected);
