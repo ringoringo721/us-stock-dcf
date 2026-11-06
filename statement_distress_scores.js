@@ -343,11 +343,61 @@
     return da / (da + ppe);
   }
 
+  // FMP sometimes zeroes AR (BABA FY2026) while prior years still show billions.
+  // Exact 0 after a positive prior is treated as undisclosed so walk-back can run.
+  // Both years 0 remains usable (cash business → DSRI via 0/0 → 1).
+  function receivablesUnusable(balance, priorBalance) {
+    const ar = number(balance, 'accountsReceivables', 'netReceivables');
+    const priorAr = number(priorBalance, 'accountsReceivables', 'netReceivables');
+    if (!finite(ar)) return true;
+    if (ar !== 0) return false;
+    return finite(priorAr) && priorAr > 0;
+  }
+
+  // Beneish 1999 TATA = (ΔCA − ΔCash − ΔCL + ΔSTD − ΔTaxPayable − Dep) / TA.
+  // Prefer cashAndCashEquivalents; fall back to cashAndShortTermInvestments.
+  function beneishTata(balance, priorBalance, income, cashflow) {
+    const ta = number(balance, 'totalAssets');
+    if (!(finite(ta) && ta !== 0)) return null;
+    const ca = number(balance, 'totalCurrentAssets');
+    const priorCa = number(priorBalance, 'totalCurrentAssets');
+    const cash = number(balance, 'cashAndCashEquivalents', 'cashAndShortTermInvestments');
+    const priorCash = number(priorBalance, 'cashAndCashEquivalents', 'cashAndShortTermInvestments');
+    const cl = number(balance, 'totalCurrentLiabilities');
+    const priorCl = number(priorBalance, 'totalCurrentLiabilities');
+    const std = number(balance, 'shortTermDebt', 'currentDebt', 'shortTermBorrowings');
+    const priorStd = number(priorBalance, 'shortTermDebt', 'currentDebt', 'shortTermBorrowings');
+    const tax = number(balance, 'taxPayables', 'incomeTaxPayable');
+    const priorTax = number(priorBalance, 'taxPayables', 'incomeTaxPayable');
+    const da = number(income, 'depreciationAndAmortization')
+      ?? number(cashflow, 'depreciationAndAmortization');
+    if (![ca, priorCa, cash, priorCash, cl, priorCl, da].every(finite)) return null;
+    const dStd = finite(std) && finite(priorStd) ? std - priorStd : 0;
+    const dTax = finite(tax) && finite(priorTax) ? tax - priorTax : 0;
+    return ((ca - priorCa) - (cash - priorCash) - (cl - priorCl) + dStd - dTax - da) / ta;
+  }
+
+  // Beneish 1999 LVGI uses (CL + LTD) / TA, not total liabilities / TA.
+  function beneishLeverage(balance) {
+    const ta = number(balance, 'totalAssets');
+    const cl = number(balance, 'totalCurrentLiabilities');
+    const ltd = number(balance, 'longTermDebt', 'longTermDebtNoncurrent', 'longTermDebtTotal');
+    if (!(finite(ta) && ta > 0 && finite(cl))) return null;
+    const debt = finite(ltd) ? ltd : 0;
+    return (cl + debt) / ta;
+  }
+
   function calculateBeneishAtLatest(data) {
     const source = annualObservation(data, { needPrior: true });
     if (!source) return naResult('beneish', 'missingComparableStatements');
 
     const { income, priorIncome, balance, priorBalance, cashflow } = source;
+    if (receivablesUnusable(balance, priorBalance)) {
+      return {
+        score: null, zone: null, items: [], date: source.date, period: source.period,
+        basis: source.basis, reason: 'undisclosedReceivables', scoringCurrency: source.scoringCurrency
+      };
+    }
     const sales = number(income, 'revenue');
     const priorSales = number(priorIncome, 'revenue');
     const ar = number(balance, 'accountsReceivables', 'netReceivables');
@@ -366,10 +416,6 @@
       ?? number(source.priorCashflow, 'depreciationAndAmortization');
     const sga = number(income, 'sellingGeneralAndAdministrativeExpenses');
     const priorSga = number(priorIncome, 'sellingGeneralAndAdministrativeExpenses');
-    const tl = number(balance, 'totalLiabilities');
-    const priorTl = number(priorBalance, 'totalLiabilities');
-    const ni = number(income, 'netIncome');
-    const cfo = number(cashflow, 'operatingCashFlow', 'netCashProvidedByOperatingActivities');
 
     const reasonBuf = { reason: null };
     const gm = positiveRatio(gp, sales);
@@ -397,28 +443,21 @@
     const sgai = (sgaSales === null || priorSgaSales === null)
       ? 1
       : indexRatio(sgaSales, priorSgaSales, reasonBuf);
-    const lvgi = indexRatio(
-      finite(tl) && finite(ta) && ta > 0 ? tl / ta : null,
-      finite(priorTl) && finite(priorTa) && priorTa > 0 ? priorTl / priorTa : null,
-      reasonBuf
-    );
-    const tata = (() => {
-      if (!(finite(ni) && finite(cfo) && finite(ta) && ta !== 0)) {
-        reasonBuf.reason = 'incompleteCriteria';
-        return null;
-      }
-      return (ni - cfo) / ta;
-    })();
+    const lvgi = indexRatio(beneishLeverage(balance), beneishLeverage(priorBalance), reasonBuf);
+    const tata = beneishTata(balance, priorBalance, income, cashflow);
+    if (!finite(tata)) reasonBuf.reason = reasonBuf.reason || 'incompleteCriteria';
 
     const indices = { DSRI: dsri, GMI: gmi, AQI: aqi, SGI: sgi, DEPI: depi, SGAI: sgai, TATA: tata, LVGI: lvgi };
     if (Object.values(indices).some(value => !finite(value))) {
       return {
         score: null, zone: null, items: [], date: source.date, period: source.period,
-        basis: source.basis, reason: 'incompleteCriteria', scoringCurrency: source.scoringCurrency,
+        basis: source.basis, reason: reasonBuf.reason || 'incompleteCriteria',
+        scoringCurrency: source.scoringCurrency,
         indices
       };
     }
 
+    // Beneish (1999) eight-variable model coefficients.
     const weights = {
       intercept: -4.84,
       DSRI: 0.920,
@@ -443,7 +482,22 @@
       ['應計項目', 'TATA 總應計項目 / 總資產', 'TATA Total accruals to total assets', 'TATA'],
       ['槓桿', 'LVGI 槓桿指數', 'LVGI Leverage index', 'LVGI']
     ];
-    const items = meta.map(([category, desc, desc_en, key], i) => {
+    const interceptItem = {
+      id: 0,
+      key: 'intercept',
+      category: '截距',
+      desc: '模型常數 (−4.84)',
+      desc_en: 'Model intercept (−4.84)',
+      weight: weights.intercept,
+      value: 1,
+      contribution: weights.intercept,
+      passed: null,
+      detail: `−4.84`,
+      detail_zh: `−4.84（常數項）`,
+      detail_en: `−4.84 (constant)`,
+      reason: null
+    };
+    const items = [interceptItem].concat(meta.map(([category, desc, desc_en, key], i) => {
       const value = indices[key];
       const weight = weights[key];
       const contribution = contributions[key];
@@ -463,7 +517,7 @@
         detail_en: detail,
         reason: null
       };
-    });
+    }));
 
     return {
       score: formatScore(score, 2),
@@ -519,6 +573,9 @@
     altmanZone,
     beneishZone,
     annualObservation,
-    retainedEarningsUnusable
+    retainedEarningsUnusable,
+    receivablesUnusable,
+    beneishTata,
+    beneishLeverage
   };
 });
