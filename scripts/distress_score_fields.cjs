@@ -4,6 +4,102 @@ const fs = require('fs');
 const path = require('path');
 const Distress = require('../statement_distress_scores.js');
 const { usesFinancialValuationModel } = require('../financial_industry.js');
+const { rateFor } = require('../usd_currency.js');
+
+const USD_RATES_PATH = path.join(__dirname, '..', 'cache', 'fx', 'usd_rates.json');
+let cachedUsdRates = null;
+
+function loadUsdRates(rootDir = path.join(__dirname, '..')) {
+  const file = path.join(rootDir, 'cache', 'fx', 'usd_rates.json');
+  if (cachedUsdRates && file === USD_RATES_PATH) return cachedUsdRates;
+  if (!fs.existsSync(file)) return null;
+  const rates = JSON.parse(fs.readFileSync(file, 'utf8'));
+  if (file === USD_RATES_PATH) cachedUsdRates = rates;
+  return rates;
+}
+
+function normalizeCurrency(code) {
+  const upper = String(code || '').toUpperCase();
+  return ({ NTD: 'TWD', RMB: 'CNY' })[upper] || upper || null;
+}
+
+function latestFxObservationDate(rates, currency) {
+  const observations = rates?.currencies?.[normalizeCurrency(currency)]?.observations;
+  if (!Array.isArray(observations) || !observations.length) return null;
+  return observations.at(-1)?.[0] || null;
+}
+
+function closingFx(rates, currency, asOf, target = 'USD') {
+  const source = normalizeCurrency(currency);
+  const dest = normalizeCurrency(target);
+  if (!source || !dest) return { rate: null, reason: 'missingFxCurrency', observationDate: null };
+  if (source === dest) return { rate: 1, reason: null, observationDate: asOf || null };
+  let fx = rateFor(rates, source, null, asOf, 'closing', dest);
+  if (Number.isFinite(fx.rate) && fx.rate > 0) return fx;
+  // Quote/as-of can sit a few days past the last Fed observation; use latest available.
+  const last = latestFxObservationDate(rates, source === 'USD' ? dest : source);
+  if (last && (!asOf || last < asOf)) {
+    fx = rateFor(rates, source, null, last, 'closing', dest);
+  }
+  return fx;
+}
+
+// Site mcap is millions of calculationCurrency; Altman X4 needs statement currency.
+function mcapMillionsInStatementCurrency(stock, scoringCurrency, {
+  rates = null,
+  rootDir = path.join(__dirname, '..'),
+  asOf = null
+} = {}) {
+  const mcap = Number.isFinite(stock?.mcap) ? stock.mcap : null;
+  if (!(Number.isFinite(mcap) && mcap > 0)) {
+    return { mcapMillions: null, reason: 'missingMarketCap', fx: null };
+  }
+  const from = normalizeCurrency(stock?.calculationCurrency || 'USD');
+  const to = normalizeCurrency(scoringCurrency);
+  if (!to) return { mcapMillions: null, reason: 'missingScoringCurrency', fx: null };
+  if (from === to) return { mcapMillions: mcap, reason: null, fx: null };
+
+  const book = rates || loadUsdRates(rootDir);
+  if (!book) return { mcapMillions: null, reason: 'missingFxCurrency', fx: null };
+  const quoteAsOf = asOf
+    || stock?.quoteDate
+    || stock?.shareSource?.date
+    || latestFxObservationDate(book, from === 'USD' ? to : from);
+  // Bridge via USD: mcap_to = mcap_from * (USD/from) / (USD/to).
+  const fromUsd = closingFx(book, from, quoteAsOf, 'USD');
+  const toUsd = closingFx(book, to, quoteAsOf, 'USD');
+  if (!(Number.isFinite(fromUsd.rate) && fromUsd.rate > 0
+      && Number.isFinite(toUsd.rate) && toUsd.rate > 0)) {
+    return {
+      mcapMillions: null,
+      reason: fromUsd.reason || toUsd.reason || 'missingFxDate',
+      fx: { fromUsd, toUsd, asOf: quoteAsOf }
+    };
+  }
+  return {
+    mcapMillions: mcap * fromUsd.rate / toUsd.rate,
+    reason: null,
+    fx: {
+      asOf: quoteAsOf,
+      from,
+      to,
+      fromUsdPerUnit: fromUsd.rate,
+      toUsdPerUnit: toUsd.rate,
+      fromObservationDate: fromUsd.observationDate,
+      toObservationDate: toUsd.observationDate
+    }
+  };
+}
+
+function scoringCurrencyFromStatements(statements) {
+  const obs = Distress.annualObservation(statements || {}, { needPrior: false });
+  if (obs?.scoringCurrency) return obs.scoringCurrency;
+  const income = statements?.annual?.income;
+  if (Array.isArray(income) && income.length) {
+    return income[income.length - 1]?.reportedCurrency || null;
+  }
+  return null;
+}
 
 function isDistressFinancial(stock, ticker = stock?.ticker) {
   if (stock?.fin_valuation?.is_financial === true) return true;
@@ -74,15 +170,24 @@ function attachDistressScores(stock, statements, {
   checkedAt = new Date().toISOString(),
   evidenceHash = null,
   nullPfForFinancials = true,
-  rootDir = path.join(__dirname, '..')
+  rootDir = path.join(__dirname, '..'),
+  fxRates = null
 } = {}) {
   const financial = isDistressFinancial(stock, ticker);
   const resolved = resolveDistressStatements(ticker, statements, { rootDir });
+  const scoringCurrency = scoringCurrencyFromStatements(resolved.statements || {});
+  const mcapFx = financial
+    ? { mcapMillions: null, reason: null, fx: null }
+    : mcapMillionsInStatementCurrency(stock, scoringCurrency, { rates: fxRates, rootDir });
   const { altman, beneish } = Distress.calculateAll(resolved.statements || {}, {
     isFinancial: financial,
-    mcapMillions: Number.isFinite(stock?.mcap) ? stock.mcap : null,
+    mcapMillions: mcapFx.mcapMillions,
     altmanModel: 'z'
   });
+  if (!financial && !Number.isFinite(altman.score) && mcapFx.reason
+      && (altman.reason === 'missingMarketCap' || !altman.reason)) {
+    altman.reason = mcapFx.reason;
+  }
 
   if (nullPfForFinancials && financial) {
     stock.f_score = null;
@@ -113,9 +218,15 @@ function attachDistressScores(stock, statements, {
     ? { statementSourceTicker: resolved.inheritedFrom, statementSource: 'preferredParentCommon' }
     : {};
   stock.ratingSources = stock.ratingSources || {};
-  stock.ratingSources.zScore = { ...ratingPayload(altman, checkedAt), evidenceHash, ...inheritMeta };
+  stock.ratingSources.zScore = {
+    ...ratingPayload(altman, checkedAt),
+    evidenceHash,
+    ...inheritMeta,
+    ...(mcapFx.fx ? { mcapFx: mcapFx.fx } : {}),
+    ...(mcapFx.reason && !Number.isFinite(altman.score) ? { mcapFxReason: mcapFx.reason } : {})
+  };
   stock.ratingSources.mScore = { ...ratingPayload(beneish, checkedAt), evidenceHash, ...inheritMeta };
-  return { altman, beneish, financial, inheritedFrom: resolved.inheritedFrom };
+  return { altman, beneish, financial, inheritedFrom: resolved.inheritedFrom, mcapFx };
 }
 
 function stripCompactBreakdowns(stock) {
@@ -132,5 +243,8 @@ module.exports = {
   ratingPayload,
   preferredParentTicker,
   resolveDistressStatements,
-  hasAnnualIncome
+  hasAnnualIncome,
+  mcapMillionsInStatementCurrency,
+  scoringCurrencyFromStatements,
+  loadUsdRates
 };

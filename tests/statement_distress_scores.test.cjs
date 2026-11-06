@@ -5,7 +5,8 @@ const {
   calculateBeneish,
   calculateAll,
   altmanZone,
-  beneishZone
+  beneishZone,
+  retainedEarningsUnusable
 } = require('../statement_distress_scores.js');
 
 function row(year, fields) {
@@ -191,4 +192,75 @@ test('preferred empty packs inherit issuer common statements (SMCIP→SMCI)', ()
   assert.equal(result.inheritedFrom, 'SMCI');
   assert.ok(Number.isFinite(stock.z_score));
   assert.ok(Number.isFinite(stock.m_score));
+});
+
+test('collapsed FMP equity (RE=0, common≈equity) is unusable; genuine RE=0 still scores', () => {
+  const collapsed = row(2025, {
+    totalAssets: 2000, totalLiabilities: 800, totalCurrentAssets: 900, totalCurrentLiabilities: 400,
+    retainedEarnings: 0, additionalPaidInCapital: 0, treasuryStock: 0,
+    accumulatedOtherComprehensiveIncomeLoss: 0, otherTotalStockholdersEquity: 0,
+    commonStock: 1200, totalStockholdersEquity: 1200, propertyPlantEquipmentNet: 600
+  });
+  assert.equal(retainedEarningsUnusable(collapsed), true);
+
+  const collapsedOther = row(2025, {
+    totalAssets: 2000, totalLiabilities: 800, totalCurrentAssets: 900, totalCurrentLiabilities: 400,
+    retainedEarnings: 0, additionalPaidInCapital: 0, commonStock: 0,
+    otherTotalStockholdersEquity: 1200, totalStockholdersEquity: 1200, propertyPlantEquipmentNet: 600
+  });
+  assert.equal(retainedEarningsUnusable(collapsedOther), true);
+
+  const genuineZero = row(2025, {
+    totalAssets: 2000, totalLiabilities: 800, totalCurrentAssets: 900, totalCurrentLiabilities: 400,
+    retainedEarnings: 0, additionalPaidInCapital: 400, commonStock: 800,
+    totalStockholdersEquity: 1200, propertyPlantEquipmentNet: 600
+  });
+  assert.equal(retainedEarningsUnusable(genuineZero), false);
+
+  const data = industrialFixture();
+  data.annual.income.push(row(2025, {
+    revenue: 1300, grossProfit: 450, ebit: 230, operatingIncome: 230, netIncome: 170,
+    sellingGeneralAndAdministrativeExpenses: 160, depreciationAndAmortization: 50
+  }));
+  data.annual.balance.push(collapsed);
+  data.annual.cashflow.push(row(2025, { operatingCashFlow: 200, depreciationAndAmortization: 50 }));
+  const walked = calculateAltman(data, { mcapMillions: 5000, model: 'z' });
+  assert.equal(walked.reason, null);
+  assert.equal(walked.period, 'FY 2024');
+  assert.ok(Number.isFinite(walked.score));
+  assert.ok(walked.ratios.x2 > 0);
+});
+
+test('NTES FY2025 collapsed RE walks back; USD mcap converts to CNY for X4', () => {
+  const fs = require('fs');
+  const path = require('path');
+  const {
+    attachDistressScores,
+    mcapMillionsInStatementCurrency
+  } = require('../scripts/distress_score_fields.cjs');
+  const file = path.join(__dirname, '../cache/financials/NTES_statements_v2.json');
+  if (!fs.existsSync(file)) return;
+  const statements = JSON.parse(fs.readFileSync(file, 'utf8'));
+  const company = JSON.parse(fs.readFileSync(path.join(__dirname, '../cache/us_companies/NTES.json'), 'utf8'));
+  const stock = JSON.parse(JSON.stringify(company.stock));
+
+  const bare = calculateAltman(statements, { mcapMillions: stock.mcap, model: 'z' });
+  // Without FX, walk-back still avoids X2=0 on FY2025.
+  assert.equal(bare.period, 'FY 2024');
+  assert.ok(bare.ratios.x2 > 0.5);
+
+  const converted = mcapMillionsInStatementCurrency(stock, 'CNY');
+  assert.equal(converted.reason, null);
+  assert.ok(converted.mcapMillions > stock.mcap * 5, 'CNY mcap should be several× USD mcap');
+
+  const { altman } = attachDistressScores(stock, statements, { ticker: 'NTES' });
+  assert.equal(altman.reason, null);
+  assert.equal(altman.period, 'FY 2024');
+  assert.equal(altman.scoringCurrency, 'CNY');
+  assert.ok(altman.score > 6, `expected FX-corrected superRobust Z, got ${altman.score}`);
+  assert.equal(altman.zone, 'superRobust');
+  assert.ok(altman.ratios.x4 > 5, `X4 should reflect CNY market equity, got ${altman.ratios.x4}`);
+  assert.equal(stock.z_score_zone, 'superRobust');
+  assert.equal(stock.ratingSources.zScore.mcapFx.from, 'USD');
+  assert.equal(stock.ratingSources.zScore.mcapFx.to, 'CNY');
 });
