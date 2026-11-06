@@ -41,16 +41,26 @@ test('shipped US universe+expansion merge is baseline+catalogue (not market_data
   const merged = context.UsUniverse.merge(context.FULL_MARKET_DATA, context.US_LISTINGS, context.US_EXPANSION);
   const keys = Object.keys(merged);
   assert.equal(baseline, 230);
-  // After NOTES/preferred + TBB + AEFC (funding vehicle) excludes: all expansion rows available.
-  assert.equal(expansion, 723);
+  // Expansion catalogue grows with financial refresh; AEFC stays excluded.
+  assert.equal(expansion, 736);
   assert.equal(context.US_LISTINGS.stocks.length, 949);
   assert.equal(keys.length, 966);
   assert.ok(keys.length > baseline, 'frontpage must not stay on sync market_data.js alone');
   let expansionWithMoat = 0;
+  const expansionWithoutMoat = [];
   for (const ticker of Object.keys(context.US_EXPANSION.stocks)) {
-    if (!context.FULL_MARKET_DATA[ticker] && merged[ticker]?.moat) expansionWithMoat++;
+    if (context.FULL_MARKET_DATA[ticker]) continue;
+    if (merged[ticker]?.moat) expansionWithMoat++;
+    else expansionWithoutMoat.push(ticker);
   }
+  // Complete assessments (incl. archived staleEvidence) keep screener scores; only
+  // analysisUnavailable capture stubs stay moat-null (DCF-1 backlog — not remoated here).
   assert.equal(expansionWithMoat, 723);
+  assert.equal(expansionWithoutMoat.length, 13);
+  assert.ok(expansionWithoutMoat.every(ticker =>
+    context.US_EXPANSION.stocks[ticker]?.ratingSources?.moat?.reason === 'analysisUnavailable'));
+  assert.ok(context.US_EXPANSION.stocks.BABA?.moat?.m1_brand_pricing?.score === 7);
+  assert.equal(context.US_EXPANSION.stocks.BABA.ratingSources.moat.reason, 'staleEvidence');
   assert.equal(context.US_EXPANSION.stocks.AEFC, undefined);
   assert.equal(merged.AEFC, undefined);
 });

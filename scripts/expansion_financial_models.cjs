@@ -129,8 +129,10 @@ function compactForExpansion(stock) {
     delete compact[key];
   }
   compact.f_score_breakdown = [];
-  if (compact.moat && compact.ratingSources?.moat?.reason) compact.moat = null;
-  else if (compact.moat) {
+  // Keep score-only moat even when ratingSources.moat.reason is set (e.g. staleEvidence).
+  // Stripping to null made the screener look never-scored while company cache still had
+  // a complete Buffett-v3 assessment. Comments stay on the lazy-loaded company record.
+  if (compact.moat) {
     compact.moat = Object.fromEntries(Object.entries(compact.moat).filter(([key]) =>
       /^m\d+_/.test(key) || key.startsWith('overall_moat_verdict')).map(([key, value]) =>
       [key, /^m\d+_/.test(key) ? { score: value.score } : value]));

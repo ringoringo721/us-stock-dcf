@@ -657081,11 +657081,15 @@ window.FULL_MARKET_DATA = {
         "comment_en": "Verisk's management demonstrates high discipline and a shareholder-oriented approach in capital allocation. The company consistently generates strong free cash flow and maintains a healthy balance sheet, providing flexibility in capital deployment. In Buffett's philosophy, excellent management avoids blind, high-premium acquisitions and actively repurchases shares when undervalued to maximize shareholder value. Verisk's outstanding financial performance and high ROIC suggest its management possesses foresight and prudence in investment decisions, effectively allocating capital to lay a solid foundation for the company's long-term growth and shareholder returns."
       },
       "overall_moat_verdict_zh": "Verisk Analytics本質上是一家現代化的「收費橋樑」或「特許經營」企業，其護城河深厚且多維。它透過累積數十年專有數據、建立複雜的分析模型，並將自身服務深度嵌入保險公司的核心營運流程，形成難以逾越的壁壘。客戶一旦依賴其數據和洞察，轉換成本極高，且其數據生態系統具備強大的網絡效應。Verisk在高度監管的行業中扮演關鍵角色，其規模經濟和不可複製的無形資產，使其能夠持續產生超額的投入資本回報。這是一家在信息時代擁有強大定價權和持續競爭優勢的優質企業。",
-      "overall_moat_verdict_en": "Verisk Analytics is fundamentally a modern \"toll bridge\" or \"franchise\" business, possessing deep and multi-faceted moats. It has built insurmountable barriers by accumulating decades of proprietary data, establishing complex analytical models, and deeply embedding its services into the core operational processes of insurance companies. Once clients rely on its data and insights, switching costs are exceptionally high, and its data ecosystem exhibits strong network effects. Verisk plays a critical role in a highly regulated industry, and its economies of scale and irreproducible intangible assets enable it to consistently generate superior returns on invested capital. This is a high-quality enterprise with robust pricing power and sustainable competitive advantages in the information age."
+      "overall_moat_verdict_en": "Verisk Analytics is fundamentally a modern \"toll bridge\" or \"franchise\" business, possessing deep and multi-faceted moats. It has built insurmountable barriers by accumulating decades of proprietary data, establishing complex analytical models, and deeply embedding its services into the core operational processes of insurance companies. Once clients rely on its data and insights, switching costs are exceptionally high, and its data ecosystem exhibits strong network effects. Verisk plays a critical role in a highly regulated industry, and its economies of scale and irreproducible intangible assets enable it to consistently generate superior returns on invested capital. This is a high-quality enterprise with robust pricing power and sustainable competitive advantages in the information age.",
+      "assessmentPolicy": "buffett-moat-v3",
+      "model": "gemini-2.5-flash-lite"
     },
     "ratingSources": {
       "moat": {
-        "reason": null
+        "reason": null,
+        "assessmentPolicy": "buffett-moat-v3",
+        "model": "gemini-2.5-flash-lite"
       },
       "fScore": {
         "score": 7,
@@ -717882,11 +717886,15 @@ window.FULL_MARKET_DATA = {
         "comment_en": "EOG is highly regarded for its prudent and shareholder-focused capital allocation strategy, prioritizing internal organic growth and robust shareholder returns. The company consistently avoids overpriced or dilutive acquisitions, instead opting to actively repurchase its own shares when the stock is undervalued, while simultaneously maintaining a stable and attractive dividend policy. Its strong free cash flow generation and exceptionally healthy balance sheet (implying minimal leverage) unequivocally demonstrate management's outstanding capability and unwavering integrity in creating sustainable long-term value for its shareholders."
       },
       "overall_moat_verdict_zh": "EOG Resources本質上是一家在商品市場中具備卓越競爭力的低成本生產商。其護城河並非來自品牌或網絡效應，而是源於對稀缺優質油氣儲備的獨佔性控制、領先的營運效率和嚴謹的資本配置。這使得EOG能夠在油價波動中保持強勁的盈利能力和高資本回報率，並持續為股東創造價值。它不是典型的「收費橋樑」，而更像是一個擁有最佳土地和最優生產工藝的「農場主」，在競爭激烈的市場中依然能獲得超額收益。",
-      "overall_moat_verdict_en": "EOG Resources is fundamentally a highly competitive, low-cost producer operating within a commodity market. Its economic moat stems not from brand or network effects, but from its exclusive control over scarce, high-quality oil and gas reserves, coupled with leading operational efficiency and disciplined capital allocation. This enables EOG to maintain robust profitability and high returns on capital amidst oil price fluctuations, consistently creating shareholder value. It is not a typical \"toll bridge\" but rather akin to a \"farmer\" possessing the best land and most efficient production methods, capable of generating superior returns even in a fiercely competitive market."
+      "overall_moat_verdict_en": "EOG Resources is fundamentally a highly competitive, low-cost producer operating within a commodity market. Its economic moat stems not from brand or network effects, but from its exclusive control over scarce, high-quality oil and gas reserves, coupled with leading operational efficiency and disciplined capital allocation. This enables EOG to maintain robust profitability and high returns on capital amidst oil price fluctuations, consistently creating shareholder value. It is not a typical \"toll bridge\" but rather akin to a \"farmer\" possessing the best land and most efficient production methods, capable of generating superior returns even in a fiercely competitive market.",
+      "assessmentPolicy": "buffett-moat-v3",
+      "model": "gemini-2.5-flash-lite"
     },
     "ratingSources": {
       "moat": {
-        "reason": null
+        "reason": null,
+        "assessmentPolicy": "buffett-moat-v3",
+        "model": "gemini-2.5-flash-lite"
       },
       "fScore": {
         "score": 8,
@@ -843046,11 +843054,15 @@ window.FULL_MARKET_DATA = {
         "comment_en": "As a mature utility company, Dominion Energy's management's capital allocation strategy typically emphasizes stability and predictability. Within a regulated environment, capital is primarily used for maintaining existing infrastructure, investing in approved expansion projects to meet growth demands, and paying stable dividends to shareholders. While utilities less frequently engage in large-scale share buybacks, management's integrity is reflected in its adherence to regulatory frameworks, pursuit of operational efficiency, and prudent decisions regarding long-term infrastructure investments. A high Piotroski F-Score of 8 also indirectly attests to its robust financial management capabilities. This pragmatic approach to capital allocation aims to ensure the company's continuous profitability and stable growth in shareholder value under regulated returns."
       },
       "overall_moat_verdict_zh": "Dominion Energy本質上是一家典型的「收費橋樑」型企業，受益於其在特定地理區域內的政府特許經營權和高度受監管的壟斷地位。其護城河主要由極高的轉換成本、難以複製的龐大基礎設施規模、以及市場的天然寡占特性所構築。儘管缺乏傳統意義上的品牌定價權和網絡效應，但其提供的電力和天然氣服務是社會運轉不可或缺的剛性需求，確保了收入的極高穩定性和可預測性。管理層的資本配置策略也傾向於穩健，旨在維持基礎設施並提供穩定股息。這使得Dominion Energy成為一個長期、低波動、穩定現金流的投資標的，符合巴菲特對「特許經營權」企業的定義。",
-      "overall_moat_verdict_en": "Dominion Energy is fundamentally a classic \"toll bridge\" enterprise, benefiting from its government-granted franchises and highly regulated monopoly status within specific geographic areas. Its economic moat is primarily built upon extremely high switching costs, the irreplicable scale of its vast infrastructure, and the natural oligopolistic nature of its market. While lacking traditional brand pricing power and network effects, its provision of electricity and natural gas services is an indispensable, inelastic demand for societal functioning, ensuring exceptionally stable and predictable revenues. Management's capital allocation strategy also leans towards prudence, aiming to maintain infrastructure and provide stable dividends. This positions Dominion Energy as a long-term, low-volatility investment with stable cash flows, aligning with Buffett's definition of a \"franchise\" business."
+      "overall_moat_verdict_en": "Dominion Energy is fundamentally a classic \"toll bridge\" enterprise, benefiting from its government-granted franchises and highly regulated monopoly status within specific geographic areas. Its economic moat is primarily built upon extremely high switching costs, the irreplicable scale of its vast infrastructure, and the natural oligopolistic nature of its market. While lacking traditional brand pricing power and network effects, its provision of electricity and natural gas services is an indispensable, inelastic demand for societal functioning, ensuring exceptionally stable and predictable revenues. Management's capital allocation strategy also leans towards prudence, aiming to maintain infrastructure and provide stable dividends. This positions Dominion Energy as a long-term, low-volatility investment with stable cash flows, aligning with Buffett's definition of a \"franchise\" business.",
+      "assessmentPolicy": "buffett-moat-v3",
+      "model": "gemini-2.5-flash-lite"
     },
     "ratingSources": {
       "moat": {
-        "reason": null
+        "reason": null,
+        "assessmentPolicy": "buffett-moat-v3",
+        "model": "gemini-2.5-flash-lite"
       },
       "fScore": {
         "score": 3,
