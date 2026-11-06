@@ -3807,7 +3807,7 @@
       msc_zone_unavailable_comment: "缺少連續可比年度或關鍵科目（如 SGA、PPE），或屬銀行／保險業，暫不計算 Beneish M。",
       msc_health_bands: "分級：M < −2 誠實；−2 至 −1.78 財務美化；> −1.78 高造假可能（Beneish 門檻）。",
       msc_health_caution: "規則式解讀，不是審計、監管裁罰或投資建議。銀行與保險業標示 N/A。",
-      msc_table_title: "Beneish M 八指數明細（權重 × 指數）",
+      msc_table_title: "Beneish M 明細（截距 −4.84 + 八指數 × 權重）",
       msc_th_test: "指數與權重",
       msc_th_actual: "數值與貢獻",
       sec_tech: "資訊科技", sec_comm: "通訊服務", sec_c_disc: "非必需消費", sec_c_stap: "必需消費",
@@ -4435,7 +4435,7 @@
       msc_zone_unavailable_comment: "Two comparable annual years or key fields (e.g. SGA, PPE) are missing, or the issuer is a bank/insurer — Beneish M is not computed.",
       msc_health_bands: "Bands: M < −2 clean; −2 to −1.78 window dressing; > −1.78 high manipulation risk (Beneish cutoff).",
       msc_health_caution: "Rule-based interpretation only — not an audit, regulatory finding or investment advice. Banks and insurers are N/A.",
-      msc_table_title: "Beneish M eight-index breakdown (weight × index)",
+      msc_table_title: "Beneish M breakdown (intercept −4.84 + eight weight × index)",
       msc_th_test: "Index & weight",
       msc_th_actual: "Value & contribution",
       sec_tech: "Technology", sec_comm: "Communication", sec_c_disc: "Consumer Discretionary", sec_c_stap: "Consumer Staples",
@@ -11370,7 +11370,8 @@
           ? ({ '營運資金': 'Working capital', '保留盈餘': 'Retained earnings', '獲利能力': 'Profitability',
             '財務結構': 'Capital structure', '資產週轉': 'Asset turnover', '應收帳款': 'Receivables',
             '毛利率': 'Gross margin', '資產質素': 'Asset quality', '營收成長': 'Sales growth',
-            '折舊': 'Depreciation', '管銷費用': 'SG&A', '應計項目': 'Accruals', '槓桿': 'Leverage'
+            '折舊': 'Depreciation', '管銷費用': 'SG&A', '應計項目': 'Accruals', '槓桿': 'Leverage',
+            '截距': 'Intercept'
           }[item.category] || item.category) : item.category}</td>
         <td><strong>${isEn ? (item.desc_en || item.desc) : item.desc}</strong></td>
         <td style="color: var(--text-muted);">${isEn ? (item.detail_en || item.detail || '') : (item.detail_zh || item.detail || '')}</td>
@@ -11424,7 +11425,7 @@
     document.getElementById('msc-model').innerText = isEn ? '8-variable Beneish' : '八變數 Beneish';
     document.getElementById('msc-period').innerText = s.ratingSources?.mScore?.period || s.ratingSources?.mScore?.asOfDate || '--';
     document.getElementById('msc-components').innerText = Array.isArray(s.m_score_breakdown) && s.m_score_breakdown.length
-      ? String(s.m_score_breakdown.length) : '8';
+      ? String(s.m_score_breakdown.length) : '9';
     const badge = document.getElementById('msc-health-level');
     badge.textContent = labels[health.labelKey];
     badge.className = `financial-health-level ${health.className || 'text-muted'}`;
@@ -11436,6 +11437,9 @@
       comment.append(p);
     };
     paragraph(`${ticker} · ${labels[`${health.labelKey}_comment`] || labels.msc_zone_unavailable_comment}`);
+    paragraph(isEn
+      ? 'M = −4.84 + Σ(wi × index); table includes the intercept so the rows sum to M.'
+      : 'M = −4.84 + Σ(wi × 指數)；明細含截距列，各列貢獻加總即 M。');
     if (health.financialNa) paragraph(labels.fsc_health_financial_na_comment);
     if (ratingProvenance(s, 'mScore')) paragraph(ratingProvenance(s, 'mScore'));
     loadDistressBreakdown('mscore-breakdown-body', s.m_score_breakdown, isEn);

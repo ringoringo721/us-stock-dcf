@@ -6,7 +6,10 @@ const {
   calculateAll,
   altmanZone,
   beneishZone,
-  retainedEarningsUnusable
+  retainedEarningsUnusable,
+  receivablesUnusable,
+  beneishTata,
+  beneishLeverage
 } = require('../statement_distress_scores.js');
 
 function row(year, fields) {
@@ -30,12 +33,14 @@ function industrialFixture() {
         row(2023, {
           totalAssets: 2000, totalLiabilities: 800, totalCurrentAssets: 900, totalCurrentLiabilities: 400,
           retainedEarnings: 500, totalStockholdersEquity: 1200, propertyPlantEquipmentNet: 600,
-          accountsReceivables: 100, netReceivables: 100
+          accountsReceivables: 100, netReceivables: 100,
+          cashAndCashEquivalents: 200, shortTermDebt: 50, longTermDebt: 300, taxPayables: 20
         }),
         row(2024, {
           totalAssets: 2200, totalLiabilities: 900, totalCurrentAssets: 1000, totalCurrentLiabilities: 450,
           retainedEarnings: 620, totalStockholdersEquity: 1300, propertyPlantEquipmentNet: 650,
-          accountsReceivables: 150, netReceivables: 150
+          accountsReceivables: 150, netReceivables: 150,
+          cashAndCashEquivalents: 250, shortTermDebt: 60, longTermDebt: 320, taxPayables: 25
         })
       ],
       cashflow: [
@@ -68,12 +73,29 @@ test('Z′ book-equity model is available and separate from classic bands', () =
   assert.ok(result.items[3].desc.includes('X4′'));
 });
 
-test('Beneish 8-variable M-Score publishes component breakdown', () => {
-  const result = calculateBeneish(industrialFixture());
+test('Beneish 8-variable M-Score publishes intercept + eight indices (1999)', () => {
+  const data = industrialFixture();
+  const result = calculateBeneish(data);
   assert.equal(result.reason, null);
-  assert.equal(result.items.length, 8);
+  assert.equal(result.intercept, -4.84);
+  assert.equal(result.items.length, 9);
+  assert.equal(result.items[0].key, 'intercept');
+  assert.equal(result.items[0].contribution, -4.84);
   assert.ok(result.items.every(item => item.desc_en && item.detail_zh && item.detail_en));
   assert.ok(Number.isFinite(result.score));
+
+  // Classic Beneish 1999 TATA / LVGI (not NI−CFO / TL/TA).
+  const bal = data.annual.balance[1];
+  const prior = data.annual.balance[0];
+  const expectedTata = beneishTata(bal, prior, data.annual.income[1], data.annual.cashflow[1]);
+  assert.ok(Math.abs(result.indices.TATA - expectedTata) < 1e-12);
+  assert.ok(Math.abs(result.indices.LVGI
+    - (beneishLeverage(bal) / beneishLeverage(prior))) < 1e-12);
+  // M = −4.84 + Σ wi×index
+  const rebuilt = result.intercept + Object.entries(result.indices)
+    .reduce((sum, [key, value]) => sum + result.weights[key] * value, 0);
+  assert.ok(Math.abs(result.score - Number(rebuilt.toFixed(2))) < 1e-9);
+
   assert.ok(['clean', 'windowDressing', 'highRisk'].includes(result.zone));
   assert.equal(beneishZone(-2.5), 'clean');
   assert.equal(beneishZone(-1.9), 'windowDressing');
@@ -116,6 +138,27 @@ test('Beneish 0/0 receivable intensity is neutral DSRI; prior-only zero stays in
   assert.equal(blocked.score, null);
   assert.equal(blocked.reason, 'incompleteCriteria');
   assert.equal(blocked.indices.DSRI, null);
+});
+
+test('collapsed AR (0 after positive prior) walks back like collapsed RE', () => {
+  const collapsed = industrialFixture();
+  collapsed.annual.income.push(row(2025, {
+    revenue: 1300, grossProfit: 450, ebit: 230, operatingIncome: 230, netIncome: 170,
+    sellingGeneralAndAdministrativeExpenses: 160, depreciationAndAmortization: 50
+  }));
+  collapsed.annual.balance.push(row(2025, {
+    totalAssets: 2400, totalLiabilities: 950, totalCurrentAssets: 1100, totalCurrentLiabilities: 480,
+    retainedEarnings: 700, totalStockholdersEquity: 1450, propertyPlantEquipmentNet: 700,
+    accountsReceivables: 0, netReceivables: 0,
+    cashAndCashEquivalents: 280, shortTermDebt: 70, longTermDebt: 340, taxPayables: 30
+  }));
+  collapsed.annual.cashflow.push(row(2025, { operatingCashFlow: 210, depreciationAndAmortization: 50 }));
+  assert.equal(receivablesUnusable(collapsed.annual.balance[2], collapsed.annual.balance[1]), true);
+  const walked = calculateBeneish(collapsed);
+  assert.equal(walked.reason, null);
+  assert.equal(walked.period, 'FY 2024');
+  assert.ok(Number.isFinite(walked.score));
+  assert.ok(walked.indices.DSRI > 0);
 });
 
 test('fiscal balance dates a few days off income still yield Altman/Beneish', () => {
@@ -265,6 +308,30 @@ test('NTES FY2025 collapsed RE walks back; USD mcap converts to CNY for X4', () 
   assert.equal(stock.ratingSources.zScore.mcapFx.to, 'CNY');
 });
 
+test('NTES Beneish uses classic TATA/LVGI and publishes M with intercept', () => {
+  const fs = require('fs');
+  const path = require('path');
+  const { attachDistressScores } = require('../scripts/distress_score_fields.cjs');
+  const file = path.join(__dirname, '../cache/financials/NTES_statements_v2.json');
+  if (!fs.existsSync(file)) return;
+  const statements = JSON.parse(fs.readFileSync(file, 'utf8'));
+  const company = JSON.parse(fs.readFileSync(path.join(__dirname, '../cache/us_companies/NTES.json'), 'utf8'));
+  const stock = JSON.parse(JSON.stringify(company.stock));
+  const { beneish } = attachDistressScores(stock, statements, { ticker: 'NTES' });
+  assert.equal(beneish.reason, null);
+  assert.ok(Number.isFinite(beneish.score));
+  assert.equal(beneish.intercept, -4.84);
+  assert.equal(beneish.items[0].key, 'intercept');
+  // Classic TATA should not equal (NI−CFO)/TA for NTES FY window.
+  const obsIncome = statements.annual.income.find(r => String(r.date).startsWith(String(beneish.date).slice(0, 4))
+    || String(r.fiscalYear) === String(beneish.period).replace(/\D/g, ''));
+  assert.ok(Number.isFinite(beneish.indices.TATA));
+  assert.ok(Number.isFinite(beneish.indices.LVGI));
+  assert.ok(beneish.score > -4 && beneish.score < 0, `NTES M in plausible band, got ${beneish.score}`);
+  assert.equal(stock.m_score, beneish.score);
+  void obsIncome;
+});
+
 test('AAPL USD reporter keeps identity FX and publishes classic Z > 4', () => {
   const fs = require('fs');
   const path = require('path');
@@ -283,6 +350,23 @@ test('AAPL USD reporter keeps identity FX and publishes classic Z > 4', () => {
   assert.ok(altman.score > 4);
   assert.equal(altman.zone, 'superRobust');
   assert.ok(altman.ratios.x2 > 0);
+});
+
+test('0700.HK Beneish scores in statement currency without mcap FX', () => {
+  const fs = require('fs');
+  const path = require('path');
+  const { attachDistressScores } = require('../scripts/distress_score_fields.cjs');
+  const file = path.join(__dirname, '../cache/financials/0700.HK_statements_v2.json');
+  if (!fs.existsSync(file)) return;
+  const statements = JSON.parse(fs.readFileSync(file, 'utf8'));
+  const market = JSON.parse(fs.readFileSync(path.join(__dirname, '../hk_market_dcf.json'), 'utf8'));
+  const stock = JSON.parse(JSON.stringify(market['0700.HK']));
+  const { beneish } = attachDistressScores(stock, statements, { ticker: '0700.HK' });
+  assert.equal(beneish.reason, null);
+  assert.ok(Number.isFinite(beneish.score));
+  assert.equal(beneish.scoringCurrency, 'CNY');
+  assert.equal(beneish.intercept, -4.84);
+  assert.ok(!stock.ratingSources.mScore?.mcapFx, 'Beneish YoY ratios need no mcap FX');
 });
 
 test('0700.HK CNY statements convert HKD mcap before classic X4', () => {

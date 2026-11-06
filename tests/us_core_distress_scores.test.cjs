@@ -29,7 +29,8 @@ test('US core mega-caps publish Altman Z and Beneish M (not N/A)', () => {
     assert.ok(Number.isFinite(stock.z_score), `${ticker} z_score`);
     assert.ok(Number.isFinite(stock.m_score), `${ticker} m_score`);
     assert.ok(Array.isArray(stock.z_score_breakdown) && stock.z_score_breakdown.length === 5);
-    assert.ok(Array.isArray(stock.m_score_breakdown) && stock.m_score_breakdown.length === 8);
+    assert.ok(Array.isArray(stock.m_score_breakdown) && stock.m_score_breakdown.length === 9);
+    assert.equal(stock.m_score_breakdown[0].key, 'intercept');
     assert.equal(js[ticker].z_score, stock.z_score);
     assert.equal(js[ticker].m_score, stock.m_score);
   }
