@@ -1,0 +1,60 @@
+{
+  "ticker": "CIG",
+  "period": "2026Q2",
+  "m1_brand_pricing": {
+    "score": 7,
+    "comment_zh": "CIG 作為一家受監管的電力公用事業公司，其品牌價值和定價權主要來自於政府的特許經營權和監管框架。這意味著其價格設定受到嚴格審查，難以大幅度提高利潤率。然而，在電力供應的基礎設施領域，其穩定性和可靠性構成了無形的品牌價值，客戶對其服務的依賴性很高，這在一定程度上提供了定價的穩定性。與其他電力公司相比，CIG 在其服務區域內擁有相當的市場地位，但其定價能力受到監管的顯著限制，無法像自由市場中的消費品牌那樣展現強大的定價權。",
+    "comment_en": "As a regulated electric utility company, CIG's brand value and pricing power primarily stem from government concessions and regulatory frameworks. This implies its pricing is subject to strict scrutiny, making significant profit margin increases difficult. However, in the essential infrastructure of electricity supply, its stability and reliability create intangible brand value, with customers highly dependent on its services, which to some extent provides pricing stability. Compared to other power companies, CIG holds a considerable market position within its service area, but its pricing capability is significantly constrained by regulation, preventing it from exhibiting strong pricing power like consumer brands in free markets."
+  },
+  "m2_patents_regulatory": {
+    "score": 9,
+    "comment_zh": "CIG 的核心競爭壁壘來自於其受監管的公用事業特許經營權。在 Minas Gerais 州，電力供應被視為關鍵基礎設施，政府授予特定公司（如 CIG）在特定區域內提供服務的獨家權利。這類特許經營權本質上是一種政府授予的壟斷，極難被競爭對手複製或挑戰。雖然沒有傳統意義上的專利，但這種監管壁壘和特許經營權是極其強大的護城河，確保了其業務的穩定性和可預測性，並有效阻止了潛在的市場進入者。",
+    "comment_en": "CIG's core competitive barrier lies in its regulated utility concessions. In the state of Minas Gerais, electricity supply is considered critical infrastructure, and the government grants specific companies like CIG exclusive rights to provide services within defined territories. These concessions are essentially government-granted monopolies, extremely difficult for competitors to replicate or challenge. While not patents in the traditional sense, these regulatory barriers and concessions form a formidable moat, ensuring the stability and predictability of its business and effectively preventing potential market entrants."
+  },
+  "m3_high_switching_costs": {
+    "score": 8,
+    "comment_zh": "對於電力公用事業而言，客戶的轉換成本極高。一旦家庭或企業接入 CIG 的電網，更換供應商不僅需要複雜的技術和基礎設施改造，還可能涉及政府審批和冗長的程序。此外，電力是生活和生產的必需品，客戶幾乎沒有動力去尋找和更換供應商，除非出現嚴重的服務中斷或價格差異。這種固有的高轉換成本，加上電力供應的基礎設施屬性，為 CIG 提供了穩固的客戶基礎和收入來源，使其能夠抵禦來自外部的競爭壓力。",
+    "comment_en": "For electric utilities, customer switching costs are extremely high. Once a household or business is connected to CIG's grid, changing suppliers involves not only complex technical and infrastructure modifications but also potential government approvals and lengthy procedures. Furthermore, electricity is a necessity for life and production, and customers have little incentive to seek and switch suppliers unless there are severe service disruptions or price discrepancies. These inherent high switching costs, coupled with the infrastructure nature of electricity supply, provide CIG with a stable customer base and revenue stream, enabling it to withstand external competitive pressures."
+  },
+  "m4_network_effects": {
+    "score": 3,
+    "comment_zh": "電力公用事業的網絡效應相對較弱。CIG 的電網是其核心資產，但其價值主要體現在連接的廣度和效率上，而非傳統意義上用戶越多，價值越高的網絡效應。雖然更多的用戶意味著更大的收入基礎，但這更多是規模經濟的體現，而非網絡效應帶來的邊際效用遞增。與社交媒體或電商平台不同，CIG 的網絡並不會因為用戶數量的增加而產生指數級的價值提升，其核心競爭力更多依賴於基礎設施的穩定運營和監管環境。",
+    "comment_en": "Network effects in electric utilities are relatively weak. CIG's power grid is its core asset, but its value is primarily reflected in the breadth and efficiency of its connections, rather than the traditional sense of a network where more users equate to greater value. While more users mean a larger revenue base, this is more a manifestation of economies of scale than the marginal utility increase derived from network effects. Unlike social media or e-commerce platforms, CIG's network does not experience an exponential increase in value with a growing user base; its core competitiveness relies more on the stable operation of its infrastructure and the regulatory environment."
+  },
+  "m5_cost_advantage_scale": {
+    "score": 8,
+    "comment_zh": "作為 Minas Gerais 州的主要電力供應商，CIG 受益於顯著的規模經濟。建設和維護龐大的輸配電網絡需要巨額的固定投資，這使得新進入者難以匹敵。CIG 通過其龐大的運營規模，能夠攤薄固定成本，並在採購、運營和維護方面獲得成本優勢。此外，作為一家成熟的公用事業公司，其在融資、技術應用和人才儲備方面也可能擁有比小型競爭者更低的成本結構。這種規模帶來的成本優勢是其在受監管環境下維持競爭力的重要因素。",
+    "comment_en": "As a major electricity supplier in Minas Gerais, CIG benefits from significant economies of scale. The construction and maintenance of a vast transmission and distribution network require substantial fixed investments, making it difficult for new entrants to compete. Through its large operational scale, CIG can spread fixed costs and gain cost advantages in procurement, operations, and maintenance. Furthermore, as an established utility company, it likely possesses a lower cost structure in financing, technology adoption, and talent reserves compared to smaller competitors. This scale-driven cost advantage is a crucial factor in maintaining its competitiveness within the regulated environment."
+  },
+  "m6_unique_geography_assets": {
+    "score": 9,
+    "comment_zh": "CIG 在 Minas Gerais 州擁有獨特的地理資產和基礎設施網絡。該州人口稠密且經濟活動活躍，對電力需求巨大且持續增長。CIG 的輸配電網絡遍佈全州，是連接電力生產和消費者的唯一通道。這種廣泛且深入的基礎設施覆蓋，加上其作為受監管公用事業的特許經營權，構成了難以複製的地理壁壘。任何試圖進入該市場的競爭者都必須克服巨大的基礎設施建設成本和複雜的監管障礙，這使得 CIG 的地理位置和網絡成為其獨特的競爭優勢。",
+    "comment_en": "CIG possesses unique geographical assets and infrastructure networks within the state of Minas Gerais. The state is densely populated with active economic activity, leading to substantial and growing electricity demand. CIG's transmission and distribution network spans the entire state, serving as the sole conduit connecting power generation to consumers. This extensive and deep infrastructure coverage, combined with its regulated utility concessions, forms an almost irreplicable geographical barrier. Any competitor attempting to enter this market would have to overcome immense infrastructure construction costs and complex regulatory hurdles, making CIG's geographical presence and network a distinct competitive advantage."
+  },
+  "m7_operational_efficiency": {
+    "score": 7,
+    "comment_zh": "作為一家成熟的公用事業公司，CIG 在運營效率方面應具備一定的優勢。其業務模式相對穩定，主要依賴於電網的可靠運行和維護。通過持續的技術升級和流程優化，CIG 能夠提高發電效率、減少線損、優化調度，從而降低運營成本。然而，由於是受監管行業，其效率提升的空間可能受到監管機構的約束，過度的成本節約可能影響服務質量或投資回報。儘管如此，相較於新進入者，CIG 憑藉其經驗和規模，在運營效率上仍具有較強的競爭力。",
+    "comment_en": "As an established utility company, CIG should possess certain advantages in operational efficiency. Its business model is relatively stable, primarily relying on the reliable operation and maintenance of its power grid. Through continuous technological upgrades and process optimization, CIG can improve generation efficiency, reduce line losses, and optimize dispatching, thereby lowering operational costs. However, being a regulated industry, its scope for efficiency improvements may be constrained by regulatory bodies; excessive cost savings could impact service quality or return on investment. Nevertheless, compared to new entrants, CIG maintains strong competitiveness in operational efficiency due to its experience and scale."
+  },
+  "m8_capital_allocation": {
+    "score": 7,
+    "comment_zh": "CIG 的資本配置能力在其受監管的業務模式下顯得尤為重要。公司需要平衡對電網基礎設施的持續投資（以維持和升級）、股息支付以及潛在的債務管理。其 ROE 15.4% 和 ROA 6.3% 表明公司在利用資本創造回報方面表現尚可，但公用事業的資本密集型特點意味著其資本配置決策對長期價值至關重要。監管機構對其投資回報率的設定，限制了其自由配置資本的能力，但同時也保證了相對穩定的回報。公司需要謹慎地將資本投入到能帶來穩定且可預期回報的項目中。",
+    "comment_en": "CIG's capital allocation capability is particularly crucial within its regulated business model. The company needs to balance continuous investment in grid infrastructure (for maintenance and upgrades), dividend payments, and potential debt management. Its ROE of 15.4% and ROA of 6.3% indicate a decent performance in utilizing capital to generate returns. However, the capital-intensive nature of utilities means its capital allocation decisions are vital for long-term value. Regulatory caps on its rate of return limit its ability to freely allocate capital but also ensure relatively stable returns. The company must prudently invest capital in projects that yield stable and predictable returns."
+  },
+  "m9_customer_retention": {
+    "score": 8,
+    "comment_zh": "CIG 的客戶保留率極高，這主要歸因於其電力供應的基礎設施屬性和高轉換成本。電力是現代社會不可或缺的資源，家庭和企業對其供應的依賴性極強。除非服務出現嚴重問題，否則客戶幾乎不會主動尋求更換電力供應商。這種被動的高保留率，加上其在 Minas Gerais 州的特許經營權，為 CIG 提供了極為穩定的收入來源。這種穩定性是巴菲特所欣賞的特徵，因為它減少了業務的不確定性，並為長期價值創造奠定了基礎。",
+    "comment_en": "CIG exhibits extremely high customer retention, primarily due to the infrastructure nature of its electricity supply and high switching costs. Electricity is an indispensable resource in modern society, and households and businesses are highly dependent on its supply. Unless there are severe service issues, customers are unlikely to proactively seek alternative electricity suppliers. This passive high retention rate, coupled with its concessions in Minas Gerais, provides CIG with a highly stable revenue stream. This stability is a characteristic Warren Buffett values, as it reduces business uncertainty and lays the foundation for long-term value creation."
+  },
+  "m10_durability": {
+    "score": 9,
+    "comment_zh": "CIG 的業務具有極高的持久性。電力供應是基礎設施的核心，其需求隨著經濟發展和人口增長而穩步增長。監管框架雖然可能限制短期內的爆發性增長，但也為公司提供了長期的穩定性和可預測性。只要社會對電力的基本需求存在，CIG 的業務模式就能持續下去。其龐大的基礎設施網絡和特許經營權構成了難以逾越的壁壘，使其能夠抵禦技術顛覆和市場變化的衝擊。這是一種典型的「收費橋」模式，為社會提供必需服務並收取穩定費用。",
+    "comment_en": "CIG's business possesses exceptional durability. Electricity supply is core infrastructure, and its demand grows steadily with economic development and population increase. While the regulatory framework may limit explosive short-term growth, it also provides the company with long-term stability and predictability. As long as society requires electricity, CIG's business model will endure. Its vast infrastructure network and concessions form insurmountable barriers, enabling it to withstand the impact of technological disruption and market changes. This is a classic 'toll bridge' model, providing an essential service to society and collecting stable fees."
+  },
+  "overall_moat_verdict_zh": "CIG 作為一家受監管的電力公用事業公司，其護城河主要建立在政府特許經營權、高昂的基礎設施建設成本和客戶轉換成本之上，這使其在 Minas Gerais 州擁有近乎壟斷的地位。其業務模式類似於「收費橋」，為社會提供必需的電力服務，並從中獲取穩定的收入。儘管缺乏傳統的品牌定價權和網絡效應，但其規模經濟、獨特的地理資產和極高的客戶保留率，共同構成了堅固且持久的競爭壁壘。監管環境雖然限制了其盈利的爆發力，但也保證了業務的穩定性和可預測性，符合長期價值投資的標準。",
+  "overall_moat_verdict_en": "As a regulated electric utility, CIG's moat is primarily built upon government concessions, high infrastructure construction costs, and customer switching costs, granting it a near-monopolistic position in Minas Gerais. Its business model resembles a 'toll bridge,' providing essential electricity services to society and generating stable income. While lacking traditional brand pricing power and network effects, its economies of scale, unique geographical assets, and extremely high customer retention collectively form a robust and durable competitive barrier. The regulatory environment, though limiting profit potential, ensures business stability and predictability, aligning with long-term value investing principles.",
+  "evidenceHash": "8f5b584e24f0b0661dd42c9f537235802ff73437f1b3b5b73f7d2ee3f6899984",
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
+}
