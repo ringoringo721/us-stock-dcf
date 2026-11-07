@@ -1,0 +1,60 @@
+{
+  "ticker": "FCN",
+  "period": "2026Q3",
+  "m1_brand_pricing": {
+    "score": 6,
+    "comment_zh": "FTI Consulting 在專業服務領域擁有一定的品牌聲譽，尤其在重整、訴訟支持等特定領域。然而，與消費品品牌相比，其品牌影響力在客戶決策中的直接作用相對較弱。客戶選擇諮詢公司時，更看重專業能力、過往經驗和推薦，而非單純的品牌忠誠度。因此，其品牌定價權相對有限，難以收取顯著溢價，但仍能吸引追求專業服務的客戶群體。",
+    "comment_en": "FTI Consulting possesses a certain brand reputation in the professional services sector, particularly in specialized areas like restructuring and litigation support. However, compared to consumer brands, its brand influence plays a relatively weaker role in client decision-making. Clients selecting consulting firms prioritize expertise, past experience, and referrals over mere brand loyalty. Consequently, its brand pricing power is relatively limited, making it difficult to command significant premiums, though it still attracts clients seeking specialized services."
+  },
+  "m2_patents_regulatory": {
+    "score": 2,
+    "comment_zh": "FTI Consulting 的業務模式主要依賴於專業知識、人才和客戶關係，而非受專利或嚴格監管保護的技術。雖然其某些服務流程或方法可能具有獨特性，但並未構成法律上的專利壁壘。行業進入門檻主要體現在人才培養和經驗積累上，而非技術專利。因此，在專利和監管壁壘方面，FTI Consulting 的護城河非常薄弱。",
+    "comment_en": "FTI Consulting's business model primarily relies on expertise, talent, and client relationships, rather than technologies protected by patents or stringent regulations. While certain service processes or methodologies might possess uniqueness, they do not constitute legal patent barriers. The industry's entry barriers are mainly in talent development and experience accumulation, not technological patents. Therefore, FTI Consulting's moat in terms of patents and regulatory barriers is very weak."
+  },
+  "m3_high_switching_costs": {
+    "score": 7,
+    "comment_zh": "FTI Consulting 的服務，特別是涉及複雜的重整、調查或訴訟支持時，客戶轉換成本相對較高。一旦客戶與公司建立信任並開始合作，更換諮詢團隊意味著需要重新熟悉項目情況、建立信任關係，並可能導致項目延遲和額外成本。這種對專業知識和項目連續性的依賴，構成了客戶轉換的顯著障礙，為公司帶來了一定的客戶黏性。",
+    "comment_en": "For FTI Consulting's services, especially those involving complex restructuring, investigations, or litigation support, client switching costs are relatively high. Once a client establishes trust and begins collaborating with the firm, changing consulting teams implies re-familiarizing with project details, rebuilding trust, and potentially causing project delays and additional expenses. This reliance on specialized knowledge and project continuity forms a significant barrier to switching, providing the company with a degree of customer stickiness."
+  },
+  "m4_network_effects": {
+    "score": 3,
+    "comment_zh": "FTI Consulting 的業務並不存在顯著的網絡效應。其服務的性質是為特定客戶提供專業解決方案，客戶之間的互動或網絡擴展並不能直接增強公司服務的價值。雖然公司內部可能存在知識共享，但這與外部客戶網絡效應不同。其業務增長更多依賴於市場需求、公司聲譽和銷售能力，而非網絡效應的自我強化。",
+    "comment_en": "FTI Consulting's business does not exhibit significant network effects. The nature of its services involves providing specialized solutions to specific clients; interactions among clients or network expansion do not directly enhance the value of the company's services. While internal knowledge sharing might exist within the firm, this differs from external customer network effects. Its business growth relies more on market demand, company reputation, and sales capabilities, rather than the self-reinforcing nature of network effects."
+  },
+  "m5_cost_advantage_scale": {
+    "score": 6,
+    "comment_zh": "作為一家大型諮詢公司，FTI Consulting 在規模上具有一定的成本優勢，例如在招聘、培訓、技術基礎設施和共享服務方面。這種規模經濟使其能夠更有效地分配資源，並可能在某些項目上提供比小型競爭對手更具競爭力的價格。然而，諮詢行業的成本結構很大程度上取決於人力成本，規模效應的邊際效益可能不如製造業等行業顯著。",
+    "comment_en": "As a large consulting firm, FTI Consulting benefits from certain cost advantages due to its scale, such as in recruitment, training, technological infrastructure, and shared services. This economies of scale allows for more efficient resource allocation and potentially more competitive pricing on certain projects compared to smaller rivals. However, the cost structure in the consulting industry is heavily influenced by labor costs, and the marginal benefit of scale may not be as pronounced as in industries like manufacturing."
+  },
+  "m6_unique_geography_assets": {
+    "score": 4,
+    "comment_zh": "FTI Consulting 在全球範圍內設有辦事處，能夠為跨國客戶提供服務，這構成了一定的地理優勢。其在特定地區或特定專業領域的深耕，可能使其成為當地客戶的首選。然而，諮詢服務的本質使其較少依賴固定地理資產，其核心競爭力在於人才和知識，而非獨特的地理位置或實物資產。因此，地理優勢相對有限。",
+    "comment_en": "FTI Consulting operates offices globally, enabling it to serve multinational clients, which constitutes a certain geographical advantage. Its deep penetration in specific regions or specialized fields may make it a preferred choice for local clients. However, the nature of consulting services means it relies less on fixed geographical assets; its core competitiveness lies in talent and knowledge, not unique locations or physical assets. Therefore, the geographical advantage is relatively limited."
+  },
+  "m7_operational_efficiency": {
+    "score": 7,
+    "comment_zh": "FTI Consulting 在營運效率方面表現穩健，其 F-Score 為 8/9，顯示其財務狀況良好且營運穩健。公司能夠持續產生強勁的自由現金流（FCF TTM: $396.6M），這表明其業務運轉高效，能夠將收入轉化為現金。這種營運上的精實，是其在複雜專業服務領域保持競爭力的關鍵因素，並支持其持續的盈利能力。",
+    "comment_en": "FTI Consulting demonstrates solid operational efficiency, with an F-Score of 8/9, indicating good financial health and stable operations. The company consistently generates strong free cash flow (FCF TTM: $396.6M), signifying efficient business operations that effectively convert revenue into cash. This operational leaness is a key factor in maintaining competitiveness within the complex professional services sector and supports its sustained profitability."
+  },
+  "m8_capital_allocation": {
+    "score": 7,
+    "comment_zh": "FTI Consulting 的管理層在資本配置方面展現出一定的能力。公司維持著相對健康的股東權益回報率（ROE 17.6%）和資產回報率（ROA 6.7%）。儘管負債水平（$1,087.9M）高於現金儲備（$88.1M），但其強勁的自由現金流生成能力表明其有能力管理債務並為股東創造價值。歷史上，公司通過戰略性收購和有機增長來配置資本，以擴大服務範圍和市場份額。",
+    "comment_en": "FTI Consulting's management has demonstrated capability in capital allocation. The company maintains relatively healthy returns on equity (ROE 17.6%) and assets (ROA 6.7%). Although its debt level ($1,087.9M) exceeds its cash reserves ($88.1M), its strong free cash flow generation indicates its ability to manage debt and create value for shareholders. Historically, the company has allocated capital through strategic acquisitions and organic growth to expand its service offerings and market share."
+  },
+  "m9_customer_retention": {
+    "score": 7,
+    "comment_zh": "基於其服務的專業性和複雜性，FTI Consulting 能夠維持較高的客戶留存率。一旦客戶依賴其在重整、訴訟等關鍵領域的專業知識和支持，便傾向於長期合作。這種基於信任和專業能力的長期關係，是其客戶留存的關鍵。公司通過提供高質量的服務和建立穩固的客戶關係來鞏固客戶忠誠度。",
+    "comment_en": "Given the specialized and complex nature of its services, FTI Consulting is able to maintain a relatively high customer retention rate. Once clients rely on its expertise and support in critical areas such as restructuring and litigation, they tend to engage in long-term collaborations. This long-term relationship, built on trust and professional competence, is key to customer retention. The company solidifies client loyalty by delivering high-quality services and fostering robust client relationships."
+  },
+  "m10_durability": {
+    "score": 6,
+    "comment_zh": "FTI Consulting 的業務具有一定的持久性，尤其是在經濟下行或市場波動時期，其重整和訴訟相關服務的需求往往會增加。然而，諮詢行業的本質使其容易受到宏觀經濟環境和客戶支出的影響。雖然其專業服務具有一定的週期性韌性，但並非完全不受外部經濟週期的影響。其持久性更多體現在對經濟逆風的適應性上，而非絕對的抗週期性。",
+    "comment_en": "FTI Consulting's business possesses a degree of durability, particularly as demand for its restructuring and litigation-related services often increases during economic downturns or market volatility. However, the nature of the consulting industry makes it susceptible to macroeconomic conditions and client spending. While its professional services exhibit some cyclical resilience, they are not entirely immune to external economic cycles. Its durability is more reflected in its adaptability to economic headwinds rather than absolute counter-cyclicality."
+  },
+  "overall_moat_verdict_zh": "FTI Consulting 的經濟護城河主要體現在其專業服務領域的轉換成本和客戶留存能力，尤其是在重整、訴訟支持等複雜領域。其品牌聲譽和規模經濟帶來一定的競爭優勢，營運效率和資本配置能力亦屬穩健。然而，公司缺乏專利、網絡效應等強大壁壘，業務易受宏觀經濟影響，品牌定價權有限。整體而言，FTI Consulting 屬於一種基於專業知識和客戶關係的「收費橋」模式，護城河尚稱堅固，但非罕見壁壘。",
+  "overall_moat_verdict_en": "FTI Consulting's economic moat primarily lies in the switching costs and customer retention capabilities within its professional services domain, particularly in complex areas like restructuring and litigation support. Its brand reputation and economies of scale provide certain competitive advantages, and its operational efficiency and capital allocation abilities are also robust. However, the company lacks strong barriers such as patents or network effects, its business is susceptible to macroeconomic conditions, and its brand pricing power is limited. Overall, FTI Consulting operates under a 'toll bridge' model based on expertise and client relationships, possessing a reasonably solid moat, though not a rare one.",
+  "evidenceHash": "e5e2b48faca5da3f59ef0e29128d7056e4d7b005a134bfbc0e435043818c26b9",
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
+}

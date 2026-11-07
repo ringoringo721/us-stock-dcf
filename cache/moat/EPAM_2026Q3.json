@@ -1,0 +1,60 @@
+{
+  "ticker": "EPAM",
+  "period": "2026Q3",
+  "m1_brand_pricing": {
+    "score": 7,
+    "comment_zh": "EPAM 作為一家頂尖的軟體工程與數位化轉型諮詢公司，其品牌在業界享有盛譽，尤其在複雜的企業級專案交付方面。然而，與消費品牌不同，其品牌價值更多體現在專業能力與客戶信任上，而非直接的定價權。客戶選擇 EPAM 主要基於其技術實力、交付能力和解決方案的獨特性，而非品牌忠誠度驅動的溢價。雖然其能收取較高的服務費用，但面對激烈的市場競爭，定價空間仍受一定限制。其品牌壁壘相對穩固，但非絕對的定價權。",
+    "comment_en": "EPAM, as a leading software engineering and digital transformation consulting firm, enjoys a strong reputation in the industry, particularly in complex enterprise-level project delivery. However, unlike consumer brands, its brand value is more reflected in professional capabilities and client trust rather than direct pricing power. Clients choose EPAM primarily based on its technical prowess, delivery capabilities, and uniqueness of solutions, rather than brand loyalty-driven premiums. While it can command higher service fees, pricing flexibility is somewhat constrained by intense market competition. Its brand barrier is relatively solid but does not represent absolute pricing power."
+  },
+  "m2_patents_regulatory": {
+    "score": 2,
+    "comment_zh": "EPAM 的核心業務是軟體工程與諮詢服務，這類型的業務模式較少依賴專利或特許權作為主要的競爭壁壘。其價值在於人才、流程和解決方案的創新性，而非受專利保護的技術。雖然公司可能擁有某些內部開發工具或方法的智慧財產權，但這些通常難以形成像藥品或高科技硬體那樣的強大、持久的市場壟斷。監管風險相對較低，但這也意味著進入門檻不高，缺乏顯著的監管壁壘。",
+    "comment_en": "EPAM's core business is software engineering and consulting services, a business model that relies less on patents or regulatory licenses as primary competitive moats. Its value lies in its talent, processes, and innovative solutions, rather than patented technologies. While the company may hold intellectual property rights for certain internally developed tools or methodologies, these typically struggle to form strong, enduring market monopolies like those seen in pharmaceuticals or high-tech hardware. Regulatory risks are relatively low, but this also implies low barriers to entry, lacking significant regulatory moats."
+  },
+  "m3_high_switching_costs": {
+    "score": 8,
+    "comment_zh": "EPAM 的客戶轉換成本相當高。一旦客戶與 EPAM 建立起深入的合作關係，並將其核心業務流程、系統架構與 EPAM 的專業團隊緊密結合後，更換供應商將面臨巨大的挑戰。這包括重新學習、系統整合的複雜性、專案延遲的風險以及潛在的業務中斷。EPAM 提供的客製化解決方案和長期合作關係，使得客戶高度依賴其專業知識和交付能力，從而構成了顯著的轉換壁壘。",
+    "comment_en": "EPAM's client switching costs are considerably high. Once clients establish a deep working relationship with EPAM and integrate their core business processes and system architectures with EPAM's expert teams, changing vendors presents significant challenges. This includes the complexity of re-learning, system integration, the risk of project delays, and potential business disruptions. The customized solutions and long-term partnerships provided by EPAM lead to high client dependency on its expertise and delivery capabilities, thus forming a substantial switching barrier."
+  },
+  "m4_network_effects": {
+    "score": 3,
+    "comment_zh": "EPAM 的業務模式主要基於其專業人才和服務交付能力，而非典型的網絡效應。雖然公司擁有龐大的工程師社群和活躍的技術交流平台，有助於知識共享和人才吸引，但這並未直接轉化為客戶端的網絡效應。客戶選擇 EPAM 並非因為其他客戶在使用它，而是基於其獨立的服務價值。因此，網絡效應在此類諮詢服務領域並非主要的護城河。",
+    "comment_en": "EPAM's business model is primarily based on its professional talent and service delivery capabilities, rather than typical network effects. Although the company has a large community of engineers and active technical exchange platforms that facilitate knowledge sharing and talent attraction, this does not directly translate into network effects on the client side. Clients choose EPAM not because other clients are using it, but based on its independent service value. Therefore, network effects are not a primary moat in this type of consulting service domain."
+  },
+  "m5_cost_advantage_scale": {
+    "score": 7,
+    "comment_zh": "EPAM 透過其全球化的佈局和龐大的員工規模，能夠實現顯著的規模經濟效應。其在全球範圍內優化人才招聘和部署，尤其是在成本較低的地區擁有大量優秀的工程師，這使其在成本控制上具有優勢。這種規模使其能夠承接大型、複雜的專案，並在一定程度上抵禦價格競爭。然而，軟體服務業的本質是人才密集型，規模帶來的成本優勢並非絕對，仍需持續投入人才培養與管理。",
+    "comment_en": "EPAM achieves significant economies of scale through its global presence and large workforce. By optimizing talent recruitment and deployment worldwide, particularly with a substantial pool of skilled engineers in lower-cost regions, it gains an advantage in cost control. This scale allows it to undertake large, complex projects and withstand price competition to a certain extent. However, the nature of the software services industry is talent-intensive, and the cost advantage from scale is not absolute, requiring continuous investment in talent development and management."
+  },
+  "m6_unique_geography_assets": {
+    "score": 2,
+    "comment_zh": "EPAM 的業務遍及全球，但其核心競爭力在於人才和技術能力，而非特定地理位置的獨特資產或寡占市場地位。雖然其在全球主要市場設有辦公室，能夠貼近客戶，但這些地理佈局並非不可複製的壁壘。軟體開發和諮詢服務的本質使其較少依賴特定的地理資源，競爭者可以透過類似的全球佈局來複製其市場覆蓋能力。",
+    "comment_en": "EPAM operates globally, but its core competitiveness lies in its talent and technical capabilities, not in unique assets tied to specific geographies or a niche oligopolistic market position. While it has offices in major global markets to be close to clients, these geographical footprints are not irreplicable barriers. The nature of software development and consulting services means it relies less on specific geographical resources, and competitors can replicate its market coverage through similar global expansion."
+  },
+  "m7_operational_efficiency": {
+    "score": 8,
+    "comment_zh": "EPAM 在營運效率方面表現出色，這體現在其專案管理能力、交付流程的標準化以及對技術趨勢的快速響應上。公司透過精實的營運模式和持續的流程優化，確保專案能夠按時、按預算交付，並維持高客戶滿意度。其F-Score高達9/9，顯示其財務狀況穩健，營運效率極佳。這種高效的營運能力是其核心競爭力之一，能夠在競爭激烈的市場中保持領先。",
+    "comment_en": "EPAM demonstrates excellent operational efficiency, reflected in its project management capabilities, standardized delivery processes, and rapid response to technological trends. Through lean operational models and continuous process optimization, the company ensures projects are delivered on time and within budget, maintaining high client satisfaction. Its F-Score of 9/9 indicates a robust financial position and exceptional operational efficiency. This high level of operational capability is one of its core competitive strengths, allowing it to maintain a leading position in a highly competitive market."
+  },
+  "m8_capital_allocation": {
+    "score": 7,
+    "comment_zh": "EPAM 的資本配置策略相對穩健，公司擁有充裕的現金儲備和較低的負債水平，顯示其財務靈活性。其自由現金流表現良好，能夠支持有機增長和潛在的戰略性收購。管理層在研發投入、人才培養以及擴張市場方面進行了有效的資源分配。雖然其 ROE 和 ROA 處於不錯的水平，但相較於某些擁有極強定價權或壟斷性業務的公司，其資本配置的超額回報潛力還有提升空間，但整體而言是審慎且有效的。",
+    "comment_en": "EPAM's capital allocation strategy is relatively sound, with ample cash reserves and a low debt level, indicating financial flexibility. Its free cash flow performance is strong, supporting organic growth and potential strategic acquisitions. Management has effectively allocated resources towards R&D investment, talent development, and market expansion. While its ROE and ROA are at good levels, there is room for improvement in the potential for excess returns from capital allocation compared to companies with extremely strong pricing power or monopolistic businesses. Overall, however, its allocation is prudent and effective."
+  },
+  "m9_customer_retention": {
+    "score": 8,
+    "comment_zh": "EPAM 在客戶保留方面表現卓越，這得益於其高質量的服務交付、深厚的客戶關係以及持續為客戶創造價值的能力。一旦客戶與 EPAM 建立起信任和依賴，由於高轉換成本和對其專業能力的認可，客戶傾向於長期合作。公司不斷透過創新解決方案和卓越的客戶服務來鞏固現有客戶關係，並積極拓展服務範圍，從而實現高客戶留存率和重複業務。",
+    "comment_en": "EPAM excels in customer retention, owing to its high-quality service delivery, deep client relationships, and consistent ability to create value for its customers. Once clients establish trust and dependency with EPAM, they tend to engage in long-term partnerships due to high switching costs and recognition of its expertise. The company continuously strengthens existing client relationships through innovative solutions and excellent customer service, while actively expanding its service offerings, thereby achieving high customer retention rates and repeat business."
+  },
+  "m10_durability": {
+    "score": 7,
+    "comment_zh": "EPAM 的業務模式具有相當的持久性，其專注於數位化轉型和軟體工程服務，這是在當前及可預見的未來都將持續增長的重要領域。雖然技術變革迅速，但 EPAM 透過持續的學習和適應，能夠保持其技術領先地位。其核心競爭力在於人才和解決方案的靈活性，這使其能夠應對市場變化。然而，相較於擁有絕對壟斷地位或必需品的企業，其持久性仍面臨來自技術顛覆和競爭加劇的挑戰。",
+    "comment_en": "EPAM's business model possesses considerable durability. Its focus on digital transformation and software engineering services addresses areas of significant growth both currently and in the foreseeable future. Despite rapid technological change, EPAM maintains its technological leadership through continuous learning and adaptation. Its core competitiveness lies in the flexibility of its talent and solutions, enabling it to navigate market shifts. However, compared to businesses with absolute monopolies or essential goods, its durability still faces challenges from technological disruption and intensifying competition."
+  },
+  "overall_moat_verdict_zh": "EPAM 展現了強勁的經濟護城河，主要體現在其高轉換成本（M3）和卓越的營運效率（M7）上。其品牌聲譽（M1）和客戶保留率（M9）亦構成堅實壁壘，使其在軟體工程與數位化轉型服務領域佔據領先地位。規模經濟（M5）提供了成本優勢，而穩健的資本配置（M8）和業務的持久性（M10）則支撐了長期價值。然而，其護城河並非來自專利或網絡效應（M2, M4），且地理資產（M6）亦非核心優勢。整體而言，EPAM 是一家擁有顯著、多面向護城河的優質公司，類似於一個高價值的「專業服務收費橋」，客戶因其獨特價值和整合深度而難以離開。",
+  "overall_moat_verdict_en": "EPAM exhibits a strong economic moat, primarily characterized by its high switching costs (M3) and excellent operational efficiency (M7). Its brand reputation (M1) and customer retention rates (M9) also form solid barriers, positioning it as a leader in software engineering and digital transformation services. Economies of scale (M5) provide a cost advantage, while sound capital allocation (M8) and business durability (M10) support long-term value. However, its moat does not stem from patents or network effects (M2, M4), nor are geographical assets a core advantage (M6). Overall, EPAM is a quality company with a significant, multi-faceted moat, akin to a high-value 'professional services toll bridge,' where clients find it difficult to leave due to its unique value and integration depth.",
+  "evidenceHash": "765a3d36daa3daff99a7746febdcb93a6cb81228f468c07285760156badf698b",
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
+}

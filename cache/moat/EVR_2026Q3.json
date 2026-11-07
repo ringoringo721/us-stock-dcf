@@ -1,0 +1,60 @@
+{
+  "ticker": "EVR",
+  "period": "2026Q3",
+  "m1_brand_pricing": {
+    "score": 7,
+    "comment_zh": "Evercore 在金融服務領域擁有穩健的品牌聲譽，尤其在獨立投資銀行諮詢業務方面。其品牌價值體現在客戶對其專業知識、獨立性及交易執行能力的信任。這使得 Evercore 能夠吸引高質量的客戶和交易機會，並在一定程度上支持其定價能力。然而，與大型綜合性金融機構相比，其品牌影響力仍有擴展空間，且在面對市場劇烈波動時，品牌價值可能受到一定考驗。總體而言，其品牌壁壘為堅固等級。",
+    "comment_en": "Evercore possesses a solid brand reputation in the financial services sector, particularly in independent investment banking advisory. Its brand value is reflected in clients' trust in its expertise, independence, and transaction execution capabilities. This allows Evercore to attract high-quality clients and deal flow, and to some extent support its pricing power. However, compared to large diversified financial institutions, its brand influence still has room for expansion, and its brand value may be tested during periods of intense market volatility. Overall, its brand barrier is at a solid level."
+  },
+  "m2_patents_regulatory": {
+    "score": 2,
+    "comment_zh": "Evercore 作為一家金融諮詢公司，其業務模式不依賴於專利或技術壁壘。雖然受到嚴格的金融監管，但這些監管更多是行業的通行規則，而非構成獨特的競爭優勢。公司需要遵守各種法律法規，但這並未形成顯著的、可持續的經濟護城河。監管環境的變化可能帶來挑戰，但難以視為其核心競爭力的來源。因此，此維度的評分為極弱。",
+    "comment_en": "As a financial advisory firm, Evercore's business model does not rely on patents or technological barriers. While subject to stringent financial regulations, these are more industry-wide rules rather than unique competitive advantages. The company must comply with various laws and regulations, but this does not form a significant, sustainable economic moat. Changes in the regulatory environment can bring challenges, but it is difficult to consider them as a source of its core competitiveness. Therefore, the score for this dimension is very weak."
+  },
+  "m3_high_switching_costs": {
+    "score": 7,
+    "comment_zh": "Evercore 在其核心業務，特別是併購諮詢和企業重組等領域，面臨較高的客戶轉換成本。一旦客戶選擇了 Evercore 並開始合作，更換諮詢機構將意味著需要重新建立信任、熟悉交易細節、並可能面臨時間延誤和額外費用的風險。這種合作的深度和專業性，使得客戶在尋求長期戰略夥伴時，傾向於維持現有關係。儘管不是絕對的鎖定，但這種黏性構成了堅固的護城河。",
+    "comment_en": "In its core businesses, particularly in areas like M&A advisory and corporate restructuring, Evercore faces relatively high client switching costs. Once a client chooses Evercore and begins collaboration, changing advisory firms would mean rebuilding trust, familiarizing a new firm with transaction details, and potentially facing risks of time delays and additional expenses. The depth and specialization of this collaboration tend to make clients favor maintaining existing relationships when seeking long-term strategic partners. While not absolute lock-in, this stickiness constitutes a solid moat."
+  },
+  "m4_network_effects": {
+    "score": 6,
+    "comment_zh": "Evercore 的業務具有一定的網絡效應，但並非典型的平台型網絡效應。其網絡效應體現在其廣泛的客戶關係、行業聯繫和交易撮合能力上。隨著公司完成的交易越多，其聲譽和行業影響力越強，這反過來吸引更多客戶和交易機會，形成正向循環。然而，這種網絡效應的強度不如社交媒體或市場平台那樣直接和指數級增長，更多是基於人脈和聲譽的累積，屬於中等水平的壁壘。",
+    "comment_en": "Evercore's business exhibits certain network effects, though not typical platform-based network effects. Its network effects are manifested in its extensive client relationships, industry connections, and deal-making capabilities. The more transactions the company completes, the stronger its reputation and industry influence become, which in turn attracts more clients and deal opportunities, forming a virtuous cycle. However, the strength of these network effects is not as direct or exponential as those of social media or marketplaces; it is more based on the accumulation of connections and reputation, thus representing a moderate level of barrier."
+  },
+  "m5_cost_advantage_scale": {
+    "score": 5,
+    "comment_zh": "Evercore 在規模經濟方面具有一定的優勢，尤其是在其專注的諮詢業務領域。通過整合資源和優化流程，公司能夠在提供高質量服務的同時，控制營運成本。然而，相較於大型綜合性金融機構，Evercore 的規模相對較小，其成本優勢更多體現在專業化和效率上，而非絕對的低成本。在某些領域，其規模可能限制了其與巨頭競爭的成本效益，因此此維度評分為中等。",
+    "comment_en": "Evercore has a certain advantage in economies of scale, particularly within its focused advisory business areas. By integrating resources and optimizing processes, the company can control operating costs while providing high-quality services. However, compared to large diversified financial institutions, Evercore's scale is relatively smaller, and its cost advantage is more reflected in specialization and efficiency rather than absolute low cost. In some areas, its scale might limit its cost-effectiveness in competing with giants, hence the score for this dimension is moderate."
+  },
+  "m6_unique_geography_assets": {
+    "score": 2,
+    "comment_zh": "Evercore 的業務模式並非基於獨特的地理位置或實物資產。其價值主要來自於人才、聲譽和專業知識，這些是可移動且非地域性的。雖然公司在全球範圍內設有辦事處，以服務國際客戶，但這些地點本身並不構成獨特的、難以複製的資產壁壘。其競爭優勢更多源於其服務能力和客戶關係，而非地理上的壟斷或稀缺性。因此，此維度評分為極弱。",
+    "comment_en": "Evercore's business model is not based on unique geographical locations or physical assets. Its value primarily comes from talent, reputation, and expertise, which are mobile and non-geographical. Although the company has offices globally to serve international clients, these locations themselves do not constitute unique, irreplicable asset barriers. Its competitive advantage stems more from its service capabilities and client relationships rather than geographical monopoly or scarcity. Therefore, the score for this dimension is very weak."
+  },
+  "m7_operational_efficiency": {
+    "score": 8,
+    "comment_zh": "Evercore 在營運效率方面表現出色，這從其高 ROE 和 ROA 數據中可見一斑。公司能夠有效地管理其資源，將專業人才轉化為高附加值的服務，並產生豐厚的利潤。其 F-Score 為 9/9，顯示其財務狀況穩健且營運效率極高。這種高效的營運能力是其核心競爭力之一，能夠在市場上保持領先地位，並為股東創造可觀的回報。此維度可視為堅固的壁壘。",
+    "comment_en": "Evercore demonstrates excellent operational efficiency, as evidenced by its high ROE and ROA figures. The company effectively manages its resources, converting specialized talent into high-value services and generating substantial profits. Its F-Score of 9/9 indicates a robust financial position and extremely high operational efficiency. This efficient operational capability is one of its core competitive strengths, enabling it to maintain a leading position in the market and generate considerable returns for shareholders. This dimension can be considered a solid barrier."
+  },
+  "m8_capital_allocation": {
+    "score": 9,
+    "comment_zh": "Evercore 在資本配置方面展現了卓越的管理能力。公司歷史上通過股票回購和股息支付，有效地將資本回報給股東，同時也進行了戰略性的收購以擴展業務。其穩健的資產負債表（現金遠超負債）和強勁的自由現金流（FCF TTM $1,725.2M）為其提供了靈活性。管理層在追求增長與回報股東之間取得了良好平衡，體現了巴菲特所欣賞的審慎和有效的資本配置哲學。此為罕見壁壘。",
+    "comment_en": "Evercore demonstrates exceptional capital allocation management. Historically, the company has effectively returned capital to shareholders through share repurchases and dividend payments, while also making strategic acquisitions to expand its business. Its solid balance sheet (cash significantly exceeding debt) and strong free cash flow (FCF TTM $1,725.2M) provide it with flexibility. Management has achieved a good balance between pursuing growth and rewarding shareholders, reflecting the prudent and effective capital allocation philosophy admired by Buffett. This represents a rare barrier."
+  },
+  "m9_customer_retention": {
+    "score": 7,
+    "comment_zh": "Evercore 在客戶保留方面表現強勁，這得益於其專業的服務、長期的客戶關係以及在複雜交易中的成功記錄。一旦客戶與 Evercore 建立了信任關係，並體驗了其高質量的諮詢服務，通常會傾向於長期合作。這種基於信任和績效的客戶忠誠度，使得客戶轉換的意願較低。雖然金融諮詢行業存在競爭，但 Evercore 憑藉其專業性和可靠性，能夠維持較高的客戶保留率，構成了堅固的護城河。",
+    "comment_en": "Evercore shows strong customer retention, owing to its professional services, long-term client relationships, and a successful track record in complex transactions. Once clients establish a trusting relationship with Evercore and experience its high-quality advisory services, they tend to favor long-term collaboration. This client loyalty, based on trust and performance, results in a low willingness to switch. Although the financial advisory industry is competitive, Evercore's expertise and reliability enable it to maintain a high customer retention rate, forming a solid moat."
+  },
+  "m10_durability": {
+    "score": 7,
+    "comment_zh": "Evercore 的業務模式具有較強的持久性。在金融諮詢領域，特別是併購和重組諮詢，對專業知識和經驗的需求是持續存在的。儘管市場環境會波動，但企業對戰略建議和交易執行的需求不會消失。Evercore 的品牌聲譽、專業團隊和穩健的財務狀況，使其能夠抵禦行業的週期性波動，並在長期內保持其競爭地位。其業務的持續性使其成為一個持久的價值投資標的，此維度評分為堅固。",
+    "comment_en": "Evercore's business model possesses considerable durability. In the financial advisory sector, particularly in M&A and restructuring advisory, the demand for expertise and experience is persistent. Although market conditions fluctuate, the need for strategic advice and transaction execution does not disappear. Evercore's brand reputation, professional team, and solid financial position enable it to withstand industry cyclical fluctuations and maintain its competitive standing over the long term. The continuity of its business makes it a durable value investment target, scoring as solid in this dimension."
+  },
+  "overall_moat_verdict_zh": "Evercore 展現了穩健的經濟護城河，主要體現在其品牌聲譽（M1）、客戶轉換成本（M3）、營運效率（M7）和資本配置能力（M8）上。其品牌和客戶黏性構成了類似「收費橋」的特徵，客戶依賴其專業服務完成重要交易。卓越的營運效率和管理層審慎的資本配置，使其能夠持續產生高額回報。儘管缺乏專利或網絡效應等典型壁壘，但其專業諮詢服務的本質，使其在特定領域具有類似特許經營的屬性。整體而言，Evercore 是一家具有堅固護城河的公司。",
+  "overall_moat_verdict_en": "Evercore exhibits a solid economic moat, primarily reflected in its brand reputation (M1), client switching costs (M3), operational efficiency (M7), and capital allocation capabilities (M8). Its brand and client stickiness possess characteristics akin to a 'toll bridge,' where clients rely on its expert services to complete significant transactions. Exceptional operational efficiency and prudent capital allocation by management enable it to consistently generate high returns. While lacking typical barriers like patents or network effects, the nature of its professional advisory services gives it quasi-franchise-like attributes in its niche. Overall, Evercore is a company with a robust moat.",
+  "evidenceHash": "a9660b518b455edc05700dce201f2bfd326fc2c04a63b8e2cf416843335055f1",
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
+}
