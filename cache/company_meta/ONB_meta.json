@@ -1,0 +1,170 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-04",
+      "name": "Moran John V",
+      "title": "officer: CHIEF FINANCIAL OFFICER",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 19261,
+      "price": 25.57,
+      "total_val": 0.49
+    },
+    {
+      "date": "2026-10-13",
+      "name": "Schoettlin Kathy A",
+      "title": "officer: CHIEF COMMUNICATIONS OFFICER",
+      "is_buy": null,
+      "action": "J-Other",
+      "shares": 26,
+      "price": 23.41,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-13",
+      "name": "Ryan James C III",
+      "title": "director, officer: CHAIRMAN AND CEO",
+      "is_buy": null,
+      "action": "J-Other",
+      "shares": 26,
+      "price": 23.41,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-13",
+      "name": "Evernham Scott J",
+      "title": "officer: CHIEF RISK OFFICER",
+      "is_buy": null,
+      "action": "J-Other",
+      "shares": 38,
+      "price": 23.41,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-06",
+      "name": "Salmon Tom",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 366,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-03",
+      "name": "Moran John V",
+      "title": "officer: CHIEF FINANCIAL OFFICER",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 2036,
+      "price": 25.18,
+      "total_val": 0.05
+    },
+    {
+      "date": "2026-08-24",
+      "name": "Schoettlin Kathy A",
+      "title": "officer: CHIEF COMMUNICATIONS OFFICER",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-24",
+      "name": "Schoettlin Kathy A",
+      "title": "officer: CHIEF COMMUNICATIONS OFFICER",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-24",
+      "name": "Ellspermann Caroline J",
+      "title": "officer: CHIEF PEOPLE OFFICER",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-24",
+      "name": "Ellspermann Caroline J",
+      "title": "officer: CHIEF PEOPLE OFFICER",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2005-01-03",
+      "ratio": "21 : 20",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2004-01-02",
+      "ratio": "21 : 20",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2003-01-02",
+      "ratio": "21 : 20",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2002-01-02",
+      "ratio": "21 : 20",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2001-01-05",
+      "ratio": "21 : 20",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2000-01-05",
+      "ratio": "21 : 20",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1999-05-25",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1999-01-05",
+      "ratio": "21 : 20",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1998-01-06",
+      "ratio": "21 : 20",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1997-01-06",
+      "ratio": "21 : 20",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

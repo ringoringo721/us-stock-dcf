@@ -1,0 +1,116 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-28",
+      "name": "ZHANG KAIFU",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 15300,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-28",
+      "name": "ZHANG KAIFU",
+      "title": "director",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 4248,
+      "price": 10.24,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-10-28",
+      "name": "ZHANG KAIFU",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 35307,
+      "price": 0.01,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-28",
+      "name": "ZHANG KAIFU",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 15300,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-04",
+      "name": "PENG ALEX ZHUANGZHUANG",
+      "title": "officer: See Remarks",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 30000,
+      "price": 12.28,
+      "total_val": 0.37
+    },
+    {
+      "date": "2026-04-28",
+      "name": "LIU YACHAO",
+      "title": "director, officer: See Remarks",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 39672,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-04-28",
+      "name": "LIU YACHAO",
+      "title": "director, officer: See Remarks",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 18967,
+      "price": 10.8,
+      "total_val": 0.2
+    },
+    {
+      "date": "2026-04-28",
+      "name": "LIU YACHAO",
+      "title": "director, officer: See Remarks",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 39672,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-04-28",
+      "name": "PENG ALEX ZHUANGZHUANG",
+      "title": "officer: See Remarks",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 7590,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-04-28",
+      "name": "PENG ALEX ZHUANGZHUANG",
+      "title": "officer: See Remarks",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 30360,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2017-08-16",
+      "ratio": "6 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

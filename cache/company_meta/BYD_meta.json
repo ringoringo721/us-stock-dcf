@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-08-26",
+      "name": "JOHNSON MARIANNE BOYD",
+      "title": "director, 10 percent owner: ",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 12,
+      "price": 82.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-28",
+      "name": "Hirsberg Josh",
+      "title": "officer: CFO & Treasurer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 12777,
+      "price": 89.76,
+      "total_val": 1.15
+    },
+    {
+      "date": "2026-07-23",
+      "name": "Andersen Stacia J.P.",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 2043,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-22",
+      "name": "ROETH GEORGE C",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 2043,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-02",
+      "name": "JOHNSON MARIANNE BOYD",
+      "title": "director, 10 percent owner: ",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 30351,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-02",
+      "name": "JOHNSON MARIANNE BOYD",
+      "title": "director, 10 percent owner: ",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 30823,
+      "price": 88.33,
+      "total_val": 2.72
+    },
+    {
+      "date": "2026-07-01",
+      "name": "Andersen Stacia J.P.",
+      "title": "director: ",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-30",
+      "name": "ROETH GEORGE C",
+      "title": "director: ",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-09",
+      "name": "Clinton Uri",
+      "title": "officer: Chief Legal Off. & Secretary",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 3468,
+      "price": 87.69,
+      "total_val": 0.3
+    },
+    {
+      "date": "2026-06-04",
+      "name": "SMITH KEITH",
+      "title": "director, officer: President and CEO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 100000,
+      "price": 85.9,
+      "total_val": 8.59
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

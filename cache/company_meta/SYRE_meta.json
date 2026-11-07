@@ -1,0 +1,116 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-02",
+      "name": "King-Jones Heidy",
+      "title": "officer: See Remarks",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 28933,
+      "price": 14.5,
+      "total_val": 0.42
+    },
+    {
+      "date": "2026-10-02",
+      "name": "King-Jones Heidy",
+      "title": "officer: See Remarks",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 28933,
+      "price": 14.5,
+      "total_val": 0.42
+    },
+    {
+      "date": "2026-10-02",
+      "name": "King-Jones Heidy",
+      "title": "officer: See Remarks",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 400,
+      "price": 89.24,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-10-02",
+      "name": "King-Jones Heidy",
+      "title": "officer: See Remarks",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 16605,
+      "price": 90.35,
+      "total_val": 1.5
+    },
+    {
+      "date": "2026-10-02",
+      "name": "King-Jones Heidy",
+      "title": "officer: See Remarks",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 7228,
+      "price": 91.35,
+      "total_val": 0.66
+    },
+    {
+      "date": "2026-10-02",
+      "name": "King-Jones Heidy",
+      "title": "officer: See Remarks",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 2100,
+      "price": 92.7,
+      "total_val": 0.19
+    },
+    {
+      "date": "2026-10-02",
+      "name": "King-Jones Heidy",
+      "title": "officer: See Remarks",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 2600,
+      "price": 93.46,
+      "total_val": 0.24
+    },
+    {
+      "date": "2026-10-02",
+      "name": "Turtle Cameron",
+      "title": "director, officer: Chief Executive Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 600,
+      "price": 89.14,
+      "total_val": 0.05
+    },
+    {
+      "date": "2026-10-02",
+      "name": "Turtle Cameron",
+      "title": "director, officer: Chief Executive Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 2683,
+      "price": 90.1,
+      "total_val": 0.24
+    },
+    {
+      "date": "2026-10-02",
+      "name": "Turtle Cameron",
+      "title": "director, officer: Chief Executive Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 2638,
+      "price": 91.49,
+      "total_val": 0.24
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2023-09-08",
+      "ratio": "1 : 25",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-06-09",
+      "name": "Tangard Christopher R.",
+      "title": "officer: SVP, Chief Accounting Officer",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 330,
+      "price": 304.0,
+      "total_val": 0.1
+    },
+    {
+      "date": "2026-05-27",
+      "name": "Allibhai Salmaan K.",
+      "title": "officer: Chief Analytics & Tech Officer",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 600,
+      "price": 16.0,
+      "total_val": 0.01
+    },
+    {
+      "date": "2026-05-27",
+      "name": "Allibhai Salmaan K.",
+      "title": "officer: Chief Analytics & Tech Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 250,
+      "price": 311.17,
+      "total_val": 0.08
+    },
+    {
+      "date": "2026-05-27",
+      "name": "Allibhai Salmaan K.",
+      "title": "officer: Chief Analytics & Tech Officer",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 600,
+      "price": 16.0,
+      "total_val": 0.01
+    },
+    {
+      "date": "2026-05-26",
+      "name": "Petrucelli Bryan P.",
+      "title": "officer: EVP, CFO and Treasurer",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 26108,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-26",
+      "name": "Petrucelli Bryan P.",
+      "title": "officer: EVP, CFO and Treasurer",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 26108,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-12",
+      "name": "Petrucelli Bryan P.",
+      "title": "officer: EVP, CFO and Treasurer",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 1757,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-12",
+      "name": "Petrucelli Bryan P.",
+      "title": "officer: EVP, CFO and Treasurer",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 1757,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-06",
+      "name": "Kehoe Michael P",
+      "title": "director, officer: Chairman President and CEO",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 22576,
+      "price": 16.0,
+      "total_val": 0.36
+    },
+    {
+      "date": "2026-05-06",
+      "name": "Kehoe Michael P",
+      "title": "director, officer: Chairman President and CEO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 1720,
+      "price": 300.76,
+      "total_val": 0.52
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

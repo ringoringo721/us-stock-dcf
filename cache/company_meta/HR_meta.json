@@ -1,0 +1,116 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-09-09",
+      "name": "Hull Robert E",
+      "title": "officer: EVP and COO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 21000,
+      "price": 19.11,
+      "total_val": 0.4
+    },
+    {
+      "date": "2026-06-23",
+      "name": "Callaway Amanda L",
+      "title": "officer: SVP & Chief Accounting Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 25767,
+      "price": 20.37,
+      "total_val": 0.52
+    },
+    {
+      "date": "2026-05-20",
+      "name": "Bohjalian Thomas N",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 6683,
+      "price": 20.2,
+      "total_val": 0.13
+    },
+    {
+      "date": "2026-05-20",
+      "name": "HENRY DAVID",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 6683,
+      "price": 20.2,
+      "total_val": 0.13
+    },
+    {
+      "date": "2026-05-20",
+      "name": "MOORE CONSTANCE B",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 6683,
+      "price": 20.2,
+      "total_val": 0.13
+    },
+    {
+      "date": "2026-05-20",
+      "name": "RUFRANO GLENN J",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 6683,
+      "price": 20.2,
+      "total_val": 0.13
+    },
+    {
+      "date": "2026-05-20",
+      "name": "WOOD DONALD C",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 6683,
+      "price": 20.2,
+      "total_val": 0.13
+    },
+    {
+      "date": "2026-04-15",
+      "name": "Scott Peter A",
+      "title": "officer: President and  CEO",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 36029,
+      "price": 17.84,
+      "total_val": 0.64
+    },
+    {
+      "date": "2026-03-06",
+      "name": "Bohjalian Thomas N",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 10000,
+      "price": 18.09,
+      "total_val": 0.18
+    },
+    {
+      "date": "2026-03-05",
+      "name": "Gabbay Daniel",
+      "title": "officer: EVP, Chief Financial Officer",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 10,
+      "price": 18.74,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2014-12-16",
+      "ratio": "1 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

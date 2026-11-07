@@ -1,0 +1,170 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-08-06",
+      "name": "Volpi Kirsten M",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 2300,
+      "price": 9.59,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-08-06",
+      "name": "Volpi Kirsten M",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 2300,
+      "price": 9.59,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-06-05",
+      "name": "Volpi Kirsten M",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 1700,
+      "price": 9.59,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-06-05",
+      "name": "Volpi Kirsten M",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 1700,
+      "price": 9.59,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-05-15",
+      "name": "Feeler Jeffrey R",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 1900,
+      "price": 26.41,
+      "total_val": 0.05
+    },
+    {
+      "date": "2026-04-28",
+      "name": "Thornburg Eric W",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 1259,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-04-03",
+      "name": "Thornburg Eric W",
+      "title": "director: ",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-03-18",
+      "name": "Ritrievi Kimberly E",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 25883,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-03-18",
+      "name": "Ritrievi Kimberly E",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 1718,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-03-18",
+      "name": "Ritrievi Kimberly E",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 2125,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2024-09-09",
+      "ratio": "5 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2001-12-18",
+      "ratio": "5 : 4",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1999-06-16",
+      "ratio": "5 : 4",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1998-09-16",
+      "ratio": "5 : 4",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1997-12-02",
+      "ratio": "5 : 4",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1996-06-24",
+      "ratio": "5 : 4",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1995-06-26",
+      "ratio": "5 : 4",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1994-09-19",
+      "ratio": "5 : 4",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1993-11-15",
+      "ratio": "5 : 4",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1992-12-15",
+      "ratio": "5 : 4",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

@@ -1,0 +1,128 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-02",
+      "name": "Prager Lisa A.",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 1690,
+      "price": 14.8,
+      "total_val": 0.03
+    },
+    {
+      "date": "2026-10-02",
+      "name": "Carter Walter E.",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 2112,
+      "price": 14.8,
+      "total_val": 0.03
+    },
+    {
+      "date": "2026-10-02",
+      "name": "Bucella Michael C.",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 1690,
+      "price": 14.8,
+      "total_val": 0.03
+    },
+    {
+      "date": "2026-09-29",
+      "name": "Khan Nazar M.",
+      "title": "director, officer: Chief Technology Officer",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 666667,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-29",
+      "name": "Khan Nazar M.",
+      "title": "director, officer: Chief Technology Officer",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 666667,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-23",
+      "name": "Prager Paul B.",
+      "title": "director, officer: Chief Executive Officer",
+      "is_buy": null,
+      "action": "J-Other",
+      "shares": 3000000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-16",
+      "name": "Bucella Michael C.",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 6085,
+      "price": 14.79,
+      "total_val": 0.09
+    },
+    {
+      "date": "2026-09-11",
+      "name": "Khan Nazar M.",
+      "title": "director, officer: Chief Technology Officer",
+      "is_buy": null,
+      "action": "J-Other",
+      "shares": 350000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-11",
+      "name": "Khan Nazar M.",
+      "title": "director, officer: Chief Technology Officer",
+      "is_buy": null,
+      "action": "J-Other",
+      "shares": 350000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-09",
+      "name": "Motz Catherine J.",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 56023,
+      "price": 17.81,
+      "total_val": 1.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2004-05-14",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1999-12-29",
+      "ratio": "11 : 10",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1997-09-22",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

@@ -1,0 +1,122 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-08-12",
+      "name": "Krick Timothy W",
+      "title": "officer: VP, Chief Accounting Officer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 1230,
+      "price": 81.04,
+      "total_val": 0.1
+    },
+    {
+      "date": "2026-06-16",
+      "name": "Woodard Adam W.",
+      "title": "officer: Treasurer",
+      "is_buy": null,
+      "action": "I-Discretionary",
+      "shares": 1100,
+      "price": 78.65,
+      "total_val": 0.09
+    },
+    {
+      "date": "2026-06-12",
+      "name": "KOONCE PAUL D",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 500,
+      "price": 78.46,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-06-10",
+      "name": "Hyman Ryan L",
+      "title": "officer: SVP, CCIO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 3822,
+      "price": 80.51,
+      "total_val": 0.31
+    },
+    {
+      "date": "2026-06-04",
+      "name": "KOONCE PAUL D",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 500,
+      "price": 80.5,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-05-11",
+      "name": "KOONCE PAUL D",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 2000,
+      "price": 85.81,
+      "total_val": 0.17
+    },
+    {
+      "date": "2026-02-17",
+      "name": "KOONCE PAUL D",
+      "title": "director",
+      "is_buy": null,
+      "action": "J-Other",
+      "shares": 8846,
+      "price": 25.0,
+      "total_val": 0.22
+    },
+    {
+      "date": "2026-02-09",
+      "name": "Newberry Brenda D",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 1640,
+      "price": 85.27,
+      "total_val": 0.14
+    },
+    {
+      "date": "2026-02-09",
+      "name": "KOONCE PAUL D",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 1640,
+      "price": 85.27,
+      "total_val": 0.14
+    },
+    {
+      "date": "2026-02-09",
+      "name": "Jones Rob L.",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 1640,
+      "price": 85.27,
+      "total_val": 0.14
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "1994-03-08",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1984-03-08",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

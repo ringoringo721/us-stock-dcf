@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-28",
+      "name": "Marcon Rachel Barthelemy",
+      "title": "officer: President,  Doors",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 858,
+      "price": 114.26,
+      "total_val": 0.1
+    },
+    {
+      "date": "2026-09-28",
+      "name": "DeVito Michael J",
+      "title": "director",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-17",
+      "name": "Fister Todd W",
+      "title": "officer: President and COO",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 1180,
+      "price": 128.67,
+      "total_val": 0.15
+    },
+    {
+      "date": "2026-09-17",
+      "name": "Del Monaco Nicolas",
+      "title": "officer: President, Roofing",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 856,
+      "price": 128.67,
+      "total_val": 0.11
+    },
+    {
+      "date": "2026-09-01",
+      "name": "Marcon Rachel Barthelemy",
+      "title": "officer: President,  Doors",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 900,
+      "price": 144.07,
+      "total_val": 0.13
+    },
+    {
+      "date": "2026-08-12",
+      "name": "Marcon Rachel Barthelemy",
+      "title": "officer: President,  Doors",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 6501,
+      "price": 153.8,
+      "total_val": 1.0
+    },
+    {
+      "date": "2026-08-12",
+      "name": "Collins Jonathan Mark",
+      "title": "officer: EVP & Chief Financial Officer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 19504,
+      "price": 153.8,
+      "total_val": 3.0
+    },
+    {
+      "date": "2026-08-12",
+      "name": "Del Monaco Nicolas",
+      "title": "officer: President, Roofing",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 6501,
+      "price": 153.8,
+      "total_val": 1.0
+    },
+    {
+      "date": "2026-08-12",
+      "name": "Canovas De La Nuez Jose Manuel",
+      "title": "officer: President, Insulation",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 3250,
+      "price": 153.8,
+      "total_val": 0.5
+    },
+    {
+      "date": "2026-08-12",
+      "name": "Collins Jonathan Mark",
+      "title": "officer",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

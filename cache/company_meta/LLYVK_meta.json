@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-01",
+      "name": "Boeckman Philip J",
+      "title": "officer",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-28",
+      "name": "MALONE JOHN C",
+      "title": "10 percent owner",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 29593,
+      "price": 98.16,
+      "total_val": 2.9
+    },
+    {
+      "date": "2026-09-28",
+      "name": "MALONE JOHN C",
+      "title": "10 percent owner",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 28333,
+      "price": 102.53,
+      "total_val": 2.9
+    },
+    {
+      "date": "2025-12-15",
+      "name": "Liberty Media Corp",
+      "title": "10 percent owner",
+      "is_buy": null,
+      "action": "J-Other",
+      "shares": 63824185,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2025-12-15",
+      "name": "Liberty Media Corp",
+      "title": "10 percent owner",
+      "is_buy": null,
+      "action": "J-Other",
+      "shares": 25573685,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2025-12-15",
+      "name": "Liberty Media Corp",
+      "title": "10 percent owner",
+      "is_buy": null,
+      "action": "J-Other",
+      "shares": 2530951,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2025-12-15",
+      "name": "Liberty Media Corp",
+      "title": "10 percent owner",
+      "is_buy": null,
+      "action": "J-Other",
+      "shares": 1000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2025-12-15",
+      "name": "Liberty Media Corp",
+      "title": "10 percent owner",
+      "is_buy": null,
+      "action": "J-Other",
+      "shares": 2530951,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2025-12-15",
+      "name": "Liberty Media Corp",
+      "title": "10 percent owner",
+      "is_buy": null,
+      "action": "J-Other",
+      "shares": 63824185,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2025-12-15",
+      "name": "Liberty Media Corp",
+      "title": "10 percent owner",
+      "is_buy": null,
+      "action": "J-Other",
+      "shares": 25573685,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

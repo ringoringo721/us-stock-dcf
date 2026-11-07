@@ -1,0 +1,49 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2019-05-14",
+      "name": "PIPER VINITA LEE",
+      "title": "10 percent owner",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 22055,
+      "price": 5.93,
+      "total_val": 0.13
+    },
+    {
+      "date": "2019-05-14",
+      "name": "PIPER VINITA LEE",
+      "title": "10 percent owner: ",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2019-05-14",
+      "name": "PIPER VINITA LEE",
+      "title": "10 percent owner",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 22055,
+      "price": 5.93,
+      "total_val": 0.13
+    },
+    {
+      "date": "2019-05-14",
+      "name": "PIPER VINITA LEE",
+      "title": "10 percent owner: ",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

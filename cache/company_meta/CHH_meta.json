@@ -1,0 +1,116 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-05",
+      "name": "Oaksmith Scott E",
+      "title": "officer: SVP, Chief Financial Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 1998,
+      "price": 120.35,
+      "total_val": 0.24
+    },
+    {
+      "date": "2026-11-05",
+      "name": "Oaksmith Scott E",
+      "title": "officer: SVP, Chief Financial Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 2,
+      "price": 121.12,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-20",
+      "name": "Dragisich Dominic",
+      "title": "director, officer: President & CEO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 1227,
+      "price": 112.0,
+      "total_val": 0.14
+    },
+    {
+      "date": "2026-10-16",
+      "name": "VIEIRA DONNA F",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 3,
+      "price": 103.61,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-16",
+      "name": "Ramirez Sanchez Raul",
+      "title": "officer: Chief Seg & Intl Op Officer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 9,
+      "price": 103.61,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-16",
+      "name": "Smith Gordon",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 23,
+      "price": 103.61,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-16",
+      "name": "JEWS WILLIAM L",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 17,
+      "price": 103.61,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-16",
+      "name": "Landsman Liza",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 21,
+      "price": 103.61,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-16",
+      "name": "Maureen Sullivan",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 29,
+      "price": 103.61,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-16",
+      "name": "Koch Monte JM",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 36,
+      "price": 103.61,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2005-10-24",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

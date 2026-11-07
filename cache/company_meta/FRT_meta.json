@@ -1,0 +1,122 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-01",
+      "name": "Lamb-Hale Nicole",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 200,
+      "price": 108.85,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-10-01",
+      "name": "Lamb-Hale Nicole",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 100,
+      "price": 108.86,
+      "total_val": 0.01
+    },
+    {
+      "date": "2026-10-01",
+      "name": "Lamb-Hale Nicole",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 380,
+      "price": 108.87,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-10-01",
+      "name": "Lamb-Hale Nicole",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 140,
+      "price": 108.88,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-10-01",
+      "name": "Lamb-Hale Nicole",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 200,
+      "price": 108.89,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-10-01",
+      "name": "Lamb-Hale Nicole",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 40,
+      "price": 108.91,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-01",
+      "name": "Lamb-Hale Nicole",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 60,
+      "price": 108.92,
+      "total_val": 0.01
+    },
+    {
+      "date": "2026-10-01",
+      "name": "Lamb-Hale Nicole",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 80,
+      "price": 108.93,
+      "total_val": 0.01
+    },
+    {
+      "date": "2026-10-01",
+      "name": "Lamb-Hale Nicole",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 100,
+      "price": 108.95,
+      "total_val": 0.01
+    },
+    {
+      "date": "2026-10-01",
+      "name": "Lamb-Hale Nicole",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 200,
+      "price": 108.96,
+      "total_val": 0.02
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "1985-11-06",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1982-09-01",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

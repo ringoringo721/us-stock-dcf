@@ -1,0 +1,128 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-09-03",
+      "name": "BOLDEA LUCIAN",
+      "title": "director, officer: President and CEO",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 30286,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-03",
+      "name": "BOLDEA LUCIAN",
+      "title": "director, officer: President and CEO",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 7918,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-03",
+      "name": "BOLDEA LUCIAN",
+      "title": "director, officer: President and CEO",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 3333,
+      "price": 119.78,
+      "total_val": 0.4
+    },
+    {
+      "date": "2026-09-03",
+      "name": "BOLDEA LUCIAN",
+      "title": "director, officer: President and CEO",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 12750,
+      "price": 119.78,
+      "total_val": 1.53
+    },
+    {
+      "date": "2026-09-01",
+      "name": "Ribaudo Stephen Philip",
+      "title": "officer: EVP, Chief Operating Officer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 8925,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-01",
+      "name": "Ribaudo Stephen Philip",
+      "title": "officer: EVP, Chief Operating Officer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 8275,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-01",
+      "name": "Ribaudo Stephen Philip",
+      "title": "officer: EVP, Chief Operating Officer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 5950,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-01",
+      "name": "Ribaudo Stephen Philip",
+      "title": "officer: EVP, Chief Operating Officer",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-11",
+      "name": "Kyle Richard G",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 13637,
+      "price": 126.63,
+      "total_val": 1.73
+    },
+    {
+      "date": "2026-06-09",
+      "name": "Rajendra Ajita G",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 8450,
+      "price": 131.34,
+      "total_val": 1.11
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2014-07-01",
+      "ratio": "1397 : 1000",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1997-06-02",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1988-09-01",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

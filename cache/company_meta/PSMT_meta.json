@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-03",
+      "name": "HILDEBRANDT JOHN D",
+      "title": "officer: President and COO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 1754,
+      "price": 169.64,
+      "total_val": 0.3
+    },
+    {
+      "date": "2026-11-03",
+      "name": "HILDEBRANDT JOHN D",
+      "title": "officer: President and COO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 10080,
+      "price": 167.99,
+      "total_val": 1.69
+    },
+    {
+      "date": "2026-11-03",
+      "name": "PRICE ROBERT E",
+      "title": "director, 10 percent owner: ",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 26500,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-27",
+      "name": "HILDEBRANDT JOHN D",
+      "title": "officer: President and COO",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 10515,
+      "price": 170.95,
+      "total_val": 1.8
+    },
+    {
+      "date": "2026-10-27",
+      "name": "Hernandez Gualberto",
+      "title": "officer: EVP & Chief Financial Officer",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 5563,
+      "price": 170.95,
+      "total_val": 0.95
+    },
+    {
+      "date": "2026-10-27",
+      "name": "Velasco Francisco",
+      "title": "officer: EVP - CLO, CRCO",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 6920,
+      "price": 170.95,
+      "total_val": 1.18
+    },
+    {
+      "date": "2026-10-27",
+      "name": "Price David R",
+      "title": "director, officer: CEO",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 13366,
+      "price": 170.95,
+      "total_val": 2.28
+    },
+    {
+      "date": "2026-10-20",
+      "name": "Price David R",
+      "title": "director, officer: CEO",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 11457,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-20",
+      "name": "HILDEBRANDT JOHN D",
+      "title": "officer: President and COO",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 9723,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-20",
+      "name": "Hernandez Gualberto",
+      "title": "officer: EVP & Chief Financial Officer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 4123,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

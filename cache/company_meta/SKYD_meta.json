@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-20",
+      "name": "Cardinale Gerald J.",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 4900000,
+      "price": 12.0,
+      "total_val": 58.8
+    },
+    {
+      "date": "2026-10-19",
+      "name": "Cinelli Dennis",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 187500,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-19",
+      "name": "Cinelli Dennis",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 187500,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-19",
+      "name": "Cinelli Dennis",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 95401,
+      "price": 7.26,
+      "total_val": 0.69
+    },
+    {
+      "date": "2026-10-08",
+      "name": "Jobs Laurene Powell",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 20833333,
+      "price": 12.0,
+      "total_val": 250.0
+    },
+    {
+      "date": "2026-10-08",
+      "name": "Jobs Laurene Powell",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 33118,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-08",
+      "name": "Jobs Laurene Powell",
+      "title": "Officer / Director",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-08",
+      "name": "KOTICK ROBERT A",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 33118,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-08",
+      "name": "KOTICK ROBERT A",
+      "title": "director: ",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-08",
+      "name": "Delrahim Makan",
+      "title": "officer: Chief Legal Officer",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 150000,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

@@ -1,0 +1,170 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-08-12",
+      "name": "BANGERT STEVEN",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 1250,
+      "price": 143.96,
+      "total_val": 0.18
+    },
+    {
+      "date": "2026-08-06",
+      "name": "Vincent Brad A",
+      "title": "officer: EVP - Specialized Industries",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 4015,
+      "price": 145.42,
+      "total_val": 0.58
+    },
+    {
+      "date": "2026-07-29",
+      "name": "Grauer Scott",
+      "title": "officer: EVP, Wealth Management",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 150,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-27",
+      "name": "KYMES STACY",
+      "title": "director, officer: President & CEO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 8,
+      "price": 139.53,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-27",
+      "name": "KYMES STACY",
+      "title": "director, officer: President & CEO",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 3215,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-14",
+      "name": "Washington Rose M",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 144,
+      "price": 138.55,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-07-14",
+      "name": "Waldo Robert",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 144,
+      "price": 138.55,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-07-14",
+      "name": "Turpen Michael C.",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 144,
+      "price": 138.55,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-07-14",
+      "name": "SHRUM KAYSE M DO",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 144,
+      "price": 138.55,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-07-14",
+      "name": "San Pedro Claudia",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 144,
+      "price": 138.55,
+      "total_val": 0.02
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2004-05-06",
+      "ratio": "103 : 100",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2003-05-08",
+      "ratio": "103 : 100",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2002-05-09",
+      "ratio": "103 : 100",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2001-05-03",
+      "ratio": "103 : 100",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1999-10-06",
+      "ratio": "103 : 100",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1999-02-23",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1998-11-10",
+      "ratio": "21 : 20",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1997-11-13",
+      "ratio": "103 : 100",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1996-11-14",
+      "ratio": "103 : 100",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1995-11-15",
+      "ratio": "103 : 100",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

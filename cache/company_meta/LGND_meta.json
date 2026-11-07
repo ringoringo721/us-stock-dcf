@@ -1,0 +1,122 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-06",
+      "name": "Aryeh Jason",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 282,
+      "price": 319.99,
+      "total_val": 0.09
+    },
+    {
+      "date": "2026-11-04",
+      "name": "Reardon Andrew",
+      "title": "officer: CLO & Secretary",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 5000,
+      "price": 52.27,
+      "total_val": 0.26
+    },
+    {
+      "date": "2026-11-04",
+      "name": "Reardon Andrew",
+      "title": "officer: CLO & Secretary",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 283,
+      "price": 307.39,
+      "total_val": 0.09
+    },
+    {
+      "date": "2026-11-04",
+      "name": "Reardon Andrew",
+      "title": "officer: CLO & Secretary",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 708,
+      "price": 308.43,
+      "total_val": 0.22
+    },
+    {
+      "date": "2026-11-04",
+      "name": "Reardon Andrew",
+      "title": "officer: CLO & Secretary",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 522,
+      "price": 309.91,
+      "total_val": 0.16
+    },
+    {
+      "date": "2026-11-04",
+      "name": "Reardon Andrew",
+      "title": "officer: CLO & Secretary",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 490,
+      "price": 310.61,
+      "total_val": 0.15
+    },
+    {
+      "date": "2026-11-04",
+      "name": "Reardon Andrew",
+      "title": "officer: CLO & Secretary",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 520,
+      "price": 311.72,
+      "total_val": 0.16
+    },
+    {
+      "date": "2026-11-04",
+      "name": "Reardon Andrew",
+      "title": "officer: CLO & Secretary",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 634,
+      "price": 312.85,
+      "total_val": 0.2
+    },
+    {
+      "date": "2026-11-04",
+      "name": "Reardon Andrew",
+      "title": "officer: CLO & Secretary",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 403,
+      "price": 313.75,
+      "total_val": 0.13
+    },
+    {
+      "date": "2026-11-04",
+      "name": "Reardon Andrew",
+      "title": "officer: CLO & Secretary",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 80,
+      "price": 314.58,
+      "total_val": 0.03
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2022-11-02",
+      "ratio": "1603 : 1000",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2010-11-19",
+      "ratio": "1 : 6",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

@@ -1,0 +1,122 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-05",
+      "name": "HELEN SUZANNE L",
+      "title": "other: Possible Member of Group",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 1646,
+      "price": 146.6,
+      "total_val": 0.24
+    },
+    {
+      "date": "2026-11-05",
+      "name": "HELEN SUZANNE L",
+      "title": "other: Possible Member of Group",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 3000,
+      "price": 150.01,
+      "total_val": 0.45
+    },
+    {
+      "date": "2026-11-04",
+      "name": "LORBERBAUM JEFFREY S",
+      "title": "director, 10 percent owner: ",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 7500,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-04",
+      "name": "LORBERBAUM JEFFREY S",
+      "title": "director, 10 percent owner: ",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 4712,
+      "price": 148.08,
+      "total_val": 0.7
+    },
+    {
+      "date": "2026-11-04",
+      "name": "LORBERBAUM JEFFREY S",
+      "title": "director, 10 percent owner: ",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 5288,
+      "price": 148.58,
+      "total_val": 0.79
+    },
+    {
+      "date": "2026-11-04",
+      "name": "LORBERBAUM JEFFREY S",
+      "title": "director, 10 percent owner: ",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 10000,
+      "price": 145.75,
+      "total_val": 1.46
+    },
+    {
+      "date": "2026-11-03",
+      "name": "Thiers Bernard",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 15000,
+      "price": 144.05,
+      "total_val": 2.16
+    },
+    {
+      "date": "2026-10-28",
+      "name": "Nuyttens An J.",
+      "title": "officer",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-01",
+      "name": "De Cock Paul F",
+      "title": "officer: CEO",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 30000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-18",
+      "name": "HELEN SUZANNE L",
+      "title": "other: Possible Member of Group",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 800,
+      "price": 125.62,
+      "total_val": 0.1
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "1997-12-05",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1993-08-25",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

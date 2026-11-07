@@ -1,0 +1,122 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-05",
+      "name": "WINTER P CLINTON",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 52,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-03",
+      "name": "WINTER P CLINTON",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 50,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-29",
+      "name": "Humphrey Matthew L",
+      "title": "officer",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-02",
+      "name": "WINTER P CLINTON",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 490,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-02",
+      "name": "NESSELROAD MARK R",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 3200,
+      "price": 46.42,
+      "total_val": 0.15
+    },
+    {
+      "date": "2026-08-31",
+      "name": "WINTER P CLINTON",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 609,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-04",
+      "name": "WINTER P CLINTON",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 51,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-30",
+      "name": "WINTER P CLINTON",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 158,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-01",
+      "name": "WINTER P CLINTON",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 470,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-02",
+      "name": "WINTER P CLINTON",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 7,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "1998-03-30",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1988-02-16",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

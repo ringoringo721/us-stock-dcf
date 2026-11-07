@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-07-09",
+      "name": "Durable Capital Partners LP",
+      "title": "10 percent owner",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 336736,
+      "price": 40.01,
+      "total_val": 13.47
+    },
+    {
+      "date": "2026-05-22",
+      "name": "Gunderson Robert V JR",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 2367,
+      "price": 35.82,
+      "total_val": 0.08
+    },
+    {
+      "date": "2026-04-28",
+      "name": "DECKER SUSAN L",
+      "title": "director",
+      "is_buy": null,
+      "action": "",
+      "shares": 200000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-02-04",
+      "name": "Vorsatz Mark Lawrence",
+      "title": "director, officer: See Remarks",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 200000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-02-04",
+      "name": "Vorsatz Mark Lawrence",
+      "title": "director, officer: See Remarks",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 200000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2025-12-19",
+      "name": "Durable Capital Partners LP",
+      "title": "10 percent owner",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 107985,
+      "price": 21.36,
+      "total_val": 2.31
+    },
+    {
+      "date": "2025-12-19",
+      "name": "Durable Capital Partners LP",
+      "title": "10 percent owner",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 250000,
+      "price": 20.59,
+      "total_val": 5.15
+    },
+    {
+      "date": "2025-12-19",
+      "name": "Durable Capital Partners LP",
+      "title": "10 percent owner",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2025-12-17",
+      "name": "Vorsatz Mark Lawrence",
+      "title": "director, officer: Chairman and CEO",
+      "is_buy": null,
+      "action": "",
+      "shares": 1800000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2025-12-17",
+      "name": "Gunderson Robert V JR",
+      "title": "director",
+      "is_buy": null,
+      "action": "",
+      "shares": 250000,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

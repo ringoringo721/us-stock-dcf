@@ -1,0 +1,128 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-28",
+      "name": "KEATING NEAL J.",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 3000,
+      "price": 80.67,
+      "total_val": 0.24
+    },
+    {
+      "date": "2026-10-05",
+      "name": "Hubbard Patricia",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 287,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-05",
+      "name": "Li David H",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 340,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-05",
+      "name": "Li David H",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 287,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-05",
+      "name": "Li David H",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 340,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-08",
+      "name": "Lehman Gail E",
+      "title": "officer: See Remarks",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 8829,
+      "price": 68.15,
+      "total_val": 0.6
+    },
+    {
+      "date": "2026-09-08",
+      "name": "Lehman Gail E",
+      "title": "officer: See Remarks",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 5000,
+      "price": 65.56,
+      "total_val": 0.33
+    },
+    {
+      "date": "2026-09-08",
+      "name": "Lehman Gail E",
+      "title": "officer: See Remarks",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 5000,
+      "price": 92.12,
+      "total_val": 0.46
+    },
+    {
+      "date": "2026-09-08",
+      "name": "Lehman Gail E",
+      "title": "officer: See Remarks",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 8829,
+      "price": 92.09,
+      "total_val": 0.81
+    },
+    {
+      "date": "2026-09-08",
+      "name": "Lehman Gail E",
+      "title": "officer: See Remarks",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 5000,
+      "price": 65.56,
+      "total_val": 0.33
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "1988-05-23",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1978-10-25",
+      "ratio": "4 : 3",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1976-06-28",
+      "ratio": "5 : 4",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

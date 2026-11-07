@@ -1,0 +1,116 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-03",
+      "name": "Malik Fady Ibraham",
+      "title": "officer: EVP Research & Development",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 3500,
+      "price": 7.8,
+      "total_val": 0.03
+    },
+    {
+      "date": "2026-11-03",
+      "name": "Malik Fady Ibraham",
+      "title": "officer: EVP Research & Development",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 3500,
+      "price": 62.93,
+      "total_val": 0.22
+    },
+    {
+      "date": "2026-11-03",
+      "name": "Malik Fady Ibraham",
+      "title": "officer: EVP Research & Development",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 3500,
+      "price": 7.8,
+      "total_val": 0.03
+    },
+    {
+      "date": "2026-11-02",
+      "name": "Blum Robert I",
+      "title": "director, officer: President & CEO",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 7500,
+      "price": 10.6,
+      "total_val": 0.08
+    },
+    {
+      "date": "2026-11-02",
+      "name": "Blum Robert I",
+      "title": "director, officer: President & CEO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 7500,
+      "price": 62.81,
+      "total_val": 0.47
+    },
+    {
+      "date": "2026-11-02",
+      "name": "Blum Robert I",
+      "title": "director, officer: President & CEO",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 7500,
+      "price": 10.6,
+      "total_val": 0.08
+    },
+    {
+      "date": "2026-10-20",
+      "name": "Wysenski Nancy",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 97,
+      "price": 63.92,
+      "total_val": 0.01
+    },
+    {
+      "date": "2026-10-20",
+      "name": "Kaye Edward M. MD",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 195,
+      "price": 63.92,
+      "total_val": 0.01
+    },
+    {
+      "date": "2026-10-20",
+      "name": "Harrington Robert Arthur",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 195,
+      "price": 63.92,
+      "total_val": 0.01
+    },
+    {
+      "date": "2026-10-20",
+      "name": "Daly James M",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 195,
+      "price": 63.92,
+      "total_val": 0.01
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2013-06-25",
+      "ratio": "1 : 6",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

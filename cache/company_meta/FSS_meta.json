@@ -1,0 +1,170 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-09-28",
+      "name": "Maue Richard A",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 108,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-28",
+      "name": "Vaillancourt Eric A.",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 104,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-06",
+      "name": "REICHELDERFER BRENDA",
+      "title": "director",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 7650,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-06",
+      "name": "REICHELDERFER BRENDA",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 6070,
+      "price": 131.02,
+      "total_val": 0.8
+    },
+    {
+      "date": "2026-08-05",
+      "name": "Bonina Diane",
+      "title": "officer: VP, Gen'l Counsel & Secretary",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 8406,
+      "price": 35.8,
+      "total_val": 0.3
+    },
+    {
+      "date": "2026-08-05",
+      "name": "Bonina Diane",
+      "title": "officer: VP, Gen'l Counsel & Secretary",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 6450,
+      "price": 51.81,
+      "total_val": 0.33
+    },
+    {
+      "date": "2026-08-05",
+      "name": "Bonina Diane",
+      "title": "officer: VP, Gen'l Counsel & Secretary",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 8306,
+      "price": 130.45,
+      "total_val": 1.08
+    },
+    {
+      "date": "2026-08-05",
+      "name": "Bonina Diane",
+      "title": "officer: VP, Gen'l Counsel & Secretary",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 6350,
+      "price": 130.41,
+      "total_val": 0.83
+    },
+    {
+      "date": "2026-08-05",
+      "name": "Bonina Diane",
+      "title": "officer: VP, Gen'l Counsel & Secretary",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 100,
+      "price": 131.05,
+      "total_val": 0.01
+    },
+    {
+      "date": "2026-08-05",
+      "name": "Bonina Diane",
+      "title": "officer: VP, Gen'l Counsel & Secretary",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 4408,
+      "price": 128.75,
+      "total_val": 0.57
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "1994-03-02",
+      "ratio": "4 : 3",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1992-04-10",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1991-03-04",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1990-03-02",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1989-02-08",
+      "ratio": "11 : 10",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1988-02-08",
+      "ratio": "11 : 10",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1983-01-26",
+      "ratio": "11 : 10",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1982-03-01",
+      "ratio": "5 : 4",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1981-03-02",
+      "ratio": "5 : 4",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1980-03-03",
+      "ratio": "5 : 4",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

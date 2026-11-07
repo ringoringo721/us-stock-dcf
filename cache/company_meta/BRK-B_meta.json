@@ -1,0 +1,116 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-09-29",
+      "name": "Jain Ajit",
+      "title": "director, officer: Vice Chairman",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 39700,
+      "price": 503.09,
+      "total_val": 19.97
+    },
+    {
+      "date": "2026-09-04",
+      "name": "Jain Ajit",
+      "title": "director, officer: Vice Chairman",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 10,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-13",
+      "name": "O'Sullivan Michael J.",
+      "title": "officer: See Remarks",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 43,
+      "price": 513.61,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-08-13",
+      "name": "O'Sullivan Michael J.",
+      "title": "officer: See Remarks",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 400,
+      "price": 512.52,
+      "total_val": 0.21
+    },
+    {
+      "date": "2026-08-13",
+      "name": "O'Sullivan Michael J.",
+      "title": "officer: See Remarks",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 45,
+      "price": 510.64,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-08-13",
+      "name": "Chang Charles C",
+      "title": "officer: See Remarks",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 1,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-13",
+      "name": "Chang Charles C",
+      "title": "officer: See Remarks",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 1,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-15",
+      "name": "BUFFETT WARREN E",
+      "title": "director, 10 percent owner: ",
+      "is_buy": null,
+      "action": "C-Conversion",
+      "shares": 12000000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-15",
+      "name": "BUFFETT WARREN E",
+      "title": "director, 10 percent owner: ",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 9000000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-15",
+      "name": "BUFFETT WARREN E",
+      "title": "director, 10 percent owner: ",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 1000000,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2010-01-21",
+      "ratio": "50 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

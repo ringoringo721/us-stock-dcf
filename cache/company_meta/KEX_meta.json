@@ -1,0 +1,122 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-04",
+      "name": "Grzebinski David W",
+      "title": "director, officer: CEO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 18310,
+      "price": 141.32,
+      "total_val": 2.59
+    },
+    {
+      "date": "2026-08-20",
+      "name": "Chia Donny",
+      "title": "officer: VP Finance and IR",
+      "is_buy": null,
+      "action": "",
+      "shares": 425,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-07",
+      "name": "Husted Amy D.",
+      "title": "officer: Exec VP General Counsel & Sec",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 186,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-07",
+      "name": "Husted Amy D.",
+      "title": "officer: Exec VP General Counsel & Sec",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 74,
+      "price": 131.1,
+      "total_val": 0.01
+    },
+    {
+      "date": "2026-08-07",
+      "name": "Husted Amy D.",
+      "title": "officer: Exec VP General Counsel & Sec",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 186,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-18",
+      "name": "Woodruff William Matthew",
+      "title": "officer: VP of Public and Govt Affairs",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 678,
+      "price": 147.37,
+      "total_val": 0.1
+    },
+    {
+      "date": "2026-05-18",
+      "name": "O'Neil Christian G.",
+      "title": "officer: President and COO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 11287,
+      "price": 145.93,
+      "total_val": 1.65
+    },
+    {
+      "date": "2026-05-18",
+      "name": "Husted Amy D.",
+      "title": "officer: Exec VP General Counsel & Sec",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 4000,
+      "price": 145.43,
+      "total_val": 0.58
+    },
+    {
+      "date": "2026-05-06",
+      "name": "Williams Shawn D.",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 1392,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-06",
+      "name": "Waterman William M.",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 1392,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2006-06-01",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1981-05-12",
+      "ratio": "10 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

@@ -1,0 +1,116 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-06",
+      "name": "TREFF DOUGLAS J",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 10714,
+      "price": 159.21,
+      "total_val": 1.71
+    },
+    {
+      "date": "2026-11-05",
+      "name": "Rees Andrew",
+      "title": "director, officer: Chief Executive Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 18049,
+      "price": 152.25,
+      "total_val": 2.75
+    },
+    {
+      "date": "2026-11-05",
+      "name": "Rees Andrew",
+      "title": "director, officer: Chief Executive Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 17251,
+      "price": 153.28,
+      "total_val": 2.64
+    },
+    {
+      "date": "2026-11-05",
+      "name": "Rees Andrew",
+      "title": "director, officer: Chief Executive Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 4700,
+      "price": 153.94,
+      "total_val": 0.72
+    },
+    {
+      "date": "2026-11-04",
+      "name": "TREFF DOUGLAS J",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 3416,
+      "price": 150.7,
+      "total_val": 0.51
+    },
+    {
+      "date": "2026-11-04",
+      "name": "TREFF DOUGLAS J",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 3101,
+      "price": 151.81,
+      "total_val": 0.47
+    },
+    {
+      "date": "2026-11-04",
+      "name": "TREFF DOUGLAS J",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 7185,
+      "price": 152.85,
+      "total_val": 1.1
+    },
+    {
+      "date": "2026-11-04",
+      "name": "TREFF DOUGLAS J",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 1100,
+      "price": 153.7,
+      "total_val": 0.17
+    },
+    {
+      "date": "2026-11-03",
+      "name": "Campbell Rupert George",
+      "title": "officer: EVP, Brand President, HEYDUDE",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 2645,
+      "price": 150.87,
+      "total_val": 0.4
+    },
+    {
+      "date": "2026-11-03",
+      "name": "FRASCH RONALD",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 15000,
+      "price": 153.51,
+      "total_val": 2.3
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2007-06-15",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

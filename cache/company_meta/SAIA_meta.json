@@ -1,0 +1,116 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-04",
+      "name": "Fowler Todd C.",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 226,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-04",
+      "name": "Fowler Todd C.",
+      "title": "Officer / Director",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-04",
+      "name": "Norwood Anthony R",
+      "title": "officer: EVP & CHRO",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 155,
+      "price": 354.87,
+      "total_val": 0.06
+    },
+    {
+      "date": "2026-11-04",
+      "name": "Benton Kelly W",
+      "title": "officer: VP & CAO",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 129,
+      "price": 354.87,
+      "total_val": 0.05
+    },
+    {
+      "date": "2026-05-21",
+      "name": "Norwood Anthony R",
+      "title": "officer: EVP & CHRO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 292,
+      "price": 468.77,
+      "total_val": 0.14
+    },
+    {
+      "date": "2026-05-15",
+      "name": "HOLZGREFE FREDERICK J III",
+      "title": "officer: President & CEO",
+      "is_buy": null,
+      "action": "J-Other",
+      "shares": 10000,
+      "price": 431.42,
+      "total_val": 4.31
+    },
+    {
+      "date": "2026-05-15",
+      "name": "HOLZGREFE FREDERICK J III",
+      "title": "officer: President & CEO",
+      "is_buy": null,
+      "action": "J-Other",
+      "shares": 10000,
+      "price": 431.42,
+      "total_val": 4.31
+    },
+    {
+      "date": "2026-05-13",
+      "name": "HOLZGREFE FREDERICK J III",
+      "title": "officer: President & CEO",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 10000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-13",
+      "name": "HOLZGREFE FREDERICK J III",
+      "title": "officer: President & CEO",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 10000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-06",
+      "name": "WARD JEFFREY C",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 642,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2013-06-14",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

@@ -1,0 +1,122 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-22",
+      "name": "Hegarty Kieran",
+      "title": "officer: President, Materials Processin",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 7687,
+      "price": 50.76,
+      "total_val": 0.39
+    },
+    {
+      "date": "2026-10-20",
+      "name": "GEORGE AMY",
+      "title": "officer: Senior V.P. Human Resources",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 8460,
+      "price": 52.65,
+      "total_val": 0.45
+    },
+    {
+      "date": "2026-10-13",
+      "name": "KONG-PICARELLO JENNIFER",
+      "title": "officer: Senior Vice President, CFO",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 25,
+      "price": 52.56,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-13",
+      "name": "CARROLL PATRICK S",
+      "title": "officer: Pres., Environmental Solutions",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 45,
+      "price": 52.56,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-08",
+      "name": "KONG-PICARELLO JENNIFER",
+      "title": "officer: Senior Vice President, CFO",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 21,
+      "price": 61.15,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-08",
+      "name": "CARROLL PATRICK S",
+      "title": "officer: Pres., Environmental Solutions",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 39,
+      "price": 61.15,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-07",
+      "name": "KONG-PICARELLO JENNIFER",
+      "title": "officer: Senior Vice President, CFO",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 20,
+      "price": 66.4,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-07",
+      "name": "CARROLL PATRICK S",
+      "title": "officer: Pres., Environmental Solutions",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 36,
+      "price": 66.4,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-13",
+      "name": "Jindal Namita",
+      "title": "officer: SVP CHIEF DIGITAL & AI OFFICER",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 261,
+      "price": 67.92,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-07-13",
+      "name": "CARROLL PATRICK S",
+      "title": "officer: Pres., Environmental Solutions",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 36,
+      "price": 66.57,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2006-07-17",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1990-05-25",
+      "ratio": "5 : 4",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

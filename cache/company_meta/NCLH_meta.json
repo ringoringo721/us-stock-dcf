@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-05-26",
+      "name": "CHIDSEY JOHN",
+      "title": "director, officer: President and CEO",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 153000,
+      "price": 16.37,
+      "total_val": 2.5
+    },
+    {
+      "date": "2026-05-21",
+      "name": "COHEN JONATHAN Z",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 30000,
+      "price": 15.83,
+      "total_val": 0.47
+    },
+    {
+      "date": "2026-05-19",
+      "name": "Cil Jose E.",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 10000,
+      "price": 14.91,
+      "total_val": 0.15
+    },
+    {
+      "date": "2026-05-19",
+      "name": "Cil Jose E.",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 5000,
+      "price": 15.25,
+      "total_val": 0.08
+    },
+    {
+      "date": "2026-05-12",
+      "name": "MacDonald Brian P",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 15000,
+      "price": 16.54,
+      "total_val": 0.25
+    },
+    {
+      "date": "2026-05-11",
+      "name": "Lansberry Kevin Allen",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 11400,
+      "price": 17.28,
+      "total_val": 0.2
+    },
+    {
+      "date": "2026-05-11",
+      "name": "Byng-Thorne Zillah",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 25015,
+      "price": 17.67,
+      "total_val": 0.44
+    },
+    {
+      "date": "2026-05-11",
+      "name": "Byng-Thorne Zillah",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 4452,
+      "price": 17.83,
+      "total_val": 0.08
+    },
+    {
+      "date": "2026-04-14",
+      "name": "MacDonald Brian P",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 8912,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-04-14",
+      "name": "Cruz Alex",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 8912,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

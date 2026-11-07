@@ -1,0 +1,116 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-08-10",
+      "name": "Bechelany Pierre Edward",
+      "title": "officer: Group President",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 5000,
+      "price": 55.24,
+      "total_val": 0.28
+    },
+    {
+      "date": "2026-08-06",
+      "name": "CALDWELL JAMES FRANK JR",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 2765,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-06",
+      "name": "CALDWELL JAMES FRANK JR",
+      "title": "Officer / Director",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-08",
+      "name": "ROSE MATTHEW K",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 3506,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-08",
+      "name": "CARD ROBERT G",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 3506,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-08",
+      "name": "McClure Teri P",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 3506,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-08",
+      "name": "HACKETT JAMES T",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 3506,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-08",
+      "name": "Glatch Lisa",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 3506,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-08",
+      "name": "EBERHART PAULETT",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 3506,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-08",
+      "name": "Blankenship Charles P",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 3506,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2008-07-17",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

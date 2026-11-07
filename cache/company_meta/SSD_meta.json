@@ -1,0 +1,122 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-09-11",
+      "name": "Olosky Michael",
+      "title": "director, officer: President and CEO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 3502,
+      "price": 172.84,
+      "total_val": 0.61
+    },
+    {
+      "date": "2026-08-21",
+      "name": "Bullock Nozomi",
+      "title": "officer: EVP, Human Resources",
+      "is_buy": null,
+      "action": "I-Discretionary",
+      "shares": 21,
+      "price": 189.84,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-05",
+      "name": "ANDRASICK JAMES S",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 800,
+      "price": 195.62,
+      "total_val": 0.16
+    },
+    {
+      "date": "2026-05-08",
+      "name": "Knight Kenneth D.",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 678,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-08",
+      "name": "FORD CELESTE VOLZ",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 678,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-08",
+      "name": "Drake Angela C",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 678,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-08",
+      "name": "Donaldson Philip E",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 929,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-08",
+      "name": "Coney Felica",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 678,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-08",
+      "name": "Banks Chau",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 678,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-08",
+      "name": "ANDRASICK JAMES S",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 678,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2004-11-19",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2002-08-19",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-03",
+      "name": "Riva IV CV, L.P.",
+      "title": "10 percent owner",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-03",
+      "name": "ABRAMS CAPITAL MANAGEMENT, L.P.",
+      "title": "10 percent owner",
+      "is_buy": null,
+      "action": "J-Other",
+      "shares": 11529265,
+      "price": 62.11,
+      "total_val": 716.08
+    },
+    {
+      "date": "2026-05-22",
+      "name": "Danmola Taiwo K.",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 35000,
+      "price": 60.59,
+      "total_val": 2.12
+    },
+    {
+      "date": "2026-03-17",
+      "name": "LEVY PAUL S",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 75000,
+      "price": 64.9,
+      "total_val": 4.87
+    },
+    {
+      "date": "2026-03-17",
+      "name": "McGetrick Margaret A",
+      "title": "director",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 71429,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-03-13",
+      "name": "Carpenito Anthony",
+      "title": "director, 10 percent owner: ",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 50,
+      "price": 64.7,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-03-13",
+      "name": "Carpenito Anthony",
+      "title": "director, 10 percent owner: ",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 3490,
+      "price": 65.16,
+      "total_val": 0.23
+    },
+    {
+      "date": "2026-03-13",
+      "name": "Carpenito Anthony",
+      "title": "director, 10 percent owner: ",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 1260,
+      "price": 64.45,
+      "total_val": 0.08
+    },
+    {
+      "date": "2026-03-13",
+      "name": "Bobbili Raja",
+      "title": "director, 10 percent owner: ",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 30000,
+      "price": 64.17,
+      "total_val": 1.93
+    },
+    {
+      "date": "2026-03-13",
+      "name": "Bobbili Raja",
+      "title": "director, 10 percent owner: ",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 20000,
+      "price": 62.76,
+      "total_val": 1.26
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

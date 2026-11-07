@@ -1,0 +1,116 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-09-30",
+      "name": "Ho Michael",
+      "title": "director, officer: Chief Strategy Officer",
+      "is_buy": null,
+      "action": "J-Other",
+      "shares": 1500000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-28",
+      "name": "SHATTUCK MAYO A III",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 20000,
+      "price": 100.0,
+      "total_val": 2.0
+    },
+    {
+      "date": "2026-08-25",
+      "name": "Glennan Sean Joseph",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 12355,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-25",
+      "name": "Glennan Sean Joseph",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 5807,
+      "price": 78.7,
+      "total_val": 0.46
+    },
+    {
+      "date": "2026-08-25",
+      "name": "Glennan Sean Joseph",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 638,
+      "price": 79.33,
+      "total_val": 0.05
+    },
+    {
+      "date": "2026-08-25",
+      "name": "Glennan Sean Joseph",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 12355,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-18",
+      "name": "Semah Victor",
+      "title": "officer: Chief Legal Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 10000,
+      "price": 125.0,
+      "total_val": 1.25
+    },
+    {
+      "date": "2026-06-15",
+      "name": "Flinn Joseph",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 23000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-15",
+      "name": "Flinn Joseph",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 15947,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-15",
+      "name": "Flinn Joseph",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 23000,
+      "price": 115.94,
+      "total_val": 2.67
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2023-12-04",
+      "ratio": "1 : 5",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

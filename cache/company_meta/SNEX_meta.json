@@ -1,0 +1,152 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-06",
+      "name": "FOWLER JOHN MOORE",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 1575,
+      "price": 56.87,
+      "total_val": 0.09
+    },
+    {
+      "date": "2026-11-02",
+      "name": "FOWLER JOHN MOORE",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 246,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-02",
+      "name": "FOWLER JOHN MOORE",
+      "title": "director",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 108,
+      "price": 52.83,
+      "total_val": 0.01
+    },
+    {
+      "date": "2026-11-02",
+      "name": "DiCiollo Anthony J",
+      "title": "officer: Head of Institutional Segment",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 6604,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-02",
+      "name": "KASS STEVEN A",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 246,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-02",
+      "name": "RADZIWILL JOHN",
+      "title": "director, officer: Chairman of the Board",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 310,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-02",
+      "name": "Thamodaran Dhamu R.",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 201,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-02",
+      "name": "Cooper Diane L.",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 164,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-15",
+      "name": "Smith Philip Andrew",
+      "title": "director, officer: Chief Executive Officer",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 45000,
+      "price": 8.9,
+      "total_val": 0.4
+    },
+    {
+      "date": "2026-10-15",
+      "name": "Smith Philip Andrew",
+      "title": "director, officer: Chief Executive Officer",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 45000,
+      "price": 8.9,
+      "total_val": 0.4
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2026-07-20",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2026-03-23",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2025-03-24",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2023-11-27",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2000-03-08",
+      "ratio": "11 : 10",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1999-03-03",
+      "ratio": "11 : 10",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1997-12-23",
+      "ratio": "11 : 10",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

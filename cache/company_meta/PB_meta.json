@@ -1,0 +1,116 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-05",
+      "name": "HOLMES NED S",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 459,
+      "price": 73.96,
+      "total_val": 0.03
+    },
+    {
+      "date": "2026-11-05",
+      "name": "HOLMES NED S",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 41,
+      "price": 74.73,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-05",
+      "name": "HOLMES NED S",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 455,
+      "price": 73.96,
+      "total_val": 0.03
+    },
+    {
+      "date": "2026-11-05",
+      "name": "HOLMES NED S",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 45,
+      "price": 74.7,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-05",
+      "name": "HOLMES NED S",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 95,
+      "price": 74.07,
+      "total_val": 0.01
+    },
+    {
+      "date": "2026-11-05",
+      "name": "HOLMES NED S",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 5,
+      "price": 74.5,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-28",
+      "name": "HOLMES NED S",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 319,
+      "price": 69.67,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-10-28",
+      "name": "HOLMES NED S",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 181,
+      "price": 70.58,
+      "total_val": 0.01
+    },
+    {
+      "date": "2026-10-28",
+      "name": "HOLMES NED S",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 295,
+      "price": 69.69,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-10-28",
+      "name": "HOLMES NED S",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 205,
+      "price": 70.57,
+      "total_val": 0.01
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2002-06-03",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

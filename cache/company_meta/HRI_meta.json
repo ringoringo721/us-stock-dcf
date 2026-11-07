@@ -1,0 +1,116 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-03",
+      "name": "Machado Luis Francisco",
+      "title": "officer: SVP & Chief Legal Officer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 11895,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-03",
+      "name": "Machado Luis Francisco",
+      "title": "officer",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-24",
+      "name": "Olsson Erik",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 3085,
+      "price": 163.0,
+      "total_val": 0.5
+    },
+    {
+      "date": "2026-08-20",
+      "name": "Peres Tamir",
+      "title": "officer: SVP&Chief Information Officer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 2261,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-20",
+      "name": "Peres Tamir",
+      "title": "officer: SVP&Chief Information Officer",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 822,
+      "price": 166.82,
+      "total_val": 0.14
+    },
+    {
+      "date": "2026-08-20",
+      "name": "Olsson Erik",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 639,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-20",
+      "name": "Olsson Erik",
+      "title": "director: ",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-18",
+      "name": "Shannon Patrick S",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 1035,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-18",
+      "name": "SACHDEV RAKESH",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 1035,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-18",
+      "name": "Olin John A",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 1035,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2016-07-01",
+      "ratio": "1 : 3",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

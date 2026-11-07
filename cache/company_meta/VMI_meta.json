@@ -1,0 +1,134 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-22",
+      "name": "Johnson William Eric",
+      "title": "officer: Chief Accounting Officer",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 74,
+      "price": 450.68,
+      "total_val": 0.03
+    },
+    {
+      "date": "2026-09-09",
+      "name": "Hickey Toni",
+      "title": "officer: CLO and Corporate Secretary",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 310,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-09",
+      "name": "Hickey Toni",
+      "title": "Officer / Director",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-19",
+      "name": "Campbell Renee L",
+      "title": "officer: SVP, Capital Markets & Risk",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 838,
+      "price": 252.89,
+      "total_val": 0.21
+    },
+    {
+      "date": "2026-08-19",
+      "name": "Campbell Renee L",
+      "title": "officer: SVP, Capital Markets & Risk",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 601,
+      "price": 501.85,
+      "total_val": 0.3
+    },
+    {
+      "date": "2026-08-19",
+      "name": "Campbell Renee L",
+      "title": "officer: SVP, Capital Markets & Risk",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 838,
+      "price": 252.89,
+      "total_val": 0.21
+    },
+    {
+      "date": "2026-08-03",
+      "name": "Applbaum Avner M",
+      "title": "director, officer: President and CEO",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 162,
+      "price": 481.7,
+      "total_val": 0.08
+    },
+    {
+      "date": "2026-08-03",
+      "name": "Applbaum Avner M",
+      "title": "director, officer: President and CEO",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 162,
+      "price": 481.7,
+      "total_val": 0.08
+    },
+    {
+      "date": "2026-07-30",
+      "name": "Schwietz John L",
+      "title": "officer: Executive VP and CFO",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 24,
+      "price": 456.29,
+      "total_val": 0.01
+    },
+    {
+      "date": "2026-07-29",
+      "name": "Freye Theodor Werner",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 800,
+      "price": 495.0,
+      "total_val": 0.4
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "1997-06-02",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1989-11-27",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1988-09-12",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1981-10-13",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

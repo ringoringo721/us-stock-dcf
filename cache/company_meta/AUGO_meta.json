@@ -1,0 +1,140 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-05",
+      "name": "Sousa Mauad Bruno",
+      "title": "director",
+      "is_buy": null,
+      "action": "C-Conversion",
+      "shares": 24651,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-05",
+      "name": "Sousa Mauad Bruno",
+      "title": "director",
+      "is_buy": null,
+      "action": "C-Conversion",
+      "shares": 24651,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-04",
+      "name": "Sousa Mauad Bruno",
+      "title": "director",
+      "is_buy": null,
+      "action": "C-Conversion",
+      "shares": 24651,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-04",
+      "name": "Sousa Mauad Bruno",
+      "title": "director",
+      "is_buy": null,
+      "action": "C-Conversion",
+      "shares": 24651,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-30",
+      "name": "Sousa Mauad Bruno",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 11054,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-30",
+      "name": "Sousa Mauad Bruno",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 6739,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-30",
+      "name": "Sousa Mauad Bruno",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 3689,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-30",
+      "name": "Sousa Mauad Bruno",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 7365,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-30",
+      "name": "Sousa Mauad Bruno",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 6739,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-28",
+      "name": "Sousa Mauad Bruno",
+      "title": "director",
+      "is_buy": null,
+      "action": "C-Conversion",
+      "shares": 24000,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2020-08-26",
+      "ratio": "15 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2019-01-08",
+      "ratio": "1 : 10",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2017-01-05",
+      "ratio": "1 : 10",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2016-08-29",
+      "ratio": "509 : 500",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2009-07-23",
+      "ratio": "1 : 5",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

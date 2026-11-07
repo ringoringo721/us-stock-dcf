@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-08-10",
+      "name": "TAYLOR THOMAS V",
+      "title": "director, officer: Executive Chair",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 218189,
+      "price": 21.0,
+      "total_val": 4.58
+    },
+    {
+      "date": "2026-08-10",
+      "name": "TAYLOR THOMAS V",
+      "title": "director, officer: Executive Chair",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 218189,
+      "price": 62.3,
+      "total_val": 13.59
+    },
+    {
+      "date": "2026-08-10",
+      "name": "TAYLOR THOMAS V",
+      "title": "director, officer: Executive Chair",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 16969,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-10",
+      "name": "TAYLOR THOMAS V",
+      "title": "director, officer: Executive Chair",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 185310,
+      "price": 21.0,
+      "total_val": 3.89
+    },
+    {
+      "date": "2026-08-10",
+      "name": "TAYLOR THOMAS V",
+      "title": "director, officer: Executive Chair",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 32879,
+      "price": 21.0,
+      "total_val": 0.69
+    },
+    {
+      "date": "2026-08-06",
+      "name": "Adamson John J",
+      "title": "officer: EVP & CIO",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 907,
+      "price": 62.69,
+      "total_val": 0.06
+    },
+    {
+      "date": "2026-05-18",
+      "name": "LANGLEY BRYAN",
+      "title": "officer: EVP & CHIEF FINANCIAL OFFICER",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 1159,
+      "price": 9.99,
+      "total_val": 0.01
+    },
+    {
+      "date": "2026-05-18",
+      "name": "LANGLEY BRYAN",
+      "title": "officer: EVP & CHIEF FINANCIAL OFFICER",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 1159,
+      "price": 9.99,
+      "total_val": 0.01
+    },
+    {
+      "date": "2026-05-07",
+      "name": "PAULSEN BRADLEY",
+      "title": "director, officer: Chief Executive Officer",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 2461,
+      "price": 48.3,
+      "total_val": 0.12
+    },
+    {
+      "date": "2026-05-04",
+      "name": "LANGLEY BRYAN",
+      "title": "officer: EVP & CHIEF FINANCIAL OFFICER",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 2500,
+      "price": 48.69,
+      "total_val": 0.12
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

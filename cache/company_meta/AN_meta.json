@@ -1,0 +1,122 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-04",
+      "name": "EDMUNDS C COLEMAN",
+      "title": "officer: EVP, Gen Counsel & Corp Sec",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 300,
+      "price": 183.25,
+      "total_val": 0.05
+    },
+    {
+      "date": "2026-11-04",
+      "name": "EDMUNDS C COLEMAN",
+      "title": "officer: EVP, Gen Counsel & Corp Sec",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 250,
+      "price": 183.5,
+      "total_val": 0.05
+    },
+    {
+      "date": "2026-11-04",
+      "name": "Szlosek Thomas A",
+      "title": "officer: EVP & CFO",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 541,
+      "price": 185.0,
+      "total_val": 0.1
+    },
+    {
+      "date": "2026-11-04",
+      "name": "Szlosek Thomas A",
+      "title": "officer: EVP & CFO",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 556,
+      "price": 180.0,
+      "total_val": 0.1
+    },
+    {
+      "date": "2026-11-04",
+      "name": "Szlosek Thomas A",
+      "title": "officer: EVP & CFO",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 551,
+      "price": 181.17,
+      "total_val": 0.1
+    },
+    {
+      "date": "2026-11-04",
+      "name": "Manley Michael Mark",
+      "title": "director, officer: CEO and Director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 1892,
+      "price": 184.65,
+      "total_val": 0.35
+    },
+    {
+      "date": "2026-11-04",
+      "name": "Manley Michael Mark",
+      "title": "director, officer: CEO and Director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 3708,
+      "price": 183.84,
+      "total_val": 0.68
+    },
+    {
+      "date": "2026-11-03",
+      "name": "PARENT JEFF",
+      "title": "officer: COO",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 288,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-03",
+      "name": "PARENT JEFF",
+      "title": "officer: COO",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 114,
+      "price": 179.64,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-11-03",
+      "name": "PARENT JEFF",
+      "title": "officer: COO",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 288,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "1996-06-10",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1987-01-12",
+      "ratio": "1 : 10",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

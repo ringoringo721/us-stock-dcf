@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-09-11",
+      "name": "Edwards Jeffrey W.",
+      "title": "director, 10 percent owner, officer: President, CEO and Chairman",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 2500,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-08",
+      "name": "Jackson Janet E.",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 1086,
+      "price": 237.06,
+      "total_val": 0.26
+    },
+    {
+      "date": "2026-06-15",
+      "name": "Miller Michael Thomas",
+      "title": "director, officer: Executive VP & CFO",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 155,
+      "price": 206.74,
+      "total_val": 0.03
+    },
+    {
+      "date": "2026-06-15",
+      "name": "Miller Michael Thomas",
+      "title": "director, officer: Executive VP & CFO",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 80,
+      "price": 205.52,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-06-15",
+      "name": "Miller Michael Thomas",
+      "title": "director, officer: Executive VP & CFO",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 20,
+      "price": 204.32,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-15",
+      "name": "Miller Michael Thomas",
+      "title": "director, officer: Executive VP & CFO",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 99,
+      "price": 202.73,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-06-15",
+      "name": "Miller Michael Thomas",
+      "title": "director, officer: Executive VP & CFO",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 133,
+      "price": 201.91,
+      "total_val": 0.03
+    },
+    {
+      "date": "2026-06-15",
+      "name": "Miller Michael Thomas",
+      "title": "director, officer: Executive VP & CFO",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 1,
+      "price": 200.03,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-15",
+      "name": "Miller Michael Thomas",
+      "title": "director, officer: Executive VP & CFO",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 14,
+      "price": 198.79,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-15",
+      "name": "Miller Michael Thomas",
+      "title": "director, officer: Executive VP & CFO",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 145,
+      "price": 197.55,
+      "total_val": 0.03
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

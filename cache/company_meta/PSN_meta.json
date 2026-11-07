@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-02",
+      "name": "LEER STEVEN F",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 954,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-02",
+      "name": "WAJSGRAS DAVID C",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 688,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-10",
+      "name": "Ball George L.",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 20000,
+      "price": 47.97,
+      "total_val": 0.96
+    },
+    {
+      "date": "2026-07-02",
+      "name": "WAJSGRAS DAVID C",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 604,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-02",
+      "name": "LEER STEVEN F",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 837,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-14",
+      "name": "Ball George L.",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 10000,
+      "price": 50.0,
+      "total_val": 0.5
+    },
+    {
+      "date": "2026-05-13",
+      "name": "Holdsworth Mark Keith",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 6754,
+      "price": 51.54,
+      "total_val": 0.35
+    },
+    {
+      "date": "2026-05-13",
+      "name": "Holdsworth Mark Keith",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 3246,
+      "price": 50.7,
+      "total_val": 0.16
+    },
+    {
+      "date": "2026-05-12",
+      "name": "McMahon Harry T.",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 10000,
+      "price": 49.14,
+      "total_val": 0.49
+    },
+    {
+      "date": "2026-05-11",
+      "name": "Smith Carey A.",
+      "title": "director, officer: President & CEO",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 500,
+      "price": 50.73,
+      "total_val": 0.03
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

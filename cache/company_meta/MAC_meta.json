@@ -1,0 +1,134 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-09-09",
+      "name": "Zecchini Christopher J",
+      "title": "officer: Chief Accounting Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 2740,
+      "price": 23.28,
+      "total_val": 0.06
+    },
+    {
+      "date": "2026-07-01",
+      "name": "Stephen Andrea M",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 32,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-01",
+      "name": "HERNANDEZ ENRIQUE JR",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 784,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-02",
+      "name": "HERNANDEZ ENRIQUE JR",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 6720,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-02",
+      "name": "Stephen Andrea M",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 6720,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-02",
+      "name": "LAING DIANA",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 6720,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-02",
+      "name": "Lowenthal Marianne",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 6720,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-02",
+      "name": "Murphy Devin Ignatius",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 6720,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-02",
+      "name": "Hirsch Daniel J.",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 6720,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-02",
+      "name": "Hash Steve",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 9520,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2010-02-11",
+      "ratio": "507 : 500",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2009-11-09",
+      "ratio": "10179 : 10000",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2009-08-10",
+      "ratio": "10189 : 10000",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2009-05-07",
+      "ratio": "1027 : 1000",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

@@ -1,0 +1,116 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-04",
+      "name": "Cardew Jason M",
+      "title": "officer: SVP and CFO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 5000,
+      "price": 117.75,
+      "total_val": 0.59
+    },
+    {
+      "date": "2026-10-02",
+      "name": "LIGOCKI KATHLEEN",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 53,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-02",
+      "name": "LIGOCKI KATHLEEN",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 53,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-24",
+      "name": "Roelli Nicholas Jon",
+      "title": "officer: SVP and President, E-Systems",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 12326,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-07",
+      "name": "MALLETT CONRAD L JR",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 1646,
+      "price": 121.35,
+      "total_val": 0.2
+    },
+    {
+      "date": "2026-07-02",
+      "name": "LIGOCKI KATHLEEN",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 53,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-02",
+      "name": "LIGOCKI KATHLEEN",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 53,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-25",
+      "name": "SCOTT RAYMOND E",
+      "title": "director, officer: President and CEO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 16316,
+      "price": 134.44,
+      "total_val": 2.19
+    },
+    {
+      "date": "2026-06-25",
+      "name": "SCOTT RAYMOND E",
+      "title": "director, officer: President and CEO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 22454,
+      "price": 135.4,
+      "total_val": 3.04
+    },
+    {
+      "date": "2026-06-25",
+      "name": "SCOTT RAYMOND E",
+      "title": "director, officer: President and CEO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 7884,
+      "price": 136.41,
+      "total_val": 1.08
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2011-03-18",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

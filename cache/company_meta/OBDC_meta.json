@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-08-31",
+      "name": "Kaye Eric A.",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 1000,
+      "price": 11.34,
+      "total_val": 0.01
+    },
+    {
+      "date": "2026-08-21",
+      "name": "Nicholson Logan",
+      "title": "officer: President",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 2325,
+      "price": 11.29,
+      "total_val": 0.03
+    },
+    {
+      "date": "2026-08-21",
+      "name": "Nicholson Logan",
+      "title": "officer: President",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 675,
+      "price": 11.29,
+      "total_val": 0.01
+    },
+    {
+      "date": "2026-05-12",
+      "name": "Kaye Eric A.",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 1000,
+      "price": 11.21,
+      "total_val": 0.01
+    },
+    {
+      "date": "2026-04-27",
+      "name": "Kaye Eric A.",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 672,
+      "price": 11.92,
+      "total_val": 0.01
+    },
+    {
+      "date": "2026-04-27",
+      "name": "Kaye Eric A.",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 328,
+      "price": 11.9,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-03-02",
+      "name": "Nicholson Logan",
+      "title": "officer: President",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 5525,
+      "price": 11.32,
+      "total_val": 0.06
+    },
+    {
+      "date": "2026-03-02",
+      "name": "Nicholson Logan",
+      "title": "officer: President",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 4475,
+      "price": 11.32,
+      "total_val": 0.05
+    },
+    {
+      "date": "2025-12-01",
+      "name": "Reddy Neena",
+      "title": "officer: Vice President and Secretary",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 7890,
+      "price": 13.06,
+      "total_val": 0.1
+    },
+    {
+      "date": "2025-11-19",
+      "name": "Nicholson Logan",
+      "title": "officer: President",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 25000,
+      "price": 11.75,
+      "total_val": 0.29
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

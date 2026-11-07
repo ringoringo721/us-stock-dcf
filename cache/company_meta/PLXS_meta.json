@@ -1,0 +1,128 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-22",
+      "name": "Kelsey Todd P.",
+      "title": "director, officer: President & CEO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 779,
+      "price": 238.47,
+      "total_val": 0.19
+    },
+    {
+      "date": "2026-10-22",
+      "name": "Kelsey Todd P.",
+      "title": "director, officer: President & CEO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 721,
+      "price": 239.92,
+      "total_val": 0.17
+    },
+    {
+      "date": "2026-09-17",
+      "name": "Kelsey Todd P.",
+      "title": "director, officer: President & CEO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 1500,
+      "price": 242.41,
+      "total_val": 0.36
+    },
+    {
+      "date": "2026-09-16",
+      "name": "Abuhl David Westen",
+      "title": "officer: Sr. VP & CFO",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 2500,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-16",
+      "name": "Abuhl David Westen",
+      "title": "officer: Sr. VP & CFO",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 2500,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-16",
+      "name": "Abuhl David Westen",
+      "title": "officer: Sr. VP & CFO",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 800,
+      "price": 238.53,
+      "total_val": 0.19
+    },
+    {
+      "date": "2026-09-01",
+      "name": "Rapp Karen Marie",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 500,
+      "price": 240.87,
+      "total_val": 0.12
+    },
+    {
+      "date": "2026-08-20",
+      "name": "Kelsey Todd P.",
+      "title": "director, officer: President & CEO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 319,
+      "price": 248.79,
+      "total_val": 0.08
+    },
+    {
+      "date": "2026-08-20",
+      "name": "Kelsey Todd P.",
+      "title": "director, officer: President & CEO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 681,
+      "price": 251.09,
+      "total_val": 0.17
+    },
+    {
+      "date": "2026-08-20",
+      "name": "Kelsey Todd P.",
+      "title": "director, officer: President & CEO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 500,
+      "price": 252.23,
+      "total_val": 0.13
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2000-09-01",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1997-08-26",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1992-03-23",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

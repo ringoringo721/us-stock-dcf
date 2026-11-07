@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-09-16",
+      "name": "Munch Mark",
+      "title": "officer: EXEC VP&PRES BRUKER NANO INC.",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 2000,
+      "price": 22.19,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-09-16",
+      "name": "Munch Mark",
+      "title": "officer: EXEC VP&PRES BRUKER NANO INC.",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 2000,
+      "price": 52.87,
+      "total_val": 0.11
+    },
+    {
+      "date": "2026-09-16",
+      "name": "Munch Mark",
+      "title": "officer: EXEC VP&PRES BRUKER NANO INC.",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 2000,
+      "price": 22.19,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-08-18",
+      "name": "Prause Burkhard",
+      "title": "officer: PRES. & CEO, BRUKER BEST",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 3303,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-18",
+      "name": "Prause Burkhard",
+      "title": "officer: PRES. & CEO, BRUKER BEST",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 2678,
+      "price": 57.7,
+      "total_val": 0.15
+    },
+    {
+      "date": "2026-08-18",
+      "name": "Pusch Wolfgang",
+      "title": "officer: President BMID Group",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 3120,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-18",
+      "name": "Pusch Wolfgang",
+      "title": "officer: President BMID Group",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 3473,
+      "price": 56.9,
+      "total_val": 0.2
+    },
+    {
+      "date": "2026-08-18",
+      "name": "Pusch Wolfgang",
+      "title": "officer: President BMID Group",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 2529,
+      "price": 57.7,
+      "total_val": 0.15
+    },
+    {
+      "date": "2026-08-18",
+      "name": "Bures Thomas",
+      "title": "officer: Chief Accounting Officer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 4035,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-18",
+      "name": "Srega Juergen",
+      "title": "officer: PRESIDENT CALID",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 16898,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

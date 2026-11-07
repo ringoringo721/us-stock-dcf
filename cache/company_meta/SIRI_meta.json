@@ -1,0 +1,128 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-03",
+      "name": "BERKSHIRE HATHAWAY INC",
+      "title": "10 percent owner",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 113348,
+      "price": 30.23,
+      "total_val": 3.43
+    },
+    {
+      "date": "2026-11-03",
+      "name": "BERKSHIRE HATHAWAY INC",
+      "title": "10 percent owner",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 66968,
+      "price": 29.47,
+      "total_val": 1.97
+    },
+    {
+      "date": "2026-11-03",
+      "name": "BERKSHIRE HATHAWAY INC",
+      "title": "10 percent owner",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 743965,
+      "price": 28.89,
+      "total_val": 21.49
+    },
+    {
+      "date": "2025-08-04",
+      "name": "BERKSHIRE HATHAWAY INC",
+      "title": "10 percent owner",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 1037199,
+      "price": 21.63,
+      "total_val": 22.43
+    },
+    {
+      "date": "2025-08-04",
+      "name": "BERKSHIRE HATHAWAY INC",
+      "title": "10 percent owner",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 1930000,
+      "price": 21.02,
+      "total_val": 40.57
+    },
+    {
+      "date": "2025-08-04",
+      "name": "BERKSHIRE HATHAWAY INC",
+      "title": "10 percent owner",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 85389,
+      "price": 21.43,
+      "total_val": 1.83
+    },
+    {
+      "date": "2025-08-04",
+      "name": "BERKSHIRE HATHAWAY INC",
+      "title": "10 percent owner",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 1977837,
+      "price": 21.04,
+      "total_val": 41.62
+    },
+    {
+      "date": "2025-02-03",
+      "name": "BERKSHIRE HATHAWAY INC",
+      "title": "10 percent owner",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 283899,
+      "price": 24.05,
+      "total_val": 6.83
+    },
+    {
+      "date": "2025-02-03",
+      "name": "BERKSHIRE HATHAWAY INC",
+      "title": "10 percent owner",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 433079,
+      "price": 23.49,
+      "total_val": 10.17
+    },
+    {
+      "date": "2025-02-03",
+      "name": "BERKSHIRE HATHAWAY INC",
+      "title": "10 percent owner",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 840000,
+      "price": 23.62,
+      "total_val": 19.84
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2024-09-10",
+      "ratio": "1 : 10",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2011-10-10",
+      "ratio": "1 : 4",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2011-05-03",
+      "ratio": "6 : 7",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

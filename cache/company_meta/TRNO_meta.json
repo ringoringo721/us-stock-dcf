@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-08-11",
+      "name": "Meyer John Tull",
+      "title": "officer: EVP",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 4447,
+      "price": 68.64,
+      "total_val": 0.31
+    },
+    {
+      "date": "2026-08-10",
+      "name": "Cannon Jaime Jackson",
+      "title": "officer: CFO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 3602,
+      "price": 68.26,
+      "total_val": 0.25
+    },
+    {
+      "date": "2026-08-10",
+      "name": "COKE MICHAEL A",
+      "title": "director, officer: President",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 8000,
+      "price": 68.38,
+      "total_val": 0.55
+    },
+    {
+      "date": "2026-08-05",
+      "name": "BAIRD W BLAKE",
+      "title": "director, officer: CHAIRMAN AND CEO",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 28426,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-05",
+      "name": "BAIRD W BLAKE",
+      "title": "director, officer: CHAIRMAN AND CEO",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 5769,
+      "price": 71.7,
+      "total_val": 0.41
+    },
+    {
+      "date": "2026-08-05",
+      "name": "COKE MICHAEL A",
+      "title": "director, officer: President",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 28426,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-05",
+      "name": "COKE MICHAEL A",
+      "title": "director, officer: President",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 7460,
+      "price": 71.7,
+      "total_val": 0.53
+    },
+    {
+      "date": "2026-08-05",
+      "name": "Cannon Jaime Jackson",
+      "title": "officer: CFO",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 12081,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-05",
+      "name": "Cannon Jaime Jackson",
+      "title": "officer: CFO",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 3730,
+      "price": 71.7,
+      "total_val": 0.27
+    },
+    {
+      "date": "2026-08-05",
+      "name": "Meyer John Tull",
+      "title": "officer: EVP",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 12081,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

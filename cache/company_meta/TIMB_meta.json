@@ -1,0 +1,116 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-06-29",
+      "name": "Pandolfo Luciene Rodrigues Abrao",
+      "title": "Officer / Director",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-24",
+      "name": "Viegas Marques Andrea Palma",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 35000,
+      "price": 4.32,
+      "total_val": 0.15
+    },
+    {
+      "date": "2026-05-20",
+      "name": "Lima Auana Mattar",
+      "title": "officer: Chief Information Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 8200,
+      "price": 4.42,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-05-07",
+      "name": "Ferreira Vicente De Moraes",
+      "title": "officer: Investor Relations Officer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 3584,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-07",
+      "name": "Ferreira Vicente De Moraes",
+      "title": "officer: Investor Relations Officer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 16949,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-07",
+      "name": "Ferreira Vicente De Moraes",
+      "title": "officer: Investor Relations Officer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 1046,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-07",
+      "name": "Demaria Saverio",
+      "title": "officer: Head Business to Consumer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 6281,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-07",
+      "name": "Demaria Saverio",
+      "title": "officer: Head Business to Consumer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 28588,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-07",
+      "name": "Demaria Saverio",
+      "title": "officer: Head Business to Consumer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 1765,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-07",
+      "name": "Girasole Mario",
+      "title": "officer: See Remarks",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 13739,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2011-08-09",
+      "ratio": "1681 : 1000",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

@@ -1,0 +1,122 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-08-20",
+      "name": "OLUKOTUN ADEOYE Y",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 2000,
+      "price": 86.96,
+      "total_val": 0.17
+    },
+    {
+      "date": "2026-08-20",
+      "name": "PERRY MICHAEL S",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 11600,
+      "price": 87.3,
+      "total_val": 1.01
+    },
+    {
+      "date": "2026-06-17",
+      "name": "Cohen Matthew Gregory",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 11882,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-17",
+      "name": "Cohen Matthew Gregory",
+      "title": "director",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-14",
+      "name": "Lu Hongbo",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 2970,
+      "price": 76.88,
+      "total_val": 0.23
+    },
+    {
+      "date": "2026-04-24",
+      "name": "Apel Daniel Joseph",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 3208,
+      "price": 70.11,
+      "total_val": 0.22
+    },
+    {
+      "date": "2026-04-24",
+      "name": "Apel Daniel Joseph",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 1157,
+      "price": 70.45,
+      "total_val": 0.08
+    },
+    {
+      "date": "2026-04-24",
+      "name": "Apel Daniel Joseph",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 8730,
+      "price": 71.92,
+      "total_val": 0.63
+    },
+    {
+      "date": "2026-04-24",
+      "name": "Hamilton James C",
+      "title": "officer: Chief Medical Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 10000,
+      "price": 75.0,
+      "total_val": 0.75
+    },
+    {
+      "date": "2026-03-09",
+      "name": "Hamilton James C",
+      "title": "officer: Chief Medical Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 10000,
+      "price": 64.19,
+      "total_val": 0.64
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2011-11-17",
+      "ratio": "1 : 10",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2004-01-15",
+      "ratio": "1 : 65",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

@@ -1,0 +1,152 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-06",
+      "name": "ROGERS JAMES E",
+      "title": "director",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 12,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-10",
+      "name": "GOTTWALD BRUCE C",
+      "title": "10 percent owner",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 132,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-01",
+      "name": "ROGERS JAMES E",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 157,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-01",
+      "name": "GAMBILL MARK M",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 157,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-01",
+      "name": "Harris H Hiter III",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 157,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-01",
+      "name": "Ukrop Lowell Simmons",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 157,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-01",
+      "name": "Xu Ting",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 157,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-29",
+      "name": "GOTTWALD THOMAS E",
+      "title": "director, officer: Chairman, President & CEO",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 211,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-08",
+      "name": "GOTTWALD THOMAS E",
+      "title": "director, officer: Chairman, President & CEO",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 1500,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-02-25",
+      "name": "Xu Ting",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 400,
+      "price": 619.21,
+      "total_val": 0.25
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2002-07-01",
+      "ratio": "1 : 5",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1994-03-11",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1993-07-01",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1986-06-02",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1985-04-02",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1983-04-12",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1978-01-03",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

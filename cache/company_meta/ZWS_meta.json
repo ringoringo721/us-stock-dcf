@@ -1,0 +1,116 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-16",
+      "name": "CHRISTOPOUL THOMAS",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 641,
+      "price": 46.83,
+      "total_val": 0.03
+    },
+    {
+      "date": "2026-10-16",
+      "name": "Schooler Rosemary",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 534,
+      "price": 46.83,
+      "total_val": 0.03
+    },
+    {
+      "date": "2026-10-16",
+      "name": "Troy Peggy",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 614,
+      "price": 46.83,
+      "total_val": 0.03
+    },
+    {
+      "date": "2026-10-16",
+      "name": "MOORE GEORGE C",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 668,
+      "price": 46.83,
+      "total_val": 0.03
+    },
+    {
+      "date": "2026-10-16",
+      "name": "Longren David C.",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 614,
+      "price": 46.83,
+      "total_val": 0.03
+    },
+    {
+      "date": "2026-08-21",
+      "name": "Butler Jacques Donavon",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 2016,
+      "price": 49.6,
+      "total_val": 0.1
+    },
+    {
+      "date": "2026-08-06",
+      "name": "PETERSON MARK W",
+      "title": "officer: Chief Administrative Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 25000,
+      "price": 53.02,
+      "total_val": 1.33
+    },
+    {
+      "date": "2026-08-03",
+      "name": "Hersil Angela M",
+      "title": "officer: VP, Mktg, Com, Sus & Pub Aff",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-03",
+      "name": "Hersil Angela M",
+      "title": "officer: VP, Mktg, Com, Sus & Pub Aff",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-03",
+      "name": "Hersil Angela M",
+      "title": "officer: VP, Mktg, Com, Sus & Pub Aff",
+      "is_buy": null,
+      "action": "",
+      "shares": 6278,
+      "price": 11.37,
+      "total_val": 0.07
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2021-10-05",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

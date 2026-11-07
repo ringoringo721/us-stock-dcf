@@ -1,0 +1,128 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-07-07",
+      "name": "Barron Melissa",
+      "title": "officer: Controller",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 260,
+      "price": 75.35,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-07-02",
+      "name": "Barron Melissa",
+      "title": "officer: Controller",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 8673,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-02",
+      "name": "Barron Melissa",
+      "title": "officer: Controller",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 735,
+      "price": 72.46,
+      "total_val": 0.05
+    },
+    {
+      "date": "2026-06-12",
+      "name": "Hughes Catherine",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 2493,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-12",
+      "name": "Hughes Catherine",
+      "title": "director",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 397,
+      "price": 88.98,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-06-12",
+      "name": "LEYKUM ELIZABETH",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 6978,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-12",
+      "name": "LEYKUM ELIZABETH",
+      "title": "director",
+      "is_buy": null,
+      "action": "D-Return",
+      "shares": 2792,
+      "price": 88.98,
+      "total_val": 0.25
+    },
+    {
+      "date": "2026-06-12",
+      "name": "LEYKUM ELIZABETH",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 2849,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-12",
+      "name": "LEYKUM ELIZABETH",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 6978,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-12",
+      "name": "Johansen Kristian",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 1984,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2019-04-11",
+      "ratio": "1 : 4",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1997-09-16",
+      "ratio": "1 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1994-06-02",
+      "ratio": "4 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

@@ -1,0 +1,134 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-08-14",
+      "name": "Mendoza Elaine",
+      "title": "director",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 750,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-05",
+      "name": "McRoberts Michael",
+      "title": "director, other: Senior Advisor and Director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 6500,
+      "price": 15.06,
+      "total_val": 0.1
+    },
+    {
+      "date": "2026-08-05",
+      "name": "McRoberts Michael",
+      "title": "director, other: Senior Advisor and Director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 6500,
+      "price": 81.44,
+      "total_val": 0.53
+    },
+    {
+      "date": "2026-08-05",
+      "name": "McRoberts Michael",
+      "title": "director, other: Senior Advisor and Director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 6500,
+      "price": 15.06,
+      "total_val": 0.1
+    },
+    {
+      "date": "2026-08-03",
+      "name": "RUSH WILLIAM M RUSTY",
+      "title": "director, 10 percent owner, officer: CEO, President and COB",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 71574,
+      "price": 15.06,
+      "total_val": 1.08
+    },
+    {
+      "date": "2026-08-03",
+      "name": "RUSH WILLIAM M RUSTY",
+      "title": "director, 10 percent owner, officer: CEO, President and COB",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 7176,
+      "price": 15.06,
+      "total_val": 0.11
+    },
+    {
+      "date": "2026-08-03",
+      "name": "RUSH WILLIAM M RUSTY",
+      "title": "director, 10 percent owner, officer: CEO, President and COB",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 7176,
+      "price": 80.76,
+      "total_val": 0.58
+    },
+    {
+      "date": "2026-08-03",
+      "name": "RUSH WILLIAM M RUSTY",
+      "title": "director, 10 percent owner, officer: CEO, President and COB",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 71574,
+      "price": 81.05,
+      "total_val": 5.8
+    },
+    {
+      "date": "2026-08-03",
+      "name": "RUSH WILLIAM M RUSTY",
+      "title": "director, 10 percent owner, officer: CEO, President and COB",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 7176,
+      "price": 15.06,
+      "total_val": 0.11
+    },
+    {
+      "date": "2026-08-03",
+      "name": "RUSH WILLIAM M RUSTY",
+      "title": "director, 10 percent owner, officer: CEO, President and COB",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 71574,
+      "price": 15.06,
+      "total_val": 1.08
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2026-09-01",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2023-08-29",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2020-10-13",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2007-10-11",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

@@ -1,0 +1,116 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-02",
+      "name": "SIEGEL MATTHEW",
+      "title": "officer: EVP, CFO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 25000,
+      "price": 27.84,
+      "total_val": 0.7
+    },
+    {
+      "date": "2026-09-21",
+      "name": "BARRETT MICHAEL G.",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 265,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-21",
+      "name": "BARRETT MICHAEL G.",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 6047,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-21",
+      "name": "BARRETT MICHAEL G.",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 6047,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-21",
+      "name": "Pangis Nicolle Deanna",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 265,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-21",
+      "name": "Pangis Nicolle Deanna",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 6047,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-21",
+      "name": "Pangis Nicolle Deanna",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 6047,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-04",
+      "name": "Bonanni Mark Emilio",
+      "title": "officer: EVP, CRO, Commercial",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 3385,
+      "price": 29.82,
+      "total_val": 0.1
+    },
+    {
+      "date": "2026-08-24",
+      "name": "Norton James Michael",
+      "title": "officer: EVP, CRO, Enterprise",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 426,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-24",
+      "name": "Norton James Michael",
+      "title": "officer: EVP, CRO, Enterprise",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 10593,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2025-01-17",
+      "ratio": "122 : 125",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

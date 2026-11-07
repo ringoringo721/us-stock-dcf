@@ -1,0 +1,146 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-09-09",
+      "name": "Lewis Sheri",
+      "title": "officer: EVP of Global Operations",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 8371,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-01",
+      "name": "Lewis Sheri",
+      "title": "Officer / Director",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-25",
+      "name": "Peterson Neil W.",
+      "title": "officer: CHIEF OPERATING OFFICER",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 7500,
+      "price": 90.45,
+      "total_val": 0.68
+    },
+    {
+      "date": "2026-08-25",
+      "name": "Voigt Michel J.",
+      "title": "officer: CHIEF HUMAN RESOURCES OFFICER",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 650,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-05",
+      "name": "Peterson Neil W.",
+      "title": "officer: CHIEF OPERATING OFFICER",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 21449,
+      "price": 85.0,
+      "total_val": 1.82
+    },
+    {
+      "date": "2026-06-17",
+      "name": "Voigt Michel J.",
+      "title": "officer: CHIEF HUMAN RESOURCES OFFICER",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 65,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-08",
+      "name": "Lloyd Brian G.",
+      "title": "officer: CHIEF LEGAL OFFICER, SECRETARY",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 2000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-21",
+      "name": "Gunderson Thomas J.",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 7500,
+      "price": 52.17,
+      "total_val": 0.39
+    },
+    {
+      "date": "2026-05-21",
+      "name": "Gunderson Thomas J.",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 13750,
+      "price": 52.17,
+      "total_val": 0.72
+    },
+    {
+      "date": "2026-05-21",
+      "name": "Gunderson Thomas J.",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 7500,
+      "price": 52.17,
+      "total_val": 0.39
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2011-05-06",
+      "ratio": "5 : 4",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2003-12-03",
+      "ratio": "4 : 3",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2003-08-15",
+      "ratio": "4 : 3",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2002-04-12",
+      "ratio": "5 : 4",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2001-08-28",
+      "ratio": "5 : 4",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1991-07-16",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

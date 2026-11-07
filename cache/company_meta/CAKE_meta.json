@@ -1,0 +1,140 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-30",
+      "name": "Clark Matthew Eliot",
+      "title": "officer: EXEC VP, CFO",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 23832,
+      "price": 40.42,
+      "total_val": 0.96
+    },
+    {
+      "date": "2026-10-30",
+      "name": "Clark Matthew Eliot",
+      "title": "officer: EXEC VP, CFO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 23832,
+      "price": 113.31,
+      "total_val": 2.7
+    },
+    {
+      "date": "2026-10-30",
+      "name": "Clark Matthew Eliot",
+      "title": "officer: EXEC VP, CFO",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 23832,
+      "price": 40.42,
+      "total_val": 0.96
+    },
+    {
+      "date": "2026-10-30",
+      "name": "CAPPELLO ALEXANDER L",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 425,
+      "price": 113.71,
+      "total_val": 0.05
+    },
+    {
+      "date": "2026-10-30",
+      "name": "May Scarlett",
+      "title": "officer: EVP, GENERAL COUNSEL",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 2939,
+      "price": 114.12,
+      "total_val": 0.34
+    },
+    {
+      "date": "2026-09-03",
+      "name": "KRANSDORF JEROME I",
+      "title": "director",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 200,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-28",
+      "name": "KRANSDORF JEROME I",
+      "title": "director",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 800,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-18",
+      "name": "Meyer Janice L.",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 1958,
+      "price": 109.36,
+      "total_val": 0.21
+    },
+    {
+      "date": "2026-08-12",
+      "name": "Gordon David M",
+      "title": "officer: PRESIDENT",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 5826,
+      "price": 34.91,
+      "total_val": 0.2
+    },
+    {
+      "date": "2026-08-12",
+      "name": "Gordon David M",
+      "title": "officer: PRESIDENT",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 11040,
+      "price": 40.16,
+      "total_val": 0.44
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2004-12-09",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2001-06-19",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2000-06-09",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1998-04-02",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1994-03-16",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

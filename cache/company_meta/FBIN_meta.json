@@ -1,0 +1,116 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-09-29",
+      "name": "Clifford Peter G",
+      "title": "officer: EVP & CFO",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 130000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-29",
+      "name": "Clifford Peter G",
+      "title": "officer: EVP & CFO",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 65000,
+      "price": 38.43,
+      "total_val": 2.5
+    },
+    {
+      "date": "2026-09-29",
+      "name": "Clifford Peter G",
+      "title": "officer: EVP & CFO",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 10212,
+      "price": 38.43,
+      "total_val": 0.39
+    },
+    {
+      "date": "2026-09-29",
+      "name": "Clifford Peter G",
+      "title": "officer: EVP & CFO",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 3651,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-29",
+      "name": "Clifford Peter G",
+      "title": "officer: EVP & CFO",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-29",
+      "name": "Finan Irial",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 943,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-10",
+      "name": "Singh Jesse G",
+      "title": "director, officer: Chief Executive Officer",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 19560,
+      "price": 50.93,
+      "total_val": 1.0
+    },
+    {
+      "date": "2026-08-10",
+      "name": "Singh Jesse G",
+      "title": "director, officer: Chief Executive Officer",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 5281,
+      "price": 52.23,
+      "total_val": 0.28
+    },
+    {
+      "date": "2026-08-10",
+      "name": "Singh Jesse G",
+      "title": "director, officer: Chief Executive Officer",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 14444,
+      "price": 51.46,
+      "total_val": 0.74
+    },
+    {
+      "date": "2026-08-10",
+      "name": "Novak Matthew Edward",
+      "title": "officer: EVP, Chief Supply Chain",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 600,
+      "price": 51.13,
+      "total_val": 0.03
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2022-12-15",
+      "ratio": "117 : 100",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

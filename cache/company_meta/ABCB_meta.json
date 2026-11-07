@@ -1,0 +1,134 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-30",
+      "name": "PROCTOR H PALMER JR",
+      "title": "director, officer: CEO",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 6026,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-16",
+      "name": "STERN WILLIAM H",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 279,
+      "price": 84.98,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-09-16",
+      "name": "Bullard Rodney D",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 220,
+      "price": 84.98,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-08-19",
+      "name": "MILLER JAMES B JR",
+      "title": "director",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 22279,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-19",
+      "name": "MILLER JAMES B JR",
+      "title": "director",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 22279,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-19",
+      "name": "Strange Douglas D",
+      "title": "officer: Chief Credit Officer",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 120,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-13",
+      "name": "Boggs David McLeod",
+      "title": "officer: Chief Risk Officer",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-24",
+      "name": "Bullard Rodney D",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 214,
+      "price": 87.48,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-06-24",
+      "name": "STERN WILLIAM H",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 271,
+      "price": 87.48,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-05-26",
+      "name": "LYNCH ROBERT P",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 1003,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2005-03-11",
+      "ratio": "6 : 5",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1999-12-13",
+      "ratio": "6 : 5",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1997-05-01",
+      "ratio": "5 : 4",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1995-08-01",
+      "ratio": "4 : 3",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

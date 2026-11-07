@@ -1,0 +1,116 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-05",
+      "name": "Prishkolnik Rachel",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 1015,
+      "price": 25.72,
+      "total_val": 0.03
+    },
+    {
+      "date": "2026-06-02",
+      "name": "Gottlieb Dov",
+      "title": "officer: EVP and General Counsel",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 9264,
+      "price": 34.15,
+      "total_val": 0.32
+    },
+    {
+      "date": "2026-05-22",
+      "name": "Melamed Guy",
+      "title": "officer: CFO and COO",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 104440,
+      "price": 23.1,
+      "total_val": 2.41
+    },
+    {
+      "date": "2026-05-01",
+      "name": "Aued Carlos",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 7224,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-01",
+      "name": "COMOLLI KEVIN E",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 7224,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-01",
+      "name": "GAVIN JOHN J JR",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 7224,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-01",
+      "name": "Iohan Gili",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 7224,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-01",
+      "name": "Kess Avrohom J.",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 7224,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-01",
+      "name": "Korkus Ohad",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 7224,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-01",
+      "name": "MENDOZA THOMAS F",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 7224,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2021-03-15",
+      "ratio": "3 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

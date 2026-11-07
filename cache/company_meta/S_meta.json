@@ -1,0 +1,122 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-09",
+      "name": "Parekh Sonalee Elizabeth",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 16304,
+      "price": 25.35,
+      "total_val": 0.41
+    },
+    {
+      "date": "2026-10-06",
+      "name": "Pinczuk Ana G.",
+      "title": "director, officer: President Product & Technology",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 16042,
+      "price": 25.33,
+      "total_val": 0.41
+    },
+    {
+      "date": "2026-10-06",
+      "name": "PADGETT BARRY L.",
+      "title": "officer: President and COO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 15460,
+      "price": 25.33,
+      "total_val": 0.39
+    },
+    {
+      "date": "2026-10-06",
+      "name": "Parekh Sonalee Elizabeth",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 51703,
+      "price": 25.33,
+      "total_val": 1.31
+    },
+    {
+      "date": "2026-10-06",
+      "name": "Weingarten Tomer",
+      "title": "director, officer: President, CEO",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 500000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-06",
+      "name": "Weingarten Tomer",
+      "title": "director, officer: President, CEO",
+      "is_buy": null,
+      "action": "C-Conversion",
+      "shares": 500000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-06",
+      "name": "Weingarten Tomer",
+      "title": "director, officer: President, CEO",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 500000,
+      "price": 9.74,
+      "total_val": 4.87
+    },
+    {
+      "date": "2026-10-06",
+      "name": "Weingarten Tomer",
+      "title": "director, officer: President, CEO",
+      "is_buy": null,
+      "action": "C-Conversion",
+      "shares": 500000,
+      "price": 9.74,
+      "total_val": 4.87
+    },
+    {
+      "date": "2026-10-06",
+      "name": "Weingarten Tomer",
+      "title": "director, officer: President, CEO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 527368,
+      "price": 25.26,
+      "total_val": 13.32
+    },
+    {
+      "date": "2026-09-15",
+      "name": "Weingarten Tomer",
+      "title": "director, officer: President, CEO",
+      "is_buy": null,
+      "action": "C-Conversion",
+      "shares": 57941,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "1999-06-07",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1989-12-29",
+      "ratio": "1 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

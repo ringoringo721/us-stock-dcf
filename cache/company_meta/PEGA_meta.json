@@ -1,0 +1,122 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-06",
+      "name": "STILLWELL KENNETH",
+      "title": "officer: COO, CFO",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 25920,
+      "price": 16.95,
+      "total_val": 0.44
+    },
+    {
+      "date": "2026-11-06",
+      "name": "STILLWELL KENNETH",
+      "title": "officer: COO, CFO",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 17664,
+      "price": 35.7,
+      "total_val": 0.63
+    },
+    {
+      "date": "2026-11-06",
+      "name": "STILLWELL KENNETH",
+      "title": "officer: COO, CFO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 16256,
+      "price": 35.54,
+      "total_val": 0.58
+    },
+    {
+      "date": "2026-11-06",
+      "name": "STILLWELL KENNETH",
+      "title": "officer: COO, CFO",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 25920,
+      "price": 16.95,
+      "total_val": 0.44
+    },
+    {
+      "date": "2026-11-04",
+      "name": "LEDINGHAM DIANNE",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 1000,
+      "price": 34.03,
+      "total_val": 0.03
+    },
+    {
+      "date": "2026-11-02",
+      "name": "WEBER LARRY",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 2974,
+      "price": 33.71,
+      "total_val": 0.1
+    },
+    {
+      "date": "2026-10-30",
+      "name": "Akgonul Rifat Kerim",
+      "title": "officer: Chief Product Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 7084,
+      "price": 35.22,
+      "total_val": 0.25
+    },
+    {
+      "date": "2026-10-05",
+      "name": "LEDINGHAM DIANNE",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 1000,
+      "price": 34.15,
+      "total_val": 0.03
+    },
+    {
+      "date": "2026-09-17",
+      "name": "LEDINGHAM DIANNE",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 1000,
+      "price": 38.0,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-09-17",
+      "name": "KOUNINIS EFSTATHIOS A",
+      "title": "officer: SVP, Chief Accounting Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 982,
+      "price": 37.35,
+      "total_val": 0.04
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2025-06-23",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2014-04-02",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

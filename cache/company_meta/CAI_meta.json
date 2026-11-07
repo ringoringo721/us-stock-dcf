@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-09-23",
+      "name": "Denton John Russel",
+      "title": "officer: See Remarks",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 7500,
+      "price": 31.82,
+      "total_val": 0.24
+    },
+    {
+      "date": "2026-09-17",
+      "name": "Brille Brian J",
+      "title": "director, officer: See Remarks",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 400000,
+      "price": 2.44,
+      "total_val": 0.98
+    },
+    {
+      "date": "2026-09-17",
+      "name": "Brille Brian J",
+      "title": "director, officer: See Remarks",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 400000,
+      "price": 2.44,
+      "total_val": 0.98
+    },
+    {
+      "date": "2026-09-17",
+      "name": "Brille Brian J",
+      "title": "director, officer: See Remarks",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 400000,
+      "price": 30.33,
+      "total_val": 12.13
+    },
+    {
+      "date": "2026-09-04",
+      "name": "Spetzler David Baxley",
+      "title": "officer: President",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 1000000,
+      "price": 2.44,
+      "total_val": 2.44
+    },
+    {
+      "date": "2026-09-04",
+      "name": "Spetzler David Baxley",
+      "title": "officer: President",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 250000,
+      "price": 2.44,
+      "total_val": 0.61
+    },
+    {
+      "date": "2026-09-04",
+      "name": "Spetzler David Baxley",
+      "title": "officer: President",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 119212,
+      "price": 24.76,
+      "total_val": 2.95
+    },
+    {
+      "date": "2026-09-04",
+      "name": "Spetzler David Baxley",
+      "title": "officer: President",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 393100,
+      "price": 24.76,
+      "total_val": 9.73
+    },
+    {
+      "date": "2026-09-04",
+      "name": "Spetzler David Baxley",
+      "title": "officer: President",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 84900,
+      "price": 25.32,
+      "total_val": 2.15
+    },
+    {
+      "date": "2026-09-04",
+      "name": "Spetzler David Baxley",
+      "title": "officer: President",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 1000000,
+      "price": 2.44,
+      "total_val": 2.44
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

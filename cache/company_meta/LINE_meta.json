@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-09-25",
+      "name": "Beiboer Paul Gijsbert",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 3672,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-25",
+      "name": "Beiboer Paul Gijsbert",
+      "title": "director: ",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-01",
+      "name": "Marchetti Kevin Patrick",
+      "title": "director, 10 percent owner, officer: Co-Executive Chairman",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 25000,
+      "price": 39.5,
+      "total_val": 0.99
+    },
+    {
+      "date": "2026-08-10",
+      "name": "LeMasters Robb A.",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 20000,
+      "price": 41.33,
+      "total_val": 0.83
+    },
+    {
+      "date": "2026-06-11",
+      "name": "ARCHAMBEAU SHELLYE L",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 4490,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-11",
+      "name": "Falotico Nancy Joy",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 4490,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-11",
+      "name": "Turner Michael John",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 4490,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-11",
+      "name": "Wentworth Lynn A",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 4490,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-04-27",
+      "name": "Fleming Abigail S",
+      "title": "officer: Chief Accounting Officer",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 205,
+      "price": 35.55,
+      "total_val": 0.01
+    },
+    {
+      "date": "2026-04-03",
+      "name": "Lehmkuhl Greg",
+      "title": "director, officer: President & CEO",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 68334,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

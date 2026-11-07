@@ -1,0 +1,116 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-05",
+      "name": "SANTORO NICOLA JR",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 100000,
+      "price": 9.51,
+      "total_val": 0.95
+    },
+    {
+      "date": "2026-11-03",
+      "name": "SANTORO NICOLA JR",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 2312,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-03",
+      "name": "SANTORO NICOLA JR",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 2281,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-03",
+      "name": "SANTORO NICOLA JR",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 570,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-03",
+      "name": "SANTORO NICOLA JR",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 897,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-03",
+      "name": "SANTORO NICOLA JR",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 897,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-03",
+      "name": "Sivin Philip M",
+      "title": "officer: Chief Legal Officer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 859,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-03",
+      "name": "Sivin Philip M",
+      "title": "officer: Chief Legal Officer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 648,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-03",
+      "name": "Sivin Philip M",
+      "title": "officer: Chief Legal Officer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 162,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-03",
+      "name": "Sivin Philip M",
+      "title": "officer: Chief Legal Officer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 299,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2014-10-20",
+      "ratio": "1 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

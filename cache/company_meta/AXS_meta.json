@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-02",
+      "name": "SMITH HENRY B",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 4893,
+      "price": 106.15,
+      "total_val": 0.52
+    },
+    {
+      "date": "2026-11-02",
+      "name": "Kirk Matthew",
+      "title": "officer: CFO",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 1063,
+      "price": 104.87,
+      "total_val": 0.11
+    },
+    {
+      "date": "2026-06-15",
+      "name": "Patiath Pradip",
+      "title": "director: ",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-03",
+      "name": "Tizzio Vincent C",
+      "title": "director, officer: President and CEO",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 60662,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-03",
+      "name": "Tizzio Vincent C",
+      "title": "director, officer: President and CEO",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 31029,
+      "price": 95.9,
+      "total_val": 2.98
+    },
+    {
+      "date": "2026-06-03",
+      "name": "Tizzio Vincent C",
+      "title": "director, officer: President and CEO",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 2586,
+      "price": 95.9,
+      "total_val": 0.25
+    },
+    {
+      "date": "2026-05-08",
+      "name": "SMITH HENRY B",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 2542,
+      "price": 98.69,
+      "total_val": 0.25
+    },
+    {
+      "date": "2026-04-01",
+      "name": "Kirk Matthew",
+      "title": "officer: CFO",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-03-03",
+      "name": "Brooks Conrad D.",
+      "title": "officer: Chief Admin and Legal Officer",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 3983,
+      "price": 105.72,
+      "total_val": 0.42
+    },
+    {
+      "date": "2026-03-03",
+      "name": "Brooks Conrad D.",
+      "title": "officer: Chief Admin and Legal Officer",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 3303,
+      "price": 105.72,
+      "total_val": 0.35
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

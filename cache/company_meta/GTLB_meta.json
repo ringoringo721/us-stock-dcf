@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-21",
+      "name": "Sijbrandij Sytse",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 73459,
+      "price": 53.13,
+      "total_val": 3.9
+    },
+    {
+      "date": "2026-10-21",
+      "name": "Sijbrandij Sytse",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 42741,
+      "price": 53.52,
+      "total_val": 2.29
+    },
+    {
+      "date": "2026-10-01",
+      "name": "Staples William",
+      "title": "director, officer: Chief Executive Officer",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 2677,
+      "price": 46.62,
+      "total_val": 0.12
+    },
+    {
+      "date": "2026-09-28",
+      "name": "Padisetty Sivaprasad",
+      "title": "officer: Chief Technology Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 12900,
+      "price": 44.83,
+      "total_val": 0.58
+    },
+    {
+      "date": "2026-09-28",
+      "name": "Padisetty Sivaprasad",
+      "title": "officer: Chief Technology Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 33095,
+      "price": 46.05,
+      "total_val": 1.52
+    },
+    {
+      "date": "2026-09-28",
+      "name": "Padisetty Sivaprasad",
+      "title": "officer: Chief Technology Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 5920,
+      "price": 46.32,
+      "total_val": 0.27
+    },
+    {
+      "date": "2026-09-28",
+      "name": "Sijbrandij Sytse",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 842084,
+      "price": 48.55,
+      "total_val": 40.88
+    },
+    {
+      "date": "2026-09-28",
+      "name": "Sijbrandij Sytse",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 138626,
+      "price": 49.12,
+      "total_val": 6.81
+    },
+    {
+      "date": "2026-09-28",
+      "name": "Sijbrandij Sytse",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 281121,
+      "price": 47.25,
+      "total_val": 13.28
+    },
+    {
+      "date": "2026-09-28",
+      "name": "Sijbrandij Sytse",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 424369,
+      "price": 48.08,
+      "total_val": 20.4
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

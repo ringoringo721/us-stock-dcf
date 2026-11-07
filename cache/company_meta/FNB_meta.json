@@ -1,0 +1,170 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-08-07",
+      "name": "David Bryant Mitchell",
+      "title": "officer: Chief Wholesale Banking Office",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 4055,
+      "price": 19.25,
+      "total_val": 0.08
+    },
+    {
+      "date": "2026-06-12",
+      "name": "GUERRIERI GARY L",
+      "title": "officer: Chief Credit Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 19000,
+      "price": 18.53,
+      "total_val": 0.35
+    },
+    {
+      "date": "2026-05-08",
+      "name": "STRIMBU WILLIAM J",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 4748,
+      "price": 17.9,
+      "total_val": 0.08
+    },
+    {
+      "date": "2026-05-08",
+      "name": "STANIK JOHN S",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 5027,
+      "price": 17.9,
+      "total_val": 0.09
+    },
+    {
+      "date": "2026-05-08",
+      "name": "Nicholas Heidi A",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 5027,
+      "price": 17.9,
+      "total_val": 0.09
+    },
+    {
+      "date": "2026-05-08",
+      "name": "MOTLEY DAVID L",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 4748,
+      "price": 17.9,
+      "total_val": 0.08
+    },
+    {
+      "date": "2026-05-08",
+      "name": "Mencini Frank C",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 5027,
+      "price": 17.9,
+      "total_val": 0.09
+    },
+    {
+      "date": "2026-05-08",
+      "name": "Mencini Frank C",
+      "title": "director",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 200,
+      "price": 17.9,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-08",
+      "name": "MALONE DAVID J",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 5027,
+      "price": 17.9,
+      "total_val": 0.09
+    },
+    {
+      "date": "2026-05-08",
+      "name": "Dively Mary Jo",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 4748,
+      "price": 17.9,
+      "total_val": 0.08
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2003-05-13",
+      "ratio": "21 : 20",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2002-05-15",
+      "ratio": "21 : 20",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2001-05-01",
+      "ratio": "21 : 20",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2000-04-26",
+      "ratio": "21 : 20",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1999-05-04",
+      "ratio": "21 : 20",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1998-04-16",
+      "ratio": "21 : 20",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1997-04-29",
+      "ratio": "21 : 20",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1996-04-29",
+      "ratio": "21 : 20",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1995-05-04",
+      "ratio": "21 : 20",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1994-05-04",
+      "ratio": "21 : 20",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}
