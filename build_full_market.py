@@ -1557,752 +1557,766 @@ def main():
         sym = stock_item.get("ticker", "").strip().upper()
         if not sym:
             continue
+        try:
         
-        fmp_sym = sym if sym.endswith(".HK") else sym.replace(".", "")
+            fmp_sym = sym if sym.endswith(".HK") else sym.replace(".", "")
 
-        # 0. 抓取企業 Profile
-        prof_data = fetch_json("profile", {"symbol": fmp_sym})
-        prof = prof_data[0] if (prof_data and isinstance(prof_data, list) and len(prof_data) > 0) else {}
+            # 0. 抓取企業 Profile
+            prof_data = fetch_json("profile", {"symbol": fmp_sym})
+            prof = prof_data[0] if (prof_data and isinstance(prof_data, list) and len(prof_data) > 0) else {}
 
-        company_full_name = prof.get("companyName") or stock_item.get("name", sym)
-        image_url = prof.get("image") or f"https://assets.financialmodelingprep.com/symbol/{sym}.png"
-        website = prof.get("website") or ""
-        ceo = prof.get("ceo") or "Executive Committee"
-        employees = prof.get("fullTimeEmployees") or "--"
-        description_en = prof.get("description") or "A publicly traded equity on major exchanges."
+            company_full_name = prof.get("companyName") or stock_item.get("name", sym)
+            image_url = prof.get("image") or f"https://assets.financialmodelingprep.com/symbol/{sym}.png"
+            website = prof.get("website") or ""
+            ceo = prof.get("ceo") or "Executive Committee"
+            employees = prof.get("fullTimeEmployees") or "--"
+            description_en = prof.get("description") or "A publicly traded equity on major exchanges."
 
-        ai_desc_zh = get_deep_chinese_description(sym, company_full_name, description_en)
-        if ai_desc_zh:
-            description_zh = ai_desc_zh
-        else:
-            market_label = "港股代碼" if sym.endswith(".HK") else "美股代碼"
-            description_zh = f"{company_full_name}（{market_label}：{sym}）為 {stock_item.get('sector', '')} 領域之重要企業，專注於 {stock_item.get('industry', '')} 業務，具備清晰之商業壁壘與現金流創造能力。"
+            ai_desc_zh = get_deep_chinese_description(sym, company_full_name, description_en)
+            if ai_desc_zh:
+                description_zh = ai_desc_zh
+            else:
+                market_label = "港股代碼" if sym.endswith(".HK") else "美股代碼"
+                description_zh = f"{company_full_name}（{market_label}：{sym}）為 {stock_item.get('sector', '')} 領域之重要企業，專注於 {stock_item.get('industry', '')} 業務，具備清晰之商業壁壘與現金流創造能力。"
         
-        entity_id = get_canonical_entity_id(prof, sym)
+            entity_id = get_canonical_entity_id(prof, sym)
 
-        # 1. 抓取即時報價與市值
-        q_data = fetch_json("quote", {"symbol": fmp_sym})
-        price, mcap, shares = 0.0, 0.0, 0.0
-        if q_data and isinstance(q_data, list) and len(q_data) > 0:
-            q = q_data[0]
-            price = float(q.get("price") or 0.0)
-            mcap_raw = float(q.get("marketCap") or 0.0)
-            mcap = round(mcap_raw / 1e6, 1) if mcap_raw > 0 else 0.0
-        share_rows = fetch_json("shares-float", {"symbol": sym.replace(".", "-")})
-        today = time.strftime("%Y-%m-%d", time.gmtime())
-        share_row = outstanding_share_record(share_rows, sym.replace(".", "-"), today)
-        share_row = resolve_outstanding_shares(sym, share_row, expansion_mode=US_EXPANSION_MODE)
-        if not share_row:
-            us_expansion_skipped.append({
-                "ticker": sym,
-                "reason": "verifiedOutstandingSharesUnavailable",
-            })
-            print(
-                f"[{stock_idx:03d}/{len(UNIQUE_STOCKS)}] ⏭️ {sym} skipped (no verified outstanding shares); "
-                f"continuing batch",
-                flush=True,
-            )
-            continue
-        shares = share_row["outstandingShares"] / 1e6
-        share_source = {"shares": shares, "date": share_row["date"][:10],
-                        "basis": "commonSharesOutstandingExcludingTreasury",
-                        "source": "FMP shares-float outstandingShares", "providerSource": share_row.get("source"),
-                        "capturedAt": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())}
+            # 1. 抓取即時報價與市值
+            q_data = fetch_json("quote", {"symbol": fmp_sym})
+            price, mcap, shares = 0.0, 0.0, 0.0
+            if q_data and isinstance(q_data, list) and len(q_data) > 0:
+                q = q_data[0]
+                price = float(q.get("price") or 0.0)
+                mcap_raw = float(q.get("marketCap") or 0.0)
+                mcap = round(mcap_raw / 1e6, 1) if mcap_raw > 0 else 0.0
+            share_rows = fetch_json("shares-float", {"symbol": sym.replace(".", "-")})
+            today = time.strftime("%Y-%m-%d", time.gmtime())
+            share_row = outstanding_share_record(share_rows, sym.replace(".", "-"), today)
+            share_row = resolve_outstanding_shares(sym, share_row, expansion_mode=US_EXPANSION_MODE)
+            if not share_row:
+                us_expansion_skipped.append({
+                    "ticker": sym,
+                    "reason": "verifiedOutstandingSharesUnavailable",
+                })
+                print(
+                    f"[{stock_idx:03d}/{len(UNIQUE_STOCKS)}] ⏭️ {sym} skipped (no verified outstanding shares); "
+                    f"continuing batch",
+                    flush=True,
+                )
+                continue
+            shares = share_row["outstandingShares"] / 1e6
+            share_source = {"shares": shares, "date": share_row["date"][:10],
+                            "basis": "commonSharesOutstandingExcludingTreasury",
+                            "source": "FMP shares-float outstandingShares", "providerSource": share_row.get("source"),
+                            "capturedAt": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())}
 
-        if price <= 0: price = 150.0
-        if mcap <= 0: mcap = 100000.0
-        time.sleep(0.04)
+            if price <= 0: price = 150.0
+            if mcap <= 0: mcap = 100000.0
+            time.sleep(0.04)
 
-        # 1.1 取得 13F 機構股東、內部人與拆股數據
-        company_meta = fetch_cached_company_meta(fmp_sym, sym, shares, price, stock_item.get("sector", ""))
-        real_inst_ownership = company_meta.get("inst_ownership_pct")
-        real_insider_ownership = company_meta.get("insider_ownership_pct")
+            # 1.1 取得 13F 機構股東、內部人與拆股數據
+            company_meta = fetch_cached_company_meta(fmp_sym, sym, shares, price, stock_item.get("sector", ""))
+            real_inst_ownership = company_meta.get("inst_ownership_pct")
+            real_insider_ownership = company_meta.get("insider_ownership_pct")
         
-        # 2. 資產負債表
-        bs_data = fetch_json("balance-sheet-statement", {"symbol": fmp_sym, "period": "quarter", "limit": 1})
-        fin_cache = fetch_cached_financial_statements(fmp_sym, sym) or {}
-        statement_rows = [
-            row for period in ("annual", "quarterly")
-            for rows in fin_cache.get(period, {}).values() if isinstance(rows, list)
-            for row in rows
-        ]
-        if any(row.get("reportedCurrency") != "USD" for row in statement_rows):
-            normalized = subprocess.run(
-                ["node", os.path.join(os.path.dirname(__file__), "scripts", "usd_financials.cjs"), "--statements"],
-                input=json.dumps(fin_cache), text=True, capture_output=True, check=True
-            )
-            fin_cache = json.loads(normalized.stdout)
-            bs_data = fin_cache.get("quarterly", {}).get("balance", [])[:1]
-        debt, cash, equity, total_assets = 0.0, 0.0, None, None
-        short_term_inv = 0.0
-        goodwill_and_intangibles = 0.0
-        liab_r, cash_to_assets, cr = 40.0, 0.0, 1.50
-        reported_currency = "USD"
-        latest_period = "LATEST"
-        has_balance_sheet = False
+            # 2. 資產負債表
+            bs_data = fetch_json("balance-sheet-statement", {"symbol": fmp_sym, "period": "quarter", "limit": 1})
+            fin_cache = fetch_cached_financial_statements(fmp_sym, sym) or {}
+            statement_rows = [
+                row for period in ("annual", "quarterly")
+                for rows in fin_cache.get(period, {}).values() if isinstance(rows, list)
+                for row in rows
+            ]
+            if any(row.get("reportedCurrency") != "USD" for row in statement_rows):
+                normalized = subprocess.run(
+                    ["node", os.path.join(os.path.dirname(__file__), "scripts", "usd_financials.cjs"), "--statements"],
+                    input=json.dumps(fin_cache), text=True, capture_output=True, check=True
+                )
+                fin_cache = json.loads(normalized.stdout)
+                bs_data = fin_cache.get("quarterly", {}).get("balance", [])[:1]
+            debt, cash, equity, total_assets = 0.0, 0.0, None, None
+            short_term_inv = 0.0
+            goodwill_and_intangibles = 0.0
+            liab_r, cash_to_assets, cr = 40.0, 0.0, 1.50
+            reported_currency = "USD"
+            latest_period = "LATEST"
+            has_balance_sheet = False
 
-        if sym in ["TSM"]:
-            reported_currency = "TWD"
+            if sym in ["TSM"]:
+                reported_currency = "TWD"
 
-        if bs_data and isinstance(bs_data, list) and len(bs_data) > 0:
-            bs = bs_data[0]
-            yr = bs.get("calendarYear") or bs.get("fiscalYear") or ""
-            prd = bs.get("period") or ""
-            if yr and prd:
-                latest_period = f"{yr}{prd}"
+            if bs_data and isinstance(bs_data, list) and len(bs_data) > 0:
+                bs = bs_data[0]
+                yr = bs.get("calendarYear") or bs.get("fiscalYear") or ""
+                prd = bs.get("period") or ""
+                if yr and prd:
+                    latest_period = f"{yr}{prd}"
 
-            if bs.get("reportedCurrency"):
-                reported_currency = bs.get("sourceReportedCurrency") or bs.get("reportedCurrency")
+                if bs.get("reportedCurrency"):
+                    reported_currency = bs.get("sourceReportedCurrency") or bs.get("reportedCurrency")
 
-            st_debt = float(bs.get("shortTermDebt") or 0.0)
-            lt_debt = float(bs.get("longTermDebt") or 0.0)
-            tot_debt_raw = float(bs.get("totalDebt") or 0.0)
+                st_debt = float(bs.get("shortTermDebt") or 0.0)
+                lt_debt = float(bs.get("longTermDebt") or 0.0)
+                tot_debt_raw = float(bs.get("totalDebt") or 0.0)
 
-            if tot_debt_raw <= 0 and (st_debt + lt_debt) > 0:
-                tot_debt_raw = st_debt + lt_debt
-            elif tot_debt_raw <= 0:
-                tot_debt_raw = lt_debt
+                if tot_debt_raw <= 0 and (st_debt + lt_debt) > 0:
+                    tot_debt_raw = st_debt + lt_debt
+                elif tot_debt_raw <= 0:
+                    tot_debt_raw = lt_debt
 
-            cash_only = float(bs.get("cashAndCashEquivalents") or 0.0)
-            short_term_inv = float(bs.get("shortTermInvestments") or 0.0)
-            tot_cash_raw = float(bs.get("cashAndShortTermInvestments") or 0.0)
+                cash_only = float(bs.get("cashAndCashEquivalents") or 0.0)
+                short_term_inv = float(bs.get("shortTermInvestments") or 0.0)
+                tot_cash_raw = float(bs.get("cashAndShortTermInvestments") or 0.0)
 
-            if tot_cash_raw <= 0:
-                tot_cash_raw = cash_only + short_term_inv
-            elif short_term_inv > 0 and tot_cash_raw == cash_only:
-                tot_cash_raw += short_term_inv
+                if tot_cash_raw <= 0:
+                    tot_cash_raw = cash_only + short_term_inv
+                elif short_term_inv > 0 and tot_cash_raw == cash_only:
+                    tot_cash_raw += short_term_inv
 
-            debt = round(tot_debt_raw / 1e6, 1)
-            cash = round(tot_cash_raw / 1e6, 1)
-            short_term_inv = round(short_term_inv / 1e6, 1)
+                debt = round(tot_debt_raw / 1e6, 1)
+                cash = round(tot_cash_raw / 1e6, 1)
+                short_term_inv = round(short_term_inv / 1e6, 1)
 
-            if sym == "NVDA" and cash > 80000:
-                cash = round(cash / 3.0, 1)
-            if sym in ["GOOGL", "GOOG"] and cash > 200000:
-                cash = round(cash / 2.5, 1)
+                if sym == "NVDA" and cash > 80000:
+                    cash = round(cash / 3.0, 1)
+                if sym in ["GOOGL", "GOOG"] and cash > 200000:
+                    cash = round(cash / 2.5, 1)
 
-            # Never substitute missing equity with 1.0 — that made P/B ≈ mcap×1e6 (AMRO-class).
-            equity_raw = bs.get("totalStockholdersEquity")
-            try:
-                equity = float(equity_raw) if equity_raw is not None and equity_raw != "" else None
-            except (TypeError, ValueError):
-                equity = None
-            if equity is not None and not math.isfinite(equity):
-                equity = None
-            has_balance_sheet = True
+                # Never substitute missing equity with 1.0 — that made P/B ≈ mcap×1e6 (AMRO-class).
+                equity_raw = bs.get("totalStockholdersEquity")
+                try:
+                    equity = float(equity_raw) if equity_raw is not None and equity_raw != "" else None
+                except (TypeError, ValueError):
+                    equity = None
+                if equity is not None and not math.isfinite(equity):
+                    equity = None
+                has_balance_sheet = True
 
-            gw = float(bs.get("goodwill") or 0.0)
-            intangibles = float(bs.get("intangibleAssets") or bs.get("goodwillAndIntangibleAssets") or 0.0)
-            goodwill_and_intangibles = max(gw + intangibles, float(bs.get("goodwillAndIntangibleAssets") or 0.0))
+                gw = float(bs.get("goodwill") or 0.0)
+                intangibles = float(bs.get("intangibleAssets") or bs.get("goodwillAndIntangibleAssets") or 0.0)
+                goodwill_and_intangibles = max(gw + intangibles, float(bs.get("goodwillAndIntangibleAssets") or 0.0))
 
-            total_liab = float(bs.get("totalLiabilities") or 0.0)
-            assets_raw = bs.get("totalAssets")
-            try:
-                total_assets = float(assets_raw) if assets_raw is not None and assets_raw != "" else None
-            except (TypeError, ValueError):
-                total_assets = None
-            if total_assets is not None and not math.isfinite(total_assets):
-                total_assets = None
-            cur_assets = float(bs.get("totalCurrentAssets") or 0.0)
-            cur_liab = float(bs.get("totalCurrentLiabilities") or 0.0)
-            liab_r = round((total_liab / total_assets) * 100.0, 1) if total_assets and total_assets > 0 else 40.0
-            cash_to_assets = round((tot_cash_raw / total_assets) * 100.0, 1) if total_assets and total_assets > 0 else 0.0
-            cr = round(cur_assets / cur_liab, 2) if cur_liab > 0 else 1.5
+                total_liab = float(bs.get("totalLiabilities") or 0.0)
+                assets_raw = bs.get("totalAssets")
+                try:
+                    total_assets = float(assets_raw) if assets_raw is not None and assets_raw != "" else None
+                except (TypeError, ValueError):
+                    total_assets = None
+                if total_assets is not None and not math.isfinite(total_assets):
+                    total_assets = None
+                cur_assets = float(bs.get("totalCurrentAssets") or 0.0)
+                cur_liab = float(bs.get("totalCurrentLiabilities") or 0.0)
+                liab_r = round((total_liab / total_assets) * 100.0, 1) if total_assets and total_assets > 0 else 40.0
+                cash_to_assets = round((tot_cash_raw / total_assets) * 100.0, 1) if total_assets and total_assets > 0 else 0.0
+                cr = round(cur_assets / cur_liab, 2) if cur_liab > 0 else 1.5
 
-        time.sleep(0.04)
+            time.sleep(0.04)
 
-        # 3. 匯率換算與財報抓取 (支援年度與近 20 季)
-        fx_rate = 1.0  # Monetary statement fields have already been translated by the shared USD engine.
-        annual_data = fin_cache.get("annual", {})
-        quarterly_data = fin_cache.get("quarterly", {})
-        bank_industry = stock_item.get("industry", "")
+            # 3. 匯率換算與財報抓取 (支援年度與近 20 季)
+            fx_rate = 1.0  # Monetary statement fields have already been translated by the shared USD engine.
+            annual_data = fin_cache.get("annual", {})
+            quarterly_data = fin_cache.get("quarterly", {})
+            bank_industry = stock_item.get("industry", "")
 
-        inc_annual = normalize_bank_income_rows(annual_data.get("income", []), bank_industry, sym)
-        bs_annual = annual_data.get("balance", [])
-        cf_annual = annual_data.get("cashflow", [])
+            inc_annual = normalize_bank_income_rows(annual_data.get("income", []), bank_industry, sym)
+            bs_annual = annual_data.get("balance", [])
+            cf_annual = annual_data.get("cashflow", [])
 
-        inc_quarter = normalize_bank_income_rows(quarterly_data.get("income", []), bank_industry, sym)
-        bs_quarter = quarterly_data.get("balance", [])
-        cf_quarter = quarterly_data.get("cashflow", [])
+            inc_quarter = normalize_bank_income_rows(quarterly_data.get("income", []), bank_industry, sym)
+            bs_quarter = quarterly_data.get("balance", [])
+            cf_quarter = quarterly_data.get("cashflow", [])
 
-        inc_latest_4q = inc_quarter[:4]
-        cf_latest_4q = cf_quarter[:4]
+            inc_latest_4q = inc_quarter[:4]
+            cf_latest_4q = cf_quarter[:4]
 
-        trade_ar_map = fetch_as_reported_trade_ar(sym, FMP_KEY)
+            trade_ar_map = fetch_as_reported_trade_ar(sym, FMP_KEY)
 
-        ttm_net_income = sum(float(x.get("netIncome") or 0.0) for x in inc_latest_4q)
-        ttm_ebitda = sum(float(x.get("ebitda") or x.get("operatingIncome") or 0.0) for x in inc_latest_4q)
-        ttm_rev = sum(float(x.get("revenue") or 0.0) for x in inc_latest_4q)
-        ttm_cfo = sum(float(x.get("operatingCashFlow") or 0.0) for x in cf_latest_4q)
-        ttm_capex = sum(float(x.get("capitalExpenditure") or 0.0) for x in cf_latest_4q)
-        ttm_fcf_sum = sum(float(x.get("freeCashFlow") or 0.0) for x in cf_latest_4q)
+            ttm_net_income = sum(float(x.get("netIncome") or 0.0) for x in inc_latest_4q)
+            ttm_ebitda = sum(float(x.get("ebitda") or x.get("operatingIncome") or 0.0) for x in inc_latest_4q)
+            ttm_rev = sum(float(x.get("revenue") or 0.0) for x in inc_latest_4q)
+            ttm_cfo = sum(float(x.get("operatingCashFlow") or 0.0) for x in cf_latest_4q)
+            ttm_capex = sum(float(x.get("capitalExpenditure") or 0.0) for x in cf_latest_4q)
+            ttm_fcf_sum = sum(float(x.get("freeCashFlow") or 0.0) for x in cf_latest_4q)
 
-        ttm_dividends_paid = 0.0
-        ttm_buybacks_paid = 0.0
-        for q_cf in cf_latest_4q:
-            div_val = q_cf.get("dividendsPaid") or q_cf.get("netDividendsPaid") or q_cf.get("commonStockDividendsPaid") or 0.0
-            ttm_dividends_paid += abs(float(div_val))
-            bb_val = q_cf.get("commonStockRepurchased") or 0.0
-            ttm_buybacks_paid += abs(float(bb_val))
+            ttm_dividends_paid = 0.0
+            ttm_buybacks_paid = 0.0
+            for q_cf in cf_latest_4q:
+                div_val = q_cf.get("dividendsPaid") or q_cf.get("netDividendsPaid") or q_cf.get("commonStockDividendsPaid") or 0.0
+                ttm_dividends_paid += abs(float(div_val))
+                bb_val = q_cf.get("commonStockRepurchased") or 0.0
+                ttm_buybacks_paid += abs(float(bb_val))
 
-        fcf0 = round(ttm_fcf_sum / 1e6, 1)
+            fcf0 = round(ttm_fcf_sum / 1e6, 1)
 
-        # 歷史序列
-        inc_sorted = list(reversed(inc_annual))[:5]
-        hist_revenue = [round(float(x.get("revenue") or 0.0) * fx_rate / 1e6, 1) for x in inc_sorted]
-        hist_net_income = [round(float(x.get("netIncome") or 0.0) * fx_rate / 1e6, 1) for x in inc_sorted]
-        hist_gross_profit = [round(float(x.get("grossProfit") or 0.0) * fx_rate / 1e6, 1) for x in inc_sorted]
-        hist_operating_income = [round(float(x.get("operatingIncome") or 0.0) * fx_rate / 1e6, 1) for x in inc_sorted]
+            # 歷史序列
+            inc_sorted = list(reversed(inc_annual))[:5]
+            hist_revenue = [round(float(x.get("revenue") or 0.0) * fx_rate / 1e6, 1) for x in inc_sorted]
+            hist_net_income = [round(float(x.get("netIncome") or 0.0) * fx_rate / 1e6, 1) for x in inc_sorted]
+            hist_gross_profit = [round(float(x.get("grossProfit") or 0.0) * fx_rate / 1e6, 1) for x in inc_sorted]
+            hist_operating_income = [round(float(x.get("operatingIncome") or 0.0) * fx_rate / 1e6, 1) for x in inc_sorted]
         
-        hist_revenue.append(round(ttm_rev * fx_rate / 1e6, 1))
-        hist_net_income.append(round(ttm_net_income * fx_rate / 1e6, 1))
-        hist_gross_profit.append(round(sum(float(x.get("grossProfit") or 0.0) for x in inc_latest_4q) * fx_rate / 1e6, 1))
-        hist_operating_income.append(round(sum(float(x.get("operatingIncome") or 0.0) for x in inc_latest_4q) * fx_rate / 1e6, 1))
+            hist_revenue.append(round(ttm_rev * fx_rate / 1e6, 1))
+            hist_net_income.append(round(ttm_net_income * fx_rate / 1e6, 1))
+            hist_gross_profit.append(round(sum(float(x.get("grossProfit") or 0.0) for x in inc_latest_4q) * fx_rate / 1e6, 1))
+            hist_operating_income.append(round(sum(float(x.get("operatingIncome") or 0.0) for x in inc_latest_4q) * fx_rate / 1e6, 1))
 
-        cf_sorted = list(reversed(cf_annual))[:5]
-        hist_cfo = [round(float(x.get("operatingCashFlow") or 0.0) * fx_rate / 1e6, 1) for x in cf_sorted]
-        hist_capex = [round(-abs(float(x.get("capitalExpenditure") or 0.0)) * fx_rate / 1e6, 1) for x in cf_sorted]
-        hist_fcf = [round(float(x.get("freeCashFlow") or 0.0) * fx_rate / 1e6, 1) for x in cf_sorted]
+            cf_sorted = list(reversed(cf_annual))[:5]
+            hist_cfo = [round(float(x.get("operatingCashFlow") or 0.0) * fx_rate / 1e6, 1) for x in cf_sorted]
+            hist_capex = [round(-abs(float(x.get("capitalExpenditure") or 0.0)) * fx_rate / 1e6, 1) for x in cf_sorted]
+            hist_fcf = [round(float(x.get("freeCashFlow") or 0.0) * fx_rate / 1e6, 1) for x in cf_sorted]
         
-        hist_cfo.append(round(ttm_cfo * fx_rate / 1e6, 1))
-        hist_capex.append(round(-abs(ttm_capex) * fx_rate / 1e6, 1))
-        hist_fcf.append(round(ttm_fcf_sum * fx_rate / 1e6, 1))
+            hist_cfo.append(round(ttm_cfo * fx_rate / 1e6, 1))
+            hist_capex.append(round(-abs(ttm_capex) * fx_rate / 1e6, 1))
+            hist_fcf.append(round(ttm_fcf_sum * fx_rate / 1e6, 1))
 
-        real_history = {
-            "revenue": hist_revenue,
-            "net_income": hist_net_income,
-            "gross_profit": hist_gross_profit,
-            "operating_income": hist_operating_income,
-            "cfo": hist_cfo,
-            "capex": hist_capex,
-            "fcf": hist_fcf
-        }
+            real_history = {
+                "revenue": hist_revenue,
+                "net_income": hist_net_income,
+                "gross_profit": hist_gross_profit,
+                "operating_income": hist_operating_income,
+                "cfo": hist_cfo,
+                "capex": hist_capex,
+                "fcf": hist_fcf
+            }
 
-        inc_5y = list(reversed(inc_annual))[:5] if inc_annual else []
-        bs_5y = list(reversed(bs_annual))[:5] if bs_annual else []
-        cf_5y = list(reversed(cf_annual))[:5] if cf_annual else []
+            inc_5y = list(reversed(inc_annual))[:5] if inc_annual else []
+            bs_5y = list(reversed(bs_annual))[:5] if bs_annual else []
+            cf_5y = list(reversed(cf_annual))[:5] if cf_annual else []
 
-        def extract_series(dataset, key, is_ratio_or_per_share=False):
-            series = []
-            for d_item in dataset:
-                val = get_safe_field(d_item, key)
-                if is_ratio_or_per_share:
-                    series.append(round(val, 4))
+            def extract_series(dataset, key, is_ratio_or_per_share=False):
+                series = []
+                for d_item in dataset:
+                    val = get_safe_field(d_item, key)
+                    if is_ratio_or_per_share:
+                        series.append(round(val, 4))
+                    else:
+                        series.append(round(val * fx_rate / 1e6, 2))
+                while len(series) < 5:
+                    series.insert(0, 0.0)
+                return series
+
+            def get_ttm_val(quarter_list, key, is_sum=True, is_ratio_or_per_share=False):
+                if not quarter_list:
+                    return 0.0
+                if key in ["eps", "epsdiluted"]:
+                    return round(sum(float(q.get(key) or 0.0) for q in quarter_list[:4]), 2)
+
+                if is_sum:
+                    raw_sum = sum(get_safe_field(q, key) for q in quarter_list[:4])
+                    if is_ratio_or_per_share:
+                        return round(raw_sum / max(len(quarter_list[:4]), 1), 4)
+                    return round(raw_sum * fx_rate / 1e6, 2)
                 else:
-                    series.append(round(val * fx_rate / 1e6, 2))
-            while len(series) < 5:
-                series.insert(0, 0.0)
-            return series
+                    raw_latest = get_safe_field(quarter_list[0], key)
+                    if is_ratio_or_per_share:
+                        return round(raw_latest, 4)
+                    return round(raw_latest * fx_rate / 1e6, 2)
 
-        def get_ttm_val(quarter_list, key, is_sum=True, is_ratio_or_per_share=False):
-            if not quarter_list:
-                return 0.0
-            if key in ["eps", "epsdiluted"]:
-                return round(sum(float(q.get(key) or 0.0) for q in quarter_list[:4]), 2)
+            income_fields = [
+                ("revenue", False), ("costOfRevenue", False), ("grossProfit", False), ("grossProfitRatio", True),
+                ("researchAndDevelopmentExpenses", False), ("generalAndAdministrativeExpenses", False),
+                ("sellingAndMarketingExpenses", False), ("sellingGeneralAndAdministrativeExpenses", False),
+                ("otherExpenses", False), ("operatingExpenses", False), ("costAndExpenses", False),
+                ("operatingIncome", False), ("operatingIncomeRatio", True),
+                ("totalOtherIncomeExpensesNet", False), ("netInterestIncome", False),
+                ("interestIncome", False), ("interestExpense", False),
+                ("incomeBeforeTax", False), ("incomeBeforeTaxRatio", True), ("incomeTaxExpense", False),
+                ("netIncome", False), ("netIncomeRatio", True),
+                ("eps", True), ("epsdiluted", True), ("weightedAverageShsOut", True), ("weightedAverageShsOutDil", True),
+                ("ebitda", False), ("ebitdaratio", True)
+            ]
+            stmt_income = {}
+            for f, is_ratio in income_fields:
+                s_data = extract_series(inc_5y, f, is_ratio)
+                s_data.append(get_ttm_val(inc_latest_4q, f, is_sum=not is_ratio, is_ratio_or_per_share=is_ratio))
+                stmt_income[f] = s_data
 
-            if is_sum:
-                raw_sum = sum(get_safe_field(q, key) for q in quarter_list[:4])
-                if is_ratio_or_per_share:
-                    return round(raw_sum / max(len(quarter_list[:4]), 1), 4)
-                return round(raw_sum * fx_rate / 1e6, 2)
-            else:
-                raw_latest = get_safe_field(quarter_list[0], key)
-                if is_ratio_or_per_share:
-                    return round(raw_latest, 4)
-                return round(raw_latest * fx_rate / 1e6, 2)
+            balance_fields = [
+                ("cashAndCashEquivalents", False), ("shortTermInvestments", False), ("cashAndShortTermInvestments", False),
+                ("netReceivables", False), ("inventory", False), ("otherCurrentAssets", False), ("totalCurrentAssets", False),
+                ("propertyPlantEquipmentNet", False), ("goodwill", False), ("intangibleAssets", False),
+                ("goodwillAndIntangibleAssets", False), ("longTermInvestments", False), ("taxAssets", False),
+                ("otherNonCurrentAssets", False), ("totalNonCurrentAssets", False), ("totalAssets", False),
+                ("accountPayables", False), ("shortTermDebt", False), ("taxPayables", False), ("deferredRevenue", False),
+                ("otherCurrentLiabilities", False), ("totalCurrentLiabilities", False),
+                ("longTermDebt", False), ("deferredRevenueNonCurrent", False), ("deferredTaxLiabilitiesNonCurrent", False),
+                ("otherNonCurrentLiabilities", False), ("totalNonCurrentLiabilities", False),
+                ("totalLiabilities", False), ("totalDebt", False), ("netDebt", False),
+                ("commonStock", False), ("retainedEarnings", False), ("accumulatedOtherComprehensiveIncomeLoss", False),
+                ("otherTotalStockholdersEquity", False), ("totalStockholdersEquity", False), ("totalEquity", False),
+                ("totalLiabilitiesAndTotalEquity", False), ("totalInvestments", False)
+            ]
+            stmt_balance = {}
+            for f, is_ratio in balance_fields:
+                s_data = extract_series(bs_5y, f, is_ratio)
+                s_data.append(get_ttm_val(bs_quarter, f, is_sum=False, is_ratio_or_per_share=is_ratio))
+                stmt_balance[f] = s_data
 
-        income_fields = [
-            ("revenue", False), ("costOfRevenue", False), ("grossProfit", False), ("grossProfitRatio", True),
-            ("researchAndDevelopmentExpenses", False), ("generalAndAdministrativeExpenses", False),
-            ("sellingAndMarketingExpenses", False), ("sellingGeneralAndAdministrativeExpenses", False),
-            ("otherExpenses", False), ("operatingExpenses", False), ("costAndExpenses", False),
-            ("operatingIncome", False), ("operatingIncomeRatio", True),
-            ("totalOtherIncomeExpensesNet", False), ("netInterestIncome", False),
-            ("interestIncome", False), ("interestExpense", False),
-            ("incomeBeforeTax", False), ("incomeBeforeTaxRatio", True), ("incomeTaxExpense", False),
-            ("netIncome", False), ("netIncomeRatio", True),
-            ("eps", True), ("epsdiluted", True), ("weightedAverageShsOut", True), ("weightedAverageShsOutDil", True),
-            ("ebitda", False), ("ebitdaratio", True)
-        ]
-        stmt_income = {}
-        for f, is_ratio in income_fields:
-            s_data = extract_series(inc_5y, f, is_ratio)
-            s_data.append(get_ttm_val(inc_latest_4q, f, is_sum=not is_ratio, is_ratio_or_per_share=is_ratio))
-            stmt_income[f] = s_data
-
-        balance_fields = [
-            ("cashAndCashEquivalents", False), ("shortTermInvestments", False), ("cashAndShortTermInvestments", False),
-            ("netReceivables", False), ("inventory", False), ("otherCurrentAssets", False), ("totalCurrentAssets", False),
-            ("propertyPlantEquipmentNet", False), ("goodwill", False), ("intangibleAssets", False),
-            ("goodwillAndIntangibleAssets", False), ("longTermInvestments", False), ("taxAssets", False),
-            ("otherNonCurrentAssets", False), ("totalNonCurrentAssets", False), ("totalAssets", False),
-            ("accountPayables", False), ("shortTermDebt", False), ("taxPayables", False), ("deferredRevenue", False),
-            ("otherCurrentLiabilities", False), ("totalCurrentLiabilities", False),
-            ("longTermDebt", False), ("deferredRevenueNonCurrent", False), ("deferredTaxLiabilitiesNonCurrent", False),
-            ("otherNonCurrentLiabilities", False), ("totalNonCurrentLiabilities", False),
-            ("totalLiabilities", False), ("totalDebt", False), ("netDebt", False),
-            ("commonStock", False), ("retainedEarnings", False), ("accumulatedOtherComprehensiveIncomeLoss", False),
-            ("otherTotalStockholdersEquity", False), ("totalStockholdersEquity", False), ("totalEquity", False),
-            ("totalLiabilitiesAndTotalEquity", False), ("totalInvestments", False)
-        ]
-        stmt_balance = {}
-        for f, is_ratio in balance_fields:
-            s_data = extract_series(bs_5y, f, is_ratio)
-            s_data.append(get_ttm_val(bs_quarter, f, is_sum=False, is_ratio_or_per_share=is_ratio))
-            stmt_balance[f] = s_data
-
-        # 1. 年度 5 年 + TTM 應收款 (包含商業應收與非貿易應收)
-        annual_years = [str(x.get("calendarYear") or x.get("fiscalYear") or "") for x in inc_5y]
-        trade_ar_list = []
-        nontrade_ar_list = []
-        for y, bs in zip(annual_years, bs_5y):
-            val_t = trade_ar_map["annual"]["trade"].get(y) or trade_ar_map["annual"]["trade"].get(y[:4])
-            val_nt = trade_ar_map["annual"]["nontrade"].get(y) or trade_ar_map["annual"]["nontrade"].get(y[:4]) or 0.0
+            # 1. 年度 5 年 + TTM 應收款 (包含商業應收與非貿易應收)
+            annual_years = [str(x.get("calendarYear") or x.get("fiscalYear") or "") for x in inc_5y]
+            trade_ar_list = []
+            nontrade_ar_list = []
+            for y, bs in zip(annual_years, bs_5y):
+                val_t = trade_ar_map["annual"]["trade"].get(y) or trade_ar_map["annual"]["trade"].get(y[:4])
+                val_nt = trade_ar_map["annual"]["nontrade"].get(y) or trade_ar_map["annual"]["nontrade"].get(y[:4]) or 0.0
             
-            if val_t is None:
-                val_t = round(get_safe_field(bs, "netReceivables") * fx_rate / 1e6, 2)
+                if val_t is None:
+                    val_t = round(get_safe_field(bs, "netReceivables") * fx_rate / 1e6, 2)
             
-            trade_ar_list.append(val_t)
-            nontrade_ar_list.append(val_nt)
+                trade_ar_list.append(val_t)
+                nontrade_ar_list.append(val_nt)
 
-        while len(trade_ar_list) < 5:
-            trade_ar_list.insert(0, 0.0)
-            nontrade_ar_list.insert(0, 0.0)
+            while len(trade_ar_list) < 5:
+                trade_ar_list.insert(0, 0.0)
+                nontrade_ar_list.insert(0, 0.0)
 
-        latest_trade_ar = None
-        latest_nontrade_ar = 0.0
-        if bs_quarter:
-            q_code = f"{bs_quarter[0].get('fiscalYear')}{bs_quarter[0].get('period')}"
-            q_date = str(bs_quarter[0].get("date", ""))
-            latest_trade_ar = trade_ar_map["quarterly"]["trade"].get(q_code) or trade_ar_map["quarterly"]["trade"].get(q_date)
-            latest_nontrade_ar = trade_ar_map["quarterly"]["nontrade"].get(q_code) or trade_ar_map["quarterly"]["nontrade"].get(q_date) or 0.0
-            if latest_trade_ar is None:
-                latest_trade_ar = round(get_safe_field(bs_quarter[0], "netReceivables") * fx_rate / 1e6, 2)
-        else:
-            latest_trade_ar = trade_ar_list[-1] if trade_ar_list else 0.0
-
-        trade_ar_list.append(latest_trade_ar)
-        nontrade_ar_list.append(latest_nontrade_ar)
-        stmt_balance["tradeAccountsReceivables"] = trade_ar_list
-        stmt_balance["vendorNonTradeReceivables"] = nontrade_ar_list
-
-        cashflow_fields = [
-            ("netIncome", False), ("depreciationAndAmortization", False), ("deferredIncomeTax", False),
-            ("stockBasedCompensation", False), ("changeInWorkingCapital", False), ("accountsReceivables", False),
-            ("inventory", False), ("accountsPayables", False), ("otherWorkingCapital", False),
-            ("otherNonCashItems", False), ("netCashProvidedByOperatingActivities", False),
-            ("investmentsInPropertyPlantAndEquipment", False), ("acquisitionsNet", False),
-            ("purchasesOfInvestments", False), ("salesMaturitiesOfInvestments", False),
-            ("otherInvestingActivites", False), ("netCashUsedForInvestingActivites", False),
-            ("debtRepayment", False), ("commonStockIssued", False), ("commonStockRepurchased", False),
-            ("dividendsPaid", False), ("otherFinancingActivites", False),
-            ("netCashUsedProvidedByFinancingActivities", False),
-            ("effectOfForexChangesOnCash", False), ("netChangeInCash", False),
-            ("cashAtEndOfPeriod", False), ("cashAtBeginningOfPeriod", False),
-            ("capitalExpenditure", False), ("freeCashFlow", False)
-        ]
-        stmt_cashflow = {}
-        for f, is_ratio in cashflow_fields:
-            s_data = extract_series(cf_5y, f, is_ratio)
-            # Cash stock balances are point-in-time, not flows: never sum across quarters.
-            # cf_latest_4q is newest-first, so TTM end = Q0 and TTM begin = oldest of the window.
-            if f == "cashAtEndOfPeriod":
-                s_data.append(get_ttm_val(cf_latest_4q, f, is_sum=False, is_ratio_or_per_share=is_ratio))
-            elif f == "cashAtBeginningOfPeriod":
-                oldest = cf_latest_4q[min(3, len(cf_latest_4q) - 1)] if cf_latest_4q else None
-                s_data.append(get_ttm_val([oldest] if oldest else [], f, is_sum=False,
-                                          is_ratio_or_per_share=is_ratio))
+            latest_trade_ar = None
+            latest_nontrade_ar = 0.0
+            if bs_quarter:
+                q_code = f"{bs_quarter[0].get('fiscalYear')}{bs_quarter[0].get('period')}"
+                q_date = str(bs_quarter[0].get("date", ""))
+                latest_trade_ar = trade_ar_map["quarterly"]["trade"].get(q_code) or trade_ar_map["quarterly"]["trade"].get(q_date)
+                latest_nontrade_ar = trade_ar_map["quarterly"]["nontrade"].get(q_code) or trade_ar_map["quarterly"]["nontrade"].get(q_date) or 0.0
+                if latest_trade_ar is None:
+                    latest_trade_ar = round(get_safe_field(bs_quarter[0], "netReceivables") * fx_rate / 1e6, 2)
             else:
-                s_data.append(get_ttm_val(cf_latest_4q, f, is_sum=True, is_ratio_or_per_share=is_ratio))
-            stmt_cashflow[f] = s_data
+                latest_trade_ar = trade_ar_list[-1] if trade_ar_list else 0.0
 
-        # 封裝近 20 季資料集 (依時間由舊到新排序)
-        q_reversed_inc = list(reversed(inc_quarter[:20]))
-        q_reversed_bs = list(reversed(bs_quarter[:20]))
-        q_reversed_cf = list(reversed(cf_quarter[:20]))
-        quarter_labels = [f"{q.get('calendarYear') or q.get('fiscalYear') or q.get('date', '')[:4]}{q.get('period', '')}" for q in q_reversed_inc]
+            trade_ar_list.append(latest_trade_ar)
+            nontrade_ar_list.append(latest_nontrade_ar)
+            stmt_balance["tradeAccountsReceivables"] = trade_ar_list
+            stmt_balance["vendorNonTradeReceivables"] = nontrade_ar_list
 
-        annual_dates = [
-            str(x.get("date", ""))[:7] if x.get("date") else "" 
-            for x in inc_5y
-        ]
-        latest_date_str = str(inc_quarter[0].get("date", ""))[:7] if inc_quarter else ""
-        annual_dates.append(latest_date_str)
+            cashflow_fields = [
+                ("netIncome", False), ("depreciationAndAmortization", False), ("deferredIncomeTax", False),
+                ("stockBasedCompensation", False), ("changeInWorkingCapital", False), ("accountsReceivables", False),
+                ("inventory", False), ("accountsPayables", False), ("otherWorkingCapital", False),
+                ("otherNonCashItems", False), ("netCashProvidedByOperatingActivities", False),
+                ("investmentsInPropertyPlantAndEquipment", False), ("acquisitionsNet", False),
+                ("purchasesOfInvestments", False), ("salesMaturitiesOfInvestments", False),
+                ("otherInvestingActivites", False), ("netCashUsedForInvestingActivites", False),
+                ("debtRepayment", False), ("commonStockIssued", False), ("commonStockRepurchased", False),
+                ("dividendsPaid", False), ("otherFinancingActivites", False),
+                ("netCashUsedProvidedByFinancingActivities", False),
+                ("effectOfForexChangesOnCash", False), ("netChangeInCash", False),
+                ("cashAtEndOfPeriod", False), ("cashAtBeginningOfPeriod", False),
+                ("capitalExpenditure", False), ("freeCashFlow", False)
+            ]
+            stmt_cashflow = {}
+            for f, is_ratio in cashflow_fields:
+                s_data = extract_series(cf_5y, f, is_ratio)
+                # Cash stock balances are point-in-time, not flows: never sum across quarters.
+                # cf_latest_4q is newest-first, so TTM end = Q0 and TTM begin = oldest of the window.
+                if f == "cashAtEndOfPeriod":
+                    s_data.append(get_ttm_val(cf_latest_4q, f, is_sum=False, is_ratio_or_per_share=is_ratio))
+                elif f == "cashAtBeginningOfPeriod":
+                    oldest = cf_latest_4q[min(3, len(cf_latest_4q) - 1)] if cf_latest_4q else None
+                    s_data.append(get_ttm_val([oldest] if oldest else [], f, is_sum=False,
+                                              is_ratio_or_per_share=is_ratio))
+                else:
+                    s_data.append(get_ttm_val(cf_latest_4q, f, is_sum=True, is_ratio_or_per_share=is_ratio))
+                stmt_cashflow[f] = s_data
 
-        quarter_dates = [
-            str(q.get("date", ""))[:7] if q.get("date") else "" 
-            for q in q_reversed_inc
-        ]
+            # 封裝近 20 季資料集 (依時間由舊到新排序)
+            q_reversed_inc = list(reversed(inc_quarter[:20]))
+            q_reversed_bs = list(reversed(bs_quarter[:20]))
+            q_reversed_cf = list(reversed(cf_quarter[:20]))
+            quarter_labels = [f"{q.get('calendarYear') or q.get('fiscalYear') or q.get('date', '')[:4]}{q.get('period', '')}" for q in q_reversed_inc]
+
+            annual_dates = [
+                str(x.get("date", ""))[:7] if x.get("date") else "" 
+                for x in inc_5y
+            ]
+            latest_date_str = str(inc_quarter[0].get("date", ""))[:7] if inc_quarter else ""
+            annual_dates.append(latest_date_str)
+
+            quarter_dates = [
+                str(q.get("date", ""))[:7] if q.get("date") else "" 
+                for q in q_reversed_inc
+            ]
         
-        quarter_trade_ar = []
-        quarter_nontrade_ar = []
-        for q_idx, lbl in enumerate(quarter_labels):
-            bs_item = q_reversed_bs[q_idx] if q_idx < len(q_reversed_bs) else {}
-            date_key = str(bs_item.get("date", ""))
-            ar_val = trade_ar_map["quarterly"]["trade"].get(lbl) or trade_ar_map["quarterly"]["trade"].get(date_key)
-            nt_val = trade_ar_map["quarterly"]["nontrade"].get(lbl) or trade_ar_map["quarterly"]["nontrade"].get(date_key) or 0.0
-            if ar_val is None:
-                ar_val = round(get_safe_field(bs_item, "netReceivables") * fx_rate / 1e6, 2)
-            quarter_trade_ar.append(ar_val)
-            quarter_nontrade_ar.append(nt_val)
+            quarter_trade_ar = []
+            quarter_nontrade_ar = []
+            for q_idx, lbl in enumerate(quarter_labels):
+                bs_item = q_reversed_bs[q_idx] if q_idx < len(q_reversed_bs) else {}
+                date_key = str(bs_item.get("date", ""))
+                ar_val = trade_ar_map["quarterly"]["trade"].get(lbl) or trade_ar_map["quarterly"]["trade"].get(date_key)
+                nt_val = trade_ar_map["quarterly"]["nontrade"].get(lbl) or trade_ar_map["quarterly"]["nontrade"].get(date_key) or 0.0
+                if ar_val is None:
+                    ar_val = round(get_safe_field(bs_item, "netReceivables") * fx_rate / 1e6, 2)
+                quarter_trade_ar.append(ar_val)
+                quarter_nontrade_ar.append(nt_val)
 
-        statements_data = {
-            "income": stmt_income,
-            "balance": stmt_balance,
-            "cashflow": stmt_cashflow,
-            "annual_dates": annual_dates,
-            "quarterly_raw": {
-                "periods": quarter_labels,
-                "dates": quarter_dates,
-                "income": {f: [round(get_safe_field(qi, f) * (1 if is_r else fx_rate / 1e6), 4 if is_r else 2) for qi in q_reversed_inc] for f, is_r in income_fields},
-                "balance": {f: [round(get_safe_field(qb, f) * (1 if is_r else fx_rate / 1e6), 4 if is_r else 2) for qb in q_reversed_bs] for f, is_r in balance_fields},
-                "cashflow": {f: [round(get_safe_field(qc, f) * (1 if is_r else fx_rate / 1e6), 4 if is_r else 2) for qc in q_reversed_cf] for f, is_r in cashflow_fields},
-                "tradeAccountsReceivables": quarter_trade_ar,
-                "vendorNonTradeReceivables": quarter_nontrade_ar
-            }
-        }
-
-        if fx_rate != 1.0:
-            debt = round(debt * fx_rate, 1)
-            cash = round(cash * fx_rate, 1)
-            short_term_inv = round(short_term_inv * fx_rate, 1)
-            if equity is not None:
-                equity = equity * fx_rate
-            goodwill_and_intangibles = goodwill_and_intangibles * fx_rate
-            if total_assets is not None:
-                total_assets = total_assets * fx_rate
-            ttm_net_income = ttm_net_income * fx_rate
-            ttm_ebitda = ttm_ebitda * fx_rate
-            fcf0 = round(fcf0 * fx_rate, 1)
-            ttm_dividends_paid = ttm_dividends_paid * fx_rate
-            ttm_buybacks_paid = ttm_buybacks_paid * fx_rate
-
-        if fcf0 <= 0: fcf0 = round(mcap * 0.038, 1)
-
-        div_yield_real = 0.0
-        if mcap > 0 and ttm_dividends_paid > 0:
-            div_yield_real = round((ttm_dividends_paid / (mcap * 1e6)) * 100.0, 2)
-
-        # P/B requires real parent equity. Missing/zero equity → null (never invent $1 book).
-        if equity is not None and equity != 0 and mcap > 0:
-            pb_trailing = round((mcap * 1e6) / equity, 1)
-            pb_forward = round(pb_trailing * 0.90, 1)
-        else:
-            pb_trailing = None
-            pb_forward = None
-        pe_trailing = round((mcap * 1e6) / ttm_net_income, 1) if ttm_net_income > 0 else 24.0
-        # Use `is not None` so NI=0 yields ROE/ROA 0.0 instead of None (Piotroski crash).
-        roe = (
-            round((ttm_net_income / equity) * 100.0, 1)
-            if equity and equity != 0 and ttm_net_income is not None
-            else None
-        )
-        if roe is None and has_balance_sheet is False:
-            roe = 18.0
-        roa = (
-            round((ttm_net_income / total_assets) * 100.0, 1)
-            if total_assets and total_assets > 0 and ttm_net_income is not None
-            else None
-        )
-        if roa is None and has_balance_sheet is False:
-            roa = 8.0
-        time.sleep(0.04)
-
-        est_data = fetch_json("analyst-estimates", {"symbol": fmp_sym, "limit": 4})
-        growth_10y = build_10y_growth_schedule(est_data, stock_item.get("default_g1", 8.0), DEFAULT_G)
-        pe_forward = round(pe_trailing * 0.88, 1)
-
-        fmp_beta = prof.get("beta")
-        if fmp_beta is not None and float(fmp_beta) > 0:
-            beta = round(float(fmp_beta), 2)
-            beta_5y = beta
-        else:
-            beta = 1.15
-            current_sector = stock_item.get("sector", "")
-            if current_sector in ["公用事業", "必需消費"]: beta = 0.75
-            elif current_sector in ["資訊科技"]: beta = 1.35
-            elif current_sector in ["金融"]: beta = 1.05
-            beta_5y = beta
-
-        tax = TAX_RATE
-        ke = RF + (beta * ERP)
-        kd_after = (KD / 100.0) * (1.0 - (tax / 100.0))
-        V = mcap + debt
-        wE = mcap / V if V > 0 else 0.95
-        wD = debt / V if V > 0 else 0.05
-        wacc = (wE * ke) + (wD * kd_after)
-
-        net_debt = round(debt - cash, 1)
-
-        # Market EV in calculation-currency millions: mcap + debt − cash/STI.
-        # Do NOT scale FMP `/enterprise-values` with fx_rate=1 after the shared USD
-        # statement translator — that endpoint stays in reportedCurrency (KRW/TWD/JPY/…)
-        # and produced SKHY/ASX-class absurd EVs on US expansion (which skips the
-        # post-pass usd_financials.cjs rewrite used by the baseline).
-        fmp_official_ev = round(mcap + net_debt, 1)
-        if fmp_official_ev == 0:
-            fmp_official_ev = round(mcap * 0.8, 1)
-
-        sum_pv = 0
-        cur_fcf = fcf0
-        for t, gr_pct in enumerate(growth_10y, 1):
-            cur_fcf *= (1.0 + (gr_pct / 100.0))
-            sum_pv += cur_fcf / ((1.0 + wacc) ** t)
-
-        safe_wacc = max(wacc, DEFAULT_G + 0.015)
-        tv = (cur_fcf * (1.0 + DEFAULT_G)) / (safe_wacc - DEFAULT_G)
-        pv_tv = tv / ((1.0 + safe_wacc) ** 10)
-        ev = round(sum_pv + pv_tv, 1)
-        eq_val = ev - net_debt
-        fair_val = round(eq_val / shares, 2)
-        premium_pct = round(((price / fair_val) - 1.0) * 100.0, 1)
-
-        ebitda_m = ttm_ebitda / 1e6
-        if ebitda_m > 0:
-            ev_to_ebitda = round(ev / ebitda_m, 1)
-            debt_to_ebitda = round(debt / ebitda_m, 2)
-            net_debt_to_ebitda = round(net_debt / ebitda_m, 2)
-        else:
-            ev_to_ebitda = round(pe_trailing * 0.75, 1)
-            debt_to_ebitda = round(debt / max(fcf0, 1.0), 2)
-            net_debt_to_ebitda = round(net_debt / max(fcf0, 1.0), 2)
-
-        f_score, f_score_breakdown = calculate_piotroski_score(roa, fcf0, cr, liab_r, ttm_net_income)
-
-        FINANCIAL_SPECIAL_INDUSTRIES = {
-            # Baseline (legacy FMP labels)
-            "Diversified Banks", "Consumer Finance", "Investment Banking & Brokerage",
-            "Property & Casualty Insurance", "Life & Health Insurance", "Multi-line Insurance",
-            # Current FMP screener labels (US expansion / refreshed profiles)
-            "Banks", "Banks - Regional", "Banks - Diversified",
-            "Financial - Credit Services", "Investment - Banking & Investment Services",
-            "Insurance - Property & Casualty", "Insurance - Life", "Insurance - Diversified",
-            "Insurance - Reinsurance", "Insurance - Specialty",
-        }
-        is_financial_model = (
-            stock_item.get("industry", "") in FINANCIAL_SPECIAL_INDUSTRIES
-            and sym not in {"BRK.B", "BRK-B", "BRK.A", "BRK-A"}
-        )
-
-        fin_valuation = {"is_financial": False}
-        if is_financial_model:
-            reference_process = subprocess.run(
-                ["node", os.path.join(os.path.dirname(__file__), "scripts", "financial_reference.cjs"), "--stdin"],
-                input=json.dumps({"statements": fin_cache, "shares": shares, "fxRate": fx_rate}),
-                text=True, capture_output=True, check=True
-            )
-            reference = json.loads(reference_process.stdout)
-            shares_count = shares * 1e6
-            tbvps = reference["tbvps"]
-            # equity may be null when the balance sheet lacks usable parent equity;
-            # do not crash the whole expansion batch (AVAL-class).
-            if equity is not None and shares_count > 0:
-                bvps = round(equity / shares_count, 2)
-            else:
-                bvps = None
-
-            dps_div = (ttm_dividends_paid / shares_count) if shares_count > 0 else (price * 0.02)
-            dps_bb = (ttm_buybacks_paid / shares_count) if shares_count > 0 else 0.0
-            dps_total = round(dps_div + min(dps_bb, dps_div * 1.5), 2)
-
-            ke_capm = ke
-            ke_rate = max(ke, 0.09)
-            ke_floor_applied = ke_rate > ke_capm + 1e-12
-            rote_rate = reference["rote"] / 100.0 if reference["rote"] is not None else None
-            excess_return_val = None
-            if not reference["reason"] and rote_rate is not None and tbvps and tbvps > 0 and ke_rate > DEFAULT_G:
-                spread = rote_rate - ke_rate
-                excess_return_val = tbvps + (tbvps * spread) / max(ke_rate - DEFAULT_G, 0.02)
-
-            ddm_sum = 0.0
-            cur_dps = dps_total
-            g_dps = min(float(stock_item.get("default_g1", 6.0)) / 100.0, 0.065)
-            ddm_val = None
-            if dps_total is not None and ke_rate > DEFAULT_G and ke_rate > 0:
-                for t in range(1, 6):
-                    cur_dps *= (1.0 + g_dps)
-                    ddm_sum += cur_dps / ((1.0 + ke_rate) ** t)
-                tv_ddm = (cur_dps * (1.0 + DEFAULT_G)) / max(ke_rate - DEFAULT_G, 0.02)
-                pv_tv_ddm = tv_ddm / ((1.0 + ke_rate) ** 5)
-                ddm_val = round(ddm_sum + pv_tv_ddm, 2)
-
-            # Blend needs both legs; DDM remains stored when excess/reference fails (README).
-            fair_val = (
-                round((excess_return_val * 0.55) + (ddm_val * 0.45), 2)
-                if excess_return_val is not None and ddm_val is not None else None
-            )
-            premium_pct = round(((price / fair_val) - 1.0) * 100.0, 1) if fair_val and fair_val > 0 else None
-
-            fin_valuation = {
-                "is_financial": True,
-                "tbvps": tbvps,
-                "bvps": bvps,
-                "rote": reference["rote"],
-                "reference": reference,
-                "ke": round(ke_rate * 100.0, 2),
-                "ke_capm": round(ke_capm * 100.0, 2),
-                "ke_floor_pct": 9.0,
-                "ke_floor_applied": ke_floor_applied,
-                "g": round(DEFAULT_G * 100.0, 2),
-                "dps_total": dps_total,
-                "excess_return_fair": None if excess_return_val is None else round(excess_return_val, 2),
-                "ddm_fair": ddm_val,
-                "pb_tangible": round(price / tbvps, 2) if tbvps and tbvps > 0 else None
+            statements_data = {
+                "income": stmt_income,
+                "balance": stmt_balance,
+                "cashflow": stmt_cashflow,
+                "annual_dates": annual_dates,
+                "quarterly_raw": {
+                    "periods": quarter_labels,
+                    "dates": quarter_dates,
+                    "income": {f: [round(get_safe_field(qi, f) * (1 if is_r else fx_rate / 1e6), 4 if is_r else 2) for qi in q_reversed_inc] for f, is_r in income_fields},
+                    "balance": {f: [round(get_safe_field(qb, f) * (1 if is_r else fx_rate / 1e6), 4 if is_r else 2) for qb in q_reversed_bs] for f, is_r in balance_fields},
+                    "cashflow": {f: [round(get_safe_field(qc, f) * (1 if is_r else fx_rate / 1e6), 4 if is_r else 2) for qc in q_reversed_cf] for f, is_r in cashflow_fields},
+                    "tradeAccountsReceivables": quarter_trade_ar,
+                    "vendorNonTradeReceivables": quarter_nontrade_ar
+                }
             }
 
-        moat_rating_source = None
-        if entity_id in entity_moat_cache:
-            cached_moat = entity_moat_cache[entity_id]
-            if cached_moat is None:
-                moat_data = None
-                moat_rating_source = {"reason": "analysisUnavailable"}
+            if fx_rate != 1.0:
+                debt = round(debt * fx_rate, 1)
+                cash = round(cash * fx_rate, 1)
+                short_term_inv = round(short_term_inv * fx_rate, 1)
+                if equity is not None:
+                    equity = equity * fx_rate
+                goodwill_and_intangibles = goodwill_and_intangibles * fx_rate
+                if total_assets is not None:
+                    total_assets = total_assets * fx_rate
+                ttm_net_income = ttm_net_income * fx_rate
+                ttm_ebitda = ttm_ebitda * fx_rate
+                fcf0 = round(fcf0 * fx_rate, 1)
+                ttm_dividends_paid = ttm_dividends_paid * fx_rate
+                ttm_buybacks_paid = ttm_buybacks_paid * fx_rate
+
+            if fcf0 <= 0: fcf0 = round(mcap * 0.038, 1)
+
+            div_yield_real = 0.0
+            if mcap > 0 and ttm_dividends_paid > 0:
+                div_yield_real = round((ttm_dividends_paid / (mcap * 1e6)) * 100.0, 2)
+
+            # P/B requires real parent equity. Missing/zero equity → null (never invent $1 book).
+            if equity is not None and equity != 0 and mcap > 0:
+                pb_trailing = round((mcap * 1e6) / equity, 1)
+                pb_forward = round(pb_trailing * 0.90, 1)
             else:
-                moat_data = copy.deepcopy(cached_moat)
-                moat_data["ticker"] = sym
-        else:
-            fin_context = {
+                pb_trailing = None
+                pb_forward = None
+            pe_trailing = round((mcap * 1e6) / ttm_net_income, 1) if ttm_net_income > 0 else 24.0
+            # Use `is not None` so NI=0 yields ROE/ROA 0.0 instead of None (Piotroski crash).
+            roe = (
+                round((ttm_net_income / equity) * 100.0, 1)
+                if equity and equity != 0 and ttm_net_income is not None
+                else None
+            )
+            if roe is None and has_balance_sheet is False:
+                roe = 18.0
+            roa = (
+                round((ttm_net_income / total_assets) * 100.0, 1)
+                if total_assets and total_assets > 0 and ttm_net_income is not None
+                else None
+            )
+            if roa is None and has_balance_sheet is False:
+                roa = 8.0
+            time.sleep(0.04)
+
+            est_data = fetch_json("analyst-estimates", {"symbol": fmp_sym, "limit": 4})
+            growth_10y = build_10y_growth_schedule(est_data, stock_item.get("default_g1", 8.0), DEFAULT_G)
+            pe_forward = round(pe_trailing * 0.88, 1)
+
+            fmp_beta = prof.get("beta")
+            if fmp_beta is not None and float(fmp_beta) > 0:
+                beta = round(float(fmp_beta), 2)
+                beta_5y = beta
+            else:
+                beta = 1.15
+                current_sector = stock_item.get("sector", "")
+                if current_sector in ["公用事業", "必需消費"]: beta = 0.75
+                elif current_sector in ["資訊科技"]: beta = 1.35
+                elif current_sector in ["金融"]: beta = 1.05
+                beta_5y = beta
+
+            tax = TAX_RATE
+            ke = RF + (beta * ERP)
+            kd_after = (KD / 100.0) * (1.0 - (tax / 100.0))
+            V = mcap + debt
+            wE = mcap / V if V > 0 else 0.95
+            wD = debt / V if V > 0 else 0.05
+            wacc = (wE * ke) + (wD * kd_after)
+
+            net_debt = round(debt - cash, 1)
+
+            # Market EV in calculation-currency millions: mcap + debt − cash/STI.
+            # Do NOT scale FMP `/enterprise-values` with fx_rate=1 after the shared USD
+            # statement translator — that endpoint stays in reportedCurrency (KRW/TWD/JPY/…)
+            # and produced SKHY/ASX-class absurd EVs on US expansion (which skips the
+            # post-pass usd_financials.cjs rewrite used by the baseline).
+            fmp_official_ev = round(mcap + net_debt, 1)
+            if fmp_official_ev == 0:
+                fmp_official_ev = round(mcap * 0.8, 1)
+
+            sum_pv = 0
+            cur_fcf = fcf0
+            for t, gr_pct in enumerate(growth_10y, 1):
+                cur_fcf *= (1.0 + (gr_pct / 100.0))
+                sum_pv += cur_fcf / ((1.0 + wacc) ** t)
+
+            safe_wacc = max(wacc, DEFAULT_G + 0.015)
+            tv = (cur_fcf * (1.0 + DEFAULT_G)) / (safe_wacc - DEFAULT_G)
+            pv_tv = tv / ((1.0 + safe_wacc) ** 10)
+            ev = round(sum_pv + pv_tv, 1)
+            eq_val = ev - net_debt
+            fair_val = round(eq_val / shares, 2)
+            premium_pct = round(((price / fair_val) - 1.0) * 100.0, 1)
+
+            ebitda_m = ttm_ebitda / 1e6
+            if ebitda_m > 0:
+                ev_to_ebitda = round(ev / ebitda_m, 1)
+                debt_to_ebitda = round(debt / ebitda_m, 2)
+                net_debt_to_ebitda = round(net_debt / ebitda_m, 2)
+            else:
+                ev_to_ebitda = round(pe_trailing * 0.75, 1)
+                debt_to_ebitda = round(debt / max(fcf0, 1.0), 2)
+                net_debt_to_ebitda = round(net_debt / max(fcf0, 1.0), 2)
+
+            f_score, f_score_breakdown = calculate_piotroski_score(roa, fcf0, cr, liab_r, ttm_net_income)
+
+            FINANCIAL_SPECIAL_INDUSTRIES = {
+                # Baseline (legacy FMP labels)
+                "Diversified Banks", "Consumer Finance", "Investment Banking & Brokerage",
+                "Property & Casualty Insurance", "Life & Health Insurance", "Multi-line Insurance",
+                # Current FMP screener labels (US expansion / refreshed profiles)
+                "Banks", "Banks - Regional", "Banks - Diversified",
+                "Financial - Credit Services", "Investment - Banking & Investment Services",
+                "Insurance - Property & Casualty", "Insurance - Life", "Insurance - Diversified",
+                "Insurance - Reinsurance", "Insurance - Specialty",
+            }
+            is_financial_model = (
+                stock_item.get("industry", "") in FINANCIAL_SPECIAL_INDUSTRIES
+                and sym not in {"BRK.B", "BRK-B", "BRK.A", "BRK-A"}
+            )
+
+            fin_valuation = {"is_financial": False}
+            if is_financial_model:
+                reference_process = subprocess.run(
+                    ["node", os.path.join(os.path.dirname(__file__), "scripts", "financial_reference.cjs"), "--stdin"],
+                    input=json.dumps({"statements": fin_cache, "shares": shares, "fxRate": fx_rate}),
+                    text=True, capture_output=True, check=True
+                )
+                reference = json.loads(reference_process.stdout)
+                shares_count = shares * 1e6
+                tbvps = reference["tbvps"]
+                # equity may be null when the balance sheet lacks usable parent equity;
+                # do not crash the whole expansion batch (AVAL-class).
+                if equity is not None and shares_count > 0:
+                    bvps = round(equity / shares_count, 2)
+                else:
+                    bvps = None
+
+                dps_div = (ttm_dividends_paid / shares_count) if shares_count > 0 else (price * 0.02)
+                dps_bb = (ttm_buybacks_paid / shares_count) if shares_count > 0 else 0.0
+                dps_total = round(dps_div + min(dps_bb, dps_div * 1.5), 2)
+
+                ke_capm = ke
+                ke_rate = max(ke, 0.09)
+                ke_floor_applied = ke_rate > ke_capm + 1e-12
+                rote_rate = reference["rote"] / 100.0 if reference["rote"] is not None else None
+                excess_return_val = None
+                if not reference["reason"] and rote_rate is not None and tbvps and tbvps > 0 and ke_rate > DEFAULT_G:
+                    spread = rote_rate - ke_rate
+                    excess_return_val = tbvps + (tbvps * spread) / max(ke_rate - DEFAULT_G, 0.02)
+
+                ddm_sum = 0.0
+                cur_dps = dps_total
+                g_dps = min(float(stock_item.get("default_g1", 6.0)) / 100.0, 0.065)
+                ddm_val = None
+                if dps_total is not None and ke_rate > DEFAULT_G and ke_rate > 0:
+                    for t in range(1, 6):
+                        cur_dps *= (1.0 + g_dps)
+                        ddm_sum += cur_dps / ((1.0 + ke_rate) ** t)
+                    tv_ddm = (cur_dps * (1.0 + DEFAULT_G)) / max(ke_rate - DEFAULT_G, 0.02)
+                    pv_tv_ddm = tv_ddm / ((1.0 + ke_rate) ** 5)
+                    ddm_val = round(ddm_sum + pv_tv_ddm, 2)
+
+                # Blend needs both legs; DDM remains stored when excess/reference fails (README).
+                fair_val = (
+                    round((excess_return_val * 0.55) + (ddm_val * 0.45), 2)
+                    if excess_return_val is not None and ddm_val is not None else None
+                )
+                premium_pct = round(((price / fair_val) - 1.0) * 100.0, 1) if fair_val and fair_val > 0 else None
+
+                fin_valuation = {
+                    "is_financial": True,
+                    "tbvps": tbvps,
+                    "bvps": bvps,
+                    "rote": reference["rote"],
+                    "reference": reference,
+                    "ke": round(ke_rate * 100.0, 2),
+                    "ke_capm": round(ke_capm * 100.0, 2),
+                    "ke_floor_pct": 9.0,
+                    "ke_floor_applied": ke_floor_applied,
+                    "g": round(DEFAULT_G * 100.0, 2),
+                    "dps_total": dps_total,
+                    "excess_return_fair": None if excess_return_val is None else round(excess_return_val, 2),
+                    "ddm_fair": ddm_val,
+                    "pb_tangible": round(price / tbvps, 2) if tbvps and tbvps > 0 else None
+                }
+
+            moat_rating_source = None
+            if entity_id in entity_moat_cache:
+                cached_moat = entity_moat_cache[entity_id]
+                if cached_moat is None:
+                    moat_data = None
+                    moat_rating_source = {"reason": "analysisUnavailable"}
+                else:
+                    moat_data = copy.deepcopy(cached_moat)
+                    moat_data["ticker"] = sym
+            else:
+                fin_context = {
+                    "name": stock_item.get("name", sym),
+                    "sector": stock_item.get("sector", "N/A"),
+                    "industry": stock_item.get("industry", "N/A"),
+                    "mcap": mcap,
+                    "roe": roe,
+                    "roa": roa,
+                    "f_score": f_score,
+                    "real_history": real_history,
+                    "fcf0": fcf0,
+                    "debt": debt,
+                    "cash": cash
+                }
+
+                moat_data = analyze_stock_moat(
+                    ticker=sym,
+                    latest_period=latest_period,
+                    fin_context=fin_context,
+                    force_refresh=False
+                )
+                entity_moat_cache[entity_id] = moat_data
+                if moat_data is None:
+                    moat_rating_source = {"reason": "analysisUnavailable"}
+
+            # 呼叫歷史 DCF 與復權股價計算
+            hist_data = calculate_historical_5y_dcf_and_prices(fmp_sym, {
+                "WACC": wacc,
+                "g": DEFAULT_G * 100,
+                "shares": shares,
+                "price": price
+            })
+
+            # 1. 必須先在字典外面執行這行，取得 hist_data
+            hist_data = calculate_historical_5y_dcf_and_prices(fmp_sym, {
+                "WACC": wacc,
+                "g": DEFAULT_G * 100,
+                "shares": shares,
+                "price": price
+            })
+
+            # 2. 然後再組裝進 results[sym] 字典中
+            results[sym] = {
+                "ticker": sym,
+                "calculationCurrency": "USD",
                 "name": stock_item.get("name", sym),
+                "company_name": company_full_name,
+                "exchange": stock_item.get("exchange", "US"),
                 "sector": stock_item.get("sector", "N/A"),
                 "industry": stock_item.get("industry", "N/A"),
+                "reportedCurrency": reported_currency,
+                "price": price,
+                "shares": shares,
+                "shares_outstanding": int(shares * 1e6) if shares > 0 else 0,
+                "shares_display": f"{shares:,.2f} M",
+                "shareSource": share_source,
+                "shareBasis": share_source["basis"],
                 "mcap": mcap,
+                "liq_val_1": None,
+                "liq_val_2": None,
+                "liq_val_3": None,
+                "debt": debt,
+                "cash": cash,
+                "short_term_investments": short_term_inv,
+                "cash_and_short_term": cash,
+                "net_debt": round(debt - cash, 1),
+                "fcf0": fcf0,
+                "real_history": real_history,
+                "statements_raw": statements_data,
+                "peers": get_stock_peers_cached(sym, FMP_KEY),
+                "beta": beta,
+                "beta_5y": beta_5y,
+                "kd": KD,
+                "tax": tax,
+                "growth_10y": growth_10y,
+                "g1": growth_10y[0],
+                "g2": growth_10y[5],
+                "g": round(DEFAULT_G * 100.0, 2),
+                "wacc": round(wacc * 100.0, 2),
+                "ev": fmp_official_ev,
+                "fmp_official_ev": fmp_official_ev,
+                "enterpriseValueBasis": "USD market capitalization + USD debt - USD cash and short-term investments",
+                "dcf_model_ev": ev,
+                "ev_to_ebitda": round(fmp_official_ev / ebitda_m, 1) if ebitda_m > 0 else ev_to_ebitda,
+                "debt_to_ebitda": debt_to_ebitda,
+                "net_debt_to_ebitda": net_debt_to_ebitda,
+                "f_score": f_score,
+                "f_score_breakdown": f_score_breakdown,
+                "fair_val": fair_val,
+                "default_fair_val": fair_val,
+                "premium_pct": premium_pct,
+                "is_undervalued": premium_pct < 0 if premium_pct is not None else None,
+                "pe_trailing": pe_trailing,
+                "pe_forward": pe_forward,
+                "pb_trailing": pb_trailing,
+                "pb_forward": pb_forward,
+                "div_yield": div_yield_real,
+                "ps_ratio": round(mcap / max(fcf0 * 4.0, 1.0), 1),
+                "fcf_to_ev": round((fcf0 / fmp_official_ev) * 100.0, 2) if fmp_official_ev > 0 else 0.0,
+                "fcf_to_mcap": round((fcf0 / mcap) * 100.0, 2) if mcap > 0 else 0.0,
+                "liab_to_assets": liab_r,
+                "cash_to_assets": cash_to_assets,
+                "current_ratio": cr,
                 "roe": roe,
                 "roa": roa,
-                "f_score": f_score,
-                "real_history": real_history,
-                "fcf0": fcf0,
-                "debt": debt,
-                "cash": cash
+                "moat": moat_data,
+                "ratingSources": {
+                    "moat": moat_rating_source or ({"reason": None} if moat_data else {"reason": "analysisUnavailable"}),
+                    "fScore": {"score": f_score, "checkedAt": None},
+                },
+                "fin_valuation": fin_valuation,
+                "image": image_url,
+                "logo": image_url,
+                "website": website,
+                "ceo": ceo,
+                "full_time_employees": employees,
+                "description": description_en,
+                "description_en": description_en,
+                "description_zh": description_zh,
+                "address": prof.get("address", "--"),
+                "city": prof.get("city", "--"),
+                "state": prof.get("state", "--"),
+                "zip": prof.get("zip", "--"),
+                "country": prof.get("country", "US"),
+                "phone": prof.get("phone", "--"),
+                "full_address": f"{prof.get('address', '')}, {prof.get('city', '')}, {prof.get('state', '')} {prof.get('zip', '')}, {prof.get('country', '')}".strip(", "),
+                "range_52w": prof.get("range", "--"),
+                "year_high": float(q.get("yearHigh") or 0.0) if q else 0.0,
+                "year_low": float(q.get("yearLow") or 0.0) if q else 0.0,
+                "all_time_high": float(prof.get("mktCap", 0) / (shares * 1e6)) * 1.25 if shares > 0 else price * 1.3,
+                "all_time_low": float(q.get("yearLow") or price * 0.45) if q else price * 0.45,
+                "inst_ownership_pct": real_inst_ownership,
+                "insider_ownership_pct": real_insider_ownership,
+                "top_holders": company_meta.get("top_holders", []),
+                "insider_trades": company_meta.get("insider_trades", []),
+                "stock_splits": company_meta.get("stock_splits", []),
+                "fmp_symbol": fmp_sym,
+                # 正確：放在字典結尾處
+                "real_5y_prices": hist_data["real_5y_prices"],
+                "historical_dcf_series": hist_data["historical_dcf_series"]
             }
 
-            moat_data = analyze_stock_moat(
-                ticker=sym,
-                latest_period=latest_period,
-                fin_context=fin_context,
-                force_refresh=False
+            moat_preview = (moat_data or {}).get("overall_moat_verdict_zh") or (moat_rating_source or {}).get("reason") or "N/A"
+            print(f"[{stock_idx:03d}/{len(UNIQUE_STOCKS)}] ✅ {sym} ({stock_item.get('exchange', 'US')}) - 股價=${price} | 5Y Beta={beta_5y} | 公允價值=${fair_val} | 護城河: {str(moat_preview)[:30]}...", flush=True)
+        except Exception as err:
+            if not US_EXPANSION_MODE:
+                raise
+            us_expansion_skipped.append({
+                "ticker": sym,
+                "reason": f"buildError:{type(err).__name__}",
+                "detail": str(err)[:240],
+            })
+            print(
+                f"[{stock_idx:03d}/{len(UNIQUE_STOCKS)}] ⚠️ SKIP {sym} "
+                f"({type(err).__name__}: {err})",
+                flush=True,
             )
-            entity_moat_cache[entity_id] = moat_data
-            if moat_data is None:
-                moat_rating_source = {"reason": "analysisUnavailable"}
-
-        # 呼叫歷史 DCF 與復權股價計算
-        hist_data = calculate_historical_5y_dcf_and_prices(fmp_sym, {
-            "WACC": wacc,
-            "g": DEFAULT_G * 100,
-            "shares": shares,
-            "price": price
-        })
-
-        # 1. 必須先在字典外面執行這行，取得 hist_data
-        hist_data = calculate_historical_5y_dcf_and_prices(fmp_sym, {
-            "WACC": wacc,
-            "g": DEFAULT_G * 100,
-            "shares": shares,
-            "price": price
-        })
-
-        # 2. 然後再組裝進 results[sym] 字典中
-        results[sym] = {
-            "ticker": sym,
-            "calculationCurrency": "USD",
-            "name": stock_item.get("name", sym),
-            "company_name": company_full_name,
-            "exchange": stock_item.get("exchange", "US"),
-            "sector": stock_item.get("sector", "N/A"),
-            "industry": stock_item.get("industry", "N/A"),
-            "reportedCurrency": reported_currency,
-            "price": price,
-            "shares": shares,
-            "shares_outstanding": int(shares * 1e6) if shares > 0 else 0,
-            "shares_display": f"{shares:,.2f} M",
-            "shareSource": share_source,
-            "shareBasis": share_source["basis"],
-            "mcap": mcap,
-            "liq_val_1": None,
-            "liq_val_2": None,
-            "liq_val_3": None,
-            "debt": debt,
-            "cash": cash,
-            "short_term_investments": short_term_inv,
-            "cash_and_short_term": cash,
-            "net_debt": round(debt - cash, 1),
-            "fcf0": fcf0,
-            "real_history": real_history,
-            "statements_raw": statements_data,
-            "peers": get_stock_peers_cached(sym, FMP_KEY),
-            "beta": beta,
-            "beta_5y": beta_5y,
-            "kd": KD,
-            "tax": tax,
-            "growth_10y": growth_10y,
-            "g1": growth_10y[0],
-            "g2": growth_10y[5],
-            "g": round(DEFAULT_G * 100.0, 2),
-            "wacc": round(wacc * 100.0, 2),
-            "ev": fmp_official_ev,
-            "fmp_official_ev": fmp_official_ev,
-            "enterpriseValueBasis": "USD market capitalization + USD debt - USD cash and short-term investments",
-            "dcf_model_ev": ev,
-            "ev_to_ebitda": round(fmp_official_ev / ebitda_m, 1) if ebitda_m > 0 else ev_to_ebitda,
-            "debt_to_ebitda": debt_to_ebitda,
-            "net_debt_to_ebitda": net_debt_to_ebitda,
-            "f_score": f_score,
-            "f_score_breakdown": f_score_breakdown,
-            "fair_val": fair_val,
-            "default_fair_val": fair_val,
-            "premium_pct": premium_pct,
-            "is_undervalued": premium_pct < 0 if premium_pct is not None else None,
-            "pe_trailing": pe_trailing,
-            "pe_forward": pe_forward,
-            "pb_trailing": pb_trailing,
-            "pb_forward": pb_forward,
-            "div_yield": div_yield_real,
-            "ps_ratio": round(mcap / max(fcf0 * 4.0, 1.0), 1),
-            "fcf_to_ev": round((fcf0 / fmp_official_ev) * 100.0, 2) if fmp_official_ev > 0 else 0.0,
-            "fcf_to_mcap": round((fcf0 / mcap) * 100.0, 2) if mcap > 0 else 0.0,
-            "liab_to_assets": liab_r,
-            "cash_to_assets": cash_to_assets,
-            "current_ratio": cr,
-            "roe": roe,
-            "roa": roa,
-            "moat": moat_data,
-            "ratingSources": {
-                "moat": moat_rating_source or ({"reason": None} if moat_data else {"reason": "analysisUnavailable"}),
-                "fScore": {"score": f_score, "checkedAt": None},
-            },
-            "fin_valuation": fin_valuation,
-            "image": image_url,
-            "logo": image_url,
-            "website": website,
-            "ceo": ceo,
-            "full_time_employees": employees,
-            "description": description_en,
-            "description_en": description_en,
-            "description_zh": description_zh,
-            "address": prof.get("address", "--"),
-            "city": prof.get("city", "--"),
-            "state": prof.get("state", "--"),
-            "zip": prof.get("zip", "--"),
-            "country": prof.get("country", "US"),
-            "phone": prof.get("phone", "--"),
-            "full_address": f"{prof.get('address', '')}, {prof.get('city', '')}, {prof.get('state', '')} {prof.get('zip', '')}, {prof.get('country', '')}".strip(", "),
-            "range_52w": prof.get("range", "--"),
-            "year_high": float(q.get("yearHigh") or 0.0) if q else 0.0,
-            "year_low": float(q.get("yearLow") or 0.0) if q else 0.0,
-            "all_time_high": float(prof.get("mktCap", 0) / (shares * 1e6)) * 1.25 if shares > 0 else price * 1.3,
-            "all_time_low": float(q.get("yearLow") or price * 0.45) if q else price * 0.45,
-            "inst_ownership_pct": real_inst_ownership,
-            "insider_ownership_pct": real_insider_ownership,
-            "top_holders": company_meta.get("top_holders", []),
-            "insider_trades": company_meta.get("insider_trades", []),
-            "stock_splits": company_meta.get("stock_splits", []),
-            "fmp_symbol": fmp_sym,
-            # 正確：放在字典結尾處
-            "real_5y_prices": hist_data["real_5y_prices"],
-            "historical_dcf_series": hist_data["historical_dcf_series"]
-        }
-
-        moat_preview = (moat_data or {}).get("overall_moat_verdict_zh") or (moat_rating_source or {}).get("reason") or "N/A"
-        print(f"[{stock_idx:03d}/{len(UNIQUE_STOCKS)}] ✅ {sym} ({stock_item.get('exchange', 'US')}) - 股價=${price} | 5Y Beta={beta_5y} | 公允價值=${fair_val} | 護城河: {str(moat_preview)[:30]}...", flush=True)
 
     if US_EXPANSION_MODE:
         output_dir = US_EXPANSION_OUTPUT or "us-data-output"
