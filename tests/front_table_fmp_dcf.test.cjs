@@ -46,8 +46,8 @@ test('US baseline + expansion embed FMP DCF and Levered reference rows for front
     }
   }
 
-  assert.equal(coverage.baseline.dcf, 212);
-  assert.equal(coverage.baseline.levered, 212);
+  assert.equal(coverage.baseline.dcf, 214);
+  assert.equal(coverage.baseline.levered, 214);
   assert.equal(coverage.baseline.napp, 16);
   assert.deepEqual(coverage.baseline.na, []);
 

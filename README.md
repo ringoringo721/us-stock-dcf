@@ -161,7 +161,7 @@ before publishing. Artifacts alone do not update production.
 
 | Universe | Workflow | What refreshes | Remoat |
 |----------|----------|----------------|--------|
-| US baseline (~228) | `daily_update.yml` | Statements, DCF, prices, liquidation, capped Gemini | Daily moat cap |
+| US baseline (~230) | `daily_update.yml` | Statements, DCF, prices, liquidation, capped Gemini | Daily moat cap |
 | US expansion (~723) | `refresh_us_expansion_financials.yml` | Statements／catalogue via `US_EXPANSION_*` batches (rolling ~12 batches/weekday) | **No** — reuse moat cache; mark stale when statements move |
 | HK reviewed (114) | `refresh_hkex.yml` | Statements, prices, evidence-based moat | Evidence-hash only |
 | HK expansion (~2.6k) | `refresh_hkex_expansion_financials.yml` | Capture + `build_hkex_expansion` financial-only (rolling ~8 batches/weekday) | **No** — preserve prior moat as `staleEvidence` |

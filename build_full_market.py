@@ -73,8 +73,17 @@ def calculate_historical_5y_dcf_and_prices(fmp_sym: str, stock_item: dict) -> di
                     total_debt = float(q_bs.get("totalDebt") or q_bs.get("shortTermDebt") or 0) + float(q_bs.get("longTermDebt") or 0)
                     cash = float(q_bs.get("cashAndShortTermInvestments") or q_bs.get("cashAndCashEquivalents") or 0)
                     net_debt = total_debt - cash
-                    shares = float(q_bs.get("weightedAverageShsOutDil") or q_bs.get("weightedAverageShsOut") or stock_item.get("shares") or 1)
-                    if shares <= 0: shares = 1.0
+                    # Site shareSource rule: commonSharesOutstandingExcludingTreasury for
+                    # per-share valuations — never diluted weighted-average as denominator.
+                    shares = float(stock_item.get("shares") or 0)
+                    if shares <= 0:
+                        shares = float(
+                            q_bs.get("weightedAverageShsOut")
+                            or q_bs.get("weightedAverageShsOutDil")
+                            or 1
+                        )
+                    if shares <= 0:
+                        shares = 1.0
 
                     if ttm_fcf > 0:
                         sum_pv = 0
@@ -900,6 +909,7 @@ RAW_STOCK_LIST = [
     {"ticker": "TYL", "name": "Tyler Technologies", "exchange": "NYSE", "sector": "資訊科技", "industry": "Application Software", "default_g1": 9.5},
     {"ticker": "APPF", "name": "AppFolio", "exchange": "NASDAQ", "sector": "資訊科技", "industry": "Application Software", "default_g1": 18.0},
     {"ticker": "YOU", "name": "Clear Secure", "exchange": "NYSE", "sector": "資訊科技", "industry": "Application Software", "default_g1": 16.0},
+    {"ticker": "ITRI", "name": "Itron", "exchange": "NASDAQ", "sector": "資訊科技", "industry": "Electronic Equipment & Instruments", "default_g1": 8.5},
     {"ticker": "SNPS", "name": "Synopsys", "exchange": "NASDAQ", "sector": "資訊科技", "industry": "Application Software", "default_g1": 13.0},
     {"ticker": "BR", "name": "Broadridge Financial", "exchange": "NYSE", "sector": "資訊科技", "industry": "Data Processing & Outsourced Services", "default_g1": 7.5},
     {"ticker": "KLAC", "name": "KLA Corporation", "exchange": "NASDAQ", "sector": "資訊科技", "industry": "Semiconductor Materials & Equipment", "default_g1": 11.5},
@@ -924,6 +934,7 @@ RAW_STOCK_LIST = [
     {"ticker": "CMCSA", "name": "Comcast", "exchange": "NASDAQ", "sector": "通訊服務", "industry": "Cable & Satellite", "default_g1": 3.0},
     {"ticker": "TKO", "name": "TKO Group Holdings", "exchange": "NYSE", "sector": "通訊服務", "industry": "Movies & Entertainment", "default_g1": 12.0},
     {"ticker": "LYV", "name": "Live Nation", "exchange": "NYSE", "sector": "通訊服務", "industry": "Movies & Entertainment", "default_g1": 9.0},
+    {"ticker": "IRDM", "name": "Iridium Communications", "exchange": "NASDAQ", "sector": "通訊服務", "industry": "Alternative Carriers", "default_g1": 7.0},
     {"ticker": "EA", "name": "Electronic Arts", "exchange": "NASDAQ", "sector": "通訊服務", "industry": "Interactive Home Entertainment", "default_g1": 6.5},
     {"ticker": "TTWO", "name": "Take-Two Interactive", "exchange": "NASDAQ", "sector": "通訊服務", "industry": "Interactive Home Entertainment", "default_g1": 14.0},
     {"ticker": "WBD", "name": "Warner Bros. Discovery", "exchange": "NASDAQ", "sector": "通訊服務", "industry": "Movies & Entertainment", "default_g1": 3.5},
@@ -2083,7 +2094,12 @@ def main():
             reference = json.loads(reference_process.stdout)
             shares_count = shares * 1e6
             tbvps = reference["tbvps"]
-            bvps = round(equity / shares_count, 2) if shares_count > 0 else 60.0
+            # equity may be null when the balance sheet lacks usable parent equity;
+            # do not crash the whole expansion batch (AVAL-class).
+            if equity is not None and shares_count > 0:
+                bvps = round(equity / shares_count, 2)
+            else:
+                bvps = None
 
             dps_div = (ttm_dividends_paid / shares_count) if shares_count > 0 else (price * 0.02)
             dps_bb = (ttm_buybacks_paid / shares_count) if shares_count > 0 else 0.0

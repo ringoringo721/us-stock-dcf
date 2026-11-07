@@ -44,6 +44,8 @@ RETAINED_US_COMMONS = (
     "STRK",
     "KVUE",
 )
+# Baseline commons kept on site even if live mcap ≤ $5B (user: keep ITRI/IRDM).
+KEEP_BELOW_MIN_CAP_BASELINE = frozenset({"ITRI", "IRDM"})
 
 
 def normalize_exchange(value: str | None) -> str | None:

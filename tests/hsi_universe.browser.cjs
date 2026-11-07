@@ -505,7 +505,7 @@ function expectedAnnualCells(stock) {
       })));
       assert.equal(rendered.length, 982);
       const baselineRendered = rendered.filter(row => usMarket[row.ticker]);
-      assert.equal(baselineRendered.length, 228);
+      assert.equal(baselineRendered.length, 230);
       for (const row of baselineRendered) {
         const stock = usMarket[row.ticker];
         assert.ok(stock, row.ticker);

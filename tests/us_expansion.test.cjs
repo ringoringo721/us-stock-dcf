@@ -40,13 +40,13 @@ test('shipped US universe+expansion merge is baseline+catalogue (not market_data
   const expansion = Object.keys(context.US_EXPANSION.stocks).length;
   const merged = context.UsUniverse.merge(context.FULL_MARKET_DATA, context.US_LISTINGS, context.US_EXPANSION);
   const keys = Object.keys(merged);
-  assert.equal(baseline, 228);
+  assert.equal(baseline, 230);
   // Expansion catalogue grows with financial refresh; AEFC stays excluded.
   // Live screen is FMP common equity marketCap > USD 5B (AMRO/ITRI/IRDM dropped);
   // dual-class / inactive commons (FOXA…) are retained when the screener omits them.
   assert.equal(expansion, 715);
   assert.equal(context.US_LISTINGS.stocks.length, 1350);
-  assert.equal(keys.length, 1355);
+  assert.equal(keys.length, 1357);
   assert.ok(keys.length > baseline, 'frontpage must not stay on sync market_data.js alone');
   let expansionWithMoat = 0;
   const expansionWithoutMoat = [];
