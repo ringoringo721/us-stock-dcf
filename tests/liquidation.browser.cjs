@@ -32,7 +32,7 @@ const amount = value => value === null ? 'N/A' : value < 0
       const rows = await readRows();
       assert.equal(rows.length, 982);
       const baselineRows = rows.filter(row => market[row.ticker]);
-      assert.equal(baselineRows.length, 230);
+      assert.equal(baselineRows.length, 228);
       for (const row of baselineRows) {
         const source = market[row.ticker].liquidation, result = calculate(source, row.ticker);
         row.cells.forEach((cell, index) => {

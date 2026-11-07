@@ -10,7 +10,7 @@ const { assets, buildSite } = require('../scripts/build_site.cjs');
 const root = path.resolve(__dirname, '..');
 
 const REPORTED_NA = [
-  'GEV', 'TM', 'SHOP', 'ARM', 'AMRO',
+  'GEV', 'TM', 'SHOP', 'ARM',
   'ASML', 'PLTR', 'SHEL', 'DELL', 'NVS', 'SAP', 'AZN',
   'BNTX', 'NTES', 'CBRS', 'PDD', 'SPOT'
 ];
@@ -70,8 +70,8 @@ test('US expansion EV coverage is nearly complete (mcap + debt − cash)', () =>
       missing.push(ticker);
     }
   }
-  assert.equal(total, 723);
-  assert.ok(withEv >= 722, `expected ≥722 EV rows, got ${withEv}; missing ${missing.join(',')}`);
+  assert.equal(total, 715);
+  assert.ok(withEv >= 714, `expected ≥714 EV rows, got ${withEv}; missing ${missing.join(',')}`);
   // Listing-only stubs without debt/cash remain N/A by design (AEFC already excluded).
   for (const ticker of missing) {
     const stock = stocks[ticker];

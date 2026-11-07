@@ -100,20 +100,19 @@ This is a site screening rule, not a factual claim about Buffett's criteria.
 Partial / null dimension scores never invent a full **/100** total: the UI shows
 per-dimension **未評分 / Not assessed** and an honest overall **N/A · 部分評分**.
 
-## Full US company expansion (NYSE / NASDAQ / AMEX, market cap > USD 10B)
+## Full US company expansion (NYSE / NASDAQ / AMEX, market cap > USD 5B)
 
-The reviewed US baseline remains the **230** names embedded in `full_market_dcf.json`
-/ `market_data.js` (NYSE + NASDAQ only; no AMEX; **218** currently above USD 10B).
-Additional eligible listings are screened from FMP into `cache/us_universe.json`
-and `us_universe_data.js` with **`marketCap > USD 10,000,000,000`**, actively
-trading, on **NYSE / NASDAQ / AMEX** (including NYSE American aliases), excluding
-ETFs/funds. Exact USD 10B is out of scope. The catalogue invents no financials,
+The reviewed US baseline remains the names embedded in `full_market_dcf.json`
+/ `market_data.js` (NYSE + NASDAQ only; no AMEX). Additional eligible listings are
+screened from FMP into `cache/us_universe.json` and `us_universe_data.js` with
+**`marketCap > USD 5,000,000,000`**, actively trading, on **NYSE / NASDAQ / AMEX**
+(including NYSE American aliases), excluding ETFs/funds and non-common notes /
+preferreds. Exact USD 5B is out of scope. The catalogue invents no financials,
 moat scores or PF scores.
 
 An independent public count (totalmarketindex.com, close **20 October 2026**)
-puts **914** US-listed companies at **$10B or more**, so the expansion gap versus
-the **218** baseline names already above USD 10B is on the order of **~696**
-tickers pending live FMP confirmation (strict `>` may trim a few at the boundary).
+puts **914** US-listed companies at **$10B or more**; the live FMP **>$5B** common
+screen is larger (~1.3k after exclusions) and is authoritative for this catalogue.
 Cloud agents without `FMP_API_KEY` cannot materialize the catalogue;
 `python scripts/import_us_universe.py --inventory-only` reports the blocker.
 
@@ -162,7 +161,7 @@ before publishing. Artifacts alone do not update production.
 
 | Universe | Workflow | What refreshes | Remoat |
 |----------|----------|----------------|--------|
-| US baseline (~230) | `daily_update.yml` | Statements, DCF, prices, liquidation, capped Gemini | Daily moat cap |
+| US baseline (~228) | `daily_update.yml` | Statements, DCF, prices, liquidation, capped Gemini | Daily moat cap |
 | US expansion (~723) | `refresh_us_expansion_financials.yml` | Statements／catalogue via `US_EXPANSION_*` batches (rolling ~12 batches/weekday) | **No** — reuse moat cache; mark stale when statements move |
 | HK reviewed (114) | `refresh_hkex.yml` | Statements, prices, evidence-based moat | Evidence-hash only |
 | HK expansion (~2.6k) | `refresh_hkex_expansion_financials.yml` | Capture + `build_hkex_expansion` financial-only (rolling ~8 batches/weekday) | **No** — preserve prior moat as `staleEvidence` |

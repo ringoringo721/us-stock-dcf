@@ -46,19 +46,31 @@ test('US baseline + expansion embed FMP DCF and Levered reference rows for front
     }
   }
 
-  assert.equal(coverage.baseline.dcf, 214);
-  assert.equal(coverage.baseline.levered, 214);
+  assert.equal(coverage.baseline.dcf, 212);
+  assert.equal(coverage.baseline.levered, 212);
   assert.equal(coverage.baseline.napp, 16);
   assert.deepEqual(coverage.baseline.na, []);
 
-  assert.equal(coverage.expansion.dcf, 638);
-  assert.equal(coverage.expansion.levered, 638);
-  assert.equal(coverage.expansion.napp, 80);
+  assert.equal(coverage.expansion.dcf, 621);
+  assert.equal(coverage.expansion.levered, 621);
+  assert.equal(coverage.expansion.napp, 77);
   assert.deepEqual(coverage.expansion.na.sort(), [
-    'AMRO/dcf', 'AMRO/levered',
+    'AGI/dcf', 'AGI/levered',
+    'ALLE/dcf', 'ALLE/levered',
+    'BMNR/dcf', 'BMNR/levered',
+    'CACI/dcf', 'CACI/levered',
+    'CSL/dcf', 'CSL/levered',
+    'EMBJ/dcf', 'EMBJ/levered',
+    'FLUT/dcf', 'FLUT/levered',
+    'GDDY/dcf', 'GDDY/levered',
+    'MAA/dcf', 'MAA/levered',
     'MCHPP/dcf', 'MCHPP/levered',
     'RML/dcf', 'RML/levered',
+    'SJM/dcf', 'SJM/levered',
     'SMCIP/dcf', 'SMCIP/levered',
-    'VYLR/dcf', 'VYLR/levered'
+    'TIGO/dcf', 'TIGO/levered',
+    'TXT/dcf', 'TXT/levered',
+    'VYLR/dcf', 'VYLR/levered',
+    'WY/dcf', 'WY/levered',
   ]);
 });

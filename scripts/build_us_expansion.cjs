@@ -164,7 +164,7 @@ function matrix(size = 20, selected = '', symbols = '', incompleteOnly = false) 
     if (!result.length) throw new Error('No eligible incomplete US assessments selected');
   }
   if (!listed.length) {
-    throw new Error('No US expansion candidates above USD 10B outside the reviewed baseline');
+    throw new Error('No US expansion candidates above USD 5B outside the reviewed baseline');
   }
   result = applyBatchWindow(result);
   if (!result.length) {
