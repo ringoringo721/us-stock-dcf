@@ -1,4 +1,4 @@
-"""Import NYSE / NASDAQ / AMEX equities with market cap above USD 10 billion from FMP.
+"""Import NYSE / NASDAQ / AMEX equities with market cap above USD 5 billion from FMP.
 
 Does not invent financials, moat scores or PF scores. Requires FMP_API_KEY.
 Reviewed companies already in full_market_dcf.json remain the published baseline;
@@ -17,7 +17,7 @@ import re
 import sys
 import time
 
-MIN_MARKET_CAP = 10_000_000_000
+MIN_MARKET_CAP = 5_000_000_000
 EXCHANGES = ("NYSE", "NASDAQ", "AMEX")
 EXCHANGE_ALIASES = {
     "NYSE": {"NYSE"},
@@ -29,7 +29,23 @@ SCREENER_URLS = (
     "https://financialmodelingprep.com/api/v3/stock-screener",
 )
 # Independent public estimate (totalmarketindex.com, close 2026-10-20): 914 companies ≥ $10B.
+# Kept as a coarse cross-check only; live FMP > $5B screen is authoritative for this catalogue.
 EXTERNAL_ESTIMATE_ABOVE_10B = 914
+MARKET_CAP_EXCLUDE_REASON = "marketCapNotAbove5B"
+# Dual-class / inactive commons that FMP's active >$5B screener periodically omits
+# while profiles still clear the cap. Re-merged after the live screen so the site
+# does not drop FOXA-class names on every import (notes/preferreds are NOT listed).
+RETAINED_US_COMMONS = (
+    "FOXA",
+    "FWONK",
+    "NWSA",
+    "MKC-V",
+    "STRC",
+    "STRK",
+    "KVUE",
+)
+# Baseline commons kept on site even if live mcap ≤ $5B (user: keep ITRI/IRDM).
+KEEP_BELOW_MIN_CAP_BASELINE = frozenset({"ITRI", "IRDM"})
 
 
 def normalize_exchange(value: str | None) -> str | None:
@@ -170,8 +186,8 @@ def select_listings(rows: list[dict]) -> tuple[list[dict], dict]:
             continue
         market_cap = row.get("marketCap")
         if type(market_cap) not in (int, float) or not (market_cap > MIN_MARKET_CAP):
-            # Strict greater-than USD 10B; exact 10B is out of scope for this screen.
-            excluded["marketCapNotAbove10B"] += 1
+            # Strict greater-than USD 5B; exact 5B is out of scope for this screen.
+            excluded[MARKET_CAP_EXCLUDE_REASON] += 1
             continue
         symbol = str(row["symbol"]).strip().upper()
         item = {
@@ -184,7 +200,7 @@ def select_listings(rows: list[dict]) -> tuple[list[dict], dict]:
             "marketCap": int(market_cap) if float(market_cap).is_integer() else float(market_cap),
             "isActivelyTrading": bool(row.get("isActivelyTrading", True)),
             "country": row.get("country") or None,
-            "universeMembership": "FMP US equity screener (NYSE/NASDAQ/AMEX, marketCap > USD 10B)",
+            "universeMembership": "FMP US equity screener (NYSE/NASDAQ/AMEX, marketCap > USD 5B)",
         }
         previous = by_symbol.get(symbol)
         if previous and previous["marketCap"] >= item["marketCap"]:
@@ -195,6 +211,66 @@ def select_listings(rows: list[dict]) -> tuple[list[dict], dict]:
         by_symbol[symbol] = item
     selected = sorted(by_symbol.values(), key=lambda item: (-item["marketCap"], item["ticker"]))
     return selected, dict(excluded)
+
+
+def merge_retained_commons(stocks: list[dict], root: Path) -> tuple[list[dict], list[str]]:
+    """Append RETAINED_US_COMMONS missing from the live FMP screen.
+
+    Prefers the prior catalogue row (stable exchange/sector/mcap) when present;
+    otherwise synthesizes a minimal listing from the published expansion compact.
+    """
+    by_ticker = {item["ticker"]: item for item in stocks}
+    retained: list[str] = []
+    prior_rows: dict[str, dict] = {}
+    prior_path = root / "cache" / "us_universe.json"
+    if prior_path.exists():
+        try:
+            prior_rows = {
+                item["ticker"]: item
+                for item in json.loads(prior_path.read_text(encoding="utf-8")).get("stocks", [])
+                if isinstance(item, dict) and item.get("ticker")
+            }
+        except (TypeError, ValueError, KeyError):
+            prior_rows = {}
+    expansion_rows: dict[str, dict] = {}
+    expansion_path = root / "us_expansion_data.js"
+    if expansion_path.exists():
+        text = expansion_path.read_text(encoding="utf-8")
+        prefix = "window.US_EXPANSION = "
+        if text.startswith(prefix):
+            try:
+                expansion_rows = json.loads(text[len(prefix):].rstrip().rstrip(";")).get("stocks") or {}
+            except (TypeError, ValueError):
+                expansion_rows = {}
+    for symbol in RETAINED_US_COMMONS:
+        if symbol in by_ticker:
+            continue
+        if symbol in prior_rows:
+            row = dict(prior_rows[symbol])
+        else:
+            stock = expansion_rows.get(symbol) or {}
+            mcap_m = stock.get("mcap")
+            market_cap = None
+            if type(mcap_m) in (int, float):
+                market_cap = int(mcap_m * 1_000_000) if float(mcap_m).is_integer() else float(mcap_m) * 1_000_000
+            row = {
+                "ticker": symbol,
+                "name": stock.get("name") or stock.get("company_name") or symbol,
+                "name_en": stock.get("name_en") or stock.get("company_name") or stock.get("name") or symbol,
+                "exchange": stock.get("exchange") or "NASDAQ",
+                "sector": stock.get("sector") or "Unclassified",
+                "industry": stock.get("industry") or "Unclassified",
+                "marketCap": market_cap,
+                "isActivelyTrading": True,
+                "country": stock.get("country") or "US",
+            }
+        row["universeMembership"] = (
+            "Retained US common (FMP >$5B screener gap / dual-class or inactive)"
+        )
+        by_ticker[symbol] = row
+        retained.append(symbol)
+    selected = sorted(by_ticker.values(), key=lambda item: (-(item.get("marketCap") or 0), item["ticker"]))
+    return selected, retained
 
 
 def write_catalogue(path: Path, stocks: list[dict], excluded: dict, retrieved_at: str) -> dict:
@@ -235,21 +311,25 @@ def write_catalogue(path: Path, stocks: list[dict], excluded: dict, retrieved_at
 
 
 def inventory_only(reviewed: set[str], stocks: list[dict] | None = None,
-                   reviewed_above_10b: int | None = None) -> dict:
-    already = reviewed_above_10b if reviewed_above_10b is not None else None
+                   reviewed_above_min: int | None = None) -> dict:
+    already = reviewed_above_min if reviewed_above_min is not None else None
     gap = None if already is None else max(EXTERNAL_ESTIMATE_ABOVE_10B - already, 0)
     baseline = {
         "reviewedBaseline": len(reviewed),
+        "reviewedBaselineAboveMinCap": already,
+        # Backward-compatible alias while callers migrate off the old 10B label.
         "reviewedBaselineAbove10B": already,
         "reviewedExchanges": "see full_market_dcf.json",
         "externalEstimateAbove10B": EXTERNAL_ESTIMATE_ABOVE_10B,
         "externalEstimateSource": (
             "totalmarketindex.com US exchange company count by size, "
             "close 2026-10-20 (914 companies with market cap of $10 billion or more). "
-            "Screen uses strict greater-than USD 10B; FMP live screen remains authoritative."
+            "Screen now uses strict greater-than USD 5B; FMP live screen remains authoritative."
         ),
+        "estimatedGapVsBaselineAboveMinCap": gap,
         "estimatedGapVsBaselineAbove10B": gap,
         "estimatedGapVsFullBaseline": EXTERNAL_ESTIMATE_ABOVE_10B - len(reviewed),
+        "minMarketCapUsd": MIN_MARKET_CAP,
     }
     if stocks is None:
         return {"status": "fmpUnavailable", **baseline}
@@ -263,7 +343,7 @@ def inventory_only(reviewed: set[str], stocks: list[dict] | None = None,
     }
 
 
-def count_reviewed_above_10b(root: Path, reviewed: set[str]) -> int:
+def count_reviewed_above_min_cap(root: Path, reviewed: set[str]) -> int:
     market_path = root / "full_market_dcf.json"
     if not market_path.exists():
         return 0
@@ -286,10 +366,10 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
     root = Path(__file__).resolve().parents[1]
     reviewed = set(json.loads((root / "full_market_dcf.json").read_text(encoding="utf-8")))
-    reviewed_above = count_reviewed_above_10b(root, reviewed)
+    reviewed_above = count_reviewed_above_min_cap(root, reviewed)
     key = os.environ.get("FMP_API_KEY", "").strip()
     if not key:
-        report = inventory_only(reviewed, reviewed_above_10b=reviewed_above)
+        report = inventory_only(reviewed, reviewed_above_min=reviewed_above)
         report["blocker"] = "FMP_API_KEY missing; cannot screen live US universe"
         print(json.dumps(report, ensure_ascii=False, indent=2))
         return 2 if not args.inventory_only else 0
@@ -303,8 +383,10 @@ def main(argv: list[str] | None = None) -> int:
             rows.extend(batch)
             time.sleep(0.35)
     stocks, excluded = select_listings(rows)
-    report = inventory_only(reviewed, stocks, reviewed_above_10b=reviewed_above)
+    stocks, retained = merge_retained_commons(stocks, root)
+    report = inventory_only(reviewed, stocks, reviewed_above_min=reviewed_above)
     report["excluded"] = excluded
+    report["retainedCommons"] = retained
     if args.inventory_only or args.dry_run:
         print(json.dumps(report, ensure_ascii=False, indent=2))
         return 0

@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-01",
+      "name": "Park David Y",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 70,
+      "price": 36.89,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-10",
+      "name": "Mitchell Steven R",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 4828,
+      "price": 50.74,
+      "total_val": 0.24
+    },
+    {
+      "date": "2026-09-10",
+      "name": "Brown Valerie Gay",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 5518,
+      "price": 50.74,
+      "total_val": 0.28
+    },
+    {
+      "date": "2026-09-10",
+      "name": "Hoffmeister David F",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 5616,
+      "price": 50.74,
+      "total_val": 0.28
+    },
+    {
+      "date": "2026-09-10",
+      "name": "Raymond Anne L",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 5124,
+      "price": 50.74,
+      "total_val": 0.26
+    },
+    {
+      "date": "2026-06-11",
+      "name": "McCabe Michael I",
+      "title": "director, officer: Head of Strategy",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 23113,
+      "price": 42.44,
+      "total_val": 0.98
+    },
+    {
+      "date": "2026-06-11",
+      "name": "McCabe Michael I",
+      "title": "director, officer: Head of Strategy",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 96887,
+      "price": 41.71,
+      "total_val": 4.04
+    },
+    {
+      "date": "2026-06-03",
+      "name": "Fernandez Jose A",
+      "title": "director, officer: Co-Chief Operating Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 28324,
+      "price": 47.9,
+      "total_val": 1.36
+    },
+    {
+      "date": "2026-06-03",
+      "name": "Fernandez Jose A",
+      "title": "director, officer: Co-Chief Operating Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 56176,
+      "price": 48.57,
+      "total_val": 2.73
+    },
+    {
+      "date": "2026-06-03",
+      "name": "Fernandez Jose A",
+      "title": "director, officer: Co-Chief Operating Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 12117,
+      "price": 49.78,
+      "total_val": 0.6
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

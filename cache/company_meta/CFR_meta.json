@@ -1,0 +1,146 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-05",
+      "name": "GREEN PHILLIP D",
+      "title": "director, officer: Chairman and CEO",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 2200,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-03",
+      "name": "Henson Matthew Bradley",
+      "title": "officer: Chief Accounting Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 534,
+      "price": 159.72,
+      "total_val": 0.09
+    },
+    {
+      "date": "2026-11-02",
+      "name": "Berman Bobby",
+      "title": "officer: GEVP Research & Strategy",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 2406,
+      "price": 157.1,
+      "total_val": 0.38
+    },
+    {
+      "date": "2026-10-29",
+      "name": "Pullin Ericka Lynn",
+      "title": "officer: GEVP,  Culture & People Dev.",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 1666,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-29",
+      "name": "Stead Jimmy",
+      "title": "officer: GEVP Chief Consumer Banking",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 4450,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-29",
+      "name": "Wilson Kenneth L.",
+      "title": "officer: GEVP Chief Wealth Officer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 2689,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-29",
+      "name": "Alonzo Annette M",
+      "title": "officer: GEVP Chief HR Officer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 3451,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-29",
+      "name": "Berman Bobby",
+      "title": "officer: GEVP Research & Strategy",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 2665,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-29",
+      "name": "Severyn Carol Jean",
+      "title": "officer: GEVP and Chief Risk Officer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 3570,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-29",
+      "name": "Rhodes Coolidge E JR",
+      "title": "officer: Group EVP General Counsel/Sec",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 3522,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "1999-06-23",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1996-06-24",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1993-02-09",
+      "ratio": "11 : 10",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1981-12-01",
+      "ratio": "4 : 3",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1981-02-25",
+      "ratio": "4 : 3",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1980-02-05",
+      "ratio": "11 : 10",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

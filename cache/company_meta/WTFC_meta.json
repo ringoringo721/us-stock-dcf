@@ -1,0 +1,116 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-23",
+      "name": "MURPHY RICHARD B",
+      "title": "officer: VICE CHAIR,CHIEF LENDING OFC",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 7136,
+      "price": 148.66,
+      "total_val": 1.06
+    },
+    {
+      "date": "2026-09-30",
+      "name": "RICHTER DAVID S",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 394,
+      "price": 160.72,
+      "total_val": 0.06
+    },
+    {
+      "date": "2026-09-30",
+      "name": "LEFEVRE DEBORAH L. HALL",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 439,
+      "price": 160.72,
+      "total_val": 0.07
+    },
+    {
+      "date": "2026-09-30",
+      "name": "KENNEY BRIAN A",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 470,
+      "price": 160.72,
+      "total_val": 0.08
+    },
+    {
+      "date": "2026-09-30",
+      "name": "WASHINGTON ALEX E III",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 434,
+      "price": 160.72,
+      "total_val": 0.07
+    },
+    {
+      "date": "2026-09-30",
+      "name": "CONNELLY ELIZABETH H.",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 412,
+      "price": 160.72,
+      "total_val": 0.07
+    },
+    {
+      "date": "2026-09-30",
+      "name": "Smith Gregory A",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 388,
+      "price": 160.72,
+      "total_val": 0.06
+    },
+    {
+      "date": "2026-09-30",
+      "name": "CRIST PETER D",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 616,
+      "price": 160.72,
+      "total_val": 0.1
+    },
+    {
+      "date": "2026-09-30",
+      "name": "Kohl Laura A.",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 346,
+      "price": 160.72,
+      "total_val": 0.06
+    },
+    {
+      "date": "2026-09-30",
+      "name": "TEGLIA KARIN GUSTAFSON",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 420,
+      "price": 160.72,
+      "total_val": 0.07
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2002-03-15",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

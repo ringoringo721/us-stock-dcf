@@ -1,0 +1,116 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-09-16",
+      "name": "THIELE CANDACE L",
+      "title": "other: EVP, Chief Administrative Offi",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 1079,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-16",
+      "name": "THIELE CANDACE L",
+      "title": "other: EVP, Chief Administrative Offi",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 1122,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-16",
+      "name": "THIELE CANDACE L",
+      "title": "other: EVP, Chief Administrative Offi",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 1122,
+      "price": 92.68,
+      "total_val": 0.1
+    },
+    {
+      "date": "2026-09-16",
+      "name": "THIELE CANDACE L",
+      "title": "other: EVP, Chief Administrative Offi",
+      "is_buy": null,
+      "action": "D-Return",
+      "shares": 547,
+      "price": 92.68,
+      "total_val": 0.05
+    },
+    {
+      "date": "2026-09-16",
+      "name": "Walsh Derrick",
+      "title": "officer: EVP, Chief Financial Officer",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 4127,
+      "price": 92.68,
+      "total_val": 0.38
+    },
+    {
+      "date": "2026-09-16",
+      "name": "Walsh Derrick",
+      "title": "officer: EVP, Chief Financial Officer",
+      "is_buy": null,
+      "action": "D-Return",
+      "shares": 2222,
+      "price": 92.68,
+      "total_val": 0.21
+    },
+    {
+      "date": "2026-09-16",
+      "name": "Walsh Derrick",
+      "title": "officer: EVP, Chief Financial Officer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 3076,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-16",
+      "name": "Walsh Derrick",
+      "title": "officer: EVP, Chief Financial Officer",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 4127,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-16",
+      "name": "Tolla John Charles",
+      "title": "officer: EVP, Chief Risk Officer",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 3502,
+      "price": 92.68,
+      "total_val": 0.32
+    },
+    {
+      "date": "2026-09-16",
+      "name": "Tolla John Charles",
+      "title": "officer: EVP, Chief Risk Officer",
+      "is_buy": null,
+      "action": "D-Return",
+      "shares": 1885,
+      "price": 92.68,
+      "total_val": 0.17
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2015-11-18",
+      "ratio": "4 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-08-07",
+      "name": "Zhang Peifang",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 6000,
+      "price": 28.62,
+      "total_val": 0.17
+    },
+    {
+      "date": "2026-08-05",
+      "name": "Zhang Peifang",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 5000,
+      "price": 29.76,
+      "total_val": 0.15
+    },
+    {
+      "date": "2026-08-05",
+      "name": "Zhang Peifang",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 6000,
+      "price": 29.56,
+      "total_val": 0.18
+    },
+    {
+      "date": "2026-06-22",
+      "name": "Patouhas John",
+      "title": "officer: Chief Accounting Officer",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 3333,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-22",
+      "name": "Patouhas John",
+      "title": "officer: Chief Accounting Officer",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 3333,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-22",
+      "name": "Patouhas John",
+      "title": "officer: Chief Accounting Officer",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 960,
+      "price": 27.69,
+      "total_val": 0.03
+    },
+    {
+      "date": "2026-06-11",
+      "name": "Heiman Matthew R. A.",
+      "title": "officer",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-03-31",
+      "name": "CANTIE JOSEPH S",
+      "title": "director",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 4,
+      "price": 22.11,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-03-06",
+      "name": "Jurek Ivo",
+      "title": "director, officer: Chief Exec Officer & Director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 63891,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-03-06",
+      "name": "Jurek Ivo",
+      "title": "director, officer: Chief Exec Officer & Director",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 27966,
+      "price": 26.37,
+      "total_val": 0.74
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

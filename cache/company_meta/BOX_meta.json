@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-27",
+      "name": "Yuhjtman Omer",
+      "title": "Officer / Director",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-23",
+      "name": "Nottebohm Olivia",
+      "title": "officer: Chief Operating Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 5293,
+      "price": 41.58,
+      "total_val": 0.22
+    },
+    {
+      "date": "2026-10-13",
+      "name": "Smith Dylan C",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 17000,
+      "price": 36.56,
+      "total_val": 0.62
+    },
+    {
+      "date": "2026-10-06",
+      "name": "Nottebohm Olivia",
+      "title": "officer: Chief Operating Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 5293,
+      "price": 34.5,
+      "total_val": 0.18
+    },
+    {
+      "date": "2026-09-22",
+      "name": "Smith Dylan C",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 9975,
+      "price": 33.72,
+      "total_val": 0.34
+    },
+    {
+      "date": "2026-09-22",
+      "name": "Berkovitch Eli",
+      "title": "officer: VP Chief Acct Ofr & Controller",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 1925,
+      "price": 33.72,
+      "total_val": 0.06
+    },
+    {
+      "date": "2026-09-22",
+      "name": "Nottebohm Olivia",
+      "title": "officer: Chief Operating Officer",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 21330,
+      "price": 33.72,
+      "total_val": 0.72
+    },
+    {
+      "date": "2026-09-16",
+      "name": "EVAN DANA L",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 6158,
+      "price": 35.0,
+      "total_val": 0.22
+    },
+    {
+      "date": "2026-09-11",
+      "name": "Levie Aaron",
+      "title": "director, officer: Chief Executive Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 15000,
+      "price": 34.24,
+      "total_val": 0.51
+    },
+    {
+      "date": "2026-09-11",
+      "name": "Smith Dylan C",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 17000,
+      "price": 34.52,
+      "total_val": 0.59
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

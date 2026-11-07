@@ -1,0 +1,116 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-05",
+      "name": "COLEMAN VICTOR J",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 486,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-06",
+      "name": "COLEMAN VICTOR J",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 418,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-27",
+      "name": "Grimes Steven P",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 5922,
+      "price": 27.25,
+      "total_val": 0.16
+    },
+    {
+      "date": "2026-05-18",
+      "name": "Young Caroline L.",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 4958,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-18",
+      "name": "WURTZEBACH CHARLES H",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 4958,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-18",
+      "name": "Peterson Barton R",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 4958,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-18",
+      "name": "O'Reilly David R.",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 4958,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-18",
+      "name": "Lynch Peter L",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 4958,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-18",
+      "name": "Kelly Christie B.",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 4958,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-18",
+      "name": "Grimes Steven P",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 4958,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2014-08-12",
+      "ratio": "1 : 4",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

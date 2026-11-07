@@ -1,0 +1,122 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-09-25",
+      "name": "Leibrock Robert William",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": null,
+      "action": "D-Return",
+      "shares": 3176,
+      "price": 49.62,
+      "total_val": 0.16
+    },
+    {
+      "date": "2026-09-09",
+      "name": "Leibrock Robert William",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": null,
+      "action": "D-Return",
+      "shares": 1905,
+      "price": 52.95,
+      "total_val": 0.1
+    },
+    {
+      "date": "2026-09-09",
+      "name": "Shultz Ronald Craig",
+      "title": "officer: GM, ACI Speedpay",
+      "is_buy": null,
+      "action": "D-Return",
+      "shares": 385,
+      "price": 52.95,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-09-09",
+      "name": "Shultz Ronald Craig",
+      "title": "officer: GM, ACI Speedpay",
+      "is_buy": null,
+      "action": "D-Return",
+      "shares": 765,
+      "price": 52.95,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-09-09",
+      "name": "Shultz Ronald Craig",
+      "title": "officer: GM, ACI Speedpay",
+      "is_buy": null,
+      "action": "D-Return",
+      "shares": 724,
+      "price": 52.95,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-09-09",
+      "name": "Litch Erich J",
+      "title": "officer: GM, Payment Software",
+      "is_buy": null,
+      "action": "D-Return",
+      "shares": 136,
+      "price": 52.95,
+      "total_val": 0.01
+    },
+    {
+      "date": "2026-09-09",
+      "name": "Litch Erich J",
+      "title": "officer: GM, Payment Software",
+      "is_buy": null,
+      "action": "D-Return",
+      "shares": 667,
+      "price": 52.95,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-09-09",
+      "name": "Litch Erich J",
+      "title": "officer: GM, Payment Software",
+      "is_buy": null,
+      "action": "D-Return",
+      "shares": 963,
+      "price": 52.95,
+      "total_val": 0.05
+    },
+    {
+      "date": "2026-06-26",
+      "name": "Leibrock Robert William",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": null,
+      "action": "D-Return",
+      "shares": 2454,
+      "price": 46.39,
+      "total_val": 0.11
+    },
+    {
+      "date": "2026-06-08",
+      "name": "Shultz Ronald Craig",
+      "title": "officer: GM, ACI Speedpay",
+      "is_buy": null,
+      "action": "D-Return",
+      "shares": 383,
+      "price": 42.36,
+      "total_val": 0.02
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2014-07-11",
+      "ratio": "3 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1996-07-02",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

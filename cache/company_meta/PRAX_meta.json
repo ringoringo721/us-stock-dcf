@@ -1,0 +1,116 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-07-08",
+      "name": "Souza Marcio",
+      "title": "director, officer: Chief Executive Officer",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 20521,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-08",
+      "name": "Souza Marcio",
+      "title": "director, officer: Chief Executive Officer",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 2600,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-26",
+      "name": "DeSimone Jill",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 3034,
+      "price": 147.3,
+      "total_val": 0.45
+    },
+    {
+      "date": "2026-06-26",
+      "name": "DeSimone Jill",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 10,
+      "price": 301.44,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-26",
+      "name": "DeSimone Jill",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 120,
+      "price": 303.13,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-06-26",
+      "name": "DeSimone Jill",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 320,
+      "price": 305.31,
+      "total_val": 0.1
+    },
+    {
+      "date": "2026-06-26",
+      "name": "DeSimone Jill",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 683,
+      "price": 306.77,
+      "total_val": 0.21
+    },
+    {
+      "date": "2026-06-26",
+      "name": "DeSimone Jill",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 1240,
+      "price": 308.24,
+      "total_val": 0.38
+    },
+    {
+      "date": "2026-06-26",
+      "name": "DeSimone Jill",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 8566,
+      "price": 44.25,
+      "total_val": 0.38
+    },
+    {
+      "date": "2026-06-26",
+      "name": "DeSimone Jill",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 999,
+      "price": 309.38,
+      "total_val": 0.31
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2023-11-29",
+      "ratio": "1 : 15",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

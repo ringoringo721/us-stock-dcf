@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-06",
+      "name": "Simon Barry J.",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 25000,
+      "price": 10.75,
+      "total_val": 0.27
+    },
+    {
+      "date": "2026-10-06",
+      "name": "Cohen Cheryl",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 55979,
+      "price": 2.98,
+      "total_val": 0.17
+    },
+    {
+      "date": "2026-10-06",
+      "name": "Cohen Cheryl",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 81056,
+      "price": 10.5,
+      "total_val": 0.85
+    },
+    {
+      "date": "2026-10-06",
+      "name": "Cohen Cheryl",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 55979,
+      "price": 2.98,
+      "total_val": 0.17
+    },
+    {
+      "date": "2026-07-06",
+      "name": "Cohen Cheryl",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 55979,
+      "price": 2.98,
+      "total_val": 0.17
+    },
+    {
+      "date": "2026-07-06",
+      "name": "Cohen Cheryl",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 131210,
+      "price": 9.5,
+      "total_val": 1.25
+    },
+    {
+      "date": "2026-07-06",
+      "name": "Cohen Cheryl",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 55979,
+      "price": 2.98,
+      "total_val": 0.17
+    },
+    {
+      "date": "2026-07-06",
+      "name": "Selecky Christobel",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 124414,
+      "price": 2.99,
+      "total_val": 0.37
+    },
+    {
+      "date": "2026-07-06",
+      "name": "Selecky Christobel",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 35064,
+      "price": 2.98,
+      "total_val": 0.1
+    },
+    {
+      "date": "2026-07-06",
+      "name": "Selecky Christobel",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 159478,
+      "price": 9.02,
+      "total_val": 1.44
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

@@ -1,0 +1,122 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-05",
+      "name": "Chaikof David",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 5000,
+      "price": 8.18,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-10-30",
+      "name": "Chaikof David",
+      "title": "director: ",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-22",
+      "name": "GIAMATTEO JOHN JOSEPH",
+      "title": "director, officer: CEO & President, Secure Comm.",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 151000,
+      "price": 9.4,
+      "total_val": 1.42
+    },
+    {
+      "date": "2026-10-22",
+      "name": "GIAMATTEO JOHN JOSEPH",
+      "title": "director, officer: CEO & President, Secure Comm.",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 99000,
+      "price": 8.74,
+      "total_val": 0.87
+    },
+    {
+      "date": "2026-10-13",
+      "name": "Armstrong-Owen Jennifer",
+      "title": "officer: Sr VP & Chief People Officer",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 7636,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-13",
+      "name": "Armstrong-Owen Jennifer",
+      "title": "officer: Sr VP & Chief People Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 3379,
+      "price": 8.36,
+      "total_val": 0.03
+    },
+    {
+      "date": "2026-10-13",
+      "name": "Armstrong-Owen Jennifer",
+      "title": "officer: Sr VP & Chief People Officer",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 7636,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-13",
+      "name": "Foote Tim",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 19088,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-13",
+      "name": "Foote Tim",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 19088,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-13",
+      "name": "Foote Tim",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 8441,
+      "price": 8.36,
+      "total_val": 0.07
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2007-08-21",
+      "ratio": "3 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2004-06-07",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

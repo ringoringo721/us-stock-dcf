@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-23",
+      "name": "AGREE RICHARD",
+      "title": "director, officer: EXECUTIVE CHAIRMAN OF BOARD",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 4025,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-23",
+      "name": "Agree Joey",
+      "title": "director, officer: PRESIDENT & CEO",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 1150,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-23",
+      "name": "Agree Joey",
+      "title": "director, officer: PRESIDENT & CEO",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 1150,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-23",
+      "name": "Erlich Craig",
+      "title": "officer: CHIEF GROWTH OFFICER",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 1000,
+      "price": 67.55,
+      "total_val": 0.07
+    },
+    {
+      "date": "2026-09-17",
+      "name": "RAKOLTA JOHN JR",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 20000,
+      "price": 68.78,
+      "total_val": 1.38
+    },
+    {
+      "date": "2026-09-17",
+      "name": "Agree Joey",
+      "title": "director, officer: PRESIDENT & CEO",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 7360,
+      "price": 68.06,
+      "total_val": 0.5
+    },
+    {
+      "date": "2026-09-02",
+      "name": "RAKOLTA JOHN JR",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 10000,
+      "price": 72.42,
+      "total_val": 0.72
+    },
+    {
+      "date": "2026-08-31",
+      "name": "RAKOLTA JOHN JR",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 136,
+      "price": 73.52,
+      "total_val": 0.01
+    },
+    {
+      "date": "2026-08-31",
+      "name": "RAKOLTA JOHN JR",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 20000,
+      "price": 73.23,
+      "total_val": 1.46
+    },
+    {
+      "date": "2026-08-21",
+      "name": "Witteveen Nicole",
+      "title": "officer: CHIEF OPERATING OFFICER",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 293,
+      "price": 74.39,
+      "total_val": 0.02
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

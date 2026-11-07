@@ -1,0 +1,122 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-03",
+      "name": "Miosi Salvatore A",
+      "title": "officer: President & COO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 30000,
+      "price": 28.5,
+      "total_val": 0.85
+    },
+    {
+      "date": "2026-10-02",
+      "name": "Miosi Salvatore A",
+      "title": "officer: President & COO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 30000,
+      "price": 26.06,
+      "total_val": 0.78
+    },
+    {
+      "date": "2026-10-02",
+      "name": "Mattke Timothy J.",
+      "title": "director, officer: Chief Executive Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 137114,
+      "price": 26.23,
+      "total_val": 3.6
+    },
+    {
+      "date": "2026-09-25",
+      "name": "Colson Nathaniel H",
+      "title": "officer: Officer EVP, CFO & CRO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 20000,
+      "price": 29.48,
+      "total_val": 0.59
+    },
+    {
+      "date": "2026-09-02",
+      "name": "Miosi Salvatore A",
+      "title": "officer: President & COO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 30000,
+      "price": 30.73,
+      "total_val": 0.92
+    },
+    {
+      "date": "2026-08-21",
+      "name": "Zandi Mark",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 267,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-21",
+      "name": "Zandi Mark",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 28,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-21",
+      "name": "Klein Martin P",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 35,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-21",
+      "name": "CHAPLIN C EDWARD",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 275,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-21",
+      "name": "CHAPLIN C EDWARD",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 145,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "1997-06-03",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1993-12-03",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

@@ -1,0 +1,140 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-23",
+      "name": "Camara Edilson",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 7400,
+      "price": 13.49,
+      "total_val": 0.1
+    },
+    {
+      "date": "2026-10-02",
+      "name": "CRONIN JANE M.",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 3487,
+      "price": 11.47,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-10-02",
+      "name": "Bloom Ron A.",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 3487,
+      "price": 11.47,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-07-02",
+      "name": "CRONIN JANE M.",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 4246,
+      "price": 9.42,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-07-02",
+      "name": "Bloom Ron A.",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 4246,
+      "price": 9.42,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-06-05",
+      "name": "Goncalves Celso L Jr",
+      "title": "officer: EVP, CFO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 214308,
+      "price": 13.41,
+      "total_val": 2.87
+    },
+    {
+      "date": "2026-04-23",
+      "name": "Yocum Arlene M",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 15334,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-04-23",
+      "name": "Oren Ben",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 15334,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-04-23",
+      "name": "MICHAEL RALPH S III",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 15334,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-04-23",
+      "name": "CRONIN JANE M.",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 15334,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2008-05-16",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2006-07-03",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2005-01-03",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1978-09-18",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1975-12-16",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

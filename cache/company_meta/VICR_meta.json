@@ -1,0 +1,122 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-04",
+      "name": "Gusinov Alex",
+      "title": "officer: Corp. VP -Engineering",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 444,
+      "price": 75.43,
+      "total_val": 0.03
+    },
+    {
+      "date": "2026-11-04",
+      "name": "Gusinov Alex",
+      "title": "officer: Corp. VP -Engineering",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 2015,
+      "price": 41.61,
+      "total_val": 0.08
+    },
+    {
+      "date": "2026-11-04",
+      "name": "Gusinov Alex",
+      "title": "officer: Corp. VP -Engineering",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 616,
+      "price": 60.61,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-11-04",
+      "name": "Gusinov Alex",
+      "title": "officer: Corp. VP -Engineering",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 2015,
+      "price": 41.61,
+      "total_val": 0.08
+    },
+    {
+      "date": "2026-11-04",
+      "name": "Gusinov Alex",
+      "title": "officer: Corp. VP -Engineering",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 616,
+      "price": 60.61,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-11-04",
+      "name": "Gusinov Alex",
+      "title": "officer: Corp. VP -Engineering",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 444,
+      "price": 75.43,
+      "total_val": 0.03
+    },
+    {
+      "date": "2026-11-03",
+      "name": "Davies Philip D",
+      "title": "director, officer: Corp. VP-Global Sales & Mktg.",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 3073,
+      "price": 33.96,
+      "total_val": 0.1
+    },
+    {
+      "date": "2026-11-03",
+      "name": "Davies Philip D",
+      "title": "director, officer: Corp. VP-Global Sales & Mktg.",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 3073,
+      "price": 33.96,
+      "total_val": 0.1
+    },
+    {
+      "date": "2026-11-03",
+      "name": "Davies Philip D",
+      "title": "director, officer: Corp. VP-Global Sales & Mktg.",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 478,
+      "price": 175.0,
+      "total_val": 0.08
+    },
+    {
+      "date": "2026-11-03",
+      "name": "Davies Philip D",
+      "title": "director, officer: Corp. VP-Global Sales & Mktg.",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 100,
+      "price": 176.26,
+      "total_val": 0.02
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "1995-09-19",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1991-08-21",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

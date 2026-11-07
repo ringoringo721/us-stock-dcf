@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-06",
+      "name": "Robinson Elliott",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-02",
+      "name": "Budge James",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 4614,
+      "price": 114.32,
+      "total_val": 0.53
+    },
+    {
+      "date": "2026-11-02",
+      "name": "Pursley James",
+      "title": "officer: President",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 831,
+      "price": 114.32,
+      "total_val": 0.09
+    },
+    {
+      "date": "2026-10-13",
+      "name": "Budge James",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 2100,
+      "price": 101.53,
+      "total_val": 0.21
+    },
+    {
+      "date": "2026-10-13",
+      "name": "Budge James",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 21702,
+      "price": 102.54,
+      "total_val": 2.23
+    },
+    {
+      "date": "2026-10-13",
+      "name": "Budge James",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 14498,
+      "price": 103.48,
+      "total_val": 1.5
+    },
+    {
+      "date": "2026-10-13",
+      "name": "Budge James",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 9420,
+      "price": 104.33,
+      "total_val": 0.98
+    },
+    {
+      "date": "2026-10-13",
+      "name": "Mecklenburg Gabriel M.I.",
+      "title": "director, other: Exec. Chairman & Co-Founder",
+      "is_buy": null,
+      "action": "C-Conversion",
+      "shares": 200000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-13",
+      "name": "Mecklenburg Gabriel M.I.",
+      "title": "director, other: Exec. Chairman & Co-Founder",
+      "is_buy": null,
+      "action": "C-Conversion",
+      "shares": 200000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-13",
+      "name": "Mecklenburg Gabriel M.I.",
+      "title": "director, other: Exec. Chairman & Co-Founder",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 8642,
+      "price": 101.53,
+      "total_val": 0.88
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

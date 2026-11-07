@@ -1,0 +1,116 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-03",
+      "name": "Gaffin David Joseph",
+      "title": "officer: EVP, CLO, Alkermes, Inc.",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 2035,
+      "price": 46.17,
+      "total_val": 0.09
+    },
+    {
+      "date": "2026-10-09",
+      "name": "Reed Joshua",
+      "title": "officer: SVP, Chief Financial Officer",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 9164,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-09",
+      "name": "Reed Joshua",
+      "title": "officer: SVP, Chief Financial Officer",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 9164,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-09",
+      "name": "Reed Joshua",
+      "title": "officer: SVP, Chief Financial Officer",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 4069,
+      "price": 40.11,
+      "total_val": 0.16
+    },
+    {
+      "date": "2026-10-09",
+      "name": "Whitaker Anne Clem",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 17998,
+      "price": 41.45,
+      "total_val": 0.75
+    },
+    {
+      "date": "2026-10-09",
+      "name": "Whitaker Anne Clem",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 7239,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-02",
+      "name": "Gaffin David Joseph",
+      "title": "officer: EVP, CLO, Alkermes, Inc.",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 2034,
+      "price": 41.03,
+      "total_val": 0.08
+    },
+    {
+      "date": "2026-09-18",
+      "name": "Whitaker Anne Clem",
+      "title": "director: ",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-03",
+      "name": "Gaffin David Joseph",
+      "title": "officer: EVP, CLO, Alkermes, Inc.",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 2034,
+      "price": 48.01,
+      "total_val": 0.1
+    },
+    {
+      "date": "2026-09-01",
+      "name": "Hopkinson Craig C.",
+      "title": "officer: EVP R&D, Chief Medical Officer",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 5000,
+      "price": 24.59,
+      "total_val": 0.12
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2000-05-15",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

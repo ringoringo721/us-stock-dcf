@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-04",
+      "name": "MURPHY ROBERT MADISON",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 1000,
+      "price": 588.93,
+      "total_val": 0.59
+    },
+    {
+      "date": "2026-11-04",
+      "name": "MURPHY ROBERT MADISON",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 1000,
+      "price": 624.34,
+      "total_val": 0.62
+    },
+    {
+      "date": "2026-11-03",
+      "name": "Smith Donald R Jr",
+      "title": "officer: SVP, CFO & Treasurer",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 2000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-03",
+      "name": "Smith Donald R Jr",
+      "title": "officer: SVP, CFO & Treasurer",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 1130,
+      "price": 534.95,
+      "total_val": 0.6
+    },
+    {
+      "date": "2026-11-03",
+      "name": "Smith Donald R Jr",
+      "title": "officer: SVP, CFO & Treasurer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 1460,
+      "price": 515.65,
+      "total_val": 0.75
+    },
+    {
+      "date": "2026-11-03",
+      "name": "Smith Donald R Jr",
+      "title": "officer: SVP, CFO & Treasurer",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 2000,
+      "price": 126.0,
+      "total_val": 0.25
+    },
+    {
+      "date": "2026-11-03",
+      "name": "GOEBEL DAVID",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 1000,
+      "price": 511.36,
+      "total_val": 0.51
+    },
+    {
+      "date": "2026-10-01",
+      "name": "DEMING CLAIBORNE P",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 60,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-01",
+      "name": "MILLER DAVID B",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 51,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-01",
+      "name": "Phillips Jeanne Linder",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 51,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

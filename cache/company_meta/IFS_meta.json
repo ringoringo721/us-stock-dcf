@@ -1,0 +1,116 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-04-16",
+      "name": "Santa Maria Guzman Hugo Antonio",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 225,
+      "price": 47.76,
+      "total_val": 0.01
+    },
+    {
+      "date": "2026-04-01",
+      "name": "Castellanos Lopez Torres Luis Felipe",
+      "title": "officer: Chief Executive Officer",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-03-18",
+      "name": "Zavala Lombardi Fernando Martin",
+      "title": "director: ",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-03-18",
+      "name": "Aljovin Gazzani Lucia Cayetana",
+      "title": "director",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-03-18",
+      "name": "Rodriguez-Pastor Persivale Carlos Tomas",
+      "title": "director: ",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-03-18",
+      "name": "Vera Villacorta Liliana Elcira",
+      "title": "officer",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-03-18",
+      "name": "Santa Maria Guzman Hugo Antonio",
+      "title": "director",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-03-18",
+      "name": "Sandoval Zavala Alejandro Christian",
+      "title": "director: ",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-03-18",
+      "name": "Morris Guerinoni Felipe Federico Roy",
+      "title": "director: ",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-03-18",
+      "name": "Martinez Barros Ramon Guillermo",
+      "title": "director: ",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2009-05-06",
+      "ratio": "1 : 16",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

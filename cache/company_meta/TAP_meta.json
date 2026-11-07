@@ -1,0 +1,116 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-01",
+      "name": "HERINGTON CHARLES M",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 395,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-01",
+      "name": "Cocks Christian P",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 789,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-10",
+      "name": "Adolph Coors CO LLC",
+      "title": "10 percent owner",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-10",
+      "name": "Adolph Coors CO LLC",
+      "title": "10 percent owner",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-10",
+      "name": "Adolph Coors CO LLC",
+      "title": "10 percent owner",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-01",
+      "name": "Cocks Christian P",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 738,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-01",
+      "name": "HERINGTON CHARLES M",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 369,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-22",
+      "name": "Molson Geoffrey E.",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 1245,
+      "price": 42.5,
+      "total_val": 0.05
+    },
+    {
+      "date": "2026-05-20",
+      "name": "Riley H Sanford",
+      "title": "director",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 1345,
+      "price": 41.68,
+      "total_val": 0.06
+    },
+    {
+      "date": "2026-05-20",
+      "name": "O'Sullivan Nessa",
+      "title": "director",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 610,
+      "price": 41.68,
+      "total_val": 0.03
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2007-10-04",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-08-06",
+      "name": "Conrad Micah R.",
+      "title": "officer: EVP & COO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 5000,
+      "price": 65.4,
+      "total_val": 0.33
+    },
+    {
+      "date": "2026-07-31",
+      "name": "Hedlund Michael A",
+      "title": "officer: pao, SVP and Group Controller",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 2500,
+      "price": 64.0,
+      "total_val": 0.16
+    },
+    {
+      "date": "2026-06-30",
+      "name": "Hedlund Michael A",
+      "title": "officer: pao, SVP and Group Controller",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 1848,
+      "price": 62.0,
+      "total_val": 0.11
+    },
+    {
+      "date": "2026-06-30",
+      "name": "Conrad Micah R.",
+      "title": "officer: EVP & COO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 5000,
+      "price": 62.0,
+      "total_val": 0.31
+    },
+    {
+      "date": "2026-04-20",
+      "name": "Conrad Micah R.",
+      "title": "officer: EVP & COO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 5000,
+      "price": 60.0,
+      "total_val": 0.3
+    },
+    {
+      "date": "2026-02-27",
+      "name": "Conrad Micah R.",
+      "title": "officer: EVP & COO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 5000,
+      "price": 58.0,
+      "total_val": 0.29
+    },
+    {
+      "date": "2026-02-24",
+      "name": "Shulman Douglas H.",
+      "title": "director, officer: President & CEO",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 17163,
+      "price": 57.53,
+      "total_val": 0.99
+    },
+    {
+      "date": "2026-02-24",
+      "name": "Shulman Douglas H.",
+      "title": "director, officer: President & CEO",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 11270,
+      "price": 57.53,
+      "total_val": 0.65
+    },
+    {
+      "date": "2026-02-24",
+      "name": "Shulman Douglas H.",
+      "title": "director, officer: President & CEO",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 11430,
+      "price": 57.53,
+      "total_val": 0.66
+    },
+    {
+      "date": "2026-02-24",
+      "name": "Hedlund Michael A",
+      "title": "officer: pao, SVP and Group Controller",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 1040,
+      "price": 57.53,
+      "total_val": 0.06
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

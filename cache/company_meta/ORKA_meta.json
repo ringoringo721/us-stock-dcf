@@ -1,0 +1,146 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-02",
+      "name": "Klein Lawrence Otto",
+      "title": "director, officer: Chief Executive Officer",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 25000,
+      "price": 7.8,
+      "total_val": 0.2
+    },
+    {
+      "date": "2026-11-02",
+      "name": "Klein Lawrence Otto",
+      "title": "director, officer: Chief Executive Officer",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 25000,
+      "price": 7.8,
+      "total_val": 0.2
+    },
+    {
+      "date": "2026-11-02",
+      "name": "Klein Lawrence Otto",
+      "title": "director, officer: Chief Executive Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 6466,
+      "price": 94.77,
+      "total_val": 0.61
+    },
+    {
+      "date": "2026-11-02",
+      "name": "Klein Lawrence Otto",
+      "title": "director, officer: Chief Executive Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 15036,
+      "price": 95.64,
+      "total_val": 1.44
+    },
+    {
+      "date": "2026-11-02",
+      "name": "Klein Lawrence Otto",
+      "title": "director, officer: Chief Executive Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 2442,
+      "price": 96.7,
+      "total_val": 0.24
+    },
+    {
+      "date": "2026-11-02",
+      "name": "Klein Lawrence Otto",
+      "title": "director, officer: Chief Executive Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 756,
+      "price": 97.45,
+      "total_val": 0.07
+    },
+    {
+      "date": "2026-11-02",
+      "name": "Klein Lawrence Otto",
+      "title": "director, officer: Chief Executive Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 300,
+      "price": 98.4,
+      "total_val": 0.03
+    },
+    {
+      "date": "2026-10-20",
+      "name": "Quinlan Paul T",
+      "title": "officer: General Counsel",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 9000,
+      "price": 7.8,
+      "total_val": 0.07
+    },
+    {
+      "date": "2026-10-20",
+      "name": "Quinlan Paul T",
+      "title": "officer: General Counsel",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 9000,
+      "price": 7.8,
+      "total_val": 0.07
+    },
+    {
+      "date": "2026-10-20",
+      "name": "Quinlan Paul T",
+      "title": "officer: General Counsel",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 400,
+      "price": 74.9,
+      "total_val": 0.03
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2024-09-03",
+      "ratio": "1 : 12",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2019-04-04",
+      "ratio": "1 : 18",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2015-09-04",
+      "ratio": "1 : 7",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2013-03-05",
+      "ratio": "1 : 6",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2009-01-28",
+      "ratio": "1 : 20",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2004-02-23",
+      "ratio": "1 : 3",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

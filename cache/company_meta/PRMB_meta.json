@@ -1,0 +1,122 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-02",
+      "name": "STANBROOK STEVEN P",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 1574,
+      "price": 19.05,
+      "total_val": 0.03
+    },
+    {
+      "date": "2026-08-12",
+      "name": "FOSS ERIC J",
+      "title": "director, officer: Exec. Chair and CEO",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 100,
+      "price": 24.3,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-12",
+      "name": "FOSS ERIC J",
+      "title": "director, officer: Exec. Chair and CEO",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 83900,
+      "price": 23.8,
+      "total_val": 2.0
+    },
+    {
+      "date": "2026-08-10",
+      "name": "ORCP III DE TopCo GP, LLC",
+      "title": "10 percent owner",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 20410340,
+      "price": 24.37,
+      "total_val": 497.4
+    },
+    {
+      "date": "2026-08-10",
+      "name": "Lee Tony W",
+      "title": "director, 10 percent owner: ",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 20410340,
+      "price": 24.37,
+      "total_val": 497.4
+    },
+    {
+      "date": "2026-07-16",
+      "name": "Sudhanshu Priyadarshi",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 5712,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-16",
+      "name": "Sudhanshu Priyadarshi",
+      "title": "director: ",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-02",
+      "name": "STANBROOK STEVEN P",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 1227,
+      "price": 24.44,
+      "total_val": 0.03
+    },
+    {
+      "date": "2026-05-19",
+      "name": "Brimmer Andrea C",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 7197,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-19",
+      "name": "Brimmer Andrea C",
+      "title": "director: ",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "1993-07-26",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1992-07-23",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

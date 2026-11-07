@@ -1,0 +1,122 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-08-31",
+      "name": "Jones Donnie O.",
+      "title": "officer: SVP- Utility Operations (OG&E)",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 6508,
+      "price": 46.11,
+      "total_val": 0.3
+    },
+    {
+      "date": "2026-08-10",
+      "name": "Muncrief Richard E",
+      "title": "director",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-02",
+      "name": "RAINBOLT DAVID E",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 314,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-22",
+      "name": "SULTEMEIER WILLIAM H",
+      "title": "officer: GC, Corp. Sec, CCO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 7345,
+      "price": 47.97,
+      "total_val": 0.35
+    },
+    {
+      "date": "2026-04-01",
+      "name": "RAINBOLT DAVID E",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 319,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-02-26",
+      "name": "Stafford Sarah R.",
+      "title": "officer: Controller and CAO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 6130,
+      "price": 47.77,
+      "total_val": 0.29
+    },
+    {
+      "date": "2026-02-24",
+      "name": "Ganske Lyle G.",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 10420,
+      "price": 47.99,
+      "total_val": 0.5
+    },
+    {
+      "date": "2026-02-18",
+      "name": "Trauschke Sean",
+      "title": "officer: COB, President, CEO",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 43157,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-02-18",
+      "name": "Trauschke Sean",
+      "title": "officer: COB, President, CEO",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 70897,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-02-18",
+      "name": "Trauschke Sean",
+      "title": "officer: COB, President, CEO",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 31266,
+      "price": 46.64,
+      "total_val": 1.46
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2013-07-02",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1998-06-16",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

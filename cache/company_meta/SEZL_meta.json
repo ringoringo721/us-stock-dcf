@@ -1,0 +1,122 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-09-24",
+      "name": "Sabzivand Amin",
+      "title": "officer: Chief Operating Officer",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 342,
+      "price": 116.55,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-09-24",
+      "name": "Krause Justin",
+      "title": "officer: SVP FINANCE AND CONTROLLER",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 68,
+      "price": 116.55,
+      "total_val": 0.01
+    },
+    {
+      "date": "2026-09-22",
+      "name": "Hunt Bryan Cecil",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 250,
+      "price": 115.86,
+      "total_val": 0.03
+    },
+    {
+      "date": "2026-09-14",
+      "name": "Youakim Charles",
+      "title": "director, 10 percent owner, officer: Executive Chairman and CEO",
+      "is_buy": null,
+      "action": "J-Other",
+      "shares": 1508454,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-28",
+      "name": "Brehm Kyle M.",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 1000,
+      "price": 125.92,
+      "total_val": 0.13
+    },
+    {
+      "date": "2026-08-24",
+      "name": "Khurana Rajeev",
+      "title": "officer: General Counsel",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 129,
+      "price": 115.88,
+      "total_val": 0.01
+    },
+    {
+      "date": "2026-08-12",
+      "name": "Youakim Charles",
+      "title": "director, 10 percent owner, officer: Executive Chairman and CEO",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 6978,
+      "price": 118.0,
+      "total_val": 0.82
+    },
+    {
+      "date": "2026-08-12",
+      "name": "Paradis Paul",
+      "title": "director, officer: Director & President",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 7110,
+      "price": 118.0,
+      "total_val": 0.84
+    },
+    {
+      "date": "2026-08-12",
+      "name": "Krause Justin",
+      "title": "officer: SVP FINANCE AND CONTROLLER",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 1571,
+      "price": 118.0,
+      "total_val": 0.19
+    },
+    {
+      "date": "2026-08-12",
+      "name": "Sabzivand Amin",
+      "title": "officer: Chief Operating Officer",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 6973,
+      "price": 118.0,
+      "total_val": 0.82
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2025-03-31",
+      "ratio": "6 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2023-05-16",
+      "ratio": "1 : 38",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

@@ -1,0 +1,116 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-05",
+      "name": "Blair Robert James",
+      "title": "officer: SVP, General Counsel",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 38500,
+      "price": 34.0,
+      "total_val": 1.31
+    },
+    {
+      "date": "2026-11-05",
+      "name": "Chandran Girish",
+      "title": "officer: CTO, SVP Engineering",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 38500,
+      "price": 34.0,
+      "total_val": 1.31
+    },
+    {
+      "date": "2026-11-05",
+      "name": "DANKBERG MARK D",
+      "title": "director, officer: Chairman and CEO",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 219738,
+      "price": 34.0,
+      "total_val": 7.47
+    },
+    {
+      "date": "2026-11-05",
+      "name": "BALDRIDGE RICHARD A",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 107800,
+      "price": 34.0,
+      "total_val": 3.67
+    },
+    {
+      "date": "2026-11-05",
+      "name": "Miller Craig Andrew",
+      "title": "officer: SVP, Pres Viasat Government",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 22500,
+      "price": 34.0,
+      "total_val": 0.77
+    },
+    {
+      "date": "2026-11-05",
+      "name": "Miller Craig Andrew",
+      "title": "officer: SVP, Pres Viasat Government",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 11850,
+      "price": 70.01,
+      "total_val": 0.83
+    },
+    {
+      "date": "2026-11-05",
+      "name": "Miller Craig Andrew",
+      "title": "officer: SVP, Pres Viasat Government",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 46200,
+      "price": 34.0,
+      "total_val": 1.57
+    },
+    {
+      "date": "2026-11-05",
+      "name": "Miller Craig Andrew",
+      "title": "officer: SVP, Pres Viasat Government",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 10650,
+      "price": 70.38,
+      "total_val": 0.75
+    },
+    {
+      "date": "2026-11-05",
+      "name": "Miller Craig Andrew",
+      "title": "officer: SVP, Pres Viasat Government",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 22500,
+      "price": 34.0,
+      "total_val": 0.77
+    },
+    {
+      "date": "2026-11-04",
+      "name": "Palmer Benjamin Edward",
+      "title": "officer: SVP, Pres Commercial",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 2000,
+      "price": 77.02,
+      "total_val": 0.15
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2000-09-01",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

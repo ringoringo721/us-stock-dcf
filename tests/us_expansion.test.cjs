@@ -17,7 +17,7 @@ test('US listings merge keeps the reviewed baseline and marks uncaptured names p
     stocks: [
       { ticker: 'AAPL', name: 'Apple', name_en: 'Apple', exchange: 'NASDAQ', sector: 'Technology', industry: 'Hardware', marketCap: 3e12 },
       { ticker: 'NEWCO', name: 'New Co', name_en: 'New Co', exchange: 'NYSE', sector: 'Industrials', industry: 'Machinery', marketCap: 3e9,
-        universeMembership: 'FMP US equity screener (NYSE/NASDAQ/AMEX, marketCap > USD 10B)' }
+        universeMembership: 'FMP US equity screener (NYSE/NASDAQ/AMEX, marketCap > USD 5B)' }
     ]
   };
   const merged = universe.merge(market, catalogue);
@@ -42,9 +42,11 @@ test('shipped US universe+expansion merge is baseline+catalogue (not market_data
   const keys = Object.keys(merged);
   assert.equal(baseline, 230);
   // Expansion catalogue grows with financial refresh; AEFC stays excluded.
-  assert.equal(expansion, 736);
-  assert.equal(context.US_LISTINGS.stocks.length, 949);
-  assert.equal(keys.length, 966);
+  // Live screen is FMP common equity marketCap > USD 5B (AMRO/ITRI/IRDM dropped);
+  // dual-class / inactive commons (FOXA…) are retained when the screener omits them.
+  assert.equal(expansion, 1127);
+  assert.equal(context.US_LISTINGS.stocks.length, 1350);
+  assert.equal(keys.length, 1357);
   assert.ok(keys.length > baseline, 'frontpage must not stay on sync market_data.js alone');
   let expansionWithMoat = 0;
   const expansionWithoutMoat = [];
@@ -54,9 +56,9 @@ test('shipped US universe+expansion merge is baseline+catalogue (not market_data
     else expansionWithoutMoat.push(ticker);
   }
   // Complete assessments (incl. archived staleEvidence) keep screener scores; only
-  // analysisUnavailable capture stubs stay moat-null (DCF-1 backlog — not remoated here).
-  assert.equal(expansionWithMoat, 723);
-  assert.equal(expansionWithoutMoat.length, 13);
+  // analysisUnavailable capture stubs stay moat-null (prior 13 + net-new >$5B awaiting Actions remoat).
+  assert.equal(expansionWithMoat, 702);
+  assert.equal(expansionWithoutMoat.length, 425);
   assert.ok(expansionWithoutMoat.every(ticker =>
     context.US_EXPANSION.stocks[ticker]?.ratingSources?.moat?.reason === 'analysisUnavailable'));
   assert.ok(context.US_EXPANSION.stocks.BABA?.moat?.m1_brand_pricing?.score === 7);
@@ -132,7 +134,7 @@ test('ingest preserves saved moat; staleEvidence uses moat evidenceHash not stat
   const catalogue = {
     version: 1,
     source: { provider: 'Financial Modeling Prep company/stock screener', retrievedAt: '2026-10-21T00:00:00Z' },
-    screen: { exchanges: ['NYSE', 'NASDAQ', 'AMEX'], marketCapMoreThanUsd: 1e10 },
+    screen: { exchanges: ['NYSE', 'NASDAQ', 'AMEX'], marketCapMoreThanUsd: 5e9 },
     stocks: [
       { ticker: 'ZZZZ', name_en: 'Zeta Test', exchange: 'NYSE', sector: 'Test', industry: 'Widgets', marketCap: 12e9,
         universeMembership: 'test' }
@@ -241,7 +243,7 @@ test('ingest accepts build_full_market payloads that omit ticker and calculation
   const catalogue = {
     version: 1,
     source: { provider: 'Financial Modeling Prep company/stock screener', retrievedAt: '2026-10-21T00:00:00Z' },
-    screen: { exchanges: ['NYSE', 'NASDAQ', 'AMEX'], marketCapMoreThanUsd: 1e10 },
+    screen: { exchanges: ['NYSE', 'NASDAQ', 'AMEX'], marketCapMoreThanUsd: 5e9 },
     stocks: [
       { ticker: 'ZZZZ', name_en: 'Zeta Test', exchange: 'NYSE', sector: 'Test', industry: 'Test', marketCap: 12e9,
         universeMembership: 'test' }
@@ -287,7 +289,7 @@ test('ingest records skipped tickers as unavailable without aborting available p
   const catalogue = {
     version: 1,
     source: { provider: 'Financial Modeling Prep company/stock screener', retrievedAt: '2026-10-21T00:00:00Z' },
-    screen: { exchanges: ['NYSE', 'NASDAQ', 'AMEX'], marketCapMoreThanUsd: 1e10 },
+    screen: { exchanges: ['NYSE', 'NASDAQ', 'AMEX'], marketCapMoreThanUsd: 5e9 },
     stocks: [
       { ticker: 'GOOD', name_en: 'Good Co', exchange: 'NYSE', sector: 'Test', industry: 'Test', marketCap: 12e9,
         universeMembership: 'test' },

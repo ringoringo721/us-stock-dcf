@@ -1,0 +1,170 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-08-31",
+      "name": "Langel Craig A",
+      "title": "director, other: CHAIRMAN OF THE BOARD",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 2250,
+      "price": 47.04,
+      "total_val": 0.11
+    },
+    {
+      "date": "2026-02-25",
+      "name": "Screnar Ryan Thomas",
+      "title": "officer: Chief Administrative Officer",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 187,
+      "price": 48.1,
+      "total_val": 0.01
+    },
+    {
+      "date": "2026-02-18",
+      "name": "Screnar Ryan Thomas",
+      "title": "officer: Chief Compliance Officer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 4501,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-02-18",
+      "name": "Screnar Ryan Thomas",
+      "title": "officer: Chief Compliance Officer",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 713,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-02-18",
+      "name": "Chesler Randall M",
+      "title": "director, officer: PRESIDENT/CEO",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 47898,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-02-18",
+      "name": "Chesler Randall M",
+      "title": "director, officer: PRESIDENT/CEO",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 12516,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-02-18",
+      "name": "COPHER RON J",
+      "title": "officer: EXECUTIVE VICE PRESIDENT/CFO",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 12446,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-02-18",
+      "name": "Groom Lee Kenneth",
+      "title": "officer: Chief Experience Officer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 4501,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-02-18",
+      "name": "Groom Lee Kenneth",
+      "title": "officer: Chief Experience Officer",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 738,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-02-18",
+      "name": "Noymer Levine Beth",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 1463,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2006-12-15",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2005-05-27",
+      "ratio": "5 : 4",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2004-05-21",
+      "ratio": "5 : 4",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2003-05-09",
+      "ratio": "11 : 10",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2000-05-12",
+      "ratio": "11 : 10",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1999-05-14",
+      "ratio": "11 : 10",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1998-09-15",
+      "ratio": "11 : 10",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1997-05-27",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1996-05-07",
+      "ratio": "11 : 10",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1995-05-10",
+      "ratio": "11 : 10",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

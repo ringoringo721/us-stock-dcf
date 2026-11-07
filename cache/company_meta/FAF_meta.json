@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-05",
+      "name": "BUTTON DARRYL DOUGLAS",
+      "title": "Officer / Director",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-28",
+      "name": "Adams Steven A",
+      "title": "officer: VP & Chief Accounting Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 3252,
+      "price": 74.99,
+      "total_val": 0.24
+    },
+    {
+      "date": "2026-07-28",
+      "name": "Adams Steven A",
+      "title": "officer: VP & Chief Accounting Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 0,
+      "price": 75.43,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-24",
+      "name": "Wajner Matthew F.",
+      "title": "officer: EVP, Chief Financial Officer",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 619,
+      "price": 68.63,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-06-24",
+      "name": "Seaton Mark Edward",
+      "title": "director, officer: Chief Executive Officer",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 2372,
+      "price": 68.63,
+      "total_val": 0.16
+    },
+    {
+      "date": "2026-06-24",
+      "name": "Cornehl Lisa W",
+      "title": "officer: SVP, Chief Legal Officer",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 160,
+      "price": 68.63,
+      "total_val": 0.01
+    },
+    {
+      "date": "2026-06-24",
+      "name": "GILMORE DENNIS J",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 14570,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-07",
+      "name": "Cornehl Lisa W",
+      "title": "officer: SVP, Chief Legal Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 5823,
+      "price": 68.63,
+      "total_val": 0.4
+    },
+    {
+      "date": "2026-05-01",
+      "name": "GILMORE DENNIS J",
+      "title": "director",
+      "is_buy": null,
+      "action": "D-Return",
+      "shares": 13311,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-04-28",
+      "name": "McCarthy Margaret M",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 6630,
+      "price": 70.59,
+      "total_val": 0.47
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

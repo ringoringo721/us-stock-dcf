@@ -1,0 +1,128 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-08-14",
+      "name": "Howell Stephen Mitchell Jr.",
+      "title": "officer: COO",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 21198,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-07",
+      "name": "Werner Ryan D.",
+      "title": "officer: SVP, CAO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 35430,
+      "price": 21.98,
+      "total_val": 0.78
+    },
+    {
+      "date": "2026-08-07",
+      "name": "Werner Ryan D.",
+      "title": "officer: SVP, CAO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 9802,
+      "price": 22.82,
+      "total_val": 0.22
+    },
+    {
+      "date": "2026-08-07",
+      "name": "Werner Ryan D.",
+      "title": "officer: SVP, CAO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 2501,
+      "price": 23.53,
+      "total_val": 0.06
+    },
+    {
+      "date": "2026-08-04",
+      "name": "Werner Ryan D.",
+      "title": "officer: SVP, CAO",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 148500,
+      "price": 20.17,
+      "total_val": 3.0
+    },
+    {
+      "date": "2026-08-04",
+      "name": "Howell Stephen Mitchell Jr.",
+      "title": "officer: COO",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 153162,
+      "price": 20.17,
+      "total_val": 3.09
+    },
+    {
+      "date": "2026-08-04",
+      "name": "Les Jason",
+      "title": "director, officer: CEO",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 2896921,
+      "price": 20.17,
+      "total_val": 58.43
+    },
+    {
+      "date": "2026-07-09",
+      "name": "Werner Ryan D.",
+      "title": "officer: SVP, CAO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 10232,
+      "price": 21.22,
+      "total_val": 0.22
+    },
+    {
+      "date": "2026-07-09",
+      "name": "Werner Ryan D.",
+      "title": "officer: SVP, CAO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 7596,
+      "price": 21.93,
+      "total_val": 0.17
+    },
+    {
+      "date": "2026-07-06",
+      "name": "Leverton Jaime",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 8347,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2016-03-31",
+      "ratio": "1 : 8",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2012-06-20",
+      "ratio": "1 : 6",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2011-07-29",
+      "ratio": "1 : 5",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

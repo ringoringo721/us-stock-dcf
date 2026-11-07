@@ -1,0 +1,128 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-04",
+      "name": "TRYFOROS THOMAS N",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 3000,
+      "price": 485.2,
+      "total_val": 1.46
+    },
+    {
+      "date": "2026-07-31",
+      "name": "Billante Joseph III",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-20",
+      "name": "Watson Jill Foss",
+      "title": "10 percent owner",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 977,
+      "price": 640.15,
+      "total_val": 0.63
+    },
+    {
+      "date": "2026-07-20",
+      "name": "Watson Jill Foss",
+      "title": "10 percent owner",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 457,
+      "price": 641.31,
+      "total_val": 0.29
+    },
+    {
+      "date": "2026-07-20",
+      "name": "Watson Jill Foss",
+      "title": "10 percent owner",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 2,
+      "price": 642.08,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-08",
+      "name": "Schumann Steffen",
+      "title": "officer: Chief Business Officer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 3494,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-07",
+      "name": "Watson Jill Foss",
+      "title": "10 percent owner",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 184,
+      "price": 646.77,
+      "total_val": 0.12
+    },
+    {
+      "date": "2026-07-07",
+      "name": "Watson Jill Foss",
+      "title": "10 percent owner",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 53,
+      "price": 648.68,
+      "total_val": 0.03
+    },
+    {
+      "date": "2026-07-07",
+      "name": "Watson Jill Foss",
+      "title": "10 percent owner",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 413,
+      "price": 649.76,
+      "total_val": 0.27
+    },
+    {
+      "date": "2026-07-07",
+      "name": "Watson Jill Foss",
+      "title": "10 percent owner",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 447,
+      "price": 650.92,
+      "total_val": 0.29
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "1994-12-21",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1993-12-27",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1993-03-18",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

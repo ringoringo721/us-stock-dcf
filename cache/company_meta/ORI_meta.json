@@ -1,0 +1,170 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-09-03",
+      "name": "MONROE CAROLYN",
+      "title": "officer: SVP - Title Insurance",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 4386,
+      "price": 42.01,
+      "total_val": 0.18
+    },
+    {
+      "date": "2026-08-13",
+      "name": "MONROE CAROLYN",
+      "title": "officer: SVP - Title Insurance",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 15080,
+      "price": 34.16,
+      "total_val": 0.52
+    },
+    {
+      "date": "2026-08-13",
+      "name": "MONROE CAROLYN",
+      "title": "officer: SVP - Title Insurance",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 13292,
+      "price": 42.47,
+      "total_val": 0.56
+    },
+    {
+      "date": "2026-08-13",
+      "name": "MONROE CAROLYN",
+      "title": "officer: SVP - Title Insurance",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 1788,
+      "price": 42.26,
+      "total_val": 0.08
+    },
+    {
+      "date": "2026-08-13",
+      "name": "MONROE CAROLYN",
+      "title": "officer: SVP - Title Insurance",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 15080,
+      "price": 34.16,
+      "total_val": 0.52
+    },
+    {
+      "date": "2026-07-31",
+      "name": "LANGE JEFFREY",
+      "title": "officer: SVPUnderwriting & Distribution",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 14075,
+      "price": 43.76,
+      "total_val": 0.62
+    },
+    {
+      "date": "2026-07-30",
+      "name": "OBERST STEPHEN J",
+      "title": "officer: Executive Vice President",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 65000,
+      "price": 21.3,
+      "total_val": 1.38
+    },
+    {
+      "date": "2026-07-30",
+      "name": "OBERST STEPHEN J",
+      "title": "officer: Executive Vice President",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 55000,
+      "price": 22.72,
+      "total_val": 1.25
+    },
+    {
+      "date": "2026-07-30",
+      "name": "OBERST STEPHEN J",
+      "title": "officer: Executive Vice President",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 15000,
+      "price": 21.99,
+      "total_val": 0.33
+    },
+    {
+      "date": "2026-07-30",
+      "name": "OBERST STEPHEN J",
+      "title": "officer: Executive Vice President",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 28000,
+      "price": 21.12,
+      "total_val": 0.59
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2006-01-03",
+      "ratio": "5 : 4",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2003-12-31",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1998-05-05",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1996-05-01",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1992-05-01",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1991-04-02",
+      "ratio": "11 : 10",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1990-04-30",
+      "ratio": "21 : 20",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1989-02-13",
+      "ratio": "21 : 20",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1988-03-31",
+      "ratio": "21 : 20",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1987-08-31",
+      "ratio": "11 : 10",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

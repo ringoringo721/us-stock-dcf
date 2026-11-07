@@ -1,0 +1,116 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-06-22",
+      "name": "SWARTZ DAVID L",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 2699,
+      "price": 53.89,
+      "total_val": 0.15
+    },
+    {
+      "date": "2026-06-18",
+      "name": "Wesdorp Cornelis",
+      "title": "officer: Pres & CEO, Digital Health",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 4750,
+      "price": 58.11,
+      "total_val": 0.28
+    },
+    {
+      "date": "2026-06-18",
+      "name": "Berger Howard G",
+      "title": "director, officer: President, CEO",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 90,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-16",
+      "name": "Forthuber Stephen M",
+      "title": "officer: Pres & CEO-Eastern Operations",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 24214,
+      "price": 57.79,
+      "total_val": 1.4
+    },
+    {
+      "date": "2026-06-16",
+      "name": "Forthuber Stephen M",
+      "title": "officer: Pres & CEO-Eastern Operations",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 19853,
+      "price": 58.61,
+      "total_val": 1.16
+    },
+    {
+      "date": "2026-06-03",
+      "name": "SWARTZ DAVID L",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 2946,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-03",
+      "name": "SPURLOCK GREGORY E.",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 2946,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-03",
+      "name": "Jacobs Laura Pastre",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 2946,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-03",
+      "name": "Levitt Lawrence L",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 2946,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-06",
+      "name": "Berger Howard G",
+      "title": "director, officer: President, CEO",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 25992,
+      "price": 18.64,
+      "total_val": 0.48
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2006-11-28",
+      "ratio": "1 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

@@ -1,0 +1,116 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-09-21",
+      "name": "Tremblay Rikki",
+      "title": "officer: VP, Principal Acctg. Officer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 14518,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-18",
+      "name": "Tremblay Rikki",
+      "title": "officer: VP, Principal Acctg. Officer",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-18",
+      "name": "Tremblay Rikki",
+      "title": "officer: VP, Principal Acctg. Officer",
+      "is_buy": null,
+      "action": "",
+      "shares": 2525,
+      "price": 38.78,
+      "total_val": 0.1
+    },
+    {
+      "date": "2026-09-18",
+      "name": "Tremblay Rikki",
+      "title": "officer: VP, Principal Acctg. Officer",
+      "is_buy": null,
+      "action": "",
+      "shares": 5625,
+      "price": 43.54,
+      "total_val": 0.24
+    },
+    {
+      "date": "2026-09-04",
+      "name": "BLACHFORD ERIK C",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 792,
+      "price": 35.71,
+      "total_val": 0.03
+    },
+    {
+      "date": "2026-09-04",
+      "name": "Cormier Thielke Claire",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 1187,
+      "price": 35.71,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-08-21",
+      "name": "Knight Cassandra",
+      "title": "officer: Chief Legal and Policy Officer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 212553,
+      "price": 35.72,
+      "total_val": 7.59
+    },
+    {
+      "date": "2026-08-21",
+      "name": "Knight Cassandra",
+      "title": "officer: Chief Legal and Policy Officer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 70852,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-17",
+      "name": "Knight Cassandra",
+      "title": "officer",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-17",
+      "name": "Beitel David A.",
+      "title": "officer: Chief Technology Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 1798,
+      "price": 34.24,
+      "total_val": 0.06
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2015-08-17",
+      "ratio": "3207 : 1000",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

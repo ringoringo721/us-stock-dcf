@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-03",
+      "name": "Cohen Ariel M.",
+      "title": "director, officer: Chairperson and CEO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 8033,
+      "price": 26.13,
+      "total_val": 0.21
+    },
+    {
+      "date": "2026-09-23",
+      "name": "Sindicich Michael Eric",
+      "title": "officer: President",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 8977,
+      "price": 21.27,
+      "total_val": 0.19
+    },
+    {
+      "date": "2026-09-23",
+      "name": "Twig Ilan Ezra",
+      "title": "director, officer: Chief Technology Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 36040,
+      "price": 21.27,
+      "total_val": 0.77
+    },
+    {
+      "date": "2026-09-23",
+      "name": "Cohen Ariel M.",
+      "title": "director, officer: Chairperson and CEO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 50647,
+      "price": 21.27,
+      "total_val": 1.08
+    },
+    {
+      "date": "2026-08-31",
+      "name": "Cohen Ariel M.",
+      "title": "director, officer: Chairperson and CEO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 168378,
+      "price": 30.14,
+      "total_val": 5.08
+    },
+    {
+      "date": "2026-08-31",
+      "name": "Cohen Ariel M.",
+      "title": "director, officer: Chairperson and CEO",
+      "is_buy": null,
+      "action": "C-Conversion",
+      "shares": 75000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-31",
+      "name": "Cohen Ariel M.",
+      "title": "director, officer: Chairperson and CEO",
+      "is_buy": null,
+      "action": "C-Conversion",
+      "shares": 75000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-31",
+      "name": "Cohen Ariel M.",
+      "title": "director, officer: Chairperson and CEO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 75000,
+      "price": 30.14,
+      "total_val": 2.26
+    },
+    {
+      "date": "2026-08-24",
+      "name": "ZEEV OREN",
+      "title": "director, 10 percent owner: ",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 394,
+      "price": 28.56,
+      "total_val": 0.01
+    },
+    {
+      "date": "2026-08-24",
+      "name": "Williams Anre D",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 412,
+      "price": 28.56,
+      "total_val": 0.01
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

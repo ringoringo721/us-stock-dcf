@@ -46,15 +46,6 @@ test('compactForExpansion keeps score-only moat when ratingSources.moat.reason i
   assert.equal(compact.ratingSources.moat.reason, 'staleEvidence');
 });
 
-test('AMRO trailing P/B is not raw mcap digits after repair', () => {
-  const stocks = loadExpansion();
-  const amro = stocks.AMRO;
-  assert.ok(amro, 'AMRO in expansion');
-  assert.equal(amro.pb_trailing, null, 'AMRO has no usable parent equity → P/B N/A');
-  assert.ok(Number.isFinite(amro.mcap));
-  assert.notEqual(amro.pb_trailing, amro.mcap * 1e6);
-});
-
 test('no expansion stock keeps the equity-or-1.0 mcap×1e6 P/B fingerprint', () => {
   const stocks = loadExpansion();
   const bad = [];

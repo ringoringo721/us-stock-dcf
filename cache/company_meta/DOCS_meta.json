@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-04",
+      "name": "Wampler Kira Scherer",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 2000,
+      "price": 1.54,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-04",
+      "name": "Wampler Kira Scherer",
+      "title": "director",
+      "is_buy": null,
+      "action": "C-Conversion",
+      "shares": 2000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-04",
+      "name": "Wampler Kira Scherer",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 2000,
+      "price": 32.89,
+      "total_val": 0.07
+    },
+    {
+      "date": "2026-11-04",
+      "name": "Wampler Kira Scherer",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 2000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-04",
+      "name": "Wampler Kira Scherer",
+      "title": "director",
+      "is_buy": null,
+      "action": "C-Conversion",
+      "shares": 2000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-16",
+      "name": "Sitaram Siddharth",
+      "title": "officer: Chief Accounting Officer",
+      "is_buy": null,
+      "action": "C-Conversion",
+      "shares": 8000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-16",
+      "name": "Sitaram Siddharth",
+      "title": "officer: Chief Accounting Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 2613,
+      "price": 30.68,
+      "total_val": 0.08
+    },
+    {
+      "date": "2026-10-16",
+      "name": "Sitaram Siddharth",
+      "title": "officer: Chief Accounting Officer",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 3000,
+      "price": 8.26,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-10-16",
+      "name": "Sitaram Siddharth",
+      "title": "officer: Chief Accounting Officer",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 5000,
+      "price": 4.12,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-10-16",
+      "name": "Sitaram Siddharth",
+      "title": "officer: Chief Accounting Officer",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 8000,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

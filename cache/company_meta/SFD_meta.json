@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-06-16",
+      "name": "Starling Raymond A",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 3960,
+      "price": 26.77,
+      "total_val": 0.11
+    },
+    {
+      "date": "2026-06-16",
+      "name": "France Steven",
+      "title": "officer: President, Packaged Meats",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 82825,
+      "price": 23.76,
+      "total_val": 1.97
+    },
+    {
+      "date": "2026-06-16",
+      "name": "France Steven",
+      "title": "officer: President, Packaged Meats",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 82825,
+      "price": 23.76,
+      "total_val": 1.97
+    },
+    {
+      "date": "2026-06-16",
+      "name": "France Steven",
+      "title": "officer: President, Packaged Meats",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 82825,
+      "price": 26.82,
+      "total_val": 2.22
+    },
+    {
+      "date": "2026-06-11",
+      "name": "Hall Mark L.",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 78579,
+      "price": 20.0,
+      "total_val": 1.57
+    },
+    {
+      "date": "2026-06-11",
+      "name": "Hall Mark L.",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 78579,
+      "price": 20.0,
+      "total_val": 1.57
+    },
+    {
+      "date": "2026-06-11",
+      "name": "Hall Mark L.",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 78579,
+      "price": 26.36,
+      "total_val": 2.07
+    },
+    {
+      "date": "2026-06-09",
+      "name": "Watts Keller D.",
+      "title": "officer: Chief Business Officer",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 10684,
+      "price": 23.76,
+      "total_val": 0.25
+    },
+    {
+      "date": "2026-06-09",
+      "name": "Westerbeek Kraig A.",
+      "title": "officer: President, Hog Production",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 34319,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-09",
+      "name": "Westerbeek Kraig A.",
+      "title": "officer: President, Hog Production",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 5000,
+      "price": 23.76,
+      "total_val": 0.12
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

@@ -1,0 +1,128 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-06",
+      "name": "FOULKES DAVID M",
+      "title": "officer: Chief Executive Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 48134,
+      "price": 78.98,
+      "total_val": 3.8
+    },
+    {
+      "date": "2026-11-03",
+      "name": "FLAHERTY LAUREN PATRICIA",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 589,
+      "price": 75.34,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-11-03",
+      "name": "MCCLANATHAN JOSEPH W",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 589,
+      "price": 75.34,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-11-03",
+      "name": "WOOD ROGER",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 614,
+      "price": 75.34,
+      "total_val": 0.05
+    },
+    {
+      "date": "2026-11-03",
+      "name": "EVERITT DAVID C",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 776,
+      "price": 75.34,
+      "total_val": 0.06
+    },
+    {
+      "date": "2026-11-03",
+      "name": "WHISLER J STEVEN",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 1076,
+      "price": 75.34,
+      "total_val": 0.08
+    },
+    {
+      "date": "2026-11-03",
+      "name": "Wright MaryAnn",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 610,
+      "price": 75.34,
+      "total_val": 0.05
+    },
+    {
+      "date": "2026-11-03",
+      "name": "COOPER NANCY E",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 618,
+      "price": 75.34,
+      "total_val": 0.05
+    },
+    {
+      "date": "2026-11-03",
+      "name": "COOPER NANCY E",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 216,
+      "price": 76.23,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-11-03",
+      "name": "Fils-Aime Reginald",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 630,
+      "price": 75.34,
+      "total_val": 0.05
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "1987-06-10",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1986-02-18",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1983-11-16",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

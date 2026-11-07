@@ -1,0 +1,116 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-06",
+      "name": "Satpathy Ansuman",
+      "title": "Officer / Director",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-06",
+      "name": "Gilliam Joseph E",
+      "title": "director",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-24",
+      "name": "SULIMAN SHEHNAAZ",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 292,
+      "price": 78.2,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-09-24",
+      "name": "SULIMAN SHEHNAAZ",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 614,
+      "price": 79.51,
+      "total_val": 0.05
+    },
+    {
+      "date": "2026-09-24",
+      "name": "SULIMAN SHEHNAAZ",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 1325,
+      "price": 80.82,
+      "total_val": 0.11
+    },
+    {
+      "date": "2026-09-24",
+      "name": "SULIMAN SHEHNAAZ",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 2270,
+      "price": 81.67,
+      "total_val": 0.19
+    },
+    {
+      "date": "2026-09-24",
+      "name": "SULIMAN SHEHNAAZ",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 1222,
+      "price": 82.28,
+      "total_val": 0.1
+    },
+    {
+      "date": "2026-09-24",
+      "name": "Saxonov Serge",
+      "title": "director, officer: Chief Executive Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 1000,
+      "price": 78.23,
+      "total_val": 0.08
+    },
+    {
+      "date": "2026-09-24",
+      "name": "Saxonov Serge",
+      "title": "director, officer: Chief Executive Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 2000,
+      "price": 79.62,
+      "total_val": 0.16
+    },
+    {
+      "date": "2026-09-24",
+      "name": "Saxonov Serge",
+      "title": "director, officer: Chief Executive Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 9300,
+      "price": 80.9,
+      "total_val": 0.75
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2006-07-17",
+      "ratio": "1 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

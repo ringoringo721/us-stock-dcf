@@ -1,0 +1,116 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-05",
+      "name": "Ferrante Karen Jean",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 759,
+      "price": 31.59,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-08-31",
+      "name": "Morris Arlene",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 3583,
+      "price": 2.52,
+      "total_val": 0.01
+    },
+    {
+      "date": "2026-08-31",
+      "name": "Morris Arlene",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 41927,
+      "price": 5.64,
+      "total_val": 0.24
+    },
+    {
+      "date": "2026-08-31",
+      "name": "Morris Arlene",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 42349,
+      "price": 37.09,
+      "total_val": 1.57
+    },
+    {
+      "date": "2026-08-31",
+      "name": "Morris Arlene",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 41927,
+      "price": 5.64,
+      "total_val": 0.24
+    },
+    {
+      "date": "2026-08-31",
+      "name": "Morris Arlene",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 3161,
+      "price": 37.54,
+      "total_val": 0.12
+    },
+    {
+      "date": "2026-08-31",
+      "name": "Morris Arlene",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 3583,
+      "price": 2.52,
+      "total_val": 0.01
+    },
+    {
+      "date": "2026-07-06",
+      "name": "Ferrante Karen Jean",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 627,
+      "price": 38.48,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-06-11",
+      "name": "Harwin Peter Evan",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 17901,
+      "price": 31.98,
+      "total_val": 0.57
+    },
+    {
+      "date": "2026-06-11",
+      "name": "Ferrante Karen Jean",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 17901,
+      "price": 31.98,
+      "total_val": 0.57
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2020-11-09",
+      "ratio": "1 : 4",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

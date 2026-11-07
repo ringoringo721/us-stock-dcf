@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-09-23",
+      "name": "ALFORD ANDREW",
+      "title": "officer: President, Broadcasting",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 2823,
+      "price": 165.69,
+      "total_val": 0.47
+    },
+    {
+      "date": "2026-08-24",
+      "name": "Aulestia Bernadette S.",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 300,
+      "price": 186.8,
+      "total_val": 0.06
+    },
+    {
+      "date": "2026-08-24",
+      "name": "Biard Michael",
+      "title": "officer: President & COO",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 6250,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-24",
+      "name": "Biard Michael",
+      "title": "officer: President & COO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 2465,
+      "price": 185.82,
+      "total_val": 0.46
+    },
+    {
+      "date": "2026-08-24",
+      "name": "Biard Michael",
+      "title": "officer: President & COO",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 6250,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-17",
+      "name": "ZIMMER DANA",
+      "title": "officer: See Remarks",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 4008,
+      "price": 187.46,
+      "total_val": 0.75
+    },
+    {
+      "date": "2026-06-29",
+      "name": "SOOK PERRY A",
+      "title": "director, officer: Chief Executive Officer",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 12235,
+      "price": 162.26,
+      "total_val": 1.99
+    },
+    {
+      "date": "2026-06-16",
+      "name": "WEITMAN GARY",
+      "title": "officer: See Remarks",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 656,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-16",
+      "name": "WEITMAN GARY",
+      "title": "officer: See Remarks",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 261,
+      "price": 170.81,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-06-16",
+      "name": "WEITMAN GARY",
+      "title": "officer: See Remarks",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 656,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

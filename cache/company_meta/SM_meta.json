@@ -1,0 +1,122 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-09-11",
+      "name": "Venkatraman Ashwin",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 3650,
+      "price": 38.28,
+      "total_val": 0.14
+    },
+    {
+      "date": "2026-08-24",
+      "name": "PURSELL A WADE",
+      "title": "officer: EVP & CFO",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 5000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-24",
+      "name": "Lebeck James Barker",
+      "title": "officer: EVP, GC & Corp Secretary",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 17500,
+      "price": 37.02,
+      "total_val": 0.65
+    },
+    {
+      "date": "2026-07-24",
+      "name": "PURSELL A WADE",
+      "title": "officer: EVP & CFO",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 16917,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-24",
+      "name": "PURSELL A WADE",
+      "title": "officer: EVP & CFO",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 7403,
+      "price": 26.1,
+      "total_val": 0.19
+    },
+    {
+      "date": "2026-07-24",
+      "name": "PURSELL A WADE",
+      "title": "officer: EVP & CFO",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 54412,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-24",
+      "name": "Lebeck James Barker",
+      "title": "officer: EVP, GC & Corp Secretary",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 42752,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-24",
+      "name": "Lebeck James Barker",
+      "title": "officer: EVP, GC & Corp Secretary",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 7520,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-24",
+      "name": "Lebeck James Barker",
+      "title": "officer: EVP, GC & Corp Secretary",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 3291,
+      "price": 26.1,
+      "total_val": 0.09
+    },
+    {
+      "date": "2026-07-24",
+      "name": "McDonald Elizabeth Anne",
+      "title": "officer: President & CEO",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 90168,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2005-04-01",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2000-09-06",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

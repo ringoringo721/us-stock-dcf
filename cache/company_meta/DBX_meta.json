@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-04",
+      "name": "Houston Andrew",
+      "title": "director, 10 percent owner, officer: Co-CEO",
+      "is_buy": null,
+      "action": "C-Conversion",
+      "shares": 383800,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-04",
+      "name": "Houston Andrew",
+      "title": "director, 10 percent owner, officer: Co-CEO",
+      "is_buy": null,
+      "action": "C-Conversion",
+      "shares": 383800,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-04",
+      "name": "Houston Andrew",
+      "title": "director, 10 percent owner, officer: Co-CEO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 383800,
+      "price": 35.81,
+      "total_val": 13.74
+    },
+    {
+      "date": "2026-11-03",
+      "name": "Schubach Sarah Elizabeth",
+      "title": "officer: Chief Accounting Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 2055,
+      "price": 36.44,
+      "total_val": 0.07
+    },
+    {
+      "date": "2026-10-19",
+      "name": "Schubach Sarah Elizabeth",
+      "title": "officer: Chief Accounting Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 2056,
+      "price": 35.79,
+      "total_val": 0.07
+    },
+    {
+      "date": "2026-10-19",
+      "name": "Schubach Sarah Elizabeth",
+      "title": "officer: Chief Accounting Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 1991,
+      "price": 32.54,
+      "total_val": 0.06
+    },
+    {
+      "date": "2026-10-19",
+      "name": "Schubach Sarah Elizabeth",
+      "title": "officer: Chief Accounting Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 1991,
+      "price": 36.78,
+      "total_val": 0.07
+    },
+    {
+      "date": "2026-10-15",
+      "name": "Houston Andrew",
+      "title": "director, 10 percent owner, officer: Co-CEO",
+      "is_buy": null,
+      "action": "C-Conversion",
+      "shares": 29500,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-15",
+      "name": "Houston Andrew",
+      "title": "director, 10 percent owner, officer: Co-CEO",
+      "is_buy": null,
+      "action": "C-Conversion",
+      "shares": 29500,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-15",
+      "name": "Houston Andrew",
+      "title": "director, 10 percent owner, officer: Co-CEO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 29500,
+      "price": 35.09,
+      "total_val": 1.04
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

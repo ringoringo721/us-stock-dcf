@@ -1,0 +1,146 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-03",
+      "name": "Sykes Richard K",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 197,
+      "price": 221.05,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-11-03",
+      "name": "Skillern Raejeanne",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 55,
+      "price": 221.05,
+      "total_val": 0.01
+    },
+    {
+      "date": "2026-11-03",
+      "name": "LeClair Stephen O",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 68,
+      "price": 221.05,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-11-03",
+      "name": "Lenz Michael C.",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 108,
+      "price": 221.05,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-11-03",
+      "name": "GALLAGHER PHILIP R",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 90,
+      "price": 221.05,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-10-07",
+      "name": "Wetherington Kevin M",
+      "title": "officer: Executive VP & COO",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 536,
+      "price": 290.43,
+      "total_val": 0.16
+    },
+    {
+      "date": "2026-09-24",
+      "name": "Sabater Carmen M",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 350,
+      "price": 280.62,
+      "total_val": 0.1
+    },
+    {
+      "date": "2026-09-09",
+      "name": "Peyovich Daniel S",
+      "title": "officer: President & CEO",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 850,
+      "price": 296.76,
+      "total_val": 0.25
+    },
+    {
+      "date": "2026-09-01",
+      "name": "Fallon David Joseph",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 700,
+      "price": 286.92,
+      "total_val": 0.2
+    },
+    {
+      "date": "2026-08-05",
+      "name": "Lenz Michael C.",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 343,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2000-02-17",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1999-01-05",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1990-08-23",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1987-12-01",
+      "ratio": "21 : 20",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1986-07-02",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1985-12-02",
+      "ratio": "21 : 20",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

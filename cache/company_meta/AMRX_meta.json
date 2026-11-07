@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-09-21",
+      "name": "BUCHI J KEVIN",
+      "title": "director",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 20445,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-14",
+      "name": "BUCHI J KEVIN",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 20445,
+      "price": 14.45,
+      "total_val": 0.3
+    },
+    {
+      "date": "2026-09-14",
+      "name": "BUCHI J KEVIN",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 20445,
+      "price": 14.45,
+      "total_val": 0.3
+    },
+    {
+      "date": "2026-09-02",
+      "name": "BOYER ANDREW S",
+      "title": "officer: Executive Vice President",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 80000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-25",
+      "name": "BOYER ANDREW S",
+      "title": "officer: Executive Vice President",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 152426,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-14",
+      "name": "Kiely John",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 50000,
+      "price": 17.64,
+      "total_val": 0.88
+    },
+    {
+      "date": "2026-08-14",
+      "name": "Kiely John",
+      "title": "director",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 10000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-13",
+      "name": "Shah Nikita",
+      "title": "officer: Executive Vice President",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 146403,
+      "price": 17.51,
+      "total_val": 2.56
+    },
+    {
+      "date": "2026-08-13",
+      "name": "Daly Jason B.",
+      "title": "officer: EVP, Chief Legal Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 6613,
+      "price": 17.7,
+      "total_val": 0.12
+    },
+    {
+      "date": "2026-08-13",
+      "name": "Daly Jason B.",
+      "title": "officer: EVP, Chief Legal Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 210000,
+      "price": 17.4,
+      "total_val": 3.65
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

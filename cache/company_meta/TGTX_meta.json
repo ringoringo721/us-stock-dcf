@@ -1,0 +1,128 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-09-14",
+      "name": "Charney Laurence N",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 5000,
+      "price": 54.96,
+      "total_val": 0.27
+    },
+    {
+      "date": "2026-08-07",
+      "name": "Charney Laurence N",
+      "title": "director",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 5100,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-07",
+      "name": "Charney Laurence N",
+      "title": "director",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 500,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-07",
+      "name": "Charney Laurence N",
+      "title": "director",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 450,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-15",
+      "name": "Lonial Sagar",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 8325,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-15",
+      "name": "HUME DANIEL",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 8325,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-15",
+      "name": "Hoberman Kenneth",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 8325,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-15",
+      "name": "Echelard Yann",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 8325,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-15",
+      "name": "Charney Laurence N",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 8325,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-01-29",
+      "name": "Charney Laurence N",
+      "title": "director",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 30000,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2012-04-30",
+      "ratio": "4 : 225",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2011-07-14",
+      "ratio": "1 : 50",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2003-09-29",
+      "ratio": "1 : 5",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

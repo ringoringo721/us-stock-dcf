@@ -1,0 +1,122 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-06",
+      "name": "FOTIADES GEORGE L",
+      "title": "director",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 1600,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-03",
+      "name": "Prieur Marc",
+      "title": "officer: Segment President",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 2000,
+      "price": 141.99,
+      "total_val": 0.28
+    },
+    {
+      "date": "2026-09-11",
+      "name": "Ackerman Daniel",
+      "title": "officer: Interim CAO",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-11",
+      "name": "Ackerman Daniel",
+      "title": "officer: Interim CAO",
+      "is_buy": null,
+      "action": "",
+      "shares": 17500,
+      "price": 74.79,
+      "total_val": 1.31
+    },
+    {
+      "date": "2026-09-11",
+      "name": "Ackerman Daniel",
+      "title": "officer: Interim CAO",
+      "is_buy": null,
+      "action": "",
+      "shares": 2971,
+      "price": 111.38,
+      "total_val": 0.33
+    },
+    {
+      "date": "2026-09-11",
+      "name": "Ackerman Daniel",
+      "title": "officer: Interim CAO",
+      "is_buy": null,
+      "action": "",
+      "shares": 2485,
+      "price": 141.0,
+      "total_val": 0.35
+    },
+    {
+      "date": "2026-09-11",
+      "name": "Ackerman Daniel",
+      "title": "officer: Interim CAO",
+      "is_buy": null,
+      "action": "",
+      "shares": 2451,
+      "price": 147.84,
+      "total_val": 0.36
+    },
+    {
+      "date": "2026-09-11",
+      "name": "Ackerman Daniel",
+      "title": "officer: Interim CAO",
+      "is_buy": null,
+      "action": "",
+      "shares": 2967,
+      "price": 123.97,
+      "total_val": 0.37
+    },
+    {
+      "date": "2026-09-03",
+      "name": "Vinczeller Shiela",
+      "title": "officer: Chief Human Resources Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 765,
+      "price": 130.37,
+      "total_val": 0.1
+    },
+    {
+      "date": "2026-09-02",
+      "name": "Touya Gael",
+      "title": "director, officer: President and CEO",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 2637,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2007-05-10",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1998-08-26",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

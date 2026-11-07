@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-05",
+      "name": "Pieper Nathaniel",
+      "title": "officer: EVP, Chief Commercial Officer",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 1475,
+      "price": 12.82,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-09-21",
+      "name": "Isom Robert D Jr",
+      "title": "director, officer: CEO and President",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 169483,
+      "price": 12.96,
+      "total_val": 2.2
+    },
+    {
+      "date": "2026-09-21",
+      "name": "Isom Robert D Jr",
+      "title": "director, officer: CEO and President",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 165716,
+      "price": 12.96,
+      "total_val": 2.15
+    },
+    {
+      "date": "2026-09-21",
+      "name": "Johnson Stephen L",
+      "title": "officer: Vice Chair",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 55368,
+      "price": 12.96,
+      "total_val": 0.72
+    },
+    {
+      "date": "2026-09-21",
+      "name": "Johnson Stephen L",
+      "title": "officer: Vice Chair",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 22392,
+      "price": 12.96,
+      "total_val": 0.29
+    },
+    {
+      "date": "2026-08-03",
+      "name": "Johnson Stephen L",
+      "title": "officer: Vice Chair",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 30000,
+      "price": 15.26,
+      "total_val": 0.46
+    },
+    {
+      "date": "2026-08-03",
+      "name": "Johnson Stephen L",
+      "title": "officer: Vice Chair",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 30000,
+      "price": 15.29,
+      "total_val": 0.46
+    },
+    {
+      "date": "2026-07-31",
+      "name": "Owens Angela",
+      "title": "officer: SVP Corporate Controller",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 40077,
+      "price": 15.26,
+      "total_val": 0.61
+    },
+    {
+      "date": "2026-07-29",
+      "name": "Johnson Stephen L",
+      "title": "officer: Vice Chair",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 30000,
+      "price": 14.67,
+      "total_val": 0.44
+    },
+    {
+      "date": "2026-07-29",
+      "name": "Johnson Stephen L",
+      "title": "officer: Vice Chair",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 30000,
+      "price": 15.16,
+      "total_val": 0.45
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

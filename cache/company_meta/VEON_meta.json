@@ -1,0 +1,128 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-08-10",
+      "name": "Fabela Augie K II",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 5000,
+      "price": 56.02,
+      "total_val": 0.28
+    },
+    {
+      "date": "2026-08-10",
+      "name": "Fabela Augie K II",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 13826,
+      "price": 56.05,
+      "total_val": 0.78
+    },
+    {
+      "date": "2026-08-10",
+      "name": "Fabela Augie K II",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 1174,
+      "price": 55.3,
+      "total_val": 0.06
+    },
+    {
+      "date": "2026-07-06",
+      "name": "Pompeo Michael",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 38205,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-02",
+      "name": "Pompeo Michael",
+      "title": "director",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-02",
+      "name": "Pompeo Michael",
+      "title": "director",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-02",
+      "name": "Pompeo Michael",
+      "title": "director",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-02",
+      "name": "Fabela Augie K II",
+      "title": "director",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-02",
+      "name": "Fabela Augie K II",
+      "title": "director",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-02",
+      "name": "Fabela Augie K II",
+      "title": "director",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2023-03-08",
+      "ratio": "1 : 25",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2007-08-22",
+      "ratio": "5 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2004-11-23",
+      "ratio": "3 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

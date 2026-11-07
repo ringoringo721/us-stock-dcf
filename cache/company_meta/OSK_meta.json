@@ -1,0 +1,128 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-09-15",
+      "name": "Pfeifer John C",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 778,
+      "price": 150.0,
+      "total_val": 0.12
+    },
+    {
+      "date": "2026-07-31",
+      "name": "Nordlund Steven Craig",
+      "title": "officer: Exec. VP & Pres., Transport",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 7002,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-16",
+      "name": "Nordlund Steven Craig",
+      "title": "officer: Exec. VP & Pres., Transport",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 4214,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-16",
+      "name": "Nordlund Steven Craig",
+      "title": "officer: Exec. VP & Pres., Transport",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 4214,
+      "price": 145.75,
+      "total_val": 0.61
+    },
+    {
+      "date": "2026-07-16",
+      "name": "Nordlund Steven Craig",
+      "title": "officer: Exec. VP & Pres., Transport",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 1821,
+      "price": 145.75,
+      "total_val": 0.27
+    },
+    {
+      "date": "2026-05-13",
+      "name": "Palmer Duncan",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 505,
+      "price": 133.86,
+      "total_val": 0.07
+    },
+    {
+      "date": "2026-05-06",
+      "name": "DAVIS DOUGLAS LEE",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 1110,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-06",
+      "name": "Allman Keith J.",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 1110,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-06",
+      "name": "Burns Bill",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 1110,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-06",
+      "name": "CLAYTON ANNETTE K",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 1110,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2005-08-29",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2003-08-14",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1999-08-20",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

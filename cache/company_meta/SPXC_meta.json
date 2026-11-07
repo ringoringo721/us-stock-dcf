@@ -1,0 +1,134 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-05",
+      "name": "Deck Brian A",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 3000,
+      "price": 164.34,
+      "total_val": 0.49
+    },
+    {
+      "date": "2026-10-05",
+      "name": "Carpenter Jennifer",
+      "title": "officer: VP AND CHRO",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 183,
+      "price": 169.71,
+      "total_val": 0.03
+    },
+    {
+      "date": "2026-09-08",
+      "name": "Kaled Eric A",
+      "title": "officer: President, Det. & Measurement",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-08",
+      "name": "Kaled Eric A",
+      "title": "officer: President, Det. & Measurement",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-08",
+      "name": "Kaled Eric A",
+      "title": "officer: President, Det. & Measurement",
+      "is_buy": null,
+      "action": "",
+      "shares": 1054,
+      "price": 116.4,
+      "total_val": 0.12
+    },
+    {
+      "date": "2026-09-08",
+      "name": "Kaled Eric A",
+      "title": "officer: President, Det. & Measurement",
+      "is_buy": null,
+      "action": "",
+      "shares": 628,
+      "price": 225.02,
+      "total_val": 0.14
+    },
+    {
+      "date": "2026-09-08",
+      "name": "Kaled Eric A",
+      "title": "officer: President, Det. & Measurement",
+      "is_buy": null,
+      "action": "",
+      "shares": 1098,
+      "price": 219.62,
+      "total_val": 0.24
+    },
+    {
+      "date": "2026-09-08",
+      "name": "Kaled Eric A",
+      "title": "officer: President, Det. & Measurement",
+      "is_buy": null,
+      "action": "",
+      "shares": 961,
+      "price": 138.6,
+      "total_val": 0.13
+    },
+    {
+      "date": "2026-09-08",
+      "name": "Kaled Eric A",
+      "title": "officer: President, Det. & Measurement",
+      "is_buy": null,
+      "action": "",
+      "shares": 1736,
+      "price": 58.34,
+      "total_val": 0.1
+    },
+    {
+      "date": "2026-09-08",
+      "name": "Kaled Eric A",
+      "title": "officer: President, Det. & Measurement",
+      "is_buy": null,
+      "action": "",
+      "shares": 1852,
+      "price": 48.97,
+      "total_val": 0.09
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2015-09-28",
+      "ratio": "3971 : 1000",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2002-10-25",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1983-07-06",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1976-09-20",
+      "ratio": "5 : 4",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

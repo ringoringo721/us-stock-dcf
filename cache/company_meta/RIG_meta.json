@@ -1,0 +1,122 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-07-07",
+      "name": "DEATON CHAD C",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 35000,
+      "price": 4.95,
+      "total_val": 0.17
+    },
+    {
+      "date": "2026-05-27",
+      "name": "Lacey William F.",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 82353,
+      "price": 6.81,
+      "total_val": 0.56
+    },
+    {
+      "date": "2026-05-27",
+      "name": "Lacey William F.",
+      "title": "director",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 20934,
+      "price": 6.7,
+      "total_val": 0.14
+    },
+    {
+      "date": "2026-05-27",
+      "name": "Lacey William F.",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 30435,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-27",
+      "name": "DEATON CHAD C",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 82353,
+      "price": 6.81,
+      "total_val": 0.56
+    },
+    {
+      "date": "2026-05-27",
+      "name": "DEATON CHAD C",
+      "title": "director",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 20932,
+      "price": 6.7,
+      "total_val": 0.14
+    },
+    {
+      "date": "2026-05-27",
+      "name": "DEATON CHAD C",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 30435,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-27",
+      "name": "Mohn Frederik Wilhelm",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 82353,
+      "price": 6.81,
+      "total_val": 0.56
+    },
+    {
+      "date": "2026-05-27",
+      "name": "Mohn Frederik Wilhelm",
+      "title": "director",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 25597,
+      "price": 6.7,
+      "total_val": 0.17
+    },
+    {
+      "date": "2026-05-27",
+      "name": "Mohn Frederik Wilhelm",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 30435,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2007-11-27",
+      "ratio": "1749 : 2500",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1997-09-22",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

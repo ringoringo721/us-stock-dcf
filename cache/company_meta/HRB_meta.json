@@ -1,0 +1,140 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-03",
+      "name": "Wasleski April M.",
+      "title": "officer: VP & Chief Acct Officer",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 502,
+      "price": 51.31,
+      "total_val": 0.03
+    },
+    {
+      "date": "2026-10-02",
+      "name": "Darling Mark J.",
+      "title": "officer: Chief Retail Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 2700,
+      "price": 40.69,
+      "total_val": 0.11
+    },
+    {
+      "date": "2026-09-02",
+      "name": "Campbell Curtis A",
+      "title": "director, officer: President & CEO",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 49129,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-02",
+      "name": "Campbell Curtis A",
+      "title": "director, officer: President & CEO",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 2833,
+      "price": 51.65,
+      "total_val": 0.15
+    },
+    {
+      "date": "2026-09-02",
+      "name": "Darling Mark J.",
+      "title": "officer: Chief Retail Officer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 6099,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-02",
+      "name": "Darling Mark J.",
+      "title": "officer: Chief Retail Officer",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 4129,
+      "price": 51.65,
+      "total_val": 0.21
+    },
+    {
+      "date": "2026-09-02",
+      "name": "Manuel Scott",
+      "title": "officer: Chief Strategy & Operations Of",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 10843,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-02",
+      "name": "Manuel Scott",
+      "title": "officer: Chief Strategy & Operations Of",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 3736,
+      "price": 51.65,
+      "total_val": 0.19
+    },
+    {
+      "date": "2026-09-02",
+      "name": "Mason Tiffany L",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 13553,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-02",
+      "name": "Mason Tiffany L",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 3510,
+      "price": 51.65,
+      "total_val": 0.18
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2005-08-23",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2001-08-02",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1991-10-02",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1987-10-02",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1985-10-02",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

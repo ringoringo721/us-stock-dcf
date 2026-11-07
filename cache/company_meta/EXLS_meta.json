@@ -1,0 +1,116 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-03",
+      "name": "Bhalla Vikas",
+      "title": "officer: President of EXL",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 11000,
+      "price": 41.22,
+      "total_val": 0.45
+    },
+    {
+      "date": "2026-10-02",
+      "name": "Bhalla Vikas",
+      "title": "officer: President of EXL",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 11000,
+      "price": 35.38,
+      "total_val": 0.39
+    },
+    {
+      "date": "2026-09-03",
+      "name": "Bhalla Vikas",
+      "title": "officer: President of EXL",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 10000,
+      "price": 38.17,
+      "total_val": 0.38
+    },
+    {
+      "date": "2026-08-13",
+      "name": "Chhibbar Vishal",
+      "title": "officer: Executive Vice President",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 5000,
+      "price": 35.1,
+      "total_val": 0.18
+    },
+    {
+      "date": "2026-08-06",
+      "name": "Bhalla Vikas",
+      "title": "officer: President of EXL",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 11000,
+      "price": 34.99,
+      "total_val": 0.38
+    },
+    {
+      "date": "2026-07-21",
+      "name": "Kini Narasimha",
+      "title": "officer: Executive Vice President",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 606,
+      "price": 23.27,
+      "total_val": 0.01
+    },
+    {
+      "date": "2026-07-21",
+      "name": "Nicolelli Maurizio",
+      "title": "officer: Executive Vice President & CFO",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 606,
+      "price": 23.27,
+      "total_val": 0.01
+    },
+    {
+      "date": "2026-07-21",
+      "name": "Jetley Vivek",
+      "title": "officer: President of EXL",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 606,
+      "price": 23.27,
+      "total_val": 0.01
+    },
+    {
+      "date": "2026-07-20",
+      "name": "Mehta Kamini H",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 7705,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-20",
+      "name": "Mehta Kamini H",
+      "title": "director: ",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2023-08-02",
+      "ratio": "5 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

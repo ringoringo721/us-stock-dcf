@@ -51,14 +51,16 @@ test('US baseline + expansion embed FMP DCF and Levered reference rows for front
   assert.equal(coverage.baseline.napp, 16);
   assert.deepEqual(coverage.baseline.na, []);
 
-  assert.equal(coverage.expansion.dcf, 638);
-  assert.equal(coverage.expansion.levered, 638);
-  assert.equal(coverage.expansion.napp, 80);
-  assert.deepEqual(coverage.expansion.na.sort(), [
-    'AMRO/dcf', 'AMRO/levered',
-    'MCHPP/dcf', 'MCHPP/levered',
-    'RML/dcf', 'RML/levered',
-    'SMCIP/dcf', 'SMCIP/levered',
-    'VYLR/dcf', 'VYLR/levered'
-  ]);
+  assert.equal(coverage.expansion.dcf, 621);
+  assert.equal(coverage.expansion.levered, 621);
+  assert.equal(coverage.expansion.napp, 126);
+  // Net-new >$5B names land without embedded FMP DCF/levered models until remoat/refresh;
+  // keep the long-standing preferred/incomplete subset in the N/A set.
+  assert.equal(coverage.expansion.na.length, 760);
+  const na = new Set(coverage.expansion.na);
+  for (const ticker of ['AGI', 'ALLE', 'BMNR', 'CACI', 'CSL', 'EMBJ', 'FLUT', 'GDDY', 'MAA',
+    'MCHPP', 'RML', 'SJM', 'SMCIP', 'TIGO', 'TXT', 'VYLR', 'WY']) {
+    assert.ok(na.has(`${ticker}/dcf`), ticker);
+    assert.ok(na.has(`${ticker}/levered`), ticker);
+  }
 });

@@ -1,0 +1,170 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-05",
+      "name": "SMITH PATRICK D",
+      "title": "officer: SEVP, Pres Consumer Banking",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 15600,
+      "price": 12.62,
+      "total_val": 0.2
+    },
+    {
+      "date": "2026-08-04",
+      "name": "SAEGER MARK",
+      "title": "officer: EVP, Chief Credit Officer",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 5487,
+      "price": 14.29,
+      "total_val": 0.08
+    },
+    {
+      "date": "2026-08-04",
+      "name": "LAN TRAVIS",
+      "title": "officer: SEVP, Chief Financial Officer",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 4877,
+      "price": 14.29,
+      "total_val": 0.07
+    },
+    {
+      "date": "2026-07-02",
+      "name": "SLOAN LYNDSEY M",
+      "title": "officer: SEVP, General Counsel",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 3836,
+      "price": 14.65,
+      "total_val": 0.06
+    },
+    {
+      "date": "2026-07-02",
+      "name": "REGAN JOHN P",
+      "title": "officer: SEVP, Chief Risk Officer",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 4907,
+      "price": 14.65,
+      "total_val": 0.07
+    },
+    {
+      "date": "2026-06-15",
+      "name": "CRANDELL MITCHELL L",
+      "title": "officer: EVP & Chief Accounting Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 25495,
+      "price": 14.63,
+      "total_val": 0.37
+    },
+    {
+      "date": "2026-05-19",
+      "name": "WILLIAMS SIDNEY S",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 8121,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-19",
+      "name": "WILKS JEFFREY S",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 8121,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-19",
+      "name": "VAZQUEZ CARLOS J",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 8121,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-19",
+      "name": "Steans Jennifer W",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 8121,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2012-05-09",
+      "ratio": "21 : 20",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2011-05-04",
+      "ratio": "21 : 20",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2010-05-05",
+      "ratio": "21 : 20",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2009-05-06",
+      "ratio": "21 : 20",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2008-05-07",
+      "ratio": "21 : 20",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2007-05-09",
+      "ratio": "21 : 20",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2006-05-04",
+      "ratio": "21 : 20",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2005-05-04",
+      "ratio": "21 : 20",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2004-04-29",
+      "ratio": "21 : 20",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2003-04-30",
+      "ratio": "21 : 20",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

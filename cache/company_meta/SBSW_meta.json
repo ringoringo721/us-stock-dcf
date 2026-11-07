@@ -1,0 +1,128 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-07-01",
+      "name": "Menell Richard Peter",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 15000,
+      "price": 2.19,
+      "total_val": 0.03
+    },
+    {
+      "date": "2026-06-30",
+      "name": "Keyter Charl",
+      "title": "director, officer: Chief Financial Officer",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 200000,
+      "price": 2.24,
+      "total_val": 0.45
+    },
+    {
+      "date": "2026-04-01",
+      "name": "Nkosi Themba George",
+      "title": "officer: Chief People & Culture Officer",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 11865,
+      "price": 2.91,
+      "total_val": 0.03
+    },
+    {
+      "date": "2026-03-31",
+      "name": "Carter Charles Edward",
+      "title": "officer: Chief Regional Officer: Amer.",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 10000,
+      "price": 11.4,
+      "total_val": 0.11
+    },
+    {
+      "date": "2026-03-25",
+      "name": "Keyter Charl",
+      "title": "director, officer: Chief Financial Officer",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 35000,
+      "price": 2.7,
+      "total_val": 0.09
+    },
+    {
+      "date": "2026-03-25",
+      "name": "Menell Richard Peter",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 2500,
+      "price": 11.43,
+      "total_val": 0.03
+    },
+    {
+      "date": "2026-03-20",
+      "name": "Keyter Charl",
+      "title": "director, officer: Chief Financial Officer",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 148819,
+      "price": 11.63,
+      "total_val": 1.73
+    },
+    {
+      "date": "2026-03-19",
+      "name": "Maphai Thabane Vincent",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 12000,
+      "price": 13.34,
+      "total_val": 0.16
+    },
+    {
+      "date": "2026-03-18",
+      "name": "Boisseau Philippe",
+      "title": "director: ",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-03-17",
+      "name": "Nkosi Themba George",
+      "title": "officer: Chief People & Culture Officer",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2018-04-12",
+      "ratio": "26 : 25",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2017-10-05",
+      "ratio": "51 : 50",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2017-05-19",
+      "ratio": "737 : 500",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

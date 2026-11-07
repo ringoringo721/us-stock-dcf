@@ -1,0 +1,152 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-06",
+      "name": "Weiss Glen J.",
+      "title": "officer: EVP- OFF. LEASING CO HEAD R.E.",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 100000,
+      "price": 16.68,
+      "total_val": 1.67
+    },
+    {
+      "date": "2026-11-06",
+      "name": "Weiss Glen J.",
+      "title": "officer: EVP- OFF. LEASING CO HEAD R.E.",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 54043,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-08",
+      "name": "Weiss Glen J.",
+      "title": "officer: EVP- OFF. LEASING CO HEAD R.E.",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 100000,
+      "price": 16.68,
+      "total_val": 1.67
+    },
+    {
+      "date": "2026-10-08",
+      "name": "Weiss Glen J.",
+      "title": "officer: EVP- OFF. LEASING CO HEAD R.E.",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 50246,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-01",
+      "name": "Chera Haim",
+      "title": "officer: EVP - HEAD OF RETAIL",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 90000,
+      "price": 34.01,
+      "total_val": 3.06
+    },
+    {
+      "date": "2026-06-18",
+      "name": "Fascitelli Michael D",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 125350,
+      "price": 36.57,
+      "total_val": 4.58
+    },
+    {
+      "date": "2026-06-18",
+      "name": "Fascitelli Michael D",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 8000,
+      "price": 37.34,
+      "total_val": 0.3
+    },
+    {
+      "date": "2026-06-10",
+      "name": "WIGHT RUSSELL B JR",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 1000,
+      "price": 17.44,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-06-10",
+      "name": "WIGHT RUSSELL B JR",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 1000,
+      "price": 17.62,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-06-10",
+      "name": "WIGHT RUSSELL B JR",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 1000,
+      "price": 15.0,
+      "total_val": 0.02
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2017-07-18",
+      "ratio": "1237 : 1000",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2015-01-16",
+      "ratio": "200 : 181",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2009-05-07",
+      "ratio": "5053 : 5000",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1998-10-19",
+      "ratio": "1000 : 987",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1997-10-21",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1993-03-26",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1991-06-03",
+      "ratio": "5 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

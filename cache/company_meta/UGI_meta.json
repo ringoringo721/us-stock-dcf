@@ -1,0 +1,134 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-03",
+      "name": "FLEXON ROBERT C",
+      "title": "director, officer: President and CEO",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 43585,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-03",
+      "name": "FLEXON ROBERT C",
+      "title": "director, officer: President and CEO",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 43585,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-03",
+      "name": "FLEXON ROBERT C",
+      "title": "director, officer: President and CEO",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 15354,
+      "price": 38.67,
+      "total_val": 0.59
+    },
+    {
+      "date": "2026-11-03",
+      "name": "Longhi Mario",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 21313,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-03",
+      "name": "Longhi Mario",
+      "title": "director",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 6091,
+      "price": 38.67,
+      "total_val": 0.24
+    },
+    {
+      "date": "2026-11-03",
+      "name": "Longhi Mario",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 21313,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-23",
+      "name": "Shea-Ballay Kathleen",
+      "title": "officer: GC and Chief Legal Officer",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 25360,
+      "price": 24.6,
+      "total_val": 0.62
+    },
+    {
+      "date": "2026-06-23",
+      "name": "Shea-Ballay Kathleen",
+      "title": "officer: GC and Chief Legal Officer",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 25360,
+      "price": 24.6,
+      "total_val": 0.62
+    },
+    {
+      "date": "2026-06-23",
+      "name": "Shea-Ballay Kathleen",
+      "title": "officer: GC and Chief Legal Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 25360,
+      "price": 33.62,
+      "total_val": 0.85
+    },
+    {
+      "date": "2026-04-14",
+      "name": "O'Brien Sean",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 5660,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2014-09-08",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2005-05-25",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2003-04-02",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1990-07-02",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

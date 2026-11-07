@@ -1,0 +1,128 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-16",
+      "name": "Sa Neto Francisco",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 128700,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-25",
+      "name": "Pizzinatto Rodrigo de Almeida",
+      "title": "officer: Chief Executive Officer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 200000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-25",
+      "name": "de Oliveira Manuella Carvalho Campos",
+      "title": "officer: People Officer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 50000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-25",
+      "name": "Palhares Alexandre Mendes",
+      "title": "officer: CFO and IRO",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 75000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-23",
+      "name": "Hachem Andre Saleme",
+      "title": "officer: CFO and IRO Hidrovias",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 39200,
+      "price": 7.67,
+      "total_val": 0.3
+    },
+    {
+      "date": "2026-09-18",
+      "name": "Amaral Decio de Sampaio",
+      "title": "officer: CEO Hidrovias",
+      "is_buy": null,
+      "action": "D-Return",
+      "shares": 140000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-18",
+      "name": "Amaral Decio de Sampaio",
+      "title": "officer: CEO Hidrovias",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 140000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-18",
+      "name": "Amaral Decio de Sampaio",
+      "title": "officer: CEO Hidrovias",
+      "is_buy": null,
+      "action": "D-Return",
+      "shares": 78824,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-14",
+      "name": "Rabelo Pedro Guedes",
+      "title": "officer: Financial Officer Ipiranga",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 30000,
+      "price": 7.58,
+      "total_val": 0.23
+    },
+    {
+      "date": "2026-09-14",
+      "name": "Linden Leonardo Remiao",
+      "title": "officer: CEO Ipiranga",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 60000,
+      "price": 7.57,
+      "total_val": 0.45
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2019-04-25",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2011-02-25",
+      "ratio": "4 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2005-02-11",
+      "ratio": "23 : 20",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

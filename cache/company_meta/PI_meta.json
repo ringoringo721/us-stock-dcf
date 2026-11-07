@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-05",
+      "name": "SYLEBRA CAPITAL LLC",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 49691,
+      "price": 185.23,
+      "total_val": 9.2
+    },
+    {
+      "date": "2026-11-05",
+      "name": "SYLEBRA CAPITAL LLC",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 40500,
+      "price": 184.23,
+      "total_val": 7.46
+    },
+    {
+      "date": "2026-10-30",
+      "name": "Rao Meera",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 1729,
+      "price": 201.6,
+      "total_val": 0.35
+    },
+    {
+      "date": "2026-10-21",
+      "name": "Valdez Arthur L Jr",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 1220,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-21",
+      "name": "Valdez Arthur L Jr",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 1220,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-13",
+      "name": "DIORIO CHRIS PH.D.",
+      "title": "director, officer: CHIEF EXECUTIVE OFFICER",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 10000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-24",
+      "name": "DIORIO CHRIS PH.D.",
+      "title": "director, officer: CHIEF EXECUTIVE OFFICER",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 1817,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-24",
+      "name": "DIORIO CHRIS PH.D.",
+      "title": "director, officer: CHIEF EXECUTIVE OFFICER",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 1197,
+      "price": 177.2,
+      "total_val": 0.21
+    },
+    {
+      "date": "2026-09-24",
+      "name": "DIORIO CHRIS PH.D.",
+      "title": "director, officer: CHIEF EXECUTIVE OFFICER",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 1224,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-24",
+      "name": "DIORIO CHRIS PH.D.",
+      "title": "director, officer: CHIEF EXECUTIVE OFFICER",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 1817,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

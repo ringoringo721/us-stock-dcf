@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-03",
+      "name": "DEBOER SIDNEY B",
+      "title": "director",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 84,
+      "price": 299.72,
+      "total_val": 0.03
+    },
+    {
+      "date": "2026-10-01",
+      "name": "Macaddino Katherine Lee",
+      "title": "officer: Chief People Officer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 47,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-28",
+      "name": "O'NEILL HEIDI",
+      "title": "director",
+      "is_buy": null,
+      "action": "D-Return",
+      "shares": 540,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-14",
+      "name": "Loretz Congdon Stacy",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 75,
+      "price": 370.73,
+      "total_val": 0.03
+    },
+    {
+      "date": "2026-09-10",
+      "name": "Stork David",
+      "title": "officer: Chief Administrative Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 320,
+      "price": 373.49,
+      "total_val": 0.12
+    },
+    {
+      "date": "2026-08-05",
+      "name": "DEBOER SIDNEY B",
+      "title": "director",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 81,
+      "price": 385.42,
+      "total_val": 0.03
+    },
+    {
+      "date": "2026-06-15",
+      "name": "Loretz Congdon Stacy",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 75,
+      "price": 315.0,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-06-11",
+      "name": "McIntyre Shauna",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 165,
+      "price": 305.64,
+      "total_val": 0.05
+    },
+    {
+      "date": "2026-05-27",
+      "name": "Bailey Richard J Jr",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 297,
+      "price": 280.57,
+      "total_val": 0.08
+    },
+    {
+      "date": "2026-05-12",
+      "name": "McIntyre Shauna",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 245,
+      "price": 294.64,
+      "total_val": 0.07
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

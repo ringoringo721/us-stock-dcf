@@ -1,0 +1,122 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-03",
+      "name": "Meister Keith A.",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 7518,
+      "price": 30.24,
+      "total_val": 0.23
+    },
+    {
+      "date": "2026-11-03",
+      "name": "Meister Keith A.",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 1504076,
+      "price": 29.75,
+      "total_val": 44.75
+    },
+    {
+      "date": "2026-11-03",
+      "name": "Meister Keith A.",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 233998,
+      "price": 28.92,
+      "total_val": 6.77
+    },
+    {
+      "date": "2026-10-08",
+      "name": "Fritz Gary M",
+      "title": "officer: President, Interactive",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 12166,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-08",
+      "name": "Fritz Gary M",
+      "title": "officer: President, Interactive",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 4858,
+      "price": 30.0,
+      "total_val": 0.15
+    },
+    {
+      "date": "2026-10-08",
+      "name": "Fritz Gary M",
+      "title": "officer: President, Interactive",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 12166,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-08",
+      "name": "Halkyard Jonathan S",
+      "title": "officer: CHIEF FINANCIAL OFFICER",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 8921,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-08",
+      "name": "Halkyard Jonathan S",
+      "title": "officer: CHIEF FINANCIAL OFFICER",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 3511,
+      "price": 30.0,
+      "total_val": 0.11
+    },
+    {
+      "date": "2026-10-08",
+      "name": "Halkyard Jonathan S",
+      "title": "officer: CHIEF FINANCIAL OFFICER",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 8921,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-08",
+      "name": "HORNBUCKLE WILLIAM",
+      "title": "director, officer: CEO AND PRESIDENT",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 32441,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2005-05-19",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2000-02-28",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

@@ -1,0 +1,116 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-05",
+      "name": "SHOEN MARK V",
+      "title": "10 percent owner",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 23000,
+      "price": 52.17,
+      "total_val": 1.2
+    },
+    {
+      "date": "2026-11-05",
+      "name": "SHOEN MARK V",
+      "title": "10 percent owner",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 4565,
+      "price": 52.56,
+      "total_val": 0.24
+    },
+    {
+      "date": "2026-11-05",
+      "name": "SHOEN MARK V",
+      "title": "10 percent owner",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 18435,
+      "price": 53.41,
+      "total_val": 0.98
+    },
+    {
+      "date": "2026-11-03",
+      "name": "SHOEN MARK V",
+      "title": "10 percent owner",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 23000,
+      "price": 50.11,
+      "total_val": 1.15
+    },
+    {
+      "date": "2026-11-03",
+      "name": "SHOEN MARK V",
+      "title": "10 percent owner",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 831,
+      "price": 51.28,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-11-03",
+      "name": "SHOEN MARK V",
+      "title": "10 percent owner",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 16704,
+      "price": 52.46,
+      "total_val": 0.88
+    },
+    {
+      "date": "2026-11-03",
+      "name": "SHOEN MARK V",
+      "title": "10 percent owner",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 5465,
+      "price": 52.85,
+      "total_val": 0.29
+    },
+    {
+      "date": "2026-10-30",
+      "name": "SHOEN MARK V",
+      "title": "10 percent owner",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 23000,
+      "price": 48.42,
+      "total_val": 1.11
+    },
+    {
+      "date": "2026-10-30",
+      "name": "SHOEN MARK V",
+      "title": "10 percent owner",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 11486,
+      "price": 49.54,
+      "total_val": 0.57
+    },
+    {
+      "date": "2026-10-30",
+      "name": "SHOEN MARK V",
+      "title": "10 percent owner",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 11514,
+      "price": 49.9,
+      "total_val": 0.57
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2022-11-10",
+      "ratio": "10 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

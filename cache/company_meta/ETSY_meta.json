@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-05",
+      "name": "Baker Charles",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 800,
+      "price": 91.02,
+      "total_val": 0.07
+    },
+    {
+      "date": "2026-11-05",
+      "name": "Baker Charles",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 607,
+      "price": 91.94,
+      "total_val": 0.06
+    },
+    {
+      "date": "2026-11-02",
+      "name": "Silverman Josh",
+      "title": "director, other: Executive Chair of the Board",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 1189,
+      "price": 10.62,
+      "total_val": 0.01
+    },
+    {
+      "date": "2026-11-02",
+      "name": "Silverman Josh",
+      "title": "director, other: Executive Chair of the Board",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 1189,
+      "price": 88.7,
+      "total_val": 0.11
+    },
+    {
+      "date": "2026-11-02",
+      "name": "Silverman Josh",
+      "title": "director, other: Executive Chair of the Board",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 41500,
+      "price": 92.13,
+      "total_val": 3.82
+    },
+    {
+      "date": "2026-11-02",
+      "name": "Silverman Josh",
+      "title": "director, other: Executive Chair of the Board",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 1189,
+      "price": 10.62,
+      "total_val": 0.01
+    },
+    {
+      "date": "2026-11-02",
+      "name": "Baker Charles",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 6224,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-02",
+      "name": "Baker Charles",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 6224,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-02",
+      "name": "Baker Charles",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 3442,
+      "price": 88.96,
+      "total_val": 0.31
+    },
+    {
+      "date": "2026-11-02",
+      "name": "Minor Bradley",
+      "title": "officer: Chief Marketing Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 4444,
+      "price": 92.33,
+      "total_val": 0.41
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

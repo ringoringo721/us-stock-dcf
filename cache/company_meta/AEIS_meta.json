@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-06",
+      "name": "DelSanto Anne",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 265,
+      "price": 200.02,
+      "total_val": 0.05
+    },
+    {
+      "date": "2026-10-07",
+      "name": "DelSanto Anne",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 270,
+      "price": 304.76,
+      "total_val": 0.08
+    },
+    {
+      "date": "2026-09-10",
+      "name": "Vonne Elizabeth Karpinski",
+      "title": "officer: EVP, General Counsel",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 632,
+      "price": 288.14,
+      "total_val": 0.18
+    },
+    {
+      "date": "2026-09-10",
+      "name": "DelSanto Anne",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 265,
+      "price": 288.14,
+      "total_val": 0.08
+    },
+    {
+      "date": "2026-08-27",
+      "name": "Vonne Elizabeth Karpinski",
+      "title": "officer: EVP, General Counsel",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 907,
+      "price": 290.05,
+      "total_val": 0.26
+    },
+    {
+      "date": "2026-08-25",
+      "name": "BEARD GRANT H",
+      "title": "director",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 9000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-20",
+      "name": "Acebedo Eduardo Bernal",
+      "title": "officer: EVP and COO",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 6042,
+      "price": 85.97,
+      "total_val": 0.52
+    },
+    {
+      "date": "2026-08-20",
+      "name": "Acebedo Eduardo Bernal",
+      "title": "officer: EVP and COO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 406,
+      "price": 309.73,
+      "total_val": 0.13
+    },
+    {
+      "date": "2026-08-20",
+      "name": "Acebedo Eduardo Bernal",
+      "title": "officer: EVP and COO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 568,
+      "price": 310.75,
+      "total_val": 0.18
+    },
+    {
+      "date": "2026-08-20",
+      "name": "Acebedo Eduardo Bernal",
+      "title": "officer: EVP and COO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 2951,
+      "price": 311.8,
+      "total_val": 0.92
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

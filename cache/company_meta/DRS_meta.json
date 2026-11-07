@@ -1,0 +1,134 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-03",
+      "name": "Dippold Michael",
+      "title": "officer: EVP and CFO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 14317,
+      "price": 37.91,
+      "total_val": 0.54
+    },
+    {
+      "date": "2026-10-01",
+      "name": "TOWNSEND FRANCES F",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 1006,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-01",
+      "name": "TOWNSEND FRANCES F",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 1006,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-10",
+      "name": "Krieg Kenneth J",
+      "title": "director",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 3700,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-08",
+      "name": "Dorfman Mark",
+      "title": "officer: EVP, GC and Secretary",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 7471,
+      "price": 37.01,
+      "total_val": 0.28
+    },
+    {
+      "date": "2026-09-04",
+      "name": "Dippold Michael",
+      "title": "officer: EVP and CFO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 20317,
+      "price": 37.18,
+      "total_val": 0.76
+    },
+    {
+      "date": "2026-08-05",
+      "name": "Rinsky Jason",
+      "title": "officer: EVP Chief Tax and Treasury",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 3864,
+      "price": 45.81,
+      "total_val": 0.18
+    },
+    {
+      "date": "2026-07-08",
+      "name": "Rinsky Jason",
+      "title": "officer: EVP Chief Tax and Treasury",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 3865,
+      "price": 45.37,
+      "total_val": 0.18
+    },
+    {
+      "date": "2026-07-01",
+      "name": "TOWNSEND FRANCES F",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 1006,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-01",
+      "name": "TOWNSEND FRANCES F",
+      "title": "director",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 1006,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2016-09-14",
+      "ratio": "1 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2007-02-14",
+      "ratio": "1 : 3",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2001-04-04",
+      "ratio": "2 : 5",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1990-10-23",
+      "ratio": "2 : 5",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

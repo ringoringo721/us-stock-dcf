@@ -1,0 +1,116 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-03",
+      "name": "Coulter Suzanne M",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 140,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-03",
+      "name": "ANDERSON KERRII B",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 55,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-09",
+      "name": "Lipesky Scott D.",
+      "title": "officer: EVP and COO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 2000,
+      "price": 146.82,
+      "total_val": 0.29
+    },
+    {
+      "date": "2026-09-01",
+      "name": "Rust Jay",
+      "title": "officer: EVP, Chief HR Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 5000,
+      "price": 147.5,
+      "total_val": 0.74
+    },
+    {
+      "date": "2026-09-01",
+      "name": "Robinson Kenneth B.",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 800,
+      "price": 149.69,
+      "total_val": 0.12
+    },
+    {
+      "date": "2026-09-01",
+      "name": "Lipesky Scott D.",
+      "title": "officer: EVP and COO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 5000,
+      "price": 149.0,
+      "total_val": 0.74
+    },
+    {
+      "date": "2026-09-01",
+      "name": "HENCHEL GREGORY J",
+      "title": "officer: EVP, Chief Legal Off & Secy",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 30000,
+      "price": 146.65,
+      "total_val": 4.4
+    },
+    {
+      "date": "2026-08-24",
+      "name": "Fox Mary",
+      "title": "director: ",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-11",
+      "name": "Lipesky Scott D.",
+      "title": "officer: EVP and COO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 10000,
+      "price": 115.0,
+      "total_val": 1.15
+    },
+    {
+      "date": "2026-08-06",
+      "name": "Lipesky Scott D.",
+      "title": "officer: EVP and COO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 10000,
+      "price": 110.0,
+      "total_val": 1.1
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "1999-06-16",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

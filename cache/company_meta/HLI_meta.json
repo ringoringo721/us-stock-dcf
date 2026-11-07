@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-02",
+      "name": "Reichert Thomas",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 925,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-02",
+      "name": "Reichert Thomas",
+      "title": "Officer / Director",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-25",
+      "name": "Bhandari Prabha S",
+      "title": "Officer / Director",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-10",
+      "name": "CRAIN CHRISTOPHER M",
+      "title": "officer: GENERAL COUNSEL",
+      "is_buy": null,
+      "action": "C-Conversion",
+      "shares": 1000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-10",
+      "name": "CRAIN CHRISTOPHER M",
+      "title": "officer: GENERAL COUNSEL",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 1000,
+      "price": 140.15,
+      "total_val": 0.14
+    },
+    {
+      "date": "2026-09-10",
+      "name": "CRAIN CHRISTOPHER M",
+      "title": "officer: GENERAL COUNSEL",
+      "is_buy": null,
+      "action": "C-Conversion",
+      "shares": 1000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-05",
+      "name": "ALLEY J LINDSEY",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 4020,
+      "price": 124.52,
+      "total_val": 0.5
+    },
+    {
+      "date": "2026-05-22",
+      "name": "SIEGERT PAUL ERIC",
+      "title": "officer: CO-CHAIRMAN",
+      "is_buy": null,
+      "action": "Z-Trust",
+      "shares": 19815,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-22",
+      "name": "SIEGERT PAUL ERIC",
+      "title": "officer: CO-CHAIRMAN",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 19815,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-22",
+      "name": "CRAIN CHRISTOPHER M",
+      "title": "officer: GENERAL COUNSEL",
+      "is_buy": null,
+      "action": "Z-Trust",
+      "shares": 3197,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

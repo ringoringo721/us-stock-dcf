@@ -1,0 +1,170 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-03",
+      "name": "Regan Thomas Michael",
+      "title": "officer: EVP of DTS",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 1968,
+      "price": 282.55,
+      "total_val": 0.56
+    },
+    {
+      "date": "2026-11-03",
+      "name": "Regan Thomas Michael",
+      "title": "officer: EVP of DTS",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 3032,
+      "price": 288.05,
+      "total_val": 0.87
+    },
+    {
+      "date": "2026-11-03",
+      "name": "HAVENS THOMAS M.",
+      "title": "officer: President, FMS",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 5500,
+      "price": 283.13,
+      "total_val": 1.56
+    },
+    {
+      "date": "2026-11-02",
+      "name": "GALLO-AQUINO CRISTINA",
+      "title": "officer: EVP and CFO",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 1238,
+      "price": 74.72,
+      "total_val": 0.09
+    },
+    {
+      "date": "2026-11-02",
+      "name": "GALLO-AQUINO CRISTINA",
+      "title": "officer: EVP and CFO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 1238,
+      "price": 276.85,
+      "total_val": 0.34
+    },
+    {
+      "date": "2026-11-02",
+      "name": "GALLO-AQUINO CRISTINA",
+      "title": "officer: EVP and CFO",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 1238,
+      "price": 74.72,
+      "total_val": 0.09
+    },
+    {
+      "date": "2026-10-28",
+      "name": "SANCHEZ ROBERT E",
+      "title": "director, other: Executive Chair",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 77407,
+      "price": 74.72,
+      "total_val": 5.78
+    },
+    {
+      "date": "2026-10-28",
+      "name": "SANCHEZ ROBERT E",
+      "title": "director, other: Executive Chair",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 42793,
+      "price": 284.43,
+      "total_val": 12.17
+    },
+    {
+      "date": "2026-10-28",
+      "name": "SANCHEZ ROBERT E",
+      "title": "director, other: Executive Chair",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 6611,
+      "price": 283.57,
+      "total_val": 1.87
+    },
+    {
+      "date": "2026-10-28",
+      "name": "SANCHEZ ROBERT E",
+      "title": "director, other: Executive Chair",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 4950,
+      "price": 283.0,
+      "total_val": 1.4
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "1993-12-15",
+      "ratio": "5767 : 5000",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1986-06-02",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1985-03-20",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1984-05-24",
+      "ratio": "103 : 100",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1983-05-23",
+      "ratio": "103 : 100",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1982-05-24",
+      "ratio": "103 : 100",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1981-05-22",
+      "ratio": "103 : 100",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1980-05-23",
+      "ratio": "103 : 100",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1979-05-23",
+      "ratio": "103 : 100",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1978-05-23",
+      "ratio": "103 : 100",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

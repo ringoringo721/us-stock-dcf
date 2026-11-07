@@ -1,0 +1,122 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-06",
+      "name": "Hunt Jeffrey K.",
+      "title": "officer: Chief Accounting Officer",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 1110,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-06",
+      "name": "Hunt Jeffrey K.",
+      "title": "officer: Chief Accounting Officer",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 1110,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-06",
+      "name": "Hunt Jeffrey K.",
+      "title": "officer: Chief Accounting Officer",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 437,
+      "price": 44.92,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-09-08",
+      "name": "Eifler Robert W.",
+      "title": "director, officer: President & CEO",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 21750,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-17",
+      "name": "Eifler Robert W.",
+      "title": "director, officer: President & CEO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 32929,
+      "price": 45.4,
+      "total_val": 1.5
+    },
+    {
+      "date": "2026-06-17",
+      "name": "Eifler Robert W.",
+      "title": "director, officer: President & CEO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 17071,
+      "price": 45.71,
+      "total_val": 0.78
+    },
+    {
+      "date": "2026-05-22",
+      "name": "Miller Jeffrey Allen",
+      "title": "director: ",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-18",
+      "name": "Hirshberg Al J.",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 3500,
+      "price": 52.62,
+      "total_val": 0.18
+    },
+    {
+      "date": "2026-05-18",
+      "name": "Hirshberg Al J.",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 1500,
+      "price": 52.6,
+      "total_val": 0.08
+    },
+    {
+      "date": "2026-05-13",
+      "name": "SLEDGE CHARLES M",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 724,
+      "price": 51.61,
+      "total_val": 0.04
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2014-08-04",
+      "ratio": "143 : 125",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2007-08-29",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-08-17",
+      "name": "CONRAD ROBERT J",
+      "title": "officer: Sr VP and General Manager",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 6581,
+      "price": 218.21,
+      "total_val": 1.44
+    },
+    {
+      "date": "2026-05-19",
+      "name": "Butler Dean Warren",
+      "title": "officer: Sr VP and CFO",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 6291,
+      "price": 216.59,
+      "total_val": 1.36
+    },
+    {
+      "date": "2026-05-19",
+      "name": "CONRAD ROBERT J",
+      "title": "officer: Sr VP and General Manager",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 3653,
+      "price": 216.59,
+      "total_val": 0.79
+    },
+    {
+      "date": "2026-05-19",
+      "name": "Johnson Robert Matthew",
+      "title": "director, officer: President & CEO",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 10363,
+      "price": 216.59,
+      "total_val": 2.24
+    },
+    {
+      "date": "2026-05-19",
+      "name": "Johnson Robert Matthew",
+      "title": "director, officer: President & CEO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 8024,
+      "price": 216.83,
+      "total_val": 1.74
+    },
+    {
+      "date": "2026-05-19",
+      "name": "MAULDIN MARK D",
+      "title": "officer: Chief Accounting Officer",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 858,
+      "price": 216.59,
+      "total_val": 0.19
+    },
+    {
+      "date": "2026-05-19",
+      "name": "Tolany Brandon",
+      "title": "officer: Sr VP WW Sales & Marketing",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 4160,
+      "price": 216.59,
+      "total_val": 0.9
+    },
+    {
+      "date": "2026-05-01",
+      "name": "MAULDIN MARK D",
+      "title": "officer: Chief Accounting Officer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 18,
+      "price": 86.46,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-01",
+      "name": "Tolany Brandon",
+      "title": "officer: Sr VP WW Sales & Marketing",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 45,
+      "price": 86.46,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-01",
+      "name": "Butler Dean Warren",
+      "title": "officer: Sr VP and CFO",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 152,
+      "price": 86.46,
+      "total_val": 0.01
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

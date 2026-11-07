@@ -1,0 +1,146 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-01",
+      "name": "Carleone Joseph",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 279,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-01",
+      "name": "Ferruzzi Mario",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 42,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-06",
+      "name": "Ferruzzi Mario",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 1200,
+      "price": 129.48,
+      "total_val": 0.16
+    },
+    {
+      "date": "2026-07-01",
+      "name": "Singh Chandrabhushan",
+      "title": "officer: VP, Asia Pacific Group",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-01",
+      "name": "Singh Chandrabhushan",
+      "title": "officer: VP, Asia Pacific Group",
+      "is_buy": null,
+      "action": "",
+      "shares": 324,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-01",
+      "name": "Carleone Joseph",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 296,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-01",
+      "name": "Ferruzzi Mario",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 44,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-20",
+      "name": "Hoang Thierry",
+      "title": "officer: VP, Asia Pacific Group",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 400,
+      "price": 115.19,
+      "total_val": 0.05
+    },
+    {
+      "date": "2026-05-06",
+      "name": "Hoang Thierry",
+      "title": "officer: VP, Asia Pacific Group",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 439,
+      "price": 114.15,
+      "total_val": 0.05
+    },
+    {
+      "date": "2026-05-01",
+      "name": "Morris Steven B",
+      "title": "officer: President, Color Group",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 200,
+      "price": 114.58,
+      "total_val": 0.02
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "1998-05-26",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1989-10-16",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1988-10-11",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1986-08-08",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1978-11-17",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1976-07-26",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

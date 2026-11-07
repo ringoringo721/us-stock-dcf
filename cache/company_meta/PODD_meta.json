@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-05",
+      "name": "Pease Flavia",
+      "title": "officer: EVP & CFO",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 1882,
+      "price": 130.79,
+      "total_val": 0.25
+    },
+    {
+      "date": "2026-10-02",
+      "name": "MAZELSKY JONATHAN JAY",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 141,
+      "price": 130.47,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-10-02",
+      "name": "Huffines Robert Luther",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 178,
+      "price": 130.47,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-08-24",
+      "name": "McEvoy Ashley",
+      "title": "director, officer: President and CEO",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 1100,
+      "price": 147.47,
+      "total_val": 0.16
+    },
+    {
+      "date": "2026-08-04",
+      "name": "Davis Lisa Blair",
+      "title": "officer: SVP, Chief HR Officer",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 244,
+      "price": 165.35,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-07-07",
+      "name": "Huffines Robert Luther",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 151,
+      "price": 152.25,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-07-02",
+      "name": "MAZELSKY JONATHAN JAY",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 1355,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-02",
+      "name": "MAZELSKY JONATHAN JAY",
+      "title": "director",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-02",
+      "name": "Huffines Robert Luther",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 144,
+      "price": 159.79,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-06-04",
+      "name": "STONESIFER TIMOTHY C.",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 2790,
+      "price": 143.51,
+      "total_val": 0.4
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

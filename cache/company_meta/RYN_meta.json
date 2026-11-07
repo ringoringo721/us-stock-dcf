@@ -1,0 +1,140 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-06",
+      "name": "Daniels Ryan M.",
+      "title": "officer: SVP, Wood Products",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 14,
+      "price": 18.22,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-01",
+      "name": "Daniels Ryan M.",
+      "title": "officer: SVP, Wood Products",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 887,
+      "price": 18.56,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-09-11",
+      "name": "Bridwell Mark R",
+      "title": "officer: EVP, GC and Secretary",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 5318,
+      "price": 20.19,
+      "total_val": 0.11
+    },
+    {
+      "date": "2026-08-31",
+      "name": "BASS KEITH E",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 1136,
+      "price": 20.38,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-06-01",
+      "name": "BASS KEITH E",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 1047,
+      "price": 20.89,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-05-19",
+      "name": "BASS KEITH E",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 6811,
+      "price": 19.82,
+      "total_val": 0.13
+    },
+    {
+      "date": "2026-05-19",
+      "name": "COVEY MICHAEL J",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 6811,
+      "price": 19.82,
+      "total_val": 0.13
+    },
+    {
+      "date": "2026-05-19",
+      "name": "Jones Scott R.",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 6811,
+      "price": 19.82,
+      "total_val": 0.13
+    },
+    {
+      "date": "2026-05-19",
+      "name": "Nelson Ann C",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 6811,
+      "price": 19.82,
+      "total_val": 0.13
+    },
+    {
+      "date": "2026-05-19",
+      "name": "Gonsalves Gregg A",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 6811,
+      "price": 19.82,
+      "total_val": 0.13
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2014-06-30",
+      "ratio": "1339 : 1000",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2011-08-25",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2005-10-18",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2003-11-12",
+      "ratio": "1187 : 1000",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2003-06-13",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

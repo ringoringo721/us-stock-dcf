@@ -1,0 +1,116 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-09-04",
+      "name": "STUEWE RANDALL C",
+      "title": "director, officer: Chairman and CEO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 5000,
+      "price": 68.2,
+      "total_val": 0.34
+    },
+    {
+      "date": "2026-08-18",
+      "name": "MANZI JOSEPH",
+      "title": "officer: Chief Accounting Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 1000,
+      "price": 67.27,
+      "total_val": 0.07
+    },
+    {
+      "date": "2026-08-18",
+      "name": "Dudley Sandra",
+      "title": "officer: EVP Chief Strategy Officer",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 5928,
+      "price": 18.82,
+      "total_val": 0.11
+    },
+    {
+      "date": "2026-08-18",
+      "name": "Dudley Sandra",
+      "title": "officer: EVP Chief Strategy Officer",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 3330,
+      "price": 67.88,
+      "total_val": 0.23
+    },
+    {
+      "date": "2026-08-18",
+      "name": "Dudley Sandra",
+      "title": "officer: EVP Chief Strategy Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 2598,
+      "price": 67.88,
+      "total_val": 0.18
+    },
+    {
+      "date": "2026-08-18",
+      "name": "Dudley Sandra",
+      "title": "officer: EVP Chief Strategy Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 3876,
+      "price": 67.87,
+      "total_val": 0.26
+    },
+    {
+      "date": "2026-08-18",
+      "name": "Dudley Sandra",
+      "title": "officer: EVP Chief Strategy Officer",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 5928,
+      "price": 18.82,
+      "total_val": 0.11
+    },
+    {
+      "date": "2026-08-14",
+      "name": "McNutt Patrick",
+      "title": "officer: EVP Chief Admin Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 8000,
+      "price": 67.09,
+      "total_val": 0.54
+    },
+    {
+      "date": "2026-08-14",
+      "name": "STUEWE RANDALL C",
+      "title": "director, officer: Chairman and CEO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 5000,
+      "price": 63.26,
+      "total_val": 0.32
+    },
+    {
+      "date": "2026-08-14",
+      "name": "STUEWE RANDALL C",
+      "title": "director, officer: Chairman and CEO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 5000,
+      "price": 64.79,
+      "total_val": 0.32
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "1997-11-10",
+      "ratio": "3 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

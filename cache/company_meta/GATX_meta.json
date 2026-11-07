@@ -1,0 +1,128 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-06",
+      "name": "Hillesland Kevin",
+      "title": "officer: SVP, Structured Finance",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 1900,
+      "price": 77.07,
+      "total_val": 0.15
+    },
+    {
+      "date": "2026-11-06",
+      "name": "Hillesland Kevin",
+      "title": "officer: SVP, Structured Finance",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 1400,
+      "price": 187.09,
+      "total_val": 0.26
+    },
+    {
+      "date": "2026-11-06",
+      "name": "Hillesland Kevin",
+      "title": "officer: SVP, Structured Finance",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 500,
+      "price": 187.75,
+      "total_val": 0.09
+    },
+    {
+      "date": "2026-11-06",
+      "name": "Hillesland Kevin",
+      "title": "officer: SVP, Structured Finance",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 1900,
+      "price": 77.07,
+      "total_val": 0.15
+    },
+    {
+      "date": "2026-11-05",
+      "name": "LYONS ROBERT C",
+      "title": "director, officer: President and CEO",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 18200,
+      "price": 77.07,
+      "total_val": 1.4
+    },
+    {
+      "date": "2026-11-05",
+      "name": "LYONS ROBERT C",
+      "title": "director, officer: President and CEO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 4839,
+      "price": 185.44,
+      "total_val": 0.9
+    },
+    {
+      "date": "2026-11-05",
+      "name": "LYONS ROBERT C",
+      "title": "director, officer: President and CEO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 7426,
+      "price": 186.36,
+      "total_val": 1.38
+    },
+    {
+      "date": "2026-11-05",
+      "name": "LYONS ROBERT C",
+      "title": "director, officer: President and CEO",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 18200,
+      "price": 77.07,
+      "total_val": 1.4
+    },
+    {
+      "date": "2026-11-04",
+      "name": "Bausch Shelley J",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 141,
+      "price": 180.6,
+      "total_val": 0.03
+    },
+    {
+      "date": "2026-11-04",
+      "name": "WETHERBEE ROBERT S",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 128,
+      "price": 180.6,
+      "total_val": 0.02
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "1998-06-02",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1990-06-04",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1983-02-15",
+      "ratio": "6 : 5",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

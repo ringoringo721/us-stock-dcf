@@ -1,0 +1,128 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-06",
+      "name": "WOOLSEY STACI M",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 188,
+      "price": 121.0,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-11-04",
+      "name": "Tatusko Michael G",
+      "title": "officer: Senior Vice President",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 171,
+      "price": 133.31,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-11-04",
+      "name": "Tatusko Michael G",
+      "title": "officer: Senior Vice President",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 291,
+      "price": 133.31,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-11-04",
+      "name": "Tatusko Michael G",
+      "title": "officer: Senior Vice President",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 152,
+      "price": 133.31,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-08-07",
+      "name": "NASH GEORGE",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 993,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-07",
+      "name": "NASH GEORGE",
+      "title": "director",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-06",
+      "name": "HERNANDEZ CARLOS M",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 400,
+      "price": 123.99,
+      "total_val": 0.05
+    },
+    {
+      "date": "2026-06-15",
+      "name": "Romer John Timothy",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 102,
+      "price": 144.32,
+      "total_val": 0.01
+    },
+    {
+      "date": "2026-06-15",
+      "name": "Romer John Timothy",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 273,
+      "price": 143.4,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-06-15",
+      "name": "Romer John Timothy",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 375,
+      "price": 141.79,
+      "total_val": 0.05
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2001-04-16",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1998-08-10",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1996-04-22",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

@@ -1,0 +1,122 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-28",
+      "name": "Thomas Isiah III",
+      "title": "director",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-28",
+      "name": "Azoff Irving L.",
+      "title": "director",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-09",
+      "name": "DiCicco Paul M.",
+      "title": "officer: EVP, CFO & Treasurer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 813,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-09",
+      "name": "Madison Square Garden Sports Corp.",
+      "title": "10 percent owner, other: See Remarks",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-17",
+      "name": "Warner Bryan",
+      "title": "officer: SVP, Head of Legal",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 417,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-17",
+      "name": "Warner Bryan",
+      "title": "officer: SVP, Head of Legal",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 417,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-17",
+      "name": "Warner Bryan",
+      "title": "officer: SVP, Head of Legal",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 254,
+      "price": 393.27,
+      "total_val": 0.1
+    },
+    {
+      "date": "2026-09-17",
+      "name": "Warner Bryan",
+      "title": "officer: SVP, Head of Legal",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 291,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-17",
+      "name": "Warner Bryan",
+      "title": "officer: SVP, Head of Legal",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 291,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-17",
+      "name": "Warner Bryan",
+      "title": "officer: SVP, Head of Legal",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 628,
+      "price": 393.77,
+      "total_val": 0.25
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2026-10-27",
+      "ratio": "166 : 125",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2020-04-20",
+      "ratio": "701 : 500",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

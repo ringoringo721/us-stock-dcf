@@ -1,0 +1,128 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-07-31",
+      "name": "HARRISON DAVID D",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 9594,
+      "price": 19.21,
+      "total_val": 0.18
+    },
+    {
+      "date": "2026-05-22",
+      "name": "Donadio Marcela E",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 9457,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-22",
+      "name": "Chowbey Sanjay",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 9457,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-22",
+      "name": "Martinez Patricia",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 9457,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-22",
+      "name": "Welborn Robert S.",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 9457,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-22",
+      "name": "Thomas William R.",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 9457,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-22",
+      "name": "HARRISON DAVID D",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 9457,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-22",
+      "name": "Kendall Christian S",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 9457,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-22",
+      "name": "MELCHER PATRICIA B",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 9457,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-04-08",
+      "name": "Chowbey Sanjay",
+      "title": "Officer / Director",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2014-06-02",
+      "ratio": "1109 : 1000",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2007-10-01",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1997-11-19",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

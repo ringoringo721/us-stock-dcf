@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-09-16",
+      "name": "TOMICK DAVID P",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 7000,
+      "price": 29.66,
+      "total_val": 0.21
+    },
+    {
+      "date": "2026-09-16",
+      "name": "TOMICK DAVID P",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 7142,
+      "price": 29.71,
+      "total_val": 0.21
+    },
+    {
+      "date": "2026-09-14",
+      "name": "TOMICK DAVID P",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 7000,
+      "price": 29.67,
+      "total_val": 0.21
+    },
+    {
+      "date": "2026-09-14",
+      "name": "TOMICK DAVID P",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 7000,
+      "price": 29.68,
+      "total_val": 0.21
+    },
+    {
+      "date": "2026-09-14",
+      "name": "TOMICK DAVID P",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 1850,
+      "price": 33.36,
+      "total_val": 0.06
+    },
+    {
+      "date": "2026-08-28",
+      "name": "Jones Blackhurst Janis L",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 33899,
+      "price": 29.63,
+      "total_val": 1.0
+    },
+    {
+      "date": "2026-08-21",
+      "name": "Yunker Bret",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 208134,
+      "price": 29.62,
+      "total_val": 6.17
+    },
+    {
+      "date": "2026-08-17",
+      "name": "Jones Josh",
+      "title": "officer: Chief Marketing Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 59507,
+      "price": 29.72,
+      "total_val": 1.77
+    },
+    {
+      "date": "2026-06-12",
+      "name": "Pegram Michael E",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 24800,
+      "price": 29.47,
+      "total_val": 0.73
+    },
+    {
+      "date": "2026-06-12",
+      "name": "Pegram Michael E",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 16897,
+      "price": 29.46,
+      "total_val": 0.5
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

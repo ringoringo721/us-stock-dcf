@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-05",
+      "name": "Genworth Holdings, Inc.",
+      "title": "10 percent owner",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 990583,
+      "price": 45.62,
+      "total_val": 45.19
+    },
+    {
+      "date": "2026-10-05",
+      "name": "McMullen James",
+      "title": "officer: Controller",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 887,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-05",
+      "name": "McMullen James",
+      "title": "officer: Controller",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 253,
+      "price": 44.15,
+      "total_val": 0.01
+    },
+    {
+      "date": "2026-10-05",
+      "name": "McMullen James",
+      "title": "officer: Controller",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 887,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-01",
+      "name": "Genworth Holdings, Inc.",
+      "title": "10 percent owner",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 762894,
+      "price": 48.65,
+      "total_val": 37.12
+    },
+    {
+      "date": "2026-09-21",
+      "name": "RESTREPO ROBERT P JR",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 177,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-21",
+      "name": "Addesso Dominic James",
+      "title": "director, other: Chairperson of the Board",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 308,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-21",
+      "name": "Mitchell Hardin Dean",
+      "title": "officer: EVP, CFO and Treasurer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 66,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-21",
+      "name": "Mitchell Hardin Dean",
+      "title": "officer: EVP, CFO and Treasurer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 51,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-21",
+      "name": "Mitchell Hardin Dean",
+      "title": "officer: EVP, CFO and Treasurer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 32,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

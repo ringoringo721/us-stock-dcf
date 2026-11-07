@@ -1,0 +1,122 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-05",
+      "name": "MCNAMARA KEVIN J",
+      "title": "director, officer: president and CEO",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 2000,
+      "price": 537.9,
+      "total_val": 1.08
+    },
+    {
+      "date": "2026-11-03",
+      "name": "LEE SPENCER S",
+      "title": "officer: executive vice president",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 920,
+      "price": 537.17,
+      "total_val": 0.49
+    },
+    {
+      "date": "2026-10-22",
+      "name": "Wherley Joel L",
+      "title": "officer: CEO - Vitas Healthcare",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 12686,
+      "price": 512.64,
+      "total_val": 6.5
+    },
+    {
+      "date": "2026-10-22",
+      "name": "LEE SPENCER S",
+      "title": "officer: executive vice president",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 7125,
+      "price": 512.64,
+      "total_val": 3.65
+    },
+    {
+      "date": "2026-10-22",
+      "name": "Judkins Brian C",
+      "title": "officer: VP and Chief Legal Officer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 9392,
+      "price": 512.64,
+      "total_val": 4.81
+    },
+    {
+      "date": "2026-10-22",
+      "name": "HUTTON THOMAS C",
+      "title": "director, officer: vice president",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 3964,
+      "price": 512.64,
+      "total_val": 2.03
+    },
+    {
+      "date": "2026-10-22",
+      "name": "Witzeman Michael D",
+      "title": "officer: VP & Chief Financial Officer",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 12686,
+      "price": 512.64,
+      "total_val": 6.5
+    },
+    {
+      "date": "2026-10-22",
+      "name": "MCNAMARA KEVIN J",
+      "title": "director, officer: president and CEO",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 36693,
+      "price": 512.64,
+      "total_val": 18.81
+    },
+    {
+      "date": "2026-10-01",
+      "name": "LEE SPENCER S",
+      "title": "officer: executive vice president",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 12099,
+      "price": 445.35,
+      "total_val": 5.39
+    },
+    {
+      "date": "2026-10-01",
+      "name": "LEE SPENCER S",
+      "title": "officer: executive vice president",
+      "is_buy": null,
+      "action": "M-Exempt",
+      "shares": 12099,
+      "price": 445.35,
+      "total_val": 5.39
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2005-05-12",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1981-11-12",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

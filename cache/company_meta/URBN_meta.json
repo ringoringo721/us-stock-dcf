@@ -1,0 +1,134 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-03",
+      "name": "HAYNE RICHARD A",
+      "title": "director, 10 percent owner, officer: CEO & Chairman of the Board",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 60000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-02",
+      "name": "CHERKEN HARRY S JR",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 5000,
+      "price": 92.12,
+      "total_val": 0.46
+    },
+    {
+      "date": "2026-10-16",
+      "name": "CHERKEN HARRY S JR",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 5000,
+      "price": 87.06,
+      "total_val": 0.44
+    },
+    {
+      "date": "2026-10-08",
+      "name": "Hayne Margaret",
+      "title": "director, officer: Co-President & CCO",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 236,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-08",
+      "name": "HAYNE RICHARD A",
+      "title": "director, 10 percent owner, officer: CEO & Chairman of the Board",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 236,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-21",
+      "name": "Smith Tricia D",
+      "title": "officer: Global CEO Anthropologie Group",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 3500,
+      "price": 75.95,
+      "total_val": 0.27
+    },
+    {
+      "date": "2026-09-08",
+      "name": "Marein-Efron Melanie",
+      "title": "officer: Chief Financial Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 5700,
+      "price": 80.75,
+      "total_val": 0.46
+    },
+    {
+      "date": "2026-09-03",
+      "name": "Egan Mary",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 650,
+      "price": 78.48,
+      "total_val": 0.05
+    },
+    {
+      "date": "2026-06-30",
+      "name": "HAYNE RICHARD A",
+      "title": "director, 10 percent owner, officer: CEO & Chairman of the Board",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 62100,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-06-30",
+      "name": "HAYNE RICHARD A",
+      "title": "director, 10 percent owner, officer: CEO & Chairman of the Board",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 13334,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2005-09-26",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2004-07-12",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "2003-09-22",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1996-06-03",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

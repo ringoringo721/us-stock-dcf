@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-30",
+      "name": "Chuang Hao-Yuan",
+      "title": "director, officer: Chief Financial Officer",
+      "is_buy": null,
+      "action": "J-Other",
+      "shares": 5000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-30",
+      "name": "Lin Yu-Hsin",
+      "title": "director, officer: Chief Executive Officer",
+      "is_buy": null,
+      "action": "J-Other",
+      "shares": 5000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-30",
+      "name": "Chen Wan-Shan",
+      "title": "director",
+      "is_buy": null,
+      "action": "X-InTheMoney",
+      "shares": 13796,
+      "price": 0.44,
+      "total_val": 0.01
+    },
+    {
+      "date": "2026-10-30",
+      "name": "Chen Wan-Shan",
+      "title": "director",
+      "is_buy": null,
+      "action": "X-InTheMoney",
+      "shares": 13796,
+      "price": 0.44,
+      "total_val": 0.01
+    },
+    {
+      "date": "2026-10-05",
+      "name": "Scholl Hendrik Peter",
+      "title": "officer: Chief Medical Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 200,
+      "price": 163.62,
+      "total_val": 0.03
+    },
+    {
+      "date": "2026-10-05",
+      "name": "Scholl Hendrik Peter",
+      "title": "officer: Chief Medical Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 24,
+      "price": 164.64,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-10-05",
+      "name": "Scholl Hendrik Peter",
+      "title": "officer: Chief Medical Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 120,
+      "price": 165.49,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-10-05",
+      "name": "Scholl Hendrik Peter",
+      "title": "officer: Chief Medical Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 50,
+      "price": 166.44,
+      "total_val": 0.01
+    },
+    {
+      "date": "2026-10-05",
+      "name": "Scholl Hendrik Peter",
+      "title": "officer: Chief Medical Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 78,
+      "price": 167.59,
+      "total_val": 0.01
+    },
+    {
+      "date": "2026-10-05",
+      "name": "Scholl Hendrik Peter",
+      "title": "officer: Chief Medical Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 12,
+      "price": 168.21,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

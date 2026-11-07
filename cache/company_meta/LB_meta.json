@@ -1,0 +1,170 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-08-11",
+      "name": "LandBridge Holdings LLC",
+      "title": "director, 10 percent owner: ",
+      "is_buy": null,
+      "action": "J-Other",
+      "shares": 1250000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-11",
+      "name": "LandBridge Holdings LLC",
+      "title": "director, 10 percent owner: ",
+      "is_buy": null,
+      "action": "C-Conversion",
+      "shares": 1250000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-11",
+      "name": "LandBridge Holdings LLC",
+      "title": "director, 10 percent owner: ",
+      "is_buy": null,
+      "action": "C-Conversion",
+      "shares": 1250000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-11",
+      "name": "LandBridge Holdings LLC",
+      "title": "director, 10 percent owner: ",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 1250000,
+      "price": 75.05,
+      "total_val": 93.81
+    },
+    {
+      "date": "2026-08-11",
+      "name": "Capobianco David N",
+      "title": "director, 10 percent owner: ",
+      "is_buy": null,
+      "action": "C-Conversion",
+      "shares": 1250000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-11",
+      "name": "Capobianco David N",
+      "title": "director, 10 percent owner: ",
+      "is_buy": null,
+      "action": "J-Other",
+      "shares": 1250000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-11",
+      "name": "Capobianco David N",
+      "title": "director, 10 percent owner: ",
+      "is_buy": null,
+      "action": "C-Conversion",
+      "shares": 1250000,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-11",
+      "name": "Capobianco David N",
+      "title": "director, 10 percent owner: ",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 1250000,
+      "price": 75.05,
+      "total_val": 93.81
+    },
+    {
+      "date": "2026-08-06",
+      "name": "McNeely Scott Lloyd",
+      "title": "officer: See Remarks",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 14929,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-06",
+      "name": "Chase Valerie",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 1900,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2000-05-31",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1998-06-02",
+      "ratio": "10000 : 9827",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1990-06-20",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1986-06-24",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1985-06-26",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1983-06-14",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1982-11-23",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1978-05-22",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1977-06-20",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1976-06-28",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

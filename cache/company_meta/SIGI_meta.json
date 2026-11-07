@@ -1,0 +1,140 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-10-26",
+      "name": "Nicholson Cynthia S",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 3691,
+      "price": 98.71,
+      "total_val": 0.36
+    },
+    {
+      "date": "2026-10-07",
+      "name": "Kalia Vaibhav",
+      "title": "officer: EVP, Chief Investment Officer",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-09-17",
+      "name": "Coaxum Wole C",
+      "title": "director",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-29",
+      "name": "Lanza Michael H",
+      "title": "officer: EVP and General Counsel",
+      "is_buy": null,
+      "action": "G-Gift",
+      "shares": 1100,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-29",
+      "name": "Lanza Michael H",
+      "title": "officer: EVP and General Counsel",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 17100,
+      "price": 94.04,
+      "total_val": 1.61
+    },
+    {
+      "date": "2026-05-04",
+      "name": "Aijala Ainar D JR",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 1767,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-04",
+      "name": "Parsons Julie",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 1767,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-04",
+      "name": "McCarthy Thomas A",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 3047,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-04",
+      "name": "Cavanaugh Terrence W",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 3047,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-05-04",
+      "name": "SCHEID JOHN STEPHEN",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 1767,
+      "price": 0.0,
+      "total_val": 0.0
+    }
+  ],
+  "stock_splits": [
+    {
+      "date": "2007-02-21",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1997-12-02",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1989-09-05",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1983-09-02",
+      "ratio": "2 : 1",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    },
+    {
+      "date": "1981-04-02",
+      "ratio": "3 : 2",
+      "desc": "供應商報告的股數調整比例；未獨立核實事件類型。",
+      "type": "FMP 股數調整"
+    }
+  ],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

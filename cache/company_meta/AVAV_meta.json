@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-09-17",
+      "name": "Shackley Brian Charles",
+      "title": "officer: SVP, Chief Accounting Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 100,
+      "price": 152.27,
+      "total_val": 0.02
+    },
+    {
+      "date": "2026-09-17",
+      "name": "PAGE STEPHEN F",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 250,
+      "price": 152.27,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-09-16",
+      "name": "Ruppert Michael",
+      "title": "director",
+      "is_buy": null,
+      "action": "A-Award",
+      "shares": 957,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-19",
+      "name": "PAGE STEPHEN F",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 250,
+      "price": 191.98,
+      "total_val": 0.05
+    },
+    {
+      "date": "2026-08-14",
+      "name": "Ruppert Michael",
+      "title": "Officer / Director",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-08-14",
+      "name": "Shackley Brian Charles",
+      "title": "officer: SVP, Chief Accounting Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 205,
+      "price": 201.86,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-07-16",
+      "name": "Shackley Brian Charles",
+      "title": "officer: SVP, Chief Accounting Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 300,
+      "price": 143.0,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-07-16",
+      "name": "Shackley Brian Charles",
+      "title": "Officer / Director",
+      "is_buy": null,
+      "action": "",
+      "shares": 0,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-07-16",
+      "name": "PAGE STEPHEN F",
+      "title": "director",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 248,
+      "price": 143.0,
+      "total_val": 0.04
+    },
+    {
+      "date": "2026-07-15",
+      "name": "Nawabi Wahid",
+      "title": "director, officer: Chair, President and CEO",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 5246,
+      "price": 144.58,
+      "total_val": 0.76
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}
