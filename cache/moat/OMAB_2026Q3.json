@@ -1,0 +1,60 @@
+{
+  "ticker": "OMAB",
+  "period": "2026Q3",
+  "m1_brand_pricing": {
+    "score": 7,
+    "comment_zh": "OMAB 的定價權主要來自其營運的機場在特定區域內具有壟斷性，這使其能夠向航空公司和旅客收取費用。然而，這種定價權並非絕對，仍需考量航空公司的議價能力以及旅客對票價的敏感度。其品牌價值體現在營運效率和旅客體驗上，但相較於消費品牌，其品牌溢價空間有限。整體而言，其定價能力基於地理壟斷，而非強勢品牌驅動，因此給予中上評價。",
+    "comment_en": "OMAB's pricing power primarily stems from the monopolistic nature of the airports it operates within specific regions, enabling it to charge airlines and passengers. However, this pricing power is not absolute, as it must consider the bargaining power of airlines and passenger sensitivity to fares. Its brand value is reflected in operational efficiency and passenger experience, but compared to consumer brands, its brand premium potential is limited. Overall, its pricing capability is based on geographic monopoly rather than strong brand drivers, hence the upper-middle score."
+  },
+  "m2_patents_regulatory": {
+    "score": 9,
+    "comment_zh": "OMAB 的核心競爭壁壘在於其獲得機場營運特許經營權。這些特許經營權具有極長的有效期，且在特定區域內具有獨佔性，這實質上構成了強大的監管與特許壁壘。新競爭者難以複製或取得類似的特許經營權，這為 OMAB 提供了穩定的收入來源和顯著的競爭優勢。這種由政府授予的獨佔性，是典型的「收費橋」模式，具有極高的護城河強度。",
+    "comment_en": "OMAB's core competitive barrier lies in its acquisition of airport operating concessions. These concessions have extremely long validity periods and are exclusive within specific regions, effectively forming a strong regulatory and franchise barrier. It is difficult for new competitors to replicate or obtain similar concessions, providing OMAB with a stable revenue stream and a significant competitive advantage. This government-granted exclusivity is a typical 'toll bridge' model with a very strong moat."
+  },
+  "m3_high_switching_costs": {
+    "score": 5,
+    "comment_zh": "對於航空公司而言，更換營運機場的轉換成本相對較高，涉及航線規劃、調度、地面服務等複雜問題。然而，對於旅客而言，選擇哪個機場起降的轉換成本極低，主要取決於航線和票價。因此，OMAB 的轉換成本壁壘主要體現在與航空公司的合作關係上，而非直接面向終端消費者。這提供了一定的穩定性，但並非無懈可擊的護城河。",
+    "comment_en": "For airlines, the switching costs of changing operating airports are relatively high, involving complex issues such as route planning, scheduling, and ground services. However, for passengers, the switching cost of choosing which airport to depart from or arrive at is extremely low, primarily depending on the route and fare. Therefore, OMAB's switching cost barrier is mainly reflected in its cooperative relationship with airlines, rather than directly towards end consumers. This provides a certain degree of stability but is not an impenetrable moat."
+  },
+  "m4_network_effects": {
+    "score": 3,
+    "comment_zh": "OMAB 的業務模式本身較少受到傳統網絡效應的影響。雖然機場的繁忙程度和航線網絡的豐富性可能吸引更多航空公司和旅客，形成一種正向循環，但這更多是規模和效率的體現，而非典型的網絡效應。例如，社交媒體或支付平台那樣，用戶越多，價值越高的情況在機場營運中並不顯著。因此，網絡效應並非其主要的護城河。",
+    "comment_en": "OMAB's business model itself is less affected by traditional network effects. While the busyness of an airport and the richness of its route network might attract more airlines and passengers, forming a virtuous cycle, this is more a reflection of scale and efficiency rather than a typical network effect. For instance, the phenomenon seen in social media or payment platforms where more users lead to greater value is not significant in airport operations. Therefore, network effects are not its primary moat."
+  },
+  "m5_cost_advantage_scale": {
+    "score": 7,
+    "comment_zh": "OMAB 作為墨西哥中部地區主要的機場營運商，其規模帶來了一定的成本優勢。透過集中採購、統一管理和標準化營運流程，可以降低單位營運成本。此外，較大的營運規模有助於與供應商和服務提供商進行更有效的談判。然而，機場營運的資本密集度高，規模效應的邊際效益遞減，且其成本優勢相較於其他基礎設施類型的規模優勢可能較為有限。",
+    "comment_en": "As a major airport operator in central Mexico, OMAB's scale provides certain cost advantages. Through centralized procurement, unified management, and standardized operating procedures, unit operating costs can be reduced. Furthermore, a larger operational scale aids in more effective negotiations with suppliers and service providers. However, airport operations are highly capital-intensive, and the marginal benefits of scale economies diminish. The cost advantage may also be relatively limited compared to scale advantages in other infrastructure types."
+  },
+  "m6_unique_geography_assets": {
+    "score": 9,
+    "comment_zh": "OMAB 營運的機場位於墨西哥中部關鍵的經濟和旅遊區域，這些地理位置具有獨特性和戰略重要性。例如，蒙特雷國際機場是該地區重要的門戶。這些機場的地理位置使其成為區域內航空運輸的樞紐，難以被替代。其資產的稀缺性和戰略價值，使其在區域經濟發展中扮演著不可或缺的角色，構成了強大的護城河。",
+    "comment_en": "The airports operated by OMAB are located in key economic and tourism regions of central Mexico, possessing unique and strategic geographical importance. For instance, Monterrey International Airport is a vital gateway to the region. These locations make them hubs for air transportation within the region, making them difficult to replace. The scarcity and strategic value of its assets position them as indispensable players in regional economic development, forming a strong moat."
+  },
+  "m7_operational_efficiency": {
+    "score": 8,
+    "comment_zh": "OMAB 在營運效率方面表現出色，這從其高 ROE (51.8%) 和 ROA (16.2%) 以及 F-Score (7/9) 可以看出。公司能夠有效地管理成本，優化旅客流程，並提升非航空收入（如零售、餐飲）。持續的資本投入用於升級設施和技術，進一步鞏固了其營運優勢。這種卓越的營運能力是其持續盈利的關鍵，也是重要的競爭壁壘。",
+    "comment_en": "OMAB demonstrates excellent operational efficiency, as evidenced by its high ROE (51.8%) and ROA (16.2%), as well as its F-Score (7/9). The company effectively manages costs, optimizes passenger flow, and enhances non-aeronautical revenues (such as retail and dining). Continuous capital investment in upgrading facilities and technology further solidifies its operational advantages. This superior operational capability is key to its sustained profitability and serves as a significant competitive barrier."
+  },
+  "m8_capital_allocation": {
+    "score": 7,
+    "comment_zh": "OMAB 的管理層在資本配置方面展現了較為穩健的策略。公司透過自由現金流（FCF TTM: $313.6M）進行再投資以擴張和升級設施，同時也適度管理債務（現金 $221.6M / 負債 $836.7M）。雖然其主要策略是透過特許經營權擴張，但其在維持和提升資產價值方面的投入是合理的。未來若能持續透過資本配置實現股東價值最大化，其評分可望提升。",
+    "comment_en": "OMAB's management has demonstrated a relatively sound strategy in capital allocation. The company reinvests through free cash flow (FCF TTM: $313.6M) for expansion and facility upgrades, while also managing debt prudently (Cash $221.6M / Debt $836.7M). Although its primary strategy involves expansion through concessions, its investments in maintaining and enhancing asset value are reasonable. If it can continue to maximize shareholder value through capital allocation in the future, its score may improve."
+  },
+  "m9_customer_retention": {
+    "score": 6,
+    "comment_zh": "OMAB 的客戶保留主要體現在與航空公司的長期合作關係上。一旦航空公司將其主要樞紐或航線設置在 OMAB 的機場，轉換成本會促使其維持合作。對於旅客而言，忠誠度較低，主要受航線和價格影響。然而，透過提供優質的旅客體驗和便利的設施，OMAB 能夠吸引並留住部分旅客，形成一定的客戶黏性。這種保留機制相對穩定，但不如品牌忠誠度高的行業。",
+    "comment_en": "OMAB's customer retention is primarily reflected in its long-term partnerships with airlines. Once an airline establishes its main hub or routes at OMAB's airports, switching costs encourage the continuation of the partnership. For passengers, loyalty is lower, mainly influenced by routes and prices. However, by providing a high-quality passenger experience and convenient facilities, OMAB can attract and retain some passengers, creating a degree of customer stickiness. This retention mechanism is relatively stable but less robust than in industries with high brand loyalty."
+  },
+  "m10_durability": {
+    "score": 8,
+    "comment_zh": "OMAB 的業務具有顯著的持久性，主要得益於其機場特許經營權的長期性、地理位置的稀缺性以及航空運輸作為基礎設施的剛性需求。儘管面臨經濟週期波動和潛在的行業顛覆（如新交通方式），但其核心業務在可預見的未來仍將是區域經濟和交通的重要組成部分。其營運效率和穩定的現金流也增強了其業務的持久性。",
+    "comment_en": "OMAB's business possesses significant durability, primarily due to the long-term nature of its airport concessions, the scarcity of its geographical locations, and the inelastic demand for air transport as essential infrastructure. Despite facing economic cycle fluctuations and potential industry disruptions (such as new modes of transportation), its core business will remain a vital component of regional economy and transportation for the foreseeable future. Its operational efficiency and stable cash flow also enhance the durability of its business."
+  },
+  "overall_moat_verdict_zh": "OMAB 的護城河主要建立在其機場營運的特許經營權和關鍵地理位置上，這構成了強大的「收費橋」模式，具有顯著的進入壁壘。其營運效率和規模帶來一定的成本優勢，並能與航空公司建立穩定的合作關係。然而，其品牌定價權相對有限，網絡效應不顯著，旅客轉換成本低。整體而言，OMAB 是一家擁有堅固經濟護城河的公司，其價值在於其不可替代的基礎設施屬性與特許經營權的結合，具備長期價值投資的潛力。",
+  "overall_moat_verdict_en": "OMAB's moat is primarily built upon its airport operating concessions and strategic geographical locations, forming a robust 'toll bridge' model with significant entry barriers. Its operational efficiency and scale provide certain cost advantages and enable stable partnerships with airlines. However, its brand pricing power is relatively limited, network effects are not significant, and passenger switching costs are low. Overall, OMAB is a company with a solid economic moat, deriving its value from the combination of its irreplaceable infrastructure attributes and concessions, possessing potential for long-term value investment.",
+  "evidenceHash": "5f8b29ca01af23a3eab0e6bc1b72c75b189c4833c2997562b330d2a66c83f766",
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
+}

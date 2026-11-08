@@ -1,0 +1,60 @@
+{
+  "ticker": "NWE",
+  "period": "2026Q3",
+  "m1_brand_pricing": {
+    "score": 3,
+    "comment_zh": "NWE 作為受監管的公用事業公司，其定價權受到嚴格的監管審批程序限制，無法自由定價。品牌價值在公用事業領域相對較弱，客戶忠誠度更多基於地理位置而非品牌偏好。與其他公用事業公司相比，NWE 並無顯著的品牌優勢或定價能力，其利潤率受制於監管機構的批准，難以形成強大的定價護城河。",
+    "comment_en": "As a regulated utility company, NWE's pricing power is constrained by strict regulatory approval processes, preventing free pricing. Brand value is relatively weak in the utility sector, with customer loyalty primarily based on geographic location rather than brand preference. Compared to other utility companies, NWE lacks significant brand advantages or pricing capabilities. Its profit margins are subject to regulatory approval, making it difficult to form a strong pricing moat."
+  },
+  "m2_patents_regulatory": {
+    "score": 8,
+    "comment_zh": "NWE 的核心業務是提供電力和天然氣，屬於受嚴格監管的公用事業行業。這意味著其業務受到政府特許經營權的保護，進入壁壘極高，競爭對手難以進入。雖然沒有專利，但其特許經營權和嚴格的監管環境構成了強大的進入壁壘，確保了其在服務區域內的壟斷地位，這是一種典型的受監管的特許經營權護城河。",
+    "comment_en": "NWE's core business of providing electricity and natural gas falls under the heavily regulated utility sector. This implies its operations are protected by government-granted franchises, creating extremely high barriers to entry for competitors. While not possessing patents, its franchise rights and the stringent regulatory environment constitute a formidable entry barrier, ensuring its monopolistic position within its service areas. This represents a classic regulated franchise moat."
+  },
+  "m3_high_switching_costs": {
+    "score": 6,
+    "comment_zh": "對於家庭用戶而言，更換電力和天然氣供應商的成本相對較低，主要是行政上的不便。然而，對於工業和商業客戶，更換基礎設施和重新配置供應鏈可能涉及較高的成本和複雜性。但總體而言，公用事業的轉換成本並非像軟體或金融服務那樣高，客戶黏性主要來自於地理限制而非轉換成本。",
+    "comment_en": "For residential customers, the cost of switching electricity and natural gas providers is relatively low, mainly involving administrative inconvenience. However, for industrial and commercial clients, changing infrastructure and reconfiguring supply chains might entail higher costs and complexities. Overall, switching costs in utilities are not as high as in software or financial services; customer stickiness stems more from geographic limitations than from switching costs."
+  },
+  "m4_network_effects": {
+    "score": 2,
+    "comment_zh": "公用事業行業的網絡效應非常有限。NWE 的電網和管道基礎設施是其運營的必要組成部分，但這並不直接產生傳統意義上的網絡效應，即用戶數量的增加會提升產品或服務價值的效應。其網絡是單向的基礎設施，而非促進用戶間互動的平台，因此網絡效應幾乎不存在。",
+    "comment_en": "Network effects in the utility sector are very limited. NWE's power grid and pipeline infrastructure are essential components of its operations, but they do not directly generate network effects in the traditional sense, where an increase in user numbers enhances the value of the product or service. Its network is a unidirectional infrastructure rather than a platform facilitating user interaction, thus network effects are virtually non-existent."
+  },
+  "m5_cost_advantage_scale": {
+    "score": 7,
+    "comment_zh": "作為一家大型公用事業公司，NWE 受益於規模經濟。其龐大的基礎設施網絡（輸電線路、配電系統、天然氣管道）能夠分散固定成本，降低單位輸配成本。在採購燃料和設備方面，其採購量也可能帶來一定的價格優勢。然而，受監管的環境限制了其將規模優勢轉化為超額利潤的能力。",
+    "comment_en": "As a large utility company, NWE benefits from economies of scale. Its extensive infrastructure network (transmission lines, distribution systems, gas pipelines) allows for the spreading of fixed costs, reducing per-unit transmission and distribution expenses. Its purchasing volume for fuel and equipment may also provide certain price advantages. However, the regulated environment limits its ability to translate these scale advantages into excess profits."
+  },
+  "m6_unique_geography_assets": {
+    "score": 8,
+    "comment_zh": "NWE 在其服務的特定地理區域內擁有獨特的基礎設施資產，包括輸電線路、配電網絡和天然氣管道。這些資產是為特定區域量身定做的，並且受到嚴格的監管批准，使得其他公司難以複製或競爭。其服務區域的地理位置和人口分佈決定了其資產的獨特性和必要性，構成了顯著的壁壘。",
+    "comment_en": "NWE possesses unique infrastructure assets within its specific service territories, including transmission lines, distribution networks, and natural gas pipelines. These assets are tailored for particular regions and are subject to stringent regulatory approvals, making them difficult for other companies to replicate or compete with. The geographic location and population distribution of its service areas determine the uniqueness and necessity of its assets, forming a significant barrier."
+  },
+  "m7_operational_efficiency": {
+    "score": 6,
+    "comment_zh": "NWE 作為一家公用事業公司，其運營效率受到監管機構的監督，並有明確的效率目標。公司致力於通過技術升級和流程優化來提高運營效率，以滿足監管要求並控制成本。然而，相較於不受監管的行業，其效率提升的空間和動力可能受到一定限制，且其 ROE 處於行業中等水平。",
+    "comment_en": "As a utility company, NWE's operational efficiency is overseen by regulatory bodies with clear efficiency targets. The company strives to improve operational efficiency through technological upgrades and process optimization to meet regulatory requirements and control costs. However, compared to unregulated industries, the scope and impetus for efficiency improvements may be somewhat limited, and its ROE is at an average level within the industry."
+  },
+  "m8_capital_allocation": {
+    "score": 5,
+    "comment_zh": "NWE 的資本配置主要集中在維護和升級現有基礎設施，以及滿足監管要求的項目。雖然公司需要審慎管理其債務水平（目前較高），並尋求穩定的股息支付，但其投資機會相對有限，且受監管約束。其較低的 ROE 和 ROA 表明資本配置的效率有待提高，難以產生超額回報。",
+    "comment_en": "NWE's capital allocation primarily focuses on maintaining and upgrading existing infrastructure and undertaking projects that meet regulatory requirements. While the company needs to prudently manage its debt levels (currently high) and aims for stable dividend payments, its investment opportunities are relatively limited and constrained by regulation. Its low ROE and ROA indicate room for improvement in capital allocation efficiency, making it difficult to generate excess returns."
+  },
+  "m9_customer_retention": {
+    "score": 7,
+    "comment_zh": "NWE 的客戶保留率相對較高，這主要歸因於其在服務區域內的壟斷地位和基礎設施的不可替代性。客戶通常無法選擇其他供應商，因此保留率接近於 100%。這種高保留率是基於地理壟斷而非客戶忠誠度或產品差異化，但對於維持穩定的收入流至關重要。",
+    "comment_en": "NWE's customer retention rate is relatively high, primarily due to its monopolistic position within its service areas and the non-substitutability of its infrastructure. Customers typically cannot choose alternative providers, resulting in a retention rate close to 100%. This high retention is based on geographic monopoly rather than customer loyalty or product differentiation, but it is crucial for maintaining stable revenue streams."
+  },
+  "m10_durability": {
+    "score": 8,
+    "comment_zh": "作為一家提供必需能源的公用事業公司，NWE 的業務具有高度的持久性。電力和天然氣是現代社會運行的基礎，需求穩定且不易受經濟週期或技術顛覆的影響。儘管面臨能源轉型和監管變化的挑戰，但其核心業務的基礎性確保了其長期生存能力。",
+    "comment_en": "As a utility company providing essential energy, NWE's business possesses a high degree of durability. Electricity and natural gas are fundamental to the functioning of modern society, with stable demand that is not easily affected by economic cycles or technological disruption. Despite facing challenges from energy transition and regulatory changes, the fundamental nature of its core business ensures its long-term viability."
+  },
+  "overall_moat_verdict_zh": "NWE 的護城河主要來自其受監管的特許經營權和在服務區域內的地理壟斷地位，這構成了進入壁壘和客戶保留的堅固基礎。其規模經濟和獨特的基礎設施資產也提供了一定的競爭優勢。然而，定價權受限、網絡效應匱乏以及相對較低的資本配置效率，限制了其護城河的強度。總體而言，NWE 屬於典型的『收費橋』模式，依賴於基礎設施的必要性和監管保護，而非強大的品牌或技術壁壘，其持久性高但成長性和盈利能力有待加強。",
+  "overall_moat_verdict_en": "NWE's moat primarily stems from its regulated franchise rights and geographic monopoly within its service territories, forming a solid foundation for entry barriers and customer retention. Its economies of scale and unique infrastructure assets also provide certain competitive advantages. However, limited pricing power, a lack of network effects, and relatively low capital allocation efficiency constrain the strength of its moat. Overall, NWE fits the typical 'toll bridge' model, relying on the necessity of its infrastructure and regulatory protection rather than strong brand or technological barriers. Its durability is high, but growth potential and profitability require enhancement.",
+  "evidenceHash": "7167f2c955248c8b396a0940f640463408e00f63cf809852a59a659cf1a80539",
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
+}
