@@ -1,0 +1,60 @@
+{
+  "ticker": "RYAN",
+  "period": "2026Q3",
+  "m1_brand_pricing": {
+    "score": 7,
+    "comment_zh": "RYAN 的品牌定價權相對穩健，主要體現在其作為專業保險經紀服務提供商的聲譽。在高度專業化的利基市場，RYAN 能夠為客戶提供獨特的解決方案，並以此獲得相對較高的佣金率。然而，其品牌效應並非像消費品那樣具有廣泛的普適性，定價權的上限受到行業特性和競爭環境的制約。相較於頂級的特許經營權，RYAN 的品牌更多是建立在專業知識和服務質量之上，這使其在特定領域內具有一定的定價優勢，但仍需面對來自其他專業經紀商的競爭壓力，因此分數給予 7 分。",
+    "comment_en": "RYAN's brand pricing power is relatively solid, primarily reflected in its reputation as a provider of specialized insurance brokerage services. In highly specialized niche markets, RYAN can offer unique solutions to clients, thereby commanding relatively higher commission rates. However, its brand effect is not as universally applicable as consumer goods, and the ceiling of its pricing power is constrained by industry characteristics and the competitive landscape. Compared to top-tier franchises, RYAN's brand is built more on expertise and service quality, granting it a certain pricing advantage within specific domains. Nevertheless, it still faces competitive pressure from other specialized brokers, hence the score of 7."
+  },
+  "m2_patents_regulatory": {
+    "score": 2,
+    "comment_zh": "RYAN 作為一家保險經紀公司，其業務模式主要依賴於專業知識、客戶關係和市場准入，而非專利或獨特的技術。雖然行業受到嚴格監管，但這些監管壁壘並非 RYAN 獨有，而是整個行業的共同特徵。監管環境的變化可能帶來風險，但也可能為具備合規能力的業者提供機會。然而，這並不能構成 RYAN 獨有的、可持續的競爭優勢。因此，在專利和監管壁壘方面，RYAN 的得分較低，為 2 分。",
+    "comment_en": "As an insurance brokerage company, RYAN's business model primarily relies on expertise, client relationships, and market access, rather than patents or unique technologies. While the industry is strictly regulated, these regulatory barriers are not exclusive to RYAN but are common characteristics of the entire sector. Changes in the regulatory environment can bring risks but also opportunities for compliant players. However, this does not constitute a unique and sustainable competitive advantage for RYAN. Therefore, RYAN scores low in terms of patents and regulatory barriers, at 2."
+  },
+  "m3_high_switching_costs": {
+    "score": 6,
+    "comment_zh": "RYAN 的客戶轉換成本屬於中等水平。對於尋求專業保險解決方案的企業客戶而言，更換經紀商意味著需要重新評估風險、尋找新的保險產品、建立新的合作關係，這其中涉及時間、精力和潛在的業務中斷風險。RYAN 通過其專業知識、定制化服務和長期建立的信任關係，能夠在一定程度上鎖定客戶。然而，如果競爭對手能提供顯著的價格優勢或更優質的服務，客戶仍有可能轉換。因此，轉換成本的壁壘強度為 6 分。",
+    "comment_en": "RYAN's customer switching costs are moderate. For corporate clients seeking specialized insurance solutions, changing brokers involves re-evaluating risks, finding new insurance products, and establishing new relationships, which entails time, effort, and potential business disruption risks. RYAN, through its expertise, customized services, and long-established trust, can retain clients to a certain extent. However, if competitors can offer significant price advantages or superior services, clients may still switch. Thus, the barrier strength of switching costs is rated at 6."
+  },
+  "m4_network_effects": {
+    "score": 3,
+    "comment_zh": "RYAN 的業務模式中，網絡效應並不明顯。雖然作為經紀商，RYAN 聯繫著保險公司和投保客戶，但這種聯繫更多是交易性的，而非典型的網絡效應，即用戶越多，服務價值越高的情況。RYAN 的價值主要體現在其專業能力和服務效率上，而非由用戶數量驅動的價值增長。其客戶群的擴大雖然能帶來規模效應，但並未形成強烈的網絡效應壁壘，競爭對手可以通過類似的渠道和服務進入市場。因此，網絡效應得分為 3 分。",
+    "comment_en": "Network effects are not significant in RYAN's business model. Although as a broker, RYAN connects insurance companies and policyholders, this connection is more transactional than a typical network effect where the service value increases with more users. RYAN's value lies primarily in its professional capabilities and service efficiency, not in value growth driven by user numbers. While the expansion of its client base can bring economies of scale, it does not create a strong network effect barrier, and competitors can enter the market through similar channels and services. Therefore, the network effect score is 3."
+  },
+  "m5_cost_advantage_scale": {
+    "score": 7,
+    "comment_zh": "RYAN 作為一家大型專業保險經紀公司，在規模經濟方面具有一定的成本優勢。其龐大的業務量使其能夠與保險公司談判獲得更有利的佣金條款，並在技術、數據分析和人才招聘方面實現規模化效益，從而降低單位服務成本。這種規模優勢有助於其在競爭中保持價格彈性，並為客戶提供更具競爭力的方案。然而，相較於一些高度垂直整合或擁有獨特技術的行業巨頭，RYAN 的成本優勢並非壓倒性的，但足以構成一個堅實的壁壘，故給予 7 分。",
+    "comment_en": "As a large specialized insurance brokerage firm, RYAN possesses certain cost advantages in terms of economies of scale. Its substantial business volume allows it to negotiate more favorable commission terms with insurance companies and achieve economies of scale in technology, data analytics, and talent acquisition, thereby reducing per-unit service costs. This scale advantage helps it maintain pricing flexibility in competition and offer more competitive solutions to clients. However, compared to some industry giants with high vertical integration or unique technologies, RYAN's cost advantage is not overwhelming but is sufficient to form a solid barrier, hence the score of 7."
+  },
+  "m6_unique_geography_assets": {
+    "score": 2,
+    "comment_zh": "RYAN 的業務主要集中在專業保險經紀服務，其核心競爭力在於專業知識、服務網絡和客戶關係，而非依賴於特定的地理位置或獨特的實物資產。雖然其業務遍及多個地區，但並不存在如礦產、土地或特定地理位置的壟斷性資源。其競爭優勢是可複製的，其他經紀公司也可以通過建立類似的服務網絡和專業團隊來進入相同或相似的市場。因此，在獨特的地理資產方面，RYAN 的壁壘得分為 2 分。",
+    "comment_en": "RYAN's business primarily focuses on specialized insurance brokerage services. Its core competitiveness lies in professional knowledge, service networks, and client relationships, rather than relying on specific geographical locations or unique physical assets. Although its operations span multiple regions, it does not possess monopolistic resources like minerals, land, or specific geographic locations. Its competitive advantages are replicable, and other brokerage firms can enter the same or similar markets by building similar service networks and professional teams. Therefore, RYAN's barrier score for unique geographical assets is 2."
+  },
+  "m7_operational_efficiency": {
+    "score": 8,
+    "comment_zh": "RYAN 在營運效率方面表現出色，這在其高 ROE（43.3%）和穩健的自由現金流（FCF TTM: $500.7M）數據中得到體現。作為一家專注於利基市場的經紀商，RYAN 通過精細化的客戶管理、高效的承保流程和對市場趨勢的敏銳洞察，實現了卓越的盈利能力。其營運效率不僅體現在成本控制上，更體現在其能夠為客戶提供高附加值的解決方案，從而獲得更高的佣金回報。這種卓越的營運能力是其重要的競爭壁壘，故給予 8 分。",
+    "comment_en": "RYAN demonstrates excellent operational efficiency, as reflected in its high ROE (43.3%) and robust Free Cash Flow (FCF TTM: $500.7M). As a broker focused on niche markets, RYAN achieves outstanding profitability through refined client management, efficient underwriting processes, and keen insight into market trends. Its operational efficiency is evident not only in cost control but also in its ability to provide high-value-added solutions to clients, thereby earning higher commission returns. This superior operational capability constitutes a significant competitive barrier, hence the score of 8."
+  },
+  "m8_capital_allocation": {
+    "score": 7,
+    "comment_zh": "RYAN 的資本配置能力值得肯定。公司在保持穩健的財務結構（儘管負債率相對較高，但 ROE 表現強勁）的同時，能夠持續產生可觀的自由現金流。從其 ROE 和 ROA 的數據來看，公司似乎能有效地將資本投入到能夠產生高回報的業務中。雖然具體的資本配置決策細節需要進一步審視，但其過往的財務表現顯示出管理層在資本運用上的相對審慎和有效性。因此，給予 7 分。",
+    "comment_en": "RYAN's capital allocation capability is commendable. While maintaining a solid financial structure (despite a relatively high debt ratio, its ROE performance is strong), the company consistently generates substantial free cash flow. Judging by its ROE and ROA data, the company appears to effectively deploy capital into businesses that yield high returns. Although specific details of capital allocation decisions require further scrutiny, its past financial performance indicates relative prudence and effectiveness in capital utilization by management. Therefore, a score of 7 is assigned."
+  },
+  "m9_customer_retention": {
+    "score": 7,
+    "comment_zh": "RYAN 在客戶保留方面具有較強的能力，這得益於其專業化的服務和對特定行業的深入理解。對於尋求複雜保險解決方案的客戶而言，RYAN 提供的專業建議和定制化服務建立了較高的客戶忠誠度。一旦客戶習慣了 RYAN 的服務模式和專業支持，轉換到其他經紀商的意願就會降低，因為這可能意味著需要重新適應和承擔額外的風險。其高 ROE 也間接證明了其能夠從現有客戶群中持續獲取價值。因此，客戶保留壁壘給予 7 分。",
+    "comment_en": "RYAN possesses strong customer retention capabilities, attributed to its specialized services and deep understanding of specific industries. For clients seeking complex insurance solutions, the professional advice and customized services provided by RYAN foster high customer loyalty. Once clients become accustomed to RYAN's service model and professional support, their willingness to switch to other brokers decreases, as it may entail readjustment and additional risks. Its high ROE indirectly demonstrates its ability to continuously extract value from its existing client base. Therefore, the customer retention barrier is rated at 7."
+  },
+  "m10_durability": {
+    "score": 6,
+    "comment_zh": "RYAN 的業務模式具有一定的持久性，但面臨行業變革的挑戰。作為專業保險經紀商，其核心價值在於專業知識和服務，這在可預見的未來仍將是市場需求。然而，金融科技的發展、保險科技的興起以及市場競爭的加劇，都可能對傳統經紀模式構成挑戰。RYAN 需要不斷適應技術變革，並保持其在利基市場的專業優勢，才能維持其業務的長期持久性。目前來看，其商業模式尚能維持，但長期風險不容忽視，故給予 6 分。",
+    "comment_en": "RYAN's business model has a degree of durability but faces challenges from industry transformation. As a specialized insurance broker, its core value lies in expertise and service, which will remain in market demand for the foreseeable future. However, the development of fintech, the rise of insurtech, and intensifying market competition could challenge the traditional brokerage model. RYAN must continuously adapt to technological changes and maintain its professional advantage in niche markets to sustain its long-term durability. Currently, its business model remains viable, but long-term risks cannot be ignored, hence the score of 6."
+  },
+  "overall_moat_verdict_zh": "RYAN 是一家專注於利基市場的專業保險經紀公司，其經濟護城河主要建立在營運效率（M7: 8分）和客戶保留（M9: 7分）之上。公司憑藉專業知識和定制化服務，在特定領域內建立了堅實的競爭優勢，並能有效鎖定客戶。規模經濟（M5: 7分）也為其提供了成本上的支持。然而，RYAN 在專利/監管壁壘（M2: 2分）和網絡效應（M4: 3分）方面較為薄弱，其業務模式更偏向於服務型而非技術驅動型。整體而言，RYAN 具備一定的特許經營權特徵，能夠在特定市場持續獲取超額利潤，但其護城河的深度和廣度相較於頂級企業仍有提升空間。",
+  "overall_moat_verdict_en": "RYAN is a specialized insurance brokerage firm focused on niche markets, with its economic moat primarily built upon operational efficiency (M7: 8) and customer retention (M9: 7). Leveraging its expertise and customized services, the company has established a solid competitive advantage within specific domains, effectively retaining clients. Economies of scale (M5: 7) also provide cost support. However, RYAN is relatively weak in patent/regulatory barriers (M2: 2) and network effects (M4: 3), with its business model leaning more towards service provision than technology-driven innovation. Overall, RYAN exhibits characteristics of a franchise, enabling it to consistently earn excess returns in its specific markets, but the depth and breadth of its moat still have room for improvement compared to top-tier companies.",
+  "evidenceHash": "93697af250bf5778d30dc95f64aabf984574d0e001cb05c58aa336f63ddefde2",
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
+}

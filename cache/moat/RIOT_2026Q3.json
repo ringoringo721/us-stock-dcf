@@ -1,0 +1,60 @@
+{
+  "ticker": "RIOT",
+  "period": "2026Q3",
+  "m1_brand_pricing": {
+    "score": 1,
+    "comment_zh": "RIOT 在其核心業務——比特幣挖礦領域，並無顯著的品牌定價權。其產品本質上是商品化的比特幣，價格由市場供需決定，公司無法獨立定價。品牌忠誠度在比特幣挖礦業中幾乎不存在，客戶選擇礦商主要基於算力成本、電力價格和效率。因此，在品牌和定價權方面，RIOT 的護城河極為薄弱，幾乎為零。其營收高度依賴比特幣價格波動，缺乏可預測性，這與巴菲特尋求的穩定盈利能力背道而馳。",
+    "comment_en": "RIOT possesses no significant brand pricing power in its core business of Bitcoin mining. Its product is essentially a commodity Bitcoin, with prices determined by market supply and demand, preventing the company from setting prices independently. Brand loyalty is virtually non-existent in the Bitcoin mining industry; customers primarily choose miners based on hashrate costs, electricity prices, and efficiency. Consequently, RIOT's moat in terms of brand and pricing power is extremely weak, bordering on non-existent. Its revenue is highly dependent on Bitcoin price volatility, lacking predictability, which runs counter to the stable profitability Buffett seeks."
+  },
+  "m2_patents_regulatory": {
+    "score": 1,
+    "comment_zh": "比特幣挖礦行業的進入門檻主要在於資本投入、電力成本和技術效率，而非專利或特許經營權。RIOT 並不擁有任何關鍵的技術專利，其營運模式也非基於特許經營。監管環境對加密貨幣挖礦業存在不確定性，但這並非 Riot 獨有的壁壘，反而可能構成風險。與傳統金融服務業不同，RIOT 的業務不依賴牌照或受嚴格監管的特許權，這意味著其缺乏由監管或專利構成的顯著經濟護城河。",
+    "comment_en": "The barriers to entry in the Bitcoin mining industry are primarily capital investment, electricity costs, and technological efficiency, rather than patents or regulatory licenses. RIOT does not hold any key technological patents, nor is its operating model based on a franchise. The regulatory environment for cryptocurrency mining is uncertain, but this is not a unique barrier for Riot and may instead pose risks. Unlike traditional financial services, RIOT's business does not rely on licenses or strictly regulated franchises, meaning it lacks a significant economic moat derived from regulation or patents."
+  },
+  "m3_high_switching_costs": {
+    "score": 1,
+    "comment_zh": "對於比特幣挖礦服務的客戶而言，轉換成本極低。客戶（通常是投資者或機構）選擇礦商時，主要考量的是算力、價格和可靠性。一旦有更具成本效益的選擇出現，轉換到其他礦商的過程相對簡單，無需複雜的整合或大量的前期投入。RIOT 並未建立起能讓客戶因轉換而產生顯著損失或不便的機制。因此，客戶轉換成本低是其業務模式中的一個顯著弱點，而非護城河。",
+    "comment_en": "For customers of Bitcoin mining services, the switching costs are extremely low. When choosing a miner, customers (typically investors or institutions) primarily consider hashrate, price, and reliability. If a more cost-effective option emerges, switching to another miner is relatively straightforward, requiring no complex integration or substantial upfront investment. RIOT has not established mechanisms that would cause customers significant losses or inconvenience upon switching. Therefore, low customer switching costs represent a significant weakness in its business model, rather than a moat."
+  },
+  "m4_network_effects": {
+    "score": 1,
+    "comment_zh": "RIOT 的業務模式不具備網絡效應。比特幣挖礦是一個獨立的運營過程，其價值和效率主要取決於公司的算力、能源成本和技術水平，而非用戶基數的增長。與社交媒體或市場平台不同，更多的礦工加入或更多的客戶使用其服務，並不會直接增加其服務的價值或降低其運營成本。因此，網絡效應這一潛在的經濟護城河，在 RIOT 的業務中完全不存在。",
+    "comment_en": "RIOT's business model does not exhibit network effects. Bitcoin mining is an independent operational process, and its value and efficiency depend primarily on the company's hashrate, energy costs, and technological capabilities, not on the growth of its user base. Unlike social media or marketplace platforms, having more miners join or more customers use its services does not directly increase the value of its service or reduce its operating costs. Therefore, the potential economic moat of network effects is entirely absent in RIOT's business."
+  },
+  "m5_cost_advantage_scale": {
+    "score": 6,
+    "comment_zh": "RIOT 在規模成本方面具有一定的優勢，但並非絕對。作為一家大型比特幣挖礦公司，RIOT 能夠通過大規模採購電力和礦機設備，獲得比小型競爭者更低的單位成本。其龐大的數據中心和專業化的運營團隊也有助於提高效率。然而，電力成本的波動和比特幣挖礦設備的快速迭代，使得這種規模優勢並非一成不變。雖然 Riot 在行業內屬於領先者，但其成本優勢仍面臨來自其他大型礦商和新進入者的挑戰，護城河強度中等。",
+    "comment_en": "RIOT possesses a certain advantage in terms of cost of scale, though it is not absolute. As a large-scale Bitcoin mining company, RIOT can achieve lower unit costs than smaller competitors through bulk purchasing of electricity and mining equipment. Its extensive data centers and specialized operational teams also contribute to efficiency. However, fluctuations in electricity costs and the rapid iteration of Bitcoin mining hardware mean this scale advantage is not static. While Riot is a leader in the industry, its cost advantage still faces challenges from other large miners and new entrants, indicating a moderate moat strength."
+  },
+  "m6_unique_geography_assets": {
+    "score": 3,
+    "comment_zh": "RIOT 的部分業務依賴於特定地理區域的廉價電力供應，這可以被視為一種有限的地理資產優勢。例如，在電力成本較低的地區設立礦場，能顯著降低運營成本。然而，這種優勢並非獨一無二，其他礦商也在尋求類似的低成本電力來源。此外，電力價格的變動、監管政策的變化以及基礎設施的可用性，都可能影響這些地理位置的長期價值。因此，其地理資產的壁壘強度較弱，且易受外部因素影響。",
+    "comment_en": "A portion of RIOT's operations relies on the availability of cheap electricity in specific geographic regions, which can be considered a limited geographic asset advantage. For instance, establishing mining facilities in areas with lower electricity costs can significantly reduce operational expenses. However, this advantage is not unique, as other miners also seek similar low-cost power sources. Furthermore, changes in electricity prices, regulatory policies, and infrastructure availability can impact the long-term value of these locations. Consequently, the barrier strength of its geographic assets is weak and susceptible to external factors."
+  },
+  "m7_operational_efficiency": {
+    "score": 7,
+    "comment_zh": "RIOT 在運營效率方面展現出較強的實力，這構成了一定的護城河。公司專注於優化礦機性能、降低能耗、提高算力利用率，並通過專業化管理來控制運營成本。其大規模的運營使得其能夠實施更精細化的成本控制和效率提升措施。然而，比特幣挖礦技術的快速發展意味著持續的投資和升級是必要的，以維持領先地位。儘管如此，RIOT 在行業內已建立起相對穩定的運營效率優勢，能夠在競爭中保持較好的盈利能力。",
+    "comment_en": "RIOT demonstrates considerable strength in operational efficiency, which constitutes a certain moat. The company focuses on optimizing mining rig performance, reducing energy consumption, increasing hashrate utilization, and controlling operating costs through specialized management. Its large-scale operations allow for more refined cost control and efficiency improvement measures. However, the rapid advancement of Bitcoin mining technology necessitates continuous investment and upgrades to maintain a leading position. Despite this, RIOT has established a relatively stable operational efficiency advantage within the industry, enabling it to maintain good profitability amidst competition."
+  },
+  "m8_capital_allocation": {
+    "score": 4,
+    "comment_zh": "RIOT 的資本配置能力尚待觀察，目前表現並不突出。公司在擴張算力、購買新設備以及應對市場波動方面進行了大量投資。然而，其過去的財務表現（如負的 ROE 和 ROA）表明，這些投資的回報並不理想，甚至可能損害了股東價值。雖然公司擁有一定的現金儲備和自由現金流，但如何有效地將這些資源配置於能產生可持續回報的項目，是其面臨的挑戰。目前來看，其資本配置策略的有效性不足以構成堅固的護城河。",
+    "comment_en": "RIOT's capital allocation capabilities are yet to be fully proven and have not been outstanding. The company has invested heavily in expanding hashrate, purchasing new equipment, and navigating market volatility. However, its past financial performance (such as negative ROE and ROA) indicates that the returns on these investments have been suboptimal, potentially even eroding shareholder value. While the company possesses some cash reserves and free cash flow, effectively allocating these resources to projects generating sustainable returns remains a challenge. Currently, the effectiveness of its capital allocation strategy is insufficient to form a strong moat."
+  },
+  "m9_customer_retention": {
+    "score": 1,
+    "comment_zh": "RIOT 的業務模式並非直接面向終端消費者，而是為比特幣網絡提供算力支持。因此，傳統意義上的客戶留存概念在此並不適用。其「客戶」主要是指購買其挖礦服務的機構或個人，而這些客戶的忠誠度極低，轉換成本也幾乎為零。他們會根據市場價格和服務條款隨時選擇最優的供應商。RIOT 並未建立任何能鎖定客戶的機制，因此在客戶留存方面，其護城河為零。",
+    "comment_en": "RIOT's business model does not directly serve end consumers; instead, it provides hashrate support for the Bitcoin network. Therefore, the traditional concept of customer retention is not applicable here. Its 'customers' primarily refer to institutions or individuals purchasing its mining services, and the loyalty of these customers is extremely low, with virtually zero switching costs. They will readily choose the optimal supplier based on market prices and service terms. RIOT has not established any mechanisms to lock in customers, thus its moat in terms of customer retention is zero."
+  },
+  "m10_durability": {
+    "score": 2,
+    "comment_zh": "RIOT 的業務模式在長期可持續性方面面臨嚴峻挑戰。比特幣挖礦行業的特點是競爭激烈、技術快速迭代、電力成本波動以及監管不確定性。這意味著 Riot 需要持續投入巨額資本來維持其競爭力，且無法保證長期的盈利穩定性。其商業模式更接近於商品生產，利潤空間容易受到價格衝擊和成本上升的侵蝕。與擁有持久競爭優勢的企業相比，RIOT 的業務模式缺乏長期可預測性和穩定性，護城河非常脆弱。",
+    "comment_en": "RIOT's business model faces severe challenges regarding long-term sustainability. The Bitcoin mining industry is characterized by intense competition, rapid technological iteration, fluctuating electricity costs, and regulatory uncertainty. This means Riot needs continuous, substantial capital investment to maintain its competitive edge, with no guarantee of long-term profit stability. Its business model is closer to commodity production, where profit margins are easily eroded by price shocks and rising costs. Compared to companies with enduring competitive advantages, RIOT's business model lacks long-term predictability and stability, resulting in a very fragile moat."
+  },
+  "overall_moat_verdict_zh": "RIOT 的經濟護城河極為薄弱，幾乎不具備巴菲特所重視的長期可持續競爭優勢。其業務高度商品化，缺乏品牌定價權、專利壁壘、網絡效應和客戶轉換成本。雖然在規模成本和運營效率上具有一定的優勢，但這些優勢易受市場波動和技術變革的影響，並非堅固的壁壘。資本配置效率不高，地理資產的獨特性有限，客戶留存幾乎為零。總體而言，RIOT 的商業模式更像是一個週期性強、利潤易受侵蝕的商品生產商，而非擁有強大特許經營權或收費橋模式的企業，其護城河強度遠低於價值投資的標準。",
+  "overall_moat_verdict_en": "RIOT's economic moat is extremely weak, largely lacking the long-term sustainable competitive advantages that Warren Buffett values. Its business is highly commoditized, devoid of brand pricing power, patent barriers, network effects, and customer switching costs. While it possesses some advantages in scale costs and operational efficiency, these are susceptible to market volatility and technological changes, failing to constitute robust barriers. Capital allocation efficiency is suboptimal, geographic assets offer limited uniqueness, and customer retention is virtually non-existent. Overall, RIOT's business model resembles that of a highly cyclical commodity producer whose profits are easily eroded, rather than an enterprise with strong franchise or toll-bridge characteristics. Its moat strength falls far short of value investing standards.",
+  "evidenceHash": "858649ef79bf0b3fdadcff81057602264f7f99e4f1c588bf34dca539df9b0981",
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
+}
