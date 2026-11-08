@@ -1,0 +1,60 @@
+{
+  "ticker": "PCOR",
+  "period": "2026Q3",
+  "m1_brand_pricing": {
+    "score": 6,
+    "comment_zh": "Procore 在建築軟體領域建立了強大的品牌聲譽，其產品被視為行業標準，這賦予了其一定的定價能力。然而，與消費品品牌不同，建築行業的客戶在選擇軟體時，除了品牌，更看重功能性、整合性和成本效益。雖然 Procore 的品牌有助於吸引客戶，但其定價權並非絕對，仍需面對來自其他供應商的價格競爭。其品牌優勢主要體現在客戶信任度和市場滲透率上，而非能夠隨意大幅提高價格的能力。",
+    "comment_en": "Procore has established a strong brand reputation in the construction software space, with its products often considered industry standards, granting it a degree of pricing power. However, unlike consumer brands, customers in the construction industry prioritize functionality, integration, and cost-effectiveness alongside brand when selecting software. While Procore's brand helps attract clients, its pricing power is not absolute, and it still faces price competition from other vendors. Its brand advantage primarily lies in customer trust and market penetration rather than the ability to arbitrarily increase prices significantly."
+  },
+  "m2_patents_regulatory": {
+    "score": 3,
+    "comment_zh": "Procore 的業務模式主要依賴於軟體開發和服務，而非受專利保護的獨特技術。雖然其軟體可能包含一些專有技術和演算法，但這些通常難以構成像製藥公司那樣的強大專利壁壘。建築行業的監管環境相對寬鬆，並無顯著的特許經營權或嚴格的行業准入限制，這意味著進入壁壘主要來自於技術積累和客戶關係，而非法律或監管保護。因此，在專利和監管方面，Procore 的護城河相對較弱。",
+    "comment_en": "Procore's business model relies primarily on software development and services rather than unique, patent-protected technology. While its software may incorporate proprietary technologies and algorithms, these are generally difficult to establish as strong patent barriers akin to those in the pharmaceutical industry. The regulatory environment in the construction industry is relatively lenient, with no significant franchise rights or strict industry entry barriers. This means that entry barriers are mainly derived from technological accumulation and customer relationships, rather than legal or regulatory protections. Consequently, Procore's moat in terms of patents and regulatory protection is relatively weak."
+  },
+  "m3_high_switching_costs": {
+    "score": 8,
+    "comment_zh": "Procore 的軟體深度整合到客戶的日常營運和專案管理流程中。一旦客戶採用 Procore 平台，其數據、工作流程和員工培訓都將圍繞該系統建立。更換到另一家供應商不僅需要時間和資源來遷移數據和重新配置系統，還可能導致專案延誤和生產力下降。這種深度整合和營運依賴性構成了顯著的轉換成本，有效鎖定了現有客戶，並為 Procore 提供了穩固的護城河。",
+    "comment_en": "Procore's software is deeply integrated into its clients' daily operations and project management workflows. Once a customer adopts the Procore platform, their data, workflows, and employee training become centered around this system. Switching to another vendor would not only require significant time and resources for data migration and system reconfiguration but could also lead to project delays and decreased productivity. This deep integration and operational dependency create substantial switching costs, effectively locking in existing customers and providing Procore with a solid moat."
+  },
+  "m4_network_effects": {
+    "score": 5,
+    "comment_zh": "Procore 平台在建築行業生態系統中展現了一定程度的網絡效應。隨著越來越多的建築公司、承包商、供應商和業主使用 Procore，該平台的協作功能變得更加強大和有價值。例如，在平台上共享資訊和文件可以提高效率，吸引更多參與者加入。然而，這種網絡效應並非像社交媒體或市場平台那樣具有強烈的直接網絡效應，其價值更多體現在行業內的協同效應和資訊流動的便利性上，而非用戶數量直接驅動的價值指數級增長。",
+    "comment_en": "The Procore platform exhibits a degree of network effects within the construction industry ecosystem. As more construction companies, contractors, suppliers, and owners use Procore, the platform's collaborative capabilities become more powerful and valuable. For instance, sharing information and documents on the platform can enhance efficiency and attract more participants. However, these network effects are not as strong as direct network effects seen in social media or marketplace platforms. Their value is more in industry-wide synergy and the convenience of information flow, rather than an exponential value increase directly driven by user numbers."
+  },
+  "m5_cost_advantage_scale": {
+    "score": 7,
+    "comment_zh": "作為建築軟體領域的領導者，Procore 受益於其規模經濟。龐大的客戶基礎和持續的營收使其能夠在研發、銷售和市場推廣方面進行大規模投資，從而降低單位成本並提升產品的競爭力。其規模也使其能夠提供更全面的產品組合和更優質的客戶支援，這對較小的競爭對手構成了挑戰。這種規模優勢有助於 Procore 在市場上保持領先地位，並在一定程度上抵禦價格壓力。",
+    "comment_en": "As a leader in the construction software space, Procore benefits from economies of scale. Its large customer base and consistent revenue allow for substantial investments in research and development, sales, and marketing, thereby reducing per-unit costs and enhancing product competitiveness. Its scale also enables it to offer a more comprehensive product portfolio and superior customer support, posing a challenge to smaller competitors. This scale advantage helps Procore maintain its leading market position and offers some resilience against pricing pressure."
+  },
+  "m6_unique_geography_assets": {
+    "score": 2,
+    "comment_zh": "Procore 的業務主要集中在軟體服務，其價值核心在於技術和客戶關係，而非依賴特定的地理位置或獨特的實物資產。雖然公司在全球範圍內開展業務，並在不同地區設有辦事處，但這些並非構成傳統意義上的「地理資產」壁壘。其市場擴張更多是通過產品的適應性和銷售網絡的建立，而非依賴於某個地區的獨特資源或市場地位。因此，在獨特地理資產方面，Procore 的護城河非常薄弱。",
+    "comment_en": "Procore's business primarily revolves around software services, with its core value lying in technology and customer relationships, rather than relying on specific geographic locations or unique physical assets. While the company operates globally and has offices in various regions, these do not constitute barriers in the traditional sense of 'geographic assets.' Its market expansion is driven more by product adaptability and sales network establishment, rather than dependence on unique resources or market positions in a particular region. Therefore, Procore's moat in terms of unique geographic assets is very weak."
+  },
+  "m7_operational_efficiency": {
+    "score": 7,
+    "comment_zh": "Procore 在營運效率方面表現出色，尤其體現在其 SaaS 營運模式上。通過標準化的產品和自動化的流程，公司能夠有效地管理客戶服務、軟體更新和數據處理。持續的技術投入和對客戶反饋的重視，使其能夠不斷優化產品和服務，提高客戶滿意度。雖然其營收增長伴隨著銷售和營銷費用的增加，但其核心的軟體交付和維護效率是其保持競爭力的關鍵因素，並為其帶來了穩定的現金流。",
+    "comment_en": "Procore demonstrates strong operational efficiency, particularly within its SaaS operating model. Through standardized products and automated processes, the company effectively manages customer service, software updates, and data processing. Continuous investment in technology and attention to customer feedback enable it to constantly optimize products and services, enhancing customer satisfaction. Although its revenue growth is accompanied by increases in sales and marketing expenses, its core software delivery and maintenance efficiency are key factors in maintaining competitiveness and generating stable cash flow."
+  },
+  "m8_capital_allocation": {
+    "score": 6,
+    "comment_zh": "Procore 的資本配置策略似乎側重於透過收購來擴展產品線和市場份額，同時也持續投入研發以維持技術領先。公司在 2023 年的收購活動顯示了其積極尋求協同效應和增長機會。然而，作為一家仍在追求盈利增長的科技公司，其資本配置的重點仍在於再投資於業務本身，而非像成熟企業那樣進行大規模股息發放或股票回購。其長期資本配置的有效性將取決於收購整合的成功率以及研發投入的回報。",
+    "comment_en": "Procore's capital allocation strategy appears to focus on expanding its product lines and market share through acquisitions, while also continuously investing in R&D to maintain technological leadership. The company's acquisition activities in 2023 indicate an active pursuit of synergistic opportunities and growth. However, as a technology company still pursuing profitability, its capital allocation primarily involves reinvestment in the business itself, rather than large-scale dividend distributions or share buybacks typical of mature companies. The long-term effectiveness of its capital allocation will depend on the success of acquisition integrations and the returns on R&D investments."
+  },
+  "m9_customer_retention": {
+    "score": 8,
+    "comment_zh": "Procore 在客戶留存方面表現出色，這得益於其高轉換成本和產品的深度整合。一旦客戶將 Procore 融入其核心業務流程，並依賴其平台進行專案管理和協作，他們就極少會輕易更換。公司持續的產品創新和對客戶需求的響應，也進一步鞏固了客戶關係。高客戶留存率不僅保證了經常性收入的穩定性，也為 Procore 提供了持續增長的基礎，是其重要的護城河。",
+    "comment_en": "Procore demonstrates excellent customer retention, largely due to its high switching costs and deep product integration. Once customers integrate Procore into their core business processes and rely on its platform for project management and collaboration, they are very unlikely to switch easily. The company's continuous product innovation and responsiveness to customer needs further solidify these client relationships. High customer retention not only ensures the stability of recurring revenue but also provides a foundation for Procore's sustained growth, making it a significant moat."
+  },
+  "m10_durability": {
+    "score": 7,
+    "comment_zh": "Procore 的商業模式具有較強的持久性。建築行業對高效、協作和數字化管理的需求是長期且不斷增長的趨勢。Procore 作為行業領先的 SaaS 解決方案提供商，能夠滿足這些需求，並隨著行業的發展而演進。儘管面臨技術變革和市場競爭，但其建立的客戶關係、品牌聲譽和不斷優化的產品，使其能夠在可預見的未來保持競爭力。其商業模式的韌性使其能夠抵禦短期波動，並在長期內持續創造價值。",
+    "comment_en": "Procore's business model possesses strong durability. The construction industry's demand for efficient, collaborative, and digitized management is a long-term and growing trend. As a leading SaaS solution provider in the industry, Procore is well-positioned to meet these needs and evolve alongside industry developments. Despite facing technological changes and market competition, its established customer relationships, brand reputation, and continuously optimized products enable it to remain competitive in the foreseeable future. The resilience of its business model allows it to withstand short-term fluctuations and create value over the long term."
+  },
+  "overall_moat_verdict_zh": "Procore 的護城河主要建立在其高轉換成本和穩定的客戶留存率之上，這使其在建築軟體領域形成了類似「收費橋」的商業模式。其品牌聲譽和規模經濟也提供了額外的保護。然而，在專利和網絡效應方面，其壁壘相對較弱。公司持續的研發投入和戰略性收購有助於鞏固其市場地位，但其長期價值仍需觀察其盈利能力的持續改善和資本配置的有效性。整體而言，Procore 擁有一個堅固但非無懈可擊的護城河。",
+  "overall_moat_verdict_en": "Procore's moat is primarily built upon its high switching costs and stable customer retention, establishing a business model akin to a 'toll bridge' in the construction software sector. Its brand reputation and economies of scale provide additional protection. However, its barriers are relatively weaker in terms of patents and network effects. The company's ongoing R&D investments and strategic acquisitions help solidify its market position, but its long-term value hinges on sustained improvement in profitability and effective capital allocation. Overall, Procore possesses a solid, though not impenetrable, moat.",
+  "evidenceHash": "3fc37ae5326393066d40bd9b574ec157a6ebdf380a39b59c8e4bd07a7804e4c9",
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
+}
