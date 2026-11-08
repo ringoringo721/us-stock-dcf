@@ -1,0 +1,60 @@
+{
+  "ticker": "IDA",
+  "period": "2026Q3",
+  "m1_brand_pricing": {
+    "score": 2,
+    "comment_zh": "IDA 作為一家受監管的電力公用事業公司，其品牌和定價權受到嚴格的監管機構限制。公司無法自由設定價格以反映其品牌價值或市場需求，而是依賴於監管機構批准的費率結構。這意味著其定價能力非常有限，無法形成顯著的經濟壁壘。與消費品或科技公司不同，IDA 的品牌知名度對其定價策略幾乎沒有影響，其收入主要取決於電力消耗量和監管批准的回報率。因此，在品牌定價權方面，IDA 的護城河極為薄弱。",
+    "comment_en": "As a regulated electric utility company, IDA's brand and pricing power are severely constrained by regulatory bodies. The company cannot freely set prices to reflect its brand value or market demand, instead relying on rate structures approved by regulators. This means its pricing capability is very limited and cannot form a significant economic barrier. Unlike consumer goods or tech companies, IDA's brand recognition has almost no impact on its pricing strategy; its revenue primarily depends on electricity consumption and approved rates of return. Therefore, in terms of brand pricing power, IDA's moat is extremely weak."
+  },
+  "m2_patents_regulatory": {
+    "score": 8,
+    "comment_zh": "IDA 作為一家受監管的電力公用事業公司，其業務受到嚴格的政府監管和特許經營權的保護。這類監管環境本身就構成了一道強大的壁壘，限制了新進入者的競爭。公司在特定地理區域內擁有提供電力服務的專營權，這類似於一種特許經營權。雖然沒有傳統意義上的專利，但其營運執照和監管框架為其提供了穩定的市場地位和可預測的收入來源。這種受監管的特許經營模式是其主要的護城河所在。",
+    "comment_en": "As a regulated electric utility company, IDA's operations are protected by stringent government regulation and exclusive operating licenses. This regulatory environment itself forms a strong barrier, limiting competition from new entrants. The company holds exclusive rights to provide electricity services within specific geographic areas, which is akin to a form of franchise. While there are no patents in the traditional sense, its operating licenses and regulatory framework provide it with a stable market position and predictable revenue streams. This regulated franchise model is its primary moat."
+  },
+  "m3_high_switching_costs": {
+    "score": 7,
+    "comment_zh": "對於 IDA 的客戶而言，轉換電力供應商的成本極高。電力是基礎設施，家庭和企業的電力系統都已固定，更換電力公司不僅需要行政上的手續，還可能涉及基礎設施的改動或重新佈線，這在實際操作中幾乎是不可能的。客戶依賴於現有的電力網絡，轉換供應商的動機和可行性都很低。這種基礎設施的固有屬性，使得客戶的轉換成本非常高昂，為 IDA 提供了穩固的客戶基礎和收入來源。",
+    "comment_en": "For IDA's customers, the cost of switching electricity providers is extremely high. Electricity is a fundamental utility, and the electrical systems of homes and businesses are already in place. Changing electricity companies not only involves administrative procedures but may also require infrastructure modifications or rewiring, which is practically infeasible. Customers rely on the existing power grid, and the motivation and feasibility of switching providers are very low. This inherent characteristic of the infrastructure makes the switching costs for customers very substantial, providing IDA with a stable customer base and revenue stream."
+  },
+  "m4_network_effects": {
+    "score": 1,
+    "comment_zh": "電力公用事業的網絡效應非常有限。雖然 IDA 擁有龐大的輸配電網絡，但這個網絡主要是為其自身營運服務，並非直接產生傳統意義上的網絡效應，即用戶越多，服務價值越高的情況。客戶使用 IDA 的電力服務，其價值並不會因為有更多其他客戶使用 IDA 的服務而增加。與社交媒體或市場平台不同，IDA 的網絡是基礎設施，其價值在於連接發電端和用電端，而非用戶間的互動。因此，網絡效應在此幾乎不存在。",
+    "comment_en": "Network effects in electric utilities are very limited. While IDA possesses an extensive transmission and distribution network, this network primarily serves its own operations and does not directly generate network effects in the traditional sense, where more users lead to increased service value. The value of IDA's electricity service to a customer does not increase simply because more other customers are using IDA's service. Unlike social media or marketplace platforms, IDA's network is infrastructure; its value lies in connecting the generation and consumption ends, not in user interactions. Therefore, network effects are virtually non-existent here."
+  },
+  "m5_cost_advantage_scale": {
+    "score": 7,
+    "comment_zh": "作為一家大型的受監管電力公用事業公司，IDA 受惠於顯著的規模經濟。其龐大的基礎設施投資（發電廠、輸配電網絡）攤銷到大量客戶身上，使得單位客戶的固定成本相對較低。此外，IDA 在採購燃料、設備維護和營運管理方面，由於其規模，能夠獲得比小型競爭者更優惠的價格和效率。這種規模帶來的成本優勢，在受監管的行業中尤為重要，因為它有助於在批准的費率中實現更穩定的利潤。",
+    "comment_en": "As a large, regulated electric utility company, IDA benefits from significant economies of scale. Its substantial infrastructure investments (power plants, transmission and distribution networks) are amortized over a large customer base, resulting in relatively lower per-customer fixed costs. Furthermore, IDA can achieve more favorable pricing and efficiencies in fuel procurement, equipment maintenance, and operational management due to its scale, compared to smaller competitors. This cost advantage derived from scale is particularly important in a regulated industry, as it helps achieve more stable profits within approved rates."
+  },
+  "m6_unique_geography_assets": {
+    "score": 8,
+    "comment_zh": "IDA 在其服務的地理區域內擁有獨特的資產和市場地位。作為一家受監管的公用事業公司，它在特定區域內通常是唯一的電力供應商，這意味著其輸配電網絡是該地區不可或缺的基礎設施。這種地理上的壟斷地位，加上其龐大的基礎設施網絡，使得任何潛在競爭者難以複製或進入。其資產（如發電廠、電網）是高度地域性的，並且是該地區經濟運行的關鍵，構成了強大的地理壁壘。",
+    "comment_en": "IDA possesses unique assets and market position within its service territory. As a regulated utility, it is typically the sole electricity provider in its specific region, meaning its transmission and distribution network is indispensable infrastructure for that area. This geographical monopoly, coupled with its extensive infrastructure network, makes it difficult for any potential competitor to replicate or enter. Its assets (e.g., power plants, grid) are highly regional and critical to the economic functioning of the area, forming a strong geographical barrier."
+  },
+  "m7_operational_efficiency": {
+    "score": 6,
+    "comment_zh": "IDA 作為一家成熟的公用事業公司，在營運效率方面有著一定的基礎。其營運效率主要體現在對輸配電網絡的維護、電力生產的穩定性以及應對突發事件的能力。然而，受監管行業的特性可能限制了其追求極致效率的動力，因為利潤率通常由監管機構設定。儘管如此，公司仍需不斷投資於基礎設施的現代化和維護，以確保服務的可靠性並滿足監管要求。其效率得分中等，反映了在穩定性與成本控制之間的平衡。",
+    "comment_en": "As a mature utility company, IDA has a solid foundation in operational efficiency. Its efficiency is mainly reflected in the maintenance of its transmission and distribution network, the stability of power generation, and its ability to respond to emergencies. However, the nature of a regulated industry might limit its drive for ultimate efficiency, as profit margins are typically set by regulators. Nevertheless, the company must continuously invest in modernizing and maintaining its infrastructure to ensure service reliability and meet regulatory requirements. Its efficiency score is moderate, reflecting a balance between stability and cost control."
+  },
+  "m8_capital_allocation": {
+    "score": 7,
+    "comment_zh": "IDA 的資本配置策略受到其監管環境的顯著影響。公司需要持續投入巨資於基礎設施的維護、升級和擴建，以滿足不斷增長的電力需求和監管標準。其資本配置的重點通常是確保營運的穩定性和可靠性，以及進行符合監管批准的投資項目。雖然其自由現金流相對穩定，但大部分會用於資本支出和債務償還。管理層在追求股東回報的同時，也必須嚴格遵守監管框架，這使得其資本配置的靈活性受到一定限制，但整體上仍能維持穩定的價值。",
+    "comment_en": "IDA's capital allocation strategy is significantly influenced by its regulatory environment. The company needs substantial and continuous investment in infrastructure maintenance, upgrades, and expansion to meet growing electricity demand and regulatory standards. Its capital allocation typically focuses on ensuring operational stability and reliability, as well as undertaking investment projects approved by regulators. While its free cash flow is relatively stable, a large portion is allocated to capital expenditures and debt repayment. Management must strictly adhere to the regulatory framework while pursuing shareholder returns, which somewhat limits its capital allocation flexibility, but overall, it can maintain stable value."
+  },
+  "m9_customer_retention": {
+    "score": 8,
+    "comment_zh": "如前所述，由於電力是基礎設施且轉換成本極高，IDA 擁有極高的客戶保留率。客戶幾乎沒有選擇其他供應商的空間，因此其客戶基礎非常穩定。這種高保留率保證了公司收入的穩定性和可預測性，是其核心競爭力之一。即使在經濟波動時期，電力作為必需品，其需求相對穩定，進一步鞏固了客戶的忠誠度（或說是無可選擇性）。這為公司提供了一個堅實的收入基礎。",
+    "comment_en": "As mentioned earlier, due to electricity being a fundamental utility with extremely high switching costs, IDA enjoys a very high customer retention rate. Customers have virtually no option to choose other providers, making its customer base highly stable. This high retention rate ensures the stability and predictability of the company's revenue, which is one of its core competitive strengths. Even during economic fluctuations, electricity as a necessity has relatively stable demand, further solidifying customer loyalty (or rather, lack of choice). This provides the company with a solid revenue base."
+  },
+  "m10_durability": {
+    "score": 8,
+    "comment_zh": "IDA 的業務模式具有極高的持久性。電力是現代社會不可或缺的基礎，只要人類社會持續存在，對電力的需求就不會消失。作為一家受監管的公用事業公司，其業務受到政府保護，不易受到顛覆性技術的劇烈衝擊，儘管長期來看再生能源等趨勢會帶來轉型壓力。其龐大的基礎設施網絡和特許經營權，使其在可預見的未來能夠維持其市場地位。這種業務的基礎性和穩定性，賦予了其極強的持久性。",
+    "comment_en": "IDA's business model possesses extremely high durability. Electricity is an indispensable foundation of modern society, and as long as human society continues to exist, the demand for electricity will not disappear. As a regulated utility company, its business is protected by the government and is not easily susceptible to drastic impacts from disruptive technologies, although trends like renewable energy will bring transformation pressures in the long run. Its extensive infrastructure network and franchise rights enable it to maintain its market position for the foreseeable future. The fundamental and stable nature of this business grants it exceptional durability."
+  },
+  "overall_moat_verdict_zh": "IDA 作為一家受監管的電力公用事業公司，其經濟護城河主要建立在受監管的特許經營權、極高的客戶轉換成本以及獨特的地理資產之上。這些因素共同構成了一道堅固的壁壘，保證了其市場地位的穩定性和收入的可靠性。然而，其品牌定價權和網絡效應較弱。公司規模帶來了一定的成本優勢，營運效率和資本配置也相對穩健，但受監管環境的約束。總體而言，IDA 屬於一種典型的「收費橋」或「特許經營」模式，其持久性強，但成長性有限，適合尋求穩定現金流的長期投資者。",
+  "overall_moat_verdict_en": "IDA, as a regulated electric utility company, has an economic moat primarily built upon its regulated franchise, extremely high customer switching costs, and unique geographical assets. These factors collectively form a solid barrier, ensuring the stability of its market position and the reliability of its revenue. However, its brand pricing power and network effects are weak. The company's scale provides certain cost advantages, and its operational efficiency and capital allocation are relatively sound, albeit constrained by the regulatory environment. Overall, IDA represents a typical 'toll bridge' or 'franchise' model, characterized by strong durability but limited growth potential, making it suitable for long-term investors seeking stable cash flows.",
+  "evidenceHash": "36f55c8ab81d2ee89394ca1d8482f9f8bdcc003a0da75f1198d4b74fc95ad536",
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
+}
