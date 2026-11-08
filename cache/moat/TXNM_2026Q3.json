@@ -1,0 +1,60 @@
+{
+  "ticker": "TXNM",
+  "period": "2026Q3",
+  "m1_brand_pricing": {
+    "score": 2,
+    "comment_zh": "TXNM 作為一家受監管的電力公用事業公司，其品牌和定價權受到嚴格的監管。公司無法自由設定價格以反映其服務的真實價值或市場需求，而是依賴監管機構的批准。這限制了其定價能力，使其難以建立強大的品牌溢價。與消費品或科技公司不同，公用事業的品牌忠誠度通常較低，客戶轉換成本也相對較小。因此，在品牌定價權方面，TXNM 的護城河非常薄弱。",
+    "comment_en": "As a regulated electric utility company, TXNM's brand and pricing power are heavily constrained by regulation. The company cannot freely set prices to reflect the true value or market demand for its services; instead, it relies on regulatory approvals. This limits its pricing ability and makes it difficult to establish a strong brand premium. Unlike consumer goods or technology companies, brand loyalty in utilities is typically lower, and customer switching costs are relatively minimal. Therefore, TXNM's moat in terms of brand pricing power is very weak."
+  },
+  "m2_patents_regulatory": {
+    "score": 8,
+    "comment_zh": "TXNM 的主要護城河來自其受監管的特許經營權。作為一家受監管的電力公用事業公司，其營運區域內的電力供應通常受到政府的壟斷性保護，這意味著其他公司難以進入其市場。這種特許經營權提供了一個穩定的收入來源，並在很大程度上消除了來自競爭對手的威脅。雖然沒有專利，但這種監管壁壘是其業務模式的核心，為公司提供了顯著的競爭優勢，使其能夠在可預見的未來維持其市場地位。",
+    "comment_en": "TXNM's primary moat stems from its regulated franchise. As a regulated electric utility, its service area for power supply is typically protected by government-granted monopolies, meaning it is difficult for other companies to enter its market. This franchise provides a stable revenue stream and largely eliminates threats from direct competitors. While not based on patents, this regulatory barrier is central to its business model, offering a significant competitive advantage and allowing it to maintain its market position for the foreseeable future."
+  },
+  "m3_high_switching_costs": {
+    "score": 6,
+    "comment_zh": "對於住宅和商業客戶而言，轉換電力供應商的成本相對較低，主要涉及行政程序。然而，對於大型工業客戶，轉換可能涉及基礎設施的重大投資和調整，因此轉換成本較高。此外，公用事業的性質決定了客戶對穩定可靠的電力供應有高度依賴性，這也間接增加了轉換的難度。儘管如此，相較於某些高度綁定的軟體或服務，其轉換成本並非極高，因此給予中等分數。",
+    "comment_en": "For residential and commercial customers, the cost of switching electricity providers is relatively low, primarily involving administrative procedures. However, for large industrial clients, switching may involve significant infrastructure investment and adjustments, thus incurring higher switching costs. Furthermore, the nature of utility services means customers have a high dependency on stable and reliable power supply, which indirectly increases the difficulty of switching. Nevertheless, compared to certain highly integrated software or services, the switching costs are not extremely high, hence the moderate score."
+  },
+  "m4_network_effects": {
+    "score": 1,
+    "comment_zh": "電力公用事業的網絡效應非常有限。其核心業務是提供電力，這是一個基礎設施密集型的行業，而非平台或社交網絡。雖然其電網本身可以被視為一種網絡，但它主要服務於物理連接，而非通過用戶互動來增強價值。客戶之間或公司與客戶之間不存在顯著的網絡效應，其價值主要取決於基礎設施的可靠性和效率，而非用戶數量的增長帶來的邊際效用遞增。因此，在此維度上，TXNM 的護城河幾乎不存在。",
+    "comment_en": "Network effects in electric utilities are very limited. Its core business is providing electricity, which is an infrastructure-intensive industry rather than a platform or social network. While its power grid itself can be considered a network, it primarily serves physical connections rather than enhancing value through user interaction. There are no significant network effects between customers or between the company and its customers. Its value depends mainly on the reliability and efficiency of its infrastructure, not on the increasing marginal utility derived from user growth. Therefore, TXNM's moat in this dimension is almost non-existent."
+  },
+  "m5_cost_advantage_scale": {
+    "score": 7,
+    "comment_zh": "作為一家大型受監管的電力公用事業公司，TXNM 受益於顯著的規模經濟。其龐大的基礎設施網絡（發電廠、輸配電線路）需要巨額的前期投資，這使得新進入者難以匹敵。規模越大，單位固定成本越低，採購燃料和設備的議價能力也越強。此外，其營運效率和應對突發事件的能力也隨著規模的擴大而增強。這種規模優勢是公用事業行業的典型特徵，為 TXNM 提供了一個堅實的成本壁壘。",
+    "comment_en": "As a large, regulated electric utility, TXNM benefits from significant economies of scale. Its vast infrastructure network (power plants, transmission and distribution lines) requires substantial upfront investment, making it difficult for new entrants to compete. Larger scale leads to lower per-unit fixed costs and stronger bargaining power in purchasing fuel and equipment. Furthermore, its operational efficiency and ability to respond to emergencies improve with scale. This scale advantage is a typical characteristic of the utility sector, providing TXNM with a solid cost barrier."
+  },
+  "m6_unique_geography_assets": {
+    "score": 7,
+    "comment_zh": "TXNM 在其特定的地理營運區域內擁有獨特的資產。這些資產，包括發電廠、變電站和廣泛的電網，是為服務特定地區而建立的，並且通常受到監管機構的保護，使其成為該區域內電力供應的關鍵基礎設施。這些資產的地理位置和專有性，加上其在該區域內提供服務的特許權，構成了顯著的進入壁壘。雖然其他公司可能在其他地區擁有類似資產，但在 TXNM 的特定服務區域內，其資產的獨特性和重要性是無可替代的。",
+    "comment_en": "TXNM possesses unique assets within its specific geographic operating region. These assets, including power plants, substations, and an extensive grid, are established to serve particular areas and are typically protected by regulatory authorities, making them critical infrastructure for power supply in that region. The geographic location and proprietary nature of these assets, combined with its franchise to provide service in the area, create significant entry barriers. While other companies may own similar assets elsewhere, the uniqueness and importance of TXNM's assets within its specific service territory are irreplaceable."
+  },
+  "m7_operational_efficiency": {
+    "score": 7,
+    "comment_zh": "TXNM 作為一家成熟的公用事業公司，在營運效率方面通常表現穩健。其營運效率體現在對電網的維護、故障排除的響應速度、以及發電效率等方面。監管機構通常會審查並批准公司的營運支出，這鼓勵了公司在合規的前提下追求效率。雖然其效率可能不如某些高度創新的科技公司，但在公用事業這個相對傳統的行業中，TXNM 能夠維持較高的營運標準，確保服務的可靠性，這本身就是一種競爭優勢。",
+    "comment_en": "As an established utility company, TXNM typically demonstrates solid operational efficiency. Its operational effectiveness is reflected in grid maintenance, response times to outages, and power generation efficiency. Regulatory bodies often review and approve operating expenses, incentivizing the pursuit of efficiency within compliance. While its efficiency may not match that of highly innovative tech companies, within the relatively traditional utility sector, TXNM's ability to maintain high operational standards and ensure service reliability is itself a competitive advantage."
+  },
+  "m8_capital_allocation": {
+    "score": 6,
+    "comment_zh": "TXNM 的資本配置策略主要圍繞著基礎設施的維護、升級和擴張，以滿足不斷增長的電力需求和監管要求。作為受監管的公用事業公司，其投資回報受到監管機構的審批，這限制了其在資本配置上的靈活性。公司需要平衡股東回報與基礎設施投資，並確保財務穩健。雖然其資本配置相對保守和穩定，但缺乏像其他行業那樣通過併購或戰略投資來實現指數級增長的機會。其 ROE 處於中等水平，顯示其資本配置能力尚可，但非頂尖。",
+    "comment_en": "TXNM's capital allocation strategy primarily revolves around maintaining, upgrading, and expanding its infrastructure to meet growing electricity demand and regulatory requirements. As a regulated utility, its return on investment is subject to regulatory approval, limiting its flexibility in capital allocation. The company must balance shareholder returns with infrastructure investments and ensure financial stability. While its capital allocation is relatively conservative and stable, it lacks opportunities for exponential growth through M&A or strategic investments seen in other industries. Its ROE is at a moderate level, indicating acceptable but not top-tier capital allocation capabilities."
+  },
+  "m9_customer_retention": {
+    "score": 5,
+    "comment_zh": "電力供應的基礎性決定了客戶對 TXNM 的高度依賴性，這在一定程度上保證了客戶的留存。然而，這種留存並非源於卓越的客戶體驗或差異化的產品，而是由於轉換成本相對較高以及缺乏替代選擇。一旦客戶接入了 TXNM 的電網，他們通常會繼續使用其服務。但若出現更具吸引力的替代方案（例如，可再生能源的普及或更優惠的價格），客戶的忠誠度可能會受到挑戰。因此，其客戶留存屬於中等水平，有一定壁壘但並非牢不可破。",
+    "comment_en": "The fundamental nature of electricity supply leads to high customer dependency on TXNM, which to some extent ensures customer retention. However, this retention is not driven by superior customer experience or differentiated products, but rather by relatively high switching costs and a lack of alternatives. Once customers are connected to TXNM's grid, they typically continue to use its services. But if more attractive alternatives emerge (e.g., widespread adoption of renewable energy or more favorable pricing), customer loyalty could be challenged. Therefore, its customer retention is at a moderate level, with some barriers but not unbreakable."
+  },
+  "m10_durability": {
+    "score": 8,
+    "comment_zh": "TXNM 的業務模式具有高度的持久性。電力是現代社會不可或缺的基礎設施，其需求隨著經濟發展和人口增長而穩定增長。作為一家受監管的公用事業公司，其特許經營權和基礎設施網絡提供了穩定的收入流和顯著的進入壁壘，使其能夠抵禦經濟週期的波動和新興技術的顛覆。雖然面臨來自可再生能源和能源效率提升的長期挑戰，但其核心業務的基礎性保證了其在可預見的未來仍將是關鍵的能源供應商。",
+    "comment_en": "TXNM's business model possesses high durability. Electricity is an indispensable infrastructure for modern society, with demand steadily growing alongside economic development and population increase. As a regulated utility, its franchise and infrastructure network provide a stable revenue stream and significant entry barriers, enabling it to withstand economic cycles and technological disruption. While facing long-term challenges from renewable energy and energy efficiency improvements, the fundamental nature of its core business ensures it will remain a key energy provider for the foreseeable future."
+  },
+  "overall_moat_verdict_zh": "TXNM 作為一家受監管的電力公用事業公司，其護城河主要建立在監管壁壘和規模經濟之上。其特許經營權（M2）和龐大的基礎設施（M5, M6）構成了堅實的進入壁壘，確保了穩定的收入來源和市場地位。然而，其定價權（M1）受到嚴格限制，網絡效應（M4）幾乎為零，客戶轉換成本（M3）和留存（M9）也僅為中等水平。儘管營運效率（M7）和業務持久性（M10）表現良好，但其增長潛力受限，資本配置（M8）也相對保守。總體而言，TXNM 屬於典型的「收費橋」型企業，依賴於其基礎設施的壟斷性地位，提供必需服務，但增長有限，護城河堅固但非無懈可擊。",
+  "overall_moat_verdict_en": "TXNM, as a regulated electric utility, derives its moat primarily from regulatory barriers and economies of scale. Its franchise (M2) and extensive infrastructure (M5, M6) create solid entry barriers, ensuring a stable revenue stream and market position. However, its pricing power (M1) is strictly limited, network effects (M4) are virtually non-existent, and customer switching costs (M3) and retention (M9) are only moderate. While operational efficiency (M7) and business durability (M10) are strong, its growth potential is constrained, and capital allocation (M8) is relatively conservative. Overall, TXNM is a classic 'toll bridge' type of business, relying on its monopolistic infrastructure to provide essential services with limited growth, possessing a solid but not impenetrable moat.",
+  "evidenceHash": "e67a44a756323cde444b9ed54f6516d5b1df31f46bd42022b75448107fbe17d8",
+  "assessmentPolicy": "buffett-moat-v3",
+  "model": "gemini-2.5-flash-lite",
+  "provider": "Vertex AI"
+}
