@@ -1207,10 +1207,18 @@
       max-width: var(--screener-min-width, 1100px) !important;
       font-size: 12px;
     }
-    /* Do not overflow:hidden on th/td — that clips liquidation ⓘ tooltips and
-       truncates F/Z/M badges (Bugbot #102). Ellipsis only on dedicated text nodes. */
-    #screener-table :is(th, td) {
+    /* Body cells: clip + ellipsis so nowrap text does not paint into neighbors
+       (Bugbot: sector / action / industry / 不適用 spill). Header + score badges
+       stay overflow:visible so liquidation ⓘ tooltips and full moat/PF/Z/M captions remain readable. */
+    #screener-table td {
       padding: 3px 6px !important;
+      box-sizing: border-box;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    #screener-table thead th {
+      padding: 4px 6px !important;
       box-sizing: border-box;
       overflow: visible;
     }
@@ -6767,9 +6775,9 @@
     // Compact column widths (px). table-layout:fixed + summed min-width prevents
     // sparse stretch / dark empty bands between 主板塊 and metrics / FMP 不適用 blocks.
     const COLUMN_WIDTHS = {
-      ticker: 168, exchange: 72, name: 128, sector: 88, industry: 120, price: 84,
-      fmp_dcf: 88, fmp_dcf_upside: 96, fmp_levered: 88, fmp_levered_upside: 96,
-      target_price: 92, target_spread: 92, action: 104,
+      ticker: 168, exchange: 72, name: 128, sector: 110, industry: 150, price: 84,
+      fmp_dcf: 100, fmp_dcf_upside: 108, fmp_levered: 100, fmp_levered_upside: 108,
+      target_price: 92, target_spread: 92, action: 118,
       // Moat / PF / Z / M: wide enough for full score + captions (不裁切).
       moat_score: 190,
       WACC: 96, EV: 100, mcap: 100, liq_val_1: 92, liq_val_2: 92, liq_val_3: 92,

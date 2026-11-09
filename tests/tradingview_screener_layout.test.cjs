@@ -55,16 +55,19 @@ test('financial preset keeps metrics in Symbol sticky; no second sticky name col
   assert.match(html, /COLUMN_WIDTHS/);
 });
 
-test('screener th/td do not use overflow:hidden (tooltips + badges)', () => {
-  assert.match(html, /#screener-table :is\(th, td\)\s*\{[^}]*overflow:\s*visible/);
-  assert.equal(/#screener-table :is\(th, td\)\s*\{[^}]*overflow:\s*hidden/.test(html), false);
+test('screener body cells clip; header + score badges stay visible', () => {
+  assert.match(html, /#screener-table td\s*\{[^}]*overflow:\s*hidden/);
+  assert.match(html, /#screener-table td\s*\{[^}]*text-overflow:\s*ellipsis/);
+  assert.match(html, /#screener-table thead th\s*\{[^}]*overflow:\s*visible/);
+  assert.match(html, /td:has\(\.badge-moat\)[\s\S]*?overflow:\s*visible/);
   assert.match(html, /#screener-table \.badge-moat/);
   assert.match(html, /#screener-table \.badge-fscore/);
-  assert.match(html, /td:has\(\.badge-moat\)[\s\S]*?overflow:\s*visible/);
   assert.match(html, /moat_score:\s*190/);
   assert.match(html, /f_score:\s*200/);
   assert.match(html, /z_score:\s*240/);
   assert.match(html, /m_score:\s*220/);
+  assert.match(html, /sector:\s*110/);
+  assert.match(html, /action:\s*118/);
 });
 
 test('three fair-value model under/over screens replace catalogue KPI strip', () => {
