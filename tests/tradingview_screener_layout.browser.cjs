@@ -40,22 +40,23 @@ const root = path.resolve(__dirname, '..');
     assert.equal(await page.locator('#screener-tbody tr').count(), expectedRows);
     assert.equal(await page.locator('#screener-all').count(), 0);
 
-    // Default overview: primary market + scores; catalogue fair gone; FMP DCF headers exist but hidden.
-    assert.equal(await page.locator('#screener-columns').inputValue(), 'overview');
-    assert.equal(await page.locator('#screener-view-chips .view-chip.active').getAttribute('data-view'), 'overview');
-    assert.equal(await page.locator('#screener-table thead th:visible').count(), 8);
+    // Default = Valuation (Overview removed); catalogue fair gone; FMP DCF visible in default.
+    assert.equal(await page.locator('#screener-columns').inputValue(), 'valuation');
+    assert.equal(await page.locator('#screener-view-chips .view-chip.active').getAttribute('data-view'), 'valuation');
+    assert.equal(await page.locator('#screener-view-chips .view-chip[data-view="overview"]').count(), 0);
+    assert.equal(await page.locator('#screener-table thead th:visible').count(), 15);
     assert.equal(await page.locator('#screener-table th[data-i18n="th_catalogue_fair"]').count(), 0);
     assert.equal(await page.locator('#screener-table th[data-i18n="th_catalogue_premium"]').count(), 0);
     assert.equal(await page.locator('#screener-table th[onclick="sortTable(\'price\')"]:visible').count(), 1);
     assert.equal(await page.locator('#screener-table th[onclick="sortTable(\'mcap\')"]:visible').count(), 1);
-    assert.equal(await page.locator('#screener-table th[data-i18n="th_fmp_dcf"]:visible').count(), 0);
+    assert.equal(await page.locator('#screener-table th[data-i18n="th_fmp_dcf"]:visible').count(), 1);
     assert.ok(await page.locator('.tv-filter-bar').count());
     assert.equal(await page.locator('#screener-tbody [data-catalogue-fair]').count(), 0);
     assert.equal(await page.locator('#screener-tbody [data-fmp-reference="dcf"]').count(), expectedRows);
     // Hidden columns still in every row DOM (no data loss of remaining columns).
     assert.equal(await page.locator('#screener-tbody tr').first().locator('td').count(), 41);
 
-    for (const [preset, columns] of [['overview', 8], ['valuation', 15], ['financial', 22], ['all', 41]]) {
+    for (const [preset, columns] of [['valuation', 15], ['financial', 24], ['all', 41]]) {
       await page.locator(`#screener-view-chips .view-chip[data-view="${preset}"]`).click();
       assert.equal(await page.locator('#screener-columns').inputValue(), preset);
       assert.equal(await page.locator('#screener-table thead th:visible').count(), columns);
@@ -73,18 +74,18 @@ const root = path.resolve(__dirname, '..');
     assert.equal(await page.locator('#screener-tbody tr').evaluateAll(rows => rows.every(row =>
       row.querySelectorAll('[data-fmp-reference]').length === 2
       && row.querySelectorAll('[data-catalogue-fair]').length === 0)), true);
-    // Sticky offsets: ticker 200px; name follows (exchange hidden in valuation → 200).
+    // Sticky offsets: ticker 168px; name follows (exchange hidden in valuation → 168).
     assert.equal(await page.evaluate(() =>
-      getComputedStyle(document.querySelector('#screener-table .col-fixed-1')).width), '200px');
+      getComputedStyle(document.querySelector('#screener-table .col-fixed-1')).width), '168px');
     assert.equal(await page.evaluate(() =>
-      getComputedStyle(document.querySelector('#screener-table .col-fixed-3')).left), '200px');
+      getComputedStyle(document.querySelector('#screener-table .col-fixed-3')).left), '168px');
     await page.locator('#screener-view-chips .view-chip[data-view="all"]').click();
     assert.equal(await page.evaluate(() =>
-      getComputedStyle(document.querySelector('#screener-table .col-fixed-2')).left), '200px');
+      getComputedStyle(document.querySelector('#screener-table .col-fixed-2')).left), '168px');
     assert.equal(await page.evaluate(() =>
-      getComputedStyle(document.querySelector('#screener-table .col-fixed-3')).left), '285px');
+      getComputedStyle(document.querySelector('#screener-table .col-fixed-3')).left), '240px');
     // Row click opens drawer; a post-drag click (flag set, no fresh mousedown) must not.
-    await page.locator('#screener-view-chips .view-chip[data-view="overview"]').click();
+    await page.locator('#screener-view-chips .view-chip[data-view="valuation"]').click();
     await page.locator('#screener-tbody tr').first().locator('td').nth(5).click();
     assert.equal(await page.locator('#screener-detail-drawer').isVisible(), true);
     assert.equal(await page.locator('#tv-drawer-fair').count(), 0);

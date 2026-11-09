@@ -150,23 +150,23 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
     }
     assert.ok((await page.locator('#stat-total').innerText()).includes(String(stockCount)));
     const initialTickers = await page.locator('#screener-tbody .ticker-link').allTextContents();
-    for (const [preset, count] of [['overview', 8], ['valuation', 15], ['financial', 22], ['all', 41]]) {
+    for (const [preset, count] of [['valuation', 15], ['financial', 24], ['all', 41]]) {
       await page.selectOption('#screener-columns', preset);
       assert.equal(await page.locator('#screener-table thead th:visible').count(), count);
       assert.equal(await page.locator('#screener-tbody tr').first().locator('td:visible').count(), count);
       assert.deepEqual(await page.locator('#screener-tbody .ticker-link').allTextContents(), initialTickers);
     }
-    await page.selectOption('#screener-columns', 'overview');
-    const overviewFits = await page.locator('#main-scroll-box').evaluate(box =>
-      box.scrollWidth <= box.clientWidth + 1);
-    assert.ok(overviewFits, 'Essential overview fits on a desktop without a 4,280px table');
+    await page.selectOption('#screener-columns', 'valuation');
+    const valuationBounded = await page.locator('#main-scroll-box').evaluate(box =>
+      box.scrollWidth < 2500);
+    assert.ok(valuationBounded, 'Default Valuation view stays well under the old 4,280px bloated table');
     await page.locator('#screener-table th[onclick="sortTable(\'price\')"]').click();
     const priceOrder = await page.locator('#screener-tbody .ticker-link').allTextContents();
     assert.ok(await page.evaluate(tickers => tickers.every((ticker, i) =>
       i === 0 || stockUniverse[ticker].price <= stockUniverse[tickers[i - 1]].price), priceOrder));
     await page.selectOption('#screener-columns', 'financial');
     assert.deepEqual(await page.locator('#screener-tbody .ticker-link').allTextContents(), priceOrder);
-    await page.selectOption('#screener-columns', 'overview');
+    await page.selectOption('#screener-columns', 'valuation');
     await page.locator('button[onclick="toggleFavorite(\'NVDA\', event)"]').click();
     await page.locator('#val-filters button[onclick="setValFilter(\'FAVORITES\')"]').click();
     assert.deepEqual(await page.locator('#screener-tbody .ticker-link').allTextContents(), ['NVDA']);
@@ -350,7 +350,7 @@ async function checkEarnings(page, ticker, period = 'quarterly', flow = 'ttm') {
     await page.mouse.up();
     await page.evaluate(() => SiteTheme.set('dark'));
     assert.doesNotMatch(await rowCell.evaluate(cell => getComputedStyle(cell).cursor), /data:image\/svg\+xml/);
-    await page.selectOption('#screener-columns', 'overview');
+    await page.selectOption('#screener-columns', 'valuation');
     assert.equal(await page.locator('#screener-liquidation-key').isVisible(), false);
     for (const width of [390, 768, 1440]) {
       await page.setViewportSize({ width, height: 1000 });

@@ -1036,7 +1036,18 @@
     #screener-view .stat-num { font-size: 18px; font-variant-numeric: tabular-nums; }
     #screener-view .stat-num small { font-size: 11px; font-weight: 500; margin-left: 6px; color: var(--text-muted); }
     #screener-view .filter-panel { border-radius: 0; border: 0; border-bottom: 1px solid var(--card-border); padding: 8px 0 0; gap: 0; background: transparent; box-shadow: none; }
-    .screener-chrome { position: sticky; top: 0; z-index: 25; background: color-mix(in srgb, var(--bg) 94%, transparent); backdrop-filter: blur(10px); padding-bottom: 0; margin-bottom: 0; }
+    /* Opaque sticky chrome — #screener-view .filter-panel sets background:transparent,
+       and the old color-mix + backdrop-filter frosted thead when the table scrolled under it.
+       Do NOT sticky-park #main-scroll-box: that covered #screener-more and shot the table
+       off-screen when industry filters expanded (Bugbot #102). Thead stays readable via
+       opaque chrome + thead sticky inside the table’s own overflow box. */
+    #screener-view .filter-panel.screener-chrome {
+      position: sticky; top: 0; z-index: 25;
+      background: var(--bg) !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      padding-bottom: 0; margin-bottom: 0;
+    }
     .tv-filter-bar { display: flex; flex-direction: column; gap: 8px; padding: 8px 0 10px; }
     .tv-filter-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
     .tv-filter-chip, #screener-view .f-btn.tv-filter-chip {
@@ -1186,8 +1197,8 @@
     }
     .tv-more-metrics-panel.open { display: flex; }
     .tv-more-metrics-panel .tv-metric-wrap { flex: 0 0 auto; }
-    /* Menus from “更多指標” are teleported to <body> (backdrop-filter on sticky
-       chrome creates a containing block that breaks position:fixed + overflow clips). */
+    /* Menus from “更多指標” are teleported to <body> (sticky chrome / overflow
+       ancestors otherwise break position:fixed + clip the panel). */
     .tv-metric-menu.tv-metric-menu-portaled {
       position: fixed !important; z-index: 80; margin-top: 0; min-width: 220px;
     }
@@ -1196,40 +1207,80 @@
       opacity: .85;
     }
     #tv-filter-more-metrics .tv-more-count:empty { display: none; }
-    #screener-view #screener-table { width: 100% !important; min-width: var(--screener-min-width, 1200px) !important; font-size: 13px; }
-    /* Symbol cell widened to 200px — keep sticky exchange/name left offsets in sync
-       (exchange @ ticker width; name @ ticker[+exchange] via --screener-name-left). */
-    #screener-table .col-fixed-1 { width: 200px !important; min-width: 200px !important; max-width: 220px; white-space: normal; }
-    #screener-table .col-fixed-2 { left: 200px !important; }
-    #screener-table .col-fixed-3 { left: var(--screener-name-left, 200px) !important; width: 220px !important; min-width: 220px !important; max-width: 220px; white-space: normal; }
-    #screener-table .symbol-cell { display: flex; align-items: flex-start; gap: 8px; text-align: left; }
-    #screener-table .symbol-cell .fav-btn { flex: 0 0 auto; margin-top: 2px; }
-    #screener-table .symbol-meta { min-width: 0; display: flex; flex-direction: column; gap: 1px; }
-    #screener-table .symbol-meta .ticker-link { font-weight: 700; font-size: 13px; }
-    #screener-table .symbol-meta .symbol-name { font-size: 11px; color: var(--text-muted); font-weight: 400; line-height: 1.3; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
-    #screener-table .symbol-meta .symbol-exch { font-size: 10px; color: var(--text-muted); }
-    #screener-table th { white-space: normal; line-height: 1.35; }
-    #screener-table thead th { height: 40px; padding: 4px 8px; text-align: right !important; vertical-align: middle; font-size: 11px; font-weight: 600; color: var(--text-muted); }
+    /* Dense fixed-layout screener: avoid oversized min-width stretching metric / N/A
+       columns into dark empty bands (財務與品質 / 全部欄位). Sticky Symbol stays compact. */
+    #screener-view #screener-table {
+      table-layout: fixed !important;
+      /* Exact content width — never stretch columns into dark empty bands.
+         Shorter views (Overview) leave unused pane space instead of bloating cells. */
+      width: var(--screener-min-width, 1100px) !important;
+      min-width: var(--screener-min-width, 1100px) !important;
+      max-width: var(--screener-min-width, 1100px) !important;
+      font-size: 12px;
+    }
+    /* Body cells: clip + ellipsis so nowrap text does not paint into neighbors
+       (Bugbot: sector / action / industry / 不適用 spill). Header + score badges
+       stay overflow:visible so liquidation ⓘ tooltips and full moat/PF/Z/M captions remain readable. */
+    #screener-table td {
+      padding: 3px 6px !important;
+      box-sizing: border-box;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    #screener-table thead th {
+      padding: 4px 6px !important;
+      box-sizing: border-box;
+      overflow: visible;
+    }
+    /* Symbol sticky width 168px — exchange @ 168; name @ ticker[+exchange] via --screener-name-left. */
+    #screener-table .col-fixed-1 { width: 168px !important; min-width: 168px !important; max-width: 168px !important; white-space: normal; }
+    #screener-table .col-fixed-2 { left: 168px !important; width: 72px !important; min-width: 72px !important; max-width: 72px !important; }
+    #screener-table .col-fixed-3 { left: var(--screener-name-left, 168px) !important; width: 128px !important; min-width: 128px !important; max-width: 128px !important; white-space: normal; }
+    #screener-table .symbol-cell { display: flex; align-items: flex-start; gap: 6px; text-align: left; }
+    #screener-table .symbol-cell .fav-btn { flex: 0 0 auto; margin-top: 1px; }
+    #screener-table .symbol-meta { min-width: 0; display: flex; flex-direction: column; gap: 0; }
+    #screener-table .symbol-meta .ticker-link { font-weight: 700; font-size: 12px; line-height: 1.25; }
+    #screener-table .symbol-meta .symbol-name { font-size: 10px; color: var(--text-muted); font-weight: 400; line-height: 1.25; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+    #screener-table .symbol-meta .symbol-exch { font-size: 10px; color: var(--text-muted); line-height: 1.2; }
+    /* When dedicated exchange/name columns are visible, drop duplicate lines in Symbol. */
+    #screener-table:has(th.col-fixed-2:not([hidden])) .symbol-meta .symbol-exch { display: none; }
+    #screener-table:has(th.col-fixed-3:not([hidden])) .symbol-meta .symbol-name { display: none; }
+    #screener-table th { white-space: normal; line-height: 1.25; }
+    #screener-table thead th { height: auto; min-height: 34px; padding: 4px 6px !important; text-align: right !important; vertical-align: middle; font-size: 10px; font-weight: 600; color: var(--text-muted); }
     #screener-table thead th.col-fixed-1,
     #screener-table thead th.col-fixed-2,
     #screener-table thead th.col-fixed-3,
     #screener-table thead th[onclick="sortTable('sector')"],
     #screener-table thead th[onclick="sortTable('industry')"] { text-align: left !important; }
-    #screener-table thead .screener-heading { display: grid; grid-template-rows: auto auto; gap: 1px; justify-items: end; align-items: center; }
+    /* Score / moat indicator subjects: center header + badge cells. */
+    #screener-table thead th[onclick="sortTable('moat_score')"],
+    #screener-table thead th[onclick="sortTable('f_score')"],
+    #screener-table thead th[onclick="sortTable('z_score')"],
+    #screener-table thead th[onclick="sortTable('m_score')"],
+    #screener-table td:has(.badge-moat),
+    #screener-table td:has(.badge-fscore),
+    #screener-table td:has(.badge-zscore),
+    #screener-table td:has(.badge-mscore) { text-align: center !important; }
+    #screener-table thead .screener-heading { display: grid; grid-template-rows: auto auto; gap: 0; justify-items: end; align-items: center; }
     #screener-table thead th.col-fixed-1 .screener-heading,
     #screener-table thead th.col-fixed-3 .screener-heading { justify-items: start; }
-    #screener-table .screener-heading-label { display: flex; align-items: center; justify-content: inherit; text-align: inherit; line-height: 14px; min-width: 0; font-size: 11px; }
-    #screener-table .screener-heading-unit { font-size: 10px; font-weight: 500; line-height: 12px; white-space: nowrap; color: var(--text-muted); }
-    #screener-table .screener-heading .info-circle-btn { margin: 0; width: 14px; height: 14px; }
+    #screener-table thead th[onclick="sortTable('moat_score')"] .screener-heading,
+    #screener-table thead th[onclick="sortTable('f_score')"] .screener-heading,
+    #screener-table thead th[onclick="sortTable('z_score')"] .screener-heading,
+    #screener-table thead th[onclick="sortTable('m_score')"] .screener-heading { justify-items: center; }
+    #screener-table .screener-heading-label { display: flex; align-items: center; justify-content: inherit; text-align: inherit; line-height: 13px; min-width: 0; font-size: 10px; }
+    #screener-table .screener-heading-unit { font-size: 9px; font-weight: 500; line-height: 11px; white-space: normal; color: var(--text-muted); max-width: 100%; }
+    #screener-table .screener-heading .info-circle-btn { margin: 0; width: 12px; height: 12px; }
     #screener-table :is(th, td).col-group-start { border-left: 2px solid color-mix(in srgb, var(--accent) 35%, var(--border)); }
-    #screener-table .target-kind { display: block; margin-top: 3px; font-size: 10px; font-weight: 500; color: var(--text-muted); white-space: nowrap; }
-    #screener-table .target-exit { display: block; margin-top: 2px; font-size: 10px; font-weight: 500; color: var(--text-secondary); white-space: nowrap; }
+    #screener-table .target-kind { display: block; margin-top: 1px; font-size: 9px; font-weight: 500; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    #screener-table .target-exit { display: block; margin-top: 1px; font-size: 9px; font-weight: 500; color: var(--text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     #screener-valuation-key { margin: 4px 0 0; font-size: 12px; line-height: 1.5; color: var(--text-muted); max-width: 1100px; }
     .top-stats .stat-box[title] { cursor: pointer; }
     #screener-table thead th:has(.info-circle-btn:is(:hover, :focus)) { z-index: 35; }
     #screener-table .liquidation-value { font-weight: 600; font-variant-numeric: tabular-nums; }
     #screener-table .liquidation-value.text-muted { color: var(--text-muted); }
-    #screener-table .liquidation-asof { display: block; margin-top: 3px; font-size: 10px; font-weight: 400; color: var(--text-muted); white-space: nowrap; }
+    #screener-table .liquidation-asof { display: block; margin-top: 1px; font-size: 9px; font-weight: 400; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     #screener-liquidation-method summary { cursor: pointer; color: var(--text-secondary); }
     #screener-liquidation-method p { margin: 8px 0; line-height: 1.7; }
     #screener-table tbody tr { cursor: pointer; }
@@ -1241,7 +1292,10 @@
     :root[data-theme="light"] .table-scroll-wrapper:active { cursor: var(--table-drag-cursor), grabbing !important; }
     :root[data-theme="light"] .table-scroll-wrapper:active :is(th, a, button, [onclick]) { cursor: var(--table-drag-cursor), grabbing !important; }
     :root[data-theme="light"] #screener-table tbody tr:is(:hover, :focus-within) .text-green { color: #166534; }
-    #screener-table td { height: 36px; padding-top: 4px; padding-bottom: 4px; font-variant-numeric: tabular-nums; }
+    #screener-table td { height: auto; min-height: 32px; padding-top: 3px !important; padding-bottom: 3px !important; font-variant-numeric: tabular-nums; color: var(--text); vertical-align: middle; }
+    /* Keep N/A / 不適用 FMP blocks from dominating column width. */
+    #screener-table td[data-applicable="false"],
+    #screener-table td[data-fmp-reference] { max-width: 100%; }
     /* Results/scroll hint stays in document flow — only .screener-chrome sticks at top:0
        so the hint bar is not pinned underneath the taller filter chrome. */
     #screener-view .scroll-hint-bar { position: static; z-index: auto; }
@@ -1557,8 +1611,48 @@
       #subpage-valuation .main-layout { grid-template-columns: minmax(0, 1fr); }
       #subpage-valuation .form-group { grid-template-columns: minmax(0, 1fr) 105px; }
     }
-    #screener-table .badge, #screener-table .badge-moat, #screener-table .badge-fscore,
-    #screener-table .badge-zscore, #screener-table .badge-mscore { font-size: 12px; line-height: 1.5; }
+    /* Score / moat badges: hug content (just-fit). Moat stays one line; PF/Z/M may wrap. */
+    #screener-table .badge-moat,
+    #screener-table .badge-fscore,
+    #screener-table .badge-zscore,
+    #screener-table .badge-mscore {
+      padding: 2px 6px;
+      font-size: 11px;
+      line-height: 1.3;
+      border-radius: 4px;
+      font-weight: 700;
+      white-space: normal;
+      overflow: visible;
+      text-overflow: clip;
+      max-width: 100%;
+      width: auto;
+      vertical-align: middle;
+      display: inline-block;
+      box-sizing: border-box;
+    }
+    /* Moat: prefer one line; never paint into neighbors (Bugbot #102). */
+    #screener-table .badge-moat {
+      white-space: nowrap;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    #screener-table td:has(.badge-moat) {
+      overflow: hidden !important;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      vertical-align: middle;
+      text-align: center !important;
+    }
+    #screener-table td:has(.badge-fscore),
+    #screener-table td:has(.badge-zscore),
+    #screener-table td:has(.badge-mscore) {
+      overflow: visible !important;
+      text-overflow: clip;
+      white-space: normal;
+      vertical-align: middle;
+      text-align: center !important;
+    }
     #main-scroll-box { max-height: 68vh !important; border-radius: 12px; }
     @media (max-width: 1000px) {
       #screener-view .top-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -1587,7 +1681,7 @@
       #screener-view .screener-industries .filter-title { padding-top: 0; }
       #screener-view .screener-industries .filter-btns { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       #screener-view .scroll-hint-bar { flex-wrap: wrap; padding: 8px 0; }
-      #screener-table .col-fixed-3 { position: static !important; width: 180px !important; min-width: 180px !important; }
+      #screener-table .col-fixed-3 { position: static !important; width: 120px !important; min-width: 120px !important; max-width: 140px !important; }
       #screener-table th.col-fixed-3 { position: sticky !important; left: auto !important; }
       .balance-card { padding: 12px; }
       .balance-chart { height: 300px; }
@@ -1677,18 +1771,16 @@
           <label for="screener-columns">
             <span data-i18n="screener_columns">欄位檢視</span>
             <select id="screener-columns" onchange="syncScreenerColumnChips(); applyScreenerColumns(true)">
-              <option value="overview" data-i18n="screener_overview">Overview</option>
-              <option value="valuation" data-i18n="screener_valuation">Valuation</option>
+              <option value="valuation" selected data-i18n="screener_valuation">Valuation</option>
               <option value="financial" data-i18n="screener_financial">財務與品質</option>
               <option value="all" data-i18n="screener_all_columns">全部欄位</option>
             </select>
           </label>
         </div>
       </div>
-      <!-- View tabs under filter bar (TV pattern) -->
+      <!-- View tabs under filter bar (TV pattern). Default = Valuation (Overview removed). -->
       <div class="screener-view-chips tv-view-tabs" id="screener-view-chips" role="tablist" aria-label="Column views">
-        <button type="button" role="tab" class="view-chip active" data-view="overview" onclick="setScreenerColumnView('overview')" data-i18n="screener_overview">Overview</button>
-        <button type="button" role="tab" class="view-chip" data-view="valuation" onclick="setScreenerColumnView('valuation')" data-i18n="screener_valuation">Valuation</button>
+        <button type="button" role="tab" class="view-chip active" data-view="valuation" onclick="setScreenerColumnView('valuation')" data-i18n="screener_valuation">Valuation</button>
         <button type="button" role="tab" class="view-chip" data-view="financial" onclick="setScreenerColumnView('financial')" data-i18n="screener_financial">財務與品質</button>
         <button type="button" role="tab" class="view-chip" data-view="all" onclick="setScreenerColumnView('all')" data-i18n="screener_all_columns">全部欄位</button>
       </div>
@@ -5772,14 +5864,17 @@
         : `N/A · 部分評分（${evaluated.length}/10）`)
       : 'N/A';
     const coverage = isEn ? `${evaluated.length}/10 dimensions assessed` : `已評估 ${evaluated.length}/10 個維度`;
-    let grade = isEn ? "Moderate Moat" : "Moderate Moat (中等)";
+    // Full grade for detail page; short `band` for screener one-liner (locale-matched).
+    let grade = isEn ? "Moderate Moat" : "中等護城河";
+    let band = isEn ? "Moderate" : "中等";
     let badgeClass = "moat-weak";
-    if (total >= 88) { grade = isEn ? "Wide Moat 🏆" : "Wide Moat (極寬) 🏆"; badgeClass = "moat-wide"; }
-    else if (total >= 75) { grade = isEn ? "Narrow Moat 🛡️" : "Narrow Moat (優質) 🛡️"; badgeClass = "moat-narrow"; }
-    else if (total >= 55) { grade = isEn ? "Moderate Moat ⚖️" : "Moderate Moat (中等) ⚖️"; badgeClass = "moat-weak"; }
-    else { grade = isEn ? "Weak / No Moat ⚠️" : "Weak / No Moat (微弱) ⚠️"; badgeClass = "moat-none"; }
+    if (total >= 88) { grade = isEn ? "Wide Moat 🏆" : "寬護城河 🏆"; band = isEn ? "Wide" : "寬"; badgeClass = "moat-wide"; }
+    else if (total >= 75) { grade = isEn ? "Narrow Moat 🛡️" : "窄護城河 🛡️"; band = isEn ? "Narrow" : "窄"; badgeClass = "moat-narrow"; }
+    else if (total >= 55) { grade = isEn ? "Moderate Moat ⚖️" : "中等護城河 ⚖️"; band = isEn ? "Moderate" : "中等"; badgeClass = "moat-weak"; }
+    else { grade = isEn ? "Weak / No Moat ⚠️" : "微弱／無護城河 ⚠️"; band = isEn ? "Weak" : "微弱"; badgeClass = "moat-none"; }
     if (total === null) {
       grade = evaluated.length ? (isEn ? 'Partial assessment' : '部分評分') : (isEn ? 'Unavailable' : '尚無評分');
+      band = '';
       badgeClass = '';
       const missingStatements = Array.isArray(s?.qualityWarnings)
         && s.qualityWarnings.some(row => row?.code === 'providerStatementUnavailable');
@@ -5799,6 +5894,7 @@
     }
     if (excluded) {
       grade = '';
+      band = '';
       overallComment = isEn
         ? 'Market capitalisation is below HKD 5 billion; no moat score or commentary is provided under the site screening rule.'
         : '市值低於港幣 50 億元，依網站篩選規則不提供護城河評分或評論。';
@@ -5827,7 +5923,7 @@
       sources: moatObj[dimKeys[idx]]?.sources || []
     }));
 
-    return { total, scoredTotal, scoreText, coverage, grade, badgeClass, criteria, comment: overallComment, ref, m, excluded };
+    return { total, scoredTotal, scoreText, coverage, grade, band, badgeClass, criteria, comment: overallComment, ref, m, excluded };
   }
 
   function syncScreenerScreenState(val = currentValFilter) {
@@ -6718,16 +6814,40 @@
 
   function applyScreenerColumns(resetScroll = false) {
     const mode = document.getElementById('screener-columns').value;
-    const presets = {
-      // TV-like overview: Symbol(+name in cell), Price, Mkt cap, P/E, scores first.
-      // FMP dump stays out of default; all columns remain in DOM for other views / "all".
-      overview: { width: 1100, fields: ['ticker', 'price', 'mcap', 'pe_trailing', 'moat_score', 'f_score', 'z_score', 'action'] },
-      // DCF compare (#83): FMP vendor pair, then site-saved target/premium; liquidation lives in "all".
-      valuation: { width: 1880, fields: ['ticker', 'name', 'sector', 'price', 'fmp_dcf', 'fmp_dcf_upside', 'fmp_levered', 'fmp_levered_upside', 'target_price', 'target_spread', 'action', 'moat_score', 'WACC', 'EV', 'mcap'] },
-      financial: { width: 2980, fields: ['ticker', 'name', 'price', 'mcap', 'pe_trailing', 'pe_forward', 'pb_trailing', 'div_yield', 'cont_div_growth', 'fcf_to_ev', 'fcf_to_equity', 'fcf_to_mcap', 'cash_to_assets', 'liab_to_assets', 'current_ratio', 'roe', 'roa', 'f_score', 'z_score', 'm_score', 'ev_to_ebitda', 'debt_to_ebitda', 'net_debt_to_ebitda', 'debt_to_fcf', 'net_debt_to_fcf'] },
-      all: { width: 5680, fields: null }
+    // Compact column widths (px). table-layout:fixed + summed min-width prevents
+    // sparse stretch / dark empty bands between 主板塊 and metrics / FMP 不適用 blocks.
+    const COLUMN_WIDTHS = {
+      ticker: 168, exchange: 72, name: 128, sector: 110, industry: 150, price: 84,
+      // Premium cols: wide enough for EN “Overvalued +xx.x%” (Bugbot #102); title also carries full label+%.
+      fmp_dcf: 100, fmp_dcf_upside: 148, fmp_levered: 100, fmp_levered_upside: 148,
+      target_price: 92, target_spread: 140, action: 118,
+      // Moat / PF / Z / M: just-fit; long EN captions wrap inside the cell (no excess empty band).
+      // Fits `82 pt · Moderate` one-liner; long N/A uses short screener label + title.
+      moat_score: 124,
+      WACC: 96, EV: 100, mcap: 100, liq_val_1: 92, liq_val_2: 92, liq_val_3: 92,
+      pe_trailing: 68, pe_forward: 68, pb_trailing: 68, div_yield: 76,
+      cont_div_growth: 80, fcf_to_ev: 80, fcf_to_equity: 108, fcf_to_mcap: 88,
+      cash_to_assets: 80, liab_to_assets: 80, current_ratio: 68, roe: 68, roa: 68,
+      f_score: 168, z_score: 176, m_score: 96,
+      ev_to_ebitda: 84, debt_to_ebitda: 88, net_debt_to_ebitda: 100,
+      debt_to_fcf: 80, net_debt_to_fcf: 88
     };
-    const preset = presets[mode];
+    const presets = {
+      // Default first tab: Valuation (Overview removed). FMP + site target; liquidation in "all".
+      // Keep dedicated name column here for side-by-side DCF reading (Symbol still shows ticker).
+      valuation: { fields: ['ticker', 'name', 'sector', 'price', 'fmp_dcf', 'fmp_dcf_upside', 'fmp_levered', 'fmp_levered_upside', 'target_price', 'target_spread', 'action', 'moat_score', 'WACC', 'EV', 'mcap'] },
+      // Financials & quality: name stays inside Symbol cell so metrics are not pushed off-screen
+      // behind a second sticky name column (visibility bug on 財務與品質).
+      financial: { fields: ['ticker', 'price', 'mcap', 'pe_trailing', 'pe_forward', 'pb_trailing', 'div_yield', 'cont_div_growth', 'fcf_to_ev', 'fcf_to_equity', 'fcf_to_mcap', 'cash_to_assets', 'liab_to_assets', 'current_ratio', 'roe', 'roa', 'f_score', 'z_score', 'm_score', 'ev_to_ebitda', 'debt_to_ebitda', 'net_debt_to_ebitda', 'debt_to_fcf', 'net_debt_to_fcf'] },
+      all: { fields: null }
+    };
+    // Migrate bookmarks / stale select values away from removed Overview.
+    const resolvedMode = presets[mode] ? mode : 'valuation';
+    if (resolvedMode !== mode) {
+      const select = document.getElementById('screener-columns');
+      if (select) select.value = resolvedMode;
+    }
+    const preset = presets[resolvedMode];
     if (!preset) throw new RangeError('Invalid screener column view');
     const table = document.getElementById('screener-table');
     table.querySelector('th[onclick="sortTable(\'fcf_to_equity\')"]').title = I18N_DICT[currentLang].fcf_equity_basis;
@@ -6736,24 +6856,37 @@
       if (header) header.title = I18N_DICT[currentLang].valuation_price_difference_note;
     }
     formatScreenerHeaders();
-    syncScreenerColumnChips(mode);
+    syncScreenerColumnChips(resolvedMode);
     const hideLiquidation = preset.fields !== null && !preset.fields.includes('liq_val_1');
     document.getElementById('screener-liquidation-key').hidden = hideLiquidation;
     document.getElementById('screener-liquidation-method').hidden = hideLiquidation;
     const valuationKey = document.getElementById('screener-valuation-key');
-    if (valuationKey) valuationKey.hidden = mode !== 'valuation' && mode !== 'all';
-    table.style.setProperty('--screener-min-width', `${preset.width}px`);
-    // Ticker sticky width is 200px; when exchange is visible, name starts after 200+85.
+    if (valuationKey) valuationKey.hidden = resolvedMode !== 'valuation' && resolvedMode !== 'all';
+    // Ticker sticky width is 168px; when exchange is visible, name starts after 168+72.
     const exchangeVisible = preset.fields === null || preset.fields.includes('exchange');
-    table.style.setProperty('--screener-name-left', exchangeVisible ? '285px' : '200px');
-    const hidden = [...table.tHead.rows[0].cells].map(header => {
+    table.style.setProperty('--screener-name-left', exchangeVisible ? '240px' : '168px');
+    const headers = [...table.tHead.rows[0].cells];
+    const fields = headers.map(header => {
       const sort = header.getAttribute('onclick') || header.querySelector('[onclick^="sortTable"]')?.getAttribute('onclick') || '';
-      const field = sort.match(/sortTable\('([^']+)'\)/)?.[1] || 'action';
-      return preset.fields !== null && !preset.fields.includes(field);
+      return sort.match(/sortTable\('([^']+)'\)/)?.[1] || 'action';
     });
+    const hidden = fields.map(field => preset.fields !== null && !preset.fields.includes(field));
+    let totalWidth = 0;
+    headers.forEach((header, i) => {
+      const width = COLUMN_WIDTHS[fields[i]] || 88;
+      header.style.width = `${width}px`;
+      header.style.minWidth = `${width}px`;
+      header.style.maxWidth = `${width}px`;
+      if (!hidden[i]) totalWidth += width;
+    });
+    table.style.setProperty('--screener-min-width', `${totalWidth}px`);
     for (const row of table.rows) {
       [...row.cells].forEach((cell, i) => {
         cell.hidden = hidden[i];
+        const width = COLUMN_WIDTHS[fields[i]] || 88;
+        cell.style.width = `${width}px`;
+        cell.style.minWidth = `${width}px`;
+        cell.style.maxWidth = `${width}px`;
         const groupStart = table.tHead.rows[0].cells[i]?.classList.contains('col-group-start');
         cell.classList.toggle('col-group-start', !!groupStart);
       });
@@ -6789,10 +6922,21 @@
     return source ? (currentLang === 'en' ? source.noteEn : source.noteZh) || source.reason || '' : '';
   }
 
-  function renderMarketPremium(value) {
+  function marketPremiumLabel(value) {
     const under = value < 0;
     const label = currentLang === 'zh' ? (under ? '低估' : '高估') : (under ? 'Undervalued' : 'Overvalued');
-    return `<span class="${under ? 'text-green' : 'text-red'}" style="font-weight: 700;">${label} ${under ? '' : '+'}${value.toFixed(1)}%</span>`;
+    return `${label} ${under ? '' : '+'}${value.toFixed(1)}%`;
+  }
+
+  function renderMarketPremium(value) {
+    const under = value < 0;
+    return `<span class="${under ? 'text-green' : 'text-red'}" style="font-weight: 700;">${marketPremiumLabel(value)}</span>`;
+  }
+
+  function priceDifferenceTitle(value) {
+    const note = I18N_DICT[currentLang].valuation_price_difference_note;
+    if (value === null || value === undefined || !Number.isFinite(Number(value))) return note;
+    return `${marketPremiumLabel(Number(value))} — ${note}`;
   }
 
   function savedTargetMeta(saved) {
@@ -6826,7 +6970,7 @@
 
   function renderPriceDifference(field, value, applicable = true) {
     if (!applicable) return `<td data-price-difference="${field}" data-applicable="false" class="text-muted" title="${escapeAttribute(I18N_DICT[currentLang].dcf_not_applicable_note)}">${I18N_DICT[currentLang].dcf_not_applicable}</td>`;
-    return `<td data-price-difference="${field}" data-value="${value ?? ''}" class="${value === null ? 'text-muted' : ''}" title="${escapeAttribute(I18N_DICT[currentLang].valuation_price_difference_note)}">${value === null ? 'N/A' : renderMarketPremium(value)}</td>`;
+    return `<td data-price-difference="${field}" data-value="${value ?? ''}" class="${value === null ? 'text-muted' : ''}" title="${escapeAttribute(priceDifferenceTitle(value))}">${value === null ? 'N/A' : renderMarketPremium(value)}</td>`;
   }
 
   function marketRatioNote(item, kind) {
@@ -7104,6 +7248,9 @@
 
       const targetSpreadHtml = item.isSaved && item.target_spread !== null
         ? renderMarketPremium(item.target_spread) : `<span style="color: var(--text-muted);">--</span>`;
+      const targetSpreadTitle = item.isSaved && item.target_spread !== null
+        ? priceDifferenceTitle(item.target_spread)
+        : I18N_DICT[currentLang].valuation_price_difference_note;
 
       const fScoreVal = item.f_score ?? null;
       let fScoreClass = "fscore-yellow";
@@ -7115,11 +7262,18 @@
       const favHeart = item.isFav ? '❤' : '♡';
       const favActiveClass = item.isFav ? 'active' : '';
 
-      const moatScore = item.moat?.excluded ? item.moat.scoreText : item.moat?.scoredTotal == null ? 'N/A'
-        : item.moat.total !== null ? `${item.moat.total} pt` : item.moat.scoreText;
+      // Screener moat: one line `82 pt · Narrow` / `82 pt · 窄`, locale-matched.
+      // Keep cell short so nowrap never spills; full scoreText stays in title.
       const moatBadgeCls = item.moat?.badgeClass || '';
-      const moatGradeText = item.moat?.total === null ? item.moat.grade
-        : (item.moat && item.moat.grade) ? item.moat.grade.split(' ')[0] : 'Moat';
+      const moatBand = item.moat?.band || '';
+      const moatScoreText = item.moat?.scoreText || 'N/A';
+      let moatLabel = 'N/A';
+      if (item.moat?.excluded) moatLabel = 'N/A';
+      else if (item.moat?.total != null) moatLabel = `${item.moat.total} pt${moatBand ? ` · ${moatBand}` : ''}`;
+      else if (/Partial|部分/.test(moatScoreText)) moatLabel = currentLang === 'en' ? 'N/A · Partial' : 'N/A · 部分';
+      const moatTitleParts = item.moat?.excluded
+        ? [item.moat.comment, moatScoreText]
+        : [moatScoreText, item.moat?.coverage, ratingProvenance(item, 'moat')];
       const health = financialHealthAssessment(fScoreVal, item.f_score_breakdown, item.ratingSources?.fScore, item);
       if (health.adjusted || health.financialNa) fScoreClass = '';
       const healthComment = I18N_DICT[currentLang][`fsc_health_${health.level}`];
@@ -7192,12 +7346,12 @@
             return `<td class="${start}" data-fmp-reference="${kind}" title="${escapeAttribute(`${note} ${data?.models?.[kind]?.reason || data?.currencyCheck?.reason || ''}`)}">${val === null ? 'N/A' : moneyPrefix() + val.toFixed(2)}<small class="liquidation-asof">${data?.models?.[kind]?.data?.[0]?.date || ''}</small></td>${renderPriceDifference(kind, kind === 'dcf' ? item.fmp_dcf_upside : item.fmp_levered_upside)}`;
           }).join('')}
           <td class="col-group-start">${targetPriceHtml}</td>
-          <td>${targetSpreadHtml}</td>
+          <td title="${escapeAttribute(targetSpreadTitle)}">${targetSpreadHtml}</td>
           <td style="text-align: center;">
             <button class="btn-nav" onclick="openDetail('${item.ticker}')">${currentLang === 'zh' ? '深度模型 →' : 'DCF Model →'}</button>
           </td>
           <td style="text-align: center;">
-            <span class="badge-moat ${moatBadgeCls}" title="${(item.moat?.excluded ? item.moat.comment : [item.moat?.coverage, ratingProvenance(item, 'moat')].filter(Boolean).join(' · ')).replace(/"/g, '&quot;')}" onclick="openMoat('${item.ticker}')">${moatScore}${moatGradeText ? ` · ${moatGradeText}` : ''}</span>
+            <span class="badge-moat ${moatBadgeCls}" title="${moatTitleParts.filter(Boolean).join(' · ').replace(/"/g, '&quot;')}" onclick="openMoat('${item.ticker}')">${moatLabel}</span>
           </td>
           <td>
             <div>${waccVal === null ? 'N/A' : (waccVal * 100).toFixed(2) + '%'}</div>

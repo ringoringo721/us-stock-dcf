@@ -1,6 +1,6 @@
 'use strict';
 /**
- * Static smoke for TradingView-style screener layout (DCF-76).
+ * Static smoke for TradingView-style screener layout (DCF-76 / #102).
  * Guards regressions that hide valuation columns, break pagination, or drop screen chips.
  * Does not require Playwright.
  */
@@ -11,10 +11,7 @@ const path = require('node:path');
 
 const html = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
 
-test('overview preset drops catalogue fair + premium; keeps market + score columns', () => {
-  const overview = html.match(/overview:\s*\{[^}]+\}/)?.[0] || '';
-  assert.equal(/'fairVal'/.test(overview), false);
-  assert.equal(/'premiumPct'/.test(overview), false);
+test('catalogue fair columns stay removed from screener', () => {
   assert.equal(/data-i18n="th_catalogue_fair"/.test(html), false);
   assert.equal(/data-i18n="th_catalogue_premium"/.test(html), false);
   assert.equal(/sortTable\('fairVal'\)/.test(html), false);
@@ -22,9 +19,15 @@ test('overview preset drops catalogue fair + premium; keeps market + score colum
   assert.equal(/data-catalogue-fair/.test(html), false);
   assert.equal(/data-price-difference="catalogue"/.test(html), false);
   assert.equal(/data-col-group="catalogue"/.test(html), false);
-  // Overview must not dump every FMP DCF column into the default view.
-  assert.equal(/fmp_dcf/.test(overview), false);
-  assert.equal(/fmp_levered/.test(overview), false);
+});
+
+test('Overview screener tab/preset removed; Valuation is default first tab', () => {
+  assert.equal(/data-view="overview"/.test(html), false);
+  assert.equal(/option value="overview"/.test(html), false);
+  assert.equal(/overview:\s*\{\s*fields:/.test(html), false);
+  assert.match(html, /option value="valuation" selected/);
+  assert.match(html, /class="view-chip active"[^>]*data-view="valuation"/);
+  assert.match(html, /resolvedMode = presets\[mode\] \? mode : 'valuation'/);
 });
 
 test('valuation preset keeps DCF-75 15-column FMP + site-target group', () => {
@@ -38,6 +41,54 @@ test('valuation preset keeps DCF-75 15-column FMP + site-target group', () => {
   assert.equal(/liq_val_1/.test(valuation), false);
   const fields = valuation.match(/fields:\s*\[([^\]]+)\]/)?.[1] || '';
   assert.equal(fields.split(',').map(s => s.trim().replace(/'/g, '')).filter(Boolean).length, 15);
+});
+
+test('financial preset keeps metrics in Symbol sticky; no second sticky name column', () => {
+  const financial = html.match(/financial:\s*\{[^}]+\}/)?.[0] || '';
+  const fields = financial.match(/fields:\s*\[([^\]]+)\]/)?.[1] || '';
+  const list = fields.split(',').map(s => s.trim().replace(/'/g, '')).filter(Boolean);
+  assert.equal(list.includes('name'), false);
+  assert.equal(list.includes('exchange'), false);
+  assert.equal(list[0], 'ticker');
+  assert.equal(list.length, 24);
+  assert.match(html, /table-layout:\s*fixed/);
+  assert.match(html, /COLUMN_WIDTHS/);
+});
+
+test('screener body cells clip; header + score badges stay visible', () => {
+  assert.match(html, /#screener-table td\s*\{[^}]*overflow:\s*hidden/);
+  assert.match(html, /#screener-table td\s*\{[^}]*text-overflow:\s*ellipsis/);
+  assert.match(html, /#screener-table thead th\s*\{[^}]*overflow:\s*visible/);
+  assert.match(html, /td:has\(\.badge-fscore\)[\s\S]*?overflow:\s*visible/);
+  assert.match(html, /#screener-table \.badge-moat/);
+  assert.match(html, /#screener-table \.badge-fscore/);
+  // Just-fit score columns (content-hugging, not excess-wide).
+  assert.match(html, /moat_score:\s*124/);
+  assert.match(html, /f_score:\s*168/);
+  assert.match(html, /z_score:\s*176/);
+  assert.match(html, /m_score:\s*96/);
+  assert.match(html, /sector:\s*110/);
+  assert.match(html, /action:\s*118/);
+  assert.match(html, /fmp_dcf_upside:\s*148/);
+  assert.match(html, /target_spread:\s*140/);
+  assert.match(html, /function marketPremiumLabel/);
+  assert.match(html, /function priceDifferenceTitle/);
+  assert.match(html, /band = isEn \? "Wide" : "寬"/);
+  assert.match(html, /moat\?\.band/);
+  assert.match(html, /#screener-table \.badge-moat\s*\{[^}]*white-space:\s*nowrap/);
+  assert.match(html, /#screener-table \.badge-moat\s*\{[^}]*overflow:\s*hidden/);
+  assert.match(html, /#screener-table td:has\(\.badge-moat\)\s*\{[^}]*overflow:\s*hidden/);
+});
+
+test('sticky chrome is opaque without parking the table over pagination', () => {
+  assert.match(html, /#screener-view \.filter-panel\.screener-chrome\s*\{[^}]*background:\s*var\(--bg\)/);
+  assert.match(html, /#screener-view \.filter-panel\.screener-chrome\s*\{[^}]*backdrop-filter:\s*none/);
+  assert.equal(/\.screener-chrome\s*\{[^}]*backdrop-filter:\s*blur\(/.test(html), false);
+  // Sticky-parked scroll box covered #screener-more / collapsed under expanded filters.
+  assert.equal(/#main-scroll-box\.table-scroll-wrapper\s*\{[^}]*position:\s*sticky/.test(html), false);
+  assert.equal(/--screener-chrome-height/.test(html), false);
+  assert.match(html, /id="screener-more"|screener-more/);
+  assert.match(html, /td:has\(\.badge-moat\)[\s\S]*?text-align:\s*center/);
 });
 
 test('three fair-value model under/over screens replace catalogue KPI strip', () => {
@@ -59,6 +110,7 @@ test('column view tabs coexist with select; sticky chrome + filter chips present
   assert.match(html, /id="screener-view-chips"/);
   assert.match(html, /function setScreenerColumnView/);
   assert.match(html, /\.screener-chrome\s*\{[^}]*position:\s*sticky[^}]*top:\s*0/);
+  // (selector may be #screener-view .filter-panel.screener-chrome)
   assert.match(html, /id="screener-columns"/);
   assert.match(html, /class="tv-filter-bar"/);
   assert.match(html, /id="tv-metric-filters"/);
@@ -69,28 +121,26 @@ test('column view tabs coexist with select; sticky chrome + filter chips present
   // Hint bar must not also stick at top:0 (would hide under chrome).
   assert.match(html, /#screener-view\s+\.scroll-hint-bar\s*\{[^}]*position:\s*static/);
   assert.equal(/#screener-view\s+\.scroll-hint-bar\s*\{[^}]*position:\s*sticky/.test(html), false);
-  for (const view of ['overview', 'valuation', 'financial', 'all']) {
+  for (const view of ['valuation', 'financial', 'all']) {
     assert.match(html, new RegExp(`data-view="${view}"`));
   }
 });
 
-test('overview keeps primary market columns without dropping DCF accessibility', () => {
-  const overview = html.match(/overview:\s*\{[^}]+\}/)?.[0] || '';
-  assert.match(overview, /'price'/);
-  assert.match(overview, /'mcap'/);
-  assert.match(overview, /'pe_trailing'/);
-  assert.equal(/'fairVal'/.test(overview), false);
-  assert.equal(/'premiumPct'/.test(overview), false);
+test('valuation keeps primary market columns without dropping DCF accessibility', () => {
+  const valuation = html.match(/valuation:\s*\{[^}]+\}/)?.[0] || '';
+  assert.match(valuation, /'price'/);
+  assert.match(valuation, /'mcap'/);
+  assert.match(valuation, /fmp_dcf/);
   // All FMP / site / liquidation headers remain in thead for other views.
   assert.match(html, /data-i18n="th_fmp_dcf"/);
   assert.match(html, /data-i18n="th_target"/);
   assert.match(html, /data-i18n="th_liq_1"/);
 });
 
-test('sticky name/exchange offsets follow 200px ticker width', () => {
-  assert.match(html, /#screener-table\s+\.col-fixed-1\s*\{[^}]*width:\s*200px/);
-  assert.match(html, /#screener-table\s+\.col-fixed-2\s*\{[^}]*left:\s*200px/);
-  assert.match(html, /--screener-name-left',\s*exchangeVisible\s*\?\s*'285px'\s*:\s*'200px'/);
+test('sticky name/exchange offsets follow compact 168px ticker width', () => {
+  assert.match(html, /#screener-table\s+\.col-fixed-1\s*\{[^}]*width:\s*168px/);
+  assert.match(html, /#screener-table\s+\.col-fixed-2\s*\{[^}]*left:\s*168px/);
+  assert.match(html, /--screener-name-left',\s*exchangeVisible\s*\?\s*'240px'\s*:\s*'168px'/);
   assert.equal(/--screener-name-left',\s*mode === 'all' \? '195px'/.test(html), false);
 });
 
@@ -127,9 +177,10 @@ test('browser smoke suite exists for live row counts', () => {
   const smoke = path.join(__dirname, 'tradingview_screener_layout.browser.cjs');
   assert.equal(fs.existsSync(smoke), true);
   const source = fs.readFileSync(smoke, 'utf8');
-  assert.match(source, /overview',\s*8/);
   assert.match(source, /valuation',\s*15/);
+  assert.match(source, /financial',\s*24/);
   assert.match(source, /all',\s*41/);
+  assert.equal(/overview',\s*8/.test(source), false);
   assert.match(source, /FMP_UNDER/);
   assert.match(source, /data-fmp-reference/);
   assert.match(source, /\[data-catalogue-fair\]'\)\.count\(\),\s*0/);
