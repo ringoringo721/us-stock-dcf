@@ -2,7 +2,7 @@
   "ticker": "0700.HK",
   "stock_code": "00700",
   "source": "seed",
-  "capturedAt": "2026-11-09T00:00:00Z",
+  "capturedAt": "2026-11-09T15:21:43.264Z",
   "southbound": {
     "as_of": "2026-11-06",
     "shares": 1093869194,
@@ -11,6 +11,27 @@
     "pct_chg_1d": 0,
     "pct_chg_5d": 0,
     "pct_chg_20d": 0.12,
+    "pct_chg_30d": 0.12,
+    "pct_chg_60d": 0.16,
+    "pct_chg_90d": 0.37,
+    "pct_chg_120d": 0.38,
+    "pct_chg_150d": 0.43,
+    "pct_chg_180d": null,
+    "pct_chg_270d": 0.6,
+    "pct_chg_360d": null,
+    "changes": {
+      "pct_chg_1d": 0,
+      "pct_chg_5d": 0,
+      "pct_chg_20d": 0.12,
+      "pct_chg_30d": 0.12,
+      "pct_chg_60d": 0.16,
+      "pct_chg_90d": 0.37,
+      "pct_chg_120d": 0.38,
+      "pct_chg_150d": 0.43,
+      "pct_chg_180d": null,
+      "pct_chg_270d": 0.6,
+      "pct_chg_360d": null
+    },
     "history": [
       {
         "date": "2026-11-06",
@@ -25,15 +46,459 @@
         "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
       },
       {
+        "date": "2026-11-04",
+        "shares": 1093529104,
+        "pct": 12.02,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-11-03",
+        "shares": 1093604774,
+        "pct": 12.02,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-11-02",
+        "shares": 1094147532,
+        "pct": 12.03,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
         "date": "2026-10-30",
         "shares": 1093761989,
         "pct": 12.02,
         "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
       },
       {
+        "date": "2026-10-29",
+        "shares": 1093756725,
+        "pct": 12.01,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-28",
+        "shares": 1094069804,
+        "pct": 12.03,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-27",
+        "shares": 1094524569,
+        "pct": 12.03,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-26",
+        "shares": 1091164169,
+        "pct": 11.99,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-23",
+        "shares": 1089863992,
+        "pct": 11.98,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-22",
+        "shares": 1094150524,
+        "pct": 12.02,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-21",
+        "shares": 1091355648,
+        "pct": 12,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-20",
+        "shares": 1090422748,
+        "pct": 11.98,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-17",
+        "shares": 1088385348,
+        "pct": 11.96,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-16",
+        "shares": 1088385348,
+        "pct": 11.96,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-15",
+        "shares": 1087926348,
+        "pct": 11.95,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-14",
+        "shares": 1087968548,
+        "pct": 11.96,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-13",
+        "shares": 1087923848,
+        "pct": 11.95,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-12",
+        "shares": 1088546494,
+        "pct": 11.96,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
         "date": "2026-10-09",
         "shares": 1082672910,
         "pct": 11.9,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-08",
+        "shares": 1082672910,
+        "pct": 11.9,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-07",
+        "shares": 1082672910,
+        "pct": 11.9,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-06",
+        "shares": 1082672910,
+        "pct": 11.9,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-05",
+        "shares": 1082672910,
+        "pct": 11.9,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-09-28",
+        "shares": 1081662538,
+        "pct": 11.89,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-09-21",
+        "shares": 1077854553,
+        "pct": 11.84,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-09-14",
+        "shares": 1078170076,
+        "pct": 11.84,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-09-10",
+        "shares": 1075865691,
+        "pct": 11.81,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-09-07",
+        "shares": 1079919419,
+        "pct": 11.86,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-08-31",
+        "shares": 1075352280,
+        "pct": 11.81,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-08-24",
+        "shares": 1073442906,
+        "pct": 11.78,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-08-17",
+        "shares": 1069784599,
+        "pct": 11.74,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-08-11",
+        "shares": 1055045695,
+        "pct": 11.61,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-08-10",
+        "shares": 1059627685,
+        "pct": 11.66,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-08-03",
+        "shares": 1060775763,
+        "pct": 11.65,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-07-27",
+        "shares": 1058460495,
+        "pct": 11.63,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-07-20",
+        "shares": 1072083121,
+        "pct": 11.78,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-07-13",
+        "shares": 1072311489,
+        "pct": 11.78,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-07-10",
+        "shares": 1075356456,
+        "pct": 11.82,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-07-06",
+        "shares": 1058933200,
+        "pct": 11.64,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-06-29",
+        "shares": 1055638646,
+        "pct": 11.58,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-06-22",
+        "shares": 1063485072,
+        "pct": 11.66,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-06-15",
+        "shares": 1070749567,
+        "pct": 11.74,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-06-12",
+        "shares": 1069604010,
+        "pct": 11.73,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-06-08",
+        "shares": 1057133492,
+        "pct": 11.59,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-06-01",
+        "shares": 1056075459,
+        "pct": 11.57,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-05-23",
+        "shares": 1068664940,
+        "pct": 11.71,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-05-18",
+        "shares": 1065603873,
+        "pct": 11.68,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-05-13",
+        "shares": 1066784891,
+        "pct": 11.69,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-05-11",
+        "shares": 1068471647,
+        "pct": 11.71,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-05-04",
+        "shares": 1081666762,
+        "pct": 11.85,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-04-27",
+        "shares": 1087217784,
+        "pct": 11.9,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-04-20",
+        "shares": 1089336822,
+        "pct": 11.93,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-04-13",
+        "shares": 1095227517,
+        "pct": 11.99,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-04-02",
+        "shares": 1092283383,
+        "pct": 11.96,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-03-30",
+        "shares": 1089694860,
+        "pct": 11.93,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-03-23",
+        "shares": 1085912134,
+        "pct": 11.89,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-03-16",
+        "shares": 1080367529,
+        "pct": 11.86,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-03-09",
+        "shares": 1071197057,
+        "pct": 11.75,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-03-02",
+        "shares": 1057699975,
+        "pct": 11.61,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-02-23",
+        "shares": 1057369073,
+        "pct": 11.6,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-02-16",
+        "shares": 1050438798,
+        "pct": 11.53,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-02-12",
+        "shares": 1049092103,
+        "pct": 11.51,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-02-09",
+        "shares": 1040578733,
+        "pct": 11.42,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-02-02",
+        "shares": 1021294004,
+        "pct": 11.19,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-01-26",
+        "shares": 1014262034,
+        "pct": 11.11,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-01-19",
+        "shares": 1014241082,
+        "pct": 11.11,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-01-12",
+        "shares": 1003311401,
+        "pct": 10.99,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-01-05",
+        "shares": 1001509980,
+        "pct": 10.97,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2025-12-29",
+        "shares": 1008075980,
+        "pct": 11.03,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2025-12-22",
+        "shares": 1005290429,
+        "pct": 11,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2025-12-15",
+        "shares": 1006948064,
+        "pct": 11.01,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2025-12-08",
+        "shares": 1010340694,
+        "pct": 11.03,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2025-12-01",
+        "shares": 1013801007,
+        "pct": 11.08,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2025-11-24",
+        "shares": 1011557876,
+        "pct": 11.06,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2025-11-17",
+        "shares": 1008456628,
+        "pct": 11.02,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2025-11-14",
+        "shares": 1009803513,
+        "pct": 11.04,
         "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
       }
     ]
@@ -43,123 +508,210 @@
     "as_of": "2026-10-30",
     "shares": 63564861,
     "hkd": 24383480680,
+    "name": "TENCENT",
     "pct_of_issued": 0.6985,
-    "shares_chg_wow": -8648784
+    "shares_chg_wow": null
   },
   "market_flow": {
-    "as_of": "2026-11-06",
+    "as_of": "2026-11-09",
+    "turnover_unit": "HKD_million",
     "southbound": [
       {
         "market": "SSE Southbound",
-        "date": "2026-11-06",
+        "date": "2026-11-09",
+        "tradingDay": 1,
         "stats": {
-          "Total Turnover": "55,195.89",
-          "Buy Turnover": "29,551.77",
-          "Sell Turnover": "25,644.12",
-          "Total Trade Count": "1,307,615",
-          "Buy Trade Count": "701,975",
-          "Sell Trade Count": "605,640",
-          "ETF Turnover": "1,058.21"
+          "Total Turnover": "42,498.51",
+          "Buy Turnover": "21,773.69",
+          "Sell Turnover": "20,724.82",
+          "Total Trade Count": "1,093,116",
+          "Buy Trade Count": "575,695",
+          "Sell Trade Count": "517,421",
+          "ETF Turnover": "222.48"
         },
+        "net_buy": 1048.87,
         "top": [
-          [
-            "1",
-            "00700",
-            "TENCENT",
-            "2,255,750,760",
-            "1,733,953,848",
-            "3,989,704,608"
-          ],
-          [
-            "2",
-            "01347",
-            "HUA HONG GRACE",
-            "1,502,349,500",
-            "1,068,097,322",
-            "2,570,446,822"
-          ],
-          [
-            "3",
-            "01810",
-            "XIAOMI-W",
-            "881,393,376",
-            "1,679,288,788",
-            "2,560,682,164"
-          ],
-          [
-            "4",
-            "06869",
-            "YOFC",
-            "887,172,500",
-            "1,235,703,475",
-            "2,122,875,975"
-          ],
-          [
-            "5",
-            "00981",
-            "SMIC",
-            "1,278,929,560",
-            "798,064,967",
-            "2,076,994,527"
-          ]
+          {
+            "rank": 1,
+            "stock_code": "01888",
+            "name": "KB LAMINATES",
+            "buy": "1,072,084,390",
+            "sell": "1,162,593,360",
+            "total": "2,234,677,750"
+          },
+          {
+            "rank": 2,
+            "stock_code": "00700",
+            "name": "TENCENT",
+            "buy": "771,624,080",
+            "sell": "1,245,921,701",
+            "total": "2,017,545,781"
+          },
+          {
+            "rank": 3,
+            "stock_code": "06869",
+            "name": "YOFC",
+            "buy": "914,603,725",
+            "sell": "889,513,775",
+            "total": "1,804,117,500"
+          },
+          {
+            "rank": 4,
+            "stock_code": "03690",
+            "name": "MEITUAN-W",
+            "buy": "939,376,220",
+            "sell": "297,135,447",
+            "total": "1,236,511,667"
+          },
+          {
+            "rank": 5,
+            "stock_code": "02513",
+            "name": "Z.AI",
+            "buy": "570,700,340",
+            "sell": "610,189,260",
+            "total": "1,180,889,600"
+          },
+          {
+            "rank": 6,
+            "stock_code": "03308",
+            "name": "ZJ INNOLIGHT",
+            "buy": "604,560,775",
+            "sell": "564,118,125",
+            "total": "1,168,678,900"
+          },
+          {
+            "rank": 7,
+            "stock_code": "00981",
+            "name": "SMIC",
+            "buy": "596,407,710",
+            "sell": "493,247,795",
+            "total": "1,089,655,505"
+          },
+          {
+            "rank": 8,
+            "stock_code": "00883",
+            "name": "CNOOC",
+            "buy": "592,664,880",
+            "sell": "393,074,120",
+            "total": "985,739,000"
+          },
+          {
+            "rank": 9,
+            "stock_code": "01347",
+            "name": "HUA HONG GRACE",
+            "buy": "445,092,850",
+            "sell": "519,002,650",
+            "total": "964,095,500"
+          },
+          {
+            "rank": 10,
+            "stock_code": "01810",
+            "name": "XIAOMI-W",
+            "buy": "511,385,808",
+            "sell": "335,389,704",
+            "total": "846,775,512"
+          }
         ]
       },
       {
         "market": "SZSE Southbound",
-        "date": "2026-11-06",
+        "date": "2026-11-09",
+        "tradingDay": 1,
         "stats": {
-          "Total Turnover": "31,818.70",
-          "Buy Turnover": "15,162.98",
-          "Sell Turnover": "16,655.72",
-          "Total Trade Count": "776,373",
-          "Buy Trade Count": "370,454",
-          "Sell Trade Count": "405,919",
-          "ETF Turnover": "668.20"
+          "Total Turnover": "22,384.12",
+          "Buy Turnover": "11,595.38",
+          "Sell Turnover": "10,788.74",
+          "Total Trade Count": "609,722",
+          "Buy Trade Count": "315,004",
+          "Sell Trade Count": "294,718",
+          "ETF Turnover": "370.47"
         },
+        "net_buy": 806.64,
         "top": [
-          [
-            "1",
-            "00700",
-            "TENCENT",
-            "1,170,452,220",
-            "932,092,020",
-            "2,102,544,240"
-          ],
-          [
-            "2",
-            "09988",
-            "BABA-W",
-            "871,360,050",
-            "866,683,510",
-            "1,738,043,560"
-          ],
-          [
-            "3",
-            "01810",
-            "XIAOMI-W",
-            "513,102,716",
-            "939,256,092",
-            "1,452,358,808"
-          ],
-          [
-            "4",
-            "00981",
-            "SMIC",
-            "448,370,000",
-            "917,304,575",
-            "1,365,674,575"
-          ],
-          [
-            "5",
-            "06869",
-            "YOFC",
-            "339,085,450",
-            "760,972,979",
-            "1,100,058,429"
-          ]
+          {
+            "rank": 1,
+            "stock_code": "03690",
+            "name": "MEITUAN-W",
+            "buy": "504,460,745",
+            "sell": "554,999,879",
+            "total": "1,059,460,624"
+          },
+          {
+            "rank": 2,
+            "stock_code": "09988",
+            "name": "BABA-W",
+            "buy": "457,466,470",
+            "sell": "444,847,660",
+            "total": "902,314,130"
+          },
+          {
+            "rank": 3,
+            "stock_code": "06869",
+            "name": "YOFC",
+            "buy": "383,304,175",
+            "sell": "458,362,875",
+            "total": "841,667,050"
+          },
+          {
+            "rank": 4,
+            "stock_code": "00700",
+            "name": "TENCENT",
+            "buy": "473,997,500",
+            "sell": "321,951,627",
+            "total": "795,949,127"
+          },
+          {
+            "rank": 5,
+            "stock_code": "01888",
+            "name": "KB LAMINATES",
+            "buy": "378,936,580",
+            "sell": "300,889,716",
+            "total": "679,826,296"
+          },
+          {
+            "rank": 6,
+            "stock_code": "00981",
+            "name": "SMIC",
+            "buy": "301,938,670",
+            "sell": "358,117,000",
+            "total": "660,055,670"
+          },
+          {
+            "rank": 7,
+            "stock_code": "02513",
+            "name": "Z.AI",
+            "buy": "255,046,560",
+            "sell": "326,692,240",
+            "total": "581,738,800"
+          },
+          {
+            "rank": 8,
+            "stock_code": "01810",
+            "name": "XIAOMI-W",
+            "buy": "229,304,172",
+            "sell": "306,427,084",
+            "total": "535,731,256"
+          },
+          {
+            "rank": 9,
+            "stock_code": "00941",
+            "name": "CHINA MOBILE",
+            "buy": "358,425,125",
+            "sell": "116,460,275",
+            "total": "474,885,400"
+          },
+          {
+            "rank": 10,
+            "stock_code": "09880",
+            "name": "UBTECH ROBOTICS",
+            "buy": "269,889,122",
+            "sell": "194,309,522",
+            "total": "464,198,644"
+          }
         ]
       }
-    ]
+    ],
+    "net_buy_total": 1855.51
   },
   "notes": {
     "zh": "官方日終／週更披露之轉送快照；非投資建議。南向為港股通合計（A00003+A00004），非單一基金。",

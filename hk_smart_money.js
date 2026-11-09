@@ -287,9 +287,31 @@
     }
     return {
       as_of: southbound[0]?.date || null,
+      // HKEX CSM DailyStat southbound market turnover is in HK$ million
+      // (百萬港元), not 億 and not share count. Top-10 stock legs are raw HKD.
+      turnover_unit: 'HKD_million',
       southbound,
       net_buy_total: sumNullable(southbound.map(row => row.net_buy)),
     };
+  }
+
+  /** Format CSM southbound net turnover (HK$ million) with an 億港元 gloss. */
+  function formatCsmNetTurnover(value, lang = 'zh') {
+    const n = finite(value);
+    if (n == null) return '—';
+    const signed = `${n > 0 ? '+' : ''}${n.toLocaleString('en-US', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}`;
+    const yiAbs = Math.abs(n) / 100;
+    const yiSigned = `${n > 0 ? '+' : n < 0 ? '-' : ''}${yiAbs.toLocaleString('en-US', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}`;
+    if (lang === 'en') {
+      return `${signed} HK$ million (≈ ${yiSigned} × HK$100m)`;
+    }
+    return `${signed} 百萬港元（約 ${yiSigned} 億港元）`;
   }
 
   function parseSfcShortCsv(text) {
@@ -351,6 +373,10 @@
     return round4(latest - prior);
   }
 
+  /** Short session windows (business days) + longer calendar-day horizons. */
+  const SOUTHBOUND_SHORT_BIZ_DAYS = Object.freeze([1, 5, 20]);
+  const SOUTHBOUND_LONG_CAL_DAYS = Object.freeze([30, 60, 90, 120, 150, 180, 270, 360]);
+
   /** Pick history row on the Nth prior business day vs as_of (exact date match only). */
   function historyRowBusinessDaysAgo(history, asOf, businessDays) {
     const asOfIso = normalizeIsoDate(asOf);
@@ -359,6 +385,33 @@
     const target = days[businessDays];
     if (!target) return null;
     return (history || []).find(row => normalizeIsoDate(row.date) === target) || null;
+  }
+
+  function shiftCalendarDays(iso, calendarDays) {
+    const asOfIso = normalizeIsoDate(iso);
+    if (!asOfIso || calendarDays == null) return null;
+    const cursor = new Date(`${asOfIso}T00:00:00Z`);
+    cursor.setUTCDate(cursor.getUTCDate() - Number(calendarDays));
+    return cursor.toISOString().slice(0, 10);
+  }
+
+  /**
+   * Newest history row on/before target calendar day. Null when the gap to target
+   * exceeds maxGapDays (weekend/holiday slack only — do not invent distant fills).
+   */
+  function historyRowCalendarDaysAgo(history, asOf, calendarDays, maxGapDays = 5) {
+    const asOfIso = normalizeIsoDate(asOf);
+    const target = shiftCalendarDays(asOfIso, calendarDays);
+    if (!asOfIso || !target) return null;
+    const row = (history || []).find((entry) => {
+      const date = normalizeIsoDate(entry.date);
+      return date && date <= target;
+    });
+    if (!row) return null;
+    const rowDate = normalizeIsoDate(row.date);
+    const gap = (Date.parse(`${target}T00:00:00Z`) - Date.parse(`${rowDate}T00:00:00Z`)) / 86400000;
+    if (!Number.isFinite(gap) || gap > maxGapDays) return null;
+    return row;
   }
 
   function buildSouthboundForCode(historyRows) {
@@ -372,18 +425,33 @@
       }))
       .sort((a, b) => String(b.date).localeCompare(String(a.date)));
     const latest = history[0] || null;
-    const prior1 = historyRowBusinessDaysAgo(history, latest?.date, 1);
-    const prior5 = historyRowBusinessDaysAgo(history, latest?.date, 5);
-    const prior20 = historyRowBusinessDaysAgo(history, latest?.date, 20);
+    const changes = {};
+    for (const days of SOUTHBOUND_SHORT_BIZ_DAYS) {
+      const prior = historyRowBusinessDaysAgo(history, latest?.date, days);
+      changes[`pct_chg_${days}d`] = pctChange(latest?.pct, prior?.pct);
+    }
+    for (const days of SOUTHBOUND_LONG_CAL_DAYS) {
+      const prior = historyRowCalendarDaysAgo(history, latest?.date, days);
+      changes[`pct_chg_${days}d`] = pctChange(latest?.pct, prior?.pct);
+    }
     return {
       as_of: latest?.date || null,
       shares: latest?.shares ?? null,
       pct: latest?.pct ?? null,
       name: latest?.name || null,
-      // Honest nulls when the exact prior business-day snapshot is missing.
-      pct_chg_1d: pctChange(latest?.pct, prior1?.pct),
-      pct_chg_5d: pctChange(latest?.pct, prior5?.pct),
-      pct_chg_20d: pctChange(latest?.pct, prior20?.pct),
+      // Honest nulls when the matching prior snapshot is missing.
+      pct_chg_1d: changes.pct_chg_1d ?? null,
+      pct_chg_5d: changes.pct_chg_5d ?? null,
+      pct_chg_20d: changes.pct_chg_20d ?? null,
+      pct_chg_30d: changes.pct_chg_30d ?? null,
+      pct_chg_60d: changes.pct_chg_60d ?? null,
+      pct_chg_90d: changes.pct_chg_90d ?? null,
+      pct_chg_120d: changes.pct_chg_120d ?? null,
+      pct_chg_150d: changes.pct_chg_150d ?? null,
+      pct_chg_180d: changes.pct_chg_180d ?? null,
+      pct_chg_270d: changes.pct_chg_270d ?? null,
+      pct_chg_360d: changes.pct_chg_360d ?? null,
+      changes,
       history,
     };
   }
@@ -538,7 +606,11 @@
     deriveDiAction,
     normalizeDiEvent,
     normalizeDiEvents,
+    SOUTHBOUND_SHORT_BIZ_DAYS,
+    SOUTHBOUND_LONG_CAL_DAYS,
+    shiftCalendarDays,
     historyRowBusinessDaysAgo,
+    historyRowCalendarDaysAgo,
     buildSouthboundForCode,
     buildShortForCode,
     diActionLabel,
@@ -547,6 +619,7 @@
     formatDeltaPct,
     formatShares,
     formatHkd,
+    formatCsmNetTurnover,
     emptyPayload,
     loadStockCache,
     loadStockLive,

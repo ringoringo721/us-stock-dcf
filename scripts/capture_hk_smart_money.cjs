@@ -101,11 +101,26 @@ async function main() {
     }
   }
 
-  // Exact as_of + 1 / 5 / 20 prior business days (not sparse history indexes).
-  const sbDates = [...new Set([0, 1, 5, 20].map((offset) => {
-    const list = HkSmartMoney.businessDaysBack(offset + 1);
-    return list[offset];
-  }).filter(Boolean))];
+  // Southbound history ≤ ~1y (HKEXnews retention): dense recent sessions for
+  // short Δ windows, long calendar horizons, plus weekly samples for the curve.
+  const asOfList = HkSmartMoney.businessDaysBack(1);
+  const asOf = asOfList[0];
+  const sbDateSet = new Set();
+  // Dense ~1 month so 1D/5D/20D still resolve when the latest session is empty.
+  for (const day of HkSmartMoney.businessDaysBack(25, asOf)) sbDateSet.add(day);
+  for (const days of HkSmartMoney.SOUTHBOUND_LONG_CAL_DAYS) {
+    const target = HkSmartMoney.shiftCalendarDays(asOf, days);
+    if (!target) continue;
+    // Snap to business day on/before target so mutualmarket has a session.
+    const snapped = HkSmartMoney.businessDaysBack(1, target)[0];
+    if (snapped) sbDateSet.add(snapped);
+  }
+  // Weekly samples across ~52 weeks (~260 biz days).
+  const yearBiz = HkSmartMoney.businessDaysBack(260, asOf);
+  for (let i = 0; i < yearBiz.length; i += 5) sbDateSet.add(yearBiz[i]);
+
+  const sbDates = [...sbDateSet].sort((a, b) => String(b).localeCompare(String(a)));
+  process.stdout.write(`SB dates planned: ${sbDates.length}\n`);
   const sbHistory = {};
   for (const day of sbDates) {
     try {
@@ -115,7 +130,7 @@ async function main() {
     } catch (error) {
       process.stderr.write(`SB fail ${day}: ${error.message}\n`);
     }
-    await sleep(200);
+    await sleep(180);
   }
 
   const sfcPage = await fetchText(HkSmartMoney.SFC_SHORTS_PAGE);

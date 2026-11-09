@@ -118,6 +118,21 @@ test('southbound deltas use exact prior business days, else null', () => {
   assert.equal(sparse.pct_chg_20d, null);
 });
 
+test('southbound long horizons use calendar lookback with honest nulls', () => {
+  assert.deepEqual([...HkSmartMoney.SOUTHBOUND_LONG_CAL_DAYS], [30, 60, 90, 120, 150, 180, 270, 360]);
+  const built = HkSmartMoney.buildSouthboundForCode([
+    { date: '2026-11-06', pct: 40.0, shares: 1 },
+    { date: '2026-10-07', pct: 39.0, shares: 1 }, // ~30 calendar days prior
+    { date: '2026-08-07', pct: 38.0, shares: 1 }, // ~91 calendar days
+    { date: '2025-11-07', pct: 35.0, shares: 1 }, // ~364 calendar days
+  ]);
+  assert.equal(built.pct_chg_30d, 1);
+  assert.equal(built.pct_chg_90d, 2);
+  assert.equal(built.pct_chg_360d, 5);
+  assert.equal(built.pct_chg_60d, null); // no row near 60d target
+  assert.equal(built.pct_chg_120d, null);
+});
+
 test('parseSfcShortCsv and buildShortForCode', () => {
   const csv = `Date,Stock Code,Stock Name,Aggregated Reportable Short Positions (Shares),Aggregated Reportable Short Positions (HK$)
 30/10/2026,1398,ICBC,1269281039,10020973803`;
@@ -156,6 +171,15 @@ test('parseCsmDailyJs extracts southbound net buy', () => {
   assert.equal(parsed.southbound.length, 1);
   assert.equal(parsed.southbound[0].net_buy, 2);
   assert.equal(parsed.southbound[0].top[0].stock_code, '00700');
+  assert.equal(parsed.turnover_unit, 'HKD_million');
+});
+
+test('formatCsmNetTurnover labels HK$ million with 億 gloss (not 億 CNY raw)', () => {
+  assert.match(HkSmartMoney.formatCsmNetTurnover(2414.91, 'zh'), /2,414\.91 百萬港元/);
+  assert.match(HkSmartMoney.formatCsmNetTurnover(2414.91, 'zh'), /約 \+24\.15 億港元/);
+  assert.match(HkSmartMoney.formatCsmNetTurnover(2414.91, 'en'), /HK\$ million/);
+  assert.match(HkSmartMoney.formatCsmNetTurnover(2414.91, 'en'), /≈ \+24\.15/);
+  assert.equal(HkSmartMoney.formatCsmNetTurnover(null, 'zh'), '—');
 });
 
 test('committed HK seeds cover 1398.HK and a Connect name with DI', () => {
@@ -164,8 +188,10 @@ test('committed HK seeds cover 1398.HK and a Connect name with DI', () => {
   assert.equal(seed1398.ticker, '1398.HK');
   assert.ok(seed1398.southbound?.pct > 0);
   assert.ok(seed1398.short?.shares > 0);
-  assert.equal(seed1398.southbound.history[1]?.date, '2026-11-05');
-  assert.notEqual(seed1398.southbound.pct_chg_1d, null);
+  assert.ok((seed1398.southbound.history || []).length >= 20,
+    'seed should retain ~1y weekly+horizon southbound points');
+  assert.ok('pct_chg_30d' in seed1398.southbound);
+  assert.ok('pct_chg_360d' in seed1398.southbound);
 
   const seed0700 = JSON.parse(fs.readFileSync(
     path.join(__dirname, '..', 'cache', 'hk-smart-money', '0700.HK.json'), 'utf8'));

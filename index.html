@@ -2740,9 +2740,10 @@
           <p id="smart-money-hk-status" class="analysis-note" role="status"></p>
           <div id="smart-money-hk-flow" class="analysis-note" role="status" aria-live="polite"></div>
           <div id="smart-money-hk-kpi-grid" class="tv-kpi-grid" aria-live="polite"></div>
+          <p id="smart-money-hk-di-kpi-note" class="analysis-note" role="note" data-i18n="analysis_smart_money_hk_di_kpi_note">DI（KPI）＝Disclosure of Interests／權益披露：港交所法定申報之主要股東（通常 ≥5%）與董事／行政總裁買賣事件數；不是美股 13F。</p>
 
-          <div class="panel-title" style="font-size:15px;margin-top:10px;" data-i18n="sec_smart_money_hk_di">近期權益披露（DI）</div>
-          <p class="analysis-note" data-i18n="analysis_smart_money_hk_di_note">主要股東（≥5%）與董事／行政總裁買賣申報時間線。門檻以下機構不會出現。</p>
+          <div class="panel-title" style="font-size:15px;margin-top:10px;" data-i18n="sec_smart_money_hk_di">近期權益披露（DI／Disclosure of Interests）</div>
+          <p class="analysis-note" data-i18n="analysis_smart_money_hk_di_note">DI＝Disclosure of Interests／權益披露：HKEX／HKEXnews 法定申報。涵蓋主要股東（通常 ≥5% 及其後整％點）與董事／行政總裁買賣；門檻以下機構不會出現。這不是美股 13F。</p>
           <div class="table-scroll-wrapper company-analysis-scroll" style="margin-bottom: 18px;">
             <table id="cmp-smart-money-hk-di" class="historical-ratio-table company-analysis-table">
               <thead><tr id="cmp-smart-money-hk-di-thead"></tr></thead>
@@ -2751,8 +2752,17 @@
           </div>
 
           <div class="panel-title" style="font-size:15px;" data-i18n="sec_smart_money_hk_sb">南向持股（港股通合計）</div>
-          <p class="analysis-note" data-i18n="analysis_smart_money_hk_sb_note">中國結算於 CCASS 之 A00003＋A00004 合計佔已發行％與日變動。</p>
-          <div class="table-scroll-wrapper company-analysis-scroll" style="margin-bottom: 18px;">
+          <p class="analysis-note" data-i18n="analysis_smart_money_hk_sb_note">中國結算於 CCASS 之 A00003＋A00004 合計佔已發行％與日／多日變動；歷史約一年（官方網上保留窗口）。缺日為 —，不補造。</p>
+          <div id="smart-money-hk-sb-delta" class="table-scroll-wrapper company-analysis-scroll" style="margin-bottom: 14px;">
+            <table id="cmp-smart-money-hk-sb-delta" class="historical-ratio-table company-analysis-table">
+              <thead><tr id="cmp-smart-money-hk-sb-delta-thead"></tr></thead>
+              <tbody id="cmp-smart-money-hk-sb-delta-tbody"></tbody>
+            </table>
+          </div>
+          <div style="margin: 8px 0 16px;">
+            <canvas id="smart-money-hk-sb-chart" height="120" aria-label="Southbound shareholding %"></canvas>
+          </div>
+          <div class="table-scroll-wrapper company-analysis-scroll" style="margin-bottom: 18px; max-height: 360px; overflow: auto;">
             <table id="cmp-smart-money-hk-sb" class="historical-ratio-table company-analysis-table">
               <thead><tr id="cmp-smart-money-hk-sb-thead"></tr></thead>
               <tbody id="cmp-smart-money-hk-sb-tbody"></tbody>
@@ -2760,7 +2770,7 @@
           </div>
 
           <div class="panel-title" style="font-size:15px;" data-i18n="sec_smart_money_hk_short">SFC 合計須申報淡倉</div>
-          <p class="analysis-note" data-i18n="analysis_smart_money_hk_short_note">週更匿名合計；作壓力訊號，不揭示持倉人身份。</p>
+          <p class="analysis-note" data-i18n="analysis_smart_money_hk_short_note">淡倉佔比％＝SFC 合計「須申報淡倉」股數 ÷ 已發行股數 × 100。來源為證監會官方週更 CSV 的匿名市場合計；只作軋空／壓力訊號，不是「誰在淡倉」。</p>
           <div id="smart-money-hk-short" class="analysis-note" role="status"></div>
         </div>
       </div>
@@ -3732,12 +3742,16 @@
       analysis_smart_money_hk_note: "港股智資以權益披露（DI）事件、港股通南向持股％與市場級南向流為主；另附 SFC 週更合計淡倉作壓力訊號。這<strong>不是</strong>美股 13F／基金管理人持倉書。",
       analysis_smart_money_hk_lag: "資料轉送自 HKEX DI 每日摘要、HKEXnews 南向持股、HKEX CSM 統計與 SFC 淡倉 CSV；可能有延遲。南向為通道合計（非單一基金）。非投資建議。",
       analysis_smart_money_hk_funds_na: "港股無對等公開基金管理人持倉書；管理人目錄僅適用美股 13F。",
-      sec_smart_money_hk_di: "近期權益披露（DI）",
-      analysis_smart_money_hk_di_note: "主要股東（≥5%）與董事／行政總裁買賣申報時間線。門檻以下機構不會出現。",
+      sec_smart_money_hk_di: "近期權益披露（DI／Disclosure of Interests）",
+      analysis_smart_money_hk_di_kpi_note: "DI（KPI）＝Disclosure of Interests／權益披露：港交所法定申報之主要股東（通常 ≥5%）與董事／行政總裁買賣事件數；不是美股 13F。",
+      analysis_smart_money_hk_di_note: "DI＝Disclosure of Interests／權益披露：HKEX／HKEXnews 法定申報。涵蓋主要股東（通常 ≥5% 及其後整％點）與董事／行政總裁買賣；門檻以下機構不會出現。這不是美股 13F。",
       sec_smart_money_hk_sb: "南向持股（港股通合計）",
-      analysis_smart_money_hk_sb_note: "中國結算於 CCASS 之 A00003＋A00004 合計佔已發行％與日變動。",
+      analysis_smart_money_hk_sb_note: "中國結算於 CCASS 之 A00003＋A00004 合計佔已發行％與日／多日變動；歷史約一年（官方網上保留窗口）。缺日為 —，不補造。",
+      sec_smart_money_hk_sb_delta: "南向持股變動視窗",
+      th_sm_hk_sb_window: "視窗",
+      th_sm_hk_sb_delta: "Δ 佔比",
       sec_smart_money_hk_short: "SFC 合計須申報淡倉",
-      analysis_smart_money_hk_short_note: "週更匿名合計；作壓力訊號，不揭示持倉人身份。",
+      analysis_smart_money_hk_short_note: "淡倉佔比％＝SFC 合計「須申報淡倉」股數 ÷ 已發行股數 × 100。來源為證監會官方週更 CSV 的匿名市場合計；只作軋空／壓力訊號，不是「誰在淡倉」。",
       th_sm_hk_date: "事件日",
       th_sm_hk_filer: "披露人",
       th_sm_hk_role: "身份",
@@ -4387,12 +4401,16 @@
       analysis_smart_money_hk_note: "HK Smart Money centres on DI disclosure events, Stock Connect southbound ownership %, and market-level southbound flow, plus SFC weekly aggregate shorts as a pressure signal. This is <strong>not</strong> a US 13F / fund-manager book.",
       analysis_smart_money_hk_lag: "Polite relay of HKEX DI daily summaries, HKEXnews southbound shareholding, HKEX CSM stats, and SFC short CSV; lag possible. Southbound is channel aggregate (not a single fund). Not investment advice.",
       analysis_smart_money_hk_funds_na: "HK has no equivalent public fund-manager holdings book; the managers directory is US 13F only.",
-      sec_smart_money_hk_di: "Recent DI disclosures",
-      analysis_smart_money_hk_di_note: "Timeline of substantial shareholders (≥5%) and director / CEO dealings. Institutions below the threshold stay invisible.",
+      sec_smart_money_hk_di: "Recent DI disclosures (Disclosure of Interests)",
+      analysis_smart_money_hk_di_kpi_note: "DI (KPI) = Disclosure of Interests: count of HKEX statutory filings for substantial shareholders (typically ≥5%) and director/CEO dealings — not US 13F.",
+      analysis_smart_money_hk_di_note: "DI = Disclosure of Interests: HKEX/HKEXnews statutory filings for substantial shareholders (typically ≥5% and whole-percentage steps) and director/CEO dealings. Holders below the threshold stay invisible. Not US 13F.",
       sec_smart_money_hk_sb: "Southbound shareholding (Stock Connect aggregate)",
-      analysis_smart_money_hk_sb_note: "China Clearing A00003 + A00004 combined % of issued shares and daily change.",
+      analysis_smart_money_hk_sb_note: "China Clearing A00003 + A00004 combined % of issued shares and multi-horizon changes; history up to ~1 year (official online retention). Missing horizons stay —; nothing is invented.",
+      sec_smart_money_hk_sb_delta: "Southbound % change windows",
+      th_sm_hk_sb_window: "Window",
+      th_sm_hk_sb_delta: "Δ pp",
       sec_smart_money_hk_short: "SFC aggregated reportable shorts",
-      analysis_smart_money_hk_short_note: "Weekly anonymous aggregate — a pressure signal, not named holders.",
+      analysis_smart_money_hk_short_note: "Short % issued = SFC aggregated reportable short positions ÷ issued shares × 100. From the official weekly CSV — anonymous market aggregate. A squeeze/pressure signal, not “who shorted”.",
       th_sm_hk_date: "Event date",
       th_sm_hk_filer: "Filer",
       th_sm_hk_role: "Role",
@@ -9491,6 +9509,9 @@
     const diBody = document.getElementById('cmp-smart-money-hk-di-tbody');
     const sbHead = document.getElementById('cmp-smart-money-hk-sb-thead');
     const sbBody = document.getElementById('cmp-smart-money-hk-sb-tbody');
+    const sbDeltaHead = document.getElementById('cmp-smart-money-hk-sb-delta-thead');
+    const sbDeltaBody = document.getElementById('cmp-smart-money-hk-sb-delta-tbody');
+    const sbChart = document.getElementById('smart-money-hk-sb-chart');
     const shortEl = document.getElementById('smart-money-hk-short');
     const HK = typeof HkSmartMoney !== 'undefined' ? HkSmartMoney : null;
     if (!status || !diBody || !sbBody || !HK) {
@@ -9510,6 +9531,10 @@
       sbHead.innerHTML = `<th class="table-sticky-col">${dict.th_sm_hk_sb_date}</th>`
         + `<th>${dict.th_sm_hk_sb_shares}</th><th>${dict.th_sm_hk_sb_pct}</th>`;
     }
+    if (sbDeltaHead) {
+      sbDeltaHead.innerHTML = `<th class="table-sticky-col">${dict.th_sm_hk_sb_window || (isEn ? 'Window' : '視窗')}</th>`
+        + `<th>${dict.th_sm_hk_sb_delta || (isEn ? 'Δ pp' : 'Δ 佔比')}</th>`;
+    }
     status.className = 'analysis-note';
     status.textContent = isEn ? 'Loading HK Smart Money…' : '載入港股智資動態中…';
     if (flowEl) flowEl.textContent = '';
@@ -9517,6 +9542,11 @@
     if (shortEl) shortEl.textContent = '';
     diBody.innerHTML = '';
     sbBody.innerHTML = '';
+    if (sbDeltaBody) sbDeltaBody.innerHTML = '';
+    if (window._hkSbChart) {
+      try { window._hkSbChart.destroy(); } catch { /* ignore */ }
+      window._hkSbChart = null;
+    }
 
     HK.loadStock(ticker).then((result) => {
       if (activeCompanyTicker !== ticker) return;
@@ -9530,18 +9560,48 @@
           : escapeAttribute(String(result.source || ''));
 
       if (kpiGrid) {
+        const diTip = isEn
+          ? 'DI = Disclosure of Interests: HKEX/HKEXnews statutory filings for substantial shareholders (typically ≥5%) and director/CEO dealings. Not US 13F.'
+          : 'DI＝權益披露（Disclosure of Interests）：HKEX／HKEXnews 法定申報，涵蓋主要股東（通常 ≥5%）與董事／行政總裁買賣。不是美股 13F。';
+        const shortTip = isEn
+          ? 'SFC aggregated reportable short positions ÷ issued shares × 100. Weekly official CSV; anonymous market aggregate — pressure signal, not who shorted.'
+          : 'SFC 合計須申報淡倉股數 ÷ 已發行股數 × 100。官方週更 CSV；匿名市場合計——壓力訊號，不是「誰在淡倉」。';
         const cards = [
-          [isEn ? 'Southbound %' : '南向持股％', HK.formatPct(sb.pct)],
-          [isEn ? 'Δ 1D' : '1日 Δ', HK.formatDeltaPct(sb.pct_chg_1d)],
-          [isEn ? 'Δ 5D' : '5日 Δ', HK.formatDeltaPct(sb.pct_chg_5d)],
-          [isEn ? 'Δ 20D' : '20日 Δ', HK.formatDeltaPct(sb.pct_chg_20d)],
-          [isEn ? 'DI events' : 'DI 事件', events.length],
-          [isEn ? 'Short % issued' : '淡倉佔比％', HK.formatPct(short?.pct_of_issued)],
+          [isEn ? 'Southbound %' : '南向持股％', HK.formatPct(sb.pct), null],
+          [isEn ? 'Δ 1D' : '1日 Δ', HK.formatDeltaPct(sb.pct_chg_1d), null],
+          [isEn ? 'Δ 5D' : '5日 Δ', HK.formatDeltaPct(sb.pct_chg_5d), null],
+          [isEn ? 'Δ 20D' : '20日 Δ', HK.formatDeltaPct(sb.pct_chg_20d), null],
+          [isEn ? 'Δ 90D' : '90日 Δ', HK.formatDeltaPct(sb.pct_chg_90d), null],
+          [isEn ? 'Δ 180D' : '180日 Δ', HK.formatDeltaPct(sb.pct_chg_180d), null],
+          [isEn ? 'Δ 360D' : '360日 Δ', HK.formatDeltaPct(sb.pct_chg_360d), null],
+          [isEn ? 'DI events' : 'DI 事件（權益披露）', events.length, diTip],
+          [isEn ? 'Short % issued' : '淡倉佔比％', HK.formatPct(short?.pct_of_issued), shortTip],
+          [isEn ? 'History pts' : '歷史點數', (sb.history || []).length, null],
         ];
-        kpiGrid.innerHTML = cards.map(([label, value]) => `<div class="tv-kpi-card">
-          <div class="tv-kpi-label">${escapeAttribute(label)}</div>
+        kpiGrid.innerHTML = cards.map(([label, value, tip]) => `<div class="tv-kpi-card"${tip ? ` title="${escapeAttribute(tip)}"` : ''}>
+          <div class="tv-kpi-label">${escapeAttribute(label)}${tip ? ' ⓘ' : ''}</div>
           <div class="tv-kpi-value">${escapeAttribute(String(value ?? '—'))}</div>
         </div>`).join('');
+      }
+
+      if (sbDeltaBody) {
+        const windows = [
+          ...((HK.SOUTHBOUND_SHORT_BIZ_DAYS || [1, 5, 20]).map(d => ({
+            key: `pct_chg_${d}d`,
+            label: isEn ? `${d}D (sessions)` : `${d}日（交易日）`,
+          }))),
+          ...((HK.SOUTHBOUND_LONG_CAL_DAYS || [30, 60, 90, 120, 150, 180, 270, 360]).map(d => ({
+            key: `pct_chg_${d}d`,
+            label: isEn ? `${d}D` : `${d}日`,
+          }))),
+        ];
+        sbDeltaBody.innerHTML = windows.map((win) => {
+          const value = sb[win.key] != null ? sb[win.key] : sb.changes?.[win.key];
+          return `<tr>
+            <td class="table-sticky-col">${escapeAttribute(win.label)}</td>
+            <td>${escapeAttribute(HK.formatDeltaPct(value))}</td>
+          </tr>`;
+        }).join('');
       }
 
       if (flowEl) {
@@ -9551,14 +9611,16 @@
             ? 'Market southbound flow: no rows for the latest session (holiday / unavailable).'
             : '南向市場資金流：最近交易日無資料（假期或暫缺）。';
         } else {
+          const fmtNet = (value) => (HK.formatCsmNetTurnover
+            ? HK.formatCsmNetTurnover(value, isEn ? 'en' : 'zh')
+            : '—');
           const bits = legs.map((leg) => {
             const buy = HK.finite(leg.stats?.['Buy Turnover']);
             const sell = HK.finite(leg.stats?.['Sell Turnover']);
             const net = leg.net_buy != null ? leg.net_buy
               : (buy != null && sell != null ? buy - sell : null);
-            const netLabel = net == null ? '—' : `${net > 0 ? '+' : ''}${Number(net).toFixed(2)}`;
             return `${escapeAttribute(leg.market)} ${isEn ? 'net' : '淨'}`
-              + ` ${escapeAttribute(netLabel)} ${isEn ? '(CNY 100m)' : '（億元人民幣）'}`;
+              + ` ${escapeAttribute(fmtNet(net))}`;
           });
           const total = flow.net_buy_total != null
             ? flow.net_buy_total
@@ -9571,12 +9633,12 @@
           flowEl.innerHTML = `<strong>${isEn ? 'Southbound market flow' : '南向市場資金流'}</strong>`
             + ` · ${escapeAttribute(flow.as_of || '—')}`
             + (total != null
-              ? ` · ${isEn ? 'combined net' : '合計淨'} ${escapeAttribute(`${total > 0 ? '+' : ''}${Number(total).toFixed(2)}`)}`
+              ? ` · ${isEn ? 'combined net' : '合計淨'} ${escapeAttribute(fmtNet(total))}`
               : '')
             + `<br>${bits.join(' · ')}`
             + `<br><span class="text-muted">${isEn
-              ? 'Market-level context only — not per-fund inflow into this stock.'
-              : '僅市場級情境，並非「某基金淨流入此股」。'}</span>`;
+              ? 'Market-level southbound net turnover (Buy − Sell, SSE+SZSE combined) from HKEX CSM DailyStat in HK$ million — not share count and not per-stock inflow.'
+              : '市場級南向淨成交額（買入成交 − 賣出成交，滬＋深合計），取自 HKEX CSM DailyStat，單位為百萬港元——不是股數，亦非個股淨流入。'}</span>`;
         }
       }
 
@@ -9597,6 +9659,49 @@
           <td>${escapeAttribute(HK.formatShares(row.shares))}</td>
           <td>${escapeAttribute(HK.formatPct(row.pct))}</td>
         </tr>`).join('');
+
+        if (sbChart && typeof Chart !== 'undefined' && rows.length >= 2) {
+          const chron = [...rows].reverse();
+          window._hkSbChart = new Chart(sbChart.getContext('2d'), {
+            type: 'line',
+            data: {
+              labels: chron.map(row => row.date),
+              datasets: [{
+                label: isEn ? 'Southbound %' : '南向持股％',
+                data: chron.map(row => row.pct),
+                borderColor: 'rgba(56, 189, 248, 0.95)',
+                backgroundColor: 'rgba(56, 189, 248, 0.12)',
+                fill: true,
+                tension: 0.2,
+                pointRadius: chron.length > 80 ? 0 : 2,
+              }],
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: { legend: { display: false } },
+              scales: {
+                x: {
+                  ticks: {
+                    maxTicksLimit: 8,
+                    color: '#9ca3af',
+                    callback(value, index, ticks) {
+                      const label = this.getLabelForValue
+                        ? this.getLabelForValue(value)
+                        : chron[index]?.date;
+                      return String(label || '').slice(0, 10);
+                    },
+                  },
+                  grid: { color: 'rgba(255,255,255,0.06)' },
+                },
+                y: {
+                  ticks: { color: '#9ca3af', callback: (v) => `${v}%` },
+                  grid: { color: 'rgba(255,255,255,0.06)' },
+                },
+              },
+            },
+          });
+        }
       }
 
       if (shortEl) {
