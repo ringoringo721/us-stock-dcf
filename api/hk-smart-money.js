@@ -18,43 +18,51 @@ const SHORT_TTL_MS = 6 * 60 * 60 * 1000;
 const DI_TTL_MS = 3 * 60 * 60 * 1000;
 const DI_LIVE_LOOKBACK = 3;
 
-function readSeed(symbol) {
-  const ticker = HkSmartMoney.tickerFromCode(symbol) || String(symbol || '').toUpperCase();
+/** Only `NNNN.HK.json` under seed roots — reject `../` / absolute / odd symbols. */
+function seedSafeBasename(symbol) {
   const code = HkSmartMoney.codeFromTicker(symbol);
-  const names = [...new Set([
-    ticker,
-    code ? HkSmartMoney.tickerFromCode(code) : null,
-    String(symbol || '').toUpperCase(),
-  ].filter(Boolean))];
+  // Internal codes are 1–5 digits (HKEX often 5 with leading zeros); filenames use 4-digit tickers.
+  if (!code || !/^\d{1,5}$/.test(code)) return null;
+  const ticker = HkSmartMoney.tickerFromCode(code);
+  if (!ticker || !/^\d{4}\.HK$/i.test(ticker) || /[\\/]/.test(ticker)) return null;
+  return `${ticker}.json`;
+}
+
+function readSeed(symbol) {
+  const basename = seedSafeBasename(symbol);
+  if (!basename) return null;
   const roots = [
     path.join(__dirname, '..', 'cache', 'hk-smart-money'),
     path.join(process.cwd(), 'cache', 'hk-smart-money'),
     path.join(process.cwd(), 'public', 'cache', 'hk-smart-money'),
   ];
-  for (const name of names) {
-    for (const root of roots) {
-      const file = path.join(root, `${name}.json`);
-      try {
-        if (!fs.existsSync(file)) continue;
-        const body = JSON.parse(fs.readFileSync(file, 'utf8'));
-        if (body && typeof body === 'object') {
-          return {
-            ...body,
-            source: body.source || 'seed',
-            ticker: body.ticker || name,
-            di_events: HkSmartMoney.normalizeDiEvents(body.di_events || []),
-            southbound: body.southbound
-              ? HkSmartMoney.buildSouthboundForCode(body.southbound.history || [{
-                date: body.southbound.as_of,
-                shares: body.southbound.shares,
-                pct: body.southbound.pct,
-                name: body.southbound.name,
-              }])
-              : body.southbound,
-          };
-        }
-      } catch { /* ignore corrupt seed */ }
-    }
+  for (const root of roots) {
+    const rootResolved = path.resolve(root);
+    const file = path.resolve(rootResolved, basename);
+    if (file !== path.join(rootResolved, basename)) continue; // path escape
+    try {
+      if (!fs.existsSync(file)) continue;
+      const body = JSON.parse(fs.readFileSync(file, 'utf8'));
+      if (body && typeof body === 'object') {
+        return {
+          ...body,
+          source: body.source || 'seed',
+          ticker: body.ticker || basename.replace(/\.json$/i, ''),
+          di_events: HkSmartMoney.normalizeDiEvents(body.di_events || []),
+          southbound: body.southbound
+            ? HkSmartMoney.buildSouthboundForCode(body.southbound.history || [{
+              date: body.southbound.as_of,
+              shares: body.southbound.shares,
+              pct: body.southbound.pct,
+              name: body.southbound.name,
+            }])
+            : body.southbound,
+          market_flow: Array.isArray(body.market_flow?.history) && body.market_flow.history.length
+            ? HkSmartMoney.buildMarketFlowFromHistory(body.market_flow.history)
+            : body.market_flow,
+        };
+      }
+    } catch { /* ignore corrupt seed */ }
   }
   return null;
 }
@@ -419,7 +427,16 @@ function createHandler({ fetch: fetcher = globalThis.fetch } = {}) {
         if (!refresh && fs.existsSync(seedFlowPath)) {
           if (rateLimited(req, { live: false })) return send(429, { error: 'RATE_LIMITED' }, 'no-store');
           const body = JSON.parse(fs.readFileSync(seedFlowPath, 'utf8'));
-          return send(200, { source: 'seed', ...body }, 'public-seed');
+          const rebuilt = Array.isArray(body.history) && body.history.length
+            ? {
+              ...HkSmartMoney.buildMarketFlowFromHistory(body.history),
+              // Preserve latest SSE/SZSE leg boxes from the seed file.
+              southbound: body.southbound || [],
+              net_buy_total: body.net_buy_total ?? null,
+              as_of: body.as_of || null,
+            }
+            : body;
+          return send(200, { source: 'seed', ...rebuilt }, 'public-seed');
         }
         if (!refresh) {
           if (rateLimited(req, { live: false })) return send(429, { error: 'RATE_LIMITED' }, 'no-store');

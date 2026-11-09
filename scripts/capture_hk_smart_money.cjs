@@ -101,31 +101,48 @@ async function main() {
     }
   }
 
-  // Southbound history ≤ ~1y (HKEXnews retention): dense recent sessions for
-  // short Δ windows, long calendar horizons, plus weekly samples for the curve.
-  const asOfList = HkSmartMoney.businessDaysBack(1);
-  const asOf = asOfList[0];
-  const sbDateSet = new Set();
-  // Dense ~1 month so 1D/5D/20D still resolve when the latest session is empty.
+  // Discover the latest non-empty southbound as_of first — long Δ windows must
+  // be planned from that snapshot date, not "today" (Bugbot).
+  const probeDays = HkSmartMoney.businessDaysBack(8);
+  let asOf = probeDays[0];
+  const sbHistory = {};
+  for (const day of probeDays) {
+    try {
+      const snap = await fetchSouthbound(day);
+      process.stdout.write(`SB probe ${day} → ${snap.as_of} rows=${snap.rows.length}\n`);
+      if (snap.rows.length) {
+        sbHistory[snap.as_of || day] = snap;
+        asOf = snap.as_of || day;
+        break;
+      }
+    } catch (error) {
+      process.stderr.write(`SB probe fail ${day}: ${error.message}\n`);
+    }
+    await sleep(180);
+  }
+  process.stdout.write(`SB as_of for horizons: ${asOf}\n`);
+
+  const sbDateSet = new Set(Object.keys(sbHistory));
+  // Dense ~1 month so 1D/5D/20D still resolve.
   for (const day of HkSmartMoney.businessDaysBack(25, asOf)) sbDateSet.add(day);
   for (const days of HkSmartMoney.SOUTHBOUND_LONG_CAL_DAYS) {
     const target = HkSmartMoney.shiftCalendarDays(asOf, days);
     if (!target) continue;
-    // Snap to business day on/before target so mutualmarket has a session.
-    const snapped = HkSmartMoney.businessDaysBack(1, target)[0];
-    if (snapped) sbDateSet.add(snapped);
+    // Snap to business day on/before target (and one prior) so Δ rows land ≤ target.
+    const snapped = HkSmartMoney.businessDaysBack(2, target);
+    for (const day of snapped) sbDateSet.add(day);
   }
-  // Weekly samples across ~52 weeks (~260 biz days).
-  const yearBiz = HkSmartMoney.businessDaysBack(260, asOf);
+  // Weekly samples across ~52 weeks (~260 biz days), plus a couple days past 360d.
+  const yearBiz = HkSmartMoney.businessDaysBack(270, asOf);
   for (let i = 0; i < yearBiz.length; i += 5) sbDateSet.add(yearBiz[i]);
 
   const sbDates = [...sbDateSet].sort((a, b) => String(b).localeCompare(String(a)));
   process.stdout.write(`SB dates planned: ${sbDates.length}\n`);
-  const sbHistory = {};
   for (const day of sbDates) {
+    if (sbHistory[day]) continue;
     try {
       const snap = await fetchSouthbound(day);
-      sbHistory[snap.as_of || day] = snap;
+      if (snap.rows.length) sbHistory[snap.as_of || day] = snap;
       process.stdout.write(`SB ${day} → ${snap.as_of} rows=${snap.rows.length}\n`);
     } catch (error) {
       process.stderr.write(`SB fail ${day}: ${error.message}\n`);
@@ -142,17 +159,33 @@ async function main() {
     await sleep(100);
   }
 
-  let marketFlow = null;
-  for (const day of HkSmartMoney.businessDaysBack(5)) {
+  // Dense CSM DailyStat history for money horizons (online retention ~Apr 2026+).
+  // Cumulative nets need nearly every session — sparse samples would understate.
+  const flowDays = HkSmartMoney.businessDaysBack(160);
+  process.stdout.write(`CSM flow dates planned: ${flowDays.length}\n`);
+  const flowSnaps = [];
+  for (const day of flowDays) {
     const url = HkSmartMoney.CSM_DAILY_TMPL.replace('{date}', day.replace(/-/g, ''));
     try {
       const text = await fetchText(url, { headers: { Accept: 'application/javascript,text/plain,*/*' } });
-      marketFlow = HkSmartMoney.parseCsmDailyJs(text);
-      if (marketFlow.southbound?.length) break;
+      if (!text || text.length < 100 || !/tabData/i.test(text)) {
+        process.stdout.write(`CSM ${day} empty/skip\n`);
+        continue;
+      }
+      const parsed = HkSmartMoney.parseCsmDailyJs(text);
+      if (parsed.southbound?.length && parsed.net_buy_total != null) {
+        flowSnaps.push(parsed);
+        process.stdout.write(`CSM ${day} net=${parsed.net_buy_total}\n`);
+      } else {
+        process.stdout.write(`CSM ${day} no SB\n`);
+      }
     } catch (error) {
       process.stderr.write(`flow fail ${day}: ${error.message}\n`);
     }
+    await sleep(80);
   }
+  const marketFlow = HkSmartMoney.buildMarketFlowFromHistory(flowSnaps);
+  process.stdout.write(`CSM built as_of=${marketFlow.as_of} hist=${(marketFlow.history || []).length}\n`);
 
   const sbDateKeys = Object.keys(sbHistory).sort((a, b) => String(b).localeCompare(String(a)));
   for (const code of codes) {
@@ -188,7 +221,7 @@ async function main() {
     process.stdout.write(`wrote ${file} sb=${southbound.pct} di=${payload.di_events.length}\n`);
   }
 
-  if (marketFlow) {
+  if (marketFlow?.as_of) {
     fs.writeFileSync(path.join(outDir, 'market-flow.json'), `${JSON.stringify(marketFlow, null, 2)}\n`);
   }
 }

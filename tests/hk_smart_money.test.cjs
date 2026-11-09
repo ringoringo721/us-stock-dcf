@@ -182,6 +182,25 @@ test('formatCsmNetTurnover labels HK$ million with 億 gloss (not 億 CNY raw)',
   assert.equal(HkSmartMoney.formatCsmNetTurnover(null, 'zh'), '—');
 });
 
+test('buildMarketFlowFromHistory cumulative windows are honest when history is short', () => {
+  const dense = [];
+  for (let i = 0; i < 25; i += 1) {
+    const day = HkSmartMoney.businessDaysBack(i + 1, '2026-11-06')[i];
+    dense.push({
+      as_of: day,
+      net_buy_total: 100,
+      southbound: [{ market: 'SSE Southbound', net_buy: 60 }, { market: 'SZSE Southbound', net_buy: 40 }],
+    });
+  }
+  const built = HkSmartMoney.buildMarketFlowFromHistory(dense);
+  assert.equal(built.turnover_unit, 'HKD_million');
+  assert.equal(built.net_buy_total, 100);
+  assert.ok(built.net_cum_30d != null);
+  assert.equal(built.net_cum_360d, null); // not enough history
+  assert.ok((built.history || []).length >= 20);
+  assert.ok(!('top' in (built.southbound[0] || {})));
+});
+
 test('committed HK seeds cover 1398.HK and a Connect name with DI', () => {
   const seed1398 = JSON.parse(fs.readFileSync(
     path.join(__dirname, '..', 'cache', 'hk-smart-money', '1398.HK.json'), 'utf8'));
@@ -376,6 +395,38 @@ test('unseeded stock GET returns empty (no live scrape) unless refresh=1', async
   assert.equal(res.body.notice, 'HK_SMART_MONEY_NO_SEED');
   assert.equal(upstream, 0);
   assert.equal(res.headers['cache-control'], 'no-store');
+});
+
+test('readSeed rejects path-traversal symbols (only NNNN.HK under seed root)', async () => {
+  createApi.resetCachesForTests();
+  const handler = createApi.createHandler({
+    fetch: async () => {
+      throw new Error('UPSTREAM_SHOULD_NOT_RUN');
+    },
+  });
+  for (const symbol of ['../package', '..%2Fpackage', '/etc/passwd', '....HK', 'ABCD.HK', '0700.HK/../../x']) {
+    const res = mockRes();
+    await handler({
+      method: 'GET',
+      url: `/api/hk-smart-money?action=stock&symbol=${encodeURIComponent(symbol)}`,
+      headers: { 'x-real-ip': '203.0.113.55' },
+    }, res);
+    assert.ok([400, 200].includes(res.statusCode), symbol);
+    if (res.statusCode === 200) {
+      assert.notEqual(res.body.source, 'seed');
+      assert.ok(res.body.notice === 'HK_SMART_MONEY_NO_SEED' || res.body.source === 'empty');
+    }
+  }
+  // Valid seeded ticker still works.
+  const ok = mockRes();
+  await handler({
+    method: 'GET',
+    url: '/api/hk-smart-money?action=stock&symbol=0700.HK',
+    headers: { 'x-real-ip': '203.0.113.56' },
+  }, ok);
+  assert.equal(ok.statusCode, 200);
+  assert.equal(ok.body.ticker, '0700.HK');
+  assert.ok(ok.body.southbound?.pct > 0);
 });
 
 test('live shorts action returns buildShortForCode shape (not raw CSV)', async () => {

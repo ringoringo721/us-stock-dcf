@@ -2738,7 +2738,16 @@
           <p class="analysis-note" data-i18n="analysis_smart_money_hk_note">港股智資以權益披露（DI）事件、港股通南向持股％與市場級南向流為主；另附 SFC 週更合計淡倉作壓力訊號。這<strong>不是</strong>美股 13F／基金管理人持倉書。</p>
           <p id="smart-money-hk-disclaimer" class="analysis-note" role="note" data-i18n="analysis_smart_money_hk_lag">資料轉送自 HKEX DI 每日摘要、HKEXnews 南向持股、HKEX CSM 統計與 SFC 淡倉 CSV；可能有延遲。南向為通道合計（非單一基金）。非投資建議。</p>
           <p id="smart-money-hk-status" class="analysis-note" role="status"></p>
+          <div class="panel-title" style="font-size:15px;margin-top:8px;" data-i18n="sec_smart_money_hk_flow">南向市場資金流</div>
+          <p class="analysis-note" data-i18n="analysis_smart_money_hk_flow_note">市場級南向淨成交額（買入 − 賣出，滬＋深合計），HKEX CSM DailyStat，單位百萬港元。不是股數，亦非個股淨流入。長視窗為累計淨；官方網上保留不足則為 —。</p>
+          <div id="smart-money-hk-flow-boxes" class="tv-kpi-grid" aria-live="polite"></div>
           <div id="smart-money-hk-flow" class="analysis-note" role="status" aria-live="polite"></div>
+          <div id="smart-money-hk-flow-delta" class="table-scroll-wrapper company-analysis-scroll" style="margin-bottom: 14px;">
+            <table id="cmp-smart-money-hk-flow-delta" class="historical-ratio-table company-analysis-table">
+              <thead><tr id="cmp-smart-money-hk-flow-delta-thead"></tr></thead>
+              <tbody id="cmp-smart-money-hk-flow-delta-tbody"></tbody>
+            </table>
+          </div>
           <div id="smart-money-hk-kpi-grid" class="tv-kpi-grid" aria-live="polite"></div>
           <p id="smart-money-hk-di-kpi-note" class="analysis-note" role="note" data-i18n="analysis_smart_money_hk_di_kpi_note">DI（KPI）＝Disclosure of Interests／權益披露：港交所法定申報之主要股東（通常 ≥5%）與董事／行政總裁買賣事件數；不是美股 13F。</p>
 
@@ -2762,7 +2771,7 @@
           <div style="margin: 8px 0 16px;">
             <canvas id="smart-money-hk-sb-chart" height="120" aria-label="Southbound shareholding %"></canvas>
           </div>
-          <div class="table-scroll-wrapper company-analysis-scroll" style="margin-bottom: 18px; max-height: 360px; overflow: auto;">
+          <div class="table-scroll-wrapper company-analysis-scroll" style="margin-bottom: 18px; max-height: 520px; overflow: auto;">
             <table id="cmp-smart-money-hk-sb" class="historical-ratio-table company-analysis-table">
               <thead><tr id="cmp-smart-money-hk-sb-thead"></tr></thead>
               <tbody id="cmp-smart-money-hk-sb-tbody"></tbody>
@@ -3745,6 +3754,11 @@
       sec_smart_money_hk_di: "近期權益披露（DI／Disclosure of Interests）",
       analysis_smart_money_hk_di_kpi_note: "DI（KPI）＝Disclosure of Interests／權益披露：港交所法定申報之主要股東（通常 ≥5%）與董事／行政總裁買賣事件數；不是美股 13F。",
       analysis_smart_money_hk_di_note: "DI＝Disclosure of Interests／權益披露：HKEX／HKEXnews 法定申報。涵蓋主要股東（通常 ≥5% 及其後整％點）與董事／行政總裁買賣；門檻以下機構不會出現。這不是美股 13F。",
+      sec_smart_money_hk_flow: "南向市場資金流",
+      analysis_smart_money_hk_flow_note: "市場級南向淨成交額（買入 − 賣出，滬＋深合計），HKEX CSM DailyStat，單位百萬港元。不是股數，亦非個股淨流入。長視窗為累計淨；官方網上保留不足則為 —。",
+      sec_smart_money_hk_flow_delta: "南向資金累計視窗",
+      th_sm_hk_flow_window: "視窗",
+      th_sm_hk_flow_net: "累計淨（百萬港元）",
       sec_smart_money_hk_sb: "南向持股（港股通合計）",
       analysis_smart_money_hk_sb_note: "中國結算於 CCASS 之 A00003＋A00004 合計佔已發行％與日／多日變動；歷史約一年（官方網上保留窗口）。缺日為 —，不補造。",
       sec_smart_money_hk_sb_delta: "南向持股變動視窗",
@@ -4404,6 +4418,11 @@
       sec_smart_money_hk_di: "Recent DI disclosures (Disclosure of Interests)",
       analysis_smart_money_hk_di_kpi_note: "DI (KPI) = Disclosure of Interests: count of HKEX statutory filings for substantial shareholders (typically ≥5%) and director/CEO dealings — not US 13F.",
       analysis_smart_money_hk_di_note: "DI = Disclosure of Interests: HKEX/HKEXnews statutory filings for substantial shareholders (typically ≥5% and whole-percentage steps) and director/CEO dealings. Holders below the threshold stay invisible. Not US 13F.",
+      sec_smart_money_hk_flow: "Southbound market flow",
+      analysis_smart_money_hk_flow_note: "Market-level southbound net turnover (Buy − Sell, SSE+SZSE) from HKEX CSM DailyStat in HK$ million — not share count and not per-stock inflow. Longer windows are cumulative net; — when official online history is too short.",
+      sec_smart_money_hk_flow_delta: "Southbound money cumulative windows",
+      th_sm_hk_flow_window: "Window",
+      th_sm_hk_flow_net: "Cumulative net (HK$ million)",
       sec_smart_money_hk_sb: "Southbound shareholding (Stock Connect aggregate)",
       analysis_smart_money_hk_sb_note: "China Clearing A00003 + A00004 combined % of issued shares and multi-horizon changes; history up to ~1 year (official online retention). Missing horizons stay —; nothing is invented.",
       sec_smart_money_hk_sb_delta: "Southbound % change windows",
@@ -9504,6 +9523,9 @@
   function renderHkSmartMoneySubPage(ticker, stock, isEn, dict) {
     const status = document.getElementById('smart-money-hk-status');
     const flowEl = document.getElementById('smart-money-hk-flow');
+    const flowBoxes = document.getElementById('smart-money-hk-flow-boxes');
+    const flowDeltaHead = document.getElementById('cmp-smart-money-hk-flow-delta-thead');
+    const flowDeltaBody = document.getElementById('cmp-smart-money-hk-flow-delta-tbody');
     const kpiGrid = document.getElementById('smart-money-hk-kpi-grid');
     const diHead = document.getElementById('cmp-smart-money-hk-di-thead');
     const diBody = document.getElementById('cmp-smart-money-hk-di-tbody');
@@ -9535,9 +9557,15 @@
       sbDeltaHead.innerHTML = `<th class="table-sticky-col">${dict.th_sm_hk_sb_window || (isEn ? 'Window' : '視窗')}</th>`
         + `<th>${dict.th_sm_hk_sb_delta || (isEn ? 'Δ pp' : 'Δ 佔比')}</th>`;
     }
+    if (flowDeltaHead) {
+      flowDeltaHead.innerHTML = `<th class="table-sticky-col">${dict.th_sm_hk_flow_window || (isEn ? 'Window' : '視窗')}</th>`
+        + `<th>${dict.th_sm_hk_flow_net || (isEn ? 'Cumulative net (HK$ million)' : '累計淨（百萬港元）')}</th>`;
+    }
     status.className = 'analysis-note';
     status.textContent = isEn ? 'Loading HK Smart Money…' : '載入港股智資動態中…';
     if (flowEl) flowEl.textContent = '';
+    if (flowBoxes) flowBoxes.innerHTML = '';
+    if (flowDeltaBody) flowDeltaBody.innerHTML = '';
     if (kpiGrid) kpiGrid.innerHTML = '';
     if (shortEl) shortEl.textContent = '';
     diBody.innerHTML = '';
@@ -9604,41 +9632,62 @@
         }).join('');
       }
 
-      if (flowEl) {
+      {
         const legs = flow?.southbound || [];
-        if (!legs.length) {
-          flowEl.textContent = isEn
-            ? 'Market southbound flow: no rows for the latest session (holiday / unavailable).'
-            : '南向市場資金流：最近交易日無資料（假期或暫缺）。';
-        } else {
-          const fmtNet = (value) => (HK.formatCsmNetTurnover
-            ? HK.formatCsmNetTurnover(value, isEn ? 'en' : 'zh')
-            : '—');
-          const bits = legs.map((leg) => {
+        const fmtNet = (value) => (HK.formatCsmNetTurnover
+          ? HK.formatCsmNetTurnover(value, isEn ? 'en' : 'zh')
+          : '—');
+        const total = flow?.net_buy_total != null
+          ? flow.net_buy_total
+          : legs.reduce((sum, leg) => {
             const buy = HK.finite(leg.stats?.['Buy Turnover']);
             const sell = HK.finite(leg.stats?.['Sell Turnover']);
-            const net = leg.net_buy != null ? leg.net_buy
-              : (buy != null && sell != null ? buy - sell : null);
-            return `${escapeAttribute(leg.market)} ${isEn ? 'net' : '淨'}`
-              + ` ${escapeAttribute(fmtNet(net))}`;
-          });
-          const total = flow.net_buy_total != null
-            ? flow.net_buy_total
-            : legs.reduce((sum, leg) => {
-              const buy = HK.finite(leg.stats?.['Buy Turnover']);
-              const sell = HK.finite(leg.stats?.['Sell Turnover']);
-              if (buy == null || sell == null) return sum;
-              return (sum == null ? 0 : sum) + (buy - sell);
-            }, null);
-          flowEl.innerHTML = `<strong>${isEn ? 'Southbound market flow' : '南向市場資金流'}</strong>`
-            + ` · ${escapeAttribute(flow.as_of || '—')}`
-            + (total != null
-              ? ` · ${isEn ? 'combined net' : '合計淨'} ${escapeAttribute(fmtNet(total))}`
-              : '')
-            + `<br>${bits.join(' · ')}`
-            + `<br><span class="text-muted">${isEn
-              ? 'Market-level southbound net turnover (Buy − Sell, SSE+SZSE combined) from HKEX CSM DailyStat in HK$ million — not share count and not per-stock inflow.'
-              : '市場級南向淨成交額（買入成交 − 賣出成交，滬＋深合計），取自 HKEX CSM DailyStat，單位為百萬港元——不是股數，亦非個股淨流入。'}</span>`;
+            if (buy == null || sell == null) return sum;
+            return (sum == null ? 0 : sum) + (buy - sell);
+          }, null);
+        if (flowBoxes) {
+          if (!legs.length && total == null) {
+            flowBoxes.innerHTML = '';
+          } else {
+            const cards = [
+              [isEn ? 'Combined net' : '合計淨', fmtNet(total)],
+              ...legs.map((leg) => {
+                const buy = HK.finite(leg.stats?.['Buy Turnover']);
+                const sell = HK.finite(leg.stats?.['Sell Turnover']);
+                const net = leg.net_buy != null ? leg.net_buy
+                  : (buy != null && sell != null ? buy - sell : null);
+                const label = `${leg.market || '—'} ${isEn ? 'net' : '淨'}`;
+                return [label, fmtNet(net)];
+              }),
+            ];
+            flowBoxes.innerHTML = cards.map(([label, value]) => `<div class="tv-kpi-card">
+              <div class="tv-kpi-label">${escapeAttribute(label)}</div>
+              <div class="tv-kpi-value" style="font-size:clamp(14px,1.5vw,20px);">${escapeAttribute(String(value ?? '—'))}</div>
+            </div>`).join('');
+          }
+        }
+        if (flowEl) {
+          flowEl.textContent = !legs.length && total == null
+            ? (isEn
+              ? 'Market southbound flow: no rows for the latest session (holiday / unavailable).'
+              : '南向市場資金流：最近交易日無資料（假期或暫缺）。')
+            : `${isEn ? 'As of' : '截至'} ${flow?.as_of || '—'}`
+              + ` · ${isEn ? 'latest session net turnover' : '最近交易日淨成交額'}`
+              + ` · ${isEn ? 'unit HK$ million' : '單位：百萬港元'}`;
+        }
+        if (flowDeltaBody) {
+          const windows = (HK.SOUTHBOUND_LONG_CAL_DAYS || [30, 60, 90, 120, 150, 180, 270, 360])
+            .map(d => ({
+              key: `net_cum_${d}d`,
+              label: isEn ? `${d}D cumulative` : `${d}日累計`,
+            }));
+          flowDeltaBody.innerHTML = windows.map((win) => {
+            const value = flow?.[win.key] != null ? flow[win.key] : flow?.changes?.[win.key];
+            return `<tr>
+              <td class="table-sticky-col">${escapeAttribute(win.label)}</td>
+              <td>${escapeAttribute(fmtNet(value))}</td>
+            </tr>`;
+          }).join('');
         }
       }
 
@@ -9661,19 +9710,26 @@
         </tr>`).join('');
 
         if (sbChart && typeof Chart !== 'undefined' && rows.length >= 2) {
-          const chron = [...rows].reverse();
+          const chron = [...rows]
+            .map(row => ({
+              x: Date.parse(`${row.date}T00:00:00Z`),
+              y: row.pct,
+              date: row.date,
+            }))
+            .filter(pt => Number.isFinite(pt.x) && pt.y != null)
+            .sort((a, b) => a.x - b.x);
           window._hkSbChart = new Chart(sbChart.getContext('2d'), {
             type: 'line',
             data: {
-              labels: chron.map(row => row.date),
               datasets: [{
                 label: isEn ? 'Southbound %' : '南向持股％',
-                data: chron.map(row => row.pct),
+                data: chron,
                 borderColor: 'rgba(56, 189, 248, 0.95)',
                 backgroundColor: 'rgba(56, 189, 248, 0.12)',
                 fill: true,
-                tension: 0.2,
+                tension: 0.15,
                 pointRadius: chron.length > 80 ? 0 : 2,
+                parsing: false,
               }],
             },
             options: {
@@ -9682,14 +9738,13 @@
               plugins: { legend: { display: false } },
               scales: {
                 x: {
+                  type: 'linear',
                   ticks: {
                     maxTicksLimit: 8,
                     color: '#9ca3af',
-                    callback(value, index, ticks) {
-                      const label = this.getLabelForValue
-                        ? this.getLabelForValue(value)
-                        : chron[index]?.date;
-                      return String(label || '').slice(0, 10);
+                    callback(value) {
+                      const iso = new Date(value).toISOString().slice(0, 10);
+                      return iso;
                     },
                   },
                   grid: { color: 'rgba(255,255,255,0.06)' },

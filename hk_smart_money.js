@@ -399,7 +399,7 @@
    * Newest history row on/before target calendar day. Null when the gap to target
    * exceeds maxGapDays (weekend/holiday slack only — do not invent distant fills).
    */
-  function historyRowCalendarDaysAgo(history, asOf, calendarDays, maxGapDays = 5) {
+  function historyRowCalendarDaysAgo(history, asOf, calendarDays, maxGapDays = 7) {
     const asOfIso = normalizeIsoDate(asOf);
     const target = shiftCalendarDays(asOfIso, calendarDays);
     if (!asOfIso || !target) return null;
@@ -412,6 +412,79 @@
     const gap = (Date.parse(`${target}T00:00:00Z`) - Date.parse(`${rowDate}T00:00:00Z`)) / 86400000;
     if (!Number.isFinite(gap) || gap > maxGapDays) return null;
     return row;
+  }
+
+  /**
+   * Market-level southbound money series from daily CSM snaps.
+   * Horizons are cumulative net turnover (Buy−Sell, SSE+SZSE) over the lookback
+   * window in HK$ million. Null when online/seed history does not cover the window
+   * with dense enough sessions (do not invent).
+   */
+  function buildMarketFlowFromHistory(dailyFlows) {
+    const rich = (dailyFlows || [])
+      .map((row) => {
+        const date = normalizeIsoDate(row.as_of || row.date);
+        let net = finite(row.net_buy_total);
+        const southbound = row.southbound || [];
+        if (net == null && southbound.length) {
+          net = sumNullable(southbound.map((leg) => leg.net_buy));
+        }
+        if (!date || net == null) return null;
+        return {
+          date,
+          net_buy_total: round4(net),
+          southbound,
+        };
+      })
+      .filter(Boolean)
+      .sort((a, b) => String(b.date).localeCompare(String(a.date)));
+
+    // Lean history for seeds/API (date + net only); keep full legs on latest only.
+    const history = rich.map((row) => ({ date: row.date, net_buy_total: row.net_buy_total }));
+    const latestRich = rich[0] || null;
+    const latest = history[0] || null;
+    const oldest = history[history.length - 1] || null;
+    const changes = {};
+    for (const days of SOUTHBOUND_LONG_CAL_DAYS) {
+      const key = `net_cum_${days}d`;
+      changes[key] = null;
+      if (!latest || !oldest) continue;
+      const start = shiftCalendarDays(latest.date, days);
+      if (!start) continue;
+      // Need history that reaches on/before the window start (honest coverage).
+      if (oldest.date > start) continue;
+      const inWindow = history.filter((row) => row.date > start && row.date <= latest.date);
+      if (!inWindow.length) continue;
+      // Dense enough: at least ~55% of weekday slots in the calendar window.
+      const expected = Math.max(1, Math.round(days * 5 / 7));
+      if (inWindow.length < expected * 0.55) continue;
+      changes[key] = sumNullable(inWindow.map((row) => row.net_buy_total));
+    }
+
+    const legs = (latestRich?.southbound || []).map((leg) => ({
+      market: leg.market,
+      date: leg.date,
+      tradingDay: leg.tradingDay,
+      stats: leg.stats,
+      net_buy: leg.net_buy,
+      // Drop bulky top-10 from seed payloads; latest boxes only need nets/stats.
+    }));
+    return {
+      as_of: latest?.date || null,
+      turnover_unit: 'HKD_million',
+      southbound: legs,
+      net_buy_total: latest?.net_buy_total ?? null,
+      history,
+      net_cum_30d: changes.net_cum_30d ?? null,
+      net_cum_60d: changes.net_cum_60d ?? null,
+      net_cum_90d: changes.net_cum_90d ?? null,
+      net_cum_120d: changes.net_cum_120d ?? null,
+      net_cum_150d: changes.net_cum_150d ?? null,
+      net_cum_180d: changes.net_cum_180d ?? null,
+      net_cum_270d: changes.net_cum_270d ?? null,
+      net_cum_360d: changes.net_cum_360d ?? null,
+      changes,
+    };
   }
 
   function buildSouthboundForCode(historyRows) {
@@ -612,6 +685,7 @@
     historyRowBusinessDaysAgo,
     historyRowCalendarDaysAgo,
     buildSouthboundForCode,
+    buildMarketFlowFromHistory,
     buildShortForCode,
     diActionLabel,
     roleLabel,
