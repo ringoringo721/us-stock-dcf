@@ -1,0 +1,1250 @@
+{
+  "ticker": "0700.HK",
+  "stock_code": "00700",
+  "source": "seed",
+  "capturedAt": "2026-11-09T15:34:17.798Z",
+  "southbound": {
+    "as_of": "2026-11-06",
+    "shares": 1093869194,
+    "pct": 12.02,
+    "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES",
+    "pct_chg_1d": 0,
+    "pct_chg_5d": 0,
+    "pct_chg_20d": 0.12,
+    "pct_chg_30d": 0.12,
+    "pct_chg_60d": 0.16,
+    "pct_chg_90d": 0.31,
+    "pct_chg_120d": 0.26,
+    "pct_chg_150d": 0.38,
+    "pct_chg_180d": 0.25,
+    "pct_chg_270d": 0.6,
+    "pct_chg_360d": 0.98,
+    "changes": {
+      "pct_chg_1d": 0,
+      "pct_chg_5d": 0,
+      "pct_chg_20d": 0.12,
+      "pct_chg_30d": 0.12,
+      "pct_chg_60d": 0.16,
+      "pct_chg_90d": 0.31,
+      "pct_chg_120d": 0.26,
+      "pct_chg_150d": 0.38,
+      "pct_chg_180d": 0.25,
+      "pct_chg_270d": 0.6,
+      "pct_chg_360d": 0.98
+    },
+    "history": [
+      {
+        "date": "2026-11-06",
+        "shares": 1093869194,
+        "pct": 12.02,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-11-05",
+        "shares": 1093604855,
+        "pct": 12.02,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-11-04",
+        "shares": 1093529104,
+        "pct": 12.02,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-11-03",
+        "shares": 1093604774,
+        "pct": 12.02,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-11-02",
+        "shares": 1094147532,
+        "pct": 12.03,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-30",
+        "shares": 1093761989,
+        "pct": 12.02,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-29",
+        "shares": 1093756725,
+        "pct": 12.01,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-28",
+        "shares": 1094069804,
+        "pct": 12.03,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-27",
+        "shares": 1094524569,
+        "pct": 12.03,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-26",
+        "shares": 1091164169,
+        "pct": 11.99,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-23",
+        "shares": 1089863992,
+        "pct": 11.98,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-22",
+        "shares": 1094150524,
+        "pct": 12.02,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-21",
+        "shares": 1091355648,
+        "pct": 12,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-20",
+        "shares": 1090422748,
+        "pct": 11.98,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-17",
+        "shares": 1088385348,
+        "pct": 11.96,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-16",
+        "shares": 1088385348,
+        "pct": 11.96,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-15",
+        "shares": 1087926348,
+        "pct": 11.95,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-14",
+        "shares": 1087968548,
+        "pct": 11.96,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-13",
+        "shares": 1087923848,
+        "pct": 11.95,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-12",
+        "shares": 1088546494,
+        "pct": 11.96,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-09",
+        "shares": 1082672910,
+        "pct": 11.9,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-08",
+        "shares": 1082672910,
+        "pct": 11.9,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-07",
+        "shares": 1082672910,
+        "pct": 11.9,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-06",
+        "shares": 1082672910,
+        "pct": 11.9,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-05",
+        "shares": 1082672910,
+        "pct": 11.9,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-09-28",
+        "shares": 1081662538,
+        "pct": 11.89,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-09-21",
+        "shares": 1077854553,
+        "pct": 11.84,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-09-14",
+        "shares": 1078170076,
+        "pct": 11.84,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-09-10",
+        "shares": 1075865691,
+        "pct": 11.81,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-09-07",
+        "shares": 1079919419,
+        "pct": 11.86,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-09-04",
+        "shares": 1079262423,
+        "pct": 11.84,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-09-03",
+        "shares": 1078491209,
+        "pct": 11.84,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-08-31",
+        "shares": 1075352280,
+        "pct": 11.81,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-08-24",
+        "shares": 1073442906,
+        "pct": 11.78,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-08-17",
+        "shares": 1069784599,
+        "pct": 11.74,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-08-11",
+        "shares": 1055045695,
+        "pct": 11.61,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-08-10",
+        "shares": 1059627685,
+        "pct": 11.66,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-08-07",
+        "shares": 1064194152,
+        "pct": 11.71,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-08-06",
+        "shares": 1065920947,
+        "pct": 11.72,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-08-05",
+        "shares": 1067422547,
+        "pct": 11.73,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-08-03",
+        "shares": 1060775763,
+        "pct": 11.65,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-07-27",
+        "shares": 1058460495,
+        "pct": 11.63,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-07-20",
+        "shares": 1072083121,
+        "pct": 11.78,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-07-13",
+        "shares": 1072311489,
+        "pct": 11.78,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-07-10",
+        "shares": 1075356456,
+        "pct": 11.82,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-07-09",
+        "shares": 1070073620,
+        "pct": 11.76,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-07-08",
+        "shares": 1065155408,
+        "pct": 11.7,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-07-07",
+        "shares": 1059588426,
+        "pct": 11.64,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-07-06",
+        "shares": 1058933200,
+        "pct": 11.64,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-06-29",
+        "shares": 1055638646,
+        "pct": 11.58,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-06-22",
+        "shares": 1063485072,
+        "pct": 11.66,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-06-15",
+        "shares": 1070749567,
+        "pct": 11.74,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-06-12",
+        "shares": 1069604010,
+        "pct": 11.73,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-06-09",
+        "shares": 1060814207,
+        "pct": 11.64,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-06-08",
+        "shares": 1057133492,
+        "pct": 11.59,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-06-05",
+        "shares": 1058273640,
+        "pct": 11.6,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-06-01",
+        "shares": 1056075459,
+        "pct": 11.57,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-05-23",
+        "shares": 1068664940,
+        "pct": 11.71,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-05-18",
+        "shares": 1065603873,
+        "pct": 11.68,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-05-13",
+        "shares": 1066784891,
+        "pct": 11.69,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-05-11",
+        "shares": 1068471647,
+        "pct": 11.71,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-05-08",
+        "shares": 1074216940,
+        "pct": 11.77,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-05-07",
+        "shares": 1079381340,
+        "pct": 11.83,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-05-06",
+        "shares": 1079381340,
+        "pct": 11.82,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-05-04",
+        "shares": 1081666762,
+        "pct": 11.85,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-04-27",
+        "shares": 1087217784,
+        "pct": 11.9,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-04-20",
+        "shares": 1089336822,
+        "pct": 11.93,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-04-13",
+        "shares": 1095227517,
+        "pct": 11.99,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-04-02",
+        "shares": 1092283383,
+        "pct": 11.96,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-03-30",
+        "shares": 1089694860,
+        "pct": 11.93,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-03-23",
+        "shares": 1085912134,
+        "pct": 11.89,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-03-16",
+        "shares": 1080367529,
+        "pct": 11.86,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-03-09",
+        "shares": 1071197057,
+        "pct": 11.75,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-03-02",
+        "shares": 1057699975,
+        "pct": 11.61,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-02-23",
+        "shares": 1057369073,
+        "pct": 11.6,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-02-16",
+        "shares": 1050438798,
+        "pct": 11.53,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-02-12",
+        "shares": 1049092103,
+        "pct": 11.51,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-02-09",
+        "shares": 1040578733,
+        "pct": 11.42,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-02-06",
+        "shares": 1030425381,
+        "pct": 11.31,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-02-05",
+        "shares": 1026451117,
+        "pct": 11.26,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-02-02",
+        "shares": 1021294004,
+        "pct": 11.19,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-01-26",
+        "shares": 1014262034,
+        "pct": 11.11,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-01-19",
+        "shares": 1014241082,
+        "pct": 11.11,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-01-12",
+        "shares": 1003311401,
+        "pct": 10.99,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-01-05",
+        "shares": 1001509980,
+        "pct": 10.97,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2025-12-29",
+        "shares": 1008075980,
+        "pct": 11.03,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2025-12-22",
+        "shares": 1005290429,
+        "pct": 11,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2025-12-15",
+        "shares": 1006948064,
+        "pct": 11.01,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2025-12-08",
+        "shares": 1010340694,
+        "pct": 11.03,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2025-12-01",
+        "shares": 1013801007,
+        "pct": 11.08,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2025-11-24",
+        "shares": 1011557876,
+        "pct": 11.06,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2025-11-17",
+        "shares": 1008456628,
+        "pct": 11.02,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2025-11-14",
+        "shares": 1009803513,
+        "pct": 11.04,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2025-11-11",
+        "shares": 1010482806,
+        "pct": 11.04,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2025-11-10",
+        "shares": 1011228176,
+        "pct": 11.04,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      }
+    ]
+  },
+  "di_events": [],
+  "short": {
+    "as_of": "2026-10-30",
+    "shares": 63564861,
+    "hkd": 24383480680,
+    "name": "TENCENT",
+    "pct_of_issued": 0.6985,
+    "shares_chg_wow": null
+  },
+  "market_flow": {
+    "as_of": "2026-11-09",
+    "turnover_unit": "HKD_million",
+    "southbound": [
+      {
+        "market": "SSE Southbound",
+        "date": "2026-11-09",
+        "tradingDay": 1,
+        "stats": {
+          "Total Turnover": "42,498.51",
+          "Buy Turnover": "21,773.69",
+          "Sell Turnover": "20,724.82",
+          "Total Trade Count": "1,093,116",
+          "Buy Trade Count": "575,695",
+          "Sell Trade Count": "517,421",
+          "ETF Turnover": "222.48"
+        },
+        "net_buy": 1048.87
+      },
+      {
+        "market": "SZSE Southbound",
+        "date": "2026-11-09",
+        "tradingDay": 1,
+        "stats": {
+          "Total Turnover": "22,384.12",
+          "Buy Turnover": "11,595.38",
+          "Sell Turnover": "10,788.74",
+          "Total Trade Count": "609,722",
+          "Buy Trade Count": "315,004",
+          "Sell Trade Count": "294,718",
+          "ETF Turnover": "370.47"
+        },
+        "net_buy": 806.64
+      }
+    ],
+    "net_buy_total": 1855.51,
+    "history": [
+      {
+        "date": "2026-11-09",
+        "net_buy_total": 1855.51
+      },
+      {
+        "date": "2026-11-06",
+        "net_buy_total": 2414.91
+      },
+      {
+        "date": "2026-11-05",
+        "net_buy_total": -21326.2
+      },
+      {
+        "date": "2026-11-04",
+        "net_buy_total": -3277.17
+      },
+      {
+        "date": "2026-11-03",
+        "net_buy_total": 23420.24
+      },
+      {
+        "date": "2026-11-02",
+        "net_buy_total": -4469.23
+      },
+      {
+        "date": "2026-10-29",
+        "net_buy_total": -3358.88
+      },
+      {
+        "date": "2026-10-28",
+        "net_buy_total": -804.12
+      },
+      {
+        "date": "2026-10-27",
+        "net_buy_total": -1237.71
+      },
+      {
+        "date": "2026-10-26",
+        "net_buy_total": -2075.37
+      },
+      {
+        "date": "2026-10-23",
+        "net_buy_total": -1670.26
+      },
+      {
+        "date": "2026-10-22",
+        "net_buy_total": -9218.08
+      },
+      {
+        "date": "2026-10-21",
+        "net_buy_total": -4434.8
+      },
+      {
+        "date": "2026-10-20",
+        "net_buy_total": -1722.97
+      },
+      {
+        "date": "2026-10-16",
+        "net_buy_total": -3568.43
+      },
+      {
+        "date": "2026-10-15",
+        "net_buy_total": -5080.23
+      },
+      {
+        "date": "2026-10-14",
+        "net_buy_total": -135.05
+      },
+      {
+        "date": "2026-10-13",
+        "net_buy_total": -456.62
+      },
+      {
+        "date": "2026-10-12",
+        "net_buy_total": 2603.27
+      },
+      {
+        "date": "2026-10-09",
+        "net_buy_total": 290.67
+      },
+      {
+        "date": "2026-10-08",
+        "net_buy_total": 6477.49
+      },
+      {
+        "date": "2026-10-07",
+        "net_buy_total": 0
+      },
+      {
+        "date": "2026-10-06",
+        "net_buy_total": 0
+      },
+      {
+        "date": "2026-10-05",
+        "net_buy_total": 0
+      },
+      {
+        "date": "2026-10-02",
+        "net_buy_total": 0
+      },
+      {
+        "date": "2026-09-30",
+        "net_buy_total": 6863.61
+      },
+      {
+        "date": "2026-09-29",
+        "net_buy_total": 14.63
+      },
+      {
+        "date": "2026-09-28",
+        "net_buy_total": -6553.87
+      },
+      {
+        "date": "2026-09-25",
+        "net_buy_total": 0
+      },
+      {
+        "date": "2026-09-24",
+        "net_buy_total": 2899.77
+      },
+      {
+        "date": "2026-09-23",
+        "net_buy_total": 3448.93
+      },
+      {
+        "date": "2026-09-22",
+        "net_buy_total": 12690.64
+      },
+      {
+        "date": "2026-09-21",
+        "net_buy_total": 4073.85
+      },
+      {
+        "date": "2026-09-18",
+        "net_buy_total": 1193.27
+      },
+      {
+        "date": "2026-09-17",
+        "net_buy_total": 3363.15
+      },
+      {
+        "date": "2026-09-16",
+        "net_buy_total": 2099.43
+      },
+      {
+        "date": "2026-09-15",
+        "net_buy_total": 880.67
+      },
+      {
+        "date": "2026-09-14",
+        "net_buy_total": 4471.48
+      },
+      {
+        "date": "2026-09-11",
+        "net_buy_total": 4431.02
+      },
+      {
+        "date": "2026-09-10",
+        "net_buy_total": 4550.91
+      },
+      {
+        "date": "2026-09-09",
+        "net_buy_total": 3720.4
+      },
+      {
+        "date": "2026-09-08",
+        "net_buy_total": 6127.82
+      },
+      {
+        "date": "2026-09-07",
+        "net_buy_total": 1275.3
+      },
+      {
+        "date": "2026-09-04",
+        "net_buy_total": -10020.87
+      },
+      {
+        "date": "2026-09-03",
+        "net_buy_total": 3395.25
+      },
+      {
+        "date": "2026-09-02",
+        "net_buy_total": 4093.27
+      },
+      {
+        "date": "2026-09-01",
+        "net_buy_total": 7756.86
+      },
+      {
+        "date": "2026-08-31",
+        "net_buy_total": 2139.25
+      },
+      {
+        "date": "2026-08-28",
+        "net_buy_total": 1176.2
+      },
+      {
+        "date": "2026-08-27",
+        "net_buy_total": 3179.59
+      },
+      {
+        "date": "2026-08-26",
+        "net_buy_total": 452.67
+      },
+      {
+        "date": "2026-08-25",
+        "net_buy_total": -6605.24
+      },
+      {
+        "date": "2026-08-24",
+        "net_buy_total": 11566.74
+      },
+      {
+        "date": "2026-08-21",
+        "net_buy_total": -7629.64
+      },
+      {
+        "date": "2026-08-20",
+        "net_buy_total": -10412.07
+      },
+      {
+        "date": "2026-08-19",
+        "net_buy_total": -10620.78
+      },
+      {
+        "date": "2026-08-18",
+        "net_buy_total": 14001.61
+      },
+      {
+        "date": "2026-08-17",
+        "net_buy_total": 3076.98
+      },
+      {
+        "date": "2026-08-14",
+        "net_buy_total": -1316.01
+      },
+      {
+        "date": "2026-08-13",
+        "net_buy_total": 3666.94
+      },
+      {
+        "date": "2026-08-12",
+        "net_buy_total": -2906.11
+      },
+      {
+        "date": "2026-08-11",
+        "net_buy_total": -1376.16
+      },
+      {
+        "date": "2026-08-10",
+        "net_buy_total": 2020.78
+      },
+      {
+        "date": "2026-08-07",
+        "net_buy_total": -777.8
+      },
+      {
+        "date": "2026-08-06",
+        "net_buy_total": -1460.92
+      },
+      {
+        "date": "2026-08-05",
+        "net_buy_total": -1397.81
+      },
+      {
+        "date": "2026-08-04",
+        "net_buy_total": 2570.41
+      },
+      {
+        "date": "2026-08-03",
+        "net_buy_total": 11030.81
+      },
+      {
+        "date": "2026-07-31",
+        "net_buy_total": -480.56
+      },
+      {
+        "date": "2026-07-30",
+        "net_buy_total": -8571.02
+      },
+      {
+        "date": "2026-07-29",
+        "net_buy_total": -5589.22
+      },
+      {
+        "date": "2026-07-28",
+        "net_buy_total": -2494.55
+      },
+      {
+        "date": "2026-07-27",
+        "net_buy_total": -1574.4
+      },
+      {
+        "date": "2026-07-24",
+        "net_buy_total": -1518.19
+      },
+      {
+        "date": "2026-07-23",
+        "net_buy_total": -4226.12
+      },
+      {
+        "date": "2026-07-22",
+        "net_buy_total": 7516.97
+      },
+      {
+        "date": "2026-07-21",
+        "net_buy_total": 7167.37
+      },
+      {
+        "date": "2026-07-20",
+        "net_buy_total": -5962.31
+      },
+      {
+        "date": "2026-07-17",
+        "net_buy_total": -1456.58
+      },
+      {
+        "date": "2026-07-16",
+        "net_buy_total": 5039.48
+      },
+      {
+        "date": "2026-07-15",
+        "net_buy_total": 13363.73
+      },
+      {
+        "date": "2026-07-14",
+        "net_buy_total": 10996.88
+      },
+      {
+        "date": "2026-07-13",
+        "net_buy_total": 9038.42
+      },
+      {
+        "date": "2026-07-10",
+        "net_buy_total": -5994.54
+      },
+      {
+        "date": "2026-07-09",
+        "net_buy_total": 9830.47
+      },
+      {
+        "date": "2026-07-08",
+        "net_buy_total": 14194.36
+      },
+      {
+        "date": "2026-07-07",
+        "net_buy_total": 497.23
+      },
+      {
+        "date": "2026-07-06",
+        "net_buy_total": 20527.8
+      },
+      {
+        "date": "2026-07-03",
+        "net_buy_total": 4537.78
+      },
+      {
+        "date": "2026-07-02",
+        "net_buy_total": -1974.14
+      },
+      {
+        "date": "2026-06-30",
+        "net_buy_total": 5895.22
+      },
+      {
+        "date": "2026-06-29",
+        "net_buy_total": -10338.79
+      },
+      {
+        "date": "2026-06-26",
+        "net_buy_total": -2503.8
+      },
+      {
+        "date": "2026-06-25",
+        "net_buy_total": -8874.37
+      },
+      {
+        "date": "2026-06-24",
+        "net_buy_total": 15750.73
+      },
+      {
+        "date": "2026-06-23",
+        "net_buy_total": 10370.77
+      },
+      {
+        "date": "2026-06-22",
+        "net_buy_total": -5819.55
+      },
+      {
+        "date": "2026-06-18",
+        "net_buy_total": -6792.12
+      },
+      {
+        "date": "2026-06-17",
+        "net_buy_total": -3221.63
+      },
+      {
+        "date": "2026-06-16",
+        "net_buy_total": 3463.02
+      },
+      {
+        "date": "2026-06-15",
+        "net_buy_total": 2109.96
+      },
+      {
+        "date": "2026-06-12",
+        "net_buy_total": -3942.3
+      },
+      {
+        "date": "2026-06-11",
+        "net_buy_total": -2754.31
+      },
+      {
+        "date": "2026-06-10",
+        "net_buy_total": 8243.32
+      },
+      {
+        "date": "2026-06-09",
+        "net_buy_total": -8613.81
+      },
+      {
+        "date": "2026-06-08",
+        "net_buy_total": 11317.9
+      },
+      {
+        "date": "2026-06-05",
+        "net_buy_total": -2426.43
+      },
+      {
+        "date": "2026-06-04",
+        "net_buy_total": -314.93
+      },
+      {
+        "date": "2026-06-03",
+        "net_buy_total": 18681.97
+      },
+      {
+        "date": "2026-06-02",
+        "net_buy_total": 2223.2
+      },
+      {
+        "date": "2026-06-01",
+        "net_buy_total": 4657.31
+      },
+      {
+        "date": "2026-05-29",
+        "net_buy_total": 1884.06
+      },
+      {
+        "date": "2026-05-28",
+        "net_buy_total": 7608.76
+      },
+      {
+        "date": "2026-05-27",
+        "net_buy_total": -7717.44
+      },
+      {
+        "date": "2026-05-26",
+        "net_buy_total": -967.66
+      },
+      {
+        "date": "2026-05-22",
+        "net_buy_total": -6493.65
+      },
+      {
+        "date": "2026-05-21",
+        "net_buy_total": -6104.99
+      },
+      {
+        "date": "2026-05-20",
+        "net_buy_total": 5708.1
+      },
+      {
+        "date": "2026-05-19",
+        "net_buy_total": 1265.63
+      },
+      {
+        "date": "2026-05-18",
+        "net_buy_total": -7876.24
+      },
+      {
+        "date": "2026-05-15",
+        "net_buy_total": 24955.43
+      },
+      {
+        "date": "2026-05-14",
+        "net_buy_total": -9712.37
+      },
+      {
+        "date": "2026-05-13",
+        "net_buy_total": -6771.42
+      },
+      {
+        "date": "2026-05-12",
+        "net_buy_total": 790.04
+      },
+      {
+        "date": "2026-05-11",
+        "net_buy_total": 70.99
+      },
+      {
+        "date": "2026-05-08",
+        "net_buy_total": 13168.4
+      },
+      {
+        "date": "2026-05-07",
+        "net_buy_total": -4796.79
+      },
+      {
+        "date": "2026-05-06",
+        "net_buy_total": -8564.63
+      },
+      {
+        "date": "2026-05-05",
+        "net_buy_total": 0
+      },
+      {
+        "date": "2026-05-04",
+        "net_buy_total": 0
+      },
+      {
+        "date": "2026-04-30",
+        "net_buy_total": 12191.84
+      },
+      {
+        "date": "2026-04-29",
+        "net_buy_total": -3951.75
+      },
+      {
+        "date": "2026-04-28",
+        "net_buy_total": 14522.78
+      },
+      {
+        "date": "2026-04-27",
+        "net_buy_total": -4092.01
+      },
+      {
+        "date": "2026-04-24",
+        "net_buy_total": 3460.14
+      },
+      {
+        "date": "2026-04-23",
+        "net_buy_total": 8598.13
+      },
+      {
+        "date": "2026-04-22",
+        "net_buy_total": 4890.49
+      },
+      {
+        "date": "2026-04-21",
+        "net_buy_total": 3737.93
+      },
+      {
+        "date": "2026-04-20",
+        "net_buy_total": -3909.25
+      },
+      {
+        "date": "2026-04-17",
+        "net_buy_total": 17009.71
+      },
+      {
+        "date": "2026-04-16",
+        "net_buy_total": 4291.06
+      },
+      {
+        "date": "2026-04-15",
+        "net_buy_total": 4220.67
+      },
+      {
+        "date": "2026-04-14",
+        "net_buy_total": -2016.52
+      }
+    ],
+    "net_cum_30d": -32541.19,
+    "net_cum_60d": 14103.55,
+    "net_cum_90d": 34772.62,
+    "net_cum_120d": 66631.83,
+    "net_cum_150d": 108290.23,
+    "net_cum_180d": 137911.78,
+    "net_cum_270d": null,
+    "net_cum_360d": null,
+    "changes": {
+      "net_cum_30d": -32541.19,
+      "net_cum_60d": 14103.55,
+      "net_cum_90d": 34772.62,
+      "net_cum_120d": 66631.83,
+      "net_cum_150d": 108290.23,
+      "net_cum_180d": 137911.78,
+      "net_cum_270d": null,
+      "net_cum_360d": null
+    }
+  },
+  "notes": {
+    "zh": "官方日終／週更披露之轉送快照；非投資建議。南向為港股通合計（A00003+A00004），非單一基金。",
+    "en": "Relay of official daily/weekly disclosures; not investment advice. Southbound is Stock Connect aggregate (A00003+A00004), not a single fund."
+  }
+}

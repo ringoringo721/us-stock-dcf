@@ -20,6 +20,11 @@ __pycache__/
 /cache/smart-money/form4/**
 !/cache/smart-money/form4/[A-Z0-9]*.json
 !/cache/smart-money/form4/README.md
+# HK Smart Money seeds (DI / southbound / SFC shorts)
+/cache/hk-smart-money/**
+!/cache/hk-smart-money/README.md
+!/cache/hk-smart-money/market-flow.json
+!/cache/hk-smart-money/*.HK.json
 
 /.vercel/
 /public/

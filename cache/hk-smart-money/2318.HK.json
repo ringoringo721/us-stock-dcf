@@ -1,0 +1,1460 @@
+{
+  "ticker": "2318.HK",
+  "stock_code": "02318",
+  "source": "seed",
+  "capturedAt": "2026-11-09T15:34:17.804Z",
+  "southbound": {
+    "as_of": "2026-11-06",
+    "shares": 1022614267,
+    "pct": 13.72,
+    "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES",
+    "pct_chg_1d": 0.06,
+    "pct_chg_5d": 0.41,
+    "pct_chg_20d": 0.59,
+    "pct_chg_30d": 0.59,
+    "pct_chg_60d": 0.73,
+    "pct_chg_90d": 0.94,
+    "pct_chg_120d": 0.84,
+    "pct_chg_150d": 0.07,
+    "pct_chg_180d": 0,
+    "pct_chg_270d": -0.99,
+    "pct_chg_360d": 0.49,
+    "changes": {
+      "pct_chg_1d": 0.06,
+      "pct_chg_5d": 0.41,
+      "pct_chg_20d": 0.59,
+      "pct_chg_30d": 0.59,
+      "pct_chg_60d": 0.73,
+      "pct_chg_90d": 0.94,
+      "pct_chg_120d": 0.84,
+      "pct_chg_150d": 0.07,
+      "pct_chg_180d": 0,
+      "pct_chg_270d": -0.99,
+      "pct_chg_360d": 0.49
+    },
+    "history": [
+      {
+        "date": "2026-11-06",
+        "shares": 1022614267,
+        "pct": 13.72,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-11-05",
+        "shares": 1018067370,
+        "pct": 13.66,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-11-04",
+        "shares": 1012618784,
+        "pct": 13.59,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-11-03",
+        "shares": 1005535784,
+        "pct": 13.49,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-11-02",
+        "shares": 998423784,
+        "pct": 13.39,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-30",
+        "shares": 991478784,
+        "pct": 13.31,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-29",
+        "shares": 990773767,
+        "pct": 13.3,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-28",
+        "shares": 986886267,
+        "pct": 13.25,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-27",
+        "shares": 981701399,
+        "pct": 13.17,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-26",
+        "shares": 981983399,
+        "pct": 13.18,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-23",
+        "shares": 982199899,
+        "pct": 13.17,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-22",
+        "shares": 982657899,
+        "pct": 13.18,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-21",
+        "shares": 981946399,
+        "pct": 13.17,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-20",
+        "shares": 982681966,
+        "pct": 13.18,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-17",
+        "shares": 981538961,
+        "pct": 13.17,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-16",
+        "shares": 981538961,
+        "pct": 13.17,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-15",
+        "shares": 982575461,
+        "pct": 13.18,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-14",
+        "shares": 982993961,
+        "pct": 13.19,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-13",
+        "shares": 982399461,
+        "pct": 13.18,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-12",
+        "shares": 981517797,
+        "pct": 13.17,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-09",
+        "shares": 978875797,
+        "pct": 13.13,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-08",
+        "shares": 978875797,
+        "pct": 13.13,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-07",
+        "shares": 978875797,
+        "pct": 13.13,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-06",
+        "shares": 978875797,
+        "pct": 13.13,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-05",
+        "shares": 978875797,
+        "pct": 13.13,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-09-28",
+        "shares": 978670261,
+        "pct": 13.13,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-09-21",
+        "shares": 977636031,
+        "pct": 13.11,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-09-14",
+        "shares": 975779031,
+        "pct": 13.09,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-09-10",
+        "shares": 973305531,
+        "pct": 13.06,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-09-07",
+        "shares": 968106280,
+        "pct": 12.99,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-09-04",
+        "shares": 964612280,
+        "pct": 12.94,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-09-03",
+        "shares": 960873780,
+        "pct": 12.89,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-08-31",
+        "shares": 961603280,
+        "pct": 12.9,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-08-24",
+        "shares": 943311780,
+        "pct": 12.65,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-08-17",
+        "shares": 950734780,
+        "pct": 12.75,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-08-11",
+        "shares": 951980780,
+        "pct": 12.78,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-08-10",
+        "shares": 952110280,
+        "pct": 12.78,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-08-07",
+        "shares": 953132581,
+        "pct": 12.78,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-08-06",
+        "shares": 954824081,
+        "pct": 12.81,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-08-05",
+        "shares": 956213081,
+        "pct": 12.83,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-08-03",
+        "shares": 956322581,
+        "pct": 12.83,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-07-27",
+        "shares": 959606688,
+        "pct": 12.87,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-07-20",
+        "shares": 964315688,
+        "pct": 12.94,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-07-13",
+        "shares": 961090858,
+        "pct": 12.9,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-07-10",
+        "shares": 959821858,
+        "pct": 12.88,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-07-09",
+        "shares": 960653987,
+        "pct": 12.88,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-07-08",
+        "shares": 962707119,
+        "pct": 12.92,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-07-07",
+        "shares": 963767119,
+        "pct": 12.93,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-07-06",
+        "shares": 965535119,
+        "pct": 12.96,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-06-29",
+        "shares": 984055140,
+        "pct": 13.21,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-06-22",
+        "shares": 998523661,
+        "pct": 13.4,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-06-15",
+        "shares": 1009580430,
+        "pct": 13.54,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-06-12",
+        "shares": 1014006336,
+        "pct": 13.61,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-06-09",
+        "shares": 1017654044,
+        "pct": 13.65,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-06-08",
+        "shares": 1021166803,
+        "pct": 13.71,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-06-05",
+        "shares": 1023070159,
+        "pct": 13.73,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-06-01",
+        "shares": 1024276946,
+        "pct": 13.74,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-05-23",
+        "shares": 1041121491,
+        "pct": 13.97,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-05-18",
+        "shares": 1043115818,
+        "pct": 13.99,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-05-13",
+        "shares": 1038307219,
+        "pct": 13.93,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-05-11",
+        "shares": 1031482219,
+        "pct": 13.84,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-05-08",
+        "shares": 1022826219,
+        "pct": 13.72,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-05-07",
+        "shares": 1019407219,
+        "pct": 13.68,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-05-06",
+        "shares": 1019407219,
+        "pct": 13.68,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-05-04",
+        "shares": 1010584219,
+        "pct": 13.55,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-04-27",
+        "shares": 1009602345,
+        "pct": 13.55,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-04-20",
+        "shares": 1018941356,
+        "pct": 13.67,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-04-13",
+        "shares": 1028307820,
+        "pct": 13.8,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-04-02",
+        "shares": 1044249414,
+        "pct": 14.02,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-03-30",
+        "shares": 1020208849,
+        "pct": 13.69,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-03-23",
+        "shares": 1034330190,
+        "pct": 13.87,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-03-16",
+        "shares": 1045624511,
+        "pct": 14.03,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-03-09",
+        "shares": 1061697880,
+        "pct": 14.24,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-03-02",
+        "shares": 1073021031,
+        "pct": 14.4,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-02-23",
+        "shares": 1087531730,
+        "pct": 14.6,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-02-16",
+        "shares": 1090772823,
+        "pct": 14.64,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-02-12",
+        "shares": 1091008195,
+        "pct": 14.64,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-02-09",
+        "shares": 1096193560,
+        "pct": 14.71,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-02-06",
+        "shares": 1098951340,
+        "pct": 14.75,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-02-05",
+        "shares": 1099648840,
+        "pct": 14.76,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-02-02",
+        "shares": 1102731740,
+        "pct": 14.8,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-01-26",
+        "shares": 1103503539,
+        "pct": 14.81,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-01-19",
+        "shares": 1109413806,
+        "pct": 14.89,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-01-12",
+        "shares": 1114834656,
+        "pct": 14.96,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-01-05",
+        "shares": 1077851046,
+        "pct": 14.47,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2025-12-29",
+        "shares": 1076231430,
+        "pct": 14.44,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2025-12-22",
+        "shares": 1077917640,
+        "pct": 14.47,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2025-12-15",
+        "shares": 1040504685,
+        "pct": 13.96,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2025-12-08",
+        "shares": 1039373367,
+        "pct": 13.95,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2025-12-01",
+        "shares": 1031781876,
+        "pct": 13.85,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2025-11-24",
+        "shares": 1022029390,
+        "pct": 13.71,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2025-11-17",
+        "shares": 1012927146,
+        "pct": 13.59,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2025-11-14",
+        "shares": 1008085146,
+        "pct": 13.52,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2025-11-11",
+        "shares": 985801023,
+        "pct": 13.23,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2025-11-10",
+        "shares": 979496523,
+        "pct": 13.14,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      }
+    ]
+  },
+  "di_events": [
+    {
+      "serial": "CS20261107E00018",
+      "form_url": "https://di.hkex.com.hk/di/NSForm2.aspx?fn=CS20261107E00018&sa2=ns&sid=6925&sd=09/11/2025&ed=09/11/2026&sa1=cl&scsd=09/11/2025&sced=09/11/2026&sc=02318&src=Main&lang=EN&tk=ds",
+      "listed_name": "Ping An Insurance (Group) Co. of China, Ltd. - H Shares",
+      "stock_code": "02318",
+      "filer": "BlackRock, Inc.",
+      "role": "substantial",
+      "event_date": "2026-11-04",
+      "summary_date": "2026-11-09",
+      "reason_code": "1313",
+      "position": "L",
+      "shares": 1798000,
+      "avg_price": null,
+      "before_shares": 503401041,
+      "before_pct": 6.76,
+      "after_shares": 503401041,
+      "after_pct": 6.76,
+      "action": "held"
+    },
+    {
+      "serial": "CS20261109E00260",
+      "form_url": "https://di.hkex.com.hk/di/NSForm2.aspx?fn=CS20261109E00260&sa2=ns&sid=6925&sd=09/11/2025&ed=09/11/2026&sa1=cl&scsd=09/11/2025&sced=09/11/2026&sc=02318&src=Main&lang=EN&tk=ds",
+      "listed_name": "Ping An Insurance (Group) Co. of China, Ltd. - H Shares",
+      "stock_code": "02318",
+      "filer": "JPMorgan Chase & Co.",
+      "role": "substantial",
+      "event_date": "2026-11-04",
+      "summary_date": "2026-11-09",
+      "reason_code": "14015",
+      "position": "S",
+      "shares": null,
+      "avg_price": null,
+      "before_shares": 457966230,
+      "before_pct": 6.14,
+      "after_shares": 464211620,
+      "after_pct": 6.23,
+      "action": "added"
+    },
+    {
+      "serial": "CS20261106E00443",
+      "form_url": "https://di.hkex.com.hk/di/NSForm2.aspx?fn=CS20261106E00443&sa2=ns&sid=6925&sd=09/11/2025&ed=09/11/2026&sa1=cl&scsd=09/11/2025&sced=09/11/2026&sc=02318&src=Main&lang=EN&tk=ds",
+      "listed_name": "Ping An Insurance (Group) Co. of China, Ltd. - H Shares",
+      "stock_code": "02318",
+      "filer": "UBS Group AG",
+      "role": "substantial",
+      "event_date": "2026-11-03",
+      "summary_date": "2026-11-09",
+      "reason_code": "1113",
+      "position": "L",
+      "shares": 28184500,
+      "avg_price": null,
+      "before_shares": 514344097,
+      "before_pct": 6.91,
+      "after_shares": 542528597,
+      "after_pct": 7.28,
+      "action": "added"
+    },
+    {
+      "serial": "CS20261106E00040",
+      "form_url": "https://di.hkex.com.hk/di/NSForm2.aspx?fn=CS20261106E00040&sa2=ns&sid=6925&sd=06/11/2025&ed=06/11/2026&sa1=cl&scsd=06/11/2025&sced=06/11/2026&sc=02318&src=Main&lang=EN&tk=ds",
+      "listed_name": "Ping An Insurance (Group) Co. of China, Ltd. - H Shares",
+      "stock_code": "02318",
+      "filer": "BlackRock, Inc.",
+      "role": "substantial",
+      "event_date": "2026-11-03",
+      "summary_date": "2026-11-06",
+      "reason_code": "1313",
+      "position": "L",
+      "shares": 25446000,
+      "avg_price": null,
+      "before_shares": 503517108,
+      "before_pct": 6.76,
+      "after_shares": 503517108,
+      "after_pct": 6.76,
+      "action": "held"
+    },
+    {
+      "serial": "CS20261105E00492",
+      "form_url": "https://di.hkex.com.hk/di/NSForm2.aspx?fn=CS20261105E00492&sa2=ns&sid=6925&sd=06/11/2025&ed=06/11/2026&sa1=cl&scsd=06/11/2025&sced=06/11/2026&sc=02318&src=Main&lang=EN&tk=ds",
+      "listed_name": "Ping An Insurance (Group) Co. of China, Ltd. - H Shares",
+      "stock_code": "02318",
+      "filer": "JPMorgan Chase & Co.",
+      "role": "substantial",
+      "event_date": "2026-11-02",
+      "summary_date": "2026-11-06",
+      "reason_code": "15015",
+      "position": "S",
+      "shares": null,
+      "avg_price": null,
+      "before_shares": 464264013,
+      "before_pct": 6.23,
+      "after_shares": 457524095,
+      "after_pct": 6.14,
+      "action": "reduced"
+    },
+    {
+      "serial": "CS20261105E00033",
+      "form_url": "https://di.hkex.com.hk/di/NSForm2.aspx?fn=CS20261105E00033&sa2=ns&sid=6925&sd=05/11/2025&ed=05/11/2026&sa1=cl&scsd=05/11/2025&sced=05/11/2026&sc=02318&src=Main&lang=EN&tk=ds",
+      "listed_name": "Ping An Insurance (Group) Co. of China, Ltd. - H Shares",
+      "stock_code": "02318",
+      "filer": "BlackRock, Inc.",
+      "role": "substantial",
+      "event_date": "2026-11-02",
+      "summary_date": "2026-11-05",
+      "reason_code": "1314",
+      "position": "L",
+      "shares": 9941000,
+      "avg_price": null,
+      "before_shares": 509332683,
+      "before_pct": 6.84,
+      "after_shares": 509332683,
+      "after_pct": 6.84,
+      "action": "held"
+    },
+    {
+      "serial": "CS20261104E00014",
+      "form_url": "https://di.hkex.com.hk/di/NSForm2.aspx?fn=CS20261104E00014&sa2=ns&sid=6925&sd=04/11/2025&ed=04/11/2026&sa1=cl&scsd=04/11/2025&sced=04/11/2026&sc=02318&src=Main&lang=EN&tk=ds",
+      "listed_name": "Ping An Insurance (Group) Co. of China, Ltd. - H Shares",
+      "stock_code": "02318",
+      "filer": "BlackRock, Inc.",
+      "role": "substantial",
+      "event_date": "2026-10-30",
+      "summary_date": "2026-11-04",
+      "reason_code": "1314",
+      "position": "L",
+      "shares": 506204,
+      "avg_price": null,
+      "before_shares": 506912278,
+      "before_pct": 6.81,
+      "after_shares": 506912278,
+      "after_pct": 6.81,
+      "action": "held"
+    },
+    {
+      "serial": "CS20261031E00038",
+      "form_url": "https://di.hkex.com.hk/di/NSForm2.aspx?fn=CS20261031E00038&sa2=ns&sid=6925&sd=02/11/2025&ed=02/11/2026&sa1=cl&scsd=02/11/2025&sced=02/11/2026&sc=02318&src=Main&lang=EN&tk=ds",
+      "listed_name": "Ping An Insurance (Group) Co. of China, Ltd. - H Shares",
+      "stock_code": "02318",
+      "filer": "BlackRock, Inc.",
+      "role": "substantial",
+      "event_date": "2026-10-28",
+      "summary_date": "2026-11-02",
+      "reason_code": "1314",
+      "position": "L",
+      "shares": 1064500,
+      "avg_price": null,
+      "before_shares": 503702863,
+      "before_pct": 6.76,
+      "after_shares": 503702863,
+      "after_pct": 6.76,
+      "action": "held"
+    },
+    {
+      "serial": "CS20261030E00348",
+      "form_url": "https://di.hkex.com.hk/di/NSForm2.aspx?fn=CS20261030E00348&sa2=ns&sid=6925&sd=02/11/2025&ed=02/11/2026&sa1=cl&scsd=02/11/2025&sced=02/11/2026&sc=02318&src=Main&lang=EN&tk=ds",
+      "listed_name": "Ping An Insurance (Group) Co. of China, Ltd. - H Shares",
+      "stock_code": "02318",
+      "filer": "JPMorgan Chase & Co.",
+      "role": "substantial",
+      "event_date": "2026-10-27",
+      "summary_date": "2026-11-02",
+      "reason_code": "14015",
+      "position": "S",
+      "shares": null,
+      "avg_price": null,
+      "before_shares": 469972204,
+      "before_pct": 6.31,
+      "after_shares": 474082842,
+      "after_pct": 6.36,
+      "action": "added"
+    },
+    {
+      "serial": "CS20261030E00013",
+      "form_url": "https://di.hkex.com.hk/di/NSForm2.aspx?fn=CS20261030E00013&sa2=ns&sid=6925&sd=30/10/2025&ed=30/10/2026&sa1=cl&scsd=30/10/2025&sced=30/10/2026&sc=02318&src=Main&lang=EN&tk=ds",
+      "listed_name": "Ping An Insurance (Group) Co. of China, Ltd. - H Shares",
+      "stock_code": "02318",
+      "filer": "BlackRock, Inc.",
+      "role": "substantial",
+      "event_date": "2026-10-27",
+      "summary_date": "2026-10-30",
+      "reason_code": "1314",
+      "position": "L",
+      "shares": 5400500,
+      "avg_price": null,
+      "before_shares": 502986125,
+      "before_pct": 6.75,
+      "after_shares": 502986125,
+      "after_pct": 6.75,
+      "action": "held"
+    },
+    {
+      "serial": "CS20261029E00037",
+      "form_url": "https://di.hkex.com.hk/di/NSForm2.aspx?fn=CS20261029E00037&sa2=ns&sid=6925&sd=29/10/2025&ed=29/10/2026&sa1=cl&scsd=29/10/2025&sced=29/10/2026&sc=02318&src=Main&lang=EN&tk=ds",
+      "listed_name": "Ping An Insurance (Group) Co. of China, Ltd. - H Shares",
+      "stock_code": "02318",
+      "filer": "BlackRock, Inc.",
+      "role": "substantial",
+      "event_date": "2026-10-26",
+      "summary_date": "2026-10-29",
+      "reason_code": "1314",
+      "position": "L",
+      "shares": 6464043,
+      "avg_price": null,
+      "before_shares": 502232229,
+      "before_pct": 6.74,
+      "after_shares": 502232229,
+      "after_pct": 6.74,
+      "action": "held"
+    }
+  ],
+  "short": {
+    "as_of": "2026-10-30",
+    "shares": 1056231881,
+    "hkd": 52536973761,
+    "name": "PING AN",
+    "pct_of_issued": 14.171,
+    "shares_chg_wow": null
+  },
+  "market_flow": {
+    "as_of": "2026-11-09",
+    "turnover_unit": "HKD_million",
+    "southbound": [
+      {
+        "market": "SSE Southbound",
+        "date": "2026-11-09",
+        "tradingDay": 1,
+        "stats": {
+          "Total Turnover": "42,498.51",
+          "Buy Turnover": "21,773.69",
+          "Sell Turnover": "20,724.82",
+          "Total Trade Count": "1,093,116",
+          "Buy Trade Count": "575,695",
+          "Sell Trade Count": "517,421",
+          "ETF Turnover": "222.48"
+        },
+        "net_buy": 1048.87
+      },
+      {
+        "market": "SZSE Southbound",
+        "date": "2026-11-09",
+        "tradingDay": 1,
+        "stats": {
+          "Total Turnover": "22,384.12",
+          "Buy Turnover": "11,595.38",
+          "Sell Turnover": "10,788.74",
+          "Total Trade Count": "609,722",
+          "Buy Trade Count": "315,004",
+          "Sell Trade Count": "294,718",
+          "ETF Turnover": "370.47"
+        },
+        "net_buy": 806.64
+      }
+    ],
+    "net_buy_total": 1855.51,
+    "history": [
+      {
+        "date": "2026-11-09",
+        "net_buy_total": 1855.51
+      },
+      {
+        "date": "2026-11-06",
+        "net_buy_total": 2414.91
+      },
+      {
+        "date": "2026-11-05",
+        "net_buy_total": -21326.2
+      },
+      {
+        "date": "2026-11-04",
+        "net_buy_total": -3277.17
+      },
+      {
+        "date": "2026-11-03",
+        "net_buy_total": 23420.24
+      },
+      {
+        "date": "2026-11-02",
+        "net_buy_total": -4469.23
+      },
+      {
+        "date": "2026-10-29",
+        "net_buy_total": -3358.88
+      },
+      {
+        "date": "2026-10-28",
+        "net_buy_total": -804.12
+      },
+      {
+        "date": "2026-10-27",
+        "net_buy_total": -1237.71
+      },
+      {
+        "date": "2026-10-26",
+        "net_buy_total": -2075.37
+      },
+      {
+        "date": "2026-10-23",
+        "net_buy_total": -1670.26
+      },
+      {
+        "date": "2026-10-22",
+        "net_buy_total": -9218.08
+      },
+      {
+        "date": "2026-10-21",
+        "net_buy_total": -4434.8
+      },
+      {
+        "date": "2026-10-20",
+        "net_buy_total": -1722.97
+      },
+      {
+        "date": "2026-10-16",
+        "net_buy_total": -3568.43
+      },
+      {
+        "date": "2026-10-15",
+        "net_buy_total": -5080.23
+      },
+      {
+        "date": "2026-10-14",
+        "net_buy_total": -135.05
+      },
+      {
+        "date": "2026-10-13",
+        "net_buy_total": -456.62
+      },
+      {
+        "date": "2026-10-12",
+        "net_buy_total": 2603.27
+      },
+      {
+        "date": "2026-10-09",
+        "net_buy_total": 290.67
+      },
+      {
+        "date": "2026-10-08",
+        "net_buy_total": 6477.49
+      },
+      {
+        "date": "2026-10-07",
+        "net_buy_total": 0
+      },
+      {
+        "date": "2026-10-06",
+        "net_buy_total": 0
+      },
+      {
+        "date": "2026-10-05",
+        "net_buy_total": 0
+      },
+      {
+        "date": "2026-10-02",
+        "net_buy_total": 0
+      },
+      {
+        "date": "2026-09-30",
+        "net_buy_total": 6863.61
+      },
+      {
+        "date": "2026-09-29",
+        "net_buy_total": 14.63
+      },
+      {
+        "date": "2026-09-28",
+        "net_buy_total": -6553.87
+      },
+      {
+        "date": "2026-09-25",
+        "net_buy_total": 0
+      },
+      {
+        "date": "2026-09-24",
+        "net_buy_total": 2899.77
+      },
+      {
+        "date": "2026-09-23",
+        "net_buy_total": 3448.93
+      },
+      {
+        "date": "2026-09-22",
+        "net_buy_total": 12690.64
+      },
+      {
+        "date": "2026-09-21",
+        "net_buy_total": 4073.85
+      },
+      {
+        "date": "2026-09-18",
+        "net_buy_total": 1193.27
+      },
+      {
+        "date": "2026-09-17",
+        "net_buy_total": 3363.15
+      },
+      {
+        "date": "2026-09-16",
+        "net_buy_total": 2099.43
+      },
+      {
+        "date": "2026-09-15",
+        "net_buy_total": 880.67
+      },
+      {
+        "date": "2026-09-14",
+        "net_buy_total": 4471.48
+      },
+      {
+        "date": "2026-09-11",
+        "net_buy_total": 4431.02
+      },
+      {
+        "date": "2026-09-10",
+        "net_buy_total": 4550.91
+      },
+      {
+        "date": "2026-09-09",
+        "net_buy_total": 3720.4
+      },
+      {
+        "date": "2026-09-08",
+        "net_buy_total": 6127.82
+      },
+      {
+        "date": "2026-09-07",
+        "net_buy_total": 1275.3
+      },
+      {
+        "date": "2026-09-04",
+        "net_buy_total": -10020.87
+      },
+      {
+        "date": "2026-09-03",
+        "net_buy_total": 3395.25
+      },
+      {
+        "date": "2026-09-02",
+        "net_buy_total": 4093.27
+      },
+      {
+        "date": "2026-09-01",
+        "net_buy_total": 7756.86
+      },
+      {
+        "date": "2026-08-31",
+        "net_buy_total": 2139.25
+      },
+      {
+        "date": "2026-08-28",
+        "net_buy_total": 1176.2
+      },
+      {
+        "date": "2026-08-27",
+        "net_buy_total": 3179.59
+      },
+      {
+        "date": "2026-08-26",
+        "net_buy_total": 452.67
+      },
+      {
+        "date": "2026-08-25",
+        "net_buy_total": -6605.24
+      },
+      {
+        "date": "2026-08-24",
+        "net_buy_total": 11566.74
+      },
+      {
+        "date": "2026-08-21",
+        "net_buy_total": -7629.64
+      },
+      {
+        "date": "2026-08-20",
+        "net_buy_total": -10412.07
+      },
+      {
+        "date": "2026-08-19",
+        "net_buy_total": -10620.78
+      },
+      {
+        "date": "2026-08-18",
+        "net_buy_total": 14001.61
+      },
+      {
+        "date": "2026-08-17",
+        "net_buy_total": 3076.98
+      },
+      {
+        "date": "2026-08-14",
+        "net_buy_total": -1316.01
+      },
+      {
+        "date": "2026-08-13",
+        "net_buy_total": 3666.94
+      },
+      {
+        "date": "2026-08-12",
+        "net_buy_total": -2906.11
+      },
+      {
+        "date": "2026-08-11",
+        "net_buy_total": -1376.16
+      },
+      {
+        "date": "2026-08-10",
+        "net_buy_total": 2020.78
+      },
+      {
+        "date": "2026-08-07",
+        "net_buy_total": -777.8
+      },
+      {
+        "date": "2026-08-06",
+        "net_buy_total": -1460.92
+      },
+      {
+        "date": "2026-08-05",
+        "net_buy_total": -1397.81
+      },
+      {
+        "date": "2026-08-04",
+        "net_buy_total": 2570.41
+      },
+      {
+        "date": "2026-08-03",
+        "net_buy_total": 11030.81
+      },
+      {
+        "date": "2026-07-31",
+        "net_buy_total": -480.56
+      },
+      {
+        "date": "2026-07-30",
+        "net_buy_total": -8571.02
+      },
+      {
+        "date": "2026-07-29",
+        "net_buy_total": -5589.22
+      },
+      {
+        "date": "2026-07-28",
+        "net_buy_total": -2494.55
+      },
+      {
+        "date": "2026-07-27",
+        "net_buy_total": -1574.4
+      },
+      {
+        "date": "2026-07-24",
+        "net_buy_total": -1518.19
+      },
+      {
+        "date": "2026-07-23",
+        "net_buy_total": -4226.12
+      },
+      {
+        "date": "2026-07-22",
+        "net_buy_total": 7516.97
+      },
+      {
+        "date": "2026-07-21",
+        "net_buy_total": 7167.37
+      },
+      {
+        "date": "2026-07-20",
+        "net_buy_total": -5962.31
+      },
+      {
+        "date": "2026-07-17",
+        "net_buy_total": -1456.58
+      },
+      {
+        "date": "2026-07-16",
+        "net_buy_total": 5039.48
+      },
+      {
+        "date": "2026-07-15",
+        "net_buy_total": 13363.73
+      },
+      {
+        "date": "2026-07-14",
+        "net_buy_total": 10996.88
+      },
+      {
+        "date": "2026-07-13",
+        "net_buy_total": 9038.42
+      },
+      {
+        "date": "2026-07-10",
+        "net_buy_total": -5994.54
+      },
+      {
+        "date": "2026-07-09",
+        "net_buy_total": 9830.47
+      },
+      {
+        "date": "2026-07-08",
+        "net_buy_total": 14194.36
+      },
+      {
+        "date": "2026-07-07",
+        "net_buy_total": 497.23
+      },
+      {
+        "date": "2026-07-06",
+        "net_buy_total": 20527.8
+      },
+      {
+        "date": "2026-07-03",
+        "net_buy_total": 4537.78
+      },
+      {
+        "date": "2026-07-02",
+        "net_buy_total": -1974.14
+      },
+      {
+        "date": "2026-06-30",
+        "net_buy_total": 5895.22
+      },
+      {
+        "date": "2026-06-29",
+        "net_buy_total": -10338.79
+      },
+      {
+        "date": "2026-06-26",
+        "net_buy_total": -2503.8
+      },
+      {
+        "date": "2026-06-25",
+        "net_buy_total": -8874.37
+      },
+      {
+        "date": "2026-06-24",
+        "net_buy_total": 15750.73
+      },
+      {
+        "date": "2026-06-23",
+        "net_buy_total": 10370.77
+      },
+      {
+        "date": "2026-06-22",
+        "net_buy_total": -5819.55
+      },
+      {
+        "date": "2026-06-18",
+        "net_buy_total": -6792.12
+      },
+      {
+        "date": "2026-06-17",
+        "net_buy_total": -3221.63
+      },
+      {
+        "date": "2026-06-16",
+        "net_buy_total": 3463.02
+      },
+      {
+        "date": "2026-06-15",
+        "net_buy_total": 2109.96
+      },
+      {
+        "date": "2026-06-12",
+        "net_buy_total": -3942.3
+      },
+      {
+        "date": "2026-06-11",
+        "net_buy_total": -2754.31
+      },
+      {
+        "date": "2026-06-10",
+        "net_buy_total": 8243.32
+      },
+      {
+        "date": "2026-06-09",
+        "net_buy_total": -8613.81
+      },
+      {
+        "date": "2026-06-08",
+        "net_buy_total": 11317.9
+      },
+      {
+        "date": "2026-06-05",
+        "net_buy_total": -2426.43
+      },
+      {
+        "date": "2026-06-04",
+        "net_buy_total": -314.93
+      },
+      {
+        "date": "2026-06-03",
+        "net_buy_total": 18681.97
+      },
+      {
+        "date": "2026-06-02",
+        "net_buy_total": 2223.2
+      },
+      {
+        "date": "2026-06-01",
+        "net_buy_total": 4657.31
+      },
+      {
+        "date": "2026-05-29",
+        "net_buy_total": 1884.06
+      },
+      {
+        "date": "2026-05-28",
+        "net_buy_total": 7608.76
+      },
+      {
+        "date": "2026-05-27",
+        "net_buy_total": -7717.44
+      },
+      {
+        "date": "2026-05-26",
+        "net_buy_total": -967.66
+      },
+      {
+        "date": "2026-05-22",
+        "net_buy_total": -6493.65
+      },
+      {
+        "date": "2026-05-21",
+        "net_buy_total": -6104.99
+      },
+      {
+        "date": "2026-05-20",
+        "net_buy_total": 5708.1
+      },
+      {
+        "date": "2026-05-19",
+        "net_buy_total": 1265.63
+      },
+      {
+        "date": "2026-05-18",
+        "net_buy_total": -7876.24
+      },
+      {
+        "date": "2026-05-15",
+        "net_buy_total": 24955.43
+      },
+      {
+        "date": "2026-05-14",
+        "net_buy_total": -9712.37
+      },
+      {
+        "date": "2026-05-13",
+        "net_buy_total": -6771.42
+      },
+      {
+        "date": "2026-05-12",
+        "net_buy_total": 790.04
+      },
+      {
+        "date": "2026-05-11",
+        "net_buy_total": 70.99
+      },
+      {
+        "date": "2026-05-08",
+        "net_buy_total": 13168.4
+      },
+      {
+        "date": "2026-05-07",
+        "net_buy_total": -4796.79
+      },
+      {
+        "date": "2026-05-06",
+        "net_buy_total": -8564.63
+      },
+      {
+        "date": "2026-05-05",
+        "net_buy_total": 0
+      },
+      {
+        "date": "2026-05-04",
+        "net_buy_total": 0
+      },
+      {
+        "date": "2026-04-30",
+        "net_buy_total": 12191.84
+      },
+      {
+        "date": "2026-04-29",
+        "net_buy_total": -3951.75
+      },
+      {
+        "date": "2026-04-28",
+        "net_buy_total": 14522.78
+      },
+      {
+        "date": "2026-04-27",
+        "net_buy_total": -4092.01
+      },
+      {
+        "date": "2026-04-24",
+        "net_buy_total": 3460.14
+      },
+      {
+        "date": "2026-04-23",
+        "net_buy_total": 8598.13
+      },
+      {
+        "date": "2026-04-22",
+        "net_buy_total": 4890.49
+      },
+      {
+        "date": "2026-04-21",
+        "net_buy_total": 3737.93
+      },
+      {
+        "date": "2026-04-20",
+        "net_buy_total": -3909.25
+      },
+      {
+        "date": "2026-04-17",
+        "net_buy_total": 17009.71
+      },
+      {
+        "date": "2026-04-16",
+        "net_buy_total": 4291.06
+      },
+      {
+        "date": "2026-04-15",
+        "net_buy_total": 4220.67
+      },
+      {
+        "date": "2026-04-14",
+        "net_buy_total": -2016.52
+      }
+    ],
+    "net_cum_30d": -32541.19,
+    "net_cum_60d": 14103.55,
+    "net_cum_90d": 34772.62,
+    "net_cum_120d": 66631.83,
+    "net_cum_150d": 108290.23,
+    "net_cum_180d": 137911.78,
+    "net_cum_270d": null,
+    "net_cum_360d": null,
+    "changes": {
+      "net_cum_30d": -32541.19,
+      "net_cum_60d": 14103.55,
+      "net_cum_90d": 34772.62,
+      "net_cum_120d": 66631.83,
+      "net_cum_150d": 108290.23,
+      "net_cum_180d": 137911.78,
+      "net_cum_270d": null,
+      "net_cum_360d": null
+    }
+  },
+  "notes": {
+    "zh": "官方日終／週更披露之轉送快照；非投資建議。南向為港股通合計（A00003+A00004），非單一基金。",
+    "en": "Relay of official daily/weekly disclosures; not investment advice. Southbound is Stock Connect aggregate (A00003+A00004), not a single fund."
+  }
+}

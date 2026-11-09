@@ -1,0 +1,1250 @@
+{
+  "ticker": "1398.HK",
+  "stock_code": "01398",
+  "source": "seed",
+  "capturedAt": "2026-11-09T15:34:17.791Z",
+  "southbound": {
+    "as_of": "2026-11-06",
+    "shares": 35449345098,
+    "pct": 40.84,
+    "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED",
+    "pct_chg_1d": -0.02,
+    "pct_chg_5d": -0.03,
+    "pct_chg_20d": -0.51,
+    "pct_chg_30d": -0.51,
+    "pct_chg_60d": -0.47,
+    "pct_chg_90d": -0.72,
+    "pct_chg_120d": -1.01,
+    "pct_chg_150d": -1.25,
+    "pct_chg_180d": -1.73,
+    "pct_chg_270d": -0.02,
+    "pct_chg_360d": 1.19,
+    "changes": {
+      "pct_chg_1d": -0.02,
+      "pct_chg_5d": -0.03,
+      "pct_chg_20d": -0.51,
+      "pct_chg_30d": -0.51,
+      "pct_chg_60d": -0.47,
+      "pct_chg_90d": -0.72,
+      "pct_chg_120d": -1.01,
+      "pct_chg_150d": -1.25,
+      "pct_chg_180d": -1.73,
+      "pct_chg_270d": -0.02,
+      "pct_chg_360d": 1.19
+    },
+    "history": [
+      {
+        "date": "2026-11-06",
+        "shares": 35449345098,
+        "pct": 40.84,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-11-05",
+        "shares": 35470437098,
+        "pct": 40.86,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-11-04",
+        "shares": 35452058511,
+        "pct": 40.83,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-11-03",
+        "shares": 35480909511,
+        "pct": 40.86,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-11-02",
+        "shares": 35479238511,
+        "pct": 40.86,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-10-30",
+        "shares": 35476156518,
+        "pct": 40.87,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-10-29",
+        "shares": 35477693518,
+        "pct": 40.87,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-10-28",
+        "shares": 35437748518,
+        "pct": 40.82,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-10-27",
+        "shares": 35439652518,
+        "pct": 40.82,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-10-26",
+        "shares": 35519938518,
+        "pct": 40.91,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-10-23",
+        "shares": 35594935518,
+        "pct": 41,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-10-22",
+        "shares": 35670043518,
+        "pct": 41.08,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-10-21",
+        "shares": 35740669518,
+        "pct": 41.17,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-10-20",
+        "shares": 35813070518,
+        "pct": 41.26,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-10-17",
+        "shares": 35857084971,
+        "pct": 41.31,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-10-16",
+        "shares": 35857084971,
+        "pct": 41.31,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-10-15",
+        "shares": 35878167971,
+        "pct": 41.33,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-10-14",
+        "shares": 35903685971,
+        "pct": 41.36,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-10-13",
+        "shares": 35932536971,
+        "pct": 41.39,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-10-12",
+        "shares": 35942133971,
+        "pct": 41.4,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-10-09",
+        "shares": 35902323971,
+        "pct": 41.35,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-10-08",
+        "shares": 35902323971,
+        "pct": 41.35,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-10-07",
+        "shares": 35902323971,
+        "pct": 41.35,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-10-06",
+        "shares": 35902323971,
+        "pct": 41.35,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-10-05",
+        "shares": 35902323971,
+        "pct": 41.35,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-09-28",
+        "shares": 35847214971,
+        "pct": 41.29,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-09-21",
+        "shares": 35800526870,
+        "pct": 41.24,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-09-14",
+        "shares": 35837745049,
+        "pct": 41.28,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-09-10",
+        "shares": 35819125049,
+        "pct": 41.26,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-09-07",
+        "shares": 35860501556,
+        "pct": 41.31,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-09-04",
+        "shares": 35850607493,
+        "pct": 41.3,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-09-03",
+        "shares": 35849051387,
+        "pct": 41.29,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-08-31",
+        "shares": 35933213387,
+        "pct": 41.39,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-08-24",
+        "shares": 36096724108,
+        "pct": 41.58,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-08-17",
+        "shares": 36031576435,
+        "pct": 41.5,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-08-11",
+        "shares": 36019207427,
+        "pct": 41.49,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-08-10",
+        "shares": 36041102470,
+        "pct": 41.52,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-08-07",
+        "shares": 36074835470,
+        "pct": 41.56,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-08-06",
+        "shares": 36111192336,
+        "pct": 41.6,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-08-05",
+        "shares": 36166999108,
+        "pct": 41.66,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-08-03",
+        "shares": 36241550806,
+        "pct": 41.75,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-07-27",
+        "shares": 36346827806,
+        "pct": 41.87,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-07-20",
+        "shares": 36378861806,
+        "pct": 41.9,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-07-13",
+        "shares": 36349831806,
+        "pct": 41.87,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-07-10",
+        "shares": 36349167806,
+        "pct": 41.87,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-07-09",
+        "shares": 36334654806,
+        "pct": 41.85,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-07-08",
+        "shares": 36318772806,
+        "pct": 41.83,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-07-07",
+        "shares": 36315733530,
+        "pct": 41.83,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-07-06",
+        "shares": 36300838530,
+        "pct": 41.81,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-06-29",
+        "shares": 36287660191,
+        "pct": 41.8,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-06-22",
+        "shares": 36442089787,
+        "pct": 41.98,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-06-15",
+        "shares": 36519214787,
+        "pct": 42.07,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-06-12",
+        "shares": 36531073584,
+        "pct": 42.08,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-06-09",
+        "shares": 36532882539,
+        "pct": 42.09,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-06-08",
+        "shares": 36536905539,
+        "pct": 42.09,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-06-05",
+        "shares": 36540477539,
+        "pct": 42.09,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-06-01",
+        "shares": 36567952577,
+        "pct": 42.12,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-05-23",
+        "shares": 36697621799,
+        "pct": 42.27,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-05-18",
+        "shares": 36850903028,
+        "pct": 42.45,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-05-13",
+        "shares": 36926188861,
+        "pct": 42.54,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-05-11",
+        "shares": 36936728690,
+        "pct": 42.55,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-05-08",
+        "shares": 36961557690,
+        "pct": 42.57,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-05-07",
+        "shares": 36973732073,
+        "pct": 42.59,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-05-06",
+        "shares": 36973732073,
+        "pct": 42.59,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-05-04",
+        "shares": 37053549236,
+        "pct": 42.68,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-04-27",
+        "shares": 36930407147,
+        "pct": 42.54,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-04-20",
+        "shares": 36600926643,
+        "pct": 42.16,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-04-13",
+        "shares": 36519365532,
+        "pct": 42.06,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-04-02",
+        "shares": 36514189732,
+        "pct": 42.06,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-03-30",
+        "shares": 36368701743,
+        "pct": 41.89,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-03-23",
+        "shares": 36239962743,
+        "pct": 41.74,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-03-16",
+        "shares": 35958376580,
+        "pct": 41.42,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-03-09",
+        "shares": 35927285580,
+        "pct": 41.38,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-03-02",
+        "shares": 35632631667,
+        "pct": 41.04,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-02-23",
+        "shares": 35557822667,
+        "pct": 40.95,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-02-16",
+        "shares": 35527290667,
+        "pct": 40.92,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-02-12",
+        "shares": 35513845409,
+        "pct": 40.91,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-02-09",
+        "shares": 35470462054,
+        "pct": 40.86,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-02-06",
+        "shares": 35451115054,
+        "pct": 40.84,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-02-05",
+        "shares": 35422183054,
+        "pct": 40.8,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-02-02",
+        "shares": 35286756136,
+        "pct": 40.64,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-01-26",
+        "shares": 35183469373,
+        "pct": 40.53,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-01-19",
+        "shares": 35054659295,
+        "pct": 40.38,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-01-12",
+        "shares": 34947224179,
+        "pct": 40.26,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-01-05",
+        "shares": 34997587315,
+        "pct": 40.32,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2025-12-29",
+        "shares": 34760835429,
+        "pct": 40.04,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2025-12-22",
+        "shares": 34757175709,
+        "pct": 40.03,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2025-12-15",
+        "shares": 34845898379,
+        "pct": 40.14,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2025-12-08",
+        "shares": 34864960266,
+        "pct": 40.16,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2025-12-01",
+        "shares": 34914098441,
+        "pct": 40.21,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2025-11-24",
+        "shares": 34840144075,
+        "pct": 40.13,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2025-11-17",
+        "shares": 34697706188,
+        "pct": 39.96,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2025-11-14",
+        "shares": 34649157188,
+        "pct": 39.91,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2025-11-11",
+        "shares": 34417681750,
+        "pct": 39.65,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2025-11-10",
+        "shares": 34361210750,
+        "pct": 39.58,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      }
+    ]
+  },
+  "di_events": [],
+  "short": {
+    "as_of": "2026-10-30",
+    "shares": 1269281039,
+    "hkd": 10020973803,
+    "name": "ICBC",
+    "pct_of_issued": 1.4623,
+    "shares_chg_wow": null
+  },
+  "market_flow": {
+    "as_of": "2026-11-09",
+    "turnover_unit": "HKD_million",
+    "southbound": [
+      {
+        "market": "SSE Southbound",
+        "date": "2026-11-09",
+        "tradingDay": 1,
+        "stats": {
+          "Total Turnover": "42,498.51",
+          "Buy Turnover": "21,773.69",
+          "Sell Turnover": "20,724.82",
+          "Total Trade Count": "1,093,116",
+          "Buy Trade Count": "575,695",
+          "Sell Trade Count": "517,421",
+          "ETF Turnover": "222.48"
+        },
+        "net_buy": 1048.87
+      },
+      {
+        "market": "SZSE Southbound",
+        "date": "2026-11-09",
+        "tradingDay": 1,
+        "stats": {
+          "Total Turnover": "22,384.12",
+          "Buy Turnover": "11,595.38",
+          "Sell Turnover": "10,788.74",
+          "Total Trade Count": "609,722",
+          "Buy Trade Count": "315,004",
+          "Sell Trade Count": "294,718",
+          "ETF Turnover": "370.47"
+        },
+        "net_buy": 806.64
+      }
+    ],
+    "net_buy_total": 1855.51,
+    "history": [
+      {
+        "date": "2026-11-09",
+        "net_buy_total": 1855.51
+      },
+      {
+        "date": "2026-11-06",
+        "net_buy_total": 2414.91
+      },
+      {
+        "date": "2026-11-05",
+        "net_buy_total": -21326.2
+      },
+      {
+        "date": "2026-11-04",
+        "net_buy_total": -3277.17
+      },
+      {
+        "date": "2026-11-03",
+        "net_buy_total": 23420.24
+      },
+      {
+        "date": "2026-11-02",
+        "net_buy_total": -4469.23
+      },
+      {
+        "date": "2026-10-29",
+        "net_buy_total": -3358.88
+      },
+      {
+        "date": "2026-10-28",
+        "net_buy_total": -804.12
+      },
+      {
+        "date": "2026-10-27",
+        "net_buy_total": -1237.71
+      },
+      {
+        "date": "2026-10-26",
+        "net_buy_total": -2075.37
+      },
+      {
+        "date": "2026-10-23",
+        "net_buy_total": -1670.26
+      },
+      {
+        "date": "2026-10-22",
+        "net_buy_total": -9218.08
+      },
+      {
+        "date": "2026-10-21",
+        "net_buy_total": -4434.8
+      },
+      {
+        "date": "2026-10-20",
+        "net_buy_total": -1722.97
+      },
+      {
+        "date": "2026-10-16",
+        "net_buy_total": -3568.43
+      },
+      {
+        "date": "2026-10-15",
+        "net_buy_total": -5080.23
+      },
+      {
+        "date": "2026-10-14",
+        "net_buy_total": -135.05
+      },
+      {
+        "date": "2026-10-13",
+        "net_buy_total": -456.62
+      },
+      {
+        "date": "2026-10-12",
+        "net_buy_total": 2603.27
+      },
+      {
+        "date": "2026-10-09",
+        "net_buy_total": 290.67
+      },
+      {
+        "date": "2026-10-08",
+        "net_buy_total": 6477.49
+      },
+      {
+        "date": "2026-10-07",
+        "net_buy_total": 0
+      },
+      {
+        "date": "2026-10-06",
+        "net_buy_total": 0
+      },
+      {
+        "date": "2026-10-05",
+        "net_buy_total": 0
+      },
+      {
+        "date": "2026-10-02",
+        "net_buy_total": 0
+      },
+      {
+        "date": "2026-09-30",
+        "net_buy_total": 6863.61
+      },
+      {
+        "date": "2026-09-29",
+        "net_buy_total": 14.63
+      },
+      {
+        "date": "2026-09-28",
+        "net_buy_total": -6553.87
+      },
+      {
+        "date": "2026-09-25",
+        "net_buy_total": 0
+      },
+      {
+        "date": "2026-09-24",
+        "net_buy_total": 2899.77
+      },
+      {
+        "date": "2026-09-23",
+        "net_buy_total": 3448.93
+      },
+      {
+        "date": "2026-09-22",
+        "net_buy_total": 12690.64
+      },
+      {
+        "date": "2026-09-21",
+        "net_buy_total": 4073.85
+      },
+      {
+        "date": "2026-09-18",
+        "net_buy_total": 1193.27
+      },
+      {
+        "date": "2026-09-17",
+        "net_buy_total": 3363.15
+      },
+      {
+        "date": "2026-09-16",
+        "net_buy_total": 2099.43
+      },
+      {
+        "date": "2026-09-15",
+        "net_buy_total": 880.67
+      },
+      {
+        "date": "2026-09-14",
+        "net_buy_total": 4471.48
+      },
+      {
+        "date": "2026-09-11",
+        "net_buy_total": 4431.02
+      },
+      {
+        "date": "2026-09-10",
+        "net_buy_total": 4550.91
+      },
+      {
+        "date": "2026-09-09",
+        "net_buy_total": 3720.4
+      },
+      {
+        "date": "2026-09-08",
+        "net_buy_total": 6127.82
+      },
+      {
+        "date": "2026-09-07",
+        "net_buy_total": 1275.3
+      },
+      {
+        "date": "2026-09-04",
+        "net_buy_total": -10020.87
+      },
+      {
+        "date": "2026-09-03",
+        "net_buy_total": 3395.25
+      },
+      {
+        "date": "2026-09-02",
+        "net_buy_total": 4093.27
+      },
+      {
+        "date": "2026-09-01",
+        "net_buy_total": 7756.86
+      },
+      {
+        "date": "2026-08-31",
+        "net_buy_total": 2139.25
+      },
+      {
+        "date": "2026-08-28",
+        "net_buy_total": 1176.2
+      },
+      {
+        "date": "2026-08-27",
+        "net_buy_total": 3179.59
+      },
+      {
+        "date": "2026-08-26",
+        "net_buy_total": 452.67
+      },
+      {
+        "date": "2026-08-25",
+        "net_buy_total": -6605.24
+      },
+      {
+        "date": "2026-08-24",
+        "net_buy_total": 11566.74
+      },
+      {
+        "date": "2026-08-21",
+        "net_buy_total": -7629.64
+      },
+      {
+        "date": "2026-08-20",
+        "net_buy_total": -10412.07
+      },
+      {
+        "date": "2026-08-19",
+        "net_buy_total": -10620.78
+      },
+      {
+        "date": "2026-08-18",
+        "net_buy_total": 14001.61
+      },
+      {
+        "date": "2026-08-17",
+        "net_buy_total": 3076.98
+      },
+      {
+        "date": "2026-08-14",
+        "net_buy_total": -1316.01
+      },
+      {
+        "date": "2026-08-13",
+        "net_buy_total": 3666.94
+      },
+      {
+        "date": "2026-08-12",
+        "net_buy_total": -2906.11
+      },
+      {
+        "date": "2026-08-11",
+        "net_buy_total": -1376.16
+      },
+      {
+        "date": "2026-08-10",
+        "net_buy_total": 2020.78
+      },
+      {
+        "date": "2026-08-07",
+        "net_buy_total": -777.8
+      },
+      {
+        "date": "2026-08-06",
+        "net_buy_total": -1460.92
+      },
+      {
+        "date": "2026-08-05",
+        "net_buy_total": -1397.81
+      },
+      {
+        "date": "2026-08-04",
+        "net_buy_total": 2570.41
+      },
+      {
+        "date": "2026-08-03",
+        "net_buy_total": 11030.81
+      },
+      {
+        "date": "2026-07-31",
+        "net_buy_total": -480.56
+      },
+      {
+        "date": "2026-07-30",
+        "net_buy_total": -8571.02
+      },
+      {
+        "date": "2026-07-29",
+        "net_buy_total": -5589.22
+      },
+      {
+        "date": "2026-07-28",
+        "net_buy_total": -2494.55
+      },
+      {
+        "date": "2026-07-27",
+        "net_buy_total": -1574.4
+      },
+      {
+        "date": "2026-07-24",
+        "net_buy_total": -1518.19
+      },
+      {
+        "date": "2026-07-23",
+        "net_buy_total": -4226.12
+      },
+      {
+        "date": "2026-07-22",
+        "net_buy_total": 7516.97
+      },
+      {
+        "date": "2026-07-21",
+        "net_buy_total": 7167.37
+      },
+      {
+        "date": "2026-07-20",
+        "net_buy_total": -5962.31
+      },
+      {
+        "date": "2026-07-17",
+        "net_buy_total": -1456.58
+      },
+      {
+        "date": "2026-07-16",
+        "net_buy_total": 5039.48
+      },
+      {
+        "date": "2026-07-15",
+        "net_buy_total": 13363.73
+      },
+      {
+        "date": "2026-07-14",
+        "net_buy_total": 10996.88
+      },
+      {
+        "date": "2026-07-13",
+        "net_buy_total": 9038.42
+      },
+      {
+        "date": "2026-07-10",
+        "net_buy_total": -5994.54
+      },
+      {
+        "date": "2026-07-09",
+        "net_buy_total": 9830.47
+      },
+      {
+        "date": "2026-07-08",
+        "net_buy_total": 14194.36
+      },
+      {
+        "date": "2026-07-07",
+        "net_buy_total": 497.23
+      },
+      {
+        "date": "2026-07-06",
+        "net_buy_total": 20527.8
+      },
+      {
+        "date": "2026-07-03",
+        "net_buy_total": 4537.78
+      },
+      {
+        "date": "2026-07-02",
+        "net_buy_total": -1974.14
+      },
+      {
+        "date": "2026-06-30",
+        "net_buy_total": 5895.22
+      },
+      {
+        "date": "2026-06-29",
+        "net_buy_total": -10338.79
+      },
+      {
+        "date": "2026-06-26",
+        "net_buy_total": -2503.8
+      },
+      {
+        "date": "2026-06-25",
+        "net_buy_total": -8874.37
+      },
+      {
+        "date": "2026-06-24",
+        "net_buy_total": 15750.73
+      },
+      {
+        "date": "2026-06-23",
+        "net_buy_total": 10370.77
+      },
+      {
+        "date": "2026-06-22",
+        "net_buy_total": -5819.55
+      },
+      {
+        "date": "2026-06-18",
+        "net_buy_total": -6792.12
+      },
+      {
+        "date": "2026-06-17",
+        "net_buy_total": -3221.63
+      },
+      {
+        "date": "2026-06-16",
+        "net_buy_total": 3463.02
+      },
+      {
+        "date": "2026-06-15",
+        "net_buy_total": 2109.96
+      },
+      {
+        "date": "2026-06-12",
+        "net_buy_total": -3942.3
+      },
+      {
+        "date": "2026-06-11",
+        "net_buy_total": -2754.31
+      },
+      {
+        "date": "2026-06-10",
+        "net_buy_total": 8243.32
+      },
+      {
+        "date": "2026-06-09",
+        "net_buy_total": -8613.81
+      },
+      {
+        "date": "2026-06-08",
+        "net_buy_total": 11317.9
+      },
+      {
+        "date": "2026-06-05",
+        "net_buy_total": -2426.43
+      },
+      {
+        "date": "2026-06-04",
+        "net_buy_total": -314.93
+      },
+      {
+        "date": "2026-06-03",
+        "net_buy_total": 18681.97
+      },
+      {
+        "date": "2026-06-02",
+        "net_buy_total": 2223.2
+      },
+      {
+        "date": "2026-06-01",
+        "net_buy_total": 4657.31
+      },
+      {
+        "date": "2026-05-29",
+        "net_buy_total": 1884.06
+      },
+      {
+        "date": "2026-05-28",
+        "net_buy_total": 7608.76
+      },
+      {
+        "date": "2026-05-27",
+        "net_buy_total": -7717.44
+      },
+      {
+        "date": "2026-05-26",
+        "net_buy_total": -967.66
+      },
+      {
+        "date": "2026-05-22",
+        "net_buy_total": -6493.65
+      },
+      {
+        "date": "2026-05-21",
+        "net_buy_total": -6104.99
+      },
+      {
+        "date": "2026-05-20",
+        "net_buy_total": 5708.1
+      },
+      {
+        "date": "2026-05-19",
+        "net_buy_total": 1265.63
+      },
+      {
+        "date": "2026-05-18",
+        "net_buy_total": -7876.24
+      },
+      {
+        "date": "2026-05-15",
+        "net_buy_total": 24955.43
+      },
+      {
+        "date": "2026-05-14",
+        "net_buy_total": -9712.37
+      },
+      {
+        "date": "2026-05-13",
+        "net_buy_total": -6771.42
+      },
+      {
+        "date": "2026-05-12",
+        "net_buy_total": 790.04
+      },
+      {
+        "date": "2026-05-11",
+        "net_buy_total": 70.99
+      },
+      {
+        "date": "2026-05-08",
+        "net_buy_total": 13168.4
+      },
+      {
+        "date": "2026-05-07",
+        "net_buy_total": -4796.79
+      },
+      {
+        "date": "2026-05-06",
+        "net_buy_total": -8564.63
+      },
+      {
+        "date": "2026-05-05",
+        "net_buy_total": 0
+      },
+      {
+        "date": "2026-05-04",
+        "net_buy_total": 0
+      },
+      {
+        "date": "2026-04-30",
+        "net_buy_total": 12191.84
+      },
+      {
+        "date": "2026-04-29",
+        "net_buy_total": -3951.75
+      },
+      {
+        "date": "2026-04-28",
+        "net_buy_total": 14522.78
+      },
+      {
+        "date": "2026-04-27",
+        "net_buy_total": -4092.01
+      },
+      {
+        "date": "2026-04-24",
+        "net_buy_total": 3460.14
+      },
+      {
+        "date": "2026-04-23",
+        "net_buy_total": 8598.13
+      },
+      {
+        "date": "2026-04-22",
+        "net_buy_total": 4890.49
+      },
+      {
+        "date": "2026-04-21",
+        "net_buy_total": 3737.93
+      },
+      {
+        "date": "2026-04-20",
+        "net_buy_total": -3909.25
+      },
+      {
+        "date": "2026-04-17",
+        "net_buy_total": 17009.71
+      },
+      {
+        "date": "2026-04-16",
+        "net_buy_total": 4291.06
+      },
+      {
+        "date": "2026-04-15",
+        "net_buy_total": 4220.67
+      },
+      {
+        "date": "2026-04-14",
+        "net_buy_total": -2016.52
+      }
+    ],
+    "net_cum_30d": -32541.19,
+    "net_cum_60d": 14103.55,
+    "net_cum_90d": 34772.62,
+    "net_cum_120d": 66631.83,
+    "net_cum_150d": 108290.23,
+    "net_cum_180d": 137911.78,
+    "net_cum_270d": null,
+    "net_cum_360d": null,
+    "changes": {
+      "net_cum_30d": -32541.19,
+      "net_cum_60d": 14103.55,
+      "net_cum_90d": 34772.62,
+      "net_cum_120d": 66631.83,
+      "net_cum_150d": 108290.23,
+      "net_cum_180d": 137911.78,
+      "net_cum_270d": null,
+      "net_cum_360d": null
+    }
+  },
+  "notes": {
+    "zh": "官方日終／週更披露之轉送快照；非投資建議。南向為港股通合計（A00003+A00004），非單一基金。",
+    "en": "Relay of official daily/weekly disclosures; not investment advice. Southbound is Stock Connect aggregate (A00003+A00004), not a single fund."
+  }
+}
