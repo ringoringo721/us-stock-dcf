@@ -1,7 +1,10 @@
 /**
  * HKEXNEWS title-search proxy for HK filings / documents.
  * Does not use SEC EDGAR. Lookup stockId via HKEX active-stock list, then
- * titleSearchServlet for Financial Statements / ESG (t1code 40000).
+ * titleSearchServlet for Financial Statements / ESG (t1code 40000) plus
+ * quarterly results announcements (t1code 10000, filtered).
+ * `lang=zh|en` selects Traditional Chinese vs English HKEXnews labels/titles
+ * (servlet expects lang=zh for Chinese — lang=C is NOT Chinese).
  */
 'use strict';
 
@@ -47,6 +50,11 @@ function hkexStockCode(symbol) {
   return match ? match[1].padStart(5, '0') : null;
 }
 
+/** Map UI locale → HKEXnews servlet lang (zh for Trad. Chinese; E for English). */
+function hkexServletLang(lang) {
+  return String(lang || 'zh').toLowerCase().startsWith('zh') ? 'zh' : 'E';
+}
+
 function toHkexDate(isoOrDigits) {
   const raw = String(isoOrDigits || '').trim();
   if (/^\d{8}$/.test(raw)) return raw;
@@ -79,6 +87,18 @@ function formFromLongText(longText) {
   return (dash || decoded || 'HKEX filing').trim();
 }
 
+/** Quarterly results / 季度業績 filings (exclude AGM poll results & briefing invites). */
+function isQuarterlyResultsRow(row) {
+  const long = decodeEntities(row?.LONG_TEXT || row?.SHORT_TEXT || '');
+  const title = decodeEntities(row?.TITLE || '');
+  if (/Results of\s+(AGM|EGM|SGM)|股東大會|說明會|Convening|Results Release/i.test(`${long} ${title}`)) {
+    return false;
+  }
+  if (/\[(?:季度業績|Quarterly Results)/i.test(long)) return true;
+  if (/季度報告|Quarterly Report|第[一二三四]季度報告/i.test(title)) return true;
+  return false;
+}
+
 function normalizeFiling(row, ticker) {
   if (!row || typeof row !== 'object') return null;
   const relative = String(row.FILE_LINK || '').trim();
@@ -96,6 +116,18 @@ function normalizeFiling(row, ticker) {
     link: `${HOST}${relative}`,
     source: 'HKEXNEWS',
   };
+}
+
+function mergeFilings(statementRows, quarterlyRows, ticker, limit) {
+  const byLink = new Map();
+  for (const row of [...statementRows, ...quarterlyRows]) {
+    const normalized = normalizeFiling(row, ticker);
+    if (!normalized?.link) continue;
+    if (!byLink.has(normalized.link)) byLink.set(normalized.link, normalized);
+  }
+  return [...byLink.values()]
+    .sort((a, b) => String(b.filingDate || '').localeCompare(String(a.filingDate || '')))
+    .slice(0, limit);
 }
 
 async function loadActiveStocks(fetcher) {
@@ -123,6 +155,62 @@ async function loadActiveStocks(fetcher) {
   return byCode;
 }
 
+function buildTitleSearchUrl({ stockId, fromDigits, toDigits, t1code, lang, title = '' }) {
+  const searchUrl = new URL(`${HOST}/search/titleSearchServlet.do`);
+  for (const [name, value] of Object.entries({
+    sortDir: '0',
+    sortByOptions: 'DateTime',
+    category: '0',
+    market: 'SEHK',
+    stockId: String(stockId),
+    documentType: '-1',
+    fromDate: fromDigits,
+    toDate: toDigits,
+    title: String(title || ''),
+    searchType: '1',
+    t1code: String(t1code),
+    t2Gcode: '-2',
+    t2code: '-2',
+    lang,
+  })) searchUrl.searchParams.set(name, value);
+  return searchUrl;
+}
+
+async function fetchTitleSearch(fetcher, params) {
+  const searchUrl = buildTitleSearchUrl(params);
+  let upstream;
+  try {
+    upstream = await fetcher(searchUrl, {
+      headers: SESSION_HEADERS,
+      signal: AbortSignal.timeout(25000),
+      redirect: 'error',
+    });
+  } catch (error) {
+    const timeout = ['TimeoutError', 'AbortError'].includes(error.name);
+    const wrapped = new Error(timeout ? 'HKEX_TIMEOUT' : 'HKEX_NETWORK_ERROR');
+    wrapped.cause = error;
+    throw wrapped;
+  }
+  if (!upstream.ok) {
+    const wrapped = new Error('HKEX_UPSTREAM_ERROR');
+    wrapped.upstreamStatus = upstream.status;
+    throw wrapped;
+  }
+  let payload;
+  try { payload = await upstream.json(); }
+  catch {
+    throw new Error('HKEX_INVALID_RESPONSE');
+  }
+  let rawRows;
+  try {
+    rawRows = JSON.parse(payload?.result || '[]');
+  } catch {
+    throw new Error('HKEX_INVALID_RESPONSE');
+  }
+  if (!Array.isArray(rawRows)) throw new Error('HKEX_INVALID_RESPONSE');
+  return rawRows;
+}
+
 function createHandler({ fetch: fetcher = globalThis.fetch } = {}) {
   return async function handler(req, res) {
     res.setHeader('Content-Type', 'application/json; charset=utf-8');
@@ -143,7 +231,7 @@ function createHandler({ fetch: fetcher = globalThis.fetch } = {}) {
     const query = new URL(req.url, 'http://localhost').searchParams;
     const action = query.get('action');
     const symbol = query.get('symbol');
-    const allowedKeys = new Set(['action', 'symbol', 'from', 'to', 'limit']);
+    const allowedKeys = new Set(['action', 'symbol', 'from', 'to', 'limit', 'lang']);
     if (action !== 'filings'
         || !hkexStockCode(symbol)
         || [...new Set(query.keys())].some(key => query.getAll(key).length !== 1)
@@ -156,6 +244,9 @@ function createHandler({ fetch: fetcher = globalThis.fetch } = {}) {
       return send(400, { error: 'INVALID_LIMIT' });
     }
     const limit = Number(limitRaw);
+    const langParam = query.get('lang') || 'zh';
+    if (!/^(zh|en)$/i.test(langParam)) return send(400, { error: 'INVALID_LANG' });
+    const servletLang = hkexServletLang(langParam);
     const toDigits = toHkexDate(query.get('to'))
       || new Date().toISOString().slice(0, 10).replaceAll('-', '');
     const fromDigits = toHkexDate(query.get('from')) || (() => {
@@ -170,7 +261,8 @@ function createHandler({ fetch: fetcher = globalThis.fetch } = {}) {
       const byCode = await loadActiveStocks(fetcher);
       security = byCode.get(code);
     } catch (error) {
-      const timeout = ['TimeoutError', 'AbortError'].includes(error.name);
+      const timeout = ['TimeoutError', 'AbortError'].includes(error.name)
+        || error.message === 'HKEX_TIMEOUT';
       console.error('HKEX active-stock lookup failed', { symbol, reason: timeout ? 'timeout' : error.message });
       return send(timeout ? 504 : 502, {
         error: timeout ? 'HKEX_TIMEOUT' : 'HKEX_ACTIVE_STOCK_ERROR',
@@ -178,60 +270,38 @@ function createHandler({ fetch: fetcher = globalThis.fetch } = {}) {
     }
     if (!security) return send(404, { error: 'HKEX_STOCK_NOT_FOUND', symbol, code });
 
-    const searchUrl = new URL(`${HOST}/search/titleSearchServlet.do`);
-    for (const [name, value] of Object.entries({
-      sortDir: '0',
-      sortByOptions: 'DateTime',
-      category: '0',
-      market: 'SEHK',
-      stockId: String(security.i),
-      documentType: '-1',
-      fromDate: fromDigits,
-      toDate: toDigits,
-      title: '',
-      searchType: '1',
-      // Financial Statements / ESG Information (annual & interim reports).
-      t1code: '40000',
-      t2Gcode: '-2',
-      t2code: '-2',
-      lang: 'E',
-    })) searchUrl.searchParams.set(name, value);
-
-    let upstream;
+    const shared = {
+      stockId: security.i,
+      fromDigits,
+      toDigits,
+      lang: servletLang,
+    };
+    // Keyword search recovers older 季度業績 when the unfiltered announcements
+    // page (≤100) buries them — Tencent often has 0 hits on 季度, so keep both.
+    const quarterlyTitle = servletLang === 'zh' ? '季度' : 'Quarterly';
+    let statementRows;
+    let announcementRows;
+    let titledQuarterlyRows;
     try {
-      upstream = await fetcher(searchUrl, {
-        headers: SESSION_HEADERS,
-        signal: AbortSignal.timeout(25000),
-        redirect: 'error',
-      });
+      [statementRows, announcementRows, titledQuarterlyRows] = await Promise.all([
+        fetchTitleSearch(fetcher, { ...shared, t1code: '40000', title: '' }),
+        fetchTitleSearch(fetcher, { ...shared, t1code: '10000', title: '' }),
+        fetchTitleSearch(fetcher, { ...shared, t1code: '10000', title: quarterlyTitle }),
+      ]);
     } catch (error) {
-      const timeout = ['TimeoutError', 'AbortError'].includes(error.name);
-      console.error('HKEX title search failed', { symbol, reason: timeout ? 'timeout' : 'network' });
-      return send(timeout ? 504 : 502, { error: timeout ? 'HKEX_TIMEOUT' : 'HKEX_NETWORK_ERROR' });
+      const timeout = error.message === 'HKEX_TIMEOUT';
+      console.error('HKEX title search failed', { symbol, reason: error.message });
+      return send(timeout ? 504 : 502, {
+        error: error.message || 'HKEX_NETWORK_ERROR',
+        ...(error.upstreamStatus ? { upstreamStatus: error.upstreamStatus } : {}),
+      });
     }
-    if (!upstream.ok) {
-      console.error('HKEX title search rejected', { symbol, status: upstream.status });
-      return send(502, { error: 'HKEX_UPSTREAM_ERROR', upstreamStatus: upstream.status });
-    }
-    let payload;
-    try { payload = await upstream.json(); }
-    catch {
-      return send(502, { error: 'HKEX_INVALID_RESPONSE' });
-    }
-    let rawRows;
-    try {
-      rawRows = JSON.parse(payload?.result || '[]');
-    } catch {
-      return send(502, { error: 'HKEX_INVALID_RESPONSE' });
-    }
-    if (!Array.isArray(rawRows)) return send(502, { error: 'HKEX_INVALID_RESPONSE' });
 
-    const data = rawRows
-      .map(row => normalizeFiling(row, symbol))
-      .filter(Boolean)
-      .slice(0, limit);
+    const quarterlyRows = [...announcementRows, ...titledQuarterlyRows]
+      .filter(isQuarterlyResultsRow);
+    const data = mergeFilings(statementRows, quarterlyRows, symbol, limit);
 
-    // stockId only — client sets lang=zh|en from UI locale (default zh for this product).
+    // stockId only — client sets titlesearch.xhtml lang=zh|en from UI locale.
     const publicSearchUrl = `${HOST}/search/titlesearch.xhtml?stockId=${encodeURIComponent(String(security.i))}`;
     return send(200, {
       data,
@@ -243,7 +313,9 @@ function createHandler({ fetch: fetcher = globalThis.fetch } = {}) {
         stockId: String(security.i),
         stockName: security.n || null,
         searchUrl: publicSearchUrl,
-        t1code: '40000',
+        lang: servletLang,
+        t1codes: ['40000', '10000'],
+        includesQuarterlyResults: true,
         from: fromDigits,
         to: toDigits,
         capturedAt: new Date().toISOString(),
@@ -259,7 +331,10 @@ function resetActiveStockCacheForTests() {
 module.exports = createHandler();
 module.exports.createHandler = createHandler;
 module.exports.hkexStockCode = hkexStockCode;
+module.exports.hkexServletLang = hkexServletLang;
 module.exports.normalizeFiling = normalizeFiling;
 module.exports.parseFilingDate = parseFilingDate;
 module.exports.decodeEntities = decodeEntities;
+module.exports.isQuarterlyResultsRow = isQuarterlyResultsRow;
+module.exports.mergeFilings = mergeFilings;
 module.exports.resetActiveStockCacheForTests = resetActiveStockCacheForTests;

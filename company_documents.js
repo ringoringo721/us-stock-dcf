@@ -210,12 +210,14 @@
     const to = new Date();
     const from = new Date(to);
     from.setUTCFullYear(from.getUTCFullYear() - years);
+    const lang = hkexLang(options.lang || 'zh');
     const qs = new URLSearchParams({
       action: 'filings',
       symbol: ticker,
       from: from.toISOString().slice(0, 10),
       to: to.toISOString().slice(0, 10),
       limit: String(Math.max(1, Math.min(100, Number(options.limit) || 40))),
+      lang,
     });
     return fetch(`/api/hkexnews?${qs}`).then(async (response) => {
       if (!response.ok) {

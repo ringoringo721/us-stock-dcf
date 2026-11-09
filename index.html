@@ -10073,8 +10073,9 @@
       ? (isEn ? 'Open HKEXnews ↗' : '開啟披露易 ↗')
       : (isEn ? 'Open SEC 8-K ↗' : '開啟 SEC 8-K ↗');
     Promise.all([
-      Docs.loadFilings(ticker, { years: 5, limit: 40, stock: stockObj || { ticker } })
-        .catch(error => ({ error, market: isHk ? 'HKEX' : 'US' })),
+      Docs.loadFilings(ticker, {
+        years: 5, limit: 40, stock: stockObj || { ticker }, lang: currentLang,
+      }).catch(error => ({ error, market: isHk ? 'HKEX' : 'US' })),
       Docs.loadTranscriptDates(ticker).catch(error => ({ error })),
     ]).then(([filings, transcripts]) => {
       if (activeCompanyTicker !== ticker) return;
@@ -10083,13 +10084,17 @@
       const txRows = (transcripts?.rows || []).slice(0, 24);
       const filingsMarket = filings?.market || (isHk ? 'HKEX' : 'US');
       filingsBody.innerHTML = filingRows.length
-        ? filingRows.map(row => `<tr>
+        ? filingRows.map(row => {
+          // HK: prefer HKEXnews title (zh/en from API lang); US keeps SEC form type.
+          const typeLabel = isHk ? (row.title || row.form) : row.form;
+          return `<tr>
             <td class="table-sticky-col" style="text-align:left;">${row.filingDate || '—'}</td>
-            <td>${escapeAttribute(row.form)}</td>
+            <td>${escapeAttribute(typeLabel)}</td>
             <td>${row.link
               ? `<a href="${escapeAttribute(row.link)}" target="_blank" rel="noopener noreferrer">${openLabel}</a>`
               : '—'}</td>
-          </tr>`).join('')
+          </tr>`;
+        }).join('')
         : `<tr><td class="table-sticky-col text-muted" colspan="3">${
           filings?.error
             ? (filingsMarket === 'HKEX'
