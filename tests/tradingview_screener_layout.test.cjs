@@ -73,15 +73,19 @@ test('screener body cells clip; header + score badges stay visible', () => {
   assert.match(html, /target_spread:\s*140/);
   assert.match(html, /function marketPremiumLabel/);
   assert.match(html, /function priceDifferenceTitle/);
-  assert.match(html, /function syncScreenerChromeMetrics/);
+  assert.match(html, /band = isEn \? "Wide" : "寬"/);
+  assert.match(html, /moat\?\.band/);
+  assert.match(html, /#screener-table \.badge-moat\s*\{[^}]*white-space:\s*nowrap/);
 });
 
-test('sticky chrome is opaque; table parks below chrome (no frosted thead)', () => {
+test('sticky chrome is opaque without parking the table over pagination', () => {
   assert.match(html, /#screener-view \.filter-panel\.screener-chrome\s*\{[^}]*background:\s*var\(--bg\)/);
   assert.match(html, /#screener-view \.filter-panel\.screener-chrome\s*\{[^}]*backdrop-filter:\s*none/);
   assert.equal(/\.screener-chrome\s*\{[^}]*backdrop-filter:\s*blur\(/.test(html), false);
-  assert.match(html, /#screener-view #main-scroll-box\.table-scroll-wrapper\s*\{[^}]*position:\s*sticky\s*!important/);
-  assert.match(html, /--screener-chrome-height/);
+  // Sticky-parked scroll box covered #screener-more / collapsed under expanded filters.
+  assert.equal(/#main-scroll-box\.table-scroll-wrapper\s*\{[^}]*position:\s*sticky/.test(html), false);
+  assert.equal(/--screener-chrome-height/.test(html), false);
+  assert.match(html, /id="screener-more"|screener-more/);
   assert.match(html, /td:has\(\.badge-moat\)[\s\S]*?text-align:\s*center/);
 });
 

@@ -1037,30 +1037,16 @@
     #screener-view .stat-num small { font-size: 11px; font-weight: 500; margin-left: 6px; color: var(--text-muted); }
     #screener-view .filter-panel { border-radius: 0; border: 0; border-bottom: 1px solid var(--card-border); padding: 8px 0 0; gap: 0; background: transparent; box-shadow: none; }
     /* Opaque sticky chrome — #screener-view .filter-panel sets background:transparent,
-       and the old color-mix + backdrop-filter frosted thead when the table scrolled under it. */
+       and the old color-mix + backdrop-filter frosted thead when the table scrolled under it.
+       Do NOT sticky-park #main-scroll-box: that covered #screener-more and shot the table
+       off-screen when industry filters expanded (Bugbot #102). Thead stays readable via
+       opaque chrome + thead sticky inside the table’s own overflow box. */
     #screener-view .filter-panel.screener-chrome {
       position: sticky; top: 0; z-index: 25;
       background: var(--bg) !important;
       backdrop-filter: none !important;
       -webkit-backdrop-filter: none !important;
       padding-bottom: 0; margin-bottom: 0;
-    }
-    /* Tall pane so sticky scroll-box can stay parked below chrome (sticky is
-       clipped by the ancestor’s box — a short parent releases thead under chrome). */
-    #screener-view .tv-screener-body,
-    #screener-view .tv-table-pane {
-      min-height: 100dvh;
-    }
-    /* Park the scroll box below sticky chrome so thead stays fully readable.
-       Must beat .table-scroll-wrapper { position: relative !important }. */
-    #screener-view #main-scroll-box.table-scroll-wrapper {
-      position: sticky !important;
-      top: var(--screener-chrome-height, 12rem);
-      z-index: 5;
-      /* Leave slack vs viewport bottom so sticky top can reach chrome height. */
-      max-height: calc(100dvh - var(--screener-chrome-height, 12rem) - 2.75rem) !important;
-      margin-bottom: 0;
-      background: var(--card-bg);
     }
     .tv-filter-bar { display: flex; flex-direction: column; gap: 8px; padding: 8px 0 10px; }
     .tv-filter-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
@@ -1310,8 +1296,8 @@
     /* Keep N/A / 不適用 FMP blocks from dominating column width. */
     #screener-table td[data-applicable="false"],
     #screener-table td[data-fmp-reference] { max-width: 100%; }
-    /* Results/scroll hint stays in document flow under sticky chrome; table pane
-       itself sticks at --screener-chrome-height so thead stays fully readable. */
+    /* Results/scroll hint stays in document flow — only .screener-chrome sticks at top:0
+       so the hint bar is not pinned underneath the taller filter chrome. */
     #screener-view .scroll-hint-bar { position: static; z-index: auto; }
     #screener-results-count { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--text); min-width: 7ch; text-align: right; }
     @media (max-width: 900px) {
@@ -1625,7 +1611,7 @@
       #subpage-valuation .main-layout { grid-template-columns: minmax(0, 1fr); }
       #subpage-valuation .form-group { grid-template-columns: minmax(0, 1fr) 105px; }
     }
-    /* Score / moat badges: hug content (just-fit). Wrap inside cell — no clip, no neighbor spill. */
+    /* Score / moat badges: hug content (just-fit). Moat stays one line; PF/Z/M may wrap. */
     #screener-table .badge-moat,
     #screener-table .badge-fscore,
     #screener-table .badge-zscore,
@@ -1644,6 +1630,7 @@
       display: inline-block;
       box-sizing: border-box;
     }
+    #screener-table .badge-moat { white-space: nowrap; }
     #screener-table td:has(.badge-moat),
     #screener-table td:has(.badge-fscore),
     #screener-table td:has(.badge-zscore),
@@ -5866,14 +5853,17 @@
         : `N/A · 部分評分（${evaluated.length}/10）`)
       : 'N/A';
     const coverage = isEn ? `${evaluated.length}/10 dimensions assessed` : `已評估 ${evaluated.length}/10 個維度`;
-    let grade = isEn ? "Moderate Moat" : "Moderate Moat (中等)";
+    // Full grade for detail page; short `band` for screener one-liner (locale-matched).
+    let grade = isEn ? "Moderate Moat" : "中等護城河";
+    let band = isEn ? "Moderate" : "中等";
     let badgeClass = "moat-weak";
-    if (total >= 88) { grade = isEn ? "Wide Moat 🏆" : "Wide Moat (極寬) 🏆"; badgeClass = "moat-wide"; }
-    else if (total >= 75) { grade = isEn ? "Narrow Moat 🛡️" : "Narrow Moat (優質) 🛡️"; badgeClass = "moat-narrow"; }
-    else if (total >= 55) { grade = isEn ? "Moderate Moat ⚖️" : "Moderate Moat (中等) ⚖️"; badgeClass = "moat-weak"; }
-    else { grade = isEn ? "Weak / No Moat ⚠️" : "Weak / No Moat (微弱) ⚠️"; badgeClass = "moat-none"; }
+    if (total >= 88) { grade = isEn ? "Wide Moat 🏆" : "寬護城河 🏆"; band = isEn ? "Wide" : "寬"; badgeClass = "moat-wide"; }
+    else if (total >= 75) { grade = isEn ? "Narrow Moat 🛡️" : "窄護城河 🛡️"; band = isEn ? "Narrow" : "窄"; badgeClass = "moat-narrow"; }
+    else if (total >= 55) { grade = isEn ? "Moderate Moat ⚖️" : "中等護城河 ⚖️"; band = isEn ? "Moderate" : "中等"; badgeClass = "moat-weak"; }
+    else { grade = isEn ? "Weak / No Moat ⚠️" : "微弱／無護城河 ⚠️"; band = isEn ? "Weak" : "微弱"; badgeClass = "moat-none"; }
     if (total === null) {
       grade = evaluated.length ? (isEn ? 'Partial assessment' : '部分評分') : (isEn ? 'Unavailable' : '尚無評分');
+      band = '';
       badgeClass = '';
       const missingStatements = Array.isArray(s?.qualityWarnings)
         && s.qualityWarnings.some(row => row?.code === 'providerStatementUnavailable');
@@ -5893,6 +5883,7 @@
     }
     if (excluded) {
       grade = '';
+      band = '';
       overallComment = isEn
         ? 'Market capitalisation is below HKD 5 billion; no moat score or commentary is provided under the site screening rule.'
         : '市值低於港幣 50 億元，依網站篩選規則不提供護城河評分或評論。';
@@ -5921,7 +5912,7 @@
       sources: moatObj[dimKeys[idx]]?.sources || []
     }));
 
-    return { total, scoredTotal, scoreText, coverage, grade, badgeClass, criteria, comment: overallComment, ref, m, excluded };
+    return { total, scoredTotal, scoreText, coverage, grade, band, badgeClass, criteria, comment: overallComment, ref, m, excluded };
   }
 
   function syncScreenerScreenState(val = currentValFilter) {
@@ -5951,7 +5942,6 @@
     if (!panel) return;
     panel.open = !panel.open;
     if (panel.open) panel.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-    requestAnimationFrame(syncScreenerChromeMetrics);
   }
 
   // Pattern: every numeric All-columns indicator/ratio must have a filter entry here.
@@ -6890,26 +6880,6 @@
       });
     }
     if (resetScroll) document.getElementById('main-scroll-box').scrollLeft = 0;
-    syncScreenerChromeMetrics();
-  }
-
-  function syncScreenerChromeMetrics() {
-    const chrome = document.querySelector('#screener-view .screener-chrome');
-    const hint = document.querySelector('#screener-view .scroll-hint-bar');
-    const pane = document.querySelector('#screener-view .tv-table-pane');
-    const box = document.getElementById('main-scroll-box');
-    if (!chrome) return;
-    const chromeH = Math.ceil(chrome.getBoundingClientRect().height);
-    document.documentElement.style.setProperty('--screener-chrome-height', `${Math.max(chromeH, 1)}px`);
-    let above = 0;
-    if (pane && box) {
-      const paneTop = pane.getBoundingClientRect().top;
-      const boxTop = box.getBoundingClientRect().top;
-      above = Math.max(0, Math.ceil(boxTop - paneTop));
-    } else if (hint) {
-      above = Math.ceil(hint.getBoundingClientRect().height) + 24;
-    }
-    document.documentElement.style.setProperty('--screener-above-table-height', `${Math.max(above, 48)}px`);
   }
 
   function resetScreenerFilters() {
@@ -7280,11 +7250,14 @@
       const favHeart = item.isFav ? '❤' : '♡';
       const favActiveClass = item.isFav ? 'active' : '';
 
-      const moatScore = item.moat?.excluded ? item.moat.scoreText : item.moat?.scoredTotal == null ? 'N/A'
-        : item.moat.total !== null ? `${item.moat.total} pt` : item.moat.scoreText;
+      // Screener moat: one line `82 pt · Narrow` / `82 pt · 窄`, locale-matched (never EN band in zh UI).
       const moatBadgeCls = item.moat?.badgeClass || '';
-      const moatGradeText = item.moat?.total === null ? item.moat.grade
-        : (item.moat && item.moat.grade) ? item.moat.grade.split(' ')[0] : 'Moat';
+      const moatBand = item.moat?.band || '';
+      const moatLabel = item.moat?.excluded
+        ? (item.moat.scoreText || 'N/A')
+        : item.moat?.total != null
+          ? `${item.moat.total} pt${moatBand ? ` · ${moatBand}` : ''}`
+          : (item.moat?.scoreText || 'N/A');
       const health = financialHealthAssessment(fScoreVal, item.f_score_breakdown, item.ratingSources?.fScore, item);
       if (health.adjusted || health.financialNa) fScoreClass = '';
       const healthComment = I18N_DICT[currentLang][`fsc_health_${health.level}`];
@@ -7362,7 +7335,7 @@
             <button class="btn-nav" onclick="openDetail('${item.ticker}')">${currentLang === 'zh' ? '深度模型 →' : 'DCF Model →'}</button>
           </td>
           <td style="text-align: center;">
-            <span class="badge-moat ${moatBadgeCls}" title="${(item.moat?.excluded ? item.moat.comment : [item.moat?.coverage, ratingProvenance(item, 'moat')].filter(Boolean).join(' · ')).replace(/"/g, '&quot;')}" onclick="openMoat('${item.ticker}')">${moatScore}${moatGradeText ? ` · ${moatGradeText}` : ''}</span>
+            <span class="badge-moat ${moatBadgeCls}" title="${(item.moat?.excluded ? item.moat.comment : [item.moat?.coverage, ratingProvenance(item, 'moat')].filter(Boolean).join(' · ')).replace(/"/g, '&quot;')}" onclick="openMoat('${item.ticker}')">${moatLabel}</span>
           </td>
           <td>
             <div>${waccVal === null ? 'N/A' : (waccVal * 100).toFixed(2) + '%'}</div>
@@ -12068,14 +12041,6 @@
   }
 
   document.addEventListener('DOMContentLoaded', () => {
-    syncScreenerChromeMetrics();
-    window.addEventListener('resize', syncScreenerChromeMetrics);
-    const industries = document.getElementById('screener-industries');
-    if (industries) industries.addEventListener('toggle', syncScreenerChromeMetrics);
-    if (typeof ResizeObserver === 'function') {
-      const chrome = document.querySelector('#screener-view .screener-chrome');
-      if (chrome) new ResizeObserver(() => syncScreenerChromeMetrics()).observe(chrome);
-    }
     if (typeof SmartMoney !== 'undefined') ensureSmartMoneyNames(SmartMoney);
     markLoadingStats();
     if (checkGlobalData()) return;
