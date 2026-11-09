@@ -57,9 +57,21 @@ function readSeed(symbol) {
               name: body.southbound.name,
             }])
             : body.southbound,
-          market_flow: Array.isArray(body.market_flow?.history) && body.market_flow.history.length
-            ? HkSmartMoney.buildMarketFlowFromHistory(body.market_flow.history)
-            : body.market_flow,
+          market_flow: (() => {
+            const raw = body.market_flow;
+            if (!raw || !Array.isArray(raw.history) || !raw.history.length) return raw || null;
+            const rebuilt = HkSmartMoney.buildMarketFlowFromHistory(raw.history);
+            // Lean history has no per-market legs — keep latest SSE/SZSE boxes from seed.
+            return {
+              ...rebuilt,
+              as_of: raw.as_of || rebuilt.as_of,
+              turnover_unit: raw.turnover_unit || rebuilt.turnover_unit || 'HKD_million',
+              southbound: Array.isArray(raw.southbound) && raw.southbound.length
+                ? raw.southbound
+                : rebuilt.southbound,
+              net_buy_total: raw.net_buy_total != null ? raw.net_buy_total : rebuilt.net_buy_total,
+            };
+          })(),
         };
       }
     } catch { /* ignore corrupt seed */ }

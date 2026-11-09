@@ -267,6 +267,12 @@ test('API stock action serves seed with public cache; rate-limit uses rightmost 
   assert.equal(res.statusCode, 200);
   assert.equal(res.body.ticker, '0700.HK');
   assert.ok(res.body.southbound?.pct > 0);
+  // Lean history rebuild must still keep SSE/SZSE legs for flow boxes.
+  assert.ok((res.body.market_flow?.southbound || []).length >= 2,
+    'stock seed path should preserve per-market flow legs');
+  assert.ok(res.body.market_flow.southbound.every(leg => leg.market && leg.net_buy != null));
+  assert.equal(res.body.market_flow.turnover_unit, 'HKD_million');
+  assert.ok('net_cum_30d' in res.body.market_flow);
   assert.match(res.headers['cache-control'], /^public/);
 
   // Exhaust live budget with spoofed left XFF but same rightmost IP — should 429.
