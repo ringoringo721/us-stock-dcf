@@ -40,6 +40,18 @@ test('valuation preset keeps DCF-75 15-column FMP + site-target group', () => {
   assert.equal(fields.split(',').map(s => s.trim().replace(/'/g, '')).filter(Boolean).length, 15);
 });
 
+test('financial preset keeps metrics in Symbol sticky; no second sticky name column', () => {
+  const financial = html.match(/financial:\s*\{[^}]+\}/)?.[0] || '';
+  const fields = financial.match(/fields:\s*\[([^\]]+)\]/)?.[1] || '';
+  const list = fields.split(',').map(s => s.trim().replace(/'/g, '')).filter(Boolean);
+  assert.equal(list.includes('name'), false);
+  assert.equal(list.includes('exchange'), false);
+  assert.equal(list[0], 'ticker');
+  assert.equal(list.length, 24);
+  assert.match(html, /table-layout:\s*fixed/);
+  assert.match(html, /COLUMN_WIDTHS/);
+});
+
 test('three fair-value model under/over screens replace catalogue KPI strip', () => {
   for (const screen of ['FMP_UNDER', 'FMP_OVER', 'LEV_UNDER', 'LEV_OVER', 'TARGET_UNDER', 'TARGET_OVER']) {
     assert.match(html, new RegExp(`data-screen="${screen}"[^>]*onclick="setValFilter\\('${screen}'\\)"`));
@@ -87,10 +99,10 @@ test('overview keeps primary market columns without dropping DCF accessibility',
   assert.match(html, /data-i18n="th_liq_1"/);
 });
 
-test('sticky name/exchange offsets follow 200px ticker width', () => {
-  assert.match(html, /#screener-table\s+\.col-fixed-1\s*\{[^}]*width:\s*200px/);
-  assert.match(html, /#screener-table\s+\.col-fixed-2\s*\{[^}]*left:\s*200px/);
-  assert.match(html, /--screener-name-left',\s*exchangeVisible\s*\?\s*'285px'\s*:\s*'200px'/);
+test('sticky name/exchange offsets follow compact 168px ticker width', () => {
+  assert.match(html, /#screener-table\s+\.col-fixed-1\s*\{[^}]*width:\s*168px/);
+  assert.match(html, /#screener-table\s+\.col-fixed-2\s*\{[^}]*left:\s*168px/);
+  assert.match(html, /--screener-name-left',\s*exchangeVisible\s*\?\s*'240px'\s*:\s*'168px'/);
   assert.equal(/--screener-name-left',\s*mode === 'all' \? '195px'/.test(html), false);
 });
 
@@ -129,6 +141,7 @@ test('browser smoke suite exists for live row counts', () => {
   const source = fs.readFileSync(smoke, 'utf8');
   assert.match(source, /overview',\s*8/);
   assert.match(source, /valuation',\s*15/);
+  assert.match(source, /financial',\s*24/);
   assert.match(source, /all',\s*41/);
   assert.match(source, /FMP_UNDER/);
   assert.match(source, /data-fmp-reference/);
