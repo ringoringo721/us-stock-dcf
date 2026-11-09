@@ -475,6 +475,12 @@
         ? opening.receivables + opening.inventories - opening.payable : null : 0;
     const suggestedExit = finite(context.stock?.ev_to_ebitda) && context.stock.ev_to_ebitda > 0
       && context.stock.ev_to_ebitda <= 500 ? context.stock.ev_to_ebitda : null;
+    // Prefer catalogue debt − cash (same EV-bridge definition as the site valuation model).
+    // FMP advanced/levered rows often embed a different vendor netDebt; keep that only as fallback
+    // when catalogue debt/cash is unavailable or currency-mismatched.
+    const catalogueNetDebt = snapshotNetDebtFromStock(context.stock, data.currency);
+    const netDebt = finite(catalogueNetDebt) ? catalogueNetDebt : opening.netDebt;
+    const netDebtOrigin = finite(catalogueNetDebt) ? 'catalogue-debt-minus-cash' : 'fmp-model';
     const analystYears = years.filter(row => row.consensusDate).map(row => row.year);
     let analystReason = null;
     if (!validSource) analystReason = consensus?.reason || 'ANALYST_SOURCE_UNAVAILABLE';
@@ -489,8 +495,9 @@
       currencyWarning: base.currencyWarning || data.currencyCheck?.reason || softAnalystReason && 'ANALYST_FX_UNVERIFIED' || null,
       recoveredForecastBase: !!base.recoveredFromModel,
       actualRatioDate: latest?.date || null, workingCapitalYears: actuals?.workingCapitalYears || [],
-      warnings, netDebt: opening.netDebt, netDebtDate: base.date,
-      netDebtBasis: opening.netDebt < 0 ? 'net-cash' : 'net-debt',
+      warnings, netDebt, netDebtDate: base.date,
+      netDebtBasis: netDebt < 0 ? 'net-cash' : 'net-debt',
+      netDebtOrigin,
       terminalGrowth: TERMINAL_GROWTH_REFERENCE.value,
       terminalGrowthOrigin: TERMINAL_GROWTH_REFERENCE.origin,
       terminalGrowthReference: { ...TERMINAL_GROWTH_REFERENCE },
@@ -499,6 +506,18 @@
       taxFiveYear: taxFive,
       growthSuggestion,
       years };
+  }
+
+  /** Catalogue / site EV-bridge net debt in absolute calculation-currency units (not millions). */
+  function snapshotNetDebtFromStock(stock, currency) {
+    if (!stock) return null;
+    const stockCurrency = stock.calculationCurrency || stock.currency || null;
+    if (currency && stockCurrency && stockCurrency !== currency) return null;
+    if (finite(stock.net_debt)) return stock.net_debt * 1e6;
+    const cash = finite(stock.cash_and_short_term) ? stock.cash_and_short_term
+      : (finite(stock.cash) ? stock.cash : null);
+    if (finite(stock.debt) && finite(cash)) return (stock.debt - cash) * 1e6;
+    return null;
   }
 
   function missingInputs(scenario) {
@@ -743,11 +762,11 @@
     wacc: 'WACC[t] = ke[t]/100*(1-debtWeight[t]/100)+kd[t]/100*(1-tax[t]/100)*debtWeight[t]/100',
     discount: 'Discount[t] = PRODUCT(1+WACC[1], ..., 1+WACC[t]); PV[t] = CashFlow[t]/Discount[t]. End-of-year convention; no stub-year adjustment.',
     terminal: 'Primary Gordon TV = CashFlow[10]*(1+terminalGrowth/100)/(WACC[10]-terminalGrowth/100); PVTV = TV/Discount[10]. Requires WACC[10] > terminalGrowth/100. New scenarios suggest Damodaran-style 2.5% terminal growth (2%–3% band) and may suggest current EV/EBITDA as an exit multiple; both are labeled suggested defaults and never overwrite user edits. Alternate Advanced exit-multiple TV = EBITDA[10]*exitMultiple when supplied; otherwise N/A with reason.',
-    bridge: 'EV = SUM(PV[1:10])+PVTV; Equity = EV-netDebt; Target = Equity/issuedShares. Snapshot net debt subtracted once; projected cash is disclosure only. Primary targetPrice uses Gordon; exit-multiple EV/equity/per-share are reported beside it when available.',
+    bridge: 'EV = SUM(PV[1:10])+PVTV; Equity = EV-netDebt; Target = Equity/issuedShares. Snapshot net debt subtracted once; projected cash is disclosure only. New scenarios prefer catalogue debt−cash (same site EV-bridge definition) when currency-aligned; otherwise FMP model netDebt. Primary targetPrice uses Gordon; exit-multiple EV/equity/per-share are reported beside it when available.',
     native: 'Native API internals are not independently reproduced. Site native target = returned equityValue/verified issued common shares. Returned equityValuePerShare and dilutedSharesOutstanding are preserved separately. Reconciliation residuals are checks, not replacements for vendor outputs.',
     taxDefault: 'When analyst operating tax is missing, new scenarios use the arithmetic mean of five consecutive full-FY effective tax rates (tax expense / pretax) from statements; otherwise tax stays N/A.',
     operatingDefaults: 'Missing consensus CapEx/CFO/D&A/EBITDA use latest full-FY revenue ratios (labeled latest-fy), then year-specific FMP model projection percentages (labeled fmp), then model base-year ratios (fmp-base-year). NWC uses five-year average change/revenue. Missing revenue growth uses FMP model revenuePercentage/YoY when present, else suggestRevenueGrowth. Flat fill for uncovered years only; no invented fade path. Soft ANALYST_FX_UNVERIFIED keeps consensus rows with a warning.',
     growthDefaults: 'Hierarchy when consensus growth is missing: (1) year-specific FMP model projection growth; (2) historical revenue CAGR up to 5y if |CAGR|<=30 and not hyper-volatile; (3) peer median of growth_10y[0] from PeerComparison; (4) mature 2.5% band midpoint; else N/A + GROWTH_REQUIRES_MANUAL_INPUT. Labeled suggested defaults; never overwrites analyst, FMP model, or user values.'
   };
-  return { fields, activeFields, fullAnnualPeriod, verifiedIncomeDocument, baseSource, resolveForecastBase, verifiedRevenueCorrection, defaults, update, calculate, actualReference, missingInputs, upgradeWorkingCapital, exitMultipleTerminal, fiveYearEffectiveTax, fiveYearHistory, ttmHistoryReference, suggestRevenueGrowth, TERMINAL_GROWTH_REFERENCE, GROWTH_AUTOFILL_ABS_MAX, MATURE_GROWTH_DEFAULT, formulas };
+  return { fields, activeFields, fullAnnualPeriod, verifiedIncomeDocument, baseSource, resolveForecastBase, verifiedRevenueCorrection, defaults, update, calculate, actualReference, missingInputs, upgradeWorkingCapital, exitMultipleTerminal, fiveYearEffectiveTax, fiveYearHistory, ttmHistoryReference, suggestRevenueGrowth, snapshotNetDebtFromStock, TERMINAL_GROWTH_REFERENCE, GROWTH_AUTOFILL_ABS_MAX, MATURE_GROWTH_DEFAULT, formulas };
 });

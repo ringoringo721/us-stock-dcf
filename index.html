@@ -5069,14 +5069,13 @@
   function ensureFinCapmDefaults(stock) {
     if (!stock) return;
     if (!Number.isFinite(stock.erp)) stock.erp = 4.75;
+    // US + HK share the same USD Treasury RF concept (HKD peg proxy for HK).
     if (!Number.isFinite(stock.rf)) {
-      if (stock.calculationCurrency === 'HKD') {
-        stock.rf = (US_TREASURY_CURVE[10] || 0.045) * 100;
-      } else {
-        const tenor = Number.isFinite(stock.rf_tenor) ? Number(stock.rf_tenor) : 10;
-        stock.rf_tenor = tenor;
-        stock.rf = (US_TREASURY_CURVE[tenor] || 0.045) * 100;
-      }
+      const tenor = Number.isFinite(stock.rf_tenor) ? Number(stock.rf_tenor) : 10;
+      stock.rf_tenor = tenor;
+      stock.rf = (US_TREASURY_CURVE[tenor] || 0.045) * 100;
+    } else if (!Number.isFinite(stock.rf_tenor)) {
+      stock.rf_tenor = 10;
     }
   }
 
@@ -5111,9 +5110,9 @@
     if (erpInput) erpInput.value = Number.isFinite(stock.erp) ? Number(stock.erp).toFixed(2) : '';
     const tenorWrap = document.getElementById('fin-rf-tenor-wrap');
     const tenorSel = document.getElementById('fin-rf-tenor');
-    const showTenor = stock.calculationCurrency !== 'HKD';
-    if (tenorWrap) tenorWrap.hidden = !showTenor;
-    if (tenorSel && showTenor) {
+    // HK financials also use the USD Treasury curve (peg proxy), same as US.
+    if (tenorWrap) tenorWrap.hidden = false;
+    if (tenorSel) {
       const tenor = Number.isFinite(stock.rf_tenor) ? Number(stock.rf_tenor) : 10;
       tenorSel.value = String(tenor);
     }
@@ -5201,7 +5200,7 @@
 
   function onFinRfTenorChange() {
     const stock = stockUniverse[activeDetailTicker], fin = stock?.fin_valuation;
-    if (!stock || !fin?.is_financial || stock.calculationCurrency === 'HKD') return;
+    if (!stock || !fin?.is_financial) return;
     const sel = document.getElementById('fin-rf-tenor');
     const tenor = parseInt(sel?.value, 10) || 10;
     stock.rf_tenor = tenor;
@@ -5326,19 +5325,19 @@
   }
 
   function getStockDefaultRf(s) {
-    if (s?.calculationCurrency === 'HKD') return Number.isFinite(s.rf) ? s.rf / 100 : NaN;
+    // Same USD Treasury concept for US and HK (HK uses peg proxy, not a separate HKD yield).
+    if (Number.isFinite(s?.rf)) return s.rf / 100;
     const tenor = (s && s.rf_tenor) ? parseInt(s.rf_tenor) : 5;
     return US_TREASURY_CURVE[tenor] || 0.0430;
   }
 
   function onRfTenorChange() {
-    if (MarketContext.currency === 'HKD') return;
     const sel = document.getElementById('inp-rf-tenor');
     const tenor = parseInt(sel.value) || 5;
     const rfVal = US_TREASURY_CURVE[tenor] || 0.0430;
     const inpRf = document.getElementById('inp-rf');
     if (inpRf) inpRf.value = (rfVal * 100).toFixed(2);
-    
+
     const s = stockUniverse[activeDetailTicker];
     if (s) {
       s.rf_tenor = tenor;
@@ -11167,6 +11166,9 @@
 
   function renderDCFTable(growth, fcfs, dfs, pvs) {
     const isEn = currentLang === 'en';
+    const wrap = document.getElementById('dcf-table')?.closest('.table-scroll-wrapper');
+    const savedLeft = wrap?.scrollLeft || 0;
+    const savedTop = wrap?.scrollTop || 0;
     let head = `<th>${isEn ? 'Period' : '年份'}</th>`;
     let rowGrowth = `<td>${isEn ? 'Annual growth (%)' : '年增長率 (%)'}</td>`;
     let rowFCF = `<td>${isEn ? 'Free Cash Flow ($M)' : '自由現金流 ($M)'}</td>`;
@@ -11187,6 +11189,10 @@
     document.getElementById('dcf-fcf').innerHTML = rowFCF;
     document.getElementById('dcf-factor').innerHTML = rowDF;
     document.getElementById('dcf-pv').innerHTML = rowPV;
+    if (wrap) {
+      wrap.scrollLeft = savedLeft;
+      wrap.scrollTop = savedTop;
+    }
   }
 
   function renderSensitivity(fcf10, netDebt, shares, baseWACC, baseG, fcf0, growth) {

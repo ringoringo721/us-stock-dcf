@@ -24,7 +24,7 @@
   const reasons = {
     staleQuote: ['報價已過期，不作現價或目前估值比較。', 'Quote is stale; current-price valuation comparisons are unavailable.'],
     sourceUnavailable: ['FMP 來源不完整，無法重建估值。', 'Required FMP sources are unavailable.'],
-    missingHkdRiskFreeRate: ['缺少日期對齊的美債代理或港元基準；不猜測利率。', 'A dated Treasury proxy or HKD benchmark is unavailable; no rate is guessed.'],
+    missingHkdRiskFreeRate: ['缺少日期對齊的美債（USD／聯繫匯率代理）無風險利率；不猜測利率，亦不改用港元基準作預設。', 'A dated USD Treasury proxy (HKD peg) risk-free rate is unavailable; no rate is guessed, and a separate HKD benchmark is not used as the default.'],
     shareBasisUnverified: ['普通股／A、H 股或報價單位的股數基準尚未核實，不計算每股估值。', 'The common-share, A/H-share or quoted-unit denominator is unverified; per-share valuation is unavailable.'],
     statementReconciliationRequired: ['年度與中期來源尚未調節一致；受影響估值不可用。', 'Annual and interim sources require reconciliation; affected valuations remain unavailable.'],
     officialReconciliationRequired: ['財報期間或內容已改變，須重新核對官方估值輸入；不沿用舊期對帳。', 'Statement periods or content changed; official valuation inputs require fresh reconciliation rather than reusing an older review.'],
