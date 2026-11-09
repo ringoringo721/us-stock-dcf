@@ -34,29 +34,50 @@
     return match ? match[1].padStart(5, '0') : null;
   }
 
-  function hkexNewsTitleSearchUrl(lang = 'en') {
-    const locale = String(lang).toLowerCase().startsWith('zh') ? 'zh' : 'en';
-    return `https://www1.hkexnews.hk/search/titlesearch.xhtml?lang=${locale}`;
+  function hkexLang(lang = 'zh') {
+    return String(lang).toLowerCase().startsWith('zh') ? 'zh' : 'en';
   }
 
-  function hkexQuoteUrl(ticker, lang = 'en') {
+  function hkexNewsTitleSearchUrl(lang = 'zh') {
+    return `https://www1.hkexnews.hk/search/titlesearch.xhtml?lang=${hkexLang(lang)}`;
+  }
+
+  function hkexQuoteUrl(ticker, lang = 'zh') {
     const code = hkexStockCode(ticker);
-    if (!code) return 'https://www.hkex.com.hk/Market-Data/Securities-Prices/Equities?sc_lang=en';
+    if (!code) {
+      return `https://www.hkex.com.hk/Market-Data/Securities-Prices/Equities?sc_lang=${
+        hkexLang(lang) === 'zh' ? 'zh-HK' : 'en'}`;
+    }
     const sym = String(Number(code));
-    const scLang = String(lang).toLowerCase().startsWith('zh') ? 'zh-HK' : 'en';
+    const scLang = hkexLang(lang) === 'zh' ? 'zh-HK' : 'en';
     return `https://www.hkex.com.hk/Market-Data/Securities-Prices/Equities/Equities-Quote?sc_lang=${scLang}&sym=${encodeURIComponent(sym)}`;
+  }
+
+  /** Rewrite titlesearch.xhtml lang= without dropping stockId (or other) params. */
+  function withHkexNewsLang(url, lang = 'zh') {
+    try {
+      const parsed = new URL(url);
+      if (!/hkexnews\.hk$/i.test(parsed.hostname)) return hkexNewsTitleSearchUrl(lang);
+      parsed.searchParams.set('lang', hkexLang(lang));
+      return parsed.toString();
+    } catch {
+      return hkexNewsTitleSearchUrl(lang);
+    }
   }
 
   function rememberHkexSearch(ticker, url) {
     const key = String(ticker || '').trim().toUpperCase();
     if (key && typeof url === 'string' && /^https?:\/\//i.test(url)) {
+      // Store stock-scoped URL; lang is applied later via withHkexNewsLang.
       hkexSearchByTicker.set(key, url);
     }
   }
 
-  function hkexSearchUrlFor(ticker, lang = 'en') {
+  function hkexSearchUrlFor(ticker, lang = 'zh') {
     const key = String(ticker || '').trim().toUpperCase();
-    return hkexSearchByTicker.get(key) || hkexNewsTitleSearchUrl(lang);
+    const cached = hkexSearchByTicker.get(key);
+    if (cached) return withHkexNewsLang(cached, lang);
+    return hkexNewsTitleSearchUrl(lang);
   }
 
   function normalizeFiling(row, ticker) {
@@ -118,7 +139,7 @@
     return true;
   }
 
-  function publicLinks(ticker, stock = null, lang = 'en') {
+  function publicLinks(ticker, stock = null, lang = 'zh') {
     const links = [];
     const resolved = stock || { ticker };
     if (isUsListed(resolved)) {
@@ -253,7 +274,7 @@
    * US: public SEC 8-K search. HK: HKEXnews (stock-scoped when known).
    * Never hit `/api/fmp?action=earning-call-transcript` — full paid text is not proxied.
    */
-  function transcriptOpenUrl(ticker, year, quarter, date = null, lang = 'en') {
+  function transcriptOpenUrl(ticker, year, quarter, date = null, lang = 'zh') {
     void year;
     void quarter;
     void date;
@@ -267,8 +288,10 @@
     edgarSearchUrl,
     edgarBrowseUrl,
     hkexStockCode,
+    hkexLang,
     hkexNewsTitleSearchUrl,
     hkexQuoteUrl,
+    withHkexNewsLang,
     hkexSearchUrlFor,
     rememberHkexSearch,
     publicLinks,

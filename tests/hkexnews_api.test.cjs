@@ -78,6 +78,8 @@ test('filings action looks up stockId and returns HKEXNEWS rows', async () => {
   assert.equal(result.body.source.provider, 'HKEXNEWS');
   assert.equal(result.body.source.stockId, '12593');
   assert.match(result.body.source.searchUrl, /stockId=12593/);
+  // Client applies UI lang — API must not hardcode lang=en.
+  assert.doesNotMatch(result.body.source.searchUrl, /lang=/);
   assert.match(String(result.headers['Cache-Control'] || ''), /private/);
   assert.ok(calls.some(url => url.includes('activestock')));
 });

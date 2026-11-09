@@ -231,7 +231,8 @@ function createHandler({ fetch: fetcher = globalThis.fetch } = {}) {
       .filter(Boolean)
       .slice(0, limit);
 
-    const publicSearchUrl = `${HOST}/search/titlesearch.xhtml?lang=en&stockId=${encodeURIComponent(String(security.i))}`;
+    // stockId only — client sets lang=zh|en from UI locale (default zh for this product).
+    const publicSearchUrl = `${HOST}/search/titlesearch.xhtml?stockId=${encodeURIComponent(String(security.i))}`;
     return send(200, {
       data,
       source: {

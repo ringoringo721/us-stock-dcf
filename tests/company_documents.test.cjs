@@ -43,15 +43,22 @@ test('HK listings get HKEXnews public links — never SEC', () => {
 test('transcriptOpenUrl for .HK opens HKEXnews, not SEC', () => {
   const url = Docs.transcriptOpenUrl('1398.HK', 2026, 3, '2026-10-30', 'zh');
   assert.match(url, /hkexnews\.hk/i);
+  assert.match(url, /lang=zh/);
   assert.doesNotMatch(url, /sec\.gov/i);
   assert.doesNotMatch(url, /8-K/);
 });
 
-test('rememberHkexSearch upgrades stock-scoped transcript URL', () => {
+test('rememberHkexSearch keeps stockId and applies UI lang', () => {
   const scoped = 'https://www1.hkexnews.hk/search/titlesearch.xhtml?lang=en&stockId=12593';
-  Docs.rememberHkexSearch('1398.HK', scoped);
-  assert.equal(Docs.transcriptOpenUrl('1398.HK', 2026, 3), scoped);
-  assert.equal(Docs.hkexSearchUrlFor('1398.HK'), scoped);
+  Docs.rememberHkexSearch('0700.HK', scoped);
+  const zh = Docs.hkexSearchUrlFor('0700.HK', 'zh');
+  const en = Docs.hkexSearchUrlFor('0700.HK', 'en');
+  assert.match(zh, /stockId=12593/);
+  assert.match(zh, /lang=zh/);
+  assert.doesNotMatch(zh, /lang=en/);
+  assert.match(en, /lang=en/);
+  assert.match(Docs.transcriptOpenUrl('0700.HK', 2026, 3, null, 'zh'), /lang=zh/);
+  assert.match(Docs.withHkexNewsLang(scoped, 'zh'), /lang=zh/);
 });
 
 test('hkexStockCode pads 4-digit and 5-digit tickers', () => {
