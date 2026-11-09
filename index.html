@@ -1207,11 +1207,12 @@
       max-width: var(--screener-min-width, 1100px) !important;
       font-size: 12px;
     }
+    /* Do not overflow:hidden on th/td — that clips liquidation ⓘ tooltips and
+       truncates F/Z/M badges (Bugbot #102). Ellipsis only on dedicated text nodes. */
     #screener-table :is(th, td) {
       padding: 3px 6px !important;
       box-sizing: border-box;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      overflow: visible;
     }
     /* Symbol sticky width 168px — exchange @ 168; name @ ticker[+exchange] via --screener-name-left. */
     #screener-table .col-fixed-1 { width: 168px !important; min-width: 168px !important; max-width: 168px !important; white-space: normal; }
@@ -1578,8 +1579,33 @@
       #subpage-valuation .main-layout { grid-template-columns: minmax(0, 1fr); }
       #subpage-valuation .form-group { grid-template-columns: minmax(0, 1fr) 105px; }
     }
-    #screener-table .badge, #screener-table .badge-moat, #screener-table .badge-fscore,
-    #screener-table .badge-zscore, #screener-table .badge-mscore { font-size: 12px; line-height: 1.5; }
+    /* Score / moat badges: roomy enough for full captions (超穩健、誠實、Wide/Moderate…).
+       Do NOT overflow-clip these cells — Bugbot + user: truncated results unreadable. */
+    #screener-table .badge-moat,
+    #screener-table .badge-fscore,
+    #screener-table .badge-zscore,
+    #screener-table .badge-mscore {
+      padding: 3px 8px;
+      font-size: 11px;
+      line-height: 1.35;
+      border-radius: 4px;
+      font-weight: 700;
+      white-space: normal;
+      overflow: visible;
+      text-overflow: clip;
+      max-width: none;
+      vertical-align: middle;
+      display: inline-block;
+    }
+    #screener-table td:has(.badge-moat),
+    #screener-table td:has(.badge-fscore),
+    #screener-table td:has(.badge-zscore),
+    #screener-table td:has(.badge-mscore) {
+      overflow: visible !important;
+      text-overflow: clip;
+      white-space: normal;
+      vertical-align: middle;
+    }
     #main-scroll-box { max-height: 68vh !important; border-radius: 12px; }
     @media (max-width: 1000px) {
       #screener-view .top-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -1698,18 +1724,16 @@
           <label for="screener-columns">
             <span data-i18n="screener_columns">欄位檢視</span>
             <select id="screener-columns" onchange="syncScreenerColumnChips(); applyScreenerColumns(true)">
-              <option value="overview" data-i18n="screener_overview">Overview</option>
-              <option value="valuation" data-i18n="screener_valuation">Valuation</option>
+              <option value="valuation" selected data-i18n="screener_valuation">Valuation</option>
               <option value="financial" data-i18n="screener_financial">財務與品質</option>
               <option value="all" data-i18n="screener_all_columns">全部欄位</option>
             </select>
           </label>
         </div>
       </div>
-      <!-- View tabs under filter bar (TV pattern) -->
+      <!-- View tabs under filter bar (TV pattern). Default = Valuation (Overview removed). -->
       <div class="screener-view-chips tv-view-tabs" id="screener-view-chips" role="tablist" aria-label="Column views">
-        <button type="button" role="tab" class="view-chip active" data-view="overview" onclick="setScreenerColumnView('overview')" data-i18n="screener_overview">Overview</button>
-        <button type="button" role="tab" class="view-chip" data-view="valuation" onclick="setScreenerColumnView('valuation')" data-i18n="screener_valuation">Valuation</button>
+        <button type="button" role="tab" class="view-chip active" data-view="valuation" onclick="setScreenerColumnView('valuation')" data-i18n="screener_valuation">Valuation</button>
         <button type="button" role="tab" class="view-chip" data-view="financial" onclick="setScreenerColumnView('financial')" data-i18n="screener_financial">財務與品質</button>
         <button type="button" role="tab" class="view-chip" data-view="all" onclick="setScreenerColumnView('all')" data-i18n="screener_all_columns">全部欄位</button>
       </div>
@@ -6745,20 +6769,19 @@
     const COLUMN_WIDTHS = {
       ticker: 168, exchange: 72, name: 128, sector: 88, industry: 120, price: 84,
       fmp_dcf: 88, fmp_dcf_upside: 96, fmp_levered: 88, fmp_levered_upside: 96,
-      target_price: 92, target_spread: 92, action: 104, moat_score: 112,
+      target_price: 92, target_spread: 92, action: 104,
+      // Moat / PF / Z / M: wide enough for full score + captions (不裁切).
+      moat_score: 190,
       WACC: 96, EV: 100, mcap: 100, liq_val_1: 92, liq_val_2: 92, liq_val_3: 92,
       pe_trailing: 68, pe_forward: 68, pb_trailing: 68, div_yield: 76,
       cont_div_growth: 80, fcf_to_ev: 80, fcf_to_equity: 108, fcf_to_mcap: 88,
       cash_to_assets: 80, liab_to_assets: 80, current_ratio: 68, roe: 68, roa: 68,
-      f_score: 118, z_score: 128, m_score: 128,
+      f_score: 200, z_score: 240, m_score: 220,
       ev_to_ebitda: 84, debt_to_ebitda: 88, net_debt_to_ebitda: 100,
       debt_to_fcf: 80, net_debt_to_fcf: 88
     };
     const presets = {
-      // TV-like overview: Symbol(+name in cell), Price, Mkt cap, P/E, scores first.
-      // FMP dump stays out of default; all columns remain in DOM for other views / "all".
-      overview: { fields: ['ticker', 'price', 'mcap', 'pe_trailing', 'moat_score', 'f_score', 'z_score', 'action'] },
-      // DCF compare (#83): FMP vendor pair, then site-saved target/premium; liquidation lives in "all".
+      // Default first tab: Valuation (Overview removed). FMP + site target; liquidation in "all".
       // Keep dedicated name column here for side-by-side DCF reading (Symbol still shows ticker).
       valuation: { fields: ['ticker', 'name', 'sector', 'price', 'fmp_dcf', 'fmp_dcf_upside', 'fmp_levered', 'fmp_levered_upside', 'target_price', 'target_spread', 'action', 'moat_score', 'WACC', 'EV', 'mcap'] },
       // Financials & quality: name stays inside Symbol cell so metrics are not pushed off-screen
@@ -6766,7 +6789,13 @@
       financial: { fields: ['ticker', 'price', 'mcap', 'pe_trailing', 'pe_forward', 'pb_trailing', 'div_yield', 'cont_div_growth', 'fcf_to_ev', 'fcf_to_equity', 'fcf_to_mcap', 'cash_to_assets', 'liab_to_assets', 'current_ratio', 'roe', 'roa', 'f_score', 'z_score', 'm_score', 'ev_to_ebitda', 'debt_to_ebitda', 'net_debt_to_ebitda', 'debt_to_fcf', 'net_debt_to_fcf'] },
       all: { fields: null }
     };
-    const preset = presets[mode];
+    // Migrate bookmarks / stale select values away from removed Overview.
+    const resolvedMode = presets[mode] ? mode : 'valuation';
+    if (resolvedMode !== mode) {
+      const select = document.getElementById('screener-columns');
+      if (select) select.value = resolvedMode;
+    }
+    const preset = presets[resolvedMode];
     if (!preset) throw new RangeError('Invalid screener column view');
     const table = document.getElementById('screener-table');
     table.querySelector('th[onclick="sortTable(\'fcf_to_equity\')"]').title = I18N_DICT[currentLang].fcf_equity_basis;
@@ -6775,12 +6804,12 @@
       if (header) header.title = I18N_DICT[currentLang].valuation_price_difference_note;
     }
     formatScreenerHeaders();
-    syncScreenerColumnChips(mode);
+    syncScreenerColumnChips(resolvedMode);
     const hideLiquidation = preset.fields !== null && !preset.fields.includes('liq_val_1');
     document.getElementById('screener-liquidation-key').hidden = hideLiquidation;
     document.getElementById('screener-liquidation-method').hidden = hideLiquidation;
     const valuationKey = document.getElementById('screener-valuation-key');
-    if (valuationKey) valuationKey.hidden = mode !== 'valuation' && mode !== 'all';
+    if (valuationKey) valuationKey.hidden = resolvedMode !== 'valuation' && resolvedMode !== 'all';
     // Ticker sticky width is 168px; when exchange is visible, name starts after 168+72.
     const exchangeVisible = preset.fields === null || preset.fields.includes('exchange');
     table.style.setProperty('--screener-name-left', exchangeVisible ? '240px' : '168px');
