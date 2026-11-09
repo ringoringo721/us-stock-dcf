@@ -587,4 +587,8 @@ function createHandler({ fetch: fetcher = globalThis.fetch } = {}) {
 
 const handler = createHandler();
 handler.createHandler = createHandler;
+handler.resetCachesForTests = function resetCachesForTests() {
+  cache.clear();
+  rateBuckets.clear();
+};
 module.exports = handler;

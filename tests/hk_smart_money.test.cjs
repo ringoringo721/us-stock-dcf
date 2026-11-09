@@ -353,6 +353,7 @@ test('unseeded stock GET returns empty (no live scrape) unless refresh=1', async
 });
 
 test('live shorts action returns buildShortForCode shape (not raw CSV)', async () => {
+  createApi.resetCachesForTests();
   const sfcPage = '<a href="https://www.sfc.hk/-/media/EN/pdf/spr/2026/10/30/a.csv">csv</a>'
     + '<a href="https://www.sfc.hk/-/media/EN/pdf/spr/2026/10/23/b.csv">csv</a>';
   const week0 = `Date,Stock Code,Stock Name,Aggregated Reportable Short Positions (Shares),Aggregated Reportable Short Positions (HK$)
@@ -379,8 +380,8 @@ test('live shorts action returns buildShortForCode shape (not raw CSV)', async (
   assert.ok(res.body.row);
   assert.equal(res.body.row.shares, 1269281039);
   assert.equal(res.body.row.shares_chg_wow, 1269281039 - 1243943868);
-  assert.ok(!('stock_code' in res.body.row) || res.body.row.as_of);
   assert.ok(res.body.row.as_of);
   assert.ok('pct_of_issued' in res.body.row);
+  assert.ok('hkd' in res.body.row);
   assert.match(res.headers['cache-control'], /^private/);
 });
