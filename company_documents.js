@@ -1,13 +1,17 @@
 /**
  * Company filings / documents helpers (TradingView Documents tab).
- * Prefer FMP SEC filings + transcript dates; always expose public SEC EDGAR
- * search links so Preview without FMP_API_KEY still opens statements immediately.
+ * US: FMP SEC filings + transcript dates; public SEC EDGAR search links.
+ * HK: HKEXNEWS financial-statement filings; transcript dates still from FMP
+ * metadata only — open HKEXnews (never SEC 8-K / EDGAR).
  */
 (function (root, factory) {
   if (typeof module === 'object' && module.exports) module.exports = factory();
   else root.CompanyDocuments = factory();
 }(typeof self !== 'undefined' ? self : this, function () {
   'use strict';
+
+  /** Remember stock-scoped HKEXnews search URLs after a successful filings load. */
+  const hkexSearchByTicker = new Map();
 
   function finite(value) {
     const n = Number(value);
@@ -25,6 +29,36 @@
     return `https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=${symbol}&type=&dateb=&owner=exclude&count=40`;
   }
 
+  function hkexStockCode(ticker) {
+    const match = String(ticker || '').trim().toUpperCase().match(/^(\d{4,5})\.HK$/);
+    return match ? match[1].padStart(5, '0') : null;
+  }
+
+  function hkexNewsTitleSearchUrl(lang = 'en') {
+    const locale = String(lang).toLowerCase().startsWith('zh') ? 'zh' : 'en';
+    return `https://www1.hkexnews.hk/search/titlesearch.xhtml?lang=${locale}`;
+  }
+
+  function hkexQuoteUrl(ticker, lang = 'en') {
+    const code = hkexStockCode(ticker);
+    if (!code) return 'https://www.hkex.com.hk/Market-Data/Securities-Prices/Equities?sc_lang=en';
+    const sym = String(Number(code));
+    const scLang = String(lang).toLowerCase().startsWith('zh') ? 'zh-HK' : 'en';
+    return `https://www.hkex.com.hk/Market-Data/Securities-Prices/Equities/Equities-Quote?sc_lang=${scLang}&sym=${encodeURIComponent(sym)}`;
+  }
+
+  function rememberHkexSearch(ticker, url) {
+    const key = String(ticker || '').trim().toUpperCase();
+    if (key && typeof url === 'string' && /^https?:\/\//i.test(url)) {
+      hkexSearchByTicker.set(key, url);
+    }
+  }
+
+  function hkexSearchUrlFor(ticker, lang = 'en') {
+    const key = String(ticker || '').trim().toUpperCase();
+    return hkexSearchByTicker.get(key) || hkexNewsTitleSearchUrl(lang);
+  }
+
   function normalizeFiling(row, ticker) {
     if (!row || typeof row !== 'object') return null;
     const form = String(row.formType || row.type || row.form || '').trim();
@@ -40,6 +74,7 @@
       title: row.title || row.description || form || 'SEC filing',
       link: typeof link === 'string' && /^https?:\/\//i.test(link) ? link : null,
       cik: row.cik != null ? String(row.cik) : null,
+      source: row.source || null,
     };
   }
 
@@ -72,15 +107,21 @@
   }
 
   function isUsListed(stock) {
-    const market = String(stock?.calculationCurrency || stock?.exchange || '').toUpperCase();
-    if (/\.HK$/.test(String(stock?.ticker || ''))) return false;
-    if (market === 'HKD' || /HKEX|HONG KONG/i.test(String(stock?.exchange || ''))) return false;
+    const ticker = String(stock?.ticker || '');
+    if (/\.HK$/i.test(ticker)) return false;
+    const market = String(stock?.market || '').toUpperCase();
+    if (market === 'HKEX') return false;
+    const exchange = String(stock?.exchange || '');
+    if (/HKEX|HONG KONG/i.test(exchange)) return false;
+    const currency = String(stock?.calculationCurrency || '').toUpperCase();
+    if (currency === 'HKD') return false;
     return true;
   }
 
-  function publicLinks(ticker, stock = null) {
+  function publicLinks(ticker, stock = null, lang = 'en') {
     const links = [];
-    if (isUsListed(stock || { ticker })) {
+    const resolved = stock || { ticker };
+    if (isUsListed(resolved)) {
       links.push({
         id: 'sec-search',
         labelEn: 'SEC EDGAR search (10-K / 10-Q / 8-K)',
@@ -93,11 +134,24 @@
         labelZh: 'SEC 公司申報瀏覽',
         url: edgarBrowseUrl(ticker),
       });
+      return links;
     }
+    links.push({
+      id: 'hkexnews-search',
+      labelEn: 'HKEXnews title search',
+      labelZh: '披露易標題搜尋',
+      url: hkexSearchUrlFor(ticker, lang),
+    });
+    links.push({
+      id: 'hkex-quote',
+      labelEn: 'HKEX equities quote',
+      labelZh: '港交所報價頁',
+      url: hkexQuoteUrl(ticker, lang),
+    });
     return links;
   }
 
-  function loadFilings(ticker, options = {}) {
+  function loadSecFilings(ticker, options = {}) {
     const years = Math.max(1, Math.min(10, Number(options.years) || 5));
     const to = new Date();
     const from = new Date(to);
@@ -123,10 +177,54 @@
       const rows = Array.isArray(body) ? body : body?.data || [];
       return {
         ticker,
+        market: 'US',
         source: body?.source?.provider || 'FMP',
         rows: normalizeFilings(rows, ticker),
       };
     });
+  }
+
+  function loadHkexFilings(ticker, options = {}) {
+    const years = Math.max(1, Math.min(10, Number(options.years) || 5));
+    const to = new Date();
+    const from = new Date(to);
+    from.setUTCFullYear(from.getUTCFullYear() - years);
+    const qs = new URLSearchParams({
+      action: 'filings',
+      symbol: ticker,
+      from: from.toISOString().slice(0, 10),
+      to: to.toISOString().slice(0, 10),
+      limit: String(Math.max(1, Math.min(100, Number(options.limit) || 40))),
+    });
+    return fetch(`/api/hkexnews?${qs}`).then(async (response) => {
+      if (!response.ok) {
+        let detail = String(response.status);
+        try {
+          const body = await response.json();
+          if (body?.error) detail = `${response.status}:${body.error}`;
+        } catch { /* ignore */ }
+        throw new Error(`HKEX_FILINGS_API_FAILED:${detail}`);
+      }
+      const body = await response.json();
+      const rows = Array.isArray(body) ? body : body?.data || [];
+      if (body?.source?.searchUrl) rememberHkexSearch(ticker, body.source.searchUrl);
+      return {
+        ticker,
+        market: 'HKEX',
+        source: body?.source?.provider || 'HKEXNEWS',
+        searchUrl: body?.source?.searchUrl || null,
+        stockId: body?.source?.stockId || null,
+        rows: normalizeFilings(rows, ticker),
+      };
+    });
+  }
+
+  function loadFilings(ticker, options = {}) {
+    const stock = options.stock || { ticker };
+    if (!isUsListed(stock) || /\.HK$/i.test(String(ticker || ''))) {
+      return loadHkexFilings(ticker, options);
+    }
+    return loadSecFilings(ticker, options);
   }
 
   function loadTranscriptDates(ticker) {
@@ -151,15 +249,16 @@
   }
 
   /**
-   * Open target for an earnings-call row. Prefer public SEC 8-K (earnings releases);
-   * do NOT hit `/api/fmp?action=earning-call-transcript` — full paid text is not proxied.
+   * Open target for an earnings-call row.
+   * US: public SEC 8-K search. HK: HKEXnews (stock-scoped when known).
+   * Never hit `/api/fmp?action=earning-call-transcript` — full paid text is not proxied.
    */
-  function transcriptOpenUrl(ticker, year, quarter, date = null) {
+  function transcriptOpenUrl(ticker, year, quarter, date = null, lang = 'en') {
     void year;
     void quarter;
     void date;
     if (/\.HK$/i.test(String(ticker || ''))) {
-      return edgarBrowseUrl(ticker);
+      return hkexSearchUrlFor(ticker, lang);
     }
     return edgarSearchUrl(ticker, '8-K');
   }
@@ -167,11 +266,18 @@
   return {
     edgarSearchUrl,
     edgarBrowseUrl,
+    hkexStockCode,
+    hkexNewsTitleSearchUrl,
+    hkexQuoteUrl,
+    hkexSearchUrlFor,
+    rememberHkexSearch,
     publicLinks,
     normalizeFilings,
     normalizeTranscriptDates,
     isUsListed,
     loadFilings,
+    loadHkexFilings,
+    loadSecFilings,
     loadTranscriptDates,
     transcriptOpenUrl,
   };

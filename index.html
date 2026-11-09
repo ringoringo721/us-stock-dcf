@@ -2664,7 +2664,7 @@
     <div id="subpage-documents" class="subpage-content">
       <div class="panel historical-ratio-panel company-analysis-panel">
         <div class="panel-title" data-i18n="sec_documents">Filings / Documents</div>
-        <p class="analysis-note" data-i18n="analysis_documents_note">Financial statement filings and earnings-call dates with links that open immediately. Full FMP transcript text is not proxied — open SEC 8-K instead.</p>
+        <p id="documents-analysis-note" class="analysis-note" data-i18n="analysis_documents_note">Financial statement filings and earnings-call dates with links that open immediately. Full FMP transcript text is not proxied — open SEC 8-K instead.</p>
         <div id="documents-public-links" class="tv-doc-links"></div>
         <p id="documents-status" class="analysis-note" role="status"></p>
         <div class="panel-title" style="font-size:15px;" data-i18n="sec_documents_filings">Financial statement filings</div>
@@ -2674,7 +2674,7 @@
             <tbody id="cmp-documents-filings-tbody"></tbody>
           </table>
         </div>
-        <div class="panel-title" style="font-size:15px;" data-i18n="sec_documents_transcripts">Earnings calls (SEC 8-K)</div>
+        <div id="documents-transcripts-title" class="panel-title" style="font-size:15px;" data-i18n="sec_documents_transcripts">Earnings calls (SEC 8-K)</div>
         <div class="table-scroll-wrapper company-analysis-scroll">
           <table id="cmp-documents-transcripts" class="historical-ratio-table company-analysis-table">
             <thead><tr id="cmp-documents-transcripts-thead"></tr></thead>
@@ -3688,8 +3688,10 @@
       sec_dividend_payments_detail: "股利發放歷史",
       sec_documents: "申報／文件",
       analysis_documents_note: "財務報表申報與法說日期；申報可開 SEC／FMP 連結。逐字稿全文不經本站代理，改開 SEC 8-K。",
+      analysis_documents_hk: "財務報表申報與法說／業績日期；申報來自披露易（HKEXNEWS），可直接開啟。逐字稿全文不經本站代理，改開披露易相關公告。",
       sec_documents_filings: "財務報表申報",
       sec_documents_transcripts: "法說會（SEC 8-K）",
+      sec_documents_transcripts_hk: "法說會／業績（披露易）",
       sec_smart_money: "智資／Smart Money（機構持倉）",
       analysis_smart_money_note: "WhaleCreep 風格：追蹤該股近期 13F 申報的機構／對沖基金持倉（組合權重、市值、股數、Δ、動作）。策展 20 家僅作亮點標示。資料來自 FMP 機構持倉端點。",
       analysis_smart_money_lag: "13F 為季度申報，法定可於季末後最多約 45 日才公開；本站快取可能再延遲。數字為歷史已申報多頭倉，非即時持倉，亦非投資建議。",
@@ -4320,8 +4322,10 @@
       sec_dividend_payments_detail: "Dividend payout history",
       sec_documents: "Filings / Documents",
       analysis_documents_note: "Financial statement filings and earnings-call dates with links that open immediately. Full FMP transcript text is not proxied — open SEC 8-K instead.",
+      analysis_documents_hk: "Financial statement filings and earnings/results dates with links that open immediately. Filings come from HKEXnews; full FMP transcript text is not proxied — open HKEXnews disclosures instead.",
       sec_documents_filings: "Financial statement filings",
       sec_documents_transcripts: "Earnings calls (SEC 8-K)",
+      sec_documents_transcripts_hk: "Earnings calls / results (HKEXnews)",
       sec_smart_money: "Smart Money (institutional holders)",
       analysis_smart_money_note: "WhaleCreep-style: tracked 13F institutional / hedge holders for the ticker (weight of book, value, shares, Δ, action). Curated 20 is an optional highlight only. Data from FMP institutional endpoints.",
       analysis_smart_money_lag: "13F filings are quarterly and may publish up to ~45 days after quarter-end; site cache may lag further. Figures are historical reported long holdings — not real-time positions or investment advice.",
@@ -9257,8 +9261,8 @@
   function openEarningsTranscript(event, ticker, year, quarter) {
     if (event) event.preventDefault();
     const Docs = typeof CompanyDocuments !== 'undefined' ? CompanyDocuments : null;
-    // SEC 8-K search under the click gesture — FMP full transcript text is not proxied.
-    const url = Docs?.transcriptOpenUrl?.(ticker, year, quarter);
+    // US → SEC 8-K; HK → HKEXnews. Full FMP transcript text is not proxied.
+    const url = Docs?.transcriptOpenUrl?.(ticker, year, quarter, null, currentLang);
     if (!url) return false;
     window.open(url, '_blank', 'noopener,noreferrer');
     return false;
@@ -10006,35 +10010,57 @@
     const ticker = activeCompanyTicker || stockObj?.ticker || 'NVDA';
     const status = document.getElementById('documents-status');
     const linksHost = document.getElementById('documents-public-links');
+    const noteEl = document.getElementById('documents-analysis-note');
+    const txTitle = document.getElementById('documents-transcripts-title');
     const filingsHead = document.getElementById('cmp-documents-filings-thead');
     const filingsBody = document.getElementById('cmp-documents-filings-tbody');
     const txHead = document.getElementById('cmp-documents-transcripts-thead');
     const txBody = document.getElementById('cmp-documents-transcripts-tbody');
     const isEn = currentLang === 'en';
+    const dict = I18N_DICT[currentLang] || I18N_DICT.zh;
     if (!status || !filingsBody || !txBody) return;
     status.textContent = isEn ? 'Loading filings & transcripts…' : '載入申報／逐字稿中…';
     filingsBody.innerHTML = '';
     txBody.innerHTML = '';
 
     const Docs = typeof CompanyDocuments !== 'undefined' ? CompanyDocuments : null;
-    if (linksHost) {
-      const links = Docs?.publicLinks?.(ticker, stockObj) || [];
+    // When Docs is missing, fall back to ticker suffix so HK never gets SEC chrome.
+    const isHk = Docs ? !Docs.isUsListed(stockObj || { ticker }) : /\.HK$/i.test(String(ticker));
+
+    if (noteEl) {
+      noteEl.setAttribute('data-i18n', isHk ? 'analysis_documents_hk' : 'analysis_documents_note');
+      noteEl.innerHTML = isHk
+        ? (dict.analysis_documents_hk || dict.analysis_documents_note)
+        : dict.analysis_documents_note;
+    }
+    if (txTitle) {
+      txTitle.setAttribute('data-i18n', isHk ? 'sec_documents_transcripts_hk' : 'sec_documents_transcripts');
+      txTitle.textContent = isHk
+        ? (dict.sec_documents_transcripts_hk || dict.sec_documents_transcripts)
+        : dict.sec_documents_transcripts;
+    }
+
+    const paintPublicLinks = (extraSearchUrl = null) => {
+      if (!linksHost) return;
+      if (extraSearchUrl && Docs?.rememberHkexSearch) Docs.rememberHkexSearch(ticker, extraSearchUrl);
+      const links = Docs?.publicLinks?.(ticker, stockObj, currentLang) || [];
       linksHost.innerHTML = links.map(link => `<a href="${escapeAttribute(link.url)}" target="_blank" rel="noopener noreferrer">${
         escapeAttribute(isEn ? link.labelEn : link.labelZh)} ↗</a>`).join('')
         || `<span class="text-muted">${isEn
-          ? 'No public SEC links for this listing (non-US).'
-          : '此上市地無公開 SEC 連結（非美股）。'}</span>`;
-    }
+          ? 'No public disclosure links for this listing.'
+          : '此上市地暫無公開披露連結。'}</span>`;
+    };
+    paintPublicLinks();
 
     if (filingsHead) {
       filingsHead.innerHTML = `<th class="table-sticky-col">${isEn ? 'Filing date' : '申報日'}</th>`
-        + `<th>${isEn ? 'Form' : '表單'}</th>`
+        + `<th>${isEn ? (isHk ? 'Type' : 'Form') : (isHk ? '類型' : '表單')}</th>`
         + `<th>${isEn ? 'Open' : '開啟'}</th>`;
     }
     if (txHead) {
       txHead.innerHTML = `<th class="table-sticky-col">${isEn ? 'Period' : '期間'}</th>`
         + `<th>${isEn ? 'Date' : '日期'}</th>`
-        + `<th>${isEn ? 'Open transcript' : '開啟逐字稿'}</th>`;
+        + `<th>${isEn ? (isHk ? 'Open disclosure' : 'Open transcript') : (isHk ? '開啟披露' : '開啟逐字稿')}</th>`;
     }
 
     if (!Docs) {
@@ -10043,13 +10069,19 @@
     }
 
     const openLabel = isEn ? 'Open ↗' : '開啟 ↗';
+    const openTxLabel = isHk
+      ? (isEn ? 'Open HKEXnews ↗' : '開啟披露易 ↗')
+      : (isEn ? 'Open SEC 8-K ↗' : '開啟 SEC 8-K ↗');
     Promise.all([
-      Docs.loadFilings(ticker, { years: 5, limit: 40 }).catch(error => ({ error })),
+      Docs.loadFilings(ticker, { years: 5, limit: 40, stock: stockObj || { ticker } })
+        .catch(error => ({ error, market: isHk ? 'HKEX' : 'US' })),
       Docs.loadTranscriptDates(ticker).catch(error => ({ error })),
     ]).then(([filings, transcripts]) => {
       if (activeCompanyTicker !== ticker) return;
+      if (filings?.searchUrl) paintPublicLinks(filings.searchUrl);
       const filingRows = filings?.rows || [];
       const txRows = (transcripts?.rows || []).slice(0, 24);
+      const filingsMarket = filings?.market || (isHk ? 'HKEX' : 'US');
       filingsBody.innerHTML = filingRows.length
         ? filingRows.map(row => `<tr>
             <td class="table-sticky-col" style="text-align:left;">${row.filingDate || '—'}</td>
@@ -10060,27 +10092,37 @@
           </tr>`).join('')
         : `<tr><td class="table-sticky-col text-muted" colspan="3">${
           filings?.error
-            ? (isEn
-              ? `FMP filings unavailable (${String(filings.error.message || filings.error)}). Use SEC links above.`
-              : `FMP 申報不可用（${String(filings.error.message || filings.error)}）。請用上方 SEC 連結。`)
-            : (isEn ? 'No FMP filing rows returned.' : 'FMP 未回傳申報列。')}</td></tr>`;
+            ? (filingsMarket === 'HKEX'
+              ? (isEn
+                ? `HKEXNEWS filings unavailable (${String(filings.error.message || filings.error)}). Use HKEXnews links above.`
+                : `披露易申報不可用（${String(filings.error.message || filings.error)}）。請用上方披露易連結。`)
+              : (isEn
+                ? `FMP filings unavailable (${String(filings.error.message || filings.error)}). Use SEC links above.`
+                : `FMP 申報不可用（${String(filings.error.message || filings.error)}）。請用上方 SEC 連結。`))
+            : (filingsMarket === 'HKEX'
+              ? (isEn ? 'No HKEXNEWS filing rows returned.' : '披露易未回傳申報列。')
+              : (isEn ? 'No FMP filing rows returned.' : 'FMP 未回傳申報列。'))}</td></tr>`;
 
       txBody.innerHTML = txRows.length
         ? txRows.map(row => {
-          const url = Docs.transcriptOpenUrl(ticker, row.year, row.quarter, row.date);
+          const url = Docs.transcriptOpenUrl(ticker, row.year, row.quarter, row.date, currentLang);
           return `<tr>
             <td class="table-sticky-col" style="text-align:left;">${escapeAttribute(row.label)}</td>
             <td>${row.date || '—'}</td>
             <td><a href="${escapeAttribute(url)}" target="_blank" rel="noopener noreferrer"
               onclick="return openEarningsTranscript(event, '${escapeAttribute(ticker)}', ${row.year}, ${row.quarter})">${
-              isEn ? 'Open SEC 8-K ↗' : '開啟 SEC 8-K ↗'}</a></td>
+              openTxLabel}</a></td>
           </tr>`;
         }).join('')
         : `<tr><td class="table-sticky-col text-muted" colspan="3">${
           transcripts?.error
-            ? (isEn
-              ? `Transcript dates unavailable (${String(transcripts.error.message || transcripts.error)}). Use SEC links above.`
-              : `逐字稿日期不可用（${String(transcripts.error.message || transcripts.error)}）。請用上方 SEC 連結。`)
+            ? (isHk
+              ? (isEn
+                ? `Transcript dates unavailable (${String(transcripts.error.message || transcripts.error)}). Use HKEXnews links above.`
+                : `法說／業績日期不可用（${String(transcripts.error.message || transcripts.error)}）。請用上方披露易連結。`)
+              : (isEn
+                ? `Transcript dates unavailable (${String(transcripts.error.message || transcripts.error)}). Use SEC links above.`
+                : `逐字稿日期不可用（${String(transcripts.error.message || transcripts.error)}）。請用上方 SEC 連結。`))
             : (isEn ? 'No earnings-call transcript dates.' : '無法說會逐字稿日期。')}</td></tr>`;
 
       const fCount = filingRows.length;
