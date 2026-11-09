@@ -59,11 +59,11 @@ test('screener body cells clip; header + score badges stay visible', () => {
   assert.match(html, /#screener-table td\s*\{[^}]*overflow:\s*hidden/);
   assert.match(html, /#screener-table td\s*\{[^}]*text-overflow:\s*ellipsis/);
   assert.match(html, /#screener-table thead th\s*\{[^}]*overflow:\s*visible/);
-  assert.match(html, /td:has\(\.badge-moat\)[\s\S]*?overflow:\s*visible/);
+  assert.match(html, /td:has\(\.badge-fscore\)[\s\S]*?overflow:\s*visible/);
   assert.match(html, /#screener-table \.badge-moat/);
   assert.match(html, /#screener-table \.badge-fscore/);
   // Just-fit score columns (content-hugging, not excess-wide).
-  assert.match(html, /moat_score:\s*108/);
+  assert.match(html, /moat_score:\s*124/);
   assert.match(html, /f_score:\s*168/);
   assert.match(html, /z_score:\s*176/);
   assert.match(html, /m_score:\s*96/);
@@ -76,6 +76,8 @@ test('screener body cells clip; header + score badges stay visible', () => {
   assert.match(html, /band = isEn \? "Wide" : "寬"/);
   assert.match(html, /moat\?\.band/);
   assert.match(html, /#screener-table \.badge-moat\s*\{[^}]*white-space:\s*nowrap/);
+  assert.match(html, /#screener-table \.badge-moat\s*\{[^}]*overflow:\s*hidden/);
+  assert.match(html, /#screener-table td:has\(\.badge-moat\)\s*\{[^}]*overflow:\s*hidden/);
 });
 
 test('sticky chrome is opaque without parking the table over pagination', () => {

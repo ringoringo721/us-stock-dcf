@@ -1630,8 +1630,20 @@
       display: inline-block;
       box-sizing: border-box;
     }
-    #screener-table .badge-moat { white-space: nowrap; }
-    #screener-table td:has(.badge-moat),
+    /* Moat: prefer one line; never paint into neighbors (Bugbot #102). */
+    #screener-table .badge-moat {
+      white-space: nowrap;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    #screener-table td:has(.badge-moat) {
+      overflow: hidden !important;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      vertical-align: middle;
+      text-align: center !important;
+    }
     #screener-table td:has(.badge-fscore),
     #screener-table td:has(.badge-zscore),
     #screener-table td:has(.badge-mscore) {
@@ -6811,7 +6823,8 @@
       fmp_dcf: 100, fmp_dcf_upside: 148, fmp_levered: 100, fmp_levered_upside: 148,
       target_price: 92, target_spread: 140, action: 118,
       // Moat / PF / Z / M: just-fit; long EN captions wrap inside the cell (no excess empty band).
-      moat_score: 108,
+      // Fits `82 pt · Moderate` one-liner; long N/A uses short screener label + title.
+      moat_score: 124,
       WACC: 96, EV: 100, mcap: 100, liq_val_1: 92, liq_val_2: 92, liq_val_3: 92,
       pe_trailing: 68, pe_forward: 68, pb_trailing: 68, div_yield: 76,
       cont_div_growth: 80, fcf_to_ev: 80, fcf_to_equity: 108, fcf_to_mcap: 88,
@@ -7250,14 +7263,18 @@
       const favHeart = item.isFav ? '❤' : '♡';
       const favActiveClass = item.isFav ? 'active' : '';
 
-      // Screener moat: one line `82 pt · Narrow` / `82 pt · 窄`, locale-matched (never EN band in zh UI).
+      // Screener moat: one line `82 pt · Narrow` / `82 pt · 窄`, locale-matched.
+      // Keep cell short so nowrap never spills; full scoreText stays in title.
       const moatBadgeCls = item.moat?.badgeClass || '';
       const moatBand = item.moat?.band || '';
-      const moatLabel = item.moat?.excluded
-        ? (item.moat.scoreText || 'N/A')
-        : item.moat?.total != null
-          ? `${item.moat.total} pt${moatBand ? ` · ${moatBand}` : ''}`
-          : (item.moat?.scoreText || 'N/A');
+      const moatScoreText = item.moat?.scoreText || 'N/A';
+      let moatLabel = 'N/A';
+      if (item.moat?.excluded) moatLabel = 'N/A';
+      else if (item.moat?.total != null) moatLabel = `${item.moat.total} pt${moatBand ? ` · ${moatBand}` : ''}`;
+      else if (/Partial|部分/.test(moatScoreText)) moatLabel = currentLang === 'en' ? 'N/A · Partial' : 'N/A · 部分';
+      const moatTitleParts = item.moat?.excluded
+        ? [item.moat.comment, moatScoreText]
+        : [moatScoreText, item.moat?.coverage, ratingProvenance(item, 'moat')];
       const health = financialHealthAssessment(fScoreVal, item.f_score_breakdown, item.ratingSources?.fScore, item);
       if (health.adjusted || health.financialNa) fScoreClass = '';
       const healthComment = I18N_DICT[currentLang][`fsc_health_${health.level}`];
@@ -7335,7 +7352,7 @@
             <button class="btn-nav" onclick="openDetail('${item.ticker}')">${currentLang === 'zh' ? '深度模型 →' : 'DCF Model →'}</button>
           </td>
           <td style="text-align: center;">
-            <span class="badge-moat ${moatBadgeCls}" title="${(item.moat?.excluded ? item.moat.comment : [item.moat?.coverage, ratingProvenance(item, 'moat')].filter(Boolean).join(' · ')).replace(/"/g, '&quot;')}" onclick="openMoat('${item.ticker}')">${moatLabel}</span>
+            <span class="badge-moat ${moatBadgeCls}" title="${moatTitleParts.filter(Boolean).join(' · ').replace(/"/g, '&quot;')}" onclick="openMoat('${item.ticker}')">${moatLabel}</span>
           </td>
           <td>
             <div>${waccVal === null ? 'N/A' : (waccVal * 100).toFixed(2) + '%'}</div>
