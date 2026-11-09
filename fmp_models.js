@@ -260,6 +260,7 @@
     if (!scenario.netDebtBasis) {
       scenario.netDebtBasis = finite(scenario.netDebt) && scenario.netDebt < 0 ? 'net-cash' : 'net-debt';
     }
+    if (!scenario.netDebtOrigin) scenario.netDebtOrigin = 'fmp-model';
     // Repair missing or incomplete refs (empty {} is truthy and would break .toFixed in the UI).
     if (!finite(scenario.terminalGrowthReference?.bandLow)
         || !finite(scenario.terminalGrowthReference?.bandHigh)
@@ -423,6 +424,64 @@
 
   function formatMoneyInput(currency, number) {
     return finite(number) ? `${currency} ${number.toLocaleString('en-US', { maximumFractionDigits: 2 })}` : 'N/A';
+  }
+
+  /** Grouped absolute-currency display (e.g. 8,434,000,000). Keeps sign; no trailing decimals for integers. */
+  function formatGroupedNumber(number) {
+    if (!finite(number)) return '';
+    return number.toLocaleString('en-US', { maximumFractionDigits: 6, useGrouping: true });
+  }
+
+  function parseGroupedNumber(raw) {
+    if (raw == null) return null;
+    const text = String(raw).trim();
+    if (!text || text === '-' || text === '.' || text === '-.') return null;
+    const normalized = text.replace(/,/g, '');
+    if (!/^-?\d+(\.\d+)?$/.test(normalized)) return null;
+    const value = Number(normalized);
+    return Number.isFinite(value) ? value : null;
+  }
+
+  function captureWorkspaceScroll(box) {
+    const wraps = [...(box?.querySelectorAll('.table-scroll-wrapper') || [])];
+    return {
+      windowX: root.scrollX || 0,
+      windowY: root.scrollY || 0,
+      analysis: [...root.document.querySelectorAll('.company-analysis-scroll')].map(el => ({
+        left: el.scrollLeft, top: el.scrollTop
+      })),
+      tables: wraps.map((el, index) => ({
+        index,
+        id: el.querySelector('table')?.id || null,
+        left: el.scrollLeft,
+        top: el.scrollTop
+      }))
+    };
+  }
+
+  function restoreWorkspaceScroll(box, saved) {
+    if (!saved) return;
+    const apply = () => {
+      const wraps = [...(box?.querySelectorAll('.table-scroll-wrapper') || [])];
+      for (const item of saved.tables || []) {
+        const byId = item.id ? box.querySelector(`table#${item.id.replace(/[^A-Za-z0-9_-]/g, '')}`)?.closest('.table-scroll-wrapper') : null;
+        const el = byId || wraps[item.index];
+        if (!el) continue;
+        el.scrollLeft = item.left;
+        el.scrollTop = item.top;
+      }
+      const analysis = [...root.document.querySelectorAll('.company-analysis-scroll')];
+      (saved.analysis || []).forEach((item, index) => {
+        const el = analysis[index];
+        if (!el) return;
+        el.scrollLeft = item.left;
+        el.scrollTop = item.top;
+      });
+      root.scrollTo(saved.windowX, saved.windowY);
+    };
+    apply();
+    // Re-apply after layout / focus scroll-into-view from replaced controls.
+    root.requestAnimationFrame(() => root.requestAnimationFrame(apply));
   }
 
   function peerMultipleReference(text) {
@@ -877,8 +936,10 @@
       <input id="fmp-exit-multiple" type="number" step="any" min="0" max="500" placeholder="N/A" title="${escape(scenario.exitMultiple ?? '')}" value="${inputValue('exitMultiple', scenario.exitMultiple)}">
       <small>${originText(scenario.exitMultipleOrigin || (finite(scenario.exitMultiple) ? 'user' : 'unavailable'), text)}</small></div>
       <div class="form-group"><label for="fmp-snapshot-net-debt">${netLabel} · ${escape(scenario.currency)}</label>
-      <input id="fmp-snapshot-net-debt" type="number" required step="any" title="${escape(scenario.netDebt)}" value="${scenario.netDebt}">
-      <small id="fmp-snapshot-net-debt-meta">${text('報表／快照日', 'Statement / snapshot date')}: ${escape(scenario.netDebtDate || scenario.baseDate || 'N/A')} · ${text('顯示', 'Display')}: ${formatMoneyInput(scenario.currency, scenario.netDebt)} · ${netCash ? text('負淨債務＝淨現金', 'Negative net debt = net cash') : text('正值＝淨債務', 'Positive = net debt')}</small></div></div>
+      <input id="fmp-snapshot-net-debt" class="fmp-grouped-money" type="text" inputmode="decimal" autocomplete="off" required title="${escape(scenario.netDebt)}" value="${escape(formatGroupedNumber(scenario.netDebt))}" data-fmp-grouped-money="netDebt">
+      <small id="fmp-snapshot-net-debt-meta">${text('報表／快照日', 'Statement / snapshot date')}: ${escape(scenario.netDebtDate || scenario.baseDate || 'N/A')} · ${text('定義', 'Basis')}: ${escape(scenario.netDebtOrigin === 'catalogue-debt-minus-cash'
+        ? text('目錄債務−現金（與本站 EV 橋同一口徑）', 'Catalogue debt − cash (same EV-bridge definition)')
+        : text('FMP 模型快照淨債務（目錄債務−現金不可用）', 'FMP model snapshot net debt (catalogue debt − cash unavailable)'))} · ${text('顯示', 'Display')}: ${formatMoneyInput(scenario.currency, scenario.netDebt)} · ${netCash ? text('負淨債務＝淨現金', 'Negative net debt = net cash') : text('正值＝淨債務', 'Positive = net debt')}</small></div></div>
       ${peer.html}
       <p class="analysis-note" id="fmp-tax-default-note">${tax?.percent != null
         ? text(`預測稅率建議預設為近五年有效稅率平均 ${tax.percent.toFixed(2)}%（財年 ${tax.years.join(', ')}）；標為可改，不會覆寫你已改的格子。`, `Forecast tax suggests the 5y effective-tax average ${tax.percent.toFixed(2)}% (FY ${tax.years.join(', ')}); labeled editable and does not overwrite cells you already changed.`)
@@ -967,6 +1028,7 @@
   function render() {
     const { stock, ticker, kind, data } = state, en = state.language() === 'en';
     const box = root.document.getElementById('fmp-workspace');
+    const savedScroll = captureWorkspaceScroll(box);
     const local = state.mode === 'ten-year' && dcfApplicable(stock);
     const result = local ? scenarioValue() : value(data, kind, stock);
     const row = result.row || (!local && dcfApplicable(stock) ? first(data?.models?.[kind]?.data) : null);
@@ -1133,7 +1195,11 @@
     }));
     for (const [id, key] of [['fmp-terminal-growth', 'terminalGrowth'], ['fmp-exit-multiple', 'exitMultiple'], ['fmp-snapshot-net-debt', 'netDebt']]) {
       box.querySelector(`#${id}`)?.addEventListener('input', event => {
-        state.scenarios[kind][key] = event.target.value.trim() ? event.target.valueAsNumber : null;
+        const grouped = event.target.dataset.fmpGroupedMoney;
+        const next = grouped
+          ? parseGroupedNumber(event.target.value)
+          : (event.target.value.trim() ? event.target.valueAsNumber : null);
+        state.scenarios[kind][key] = next;
         event.target.title = String(state.scenarios[kind][key] ?? '');
         if (key === 'terminalGrowth') {
           state.scenarios[kind].terminalGrowthOrigin = event.target.value.trim() ? 'user' : null;
@@ -1142,12 +1208,13 @@
           state.scenarios[kind].exitMultipleOrigin = event.target.value.trim() ? 'user' : null;
         }
         if (key === 'netDebt') {
+          state.scenarios[kind].netDebtOrigin = 'user';
           state.scenarios[kind].netDebtBasis = finite(state.scenarios[kind].netDebt)
             && state.scenarios[kind].netDebt < 0 ? 'net-cash' : 'net-debt';
           const meta = box.querySelector('#fmp-snapshot-net-debt-meta');
           if (meta) {
             const netCash = state.scenarios[kind].netDebtBasis === 'net-cash';
-            meta.textContent = `${text('報表／快照日', 'Statement / snapshot date')}: ${state.scenarios[kind].netDebtDate || state.scenarios[kind].baseDate || 'N/A'} · ${text('顯示', 'Display')}: ${formatMoneyInput(state.scenarios[kind].currency, state.scenarios[kind].netDebt)} · ${netCash ? text('負淨債務＝淨現金', 'Negative net debt = net cash') : text('正值＝淨債務', 'Positive = net debt')}`;
+            meta.textContent = `${text('報表／快照日', 'Statement / snapshot date')}: ${state.scenarios[kind].netDebtDate || state.scenarios[kind].baseDate || 'N/A'} · ${text('定義', 'Basis')}: ${text('使用者覆寫', 'User override')} · ${text('顯示', 'Display')}: ${formatMoneyInput(state.scenarios[kind].currency, state.scenarios[kind].netDebt)} · ${netCash ? text('負淨債務＝淨現金', 'Negative net debt = net cash') : text('正值＝淨債務', 'Positive = net debt')}`;
           }
         }
         changed();
@@ -1158,6 +1225,12 @@
     });
     box.querySelector('#fmp-exit-multiple')?.addEventListener('blur', event => {
       event.target.value = inputValue('exitMultiple', state.scenarios[kind].exitMultiple);
+    });
+    box.querySelector('#fmp-snapshot-net-debt')?.addEventListener('blur', event => {
+      const parsed = parseGroupedNumber(event.target.value);
+      state.scenarios[kind].netDebt = parsed;
+      event.target.value = formatGroupedNumber(parsed);
+      event.target.title = String(parsed ?? '');
     });
     box.querySelector('#fmp-rf-tenor')?.addEventListener('change', event => {
       const tenor = Number(event.target.value);
@@ -1179,6 +1252,7 @@
     box.querySelector('#fmp-download-audit').addEventListener('click', downloadAudit);
     box.querySelector('#fmp-download-audit').disabled = !!state.busy;
     if (state.busy && box.querySelector('#fmp-calculate')) box.querySelector('#fmp-calculate').disabled = true;
+    restoreWorkspaceScroll(box, savedScroll);
   }
 
   function auditPacket({ data, sourceData = data, kind, stock, scenario = null, statements = null, params = {} }) {
@@ -1452,5 +1526,6 @@
 
   return { record, value, issuedShares, reference, dcfApplicable, priceDifference, compatible, load, save, reset, details, detailsError, reasonText, actuals, auditPacket,
     valuationConfidence, confidenceText, riskFreeTenorSource, applyRfTenor, isHkListing, applyBetaLookback,
+    formatGroupedNumber, parseGroupedNumber, captureWorkspaceScroll, restoreWorkspaceScroll,
     deactivate: () => { state = null; }, rerender: () => { if (state) render(); } };
 });

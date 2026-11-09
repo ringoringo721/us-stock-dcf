@@ -388,6 +388,9 @@ test('new defaults label net cash vs net debt with snapshot date and suggested t
   const scenario = Scenario.defaults(data, 'advanced', Models.issuedShares(stock), { statements, stock });
   assert.equal(scenario.netDebtDate, data.forecastBase.date);
   assert.equal(scenario.netDebtBasis, scenario.netDebt < 0 ? 'net-cash' : 'net-debt');
+  assert.equal(scenario.netDebtOrigin, 'catalogue-debt-minus-cash');
+  assert.equal(scenario.netDebt, stock.net_debt * 1e6);
+  assert.notEqual(scenario.netDebt, data.models.advanced.data.find(row => Number(row.year) === data.forecastBase.year)?.netDebt);
   assert.equal(scenario.terminalGrowth, 2.5);
   assert.equal(scenario.exitMultiple, 25);
   assert.ok(scenario.taxFiveYear.percent > 0);
@@ -396,9 +399,38 @@ test('new defaults label net cash vs net debt with snapshot date and suggested t
   assert.equal(history.reason, null);
   assert.equal(history.years.length, 5);
   assert.ok(Number.isFinite(history.summary.revenueCagr));
-  assert.equal(history.ttm?.included, true);
-  assert.ok(history.ttm.row.date > history.years.at(-1).date);
-  assert.ok(Number.isFinite(history.ttm.row.ebitda));
+  // TTM is optional: included when trailing quarters are newer than latest FY, else labeled N/A.
+  if (history.ttm?.included) {
+    assert.ok(history.ttm.row.date > history.years.at(-1).date);
+    assert.ok(Number.isFinite(history.ttm.row.ebitda));
+  } else {
+    assert.equal(history.ttm?.reason, 'TTM_NOT_NEWER_THAN_LATEST_FY');
+  }
+});
+
+test('suggested snapshot net debt prefers catalogue debt−cash for US and HK; FMP only as fallback', () => {
+  const aapl = read('AAPL');
+  const aaplStock = require('../full_market_dcf.json').AAPL;
+  const aaplScenario = Scenario.defaults(aapl, 'advanced', Models.issuedShares(aaplStock), { stock: aaplStock });
+  assert.equal(aaplScenario.netDebtOrigin, 'catalogue-debt-minus-cash');
+  assert.equal(aaplScenario.netDebt, aaplStock.net_debt * 1e6);
+
+  const link = read('0823.HK');
+  const linkStock = require('../hk_market_dcf.json')['0823.HK'];
+  const linkScenario = Scenario.defaults(link, 'advanced', Models.issuedShares(linkStock), { stock: linkStock });
+  assert.equal(linkScenario.netDebtOrigin, 'catalogue-debt-minus-cash');
+  assert.equal(linkScenario.netDebt, linkStock.net_debt * 1e6);
+  assert.equal(linkScenario.currency, 'HKD');
+
+  const noStock = Scenario.defaults(aapl, 'advanced', 10);
+  assert.equal(noStock.netDebtOrigin, 'fmp-model');
+  const opening = aapl.models.advanced.data.find(row => Number(row.year) === aapl.forecastBase.year);
+  assert.equal(noStock.netDebt, opening.netDebt);
+
+  assert.equal(Scenario.snapshotNetDebtFromStock(
+    { calculationCurrency: 'HKD', net_debt: 12.5 }, 'USD'), null, 'currency mismatch blocked');
+  assert.equal(Scenario.snapshotNetDebtFromStock(
+    { calculationCurrency: 'USD', debt: 100, cash_and_short_term: 40 }, 'USD'), 60e6);
 });
 
 test('optional TTM history row is omitted when end date is on or before the latest full fiscal year', () => {

@@ -189,6 +189,11 @@ test('Detail and ten-year UI expose confidence and dual-terminal hooks', () => {
   assert.match(models, /rfTenorControlHtml/);
   assert.match(models, /id="fmp-beta-provenance"/);
   assert.match(models, /id="fmp-snapshot-net-debt-meta"/);
+  assert.match(models, /data-fmp-grouped-money="netDebt"/);
+  assert.match(models, /formatGroupedNumber/);
+  assert.match(models, /captureWorkspaceScroll/);
+  assert.match(models, /restoreWorkspaceScroll/);
+  assert.match(models, /catalogue-debt-minus-cash/);
   assert.match(models, /five-year-effective-tax/);
   assert.match(models, /港股採用美元公債／美股無風險利率概念（聯繫匯率代理），非港元曲線/);
   assert.match(models, /HK stocks use the USD Treasury \/ US-stock risk-free concept/);
@@ -294,4 +299,25 @@ test('applyRfTenor code path preserves user rf overrides', () => {
   const models = fs.readFileSync('fmp_models.js', 'utf8');
   assert.match(models, /origins\?\.rf === 'user'\) continue/);
   assert.match(models, /origins\?\.ke === 'user'\) continue/);
+});
+
+test('grouped money formatting uses thousand separators and round-trips', () => {
+  const Models = require('../fmp_models.js');
+  assert.equal(Models.formatGroupedNumber(8434000000), '8,434,000,000');
+  assert.equal(Models.formatGroupedNumber(-12845024937), '-12,845,024,937');
+  assert.equal(Models.parseGroupedNumber('8,434,000,000'), 8434000000);
+  assert.equal(Models.parseGroupedNumber('-12,845,024,937.5'), -12845024937.5);
+  assert.equal(Models.parseGroupedNumber(''), null);
+  assert.equal(Models.parseGroupedNumber('abc'), null);
+  // Commas are stripped for typing flexibility; blur reformats with proper grouping.
+  assert.equal(Models.parseGroupedNumber('8434000000'), 8434000000);
+});
+
+test('index RF tenor controls stay available for HK (USD Treasury / peg proxy)', () => {
+  const html = fs.readFileSync('index.html', 'utf8');
+  assert.doesNotMatch(html, /onRfTenorChange\(\) \{\s*if \(MarketContext\.currency === 'HKD'\) return;/);
+  assert.doesNotMatch(html, /onFinRfTenorChange\(\)[\s\S]{0,180}calculationCurrency === 'HKD'\) return/);
+  assert.match(html, /US \+ HK share the same USD Treasury RF concept/);
+  assert.match(html, /Same USD Treasury concept for US and HK/);
+  assert.doesNotMatch(html, /const showTenor = stock\.calculationCurrency !== 'HKD'/);
 });
