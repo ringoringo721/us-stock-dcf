@@ -313,6 +313,24 @@ test('grouped money formatting uses thousand separators and round-trips', () => 
   assert.equal(Models.parseGroupedNumber('8434000000'), 8434000000);
 });
 
+test('net-debt origin label keeps user override across re-render template', () => {
+  const Models = require('../fmp_models.js');
+  const text = (zh, en) => en;
+  assert.equal(Models.netDebtOriginLabel('user', text), 'User override');
+  assert.match(Models.netDebtOriginLabel('catalogue-debt-minus-cash', text), /Catalogue debt/);
+  assert.match(Models.netDebtOriginLabel('fmp-model', text), /FMP model snapshot/);
+  const meta = Models.snapshotNetDebtMeta({
+    netDebt: 8434000000, netDebtOrigin: 'user', netDebtBasis: 'net-debt',
+    netDebtDate: '2025-12-31', currency: 'USD'
+  }, text);
+  assert.match(meta, /User override/);
+  assert.doesNotMatch(meta, /FMP model snapshot/);
+  const models = fs.readFileSync('fmp_models.js', 'utf8');
+  assert.match(models, /snapshotNetDebtMeta\(scenario, text\)/);
+  assert.match(models, /origin === 'user'/);
+  assert.match(models, /netDebtOrigin = 'user'/);
+});
+
 test('index RF tenor controls stay available for HK (USD Treasury / peg proxy)', () => {
   const html = fs.readFileSync('index.html', 'utf8');
   assert.doesNotMatch(html, /onRfTenorChange\(\) \{\s*if \(MarketContext\.currency === 'HKD'\) return;/);

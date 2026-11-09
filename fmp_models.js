@@ -426,6 +426,20 @@
     return finite(number) ? `${currency} ${number.toLocaleString('en-US', { maximumFractionDigits: 2 })}` : 'N/A';
   }
 
+  function netDebtOriginLabel(origin, text) {
+    if (origin === 'user') return text('使用者覆寫', 'User override');
+    if (origin === 'catalogue-debt-minus-cash') {
+      return text('目錄債務−現金（與本站 EV 橋同一口徑）', 'Catalogue debt − cash (same EV-bridge definition)');
+    }
+    return text('FMP 模型快照淨債務（目錄債務−現金不可用）', 'FMP model snapshot net debt (catalogue debt − cash unavailable)');
+  }
+
+  function snapshotNetDebtMeta(scenario, text) {
+    const netCash = scenario.netDebtBasis === 'net-cash'
+      || (finite(scenario.netDebt) && scenario.netDebt < 0);
+    return `${text('報表／快照日', 'Statement / snapshot date')}: ${scenario.netDebtDate || scenario.baseDate || 'N/A'} · ${text('定義', 'Basis')}: ${netDebtOriginLabel(scenario.netDebtOrigin, text)} · ${text('顯示', 'Display')}: ${formatMoneyInput(scenario.currency, scenario.netDebt)} · ${netCash ? text('負淨債務＝淨現金', 'Negative net debt = net cash') : text('正值＝淨債務', 'Positive = net debt')}`;
+  }
+
   /** Grouped absolute-currency display (e.g. 8,434,000,000). Keeps sign; no trailing decimals for integers. */
   function formatGroupedNumber(number) {
     if (!finite(number)) return '';
@@ -937,9 +951,7 @@
       <small>${originText(scenario.exitMultipleOrigin || (finite(scenario.exitMultiple) ? 'user' : 'unavailable'), text)}</small></div>
       <div class="form-group"><label for="fmp-snapshot-net-debt">${netLabel} · ${escape(scenario.currency)}</label>
       <input id="fmp-snapshot-net-debt" class="fmp-grouped-money" type="text" inputmode="decimal" autocomplete="off" required title="${escape(scenario.netDebt)}" value="${escape(formatGroupedNumber(scenario.netDebt))}" data-fmp-grouped-money="netDebt">
-      <small id="fmp-snapshot-net-debt-meta">${text('報表／快照日', 'Statement / snapshot date')}: ${escape(scenario.netDebtDate || scenario.baseDate || 'N/A')} · ${text('定義', 'Basis')}: ${escape(scenario.netDebtOrigin === 'catalogue-debt-minus-cash'
-        ? text('目錄債務−現金（與本站 EV 橋同一口徑）', 'Catalogue debt − cash (same EV-bridge definition)')
-        : text('FMP 模型快照淨債務（目錄債務−現金不可用）', 'FMP model snapshot net debt (catalogue debt − cash unavailable)'))} · ${text('顯示', 'Display')}: ${formatMoneyInput(scenario.currency, scenario.netDebt)} · ${netCash ? text('負淨債務＝淨現金', 'Negative net debt = net cash') : text('正值＝淨債務', 'Positive = net debt')}</small></div></div>
+      <small id="fmp-snapshot-net-debt-meta">${escape(snapshotNetDebtMeta(scenario, text))}</small></div></div>
       ${peer.html}
       <p class="analysis-note" id="fmp-tax-default-note">${tax?.percent != null
         ? text(`預測稅率建議預設為近五年有效稅率平均 ${tax.percent.toFixed(2)}%（財年 ${tax.years.join(', ')}）；標為可改，不會覆寫你已改的格子。`, `Forecast tax suggests the 5y effective-tax average ${tax.percent.toFixed(2)}% (FY ${tax.years.join(', ')}); labeled editable and does not overwrite cells you already changed.`)
@@ -1212,10 +1224,7 @@
           state.scenarios[kind].netDebtBasis = finite(state.scenarios[kind].netDebt)
             && state.scenarios[kind].netDebt < 0 ? 'net-cash' : 'net-debt';
           const meta = box.querySelector('#fmp-snapshot-net-debt-meta');
-          if (meta) {
-            const netCash = state.scenarios[kind].netDebtBasis === 'net-cash';
-            meta.textContent = `${text('報表／快照日', 'Statement / snapshot date')}: ${state.scenarios[kind].netDebtDate || state.scenarios[kind].baseDate || 'N/A'} · ${text('定義', 'Basis')}: ${text('使用者覆寫', 'User override')} · ${text('顯示', 'Display')}: ${formatMoneyInput(state.scenarios[kind].currency, state.scenarios[kind].netDebt)} · ${netCash ? text('負淨債務＝淨現金', 'Negative net debt = net cash') : text('正值＝淨債務', 'Positive = net debt')}`;
-          }
+          if (meta) meta.textContent = snapshotNetDebtMeta(state.scenarios[kind], text);
         }
         changed();
       });
@@ -1527,5 +1536,6 @@
   return { record, value, issuedShares, reference, dcfApplicable, priceDifference, compatible, load, save, reset, details, detailsError, reasonText, actuals, auditPacket,
     valuationConfidence, confidenceText, riskFreeTenorSource, applyRfTenor, isHkListing, applyBetaLookback,
     formatGroupedNumber, parseGroupedNumber, captureWorkspaceScroll, restoreWorkspaceScroll,
+    netDebtOriginLabel, snapshotNetDebtMeta,
     deactivate: () => { state = null; }, rerender: () => { if (state) render(); } };
 });
