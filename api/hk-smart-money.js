@@ -8,7 +8,10 @@ const HkSmartMoney = require('../hk_smart_money.js');
 const cache = new Map();
 const rateBuckets = new Map();
 const RATE_WINDOW_MS = 60_000;
-const RATE_MAX = 20;
+/** Default budget for seed/stock hits. */
+const RATE_MAX = 30;
+/** Tight budget for live upstream scrapes (refresh / di / southbound / flow / shorts). */
+const LIVE_RATE_MAX = 6;
 const DEFAULT_TTL_MS = 30 * 60 * 1000;
 const FLOW_TTL_MS = 60 * 60 * 1000;
 const SHORT_TTL_MS = 6 * 60 * 60 * 1000;
@@ -16,32 +19,63 @@ const DI_TTL_MS = 3 * 60 * 60 * 1000;
 const DI_LIVE_LOOKBACK = 3;
 
 function readSeed(symbol) {
-  const ticker = String(symbol || '').toUpperCase();
-  const candidates = [
-    path.join(__dirname, '..', 'cache', 'hk-smart-money', `${ticker}.json`),
-    path.join(process.cwd(), 'cache', 'hk-smart-money', `${ticker}.json`),
-    path.join(process.cwd(), 'public', 'cache', 'hk-smart-money', `${ticker}.json`),
+  const ticker = HkSmartMoney.tickerFromCode(symbol) || String(symbol || '').toUpperCase();
+  const code = HkSmartMoney.codeFromTicker(symbol);
+  const names = [...new Set([
+    ticker,
+    code ? HkSmartMoney.tickerFromCode(code) : null,
+    String(symbol || '').toUpperCase(),
+  ].filter(Boolean))];
+  const roots = [
+    path.join(__dirname, '..', 'cache', 'hk-smart-money'),
+    path.join(process.cwd(), 'cache', 'hk-smart-money'),
+    path.join(process.cwd(), 'public', 'cache', 'hk-smart-money'),
   ];
-  for (const file of candidates) {
-    try {
-      if (!fs.existsSync(file)) continue;
-      const body = JSON.parse(fs.readFileSync(file, 'utf8'));
-      if (body && typeof body === 'object') {
-        return { ...body, source: body.source || 'seed', ticker };
-      }
-    } catch { /* ignore corrupt seed */ }
+  for (const name of names) {
+    for (const root of roots) {
+      const file = path.join(root, `${name}.json`);
+      try {
+        if (!fs.existsSync(file)) continue;
+        const body = JSON.parse(fs.readFileSync(file, 'utf8'));
+        if (body && typeof body === 'object') {
+          return {
+            ...body,
+            source: body.source || 'seed',
+            ticker: body.ticker || name,
+            di_events: HkSmartMoney.normalizeDiEvents(body.di_events || []),
+            southbound: body.southbound
+              ? HkSmartMoney.buildSouthboundForCode(body.southbound.history || [{
+                date: body.southbound.as_of,
+                shares: body.southbound.shares,
+                pct: body.southbound.pct,
+                name: body.southbound.name,
+              }])
+              : body.southbound,
+          };
+        }
+      } catch { /* ignore corrupt seed */ }
+    }
   }
   return null;
 }
 
+/**
+ * Prefer Vercel `x-real-ip`. For X-Forwarded-For, use the rightmost hop
+ * (appended by the platform) so clients cannot mint buckets via spoofed left values.
+ */
 function clientIp(req) {
+  const real = req.headers?.['x-real-ip'];
+  if (typeof real === 'string' && real.trim()) return real.trim();
   const forwarded = req.headers?.['x-forwarded-for'];
-  if (typeof forwarded === 'string' && forwarded.trim()) return forwarded.split(',')[0].trim();
-  return req.socket?.remoteAddress || req.headers?.['x-real-ip'] || 'unknown';
+  if (typeof forwarded === 'string' && forwarded.trim()) {
+    const parts = forwarded.split(',').map(part => part.trim()).filter(Boolean);
+    if (parts.length) return parts[parts.length - 1];
+  }
+  return req.socket?.remoteAddress || 'unknown';
 }
 
-function rateLimited(req) {
-  const key = clientIp(req);
+function rateLimited(req, { live = false } = {}) {
+  const key = `${clientIp(req)}:${live ? 'live' : 'std'}`;
   const now = Date.now();
   let bucket = rateBuckets.get(key);
   if (!bucket || now >= bucket.resetAt) {
@@ -54,7 +88,7 @@ function rateLimited(req) {
       if (now >= entry.resetAt) rateBuckets.delete(id);
     }
   }
-  return bucket.count > RATE_MAX;
+  return bucket.count > (live ? LIVE_RATE_MAX : RATE_MAX);
 }
 
 function cacheGet(key) {
@@ -161,7 +195,6 @@ async function fetchDiEventsForCode(stockCode, fetcher, lookback = DI_LIVE_LOOKB
   const days = HkSmartMoney.businessDaysBack(lookback);
   const events = [];
   const errors = [];
-  // Sequential + short pause — polite to di.hkex.com.hk; keep lookback small on live path.
   for (const day of days) {
     for (const [cat, role] of [[1, 'substantial'], [2, 'director']]) {
       const dayKey = `di-day:${day}:C${cat}`;
@@ -185,8 +218,10 @@ async function fetchDiEventsForCode(stockCode, fetcher, lookback = DI_LIVE_LOOKB
       }
     }
   }
-  events.sort((a, b) => String(b.event_date || '').localeCompare(String(a.event_date || '')));
-  const payload = { events, errors };
+  const payload = {
+    events: HkSmartMoney.normalizeDiEvents(events),
+    errors,
+  };
   return cacheSet(cacheKey, payload, DI_TTL_MS);
 }
 
@@ -240,10 +275,9 @@ async function buildStockPayload(symbol, fetcher, { refresh = false } = {}) {
     throw err;
   }
   const ticker = HkSmartMoney.tickerFromCode(stockCode);
-  const seed = readSeed(ticker);
+  const seed = readSeed(ticker) || readSeed(symbol);
 
   // Default: serve committed seed when present (Preview / cold-start safe).
-  // Pass refresh=1 to force a polite live rebuild.
   if (seed && !refresh) {
     return {
       ...seed,
@@ -253,7 +287,8 @@ async function buildStockPayload(symbol, fetcher, { refresh = false } = {}) {
     };
   }
 
-  const lookbacks = HkSmartMoney.businessDaysBack(6);
+  // Live path: latest + prior business day only (1D). 5D/20D stay null unless seed history has exact dates.
+  const lookbacks = HkSmartMoney.businessDaysBack(2);
   const dateTargets = [...new Set([lookbacks[0], lookbacks[1]].filter(Boolean))];
 
   const history = [];
@@ -277,28 +312,24 @@ async function buildStockPayload(symbol, fetcher, { refresh = false } = {}) {
   }
   if (seed?.southbound?.history?.length) {
     for (const row of seed.southbound.history) {
-      if (row?.date && !history.some(item => item.date === row.date)) history.push(row);
+      const date = HkSmartMoney.normalizeIsoDate(row.date) || row.date;
+      if (date && !history.some(item => (HkSmartMoney.normalizeIsoDate(item.date) || item.date) === date)) {
+        history.push({ ...row, date });
+      }
     }
   }
   const byDate = new Map();
   for (const row of history) {
-    if (!byDate.has(row.date)) byDate.set(row.date, row);
+    const date = HkSmartMoney.normalizeIsoDate(row.date) || row.date;
+    if (!byDate.has(date)) byDate.set(date, { ...row, date });
   }
   const southbound = HkSmartMoney.buildSouthboundForCode([...byDate.values()]);
 
-  let di_events = seed?.di_events || [];
+  let di_events = HkSmartMoney.normalizeDiEvents(seed?.di_events || []);
   let diErrors = [];
   try {
     const di = await fetchDiEventsForCode(stockCode, fetcher, DI_LIVE_LOOKBACK);
-    if (di.events?.length) {
-      const merged = new Map();
-      for (const event of [...di.events, ...di_events]) {
-        const key = `${event.serial || ''}|${event.event_date || ''}|${event.filer || ''}`;
-        if (!merged.has(key)) merged.set(key, event);
-      }
-      di_events = [...merged.values()]
-        .sort((a, b) => String(b.event_date || '').localeCompare(String(a.event_date || '')));
-    }
+    di_events = HkSmartMoney.normalizeDiEvents([...(di.events || []), ...di_events]);
     diErrors = di.errors || [];
   } catch (error) {
     diErrors = [{ error: error.message || String(error) }];
@@ -350,77 +381,126 @@ function createHandler({ fetch: fetcher = globalThis.fetch } = {}) {
   return async function handler(req, res) {
     res.setHeader('Content-Type', 'application/json; charset=utf-8');
     res.setHeader('X-Content-Type-Options', 'nosniff');
-    res.setHeader('Cache-Control', 'public, max-age=300, stale-while-revalidate=3600');
-    const send = (status, value) => {
+
+    const send = (status, value, cacheMode = 'no-store') => {
+      if (cacheMode === 'public-seed') {
+        res.setHeader('Cache-Control', 'public, max-age=300, stale-while-revalidate=3600');
+      } else if (cacheMode === 'private-live') {
+        res.setHeader('Cache-Control', 'private, max-age=60');
+      } else {
+        res.setHeader('Cache-Control', 'no-store');
+      }
       res.statusCode = status;
       res.end(JSON.stringify(value));
     };
+
     if (req.method !== 'GET') {
       res.setHeader('Allow', 'GET');
       return send(405, { error: 'METHOD_NOT_ALLOWED' });
     }
-    if (rateLimited(req)) return send(429, { error: 'RATE_LIMITED' });
 
     const query = new URL(req.url, 'http://localhost').searchParams;
     const action = query.get('action') || 'stock';
     const symbol = query.get('symbol');
+    const refresh = query.get('refresh') === '1' || query.get('refresh') === 'true';
+    const liveAction = refresh
+      || action === 'di'
+      || action === 'southbound'
+      || action === 'flow'
+      || action === 'shorts';
+
+    // Seed stock hits use the standard budget; live scrapes use a tighter one.
+    if (rateLimited(req, { live: liveAction })) {
+      return send(429, { error: 'RATE_LIMITED' }, 'no-store');
+    }
 
     try {
       if (action === 'flow') {
+        const seedFlowPath = path.join(__dirname, '..', 'cache', 'hk-smart-money', 'market-flow.json');
+        if (!refresh && fs.existsSync(seedFlowPath)) {
+          const body = JSON.parse(fs.readFileSync(seedFlowPath, 'utf8'));
+          return send(200, { source: 'seed', ...body }, 'public-seed');
+        }
         const flow = await fetchMarketFlow(fetcher);
-        return send(200, { source: 'live', ...flow });
+        return send(200, { source: 'live', ...flow }, 'private-live');
       }
       if (action === 'shorts') {
+        if (!symbol) return send(400, { error: 'INVALID_SYMBOL' }, 'no-store');
+        const code = HkSmartMoney.codeFromTicker(symbol);
+        if (!code) return send(400, { error: 'INVALID_SYMBOL' }, 'no-store');
+        const seed = readSeed(symbol);
+        if (seed?.short && !refresh) {
+          return send(200, {
+            source: 'seed',
+            as_of: seed.short.as_of || null,
+            row: seed.short,
+          }, 'public-seed');
+        }
         const weeks = await fetchShorts(fetcher);
         return send(200, {
           source: 'live',
           as_of: weeks[0]?.as_of || null,
           prior_as_of: weeks[1]?.as_of || null,
-          rows: weeks[0]?.rows || [],
-        });
+          row: weeks[0]?.byCode?.[code] || null,
+        }, 'private-live');
       }
       if (action === 'southbound') {
+        if (!symbol) return send(400, { error: 'SYMBOL_REQUIRED' }, 'no-store');
         const date = query.get('date');
         if (date && !/^\d{4}-\d{2}-\d{2}$/.test(date)) {
-          return send(400, { error: 'INVALID_DATE' });
+          return send(400, { error: 'INVALID_DATE' }, 'no-store');
+        }
+        const code = HkSmartMoney.codeFromTicker(symbol);
+        if (!code) return send(400, { error: 'INVALID_SYMBOL' }, 'no-store');
+        const seed = readSeed(symbol);
+        if (seed?.southbound && !refresh && !date) {
+          return send(200, {
+            source: 'seed',
+            as_of: seed.southbound.as_of,
+            row: {
+              stock_code: code,
+              shares: seed.southbound.shares,
+              pct: seed.southbound.pct,
+              name: seed.southbound.name,
+            },
+          }, 'public-seed');
         }
         const snap = await fetchSouthboundSnapshot(date || null, fetcher);
-        const code = symbol ? HkSmartMoney.codeFromTicker(symbol) : null;
-        if (code) {
-          return send(200, {
-            source: 'live',
-            as_of: snap.as_of,
-            row: snap.byCode?.[code] || null,
-          });
-        }
         return send(200, {
           source: 'live',
           as_of: snap.as_of,
-          count: snap.rows.length,
-          rows: snap.rows,
-        });
+          row: snap.byCode?.[code] || null,
+        }, 'private-live');
       }
       if (action === 'di') {
         const code = HkSmartMoney.codeFromTicker(symbol);
-        if (!code) return send(400, { error: 'INVALID_SYMBOL' });
+        if (!code) return send(400, { error: 'INVALID_SYMBOL' }, 'no-store');
+        const seed = readSeed(symbol);
+        if (seed?.di_events && !refresh) {
+          return send(200, {
+            source: 'seed',
+            stock_code: code,
+            events: seed.di_events,
+          }, 'public-seed');
+        }
         const di = await fetchDiEventsForCode(code, fetcher);
         return send(200, {
           source: 'live',
           stock_code: code,
           events: di.events,
           errors: di.errors,
-        });
+        }, 'private-live');
       }
       if (action === 'stock') {
-        if (!symbol) return send(400, { error: 'INVALID_SYMBOL' });
+        if (!symbol) return send(400, { error: 'INVALID_SYMBOL' }, 'no-store');
         if (!/\.HK$/i.test(symbol) && !/^\d{1,5}$/.test(symbol)) {
-          return send(400, { error: 'HK_SYMBOL_REQUIRED' });
+          return send(400, { error: 'HK_SYMBOL_REQUIRED' }, 'no-store');
         }
-        const refresh = query.get('refresh') === '1' || query.get('refresh') === 'true';
         const payload = await buildStockPayload(symbol, fetcher, { refresh });
-        return send(200, payload);
+        const cacheMode = payload.source === 'live' || refresh ? 'private-live' : 'public-seed';
+        return send(200, payload, cacheMode);
       }
-      return send(400, { error: 'INVALID_ACTION' });
+      return send(400, { error: 'INVALID_ACTION' }, 'no-store');
     } catch (error) {
       const status = error.status && error.status >= 400 && error.status < 600 ? error.status : 502;
       console.error('HK smart money failed', {
@@ -430,7 +510,7 @@ function createHandler({ fetch: fetcher = globalThis.fetch } = {}) {
       });
       return send(status >= 500 ? 502 : status, {
         error: error.message || 'HK_SMART_MONEY_ERROR',
-      });
+      }, 'no-store');
     }
   };
 }

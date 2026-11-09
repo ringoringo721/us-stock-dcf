@@ -8,9 +8,9 @@
     "shares": 1022614267,
     "pct": 13.72,
     "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES",
-    "pct_chg_1d": 0.33,
-    "pct_chg_5d": 0.55,
-    "pct_chg_20d": null,
+    "pct_chg_1d": 0.06,
+    "pct_chg_5d": 0.41,
+    "pct_chg_20d": 0.59,
     "history": [
       {
         "date": "2026-11-06",
@@ -19,15 +19,21 @@
         "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
       },
       {
-        "date": "2026-11-02",
-        "shares": 998423784,
-        "pct": 13.39,
+        "date": "2026-11-05",
+        "shares": 1018067370,
+        "pct": 13.66,
         "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
       },
       {
-        "date": "2026-10-16",
-        "shares": 981538961,
-        "pct": 13.17,
+        "date": "2026-10-30",
+        "shares": 991478784,
+        "pct": 13.31,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-09",
+        "shares": 978875797,
+        "pct": 13.13,
         "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
       }
     ]
@@ -40,7 +46,7 @@
       "stock_code": "02318",
       "filer": "BlackRock, Inc.",
       "role": "substantial",
-      "event_date": "03/11/2026",
+      "event_date": "2026-11-03",
       "summary_date": "2026-11-06",
       "reason_code": "1313",
       "position": "L",
@@ -49,7 +55,8 @@
       "before_shares": 503517108,
       "before_pct": 6.76,
       "after_shares": 503517108,
-      "after_pct": 6.76
+      "after_pct": 6.76,
+      "action": "held"
     },
     {
       "serial": "CS20261105E00492",
@@ -58,7 +65,7 @@
       "stock_code": "02318",
       "filer": "JPMorgan Chase & Co.",
       "role": "substantial",
-      "event_date": "02/11/2026",
+      "event_date": "2026-11-02",
       "summary_date": "2026-11-06",
       "reason_code": "15015",
       "position": "S",
@@ -67,7 +74,8 @@
       "before_shares": 464264013,
       "before_pct": 6.23,
       "after_shares": 457524095,
-      "after_pct": 6.14
+      "after_pct": 6.14,
+      "action": "reduced"
     },
     {
       "serial": "CS20261105E00033",
@@ -76,7 +84,7 @@
       "stock_code": "02318",
       "filer": "BlackRock, Inc.",
       "role": "substantial",
-      "event_date": "02/11/2026",
+      "event_date": "2026-11-02",
       "summary_date": "2026-11-05",
       "reason_code": "1314",
       "position": "L",
@@ -85,7 +93,8 @@
       "before_shares": 509332683,
       "before_pct": 6.84,
       "after_shares": 509332683,
-      "after_pct": 6.84
+      "after_pct": 6.84,
+      "action": "held"
     },
     {
       "serial": "CS20261104E00014",
@@ -94,7 +103,7 @@
       "stock_code": "02318",
       "filer": "BlackRock, Inc.",
       "role": "substantial",
-      "event_date": "30/10/2026",
+      "event_date": "2026-10-30",
       "summary_date": "2026-11-04",
       "reason_code": "1314",
       "position": "L",
@@ -103,7 +112,8 @@
       "before_shares": 506912278,
       "before_pct": 6.81,
       "after_shares": 506912278,
-      "after_pct": 6.81
+      "after_pct": 6.81,
+      "action": "held"
     },
     {
       "serial": "CS20261031E00038",
@@ -112,7 +122,7 @@
       "stock_code": "02318",
       "filer": "BlackRock, Inc.",
       "role": "substantial",
-      "event_date": "28/10/2026",
+      "event_date": "2026-10-28",
       "summary_date": "2026-11-02",
       "reason_code": "1314",
       "position": "L",
@@ -121,7 +131,8 @@
       "before_shares": 503702863,
       "before_pct": 6.76,
       "after_shares": 503702863,
-      "after_pct": 6.76
+      "after_pct": 6.76,
+      "action": "held"
     },
     {
       "serial": "CS20261030E00348",
@@ -130,7 +141,7 @@
       "stock_code": "02318",
       "filer": "JPMorgan Chase & Co.",
       "role": "substantial",
-      "event_date": "27/10/2026",
+      "event_date": "2026-10-27",
       "summary_date": "2026-11-02",
       "reason_code": "14015",
       "position": "S",
@@ -139,7 +150,8 @@
       "before_shares": 469972204,
       "before_pct": 6.31,
       "after_shares": 474082842,
-      "after_pct": 6.36
+      "after_pct": 6.36,
+      "action": "added"
     },
     {
       "serial": "CS20261030E00013",
@@ -148,7 +160,7 @@
       "stock_code": "02318",
       "filer": "BlackRock, Inc.",
       "role": "substantial",
-      "event_date": "27/10/2026",
+      "event_date": "2026-10-27",
       "summary_date": "2026-10-30",
       "reason_code": "1314",
       "position": "L",
@@ -157,7 +169,8 @@
       "before_shares": 502986125,
       "before_pct": 6.75,
       "after_shares": 502986125,
-      "after_pct": 6.75
+      "after_pct": 6.75,
+      "action": "held"
     },
     {
       "serial": "CS20261029E00037",
@@ -166,7 +179,7 @@
       "stock_code": "02318",
       "filer": "BlackRock, Inc.",
       "role": "substantial",
-      "event_date": "26/10/2026",
+      "event_date": "2026-10-26",
       "summary_date": "2026-10-29",
       "reason_code": "1314",
       "position": "L",
@@ -175,7 +188,8 @@
       "before_shares": 502232229,
       "before_pct": 6.74,
       "after_shares": 502232229,
-      "after_pct": 6.74
+      "after_pct": 6.74,
+      "action": "held"
     },
     {
       "serial": "CS20261028E00024",
@@ -184,7 +198,7 @@
       "stock_code": "02318",
       "filer": "BlackRock, Inc.",
       "role": "substantial",
-      "event_date": "23/10/2026",
+      "event_date": "2026-10-23",
       "summary_date": "2026-10-28",
       "reason_code": "1313",
       "position": "L",
@@ -193,13 +207,14 @@
       "before_shares": 502701554,
       "before_pct": 6.75,
       "after_shares": 502701554,
-      "after_pct": 6.75
+      "after_pct": 6.75,
+      "action": "held"
     }
   ],
   "short": {
     "as_of": "2026-10-30",
     "shares": 1056231881,
-    "hkd": 52536973761.0,
+    "hkd": 52536973761,
     "pct_of_issued": 14.171,
     "shares_chg_wow": -10010036
   },

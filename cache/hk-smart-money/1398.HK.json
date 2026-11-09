@@ -9,8 +9,8 @@
     "pct": 40.84,
     "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED",
     "pct_chg_1d": -0.02,
-    "pct_chg_5d": -0.47,
-    "pct_chg_20d": null,
+    "pct_chg_5d": -0.03,
+    "pct_chg_20d": -0.51,
     "history": [
       {
         "date": "2026-11-06",
@@ -19,15 +19,21 @@
         "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
       },
       {
-        "date": "2026-11-02",
-        "shares": 35479238511,
+        "date": "2026-11-05",
+        "shares": 35470437098,
         "pct": 40.86,
         "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
       },
       {
-        "date": "2026-10-16",
-        "shares": 35857084971,
-        "pct": 41.31,
+        "date": "2026-10-30",
+        "shares": 35476156518,
+        "pct": 40.87,
+        "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-10-09",
+        "shares": 35902323971,
+        "pct": 41.35,
         "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED"
       }
     ]
@@ -36,7 +42,7 @@
   "short": {
     "as_of": "2026-10-30",
     "shares": 1269281039,
-    "hkd": 10020973803.0,
+    "hkd": 10020973803,
     "pct_of_issued": 1.4623,
     "shares_chg_wow": 25337171
   },

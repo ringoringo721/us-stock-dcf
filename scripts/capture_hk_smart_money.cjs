@@ -101,11 +101,11 @@ async function main() {
     }
   }
 
-  const sbOffsets = [0, 1, 5, 20];
-  const sbDates = [...new Set(sbOffsets.map(offset => {
+  // Exact as_of + 1 / 5 / 20 prior business days (not sparse history indexes).
+  const sbDates = [...new Set([0, 1, 5, 20].map((offset) => {
     const list = HkSmartMoney.businessDaysBack(offset + 1);
-    return list[offset] || list[list.length - 1];
-  }))];
+    return list[offset];
+  }).filter(Boolean))];
   const sbHistory = {};
   for (const day of sbDates) {
     try {

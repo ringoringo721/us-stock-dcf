@@ -9,8 +9,8 @@
     "pct": 35.72,
     "name": "BANK OF CHINA LIMITED",
     "pct_chg_1d": -0.01,
-    "pct_chg_5d": 0.07,
-    "pct_chg_20d": null,
+    "pct_chg_5d": 0.01,
+    "pct_chg_20d": 0.17,
     "history": [
       {
         "date": "2026-11-06",
@@ -19,15 +19,21 @@
         "name": "BANK OF CHINA LIMITED"
       },
       {
-        "date": "2026-11-02",
-        "shares": 29883708713,
+        "date": "2026-11-05",
+        "shares": 29882951533,
         "pct": 35.73,
         "name": "BANK OF CHINA LIMITED"
       },
       {
-        "date": "2026-10-16",
-        "shares": 29818127833,
-        "pct": 35.65,
+        "date": "2026-10-30",
+        "shares": 29872130713,
+        "pct": 35.71,
+        "name": "BANK OF CHINA LIMITED"
+      },
+      {
+        "date": "2026-10-09",
+        "shares": 29737047761,
+        "pct": 35.55,
         "name": "BANK OF CHINA LIMITED"
       }
     ]
@@ -36,7 +42,7 @@
   "short": {
     "as_of": "2026-10-30",
     "shares": 1230393260,
-    "hkd": 7560766583.0,
+    "hkd": 7560766583,
     "pct_of_issued": 1.4708,
     "shares_chg_wow": -4190614
   },

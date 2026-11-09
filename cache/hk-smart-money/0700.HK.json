@@ -8,9 +8,9 @@
     "shares": 1093869194,
     "pct": 12.02,
     "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES",
-    "pct_chg_1d": -0.01,
-    "pct_chg_5d": 0.06,
-    "pct_chg_20d": null,
+    "pct_chg_1d": 0,
+    "pct_chg_5d": 0,
+    "pct_chg_20d": 0.12,
     "history": [
       {
         "date": "2026-11-06",
@@ -19,15 +19,21 @@
         "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
       },
       {
-        "date": "2026-11-02",
-        "shares": 1094147532,
-        "pct": 12.03,
+        "date": "2026-11-05",
+        "shares": 1093604855,
+        "pct": 12.02,
         "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
       },
       {
-        "date": "2026-10-16",
-        "shares": 1088385348,
-        "pct": 11.96,
+        "date": "2026-10-30",
+        "shares": 1093761989,
+        "pct": 12.02,
+        "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-09",
+        "shares": 1082672910,
+        "pct": 11.9,
         "name": "TENCENT HOLDINGS LIMITED -HKD TRADED SHARES"
       }
     ]
@@ -36,7 +42,7 @@
   "short": {
     "as_of": "2026-10-30",
     "shares": 63564861,
-    "hkd": 24383480680.0,
+    "hkd": 24383480680,
     "pct_of_issued": 0.6985,
     "shares_chg_wow": -8648784
   },

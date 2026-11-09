@@ -29,17 +29,73 @@
     return digits.padStart(5, '0').slice(-5);
   }
 
+  /**
+   * App tickers are 4-digit `.HK` (0700.HK, 0005.HK). Rare natural 5-digit
+   * codes (e.g. 87001.HK) keep five digits. Never emit `700.HK` or `00700.HK`.
+   */
   function tickerFromCode(code) {
-    const padded = padStockCode(code);
-    if (!padded) return null;
-    return `${Number(padded)}.HK`;
+    const digits = String(code == null ? '' : code).replace(/\D/g, '');
+    if (!digits) return null;
+    const natural = digits.replace(/^0+/, '') || '0';
+    if (natural.length >= 5) return `${natural.padStart(5, '0').slice(-5)}.HK`;
+    return `${natural.padStart(4, '0').slice(-4)}.HK`;
   }
 
   function codeFromTicker(ticker) {
     const raw = String(ticker || '');
-    const m = raw.match(/^0*(\d{1,5})(?:\.HK)?$/i);
-    if (!m) return padStockCode(raw);
-    return padStockCode(m[1]);
+    const m = raw.match(/^(\d{1,5})(?:\.HK)?$/i);
+    if (m) return padStockCode(m[1]);
+    return padStockCode(raw);
+  }
+
+  function normalizeIsoDate(value) {
+    if (value == null || value === '') return null;
+    const raw = String(value).trim();
+    if (/^\d{4}-\d{2}-\d{2}/.test(raw)) return raw.slice(0, 10);
+    return parseDdMmYyyy(raw) || parseSlashDate(raw) || null;
+  }
+
+  function deriveDiAction(event) {
+    if (event?.action) return event.action;
+    const beforePct = finite(event?.before_pct);
+    const afterPct = finite(event?.after_pct);
+    if (beforePct == null && afterPct != null) return 'new';
+    if (beforePct != null && afterPct == null) return 'exited';
+    if (beforePct != null && afterPct != null) {
+      if (afterPct > beforePct + 1e-9) return 'added';
+      if (afterPct < beforePct - 1e-9) return 'reduced';
+    }
+    return 'held';
+  }
+
+  function normalizeDiEvent(event) {
+    if (!event || typeof event !== 'object') return null;
+    const event_date = normalizeIsoDate(event.event_date) || event.event_date || null;
+    return {
+      ...event,
+      stock_code: padStockCode(event.stock_code) || event.stock_code || null,
+      event_date,
+      summary_date: normalizeIsoDate(event.summary_date) || event.summary_date || null,
+      action: deriveDiAction({ ...event, event_date }),
+    };
+  }
+
+  function normalizeDiEvents(events) {
+    const merged = new Map();
+    for (const raw of events || []) {
+      const event = normalizeDiEvent(raw);
+      if (!event) continue;
+      const key = event.serial
+        ? String(event.serial)
+        : `${event.event_date || ''}|${event.filer || ''}|${event.reason_code || ''}`;
+      if (!merged.has(key)) merged.set(key, event);
+    }
+    return [...merged.values()].sort((a, b) => {
+      const da = normalizeIsoDate(a.event_date) || '';
+      const db = normalizeIsoDate(b.event_date) || '';
+      if (da !== db) return db.localeCompare(da);
+      return String(b.serial || '').localeCompare(String(a.serial || ''));
+    });
   }
 
   function isHkListed(stock) {
@@ -295,26 +351,39 @@
     return round4(latest - prior);
   }
 
+  /** Pick history row on the Nth prior business day vs as_of (exact date match only). */
+  function historyRowBusinessDaysAgo(history, asOf, businessDays) {
+    const asOfIso = normalizeIsoDate(asOf);
+    if (!asOfIso || !businessDays) return null;
+    const days = businessDaysBack(businessDays + 1, asOfIso);
+    const target = days[businessDays];
+    if (!target) return null;
+    return (history || []).find(row => normalizeIsoDate(row.date) === target) || null;
+  }
+
   function buildSouthboundForCode(historyRows) {
     const history = (historyRows || [])
       .filter(row => row && row.pct != null)
       .map(row => ({
-        date: row.date,
+        date: normalizeIsoDate(row.date) || row.date,
         shares: row.shares ?? null,
         pct: row.pct,
         name: row.name || null,
       }))
       .sort((a, b) => String(b.date).localeCompare(String(a.date)));
     const latest = history[0] || null;
-    const byOffset = (offset) => history[offset] || null;
+    const prior1 = historyRowBusinessDaysAgo(history, latest?.date, 1);
+    const prior5 = historyRowBusinessDaysAgo(history, latest?.date, 5);
+    const prior20 = historyRowBusinessDaysAgo(history, latest?.date, 20);
     return {
       as_of: latest?.date || null,
       shares: latest?.shares ?? null,
       pct: latest?.pct ?? null,
       name: latest?.name || null,
-      pct_chg_1d: pctChange(latest?.pct, byOffset(1)?.pct),
-      pct_chg_5d: pctChange(latest?.pct, byOffset(2)?.pct),
-      pct_chg_20d: pctChange(latest?.pct, byOffset(3)?.pct),
+      // Honest nulls when the exact prior business-day snapshot is missing.
+      pct_chg_1d: pctChange(latest?.pct, prior1?.pct),
+      pct_chg_5d: pctChange(latest?.pct, prior5?.pct),
+      pct_chg_20d: pctChange(latest?.pct, prior20?.pct),
       history,
     };
   }
@@ -458,6 +527,7 @@
     stripHtml,
     parseDdMmYyyy,
     parseSlashDate,
+    normalizeIsoDate,
     toSlashDate,
     businessDaysBack,
     parseDiSummaryHtml,
@@ -465,6 +535,10 @@
     parseCsmDailyJs,
     parseSfcShortCsv,
     extractSfcCsvLinks,
+    deriveDiAction,
+    normalizeDiEvent,
+    normalizeDiEvents,
+    historyRowBusinessDaysAgo,
     buildSouthboundForCode,
     buildShortForCode,
     diActionLabel,
