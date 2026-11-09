@@ -1,0 +1,325 @@
+{
+  "ticker": "2318.HK",
+  "stock_code": "02318",
+  "source": "seed",
+  "capturedAt": "2026-11-09T00:00:00Z",
+  "southbound": {
+    "as_of": "2026-11-06",
+    "shares": 1022614267,
+    "pct": 13.72,
+    "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES",
+    "pct_chg_1d": 0.33,
+    "pct_chg_5d": 0.55,
+    "pct_chg_20d": null,
+    "history": [
+      {
+        "date": "2026-11-06",
+        "shares": 1022614267,
+        "pct": 13.72,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-11-02",
+        "shares": 998423784,
+        "pct": 13.39,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-16",
+        "shares": 981538961,
+        "pct": 13.17,
+        "name": "PING AN INSURANCE (GROUP) COMPANY OF CHINA, LTD.-HKD TRADED SHARES"
+      }
+    ]
+  },
+  "di_events": [
+    {
+      "serial": "CS20261106E00040",
+      "form_url": "https://di.hkex.com.hk/di/NSForm2.aspx?fn=CS20261106E00040&sa2=ns&sid=6925&sd=06/11/2025&ed=06/11/2026&sa1=cl&scsd=06/11/2025&sced=06/11/2026&sc=02318&src=Main&lang=EN&tk=ds",
+      "listed_name": "Ping An Insurance (Group) Co. of China, Ltd. - H Shares",
+      "stock_code": "02318",
+      "filer": "BlackRock, Inc.",
+      "role": "substantial",
+      "event_date": "03/11/2026",
+      "summary_date": "2026-11-06",
+      "reason_code": "1313",
+      "position": "L",
+      "shares": 25446000,
+      "avg_price": null,
+      "before_shares": 503517108,
+      "before_pct": 6.76,
+      "after_shares": 503517108,
+      "after_pct": 6.76
+    },
+    {
+      "serial": "CS20261105E00492",
+      "form_url": "https://di.hkex.com.hk/di/NSForm2.aspx?fn=CS20261105E00492&sa2=ns&sid=6925&sd=06/11/2025&ed=06/11/2026&sa1=cl&scsd=06/11/2025&sced=06/11/2026&sc=02318&src=Main&lang=EN&tk=ds",
+      "listed_name": "Ping An Insurance (Group) Co. of China, Ltd. - H Shares",
+      "stock_code": "02318",
+      "filer": "JPMorgan Chase & Co.",
+      "role": "substantial",
+      "event_date": "02/11/2026",
+      "summary_date": "2026-11-06",
+      "reason_code": "15015",
+      "position": "S",
+      "shares": null,
+      "avg_price": null,
+      "before_shares": 464264013,
+      "before_pct": 6.23,
+      "after_shares": 457524095,
+      "after_pct": 6.14
+    },
+    {
+      "serial": "CS20261105E00033",
+      "form_url": "https://di.hkex.com.hk/di/NSForm2.aspx?fn=CS20261105E00033&sa2=ns&sid=6925&sd=05/11/2025&ed=05/11/2026&sa1=cl&scsd=05/11/2025&sced=05/11/2026&sc=02318&src=Main&lang=EN&tk=ds",
+      "listed_name": "Ping An Insurance (Group) Co. of China, Ltd. - H Shares",
+      "stock_code": "02318",
+      "filer": "BlackRock, Inc.",
+      "role": "substantial",
+      "event_date": "02/11/2026",
+      "summary_date": "2026-11-05",
+      "reason_code": "1314",
+      "position": "L",
+      "shares": 9941000,
+      "avg_price": null,
+      "before_shares": 509332683,
+      "before_pct": 6.84,
+      "after_shares": 509332683,
+      "after_pct": 6.84
+    },
+    {
+      "serial": "CS20261104E00014",
+      "form_url": "https://di.hkex.com.hk/di/NSForm2.aspx?fn=CS20261104E00014&sa2=ns&sid=6925&sd=04/11/2025&ed=04/11/2026&sa1=cl&scsd=04/11/2025&sced=04/11/2026&sc=02318&src=Main&lang=EN&tk=ds",
+      "listed_name": "Ping An Insurance (Group) Co. of China, Ltd. - H Shares",
+      "stock_code": "02318",
+      "filer": "BlackRock, Inc.",
+      "role": "substantial",
+      "event_date": "30/10/2026",
+      "summary_date": "2026-11-04",
+      "reason_code": "1314",
+      "position": "L",
+      "shares": 506204,
+      "avg_price": null,
+      "before_shares": 506912278,
+      "before_pct": 6.81,
+      "after_shares": 506912278,
+      "after_pct": 6.81
+    },
+    {
+      "serial": "CS20261031E00038",
+      "form_url": "https://di.hkex.com.hk/di/NSForm2.aspx?fn=CS20261031E00038&sa2=ns&sid=6925&sd=02/11/2025&ed=02/11/2026&sa1=cl&scsd=02/11/2025&sced=02/11/2026&sc=02318&src=Main&lang=EN&tk=ds",
+      "listed_name": "Ping An Insurance (Group) Co. of China, Ltd. - H Shares",
+      "stock_code": "02318",
+      "filer": "BlackRock, Inc.",
+      "role": "substantial",
+      "event_date": "28/10/2026",
+      "summary_date": "2026-11-02",
+      "reason_code": "1314",
+      "position": "L",
+      "shares": 1064500,
+      "avg_price": null,
+      "before_shares": 503702863,
+      "before_pct": 6.76,
+      "after_shares": 503702863,
+      "after_pct": 6.76
+    },
+    {
+      "serial": "CS20261030E00348",
+      "form_url": "https://di.hkex.com.hk/di/NSForm2.aspx?fn=CS20261030E00348&sa2=ns&sid=6925&sd=02/11/2025&ed=02/11/2026&sa1=cl&scsd=02/11/2025&sced=02/11/2026&sc=02318&src=Main&lang=EN&tk=ds",
+      "listed_name": "Ping An Insurance (Group) Co. of China, Ltd. - H Shares",
+      "stock_code": "02318",
+      "filer": "JPMorgan Chase & Co.",
+      "role": "substantial",
+      "event_date": "27/10/2026",
+      "summary_date": "2026-11-02",
+      "reason_code": "14015",
+      "position": "S",
+      "shares": null,
+      "avg_price": null,
+      "before_shares": 469972204,
+      "before_pct": 6.31,
+      "after_shares": 474082842,
+      "after_pct": 6.36
+    },
+    {
+      "serial": "CS20261030E00013",
+      "form_url": "https://di.hkex.com.hk/di/NSForm2.aspx?fn=CS20261030E00013&sa2=ns&sid=6925&sd=30/10/2025&ed=30/10/2026&sa1=cl&scsd=30/10/2025&sced=30/10/2026&sc=02318&src=Main&lang=EN&tk=ds",
+      "listed_name": "Ping An Insurance (Group) Co. of China, Ltd. - H Shares",
+      "stock_code": "02318",
+      "filer": "BlackRock, Inc.",
+      "role": "substantial",
+      "event_date": "27/10/2026",
+      "summary_date": "2026-10-30",
+      "reason_code": "1314",
+      "position": "L",
+      "shares": 5400500,
+      "avg_price": null,
+      "before_shares": 502986125,
+      "before_pct": 6.75,
+      "after_shares": 502986125,
+      "after_pct": 6.75
+    },
+    {
+      "serial": "CS20261029E00037",
+      "form_url": "https://di.hkex.com.hk/di/NSForm2.aspx?fn=CS20261029E00037&sa2=ns&sid=6925&sd=29/10/2025&ed=29/10/2026&sa1=cl&scsd=29/10/2025&sced=29/10/2026&sc=02318&src=Main&lang=EN&tk=ds",
+      "listed_name": "Ping An Insurance (Group) Co. of China, Ltd. - H Shares",
+      "stock_code": "02318",
+      "filer": "BlackRock, Inc.",
+      "role": "substantial",
+      "event_date": "26/10/2026",
+      "summary_date": "2026-10-29",
+      "reason_code": "1314",
+      "position": "L",
+      "shares": 6464043,
+      "avg_price": null,
+      "before_shares": 502232229,
+      "before_pct": 6.74,
+      "after_shares": 502232229,
+      "after_pct": 6.74
+    },
+    {
+      "serial": "CS20261028E00024",
+      "form_url": "https://di.hkex.com.hk/di/NSForm2.aspx?fn=CS20261028E00024&sa2=ns&sid=6925&sd=28/10/2025&ed=28/10/2026&sa1=cl&scsd=28/10/2025&sced=28/10/2026&sc=02318&src=Main&lang=EN&tk=ds",
+      "listed_name": "Ping An Insurance (Group) Co. of China, Ltd. - H Shares",
+      "stock_code": "02318",
+      "filer": "BlackRock, Inc.",
+      "role": "substantial",
+      "event_date": "23/10/2026",
+      "summary_date": "2026-10-28",
+      "reason_code": "1313",
+      "position": "L",
+      "shares": 20043500,
+      "avg_price": null,
+      "before_shares": 502701554,
+      "before_pct": 6.75,
+      "after_shares": 502701554,
+      "after_pct": 6.75
+    }
+  ],
+  "short": {
+    "as_of": "2026-10-30",
+    "shares": 1056231881,
+    "hkd": 52536973761.0,
+    "pct_of_issued": 14.171,
+    "shares_chg_wow": -10010036
+  },
+  "market_flow": {
+    "as_of": "2026-11-06",
+    "southbound": [
+      {
+        "market": "SSE Southbound",
+        "date": "2026-11-06",
+        "stats": {
+          "Total Turnover": "55,195.89",
+          "Buy Turnover": "29,551.77",
+          "Sell Turnover": "25,644.12",
+          "Total Trade Count": "1,307,615",
+          "Buy Trade Count": "701,975",
+          "Sell Trade Count": "605,640",
+          "ETF Turnover": "1,058.21"
+        },
+        "top": [
+          [
+            "1",
+            "00700",
+            "TENCENT",
+            "2,255,750,760",
+            "1,733,953,848",
+            "3,989,704,608"
+          ],
+          [
+            "2",
+            "01347",
+            "HUA HONG GRACE",
+            "1,502,349,500",
+            "1,068,097,322",
+            "2,570,446,822"
+          ],
+          [
+            "3",
+            "01810",
+            "XIAOMI-W",
+            "881,393,376",
+            "1,679,288,788",
+            "2,560,682,164"
+          ],
+          [
+            "4",
+            "06869",
+            "YOFC",
+            "887,172,500",
+            "1,235,703,475",
+            "2,122,875,975"
+          ],
+          [
+            "5",
+            "00981",
+            "SMIC",
+            "1,278,929,560",
+            "798,064,967",
+            "2,076,994,527"
+          ]
+        ]
+      },
+      {
+        "market": "SZSE Southbound",
+        "date": "2026-11-06",
+        "stats": {
+          "Total Turnover": "31,818.70",
+          "Buy Turnover": "15,162.98",
+          "Sell Turnover": "16,655.72",
+          "Total Trade Count": "776,373",
+          "Buy Trade Count": "370,454",
+          "Sell Trade Count": "405,919",
+          "ETF Turnover": "668.20"
+        },
+        "top": [
+          [
+            "1",
+            "00700",
+            "TENCENT",
+            "1,170,452,220",
+            "932,092,020",
+            "2,102,544,240"
+          ],
+          [
+            "2",
+            "09988",
+            "BABA-W",
+            "871,360,050",
+            "866,683,510",
+            "1,738,043,560"
+          ],
+          [
+            "3",
+            "01810",
+            "XIAOMI-W",
+            "513,102,716",
+            "939,256,092",
+            "1,452,358,808"
+          ],
+          [
+            "4",
+            "00981",
+            "SMIC",
+            "448,370,000",
+            "917,304,575",
+            "1,365,674,575"
+          ],
+          [
+            "5",
+            "06869",
+            "YOFC",
+            "339,085,450",
+            "760,972,979",
+            "1,100,058,429"
+          ]
+        ]
+      }
+    ]
+  },
+  "notes": {
+    "zh": "官方日終／週更披露之轉送快照；非投資建議。南向為港股通合計（A00003+A00004），非單一基金。",
+    "en": "Relay of official daily/weekly disclosures; not investment advice. Southbound is Stock Connect aggregate (A00003+A00004), not a single fund."
+  }
+}

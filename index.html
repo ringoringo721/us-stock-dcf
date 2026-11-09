@@ -85,6 +85,7 @@
   <script src="revenue_segments.js"></script>
   <script src="company_documents.js"></script>
   <script src="smart_money.js"></script>
+  <script src="hk_smart_money.js"></script>
   <script src="dividend_leverage_metrics_data.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   
@@ -2686,48 +2687,81 @@
 
     <div id="subpage-smart-money" class="subpage-content">
       <div class="panel historical-ratio-panel company-analysis-panel">
-        <div class="panel-title" style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;">
-          <span data-i18n="sec_smart_money">智資／Smart Money（機構持倉）</span>
-          <button type="button" class="sm-funds-cta" onclick="openFundsDirectory()" data-i18n="btn_funds_directory">瀏覽管理人目錄</button>
-        </div>
-        <p class="analysis-note" data-i18n="analysis_smart_money_note">WhaleCreep 風格：追蹤該股近期 13F 申報的機構／對沖基金持倉（組合權重、市值、股數、Δ、動作）。策展 20 家僅作亮點標示。資料來自 FMP 機構持倉端點。</p>
-        <p id="smart-money-disclaimer" class="analysis-note" role="note" data-i18n="analysis_smart_money_lag">13F 為季度申報，法定可於季末後最多約 45 日才公開；本站快取可能再延遲。數字為歷史已申報多頭倉，非即時持倉，亦非投資建議。</p>
+        <div id="smart-money-us-shell">
+          <div class="panel-title" style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;">
+            <span data-i18n="sec_smart_money">智資／Smart Money（機構持倉）</span>
+            <button type="button" class="sm-funds-cta" id="smart-money-funds-cta" onclick="openFundsDirectory()" data-i18n="btn_funds_directory">瀏覽管理人目錄</button>
+          </div>
+          <p class="analysis-note" data-i18n="analysis_smart_money_note">WhaleCreep 風格：追蹤該股近期 13F 申報的機構／對沖基金持倉（組合權重、市值、股數、Δ、動作）。策展 20 家僅作亮點標示。資料來自 FMP 機構持倉端點。</p>
+          <p id="smart-money-disclaimer" class="analysis-note" role="note" data-i18n="analysis_smart_money_lag">13F 為季度申報，法定可於季末後最多約 45 日才公開；本站快取可能再延遲。數字為歷史已申報多頭倉，非即時持倉，亦非投資建議。</p>
 
-        <div class="panel-title" style="font-size:15px;margin-top:8px;" data-i18n="sec_smart_money_form4">近期 Form 4／內部人與 10% 大戶動向</div>
-        <p class="analysis-note" data-i18n="analysis_smart_money_form4_note">Form 4（及相關及時申報）反映內部人、董事與部分 10% 大戶的買賣，通常比季度 13F 快許多日。此處<strong>不是</strong>完整 13F 持倉帳簿；策展機構若以 Form 4 申報（例如波克夏），會另外標示。</p>
-        <p id="smart-money-form4-disclaimer" class="analysis-note" role="note" data-i18n="analysis_smart_money_form4_lag">Form 4 多在交易後兩個營業日內申報；本站經 FMP 轉送並可能再延遲。種子／Preview 可能顯示快照而非即時。非投資建議。</p>
-        <p id="smart-money-form4-status" class="analysis-note" role="status"></p>
-        <div class="table-scroll-wrapper company-analysis-scroll" style="margin-bottom: 22px;">
-          <table id="cmp-smart-money-form4" class="historical-ratio-table company-analysis-table">
-            <thead><tr id="cmp-smart-money-form4-thead"></tr></thead>
-            <tbody id="cmp-smart-money-form4-tbody"></tbody>
-          </table>
+          <div class="panel-title" style="font-size:15px;margin-top:8px;" data-i18n="sec_smart_money_form4">近期 Form 4／內部人與 10% 大戶動向</div>
+          <p class="analysis-note" data-i18n="analysis_smart_money_form4_note">Form 4（及相關及時申報）反映內部人、董事與部分 10% 大戶的買賣，通常比季度 13F 快許多日。此處<strong>不是</strong>完整 13F 持倉帳簿；策展機構若以 Form 4 申報（例如波克夏），會另外標示。</p>
+          <p id="smart-money-form4-disclaimer" class="analysis-note" role="note" data-i18n="analysis_smart_money_form4_lag">Form 4 多在交易後兩個營業日內申報；本站經 FMP 轉送並可能再延遲。種子／Preview 可能顯示快照而非即時。非投資建議。</p>
+          <p id="smart-money-form4-status" class="analysis-note" role="status"></p>
+          <div class="table-scroll-wrapper company-analysis-scroll" style="margin-bottom: 22px;">
+            <table id="cmp-smart-money-form4" class="historical-ratio-table company-analysis-table">
+              <thead><tr id="cmp-smart-money-form4-thead"></tr></thead>
+              <tbody id="cmp-smart-money-form4-tbody"></tbody>
+            </table>
+          </div>
+
+          <div class="panel-title" style="font-size:15px;" data-i18n="sec_smart_money_13f">季度 13F 機構持倉</div>
+          <p id="smart-money-status" class="analysis-note" role="status"></p>
+          <div id="smart-money-kpi-grid" class="tv-kpi-grid" aria-live="polite"></div>
+          <div class="panel-title" style="font-size:15px;" data-i18n="sec_smart_money_holders">持有者（最近一季）</div>
+          <div class="table-scroll-wrapper company-analysis-scroll" style="margin-bottom: 18px;">
+            <table id="cmp-smart-money-holders" class="historical-ratio-table company-analysis-table">
+              <thead><tr id="cmp-smart-money-holders-thead"></tr></thead>
+              <tbody id="cmp-smart-money-holders-tbody"></tbody>
+            </table>
+          </div>
+          <div class="panel-title" style="font-size:15px;" data-i18n="sec_smart_money_exits">本季出清</div>
+          <div class="table-scroll-wrapper company-analysis-scroll" style="margin-bottom: 18px;">
+            <table id="cmp-smart-money-exits" class="historical-ratio-table company-analysis-table">
+              <thead><tr id="cmp-smart-money-exits-thead"></tr></thead>
+              <tbody id="cmp-smart-money-exits-tbody"></tbody>
+            </table>
+          </div>
+          <div class="panel-title" style="font-size:15px;" data-i18n="sec_smart_money_curated">策展 20 亮點</div>
+          <p class="analysis-note" data-i18n="analysis_smart_money_curated_note">人工策展的智資名單若出現在上方持倉表，會在此再次彙總以便快速掃描。</p>
+          <div class="table-scroll-wrapper company-analysis-scroll">
+            <table id="cmp-smart-money-curated" class="historical-ratio-table company-analysis-table">
+              <thead><tr id="cmp-smart-money-curated-thead"></tr></thead>
+              <tbody id="cmp-smart-money-curated-tbody"></tbody>
+            </table>
+          </div>
         </div>
 
-        <div class="panel-title" style="font-size:15px;" data-i18n="sec_smart_money_13f">季度 13F 機構持倉</div>
-        <p id="smart-money-status" class="analysis-note" role="status"></p>
-        <div id="smart-money-kpi-grid" class="tv-kpi-grid" aria-live="polite"></div>
-        <div class="panel-title" style="font-size:15px;" data-i18n="sec_smart_money_holders">持有者（最近一季）</div>
-        <div class="table-scroll-wrapper company-analysis-scroll" style="margin-bottom: 18px;">
-          <table id="cmp-smart-money-holders" class="historical-ratio-table company-analysis-table">
-            <thead><tr id="cmp-smart-money-holders-thead"></tr></thead>
-            <tbody id="cmp-smart-money-holders-tbody"></tbody>
-          </table>
-        </div>
-        <div class="panel-title" style="font-size:15px;" data-i18n="sec_smart_money_exits">本季出清</div>
-        <div class="table-scroll-wrapper company-analysis-scroll" style="margin-bottom: 18px;">
-          <table id="cmp-smart-money-exits" class="historical-ratio-table company-analysis-table">
-            <thead><tr id="cmp-smart-money-exits-thead"></tr></thead>
-            <tbody id="cmp-smart-money-exits-tbody"></tbody>
-          </table>
-        </div>
-        <div class="panel-title" style="font-size:15px;" data-i18n="sec_smart_money_curated">策展 20 亮點</div>
-        <p class="analysis-note" data-i18n="analysis_smart_money_curated_note">人工策展的智資名單若出現在上方持倉表，會在此再次彙總以便快速掃描。</p>
-        <div class="table-scroll-wrapper company-analysis-scroll">
-          <table id="cmp-smart-money-curated" class="historical-ratio-table company-analysis-table">
-            <thead><tr id="cmp-smart-money-curated-thead"></tr></thead>
-            <tbody id="cmp-smart-money-curated-tbody"></tbody>
-          </table>
+        <div id="smart-money-hk-shell" style="display:none;">
+          <div class="panel-title" data-i18n="sec_smart_money_hk">智資動態（港股）</div>
+          <p class="analysis-note" data-i18n="analysis_smart_money_hk_note">港股智資以權益披露（DI）事件、港股通南向持股％與市場級南向流為主；另附 SFC 週更合計淡倉作壓力訊號。這<strong>不是</strong>美股 13F／基金管理人持倉書。</p>
+          <p id="smart-money-hk-disclaimer" class="analysis-note" role="note" data-i18n="analysis_smart_money_hk_lag">資料轉送自 HKEX DI 每日摘要、HKEXnews 南向持股、HKEX CSM 統計與 SFC 淡倉 CSV；可能有延遲。南向為通道合計（非單一基金）。非投資建議。</p>
+          <p id="smart-money-hk-status" class="analysis-note" role="status"></p>
+          <div id="smart-money-hk-flow" class="analysis-note" role="status" aria-live="polite"></div>
+          <div id="smart-money-hk-kpi-grid" class="tv-kpi-grid" aria-live="polite"></div>
+
+          <div class="panel-title" style="font-size:15px;margin-top:10px;" data-i18n="sec_smart_money_hk_di">近期權益披露（DI）</div>
+          <p class="analysis-note" data-i18n="analysis_smart_money_hk_di_note">主要股東（≥5%）與董事／行政總裁買賣申報時間線。門檻以下機構不會出現。</p>
+          <div class="table-scroll-wrapper company-analysis-scroll" style="margin-bottom: 18px;">
+            <table id="cmp-smart-money-hk-di" class="historical-ratio-table company-analysis-table">
+              <thead><tr id="cmp-smart-money-hk-di-thead"></tr></thead>
+              <tbody id="cmp-smart-money-hk-di-tbody"></tbody>
+            </table>
+          </div>
+
+          <div class="panel-title" style="font-size:15px;" data-i18n="sec_smart_money_hk_sb">南向持股（港股通合計）</div>
+          <p class="analysis-note" data-i18n="analysis_smart_money_hk_sb_note">中國結算於 CCASS 之 A00003＋A00004 合計佔已發行％與日變動。</p>
+          <div class="table-scroll-wrapper company-analysis-scroll" style="margin-bottom: 18px;">
+            <table id="cmp-smart-money-hk-sb" class="historical-ratio-table company-analysis-table">
+              <thead><tr id="cmp-smart-money-hk-sb-thead"></tr></thead>
+              <tbody id="cmp-smart-money-hk-sb-tbody"></tbody>
+            </table>
+          </div>
+
+          <div class="panel-title" style="font-size:15px;" data-i18n="sec_smart_money_hk_short">SFC 合計須申報淡倉</div>
+          <p class="analysis-note" data-i18n="analysis_smart_money_hk_short_note">週更匿名合計；作壓力訊號，不揭示持倉人身份。</p>
+          <div id="smart-money-hk-short" class="analysis-note" role="status"></div>
         </div>
       </div>
     </div>
@@ -3693,12 +3727,35 @@
       sec_smart_money: "智資／Smart Money（機構持倉）",
       analysis_smart_money_note: "WhaleCreep 風格：追蹤該股近期 13F 申報的機構／對沖基金持倉（組合權重、市值、股數、Δ、動作）。策展 20 家僅作亮點標示。資料來自 FMP 機構持倉端點。",
       analysis_smart_money_lag: "13F 為季度申報，法定可於季末後最多約 45 日才公開；本站快取可能再延遲。數字為歷史已申報多頭倉，非即時持倉，亦非投資建議。",
-      analysis_smart_money_hk: "港股不適用美國 13F 智資追蹤（無對等公開機構持倉節奏）。",
+      analysis_smart_money_hk: "港股不適用美國 13F 智資追蹤；請見下方「智資動態（港股）」。",
+      sec_smart_money_hk: "智資動態（港股）",
+      analysis_smart_money_hk_note: "港股智資以權益披露（DI）事件、港股通南向持股％與市場級南向流為主；另附 SFC 週更合計淡倉作壓力訊號。這<strong>不是</strong>美股 13F／基金管理人持倉書。",
+      analysis_smart_money_hk_lag: "資料轉送自 HKEX DI 每日摘要、HKEXnews 南向持股、HKEX CSM 統計與 SFC 淡倉 CSV；可能有延遲。南向為通道合計（非單一基金）。非投資建議。",
+      analysis_smart_money_hk_funds_na: "港股無對等公開基金管理人持倉書；管理人目錄僅適用美股 13F。",
+      sec_smart_money_hk_di: "近期權益披露（DI）",
+      analysis_smart_money_hk_di_note: "主要股東（≥5%）與董事／行政總裁買賣申報時間線。門檻以下機構不會出現。",
+      sec_smart_money_hk_sb: "南向持股（港股通合計）",
+      analysis_smart_money_hk_sb_note: "中國結算於 CCASS 之 A00003＋A00004 合計佔已發行％與日變動。",
+      sec_smart_money_hk_short: "SFC 合計須申報淡倉",
+      analysis_smart_money_hk_short_note: "週更匿名合計；作壓力訊號，不揭示持倉人身份。",
+      th_sm_hk_date: "事件日",
+      th_sm_hk_filer: "披露人",
+      th_sm_hk_role: "身份",
+      th_sm_hk_reason: "事由",
+      th_sm_hk_shares: "股數",
+      th_sm_hk_price: "均價",
+      th_sm_hk_before: "前％",
+      th_sm_hk_after: "後％",
+      th_sm_hk_action: "動作",
+      th_sm_hk_link: "表格",
+      th_sm_hk_sb_date: "日終",
+      th_sm_hk_sb_shares: "持股數",
+      th_sm_hk_sb_pct: "佔比％",
       analysis_smart_money_curated_note: "人工策展的智資名單若出現在上方持倉表，會在此再次彙總以便快速掃描。",
       sec_smart_money_form4: "近期 Form 4／內部人與 10% 大戶動向",
       analysis_smart_money_form4_note: "Form 4（及相關及時申報）反映內部人、董事與部分 10% 大戶的買賣，通常比季度 13F 快許多日。此處<strong>不是</strong>完整 13F 持倉帳簿；策展機構若以 Form 4 申報（例如波克夏），會另外標示。",
       analysis_smart_money_form4_lag: "Form 4 多在交易後兩個營業日內申報；本站經 FMP 轉送並可能再延遲。種子／Preview 可能顯示快照而非即時。非投資建議。",
-      analysis_smart_money_form4_hk: "港股不適用美國 Form 4／Section 16 申報追蹤。",
+      analysis_smart_money_form4_hk: "港股改以 DI 董事／主要股東申報呈現，見「智資動態（港股）」。",
       sec_smart_money_13f: "季度 13F 機構持倉",
       th_sm_form4_filing: "申報日",
       th_sm_form4_txn: "交易日",
@@ -4325,12 +4382,35 @@
       sec_smart_money: "Smart Money (institutional holders)",
       analysis_smart_money_note: "WhaleCreep-style: tracked 13F institutional / hedge holders for the ticker (weight of book, value, shares, Δ, action). Curated 20 is an optional highlight only. Data from FMP institutional endpoints.",
       analysis_smart_money_lag: "13F filings are quarterly and may publish up to ~45 days after quarter-end; site cache may lag further. Figures are historical reported long holdings — not real-time positions or investment advice.",
-      analysis_smart_money_hk: "HK listings are N/A for US 13F Smart Money tracking (no equivalent public institutional cadence).",
+      analysis_smart_money_hk: "HK listings are N/A for US 13F tracking — see HK Smart Money dynamics below.",
+      sec_smart_money_hk: "Smart Money dynamics (HK)",
+      analysis_smart_money_hk_note: "HK Smart Money centres on DI disclosure events, Stock Connect southbound ownership %, and market-level southbound flow, plus SFC weekly aggregate shorts as a pressure signal. This is <strong>not</strong> a US 13F / fund-manager book.",
+      analysis_smart_money_hk_lag: "Polite relay of HKEX DI daily summaries, HKEXnews southbound shareholding, HKEX CSM stats, and SFC short CSV; lag possible. Southbound is channel aggregate (not a single fund). Not investment advice.",
+      analysis_smart_money_hk_funds_na: "HK has no equivalent public fund-manager holdings book; the managers directory is US 13F only.",
+      sec_smart_money_hk_di: "Recent DI disclosures",
+      analysis_smart_money_hk_di_note: "Timeline of substantial shareholders (≥5%) and director / CEO dealings. Institutions below the threshold stay invisible.",
+      sec_smart_money_hk_sb: "Southbound shareholding (Stock Connect aggregate)",
+      analysis_smart_money_hk_sb_note: "China Clearing A00003 + A00004 combined % of issued shares and daily change.",
+      sec_smart_money_hk_short: "SFC aggregated reportable shorts",
+      analysis_smart_money_hk_short_note: "Weekly anonymous aggregate — a pressure signal, not named holders.",
+      th_sm_hk_date: "Event date",
+      th_sm_hk_filer: "Filer",
+      th_sm_hk_role: "Role",
+      th_sm_hk_reason: "Reason",
+      th_sm_hk_shares: "Shares",
+      th_sm_hk_price: "Avg price",
+      th_sm_hk_before: "Before %",
+      th_sm_hk_after: "After %",
+      th_sm_hk_action: "Action",
+      th_sm_hk_link: "Form",
+      th_sm_hk_sb_date: "As of",
+      th_sm_hk_sb_shares: "Shares",
+      th_sm_hk_sb_pct: "% issued",
       analysis_smart_money_curated_note: "Curated smart-money names that appear in the holders table are re-listed here for a quick scan.",
       sec_smart_money_form4: "Recent Form 4 / insider & 10% owner moves",
       analysis_smart_money_form4_note: "Form 4 (and related timely filings) show insider, director, and some 10%+ owner buys/sells — usually days, not ~45 days like 13F. This is <strong>not</strong> a full 13F book; curated names that file Form 4 (e.g. Berkshire) are badge-highlighted.",
       analysis_smart_money_form4_lag: "Form 4 is often due within two business days of the trade; FMP relay and site cache may add lag. Seeds / Preview may show a snapshot, not live. Not investment advice.",
-      analysis_smart_money_form4_hk: "HK listings are N/A for US Form 4 / Section 16 tracking.",
+      analysis_smart_money_form4_hk: "HK uses DI director / substantial disclosures instead — see HK Smart Money dynamics.",
       sec_smart_money_13f: "Quarterly 13F institutional holders",
       th_sm_form4_filing: "Filed",
       th_sm_form4_txn: "Trade date",
@@ -9370,6 +9450,199 @@
     }).join('');
   }
 
+  function setSmartMoneyMarketShell(isHk) {
+    const usShell = document.getElementById('smart-money-us-shell');
+    const hkShell = document.getElementById('smart-money-hk-shell');
+    const fundsCta = document.getElementById('smart-money-funds-cta');
+    if (usShell) usShell.style.display = isHk ? 'none' : '';
+    if (hkShell) hkShell.style.display = isHk ? '' : 'none';
+    if (fundsCta) fundsCta.style.display = isHk ? 'none' : '';
+  }
+
+  function renderHkSmartMoneyDiRows(events, HK, isEn, dict, emptyMsg) {
+    if (!events?.length) {
+      return `<tr><td class="table-sticky-col text-muted" colspan="10">${escapeAttribute(emptyMsg)}</td></tr>`;
+    }
+    return events.map(row => {
+      const price = row.avg_price != null ? `HKD ${Number(row.avg_price).toFixed(4)}` : '—';
+      const link = row.form_url
+        ? `<a href="${escapeAttribute(row.form_url)}" target="_blank" rel="noopener noreferrer">${escapeAttribute(row.serial || dict.th_sm_hk_link)}</a>`
+        : '—';
+      return `<tr>
+        <td class="table-sticky-col">${escapeAttribute(row.event_date || '—')}</td>
+        <td style="text-align:left;">${escapeAttribute(row.filer || '—')}</td>
+        <td>${escapeAttribute(HK.roleLabel(row.role, isEn ? 'en' : 'zh'))}</td>
+        <td>${escapeAttribute(row.reason_code || '—')}${row.position ? ` (${escapeAttribute(row.position)})` : ''}</td>
+        <td>${escapeAttribute(HK.formatShares(row.shares))}</td>
+        <td>${escapeAttribute(price)}</td>
+        <td>${escapeAttribute(HK.formatPct(row.before_pct))}</td>
+        <td>${escapeAttribute(HK.formatPct(row.after_pct))}</td>
+        <td>${escapeAttribute(HK.diActionLabel(row.action, isEn ? 'en' : 'zh'))}</td>
+        <td>${link}</td>
+      </tr>`;
+    }).join('');
+  }
+
+  function renderHkSmartMoneySubPage(ticker, stock, isEn, dict) {
+    const status = document.getElementById('smart-money-hk-status');
+    const flowEl = document.getElementById('smart-money-hk-flow');
+    const kpiGrid = document.getElementById('smart-money-hk-kpi-grid');
+    const diHead = document.getElementById('cmp-smart-money-hk-di-thead');
+    const diBody = document.getElementById('cmp-smart-money-hk-di-tbody');
+    const sbHead = document.getElementById('cmp-smart-money-hk-sb-thead');
+    const sbBody = document.getElementById('cmp-smart-money-hk-sb-tbody');
+    const shortEl = document.getElementById('smart-money-hk-short');
+    const HK = typeof HkSmartMoney !== 'undefined' ? HkSmartMoney : null;
+    if (!status || !diBody || !sbBody || !HK) {
+      if (status) status.textContent = isEn ? 'HK Smart Money module unavailable.' : '港股智資模組不可用。';
+      return;
+    }
+    setSmartMoneyMarketShell(true);
+    if (diHead) {
+      diHead.innerHTML = `<th class="table-sticky-col">${dict.th_sm_hk_date}</th>`
+        + `<th>${dict.th_sm_hk_filer}</th><th>${dict.th_sm_hk_role}</th>`
+        + `<th>${dict.th_sm_hk_reason}</th><th>${dict.th_sm_hk_shares}</th>`
+        + `<th>${dict.th_sm_hk_price}</th><th>${dict.th_sm_hk_before}</th>`
+        + `<th>${dict.th_sm_hk_after}</th><th>${dict.th_sm_hk_action}</th>`
+        + `<th>${dict.th_sm_hk_link}</th>`;
+    }
+    if (sbHead) {
+      sbHead.innerHTML = `<th class="table-sticky-col">${dict.th_sm_hk_sb_date}</th>`
+        + `<th>${dict.th_sm_hk_sb_shares}</th><th>${dict.th_sm_hk_sb_pct}</th>`;
+    }
+    status.className = 'analysis-note';
+    status.textContent = isEn ? 'Loading HK Smart Money…' : '載入港股智資動態中…';
+    if (flowEl) flowEl.textContent = '';
+    if (kpiGrid) kpiGrid.innerHTML = '';
+    if (shortEl) shortEl.textContent = '';
+    diBody.innerHTML = '';
+    sbBody.innerHTML = '';
+
+    HK.loadStock(ticker).then((result) => {
+      if (activeCompanyTicker !== ticker) return;
+      const sb = result.southbound || {};
+      const events = result.di_events || [];
+      const short = result.short || null;
+      const flow = result.market_flow || null;
+      const src = result.source === 'cache' || result.source === 'seed'
+        ? (isEn ? 'seed/cache' : '種子／快取')
+        : result.source === 'live' ? (isEn ? 'live official relay' : '即時官方轉送')
+          : escapeAttribute(String(result.source || ''));
+
+      if (kpiGrid) {
+        const cards = [
+          [isEn ? 'Southbound %' : '南向持股％', HK.formatPct(sb.pct)],
+          [isEn ? 'Δ 1D' : '1日 Δ', HK.formatDeltaPct(sb.pct_chg_1d)],
+          [isEn ? 'Δ 5D' : '5日 Δ', HK.formatDeltaPct(sb.pct_chg_5d)],
+          [isEn ? 'Δ 20D' : '20日 Δ', HK.formatDeltaPct(sb.pct_chg_20d)],
+          [isEn ? 'DI events' : 'DI 事件', events.length],
+          [isEn ? 'Short % issued' : '淡倉佔比％', HK.formatPct(short?.pct_of_issued)],
+        ];
+        kpiGrid.innerHTML = cards.map(([label, value]) => `<div class="tv-kpi-card">
+          <div class="tv-kpi-label">${escapeAttribute(label)}</div>
+          <div class="tv-kpi-value">${escapeAttribute(String(value ?? '—'))}</div>
+        </div>`).join('');
+      }
+
+      if (flowEl) {
+        const legs = flow?.southbound || [];
+        if (!legs.length) {
+          flowEl.textContent = isEn
+            ? 'Market southbound flow: no rows for the latest session (holiday / unavailable).'
+            : '南向市場資金流：最近交易日無資料（假期或暫缺）。';
+        } else {
+          const bits = legs.map((leg) => {
+            const buy = HK.finite(leg.stats?.['Buy Turnover']);
+            const sell = HK.finite(leg.stats?.['Sell Turnover']);
+            const net = leg.net_buy != null ? leg.net_buy
+              : (buy != null && sell != null ? buy - sell : null);
+            const netLabel = net == null ? '—' : `${net > 0 ? '+' : ''}${Number(net).toFixed(2)}`;
+            return `${escapeAttribute(leg.market)} ${isEn ? 'net' : '淨'}`
+              + ` ${escapeAttribute(netLabel)} ${isEn ? '(CNY 100m)' : '（億元人民幣）'}`;
+          });
+          const total = flow.net_buy_total != null
+            ? flow.net_buy_total
+            : legs.reduce((sum, leg) => {
+              const buy = HK.finite(leg.stats?.['Buy Turnover']);
+              const sell = HK.finite(leg.stats?.['Sell Turnover']);
+              if (buy == null || sell == null) return sum;
+              return (sum == null ? 0 : sum) + (buy - sell);
+            }, null);
+          flowEl.innerHTML = `<strong>${isEn ? 'Southbound market flow' : '南向市場資金流'}</strong>`
+            + ` · ${escapeAttribute(flow.as_of || '—')}`
+            + (total != null
+              ? ` · ${isEn ? 'combined net' : '合計淨'} ${escapeAttribute(`${total > 0 ? '+' : ''}${Number(total).toFixed(2)}`)}`
+              : '')
+            + `<br>${bits.join(' · ')}`
+            + `<br><span class="text-muted">${isEn
+              ? 'Market-level context only — not per-fund inflow into this stock.'
+              : '僅市場級情境，並非「某基金淨流入此股」。'}</span>`;
+        }
+      }
+
+      const emptyDi = isEn
+        ? 'No DI C1/C2 rows for this stock in the recent daily summaries.'
+        : '近期每日摘要未見此股 DI C1／C2 列。';
+      diBody.innerHTML = renderHkSmartMoneyDiRows(events, HK, isEn, dict, emptyDi);
+
+      const history = sb.history || [];
+      if (!history.length && sb.pct == null) {
+        sbBody.innerHTML = `<tr><td class="table-sticky-col text-muted" colspan="3">${
+          isEn ? 'No southbound shareholding row (not Connect-eligible or unavailable).'
+            : '無南向持股列（非港股通標的或暫缺）。'}</td></tr>`;
+      } else {
+        const rows = history.length ? history : [{ date: sb.as_of, shares: sb.shares, pct: sb.pct }];
+        sbBody.innerHTML = rows.map(row => `<tr>
+          <td class="table-sticky-col">${escapeAttribute(row.date || '—')}</td>
+          <td>${escapeAttribute(HK.formatShares(row.shares))}</td>
+          <td>${escapeAttribute(HK.formatPct(row.pct))}</td>
+        </tr>`).join('');
+      }
+
+      if (shortEl) {
+        if (!short) {
+          shortEl.textContent = isEn
+            ? 'No SFC aggregated short row for this stock in the latest weekly CSV.'
+            : '最近一週 SFC 合計淡倉 CSV 未見此股。';
+        } else {
+          shortEl.textContent = `${isEn ? 'As of' : '截至'} ${short.as_of || '—'}`
+            + ` · ${isEn ? 'shares' : '股數'} ${HK.formatShares(short.shares)}`
+            + ` · ${HK.formatHkd(short.hkd)}`
+            + ` · ${isEn ? '% issued' : '佔已發行'} ${HK.formatPct(short.pct_of_issued)}`
+            + (short.shares_chg_wow != null
+              ? ` · ${isEn ? 'WoW Δ shares' : '週變股數'} ${HK.formatShares(short.shares_chg_wow)}`
+              : '');
+        }
+      }
+
+      const hasAny = sb.pct != null || events.length || short;
+      if (!hasAny) {
+        status.className = 'sm-alert-empty';
+        status.innerHTML = isEn
+          ? '<strong>No HK Smart Money rows yet</strong><br>Official sources returned empty for DI, southbound, and shorts on this ticker.'
+          : '<strong>暫無港股智資列</strong><br>此股於 DI、南向持股與淡倉官方來源皆無列。';
+      } else {
+        status.className = 'analysis-note';
+        status.textContent = `${ticker} · ${isEn ? 'HK Smart Money' : '港股智資動態'}`
+          + ` · ${isEn ? 'southbound' : '南向'} ${HK.formatPct(sb.pct)}`
+          + ` · DI ${events.length}`
+          + ` · ${src}`
+          + (result.capturedAt ? ` · ${String(result.capturedAt).slice(0, 10)}` : '');
+      }
+      document.querySelectorAll('#subpage-smart-money .table-scroll-wrapper').forEach(box => makeScrollable(box));
+    }).catch((error) => {
+      if (activeCompanyTicker !== ticker) return;
+      status.className = 'sm-alert-error';
+      status.innerHTML = isEn
+        ? `<strong>HK Smart Money unavailable</strong><br><code>${escapeAttribute(String(error.message || error))}</code>`
+        : `<strong>港股智資不可用</strong><br><code>${escapeAttribute(String(error.message || error))}</code>`;
+      diBody.innerHTML = `<tr class="sm-alert-error-row"><td class="table-sticky-col" colspan="10">${
+        isEn ? 'Failed to load DI timeline.' : '載入 DI 時間線失敗。'}</td></tr>`;
+      sbBody.innerHTML = `<tr class="sm-alert-error-row"><td class="table-sticky-col" colspan="3">${
+        isEn ? 'Failed to load southbound.' : '載入南向持股失敗。'}</td></tr>`;
+    });
+  }
+
   function renderSmartMoneyForm4Section(ticker, stock, SM, isEn, dict) {
     const status = document.getElementById('smart-money-form4-status');
     const head = document.getElementById('cmp-smart-money-form4-thead');
@@ -9465,9 +9738,18 @@
     const curatedBody = document.getElementById('cmp-smart-money-curated-tbody');
     const isEn = currentLang === 'en';
     const dict = I18N_DICT[isEn ? 'en' : 'zh'];
+    const SM = typeof SmartMoney !== 'undefined' ? SmartMoney : null;
+    const HK = typeof HkSmartMoney !== 'undefined' ? HkSmartMoney : null;
+    const isHk = (HK && HK.isHkListed(stock || { ticker }))
+      || (SM && !SM.isUsListed(stock || { ticker }));
+
+    if (isHk) {
+      renderHkSmartMoneySubPage(ticker, stock, isEn, dict);
+      return;
+    }
+    setSmartMoneyMarketShell(false);
     if (!status || !holdersBody || !exitsBody || !curatedBody) return;
 
-    const SM = typeof SmartMoney !== 'undefined' ? SmartMoney : null;
     holdersBody.innerHTML = '';
     exitsBody.innerHTML = '';
     curatedBody.innerHTML = '';
@@ -9481,13 +9763,6 @@
     }
     // Form 4 lane loads in parallel with 13F (seed → live → Profile meta).
     renderSmartMoneyForm4Section(ticker, stock, SM, isEn, dict);
-    if (!SM.isUsListed(stock || { ticker })) {
-      status.textContent = dict.analysis_smart_money_hk;
-      holdersBody.innerHTML = `<tr><td class="table-sticky-col text-muted" colspan="6">N/A</td></tr>`;
-      exitsBody.innerHTML = `<tr><td class="table-sticky-col text-muted" colspan="6">N/A</td></tr>`;
-      curatedBody.innerHTML = `<tr><td class="table-sticky-col text-muted" colspan="6">N/A</td></tr>`;
-      return;
-    }
 
     const headHtml = `<th class="table-sticky-col">${dict.th_sm_manager}</th>`
       + `<th>${dict.th_sm_weight}</th><th>${dict.th_sm_value}</th>`
@@ -9629,6 +9904,32 @@
   }
 
   function openFundsDirectory(replace, notice) {
+    const isEn = currentLang === 'en';
+    const dict = I18N_DICT[isEn ? 'en' : 'zh'];
+    // HK has no 13F fund-manager book — keep #funds US-only.
+    if (typeof MarketContext !== 'undefined' && MarketContext.market === 'HKEX') {
+      const fundsView = document.getElementById('funds-view');
+      if (fundsView) {
+        hideSmartMoneyViews();
+        fundsView.style.display = 'block';
+        const tbody = document.getElementById('funds-directory-tbody');
+        const status = document.getElementById('funds-status');
+        const badge = document.getElementById('funds-count-badge');
+        if (status) {
+          status.className = 'analysis-note';
+          status.textContent = dict.analysis_smart_money_hk_funds_na;
+        }
+        if (badge) badge.textContent = 'N/A';
+        if (tbody) {
+          tbody.innerHTML = `<tr><td class="table-sticky-col text-muted" colspan="8">N/A</td></tr>`;
+        }
+      }
+      const route = '#funds';
+      const state = { view: 'funds' };
+      if (replace) history.replaceState(state, '', route);
+      else history.pushState(state, '', route);
+      return;
+    }
     const SM = typeof SmartMoney !== 'undefined' ? SmartMoney : null;
     hideSmartMoneyViews();
     const fundsView = document.getElementById('funds-view');
