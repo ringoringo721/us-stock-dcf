@@ -330,3 +330,57 @@ test('API southbound without symbol is rejected (no full-table scrape)', async (
   assert.equal(res.body.error, 'SYMBOL_REQUIRED');
   assert.equal(res.headers['cache-control'], 'no-store');
 });
+
+test('unseeded stock GET returns empty (no live scrape) unless refresh=1', async () => {
+  let upstream = 0;
+  const handler = createApi.createHandler({
+    fetch: async () => {
+      upstream += 1;
+      return { ok: true, text: async () => '' };
+    },
+  });
+  const res = mockRes();
+  await handler({
+    method: 'GET',
+    url: '/api/hk-smart-money?action=stock&symbol=9999.HK',
+    headers: { 'x-real-ip': '203.0.113.30' },
+  }, res);
+  assert.equal(res.statusCode, 200);
+  assert.equal(res.body.source, 'empty');
+  assert.equal(res.body.notice, 'HK_SMART_MONEY_NO_SEED');
+  assert.equal(upstream, 0);
+  assert.equal(res.headers['cache-control'], 'no-store');
+});
+
+test('live shorts action returns buildShortForCode shape (not raw CSV)', async () => {
+  const sfcPage = '<a href="https://www.sfc.hk/-/media/EN/pdf/spr/2026/10/30/a.csv">csv</a>'
+    + '<a href="https://www.sfc.hk/-/media/EN/pdf/spr/2026/10/23/b.csv">csv</a>';
+  const week0 = `Date,Stock Code,Stock Name,Aggregated Reportable Short Positions (Shares),Aggregated Reportable Short Positions (HK$)
+30/10/2026,1398,ICBC,1269281039,10020973803`;
+  const week1 = `Date,Stock Code,Stock Name,Aggregated Reportable Short Positions (Shares),Aggregated Reportable Short Positions (HK$)
+23/10/2026,1398,ICBC,1243943868,9800000000`;
+  const handler = createApi.createHandler({
+    fetch: async (url) => {
+      const href = String(url);
+      if (href.includes('.csv') && href.includes('10/30')) return { ok: true, text: async () => week0 };
+      if (href.includes('.csv') && href.includes('10/23')) return { ok: true, text: async () => week1 };
+      if (href.includes('sfc.hk')) return { ok: true, text: async () => sfcPage };
+      return { ok: false, status: 404, text: async () => 'missing' };
+    },
+  });
+  const res = mockRes();
+  await handler({
+    method: 'GET',
+    url: '/api/hk-smart-money?action=shorts&symbol=1398.HK&refresh=1',
+    headers: { 'x-real-ip': '203.0.113.40' },
+  }, res);
+  assert.equal(res.statusCode, 200);
+  assert.equal(res.body.source, 'live');
+  assert.ok(res.body.row);
+  assert.equal(res.body.row.shares, 1269281039);
+  assert.equal(res.body.row.shares_chg_wow, 1269281039 - 1243943868);
+  assert.ok(!('stock_code' in res.body.row) || res.body.row.as_of);
+  assert.ok(res.body.row.as_of);
+  assert.ok('pct_of_issued' in res.body.row);
+  assert.match(res.headers['cache-control'], /^private/);
+});

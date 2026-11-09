@@ -403,24 +403,35 @@ function createHandler({ fetch: fetcher = globalThis.fetch } = {}) {
     const action = query.get('action') || 'stock';
     const symbol = query.get('symbol');
     const refresh = query.get('refresh') === '1' || query.get('refresh') === 'true';
-    const liveAction = refresh
-      || action === 'di'
-      || action === 'southbound'
-      || action === 'flow'
-      || action === 'shorts';
 
-    // Seed stock hits use the standard budget; live scrapes use a tighter one.
-    if (rateLimited(req, { live: liveAction })) {
-      return send(429, { error: 'RATE_LIMITED' }, 'no-store');
-    }
+    /** Charge the tight live budget only when we are about to hit upstream. */
+    const requireLiveBudget = () => {
+      if (rateLimited(req, { live: true })) {
+        send(429, { error: 'RATE_LIMITED' }, 'no-store');
+        return false;
+      }
+      return true;
+    };
 
     try {
       if (action === 'flow') {
         const seedFlowPath = path.join(__dirname, '..', 'cache', 'hk-smart-money', 'market-flow.json');
         if (!refresh && fs.existsSync(seedFlowPath)) {
+          if (rateLimited(req, { live: false })) return send(429, { error: 'RATE_LIMITED' }, 'no-store');
           const body = JSON.parse(fs.readFileSync(seedFlowPath, 'utf8'));
           return send(200, { source: 'seed', ...body }, 'public-seed');
         }
+        if (!refresh) {
+          if (rateLimited(req, { live: false })) return send(429, { error: 'RATE_LIMITED' }, 'no-store');
+          return send(200, {
+            source: 'empty',
+            as_of: null,
+            southbound: [],
+            net_buy_total: null,
+            notice: 'HK_SMART_MONEY_NO_SEED',
+          }, 'no-store');
+        }
+        if (!requireLiveBudget()) return;
         const flow = await fetchMarketFlow(fetcher);
         return send(200, { source: 'live', ...flow }, 'private-live');
       }
@@ -430,18 +441,34 @@ function createHandler({ fetch: fetcher = globalThis.fetch } = {}) {
         if (!code) return send(400, { error: 'INVALID_SYMBOL' }, 'no-store');
         const seed = readSeed(symbol);
         if (seed?.short && !refresh) {
+          if (rateLimited(req, { live: false })) return send(429, { error: 'RATE_LIMITED' }, 'no-store');
           return send(200, {
             source: 'seed',
             as_of: seed.short.as_of || null,
             row: seed.short,
           }, 'public-seed');
         }
+        if (!refresh) {
+          if (rateLimited(req, { live: false })) return send(429, { error: 'RATE_LIMITED' }, 'no-store');
+          return send(200, {
+            source: 'empty',
+            as_of: null,
+            row: null,
+            notice: 'HK_SMART_MONEY_NO_SEED',
+          }, 'no-store');
+        }
+        if (!requireLiveBudget()) return;
         const weeks = await fetchShorts(fetcher);
+        const current = weeks[0]?.byCode?.[code] || null;
+        const previous = weeks[1]?.byCode?.[code] || null;
+        // Match seed shape (as_of / pct_of_issued / shares_chg_wow), not raw CSV columns.
+        const southbound = readSeed(symbol)?.southbound || null;
+        const row = HkSmartMoney.buildShortForCode(current, previous, southbound);
         return send(200, {
           source: 'live',
-          as_of: weeks[0]?.as_of || null,
+          as_of: row?.as_of || weeks[0]?.as_of || null,
           prior_as_of: weeks[1]?.as_of || null,
-          row: weeks[0]?.byCode?.[code] || null,
+          row,
         }, 'private-live');
       }
       if (action === 'southbound') {
@@ -454,6 +481,7 @@ function createHandler({ fetch: fetcher = globalThis.fetch } = {}) {
         if (!code) return send(400, { error: 'INVALID_SYMBOL' }, 'no-store');
         const seed = readSeed(symbol);
         if (seed?.southbound && !refresh && !date) {
+          if (rateLimited(req, { live: false })) return send(429, { error: 'RATE_LIMITED' }, 'no-store');
           return send(200, {
             source: 'seed',
             as_of: seed.southbound.as_of,
@@ -465,6 +493,16 @@ function createHandler({ fetch: fetcher = globalThis.fetch } = {}) {
             },
           }, 'public-seed');
         }
+        if (!refresh) {
+          if (rateLimited(req, { live: false })) return send(429, { error: 'RATE_LIMITED' }, 'no-store');
+          return send(200, {
+            source: 'empty',
+            as_of: null,
+            row: null,
+            notice: 'HK_SMART_MONEY_NO_SEED',
+          }, 'no-store');
+        }
+        if (!requireLiveBudget()) return;
         const snap = await fetchSouthboundSnapshot(date || null, fetcher);
         return send(200, {
           source: 'live',
@@ -477,12 +515,23 @@ function createHandler({ fetch: fetcher = globalThis.fetch } = {}) {
         if (!code) return send(400, { error: 'INVALID_SYMBOL' }, 'no-store');
         const seed = readSeed(symbol);
         if (seed?.di_events && !refresh) {
+          if (rateLimited(req, { live: false })) return send(429, { error: 'RATE_LIMITED' }, 'no-store');
           return send(200, {
             source: 'seed',
             stock_code: code,
             events: seed.di_events,
           }, 'public-seed');
         }
+        if (!refresh) {
+          if (rateLimited(req, { live: false })) return send(429, { error: 'RATE_LIMITED' }, 'no-store');
+          return send(200, {
+            source: 'empty',
+            stock_code: code,
+            events: [],
+            notice: 'HK_SMART_MONEY_NO_SEED',
+          }, 'no-store');
+        }
+        if (!requireLiveBudget()) return;
         const di = await fetchDiEventsForCode(code, fetcher);
         return send(200, {
           source: 'live',
@@ -496,9 +545,30 @@ function createHandler({ fetch: fetcher = globalThis.fetch } = {}) {
         if (!/\.HK$/i.test(symbol) && !/^\d{1,5}$/.test(symbol)) {
           return send(400, { error: 'HK_SYMBOL_REQUIRED' }, 'no-store');
         }
-        const payload = await buildStockPayload(symbol, fetcher, { refresh });
-        const cacheMode = payload.source === 'live' || refresh ? 'private-live' : 'public-seed';
-        return send(200, payload, cacheMode);
+        // Seed short-circuit under standard budget (no upstream).
+        const seed = readSeed(symbol);
+        if (seed && !refresh) {
+          if (rateLimited(req, { live: false })) return send(429, { error: 'RATE_LIMITED' }, 'no-store');
+          const stockCode = HkSmartMoney.codeFromTicker(symbol);
+          return send(200, {
+            ...seed,
+            ticker: HkSmartMoney.tickerFromCode(stockCode) || seed.ticker,
+            stock_code: stockCode,
+            source: seed.source || 'seed',
+          }, 'public-seed');
+        }
+        // Unseeded stock does NOT live-scrape unless refresh=1 (prevents cheap amplification).
+        if (!refresh) {
+          if (rateLimited(req, { live: false })) return send(429, { error: 'RATE_LIMITED' }, 'no-store');
+          const empty = HkSmartMoney.emptyPayload(
+            HkSmartMoney.tickerFromCode(symbol) || String(symbol).toUpperCase(),
+            'HK_SMART_MONEY_NO_SEED',
+          );
+          return send(200, empty, 'no-store');
+        }
+        if (!requireLiveBudget()) return;
+        const payload = await buildStockPayload(symbol, fetcher, { refresh: true });
+        return send(200, payload, 'private-live');
       }
       return send(400, { error: 'INVALID_ACTION' }, 'no-store');
     } catch (error) {
