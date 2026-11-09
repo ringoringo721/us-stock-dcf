@@ -9671,13 +9671,19 @@
           }
         }
         if (flowEl) {
-          flowEl.textContent = !legs.length && total == null
-            ? (isEn
-              ? 'Market southbound flow: no rows for the latest session (holiday / unavailable).'
-              : '南向市場資金流：最近交易日無資料（假期或暫缺）。')
-            : `${isEn ? 'As of' : '截至'} ${flow?.as_of || '—'}`
+          if (!legs.length && total == null) {
+            flowEl.textContent = result.notice === 'HK_SMART_MONEY_NO_SEED'
+              ? (isEn
+                ? 'Market southbound flow: not loaded (stock seed missing and live relay not completed).'
+                : '南向市場資金流：尚未載入（無個股種子且即時轉送未完成）。')
+              : (isEn
+                ? 'Market southbound flow: no rows for the latest session (holiday / unavailable).'
+                : '南向市場資金流：最近交易日無資料（假期或暫缺）。');
+          } else {
+            flowEl.textContent = `${isEn ? 'As of' : '截至'} ${flow?.as_of || '—'}`
               + ` · ${isEn ? 'latest session net turnover' : '最近交易日淨成交額'}`
               + ` · ${isEn ? 'unit HK$ million' : '單位：百萬港元'}`;
+          }
         }
         if (flowDeltaBody) {
           const windows = (HK.SOUTHBOUND_LONG_CAL_DAYS || [30, 60, 90, 120, 150, 180, 270, 360])
@@ -9782,9 +9788,14 @@
       const hasAny = sb.pct != null || events.length || short;
       if (!hasAny) {
         status.className = 'sm-alert-empty';
-        status.innerHTML = isEn
-          ? '<strong>No HK Smart Money rows yet</strong><br>Official sources returned empty for DI, southbound, and shorts on this ticker.'
-          : '<strong>暫無港股智資列</strong><br>此股於 DI、南向持股與淡倉官方來源皆無列。';
+        const noSeed = result.notice === 'HK_SMART_MONEY_NO_SEED';
+        status.innerHTML = noSeed
+          ? (isEn
+            ? '<strong>No committed HK Smart Money seed</strong><br>Live official lookup was not completed for this ticker (rate limit or relay unavailable). This does not mean DI / southbound / shorts lack the name.'
+            : '<strong>尚無港股智資種子快取</strong><br>此股尚未完成即時官方查詢（可能限流或轉送暫不可用），並不代表 DI、南向持股或淡倉官方來源皆無列。')
+          : (isEn
+            ? '<strong>No HK Smart Money rows yet</strong><br>After querying official relays, DI, southbound, and shorts returned no rows for this ticker (not Connect-eligible, outside lookback, or unavailable).'
+            : '<strong>暫無港股智資列</strong><br>已查詢官方轉送後，此股於 DI、南向持股與淡倉皆無列（非港股通、超出回看窗或暫缺）。');
       } else {
         status.className = 'analysis-note';
         status.textContent = `${ticker} · ${isEn ? 'HK Smart Money' : '港股智資動態'}`

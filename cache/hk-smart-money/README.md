@@ -1,6 +1,7 @@
 # HK Smart Money seeds
 
 Committed snapshots for Preview / cold-start without hammering HKEX / SFC.
+Seeds are **not** an allowlist: unseeded `.HK` tickers live-scrape on `/api/hk-smart-money?action=stock` under the tight live rate budget (or via client `refresh=1`).
 
 | File | Role |
 |------|------|

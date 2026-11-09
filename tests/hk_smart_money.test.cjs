@@ -382,11 +382,36 @@ test('API southbound without symbol is rejected (no full-table scrape)', async (
   assert.equal(res.headers['cache-control'], 'no-store');
 });
 
-test('unseeded stock GET returns empty (no live scrape) unless refresh=1', async () => {
+test('unseeded stock GET live-scrapes under the live budget (no false NO_SEED)', async () => {
+  createApi.resetCachesForTests();
   let upstream = 0;
+  const sbHtml = `
+    <input name="txtShareholdingDate" type="text" value="2026/11/06" id="txtShareholdingDate" />
+    <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="x" />
+    <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="y" />
+    <input type="hidden" name="today" id="today" value="20261106" />
+    <input type="hidden" name="sortBy" id="sortBy" value="stockcode" />
+    <input type="hidden" name="sortDirection" id="sortDirection" value="asc" />
+    <input type="hidden" name="originalShareholdingDate" id="originalShareholdingDate" value="2026/11/06" />
+    <tr>
+      <td class="col-stock-code"><div class="mobile-list-body">9999</div></td>
+      <td class="col-stock-name"><div class="mobile-list-body">DEMO</div></td>
+      <td class="col-shareholding"><div class="mobile-list-body">50</div></td>
+      <td class="col-shareholding-percent"><div class="mobile-list-body">1.00%</div></td>
+    </tr>`;
   const handler = createApi.createHandler({
-    fetch: async () => {
+    fetch: async (url) => {
       upstream += 1;
+      const href = String(url);
+      if (href.includes('mutualmarket')) return { ok: true, text: async () => sbHtml };
+      if (href.includes('/di/summary/')) return { ok: true, text: async () => '<html></html>' };
+      if (href.includes('sfc.hk') && href.includes('.csv')) {
+        return { ok: true, text: async () => 'Date,Stock Code,Stock Name,Aggregated Reportable Short Positions (Shares),Aggregated Reportable Short Positions (HK$)\n' };
+      }
+      if (href.includes('sfc.hk')) {
+        return { ok: true, text: async () => '<a href="https://www.sfc.hk/-/media/EN/pdf/spr/2026/10/30/Short_Position_Reporting_Aggregated_Data_20261030.csv">csv</a>' };
+      }
+      if (href.includes('DailyStat')) return { ok: true, text: async () => 'tabData = [];' };
       return { ok: true, text: async () => '' };
     },
   });
@@ -397,10 +422,33 @@ test('unseeded stock GET returns empty (no live scrape) unless refresh=1', async
     headers: { 'x-real-ip': '203.0.113.30' },
   }, res);
   assert.equal(res.statusCode, 200);
-  assert.equal(res.body.source, 'empty');
-  assert.equal(res.body.notice, 'HK_SMART_MONEY_NO_SEED');
-  assert.equal(upstream, 0);
-  assert.equal(res.headers['cache-control'], 'no-store');
+  assert.equal(res.body.ticker, '9999.HK');
+  assert.equal(res.body.source, 'live');
+  assert.equal(res.body.southbound?.pct, 1);
+  assert.ok(upstream > 0, 'unseeded stock must hit upstream');
+  assert.match(res.headers['cache-control'], /^private/);
+});
+
+test('unseeded stock GET respects live rate limit', async () => {
+  createApi.resetCachesForTests();
+  const handler = createApi.createHandler({
+    fetch: async () => ({ ok: true, text: async () => '' }),
+  });
+  let limited = false;
+  for (let i = 0; i < 8; i += 1) {
+    const res = mockRes();
+    await handler({
+      method: 'GET',
+      url: '/api/hk-smart-money?action=stock&symbol=8888.HK',
+      headers: { 'x-real-ip': '203.0.113.31' },
+    }, res);
+    if (res.statusCode === 429) {
+      limited = true;
+      assert.equal(res.body.error, 'RATE_LIMITED');
+      break;
+    }
+  }
+  assert.equal(limited, true);
 });
 
 test('readSeed rejects path-traversal symbols (only NNNN.HK under seed root)', async () => {

@@ -586,15 +586,8 @@ function createHandler({ fetch: fetcher = globalThis.fetch } = {}) {
             source: seed.source || 'seed',
           }, 'public-seed');
         }
-        // Unseeded stock does NOT live-scrape unless refresh=1 (prevents cheap amplification).
-        if (!refresh) {
-          if (rateLimited(req, { live: false })) return send(429, { error: 'RATE_LIMITED' }, 'no-store');
-          const empty = HkSmartMoney.emptyPayload(
-            HkSmartMoney.tickerFromCode(symbol) || String(symbol).toUpperCase(),
-            'HK_SMART_MONEY_NO_SEED',
-          );
-          return send(200, empty, 'no-store');
-        }
+        // Unseeded (or explicit refresh): live-scrape under the tight budget so every
+        // Connect-eligible .HK stock can populate — not only committed seeds.
         if (!requireLiveBudget()) return;
         const payload = await buildStockPayload(symbol, fetcher, { refresh: true });
         return send(200, payload, 'private-live');

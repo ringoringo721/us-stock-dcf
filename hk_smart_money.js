@@ -627,9 +627,10 @@
     }).catch(() => null);
   }
 
-  function loadStockLive(ticker) {
+  function loadStockLive(ticker, { refresh = false } = {}) {
     const symbol = encodeURIComponent(String(ticker || '').toUpperCase());
-    return fetch(`/api/hk-smart-money?action=stock&symbol=${symbol}`, { cache: 'no-store' })
+    const qs = refresh ? '&refresh=1' : '';
+    return fetch(`/api/hk-smart-money?action=stock&symbol=${symbol}${qs}`, { cache: 'no-store' })
       .then(async (response) => {
         const body = await response.json().catch(() => ({}));
         if (!response.ok) {
@@ -646,7 +647,9 @@
     const symbol = String(ticker || '').toUpperCase();
     return loadStockCache(symbol).then((cached) => {
       if (seedLooksUseful(cached)) return cached;
-      return loadStockLive(symbol).then(
+      // Cache miss / thin seed: request live rebuild (refresh=1) so unseeded tickers
+      // like 2020.HK populate from official sources instead of a false empty.
+      return loadStockLive(symbol, { refresh: true }).then(
         (live) => live,
         (error) => emptyPayload(symbol, error.message || 'HK_SMART_MONEY_UNAVAILABLE'),
       );
