@@ -1036,7 +1036,32 @@
     #screener-view .stat-num { font-size: 18px; font-variant-numeric: tabular-nums; }
     #screener-view .stat-num small { font-size: 11px; font-weight: 500; margin-left: 6px; color: var(--text-muted); }
     #screener-view .filter-panel { border-radius: 0; border: 0; border-bottom: 1px solid var(--card-border); padding: 8px 0 0; gap: 0; background: transparent; box-shadow: none; }
-    .screener-chrome { position: sticky; top: 0; z-index: 25; background: color-mix(in srgb, var(--bg) 94%, transparent); backdrop-filter: blur(10px); padding-bottom: 0; margin-bottom: 0; }
+    /* Opaque sticky chrome — #screener-view .filter-panel sets background:transparent,
+       and the old color-mix + backdrop-filter frosted thead when the table scrolled under it. */
+    #screener-view .filter-panel.screener-chrome {
+      position: sticky; top: 0; z-index: 25;
+      background: var(--bg) !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      padding-bottom: 0; margin-bottom: 0;
+    }
+    /* Tall pane so sticky scroll-box can stay parked below chrome (sticky is
+       clipped by the ancestor’s box — a short parent releases thead under chrome). */
+    #screener-view .tv-screener-body,
+    #screener-view .tv-table-pane {
+      min-height: 100dvh;
+    }
+    /* Park the scroll box below sticky chrome so thead stays fully readable.
+       Must beat .table-scroll-wrapper { position: relative !important }. */
+    #screener-view #main-scroll-box.table-scroll-wrapper {
+      position: sticky !important;
+      top: var(--screener-chrome-height, 12rem);
+      z-index: 5;
+      /* Leave slack vs viewport bottom so sticky top can reach chrome height. */
+      max-height: calc(100dvh - var(--screener-chrome-height, 12rem) - 2.75rem) !important;
+      margin-bottom: 0;
+      background: var(--card-bg);
+    }
     .tv-filter-bar { display: flex; flex-direction: column; gap: 8px; padding: 8px 0 10px; }
     .tv-filter-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
     .tv-filter-chip, #screener-view .f-btn.tv-filter-chip {
@@ -1186,8 +1211,8 @@
     }
     .tv-more-metrics-panel.open { display: flex; }
     .tv-more-metrics-panel .tv-metric-wrap { flex: 0 0 auto; }
-    /* Menus from “更多指標” are teleported to <body> (backdrop-filter on sticky
-       chrome creates a containing block that breaks position:fixed + overflow clips). */
+    /* Menus from “更多指標” are teleported to <body> (sticky chrome / overflow
+       ancestors otherwise break position:fixed + clip the panel). */
     .tv-metric-menu.tv-metric-menu-portaled {
       position: fixed !important; z-index: 80; margin-top: 0; min-width: 220px;
     }
@@ -1242,9 +1267,22 @@
     #screener-table thead th.col-fixed-3,
     #screener-table thead th[onclick="sortTable('sector')"],
     #screener-table thead th[onclick="sortTable('industry')"] { text-align: left !important; }
+    /* Score / moat indicator subjects: center header + badge cells. */
+    #screener-table thead th[onclick="sortTable('moat_score')"],
+    #screener-table thead th[onclick="sortTable('f_score')"],
+    #screener-table thead th[onclick="sortTable('z_score')"],
+    #screener-table thead th[onclick="sortTable('m_score')"],
+    #screener-table td:has(.badge-moat),
+    #screener-table td:has(.badge-fscore),
+    #screener-table td:has(.badge-zscore),
+    #screener-table td:has(.badge-mscore) { text-align: center !important; }
     #screener-table thead .screener-heading { display: grid; grid-template-rows: auto auto; gap: 0; justify-items: end; align-items: center; }
     #screener-table thead th.col-fixed-1 .screener-heading,
     #screener-table thead th.col-fixed-3 .screener-heading { justify-items: start; }
+    #screener-table thead th[onclick="sortTable('moat_score')"] .screener-heading,
+    #screener-table thead th[onclick="sortTable('f_score')"] .screener-heading,
+    #screener-table thead th[onclick="sortTable('z_score')"] .screener-heading,
+    #screener-table thead th[onclick="sortTable('m_score')"] .screener-heading { justify-items: center; }
     #screener-table .screener-heading-label { display: flex; align-items: center; justify-content: inherit; text-align: inherit; line-height: 13px; min-width: 0; font-size: 10px; }
     #screener-table .screener-heading-unit { font-size: 9px; font-weight: 500; line-height: 11px; white-space: normal; color: var(--text-muted); max-width: 100%; }
     #screener-table .screener-heading .info-circle-btn { margin: 0; width: 12px; height: 12px; }
@@ -1272,8 +1310,8 @@
     /* Keep N/A / 不適用 FMP blocks from dominating column width. */
     #screener-table td[data-applicable="false"],
     #screener-table td[data-fmp-reference] { max-width: 100%; }
-    /* Results/scroll hint stays in document flow — only .screener-chrome sticks at top:0
-       so the hint bar is not pinned underneath the taller filter chrome. */
+    /* Results/scroll hint stays in document flow under sticky chrome; table pane
+       itself sticks at --screener-chrome-height so thead stays fully readable. */
     #screener-view .scroll-hint-bar { position: static; z-index: auto; }
     #screener-results-count { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--text); min-width: 7ch; text-align: right; }
     @media (max-width: 900px) {
@@ -1587,23 +1625,24 @@
       #subpage-valuation .main-layout { grid-template-columns: minmax(0, 1fr); }
       #subpage-valuation .form-group { grid-template-columns: minmax(0, 1fr) 105px; }
     }
-    /* Score / moat badges: roomy enough for full captions (超穩健、誠實、Wide/Moderate…).
-       Do NOT overflow-clip these cells — Bugbot + user: truncated results unreadable. */
+    /* Score / moat badges: hug content (just-fit). Wrap inside cell — no clip, no neighbor spill. */
     #screener-table .badge-moat,
     #screener-table .badge-fscore,
     #screener-table .badge-zscore,
     #screener-table .badge-mscore {
-      padding: 3px 8px;
+      padding: 2px 6px;
       font-size: 11px;
-      line-height: 1.35;
+      line-height: 1.3;
       border-radius: 4px;
       font-weight: 700;
       white-space: normal;
       overflow: visible;
       text-overflow: clip;
-      max-width: none;
+      max-width: 100%;
+      width: auto;
       vertical-align: middle;
       display: inline-block;
+      box-sizing: border-box;
     }
     #screener-table td:has(.badge-moat),
     #screener-table td:has(.badge-fscore),
@@ -1613,6 +1652,7 @@
       text-overflow: clip;
       white-space: normal;
       vertical-align: middle;
+      text-align: center !important;
     }
     #main-scroll-box { max-height: 68vh !important; border-radius: 12px; }
     @media (max-width: 1000px) {
@@ -5911,6 +5951,7 @@
     if (!panel) return;
     panel.open = !panel.open;
     if (panel.open) panel.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    requestAnimationFrame(syncScreenerChromeMetrics);
   }
 
   // Pattern: every numeric All-columns indicator/ratio must have a filter entry here.
@@ -6776,15 +6817,16 @@
     // sparse stretch / dark empty bands between 主板塊 and metrics / FMP 不適用 blocks.
     const COLUMN_WIDTHS = {
       ticker: 168, exchange: 72, name: 128, sector: 110, industry: 150, price: 84,
-      fmp_dcf: 100, fmp_dcf_upside: 108, fmp_levered: 100, fmp_levered_upside: 108,
-      target_price: 92, target_spread: 92, action: 118,
-      // Moat / PF / Z / M: wide enough for full score + captions (不裁切).
-      moat_score: 190,
+      // Premium cols: wide enough for EN “Overvalued +xx.x%” (Bugbot #102); title also carries full label+%.
+      fmp_dcf: 100, fmp_dcf_upside: 148, fmp_levered: 100, fmp_levered_upside: 148,
+      target_price: 92, target_spread: 140, action: 118,
+      // Moat / PF / Z / M: just-fit; long EN captions wrap inside the cell (no excess empty band).
+      moat_score: 108,
       WACC: 96, EV: 100, mcap: 100, liq_val_1: 92, liq_val_2: 92, liq_val_3: 92,
       pe_trailing: 68, pe_forward: 68, pb_trailing: 68, div_yield: 76,
       cont_div_growth: 80, fcf_to_ev: 80, fcf_to_equity: 108, fcf_to_mcap: 88,
       cash_to_assets: 80, liab_to_assets: 80, current_ratio: 68, roe: 68, roa: 68,
-      f_score: 200, z_score: 240, m_score: 220,
+      f_score: 168, z_score: 176, m_score: 96,
       ev_to_ebitda: 84, debt_to_ebitda: 88, net_debt_to_ebitda: 100,
       debt_to_fcf: 80, net_debt_to_fcf: 88
     };
@@ -6848,6 +6890,26 @@
       });
     }
     if (resetScroll) document.getElementById('main-scroll-box').scrollLeft = 0;
+    syncScreenerChromeMetrics();
+  }
+
+  function syncScreenerChromeMetrics() {
+    const chrome = document.querySelector('#screener-view .screener-chrome');
+    const hint = document.querySelector('#screener-view .scroll-hint-bar');
+    const pane = document.querySelector('#screener-view .tv-table-pane');
+    const box = document.getElementById('main-scroll-box');
+    if (!chrome) return;
+    const chromeH = Math.ceil(chrome.getBoundingClientRect().height);
+    document.documentElement.style.setProperty('--screener-chrome-height', `${Math.max(chromeH, 1)}px`);
+    let above = 0;
+    if (pane && box) {
+      const paneTop = pane.getBoundingClientRect().top;
+      const boxTop = box.getBoundingClientRect().top;
+      above = Math.max(0, Math.ceil(boxTop - paneTop));
+    } else if (hint) {
+      above = Math.ceil(hint.getBoundingClientRect().height) + 24;
+    }
+    document.documentElement.style.setProperty('--screener-above-table-height', `${Math.max(above, 48)}px`);
   }
 
   function resetScreenerFilters() {
@@ -6878,10 +6940,21 @@
     return source ? (currentLang === 'en' ? source.noteEn : source.noteZh) || source.reason || '' : '';
   }
 
-  function renderMarketPremium(value) {
+  function marketPremiumLabel(value) {
     const under = value < 0;
     const label = currentLang === 'zh' ? (under ? '低估' : '高估') : (under ? 'Undervalued' : 'Overvalued');
-    return `<span class="${under ? 'text-green' : 'text-red'}" style="font-weight: 700;">${label} ${under ? '' : '+'}${value.toFixed(1)}%</span>`;
+    return `${label} ${under ? '' : '+'}${value.toFixed(1)}%`;
+  }
+
+  function renderMarketPremium(value) {
+    const under = value < 0;
+    return `<span class="${under ? 'text-green' : 'text-red'}" style="font-weight: 700;">${marketPremiumLabel(value)}</span>`;
+  }
+
+  function priceDifferenceTitle(value) {
+    const note = I18N_DICT[currentLang].valuation_price_difference_note;
+    if (value === null || value === undefined || !Number.isFinite(Number(value))) return note;
+    return `${marketPremiumLabel(Number(value))} — ${note}`;
   }
 
   function savedTargetMeta(saved) {
@@ -6915,7 +6988,7 @@
 
   function renderPriceDifference(field, value, applicable = true) {
     if (!applicable) return `<td data-price-difference="${field}" data-applicable="false" class="text-muted" title="${escapeAttribute(I18N_DICT[currentLang].dcf_not_applicable_note)}">${I18N_DICT[currentLang].dcf_not_applicable}</td>`;
-    return `<td data-price-difference="${field}" data-value="${value ?? ''}" class="${value === null ? 'text-muted' : ''}" title="${escapeAttribute(I18N_DICT[currentLang].valuation_price_difference_note)}">${value === null ? 'N/A' : renderMarketPremium(value)}</td>`;
+    return `<td data-price-difference="${field}" data-value="${value ?? ''}" class="${value === null ? 'text-muted' : ''}" title="${escapeAttribute(priceDifferenceTitle(value))}">${value === null ? 'N/A' : renderMarketPremium(value)}</td>`;
   }
 
   function marketRatioNote(item, kind) {
@@ -7193,6 +7266,9 @@
 
       const targetSpreadHtml = item.isSaved && item.target_spread !== null
         ? renderMarketPremium(item.target_spread) : `<span style="color: var(--text-muted);">--</span>`;
+      const targetSpreadTitle = item.isSaved && item.target_spread !== null
+        ? priceDifferenceTitle(item.target_spread)
+        : I18N_DICT[currentLang].valuation_price_difference_note;
 
       const fScoreVal = item.f_score ?? null;
       let fScoreClass = "fscore-yellow";
@@ -7281,7 +7357,7 @@
             return `<td class="${start}" data-fmp-reference="${kind}" title="${escapeAttribute(`${note} ${data?.models?.[kind]?.reason || data?.currencyCheck?.reason || ''}`)}">${val === null ? 'N/A' : moneyPrefix() + val.toFixed(2)}<small class="liquidation-asof">${data?.models?.[kind]?.data?.[0]?.date || ''}</small></td>${renderPriceDifference(kind, kind === 'dcf' ? item.fmp_dcf_upside : item.fmp_levered_upside)}`;
           }).join('')}
           <td class="col-group-start">${targetPriceHtml}</td>
-          <td>${targetSpreadHtml}</td>
+          <td title="${escapeAttribute(targetSpreadTitle)}">${targetSpreadHtml}</td>
           <td style="text-align: center;">
             <button class="btn-nav" onclick="openDetail('${item.ticker}')">${currentLang === 'zh' ? '深度模型 →' : 'DCF Model →'}</button>
           </td>
@@ -11992,6 +12068,14 @@
   }
 
   document.addEventListener('DOMContentLoaded', () => {
+    syncScreenerChromeMetrics();
+    window.addEventListener('resize', syncScreenerChromeMetrics);
+    const industries = document.getElementById('screener-industries');
+    if (industries) industries.addEventListener('toggle', syncScreenerChromeMetrics);
+    if (typeof ResizeObserver === 'function') {
+      const chrome = document.querySelector('#screener-view .screener-chrome');
+      if (chrome) new ResizeObserver(() => syncScreenerChromeMetrics()).observe(chrome);
+    }
     if (typeof SmartMoney !== 'undefined') ensureSmartMoneyNames(SmartMoney);
     markLoadingStats();
     if (checkGlobalData()) return;

@@ -62,12 +62,27 @@ test('screener body cells clip; header + score badges stay visible', () => {
   assert.match(html, /td:has\(\.badge-moat\)[\s\S]*?overflow:\s*visible/);
   assert.match(html, /#screener-table \.badge-moat/);
   assert.match(html, /#screener-table \.badge-fscore/);
-  assert.match(html, /moat_score:\s*190/);
-  assert.match(html, /f_score:\s*200/);
-  assert.match(html, /z_score:\s*240/);
-  assert.match(html, /m_score:\s*220/);
+  // Just-fit score columns (content-hugging, not excess-wide).
+  assert.match(html, /moat_score:\s*108/);
+  assert.match(html, /f_score:\s*168/);
+  assert.match(html, /z_score:\s*176/);
+  assert.match(html, /m_score:\s*96/);
   assert.match(html, /sector:\s*110/);
   assert.match(html, /action:\s*118/);
+  assert.match(html, /fmp_dcf_upside:\s*148/);
+  assert.match(html, /target_spread:\s*140/);
+  assert.match(html, /function marketPremiumLabel/);
+  assert.match(html, /function priceDifferenceTitle/);
+  assert.match(html, /function syncScreenerChromeMetrics/);
+});
+
+test('sticky chrome is opaque; table parks below chrome (no frosted thead)', () => {
+  assert.match(html, /#screener-view \.filter-panel\.screener-chrome\s*\{[^}]*background:\s*var\(--bg\)/);
+  assert.match(html, /#screener-view \.filter-panel\.screener-chrome\s*\{[^}]*backdrop-filter:\s*none/);
+  assert.equal(/\.screener-chrome\s*\{[^}]*backdrop-filter:\s*blur\(/.test(html), false);
+  assert.match(html, /#screener-view #main-scroll-box\.table-scroll-wrapper\s*\{[^}]*position:\s*sticky\s*!important/);
+  assert.match(html, /--screener-chrome-height/);
+  assert.match(html, /td:has\(\.badge-moat\)[\s\S]*?text-align:\s*center/);
 });
 
 test('three fair-value model under/over screens replace catalogue KPI strip', () => {
@@ -89,6 +104,7 @@ test('column view tabs coexist with select; sticky chrome + filter chips present
   assert.match(html, /id="screener-view-chips"/);
   assert.match(html, /function setScreenerColumnView/);
   assert.match(html, /\.screener-chrome\s*\{[^}]*position:\s*sticky[^}]*top:\s*0/);
+  // (selector may be #screener-view .filter-panel.screener-chrome)
   assert.match(html, /id="screener-columns"/);
   assert.match(html, /class="tv-filter-bar"/);
   assert.match(html, /id="tv-metric-filters"/);
