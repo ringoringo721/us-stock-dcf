@@ -103,6 +103,14 @@ function repairFcff(fcff, market) {
   return n;
 }
 
+// Share-capital repair must never replace company-cache moat comments / score
+// breakdowns with the expansion catalogue's score-only compact moat.
+const SHARE_PATCH_KEYS = [
+  'shares', 'shares_display', 'shares_outstanding', 'shareBasis', 'shareSource',
+  'fair_val', 'default_fair_val', 'premium_pct', 'is_undervalued', 'fin_valuation',
+  'liquidation', 'mcap'
+];
+
 function repairCompanyCache(ticker, stock) {
   const file = path.join(root, 'cache', 'hk_companies', `${ticker}.json`);
   if (!fs.existsSync(file)) return false;
@@ -110,7 +118,10 @@ function repairCompanyCache(ticker, stock) {
   if (record.ticker !== ticker || record.stock?.ticker !== ticker) {
     throw new TypeError(`${ticker}: invalid company cache identity`);
   }
-  const nextStock = { ...record.stock, ...stock };
+  const nextStock = { ...record.stock };
+  for (const key of SHARE_PATCH_KEYS) {
+    if (Object.prototype.hasOwnProperty.call(stock, key)) nextStock[key] = stock[key];
+  }
   let snapshot = record.snapshot;
   if (snapshot?.defaults) {
     snapshot = {
@@ -198,4 +209,4 @@ if (require.main === module) {
   }, null, 2));
 }
 
-module.exports = { applyOne, itemFor, repairCompanyCache };
+module.exports = { applyOne, itemFor, repairCompanyCache, SHARE_PATCH_KEYS };
