@@ -847,16 +847,19 @@ verification or acceptance of the company's disclosed shares.
 
 ### HK market metrics and refreshed Moat coverage
 
-All 26 configured mixed-class issuers now have reviewed September 2026 monthly
-returns in `cache/hkex_share_capital.json`. Coverage follows each issuer's actual
-ordinary classes, including Haier's A/D/H shares, domestic/unlisted classes and
-Hong Kong/RMB classes; it does not assume every issuer is A/H. Each class's
-treasury shares are explicitly excluded. The dated returns are references,
-not certification that shares remained unchanged after September month-end.
+All 26 configured mixed-class issuers keep reviewed monthly returns in
+`cache/hkex_share_capital.json`, and expansion CNE / mixed-class names are filled
+from the same HKEX FF301 monthly-return pipeline (`scripts/capture_hkex_share_capital.py`
++ `scripts/repair_hkex_share_capital_apply.cjs`). Coverage follows each issuer's
+actual ordinary classes, including Haier's A/D/H shares, domestic/unlisted classes,
+Hong Kong/RMB classes and WVR A/B classes; it does not assume every issuer is A/H.
+Each class's treasury shares are explicitly excluded. The dated returns are
+references, not certification that shares remained unchanged after month-end.
 Provider discrepancies are reviewed against the mismatched provider *count*
 while the dated official capital return remains current. FMP republishing the
 same reviewed count under a newer as-of date does not blank issuer-wide shares;
-a material change in the provider count still requires a fresh review.
+a material change in the provider count still requires a fresh review. Filings up
+to one calendar day before the stated month-end remain acceptable.
 
 Trailing P/E prefers supported reported diluted TTM EPS. When semiannual EPS
 cannot legitimately be added, it uses compatible actual TTM earnings

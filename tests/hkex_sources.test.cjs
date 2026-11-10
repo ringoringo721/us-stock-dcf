@@ -243,13 +243,23 @@ test('issuer share evidence rejects other issuers, missing A/H classes, preferen
     capital => { capital.classes[0].issuedShares = 1.5; },
     capital => { capital.classes[0].treasuryShares = -1; },
     capital => { capital.classes[0].treasuryShares = capital.classes[0].issuedShares + 1; },
-    capital => { capital.filingDate = '2026-09-29'; },
+    // More than one calendar day before month-end remains invalid; same-day / one-day-early filings are allowed.
+    capital => { capital.filingDate = '2026-09-28'; },
     capital => { capital.documentSha256 = ''; }
   ]) {
     const capital = structuredClone(ccbCapital);
     mutate(capital);
     assert.throws(() => valuationShares(ccb, ccbShares(), capital), /invalid issuer-wide/);
   }
+});
+
+test('month-end capital may be filed up to one calendar day early without blanking issuer-wide shares', () => {
+  const capital = structuredClone(ccbCapital);
+  capital.filingDate = '2026-09-29';
+  const result = valuationShares(ccb, ccbShares(capital.providerReview.outstandingShares), capital);
+  assert.equal(result.scope, 'issuerWideOrdinaryShares');
+  assert.equal(result.outstandingShares,
+    capital.classes.reduce((total, row) => total + row.issuedShares - row.treasuryShares, 0));
 });
 
 test('other HK listings retain dated outstanding counts, never float or weighted-average counts', () => {
