@@ -118,6 +118,27 @@ test('southbound deltas use exact prior business days, else null', () => {
   assert.equal(sparse.pct_chg_20d, null);
 });
 
+test('planSouthboundHistoryDates covers short biz + long calendar priors', () => {
+  const asOf = '2026-11-06';
+  for (const mode of ['full', 'horizons']) {
+    const dates = HkSmartMoney.planSouthboundHistoryDates(asOf, {
+      mode,
+      maxDates: mode === 'horizons' ? 40 : 70,
+    });
+    assert.ok(dates.includes(asOf), mode);
+    for (const biz of [1, 5, 20]) {
+      const prior = HkSmartMoney.businessDaysBack(biz + 1, asOf)[biz];
+      assert.ok(dates.includes(prior), `${mode} missing ${biz}D prior ${prior}`);
+    }
+    for (const cal of HkSmartMoney.SOUTHBOUND_LONG_CAL_DAYS) {
+      const target = HkSmartMoney.shiftCalendarDays(asOf, cal);
+      const snapped = HkSmartMoney.businessDaysBack(2, target);
+      assert.ok(snapped.some(day => dates.includes(day)), `${mode} missing ${cal}D snap near ${target}`);
+    }
+    assert.ok(dates.length >= 20, `${mode} expected horizon dates, got ${dates.length}`);
+  }
+});
+
 test('southbound long horizons use calendar lookback with honest nulls', () => {
   assert.deepEqual([...HkSmartMoney.SOUTHBOUND_LONG_CAL_DAYS], [30, 60, 90, 120, 150, 180, 270, 360]);
   const built = HkSmartMoney.buildSouthboundForCode([
@@ -380,6 +401,109 @@ test('API southbound without symbol is rejected (no full-table scrape)', async (
   assert.equal(res.statusCode, 400);
   assert.equal(res.body.error, 'SYMBOL_REQUIRED');
   assert.equal(res.headers['cache-control'], 'no-store');
+});
+
+test('live unseeded stock fills multi-horizon southbound Δ and market_flow windows', async () => {
+  createApi.resetCachesForTests();
+  const pctByDate = {
+    '2026-11-06': 7.71,
+    '2026-11-05': 7.78,
+    '2026-10-30': 7.90,
+    '2026-10-09': 8.10,
+    '2026-10-07': 8.20,
+    '2026-09-07': 8.50,
+    '2026-08-07': 8.80,
+    '2026-07-08': 9.00,
+    '2026-06-08': 9.10,
+    '2026-05-08': 9.20,
+    '2026-02-09': 9.50,
+    '2025-11-07': 6.50,
+  };
+  function sbHtmlFor(iso, pct) {
+    const slash = iso.replace(/-/g, '/');
+    return `
+      <input name="txtShareholdingDate" type="text" value="${slash}" id="txtShareholdingDate" />
+      <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="x" />
+      <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="y" />
+      <input type="hidden" name="today" id="today" value="${iso.replace(/-/g, '')}" />
+      <input type="hidden" name="sortBy" id="sortBy" value="stockcode" />
+      <input type="hidden" name="sortDirection" id="sortDirection" value="asc" />
+      <input type="hidden" name="originalShareholdingDate" id="originalShareholdingDate" value="${slash}" />
+      <tr>
+        <td class="col-stock-code"><div class="mobile-list-body">2020</div></td>
+        <td class="col-stock-name"><div class="mobile-list-body">ANTA</div></td>
+        <td class="col-shareholding"><div class="mobile-list-body">100</div></td>
+        <td class="col-shareholding-percent"><div class="mobile-list-body">${pct}%</div></td>
+      </tr>`;
+  }
+  const handler = createApi.createHandler({
+    fetch: async (url, opts) => {
+      const href = String(url);
+      if (href.includes('mutualmarket')) {
+        let iso = '2026-11-06';
+        if (opts?.body) {
+          const params = new URLSearchParams(String(opts.body));
+          const slash = params.get('txtShareholdingDate');
+          if (slash) iso = slash.replace(/\//g, '-');
+        }
+        // Latest real SB day in this fixture is 2026-11-06; newer probes stay empty.
+        if (iso > '2026-11-06') {
+          return {
+            ok: true,
+            text: async () => sbHtmlFor(iso, 0).replace(
+              /<tr>[\s\S]*<\/tr>/,
+              '',
+            ),
+          };
+        }
+        // Prefer exact map; else invent a pct so every planned date contributes a history point.
+        const pct = pctByDate[iso] != null ? pctByDate[iso] : 7.0;
+        return { ok: true, text: async () => sbHtmlFor(iso, pct) };
+      }
+      if (href.includes('/di/summary/')) return { ok: true, text: async () => '<html></html>' };
+      if (href.includes('sfc.hk') && href.includes('.csv')) {
+        return {
+          ok: true,
+          text: async () => 'Date,Stock Code,Stock Name,Aggregated Reportable Short Positions (Shares),Aggregated Reportable Short Positions (HK$)\n30/10/2026,2020,ANTA,100,200',
+        };
+      }
+      if (href.includes('sfc.hk')) {
+        return {
+          ok: true,
+          text: async () => '<a href="https://www.sfc.hk/-/media/EN/pdf/spr/2026/10/30/Short_Position_Reporting_Aggregated_Data_20261030.csv">csv</a>',
+        };
+      }
+      if (href.includes('DailyStat')) {
+        return {
+          ok: true,
+          text: async () => `tabData = ${JSON.stringify([{
+            id: 1, date: '2026-11-09', market: 'SSE Southbound', tradingDay: 1,
+            content: [{ style: 1, table: { schema: [['Buy Turnover', 'Sell Turnover']], tr: [{ td: [['10']] }, { td: [['4']] }] } }],
+          }])};`,
+        };
+      }
+      return { ok: true, text: async () => '' };
+    },
+  });
+  const res = mockRes();
+  await handler({
+    method: 'GET',
+    url: '/api/hk-smart-money?action=stock&symbol=2020.HK',
+    headers: { 'x-real-ip': '203.0.113.88' },
+  }, res);
+  assert.equal(res.statusCode, 200);
+  assert.equal(res.body.source, 'live');
+  assert.equal(res.body.southbound?.pct, 7.71);
+  assert.ok((res.body.southbound?.history || []).length >= 10, 'live history should be multi-point');
+  assert.notEqual(res.body.southbound?.pct_chg_1d, null);
+  assert.notEqual(res.body.southbound?.pct_chg_5d, null);
+  assert.notEqual(res.body.southbound?.pct_chg_20d, null);
+  // Market-level cum windows come from committed market-flow.json seed history.
+  assert.notEqual(res.body.market_flow?.net_cum_30d, null);
+  assert.notEqual(res.body.market_flow?.net_cum_90d, null);
+  assert.ok((res.body.market_flow?.history || []).length > 50);
+  // Live overlay refreshed latest boxes.
+  assert.ok((res.body.market_flow?.southbound || []).length >= 1);
 });
 
 test('unseeded stock GET live-scrapes under the live budget (no false NO_SEED)', async () => {

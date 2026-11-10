@@ -487,6 +487,50 @@
     };
   }
 
+  /**
+   * Dates needed so live/seed rebuilds can fill ICBC-style Δ windows + a chart series.
+   * - mode "full" (capture): dense recent month + long snaps + weekly samples
+   * - mode "horizons" (live API): exact 1/5/20D priors + long snaps + sparser weekly
+   *   samples so serverless stays inside maxDuration while still filling Δ tables.
+   */
+  function planSouthboundHistoryDates(asOf, {
+    mode = 'full',
+    denseBizDays = 25,
+    weeklyBizSpan = 270,
+    weeklyStep = 5,
+    maxDates = 70,
+  } = {}) {
+    const asOfIso = normalizeIsoDate(asOf) || businessDaysBack(1)[0];
+    const required = new Set([asOfIso]);
+    if (mode === 'horizons') {
+      for (const days of SOUTHBOUND_SHORT_BIZ_DAYS) {
+        const prior = businessDaysBack(days + 1, asOfIso)[days];
+        if (prior) required.add(prior);
+        // Neighbors help when HKEX is missing the exact session.
+        const near = businessDaysBack(days + 2, asOfIso);
+        if (near[days + 1]) required.add(near[days + 1]);
+      }
+    } else {
+      for (const day of businessDaysBack(denseBizDays, asOfIso)) required.add(day);
+    }
+    for (const days of SOUTHBOUND_LONG_CAL_DAYS) {
+      const target = shiftCalendarDays(asOfIso, days);
+      if (!target) continue;
+      // One session on/before target (+1 prior) so calendar Δ finds a row within maxGapDays.
+      for (const day of businessDaysBack(2, target)) required.add(day);
+    }
+    const step = mode === 'horizons' ? Math.max(weeklyStep, 8) : weeklyStep;
+    const fillers = [];
+    const yearBiz = businessDaysBack(weeklyBizSpan, asOfIso);
+    for (let i = 0; i < yearBiz.length; i += step) {
+      if (!required.has(yearBiz[i])) fillers.push(yearBiz[i]);
+    }
+    const requiredSorted = [...required].sort((a, b) => String(b).localeCompare(String(a)));
+    const room = Math.max(0, maxDates - requiredSorted.length);
+    return [...requiredSorted, ...fillers.slice(0, room)]
+      .sort((a, b) => String(b).localeCompare(String(a)));
+  }
+
   function buildSouthboundForCode(historyRows) {
     const history = (historyRows || [])
       .filter(row => row && row.pct != null)
@@ -687,6 +731,7 @@
     shiftCalendarDays,
     historyRowBusinessDaysAgo,
     historyRowCalendarDaysAgo,
+    planSouthboundHistoryDates,
     buildSouthboundForCode,
     buildMarketFlowFromHistory,
     buildShortForCode,
