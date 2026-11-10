@@ -145,9 +145,9 @@ async function main() {
     await sleep(100);
   }
 
-  // Dense CSM DailyStat history for money horizons (online retention ~Apr 2026+).
-  // Cumulative nets need nearly every session — sparse samples would understate.
-  const flowDays = HkSmartMoney.businessDaysBack(160);
+  // Dense CSM DailyStat history for money horizons (public online retention ~2026-04-15+).
+  // 270/360 stay honest null until retention covers those windows; pull all available sessions.
+  const flowDays = HkSmartMoney.businessDaysBack(230);
   process.stdout.write(`CSM flow dates planned: ${flowDays.length}\n`);
   const flowSnaps = [];
   for (const day of flowDays) {

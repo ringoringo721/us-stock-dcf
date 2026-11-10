@@ -461,6 +461,18 @@
       changes[key] = sumNullable(inWindow.map((row) => row.net_buy_total));
     }
 
+    let historySpanDays = null;
+    if (latest?.date && oldest?.date) {
+      historySpanDays = Math.round(
+        (Date.parse(`${latest.date}T00:00:00Z`) - Date.parse(`${oldest.date}T00:00:00Z`)) / 86400000,
+      );
+      if (!Number.isFinite(historySpanDays) || historySpanDays < 0) historySpanDays = null;
+    }
+    // Full available online/seed span (not a fixed 270/360 window).
+    const net_cum_available = history.length
+      ? sumNullable(history.map((row) => row.net_buy_total))
+      : null;
+
     const legs = (latestRich?.southbound || []).map((leg) => ({
       market: leg.market,
       date: leg.date,
@@ -471,6 +483,9 @@
     }));
     return {
       as_of: latest?.date || null,
+      history_from: oldest?.date || null,
+      history_span_days: historySpanDays,
+      net_cum_available: net_cum_available != null ? round4(net_cum_available) : null,
       turnover_unit: 'HKD_million',
       southbound: legs,
       net_buy_total: latest?.net_buy_total ?? null,
@@ -485,6 +500,23 @@
       net_cum_360d: changes.net_cum_360d ?? null,
       changes,
     };
+  }
+
+  /** Honest cell text when net_cum_Nd is null (usually CSM online retention ~Apr 2026+). */
+  function marketFlowCumUnavailableReason(flow, days, lang = 'zh') {
+    const en = String(lang || '').toLowerCase().startsWith('en');
+    const asOf = normalizeIsoDate(flow?.as_of);
+    const from = normalizeIsoDate(flow?.history_from)
+      || normalizeIsoDate(flow?.history?.[(flow.history || []).length - 1]?.date);
+    const span = flow?.history_span_days;
+    if (!asOf || !from || days == null) return '—';
+    const start = shiftCalendarDays(asOf, days);
+    if (start && from > start) {
+      return en
+        ? `— (CSM online from ${from}; span ${span ?? '—'}d < ${days}d)`
+        : `—（網上 CSM 自 ${from}；現有 ${span ?? '—'} 日 < ${days} 日）`;
+    }
+    return en ? '— (sparse history)' : '—（歷史密度不足）';
   }
 
   /**
@@ -734,6 +766,7 @@
     planSouthboundHistoryDates,
     buildSouthboundForCode,
     buildMarketFlowFromHistory,
+    marketFlowCumUnavailableReason,
     buildShortForCode,
     diActionLabel,
     roleLabel,

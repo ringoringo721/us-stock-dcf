@@ -506,19 +506,21 @@ async function buildStockPayload(symbol, fetcher, { refresh = false } = {}) {
           net_buy_total: row.net_buy_total,
           southbound: [],
         }));
+        const seedAsOf = HkSmartMoney.normalizeIsoDate(market_flow.as_of);
+        const liveIsNewest = !!(liveAsOf && (!seedAsOf || liveAsOf >= seedAsOf));
         if (liveAsOf && liveNet != null) {
           const idx = hist.findIndex((row) => HkSmartMoney.normalizeIsoDate(row.as_of) === liveAsOf);
           if (idx >= 0) {
             hist[idx] = {
               as_of: liveAsOf,
               net_buy_total: liveNet,
-              southbound: liveFlow.southbound,
+              southbound: liveIsNewest ? liveFlow.southbound : [],
             };
           } else {
             hist = [{
               as_of: liveAsOf,
               net_buy_total: liveNet,
-              southbound: liveFlow.southbound,
+              southbound: liveIsNewest ? liveFlow.southbound : [],
             }, ...hist];
           }
         }
@@ -526,9 +528,14 @@ async function buildStockPayload(symbol, fetcher, { refresh = false } = {}) {
         market_flow = {
           ...rebuilt,
           source: market_flow.source || 'seed',
-          as_of: liveAsOf || rebuilt.as_of,
-          southbound: liveFlow.southbound,
-          net_buy_total: liveNet != null ? liveNet : rebuilt.net_buy_total,
+          // Never regress header/boxes to an older live day than the seed tip.
+          as_of: liveIsNewest ? (liveAsOf || rebuilt.as_of) : (seedAsOf || rebuilt.as_of),
+          southbound: liveIsNewest
+            ? liveFlow.southbound
+            : (market_flow.southbound || rebuilt.southbound),
+          net_buy_total: liveIsNewest && liveNet != null
+            ? liveNet
+            : (market_flow.net_buy_total != null ? market_flow.net_buy_total : rebuilt.net_buy_total),
           turnover_unit: liveFlow.turnover_unit
             || market_flow.turnover_unit
             || rebuilt.turnover_unit

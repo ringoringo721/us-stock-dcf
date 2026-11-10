@@ -218,6 +218,12 @@ test('buildMarketFlowFromHistory cumulative windows are honest when history is s
   assert.equal(built.net_buy_total, 100);
   assert.ok(built.net_cum_30d != null);
   assert.equal(built.net_cum_360d, null); // not enough history
+  assert.ok(built.net_cum_available != null);
+  assert.ok(built.history_from);
+  assert.match(
+    HkSmartMoney.marketFlowCumUnavailableReason(built, 360, 'zh'),
+    /網上 CSM 自|不足|密度/,
+  );
   assert.ok((built.history || []).length >= 20);
   assert.ok(!('top' in (built.southbound[0] || {})));
 });
@@ -511,10 +517,14 @@ test('live unseeded stock fills multi-horizon southbound Δ and market_flow wind
   assert.notEqual(res.body.market_flow?.net_cum_30d, null);
   assert.notEqual(res.body.market_flow?.net_cum_90d, null);
   assert.ok((res.body.market_flow?.history || []).length > 50);
-  // Live session merged: as_of matches boxes and history head.
-  assert.equal(res.body.market_flow?.as_of, '2026-11-09');
+  // Seed tip (market-flow.json) wins when live CSM mock is older; windows stay coherent.
+  assert.ok(res.body.market_flow?.as_of >= '2026-11-09');
   assert.ok((res.body.market_flow?.southbound || []).length >= 1);
-  assert.equal(res.body.market_flow?.history?.[0]?.date, '2026-11-09');
+  assert.equal(res.body.market_flow?.history?.[0]?.date, res.body.market_flow?.as_of);
+  assert.equal(res.body.market_flow?.history_from, '2026-04-15');
+  assert.equal(res.body.market_flow?.net_cum_270d, null);
+  assert.equal(res.body.market_flow?.net_cum_360d, null);
+  assert.ok(res.body.market_flow?.net_cum_available != null);
 });
 
 test('unseeded stock GET without refresh stays cheap empty (no upstream scrape)', async () => {

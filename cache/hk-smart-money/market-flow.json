@@ -1,40 +1,49 @@
 {
-  "as_of": "2026-11-09",
+  "source": "seed",
+  "capturedAt": "2026-11-10T12:34:32.762Z",
+  "as_of": "2026-11-10",
+  "history_from": "2026-04-15",
+  "history_span_days": 209,
+  "net_cum_available": 190038.69,
   "turnover_unit": "HKD_million",
   "southbound": [
     {
       "market": "SSE Southbound",
-      "date": "2026-11-09",
+      "date": "2026-11-10",
       "tradingDay": 1,
       "stats": {
-        "Total Turnover": "42,498.51",
-        "Buy Turnover": "21,773.69",
-        "Sell Turnover": "20,724.82",
-        "Total Trade Count": "1,093,116",
-        "Buy Trade Count": "575,695",
-        "Sell Trade Count": "517,421",
-        "ETF Turnover": "222.48"
+        "Total Turnover": "48,679.09",
+        "Buy Turnover": "23,767.64",
+        "Sell Turnover": "24,911.45",
+        "Total Trade Count": "1,169,340",
+        "Buy Trade Count": "574,753",
+        "Sell Trade Count": "594,587",
+        "ETF Turnover": "988.59"
       },
-      "net_buy": 1048.87
+      "net_buy": -1143.81
     },
     {
       "market": "SZSE Southbound",
-      "date": "2026-11-09",
+      "date": "2026-11-10",
       "tradingDay": 1,
       "stats": {
-        "Total Turnover": "22,384.12",
-        "Buy Turnover": "11,595.38",
-        "Sell Turnover": "10,788.74",
-        "Total Trade Count": "609,722",
-        "Buy Trade Count": "315,004",
-        "Sell Trade Count": "294,718",
-        "ETF Turnover": "370.47"
+        "Total Turnover": "24,785.29",
+        "Buy Turnover": "11,594.84",
+        "Sell Turnover": "13,190.45",
+        "Total Trade Count": "597,809",
+        "Buy Trade Count": "296,058",
+        "Sell Trade Count": "301,751",
+        "ETF Turnover": "1,184.63"
       },
-      "net_buy": 806.64
+      "net_buy": -1595.61
     }
   ],
-  "net_buy_total": 1855.51,
+  "net_buy_total": -2739.42,
   "history": [
+    {
+      "date": "2026-11-10",
+      "net_buy_total": -2739.42
+    },
     {
       "date": "2026-11-09",
       "net_buy_total": 1855.51
@@ -602,27 +611,23 @@
     {
       "date": "2026-04-15",
       "net_buy_total": 4220.67
-    },
-    {
-      "date": "2026-04-14",
-      "net_buy_total": -2016.52
     }
   ],
-  "net_cum_30d": -32541.19,
-  "net_cum_60d": 14103.55,
-  "net_cum_90d": 34772.62,
-  "net_cum_120d": 66631.83,
-  "net_cum_150d": 108290.23,
-  "net_cum_180d": 137911.78,
+  "net_cum_30d": -35280.61,
+  "net_cum_60d": 6933.11,
+  "net_cum_90d": 34939.31,
+  "net_cum_120d": 54853.99,
+  "net_cum_150d": 105550.81,
+  "net_cum_180d": 144884.73,
   "net_cum_270d": null,
   "net_cum_360d": null,
   "changes": {
-    "net_cum_30d": -32541.19,
-    "net_cum_60d": 14103.55,
-    "net_cum_90d": 34772.62,
-    "net_cum_120d": 66631.83,
-    "net_cum_150d": 108290.23,
-    "net_cum_180d": 137911.78,
+    "net_cum_30d": -35280.61,
+    "net_cum_60d": 6933.11,
+    "net_cum_90d": 34939.31,
+    "net_cum_120d": 54853.99,
+    "net_cum_150d": 105550.81,
+    "net_cum_180d": 144884.73,
     "net_cum_270d": null,
     "net_cum_360d": null
   }
