@@ -9671,11 +9671,14 @@
           }
         }
         if (flowEl) {
+          // source=empty means seed miss / rate-limit / relay error — not a holiday session.
+          const flowLookupIncomplete = result.source === 'empty'
+            || result.notice === 'HK_SMART_MONEY_NO_SEED';
           if (!legs.length && total == null) {
-            flowEl.textContent = result.notice === 'HK_SMART_MONEY_NO_SEED'
+            flowEl.textContent = flowLookupIncomplete
               ? (isEn
-                ? 'Market southbound flow: not loaded (stock seed missing and live relay not completed).'
-                : '南向市場資金流：尚未載入（無個股種子且即時轉送未完成）。')
+                ? 'Market southbound flow: not loaded (live relay incomplete — rate limit or unavailable).'
+                : '南向市場資金流：尚未載入（即時轉送未完成——限流或暫不可用）。')
               : (isEn
                 ? 'Market southbound flow: no rows for the latest session (holiday / unavailable).'
                 : '南向市場資金流：最近交易日無資料（假期或暫缺）。');
@@ -9788,11 +9791,17 @@
       const hasAny = sb.pct != null || events.length || short;
       if (!hasAny) {
         status.className = 'sm-alert-empty';
-        const noSeed = result.notice === 'HK_SMART_MONEY_NO_SEED';
-        status.innerHTML = noSeed
+        // Live failures (RATE_LIMITED / HTTP) become source=empty via emptyPayload —
+        // do not claim official sources were queried and returned nothing.
+        const lookupIncomplete = result.source === 'empty'
+          || result.notice === 'HK_SMART_MONEY_NO_SEED';
+        const noticeHint = result.notice && result.notice !== 'HK_SMART_MONEY_EMPTY'
+          ? ` <code>${escapeAttribute(String(result.notice))}</code>`
+          : '';
+        status.innerHTML = lookupIncomplete
           ? (isEn
-            ? '<strong>No committed HK Smart Money seed</strong><br>Live official lookup was not completed for this ticker (rate limit or relay unavailable). This does not mean DI / southbound / shorts lack the name.'
-            : '<strong>尚無港股智資種子快取</strong><br>此股尚未完成即時官方查詢（可能限流或轉送暫不可用），並不代表 DI、南向持股或淡倉官方來源皆無列。')
+            ? `<strong>HK Smart Money lookup incomplete</strong><br>Live official relay did not finish for this ticker (rate limit or unavailable). This does not mean DI / southbound / shorts lack the name.${noticeHint}`
+            : `<strong>港股智資查詢未完成</strong><br>此股即時官方轉送未完成（可能限流或暫不可用），並不代表 DI、南向持股或淡倉官方來源皆無列。${noticeHint}`)
           : (isEn
             ? '<strong>No HK Smart Money rows yet</strong><br>After querying official relays, DI, southbound, and shorts returned no rows for this ticker (not Connect-eligible, outside lookback, or unavailable).'
             : '<strong>暫無港股智資列</strong><br>已查詢官方轉送後，此股於 DI、南向持股與淡倉皆無列（非港股通、超出回看窗或暫缺）。');
