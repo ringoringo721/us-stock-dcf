@@ -50,8 +50,13 @@ function valuationShares(item, evidence, capital = shareCapital[item.ticker]) {
   if (!capital) return item.shareClassReviewRequired ? unavailable('shareBasisUnverified') : provider;
   const classes = capital.classes;
   const requiredClasses = item.ordinaryShareClasses || ['A', 'H'];
+  // Normal filings are on/after month-end. Allow at most one calendar day early for
+  // issuers that submit on the final business day before the calendar month closes.
+  const earlyFilingMs = day(capital.date) && day(capital.filingDate)
+    ? Date.parse(capital.date) - Date.parse(capital.filingDate) : NaN;
   if (capital.ticker !== item.ticker || capital.coverage !== 'allOrdinaryShareClasses'
-      || !day(capital.date) || !day(capital.filingDate) || capital.filingDate < capital.date
+      || !day(capital.date) || !day(capital.filingDate)
+      || !(earlyFilingMs <= 86400000) // filing more than one day before month-end is invalid
       || !/^https:\/\//.test(capital.url || '') || !/^[a-f0-9]{64}$/.test(capital.documentSha256 || '')
       || !Array.isArray(classes) || !classes.length
       || classes.some(row => !row || row.type !== 'ordinary' || typeof row.name !== 'string' || !row.name.trim()
