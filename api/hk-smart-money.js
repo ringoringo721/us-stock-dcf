@@ -11,7 +11,7 @@ const RATE_WINDOW_MS = 60_000;
 /** Default budget for seed/stock hits. */
 const RATE_MAX = 30;
 /** Tight budget for live upstream scrapes (refresh / di / southbound / flow / shorts). */
-const LIVE_RATE_MAX = 6;
+const LIVE_RATE_MAX = 4;
 const DEFAULT_TTL_MS = 30 * 60 * 1000;
 const FLOW_TTL_MS = 60 * 60 * 1000;
 const SHORT_TTL_MS = 6 * 60 * 60 * 1000;
@@ -19,7 +19,10 @@ const DI_TTL_MS = 3 * 60 * 60 * 1000;
 const DI_LIVE_LOOKBACK = 3;
 /** Live stock scrape: horizon Δ first, then sparse chart samples (serverless budget). */
 const LIVE_SB_MAX_DATES = 28;
-const LIVE_SB_CONCURRENCY = 5;
+const LIVE_SB_CONCURRENCY = 3;
+/** Best-effort per-isolate cap on concurrent multi-horizon stock rebuilds. */
+const LIVE_STOCK_MAX_INFLIGHT = 2;
+let liveStockInflight = 0;
 
 /** Only `NNNN.HK.json` under seed roots — reject `../` / absolute / odd symbols. */
 function seedSafeBasename(symbol) {
@@ -356,34 +359,53 @@ async function buildStockPayload(symbol, fetcher, { refresh = false } = {}) {
     };
   }
 
-  // Live path: probe latest SB as_of, then fetch horizon-critical + weekly chart dates
-  // (same plan as capture seeds) so unseeded names get ICBC-style Δ series — not just 1D.
+  // Live path: probe HKEX "latest" form first (clock-stable), then horizon-critical dates
+  // so unseeded names get ICBC-style Δ series — not just 1D.
   const history = [];
   const sbErrors = [];
   let asOf = null;
-  const probeDays = HkSmartMoney.businessDaysBack(8);
-  for (const day of probeDays) {
-    try {
-      const snap = await fetchSouthboundSnapshot(day, fetcher);
-      if (snap?.rows?.length || Object.keys(snap?.byCode || {}).length) {
-        asOf = snap.as_of || day;
-        const row = snap.byCode?.[stockCode];
-        if (row) {
-          history.push({
-            date: asOf,
-            shares: row.shares,
-            pct: row.pct,
-            name: row.name,
-          });
-        }
-        break;
+  try {
+    const latest = await fetchSouthboundSnapshot(null, fetcher);
+    if (latest?.rows?.length || Object.keys(latest?.byCode || {}).length) {
+      asOf = latest.as_of || null;
+      const row = latest.byCode?.[stockCode];
+      if (row && asOf) {
+        history.push({
+          date: asOf,
+          shares: row.shares,
+          pct: row.pct,
+          name: row.name,
+        });
       }
-    } catch (error) {
-      sbErrors.push({ day, error: error.message || String(error) });
     }
-    await sleep(40);
+  } catch (error) {
+    sbErrors.push({ day: 'latest', error: error.message || String(error) });
   }
-  if (!asOf) asOf = probeDays[0];
+  if (!asOf) {
+    const probeDays = HkSmartMoney.businessDaysBack(8);
+    for (const day of probeDays) {
+      try {
+        const snap = await fetchSouthboundSnapshot(day, fetcher);
+        if (snap?.rows?.length || Object.keys(snap?.byCode || {}).length) {
+          asOf = snap.as_of || day;
+          const row = snap.byCode?.[stockCode];
+          if (row) {
+            history.push({
+              date: asOf,
+              shares: row.shares,
+              pct: row.pct,
+              name: row.name,
+            });
+          }
+          break;
+        }
+      } catch (error) {
+        sbErrors.push({ day, error: error.message || String(error) });
+      }
+      await sleep(40);
+    }
+    if (!asOf) asOf = probeDays[0];
+  }
 
   const dateTargets = HkSmartMoney.planSouthboundHistoryDates(asOf, {
     mode: 'horizons',
@@ -452,22 +474,49 @@ async function buildStockPayload(symbol, fetcher, { refresh = false } = {}) {
     shortError = error.message || String(error);
   }
 
-  // Market flow is market-level: prefer committed market-flow.json history (net_cum_*),
-  // overlay latest SSE/SZSE boxes from a shallow live CSM hit when available.
+  // Market flow is market-level: prefer committed market-flow.json history (net_cum_*).
+  // If live CSM is newer/same day, merge that session into history and rebuild windows
+  // so as_of / boxes / net_cum_* stay on one coherent session.
   let market_flow = readMarketFlowSeed() || seed?.market_flow || null;
   let flowError = null;
   try {
     const liveFlow = await fetchMarketFlow(fetcher);
     if (liveFlow?.southbound?.length) {
       if (market_flow && Array.isArray(market_flow.history) && market_flow.history.length) {
+        const liveAsOf = HkSmartMoney.normalizeIsoDate(liveFlow.as_of);
+        const liveNet = liveFlow.net_buy_total;
+        let hist = market_flow.history.map((row) => ({
+          as_of: row.date || row.as_of,
+          net_buy_total: row.net_buy_total,
+          southbound: [],
+        }));
+        if (liveAsOf && liveNet != null) {
+          const idx = hist.findIndex((row) => HkSmartMoney.normalizeIsoDate(row.as_of) === liveAsOf);
+          if (idx >= 0) {
+            hist[idx] = {
+              as_of: liveAsOf,
+              net_buy_total: liveNet,
+              southbound: liveFlow.southbound,
+            };
+          } else {
+            hist = [{
+              as_of: liveAsOf,
+              net_buy_total: liveNet,
+              southbound: liveFlow.southbound,
+            }, ...hist];
+          }
+        }
+        const rebuilt = HkSmartMoney.buildMarketFlowFromHistory(hist);
         market_flow = {
-          ...market_flow,
-          as_of: liveFlow.as_of || market_flow.as_of,
+          ...rebuilt,
+          source: market_flow.source || 'seed',
+          as_of: liveAsOf || rebuilt.as_of,
           southbound: liveFlow.southbound,
-          net_buy_total: liveFlow.net_buy_total != null
-            ? liveFlow.net_buy_total
-            : market_flow.net_buy_total,
-          turnover_unit: liveFlow.turnover_unit || market_flow.turnover_unit || 'HKD_million',
+          net_buy_total: liveNet != null ? liveNet : rebuilt.net_buy_total,
+          turnover_unit: liveFlow.turnover_unit
+            || market_flow.turnover_unit
+            || rebuilt.turnover_unit
+            || 'HKD_million',
         };
       } else {
         market_flow = { source: 'live', ...liveFlow };
@@ -678,11 +727,27 @@ function createHandler({ fetch: fetcher = globalThis.fetch } = {}) {
             source: seed.source || 'seed',
           }, 'public-seed');
         }
-        // Unseeded (or explicit refresh): live-scrape under the tight budget so every
-        // Connect-eligible .HK stock can populate — not only committed seeds.
+        // Full multi-horizon live rebuild requires refresh=1 (client always sends it on
+        // cache miss). Bare unseeded GETs stay cheap empty — prevents amplification.
+        if (!refresh) {
+          if (rateLimited(req, { live: false })) return send(429, { error: 'RATE_LIMITED' }, 'no-store');
+          const empty = HkSmartMoney.emptyPayload(
+            HkSmartMoney.tickerFromCode(symbol) || String(symbol).toUpperCase(),
+            'HK_SMART_MONEY_NO_SEED',
+          );
+          return send(200, empty, 'no-store');
+        }
         if (!requireLiveBudget()) return;
-        const payload = await buildStockPayload(symbol, fetcher, { refresh: true });
-        return send(200, payload, 'private-live');
+        if (liveStockInflight >= LIVE_STOCK_MAX_INFLIGHT) {
+          return send(429, { error: 'RATE_LIMITED', notice: 'HK_SMART_MONEY_BUSY' }, 'no-store');
+        }
+        liveStockInflight += 1;
+        try {
+          const payload = await buildStockPayload(symbol, fetcher, { refresh: true });
+          return send(200, payload, 'private-live');
+        } finally {
+          liveStockInflight = Math.max(0, liveStockInflight - 1);
+        }
       }
       return send(400, { error: 'INVALID_ACTION' }, 'no-store');
     } catch (error) {
@@ -704,5 +769,6 @@ handler.createHandler = createHandler;
 handler.resetCachesForTests = function resetCachesForTests() {
   cache.clear();
   rateBuckets.clear();
+  liveStockInflight = 0;
 };
 module.exports = handler;

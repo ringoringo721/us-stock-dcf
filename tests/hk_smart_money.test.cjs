@@ -488,7 +488,7 @@ test('live unseeded stock fills multi-horizon southbound Δ and market_flow wind
   const res = mockRes();
   await handler({
     method: 'GET',
-    url: '/api/hk-smart-money?action=stock&symbol=2020.HK',
+    url: '/api/hk-smart-money?action=stock&symbol=2020.HK&refresh=1',
     headers: { 'x-real-ip': '203.0.113.88' },
   }, res);
   assert.equal(res.statusCode, 200);
@@ -502,11 +502,35 @@ test('live unseeded stock fills multi-horizon southbound Δ and market_flow wind
   assert.notEqual(res.body.market_flow?.net_cum_30d, null);
   assert.notEqual(res.body.market_flow?.net_cum_90d, null);
   assert.ok((res.body.market_flow?.history || []).length > 50);
-  // Live overlay refreshed latest boxes.
+  // Live session merged: as_of matches boxes and history head.
+  assert.equal(res.body.market_flow?.as_of, '2026-11-09');
   assert.ok((res.body.market_flow?.southbound || []).length >= 1);
+  assert.equal(res.body.market_flow?.history?.[0]?.date, '2026-11-09');
 });
 
-test('unseeded stock GET live-scrapes under the live budget (no false NO_SEED)', async () => {
+test('unseeded stock GET without refresh stays cheap empty (no upstream scrape)', async () => {
+  createApi.resetCachesForTests();
+  let upstream = 0;
+  const handler = createApi.createHandler({
+    fetch: async () => {
+      upstream += 1;
+      return { ok: true, text: async () => '' };
+    },
+  });
+  const res = mockRes();
+  await handler({
+    method: 'GET',
+    url: '/api/hk-smart-money?action=stock&symbol=9999.HK',
+    headers: { 'x-real-ip': '203.0.113.30' },
+  }, res);
+  assert.equal(res.statusCode, 200);
+  assert.equal(res.body.source, 'empty');
+  assert.equal(res.body.notice, 'HK_SMART_MONEY_NO_SEED');
+  assert.equal(upstream, 0);
+  assert.equal(res.headers['cache-control'], 'no-store');
+});
+
+test('unseeded stock GET with refresh=1 live-scrapes under the live budget', async () => {
   createApi.resetCachesForTests();
   let upstream = 0;
   const sbHtml = `
@@ -542,18 +566,18 @@ test('unseeded stock GET live-scrapes under the live budget (no false NO_SEED)',
   const res = mockRes();
   await handler({
     method: 'GET',
-    url: '/api/hk-smart-money?action=stock&symbol=9999.HK',
+    url: '/api/hk-smart-money?action=stock&symbol=9999.HK&refresh=1',
     headers: { 'x-real-ip': '203.0.113.30' },
   }, res);
   assert.equal(res.statusCode, 200);
   assert.equal(res.body.ticker, '9999.HK');
   assert.equal(res.body.source, 'live');
   assert.equal(res.body.southbound?.pct, 1);
-  assert.ok(upstream > 0, 'unseeded stock must hit upstream');
+  assert.ok(upstream > 0, 'refresh=1 unseeded stock must hit upstream');
   assert.match(res.headers['cache-control'], /^private/);
 });
 
-test('unseeded stock GET respects live rate limit', async () => {
+test('unseeded stock refresh respects live rate limit', async () => {
   createApi.resetCachesForTests();
   const handler = createApi.createHandler({
     fetch: async () => ({ ok: true, text: async () => '' }),
@@ -563,7 +587,7 @@ test('unseeded stock GET respects live rate limit', async () => {
     const res = mockRes();
     await handler({
       method: 'GET',
-      url: '/api/hk-smart-money?action=stock&symbol=8888.HK',
+      url: '/api/hk-smart-money?action=stock&symbol=8888.HK&refresh=1',
       headers: { 'x-real-ip': '203.0.113.31' },
     }, res);
     if (res.statusCode === 429) {

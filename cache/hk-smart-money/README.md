@@ -1,7 +1,7 @@
 # HK Smart Money seeds
 
 Committed snapshots for Preview / cold-start without hammering HKEX / SFC.
-Seeds are **not** an allowlist: unseeded `.HK` tickers live-scrape on `/api/hk-smart-money?action=stock` under the tight live rate budget (or via client `refresh=1`). Live stock rebuilds fetch a planned southbound date set (dense recent sessions + long-horizon snaps + weekly chart samples) and reuse `market-flow.json` history for market-level `net_cum_*` windows.
+Seeds are **not** an allowlist: the UI loads unseeded `.HK` tickers via `/api/hk-smart-money?action=stock&refresh=1` (full multi-horizon live rebuild under a tight per-IP live budget + per-isolate in-flight cap). Bare `action=stock` without `refresh` stays a cheap empty (`HK_SMART_MONEY_NO_SEED`) to avoid amplification. Live rebuilds plan southbound dates for Δ windows and reuse `market-flow.json` history for market-level `net_cum_*` (merging a newer CSM session into that history when present).
 
 | File | Role |
 |------|------|
