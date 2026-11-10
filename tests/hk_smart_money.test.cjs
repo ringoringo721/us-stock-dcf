@@ -379,7 +379,11 @@ test('API stock refresh uses private cache mode on success', async () => {
   await handler({
     method: 'GET',
     url: '/api/hk-smart-money?action=stock&symbol=1398.HK&refresh=1',
-    headers: { 'x-real-ip': '203.0.113.10' },
+    headers: {
+      'x-real-ip': '203.0.113.10',
+      origin: 'http://localhost',
+      'sec-fetch-site': 'same-origin',
+    },
   }, res);
   assert.equal(res.statusCode, 200);
   assert.equal(res.body.ticker, '1398.HK');
@@ -489,7 +493,12 @@ test('live unseeded stock fills multi-horizon southbound Δ and market_flow wind
   await handler({
     method: 'GET',
     url: '/api/hk-smart-money?action=stock&symbol=2020.HK&refresh=1',
-    headers: { 'x-real-ip': '203.0.113.88' },
+    headers: {
+      'x-real-ip': '203.0.113.88',
+      origin: 'http://localhost',
+      referer: 'http://localhost/#2020.HK/smart-money',
+      'sec-fetch-site': 'same-origin',
+    },
   }, res);
   assert.equal(res.statusCode, 200);
   assert.equal(res.body.source, 'live');
@@ -567,7 +576,11 @@ test('unseeded stock GET with refresh=1 live-scrapes under the live budget', asy
   await handler({
     method: 'GET',
     url: '/api/hk-smart-money?action=stock&symbol=9999.HK&refresh=1',
-    headers: { 'x-real-ip': '203.0.113.30' },
+    headers: {
+      'x-real-ip': '203.0.113.30',
+      origin: 'http://localhost',
+      'sec-fetch-site': 'same-origin',
+    },
   }, res);
   assert.equal(res.statusCode, 200);
   assert.equal(res.body.ticker, '9999.HK');
@@ -575,6 +588,26 @@ test('unseeded stock GET with refresh=1 live-scrapes under the live budget', asy
   assert.equal(res.body.southbound?.pct, 1);
   assert.ok(upstream > 0, 'refresh=1 unseeded stock must hit upstream');
   assert.match(res.headers['cache-control'], /^private/);
+});
+
+test('stock refresh=1 without browser Origin/Referer is rejected', async () => {
+  createApi.resetCachesForTests();
+  let upstream = 0;
+  const handler = createApi.createHandler({
+    fetch: async () => {
+      upstream += 1;
+      return { ok: true, text: async () => '' };
+    },
+  });
+  const res = mockRes();
+  await handler({
+    method: 'GET',
+    url: '/api/hk-smart-money?action=stock&symbol=9999.HK&refresh=1',
+    headers: { 'x-real-ip': '203.0.113.44' },
+  }, res);
+  assert.equal(res.statusCode, 403);
+  assert.equal(res.body.error, 'BROWSER_REQUIRED');
+  assert.equal(upstream, 0);
 });
 
 test('unseeded stock refresh respects live rate limit', async () => {
@@ -587,8 +620,12 @@ test('unseeded stock refresh respects live rate limit', async () => {
     const res = mockRes();
     await handler({
       method: 'GET',
-      url: '/api/hk-smart-money?action=stock&symbol=8888.HK&refresh=1',
-      headers: { 'x-real-ip': '203.0.113.31' },
+      url: `/api/hk-smart-money?action=stock&symbol=888${i}.HK&refresh=1`,
+      headers: {
+        'x-real-ip': '203.0.113.31',
+        origin: 'http://localhost',
+        'sec-fetch-site': 'same-origin',
+      },
     }, res);
     if (res.statusCode === 429) {
       limited = true;

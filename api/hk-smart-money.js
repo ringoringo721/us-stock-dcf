@@ -17,12 +17,28 @@ const FLOW_TTL_MS = 60 * 60 * 1000;
 const SHORT_TTL_MS = 6 * 60 * 60 * 1000;
 const DI_TTL_MS = 3 * 60 * 60 * 1000;
 const DI_LIVE_LOOKBACK = 3;
-/** Live stock scrape: horizon Δ first, then sparse chart samples (serverless budget). */
-const LIVE_SB_MAX_DATES = 28;
-const LIVE_SB_CONCURRENCY = 3;
+/** Live stock scrape: horizon Δ first (+ sparse chart fillers within cap). */
+const LIVE_SB_MAX_DATES = 16;
+const LIVE_SB_CONCURRENCY = 2;
 /** Best-effort per-isolate cap on concurrent multi-horizon stock rebuilds. */
-const LIVE_STOCK_MAX_INFLIGHT = 2;
+const LIVE_STOCK_MAX_INFLIGHT = 1;
+const LIVE_STOCK_RESULT_TTL_MS = 15 * 60 * 1000;
 let liveStockInflight = 0;
+
+/** Prefer browser navigations / same-site fetches; block anonymous curl refresh=1 fan-out. */
+function browserLikeLiveRequest(req) {
+  const site = String(req.headers?.['sec-fetch-site'] || '').toLowerCase();
+  if (site === 'same-origin' || site === 'same-site' || site === 'none') return true;
+  const host = String(req.headers?.host || '').toLowerCase();
+  const origin = String(req.headers?.origin || '');
+  const referer = String(req.headers?.referer || '');
+  if (!origin && !referer) return false;
+  const blob = `${origin} ${referer}`.toLowerCase();
+  if (host && blob.includes(host)) return true;
+  if (blob.includes('localhost') || blob.includes('127.0.0.1')) return true;
+  if (/\.vercel\.app\b/.test(blob) || /us-stock-dcf/.test(blob)) return true;
+  return false;
+}
 
 /** Only `NNNN.HK.json` under seed roots — reject `../` / absolute / odd symbols. */
 function seedSafeBasename(symbol) {
@@ -727,8 +743,9 @@ function createHandler({ fetch: fetcher = globalThis.fetch } = {}) {
             source: seed.source || 'seed',
           }, 'public-seed');
         }
-        // Full multi-horizon live rebuild requires refresh=1 (client always sends it on
-        // cache miss). Bare unseeded GETs stay cheap empty — prevents amplification.
+        // Full multi-horizon live rebuild requires refresh=1 (UI sends it on cache miss).
+        // Bare unseeded GETs stay cheap empty. refresh=1 also needs a browser-like
+        // Origin/Referer/Sec-Fetch-Site so anonymous curl cannot cheaply amplify.
         if (!refresh) {
           if (rateLimited(req, { live: false })) return send(429, { error: 'RATE_LIMITED' }, 'no-store');
           const empty = HkSmartMoney.emptyPayload(
@@ -737,6 +754,16 @@ function createHandler({ fetch: fetcher = globalThis.fetch } = {}) {
           );
           return send(200, empty, 'no-store');
         }
+        if (!browserLikeLiveRequest(req)) {
+          return send(403, { error: 'BROWSER_REQUIRED' }, 'no-store');
+        }
+        const stockCode = HkSmartMoney.codeFromTicker(symbol);
+        const liveCacheKey = `live-stock:${HkSmartMoney.tickerFromCode(stockCode) || String(symbol).toUpperCase()}`;
+        const cachedLive = cacheGet(liveCacheKey);
+        if (cachedLive) {
+          if (rateLimited(req, { live: false })) return send(429, { error: 'RATE_LIMITED' }, 'no-store');
+          return send(200, { ...cachedLive, source: cachedLive.source || 'live' }, 'private-live');
+        }
         if (!requireLiveBudget()) return;
         if (liveStockInflight >= LIVE_STOCK_MAX_INFLIGHT) {
           return send(429, { error: 'RATE_LIMITED', notice: 'HK_SMART_MONEY_BUSY' }, 'no-store');
@@ -744,6 +771,7 @@ function createHandler({ fetch: fetcher = globalThis.fetch } = {}) {
         liveStockInflight += 1;
         try {
           const payload = await buildStockPayload(symbol, fetcher, { refresh: true });
+          cacheSet(liveCacheKey, payload, LIVE_STOCK_RESULT_TTL_MS);
           return send(200, payload, 'private-live');
         } finally {
           liveStockInflight = Math.max(0, liveStockInflight - 1);
