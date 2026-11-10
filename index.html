@@ -9671,27 +9671,63 @@
           }
         }
         if (flowEl) {
-          flowEl.textContent = !legs.length && total == null
-            ? (isEn
-              ? 'Market southbound flow: no rows for the latest session (holiday / unavailable).'
-              : '南向市場資金流：最近交易日無資料（假期或暫缺）。')
-            : `${isEn ? 'As of' : '截至'} ${flow?.as_of || '—'}`
+          // source=empty means seed miss / rate-limit / relay error — not a holiday session.
+          const flowLookupIncomplete = result.source === 'empty'
+            || result.notice === 'HK_SMART_MONEY_NO_SEED';
+          if (!legs.length && total == null) {
+            flowEl.textContent = flowLookupIncomplete
+              ? (isEn
+                ? 'Market southbound flow: not loaded (live relay incomplete — rate limit or unavailable).'
+                : '南向市場資金流：尚未載入（即時轉送未完成——限流或暫不可用）。')
+              : (isEn
+                ? 'Market southbound flow: no rows for the latest session (holiday / unavailable).'
+                : '南向市場資金流：最近交易日無資料（假期或暫缺）。');
+          } else {
+            flowEl.textContent = `${isEn ? 'As of' : '截至'} ${flow?.as_of || '—'}`
               + ` · ${isEn ? 'latest session net turnover' : '最近交易日淨成交額'}`
               + ` · ${isEn ? 'unit HK$ million' : '單位：百萬港元'}`;
+          }
         }
         if (flowDeltaBody) {
           const windows = (HK.SOUTHBOUND_LONG_CAL_DAYS || [30, 60, 90, 120, 150, 180, 270, 360])
             .map(d => ({
               key: `net_cum_${d}d`,
+              days: d,
               label: isEn ? `${d}D cumulative` : `${d}日累計`,
             }));
-          flowDeltaBody.innerHTML = windows.map((win) => {
+          const availLabel = flow?.history_from && flow?.as_of
+            ? (isEn
+              ? `Available span (${flow.history_from}→${flow.as_of})`
+              : `有史累計（${flow.history_from}→${flow.as_of}）`)
+            : (isEn ? 'Available span cumulative' : '有史累計');
+          const rowsHtml = windows.map((win) => {
             const value = flow?.[win.key] != null ? flow[win.key] : flow?.changes?.[win.key];
+            const cell = value != null
+              ? fmtNet(value)
+              : (HK.marketFlowCumUnavailableReason
+                ? HK.marketFlowCumUnavailableReason(flow, win.days, isEn ? 'en' : 'zh')
+                : '—');
             return `<tr>
               <td class="table-sticky-col">${escapeAttribute(win.label)}</td>
-              <td>${escapeAttribute(fmtNet(value))}</td>
+              <td>${escapeAttribute(cell)}</td>
             </tr>`;
           }).join('');
+          const availVal = flow?.net_cum_available;
+          const availRow = availVal != null
+            ? `<tr>
+              <td class="table-sticky-col">${escapeAttribute(availLabel)}</td>
+              <td>${escapeAttribute(fmtNet(availVal))}</td>
+            </tr>`
+            : '';
+          flowDeltaBody.innerHTML = rowsHtml + availRow;
+        }
+        if (flowEl && (legs.length || total != null) && flow?.history_from) {
+          const spanNote = isEn
+            ? ` · CSM online history from ${flow.history_from} (~${flow.history_span_days ?? '—'}d); 270/360 fill only when that span covers the window`
+            : ` · 網上 CSM 歷史自 ${flow.history_from}（約 ${flow.history_span_days ?? '—'} 日）；270／360 日僅在覆蓋足夠時顯示`;
+          if (flowEl.textContent && !flowEl.textContent.includes(flow.history_from)) {
+            flowEl.textContent += spanNote;
+          }
         }
       }
 
@@ -9782,9 +9818,20 @@
       const hasAny = sb.pct != null || events.length || short;
       if (!hasAny) {
         status.className = 'sm-alert-empty';
-        status.innerHTML = isEn
-          ? '<strong>No HK Smart Money rows yet</strong><br>Official sources returned empty for DI, southbound, and shorts on this ticker.'
-          : '<strong>暫無港股智資列</strong><br>此股於 DI、南向持股與淡倉官方來源皆無列。';
+        // Live failures (RATE_LIMITED / HTTP) become source=empty via emptyPayload —
+        // do not claim official sources were queried and returned nothing.
+        const lookupIncomplete = result.source === 'empty'
+          || result.notice === 'HK_SMART_MONEY_NO_SEED';
+        const noticeHint = result.notice && result.notice !== 'HK_SMART_MONEY_EMPTY'
+          ? ` <code>${escapeAttribute(String(result.notice))}</code>`
+          : '';
+        status.innerHTML = lookupIncomplete
+          ? (isEn
+            ? `<strong>HK Smart Money lookup incomplete</strong><br>Live official relay did not finish for this ticker (rate limit or unavailable). This does not mean DI / southbound / shorts lack the name.${noticeHint}`
+            : `<strong>港股智資查詢未完成</strong><br>此股即時官方轉送未完成（可能限流或暫不可用），並不代表 DI、南向持股或淡倉官方來源皆無列。${noticeHint}`)
+          : (isEn
+            ? '<strong>No HK Smart Money rows yet</strong><br>After querying official relays, DI, southbound, and shorts returned no rows for this ticker (not Connect-eligible, outside lookback, or unavailable).'
+            : '<strong>暫無港股智資列</strong><br>已查詢官方轉送後，此股於 DI、南向持股與淡倉皆無列（非港股通、超出回看窗或暫缺）。');
       } else {
         status.className = 'analysis-note';
         status.textContent = `${ticker} · ${isEn ? 'HK Smart Money' : '港股智資動態'}`

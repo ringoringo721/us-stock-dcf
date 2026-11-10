@@ -461,6 +461,18 @@
       changes[key] = sumNullable(inWindow.map((row) => row.net_buy_total));
     }
 
+    let historySpanDays = null;
+    if (latest?.date && oldest?.date) {
+      historySpanDays = Math.round(
+        (Date.parse(`${latest.date}T00:00:00Z`) - Date.parse(`${oldest.date}T00:00:00Z`)) / 86400000,
+      );
+      if (!Number.isFinite(historySpanDays) || historySpanDays < 0) historySpanDays = null;
+    }
+    // Full available online/seed span (not a fixed 270/360 window).
+    const net_cum_available = history.length
+      ? sumNullable(history.map((row) => row.net_buy_total))
+      : null;
+
     const legs = (latestRich?.southbound || []).map((leg) => ({
       market: leg.market,
       date: leg.date,
@@ -471,6 +483,9 @@
     }));
     return {
       as_of: latest?.date || null,
+      history_from: oldest?.date || null,
+      history_span_days: historySpanDays,
+      net_cum_available: net_cum_available != null ? round4(net_cum_available) : null,
       turnover_unit: 'HKD_million',
       southbound: legs,
       net_buy_total: latest?.net_buy_total ?? null,
@@ -485,6 +500,67 @@
       net_cum_360d: changes.net_cum_360d ?? null,
       changes,
     };
+  }
+
+  /** Honest cell text when net_cum_Nd is null (usually CSM online retention ~Apr 2026+). */
+  function marketFlowCumUnavailableReason(flow, days, lang = 'zh') {
+    const en = String(lang || '').toLowerCase().startsWith('en');
+    const asOf = normalizeIsoDate(flow?.as_of);
+    const from = normalizeIsoDate(flow?.history_from)
+      || normalizeIsoDate(flow?.history?.[(flow.history || []).length - 1]?.date);
+    const span = flow?.history_span_days;
+    if (!asOf || !from || days == null) return '—';
+    const start = shiftCalendarDays(asOf, days);
+    if (start && from > start) {
+      return en
+        ? `— (CSM online from ${from}; span ${span ?? '—'}d < ${days}d)`
+        : `—（網上 CSM 自 ${from}；現有 ${span ?? '—'} 日 < ${days} 日）`;
+    }
+    return en ? '— (sparse history)' : '—（歷史密度不足）';
+  }
+
+  /**
+   * Dates needed so live/seed rebuilds can fill ICBC-style Δ windows + a chart series.
+   * - mode "full" (capture): dense recent month + long snaps + weekly samples
+   * - mode "horizons" (live API): exact 1/5/20D priors + long snaps + sparser weekly
+   *   samples so serverless stays inside maxDuration while still filling Δ tables.
+   */
+  function planSouthboundHistoryDates(asOf, {
+    mode = 'full',
+    denseBizDays = 25,
+    weeklyBizSpan = 270,
+    weeklyStep = 5,
+    maxDates = 70,
+  } = {}) {
+    const asOfIso = normalizeIsoDate(asOf) || businessDaysBack(1)[0];
+    const required = new Set([asOfIso]);
+    if (mode === 'horizons') {
+      for (const days of SOUTHBOUND_SHORT_BIZ_DAYS) {
+        const prior = businessDaysBack(days + 1, asOfIso)[days];
+        if (prior) required.add(prior);
+        // Neighbors help when HKEX is missing the exact session.
+        const near = businessDaysBack(days + 2, asOfIso);
+        if (near[days + 1]) required.add(near[days + 1]);
+      }
+    } else {
+      for (const day of businessDaysBack(denseBizDays, asOfIso)) required.add(day);
+    }
+    for (const days of SOUTHBOUND_LONG_CAL_DAYS) {
+      const target = shiftCalendarDays(asOfIso, days);
+      if (!target) continue;
+      // One session on/before target (+1 prior) so calendar Δ finds a row within maxGapDays.
+      for (const day of businessDaysBack(2, target)) required.add(day);
+    }
+    const step = mode === 'horizons' ? Math.max(weeklyStep, 8) : weeklyStep;
+    const fillers = [];
+    const yearBiz = businessDaysBack(weeklyBizSpan, asOfIso);
+    for (let i = 0; i < yearBiz.length; i += step) {
+      if (!required.has(yearBiz[i])) fillers.push(yearBiz[i]);
+    }
+    const requiredSorted = [...required].sort((a, b) => String(b).localeCompare(String(a)));
+    const room = Math.max(0, maxDates - requiredSorted.length);
+    return [...requiredSorted, ...fillers.slice(0, room)]
+      .sort((a, b) => String(b).localeCompare(String(a)));
   }
 
   function buildSouthboundForCode(historyRows) {
@@ -627,9 +703,10 @@
     }).catch(() => null);
   }
 
-  function loadStockLive(ticker) {
+  function loadStockLive(ticker, { refresh = false } = {}) {
     const symbol = encodeURIComponent(String(ticker || '').toUpperCase());
-    return fetch(`/api/hk-smart-money?action=stock&symbol=${symbol}`, { cache: 'no-store' })
+    const qs = refresh ? '&refresh=1' : '';
+    return fetch(`/api/hk-smart-money?action=stock&symbol=${symbol}${qs}`, { cache: 'no-store' })
       .then(async (response) => {
         const body = await response.json().catch(() => ({}));
         if (!response.ok) {
@@ -646,7 +723,9 @@
     const symbol = String(ticker || '').toUpperCase();
     return loadStockCache(symbol).then((cached) => {
       if (seedLooksUseful(cached)) return cached;
-      return loadStockLive(symbol).then(
+      // Cache miss / thin seed: request live rebuild (refresh=1) so unseeded tickers
+      // like 2020.HK populate from official sources instead of a false empty.
+      return loadStockLive(symbol, { refresh: true }).then(
         (live) => live,
         (error) => emptyPayload(symbol, error.message || 'HK_SMART_MONEY_UNAVAILABLE'),
       );
@@ -684,8 +763,10 @@
     shiftCalendarDays,
     historyRowBusinessDaysAgo,
     historyRowCalendarDaysAgo,
+    planSouthboundHistoryDates,
     buildSouthboundForCode,
     buildMarketFlowFromHistory,
+    marketFlowCumUnavailableReason,
     buildShortForCode,
     diActionLabel,
     roleLabel,

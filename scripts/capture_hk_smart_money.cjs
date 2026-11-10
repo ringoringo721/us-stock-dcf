@@ -122,21 +122,7 @@ async function main() {
   }
   process.stdout.write(`SB as_of for horizons: ${asOf}\n`);
 
-  const sbDateSet = new Set(Object.keys(sbHistory));
-  // Dense ~1 month so 1D/5D/20D still resolve.
-  for (const day of HkSmartMoney.businessDaysBack(25, asOf)) sbDateSet.add(day);
-  for (const days of HkSmartMoney.SOUTHBOUND_LONG_CAL_DAYS) {
-    const target = HkSmartMoney.shiftCalendarDays(asOf, days);
-    if (!target) continue;
-    // Snap to business day on/before target (and one prior) so Δ rows land ≤ target.
-    const snapped = HkSmartMoney.businessDaysBack(2, target);
-    for (const day of snapped) sbDateSet.add(day);
-  }
-  // Weekly samples across ~52 weeks (~260 biz days), plus a couple days past 360d.
-  const yearBiz = HkSmartMoney.businessDaysBack(270, asOf);
-  for (let i = 0; i < yearBiz.length; i += 5) sbDateSet.add(yearBiz[i]);
-
-  const sbDates = [...sbDateSet].sort((a, b) => String(b).localeCompare(String(a)));
+  const sbDates = HkSmartMoney.planSouthboundHistoryDates(asOf, { maxDates: 120 });
   process.stdout.write(`SB dates planned: ${sbDates.length}\n`);
   for (const day of sbDates) {
     if (sbHistory[day]) continue;
@@ -159,9 +145,9 @@ async function main() {
     await sleep(100);
   }
 
-  // Dense CSM DailyStat history for money horizons (online retention ~Apr 2026+).
-  // Cumulative nets need nearly every session — sparse samples would understate.
-  const flowDays = HkSmartMoney.businessDaysBack(160);
+  // Dense CSM DailyStat history for money horizons (public online retention ~2026-04-15+).
+  // 270/360 stay honest null until retention covers those windows; pull all available sessions.
+  const flowDays = HkSmartMoney.businessDaysBack(230);
   process.stdout.write(`CSM flow dates planned: ${flowDays.length}\n`);
   const flowSnaps = [];
   for (const day of flowDays) {

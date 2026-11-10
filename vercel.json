@@ -1,6 +1,11 @@
 {
   "buildCommand": "node scripts/build_site.cjs",
   "outputDirectory": "public",
+  "functions": {
+    "api/hk-smart-money.js": {
+      "maxDuration": 120
+    }
+  },
   "git": {
     "deploymentEnabled": {
       "ringoringo721-dcf-historical-chart-fix": false
