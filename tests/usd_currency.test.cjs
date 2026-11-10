@@ -212,3 +212,27 @@ test('Noncalendar fiscal periods use actual prior report dates and reject ambigu
   source.quarterly.income[1].periodStartDate = '2026-01-04';
   assert.equal(convertStatements(source, rates).quarterly.income[1].currencyConversion.start, '2026-01-04');
 });
+
+test('Oldest non-December FYE annual row infers a 12-month FX start without a prior FY (VOD)', () => {
+  const source = raw('VOD');
+  const converted = convertStatements({ ...source, calculationCurrency: 'USD' }, rates, 'USD');
+  const oldest = converted.annual.income.find(row => row.date === '2022-03-31');
+  assert.ok(oldest, 'FY2022 Mar-end row present');
+  assert.equal(oldest.currencyConversion.start, '2021-04-01');
+  assert.equal(oldest.currencyConversion.reason, null);
+  assert.ok(oldest.revenue > 0, 'EUR→USD average FX yields positive revenue');
+  const march = convertStatements({
+    calculationCurrency: 'USD',
+    annual: {
+      income: [{ date: '2022-03-31', period: 'FY', fiscalYear: '2022', reportedCurrency: 'EUR',
+        revenue: 1e9, ebitda: 1 }],
+      balance: [{ date: '2022-03-31', period: 'FY', fiscalYear: '2022', reportedCurrency: 'EUR',
+        totalAssets: 1e9 }],
+      cashflow: [{ date: '2022-03-31', period: 'FY', fiscalYear: '2022', reportedCurrency: 'EUR',
+        capitalExpenditure: -1 }]
+    },
+    quarterly: { income: [], balance: [], cashflow: [] }
+  }, rates, 'USD');
+  assert.equal(march.annual.income[0].currencyConversion.start, '2021-04-01');
+  assert.equal(march.annual.income[0].currencyConversion.reason, null);
+});
