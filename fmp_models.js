@@ -127,9 +127,33 @@
       TTM_CASHFLOW_UNAVAILABLE: ['最近四個季報收入缺同日同季現金流量表，略過 TTM（常見於最新一季現金流尚未入庫）。', 'A matching same-date/period cash-flow row is missing for the trailing four income quarters; TTM is omitted (often the newest quarter’s cash flow is not yet in cache).'],
       TTM_NOT_NEWER_THAN_LATEST_FY: ['TTM 窗口並未新於最新完整財年（季報止於財年末），故不另列 TTM。', 'TTM window is not newer than the latest full fiscal year (quarters end on the FY close); no separate TTM row.'],
       TTM_REVENUE_UNAVAILABLE: ['TTM 營收非正數，略過參考列。', 'TTM revenue is nonpositive; the reference row is omitted.'],
-      TTM_EQUALS_LATEST_FY: ['TTM 與最新完整財年比率／營收實質相同，不重複列示。', 'TTM ratios/revenue essentially match the latest full fiscal year; the duplicate row is omitted.']
+      TTM_EQUALS_LATEST_FY: ['TTM 與最新完整財年比率／營收實質相同，不重複列示。', 'TTM ratios/revenue essentially match the latest full fiscal year; the duplicate row is omitted.'],
+      HISTORY_BASE_UNAVAILABLE: ['缺少可用的預測基期財年，無法建立近五年實績參考。', 'Forecast base fiscal year is unavailable; five-year history cannot be built.'],
+      HISTORY_STATEMENTS_UNAVAILABLE: ['缺少年度財報，無法建立近五年實績參考。', 'Annual statements are unavailable; five-year history cannot be built.'],
+      HISTORY_FIVE_YEAR_INCOMPLETE: ['近五年完整財年資料不齊，無法顯示五年實績表。', 'Fewer than five consecutive full fiscal years are available for the history table.'],
+      MISSING_FY: ['缺完整財年收入列', 'missing full FY income row'],
+      AMBIGUOUS_FY: ['同一財年有多筆完整年報', 'multiple full FY income rows'],
+      FX_REVENUE_UNAVAILABLE: ['換匯後營收不可用', 'FX-converted revenue unavailable'],
+      NONPOSITIVE_REVENUE: ['營收非正數', 'revenue not positive'],
+      missingFxPeriod: ['缺換匯期間（期初日）', 'FX period start missing'],
+      missingFxCurrency: ['匯率序列缺少此幣別', 'FX series missing this currency'],
+      missingFxDate: ['匯率觀測日不足', 'FX observations do not cover the date'],
+      incompleteFxPeriod: ['換匯期間觀測不完整', 'FX period observations incomplete']
     };
     return messages[reason]?.[language === 'en' ? 1 : 0] || reason || '';
+  }
+
+  function historyGapsText(history, language) {
+    const gaps = history?.gaps || [];
+    if (!gaps.length) return '';
+    const en = language === 'en';
+    return gaps.map(gap => {
+      const label = reasonText(gap.code, language) || gap.code;
+      const fx = gap.detail && gap.code === 'FX_REVENUE_UNAVAILABLE'
+        ? ` (${reasonText(gap.detail, language) || gap.detail})` : '';
+      const date = gap.date ? ` @ ${gap.date}` : '';
+      return en ? `FY ${gap.year}${date}: ${label}${fx}` : `FY${gap.year}${date}：${label}${fx}`;
+    }).join(en ? '; ' : '；');
   }
 
   function valuationConfidence({ stock, result, scenario = null, mode = 'vendor', statementsMissing = false }) {
@@ -531,8 +555,14 @@
   function historyPanelHtml(text) {
     const history = Scenario.fiveYearHistory(state.actualStatements, state.sourceData, state.kind);
     if (history.reason) {
+      const language = state.language();
+      const headline = reasonText(history.reason, language) || history.reason;
+      const gaps = historyGapsText(history, language);
+      const fallback = state.actualError ? reasonText(state.actualError, language) || state.actualError : '';
+      const detail = gaps || fallback;
       return `<section id="fmp-fy-history"><h4>${text('近五年實績參考', 'Last five FY reference')}</h4>
-        <p class="analysis-note">N/A — ${escape(state.actualError || history.reason)}</p></section>`;
+        <p class="analysis-note" id="fmp-fy-history-unavailable">N/A — ${escape(headline)}${
+          detail ? ` · ${escape(detail)}` : ''}</p></section>`;
     }
     const labels = {
       growth: text('營收成長 %', 'Revenue growth %'),

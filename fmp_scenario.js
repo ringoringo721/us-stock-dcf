@@ -242,18 +242,43 @@
     };
   }
 
+  function historyYearGap(year, incomeMatches) {
+    if (incomeMatches.length === 0) {
+      return { year, code: 'MISSING_FY', detail: 'missing full FY income row' };
+    }
+    if (incomeMatches.length !== 1) {
+      return { year, code: 'AMBIGUOUS_FY', detail: `${incomeMatches.length} full FY income rows` };
+    }
+    const row = incomeMatches[0];
+    if (!(row.revenue > 0)) {
+      const fx = row.currencyConversion?.reason;
+      if (fx) {
+        return { year, code: 'FX_REVENUE_UNAVAILABLE', detail: fx, date: row.date || null };
+      }
+      return { year, code: 'NONPOSITIVE_REVENUE', detail: 'revenue not positive', date: row.date || null };
+    }
+    return null;
+  }
+
   function fiveYearHistory(statements, data, kind = 'advanced') {
-    const unavailable = reason => ({ reason, years: [], metrics: {}, summary: {}, ttm: null });
+    const unavailable = (reason, gaps = []) => ({
+      reason, gaps, years: [], metrics: {}, summary: {}, ttm: null
+    });
     const base = data?.forecastBase;
     if (!base || !Number.isInteger(base.year)) return unavailable('HISTORY_BASE_UNAVAILABLE');
     if (!statements?.annual?.income) return unavailable('HISTORY_STATEMENTS_UNAVAILABLE');
     const currency = data.currencyCheck?.sourceCurrency;
     const years = [];
+    const gaps = [];
     for (let offset = 4; offset >= 0; offset--) {
       const year = base.year - offset;
       const incomeMatches = statements.annual.income.filter(row => Number(row.fiscalYear || row.calendarYear) === year
         && fullAnnualPeriod(row) && matchesReportingCurrency(row, currency));
-      if (incomeMatches.length !== 1 || !(incomeMatches[0].revenue > 0)) return unavailable('HISTORY_FIVE_YEAR_INCOMPLETE');
+      const gap = historyYearGap(year, incomeMatches);
+      if (gap) {
+        gaps.push(gap);
+        continue;
+      }
       const income = incomeMatches[0];
       const cashMatches = (statements.annual.cashflow || []).filter(row => row.date === income.date
         && fullAnnualPeriod(row) && matchesReportingCurrency(row, currency));
@@ -274,6 +299,7 @@
         tax
       });
     }
+    if (gaps.length) return unavailable('HISTORY_FIVE_YEAR_INCOMPLETE', gaps);
     const keys = historyMetricKeys(kind);
     const metrics = Object.fromEntries(keys.map(key => [key, years.map(row => row[key])]));
     const first = years[0], last = years.at(-1);

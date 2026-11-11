@@ -557,6 +557,47 @@ test('revenue growth suggestion prefers historical CAGR then peers then mature d
   assert.equal(manual.reason, 'GROWTH_REQUIRES_MANUAL_INPUT');
 });
 
+test('VOD March FYE five-year history survives USD FX convert of the oldest FY', () => {
+  const UsdCurrency = require('../usd_currency.js');
+  const rates = require('../cache/fx/usd_rates.json');
+  const Pack = require('../statements_model_pack.js');
+  const raw = require('../cache/financials/VOD_statements_v2.json');
+  const stock = { ticker: 'VOD', reportedCurrency: 'EUR', calculationCurrency: 'USD',
+    net_debt: 42527.3, beta: 0.32, growth_10y: [5, 4, 3, 3, 3, 2.5, 2.5, 2.5, 2.5, 2.5],
+    price: 15, shares_outstanding: 2.3e9, debt: 60e3, mcap: 36e3, fair_val: 12, tax: 21 };
+  const pack = Pack.build('VOD', raw, stock, 'EUR', '2026-11-10T00:00:00Z');
+  pack.currency = 'USD';
+  pack.currencyCheck = { ...pack.currencyCheck, currency: 'USD', sourceCurrency: 'EUR' };
+  assert.equal(pack.forecastBase.year, 2026);
+  const converted = UsdCurrency.convertStatements({ ...raw, calculationCurrency: 'USD' }, rates, 'USD');
+  const history = Scenario.fiveYearHistory(converted, pack, 'advanced');
+  assert.equal(history.reason, null);
+  assert.deepEqual(history.years.map(row => row.year), [2022, 2023, 2024, 2025, 2026]);
+  assert.ok(history.years.every(row => row.revenue > 0));
+});
+
+test('five-year history gaps name the missing FY when data is honestly incomplete', () => {
+  const data = {
+    forecastBase: { year: 2025, date: '2025-12-31', reason: null },
+    currencyCheck: { sourceCurrency: 'USD' }
+  };
+  const mk = (year, revenue) => ({
+    date: `${year}-12-31`, period: 'FY', fiscalYear: String(year), calendarYear: year,
+    reportedCurrency: 'USD', revenue, ebitda: revenue * 0.2, incomeBeforeTax: revenue * 0.1,
+    incomeTaxExpense: revenue * 0.02, depreciationAndAmortization: revenue * 0.05
+  });
+  const statements = {
+    annual: {
+      income: [mk(2023, 100), mk(2024, 110), mk(2025, 120)],
+      cashflow: []
+    }
+  };
+  const history = Scenario.fiveYearHistory(statements, data, 'advanced');
+  assert.equal(history.reason, 'HISTORY_FIVE_YEAR_INCOMPLETE');
+  assert.deepEqual(history.gaps.map(gap => gap.year), [2021, 2022]);
+  assert.ok(history.gaps.every(gap => gap.code === 'MISSING_FY'));
+});
+
 test('five-year history accepts USD-normalized ADR filings keyed by sourceCurrency (TSM)', () => {
   const UsdCurrency = require('../usd_currency.js');
   const company = read('TSM');

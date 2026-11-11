@@ -84,12 +84,18 @@
           const previous = endings.get(periodKey(row, annual) - step);
           if (!unknownDuration && !iso(start) && previous) start = new Date(Date.parse(previous) + day).toISOString().slice(0, 10);
           // Standard calendar periods have unambiguous starts even when the previous report is absent.
+          // Full annual FY rows ending on a month-end (Dec, Mar, Jun, Sep, Oct, …) span the prior
+          // 12 months; without a previous FY in cache the oldest year used to leave start unset,
+          // so average FX returned missingFxPeriod and five-year history collapsed to N/A (VOD).
           if (!unknownDuration && !iso(start) && iso(row.date)) {
             const date = new Date(row.date);
             const month = date.getUTCMonth();
             const calendarEnd = new Date(Date.UTC(date.getUTCFullYear(), month + 1, 0)).getUTCDate() === date.getUTCDate();
-            if (annual && month === 11 && calendarEnd) start = `${date.getUTCFullYear()}-01-01`;
-            else if (!annual && step === 1 && calendarEnd && month % 3 === 2 && row.period === `Q${(month + 1) / 3}`) {
+            const fullYear = annual && calendarEnd
+              && (row.periodLength === 12 || row.periodLength === undefined && row.period === 'FY');
+            if (fullYear) {
+              start = new Date(Date.UTC(date.getUTCFullYear(), month - 11, 1)).toISOString().slice(0, 10);
+            } else if (!annual && step === 1 && calendarEnd && month % 3 === 2 && row.period === `Q${(month + 1) / 3}`) {
               start = `${date.getUTCFullYear()}-${String(month - 1).padStart(2, '0')}-01`;
             }
           }
