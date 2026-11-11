@@ -2,58 +2,58 @@
   "ticker": "SO",
   "period": "2026Q3",
   "m1_brand_pricing": {
-    "score": 3,
-    "comment_zh": "南方公司作為一家公用事業公司，其品牌價值主要體現在穩定可靠的服務上，而非強勢的品牌溢價能力。在電力行業，消費者對價格的敏感度較高，公司難以像消費品品牌那樣制定顯著的價格差異。其品牌更多是建立在監管框架下的服務承諾，而非市場競爭中的差異化優勢。因此，在品牌定價權方面，其護城河相對較弱，難以抵禦潛在的成本上升壓力或監管變動。",
-    "comment_en": "Southern Company, as a utility provider, derives its brand value primarily from reliable and stable service rather than strong pricing power. In the electricity sector, consumers are highly price-sensitive, making it difficult for the company to command significant price premiums akin to consumer goods brands. Its brand is more a commitment to service within a regulatory framework than a differentiator in market competition. Consequently, its moat in brand pricing power is relatively weak, struggling to withstand potential cost increases or regulatory shifts."
+    "score": 7,
+    "comment_zh": "南方電力作為一家大型公用事業公司，其品牌在穩定性與可靠性方面具有一定價值，尤其在面對區域性競爭時，其長期建立的信譽能提供一定的定價緩衝。然而，公用事業的定價權受到嚴格的監管，難以大幅超出成本反映的水平，因此品牌溢價空間有限。其品牌價值更多體現在客戶信任和服務穩定性上，而非追求高利潤的定價能力。與其他行業相比，其品牌壁壘相對穩固但缺乏彈性。",
+    "comment_en": "As a large utility company, Southern Company's brand holds value in terms of stability and reliability, offering some pricing buffer, especially against regional competitors, due to its long-established reputation. However, utility pricing is heavily regulated, limiting significant markups beyond cost recovery. Thus, brand premium potential is constrained. Its brand value is more about customer trust and service consistency than high-profit pricing power. Compared to other industries, its brand moat is relatively solid but lacks flexibility."
   },
   "m2_patents_regulatory": {
-    "score": 8,
-    "comment_zh": "南方公司處於受嚴格監管的公用事業行業，這構成了其主要的護城河。特許經營權和政府監管在很大程度上限制了市場競爭，確保了公司在服務區域內的壟斷地位。這種監管環境雖然也帶來了成本和合規壓力，但同時也為公司提供了穩定的收入來源和可預測的業務模式。專利方面，雖然不如科技公司顯著，但在發電技術和電網管理方面仍有一定專利保護，但監管壁壘是其核心優勢。",
-    "comment_en": "Southern Company operates in a heavily regulated utility sector, which forms its primary moat. Franchise rights and government regulation significantly limit market competition, ensuring the company's monopolistic position within its service territories. While this regulatory environment imposes costs and compliance pressures, it also provides a stable revenue stream and a predictable business model. Regarding patents, though less prominent than in tech companies, there is some patent protection in power generation and grid management, but the regulatory barrier is its core strength."
+    "score": 9,
+    "comment_zh": "南方電力在電力公用事業領域，受到嚴格的政府監管和特許經營權保護，這是其最核心的護城河。其營運區域內的電力供應幾乎沒有競爭，相當於一個受保護的收費橋。監管機構批准的費率結構確保了其收入的穩定性和可預測性，儘管這也限制了其利潤的爆發力。這種特許經營權的壁壘極高，幾乎無法被顛覆，為公司提供了長期的穩定現金流。",
+    "comment_en": "Southern Company operates within the heavily regulated electric utility sector, protected by government oversight and exclusive operating franchises, forming its most significant moat. Competition for electricity supply within its service territories is virtually non-existent, akin to a protected toll bridge. The rate structures approved by regulators ensure stable and predictable revenues, though this also caps profit potential. This franchise barrier is exceptionally high and nearly impossible to disrupt, providing the company with long-term, stable cash flows."
   },
   "m3_high_switching_costs": {
-    "score": 7,
-    "comment_zh": "對於電力消費者而言，更換電力供應商的轉換成本相對較高。這不僅涉及尋找新供應商、辦理手續的麻煩，更重要的是，基礎設施（如電線、插座）是固定的，消費者無法輕易更換。雖然在某些開放市場中存在選擇權，但對於大多數家庭和企業來說，更換電力供應商並非日常考量，且實際操作中的不便和潛在的服務中斷風險，都增加了轉換的難度，從而為現有供應商提供了穩定的客戶基礎。",
-    "comment_en": "For electricity consumers, the switching costs to change providers are relatively high. This involves not only the hassle of finding a new supplier and completing paperwork but, more importantly, the fixed nature of infrastructure (wiring, outlets) that consumers cannot easily alter. While choice exists in some deregulated markets, for most households and businesses, switching electricity providers is not a routine consideration. The practical inconveniences and potential risks of service interruption increase the difficulty of switching, thereby providing existing suppliers with a stable customer base."
+    "score": 8,
+    "comment_zh": "對於電力消費者而言，轉換電力供應商的成本極高，幾乎不存在。用戶的電力設備和基礎設施是為現有供應商設計的，更換供應商不僅需要克服技術上的複雜性，還可能涉及高昂的基礎設施改造費用。這種無形的轉換障礙，加上用戶對電力穩定供應的剛性需求，使得客戶忠誠度極高，為南方電力提供了穩定的收入基礎。",
+    "comment_en": "For electricity consumers, the costs associated with switching power providers are prohibitively high, practically non-existent. User electrical equipment and infrastructure are designed for the existing supplier. Changing providers involves not only technical complexities but potentially substantial infrastructure modification expenses. These intangible switching barriers, coupled with the essential and inelastic demand for a stable power supply, ensure extremely high customer loyalty, providing Southern Company with a stable revenue base."
   },
   "m4_network_effects": {
     "score": 2,
-    "comment_zh": "網絡效應在電力公用事業領域幾乎不存在。電力網絡的建設和運營是一個資本密集型的過程，其價值在於基礎設施的連接性，而非用戶之間的互動或依賴。用戶的增加並不會直接提升其他用戶的價值，公司也無法通過用戶數量的增長來獲得類似社交網絡或市場平台的網絡效應優勢。因此，這不是南方公司的一個顯著護城河。",
-    "comment_en": "Network effects are virtually non-existent in the electric utility sector. The construction and operation of the power grid are capital-intensive processes, with value derived from infrastructure connectivity rather than user interaction or dependence. An increase in users does not directly enhance the value for other users, nor can the company leverage user growth for advantages similar to social networks or marketplaces. Therefore, this is not a significant moat for Southern Company."
+    "comment_zh": "電力公用事業的網絡效應非常有限。雖然其輸配電網絡本身是一個龐大的基礎設施，但這更多是運營效率和規模的體現，而非典型的網絡效應。網絡效應通常指用戶越多，服務價值越高的情況，這在電力行業中並不顯著。南方電力網絡的價值在於其覆蓋範圍和可靠性，而非用戶間的互動或數據增值。",
+    "comment_en": "Network effects in the electric utility sector are very limited. While its transmission and distribution grid is a vast infrastructure, this primarily reflects operational efficiency and scale rather than typical network effects. Network effects usually imply that the service's value increases with more users, which is not a significant factor in the power industry. The value of Southern Company's grid lies in its coverage and reliability, not in user interactions or data value enhancement."
   },
   "m5_cost_advantage_scale": {
-    "score": 7,
-    "comment_zh": "作為一家大型公用事業公司，南方公司在規模經濟方面具有顯著優勢。其龐大的發電、輸電和配電網絡，以及龐大的客戶基礎，使其能夠攤薄固定成本，並在採購燃料、設備和勞動力方面獲得更優惠的價格。這種規模優勢有助於降低單位營運成本，並在與規模較小的競爭者（如果存在的話）或新進入者競爭時，提供一定的成本領先地位。然而，公用事業的資本密集度和監管限制也限制了規模優勢的極大化。",
-    "comment_en": "As a large utility company, Southern Company possesses significant advantages in economies of scale. Its vast network for power generation, transmission, and distribution, coupled with a substantial customer base, allows it to spread fixed costs and secure more favorable pricing for fuel, equipment, and labor. This scale advantage helps reduce per-unit operating costs and provides a degree of cost leadership when competing with smaller rivals (if any) or new entrants. However, the capital-intensive nature and regulatory constraints of utilities also limit the maximization of scale advantages."
+    "score": 8,
+    "comment_zh": "作為一家大型公用事業公司，南方電力在規模經濟方面具有顯著優勢。其龐大的發電、輸電和配電網絡，以及採購、運營和維護能力，使其能夠以比小型競爭者更低的單位成本運營。這種規模優勢在資本密集型的公用事業行業中尤為重要，有助於維持其在監管環境下的盈利能力和市場地位。",
+    "comment_en": "As a large utility company, Southern Company possesses significant advantages in economies of scale. Its extensive generation, transmission, and distribution network, along with its procurement, operational, and maintenance capabilities, allow it to operate at a lower per-unit cost than smaller competitors. This scale advantage is particularly crucial in the capital-intensive utility industry, helping to maintain its profitability and market position within the regulatory framework."
   },
   "m6_unique_geography_assets": {
-    "score": 8,
-    "comment_zh": "南方公司在美國東南部地區擁有廣泛且關鍵的基礎設施資產，包括發電廠、輸電線路和配電網絡。這些地理上的獨特性和對特定區域的深入滲透，構成了難以被競爭對手複製的壁壘。其資產的地理分佈和對當地經濟發展的基礎性支持，使其成為該區域不可或缺的能源供應商。這種地域性的壟斷地位，加上對當地環境和法規的熟悉，是其重要的護城河。",
-    "comment_en": "Southern Company owns extensive and critical infrastructure assets across the southeastern United States, including power plants, transmission lines, and distribution networks. These geographical specificities and deep penetration into its service areas create barriers that are difficult for competitors to replicate. The geographic distribution of its assets and its foundational support for local economic development make it an indispensable energy provider in the region. This regional monopolistic position, combined with familiarity with local environmental and regulatory landscapes, constitutes a significant moat."
+    "score": 7,
+    "comment_zh": "南方電力在美國東南部地區擁有廣泛且關鍵的電力基礎設施資產，這些資產在其服務區域內具有獨特的地理位置優勢。這些資產的建設需要巨額投資和漫長的審批週期，使得後來者難以複製。其地理上的覆蓋範圍和對區域能源供應的關鍵作用，構成了重要的進入壁壘。",
+    "comment_en": "Southern Company owns extensive and critical power infrastructure assets across the southeastern United States, providing a unique geographical advantage within its service territories. The construction of these assets requires massive investment and lengthy approval processes, making them difficult for new entrants to replicate. Its geographical coverage and vital role in regional energy supply constitute significant barriers to entry."
   },
   "m7_operational_efficiency": {
     "score": 7,
-    "comment_zh": "南方公司在營運效率方面表現穩健，這得益於其作為成熟公用事業公司的經驗和對效率的持續追求。透過技術升級、流程優化和成本控制，公司努力維持其營運效率。儘管公用事業的營運受監管影響，但持續的效率提升仍能轉化為更高的盈利能力或更低的服務成本，從而增強其競爭力。其F-Score為3/9，顯示在某些營運指標上可能存在改善空間，但整體營運的穩定性仍是其優勢。",
-    "comment_en": "Southern Company demonstrates solid operational efficiency, benefiting from its experience as a mature utility company and its continuous pursuit of optimization. Through technological upgrades, process improvements, and cost controls, the company strives to maintain its operational efficiency. Although utility operations are subject to regulation, sustained efficiency gains can translate into higher profitability or lower service costs, thereby enhancing its competitiveness. Its F-Score of 3/9 suggests potential areas for improvement in certain operational metrics, but the overall stability of its operations remains an advantage."
+    "comment_zh": "南方電力在運營效率方面表現穩健，尤其是在管理其龐大的發電、輸配電網絡和應對不斷變化的能源市場方面。公司持續投資於技術升級和流程優化，以提高效率、降低成本並確保服務的可靠性。儘管公用事業的效率提升空間相對有限，但其持續的努力確保了其在行業內的競爭力。",
+    "comment_en": "Southern Company demonstrates solid operational efficiency, particularly in managing its vast generation, transmission, and distribution networks and navigating the evolving energy market. The company continuously invests in technological upgrades and process optimization to enhance efficiency, reduce costs, and ensure service reliability. While efficiency gains in utilities may have inherent limitations, its ongoing efforts maintain its competitiveness within the industry."
   },
   "m8_capital_allocation": {
     "score": 6,
-    "comment_zh": "南方公司在資本配置方面面臨公用事業行業的典型挑戰，需要在維持現有基礎設施、投資於新技術（如再生能源）和滿足股東回報之間取得平衡。公司過去的資本配置決策，如在核能項目上的投資，曾引發爭議，顯示其在重大決策上存在風險。然而，其穩定的自由現金流（FCF TTM: $2,228.0M）為其提供了進行戰略性資本配置的基礎。其股東權益報酬率（ROE 11.9%）和資產報酬率（ROA 3.0%）處於行業平均水平，顯示其資本配置尚可，但並非頂尖。",
-    "comment_en": "Southern Company faces typical capital allocation challenges within the utility sector, balancing the need to maintain existing infrastructure, invest in new technologies (like renewables), and meet shareholder returns. Past capital allocation decisions, such as investments in nuclear projects, have drawn scrutiny, indicating risks in major decisions. However, its stable Free Cash Flow (FCF TTM: $2,228.0M) provides a foundation for strategic capital allocation. Its Return on Equity (ROE 11.9%) and Return on Assets (ROA 3.0%) are around industry averages, suggesting its capital allocation is adequate but not exceptional."
+    "comment_zh": "南方電力在資本配置方面展現了穩健的策略，主要聚焦於維持和升級現有基礎設施，並適度投資於可再生能源項目。其股息支付歷史悠久且穩定，吸引了尋求收益的投資者。然而，過去在大型項目上的投資決策曾面臨挑戰，顯示其在資本配置上的決策並非總是完美無缺，但整體而言，其資本配置策略傾向於保守和穩定。",
+    "comment_en": "Southern Company exhibits a sound strategy in capital allocation, primarily focusing on maintaining and upgrading existing infrastructure, with moderate investments in renewable energy projects. Its long and stable dividend payment history attracts income-seeking investors. However, past investment decisions on large-scale projects have faced challenges, indicating that its capital allocation decisions are not always flawless. Overall, its capital allocation strategy leans towards conservatism and stability."
   },
   "m9_customer_retention": {
-    "score": 7,
-    "comment_zh": "由於電力是生活必需品，且轉換成本相對較高，南方公司擁有非常高的客戶保留率。其服務區域內的客戶幾乎別無選擇，只能依賴南方公司提供電力。這種近乎強制性的客戶關係，使得客戶流失的風險極低。只要公司能提供符合監管標準的服務，客戶便會持續使用其服務。這為公司提供了極為穩定的收入基礎，是其重要的護城河。",
-    "comment_en": "As electricity is a necessity and switching costs are relatively high, Southern Company enjoys a very high customer retention rate. Customers within its service territory have virtually no alternative but to rely on Southern Company for power. This near-mandatory customer relationship minimizes the risk of customer churn. As long as the company provides service that meets regulatory standards, customers will continue to use its services, providing an extremely stable revenue base and a significant moat."
+    "score": 8,
+    "comment_zh": "由於電力是生活必需品，且轉換成本極高，南方電力的客戶保留率非常高。其客戶群體穩定，需求剛性，為公司提供了可預測的收入流。儘管缺乏主動的客戶忠誠度計劃，但基礎設施的綁定效應和服務的不可替代性，自然地鎖定了絕大多數客戶，形成了強大的客戶保留壁壘。",
+    "comment_en": "Given that electricity is a necessity and switching costs are extremely high, Southern Company enjoys very high customer retention rates. Its customer base is stable with inelastic demand, providing predictable revenue streams. Despite the lack of active customer loyalty programs, the inherent lock-in effect of infrastructure and the non-substitutable nature of the service naturally retain the vast majority of customers, forming a strong retention barrier."
   },
   "m10_durability": {
-    "score": 8,
-    "comment_zh": "南方公司的業務模式具有極高的持久性。電力公用事業是基礎設施行業，其服務需求穩定且長期存在，不易受到經濟週期或技術顛覆的劇烈影響。儘管面臨向可再生能源轉型的挑戰，但其核心業務——提供可靠電力——的需求將持續數十年。其龐大的資產基礎和監管框架提供了相當程度的穩定性，使其能夠在不斷變化的能源格局中保持其核心價值。",
-    "comment_en": "Southern Company's business model exhibits a high degree of durability. The electric utility sector is an infrastructure industry with stable and long-term demand for its services, making it less susceptible to severe economic cycles or technological disruption. Despite the challenges of transitioning to renewable energy, the demand for its core service—providing reliable electricity—will persist for decades. Its substantial asset base and regulatory framework offer a considerable degree of stability, enabling it to maintain its core value amidst a changing energy landscape."
+    "score": 9,
+    "comment_zh": "南方電力的業務模式具有極高的持久性。作為一家提供基礎能源的公用事業公司，其服務是社會運轉的基石，需求穩定且長期。監管框架雖然限制了增長，但也提供了極大的穩定性。只要社會對電力有需求，南方電力就能持續運營並產生現金流。其業務的基礎性決定了其護城河的持久性。",
+    "comment_en": "Southern Company's business model possesses exceptional durability. As a utility providing essential energy, its services are fundamental to societal operations, with stable and long-term demand. While the regulatory framework limits growth, it also provides immense stability. As long as society requires electricity, Southern Company can continue to operate and generate cash flow. The fundamental nature of its business dictates the durability of its moat."
   },
-  "overall_moat_verdict_zh": "南方公司作為一家大型公用事業公司，其護城河主要建立在監管壁壘（M2）和地理性資產（M6）之上，這使其在服務區域內擁有近乎壟斷的地位。高客戶保留率（M9）和相對較高的轉換成本（M3）進一步鞏固了其穩定的收入來源。規模經濟（M5）和營運效率（M7）也提供了支持。然而，其品牌定價權（M1）和網絡效應（M4）較弱。資本配置（M8）和營運效率（M7）有待加強，但整體業務的持久性（M10）極高。其商業模式類似於一個受監管的收費橋，提供必需的基礎設施服務，具有高度的穩定性和可預測性。",
-  "overall_moat_verdict_en": "Southern Company, as a large utility provider, derives its moat primarily from regulatory barriers (M2) and geographically specific assets (M6), granting it a near-monopolistic position within its service territories. High customer retention (M9) and relatively high switching costs (M3) further solidify its stable revenue stream. Economies of scale (M5) and operational efficiency (M7) also provide support. However, its brand pricing power (M1) and network effects (M4) are weak. Capital allocation (M8) and operational efficiency (M7) have room for improvement, but the overall business durability (M10) is extremely high. Its business model resembles a regulated toll bridge, providing essential infrastructure services with a high degree of stability and predictability.",
-  "evidenceHash": "a1b0819cc23ff8c888db25fab665f3169560ed5b5cc45d778f6129560ee5a1a7",
+  "overall_moat_verdict_zh": "南方電力擁有一個典型的「收費橋」式護城河，主要由其在特定區域內的電力特許經營權（M2）和極高的客戶轉換成本（M3）所構成。這兩者共同創造了極高的客戶保留率（M9）和業務的持久性（M10）。其規模經濟（M5）和獨特的地理資產（M6）進一步鞏固了其市場地位。儘管品牌（M1）和網絡效應（M4）相對較弱，且資本配置（M8）偶有挑戰，但其核心的特許經營權壁壘極難被顛覆，使其成為一個穩定、可預測的長期價值投資標的。",
+  "overall_moat_verdict_en": "Southern Company possesses a classic 'toll bridge' economic moat, primarily built upon its exclusive utility franchises within specific regions (M2) and extremely high customer switching costs (M3). These factors collectively create very high customer retention (M9) and business durability (M10). Its economies of scale (M5) and unique geographical assets (M6) further solidify its market position. While brand (M1) and network effects (M4) are relatively weaker, and capital allocation (M8) has occasional challenges, the core franchise barrier is exceptionally difficult to overcome, making it a stable and predictable long-term value investment.",
+  "evidenceHash": "1ff7e3afaab4d70f00b36115105e7035cdd372011677522858d2e137d63402aa",
   "assessmentPolicy": "buffett-moat-v3",
   "model": "gemini-2.5-flash-lite",
   "provider": "Vertex AI"
