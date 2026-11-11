@@ -102,14 +102,19 @@
     data = industryApi().normalizeBankStatements(data, stock.industry, stock.ticker);
     const finite = Number.isFinite;
     const sorted = rows => rows.slice().sort((a, b) => a.date.localeCompare(b.date));
-    const fullYears = rows => sorted(rows.filter(row => row.period === 'FY' && row.periodLength === 12
+    // Align with FmpScenario.fullAnnualPeriod: US FY rows often omit periodLength.
+    const fullFiscal = row => !!row && row.reportType !== 'secondInterim'
+      && (row.period === undefined || row.period === 'FY')
+      && (row.periodLength === 12
+        || row.periodLength === undefined && row.period === 'FY' && !String(stock.ticker || '').endsWith('.HK'));
+    const fullYears = rows => sorted(rows.filter(row => fullFiscal(row)
       && /^\d{4}-\d{2}-\d{2}$/.test(row.date) && Number.isFinite(Date.parse(row.date))
       && new Date(row.date).toISOString().slice(0, 10) === row.date));
     const years = fullYears(data.annual.income);
     const latest = years.at(-1), date = latest?.date || null;
     const matching = type => {
       const rows = data.annual[type].filter(row => row.date === date
-        && (type === 'balance' || row.period === 'FY' && row.periodLength === 12));
+        && (type === 'balance' || fullFiscal(row)));
       return rows.length === 1 ? rows[0] : null;
     };
     const fields = {
@@ -190,5 +195,95 @@
       net_debt_to_ebitda: divide(balance.netDebt, income.ebitda, true)
     };
   }
-  return { select, annualView, statementsPackEmpty };
+
+  // Rebuild the trailing TTM slot (and zeroed quarterly_raw) from normalized statements.
+  // Expansion packs for unlabeled semiannual filers often store FX-null zeros under quarterly cadence.
+  function overlayUsTtm(stock, statements) {
+    if (!stock?.statements_raw || !statements?.quarterly?.income) return stock;
+    const frequency = statements.reportingFrequency
+      || statements.statementFrequencies?.income || 'quarterly';
+    const stride = frequency === 'semiannual' ? 2 : 1;
+    const count = frequency === 'semiannual' ? 2 : 4;
+    const minDays = frequency === 'semiannual' ? 150 : 60;
+    const maxDays = frequency === 'semiannual' ? 220 : 120;
+    const indexRows = (rows, annual) => {
+      const index = new Map();
+      for (const row of rows || []) {
+        if (!row || !/^\d{4}-\d{2}-\d{2}$/.test(row.date)) continue;
+        const year = Number(row.fiscalYear || row.calendarYear);
+        const quarter = /^Q[1-4]$/.test(row.period) ? Number(row.period[1]) : null;
+        if (!Number.isInteger(year)) continue;
+        if (annual ? row.period !== 'FY' : quarter === null) continue;
+        const key = annual ? year : year * 4 + quarter - 1;
+        index.set(key, index.has(key) ? null : row);
+      }
+      return index;
+    };
+    const incomeIndex = indexRows(statements.quarterly.income, false);
+    if (!incomeIndex.size) return stock;
+    const key = Math.max(...incomeIndex.keys());
+    const window = Array.from({ length: count }, (_, i) => incomeIndex.get(key - (count - 1 - i) * stride));
+    const valid = rows => rows.every((row, i) => row && typeof row.reportedCurrency === 'string'
+      && /^[A-Z]{3}$/.test(row.reportedCurrency) && row.reportedCurrency === rows.at(-1).reportedCurrency
+      && !row.currencyConversion?.reason
+      && (row.periodLength === undefined || row.periodLength === stride * 3)
+      && (!i || (Date.parse(row.date) - Date.parse(rows[i - 1].date)) / 86400000 >= minDays
+        && (Date.parse(row.date) - Date.parse(rows[i - 1].date)) / 86400000 <= maxDays));
+    const sumField = (type, field) => {
+      const rows = type === 'income' ? window
+        : Array.from({ length: count }, (_, i) => indexRows(statements.quarterly[type], false)
+          .get(key - (count - 1 - i) * stride));
+      if (!valid(rows) || rows.some(row => typeof row[field] !== 'number' || !Number.isFinite(row[field]))) {
+        return null;
+      }
+      if (type === 'balance' || field === 'cashAtEndOfPeriod') return rows.at(-1)[field];
+      if (field === 'cashAtBeginningOfPeriod') return rows[0][field];
+      if (/^weightedAverageShs/.test(field)) {
+        return rows.reduce((sum, row) => sum + row[field], 0) / rows.length;
+      }
+      return rows.reduce((sum, row) => sum + row[field], 0);
+    };
+    const raw = structuredClone(stock.statements_raw);
+    const scale = (field, amount) => amount === null ? null
+      : /^weightedAverageShs/.test(field) || /ratio$/i.test(field) || /^eps/i.test(field)
+        ? amount : amount / 1e6;
+    for (const type of ['income', 'balance', 'cashflow']) {
+      if (!raw[type] || typeof raw[type] !== 'object') continue;
+      for (const field of Object.keys(raw[type])) {
+        if (!Array.isArray(raw[type][field]) || !raw[type][field].length) continue;
+        const next = scale(field, sumField(type, field));
+        if (next !== null) raw[type][field] = [...raw[type][field].slice(0, -1), next];
+      }
+    }
+    const latestIncome = window.at(-1);
+    if (latestIncome?.date && Array.isArray(raw.annual_dates) && raw.annual_dates.length) {
+      raw.annual_dates = [...raw.annual_dates.slice(0, -1), latestIncome.date.slice(0, 7)];
+    }
+    const q = raw.quarterly_raw;
+    if (q?.income && Array.isArray(statements.quarterly.income)) {
+      const sorted = statements.quarterly.income.slice().sort((a, b) => a.date.localeCompare(b.date)).slice(-20);
+      for (const type of ['income', 'balance', 'cashflow']) {
+        if (!q[type] || typeof q[type] !== 'object') continue;
+        for (const field of Object.keys(q[type])) {
+          if (!Array.isArray(q[type][field])) continue;
+          q[type][field] = sorted.map(row => {
+            const match = (statements.quarterly[type] || []).find(other => other.date === row.date);
+            const amount = match && typeof match[field] === 'number' && Number.isFinite(match[field])
+              ? match[field] : null;
+            return scale(field, amount);
+          });
+        }
+      }
+      q.dates = sorted.map(row => row.date.slice(0, 7));
+      q.periods = sorted.map(row => `${row.fiscalYear || row.calendarYear}${row.period}`);
+    }
+    return {
+      ...stock,
+      statements_raw: raw,
+      reportingFrequency: frequency,
+      statementFrequencies: statements.statementFrequencies || stock.statementFrequencies
+    };
+  }
+
+  return { select, annualView, statementsPackEmpty, overlayUsTtm };
 });

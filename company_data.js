@@ -46,30 +46,43 @@
 
   function metadata(data, stock) {
     const finite = value => typeof value === 'number' && Number.isFinite(value);
+    const stubMissing = value => value?.reason === 'FMP_COMPANY_CACHE_MISSING';
     const holders = (data?.holders?.data || []).filter(row => row.symbol === stock.ticker
       && row.putCallShare === 'Share' && finite(row.sharesNumber) && row.sharesNumber >= 0);
     const insiders = (data?.insiders?.data || []).filter(row => row.symbol === stock.ticker
       && day(row.transactionDate) && finite(row.securitiesTransacted));
     const summary = data?.ownership?.data?.[0];
-    return {
-      inst_ownership_pct: summary?.symbol === stock.ticker && finite(summary.ownershipPercent) ? summary.ownershipPercent : null,
-      insider_ownership_pct: null,
-      top_holders: holders.map((row, index) => ({
+    // Expansion company packs already embed insider_trades / occasional holders. Live hydrate
+    // stubs used to assign empty arrays and wipe that evidence (PR/VOD profile looked blank).
+    const top_holders = holders.length || !stubMissing(data?.holders)
+      ? holders.map((row, index) => ({
         rank: index + 1, name: row.investorName, shares: row.sharesNumber,
         val_m: finite(stock.price) ? row.sharesNumber * stock.price / 1e6 : null,
         pct: finite(row.ownership) ? row.ownership : null, date: row.date,
         change: finite(row.changeInSharesNumberPercentage) ? `${row.changeInSharesNumberPercentage >= 0 ? '+' : ''}${row.changeInSharesNumberPercentage.toFixed(2)}%` : 'N/A'
-      })),
-      insider_trades: insiders.map(row => ({
+      }))
+      : (Array.isArray(stock.top_holders) ? stock.top_holders : []);
+    const insider_trades = insiders.length || !stubMissing(data?.insiders)
+      ? insiders.map(row => ({
         date: row.transactionDate, name: row.reportingName, title: row.typeOfOwner,
         is_buy: /^P(?:-|$)/.test(row.transactionType) ? true : /^S(?:-|$)/.test(row.transactionType) ? false : null,
         action: row.transactionType, shares: Math.abs(row.securitiesTransacted),
         price: finite(row.price) ? row.price : null,
         total_val: finite(row.price) ? Math.abs(row.securitiesTransacted) * row.price / 1e6 : null
-      })),
-      ownershipDate: summary?.date || null,
-      metadataCapturedAt: data?.capturedAt || null,
-      metadataSourceReason: data?.ownership?.reason || data?.holders?.reason || null,
+      }))
+      : (Array.isArray(stock.insider_trades) ? stock.insider_trades : []);
+    const ownershipPercent = summary?.symbol === stock.ticker && finite(summary.ownershipPercent)
+      ? summary.ownershipPercent : null;
+    return {
+      inst_ownership_pct: ownershipPercent !== null || !stubMissing(data?.ownership)
+        ? ownershipPercent : (finite(stock.inst_ownership_pct) ? stock.inst_ownership_pct : null),
+      insider_ownership_pct: finite(stock.insider_ownership_pct) ? stock.insider_ownership_pct : null,
+      top_holders,
+      insider_trades,
+      ownershipDate: summary?.date || stock.ownershipDate || null,
+      metadataCapturedAt: data?.capturedAt || stock.metadataCapturedAt || null,
+      metadataSourceReason: data?.ownership?.reason || data?.holders?.reason || data?.insiders?.reason
+        || stock.metadataSourceReason || null,
       news: newsRows([...(data?.news?.data || []), ...(stock.news || [])], stock.ticker)
     };
   }
@@ -265,6 +278,46 @@
       holders: { data: [], reason: 'FMP_COMPANY_CACHE_MISSING' },
       insiders: { data: [], reason: 'FMP_COMPANY_CACHE_MISSING' }
     };
+    // Profile holders/insiders: prefer live FMP proxy when models hydrate succeeded.
+    // Ownership summary is not proxied; leave FMP_COMPANY_CACHE_MISSING (not fabricated).
+    if (usedProxy) {
+      const filing = (() => {
+        const date = new Date(capturedAt);
+        let year = date.getUTCFullYear(), quarter = Math.floor(date.getUTCMonth() / 3);
+        if (quarter === 0) { year -= 1; quarter = 4; }
+        while (Date.UTC(year, quarter * 3, 0) + 46 * 86400000 > date.getTime()) {
+          if (--quarter === 0) { year -= 1; quarter = 4; }
+        }
+        return { year: String(year), quarter: String(quarter) };
+      })();
+      try {
+        const holders = await Cache().request(new URLSearchParams({
+          action: 'institutional-holders', symbol: ticker,
+          year: filing.year, quarter: filing.quarter, page: '0', limit: '50'
+        }));
+        if (Array.isArray(holders?.data) && holders.source?.symbol === ticker) {
+          data.holders = {
+            data: holders.data, reason: holders.data.length ? null : 'FMP_NO_COVERAGE',
+            capturedAt: holders.source?.capturedAt || capturedAt
+          };
+        }
+      } catch (error) {
+        console.error('Live institutional holders unavailable', ticker, error.message);
+      }
+      try {
+        const insiders = await Cache().request(new URLSearchParams({
+          action: 'insider-trading', symbol: ticker, page: '0', limit: '50'
+        }));
+        if (Array.isArray(insiders?.data) && (!insiders.source?.symbol || insiders.source.symbol === ticker)) {
+          data.insiders = {
+            data: insiders.data, reason: insiders.data.length ? null : 'FMP_NO_COVERAGE',
+            capturedAt: insiders.source?.capturedAt || capturedAt
+          };
+        }
+      } catch (error) {
+        console.error('Live insider trades unavailable', ticker, error.message);
+      }
+    }
     if (models.advanced?.data?.length) {
       data.forecastBase = Scenario().baseSource(data, statements);
       if (data.forecastBase?.reason) {

@@ -20,6 +20,20 @@
     return annual ? year : year * 4 + Number(String(row.period)[1]) - 1;
   };
 
+  // FMP often labels genuine half-year reports as Q2/Q4 with no periodLength (VOD, many ADRs).
+  // Detect before FX convert so average rates use a 6-month window and TTM cadence uses count=2.
+  function inferReportingFrequency(data) {
+    if (data?.reportingFrequency === 'semiannual' || data?.reportingFrequency === 'annual') {
+      return data.reportingFrequency;
+    }
+    const rows = (data?.quarterly?.income || []).filter(row => row && /^Q[1-4]$/.test(row.period));
+    if (rows.length >= 4 && rows.every(row => row.period === 'Q2' || row.period === 'Q4')) {
+      return 'semiannual';
+    }
+    if (rows.length >= 4 && rows.every(row => row.periodLength === 6)) return 'semiannual';
+    return data?.reportingFrequency || 'quarterly';
+  }
+
   function rateFor(rates, currency, start, end, basis, target = 'USD') {
     currency = code(currency);
     target = code(target);
@@ -61,7 +75,22 @@
     if (!data || !data.quarterly || !data.annual) throw new TypeError('Missing financial statement periods');
     target = code(target);
     if (!['USD', 'HKD'].includes(target)) throw new TypeError('Unsupported calculation currency');
-    const result = { ...data, calculationCurrency: target };
+    const frequency = inferReportingFrequency(data);
+    const result = {
+      ...data,
+      calculationCurrency: target,
+      reportingFrequency: frequency,
+      statementFrequencies: data.statementFrequencies || {
+        income: frequency, balance: frequency, cashflow: frequency
+      }
+    };
+    if (frequency === 'semiannual') {
+      result.statementFrequencies = {
+        income: result.statementFrequencies.income || 'semiannual',
+        balance: result.statementFrequencies.balance || 'semiannual',
+        cashflow: result.statementFrequencies.cashflow || 'semiannual'
+      };
+    }
     for (const period of ['annual', 'quarterly']) {
       const annual = period === 'annual';
       const rows = Object.values(data[period]).filter(Array.isArray).flat();
@@ -80,13 +109,14 @@
           if (row.currencyConversion?.target) throw new TypeError('Cannot reconvert previously translated statements');
           let start = row.periodStartDate;
           const unknownDuration = row.periodLength === null;
-          const step = !annual && data.reportingFrequency === 'semiannual' ? 2 : 1;
+          const step = !annual && frequency === 'semiannual' ? 2 : 1;
           const previous = endings.get(periodKey(row, annual) - step);
           if (!unknownDuration && !iso(start) && previous) start = new Date(Date.parse(previous) + day).toISOString().slice(0, 10);
           // Standard calendar periods have unambiguous starts even when the previous report is absent.
           // Full annual FY rows ending on a month-end (Dec, Mar, Jun, Sep, Oct, …) span the prior
           // 12 months; without a previous FY in cache the oldest year used to leave start unset,
           // so average FX returned missingFxPeriod and five-year history collapsed to N/A (VOD).
+          // Half-year (Q2/Q4-labeled) rows need the same treatment with a 6-month lookback.
           if (!unknownDuration && !iso(start) && iso(row.date)) {
             const date = new Date(row.date);
             const month = date.getUTCMonth();
@@ -95,6 +125,10 @@
               && (row.periodLength === 12 || row.periodLength === undefined && row.period === 'FY');
             if (fullYear) {
               start = new Date(Date.UTC(date.getUTCFullYear(), month - 11, 1)).toISOString().slice(0, 10);
+            } else if (!annual && step === 2 && calendarEnd
+                && (row.periodLength === 6 || row.periodLength === undefined
+                  || ['Q2', 'Q4'].includes(row.period))) {
+              start = new Date(Date.UTC(date.getUTCFullYear(), month - 5, 1)).toISOString().slice(0, 10);
             } else if (!annual && step === 1 && calendarEnd && month % 3 === 2 && row.period === `Q${(month + 1) / 3}`) {
               start = `${date.getUTCFullYear()}-${String(month - 1).padStart(2, '0')}-01`;
             }
@@ -143,5 +177,5 @@
       .filter(Array.isArray).flat().some(row => code(row.reportedCurrency) !== target));
     return convertStatements(data, foreign ? await loadRates(reload, target, data.hkdFxSource) : null);
   }
-  return { rateFor, convertStatements, loadRates, normalize };
+  return { rateFor, convertStatements, loadRates, normalize, inferReportingFrequency };
 });

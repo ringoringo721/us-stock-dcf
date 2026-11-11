@@ -10896,7 +10896,7 @@
       && record.fields && typeof record.fields === 'object');
   }
   function peerNeedsReportedGrowth(stock) {
-    return !peerHasReportedGrowth(stock);
+    return !peerHasReportedGrowth(stock) || peerNeedsTtmOverlay(stockUniverse[stock.ticker] || stock);
   }
   async function hydratePeerColumn(stock, reload = false) {
     const ticker = stock.ticker;
@@ -10925,20 +10925,28 @@
   async function hydratePeerReportedGrowth(stock, reload = false) {
     const ticker = stock.ticker;
     const live = { ...(stockUniverse[ticker] || stock), ticker, peerBasis: stock.peerBasis };
-    if (!reload && peerHasReportedGrowth(live)) return live;
+    if (!reload && peerHasReportedGrowth(live) && !peerNeedsTtmOverlay(live)) return live;
     try {
       const pack = await FcfRatios.loadStatements(ticker, reload);
       const reported_growth = ProfileOverview.buildReportedGrowth(pack, {
         industry: live.industry, ticker
       });
+      const overlaid = typeof PeerComparison.overlayUsTtm === 'function'
+        ? PeerComparison.overlayUsTtm(live, pack) : live;
       if (stockUniverse[ticker]) {
-        stockUniverse[ticker] = { ...stockUniverse[ticker], reported_growth };
+        stockUniverse[ticker] = { ...stockUniverse[ticker], ...overlaid, reported_growth };
       }
-      return { ...live, reported_growth };
+      return { ...overlaid, reported_growth };
     } catch (error) {
       console.error('Peer reported growth could not be computed', ticker, error);
       return live;
     }
+  }
+  function peerNeedsTtmOverlay(stock) {
+    const revenue = stock?.statements_raw?.income?.revenue;
+    if (!Array.isArray(revenue) || !revenue.length) return true;
+    const latest = revenue[revenue.length - 1];
+    return !Number.isFinite(latest) || latest === 0;
   }
   async function renderPeersSubPage(s, reload = false) {
     const container = document.getElementById('subpage-peers');
