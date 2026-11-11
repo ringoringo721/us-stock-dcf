@@ -27,10 +27,11 @@
   function cadence(data, statement = 'income') {
     // The legacy quarterly container also holds genuine Q2/Q4 half-year reports.
     const frequency = data?.statementFrequencies?.[statement] || data?.reportingFrequency || 'quarterly';
+    // Quarterly maxDays 125 (was 120): May-FYE calendars can span ~122 days (e.g. FDX May→Sep).
     return { frequency, stride: frequency === 'semiannual' ? 2 : 1,
       count: frequency === 'semiannual' ? 2 : 4,
       minDays: frequency === 'semiannual' ? 150 : 60,
-      maxDays: frequency === 'semiannual' ? 220 : 120 };
+      maxDays: frequency === 'semiannual' ? 220 : 125 };
   }
   function label(key, annual, stride = 1) {
     return annual ? `FY ${key}` : `FY ${Math.floor(key / 4)} ${stride === 2 ? `H${(key % 4 + 1) / 2}` : `Q${key % 4 + 1}`}`;

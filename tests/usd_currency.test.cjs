@@ -252,3 +252,23 @@ test('Q2/Q4-only reporters infer semiannual cadence and convert half-year FX (VO
   assert.ok(summary.revenue > 0, 'TTM revenue from two half-years');
   assert.ok(Number.isFinite(summary.grossMargin), 'TTM gross margin available');
 });
+
+test('Recent H1/H2-only window infers semiannual even when older Q1/Q3 rows exist', () => {
+  const { inferReportingFrequency } = require('../usd_currency.js');
+  const source = {
+    reportingFrequency: 'quarterly',
+    quarterly: {
+      income: [
+        { date: '2023-09-30', period: 'Q3', fiscalYear: '2023', reportedCurrency: 'EUR', revenue: 1 },
+        { date: '2023-12-31', period: 'Q4', fiscalYear: '2023', reportedCurrency: 'EUR', revenue: 1 },
+        { date: '2024-03-31', period: 'Q1', fiscalYear: '2024', reportedCurrency: 'EUR', revenue: 1 },
+        { date: '2024-06-30', period: 'Q2', fiscalYear: '2024', reportedCurrency: 'EUR', revenue: 1 },
+        { date: '2024-12-31', period: 'Q4', fiscalYear: '2024', reportedCurrency: 'EUR', revenue: 1 },
+        { date: '2025-06-30', period: 'Q2', fiscalYear: '2025', reportedCurrency: 'EUR', revenue: 1 },
+        { date: '2025-12-31', period: 'Q4', fiscalYear: '2025', reportedCurrency: 'EUR', revenue: 1 },
+        { date: '2026-06-30', period: 'Q2', fiscalYear: '2026', reportedCurrency: 'EUR', revenue: 1 }
+      ]
+    }
+  };
+  assert.equal(inferReportingFrequency(source), 'semiannual');
+});

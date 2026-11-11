@@ -182,7 +182,7 @@ function normalizeStock(stock, source, rates) {
   const cadenceOpts = {
     count, stride,
     minDays: frequency === 'semiannual' ? 150 : 60,
-    maxDays: frequency === 'semiannual' ? 220 : 120
+    maxDays: frequency === 'semiannual' ? 220 : 125
   };
   // Pick the trailing cadence window by fiscal period keys (Q2/Q4 half-years stride by 2).
   const recent = type => {

@@ -50,7 +50,7 @@
     if (history.some((row, i) => i && ((Date.parse(row.date) - Date.parse(history[i - 1].date)) / 86400000 < minDays
       || (Date.parse(row.date) - Date.parse(history[i - 1].date)) / 86400000 > maxDays))) return unavailable('nonConsecutive');
     if (history.some((row, i) => row.date !== anchors.get(keys[i])?.date)) return unavailable('dateMismatch');
-    if (history.some(row => row.periodLength !== undefined && row.periodLength !== stride * 3)) return unavailable('invalidPeriodLength');
+    if (history.some(row => row.periodLength != null && row.periodLength !== stride * 3)) return unavailable('invalidPeriodLength');
     if (new Set(history.map(row => row.comparabilityGroup).filter(Boolean)).size > 1) return unavailable('accountingBasisMismatch');
     if (history.some(row => row.currencyConversion?.reason)) return unavailable('missingFx');
     if (history.some(row => !/^[A-Z]{3}$/.test(row.reportedCurrency) || row.reportedCurrency !== latest.reportedCurrency)) {
@@ -138,7 +138,7 @@
     const valid = rows => latest && rows.every((row, i) => row && typeof row.reportedCurrency === 'string'
       && /^[A-Z]{3}$/.test(row.reportedCurrency) && row.reportedCurrency === latest.reportedCurrency
       && !row.currencyConversion?.reason
-      && (row.periodLength === undefined || row.periodLength === stride * 3)
+      && (row.periodLength == null || row.periodLength === stride * 3)
       && (!i || (Date.parse(row.date) - Date.parse(rows[i - 1].date)) / 86400000 >= minDays
         && (Date.parse(row.date) - Date.parse(rows[i - 1].date)) / 86400000 <= maxDays));
     const total = (field, rows = window) => {
