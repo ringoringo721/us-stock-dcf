@@ -55,3 +55,43 @@ test('metadata prefers live FMP holders/insiders over pack when rows exist', () 
   assert.equal(meta.insider_trades.length, 1);
   assert.equal(meta.insider_trades[0].name, 'New Insider');
 });
+
+test('metadata keeps pack insiders when live FMP_NO_COVERAGE or filtered rows are empty', () => {
+  const stock = {
+    ticker: 'PR', price: 21,
+    insider_trades: [
+      { date: '2026-09-03', name: 'Pack Insider', title: 'officer', is_buy: false,
+        action: 'S-Sale', shares: 100, price: 20, total_val: 0.002 }
+    ],
+    top_holders: [
+      { rank: 1, name: 'Pack Holder', shares: 1e6, val_m: 21, pct: 1, date: '2026-06-30', change: 'N/A' }
+    ]
+  };
+  const emptyLive = {
+    capturedAt: '2026-11-11T00:00:00.000Z',
+    ownership: { data: [], reason: 'FMP_NO_COVERAGE' },
+    holders: { data: [], reason: 'FMP_NO_COVERAGE' },
+    insiders: { data: [], reason: 'FMP_NO_COVERAGE' },
+    news: { data: [] }
+  };
+  const empty = CompanyData.metadata(emptyLive, stock);
+  assert.equal(empty.insider_trades[0].name, 'Pack Insider');
+  assert.equal(empty.top_holders[0].name, 'Pack Holder');
+
+  const filteredOut = {
+    capturedAt: '2026-11-11T00:00:00.000Z',
+    ownership: { data: [], reason: null },
+    holders: { data: [{
+      symbol: 'PR', putCallShare: 'Call', sharesNumber: 1e6, investorName: 'Options Only',
+      ownership: 1, date: '2026-06-30'
+    }], reason: null },
+    insiders: { data: [{
+      symbol: 'PR', transactionDate: 'not-a-date', reportingName: 'Bad Date',
+      typeOfOwner: 'officer', transactionType: 'P', securitiesTransacted: 10, price: 1
+    }], reason: null },
+    news: { data: [] }
+  };
+  const kept = CompanyData.metadata(filteredOut, stock);
+  assert.equal(kept.insider_trades[0].name, 'Pack Insider');
+  assert.equal(kept.top_holders[0].name, 'Pack Holder');
+});

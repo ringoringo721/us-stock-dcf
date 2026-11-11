@@ -46,36 +46,35 @@
 
   function metadata(data, stock) {
     const finite = value => typeof value === 'number' && Number.isFinite(value);
-    const stubMissing = value => value?.reason === 'FMP_COMPANY_CACHE_MISSING';
     const holders = (data?.holders?.data || []).filter(row => row.symbol === stock.ticker
       && row.putCallShare === 'Share' && finite(row.sharesNumber) && row.sharesNumber >= 0);
     const insiders = (data?.insiders?.data || []).filter(row => row.symbol === stock.ticker
       && day(row.transactionDate) && finite(row.securitiesTransacted));
     const summary = data?.ownership?.data?.[0];
-    // Expansion company packs already embed insider_trades / occasional holders. Live hydrate
-    // stubs used to assign empty arrays and wipe that evidence (PR/VOD profile looked blank).
-    const top_holders = holders.length || !stubMissing(data?.holders)
-      ? holders.map((row, index) => ({
-        rank: index + 1, name: row.investorName, shares: row.sharesNumber,
-        val_m: finite(stock.price) ? row.sharesNumber * stock.price / 1e6 : null,
-        pct: finite(row.ownership) ? row.ownership : null, date: row.date,
-        change: finite(row.changeInSharesNumberPercentage) ? `${row.changeInSharesNumberPercentage >= 0 ? '+' : ''}${row.changeInSharesNumberPercentage.toFixed(2)}%` : 'N/A'
-      }))
-      : (Array.isArray(stock.top_holders) ? stock.top_holders : []);
-    const insider_trades = insiders.length || !stubMissing(data?.insiders)
-      ? insiders.map(row => ({
-        date: row.transactionDate, name: row.reportingName, title: row.typeOfOwner,
-        is_buy: /^P(?:-|$)/.test(row.transactionType) ? true : /^S(?:-|$)/.test(row.transactionType) ? false : null,
-        action: row.transactionType, shares: Math.abs(row.securitiesTransacted),
-        price: finite(row.price) ? row.price : null,
-        total_val: finite(row.price) ? Math.abs(row.securitiesTransacted) * row.price / 1e6 : null
-      }))
-      : (Array.isArray(stock.insider_trades) ? stock.insider_trades : []);
+    // Prefer non-empty live FMP rows; otherwise keep pack-embedded evidence. Empty live
+    // results (CACHE_MISSING stub, FMP_NO_COVERAGE, or rows that fail Share/date filters)
+    // must not wipe Form-4 / holder rows already captured on the expansion pack.
+    const preferLiveOrPack = (liveRows, packRows) => liveRows.length
+      ? liveRows
+      : (Array.isArray(packRows) && packRows.length ? packRows : liveRows);
+    const top_holders = preferLiveOrPack(holders.map((row, index) => ({
+      rank: index + 1, name: row.investorName, shares: row.sharesNumber,
+      val_m: finite(stock.price) ? row.sharesNumber * stock.price / 1e6 : null,
+      pct: finite(row.ownership) ? row.ownership : null, date: row.date,
+      change: finite(row.changeInSharesNumberPercentage) ? `${row.changeInSharesNumberPercentage >= 0 ? '+' : ''}${row.changeInSharesNumberPercentage.toFixed(2)}%` : 'N/A'
+    })), stock.top_holders);
+    const insider_trades = preferLiveOrPack(insiders.map(row => ({
+      date: row.transactionDate, name: row.reportingName, title: row.typeOfOwner,
+      is_buy: /^P(?:-|$)/.test(row.transactionType) ? true : /^S(?:-|$)/.test(row.transactionType) ? false : null,
+      action: row.transactionType, shares: Math.abs(row.securitiesTransacted),
+      price: finite(row.price) ? row.price : null,
+      total_val: finite(row.price) ? Math.abs(row.securitiesTransacted) * row.price / 1e6 : null
+    })), stock.insider_trades);
     const ownershipPercent = summary?.symbol === stock.ticker && finite(summary.ownershipPercent)
       ? summary.ownershipPercent : null;
     return {
-      inst_ownership_pct: ownershipPercent !== null || !stubMissing(data?.ownership)
-        ? ownershipPercent : (finite(stock.inst_ownership_pct) ? stock.inst_ownership_pct : null),
+      inst_ownership_pct: ownershipPercent !== null ? ownershipPercent
+        : (finite(stock.inst_ownership_pct) ? stock.inst_ownership_pct : null),
       insider_ownership_pct: finite(stock.insider_ownership_pct) ? stock.insider_ownership_pct : null,
       top_holders,
       insider_trades,
