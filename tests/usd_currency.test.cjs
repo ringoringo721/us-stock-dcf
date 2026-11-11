@@ -236,3 +236,19 @@ test('Oldest non-December FYE annual row infers a 12-month FX start without a pr
   assert.equal(march.annual.income[0].currencyConversion.start, '2021-04-01');
   assert.equal(march.annual.income[0].currencyConversion.reason, null);
 });
+
+test('Q2/Q4-only reporters infer semiannual cadence and convert half-year FX (VOD)', () => {
+  const { inferReportingFrequency } = require('../usd_currency.js');
+  const source = raw('VOD');
+  assert.equal(inferReportingFrequency(source), 'semiannual');
+  const converted = convertStatements({ ...source, calculationCurrency: 'USD' }, rates, 'USD');
+  assert.equal(converted.reportingFrequency, 'semiannual');
+  const latest = converted.quarterly.income.slice().sort((a, b) => a.date.localeCompare(b.date)).at(-1);
+  assert.equal(latest.date, '2026-03-31');
+  assert.equal(latest.currencyConversion.reason, null);
+  assert.ok(latest.revenue > 0, 'half-year EUR→USD FX yields positive revenue');
+  const Profile = require('../profile_overview.js');
+  const summary = Profile.calculate(converted);
+  assert.ok(summary.revenue > 0, 'TTM revenue from two half-years');
+  assert.ok(Number.isFinite(summary.grossMargin), 'TTM gross margin available');
+});

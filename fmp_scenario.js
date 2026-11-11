@@ -134,26 +134,49 @@
       : { reason: 'SCENARIO_BASE_UNVERIFIED' };
   }
 
+  // Operating-tax autofill band: exclude loss years and one-off extreme rates (e.g. VOD FY2026 ~97%)
+  // so a single distorted FY cannot collapse WACC ≤ g via after-tax cost of debt.
+  const OPERATING_TAX_AUTOFILL_MIN = 0;
+  const OPERATING_TAX_AUTOFILL_MAX = 40;
+  const STATUTORY_OPERATING_TAX_FALLBACK = 21;
+  const usableOperatingTax = percent => finite(percent)
+    && percent >= OPERATING_TAX_AUTOFILL_MIN && percent <= OPERATING_TAX_AUTOFILL_MAX;
+
   function fiveYearEffectiveTax(statements, base, currency) {
     const unavailable = reason => ({ percent: null, years: [], rates: [], reason });
     if (!base || !Number.isInteger(base.year) || !base.date) return unavailable('TAX_BASE_UNAVAILABLE');
     if (!statements?.annual?.income) return unavailable('TAX_STATEMENTS_UNAVAILABLE');
     const rows = [];
+    const skipped = [];
     for (let offset = 0; offset < 5; offset++) {
       const year = base.year - offset;
       const matches = statements.annual.income.filter(row => Number(row.fiscalYear || row.calendarYear) === year
         && fullAnnualPeriod(row) && matchesReportingCurrency(row, currency));
       if (matches.length !== 1) return unavailable('TAX_FIVE_YEAR_INCOMPLETE');
       const row = matches[0];
-      if (!(row.incomeBeforeTax > 0) || !finite(row.incomeTaxExpense)) return unavailable('TAX_PRETAX_OR_EXPENSE_UNAVAILABLE');
+      if (!(row.incomeBeforeTax > 0) || !finite(row.incomeTaxExpense)) {
+        skipped.push({ year, date: row.date, reason: 'TAX_PRETAX_OR_EXPENSE_UNAVAILABLE' });
+        continue;
+      }
       const rate = row.incomeTaxExpense / row.incomeBeforeTax * 100;
-      if (!finite(rate) || rate < -100 || rate > 100) return unavailable('TAX_RATE_OUT_OF_RANGE');
+      if (!finite(rate) || rate < -100 || rate > 100) {
+        skipped.push({ year, date: row.date, reason: 'TAX_RATE_OUT_OF_RANGE' });
+        continue;
+      }
+      if (!usableOperatingTax(rate)) {
+        skipped.push({ year, date: row.date, reason: 'TAX_RATE_OUTLIER', rate });
+        continue;
+      }
       rows.push({ year, date: row.date, rate });
+    }
+    if (rows.length < 3) {
+      return unavailable(skipped.some(row => row.reason === 'TAX_PRETAX_OR_EXPENSE_UNAVAILABLE')
+        ? 'TAX_PRETAX_OR_EXPENSE_UNAVAILABLE' : 'TAX_FIVE_YEAR_INCOMPLETE');
     }
     rows.reverse();
     const percent = rows.reduce((sum, row) => sum + row.rate, 0) / rows.length;
-    return { percent, years: rows.map(row => row.year), rates: rows, reason: null,
-      basis: 'Arithmetic mean of five consecutive full-FY effective tax rates (income tax expense / pretax income).' };
+    return { percent, years: rows.map(row => row.year), rates: rows, skipped, reason: null,
+      basis: 'Arithmetic mean of usable full-FY effective tax rates (income tax expense / pretax income) inside the trailing five-year window; loss years and outlier rates outside 0–40% are skipped.' };
   }
 
   const quarterPeriodIndex = row => {
@@ -461,10 +484,22 @@
         }
         set('nwcChange', actuals?.workingCapital?.nwcChange, 'working-capital-average');
       }
-      if (!finite(values.tax)) set('tax', taxFive.percent, 'five-year-effective-tax');
-      if (!finite(values.tax)) set('tax', latest?.items?.tax?.percent, 'latest-fy');
+      if (!finite(values.tax) && usableOperatingTax(taxFive.percent)) {
+        set('tax', taxFive.percent, 'five-year-effective-tax');
+      }
+      if (!finite(values.tax) && usableOperatingTax(latest?.items?.tax?.percent)) {
+        set('tax', latest.items.tax.percent, 'latest-fy');
+      }
       modelPct('tax', 'taxRate');
-      if (!finite(values.tax)) set('tax', modelBaseRatio.tax, 'fmp-base-year');
+      if (finite(values.tax) && !usableOperatingTax(values.tax)
+          && ['fmp', 'fmp-base-year', 'latest-fy'].includes(origins.tax)) {
+        values.tax = null;
+        delete origins.tax;
+      }
+      if (!finite(values.tax) && usableOperatingTax(modelBaseRatio.tax)) {
+        set('tax', modelBaseRatio.tax, 'fmp-base-year');
+      }
+      if (!finite(values.tax)) set('tax', STATUTORY_OPERATING_TAX_FALLBACK, 'statutory-operating-tax-fallback');
       const usedProvider = Object.values(origins).includes('fmp');
       if (usedProvider) providerYears.push(year);
       years.push({ year, values, origins, consensusDate: covered ? row.date : null });
@@ -794,5 +829,5 @@
     operatingDefaults: 'Missing consensus CapEx/CFO/D&A/EBITDA use latest full-FY revenue ratios (labeled latest-fy), then year-specific FMP model projection percentages (labeled fmp), then model base-year ratios (fmp-base-year). NWC uses five-year average change/revenue. Missing revenue growth uses FMP model revenuePercentage/YoY when present, else suggestRevenueGrowth. Flat fill for uncovered years only; no invented fade path. Soft ANALYST_FX_UNVERIFIED keeps consensus rows with a warning.',
     growthDefaults: 'Hierarchy when consensus growth is missing: (1) year-specific FMP model projection growth; (2) historical revenue CAGR up to 5y if |CAGR|<=30 and not hyper-volatile; (3) peer median of growth_10y[0] from PeerComparison; (4) mature 2.5% band midpoint; else N/A + GROWTH_REQUIRES_MANUAL_INPUT. Labeled suggested defaults; never overwrites analyst, FMP model, or user values.'
   };
-  return { fields, activeFields, fullAnnualPeriod, verifiedIncomeDocument, baseSource, resolveForecastBase, verifiedRevenueCorrection, defaults, update, calculate, actualReference, missingInputs, upgradeWorkingCapital, exitMultipleTerminal, fiveYearEffectiveTax, fiveYearHistory, ttmHistoryReference, suggestRevenueGrowth, snapshotNetDebtFromStock, TERMINAL_GROWTH_REFERENCE, GROWTH_AUTOFILL_ABS_MAX, MATURE_GROWTH_DEFAULT, formulas };
+  return { fields, activeFields, fullAnnualPeriod, verifiedIncomeDocument, baseSource, resolveForecastBase, verifiedRevenueCorrection, defaults, update, calculate, actualReference, missingInputs, upgradeWorkingCapital, exitMultipleTerminal, fiveYearEffectiveTax, fiveYearHistory, ttmHistoryReference, suggestRevenueGrowth, snapshotNetDebtFromStock, TERMINAL_GROWTH_REFERENCE, GROWTH_AUTOFILL_ABS_MAX, MATURE_GROWTH_DEFAULT, OPERATING_TAX_AUTOFILL_MIN, OPERATING_TAX_AUTOFILL_MAX, STATUTORY_OPERATING_TAX_FALLBACK, usableOperatingTax, formulas };
 });

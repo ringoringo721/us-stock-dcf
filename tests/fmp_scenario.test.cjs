@@ -374,11 +374,39 @@ test('five-year effective tax averages consecutive full FY rates and stays N/A w
   assert.equal(tax.reason, null);
   near(tax.percent, (10 + 11 + 12 + 13 + 14) / 5);
   assert.deepEqual(tax.years, [2021, 2022, 2023, 2024, 2025]);
+  // Soft path: one missing expense year is skipped when ≥3 usable rates remain.
   delete statements.annual.income[0].incomeTaxExpense;
+  const soft = Scenario.fiveYearEffectiveTax(statements, { year: 2025, date: '2025-12-31' }, 'USD');
+  assert.equal(soft.reason, null);
+  near(soft.percent, (11 + 12 + 13 + 14) / 4);
+  assert.deepEqual(soft.years, [2022, 2023, 2024, 2025]);
+  // Fewer than 3 usable rates → unavailable.
+  for (let i = 1; i <= 3; i++) delete statements.annual.income[i].incomeTaxExpense;
   assert.equal(Scenario.fiveYearEffectiveTax(statements, { year: 2025, date: '2025-12-31' }, 'USD').reason,
     'TAX_PRETAX_OR_EXPENSE_UNAVAILABLE');
   assert.equal(Scenario.fiveYearEffectiveTax(null, { year: 2025, date: '2025-12-31' }, 'USD').reason,
     'TAX_STATEMENTS_UNAVAILABLE');
+});
+
+test('five-year effective tax skips loss years and outlier rates; defaults reject extreme autofill', () => {
+  const statements = { annual: { income: [
+    { date: '2022-03-31', fiscalYear: '2022', period: 'FY', reportedCurrency: 'EUR',
+      incomeBeforeTax: 100, incomeTaxExpense: 20 },
+    { date: '2023-03-31', fiscalYear: '2023', period: 'FY', reportedCurrency: 'EUR',
+      incomeBeforeTax: 100, incomeTaxExpense: 15 },
+    { date: '2024-03-31', fiscalYear: '2024', period: 'FY', reportedCurrency: 'EUR',
+      incomeBeforeTax: 100, incomeTaxExpense: 10 },
+    { date: '2025-03-31', fiscalYear: '2025', period: 'FY', reportedCurrency: 'EUR',
+      incomeBeforeTax: -50, incomeTaxExpense: 20 },
+    { date: '2026-03-31', fiscalYear: '2026', period: 'FY', reportedCurrency: 'EUR',
+      incomeBeforeTax: 100, incomeTaxExpense: 97 }
+  ] } };
+  const tax = Scenario.fiveYearEffectiveTax(statements, { year: 2026, date: '2026-03-31' }, 'EUR');
+  assert.equal(tax.reason, null);
+  near(tax.percent, (20 + 15 + 10) / 3);
+  assert.deepEqual(tax.years, [2022, 2023, 2024]);
+  assert.ok(tax.skipped.some(row => row.year === 2025));
+  assert.ok(tax.skipped.some(row => row.year === 2026 && row.reason === 'TAX_RATE_OUTLIER'));
 });
 
 test('new defaults label net cash vs net debt with snapshot date and suggested terminal/exit inputs', () => {

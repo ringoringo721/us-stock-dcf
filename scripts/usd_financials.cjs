@@ -30,23 +30,25 @@ const value = (row, field) => {
   }
   return null;
 };
-function total(rows, field, type) {
-  if (rows.length !== 4 || rows.some((row, i) => i && (
+function total(rows, field, type, { count = 4, stride = 1, minDays = 60, maxDays = 120 } = {}) {
+  if (rows.length !== count || rows.some((row, i) => i && (
     Number(row.fiscalYear || row.calendarYear) * 4 + Number(row.period[1])
-      !== Number(rows[i - 1].fiscalYear || rows[i - 1].calendarYear) * 4 + Number(rows[i - 1].period[1]) + 1
+      !== Number(rows[i - 1].fiscalYear || rows[i - 1].calendarYear) * 4
+        + Number(rows[i - 1].period[1]) + stride
     ||
-    (Date.parse(row.date) - Date.parse(rows[i - 1].date)) / 86400000 < 60
-    || (Date.parse(row.date) - Date.parse(rows[i - 1].date)) / 86400000 > 120))) return null;
+    (Date.parse(row.date) - Date.parse(rows[i - 1].date)) / 86400000 < minDays
+    || (Date.parse(row.date) - Date.parse(rows[i - 1].date)) / 86400000 > maxDays))) return null;
   const values = rows.map(row => value(row, field));
   if (values.some(v => v === null)) return null;
   if (type === 'balance' || field === 'cashAtEndOfPeriod') return values.at(-1);
   if (field === 'cashAtBeginningOfPeriod') return values[0];
   if (ratios[field]) {
-    const numerator = total(rows, ratios[field], type), denominator = total(rows, 'revenue', type);
+    const numerator = total(rows, ratios[field], type, { count, stride, minDays, maxDays });
+    const denominator = total(rows, 'revenue', type, { count, stride, minDays, maxDays });
     return numerator === null || !denominator ? null : numerator / denominator;
   }
   const sum = values.reduce((a, b) => a + b, 0);
-  return /^weightedAverageShs/.test(field) ? sum / 4 : sum;
+  return /^weightedAverageShs/.test(field) ? sum / count : sum;
 }
 const ratio = (a, b, scale = 1) => {
   const result = Number.isFinite(a) && Number.isFinite(b) && b !== 0 ? a / b * scale : null;
@@ -174,12 +176,30 @@ function normalizeStock(stock, source, rates) {
   const output = structuredClone(stock);
   const sorted = (period, type) => data[period][type].slice().sort((a, b) => a.date.localeCompare(b.date));
   const latest = type => sorted('quarterly', type).at(-1);
-  const recent = type => sorted('quarterly', type).slice(-4);
+  const frequency = data.reportingFrequency || 'quarterly';
+  const stride = frequency === 'semiannual' ? 2 : 1;
+  const count = frequency === 'semiannual' ? 2 : 4;
+  const cadenceOpts = {
+    count, stride,
+    minDays: frequency === 'semiannual' ? 150 : 60,
+    maxDays: frequency === 'semiannual' ? 220 : 120
+  };
+  // Pick the trailing cadence window by fiscal period keys (Q2/Q4 half-years stride by 2).
+  const recent = type => {
+    const rows = sorted('quarterly', type);
+    if (rows.length < count) return rows.slice(-count);
+    const key = row => Number(row.fiscalYear || row.calendarYear) * 4 + Number(row.period[1]);
+    const end = key(rows.at(-1));
+    return Array.from({ length: count }, (_, i) => {
+      const want = end - (count - 1 - i) * stride;
+      return rows.find(row => key(row) === want);
+    }).filter(Boolean);
+  };
   const bs = latest('balance');
   const income = latest('income');
   if (!bs || !income || !latest('cashflow')) throw new Error('USD normalization requires dated quarterly income, balance and cash-flow statements');
   const millions = n => n === null ? null : n / 1e6;
-  const flow = (type, field) => total(recent(type), field, type);
+  const flow = (type, field) => total(recent(type), field, type, cadenceOpts);
   const balance = field => value(bs, field);
   const dates = [income, bs, latest('cashflow')];
   let reason = [...recent('income'), ...recent('cashflow'), bs]
