@@ -7,6 +7,7 @@ if (fs.existsSync(env)) process.loadEnvFile(env);
 const handler = require('../api/fmp.js');
 const hkexHandler = require('../api/hkexnews.js');
 const usIndexesHandler = require('../api/us-indexes.js');
+const hkIndexesHandler = require('../api/hk-indexes.js');
 const port = Number(process.argv[2] || 57102);
 if (!Number.isInteger(port) || port < 1024 || port > 65535) throw new RangeError('Invalid preview port');
 const server = http.createServer((req, res) => {
@@ -30,6 +31,14 @@ const server = http.createServer((req, res) => {
   if (url.pathname === '/api/us-indexes') {
     usIndexesHandler(req, res).catch(error => {
       console.error('Preview US indexes API failed', error.name);
+      if (!res.headersSent) res.writeHead(500, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ error: 'PREVIEW_API_ERROR' }));
+    });
+    return;
+  }
+  if (url.pathname === '/api/hk-indexes') {
+    hkIndexesHandler(req, res).catch(error => {
+      console.error('Preview HK indexes API failed', error.name);
       if (!res.headersSent) res.writeHead(500, { 'Content-Type': 'application/json' });
       res.end(JSON.stringify({ error: 'PREVIEW_API_ERROR' }));
     });
