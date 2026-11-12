@@ -59,6 +59,37 @@ test('1766.HK has verified issuer-wide A+H ordinary shares from the October 2026
   assert.ok(Math.abs(valued.fairVal - model.models.advanced.data[0].equityValue / 28698864088) < 1e-9);
 });
 
+test('3983.HK liquidation uses issuer-wide H+Domestic issued shares (4.61B), not H-only 1.796B', () => {
+  const record = capital['3983.HK'];
+  assert.ok(record, 'capital record');
+  assert.equal(record.coverage, 'allOrdinaryShareClasses');
+  const byName = Object.fromEntries(record.classes.map(row => [row.name, row]));
+  assert.equal(byName.H.issuedShares, 1796000122);
+  assert.equal(byName.H.treasuryShares, 0);
+  assert.equal(byName.Domestic.issuedShares, 2813999878);
+  assert.equal(byName.Domestic.treasuryShares, 0);
+  const outstanding = record.classes.reduce(
+    (total, row) => total + row.issuedShares - row.treasuryShares, 0);
+  assert.equal(outstanding, 4610000000);
+
+  const expansion = loadExpansion();
+  const stock = expansion.stocks['3983.HK'];
+  assert.equal(stock.shares_outstanding, 4610000000);
+  assert.equal(stock.shareBasis, 'commonSharesOutstandingExcludingTreasury');
+  assert.equal(stock.shareSource.scope, 'issuerWideOrdinaryShares');
+  assert.equal(stock.shareSource.reason, undefined);
+  assert.equal(Models.issuedShares(stock), 4610000000);
+
+  const { calculate } = require('../liquidation.js');
+  const liq = calculate(stock.liquidation, '3983.HK');
+  assert.deepEqual(liq.reasons, [null, null, null]);
+  // Prior H-only denominator inflated I/II/III to ~7.27/6.30/5.78; issuer-wide is ~2.83/2.46/2.25.
+  assert.ok(Math.abs(liq.values[0] - 2.832369117945661) < 1e-9);
+  assert.ok(Math.abs(liq.values[1] - 2.4554617726046786) < 1e-9);
+  assert.ok(Math.abs(liq.values[2] - 2.251047425861203) < 1e-9);
+  assert.equal(liq.shares, 4610000000);
+});
+
 test('applyOne refuses to invent shares when monthly-return capital is absent', () => {
   const stock = {
     ticker: '9999.HK',

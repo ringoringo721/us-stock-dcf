@@ -41,10 +41,12 @@
       for (const filename of filenames) loadOne(filename, 1);
     })(MarketContext.market === 'HKEX'
       ? [
-          'hkex_universe_data.js?v=show-all-1',
-          'hkex_expansion_data.js?v=show-all-1',
-          'hk_market_data.js?v=show-all-1',
-          'hk_fcff_data.js?v=show-all-1',
+          // Bump v= when pack contents change: vercel.json caches these JS files
+          // for 24h (SWR 7d). A sticky ?v= leaves preview/prod on stale H-only shares.
+          'hkex_universe_data.js?v=issuer-wide-3983-1',
+          'hkex_expansion_data.js?v=issuer-wide-3983-1',
+          'hk_market_data.js?v=issuer-wide-3983-1',
+          'hk_fcff_data.js?v=issuer-wide-3983-1',
         ]
       : [
           // Names + listings before expansion so a slow/hung expansion cannot
@@ -12491,11 +12493,22 @@
   }
 
   function universeNeedsUpgrade() {
-    if (!isAppReady || MarketContext.market !== 'US') return false;
-    const n = Object.keys(stockUniverse || {}).length;
-    const baseline = baselineTickerCount();
-    if (window.US_LISTINGS?.stocks?.length && baseline && n <= baseline) return true;
-    if (window.US_EXPANSION && !lastHydrateHadExpansion) return true;
+    if (!isAppReady) return false;
+    if (MarketContext.market === 'US') {
+      const n = Object.keys(stockUniverse || {}).length;
+      const baseline = baselineTickerCount();
+      // Listings-only hydrate is smaller than the full US universe until expansion merges.
+      if (window.US_LISTINGS?.stocks?.length && baseline && n <= baseline) return true;
+      if (window.US_EXPANSION && !lastHydrateHadExpansion) return true;
+      return false;
+    }
+    if (MarketContext.market === 'HKEX') {
+      // HK listings merge early to the full official count (~2.7k), so ticker *count*
+      // cannot detect a premature stub lock — only the expansion payload flag can.
+      // Without this, 3983.HK etc. stay searchable listingStock rows with all N/A.
+      if (window.HKEX_EXPANSION && !lastHydrateHadExpansion) return true;
+      return false;
+    }
     return false;
   }
 
@@ -12607,6 +12620,9 @@
     if (MarketContext.market === 'US' && !window.US_EXPANSION) {
       console.warn('[boot] hydrating listings before US_EXPANSION; will late-upgrade');
     }
+    if (MarketContext.market === 'HKEX' && !window.HKEX_EXPANSION) {
+      console.warn('[boot] hydrating HK listings before HKEX_EXPANSION; will late-upgrade');
+    }
     try {
       hydrateUniverse(data, { initial: true });
       paintBootCount();
@@ -12638,7 +12654,7 @@
       : !!window.FULL_MARKET_DATA;
     if (hasBaseline) return;
     const marketFile = MarketContext.market === 'HKEX'
-      ? 'hk_market_data.js?v=show-all-1'
+      ? 'hk_market_data.js?v=issuer-wide-3983-1'
       : 'market_data.js?v=show-all-1';
     fetch(marketFile + (marketFile.includes('?') ? '&' : '?') + 't=' + Date.now())
       .then(r => r.text())
@@ -12668,7 +12684,10 @@
     }
     if (universeNeedsUpgrade()) return;
     const boot = window.__marketScriptBoot;
-    if (MarketContext.market === 'US' && !lastHydrateHadExpansion && boot && !boot.done) return;
+    // Keep polling while the large expansion payload is still in flight so a
+    // listings-first hydrate can late-upgrade (US and HKEX).
+    if ((MarketContext.market === 'US' || MarketContext.market === 'HKEX')
+        && !lastHydrateHadExpansion && boot && !boot.done) return;
     clearInterval(pollTimer);
   }, 100);
 </script>

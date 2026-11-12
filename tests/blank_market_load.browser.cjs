@@ -1,9 +1,12 @@
 #!/usr/bin/env node
 /**
- * Boot regressions for US screener load:
+ * Boot regressions for US / HKEX screener load:
  * 1) Default bootWaitMs must NOT be Number(null)===0.
  * 2) Hung us_expansion_data.js must hydrate from listings immediately (no「載入中…」wait).
- * 3) Late-arriving expansion must upgrade a premature baseline lock.
+ * 3) Late-arriving US expansion must upgrade a premature baseline lock.
+ * 4) Late-arriving HKEX expansion must upgrade listingStock stubs (e.g. 3983.HK),
+ *    matching the US late-upgrade path — HK listings already cover the full count,
+ *    so ticker-count checks alone cannot detect the premature stub lock.
  */
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
@@ -172,6 +175,99 @@ async function withPage(server, pathAndQuery, fn) {
         assert.ok(late.universe > 900, `late upgrade failed: early=${early} late=${late.universe}`);
         assert.equal(errors.length, 0, errors.join('\n'));
         console.log('late-upgrade', { early, late });
+      });
+    } finally {
+      server.close();
+    }
+  }
+
+  // --- 4) HKEX late expansion upgrade: 3983.HK must leave listingStock N/A ---
+  {
+    const vm = require('node:vm');
+    const expansionCode = fs.readFileSync(path.join(root, 'hkex_expansion_data.js'), 'utf8');
+    const expansionCtx = { window: {} };
+    vm.runInNewContext(expansionCode, expansionCtx, { timeout: 60000 });
+    const pack = expansionCtx.window.HKEX_EXPANSION;
+    assert.ok(pack?.stocks?.['3983.HK']?.price, 'fixture requires packed 3983.HK');
+    const miniExpansion = 'window.HKEX_EXPANSION = ' + JSON.stringify({
+      version: pack.version || 1,
+      stocks: { '3983.HK': pack.stocks['3983.HK'] },
+      models: { '3983.HK': pack.models['3983.HK'] },
+      snapshots: { '3983.HK': pack.snapshots['3983.HK'] },
+    }) + ';\n';
+
+    let releaseExpansion;
+    const expansionGate = new Promise(resolve => { releaseExpansion = resolve; });
+    const server = await startServer({
+      'hkex_expansion_data.js': async (req, res) => {
+        await expansionGate;
+        res.setHeader('Content-Type', 'application/javascript; charset=utf-8');
+        res.end(miniExpansion);
+      },
+    });
+    try {
+      await withPage(server, '/?market=HKEX&bootWaitMs=300', async (page, errors) => {
+        await page.waitForFunction(
+          () => isAppReady && window.HKEX_LISTINGS?.stocks?.length > 1000
+            && !!stockUniverse['3983.HK'],
+          null,
+          { timeout: 60000 },
+        );
+        const early = await page.evaluate(() => {
+          const s = stockUniverse['3983.HK'];
+          return {
+            price: s?.price,
+            mcap: s?.mcap,
+            expansionStatus: s?.expansion?.status,
+            hadExpansion: !!window.HKEX_EXPANSION,
+            fmp: !!window.FMP_MODEL_DATA?.stocks?.['3983.HK'],
+          };
+        });
+        assert.equal(early.hadExpansion, false, 'expansion must still be gated');
+        assert.equal(early.price, null, `stub price expected null, got ${early.price}`);
+        assert.equal(early.expansionStatus, 'pendingCapture');
+        assert.equal(early.fmp, false);
+
+        releaseExpansion();
+        await page.waitForFunction(
+          () => window.HKEX_EXPANSION
+            && stockUniverse['3983.HK']?.price != null
+            && stockUniverse['3983.HK']?.expansion?.status === 'available'
+            && !!window.FMP_MODEL_DATA?.stocks?.['3983.HK']?.models?.dcf,
+          null,
+          { timeout: 60000 },
+        );
+        const late = await page.evaluate(() => {
+          const s = stockUniverse['3983.HK'];
+          const dcf = window.FmpModels?.reference?.(
+            window.FmpModels.record('3983.HK'), 'dcf', s
+          );
+          return {
+            price: s?.price,
+            mcap: s?.mcap,
+            shares: s?.shares,
+            expansionStatus: s?.expansion?.status,
+            fmpDcf: dcf,
+            wacc: (() => {
+              try {
+                const row = window.FmpModels.value(
+                  window.FmpModels.record('3983.HK'), 'advanced', s
+                );
+                return row?.WACC ?? null;
+              } catch {
+                return null;
+              }
+            })(),
+          };
+        });
+        assert.equal(late.expansionStatus, 'available');
+        assert.ok(Number.isFinite(late.price) && late.price > 0, `price ${late.price}`);
+        assert.ok(Number.isFinite(late.mcap) && late.mcap > 0, `mcap ${late.mcap}`);
+        assert.ok(Number.isFinite(late.shares) && late.shares > 0, `shares ${late.shares}`);
+        assert.ok(Number.isFinite(late.fmpDcf) && late.fmpDcf > 0, `fmpDcf ${late.fmpDcf}`);
+        assert.ok(Number.isFinite(late.wacc) && late.wacc > 0, `wacc ${late.wacc}`);
+        assert.equal(errors.length, 0, errors.join('\n'));
+        console.log('hk-late-upgrade', { early, late });
       });
     } finally {
       server.close();

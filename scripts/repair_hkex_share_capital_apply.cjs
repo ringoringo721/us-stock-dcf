@@ -108,7 +108,7 @@ function repairFcff(fcff, market) {
 const SHARE_PATCH_KEYS = [
   'shares', 'shares_display', 'shares_outstanding', 'shareBasis', 'shareSource',
   'fair_val', 'default_fair_val', 'premium_pct', 'is_undervalued', 'fin_valuation',
-  'liquidation', 'mcap'
+  'liquidation', 'liq_val_1', 'liq_val_2', 'liq_val_3', 'mcap'
 ];
 
 function repairCompanyCache(ticker, stock) {
