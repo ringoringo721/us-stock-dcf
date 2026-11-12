@@ -7,14 +7,20 @@ const { test } = require('node:test');
 const UsIndexes = require('../us_indexes.js');
 const { createHandler } = require('../api/us-indexes.js');
 
-const call = async (handler, url, method = 'GET') => {
+const browserHeaders = {
+  'sec-fetch-site': 'same-origin',
+  host: 'localhost:57111',
+  origin: 'http://localhost:57111',
+};
+
+const call = async (handler, url, method = 'GET', reqHeaders = browserHeaders) => {
   const headers = {};
   const res = {
     statusCode: 200,
     setHeader(name, value) { headers[name] = value; },
     end(body) { this.body = JSON.parse(body); },
   };
-  await handler({ method, url, headers: {} }, res);
+  await handler({ method, url, headers: reqHeaders }, res);
   return { status: res.statusCode, body: res.body, headers };
 };
 
@@ -25,6 +31,31 @@ function fakeHistory(symbol, closes) {
     date: new Date(start + index * 86400000).toISOString().slice(0, 10),
     close,
   }));
+}
+
+function fakeQuotes() {
+  return UsIndexes.SYMBOLS.map((symbol, index) => ({
+    symbol,
+    price: 200 + index,
+    changePercentage: 0.15 * (index % 3 === 0 ? -1 : 1),
+    previousClose: 199 + index,
+  }));
+}
+
+function liveFetcher(quotes = fakeQuotes()) {
+  return async url => {
+    assert.equal(url.hostname, 'financialmodelingprep.com');
+    if (url.pathname.endsWith('/batch-quote')) {
+      assert.ok(url.searchParams.get('symbols').includes('^GSPC'));
+      return { ok: true, json: async () => quotes };
+    }
+    assert.ok(url.pathname.endsWith('/historical-price-eod/full'));
+    const symbol = url.searchParams.get('symbol');
+    return {
+      ok: true,
+      json: async () => fakeHistory(symbol, Array.from({ length: 20 }, (_, day) => 100 + day)),
+    };
+  };
 }
 
 test('catalog covers majors plus sector SPDRs', () => {
@@ -54,31 +85,12 @@ test('buildPayload keeps only complete quote + sparkline rows', () => {
   UsIndexes.validatePayload(payload);
 });
 
-test('API serves live FMP batch when configured', async () => {
-  const quotes = UsIndexes.SYMBOLS.map((symbol, index) => ({
-    symbol,
-    price: 200 + index,
-    changePercentage: 0.15 * (index % 3 === 0 ? -1 : 1),
-    previousClose: 199 + index,
-  }));
+test('API serves live FMP batch for browser-like requests', async () => {
   const handler = createHandler({
     apiKey: () => 'test-key',
     now: () => new Date('2026-11-12T15:00:00Z'),
     readSeed: () => null,
-    fetch: async url => {
-      assert.equal(url.hostname, 'financialmodelingprep.com');
-      if (url.pathname.endsWith('/batch-quote')) {
-        assert.ok(url.searchParams.get('symbols').includes('^GSPC'));
-        assert.equal(url.searchParams.get('apikey'), 'test-key');
-        return { ok: true, json: async () => quotes };
-      }
-      assert.ok(url.pathname.endsWith('/historical-price-eod/full'));
-      const symbol = url.searchParams.get('symbol');
-      return {
-        ok: true,
-        json: async () => fakeHistory(symbol, Array.from({ length: 20 }, (_, day) => 100 + day)),
-      };
-    },
+    fetch: liveFetcher(),
   });
   const result = await call(handler, '/api/us-indexes');
   assert.equal(result.status, 200);
@@ -88,7 +100,29 @@ test('API serves live FMP batch when configured', async () => {
   assert.equal(JSON.stringify(result.body).includes('test-key'), false);
 });
 
-test('API falls back to seed when FMP is unavailable', async () => {
+test('anonymous refresh=1 cannot bypass cache / fan out FMP', async () => {
+  let fetches = 0;
+  const seed = JSON.parse(fs.readFileSync(
+    path.join(__dirname, '..', 'cache', 'us-indexes', 'latest.json'),
+    'utf8',
+  ));
+  const handler = createHandler({
+    apiKey: () => 'test-key',
+    readSeed: () => seed,
+    fetch: async () => { fetches += 1; throw new Error('must not fetch'); },
+  });
+  const denied = await call(handler, '/api/us-indexes?refresh=1', 'GET', {});
+  assert.equal(denied.status, 403);
+  assert.equal(denied.body.error, 'BROWSER_REQUIRED');
+  assert.equal(fetches, 0);
+
+  const anonymous = await call(handler, '/api/us-indexes', 'GET', {});
+  assert.equal(anonymous.status, 200);
+  assert.equal(anonymous.headers['X-Index-Belt-Cache'], 'seed');
+  assert.equal(fetches, 0);
+});
+
+test('browser refresh=1 falls back to seed when FMP is unavailable', async () => {
   const seed = JSON.parse(fs.readFileSync(
     path.join(__dirname, '..', 'cache', 'us-indexes', 'latest.json'),
     'utf8',
@@ -102,6 +136,38 @@ test('API falls back to seed when FMP is unavailable', async () => {
   assert.equal(result.status, 200);
   assert.equal(result.headers['X-Index-Belt-Cache'], 'seed-fallback');
   assert.ok(result.body.indexes.length >= 5);
+});
+
+test('live refresh rate limit returns seed instead of another FMP fan-out', async () => {
+  const seed = JSON.parse(fs.readFileSync(
+    path.join(__dirname, '..', 'cache', 'us-indexes', 'latest.json'),
+    'utf8',
+  ));
+  let fetches = 0;
+  const handler = createHandler({
+    apiKey: () => 'test-key',
+    readSeed: () => seed,
+    fetch: async url => {
+      fetches += 1;
+      return liveFetcher()(url);
+    },
+  });
+  const headers = {
+    ...browserHeaders,
+    'x-forwarded-for': '203.0.113.77',
+  };
+  // LIVE_RATE_MAX = 3 — fourth refresh should be rate-limited.
+  for (let i = 0; i < 3; i += 1) {
+    const ok = await call(handler, '/api/us-indexes?refresh=1', 'GET', headers);
+    assert.equal(ok.status, 200);
+  }
+  const limited = await call(handler, '/api/us-indexes?refresh=1', 'GET', headers);
+  assert.equal(limited.status, 200);
+  assert.equal(limited.headers['X-Index-Belt-Cache'], 'seed-rate-limited');
+  assert.ok(fetches > 0);
+  const afterLimit = fetches;
+  await call(handler, '/api/us-indexes?refresh=1', 'GET', headers);
+  assert.equal(fetches, afterLimit, 'rate-limited refresh must not call FMP again');
 });
 
 test('committed seed validates', () => {

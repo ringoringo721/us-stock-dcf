@@ -6,64 +6,178 @@ const UsIndexes = require('../us_indexes.js');
 
 const MEMORY_TTL_MS = 5 * 60 * 1000;
 const HISTORY_CONCURRENCY = 4;
-let memoryCache = null;
+const RATE_WINDOW_MS = 60_000;
+/** Soft budget for browser same-origin cache misses. */
+const RATE_MAX = 20;
+/** Tight budget for refresh=1 live fan-out. */
+const LIVE_RATE_MAX = 3;
+/** One live FMP rebuild at a time per handler isolate. */
+const LIVE_MAX_INFLIGHT = 1;
+
+/** Prefer browser navigations / same-site fetches; block anonymous curl live fan-out. */
+function browserLikeLiveRequest(req) {
+  const site = String(req.headers?.['sec-fetch-site'] || '').toLowerCase();
+  if (site === 'same-origin' || site === 'same-site' || site === 'none') return true;
+  const host = String(req.headers?.host || '').toLowerCase();
+  const origin = String(req.headers?.origin || '');
+  const referer = String(req.headers?.referer || '');
+  if (!origin && !referer) return false;
+  const blob = `${origin} ${referer}`.toLowerCase();
+  if (host && blob.includes(host)) return true;
+  if (blob.includes('localhost') || blob.includes('127.0.0.1')) return true;
+  if (/\.vercel\.app\b/.test(blob) || /us-stock-dcf/.test(blob)) return true;
+  return false;
+}
+
+function clientIp(req) {
+  const forwarded = req.headers?.['x-forwarded-for'];
+  if (typeof forwarded === 'string' && forwarded.trim()) {
+    const parts = forwarded.split(',').map(part => part.trim()).filter(Boolean);
+    if (parts.length) return parts[parts.length - 1];
+  }
+  return req.socket?.remoteAddress || req.headers?.['x-real-ip'] || 'unknown';
+}
 
 function createHandler({
   fetch: fetcher = globalThis.fetch,
   apiKey = () => process.env.FMP_API_KEY,
   now = () => new Date(),
   readSeed = defaultReadSeed,
+  isBrowserLike = browserLikeLiveRequest,
 } = {}) {
+  let memoryCache = null;
+  let liveInflight = null;
+  let liveInflightCount = 0;
+  const rateBuckets = new Map();
+
+  function rateLimited(req, { live = false } = {}) {
+    const key = `${clientIp(req)}:${live ? 'live' : 'std'}`;
+    const stamp = Date.now();
+    let bucket = rateBuckets.get(key);
+    if (!bucket || stamp >= bucket.resetAt) {
+      bucket = { count: 0, resetAt: stamp + RATE_WINDOW_MS };
+      rateBuckets.set(key, bucket);
+    }
+    bucket.count += 1;
+    if (rateBuckets.size > 4000) {
+      for (const [id, entry] of rateBuckets) {
+        if (stamp >= entry.resetAt) rateBuckets.delete(id);
+      }
+    }
+    return bucket.count > (live ? LIVE_RATE_MAX : RATE_MAX);
+  }
+
+  function coalesceLiveFetch(args) {
+    if (liveInflight) return liveInflight;
+    liveInflightCount += 1;
+    liveInflight = fetchLivePayload(args)
+      .finally(() => {
+        liveInflight = null;
+        liveInflightCount = Math.max(0, liveInflightCount - 1);
+      });
+    return liveInflight;
+  }
+
   return async function handler(req, res) {
     res.setHeader('Content-Type', 'application/json; charset=utf-8');
     res.setHeader('X-Content-Type-Options', 'nosniff');
-    const send = (status, value) => { res.statusCode = status; res.end(JSON.stringify(value)); };
+    const send = (status, value, cacheControl) => {
+      if (cacheControl) res.setHeader('Cache-Control', cacheControl);
+      res.statusCode = status;
+      res.end(JSON.stringify(value));
+    };
     if (req.method !== 'GET') {
       res.setHeader('Allow', 'GET');
-      return send(405, { error: 'METHOD_NOT_ALLOWED' });
+      return send(405, { error: 'METHOD_NOT_ALLOWED' }, 'private, no-store');
     }
     const query = new URL(req.url, 'http://localhost').searchParams;
     if ([...query.keys()].some(key => key !== 'refresh')) {
-      return send(400, { error: 'INVALID_REQUEST' });
+      return send(400, { error: 'INVALID_REQUEST' }, 'private, no-store');
     }
     const refresh = query.get('refresh') === '1';
     const stamp = now();
+    const browserLike = isBrowserLike(req);
+
+    // Warm memory serves everyone (CDN still applies s-maxage on prior live responses).
     if (!refresh && memoryCache && stamp.getTime() < memoryCache.expiresAt) {
-      res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=3600');
       res.setHeader('X-Index-Belt-Cache', 'memory');
-      return send(200, memoryCache.payload);
+      return send(200, memoryCache.payload, 'public, s-maxage=300, stale-while-revalidate=3600');
+    }
+
+    // refresh=1 is a live-origin bypass — require browser-like + tight budget.
+    if (refresh) {
+      if (!browserLike) {
+        return send(403, { error: 'BROWSER_REQUIRED' }, 'private, no-store');
+      }
+      if (rateLimited(req, { live: true })) {
+        res.setHeader('Retry-After', '60');
+        const seed = readSeed();
+        if (seed) {
+          res.setHeader('X-Index-Belt-Cache', 'seed-rate-limited');
+          return send(200, { ...seed, cache: { hit: true, mode: 'seed-rate-limited' } },
+            'private, no-store');
+        }
+        return send(429, { error: 'RATE_LIMITED' }, 'private, no-store');
+      }
     }
 
     const key = apiKey();
-    if (!key) {
-      const seed = readSeed();
+    const seed = readSeed();
+
+    // Anonymous / non-browser callers never trigger the 17-request FMP fan-out.
+    if (!browserLike) {
       if (seed) {
-        res.setHeader('Cache-Control', 'public, s-maxage=120, stale-while-revalidate=600');
         res.setHeader('X-Index-Belt-Cache', 'seed');
-        return send(200, { ...seed, cache: { hit: true, mode: 'seed' } });
+        return send(200, { ...seed, cache: { hit: true, mode: 'seed' } },
+          'public, s-maxage=120, stale-while-revalidate=600');
       }
-      return send(503, { error: 'FMP_NOT_CONFIGURED' });
+      return send(403, { error: 'BROWSER_REQUIRED' }, 'private, no-store');
+    }
+
+    if (!refresh && rateLimited(req, { live: false })) {
+      res.setHeader('Retry-After', '60');
+      if (seed) {
+        res.setHeader('X-Index-Belt-Cache', 'seed-rate-limited');
+        return send(200, { ...seed, cache: { hit: true, mode: 'seed-rate-limited' } },
+          'private, no-store');
+      }
+      return send(429, { error: 'RATE_LIMITED' }, 'private, no-store');
+    }
+
+    if (!key) {
+      if (seed) {
+        res.setHeader('X-Index-Belt-Cache', 'seed');
+        return send(200, { ...seed, cache: { hit: true, mode: 'seed' } },
+          'public, s-maxage=120, stale-while-revalidate=600');
+      }
+      return send(503, { error: 'FMP_NOT_CONFIGURED' }, 'private, no-store');
+    }
+
+    if (liveInflightCount >= LIVE_MAX_INFLIGHT && !liveInflight) {
+      res.setHeader('Retry-After', '30');
+      if (seed) {
+        res.setHeader('X-Index-Belt-Cache', 'seed-busy');
+        return send(200, { ...seed, cache: { hit: true, mode: 'seed-busy' } }, 'private, no-store');
+      }
+      return send(429, { error: 'RATE_LIMITED', notice: 'US_INDEX_BELT_BUSY' }, 'private, no-store');
     }
 
     try {
-      const payload = await fetchLivePayload({ fetcher, key, now: stamp });
+      const payload = await coalesceLiveFetch({ fetcher, key, now: stamp });
       UsIndexes.validatePayload(payload);
       memoryCache = { payload, expiresAt: stamp.getTime() + MEMORY_TTL_MS };
-      res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=3600');
       res.setHeader('X-Index-Belt-Cache', 'live');
-      return send(200, payload);
+      return send(200, payload, 'public, s-maxage=300, stale-while-revalidate=3600');
     } catch (error) {
       console.error('US index belt fetch failed', error?.message || error);
-      const seed = readSeed();
       if (seed) {
-        res.setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=600');
         res.setHeader('X-Index-Belt-Cache', 'seed-fallback');
         return send(200, {
           ...seed,
           cache: { hit: true, mode: 'seed-fallback', warning: String(error?.message || error) },
-        });
+        }, 'public, s-maxage=60, stale-while-revalidate=600');
       }
-      return send(502, { error: 'US_INDEX_BELT_UPSTREAM_ERROR' });
+      return send(502, { error: 'US_INDEX_BELT_UPSTREAM_ERROR' }, 'private, no-store');
     }
   };
 }
@@ -140,3 +254,4 @@ function defaultReadSeed() {
 module.exports = createHandler();
 module.exports.createHandler = createHandler;
 module.exports.fetchLivePayload = fetchLivePayload;
+module.exports.browserLikeLiveRequest = browserLikeLiveRequest;
