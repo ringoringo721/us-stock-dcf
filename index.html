@@ -43,10 +43,10 @@
       ? [
           // Bump v= when pack contents change: vercel.json caches these JS files
           // for 24h (SWR 7d). A sticky ?v= leaves preview/prod on stale H-only shares.
-          'hkex_universe_data.js?v=issuer-wide-3983-1',
-          'hkex_expansion_data.js?v=issuer-wide-3983-1',
-          'hk_market_data.js?v=issuer-wide-3983-1',
-          'hk_fcff_data.js?v=issuer-wide-3983-1',
+          'hkex_universe_data.js?v=issuer-wide-scan-1',
+          'hkex_expansion_data.js?v=issuer-wide-scan-1',
+          'hk_market_data.js?v=issuer-wide-scan-1',
+          'hk_fcff_data.js?v=issuer-wide-scan-1',
         ]
       : [
           // Names + listings before expansion so a slow/hung expansion cannot
@@ -12654,7 +12654,7 @@
       : !!window.FULL_MARKET_DATA;
     if (hasBaseline) return;
     const marketFile = MarketContext.market === 'HKEX'
-      ? 'hk_market_data.js?v=issuer-wide-3983-1'
+      ? 'hk_market_data.js?v=issuer-wide-scan-1'
       : 'market_data.js?v=show-all-1';
     fetch(marketFile + (marketFile.includes('?') ? '&' : '?') + 't=' + Date.now())
       .then(r => r.text())

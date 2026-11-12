@@ -116,9 +116,9 @@ def parse_ff301(content: bytes) -> dict:
     if issuer_match:
         issuer = issuer_match.group(1).strip()
     classes = []
-    # Standard ordinary shares and WVR ordinary shares are both ordinary equity.
+    # Ordinary / WVR ordinary, plus "Other class (…)" Domestic blocks used by some GEM/PRC filings.
     parts = re.split(
-        r"Class of shares\s+(?:WVR\s+)?Ordinary shares\s+Type of shares\s+",
+        r"Class of shares\s+(?:(?:WVR\s+)?Ordinary shares|Other class\s*\([^)]*\))\s+Type of shares\s+",
         text,
         flags=re.I,
     )
@@ -131,18 +131,43 @@ def parse_ff301(content: bytes) -> dict:
         if not type_match:
             continue
         raw_type = re.sub(r"\s+", " ", type_match.group(1)).strip()
+        # Prefer issued-share tables (3 integer columns). Skip authorised tables that
+        # interleave RMB currency tokens between counts.
         balances = re.findall(
-            r"Balance at close of the month\s+([\d,]+)\s+([\d,]+)\s+([\d,]+)",
+            r"Balance at close of the month\s+([\d,]+)\s+([\d,]+)\s+([\d,]+)(?!\s*RMB)",
             part,
         )
         if not balances:
             continue
         name = class_name_from_part(part, raw_type)
         if not name:
+            # Empty Type/Description on "Other type" — fall back to Domestic Shares label.
+            domestic = re.search(
+                r"Description[ \t]*([^\n\r]*Domestic[^\n\r]*)",
+                part,
+                flags=re.I,
+            )
+            if domestic:
+                name = normalize_class_name(domestic.group(1)) or "Domestic"
+        if not name:
             raise ValueError("ordinary class name unresolved")
+        # Canonicalize common OCR/join variants so A/H/Domestic merge cleanly.
+        aliases = {
+            "Domesticshares": "Domestic",
+            "Domesticunlisted": "DomesticUnlisted",
+            "Unlisteddomestic": "UnlistedDomestic",
+            "Unlistedforeign": "UnlistedForeign",
+            "DomesticUnlisted": "DomesticUnlisted",
+            "UnlistedDomestic": "UnlistedDomestic",
+            "UnlistedForeign": "UnlistedForeign",
+        }
+        name = aliases.get(name, name)
         issued_ex_treasury, treasury, total = [
             int(value.replace(",", "")) for value in balances[0]
         ]
+        # Some PRC filings list an empty "Other type" class with 0/0/0 — skip it.
+        if total == 0 and treasury == 0 and issued_ex_treasury == 0:
+            continue
         if total <= 0 or treasury < 0 or treasury > total:
             raise ValueError(f"invalid share counts for class {name}")
         if issued_ex_treasury != total - treasury:
