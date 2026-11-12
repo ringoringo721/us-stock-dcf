@@ -22,15 +22,23 @@
 
   // FMP often labels genuine half-year reports as Q2/Q4 with no periodLength (VOD, many ADRs).
   // Detect before FX convert so average rates use a 6-month window and TTM cadence uses count=2.
+  // Also catch filers that still have older Q1/Q3 rows but report only H1/H2 recently (AEG/HLN).
+  function halfYearLabeled(rows) {
+    return rows.length >= 2 && rows.every(row => row.period === 'Q2' || row.period === 'Q4'
+      || row.periodLength === 6);
+  }
   function inferReportingFrequency(data) {
     if (data?.reportingFrequency === 'semiannual' || data?.reportingFrequency === 'annual') {
       return data.reportingFrequency;
     }
-    const rows = (data?.quarterly?.income || []).filter(row => row && /^Q[1-4]$/.test(row.period));
-    if (rows.length >= 4 && rows.every(row => row.period === 'Q2' || row.period === 'Q4')) {
-      return 'semiannual';
-    }
+    const rows = (data?.quarterly?.income || []).filter(row => row && /^Q[1-4]$/.test(row.period))
+      .slice().sort((a, b) => String(a.date || '').localeCompare(String(b.date || '')));
+    if (rows.length >= 4 && halfYearLabeled(rows)) return 'semiannual';
     if (rows.length >= 4 && rows.every(row => row.periodLength === 6)) return 'semiannual';
+    const recent = rows.slice(-6);
+    if (recent.length >= 4 && halfYearLabeled(recent)) return 'semiannual';
+    const last4 = rows.slice(-4);
+    if (last4.length === 4 && halfYearLabeled(last4)) return 'semiannual';
     return data?.reportingFrequency || 'quarterly';
   }
 

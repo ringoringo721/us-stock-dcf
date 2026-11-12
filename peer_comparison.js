@@ -205,7 +205,7 @@
     const stride = frequency === 'semiannual' ? 2 : 1;
     const count = frequency === 'semiannual' ? 2 : 4;
     const minDays = frequency === 'semiannual' ? 150 : 60;
-    const maxDays = frequency === 'semiannual' ? 220 : 120;
+    const maxDays = frequency === 'semiannual' ? 220 : 125;
     const indexRows = (rows, annual) => {
       const index = new Map();
       for (const row of rows || []) {
@@ -223,12 +223,22 @@
     if (!incomeIndex.size) return stock;
     const key = Math.max(...incomeIndex.keys());
     const window = Array.from({ length: count }, (_, i) => incomeIndex.get(key - (count - 1 - i) * stride));
-    const valid = rows => rows.every((row, i) => row && typeof row.reportedCurrency === 'string'
-      && /^[A-Z]{3}$/.test(row.reportedCurrency) && row.reportedCurrency === rows.at(-1).reportedCurrency
-      && !row.currencyConversion?.reason
-      && (row.periodLength === undefined || row.periodLength === stride * 3)
-      && (!i || (Date.parse(row.date) - Date.parse(rows[i - 1].date)) / 86400000 >= minDays
-        && (Date.parse(row.date) - Date.parse(rows[i - 1].date)) / 86400000 <= maxDays));
+    // Sparse windows (undefined/null slots) stay invalid — never throw on missing rows.
+    const valid = rows => {
+      if (!Array.isArray(rows) || rows.length !== count || rows.some(row => !row || typeof row !== 'object')) {
+        return false;
+      }
+      const latest = rows.at(-1);
+      if (typeof latest?.reportedCurrency !== 'string' || !/^[A-Z]{3}$/.test(latest.reportedCurrency)) {
+        return false;
+      }
+      return rows.every((row, i) => typeof row.reportedCurrency === 'string'
+        && /^[A-Z]{3}$/.test(row.reportedCurrency) && row.reportedCurrency === latest.reportedCurrency
+        && !row.currencyConversion?.reason
+        && (row.periodLength == null || row.periodLength === stride * 3)
+        && (!i || (Date.parse(row.date) - Date.parse(rows[i - 1].date)) / 86400000 >= minDays
+          && (Date.parse(row.date) - Date.parse(rows[i - 1].date)) / 86400000 <= maxDays));
+    };
     const sumField = (type, field) => {
       const rows = type === 'income' ? window
         : Array.from({ length: count }, (_, i) => indexRows(statements.quarterly[type], false)
