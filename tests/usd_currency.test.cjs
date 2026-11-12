@@ -167,6 +167,30 @@ test('Quarter-window rollback compares YYYY-MM so mid-month filings are not fals
   });
 });
 
+test('SKHY pack quarterly CF/BS align by date; missing Q3 cash-flow is null (not prior-quarter shift)', () => {
+  const pack = JSON.parse(fs.readFileSync(
+    path.join(__dirname, '..', 'cache', 'us_companies', 'SKHY.json'), 'utf8')).stock;
+  const source = raw('SKHY');
+  const converted = convertStatements(source, rates, 'USD');
+  const q = pack.statements_raw.quarterly_raw;
+  assert.equal(q.dates.at(-1), '2026-09');
+  assert.equal(q.cashflow.freeCashFlow.at(-1), null);
+  assert.equal(q.balance.totalAssets.at(-1), null);
+  assert.equal(pack.fcf0, 61778.4);
+  const cfByDate = Object.fromEntries(converted.quarterly.cashflow.map(row => [
+    row.date.slice(0, 7), row.freeCashFlow / 1e6
+  ]));
+  for (let i = 0; i < q.dates.length; i++) {
+    const published = q.cashflow.freeCashFlow[i];
+    const expected = cfByDate[q.dates[i]];
+    if (expected == null) assert.equal(published, null, q.dates[i]);
+    else assert.ok(Math.abs(published - expected) < 0.02, q.dates[i]);
+  }
+  const rebuilt = normalizeStock(structuredClone(pack), source, rates);
+  assert.equal(rebuilt.currencyConversion.reason, 'dateMismatch');
+  assert.ok(Math.abs(rebuilt.fcf0 - 61778.38) < 0.02);
+});
+
 test('Market-ratio refresh skips tickers whose statements cache lags the published window', () => {
   const stock = market.CNI;
   assert.ok(wouldRollbackQuarterWindow(stock, raw('CNI')));
