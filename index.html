@@ -9255,9 +9255,14 @@
         const labels = annual.map(row => String(row.year));
         const dps = annual.map(row => Number.isFinite(row.fy) ? row.fy : null);
         const yld = annual.map(row => Number.isFinite(row.yieldPct) ? row.yieldPct : null);
-        if (window.__dividendTvChart) {
-          try { window.__dividendTvChart.destroy(); } catch (_) { /* ignore */ }
+        // Same canvas-reuse class as HK Smart Money: prefer Chart.getChart registry.
+        const existingDividend = (typeof Chart.getChart === 'function'
+          ? Chart.getChart(chartCanvas)
+          : null) || window.__dividendTvChart || null;
+        if (existingDividend) {
+          try { existingDividend.destroy(); } catch (_) { /* ignore */ }
         }
+        window.__dividendTvChart = null;
         window.__dividendTvChart = new Chart(chartCanvas.getContext('2d'), {
           data: {
             labels,
@@ -9869,10 +9874,22 @@
       document.querySelectorAll('#subpage-smart-money .table-scroll-wrapper').forEach(box => makeScrollable(box));
     }).catch((error) => {
       if (activeCompanyTicker !== ticker) return;
+      const errMsg = String(error && error.message ? error.message : error);
+      // Chart.js canvas-reuse must never masquerade as a DI/southbound load failure
+      // (shared #smart-money-hk-sb-chart is ticker-agnostic).
+      if (/Canvas is already in use/i.test(errMsg)) {
+        destroyHkSouthboundChart(sbChart);
+        console.warn('HK southbound chart race contained', errMsg);
+        status.className = 'analysis-note';
+        status.textContent = isEn
+          ? `${ticker} · HK Smart Money · chart redraw skipped (canvas busy)`
+          : `${ticker} · 港股智資動態 · 圖表重繪略過（畫布忙碌）`;
+        return;
+      }
       status.className = 'sm-alert-error';
       status.innerHTML = isEn
-        ? `<strong>HK Smart Money unavailable</strong><br><code>${escapeAttribute(String(error.message || error))}</code>`
-        : `<strong>港股智資不可用</strong><br><code>${escapeAttribute(String(error.message || error))}</code>`;
+        ? `<strong>HK Smart Money unavailable</strong><br><code>${escapeAttribute(errMsg)}</code>`
+        : `<strong>港股智資不可用</strong><br><code>${escapeAttribute(errMsg)}</code>`;
       diBody.innerHTML = `<tr class="sm-alert-error-row"><td class="table-sticky-col" colspan="10">${
         isEn ? 'Failed to load DI timeline.' : '載入 DI 時間線失敗。'}</td></tr>`;
       sbBody.innerHTML = `<tr class="sm-alert-error-row"><td class="table-sticky-col" colspan="3">${
