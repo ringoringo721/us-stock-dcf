@@ -92,6 +92,8 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="us_indexes.js?v=index-belt-1"></script>
   <script src="us_index_belt.js?v=index-belt-1"></script>
+  <script src="hk_indexes.js?v=index-belt-1"></script>
+  <script src="hk_index_belt.js?v=index-belt-1"></script>
   
   <style>
     :root {
@@ -1701,39 +1703,47 @@
       .status-badge { white-space: normal; }
     }
 
-    /* US frontpage index ticker belt — slim full-bleed strip above the header. */
-    .us-index-belt {
+    /* US / HK frontpage index ticker belts — slim full-bleed strip above the header. */
+    .us-index-belt,
+    .hk-index-belt {
       margin: -16px -16px 14px;
       width: calc(100% + 32px);
       border-bottom: 1px solid var(--card-border);
       background: color-mix(in srgb, var(--surface-bg) 88%, var(--card-bg));
       color: var(--text);
     }
-    .us-index-belt[hidden] { display: none !important; }
-    .us-index-belt__viewport {
+    .us-index-belt[hidden],
+    .hk-index-belt[hidden] { display: none !important; }
+    .us-index-belt__viewport,
+    .hk-index-belt__viewport {
       overflow: hidden;
       mask-image: linear-gradient(90deg, transparent, #000 24px, #000 calc(100% - 24px), transparent);
       -webkit-mask-image: linear-gradient(90deg, transparent, #000 24px, #000 calc(100% - 24px), transparent);
     }
-    .us-index-belt__track {
+    .us-index-belt__track,
+    .hk-index-belt__track {
       display: flex;
       width: max-content;
       gap: 0;
       align-items: stretch;
     }
-    .us-index-belt__track[data-marquee="on"] {
-      animation: us-index-belt-scroll 72s linear infinite;
+    .us-index-belt__track[data-marquee="on"],
+    .hk-index-belt__track[data-marquee="on"] {
+      animation: index-belt-scroll 72s linear infinite;
     }
-    .us-index-belt:hover .us-index-belt__track[data-marquee="on"] {
+    .us-index-belt:hover .us-index-belt__track[data-marquee="on"],
+    .hk-index-belt:hover .hk-index-belt__track[data-marquee="on"] {
       animation-play-state: paused;
     }
-    .us-index-belt__group {
+    .us-index-belt__group,
+    .hk-index-belt__group {
       display: flex;
       align-items: center;
       gap: 0;
       flex: 0 0 auto;
     }
-    .us-index-belt__chip {
+    .us-index-belt__chip,
+    .hk-index-belt__chip {
       display: inline-flex;
       align-items: center;
       gap: 8px;
@@ -1744,27 +1754,35 @@
       line-height: 1.2;
       min-height: 40px;
     }
-    .us-index-belt__name {
+    .us-index-belt__name,
+    .hk-index-belt__name {
       font-weight: 650;
       color: var(--text-secondary);
       letter-spacing: 0.01em;
     }
-    .us-index-belt__pct {
+    .us-index-belt__pct,
+    .hk-index-belt__pct {
       font-variant-numeric: tabular-nums;
       font-weight: 700;
       min-width: 4.5em;
     }
-    .us-index-belt__pct--up { color: var(--green); }
-    .us-index-belt__pct--down { color: var(--red); }
-    .us-index-belt__pct--flat { color: var(--text-muted); }
-    .us-index-belt__spark { display: block; flex: 0 0 auto; }
-    @keyframes us-index-belt-scroll {
+    .us-index-belt__pct--up,
+    .hk-index-belt__pct--up { color: var(--green); }
+    .us-index-belt__pct--down,
+    .hk-index-belt__pct--down { color: var(--red); }
+    .us-index-belt__pct--flat,
+    .hk-index-belt__pct--flat { color: var(--text-muted); }
+    .us-index-belt__spark,
+    .hk-index-belt__spark { display: block; flex: 0 0 auto; }
+    @keyframes index-belt-scroll {
       from { transform: translateX(0); }
       to { transform: translateX(-50%); }
     }
     @media (prefers-reduced-motion: reduce) {
-      .us-index-belt__track[data-marquee="on"] { animation: none; }
-      .us-index-belt__viewport {
+      .us-index-belt__track[data-marquee="on"],
+      .hk-index-belt__track[data-marquee="on"] { animation: none; }
+      .us-index-belt__viewport,
+      .hk-index-belt__viewport {
         overflow-x: auto;
         mask-image: none;
         -webkit-mask-image: none;
@@ -1775,6 +1793,7 @@
 <body>
 
 <div id="us-index-belt" class="us-index-belt" hidden role="region" aria-label="美股指數漲跌"></div>
+<div id="hk-index-belt" class="hk-index-belt" hidden role="region" aria-label="港股指數漲跌"></div>
 <div class="container">
   <header>
     <div>
@@ -5072,6 +5091,7 @@
       recalculateDetail();
     }
     if (typeof UsIndexBelt !== 'undefined') UsIndexBelt.applyLanguage();
+    if (typeof HkIndexBelt !== 'undefined') HkIndexBelt.applyLanguage();
 
   }
 
@@ -12760,6 +12780,7 @@
   document.addEventListener('DOMContentLoaded', () => {
     if (typeof SmartMoney !== 'undefined') ensureSmartMoneyNames(SmartMoney);
     if (typeof UsIndexBelt !== 'undefined') UsIndexBelt.mount();
+    if (typeof HkIndexBelt !== 'undefined') HkIndexBelt.mount();
     markLoadingStats();
     if (checkGlobalData()) return;
     // Baseline already present: keep polling for universe/expansion. Do not re-fetch
