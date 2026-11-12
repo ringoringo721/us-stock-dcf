@@ -17230,7 +17230,7 @@
     "ticker": "3983.HK",
     "date": "2026-10-31",
     "filingDate": "2026-11-02",
-    "verifiedAt": "2026-11-10T13:18:45Z",
+    "verifiedAt": "2026-11-12T12:08:31Z",
     "coverage": "allOrdinaryShareClasses",
     "source": "China BlueChemical Ltd. (a joint stock limited company incorporated in the People’s Republic of China with limited liability) Monthly Return for Equity Issuer on Movements in Securities",
     "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/1102/2026110201458.pdf",
@@ -17247,6 +17247,12 @@
         "type": "ordinary",
         "issuedShares": 1796000122,
         "treasuryShares": 0
+      },
+      {
+        "name": "Domestic",
+        "type": "ordinary",
+        "issuedShares": 2813999878,
+        "treasuryShares": 0
       }
     ],
     "providerReview": {
@@ -17255,7 +17261,7 @@
       "capitalDate": "2026-10-31",
       "reviewedThrough": "2026-11-10",
       "basis": "officialOrdinaryShareReturnOverridesReviewedProviderMismatch",
-      "note": "The captured provider outstanding-share count does not reconcile to the dated official monthly return total or any disclosed ordinary class. Use the explicitly dated monthly return (all ordinary classes, excluding treasury). Same mismatched provider *count* remains accepted when FMP republishes under a newer as-of date while this capital.date is current; a material change in the provider count still requires a fresh review. This is not a claim that no share movements occurred after month-end."
+      "note": "Official FF301 monthly return discloses H 1,796,000,122 + Domestic 2,813,999,878 = 4,610,000,000 issuer-wide ordinary shares (ex-treasury). FMP outstandingShares 4,610,000,026 differs by 26 shares and does not match any single class; use the dated monthly-return total of all ordinary classes. Prior cache incorrectly retained H-only."
     }
   },
   "3986.HK": {

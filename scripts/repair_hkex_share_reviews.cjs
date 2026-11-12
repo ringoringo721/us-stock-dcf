@@ -78,12 +78,19 @@ function applyShareSource(stock, shareSource) {
     }
   }
   if (next.liquidation) {
+    const ticker = next.ticker;
     next.liquidation = {
       ...next.liquidation,
       sharesOutstanding: next.shares_outstanding,
       shareBasis: shareSource.basis,
       shareSource
     };
+    // Keep catalogue liq_val_* aligned with issuer-wide ordinary shares (ex-treasury).
+    if (ticker) {
+      const { calculate } = require('../liquidation.js');
+      calculate(next.liquidation, ticker).values
+        .forEach((value, i) => { next[`liq_val_${i + 1}`] = value; });
+    }
   }
   return next;
 }

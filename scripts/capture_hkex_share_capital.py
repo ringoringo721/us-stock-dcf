@@ -67,6 +67,7 @@ def normalize_class_name(raw: str) -> str:
         "Hong Kong": "HongKong",
         "HK": "HongKong",
         "Domestic": "Domestic",
+        "Domesticshares": "Domestic",  # Description line without space after OCR/join
         "Unlisted": "Unlisted",
         "Ordinary": "Ordinary",
         "A": "A",
@@ -78,6 +79,8 @@ def normalize_class_name(raw: str) -> str:
     if name in aliases:
         return aliases[name]
     compact = name.replace(" ", "")
+    if compact in aliases:
+        return aliases[compact]
     lowered = compact.lower()
     if not compact or lowered in {
         "notapplicable", "na", "n/a", "othertype(specifyindescription)", "other"
