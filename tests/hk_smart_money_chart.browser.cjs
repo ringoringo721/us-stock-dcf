@@ -121,18 +121,23 @@ function startServer() {
         const dict = (typeof I18N_DICT !== 'undefined' && I18N_DICT.zh) || {};
         // Match real navigation: activeCompanyTicker gates the loadStock().then() body.
         activeCompanyTicker = sym;
+        const genAtStart = window._hkSbChartGen || 0;
         // Overlap two renders the way tab re-entry / hash navigation can.
         renderHkSmartMoneySubPage(sym, stock, false, dict);
         renderHkSmartMoneySubPage(sym, stock, false, dict);
+        const expectedGen = window._hkSbChartGen || 0;
         const deadline = Date.now() + 20000;
+        // Seeds under test always have ≥2 southbound history points, so success
+        // must include a live Chart.js instance for the *current* generation —
+        // not a stale status that still says 南向/DI while chart create was skipped.
         while (Date.now() < deadline) {
           const status = document.getElementById('smart-money-hk-status')?.textContent || '';
-          const di = document.getElementById('cmp-smart-money-hk-di-tbody')?.textContent || '';
           const chart = Chart.getChart(document.getElementById('smart-money-hk-sb-chart'));
           const loading = /載入港股智資|Loading HK Smart Money/i.test(status);
-          if (!loading && (chart || /DI|南向|暫無|未見|incomplete|unavailable/i.test(status + di))) {
-            break;
-          }
+          const genReady = (window._hkSbChartGen || 0) >= expectedGen
+            && expectedGen > genAtStart;
+          const statusForTicker = status.includes(sym);
+          if (!loading && chart && genReady && statusForTicker) break;
           await new Promise(r => setTimeout(r, 50));
         }
         const canvas = document.getElementById('smart-money-hk-sb-chart');
@@ -145,6 +150,7 @@ function startServer() {
           hasChart: !!Chart.getChart(canvas),
           chartId: Chart.getChart(canvas)?.id ?? null,
           gen: window._hkSbChartGen || 0,
+          expectedGen,
           canvasReuseMsg: /Canvas is already in use/i.test(status),
         };
       }, ticker);
@@ -158,7 +164,7 @@ function startServer() {
 
     // Cross-ticker navigation: leave one chart instance, then race on another ticker.
     const [a, b] = TICKERS;
-    await page.evaluate(async (pair) => {
+    const crossMeta = await page.evaluate(async (pair) => {
       const dict = (typeof I18N_DICT !== 'undefined' && I18N_DICT.zh) || {};
       const sa = stockUniverse[pair[0]] || { ticker: pair[0], exchange: 'HKEX' };
       const sb = stockUniverse[pair[1]] || { ticker: pair[1], exchange: 'HKEX' };
@@ -166,19 +172,23 @@ function startServer() {
       renderHkSmartMoneySubPage(pair[0], sa, false, dict);
       await new Promise(r => setTimeout(r, 80));
       activeCompanyTicker = pair[1];
+      const genAtStart = window._hkSbChartGen || 0;
       renderHkSmartMoneySubPage(pair[1], sb, false, dict);
       renderHkSmartMoneySubPage(pair[1], sb, false, dict);
+      const expectedGen = window._hkSbChartGen || 0;
       const deadline = Date.now() + 20000;
       while (Date.now() < deadline) {
         const status = document.getElementById('smart-money-hk-status')?.textContent || '';
-        if (!/載入港股智資|Loading HK Smart Money/i.test(status)
-          && Chart.getChart(document.getElementById('smart-money-hk-sb-chart'))) {
-          break;
-        }
+        const chart = Chart.getChart(document.getElementById('smart-money-hk-sb-chart'));
+        const loading = /載入港股智資|Loading HK Smart Money/i.test(status);
+        const genReady = (window._hkSbChartGen || 0) >= expectedGen
+          && expectedGen > genAtStart;
+        if (!loading && chart && genReady && status.includes(pair[1])) break;
         await new Promise(r => setTimeout(r, 50));
       }
+      return { expectedGen, target: pair[1] };
     }, [a, b]);
-    const cross = await page.evaluate(() => {
+    const cross = await page.evaluate((target) => {
       const diText = document.getElementById('cmp-smart-money-hk-di-tbody')?.textContent || '';
       const status = document.getElementById('smart-money-hk-status')?.textContent || '';
       return {
@@ -186,12 +196,14 @@ function startServer() {
         canvasReuseMsg: /Canvas is already in use/i.test(status),
         hasChart: !!Chart.getChart(document.getElementById('smart-money-hk-sb-chart')),
         status,
+        statusForTarget: status.includes(target),
       };
-    });
+    }, b);
     assert.equal(cross.diFail, false, `cross-ticker DI poisoned: ${cross.status}`);
     assert.equal(cross.canvasReuseMsg, false, `cross-ticker canvas reuse: ${cross.status}`);
     assert.ok(cross.hasChart, `cross-ticker expected chart; status=${cross.status}`);
-    console.log('hk_smart_money_chart_cross_ok', { from: a, to: b, ...cross });
+    assert.ok(cross.statusForTarget, `cross-ticker status should name ${b}; got ${cross.status}`);
+    console.log('hk_smart_money_chart_cross_ok', { from: a, to: b, ...cross, ...crossMeta });
 
     assert.equal(errors.filter(e => /Canvas is already in use/i.test(e)).length, 0,
       errors.join('\n'));
