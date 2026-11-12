@@ -1,0 +1,1261 @@
+{
+  "ticker": "9988.HK",
+  "stock_code": "09988",
+  "source": "seed",
+  "capturedAt": "2026-11-12T12:52:25.244Z",
+  "southbound": {
+    "as_of": "2026-11-11",
+    "shares": 1928454826,
+    "pct": 9.68,
+    "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES",
+    "pct_chg_1d": 0,
+    "pct_chg_5d": 0,
+    "pct_chg_20d": -0.31,
+    "pct_chg_30d": -0.29,
+    "pct_chg_60d": -0.37,
+    "pct_chg_90d": -0.6,
+    "pct_chg_120d": -0.55,
+    "pct_chg_150d": -1.19,
+    "pct_chg_180d": -1.82,
+    "pct_chg_270d": -2.03,
+    "pct_chg_360d": -1.03,
+    "changes": {
+      "pct_chg_1d": 0,
+      "pct_chg_5d": 0,
+      "pct_chg_20d": -0.31,
+      "pct_chg_30d": -0.29,
+      "pct_chg_60d": -0.37,
+      "pct_chg_90d": -0.6,
+      "pct_chg_120d": -0.55,
+      "pct_chg_150d": -1.19,
+      "pct_chg_180d": -1.82,
+      "pct_chg_270d": -2.03,
+      "pct_chg_360d": -1.03
+    },
+    "history": [
+      {
+        "date": "2026-11-11",
+        "shares": 1928454826,
+        "pct": 9.68,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-11-10",
+        "shares": 1926825685,
+        "pct": 9.68,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-11-09",
+        "shares": 1921193078,
+        "pct": 9.65,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-11-06",
+        "shares": 1928908650,
+        "pct": 9.68,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-11-05",
+        "shares": 1924489489,
+        "pct": 9.66,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-11-04",
+        "shares": 1928481989,
+        "pct": 9.68,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-11-03",
+        "shares": 1930010976,
+        "pct": 9.69,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-11-02",
+        "shares": 1936707365,
+        "pct": 9.72,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-30",
+        "shares": 1944780029,
+        "pct": 9.76,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-29",
+        "shares": 1945527570,
+        "pct": 9.77,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-28",
+        "shares": 1948642908,
+        "pct": 9.78,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-27",
+        "shares": 1954837460,
+        "pct": 9.82,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-26",
+        "shares": 1969397412,
+        "pct": 9.89,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-23",
+        "shares": 1986525225,
+        "pct": 9.97,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-22",
+        "shares": 1994898385,
+        "pct": 10.01,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-21",
+        "shares": 1998131205,
+        "pct": 10.03,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-20",
+        "shares": 2000433405,
+        "pct": 10.04,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-17",
+        "shares": 2001329053,
+        "pct": 10.04,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-16",
+        "shares": 2001329053,
+        "pct": 10.04,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-15",
+        "shares": 1990566261,
+        "pct": 9.99,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-14",
+        "shares": 1990608636,
+        "pct": 9.99,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-13",
+        "shares": 1991638601,
+        "pct": 10,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-12",
+        "shares": 1984992351,
+        "pct": 9.97,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-09",
+        "shares": 1986384146,
+        "pct": 9.97,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-08",
+        "shares": 1986384146,
+        "pct": 9.97,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-10-07",
+        "shares": 1986384146,
+        "pct": 9.97,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-09-30",
+        "shares": 1987611501,
+        "pct": 9.98,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-09-23",
+        "shares": 1984355582,
+        "pct": 9.97,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-09-16",
+        "shares": 2000514329,
+        "pct": 10.05,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-09-11",
+        "shares": 2000711754,
+        "pct": 10.05,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-09-10",
+        "shares": 1997448854,
+        "pct": 10.03,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-09-09",
+        "shares": 1991016762,
+        "pct": 10,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-09-02",
+        "shares": 2001278928,
+        "pct": 10.06,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-08-26",
+        "shares": 1995711474,
+        "pct": 10.4,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-08-19",
+        "shares": 1950808975,
+        "pct": 10.16,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-08-13",
+        "shares": 1972526526,
+        "pct": 10.28,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-08-12",
+        "shares": 1975432026,
+        "pct": 10.29,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-08-05",
+        "shares": 1987368641,
+        "pct": 10.35,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-07-29",
+        "shares": 1945246504,
+        "pct": 10.14,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-07-22",
+        "shares": 2014578902,
+        "pct": 10.5,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-07-15",
+        "shares": 1968706361,
+        "pct": 10.25,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-07-14",
+        "shares": 1963674011,
+        "pct": 10.23,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-07-13",
+        "shares": 1959615834,
+        "pct": 10.21,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-07-08",
+        "shares": 1892961094,
+        "pct": 9.84,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-06-30",
+        "shares": 1893134980,
+        "pct": 9.85,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-06-24",
+        "shares": 1964358094,
+        "pct": 10.23,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-06-17",
+        "shares": 2048153932,
+        "pct": 10.66,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-06-12",
+        "shares": 2087920012,
+        "pct": 10.87,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-06-11",
+        "shares": 2108987899,
+        "pct": 10.98,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-06-10",
+        "shares": 2109444499,
+        "pct": 10.98,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-06-03",
+        "shares": 2108053758,
+        "pct": 10.97,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-05-27",
+        "shares": 2147304423,
+        "pct": 11.18,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-05-20",
+        "shares": 2167969230,
+        "pct": 11.29,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-05-15",
+        "shares": 2207990057,
+        "pct": 11.5,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-05-14",
+        "shares": 2218841911,
+        "pct": 11.55,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-05-13",
+        "shares": 2218595642,
+        "pct": 11.55,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-05-06",
+        "shares": 2211508722,
+        "pct": 11.51,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-04-29",
+        "shares": 2224501215,
+        "pct": 11.58,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-04-22",
+        "shares": 2248205607,
+        "pct": 11.71,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-04-15",
+        "shares": 2249029550,
+        "pct": 11.74,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-04-08",
+        "shares": 2221198866,
+        "pct": 11.62,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-04-01",
+        "shares": 2228911494,
+        "pct": 11.66,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-03-25",
+        "shares": 2239206706,
+        "pct": 11.71,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-03-18",
+        "shares": 2205308938,
+        "pct": 11.54,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-03-11",
+        "shares": 2185905375,
+        "pct": 11.44,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-03-04",
+        "shares": 2242238433,
+        "pct": 11.73,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-02-25",
+        "shares": 2252420712,
+        "pct": 11.78,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-02-16",
+        "shares": 2237718563,
+        "pct": 11.71,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-02-13",
+        "shares": 2237718563,
+        "pct": 11.71,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-02-12",
+        "shares": 2240973320,
+        "pct": 11.73,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-02-11",
+        "shares": 2239987232,
+        "pct": 11.72,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-02-04",
+        "shares": 2219461535,
+        "pct": 11.61,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-01-28",
+        "shares": 2229496121,
+        "pct": 11.66,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-01-21",
+        "shares": 2224104827,
+        "pct": 11.64,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-01-14",
+        "shares": 2197126585,
+        "pct": 11.5,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2026-01-07",
+        "shares": 2199515558,
+        "pct": 11.51,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2025-12-31",
+        "shares": 2207497058,
+        "pct": 11.56,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2025-12-24",
+        "shares": 2203831590,
+        "pct": 11.53,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2025-12-17",
+        "shares": 2198440925,
+        "pct": 11.51,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2025-12-10",
+        "shares": 2216237089,
+        "pct": 11.6,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2025-12-03",
+        "shares": 2223461750,
+        "pct": 11.63,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2025-11-26",
+        "shares": 2156616683,
+        "pct": 11.29,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2025-11-19",
+        "shares": 2081072687,
+        "pct": 10.89,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2025-11-14",
+        "shares": 2045156687,
+        "pct": 10.71,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2025-11-13",
+        "shares": 2067118886,
+        "pct": 10.82,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      },
+      {
+        "date": "2025-11-12",
+        "shares": 2079801249,
+        "pct": 10.88,
+        "name": "ALIBABA GROUP HOLDING LIMITED -HKD TRADED SHARES"
+      }
+    ]
+  },
+  "di_events": [
+    {
+      "serial": "CS20261110E00308",
+      "form_url": "https://di.hkex.com.hk/di/NSForm2.aspx?fn=CS20261110E00308&sa2=ns&sid=259524&sd=10/11/2025&ed=10/11/2026&sa1=cl&scsd=10/11/2025&sced=10/11/2026&sc=09988&src=Main&lang=EN&tk=ds",
+      "listed_name": "Alibaba Group Holding Ltd. - W",
+      "stock_code": "09988",
+      "filer": "JPMorgan Chase & Co.",
+      "role": "substantial",
+      "event_date": "2026-11-05",
+      "summary_date": "2026-11-10",
+      "reason_code": "16021",
+      "position": "L",
+      "shares": 12724827,
+      "avg_price": 108.0277,
+      "before_shares": 1183798182,
+      "before_pct": 5.94,
+      "after_shares": 1196523009,
+      "after_pct": 6.01,
+      "action": "added"
+    },
+    {
+      "serial": "CS20261103E00446",
+      "form_url": "https://di.hkex.com.hk/di/NSForm2.aspx?fn=CS20261103E00446&sa2=ns&sid=259524&sd=04/11/2025&ed=04/11/2026&sa1=cl&scsd=04/11/2025&sced=04/11/2026&sc=09988&src=Main&lang=EN&tk=ds",
+      "listed_name": "Alibaba Group Holding Ltd. - W",
+      "stock_code": "09988",
+      "filer": "JPMorgan Chase & Co.",
+      "role": "substantial",
+      "event_date": "2026-10-29",
+      "summary_date": "2026-11-04",
+      "reason_code": "15015",
+      "position": "S",
+      "shares": null,
+      "avg_price": null,
+      "before_shares": 1190055264,
+      "before_pct": 5.97,
+      "after_shares": 1178042680,
+      "after_pct": 5.91,
+      "action": "reduced"
+    },
+    {
+      "serial": "CS20261102E00341",
+      "form_url": "https://di.hkex.com.hk/di/NSForm2.aspx?fn=CS20261102E00341&sa2=ns&sid=259524&sd=03/11/2025&ed=03/11/2026&sa1=cl&scsd=03/11/2025&sced=03/11/2026&sc=09988&src=Main&lang=EN&tk=ds",
+      "listed_name": "Alibaba Group Holding Ltd. - W",
+      "stock_code": "09988",
+      "filer": "JPMorgan Chase & Co.",
+      "role": "substantial",
+      "event_date": "2026-10-28",
+      "summary_date": "2026-11-03",
+      "reason_code": "12045",
+      "position": "L",
+      "shares": 84981392,
+      "avg_price": 98.8363,
+      "before_shares": 1275036656,
+      "before_pct": 6.4,
+      "after_shares": 1190055264,
+      "after_pct": 5.97,
+      "action": "reduced"
+    }
+  ],
+  "short": {
+    "as_of": "2026-10-30",
+    "shares": 172220962,
+    "hkd": 16714044362,
+    "name": "BABA-W",
+    "pct_of_issued": 0.8645,
+    "shares_chg_wow": 1741155
+  },
+  "market_flow": {
+    "as_of": "2026-11-12",
+    "history_from": "2026-04-17",
+    "history_span_days": 209,
+    "net_cum_available": 188385.85,
+    "turnover_unit": "HKD_million",
+    "southbound": [
+      {
+        "market": "SSE Southbound",
+        "date": "2026-11-12",
+        "tradingDay": 1,
+        "stats": {
+          "Total Turnover": "60,138.29",
+          "Buy Turnover": "32,959.03",
+          "Sell Turnover": "27,179.26",
+          "Total Trade Count": "1,440,826",
+          "Buy Trade Count": "799,988",
+          "Sell Trade Count": "640,838",
+          "ETF Turnover": "342.63"
+        },
+        "net_buy": 5779.77
+      },
+      {
+        "market": "SZSE Southbound",
+        "date": "2026-11-12",
+        "tradingDay": 1,
+        "stats": {
+          "Total Turnover": "29,930.68",
+          "Buy Turnover": "14,998.64",
+          "Sell Turnover": "14,932.04",
+          "Total Trade Count": "721,918",
+          "Buy Trade Count": "373,458",
+          "Sell Trade Count": "348,460",
+          "ETF Turnover": "310.47"
+        },
+        "net_buy": 66.6
+      }
+    ],
+    "net_buy_total": 5846.37,
+    "history": [
+      {
+        "date": "2026-11-12",
+        "net_buy_total": 5846.37
+      },
+      {
+        "date": "2026-11-11",
+        "net_buy_total": 4572.1
+      },
+      {
+        "date": "2026-11-10",
+        "net_buy_total": -2739.42
+      },
+      {
+        "date": "2026-11-09",
+        "net_buy_total": 1855.51
+      },
+      {
+        "date": "2026-11-06",
+        "net_buy_total": 2414.91
+      },
+      {
+        "date": "2026-11-05",
+        "net_buy_total": -21326.2
+      },
+      {
+        "date": "2026-11-04",
+        "net_buy_total": -3277.17
+      },
+      {
+        "date": "2026-11-03",
+        "net_buy_total": 23420.24
+      },
+      {
+        "date": "2026-11-02",
+        "net_buy_total": -4469.23
+      },
+      {
+        "date": "2026-10-30",
+        "net_buy_total": -3559.58
+      },
+      {
+        "date": "2026-10-29",
+        "net_buy_total": -3358.88
+      },
+      {
+        "date": "2026-10-28",
+        "net_buy_total": -804.12
+      },
+      {
+        "date": "2026-10-27",
+        "net_buy_total": -1237.71
+      },
+      {
+        "date": "2026-10-26",
+        "net_buy_total": -2075.37
+      },
+      {
+        "date": "2026-10-23",
+        "net_buy_total": -1670.26
+      },
+      {
+        "date": "2026-10-22",
+        "net_buy_total": -9218.08
+      },
+      {
+        "date": "2026-10-21",
+        "net_buy_total": -4434.8
+      },
+      {
+        "date": "2026-10-20",
+        "net_buy_total": -1722.97
+      },
+      {
+        "date": "2026-10-16",
+        "net_buy_total": -3568.43
+      },
+      {
+        "date": "2026-10-15",
+        "net_buy_total": -5080.23
+      },
+      {
+        "date": "2026-10-14",
+        "net_buy_total": -135.05
+      },
+      {
+        "date": "2026-10-13",
+        "net_buy_total": -456.62
+      },
+      {
+        "date": "2026-10-12",
+        "net_buy_total": 2603.27
+      },
+      {
+        "date": "2026-10-09",
+        "net_buy_total": 290.67
+      },
+      {
+        "date": "2026-10-08",
+        "net_buy_total": 6477.49
+      },
+      {
+        "date": "2026-10-07",
+        "net_buy_total": 0
+      },
+      {
+        "date": "2026-10-06",
+        "net_buy_total": 0
+      },
+      {
+        "date": "2026-10-05",
+        "net_buy_total": 0
+      },
+      {
+        "date": "2026-10-02",
+        "net_buy_total": 0
+      },
+      {
+        "date": "2026-09-30",
+        "net_buy_total": 6863.61
+      },
+      {
+        "date": "2026-09-29",
+        "net_buy_total": 14.63
+      },
+      {
+        "date": "2026-09-28",
+        "net_buy_total": -6553.87
+      },
+      {
+        "date": "2026-09-25",
+        "net_buy_total": 0
+      },
+      {
+        "date": "2026-09-24",
+        "net_buy_total": 2899.77
+      },
+      {
+        "date": "2026-09-23",
+        "net_buy_total": 3448.93
+      },
+      {
+        "date": "2026-09-22",
+        "net_buy_total": 12690.64
+      },
+      {
+        "date": "2026-09-21",
+        "net_buy_total": 4073.85
+      },
+      {
+        "date": "2026-09-18",
+        "net_buy_total": 1193.27
+      },
+      {
+        "date": "2026-09-17",
+        "net_buy_total": 3363.15
+      },
+      {
+        "date": "2026-09-16",
+        "net_buy_total": 2099.43
+      },
+      {
+        "date": "2026-09-15",
+        "net_buy_total": 880.67
+      },
+      {
+        "date": "2026-09-14",
+        "net_buy_total": 4471.48
+      },
+      {
+        "date": "2026-09-11",
+        "net_buy_total": 4431.02
+      },
+      {
+        "date": "2026-09-10",
+        "net_buy_total": 4550.91
+      },
+      {
+        "date": "2026-09-09",
+        "net_buy_total": 3720.4
+      },
+      {
+        "date": "2026-09-08",
+        "net_buy_total": 6127.82
+      },
+      {
+        "date": "2026-09-07",
+        "net_buy_total": 1275.3
+      },
+      {
+        "date": "2026-09-04",
+        "net_buy_total": -10020.87
+      },
+      {
+        "date": "2026-09-03",
+        "net_buy_total": 3395.25
+      },
+      {
+        "date": "2026-09-02",
+        "net_buy_total": 4093.27
+      },
+      {
+        "date": "2026-09-01",
+        "net_buy_total": 7756.86
+      },
+      {
+        "date": "2026-08-31",
+        "net_buy_total": 2139.25
+      },
+      {
+        "date": "2026-08-28",
+        "net_buy_total": 1176.2
+      },
+      {
+        "date": "2026-08-27",
+        "net_buy_total": 3179.59
+      },
+      {
+        "date": "2026-08-26",
+        "net_buy_total": 452.67
+      },
+      {
+        "date": "2026-08-25",
+        "net_buy_total": -6605.24
+      },
+      {
+        "date": "2026-08-24",
+        "net_buy_total": 11566.74
+      },
+      {
+        "date": "2026-08-21",
+        "net_buy_total": -7629.64
+      },
+      {
+        "date": "2026-08-20",
+        "net_buy_total": -10412.07
+      },
+      {
+        "date": "2026-08-19",
+        "net_buy_total": -10620.78
+      },
+      {
+        "date": "2026-08-18",
+        "net_buy_total": 14001.61
+      },
+      {
+        "date": "2026-08-17",
+        "net_buy_total": 3076.98
+      },
+      {
+        "date": "2026-08-14",
+        "net_buy_total": -1316.01
+      },
+      {
+        "date": "2026-08-13",
+        "net_buy_total": 3666.94
+      },
+      {
+        "date": "2026-08-12",
+        "net_buy_total": -2906.11
+      },
+      {
+        "date": "2026-08-11",
+        "net_buy_total": -1376.16
+      },
+      {
+        "date": "2026-08-10",
+        "net_buy_total": 2020.78
+      },
+      {
+        "date": "2026-08-07",
+        "net_buy_total": -777.8
+      },
+      {
+        "date": "2026-08-06",
+        "net_buy_total": -1460.92
+      },
+      {
+        "date": "2026-08-05",
+        "net_buy_total": -1397.81
+      },
+      {
+        "date": "2026-08-04",
+        "net_buy_total": 2570.41
+      },
+      {
+        "date": "2026-08-03",
+        "net_buy_total": 11030.81
+      },
+      {
+        "date": "2026-07-31",
+        "net_buy_total": -480.56
+      },
+      {
+        "date": "2026-07-30",
+        "net_buy_total": -8571.02
+      },
+      {
+        "date": "2026-07-29",
+        "net_buy_total": -5589.22
+      },
+      {
+        "date": "2026-07-28",
+        "net_buy_total": -2494.55
+      },
+      {
+        "date": "2026-07-27",
+        "net_buy_total": -1574.4
+      },
+      {
+        "date": "2026-07-24",
+        "net_buy_total": -1518.19
+      },
+      {
+        "date": "2026-07-23",
+        "net_buy_total": -4226.12
+      },
+      {
+        "date": "2026-07-22",
+        "net_buy_total": 7516.97
+      },
+      {
+        "date": "2026-07-21",
+        "net_buy_total": 7167.37
+      },
+      {
+        "date": "2026-07-20",
+        "net_buy_total": -5962.31
+      },
+      {
+        "date": "2026-07-17",
+        "net_buy_total": -1456.58
+      },
+      {
+        "date": "2026-07-16",
+        "net_buy_total": 5039.48
+      },
+      {
+        "date": "2026-07-15",
+        "net_buy_total": 13363.73
+      },
+      {
+        "date": "2026-07-14",
+        "net_buy_total": 10996.88
+      },
+      {
+        "date": "2026-07-13",
+        "net_buy_total": 9038.42
+      },
+      {
+        "date": "2026-07-10",
+        "net_buy_total": -5994.54
+      },
+      {
+        "date": "2026-07-09",
+        "net_buy_total": 9830.47
+      },
+      {
+        "date": "2026-07-08",
+        "net_buy_total": 14194.36
+      },
+      {
+        "date": "2026-07-07",
+        "net_buy_total": 497.23
+      },
+      {
+        "date": "2026-07-06",
+        "net_buy_total": 20527.8
+      },
+      {
+        "date": "2026-07-03",
+        "net_buy_total": 4537.78
+      },
+      {
+        "date": "2026-07-02",
+        "net_buy_total": -1974.14
+      },
+      {
+        "date": "2026-06-30",
+        "net_buy_total": 5895.22
+      },
+      {
+        "date": "2026-06-29",
+        "net_buy_total": -10338.79
+      },
+      {
+        "date": "2026-06-26",
+        "net_buy_total": -2503.8
+      },
+      {
+        "date": "2026-06-25",
+        "net_buy_total": -8874.37
+      },
+      {
+        "date": "2026-06-24",
+        "net_buy_total": 15750.73
+      },
+      {
+        "date": "2026-06-23",
+        "net_buy_total": 10370.77
+      },
+      {
+        "date": "2026-06-22",
+        "net_buy_total": -5819.55
+      },
+      {
+        "date": "2026-06-18",
+        "net_buy_total": -6792.12
+      },
+      {
+        "date": "2026-06-17",
+        "net_buy_total": -3221.63
+      },
+      {
+        "date": "2026-06-16",
+        "net_buy_total": 3463.02
+      },
+      {
+        "date": "2026-06-15",
+        "net_buy_total": 2109.96
+      },
+      {
+        "date": "2026-06-12",
+        "net_buy_total": -3942.3
+      },
+      {
+        "date": "2026-06-11",
+        "net_buy_total": -2754.31
+      },
+      {
+        "date": "2026-06-10",
+        "net_buy_total": 8243.32
+      },
+      {
+        "date": "2026-06-09",
+        "net_buy_total": -8613.81
+      },
+      {
+        "date": "2026-06-08",
+        "net_buy_total": 11317.9
+      },
+      {
+        "date": "2026-06-05",
+        "net_buy_total": -2426.43
+      },
+      {
+        "date": "2026-06-04",
+        "net_buy_total": -314.93
+      },
+      {
+        "date": "2026-06-03",
+        "net_buy_total": 18681.97
+      },
+      {
+        "date": "2026-06-02",
+        "net_buy_total": 2223.2
+      },
+      {
+        "date": "2026-06-01",
+        "net_buy_total": 4657.31
+      },
+      {
+        "date": "2026-05-29",
+        "net_buy_total": 1884.06
+      },
+      {
+        "date": "2026-05-28",
+        "net_buy_total": 7608.76
+      },
+      {
+        "date": "2026-05-27",
+        "net_buy_total": -7717.44
+      },
+      {
+        "date": "2026-05-26",
+        "net_buy_total": -967.66
+      },
+      {
+        "date": "2026-05-22",
+        "net_buy_total": -6493.65
+      },
+      {
+        "date": "2026-05-21",
+        "net_buy_total": -6104.99
+      },
+      {
+        "date": "2026-05-20",
+        "net_buy_total": 5708.1
+      },
+      {
+        "date": "2026-05-19",
+        "net_buy_total": 1265.63
+      },
+      {
+        "date": "2026-05-18",
+        "net_buy_total": -7876.24
+      },
+      {
+        "date": "2026-05-15",
+        "net_buy_total": 24955.43
+      },
+      {
+        "date": "2026-05-14",
+        "net_buy_total": -9712.37
+      },
+      {
+        "date": "2026-05-13",
+        "net_buy_total": -6771.42
+      },
+      {
+        "date": "2026-05-12",
+        "net_buy_total": 790.04
+      },
+      {
+        "date": "2026-05-11",
+        "net_buy_total": 70.99
+      },
+      {
+        "date": "2026-05-08",
+        "net_buy_total": 13168.4
+      },
+      {
+        "date": "2026-05-07",
+        "net_buy_total": -4796.79
+      },
+      {
+        "date": "2026-05-06",
+        "net_buy_total": -8564.63
+      },
+      {
+        "date": "2026-05-05",
+        "net_buy_total": 0
+      },
+      {
+        "date": "2026-05-04",
+        "net_buy_total": 0
+      },
+      {
+        "date": "2026-04-30",
+        "net_buy_total": 12191.84
+      },
+      {
+        "date": "2026-04-29",
+        "net_buy_total": -3951.75
+      },
+      {
+        "date": "2026-04-28",
+        "net_buy_total": 14522.78
+      },
+      {
+        "date": "2026-04-27",
+        "net_buy_total": -4092.01
+      },
+      {
+        "date": "2026-04-24",
+        "net_buy_total": 3460.14
+      },
+      {
+        "date": "2026-04-23",
+        "net_buy_total": 8598.13
+      },
+      {
+        "date": "2026-04-22",
+        "net_buy_total": 4890.49
+      },
+      {
+        "date": "2026-04-21",
+        "net_buy_total": 3737.93
+      },
+      {
+        "date": "2026-04-20",
+        "net_buy_total": -3909.25
+      },
+      {
+        "date": "2026-04-17",
+        "net_buy_total": 17009.71
+      }
+    ],
+    "net_cum_30d": -30568.37,
+    "net_cum_60d": 13792,
+    "net_cum_90d": 39447.27,
+    "net_cum_120d": 37352.27,
+    "net_cum_150d": 110299.74,
+    "net_cum_180d": 126788.19,
+    "net_cum_270d": null,
+    "net_cum_360d": null,
+    "changes": {
+      "net_cum_30d": -30568.37,
+      "net_cum_60d": 13792,
+      "net_cum_90d": 39447.27,
+      "net_cum_120d": 37352.27,
+      "net_cum_150d": 110299.74,
+      "net_cum_180d": 126788.19,
+      "net_cum_270d": null,
+      "net_cum_360d": null
+    }
+  },
+  "notes": {
+    "zh": "官方日終／週更披露之轉送快照；非投資建議。南向為港股通合計（A00003+A00004），非單一基金。",
+    "en": "Relay of official daily/weekly disclosures; not investment advice. Southbound is Stock Connect aggregate (A00003+A00004), not a single fund."
+  }
+}

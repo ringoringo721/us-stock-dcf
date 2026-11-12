@@ -9526,6 +9526,19 @@
     }).join('');
   }
 
+  /** Destroy Chart.js on #smart-money-hk-sb-chart via registry + window handle (race-safe). */
+  function destroyHkSouthboundChart(canvas) {
+    const el = canvas || document.getElementById('smart-money-hk-sb-chart');
+    const fromRegistry = (typeof Chart !== 'undefined' && el && typeof Chart.getChart === 'function')
+      ? Chart.getChart(el)
+      : null;
+    const existing = fromRegistry || window._hkSbChart || null;
+    if (existing) {
+      try { existing.destroy(); } catch { /* ignore */ }
+    }
+    window._hkSbChart = null;
+  }
+
   function renderHkSmartMoneySubPage(ticker, stock, isEn, dict) {
     const status = document.getElementById('smart-money-hk-status');
     const flowEl = document.getElementById('smart-money-hk-flow');
@@ -9577,10 +9590,11 @@
     diBody.innerHTML = '';
     sbBody.innerHTML = '';
     if (sbDeltaBody) sbDeltaBody.innerHTML = '';
-    if (window._hkSbChart) {
-      try { window._hkSbChart.destroy(); } catch { /* ignore */ }
-      window._hkSbChart = null;
-    }
+    // Bump generation so overlapping loadStock() completions for the same ticker
+    // cannot leave a stale Chart.js instance on the shared canvas.
+    window._hkSbChartGen = (window._hkSbChartGen || 0) + 1;
+    const chartGen = window._hkSbChartGen;
+    destroyHkSouthboundChart(sbChart);
 
     HK.loadStock(ticker).then((result) => {
       if (activeCompanyTicker !== ticker) return;
@@ -9751,7 +9765,8 @@
           <td>${escapeAttribute(HK.formatPct(row.pct))}</td>
         </tr>`).join('');
 
-        if (sbChart && typeof Chart !== 'undefined' && rows.length >= 2) {
+        if (sbChart && typeof Chart !== 'undefined' && rows.length >= 2
+            && chartGen === window._hkSbChartGen) {
           const chron = [...rows]
             .map(row => ({
               x: Date.parse(`${row.date}T00:00:00Z`),
@@ -9760,44 +9775,53 @@
             }))
             .filter(pt => Number.isFinite(pt.x) && pt.y != null)
             .sort((a, b) => a.x - b.x);
-          window._hkSbChart = new Chart(sbChart.getContext('2d'), {
-            type: 'line',
-            data: {
-              datasets: [{
-                label: isEn ? 'Southbound %' : '南向持股％',
-                data: chron,
-                borderColor: 'rgba(56, 189, 248, 0.95)',
-                backgroundColor: 'rgba(56, 189, 248, 0.12)',
-                fill: true,
-                tension: 0.15,
-                pointRadius: chron.length > 80 ? 0 : 2,
-                parsing: false,
-              }],
-            },
-            options: {
-              responsive: true,
-              maintainAspectRatio: false,
-              plugins: { legend: { display: false } },
-              scales: {
-                x: {
-                  type: 'linear',
-                  ticks: {
-                    maxTicksLimit: 8,
-                    color: '#9ca3af',
-                    callback(value) {
-                      const iso = new Date(value).toISOString().slice(0, 10);
-                      return iso;
+          // Destroy immediately before create: overlapping loadStock() races used to
+          // throw "Canvas is already in use" and the outer .catch() falsely showed
+          // 「載入 DI 時間線失敗」even after DI rows had rendered.
+          destroyHkSouthboundChart(sbChart);
+          try {
+            window._hkSbChart = new Chart(sbChart.getContext('2d'), {
+              type: 'line',
+              data: {
+                datasets: [{
+                  label: isEn ? 'Southbound %' : '南向持股％',
+                  data: chron,
+                  borderColor: 'rgba(56, 189, 248, 0.95)',
+                  backgroundColor: 'rgba(56, 189, 248, 0.12)',
+                  fill: true,
+                  tension: 0.15,
+                  pointRadius: chron.length > 80 ? 0 : 2,
+                  parsing: false,
+                }],
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                  x: {
+                    type: 'linear',
+                    ticks: {
+                      maxTicksLimit: 8,
+                      color: '#9ca3af',
+                      callback(value) {
+                        const iso = new Date(value).toISOString().slice(0, 10);
+                        return iso;
+                      },
                     },
+                    grid: { color: 'rgba(255,255,255,0.06)' },
                   },
-                  grid: { color: 'rgba(255,255,255,0.06)' },
-                },
-                y: {
-                  ticks: { color: '#9ca3af', callback: (v) => `${v}%` },
-                  grid: { color: 'rgba(255,255,255,0.06)' },
+                  y: {
+                    ticks: { color: '#9ca3af', callback: (v) => `${v}%` },
+                    grid: { color: 'rgba(255,255,255,0.06)' },
+                  },
                 },
               },
-            },
-          });
+            });
+          } catch (chartErr) {
+            window._hkSbChart = null;
+            console.warn('HK southbound chart unavailable', chartErr);
+          }
         }
       }
 
