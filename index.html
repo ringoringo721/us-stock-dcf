@@ -90,6 +90,8 @@
   <script src="hk_smart_money.js"></script>
   <script src="dividend_leverage_metrics_data.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="us_indexes.js?v=index-belt-1"></script>
+  <script src="us_index_belt.js?v=index-belt-1"></script>
   
   <style>
     :root {
@@ -1698,10 +1700,81 @@
       #cmp-ratio-table thead .fcf-trend-col { right: auto; }
       .status-badge { white-space: normal; }
     }
+
+    /* US frontpage index ticker belt — slim full-bleed strip above the header. */
+    .us-index-belt {
+      margin: -16px -16px 14px;
+      width: calc(100% + 32px);
+      border-bottom: 1px solid var(--card-border);
+      background: color-mix(in srgb, var(--surface-bg) 88%, var(--card-bg));
+      color: var(--text);
+    }
+    .us-index-belt[hidden] { display: none !important; }
+    .us-index-belt__viewport {
+      overflow: hidden;
+      mask-image: linear-gradient(90deg, transparent, #000 24px, #000 calc(100% - 24px), transparent);
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 24px, #000 calc(100% - 24px), transparent);
+    }
+    .us-index-belt__track {
+      display: flex;
+      width: max-content;
+      gap: 0;
+      align-items: stretch;
+    }
+    .us-index-belt__track[data-marquee="on"] {
+      animation: us-index-belt-scroll 72s linear infinite;
+    }
+    .us-index-belt:hover .us-index-belt__track[data-marquee="on"] {
+      animation-play-state: paused;
+    }
+    .us-index-belt__group {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      flex: 0 0 auto;
+    }
+    .us-index-belt__chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-right: 1px solid var(--card-border);
+      white-space: nowrap;
+      font-size: 12px;
+      line-height: 1.2;
+      min-height: 40px;
+    }
+    .us-index-belt__name {
+      font-weight: 650;
+      color: var(--text-secondary);
+      letter-spacing: 0.01em;
+    }
+    .us-index-belt__pct {
+      font-variant-numeric: tabular-nums;
+      font-weight: 700;
+      min-width: 4.5em;
+    }
+    .us-index-belt__pct--up { color: var(--green); }
+    .us-index-belt__pct--down { color: var(--red); }
+    .us-index-belt__pct--flat { color: var(--text-muted); }
+    .us-index-belt__spark { display: block; flex: 0 0 auto; }
+    @keyframes us-index-belt-scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .us-index-belt__track[data-marquee="on"] { animation: none; }
+      .us-index-belt__viewport {
+        overflow-x: auto;
+        mask-image: none;
+        -webkit-mask-image: none;
+      }
+    }
   </style>
 </head>
 <body>
 
+<div id="us-index-belt" class="us-index-belt" hidden role="region" aria-label="美股指數漲跌"></div>
 <div class="container">
   <header>
     <div>
@@ -4998,6 +5071,7 @@
       }
       recalculateDetail();
     }
+    if (typeof UsIndexBelt !== 'undefined') UsIndexBelt.applyLanguage();
 
   }
 
@@ -12685,6 +12759,7 @@
 
   document.addEventListener('DOMContentLoaded', () => {
     if (typeof SmartMoney !== 'undefined') ensureSmartMoneyNames(SmartMoney);
+    if (typeof UsIndexBelt !== 'undefined') UsIndexBelt.mount();
     markLoadingStats();
     if (checkGlobalData()) return;
     // Baseline already present: keep polling for universe/expansion. Do not re-fetch
