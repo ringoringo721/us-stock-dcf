@@ -7,13 +7,13 @@ const { test } = require('node:test');
 const HkIndexes = require('../hk_indexes.js');
 const { createHandler } = require('../api/hk-indexes.js');
 
-const browserHeaders = {
-  'sec-fetch-site': 'same-origin',
+const SECRET = 'hk-index-belt-test-secret';
+const authHeaders = {
   host: 'localhost:57111',
-  origin: 'http://localhost:57111',
+  'x-index-belt-refresh': SECRET,
 };
 
-const call = async (handler, url, method = 'GET', reqHeaders = browserHeaders) => {
+const call = async (handler, url, method = 'GET', reqHeaders = {}) => {
   const headers = {};
   const res = {
     statusCode: 200,
@@ -89,22 +89,54 @@ test('buildPayload keeps only complete quote + sparkline rows', () => {
   HkIndexes.validatePayload(payload);
 });
 
-test('API serves live FMP batch for browser-like requests', async () => {
+test('public GET serves seed only — spoofed Sec-Fetch-Site cannot live-fetch', async () => {
+  let fetches = 0;
+  const seed = JSON.parse(fs.readFileSync(
+    path.join(__dirname, '..', 'cache', 'hk-indexes', 'latest.json'),
+    'utf8',
+  ));
   const handler = createHandler({
     apiKey: () => 'test-key',
+    refreshSecret: () => SECRET,
+    readSeed: () => seed,
+    fetch: async () => { fetches += 1; throw new Error('must not fetch'); },
+  });
+  const spoofed = await call(handler, '/api/hk-indexes', 'GET', {
+    'sec-fetch-site': 'none',
+    origin: 'https://evil.example/us-stock-dcf',
+    referer: 'https://attacker.vercel.app/',
+  });
+  assert.equal(spoofed.status, 200);
+  assert.equal(spoofed.headers['X-Index-Belt-Cache'], 'seed');
+  assert.equal(fetches, 0);
+
+  const refreshSpoof = await call(handler, '/api/hk-indexes?refresh=1', 'GET', {
+    'sec-fetch-site': 'same-origin',
+    origin: 'http://localhost:57111',
+  });
+  assert.equal(refreshSpoof.status, 200);
+  assert.equal(refreshSpoof.headers['X-Index-Belt-Cache'], 'seed-refresh-denied');
+  assert.equal(fetches, 0);
+});
+
+test('secret-authorized refresh=1 serves live FMP batch', async () => {
+  const handler = createHandler({
+    apiKey: () => 'test-key',
+    refreshSecret: () => SECRET,
     now: () => new Date('2026-11-12T15:00:00Z'),
     readSeed: () => null,
     fetch: liveFetcher(),
   });
-  const result = await call(handler, '/api/hk-indexes');
+  const result = await call(handler, '/api/hk-indexes?refresh=1', 'GET', authHeaders);
   assert.equal(result.status, 200);
   assert.equal(result.body.indexes.length, 16);
   assert.match(String(result.headers['Cache-Control'] || ''), /s-maxage=300/);
   assert.equal(result.headers['X-Index-Belt-Cache'], 'live');
   assert.equal(JSON.stringify(result.body).includes('test-key'), false);
+  assert.equal(JSON.stringify(result.body).includes(SECRET), false);
 });
 
-test('anonymous refresh=1 cannot bypass cache / fan out FMP', async () => {
+test('wrong secret cannot live-fetch even with refresh=1', async () => {
   let fetches = 0;
   const seed = JSON.parse(fs.readFileSync(
     path.join(__dirname, '..', 'cache', 'hk-indexes', 'latest.json'),
@@ -112,37 +144,36 @@ test('anonymous refresh=1 cannot bypass cache / fan out FMP', async () => {
   ));
   const handler = createHandler({
     apiKey: () => 'test-key',
+    refreshSecret: () => SECRET,
     readSeed: () => seed,
     fetch: async () => { fetches += 1; throw new Error('must not fetch'); },
   });
-  const denied = await call(handler, '/api/hk-indexes?refresh=1', 'GET', {});
-  assert.equal(denied.status, 403);
-  assert.equal(denied.body.error, 'BROWSER_REQUIRED');
-  assert.equal(fetches, 0);
-
-  const anonymous = await call(handler, '/api/hk-indexes', 'GET', {});
-  assert.equal(anonymous.status, 200);
-  assert.equal(anonymous.headers['X-Index-Belt-Cache'], 'seed');
+  const denied = await call(handler, '/api/hk-indexes?refresh=1', 'GET', {
+    'x-index-belt-refresh': 'wrong-secret',
+  });
+  assert.equal(denied.status, 200);
+  assert.equal(denied.headers['X-Index-Belt-Cache'], 'seed-refresh-denied');
   assert.equal(fetches, 0);
 });
 
-test('browser refresh=1 falls back to seed when FMP is unavailable', async () => {
+test('authorized refresh falls back to seed when FMP is unavailable', async () => {
   const seed = JSON.parse(fs.readFileSync(
     path.join(__dirname, '..', 'cache', 'hk-indexes', 'latest.json'),
     'utf8',
   ));
   const handler = createHandler({
     apiKey: () => 'test-key',
+    refreshSecret: () => SECRET,
     readSeed: () => seed,
     fetch: async () => { throw new Error('network down'); },
   });
-  const result = await call(handler, '/api/hk-indexes?refresh=1');
+  const result = await call(handler, '/api/hk-indexes?refresh=1', 'GET', authHeaders);
   assert.equal(result.status, 200);
   assert.equal(result.headers['X-Index-Belt-Cache'], 'seed-fallback');
   assert.ok(result.body.indexes.length >= 5);
 });
 
-test('live refresh rate limit returns seed instead of another FMP fan-out', async () => {
+test('authorized live refresh rate limit returns seed instead of another FMP fan-out', async () => {
   const seed = JSON.parse(fs.readFileSync(
     path.join(__dirname, '..', 'cache', 'hk-indexes', 'latest.json'),
     'utf8',
@@ -150,6 +181,7 @@ test('live refresh rate limit returns seed instead of another FMP fan-out', asyn
   let fetches = 0;
   const handler = createHandler({
     apiKey: () => 'test-key',
+    refreshSecret: () => SECRET,
     readSeed: () => seed,
     fetch: async url => {
       fetches += 1;
@@ -157,10 +189,9 @@ test('live refresh rate limit returns seed instead of another FMP fan-out', asyn
     },
   });
   const headers = {
-    ...browserHeaders,
+    ...authHeaders,
     'x-forwarded-for': '203.0.113.88',
   };
-  // LIVE_RATE_MAX = 3 — fourth refresh should be rate-limited.
   for (let i = 0; i < 3; i += 1) {
     const ok = await call(handler, '/api/hk-indexes?refresh=1', 'GET', headers);
     assert.equal(ok.status, 200);
