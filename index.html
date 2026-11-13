@@ -1012,7 +1012,8 @@
       background:
         radial-gradient(ellipse at center, color-mix(in srgb, var(--accent) 8%, transparent) 0%, transparent 55%),
         var(--surface-bg, var(--card-bg));
-      overflow: hidden;
+      /* Do not clip the viewport: southern rivals + zoomed content must remain scrollable. */
+      overflow: visible;
       position: relative;
     }
     .sc-spider-toolbar {
@@ -1028,16 +1029,19 @@
     .sc-spider-toolbar .sc-zoom-label { margin-left: 4px; font-variant-numeric: tabular-nums; }
     .sc-spider-viewport {
       overflow: auto;
+      overscroll-behavior: contain;
       touch-action: pan-x pan-y;
       max-height: 78vh;
       padding: 4px 8px 12px;
+      -webkit-overflow-scrolling: touch;
     }
     .sc-spider-svg {
       display: block;
       width: 100%;
       min-width: 720px;
       height: auto;
-      transform-origin: center top;
+      /* Zoom grows layout width (not CSS transform) so overflow:auto can pan. */
+      transform: none;
     }
     .sc-edge-flow {
       fill: none;
@@ -4236,7 +4240,7 @@
       sc_zoom_in: "放大",
       sc_zoom_out: "縮小",
       sc_zoom_reset: "重設",
-      sc_zoom_hint: "滾輪亦可縮放",
+      sc_zoom_hint: "圖內可捲動；Ctrl＋滾輪縮放",
       sec_profile_title: "企業核心業務與營運全貌",
       lbl_hq: "總部:",
       lbl_reg_addr: "註冊地址:",
@@ -4920,7 +4924,7 @@
       sc_zoom_in: "Zoom in",
       sc_zoom_out: "Zoom out",
       sc_zoom_reset: "Reset",
-      sc_zoom_hint: "Scroll wheel also zooms",
+      sc_zoom_hint: "Scroll inside chart; Ctrl+wheel zooms",
       earnings_title: "Diluted EPS, FCF & Dividends per Diluted Share",
       earnings_definition: "All three metrics use USD per diluted share. Reported EPS and cash flows are translated using each period's average exchange rate. FCF per share divides USD free cash flow by same-period diluted weighted-average shares; cash dividends per share divide USD common cash dividends paid by those shares (outflows are sign-reversed, not made absolute). This cash-paid measure is not the announced dividend per share.",
       earnings_chart_note: "Single-quarter and annual cash flows use same-period diluted weighted-average shares. TTM divides separately translated quarterly cash-flow totals by the simple average of four quarterly share counts. TTM EPS sums four separately translated reported diluted EPS figures and may differ from annual weighted-share EPS. No additional split or ADR multiplier is applied; missing data or FX leaves gaps. All three series share one USD-per-share axis.",
@@ -11515,8 +11519,13 @@
     let scale = 1;
     const min = 0.65;
     const max = 1.85;
+    const baseMinWidth = 720;
     const apply = () => {
-      svg.style.transform = `scale(${scale})`;
+      // Grow/shrink layout size so the viewport can scroll/pan to southern rivals.
+      // Avoid CSS transform scale — it does not expand scrollable overflow.
+      svg.style.width = `${(scale * 100).toFixed(2)}%`;
+      svg.style.minWidth = `${Math.round(baseMinWidth * scale)}px`;
+      svg.style.transform = 'none';
       if (label) label.textContent = `${Math.round(scale * 100)}%`;
     };
     const setScale = (next) => {
@@ -11532,10 +11541,10 @@
       });
     });
     const viewport = wrapEl.querySelector('.sc-spider-viewport') || wrapEl;
+    // Plain wheel scrolls the viewport (southern rivals below the fold).
+    // Only Ctrl/Meta+wheel zooms — never trap normal scroll.
     viewport.addEventListener('wheel', (event) => {
-      if (!(event.ctrlKey || event.metaKey || Math.abs(event.deltaY) > 0)) return;
-      // Prefer intentional zoom: ctrl/meta wheel, or plain wheel over the chart.
-      if (!event.ctrlKey && !event.metaKey && event.target.closest?.('.sc-spider-toolbar')) return;
+      if (!(event.ctrlKey || event.metaKey)) return;
       event.preventDefault();
       const delta = event.deltaY > 0 ? -0.1 : 0.1;
       setScale(scale + delta);
