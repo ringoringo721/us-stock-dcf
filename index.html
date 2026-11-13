@@ -11189,7 +11189,8 @@
     const safe = scEscape(ticker);
     const cls = scEscape(className || 'sc-player-ticker');
     if (inApp) {
-      return `<a class="${cls}" href="#${safe}/profile" onclick="event.preventDefault(); openCompanyProfile('${safe}');">${safe}</a>`;
+      // Pair profile open with switchSubPage so supply-chain content does not stay stale.
+      return `<a class="${cls}" href="#${safe}/profile" onclick="event.preventDefault(); openCompanyProfile('${safe}'); switchSubPage('basic');">${safe}</a>`;
     }
     return `<span class="${cls} is-plain" title="${scEscape((I18N_DICT[currentLang] || {}).sc_in_app_no || '')}">${safe}</span>`;
   }
@@ -11292,7 +11293,7 @@
         chipsEl.innerHTML = pack.competitors.map(row => {
           const inApp = row.listedInApp !== false && SC.inUniverse(stockUniverse, row.ticker);
           if (inApp) {
-            return `<a class="sc-chip" href="#${scEscape(row.ticker)}/profile" onclick="event.preventDefault(); openCompanyProfile('${scEscape(row.ticker)}');"><strong>${scEscape(row.ticker)}</strong><span>${scEscape(playerName(row))}</span></a>`;
+            return `<a class="sc-chip" href="#${scEscape(row.ticker)}/profile" onclick="event.preventDefault(); openCompanyProfile('${scEscape(row.ticker)}'); switchSubPage('basic');"><strong>${scEscape(row.ticker)}</strong><span>${scEscape(playerName(row))}</span></a>`;
           }
           return `<span class="sc-chip is-plain" title="${scEscape(dict.sc_in_app_no || '')}"><strong>${scEscape(row.ticker)}</strong><span>${scEscape(playerName(row))}</span></span>`;
         }).join('');

@@ -126,8 +126,12 @@
     const url = `${CACHE_DIR}/${encodeURIComponent(key)}.json`;
     return fetch(url, { cache: 'no-store' }).then(async (response) => {
       if (!response.ok) {
-        const err = new Error(`SUPPLY_CHAIN_NO_SEED:${key}`);
-        err.code = 'SUPPLY_CHAIN_NO_SEED';
+        // 404 = no curated seed yet; other HTTP failures must not look like "empty seed".
+        const missing = response.status === 404;
+        const err = new Error(missing
+          ? `SUPPLY_CHAIN_NO_SEED:${key}`
+          : `SUPPLY_CHAIN_LOAD_FAILED:${key}:${response.status}`);
+        err.code = missing ? 'SUPPLY_CHAIN_NO_SEED' : 'SUPPLY_CHAIN_LOAD_FAILED';
         err.status = response.status;
         throw err;
       }
