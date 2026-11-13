@@ -160,23 +160,38 @@
   function layoutSpider(pack, options = {}) {
     const data = pack?.stages ? pack : normalize(pack);
     const width = Number(options.width) || 1100;
-    const height = Number(options.height) || 760;
+    const height = Number(options.height) || 820;
+    // Lift hub so the reserved southern rivalry arc has room below the player ring.
     const cx = width / 2;
-    const cy = height / 2 - 18;
-    const stageR = Number(options.stageRadius) || Math.min(width, height) * 0.28;
-    const playerR = Number(options.playerRadius) || Math.min(width, height) * 0.42;
-    const competitorR = Number(options.competitorRadius) || Math.min(width, height) * 0.46;
+    const cy = height * 0.42;
+    const stageR = Number(options.stageRadius) || Math.min(width, height) * 0.26;
+    const playerR = Number(options.playerRadius) || Math.min(width, height) * 0.39;
+    // Competitors live on a separate outer southern arc — never on the player ring.
+    const competitorR = Number(options.competitorRadius) || Math.min(width, height) * 0.52;
     const stages = data.stages;
-    const n = stages.length || 1;
-    // Even spider ring, start west (upstream) and proceed clockwise.
-    const startAngle = Math.PI;
+    const n = Math.max(stages.length, 1);
+    // Reserve a wide southern sector for rivals only (SVG +y is south).
+    const southGap = Math.PI * 0.92; // ~166°
+    const stageSweep = (2 * Math.PI) - southGap;
+    const stageStart = (Math.PI / 2) + (southGap / 2); // leave south, sweep CCW through W→N→E
+    // Keep Top-3 fans inside the stage arc so players cannot drift into the south gap.
+    const playerSpread = Math.min(0.32, stageSweep / Math.max(n * 3.2, 1));
 
     function polar(radius, angle) {
       return { x: cx + radius * Math.cos(angle), y: cy + radius * Math.sin(angle) };
     }
 
+    function overlaps(a, b, pad = 10) {
+      const dx = a.x - b.x;
+      const dy = a.y - b.y;
+      const min = (a.r || 0) + (b.r || 0) + pad;
+      return (dx * dx + dy * dy) < (min * min);
+    }
+
     const stageNodes = stages.map((stage, index) => {
-      const angle = startAngle + (2 * Math.PI * index) / n;
+      const angle = n === 1
+        ? stageStart + stageSweep / 2
+        : stageStart + (stageSweep * index) / (n - 1);
       const pos = polar(stageR, angle);
       return {
         id: `stage:${stage.id}`,
@@ -197,8 +212,7 @@
       const stageNode = stageNodes[index];
       const count = stage.players.length || 1;
       stage.players.forEach((player, pIndex) => {
-        const spread = 0.38;
-        const offset = count === 1 ? 0 : ((pIndex / (count - 1)) - 0.5) * spread;
+        const offset = count === 1 ? 0 : ((pIndex / (count - 1)) - 0.5) * playerSpread;
         const angle = stageNode.angle + offset;
         const pos = polar(playerR, angle);
         playerNodes.push({
@@ -220,13 +234,14 @@
     });
 
     const competitors = Array.isArray(data.competitors) ? data.competitors : [];
-    const compCount = Math.max(competitors.length, 1);
-    // Rivalry row under the spider so gold links stay visually distinct from the stage ring.
-    const rivalY = Math.min(height - 40, cy + competitorR * 0.78);
-    const rivalSpan = Math.min(width * 0.78, Math.max(220, (compCount - 1) * 96));
+    // Southern arc only (inside the reserved gap), outside the player ring.
+    const rivalPad = 0.12;
+    const rivalStart = (Math.PI / 2) - (southGap / 2) + rivalPad;
+    const rivalEnd = (Math.PI / 2) + (southGap / 2) - rivalPad;
     const competitorNodes = competitors.map((row, index) => {
       const t = competitors.length <= 1 ? 0.5 : index / (competitors.length - 1);
-      const x = cx - rivalSpan / 2 + rivalSpan * t;
+      const angle = rivalStart + (rivalEnd - rivalStart) * t;
+      const pos = polar(competitorR, angle);
       return {
         id: `competitor:${row.ticker}`,
         kind: 'competitor',
@@ -234,10 +249,22 @@
         name_en: row.name_en,
         name_zh: row.name_zh,
         listedInApp: row.listedInApp !== false,
-        x,
-        y: rivalY,
+        angle,
+        x: pos.x,
+        y: pos.y,
         r: 20
       };
+    });
+
+    // Safety: if any rival still collides with a player/stage, push it farther south on the same ray.
+    competitorNodes.forEach(comp => {
+      let guard = 0;
+      while (guard < 8 && [...playerNodes, ...stageNodes].some(node => overlaps(comp, node, 14))) {
+        const next = polar(competitorR + 28 * (guard + 1), comp.angle);
+        comp.x = next.x;
+        comp.y = Math.min(height - 28, next.y);
+        guard += 1;
+      }
     });
 
     const hub = {
