@@ -88,6 +88,7 @@
   <script src="company_documents.js"></script>
   <script src="smart_money.js"></script>
   <script src="hk_smart_money.js"></script>
+  <script src="supply_chain.js"></script>
   <script src="dividend_leverage_metrics_data.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="us_indexes.js?v=index-belt-1"></script>
@@ -998,6 +999,98 @@
     .sm-action-held { color: var(--text-muted); }
     .sm-manager-link { color: var(--accent); text-decoration: none; font-weight: 600; }
     .sm-manager-link:hover { text-decoration: underline; }
+    /* Supply chain & competitors graph */
+    #cmp-supply-chain-players th, #cmp-supply-chain-players td,
+    #cmp-supply-chain-competitors th, #cmp-supply-chain-competitors td {
+      padding: 11px 12px !important; border-right: 1px solid var(--card-border);
+      border-bottom: 1px solid var(--card-border); font-variant-numeric: tabular-nums;
+    }
+    .sc-flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+      align-items: stretch;
+      margin: 12px 0 8px;
+    }
+    .sc-stage {
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      background: var(--surface-bg, var(--card-bg));
+      padding: 14px 12px;
+      min-width: 0;
+      position: relative;
+    }
+    .sc-stage::after {
+      content: "→";
+      position: absolute;
+      right: -11px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 14px;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .sc-stage:last-child::after { content: none; }
+    .sc-stage-order {
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .sc-stage-title {
+      font-size: 14px;
+      font-weight: 650;
+      line-height: 1.45;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+    .sc-stage-summary {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 10px;
+    }
+    .sc-player-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .sc-player-card {
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 8px 10px;
+      background: var(--card-bg);
+      min-width: 0;
+    }
+    .sc-player-ticker {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .sc-player-ticker:hover { text-decoration: underline; }
+    .sc-player-ticker.is-plain { color: var(--text); cursor: default; }
+    .sc-player-name { font-size: 12px; color: var(--text); margin-top: 2px; overflow-wrap: anywhere; }
+    .sc-player-role { font-size: 11px; color: var(--text-muted); margin-top: 4px; line-height: 1.45; overflow-wrap: anywhere; }
+    .sc-competitor-chips {
+      display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 14px;
+    }
+    .sc-chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      border: 1px solid var(--card-border); border-radius: 999px;
+      padding: 6px 12px; background: var(--surface-bg, var(--card-bg));
+      font-size: 12px; color: var(--text); text-decoration: none;
+    }
+    .sc-chip:hover { border-color: var(--accent); color: var(--accent); }
+    .sc-chip.is-plain { cursor: default; }
+    .sc-chip strong { font-variant-numeric: tabular-nums; }
+    @media (max-width: 1100px) {
+      .sc-flow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .sc-stage::after { content: none; }
+    }
+    @media (max-width: 640px) {
+      .sc-flow { grid-template-columns: minmax(0, 1fr); }
+    }
     #fund-view, #funds-view { display: none; }
     #funds-directory th, #funds-directory td {
       padding: 11px 12px !important; border-right: 1px solid var(--card-border);
@@ -2396,6 +2489,7 @@
       <button class="sub-tab-btn" onclick="switchSubPage('smart-money')" data-i18n="tab_smart_money">🧠 5b. 智資／Smart Money</button>
       <button class="sub-tab-btn" onclick="switchSubPage('ratios')" data-i18n="tab_ratios">⚖️ 6. 關鍵比率</button>
       <button class="sub-tab-btn" onclick="switchSubPage('peers')" data-i18n="tab_peers">👥 7. 同行業對比</button>
+      <button class="sub-tab-btn" onclick="switchSubPage('supply-chain')" data-i18n="tab_supply_chain">🔗 7b. 供應鏈／競爭</button>
       <button class="sub-tab-btn" onclick="switchSubPage('charts')" data-i18n="tab_charts">📊 8. 趨勢分析</button>
       <button class="sub-tab-btn" onclick="switchSubPage('valuation')" data-i18n="tab_valuation">📐 9. 估值模型</button>
       <button class="sub-tab-btn" onclick="switchSubPage('news')" data-i18n="tab_news">📰 10. 公司新聞</button>
@@ -2918,6 +3012,34 @@
 
     <!-- 子分頁 4：同行業對比 (直向 5 家同行矩陣) -->
     <div id="subpage-peers" class="subpage-content"></div>
+
+    <!-- 子分頁 7b：供應鏈／競爭對手 -->
+    <div id="subpage-supply-chain" class="subpage-content">
+      <div class="panel historical-ratio-panel company-analysis-panel">
+        <div class="panel-title" data-i18n="sec_supply_chain">供應鏈與競爭對手</div>
+        <p class="analysis-note" data-i18n="analysis_supply_chain_note">依硬體價值鏈五階段（材料→零組件→組裝→物流→零售）列出各階 Top 3 代表性玩家，並附競爭對手。資料為策展種子，非即時供應商 API。</p>
+        <p id="supply-chain-status" class="analysis-note" role="status"></p>
+        <p id="supply-chain-source" class="analysis-note" role="note"></p>
+        <div class="panel-title" style="font-size:15px;margin-top:8px;" data-i18n="sec_supply_chain_graph">價值鏈圖（各階 Top 3）</div>
+        <div id="supply-chain-flow" class="sc-flow" aria-live="polite"></div>
+        <div class="panel-title" style="font-size:15px;margin-top:16px;" data-i18n="sec_supply_chain_players">供應鏈玩家一覽</div>
+        <div class="table-scroll-wrapper company-analysis-scroll" style="margin-bottom: 18px;">
+          <table id="cmp-supply-chain-players" class="historical-ratio-table company-analysis-table">
+            <thead><tr id="cmp-supply-chain-players-thead"></tr></thead>
+            <tbody id="cmp-supply-chain-players-tbody"></tbody>
+          </table>
+        </div>
+        <div class="panel-title" style="font-size:15px;" data-i18n="sec_supply_chain_competitors">主要競爭對手</div>
+        <p class="analysis-note" data-i18n="analysis_supply_chain_competitors_note">裝置／生態／PC 硬體同業；與上方「同行業對比」財務矩陣互補，此處著重價值鏈定位。</p>
+        <div id="supply-chain-competitor-chips" class="sc-competitor-chips" aria-live="polite"></div>
+        <div class="table-scroll-wrapper company-analysis-scroll">
+          <table id="cmp-supply-chain-competitors" class="historical-ratio-table company-analysis-table">
+            <thead><tr id="cmp-supply-chain-competitors-thead"></tr></thead>
+            <tbody id="cmp-supply-chain-competitors-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
     
     <!-- 子分頁 5：趨勢分析 -->
     <div id="subpage-charts" class="subpage-content">
@@ -3948,10 +4070,30 @@
       earnings_reason_invalidPeriodLength: "N/A：過渡財年或期間長度未核實，不與一般年度／TTM 比較。",
       earnings_reason_accountingBasisMismatch: "N/A：持續經營／會計列報口徑不一致，不自動視為同口徑增長。",
       tab_peers: "👥 7. 同行業對比",
+      tab_supply_chain: "🔗 7b. 供應鏈／競爭",
       tab_charts: "📊 8. 趨勢分析",
       tab_valuation: "📐 9. 估值模型",
       tab_tradingview: "📈 11. TradingView 圖表",
       tab_news: "📰 10. 公司新聞",
+      sec_supply_chain: "供應鏈與競爭對手",
+      analysis_supply_chain_note: "依硬體價值鏈五階段（材料→零組件→組裝→物流→零售）列出各階 Top 3 代表性玩家，並附競爭對手。資料為策展種子，非即時供應商 API。",
+      sec_supply_chain_graph: "價值鏈圖（各階 Top 3）",
+      sec_supply_chain_players: "供應鏈玩家一覽",
+      sec_supply_chain_competitors: "主要競爭對手",
+      analysis_supply_chain_competitors_note: "裝置／生態／PC 硬體同業；與上方「同行業對比」財務矩陣互補，此處著重價值鏈定位。",
+      th_sc_stage: "價值鏈位置",
+      th_sc_ticker: "代號",
+      th_sc_name: "名稱",
+      th_sc_role: "角色／說明",
+      th_sc_in_app: "本站可開",
+      sc_in_app_yes: "可開公司頁",
+      sc_in_app_no: "站外／未收錄",
+      sc_loading: "正在載入供應鏈種子資料…",
+      sc_empty: "此股票尚無供應鏈策展種子（MVP 先支援 AAPL）。",
+      sc_error: "供應鏈資料載入失敗。請重試；不以模擬資料替代。",
+      sc_source_curated: "資料來源：策展種子（非即時供應商 API）",
+      sc_updated: "更新日期",
+      sc_stage_n: "第 {n} 階",
       sec_profile_title: "企業核心業務與營運全貌",
       lbl_hq: "總部:",
       lbl_reg_addr: "註冊地址:",
@@ -4601,7 +4743,27 @@
       th_div_count: "Count",
       th_cont_div_growth: "Cont div growth (y)",
       tab_peers: "👥 7. Peer Comparison",
+      tab_supply_chain: "🔗 7b. Supply Chain / Peers",
       tab_charts: "📊 8. Trend Analysis",
+      sec_supply_chain: "Supply chain & competitors",
+      analysis_supply_chain_note: "Five-stage hardware value chain (materials → components → assembly → logistics → retail) with Top 3 representative players per stage, plus major competitors. Curated seed data — not a live supplier API.",
+      sec_supply_chain_graph: "Value-chain graph (Top 3 per stage)",
+      sec_supply_chain_players: "Supply-chain player roster",
+      sec_supply_chain_competitors: "Major competitors",
+      analysis_supply_chain_competitors_note: "Device / ecosystem / PC hardware peers. Complements the Peer Comparison financials matrix with value-chain positioning.",
+      th_sc_stage: "Value-chain position",
+      th_sc_ticker: "Ticker",
+      th_sc_name: "Name",
+      th_sc_role: "Role / note",
+      th_sc_in_app: "In this app",
+      sc_in_app_yes: "Open profile",
+      sc_in_app_no: "External / not listed",
+      sc_loading: "Loading supply-chain seed…",
+      sc_empty: "No curated supply-chain seed for this ticker yet (MVP starts with AAPL).",
+      sc_error: "Supply-chain data failed to load. Retry; no simulated substitute.",
+      sc_source_curated: "Source: curated seed (not a live supplier API)",
+      sc_updated: "Updated",
+      sc_stage_n: "Stage {n}",
       earnings_title: "Diluted EPS, FCF & Dividends per Diluted Share",
       earnings_definition: "All three metrics use USD per diluted share. Reported EPS and cash flows are translated using each period's average exchange rate. FCF per share divides USD free cash flow by same-period diluted weighted-average shares; cash dividends per share divide USD common cash dividends paid by those shares (outflows are sign-reversed, not made absolute). This cash-paid measure is not the announced dividend per share.",
       earnings_chart_note: "Single-quarter and annual cash flows use same-period diluted weighted-average shares. TTM divides separately translated quarterly cash-flow totals by the simple average of four quarterly share counts. TTM EPS sums four separately translated reported diluted EPS figures and may differ from annual weighted-share EPS. No additional split or ADR multiplier is applied; missing data or FX leaves gaps. All three series share one USD-per-share axis.",
@@ -8105,6 +8267,8 @@
       renderRatiosSubPage(curStock);
     } else if (tabKey === 'peers') {
       renderPeersSubPage(curStock);
+    } else if (tabKey === 'supply-chain') {
+      renderSupplyChainSubPage(curStock);
     } else if (tabKey === 'charts') {
       FcfRatios.render(curTicker, currentLang, I18N_DICT[currentLang]);
       FcfRatios.renderReturns(curTicker, currentLang, I18N_DICT[currentLang]);
@@ -11015,6 +11179,145 @@
   // 4. 直向 5 家同行深度財務矩陣 (雙語切換 + 雙向滾動凍結 + 45+ 項指標)
   // ========================================================
   let peerRenderRequestId = 0;
+  let supplyChainRenderRequestId = 0;
+
+  function scEscape(text) {
+    return escapeAttribute(text).replace(/&#10;/g, ' ');
+  }
+
+  function scTickerLink(ticker, inApp, className) {
+    const safe = scEscape(ticker);
+    const cls = scEscape(className || 'sc-player-ticker');
+    if (inApp) {
+      return `<a class="${cls}" href="#${safe}/profile" onclick="event.preventDefault(); openCompanyProfile('${safe}');">${safe}</a>`;
+    }
+    return `<span class="${cls} is-plain" title="${scEscape((I18N_DICT[currentLang] || {}).sc_in_app_no || '')}">${safe}</span>`;
+  }
+
+  async function renderSupplyChainSubPage(s, reload = false) {
+    const statusEl = document.getElementById('supply-chain-status');
+    const sourceEl = document.getElementById('supply-chain-source');
+    const flowEl = document.getElementById('supply-chain-flow');
+    const chipsEl = document.getElementById('supply-chain-competitor-chips');
+    const playersHead = document.getElementById('cmp-supply-chain-players-thead');
+    const playersBody = document.getElementById('cmp-supply-chain-players-tbody');
+    const compsHead = document.getElementById('cmp-supply-chain-competitors-thead');
+    const compsBody = document.getElementById('cmp-supply-chain-competitors-tbody');
+    if (!flowEl || !playersBody || !compsBody || !s) return;
+
+    const requestId = ++supplyChainRenderRequestId;
+    const SC = window.SupplyChain;
+    const dict = I18N_DICT[currentLang] || {};
+    const isEn = currentLang === 'en';
+    const targetTicker = (s.ticker || s.symbol || activeCompanyTicker || '').toUpperCase();
+
+    if (statusEl) statusEl.textContent = dict.sc_loading || '';
+    if (sourceEl) sourceEl.textContent = '';
+    flowEl.innerHTML = '';
+    if (chipsEl) chipsEl.innerHTML = '';
+    playersHead.innerHTML = '';
+    playersBody.innerHTML = '';
+    compsHead.innerHTML = '';
+    compsBody.innerHTML = '';
+
+    if (!SC || typeof SC.load !== 'function') {
+      if (statusEl) statusEl.textContent = dict.sc_error || '';
+      return;
+    }
+
+    try {
+      const pack = await SC.load(targetTicker, { reload: !!reload });
+      if (requestId !== supplyChainRenderRequestId) return;
+
+      const stageLabel = (stage) => isEn ? stage.label_en : stage.label_zh;
+      const playerName = (row) => isEn ? row.name_en : row.name_zh;
+      const playerRole = (row) => isEn ? row.role_en : row.role_zh;
+      const sourceNotes = pack.source
+        ? (isEn ? (pack.source.notes_en || '') : (pack.source.notes_zh || ''))
+        : '';
+      const updated = pack.updatedAt
+        ? `${dict.sc_updated || ''}: ${pack.updatedAt}`
+        : '';
+      if (statusEl) {
+        statusEl.textContent = [
+          pack.model ? (isEn ? pack.model.label_en : pack.model.label_zh) : '',
+          updated
+        ].filter(Boolean).join(' · ');
+      }
+      if (sourceEl) {
+        sourceEl.textContent = [dict.sc_source_curated || '', sourceNotes].filter(Boolean).join(' — ');
+      }
+
+      flowEl.innerHTML = pack.stages.map((stage, index) => {
+        const orderLabel = (dict.sc_stage_n || 'Stage {n}').replace('{n}', String(stage.order || index + 1));
+        const players = stage.players.map(player => {
+          const inApp = player.listedInApp !== false && SC.inUniverse(stockUniverse, player.ticker);
+          return `<li class="sc-player-card">
+            ${scTickerLink(player.ticker, inApp)}
+            <div class="sc-player-name">${scEscape(playerName(player))}</div>
+            <div class="sc-player-role">${scEscape(playerRole(player))}</div>
+          </li>`;
+        }).join('');
+        return `<article class="sc-stage" data-stage="${scEscape(stage.id)}">
+          <div class="sc-stage-order">${scEscape(orderLabel)}</div>
+          <div class="sc-stage-title">${scEscape(stageLabel(stage))}</div>
+          <div class="sc-stage-summary">${scEscape(isEn ? stage.summary_en : stage.summary_zh)}</div>
+          <ul class="sc-player-list">${players}</ul>
+        </article>`;
+      }).join('');
+
+      playersHead.innerHTML = `<th>${scEscape(dict.th_sc_stage || '')}</th>
+        <th>${scEscape(dict.th_sc_ticker || '')}</th>
+        <th>${scEscape(dict.th_sc_name || '')}</th>
+        <th>${scEscape(dict.th_sc_role || '')}</th>
+        <th>${scEscape(dict.th_sc_in_app || '')}</th>`;
+      const flat = SC.flattenPlayers(pack);
+      playersBody.innerHTML = flat.map(row => {
+        const inApp = row.listedInApp !== false && SC.inUniverse(stockUniverse, row.ticker);
+        const stageName = isEn ? row.stageLabel_en : row.stageLabel_zh;
+        return `<tr>
+          <td>${scEscape(stageName)}</td>
+          <td>${scTickerLink(row.ticker, inApp)}</td>
+          <td>${scEscape(playerName(row))}</td>
+          <td>${scEscape(playerRole(row))}</td>
+          <td>${scEscape(inApp ? (dict.sc_in_app_yes || '') : (dict.sc_in_app_no || ''))}</td>
+        </tr>`;
+      }).join('') || `<tr><td colspan="5">${scEscape(dict.sc_empty || '')}</td></tr>`;
+
+      compsHead.innerHTML = `<th>${scEscape(dict.th_sc_ticker || '')}</th>
+        <th>${scEscape(dict.th_sc_name || '')}</th>
+        <th>${scEscape(dict.th_sc_role || '')}</th>
+        <th>${scEscape(dict.th_sc_in_app || '')}</th>`;
+      if (chipsEl) {
+        chipsEl.innerHTML = pack.competitors.map(row => {
+          const inApp = row.listedInApp !== false && SC.inUniverse(stockUniverse, row.ticker);
+          if (inApp) {
+            return `<a class="sc-chip" href="#${scEscape(row.ticker)}/profile" onclick="event.preventDefault(); openCompanyProfile('${scEscape(row.ticker)}');"><strong>${scEscape(row.ticker)}</strong><span>${scEscape(playerName(row))}</span></a>`;
+          }
+          return `<span class="sc-chip is-plain" title="${scEscape(dict.sc_in_app_no || '')}"><strong>${scEscape(row.ticker)}</strong><span>${scEscape(playerName(row))}</span></span>`;
+        }).join('');
+      }
+      compsBody.innerHTML = pack.competitors.map(row => {
+        const inApp = row.listedInApp !== false && SC.inUniverse(stockUniverse, row.ticker);
+        return `<tr>
+          <td>${scTickerLink(row.ticker, inApp)}</td>
+          <td>${scEscape(playerName(row))}</td>
+          <td>${scEscape(playerRole(row))}</td>
+          <td>${scEscape(inApp ? (dict.sc_in_app_yes || '') : (dict.sc_in_app_no || ''))}</td>
+        </tr>`;
+      }).join('') || `<tr><td colspan="4">${scEscape(dict.sc_empty || '')}</td></tr>`;
+    } catch (error) {
+      if (requestId !== supplyChainRenderRequestId) return;
+      const missing = error?.code === 'SUPPLY_CHAIN_NO_SEED'
+        || String(error?.message || '').startsWith('SUPPLY_CHAIN_NO_SEED');
+      if (statusEl) statusEl.textContent = missing ? (dict.sc_empty || '') : (dict.sc_error || '');
+      flowEl.innerHTML = '';
+      playersBody.innerHTML = `<tr><td colspan="5">${scEscape(missing ? (dict.sc_empty || '') : (dict.sc_error || ''))}</td></tr>`;
+      compsBody.innerHTML = `<tr><td colspan="4">${scEscape(missing ? (dict.sc_empty || '') : (dict.sc_error || ''))}</td></tr>`;
+      console.warn('Supply-chain subpage', targetTicker, error);
+    }
+  }
+
   function peerHasTtmStatements(stock) {
     const revenue = stock?.statements_raw?.income?.revenue;
     return Array.isArray(revenue) && revenue.some(Number.isFinite);
@@ -12546,7 +12849,7 @@
     }
 
     const [routeTicker, routeTab] = hashUpper.split('/');
-    if (stockUniverse[routeTicker] && ['BASIC', 'PROFILE', 'RATING', 'FINANCIALS', 'DIVIDEND', 'DOCUMENTS', 'SMART-MONEY', 'RATIOS', 'PEERS', 'CHARTS', 'VALUATION', 'NEWS', 'CHART'].includes(routeTab)) {
+    if (stockUniverse[routeTicker] && ['BASIC', 'PROFILE', 'RATING', 'FINANCIALS', 'DIVIDEND', 'DOCUMENTS', 'SMART-MONEY', 'RATIOS', 'PEERS', 'SUPPLY-CHAIN', 'CHARTS', 'VALUATION', 'NEWS', 'CHART'].includes(routeTab)) {
       activeCompanyTicker = routeTicker;
       showView('company', false);
       const tab = routeTab === 'PROFILE' ? 'basic' : routeTab.toLowerCase();

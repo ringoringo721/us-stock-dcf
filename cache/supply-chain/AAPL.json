@@ -1,0 +1,251 @@
+{
+  "version": 1,
+  "ticker": "AAPL",
+  "name_en": "Apple Inc.",
+  "name_zh": "蘋果",
+  "updatedAt": "2026-11-13",
+  "source": {
+    "type": "curated",
+    "basis": "MVP curated seed for Apple’s hardware value chain; not a live supplier API dump.",
+    "notes_zh": "本頁為人工策展種子資料（供應鏈／競爭對手圖 MVP）。未呼叫即時供應商 API；FMP 同業名單僅作交叉參考，不作唯一依據。角色與排序依公開供應鏈報導與常見投資研究架構整理，非完整供應商名單或採購份額。",
+    "notes_en": "Curated seed for the supply-chain / competitors MVP. No live supplier API. FMP peer lists are cross-checks only. Roles and ranks follow public supply-chain reporting and a standard investor value-chain model — not a full bill of materials or spend share.",
+    "references": [
+      "Apple Supplier List (public annual disclosures; illustrative)",
+      "FMP stock peers for AAPL (cache/peers/AAPL.json) — competitor cross-check only",
+      "Common investor hardware value-chain staging: materials → components → assembly → distribution → retail"
+    ]
+  },
+  "model": {
+    "id": "hardware-value-chain-v1",
+    "label_zh": "硬體價值鏈（五階段）",
+    "label_en": "Hardware value chain (5 stages)",
+    "description_zh": "由上游材料／設備 → 關鍵零組件 → 組裝代工 → 物流通路 → 零售／電信通路。每階段列 Top 3 代表性玩家。",
+    "description_en": "Upstream materials/equipment → key components → EMS assembly → logistics → retail/carrier channels. Top 3 representative players per stage."
+  },
+  "stages": [
+    {
+      "id": "materials",
+      "order": 1,
+      "label_zh": "關鍵材料／製程設備",
+      "label_en": "Key materials / process equipment",
+      "summary_zh": "蓋板玻璃、晶圓／製程設備等上游投入。",
+      "summary_en": "Cover glass and wafer/process equipment upstream of chips and modules.",
+      "players": [
+        {
+          "ticker": "GLW",
+          "name_en": "Corning",
+          "name_zh": "康寧",
+          "role_zh": "iPhone／裝置蓋板與特種玻璃",
+          "role_en": "Cover and specialty glass for iPhone and devices",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "AMAT",
+          "name_en": "Applied Materials",
+          "name_zh": "應用材料",
+          "role_zh": "半導體製程設備（沉積／蝕刻等）",
+          "role_en": "Semiconductor process equipment (deposition, etch, etc.)",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "ASML",
+          "name_en": "ASML Holding",
+          "name_zh": "艾司摩爾",
+          "role_zh": "先進微影（EUV／DUV）設備",
+          "role_en": "Advanced lithography (EUV/DUV) tools",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "components",
+      "order": 2,
+      "label_zh": "關鍵零組件／半導體",
+      "label_en": "Key components / semiconductors",
+      "summary_zh": "應用處理器代工、射頻／連線晶片與基頻相關供應。",
+      "summary_en": "AP foundry, RF/connectivity silicon, and baseband-related supply.",
+      "players": [
+        {
+          "ticker": "TSM",
+          "name_en": "TSMC",
+          "name_zh": "台積電",
+          "role_zh": "Apple Silicon 先進製程代工",
+          "role_en": "Advanced-node foundry for Apple Silicon",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "AVGO",
+          "name_en": "Broadcom",
+          "name_zh": "博通",
+          "role_zh": "無線／連線與客製化晶片",
+          "role_en": "Wireless, connectivity, and custom silicon",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "QCOM",
+          "name_en": "Qualcomm",
+          "name_zh": "高通",
+          "role_zh": "數據機／射頻相關供應",
+          "role_en": "Modem and RF-related supply",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "assembly",
+      "order": 3,
+      "label_zh": "組裝代工（EMS）",
+      "label_en": "Final assembly (EMS)",
+      "summary_zh": "整機組裝與系統整合代工（多為海外上市）。",
+      "summary_en": "System assembly and EMS integration (often non-US listings).",
+      "players": [
+        {
+          "ticker": "2317.TW",
+          "name_en": "Hon Hai (Foxconn)",
+          "name_zh": "鴻海（富士康）",
+          "role_zh": "iPhone／主力 EMS 組裝",
+          "role_en": "Primary iPhone / EMS assembly",
+          "exchange": "TWSE",
+          "listedInApp": false
+        },
+        {
+          "ticker": "4938.TW",
+          "name_en": "Pegatron",
+          "name_zh": "和碩",
+          "role_zh": "iPhone／裝置 EMS 組裝",
+          "role_en": "iPhone / device EMS assembly",
+          "exchange": "TWSE",
+          "listedInApp": false
+        },
+        {
+          "ticker": "002475.SZ",
+          "name_en": "Luxshare Precision",
+          "name_zh": "立訊精密",
+          "role_zh": "組裝與連接器／穿戴相關供應",
+          "role_en": "Assembly plus connectors / wearables-related supply",
+          "exchange": "SZSE",
+          "listedInApp": false
+        }
+      ]
+    },
+    {
+      "id": "distribution",
+      "order": 4,
+      "label_zh": "物流／通路配送",
+      "label_en": "Logistics / distribution",
+      "summary_zh": "成品出貨、倉儲與全球快遞網絡。",
+      "summary_en": "Finished-goods shipping, warehousing, and global parcel networks.",
+      "players": [
+        {
+          "ticker": "FDX",
+          "name_en": "FedEx",
+          "name_zh": "聯邦快遞",
+          "role_zh": "全球快遞與空運物流",
+          "role_en": "Global express and air freight logistics",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "UPS",
+          "name_en": "United Parcel Service",
+          "name_zh": "聯合包裹",
+          "role_zh": "包裹與供應鏈物流",
+          "role_en": "Parcel and supply-chain logistics",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "EXPD",
+          "name_en": "Expeditors",
+          "name_zh": "康捷國際",
+          "role_zh": "貨運代理／國際物流",
+          "role_en": "Freight forwarding / international logistics",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "retail",
+      "order": 5,
+      "label_zh": "零售／電信通路",
+      "label_en": "Retail / carrier channels",
+      "summary_zh": "除 Apple Store 自營外的第三方零售與電信綁約通路。",
+      "summary_en": "Third-party retail and carrier channels alongside Apple Stores.",
+      "players": [
+        {
+          "ticker": "BBY",
+          "name_en": "Best Buy",
+          "name_zh": "百思買",
+          "role_zh": "北美消費電子零售通路",
+          "role_en": "North America consumer-electronics retail",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "T",
+          "name_en": "AT&T",
+          "name_zh": "AT&T",
+          "role_zh": "美國電信綁約／門市通路",
+          "role_en": "US carrier subsidy / store channel",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "VZ",
+          "name_en": "Verizon",
+          "name_zh": "Verizon",
+          "role_zh": "美國電信綁約／門市通路",
+          "role_en": "US carrier subsidy / store channel",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "MSFT",
+      "name_en": "Microsoft",
+      "name_zh": "微軟",
+      "basis_zh": "個人運算／裝置＋服務生態競爭",
+      "basis_en": "PC/devices + services ecosystem competition",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "GOOG",
+      "name_en": "Alphabet",
+      "name_zh": "Alphabet（Google）",
+      "basis_zh": "行動作業系統／服務與硬體生態",
+      "basis_en": "Mobile OS / services and hardware ecosystem",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "SONY",
+      "name_en": "Sony Group",
+      "name_zh": "索尼",
+      "basis_zh": "消費電子與感測／娛樂裝置同業",
+      "basis_en": "Consumer electronics and sensing / entertainment devices",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "DELL",
+      "name_en": "Dell Technologies",
+      "name_zh": "戴爾",
+      "basis_zh": "PC／運算硬體替代",
+      "basis_en": "PC / compute hardware substitute",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "HPQ",
+      "name_en": "HP Inc.",
+      "name_zh": "惠普",
+      "basis_zh": "PC／周邊硬體替代",
+      "basis_en": "PC / peripherals hardware substitute",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "005930.KS",
+      "name_en": "Samsung Electronics",
+      "name_zh": "三星電子",
+      "basis_zh": "智慧型手機／消費電子主要同業（韓股）",
+      "basis_en": "Primary smartphone / CE peer (Korea listing)",
+      "exchange": "KRX",
+      "listedInApp": false
+    }
+  ]
+}
