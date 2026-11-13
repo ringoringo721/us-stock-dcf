@@ -14,7 +14,7 @@ const assets = [
   'hkex_universe.js', 'hkex_universe_data.js', 'hkex_expansion_data.js', 'cache/hkex_universe.json',
   'us_universe.js', 'us_universe_data.js', 'us_expansion_data.js', 'us_chinese_names_data.js',
   'dividend_history.js', 'revenue_segments.js', 'company_documents.js', 'smart_money.js',
-  'hk_smart_money.js',
+  'hk_smart_money.js', 'supply_chain.js',
   'dividend_leverage_metrics_data.js',
   'us_indexes.js', 'us_index_belt.js',
   'hk_indexes.js', 'hk_index_belt.js',
@@ -34,7 +34,7 @@ function buildSite(output = path.join(root, 'public')) {
   const files = [...assets];
   for (const directory of ['financials', 'price_charts', 'company', 'rote_history', 'hk_companies',
     'us_companies', 'ke_history', 'beta_benchmarks', 'dividends', 'revenue_segments', 'smart-money',
-    'hk-smart-money']) {
+    'hk-smart-money', 'supply-chain']) {
     if (!fs.existsSync(path.join(root, 'cache', directory))) continue;
     for (const filename of fs.readdirSync(path.join(root, 'cache', directory))) {
       // revenue_segments: allow `{TICKER}.json` and `{TICKER}.quarter.json` (Preview Q UI).
@@ -49,6 +49,9 @@ function buildSite(output = path.join(root, 'public')) {
               : directory === 'hk-smart-money'
                 // HK Smart Money stock seeds + market-flow snapshot.
                 ? /^(market-flow|\d{1,5}\.HK)\.json$/
+                : directory === 'supply-chain'
+                  // Curated value-chain seeds + optional `{TICKER}.quotes.json` quote snapshots.
+                  ? /^[A-Z0-9][A-Z0-9.-]*(?:\.quotes)?\.json$/
                 : /^[A-Z0-9.-]+\.json$/;
       if (pattern.test(filename)) files.push(path.join('cache', directory, filename));
     }
