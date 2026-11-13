@@ -174,8 +174,13 @@
     const southGap = Math.PI * 0.92; // ~166°
     const stageSweep = (2 * Math.PI) - southGap;
     const stageStart = (Math.PI / 2) + (southGap / 2); // leave south, sweep CCW through W→N→E
-    // Keep Top-3 fans inside the stage arc so players cannot drift into the south gap.
-    const playerSpread = Math.min(0.32, stageSweep / Math.max(n * 3.2, 1));
+    const playerNodeR = 22;
+    const stageStep = n <= 1 ? stageSweep : stageSweep / (n - 1);
+    // Full fan width for Top-3: enough chord clearance at playerR, but stay inside stage slots.
+    const minPlayerGap = (2 * playerNodeR) + 12; // diameter+pad between adjacent Top-3 circles
+    const minFanForThree = 2 * (minPlayerGap / Math.max(playerR, 1)); // two gaps → full width
+    const maxFanByStage = stageStep * 0.82;
+    const playerFanWidth = Math.min(maxFanByStage, Math.max(minFanForThree, 0.42));
 
     function polar(radius, angle) {
       return { x: cx + radius * Math.cos(angle), y: cy + radius * Math.sin(angle) };
@@ -211,8 +216,10 @@
     stages.forEach((stage, index) => {
       const stageNode = stageNodes[index];
       const count = stage.players.length || 1;
+      // Fan width scales with count: 2 players use half of the Top-3 fan, etc.
+      const fanWidth = count <= 1 ? 0 : playerFanWidth * ((count - 1) / 2);
       stage.players.forEach((player, pIndex) => {
-        const offset = count === 1 ? 0 : ((pIndex / (count - 1)) - 0.5) * playerSpread;
+        const offset = count === 1 ? 0 : ((pIndex / (count - 1)) - 0.5) * fanWidth;
         const angle = stageNode.angle + offset;
         const pos = polar(playerR, angle);
         playerNodes.push({
@@ -226,7 +233,7 @@
           angle,
           x: pos.x,
           y: pos.y,
-          r: 22,
+          r: playerNodeR,
           stageX: stageNode.x,
           stageY: stageNode.y
         });
