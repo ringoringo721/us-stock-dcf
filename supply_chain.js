@@ -175,12 +175,17 @@
     const stageSweep = (2 * Math.PI) - southGap;
     const stageStart = (Math.PI / 2) + (southGap / 2); // leave south, sweep CCW through W→N→E
     const playerNodeR = 22;
-    const stageStep = n <= 1 ? stageSweep : stageSweep / (n - 1);
-    // Full fan width for Top-3: enough chord clearance at playerR, but stay inside stage slots.
-    const minPlayerGap = (2 * playerNodeR) + 12; // diameter+pad between adjacent Top-3 circles
-    const minFanForThree = 2 * (minPlayerGap / Math.max(playerR, 1)); // two gaps → full width
-    const maxFanByStage = stageStep * 0.82;
-    const playerFanWidth = Math.min(maxFanByStage, Math.max(minFanForThree, 0.42));
+    // Full fan width for Top-3: chord clearance at playerR, then stages are inset so
+    // end-stage fans stay inside the stage sweep and never enter the rival south gap.
+    const minPlayerGap = (2 * playerNodeR) + 12;
+    const minFanForThree = 2 * (minPlayerGap / Math.max(playerR, 1));
+    const playerEdgePad = Math.max(0.05, minPlayerGap / Math.max(playerR, 1) * 0.25);
+    // Provisional step for fan cap; final step uses the inset usable sweep below.
+    const provisionalStep = n <= 1 ? stageSweep : stageSweep / (n - 1);
+    const playerFanWidth = Math.min(provisionalStep * 0.72, Math.max(minFanForThree, 0.42));
+    const stageInset = (playerFanWidth / 2) + playerEdgePad;
+    const usableSweep = Math.max(stageSweep - (2 * stageInset), minFanForThree);
+    const stageStep = n <= 1 ? usableSweep : usableSweep / (n - 1);
 
     function polar(radius, angle) {
       return { x: cx + radius * Math.cos(angle), y: cy + radius * Math.sin(angle) };
@@ -193,10 +198,19 @@
       return (dx * dx + dy * dy) < (min * min);
     }
 
+    /** Param along the stage sweep only (0…stageSweep). No wrap into the rival gap. */
+    function stageParam(angle) {
+      let t = angle - stageStart;
+      const twoPi = Math.PI * 2;
+      t = ((t % twoPi) + twoPi) % twoPi;
+      return Math.min(Math.max(t, 0), stageSweep);
+    }
+
     const stageNodes = stages.map((stage, index) => {
-      const angle = n === 1
-        ? stageStart + stageSweep / 2
-        : stageStart + (stageSweep * index) / (n - 1);
+      const param = n === 1
+        ? stageSweep / 2
+        : stageInset + (stageStep * index);
+      const angle = stageStart + param;
       const pos = polar(stageR, angle);
       return {
         id: `stage:${stage.id}`,
@@ -206,6 +220,7 @@
         label_en: stage.label_en,
         label_zh: stage.label_zh,
         angle,
+        param,
         x: pos.x,
         y: pos.y,
         r: 34
@@ -216,11 +231,15 @@
     stages.forEach((stage, index) => {
       const stageNode = stageNodes[index];
       const count = stage.players.length || 1;
-      // Fan width scales with count: 2 players use half of the Top-3 fan, etc.
-      const fanWidth = count <= 1 ? 0 : playerFanWidth * ((count - 1) / 2);
+      const half = count <= 1 ? 0 : playerFanWidth / 2;
+      // Symmetric fan in param-space, hard-clamped to the inset legal arc (no rival bearings).
+      const loParam = Math.max(playerEdgePad, stageNode.param - half);
+      const hiParam = Math.min(stageSweep - playerEdgePad, stageNode.param + half);
       stage.players.forEach((player, pIndex) => {
-        const offset = count === 1 ? 0 : ((pIndex / (count - 1)) - 0.5) * fanWidth;
-        const angle = stageNode.angle + offset;
+        const param = count === 1
+          ? stageNode.param
+          : loParam + ((hiParam - loParam) * pIndex) / (count - 1);
+        const angle = stageStart + param;
         const pos = polar(playerR, angle);
         playerNodes.push({
           id: `player:${stage.id}:${player.ticker}`,
@@ -231,6 +250,7 @@
           name_zh: player.name_zh,
           listedInApp: player.listedInApp !== false,
           angle,
+          param,
           x: pos.x,
           y: pos.y,
           r: playerNodeR,
@@ -242,7 +262,7 @@
 
     const competitors = Array.isArray(data.competitors) ? data.competitors : [];
     // Southern arc only (inside the reserved gap), outside the player ring.
-    const rivalPad = 0.12;
+    const rivalPad = 0.14;
     const rivalStart = (Math.PI / 2) - (southGap / 2) + rivalPad;
     const rivalEnd = (Math.PI / 2) + (southGap / 2) - rivalPad;
     const competitorNodes = competitors.map((row, index) => {
