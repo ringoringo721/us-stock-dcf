@@ -171,7 +171,7 @@
     const stages = data.stages;
     const n = Math.max(stages.length, 1);
     // Reserve a wide southern sector for rivals only (SVG +y is south).
-    const southGap = Math.PI * 0.92; // ~166°
+    const southGap = Math.PI * 1.02; // ~184° — keep a clear angular buffer from end stages
     const stageSweep = (2 * Math.PI) - southGap;
     const stageStart = (Math.PI / 2) + (southGap / 2); // leave south, sweep CCW through W→N→E
     const playerNodeR = 22;
@@ -179,7 +179,7 @@
     // end-stage fans stay inside the stage sweep and never enter the rival south gap.
     const minPlayerGap = (2 * playerNodeR) + 12;
     const minFanForThree = 2 * (minPlayerGap / Math.max(playerR, 1));
-    const playerEdgePad = Math.max(0.05, minPlayerGap / Math.max(playerR, 1) * 0.25);
+    const playerEdgePad = Math.max(0.07, minPlayerGap / Math.max(playerR, 1) * 0.35);
     // Provisional step for fan cap; final step uses the inset usable sweep below.
     const provisionalStep = n <= 1 ? stageSweep : stageSweep / (n - 1);
     const playerFanWidth = Math.min(provisionalStep * 0.72, Math.max(minFanForThree, 0.42));
@@ -262,7 +262,8 @@
 
     const competitors = Array.isArray(data.competitors) ? data.competitors : [];
     // Southern arc only (inside the reserved gap), outside the player ring.
-    const rivalPad = 0.14;
+    // Extra pad keeps rivalry bearings away from end-stage player fans.
+    const rivalPad = 0.22;
     const rivalStart = (Math.PI / 2) - (southGap / 2) + rivalPad;
     const rivalEnd = (Math.PI / 2) + (southGap / 2) - rivalPad;
     const competitorNodes = competitors.map((row, index) => {
