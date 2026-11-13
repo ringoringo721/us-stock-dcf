@@ -999,65 +999,125 @@
     .sm-action-held { color: var(--text-muted); }
     .sm-manager-link { color: var(--accent); text-decoration: none; font-weight: 600; }
     .sm-manager-link:hover { text-decoration: underline; }
-    /* Supply chain & competitors graph */
+    /* Supply chain & competitors — spider / radial SVG graph */
     #cmp-supply-chain-players th, #cmp-supply-chain-players td,
     #cmp-supply-chain-competitors th, #cmp-supply-chain-competitors td {
       padding: 11px 12px !important; border-right: 1px solid var(--card-border);
       border-bottom: 1px solid var(--card-border); font-variant-numeric: tabular-nums;
     }
-    .sc-flow {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 12px;
-      align-items: stretch;
-      margin: 12px 0 8px;
-    }
-    .sc-stage {
+    .sc-spider-wrap {
+      margin: 10px 0 14px;
       border: 1px solid var(--card-border);
-      border-radius: 10px;
-      background: var(--surface-bg, var(--card-bg));
-      padding: 14px 12px;
-      min-width: 0;
-      position: relative;
+      border-radius: 12px;
+      background:
+        radial-gradient(ellipse at center, color-mix(in srgb, var(--accent) 8%, transparent) 0%, transparent 55%),
+        var(--surface-bg, var(--card-bg));
+      overflow: auto;
     }
-    .sc-stage::after {
-      content: "→";
-      position: absolute;
-      right: -11px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--text-muted);
-      font-size: 14px;
-      z-index: 1;
+    .sc-spider-svg {
+      display: block;
+      width: 100%;
+      min-width: 720px;
+      height: auto;
+      max-height: 78vh;
+    }
+    .sc-edge-flow {
+      fill: none;
+      stroke: var(--accent);
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-dasharray: 10 12;
+      animation: sc-flow-dash 1.15s linear infinite;
+      opacity: 0.92;
+    }
+    .sc-edge-member {
+      fill: none;
+      stroke: color-mix(in srgb, var(--text-muted) 70%, var(--card-border));
+      stroke-width: 1.2;
+      stroke-dasharray: 3 5;
+      opacity: 0.75;
+    }
+    .sc-edge-competitor {
+      fill: none;
+      stroke: var(--gold, #d4a017);
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-dasharray: 2 9;
+      animation: sc-rival-dash 1.8s linear infinite reverse;
+      opacity: 0.95;
+    }
+    @keyframes sc-flow-dash {
+      to { stroke-dashoffset: -44; }
+    }
+    @keyframes sc-rival-dash {
+      to { stroke-dashoffset: -36; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .sc-edge-flow, .sc-edge-competitor { animation: none; }
+    }
+    .sc-node-hub circle {
+      fill: color-mix(in srgb, var(--accent) 22%, var(--card-bg));
+      stroke: var(--accent);
+      stroke-width: 2.5;
+    }
+    .sc-node-stage circle {
+      fill: color-mix(in srgb, var(--card-bg) 80%, var(--accent) 20%);
+      stroke: color-mix(in srgb, var(--accent) 55%, var(--card-border));
+      stroke-width: 1.8;
+    }
+    .sc-node-player circle {
+      fill: var(--card-bg);
+      stroke: var(--card-border);
+      stroke-width: 1.5;
+    }
+    .sc-node-player.is-link circle { stroke: var(--accent); }
+    .sc-node-competitor circle {
+      fill: color-mix(in srgb, var(--gold, #d4a017) 16%, var(--card-bg));
+      stroke: var(--gold, #d4a017);
+      stroke-width: 1.7;
+      stroke-dasharray: 4 3;
+    }
+    .sc-node-label {
+      fill: var(--text);
+      font-size: 11px;
+      font-weight: 700;
+      text-anchor: middle;
+      dominant-baseline: central;
       pointer-events: none;
     }
-    .sc-stage:last-child::after { content: none; }
-    .sc-stage-order {
-      font-size: 11px;
-      letter-spacing: 0.04em;
-      color: var(--text-muted);
-      margin-bottom: 4px;
+    .sc-node-sub {
+      fill: var(--text-muted);
+      font-size: 9.5px;
+      text-anchor: middle;
+      dominant-baseline: hanging;
+      pointer-events: none;
     }
-    .sc-stage-title {
-      font-size: 14px;
-      font-weight: 650;
-      line-height: 1.45;
-      margin-bottom: 6px;
-      color: var(--text);
+    .sc-node-hub .sc-node-label { font-size: 14px; }
+    .sc-spider-link { cursor: pointer; text-decoration: none; }
+    .sc-spider-link:focus { outline: none; }
+    .sc-spider-link:focus circle, .sc-spider-link:hover circle {
+      stroke-width: 2.6;
+      filter: brightness(1.12);
     }
-    .sc-stage-summary {
-      font-size: 12px;
-      color: var(--text-muted);
-      line-height: 1.55;
-      margin-bottom: 10px;
+    .sc-legend {
+      display: flex; flex-wrap: wrap; gap: 12px 18px;
+      margin: 0 0 8px; padding: 0 2px;
+      font-size: 12px; color: var(--text-muted);
     }
-    .sc-player-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
-    .sc-player-card {
-      border: 1px solid var(--card-border);
-      border-radius: 8px;
-      padding: 8px 10px;
-      background: var(--card-bg);
-      min-width: 0;
+    .sc-legend-item { display: inline-flex; align-items: center; gap: 8px; }
+    .sc-legend-swatch {
+      width: 28px; height: 0;
+      border-top-width: 2px; border-top-style: solid;
+    }
+    .sc-legend-swatch.flow {
+      border-top-color: var(--accent);
+      border-top-style: dashed;
+      animation: sc-flow-dash 1.15s linear infinite;
+    }
+    .sc-legend-swatch.rival {
+      border-top-color: var(--gold, #d4a017);
+      border-top-style: dotted;
+      animation: sc-rival-dash 1.8s linear infinite reverse;
     }
     .sc-player-ticker {
       display: inline-flex;
@@ -1070,8 +1130,6 @@
     }
     .sc-player-ticker:hover { text-decoration: underline; }
     .sc-player-ticker.is-plain { color: var(--text); cursor: default; }
-    .sc-player-name { font-size: 12px; color: var(--text); margin-top: 2px; overflow-wrap: anywhere; }
-    .sc-player-role { font-size: 11px; color: var(--text-muted); margin-top: 4px; line-height: 1.45; overflow-wrap: anywhere; }
     .sc-competitor-chips {
       display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 14px;
     }
@@ -1084,13 +1142,6 @@
     .sc-chip:hover { border-color: var(--accent); color: var(--accent); }
     .sc-chip.is-plain { cursor: default; }
     .sc-chip strong { font-variant-numeric: tabular-nums; }
-    @media (max-width: 1100px) {
-      .sc-flow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .sc-stage::after { content: none; }
-    }
-    @media (max-width: 640px) {
-      .sc-flow { grid-template-columns: minmax(0, 1fr); }
-    }
     #fund-view, #funds-view { display: none; }
     #funds-directory th, #funds-directory td {
       padding: 11px 12px !important; border-right: 1px solid var(--card-border);
@@ -3020,8 +3071,9 @@
         <p class="analysis-note" data-i18n="analysis_supply_chain_note">依硬體價值鏈五階段（材料→零組件→組裝→物流→零售）列出各階 Top 3 代表性玩家，並附競爭對手。資料為策展種子，非即時供應商 API。</p>
         <p id="supply-chain-status" class="analysis-note" role="status"></p>
         <p id="supply-chain-source" class="analysis-note" role="note"></p>
-        <div class="panel-title" style="font-size:15px;margin-top:8px;" data-i18n="sec_supply_chain_graph">價值鏈圖（各階 Top 3）</div>
-        <div id="supply-chain-flow" class="sc-flow" aria-live="polite"></div>
+        <div class="panel-title" style="font-size:15px;margin-top:8px;" data-i18n="sec_supply_chain_graph">價值鏈蜘蛛圖（各階 Top 3）</div>
+        <div id="supply-chain-legend" class="sc-legend" aria-hidden="false"></div>
+        <div id="supply-chain-flow" class="sc-spider-wrap" aria-live="polite"></div>
         <div class="panel-title" style="font-size:15px;margin-top:16px;" data-i18n="sec_supply_chain_players">供應鏈玩家一覽</div>
         <div class="table-scroll-wrapper company-analysis-scroll" style="margin-bottom: 18px;">
           <table id="cmp-supply-chain-players" class="historical-ratio-table company-analysis-table">
@@ -4076,11 +4128,15 @@
       tab_tradingview: "📈 11. TradingView 圖表",
       tab_news: "📰 10. 公司新聞",
       sec_supply_chain: "供應鏈與競爭對手",
-      analysis_supply_chain_note: "依硬體價值鏈五階段（材料→零組件→組裝→物流→零售）列出各階 Top 3 代表性玩家，並附競爭對手。資料為策展種子，非即時供應商 API。",
-      sec_supply_chain_graph: "價值鏈圖（各階 Top 3）",
+      analysis_supply_chain_note: "蜘蛛網圖：公司為中心；五階段（材料→零組件→組裝→物流→零售）以連線串起，各階 Top 3 掛在扇區外緣。藍色虛線箭頭＝上游→下游流動；金色點線＝競爭對手（非供應流）。資料為策展種子，非即時供應商 API。",
+      sec_supply_chain_graph: "價值鏈蜘蛛圖（各階 Top 3）",
       sec_supply_chain_players: "供應鏈玩家一覽",
       sec_supply_chain_competitors: "主要競爭對手",
-      analysis_supply_chain_competitors_note: "裝置／生態／PC 硬體同業；與上方「同行業對比」財務矩陣互補，此處著重價值鏈定位。",
+      analysis_supply_chain_competitors_note: "裝置／生態／PC 硬體同業；圖上以金色點線連到中心，與藍色供應流分開。與「同行業對比」財務矩陣互補。",
+      sc_legend_flow: "供應流動（上游 → 下游）",
+      sc_legend_rival: "競爭對手連結（非供應流）",
+      sc_legend_member: "階段 ↔ Top 3 玩家",
+      sc_graph_aria: "供應鏈蜘蛛圖：中心為標的公司，周圍為價值鏈階段與 Top 3 玩家，下方為競爭對手",
       th_sc_stage: "價值鏈位置",
       th_sc_ticker: "代號",
       th_sc_name: "名稱",
@@ -4746,11 +4802,15 @@
       tab_supply_chain: "🔗 7b. Supply Chain / Peers",
       tab_charts: "📊 8. Trend Analysis",
       sec_supply_chain: "Supply chain & competitors",
-      analysis_supply_chain_note: "Five-stage hardware value chain (materials → components → assembly → logistics → retail) with Top 3 representative players per stage, plus major competitors. Curated seed data — not a live supplier API.",
-      sec_supply_chain_graph: "Value-chain graph (Top 3 per stage)",
+      analysis_supply_chain_note: "Spider graph: company at the hub; five stages (materials → components → assembly → logistics → retail) linked by edges, with Top 3 players on each sector rim. Blue dashed arrows = upstream→downstream flow; gold dotted links = competitors (not supply flow). Curated seed — not a live supplier API.",
+      sec_supply_chain_graph: "Value-chain spider graph (Top 3 per stage)",
       sec_supply_chain_players: "Supply-chain player roster",
       sec_supply_chain_competitors: "Major competitors",
-      analysis_supply_chain_competitors_note: "Device / ecosystem / PC hardware peers. Complements the Peer Comparison financials matrix with value-chain positioning.",
+      analysis_supply_chain_competitors_note: "Device / ecosystem / PC hardware peers. Gold dotted spokes to the hub distinguish rivalry from blue supply-flow edges. Complements the Peer Comparison financials matrix.",
+      sc_legend_flow: "Supply flow (upstream → downstream)",
+      sc_legend_rival: "Competitor link (not supply flow)",
+      sc_legend_member: "Stage ↔ Top 3 players",
+      sc_graph_aria: "Supply-chain spider graph: hub company, surrounding value-chain stages with Top 3 players, and competitor rivalry links",
       th_sc_stage: "Value-chain position",
       th_sc_ticker: "Ticker",
       th_sc_name: "Name",
@@ -11196,9 +11256,84 @@
     return `<span class="${cls} is-plain" title="${scEscape((I18N_DICT[currentLang] || {}).sc_in_app_no || '')}">${safe}</span>`;
   }
 
+  function scSvgNodeLink(ticker, inApp, innerHtml, className) {
+    const safe = scEscape(ticker);
+    const cls = scEscape(className || '');
+    if (inApp) {
+      return `<a class="sc-spider-link ${cls}" href="#${safe}/profile" onclick="event.preventDefault(); openCompanyProfile('${safe}');">${innerHtml}</a>`;
+    }
+    return `<g class="${cls}" style="cursor:default">${innerHtml}</g>`;
+  }
+
+  function buildSupplyChainSpiderSvg(layout, SC, dict, isEn) {
+    const markerFlow = 'sc-arrow-flow';
+    const markerRival = 'sc-arrow-rival';
+    const edgesHtml = layout.edges.map(edge => {
+      const path = SC.edgePath(edge, edge.kind === 'competitor' ? 0.28 : edge.kind === 'member' ? 0.08 : 0.16);
+      const cls = edge.kind === 'competitor' ? 'sc-edge-competitor'
+        : edge.kind === 'member' ? 'sc-edge-member' : 'sc-edge-flow';
+      const marker = edge.kind === 'member' ? ''
+        : ` marker-end="url(#${edge.kind === 'competitor' ? markerRival : markerFlow})"`;
+      return `<path class="${cls}" d="${path}"${marker}></path>`;
+    }).join('');
+
+    const hubName = isEn ? layout.hub.name_en : layout.hub.name_zh;
+    const hubHtml = scSvgNodeLink(layout.hub.ticker, true, `
+      <circle cx="${layout.hub.x.toFixed(1)}" cy="${layout.hub.y.toFixed(1)}" r="${layout.hub.r}"></circle>
+      <text class="sc-node-label" x="${layout.hub.x.toFixed(1)}" y="${(layout.hub.y - 6).toFixed(1)}">${scEscape(layout.hub.ticker)}</text>
+      <text class="sc-node-sub" x="${layout.hub.x.toFixed(1)}" y="${(layout.hub.y + 10).toFixed(1)}">${scEscape(hubName)}</text>
+    `, 'sc-node-hub');
+
+    const stagesHtml = layout.stages.map(node => {
+      const label = isEn ? node.label_en : node.label_zh;
+      const short = label.length > 10 ? `${label.slice(0, 9)}…` : label;
+      return `<g class="sc-node-stage">
+        <circle cx="${node.x.toFixed(1)}" cy="${node.y.toFixed(1)}" r="${node.r}"></circle>
+        <text class="sc-node-label" x="${node.x.toFixed(1)}" y="${(node.y - 4).toFixed(1)}">${scEscape(String(node.order))}</text>
+        <text class="sc-node-sub" x="${node.x.toFixed(1)}" y="${(node.y + 10).toFixed(1)}">${scEscape(short)}</text>
+      </g>`;
+    }).join('');
+
+    const playersHtml = layout.players.map(node => {
+      const inApp = node.listedInApp !== false && SC.inUniverse(stockUniverse, node.ticker);
+      const name = isEn ? node.name_en : node.name_zh;
+      const shortName = name.length > 8 ? `${name.slice(0, 7)}…` : name;
+      return scSvgNodeLink(node.ticker, inApp, `
+        <circle cx="${node.x.toFixed(1)}" cy="${node.y.toFixed(1)}" r="${node.r}"></circle>
+        <text class="sc-node-label" x="${node.x.toFixed(1)}" y="${(node.y - 3).toFixed(1)}">${scEscape(node.ticker)}</text>
+        <text class="sc-node-sub" x="${node.x.toFixed(1)}" y="${(node.y + 9).toFixed(1)}">${scEscape(shortName)}</text>
+      `, `sc-node-player${inApp ? ' is-link' : ''}`);
+    }).join('');
+
+    const compsHtml = layout.competitors.map(node => {
+      const inApp = node.listedInApp !== false && SC.inUniverse(stockUniverse, node.ticker);
+      const name = isEn ? node.name_en : node.name_zh;
+      const shortName = name.length > 8 ? `${name.slice(0, 7)}…` : name;
+      return scSvgNodeLink(node.ticker, inApp, `
+        <circle cx="${node.x.toFixed(1)}" cy="${node.y.toFixed(1)}" r="${node.r}"></circle>
+        <text class="sc-node-label" x="${node.x.toFixed(1)}" y="${(node.y - 3).toFixed(1)}">${scEscape(node.ticker)}</text>
+        <text class="sc-node-sub" x="${node.x.toFixed(1)}" y="${(node.y + 9).toFixed(1)}">${scEscape(shortName)}</text>
+      `, 'sc-node-competitor');
+    }).join('');
+
+    return `<svg class="sc-spider-svg" viewBox="0 0 ${layout.width} ${layout.height}" role="img" aria-label="${scEscape(dict.sc_graph_aria || '')}">
+      <defs>
+        <marker id="${markerFlow}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--accent)"></path>
+        </marker>
+        <marker id="${markerRival}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="var(--gold, #d4a017)"></path>
+        </marker>
+      </defs>
+      <g class="sc-edges">${edgesHtml}</g>
+      <g class="sc-nodes">${stagesHtml}${playersHtml}${compsHtml}${hubHtml}</g>
+    </svg>`;
+  }
+
   async function renderSupplyChainSubPage(s, reload = false) {
     const statusEl = document.getElementById('supply-chain-status');
     const sourceEl = document.getElementById('supply-chain-source');
+    const legendEl = document.getElementById('supply-chain-legend');
     const flowEl = document.getElementById('supply-chain-flow');
     const chipsEl = document.getElementById('supply-chain-competitor-chips');
     const playersHead = document.getElementById('cmp-supply-chain-players-thead');
@@ -11215,6 +11350,7 @@
 
     if (statusEl) statusEl.textContent = dict.sc_loading || '';
     if (sourceEl) sourceEl.textContent = '';
+    if (legendEl) legendEl.innerHTML = '';
     flowEl.innerHTML = '';
     if (chipsEl) chipsEl.innerHTML = '';
     playersHead.innerHTML = '';
@@ -11222,7 +11358,7 @@
     compsHead.innerHTML = '';
     compsBody.innerHTML = '';
 
-    if (!SC || typeof SC.load !== 'function') {
+    if (!SC || typeof SC.load !== 'function' || typeof SC.layoutSpider !== 'function') {
       if (statusEl) statusEl.textContent = dict.sc_error || '';
       return;
     }
@@ -11231,7 +11367,6 @@
       const pack = await SC.load(targetTicker, { reload: !!reload });
       if (requestId !== supplyChainRenderRequestId) return;
 
-      const stageLabel = (stage) => isEn ? stage.label_en : stage.label_zh;
       const playerName = (row) => isEn ? row.name_en : row.name_zh;
       const playerRole = (row) => isEn ? row.role_en : row.role_zh;
       const sourceNotes = pack.source
@@ -11250,23 +11385,15 @@
         sourceEl.textContent = [dict.sc_source_curated || '', sourceNotes].filter(Boolean).join(' — ');
       }
 
-      flowEl.innerHTML = pack.stages.map((stage, index) => {
-        const orderLabel = (dict.sc_stage_n || 'Stage {n}').replace('{n}', String(stage.order || index + 1));
-        const players = stage.players.map(player => {
-          const inApp = player.listedInApp !== false && SC.inUniverse(stockUniverse, player.ticker);
-          return `<li class="sc-player-card">
-            ${scTickerLink(player.ticker, inApp)}
-            <div class="sc-player-name">${scEscape(playerName(player))}</div>
-            <div class="sc-player-role">${scEscape(playerRole(player))}</div>
-          </li>`;
-        }).join('');
-        return `<article class="sc-stage" data-stage="${scEscape(stage.id)}">
-          <div class="sc-stage-order">${scEscape(orderLabel)}</div>
-          <div class="sc-stage-title">${scEscape(stageLabel(stage))}</div>
-          <div class="sc-stage-summary">${scEscape(isEn ? stage.summary_en : stage.summary_zh)}</div>
-          <ul class="sc-player-list">${players}</ul>
-        </article>`;
-      }).join('');
+      if (legendEl) {
+        legendEl.innerHTML = `
+          <span class="sc-legend-item"><span class="sc-legend-swatch flow" aria-hidden="true"></span>${scEscape(dict.sc_legend_flow || '')}</span>
+          <span class="sc-legend-item"><span class="sc-legend-swatch rival" aria-hidden="true"></span>${scEscape(dict.sc_legend_rival || '')}</span>
+          <span class="sc-legend-item"><span class="sc-legend-swatch" style="border-top:1.5px dashed var(--text-muted)" aria-hidden="true"></span>${scEscape(dict.sc_legend_member || '')}</span>`;
+      }
+
+      const layout = SC.layoutSpider(pack);
+      flowEl.innerHTML = buildSupplyChainSpiderSvg(layout, SC, dict, isEn);
 
       playersHead.innerHTML = `<th>${scEscape(dict.th_sc_stage || '')}</th>
         <th>${scEscape(dict.th_sc_ticker || '')}</th>
@@ -11313,6 +11440,7 @@
       const missing = error?.code === 'SUPPLY_CHAIN_NO_SEED'
         || String(error?.message || '').startsWith('SUPPLY_CHAIN_NO_SEED');
       if (statusEl) statusEl.textContent = missing ? (dict.sc_empty || '') : (dict.sc_error || '');
+      if (legendEl) legendEl.innerHTML = '';
       flowEl.innerHTML = '';
       playersBody.innerHTML = `<tr><td colspan="5">${scEscape(missing ? (dict.sc_empty || '') : (dict.sc_error || ''))}</td></tr>`;
       compsBody.innerHTML = `<tr><td colspan="4">${scEscape(missing ? (dict.sc_empty || '') : (dict.sc_error || ''))}</td></tr>`;
