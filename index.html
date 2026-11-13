@@ -1121,10 +1121,35 @@
     }
     .sc-node-player.is-link circle { stroke: var(--accent); }
     .sc-node-competitor circle {
-      fill: color-mix(in srgb, var(--gold, #d4a017) 16%, var(--card-bg));
+      fill: color-mix(in srgb, var(--gold, #d4a017) 22%, var(--card-bg));
       stroke: var(--gold, #d4a017);
-      stroke-width: 1.7;
-      stroke-dasharray: 4 3;
+      stroke-width: 2.4;
+      stroke-dasharray: 5 3;
+    }
+    .sc-node-competitor .sc-rival-badge {
+      fill: var(--gold, #d4a017);
+      font-size: 8px;
+      font-weight: 800;
+      text-anchor: middle;
+      dominant-baseline: hanging;
+      letter-spacing: 0.04em;
+      pointer-events: none;
+    }
+    .sc-rivalry-zone-label {
+      fill: var(--gold, #d4a017);
+      font-size: 12px;
+      font-weight: 800;
+      text-anchor: middle;
+      dominant-baseline: central;
+      letter-spacing: 0.06em;
+      pointer-events: none;
+    }
+    .sc-rivalry-zone-rule {
+      stroke: color-mix(in srgb, var(--gold, #d4a017) 55%, var(--card-border));
+      stroke-width: 1.5;
+      stroke-dasharray: 2 6;
+      fill: none;
+      opacity: 0.85;
     }
     .sc-node-label {
       fill: var(--text);
@@ -1222,6 +1247,18 @@
     }
     .sc-chip:hover { border-color: var(--accent); color: var(--accent); }
     .sc-chip.is-plain { cursor: default; }
+    .sc-chip.is-rival {
+      border-color: color-mix(in srgb, var(--gold, #d4a017) 65%, var(--card-border));
+      background: color-mix(in srgb, var(--gold, #d4a017) 12%, var(--card-bg));
+    }
+    .sc-chip.is-rival:hover { border-color: var(--gold, #d4a017); color: inherit; }
+    .sc-chip .sc-chip-rival-tag {
+      display: inline-flex; align-items: center;
+      padding: 1px 6px; border-radius: 999px;
+      background: color-mix(in srgb, var(--gold, #d4a017) 28%, transparent);
+      color: color-mix(in srgb, var(--gold, #d4a017) 70%, var(--text));
+      font-size: 10px; font-weight: 800; letter-spacing: 0.03em;
+    }
     .sc-chip strong { font-variant-numeric: tabular-nums; }
     #fund-view, #funds-view { display: none; }
     #funds-directory th, #funds-directory td {
@@ -3162,8 +3199,8 @@
             <tbody id="cmp-supply-chain-players-tbody"></tbody>
           </table>
         </div>
-        <div class="panel-title" style="font-size:15px;" data-i18n="sec_supply_chain_competitors">主要競爭對手</div>
-        <p class="analysis-note" data-i18n="analysis_supply_chain_competitors_note">裝置／生態／PC 硬體同業；與上方「同行業對比」財務矩陣互補，此處著重價值鏈定位。</p>
+        <div class="panel-title" style="font-size:15px;" data-i18n="sec_supply_chain_competitors">主要競爭對手（手機／裝置生態）</div>
+        <p class="analysis-note" data-i18n="analysis_supply_chain_competitors_note">以 iPhone／裝置生態為準的直接對手（如三星、小米、傳音、Google Pixel／Android、索尼）。圖上金色點線＋「競爭」標籤連到中心，與藍色供應流分開。已排除 PC／雲端同業。與「同行業對比」財務矩陣互補。</p>
         <div id="supply-chain-competitor-chips" class="sc-competitor-chips" aria-live="polite"></div>
         <div class="table-scroll-wrapper company-analysis-scroll">
           <table id="cmp-supply-chain-competitors" class="historical-ratio-table company-analysis-table">
@@ -4209,18 +4246,20 @@
       tab_tradingview: "📈 11. TradingView 圖表",
       tab_news: "📰 10. 公司新聞",
       sec_supply_chain: "供應鏈與競爭對手",
-      analysis_supply_chain_note: "蜘蛛網圖：公司為中心；五階段（材料→零組件→組裝→物流→零售）以連線串起，各階 Top 3 掛在扇區外緣。藍色虛線箭頭＝上游→下游流動；金色點線＝競爭對手（非供應流）。資料為策展種子，非即時供應商 API。",
+      analysis_supply_chain_note: "蜘蛛網圖：公司為中心；五階段（材料→零組件→組裝→物流→零售）以連線串起，各階 Top 3 掛在扇區外緣。藍色虛線箭頭＝上游→下游流動；金色點線＝競爭對手（對抗關係，非供應流）。南方金色弧為競爭對手區。資料為策展種子，非即時供應商 API。",
       sec_supply_chain_graph: "價值鏈蜘蛛圖（各階 Top 3）",
       sec_supply_chain_players: "供應鏈玩家一覽",
-      sec_supply_chain_competitors: "主要競爭對手",
-      analysis_supply_chain_competitors_note: "裝置／生態／PC 硬體同業；圖上以金色點線連到中心，與藍色供應流分開。與「同行業對比」財務矩陣互補。",
+      sec_supply_chain_competitors: "主要競爭對手（手機／裝置生態）",
+      analysis_supply_chain_competitors_note: "以 iPhone／裝置生態為準的直接對手（如三星、小米、傳音、Google Pixel／Android、索尼）。圖上金色點線＋「競爭」標籤連到中心，與藍色供應流分開。已排除 PC／雲端同業。與「同行業對比」財務矩陣互補。",
       sc_legend_flow: "整鏈供應流動（階段 → 階段，上游 → 下游）",
       sc_legend_flow_spoke: "階段 ↔ 公司（入／出貨）",
-      sc_legend_rival: "競爭對手（金色點線｜非供應流）",
+      sc_legend_rival: "競爭對手（金色點線＋標籤｜對抗｜非供應流）",
       sc_legend_member: "階段 ↔ Top 3 玩家",
       sc_rival_label: "競爭對手",
+      sc_rival_badge: "競爭",
+      sc_rival_zone: "競爭對手區（對抗關係｜非供應流）",
       sc_flow_label: "供應流",
-      sc_graph_aria: "供應鏈蜘蛛圖：中心為標的公司，周圍為價值鏈階段與 Top 3 玩家，下方為競爭對手",
+      sc_graph_aria: "供應鏈蜘蛛圖：中心為標的公司，周圍為價值鏈階段與 Top 3 玩家，下方金色弧為競爭對手",
       th_sc_stage: "價值鏈位置",
       th_sc_ticker: "代號",
       th_sc_name: "名稱",
@@ -4234,7 +4273,7 @@
       sc_empty: "此股票尚無供應鏈策展種子（MVP 先支援 AAPL）。",
       sc_error: "供應鏈資料載入失敗。請重試；不以模擬資料替代。",
       sc_source_curated: "資料來源：策展種子（非即時供應商 API）",
-      sc_quotes_note: "節點漲跌%／市值：最近交易日收盤快照（缺資料顯示 N/A，不造假）",
+      sc_quotes_note: "節點顯示公司名、最近交易日漲跌%、市值（美元）；站外上市亦盡力顯示，缺資料才 N/A，不造假",
       sc_updated: "更新日期",
       sc_stage_n: "第 {n} 階",
       sc_zoom_in: "放大",
@@ -4893,18 +4932,20 @@
       tab_supply_chain: "🔗 7b. Supply Chain / Peers",
       tab_charts: "📊 8. Trend Analysis",
       sec_supply_chain: "Supply chain & competitors",
-      analysis_supply_chain_note: "Spider graph: company at the hub; five stages (materials → components → assembly → logistics → retail) linked by edges, with Top 3 players on each sector rim. Blue dashed arrows = upstream→downstream flow; gold dotted links = competitors (not supply flow). Curated seed — not a live supplier API.",
+      analysis_supply_chain_note: "Spider graph: company at the hub; five stages (materials → components → assembly → logistics → retail) linked by edges, with Top 3 players on each sector rim. Blue dashed arrows = upstream→downstream flow; gold dotted links = competitors (rivalry, not supply flow). Southern gold arc = rivalry zone. Curated seed — not a live supplier API.",
       sec_supply_chain_graph: "Value-chain spider graph (Top 3 per stage)",
       sec_supply_chain_players: "Supply-chain player roster",
-      sec_supply_chain_competitors: "Major competitors",
-      analysis_supply_chain_competitors_note: "Device / ecosystem / PC hardware peers. Gold dotted spokes to the hub distinguish rivalry from blue supply-flow edges. Complements the Peer Comparison financials matrix.",
+      sec_supply_chain_competitors: "Major competitors (phone / device ecosystem)",
+      analysis_supply_chain_competitors_note: "Direct iPhone / device-ecosystem rivals (e.g. Samsung, Xiaomi, Transsion, Google Pixel/Android, Sony). Gold dotted spokes + rival tags to the hub distinguish rivalry from blue supply flow. PC/cloud peers removed. Complements the Peer Comparison financials matrix.",
       sc_legend_flow: "Whole-chain supply flow (stage → stage, upstream → downstream)",
       sc_legend_flow_spoke: "Stage ↔ company (in / out)",
-      sc_legend_rival: "Competitors (gold dots | not supply flow)",
+      sc_legend_rival: "Competitors (gold dots + tag | rivalry | not supply flow)",
       sc_legend_member: "Stage ↔ Top 3 players",
       sc_rival_label: "Competitor",
+      sc_rival_badge: "RIVAL",
+      sc_rival_zone: "Competitor zone (rivalry — not supply flow)",
       sc_flow_label: "Supply flow",
-      sc_graph_aria: "Supply-chain spider graph: hub company, surrounding value-chain stages with Top 3 players, and competitor rivalry links",
+      sc_graph_aria: "Supply-chain spider graph: hub company, surrounding value-chain stages with Top 3 players, and a southern gold rivalry arc for competitors",
       th_sc_stage: "Value-chain position",
       th_sc_ticker: "Ticker",
       th_sc_name: "Name",
@@ -4918,7 +4959,7 @@
       sc_empty: "No curated supply-chain seed for this ticker yet (MVP starts with AAPL).",
       sc_error: "Supply-chain data failed to load. Retry; no simulated substitute.",
       sc_source_curated: "Source: curated seed (not a live supplier API)",
-      sc_quotes_note: "Node change % / market cap: last trading-day close snapshot (missing stays N/A; nothing invented)",
+      sc_quotes_note: "Nodes show company name, last trading-day change %, and USD market cap — including off-universe listings when available; missing stays N/A (nothing invented)",
       sc_updated: "Updated",
       sc_stage_n: "Stage {n}",
       sc_zoom_in: "Zoom in",
@@ -11396,18 +11437,14 @@
     const markerRival = 'sc-arrow-rival';
     const quotes = quotesByTicker || {};
     const rivalLabel = dict.sc_rival_label || (isEn ? 'Competitor' : '競爭對手');
+    const rivalBadge = dict.sc_rival_badge || (isEn ? 'RIVAL' : '競爭');
+    const rivalZone = dict.sc_rival_zone
+      || (isEn ? 'Competitor zone (rivalry — not supply flow)' : '競爭對手區（對抗關係｜非供應流）');
     const flowLabel = dict.sc_flow_label || (isEn ? 'Supply flow' : '供應流');
 
     const chainEdges = layout.edges.filter(edge => edge.kind === 'flow-chain');
-    const rivalEdges = layout.edges.filter(edge => edge.kind === 'competitor');
     const labeledChain = new Set(chainEdges.map(edge => edge.id));
-    // Label a couple of central rivalry spokes so gold lines read as 競爭對手, not supply flow.
-    const rivalLabelIds = new Set(
-      rivalEdges
-        .filter((_, index) => index === Math.floor((rivalEdges.length - 1) / 2)
-          || index === Math.ceil((rivalEdges.length - 1) / 2))
-        .map(edge => edge.id)
-    );
+    // Label every rivalry spoke so gold lines always read as competitors, not supply flow.
 
     const edgesHtml = layout.edges.map(edge => {
       const bend = edge.kind === 'competitor' ? 0.28
@@ -11422,13 +11459,13 @@
         : ` marker-end="url(#${edge.kind === 'competitor' ? markerRival
           : edge.kind === 'flow-chain' ? markerChain : markerFlow})"`;
       let labelHtml = '';
-      const showRivalLabel = edge.kind === 'competitor' && rivalLabelIds.has(edge.id);
+      const showRivalLabel = edge.kind === 'competitor';
       const showChainLabel = edge.kind === 'flow-chain' && labeledChain.has(edge.id);
       if (showRivalLabel || showChainLabel) {
         const mid = typeof SC.edgePoint === 'function'
-          ? SC.edgePoint(edge, showRivalLabel ? 0.64 : 0.5, bend)
+          ? SC.edgePoint(edge, showRivalLabel ? 0.62 : 0.5, bend)
           : { x: (edge.x1 + edge.x2) / 2, y: (edge.y1 + edge.y2) / 2 };
-        let text = rivalLabel;
+        let text = rivalBadge;
         if (showChainLabel) {
           const fromStage = layout.stages.find(node => node.id === edge.from);
           const toStage = layout.stages.find(node => node.id === edge.to);
@@ -11436,7 +11473,7 @@
             ? `${fromStage.order}→${toStage.order}`
             : flowLabel;
         }
-        const w = Math.max(36, text.length * 7.4);
+        const w = Math.max(32, text.length * (showRivalLabel ? 8.2 : 7.4));
         const labelCls = showRivalLabel ? 'rival' : 'flow';
         labelHtml = `<g class="sc-edge-label-group" aria-hidden="true">
           <rect class="sc-edge-label-bg ${labelCls}" x="${(mid.x - w / 2).toFixed(1)}" y="${(mid.y - 8).toFixed(1)}" width="${w.toFixed(1)}" height="16"></rect>
@@ -11471,9 +11508,21 @@
       const name = isEn ? node.name_en : node.name_zh;
       const shortName = name.length > 8 ? `${name.slice(0, 7)}…` : name;
       const badge = scQuoteBadge(quotes[node.ticker]);
-      const tip = inApp ? `${node.ticker} · ${badge.chg.text} · ${badge.mcap}` : (dict.sc_in_app_no || '');
+      // Always surface name + quote metrics, even when the node is not clickable in-app.
+      const tipParts = [
+        node.ticker,
+        name,
+        badge.chg.text,
+        badge.mcap,
+        inApp ? '' : (dict.sc_in_app_no || '')
+      ].filter(Boolean);
+      const tip = tipParts.join(' · ');
+      const nameLine = inApp
+        ? ''
+        : `<text class="sc-node-sub" x="${node.x.toFixed(1)}" y="${(node.y - 18).toFixed(1)}">${scEscape(shortName)}</text>`;
       return scSvgNodeLink(node.ticker, inApp, `
         <circle cx="${node.x.toFixed(1)}" cy="${node.y.toFixed(1)}" r="${node.r}"></circle>
+        ${nameLine}
         <text class="sc-node-label" x="${node.x.toFixed(1)}" y="${(node.y - 8).toFixed(1)}">${scEscape(node.ticker)}</text>
         <text class="sc-node-quote ${badge.chg.cls}" x="${node.x.toFixed(1)}" y="${(node.y + 4).toFixed(1)}">${scEscape(badge.chg.text)}</text>
         <text class="sc-node-mcap" x="${node.x.toFixed(1)}" y="${(node.y + 14).toFixed(1)}">${scEscape(badge.mcap)}</text>
@@ -11482,17 +11531,42 @@
 
     const compsHtml = layout.competitors.map(node => {
       const inApp = node.listedInApp !== false && SC.inUniverse(stockUniverse, node.ticker);
+      const name = isEn ? node.name_en : node.name_zh;
+      const shortName = name.length > 8 ? `${name.slice(0, 7)}…` : name;
+      const role = isEn ? (node.role_en || '') : (node.role_zh || '');
       const badge = scQuoteBadge(quotes[node.ticker]);
-      const tip = inApp
-        ? `${rivalLabel}: ${node.ticker} · ${badge.chg.text} · ${badge.mcap}`
-        : `${rivalLabel} · ${dict.sc_in_app_no || ''}`;
+      const tip = [
+        rivalLabel,
+        node.ticker,
+        name,
+        badge.chg.text,
+        badge.mcap,
+        role,
+        inApp ? '' : (dict.sc_in_app_no || '')
+      ].filter(Boolean).join(' · ');
       return scSvgNodeLink(node.ticker, inApp, `
         <circle cx="${node.x.toFixed(1)}" cy="${node.y.toFixed(1)}" r="${node.r}"></circle>
-        <text class="sc-node-label" x="${node.x.toFixed(1)}" y="${(node.y - 8).toFixed(1)}">${scEscape(node.ticker)}</text>
-        <text class="sc-node-quote ${badge.chg.cls}" x="${node.x.toFixed(1)}" y="${(node.y + 4).toFixed(1)}">${scEscape(badge.chg.text)}</text>
-        <text class="sc-node-mcap" x="${node.x.toFixed(1)}" y="${(node.y + 14).toFixed(1)}">${scEscape(badge.mcap)}</text>
+        <text class="sc-rival-badge" x="${node.x.toFixed(1)}" y="${(node.y - 34).toFixed(1)}">${scEscape(rivalBadge)}</text>
+        <text class="sc-node-label" x="${node.x.toFixed(1)}" y="${(node.y - 12).toFixed(1)}">${scEscape(node.ticker)}</text>
+        <text class="sc-node-sub" x="${node.x.toFixed(1)}" y="${(node.y + 2).toFixed(1)}">${scEscape(shortName)}</text>
+        <text class="sc-node-quote ${badge.chg.cls}" x="${node.x.toFixed(1)}" y="${(node.y + 14).toFixed(1)}">${scEscape(badge.chg.text)}</text>
+        <text class="sc-node-mcap" x="${node.x.toFixed(1)}" y="${(node.y + 24).toFixed(1)}">${scEscape(badge.mcap)}</text>
       `, 'sc-node-competitor', tip);
     }).join('');
+
+    const zone = layout.rivalryZone || null;
+    const zoneHtml = zone ? (() => {
+      const zw = Number(zone.width) || 260;
+      const zx = Number(zone.x) || (layout.width / 2);
+      const zy = Number(zone.y) || (layout.height - 20);
+      const label = isEn
+        ? (zone.label_en || rivalZone)
+        : (zone.label_zh || rivalZone);
+      return `<g class="sc-rivalry-zone" aria-hidden="true">
+        <line class="sc-rivalry-zone-rule" x1="${(zx - zw / 2).toFixed(1)}" y1="${zy.toFixed(1)}" x2="${(zx + zw / 2).toFixed(1)}" y2="${zy.toFixed(1)}"></line>
+        <text class="sc-rivalry-zone-label" x="${zx.toFixed(1)}" y="${(zy + 14).toFixed(1)}">${scEscape(label)}</text>
+      </g>`;
+    })() : '';
 
     return `<svg class="sc-spider-svg" viewBox="0 0 ${layout.width} ${layout.height}" role="img" aria-label="${scEscape(dict.sc_graph_aria || '')}">
       <defs>
@@ -11508,6 +11582,7 @@
       </defs>
       <g class="sc-edges">${edgesHtml}</g>
       <g class="sc-nodes">${stagesHtml}${playersHtml}${compsHtml}${hubHtml}</g>
+      ${zoneHtml}
     </svg>`;
   }
 
@@ -11639,7 +11714,7 @@
           <span class="sc-legend-item"><span class="sc-legend-swatch" style="border-top:1.5px dashed var(--text-muted)" aria-hidden="true"></span>${scEscape(dict.sc_legend_member || '')}</span>`;
       }
 
-      const layout = SC.layoutSpider(pack, { height: 880 });
+      const layout = SC.layoutSpider(pack, { height: 920 });
       flowEl.innerHTML = `
         <div class="sc-spider-toolbar" role="toolbar" aria-label="${scEscape(dict.sc_zoom_hint || '')}">
           <button type="button" data-sc-zoom="out" title="${scEscape(dict.sc_zoom_out || '')}">− ${scEscape(dict.sc_zoom_out || '')}</button>
@@ -11681,13 +11756,24 @@
         <th>${scEscape(dict.th_sc_role || '')}</th>
         <th>${scEscape(dict.th_sc_in_app || '')}</th>`;
       if (chipsEl) {
+        const rivalTag = dict.sc_rival_badge || (isEn ? 'RIVAL' : '競爭');
         chipsEl.innerHTML = pack.competitors.map(row => {
           const inApp = row.listedInApp !== false && SC.inUniverse(stockUniverse, row.ticker);
           const badge = scQuoteBadge(quotesByTicker[row.ticker]);
+          const tip = [
+            dict.sc_rival_label || '',
+            row.ticker,
+            playerName(row),
+            badge.chg.text,
+            badge.mcap,
+            playerRole(row),
+            inApp ? '' : (dict.sc_in_app_no || '')
+          ].filter(Boolean).join(' · ');
+          const body = `<span class="sc-chip-rival-tag">${scEscape(rivalTag)}</span><strong>${scEscape(row.ticker)}</strong><span>${scEscape(playerName(row))}</span><span>${scEscape(badge.chg.text)} · ${scEscape(badge.mcap)}</span>`;
           if (inApp) {
-            return `<a class="sc-chip" href="#${scEscape(row.ticker)}/profile" onclick="event.preventDefault(); openCompanyProfile('${scEscape(row.ticker)}');" title="${scEscape(dict.sc_rival_label || '')}"><strong>${scEscape(row.ticker)}</strong><span>${scEscape(playerName(row))}</span><span>${scEscape(badge.chg.text)} · ${scEscape(badge.mcap)}</span></a>`;
+            return `<a class="sc-chip is-rival" href="#${scEscape(row.ticker)}/profile" onclick="event.preventDefault(); openCompanyProfile('${scEscape(row.ticker)}');" title="${scEscape(tip)}">${body}</a>`;
           }
-          return `<span class="sc-chip is-plain" title="${scEscape(dict.sc_in_app_no || '')}"><strong>${scEscape(row.ticker)}</strong><span>${scEscape(playerName(row))}</span><span>${scEscape(badge.chg.text)} · ${scEscape(badge.mcap)}</span></span>`;
+          return `<span class="sc-chip is-rival is-plain" title="${scEscape(tip)}">${body}</span>`;
         }).join('');
       }
       compsBody.innerHTML = pack.competitors.map(row => {

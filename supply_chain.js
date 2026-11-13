@@ -263,14 +263,14 @@
   function layoutSpider(pack, options = {}) {
     const data = pack?.stages ? pack : normalize(pack);
     const width = Number(options.width) || 1100;
-    const height = Number(options.height) || 820;
+    const height = Number(options.height) || 860;
     // Lift hub so the reserved southern rivalry arc has room below the player ring.
     const cx = width / 2;
-    const cy = height * 0.42;
-    const stageR = Number(options.stageRadius) || Math.min(width, height) * 0.26;
-    const playerR = Number(options.playerRadius) || Math.min(width, height) * 0.39;
+    const cy = height * 0.40;
+    const stageR = Number(options.stageRadius) || Math.min(width, height) * 0.25;
+    const playerR = Number(options.playerRadius) || Math.min(width, height) * 0.38;
     // Competitors live on a separate outer southern arc — never on the player ring.
-    const competitorR = Number(options.competitorRadius) || Math.min(width, height) * 0.52;
+    const competitorR = Number(options.competitorRadius) || Math.min(width, height) * 0.54;
     const stages = data.stages;
     const n = Math.max(stages.length, 1);
     // Reserve a wide southern sector for rivals only (SVG +y is south).
@@ -379,24 +379,37 @@
         ticker: row.ticker,
         name_en: row.name_en,
         name_zh: row.name_zh,
+        role_en: row.role_en,
+        role_zh: row.role_zh,
         listedInApp: row.listedInApp !== false,
         angle,
         x: pos.x,
         y: pos.y,
-        r: 20
+        // Larger hit target: rival nodes carry badge + name + quote lines.
+        r: 24
       };
     });
 
     // Safety: if any rival still collides with a player/stage, push it farther south on the same ray.
     competitorNodes.forEach(comp => {
       let guard = 0;
-      while (guard < 8 && [...playerNodes, ...stageNodes].some(node => overlaps(comp, node, 14))) {
-        const next = polar(competitorR + 28 * (guard + 1), comp.angle);
+      while (guard < 8 && [...playerNodes, ...stageNodes].some(node => overlaps(comp, node, 16))) {
+        const next = polar(competitorR + 32 * (guard + 1), comp.angle);
         comp.x = next.x;
-        comp.y = Math.min(height - 28, next.y);
+        comp.y = Math.min(height - 40, next.y);
         guard += 1;
       }
     });
+
+    // Geometry for a southern “rivalry zone” caption (rendered by the SVG layer).
+    const rivalryZone = {
+      kind: 'rivalry-zone',
+      x: cx,
+      y: Math.min(height - 18, cy + competitorR + 36),
+      width: Math.max(220, (competitorR * 1.15)),
+      label_en: 'Competitors (rivalry — not supply flow)',
+      label_zh: '競爭對手區（對抗關係｜非供應流）'
+    };
 
     const hub = {
       id: `hub:${data.ticker}`,
@@ -469,6 +482,7 @@
       stages: stageNodes,
       players: playerNodes,
       competitors: competitorNodes,
+      rivalryZone,
       edges,
       pack: data
     };
