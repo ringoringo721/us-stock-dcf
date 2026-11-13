@@ -50,8 +50,8 @@ function buildSite(output = path.join(root, 'public')) {
                 // HK Smart Money stock seeds + market-flow snapshot.
                 ? /^(market-flow|\d{1,5}\.HK)\.json$/
                 : directory === 'supply-chain'
-                  // Curated value-chain seeds per ticker (AAPL MVP; reusable shape).
-                  ? /^[A-Z0-9][A-Z0-9.-]*\.json$/
+                  // Curated value-chain seeds + optional `{TICKER}.quotes.json` quote snapshots.
+                  ? /^[A-Z0-9][A-Z0-9.-]*(?:\.quotes)?\.json$/
                 : /^[A-Z0-9.-]+\.json$/;
       if (pattern.test(filename)) files.push(path.join('cache', directory, filename));
     }

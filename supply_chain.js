@@ -118,6 +118,48 @@
   }
 
   const memory = Object.create(null);
+  const quoteMemory = Object.create(null);
+
+  function finiteNumber(value) {
+    const n = typeof value === 'number' ? value : Number(value);
+    return Number.isFinite(n) ? n : null;
+  }
+
+  function normalizeQuote(raw, tickerHint) {
+    if (!raw || typeof raw !== 'object') return null;
+    const ticker = symbol(raw.ticker || tickerHint);
+    if (!ticker) return null;
+    return {
+      ticker,
+      price: finiteNumber(raw.price),
+      previousClose: finiteNumber(raw.previousClose),
+      changePct: finiteNumber(raw.changePct ?? raw.changesPercentage ?? raw.changePercentage),
+      mcap: finiteNumber(raw.mcap),
+      currency: text(raw.currency) || 'USD',
+      asOf: text(raw.asOf) || text(raw.date) || '',
+      source: text(raw.source) || ''
+    };
+  }
+
+  function normalizeQuotesPack(pack, expectedTicker) {
+    if (!pack || typeof pack !== 'object') return { ticker: symbol(expectedTicker), quotes: {} };
+    const ticker = symbol(pack.ticker || expectedTicker);
+    const quotes = Object.create(null);
+    const rawMap = pack.quotes && typeof pack.quotes === 'object' ? pack.quotes : {};
+    Object.keys(rawMap).forEach((key) => {
+      const row = normalizeQuote(rawMap[key], key);
+      if (row) quotes[row.ticker] = row;
+    });
+    return {
+      version: pack.version || 1,
+      ticker,
+      updatedAt: text(pack.updatedAt) || '',
+      basis: text(pack.basis) || '',
+      notes_en: text(pack.notes_en),
+      notes_zh: text(pack.notes_zh),
+      quotes
+    };
+  }
 
   function load(ticker, options = {}) {
     const key = symbol(ticker);
@@ -145,9 +187,70 @@
     });
   }
 
+  /**
+   * Optional quote snapshot for spider node badges.
+   * Missing file → empty map (UI shows N/A); non-404 HTTP → reject so callers can warn.
+   */
+  function loadQuotes(ticker, options = {}) {
+    const key = symbol(ticker);
+    if (!key) return Promise.reject(new RangeError('Supply-chain ticker required'));
+    if (!options.reload && quoteMemory[key]) return Promise.resolve(quoteMemory[key]);
+    const url = `${CACHE_DIR}/${encodeURIComponent(key)}.quotes.json`;
+    return fetch(url, { cache: 'no-store' }).then(async (response) => {
+      if (response.status === 404) {
+        const empty = normalizeQuotesPack({ ticker: key, quotes: {} }, key);
+        quoteMemory[key] = empty;
+        return empty;
+      }
+      if (!response.ok) {
+        const err = new Error(`SUPPLY_CHAIN_QUOTES_FAILED:${key}:${response.status}`);
+        err.code = 'SUPPLY_CHAIN_QUOTES_FAILED';
+        err.status = response.status;
+        throw err;
+      }
+      const pack = normalizeQuotesPack(await response.json(), key);
+      quoteMemory[key] = pack;
+      return pack;
+    });
+  }
+
+  /** Overlay live universe price/mcap onto quote snapshot when present. */
+  function mergeUniverseQuotes(quotesPack, universe, tickers) {
+    const pack = quotesPack && quotesPack.quotes
+      ? quotesPack
+      : normalizeQuotesPack(quotesPack, quotesPack?.ticker);
+    const out = { ...pack, quotes: { ...pack.quotes } };
+    const list = Array.isArray(tickers) ? tickers : Object.keys(out.quotes);
+    list.forEach((rawTicker) => {
+      const key = symbol(rawTicker);
+      if (!key) return;
+      const stock = universe && (universe[key] || universe[rawTicker]);
+      const base = out.quotes[key] || { ticker: key, price: null, changePct: null, mcap: null, currency: 'USD', asOf: '', source: '' };
+      if (!stock) {
+        out.quotes[key] = base;
+        return;
+      }
+      const price = finiteNumber(stock.price);
+      const mcap = finiteNumber(stock.mcap);
+      out.quotes[key] = {
+        ...base,
+        price: price != null ? price : base.price,
+        mcap: mcap != null ? mcap : base.mcap,
+        currency: text(stock.calculationCurrency) || base.currency || 'USD'
+      };
+    });
+    return out;
+  }
+
   function clearCache(ticker) {
-    if (ticker) delete memory[symbol(ticker)];
-    else Object.keys(memory).forEach(k => delete memory[k]);
+    if (ticker) {
+      const key = symbol(ticker);
+      delete memory[key];
+      delete quoteMemory[key];
+    } else {
+      Object.keys(memory).forEach(k => delete memory[k]);
+      Object.keys(quoteMemory).forEach(k => delete quoteMemory[k]);
+    }
   }
 
   /**
@@ -309,13 +412,13 @@
     const mid = (n - 1) / 2;
     const edges = [];
 
-    // Animated supply-flow chain between consecutive stages.
+    // Primary whole-chain flow: consecutive stages (materials → … → retail).
     for (let i = 0; i < stageNodes.length - 1; i += 1) {
       const a = stageNodes[i];
       const b = stageNodes[i + 1];
       edges.push({
-        id: `flow:${a.stageId}->${b.stageId}`,
-        kind: 'flow',
+        id: `chain:${a.stageId}->${b.stageId}`,
+        kind: 'flow-chain',
         from: a.id,
         to: b.id,
         x1: a.x, y1: a.y, x2: b.x, y2: b.y
@@ -382,6 +485,21 @@
     return `M ${edge.x1.toFixed(1)} ${edge.y1.toFixed(1)} Q ${cx.toFixed(1)} ${cy.toFixed(1)} ${edge.x2.toFixed(1)} ${edge.y2.toFixed(1)}`;
   }
 
+  /** Point at t∈[0,1] along the same quadratic used by edgePath (for labels). */
+  function edgePoint(edge, t = 0.5, bend = 0.18) {
+    const mx = (edge.x1 + edge.x2) / 2;
+    const my = (edge.y1 + edge.y2) / 2;
+    const dx = edge.x2 - edge.x1;
+    const dy = edge.y2 - edge.y1;
+    const cpx = mx - dy * bend;
+    const cpy = my + dx * bend;
+    const u = 1 - t;
+    return {
+      x: (u * u * edge.x1) + (2 * u * t * cpx) + (t * t * edge.x2),
+      y: (u * u * edge.y1) + (2 * u * t * cpy) + (t * t * edge.y2)
+    };
+  }
+
   return {
     TAB_KEY,
     CACHE_DIR,
@@ -389,9 +507,12 @@
     flattenPlayers,
     inUniverse,
     load,
+    loadQuotes,
+    mergeUniverseQuotes,
     clearCache,
     layoutSpider,
     edgePath,
+    edgePoint,
     symbol
   };
 }));
