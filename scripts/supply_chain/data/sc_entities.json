@@ -1631,7 +1631,7 @@
   },
   "GOLD": {
     "name_en": "Barrick Gold",
-    "name_zh": "巴里克（GOLD）",
+    "name_zh": "巴里克黃金",
     "exchange": "NYSE"
   },
   "DOW": {
@@ -4260,8 +4260,8 @@
     "exchange": "NASDAQ"
   },
   "ALNY": {
-    "name_en": "Alnylam Pharmaceuticals",
-    "name_zh": "Alnylam Pharmaceuticals",
+    "name_en": "Alnylam",
+    "name_zh": "Alnylam",
     "exchange": "NASDAQ"
   },
   "BEKE": {
@@ -4331,7 +4331,7 @@
   },
   "TSCO": {
     "name_en": "Tractor Supply",
-    "name_zh": "拖拉機供應",
+    "name_zh": "Tractor Supply",
     "exchange": "NASDAQ"
   },
   "TPL": {
@@ -4511,7 +4511,7 @@
   },
   "PAAS": {
     "name_en": "Pan American Silver",
-    "name_zh": "Pan American Silver",
+    "name_zh": "泛美銀業",
     "exchange": "NYSE"
   },
   "NWSA": {
@@ -4606,7 +4606,7 @@
   },
   "CDE": {
     "name_en": "Coeur Mining",
-    "name_zh": "Coeur Mining",
+    "name_zh": "科爾礦業",
     "exchange": "NYSE"
   },
   "ULS": {
@@ -5521,7 +5521,7 @@
   },
   "HL": {
     "name_en": "Hecla Mining",
-    "name_zh": "Hecla Mining",
+    "name_zh": "赫克拉礦業",
     "exchange": "NYSE"
   },
   "QNT": {
@@ -5930,8 +5930,8 @@
     "exchange": "NYSE"
   },
   "ARWR": {
-    "name_en": "Arrowhead Pharmaceuticals",
-    "name_zh": "Arrowhead Pharmaceuticals",
+    "name_en": "Arrowhead",
+    "name_zh": "Arrowhead",
     "exchange": "NASDAQ"
   },
   "APTV": {
@@ -6180,8 +6180,8 @@
     "exchange": "NYSE"
   },
   "ABVX": {
-    "name_en": "Abivax S.A.",
-    "name_zh": "Abivax S.A.",
+    "name_en": "Abivax",
+    "name_zh": "Abivax",
     "exchange": "NASDAQ"
   },
   "RAL": {
@@ -6190,8 +6190,8 @@
     "exchange": "NYSE"
   },
   "AG": {
-    "name_en": "First Majestic Silver",
-    "name_zh": "First Majestic Silver",
+    "name_en": "First Majestic",
+    "name_zh": "First Majestic",
     "exchange": "NYSE"
   },
   "CHRD": {
@@ -6470,8 +6470,8 @@
     "exchange": "NASDAQ"
   },
   "IONS": {
-    "name_en": "Ionis Pharmaceuticals",
-    "name_zh": "Ionis Pharmaceuticals",
+    "name_en": "Ionis",
+    "name_zh": "Ionis",
     "exchange": "NASDAQ"
   },
   "SNEX": {
@@ -6670,8 +6670,8 @@
     "exchange": "NASDAQ"
   },
   "ACI": {
-    "name_en": "Albertsons Companies",
-    "name_zh": "Albertsons Companies",
+    "name_en": "Albertsons",
+    "name_zh": "Albertsons",
     "exchange": "NYSE"
   },
   "TEX": {
@@ -7677,6 +7677,36 @@
   "CWK": {
     "name_en": "Cushman & Wakefield",
     "name_zh": "Cushman & Wakefield",
+    "exchange": "NYSE"
+  },
+  "BERY": {
+    "name_en": "Berry Global",
+    "name_zh": "Berry Global",
+    "exchange": "NYSE"
+  },
+  "SON": {
+    "name_en": "Sonoco",
+    "name_zh": "Sonoco",
+    "exchange": "NYSE"
+  },
+  "SLGN": {
+    "name_en": "Silgan",
+    "name_zh": "Silgan",
+    "exchange": "NYSE"
+  },
+  "FNMA": {
+    "name_en": "Fannie Mae",
+    "name_zh": "房利美",
+    "exchange": "OTC"
+  },
+  "FMCC": {
+    "name_en": "Freddie Mac",
+    "name_zh": "房地美",
+    "exchange": "OTC"
+  },
+  "PFSI": {
+    "name_en": "PennyMac",
+    "name_zh": "PennyMac",
     "exchange": "NYSE"
   }
 }

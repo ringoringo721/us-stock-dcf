@@ -1923,6 +1923,73 @@ MODELS: dict[str, dict] = {
             },
         ],
     },
+
+    "auto-dealer-v1": {
+        "label_zh": "汽車經銷價值鏈",
+        "label_en": "Auto dealership value chain",
+        "description_zh": "整車 OEM → 消費／庫存融資 → 零件／售後 → 物流交車 → 數位行銷獲客。",
+        "description_en": "OEM supply → consumer/floorplan finance → parts/F&I → logistics/delivery → digital marketing.",
+        "stages": [
+            {"id": "oem", "order": 1, "label_zh": "整車 OEM", "label_en": "Auto OEMs", "summary_zh": "新車與庫存來源。", "summary_en": "New-vehicle and inventory supply."},
+            {"id": "finance", "order": 2, "label_zh": "消費／庫存融資", "label_en": "Consumer / floorplan finance", "summary_zh": "車貸、租賃與庫融。", "summary_en": "Auto loans, leases, floorplan."},
+            {"id": "parts", "order": 3, "label_zh": "零件／售後", "label_en": "Parts / aftersales", "summary_zh": "零件、保養與延保。", "summary_en": "Parts, service, F&I products."},
+            {"id": "logistics", "order": 4, "label_zh": "物流／交車", "label_en": "Logistics / delivery", "summary_zh": "運車與交車網絡。", "summary_en": "Haulers and delivery networks."},
+            {"id": "marketing", "order": 5, "label_zh": "數位行銷獲客", "label_en": "Digital marketing", "summary_zh": "搜尋、社群與分類廣告。", "summary_en": "Search, social, classifieds."},
+        ],
+    },
+    "apparel-retail-v1": {
+        "label_zh": "服飾零售價值鏈",
+        "label_en": "Apparel retail value chain",
+        "description_zh": "品牌／成衣供應 → 物流 → 門市／電商 → 支付 → 流量獲客。",
+        "description_en": "Brand/apparel supply → logistics → stores/e-comm → payments → traffic acquisition.",
+        "stages": [
+            {"id": "supply", "order": 1, "label_zh": "品牌／成衣供應", "label_en": "Brand / apparel supply", "summary_zh": "成衣與配件貨源。", "summary_en": "Apparel and accessories supply."},
+            {"id": "logistics", "order": 2, "label_zh": "物流／倉儲", "label_en": "Logistics / warehousing", "summary_zh": "配送與庫存。", "summary_en": "Distribution and inventory."},
+            {"id": "stores", "order": 3, "label_zh": "門市／電商", "label_en": "Stores / e-commerce", "summary_zh": "直營、商場與官網。", "summary_en": "Owned stores, malls, DTC."},
+            {"id": "payments", "order": 4, "label_zh": "支付／忠誠", "label_en": "Payments / loyalty", "summary_zh": "卡支付與會員。", "summary_en": "Card rails and loyalty."},
+            {"id": "traffic", "order": 5, "label_zh": "流量／行銷", "label_en": "Traffic / marketing", "summary_zh": "搜尋、社群與網紅。", "summary_en": "Search, social, influencers."},
+        ],
+    },
+    "grocery-retail-v1": {
+        "label_zh": "超市／雜貨零售價值鏈",
+        "label_en": "Grocery retail value chain",
+        "description_zh": "CPG／生鮮供應 → 批發通路 → 物流冷鏈 → 支付 → 流量／會員。",
+        "description_en": "CPG/fresh supply → wholesale → logistics/cold chain → payments → traffic/loyalty.",
+        "stages": [
+            {"id": "supply", "order": 1, "label_zh": "CPG／生鮮供應", "label_en": "CPG / fresh supply", "summary_zh": "品牌食品與生鮮。", "summary_en": "Branded CPG and fresh."},
+            {"id": "wholesale", "order": 2, "label_zh": "批發／通路", "label_en": "Wholesale / distribution", "summary_zh": "食品服務與批發。", "summary_en": "Foodservice and wholesale."},
+            {"id": "logistics", "order": 3, "label_zh": "物流／冷鏈", "label_en": "Logistics / cold chain", "summary_zh": "配送與冷藏。", "summary_en": "Distribution and refrigeration."},
+            {"id": "payments", "order": 4, "label_zh": "支付／金融", "label_en": "Payments / fintech", "summary_zh": "卡組織與零售金融。", "summary_en": "Card rails and retail finance."},
+            {"id": "traffic", "order": 5, "label_zh": "流量／會員", "label_en": "Traffic / loyalty", "summary_zh": "搜尋、社群與會員。", "summary_en": "Search, social, loyalty."},
+        ],
+    },
+    "mi-specialty-v1": {
+        "label_zh": "抵押保險價值鏈",
+        "label_en": "Mortgage insurance value chain",
+        "description_zh": "機構／GSE → 放貸／服務 → 資金／資本 → 信用數據 → 住房需求。",
+        "description_en": "Agency/GSE → originators/servicers → funding/capital → credit data → housing demand.",
+        "stages": [
+            {"id": "agency", "order": 1, "label_zh": "機構／GSE 通道", "label_en": "Agency / GSE channel", "summary_zh": "機構 MBS 與銀行通道。", "summary_en": "Agency MBS and bank channels."},
+            {"id": "originators", "order": 2, "label_zh": "放貸／貸款服務", "label_en": "Originators / servicing", "summary_zh": "按揭放貸與服務商。", "summary_en": "Mortgage originators and servicers."},
+            {"id": "funding", "order": 3, "label_zh": "資金／資本市場", "label_en": "Funding / capital markets", "summary_zh": "銀行融資與資管資本。", "summary_en": "Bank funding and AM capital."},
+            {"id": "data", "order": 4, "label_zh": "信用／風險數據", "label_en": "Credit / risk data", "summary_zh": "信用評分與風險數據。", "summary_en": "Credit scores and risk data."},
+            {"id": "housing", "order": 5, "label_zh": "住房需求", "label_en": "Housing demand", "summary_zh": "住宅建商與住房週期。", "summary_en": "Homebuilders and housing cycle."},
+        ],
+    },
+    "mreit-v1": {
+        "label_zh": "抵押 REIT（機構 MBS）價值鏈",
+        "label_en": "Mortgage REIT (agency MBS) value chain",
+        "description_zh": "機構／GSE → 放貸／服務 → 融資／回購 → 利率／避險 → 資本／投資人。",
+        "description_en": "Agency/GSE → originators/servicers → funding/repo → rates/hedging → capital/investors.",
+        "stages": [
+            {"id": "agency", "order": 1, "label_zh": "機構／GSE", "label_en": "Agency / GSE", "summary_zh": "機構擔保與銀行通道。", "summary_en": "Agency guarantee and bank channels."},
+            {"id": "originators", "order": 2, "label_zh": "放貸／服務商", "label_en": "Originators / servicers", "summary_zh": "按揭產能與服務。", "summary_en": "Mortgage production and servicing."},
+            {"id": "funding", "order": 3, "label_zh": "融資／回購", "label_en": "Funding / repo", "summary_zh": "回購與銀行融資。", "summary_en": "Repo and bank funding."},
+            {"id": "rates", "order": 4, "label_zh": "利率／避險", "label_en": "Rates / hedging", "summary_zh": "利率市場與避險工具。", "summary_en": "Rates markets and hedges."},
+            {"id": "capital", "order": 5, "label_zh": "資本／投資人", "label_en": "Capital / investors", "summary_zh": "機構與資管資金。", "summary_en": "Institutional and AM capital."},
+        ],
+    },
+
 }
 
 
@@ -1945,7 +2012,7 @@ INDUSTRY_MODEL: dict[tuple[str, str], str] = {
     ("Consumer Cyclical", "Restaurants"): "consumer-discretionary-v1",
     ("Consumer Cyclical", "Travel Services"): "consumer-discretionary-v1",
     ("Consumer Cyclical", "Travel Lodging"): "consumer-discretionary-v1",
-    ("Consumer Cyclical", "Apparel - Retail"): "consumer-discretionary-v1",
+    ("Consumer Cyclical", "Apparel - Retail"): "apparel-retail-v1",
     ("Consumer Defensive", "Discount Stores"): "ecommerce-retail-v1",
     ("Consumer Defensive", "Household & Personal Products"): "consumer-staples-v1",
     ("Consumer Defensive", "Beverages - Non-Alcoholic"): "consumer-staples-v1",
@@ -2004,14 +2071,14 @@ INDUSTRY_MODEL: dict[tuple[str, str], str] = {
     ("Real Estate", "REIT - Specialty"): "reit-v1",
     ("Real Estate", "REIT - Retail"): "reit-v1",
     ("Consumer Defensive", "Food Confectioners"): "consumer-staples-v1",
-    ("Consumer Cyclical", "Auto - Dealerships"): "consumer-discretionary-v1",
+    ("Consumer Cyclical", "Auto - Dealerships"): "auto-dealer-v1",
     ("Consumer Cyclical", "Apparel - Footwear & Accessories"): "consumer-discretionary-v1",
     ("Technology", "Electronic Gaming & Multimedia"): "internet-platform-v1",
     # Remaining-universe (<$50B) industry coverage — keep templates industry-specific.
     ("Consumer Defensive", "Packaged Foods"): "consumer-staples-v1",
     ("Consumer Defensive", "Food Distribution"): "consumer-staples-v1",
     ("Consumer Defensive", "Agricultural Farm Products"): "consumer-staples-v1",
-    ("Consumer Defensive", "Grocery Stores"): "ecommerce-retail-v1",
+    ("Consumer Defensive", "Grocery Stores"): "grocery-retail-v1",
     ("Consumer Defensive", "Education & Training Services"): "consumer-discretionary-v1",
     ("Consumer Cyclical", "Gambling, Resorts & Casinos"): "consumer-discretionary-v1",
     ("Consumer Cyclical", "Auto - Parts"): "industrials-v1",  # Tier-1 suppliers, not OEM assembly chain
@@ -2027,7 +2094,7 @@ INDUSTRY_MODEL: dict[tuple[str, str], str] = {
     ("Real Estate", "REIT - Diversified"): "reit-v1",
     ("Real Estate", "REIT - Office"): "reit-v1",
     ("Real Estate", "REIT - Hotel & Motel"): "reit-v1",
-    ("Real Estate", "REIT - Mortgage"): "reit-v1",
+    ("Real Estate", "REIT - Mortgage"): "mreit-v1",
     ("Real Estate", "Real Estate - Services"): "consumer-discretionary-v1",  # brokerages, not REIT stages
     ("Real Estate", "Real Estate - Development"): "reit-v1",
     ("Real Estate", "Real Estate - Diversified"): "reit-v1",
@@ -2186,7 +2253,7 @@ TICKER_MODEL: dict[str, str] = {
     "ARE": "reit-v1",
     "AMH": "reit-v1",
     "AHR": "reit-v1",
-    "AGNC": "reit-v1",
+    "AGNC": "mreit-v1",
     "ASR": "industrials-v1",  # airport operators — not hospitality disc stages
     "PAC": "industrials-v1",
     "OMAB": "industrials-v1",
@@ -2216,10 +2283,10 @@ TICKER_MODEL: dict[str, str] = {
     "BCPC": "specialty-chem-v1",
     "AA": "basic-materials-v1",
     "ARMK": "industrials-v1",
-    "ACT": "insurance-v1",
+    "ACT": "mi-specialty-v1",
     "ACGL": "insurance-v1",  # specialty P&C / re — not diversified-holding life
     "AIG": "insurance-v1",  # P&C / diversified insurer — not Berkshire holding chain
-    "BBY": "consumer-discretionary-v1",  # CE specialty retail
+    "BBY": "ecommerce-retail-v1",  # CE specialty retail
     "CE": "specialty-chem-v1",  # commodity/specialty chem — not coatings customers
     "AES": "utilities-v1",  # electric generation / utilities
     "ARES": "asset-mgmt-v1",  # alt managers
@@ -2242,8 +2309,19 @@ TICKER_MODEL: dict[str, str] = {
     "LYFT": "rideshare-v1",
     "OUT": "outdoor-advertising-v1",
     "BOX": "saas-cloud-v1",  # content/collab peers via specialty group
+    "AN": "auto-dealer-v1",
+    "ANF": "apparel-retail-v1",
+    "ACI": "grocery-retail-v1",
+    "NLY": "mreit-v1",
+    "RITM": "mreit-v1",
+    "AG": "basic-materials-v1",
+    "AGI": "basic-materials-v1",
+    "AUGO": "basic-materials-v1",
+    "ABVX": "pharma-v1",
+    "ARWR": "pharma-v1",
+    "ALKS": "pharma-v1",
+    "GME": "ecommerce-retail-v1",
 }
-
 
 
 def resolve_model_id(ticker: str, sector: str, industry: str) -> str:

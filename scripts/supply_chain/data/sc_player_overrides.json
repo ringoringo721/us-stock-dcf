@@ -295,5 +295,167 @@
       "CI",
       "ELV"
     ]
+  },
+  "AGI": {
+    "equipment": [
+      "CAT",
+      "DE",
+      "PH"
+    ],
+    "extraction": [
+      "BHP",
+      "RIO",
+      "FCX"
+    ],
+    "smelting": [
+      "LIN",
+      "APD",
+      "NEM"
+    ],
+    "logistics": [
+      "UNP",
+      "CSX",
+      "FDX"
+    ],
+    "customers": [
+      "SIG",
+      "TPR",
+      "FNV"
+    ]
+  },
+  "AG": {
+    "equipment": [
+      "CAT",
+      "DE",
+      "PH"
+    ],
+    "extraction": [
+      "BHP",
+      "RIO",
+      "FCX"
+    ],
+    "smelting": [
+      "LIN",
+      "APD",
+      "NEM"
+    ],
+    "logistics": [
+      "UNP",
+      "CSX",
+      "FDX"
+    ],
+    "customers": [
+      "SIG",
+      "TPR",
+      "FNV"
+    ]
+  },
+  "AUGO": {
+    "equipment": [
+      "CAT",
+      "DE",
+      "PH"
+    ],
+    "extraction": [
+      "BHP",
+      "RIO",
+      "FCX"
+    ],
+    "smelting": [
+      "LIN",
+      "APD",
+      "NEM"
+    ],
+    "logistics": [
+      "UNP",
+      "CSX",
+      "FDX"
+    ],
+    "customers": [
+      "SIG",
+      "TPR",
+      "FNV"
+    ]
+  },
+  "BCPC": {
+    "inputs": [
+      "DOW",
+      "DD",
+      "XOM"
+    ],
+    "formulation": [
+      "SHW",
+      "PPG",
+      "APD"
+    ],
+    "equipment": [
+      "EMR",
+      "ITW",
+      "PH"
+    ],
+    "distribution": [
+      "GWW",
+      "FAST",
+      "HD"
+    ],
+    "customers": [
+      "HD",
+      "LOW",
+      "HLT"
+    ]
+  },
+  "BBUC": {
+    "materials": [
+      "NUE",
+      "FCX",
+      "DOW"
+    ],
+    "components": [
+      "ETN",
+      "PH",
+      "EMR"
+    ],
+    "automation": [
+      "ROK",
+      "EMR",
+      "SNPS"
+    ],
+    "dealers": [
+      "CAT",
+      "DE",
+      "URI"
+    ],
+    "customers": [
+      "XOM",
+      "UNP",
+      "NEE"
+    ]
+  },
+  "AIG": {
+    "reinsurance": [
+      "EG",
+      "RNR",
+      "RGA"
+    ],
+    "data": [
+      "VRSK",
+      "SPGI",
+      "MCO"
+    ],
+    "investments": [
+      "BLK",
+      "BX",
+      "BRK-B"
+    ],
+    "distribution": [
+      "AON",
+      "MRSH",
+      "AJG"
+    ],
+    "claims": [
+      "PGR",
+      "TRV",
+      "ALL"
+    ]
   }
 }

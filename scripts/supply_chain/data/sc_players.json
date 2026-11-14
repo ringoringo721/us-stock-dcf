@@ -281,19 +281,19 @@
       "FIS"
     ],
     "merchant-tech": [
-      "XYZ",
       "TOST",
-      "SHOP"
+      "SHOP",
+      "AFRM"
     ],
     "consumer": [
       "AAPL",
       "GOOG",
-      "PYPL"
+      "COIN"
     ],
     "settlement": [
-      "V",
-      "MA",
-      "AXP"
+      "JPM",
+      "BAC",
+      "WFC"
     ]
   },
   "capital-markets-v1": {
@@ -325,9 +325,9 @@
   },
   "insurance-v1": {
     "reinsurance": [
-      "CB",
-      "AIG",
-      "MET"
+      "EG",
+      "RNR",
+      "RGA"
     ],
     "data": [
       "VRSK",
@@ -368,8 +368,8 @@
     ],
     "distribution": [
       "SCHW",
-      "AMZN",
-      "JPM"
+      "JPM",
+      "BAC"
     ],
     "owners": [
       "MET",
@@ -1017,7 +1017,8 @@
     "platforms": [
       "UBER",
       "DASH",
-      "LYFT"
+      "LYFT",
+      "GRAB"
     ],
     "monetization": [
       "GOOG",
@@ -1077,6 +1078,141 @@
       "JPM",
       "BAC",
       "WFC"
+    ]
+  },
+  "auto-dealer-v1": {
+    "oem": [
+      "TM",
+      "GM",
+      "F"
+    ],
+    "finance": [
+      "ALLY",
+      "AXP",
+      "COF"
+    ],
+    "parts": [
+      "AZO",
+      "ORLY",
+      "AAP"
+    ],
+    "logistics": [
+      "UNP",
+      "UPS",
+      "FDX"
+    ],
+    "marketing": [
+      "GOOG",
+      "META",
+      "AMZN"
+    ]
+  },
+  "apparel-retail-v1": {
+    "supply": [
+      "VFC",
+      "LEVI",
+      "NKE"
+    ],
+    "logistics": [
+      "UPS",
+      "FDX",
+      "EXPD"
+    ],
+    "stores": [
+      "SPG",
+      "MAC",
+      "URBN"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "AXP"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "PINS"
+    ]
+  },
+  "grocery-retail-v1": {
+    "supply": [
+      "PG",
+      "KO",
+      "PEP"
+    ],
+    "wholesale": [
+      "SYY",
+      "USFD",
+      "COST"
+    ],
+    "logistics": [
+      "UNP",
+      "UPS",
+      "FDX"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "AMZN"
+    ]
+  },
+  "mi-specialty-v1": {
+    "agency": [
+      "FNMA",
+      "FMCC",
+      "JPM"
+    ],
+    "originators": [
+      "RKT",
+      "UWMC",
+      "PFSI"
+    ],
+    "funding": [
+      "JPM",
+      "BAC",
+      "BLK"
+    ],
+    "data": [
+      "VRSK",
+      "SPGI",
+      "MCO"
+    ],
+    "housing": [
+      "DHI",
+      "LEN",
+      "PHM"
+    ]
+  },
+  "mreit-v1": {
+    "agency": [
+      "FNMA",
+      "FMCC",
+      "JPM"
+    ],
+    "originators": [
+      "RKT",
+      "UWMC",
+      "PFSI"
+    ],
+    "funding": [
+      "JPM",
+      "BAC",
+      "GS"
+    ],
+    "rates": [
+      "CME",
+      "ICE",
+      "BX"
+    ],
+    "capital": [
+      "BLK",
+      "BX",
+      "BRK-B"
     ]
   }
 }

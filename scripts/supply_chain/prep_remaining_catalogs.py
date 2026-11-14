@@ -353,7 +353,7 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "semi-conn",
-        ["ALAB", "AVGO", "MRVL", "CRDO", "MTSI", "AMD"],
+        ["ALAB", "AVGO", "MRVL", "CRDO", "MTSI"],  # interface silicon — drop AMD CPU/GPU
         "高速連接／介面半導體對手",
         "High-speed connectivity semi rival",
     ),
@@ -540,9 +540,9 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "pharma-generic",
-        ["AMRX", "TEVA", "VTRS", "ALKS", "JAZZ", "NBIX"],  # no MYL/ELAN/PRGO
-        "學名藥／特用藥對手",
-        "Generics / specialty-pharma rival",
+        ["AMRX", "TEVA", "VTRS", "PRGO"],  # generics only — ALKS moved to CNS
+        "學名藥對手",
+        "Generics rival",
     ),
     (
         "airport-ops",
@@ -648,7 +648,7 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "apparel-specialty",
-        ["ANF", "URBN", "GAP", "LULU", "VSXY", "VFC", "LEVI"],  # brand apparel; not off-price ROST/TJX/BURL
+        ["ANF", "URBN", "GAP", "LULU", "LEVI", "VFC"],  # brand apparel; drop invalid VSXY
         "品牌服飾零售對手",
         "Specialty apparel retail rival",
     ),
@@ -720,9 +720,9 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "packaging-disp",
-        ["ATR", "AMCR", "BALL", "CCK", "PKG"],  # packaging / dispensing — not dental
-        "包裝／給藥裝置對手",
-        "Packaging / dispensing rival",
+        ["ATR", "AMCR", "BERY", "SON", "SLGN"],  # specialty dispensing/closures — drop BALL/CCK/PKG
+        "特用給藥／瓶蓋包裝對手",
+        "Specialty dispensing / closures rival",
     ),
         (
         "water-heat",
@@ -732,21 +732,21 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "auto-driveline",
-        ["ALSN", "BWA", "LEA", "MGA"],  # transmissions / powertrain — not ALV airbags
+        ["ALSN", "BWA", "ETN"],  # CV transmission / powertrain — drop LEA seats
         "汽車傳動／動力系統對手",
         "Auto driveline / powertrain rival",
     ),
     (
         "auto-safety",
-        ["ALV", "APTV"],  # airbags / passive+active safety — not GNTX mirrors/ADAS cameras
-        "汽車安全／氣囊對手",
-        "Auto passive-safety / ADAS rival",
+        ["ALV", "MGA", "BWA"],  # drop APTV; nearest listed Tier-1 with safety/restraints exposure
+        "汽車被動安全／約束系統對手",
+        "Auto passive-safety / restraints rival",
     ),
     (
         "retail-ce",
-        ["BBY", "GME"],  # CE specialty only — never AMZN (saas-data pad poison)
-        "消費電子零售對手",
-        "Consumer-electronics retail rival",
+        ["BBY", "GME", "WSM", "TSCO"],  # ≥3 CE/specialty retail; no AMZN saas-data pad
+        "消費電子／專賣零售對手",
+        "Consumer-electronics / specialty retail rival",
     ),
     (
         "util-ipp",
@@ -816,7 +816,7 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "rideshare",
-        ["LYFT", "UBER", "DASH"],  # rideshare/mobility — not AMZN/ABNB
+        ["LYFT", "UBER", "DASH", "GRAB"],  # enough platforms so LYFT self-drop does not pad GOOG
         "共享出行／即時配送對手",
         "Rideshare / mobility rival",
     ),
@@ -843,6 +843,42 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
         ["IQV", "ICLR", "CRL", "MEDP"],  # CRO / clinical research — not tools or CRM SaaS
         "臨床試驗／CRO 對手",
         "CRO / clinical-research rival",
+    ),
+    (
+        "materials-silver",
+        ["AG", "PAAS", "HL", "CDE"],  # silver / silver-primary — drop pure-gold mega + WPM
+        "銀礦／貴金屬對手",
+        "Silver / precious-metals rival",
+    ),
+    (
+        "materials-gold",
+        ["AEM", "NEM", "GOLD", "B", "KGC", "AU", "GFI", "AGI", "AUGO"],  # operating miners — drop WPM streamer
+        "金礦對手",
+        "Gold miner rival",
+    ),
+    (
+        "pharma-cns",
+        ["ALKS", "JAZZ", "NBIX", "BMRN"],  # CNS specialty — not generics AMRX/TEVA/VTRS
+        "中樞神經特用藥對手",
+        "CNS specialty-pharma rival",
+    ),
+    (
+        "pharma-ibd",
+        ["ABVX", "INCY", "MDGL", "BMRN"],  # IBD / GI / immuno specialty — not mega biopharma template
+        "IBD／消化／免疫特用藥對手",
+        "IBD / GI / immuno specialty-pharma rival",
+    ),
+    (
+        "pharma-rnai",
+        ["ARWR", "IONS", "ALNY", "MRNA"],  # RNAi / oligo / nucleic-acid — not mega biopharma
+        "RNAi／核酸藥物對手",
+        "RNAi / nucleic-acid therapeutics rival",
+    ),
+    (
+        "grocery-retail",
+        ["ACI", "KR", "CASY", "WMT", "COST"],  # grocery / food retail — not apparel/ecommerce stages
+        "超市／雜貨零售對手",
+        "Grocery / food retail rival",
     ),
 ]
 for _gid, _members, _zh, _en in EXTRA_PEER_GROUPS:
@@ -957,7 +993,14 @@ TICKER_GROUP_FORCE: dict[str, str] = {
     "ASR": "airport-ops",
     "PAC": "airport-ops",
     "OMAB": "airport-ops",
-    "ALKS": "pharma-generic",
+    "ALKS": "pharma-cns",
+    "ABVX": "pharma-ibd",
+    "ARWR": "pharma-rnai",
+    "AG": "materials-silver",
+    "AGI": "materials-gold",
+    "AUGO": "materials-gold",
+    "ACI": "grocery-retail",
+    "AN": "disc-auto-deal",
     "RITM": "reit-mreit",
     "NLY": "reit-mreit",
     "AGCO": "ag-machinery",
@@ -1057,6 +1100,16 @@ NO_PAD_GROUPS = {
     "identity-sec",
     "ccaas",
     "mkt-auto",
+    "materials-silver",
+    "materials-gold",
+    "pharma-cns",
+    "pharma-ibd",
+    "pharma-rnai",
+    "grocery-retail",
+    "semi-conn",
+    "mi-specialty",
+    "pharma-generic",
+    "security-svc",
     "cro-clinical",
     "beer-bev",
     "farm-agri",
@@ -1673,6 +1726,28 @@ def main() -> int:
         "MAN": ("ManpowerGroup", "ManpowerGroup", "NYSE"),
         "ASGN": ("ASGN", "ASGN", "NYSE"),
         "NICE": ("NICE", "NICE", "NASDAQ"),
+        "BERY": ("Berry Global", "Berry Global", "NYSE"),
+        "SON": ("Sonoco", "Sonoco", "NYSE"),
+        "SLGN": ("Silgan", "Silgan", "NYSE"),
+        "FNMA": ("Fannie Mae", "房利美", "OTC"),
+        "FMCC": ("Freddie Mac", "房地美", "OTC"),
+        "PFSI": ("PennyMac", "PennyMac", "NYSE"),
+        "GRAB": ("Grab", "Grab", "NASDAQ"),
+        "PAAS": ("Pan American Silver", "泛美銀業", "NYSE"),
+        "HL": ("Hecla Mining", "赫克拉礦業", "NYSE"),
+        "CDE": ("Coeur Mining", "科爾礦業", "NYSE"),
+        "GOLD": ("Barrick Gold", "巴里克黃金", "NYSE"),
+        "ALNY": ("Alnylam", "Alnylam", "NASDAQ"),
+        "IONS": ("Ionis", "Ionis", "NASDAQ"),
+        "WSM": ("Williams-Sonoma", "Williams-Sonoma", "NYSE"),
+        "TSCO": ("Tractor Supply", "Tractor Supply", "NASDAQ"),
+        "ACI": ("Albertsons", "Albertsons", "NYSE"),
+        "AG": ("First Majestic", "First Majestic", "NYSE"),
+        "AGI": ("Alamos Gold", "Alamos Gold", "NYSE"),
+        "AUGO": ("Aura Minerals", "Aura Minerals", "NASDAQ"),
+        "ABVX": ("Abivax", "Abivax", "NASDAQ"),
+        "ARWR": ("Arrowhead", "Arrowhead", "NASDAQ"),
+        "ALKS": ("Alkermes", "Alkermes", "NASDAQ"),
     }
 
     for t, (en, zh, ex) in forced_ents.items():
