@@ -93,6 +93,12 @@ LEGAL_EN_NAME_RE = re.compile(
     r"\b(Inc\.?|Corp\.?|Corporation|Company|Ltd\.?|Limited|Holdings|PLC|N\.?V\.?|Group)\b",
     re.I,
 )
+# Suffixes safe to strip for short brands. Keep N.V. / S.A. / p.l.c. intact —
+# stripping N.V. via a trailing `\b` often leaves an orphan "." ("ASML Holding .").
+LEGAL_EN_SUFFIX_STRIP_RE = re.compile(
+    r"\b(Inc\.?|Corp\.?|Corporation|Company|Ltd\.?|Limited|Holdings|PLC|Group)\b",
+    re.I,
+)
 # Known wrong / legal-dump name_zh corrections (ticker → curated 繁中 or brand).
 NAME_ZH_FIXES = {
     "IBM": "IBM",  # Latin brand; never “International Business Machines”
@@ -126,12 +132,16 @@ def looks_like_english_legal_name(text: str) -> bool:
 def short_brand_en(name_en: str, ticker: str) -> str:
     """Strip common legal suffixes for a short EN brand fallback.
 
-    Preserve abbreviation endings such as ``S.A.`` / ``N.V.`` / ``p.l.c.`` —
-    do not strip their trailing periods.
+    Preserve abbreviation endings such as ``S.A.`` / ``N.V.`` / ``p.l.c.``.
+    After stripping Inc./Corp./etc., clear orphan periods/spaces so
+    ``ASML Holding N.V.`` never becomes ``ASML Holding .``.
     """
     raw = (name_en or "").strip() or ticker
-    cleaned = LEGAL_EN_NAME_RE.sub("", raw)
-    # Strip trailing commas/spaces only — never eat the final '.' of S.A. / N.V.
+    cleaned = LEGAL_EN_SUFFIX_STRIP_RE.sub("", raw)
+    # Drop orphan "." / "," left beside whitespace after a suffix removal.
+    cleaned = re.sub(r"\s+[.,](?=\s|$)", "", cleaned)
+    cleaned = re.sub(r"[.,]\s+", " ", cleaned)
+    # Trailing commas/spaces only — keep final '.' of S.A. / N.V.
     cleaned = re.sub(r"[,\s]+$", "", cleaned).strip()
     cleaned = re.sub(r"\s{2,}", " ", cleaned)
     return cleaned or ticker
