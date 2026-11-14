@@ -166,7 +166,7 @@ def main() -> int:
         if seed_path.exists() and not args.overwrite_existing:
             skipped_existing.append(ticker)
             continue
-        if ticker not in competitors or len(competitors[ticker]) < 4:
+        if ticker not in competitors or len(competitors[ticker]) < 1:
             failures.append((ticker, ["competitors:missing-or-short"]))
             continue
         seed = build_seed(

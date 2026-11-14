@@ -1201,12 +1201,12 @@
   },
   "AVT": {
     "name_en": "Avnet",
-    "name_zh": "艾睿電子",
+    "name_zh": "安富利",
     "exchange": "NASDAQ"
   },
   "ARW": {
     "name_en": "Arrow Electronics",
-    "name_zh": "安富利",
+    "name_zh": "艾睿電子",
     "exchange": "NYSE"
   },
   "SNX": {
@@ -1233,11 +1233,6 @@
     "name_en": "PayPal",
     "name_zh": "PayPal",
     "exchange": "NASDAQ"
-  },
-  "SQ": {
-    "name_en": "Block",
-    "name_zh": "Block",
-    "exchange": "NYSE"
   },
   "FIS": {
     "name_en": "FIS",
@@ -2103,11 +2098,6 @@
     "name_en": "AST SpaceMobile",
     "name_zh": "AST SpaceMobile",
     "exchange": "NASDAQ"
-  },
-  "MAXR": {
-    "name_en": "Maxar",
-    "name_zh": "Maxar",
-    "exchange": "NYSE"
   },
   "IRDM": {
     "name_en": "Iridium",
@@ -3300,7 +3290,7 @@
     "exchange": "NASDAQ"
   },
   "AXON": {
-    "name_en": "Axon Enterprise",
+    "name_en": "Axon",
     "name_zh": "Axon",
     "exchange": "NASDAQ"
   },
@@ -4175,8 +4165,8 @@
     "exchange": "NASDAQ"
   },
   "AMRZ": {
-    "name_en": "Amrize AG",
-    "name_zh": "Amrize AG",
+    "name_en": "Amrize",
+    "name_zh": "Amrize",
     "exchange": "NYSE"
   },
   "VTRS": {
@@ -7020,8 +7010,8 @@
     "exchange": "NASDAQ"
   },
   "AUB": {
-    "name_en": "AUB",
-    "name_zh": "AUB",
+    "name_en": "Atlantic Union Bankshares",
+    "name_zh": "大西洋聯合銀行",
     "exchange": "NYSE"
   },
   "NJR": {
@@ -7090,7 +7080,7 @@
     "exchange": "NYSE"
   },
   "OBDC": {
-    "name_en": "Blue Owl Capital",
+    "name_en": "Blue Owl Capital Corporation",
     "name_zh": "Blue Owl Capital",
     "exchange": "NYSE"
   },
@@ -7369,16 +7359,6 @@
     "name_zh": "PRGO",
     "exchange": "OTC"
   },
-  "MYL": {
-    "name_en": "MYL",
-    "name_zh": "MYL",
-    "exchange": "OTC"
-  },
-  "PEAK": {
-    "name_en": "PEAK",
-    "name_zh": "PEAK",
-    "exchange": "OTC"
-  },
   "ET": {
     "name_en": "ET",
     "name_zh": "ET",
@@ -7393,11 +7373,6 @@
     "name_en": "Air Lease",
     "name_zh": "Air Lease",
     "exchange": "NYSE"
-  },
-  "FLY": {
-    "name_en": "FlyExclusive",
-    "name_zh": "FlyExclusive",
-    "exchange": "OTC"
   },
   "EQR": {
     "name_en": "EQR",
@@ -7415,9 +7390,9 @@
     "exchange": "OTC"
   },
   "WOR": {
-    "name_en": "WOR",
-    "name_zh": "WOR",
-    "exchange": "OTC"
+    "name_en": "Worthington",
+    "name_zh": "Worthington",
+    "exchange": "NYSE"
   },
   "JBLU": {
     "name_en": "JBLU",
@@ -7560,33 +7535,38 @@
     "exchange": "OTC"
   },
   "PII": {
-    "name_en": "PII",
-    "name_zh": "PII",
-    "exchange": "OTC"
+    "name_en": "Polaris",
+    "name_zh": "Polaris",
+    "exchange": "NYSE"
   },
   "THO": {
-    "name_en": "THO",
-    "name_zh": "THO",
-    "exchange": "OTC"
+    "name_en": "Thor Industries",
+    "name_zh": "Thor Industries",
+    "exchange": "NYSE"
   },
   "WGO": {
-    "name_en": "WGO",
-    "name_zh": "WGO",
-    "exchange": "OTC"
+    "name_en": "Winnebago",
+    "name_zh": "Winnebago",
+    "exchange": "NYSE"
   },
   "MBUU": {
-    "name_en": "MBUU",
-    "name_zh": "MBUU",
-    "exchange": "OTC"
+    "name_en": "Malibu Boats",
+    "name_zh": "Malibu Boats",
+    "exchange": "NASDAQ"
   },
   "MCFT": {
-    "name_en": "MCFT",
-    "name_zh": "MCFT",
-    "exchange": "OTC"
+    "name_en": "MasterCraft",
+    "name_zh": "MasterCraft",
+    "exchange": "NASDAQ"
   },
   "WHD": {
     "name_en": "WHD",
     "name_zh": "WHD",
     "exchange": "OTC"
+  },
+  "BBU": {
+    "name_en": "Brookfield Business Partners",
+    "name_zh": "BBU",
+    "exchange": "NYSE"
   }
 }

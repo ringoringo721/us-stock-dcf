@@ -1,8 +1,117 @@
 {
   "remainingTotal": 1041,
-  "competitorsWritten": 1041,
-  "missingRivals": [],
-  "entityCount": 1518,
+  "competitorsWritten": 1026,
+  "missingRivals": [
+    [
+      "RKT",
+      0,
+      [],
+      "Financial - Mortgages"
+    ],
+    [
+      "CCJ",
+      1,
+      [
+        "NXE"
+      ],
+      "Uranium"
+    ],
+    [
+      "VLTO",
+      0,
+      [],
+      "Industrial - Pollution & Treatment Controls"
+    ],
+    [
+      "TPR",
+      0,
+      [],
+      "Luxury Goods"
+    ],
+    [
+      "STE",
+      1,
+      [
+        "ALC"
+      ],
+      "Medical - Specialties"
+    ],
+    [
+      "FSLR",
+      1,
+      [
+        "NXT"
+      ],
+      "Solar"
+    ],
+    [
+      "NXT",
+      1,
+      [
+        "FSLR"
+      ],
+      "Solar"
+    ],
+    [
+      "FRHC",
+      0,
+      [],
+      "Financial - Conglomerates"
+    ],
+    [
+      "SIRI",
+      1,
+      [
+        "NXST"
+      ],
+      "Broadcasting"
+    ],
+    [
+      "EDU",
+      1,
+      [
+        "TAL"
+      ],
+      "Education & Training Services"
+    ],
+    [
+      "MSGK",
+      0,
+      [],
+      "Media & Entertainment"
+    ],
+    [
+      "TAL",
+      1,
+      [
+        "EDU"
+      ],
+      "Education & Training Services"
+    ],
+    [
+      "M",
+      0,
+      [],
+      "Department Stores"
+    ],
+    [
+      "NXST",
+      1,
+      [
+        "SIRI"
+      ],
+      "Broadcasting"
+    ],
+    [
+      "NXE",
+      1,
+      [
+        "CCJ"
+      ],
+      "Uranium"
+    ]
+  ],
+  "entityCount": 1514,
   "bands": {
     "20-50B": 291,
     "10-20B": 311,

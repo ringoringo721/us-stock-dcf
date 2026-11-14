@@ -183,7 +183,7 @@ def _has_cjk(text: str) -> bool:
     return bool(re.search(r"[\u4e00-\u9fff]", text or ""))
 
 
-# Stale / wrong tickers → current listed symbols.
+# Stale / wrong / delisted tickers → current listed symbols.
 TICKER_ALIAS: dict[str, str] = {
     "GPS": "GAP",
     "SQ": "XYZ",
@@ -192,26 +192,50 @@ TICKER_ALIAS: dict[str, str] = {
     "ASHTEAD": "URI",  # construction rental peer in-universe; never fake ASHTEAD
     "MMC": "MRSH",
     "WACLY": "WSO",  # never Wacoal-as-Watsco; prefer Watsco if needed elsewhere
+    "MYL": "VTRS",  # Mylan → Viatris
+    "PEAK": "DOC",  # Healthpeak renamed / retickered
 }
 
-# Never use as rivals unless hub is intentionally SpaceX-adjacent (none in remaining).
-BANNED_RIVAL_TICKERS = {"SPCX"}
+# Never emit as rivals (delisted, private, wrong product, or charter mislabeled as lessor).
+BANNED_RIVAL_TICKERS = {"SPCX", "MAXR", "FLY", "FLYX", "PEAK", "MYL", "SQ"}
+
+# Preferred+common / dual-ADR of the same issuer → keep one preferred ticker only.
+SHARE_CLASS_PREFERRED: dict[str, str] = {
+    "BBDO": "BBD",  # Bradesco preferred → common ADR
+    "BEPC": "BEP",  # Brookfield Renewable Corp → Partners
+}
+
+
+def share_class_key(t: str) -> str:
+    """Issuer key so preferred+common never appear as mutual / duplicate rivals."""
+    t = (t or "").strip().upper()
+    return SHARE_CLASS_PREFERRED.get(t, t)
 
 
 def canonicalize_ticker(t: str) -> str | None:
     t = (t or "").strip().upper()
-    if not t or t in BANNED_RIVAL_TICKERS:
+    if not t:
         return None
-    return TICKER_ALIAS.get(t, t)
+    # Alias first (MYL→VTRS, PEAK→DOC, SQ→XYZ), then ban leftovers.
+    t = TICKER_ALIAS.get(t, t)
+    if t in BANNED_RIVAL_TICKERS:
+        return None
+    return SHARE_CLASS_PREFERRED.get(t, t)
 
 
 def rivals_from_group(ticker: str, gid: str, n: int = 5) -> list[tuple[str, str, str]]:
     members, zh, en = GROUP_BY_ID[gid]
     out: list[tuple[str, str, str]] = []
+    hub_key = share_class_key(ticker)
+    seen: set[str] = {hub_key}
     for peer in members:
         peer = canonicalize_ticker(peer)
-        if not peer or peer == ticker:
+        if not peer:
             continue
+        key = share_class_key(peer)
+        if key in seen or key == hub_key:
+            continue
+        seen.add(key)
         out.append((peer, zh, en))
         if len(out) >= n:
             break
@@ -232,20 +256,24 @@ def rivals_same_industry(
     peers_mcap = sorted(peers, key=lambda r: -float(r.get("marketCap") or 0))
     peers_near = sorted(peers, key=lambda r: abs(float(r.get("marketCap") or 0) - self_mcap))
     ordered: list[dict] = []
-    seen = set()
+    hub_key = share_class_key(ticker)
+    seen: set[str] = {hub_key}
     for pool in (peers_mcap, peers_near):
         for r in pool:
             t = canonicalize_ticker(r["ticker"])
-            if not t or t in seen or t == ticker:
+            if not t:
                 continue
-            seen.add(t)
-            ordered.append(r if r["ticker"] == t else {**r, "ticker": t})
+            key = share_class_key(t)
+            if key in seen:
+                continue
+            seen.add(key)
+            ordered.append({**r, "ticker": t})
             if len(ordered) >= n + 3:
                 break
         if len(ordered) >= n + 3:
             break
     zh, en = industry_basis(sector, industry)
-    return [(canonicalize_ticker(r["ticker"]) or r["ticker"], zh, en) for r in ordered[:n]]
+    return [(r["ticker"], zh, en) for r in ordered[:n]]
 
 
 def pad_rivals(
@@ -256,31 +284,21 @@ def pad_rivals(
     by_industry: dict[tuple[str, str], list[dict]],
     n: int = 5,
 ) -> list[tuple[str, str, str]]:
-    used = {ticker} | {p for p, _, _ in partial}
+    """Same-industry pad only — never used to fill specialty groups with megacaps."""
+    hub_key = share_class_key(ticker)
+    used = {hub_key} | {share_class_key(p) for p, _, _ in partial}
     out = list(partial)
     for peer, zh, en in rivals_same_industry(ticker, sector, industry, by_industry, n=n + 6):
         peer = canonicalize_ticker(peer)
-        if not peer or peer in used:
+        if not peer:
+            continue
+        key = share_class_key(peer)
+        if key in used:
             continue
         out.append((peer, zh, en))
-        used.add(peer)
+        used.add(key)
         if len(out) >= n:
             break
-    if len(out) < 4:
-        sector_peers: list[dict] = []
-        for (sec, _ind), rows in by_industry.items():
-            if sec == sector:
-                sector_peers.extend(rows)
-        sector_peers = sorted(sector_peers, key=lambda r: -float(r.get("marketCap") or 0))
-        zh, en = industry_basis(sector, industry)
-        for r in sector_peers:
-            t = canonicalize_ticker(r["ticker"])
-            if not t or t in used:
-                continue
-            out.append((t, zh, en))
-            used.add(t)
-            if len(out) >= n:
-                break
     return out[:n]
 
 
@@ -354,7 +372,7 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "saas-vertical-prop",
-        ["APPF", "ZG", "CSGP", "AMT", "COMP"],
+        ["APPF", "ZG", "CSGP", "COMP"],  # proptech; no AMT tower REIT
         "物業／垂直軟體對手",
         "Proptech / vertical software rival",
     ),
@@ -378,7 +396,8 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "aviation-lessor",
-        ["AER", "AL", "FLY", "BA", "GE", "DAL"],
+        # True aircraft lessors only — never pad with OEMs/airlines/charter (FLY/FLYX).
+        ["AER", "AL"],
         "航空機隊租賃對手",
         "Aircraft lessor rival",
     ),
@@ -396,7 +415,7 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "bank-latam",
-        ["ITUB", "NU", "BSBR", "BBD", "BBDO", "BAP", "BCH", "CIB", "BSAC"],
+        ["ITUB", "NU", "BSBR", "BBD", "BAP", "BCH", "CIB", "BSAC"],  # one Bradesco (BBD)
         "拉美銀行對手",
         "LatAm bank rival",
     ),
@@ -426,7 +445,7 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "ophthalmology",
-        ["ALC", "COO", "RXRX", "JNJ", "SYK", "EW"],
+        ["ALC", "COO", "BLCO", "JNJ"],  # vision-care only; no RXRX/SYK/EW
         "眼科／視力保健對手",
         "Ophthalmology / vision-care rival",
     ),
@@ -438,13 +457,13 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "wealth-am",
-        ["AMP", "SCHW", "RJF", "LPLA", "MS", "ET"],
+        ["AMP", "SCHW", "RJF", "LPLA", "MS"],  # never Energy Transfer (ET)
         "財富管理對手",
         "Wealth-management rival",
     ),
     (
         "infra-hold",
-        ["BIP", "BEP", "NEE", "BEPC", "CWEN"],
+        ["BIP", "BEP", "NEE", "CWEN"],  # one Brookfield Renewable (BEP), not BEPC too
         "基建控股對手",
         "Infrastructure holding rival",
     ),
@@ -456,13 +475,13 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "reit-healthcare",
-        ["AHR", "WELL", "VTR", "PEAK", "DOC", "OHI", "CTRE"],
+        ["AHR", "WELL", "VTR", "DOC", "OHI", "CTRE", "SBRA"],  # PEAK→DOC; no delisted PEAK
         "醫療 REIT 對手",
         "Healthcare REIT rival",
     ),
     (
         "reit-office",
-        ["ARE", "BXP", "VNO", "SLG", "DEI", "KRC"],
+        ["ARE", "BXP", "VNO", "PLD", "EQIX", "CCI"],  # in-universe office/specialty; no DEI/KRC/SLG OTC stubs
         "辦公／生科園區 REIT 對手",
         "Office / life-science REIT rival",
     ),
@@ -474,7 +493,7 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "reit-mreit",
-        ["AGNC", "NLY", "STWD", "BXMT", "ARR", "TWO"],
+        ["AGNC", "NLY", "RITM"],  # listed mREITs only; no STWD/BXMT/ARR/TWO OTC stubs
         "抵押 REIT 對手",
         "Mortgage REIT rival",
     ),
@@ -486,7 +505,7 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "metal-fab",
-        ["ATI", "CRS", "HAYN", "MLI", "WOR", "SPXC"],
+        ["ATI", "CRS", "MLI", "WOR", "SPXC", "NUE", "STLD"],  # WOR is NYSE Worthington
         "金屬加工／特鋼對手",
         "Metal fabrication / specialty metals rival",
     ),
@@ -504,13 +523,13 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "pharma-generic",
-        ["AMRX", "TEVA", "VTRS", "PRGO", "MYL", "ELAN"],
+        ["AMRX", "TEVA", "VTRS", "ALKS", "JAZZ", "NBIX"],  # no MYL/ELAN/PRGO
         "學名藥／特用藥對手",
         "Generics / specialty-pharma rival",
     ),
     (
         "airport-ops",
-        ["ASR", "PAC", "OMAB", "JBLU", "ALK", "LUV"],
+        ["ASR", "PAC", "OMAB"],  # airport operators only — not airlines
         "機場營運對手",
         "Airport operator rival",
     ),
@@ -522,13 +541,13 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "security-svc",
-        ["ADT", "ALLE", "BCO", "MSA", "REZI"],
+        ["ADT", "ALLE", "MSA", "JCI"],  # listed only; no BCO/REZI OTC stubs
         "安防服務／產品對手",
         "Security services / products rival",
     ),
     (
         "satellite",
-        ["ASTS", "GSAT", "IRDM", "MAXR", "RKLB"],
+        ["ASTS", "GSAT", "VSAT", "IRDM"],  # satcom only; no RKLB launch / delisted MAXR
         "衛星通訊對手",
         "Satellite communications rival",
     ),
@@ -546,7 +565,7 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "ind-security",
-        ["ALLE", "ADT", "BCO", "MSA", "REZI", "JCI"],
+        ["ALLE", "ADT", "MSA", "JCI"],
         "安防／門禁對手",
         "Security / access-control rival",
     ),
@@ -567,6 +586,66 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
         ["AIT", "MSM", "GWW", "FAST", "WCC", "DXPE"],
         "工業通路對手",
         "Industrial distribution rival",
+    ),
+    (
+        "materials-build",
+        ["CRH", "VMC", "MLM", "AMRZ", "EXP", "CX", "JHX"],  # cement/aggregates; no SHW/APD
+        "建材／水泥骨材對手",
+        "Cement / aggregates rival",
+    ),
+    (
+        "ind-epc",
+        ["PWR", "FIX", "EME", "J", "MTZ", "ACM", "FLR", "APG"],  # EPC contractors; no ETN/VRT
+        "工程承攬／EPC 對手",
+        "Engineering & construction / EPC rival",
+    ),
+    (
+        "ind-svc",
+        ["CTAS", "ARMK", "ROL", "RBA", "CPRT"],  # listed facilities/specialty; no UNF/ABM/HCSG OTC
+        "制服／設施服務對手",
+        "Uniform / facility-services rival",
+    ),
+    (
+        "law-enforcement",
+        ["AXON", "ALLE", "ADT", "MSA"],  # bodycam / less-lethal / security — not defense primes
+        "執法／安防裝備對手",
+        "Law-enforcement / security-equipment rival",
+    ),
+    (
+        "uav-evtol",
+        ["AVAV", "BETA", "JOBY", "KTOS"],  # UAV / eVTOL peers — not GD/NOC/LMT primes
+        "無人機／eVTOL 對手",
+        "UAV / eVTOL rival",
+    ),
+    (
+        "brookfield-biz",
+        ["BBUC", "BAM", "BN", "BIP", "BEP"],
+        "Brookfield 上市業務對手",
+        "Brookfield listed business rival",
+    ),
+    (
+        "apparel-specialty",
+        ["ANF", "URBN", "GAP", "LULU", "VSXY", "VFC", "LEVI"],  # brand apparel; not off-price ROST/TJX/BURL
+        "品牌服飾零售對手",
+        "Specialty apparel retail rival",
+    ),
+    (
+        "bdc-credit",
+        ["ARCC", "OBDC", "MAIN", "CG", "OWL"],  # BDC / alt-credit — not mutual-fund BEN/TROW
+        "BDC／另類信貸對手",
+        "BDC / alternative-credit rival",
+    ),
+    (
+        "dental-devices",
+        ["ALGN", "HSIC", "MMSI", "TFX", "ATR"],  # dental / specialty devices — not BSX/MDT/SYK
+        "牙醫／專科器械對手",
+        "Dental / specialty-device rival",
+    ),
+    (
+        "saas-messaging",
+        ["BRZE", "HUBS", "TEAM", "ZM", "TYL", "DDOG"],  # marketing/engagement SaaS; no UBER/ADP
+        "行銷／互動 SaaS 對手",
+        "Marketing / engagement SaaS rival",
     ),
 ]
 
@@ -656,7 +735,65 @@ TICKER_GROUP_FORCE: dict[str, str] = {
     "AIT": "ind-dist",
     "BKR": "energy-ofs-pure",
     "AEG": "ins-life",
+    "AXON": "law-enforcement",
+    "AVAV": "uav-evtol",
+    "BETA": "uav-evtol",
+    "JOBY": "uav-evtol",
+    "KTOS": "uav-evtol",
+    "BBUC": "brookfield-biz",
+    "ANF": "apparel-specialty",
+    "URBN": "apparel-specialty",
+    "GAP": "apparel-specialty",
+    "ARCC": "bdc-credit",
+    "OBDC": "bdc-credit",
+    "MAIN": "bdc-credit",
+    "ALGN": "dental-devices",
+    "BRZE": "saas-messaging",
+    "AMRZ": "materials-build",
+    "APG": "ind-epc",
+    "ARMK": "ind-svc",
+    "ASR": "airport-ops",
+    "PAC": "airport-ops",
+    "OMAB": "airport-ops",
+    "ALKS": "pharma-generic",
+    "RITM": "reit-mreit",
+    "NLY": "reit-mreit",
 }
+
+
+# Specialty groups that must never be padded with same-industry megacaps.
+NO_PAD_GROUPS = {
+    "aviation-lessor",
+    "airport-ops",
+    "ophthalmology",
+    "law-enforcement",
+    "uav-evtol",
+    "satellite",
+    "reit-mreit",
+    "bdc-credit",
+    "dental-devices",
+    "brookfield-biz",
+    "marine-rv",
+    "wealth-am",
+}
+
+
+def dedupe_rival_rows(ticker: str, rows: list[tuple[str, str, str]], n: int = 5) -> list[tuple[str, str, str]]:
+    hub_key = share_class_key(ticker)
+    out: list[tuple[str, str, str]] = []
+    seen = {hub_key}
+    for peer, zh, en in rows:
+        peer = canonicalize_ticker(peer)
+        if not peer:
+            continue
+        key = share_class_key(peer)
+        if key in seen:
+            continue
+        seen.add(key)
+        out.append((peer, zh, en))
+        if len(out) >= n:
+            break
+    return out
 
 
 def resolve_rivals(
@@ -671,34 +808,25 @@ def resolve_rivals(
     forced = TICKER_GROUP_FORCE.get(ticker)
     if forced and forced in GROUP_BY_ID:
         riv = rivals_from_group(ticker, forced, n=n)
-        if len(riv) >= 4:
+        # Specialty: keep same-product short lists; do not pad with megacaps.
+        if forced in NO_PAD_GROUPS or len(riv) >= 2:
             return riv[:n]
         riv = pad_rivals(ticker, sector, industry, riv, by_industry, n=n)
-        if len(riv) >= 4:
-            return riv[:n]
+        return riv[:n]
 
-    riv = rivals_for(ticker, n=n)
-    # Filter banned / alias after mid-mega rivals_for
-    cleaned = []
-    used = {ticker}
-    for peer, zh, en in riv:
-        peer = canonicalize_ticker(peer)
-        if not peer or peer in used:
-            continue
-        cleaned.append((peer, zh, en))
-        used.add(peer)
-    riv = cleaned
+    riv = dedupe_rival_rows(ticker, rivals_for(ticker, n=n + 3), n=n)
     if len(riv) >= 4:
         return riv[:n]
 
     gid = INDUSTRY_TO_GROUP.get((sector, industry))
     if gid and gid in GROUP_BY_ID:
         riv = rivals_from_group(ticker, gid, n=n)
+        if gid in NO_PAD_GROUPS:
+            return riv[:n]
         if len(riv) >= 4:
             return riv[:n]
         riv = pad_rivals(ticker, sector, industry, riv, by_industry, n=n)
-        if len(riv) >= 4:
-            return riv[:n]
+        return riv[:n]
 
     riv = rivals_same_industry(ticker, sector, industry, by_industry, n=n)
     riv = pad_rivals(ticker, sector, industry, riv, by_industry, n=n)
@@ -782,6 +910,29 @@ EXTRA_NAME_EN: dict[str, str] = {
     "APPF": "AppFolio",
     "ADT": "ADT",
     "ACIW": "ACI Worldwide",
+    "AUB": "Atlantic Union Bankshares",
+    "WOR": "Worthington",
+    "PII": "Polaris",
+    "THO": "Thor Industries",
+    "WGO": "Winnebago",
+    "MBUU": "Malibu Boats",
+    "MCFT": "MasterCraft",
+    "RITM": "Rithm Capital",
+    "BLCO": "Bausch + Lomb",
+    "IRDM": "Iridium",
+    "BBU": "Brookfield Business Partners",
+    "OBDC": "Blue Owl Capital Corporation",
+    "MAIN": "Main Street Capital",
+    "HSIC": "Henry Schein",
+    "JOBY": "Joby Aviation",
+    "KTOS": "Kratos",
+    "AVAV": "AeroVironment",
+    "BETA": "BETA Technologies",
+    "BRZE": "Braze",
+    "AMRZ": "Amrize",
+    "AXON": "Axon",
+    "ALGN": "Align Technology",
+    "ARCC": "Ares Capital",
     "BBUC": "Brookfield Business",
 }
 
@@ -806,8 +957,8 @@ EXTRA_NAME_ZH: dict[str, str] = {
     "SPCX": "SpaceX",
     "COHR": "相干光電",
     "GEHC": "GE醫療",
-    "AVT": "艾睿電子",
-    "ARW": "安富利",
+    "AVT": "安富利",
+    "ARW": "艾睿電子",
     "BSBR": "巴西桑坦德銀行",
     "ALAB": "Astera Labs",
     "ABEV": "百威英博美洲",
@@ -834,6 +985,25 @@ EXTRA_NAME_ZH: dict[str, str] = {
     "CAKE": "起司蛋糕工廠",
     "ALGM": "Allegro MicroSystems",
     "CACC": "Credit Acceptance",
+    "AUB": "大西洋聯合銀行",
+    "WOR": "Worthington",
+    "PII": "Polaris",
+    "THO": "Thor Industries",
+    "WGO": "Winnebago",
+    "MBUU": "Malibu Boats",
+    "MCFT": "MasterCraft",
+    "RITM": "Rithm Capital",
+    "BLCO": "Bausch + Lomb",
+    "IRDM": "Iridium",
+    "AVT": "安富利",
+    "ARW": "艾睿電子",
+    "BRZE": "Braze",
+    "AMRZ": "Amrize",
+    "AXON": "Axon",
+    "ALGN": "Align",
+    "ARCC": "Ares Capital",
+    "AVAV": "AeroVironment",
+    "BETA": "BETA Technologies",
 }
 
 
@@ -920,7 +1090,9 @@ def main() -> int:
     for row in remaining:
         t = row["ticker"]
         riv = resolve_rivals(t, row, by_industry, n=5)
-        if len(riv) < 4:
+        forced = TICKER_GROUP_FORCE.get(t)
+        min_peers = 1 if forced in NO_PAD_GROUPS else 2
+        if len(riv) < min_peers:
             missing_rivals.append((t, len(riv), [x[0] for x in riv], row.get("industry")))
             continue
         competitors[t] = [[a, b, c] for a, b, c in riv]
@@ -945,8 +1117,8 @@ def main() -> int:
         "F": ("Ford", "福特", "NYSE"),
         "A": ("Agilent", "安捷倫", "NYSE"),
         "VALE": ("Vale", "淡水河谷", "NYSE"),
-        "AVT": ("Avnet", "艾睿電子", "NASDAQ"),
-        "ARW": ("Arrow Electronics", "安富利", "NYSE"),
+        "AVT": ("Avnet", "安富利", "NASDAQ"),
+        "ARW": ("Arrow Electronics", "艾睿電子", "NYSE"),
         "VEEV": ("Veeva", "維瓦系統", "NYSE"),
         "ZBH": ("Zimmer Biomet", "捷邁邦美", "NYSE"),
         "IHG": ("IHG", "洲際酒店集團", "NYSE"),
@@ -960,8 +1132,20 @@ def main() -> int:
         "CHH": ("Choice Hotels", "Choice Hotels", "NYSE"),
         "CIG": ("CEMIG", "CEMIG", "NYSE"),
         "AL": ("Air Lease", "Air Lease", "NYSE"),
-        "FLY": ("FlyExclusive", "FlyExclusive", "OTC"),
         "SPXC": ("SPX Technologies", "SPX Technologies", "NYSE"),
+        "AUB": ("Atlantic Union Bankshares", "大西洋聯合銀行", "NYSE"),
+        "WOR": ("Worthington", "Worthington", "NYSE"),
+        "PII": ("Polaris", "Polaris", "NYSE"),
+        "THO": ("Thor Industries", "Thor Industries", "NYSE"),
+        "WGO": ("Winnebago", "Winnebago", "NYSE"),
+        "MBUU": ("Malibu Boats", "Malibu Boats", "NASDAQ"),
+        "MCFT": ("MasterCraft", "MasterCraft", "NASDAQ"),
+        "IRDM": ("Iridium", "Iridium", "NASDAQ"),
+        "RITM": ("Rithm Capital", "Rithm Capital", "NYSE"),
+        "BLCO": ("Bausch + Lomb", "Bausch + Lomb", "NYSE"),
+        "BBU": ("Brookfield Business Partners", "Brookfield Business Partners", "NYSE"),
+        "AVT": ("Avnet", "安富利", "NASDAQ"),
+        "ARW": ("Arrow Electronics", "艾睿電子", "NYSE"),
     }
     for t, (en, zh, ex) in forced_ents.items():
         entities[t] = {
@@ -994,18 +1178,33 @@ def main() -> int:
             if _has_cjk(zh) or not _has_cjk(cur_zh):
                 entities[t]["name_zh"] = zh
 
-    # Scrub banned rivals from any competitor lists.
+    # Force-refresh specialty hubs from TICKER_GROUP_FORCE (clears stale megacap pads).
+    for hub, gid in TICKER_GROUP_FORCE.items():
+        if gid not in GROUP_BY_ID:
+            continue
+        riv = rivals_from_group(hub, gid, n=5)
+        if riv:
+            competitors[hub] = [[a, b, c] for a, b, c in riv]
+
+    # Drop delisted / mislabeled stub entities (never ship OTC ticker-only rows).
+    for gone in ("PEAK", "MYL", "FLY", "FLYX", "MAXR", "SQ"):
+        entities.pop(gone, None)
+
+    # Scrub banned / share-class / alias rivals from any competitor lists.
     for hub, arr in list(competitors.items()):
         cleaned = []
-        seen = {hub}
+        seen = {share_class_key(hub)}
         for item in arr:
             if not item:
                 continue
             peer = canonicalize_ticker(item[0])
-            if not peer or peer in seen:
+            if not peer:
+                continue
+            key = share_class_key(peer)
+            if key in seen:
                 continue
             cleaned.append([peer, item[1], item[2]])
-            seen.add(peer)
+            seen.add(key)
         competitors[hub] = cleaned
 
     write_json(ENT_PATH, entities)

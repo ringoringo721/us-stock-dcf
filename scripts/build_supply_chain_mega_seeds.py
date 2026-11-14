@@ -265,6 +265,29 @@ def resolve_entity(ticker: str, entities: dict, universe_by_ticker: dict | None 
     return {"name_en": name_en, "name_zh": name_zh, "exchange": exchange}
 
 
+# Stage-player ticker rewrites (must match catalog aliases). Never emit both SQ and XYZ.
+STAGE_TICKER_ALIAS: dict[str, str] = {
+    "SQ": "XYZ",
+    "GPS": "GAP",
+    "BK": "BNY",
+    "MSC": "MSM",
+    "MYL": "VTRS",
+    "PEAK": "DOC",
+    "MMC": "MRSH",
+}
+STAGE_TICKER_BANNED = {"SPCX", "MAXR", "FLY", "FLYX", "SQ", "PEAK", "MYL"}
+
+
+def normalize_stage_ticker(t: str) -> str | None:
+    t = (t or "").strip().upper()
+    if not t:
+        return None
+    t = STAGE_TICKER_ALIAS.get(t, t)
+    if t in STAGE_TICKER_BANNED:
+        return None
+    return t
+
+
 def build_seed(
     row: dict,
     entities: dict,
@@ -309,21 +332,36 @@ def build_seed(
     for stage_meta in model["stages"]:
         sid = stage_meta["id"]
         raw_players = list(stage_players.get(sid) or players_by_model[model_id].get(sid) or [])
-        # Drop self; keep order; pad from other stages in the same model, then any entity.
-        picked = [t for t in raw_players if t != ticker]
+        # Drop self; rewrite aliases (SQ→XYZ); keep order; pad from other stages, then entities.
+        picked: list[str] = []
+        seen_players: set[str] = {ticker}
+        for t in raw_players:
+            nt = normalize_stage_ticker(t)
+            if not nt or nt in seen_players:
+                continue
+            picked.append(nt)
+            seen_players.add(nt)
         if len(picked) < 3:
             for other_sid, arr in (players_by_model.get(model_id) or {}).items():
                 for t in arr:
-                    if t != ticker and t not in picked:
-                        picked.append(t)
+                    nt = normalize_stage_ticker(t)
+                    if not nt or nt in seen_players:
+                        continue
+                    picked.append(nt)
+                    seen_players.add(nt)
                     if len(picked) >= 3:
                         break
                 if len(picked) >= 3:
                     break
         if len(picked) < 3:
             for t in entities:
-                if t != ticker and t not in picked and not t.startswith('_'):
-                    picked.append(t)
+                if t.startswith("_"):
+                    continue
+                nt = normalize_stage_ticker(t)
+                if not nt or nt in seen_players:
+                    continue
+                picked.append(nt)
+                seen_players.add(nt)
                 if len(picked) >= 3:
                     break
         picked = picked[:3]
@@ -361,9 +399,13 @@ def build_seed(
         )
 
     comps = []
+    seen_comp = {ticker}
     for ct, basis_zh, basis_en in competitors.get(ticker) or []:
-        if ct == ticker:
+        ct = normalize_stage_ticker(ct) or (ct or "").strip().upper()
+        # Still drop banned even if alias missed; skip self / dupes.
+        if not ct or ct == ticker or ct in seen_comp or ct in STAGE_TICKER_BANNED:
             continue
+        seen_comp.add(ct)
         ce = resolve_entity(ct, entities, universe_by_ticker)
         comps.append(
             {
@@ -547,7 +589,8 @@ def validate_seed(seed: dict) -> list[str]:
             if not (p.get("exchange") or "").strip():
                 errors.append(f"entity:player:{pt}:blank-exchange")
     comps = seed.get("competitors") or []
-    if not (4 <= len(comps) <= 6):
+    # Specialty short lists (true lessors / airport ops / etc.) may be 1–3 peers.
+    if not (1 <= len(comps) <= 6):
         errors.append(f"competitors:{len(comps)}")
     for c in comps:
         if c.get("ticker") == seed.get("ticker"):
