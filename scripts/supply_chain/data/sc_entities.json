@@ -1629,11 +1629,6 @@
     "name_zh": "淡水河谷",
     "exchange": "NYSE"
   },
-  "GOLD": {
-    "name_en": "Barrick Gold",
-    "name_zh": "巴里克黃金",
-    "exchange": "NYSE"
-  },
   "DOW": {
     "name_en": "Dow",
     "name_zh": "陶氏化學",
@@ -2445,8 +2440,8 @@
     "exchange": "NYSE"
   },
   "SIG": {
-    "name_en": "Signet",
-    "name_zh": "Signet",
+    "name_en": "Signet Jewelers",
+    "name_zh": "Signet 珠寶",
     "exchange": "NYSE"
   },
   "MOV": {
@@ -5240,8 +5235,8 @@
     "exchange": "NYSE"
   },
   "PCOR": {
-    "name_en": "Procore Technologies",
-    "name_zh": "Procore Technologies",
+    "name_en": "Procore",
+    "name_zh": "Procore",
     "exchange": "NYSE"
   },
   "TECH": {
@@ -7350,9 +7345,9 @@
     "exchange": "NYSE"
   },
   "PRGO": {
-    "name_en": "PRGO",
-    "name_zh": "PRGO",
-    "exchange": "OTC"
+    "name_en": "Perrigo",
+    "name_zh": "Perrigo",
+    "exchange": "NYSE"
   },
   "ET": {
     "name_en": "ET",
@@ -7679,11 +7674,6 @@
     "name_zh": "Cushman & Wakefield",
     "exchange": "NYSE"
   },
-  "BERY": {
-    "name_en": "Berry Global",
-    "name_zh": "Berry Global",
-    "exchange": "NYSE"
-  },
   "SON": {
     "name_en": "Sonoco",
     "name_zh": "Sonoco",
@@ -7708,5 +7698,25 @@
     "name_en": "PennyMac",
     "name_zh": "PennyMac",
     "exchange": "NYSE"
+  },
+  "GPK": {
+    "name_en": "Graphic Packaging",
+    "name_zh": "Graphic Packaging",
+    "exchange": "NYSE"
+  },
+  "UPST": {
+    "name_en": "Upstart",
+    "name_zh": "Upstart",
+    "exchange": "NASDAQ"
+  },
+  "LC": {
+    "name_en": "LendingClub",
+    "name_zh": "LendingClub",
+    "exchange": "NYSE"
+  },
+  "QBCRY": {
+    "name_en": "Quebecor",
+    "name_zh": "Quebecor",
+    "exchange": "OTC"
   }
 }

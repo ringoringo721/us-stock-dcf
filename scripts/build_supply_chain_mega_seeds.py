@@ -295,8 +295,9 @@ STAGE_TICKER_ALIAS: dict[str, str] = {
     "PEAK": "DOC",
     "MMC": "MRSH",
     "SJW": "HTO",
+    "GOLD": "B",  # Barrick Gold → Barrick Mining
 }
-STAGE_TICKER_BANNED = {"SPCX", "MAXR", "FLY", "FLYX", "SQ", "PEAK", "MYL", "RDFN", "SJW"}
+STAGE_TICKER_BANNED = {"SPCX", "MAXR", "FLY", "FLYX", "SQ", "PEAK", "MYL", "RDFN", "SJW", "GOLD", "BERY"}
 
 # Same-issuer dual listings (TWSE/ADR etc.) — never stage+rival the same issuer.
 DUAL_LIST_ISSUER: dict[str, str] = {
@@ -304,6 +305,8 @@ DUAL_LIST_ISSUER: dict[str, str] = {
     "ASX": "ASE",
     "BEKE": "BEKE",
     "2423.HK": "BEKE",
+    "GOLD": "B",
+    "B": "B",
 }
 
 def issuer_key(t: str) -> str:

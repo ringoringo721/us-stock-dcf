@@ -1,6 +1,6 @@
 {
   "remainingTotal": 1041,
-  "competitorsWritten": 1024,
+  "competitorsWritten": 1023,
   "missingRivals": [
     [
       "RKT",
@@ -59,6 +59,14 @@
         "AOS"
       ],
       "Industrial - Machinery"
+    ],
+    [
+      "PCOR",
+      1,
+      [
+        "APPF"
+      ],
+      "Software - Application"
     ],
     [
       "FRHC",
@@ -127,7 +135,7 @@
       "Uranium"
     ]
   ],
-  "entityCount": 1542,
+  "entityCount": 1546,
   "bands": {
     "20-50B": 291,
     "10-20B": 311,

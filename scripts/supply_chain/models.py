@@ -1924,6 +1924,21 @@ MODELS: dict[str, dict] = {
         ],
     },
 
+
+    "precious-metals-v1": {
+        "label_zh": "貴金屬礦業價值鏈",
+        "label_en": "Precious-metals mining value chain",
+        "description_zh": "礦山設備 → 開採 → 貴金屬冶煉／精煉 → 物流 → 珠寶／金條承銷。",
+        "description_en": "Mining equipment → extraction → precious smelting/refining → logistics → jewelry / bullion offtake.",
+        "stages": [
+            {"id": "equipment", "order": 1, "label_zh": "礦山／工程設備", "label_en": "Mining / engineering equipment", "summary_zh": "挖土機與工程機械。", "summary_en": "Excavators and engineering kit."},
+            {"id": "extraction", "order": 2, "label_zh": "開採／選礦", "label_en": "Extraction / processing", "summary_zh": "礦場營運與選礦。", "summary_en": "Mine ops and processing."},
+            {"id": "smelting", "order": 3, "label_zh": "貴金屬冶煉／精煉", "label_en": "Precious smelting / refining", "summary_zh": "貴金屬精煉與工業氣體。", "summary_en": "Precious refining and industrial gases."},
+            {"id": "logistics", "order": 4, "label_zh": "物流／港口", "label_en": "Logistics / ports", "summary_zh": "礦產運輸。", "summary_en": "Ore and metal transport."},
+            {"id": "customers", "order": 5, "label_zh": "珠寶／金條承銷", "label_en": "Jewelry / bullion offtake", "summary_zh": "珠寶商與金條／交易承銷。", "summary_en": "Jewelers and bullion / trading offtake."},
+        ],
+    },
+
     "auto-dealer-v1": {
         "label_zh": "汽車經銷價值鏈",
         "label_en": "Auto dealership value chain",
@@ -2314,13 +2329,15 @@ TICKER_MODEL: dict[str, str] = {
     "ACI": "grocery-retail-v1",
     "NLY": "mreit-v1",
     "RITM": "mreit-v1",
-    "AG": "basic-materials-v1",
-    "AGI": "basic-materials-v1",
-    "AUGO": "basic-materials-v1",
+    "AG": "precious-metals-v1",
+    "AGI": "precious-metals-v1",
+    "AUGO": "precious-metals-v1",
     "ABVX": "pharma-v1",
     "ARWR": "pharma-v1",
     "ALKS": "pharma-v1",
     "GME": "ecommerce-retail-v1",
+    "BCE": "telecom-v1",
+    "AIZ": "insurance-v1",
 }
 
 

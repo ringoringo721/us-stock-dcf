@@ -91,7 +91,7 @@ INDUSTRY_TO_GROUP: dict[tuple[str, str], str] = {
     ("Industrials", "Specialty Business Services"): "ind-svc",
     ("Industrials", "Trucking"): "ind-logistics",
     ("Industrials", "Marine Shipping"): "ind-logistics",
-    ("Industrials", "Security & Protection Services"): "ind-security",
+    ("Industrials", "Security & Protection Services"): "door-hardware",
     ("Basic Materials", "Gold"): "materials-gold",
     ("Basic Materials", "Other Precious Metals"): "materials-gold",
     ("Basic Materials", "Silver"): "materials-gold",
@@ -195,10 +195,11 @@ TICKER_ALIAS: dict[str, str] = {
     "MYL": "VTRS",  # Mylan → Viatris
     "PEAK": "DOC",  # Healthpeak renamed / retickered
     "SJW": "HTO",  # SJW Group → HTO
+    "GOLD": "B",  # Barrick Gold → Barrick Mining (May 2025 rename)
 }
 
 # Never emit as rivals (delisted, private, wrong product, or charter mislabeled as lessor).
-BANNED_RIVAL_TICKERS = {"SPCX", "MAXR", "FLY", "FLYX", "PEAK", "MYL", "SQ", "RDFN", "SJW"}
+BANNED_RIVAL_TICKERS = {"SPCX", "MAXR", "FLY", "FLYX", "PEAK", "MYL", "SQ", "RDFN", "SJW", "GOLD", "BERY"}
 
 # Preferred+common / dual-ADR of the same issuer → keep one preferred ticker only.
 SHARE_CLASS_PREFERRED: dict[str, str] = {
@@ -212,6 +213,8 @@ DUAL_LIST_ISSUER: dict[str, str] = {
     "ASX": "ASE",  # ASE Technology ADR
     "BEKE": "BEKE",
     "2423.HK": "BEKE",  # KE Holdings HK listing
+    "GOLD": "B",  # Barrick rename — never GOLD+B as mutual rivals
+    "B": "B",
 }
 
 # Parent/subsidiary controlling-stake pairs — never mutual product/market rivals.
@@ -389,9 +392,9 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "saas-vertical-prop",
-        ["APPF", "ZG", "CSGP", "COMP"],  # proptech; no AMT tower REIT
-        "物業／垂直軟體對手",
-        "Proptech / vertical software rival",
+        ["ZG", "CSGP", "COMP"],  # listings / brokerage proptech — APPF moved to prop-mgmt SaaS
+        "房仲／房產數據對手",
+        "Listings / real-estate data rival",
     ),
     (
         "payments-soft",
@@ -432,7 +435,7 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "bank-latam",
-        ["ITUB", "NU", "BSBR", "BBD", "BAP", "BCH", "CIB", "BSAC"],  # one Bradesco (BBD)
+        ["ITUB", "NU", "BSBR", "BBD", "CIB"],  # Brazil/LatAm — Chile banks in bank-chile
         "拉美銀行對手",
         "LatAm bank rival",
     ),
@@ -480,9 +483,9 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "infra-hold",
-        ["BIP", "BEP", "NEE", "CWEN"],  # one Brookfield Renewable (BEP), not BEPC too
-        "基建控股對手",
-        "Infrastructure holding rival",
+        ["BIP", "SRE", "DUK", "AWK", "NEE"],  # drop sister BEP; true infra / utility holds
+        "基建／公用控股對手",
+        "Infrastructure / utility holding rival",
     ),
     (
         "reit-residential",
@@ -558,7 +561,7 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "security-svc",
-        ["ADT", "ALLE", "JCI"],  # security services / access — MSA is PPE not monitored security
+        ["ADT", "JCI"],  # monitored security — ALLE moved to door-hardware
         "安防服務／產品對手",
         "Security services / products rival",
     ),
@@ -581,10 +584,10 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
         "Nutrition / specialty-chem rival",
     ),
     (
-        "ind-security",
-        ["ALLE", "ADT", "MSA", "JCI"],
-        "安防／門禁對手",
-        "Security / access-control rival",
+        "door-hardware",
+        ["ALLE", "JCI", "SWK"],  # door hardware / access — drop ADT monitored / MSA PPE
+        "門禁／五金對手",
+        "Door hardware / access rival",
     ),
     (
         "energy-ofs-pure",
@@ -720,7 +723,7 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "packaging-disp",
-        ["ATR", "AMCR", "BERY", "SON", "SLGN"],  # specialty dispensing/closures — drop BALL/CCK/PKG
+        ["ATR", "AMCR", "SON", "SLGN", "GPK"],  # live specialty packaging — drop delisted BERY (now in AMCR)
         "特用給藥／瓶蓋包裝對手",
         "Specialty dispensing / closures rival",
     ),
@@ -852,19 +855,19 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "materials-gold",
-        ["AEM", "NEM", "GOLD", "B", "KGC", "AU", "GFI", "AGI", "AUGO"],  # operating miners — drop WPM streamer
+        ["AEM", "NEM", "B", "KGC", "AU", "GFI", "AGI", "AUGO"],  # operating miners — drop WPM; GOLD→B Barrick rename
         "金礦對手",
         "Gold miner rival",
     ),
     (
         "pharma-cns",
-        ["ALKS", "JAZZ", "NBIX", "BMRN"],  # CNS specialty — not generics AMRX/TEVA/VTRS
+        ["ALKS", "JAZZ", "NBIX"],  # CNS specialty — drop BMRN rare-disease
         "中樞神經特用藥對手",
         "CNS specialty-pharma rival",
     ),
     (
         "pharma-ibd",
-        ["ABVX", "INCY", "MDGL", "BMRN"],  # IBD / GI / immuno specialty — not mega biopharma template
+        ["ABVX", "ABBV", "JNJ", "INCY"],  # true IBD/GI immuno — drop MDGL/BMRN
         "IBD／消化／免疫特用藥對手",
         "IBD / GI / immuno specialty-pharma rival",
     ),
@@ -879,6 +882,36 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
         ["ACI", "KR", "CASY", "WMT", "COST"],  # grocery / food retail — not apparel/ecommerce stages
         "超市／雜貨零售對手",
         "Grocery / food retail rival",
+    ),
+    (
+        "telco-canada",
+        ["BCE", "RCI", "TU", "QBCRY"],  # Canadian telcos — not US CMCSA/CHTR/T/VZ/TMUS
+        "加拿大電信對手",
+        "Canadian telecom rival",
+    ),
+    (
+        "bank-chile",
+        ["BCH", "BSAC", "BAP"],  # Chile first; BAP Andean pad only
+        "智利／安地斯銀行對手",
+        "Chile / Andean bank rival",
+    ),
+    (
+        "saas-prop-mgmt",
+        ["APPF", "PCOR"],  # property / construction ops SaaS — not ZG/CSGP/COMP listings
+        "物業／營運管理 SaaS 對手",
+        "Property / ops-management SaaS rival",
+    ),
+    (
+        "bnpl-lend",
+        ["AFRM", "PYPL", "SOFI", "UPST", "LC"],  # BNPL / consumer lending — V/MA/AXP/GPN are rails
+        "先買後付／消費貸對手",
+        "BNPL / consumer-lending rival",
+    ),
+    (
+        "ins-specialty",
+        ["AIZ", "AFG", "ORI", "WRB", "CNA"],  # lifestyle / specialty / creditor-placed — not mega P&C
+        "特種／生活型態保險對手",
+        "Specialty / lifestyle insurance rival",
     ),
 ]
 for _gid, _members, _zh, _en in EXTRA_PEER_GROUPS:
@@ -897,7 +930,7 @@ for _gid, _members, _zh, _en in EXTRA_PEER_GROUPS:
 TICKER_GROUP_FORCE: dict[str, str] = {
     "PYPL": "payments-credit",
     "GPN": "payments-credit",
-    "AFRM": "payments-credit",
+    "AFRM": "bnpl-lend",
     "SOFI": "payments-credit",
     "XYZ": "payments-credit",
     "TOST": "payments-credit",
@@ -914,7 +947,7 @@ TICKER_GROUP_FORCE: dict[str, str] = {
     "ZM": "saas-crm-collab",
     "TEAM": "saas-crm-collab",
     "WDAY": "saas-crm-collab",
-    "APPF": "saas-vertical-prop",
+    "APPF": "saas-prop-mgmt",
     "ACIW": "payments-soft",
     "VALE": "materials-mining",
     "TECK": "materials-mining",
@@ -933,7 +966,7 @@ TICKER_GROUP_FORCE: dict[str, str] = {
     "BBD": "bank-latam",
     "BBDO": "bank-latam",
     "BSBR": "bank-latam",
-    "BCH": "bank-latam",
+    "BCH": "bank-chile",
     "CIB": "bank-latam",
     "ITUB": "bank-latam",
     "NU": "bank-latam",
@@ -963,7 +996,7 @@ TICKER_GROUP_FORCE: dict[str, str] = {
     "ASR": "airport-ops",
     "AEIS": "power-conv",
     "ADT": "security-svc",
-    "ALLE": "ind-security",
+    "ALLE": "door-hardware",
     "ASTS": "satellite",
     "GSAT": "satellite",
     "VSAT": "satellite",
@@ -1023,7 +1056,7 @@ TICKER_GROUP_FORCE: dict[str, str] = {
     "ZG": "saas-vertical-prop",
     "CSGP": "saas-vertical-prop",
     "COMP": "saas-vertical-prop",
-    "APPF": "saas-vertical-prop",
+    # APPF forced to saas-prop-mgmt above — not listings/brokerage proptech
     "VRSK": "risk-data",
     "EFX": "risk-data",
     "TRU": "risk-data",
@@ -1050,6 +1083,12 @@ TICKER_GROUP_FORCE: dict[str, str] = {
     "ICLR": "cro-clinical",
     "CRL": "cro-clinical",
     "MEDP": "cro-clinical",
+    "BCE": "telco-canada",
+    "RCI": "telco-canada",
+    "TU": "telco-canada",
+    "BSAC": "bank-chile",
+    "AIZ": "ins-specialty",
+
 }
 
 
@@ -1057,6 +1096,12 @@ TICKER_GROUP_FORCE: dict[str, str] = {
 
 # Specialty groups that must never be padded with same-industry megacaps.
 NO_PAD_GROUPS = {
+    "door-hardware",
+    "ins-specialty",
+    "bnpl-lend",
+    "saas-prop-mgmt",
+    "bank-chile",
+    "telco-canada",
     "aviation-lessor",
     "airport-ops",
     "ophthalmology",
@@ -1711,6 +1756,12 @@ def main() -> int:
         "SAM": ("Boston Beer", "波士頓啤酒", "NYSE"),
         "HEINY": ("Heineken", "喜力", "OTC"),
         "NICE": ("NICE", "NICE", "NASDAQ"),
+        "PCOR": ("Procore", "Procore", "NYSE"),
+        "SIG": ("Signet Jewelers", "Signet 珠寶", "NYSE"),
+        "PRGO": ("Perrigo", "Perrigo", "NYSE"),
+        "LC": ("LendingClub", "LendingClub", "NYSE"),
+        "UPST": ("Upstart", "Upstart", "NASDAQ"),
+        "QBCRY": ("Quebecor", "Quebecor", "OTC"),
         "ABEV": ("Ambev", "安貝夫", "NYSE"),
         "BTBT": ("Bit Digital", "Bit Digital", "NASDAQ"),
         "CWK": ("Cushman & Wakefield", "Cushman & Wakefield", "NYSE"),
@@ -1726,9 +1777,9 @@ def main() -> int:
         "MAN": ("ManpowerGroup", "ManpowerGroup", "NYSE"),
         "ASGN": ("ASGN", "ASGN", "NYSE"),
         "NICE": ("NICE", "NICE", "NASDAQ"),
-        "BERY": ("Berry Global", "Berry Global", "NYSE"),
         "SON": ("Sonoco", "Sonoco", "NYSE"),
         "SLGN": ("Silgan", "Silgan", "NYSE"),
+        "GPK": ("Graphic Packaging", "Graphic Packaging", "NYSE"),
         "FNMA": ("Fannie Mae", "房利美", "OTC"),
         "FMCC": ("Freddie Mac", "房地美", "OTC"),
         "PFSI": ("PennyMac", "PennyMac", "NYSE"),
@@ -1736,7 +1787,6 @@ def main() -> int:
         "PAAS": ("Pan American Silver", "泛美銀業", "NYSE"),
         "HL": ("Hecla Mining", "赫克拉礦業", "NYSE"),
         "CDE": ("Coeur Mining", "科爾礦業", "NYSE"),
-        "GOLD": ("Barrick Gold", "巴里克黃金", "NYSE"),
         "ALNY": ("Alnylam", "Alnylam", "NASDAQ"),
         "IONS": ("Ionis", "Ionis", "NASDAQ"),
         "WSM": ("Williams-Sonoma", "Williams-Sonoma", "NYSE"),

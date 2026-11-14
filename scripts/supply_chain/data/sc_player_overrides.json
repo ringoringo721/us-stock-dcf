@@ -319,8 +319,8 @@
     ],
     "customers": [
       "SIG",
-      "TPR",
-      "FNV"
+      "JPM",
+      "GS"
     ]
   },
   "AG": {
@@ -346,8 +346,8 @@
     ],
     "customers": [
       "SIG",
-      "TPR",
-      "FNV"
+      "JPM",
+      "GS"
     ]
   },
   "AUGO": {
@@ -373,8 +373,8 @@
     ],
     "customers": [
       "SIG",
-      "TPR",
-      "FNV"
+      "JPM",
+      "GS"
     ]
   },
   "BCPC": {
@@ -453,9 +453,9 @@
       "AJG"
     ],
     "claims": [
-      "PGR",
-      "TRV",
-      "ALL"
+      "UNH",
+      "HCA",
+      "CI"
     ]
   }
 }

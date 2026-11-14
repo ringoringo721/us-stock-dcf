@@ -1065,9 +1065,9 @@
       "ASGN"
     ],
     "channel": [
-      "CBRE",
-      "JLL",
-      "SPG"
+      "HRB",
+      "INTU",
+      "ADP"
     ],
     "marketing": [
       "GOOG",
@@ -1213,6 +1213,33 @@
       "BLK",
       "BX",
       "BRK-B"
+    ]
+  },
+  "precious-metals-v1": {
+    "equipment": [
+      "CAT",
+      "DE",
+      "PH"
+    ],
+    "extraction": [
+      "BHP",
+      "RIO",
+      "FCX"
+    ],
+    "smelting": [
+      "LIN",
+      "APD",
+      "NEM"
+    ],
+    "logistics": [
+      "UNP",
+      "CSX",
+      "FDX"
+    ],
+    "customers": [
+      "SIG",
+      "JPM",
+      "GS"
     ]
   }
 }
