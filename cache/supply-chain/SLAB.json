@@ -1,0 +1,246 @@
+{
+  "version": 1,
+  "ticker": "SLAB",
+  "name_en": "Silicon Laboratories",
+  "name_zh": "Silicon Laboratories",
+  "updatedAt": "2026-11-14",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "semiconductor-fabless-v1",
+    "references": [
+      "Industry model `semiconductor-fabless-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "semiconductor-fabless-v1",
+    "label_zh": "半導體設計／無晶圓廠價值鏈",
+    "label_en": "Semiconductor fabless value chain",
+    "description_zh": "裝置／材料 → 晶圓代工 → 封測／記憶體 → 系統／雲端客戶 → 通路。",
+    "description_en": "Tools/materials → foundry → OSAT/memory → system/cloud customers → channel."
+  },
+  "stages": [
+    {
+      "id": "equipment",
+      "order": 1,
+      "label_zh": "製程裝置／材料",
+      "label_en": "Process equipment / materials",
+      "summary_zh": "微影、沉積、蝕刻與晶圓材料。",
+      "summary_en": "Lithography, deposition, etch, wafers.",
+      "players": [
+        {
+          "ticker": "ASML",
+          "name_en": "ASML",
+          "name_zh": "ASML",
+          "role_zh": "ASML：製程裝置／材料代表性玩家",
+          "role_en": "ASML: representative player in Process equipment / materials",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "AMAT",
+          "name_en": "Applied Materials",
+          "name_zh": "應用材料",
+          "role_zh": "應用材料：製程裝置／材料代表性玩家",
+          "role_en": "Applied Materials: representative player in Process equipment / materials",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "LRCX",
+          "name_en": "Lam Research",
+          "name_zh": "科林研發",
+          "role_zh": "科林研發：製程裝置／材料代表性玩家",
+          "role_en": "Lam Research: representative player in Process equipment / materials",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "foundry",
+      "order": 2,
+      "label_zh": "晶圓代工",
+      "label_en": "Foundry",
+      "summary_zh": "先進／成熟製程代工。",
+      "summary_en": "Advanced and mature-node foundries.",
+      "players": [
+        {
+          "ticker": "TSM",
+          "name_en": "TSM",
+          "name_zh": "臺積電 ADR",
+          "role_zh": "臺積電 ADR：晶圓代工代表性玩家",
+          "role_en": "TSM: representative player in Foundry",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "GFS",
+          "name_en": "GlobalFoundries",
+          "name_zh": "GlobalFoundries",
+          "role_zh": "GlobalFoundries：晶圓代工代表性玩家",
+          "role_en": "GlobalFoundries: representative player in Foundry",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "2303.TW",
+          "name_en": "UMC",
+          "name_zh": "聯電",
+          "role_zh": "聯電：晶圓代工代表性玩家",
+          "role_en": "UMC: representative player in Foundry",
+          "exchange": "TWSE",
+          "listedInApp": false
+        }
+      ]
+    },
+    {
+      "id": "osat-memory",
+      "order": 3,
+      "label_zh": "封測／高頻寬記憶體",
+      "label_en": "OSAT / HBM memory",
+      "summary_zh": "先進封裝與 HBM／DRAM 供應。",
+      "summary_en": "Advanced packaging and HBM/DRAM.",
+      "players": [
+        {
+          "ticker": "3711.TW",
+          "name_en": "ASE Technology",
+          "name_zh": "日月光投控",
+          "role_zh": "日月光投控：封測／高頻寬記憶體代表性玩家",
+          "role_en": "ASE Technology: representative player in OSAT / HBM memory",
+          "exchange": "TWSE",
+          "listedInApp": false
+        },
+        {
+          "ticker": "MU",
+          "name_en": "Micron Technology",
+          "name_zh": "美光科技",
+          "role_zh": "美光科技：封測／高頻寬記憶體代表性玩家",
+          "role_en": "Micron Technology: representative player in OSAT / HBM memory",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "000660.KS",
+          "name_en": "SK hynix",
+          "name_zh": "SK 海力士",
+          "role_zh": "SK 海力士：封測／高頻寬記憶體代表性玩家",
+          "role_en": "SK hynix: representative player in OSAT / HBM memory",
+          "exchange": "KRX",
+          "listedInApp": false
+        }
+      ]
+    },
+    {
+      "id": "customers",
+      "order": 4,
+      "label_zh": "系統／雲端客戶",
+      "label_en": "System / cloud customers",
+      "summary_zh": "伺服器、OEM 與超大規模雲端。",
+      "summary_en": "Servers, OEMs, and hyperscalers.",
+      "players": [
+        {
+          "ticker": "MSFT",
+          "name_en": "Microsoft",
+          "name_zh": "微軟",
+          "role_zh": "微軟：系統／雲端客戶代表性玩家",
+          "role_en": "Microsoft: representative player in System / cloud customers",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "AMZN",
+          "name_en": "Amazon.com",
+          "name_zh": "亞馬遜",
+          "role_zh": "亞馬遜：系統／雲端客戶代表性玩家",
+          "role_en": "Amazon.com: representative player in System / cloud customers",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "META",
+          "name_en": "Meta Platforms",
+          "name_zh": "Meta (臉書)",
+          "role_zh": "Meta (臉書)：系統／雲端客戶代表性玩家",
+          "role_en": "Meta Platforms: representative player in System / cloud customers",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "channel",
+      "order": 5,
+      "label_zh": "通路／經銷",
+      "label_en": "Distribution channel",
+      "summary_zh": "電子零件通路與加值經銷。",
+      "summary_en": "Electronics distribution.",
+      "players": [
+        {
+          "ticker": "AVT",
+          "name_en": "Avnet",
+          "name_zh": "艾睿電子",
+          "role_zh": "艾睿電子：通路／經銷代表性玩家",
+          "role_en": "Avnet: representative player in Distribution channel",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "ARW",
+          "name_en": "Arrow Electronics",
+          "name_zh": "安富利",
+          "role_zh": "安富利：通路／經銷代表性玩家",
+          "role_en": "Arrow Electronics: representative player in Distribution channel",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "SNX",
+          "name_en": "TD Synnex",
+          "name_zh": "SYNNEX",
+          "role_zh": "SYNNEX：通路／經銷代表性玩家",
+          "role_en": "TD Synnex: representative player in Distribution channel",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "NVDA",
+      "name_en": "NVIDIA",
+      "name_zh": "輝達",
+      "basis_zh": "半導體產品對手",
+      "basis_en": "Semiconductor product rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "TSM",
+      "name_en": "TSM",
+      "name_zh": "臺積電 ADR",
+      "basis_zh": "半導體產品對手",
+      "basis_en": "Semiconductor product rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "AVGO",
+      "name_en": "Broadcom",
+      "name_zh": "博通",
+      "basis_zh": "半導體產品對手",
+      "basis_en": "Semiconductor product rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "SKHY",
+      "name_en": "SK hynix",
+      "name_zh": "SK hynix",
+      "basis_zh": "半導體產品對手",
+      "basis_en": "Semiconductor product rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "MU",
+      "name_en": "Micron Technology",
+      "name_zh": "美光科技",
+      "basis_zh": "半導體產品對手",
+      "basis_en": "Semiconductor product rival",
+      "exchange": "NASDAQ"
+    }
+  ]
+}

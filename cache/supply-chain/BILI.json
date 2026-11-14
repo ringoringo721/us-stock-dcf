@@ -1,0 +1,244 @@
+{
+  "version": 1,
+  "ticker": "BILI",
+  "name_en": "Bilibili",
+  "name_zh": "嗶哩嗶哩",
+  "updatedAt": "2026-11-14",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "internet-platform-v1",
+    "references": [
+      "Industry model `internet-platform-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "internet-platform-v1",
+    "label_zh": "網際網路平台價值鏈",
+    "label_en": "Internet platform value chain",
+    "description_zh": "雲端／基礎建設 → 內容／創作者 → 廣告／變現 → 裝置／作業系統 → 支付／商務。",
+    "description_en": "Cloud/infra → content/creators → ads/monetization → devices/OS → payments/commerce."
+  },
+  "stages": [
+    {
+      "id": "infra",
+      "order": 1,
+      "label_zh": "雲端／網路基礎設施",
+      "label_en": "Cloud / network infrastructure",
+      "summary_zh": "運算、頻寬與 CDN／雲資源。",
+      "summary_en": "Compute, bandwidth, CDN/cloud.",
+      "players": [
+        {
+          "ticker": "EQIX",
+          "name_en": "Equinix",
+          "name_zh": "Equinix",
+          "role_zh": "Equinix：雲端／網路基礎設施代表性玩家",
+          "role_en": "Equinix: representative player in Cloud / network infrastructure",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "ANET",
+          "name_en": "Arista Networks",
+          "name_zh": "Arista 網路",
+          "role_zh": "Arista 網路：雲端／網路基礎設施代表性玩家",
+          "role_en": "Arista Networks: representative player in Cloud / network infrastructure",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "CSCO",
+          "name_en": "Cisco Systems",
+          "name_zh": "思科",
+          "role_zh": "思科：雲端／網路基礎設施代表性玩家",
+          "role_en": "Cisco Systems: representative player in Cloud / network infrastructure",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "content",
+      "order": 2,
+      "label_zh": "內容／創作者生態",
+      "label_en": "Content / creator ecosystem",
+      "summary_zh": "媒體、音樂、短影音與創作者工具。",
+      "summary_en": "Media, music, short-form, creator tools.",
+      "players": [
+        {
+          "ticker": "NFLX",
+          "name_en": "Netflix",
+          "name_zh": "網飛",
+          "role_zh": "網飛：內容／創作者生態代表性玩家",
+          "role_en": "Netflix: representative player in Content / creator ecosystem",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "SPOT",
+          "name_en": "Spotify Technology S.A.",
+          "name_zh": "Spotify",
+          "role_zh": "Spotify：內容／創作者生態代表性玩家",
+          "role_en": "Spotify Technology S.A.: representative player in Content / creator ecosystem",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "DIS",
+          "name_en": "The Walt Disney",
+          "name_zh": "迪士尼",
+          "role_zh": "迪士尼：內容／創作者生態代表性玩家",
+          "role_en": "The Walt Disney: representative player in Content / creator ecosystem",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "ads",
+      "order": 3,
+      "label_zh": "廣告／資料變現",
+      "label_en": "Ads / data monetization",
+      "summary_zh": "廣告科技與測量夥伴。",
+      "summary_en": "Ad-tech and measurement partners.",
+      "players": [
+        {
+          "ticker": "TTD",
+          "name_en": "Trade Desk",
+          "name_zh": "Trade Desk",
+          "role_zh": "Trade Desk：廣告／資料變現代表性玩家",
+          "role_en": "Trade Desk: representative player in Ads / data monetization",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "APP",
+          "name_en": "AppLovin Corporation",
+          "name_zh": "AppLovin",
+          "role_zh": "AppLovin：廣告／資料變現代表性玩家",
+          "role_en": "AppLovin Corporation: representative player in Ads / data monetization",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "SNAP",
+          "name_en": "Snap",
+          "name_zh": "Snap",
+          "role_zh": "Snap：廣告／資料變現代表性玩家",
+          "role_en": "Snap: representative player in Ads / data monetization",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "devices",
+      "order": 4,
+      "label_zh": "裝置／作業系統入口",
+      "label_en": "Devices / OS entry points",
+      "summary_zh": "手機、瀏覽器與 OS 分發。",
+      "summary_en": "Phones, browsers, OS distribution.",
+      "players": [
+        {
+          "ticker": "AAPL",
+          "name_en": "Apple",
+          "name_zh": "蘋果",
+          "role_zh": "蘋果：裝置／作業系統入口代表性玩家",
+          "role_en": "Apple: representative player in Devices / OS entry points",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "005930.KS",
+          "name_en": "Samsung Electronics",
+          "name_zh": "三星電子",
+          "role_zh": "三星電子：裝置／作業系統入口代表性玩家",
+          "role_en": "Samsung Electronics: representative player in Devices / OS entry points",
+          "exchange": "KRX",
+          "listedInApp": false
+        },
+        {
+          "ticker": "SONY",
+          "name_en": "Sony",
+          "name_zh": "Sony",
+          "role_zh": "Sony：裝置／作業系統入口代表性玩家",
+          "role_en": "Sony: representative player in Devices / OS entry points",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "commerce",
+      "order": 5,
+      "label_zh": "支付／商務閉環",
+      "label_en": "Payments / commerce loop",
+      "summary_zh": "支付網路與電商履約。",
+      "summary_en": "Payment networks and commerce fulfillment.",
+      "players": [
+        {
+          "ticker": "V",
+          "name_en": "Visa",
+          "name_zh": "威士卡",
+          "role_zh": "威士卡：支付／商務閉環代表性玩家",
+          "role_en": "Visa: representative player in Payments / commerce loop",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "MA",
+          "name_en": "Mastercard",
+          "name_zh": "萬事達卡",
+          "role_zh": "萬事達卡：支付／商務閉環代表性玩家",
+          "role_en": "Mastercard: representative player in Payments / commerce loop",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "SHOP",
+          "name_en": "Shopify",
+          "name_zh": "Shopify",
+          "role_zh": "Shopify：支付／商務閉環代表性玩家",
+          "role_en": "Shopify: representative player in Payments / commerce loop",
+          "exchange": "NASDAQ"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "NET",
+      "name_en": "Cloudflare",
+      "name_zh": "Cloudflare",
+      "basis_zh": "邊緣雲／CDN 安全對手",
+      "basis_en": "Edge cloud / CDN security rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "AMZN",
+      "name_en": "Amazon.com",
+      "name_zh": "亞馬遜",
+      "basis_zh": "邊緣雲／CDN 安全對手",
+      "basis_en": "Edge cloud / CDN security rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "MSFT",
+      "name_en": "Microsoft",
+      "name_zh": "微軟",
+      "basis_zh": "邊緣雲／CDN 安全對手",
+      "basis_en": "Edge cloud / CDN security rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "GOOG",
+      "name_en": "Alphabet",
+      "name_zh": "Alphabet（Google）",
+      "basis_zh": "邊緣雲／CDN 安全對手",
+      "basis_en": "Edge cloud / CDN security rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "AKAM",
+      "name_en": "Akamai Technologies",
+      "name_zh": "Akamai Technologies",
+      "basis_zh": "邊緣雲／CDN 安全對手",
+      "basis_en": "Edge cloud / CDN security rival",
+      "exchange": "NASDAQ"
+    }
+  ]
+}
