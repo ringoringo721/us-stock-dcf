@@ -13,7 +13,7 @@
     "osat-memory": [
       "MU",
       "000660.KS",
-      "3711.TW"
+      "600584.SS"
     ],
     "customers": [
       "MSFT",
@@ -40,7 +40,7 @@
     "osat-memory": [
       "MU",
       "000660.KS",
-      "3711.TW"
+      "600584.SS"
     ],
     "customers": [
       "MSFT",
@@ -267,6 +267,676 @@
       "DAL",
       "CAT",
       "UNP"
+    ]
+  },
+  "BLLN": {
+    "parts": [
+      "ILMN",
+      "TMO",
+      "DHR"
+    ],
+    "electronics": [
+      "TXN",
+      "ADI",
+      "ON"
+    ],
+    "assembly": [
+      "JBL",
+      "FLEX",
+      "A"
+    ],
+    "providers": [
+      "HCA",
+      "UNH",
+      "CVS"
+    ],
+    "payers": [
+      "UNH",
+      "CI",
+      "ELV"
+    ]
+  },
+  "AGI": {
+    "equipment": [
+      "CAT",
+      "DE",
+      "PH"
+    ],
+    "extraction": [
+      "BHP",
+      "RIO",
+      "FCX"
+    ],
+    "smelting": [
+      "LIN",
+      "APD",
+      "AIQUY"
+    ],
+    "logistics": [
+      "UNP",
+      "CSX",
+      "FDX"
+    ],
+    "customers": [
+      "SIG",
+      "JPM",
+      "GS"
+    ]
+  },
+  "AG": {
+    "equipment": [
+      "CAT",
+      "DE",
+      "PH"
+    ],
+    "extraction": [
+      "BHP",
+      "RIO",
+      "FCX"
+    ],
+    "smelting": [
+      "LIN",
+      "APD",
+      "AIQUY"
+    ],
+    "logistics": [
+      "UNP",
+      "CSX",
+      "FDX"
+    ],
+    "customers": [
+      "SIG",
+      "JPM",
+      "GS"
+    ]
+  },
+  "AUGO": {
+    "equipment": [
+      "CAT",
+      "DE",
+      "PH"
+    ],
+    "extraction": [
+      "BHP",
+      "RIO",
+      "FCX"
+    ],
+    "smelting": [
+      "LIN",
+      "APD",
+      "AIQUY"
+    ],
+    "logistics": [
+      "UNP",
+      "CSX",
+      "FDX"
+    ],
+    "customers": [
+      "SIG",
+      "JPM",
+      "GS"
+    ]
+  },
+  "BCPC": {
+    "inputs": [
+      "ADM",
+      "BG",
+      "CTVA"
+    ],
+    "ingredients": [
+      "IFF",
+      "INGR",
+      "DAR"
+    ],
+    "equipment": [
+      "HON",
+      "EMR",
+      "ROK"
+    ],
+    "customers": [
+      "GIS",
+      "KHC",
+      "CAG"
+    ],
+    "retail": [
+      "WMT",
+      "COST",
+      "SYY"
+    ]
+  },
+  "BBUC": {
+    "materials": [
+      "NUE",
+      "FCX",
+      "DOW"
+    ],
+    "components": [
+      "ETN",
+      "PH",
+      "EMR"
+    ],
+    "automation": [
+      "ROK",
+      "EMR",
+      "SNPS"
+    ],
+    "dealers": [
+      "CAT",
+      "DE",
+      "URI"
+    ],
+    "customers": [
+      "XOM",
+      "UNP",
+      "NEE"
+    ]
+  },
+  "AIG": {
+    "reinsurance": [
+      "EG",
+      "RNR",
+      "RGA"
+    ],
+    "data": [
+      "VRSK",
+      "SPGI",
+      "MCO"
+    ],
+    "investments": [
+      "BLK",
+      "BX",
+      "BRK-B"
+    ],
+    "distribution": [
+      "AON",
+      "MRSH",
+      "AJG"
+    ],
+    "claims": [
+      "UNH",
+      "HCA",
+      "CI"
+    ]
+  },
+  "ALLY": {
+    "funding": [
+      "GS",
+      "MS",
+      "BLK"
+    ],
+    "tech": [
+      "MSFT",
+      "ORCL",
+      "IBM"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "FISV"
+    ],
+    "data-risk": [
+      "SPGI",
+      "MCO",
+      "FICO"
+    ],
+    "channels": [
+      "JPM",
+      "BAC",
+      "AN"
+    ]
+  },
+  "AU": {
+    "equipment": [
+      "CAT",
+      "DE",
+      "PH"
+    ],
+    "extraction": [
+      "BHP",
+      "RIO",
+      "FCX"
+    ],
+    "smelting": [
+      "LIN",
+      "APD",
+      "AIQUY"
+    ],
+    "logistics": [
+      "UNP",
+      "CSX",
+      "FDX"
+    ],
+    "customers": [
+      "SIG",
+      "JPM",
+      "GS"
+    ]
+  },
+  "GFI": {
+    "equipment": [
+      "CAT",
+      "DE",
+      "PH"
+    ],
+    "extraction": [
+      "BHP",
+      "RIO",
+      "FCX"
+    ],
+    "smelting": [
+      "LIN",
+      "APD",
+      "AIQUY"
+    ],
+    "logistics": [
+      "UNP",
+      "CSX",
+      "FDX"
+    ],
+    "customers": [
+      "SIG",
+      "JPM",
+      "GS"
+    ]
+  },
+  "KGC": {
+    "equipment": [
+      "CAT",
+      "DE",
+      "PH"
+    ],
+    "extraction": [
+      "BHP",
+      "RIO",
+      "FCX"
+    ],
+    "smelting": [
+      "LIN",
+      "APD",
+      "AIQUY"
+    ],
+    "logistics": [
+      "UNP",
+      "CSX",
+      "FDX"
+    ],
+    "customers": [
+      "SIG",
+      "JPM",
+      "GS"
+    ]
+  },
+  "PAAS": {
+    "equipment": [
+      "CAT",
+      "DE",
+      "PH"
+    ],
+    "extraction": [
+      "BHP",
+      "RIO",
+      "FCX"
+    ],
+    "smelting": [
+      "LIN",
+      "APD",
+      "AIQUY"
+    ],
+    "logistics": [
+      "UNP",
+      "CSX",
+      "FDX"
+    ],
+    "customers": [
+      "SIG",
+      "JPM",
+      "GS"
+    ]
+  },
+  "HL": {
+    "equipment": [
+      "CAT",
+      "DE",
+      "PH"
+    ],
+    "extraction": [
+      "BHP",
+      "RIO",
+      "FCX"
+    ],
+    "smelting": [
+      "LIN",
+      "APD",
+      "AIQUY"
+    ],
+    "logistics": [
+      "UNP",
+      "CSX",
+      "FDX"
+    ],
+    "customers": [
+      "SIG",
+      "JPM",
+      "GS"
+    ]
+  },
+  "CDE": {
+    "equipment": [
+      "CAT",
+      "DE",
+      "PH"
+    ],
+    "extraction": [
+      "BHP",
+      "RIO",
+      "FCX"
+    ],
+    "smelting": [
+      "LIN",
+      "APD",
+      "AIQUY"
+    ],
+    "logistics": [
+      "UNP",
+      "CSX",
+      "FDX"
+    ],
+    "customers": [
+      "SIG",
+      "JPM",
+      "GS"
+    ]
+  },
+  "A": {
+    "components": [
+      "TXN",
+      "ADI",
+      "TEL"
+    ],
+    "instruments": [
+      "TMO",
+      "DHR",
+      "WAT"
+    ],
+    "consumables": [
+      "AVTR",
+      "WAT",
+      "MTD"
+    ],
+    "customers": [
+      "LLY",
+      "MRK",
+      "PFE"
+    ],
+    "distribution": [
+      "AVTR",
+      "HSIC",
+      "CAH"
+    ]
+  },
+  "WAT": {
+    "components": [
+      "TXN",
+      "ADI",
+      "TEL"
+    ],
+    "instruments": [
+      "TMO",
+      "DHR",
+      "WAT"
+    ],
+    "consumables": [
+      "AVTR",
+      "WAT",
+      "MTD"
+    ],
+    "customers": [
+      "LLY",
+      "MRK",
+      "PFE"
+    ],
+    "distribution": [
+      "AVTR",
+      "HSIC",
+      "CAH"
+    ]
+  },
+  "MTD": {
+    "components": [
+      "TXN",
+      "ADI",
+      "TEL"
+    ],
+    "instruments": [
+      "TMO",
+      "DHR",
+      "WAT"
+    ],
+    "consumables": [
+      "AVTR",
+      "WAT",
+      "MTD"
+    ],
+    "customers": [
+      "LLY",
+      "MRK",
+      "PFE"
+    ],
+    "distribution": [
+      "AVTR",
+      "HSIC",
+      "CAH"
+    ]
+  },
+  "ASTS": {
+    "launch": [
+      "RKLB",
+      "BA",
+      "LMT"
+    ],
+    "sat-bus": [
+      "BA",
+      "LMT",
+      "NOC"
+    ],
+    "ground": [
+      "TRMB",
+      "LHX",
+      "GD"
+    ],
+    "mno": [
+      "T",
+      "VZ",
+      "TMUS"
+    ]
+  },
+  "CIG": {
+    "fuel-capex": [
+      "FSLR",
+      "ENPH",
+      "GNRC"
+    ],
+    "generation": [
+      "CEG",
+      "VST",
+      "GEV"
+    ],
+    "td": [
+      "PWR",
+      "EMR",
+      "HON"
+    ],
+    "grid-tech": [
+      "ETN",
+      "ROK",
+      "HUBB"
+    ],
+    "retail": [
+      "AMZN",
+      "WMT",
+      "TSLA"
+    ]
+  },
+  "ENIC": {
+    "fuel-capex": [
+      "FSLR",
+      "ENPH",
+      "GNRC"
+    ],
+    "generation": [
+      "CEG",
+      "VST",
+      "GEV"
+    ],
+    "td": [
+      "PWR",
+      "EMR",
+      "HON"
+    ],
+    "grid-tech": [
+      "ETN",
+      "ROK",
+      "HUBB"
+    ],
+    "retail": [
+      "AMZN",
+      "WMT",
+      "TSLA"
+    ]
+  },
+  "EBR": {
+    "fuel-capex": [
+      "FSLR",
+      "ENPH",
+      "GNRC"
+    ],
+    "generation": [
+      "CEG",
+      "VST",
+      "GEV"
+    ],
+    "td": [
+      "PWR",
+      "EMR",
+      "HON"
+    ],
+    "grid-tech": [
+      "ETN",
+      "ROK",
+      "HUBB"
+    ],
+    "retail": [
+      "AMZN",
+      "WMT",
+      "TSLA"
+    ]
+  },
+  "ELP": {
+    "fuel-capex": [
+      "FSLR",
+      "ENPH",
+      "GNRC"
+    ],
+    "generation": [
+      "CEG",
+      "VST",
+      "GEV"
+    ],
+    "td": [
+      "PWR",
+      "EMR",
+      "HON"
+    ],
+    "grid-tech": [
+      "ETN",
+      "ROK",
+      "HUBB"
+    ],
+    "retail": [
+      "AMZN",
+      "WMT",
+      "TSLA"
+    ]
+  },
+  "INGR": {
+    "inputs": [
+      "ADM",
+      "BG",
+      "CTVA"
+    ],
+    "ingredients": [
+      "IFF",
+      "INGR",
+      "DAR"
+    ],
+    "equipment": [
+      "HON",
+      "EMR",
+      "ROK"
+    ],
+    "customers": [
+      "GIS",
+      "KHC",
+      "CAG"
+    ],
+    "retail": [
+      "WMT",
+      "COST",
+      "SYY"
+    ]
+  },
+  "IFF": {
+    "inputs": [
+      "ADM",
+      "BG",
+      "CTVA"
+    ],
+    "ingredients": [
+      "IFF",
+      "INGR",
+      "DAR"
+    ],
+    "equipment": [
+      "HON",
+      "EMR",
+      "ROK"
+    ],
+    "customers": [
+      "GIS",
+      "KHC",
+      "CAG"
+    ],
+    "retail": [
+      "WMT",
+      "COST",
+      "SYY"
+    ]
+  },
+  "ADM": {
+    "inputs": [
+      "CTVA",
+      "DE",
+      "BG"
+    ],
+    "packaging": [
+      "DD",
+      "DOW",
+      "GLW"
+    ],
+    "manufacturing": [
+      "HON",
+      "EMR",
+      "ROK"
+    ],
+    "retail": [
+      "WMT",
+      "COST",
+      "TGT"
+    ],
+    "media": [
+      "GOOG",
+      "META",
+      "DIS"
     ]
   }
 }

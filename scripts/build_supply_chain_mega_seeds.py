@@ -41,42 +41,64 @@ def write_json(path: Path, data) -> None:
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
-def traditionalize(text: str) -> str:
-    raw = text or ""
+_OPENCC = None
+_OPENCC_FAILED = False
+
+
+def _get_opencc():
+    """Cache OpenCC converter — constructing per call is ~1s and dominates seed builds."""
+    global _OPENCC, _OPENCC_FAILED
+    if _OPENCC_FAILED:
+        return None
+    if _OPENCC is not None:
+        return _OPENCC
     try:
         from opencc import OpenCC
-        converted = None
         for cfg in ("s2twp", "s2t"):
             try:
-                converted = OpenCC(cfg).convert(raw)
-                break
+                _OPENCC = OpenCC(cfg)
+                return _OPENCC
             except Exception:
                 continue
-        if converted is None:
-            return raw
-        # Prefer common TW/HK finance forms over OpenCC over-conversions.
-        fixes = (
-            ("上遊", "上游"),
-            ("中遊", "中游"),
-            ("下遊", "下游"),
-            ("平臺", "平台"),
-            ("社羣", "社群"),
-            ("臨牀", "臨床"),
-            ("僱主", "雇主"),
-            # OpenCC s2twp over-conversions common in our stage/brand copy
-            ("引數", "參數"),
-            ("壓縮裝置", "壓縮設備"),
-            ("施作裝置", "施作設備"),
-            ("工程裝置", "工程設備"),
-            ("礦山／工程裝置", "礦山／工程設備"),
-            ("包裝／施作裝置", "包裝／施作設備"),
-            ("製程／壓縮裝置", "製程／壓縮設備"),
-        )
-        for a, b in fixes:
-            converted = converted.replace(a, b)
-        return converted
+    except Exception:
+        pass
+    _OPENCC_FAILED = True
+    return None
+
+
+def traditionalize(text: str) -> str:
+    raw = text or ""
+    cc = _get_opencc()
+    if cc is None:
+        return raw
+    try:
+        converted = cc.convert(raw)
     except Exception:
         return raw
+    # Prefer common TW/HK finance forms over OpenCC over-conversions.
+    fixes = (
+        ("上遊", "上游"),
+        ("中遊", "中游"),
+        ("下遊", "下游"),
+        ("平臺", "平台"),
+        ("社羣", "社群"),
+        ("臨牀", "臨床"),
+        ("僱主", "雇主"),
+        # OpenCC s2twp over-conversions common in our stage/brand copy
+        ("引數", "參數"),
+        ("壓縮裝置", "壓縮設備"),
+        ("施作裝置", "施作設備"),
+        ("工程裝置", "工程設備"),
+        ("礦山／工程裝置", "礦山／工程設備"),
+        ("包裝／施作裝置", "包裝／施作設備"),
+        ("製程／壓縮裝置", "製程／壓縮設備"),
+        # OpenCC s2twp maps 万象→永珍 (Vientiane); keep CR Mixc brand 萬象
+        ("華潤永珍生活", "華潤萬象生活"),
+        ("永珍生活", "萬象生活"),
+    )
+    for a, b in fixes:
+        converted = converted.replace(a, b)
+    return converted
 
 
 
@@ -98,13 +120,25 @@ def listed_in_app(ticker: str, universe_tickers: set[str]) -> bool:
 
 
 LEGAL_EN_NAME_RE = re.compile(
-    r"\b(Inc\.?|Corp\.?|Corporation|Company|Ltd\.?|Limited|Holdings|PLC|N\.?V\.?|Group)\b",
+    r"\b(Inc\.?|Corp\.?|Corporation|Compan(?:y|ies)|Enterprises?|Financial|"
+    r"Ltd\.?|Limited|Holdings?|Holding|PLC|N\.?V\.?|Group|Co\.?)\b",
     re.I,
 )
 # Suffixes safe to strip for short brands. Keep N.V. / S.A. / p.l.c. intact —
 # stripping N.V. via a trailing `\b` often leaves an orphan "." ("ASML Holding .").
 LEGAL_EN_SUFFIX_STRIP_RE = re.compile(
-    r"\b(Inc\.?|Incorporated|Corp\.?|Corporation|Company|Ltd\.?|Limited|Holdings|PLC|Group)\b",
+    # Common legal tokens (Inc/Corp/Company/…). Never mid-name brand "Enterprise"
+    # (Enterprise Products / Enterprise Holdings). Holdings/Group only trailing.
+    # Trailing Enterprises (plural) / Corporation / Financial via TRAILING_LEGAL_SUFFIX_RE.
+    r"\b(Inc\.?|Incorporated|Corp\.?|Compan(?:y|ies)|Ltd\.?|Limited|PLC)\b"
+    r"|\b(?:Holdings|Group)\b(?=\s*$|\s+(?:Inc\.?|Incorporated|Corp\.?|Corporation|"
+    r"Compan(?:y|ies)|Ltd\.?|Limited)\b)",
+    re.I,
+)
+# Trailing-only after Inc/share-class cleanup. Plural Enterprises only — never bare
+# "Enterprise" brand (Enterprise Products / Enterprise Holdings).
+TRAILING_LEGAL_SUFFIX_RE = re.compile(
+    r"\b(Corporation|Enterprises|Financial)\s*$",
     re.I,
 )
 # Known wrong / legal-dump name_zh corrections (ticker → curated 繁中 or brand).
@@ -123,7 +157,31 @@ NAME_ZH_FIXES = {
     "CI": "信諾",
     "ANSS": "安西斯",
     "LIN": "林德集團",
+    "FIS": "FIS",  # never “Fidelity National Info”
+    "USFD": "US Foods",  # never “US Foods Holding”
+    "LEVI": "Levi's",  # never “Levi Strauss & Co.”
+    "NSIT": "Insight",  # never “Insight Enterprises”
+    "COO": "庫博",  # The Cooper Companies — not CooperVision-only label
+    "AFG": "美國金融集團",  # never truncated English adjective "American"
 }
+
+
+_COMMON_EN_ADJECTIVES = {
+    "american", "national", "general", "united", "global", "international",
+    "first", "federal", "northern", "southern", "eastern", "western",
+    "pacific", "atlantic", "central", "universal", "standard", "premier",
+}
+
+
+def looks_like_incomplete_en_label(text: str) -> bool:
+    """True when name_zh is a lone English adjective / truncated legal headword."""
+    raw = (text or "").strip()
+    if not raw or re.search(r"[\u4e00-\u9fff]", raw):
+        return False
+    words = [w for w in re.split(r"[\s&]+", raw) if w]
+    if len(words) == 1 and words[0].lower().rstrip(".,") in _COMMON_EN_ADJECTIVES:
+        return True
+    return False
 
 
 def looks_like_english_legal_name(text: str) -> bool:
@@ -153,7 +211,24 @@ def short_brand_en(name_en: str, ticker: str) -> str:
     abbreviation periods when more text follows.
     """
     raw = (name_en or "").strip() or ticker
-    cleaned = LEGAL_EN_SUFFIX_STRIP_RE.sub("", raw)
+    # Hyphenated legal tails: "Associated Banc-Corp" → "Associated Bancorp"
+    cleaned = re.sub(r"\b([Bb]anc)-Corp(?:oration)?\b", r"\1orp", raw)
+    cleaned = re.sub(r"-\s*Corp(?:oration)?\.?\b", " ", cleaned, flags=re.I)
+    cleaned = LEGAL_EN_SUFFIX_STRIP_RE.sub("", cleaned)
+
+    # Share-class / listing / bond tails (CRWV Class A Common Stock, CHYM Ordinary Shares, ELC bonds).
+    cleaned = re.sub(
+        r",?\s*\b(?:Class\s+[A-Z0-9]+\s+)?(?:Common\s+Stock|Ordinary\s+Shares?|American\s+Depositary\s+Shares?|ADSs?|ADRs?)\b.*$",
+        "",
+        cleaned,
+        flags=re.I,
+    )
+    cleaned = re.sub(
+        r",?\s*\b(?:First\s+Mortgage\s+Bonds?|Senior\s+Notes?|Notes?|Bond\s+Units?|Preferred\s+Stock)\b.*$",
+        "",
+        cleaned,
+        flags=re.I,
+    )
     # Orphans only: whitespace + lone "." / "," at end or before more whitespace.
     # Do NOT strip "S.A. Foo" / "U.S. Something" / "T. Rowe".
     cleaned = re.sub(r"\s+[.,](?=\s|$)", "", cleaned)
@@ -161,9 +236,17 @@ def short_brand_en(name_en: str, ticker: str) -> str:
     cleaned = re.sub(r"(?:\s+&|\s+and)\s*$", "", cleaned, flags=re.I)
     cleaned = re.sub(r"[,\s]+$", "", cleaned).strip()
     cleaned = re.sub(r"\s{2,}", " ", cleaned)
-    # "The Southern" / "The Progressive" after stripping Company — drop leading The.
-    if re.match(r"^The\s+\S+$", cleaned, flags=re.I):
-        cleaned = re.sub(r"^The\s+", "", cleaned, flags=re.I).strip()
+    cleaned = re.sub(r"-$", "", cleaned).strip()
+    # Trailing Corporation / Enterprises / Financial only (never mid-name Enterprise brand).
+    # Repeat: "Capital One Financial Corporation" → … Financial → Capital One.
+    for _ in range(3):
+        nxt = TRAILING_LEGAL_SUFFIX_RE.sub("", cleaned).strip()
+        nxt = re.sub(r"[,\s]+$", "", nxt).strip()
+        if nxt == cleaned:
+            break
+        cleaned = nxt
+    # Drop leading "The " even on multi-word brands (The Procter & Gamble → Procter & Gamble).
+    cleaned = re.sub(r"^The\s+", "", cleaned, flags=re.I).strip()
     return cleaned or ticker
 
 
@@ -180,10 +263,25 @@ def _assert_short_brand_en() -> None:
         ("Banco Santander, S.A.", "SAN", "Banco Santander, S.A."),
         ("Deere & Company", "DE", "Deere"),
         ("The Southern Company", "SO", "Southern"),
+        ("The Procter & Gamble Company", "PG", "Procter & Gamble"),
+        ("The Walt Disney Company", "DIS", "Walt Disney"),
         ("Eli Lilly and Company", "LLY", "Eli Lilly"),
+        ("Associated Banc-Corp", "ASB", "Associated Bancorp"),
         ("Mastercard Incorporated", "MA", "Mastercard"),
         ("UnitedHealth Group Incorporated", "UNH", "UnitedHealth"),
         ("Wells Fargo & Company", "WFC", "Wells Fargo"),
+        ("CoreWeave, Inc. Class A Common Stock", "CRWV", "CoreWeave"),
+        ("Chime Financial, Inc. Ordinary Shares", "CHYM", "Chime"),
+        ("CDW Corporation", "CDW", "CDW"),
+        ("Insight Enterprises, Inc.", "NSIT", "Insight"),
+        ("Capital One Financial Corporation", "COF", "Capital One"),
+        ("Entergy Louisiana, LLC First Mortgage Bonds", "ELC", "Entergy Louisiana, LLC"),
+        ("The Cooper Companies, Inc.", "COO", "Cooper"),
+        ("Reinsurance Group of America, Incorporated", "RGA", "Reinsurance Group of America"),
+        ("Enterprise Products Partners L.P.", "EPD", "Enterprise Products Partners L.P."),
+        ("Enterprise Holdings, Inc.", "EHI", "Enterprise Holdings"),
+        ("Insight Enterprises, Inc.", "NSIT", "Insight"),
+        ("American Financial Group, Inc.", "AFG", "American Financial Group"),
     )
     for raw, ticker, expect in cases:
         got = short_brand_en(raw, ticker)
@@ -229,8 +327,8 @@ def resolve_entity(ticker: str, entities: dict, universe_by_ticker: dict | None 
         name_zh = short_brand_en(name_en, ticker)
         if looks_like_english_legal_name(name_zh):
             name_zh = ticker
-    elif looks_like_english_legal_name(name_zh):
-        # Curated or universe wrongly stored English legal as name_zh.
+    elif looks_like_english_legal_name(name_zh) or looks_like_incomplete_en_label(name_zh):
+        # Curated or universe wrongly stored English legal / truncated adjective as name_zh.
         name_zh = ticker if curated_zh in ("", ticker) or looks_like_english_legal_name(curated_zh) else curated_zh
         if looks_like_english_legal_name(name_zh):
             name_zh = short_brand_en(name_en, ticker)
@@ -239,6 +337,45 @@ def resolve_entity(ticker: str, entities: dict, universe_by_ticker: dict | None 
     # name_zh == ticker (Latin brand) is kept as-is — never promote name_en into name_zh.
 
     return {"name_en": name_en, "name_zh": name_zh, "exchange": exchange}
+
+
+# Stage-player ticker rewrites (must match catalog aliases). Never emit both SQ and XYZ.
+STAGE_TICKER_ALIAS: dict[str, str] = {
+    "SQ": "XYZ",
+    "GPS": "GAP",
+    "BK": "BNY",
+    "MSC": "MSM",
+    "MYL": "VTRS",
+    "PEAK": "DOC",
+    "MMC": "MRSH",
+    "SJW": "HTO",
+    "GOLD": "B",  # Barrick Gold → Barrick Mining
+}
+STAGE_TICKER_BANNED = {"SPCX", "MAXR", "FLY", "FLYX", "SQ", "PEAK", "MYL", "RDFN", "SJW", "GOLD", "BERY"}
+
+# Same-issuer dual listings (TWSE/ADR etc.) — never stage+rival the same issuer.
+DUAL_LIST_ISSUER: dict[str, str] = {
+    "3711.TW": "ASE",
+    "ASX": "ASE",
+    "BEKE": "BEKE",
+    "2423.HK": "BEKE",
+    "GOLD": "B",
+    "B": "B",
+}
+
+def issuer_key(t: str) -> str:
+    t = (t or "").strip().upper()
+    return DUAL_LIST_ISSUER.get(t, t)
+
+
+def normalize_stage_ticker(t: str) -> str | None:
+    t = (t or "").strip().upper()
+    if not t:
+        return None
+    t = STAGE_TICKER_ALIAS.get(t, t)
+    if t in STAGE_TICKER_BANNED:
+        return None
+    return t
 
 
 def build_seed(
@@ -276,30 +413,56 @@ def build_seed(
     # Do NOT promote English legal row["name"] into name_zh when name_zh == ticker (Latin brand).
     if ticker in NAME_ZH_FIXES:
         ent["name_zh"] = NAME_ZH_FIXES[ticker]
-    if looks_like_english_legal_name(ent.get("name_zh") or ""):
+    if looks_like_english_legal_name(ent.get("name_zh") or "") or looks_like_incomplete_en_label(ent.get("name_zh") or ""):
         ent["name_zh"] = NAME_ZH_FIXES.get(ticker) or ticker
     if row.get("exchange") and not ent.get("exchange"):
         ent["exchange"] = row["exchange"]
+    # Rival tickers first; only dual-list issuer keys (ASE ASX↔3711.TW) block stage peers.
+    # Do NOT drop ordinary rivals from stages globally (OFS hubs list SLB/HAL as both).
+    rival_tickers: list[str] = []
+    rival_dual_issuer_keys: set[str] = set()
+    for ct, _bz, _be in competitors.get(ticker) or []:
+        ct_n = normalize_stage_ticker(ct) or (ct or "").strip().upper()
+        if not ct_n or ct_n == ticker or ct_n in STAGE_TICKER_BANNED:
+            continue
+        if ct_n in rival_tickers:
+            continue
+        rival_tickers.append(ct_n)
+        if ct_n in DUAL_LIST_ISSUER:
+            rival_dual_issuer_keys.add(issuer_key(ct_n))
+
     stage_players = overrides.get(ticker) or players_by_model[model_id]
     stages = []
     for stage_meta in model["stages"]:
         sid = stage_meta["id"]
         raw_players = list(stage_players.get(sid) or players_by_model[model_id].get(sid) or [])
-        # Drop self; keep order; pad from other stages in the same model, then any entity.
-        picked = [t for t in raw_players if t != ticker]
-        if len(picked) < 3:
-            for other_sid, arr in (players_by_model.get(model_id) or {}).items():
-                for t in arr:
-                    if t != ticker and t not in picked:
-                        picked.append(t)
-                    if len(picked) >= 3:
-                        break
-                if len(picked) >= 3:
-                    break
+        # Never list the hub as a player on its own stages (BCPC-on-ingredients Bugbot).
+        # Do not adjacent-stage pad after hub drop — leave thin / use true same-stage peers.
+        # Drop stage names that share an issuer with a rival (prefer rival ASX over partner 3711.TW).
+        picked: list[str] = []
+        seen_players: set[str] = {ticker}
+        for t in raw_players:
+            nt = normalize_stage_ticker(t)
+            if not nt or nt in seen_players:
+                continue
+            # Only dual-list issuer keys (ASE ASX↔3711.TW) block stage peers.
+            # Ordinary rivals (OFS SLB/HAL, payments, etc.) intentionally stay on stages.
+            if nt in DUAL_LIST_ISSUER and issuer_key(nt) in rival_dual_issuer_keys:
+                continue
+            picked.append(nt)
+            seen_players.add(nt)
+        # Entity scrap only — never adjacent-stage bleed. Never invent hub onto a foreign stage.
         if len(picked) < 3:
             for t in entities:
-                if t != ticker and t not in picked and not t.startswith('_'):
-                    picked.append(t)
+                if t.startswith("_"):
+                    continue
+                nt = normalize_stage_ticker(t)
+                if not nt or nt in seen_players or nt == ticker:
+                    continue
+                if nt in DUAL_LIST_ISSUER and issuer_key(nt) in rival_dual_issuer_keys:
+                    continue
+                picked.append(nt)
+                seen_players.add(nt)
                 if len(picked) >= 3:
                     break
         picked = picked[:3]
@@ -337,9 +500,15 @@ def build_seed(
         )
 
     comps = []
+    seen_comp = {ticker}
     for ct, basis_zh, basis_en in competitors.get(ticker) or []:
-        if ct == ticker:
+        ct = normalize_stage_ticker(ct) or (ct or "").strip().upper()
+        # Still drop banned even if alias missed; skip self / dupes.
+        # Stage/rival overlap for ordinary peers is intentional (OFS SLB/HAL).
+        # Only dual-list issuer keys are dropped from stages above.
+        if not ct or ct == ticker or ct in seen_comp or ct in STAGE_TICKER_BANNED:
             continue
+        seen_comp.add(ct)
         ce = resolve_entity(ct, entities, universe_by_ticker)
         comps.append(
             {
@@ -466,7 +635,7 @@ def build_quotes(seed: dict, mcap_millions: dict[str, float | None], today: str)
             "previousClose": prev,
             "changePct": chg,
             "mcap": mcap,
-            "currency": "USD",
+            "currency": "HKD" if str(t).endswith(".HK") else "USD",
             "asOf": as_of,
             "source": (
                 "FMP historical-price-eod via cache/price_charts"
@@ -523,7 +692,8 @@ def validate_seed(seed: dict) -> list[str]:
             if not (p.get("exchange") or "").strip():
                 errors.append(f"entity:player:{pt}:blank-exchange")
     comps = seed.get("competitors") or []
-    if not (4 <= len(comps) <= 6):
+    # Specialty short lists (true lessors / airport ops / etc.) may be 1–3 peers.
+    if not (1 <= len(comps) <= 6):
         errors.append(f"competitors:{len(comps)}")
     for c in comps:
         if c.get("ticker") == seed.get("ticker"):

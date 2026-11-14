@@ -38,7 +38,7 @@
       "2303.TW"
     ],
     "osat-memory": [
-      "3711.TW",
+      "600584.SS",
       "MU",
       "000660.KS"
     ],
@@ -65,9 +65,9 @@
       "GLW"
     ],
     "osat": [
-      "3711.TW",
-      "AMKR",
-      "002475.SZ"
+      "002156.SZ",
+      "002475.SZ",
+      "AMKR"
     ],
     "fabless": [
       "NVDA",
@@ -119,9 +119,9 @@
       "GLW"
     ],
     "packaging": [
-      "3711.TW",
-      "AMKR",
-      "002475.SZ"
+      "002156.SZ",
+      "002475.SZ",
+      "AMKR"
     ],
     "customers": [
       "NVDA",
@@ -281,14 +281,14 @@
       "FIS"
     ],
     "merchant-tech": [
-      "SQ",
       "TOST",
-      "SHOP"
+      "SHOP",
+      "AFRM"
     ],
     "consumer": [
       "AAPL",
       "GOOG",
-      "PYPL"
+      "COIN"
     ],
     "settlement": [
       "JPM",
@@ -325,9 +325,9 @@
   },
   "insurance-v1": {
     "reinsurance": [
-      "CB",
-      "AIG",
-      "MET"
+      "EG",
+      "RNR",
+      "RGA"
     ],
     "data": [
       "VRSK",
@@ -368,8 +368,8 @@
     ],
     "distribution": [
       "SCHW",
-      "AMZN",
-      "JPM"
+      "JPM",
+      "BAC"
     ],
     "owners": [
       "MET",
@@ -568,9 +568,9 @@
   },
   "consumer-staples-v1": {
     "inputs": [
-      "ADM",
       "CTVA",
-      "DE"
+      "DE",
+      "BG"
     ],
     "packaging": [
       "DD",
@@ -648,24 +648,64 @@
     ]
   },
   "industrial-gases-v1": {
-    "feedstock": ["XOM", "CVX", "SHEL"],
-    "equipment": ["EMR", "ETN", "HON"],
-    "production": ["LIN", "APD", "AIQUY"],
-    "distribution": ["UNP", "FDX", "UPS"],
-    "customers": ["TSM", "JNJ", "CAT"]
+    "feedstock": [
+      "XOM",
+      "CVX",
+      "SHEL"
+    ],
+    "equipment": [
+      "EMR",
+      "ETN",
+      "HON"
+    ],
+    "production": [
+      "LIN",
+      "APD",
+      "AIQUY"
+    ],
+    "distribution": [
+      "UNP",
+      "FDX",
+      "UPS"
+    ],
+    "customers": [
+      "TSM",
+      "JNJ",
+      "CAT"
+    ]
   },
   "specialty-chem-v1": {
-    "inputs": ["DOW", "DD", "XOM"],
-    "formulation": ["SHW", "ECL", "PPG"],
-    "equipment": ["EMR", "ITW", "PH"],
-    "distribution": ["GWW", "FAST", "HD"],
-    "customers": ["HD", "LOW", "HLT"]
+    "inputs": [
+      "DOW",
+      "DD",
+      "XOM"
+    ],
+    "formulation": [
+      "SHW",
+      "ECL",
+      "PPG"
+    ],
+    "equipment": [
+      "EMR",
+      "ITW",
+      "PH"
+    ],
+    "distribution": [
+      "GWW",
+      "FAST",
+      "HD"
+    ],
+    "customers": [
+      "HD",
+      "LOW",
+      "HLT"
+    ]
   },
   "utilities-v1": {
     "fuel-capex": [
       "FSLR",
       "ENPH",
-      "ETN"
+      "GNRC"
     ],
     "generation": [
       "CEG",
@@ -673,14 +713,14 @@
       "GEV"
     ],
     "td": [
-      "ETN",
+      "PWR",
       "EMR",
       "HON"
     ],
     "grid-tech": [
       "ETN",
       "ROK",
-      "ANET"
+      "HUBB"
     ],
     "retail": [
       "AMZN",
@@ -794,6 +834,505 @@
       "UNP",
       "XOM",
       "APH"
+    ]
+  },
+  "oilfield-services-v1": {
+    "equipment": [
+      "NOV",
+      "FTI",
+      "WHD"
+    ],
+    "services": [
+      "SLB",
+      "HAL",
+      "OII"
+    ],
+    "upstream": [
+      "COP",
+      "EOG",
+      "OXY"
+    ],
+    "midstream": [
+      "ENB",
+      "KMI",
+      "WMB"
+    ],
+    "customers": [
+      "XOM",
+      "CVX",
+      "MPC"
+    ]
+  },
+  "security-services-v1": {
+    "hardware": [
+      "APH",
+      "TEL",
+      "GLW"
+    ],
+    "software": [
+      "MSFT",
+      "NOW",
+      "CRM"
+    ],
+    "channel": [
+      "HD",
+      "LOW",
+      "WCC"
+    ],
+    "customers": [
+      "JPM",
+      "WMT",
+      "COST"
+    ],
+    "ecosystem": [
+      "CB",
+      "PGR",
+      "ALL"
+    ]
+  },
+  "marine-recreation-v1": {
+    "power": [
+      "CMI",
+      "PCAR",
+      "ETN"
+    ],
+    "oem": [
+      "PII",
+      "THO",
+      "WGO"
+    ],
+    "dealers": [
+      "KMX",
+      "AN",
+      "PAG"
+    ],
+    "aftersales": [
+      "GPC",
+      "ORLY",
+      "AZO"
+    ],
+    "customers": [
+      "MAR",
+      "HLT",
+      "RCL"
+    ]
+  },
+  "gov-services-v1": {
+    "systems": [
+      "MSFT",
+      "ORCL",
+      "IBM"
+    ],
+    "engineering": [
+      "J",
+      "FLR",
+      "ACM"
+    ],
+    "workforce": [
+      "CTSH",
+      "ACN",
+      "INFY"
+    ],
+    "agencies": [
+      "LMT",
+      "NOC",
+      "GD"
+    ],
+    "infra": [
+      "PWR",
+      "MTZ",
+      "ACM"
+    ]
+  },
+  "adtech-v1": {
+    "supply": [
+      "GOOG",
+      "META",
+      "AMZN"
+    ],
+    "data": [
+      "TRU",
+      "ORCL",
+      "IBM"
+    ],
+    "platforms": [
+      "GOOG",
+      "META",
+      "MSFT"
+    ],
+    "customers": [
+      "OMC",
+      "WPP",
+      "DIS"
+    ],
+    "measurement": [
+      "GOOG",
+      "META",
+      "ADBE"
+    ]
+  },
+  "bitcoin-mining-v1": {
+    "hardware": [
+      "NVDA",
+      "AMD",
+      "TSM"
+    ],
+    "power": [
+      "CEG",
+      "VST",
+      "NRG"
+    ],
+    "miners": [
+      "IREN",
+      "BITF",
+      "CIFR"
+    ],
+    "hosting": [
+      "EQIX",
+      "DLR",
+      "IRM"
+    ],
+    "liquidity": [
+      "COIN",
+      "PYPL",
+      "V"
+    ]
+  },
+  "rideshare-v1": {
+    "maps-cloud": [
+      "GOOG",
+      "MSFT",
+      "AMZN"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "supply": [
+      "GM",
+      "F",
+      "TM"
+    ],
+    "platforms": [
+      "UBER",
+      "DASH",
+      "LYFT",
+      "GRAB"
+    ],
+    "monetization": [
+      "GOOG",
+      "META",
+      "AMZN"
+    ]
+  },
+  "outdoor-advertising-v1": {
+    "sites": [
+      "SPG",
+      "KIM",
+      "O"
+    ],
+    "hardware": [
+      "APH",
+      "TEL",
+      "GLW"
+    ],
+    "advertisers": [
+      "KO",
+      "PEP",
+      "NKE"
+    ],
+    "agencies": [
+      "OMC",
+      "WPP",
+      "DIS"
+    ],
+    "measurement": [
+      "GOOG",
+      "META",
+      "TRU"
+    ]
+  },
+  "tax-pro-services-v1": {
+    "software": [
+      "MSFT",
+      "ORCL",
+      "ADBE"
+    ],
+    "practitioners": [
+      "RHI",
+      "MAN",
+      "ASGN"
+    ],
+    "channel": [
+      "HRB",
+      "INTU",
+      "ADP"
+    ],
+    "marketing": [
+      "GOOG",
+      "META",
+      "AMZN"
+    ],
+    "settlement": [
+      "JPM",
+      "BAC",
+      "WFC"
+    ]
+  },
+  "auto-dealer-v1": {
+    "oem": [
+      "TM",
+      "GM",
+      "F"
+    ],
+    "finance": [
+      "ALLY",
+      "AXP",
+      "COF"
+    ],
+    "parts": [
+      "AZO",
+      "ORLY",
+      "AAP"
+    ],
+    "logistics": [
+      "UNP",
+      "UPS",
+      "FDX"
+    ],
+    "marketing": [
+      "GOOG",
+      "META",
+      "AMZN"
+    ]
+  },
+  "apparel-retail-v1": {
+    "supply": [
+      "VFC",
+      "LEVI",
+      "NKE"
+    ],
+    "logistics": [
+      "UPS",
+      "FDX",
+      "EXPD"
+    ],
+    "stores": [
+      "SPG",
+      "MAC",
+      "URBN"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "AXP"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "PINS"
+    ]
+  },
+  "grocery-retail-v1": {
+    "supply": [
+      "PG",
+      "KO",
+      "PEP"
+    ],
+    "wholesale": [
+      "SYY",
+      "USFD",
+      "COST"
+    ],
+    "logistics": [
+      "UNP",
+      "UPS",
+      "FDX"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "AMZN"
+    ]
+  },
+  "mi-specialty-v1": {
+    "agency": [
+      "FNMA",
+      "FMCC",
+      "JPM"
+    ],
+    "originators": [
+      "RKT",
+      "UWMC",
+      "PFSI"
+    ],
+    "funding": [
+      "JPM",
+      "BAC",
+      "BLK"
+    ],
+    "data": [
+      "VRSK",
+      "SPGI",
+      "MCO"
+    ],
+    "housing": [
+      "DHI",
+      "LEN",
+      "PHM"
+    ]
+  },
+  "mreit-v1": {
+    "agency": [
+      "FNMA",
+      "FMCC",
+      "JPM"
+    ],
+    "originators": [
+      "RKT",
+      "UWMC",
+      "PFSI"
+    ],
+    "funding": [
+      "JPM",
+      "BAC",
+      "GS"
+    ],
+    "rates": [
+      "CME",
+      "ICE",
+      "BX"
+    ],
+    "capital": [
+      "BLK",
+      "BX",
+      "BRK-B"
+    ]
+  },
+  "precious-metals-v1": {
+    "equipment": [
+      "CAT",
+      "DE",
+      "PH"
+    ],
+    "extraction": [
+      "BHP",
+      "RIO",
+      "FCX"
+    ],
+    "smelting": [
+      "LIN",
+      "APD",
+      "AIQUY"
+    ],
+    "logistics": [
+      "UNP",
+      "CSX",
+      "FDX"
+    ],
+    "customers": [
+      "SIG",
+      "JPM",
+      "GS"
+    ]
+  },
+  "energy-gas-ep-v1": {
+    "services": [
+      "SLB",
+      "HAL",
+      "BKR"
+    ],
+    "midstream": [
+      "WMB",
+      "KMI",
+      "AM"
+    ],
+    "offtake": [
+      "DUK",
+      "NEE",
+      "LNG"
+    ]
+  },
+  "satellite-to-phone-v1": {
+    "launch": [
+      "RKLB",
+      "BA",
+      "LMT"
+    ],
+    "sat-bus": [
+      "BA",
+      "LMT",
+      "NOC"
+    ],
+    "ground": [
+      "TRMB",
+      "LHX",
+      "GD"
+    ],
+    "mno": [
+      "T",
+      "VZ",
+      "TMUS"
+    ]
+  },
+  "nutrition-ingredients-v1": {
+    "inputs": [
+      "ADM",
+      "BG",
+      "CTVA"
+    ],
+    "ingredients": [
+      "IFF",
+      "INGR",
+      "DAR"
+    ],
+    "equipment": [
+      "HON",
+      "EMR",
+      "ROK"
+    ],
+    "customers": [
+      "GIS",
+      "KHC",
+      "CAG"
+    ],
+    "retail": [
+      "WMT",
+      "COST",
+      "SYY"
+    ]
+  },
+  "life-sci-tools-v1": {
+    "components": [
+      "TXN",
+      "ADI",
+      "TEL"
+    ],
+    "instruments": [
+      "TMO",
+      "DHR",
+      "WAT"
+    ],
+    "consumables": [
+      "AVTR",
+      "WAT",
+      "MTD"
+    ],
+    "customers": [
+      "LLY",
+      "MRK",
+      "PFE"
+    ],
+    "distribution": [
+      "AVTR",
+      "HSIC",
+      "CAH"
     ]
   }
 }

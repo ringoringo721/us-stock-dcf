@@ -25,14 +25,14 @@
     "exchange": "NASDAQ"
   },
   "TSM": {
-    "name_en": "TSM",
-    "name_zh": "台積電 ADR",
+    "name_en": "TSMC",
+    "name_zh": "臺積電",
     "exchange": "NYSE"
   },
   "SPCX": {
-    "name_en": "Space Exploration Technologies Corp.",
-    "name_zh": "SpaceX（FMP列示）",
-    "exchange": "NASDAQ"
+    "name_en": "SpaceX",
+    "name_zh": "SpaceX",
+    "exchange": "Private"
   },
   "META": {
     "name_en": "Meta Platforms",
@@ -55,22 +55,22 @@
     "exchange": "NYSE"
   },
   "BRK-A": {
-    "name_en": "Berkshire Hathaway Inc.",
-    "name_zh": "波克夏Ａ",
+    "name_en": "Berkshire Hathaway",
+    "name_zh": "波克夏海瑟威 (A)",
     "exchange": "NYSE"
   },
   "BRK-B": {
     "name_en": "Berkshire Hathaway",
-    "name_zh": "波克夏·海瑟威",
+    "name_zh": "波克夏海瑟威 (B)",
     "exchange": "NYSE"
   },
   "WMT": {
     "name_en": "Walmart",
     "name_zh": "沃爾瑪",
-    "exchange": "NASDAQ"
+    "exchange": "NYSE"
   },
   "SKHY": {
-    "name_en": "SK hynix Inc.",
+    "name_en": "SK hynix",
     "name_zh": "SK海力士",
     "exchange": "NASDAQ"
   },
@@ -135,7 +135,7 @@
     "exchange": "NYSE"
   },
   "PG": {
-    "name_en": "The Procter & Gamble",
+    "name_en": "Procter & Gamble",
     "name_zh": "寶僑",
     "exchange": "NYSE"
   },
@@ -215,7 +215,7 @@
     "exchange": "NYSE"
   },
   "RY": {
-    "name_en": "RY",
+    "name_en": "Royal Bank of Canada",
     "name_zh": "加拿大皇家銀行",
     "exchange": "NYSE"
   },
@@ -260,12 +260,12 @@
     "exchange": "NYSE"
   },
   "RTX": {
-    "name_en": "RTX",
+    "name_en": "RTX Corporation",
     "name_zh": "雷神技術",
     "exchange": "NYSE"
   },
   "TXN": {
-    "name_en": "TXN",
+    "name_en": "Texas Instruments",
     "name_zh": "德州儀器",
     "exchange": "NASDAQ"
   },
@@ -295,7 +295,7 @@
     "exchange": "NASDAQ"
   },
   "MUFG": {
-    "name_en": "MUFG",
+    "name_en": "Mitsubishi UFJ Financial",
     "name_zh": "三菱日聯",
     "exchange": "NYSE"
   },
@@ -330,7 +330,7 @@
     "exchange": "NASDAQ"
   },
   "TD": {
-    "name_en": "TD",
+    "name_en": "The Toronto-Dominion Bank",
     "name_zh": "多倫多道明銀行",
     "exchange": "NYSE"
   },
@@ -345,7 +345,7 @@
     "exchange": "NYSE"
   },
   "DIS": {
-    "name_en": "The Walt Disney",
+    "name_en": "Walt Disney",
     "name_zh": "迪士尼",
     "exchange": "NYSE"
   },
@@ -360,7 +360,7 @@
     "exchange": "NYSE"
   },
   "MCD": {
-    "name_en": "McDonald's Corporation",
+    "name_en": "McDonald's",
     "name_zh": "麥當勞",
     "exchange": "NYSE"
   },
@@ -460,7 +460,7 @@
     "exchange": "NYSE"
   },
   "BUD": {
-    "name_en": "BUD",
+    "name_en": "Anheuser-Busch InBev SA/NV",
     "name_zh": "百威英博",
     "exchange": "NYSE"
   },
@@ -535,7 +535,7 @@
     "exchange": "NYSE"
   },
   "VRTX": {
-    "name_en": "VRTX",
+    "name_en": "Vertex",
     "name_zh": "福泰製藥",
     "exchange": "NASDAQ"
   },
@@ -640,7 +640,7 @@
     "exchange": "NYSE"
   },
   "COF": {
-    "name_en": "Capital One Financial",
+    "name_en": "Capital One",
     "name_zh": "Capital One",
     "exchange": "NYSE"
   },
@@ -655,7 +655,7 @@
     "exchange": "NYSE"
   },
   "SBUX": {
-    "name_en": "Starbucks Corporation",
+    "name_en": "Starbucks",
     "name_zh": "星巴克",
     "exchange": "NASDAQ"
   },
@@ -670,7 +670,7 @@
     "exchange": "NYSE"
   },
   "APP": {
-    "name_en": "AppLovin Corporation",
+    "name_en": "AppLovin",
     "name_zh": "AppLovin",
     "exchange": "NASDAQ"
   },
@@ -695,7 +695,7 @@
     "exchange": "NYSE"
   },
   "PDD": {
-    "name_en": "PDD",
+    "name_en": "PDD Holdings Inc.",
     "name_zh": "拼多多",
     "exchange": "NASDAQ"
   },
@@ -770,7 +770,7 @@
     "exchange": "NYSE"
   },
   "HCA": {
-    "name_en": "HCA Healthcare, Inc.",
+    "name_en": "HCA Healthcare",
     "name_zh": "HCA Healthcare",
     "exchange": "NYSE"
   },
@@ -817,7 +817,7 @@
   "EXPD": {
     "name_en": "Expeditors",
     "name_zh": "Expeditors",
-    "exchange": "NASDAQ"
+    "exchange": "NYSE"
   },
   "BBY": {
     "name_en": "Best Buy",
@@ -956,7 +956,7 @@
   },
   "F": {
     "name_en": "Ford",
-    "name_zh": "福特汽車",
+    "name_zh": "福特",
     "exchange": "NYSE"
   },
   "GM": {
@@ -970,7 +970,7 @@
     "exchange": "NASDAQ"
   },
   "NIO": {
-    "name_en": "NIO",
+    "name_en": "NIO Inc.",
     "name_zh": "蔚來",
     "exchange": "NYSE"
   },
@@ -1136,7 +1136,7 @@
   },
   "AMKR": {
     "name_en": "Amkor",
-    "name_zh": "Amkor",
+    "name_zh": "艾克爾",
     "exchange": "NASDAQ"
   },
   "GFS": {
@@ -1185,7 +1185,7 @@
     "exchange": "NYSE"
   },
   "HPE": {
-    "name_en": "HPE",
+    "name_en": "Hewlett Packard Enterprise",
     "name_zh": "慧與",
     "exchange": "NYSE"
   },
@@ -1195,18 +1195,18 @@
     "exchange": "NYSE"
   },
   "CDW": {
-    "name_en": "CDW Corporation",
-    "name_zh": "CDW 科技",
+    "name_en": "CDW",
+    "name_zh": "CDW",
     "exchange": "NASDAQ"
   },
   "AVT": {
     "name_en": "Avnet",
-    "name_zh": "艾睿電子",
+    "name_zh": "安富利",
     "exchange": "NASDAQ"
   },
   "ARW": {
     "name_en": "Arrow Electronics",
-    "name_zh": "安富利",
+    "name_zh": "艾睿電子",
     "exchange": "NYSE"
   },
   "SNX": {
@@ -1234,20 +1234,15 @@
     "name_zh": "PayPal",
     "exchange": "NASDAQ"
   },
-  "SQ": {
-    "name_en": "Block",
-    "name_zh": "Block",
-    "exchange": "NYSE"
-  },
   "FIS": {
     "name_en": "FIS",
-    "name_zh": "Fidelity National Info",
+    "name_zh": "FIS",
     "exchange": "NYSE"
   },
   "FISV": {
     "name_en": "Fiserv",
     "name_zh": "Fiserv",
-    "exchange": "NYSE"
+    "exchange": "NASDAQ"
   },
   "GPN": {
     "name_en": "Global Payments",
@@ -1311,7 +1306,7 @@
   },
   "FICO": {
     "name_en": "Fair Isaac",
-    "name_zh": "費埃哲",
+    "name_zh": "費埃哲 (FICO)",
     "exchange": "NYSE"
   },
   "VRSK": {
@@ -1405,7 +1400,7 @@
     "exchange": "NYSE"
   },
   "CRL": {
-    "name_en": "Charles River Laboratories",
+    "name_en": "Charles River",
     "name_zh": "查爾斯河實驗室",
     "exchange": "NYSE"
   },
@@ -1446,12 +1441,12 @@
   },
   "RMD": {
     "name_en": "ResMed",
-    "name_zh": "ResMed",
+    "name_zh": "瑞思邁",
     "exchange": "NYSE"
   },
   "DXCM": {
     "name_en": "DexCom",
-    "name_zh": "DexCom",
+    "name_zh": "德康醫療",
     "exchange": "NASDAQ"
   },
   "GEHC": {
@@ -1471,7 +1466,7 @@
   },
   "ZTS": {
     "name_en": "Zoetis",
-    "name_zh": "Zoetis",
+    "name_zh": "碩騰 (Zoetis)",
     "exchange": "NYSE"
   },
   "COR": {
@@ -1490,7 +1485,7 @@
     "exchange": "NASDAQ"
   },
   "ADM": {
-    "name_en": "Archer-Daniels-Midland Company",
+    "name_en": "Archer-Daniels-Midland",
     "name_zh": "阿徹丹尼爾斯米德蘭",
     "exchange": "NYSE"
   },
@@ -1507,7 +1502,7 @@
   "KHC": {
     "name_en": "Kraft Heinz",
     "name_zh": "卡夫亨氏",
-    "exchange": "NASDAQ"
+    "exchange": "NYSE"
   },
   "CL": {
     "name_en": "Colgate-Palmolive",
@@ -1517,7 +1512,7 @@
   "KMB": {
     "name_en": "Kimberly-Clark",
     "name_zh": "金百利克拉克",
-    "exchange": "NYSE"
+    "exchange": "NASDAQ"
   },
   "EL": {
     "name_en": "Estée Lauder",
@@ -1632,11 +1627,6 @@
   "VALE": {
     "name_en": "Vale",
     "name_zh": "淡水河谷",
-    "exchange": "NYSE"
-  },
-  "GOLD": {
-    "name_en": "Barrick Gold",
-    "name_zh": "巴里克（GOLD）",
     "exchange": "NYSE"
   },
   "DOW": {
@@ -1766,7 +1756,7 @@
   },
   "JD": {
     "name_en": "JD.com",
-    "name_zh": "京東",
+    "name_zh": "京東集團",
     "exchange": "NASDAQ"
   },
   "SE": {
@@ -1806,7 +1796,7 @@
   },
   "VEEV": {
     "name_en": "Veeva",
-    "name_zh": "維瓦系統 (Veeva)",
+    "name_zh": "維瓦系統",
     "exchange": "NYSE"
   },
   "ADBE": {
@@ -1831,7 +1821,7 @@
   },
   "BIDU": {
     "name_en": "Baidu",
-    "name_zh": "百度集團",
+    "name_zh": "百度",
     "exchange": "NASDAQ"
   },
   "LI": {
@@ -1841,7 +1831,7 @@
   },
   "XPEV": {
     "name_en": "XPeng",
-    "name_zh": "小鵬",
+    "name_zh": "小鵬集團",
     "exchange": "NYSE"
   },
   "RACE": {
@@ -1901,7 +1891,7 @@
   },
   "LAD": {
     "name_en": "Lithia Motors",
-    "name_zh": "Lithia",
+    "name_zh": "Lithia Motors",
     "exchange": "NYSE"
   },
   "AN": {
@@ -1927,7 +1917,7 @@
   "ETSY": {
     "name_en": "Etsy",
     "name_zh": "Etsy",
-    "exchange": "NASDAQ"
+    "exchange": "NYSE"
   },
   "WSM": {
     "name_en": "Williams-Sonoma",
@@ -1956,7 +1946,7 @@
   },
   "PHM": {
     "name_en": "PulteGroup",
-    "name_zh": "Pulte",
+    "name_zh": "PulteGroup",
     "exchange": "NYSE"
   },
   "NVR": {
@@ -1976,7 +1966,7 @@
   },
   "WMS": {
     "name_en": "Advanced Drainage",
-    "name_zh": "ADS",
+    "name_zh": "Advanced Drainage",
     "exchange": "NYSE"
   },
   "TREX": {
@@ -2001,7 +1991,7 @@
   },
   "SWK": {
     "name_en": "Stanley Black & Decker",
-    "name_zh": "Stanley",
+    "name_zh": "Stanley Black & Decker",
     "exchange": "NYSE"
   },
   "TT": {
@@ -2075,9 +2065,9 @@
     "exchange": "NYSE"
   },
   "SAIC": {
-    "name_en": "SAIC",
-    "name_zh": "SAIC",
-    "exchange": "NYSE"
+    "name_en": "Science Applications International",
+    "name_zh": "科學應用國際",
+    "exchange": "NASDAQ"
   },
   "BAH": {
     "name_en": "Booz Allen",
@@ -2101,13 +2091,8 @@
   },
   "ASTS": {
     "name_en": "AST SpaceMobile",
-    "name_zh": "AST",
+    "name_zh": "AST SpaceMobile",
     "exchange": "NASDAQ"
-  },
-  "MAXR": {
-    "name_en": "Maxar",
-    "name_zh": "Maxar",
-    "exchange": "NYSE"
   },
   "IRDM": {
     "name_en": "Iridium",
@@ -2117,7 +2102,7 @@
   "GSAT": {
     "name_en": "Globalstar",
     "name_zh": "Globalstar",
-    "exchange": "NYSE"
+    "exchange": "NASDAQ"
   },
   "SATS": {
     "name_en": "EchoStar",
@@ -2201,7 +2186,7 @@
   },
   "LYV": {
     "name_en": "Live Nation",
-    "name_zh": "Live Nation",
+    "name_zh": "理想國演藝",
     "exchange": "NYSE"
   },
   "MSGS": {
@@ -2211,7 +2196,7 @@
   },
   "FWONK": {
     "name_en": "Liberty Formula One",
-    "name_zh": "Liberty F1",
+    "name_zh": "Liberty Formula One",
     "exchange": "NASDAQ"
   },
   "ROKU": {
@@ -2240,7 +2225,7 @@
     "exchange": "NYSE"
   },
   "MTCH": {
-    "name_en": "Match Group",
+    "name_en": "Match",
     "name_zh": "Match",
     "exchange": "NASDAQ"
   },
@@ -2311,7 +2296,7 @@
   },
   "TCOM": {
     "name_en": "Trip.com",
-    "name_zh": "攜程",
+    "name_zh": "攜程集團",
     "exchange": "NASDAQ"
   },
   "QSR": {
@@ -2322,7 +2307,7 @@
   "DPZ": {
     "name_en": "Domino's",
     "name_zh": "Domino's",
-    "exchange": "NYSE"
+    "exchange": "NASDAQ"
   },
   "WING": {
     "name_en": "Wingstop",
@@ -2380,8 +2365,8 @@
     "exchange": "NYSE"
   },
   "ANF": {
-    "name_en": "Abercrombie",
-    "name_zh": "Abercrombie",
+    "name_en": "Abercrombie & Fitch",
+    "name_zh": "Abercrombie & Fitch",
     "exchange": "NYSE"
   },
   "AEO": {
@@ -2391,7 +2376,7 @@
   },
   "URBN": {
     "name_en": "Urban Outfitters",
-    "name_zh": "Urban",
+    "name_zh": "Urban Outfitters",
     "exchange": "NASDAQ"
   },
   "LULU": {
@@ -2416,7 +2401,7 @@
   },
   "ONON": {
     "name_en": "On Holding",
-    "name_zh": "On",
+    "name_zh": "ONON",
     "exchange": "NYSE"
   },
   "SKX": {
@@ -2430,8 +2415,8 @@
     "exchange": "NYSE"
   },
   "VFC": {
-    "name_en": "VF Corp",
-    "name_zh": "VF",
+    "name_en": "V.F.",
+    "name_zh": "V.F.",
     "exchange": "NYSE"
   },
   "PVH": {
@@ -2455,8 +2440,8 @@
     "exchange": "NYSE"
   },
   "SIG": {
-    "name_en": "Signet",
-    "name_zh": "Signet",
+    "name_en": "Signet Jewelers",
+    "name_zh": "Signet 珠寶",
     "exchange": "NYSE"
   },
   "MOV": {
@@ -2496,7 +2481,7 @@
   },
   "PLL": {
     "name_en": "Piedmont Lithium",
-    "name_zh": "Piedmont",
+    "name_zh": "Piedmont Lithium",
     "exchange": "NASDAQ"
   },
   "MP": {
@@ -2540,13 +2525,13 @@
     "exchange": "NYSE"
   },
   "NRG": {
-    "name_en": "NRG",
-    "name_zh": "NRG",
+    "name_en": "NRG Energy",
+    "name_zh": "NRG Energy",
     "exchange": "NYSE"
   },
   "TLN": {
-    "name_en": "Talen",
-    "name_zh": "Talen",
+    "name_en": "Talen Energy",
+    "name_zh": "Talen Energy",
     "exchange": "NASDAQ"
   },
   "PCG": {
@@ -2556,7 +2541,7 @@
   },
   "EIX": {
     "name_en": "Edison International",
-    "name_zh": "Edison",
+    "name_zh": "Edison International",
     "exchange": "NYSE"
   },
   "D": {
@@ -2630,8 +2615,8 @@
     "exchange": "NYSE"
   },
   "ATO": {
-    "name_en": "Atmos",
-    "name_zh": "Atmos",
+    "name_en": "Atmos Energy",
+    "name_zh": "Atmos Energy",
     "exchange": "NYSE"
   },
   "OGS": {
@@ -2646,7 +2631,7 @@
   },
   "NWN": {
     "name_en": "Northwest Natural",
-    "name_zh": "NWN",
+    "name_zh": "Northwest Natural",
     "exchange": "NYSE"
   },
   "AWK": {
@@ -2656,28 +2641,23 @@
   },
   "WTRG": {
     "name_en": "Essential Utilities",
-    "name_zh": "Essential",
+    "name_zh": "Essential Utilities",
     "exchange": "NYSE"
   },
   "CWT": {
     "name_en": "California Water",
-    "name_zh": "CWT",
+    "name_zh": "California Water",
     "exchange": "NYSE"
   },
   "AWR": {
     "name_en": "American States Water",
-    "name_zh": "AWR",
+    "name_zh": "American States Water",
     "exchange": "NYSE"
   },
   "MSEX": {
     "name_en": "Middlesex Water",
-    "name_zh": "MSEX",
+    "name_zh": "Middlesex Water",
     "exchange": "NASDAQ"
-  },
-  "SJW": {
-    "name_en": "SJW Group",
-    "name_zh": "SJW",
-    "exchange": "NYSE"
   },
   "YORW": {
     "name_en": "York Water",
@@ -2686,17 +2666,17 @@
   },
   "CWCO": {
     "name_en": "Consolidated Water",
-    "name_zh": "CWCO",
+    "name_zh": "Consolidated Water",
     "exchange": "NASDAQ"
   },
   "GWRS": {
     "name_en": "Global Water",
-    "name_zh": "GWRS",
+    "name_zh": "Global Water",
     "exchange": "NASDAQ"
   },
   "A": {
-    "name_en": "Agilent Technologies",
-    "name_zh": "Agilent Technologies",
+    "name_en": "Agilent",
+    "name_zh": "安捷倫",
     "exchange": "NYSE"
   },
   "AEM": {
@@ -2740,7 +2720,7 @@
     "exchange": "NYSE"
   },
   "CNI": {
-    "name_en": "CNI",
+    "name_en": "Canadian National Railway",
     "name_zh": "加拿大國家鐵路",
     "exchange": "NYSE"
   },
@@ -2750,13 +2730,13 @@
     "exchange": "NYSE"
   },
   "CP": {
-    "name_en": "CP",
+    "name_en": "Canadian Pacific Kansas City",
     "name_zh": "加拿大太平洋鐵路",
     "exchange": "NYSE"
   },
   "DD": {
-    "name_en": "DuPont de Nemours",
-    "name_zh": "杜邦公司",
+    "name_en": "DuPont",
+    "name_zh": "杜邦",
     "exchange": "NYSE"
   },
   "DOC": {
@@ -2860,7 +2840,7 @@
     "exchange": "NYSE"
   },
   "WTW": {
-    "name_en": "WTW",
+    "name_en": "Willis Towers Watson Public",
     "name_zh": "WTW",
     "exchange": "NASDAQ"
   },
@@ -2880,13 +2860,13 @@
     "exchange": "NYSE"
   },
   "HII": {
-    "name_en": "HII",
+    "name_en": "Huntington Ingalls Industries",
     "name_zh": "亨廷頓英格爾斯",
     "exchange": "NYSE"
   },
   "BAM": {
     "name_en": "Brookfield Asset Management",
-    "name_zh": "Brookfield Asset Management",
+    "name_zh": "BAM",
     "exchange": "NYSE"
   },
   "ING": {
@@ -2910,12 +2890,12 @@
     "exchange": "NYSE"
   },
   "SMFG": {
-    "name_en": "SMFG",
+    "name_en": "Sumitomo Mitsui Financial",
     "name_zh": "三井住友金融",
     "exchange": "NYSE"
   },
   "CCEP": {
-    "name_en": "CCEP",
+    "name_en": "Coca-Cola Europacific Partners",
     "name_zh": "可口可樂歐洲太平洋",
     "exchange": "NASDAQ"
   },
@@ -2976,7 +2956,7 @@
   },
   "MYRG": {
     "name_en": "MYR Group",
-    "name_zh": "MYR Group",
+    "name_zh": "MYR",
     "exchange": "OTC"
   },
   "VRT": {
@@ -2995,27 +2975,27 @@
     "exchange": "NYSE"
   },
   "JBHT": {
-    "name_en": "JBHT",
+    "name_en": "J.B. Hunt Transport Services",
     "name_zh": "J.B. Hunt",
     "exchange": "NASDAQ"
   },
   "ODFL": {
-    "name_en": "ODFL",
+    "name_en": "Old Dominion Freight Line",
     "name_zh": "Old Dominion",
     "exchange": "NASDAQ"
   },
   "XPO": {
     "name_en": "XPO Logistics",
-    "name_zh": "XPO",
+    "name_zh": "XPO Logistics",
     "exchange": "NYSE"
   },
   "GPI": {
     "name_en": "Group 1 Automotive",
-    "name_zh": "Group 1 Automotive",
-    "exchange": "OTC"
+    "name_zh": "GPI",
+    "exchange": "NYSE"
   },
   "EPD": {
-    "name_en": "EPD",
+    "name_en": "Enterprise Products Partners L.P.",
     "name_zh": "企業產品合夥",
     "exchange": "NYSE"
   },
@@ -3060,7 +3040,7 @@
     "exchange": "NASDAQ"
   },
   "FRT": {
-    "name_en": "FRT",
+    "name_en": "Federal Realty",
     "name_zh": "Federal Realty",
     "exchange": "NYSE"
   },
@@ -3070,7 +3050,7 @@
     "exchange": "NYSE"
   },
   "NOV": {
-    "name_en": "NOV",
+    "name_en": "NOV Inc.",
     "name_zh": "NOV",
     "exchange": "NYSE"
   },
@@ -3100,7 +3080,7 @@
     "exchange": "NYSE"
   },
   "RELX": {
-    "name_en": "RELX",
+    "name_en": "RELX Plc",
     "name_zh": "RELX",
     "exchange": "NYSE"
   },
@@ -3150,7 +3130,7 @@
     "exchange": "NASDAQ"
   },
   "CRH": {
-    "name_en": "CRH",
+    "name_en": "CRH plc",
     "name_zh": "CRH",
     "exchange": "NYSE"
   },
@@ -3160,7 +3140,7 @@
     "exchange": "NYSE"
   },
   "MLM": {
-    "name_en": "MLM",
+    "name_en": "Martin Marietta",
     "name_zh": "馬丁瑪麗埃塔",
     "exchange": "NYSE"
   },
@@ -3185,7 +3165,7 @@
     "exchange": "OTC"
   },
   "MCHP": {
-    "name_en": "MCHP",
+    "name_en": "Microchip Technology",
     "name_zh": "微芯科技",
     "exchange": "NASDAQ"
   },
@@ -3217,11 +3197,11 @@
   "ALK": {
     "name_en": "Alaska Air",
     "name_zh": "阿拉斯加航空",
-    "exchange": "OTC"
+    "exchange": "NYSE"
   },
   "MPLX": {
     "name_en": "MPLX Lp",
-    "name_zh": "MPLX",
+    "name_zh": "MPLX Lp",
     "exchange": "NYSE"
   },
   "X": {
@@ -3300,7 +3280,7 @@
     "exchange": "NASDAQ"
   },
   "AXON": {
-    "name_en": "Axon Enterprise",
+    "name_en": "Axon",
     "name_zh": "Axon",
     "exchange": "NASDAQ"
   },
@@ -3330,12 +3310,12 @@
     "exchange": "NASDAQ"
   },
   "CBRE": {
-    "name_en": "CBRE",
+    "name_en": "CBRE Group Inc.",
     "name_zh": "CBRE",
     "exchange": "NYSE"
   },
   "JLL": {
-    "name_en": "JLL",
+    "name_en": "Jones Lang LaSalle",
     "name_zh": "仲量聯行",
     "exchange": "NYSE"
   },
@@ -3345,7 +3325,7 @@
     "exchange": "NYSE"
   },
   "IRM": {
-    "name_en": "IRM",
+    "name_en": "Iron Mountain",
     "name_zh": "Iron Mountain",
     "exchange": "NYSE"
   },
@@ -3360,7 +3340,7 @@
     "exchange": "NYSE"
   },
   "MAA": {
-    "name_en": "MAA",
+    "name_en": "Mid-America Apartment Communities",
     "name_zh": "Mid-America Apartment",
     "exchange": "NYSE"
   },
@@ -3380,12 +3360,12 @@
     "exchange": "NYSE"
   },
   "ARE": {
-    "name_en": "ARE",
+    "name_en": "Alexandria Real Estate",
     "name_zh": "Alexandria",
     "exchange": "NYSE"
   },
   "BXP": {
-    "name_en": "BXP",
+    "name_en": "BXP Inc.",
     "name_zh": "Boston Properties",
     "exchange": "NYSE"
   },
@@ -3405,8 +3385,8 @@
     "exchange": "NYSE"
   },
   "GLPI": {
-    "name_en": "GLPI",
-    "name_zh": "Gaming and Leisure Properties",
+    "name_en": "Gaming and Leisure Properties",
+    "name_zh": "GLPI",
     "exchange": "NASDAQ"
   },
   "WCN": {
@@ -3432,7 +3412,7 @@
   "UNF": {
     "name_en": "UniFirst",
     "name_zh": "UniFirst",
-    "exchange": "OTC"
+    "exchange": "NYSE"
   },
   "ARMK": {
     "name_en": "Aramark",
@@ -3445,9 +3425,9 @@
     "exchange": "NYSE"
   },
   "ABM": {
-    "name_en": "ABM",
-    "name_zh": "ABM",
-    "exchange": "OTC"
+    "name_en": "ABM Industries",
+    "name_zh": "ABM Industries",
+    "exchange": "NYSE"
   },
   "HCSG": {
     "name_en": "HCSG",
@@ -3501,7 +3481,7 @@
   },
   "AFFINITY": {
     "name_en": "Affinity (Serif)",
-    "name_zh": "Affinity",
+    "name_zh": "Affinity (Serif)",
     "exchange": "Private"
   },
   "CORELDRAW": {
@@ -3523,5 +3503,4220 @@
     "name_en": "Nippon Sanso Holdings",
     "name_zh": "日本酸素控股",
     "exchange": "TSE"
+  },
+  "CVE": {
+    "name_en": "Cenovus",
+    "name_zh": "Cenovus",
+    "exchange": "NYSE"
+  },
+  "TEVA": {
+    "name_en": "Teva",
+    "name_zh": "梯瓦藥廠",
+    "exchange": "NYSE"
+  },
+  "FNV": {
+    "name_en": "Franco-Nevada",
+    "name_zh": "Franco-Nevada",
+    "exchange": "NYSE"
+  },
+  "LITE": {
+    "name_en": "Lumentum",
+    "name_zh": "Lumentum",
+    "exchange": "NASDAQ"
+  },
+  "HONA": {
+    "name_en": "Honeywell Aerospace",
+    "name_zh": "Honeywell Aerospace",
+    "exchange": "NASDAQ"
+  },
+  "FITB": {
+    "name_en": "Fifth Third Bancorp",
+    "name_zh": "Fifth Third Bancorp",
+    "exchange": "NYSE"
+  },
+  "WAB": {
+    "name_en": "Westinghouse Air Brake Technologies",
+    "name_zh": "WAB",
+    "exchange": "NYSE"
+  },
+  "ROP": {
+    "name_en": "Roper Technologies",
+    "name_zh": "Roper Technologies",
+    "exchange": "NASDAQ"
+  },
+  "VYLR": {
+    "name_en": "Vylor",
+    "name_zh": "Vylor",
+    "exchange": "NYSE"
+  },
+  "MSCI": {
+    "name_en": "MSCI Inc.",
+    "name_zh": "明晟 (MSCI)",
+    "exchange": "NYSE"
+  },
+  "XYZ": {
+    "name_en": "Block",
+    "name_zh": "Block",
+    "exchange": "NYSE"
+  },
+  "ELC": {
+    "name_en": "Entergy Louisiana, LLC COLLATERAL TR MT",
+    "name_zh": "ELC",
+    "exchange": "NYSE"
+  },
+  "FERG": {
+    "name_en": "Ferguson Enterprises",
+    "name_zh": "Ferguson",
+    "exchange": "NYSE"
+  },
+  "WAT": {
+    "name_en": "Waters",
+    "name_zh": "Waters",
+    "exchange": "NYSE"
+  },
+  "NTRA": {
+    "name_en": "Natera",
+    "name_zh": "Natera",
+    "exchange": "NASDAQ"
+  },
+  "FMX": {
+    "name_en": "Fomento Económico Mexicano, S.A.B. de C.V.",
+    "name_zh": "FMX",
+    "exchange": "NYSE"
+  },
+  "ARES": {
+    "name_en": "Ares Management",
+    "name_zh": "Ares",
+    "exchange": "NYSE"
+  },
+  "AMP": {
+    "name_en": "Ameriprise",
+    "name_zh": "Ameriprise",
+    "exchange": "NYSE"
+  },
+  "ONC": {
+    "name_en": "BeOne Medicines AG",
+    "name_zh": "百濟神州",
+    "exchange": "NASDAQ"
+  },
+  "ABEV": {
+    "name_en": "Ambev",
+    "name_zh": "安貝夫",
+    "exchange": "NYSE"
+  },
+  "RKT": {
+    "name_en": "Rocket Companies",
+    "name_zh": "Rocket",
+    "exchange": "NYSE"
+  },
+  "FER": {
+    "name_en": "Ferrovial N.V.",
+    "name_zh": "FER",
+    "exchange": "NASDAQ"
+  },
+  "TOL": {
+    "name_en": "Toll Brothers",
+    "name_zh": "Toll Brothers",
+    "exchange": "NYSE"
+  },
+  "IBP": {
+    "name_en": "Installed Building Products",
+    "name_zh": "IBP",
+    "exchange": "NYSE"
+  },
+  "RVMD": {
+    "name_en": "Revolution Medicines",
+    "name_zh": "Revolution Medicines",
+    "exchange": "NASDAQ"
+  },
+  "HLN": {
+    "name_en": "Haleon",
+    "name_zh": "Haleon",
+    "exchange": "NYSE"
+  },
+  "WDS": {
+    "name_en": "Woodside Energy",
+    "name_zh": "Woodside Energy",
+    "exchange": "NYSE"
+  },
+  "SLF": {
+    "name_en": "Sun Life Financial",
+    "name_zh": "Sun Life",
+    "exchange": "NYSE"
+  },
+  "KB": {
+    "name_en": "KB Financial",
+    "name_zh": "KB",
+    "exchange": "NYSE"
+  },
+  "VIK": {
+    "name_en": "Viking",
+    "name_zh": "Viking",
+    "exchange": "NYSE"
+  },
+  "IX": {
+    "name_en": "ORIX",
+    "name_zh": "ORIX",
+    "exchange": "NYSE"
+  },
+  "CHT": {
+    "name_en": "Chunghwa Telecom Co.",
+    "name_zh": "CHT",
+    "exchange": "NYSE"
+  },
+  "ACGL": {
+    "name_en": "Arch Capital",
+    "name_zh": "Arch Capital",
+    "exchange": "NASDAQ"
+  },
+  "KVUE": {
+    "name_en": "Kenvue",
+    "name_zh": "Kenvue",
+    "exchange": "NYSE"
+  },
+  "ALC": {
+    "name_en": "Alcon",
+    "name_zh": "愛爾康",
+    "exchange": "NYSE"
+  },
+  "STE": {
+    "name_en": "STERIS",
+    "name_zh": "思泰瑞醫療",
+    "exchange": "NYSE"
+  },
+  "UI": {
+    "name_en": "Ubiquiti",
+    "name_zh": "Ubiquiti",
+    "exchange": "NYSE"
+  },
+  "HIG": {
+    "name_en": "The Hartford Insurance",
+    "name_zh": "The Hartford Insurance",
+    "exchange": "NYSE"
+  },
+  "FIX": {
+    "name_en": "Comfort Systems USA",
+    "name_zh": "Comfort Systems USA",
+    "exchange": "NYSE"
+  },
+  "COIN": {
+    "name_en": "Coinbase Global",
+    "name_zh": "Coinbase Global",
+    "exchange": "NASDAQ"
+  },
+  "MDLN": {
+    "name_en": "Medline",
+    "name_zh": "Medline",
+    "exchange": "NASDAQ"
+  },
+  "BSBR": {
+    "name_en": "Banco Santander Brasil",
+    "name_zh": "巴西桑坦德銀行",
+    "exchange": "NYSE"
+  },
+  "UMC": {
+    "name_en": "United Microelectronics",
+    "name_zh": "United Microelectronics",
+    "exchange": "NYSE"
+  },
+  "CIEN": {
+    "name_en": "Ciena",
+    "name_zh": "Ciena",
+    "exchange": "NYSE"
+  },
+  "MTD": {
+    "name_en": "Mettler-Toledo International",
+    "name_zh": "Mettler-Toledo International",
+    "exchange": "NYSE"
+  },
+  "NTR": {
+    "name_en": "Nutrien",
+    "name_zh": "Nutrien",
+    "exchange": "NYSE"
+  },
+  "BG": {
+    "name_en": "Bunge",
+    "name_zh": "Bunge",
+    "exchange": "NYSE"
+  },
+  "ALAB": {
+    "name_en": "Astera Labs",
+    "name_zh": "Astera Labs",
+    "exchange": "NASDAQ"
+  },
+  "GMAB": {
+    "name_en": "Genmab A/S",
+    "name_zh": "Genmab A/S",
+    "exchange": "NASDAQ"
+  },
+  "SMCIP": {
+    "name_en": "Super Micro Computer",
+    "name_zh": "Super Micro Computer",
+    "exchange": "NASDAQ"
+  },
+  "STRC": {
+    "name_en": "Strategy",
+    "name_zh": "Strategy",
+    "exchange": "NASDAQ"
+  },
+  "P": {
+    "name_en": "Everpure",
+    "name_zh": "Everpure",
+    "exchange": "NYSE"
+  },
+  "ILMN": {
+    "name_en": "Illumina",
+    "name_zh": "因美納",
+    "exchange": "NASDAQ"
+  },
+  "ESLT": {
+    "name_en": "Elbit Systems",
+    "name_zh": "Elbit Systems",
+    "exchange": "NASDAQ"
+  },
+  "EC": {
+    "name_en": "Ecopetrol S.A.",
+    "name_zh": "Ecopetrol S.A.",
+    "exchange": "NYSE"
+  },
+  "NWG": {
+    "name_en": "NatWest",
+    "name_zh": "NatWest",
+    "exchange": "NYSE"
+  },
+  "TS": {
+    "name_en": "Tenaris S.A.",
+    "name_zh": "Tenaris S.A.",
+    "exchange": "NYSE"
+  },
+  "SUNB": {
+    "name_en": "Sunbelt Rentals",
+    "name_zh": "Sunbelt Rentals",
+    "exchange": "NYSE"
+  },
+  "MTB": {
+    "name_en": "M&T Bank",
+    "name_zh": "M&T Bank",
+    "exchange": "NYSE"
+  },
+  "SN": {
+    "name_en": "SharkNinja",
+    "name_zh": "SharkNinja",
+    "exchange": "NYSE"
+  },
+  "SGI": {
+    "name_en": "Somnigroup International",
+    "name_zh": "Somnigroup International",
+    "exchange": "NYSE"
+  },
+  "MHK": {
+    "name_en": "Mohawk Industries",
+    "name_zh": "Mohawk Industries",
+    "exchange": "NYSE"
+  },
+  "RJF": {
+    "name_en": "Raymond James Financial",
+    "name_zh": "Raymond James",
+    "exchange": "NYSE"
+  },
+  "TWLO": {
+    "name_en": "Twilio",
+    "name_zh": "Twilio",
+    "exchange": "NYSE"
+  },
+  "HBAN": {
+    "name_en": "Huntington Bancshares",
+    "name_zh": "Huntington Bancshares",
+    "exchange": "NASDAQ"
+  },
+  "NBIS": {
+    "name_en": "Nebius N.V.",
+    "name_zh": "NBIS",
+    "exchange": "NASDAQ"
+  },
+  "NXE": {
+    "name_en": "NexGen Energy",
+    "name_zh": "NexGen Energy",
+    "exchange": "NYSE"
+  },
+  "EQT": {
+    "name_en": "EQT Corporation",
+    "name_zh": "EQT",
+    "exchange": "NYSE"
+  },
+  "RYAAY": {
+    "name_en": "Ryanair",
+    "name_zh": "Ryanair",
+    "exchange": "NASDAQ"
+  },
+  "FTS": {
+    "name_en": "Fortis",
+    "name_zh": "Fortis",
+    "exchange": "NYSE"
+  },
+  "PUK": {
+    "name_en": "Prudential",
+    "name_zh": "保誠",
+    "exchange": "NYSE"
+  },
+  "OTIS": {
+    "name_en": "Otis Worldwide",
+    "name_zh": "奧的斯電梯",
+    "exchange": "NYSE"
+  },
+  "RPRX": {
+    "name_en": "Royalty Pharma",
+    "name_zh": "Royalty Pharma",
+    "exchange": "NASDAQ"
+  },
+  "CPAY": {
+    "name_en": "Corpay",
+    "name_zh": "Corpay",
+    "exchange": "NYSE"
+  },
+  "PHG": {
+    "name_en": "Koninklijke Philips N.V.",
+    "name_zh": "PHG",
+    "exchange": "NYSE"
+  },
+  "CPRT": {
+    "name_en": "Copart",
+    "name_zh": "科帕特 (Copart)",
+    "exchange": "NASDAQ"
+  },
+  "SHG": {
+    "name_en": "Shinhan Financial Co.",
+    "name_zh": "SHG",
+    "exchange": "NYSE"
+  },
+  "VG": {
+    "name_en": "Venture Global",
+    "name_zh": "Venture Global",
+    "exchange": "NYSE"
+  },
+  "CINF": {
+    "name_en": "Cincinnati Financial",
+    "name_zh": "Cincinnati",
+    "exchange": "NASDAQ"
+  },
+  "VLTO": {
+    "name_en": "Veralto",
+    "name_zh": "Veralto",
+    "exchange": "NYSE"
+  },
+  "MCHPP": {
+    "name_en": "Microchip Technology",
+    "name_zh": "Microchip Technology",
+    "exchange": "NASDAQ"
+  },
+  "ROIV": {
+    "name_en": "Roivant Sciences",
+    "name_zh": "Roivant Sciences",
+    "exchange": "NASDAQ"
+  },
+  "PBA": {
+    "name_en": "Pembina Pipeline",
+    "name_zh": "Pembina Pipeline",
+    "exchange": "NYSE"
+  },
+  "WRB": {
+    "name_en": "W. R. Berkley",
+    "name_zh": "W. R. Berkley",
+    "exchange": "NYSE"
+  },
+  "AKAM": {
+    "name_en": "Akamai Technologies",
+    "name_zh": "Akamai Technologies",
+    "exchange": "NASDAQ"
+  },
+  "WST": {
+    "name_en": "West Pharmaceutical Services",
+    "name_zh": "WST",
+    "exchange": "NYSE"
+  },
+  "CQP": {
+    "name_en": "Cheniere Energy Partners, L.P.",
+    "name_zh": "CQP",
+    "exchange": "NYSE"
+  },
+  "FOXA": {
+    "name_en": "Fox",
+    "name_zh": "Fox",
+    "exchange": "NASDAQ"
+  },
+  "BBD": {
+    "name_en": "Banco Bradesco",
+    "name_zh": "巴西布拉德斯科銀行",
+    "exchange": "NYSE"
+  },
+  "VRSN": {
+    "name_en": "VeriSign",
+    "name_zh": "VeriSign",
+    "exchange": "NASDAQ"
+  },
+  "JBS": {
+    "name_en": "Jbs N.V.",
+    "name_zh": "JBS",
+    "exchange": "NYSE"
+  },
+  "BAP": {
+    "name_en": "Credicorp",
+    "name_zh": "Credicorp",
+    "exchange": "NYSE"
+  },
+  "TW": {
+    "name_en": "Tradeweb Markets",
+    "name_zh": "Tradeweb 市場",
+    "exchange": "NASDAQ"
+  },
+  "ULTA": {
+    "name_en": "Ulta Beauty",
+    "name_zh": "Ulta Beauty",
+    "exchange": "NASDAQ"
+  },
+  "NMR": {
+    "name_en": "Nomura",
+    "name_zh": "Nomura",
+    "exchange": "NYSE"
+  },
+  "PPL": {
+    "name_en": "PPL Corporation",
+    "name_zh": "PPL",
+    "exchange": "NYSE"
+  },
+  "BSP": {
+    "name_en": "Bending Spoons S.p.A.",
+    "name_zh": "Bending Spoons S.p.A.",
+    "exchange": "NASDAQ"
+  },
+  "BBDO": {
+    "name_en": "Banco Bradesco",
+    "name_zh": "巴西布拉德斯科銀行",
+    "exchange": "NYSE"
+  },
+  "FOX": {
+    "name_en": "Fox",
+    "name_zh": "Fox",
+    "exchange": "NASDAQ"
+  },
+  "CFG": {
+    "name_en": "Citizens Financial",
+    "name_zh": "Citizens",
+    "exchange": "NYSE"
+  },
+  "LVS": {
+    "name_en": "Las Vegas Sands",
+    "name_zh": "Las Vegas Sands",
+    "exchange": "NYSE"
+  },
+  "AER": {
+    "name_en": "AerCap",
+    "name_zh": "AerCap",
+    "exchange": "NYSE"
+  },
+  "CLS": {
+    "name_en": "Celestica",
+    "name_zh": "Celestica",
+    "exchange": "NYSE"
+  },
+  "CHD": {
+    "name_en": "Church & Dwight Co.",
+    "name_zh": "巧手先生 (Church & Dwight)",
+    "exchange": "NYSE"
+  },
+  "CRWV": {
+    "name_en": "CoreWeave",
+    "name_zh": "CoreWeave",
+    "exchange": "NASDAQ"
+  },
+  "CASY": {
+    "name_en": "Casey's General Stores",
+    "name_zh": "Casey's General Stores",
+    "exchange": "NASDAQ"
+  },
+  "FWONA": {
+    "name_en": "Formula One",
+    "name_zh": "Formula One",
+    "exchange": "NASDAQ"
+  },
+  "FCNCA": {
+    "name_en": "First Citizens BancShares",
+    "name_zh": "FCNCA",
+    "exchange": "NASDAQ"
+  },
+  "INSM": {
+    "name_en": "Insmed",
+    "name_zh": "Insmed",
+    "exchange": "NASDAQ"
+  },
+  "FTI": {
+    "name_en": "TechnipFMC",
+    "name_zh": "TechnipFMC",
+    "exchange": "NYSE"
+  },
+  "VMRK": {
+    "name_en": "Vivmark Residential",
+    "name_zh": "Vivmark Residential",
+    "exchange": "NYSE"
+  },
+  "Q": {
+    "name_en": "Qnity Electronics",
+    "name_zh": "Qnity Electronics",
+    "exchange": "NYSE"
+  },
+  "INCY": {
+    "name_en": "Incyte",
+    "name_zh": "Incyte",
+    "exchange": "NASDAQ"
+  },
+  "RF": {
+    "name_en": "Regions Financial",
+    "name_zh": "Regions",
+    "exchange": "NYSE"
+  },
+  "UTHR": {
+    "name_en": "United Therapeutics",
+    "name_zh": "United Therapeutics",
+    "exchange": "NASDAQ"
+  },
+  "KOF": {
+    "name_en": "Coca-Cola FEMSA, S.A.B. de C.V.",
+    "name_zh": "KOF",
+    "exchange": "NYSE"
+  },
+  "IOT": {
+    "name_en": "Samsara",
+    "name_zh": "Samsara",
+    "exchange": "NYSE"
+  },
+  "ATI": {
+    "name_en": "ATI",
+    "name_zh": "ATI",
+    "exchange": "NYSE"
+  },
+  "MLI": {
+    "name_en": "Mueller Industries",
+    "name_zh": "Mueller Industries",
+    "exchange": "NYSE"
+  },
+  "MKL": {
+    "name_en": "Markel",
+    "name_zh": "Markel",
+    "exchange": "NYSE"
+  },
+  "OMC": {
+    "name_en": "Omnicom",
+    "name_zh": "Omnicom",
+    "exchange": "NYSE"
+  },
+  "PFG": {
+    "name_en": "Principal Financial",
+    "name_zh": "Principal",
+    "exchange": "NASDAQ"
+  },
+  "SW": {
+    "name_en": "Smurfit Westrock",
+    "name_zh": "Smurfit Westrock",
+    "exchange": "NYSE"
+  },
+  "PKG": {
+    "name_en": "Packaging Corp of America",
+    "name_zh": "美國包裝公司",
+    "exchange": "NYSE"
+  },
+  "AMCR": {
+    "name_en": "Amcor",
+    "name_zh": "Amcor",
+    "exchange": "NYSE"
+  },
+  "BALL": {
+    "name_en": "Ball",
+    "name_zh": "Ball",
+    "exchange": "NYSE"
+  },
+  "AVY": {
+    "name_en": "Avery Dennison",
+    "name_zh": "Avery Dennison",
+    "exchange": "NYSE"
+  },
+  "CCK": {
+    "name_en": "Crown Holdings",
+    "name_zh": "Crown",
+    "exchange": "NYSE"
+  },
+  "USFD": {
+    "name_en": "US Foods",
+    "name_zh": "US Foods",
+    "exchange": "NYSE"
+  },
+  "LPLA": {
+    "name_en": "LPL Financial",
+    "name_zh": "LPL",
+    "exchange": "NASDAQ"
+  },
+  "AMRZ": {
+    "name_en": "Amrize",
+    "name_zh": "Amrize",
+    "exchange": "NYSE"
+  },
+  "VTRS": {
+    "name_en": "Viatris",
+    "name_zh": "Viatris",
+    "exchange": "NASDAQ"
+  },
+  "HUBB": {
+    "name_en": "Hubbell",
+    "name_zh": "Hubbell",
+    "exchange": "NYSE"
+  },
+  "CRDO": {
+    "name_en": "Credo Technology Holding",
+    "name_zh": "CRDO",
+    "exchange": "NASDAQ"
+  },
+  "RGLD": {
+    "name_en": "Royal Gold",
+    "name_zh": "Royal Gold",
+    "exchange": "NASDAQ"
+  },
+  "THC": {
+    "name_en": "Tenet Healthcare",
+    "name_zh": "Tenet Healthcare",
+    "exchange": "NYSE"
+  },
+  "KEY": {
+    "name_en": "KeyCorp",
+    "name_zh": "KeyCorp",
+    "exchange": "NYSE"
+  },
+  "SYM": {
+    "name_en": "Symbotic",
+    "name_zh": "Symbotic",
+    "exchange": "NASDAQ"
+  },
+  "EFX": {
+    "name_en": "Equifax",
+    "name_zh": "艾可飛 (Equifax)",
+    "exchange": "NYSE"
+  },
+  "FCN": {
+    "name_en": "FTI Consulting",
+    "name_zh": "FTI Consulting",
+    "exchange": "NYSE"
+  },
+  "L": {
+    "name_en": "Loews",
+    "name_zh": "Loews",
+    "exchange": "NYSE"
+  },
+  "CIB": {
+    "name_en": "Cibest",
+    "name_zh": "西貝斯特",
+    "exchange": "NYSE"
+  },
+  "RBRK": {
+    "name_en": "Rubrik",
+    "name_zh": "Rubrik",
+    "exchange": "NYSE"
+  },
+  "STRK": {
+    "name_en": "Strategy",
+    "name_zh": "Strategy",
+    "exchange": "NASDAQ"
+  },
+  "NXT": {
+    "name_en": "Nextpower",
+    "name_zh": "Nextpower",
+    "exchange": "NASDAQ"
+  },
+  "TCPA": {
+    "name_en": "TransCanada PipeLines 6",
+    "name_zh": "TransCanada PipeLines 6",
+    "exchange": "NYSE"
+  },
+  "BR": {
+    "name_en": "Broadridge Financial Solutions",
+    "name_zh": "寬嶺金融",
+    "exchange": "NYSE"
+  },
+  "RS": {
+    "name_en": "Reliance Steel & Aluminum Co.",
+    "name_zh": "RS",
+    "exchange": "NYSE"
+  },
+  "IFF": {
+    "name_en": "International Flavors & Fragrances",
+    "name_zh": "國際香精香料",
+    "exchange": "NYSE"
+  },
+  "SOFI": {
+    "name_en": "SoFi Technologies",
+    "name_zh": "SoFi Technologies",
+    "exchange": "NASDAQ"
+  },
+  "ALNY": {
+    "name_en": "Alnylam",
+    "name_zh": "Alnylam",
+    "exchange": "NASDAQ"
+  },
+  "BEKE": {
+    "name_en": "KE Holdings",
+    "name_zh": "貝殼找房",
+    "exchange": "NYSE"
+  },
+  "PS": {
+    "name_en": "Pershing Square",
+    "name_zh": "Pershing Square",
+    "exchange": "NYSE"
+  },
+  "CBRS": {
+    "name_en": "Cerebras Systems",
+    "name_zh": "Cerebras Systems",
+    "exchange": "NASDAQ"
+  },
+  "GH": {
+    "name_en": "Guardant Health",
+    "name_zh": "Guardant Health",
+    "exchange": "NASDAQ"
+  },
+  "EVRG": {
+    "name_en": "Evergy",
+    "name_zh": "Evergy",
+    "exchange": "NASDAQ"
+  },
+  "LYB": {
+    "name_en": "LyondellBasell",
+    "name_zh": "LyondellBasell",
+    "exchange": "NYSE"
+  },
+  "EXE": {
+    "name_en": "Expand Energy",
+    "name_zh": "Expand Energy",
+    "exchange": "NASDAQ"
+  },
+  "BCH": {
+    "name_en": "Banco de Chile",
+    "name_zh": "Banco de Chile",
+    "exchange": "NYSE"
+  },
+  "SNA": {
+    "name_en": "Snap-on",
+    "name_zh": "Snap-on",
+    "exchange": "NYSE"
+  },
+  "RBC": {
+    "name_en": "RBC Bearings",
+    "name_zh": "RBC Bearings",
+    "exchange": "NYSE"
+  },
+  "LECO": {
+    "name_en": "Lincoln Electric",
+    "name_zh": "Lincoln Electric",
+    "exchange": "NASDAQ"
+  },
+  "TTC": {
+    "name_en": "Toro",
+    "name_zh": "Toro",
+    "exchange": "NYSE"
+  },
+  "TKR": {
+    "name_en": "Timken",
+    "name_zh": "Timken",
+    "exchange": "NYSE"
+  },
+  "TSCO": {
+    "name_en": "Tractor Supply",
+    "name_zh": "Tractor Supply",
+    "exchange": "NASDAQ"
+  },
+  "TPL": {
+    "name_en": "Texas Pacific Land",
+    "name_zh": "Texas Pacific Land",
+    "exchange": "NYSE"
+  },
+  "WWD": {
+    "name_en": "Woodward",
+    "name_zh": "Woodward",
+    "exchange": "NASDAQ"
+  },
+  "FDXF": {
+    "name_en": "FedEx Freight Holding",
+    "name_zh": "FDXF",
+    "exchange": "NYSE"
+  },
+  "FTAI": {
+    "name_en": "FTAI Aviation",
+    "name_zh": "FTAI Aviation",
+    "exchange": "NASDAQ"
+  },
+  "ITT": {
+    "name_en": "ITT Inc.",
+    "name_zh": "ITT",
+    "exchange": "NYSE"
+  },
+  "AS": {
+    "name_en": "Amer Sports",
+    "name_zh": "Amer Sports",
+    "exchange": "NYSE"
+  },
+  "HAS": {
+    "name_en": "Hasbro",
+    "name_zh": "Hasbro",
+    "exchange": "NASDAQ"
+  },
+  "LTH": {
+    "name_en": "Life Time",
+    "name_zh": "Life Time",
+    "exchange": "NYSE"
+  },
+  "IP": {
+    "name_en": "International Paper",
+    "name_zh": "International Paper",
+    "exchange": "NYSE"
+  },
+  "SUZ": {
+    "name_en": "Suzano S.A.",
+    "name_zh": "Suzano S.A.",
+    "exchange": "NYSE"
+  },
+  "LPX": {
+    "name_en": "Louisiana-Pacific",
+    "name_zh": "Louisiana-Pacific",
+    "exchange": "NYSE"
+  },
+  "WFG": {
+    "name_en": "West Fraser Timber Co.",
+    "name_zh": "WFG",
+    "exchange": "NYSE"
+  },
+  "MEDP": {
+    "name_en": "Medpace",
+    "name_zh": "Medpace",
+    "exchange": "NASDAQ"
+  },
+  "VIV": {
+    "name_en": "Telefônica Brasil S.A.",
+    "name_zh": "Telefônica Brasil S.A.",
+    "exchange": "NYSE"
+  },
+  "SSNC": {
+    "name_en": "SS&C Technologies",
+    "name_zh": "SS&C Technologies",
+    "exchange": "NASDAQ"
+  },
+  "PR": {
+    "name_en": "Permian Resources",
+    "name_zh": "Permian Resources",
+    "exchange": "NYSE"
+  },
+  "CF": {
+    "name_en": "CF Industries",
+    "name_zh": "CF Industries",
+    "exchange": "NYSE"
+  },
+  "BIP": {
+    "name_en": "Brookfield Infrastructure",
+    "name_zh": "Brookfield Infrastructure",
+    "exchange": "NYSE"
+  },
+  "TPG": {
+    "name_en": "TPG Inc.",
+    "name_zh": "TPG",
+    "exchange": "NASDAQ"
+  },
+  "GEN": {
+    "name_en": "Gen Digital",
+    "name_zh": "Gen Digital",
+    "exchange": "NASDAQ"
+  },
+  "FFIV": {
+    "name_en": "F5",
+    "name_zh": "F5",
+    "exchange": "NASDAQ"
+  },
+  "EWBC": {
+    "name_en": "East West Bancorp",
+    "name_zh": "East West Bancorp",
+    "exchange": "NASDAQ"
+  },
+  "APG": {
+    "name_en": "APi Group",
+    "name_zh": "APi",
+    "exchange": "NYSE"
+  },
+  "EXEL": {
+    "name_en": "Exelixis",
+    "name_zh": "Exelixis",
+    "exchange": "NASDAQ"
+  },
+  "J": {
+    "name_en": "Jacobs Solutions",
+    "name_zh": "Jacobs Solutions",
+    "exchange": "NYSE"
+  },
+  "KSPI": {
+    "name_en": "Joint Stock Kaspi.kz",
+    "name_zh": "Joint Stock Kaspi.kz",
+    "exchange": "NASDAQ"
+  },
+  "RBA": {
+    "name_en": "RB Global",
+    "name_zh": "RB Global",
+    "exchange": "NYSE"
+  },
+  "CRCL": {
+    "name_en": "Circle Internet",
+    "name_zh": "Circle Internet",
+    "exchange": "NYSE"
+  },
+  "RVTY": {
+    "name_en": "Revvity",
+    "name_zh": "Revvity",
+    "exchange": "NYSE"
+  },
+  "NDSN": {
+    "name_en": "Nordson",
+    "name_zh": "Nordson",
+    "exchange": "NASDAQ"
+  },
+  "NVT": {
+    "name_en": "nVent Electric",
+    "name_zh": "nVent Electric",
+    "exchange": "NYSE"
+  },
+  "BEN": {
+    "name_en": "Franklin Resources",
+    "name_zh": "Franklin Resources",
+    "exchange": "NYSE"
+  },
+  "CW": {
+    "name_en": "Curtiss-Wright",
+    "name_zh": "Curtiss-Wright",
+    "exchange": "NYSE"
+  },
+  "YUMC": {
+    "name_en": "Yum China",
+    "name_zh": "百勝中國",
+    "exchange": "NYSE"
+  },
+  "RGA": {
+    "name_en": "Reinsurance Group of America",
+    "name_zh": "美國再保險集團",
+    "exchange": "NYSE"
+  },
+  "PAAS": {
+    "name_en": "Pan American Silver",
+    "name_zh": "泛美銀業",
+    "exchange": "NYSE"
+  },
+  "NWSA": {
+    "name_en": "News",
+    "name_zh": "News",
+    "exchange": "NASDAQ"
+  },
+  "PFGC": {
+    "name_en": "Performance Food Co",
+    "name_zh": "PFGC",
+    "exchange": "NYSE"
+  },
+  "ASND": {
+    "name_en": "Ascendis Pharma A/S",
+    "name_zh": "Ascendis Pharma A/S",
+    "exchange": "NASDAQ"
+  },
+  "WF": {
+    "name_en": "Woori Financial",
+    "name_zh": "Woori",
+    "exchange": "NYSE"
+  },
+  "PAA": {
+    "name_en": "Plains All American Pipeline, L.P.",
+    "name_zh": "PAA",
+    "exchange": "NASDAQ"
+  },
+  "HST": {
+    "name_en": "Host Hotels & Resorts",
+    "name_zh": "Host Hotels & Resorts",
+    "exchange": "NASDAQ"
+  },
+  "TYL": {
+    "name_en": "Tyler Technologies",
+    "name_zh": "泰勒科技",
+    "exchange": "NYSE"
+  },
+  "OVV": {
+    "name_en": "Ovintiv",
+    "name_zh": "Ovintiv",
+    "exchange": "NYSE"
+  },
+  "IEX": {
+    "name_en": "IDEX",
+    "name_zh": "IDEX",
+    "exchange": "NYSE"
+  },
+  "NBIX": {
+    "name_en": "Neurocrine Biosciences",
+    "name_zh": "Neurocrine Biosciences",
+    "exchange": "NASDAQ"
+  },
+  "DINO": {
+    "name_en": "HF Sinclair",
+    "name_zh": "HF Sinclair",
+    "exchange": "NYSE"
+  },
+  "WES": {
+    "name_en": "Western Midstream Partners, LP",
+    "name_zh": "WES",
+    "exchange": "NYSE"
+  },
+  "SBS": {
+    "name_en": "Sabesp",
+    "name_zh": "Sabesp",
+    "exchange": "NYSE"
+  },
+  "WMG": {
+    "name_en": "Warner Music",
+    "name_zh": "Warner Music",
+    "exchange": "NASDAQ"
+  },
+  "GFL": {
+    "name_en": "GFL Environmental",
+    "name_zh": "GFL Environmental",
+    "exchange": "NYSE"
+  },
+  "JHX": {
+    "name_en": "James Hardie Industries",
+    "name_zh": "James Hardie Industries",
+    "exchange": "NYSE"
+  },
+  "MTSI": {
+    "name_en": "MACOM Technology Solutions",
+    "name_zh": "MTSI",
+    "exchange": "NASDAQ"
+  },
+  "MGA": {
+    "name_en": "Magna International",
+    "name_zh": "Magna International",
+    "exchange": "NYSE"
+  },
+  "CDE": {
+    "name_en": "Coeur Mining",
+    "name_zh": "科爾礦業",
+    "exchange": "NYSE"
+  },
+  "ULS": {
+    "name_en": "UL Solutions",
+    "name_zh": "UL Solutions",
+    "exchange": "NYSE"
+  },
+  "LAMR": {
+    "name_en": "Lamar Advertising",
+    "name_zh": "Lamar Advertising",
+    "exchange": "NASDAQ"
+  },
+  "NTNX": {
+    "name_en": "Nutanix",
+    "name_zh": "Nutanix",
+    "exchange": "NASDAQ"
+  },
+  "ALLE": {
+    "name_en": "Allegion",
+    "name_zh": "Allegion",
+    "exchange": "NYSE"
+  },
+  "ADT": {
+    "name_en": "ADT",
+    "name_zh": "ADT",
+    "exchange": "NYSE"
+  },
+  "MSA": {
+    "name_en": "MSA Safety",
+    "name_zh": "梅思安安全",
+    "exchange": "NYSE"
+  },
+  "HTHT": {
+    "name_en": "H World",
+    "name_zh": "華住集團",
+    "exchange": "NASDAQ"
+  },
+  "APA": {
+    "name_en": "APA Corporation",
+    "name_zh": "APA",
+    "exchange": "NASDAQ"
+  },
+  "TSEM": {
+    "name_en": "Tower Semiconductor",
+    "name_zh": "Tower Semiconductor",
+    "exchange": "NASDAQ"
+  },
+  "TME": {
+    "name_en": "Tencent Music Entertainment",
+    "name_zh": "騰訊音樂",
+    "exchange": "NYSE"
+  },
+  "NWS": {
+    "name_en": "News",
+    "name_zh": "News",
+    "exchange": "NASDAQ"
+  },
+  "EMA": {
+    "name_en": "Emera",
+    "name_zh": "Emera",
+    "exchange": "NYSE"
+  },
+  "CX": {
+    "name_en": "CEMEX",
+    "name_zh": "西麥斯",
+    "exchange": "NYSE"
+  },
+  "ZTO": {
+    "name_en": "ZTO Express (Cayman)",
+    "name_zh": "中通快遞",
+    "exchange": "NYSE"
+  },
+  "TRU": {
+    "name_en": "TransUnion",
+    "name_zh": "全聯徵信 (TransUnion)",
+    "exchange": "NYSE"
+  },
+  "SOLV": {
+    "name_en": "Solventum",
+    "name_zh": "Solventum",
+    "exchange": "NYSE"
+  },
+  "OWL": {
+    "name_en": "Blue Owl Capital",
+    "name_zh": "Blue Owl Capital",
+    "exchange": "NYSE"
+  },
+  "ICLR": {
+    "name_en": "ICON",
+    "name_zh": "ICON",
+    "exchange": "NASDAQ"
+  },
+  "GIB": {
+    "name_en": "CGI",
+    "name_zh": "CGI",
+    "exchange": "NYSE"
+  },
+  "ZBRA": {
+    "name_en": "Zebra Technologies",
+    "name_zh": "Zebra Technologies",
+    "exchange": "NASDAQ"
+  },
+  "BSAC": {
+    "name_en": "Banco Santander-Chile",
+    "name_zh": "Banco Santander-Chile",
+    "exchange": "NYSE"
+  },
+  "EG": {
+    "name_en": "Everest",
+    "name_zh": "Everest",
+    "exchange": "NYSE"
+  },
+  "PNFP": {
+    "name_en": "Pinnacle Financial Partners",
+    "name_zh": "PNFP",
+    "exchange": "NYSE"
+  },
+  "YPF": {
+    "name_en": "YPF Sociedad Anónima",
+    "name_zh": "YPF Sociedad Anónima",
+    "exchange": "NYSE"
+  },
+  "AIZ": {
+    "name_en": "Assurant",
+    "name_zh": "Assurant",
+    "exchange": "NYSE"
+  },
+  "JAZZ": {
+    "name_en": "Jazz Pharmaceuticals",
+    "name_zh": "Jazz Pharmaceuticals",
+    "exchange": "NASDAQ"
+  },
+  "CRBG": {
+    "name_en": "Corebridge Financial",
+    "name_zh": "Corebridge",
+    "exchange": "NYSE"
+  },
+  "ECHO": {
+    "name_en": "EchoStar",
+    "name_zh": "EchoStar",
+    "exchange": "NASDAQ"
+  },
+  "LSCC": {
+    "name_en": "Lattice Semiconductor",
+    "name_zh": "Lattice Semiconductor",
+    "exchange": "NASDAQ"
+  },
+  "PKX": {
+    "name_en": "POSCO",
+    "name_zh": "POSCO",
+    "exchange": "NYSE"
+  },
+  "NLY": {
+    "name_en": "Annaly Capital Management",
+    "name_zh": "NLY",
+    "exchange": "NYSE"
+  },
+  "AGNC": {
+    "name_en": "AGNC Investment",
+    "name_zh": "AGNC Investment",
+    "exchange": "NASDAQ"
+  },
+  "CHKP": {
+    "name_en": "Check Point Software Technologies",
+    "name_zh": "CHKP",
+    "exchange": "NASDAQ"
+  },
+  "MANH": {
+    "name_en": "Manhattan Associates",
+    "name_zh": "Manhattan Associates",
+    "exchange": "NASDAQ"
+  },
+  "SUI": {
+    "name_en": "Sun Communities",
+    "name_zh": "Sun Communities",
+    "exchange": "NYSE"
+  },
+  "OHI": {
+    "name_en": "Omega Healthcare Investors",
+    "name_zh": "OHI",
+    "exchange": "NYSE"
+  },
+  "VNOM": {
+    "name_en": "Viper Energy",
+    "name_zh": "Viper Energy",
+    "exchange": "NASDAQ"
+  },
+  "CSL": {
+    "name_en": "Carlisle Companies",
+    "name_zh": "Carlisle",
+    "exchange": "NYSE"
+  },
+  "DOCU": {
+    "name_en": "DocuSign",
+    "name_zh": "DocuSign",
+    "exchange": "NASDAQ"
+  },
+  "GDDY": {
+    "name_en": "GoDaddy",
+    "name_zh": "GoDaddy",
+    "exchange": "NYSE"
+  },
+  "BBIO": {
+    "name_en": "BridgeBio Pharma",
+    "name_zh": "BridgeBio Pharma",
+    "exchange": "NASDAQ"
+  },
+  "KEP": {
+    "name_en": "Korea Electric Power",
+    "name_zh": "Korea Electric Power",
+    "exchange": "NYSE"
+  },
+  "EQH": {
+    "name_en": "Equitable",
+    "name_zh": "Equitable",
+    "exchange": "NYSE"
+  },
+  "CNH": {
+    "name_en": "CNH Industrial N.V.",
+    "name_zh": "CNH",
+    "exchange": "NYSE"
+  },
+  "OSK": {
+    "name_en": "Oshkosh",
+    "name_zh": "Oshkosh",
+    "exchange": "NYSE"
+  },
+  "FSS": {
+    "name_en": "Federal Signal",
+    "name_zh": "Federal Signal",
+    "exchange": "NYSE"
+  },
+  "WCC": {
+    "name_en": "WESCO International",
+    "name_zh": "WESCO International",
+    "exchange": "NYSE"
+  },
+  "FLUT": {
+    "name_en": "Flutter Entertainment",
+    "name_zh": "Flutter Entertainment",
+    "exchange": "NYSE"
+  },
+  "RNR": {
+    "name_en": "RenaissanceRe",
+    "name_zh": "RenaissanceRe",
+    "exchange": "NYSE"
+  },
+  "IONQ": {
+    "name_en": "IonQ",
+    "name_zh": "IonQ",
+    "exchange": "NYSE"
+  },
+  "LTM": {
+    "name_en": "LATAM Airlines S.A.",
+    "name_zh": "LATAM Airlines S.A.",
+    "exchange": "NYSE"
+  },
+  "MTZ": {
+    "name_en": "MasTec",
+    "name_zh": "MasTec",
+    "exchange": "NYSE"
+  },
+  "TKO": {
+    "name_en": "TKO Group Holdings",
+    "name_zh": "TKO 控股 (WWE/UFC)",
+    "exchange": "NYSE"
+  },
+  "TIGO": {
+    "name_en": "Millicom International Cellular S.A.",
+    "name_zh": "TIGO",
+    "exchange": "NASDAQ"
+  },
+  "SJM": {
+    "name_en": "The J. M. Smucker",
+    "name_zh": "J. M. Smucker",
+    "exchange": "NYSE"
+  },
+  "COKE": {
+    "name_en": "Coca-Cola Consolidated",
+    "name_zh": "Coca-Cola Consolidated",
+    "exchange": "NASDAQ"
+  },
+  "ARCC": {
+    "name_en": "Ares Capital",
+    "name_zh": "Ares Capital",
+    "exchange": "NASDAQ"
+  },
+  "CRS": {
+    "name_en": "Carpenter Technology",
+    "name_zh": "Carpenter Technology",
+    "exchange": "NYSE"
+  },
+  "BNT": {
+    "name_en": "Brookfield Wealth Solutions",
+    "name_zh": "BNT",
+    "exchange": "NYSE"
+  },
+  "FUTU": {
+    "name_en": "Futu",
+    "name_zh": "Futu",
+    "exchange": "NASDAQ"
+  },
+  "CART": {
+    "name_en": "Maplebear",
+    "name_zh": "Maplebear",
+    "exchange": "NASDAQ"
+  },
+  "LOGI": {
+    "name_en": "Logitech International S.A.",
+    "name_zh": "LOGI",
+    "exchange": "NASDAQ"
+  },
+  "EMBJ": {
+    "name_en": "Embraer S.A.",
+    "name_zh": "Embraer S.A.",
+    "exchange": "NYSE"
+  },
+  "EHC": {
+    "name_en": "Encompass Health",
+    "name_zh": "Encompass Health",
+    "exchange": "NYSE"
+  },
+  "GRAB": {
+    "name_en": "Grab",
+    "name_zh": "Grab",
+    "exchange": "NASDAQ"
+  },
+  "TEM": {
+    "name_en": "Tempus AI",
+    "name_zh": "Tempus AI",
+    "exchange": "NASDAQ"
+  },
+  "KKRS": {
+    "name_en": "KKR Finance Co. IX LLC 4.",
+    "name_zh": "KKRS",
+    "exchange": "NYSE"
+  },
+  "EQX": {
+    "name_en": "Equinox Gold",
+    "name_zh": "Equinox Gold",
+    "exchange": "AMEX"
+  },
+  "BTSG": {
+    "name_en": "BrightSpring",
+    "name_zh": "BrightSpring",
+    "exchange": "NASDAQ"
+  },
+  "GWRE": {
+    "name_en": "Guidewire Software",
+    "name_zh": "Guidewire Software",
+    "exchange": "NYSE"
+  },
+  "AGI": {
+    "name_en": "Alamos Gold",
+    "name_zh": "Alamos Gold",
+    "exchange": "NYSE"
+  },
+  "GKOS": {
+    "name_en": "Glaukos",
+    "name_zh": "Glaukos",
+    "exchange": "NYSE"
+  },
+  "RPM": {
+    "name_en": "RPM International",
+    "name_zh": "RPM 國際",
+    "exchange": "NYSE"
+  },
+  "SNN": {
+    "name_en": "Smith & Nephew",
+    "name_zh": "Smith & Nephew",
+    "exchange": "NYSE"
+  },
+  "SMMT": {
+    "name_en": "Summit Therapeutics",
+    "name_zh": "Summit Therapeutics",
+    "exchange": "NASDAQ"
+  },
+  "MKC": {
+    "name_en": "McCormick",
+    "name_zh": "味好美",
+    "exchange": "NYSE"
+  },
+  "MKSI": {
+    "name_en": "MKS",
+    "name_zh": "MKS",
+    "exchange": "NASDAQ"
+  },
+  "BSY": {
+    "name_en": "Bentley Systems",
+    "name_zh": "Bentley Systems",
+    "exchange": "NASDAQ"
+  },
+  "PAC": {
+    "name_en": "Grupo Aeroportuario del Pacífico",
+    "name_zh": "太平洋機場集團",
+    "exchange": "NYSE"
+  },
+  "ELAN": {
+    "name_en": "Elanco Animal Health",
+    "name_zh": "Elanco Animal Health",
+    "exchange": "NYSE"
+  },
+  "AFG": {
+    "name_en": "American Financial Group",
+    "name_zh": "美國金融集團",
+    "exchange": "NYSE"
+  },
+  "CNA": {
+    "name_en": "CNA Financial",
+    "name_zh": "CNA",
+    "exchange": "NYSE"
+  },
+  "MKC-V": {
+    "name_en": "McCormick",
+    "name_zh": "McCormick",
+    "exchange": "NYSE"
+  },
+  "GME": {
+    "name_en": "GameStop",
+    "name_zh": "GameStop",
+    "exchange": "NYSE"
+  },
+  "WSO": {
+    "name_en": "Watsco",
+    "name_zh": "Watsco",
+    "exchange": "NYSE"
+  },
+  "PNW": {
+    "name_en": "Pinnacle West Capital",
+    "name_zh": "Pinnacle West Capital",
+    "exchange": "NYSE"
+  },
+  "TRMB": {
+    "name_en": "Trimble",
+    "name_zh": "Trimble",
+    "exchange": "NASDAQ"
+  },
+  "ERIE": {
+    "name_en": "Erie Indemnity",
+    "name_zh": "Erie Indemnity",
+    "exchange": "NASDAQ"
+  },
+  "AHR": {
+    "name_en": "American Healthcare REIT",
+    "name_zh": "AHR",
+    "exchange": "NYSE"
+  },
+  "PEN": {
+    "name_en": "Penumbra",
+    "name_zh": "Penumbra",
+    "exchange": "NYSE"
+  },
+  "DT": {
+    "name_en": "Dynatrace",
+    "name_zh": "Dynatrace",
+    "exchange": "NYSE"
+  },
+  "DKS": {
+    "name_en": "Dick's Sporting Goods",
+    "name_zh": "Dick's Sporting Goods",
+    "exchange": "NYSE"
+  },
+  "SITM": {
+    "name_en": "SiTime",
+    "name_zh": "SiTime",
+    "exchange": "NASDAQ"
+  },
+  "SEIC": {
+    "name_en": "SEI Investments",
+    "name_zh": "SEI Investments",
+    "exchange": "NASDAQ"
+  },
+  "FMS": {
+    "name_en": "Fresenius Medical Care AG & Co. KGaA",
+    "name_zh": "費森尤斯醫藥",
+    "exchange": "NYSE"
+  },
+  "AEG": {
+    "name_en": "Aegon",
+    "name_zh": "Aegon",
+    "exchange": "NYSE"
+  },
+  "RDY": {
+    "name_en": "Dr. Reddy's Laboratories",
+    "name_zh": "RDY",
+    "exchange": "NYSE"
+  },
+  "BIPI": {
+    "name_en": "BIP Bermuda I",
+    "name_zh": "BIP Bermuda I",
+    "exchange": "NYSE"
+  },
+  "FROG": {
+    "name_en": "JFrog",
+    "name_zh": "JFrog",
+    "exchange": "NASDAQ"
+  },
+  "ELS": {
+    "name_en": "Equity LifeStyle Properties",
+    "name_zh": "ELS",
+    "exchange": "NYSE"
+  },
+  "UNM": {
+    "name_en": "Unum",
+    "name_zh": "Unum",
+    "exchange": "NYSE"
+  },
+  "JKHY": {
+    "name_en": "Jack Henry & Associates",
+    "name_zh": "Jack Henry & Associates",
+    "exchange": "NASDAQ"
+  },
+  "SKM": {
+    "name_en": "SK Telecom Co.",
+    "name_zh": "SKM",
+    "exchange": "NYSE"
+  },
+  "CLX": {
+    "name_en": "Clorox",
+    "name_zh": "高樂氏",
+    "exchange": "NYSE"
+  },
+  "HRL": {
+    "name_en": "Hormel Foods",
+    "name_zh": "Hormel Foods",
+    "exchange": "NYSE"
+  },
+  "GL": {
+    "name_en": "Globe Life",
+    "name_zh": "Globe Life",
+    "exchange": "NYSE"
+  },
+  "DVA": {
+    "name_en": "DaVita",
+    "name_zh": "DaVita",
+    "exchange": "NYSE"
+  },
+  "IT": {
+    "name_en": "Gartner",
+    "name_zh": "Gartner",
+    "exchange": "NYSE"
+  },
+  "QXO": {
+    "name_en": "QXO Inc.",
+    "name_zh": "QXO",
+    "exchange": "NYSE"
+  },
+  "RTO": {
+    "name_en": "Rentokil Initial",
+    "name_zh": "Rentokil Initial",
+    "exchange": "NYSE"
+  },
+  "MICC": {
+    "name_en": "The Magnum Ice Cream N.V.",
+    "name_zh": "MICC",
+    "exchange": "NYSE"
+  },
+  "IVZ": {
+    "name_en": "Invesco",
+    "name_zh": "Invesco",
+    "exchange": "NYSE"
+  },
+  "CHYM": {
+    "name_en": "Chime Financial",
+    "name_zh": "Chime",
+    "exchange": "NASDAQ"
+  },
+  "COO": {
+    "name_en": "Cooper",
+    "name_zh": "庫博",
+    "exchange": "NYSE"
+  },
+  "ALGN": {
+    "name_en": "Align Technology",
+    "name_zh": "Align",
+    "exchange": "NASDAQ"
+  },
+  "AMH": {
+    "name_en": "American Homes 4 Rent",
+    "name_zh": "AMH",
+    "exchange": "NYSE"
+  },
+  "HALO": {
+    "name_en": "Halozyme Therapeutics",
+    "name_zh": "Halozyme Therapeutics",
+    "exchange": "NASDAQ"
+  },
+  "FNF": {
+    "name_en": "Fidelity National Financial",
+    "name_zh": "Fidelity National",
+    "exchange": "NYSE"
+  },
+  "FN": {
+    "name_en": "Fabrinet",
+    "name_zh": "Fabrinet",
+    "exchange": "NYSE"
+  },
+  "LII": {
+    "name_en": "Lennox",
+    "name_zh": "Lennox",
+    "exchange": "NYSE"
+  },
+  "CR": {
+    "name_en": "Crane",
+    "name_zh": "Crane",
+    "exchange": "NYSE"
+  },
+  "DTM": {
+    "name_en": "DT Midstream",
+    "name_zh": "DT Midstream",
+    "exchange": "NYSE"
+  },
+  "FDS": {
+    "name_en": "FactSet Research Systems",
+    "name_zh": "輝盛研究 (FactSet)",
+    "exchange": "NYSE"
+  },
+  "MAIR": {
+    "name_en": "Madison Air Solutions",
+    "name_zh": "Madison Air Solutions",
+    "exchange": "NYSE"
+  },
+  "WTS": {
+    "name_en": "Watts Water",
+    "name_zh": "Watts Water",
+    "exchange": "NYSE"
+  },
+  "ALLY": {
+    "name_en": "Ally Financial",
+    "name_zh": "Ally",
+    "exchange": "NYSE"
+  },
+  "PCOR": {
+    "name_en": "Procore",
+    "name_zh": "Procore",
+    "exchange": "NYSE"
+  },
+  "TECH": {
+    "name_en": "Bio-Techne",
+    "name_zh": "Bio-Techne",
+    "exchange": "NASDAQ"
+  },
+  "FRHC": {
+    "name_en": "Freedom Holding",
+    "name_zh": "FRHC",
+    "exchange": "NASDAQ"
+  },
+  "RRC": {
+    "name_en": "Range Resources",
+    "name_zh": "Range Resources",
+    "exchange": "NYSE"
+  },
+  "RRX": {
+    "name_en": "Regal Rexnord",
+    "name_zh": "雷諾德 (Regal Rexnord)",
+    "exchange": "NYSE"
+  },
+  "KYMR": {
+    "name_en": "Kymera Therapeutics",
+    "name_zh": "Kymera Therapeutics",
+    "exchange": "NASDAQ"
+  },
+  "WSE": {
+    "name_en": "Wise",
+    "name_zh": "Wise",
+    "exchange": "NASDAQ"
+  },
+  "RGEN": {
+    "name_en": "Repligen",
+    "name_zh": "Repligen",
+    "exchange": "NASDAQ"
+  },
+  "AR": {
+    "name_en": "Antero Resources",
+    "name_zh": "Antero Resources",
+    "exchange": "NYSE"
+  },
+  "NYT": {
+    "name_en": "The New York Times",
+    "name_zh": "New York Times",
+    "exchange": "NYSE"
+  },
+  "SAIL": {
+    "name_en": "SailPoint",
+    "name_zh": "SailPoint",
+    "exchange": "NASDAQ"
+  },
+  "BWXT": {
+    "name_en": "BWX Technologies",
+    "name_zh": "BWX Technologies",
+    "exchange": "NYSE"
+  },
+  "TLK": {
+    "name_en": "Perusahaan Perseroan (Persero) PT Telekomunikasi Indonesia Tbk",
+    "name_zh": "TLK",
+    "exchange": "NYSE"
+  },
+  "EVR": {
+    "name_en": "Evercore",
+    "name_zh": "Evercore",
+    "exchange": "NYSE"
+  },
+  "FHN": {
+    "name_en": "First Horizon",
+    "name_zh": "First Horizon",
+    "exchange": "NYSE"
+  },
+  "MOH": {
+    "name_en": "Molina Healthcare",
+    "name_zh": "Molina Healthcare",
+    "exchange": "NYSE"
+  },
+  "SIRI": {
+    "name_en": "Sirius XM",
+    "name_zh": "Sirius XM",
+    "exchange": "NASDAQ"
+  },
+  "NXST": {
+    "name_en": "Nexstar Media",
+    "name_zh": "Nexstar Media",
+    "exchange": "NASDAQ"
+  },
+  "GGG": {
+    "name_en": "Graco",
+    "name_zh": "固瑞克 (Graco)",
+    "exchange": "NYSE"
+  },
+  "BMRN": {
+    "name_en": "BioMarin Pharmaceutical",
+    "name_zh": "BioMarin Pharmaceutical",
+    "exchange": "NASDAQ"
+  },
+  "HMY": {
+    "name_en": "Harmony Gold Mining",
+    "name_zh": "Harmony Gold Mining",
+    "exchange": "NYSE"
+  },
+  "IAG": {
+    "name_en": "Iamgold",
+    "name_zh": "Iamgold",
+    "exchange": "NYSE"
+  },
+  "SF": {
+    "name_en": "Stifel Financial",
+    "name_zh": "Stifel",
+    "exchange": "NYSE"
+  },
+  "BMNR": {
+    "name_en": "Bitmine Immersion Technologies",
+    "name_zh": "BMNR",
+    "exchange": "NYSE"
+  },
+  "AES": {
+    "name_en": "The AES Corporation",
+    "name_zh": "AES",
+    "exchange": "NYSE"
+  },
+  "ENSG": {
+    "name_en": "Ensign",
+    "name_zh": "Ensign",
+    "exchange": "NASDAQ"
+  },
+  "PAYC": {
+    "name_en": "Paycom Software",
+    "name_zh": "Paycom Software",
+    "exchange": "NYSE"
+  },
+  "AVTR": {
+    "name_en": "Avantor",
+    "name_zh": "Avantor",
+    "exchange": "NYSE"
+  },
+  "OGE": {
+    "name_en": "OGE Energy",
+    "name_zh": "OGE Energy",
+    "exchange": "NYSE"
+  },
+  "GNRC": {
+    "name_en": "Generac",
+    "name_zh": "Generac",
+    "exchange": "NYSE"
+  },
+  "AA": {
+    "name_en": "Alcoa",
+    "name_zh": "美國鋁業",
+    "exchange": "NYSE"
+  },
+  "PSO": {
+    "name_en": "Pearson",
+    "name_zh": "Pearson",
+    "exchange": "NYSE"
+  },
+  "EGP": {
+    "name_en": "EastGroup Properties",
+    "name_zh": "EastGroup Properties",
+    "exchange": "NYSE"
+  },
+  "QGEN": {
+    "name_en": "Qiagen N.V.",
+    "name_zh": "QGEN",
+    "exchange": "NYSE"
+  },
+  "AIT": {
+    "name_en": "Applied Industrial",
+    "name_zh": "Applied Industrial",
+    "exchange": "NYSE"
+  },
+  "INIO": {
+    "name_en": "INNIO N.V. Ordinary Shares",
+    "name_zh": "INIO",
+    "exchange": "NASDAQ"
+  },
+  "TTEK": {
+    "name_en": "Tetra Tech",
+    "name_zh": "Tetra Tech",
+    "exchange": "NASDAQ"
+  },
+  "BIO": {
+    "name_en": "Bio-Rad Laboratories",
+    "name_zh": "Bio-Rad Laboratories",
+    "exchange": "NYSE"
+  },
+  "MOG-A": {
+    "name_en": "Moog",
+    "name_zh": "Moog",
+    "exchange": "NYSE"
+  },
+  "WTFC": {
+    "name_en": "Wintrust Financial",
+    "name_zh": "Wintrust",
+    "exchange": "NASDAQ"
+  },
+  "FLS": {
+    "name_en": "Flowserve",
+    "name_zh": "Flowserve",
+    "exchange": "NYSE"
+  },
+  "R": {
+    "name_en": "Ryder System",
+    "name_zh": "Ryder System",
+    "exchange": "NYSE"
+  },
+  "PODD": {
+    "name_en": "Insulet",
+    "name_zh": "Insulet",
+    "exchange": "NASDAQ"
+  },
+  "UMBF": {
+    "name_en": "UMB Financial",
+    "name_zh": "UMB",
+    "exchange": "NASDAQ"
+  },
+  "HLI": {
+    "name_en": "Houlihan Lokey",
+    "name_zh": "Houlihan Lokey",
+    "exchange": "NYSE"
+  },
+  "FRO": {
+    "name_en": "Frontline",
+    "name_zh": "Frontline",
+    "exchange": "NYSE"
+  },
+  "UHS": {
+    "name_en": "Universal Health Services",
+    "name_zh": "UHS",
+    "exchange": "NYSE"
+  },
+  "PAYP": {
+    "name_en": "PayPay",
+    "name_zh": "PayPay",
+    "exchange": "NASDAQ"
+  },
+  "SSB": {
+    "name_en": "SouthState Bank",
+    "name_zh": "SouthState Bank",
+    "exchange": "NYSE"
+  },
+  "PCVX": {
+    "name_en": "Vaxcyte",
+    "name_zh": "Vaxcyte",
+    "exchange": "NASDAQ"
+  },
+  "SCI": {
+    "name_en": "Service International",
+    "name_zh": "Service Corp (安儀)",
+    "exchange": "NYSE"
+  },
+  "ANDG": {
+    "name_en": "Andersen",
+    "name_zh": "Andersen",
+    "exchange": "NYSE"
+  },
+  "FTDR": {
+    "name_en": "Frontdoor",
+    "name_zh": "Frontdoor",
+    "exchange": "NASDAQ"
+  },
+  "HRB": {
+    "name_en": "H&R Block",
+    "name_zh": "H&R Block",
+    "exchange": "NYSE"
+  },
+  "NVMI": {
+    "name_en": "Nova",
+    "name_zh": "Nova",
+    "exchange": "NASDAQ"
+  },
+  "RML": {
+    "name_en": "Resolution Minerals Sponsored ADR",
+    "name_zh": "RML",
+    "exchange": "NASDAQ"
+  },
+  "HL": {
+    "name_en": "Hecla Mining",
+    "name_zh": "赫克拉礦業",
+    "exchange": "NYSE"
+  },
+  "QNT": {
+    "name_en": "Quantinuum",
+    "name_zh": "Quantinuum",
+    "exchange": "NASDAQ"
+  },
+  "UHAL": {
+    "name_en": "U-Haul",
+    "name_zh": "U-Haul",
+    "exchange": "NYSE"
+  },
+  "BPOP": {
+    "name_en": "Popular",
+    "name_zh": "Popular",
+    "exchange": "NASDAQ"
+  },
+  "BWA": {
+    "name_en": "BorgWarner",
+    "name_zh": "BorgWarner",
+    "exchange": "NYSE"
+  },
+  "LLYVK": {
+    "name_en": "Liberty Live",
+    "name_zh": "Liberty Live",
+    "exchange": "NASDAQ"
+  },
+  "DCI": {
+    "name_en": "Donaldson",
+    "name_zh": "唐納森",
+    "exchange": "NYSE"
+  },
+  "AYI": {
+    "name_en": "Acuity Brands",
+    "name_zh": "Acuity Brands",
+    "exchange": "NYSE"
+  },
+  "CFR": {
+    "name_en": "Cullen/Frost Bankers",
+    "name_zh": "Cullen/Frost Bankers",
+    "exchange": "NYSE"
+  },
+  "ALSN": {
+    "name_en": "Allison Transmission",
+    "name_zh": "Allison Transmission",
+    "exchange": "NYSE"
+  },
+  "TX": {
+    "name_en": "Ternium S.A.",
+    "name_zh": "Ternium S.A.",
+    "exchange": "NYSE"
+  },
+  "SMTC": {
+    "name_en": "Semtech",
+    "name_zh": "Semtech",
+    "exchange": "NASDAQ"
+  },
+  "HSIC": {
+    "name_en": "Henry Schein",
+    "name_zh": "Henry Schein",
+    "exchange": "NASDAQ"
+  },
+  "SYRE": {
+    "name_en": "Spyre Therapeutics",
+    "name_zh": "Spyre Therapeutics",
+    "exchange": "NASDAQ"
+  },
+  "YMM": {
+    "name_en": "Full Truck Alliance Co.",
+    "name_zh": "YMM",
+    "exchange": "NYSE"
+  },
+  "ENLT": {
+    "name_en": "Enlight Renewable Energy",
+    "name_zh": "ENLT",
+    "exchange": "NASDAQ"
+  },
+  "GMED": {
+    "name_en": "Globus Medical",
+    "name_zh": "Globus Medical",
+    "exchange": "NYSE"
+  },
+  "KNX": {
+    "name_en": "Knight-Swift Transportation",
+    "name_zh": "Knight-Swift Transportation",
+    "exchange": "NYSE"
+  },
+  "SSL": {
+    "name_en": "Sasol",
+    "name_zh": "Sasol",
+    "exchange": "NYSE"
+  },
+  "ORI": {
+    "name_en": "Old Republic International",
+    "name_zh": "ORI",
+    "exchange": "NYSE"
+  },
+  "ZION": {
+    "name_en": "Zions Bancorporation, National Association",
+    "name_zh": "ZION",
+    "exchange": "NASDAQ"
+  },
+  "MUSA": {
+    "name_en": "Murphy USA",
+    "name_zh": "Murphy USA",
+    "exchange": "NYSE"
+  },
+  "ONB": {
+    "name_en": "Old National Bancorp",
+    "name_zh": "Old National Bancorp",
+    "exchange": "NASDAQ"
+  },
+  "AMG": {
+    "name_en": "Affiliated Managers",
+    "name_zh": "Affiliated Managers",
+    "exchange": "NYSE"
+  },
+  "BEP": {
+    "name_en": "Brookfield Renewable",
+    "name_zh": "Brookfield Renewable",
+    "exchange": "NYSE"
+  },
+  "HNGE": {
+    "name_en": "Hinge Health",
+    "name_zh": "Hinge Health",
+    "exchange": "NYSE"
+  },
+  "BRKR": {
+    "name_en": "Bruker",
+    "name_zh": "Bruker",
+    "exchange": "NASDAQ"
+  },
+  "EGO": {
+    "name_en": "Eldorado Gold",
+    "name_zh": "Eldorado Gold",
+    "exchange": "NYSE"
+  },
+  "HBM": {
+    "name_en": "Hudbay Minerals",
+    "name_zh": "Hudbay Minerals",
+    "exchange": "NYSE"
+  },
+  "MDGL": {
+    "name_en": "Madrigal Pharmaceuticals",
+    "name_zh": "Madrigal Pharmaceuticals",
+    "exchange": "NASDAQ"
+  },
+  "SOLS": {
+    "name_en": "Solstice Advanced Materials",
+    "name_zh": "SOLS",
+    "exchange": "NASDAQ"
+  },
+  "BRX": {
+    "name_en": "Brixmor Property",
+    "name_zh": "Brixmor Property",
+    "exchange": "NYSE"
+  },
+  "DKNG": {
+    "name_en": "DraftKings",
+    "name_zh": "DraftKings",
+    "exchange": "NASDAQ"
+  },
+  "TGTX": {
+    "name_en": "TG Therapeutics",
+    "name_zh": "TG Therapeutics",
+    "exchange": "NASDAQ"
+  },
+  "IBRX": {
+    "name_en": "ImmunityBio",
+    "name_zh": "ImmunityBio",
+    "exchange": "NASDAQ"
+  },
+  "SARO": {
+    "name_en": "StandardAero",
+    "name_zh": "StandardAero",
+    "exchange": "NYSE"
+  },
+  "DRS": {
+    "name_en": "Leonardo DRS",
+    "name_zh": "Leonardo DRS",
+    "exchange": "NASDAQ"
+  },
+  "MORN": {
+    "name_en": "Morningstar",
+    "name_zh": "Morningstar",
+    "exchange": "NASDAQ"
+  },
+  "ESTC": {
+    "name_en": "Elastic N.V.",
+    "name_zh": "ESTC",
+    "exchange": "NYSE"
+  },
+  "CBC": {
+    "name_en": "Central Bancompany",
+    "name_zh": "Central Bancompany",
+    "exchange": "NASDAQ"
+  },
+  "LFUS": {
+    "name_en": "Littelfuse",
+    "name_zh": "Littelfuse",
+    "exchange": "NASDAQ"
+  },
+  "PCTY": {
+    "name_en": "Paylocity Holding",
+    "name_zh": "PCTY",
+    "exchange": "NASDAQ"
+  },
+  "ATR": {
+    "name_en": "AptarGroup",
+    "name_zh": "AptarGroup",
+    "exchange": "NYSE"
+  },
+  "CTRE": {
+    "name_en": "CareTrust REIT",
+    "name_zh": "CareTrust REIT",
+    "exchange": "NYSE"
+  },
+  "RHP": {
+    "name_en": "Ryman Hospitality Properties",
+    "name_zh": "RHP",
+    "exchange": "NYSE"
+  },
+  "KT": {
+    "name_en": "KT Corporation",
+    "name_zh": "KT",
+    "exchange": "NYSE"
+  },
+  "VOYA": {
+    "name_en": "Voya Financial",
+    "name_zh": "Voya",
+    "exchange": "NYSE"
+  },
+  "AM": {
+    "name_en": "Antero Midstream",
+    "name_zh": "Antero Midstream",
+    "exchange": "NYSE"
+  },
+  "JEF": {
+    "name_en": "Jefferies Financial",
+    "name_zh": "Jefferies",
+    "exchange": "NYSE"
+  },
+  "PRI": {
+    "name_en": "Primerica",
+    "name_zh": "Primerica",
+    "exchange": "NYSE"
+  },
+  "KRYS": {
+    "name_en": "Krystal Biotech",
+    "name_zh": "Krystal Biotech",
+    "exchange": "NASDAQ"
+  },
+  "LINE": {
+    "name_en": "Lineage",
+    "name_zh": "Lineage",
+    "exchange": "NASDAQ"
+  },
+  "ALV": {
+    "name_en": "Autoliv",
+    "name_zh": "Autoliv",
+    "exchange": "NYSE"
+  },
+  "SAIA": {
+    "name_en": "Saia",
+    "name_zh": "Saia",
+    "exchange": "NASDAQ"
+  },
+  "COLB": {
+    "name_en": "Columbia Banking System",
+    "name_zh": "Columbia Banking System",
+    "exchange": "NASDAQ"
+  },
+  "LEVI": {
+    "name_en": "Levi's",
+    "name_zh": "Levi's",
+    "exchange": "NYSE"
+  },
+  "IREN": {
+    "name_en": "Iris Energy",
+    "name_zh": "Iris Energy",
+    "exchange": "NASDAQ"
+  },
+  "SKYD": {
+    "name_en": "Skydance",
+    "name_zh": "Skydance",
+    "exchange": "NYSE"
+  },
+  "NTSK": {
+    "name_en": "Netskope",
+    "name_zh": "Netskope",
+    "exchange": "NASDAQ"
+  },
+  "JXN": {
+    "name_en": "Jackson Financial",
+    "name_zh": "Jackson",
+    "exchange": "NYSE"
+  },
+  "AOS": {
+    "name_en": "A. O. Smith",
+    "name_zh": "A. O. Smith",
+    "exchange": "NYSE"
+  },
+  "TIMB": {
+    "name_en": "TIM S.A.",
+    "name_zh": "TIM S.A.",
+    "exchange": "NYSE"
+  },
+  "REXR": {
+    "name_en": "Rexford Industrial Realty",
+    "name_zh": "REXR",
+    "exchange": "NYSE"
+  },
+  "KNSL": {
+    "name_en": "Kinsale Capital",
+    "name_zh": "Kinsale Capital",
+    "exchange": "NYSE"
+  },
+  "PB": {
+    "name_en": "Prosperity Bancshares",
+    "name_zh": "Prosperity Bancshares",
+    "exchange": "NYSE"
+  },
+  "IDA": {
+    "name_en": "IDACORP",
+    "name_zh": "IDACORP",
+    "exchange": "NYSE"
+  },
+  "VSXY": {
+    "name_en": "Victoria's Secret",
+    "name_zh": "Victoria's Secret",
+    "exchange": "NYSE"
+  },
+  "GGB": {
+    "name_en": "Gerdau S.A.",
+    "name_zh": "Gerdau S.A.",
+    "exchange": "NYSE"
+  },
+  "CAE": {
+    "name_en": "CAE Inc.",
+    "name_zh": "CAE",
+    "exchange": "NASDAQ"
+  },
+  "ACM": {
+    "name_en": "Aecom",
+    "name_zh": "Aecom",
+    "exchange": "NYSE"
+  },
+  "HQY": {
+    "name_en": "HealthEquity",
+    "name_zh": "HealthEquity",
+    "exchange": "NASDAQ"
+  },
+  "WYNN": {
+    "name_en": "Wynn Resorts",
+    "name_zh": "Wynn Resorts",
+    "exchange": "NASDAQ"
+  },
+  "PTGX": {
+    "name_en": "Protagonist Therapeutics",
+    "name_zh": "Protagonist Therapeutics",
+    "exchange": "NASDAQ"
+  },
+  "EDU": {
+    "name_en": "New Oriental Education & Technology",
+    "name_zh": "新東方",
+    "exchange": "NYSE"
+  },
+  "TAL": {
+    "name_en": "TAL Education",
+    "name_zh": "TAL Education",
+    "exchange": "NYSE"
+  },
+  "DOCN": {
+    "name_en": "DigitalOcean",
+    "name_zh": "DigitalOcean",
+    "exchange": "NYSE"
+  },
+  "ONTO": {
+    "name_en": "Onto Innovation",
+    "name_zh": "Onto Innovation",
+    "exchange": "NYSE"
+  },
+  "CNM": {
+    "name_en": "Core & Main",
+    "name_zh": "Core & Main",
+    "exchange": "NYSE"
+  },
+  "STN": {
+    "name_en": "Stantec",
+    "name_zh": "Stantec",
+    "exchange": "NYSE"
+  },
+  "THG": {
+    "name_en": "The Hanover Insurance",
+    "name_zh": "The Hanover Insurance",
+    "exchange": "NYSE"
+  },
+  "BZ": {
+    "name_en": "Kanzhun",
+    "name_zh": "ＢＯＳＳ直聘",
+    "exchange": "NASDAQ"
+  },
+  "EPAM": {
+    "name_en": "EPAM Systems",
+    "name_zh": "EPAM Systems",
+    "exchange": "NYSE"
+  },
+  "ARWR": {
+    "name_en": "Arrowhead",
+    "name_zh": "Arrowhead",
+    "exchange": "NASDAQ"
+  },
+  "APTV": {
+    "name_en": "Aptiv",
+    "name_zh": "Aptiv",
+    "exchange": "NYSE"
+  },
+  "MGM": {
+    "name_en": "MGM Resorts International",
+    "name_zh": "MGM",
+    "exchange": "NYSE"
+  },
+  "APPF": {
+    "name_en": "AppFolio",
+    "name_zh": "AppFolio",
+    "exchange": "NASDAQ"
+  },
+  "WAL": {
+    "name_en": "Western Alliance Bancorporation",
+    "name_zh": "WAL",
+    "exchange": "NYSE"
+  },
+  "WLK": {
+    "name_en": "Westlake",
+    "name_zh": "Westlake",
+    "exchange": "NYSE"
+  },
+  "PRMB": {
+    "name_en": "Primo Brands",
+    "name_zh": "Primo Brands",
+    "exchange": "NYSE"
+  },
+  "LU": {
+    "name_en": "Lufax Holding",
+    "name_zh": "陸控",
+    "exchange": "NYSE"
+  },
+  "SSD": {
+    "name_en": "Simpson Manufacturing Co.",
+    "name_zh": "SSD",
+    "exchange": "NYSE"
+  },
+  "CIG-C": {
+    "name_en": "Companhia Energética de Minas Gerais",
+    "name_zh": "CIG-C",
+    "exchange": "NYSE"
+  },
+  "DSGX": {
+    "name_en": "The Descartes Systems",
+    "name_zh": "The Descartes Systems",
+    "exchange": "NASDAQ"
+  },
+  "CGNX": {
+    "name_en": "Cognex",
+    "name_zh": "Cognex",
+    "exchange": "NASDAQ"
+  },
+  "GTLB": {
+    "name_en": "GitLab",
+    "name_zh": "GitLab",
+    "exchange": "NASDAQ"
+  },
+  "RMBS": {
+    "name_en": "Rambus",
+    "name_zh": "Rambus",
+    "exchange": "NASDAQ"
+  },
+  "AEIS": {
+    "name_en": "Advanced Energy",
+    "name_zh": "Advanced Energy",
+    "exchange": "NASDAQ"
+  },
+  "ASR": {
+    "name_en": "Grupo Aeroportuario del Sureste",
+    "name_zh": "東南機場集團",
+    "exchange": "NYSE"
+  },
+  "FCFS": {
+    "name_en": "FirstCash",
+    "name_zh": "FirstCash",
+    "exchange": "NASDAQ"
+  },
+  "TWST": {
+    "name_en": "Twist Bioscience",
+    "name_zh": "Twist Bioscience",
+    "exchange": "NASDAQ"
+  },
+  "OSCR": {
+    "name_en": "Oscar Health",
+    "name_zh": "Oscar Health",
+    "exchange": "NYSE"
+  },
+  "UGI": {
+    "name_en": "UGI Corporation",
+    "name_zh": "UGI",
+    "exchange": "NYSE"
+  },
+  "DAR": {
+    "name_en": "Darling Ingredients",
+    "name_zh": "Darling Ingredients",
+    "exchange": "NYSE"
+  },
+  "TBBB": {
+    "name_en": "BBB Foods",
+    "name_zh": "BBB Foods",
+    "exchange": "NYSE"
+  },
+  "TTAN": {
+    "name_en": "ServiceTitan",
+    "name_zh": "ServiceTitan",
+    "exchange": "NASDAQ"
+  },
+  "PACS": {
+    "name_en": "PACS Group Inc.",
+    "name_zh": "PACS",
+    "exchange": "NYSE"
+  },
+  "BOKF": {
+    "name_en": "BOK Financial",
+    "name_zh": "BOK",
+    "exchange": "NASDAQ"
+  },
+  "CORT": {
+    "name_en": "Corcept Therapeutics",
+    "name_zh": "Corcept Therapeutics",
+    "exchange": "NASDAQ"
+  },
+  "XP": {
+    "name_en": "XP Inc.",
+    "name_zh": "XP",
+    "exchange": "NASDAQ"
+  },
+  "CBSH": {
+    "name_en": "Commerce Bancshares",
+    "name_zh": "Commerce Bancshares",
+    "exchange": "NASDAQ"
+  },
+  "TFII": {
+    "name_en": "TFI International",
+    "name_zh": "TFI International",
+    "exchange": "NYSE"
+  },
+  "AXTA": {
+    "name_en": "Axalta Coating Systems",
+    "name_zh": "Axalta Coating Systems",
+    "exchange": "NYSE"
+  },
+  "ZETA": {
+    "name_en": "Zeta Global",
+    "name_zh": "Zeta Global",
+    "exchange": "NYSE"
+  },
+  "VLY": {
+    "name_en": "Valley National Bancorp",
+    "name_zh": "Valley National Bancorp",
+    "exchange": "NASDAQ"
+  },
+  "PRAX": {
+    "name_en": "Praxis Precision Medicines",
+    "name_zh": "PRAX",
+    "exchange": "NASDAQ"
+  },
+  "VMI": {
+    "name_en": "Valmont Industries",
+    "name_zh": "Valmont Industries",
+    "exchange": "NYSE"
+  },
+  "BBUC": {
+    "name_en": "Brookfield Business",
+    "name_zh": "Brookfield Business",
+    "exchange": "NYSE"
+  },
+  "GHC": {
+    "name_en": "Graham",
+    "name_zh": "Graham",
+    "exchange": "NYSE"
+  },
+  "RYTM": {
+    "name_en": "Rhythm Pharmaceuticals",
+    "name_zh": "Rhythm Pharmaceuticals",
+    "exchange": "NASDAQ"
+  },
+  "STRL": {
+    "name_en": "Sterling Infrastructure",
+    "name_zh": "Sterling Infrastructure",
+    "exchange": "NASDAQ"
+  },
+  "ALKS": {
+    "name_en": "Alkermes",
+    "name_zh": "Alkermes",
+    "exchange": "NASDAQ"
+  },
+  "ESI": {
+    "name_en": "Element Solutions",
+    "name_zh": "Element Solutions",
+    "exchange": "NYSE"
+  },
+  "AUR": {
+    "name_en": "Aurora Innovation",
+    "name_zh": "Aurora Innovation",
+    "exchange": "NASDAQ"
+  },
+  "LW": {
+    "name_en": "Lamb Weston",
+    "name_zh": "Lamb Weston",
+    "exchange": "NYSE"
+  },
+  "VFS": {
+    "name_en": "VinFast Auto",
+    "name_zh": "VinFast Auto",
+    "exchange": "NASDAQ"
+  },
+  "AXS": {
+    "name_en": "AXIS Capital",
+    "name_zh": "AXIS Capital",
+    "exchange": "NYSE"
+  },
+  "SFD": {
+    "name_en": "Smithfield Foods",
+    "name_zh": "Smithfield Foods",
+    "exchange": "NASDAQ"
+  },
+  "DUOL": {
+    "name_en": "Duolingo",
+    "name_zh": "Duolingo",
+    "exchange": "NASDAQ"
+  },
+  "POOL": {
+    "name_en": "Pool",
+    "name_zh": "Pool",
+    "exchange": "NASDAQ"
+  },
+  "GAP": {
+    "name_en": "Gap",
+    "name_zh": "Gap",
+    "exchange": "NYSE"
+  },
+  "DBX": {
+    "name_en": "Dropbox",
+    "name_zh": "Dropbox",
+    "exchange": "NASDAQ"
+  },
+  "MSGK": {
+    "name_en": "MSG Knickerbockers Class A",
+    "name_zh": "MSGK",
+    "exchange": "NYSE"
+  },
+  "ABVX": {
+    "name_en": "Abivax",
+    "name_zh": "Abivax",
+    "exchange": "NASDAQ"
+  },
+  "RAL": {
+    "name_en": "Ralliant",
+    "name_zh": "Ralliant",
+    "exchange": "NYSE"
+  },
+  "AG": {
+    "name_en": "First Majestic",
+    "name_zh": "First Majestic",
+    "exchange": "NYSE"
+  },
+  "CHRD": {
+    "name_en": "Chord Energy",
+    "name_zh": "Chord Energy",
+    "exchange": "NASDAQ"
+  },
+  "CYTK": {
+    "name_en": "Cytokinetics",
+    "name_zh": "Cytokinetics",
+    "exchange": "NASDAQ"
+  },
+  "S": {
+    "name_en": "SentinelOne",
+    "name_zh": "SentinelOne",
+    "exchange": "NYSE"
+  },
+  "JAN": {
+    "name_en": "Janus Living",
+    "name_zh": "Janus Living",
+    "exchange": "NYSE"
+  },
+  "SLAB": {
+    "name_en": "Silicon Laboratories",
+    "name_zh": "Silicon Laboratories",
+    "exchange": "NASDAQ"
+  },
+  "VCTR": {
+    "name_en": "Victory Capital",
+    "name_zh": "Victory Capital",
+    "exchange": "NASDAQ"
+  },
+  "KNSA": {
+    "name_en": "Kiniksa Pharmaceuticals International",
+    "name_zh": "KNSA",
+    "exchange": "NASDAQ"
+  },
+  "EMN": {
+    "name_en": "Eastman",
+    "name_zh": "Eastman",
+    "exchange": "NYSE"
+  },
+  "IDCC": {
+    "name_en": "InterDigital",
+    "name_zh": "InterDigital",
+    "exchange": "NASDAQ"
+  },
+  "CAG": {
+    "name_en": "Conagra Brands",
+    "name_zh": "Conagra Brands",
+    "exchange": "NYSE"
+  },
+  "TRNO": {
+    "name_en": "Terreno Realty",
+    "name_zh": "Terreno Realty",
+    "exchange": "NYSE"
+  },
+  "SANM": {
+    "name_en": "Sanmina",
+    "name_zh": "Sanmina",
+    "exchange": "NASDAQ"
+  },
+  "GLBE": {
+    "name_en": "Global-e Online",
+    "name_zh": "Global-e Online",
+    "exchange": "NASDAQ"
+  },
+  "ZWS": {
+    "name_en": "Zurn Elkay Water Solutions",
+    "name_zh": "ZWS",
+    "exchange": "NYSE"
+  },
+  "G": {
+    "name_en": "Genpact",
+    "name_zh": "Genpact",
+    "exchange": "NYSE"
+  },
+  "AWI": {
+    "name_en": "Armstrong World Industries",
+    "name_zh": "AWI",
+    "exchange": "NYSE"
+  },
+  "SPXC": {
+    "name_en": "SPX Technologies",
+    "name_zh": "SPX Technologies",
+    "exchange": "NYSE"
+  },
+  "BLCO": {
+    "name_en": "Bausch + Lomb",
+    "name_zh": "Bausch + Lomb",
+    "exchange": "NYSE"
+  },
+  "BTG": {
+    "name_en": "B2Gold",
+    "name_zh": "B2Gold",
+    "exchange": "AMEX"
+  },
+  "GRFS": {
+    "name_en": "Grifols, S.A.",
+    "name_zh": "Grifols, S.A.",
+    "exchange": "NASDAQ"
+  },
+  "CAI": {
+    "name_en": "Caris Life Sciences",
+    "name_zh": "Caris Life Sciences",
+    "exchange": "NASDAQ"
+  },
+  "FR": {
+    "name_en": "First Industrial Realty Trust",
+    "name_zh": "FR",
+    "exchange": "NYSE"
+  },
+  "TXG": {
+    "name_en": "10x Genomics",
+    "name_zh": "10x Genomics",
+    "exchange": "NASDAQ"
+  },
+  "SM": {
+    "name_en": "SM Energy",
+    "name_zh": "SM Energy",
+    "exchange": "NYSE"
+  },
+  "BVN": {
+    "name_en": "Compañía de Minas Buenaventura S.A.A.",
+    "name_zh": "BVN",
+    "exchange": "NYSE"
+  },
+  "MOS": {
+    "name_en": "Mosaic",
+    "name_zh": "Mosaic",
+    "exchange": "NYSE"
+  },
+  "STAG": {
+    "name_en": "STAG Industrial",
+    "name_zh": "STAG Industrial",
+    "exchange": "NYSE"
+  },
+  "LOAR": {
+    "name_en": "Loar",
+    "name_zh": "Loar",
+    "exchange": "NYSE"
+  },
+  "AMRX": {
+    "name_en": "Amneal",
+    "name_zh": "Amneal",
+    "exchange": "NASDAQ"
+  },
+  "TTMI": {
+    "name_en": "TTM Technologies",
+    "name_zh": "TTM Technologies",
+    "exchange": "NASDAQ"
+  },
+  "CWEN": {
+    "name_en": "Clearway Energy",
+    "name_zh": "Clearway Energy",
+    "exchange": "NYSE"
+  },
+  "VIAV": {
+    "name_en": "Viavi Solutions",
+    "name_zh": "Viavi Solutions",
+    "exchange": "NASDAQ"
+  },
+  "NFG": {
+    "name_en": "National Fuel Gas",
+    "name_zh": "National Fuel Gas",
+    "exchange": "NYSE"
+  },
+  "AXSM": {
+    "name_en": "Axsome Therapeutics",
+    "name_zh": "Axsome Therapeutics",
+    "exchange": "NASDAQ"
+  },
+  "CPB": {
+    "name_en": "Campbell Soup",
+    "name_zh": "Campbell Soup",
+    "exchange": "NASDAQ"
+  },
+  "CHE": {
+    "name_en": "Chemed",
+    "name_zh": "Chemed",
+    "exchange": "NYSE"
+  },
+  "ELF": {
+    "name_en": "e.l.f. Beauty",
+    "name_zh": "e.l.f. Beauty",
+    "exchange": "NYSE"
+  },
+  "CMC": {
+    "name_en": "Commercial Metals",
+    "name_zh": "Commercial Metals",
+    "exchange": "NYSE"
+  },
+  "FAF": {
+    "name_en": "First American Financial",
+    "name_zh": "First American",
+    "exchange": "NYSE"
+  },
+  "ORKA": {
+    "name_en": "Oruka Therapeutics",
+    "name_zh": "Oruka Therapeutics",
+    "exchange": "NASDAQ"
+  },
+  "PPC": {
+    "name_en": "Pilgrim's Pride",
+    "name_zh": "Pilgrim's Pride",
+    "exchange": "NASDAQ"
+  },
+  "OR": {
+    "name_en": "OR Royalties",
+    "name_zh": "OR Royalties",
+    "exchange": "NYSE"
+  },
+  "VICR": {
+    "name_en": "Vicor",
+    "name_zh": "Vicor",
+    "exchange": "NASDAQ"
+  },
+  "CGON": {
+    "name_en": "CG Oncology",
+    "name_zh": "CG Oncology",
+    "exchange": "NASDAQ"
+  },
+  "SBSW": {
+    "name_en": "Sibanye Stillwater",
+    "name_zh": "Sibanye Stillwater",
+    "exchange": "NYSE"
+  },
+  "CHDN": {
+    "name_en": "Churchill Downs",
+    "name_zh": "邱吉爾唐斯",
+    "exchange": "NASDAQ"
+  },
+  "VNO": {
+    "name_en": "Vornado Realty Trust",
+    "name_zh": "Vornado Realty Trust",
+    "exchange": "NYSE"
+  },
+  "HR": {
+    "name_en": "Healthcare Realty Trust",
+    "name_zh": "Healthcare Realty Trust",
+    "exchange": "NYSE"
+  },
+  "BPYPO": {
+    "name_en": "Brookfield Property Partners L.P.",
+    "name_zh": "BPYPO",
+    "exchange": "NASDAQ"
+  },
+  "JBTM": {
+    "name_en": "JBT Marel",
+    "name_zh": "JBT Marel",
+    "exchange": "NYSE"
+  },
+  "BIRK": {
+    "name_en": "Birkenstock Holding",
+    "name_zh": "BIRK",
+    "exchange": "NYSE"
+  },
+  "VIPS": {
+    "name_en": "Vipshop",
+    "name_zh": "Vipshop",
+    "exchange": "NYSE"
+  },
+  "QLYS": {
+    "name_en": "Qualys",
+    "name_zh": "Qualys",
+    "exchange": "NASDAQ"
+  },
+  "LNTH": {
+    "name_en": "Lantheus",
+    "name_zh": "Lantheus",
+    "exchange": "NASDAQ"
+  },
+  "UBSI": {
+    "name_en": "United Bankshares",
+    "name_zh": "United Bankshares",
+    "exchange": "NASDAQ"
+  },
+  "IONS": {
+    "name_en": "Ionis",
+    "name_zh": "Ionis",
+    "exchange": "NASDAQ"
+  },
+  "SNEX": {
+    "name_en": "StoneX",
+    "name_zh": "StoneX",
+    "exchange": "NASDAQ"
+  },
+  "NE": {
+    "name_en": "Noble",
+    "name_zh": "Noble",
+    "exchange": "NYSE"
+  },
+  "AUGO": {
+    "name_en": "Aura Minerals",
+    "name_zh": "Aura Minerals",
+    "exchange": "NASDAQ"
+  },
+  "EXLS": {
+    "name_en": "ExlService",
+    "name_zh": "ExlService",
+    "exchange": "NASDAQ"
+  },
+  "TFPM": {
+    "name_en": "Triple Flag Precious Metals",
+    "name_zh": "TFPM",
+    "exchange": "NYSE"
+  },
+  "HUT": {
+    "name_en": "Hut 8",
+    "name_zh": "Hut 8",
+    "exchange": "NASDAQ"
+  },
+  "SOBO": {
+    "name_en": "South Bow",
+    "name_zh": "South Bow",
+    "exchange": "NYSE"
+  },
+  "CVLT": {
+    "name_en": "Commvault Systems",
+    "name_zh": "Commvault Systems",
+    "exchange": "NASDAQ"
+  },
+  "BKH": {
+    "name_en": "Black Hills",
+    "name_zh": "Black Hills",
+    "exchange": "NYSE"
+  },
+  "GIL": {
+    "name_en": "Gildan Activewear",
+    "name_zh": "Gildan Activewear",
+    "exchange": "NYSE"
+  },
+  "OMF": {
+    "name_en": "OneMain",
+    "name_zh": "OneMain",
+    "exchange": "NYSE"
+  },
+  "XMTR": {
+    "name_en": "Xometry",
+    "name_zh": "Xometry",
+    "exchange": "NASDAQ"
+  },
+  "FSV": {
+    "name_en": "FirstService",
+    "name_zh": "FirstService",
+    "exchange": "NASDAQ"
+  },
+  "RYN": {
+    "name_en": "Rayonier REIT",
+    "name_zh": "Rayonier REIT",
+    "exchange": "NYSE"
+  },
+  "TXNM": {
+    "name_en": "TXNM Energy",
+    "name_zh": "TXNM Energy",
+    "exchange": "NYSE"
+  },
+  "TFX": {
+    "name_en": "Teleflex",
+    "name_zh": "Teleflex",
+    "exchange": "NYSE"
+  },
+  "KEX": {
+    "name_en": "Kirby",
+    "name_zh": "Kirby",
+    "exchange": "NYSE"
+  },
+  "NEU": {
+    "name_en": "NewMarket",
+    "name_zh": "NewMarket",
+    "exchange": "NYSE"
+  },
+  "ACT": {
+    "name_en": "Enact",
+    "name_zh": "Enact",
+    "exchange": "NASDAQ"
+  },
+  "IESC": {
+    "name_en": "IES",
+    "name_zh": "IES",
+    "exchange": "NASDAQ"
+  },
+  "GATX": {
+    "name_en": "GATX Corporation",
+    "name_zh": "GATX",
+    "exchange": "NYSE"
+  },
+  "MGY": {
+    "name_en": "Magnolia Oil & Gas",
+    "name_zh": "Magnolia Oil & Gas",
+    "exchange": "NYSE"
+  },
+  "BROS": {
+    "name_en": "Dutch Bros",
+    "name_zh": "Dutch Bros",
+    "exchange": "NYSE"
+  },
+  "MATX": {
+    "name_en": "Matson",
+    "name_zh": "Matson",
+    "exchange": "NYSE"
+  },
+  "FORM": {
+    "name_en": "FormFactor",
+    "name_zh": "FormFactor",
+    "exchange": "NASDAQ"
+  },
+  "GXO": {
+    "name_en": "GXO Logistics",
+    "name_zh": "GXO Logistics",
+    "exchange": "NYSE"
+  },
+  "MSM": {
+    "name_en": "MSC Industrial",
+    "name_zh": "MSC Industrial",
+    "exchange": "NYSE"
+  },
+  "IMVT": {
+    "name_en": "Immunovant",
+    "name_zh": "Immunovant",
+    "exchange": "NASDAQ"
+  },
+  "FNB": {
+    "name_en": "F.N.B.",
+    "name_zh": "F.N.B.",
+    "exchange": "NYSE"
+  },
+  "RLI": {
+    "name_en": "RLI Corp.",
+    "name_zh": "RLI",
+    "exchange": "NYSE"
+  },
+  "GBCI": {
+    "name_en": "Glacier Bancorp",
+    "name_zh": "Glacier Bancorp",
+    "exchange": "NYSE"
+  },
+  "RIOT": {
+    "name_en": "Riot Platforms",
+    "name_zh": "Riot Platforms",
+    "exchange": "NASDAQ"
+  },
+  "DY": {
+    "name_en": "Dycom Industries",
+    "name_zh": "Dycom Industries",
+    "exchange": "NYSE"
+  },
+  "NAVN": {
+    "name_en": "Navan",
+    "name_zh": "Navan",
+    "exchange": "NASDAQ"
+  },
+  "KOD": {
+    "name_en": "Kodiak Sciences",
+    "name_zh": "Kodiak Sciences",
+    "exchange": "NASDAQ"
+  },
+  "MTDR": {
+    "name_en": "Matador Resources",
+    "name_zh": "Matador Resources",
+    "exchange": "NYSE"
+  },
+  "OGC": {
+    "name_en": "OceanaGold",
+    "name_zh": "OceanaGold",
+    "exchange": "NYSE"
+  },
+  "FLR": {
+    "name_en": "Fluor",
+    "name_zh": "Fluor",
+    "exchange": "NYSE"
+  },
+  "BLTE": {
+    "name_en": "Belite Bio",
+    "name_zh": "Belite Bio",
+    "exchange": "NASDAQ"
+  },
+  "ACI": {
+    "name_en": "Albertsons",
+    "name_zh": "Albertsons",
+    "exchange": "NYSE"
+  },
+  "TEX": {
+    "name_en": "Terex",
+    "name_zh": "Terex",
+    "exchange": "NYSE"
+  },
+  "HESM": {
+    "name_en": "Hess Midstream LP",
+    "name_zh": "Hess Midstream LP",
+    "exchange": "NYSE"
+  },
+  "HGTY": {
+    "name_en": "Hagerty",
+    "name_zh": "Hagerty",
+    "exchange": "NYSE"
+  },
+  "MIDD": {
+    "name_en": "Middleby",
+    "name_zh": "美得比 (Middleby)",
+    "exchange": "NASDAQ"
+  },
+  "BETA": {
+    "name_en": "BETA Technologies",
+    "name_zh": "BETA Technologies",
+    "exchange": "NYSE"
+  },
+  "STEP": {
+    "name_en": "StepStone",
+    "name_zh": "StepStone",
+    "exchange": "NASDAQ"
+  },
+  "LGND": {
+    "name_en": "Ligand Pharmaceuticals",
+    "name_zh": "Ligand Pharmaceuticals",
+    "exchange": "NASDAQ"
+  },
+  "WFRD": {
+    "name_en": "Weatherford International",
+    "name_zh": "Weatherford International",
+    "exchange": "NASDAQ"
+  },
+  "HXL": {
+    "name_en": "Hexcel",
+    "name_zh": "Hexcel",
+    "exchange": "NYSE"
+  },
+  "MIRM": {
+    "name_en": "Mirum Pharmaceuticals",
+    "name_zh": "Mirum Pharmaceuticals",
+    "exchange": "NASDAQ"
+  },
+  "DLB": {
+    "name_en": "Dolby Laboratories",
+    "name_zh": "Dolby Laboratories",
+    "exchange": "NYSE"
+  },
+  "BILI": {
+    "name_en": "Bilibili",
+    "name_zh": "嗶哩嗶哩",
+    "exchange": "NASDAQ"
+  },
+  "ACIW": {
+    "name_en": "ACI Worldwide",
+    "name_zh": "ACI Worldwide",
+    "exchange": "NASDAQ"
+  },
+  "GTES": {
+    "name_en": "Gates Industrial",
+    "name_zh": "Gates Industrial",
+    "exchange": "NYSE"
+  },
+  "EPRT": {
+    "name_en": "Essential Properties Realty Trust",
+    "name_zh": "EPRT",
+    "exchange": "NYSE"
+  },
+  "KRMN": {
+    "name_en": "Karman",
+    "name_zh": "Karman",
+    "exchange": "NYSE"
+  },
+  "ICL": {
+    "name_en": "ICL Group Ltd",
+    "name_zh": "ICL",
+    "exchange": "NYSE"
+  },
+  "OTEX": {
+    "name_en": "Open Text",
+    "name_zh": "Open Text",
+    "exchange": "NASDAQ"
+  },
+  "M": {
+    "name_en": "Macy's",
+    "name_zh": "Macy's",
+    "exchange": "NYSE"
+  },
+  "NIQ": {
+    "name_en": "NIQ Global Intelligence",
+    "name_zh": "NIQ Global Intelligence",
+    "exchange": "NYSE"
+  },
+  "ENIC": {
+    "name_en": "Enel Chile",
+    "name_zh": "Enel Chile",
+    "exchange": "NYSE"
+  },
+  "WEX": {
+    "name_en": "WEX Inc.",
+    "name_zh": "WEX",
+    "exchange": "NYSE"
+  },
+  "VIST": {
+    "name_en": "Vista Energy, S.A.B. de C.V.",
+    "name_zh": "VIST",
+    "exchange": "NYSE"
+  },
+  "RDNT": {
+    "name_en": "RadNet",
+    "name_zh": "RadNet",
+    "exchange": "NASDAQ"
+  },
+  "HOMB": {
+    "name_en": "Home Bancshares",
+    "name_zh": "Home Bancshares",
+    "exchange": "NYSE"
+  },
+  "ESE": {
+    "name_en": "ESCO Technologies",
+    "name_zh": "ESCO Technologies",
+    "exchange": "NYSE"
+  },
+  "CZR": {
+    "name_en": "Caesars Entertainment",
+    "name_zh": "Caesars Entertainment",
+    "exchange": "NASDAQ"
+  },
+  "UGP": {
+    "name_en": "Ultrapar Participações S.A.",
+    "name_zh": "UGP",
+    "exchange": "NYSE"
+  },
+  "WPP": {
+    "name_en": "WPP plc",
+    "name_zh": "WPP",
+    "exchange": "NYSE"
+  },
+  "FPS": {
+    "name_en": "Forgent Power Solutions",
+    "name_zh": "Forgent Power Solutions",
+    "exchange": "NYSE"
+  },
+  "SIGI": {
+    "name_en": "Selective Insurance",
+    "name_zh": "Selective Insurance",
+    "exchange": "NASDAQ"
+  },
+  "KVYO": {
+    "name_en": "Klaviyo",
+    "name_zh": "Klaviyo",
+    "exchange": "NYSE"
+  },
+  "JOBY": {
+    "name_en": "Joby Aviation",
+    "name_zh": "Joby Aviation",
+    "exchange": "NYSE"
+  },
+  "CPA": {
+    "name_en": "Copa S.A.",
+    "name_zh": "Copa S.A.",
+    "exchange": "NYSE"
+  },
+  "NICE": {
+    "name_en": "NICE",
+    "name_zh": "NICE",
+    "exchange": "NASDAQ"
+  },
+  "MTG": {
+    "name_en": "MGIC Investment",
+    "name_zh": "MGIC Investment",
+    "exchange": "NYSE"
+  },
+  "INGM": {
+    "name_en": "Ingram Micro Holding",
+    "name_zh": "INGM",
+    "exchange": "NYSE"
+  },
+  "RIG": {
+    "name_en": "Transocean",
+    "name_zh": "Transocean",
+    "exchange": "NYSE"
+  },
+  "HIMS": {
+    "name_en": "Hims & Hers Health",
+    "name_zh": "Hims & Hers Health",
+    "exchange": "NYSE"
+  },
+  "MKTX": {
+    "name_en": "MarketAxess",
+    "name_zh": "MarketAxess",
+    "exchange": "NASDAQ"
+  },
+  "RYAN": {
+    "name_en": "Ryan Specialty",
+    "name_zh": "Ryan Specialty",
+    "exchange": "NYSE"
+  },
+  "MANE": {
+    "name_en": "Veradermics",
+    "name_zh": "Veradermics",
+    "exchange": "NYSE"
+  },
+  "DOCS": {
+    "name_en": "Doximity",
+    "name_zh": "Doximity",
+    "exchange": "NYSE"
+  },
+  "MBGL": {
+    "name_en": "Mobility Global",
+    "name_zh": "Mobility Global",
+    "exchange": "NYSE"
+  },
+  "SSRM": {
+    "name_en": "SSR Mining",
+    "name_zh": "SSR Mining",
+    "exchange": "NASDAQ"
+  },
+  "INGR": {
+    "name_en": "Ingredion",
+    "name_zh": "Ingredion",
+    "exchange": "NYSE"
+  },
+  "SGHC": {
+    "name_en": "Super (SGHC)",
+    "name_zh": "Super (SGHC)",
+    "exchange": "NYSE"
+  },
+  "BOX": {
+    "name_en": "Box",
+    "name_zh": "Box",
+    "exchange": "NYSE"
+  },
+  "YOU": {
+    "name_en": "Clear Secure",
+    "name_zh": "Clear Secure",
+    "exchange": "NYSE"
+  },
+  "FBIN": {
+    "name_en": "Fortune Brands Innovations",
+    "name_zh": "FBIN",
+    "exchange": "NYSE"
+  },
+  "HWC": {
+    "name_en": "Hancock Whitney",
+    "name_zh": "Hancock Whitney",
+    "exchange": "NASDAQ"
+  },
+  "AVAV": {
+    "name_en": "AeroVironment",
+    "name_zh": "AeroVironment",
+    "exchange": "NASDAQ"
+  },
+  "ST": {
+    "name_en": "Sensata Technologies Holding",
+    "name_zh": "ST",
+    "exchange": "NYSE"
+  },
+  "SRRK": {
+    "name_en": "Scholar Rock Holding",
+    "name_zh": "SRRK",
+    "exchange": "NASDAQ"
+  },
+  "VNT": {
+    "name_en": "Vontier",
+    "name_zh": "Vontier",
+    "exchange": "NYSE"
+  },
+  "EXP": {
+    "name_en": "Eagle Materials",
+    "name_zh": "Eagle Materials",
+    "exchange": "NYSE"
+  },
+  "ESNT": {
+    "name_en": "Essent",
+    "name_zh": "Essent",
+    "exchange": "NYSE"
+  },
+  "CRUS": {
+    "name_en": "Cirrus Logic",
+    "name_zh": "Cirrus Logic",
+    "exchange": "NASDAQ"
+  },
+  "WULF": {
+    "name_en": "TeraWulf",
+    "name_zh": "TeraWulf",
+    "exchange": "NASDAQ"
+  },
+  "MTN": {
+    "name_en": "Vail Resorts",
+    "name_zh": "范爾度假村",
+    "exchange": "NYSE"
+  },
+  "ORA": {
+    "name_en": "Ormat Technologies",
+    "name_zh": "Ormat Technologies",
+    "exchange": "NYSE"
+  },
+  "VRNS": {
+    "name_en": "Varonis Systems",
+    "name_zh": "Varonis Systems",
+    "exchange": "NASDAQ"
+  },
+  "OCTV": {
+    "name_en": "Octave Intelligence",
+    "name_zh": "Octave Intelligence",
+    "exchange": "NASDAQ"
+  },
+  "BCPC": {
+    "name_en": "Balchem",
+    "name_zh": "波奇姆 (Balchem)",
+    "exchange": "NASDAQ"
+  },
+  "VAL": {
+    "name_en": "Valaris",
+    "name_zh": "Valaris",
+    "exchange": "NYSE"
+  },
+  "OZK": {
+    "name_en": "Bank OZK",
+    "name_zh": "Bank OZK",
+    "exchange": "NASDAQ"
+  },
+  "AUB": {
+    "name_en": "Atlantic Union Bankshares",
+    "name_zh": "大西洋聯合銀行",
+    "exchange": "NYSE"
+  },
+  "NJR": {
+    "name_en": "New Jersey Resources",
+    "name_zh": "New Jersey Resources",
+    "exchange": "NYSE"
+  },
+  "SBRA": {
+    "name_en": "Sabra Health Care REIT",
+    "name_zh": "SBRA",
+    "exchange": "NASDAQ"
+  },
+  "COGT": {
+    "name_en": "Cogent Biosciences",
+    "name_zh": "Cogent Biosciences",
+    "exchange": "NASDAQ"
+  },
+  "ABCB": {
+    "name_en": "Ameris Bancorp",
+    "name_zh": "Ameris Bancorp",
+    "exchange": "NYSE"
+  },
+  "POR": {
+    "name_en": "Portland General Electric",
+    "name_zh": "POR",
+    "exchange": "NYSE"
+  },
+  "NPO": {
+    "name_en": "EnPro Industries",
+    "name_zh": "EnPro Industries",
+    "exchange": "NYSE"
+  },
+  "PTCT": {
+    "name_en": "PTC Therapeutics",
+    "name_zh": "PTC Therapeutics",
+    "exchange": "NASDAQ"
+  },
+  "SIMO": {
+    "name_en": "Silicon Motion Technology",
+    "name_zh": "SIMO",
+    "exchange": "NASDAQ"
+  },
+  "HAE": {
+    "name_en": "Haemonetics",
+    "name_zh": "Haemonetics",
+    "exchange": "NYSE"
+  },
+  "WAY": {
+    "name_en": "Waystar Holding",
+    "name_zh": "WAY",
+    "exchange": "NASDAQ"
+  },
+  "GRAL": {
+    "name_en": "GRAIL",
+    "name_zh": "GRAIL",
+    "exchange": "NASDAQ"
+  },
+  "OUT": {
+    "name_en": "Outfront Media",
+    "name_zh": "Outfront Media",
+    "exchange": "NYSE"
+  },
+  "BYD": {
+    "name_en": "Boyd Gaming",
+    "name_zh": "Boyd Gaming",
+    "exchange": "NYSE"
+  },
+  "OBDC": {
+    "name_en": "Blue Owl Capital Corporation",
+    "name_zh": "Blue Owl Capital",
+    "exchange": "NYSE"
+  },
+  "CON": {
+    "name_en": "Concentra Parent",
+    "name_zh": "Concentra Parent",
+    "exchange": "NYSE"
+  },
+  "RNG": {
+    "name_en": "RingCentral",
+    "name_zh": "RingCentral",
+    "exchange": "NYSE"
+  },
+  "CACC": {
+    "name_en": "Credit Acceptance",
+    "name_zh": "Credit Acceptance",
+    "exchange": "NASDAQ"
+  },
+  "BLLN": {
+    "name_en": "BillionToOne",
+    "name_zh": "BillionToOne",
+    "exchange": "NASDAQ"
+  },
+  "WTM": {
+    "name_en": "White Mountains Insurance",
+    "name_zh": "WTM",
+    "exchange": "NYSE"
+  },
+  "VEON": {
+    "name_en": "VEON Ltd.",
+    "name_zh": "VEON",
+    "exchange": "NASDAQ"
+  },
+  "MAIN": {
+    "name_en": "Main Street Capital",
+    "name_zh": "Main Street Capital",
+    "exchange": "NYSE"
+  },
+  "CAKE": {
+    "name_en": "Cheesecake Factory",
+    "name_zh": "起司蛋糕工廠",
+    "exchange": "NASDAQ"
+  },
+  "CIG": {
+    "name_en": "CEMIG",
+    "name_zh": "CEMIG",
+    "exchange": "NYSE"
+  },
+  "GVA": {
+    "name_en": "Granite Construction",
+    "name_zh": "Granite Construction",
+    "exchange": "NYSE"
+  },
+  "LEA": {
+    "name_en": "Lear",
+    "name_zh": "Lear",
+    "exchange": "NYSE"
+  },
+  "PEGA": {
+    "name_en": "Pegasystems",
+    "name_zh": "Pegasystems",
+    "exchange": "NASDAQ"
+  },
+  "ENS": {
+    "name_en": "EnerSys",
+    "name_zh": "EnerSys",
+    "exchange": "NYSE"
+  },
+  "OMAB": {
+    "name_en": "OMA",
+    "name_zh": "OMA 機場",
+    "exchange": "NASDAQ"
+  },
+  "CHH": {
+    "name_en": "Choice Hotels",
+    "name_zh": "Choice Hotels",
+    "exchange": "NYSE"
+  },
+  "PI": {
+    "name_en": "Impinj",
+    "name_zh": "Impinj",
+    "exchange": "NASDAQ"
+  },
+  "LFST": {
+    "name_en": "LifeStance Health",
+    "name_zh": "LifeStance Health",
+    "exchange": "NASDAQ"
+  },
+  "AX": {
+    "name_en": "Axos Financial",
+    "name_zh": "Axos",
+    "exchange": "NYSE"
+  },
+  "ALGM": {
+    "name_en": "Allegro MicroSystems",
+    "name_zh": "Allegro MicroSystems",
+    "exchange": "NASDAQ"
+  },
+  "SR": {
+    "name_en": "Spire",
+    "name_zh": "Spire",
+    "exchange": "NYSE"
+  },
+  "MMSI": {
+    "name_en": "Merit Medical Systems",
+    "name_zh": "Merit Medical Systems",
+    "exchange": "NASDAQ"
+  },
+  "PECO": {
+    "name_en": "Phillips Edison & Co.",
+    "name_zh": "PECO",
+    "exchange": "NASDAQ"
+  },
+  "EBC": {
+    "name_en": "Eastern Bankshares",
+    "name_zh": "Eastern Bankshares",
+    "exchange": "NASDAQ"
+  },
+  "BRZE": {
+    "name_en": "Braze",
+    "name_zh": "Braze",
+    "exchange": "NASDAQ"
+  },
+  "AMTM": {
+    "name_en": "Amentum",
+    "name_zh": "Amentum",
+    "exchange": "NYSE"
+  },
+  "RUSHA": {
+    "name_en": "Rush Enterprises",
+    "name_zh": "Rush",
+    "exchange": "NASDAQ"
+  },
+  "PSN": {
+    "name_en": "Parsons",
+    "name_zh": "Parsons",
+    "exchange": "NYSE"
+  },
+  "MUR": {
+    "name_en": "Murphy Oil",
+    "name_zh": "Murphy Oil",
+    "exchange": "NYSE"
+  },
+  "RITM": {
+    "name_en": "Rithm Capital",
+    "name_zh": "Rithm Capital",
+    "exchange": "NYSE"
+  },
+  "ESAB": {
+    "name_en": "ESAB Corporation",
+    "name_zh": "ESAB",
+    "exchange": "NYSE"
+  },
+  "IFS": {
+    "name_en": "Intercorp Financial Services",
+    "name_zh": "IFS",
+    "exchange": "NYSE"
+  },
+  "MOD": {
+    "name_en": "Modine Manufacturing",
+    "name_zh": "Modine Manufacturing",
+    "exchange": "NYSE"
+  },
+  "KLAR": {
+    "name_en": "Klarna",
+    "name_zh": "Klarna",
+    "exchange": "NYSE"
+  },
+  "MEOH": {
+    "name_en": "Methanex",
+    "name_zh": "Methanex",
+    "exchange": "NASDAQ"
+  },
+  "BB": {
+    "name_en": "BlackBerry",
+    "name_zh": "BlackBerry",
+    "exchange": "NYSE"
+  },
+  "PLXS": {
+    "name_en": "Plexus",
+    "name_zh": "Plexus",
+    "exchange": "NASDAQ"
+  },
+  "AVAL": {
+    "name_en": "Grupo Aval",
+    "name_zh": "Grupo Aval",
+    "exchange": "NYSE"
+  },
+  "NOVT": {
+    "name_en": "Novanta",
+    "name_zh": "Novanta",
+    "exchange": "NASDAQ"
+  },
+  "CE": {
+    "name_en": "Celanese",
+    "name_zh": "Celanese",
+    "exchange": "NYSE"
+  },
+  "PAGP": {
+    "name_en": "Plains GP LP",
+    "name_zh": "Plains GP LP",
+    "exchange": "NASDAQ"
+  },
+  "KRG": {
+    "name_en": "Kite Realty Trust",
+    "name_zh": "Kite Realty Trust",
+    "exchange": "NYSE"
+  },
+  "NWE": {
+    "name_en": "Northwestern Energy",
+    "name_zh": "Northwestern Energy",
+    "exchange": "NASDAQ"
+  },
+  "CNO": {
+    "name_en": "CNO Financial",
+    "name_zh": "CNO",
+    "exchange": "NYSE"
+  },
+  "HRI": {
+    "name_en": "Herc",
+    "name_zh": "Herc",
+    "exchange": "NYSE"
+  },
+  "REYN": {
+    "name_en": "Reynolds Consumer Products",
+    "name_zh": "REYN",
+    "exchange": "NASDAQ"
+  },
+  "SXT": {
+    "name_en": "Sensient Technologies",
+    "name_zh": "Sensient Technologies",
+    "exchange": "NYSE"
+  },
+  "LKQ": {
+    "name_en": "LKQ Corporation",
+    "name_zh": "LKQ",
+    "exchange": "NASDAQ"
+  },
+  "SEZL": {
+    "name_en": "Sezzle",
+    "name_zh": "Sezzle",
+    "exchange": "NASDAQ"
+  },
+  "ERAS": {
+    "name_en": "Erasca",
+    "name_zh": "Erasca",
+    "exchange": "NASDAQ"
+  },
+  "ASB": {
+    "name_en": "Associated Bancorp",
+    "name_zh": "Associated Bancorp",
+    "exchange": "NYSE"
+  },
+  "PSMT": {
+    "name_en": "PriceSmart",
+    "name_zh": "PriceSmart",
+    "exchange": "NASDAQ"
+  },
+  "LB": {
+    "name_en": "LandBridge LLC",
+    "name_zh": "LandBridge LLC",
+    "exchange": "NYSE"
+  },
+  "INSW": {
+    "name_en": "International Seaways",
+    "name_zh": "International Seaways",
+    "exchange": "NYSE"
+  },
+  "BC": {
+    "name_en": "Brunswick",
+    "name_zh": "Brunswick",
+    "exchange": "NYSE"
+  },
+  "PRGO": {
+    "name_en": "Perrigo",
+    "name_zh": "Perrigo",
+    "exchange": "NYSE"
+  },
+  "ET": {
+    "name_en": "ET",
+    "name_zh": "ET",
+    "exchange": "OTC"
+  },
+  "RXRX": {
+    "name_en": "RXRX",
+    "name_zh": "RXRX",
+    "exchange": "OTC"
+  },
+  "AL": {
+    "name_en": "Air Lease",
+    "name_zh": "Air Lease",
+    "exchange": "NYSE"
+  },
+  "EQR": {
+    "name_en": "Equity Residential",
+    "name_zh": "Equity Residential",
+    "exchange": "NYSE"
+  },
+  "AVB": {
+    "name_en": "AvalonBay",
+    "name_zh": "AvalonBay",
+    "exchange": "NYSE"
+  },
+  "HAYN": {
+    "name_en": "HAYN",
+    "name_zh": "HAYN",
+    "exchange": "OTC"
+  },
+  "WOR": {
+    "name_en": "Worthington",
+    "name_zh": "Worthington",
+    "exchange": "NYSE"
+  },
+  "JBLU": {
+    "name_en": "JBLU",
+    "name_zh": "JBLU",
+    "exchange": "OTC"
+  },
+  "FMC": {
+    "name_en": "FMC",
+    "name_zh": "FMC",
+    "exchange": "NYSE"
+  },
+  "UWMC": {
+    "name_en": "UWM Holdings",
+    "name_zh": "UWM",
+    "exchange": "NYSE"
+  },
+  "NSIT": {
+    "name_en": "Insight",
+    "name_zh": "Insight",
+    "exchange": "NASDAQ"
+  },
+  "BEPC": {
+    "name_en": "BEPC",
+    "name_zh": "BEPC",
+    "exchange": "OTC"
+  },
+  "PEB": {
+    "name_en": "PEB",
+    "name_zh": "PEB",
+    "exchange": "OTC"
+  },
+  "RLJ": {
+    "name_en": "RLJ",
+    "name_zh": "RLJ",
+    "exchange": "OTC"
+  },
+  "PK": {
+    "name_en": "PK",
+    "name_zh": "PK",
+    "exchange": "OTC"
+  },
+  "SHO": {
+    "name_en": "SHO",
+    "name_zh": "SHO",
+    "exchange": "OTC"
+  },
+  "SGML": {
+    "name_en": "SGML",
+    "name_zh": "SGML",
+    "exchange": "OTC"
+  },
+  "BCO": {
+    "name_en": "BCO",
+    "name_zh": "BCO",
+    "exchange": "OTC"
+  },
+  "REZI": {
+    "name_en": "REZI",
+    "name_zh": "REZI",
+    "exchange": "OTC"
+  },
+  "STWD": {
+    "name_en": "STWD",
+    "name_zh": "STWD",
+    "exchange": "OTC"
+  },
+  "BXMT": {
+    "name_en": "BXMT",
+    "name_zh": "BXMT",
+    "exchange": "OTC"
+  },
+  "ARR": {
+    "name_en": "ARR",
+    "name_zh": "ARR",
+    "exchange": "OTC"
+  },
+  "TWO": {
+    "name_en": "TWO",
+    "name_zh": "TWO",
+    "exchange": "OTC"
+  },
+  "DXPE": {
+    "name_en": "DXP Enterprises",
+    "name_zh": "DXP",
+    "exchange": "NASDAQ"
+  },
+  "CENX": {
+    "name_en": "Century Aluminum",
+    "name_zh": "世紀鋁業",
+    "exchange": "NASDAQ"
+  },
+  "KALU": {
+    "name_en": "Kaiser Aluminum",
+    "name_zh": "凱撒鋁業",
+    "exchange": "NASDAQ"
+  },
+  "NHYDY": {
+    "name_en": "Norsk Hydro",
+    "name_zh": "挪威海德魯",
+    "exchange": "OTC"
+  },
+  "SLG": {
+    "name_en": "SLG",
+    "name_zh": "SL Green",
+    "exchange": "NYSE"
+  },
+  "DEI": {
+    "name_en": "DEI",
+    "name_zh": "DEI",
+    "exchange": "OTC"
+  },
+  "KRC": {
+    "name_en": "KRC",
+    "name_zh": "KRC",
+    "exchange": "OTC"
+  },
+  "RDN": {
+    "name_en": "Radian",
+    "name_zh": "Radian",
+    "exchange": "NYSE"
+  },
+  "NMIH": {
+    "name_en": "NMI Holdings",
+    "name_zh": "NMI",
+    "exchange": "NASDAQ"
+  },
+  "IQ": {
+    "name_en": "iQIYI",
+    "name_zh": "愛奇藝",
+    "exchange": "NASDAQ"
+  },
+  "HUYA": {
+    "name_en": "HUYA",
+    "name_zh": "虎牙",
+    "exchange": "NYSE"
+  },
+  "PII": {
+    "name_en": "Polaris",
+    "name_zh": "Polaris",
+    "exchange": "NYSE"
+  },
+  "THO": {
+    "name_en": "Thor Industries",
+    "name_zh": "Thor Industries",
+    "exchange": "NYSE"
+  },
+  "WGO": {
+    "name_en": "Winnebago",
+    "name_zh": "Winnebago",
+    "exchange": "NYSE"
+  },
+  "MBUU": {
+    "name_en": "Malibu Boats",
+    "name_zh": "Malibu Boats",
+    "exchange": "NASDAQ"
+  },
+  "MCFT": {
+    "name_en": "MasterCraft",
+    "name_zh": "MasterCraft",
+    "exchange": "NASDAQ"
+  },
+  "WHD": {
+    "name_en": "Cactus",
+    "name_zh": "Cactus",
+    "exchange": "NYSE"
+  },
+  "BBU": {
+    "name_en": "Brookfield Business Partners",
+    "name_zh": "BBU",
+    "exchange": "NYSE"
+  },
+  "HTO": {
+    "name_en": "H2O America",
+    "name_zh": "H2O America",
+    "exchange": "NYSE"
+  },
+  "6098.HK": {
+    "name_en": "Country Garden Services",
+    "name_zh": "碧桂園服務",
+    "exchange": "HKEX"
+  },
+  "1209.HK": {
+    "name_en": "China Resources Mixc",
+    "name_zh": "華潤萬象生活",
+    "exchange": "HKEX"
+  },
+  "GNTX": {
+    "name_en": "Gentex",
+    "name_zh": "鏡泰",
+    "exchange": "NASDAQ"
+  },
+  "XRAY": {
+    "name_en": "Dentsply Sirona",
+    "name_zh": "登士柏西諾德",
+    "exchange": "NASDAQ"
+  },
+  "NVST": {
+    "name_en": "Envista",
+    "name_zh": "Envista",
+    "exchange": "NYSE"
+  },
+  "BXSL": {
+    "name_en": "Blackstone Secured Lending",
+    "name_zh": "BXSL",
+    "exchange": "NYSE"
+  },
+  "GBDC": {
+    "name_en": "Golub Capital BDC",
+    "name_zh": "Golub Capital BDC",
+    "exchange": "NASDAQ"
+  },
+  "OII": {
+    "name_en": "Oceaneering",
+    "name_zh": "Oceaneering",
+    "exchange": "NYSE"
+  },
+  "FIVN": {
+    "name_en": "Five9",
+    "name_zh": "Five9",
+    "exchange": "NASDAQ"
+  },
+  "1200.HK": {
+    "name_en": "Midland Holdings",
+    "name_zh": "美聯集團",
+    "exchange": "HKEX"
+  },
+  "CCO": {
+    "name_en": "Clear Channel Outdoor",
+    "name_zh": "Clear Channel Outdoor",
+    "exchange": "NYSE"
+  },
+  "PDCO": {
+    "name_en": "Patterson",
+    "name_zh": "Patterson",
+    "exchange": "NASDAQ"
+  },
+  "MARA": {
+    "name_en": "MARA Holdings",
+    "name_zh": "MARA",
+    "exchange": "NASDAQ"
+  },
+  "CLSK": {
+    "name_en": "CleanSpark",
+    "name_zh": "CleanSpark",
+    "exchange": "NASDAQ"
+  },
+  "ICUI": {
+    "name_en": "ICU Medical",
+    "name_zh": "ICU Medical",
+    "exchange": "NASDAQ"
+  },
+  "HEINY": {
+    "name_en": "Heineken",
+    "name_zh": "喜力",
+    "exchange": "OTC"
+  },
+  "BTBT": {
+    "name_en": "Bit Digital",
+    "name_zh": "Bit Digital",
+    "exchange": "NASDAQ"
+  },
+  "BITF": {
+    "name_en": "Bitfarms",
+    "name_zh": "Bitfarms",
+    "exchange": "NASDAQ"
+  },
+  "CIFR": {
+    "name_en": "Cipher Mining",
+    "name_zh": "Cipher Mining",
+    "exchange": "NASDAQ"
+  },
+  "RHI": {
+    "name_en": "Robert Half",
+    "name_zh": "Robert Half",
+    "exchange": "NYSE"
+  },
+  "MAN": {
+    "name_en": "ManpowerGroup",
+    "name_zh": "ManpowerGroup",
+    "exchange": "NYSE"
+  },
+  "ASGN": {
+    "name_en": "ASGN",
+    "name_zh": "ASGN",
+    "exchange": "NYSE"
+  },
+  "CWK": {
+    "name_en": "Cushman & Wakefield",
+    "name_zh": "Cushman & Wakefield",
+    "exchange": "NYSE"
+  },
+  "SON": {
+    "name_en": "Sonoco",
+    "name_zh": "Sonoco",
+    "exchange": "NYSE"
+  },
+  "SLGN": {
+    "name_en": "Silgan",
+    "name_zh": "Silgan",
+    "exchange": "NYSE"
+  },
+  "FNMA": {
+    "name_en": "Fannie Mae",
+    "name_zh": "房利美",
+    "exchange": "OTC"
+  },
+  "FMCC": {
+    "name_en": "Freddie Mac",
+    "name_zh": "房地美",
+    "exchange": "OTC"
+  },
+  "PFSI": {
+    "name_en": "PennyMac",
+    "name_zh": "PennyMac",
+    "exchange": "NYSE"
+  },
+  "GPK": {
+    "name_en": "Graphic Packaging",
+    "name_zh": "Graphic Packaging",
+    "exchange": "NYSE"
+  },
+  "UPST": {
+    "name_en": "Upstart",
+    "name_zh": "Upstart",
+    "exchange": "NASDAQ"
+  },
+  "LC": {
+    "name_en": "LendingClub",
+    "name_zh": "LendingClub",
+    "exchange": "NYSE"
+  },
+  "QBCRY": {
+    "name_en": "Quebecor",
+    "name_zh": "Quebecor",
+    "exchange": "OTC"
   }
 }
