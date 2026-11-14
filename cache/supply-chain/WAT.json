@@ -1,0 +1,235 @@
+{
+  "version": 1,
+  "ticker": "WAT",
+  "name_en": "Waters",
+  "name_zh": "Waters",
+  "updatedAt": "2026-11-14",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "life-sci-tools-v1",
+    "references": [
+      "Industry model `life-sci-tools-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "life-sci-tools-v1",
+    "label_zh": "生命科學分析儀器價值鏈",
+    "label_en": "Life-science analytical instruments value chain",
+    "description_zh": "關鍵元件 → 儀器／平台 → 耗材／試劑 → 實驗室／生技客戶 → 分銷通路。",
+    "description_en": "Critical components → instruments / platforms → consumables / reagents → lab / biotech customers → distribution."
+  },
+  "stages": [
+    {
+      "id": "components",
+      "order": 1,
+      "label_zh": "光學／流體／電子元件",
+      "label_en": "Optics / fluidics / electronics",
+      "summary_zh": "感測、光學與精密電子。",
+      "summary_en": "Sensors, optics, and precision electronics.",
+      "players": [
+        {
+          "ticker": "TXN",
+          "name_en": "Texas Instruments",
+          "name_zh": "德州儀器",
+          "role_zh": "德州儀器：光學／流體／電子元件代表性玩家",
+          "role_en": "Texas Instruments: representative player in Optics / fluidics / electronics",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "ADI",
+          "name_en": "Analog Devices",
+          "name_zh": "亞德諾",
+          "role_zh": "亞德諾：光學／流體／電子元件代表性玩家",
+          "role_en": "Analog Devices: representative player in Optics / fluidics / electronics",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "TEL",
+          "name_en": "TE Connectivity",
+          "name_zh": "泰科電子",
+          "role_zh": "泰科電子：光學／流體／電子元件代表性玩家",
+          "role_en": "TE Connectivity: representative player in Optics / fluidics / electronics",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "instruments",
+      "order": 2,
+      "label_zh": "分析儀器／平台",
+      "label_en": "Analytical instruments / platforms",
+      "summary_zh": "色譜、質譜與細胞分析平台。",
+      "summary_en": "Chromatography, mass-spec, and cell platforms.",
+      "players": [
+        {
+          "ticker": "TMO",
+          "name_en": "Thermo Fisher",
+          "name_zh": "賽默飛世爾",
+          "role_zh": "賽默飛世爾：分析儀器／平台代表性玩家",
+          "role_en": "Thermo Fisher: representative player in Analytical instruments / platforms",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "DHR",
+          "name_en": "Danaher",
+          "name_zh": "丹納赫",
+          "role_zh": "丹納赫：分析儀器／平台代表性玩家",
+          "role_en": "Danaher: representative player in Analytical instruments / platforms",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "AAPL",
+          "name_en": "Apple",
+          "name_zh": "蘋果",
+          "role_zh": "蘋果：分析儀器／平台代表性玩家",
+          "role_en": "Apple: representative player in Analytical instruments / platforms",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "consumables",
+      "order": 3,
+      "label_zh": "耗材／試劑",
+      "label_en": "Consumables / reagents",
+      "summary_zh": "管柱、試劑與耗材。",
+      "summary_en": "Columns, reagents, and consumables.",
+      "players": [
+        {
+          "ticker": "AVTR",
+          "name_en": "Avantor",
+          "name_zh": "Avantor",
+          "role_zh": "Avantor：耗材／試劑代表性玩家",
+          "role_en": "Avantor: representative player in Consumables / reagents",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "MTD",
+          "name_en": "Mettler-Toledo International",
+          "name_zh": "Mettler-Toledo International",
+          "role_zh": "Mettler-Toledo International：耗材／試劑代表性玩家",
+          "role_en": "Mettler-Toledo International: representative player in Consumables / reagents",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "AAPL",
+          "name_en": "Apple",
+          "name_zh": "蘋果",
+          "role_zh": "蘋果：耗材／試劑代表性玩家",
+          "role_en": "Apple: representative player in Consumables / reagents",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "customers",
+      "order": 4,
+      "label_zh": "實驗室／生技／藥廠",
+      "label_en": "Labs / biotech / pharma",
+      "summary_zh": "CRO、生技與製藥客戶。",
+      "summary_en": "CRO, biotech, and pharma labs.",
+      "players": [
+        {
+          "ticker": "LLY",
+          "name_en": "Eli Lilly",
+          "name_zh": "禮來公司",
+          "role_zh": "禮來公司：實驗室／生技／藥廠代表性玩家",
+          "role_en": "Eli Lilly: representative player in Labs / biotech / pharma",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "MRK",
+          "name_en": "Merck & Co.",
+          "name_zh": "默沙東",
+          "role_zh": "默沙東：實驗室／生技／藥廠代表性玩家",
+          "role_en": "Merck & Co.: representative player in Labs / biotech / pharma",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "PFE",
+          "name_en": "Pfizer",
+          "name_zh": "輝瑞",
+          "role_zh": "輝瑞：實驗室／生技／藥廠代表性玩家",
+          "role_en": "Pfizer: representative player in Labs / biotech / pharma",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "distribution",
+      "order": 5,
+      "label_zh": "分銷／服務通路",
+      "label_en": "Distribution / service channel",
+      "summary_zh": "儀器經銷與服務網路。",
+      "summary_en": "Instrument distribution and service.",
+      "players": [
+        {
+          "ticker": "AVTR",
+          "name_en": "Avantor",
+          "name_zh": "Avantor",
+          "role_zh": "Avantor：分銷／服務通路代表性玩家",
+          "role_en": "Avantor: representative player in Distribution / service channel",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "HSIC",
+          "name_en": "Henry Schein",
+          "name_zh": "Henry Schein",
+          "role_zh": "Henry Schein：分銷／服務通路代表性玩家",
+          "role_en": "Henry Schein: representative player in Distribution / service channel",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "CAH",
+          "name_en": "Cardinal Health",
+          "name_zh": "卡地納健康",
+          "role_zh": "卡地納健康：分銷／服務通路代表性玩家",
+          "role_en": "Cardinal Health: representative player in Distribution / service channel",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "A",
+      "name_en": "Agilent",
+      "name_zh": "安捷倫",
+      "basis_zh": "生命科學分析儀器對手",
+      "basis_en": "Life-science analytical tools rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "TMO",
+      "name_en": "Thermo Fisher",
+      "name_zh": "賽默飛世爾",
+      "basis_zh": "生命科學分析儀器對手",
+      "basis_en": "Life-science analytical tools rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "DHR",
+      "name_en": "Danaher",
+      "name_zh": "丹納赫",
+      "basis_zh": "生命科學分析儀器對手",
+      "basis_en": "Life-science analytical tools rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "MTD",
+      "name_en": "Mettler-Toledo International",
+      "name_zh": "Mettler-Toledo International",
+      "basis_zh": "生命科學分析儀器對手",
+      "basis_en": "Life-science analytical tools rival",
+      "exchange": "NYSE"
+    }
+  ]
+}

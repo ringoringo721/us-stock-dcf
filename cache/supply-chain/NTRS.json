@@ -1,0 +1,243 @@
+{
+  "version": 1,
+  "ticker": "NTRS",
+  "name_en": "Northern Trust",
+  "name_zh": "Northern Trust",
+  "updatedAt": "2026-11-14",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "asset-mgmt-v1",
+    "references": [
+      "Industry model `asset-mgmt-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "asset-mgmt-v1",
+    "label_zh": "資產管理價值鏈",
+    "label_en": "Asset management value chain",
+    "description_zh": "指數／資料 → 託管／營運 → 交易執行 → 分銷平台 → 資產所有人。",
+    "description_en": "Index/data → custody/ops → execution → distribution → asset owners."
+  },
+  "stages": [
+    {
+      "id": "index-data",
+      "order": 1,
+      "label_zh": "指數／評級／資料",
+      "label_en": "Index / ratings / data",
+      "summary_zh": "基準指數與研究資料。",
+      "summary_en": "Benchmarks and research data.",
+      "players": [
+        {
+          "ticker": "SPGI",
+          "name_en": "S&P Global",
+          "name_zh": "標普全球",
+          "role_zh": "標普全球：指數／評級／資料代表性玩家",
+          "role_en": "S&P Global: representative player in Index / ratings / data",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "MCO",
+          "name_en": "Moody's",
+          "name_zh": "穆迪評級",
+          "role_zh": "穆迪評級：指數／評級／資料代表性玩家",
+          "role_en": "Moody's: representative player in Index / ratings / data",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "NDAQ",
+          "name_en": "Nasdaq",
+          "name_zh": "納斯達克",
+          "role_zh": "納斯達克：指數／評級／資料代表性玩家",
+          "role_en": "Nasdaq: representative player in Index / ratings / data",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "custody",
+      "order": 2,
+      "label_zh": "託管／基金行政",
+      "label_en": "Custody / fund admin",
+      "summary_zh": "資產保管與基金營運。",
+      "summary_en": "Custody and fund administration.",
+      "players": [
+        {
+          "ticker": "BNY",
+          "name_en": "BNY Mellon",
+          "name_zh": "紐約梅隆銀行",
+          "role_zh": "紐約梅隆銀行：託管／基金行政代表性玩家",
+          "role_en": "BNY Mellon: representative player in Custody / fund admin",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "STT",
+          "name_en": "State Street",
+          "name_zh": "道富",
+          "role_zh": "道富：託管／基金行政代表性玩家",
+          "role_en": "State Street: representative player in Custody / fund admin",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "AAPL",
+          "name_en": "Apple",
+          "name_zh": "蘋果",
+          "role_zh": "蘋果：託管／基金行政代表性玩家",
+          "role_en": "Apple: representative player in Custody / fund admin",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "execution",
+      "order": 3,
+      "label_zh": "交易／市場進入",
+      "label_en": "Execution / market access",
+      "summary_zh": "券商執行與交易所。",
+      "summary_en": "Broker execution and exchanges.",
+      "players": [
+        {
+          "ticker": "GS",
+          "name_en": "Goldman Sachs",
+          "name_zh": "高盛集團",
+          "role_zh": "高盛集團：交易／市場進入代表性玩家",
+          "role_en": "Goldman Sachs: representative player in Execution / market access",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "MS",
+          "name_en": "Morgan Stanley",
+          "name_zh": "摩根士丹利",
+          "role_zh": "摩根士丹利：交易／市場進入代表性玩家",
+          "role_en": "Morgan Stanley: representative player in Execution / market access",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "SCHW",
+          "name_en": "Charles Schwab",
+          "name_zh": "嘉信理財",
+          "role_zh": "嘉信理財：交易／市場進入代表性玩家",
+          "role_en": "Charles Schwab: representative player in Execution / market access",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "distribution",
+      "order": 4,
+      "label_zh": "分銷／財富平台",
+      "label_en": "Distribution / wealth platforms",
+      "summary_zh": "退休平台、銀行與券商分銷。",
+      "summary_en": "Retirement, bank, broker platforms.",
+      "players": [
+        {
+          "ticker": "SCHW",
+          "name_en": "Charles Schwab",
+          "name_zh": "嘉信理財",
+          "role_zh": "嘉信理財：分銷／財富平台代表性玩家",
+          "role_en": "Charles Schwab: representative player in Distribution / wealth platforms",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "JPM",
+          "name_en": "JPMorgan Chase & Co.",
+          "name_zh": "摩根大通",
+          "role_zh": "摩根大通：分銷／財富平台代表性玩家",
+          "role_en": "JPMorgan Chase & Co.: representative player in Distribution / wealth platforms",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "BAC",
+          "name_en": "Bank of America",
+          "name_zh": "美國銀行",
+          "role_zh": "美國銀行：分銷／財富平台代表性玩家",
+          "role_en": "Bank of America: representative player in Distribution / wealth platforms",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "owners",
+      "order": 5,
+      "label_zh": "資產所有人／機構",
+      "label_en": "Asset owners / institutions",
+      "summary_zh": "退休金、主權與保險資金。",
+      "summary_en": "Pensions, sovereigns, insurers.",
+      "players": [
+        {
+          "ticker": "MET",
+          "name_en": "MetLife",
+          "name_zh": "大都會人壽",
+          "role_zh": "大都會人壽：資產所有人／機構代表性玩家",
+          "role_en": "MetLife: representative player in Asset owners / institutions",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "PRU",
+          "name_en": "Prudential Financial",
+          "name_zh": "保德信金融",
+          "role_zh": "保德信金融：資產所有人／機構代表性玩家",
+          "role_en": "Prudential Financial: representative player in Asset owners / institutions",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "CB",
+          "name_en": "Chubb",
+          "name_zh": "安達保險",
+          "role_zh": "安達保險：資產所有人／機構代表性玩家",
+          "role_en": "Chubb: representative player in Asset owners / institutions",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "BNY",
+      "name_en": "BNY Mellon",
+      "name_zh": "紐約梅隆銀行",
+      "basis_zh": "託管／資產服務對手",
+      "basis_en": "Custody / asset-servicing rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "STT",
+      "name_en": "State Street",
+      "name_zh": "道富",
+      "basis_zh": "託管／資產服務對手",
+      "basis_en": "Custody / asset-servicing rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "BLK",
+      "name_en": "BlackRock",
+      "name_zh": "貝萊德",
+      "basis_zh": "託管／資產服務對手",
+      "basis_en": "Custody / asset-servicing rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "JPM",
+      "name_en": "JPMorgan Chase & Co.",
+      "name_zh": "摩根大通",
+      "basis_zh": "託管／資產服務對手",
+      "basis_en": "Custody / asset-servicing rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "BAC",
+      "name_en": "Bank of America",
+      "name_zh": "美國銀行",
+      "basis_zh": "託管／資產服務對手",
+      "basis_en": "Custody / asset-servicing rival",
+      "exchange": "NYSE"
+    }
+  ]
+}
