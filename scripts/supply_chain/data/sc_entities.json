@@ -5800,8 +5800,8 @@
     "exchange": "NYSE"
   },
   "IREN": {
-    "name_en": "IREN Limited",
-    "name_zh": "IREN Limited",
+    "name_en": "Iris Energy",
+    "name_zh": "Iris Energy",
     "exchange": "NASDAQ"
   },
   "SKYD": {
@@ -7648,5 +7648,30 @@
     "name_en": "Bit Digital",
     "name_zh": "Bit Digital",
     "exchange": "NASDAQ"
+  },
+  "BITF": {
+    "name_en": "Bitfarms",
+    "name_zh": "Bitfarms",
+    "exchange": "NASDAQ"
+  },
+  "CIFR": {
+    "name_en": "Cipher Mining",
+    "name_zh": "Cipher Mining",
+    "exchange": "NASDAQ"
+  },
+  "RHI": {
+    "name_en": "Robert Half",
+    "name_zh": "Robert Half",
+    "exchange": "NYSE"
+  },
+  "MAN": {
+    "name_en": "ManpowerGroup",
+    "name_zh": "ManpowerGroup",
+    "exchange": "NYSE"
+  },
+  "ASGN": {
+    "name_en": "ASGN",
+    "name_zh": "ASGN",
+    "exchange": "NYSE"
   }
 }

@@ -1641,7 +1641,17 @@ def main() -> int:
         "NICE": ("NICE", "NICE", "NASDAQ"),
         "ABEV": ("Ambev", "安貝夫", "NYSE"),
         "BTBT": ("Bit Digital", "Bit Digital", "NASDAQ"),
+        "IREN": ("Iris Energy", "Iris Energy", "NASDAQ"),
+        "BITF": ("Bitfarms", "Bitfarms", "NASDAQ"),
+        "CIFR": ("Cipher Mining", "Cipher Mining", "NASDAQ"),
+        "TRIP": ("Tripadvisor", "Tripadvisor", "NASDAQ"),
+        "EXPE": ("Expedia", "Expedia", "NASDAQ"),
+        "RHI": ("Robert Half", "Robert Half", "NYSE"),
+        "MAN": ("ManpowerGroup", "ManpowerGroup", "NYSE"),
+        "ASGN": ("ASGN", "ASGN", "NYSE"),
+        "NICE": ("NICE", "NICE", "NASDAQ"),
     }
+
     for t, (en, zh, ex) in forced_ents.items():
         entities[t] = {
             "name_en": en,
