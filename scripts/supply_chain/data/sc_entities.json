@@ -30,8 +30,8 @@
     "exchange": "NYSE"
   },
   "SPCX": {
-    "name_en": "SPCX",
-    "name_zh": "SPCX",
+    "name_en": "SpaceX",
+    "name_zh": "SpaceX（FMP列示）",
     "exchange": "NASDAQ"
   },
   "META": {
@@ -71,7 +71,7 @@
   },
   "SKHY": {
     "name_en": "SK hynix",
-    "name_zh": "SK hynix",
+    "name_zh": "SK海力士",
     "exchange": "NASDAQ"
   },
   "JPM": {
@@ -360,7 +360,7 @@
     "exchange": "NYSE"
   },
   "MCD": {
-    "name_en": "McDonald's Corporation",
+    "name_en": "McDonald's",
     "name_zh": "麥當勞",
     "exchange": "NYSE"
   },
@@ -655,7 +655,7 @@
     "exchange": "NYSE"
   },
   "SBUX": {
-    "name_en": "Starbucks Corporation",
+    "name_en": "Starbucks",
     "name_zh": "星巴克",
     "exchange": "NASDAQ"
   },
@@ -770,7 +770,7 @@
     "exchange": "NYSE"
   },
   "HCA": {
-    "name_en": "HCA Healthcare, Inc.",
+    "name_en": "HCA Healthcare",
     "name_zh": "HCA Healthcare",
     "exchange": "NYSE"
   },
@@ -817,7 +817,7 @@
   "EXPD": {
     "name_en": "Expeditors",
     "name_zh": "Expeditors",
-    "exchange": "NASDAQ"
+    "exchange": "NYSE"
   },
   "BBY": {
     "name_en": "Best Buy",
@@ -1136,7 +1136,7 @@
   },
   "AMKR": {
     "name_en": "Amkor",
-    "name_zh": "Amkor",
+    "name_zh": "艾克爾",
     "exchange": "NASDAQ"
   },
   "GFS": {
@@ -1196,7 +1196,7 @@
   },
   "CDW": {
     "name_en": "CDW",
-    "name_zh": "CDW",
+    "name_zh": "CDW 科技",
     "exchange": "NASDAQ"
   },
   "AVT": {
@@ -1247,7 +1247,7 @@
   "FISV": {
     "name_en": "Fiserv",
     "name_zh": "Fiserv",
-    "exchange": "NYSE"
+    "exchange": "NASDAQ"
   },
   "GPN": {
     "name_en": "Global Payments",
@@ -1405,8 +1405,8 @@
     "exchange": "NYSE"
   },
   "CRL": {
-    "name_en": "CRL",
-    "name_zh": "CRL",
+    "name_en": "Charles River",
+    "name_zh": "查爾斯河實驗室",
     "exchange": "NYSE"
   },
   "LH": {
@@ -1431,7 +1431,7 @@
   },
   "ZBH": {
     "name_en": "Zimmer Biomet",
-    "name_zh": "Zimmer Biomet",
+    "name_zh": "捷邁邦美",
     "exchange": "NYSE"
   },
   "BDX": {
@@ -1456,7 +1456,7 @@
   },
   "GEHC": {
     "name_en": "GE HealthCare",
-    "name_zh": "GE HealthCare",
+    "name_zh": "GE醫療",
     "exchange": "NASDAQ"
   },
   "REGN": {
@@ -1507,7 +1507,7 @@
   "KHC": {
     "name_en": "Kraft Heinz",
     "name_zh": "卡夫亨氏",
-    "exchange": "NASDAQ"
+    "exchange": "NYSE"
   },
   "CL": {
     "name_en": "Colgate-Palmolive",
@@ -1517,7 +1517,7 @@
   "KMB": {
     "name_en": "Kimberly-Clark",
     "name_zh": "金百利克拉克",
-    "exchange": "NYSE"
+    "exchange": "NASDAQ"
   },
   "EL": {
     "name_en": "Estée Lauder",
@@ -1806,7 +1806,7 @@
   },
   "VEEV": {
     "name_en": "Veeva",
-    "name_zh": "Veeva",
+    "name_zh": "維瓦系統",
     "exchange": "NYSE"
   },
   "ADBE": {
@@ -1831,7 +1831,7 @@
   },
   "BIDU": {
     "name_en": "Baidu",
-    "name_zh": "百度集團",
+    "name_zh": "百度",
     "exchange": "NASDAQ"
   },
   "LI": {
@@ -1927,7 +1927,7 @@
   "ETSY": {
     "name_en": "Etsy",
     "name_zh": "Etsy",
-    "exchange": "NASDAQ"
+    "exchange": "NYSE"
   },
   "WSM": {
     "name_en": "Williams-Sonoma",
@@ -2077,7 +2077,7 @@
   "SAIC": {
     "name_en": "SAIC",
     "name_zh": "SAIC",
-    "exchange": "NYSE"
+    "exchange": "NASDAQ"
   },
   "BAH": {
     "name_en": "Booz Allen",
@@ -2111,13 +2111,13 @@
   },
   "IRDM": {
     "name_en": "Iridium",
-    "name_zh": "Iridium",
+    "name_zh": "銥星通訊",
     "exchange": "NASDAQ"
   },
   "GSAT": {
     "name_en": "Globalstar",
     "name_zh": "Globalstar",
-    "exchange": "NYSE"
+    "exchange": "NASDAQ"
   },
   "SATS": {
     "name_en": "EchoStar",
@@ -2306,7 +2306,7 @@
   },
   "IHG": {
     "name_en": "IHG",
-    "name_zh": "IHG",
+    "name_zh": "洲際酒店集團",
     "exchange": "NYSE"
   },
   "TCOM": {
@@ -2322,7 +2322,7 @@
   "DPZ": {
     "name_en": "Domino's",
     "name_zh": "Domino's",
-    "exchange": "NYSE"
+    "exchange": "NASDAQ"
   },
   "WING": {
     "name_en": "Wingstop",
@@ -2380,8 +2380,8 @@
     "exchange": "NYSE"
   },
   "ANF": {
-    "name_en": "Abercrombie",
-    "name_zh": "Abercrombie",
+    "name_en": "Abercrombie & Fitch",
+    "name_zh": "Abercrombie & Fitch",
     "exchange": "NYSE"
   },
   "AEO": {
@@ -2496,7 +2496,7 @@
   },
   "PLL": {
     "name_en": "Piedmont Lithium",
-    "name_zh": "Piedmont",
+    "name_zh": "Piedmont Lithium",
     "exchange": "NASDAQ"
   },
   "MP": {
@@ -2630,8 +2630,8 @@
     "exchange": "NYSE"
   },
   "ATO": {
-    "name_en": "Atmos",
-    "name_zh": "Atmos",
+    "name_en": "Atmos Energy",
+    "name_zh": "Atmos Energy",
     "exchange": "NYSE"
   },
   "OGS": {
@@ -2661,12 +2661,12 @@
   },
   "CWT": {
     "name_en": "California Water",
-    "name_zh": "CWT",
+    "name_zh": "California Water",
     "exchange": "NYSE"
   },
   "AWR": {
     "name_en": "American States Water",
-    "name_zh": "AWR",
+    "name_zh": "American States Water",
     "exchange": "NYSE"
   },
   "MSEX": {
@@ -2746,7 +2746,7 @@
   },
   "COHR": {
     "name_en": "Coherent",
-    "name_zh": "Coherent",
+    "name_zh": "相干光電",
     "exchange": "NYSE"
   },
   "CP": {
@@ -2821,7 +2821,7 @@
   },
   "SYF": {
     "name_en": "Synchrony Financial",
-    "name_zh": "Synchrony Financial",
+    "name_zh": "Synchrony 金融",
     "exchange": "NYSE"
   },
   "TAP": {
@@ -3380,7 +3380,7 @@
     "exchange": "NYSE"
   },
   "ARE": {
-    "name_en": "ARE",
+    "name_en": "Alexandria Real Estate",
     "name_zh": "Alexandria",
     "exchange": "NYSE"
   },
@@ -3610,8 +3610,8 @@
     "exchange": "NYSE"
   },
   "AMP": {
-    "name_en": "Ameriprise Financial",
-    "name_zh": "Ameriprise Financial",
+    "name_en": "Ameriprise",
+    "name_zh": "Ameriprise",
     "exchange": "NYSE"
   },
   "ONC": {
@@ -3620,8 +3620,8 @@
     "exchange": "NASDAQ"
   },
   "ABEV": {
-    "name_en": "Ambev S.A.",
-    "name_zh": "Ambev S.A.",
+    "name_en": "Ambev",
+    "name_zh": "百威英博美洲",
     "exchange": "NYSE"
   },
   "RKT": {
@@ -3696,7 +3696,7 @@
   },
   "ALC": {
     "name_en": "Alcon",
-    "name_zh": "Alcon",
+    "name_zh": "愛爾康",
     "exchange": "NYSE"
   },
   "STE": {
@@ -3730,8 +3730,8 @@
     "exchange": "NASDAQ"
   },
   "BSBR": {
-    "name_en": "BSBR",
-    "name_zh": "BSBR",
+    "name_en": "Banco Santander Brasil",
+    "name_zh": "巴西桑坦德銀行",
     "exchange": "NYSE"
   },
   "UMC": {
@@ -3760,8 +3760,8 @@
     "exchange": "NYSE"
   },
   "ALAB": {
-    "name_en": "ALAB",
-    "name_zh": "ALAB",
+    "name_en": "Astera Labs",
+    "name_zh": "Astera Labs",
     "exchange": "NASDAQ"
   },
   "GMAB": {
@@ -3965,8 +3965,8 @@
     "exchange": "NASDAQ"
   },
   "BBD": {
-    "name_en": "Banco Bradesco S.A.",
-    "name_zh": "Banco Bradesco S.A.",
+    "name_en": "Banco Bradesco",
+    "name_zh": "巴西布拉德斯科銀行",
     "exchange": "NYSE"
   },
   "VRSN": {
@@ -4010,8 +4010,8 @@
     "exchange": "NASDAQ"
   },
   "BBDO": {
-    "name_en": "Banco Bradesco S.A.",
-    "name_zh": "Banco Bradesco S.A.",
+    "name_en": "Banco Bradesco",
+    "name_zh": "巴西布拉德斯科銀行",
     "exchange": "NYSE"
   },
   "FOX": {
@@ -4030,8 +4030,8 @@
     "exchange": "NYSE"
   },
   "AER": {
-    "name_en": "AER",
-    "name_zh": "AER",
+    "name_en": "AerCap",
+    "name_zh": "AerCap",
     "exchange": "NYSE"
   },
   "CLS": {
@@ -4280,8 +4280,8 @@
     "exchange": "NASDAQ"
   },
   "BEKE": {
-    "name_en": "KE",
-    "name_zh": "KE",
+    "name_en": "KE Holdings",
+    "name_zh": "貝殼找房",
     "exchange": "NYSE"
   },
   "PS": {
@@ -4435,8 +4435,8 @@
     "exchange": "NYSE"
   },
   "BIP": {
-    "name_en": "BIP",
-    "name_zh": "BIP",
+    "name_en": "Brookfield Infrastructure",
+    "name_zh": "Brookfield Infrastructure",
     "exchange": "NYSE"
   },
   "TPG": {
@@ -4460,7 +4460,7 @@
     "exchange": "NASDAQ"
   },
   "APG": {
-    "name_en": "APi",
+    "name_en": "APi Group",
     "name_zh": "APi",
     "exchange": "NYSE"
   },
@@ -5065,7 +5065,7 @@
     "exchange": "NASDAQ"
   },
   "AHR": {
-    "name_en": "AHR",
+    "name_en": "American Healthcare REIT",
     "name_zh": "AHR",
     "exchange": "NYSE"
   },
@@ -5200,7 +5200,7 @@
     "exchange": "NASDAQ"
   },
   "AMH": {
-    "name_en": "AMH",
+    "name_en": "American Homes 4 Rent",
     "name_zh": "AMH",
     "exchange": "NYSE"
   },
@@ -5406,7 +5406,7 @@
   },
   "AA": {
     "name_en": "Alcoa",
-    "name_zh": "Alcoa",
+    "name_zh": "美國鋁業",
     "exchange": "NYSE"
   },
   "PSO": {
@@ -5425,8 +5425,8 @@
     "exchange": "NYSE"
   },
   "AIT": {
-    "name_en": "AIT",
-    "name_zh": "AIT",
+    "name_en": "Applied Industrial",
+    "name_zh": "Applied Industrial",
     "exchange": "NYSE"
   },
   "INIO": {
@@ -5505,7 +5505,7 @@
     "exchange": "NASDAQ"
   },
   "SCI": {
-    "name_en": "Service Corporation",
+    "name_en": "Service International",
     "name_zh": "Service Corp (安儀)",
     "exchange": "NYSE"
   },
@@ -6015,12 +6015,12 @@
     "exchange": "NASDAQ"
   },
   "AEIS": {
-    "name_en": "AEIS",
-    "name_zh": "AEIS",
+    "name_en": "Advanced Energy",
+    "name_zh": "Advanced Energy",
     "exchange": "NASDAQ"
   },
   "ASR": {
-    "name_en": "ASR",
+    "name_en": "Grupo Aeroportuario del Sureste",
     "name_zh": "東南機場集團",
     "exchange": "NYSE"
   },
@@ -6350,8 +6350,8 @@
     "exchange": "NYSE"
   },
   "AMRX": {
-    "name_en": "Amneal Pharmaceuticals",
-    "name_zh": "Amneal Pharmaceuticals",
+    "name_en": "Amneal",
+    "name_zh": "Amneal",
     "exchange": "NASDAQ"
   },
   "TTMI": {
@@ -6620,8 +6620,8 @@
     "exchange": "NYSE"
   },
   "MSM": {
-    "name_en": "MSM",
-    "name_zh": "MSM",
+    "name_en": "MSC Industrial",
+    "name_zh": "MSC Industrial",
     "exchange": "NYSE"
   },
   "IMVT": {
@@ -7130,13 +7130,13 @@
     "exchange": "NYSE"
   },
   "CAKE": {
-    "name_en": "The Cheesecake Factory",
-    "name_zh": "The Cheesecake Factory",
+    "name_en": "Cheesecake Factory",
+    "name_zh": "起司蛋糕工廠",
     "exchange": "NASDAQ"
   },
   "CIG": {
-    "name_en": "CIG",
-    "name_zh": "CIG",
+    "name_en": "CEMIG",
+    "name_zh": "CEMIG",
     "exchange": "NYSE"
   },
   "GVA": {
@@ -7165,8 +7165,8 @@
     "exchange": "NASDAQ"
   },
   "CHH": {
-    "name_en": "CHH",
-    "name_zh": "CHH",
+    "name_en": "Choice Hotels",
+    "name_zh": "Choice Hotels",
     "exchange": "NYSE"
   },
   "PI": {
@@ -7275,8 +7275,8 @@
     "exchange": "NASDAQ"
   },
   "AVAL": {
-    "name_en": "AVAL",
-    "name_zh": "AVAL",
+    "name_en": "Grupo Aval",
+    "name_zh": "Grupo Aval",
     "exchange": "NYSE"
   },
   "NOVT": {
@@ -7340,8 +7340,8 @@
     "exchange": "NASDAQ"
   },
   "ASB": {
-    "name_en": "Associated Banc-",
-    "name_zh": "Associated Banc-",
+    "name_en": "Associated Bancorp",
+    "name_zh": "Associated Bancorp",
     "exchange": "NYSE"
   },
   "PSMT": {
@@ -7363,5 +7363,230 @@
     "name_en": "Brunswick",
     "name_zh": "Brunswick",
     "exchange": "NYSE"
+  },
+  "PRGO": {
+    "name_en": "PRGO",
+    "name_zh": "PRGO",
+    "exchange": "OTC"
+  },
+  "MYL": {
+    "name_en": "MYL",
+    "name_zh": "MYL",
+    "exchange": "OTC"
+  },
+  "PEAK": {
+    "name_en": "PEAK",
+    "name_zh": "PEAK",
+    "exchange": "OTC"
+  },
+  "ET": {
+    "name_en": "ET",
+    "name_zh": "ET",
+    "exchange": "OTC"
+  },
+  "RXRX": {
+    "name_en": "RXRX",
+    "name_zh": "RXRX",
+    "exchange": "OTC"
+  },
+  "AL": {
+    "name_en": "Air Lease",
+    "name_zh": "Air Lease",
+    "exchange": "NYSE"
+  },
+  "FLY": {
+    "name_en": "FlyExclusive",
+    "name_zh": "FlyExclusive",
+    "exchange": "OTC"
+  },
+  "EQR": {
+    "name_en": "EQR",
+    "name_zh": "Equity Residential",
+    "exchange": "NYSE"
+  },
+  "AVB": {
+    "name_en": "AVB",
+    "name_zh": "AvalonBay",
+    "exchange": "NYSE"
+  },
+  "HAYN": {
+    "name_en": "HAYN",
+    "name_zh": "HAYN",
+    "exchange": "OTC"
+  },
+  "WOR": {
+    "name_en": "WOR",
+    "name_zh": "WOR",
+    "exchange": "OTC"
+  },
+  "JBLU": {
+    "name_en": "JBLU",
+    "name_zh": "JBLU",
+    "exchange": "OTC"
+  },
+  "FMC": {
+    "name_en": "FMC",
+    "name_zh": "FMC",
+    "exchange": "OTC"
+  },
+  "RDFN": {
+    "name_en": "RDFN",
+    "name_zh": "RDFN",
+    "exchange": "OTC"
+  },
+  "UWMC": {
+    "name_en": "UWMC",
+    "name_zh": "UWMC",
+    "exchange": "OTC"
+  },
+  "NSIT": {
+    "name_en": "NSIT",
+    "name_zh": "NSIT",
+    "exchange": "OTC"
+  },
+  "BEPC": {
+    "name_en": "BEPC",
+    "name_zh": "BEPC",
+    "exchange": "OTC"
+  },
+  "PEB": {
+    "name_en": "PEB",
+    "name_zh": "PEB",
+    "exchange": "OTC"
+  },
+  "RLJ": {
+    "name_en": "RLJ",
+    "name_zh": "RLJ",
+    "exchange": "OTC"
+  },
+  "PK": {
+    "name_en": "PK",
+    "name_zh": "PK",
+    "exchange": "OTC"
+  },
+  "SHO": {
+    "name_en": "SHO",
+    "name_zh": "SHO",
+    "exchange": "OTC"
+  },
+  "SGML": {
+    "name_en": "SGML",
+    "name_zh": "SGML",
+    "exchange": "OTC"
+  },
+  "BCO": {
+    "name_en": "BCO",
+    "name_zh": "BCO",
+    "exchange": "OTC"
+  },
+  "REZI": {
+    "name_en": "REZI",
+    "name_zh": "REZI",
+    "exchange": "OTC"
+  },
+  "STWD": {
+    "name_en": "STWD",
+    "name_zh": "STWD",
+    "exchange": "OTC"
+  },
+  "BXMT": {
+    "name_en": "BXMT",
+    "name_zh": "BXMT",
+    "exchange": "OTC"
+  },
+  "ARR": {
+    "name_en": "ARR",
+    "name_zh": "ARR",
+    "exchange": "OTC"
+  },
+  "TWO": {
+    "name_en": "TWO",
+    "name_zh": "TWO",
+    "exchange": "OTC"
+  },
+  "DXPE": {
+    "name_en": "DXPE",
+    "name_zh": "DXPE",
+    "exchange": "OTC"
+  },
+  "CENX": {
+    "name_en": "CENX",
+    "name_zh": "CENX",
+    "exchange": "OTC"
+  },
+  "KALU": {
+    "name_en": "KALU",
+    "name_zh": "KALU",
+    "exchange": "OTC"
+  },
+  "NHYDY": {
+    "name_en": "NHYDY",
+    "name_zh": "NHYDY",
+    "exchange": "OTC"
+  },
+  "SLG": {
+    "name_en": "SLG",
+    "name_zh": "SL Green",
+    "exchange": "NYSE"
+  },
+  "DEI": {
+    "name_en": "DEI",
+    "name_zh": "DEI",
+    "exchange": "OTC"
+  },
+  "KRC": {
+    "name_en": "KRC",
+    "name_zh": "KRC",
+    "exchange": "OTC"
+  },
+  "RDN": {
+    "name_en": "RDN",
+    "name_zh": "RDN",
+    "exchange": "OTC"
+  },
+  "NMIH": {
+    "name_en": "NMIH",
+    "name_zh": "NMIH",
+    "exchange": "OTC"
+  },
+  "IQ": {
+    "name_en": "IQ",
+    "name_zh": "IQ",
+    "exchange": "OTC"
+  },
+  "HUYA": {
+    "name_en": "HUYA",
+    "name_zh": "HUYA",
+    "exchange": "OTC"
+  },
+  "PII": {
+    "name_en": "PII",
+    "name_zh": "PII",
+    "exchange": "OTC"
+  },
+  "THO": {
+    "name_en": "THO",
+    "name_zh": "THO",
+    "exchange": "OTC"
+  },
+  "WGO": {
+    "name_en": "WGO",
+    "name_zh": "WGO",
+    "exchange": "OTC"
+  },
+  "MBUU": {
+    "name_en": "MBUU",
+    "name_zh": "MBUU",
+    "exchange": "OTC"
+  },
+  "MCFT": {
+    "name_en": "MCFT",
+    "name_zh": "MCFT",
+    "exchange": "OTC"
+  },
+  "WHD": {
+    "name_en": "WHD",
+    "name_zh": "WHD",
+    "exchange": "OTC"
   }
 }

@@ -172,7 +172,10 @@ def short_brand_en(name_en: str, ticker: str) -> str:
     abbreviation periods when more text follows.
     """
     raw = (name_en or "").strip() or ticker
-    cleaned = LEGAL_EN_SUFFIX_STRIP_RE.sub("", raw)
+    # Hyphenated legal tails: "Associated Banc-Corp" → "Associated Bancorp"
+    cleaned = re.sub(r"\b([Bb]anc)-Corp(?:oration)?\b", r"\1orp", raw)
+    cleaned = re.sub(r"-\s*Corp(?:oration)?\.?\b", " ", cleaned, flags=re.I)
+    cleaned = LEGAL_EN_SUFFIX_STRIP_RE.sub("", cleaned)
     # Orphans only: whitespace + lone "." / "," at end or before more whitespace.
     # Do NOT strip "S.A. Foo" / "U.S. Something" / "T. Rowe".
     cleaned = re.sub(r"\s+[.,](?=\s|$)", "", cleaned)
@@ -180,6 +183,7 @@ def short_brand_en(name_en: str, ticker: str) -> str:
     cleaned = re.sub(r"(?:\s+&|\s+and)\s*$", "", cleaned, flags=re.I)
     cleaned = re.sub(r"[,\s]+$", "", cleaned).strip()
     cleaned = re.sub(r"\s{2,}", " ", cleaned)
+    cleaned = re.sub(r"-$", "", cleaned).strip()
     # "The Southern" / "The Progressive" after stripping Company — drop leading The.
     if re.match(r"^The\s+\S+$", cleaned, flags=re.I):
         cleaned = re.sub(r"^The\s+", "", cleaned, flags=re.I).strip()
@@ -200,6 +204,7 @@ def _assert_short_brand_en() -> None:
         ("Deere & Company", "DE", "Deere"),
         ("The Southern Company", "SO", "Southern"),
         ("Eli Lilly and Company", "LLY", "Eli Lilly"),
+        ("Associated Banc-Corp", "ASB", "Associated Bancorp"),
         ("Mastercard Incorporated", "MA", "Mastercard"),
         ("UnitedHealth Group Incorporated", "UNH", "UnitedHealth"),
         ("Wells Fargo & Company", "WFC", "Wells Fargo"),

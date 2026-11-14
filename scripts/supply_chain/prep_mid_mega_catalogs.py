@@ -43,11 +43,15 @@ def write_json(path: Path, data) -> None:
 
 def short_brand_en(name_en: str, ticker: str) -> str:
     raw = (name_en or "").strip() or ticker
-    cleaned = LEGAL_EN_SUFFIX_STRIP_RE.sub("", raw)
+    # Hyphenated legal tails: "Associated Banc-Corp" → "Associated Bancorp"
+    cleaned = re.sub(r"\b([Bb]anc)-Corp(?:oration)?\b", r"\1orp", raw)
+    cleaned = re.sub(r"-\s*Corp(?:oration)?\.?\b", " ", cleaned, flags=re.I)
+    cleaned = LEGAL_EN_SUFFIX_STRIP_RE.sub("", cleaned)
     cleaned = re.sub(r"\s+[.,](?=\s|$)", "", cleaned)
     cleaned = re.sub(r"(?:\s+&|\s+and)\s*$", "", cleaned, flags=re.I)
     cleaned = re.sub(r"[,\s]+$", "", cleaned).strip()
     cleaned = re.sub(r"\s{2,}", " ", cleaned)
+    cleaned = re.sub(r"-$", "", cleaned).strip()
     if re.match(r"^The\s+\S+$", cleaned, flags=re.I):
         cleaned = re.sub(r"^The\s+", "", cleaned, flags=re.I).strip()
     return cleaned or ticker
