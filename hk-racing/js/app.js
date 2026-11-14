@@ -78,15 +78,20 @@ function renderTable(result) {
   });
 }
 
+function ensureSelected(result) {
+  const exists = result.rows.some((r) => r.no === state.selectedNo);
+  if (!exists) {
+    state.selectedNo = result.rows[0]?.no ?? null;
+  }
+}
+
 function renderBreakdown(result) {
   const panel = $("#factor-panel");
-  const row =
-    result.rows.find((r) => r.no === state.selectedNo) || result.rows[0];
+  const row = result.rows.find((r) => r.no === state.selectedNo);
   if (!row) {
     panel.innerHTML = "";
     return;
   }
-  state.selectedNo = row.no;
 
   const byGroup = FACTOR_GROUPS.map((g) => {
     const items = g.factors.map((f) => {
@@ -158,6 +163,7 @@ function renderFactorsLegend() {
 
 function render() {
   const result = analysis();
+  ensureSelected(result);
   renderMeta(result);
   renderTable(result);
   renderBreakdown(result);
