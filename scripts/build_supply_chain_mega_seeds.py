@@ -92,6 +92,9 @@ def traditionalize(text: str) -> str:
         ("礦山／工程裝置", "礦山／工程設備"),
         ("包裝／施作裝置", "包裝／施作設備"),
         ("製程／壓縮裝置", "製程／壓縮設備"),
+        # OpenCC s2twp maps 万象→永珍 (Vientiane); keep CR Mixc brand 萬象
+        ("華潤永珍生活", "華潤萬象生活"),
+        ("永珍生活", "萬象生活"),
     )
     for a, b in fixes:
         converted = converted.replace(a, b)
@@ -299,6 +302,8 @@ STAGE_TICKER_BANNED = {"SPCX", "MAXR", "FLY", "FLYX", "SQ", "PEAK", "MYL", "RDFN
 DUAL_LIST_ISSUER: dict[str, str] = {
     "3711.TW": "ASE",
     "ASX": "ASE",
+    "BEKE": "BEKE",
+    "2423.HK": "BEKE",
 }
 
 def issuer_key(t: str) -> str:
@@ -445,14 +450,23 @@ def build_seed(
             }
         )
 
+    # Never list the same issuer as both a stage player and a rival on one hub page.
+    stage_tickers = {
+        (p.get("ticker") or "").strip().upper()
+        for st in stages
+        for p in (st.get("players") or [])
+        if (p.get("ticker") or "").strip()
+    }
     comps = []
     seen_comp = {ticker}
     for ct, basis_zh, basis_en in competitors.get(ticker) or []:
         ct = normalize_stage_ticker(ct) or (ct or "").strip().upper()
         # Still drop banned even if alias missed; skip self / dupes.
-        # Stage/rival overlap (e.g. ATI+NUE) is handled by specialty peer groups,
-        # not a global filter — payments hubs intentionally share stage+rival names.
+        # Same ticker on a supply-chain stage cannot also appear on the rival arc
+        # (e.g. ADM must not list CTVA as both inputs supplier and agribusiness rival).
         if not ct or ct == ticker or ct in seen_comp or ct in STAGE_TICKER_BANNED:
+            continue
+        if ct in stage_tickers:
             continue
         seen_comp.add(ct)
         ce = resolve_entity(ct, entities, universe_by_ticker)
@@ -581,7 +595,7 @@ def build_quotes(seed: dict, mcap_millions: dict[str, float | None], today: str)
             "previousClose": prev,
             "changePct": chg,
             "mcap": mcap,
-            "currency": "USD",
+            "currency": "HKD" if str(t).endswith(".HK") else "USD",
             "asOf": as_of,
             "source": (
                 "FMP historical-price-eod via cache/price_charts"

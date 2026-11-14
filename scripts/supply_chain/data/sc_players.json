@@ -862,5 +862,194 @@
       "CVX",
       "MPC"
     ]
+  },
+  "security-services-v1": {
+    "hardware": [
+      "APH",
+      "TEL",
+      "GLW"
+    ],
+    "software": [
+      "MSFT",
+      "NOW",
+      "CRM"
+    ],
+    "channel": [
+      "HD",
+      "LOW",
+      "WCC"
+    ],
+    "customers": [
+      "JPM",
+      "WMT",
+      "COST"
+    ],
+    "ecosystem": [
+      "CB",
+      "PGR",
+      "ALL"
+    ]
+  },
+  "marine-recreation-v1": {
+    "power": [
+      "CMI",
+      "PCAR",
+      "ETN"
+    ],
+    "oem": [
+      "PII",
+      "THO",
+      "WGO"
+    ],
+    "dealers": [
+      "KMX",
+      "AN",
+      "PAG"
+    ],
+    "aftersales": [
+      "GPC",
+      "ORLY",
+      "AZO"
+    ],
+    "customers": [
+      "MAR",
+      "HLT",
+      "RCL"
+    ]
+  },
+  "gov-services-v1": {
+    "systems": [
+      "MSFT",
+      "ORCL",
+      "IBM"
+    ],
+    "engineering": [
+      "J",
+      "FLR",
+      "ACM"
+    ],
+    "workforce": [
+      "RHI",
+      "MAN",
+      "ASGN"
+    ],
+    "agencies": [
+      "LMT",
+      "NOC",
+      "GD"
+    ],
+    "infra": [
+      "PWR",
+      "MTZ",
+      "ACM"
+    ]
+  },
+  "adtech-v1": {
+    "supply": [
+      "GOOG",
+      "META",
+      "AMZN"
+    ],
+    "data": [
+      "TRU",
+      "ORCL",
+      "IBM"
+    ],
+    "platforms": [
+      "APP",
+      "ROKU",
+      "MSFT"
+    ],
+    "customers": [
+      "OMC",
+      "WPP",
+      "DIS"
+    ],
+    "measurement": [
+      "GOOG",
+      "META",
+      "ADBE"
+    ]
+  },
+  "bitcoin-mining-v1": {
+    "hardware": [
+      "NVDA",
+      "AMD",
+      "TSM"
+    ],
+    "power": [
+      "CEG",
+      "VST",
+      "NRG"
+    ],
+    "miners": [
+      "MARA",
+      "CLSK",
+      "BTBT"
+    ],
+    "hosting": [
+      "EQIX",
+      "DLR",
+      "IRM"
+    ],
+    "liquidity": [
+      "COIN",
+      "PYPL",
+      "V"
+    ]
+  },
+  "rideshare-v1": {
+    "maps-cloud": [
+      "GOOG",
+      "MSFT",
+      "AMZN"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "supply": [
+      "GM",
+      "F",
+      "TM"
+    ],
+    "platforms": [
+      "UBER",
+      "DASH",
+      "LYFT"
+    ],
+    "monetization": [
+      "GOOG",
+      "META",
+      "AMZN"
+    ]
+  },
+  "outdoor-advertising-v1": {
+    "sites": [
+      "SPG",
+      "KIM",
+      "O"
+    ],
+    "hardware": [
+      "APH",
+      "TEL",
+      "GLW"
+    ],
+    "advertisers": [
+      "KO",
+      "PEP",
+      "NKE"
+    ],
+    "agencies": [
+      "OMC",
+      "WPP",
+      "DIS"
+    ],
+    "measurement": [
+      "GOOG",
+      "META",
+      "TRU"
+    ]
   }
 }

@@ -670,7 +670,7 @@
     "exchange": "NYSE"
   },
   "APP": {
-    "name_en": "AppLovin Corporation",
+    "name_en": "AppLovin",
     "name_zh": "AppLovin",
     "exchange": "NASDAQ"
   },
@@ -3606,7 +3606,7 @@
   },
   "ABEV": {
     "name_en": "Ambev",
-    "name_zh": "百威英博美洲",
+    "name_zh": "安貝夫",
     "exchange": "NYSE"
   },
   "RKT": {
@@ -4950,8 +4950,8 @@
     "exchange": "AMEX"
   },
   "BTSG": {
-    "name_en": "BrightSpring Health Services, Common Stock",
-    "name_zh": "BrightSpring Health Services, Common Stock",
+    "name_en": "BrightSpring",
+    "name_zh": "BrightSpring",
     "exchange": "NASDAQ"
   },
   "GWRE": {
@@ -6846,7 +6846,7 @@
   },
   "NICE": {
     "name_en": "NICE Ltd.",
-    "name_zh": "NICE Ltd.",
+    "name_zh": "NICE",
     "exchange": "NASDAQ"
   },
   "MTG": {
@@ -7575,9 +7575,9 @@
     "exchange": "HKEX"
   },
   "GNTX": {
-    "name_en": "GNTX",
-    "name_zh": "GNTX",
-    "exchange": "OTC"
+    "name_en": "Gentex",
+    "name_zh": "鏡泰",
+    "exchange": "NASDAQ"
   },
   "XRAY": {
     "name_en": "Dentsply Sirona",
@@ -7603,5 +7603,50 @@
     "name_en": "Oceaneering",
     "name_zh": "Oceaneering",
     "exchange": "NYSE"
+  },
+  "FIVN": {
+    "name_en": "Five9",
+    "name_zh": "Five9",
+    "exchange": "NASDAQ"
+  },
+  "1200.HK": {
+    "name_en": "Midland Holdings",
+    "name_zh": "美聯集團",
+    "exchange": "HKEX"
+  },
+  "CCO": {
+    "name_en": "Clear Channel Outdoor",
+    "name_zh": "Clear Channel Outdoor",
+    "exchange": "NYSE"
+  },
+  "PDCO": {
+    "name_en": "Patterson",
+    "name_zh": "Patterson",
+    "exchange": "NASDAQ"
+  },
+  "MARA": {
+    "name_en": "MARA Holdings",
+    "name_zh": "MARA Holdings",
+    "exchange": "NASDAQ"
+  },
+  "CLSK": {
+    "name_en": "CleanSpark",
+    "name_zh": "CleanSpark",
+    "exchange": "NASDAQ"
+  },
+  "ICUI": {
+    "name_en": "ICU Medical",
+    "name_zh": "ICU Medical",
+    "exchange": "NASDAQ"
+  },
+  "HEINY": {
+    "name_en": "Heineken",
+    "name_zh": "喜力",
+    "exchange": "OTC"
+  },
+  "BTBT": {
+    "name_en": "Bit Digital",
+    "name_zh": "Bit Digital",
+    "exchange": "NASDAQ"
   }
 }

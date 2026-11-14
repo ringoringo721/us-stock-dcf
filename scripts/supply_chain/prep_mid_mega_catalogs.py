@@ -686,7 +686,7 @@ PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ("pharma-jp", ["TAK", "NVS", "SNY", "PFE", "MRK", "JNJ", "BMY"], "Specialty／全球藥廠對手", "Specialty / global pharma rival"),
     ("pharma-eu-biotech", ["ARGX", "REGN", "VRTX", "BNTX", "MRNA", "AMGN"], "免疫／生物製藥對手", "Immunology / biotech rival"),
     ("medtech-dev", ["BSX", "MDT", "SYK", "ABT", "EW", "ZBH", "ISRG"], "醫療器材對手", "Medtech device rival"),
-    ("medtech-dx", ["IDXX", "TMO", "DHR", "BDX", "A", "IQV"], "診斷／生命科學工具對手", "Diagnostics / life-science tools rival"),
+    ("medtech-dx", ["IDXX", "TMO", "DHR", "BDX", "A"], "診斷／生命科學工具對手", "Diagnostics / life-science tools rival"),  # never IQV CRO
     ("medtech-sup", ["BDX", "ABT", "MDT", "SYK", "BAX", "RMD"], "醫療耗材對手", "Medical supplies rival"),
     # More-specific SaaS peer sets first — HUB_TO_GROUPS keeps the first registration.
     ("saas-eda", ["CDNS", "SNPS", "ANSS", "KEYS", "TER"], "EDA／設計軟體對手", "EDA / design software rival"),
@@ -752,7 +752,7 @@ PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ("disc-apparel", ["NKE", "LULU", "DECK", "UAA", "ADDYY"], "運動鞋服對手", "Athletic apparel rival"),
     ("disc-air", ["DAL", "UAL", "AAL", "LUV", "ALK"], "航空公司對手", "Airline rival"),
     ("disc-auto-deal", ["CVNA", "KMX", "AN", "GPI", "PAG"], "汽車零售對手", "Auto retail rival"),
-    ("disc-delivery", ["DASH", "UBER", "LYFT", "AMZN", "ABNB"], "即時配送／出行對手", "Delivery / mobility rival"),
+    ("disc-delivery", ["DASH", "UBER", "LYFT"], "共享出行／即時配送對手", "Rideshare / mobility rival"),  # not AMZN/ABNB
     ("auto-oem", ["GM", "F", "TM", "TSLA", "HMC", "RACE", "1211.HK"], "整車對手", "Auto OEM rival"),
     ("auto-luxury", ["RACE", "TM", "GM", "BMW.DE", "MBG.DE", "TSLA"], "超跑／豪華車對手", "Supercar / luxury OEM rival"),
     ("ecom-latam", ["MELI", "AMZN", "BABA", "SE", "SHOP"], "電商平台對手", "E-commerce platform rival"),
