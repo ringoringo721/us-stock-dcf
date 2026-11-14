@@ -47,6 +47,20 @@ def short_brand_en(name_en: str, ticker: str) -> str:
     cleaned = re.sub(r"\b([Bb]anc)-Corp(?:oration)?\b", r"\1orp", raw)
     cleaned = re.sub(r"-\s*Corp(?:oration)?\.?\b", " ", cleaned, flags=re.I)
     cleaned = LEGAL_EN_SUFFIX_STRIP_RE.sub("", cleaned)
+
+    # Share-class / listing / bond tails (CRWV Class A Common Stock, CHYM Ordinary Shares, ELC bonds).
+    cleaned = re.sub(
+        r",?\s*\b(?:Class\s+[A-Z0-9]+\s+)?(?:Common\s+Stock|Ordinary\s+Shares?|American\s+Depositary\s+Shares?|ADSs?|ADRs?)\b.*$",
+        "",
+        cleaned,
+        flags=re.I,
+    )
+    cleaned = re.sub(
+        r",?\s*\b(?:First\s+Mortgage\s+Bonds?|Senior\s+Notes?|Notes?|Bond\s+Units?|Preferred\s+Stock)\b.*$",
+        "",
+        cleaned,
+        flags=re.I,
+    )
     cleaned = re.sub(r"\s+[.,](?=\s|$)", "", cleaned)
     cleaned = re.sub(r"(?:\s+&|\s+and)\s*$", "", cleaned, flags=re.I)
     cleaned = re.sub(r"[,\s]+$", "", cleaned).strip()

@@ -867,6 +867,54 @@ MODELS: dict[str, dict] = {
             },
         ],
     },
+    "oilfield-services-v1": {
+        "label_zh": "油服價值鏈",
+        "label_en": "Oilfield services value chain",
+        "description_zh": "油田裝備 → 油服同業 → 上游勘探客戶 → 中游管輸 → 綜油／煉廠客戶。",
+        "description_en": "Oilfield equipment → OFS peers → upstream E&P customers → midstream → IOC/refining customers.",
+        "stages": [
+            {
+                "id": "equipment",
+                "order": 1,
+                "label_zh": "油田裝備",
+                "label_en": "Oilfield equipment",
+                "summary_zh": "鑽完井裝備與井口設備。",
+                "summary_en": "Drilling, completion, and wellhead equipment.",
+            },
+            {
+                "id": "services",
+                "order": 2,
+                "label_zh": "油田服務同業",
+                "label_en": "Oilfield services peers",
+                "summary_zh": "鑽完井、評價與油田服務。",
+                "summary_en": "Drilling, evaluation, and field services.",
+            },
+            {
+                "id": "upstream",
+                "order": 3,
+                "label_zh": "上游勘探客戶",
+                "label_en": "Upstream E&P customers",
+                "summary_zh": "油服的勘探開發客戶（非同業）。",
+                "summary_en": "E&P customers of OFS — not services peers.",
+            },
+            {
+                "id": "midstream",
+                "order": 4,
+                "label_zh": "中游管輸／液化",
+                "label_en": "Midstream / LNG",
+                "summary_zh": "管線、儲運與 LNG。",
+                "summary_en": "Pipelines, storage, LNG.",
+            },
+            {
+                "id": "customers",
+                "order": 5,
+                "label_zh": "綜油／煉廠客戶",
+                "label_en": "IOC / refining customers",
+                "summary_zh": "綜合油氣與煉廠需求方。",
+                "summary_en": "Integrated oil and refining demand.",
+            },
+        ],
+    },
     "industrials-v1": {
         "label_zh": "工業製造價值鏈",
         "label_en": "Industrial manufacturing value chain",
@@ -1527,7 +1575,7 @@ INDUSTRY_MODEL: dict[tuple[str, str], str] = {
     ("Financial Services", "Investment - Banking & Investment Services"): "capital-markets-v1",
     ("Financial Services", "Asset Management"): "asset-mgmt-v1",
     ("Financial Services", "Financial - Data & Stock Exchanges"): "capital-markets-v1",
-    ("Financial Services", "Insurance - Diversified"): "diversified-holding-v1",
+    ("Financial Services", "Insurance - Diversified"): "insurance-v1",
     ("Financial Services", "Insurance - Property & Casualty"): "insurance-v1",
     ("Financial Services", "Insurance - Life"): "insurance-v1",
     ("Financial Services", "Insurance - Brokers"): "insurance-v1",
@@ -1544,7 +1592,7 @@ INDUSTRY_MODEL: dict[tuple[str, str], str] = {
     ("Energy", "Oil & Gas Exploration & Production"): "energy-integrated-v1",
     ("Energy", "Oil & Gas Midstream"): "energy-integrated-v1",
     ("Energy", "Oil & Gas Refining & Marketing"): "energy-integrated-v1",
-    ("Energy", "Oil & Gas Equipment & Services"): "energy-integrated-v1",
+    ("Energy", "Oil & Gas Equipment & Services"): "oilfield-services-v1",
     ("Industrials", "Aerospace & Defense"): "aerospace-defense-v1",
     ("Industrials", "Agricultural - Machinery"): "industrials-v1",
     ("Industrials", "Industrial - Machinery"): "industrials-v1",
@@ -1677,7 +1725,7 @@ TICKER_MODEL: dict[str, str] = {
     "MSTR": "saas-cloud-v1",
     "VRT": "industrials-v1",  # datacenter thermal / power systems
     "BE": "industrials-v1",
-    "SLB": "energy-integrated-v1",
+    "SLB": "oilfield-services-v1",
     "CEG": "utilities-v1",
     "SRE": "utilities-v1",
     "NTES": "internet-platform-v1",
@@ -1746,7 +1794,7 @@ TICKER_MODEL: dict[str, str] = {
     "AFRM": "payments-v1",
     "ALLY": "bank-diversified-v1",
     "CACC": "bank-diversified-v1",
-    "BKR": "energy-integrated-v1",
+    "BKR": "oilfield-services-v1",
     "AMP": "asset-mgmt-v1",
     "BEN": "asset-mgmt-v1",
     "BIP": "utilities-v1",
@@ -1786,6 +1834,10 @@ TICKER_MODEL: dict[str, str] = {
     "ARMK": "industrials-v1",
     "ACT": "insurance-v1",
     "ACGL": "insurance-v1",  # specialty P&C / re — not diversified-holding life
+    "AIG": "insurance-v1",  # P&C / diversified insurer — not Berkshire holding chain
+    "BBY": "consumer-discretionary-v1",  # CE specialty retail
+    "CE": "specialty-chem-v1",  # commodity/specialty chem — not coatings customers
+    "AES": "utilities-v1",  # electric generation / utilities
     "ARES": "asset-mgmt-v1",  # alt managers
     "ANDG": "industrials-v1",  # tax/professional services — not hospitality
     "AMTM": "industrials-v1",  # gov services / engineering — not aero primes

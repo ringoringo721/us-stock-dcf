@@ -13,7 +13,7 @@
     "osat-memory": [
       "MU",
       "000660.KS",
-      "3711.TW"
+      "600584.SS"
     ],
     "customers": [
       "MSFT",
@@ -40,7 +40,7 @@
     "osat-memory": [
       "MU",
       "000660.KS",
-      "3711.TW"
+      "600584.SS"
     ],
     "customers": [
       "MSFT",
@@ -267,6 +267,33 @@
       "DAL",
       "CAT",
       "UNP"
+    ]
+  },
+  "BLLN": {
+    "parts": [
+      "ILMN",
+      "TMO",
+      "DHR"
+    ],
+    "electronics": [
+      "TXN",
+      "ADI",
+      "ON"
+    ],
+    "assembly": [
+      "JBL",
+      "FLEX",
+      "A"
+    ],
+    "providers": [
+      "HCA",
+      "UNH",
+      "CVS"
+    ],
+    "payers": [
+      "UNH",
+      "CI",
+      "ELV"
     ]
   }
 }

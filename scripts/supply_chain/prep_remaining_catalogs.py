@@ -194,10 +194,11 @@ TICKER_ALIAS: dict[str, str] = {
     "WACLY": "WSO",  # never Wacoal-as-Watsco; prefer Watsco if needed elsewhere
     "MYL": "VTRS",  # Mylan → Viatris
     "PEAK": "DOC",  # Healthpeak renamed / retickered
+    "SJW": "HTO",  # SJW Group → HTO
 }
 
 # Never emit as rivals (delisted, private, wrong product, or charter mislabeled as lessor).
-BANNED_RIVAL_TICKERS = {"SPCX", "MAXR", "FLY", "FLYX", "PEAK", "MYL", "SQ", "RDFN"}
+BANNED_RIVAL_TICKERS = {"SPCX", "MAXR", "FLY", "FLYX", "PEAK", "MYL", "SQ", "RDFN", "SJW"}
 
 # Preferred+common / dual-ADR of the same issuer → keep one preferred ticker only.
 SHARE_CLASS_PREFERRED: dict[str, str] = {
@@ -205,11 +206,18 @@ SHARE_CLASS_PREFERRED: dict[str, str] = {
     "BEPC": "BEP",  # Brookfield Renewable Corp → Partners
 }
 
+# Same-issuer dual listings — canonicalize for rival/stage dedupe.
+DUAL_LIST_ISSUER: dict[str, str] = {
+    "3711.TW": "ASE",
+    "ASX": "ASE",  # ASE Technology ADR
+}
+
 
 def share_class_key(t: str) -> str:
-    """Issuer key so preferred+common never appear as mutual / duplicate rivals."""
+    """Issuer key so preferred+common / dual-lists never appear as mutual rivals."""
     t = (t or "").strip().upper()
-    return SHARE_CLASS_PREFERRED.get(t, t)
+    t = SHARE_CLASS_PREFERRED.get(t, t)
+    return DUAL_LIST_ISSUER.get(t, t)
 
 
 def canonicalize_ticker(t: str) -> str | None:
@@ -330,7 +338,7 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "semi-osat",
-        ["AMKR", "ASX", "600584.SS", "002156.SZ", "TSM"],
+        ["AMKR", "ASX", "600584.SS", "TSM"],
         "封測／先進封裝對手",
         "OSAT / advanced packaging rival",
     ),
@@ -388,9 +396,9 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
         "搜尋／AI 平台對手",
         "Search / AI platform rival",
     ),
-    (
+        (
         "video-cn",
-        ["BILI", "IQ", "HUYA", "NTES", "0700.HK", "META"],
+        ["BILI", "IQ", "HUYA", "NTES", "0700.HK"],  # China video — no META
         "影音／互動娛樂對手",
         "Video / interactive entertainment rival",
     ),
@@ -401,9 +409,9 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
         "航空機隊租賃對手",
         "Aircraft lessor rival",
     ),
-    (
+        (
         "util-water",
-        ["AWK", "WTRG", "SBS", "CWT", "AWR", "SJW"],
+        ["AWK", "WTRG", "SBS", "CWT", "AWR", "HTO"],  # SJW→HTO
         "受規管水務對手",
         "Regulated water utility rival",
     ),
@@ -425,9 +433,9 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
         "電子零件通路對手",
         "Electronics distributor rival",
     ),
-    (
+        (
         "auto-tier1",
-        ["APTV", "BWA", "ALV", "ALSN", "LEA", "MGA", "GNTX"],
+        ["APTV", "BWA", "LEA", "MGA", "GNTX"],  # Tier-1; ALSN/ALV split below
         "汽車 Tier-1 零組件對手",
         "Auto Tier-1 components rival",
     ),
@@ -497,11 +505,11 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
         "抵押 REIT 對手",
         "Mortgage REIT rival",
     ),
-    (
+        (
         "brokerage-cn",
-        ["BEKE", "COMP", "ZG", "OPEN"],  # no RDFN (delisted) / UWMC (mortgage)
-        "房地產經紀／數位房仲對手",
-        "Property brokerage / digital realtor rival",
+        ["BEKE", "6098.HK", "1209.HK"],  # China residential / property services — not US COMP/ZG/OPEN
+        "中國住宅經紀／物業服務對手",
+        "China residential brokerage / property-services rival",
     ),
     (
         "metal-fab",
@@ -599,11 +607,11 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
         "工程承攬／EPC 對手",
         "Engineering & construction / EPC rival",
     ),
-    (
+        (
         "ind-svc",
-        ["CTAS", "ARMK", "ROL", "RBA", "CPRT"],  # listed facilities/specialty; no UNF/ABM/HCSG OTC
-        "制服／設施服務對手",
-        "Uniform / facility-services rival",
+        ["CTAS", "ARMK", "ROL", "ABM", "UNF"],  # foodservice / facilities — no RBA/CPRT auction
+        "制服／餐飲設施服務對手",
+        "Uniform / foodservice / facility-services rival",
     ),
     (
         "law-enforcement",
@@ -623,11 +631,11 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
         "eVTOL／電動垂直起降對手",
         "eVTOL rival",
     ),
-    (
+        (
         "brookfield-biz",
-        ["BBUC", "BAM", "BN", "BIP", "BEP"],
-        "Brookfield 上市業務對手",
-        "Brookfield listed business rival",
+        ["BBUC", "MMM", "HON", "URI", "J", "ITW"],  # industrial / business-services — not BAM/BN/BIP/BEP sisters
+        "工業／企業服務對手",
+        "Industrial / business-services rival",
     ),
     (
         "apparel-specialty",
@@ -635,21 +643,21 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
         "品牌服飾零售對手",
         "Specialty apparel retail rival",
     ),
-    (
+        (
         "bdc-credit",
-        ["ARCC", "OBDC", "MAIN", "CG", "OWL"],  # BDC / alt-credit — not mutual-fund BEN/TROW
+        ["ARCC", "OBDC", "MAIN", "BXSL", "GBDC"],  # BDC-only — no OWL manager / CG PE GP
         "BDC／另類信貸對手",
         "BDC / alternative-credit rival",
     ),
-    (
+        (
         "dental-devices",
-        ["ALGN", "HSIC", "MMSI", "TFX"],  # dental / specialty devices — not ATR packaging / BSX
-        "牙醫／專科器械對手",
-        "Dental / specialty-device rival",
+        ["ALGN", "XRAY", "NVST", "SOLV"],  # dental / aligner — no HSIC / MMSI / TFX
+        "牙醫／隱適美器械對手",
+        "Dental / aligner-device rival",
     ),
-    (
+        (
         "saas-messaging",
-        ["BRZE", "HUBS", "CRM", "APPF", "VEEV"],  # engagement / marketing cloud; not TEAM/ZM/TYL/DDOG
+        ["BRZE", "HUBS", "CRM"],  # engagement SaaS only — no APPF/VEEV
         "行銷／互動 SaaS 對手",
         "Marketing / engagement SaaS rival",
     ),
@@ -677,9 +685,9 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
         "另類資產管理對手",
         "Alternative asset-manager rival",
     ),
-    (
+        (
         "tax-pro-svc",
-        ["ANDG", "HRB", "INTU", "PAYX", "VRSK", "EFX"],  # tax / professional services
+        ["ANDG", "HRB", "INTU"],  # tax only — no VRSK/EFX
         "稅務／專業服務對手",
         "Tax / professional-services rival",
     ),
@@ -689,17 +697,17 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
         "政府服務／工程承攬對手",
         "Gov services / engineering-contractor rival",
     ),
-    (
+        (
         "mol-dx",
-        ["BLLN", "ILMN", "DGX", "LH", "NTRA"],  # molecular dx / NIPT — not IDXX vet
+        ["BLLN", "NTRA", "DGX", "LH"],  # NIPT / clinical lab — ILMN is sequencing supplier not rival
         "分子診斷／NIPT 對手",
         "Molecular diagnostics / NIPT rival",
     ),
-    (
+        (
         "util-latam",
-        ["CIG", "ENIC", "AES", "SBS", "KEP"],  # LatAm / EM utilities — not US DUK/NEE
-        "拉美／新興市場公用事業對手",
-        "LatAm / EM utility rival",
+        ["CIG", "ENIC"],  # LatAm electric — no SBS water / KEP Korea / AES US IPP
+        "拉美公用事業對手",
+        "LatAm utility rival",
     ),
     (
         "packaging-disp",
@@ -707,11 +715,41 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
         "包裝／給藥裝置對手",
         "Packaging / dispensing rival",
     ),
-    (
+        (
         "water-heat",
-        ["AOS", "WTS", "LII", "TTC"],  # water heater / boiler / water HVAC
+        ["AOS", "WTS"],  # hydronic / water heater only — no TTC lawn / LII HVAC
         "熱水器／水暖設備對手",
         "Water heater / hydronic equipment rival",
+    ),
+    (
+        "auto-driveline",
+        ["ALSN", "BWA", "LEA", "MGA"],  # transmissions / powertrain — not ALV airbags
+        "汽車傳動／動力系統對手",
+        "Auto driveline / powertrain rival",
+    ),
+    (
+        "auto-safety",
+        ["ALV", "APTV", "GNTX"],  # airbags / ADAS / safety — not ALSN transmissions
+        "汽車安全／氣囊對手",
+        "Auto passive-safety / ADAS rival",
+    ),
+    (
+        "retail-ce",
+        ["BBY", "GME", "WSM", "ULTA", "DKS"],  # CE / specialty hardline — not discount DG
+        "消費電子／專賣零售對手",
+        "CE / specialty retail rival",
+    ),
+    (
+        "util-ipp",
+        ["AES", "NRG", "VST", "CEG", "TLN"],  # electric generation — not water SBS
+        "獨立發電／電力生產對手",
+        "Independent power / electric-generation rival",
+    ),
+    (
+        "chem-commodity",
+        ["CE", "DD", "DOW", "EMN", "LYB", "WLK"],  # chem peers — not ECL/SHW/PPG coatings customers
+        "大宗／特用化學對手",
+        "Commodity / specialty chemical rival",
     ),
     (
         "life-sci-dist",
@@ -779,8 +817,8 @@ TICKER_GROUP_FORCE: dict[str, str] = {
     "AVT": "tech-dist",
     "ARW": "tech-dist",
     "APTV": "auto-tier1",
-    "ALSN": "auto-tier1",
-    "ALV": "auto-tier1",
+    "ALSN": "auto-driveline",
+    "ALV": "auto-safety",
     "BWA": "auto-tier1",
     "ADM": "farm-agri",
     "BG": "farm-agri",
@@ -794,7 +832,6 @@ TICKER_GROUP_FORCE: dict[str, str] = {
     "ARE": "reit-office",
     "AGNC": "reit-mreit",
     "BEKE": "brokerage-cn",
-    "COMP": "brokerage-cn",
     "ATI": "metal-fab",
     "BC": "marine-rv",
     "CAKE": "restaurants",
@@ -848,6 +885,11 @@ TICKER_GROUP_FORCE: dict[str, str] = {
     "ATR": "packaging-disp",
     "AOS": "water-heat",
     "AVTR": "life-sci-dist",
+    "BBY": "retail-ce",
+    "AES": "util-ipp",
+    "CE": "chem-commodity",
+    "AIG": "ins-pc",
+    "HTO": "util-water",
 }
 
 
@@ -877,6 +919,13 @@ NO_PAD_GROUPS = {
     "ins-pc-re",
     "alt-pe",
     "sporting-goods",
+    "auto-driveline",
+    "auto-safety",
+    "retail-ce",
+    "util-ipp",
+    "chem-commodity",
+    "brokerage-cn",
+    "ind-svc",
 }
 
 
@@ -1022,7 +1071,7 @@ EXTRA_NAME_EN: dict[str, str] = {
     "VRTX": "Vertex",
     "TSM": "TSMC",
     "BEP": "Brookfield Renewable",
-    "PAC": "GAP",
+    "PAC": "Grupo Aeroportuario del Pacífico",
     "OMAB": "OMA",
     "WHD": "Cactus",
     "TXN": "Texas Instruments",
@@ -1048,7 +1097,7 @@ EXTRA_NAME_EN: dict[str, str] = {
     "AVTR": "Avantor",
     "ACGL": "Arch Capital",
     "ARES": "Ares Management",
-    "SAIC": "SAIC",
+    "SAIC": "Science Applications International",
     "CACI": "CACI",
     "LDOS": "Leidos",
     "PSN": "Parsons",
@@ -1098,6 +1147,37 @@ EXTRA_NAME_EN: dict[str, str] = {
     "ALGN": "Align Technology",
     "ARCC": "Ares Capital",
     "BBUC": "Brookfield Business",
+    "EQR": "Equity Residential",
+    "AVB": "AvalonBay",
+    "IQ": "iQIYI",
+    "HUYA": "HUYA",
+    "DXPE": "DXP Enterprises",
+    "HTO": "H2O America",
+    "XRAY": "Dentsply Sirona",
+    "NVST": "Envista",
+    "SOLV": "Solventum",
+    "BXSL": "Blackstone Secured Lending",
+    "GBDC": "Golub Capital BDC",
+    "ABM": "ABM Industries",
+    "UNF": "UniFirst",
+    "6098.HK": "Country Garden Services",
+    "1209.HK": "China Resources Mixc",
+    "BBY": "Best Buy",
+    "GME": "GameStop",
+    "WSM": "Williams-Sonoma",
+    "ULTA": "Ulta Beauty",
+    "DKS": "Dick's Sporting Goods",
+    "NRG": "NRG Energy",
+    "VST": "Vistra",
+    "TLN": "Talen Energy",
+    "CE": "Celanese",
+    "EMN": "Eastman",
+    "LYB": "LyondellBasell",
+    "WLK": "Westlake",
+    "AIG": "AIG",
+    "OII": "Oceaneering",
+    "UDR": "UDR",
+
 }
 
 # Prefer 繁中; Latin only when that is the intentional brand (Equinix/IBM style).
@@ -1199,6 +1279,27 @@ EXTRA_NAME_ZH: dict[str, str] = {
     "ARCC": "Ares Capital",
     "AVAV": "AeroVironment",
     "BETA": "BETA Technologies",
+    "EQR": "Equity Residential",
+    "AVB": "AvalonBay",
+    "IQ": "愛奇藝",
+    "HUYA": "虎牙",
+    "DXPE": "DXP Enterprises",
+    "HTO": "H2O America",
+    "XRAY": "登士柏西諾德",
+    "NVST": "Envista",
+    "SOLV": "Solventum",
+    "BXSL": "Blackstone Secured Lending",
+    "GBDC": "Golub Capital BDC",
+    "ABM": "ABM Industries",
+    "UNF": "UniFirst",
+    "6098.HK": "碧桂園服務",
+    "1209.HK": "華潤萬象生活",
+    "SAIC": "科學應用國際",
+    "BBY": "百思買",
+    "AIG": "美國國際集團",
+    "OII": "Oceaneering",
+    "UDR": "UDR",
+
 }
 
 
@@ -1355,7 +1456,7 @@ def main() -> int:
         "VRTX": ("Vertex", "福泰製藥", "NASDAQ"),
         "TSM": ("TSMC", "臺積電", "NYSE"),
         "BEP": ("Brookfield Renewable", "Brookfield Renewable", "NYSE"),
-        "PAC": ("GAP", "太平洋機場集團", "NYSE"),
+        "PAC": ("Grupo Aeroportuario del Pacífico", "太平洋機場集團", "NYSE"),
         "OMAB": ("OMA", "OMA 機場", "NASDAQ"),
         "TXN": ("Texas Instruments", "德州儀器", "NASDAQ"),
         "MLM": ("Martin Marietta", "馬丁瑪麗埃塔", "NYSE"),
@@ -1363,6 +1464,22 @@ def main() -> int:
         "SBS": ("Sabesp", "Sabesp", "NYSE"),
         "PKG": ("Packaging Corp of America", "美國包裝公司", "NYSE"),
         "NHYDY": ("Norsk Hydro", "挪威海德魯", "OTC"),
+        "DXPE": ("DXP Enterprises", "DXP Enterprises", "NASDAQ"),
+        "HTO": ("H2O America", "H2O America", "NYSE"),
+        "XRAY": ("Dentsply Sirona", "登士柏西諾德", "NASDAQ"),
+        "NVST": ("Envista", "Envista", "NYSE"),
+        "BXSL": ("Blackstone Secured Lending", "Blackstone Secured Lending", "NYSE"),
+        "GBDC": ("Golub Capital BDC", "Golub Capital BDC", "NASDAQ"),
+        "ABM": ("ABM Industries", "ABM Industries", "NYSE"),
+        "UNF": ("UniFirst", "UniFirst", "NYSE"),
+        "IQ": ("iQIYI", "愛奇藝", "NASDAQ"),
+        "HUYA": ("HUYA", "虎牙", "NYSE"),
+        "EQR": ("Equity Residential", "Equity Residential", "NYSE"),
+        "AVB": ("AvalonBay", "AvalonBay", "NYSE"),
+        "SAIC": ("Science Applications International", "科學應用國際", "NASDAQ"),
+        "OII": ("Oceaneering", "Oceaneering", "NYSE"),
+        "6098.HK": ("Country Garden Services", "碧桂園服務", "HKEX"),
+        "1209.HK": ("China Resources Mixc", "華潤萬象生活", "HKEX"),
     }
     for t, (en, zh, ex) in forced_ents.items():
         entities[t] = {
@@ -1404,7 +1521,7 @@ def main() -> int:
             competitors[hub] = [[a, b, c] for a, b, c in riv]
 
     # Drop delisted / mislabeled stub entities (never ship OTC ticker-only rows).
-    for gone in ("PEAK", "MYL", "FLY", "FLYX", "MAXR", "SQ", "RDFN"):
+    for gone in ("PEAK", "MYL", "FLY", "FLYX", "MAXR", "SQ", "RDFN", "SJW"):
         entities.pop(gone, None)
 
     # Global: never ship ticker-as-name except intentional Latin brands.

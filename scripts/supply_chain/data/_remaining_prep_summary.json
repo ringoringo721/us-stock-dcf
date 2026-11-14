@@ -1,6 +1,6 @@
 {
   "remainingTotal": 1041,
-  "competitorsWritten": 1026,
+  "competitorsWritten": 1024,
   "missingRivals": [
     [
       "RKT",
@@ -53,6 +53,14 @@
       "Solar"
     ],
     [
+      "WTS",
+      1,
+      [
+        "AOS"
+      ],
+      "Industrial - Machinery"
+    ],
+    [
       "FRHC",
       0,
       [],
@@ -95,6 +103,14 @@
       "Department Stores"
     ],
     [
+      "ENIC",
+      1,
+      [
+        "CIG"
+      ],
+      "Regulated Electric"
+    ],
+    [
       "NXST",
       1,
       [
@@ -111,7 +127,7 @@
       "Uranium"
     ]
   ],
-  "entityCount": 1513,
+  "entityCount": 1521,
   "bands": {
     "20-50B": 291,
     "10-20B": 311,

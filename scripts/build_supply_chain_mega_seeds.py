@@ -176,6 +176,20 @@ def short_brand_en(name_en: str, ticker: str) -> str:
     cleaned = re.sub(r"\b([Bb]anc)-Corp(?:oration)?\b", r"\1orp", raw)
     cleaned = re.sub(r"-\s*Corp(?:oration)?\.?\b", " ", cleaned, flags=re.I)
     cleaned = LEGAL_EN_SUFFIX_STRIP_RE.sub("", cleaned)
+
+    # Share-class / listing / bond tails (CRWV Class A Common Stock, CHYM Ordinary Shares, ELC bonds).
+    cleaned = re.sub(
+        r",?\s*\b(?:Class\s+[A-Z0-9]+\s+)?(?:Common\s+Stock|Ordinary\s+Shares?|American\s+Depositary\s+Shares?|ADSs?|ADRs?)\b.*$",
+        "",
+        cleaned,
+        flags=re.I,
+    )
+    cleaned = re.sub(
+        r",?\s*\b(?:First\s+Mortgage\s+Bonds?|Senior\s+Notes?|Notes?|Bond\s+Units?|Preferred\s+Stock)\b.*$",
+        "",
+        cleaned,
+        flags=re.I,
+    )
     # Orphans only: whitespace + lone "." / "," at end or before more whitespace.
     # Do NOT strip "S.A. Foo" / "U.S. Something" / "T. Rowe".
     cleaned = re.sub(r"\s+[.,](?=\s|$)", "", cleaned)
@@ -208,6 +222,9 @@ def _assert_short_brand_en() -> None:
         ("Mastercard Incorporated", "MA", "Mastercard"),
         ("UnitedHealth Group Incorporated", "UNH", "UnitedHealth"),
         ("Wells Fargo & Company", "WFC", "Wells Fargo"),
+        ("CoreWeave, Inc. Class A Common Stock", "CRWV", "CoreWeave"),
+        ("Chime Financial, Inc. Ordinary Shares", "CHYM", "Chime Financial"),
+        ("Entergy Louisiana, LLC First Mortgage Bonds", "ELC", "Entergy Louisiana, LLC"),
     )
     for raw, ticker, expect in cases:
         got = short_brand_en(raw, ticker)
@@ -274,8 +291,19 @@ STAGE_TICKER_ALIAS: dict[str, str] = {
     "MYL": "VTRS",
     "PEAK": "DOC",
     "MMC": "MRSH",
+    "SJW": "HTO",
 }
-STAGE_TICKER_BANNED = {"SPCX", "MAXR", "FLY", "FLYX", "SQ", "PEAK", "MYL", "RDFN"}
+STAGE_TICKER_BANNED = {"SPCX", "MAXR", "FLY", "FLYX", "SQ", "PEAK", "MYL", "RDFN", "SJW"}
+
+# Same-issuer dual listings (TWSE/ADR etc.) — never stage+rival the same issuer.
+DUAL_LIST_ISSUER: dict[str, str] = {
+    "3711.TW": "ASE",
+    "ASX": "ASE",
+}
+
+def issuer_key(t: str) -> str:
+    t = (t or "").strip().upper()
+    return DUAL_LIST_ISSUER.get(t, t)
 
 
 def normalize_stage_ticker(t: str) -> str | None:
@@ -327,17 +355,34 @@ def build_seed(
         ent["name_zh"] = NAME_ZH_FIXES.get(ticker) or ticker
     if row.get("exchange") and not ent.get("exchange"):
         ent["exchange"] = row["exchange"]
+    # Rival tickers first; only dual-list issuer keys (ASE ASX↔3711.TW) block stage peers.
+    # Do NOT drop ordinary rivals from stages globally (OFS hubs list SLB/HAL as both).
+    rival_tickers: list[str] = []
+    rival_dual_issuer_keys: set[str] = set()
+    for ct, _bz, _be in competitors.get(ticker) or []:
+        ct_n = normalize_stage_ticker(ct) or (ct or "").strip().upper()
+        if not ct_n or ct_n == ticker or ct_n in STAGE_TICKER_BANNED:
+            continue
+        if ct_n in rival_tickers:
+            continue
+        rival_tickers.append(ct_n)
+        if ct_n in DUAL_LIST_ISSUER:
+            rival_dual_issuer_keys.add(issuer_key(ct_n))
+
     stage_players = overrides.get(ticker) or players_by_model[model_id]
     stages = []
     for stage_meta in model["stages"]:
         sid = stage_meta["id"]
         raw_players = list(stage_players.get(sid) or players_by_model[model_id].get(sid) or [])
         # Drop self; rewrite aliases (SQ→XYZ); keep order; pad from other stages, then entities.
+        # Drop stage names that share an issuer with a rival (prefer rival ASX over partner 3711.TW).
         picked: list[str] = []
         seen_players: set[str] = {ticker}
         for t in raw_players:
             nt = normalize_stage_ticker(t)
             if not nt or nt in seen_players:
+                continue
+            if nt in DUAL_LIST_ISSUER and issuer_key(nt) in rival_dual_issuer_keys:
                 continue
             picked.append(nt)
             seen_players.add(nt)
@@ -346,6 +391,8 @@ def build_seed(
                 for t in arr:
                     nt = normalize_stage_ticker(t)
                     if not nt or nt in seen_players:
+                        continue
+                    if nt in DUAL_LIST_ISSUER and issuer_key(nt) in rival_dual_issuer_keys:
                         continue
                     picked.append(nt)
                     seen_players.add(nt)

@@ -2070,8 +2070,8 @@
     "exchange": "NYSE"
   },
   "SAIC": {
-    "name_en": "SAIC",
-    "name_zh": "SAIC",
+    "name_en": "Science Applications International",
+    "name_zh": "科學應用國際",
     "exchange": "NASDAQ"
   },
   "BAH": {
@@ -2530,13 +2530,13 @@
     "exchange": "NYSE"
   },
   "NRG": {
-    "name_en": "NRG",
-    "name_zh": "NRG",
+    "name_en": "NRG Energy",
+    "name_zh": "NRG Energy",
     "exchange": "NYSE"
   },
   "TLN": {
-    "name_en": "Talen",
-    "name_zh": "Talen",
+    "name_en": "Talen Energy",
+    "name_zh": "Talen Energy",
     "exchange": "NASDAQ"
   },
   "PCG": {
@@ -2663,11 +2663,6 @@
     "name_en": "Middlesex Water",
     "name_zh": "Middlesex Water",
     "exchange": "NASDAQ"
-  },
-  "SJW": {
-    "name_en": "SJW Group",
-    "name_zh": "SJW Group",
-    "exchange": "NYSE"
   },
   "YORW": {
     "name_en": "York Water",
@@ -3360,8 +3355,8 @@
     "exchange": "NYSE"
   },
   "UDR": {
-    "name_en": "UDR Inc.",
-    "name_zh": "UDR Inc.",
+    "name_en": "UDR",
+    "name_zh": "UDR",
     "exchange": "NYSE"
   },
   "CPT": {
@@ -3422,7 +3417,7 @@
   "UNF": {
     "name_en": "UniFirst",
     "name_zh": "UniFirst",
-    "exchange": "OTC"
+    "exchange": "NYSE"
   },
   "ARMK": {
     "name_en": "Aramark",
@@ -3435,9 +3430,9 @@
     "exchange": "NYSE"
   },
   "ABM": {
-    "name_en": "ABM",
-    "name_zh": "ABM",
-    "exchange": "OTC"
+    "name_en": "ABM Industries",
+    "name_zh": "ABM Industries",
+    "exchange": "NYSE"
   },
   "HCSG": {
     "name_en": "HCSG",
@@ -4035,8 +4030,8 @@
     "exchange": "NYSE"
   },
   "CRWV": {
-    "name_en": "CoreWeave, Class A Common Stock",
-    "name_zh": "CoreWeave, Class A Common Stock",
+    "name_en": "CoreWeave",
+    "name_zh": "CoreWeave",
     "exchange": "NASDAQ"
   },
   "CASY": {
@@ -5005,7 +5000,7 @@
     "exchange": "NASDAQ"
   },
   "PAC": {
-    "name_en": "GAP",
+    "name_en": "Grupo Aeroportuario del Pacífico",
     "name_zh": "太平洋機場集團",
     "exchange": "NYSE"
   },
@@ -5070,8 +5065,8 @@
     "exchange": "NYSE"
   },
   "DKS": {
-    "name_en": "DICK'S Sporting Goods",
-    "name_zh": "DICK'S Sporting Goods",
+    "name_en": "Dick's Sporting Goods",
+    "name_zh": "Dick's Sporting Goods",
     "exchange": "NYSE"
   },
   "SITM": {
@@ -5175,8 +5170,8 @@
     "exchange": "NYSE"
   },
   "CHYM": {
-    "name_en": "Chime Financial, Class A Common Stock",
-    "name_zh": "Chime Financial, Class A Common Stock",
+    "name_en": "Chime Financial",
+    "name_zh": "Chime Financial",
     "exchange": "NASDAQ"
   },
   "COO": {
@@ -5530,8 +5525,8 @@
     "exchange": "NYSE"
   },
   "QNT": {
-    "name_en": "Quantinuum Class A Common Stock",
-    "name_zh": "Quantinuum Class A Common Stock",
+    "name_en": "Quantinuum",
+    "name_zh": "Quantinuum",
     "exchange": "NASDAQ"
   },
   "UHAL": {
@@ -5815,8 +5810,8 @@
     "exchange": "NYSE"
   },
   "NTSK": {
-    "name_en": "Netskope, Class A Common Stock",
-    "name_zh": "Netskope, Class A Common Stock",
+    "name_en": "Netskope",
+    "name_zh": "Netskope",
     "exchange": "NASDAQ"
   },
   "JXN": {
@@ -6235,8 +6230,8 @@
     "exchange": "NASDAQ"
   },
   "EMN": {
-    "name_en": "Eastman Chemical",
-    "name_zh": "Eastman Chemical",
+    "name_en": "Eastman",
+    "name_zh": "Eastman",
     "exchange": "NYSE"
   },
   "IDCC": {
@@ -7375,12 +7370,12 @@
     "exchange": "NYSE"
   },
   "EQR": {
-    "name_en": "EQR",
+    "name_en": "Equity Residential",
     "name_zh": "Equity Residential",
     "exchange": "NYSE"
   },
   "AVB": {
-    "name_en": "AVB",
+    "name_en": "AvalonBay",
     "name_zh": "AvalonBay",
     "exchange": "NYSE"
   },
@@ -7475,9 +7470,9 @@
     "exchange": "OTC"
   },
   "DXPE": {
-    "name_en": "DXPE",
-    "name_zh": "DXPE",
-    "exchange": "OTC"
+    "name_en": "DXP Enterprises",
+    "name_zh": "DXP Enterprises",
+    "exchange": "NASDAQ"
   },
   "CENX": {
     "name_en": "Century Aluminum",
@@ -7520,14 +7515,14 @@
     "exchange": "NASDAQ"
   },
   "IQ": {
-    "name_en": "IQ",
-    "name_zh": "IQ",
-    "exchange": "OTC"
+    "name_en": "iQIYI",
+    "name_zh": "愛奇藝",
+    "exchange": "NASDAQ"
   },
   "HUYA": {
     "name_en": "HUYA",
-    "name_zh": "HUYA",
-    "exchange": "OTC"
+    "name_zh": "虎牙",
+    "exchange": "NYSE"
   },
   "PII": {
     "name_en": "Polaris",
@@ -7562,6 +7557,51 @@
   "BBU": {
     "name_en": "Brookfield Business Partners",
     "name_zh": "Brookfield Business Partners",
+    "exchange": "NYSE"
+  },
+  "HTO": {
+    "name_en": "H2O America",
+    "name_zh": "H2O America",
+    "exchange": "NYSE"
+  },
+  "6098.HK": {
+    "name_en": "Country Garden Services",
+    "name_zh": "碧桂園服務",
+    "exchange": "HKEX"
+  },
+  "1209.HK": {
+    "name_en": "China Resources Mixc",
+    "name_zh": "華潤萬象生活",
+    "exchange": "HKEX"
+  },
+  "GNTX": {
+    "name_en": "GNTX",
+    "name_zh": "GNTX",
+    "exchange": "OTC"
+  },
+  "XRAY": {
+    "name_en": "Dentsply Sirona",
+    "name_zh": "登士柏西諾德",
+    "exchange": "NASDAQ"
+  },
+  "NVST": {
+    "name_en": "Envista",
+    "name_zh": "Envista",
+    "exchange": "NYSE"
+  },
+  "BXSL": {
+    "name_en": "Blackstone Secured Lending",
+    "name_zh": "Blackstone Secured Lending",
+    "exchange": "NYSE"
+  },
+  "GBDC": {
+    "name_en": "Golub Capital BDC",
+    "name_zh": "Golub Capital BDC",
+    "exchange": "NASDAQ"
+  },
+  "OII": {
+    "name_en": "Oceaneering",
+    "name_zh": "Oceaneering",
     "exchange": "NYSE"
   }
 }
