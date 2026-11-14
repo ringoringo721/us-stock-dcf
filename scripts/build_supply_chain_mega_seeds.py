@@ -124,10 +124,15 @@ def looks_like_english_legal_name(text: str) -> bool:
 
 
 def short_brand_en(name_en: str, ticker: str) -> str:
-    """Strip common legal suffixes for a short EN brand fallback."""
+    """Strip common legal suffixes for a short EN brand fallback.
+
+    Preserve abbreviation endings such as ``S.A.`` / ``N.V.`` / ``p.l.c.`` —
+    do not strip their trailing periods.
+    """
     raw = (name_en or "").strip() or ticker
     cleaned = LEGAL_EN_NAME_RE.sub("", raw)
-    cleaned = re.sub(r"[,.\s]+$", "", cleaned).strip()
+    # Strip trailing commas/spaces only — never eat the final '.' of S.A. / N.V.
+    cleaned = re.sub(r"[,\s]+$", "", cleaned).strip()
     cleaned = re.sub(r"\s{2,}", " ", cleaned)
     return cleaned or ticker
 
@@ -147,10 +152,16 @@ def resolve_entity(ticker: str, entities: dict, universe_by_ticker: dict | None 
     """
     pe = entities.get(ticker) or {}
     uni = (universe_by_ticker or {}).get(ticker) or {}
-    name_en = pe.get("name_en") or uni.get("name") or uni.get("name_en") or ticker
+    curated_en = (pe.get("name_en") or "").strip()
     exchange = pe.get("exchange") or uni.get("exchange") or ""
-    if name_en == ticker and uni.get("name"):
-        name_en = uni["name"]
+
+    # Curated name_en wins even when it equals the ticker (Latin brand: IBM, BBVA).
+    if curated_en:
+        name_en = curated_en
+    else:
+        name_en = uni.get("name") or uni.get("name_en") or ticker
+        if looks_like_english_legal_name(name_en):
+            name_en = short_brand_en(name_en, ticker)
 
     curated_zh = (pe.get("name_zh") or "").strip()
     uni_zh = (uni.get("name_zh") or "").strip()
@@ -173,12 +184,6 @@ def resolve_entity(ticker: str, entities: dict, universe_by_ticker: dict | None 
                 name_zh = ticker
     # name_zh == ticker (Latin brand) is kept as-is — never promote name_en into name_zh.
 
-    # Shorten long English name_en for display consistency (keep legal form only if curated).
-    if pe.get("name_en"):
-        name_en = pe["name_en"]
-    elif looks_like_english_legal_name(name_en):
-        name_en = short_brand_en(name_en, ticker)
-
     return {"name_en": name_en, "name_zh": name_zh, "exchange": exchange}
 
 
@@ -196,10 +201,19 @@ def build_seed(
     model_id = resolve_model_id(ticker, row.get("sector") or "", row.get("industry") or "")
     model = MODELS[model_id]
     ent = resolve_entity(ticker, entities, universe_by_ticker)
-    if row.get("name") and (ent["name_en"] == ticker or not ent["name_en"]):
-        # Prefer short brand over full English legal dump for name_en fill.
+    curated = entities.get(ticker) or {}
+    # Curated Latin brands intentionally use name_en == ticker (IBM, BBVA). Never overwrite
+    # those from the universe legal name — that undoes resolve_entity and desyncs the hub
+    # from player/competitor rows that keep the short brand.
+    if curated.get("name_en"):
+        ent["name_en"] = curated["name_en"]
+    elif row.get("name") and (not ent.get("name_en") or ent["name_en"] == ticker):
         cand = row["name"]
-        ent["name_en"] = short_brand_en(cand, ticker) if looks_like_english_legal_name(cand) else cand
+        if looks_like_english_legal_name(cand):
+            shortened = short_brand_en(cand, ticker)
+            ent["name_en"] = ticker if looks_like_english_legal_name(shortened) else shortened
+        else:
+            ent["name_en"] = cand
     if row.get("name_zh"):
         zh = traditionalize(row["name_zh"])
         # Never let universe English legal overwrite a Latin brand or 繁中 label.
