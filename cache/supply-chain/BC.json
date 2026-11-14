@@ -1,0 +1,251 @@
+{
+  "version": 1,
+  "ticker": "BC",
+  "name_en": "Brunswick",
+  "name_zh": "Brunswick",
+  "updatedAt": "2026-11-14",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "marine-recreation-v1",
+    "references": [
+      "Industry model `marine-recreation-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "marine-recreation-v1",
+    "label_zh": "船舶／休閒車價值鏈",
+    "label_en": "Marine / recreation value chain",
+    "description_zh": "動力／引擎 → 船體／底盤 → 經銷／融資 → 配件／售後 → 休閒終端客戶。",
+    "description_en": "Power/engines → hulls/chassis → dealers/financing → parts/aftersales → leisure end customers."
+  },
+  "stages": [
+    {
+      "id": "power",
+      "order": 1,
+      "label_zh": "動力／引擎",
+      "label_en": "Power / engines",
+      "summary_zh": "船外機與動力總成。",
+      "summary_en": "Outboards and powertrains.",
+      "players": [
+        {
+          "ticker": "CMI",
+          "name_en": "Cummins",
+          "name_zh": "康明斯",
+          "role_zh": "康明斯：動力／引擎代表性玩家",
+          "role_en": "Cummins: representative player in Power / engines",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "PCAR",
+          "name_en": "PACCAR",
+          "name_zh": "Paccar",
+          "role_zh": "Paccar：動力／引擎代表性玩家",
+          "role_en": "PACCAR: representative player in Power / engines",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "ETN",
+          "name_en": "Eaton",
+          "name_zh": "伊頓",
+          "role_zh": "伊頓：動力／引擎代表性玩家",
+          "role_en": "Eaton: representative player in Power / engines",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "oem",
+      "order": 2,
+      "label_zh": "船體／車體 OEM",
+      "label_en": "Hull / chassis OEMs",
+      "summary_zh": "船舶與休閒車製造。",
+      "summary_en": "Boat and RV manufacturing.",
+      "players": [
+        {
+          "ticker": "PII",
+          "name_en": "Polaris",
+          "name_zh": "Polaris",
+          "role_zh": "Polaris：船體／車體 OEM代表性玩家",
+          "role_en": "Polaris: representative player in Hull / chassis OEMs",
+          "exchange": "NYSE",
+          "listedInApp": false
+        },
+        {
+          "ticker": "THO",
+          "name_en": "Thor Industries",
+          "name_zh": "Thor Industries",
+          "role_zh": "Thor Industries：船體／車體 OEM代表性玩家",
+          "role_en": "Thor Industries: representative player in Hull / chassis OEMs",
+          "exchange": "NYSE",
+          "listedInApp": false
+        },
+        {
+          "ticker": "WGO",
+          "name_en": "Winnebago",
+          "name_zh": "Winnebago",
+          "role_zh": "Winnebago：船體／車體 OEM代表性玩家",
+          "role_en": "Winnebago: representative player in Hull / chassis OEMs",
+          "exchange": "NYSE",
+          "listedInApp": false
+        }
+      ]
+    },
+    {
+      "id": "dealers",
+      "order": 3,
+      "label_zh": "經銷／融資",
+      "label_en": "Dealers / financing",
+      "summary_zh": "經銷網路與消費融資。",
+      "summary_en": "Dealer networks and consumer finance.",
+      "players": [
+        {
+          "ticker": "KMX",
+          "name_en": "CarMax",
+          "name_zh": "CarMax",
+          "role_zh": "CarMax：經銷／融資代表性玩家",
+          "role_en": "CarMax: representative player in Dealers / financing",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "AN",
+          "name_en": "AutoNation",
+          "name_zh": "AutoNation",
+          "role_zh": "AutoNation：經銷／融資代表性玩家",
+          "role_en": "AutoNation: representative player in Dealers / financing",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "PAG",
+          "name_en": "Penske Automotive",
+          "name_zh": "Penske Automotive",
+          "role_zh": "Penske Automotive：經銷／融資代表性玩家",
+          "role_en": "Penske Automotive: representative player in Dealers / financing",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "aftersales",
+      "order": 4,
+      "label_zh": "配件／售後",
+      "label_en": "Parts / aftersales",
+      "summary_zh": "配件、維修與升級。",
+      "summary_en": "Parts, service, and upgrades.",
+      "players": [
+        {
+          "ticker": "GPC",
+          "name_en": "Genuine Parts",
+          "name_zh": "GPC／NAPA",
+          "role_zh": "GPC／NAPA：配件／售後代表性玩家",
+          "role_en": "Genuine Parts: representative player in Parts / aftersales",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "ORLY",
+          "name_en": "O'Reilly",
+          "name_zh": "奧萊利汽車",
+          "role_zh": "奧萊利汽車：配件／售後代表性玩家",
+          "role_en": "O'Reilly: representative player in Parts / aftersales",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "AZO",
+          "name_en": "AutoZone",
+          "name_zh": "汽車地帶 (AutoZone)",
+          "role_zh": "汽車地帶 (AutoZone)：配件／售後代表性玩家",
+          "role_en": "AutoZone: representative player in Parts / aftersales",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "customers",
+      "order": 5,
+      "label_zh": "休閒終端客戶",
+      "label_en": "Leisure end customers",
+      "summary_zh": "休閒與旅遊需求方。",
+      "summary_en": "Leisure and travel demand.",
+      "players": [
+        {
+          "ticker": "MAR",
+          "name_en": "Marriott International",
+          "name_zh": "萬豪國際",
+          "role_zh": "萬豪國際：休閒終端客戶代表性玩家",
+          "role_en": "Marriott International: representative player in Leisure end customers",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "HLT",
+          "name_en": "Hilton",
+          "name_zh": "希爾頓酒店",
+          "role_zh": "希爾頓酒店：休閒終端客戶代表性玩家",
+          "role_en": "Hilton: representative player in Leisure end customers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "RCL",
+          "name_en": "Royal Caribbean",
+          "name_zh": "皇家加勒比",
+          "role_zh": "皇家加勒比：休閒終端客戶代表性玩家",
+          "role_en": "Royal Caribbean: representative player in Leisure end customers",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "PII",
+      "name_en": "Polaris",
+      "name_zh": "Polaris",
+      "basis_zh": "船舶／休閒車對手",
+      "basis_en": "Marine / RV rival",
+      "exchange": "NYSE",
+      "listedInApp": false
+    },
+    {
+      "ticker": "THO",
+      "name_en": "Thor Industries",
+      "name_zh": "Thor Industries",
+      "basis_zh": "船舶／休閒車對手",
+      "basis_en": "Marine / RV rival",
+      "exchange": "NYSE",
+      "listedInApp": false
+    },
+    {
+      "ticker": "WGO",
+      "name_en": "Winnebago",
+      "name_zh": "Winnebago",
+      "basis_zh": "船舶／休閒車對手",
+      "basis_en": "Marine / RV rival",
+      "exchange": "NYSE",
+      "listedInApp": false
+    },
+    {
+      "ticker": "MBUU",
+      "name_en": "Malibu Boats",
+      "name_zh": "Malibu Boats",
+      "basis_zh": "船舶／休閒車對手",
+      "basis_en": "Marine / RV rival",
+      "exchange": "NASDAQ",
+      "listedInApp": false
+    },
+    {
+      "ticker": "MCFT",
+      "name_en": "MasterCraft",
+      "name_zh": "MasterCraft",
+      "basis_zh": "船舶／休閒車對手",
+      "basis_en": "Marine / RV rival",
+      "exchange": "NASDAQ",
+      "listedInApp": false
+    }
+  ]
+}
