@@ -9192,33 +9192,6 @@
       "HVAC rival"
     ]
   ],
-  "RKT": [
-    [
-      "BRK-A",
-      "Financial - Mortgages產品／市場對手",
-      "Financial - Mortgages product/market rival"
-    ],
-    [
-      "BRK-B",
-      "Financial - Mortgages產品／市場對手",
-      "Financial - Mortgages product/market rival"
-    ],
-    [
-      "JPM",
-      "Financial - Mortgages產品／市場對手",
-      "Financial - Mortgages product/market rival"
-    ],
-    [
-      "V",
-      "Financial - Mortgages產品／市場對手",
-      "Financial - Mortgages product/market rival"
-    ],
-    [
-      "MA",
-      "Financial - Mortgages產品／市場對手",
-      "Financial - Mortgages product/market rival"
-    ]
-  ],
   "FER": [
     [
       "PWR",
@@ -11477,33 +11450,6 @@
       "Application software rival"
     ]
   ],
-  "CCJ": [
-    [
-      "NXE",
-      "Uranium產品／市場對手",
-      "Uranium product/market rival"
-    ],
-    [
-      "XOM",
-      "Uranium產品／市場對手",
-      "Uranium product/market rival"
-    ],
-    [
-      "CVX",
-      "Uranium產品／市場對手",
-      "Uranium product/market rival"
-    ],
-    [
-      "SHEL",
-      "Uranium產品／市場對手",
-      "Uranium product/market rival"
-    ],
-    [
-      "TTE",
-      "Uranium產品／市場對手",
-      "Uranium product/market rival"
-    ]
-  ],
   "EQT": [
     [
       "EOG",
@@ -12179,33 +12125,6 @@
       "AIG",
       "產險對手",
       "P&C insurance rival"
-    ]
-  ],
-  "VLTO": [
-    [
-      "GE",
-      "Industrial - Pollution & Treatment Controls產品／市場對手",
-      "Industrial - Pollution & Treatment Controls product/market rival"
-    ],
-    [
-      "CAT",
-      "Industrial - Pollution & Treatment Controls產品／市場對手",
-      "Industrial - Pollution & Treatment Controls product/market rival"
-    ],
-    [
-      "RTX",
-      "Industrial - Pollution & Treatment Controls產品／市場對手",
-      "Industrial - Pollution & Treatment Controls product/market rival"
-    ],
-    [
-      "GEV",
-      "Industrial - Pollution & Treatment Controls產品／市場對手",
-      "Industrial - Pollution & Treatment Controls product/market rival"
-    ],
-    [
-      "DE",
-      "Industrial - Pollution & Treatment Controls產品／市場對手",
-      "Industrial - Pollution & Treatment Controls product/market rival"
     ]
   ],
   "MCHPP": [
@@ -13069,33 +12988,6 @@
       "Gaming / resort rival"
     ]
   ],
-  "TPR": [
-    [
-      "AMZN",
-      "Luxury Goods產品／市場對手",
-      "Luxury Goods product/market rival"
-    ],
-    [
-      "TSLA",
-      "Luxury Goods產品／市場對手",
-      "Luxury Goods product/market rival"
-    ],
-    [
-      "HD",
-      "Luxury Goods產品／市場對手",
-      "Luxury Goods product/market rival"
-    ],
-    [
-      "BABA",
-      "Luxury Goods產品／市場對手",
-      "Luxury Goods product/market rival"
-    ],
-    [
-      "TM",
-      "Luxury Goods產品／市場對手",
-      "Luxury Goods product/market rival"
-    ]
-  ],
   "HAL": [
     [
       "SLB",
@@ -13677,33 +13569,6 @@
       "Discount retail rival"
     ]
   ],
-  "STE": [
-    [
-      "ALC",
-      "眼科／專科醫材對手",
-      "Specialty medtech rival"
-    ],
-    [
-      "LLY",
-      "眼科／專科醫材對手",
-      "Specialty medtech rival"
-    ],
-    [
-      "JNJ",
-      "眼科／專科醫材對手",
-      "Specialty medtech rival"
-    ],
-    [
-      "ABBV",
-      "眼科／專科醫材對手",
-      "Specialty medtech rival"
-    ],
-    [
-      "MRK",
-      "眼科／專科醫材對手",
-      "Specialty medtech rival"
-    ]
-  ],
   "VMRK": [
     [
       "AMH",
@@ -14003,17 +13868,12 @@
       "Metal fabrication / specialty metals rival"
     ],
     [
-      "WOR",
+      "RS",
       "金屬加工／特鋼對手",
       "Metal fabrication / specialty metals rival"
     ],
     [
-      "SPXC",
-      "金屬加工／特鋼對手",
-      "Metal fabrication / specialty metals rival"
-    ],
-    [
-      "STLD",
+      "CMC",
       "金屬加工／特鋼對手",
       "Metal fabrication / specialty metals rival"
     ]
@@ -14753,33 +14613,6 @@
       "Application software rival"
     ]
   ],
-  "FSLR": [
-    [
-      "NXT",
-      "Solar產品／市場對手",
-      "Solar product/market rival"
-    ],
-    [
-      "XOM",
-      "Solar產品／市場對手",
-      "Solar product/market rival"
-    ],
-    [
-      "CVX",
-      "Solar產品／市場對手",
-      "Solar product/market rival"
-    ],
-    [
-      "SHEL",
-      "Solar產品／市場對手",
-      "Solar product/market rival"
-    ],
-    [
-      "TTE",
-      "Solar產品／市場對手",
-      "Solar product/market rival"
-    ]
-  ],
   "TCPA": [
     [
       "WMB",
@@ -14875,29 +14708,24 @@
   ],
   "RS": [
     [
-      "NUE",
-      "鋼鐵對手",
-      "Steel rival"
+      "ATI",
+      "金屬加工／特鋼對手",
+      "Metal fabrication / specialty metals rival"
     ],
     [
-      "X",
-      "鋼鐵對手",
-      "Steel rival"
+      "CRS",
+      "金屬加工／特鋼對手",
+      "Metal fabrication / specialty metals rival"
     ],
     [
-      "CLF",
-      "鋼鐵對手",
-      "Steel rival"
+      "MLI",
+      "金屬加工／特鋼對手",
+      "Metal fabrication / specialty metals rival"
     ],
     [
-      "STLD",
-      "鋼鐵對手",
-      "Steel rival"
-    ],
-    [
-      "MT",
-      "鋼鐵對手",
-      "Steel rival"
+      "CMC",
+      "金屬加工／特鋼對手",
+      "Metal fabrication / specialty metals rival"
     ]
   ],
   "GFS": [
@@ -15084,28 +14912,13 @@
   "ALNY": [
     [
       "ARWR",
-      "RNAi／核酸藥物對手",
-      "RNAi / nucleic-acid therapeutics rival"
+      "RNAi／反義核酸對手",
+      "RNAi / antisense oligonucleotide rival"
     ],
     [
       "IONS",
-      "RNAi／核酸藥物對手",
-      "RNAi / nucleic-acid therapeutics rival"
-    ],
-    [
-      "MRNA",
-      "RNAi／核酸藥物對手",
-      "RNAi / nucleic-acid therapeutics rival"
-    ],
-    [
-      "ARGX",
-      "免疫／生物製藥對手",
-      "Immunology / biotech rival"
-    ],
-    [
-      "REGN",
-      "免疫／生物製藥對手",
-      "Immunology / biotech rival"
+      "RNAi／反義核酸對手",
+      "RNAi / antisense oligonucleotide rival"
     ]
   ],
   "BEKE": [
@@ -15128,11 +14941,6 @@
     ],
     [
       "SLGN",
-      "特用給藥／瓶蓋包裝對手",
-      "Specialty dispensing / closures rival"
-    ],
-    [
-      "GPK",
       "特用給藥／瓶蓋包裝對手",
       "Specialty dispensing / closures rival"
     ]
@@ -16460,29 +16268,29 @@
   ],
   "SWK": [
     [
-      "ALLE",
-      "門禁／五金對手",
-      "Door hardware / access rival"
+      "SNA",
+      "Manufacturing - Tools & Accessories產品／市場對手",
+      "Manufacturing - Tools & Accessories product/market rival"
     ],
     [
-      "JCI",
-      "門禁／五金對手",
-      "Door hardware / access rival"
+      "RBC",
+      "Manufacturing - Tools & Accessories產品／市場對手",
+      "Manufacturing - Tools & Accessories product/market rival"
     ],
     [
-      "TT",
-      "暖通空調對手",
-      "HVAC rival"
+      "LECO",
+      "Manufacturing - Tools & Accessories產品／市場對手",
+      "Manufacturing - Tools & Accessories product/market rival"
     ],
     [
-      "CARR",
-      "暖通空調對手",
-      "HVAC rival"
+      "TTC",
+      "Manufacturing - Tools & Accessories產品／市場對手",
+      "Manufacturing - Tools & Accessories product/market rival"
     ],
     [
-      "HON",
-      "暖通空調對手",
-      "HVAC rival"
+      "TKR",
+      "Manufacturing - Tools & Accessories產品／市場對手",
+      "Manufacturing - Tools & Accessories product/market rival"
     ]
   ],
   "RBA": [
@@ -17401,33 +17209,6 @@
       "Silver / precious-metals rival"
     ]
   ],
-  "NXT": [
-    [
-      "FSLR",
-      "Solar產品／市場對手",
-      "Solar product/market rival"
-    ],
-    [
-      "XOM",
-      "Solar產品／市場對手",
-      "Solar product/market rival"
-    ],
-    [
-      "CVX",
-      "Solar產品／市場對手",
-      "Solar product/market rival"
-    ],
-    [
-      "SHEL",
-      "Solar產品／市場對手",
-      "Solar product/market rival"
-    ],
-    [
-      "TTE",
-      "Solar產品／市場對手",
-      "Solar product/market rival"
-    ]
-  ],
   "CHTR": [
     [
       "CMCSA",
@@ -17578,11 +17359,6 @@
   "ALLE": [
     [
       "JCI",
-      "門禁／五金對手",
-      "Door hardware / access rival"
-    ],
-    [
-      "SWK",
       "門禁／五金對手",
       "Door hardware / access rival"
     ]
@@ -19371,17 +19147,12 @@
       "Metal fabrication / specialty metals rival"
     ],
     [
-      "WOR",
+      "RS",
       "金屬加工／特鋼對手",
       "Metal fabrication / specialty metals rival"
     ],
     [
-      "SPXC",
-      "金屬加工／特鋼對手",
-      "Metal fabrication / specialty metals rival"
-    ],
-    [
-      "STLD",
+      "CMC",
       "金屬加工／特鋼對手",
       "Metal fabrication / specialty metals rival"
     ]
@@ -21546,23 +21317,6 @@
       "Industrial automation / machinery rival"
     ]
   ],
-  "WTS": [
-    [
-      "AOS",
-      "熱水器／水暖設備對手",
-      "Water heater / hydronic equipment rival"
-    ],
-    [
-      "LII",
-      "熱水器／水暖設備對手",
-      "Water heater / hydronic equipment rival"
-    ],
-    [
-      "TTC",
-      "熱水器／水暖設備對手",
-      "Water heater / hydronic equipment rival"
-    ]
-  ],
   "MLI": [
     [
       "ATI",
@@ -21575,17 +21329,12 @@
       "Metal fabrication / specialty metals rival"
     ],
     [
-      "WOR",
+      "RS",
       "金屬加工／特鋼對手",
       "Metal fabrication / specialty metals rival"
     ],
     [
-      "SPXC",
-      "金屬加工／特鋼對手",
-      "Metal fabrication / specialty metals rival"
-    ],
-    [
-      "STLD",
+      "CMC",
       "金屬加工／特鋼對手",
       "Metal fabrication / specialty metals rival"
     ]
@@ -21619,29 +21368,9 @@
   ],
   "PCOR": [
     [
-      "SAP",
-      "應用軟體對手",
-      "Application software rival"
-    ],
-    [
-      "SHOP",
-      "應用軟體對手",
-      "Application software rival"
-    ],
-    [
-      "CRM",
-      "應用軟體對手",
-      "Application software rival"
-    ],
-    [
-      "UBER",
-      "應用軟體對手",
-      "Application software rival"
-    ],
-    [
-      "ADP",
-      "應用軟體對手",
-      "Application software rival"
+      "APPF",
+      "物業／營運管理 SaaS 對手",
+      "Property / ops-management SaaS rival"
     ]
   ],
   "TECH": [
@@ -21669,33 +21398,6 @@
       "ABBV",
       "生物製藥對手",
       "Biopharma rival"
-    ]
-  ],
-  "FRHC": [
-    [
-      "BRK-A",
-      "Financial - Conglomerates產品／市場對手",
-      "Financial - Conglomerates product/market rival"
-    ],
-    [
-      "BRK-B",
-      "Financial - Conglomerates產品／市場對手",
-      "Financial - Conglomerates product/market rival"
-    ],
-    [
-      "JPM",
-      "Financial - Conglomerates產品／市場對手",
-      "Financial - Conglomerates product/market rival"
-    ],
-    [
-      "V",
-      "Financial - Conglomerates產品／市場對手",
-      "Financial - Conglomerates product/market rival"
-    ],
-    [
-      "MA",
-      "Financial - Conglomerates產品／市場對手",
-      "Financial - Conglomerates product/market rival"
     ]
   ],
   "RRC": [
@@ -22147,33 +21849,6 @@
       "CNC",
       "醫療保險對手",
       "Managed-care rival"
-    ]
-  ],
-  "SIRI": [
-    [
-      "NXST",
-      "Broadcasting產品／市場對手",
-      "Broadcasting product/market rival"
-    ],
-    [
-      "GOOG",
-      "Broadcasting產品／市場對手",
-      "Broadcasting product/market rival"
-    ],
-    [
-      "META",
-      "Broadcasting產品／市場對手",
-      "Broadcasting product/market rival"
-    ],
-    [
-      "NFLX",
-      "Broadcasting產品／市場對手",
-      "Broadcasting product/market rival"
-    ],
-    [
-      "DIS",
-      "Broadcasting產品／市場對手",
-      "Broadcasting product/market rival"
     ]
   ],
   "GGG": [
@@ -24577,11 +24252,6 @@
       "SLGN",
       "特用給藥／瓶蓋包裝對手",
       "Specialty dispensing / closures rival"
-    ],
-    [
-      "GPK",
-      "特用給藥／瓶蓋包裝對手",
-      "Specialty dispensing / closures rival"
     ]
   ],
   "CTRE": [
@@ -25476,33 +25146,6 @@
       "Biopharma rival"
     ]
   ],
-  "EDU": [
-    [
-      "TAL",
-      "Education & Training Services產品／市場對手",
-      "Education & Training Services product/market rival"
-    ],
-    [
-      "WMT",
-      "Education & Training Services產品／市場對手",
-      "Education & Training Services product/market rival"
-    ],
-    [
-      "COST",
-      "Education & Training Services產品／市場對手",
-      "Education & Training Services product/market rival"
-    ],
-    [
-      "KO",
-      "Education & Training Services產品／市場對手",
-      "Education & Training Services product/market rival"
-    ],
-    [
-      "PG",
-      "Education & Training Services產品／市場對手",
-      "Education & Training Services product/market rival"
-    ]
-  ],
   "DOCN": [
     [
       "FTNT",
@@ -25743,19 +25386,14 @@
   ],
   "ARWR": [
     [
-      "IONS",
-      "RNAi／核酸藥物對手",
-      "RNAi / nucleic-acid therapeutics rival"
-    ],
-    [
       "ALNY",
-      "RNAi／核酸藥物對手",
-      "RNAi / nucleic-acid therapeutics rival"
+      "RNAi／反義核酸對手",
+      "RNAi / antisense oligonucleotide rival"
     ],
     [
-      "MRNA",
-      "RNAi／核酸藥物對手",
-      "RNAi / nucleic-acid therapeutics rival"
+      "IONS",
+      "RNAi／反義核酸對手",
+      "RNAi / antisense oligonucleotide rival"
     ]
   ],
   "OSK": [
@@ -27253,33 +26891,6 @@
       "Spirits rival"
     ]
   ],
-  "MSGK": [
-    [
-      "AAPL",
-      "Media & Entertainment產品／市場對手",
-      "Media & Entertainment product/market rival"
-    ],
-    [
-      "NVDA",
-      "Media & Entertainment產品／市場對手",
-      "Media & Entertainment product/market rival"
-    ],
-    [
-      "MSFT",
-      "Media & Entertainment產品／市場對手",
-      "Media & Entertainment product/market rival"
-    ],
-    [
-      "TSM",
-      "Media & Entertainment產品／市場對手",
-      "Media & Entertainment product/market rival"
-    ],
-    [
-      "AVGO",
-      "Media & Entertainment產品／市場對手",
-      "Media & Entertainment product/market rival"
-    ]
-  ],
   "ABVX": [
     [
       "ABBV",
@@ -27863,29 +27474,29 @@
   ],
   "SPXC": [
     [
-      "ATI",
-      "金屬加工／特鋼對手",
-      "Metal fabrication / specialty metals rival"
+      "CRH",
+      "建材／水泥骨材對手",
+      "Cement / aggregates rival"
     ],
     [
-      "CRS",
-      "金屬加工／特鋼對手",
-      "Metal fabrication / specialty metals rival"
+      "VMC",
+      "建材／水泥骨材對手",
+      "Cement / aggregates rival"
     ],
     [
-      "MLI",
-      "金屬加工／特鋼對手",
-      "Metal fabrication / specialty metals rival"
+      "MLM",
+      "建材／水泥骨材對手",
+      "Cement / aggregates rival"
     ],
     [
-      "WOR",
-      "金屬加工／特鋼對手",
-      "Metal fabrication / specialty metals rival"
+      "AMRZ",
+      "建材／水泥骨材對手",
+      "Cement / aggregates rival"
     ],
     [
-      "STLD",
-      "金屬加工／特鋼對手",
-      "Metal fabrication / specialty metals rival"
+      "EXP",
+      "建材／水泥骨材對手",
+      "Cement / aggregates rival"
     ]
   ],
   "BLCO": [
@@ -28393,29 +28004,9 @@
   ],
   "FSS": [
     [
-      "CAT",
-      "Agricultural - Machinery產品／市場對手",
-      "Agricultural - Machinery product/market rival"
-    ],
-    [
-      "DE",
-      "Agricultural - Machinery產品／市場對手",
-      "Agricultural - Machinery product/market rival"
-    ],
-    [
-      "CNH",
-      "Agricultural - Machinery產品／市場對手",
-      "Agricultural - Machinery product/market rival"
-    ],
-    [
-      "OSK",
-      "Agricultural - Machinery產品／市場對手",
-      "Agricultural - Machinery product/market rival"
-    ],
-    [
-      "AGCO",
-      "Agricultural - Machinery產品／市場對手",
-      "Agricultural - Machinery product/market rival"
+      "MSA",
+      "工業防護／PPE 對手",
+      "Industrial PPE / safety equipment rival"
     ]
   ],
   "CAVA": [
@@ -28528,29 +28119,24 @@
   ],
   "CMC": [
     [
-      "NUE",
-      "鋼鐵對手",
-      "Steel rival"
+      "ATI",
+      "金屬加工／特鋼對手",
+      "Metal fabrication / specialty metals rival"
     ],
     [
-      "X",
-      "鋼鐵對手",
-      "Steel rival"
+      "CRS",
+      "金屬加工／特鋼對手",
+      "Metal fabrication / specialty metals rival"
     ],
     [
-      "CLF",
-      "鋼鐵對手",
-      "Steel rival"
+      "MLI",
+      "金屬加工／特鋼對手",
+      "Metal fabrication / specialty metals rival"
     ],
     [
-      "STLD",
-      "鋼鐵對手",
-      "Steel rival"
-    ],
-    [
-      "MT",
-      "鋼鐵對手",
-      "Steel rival"
+      "RS",
+      "金屬加工／特鋼對手",
+      "Metal fabrication / specialty metals rival"
     ]
   ],
   "ZG": [
@@ -29158,58 +28744,16 @@
       "US regional/diversified bank rival"
     ]
   ],
-  "MSA": [
-    [
-      "AXON",
-      "執法／安防裝備對手",
-      "Law-enforcement / security-equipment rival"
-    ],
-    [
-      "ALLE",
-      "執法／安防裝備對手",
-      "Law-enforcement / security-equipment rival"
-    ],
-    [
-      "ADT",
-      "執法／安防裝備對手",
-      "Law-enforcement / security-equipment rival"
-    ],
-    [
-      "JCI",
-      "安防服務／產品對手",
-      "Security services / products rival"
-    ],
-    [
-      "SWK",
-      "門禁／五金對手",
-      "Door hardware / access rival"
-    ]
-  ],
   "IONS": [
     [
-      "ARWR",
-      "RNAi／核酸藥物對手",
-      "RNAi / nucleic-acid therapeutics rival"
-    ],
-    [
       "ALNY",
-      "RNAi／核酸藥物對手",
-      "RNAi / nucleic-acid therapeutics rival"
+      "RNAi／反義核酸對手",
+      "RNAi / antisense oligonucleotide rival"
     ],
     [
-      "MRNA",
-      "RNAi／核酸藥物對手",
-      "RNAi / nucleic-acid therapeutics rival"
-    ],
-    [
-      "ARGX",
-      "免疫／生物製藥對手",
-      "Immunology / biotech rival"
-    ],
-    [
-      "REGN",
-      "免疫／生物製藥對手",
-      "Immunology / biotech rival"
+      "ARWR",
+      "RNAi／反義核酸對手",
+      "RNAi / antisense oligonucleotide rival"
     ]
   ],
   "SNEX": [
@@ -30426,33 +29970,6 @@
       "Grocery / food retail rival"
     ]
   ],
-  "TAL": [
-    [
-      "EDU",
-      "Education & Training Services產品／市場對手",
-      "Education & Training Services product/market rival"
-    ],
-    [
-      "WMT",
-      "Education & Training Services產品／市場對手",
-      "Education & Training Services product/market rival"
-    ],
-    [
-      "COST",
-      "Education & Training Services產品／市場對手",
-      "Education & Training Services product/market rival"
-    ],
-    [
-      "KO",
-      "Education & Training Services產品／市場對手",
-      "Education & Training Services product/market rival"
-    ],
-    [
-      "PG",
-      "Education & Training Services產品／市場對手",
-      "Education & Training Services product/market rival"
-    ]
-  ],
   "TEX": [
     [
       "EMR",
@@ -31007,33 +30524,6 @@
       "Application software rival"
     ]
   ],
-  "M": [
-    [
-      "AMZN",
-      "Department Stores產品／市場對手",
-      "Department Stores product/market rival"
-    ],
-    [
-      "TSLA",
-      "Department Stores產品／市場對手",
-      "Department Stores product/market rival"
-    ],
-    [
-      "HD",
-      "Department Stores產品／市場對手",
-      "Department Stores product/market rival"
-    ],
-    [
-      "BABA",
-      "Department Stores產品／市場對手",
-      "Department Stores product/market rival"
-    ],
-    [
-      "TM",
-      "Department Stores產品／市場對手",
-      "Department Stores product/market rival"
-    ]
-  ],
   "NIQ": [
     [
       "SAP",
@@ -31059,28 +30549,6 @@
       "ADP",
       "應用軟體對手",
       "Application software rival"
-    ]
-  ],
-  "ENIC": [
-    [
-      "CIG",
-      "拉美／新興市場公用事業對手",
-      "LatAm / EM utility rival"
-    ],
-    [
-      "AES",
-      "拉美／新興市場公用事業對手",
-      "LatAm / EM utility rival"
-    ],
-    [
-      "SBS",
-      "拉美／新興市場公用事業對手",
-      "LatAm / EM utility rival"
-    ],
-    [
-      "KEP",
-      "拉美／新興市場公用事業對手",
-      "LatAm / EM utility rival"
     ]
   ],
   "WEX": [
@@ -31460,33 +30928,6 @@
       "WIT",
       "IT 服務對手",
       "IT services rival"
-    ]
-  ],
-  "NXST": [
-    [
-      "SIRI",
-      "Broadcasting產品／市場對手",
-      "Broadcasting product/market rival"
-    ],
-    [
-      "GOOG",
-      "Broadcasting產品／市場對手",
-      "Broadcasting product/market rival"
-    ],
-    [
-      "META",
-      "Broadcasting產品／市場對手",
-      "Broadcasting product/market rival"
-    ],
-    [
-      "NFLX",
-      "Broadcasting產品／市場對手",
-      "Broadcasting product/market rival"
-    ],
-    [
-      "DIS",
-      "Broadcasting產品／市場對手",
-      "Broadcasting product/market rival"
     ]
   ],
   "RIG": [
@@ -32269,33 +31710,6 @@
       "XOM",
       "油服對手",
       "Oilfield services rival"
-    ]
-  ],
-  "NXE": [
-    [
-      "CCJ",
-      "Uranium產品／市場對手",
-      "Uranium product/market rival"
-    ],
-    [
-      "XOM",
-      "Uranium產品／市場對手",
-      "Uranium product/market rival"
-    ],
-    [
-      "CVX",
-      "Uranium產品／市場對手",
-      "Uranium product/market rival"
-    ],
-    [
-      "SHEL",
-      "Uranium產品／市場對手",
-      "Uranium product/market rival"
-    ],
-    [
-      "TTE",
-      "Uranium產品／市場對手",
-      "Uranium product/market rival"
     ]
   ],
   "OZK": [
@@ -34396,6 +33810,457 @@
       "AWR",
       "受規管水務對手",
       "Regulated water utility rival"
+    ]
+  ],
+  "RKT": [
+    [
+      "BRK-A",
+      "Financial - Mortgages產品／市場對手",
+      "Financial - Mortgages product/market rival"
+    ],
+    [
+      "BRK-B",
+      "Financial - Mortgages產品／市場對手",
+      "Financial - Mortgages product/market rival"
+    ],
+    [
+      "JPM",
+      "Financial - Mortgages產品／市場對手",
+      "Financial - Mortgages product/market rival"
+    ],
+    [
+      "V",
+      "Financial - Mortgages產品／市場對手",
+      "Financial - Mortgages product/market rival"
+    ],
+    [
+      "MA",
+      "Financial - Mortgages產品／市場對手",
+      "Financial - Mortgages product/market rival"
+    ]
+  ],
+  "CCJ": [
+    [
+      "NXE",
+      "Uranium產品／市場對手",
+      "Uranium product/market rival"
+    ],
+    [
+      "XOM",
+      "Uranium產品／市場對手",
+      "Uranium product/market rival"
+    ],
+    [
+      "CVX",
+      "Uranium產品／市場對手",
+      "Uranium product/market rival"
+    ],
+    [
+      "SHEL",
+      "Uranium產品／市場對手",
+      "Uranium product/market rival"
+    ],
+    [
+      "TTE",
+      "Uranium產品／市場對手",
+      "Uranium product/market rival"
+    ]
+  ],
+  "VLTO": [
+    [
+      "GE",
+      "Industrial - Pollution & Treatment Controls產品／市場對手",
+      "Industrial - Pollution & Treatment Controls product/market rival"
+    ],
+    [
+      "CAT",
+      "Industrial - Pollution & Treatment Controls產品／市場對手",
+      "Industrial - Pollution & Treatment Controls product/market rival"
+    ],
+    [
+      "RTX",
+      "Industrial - Pollution & Treatment Controls產品／市場對手",
+      "Industrial - Pollution & Treatment Controls product/market rival"
+    ],
+    [
+      "GEV",
+      "Industrial - Pollution & Treatment Controls產品／市場對手",
+      "Industrial - Pollution & Treatment Controls product/market rival"
+    ],
+    [
+      "DE",
+      "Industrial - Pollution & Treatment Controls產品／市場對手",
+      "Industrial - Pollution & Treatment Controls product/market rival"
+    ]
+  ],
+  "TPR": [
+    [
+      "AMZN",
+      "Luxury Goods產品／市場對手",
+      "Luxury Goods product/market rival"
+    ],
+    [
+      "TSLA",
+      "Luxury Goods產品／市場對手",
+      "Luxury Goods product/market rival"
+    ],
+    [
+      "HD",
+      "Luxury Goods產品／市場對手",
+      "Luxury Goods product/market rival"
+    ],
+    [
+      "BABA",
+      "Luxury Goods產品／市場對手",
+      "Luxury Goods product/market rival"
+    ],
+    [
+      "TM",
+      "Luxury Goods產品／市場對手",
+      "Luxury Goods product/market rival"
+    ]
+  ],
+  "STE": [
+    [
+      "ALC",
+      "眼科／專科醫材對手",
+      "Specialty medtech rival"
+    ],
+    [
+      "LLY",
+      "眼科／專科醫材對手",
+      "Specialty medtech rival"
+    ],
+    [
+      "JNJ",
+      "眼科／專科醫材對手",
+      "Specialty medtech rival"
+    ],
+    [
+      "ABBV",
+      "眼科／專科醫材對手",
+      "Specialty medtech rival"
+    ],
+    [
+      "MRK",
+      "眼科／專科醫材對手",
+      "Specialty medtech rival"
+    ]
+  ],
+  "FSLR": [
+    [
+      "NXT",
+      "Solar產品／市場對手",
+      "Solar product/market rival"
+    ],
+    [
+      "XOM",
+      "Solar產品／市場對手",
+      "Solar product/market rival"
+    ],
+    [
+      "CVX",
+      "Solar產品／市場對手",
+      "Solar product/market rival"
+    ],
+    [
+      "SHEL",
+      "Solar產品／市場對手",
+      "Solar product/market rival"
+    ],
+    [
+      "TTE",
+      "Solar產品／市場對手",
+      "Solar product/market rival"
+    ]
+  ],
+  "NXT": [
+    [
+      "FSLR",
+      "Solar產品／市場對手",
+      "Solar product/market rival"
+    ],
+    [
+      "XOM",
+      "Solar產品／市場對手",
+      "Solar product/market rival"
+    ],
+    [
+      "CVX",
+      "Solar產品／市場對手",
+      "Solar product/market rival"
+    ],
+    [
+      "SHEL",
+      "Solar產品／市場對手",
+      "Solar product/market rival"
+    ],
+    [
+      "TTE",
+      "Solar產品／市場對手",
+      "Solar product/market rival"
+    ]
+  ],
+  "WTS": [
+    [
+      "AOS",
+      "熱水器／水暖設備對手",
+      "Water heater / hydronic equipment rival"
+    ],
+    [
+      "LII",
+      "熱水器／水暖設備對手",
+      "Water heater / hydronic equipment rival"
+    ],
+    [
+      "TTC",
+      "熱水器／水暖設備對手",
+      "Water heater / hydronic equipment rival"
+    ]
+  ],
+  "FRHC": [
+    [
+      "BRK-A",
+      "Financial - Conglomerates產品／市場對手",
+      "Financial - Conglomerates product/market rival"
+    ],
+    [
+      "BRK-B",
+      "Financial - Conglomerates產品／市場對手",
+      "Financial - Conglomerates product/market rival"
+    ],
+    [
+      "JPM",
+      "Financial - Conglomerates產品／市場對手",
+      "Financial - Conglomerates product/market rival"
+    ],
+    [
+      "V",
+      "Financial - Conglomerates產品／市場對手",
+      "Financial - Conglomerates product/market rival"
+    ],
+    [
+      "MA",
+      "Financial - Conglomerates產品／市場對手",
+      "Financial - Conglomerates product/market rival"
+    ]
+  ],
+  "SIRI": [
+    [
+      "NXST",
+      "Broadcasting產品／市場對手",
+      "Broadcasting product/market rival"
+    ],
+    [
+      "GOOG",
+      "Broadcasting產品／市場對手",
+      "Broadcasting product/market rival"
+    ],
+    [
+      "META",
+      "Broadcasting產品／市場對手",
+      "Broadcasting product/market rival"
+    ],
+    [
+      "NFLX",
+      "Broadcasting產品／市場對手",
+      "Broadcasting product/market rival"
+    ],
+    [
+      "DIS",
+      "Broadcasting產品／市場對手",
+      "Broadcasting product/market rival"
+    ]
+  ],
+  "EDU": [
+    [
+      "TAL",
+      "Education & Training Services產品／市場對手",
+      "Education & Training Services product/market rival"
+    ],
+    [
+      "WMT",
+      "Education & Training Services產品／市場對手",
+      "Education & Training Services product/market rival"
+    ],
+    [
+      "COST",
+      "Education & Training Services產品／市場對手",
+      "Education & Training Services product/market rival"
+    ],
+    [
+      "KO",
+      "Education & Training Services產品／市場對手",
+      "Education & Training Services product/market rival"
+    ],
+    [
+      "PG",
+      "Education & Training Services產品／市場對手",
+      "Education & Training Services product/market rival"
+    ]
+  ],
+  "MSGK": [
+    [
+      "AAPL",
+      "Media & Entertainment產品／市場對手",
+      "Media & Entertainment product/market rival"
+    ],
+    [
+      "NVDA",
+      "Media & Entertainment產品／市場對手",
+      "Media & Entertainment product/market rival"
+    ],
+    [
+      "MSFT",
+      "Media & Entertainment產品／市場對手",
+      "Media & Entertainment product/market rival"
+    ],
+    [
+      "TSM",
+      "Media & Entertainment產品／市場對手",
+      "Media & Entertainment product/market rival"
+    ],
+    [
+      "AVGO",
+      "Media & Entertainment產品／市場對手",
+      "Media & Entertainment product/market rival"
+    ]
+  ],
+  "TAL": [
+    [
+      "EDU",
+      "Education & Training Services產品／市場對手",
+      "Education & Training Services product/market rival"
+    ],
+    [
+      "WMT",
+      "Education & Training Services產品／市場對手",
+      "Education & Training Services product/market rival"
+    ],
+    [
+      "COST",
+      "Education & Training Services產品／市場對手",
+      "Education & Training Services product/market rival"
+    ],
+    [
+      "KO",
+      "Education & Training Services產品／市場對手",
+      "Education & Training Services product/market rival"
+    ],
+    [
+      "PG",
+      "Education & Training Services產品／市場對手",
+      "Education & Training Services product/market rival"
+    ]
+  ],
+  "M": [
+    [
+      "AMZN",
+      "Department Stores產品／市場對手",
+      "Department Stores product/market rival"
+    ],
+    [
+      "TSLA",
+      "Department Stores產品／市場對手",
+      "Department Stores product/market rival"
+    ],
+    [
+      "HD",
+      "Department Stores產品／市場對手",
+      "Department Stores product/market rival"
+    ],
+    [
+      "BABA",
+      "Department Stores產品／市場對手",
+      "Department Stores product/market rival"
+    ],
+    [
+      "TM",
+      "Department Stores產品／市場對手",
+      "Department Stores product/market rival"
+    ]
+  ],
+  "ENIC": [
+    [
+      "CIG",
+      "拉美／新興市場公用事業對手",
+      "LatAm / EM utility rival"
+    ],
+    [
+      "AES",
+      "拉美／新興市場公用事業對手",
+      "LatAm / EM utility rival"
+    ],
+    [
+      "SBS",
+      "拉美／新興市場公用事業對手",
+      "LatAm / EM utility rival"
+    ],
+    [
+      "KEP",
+      "拉美／新興市場公用事業對手",
+      "LatAm / EM utility rival"
+    ]
+  ],
+  "NXST": [
+    [
+      "SIRI",
+      "Broadcasting產品／市場對手",
+      "Broadcasting product/market rival"
+    ],
+    [
+      "GOOG",
+      "Broadcasting產品／市場對手",
+      "Broadcasting product/market rival"
+    ],
+    [
+      "META",
+      "Broadcasting產品／市場對手",
+      "Broadcasting product/market rival"
+    ],
+    [
+      "NFLX",
+      "Broadcasting產品／市場對手",
+      "Broadcasting product/market rival"
+    ],
+    [
+      "DIS",
+      "Broadcasting產品／市場對手",
+      "Broadcasting product/market rival"
+    ]
+  ],
+  "NXE": [
+    [
+      "CCJ",
+      "Uranium產品／市場對手",
+      "Uranium product/market rival"
+    ],
+    [
+      "XOM",
+      "Uranium產品／市場對手",
+      "Uranium product/market rival"
+    ],
+    [
+      "CVX",
+      "Uranium產品／市場對手",
+      "Uranium product/market rival"
+    ],
+    [
+      "SHEL",
+      "Uranium產品／市場對手",
+      "Uranium product/market rival"
+    ],
+    [
+      "TTE",
+      "Uranium產品／市場對手",
+      "Uranium product/market rival"
+    ]
+  ],
+  "MSA": [
+    [
+      "FSS",
+      "工業防護／PPE 對手",
+      "Industrial PPE / safety equipment rival"
     ]
   ]
 }

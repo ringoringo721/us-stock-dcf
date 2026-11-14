@@ -4210,8 +4210,8 @@
     "exchange": "NYSE"
   },
   "CIB": {
-    "name_en": "Grupo Cibest S.A.",
-    "name_zh": "Grupo Cibest S.A.",
+    "name_en": "Cibest",
+    "name_zh": "西貝斯特",
     "exchange": "NYSE"
   },
   "RBRK": {
@@ -7718,5 +7718,10 @@
     "name_en": "Quebecor",
     "name_zh": "Quebecor",
     "exchange": "OTC"
+  },
+  "GOLD": {
+    "name_zh": "巴里克（GOLD）",
+    "name_en": "Barrick Gold",
+    "exchange": "NYSE"
   }
 }

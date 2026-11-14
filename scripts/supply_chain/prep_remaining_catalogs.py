@@ -91,7 +91,8 @@ INDUSTRY_TO_GROUP: dict[tuple[str, str], str] = {
     ("Industrials", "Specialty Business Services"): "ind-svc",
     ("Industrials", "Trucking"): "ind-logistics",
     ("Industrials", "Marine Shipping"): "ind-logistics",
-    ("Industrials", "Security & Protection Services"): "door-hardware",
+    # Default monitored security; ALLE/MSA forced below to door-hardware / ppe-safety.
+    ("Industrials", "Security & Protection Services"): "security-svc",
     ("Basic Materials", "Gold"): "materials-gold",
     ("Basic Materials", "Other Precious Metals"): "materials-gold",
     ("Basic Materials", "Silver"): "materials-gold",
@@ -525,7 +526,7 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "metal-fab",
-        ["ATI", "CRS", "MLI", "WOR", "SPXC", "STLD"],  # no NUE (stage player overlap)
+        ["ATI", "CRS", "MLI", "RS", "CMC"],  # specialty metals / steel fab — drop SPXC HVAC
         "金屬加工／特鋼對手",
         "Metal fabrication / specialty metals rival",
     ),
@@ -585,9 +586,15 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "door-hardware",
-        ["ALLE", "JCI", "SWK"],  # door hardware / access — drop ADT monitored / MSA PPE
+        ["ALLE", "JCI"],  # door hardware / electronic access — drop SWK tools; ADT/MSA elsewhere
         "門禁／五金對手",
         "Door hardware / access rival",
+    ),
+    (
+        "ppe-safety",
+        ["MSA", "FSS"],  # industrial PPE / safety equipment — not door hardware or monitored security
+        "工業防護／PPE 對手",
+        "Industrial PPE / safety equipment rival",
     ),
     (
         "energy-ofs-pure",
@@ -723,7 +730,7 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "packaging-disp",
-        ["ATR", "AMCR", "SON", "SLGN", "GPK"],  # live specialty packaging — drop delisted BERY (now in AMCR)
+        ["ATR", "AMCR", "SON", "SLGN"],  # live dispensing/closures — drop GPK paperboard + delisted BERY
         "特用給藥／瓶蓋包裝對手",
         "Specialty dispensing / closures rival",
     ),
@@ -873,9 +880,9 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "pharma-rnai",
-        ["ARWR", "IONS", "ALNY", "MRNA"],  # RNAi / oligo / nucleic-acid — not mega biopharma
-        "RNAi／核酸藥物對手",
-        "RNAi / nucleic-acid therapeutics rival",
+        ["ALNY", "ARWR", "IONS"],  # RNAi / ASO siRNA — drop MRNA (mRNA vaccines, not RNAi)
+        "RNAi／反義核酸對手",
+        "RNAi / antisense oligonucleotide rival",
     ),
     (
         "grocery-retail",
@@ -948,6 +955,9 @@ TICKER_GROUP_FORCE: dict[str, str] = {
     "TEAM": "saas-crm-collab",
     "WDAY": "saas-crm-collab",
     "APPF": "saas-prop-mgmt",
+    "PCOR": "saas-prop-mgmt",
+    "MSA": "ppe-safety",
+    "FSS": "ppe-safety",
     "ACIW": "payments-soft",
     "VALE": "materials-mining",
     "TECK": "materials-mining",
@@ -1029,6 +1039,8 @@ TICKER_GROUP_FORCE: dict[str, str] = {
     "ALKS": "pharma-cns",
     "ABVX": "pharma-ibd",
     "ARWR": "pharma-rnai",
+    "ALNY": "pharma-rnai",
+    "IONS": "pharma-rnai",
     "AG": "materials-silver",
     "AGI": "materials-gold",
     "AUGO": "materials-gold",
@@ -1103,6 +1115,8 @@ TICKER_GROUP_FORCE: dict[str, str] = {
 # Specialty groups that must never be padded with same-industry megacaps.
 NO_PAD_GROUPS = {
     "door-hardware",
+    "ppe-safety",
+    "metal-fab",
     "ins-specialty",
     "bnpl-lend",
     "saas-prop-mgmt",
@@ -1164,7 +1178,6 @@ NO_PAD_GROUPS = {
     "cro-clinical",
     "beer-bev",
     "farm-agri",
-    "security-svc",
 }
 
 
@@ -1272,6 +1285,7 @@ EXTRA_NAME_EN: dict[str, str] = {
     "BAP": "Credicorp",
     "BBD": "Banco Bradesco",
     "BBDO": "Banco Bradesco",
+    "CIB": "Cibest",
     "ATI": "ATI",
     "SPXC": "SPX Technologies",
     "AL": "Air Lease",
@@ -1470,6 +1484,7 @@ EXTRA_NAME_ZH: dict[str, str] = {
     "BAP": "Credicorp",
     "BBD": "巴西布拉德斯科銀行",
     "BBDO": "巴西布拉德斯科銀行",
+    "CIB": "西貝斯特",
     "AER": "AerCap",
     "BILI": "嗶哩嗶哩",
     "GAP": "Gap",
@@ -1660,6 +1675,10 @@ def main() -> int:
         min_peers = 1 if forced in NO_PAD_GROUPS else 2
         if len(riv) < min_peers:
             missing_rivals.append((t, len(riv), [x[0] for x in riv], row.get("industry")))
+            # Only clear stale peers for intentional specialty NO_PAD forces (e.g. MSA PPE
+            # singleton). Leave other missing hubs' prior rows so seed rebuilds stay green.
+            if forced in NO_PAD_GROUPS:
+                competitors.pop(t, None)
             continue
         competitors[t] = [[a, b, c] for a, b, c in riv]
         added_comp += 1
