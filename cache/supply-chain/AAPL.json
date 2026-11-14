@@ -7,12 +7,15 @@
   "source": {
     "type": "curated",
     "basis": "MVP curated seed for Apple’s hardware value chain; not a live supplier API dump.",
-    "notes_zh": "本頁為人工策展種子資料（供應鏈／競爭對手圖 MVP）。未呼叫即時供應商 API；FMP 同業名單僅作交叉參考，不作唯一依據。角色與排序依公開供應鏈報導與常見投資研究架構整理，非完整供應商名單或採購份額。",
-    "notes_en": "Curated seed for the supply-chain / competitors MVP. No live supplier API. FMP peer lists are cross-checks only. Roles and ranks follow public supply-chain reporting and a standard investor value-chain model — not a full bill of materials or spend share.",
+    "notes_zh": "本頁為人工策展種子資料（供應鏈／競爭對手圖 MVP）。未呼叫即時供應商 API；FMP 同業名單僅作交叉參考，不作唯一依據。角色與排序依公開供應鏈報導與常見投資研究架構整理，非完整供應商名單或採購份額。競爭對手改為手機／裝置生態導向：保留三星、小米、傳音、Google（Android／Pixel）、索尼；拿掉微軟／戴爾／惠普等 PC／雲端同業（非 iPhone 直接產品對手）。",
+    "notes_en": "Curated seed for the supply-chain / competitors MVP. No live supplier API. FMP peer lists are cross-checks only. Roles and ranks follow public supply-chain reporting and a standard investor value-chain model — not a full bill of materials or spend share. Competitors revised to phone/device-ecosystem peers: Samsung, Xiaomi, Transsion, Google (Android/Pixel), Sony. Dropped MSFT/DELL/HPQ as PC/cloud peers that are not direct iPhone product rivals.",
+    "competitorRationale_zh": "蘋果主力產品是 iPhone／裝置生態。競爭弧改列：①三星（Galaxy 主力手機對手）②小米（全球手機／AIoT）③傳音（新興市場量產 Android 手機）④Alphabet（Android OS＋Pixel，生態對手非雲端同業）⑤索尼（消費電子／影像裝置）。已移除 MSFT／DELL／HPQ。",
+    "competitorRationale_en": "Apple’s core product is the iPhone / device ecosystem. Rival arc: (1) Samsung — primary Galaxy handset rival; (2) Xiaomi — global smartphone / AIoT peer; (3) Transsion — high-volume Android OEM in emerging markets; (4) Alphabet — Android OS + Pixel (ecosystem, not cloud/PC peer); (5) Sony — CE / imaging devices. Removed MSFT / DELL / HPQ.",
     "references": [
       "Apple Supplier List (public annual disclosures; illustrative)",
       "FMP stock peers for AAPL (cache/peers/AAPL.json) — competitor cross-check only",
-      "Common investor hardware value-chain staging: materials → components → assembly → distribution → retail"
+      "Common investor hardware value-chain staging: materials → components → assembly → distribution → retail",
+      "Public smartphone share / OEM reporting (Samsung, Xiaomi, Transsion); Google Pixel + Android ecosystem"
     ]
   },
   "model": {
@@ -199,53 +202,47 @@
   ],
   "competitors": [
     {
-      "ticker": "MSFT",
-      "name_en": "Microsoft",
-      "name_zh": "微軟",
-      "basis_zh": "個人運算／裝置＋服務生態競爭",
-      "basis_en": "PC/devices + services ecosystem competition",
-      "exchange": "NASDAQ"
+      "ticker": "005930.KS",
+      "name_en": "Samsung Electronics",
+      "name_zh": "三星電子",
+      "basis_zh": "Galaxy 系列 — iPhone 主力智慧型手機對手",
+      "basis_en": "Galaxy lineup — primary iPhone smartphone rival",
+      "exchange": "KRX",
+      "listedInApp": false
+    },
+    {
+      "ticker": "1810.HK",
+      "name_en": "Xiaomi",
+      "name_zh": "小米",
+      "basis_zh": "全球智慧型手機／AIoT 裝置生態同業",
+      "basis_en": "Global smartphone / AIoT device-ecosystem peer",
+      "exchange": "HKSE",
+      "listedInApp": false
+    },
+    {
+      "ticker": "688036.SS",
+      "name_en": "Transsion",
+      "name_zh": "傳音控股",
+      "basis_zh": "新興市場量產 Android 手機（Tecno／Infinix／itel）",
+      "basis_en": "High-volume Android handsets in emerging markets (Tecno / Infinix / itel)",
+      "exchange": "SSE",
+      "listedInApp": false
     },
     {
       "ticker": "GOOG",
       "name_en": "Alphabet",
       "name_zh": "Alphabet（Google）",
-      "basis_zh": "行動作業系統／服務與硬體生態",
-      "basis_en": "Mobile OS / services and hardware ecosystem",
+      "basis_zh": "Android 作業系統＋Pixel 手機生態（非雲端／PC 同業）",
+      "basis_en": "Android OS + Pixel handset ecosystem (not a cloud/PC peer)",
       "exchange": "NASDAQ"
     },
     {
       "ticker": "SONY",
       "name_en": "Sony Group",
       "name_zh": "索尼",
-      "basis_zh": "消費電子與感測／娛樂裝置同業",
-      "basis_en": "Consumer electronics and sensing / entertainment devices",
+      "basis_zh": "消費電子／影像與娛樂裝置同業（次要裝置對手）",
+      "basis_en": "Consumer electronics / imaging & entertainment devices (secondary device peer)",
       "exchange": "NYSE"
-    },
-    {
-      "ticker": "DELL",
-      "name_en": "Dell Technologies",
-      "name_zh": "戴爾",
-      "basis_zh": "PC／運算硬體替代",
-      "basis_en": "PC / compute hardware substitute",
-      "exchange": "NYSE"
-    },
-    {
-      "ticker": "HPQ",
-      "name_en": "HP Inc.",
-      "name_zh": "惠普",
-      "basis_zh": "PC／周邊硬體替代",
-      "basis_en": "PC / peripherals hardware substitute",
-      "exchange": "NYSE"
-    },
-    {
-      "ticker": "005930.KS",
-      "name_en": "Samsung Electronics",
-      "name_zh": "三星電子",
-      "basis_zh": "智慧型手機／消費電子主要同業（韓股）",
-      "basis_en": "Primary smartphone / CE peer (Korea listing)",
-      "exchange": "KRX",
-      "listedInApp": false
     }
   ]
 }
