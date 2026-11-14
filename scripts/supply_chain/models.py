@@ -1425,6 +1425,7 @@ INDUSTRY_MODEL: dict[tuple[str, str], str] = {
     ("Consumer Defensive", "Tobacco"): "consumer-staples-v1",
     ("Financial Services", "Banks - Diversified"): "bank-diversified-v1",
     ("Financial Services", "Banks - Regional"): "bank-diversified-v1",
+    ("Financial Services", "Banks"): "bank-diversified-v1",
     ("Financial Services", "Financial - Credit Services"): "payments-v1",
     ("Financial Services", "Financial - Capital Markets"): "capital-markets-v1",
     ("Financial Services", "Investment - Banking & Investment Services"): "capital-markets-v1",
@@ -1432,7 +1433,10 @@ INDUSTRY_MODEL: dict[tuple[str, str], str] = {
     ("Financial Services", "Financial - Data & Stock Exchanges"): "capital-markets-v1",
     ("Financial Services", "Insurance - Diversified"): "diversified-holding-v1",
     ("Financial Services", "Insurance - Property & Casualty"): "insurance-v1",
+    ("Financial Services", "Insurance - Life"): "insurance-v1",
+    ("Financial Services", "Insurance - Brokers"): "insurance-v1",
     ("Healthcare", "Drug Manufacturers - General"): "pharma-v1",
+    ("Healthcare", "Drug Manufacturers - Specialty & Generic"): "pharma-v1",
     ("Healthcare", "Biotechnology"): "pharma-v1",
     ("Healthcare", "Medical - Devices"): "medtech-v1",
     ("Healthcare", "Medical - Instruments & Supplies"): "medtech-v1",
@@ -1444,19 +1448,37 @@ INDUSTRY_MODEL: dict[tuple[str, str], str] = {
     ("Energy", "Oil & Gas Exploration & Production"): "energy-integrated-v1",
     ("Energy", "Oil & Gas Midstream"): "energy-integrated-v1",
     ("Energy", "Oil & Gas Refining & Marketing"): "energy-integrated-v1",
+    ("Energy", "Oil & Gas Equipment & Services"): "energy-integrated-v1",
     ("Industrials", "Aerospace & Defense"): "aerospace-defense-v1",
     ("Industrials", "Agricultural - Machinery"): "industrials-v1",
     ("Industrials", "Industrial - Machinery"): "industrials-v1",
     ("Industrials", "Electrical Equipment & Parts"): "industrials-v1",
     ("Industrials", "Railroads"): "industrials-v1",
+    ("Industrials", "Conglomerates"): "industrials-v1",
+    ("Industrials", "Waste Management"): "industrials-v1",
+    ("Industrials", "Specialty Business Services"): "industrials-v1",
+    ("Industrials", "Engineering & Construction"): "industrials-v1",
+    ("Industrials", "Integrated Freight & Logistics"): "industrials-v1",
+    ("Industrials", "Industrial - Distribution"): "industrials-v1",
+    ("Industrials", "Rental & Leasing Services"): "industrials-v1",
+    ("Industrials", "Airlines, Airports & Air Services"): "consumer-discretionary-v1",
     ("Basic Materials", "Industrial Materials"): "basic-materials-v1",
     ("Basic Materials", "Chemicals - Specialty"): "basic-materials-v1",
+    ("Basic Materials", "Construction Materials"): "basic-materials-v1",
     ("Basic Materials", "Copper"): "basic-materials-v1",
     ("Basic Materials", "Gold"): "basic-materials-v1",
+    ("Basic Materials", "Steel"): "basic-materials-v1",
     ("Utilities", "Regulated Electric"): "utilities-v1",
+    ("Utilities", "Independent Power Producers"): "utilities-v1",
+    ("Utilities", "Diversified Utilities"): "utilities-v1",
     ("Real Estate", "REIT - Healthcare Facilities"): "reit-v1",
     ("Real Estate", "REIT - Industrial"): "reit-v1",
     ("Real Estate", "REIT - Specialty"): "reit-v1",
+    ("Real Estate", "REIT - Retail"): "reit-v1",
+    ("Consumer Defensive", "Food Confectioners"): "consumer-staples-v1",
+    ("Consumer Cyclical", "Auto - Dealerships"): "consumer-discretionary-v1",
+    ("Consumer Cyclical", "Apparel - Footwear & Accessories"): "consumer-discretionary-v1",
+    ("Technology", "Electronic Gaming & Multimedia"): "internet-platform-v1",
 }
 
 # Ticker-level model overrides (semiconductor subtypes, special cases)
@@ -1489,6 +1511,24 @@ TICKER_MODEL: dict[str, str] = {
     "UBER": "consumer-discretionary-v1",
     "ABNB": "consumer-discretionary-v1",
     "BKNG": "consumer-discretionary-v1",
+    # Mid-mega ($50–100B) specialty overrides
+    "TEL": "hardware-value-chain-v1",  # TE Connectivity — components, not fabless silicon
+    "ASX": "semiconductor-foundry-v1",  # ASE — OSAT / advanced packaging
+    "WDC": "semiconductor-memory-v1",  # storage / NAND adjacency
+    "DASH": "consumer-discretionary-v1",  # delivery marketplace
+    "JCI": "industrials-v1",  # HVAC / building systems more than bulk materials
+    "RELX": "capital-markets-v1",  # info / analytics / risk data adjacency
+    "MSTR": "saas-cloud-v1",
+    "VRT": "industrials-v1",  # datacenter thermal / power systems
+    "BE": "industrials-v1",
+    "SLB": "energy-integrated-v1",
+    "CEG": "utilities-v1",
+    "SRE": "utilities-v1",
+    "NTES": "internet-platform-v1",
+    "NKE": "consumer-discretionary-v1",
+    "DAL": "consumer-discretionary-v1",
+    "CVNA": "consumer-discretionary-v1",
+    "RCL": "consumer-discretionary-v1",
 }
 
 

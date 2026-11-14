@@ -1,0 +1,246 @@
+{
+  "version": 1,
+  "ticker": "GM",
+  "name_en": "General Motors",
+  "name_zh": "通用汽車",
+  "updatedAt": "2026-11-14",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mid-mega caps ($50B–$100B). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股市值500億–1,000億美元批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for the US mcap $50B–$100B batch. No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "auto-oem-v1",
+    "references": [
+      "Industry model `auto-oem-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json marketCap screen: USD 50B ≤ mcap < 100B",
+      "Mega ≥$100B batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "auto-oem-v1",
+    "label_zh": "整車／出行價值鏈",
+    "label_en": "Auto OEM / mobility value chain",
+    "description_zh": "原材料 → 電池／關鍵零元件 → 代工／組裝夥伴 → 銷售通路 → 充電／能源服務。",
+    "description_en": "Materials → batteries/components → assembly partners → dealers → charging/energy."
+  },
+  "stages": [
+    {
+      "id": "materials",
+      "order": 1,
+      "label_zh": "原材料／礦產",
+      "label_en": "Raw materials / mining",
+      "summary_zh": "鋰、鎳、鋼鋁等上游。",
+      "summary_en": "Lithium, nickel, steel/aluminum.",
+      "players": [
+        {
+          "ticker": "ALB",
+          "name_en": "Albemarle",
+          "name_zh": "Albemarle",
+          "role_zh": "Albemarle：原材料／礦產代表性玩家",
+          "role_en": "Albemarle: representative player in Raw materials / mining",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "FCX",
+          "name_en": "Freeport-McMoRan",
+          "name_zh": "自由港麥克莫蘭",
+          "role_zh": "自由港麥克莫蘭：原材料／礦產代表性玩家",
+          "role_en": "Freeport-McMoRan: representative player in Raw materials / mining",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "NUE",
+          "name_en": "Nucor",
+          "name_zh": "紐柯",
+          "role_zh": "紐柯：原材料／礦產代表性玩家",
+          "role_en": "Nucor: representative player in Raw materials / mining",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "components",
+      "order": 2,
+      "label_zh": "電池／電子／汽車半導體",
+      "label_en": "Battery / electronics / auto semis",
+      "summary_zh": "電池、功率半導體與汽車電子。",
+      "summary_en": "Cells, power semis, auto electronics.",
+      "players": [
+        {
+          "ticker": "000660.KS",
+          "name_en": "SK hynix",
+          "name_zh": "SK 海力士",
+          "role_zh": "SK 海力士：電池／電子／汽車半導體代表性玩家",
+          "role_en": "SK hynix: representative player in Battery / electronics / auto semis",
+          "exchange": "KRX",
+          "listedInApp": false
+        },
+        {
+          "ticker": "ON",
+          "name_en": "onsemi",
+          "name_zh": "安森美",
+          "role_zh": "安森美：電池／電子／汽車半導體代表性玩家",
+          "role_en": "onsemi: representative player in Battery / electronics / auto semis",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "APH",
+          "name_en": "Amphenol",
+          "name_zh": "安費諾",
+          "role_zh": "安費諾：電池／電子／汽車半導體代表性玩家",
+          "role_en": "Amphenol: representative player in Battery / electronics / auto semis",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "assembly",
+      "order": 3,
+      "label_zh": "組裝／合約製造",
+      "label_en": "Assembly / contract manufacturing",
+      "summary_zh": "車體與電子代工夥伴。",
+      "summary_en": "Body and electronics CM partners.",
+      "players": [
+        {
+          "ticker": "JBL",
+          "name_en": "Jabil",
+          "name_zh": "Jabil",
+          "role_zh": "Jabil：組裝／合約製造代表性玩家",
+          "role_en": "Jabil: representative player in Assembly / contract manufacturing",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "FLEX",
+          "name_en": "Flex",
+          "name_zh": "Flex",
+          "role_zh": "Flex：組裝／合約製造代表性玩家",
+          "role_en": "Flex: representative player in Assembly / contract manufacturing",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "2317.TW",
+          "name_en": "Hon Hai (Foxconn)",
+          "name_zh": "鴻海",
+          "role_zh": "鴻海：組裝／合約製造代表性玩家",
+          "role_en": "Hon Hai (Foxconn): representative player in Assembly / contract manufacturing",
+          "exchange": "TWSE",
+          "listedInApp": false
+        }
+      ]
+    },
+    {
+      "id": "dealers",
+      "order": 4,
+      "label_zh": "銷售／交付通路",
+      "label_en": "Sales / delivery channel",
+      "summary_zh": "直銷、經銷與交付中心。",
+      "summary_en": "Direct, dealers, delivery centers.",
+      "players": [
+        {
+          "ticker": "KMX",
+          "name_en": "CarMax",
+          "name_zh": "CarMax",
+          "role_zh": "CarMax：銷售／交付通路代表性玩家",
+          "role_en": "CarMax: representative player in Sales / delivery channel",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "AN",
+          "name_en": "AutoNation",
+          "name_zh": "AutoNation",
+          "role_zh": "AutoNation：銷售／交付通路代表性玩家",
+          "role_en": "AutoNation: representative player in Sales / delivery channel",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "PAG",
+          "name_en": "Penske Automotive",
+          "name_zh": "Penske Automotive",
+          "role_zh": "Penske Automotive：銷售／交付通路代表性玩家",
+          "role_en": "Penske Automotive: representative player in Sales / delivery channel",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "energy",
+      "order": 5,
+      "label_zh": "充電／能源服務",
+      "label_en": "Charging / energy services",
+      "summary_zh": "充電網路與能源管理。",
+      "summary_en": "Charging networks and energy mgmt.",
+      "players": [
+        {
+          "ticker": "NEE",
+          "name_en": "NextEra Energy",
+          "name_zh": "NextEra Energy",
+          "role_zh": "NextEra Energy：充電／能源服務代表性玩家",
+          "role_en": "NextEra Energy: representative player in Charging / energy services",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "CEG",
+          "name_en": "Constellation",
+          "name_zh": "星座能源",
+          "role_zh": "星座能源：充電／能源服務代表性玩家",
+          "role_en": "Constellation: representative player in Charging / energy services",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "ENPH",
+          "name_en": "Enphase Energy",
+          "name_zh": "恩菲斯能源",
+          "role_zh": "恩菲斯能源：充電／能源服務代表性玩家",
+          "role_en": "Enphase Energy: representative player in Charging / energy services",
+          "exchange": "NASDAQ",
+          "listedInApp": false
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "F",
+      "name_en": "Ford",
+      "name_zh": "福特",
+      "basis_zh": "整車對手",
+      "basis_en": "Auto OEM rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "TM",
+      "name_en": "Toyota Motor",
+      "name_zh": "豐田",
+      "basis_zh": "整車對手",
+      "basis_en": "Auto OEM rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "TSLA",
+      "name_en": "Tesla",
+      "name_zh": "特斯拉",
+      "basis_zh": "整車對手",
+      "basis_en": "Auto OEM rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "HMC",
+      "name_en": "Honda",
+      "name_zh": "本田",
+      "basis_zh": "整車對手",
+      "basis_en": "Auto OEM rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "RACE",
+      "name_en": "Ferrari",
+      "name_zh": "法拉利",
+      "basis_zh": "整車對手",
+      "basis_en": "Auto OEM rival",
+      "exchange": "NYSE"
+    }
+  ]
+}

@@ -1,0 +1,244 @@
+{
+  "version": 1,
+  "ticker": "AEP",
+  "name_en": "American Electric Power",
+  "name_zh": "美國電力",
+  "updatedAt": "2026-11-14",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mid-mega caps ($50B–$100B). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股市值500億–1,000億美元批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for the US mcap $50B–$100B batch. No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "utilities-v1",
+    "references": [
+      "Industry model `utilities-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json marketCap screen: USD 50B ≤ mcap < 100B",
+      "Mega ≥$100B batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "utilities-v1",
+    "label_zh": "電力公用事業價值鏈",
+    "label_en": "Electric utility value chain",
+    "description_zh": "燃料／再生能源裝置 → 發電 → 輸配電 → 電網科技 → 零售使用者。",
+    "description_en": "Fuel/renewables gear → generation → T&D → grid tech → retail customers."
+  },
+  "stages": [
+    {
+      "id": "fuel-capex",
+      "order": 1,
+      "label_zh": "燃料／再生能源裝置",
+      "label_en": "Fuel / renewables equipment",
+      "summary_zh": "天然氣、太陽能／風電裝置。",
+      "summary_en": "Gas, solar, wind equipment.",
+      "players": [
+        {
+          "ticker": "FSLR",
+          "name_en": "First Solar",
+          "name_zh": "First Solar",
+          "role_zh": "First Solar：燃料／再生能源裝置代表性玩家",
+          "role_en": "First Solar: representative player in Fuel / renewables equipment",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "ENPH",
+          "name_en": "Enphase Energy",
+          "name_zh": "恩菲斯能源",
+          "role_zh": "恩菲斯能源：燃料／再生能源裝置代表性玩家",
+          "role_en": "Enphase Energy: representative player in Fuel / renewables equipment",
+          "exchange": "NASDAQ",
+          "listedInApp": false
+        },
+        {
+          "ticker": "ETN",
+          "name_en": "Eaton",
+          "name_zh": "伊頓",
+          "role_zh": "伊頓：燃料／再生能源裝置代表性玩家",
+          "role_en": "Eaton: representative player in Fuel / renewables equipment",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "generation",
+      "order": 2,
+      "label_zh": "發電資產",
+      "label_en": "Generation assets",
+      "summary_zh": "電廠與獨立發電。",
+      "summary_en": "Power plants and IPPs.",
+      "players": [
+        {
+          "ticker": "CEG",
+          "name_en": "Constellation",
+          "name_zh": "星座能源",
+          "role_zh": "星座能源：發電資產代表性玩家",
+          "role_en": "Constellation: representative player in Generation assets",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "VST",
+          "name_en": "Vistra",
+          "name_zh": "Vistra",
+          "role_zh": "Vistra：發電資產代表性玩家",
+          "role_en": "Vistra: representative player in Generation assets",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "GEV",
+          "name_en": "GE Vernova",
+          "name_zh": "GE Vernova",
+          "role_zh": "GE Vernova：發電資產代表性玩家",
+          "role_en": "GE Vernova: representative player in Generation assets",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "td",
+      "order": 3,
+      "label_zh": "輸配電",
+      "label_en": "Transmission & distribution",
+      "summary_zh": "電網與配電資產。",
+      "summary_en": "Grid and distribution assets.",
+      "players": [
+        {
+          "ticker": "ETN",
+          "name_en": "Eaton",
+          "name_zh": "伊頓",
+          "role_zh": "伊頓：輸配電代表性玩家",
+          "role_en": "Eaton: representative player in Transmission & distribution",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "EMR",
+          "name_en": "Emerson",
+          "name_zh": "艾默生",
+          "role_zh": "艾默生：輸配電代表性玩家",
+          "role_en": "Emerson: representative player in Transmission & distribution",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "HON",
+          "name_en": "Honeywell",
+          "name_zh": "霍尼韋爾",
+          "role_zh": "霍尼韋爾：輸配電代表性玩家",
+          "role_en": "Honeywell: representative player in Transmission & distribution",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "grid-tech",
+      "order": 4,
+      "label_zh": "電網科技／自動化",
+      "label_en": "Grid tech / automation",
+      "summary_zh": "智慧電表與電力電子。",
+      "summary_en": "Smart meters and power electronics.",
+      "players": [
+        {
+          "ticker": "ETN",
+          "name_en": "Eaton",
+          "name_zh": "伊頓",
+          "role_zh": "伊頓：電網科技／自動化代表性玩家",
+          "role_en": "Eaton: representative player in Grid tech / automation",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "ROK",
+          "name_en": "Rockwell Automation",
+          "name_zh": "羅克韋爾",
+          "role_zh": "羅克韋爾：電網科技／自動化代表性玩家",
+          "role_en": "Rockwell Automation: representative player in Grid tech / automation",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "ANET",
+          "name_en": "Arista Networks",
+          "name_zh": "Arista 網路",
+          "role_zh": "Arista 網路：電網科技／自動化代表性玩家",
+          "role_en": "Arista Networks: representative player in Grid tech / automation",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "retail",
+      "order": 5,
+      "label_zh": "零售／工業使用者",
+      "label_en": "Retail / industrial customers",
+      "summary_zh": "住宅與工商用電客戶。",
+      "summary_en": "Residential and C&I load.",
+      "players": [
+        {
+          "ticker": "AMZN",
+          "name_en": "Amazon.com",
+          "name_zh": "亞馬遜",
+          "role_zh": "亞馬遜：零售／工業使用者代表性玩家",
+          "role_en": "Amazon.com: representative player in Retail / industrial customers",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "WMT",
+          "name_en": "Walmart",
+          "name_zh": "沃爾瑪",
+          "role_zh": "沃爾瑪：零售／工業使用者代表性玩家",
+          "role_en": "Walmart: representative player in Retail / industrial customers",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "TSLA",
+          "name_en": "Tesla",
+          "name_zh": "特斯拉",
+          "role_zh": "特斯拉：零售／工業使用者代表性玩家",
+          "role_en": "Tesla: representative player in Retail / industrial customers",
+          "exchange": "NASDAQ"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "DUK",
+      "name_en": "Duke Energy",
+      "name_zh": "杜克能源",
+      "basis_zh": "受規管電力對手",
+      "basis_en": "Regulated electric rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "NEE",
+      "name_en": "NextEra Energy",
+      "name_zh": "NextEra Energy",
+      "basis_zh": "受規管電力對手",
+      "basis_en": "Regulated electric rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "SO",
+      "name_en": "The Southern",
+      "name_zh": "南方公司",
+      "basis_zh": "受規管電力對手",
+      "basis_en": "Regulated electric rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "D",
+      "name_en": "Dominion",
+      "name_zh": "Dominion Energy",
+      "basis_zh": "受規管電力對手",
+      "basis_en": "Regulated electric rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "NGG",
+      "name_en": "National Grid",
+      "name_zh": "國家電網",
+      "basis_zh": "受規管電力對手",
+      "basis_en": "Regulated electric rival",
+      "exchange": "NYSE"
+    }
+  ]
+}

@@ -1,0 +1,236 @@
+{
+  "version": 1,
+  "ticker": "DAL",
+  "name_en": "Delta Air Lines",
+  "name_zh": "達美航空",
+  "updatedAt": "2026-11-14",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mid-mega caps ($50B–$100B). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股市值500億–1,000億美元批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for the US mcap $50B–$100B batch. No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "consumer-discretionary-v1",
+    "references": [
+      "Industry model `consumer-discretionary-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json marketCap screen: USD 50B ≤ mcap < 100B",
+      "Mega ≥$100B batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "consumer-discretionary-v1",
+    "label_zh": "非必需消費／餐旅價值鏈",
+    "label_en": "Consumer discretionary / hospitality value chain",
+    "description_zh": "原料／商品 → 物流 → 門市／平台 → 支付 → 行銷流量。",
+    "description_en": "Inputs/goods → logistics → stores/platforms → payments → marketing traffic."
+  },
+  "stages": [
+    {
+      "id": "inputs",
+      "order": 1,
+      "label_zh": "原料／商品供應",
+      "label_en": "Inputs / merchandise supply",
+      "summary_zh": "食材、商品與授權 IP。",
+      "summary_en": "Food, goods, licensed IP.",
+      "players": [
+        {
+          "ticker": "ADM",
+          "name_en": "Archer-Daniels-Midland Company",
+          "name_zh": "阿徹丹尼爾斯米德蘭",
+          "role_zh": "阿徹丹尼爾斯米德蘭：原料／商品供應代表性玩家",
+          "role_en": "Archer-Daniels-Midland Company: representative player in Inputs / merchandise supply",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "NKE",
+          "name_en": "Nike",
+          "name_zh": "耐克",
+          "role_zh": "耐克：原料／商品供應代表性玩家",
+          "role_en": "Nike: representative player in Inputs / merchandise supply",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "DIS",
+          "name_en": "The Walt Disney",
+          "name_zh": "迪士尼",
+          "role_zh": "迪士尼：原料／商品供應代表性玩家",
+          "role_en": "The Walt Disney: representative player in Inputs / merchandise supply",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "logistics",
+      "order": 2,
+      "label_zh": "物流／冷鏈",
+      "label_en": "Logistics / cold chain",
+      "summary_zh": "配送與庫存網路。",
+      "summary_en": "Distribution and inventory.",
+      "players": [
+        {
+          "ticker": "UPS",
+          "name_en": "United Parcel Service",
+          "name_zh": "優比速",
+          "role_zh": "優比速：物流／冷鏈代表性玩家",
+          "role_en": "United Parcel Service: representative player in Logistics / cold chain",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "FDX",
+          "name_en": "FedEx",
+          "name_zh": "聯邦快遞",
+          "role_zh": "聯邦快遞：物流／冷鏈代表性玩家",
+          "role_en": "FedEx: representative player in Logistics / cold chain",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "UNP",
+          "name_en": "Union Pacific",
+          "name_zh": "聯合太平洋",
+          "role_zh": "聯合太平洋：物流／冷鏈代表性玩家",
+          "role_en": "Union Pacific: representative player in Logistics / cold chain",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "stores",
+      "order": 3,
+      "label_zh": "門市／數位平台",
+      "label_en": "Stores / digital platforms",
+      "summary_zh": "直營、加盟與 App。",
+      "summary_en": "Owned, franchise, apps.",
+      "players": [
+        {
+          "ticker": "SBUX",
+          "name_en": "Starbucks Corporation",
+          "name_zh": "星巴克",
+          "role_zh": "星巴克：門市／數位平台代表性玩家",
+          "role_en": "Starbucks Corporation: representative player in Stores / digital platforms",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "MCD",
+          "name_en": "McDonald's Corporation",
+          "name_zh": "麥當勞",
+          "role_zh": "麥當勞：門市／數位平台代表性玩家",
+          "role_en": "McDonald's Corporation: representative player in Stores / digital platforms",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "MAR",
+          "name_en": "Marriott International",
+          "name_zh": "萬豪",
+          "role_zh": "萬豪：門市／數位平台代表性玩家",
+          "role_en": "Marriott International: representative player in Stores / digital platforms",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "payments",
+      "order": 4,
+      "label_zh": "支付／忠誠",
+      "label_en": "Payments / loyalty",
+      "summary_zh": "卡支付與會員體系。",
+      "summary_en": "Card rails and loyalty.",
+      "players": [
+        {
+          "ticker": "V",
+          "name_en": "Visa",
+          "name_zh": "Visa",
+          "role_zh": "Visa：支付／忠誠代表性玩家",
+          "role_en": "Visa: representative player in Payments / loyalty",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "MA",
+          "name_en": "Mastercard Incorporated",
+          "name_zh": "Mastercard",
+          "role_zh": "Mastercard：支付／忠誠代表性玩家",
+          "role_en": "Mastercard Incorporated: representative player in Payments / loyalty",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "AXP",
+          "name_en": "American Express",
+          "name_zh": "美國運通",
+          "role_zh": "美國運通：支付／忠誠代表性玩家",
+          "role_en": "American Express: representative player in Payments / loyalty",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "traffic",
+      "order": 5,
+      "label_zh": "行銷／流量",
+      "label_en": "Marketing / traffic",
+      "summary_zh": "搜尋、社群與旅遊 OTA。",
+      "summary_en": "Search, social, travel OTAs.",
+      "players": [
+        {
+          "ticker": "GOOG",
+          "name_en": "Alphabet",
+          "name_zh": "Alphabet（Google）",
+          "role_zh": "Alphabet（Google）：行銷／流量代表性玩家",
+          "role_en": "Alphabet: representative player in Marketing / traffic",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "META",
+          "name_en": "Meta Platforms",
+          "name_zh": "Meta (臉書)",
+          "role_zh": "Meta (臉書)：行銷／流量代表性玩家",
+          "role_en": "Meta Platforms: representative player in Marketing / traffic",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "BKNG",
+          "name_en": "Booking",
+          "name_zh": "Booking",
+          "role_zh": "Booking：行銷／流量代表性玩家",
+          "role_en": "Booking: representative player in Marketing / traffic",
+          "exchange": "NASDAQ"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "UAL",
+      "name_en": "United Airlines",
+      "name_zh": "聯合航空",
+      "basis_zh": "航空公司對手",
+      "basis_en": "Airline rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "AAL",
+      "name_en": "American Airlines",
+      "name_zh": "美國航空",
+      "basis_zh": "航空公司對手",
+      "basis_en": "Airline rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "LUV",
+      "name_en": "Southwest Airlines Co.",
+      "name_zh": "西南航空",
+      "basis_zh": "航空公司對手",
+      "basis_en": "Airline rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "ALK",
+      "name_en": "ALK",
+      "name_zh": "ALK",
+      "basis_zh": "航空公司對手",
+      "basis_en": "Airline rival",
+      "exchange": "OTC",
+      "listedInApp": false
+    }
+  ]
+}
