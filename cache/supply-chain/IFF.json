@@ -1,0 +1,227 @@
+{
+  "version": 1,
+  "ticker": "IFF",
+  "name_en": "International Flavors & Fragrances",
+  "name_zh": "國際香精香料",
+  "updatedAt": "2026-11-14",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "nutrition-ingredients-v1",
+    "references": [
+      "Industry model `nutrition-ingredients-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "nutrition-ingredients-v1",
+    "label_zh": "營養／食品配料價值鏈",
+    "label_en": "Nutrition / food-ingredients value chain",
+    "description_zh": "原料／農產 → 配料／口味研發 → 製程裝置 → 食品／飼料客戶 → 零售通路。",
+    "description_en": "Agri/raw inputs → ingredient / flavor R&D → process equipment → food/feed customers → retail channel."
+  },
+  "stages": [
+    {
+      "id": "inputs",
+      "order": 1,
+      "label_zh": "原料／農產",
+      "label_en": "Agri / raw inputs",
+      "summary_zh": "穀物、油脂與基礎原料。",
+      "summary_en": "Grains, oils, and base feedstocks.",
+      "players": [
+        {
+          "ticker": "ADM",
+          "name_en": "Archer-Daniels-Midland",
+          "name_zh": "阿徹丹尼爾斯米德蘭",
+          "role_zh": "阿徹丹尼爾斯米德蘭：原料／農產代表性玩家",
+          "role_en": "Archer-Daniels-Midland: representative player in Agri / raw inputs",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "BG",
+          "name_en": "Bunge",
+          "name_zh": "Bunge",
+          "role_zh": "Bunge：原料／農產代表性玩家",
+          "role_en": "Bunge: representative player in Agri / raw inputs",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "CTVA",
+          "name_en": "Corteva",
+          "name_zh": "科迪華農業",
+          "role_zh": "科迪華農業：原料／農產代表性玩家",
+          "role_en": "Corteva: representative player in Agri / raw inputs",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "ingredients",
+      "order": 2,
+      "label_zh": "配料／口味研發",
+      "label_en": "Ingredients / flavor R&D",
+      "summary_zh": "營養素、香精與機能配料。",
+      "summary_en": "Nutrients, flavors, and functional ingredients.",
+      "players": [
+        {
+          "ticker": "INGR",
+          "name_en": "Ingredion",
+          "name_zh": "Ingredion",
+          "role_zh": "Ingredion：配料／口味研發代表性玩家",
+          "role_en": "Ingredion: representative player in Ingredients / flavor R&D",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "DAR",
+          "name_en": "Darling Ingredients",
+          "name_zh": "Darling Ingredients",
+          "role_zh": "Darling Ingredients：配料／口味研發代表性玩家",
+          "role_en": "Darling Ingredients: representative player in Ingredients / flavor R&D",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "AAPL",
+          "name_en": "Apple",
+          "name_zh": "蘋果",
+          "role_zh": "蘋果：配料／口味研發代表性玩家",
+          "role_en": "Apple: representative player in Ingredients / flavor R&D",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "equipment",
+      "order": 3,
+      "label_zh": "製程／混合裝置",
+      "label_en": "Process / mixing equipment",
+      "summary_zh": "食品加工與混合裝置。",
+      "summary_en": "Food processing and mixing equipment.",
+      "players": [
+        {
+          "ticker": "HON",
+          "name_en": "Honeywell",
+          "name_zh": "漢威聯合",
+          "role_zh": "漢威聯合：製程／混合裝置代表性玩家",
+          "role_en": "Honeywell: representative player in Process / mixing equipment",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "EMR",
+          "name_en": "Emerson",
+          "name_zh": "艾默生",
+          "role_zh": "艾默生：製程／混合裝置代表性玩家",
+          "role_en": "Emerson: representative player in Process / mixing equipment",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "ROK",
+          "name_en": "Rockwell Automation",
+          "name_zh": "羅克韋爾",
+          "role_zh": "羅克韋爾：製程／混合裝置代表性玩家",
+          "role_en": "Rockwell Automation: representative player in Process / mixing equipment",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "customers",
+      "order": 4,
+      "label_zh": "食品／飼料客戶",
+      "label_en": "Food / feed customers",
+      "summary_zh": "包裝食品與飼料製造商。",
+      "summary_en": "Packaged-food and feed manufacturers.",
+      "players": [
+        {
+          "ticker": "GIS",
+          "name_en": "General Mills",
+          "name_zh": "通用磨坊",
+          "role_zh": "通用磨坊：食品／飼料客戶代表性玩家",
+          "role_en": "General Mills: representative player in Food / feed customers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "KHC",
+          "name_en": "Kraft Heinz",
+          "name_zh": "卡夫亨氏",
+          "role_zh": "卡夫亨氏：食品／飼料客戶代表性玩家",
+          "role_en": "Kraft Heinz: representative player in Food / feed customers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "CAG",
+          "name_en": "Conagra Brands",
+          "name_zh": "Conagra Brands",
+          "role_zh": "Conagra Brands：食品／飼料客戶代表性玩家",
+          "role_en": "Conagra Brands: representative player in Food / feed customers",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "retail",
+      "order": 5,
+      "label_zh": "零售／通路",
+      "label_en": "Retail / channel",
+      "summary_zh": "超市與食品服務通路。",
+      "summary_en": "Grocery and foodservice channels.",
+      "players": [
+        {
+          "ticker": "WMT",
+          "name_en": "Walmart",
+          "name_zh": "沃爾瑪",
+          "role_zh": "沃爾瑪：零售／通路代表性玩家",
+          "role_en": "Walmart: representative player in Retail / channel",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "COST",
+          "name_en": "Costco Wholesale",
+          "name_zh": "好市多",
+          "role_zh": "好市多：零售／通路代表性玩家",
+          "role_en": "Costco Wholesale: representative player in Retail / channel",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "SYY",
+          "name_en": "Sysco",
+          "name_zh": "Sysco",
+          "role_zh": "Sysco：零售／通路代表性玩家",
+          "role_en": "Sysco: representative player in Retail / channel",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "BCPC",
+      "name_en": "Balchem",
+      "name_zh": "波奇姆 (Balchem)",
+      "basis_zh": "營養配料／油脂原料對手",
+      "basis_en": "Nutrition ingredients / renderer-feedstock rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "INGR",
+      "name_en": "Ingredion",
+      "name_zh": "Ingredion",
+      "basis_zh": "營養配料／油脂原料對手",
+      "basis_en": "Nutrition ingredients / renderer-feedstock rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "DAR",
+      "name_en": "Darling Ingredients",
+      "name_zh": "Darling Ingredients",
+      "basis_zh": "營養配料／油脂原料對手",
+      "basis_en": "Nutrition ingredients / renderer-feedstock rival",
+      "exchange": "NYSE"
+    }
+  ]
+}
