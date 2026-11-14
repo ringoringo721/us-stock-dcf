@@ -132,19 +132,38 @@ def looks_like_english_legal_name(text: str) -> bool:
 def short_brand_en(name_en: str, ticker: str) -> str:
     """Strip common legal suffixes for a short EN brand fallback.
 
-    Preserve abbreviation endings such as ``S.A.`` / ``N.V.`` / ``p.l.c.``.
-    After stripping Inc./Corp./etc., clear orphan periods/spaces so
-    ``ASML Holding N.V.`` never becomes ``ASML Holding .``.
+    Keep ``N.V.`` / ``S.A.`` / ``U.S.`` / ``T.`` intact (not in the strip set).
+    After removing Inc./Corp./etc., only collapse true orphans left by that
+    removal — e.g. ``Foo Inc.`` → ``Foo`` (trailing comma/space), or a lone
+    `` .`` token — never a global ``[.\\s]+`` / ``.\\s`` pass that would eat
+    abbreviation periods when more text follows.
     """
     raw = (name_en or "").strip() or ticker
     cleaned = LEGAL_EN_SUFFIX_STRIP_RE.sub("", raw)
-    # Drop orphan "." / "," left beside whitespace after a suffix removal.
+    # Orphans only: whitespace + lone "." / "," at end or before more whitespace.
+    # Do NOT strip "S.A. Foo" / "U.S. Something" / "T. Rowe".
     cleaned = re.sub(r"\s+[.,](?=\s|$)", "", cleaned)
-    cleaned = re.sub(r"[.,]\s+", " ", cleaned)
-    # Trailing commas/spaces only — keep final '.' of S.A. / N.V.
     cleaned = re.sub(r"[,\s]+$", "", cleaned).strip()
     cleaned = re.sub(r"\s{2,}", " ", cleaned)
     return cleaned or ticker
+
+
+def _assert_short_brand_en() -> None:
+    """Tiny guard table — run from main(); fail build if helper regresses."""
+    cases = (
+        ("ASML Holding N.V.", "ASML", "ASML Holding N.V."),
+        ("ASML Holding .", "ASML", "ASML Holding"),  # orphan after bad strip
+        ("Apple Inc.", "AAPL", "Apple"),
+        ("Foo S.A.", "FOO", "Foo S.A."),
+        ("Spotify Technology S.A.", "SPOT", "Spotify Technology S.A."),
+        ("U.S. Something Inc.", "USS", "U.S. Something"),
+        ("T. Rowe Price", "TROW", "T. Rowe Price"),
+        ("Banco Santander, S.A.", "SAN", "Banco Santander, S.A."),
+    )
+    for raw, ticker, expect in cases:
+        got = short_brand_en(raw, ticker)
+        if got != expect:
+            raise AssertionError(f"short_brand_en({raw!r}) -> {got!r}, want {expect!r}")
 
 
 def player_role(stage_label_zh: str, stage_label_en: str, name_zh: str, name_en: str) -> tuple[str, str]:
@@ -537,6 +556,8 @@ def main() -> int:
     parser.add_argument("--limit", type=int, default=0)
     parser.add_argument("--only", default="")
     args = parser.parse_args()
+
+    _assert_short_brand_en()
 
     for path in (TMP_ENT, TMP_PLAYERS, TMP_OVERRIDES, TMP_COMPS):
         if not path.exists():
