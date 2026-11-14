@@ -1,0 +1,227 @@
+{
+  "version": 1,
+  "ticker": "BALL",
+  "name_en": "Ball",
+  "name_zh": "Ball",
+  "updatedAt": "2026-11-14",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "industrials-v1",
+    "references": [
+      "Industry model `industrials-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "industrials-v1",
+    "label_zh": "工業製造價值鏈",
+    "label_en": "Industrial manufacturing value chain",
+    "description_zh": "原材料 → 關鍵部件 → 製造自動化 → 經銷／租賃 → 終端基建客戶。",
+    "description_en": "Raw materials → critical parts → automation → dealers/rental → end infrastructure."
+  },
+  "stages": [
+    {
+      "id": "materials",
+      "order": 1,
+      "label_zh": "原材料／鋼鐵鋁",
+      "label_en": "Raw materials / metals",
+      "summary_zh": "鋼、鋁與基礎材料。",
+      "summary_en": "Steel, aluminum, base materials.",
+      "players": [
+        {
+          "ticker": "NUE",
+          "name_en": "Nucor",
+          "name_zh": "紐柯",
+          "role_zh": "紐柯：原材料／鋼鐵鋁代表性玩家",
+          "role_en": "Nucor: representative player in Raw materials / metals",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "FCX",
+          "name_en": "Freeport-McMoRan",
+          "name_zh": "自由港麥克莫蘭",
+          "role_zh": "自由港麥克莫蘭：原材料／鋼鐵鋁代表性玩家",
+          "role_en": "Freeport-McMoRan: representative player in Raw materials / metals",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "DOW",
+          "name_en": "Dow",
+          "name_zh": "陶氏化學",
+          "role_zh": "陶氏化學：原材料／鋼鐵鋁代表性玩家",
+          "role_en": "Dow: representative player in Raw materials / metals",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "components",
+      "order": 2,
+      "label_zh": "關鍵部件／動力系統",
+      "label_en": "Critical components / powertrain",
+      "summary_zh": "引擎、液壓、電力電子。",
+      "summary_en": "Engines, hydraulics, power electronics.",
+      "players": [
+        {
+          "ticker": "ETN",
+          "name_en": "Eaton",
+          "name_zh": "伊頓",
+          "role_zh": "伊頓：關鍵部件／動力系統代表性玩家",
+          "role_en": "Eaton: representative player in Critical components / powertrain",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "PH",
+          "name_en": "Parker-Hannifin",
+          "name_zh": "派克漢尼汾",
+          "role_zh": "派克漢尼汾：關鍵部件／動力系統代表性玩家",
+          "role_en": "Parker-Hannifin: representative player in Critical components / powertrain",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "EMR",
+          "name_en": "Emerson",
+          "name_zh": "艾默生",
+          "role_zh": "艾默生：關鍵部件／動力系統代表性玩家",
+          "role_en": "Emerson: representative player in Critical components / powertrain",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "automation",
+      "order": 3,
+      "label_zh": "自動化／軟體",
+      "label_en": "Automation / software",
+      "summary_zh": "工控、感測與數位雙生。",
+      "summary_en": "Controls, sensors, digital twins.",
+      "players": [
+        {
+          "ticker": "ROK",
+          "name_en": "Rockwell Automation",
+          "name_zh": "羅克韋爾",
+          "role_zh": "羅克韋爾：自動化／軟體代表性玩家",
+          "role_en": "Rockwell Automation: representative player in Automation / software",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "HON",
+          "name_en": "Honeywell",
+          "name_zh": "漢威聯合",
+          "role_zh": "漢威聯合：自動化／軟體代表性玩家",
+          "role_en": "Honeywell: representative player in Automation / software",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "SNPS",
+          "name_en": "Synopsys",
+          "name_zh": "新思科技",
+          "role_zh": "新思科技：自動化／軟體代表性玩家",
+          "role_en": "Synopsys: representative player in Automation / software",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "dealers",
+      "order": 4,
+      "label_zh": "經銷／租賃通路",
+      "label_en": "Dealer / rental channel",
+      "summary_zh": "裝置經銷與租賃。",
+      "summary_en": "Equipment dealers and rental.",
+      "players": [
+        {
+          "ticker": "CAT",
+          "name_en": "Caterpillar",
+          "name_zh": "開拓重工",
+          "role_zh": "開拓重工：經銷／租賃通路代表性玩家",
+          "role_en": "Caterpillar: representative player in Dealer / rental channel",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "DE",
+          "name_en": "Deere",
+          "name_zh": "強鹿公司 (Deere)",
+          "role_zh": "強鹿公司 (Deere)：經銷／租賃通路代表性玩家",
+          "role_en": "Deere: representative player in Dealer / rental channel",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "ETN",
+          "name_en": "Eaton",
+          "name_zh": "伊頓",
+          "role_zh": "伊頓：經銷／租賃通路代表性玩家",
+          "role_en": "Eaton: representative player in Dealer / rental channel",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "customers",
+      "order": 5,
+      "label_zh": "基建／能源／礦業客戶",
+      "label_en": "Infra / energy / mining customers",
+      "summary_zh": "工程、能源與礦業終端。",
+      "summary_en": "Construction, energy, mining.",
+      "players": [
+        {
+          "ticker": "XOM",
+          "name_en": "Exxonmobil",
+          "name_zh": "埃克森美孚",
+          "role_zh": "埃克森美孚：基建／能源／礦業客戶代表性玩家",
+          "role_en": "Exxonmobil: representative player in Infra / energy / mining customers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "UNP",
+          "name_en": "Union Pacific",
+          "name_zh": "聯合太平洋鐵路",
+          "role_zh": "聯合太平洋鐵路：基建／能源／礦業客戶代表性玩家",
+          "role_en": "Union Pacific: representative player in Infra / energy / mining customers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "NEE",
+          "name_en": "NextEra Energy",
+          "name_zh": "新紀元能源",
+          "role_zh": "新紀元能源：基建／能源／礦業客戶代表性玩家",
+          "role_en": "NextEra Energy: representative player in Infra / energy / mining customers",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "AMCR",
+      "name_en": "Amcor",
+      "name_zh": "Amcor",
+      "basis_zh": "包裝容器對手",
+      "basis_en": "Packaging & containers rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "CCK",
+      "name_en": "Crown Holdings",
+      "name_zh": "Crown",
+      "basis_zh": "包裝容器對手",
+      "basis_en": "Packaging & containers rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "PKG",
+      "name_en": "Packaging Corp of America",
+      "name_zh": "美國包裝公司",
+      "basis_zh": "包裝容器對手",
+      "basis_en": "Packaging & containers rival",
+      "exchange": "NYSE"
+    }
+  ]
+}

@@ -1,0 +1,244 @@
+{
+  "version": 1,
+  "ticker": "ENTG",
+  "name_en": "Entegris",
+  "name_zh": "Entegris",
+  "updatedAt": "2026-11-14",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "semiconductor-equipment-v1",
+    "references": [
+      "Industry model `semiconductor-equipment-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "semiconductor-equipment-v1",
+    "label_zh": "半導體裝置價值鏈",
+    "label_en": "Semi equipment value chain",
+    "description_zh": "精密零元件 → 模組／光學 → 裝置整合 → 晶圓廠客戶 → 服務／備件。",
+    "description_en": "Precision parts → modules/optics → tool integration → fab customers → service."
+  },
+  "stages": [
+    {
+      "id": "components",
+      "order": 1,
+      "label_zh": "精密零元件／子系統",
+      "label_en": "Precision components / subsystems",
+      "summary_zh": "真空、射頻、運動控制等子系統。",
+      "summary_en": "Vacuum, RF, motion subsystems.",
+      "players": [
+        {
+          "ticker": "TEL",
+          "name_en": "TE Connectivity",
+          "name_zh": "泰科電子",
+          "role_zh": "泰科電子：精密零元件／子系統代表性玩家",
+          "role_en": "TE Connectivity: representative player in Precision components / subsystems",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "APH",
+          "name_en": "Amphenol",
+          "name_zh": "安費諾",
+          "role_zh": "安費諾：精密零元件／子系統代表性玩家",
+          "role_en": "Amphenol: representative player in Precision components / subsystems",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "MPWR",
+          "name_en": "Monolithic Power",
+          "name_zh": "Monolithic Power",
+          "role_zh": "Monolithic Power：精密零元件／子系統代表性玩家",
+          "role_en": "Monolithic Power: representative player in Precision components / subsystems",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "optics",
+      "order": 2,
+      "label_zh": "光學／感測關鍵模組",
+      "label_en": "Optics / sensing modules",
+      "summary_zh": "光學、雷射與量測模組。",
+      "summary_en": "Optics, lasers, metrology modules.",
+      "players": [
+        {
+          "ticker": "COHR",
+          "name_en": "Coherent",
+          "name_zh": "相干光電",
+          "role_zh": "相干光電：光學／感測關鍵模組代表性玩家",
+          "role_en": "Coherent: representative player in Optics / sensing modules",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "KEYS",
+          "name_en": "Keysight",
+          "name_zh": "是德科技",
+          "role_zh": "是德科技：光學／感測關鍵模組代表性玩家",
+          "role_en": "Keysight: representative player in Optics / sensing modules",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "TER",
+          "name_en": "Teradyne",
+          "name_zh": "泰瑞達",
+          "role_zh": "泰瑞達：光學／感測關鍵模組代表性玩家",
+          "role_en": "Teradyne: representative player in Optics / sensing modules",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "integration",
+      "order": 3,
+      "label_zh": "裝置整合／軟體",
+      "label_en": "Tool integration / software",
+      "summary_zh": "整機整合與製程軟體。",
+      "summary_en": "Tool integration and process software.",
+      "players": [
+        {
+          "ticker": "SNPS",
+          "name_en": "Synopsys",
+          "name_zh": "新思科技",
+          "role_zh": "新思科技：裝置整合／軟體代表性玩家",
+          "role_en": "Synopsys: representative player in Tool integration / software",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "CDNS",
+          "name_en": "Cadence",
+          "name_zh": "益華電腦",
+          "role_zh": "益華電腦：裝置整合／軟體代表性玩家",
+          "role_en": "Cadence: representative player in Tool integration / software",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "KEYS",
+          "name_en": "Keysight",
+          "name_zh": "是德科技",
+          "role_zh": "是德科技：裝置整合／軟體代表性玩家",
+          "role_en": "Keysight: representative player in Tool integration / software",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "fabs",
+      "order": 4,
+      "label_zh": "晶圓廠客戶",
+      "label_en": "Fab customers",
+      "summary_zh": "邏輯／記憶體晶圓廠。",
+      "summary_en": "Logic and memory fabs.",
+      "players": [
+        {
+          "ticker": "TSM",
+          "name_en": "TSMC",
+          "name_zh": "臺積電",
+          "role_zh": "臺積電：晶圓廠客戶代表性玩家",
+          "role_en": "TSMC: representative player in Fab customers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "INTC",
+          "name_en": "Intel",
+          "name_zh": "英特爾",
+          "role_zh": "英特爾：晶圓廠客戶代表性玩家",
+          "role_en": "Intel: representative player in Fab customers",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "000660.KS",
+          "name_en": "SK hynix",
+          "name_zh": "SK 海力士",
+          "role_zh": "SK 海力士：晶圓廠客戶代表性玩家",
+          "role_en": "SK hynix: representative player in Fab customers",
+          "exchange": "KRX",
+          "listedInApp": false
+        }
+      ]
+    },
+    {
+      "id": "service",
+      "order": 5,
+      "label_zh": "服務／備件生態",
+      "label_en": "Service / spares ecosystem",
+      "summary_zh": "安裝、維護與備件通路。",
+      "summary_en": "Install, service, and spares.",
+      "players": [
+        {
+          "ticker": "CDW",
+          "name_en": "CDW",
+          "name_zh": "CDW",
+          "role_zh": "CDW：服務／備件生態代表性玩家",
+          "role_en": "CDW: representative player in Service / spares ecosystem",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "SNX",
+          "name_en": "TD Synnex",
+          "name_zh": "SYNNEX",
+          "role_zh": "SYNNEX：服務／備件生態代表性玩家",
+          "role_en": "TD Synnex: representative player in Service / spares ecosystem",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "JBL",
+          "name_en": "Jabil",
+          "name_zh": "Jabil",
+          "role_zh": "Jabil：服務／備件生態代表性玩家",
+          "role_en": "Jabil: representative player in Service / spares ecosystem",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "AMAT",
+      "name_en": "Applied Materials",
+      "name_zh": "應用材料",
+      "basis_zh": "半導體裝置／製程材料對手",
+      "basis_en": "Semi equipment / process-materials rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "LRCX",
+      "name_en": "Lam Research",
+      "name_zh": "科林研發",
+      "basis_zh": "半導體裝置／製程材料對手",
+      "basis_en": "Semi equipment / process-materials rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "KLAC",
+      "name_en": "KLA",
+      "name_zh": "科磊",
+      "basis_zh": "半導體裝置／製程材料對手",
+      "basis_en": "Semi equipment / process-materials rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "NVMI",
+      "name_en": "Nova",
+      "name_zh": "Nova",
+      "basis_zh": "半導體裝置／製程材料對手",
+      "basis_en": "Semi equipment / process-materials rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "ONTO",
+      "name_en": "Onto Innovation",
+      "name_zh": "Onto Innovation",
+      "basis_zh": "半導體裝置／製程材料對手",
+      "basis_en": "Semi equipment / process-materials rival",
+      "exchange": "NYSE"
+    }
+  ]
+}

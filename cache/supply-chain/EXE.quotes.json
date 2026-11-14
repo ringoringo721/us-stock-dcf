@@ -1,0 +1,160 @@
+{
+  "version": 1,
+  "ticker": "EXE",
+  "updatedAt": "2026-11-14",
+  "basis": "lastTradingDayCloseVsPriorClose",
+  "notes_en": "changePct from last two EOD closes in price_charts; mcap from US listings screener (USD millions). Missing tickers stay null. No live FMP per pageview.",
+  "notes_zh": "漲跌%取自 price_charts 最近兩日收盤；市值取自美股清單（百萬美元）。缺資料維持 null，不造假。頁面不打即時 FMP。",
+  "quotes": {
+    "EXE": {
+      "ticker": "EXE",
+      "price": 88.53,
+      "previousClose": 87.8,
+      "changePct": 0.831,
+      "mcap": 19539.0,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "SLB": {
+      "ticker": "SLB",
+      "price": 51.67,
+      "previousClose": 50.91,
+      "changePct": 1.493,
+      "mcap": 73683.4,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "HAL": {
+      "ticker": "HAL",
+      "price": 33.78,
+      "previousClose": 32.76,
+      "changePct": 3.114,
+      "mcap": 26335.7,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "BKR": {
+      "ticker": "BKR",
+      "price": 49.44,
+      "previousClose": 48.86,
+      "changePct": 1.187,
+      "mcap": 47538.6,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "WMB": {
+      "ticker": "WMB",
+      "price": 69.09,
+      "previousClose": 69.44,
+      "changePct": -0.504,
+      "mcap": 80112.8,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "KMI": {
+      "ticker": "KMI",
+      "price": 31.92,
+      "previousClose": 32.01,
+      "changePct": -0.281,
+      "mcap": 66742.3,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "AM": {
+      "ticker": "AM",
+      "price": 20.46,
+      "previousClose": 20.4,
+      "changePct": 0.294,
+      "mcap": 8965.1,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "DUK": {
+      "ticker": "DUK",
+      "price": 129.16,
+      "previousClose": 128.59,
+      "changePct": 0.443,
+      "mcap": 99630.3,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "NEE": {
+      "ticker": "NEE",
+      "price": 85.12,
+      "previousClose": 85.29,
+      "changePct": -0.199,
+      "mcap": 182360.8,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "LNG": {
+      "ticker": "LNG",
+      "price": 308.75,
+      "previousClose": 309.48,
+      "changePct": -0.236,
+      "mcap": 56758.5,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "EOG": {
+      "ticker": "EOG",
+      "price": 158.32,
+      "previousClose": 155.62,
+      "changePct": 1.735,
+      "mcap": 77174.0,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "OXY": {
+      "ticker": "OXY",
+      "price": 58.75,
+      "previousClose": 58.4,
+      "changePct": 0.599,
+      "mcap": 56359.5,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "FANG": {
+      "ticker": "FANG",
+      "price": 184.93,
+      "previousClose": 182.2,
+      "changePct": 1.498,
+      "mcap": 50113.1,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "COP": {
+      "ticker": "COP",
+      "price": 142.28,
+      "previousClose": 140.06,
+      "changePct": 1.585,
+      "mcap": 163706.6,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "DVN": {
+      "ticker": "DVN",
+      "price": 46.58,
+      "previousClose": 46.23,
+      "changePct": 0.757,
+      "mcap": 46431.0,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    }
+  }
+}
