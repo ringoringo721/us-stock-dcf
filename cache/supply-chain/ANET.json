@@ -22,23 +22,23 @@
     "id": "hardware-value-chain-v1",
     "label_zh": "硬體價值鏈（五階段）",
     "label_en": "Hardware value chain (5 stages)",
-    "description_zh": "上游材料／裝置 → 關鍵零元件 → 組裝代工 → 物流通路 → 零售／電信通路。",
+    "description_zh": "上游材料／設備 → 關鍵零元件 → 組裝代工 → 物流通路 → 零售／電信通路。",
     "description_en": "Materials/equipment → components → EMS → logistics → retail/carrier."
   },
   "stages": [
     {
       "id": "materials",
       "order": 1,
-      "label_zh": "關鍵材料／製程裝置",
+      "label_zh": "關鍵材料／製程設備",
       "label_en": "Key materials / process equipment",
-      "summary_zh": "上游材料與製程裝置。",
+      "summary_zh": "上游材料與製程設備。",
       "summary_en": "Upstream materials and process tools.",
       "players": [
         {
           "ticker": "GLW",
           "name_en": "Corning",
           "name_zh": "Corning",
-          "role_zh": "Corning：關鍵材料／製程裝置代表性玩家",
+          "role_zh": "Corning：關鍵材料／製程設備代表性玩家",
           "role_en": "Corning: representative player in Key materials / process equipment",
           "exchange": "NYSE"
         },
@@ -46,7 +46,7 @@
           "ticker": "AMAT",
           "name_en": "Applied Materials, Inc.",
           "name_zh": "應用材料",
-          "role_zh": "應用材料：關鍵材料／製程裝置代表性玩家",
+          "role_zh": "應用材料：關鍵材料／製程設備代表性玩家",
           "role_en": "Applied Materials, Inc.: representative player in Key materials / process equipment",
           "exchange": "NASDAQ"
         },
@@ -54,7 +54,7 @@
           "ticker": "ASML",
           "name_en": "ASML Holding N.V.",
           "name_zh": "艾司摩爾",
-          "role_zh": "艾司摩爾：關鍵材料／製程裝置代表性玩家",
+          "role_zh": "艾司摩爾：關鍵材料／製程設備代表性玩家",
           "role_en": "ASML Holding N.V.: representative player in Key materials / process equipment",
           "exchange": "NASDAQ"
         }
@@ -213,7 +213,7 @@
       "ticker": "JNPR",
       "name_en": "Juniper Networks",
       "name_zh": "瞻博網路",
-      "basis_zh": "網路裝置對手",
+      "basis_zh": "網路設備對手",
       "basis_en": "Networking gear rival",
       "exchange": "NYSE",
       "listedInApp": false

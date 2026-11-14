@@ -1,0 +1,249 @@
+{
+  "version": 1,
+  "ticker": "ASX",
+  "name_en": "ASE Technology",
+  "name_zh": "日月光投控",
+  "updatedAt": "2026-11-14",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mid-mega caps ($50B–$100B). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股市值500億–1,000億美元批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for the US mcap $50B–$100B batch. No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "semiconductor-foundry-v1",
+    "references": [
+      "Industry model `semiconductor-foundry-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json marketCap screen: USD 50B ≤ mcap < 100B",
+      "Mega ≥$100B batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "semiconductor-foundry-v1",
+    "label_zh": "晶圓代工價值鏈",
+    "label_en": "Foundry value chain",
+    "description_zh": "設備 → 材料／氣體化學 → 封測夥伴 → 設計客戶 → 終端應用平台。",
+    "description_en": "Equipment → materials/gases → OSAT → fabless customers → end platforms."
+  },
+  "stages": [
+    {
+      "id": "equipment",
+      "order": 1,
+      "label_zh": "製程設備",
+      "label_en": "Process equipment",
+      "summary_zh": "EUV／沉積／蝕刻／檢測設備。",
+      "summary_en": "EUV, deposition, etch, metrology.",
+      "players": [
+        {
+          "ticker": "ASML",
+          "name_en": "ASML",
+          "name_zh": "ASML",
+          "role_zh": "ASML：製程設備代表性玩家",
+          "role_en": "ASML: representative player in Process equipment",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "AMAT",
+          "name_en": "Applied Materials",
+          "name_zh": "應用材料",
+          "role_zh": "應用材料：製程設備代表性玩家",
+          "role_en": "Applied Materials: representative player in Process equipment",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "LRCX",
+          "name_en": "Lam Research",
+          "name_zh": "科林研發",
+          "role_zh": "科林研發：製程設備代表性玩家",
+          "role_en": "Lam Research: representative player in Process equipment",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "materials",
+      "order": 2,
+      "label_zh": "晶圓／化學材料",
+      "label_en": "Wafers / process chemicals",
+      "summary_zh": "矽晶圓、光阻、特氣與化學品。",
+      "summary_en": "Silicon wafers, resists, specialty gases.",
+      "players": [
+        {
+          "ticker": "4063.T",
+          "name_en": "Shin-Etsu Chemical",
+          "name_zh": "信越化學",
+          "role_zh": "信越化學：晶圓／化學材料代表性玩家",
+          "role_en": "Shin-Etsu Chemical: representative player in Wafers / process chemicals",
+          "exchange": "TSE",
+          "listedInApp": false
+        },
+        {
+          "ticker": "ENTG",
+          "name_en": "Entegris",
+          "name_zh": "Entegris",
+          "role_zh": "Entegris：晶圓／化學材料代表性玩家",
+          "role_en": "Entegris: representative player in Wafers / process chemicals",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "GLW",
+          "name_en": "Corning",
+          "name_zh": "康寧",
+          "role_zh": "康寧：晶圓／化學材料代表性玩家",
+          "role_en": "Corning: representative player in Wafers / process chemicals",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "osat",
+      "order": 3,
+      "label_zh": "封測夥伴",
+      "label_en": "OSAT partners",
+      "summary_zh": "後段封裝與測試。",
+      "summary_en": "Back-end packaging and test.",
+      "players": [
+        {
+          "ticker": "3711.TW",
+          "name_en": "ASE Technology",
+          "name_zh": "日月光投控",
+          "role_zh": "日月光投控：封測夥伴代表性玩家",
+          "role_en": "ASE Technology: representative player in OSAT partners",
+          "exchange": "TWSE",
+          "listedInApp": false
+        },
+        {
+          "ticker": "AMKR",
+          "name_en": "Amkor",
+          "name_zh": "Amkor",
+          "role_zh": "Amkor：封測夥伴代表性玩家",
+          "role_en": "Amkor: representative player in OSAT partners",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "002475.SZ",
+          "name_en": "Luxshare Precision",
+          "name_zh": "立訊精密",
+          "role_zh": "立訊精密：封測夥伴代表性玩家",
+          "role_en": "Luxshare Precision: representative player in OSAT partners",
+          "exchange": "SZSE",
+          "listedInApp": false
+        }
+      ]
+    },
+    {
+      "id": "fabless",
+      "order": 4,
+      "label_zh": "設計客戶（Fabless）",
+      "label_en": "Fabless customers",
+      "summary_zh": "無晶圓廠／IDM 委外客戶。",
+      "summary_en": "Fabless and IDM outsource customers.",
+      "players": [
+        {
+          "ticker": "NVDA",
+          "name_en": "NVIDIA",
+          "name_zh": "輝達",
+          "role_zh": "輝達：設計客戶（Fabless）代表性玩家",
+          "role_en": "NVIDIA: representative player in Fabless customers",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "AAPL",
+          "name_en": "Apple",
+          "name_zh": "蘋果",
+          "role_zh": "蘋果：設計客戶（Fabless）代表性玩家",
+          "role_en": "Apple: representative player in Fabless customers",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "AMD",
+          "name_en": "Advanced Micro Devices",
+          "name_zh": "超微半導體",
+          "role_zh": "超微半導體：設計客戶（Fabless）代表性玩家",
+          "role_en": "Advanced Micro Devices: representative player in Fabless customers",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "platforms",
+      "order": 5,
+      "label_zh": "終端平台／系統",
+      "label_en": "End platforms / systems",
+      "summary_zh": "手機、AI 伺服器與消費電子平台。",
+      "summary_en": "Phone, AI server, and CE platforms.",
+      "players": [
+        {
+          "ticker": "MSFT",
+          "name_en": "Microsoft",
+          "name_zh": "微軟",
+          "role_zh": "微軟：終端平台／系統代表性玩家",
+          "role_en": "Microsoft: representative player in End platforms / systems",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "AMZN",
+          "name_en": "Amazon.com",
+          "name_zh": "亞馬遜",
+          "role_zh": "亞馬遜：終端平台／系統代表性玩家",
+          "role_en": "Amazon.com: representative player in End platforms / systems",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "005930.KS",
+          "name_en": "Samsung Electronics",
+          "name_zh": "三星電子",
+          "role_zh": "三星電子：終端平台／系統代表性玩家",
+          "role_en": "Samsung Electronics: representative player in End platforms / systems",
+          "exchange": "KRX",
+          "listedInApp": false
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "AMKR",
+      "name_en": "Amkor",
+      "name_zh": "Amkor",
+      "basis_zh": "封測／先進封裝對手",
+      "basis_en": "OSAT / advanced packaging rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "600584.SS",
+      "name_en": "JCET",
+      "name_zh": "長電科技",
+      "basis_zh": "封測／先進封裝對手",
+      "basis_en": "OSAT / advanced packaging rival",
+      "exchange": "SSE",
+      "listedInApp": false
+    },
+    {
+      "ticker": "002156.SZ",
+      "name_en": "Tongfu Microelectronics",
+      "name_zh": "通富微電",
+      "basis_zh": "封測／先進封裝對手",
+      "basis_en": "OSAT / advanced packaging rival",
+      "exchange": "SZSE",
+      "listedInApp": false
+    },
+    {
+      "ticker": "TSM",
+      "name_en": "TSM",
+      "name_zh": "臺積電 ADR",
+      "basis_zh": "封測／先進封裝對手",
+      "basis_en": "OSAT / advanced packaging rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "GFS",
+      "name_en": "GlobalFoundries",
+      "name_zh": "GlobalFoundries",
+      "basis_zh": "封測／先進封裝對手",
+      "basis_en": "OSAT / advanced packaging rival",
+      "exchange": "NASDAQ"
+    }
+  ]
+}

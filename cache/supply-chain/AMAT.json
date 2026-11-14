@@ -20,9 +20,9 @@
   },
   "model": {
     "id": "semiconductor-equipment-v1",
-    "label_zh": "半導體裝置價值鏈",
+    "label_zh": "半導體設備價值鏈",
     "label_en": "Semi equipment value chain",
-    "description_zh": "精密零元件 → 模組／光學 → 裝置整合 → 晶圓廠客戶 → 服務／備件。",
+    "description_zh": "精密零元件 → 模組／光學 → 設備整合 → 晶圓廠客戶 → 服務／備件。",
     "description_en": "Precision parts → modules/optics → tool integration → fab customers → service."
   },
   "stages": [
@@ -97,7 +97,7 @@
     {
       "id": "integration",
       "order": 3,
-      "label_zh": "裝置整合／軟體",
+      "label_zh": "設備整合／軟體",
       "label_en": "Tool integration / software",
       "summary_zh": "整機整合與製程軟體。",
       "summary_en": "Tool integration and process software.",
@@ -106,15 +106,15 @@
           "ticker": "SNPS",
           "name_en": "Synopsys",
           "name_zh": "新思科技",
-          "role_zh": "新思科技：裝置整合／軟體代表性玩家",
+          "role_zh": "新思科技：設備整合／軟體代表性玩家",
           "role_en": "Synopsys: representative player in Tool integration / software",
           "exchange": "NASDAQ"
         },
         {
           "ticker": "CDNS",
           "name_en": "Cadence",
-          "name_zh": "楷登電子",
-          "role_zh": "楷登電子：裝置整合／軟體代表性玩家",
+          "name_zh": "益華電腦",
+          "role_zh": "益華電腦：設備整合／軟體代表性玩家",
           "role_en": "Cadence: representative player in Tool integration / software",
           "exchange": "NASDAQ"
         },
@@ -122,7 +122,7 @@
           "ticker": "KEYS",
           "name_en": "Keysight",
           "name_zh": "是德科技",
-          "role_zh": "是德科技：裝置整合／軟體代表性玩家",
+          "role_zh": "是德科技：設備整合／軟體代表性玩家",
           "role_en": "Keysight: representative player in Tool integration / software",
           "exchange": "NYSE"
         }
@@ -203,7 +203,7 @@
       "ticker": "LRCX",
       "name_en": "Lam Research Corporation",
       "name_zh": "拉姆研究",
-      "basis_zh": "半導體裝置對手",
+      "basis_zh": "半導體設備對手",
       "basis_en": "Semi equipment rival",
       "exchange": "NASDAQ"
     },
@@ -211,7 +211,7 @@
       "ticker": "ASML",
       "name_en": "ASML Holding N.V.",
       "name_zh": "艾司摩爾",
-      "basis_zh": "半導體裝置對手",
+      "basis_zh": "半導體設備對手",
       "basis_en": "Semi equipment rival",
       "exchange": "NASDAQ"
     },
@@ -219,7 +219,7 @@
       "ticker": "KLAC",
       "name_en": "KLA Corporation",
       "name_zh": "科磊",
-      "basis_zh": "半導體裝置對手",
+      "basis_zh": "半導體設備對手",
       "basis_en": "Semi equipment rival",
       "exchange": "NASDAQ"
     },
@@ -227,7 +227,7 @@
       "ticker": "8035.T",
       "name_en": "Tokyo Electron",
       "name_zh": "東京威力科創",
-      "basis_zh": "半導體裝置對手",
+      "basis_zh": "半導體設備對手",
       "basis_en": "Semi equipment rival",
       "exchange": "TSE",
       "listedInApp": false
@@ -236,7 +236,7 @@
       "ticker": "TER",
       "name_en": "Teradyne",
       "name_zh": "泰瑞達",
-      "basis_zh": "半導體裝置對手",
+      "basis_zh": "半導體設備對手",
       "basis_en": "Semi equipment rival",
       "exchange": "NASDAQ"
     }

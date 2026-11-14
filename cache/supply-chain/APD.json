@@ -1,0 +1,239 @@
+{
+  "version": 1,
+  "ticker": "APD",
+  "name_en": "Air Products",
+  "name_zh": "空氣化工",
+  "updatedAt": "2026-11-14",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mid-mega caps ($50B–$100B). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股市值500億–1,000億美元批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for the US mcap $50B–$100B batch. No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "industrial-gases-v1",
+    "references": [
+      "Industry model `industrial-gases-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json marketCap screen: USD 50B ≤ mcap < 100B",
+      "Mega ≥$100B batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "industrial-gases-v1",
+    "label_zh": "工業氣體價值鏈",
+    "label_en": "Industrial gases value chain",
+    "description_zh": "能源／原料 → 製程與壓縮設備 → 空分／製氣 → 鋼瓶／管線配送 → 半導體／醫療／製造客戶。",
+    "description_en": "Energy/feedstock → process & compression equipment → air separation/production → cylinder/pipeline distribution → semi/healthcare/manufacturing customers."
+  },
+  "stages": [
+    {
+      "id": "feedstock",
+      "order": 1,
+      "label_zh": "能源／原料",
+      "label_en": "Energy / feedstock",
+      "summary_zh": "電力、天然氣與製程原料。",
+      "summary_en": "Power, natural gas, process feedstock.",
+      "players": [
+        {
+          "ticker": "XOM",
+          "name_en": "Exxonmobil",
+          "name_zh": "埃克森美孚",
+          "role_zh": "埃克森美孚：能源／原料代表性玩家",
+          "role_en": "Exxonmobil: representative player in Energy / feedstock",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "CVX",
+          "name_en": "Chevron",
+          "name_zh": "雪佛龍",
+          "role_zh": "雪佛龍：能源／原料代表性玩家",
+          "role_en": "Chevron: representative player in Energy / feedstock",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "SHEL",
+          "name_en": "Shell",
+          "name_zh": "殼牌",
+          "role_zh": "殼牌：能源／原料代表性玩家",
+          "role_en": "Shell: representative player in Energy / feedstock",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "equipment",
+      "order": 2,
+      "label_zh": "製程／壓縮設備",
+      "label_en": "Process / compression equipment",
+      "summary_zh": "壓縮機、熱交換器與廠務設備。",
+      "summary_en": "Compressors, heat exchangers, plant equipment.",
+      "players": [
+        {
+          "ticker": "EMR",
+          "name_en": "Emerson",
+          "name_zh": "艾默生",
+          "role_zh": "艾默生：製程／壓縮設備代表性玩家",
+          "role_en": "Emerson: representative player in Process / compression equipment",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "ETN",
+          "name_en": "Eaton",
+          "name_zh": "伊頓",
+          "role_zh": "伊頓：製程／壓縮設備代表性玩家",
+          "role_en": "Eaton: representative player in Process / compression equipment",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "HON",
+          "name_en": "Honeywell",
+          "name_zh": "漢威聯合",
+          "role_zh": "漢威聯合：製程／壓縮設備代表性玩家",
+          "role_en": "Honeywell: representative player in Process / compression equipment",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "production",
+      "order": 3,
+      "label_zh": "空分／製氣",
+      "label_en": "Air separation / gas production",
+      "summary_zh": "工業氣體生產與純化。",
+      "summary_en": "Industrial gas production and purification.",
+      "players": [
+        {
+          "ticker": "LIN",
+          "name_en": "Linde",
+          "name_zh": "林德集團",
+          "role_zh": "林德集團：空分／製氣代表性玩家",
+          "role_en": "Linde: representative player in Air separation / gas production",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "AIQUY",
+          "name_en": "Air Liquide",
+          "name_zh": "液化空氣",
+          "role_zh": "液化空氣：空分／製氣代表性玩家",
+          "role_en": "Air Liquide: representative player in Air separation / gas production",
+          "exchange": "OTC",
+          "listedInApp": false
+        },
+        {
+          "ticker": "XOM",
+          "name_en": "Exxonmobil",
+          "name_zh": "埃克森美孚",
+          "role_zh": "埃克森美孚：空分／製氣代表性玩家",
+          "role_en": "Exxonmobil: representative player in Air separation / gas production",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "distribution",
+      "order": 4,
+      "label_zh": "鋼瓶／管線配送",
+      "label_en": "Cylinder / pipeline distribution",
+      "summary_zh": "批次與零售氣體配送。",
+      "summary_en": "Bulk and packaged gas delivery.",
+      "players": [
+        {
+          "ticker": "UNP",
+          "name_en": "Union Pacific",
+          "name_zh": "聯合太平洋鐵路",
+          "role_zh": "聯合太平洋鐵路：鋼瓶／管線配送代表性玩家",
+          "role_en": "Union Pacific: representative player in Cylinder / pipeline distribution",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "FDX",
+          "name_en": "FedEx",
+          "name_zh": "聯邦快遞",
+          "role_zh": "聯邦快遞：鋼瓶／管線配送代表性玩家",
+          "role_en": "FedEx: representative player in Cylinder / pipeline distribution",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "UPS",
+          "name_en": "United Parcel Service",
+          "name_zh": "優比速",
+          "role_zh": "優比速：鋼瓶／管線配送代表性玩家",
+          "role_en": "United Parcel Service: representative player in Cylinder / pipeline distribution",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "customers",
+      "order": 5,
+      "label_zh": "半導體／醫療／製造客戶",
+      "label_en": "Semi / healthcare / manufacturing customers",
+      "summary_zh": "晶圓廠、醫院與重工業使用者。",
+      "summary_en": "Fabs, hospitals, heavy industry.",
+      "players": [
+        {
+          "ticker": "TSM",
+          "name_en": "TSM",
+          "name_zh": "臺積電 ADR",
+          "role_zh": "臺積電 ADR：半導體／醫療／製造客戶代表性玩家",
+          "role_en": "TSM: representative player in Semi / healthcare / manufacturing customers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "JNJ",
+          "name_en": "Johnson & Johnson",
+          "name_zh": "嬌生",
+          "role_zh": "嬌生：半導體／醫療／製造客戶代表性玩家",
+          "role_en": "Johnson & Johnson: representative player in Semi / healthcare / manufacturing customers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "CAT",
+          "name_en": "Caterpillar",
+          "name_zh": "開拓重工",
+          "role_zh": "開拓重工：半導體／醫療／製造客戶代表性玩家",
+          "role_en": "Caterpillar: representative player in Semi / healthcare / manufacturing customers",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "LIN",
+      "name_en": "Linde",
+      "name_zh": "林德集團",
+      "basis_zh": "工業氣體對手",
+      "basis_en": "Industrial gases rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "AIQUY",
+      "name_en": "Air Liquide",
+      "name_zh": "液化空氣",
+      "basis_zh": "工業氣體對手",
+      "basis_en": "Industrial gases rival",
+      "exchange": "OTC",
+      "listedInApp": false
+    },
+    {
+      "ticker": "NPNYY",
+      "name_en": "Nippon Sanso",
+      "name_zh": "日本酸素",
+      "basis_zh": "工業氣體對手",
+      "basis_en": "Industrial gases rival",
+      "exchange": "OTC",
+      "listedInApp": false
+    },
+    {
+      "ticker": "4091.T",
+      "name_en": "Nippon Sanso Holdings",
+      "name_zh": "日本酸素控股",
+      "basis_zh": "工業氣體對手",
+      "basis_en": "Industrial gases rival",
+      "exchange": "TSE",
+      "listedInApp": false
+    }
+  ]
+}

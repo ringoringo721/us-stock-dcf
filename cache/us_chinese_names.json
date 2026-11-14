@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-27T16:52:06Z",
+  "generatedAt": "2026-11-14T07:12:21Z",
   "policy": {
     "preferTraditionalChinese": true,
     "noInventedTranslations": true,
@@ -15,758 +15,1139 @@
     "notes": "FMP company profiles do not provide Chinese names. description_zh lead-in extraction is excluded because many texts open with an unrelated Chinese entity (false ticker attribution). Gaps keep English company_name in the Chinese UI until a curated Traditional Chinese short name is supplied."
   },
   "coverage": {
-    "universeTickers": 951,
-    "withNameZh": 228,
-    "missingNameZh": 723,
-    "pct": 24.0,
+    "universeTickers": 1350,
+    "withNameZh": 246,
+    "missingNameZh": 1104,
+    "pct": 18.2,
     "bySource": {
-      "STOCK_NAMES_ZH": 214,
-      "HKEX_dual_list": 14
+      "STOCK_NAMES_ZH": 226,
+      "HKEX_dual_list": 20
     },
-    "curatedMapSize": 230,
-    "beforeCuratedOnly": 214,
-    "beforePct": 22.5
+    "curatedMapSize": 231,
+    "beforeCuratedOnly": 226,
+    "beforePct": 16.7
   },
   "missingTickers": [
     "SPCX",
     "SKHY",
     "ASML",
     "PLTR",
-    "DELL",
-    "SHEL",
     "NVS",
+    "AZN",
+    "SHEL",
     "RY",
     "SAP",
-    "AZN",
-    "MUFG",
-    "GEV",
-    "ARM",
     "TM",
-    "SHOP",
+    "MUFG",
+    "DELL",
     "TD",
+    "GEV",
     "BHP",
     "TTE",
-    "SNDK",
+    "SHOP",
+    "ARM",
+    "WELL",
+    "NVO",
     "ADI",
     "SAN",
-    "AMRO",
-    "NVO",
-    "WELL",
-    "PBR",
     "BUD",
-    "SCHW",
-    "STX",
-    "PBR-A",
-    "ETN",
-    "TBB",
-    "IBKR",
     "SONY",
+    "SCHW",
     "UBS",
-    "BBVA",
-    "WDC",
-    "RIO",
     "UL",
     "UBER",
-    "BP",
-    "MFG",
-    "COF",
-    "BTI",
     "BX",
-    "MO",
-    "PH",
-    "CVS",
-    "BMO",
+    "BBVA",
+    "RIO",
+    "IBKR",
+    "ETN",
+    "BTI",
     "HDB",
-    "GLW",
-    "BNS",
-    "SNOW",
-    "CNQ",
-    "PDD",
-    "EQNR",
-    "NET",
+    "MO",
     "SPOT",
-    "ITUB",
     "IBN",
-    "CM",
-    "ABNB",
-    "SOJE",
-    "SOMN",
-    "TT",
-    "GSK",
-    "HCA",
-    "BNY",
-    "SNY",
-    "MRNA",
-    "DDOG",
-    "SMFG",
-    "ING",
-    "AEM",
-    "ELV",
-    "MELI",
-    "SU",
-    "GD",
-    "ASX",
-    "JCI",
-    "EMR",
-    "MRSH",
-    "PWR",
-    "MMM",
+    "COF",
+    "PBR",
     "APP",
+    "BMO",
+    "SNDK",
+    "BP",
+    "PH",
+    "PDD",
+    "SNY",
+    "ABNB",
+    "MFG",
+    "BNS",
+    "PBR-A",
+    "CVS",
+    "STX",
+    "CM",
+    "HCA",
+    "EQNR",
+    "GSK",
+    "MRNA",
+    "CNQ",
+    "BNY",
+    "WDC",
+    "MRSH",
+    "SNOW",
+    "AEM",
+    "NET",
+    "GD",
+    "MMM",
+    "BN",
+    "ELV",
+    "GLW",
     "CSX",
+    "EMR",
+    "ING",
+    "SMFG",
     "PNC",
     "CTAS",
-    "E",
-    "BNH",
-    "BNJ",
-    "BN",
-    "HWM",
-    "VRT",
-    "NGG",
-    "KKR",
-    "HOOD",
-    "CI",
-    "DASH",
-    "LYG",
-    "CP",
-    "MSI",
-    "HPE",
+    "TT",
     "RCL",
-    "LITE",
+    "KKR",
+    "NGG",
+    "MSI",
+    "BAM",
+    "E",
+    "HWM",
+    "JCI",
+    "PWR",
+    "ITUB",
+    "CVNA",
+    "SU",
+    "CP",
+    "DASH",
+    "CI",
+    "AMX",
+    "MELI",
+    "RSG",
     "NOC",
     "BCS",
-    "CMI",
-    "NSC",
-    "BAM",
-    "NU",
-    "AMX",
-    "FDX",
-    "RSG",
-    "BE",
+    "LYG",
     "RACE",
+    "FDX",
+    "NSC",
+    "VRT",
+    "ASX",
     "RELX",
-    "B",
-    "URI",
     "APO",
-    "APOS",
-    "IMO",
-    "DLR",
-    "CVNA",
-    "TRP",
-    "BSX",
     "GWW",
-    "TRGP",
-    "MPWR",
+    "B",
     "TAK",
-    "MSTR",
-    "NXPI",
-    "CVE",
+    "URI",
+    "DLR",
     "DB",
-    "FAST",
-    "WPM",
-    "NUE",
-    "CAH",
-    "NTRA",
-    "MPLX",
-    "OKE",
-    "LNG",
-    "TFC",
-    "KEYS",
-    "PCAR",
-    "AME",
+    "TRP",
+    "DDOG",
+    "HOOD",
     "CRH",
-    "TEAM",
-    "FANG",
-    "GRMN",
-    "ARGX",
     "PSA",
-    "DVN",
-    "VALE",
-    "TER",
+    "CAH",
+    "NXPI",
+    "BSX",
+    "CMI",
+    "WPM",
+    "FAST",
     "NDAQ",
-    "VST",
-    "INFY",
-    "DEO",
-    "HONA",
-    "CIEN",
-    "DAL",
-    "HUM",
-    "ABEV",
+    "HPE",
+    "TFC",
+    "IMO",
     "EW",
-    "ETR",
-    "ALAB",
-    "A",
-    "NOK",
-    "TRI",
-    "VYLR",
-    "UMC",
-    "FIX",
-    "PYPL",
-    "CCEP",
-    "ROK",
-    "WAB",
-    "XEL",
-    "FITB",
-    "MT",
-    "SE",
-    "TEVA",
-    "XYZ",
-    "FNV",
-    "KDP",
-    "COHR",
-    "COIN",
-    "CARR",
-    "STT",
-    "AU",
-    "LHX",
-    "ELC",
-    "IQV",
-    "WAT",
-    "SLF",
-    "WDS",
-    "EXC",
-    "FERG",
-    "HMC",
-    "HLN",
-    "VTR",
-    "P",
+    "ARGX",
+    "NU",
+    "MPWR",
+    "DAL",
+    "LNG",
+    "TRGP",
+    "MPLX",
+    "NUE",
+    "DEO",
+    "GRMN",
+    "OKE",
+    "PCAR",
     "IDXX",
-    "FMX",
-    "AMP",
-    "BBD",
-    "NTAP",
-    "KB",
-    "BSBR",
+    "ETR",
+    "AME",
+    "HUM",
+    "MSTR",
+    "CCEP",
+    "BE",
+    "XEL",
+    "INFY",
+    "FANG",
+    "CVE",
+    "KDP",
+    "TEVA",
+    "VALE",
+    "A",
+    "PYPL",
+    "FNV",
+    "LITE",
+    "TRI",
+    "HONA",
+    "LHX",
+    "FITB",
+    "WAB",
     "WCN",
-    "STM",
-    "BBDO",
-    "MCHP",
-    "RVMD",
-    "HEI",
-    "ED",
-    "NBIS",
-    "IX",
-    "TWLO",
-    "SYY",
-    "SMCIP",
+    "EXC",
     "ROP",
-    "ODFL",
-    "CBRE",
-    "DHI",
-    "VIK",
+    "AU",
+    "VTR",
+    "VYLR",
+    "DVN",
+    "HMC",
+    "SE",
+    "HEI",
+    "KEYS",
+    "XYZ",
+    "MT",
+    "ELC",
+    "FERG",
+    "STT",
+    "WAT",
+    "NTRA",
+    "FMX",
     "ARES",
-    "CLS",
-    "KR",
-    "ZS",
-    "EL",
-    "RBLX",
-    "VOD",
-    "UI",
-    "CHT",
-    "HIG",
-    "CCL",
-    "KVUE",
-    "FER",
-    "MCHPP",
-    "CCJ",
-    "BIIB",
-    "NWG",
-    "STLD",
-    "EC",
-    "PEG",
-    "WEC",
-    "PCG",
-    "PPLC",
-    "OKTA",
-    "ESLT",
-    "CNC",
-    "CCI",
-    "CRDO",
-    "ACGL",
-    "IRM",
-    "CRWV",
-    "ERIC",
-    "EQT",
-    "MTD",
-    "UAL",
-    "SHG",
-    "STRC",
-    "GFI",
-    "AXON",
-    "EXPE",
-    "ALC",
-    "NTR",
-    "SUNB",
-    "VG",
-    "RKLB",
-    "FLEX",
-    "HBAN",
-    "MTB",
-    "TS",
-    "MDB",
+    "ED",
+    "AMP",
+    "ABEV",
+    "CARR",
     "RKT",
-    "CTSH",
+    "FER",
+    "VST",
+    "ROK",
+    "NOK",
+    "DHI",
+    "RVMD",
+    "HLN",
+    "KR",
+    "WDS",
+    "EL",
+    "CCL",
+    "SLF",
+    "KB",
+    "VIK",
+    "CBRE",
+    "TEAM",
+    "CCI",
+    "IX",
+    "CHT",
+    "WEC",
+    "COHR",
+    "SYY",
+    "STM",
     "GEHC",
+    "VOD",
+    "BIIB",
+    "UAL",
+    "ACGL",
+    "KVUE",
+    "ALC",
+    "PEG",
+    "UI",
+    "HIG",
+    "FIX",
+    "COIN",
+    "GFI",
     "MDLN",
-    "CQP",
-    "BAP",
-    "EME",
-    "IR",
-    "NTRS",
-    "TECK",
-    "ALNY",
-    "ON",
-    "RJF",
-    "WSM",
+    "PCG",
+    "BSBR",
+    "UMC",
+    "CIEN",
+    "CNC",
+    "MTD",
+    "ODFL",
+    "TER",
+    "NTR",
     "EXR",
-    "RDDT",
-    "WTW",
-    "AEE",
-    "JBL",
-    "PBA",
-    "TDY",
-    "DG",
-    "ZM",
-    "FTS",
-    "KGC",
-    "HPQ",
-    "ATO",
-    "BSP",
-    "RYAAY",
+    "FISV",
+    "ERIC",
+    "NTAP",
+    "RBLX",
+    "ALAB",
+    "GMAB",
+    "SMCIP",
+    "STRC",
+    "P",
+    "ZS",
+    "ESLT",
+    "EC",
+    "IR",
+    "RKLB",
+    "NWG",
+    "IRM",
+    "STLD",
+    "MCHP",
+    "TS",
+    "SUNB",
+    "MTB",
     "SN",
-    "VRSN",
-    "FOXA",
-    "WST",
+    "NTRS",
+    "RJF",
+    "TWLO",
+    "AEE",
+    "HBAN",
+    "NBIS",
+    "CCJ",
+    "EQT",
+    "RYAAY",
+    "FTS",
+    "WTW",
     "RPRX",
-    "JBS",
-    "WRB",
-    "FTI",
-    "CFG",
+    "WSM",
+    "CPAY",
+    "EXPE",
+    "PHG",
+    "DG",
+    "SHG",
+    "ATO",
+    "TECK",
+    "CPNG",
+    "CTSH",
+    "VG",
+    "TDY",
+    "CINF",
+    "VLTO",
+    "MCHPP",
+    "DGX",
+    "OKTA",
     "DTE",
+    "ROIV",
+    "PBA",
+    "WRB",
+    "WST",
+    "CQP",
+    "FOXA",
+    "BBD",
+    "VRSN",
+    "JBS",
+    "BAP",
+    "ULTA",
     "NMR",
     "DOV",
-    "CPAY",
-    "CBRS",
-    "CINF",
-    "ROIV",
-    "CNP",
-    "DGX",
-    "FE",
-    "GFS",
-    "FOX",
-    "PPL",
-    "FFIV",
-    "ULTA",
     "QSR",
-    "CASY",
-    "FISV",
-    "EXPD",
-    "IOT",
-    "LPLA",
-    "SYM",
-    "PHG",
-    "Q",
-    "IHG",
-    "CPNG",
-    "RBRK",
-    "KOF",
-    "ES",
-    "VLTO",
-    "ATI",
     "PPG",
-    "HUBB",
-    "GMAB",
+    "CNP",
+    "PPL",
+    "BSP",
+    "FE",
+    "BBDO",
+    "FOX",
+    "EME",
+    "CFG",
+    "KGC",
     "LVS",
-    "DRI",
-    "FCNCA",
-    "UTHR",
-    "SYF",
-    "RF",
-    "TPL",
-    "NVT",
-    "BRO",
-    "DLTR",
-    "SMCI",
-    "AER",
-    "VMRK",
-    "PFG",
-    "MKL",
-    "CIB",
-    "INCY",
-    "BNTX",
-    "FWONK",
     "TPR",
-    "L",
-    "CRCL",
+    "ES",
+    "ZM",
+    "AER",
+    "IHG",
+    "CLS",
+    "FLEX",
+    "GPN",
+    "HPQ",
+    "DRI",
+    "CRWV",
+    "AXON",
+    "CASY",
+    "FWONA",
+    "FCNCA",
+    "PHM",
+    "MDB",
+    "INSM",
+    "FTI",
+    "ON",
+    "JBL",
+    "DLTR",
+    "VMRK",
+    "Q",
+    "INCY",
+    "RF",
+    "UTHR",
+    "KOF",
+    "STZ",
+    "IOT",
+    "EXPD",
+    "SYF",
+    "BRO",
+    "ATI",
+    "MKL",
+    "OMC",
+    "PFG",
+    "TROW",
+    "SW",
+    "USFD",
+    "LPLA",
+    "AMRZ",
+    "FWONK",
+    "VTRS",
+    "EIX",
+    "HUBB",
+    "U",
+    "CRDO",
+    "RGLD",
+    "THC",
     "KEY",
     "RL",
-    "ENTG",
-    "GH",
-    "STZ",
-    "DINO",
-    "GPN",
-    "USFD",
-    "OMC",
-    "XPO",
-    "TROW",
-    "EIX",
-    "AFRM",
-    "SW",
-    "STRK",
-    "THC",
-    "SBS",
-    "TSEM",
-    "PHM",
-    "RS",
-    "EXE",
-    "JBHT",
-    "CMS",
-    "CMSA",
+    "SYM",
     "PKG",
-    "WIT",
-    "AMRZ",
-    "VTRS",
-    "PTC",
-    "NRG",
-    "FWONA",
-    "AMCR",
-    "MTSI",
-    "ROKU",
-    "PR",
-    "VIV",
-    "NI",
-    "RGLD",
-    "INSM",
-    "LYB",
-    "SSNC",
-    "TCPA",
-    "SNX",
-    "BCH",
-    "SOJD",
-    "BEKE",
-    "CDW",
-    "YPF",
-    "BBY",
-    "TSN",
-    "BG",
+    "L",
+    "CIB",
+    "RBRK",
     "LUV",
-    "OVV",
-    "SOFI",
-    "WWD",
-    "EVRG",
-    "SNA",
-    "NTNX",
-    "DT",
+    "CMS",
+    "BNTX",
+    "STRK",
     "FSLR",
-    "FIS",
-    "AQNB",
-    "PS",
-    "BCE",
-    "ZBRA",
-    "MEDP",
+    "TCPA",
+    "WIT",
+    "ROKU",
+    "RS",
+    "GFS",
+    "PTC",
+    "NI",
     "LEN",
-    "NDSN",
-    "WES",
+    "SOFI",
+    "TSN",
+    "BBY",
+    "ALNY",
+    "BEKE",
+    "AMCR",
+    "XPO",
+    "PS",
+    "JBHT",
+    "AFRM",
+    "CBRS",
+    "GH",
+    "EVRG",
+    "BCE",
     "SBAC",
-    "SOJC",
-    "PAA",
-    "CW",
-    "CRS",
-    "U",
-    "PAAS",
-    "EWBC",
     "RIVN",
-    "NWS",
-    "ITT",
-    "IP",
-    "KSPI",
-    "LNT",
+    "CDW",
+    "LYB",
+    "ENTG",
+    "EXE",
+    "BCH",
     "FTV",
-    "ESS",
-    "CF",
-    "RGA",
-    "RZC",
-    "RVTY",
-    "APA",
-    "APG",
-    "IEX",
-    "WF",
-    "PKX",
-    "AS",
-    "GPC",
-    "HST",
-    "RCI",
-    "MGA",
-    "TLN",
-    "WCC",
-    "BALL",
-    "NWSA",
-    "TPG",
-    "H",
-    "CLH",
-    "FTAI",
-    "TOST",
-    "BIP",
-    "ASTS",
-    "SQM",
-    "J",
-    "CRL",
-    "WMG",
-    "CHRW",
-    "VNOM",
-    "CCZ",
-    "EXEL",
-    "LDOS",
+    "BG",
+    "SNA",
+    "SMCI",
+    "LNT",
+    "TPL",
+    "WWD",
+    "NRG",
     "FDXF",
-    "BEN",
-    "HAS",
-    "DUKB",
-    "RBC",
-    "INVH",
-    "NVR",
-    "LOGI",
-    "LAMR",
-    "CRBG",
-    "XP",
-    "CDE",
-    "BURL",
-    "BSAC",
-    "W",
-    "LSCC",
-    "JHX",
-    "SITM",
-    "KIM",
-    "DOCU",
-    "PFGC",
-    "RBA",
-    "GFL",
-    "EG",
-    "CX",
-    "ULS",
-    "GWRE",
-    "ASND",
-    "EQH",
-    "PNFP",
-    "UNM",
-    "UNMA",
-    "RNR",
-    "SOLV",
-    "FUTU",
-    "MAS",
-    "ARMK",
-    "ECHO",
-    "CHKP",
-    "MKSI",
-    "TRMB",
-    "GIB",
-    "EMA",
-    "MTZ",
-    "SGI",
-    "CHTR",
+    "FTAI",
+    "ITT",
+    "RDDT",
+    "AS",
+    "IP",
+    "MEDP",
+    "VIV",
+    "SSNC",
+    "PR",
+    "CF",
+    "BIP",
+    "RCI",
+    "TOST",
+    "TPG",
     "GEN",
+    "FFIV",
+    "EWBC",
+    "APG",
+    "ESS",
+    "EXEL",
+    "SNX",
+    "BALL",
+    "J",
+    "KSPI",
     "SWK",
+    "RBA",
+    "CRCL",
+    "RVTY",
+    "NDSN",
+    "H",
+    "NVT",
+    "BEN",
+    "CW",
+    "RGA",
+    "PAAS",
+    "NWSA",
+    "PFGC",
+    "KIM",
+    "JLL",
+    "GPC",
+    "ASND",
+    "WF",
+    "PAA",
+    "NVR",
+    "HST",
+    "OVV",
+    "IEX",
     "NBIX",
-    "LECO",
+    "DINO",
+    "LDOS",
+    "HAS",
+    "WES",
+    "SBS",
+    "SQM",
+    "WMG",
+    "CRL",
+    "GFL",
+    "JHX",
+    "MTSI",
+    "MGA",
+    "CDE",
+    "NXT",
+    "CHTR",
+    "ULS",
+    "MAS",
+    "LAMR",
+    "NTNX",
+    "INVH",
+    "ALLE",
+    "APA",
+    "TSEM",
+    "NWS",
+    "EMA",
+    "CX",
+    "BURL",
+    "SOLV",
     "OWL",
     "ICLR",
-    "CNH",
-    "WPC",
-    "SUI",
-    "HALO",
-    "JLL",
+    "W",
+    "GIB",
+    "ZBRA",
+    "BSAC",
+    "EG",
+    "PNFP",
+    "YPF",
     "AIZ",
-    "AIZN",
-    "COKE",
-    "PAG",
-    "IT",
-    "LTM",
-    "KEP",
-    "JAZZ",
-    "MANH",
-    "CACI",
-    "GDDY",
-    "TIGO",
     "WY",
-    "MAA",
-    "SJM",
-    "BMNR",
-    "BMNP",
-    "FLUT",
+    "JAZZ",
+    "RBC",
+    "CRBG",
+    "ECHO",
+    "CLH",
+    "WPC",
+    "LSCC",
+    "LECO",
+    "FIS",
+    "PKX",
+    "SGI",
     "NLY",
-    "AVY",
-    "ALLE",
-    "AEFC",
-    "CSL",
+    "TLN",
+    "CHKP",
+    "MANH",
+    "SUI",
     "OHI",
-    "KKRS",
-    "EMBJ",
+    "VNOM",
+    "CHRW",
+    "CSL",
+    "DOCU",
+    "GDDY",
+    "BBIO",
+    "KEP",
+    "EQH",
+    "TU",
+    "CNH",
+    "WCC",
+    "FLUT",
+    "BF-B",
+    "AVY",
     "TXT",
     "CG",
-    "AGI",
-    "GME",
-    "BBIO",
-    "REG",
-    "SMTC",
-    "ARCC",
-    "TU",
-    "IONQ",
-    "CNA",
-    "BF-B",
-    "GL",
-    "SEIC",
-    "PINS",
-    "AKAM",
-    "BJ",
-    "IVZ",
-    "EQX",
-    "HUBS",
-    "BAX",
-    "FN",
-    "PEN",
-    "DOC",
-    "MLI",
-    "MKC-V",
-    "DTM",
-    "LII",
-    "INIO",
-    "CCK",
-    "STRL",
-    "SMMT",
-    "DKS",
-    "PNW",
-    "WSO",
-    "AEG",
-    "CORT",
-    "BIPI",
-    "BNT",
-    "AIT",
     "TOL",
-    "AFG",
-    "NXT",
-    "FIVE",
-    "BWXT",
-    "SWKS",
-    "SREA",
-    "BTSG",
-    "SKM",
-    "SNN",
-    "STLA",
-    "WTS",
-    "GNRC",
+    "RNR",
+    "IONQ",
+    "LTM",
+    "MTZ",
+    "DOC",
+    "TIGO",
+    "SJM",
+    "PAG",
+    "ARMK",
+    "COKE",
+    "BJ",
+    "ARCC",
+    "MAA",
+    "CRS",
+    "BNT",
+    "FUTU",
     "CART",
-    "DOCN",
+    "REG",
+    "LOGI",
+    "EMBJ",
     "EHC",
-    "TEM",
-    "AR",
-    "CR",
-    "ALLY",
-    "PAYC",
-    "RML",
-    "BWA",
-    "AVTR",
-    "FROG",
-    "MAIR",
-    "DECK",
-    "MOG-A",
-    "TLK",
-    "MICC",
-    "TX",
-    "WTRG",
-    "PAC",
-    "AHR",
-    "CHYM",
-    "ELS",
-    "RGEN",
-    "FRO",
-    "TECH",
-    "DVA",
-    "ERIE",
-    "ONON",
-    "ELAN",
-    "UDR",
-    "HRL",
-    "SAIL",
-    "COO",
-    "MOH",
     "GRAB",
-    "FIG",
-    "GLPI",
-    "ARW",
-    "ALB",
-    "BSY",
-    "AMH",
-    "NYT",
-    "WSE",
-    "TXRH",
-    "FHN",
-    "FRHC",
-    "RDY",
-    "IREN",
-    "EGP",
-    "PSO",
-    "ONTO",
-    "FNF",
-    "AMKR",
-    "GSAT",
-    "UHS",
-    "TTMI",
-    "JKHY",
-    "AA",
-    "SNAP",
-    "QXO",
-    "BMRN",
-    "AES",
-    "HBM",
-    "MTCH",
-    "HMY",
-    "RTO",
-    "MDGL",
-    "GMED",
-    "NVMI",
+    "CACI",
+    "TEM",
+    "KKRS",
+    "EQX",
+    "BTSG",
+    "BAX",
+    "GWRE",
+    "AGI",
+    "FIVE",
     "GKOS",
+    "ASTS",
+    "CCK",
+    "SNN",
+    "SMMT",
+    "MKSI",
+    "BSY",
+    "PAC",
+    "WTRG",
+    "ELAN",
+    "STLA",
+    "AFG",
+    "CNA",
+    "MKC-V",
+    "GME",
+    "WSO",
+    "PNW",
+    "TRMB",
+    "ERIE",
+    "AHR",
+    "PEN",
+    "DT",
+    "DKS",
+    "SITM",
+    "SEIC",
+    "AEG",
+    "RDY",
+    "SWKS",
+    "BIPI",
+    "ONON",
+    "FROG",
+    "ELS",
+    "UNM",
+    "JKHY",
+    "SKM",
+    "HRL",
+    "GL",
+    "TXRH",
+    "DVA",
+    "IT",
+    "QXO",
+    "RTO",
+    "AKAM",
     "SUZ",
-    "AGNC",
-    "PAYP",
-    "SSL",
-    "ESTC",
-    "BPOP",
-    "SOLS",
-    "GGB",
-    "QGEN",
-    "KNX",
-    "DPZ",
-    "DKNG",
-    "AMG",
-    "QNT",
-    "IAG",
-    "HL",
-    "MGRB",
-    "MGRE",
-    "ENSG",
-    "UMBF",
-    "MGRD",
-    "CPT",
-    "RMBS",
-    "ENLT",
-    "AUR",
+    "MICC",
+    "IVZ",
+    "CHYM",
+    "COO",
+    "AMH",
+    "HALO",
+    "FNF",
+    "UDR",
+    "FN",
+    "ALB",
+    "LII",
+    "CR",
+    "DTM",
+    "DECK",
+    "MAIR",
+    "WTS",
+    "MLI",
+    "ALLY",
+    "PCOR",
+    "TECH",
+    "FRHC",
     "RRC",
+    "GLPI",
+    "KYMR",
+    "AGNC",
+    "WSE",
+    "RGEN",
+    "AR",
+    "NYT",
+    "DPZ",
+    "SAIL",
+    "BWXT",
+    "TLK",
+    "EVR",
+    "GSAT",
+    "FHN",
+    "MOH",
+    "SIRI",
+    "PNR",
+    "BMRN",
+    "HMY",
+    "IAG",
     "SF",
-    "CIG-C"
+    "BMNR",
+    "AES",
+    "LTH",
+    "ENSG",
+    "PAYC",
+    "AVTR",
+    "OGE",
+    "GNRC",
+    "AA",
+    "PSO",
+    "EGP",
+    "QGEN",
+    "BXP",
+    "AIT",
+    "INIO",
+    "TTEK",
+    "BIO",
+    "MOG-A",
+    "WTFC",
+    "FLS",
+    "CUBE",
+    "R",
+    "BAH",
+    "PODD",
+    "UMBF",
+    "HLI",
+    "FRO",
+    "UHS",
+    "PAYP",
+    "SSB",
+    "PCVX",
+    "HUBS",
+    "CPT",
+    "NVMI",
+    "TTC",
+    "RML",
+    "HL",
+    "QNT",
+    "UHAL",
+    "BPOP",
+    "BWA",
+    "FRT",
+    "LLYVK",
+    "AYI",
+    "CFR",
+    "ALSN",
+    "TX",
+    "SMTC",
+    "HSIC",
+    "OC",
+    "SYRE",
+    "YMM",
+    "ENLT",
+    "GMED",
+    "KNX",
+    "SSL",
+    "ORI",
+    "PINS",
+    "ZION",
+    "MUSA",
+    "ONB",
+    "AMG",
+    "WMS",
+    "BEP",
+    "HNGE",
+    "BRKR",
+    "EGO",
+    "HBM",
+    "MDGL",
+    "ARW",
+    "SOLS",
+    "BRX",
+    "DKNG",
+    "FIG",
+    "TGTX",
+    "IBRX",
+    "SARO",
+    "DRS",
+    "CHWY",
+    "MORN",
+    "ESTC",
+    "CBC",
+    "LFUS",
+    "PCTY",
+    "ATR",
+    "CTRE",
+    "RHP",
+    "KT",
+    "VOYA",
+    "AM",
+    "MTCH",
+    "JEF",
+    "PRI",
+    "KRYS",
+    "LINE",
+    "ALV",
+    "SAIA",
+    "COLB",
+    "VSAT",
+    "LEVI",
+    "IREN",
+    "SKYD",
+    "MHK",
+    "AAL",
+    "NTSK",
+    "JXN",
+    "ADC",
+    "TIMB",
+    "REXR",
+    "KNSL",
+    "PB",
+    "IDA",
+    "VSXY",
+    "GGB",
+    "CAE",
+    "ACM",
+    "EAT",
+    "HQY",
+    "WYNN",
+    "PTGX",
+    "DOCN",
+    "ONTO",
+    "CNM",
+    "SNAP",
+    "STN",
+    "THG",
+    "NCLH",
+    "EPAM",
+    "ARWR",
+    "OSK",
+    "APTV",
+    "MGM",
+    "CELH",
+    "AMKR",
+    "WAL",
+    "WLK",
+    "PRMB",
+    "SSD",
+    "CIG-C",
+    "DSGX",
+    "CGNX",
+    "GTLB",
+    "VFC",
+    "RMBS",
+    "AEIS",
+    "PBF",
+    "FCFS",
+    "TWST",
+    "OSCR",
+    "UGI",
+    "DAR",
+    "TBBB",
+    "NNN",
+    "TTAN",
+    "PACS",
+    "BOKF",
+    "CORT",
+    "XP",
+    "CBSH",
+    "TFII",
+    "ARE",
+    "AXTA",
+    "ZETA",
+    "VLY",
+    "ETSY",
+    "PRAX",
+    "VMI",
+    "COMP",
+    "RYTM",
+    "STRL",
+    "ALKS",
+    "LNC",
+    "ESI",
+    "AUR",
+    "AGCO",
+    "LW",
+    "VFS",
+    "AXS",
+    "SFD",
+    "DUOL",
+    "POOL",
+    "GAP",
+    "DBX",
+    "TAP",
+    "MSGK",
+    "ABVX",
+    "RAL",
+    "AG",
+    "CHRD",
+    "CYTK",
+    "S",
+    "JAN",
+    "SLAB",
+    "VCTR",
+    "KNSA",
+    "EMN",
+    "IDCC",
+    "MAC",
+    "ANDG",
+    "KMX",
+    "CAG",
+    "URBN",
+    "TRNO",
+    "SANM",
+    "GLBE",
+    "ZWS",
+    "G",
+    "AWI",
+    "SPXC",
+    "BLCO",
+    "BTG",
+    "GRFS",
+    "CAI",
+    "FR",
+    "TXG",
+    "SM",
+    "BVN",
+    "MOS",
+    "TKR",
+    "STAG",
+    "LOAR",
+    "AMRX",
+    "TTMI",
+    "CWEN",
+    "VIAV",
+    "NFG",
+    "AXSM",
+    "CROX",
+    "FSS",
+    "CAVA",
+    "CPB",
+    "CHE",
+    "ELF",
+    "CMC",
+    "ZG",
+    "FAF",
+    "ORKA",
+    "PPC",
+    "OR",
+    "VICR",
+    "PATH",
+    "CGON",
+    "BLDR",
+    "SBSW",
+    "FTDR",
+    "VNO",
+    "LAD",
+    "ADT",
+    "HR",
+    "BPYPO",
+    "JBTM",
+    "BIRK",
+    "SWX",
+    "VIPS",
+    "KTOS",
+    "QLYS",
+    "LNTH",
+    "UBSI",
+    "IONS",
+    "SNEX",
+    "CLF",
+    "NE",
+    "AUGO",
+    "AVT",
+    "EXLS",
+    "TFPM",
+    "HUT",
+    "SOBO",
+    "CVLT",
+    "BKH",
+    "LYFT",
+    "HRB",
+    "GIL",
+    "OMF",
+    "XMTR",
+    "FSV",
+    "RYN",
+    "TXNM",
+    "TFX",
+    "KEX",
+    "NEU",
+    "ACT",
+    "IESC",
+    "GATX",
+    "ANF",
+    "MGY",
+    "BROS",
+    "MATX",
+    "FORM",
+    "GXO",
+    "MSM",
+    "MP",
+    "IMVT",
+    "FNB",
+    "RLI",
+    "GBCI",
+    "RIOT",
+    "NOV",
+    "DY",
+    "NAVN",
+    "KOD",
+    "MTDR",
+    "OGC",
+    "FLR",
+    "BLTE",
+    "ACI",
+    "TAL",
+    "TEX",
+    "HESM",
+    "HGTY",
+    "CWST",
+    "BETA",
+    "SAIC",
+    "STEP",
+    "LGND",
+    "WFRD",
+    "TTD",
+    "BBUC",
+    "HXL",
+    "MIRM",
+    "DLB",
+    "ACIW",
+    "GTES",
+    "EPRT",
+    "KRMN",
+    "ICL",
+    "OTEX",
+    "M",
+    "NIQ",
+    "ENIC",
+    "WEX",
+    "VIST",
+    "RDNT",
+    "HOMB",
+    "ESE",
+    "CZR",
+    "UGP",
+    "WPP",
+    "FPS",
+    "SIGI",
+    "KVYO",
+    "JOBY",
+    "AN",
+    "CPA",
+    "NICE",
+    "MTG",
+    "INGM",
+    "NXST",
+    "RIG",
+    "IBP",
+    "HIMS",
+    "MKTX",
+    "RYAN",
+    "MANE",
+    "DOCS",
+    "MBGL",
+    "SSRM",
+    "INGR",
+    "SGHC",
+    "BOX",
+    "WH",
+    "FBIN",
+    "HWC",
+    "AVAV",
+    "ST",
+    "SRRK",
+    "VNT",
+    "EXP",
+    "ESNT",
+    "CRUS",
+    "WULF",
+    "ORA",
+    "VRNS",
+    "OCTV",
+    "TREX",
+    "VAL",
+    "NXE",
+    "OZK",
+    "AUB",
+    "NJR",
+    "SBRA",
+    "COGT",
+    "ABCB",
+    "POR",
+    "NPO",
+    "PTCT",
+    "SIMO",
+    "HAE",
+    "WAY",
+    "GRAL",
+    "OUT",
+    "BYD",
+    "OBDC",
+    "CON",
+    "RNG",
+    "OLLI",
+    "CACC",
+    "BLLN",
+    "WTM",
+    "FND",
+    "VEON",
+    "FCN",
+    "MAIN",
+    "CAKE",
+    "CIG",
+    "GVA",
+    "LEA",
+    "PEGA",
+    "ENS",
+    "OMAB",
+    "CHH",
+    "PI",
+    "LPX",
+    "LFST",
+    "AX",
+    "ALGM",
+    "SR",
+    "MMSI",
+    "PECO",
+    "EBC",
+    "BRZE",
+    "AMTM",
+    "RUSHA",
+    "PSN",
+    "WFG",
+    "MUR",
+    "RITM",
+    "ESAB",
+    "IFS",
+    "MOD",
+    "KLAR",
+    "MEOH",
+    "BB",
+    "PLXS",
+    "AVAL",
+    "NOVT",
+    "CE",
+    "PAGP",
+    "KRG",
+    "NWE",
+    "OGS",
+    "CNO",
+    "HRI",
+    "REYN",
+    "SXT",
+    "LKQ",
+    "GHC",
+    "SEZL",
+    "ERAS",
+    "ASB",
+    "PSMT",
+    "LB",
+    "INSW",
+    "BC"
   ],
   "names": {
-    "NVDA": {
-      "name_zh": "輝達",
-      "source": "STOCK_NAMES_ZH"
-    },
     "AAPL": {
       "name_zh": "蘋果",
       "source": "STOCK_NAMES_ZH"
     },
-    "GOOG": {
-      "name_zh": "Alphabet (Class C)",
+    "NVDA": {
+      "name_zh": "輝達",
       "source": "STOCK_NAMES_ZH"
     },
     "MSFT": {
       "name_zh": "微軟",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "GOOG": {
+      "name_zh": "Alphabet (Class C)",
       "source": "STOCK_NAMES_ZH"
     },
     "AMZN": {
@@ -781,12 +1162,12 @@
       "name_zh": "Meta (臉書)",
       "source": "STOCK_NAMES_ZH"
     },
-    "AVGO": {
-      "name_zh": "博通",
-      "source": "STOCK_NAMES_ZH"
-    },
     "TSLA": {
       "name_zh": "特斯拉",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "AVGO": {
+      "name_zh": "博通",
       "source": "STOCK_NAMES_ZH"
     },
     "LLY": {
@@ -797,16 +1178,12 @@
       "name_zh": "波克夏海瑟威 (A)",
       "source": "STOCK_NAMES_ZH"
     },
-    "MU": {
-      "name_zh": "美光科技",
+    "BRK-B": {
+      "name_zh": "波克夏海瑟威 (B)",
       "source": "STOCK_NAMES_ZH"
     },
     "WMT": {
       "name_zh": "沃爾瑪",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "AMD": {
-      "name_zh": "超微半導體",
       "source": "STOCK_NAMES_ZH"
     },
     "JPM": {
@@ -815,6 +1192,14 @@
     },
     "V": {
       "name_zh": "威士卡",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "MU": {
+      "name_zh": "美光科技",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "AMD": {
+      "name_zh": "超微半導體",
       "source": "STOCK_NAMES_ZH"
     },
     "XOM": {
@@ -833,232 +1218,220 @@
       "name_zh": "艾伯維",
       "source": "STOCK_NAMES_ZH"
     },
-    "INTC": {
-      "name_zh": "英特爾",
+    "COST": {
+      "name_zh": "好市多",
       "source": "STOCK_NAMES_ZH"
     },
     "CVX": {
       "name_zh": "雪佛龍",
       "source": "STOCK_NAMES_ZH"
     },
-    "COST": {
-      "name_zh": "好市多",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "CSCO": {
-      "name_zh": "思科",
-      "source": "STOCK_NAMES_ZH"
-    },
     "KO": {
       "name_zh": "可口可樂",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "ORCL": {
-      "name_zh": "甲骨文",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "UNH": {
-      "name_zh": "聯合健康集團",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "MRK": {
-      "name_zh": "默沙東",
       "source": "STOCK_NAMES_ZH"
     },
     "PG": {
       "name_zh": "寶僑",
       "source": "STOCK_NAMES_ZH"
     },
-    "BAC": {
-      "name_zh": "美國銀行",
+    "CSCO": {
+      "name_zh": "思科",
       "source": "STOCK_NAMES_ZH"
     },
-    "CAT": {
-      "name_zh": "開拓重工",
+    "MRK": {
+      "name_zh": "默沙東",
       "source": "STOCK_NAMES_ZH"
     },
-    "LRCX": {
-      "name_zh": "科林研發",
+    "UNH": {
+      "name_zh": "聯合健康集團",
       "source": "STOCK_NAMES_ZH"
     },
-    "AMAT": {
-      "name_zh": "應用材料",
+    "ORCL": {
+      "name_zh": "甲骨文",
       "source": "STOCK_NAMES_ZH"
     },
     "HD": {
       "name_zh": "家得寶",
       "source": "STOCK_NAMES_ZH"
     },
-    "PM": {
-      "name_zh": "菲利普莫里斯",
+    "BAC": {
+      "name_zh": "美國銀行",
       "source": "STOCK_NAMES_ZH"
     },
     "GE": {
       "name_zh": "奇異航太 (GE Aerospace)",
       "source": "STOCK_NAMES_ZH"
     },
+    "PM": {
+      "name_zh": "菲利普莫里斯",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "INTC": {
+      "name_zh": "英特爾",
+      "source": "STOCK_NAMES_ZH"
+    },
     "MS": {
       "name_zh": "摩根士丹利",
       "source": "STOCK_NAMES_ZH"
     },
-    "PANW": {
-      "name_zh": "派拓網路",
+    "AMAT": {
+      "name_zh": "應用材料",
       "source": "STOCK_NAMES_ZH"
     },
     "NFLX": {
       "name_zh": "網飛",
       "source": "STOCK_NAMES_ZH"
     },
-    "GS": {
-      "name_zh": "高盛集團",
+    "TMO": {
+      "name_zh": "賽默飛世爾",
       "source": "STOCK_NAMES_ZH"
     },
-    "TXN": {
-      "name_zh": "德州儀器",
+    "PANW": {
+      "name_zh": "派拓網路",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "CAT": {
+      "name_zh": "開拓重工",
       "source": "STOCK_NAMES_ZH"
     },
     "RTX": {
       "name_zh": "雷神技術",
       "source": "STOCK_NAMES_ZH"
     },
-    "TMO": {
-      "name_zh": "賽默飛世爾",
+    "TXN": {
+      "name_zh": "德州儀器",
       "source": "STOCK_NAMES_ZH"
     },
     "WFC": {
       "name_zh": "富國銀行",
       "source": "STOCK_NAMES_ZH"
     },
-    "CRWD": {
-      "name_zh": "CrowdStrike",
+    "LRCX": {
+      "name_zh": "科林研發",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "GS": {
+      "name_zh": "高盛集團",
       "source": "STOCK_NAMES_ZH"
     },
     "AMGN": {
       "name_zh": "安進",
       "source": "STOCK_NAMES_ZH"
     },
+    "LIN": {
+      "name_zh": "林德集團",
+      "source": "STOCK_NAMES_ZH"
+    },
     "IBM": {
       "name_zh": "IBM",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "CRWD": {
+      "name_zh": "CrowdStrike",
       "source": "STOCK_NAMES_ZH"
     },
     "ANET": {
       "name_zh": "Arista 網路",
       "source": "STOCK_NAMES_ZH"
     },
-    "LIN": {
-      "name_zh": "林德集團",
-      "source": "STOCK_NAMES_ZH"
-    },
     "AXP": {
       "name_zh": "美國運通",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "MRVL": {
-      "name_zh": "邁威爾科技",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "KLAC": {
-      "name_zh": "科磊",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "C": {
-      "name_zh": "花旗集團",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "CRM": {
-      "name_zh": "賽富時",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "APH": {
-      "name_zh": "安費諾",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "DIS": {
-      "name_zh": "迪士尼",
       "source": "STOCK_NAMES_ZH"
     },
     "GILD": {
       "name_zh": "吉利德科學",
       "source": "STOCK_NAMES_ZH"
     },
-    "QCOM": {
-      "name_zh": "高通",
+    "DIS": {
+      "name_zh": "迪士尼",
       "source": "STOCK_NAMES_ZH"
     },
-    "PEP": {
-      "name_zh": "百事可樂",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "VZ": {
-      "name_zh": "威訊通訊",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "BLK": {
-      "name_zh": "貝萊德",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "COP": {
-      "name_zh": "康菲石油",
+    "C": {
+      "name_zh": "花旗集團",
       "source": "STOCK_NAMES_ZH"
     },
     "MCD": {
       "name_zh": "麥當勞",
       "source": "STOCK_NAMES_ZH"
     },
+    "PEP": {
+      "name_zh": "百事可樂",
+      "source": "STOCK_NAMES_ZH"
+    },
     "ABT": {
       "name_zh": "亞培",
       "source": "STOCK_NAMES_ZH"
     },
-    "DE": {
-      "name_zh": "強鹿公司 (Deere)",
+    "VZ": {
+      "name_zh": "威訊通訊",
       "source": "STOCK_NAMES_ZH"
     },
-    "UNP": {
-      "name_zh": "聯合太平洋鐵路",
+    "APH": {
+      "name_zh": "安費諾",
       "source": "STOCK_NAMES_ZH"
     },
-    "PFE": {
-      "name_zh": "輝瑞",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "SCCO": {
-      "name_zh": "南方銅業",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "TMUS": {
-      "name_zh": "T-Mobile 美國",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "DHR": {
-      "name_zh": "丹納赫",
+    "BLK": {
+      "name_zh": "貝萊德",
       "source": "STOCK_NAMES_ZH"
     },
     "NEE": {
       "name_zh": "新紀元能源",
       "source": "STOCK_NAMES_ZH"
     },
-    "TJX": {
-      "name_zh": "TJX 公司",
+    "DE": {
+      "name_zh": "強鹿公司 (Deere)",
       "source": "STOCK_NAMES_ZH"
     },
-    "NOW": {
-      "name_zh": "ServiceNow",
+    "KLAC": {
+      "name_zh": "科磊",
       "source": "STOCK_NAMES_ZH"
     },
-    "BA": {
-      "name_zh": "波音公司",
+    "QCOM": {
+      "name_zh": "高通",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "CRM": {
+      "name_zh": "賽富時",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "UNP": {
+      "name_zh": "聯合太平洋鐵路",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "TMUS": {
+      "name_zh": "T-Mobile 美國",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "PFE": {
+      "name_zh": "輝瑞",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "COP": {
+      "name_zh": "康菲石油",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "DHR": {
+      "name_zh": "丹納赫",
       "source": "STOCK_NAMES_ZH"
     },
     "ISRG": {
       "name_zh": "直覺外科 (達文西)",
       "source": "STOCK_NAMES_ZH"
     },
+    "ACN": {
+      "name_zh": "埃森哲",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "TJX": {
+      "name_zh": "TJX 公司",
+      "source": "STOCK_NAMES_ZH"
+    },
     "T": {
       "name_zh": "AT&T",
       "source": "STOCK_NAMES_ZH"
     },
-    "ACN": {
-      "name_zh": "埃森哲",
+    "SCCO": {
+      "name_zh": "南方銅業",
       "source": "STOCK_NAMES_ZH"
     },
     "CB": {
@@ -1069,8 +1442,8 @@
       "name_zh": "福泰製藥",
       "source": "STOCK_NAMES_ZH"
     },
-    "MPC": {
-      "name_zh": "馬拉松原油",
+    "BA": {
+      "name_zh": "波音公司",
       "source": "STOCK_NAMES_ZH"
     },
     "SPGI": {
@@ -1081,64 +1454,52 @@
       "name_zh": "前進保險",
       "source": "STOCK_NAMES_ZH"
     },
-    "FTNT": {
-      "name_zh": "飛塔資訊",
-      "source": "STOCK_NAMES_ZH"
-    },
     "LMT": {
       "name_zh": "洛克希德·馬丁",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "VLO": {
-      "name_zh": "瓦萊羅能源",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "BMY": {
-      "name_zh": "必貴寶 (施貴寶)",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "NEM": {
-      "name_zh": "紐蒙特黃金",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "PLD": {
-      "name_zh": "普洛斯 (Prologis)",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "BKNG": {
-      "name_zh": "Booking 控股",
       "source": "STOCK_NAMES_ZH"
     },
     "MDT": {
       "name_zh": "美敦力",
       "source": "STOCK_NAMES_ZH"
     },
-    "MCK": {
-      "name_zh": "麥克森",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "ADP": {
-      "name_zh": "安德普翰 (ADP)",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "PSX": {
-      "name_zh": "菲利普斯66",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "SYK": {
-      "name_zh": "史賽克",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "SBUX": {
-      "name_zh": "星巴克",
+    "BMY": {
+      "name_zh": "必貴寶 (施貴寶)",
       "source": "STOCK_NAMES_ZH"
     },
     "LOW": {
       "name_zh": "勞氏",
       "source": "STOCK_NAMES_ZH"
     },
-    "ENB": {
-      "name_zh": "恩橋公司",
+    "NEM": {
+      "name_zh": "紐蒙特黃金",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "SYK": {
+      "name_zh": "史賽克",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "MCK": {
+      "name_zh": "麥克森",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "MRVL": {
+      "name_zh": "邁威爾科技",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "BKNG": {
+      "name_zh": "Booking 控股",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "PLD": {
+      "name_zh": "普洛斯 (Prologis)",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "SBUX": {
+      "name_zh": "星巴克",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "ADP": {
+      "name_zh": "安德普翰 (ADP)",
       "source": "STOCK_NAMES_ZH"
     },
     "CME": {
@@ -1153,92 +1514,120 @@
       "name_zh": "南方電力",
       "source": "STOCK_NAMES_ZH"
     },
-    "ADBE": {
-      "name_zh": "Adobe",
+    "NOW": {
+      "name_zh": "ServiceNow",
       "source": "STOCK_NAMES_ZH"
     },
-    "FCX": {
-      "name_zh": "自由港麥克莫蘭",
+    "MPC": {
+      "name_zh": "馬拉松原油",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "ENB": {
+      "name_zh": "恩橋公司",
       "source": "STOCK_NAMES_ZH"
     },
     "EQIX": {
-      "name_zh": "易華電腦 (Equinix)",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "CEG": {
-      "name_zh": "星座能源",
+      "name_zh": "Equinix",
       "source": "STOCK_NAMES_ZH"
     },
     "DUK": {
       "name_zh": "杜克能源",
       "source": "STOCK_NAMES_ZH"
     },
-    "USB": {
-      "name_zh": "美國合眾銀行",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "WM": {
-      "name_zh": "廢品管理 (Waste Management)",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "MNST": {
-      "name_zh": "怪獸飲料 (Monster)",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "CDNS": {
-      "name_zh": "益華電腦",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "INTU": {
-      "name_zh": "直覺電腦",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "WMB": {
-      "name_zh": "威廉斯公司",
+    "VLO": {
+      "name_zh": "瓦萊羅能源",
       "source": "STOCK_NAMES_ZH"
     },
     "ICE": {
       "name_zh": "洲際交易所",
       "source": "STOCK_NAMES_ZH"
     },
-    "SNPS": {
-      "name_zh": "新思科技",
+    "PSX": {
+      "name_zh": "菲利普斯66",
       "source": "STOCK_NAMES_ZH"
     },
-    "MCO": {
-      "name_zh": "穆迪評級",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "TRV": {
-      "name_zh": "旅行者保險",
+    "WM": {
+      "name_zh": "廢品管理 (Waste Management)",
       "source": "STOCK_NAMES_ZH"
     },
     "REGN": {
       "name_zh": "再生元製藥",
       "source": "STOCK_NAMES_ZH"
     },
-    "EOG": {
-      "name_zh": "EOG 能源",
+    "ADBE": {
+      "name_zh": "Adobe",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "USB": {
+      "name_zh": "美國合眾銀行",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "INTU": {
+      "name_zh": "直覺電腦",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "MNST": {
+      "name_zh": "怪獸飲料 (Monster)",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "CEG": {
+      "name_zh": "星座能源",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "CDNS": {
+      "name_zh": "益華電腦",
       "source": "STOCK_NAMES_ZH"
     },
     "AMT": {
       "name_zh": "美國電塔",
       "source": "STOCK_NAMES_ZH"
     },
-    "SHW": {
-      "name_zh": "宣偉塗料",
+    "FTNT": {
+      "name_zh": "飛塔資訊",
       "source": "STOCK_NAMES_ZH"
     },
-    "HLT": {
-      "name_zh": "希爾頓酒店",
+    "MCO": {
+      "name_zh": "穆迪評級",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "CMCSA": {
+      "name_zh": "康卡斯特",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "SNPS": {
+      "name_zh": "新思科技",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "FCX": {
+      "name_zh": "自由港麥克莫蘭",
       "source": "STOCK_NAMES_ZH"
     },
     "ECL": {
       "name_zh": "藝康集團",
       "source": "STOCK_NAMES_ZH"
     },
+    "HLT": {
+      "name_zh": "希爾頓酒店",
+      "source": "STOCK_NAMES_ZH"
+    },
     "MDLZ": {
       "name_zh": "億滋國際",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "SHW": {
+      "name_zh": "宣偉塗料",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "UPS": {
+      "name_zh": "優比速",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "TRV": {
+      "name_zh": "旅行者保險",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "WMB": {
+      "name_zh": "威廉斯公司",
       "source": "STOCK_NAMES_ZH"
     },
     "EPD": {
@@ -1249,24 +1638,8 @@
       "name_zh": "伊利諾工具",
       "source": "STOCK_NAMES_ZH"
     },
-    "CMCSA": {
-      "name_zh": "康卡斯特",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "SLB": {
-      "name_zh": "斯倫貝謝",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "KMI": {
-      "name_zh": "金德摩根",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "ROST": {
-      "name_zh": "羅斯百貨",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "UPS": {
-      "name_zh": "優比速",
+    "EOG": {
+      "name_zh": "EOG 能源",
       "source": "STOCK_NAMES_ZH"
     },
     "CL": {
@@ -1277,36 +1650,60 @@
       "name_zh": "加拿大國家鐵路",
       "source": "STOCK_NAMES_ZH"
     },
-    "ORLY": {
-      "name_zh": "奧萊利汽車",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "AEP": {
-      "name_zh": "美國電力",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "TGT": {
-      "name_zh": "目標百貨 (Target)",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "HON": {
-      "name_zh": "漢威聯合",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "APD": {
-      "name_zh": "空氣化工",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "GM": {
-      "name_zh": "通用汽車",
+    "ROST": {
+      "name_zh": "羅斯百貨",
       "source": "STOCK_NAMES_ZH"
     },
     "SPG": {
       "name_zh": "西蒙地產",
       "source": "STOCK_NAMES_ZH"
     },
+    "SLB": {
+      "name_zh": "斯倫貝謝",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "GM": {
+      "name_zh": "通用汽車",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "ORLY": {
+      "name_zh": "奧萊利汽車",
+      "source": "STOCK_NAMES_ZH"
+    },
     "AJG": {
       "name_zh": "亞瑟加拉格爾",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "TGT": {
+      "name_zh": "目標百貨 (Target)",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "AON": {
+      "name_zh": "怡安集團",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "HON": {
+      "name_zh": "漢威聯合",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "AEP": {
+      "name_zh": "美國電力",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "APD": {
+      "name_zh": "空氣化工",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "KMI": {
+      "name_zh": "金德摩根",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "TDG": {
+      "name_zh": "環球透博",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "ALL": {
+      "name_zh": "全州保險",
       "source": "STOCK_NAMES_ZH"
     },
     "COR": {
@@ -1317,152 +1714,132 @@
       "name_zh": "大都會人壽",
       "source": "STOCK_NAMES_ZH"
     },
-    "ALL": {
-      "name_zh": "全州保險",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "OXY": {
-      "name_zh": "西方石油",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "AON": {
-      "name_zh": "怡安集團",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "TDG": {
-      "name_zh": "天寶集團 (TransDigm)",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "TEL": {
-      "name_zh": "泰科電子",
-      "source": "STOCK_NAMES_ZH"
-    },
     "AFL": {
       "name_zh": "美國家庭人壽",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "NKE": {
-      "name_zh": "耐吉",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "BKR": {
-      "name_zh": "貝克休斯",
       "source": "STOCK_NAMES_ZH"
     },
     "D": {
       "name_zh": "多明尼昂資源",
       "source": "STOCK_NAMES_ZH"
     },
-    "EBAY": {
-      "name_zh": "eBay",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "SRE": {
-      "name_zh": "桑普拉能源",
+    "TEL": {
+      "name_zh": "泰科電子",
       "source": "STOCK_NAMES_ZH"
     },
     "BDX": {
       "name_zh": "碧迪醫療",
       "source": "STOCK_NAMES_ZH"
     },
+    "NKE": {
+      "name_zh": "耐吉",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "OXY": {
+      "name_zh": "西方石油",
+      "source": "STOCK_NAMES_ZH"
+    },
     "O": {
       "name_zh": "Realty Income",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "VEEV": {
-      "name_zh": "維瓦系統 (Veeva)",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "AZO": {
-      "name_zh": "汽車地帶 (AutoZone)",
       "source": "STOCK_NAMES_ZH"
     },
     "ADSK": {
       "name_zh": "歐特克",
       "source": "STOCK_NAMES_ZH"
     },
-    "WDAY": {
-      "name_zh": "Workday",
+    "EBAY": {
+      "name_zh": "eBay",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "AZO": {
+      "name_zh": "汽車地帶 (AutoZone)",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "SRE": {
+      "name_zh": "桑普拉能源",
       "source": "STOCK_NAMES_ZH"
     },
     "F": {
       "name_zh": "福特汽車",
       "source": "STOCK_NAMES_ZH"
     },
+    "VEEV": {
+      "name_zh": "維瓦系統 (Veeva)",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "BKR": {
+      "name_zh": "貝克休斯",
+      "source": "STOCK_NAMES_ZH"
+    },
     "MSCI": {
       "name_zh": "明晟 (MSCI)",
       "source": "STOCK_NAMES_ZH"
     },
-    "AIG": {
-      "name_zh": "美國國際集團",
+    "WDAY": {
+      "name_zh": "Workday",
       "source": "STOCK_NAMES_ZH"
     },
-    "ILMN": {
-      "name_zh": "因美納",
+    "IQV": {
+      "name_zh": "艾昆緯",
       "source": "STOCK_NAMES_ZH"
     },
     "YUM": {
       "name_zh": "百勝餐飲",
       "source": "STOCK_NAMES_ZH"
     },
-    "LYV": {
-      "name_zh": "理想國演藝",
+    "CMG": {
+      "name_zh": "奇波雷墨西哥燒烤",
       "source": "STOCK_NAMES_ZH"
     },
     "PAYX": {
       "name_zh": "培沛客 (Paychex)",
       "source": "STOCK_NAMES_ZH"
     },
+    "AIG": {
+      "name_zh": "美國國際集團",
+      "source": "STOCK_NAMES_ZH"
+    },
     "PRU": {
       "name_zh": "保德信金融",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "LYV": {
+      "name_zh": "理想國演藝",
       "source": "STOCK_NAMES_ZH"
     },
     "TTWO": {
       "name_zh": "Take-Two 互動",
       "source": "STOCK_NAMES_ZH"
     },
-    "ADM": {
-      "name_zh": "阿徹丹尼爾斯米德蘭",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "CMG": {
-      "name_zh": "奇波雷墨西哥燒烤",
+    "VMC": {
+      "name_zh": "瓦爾肯建材",
       "source": "STOCK_NAMES_ZH"
     },
     "KMB": {
       "name_zh": "金百利克拉克",
       "source": "STOCK_NAMES_ZH"
     },
-    "RMD": {
-      "name_zh": "瑞思邁",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "VMC": {
-      "name_zh": "瓦爾肯建材",
-      "source": "STOCK_NAMES_ZH"
-    },
     "HSY": {
       "name_zh": "好時公司",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "ADM": {
+      "name_zh": "阿徹丹尼爾斯米德蘭",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "RMD": {
+      "name_zh": "瑞思邁",
       "source": "STOCK_NAMES_ZH"
     },
     "ZTS": {
       "name_zh": "碩騰 (Zoetis)",
       "source": "STOCK_NAMES_ZH"
     },
+    "ILMN": {
+      "name_zh": "因美納",
+      "source": "STOCK_NAMES_ZH"
+    },
     "MLM": {
       "name_zh": "馬丁瑪麗埃塔",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "DXCM": {
-      "name_zh": "德康醫療",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "HAL": {
-      "name_zh": "哈里伯頓",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "KHC": {
-      "name_zh": "卡夫亨氏",
       "source": "STOCK_NAMES_ZH"
     },
     "OTIS": {
@@ -1477,12 +1854,20 @@
       "name_zh": "來博科",
       "source": "STOCK_NAMES_ZH"
     },
-    "TW": {
-      "name_zh": "Tradeweb 市場",
+    "DXCM": {
+      "name_zh": "德康醫療",
       "source": "STOCK_NAMES_ZH"
     },
     "CPRT": {
       "name_zh": "科帕特 (Copart)",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "KHC": {
+      "name_zh": "卡夫亨氏",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "TW": {
+      "name_zh": "Tradeweb 市場",
       "source": "STOCK_NAMES_ZH"
     },
     "VICI": {
@@ -1493,24 +1878,24 @@
       "name_zh": "威瑞斯克",
       "source": "STOCK_NAMES_ZH"
     },
+    "HAL": {
+      "name_zh": "哈里伯頓",
+      "source": "STOCK_NAMES_ZH"
+    },
     "CHD": {
       "name_zh": "巧手先生 (Church & Dwight)",
       "source": "STOCK_NAMES_ZH"
     },
-    "XYL": {
-      "name_zh": "賽萊默 (Xylem)",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "IFF": {
-      "name_zh": "國際香精香料",
+    "STE": {
+      "name_zh": "思泰瑞醫療",
       "source": "STOCK_NAMES_ZH"
     },
     "DOW": {
       "name_zh": "陶氏化學",
       "source": "STOCK_NAMES_ZH"
     },
-    "STE": {
-      "name_zh": "思泰瑞醫療",
+    "XYL": {
+      "name_zh": "賽萊默 (Xylem)",
       "source": "STOCK_NAMES_ZH"
     },
     "EFX": {
@@ -1521,20 +1906,20 @@
       "name_zh": "寬嶺金融",
       "source": "STOCK_NAMES_ZH"
     },
-    "DD": {
-      "name_zh": "杜邦公司",
+    "IFF": {
+      "name_zh": "國際香精香料",
       "source": "STOCK_NAMES_ZH"
     },
     "ZBH": {
       "name_zh": "捷邁邦美",
       "source": "STOCK_NAMES_ZH"
     },
-    "GIS": {
-      "name_zh": "通用磨坊",
+    "DD": {
+      "name_zh": "杜邦公司",
       "source": "STOCK_NAMES_ZH"
     },
-    "FICO": {
-      "name_zh": "費埃哲 (FICO)",
+    "GIS": {
+      "name_zh": "通用磨坊",
       "source": "STOCK_NAMES_ZH"
     },
     "TSCO": {
@@ -1553,12 +1938,8 @@
       "name_zh": "全聯徵信 (TransUnion)",
       "source": "STOCK_NAMES_ZH"
     },
-    "CSGP": {
-      "name_zh": "科斯塔集團",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "GGG": {
-      "name_zh": "固瑞克 (Graco)",
+    "FICO": {
+      "name_zh": "費埃哲 (FICO)",
       "source": "STOCK_NAMES_ZH"
     },
     "TKO": {
@@ -1573,40 +1954,88 @@
       "name_zh": "味好美",
       "source": "STOCK_NAMES_ZH"
     },
-    "FMS": {
-      "name_zh": "費森尤斯醫藥",
-      "source": "STOCK_NAMES_ZH"
-    },
-    "FDS": {
-      "name_zh": "輝盛研究 (FactSet)",
-      "source": "STOCK_NAMES_ZH"
-    },
     "LULU": {
       "name_zh": "露露檸檬",
       "source": "STOCK_NAMES_ZH"
     },
-    "SCI": {
-      "name_zh": "Service Corp (安儀)",
+    "FMS": {
+      "name_zh": "費森尤斯醫藥",
       "source": "STOCK_NAMES_ZH"
     },
-    "HII": {
-      "name_zh": "亨廷頓英格爾斯",
+    "CSGP": {
+      "name_zh": "科斯塔集團",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "CLX": {
+      "name_zh": "高樂氏",
       "source": "STOCK_NAMES_ZH"
     },
     "ALGN": {
       "name_zh": "愛齊科技 (隱適美)",
       "source": "STOCK_NAMES_ZH"
     },
+    "FDS": {
+      "name_zh": "輝盛研究 (FactSet)",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "HII": {
+      "name_zh": "亨廷頓英格爾斯",
+      "source": "STOCK_NAMES_ZH"
+    },
     "RRX": {
       "name_zh": "雷諾德 (Regal Rexnord)",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "GGG": {
+      "name_zh": "固瑞克 (Graco)",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "SCI": {
+      "name_zh": "Service Corp (安儀)",
       "source": "STOCK_NAMES_ZH"
     },
     "DCI": {
       "name_zh": "唐納森",
       "source": "STOCK_NAMES_ZH"
     },
-    "CLX": {
-      "name_zh": "高樂氏",
+    "AOS": {
+      "name_zh": "A.O.史密斯",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "APPF": {
+      "name_zh": "AppFolio",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "ASR": {
+      "name_zh": "東南機場集團",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "CTVA": {
+      "name_zh": "科迪華農業",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "CHDN": {
+      "name_zh": "邱吉爾唐斯",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "MSA": {
+      "name_zh": "梅思安安全",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "MIDD": {
+      "name_zh": "美得比 (Middleby)",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "YOU": {
+      "name_zh": "Clear Secure",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "MTN": {
+      "name_zh": "范爾度假村",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "BCPC": {
+      "name_zh": "波奇姆 (Balchem)",
       "source": "STOCK_NAMES_ZH"
     },
     "HSBC": {
@@ -1637,20 +2066,16 @@
       "name_zh": "保誠",
       "source": "HKEX_dual_list"
     },
-    "BIDU": {
-      "name_zh": "百度集團",
-      "source": "HKEX_dual_list"
-    },
     "TCOM": {
       "name_zh": "攜程集團",
       "source": "HKEX_dual_list"
     },
-    "YUMC": {
-      "name_zh": "百勝中國",
+    "BIDU": {
+      "name_zh": "百度集團",
       "source": "HKEX_dual_list"
     },
-    "ZTO": {
-      "name_zh": "中通快遞",
+    "YUMC": {
+      "name_zh": "百勝中國",
       "source": "HKEX_dual_list"
     },
     "HTHT": {
@@ -1661,8 +2086,36 @@
       "name_zh": "騰訊音樂",
       "source": "HKEX_dual_list"
     },
+    "ZTO": {
+      "name_zh": "中通快遞",
+      "source": "HKEX_dual_list"
+    },
     "LI": {
       "name_zh": "理想汽車",
+      "source": "HKEX_dual_list"
+    },
+    "XPEV": {
+      "name_zh": "小鵬集團",
+      "source": "HKEX_dual_list"
+    },
+    "EDU": {
+      "name_zh": "新東方",
+      "source": "HKEX_dual_list"
+    },
+    "BZ": {
+      "name_zh": "ＢＯＳＳ直聘",
+      "source": "HKEX_dual_list"
+    },
+    "LU": {
+      "name_zh": "陸控",
+      "source": "HKEX_dual_list"
+    },
+    "NIO": {
+      "name_zh": "蔚來",
+      "source": "HKEX_dual_list"
+    },
+    "BILI": {
+      "name_zh": "嗶哩嗶哩",
       "source": "HKEX_dual_list"
     }
   }

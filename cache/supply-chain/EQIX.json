@@ -1,8 +1,8 @@
 {
   "version": 1,
   "ticker": "EQIX",
-  "name_en": "Equinix, Inc.",
-  "name_zh": "易華電腦 (Equinix)",
+  "name_en": "Equinix",
+  "name_zh": "Equinix",
   "updatedAt": "2026-11-14",
   "source": {
     "type": "curated",
@@ -22,7 +22,7 @@
     "id": "reit-v1",
     "label_zh": "REIT／不動產價值鏈",
     "label_en": "REIT / real estate value chain",
-    "description_zh": "建設／開發 → 建材裝置 → 物業科技 → 租戶產業 → 資本／融資。",
+    "description_zh": "建設／開發 → 建材設備 → 物業科技 → 租戶產業 → 資本／融資。",
     "description_en": "Construction/dev → building systems → proptech → tenant industries → capital/financing."
   },
   "stages": [
@@ -36,26 +36,26 @@
       "players": [
         {
           "ticker": "CAT",
-          "name_en": "Caterpillar Inc.",
-          "name_zh": "卡特彼勒",
-          "role_zh": "卡特彼勒：建設／開發代表性玩家",
-          "role_en": "Caterpillar Inc.: representative player in Construction / development",
+          "name_en": "Caterpillar",
+          "name_zh": "開拓重工",
+          "role_zh": "開拓重工：建設／開發代表性玩家",
+          "role_en": "Caterpillar: representative player in Construction / development",
           "exchange": "NYSE"
         },
         {
           "ticker": "DE",
-          "name_en": "Deere & Company",
-          "name_zh": "約翰迪爾",
-          "role_zh": "約翰迪爾：建設／開發代表性玩家",
-          "role_en": "Deere & Company: representative player in Construction / development",
+          "name_en": "Deere",
+          "name_zh": "強鹿公司 (Deere)",
+          "role_zh": "強鹿公司 (Deere)：建設／開發代表性玩家",
+          "role_en": "Deere: representative player in Construction / development",
           "exchange": "NYSE"
         },
         {
           "ticker": "PH",
-          "name_en": "Parker-Hannifin Corporation",
-          "name_zh": "Parker",
-          "role_zh": "Parker：建設／開發代表性玩家",
-          "role_en": "Parker-Hannifin Corporation: representative player in Construction / development",
+          "name_en": "Parker-Hannifin",
+          "name_zh": "派克漢尼汾",
+          "role_zh": "派克漢尼汾：建設／開發代表性玩家",
+          "role_en": "Parker-Hannifin: representative player in Construction / development",
           "exchange": "NYSE"
         }
       ]
@@ -63,32 +63,32 @@
     {
       "id": "systems",
       "order": 2,
-      "label_zh": "建材／機電裝置",
+      "label_zh": "建材／機電設備",
       "label_en": "Building systems / MEP",
       "summary_zh": "HVAC、電力與結構系統。",
       "summary_en": "HVAC, power, structural systems.",
       "players": [
         {
           "ticker": "ETN",
-          "name_en": "Eaton Corporation plc",
+          "name_en": "Eaton",
           "name_zh": "伊頓",
-          "role_zh": "伊頓：建材／機電裝置代表性玩家",
-          "role_en": "Eaton Corporation plc: representative player in Building systems / MEP",
+          "role_zh": "伊頓：建材／機電設備代表性玩家",
+          "role_en": "Eaton: representative player in Building systems / MEP",
           "exchange": "NYSE"
         },
         {
           "ticker": "EMR",
           "name_en": "Emerson",
           "name_zh": "艾默生",
-          "role_zh": "艾默生：建材／機電裝置代表性玩家",
+          "role_zh": "艾默生：建材／機電設備代表性玩家",
           "role_en": "Emerson: representative player in Building systems / MEP",
           "exchange": "NYSE"
         },
         {
           "ticker": "HON",
           "name_en": "Honeywell",
-          "name_zh": "霍尼韋爾",
-          "role_zh": "霍尼韋爾：建材／機電裝置代表性玩家",
+          "name_zh": "漢威聯合",
+          "role_zh": "漢威聯合：建材／機電設備代表性玩家",
           "role_en": "Honeywell: representative player in Building systems / MEP",
           "exchange": "NASDAQ"
         }
@@ -104,26 +104,26 @@
       "players": [
         {
           "ticker": "MSFT",
-          "name_en": "Microsoft Corporation",
+          "name_en": "Microsoft",
           "name_zh": "微軟",
           "role_zh": "微軟：物業科技／營運代表性玩家",
-          "role_en": "Microsoft Corporation: representative player in Proptech / operations",
+          "role_en": "Microsoft: representative player in Proptech / operations",
           "exchange": "NASDAQ"
         },
         {
           "ticker": "CSCO",
-          "name_en": "Cisco Systems, Inc.",
+          "name_en": "Cisco Systems",
           "name_zh": "思科",
           "role_zh": "思科：物業科技／營運代表性玩家",
-          "role_en": "Cisco Systems, Inc.: representative player in Proptech / operations",
+          "role_en": "Cisco Systems: representative player in Proptech / operations",
           "exchange": "NASDAQ"
         },
         {
           "ticker": "PANW",
-          "name_en": "Palo Alto Networks, Inc.",
+          "name_en": "Palo Alto Networks",
           "name_zh": "派拓網路",
           "role_zh": "派拓網路：物業科技／營運代表性玩家",
-          "role_en": "Palo Alto Networks, Inc.: representative player in Proptech / operations",
+          "role_en": "Palo Alto Networks: representative player in Proptech / operations",
           "exchange": "NASDAQ"
         }
       ]
@@ -138,26 +138,26 @@
       "players": [
         {
           "ticker": "MSFT",
-          "name_en": "Microsoft Corporation",
+          "name_en": "Microsoft",
           "name_zh": "微軟",
           "role_zh": "微軟：租戶產業代表性玩家",
-          "role_en": "Microsoft Corporation: representative player in Tenant industries",
+          "role_en": "Microsoft: representative player in Tenant industries",
           "exchange": "NASDAQ"
         },
         {
           "ticker": "AMZN",
-          "name_en": "Amazon.com, Inc.",
+          "name_en": "Amazon.com",
           "name_zh": "亞馬遜",
           "role_zh": "亞馬遜：租戶產業代表性玩家",
-          "role_en": "Amazon.com, Inc.: representative player in Tenant industries",
+          "role_en": "Amazon.com: representative player in Tenant industries",
           "exchange": "NASDAQ"
         },
         {
           "ticker": "GOOG",
-          "name_en": "Alphabet Inc.",
+          "name_en": "Alphabet",
           "name_zh": "Alphabet（Google）",
           "role_zh": "Alphabet（Google）：租戶產業代表性玩家",
-          "role_en": "Alphabet Inc.: representative player in Tenant industries",
+          "role_en": "Alphabet: representative player in Tenant industries",
           "exchange": "NASDAQ"
         }
       ]
@@ -180,18 +180,18 @@
         },
         {
           "ticker": "BAC",
-          "name_en": "Bank of America Corporation",
+          "name_en": "Bank of America",
           "name_zh": "美國銀行",
           "role_zh": "美國銀行：資本／融資代表性玩家",
-          "role_en": "Bank of America Corporation: representative player in Capital / financing",
+          "role_en": "Bank of America: representative player in Capital / financing",
           "exchange": "NYSE"
         },
         {
           "ticker": "BLK",
-          "name_en": "BlackRock, Inc.",
+          "name_en": "BlackRock",
           "name_zh": "貝萊德",
           "role_zh": "貝萊德：資本／融資代表性玩家",
-          "role_en": "BlackRock, Inc.: representative player in Capital / financing",
+          "role_en": "BlackRock: representative player in Capital / financing",
           "exchange": "NYSE"
         }
       ]
@@ -216,7 +216,7 @@
     },
     {
       "ticker": "PLD",
-      "name_en": "Prologis, Inc.",
+      "name_en": "Prologis",
       "name_zh": "普洛斯 (Prologis)",
       "basis_zh": "工業地產資本競爭",
       "basis_en": "Industrial RE capital competition",
@@ -224,7 +224,7 @@
     },
     {
       "ticker": "MSFT",
-      "name_en": "Microsoft Corporation",
+      "name_en": "Microsoft",
       "name_zh": "微軟",
       "basis_zh": "超大規模自建機房替代壓力",
       "basis_en": "Hyperscaler self-build pressure",
@@ -232,7 +232,7 @@
     },
     {
       "ticker": "AMZN",
-      "name_en": "Amazon.com, Inc.",
+      "name_en": "Amazon.com",
       "name_zh": "亞馬遜",
       "basis_zh": "超大規模自建機房替代壓力",
       "basis_en": "Hyperscaler self-build pressure",

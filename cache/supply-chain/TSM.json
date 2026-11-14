@@ -22,23 +22,23 @@
     "id": "semiconductor-foundry-v1",
     "label_zh": "晶圓代工價值鏈",
     "label_en": "Foundry value chain",
-    "description_zh": "裝置 → 材料／氣體化學 → 封測夥伴 → 設計客戶 → 終端應用平台。",
+    "description_zh": "設備 → 材料／氣體化學 → 封測夥伴 → 設計客戶 → 終端應用平台。",
     "description_en": "Equipment → materials/gases → OSAT → fabless customers → end platforms."
   },
   "stages": [
     {
       "id": "equipment",
       "order": 1,
-      "label_zh": "製程裝置",
+      "label_zh": "製程設備",
       "label_en": "Process equipment",
-      "summary_zh": "EUV／沉積／蝕刻／檢測裝置。",
+      "summary_zh": "EUV／沉積／蝕刻／檢測設備。",
       "summary_en": "EUV, deposition, etch, metrology.",
       "players": [
         {
           "ticker": "ASML",
           "name_en": "ASML Holding N.V.",
           "name_zh": "艾司摩爾",
-          "role_zh": "艾司摩爾：製程裝置代表性玩家",
+          "role_zh": "艾司摩爾：製程設備代表性玩家",
           "role_en": "ASML Holding N.V.: representative player in Process equipment",
           "exchange": "NASDAQ"
         },
@@ -46,7 +46,7 @@
           "ticker": "AMAT",
           "name_en": "Applied Materials, Inc.",
           "name_zh": "應用材料",
-          "role_zh": "應用材料：製程裝置代表性玩家",
+          "role_zh": "應用材料：製程設備代表性玩家",
           "role_en": "Applied Materials, Inc.: representative player in Process equipment",
           "exchange": "NASDAQ"
         },
@@ -54,7 +54,7 @@
           "ticker": "LRCX",
           "name_en": "Lam Research Corporation",
           "name_zh": "拉姆研究",
-          "role_zh": "拉姆研究：製程裝置代表性玩家",
+          "role_zh": "拉姆研究：製程設備代表性玩家",
           "role_en": "Lam Research Corporation: representative player in Process equipment",
           "exchange": "NASDAQ"
         }
