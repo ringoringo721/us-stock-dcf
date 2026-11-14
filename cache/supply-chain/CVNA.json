@@ -46,8 +46,8 @@
         {
           "ticker": "NKE",
           "name_en": "Nike",
-          "name_zh": "耐克",
-          "role_zh": "耐克：原料／商品供應代表性玩家",
+          "name_zh": "耐吉",
+          "role_zh": "耐吉：原料／商品供應代表性玩家",
           "role_en": "Nike: representative player in Inputs / merchandise supply",
           "exchange": "NYSE"
         },
@@ -88,8 +88,8 @@
         {
           "ticker": "UNP",
           "name_en": "Union Pacific",
-          "name_zh": "聯合太平洋",
-          "role_zh": "聯合太平洋：物流／冷鏈代表性玩家",
+          "name_zh": "聯合太平洋鐵路",
+          "role_zh": "聯合太平洋鐵路：物流／冷鏈代表性玩家",
           "role_en": "Union Pacific: representative player in Logistics / cold chain",
           "exchange": "NYSE"
         }
@@ -122,8 +122,8 @@
         {
           "ticker": "MAR",
           "name_en": "Marriott International",
-          "name_zh": "萬豪",
-          "role_zh": "萬豪：門市／數位平台代表性玩家",
+          "name_zh": "萬豪國際",
+          "role_zh": "萬豪國際：門市／數位平台代表性玩家",
           "role_en": "Marriott International: representative player in Stores / digital platforms",
           "exchange": "NASDAQ"
         }
@@ -140,16 +140,16 @@
         {
           "ticker": "V",
           "name_en": "Visa",
-          "name_zh": "Visa",
-          "role_zh": "Visa：支付／忠誠代表性玩家",
+          "name_zh": "威士卡",
+          "role_zh": "威士卡：支付／忠誠代表性玩家",
           "role_en": "Visa: representative player in Payments / loyalty",
           "exchange": "NYSE"
         },
         {
           "ticker": "MA",
           "name_en": "Mastercard",
-          "name_zh": "Mastercard",
-          "role_zh": "Mastercard：支付／忠誠代表性玩家",
+          "name_zh": "萬事達卡",
+          "role_zh": "萬事達卡：支付／忠誠代表性玩家",
           "role_en": "Mastercard: representative player in Payments / loyalty",
           "exchange": "NYSE"
         },
@@ -190,8 +190,8 @@
         {
           "ticker": "BKNG",
           "name_en": "Booking",
-          "name_zh": "Booking",
-          "role_zh": "Booking：行銷／流量代表性玩家",
+          "name_zh": "Booking 控股",
+          "role_zh": "Booking 控股：行銷／流量代表性玩家",
           "role_en": "Booking: representative player in Marketing / traffic",
           "exchange": "NASDAQ"
         }

@@ -186,12 +186,22 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "SCCO": {
-      "ticker": "SCCO",
-      "price": 164.08,
-      "previousClose": 168.21,
-      "changePct": -2.455,
-      "mcap": 142730.3,
+    "KGC": {
+      "ticker": "KGC",
+      "price": 20.76,
+      "previousClose": 20.71,
+      "changePct": 0.241,
+      "mcap": 26382.0,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "AU": {
+      "ticker": "AU",
+      "price": 86.29,
+      "previousClose": 87.6,
+      "changePct": -1.495,
+      "mcap": 47031.5,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"

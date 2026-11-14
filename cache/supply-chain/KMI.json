@@ -2,7 +2,7 @@
   "version": 1,
   "ticker": "KMI",
   "name_en": "Kinder Morgan",
-  "name_zh": "Kinder Morgan",
+  "name_zh": "金德摩根",
   "updatedAt": "2026-11-14",
   "source": {
     "type": "curated",
@@ -72,16 +72,16 @@
         {
           "ticker": "COP",
           "name_en": "ConocoPhillips",
-          "name_zh": "康菲",
-          "role_zh": "康菲：上游勘探開發代表性玩家",
+          "name_zh": "康菲石油",
+          "role_zh": "康菲石油：上游勘探開發代表性玩家",
           "role_en": "ConocoPhillips: representative player in Upstream E&P",
           "exchange": "NYSE"
         },
         {
           "ticker": "EOG",
           "name_en": "EOG Resources",
-          "name_zh": "EOG Resources",
-          "role_zh": "EOG Resources：上游勘探開發代表性玩家",
+          "name_zh": "EOG 能源",
+          "role_zh": "EOG 能源：上游勘探開發代表性玩家",
           "role_en": "EOG Resources: representative player in Upstream E&P",
           "exchange": "NYSE"
         },
@@ -114,8 +114,8 @@
         {
           "ticker": "WMB",
           "name_en": "Williams",
-          "name_zh": "Williams",
-          "role_zh": "Williams：中游管輸／液化代表性玩家",
+          "name_zh": "威廉斯公司",
+          "role_zh": "威廉斯公司：中游管輸／液化代表性玩家",
           "role_en": "Williams: representative player in Midstream / LNG",
           "exchange": "NYSE"
         },
@@ -140,24 +140,24 @@
         {
           "ticker": "MPC",
           "name_en": "Marathon Petroleum",
-          "name_zh": "馬拉松石油",
-          "role_zh": "馬拉松石油：煉製／化工代表性玩家",
+          "name_zh": "馬拉松原油",
+          "role_zh": "馬拉松原油：煉製／化工代表性玩家",
           "role_en": "Marathon Petroleum: representative player in Refining / chemicals",
           "exchange": "NYSE"
         },
         {
           "ticker": "VLO",
           "name_en": "Valero",
-          "name_zh": "Valero",
-          "role_zh": "Valero：煉製／化工代表性玩家",
+          "name_zh": "瓦萊羅能源",
+          "role_zh": "瓦萊羅能源：煉製／化工代表性玩家",
           "role_en": "Valero: representative player in Refining / chemicals",
           "exchange": "NYSE"
         },
         {
           "ticker": "PSX",
           "name_en": "Phillips 66",
-          "name_zh": "Phillips 66",
-          "role_zh": "Phillips 66：煉製／化工代表性玩家",
+          "name_zh": "菲利普斯66",
+          "role_zh": "菲利普斯66：煉製／化工代表性玩家",
           "role_en": "Phillips 66: representative player in Refining / chemicals",
           "exchange": "NYSE"
         }
@@ -182,16 +182,16 @@
         {
           "ticker": "CAT",
           "name_en": "Caterpillar",
-          "name_zh": "卡特彼勒",
-          "role_zh": "卡特彼勒：零售／航煤／工業客戶代表性玩家",
+          "name_zh": "開拓重工",
+          "role_zh": "開拓重工：零售／航煤／工業客戶代表性玩家",
           "role_en": "Caterpillar: representative player in Retail / jet / industrial customers",
           "exchange": "NYSE"
         },
         {
           "ticker": "UNP",
           "name_en": "Union Pacific",
-          "name_zh": "聯合太平洋",
-          "role_zh": "聯合太平洋：零售／航煤／工業客戶代表性玩家",
+          "name_zh": "聯合太平洋鐵路",
+          "role_zh": "聯合太平洋鐵路：零售／航煤／工業客戶代表性玩家",
           "role_en": "Union Pacific: representative player in Retail / jet / industrial customers",
           "exchange": "NYSE"
         }
@@ -202,7 +202,7 @@
     {
       "ticker": "WMB",
       "name_en": "Williams",
-      "name_zh": "Williams",
+      "name_zh": "威廉斯公司",
       "basis_zh": "中游管線／天然氣對手",
       "basis_en": "Midstream / gas infrastructure rival",
       "exchange": "NYSE"
@@ -210,7 +210,7 @@
     {
       "ticker": "EPD",
       "name_en": "EPD",
-      "name_zh": "Enterprise Products",
+      "name_zh": "企業產品合夥",
       "basis_zh": "中游管線／天然氣對手",
       "basis_en": "Midstream / gas infrastructure rival",
       "exchange": "NYSE"

@@ -2,7 +2,7 @@
   "version": 1,
   "ticker": "REGN",
   "name_en": "Regeneron",
-  "name_zh": "再生元",
+  "name_zh": "再生元製藥",
   "updatedAt": "2026-11-14",
   "source": {
     "type": "curated",
@@ -148,8 +148,8 @@
         {
           "ticker": "COR",
           "name_en": "Cencora",
-          "name_zh": "Cencora",
-          "role_zh": "Cencora：醫藥通路／批發代表性玩家",
+          "name_zh": "信卡拉 (前美源伯根)",
+          "role_zh": "信卡拉 (前美源伯根)：醫藥通路／批發代表性玩家",
           "role_en": "Cencora: representative player in Pharma wholesale / distribution",
           "exchange": "NYSE"
         },
@@ -202,7 +202,7 @@
     {
       "ticker": "VRTX",
       "name_en": "VRTX",
-      "name_zh": "Vertex",
+      "name_zh": "福泰製藥",
       "basis_zh": "生物製藥對手",
       "basis_en": "Biopharma rival",
       "exchange": "NASDAQ"
@@ -218,7 +218,7 @@
     {
       "ticker": "GILD",
       "name_en": "Gilead Sciences",
-      "name_zh": "吉利德",
+      "name_zh": "吉利德科學",
       "basis_zh": "生物製藥對手",
       "basis_en": "Biopharma rival",
       "exchange": "NASDAQ"
@@ -234,7 +234,7 @@
     {
       "ticker": "LLY",
       "name_en": "Eli Lilly",
-      "name_zh": "禮來",
+      "name_zh": "禮來公司",
       "basis_zh": "生物製藥對手",
       "basis_en": "Biopharma rival",
       "exchange": "NYSE"

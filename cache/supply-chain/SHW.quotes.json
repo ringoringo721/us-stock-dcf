@@ -16,36 +16,6 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "EMR": {
-      "ticker": "EMR",
-      "price": 166.38,
-      "previousClose": 166.92,
-      "changePct": -0.324,
-      "mcap": 90558.8,
-      "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "ETN": {
-      "ticker": "ETN",
-      "price": 352.97,
-      "previousClose": 359.04,
-      "changePct": -1.691,
-      "mcap": 132724.0,
-      "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "HON": {
-      "ticker": "HON",
-      "price": 222.46,
-      "previousClose": 223.45,
-      "changePct": -0.443,
-      "mcap": 69742.6,
-      "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
     "DOW": {
       "ticker": "DOW",
       "price": 33.04,
@@ -76,16 +46,6 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "PPG": {
-      "ticker": "PPG",
-      "price": 122.56,
-      "previousClose": 122.35,
-      "changePct": 0.172,
-      "mcap": 27033.7,
-      "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
     "ECL": {
       "ticker": "ECL",
       "price": 309.27,
@@ -96,42 +56,62 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "APD": {
-      "ticker": "APD",
-      "price": 316.53,
-      "previousClose": 316.2,
-      "changePct": 0.104,
-      "mcap": 67883.5,
+    "PPG": {
+      "ticker": "PPG",
+      "price": 122.56,
+      "previousClose": 122.35,
+      "changePct": 0.172,
+      "mcap": 27033.7,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "UNP": {
-      "ticker": "UNP",
-      "price": 302.44,
-      "previousClose": 304.2,
-      "changePct": -0.579,
-      "mcap": 172376.9,
+    "EMR": {
+      "ticker": "EMR",
+      "price": 166.38,
+      "previousClose": 166.92,
+      "changePct": -0.324,
+      "mcap": 90558.8,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "FDX": {
-      "ticker": "FDX",
-      "price": 324.14,
-      "previousClose": 319.3,
-      "changePct": 1.516,
-      "mcap": 72166.2,
+    "ITW": {
+      "ticker": "ITW",
+      "price": 287.52,
+      "previousClose": 286.75,
+      "changePct": 0.269,
+      "mcap": 79846.0,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "UPS": {
-      "ticker": "UPS",
-      "price": 112.4,
-      "previousClose": 110.38,
-      "changePct": 1.83,
-      "mcap": 81147.0,
+    "PH": {
+      "ticker": "PH",
+      "price": 955.68,
+      "previousClose": 957.98,
+      "changePct": -0.24,
+      "mcap": 115744.3,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "GWW": {
+      "ticker": "GWW",
+      "price": 1489.3,
+      "previousClose": 1502.61,
+      "changePct": -0.886,
+      "mcap": 67858.3,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "FAST": {
+      "ticker": "FAST",
+      "price": 55.19,
+      "previousClose": 55.55,
+      "changePct": -0.648,
+      "mcap": 60795.5,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
@@ -156,12 +136,22 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "TOL": {
-      "ticker": "TOL",
-      "price": 147.85,
-      "previousClose": 147.99,
-      "changePct": -0.095,
-      "mcap": 14057.9,
+    "HLT": {
+      "ticker": "HLT",
+      "price": 373.09,
+      "previousClose": 372.73,
+      "changePct": 0.097,
+      "mcap": 83779.6,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "APD": {
+      "ticker": "APD",
+      "price": 316.53,
+      "previousClose": 316.2,
+      "changePct": 0.104,
+      "mcap": 67883.5,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"

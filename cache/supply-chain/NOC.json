@@ -46,8 +46,8 @@
         {
           "ticker": "HON",
           "name_en": "Honeywell",
-          "name_zh": "霍尼韋爾",
-          "role_zh": "霍尼韋爾：航太材料代表性玩家",
+          "name_zh": "漢威聯合",
+          "role_zh": "漢威聯合：航太材料代表性玩家",
           "role_en": "Honeywell: representative player in Aerospace materials",
           "exchange": "NASDAQ"
         },
@@ -72,8 +72,8 @@
         {
           "ticker": "HON",
           "name_en": "Honeywell",
-          "name_zh": "霍尼韋爾",
-          "role_zh": "霍尼韋爾：航電／推進／半導體代表性玩家",
+          "name_zh": "漢威聯合",
+          "role_zh": "漢威聯合：航電／推進／半導體代表性玩家",
           "role_en": "Honeywell: representative player in Avionics / propulsion / semis",
           "exchange": "NASDAQ"
         },
@@ -106,16 +106,16 @@
         {
           "ticker": "RTX",
           "name_en": "RTX",
-          "name_zh": "RTX",
-          "role_zh": "RTX：一級系統供應商代表性玩家",
+          "name_zh": "雷神技術",
+          "role_zh": "雷神技術：一級系統供應商代表性玩家",
           "role_en": "RTX: representative player in Tier-1 systems suppliers",
           "exchange": "NYSE"
         },
         {
           "ticker": "GE",
           "name_en": "GE Aerospace",
-          "name_zh": "通用電氣",
-          "role_zh": "通用電氣：一級系統供應商代表性玩家",
+          "name_zh": "奇異航太 (GE Aerospace)",
+          "role_zh": "奇異航太 (GE Aerospace)：一級系統供應商代表性玩家",
           "role_en": "GE Aerospace: representative player in Tier-1 systems suppliers",
           "exchange": "NYSE"
         },
@@ -140,8 +140,8 @@
         {
           "ticker": "BA",
           "name_en": "Boeing",
-          "name_zh": "波音",
-          "role_zh": "波音：總裝／測試代表性玩家",
+          "name_zh": "波音公司",
+          "role_zh": "波音公司：總裝／測試代表性玩家",
           "role_en": "Boeing: representative player in Final assembly / test",
           "exchange": "NYSE"
         },
@@ -218,7 +218,7 @@
     {
       "ticker": "RTX",
       "name_en": "RTX",
-      "name_zh": "RTX",
+      "name_zh": "雷神技術",
       "basis_zh": "航太防務主承包對手",
       "basis_en": "Aerospace & defense prime rival",
       "exchange": "NYSE"
@@ -226,7 +226,7 @@
     {
       "ticker": "BA",
       "name_en": "Boeing",
-      "name_zh": "波音",
+      "name_zh": "波音公司",
       "basis_zh": "航太防務主承包對手",
       "basis_en": "Aerospace & defense prime rival",
       "exchange": "NYSE"

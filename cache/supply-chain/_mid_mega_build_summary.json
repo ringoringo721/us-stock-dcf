@@ -1,12 +1,18 @@
 {
   "midTotal": 149,
-  "written": 3,
+  "written": 9,
   "skippedExisting": [],
   "failures": [],
   "tickers": [
+    "AEM",
+    "ADBE",
     "CDNS",
     "SNPS",
-    "ADSK"
+    "ECL",
+    "SHW",
+    "APD",
+    "ADSK",
+    "AZO"
   ],
   "dryRun": false,
   "date": "2026-11-14",

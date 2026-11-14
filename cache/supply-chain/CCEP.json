@@ -54,8 +54,8 @@
         {
           "ticker": "DE",
           "name_en": "Deere",
-          "name_zh": "迪爾",
-          "role_zh": "迪爾：農產／原料代表性玩家",
+          "name_zh": "強鹿公司 (Deere)",
+          "role_zh": "強鹿公司 (Deere)：農產／原料代表性玩家",
           "role_en": "Deere: representative player in Agriculture / inputs",
           "exchange": "NYSE"
         }
@@ -80,8 +80,8 @@
         {
           "ticker": "DOW",
           "name_en": "Dow",
-          "name_zh": "陶氏",
-          "role_zh": "陶氏：包裝材料代表性玩家",
+          "name_zh": "陶氏化學",
+          "role_zh": "陶氏化學：包裝材料代表性玩家",
           "role_en": "Dow: representative player in Packaging materials",
           "exchange": "NYSE"
         },
@@ -106,8 +106,8 @@
         {
           "ticker": "HON",
           "name_en": "Honeywell",
-          "name_zh": "霍尼韋爾",
-          "role_zh": "霍尼韋爾：製造／代工代表性玩家",
+          "name_zh": "漢威聯合",
+          "role_zh": "漢威聯合：製造／代工代表性玩家",
           "role_en": "Honeywell: representative player in Manufacturing / co-pack",
           "exchange": "NASDAQ"
         },
@@ -156,8 +156,8 @@
         {
           "ticker": "TGT",
           "name_en": "Target",
-          "name_zh": "塔吉特",
-          "role_zh": "塔吉特：零售／倉店通路代表性玩家",
+          "name_zh": "目標百貨 (Target)",
+          "role_zh": "目標百貨 (Target)：零售／倉店通路代表性玩家",
           "role_en": "Target: representative player in Retail / club channel",
           "exchange": "NYSE"
         }
@@ -202,7 +202,7 @@
     {
       "ticker": "MNST",
       "name_en": "Monster Beverage",
-      "name_zh": "怪獸飲料",
+      "name_zh": "怪獸飲料 (Monster)",
       "basis_zh": "非酒精飲料對手",
       "basis_en": "Non-alcoholic beverage rival",
       "exchange": "NASDAQ"
@@ -218,7 +218,7 @@
     {
       "ticker": "PEP",
       "name_en": "PepsiCo",
-      "name_zh": "百事",
+      "name_zh": "百事可樂",
       "basis_zh": "非酒精飲料對手",
       "basis_en": "Non-alcoholic beverage rival",
       "exchange": "NASDAQ"

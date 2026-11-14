@@ -123,8 +123,8 @@
         {
           "ticker": "HON",
           "name_en": "Honeywell",
-          "name_zh": "霍尼韋爾",
-          "role_zh": "霍尼韋爾：輸配電代表性玩家",
+          "name_zh": "漢威聯合",
+          "role_zh": "漢威聯合：輸配電代表性玩家",
           "role_en": "Honeywell: representative player in Transmission & distribution",
           "exchange": "NASDAQ"
         }
@@ -211,7 +211,7 @@
     {
       "ticker": "NEE",
       "name_en": "NextEra Energy",
-      "name_zh": "NextEra Energy",
+      "name_zh": "新紀元能源",
       "basis_zh": "受規管電力對手",
       "basis_en": "Regulated electric rival",
       "exchange": "NYSE"
@@ -219,7 +219,7 @@
     {
       "ticker": "SO",
       "name_en": "Southern",
-      "name_zh": "南方公司",
+      "name_zh": "南方電力",
       "basis_zh": "受規管電力對手",
       "basis_en": "Regulated electric rival",
       "exchange": "NYSE"
@@ -227,7 +227,7 @@
     {
       "ticker": "D",
       "name_en": "Dominion",
-      "name_zh": "Dominion Energy",
+      "name_zh": "多明尼昂資源",
       "basis_zh": "受規管電力對手",
       "basis_en": "Regulated electric rival",
       "exchange": "NYSE"

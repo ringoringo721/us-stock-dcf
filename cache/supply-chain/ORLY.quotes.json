@@ -186,15 +186,15 @@
       "asOf": null,
       "source": null
     },
-    "WACLY": {
-      "ticker": "WACLY",
-      "price": null,
-      "previousClose": null,
-      "changePct": null,
-      "mcap": null,
+    "GPC": {
+      "ticker": "GPC",
+      "price": 123.34,
+      "previousClose": 122.84,
+      "changePct": 0.407,
+      "mcap": 16929.2,
       "currency": "USD",
-      "asOf": null,
-      "source": null
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
     },
     "AMZN": {
       "ticker": "AMZN",

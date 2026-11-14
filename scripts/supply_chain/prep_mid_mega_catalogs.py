@@ -154,6 +154,8 @@ CURATED_NAME_EN: dict[str, str] = {
     "TMO": "Thermo Fisher",
     "ANSS": "Ansys",
     "PTC": "PTC",
+    "FIG": "Figma",
+    "CANVA": "Canva",
     "ADP": "ADP",
     "ASML": "ASML",
     "IBM": "IBM",
@@ -171,7 +173,10 @@ CURATED_NAME_EN: dict[str, str] = {
     "MYRG": "MYR Group",
     "NSA": "National Storage Affiliates",
     "GPI": "Group 1 Automotive",
-    "WACLY": "Watsco",
+    "GPC": "Genuine Parts",
+    "KGC": "Kinross",
+    "AU": "AngloGold Ashanti",
+    "GFI": "Gold Fields",
     "ABM": "ABM",
     "HCSG": "HCSG",
     "VRSK": "Verisk",
@@ -195,9 +200,34 @@ CURATED_NAME_ZH: dict[str, str] = {
     "ASX": "日月光投控",
     "600584.SS": "長電科技",
     "002156.SZ": "通富微電",
-    "ANSS": "Ansys",
-    "PTC": "PTC",
+    "ANSS": "安西斯",
+    "PTC": "參數科技",
+    "FIG": "Figma",
+    "CANVA": "Canva",
     "TMO": "賽默飛世爾",
+    "ADSK": "歐特克",
+    "CRM": "賽富時",
+    "INTU": "直覺電腦",
+    "CDNS": "益華電腦",
+    "SNPS": "新思科技",
+    "FTNT": "飛塔資訊",
+    "PANW": "派拓網路",
+    "ORCL": "甲骨文",
+    "EA": "美商藝電",
+    "NKE": "耐吉",
+    "LULU": "露露檸檬",
+    "ROST": "羅斯百貨",
+    "HLT": "希爾頓",
+    "GM": "通用汽車",
+    "USB": "美國合眾銀行",
+    "DUK": "杜克能源",
+    "AEP": "美國電力",
+    "WM": "廢品管理",
+    "TEL": "泰科電子",
+    "AZO": "汽車地帶",
+    "ORLY": "奧萊利汽車",
+    "COR": "信卡拉",
+    "TTWO": "Take-Two 互動",
     "VRSK": "Verisk",
     "X": "美國鋼鐵",
     "ALK": "阿拉斯加航空",
@@ -209,8 +239,10 @@ CURATED_NAME_ZH: dict[str, str] = {
     "MYRG": "MYR Group",
     "NSA": "National Storage",
     "GPI": "Group 1 Automotive",
-    "WACLY": "Watsco",
-    "AZO": "AutoZone",
+    "GPC": "GPC／NAPA",
+    "KGC": "金羅斯",
+    "AU": "安格洛黃金",
+    "GFI": "金田",
     "B": "巴里克黃金",
     "BAM": "Brookfield Asset Management",
     "BCS": "巴克萊",
@@ -646,7 +678,8 @@ PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ("saas-edge", ["NET", "AMZN", "MSFT", "GOOG", "AKAM", "FTNT"], "邊緣雲／CDN 安全對手", "Edge cloud / CDN security rival"),
     ("saas-fin", ["INTU", "ADP", "PAYX", "MSFT", "ORCL", "SAP"], "財稅／中小企業軟體對手", "Fintech / SMB software rival"),
     ("saas-bi", ["MSTR", "MSFT", "GOOG", "SNOW", "PLTR", "IBM"], "商業智慧／分析軟體對手", "BI / analytics software rival"),
-    ("saas-creative", ["ADBE", "MSFT", "GOOG", "ADSK", "INTU", "CRM"], "創意／文件雲軟體對手", "Creative / document-cloud software rival"),
+    # True creative/design software rivals — not general SaaS megacaps (MSFT/GOOG/CRM/INTU).
+    ("saas-creative", ["ADBE", "ADSK", "FIG", "ANSS", "PTC", "CANVA"], "創意／設計軟體對手", "Creative / design software rival"),
     ("it-svc", ["INFY", "ACN", "CTSH", "IBM", "WIT", "MSFT"], "IT 服務對手", "IT services rival"),
     ("semi-fabless", ["NXPI", "TXN", "ADI", "ON", "MCHP", "IFX.DE", "STM"], "車用／工業類比半導體對手", "Auto/industrial analog semi rival"),
     ("semi-power", ["MPWR", "TXN", "ADI", "ON", "NXPI", "IFX.DE"], "電源管理半導體對手", "Power-management semi rival"),
@@ -667,8 +700,8 @@ PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ("energy-lng", ["LNG", "SHEL", "BP", "TTE", "XOM", "CVX"], "LNG 出口對手", "LNG export rival"),
     ("energy-int", ["E", "SU", "IMO", "XOM", "CVX", "SHEL", "BP", "TTE"], "綜合石油對手", "Integrated oil rival"),
     ("energy-ofs", ["SLB", "HAL", "BKR", "NOV", "XOM", "CVX"], "油服對手", "Oilfield services rival"),
-    # Prefer listing ticker B (Barrick Mining); do not also list legacy GOLD ADR.
-    ("materials-gold", ["AEM", "NEM", "WPM", "B", "FCX", "SCCO"], "金礦／貴金屬對手", "Gold / precious-metals rival"),
+    # Prefer listing ticker B (Barrick Mining); gold peers only — no copper names (SCCO/FCX).
+    ("materials-gold", ["AEM", "NEM", "WPM", "B", "KGC", "AU", "GFI"], "金礦／貴金屬對手", "Gold / precious-metals rival"),
     ("materials-cu", ["FCX", "SCCO", "BHP", "RIO", "TECK", "NEM"], "銅礦對手", "Copper mining rival"),
     ("materials-chem", ["ECL", "SHW", "APD", "LIN", "DD", "DOW"], "特用化學／塗料對手", "Specialty chem / coatings rival"),
     ("materials-indgas", ["APD", "LIN", "ECL", "SHW", "DOW"], "工業氣體對手", "Industrial gases rival"),
@@ -704,7 +737,8 @@ PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ("auto-oem", ["GM", "F", "TM", "TSLA", "HMC", "RACE", "1211.HK"], "整車對手", "Auto OEM rival"),
     ("auto-luxury", ["RACE", "TM", "GM", "BMW.DE", "MBG.DE", "TSLA"], "超跑／豪華車對手", "Supercar / luxury OEM rival"),
     ("ecom-latam", ["MELI", "AMZN", "BABA", "SE", "SHOP"], "電商平台對手", "E-commerce platform rival"),
-    ("ecom-auto-parts", ["ORLY", "AZO", "AAP", "WACLY", "AMZN"], "汽車售後零件對手", "Auto aftermarket parts rival"),
+    # GPC = Genuine Parts (NAPA); never WACLY (Wacoal ADR ≠ Watsco).
+    ("ecom-auto-parts", ["ORLY", "AZO", "AAP", "GPC", "AMZN"], "汽車售後零件對手", "Auto aftermarket parts rival"),
     ("ecom-disc", ["TGT", "WMT", "COST", "AMZN", "DG", "DLTR"], "折扣零售對手", "Discount retail rival"),
     ("ecom-market", ["EBAY", "AMZN", "SHOP", "ETSY", "BABA"], "線上市集對手", "Online marketplace rival"),
     ("apparel-off", ["ROST", "TJX", "BURL", "GPS", "ANF"], "平價服飾零售對手", "Off-price apparel retail rival"),
@@ -764,15 +798,35 @@ def rivals_for(ticker: str, n: int = 5) -> list[tuple[str, str, str]]:
 
 
 def resolve_name_zh(ticker: str, name_en: str, stock_zh: dict, file_zh: dict) -> str:
+    # Hard fixes always win (wrong STOCK_NAMES collisions, required 繁中 brands).
+    hard = {
+        "CI": "信諾",
+        "TDG": "環球透博",  # never Trimble 天寶
+        "ANSS": "安西斯",
+        "PTC": "參數科技",
+        "ADSK": "歐特克",
+        "IBM": "IBM",
+    }
+    if ticker in hard:
+        return hard[ticker]
+
+    def _cjk(text: str) -> bool:
+        return bool(re.search(r"[\u4e00-\u9fff]", text or ""))
+
+    # Prefer verified STOCK_NAMES_ZH / us_chinese_names when they already have 繁中.
+    for cand in (
+        stock_zh.get(ticker),
+        (file_zh.get(ticker) or {}).get("name_zh") if isinstance(file_zh.get(ticker), dict) else file_zh.get(ticker),
+        CURATED_NAME_ZH.get(ticker),
+    ):
+        if isinstance(cand, str) and cand.strip() and _cjk(cand):
+            # Block known wrong collision even if it slipped into stock map.
+            if ticker == "TDG" and "天寶" in cand:
+                return "環球透博"
+            return cand.strip()
+
     if ticker in CURATED_NAME_ZH:
         return CURATED_NAME_ZH[ticker]
-    if ticker in stock_zh and stock_zh[ticker]:
-        return stock_zh[ticker]
-    entry = file_zh.get(ticker)
-    if isinstance(entry, dict) and entry.get("name_zh"):
-        return entry["name_zh"]
-    if isinstance(entry, str) and entry:
-        return entry
     short = short_brand_en(name_en, ticker)
     if looks_like_english_legal_name(short):
         return ticker
@@ -877,7 +931,25 @@ def main() -> int:
     entities["IBM"] = {"name_en": "IBM", "name_zh": "IBM", "exchange": "NYSE"}
     entities["BN"] = {"name_en": "Brookfield", "name_zh": "Brookfield", "exchange": "NYSE"}
     entities["MET"]["name_zh"] = "大都會人壽"
-    entities["ANSS"] = {"name_en": "Ansys", "name_zh": "Ansys", "exchange": "NASDAQ"}
+    entities["ANSS"] = {"name_en": "Ansys", "name_zh": "安西斯", "exchange": "NASDAQ"}
+    entities["FIG"] = {
+        "name_en": CURATED_NAME_EN.get("FIG", "Figma"),
+        "name_zh": "Figma",
+        "exchange": (uni.get("FIG") or {}).get("exchange") or "NYSE",
+    }
+    entities["CANVA"] = {"name_en": "Canva", "name_zh": "Canva", "exchange": "Private"}
+    entities["PTC"] = {"name_en": "PTC", "name_zh": "參數科技", "exchange": "NASDAQ"}
+    entities["ADSK"] = {"name_en": "Autodesk", "name_zh": "歐特克", "exchange": "NASDAQ"}
+    entities["GPC"] = {"name_en": "Genuine Parts", "name_zh": "GPC／NAPA", "exchange": "NYSE"}
+    entities["KGC"] = {"name_en": "Kinross", "name_zh": "金羅斯", "exchange": "NYSE"}
+    entities["AU"] = {"name_en": "AngloGold Ashanti", "name_zh": "安格洛黃金", "exchange": "NYSE"}
+    entities["GFI"] = {"name_en": "Gold Fields", "name_zh": "金田", "exchange": "NYSE"}
+    entities["AIQUY"] = {"name_en": "Air Liquide", "name_zh": "液化空氣", "exchange": "OTC"}
+    # Drop wrong Watsco mapping if present (WACLY is Wacoal ADR).
+    if entities.get("WACLY", {}).get("name_en") == "Watsco" or "Watsco" in (
+        entities.get("WACLY", {}).get("name_zh") or ""
+    ):
+        entities.pop("WACLY", None)
 
     write_json(ENT_PATH, entities)
     write_json(COMP_PATH, competitors)

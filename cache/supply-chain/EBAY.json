@@ -46,8 +46,8 @@
         {
           "ticker": "NKE",
           "name_en": "Nike",
-          "name_zh": "耐克",
-          "role_zh": "耐克：品牌／賣家供應代表性玩家",
+          "name_zh": "耐吉",
+          "role_zh": "耐吉：品牌／賣家供應代表性玩家",
           "role_en": "Nike: representative player in Brands / seller supply",
           "exchange": "NYSE"
         },
@@ -72,16 +72,16 @@
         {
           "ticker": "PLD",
           "name_en": "Prologis",
-          "name_zh": "普洛斯",
-          "role_zh": "普洛斯：倉儲／履約代表性玩家",
+          "name_zh": "普洛斯 (Prologis)",
+          "role_zh": "普洛斯 (Prologis)：倉儲／履約代表性玩家",
           "role_en": "Prologis: representative player in Warehousing / fulfillment",
           "exchange": "NYSE"
         },
         {
           "ticker": "EQIX",
           "name_en": "Equinix",
-          "name_zh": "Equinix",
-          "role_zh": "Equinix：倉儲／履約代表性玩家",
+          "name_zh": "易華電腦 (Equinix)",
+          "role_zh": "易華電腦 (Equinix)：倉儲／履約代表性玩家",
           "role_en": "Equinix: representative player in Warehousing / fulfillment",
           "exchange": "NASDAQ"
         },
@@ -106,16 +106,16 @@
         {
           "ticker": "V",
           "name_en": "Visa",
-          "name_zh": "Visa",
-          "role_zh": "Visa：支付／金融代表性玩家",
+          "name_zh": "威士卡",
+          "role_zh": "威士卡：支付／金融代表性玩家",
           "role_en": "Visa: representative player in Payments / fintech",
           "exchange": "NYSE"
         },
         {
           "ticker": "MA",
           "name_en": "Mastercard",
-          "name_zh": "Mastercard",
-          "role_zh": "Mastercard：支付／金融代表性玩家",
+          "name_zh": "萬事達卡",
+          "role_zh": "萬事達卡：支付／金融代表性玩家",
           "role_en": "Mastercard: representative player in Payments / fintech",
           "exchange": "NYSE"
         },
@@ -190,8 +190,8 @@
         {
           "ticker": "UNP",
           "name_en": "Union Pacific",
-          "name_zh": "聯合太平洋",
-          "role_zh": "聯合太平洋：最後一哩／宅配代表性玩家",
+          "name_zh": "聯合太平洋鐵路",
+          "role_zh": "聯合太平洋鐵路：最後一哩／宅配代表性玩家",
           "role_en": "Union Pacific: representative player in Last-mile delivery",
           "exchange": "NYSE"
         }

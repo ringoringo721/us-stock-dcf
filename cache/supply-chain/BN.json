@@ -46,8 +46,8 @@
         {
           "ticker": "MCO",
           "name_en": "Moody's",
-          "name_zh": "穆迪",
-          "role_zh": "穆迪：指數／評級／資料代表性玩家",
+          "name_zh": "穆迪評級",
+          "role_zh": "穆迪評級：指數／評級／資料代表性玩家",
           "role_en": "Moody's: representative player in Index / ratings / data",
           "exchange": "NYSE"
         },
@@ -107,8 +107,8 @@
         {
           "ticker": "GS",
           "name_en": "Goldman Sachs",
-          "name_zh": "高盛",
-          "role_zh": "高盛：交易／市場進入代表性玩家",
+          "name_zh": "高盛集團",
+          "role_zh": "高盛集團：交易／市場進入代表性玩家",
           "role_en": "Goldman Sachs: representative player in Execution / market access",
           "exchange": "NYSE"
         },
@@ -191,8 +191,8 @@
         {
           "ticker": "CB",
           "name_en": "Chubb",
-          "name_zh": "丘博保險",
-          "role_zh": "丘博保險：資產所有人／機構代表性玩家",
+          "name_zh": "安達保險",
+          "role_zh": "安達保險：資產所有人／機構代表性玩家",
           "role_en": "Chubb: representative player in Asset owners / institutions",
           "exchange": "NYSE"
         }

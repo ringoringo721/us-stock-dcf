@@ -38,8 +38,8 @@
         {
           "ticker": "LLY",
           "name_en": "Eli Lilly",
-          "name_zh": "禮來",
-          "role_zh": "禮來：藥品／醫材供應代表性玩家",
+          "name_zh": "禮來公司",
+          "role_zh": "禮來公司：藥品／醫材供應代表性玩家",
           "role_en": "Eli Lilly: representative player in Drug / device supply",
           "exchange": "NYSE"
         },
@@ -80,8 +80,8 @@
         {
           "ticker": "ISRG",
           "name_en": "Intuitive Surgical",
-          "name_zh": "直覺外科",
-          "role_zh": "直覺外科：醫療提供方代表性玩家",
+          "name_zh": "直覺外科 (達文西)",
+          "role_zh": "直覺外科 (達文西)：醫療提供方代表性玩家",
           "role_en": "Intuitive Surgical: representative player in Care providers",
           "exchange": "NASDAQ"
         },
@@ -203,7 +203,7 @@
     {
       "ticker": "COR",
       "name_en": "Cencora",
-      "name_zh": "Cencora",
+      "name_zh": "信卡拉 (前美源伯根)",
       "basis_zh": "藥品通路對手",
       "basis_en": "Drug distribution rival",
       "exchange": "NYSE"

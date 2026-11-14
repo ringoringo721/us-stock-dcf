@@ -38,16 +38,16 @@
         {
           "ticker": "CAT",
           "name_en": "Caterpillar",
-          "name_zh": "卡特彼勒",
-          "role_zh": "卡特彼勒：建設／開發代表性玩家",
+          "name_zh": "開拓重工",
+          "role_zh": "開拓重工：建設／開發代表性玩家",
           "role_en": "Caterpillar: representative player in Construction / development",
           "exchange": "NYSE"
         },
         {
           "ticker": "DE",
           "name_en": "Deere",
-          "name_zh": "迪爾",
-          "role_zh": "迪爾：建設／開發代表性玩家",
+          "name_zh": "強鹿公司 (Deere)",
+          "role_zh": "強鹿公司 (Deere)：建設／開發代表性玩家",
           "role_en": "Deere: representative player in Construction / development",
           "exchange": "NYSE"
         },
@@ -88,8 +88,8 @@
         {
           "ticker": "HON",
           "name_en": "Honeywell",
-          "name_zh": "霍尼韋爾",
-          "role_zh": "霍尼韋爾：建材／機電裝置代表性玩家",
+          "name_zh": "漢威聯合",
+          "role_zh": "漢威聯合：建材／機電裝置代表性玩家",
           "role_en": "Honeywell: representative player in Building systems / MEP",
           "exchange": "NASDAQ"
         }
@@ -122,8 +122,8 @@
         {
           "ticker": "PANW",
           "name_en": "Palo Alto Networks",
-          "name_zh": "Palo Alto Networks",
-          "role_zh": "Palo Alto Networks：物業科技／營運代表性玩家",
+          "name_zh": "派拓網路",
+          "role_zh": "派拓網路：物業科技／營運代表性玩家",
           "role_en": "Palo Alto Networks: representative player in Proptech / operations",
           "exchange": "NASDAQ"
         }
@@ -227,7 +227,7 @@
     {
       "ticker": "PLD",
       "name_en": "Prologis",
-      "name_zh": "普洛斯",
+      "name_zh": "普洛斯 (Prologis)",
       "basis_zh": "自助倉儲 REIT 對手",
       "basis_en": "Self-storage REIT rival",
       "exchange": "NYSE"

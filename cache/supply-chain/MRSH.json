@@ -38,8 +38,8 @@
         {
           "ticker": "CB",
           "name_en": "Chubb",
-          "name_zh": "丘博保險",
-          "role_zh": "丘博保險：再保險代表性玩家",
+          "name_zh": "安達保險",
+          "role_zh": "安達保險：再保險代表性玩家",
           "role_en": "Chubb: representative player in Reinsurance",
           "exchange": "NYSE"
         },
@@ -72,8 +72,8 @@
         {
           "ticker": "VRSK",
           "name_en": "Verisk",
-          "name_zh": "Verisk",
-          "role_zh": "Verisk：精算／資料／評級代表性玩家",
+          "name_zh": "威瑞斯克",
+          "role_zh": "威瑞斯克：精算／資料／評級代表性玩家",
           "role_en": "Verisk: representative player in Actuarial / data / ratings",
           "exchange": "NASDAQ"
         },
@@ -88,8 +88,8 @@
         {
           "ticker": "MCO",
           "name_en": "Moody's",
-          "name_zh": "穆迪",
-          "role_zh": "穆迪：精算／資料／評級代表性玩家",
+          "name_zh": "穆迪評級",
+          "role_zh": "穆迪評級：精算／資料／評級代表性玩家",
           "role_en": "Moody's: representative player in Actuarial / data / ratings",
           "exchange": "NYSE"
         }
@@ -140,24 +140,24 @@
         {
           "ticker": "AON",
           "name_en": "Aon",
-          "name_zh": "怡安",
-          "role_zh": "怡安：代理／經紀／銀行通路代表性玩家",
+          "name_zh": "怡安集團",
+          "role_zh": "怡安集團：代理／經紀／銀行通路代表性玩家",
           "role_en": "Aon: representative player in Agents / brokers / bank channel",
           "exchange": "NYSE"
         },
         {
           "ticker": "AJG",
           "name_en": "Arthur J. Gallagher",
-          "name_zh": "Arthur J. Gallagher",
-          "role_zh": "Arthur J. Gallagher：代理／經紀／銀行通路代表性玩家",
+          "name_zh": "亞瑟加拉格爾",
+          "role_zh": "亞瑟加拉格爾：代理／經紀／銀行通路代表性玩家",
           "role_en": "Arthur J. Gallagher: representative player in Agents / brokers / bank channel",
           "exchange": "NYSE"
         },
         {
           "ticker": "CB",
           "name_en": "Chubb",
-          "name_zh": "丘博保險",
-          "role_zh": "丘博保險：代理／經紀／銀行通路代表性玩家",
+          "name_zh": "安達保險",
+          "role_zh": "安達保險：代理／經紀／銀行通路代表性玩家",
           "role_en": "Chubb: representative player in Agents / brokers / bank channel",
           "exchange": "NYSE"
         }
@@ -202,7 +202,7 @@
     {
       "ticker": "AON",
       "name_en": "Aon",
-      "name_zh": "怡安",
+      "name_zh": "怡安集團",
       "basis_zh": "保險經紀對手",
       "basis_en": "Insurance brokerage rival",
       "exchange": "NYSE"
@@ -210,7 +210,7 @@
     {
       "ticker": "AJG",
       "name_en": "Arthur J. Gallagher",
-      "name_zh": "Arthur J. Gallagher",
+      "name_zh": "亞瑟加拉格爾",
       "basis_zh": "保險經紀對手",
       "basis_en": "Insurance brokerage rival",
       "exchange": "NYSE"

@@ -80,8 +80,8 @@
         {
           "ticker": "MCO",
           "name_en": "Moody's",
-          "name_zh": "穆迪",
-          "role_zh": "穆迪：市場資料／指數代表性玩家",
+          "name_zh": "穆迪評級",
+          "role_zh": "穆迪評級：市場資料／指數代表性玩家",
           "role_en": "Moody's: representative player in Market data / indices",
           "exchange": "NYSE"
         },
@@ -122,8 +122,8 @@
         {
           "ticker": "PANW",
           "name_en": "Palo Alto Networks",
-          "name_zh": "Palo Alto Networks",
-          "role_zh": "Palo Alto Networks：交易／風控科技代表性玩家",
+          "name_zh": "派拓網路",
+          "role_zh": "派拓網路：交易／風控科技代表性玩家",
           "role_en": "Palo Alto Networks: representative player in Trading / risk technology",
           "exchange": "NASDAQ"
         }
@@ -190,8 +190,8 @@
         {
           "ticker": "XOM",
           "name_en": "Exxonmobil",
-          "name_zh": "艾克森美孚",
-          "role_zh": "艾克森美孚：企業／主權發行人代表性玩家",
+          "name_zh": "埃克森美孚",
+          "role_zh": "埃克森美孚：企業／主權發行人代表性玩家",
           "role_en": "Exxonmobil: representative player in Corporate / sovereign issuers",
           "exchange": "NYSE"
         }
@@ -235,7 +235,7 @@
     {
       "ticker": "MCO",
       "name_en": "Moody's",
-      "name_zh": "穆迪",
+      "name_zh": "穆迪評級",
       "basis_zh": "交易所／市場基礎設施對手",
       "basis_en": "Exchange / market-infra rival",
       "exchange": "NYSE"

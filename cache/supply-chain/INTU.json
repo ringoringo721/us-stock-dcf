@@ -2,7 +2,7 @@
   "version": 1,
   "ticker": "INTU",
   "name_en": "Intuit",
-  "name_zh": "Intuit",
+  "name_zh": "直覺電腦",
   "updatedAt": "2026-11-14",
   "source": {
     "type": "curated",
@@ -72,8 +72,8 @@
         {
           "ticker": "EQIX",
           "name_en": "Equinix",
-          "name_zh": "Equinix",
-          "role_zh": "Equinix：資料中心／雲端基礎設施代表性玩家",
+          "name_zh": "易華電腦 (Equinix)",
+          "role_zh": "易華電腦 (Equinix)：資料中心／雲端基礎設施代表性玩家",
           "role_en": "Equinix: representative player in Data center / cloud infrastructure",
           "exchange": "NASDAQ"
         },
@@ -114,8 +114,8 @@
         {
           "ticker": "PANW",
           "name_en": "Palo Alto Networks",
-          "name_zh": "Palo Alto Networks",
-          "role_zh": "Palo Alto Networks：資料平台／資安代表性玩家",
+          "name_zh": "派拓網路",
+          "role_zh": "派拓網路：資料平台／資安代表性玩家",
           "role_en": "Palo Alto Networks: representative player in Data platform / security",
           "exchange": "NASDAQ"
         },
@@ -202,7 +202,7 @@
     {
       "ticker": "ADP",
       "name_en": "ADP",
-      "name_zh": "ADP",
+      "name_zh": "安德普翰 (ADP)",
       "basis_zh": "財稅／中小企業軟體對手",
       "basis_en": "Fintech / SMB software rival",
       "exchange": "NASDAQ"
@@ -210,7 +210,7 @@
     {
       "ticker": "PAYX",
       "name_en": "Paychex",
-      "name_zh": "培沛客",
+      "name_zh": "培沛客 (Paychex)",
       "basis_zh": "財稅／中小企業軟體對手",
       "basis_en": "Fintech / SMB software rival",
       "exchange": "NASDAQ"

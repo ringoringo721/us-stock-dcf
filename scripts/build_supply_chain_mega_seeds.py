@@ -63,6 +63,14 @@ def traditionalize(text: str) -> str:
             ("社羣", "社群"),
             ("臨牀", "臨床"),
             ("僱主", "雇主"),
+            # OpenCC s2twp over-conversions common in our stage/brand copy
+            ("引數", "參數"),
+            ("壓縮裝置", "壓縮設備"),
+            ("施作裝置", "施作設備"),
+            ("工程裝置", "工程設備"),
+            ("礦山／工程裝置", "礦山／工程設備"),
+            ("包裝／施作裝置", "包裝／施作設備"),
+            ("製程／壓縮裝置", "製程／壓縮設備"),
         )
         for a, b in fixes:
             converted = converted.replace(a, b)

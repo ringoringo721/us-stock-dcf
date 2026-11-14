@@ -166,26 +166,6 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "MSFT": {
-      "ticker": "MSFT",
-      "price": 523.88,
-      "previousClose": 523.0,
-      "changePct": 0.168,
-      "mcap": 3940410.7,
-      "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "GOOG": {
-      "ticker": "GOOG",
-      "price": 292.52,
-      "previousClose": 295.35,
-      "changePct": -0.958,
-      "mcap": 3481876.2,
-      "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
     "ADSK": {
       "ticker": "ADSK",
       "price": 264.42,
@@ -196,25 +176,45 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "INTU": {
-      "ticker": "INTU",
-      "price": 341.7,
-      "previousClose": 340.17,
-      "changePct": 0.45,
-      "mcap": 91261.1,
+    "FIG": {
+      "ticker": "FIG",
+      "price": 19.45,
+      "previousClose": 18.92,
+      "changePct": 2.801,
+      "mcap": 9169.1,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "CRM": {
-      "ticker": "CRM",
-      "price": 217.84,
-      "previousClose": 217.57,
-      "changePct": 0.124,
-      "mcap": 175834.0,
+    "ANSS": {
+      "ticker": "ANSS",
+      "price": null,
+      "previousClose": null,
+      "changePct": null,
+      "mcap": null,
+      "currency": "USD",
+      "asOf": null,
+      "source": null
+    },
+    "PTC": {
+      "ticker": "PTC",
+      "price": 196.0,
+      "previousClose": 196.25,
+      "changePct": -0.127,
+      "mcap": 21190.9,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "CANVA": {
+      "ticker": "CANVA",
+      "price": null,
+      "previousClose": null,
+      "changePct": null,
+      "mcap": null,
+      "currency": "USD",
+      "asOf": null,
+      "source": null
     }
   }
 }

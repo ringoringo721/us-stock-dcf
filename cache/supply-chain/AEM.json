@@ -30,7 +30,7 @@
     {
       "id": "equipment",
       "order": 1,
-      "label_zh": "礦山／工程裝置",
+      "label_zh": "礦山／工程設備",
       "label_en": "Mining / engineering equipment",
       "summary_zh": "挖土機、卡車與工程機械。",
       "summary_en": "Excavators, trucks, engineering kit.",
@@ -38,16 +38,16 @@
         {
           "ticker": "CAT",
           "name_en": "Caterpillar",
-          "name_zh": "卡特彼勒",
-          "role_zh": "卡特彼勒：礦山／工程裝置代表性玩家",
+          "name_zh": "開拓重工",
+          "role_zh": "開拓重工：礦山／工程設備代表性玩家",
           "role_en": "Caterpillar: representative player in Mining / engineering equipment",
           "exchange": "NYSE"
         },
         {
           "ticker": "DE",
           "name_en": "Deere",
-          "name_zh": "迪爾",
-          "role_zh": "迪爾：礦山／工程裝置代表性玩家",
+          "name_zh": "強鹿公司 (Deere)",
+          "role_zh": "強鹿公司 (Deere)：礦山／工程設備代表性玩家",
           "role_en": "Deere: representative player in Mining / engineering equipment",
           "exchange": "NYSE"
         },
@@ -55,7 +55,7 @@
           "ticker": "PH",
           "name_en": "Parker-Hannifin",
           "name_zh": "派克漢尼汾",
-          "role_zh": "派克漢尼汾：礦山／工程裝置代表性玩家",
+          "role_zh": "派克漢尼汾：礦山／工程設備代表性玩家",
           "role_en": "Parker-Hannifin: representative player in Mining / engineering equipment",
           "exchange": "NYSE"
         }
@@ -71,10 +71,10 @@
       "players": [
         {
           "ticker": "BHP",
-          "name_en": "BHP Group Limited",
-          "name_zh": "必和必拓",
-          "role_zh": "必和必拓：開採／選礦代表性玩家",
-          "role_en": "BHP Group Limited: representative player in Extraction / processing",
+          "name_en": "BHP",
+          "name_zh": "BHP",
+          "role_zh": "BHP：開採／選礦代表性玩家",
+          "role_en": "BHP: representative player in Extraction / processing",
           "exchange": "NYSE"
         },
         {
@@ -114,8 +114,8 @@
         {
           "ticker": "DOW",
           "name_en": "Dow",
-          "name_zh": "陶氏",
-          "role_zh": "陶氏：冶煉／化工加工代表性玩家",
+          "name_zh": "陶氏化學",
+          "role_zh": "陶氏化學：冶煉／化工加工代表性玩家",
           "role_en": "Dow: representative player in Smelting / chemical processing",
           "exchange": "NYSE"
         },
@@ -140,8 +140,8 @@
         {
           "ticker": "UNP",
           "name_en": "Union Pacific",
-          "name_zh": "聯合太平洋",
-          "role_zh": "聯合太平洋：物流／港口代表性玩家",
+          "name_zh": "聯合太平洋鐵路",
+          "role_zh": "聯合太平洋鐵路：物流／港口代表性玩家",
           "role_en": "Union Pacific: representative player in Logistics / ports",
           "exchange": "NYSE"
         },
@@ -174,16 +174,16 @@
         {
           "ticker": "CAT",
           "name_en": "Caterpillar",
-          "name_zh": "卡特彼勒",
-          "role_zh": "卡特彼勒：鋼鐵／汽車／工業客戶代表性玩家",
+          "name_zh": "開拓重工",
+          "role_zh": "開拓重工：鋼鐵／汽車／工業客戶代表性玩家",
           "role_en": "Caterpillar: representative player in Steel / auto / industrial customers",
           "exchange": "NYSE"
         },
         {
           "ticker": "F",
           "name_en": "Ford",
-          "name_zh": "福特",
-          "role_zh": "福特：鋼鐵／汽車／工業客戶代表性玩家",
+          "name_zh": "福特汽車",
+          "role_zh": "福特汽車：鋼鐵／汽車／工業客戶代表性玩家",
           "role_en": "Ford: representative player in Steel / auto / industrial customers",
           "exchange": "NYSE"
         },
@@ -202,7 +202,7 @@
     {
       "ticker": "NEM",
       "name_en": "Newmont",
-      "name_zh": "紐蒙特",
+      "name_zh": "紐蒙特黃金",
       "basis_zh": "金礦／貴金屬對手",
       "basis_en": "Gold / precious-metals rival",
       "exchange": "NYSE"
@@ -224,17 +224,17 @@
       "exchange": "NYSE"
     },
     {
-      "ticker": "FCX",
-      "name_en": "Freeport-McMoRan",
-      "name_zh": "自由港麥克莫蘭",
+      "ticker": "KGC",
+      "name_en": "Kinross",
+      "name_zh": "金羅斯",
       "basis_zh": "金礦／貴金屬對手",
       "basis_en": "Gold / precious-metals rival",
       "exchange": "NYSE"
     },
     {
-      "ticker": "SCCO",
-      "name_en": "Southern Copper",
-      "name_zh": "南方銅業",
+      "ticker": "AU",
+      "name_en": "AngloGold Ashanti",
+      "name_zh": "安格洛黃金",
       "basis_zh": "金礦／貴金屬對手",
       "basis_en": "Gold / precious-metals rival",
       "exchange": "NYSE"

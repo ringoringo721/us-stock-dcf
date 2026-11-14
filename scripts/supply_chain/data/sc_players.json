@@ -647,6 +647,20 @@
       "GM"
     ]
   },
+  "industrial-gases-v1": {
+    "feedstock": ["XOM", "CVX", "SHEL"],
+    "equipment": ["EMR", "ETN", "HON"],
+    "production": ["LIN", "APD", "AIQUY"],
+    "distribution": ["UNP", "FDX", "UPS"],
+    "customers": ["TSM", "JNJ", "CAT"]
+  },
+  "specialty-chem-v1": {
+    "inputs": ["DOW", "DD", "XOM"],
+    "formulation": ["SHW", "ECL", "PPG"],
+    "equipment": ["EMR", "ITW", "PH"],
+    "distribution": ["GWW", "FAST", "HD"],
+    "customers": ["HD", "LOW", "HLT"]
+  },
   "utilities-v1": {
     "fuel-capex": [
       "FSLR",

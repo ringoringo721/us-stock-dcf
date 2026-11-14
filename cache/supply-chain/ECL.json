@@ -2,7 +2,7 @@
   "version": 1,
   "ticker": "ECL",
   "name_en": "Ecolab",
-  "name_zh": "藝康",
+  "name_zh": "藝康集團",
   "updatedAt": "2026-11-14",
   "source": {
     "type": "curated",
@@ -11,154 +11,154 @@
     "notes_en": "Industry value-chain template plus curated rivals for the US mcap $50B–$100B batch. No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
     "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
     "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
-    "modelId": "basic-materials-v1",
+    "modelId": "specialty-chem-v1",
     "references": [
-      "Industry model `basic-materials-v1`",
+      "Industry model `specialty-chem-v1`",
       "AAPL curated seed shape on main (schema reference)",
       "cache/us_universe.json marketCap screen: USD 50B ≤ mcap < 100B",
       "Mega ≥$100B batch patterns (entity gates, short_brand_en, industry models)"
     ]
   },
   "model": {
-    "id": "basic-materials-v1",
-    "label_zh": "基礎材料／礦業價值鏈",
-    "label_en": "Basic materials / mining value chain",
-    "description_zh": "礦山裝置 → 開採 → 冶煉加工 → 物流港口 → 工業／汽車客戶。",
-    "description_en": "Mining equipment → extraction → smelting → logistics/ports → industrial/auto customers."
+    "id": "specialty-chem-v1",
+    "label_zh": "特用化學／塗料／衛生價值鏈",
+    "label_en": "Specialty chem / coatings / hygiene value chain",
+    "description_zh": "基礎化學原料 → 配方／塗料製程 → 包裝與施作設備 → 通路經銷 → 建築／機構／餐旅客戶。",
+    "description_en": "Base chemicals → formulation/coatings → packaging & application equipment → distribution → construction/institutional/hospitality customers."
   },
   "stages": [
     {
-      "id": "equipment",
+      "id": "inputs",
       "order": 1,
-      "label_zh": "礦山／工程裝置",
-      "label_en": "Mining / engineering equipment",
-      "summary_zh": "挖土機、卡車與工程機械。",
-      "summary_en": "Excavators, trucks, engineering kit.",
+      "label_zh": "基礎化學原料",
+      "label_en": "Base chemical inputs",
+      "summary_zh": "樹脂、溶劑與中間體。",
+      "summary_en": "Resins, solvents, intermediates.",
       "players": [
         {
-          "ticker": "EMR",
-          "name_en": "Emerson",
-          "name_zh": "艾默生",
-          "role_zh": "艾默生：礦山／工程裝置代表性玩家",
-          "role_en": "Emerson: representative player in Mining / engineering equipment",
+          "ticker": "DOW",
+          "name_en": "Dow",
+          "name_zh": "陶氏化學",
+          "role_zh": "陶氏化學：基礎化學原料代表性玩家",
+          "role_en": "Dow: representative player in Base chemical inputs",
           "exchange": "NYSE"
         },
         {
-          "ticker": "ETN",
-          "name_en": "Eaton",
-          "name_zh": "伊頓",
-          "role_zh": "伊頓：礦山／工程裝置代表性玩家",
-          "role_en": "Eaton: representative player in Mining / engineering equipment",
+          "ticker": "DD",
+          "name_en": "DuPont de Nemours",
+          "name_zh": "杜邦公司",
+          "role_zh": "杜邦公司：基礎化學原料代表性玩家",
+          "role_en": "DuPont de Nemours: representative player in Base chemical inputs",
           "exchange": "NYSE"
         },
         {
-          "ticker": "HON",
-          "name_en": "Honeywell",
-          "name_zh": "霍尼韋爾",
-          "role_zh": "霍尼韋爾：礦山／工程裝置代表性玩家",
-          "role_en": "Honeywell: representative player in Mining / engineering equipment",
-          "exchange": "NASDAQ"
+          "ticker": "XOM",
+          "name_en": "Exxonmobil",
+          "name_zh": "埃克森美孚",
+          "role_zh": "埃克森美孚：基礎化學原料代表性玩家",
+          "role_en": "Exxonmobil: representative player in Base chemical inputs",
+          "exchange": "NYSE"
         }
       ]
     },
     {
-      "id": "extraction",
+      "id": "formulation",
       "order": 2,
-      "label_zh": "開採／選礦",
-      "label_en": "Extraction / processing",
-      "summary_zh": "礦場營運與選礦。",
-      "summary_en": "Mine ops and processing.",
+      "label_zh": "配方／塗料製程",
+      "label_en": "Formulation / coatings process",
+      "summary_zh": "塗料、清洗與水處理配方。",
+      "summary_en": "Coatings, cleaning, water-treatment formulas.",
       "players": [
         {
-          "ticker": "XOM",
-          "name_en": "Exxonmobil",
-          "name_zh": "艾克森美孚",
-          "role_zh": "艾克森美孚：開採／選礦代表性玩家",
-          "role_en": "Exxonmobil: representative player in Extraction / processing",
+          "ticker": "SHW",
+          "name_en": "Sherwin-Williams",
+          "name_zh": "宣偉塗料",
+          "role_zh": "宣偉塗料：配方／塗料製程代表性玩家",
+          "role_en": "Sherwin-Williams: representative player in Formulation / coatings process",
           "exchange": "NYSE"
         },
         {
-          "ticker": "CVX",
-          "name_en": "Chevron",
-          "name_zh": "雪佛龍",
-          "role_zh": "雪佛龍：開採／選礦代表性玩家",
-          "role_en": "Chevron: representative player in Extraction / processing",
+          "ticker": "PPG",
+          "name_en": "PPG Industries",
+          "name_zh": "PPG Industries",
+          "role_zh": "PPG Industries：配方／塗料製程代表性玩家",
+          "role_en": "PPG Industries: representative player in Formulation / coatings process",
           "exchange": "NYSE"
         },
         {
           "ticker": "DOW",
           "name_en": "Dow",
-          "name_zh": "陶氏",
-          "role_zh": "陶氏：開採／選礦代表性玩家",
-          "role_en": "Dow: representative player in Extraction / processing",
+          "name_zh": "陶氏化學",
+          "role_zh": "陶氏化學：配方／塗料製程代表性玩家",
+          "role_en": "Dow: representative player in Formulation / coatings process",
           "exchange": "NYSE"
         }
       ]
     },
     {
-      "id": "smelting",
+      "id": "equipment",
       "order": 3,
-      "label_zh": "冶煉／化工加工",
-      "label_en": "Smelting / chemical processing",
-      "summary_zh": "精煉與中間品。",
-      "summary_en": "Refining and intermediates.",
+      "label_zh": "包裝／施作設備",
+      "label_en": "Packaging / application equipment",
+      "summary_zh": "計量、噴塗與衛生裝置。",
+      "summary_en": "Dosing, spray, hygiene equipment.",
       "players": [
         {
-          "ticker": "LIN",
-          "name_en": "Linde",
-          "name_zh": "林德集團",
-          "role_zh": "林德集團：冶煉／化工加工代表性玩家",
-          "role_en": "Linde: representative player in Smelting / chemical processing",
+          "ticker": "EMR",
+          "name_en": "Emerson",
+          "name_zh": "艾默生",
+          "role_zh": "艾默生：包裝／施作設備代表性玩家",
+          "role_en": "Emerson: representative player in Packaging / application equipment",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "ITW",
+          "name_en": "Illinois Tool Works",
+          "name_zh": "伊利諾工具",
+          "role_zh": "伊利諾工具：包裝／施作設備代表性玩家",
+          "role_en": "Illinois Tool Works: representative player in Packaging / application equipment",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "PH",
+          "name_en": "Parker-Hannifin",
+          "name_zh": "派克漢尼汾",
+          "role_zh": "派克漢尼汾：包裝／施作設備代表性玩家",
+          "role_en": "Parker-Hannifin: representative player in Packaging / application equipment",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "distribution",
+      "order": 4,
+      "label_zh": "通路／經銷",
+      "label_en": "Distribution / dealers",
+      "summary_zh": "工業經銷與專業通路。",
+      "summary_en": "Industrial distributors and pros.",
+      "players": [
+        {
+          "ticker": "GWW",
+          "name_en": "Grainger",
+          "name_zh": "固安捷",
+          "role_zh": "固安捷：通路／經銷代表性玩家",
+          "role_en": "Grainger: representative player in Distribution / dealers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "FAST",
+          "name_en": "Fastenal",
+          "name_zh": "Fastenal",
+          "role_zh": "Fastenal：通路／經銷代表性玩家",
+          "role_en": "Fastenal: representative player in Distribution / dealers",
           "exchange": "NASDAQ"
         },
         {
-          "ticker": "APD",
-          "name_en": "Air Products",
-          "name_zh": "空氣產品",
-          "role_zh": "空氣產品：冶煉／化工加工代表性玩家",
-          "role_en": "Air Products: representative player in Smelting / chemical processing",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "SHW",
-          "name_en": "Sherwin-Williams",
-          "name_zh": "宣偉",
-          "role_zh": "宣偉：冶煉／化工加工代表性玩家",
-          "role_en": "Sherwin-Williams: representative player in Smelting / chemical processing",
-          "exchange": "NYSE"
-        }
-      ]
-    },
-    {
-      "id": "logistics",
-      "order": 4,
-      "label_zh": "物流／港口",
-      "label_en": "Logistics / ports",
-      "summary_zh": "鐵礦煤運與海運。",
-      "summary_en": "Bulk rail and shipping.",
-      "players": [
-        {
-          "ticker": "UNP",
-          "name_en": "Union Pacific",
-          "name_zh": "聯合太平洋",
-          "role_zh": "聯合太平洋：物流／港口代表性玩家",
-          "role_en": "Union Pacific: representative player in Logistics / ports",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "UPS",
-          "name_en": "United Parcel Service",
-          "name_zh": "優比速",
-          "role_zh": "優比速：物流／港口代表性玩家",
-          "role_en": "United Parcel Service: representative player in Logistics / ports",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "FDX",
-          "name_en": "FedEx",
-          "name_zh": "聯邦快遞",
-          "role_zh": "聯邦快遞：物流／港口代表性玩家",
-          "role_en": "FedEx: representative player in Logistics / ports",
+          "ticker": "HD",
+          "name_en": "The Home Depot",
+          "name_zh": "家得寶",
+          "role_zh": "家得寶：通路／經銷代表性玩家",
+          "role_en": "The Home Depot: representative player in Distribution / dealers",
           "exchange": "NYSE"
         }
       ]
@@ -166,34 +166,34 @@
     {
       "id": "customers",
       "order": 5,
-      "label_zh": "鋼鐵／汽車／工業客戶",
-      "label_en": "Steel / auto / industrial customers",
-      "summary_zh": "鋼廠與製造業客戶。",
-      "summary_en": "Steel mills and manufacturers.",
+      "label_zh": "建築／機構／餐旅客戶",
+      "label_en": "Construction / institutional / hospitality",
+      "summary_zh": "營建、醫院、旅館與餐飲終端。",
+      "summary_en": "Builders, hospitals, hotels, foodservice.",
       "players": [
         {
-          "ticker": "MCD",
-          "name_en": "McDonald's Corporation",
-          "name_zh": "麥當勞",
-          "role_zh": "麥當勞：鋼鐵／汽車／工業客戶代表性玩家",
-          "role_en": "McDonald's Corporation: representative player in Steel / auto / industrial customers",
+          "ticker": "HD",
+          "name_en": "The Home Depot",
+          "name_zh": "家得寶",
+          "role_zh": "家得寶：建築／機構／餐旅客戶代表性玩家",
+          "role_en": "The Home Depot: representative player in Construction / institutional / hospitality",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "LOW",
+          "name_en": "Lowe's Companies",
+          "name_zh": "勞氏",
+          "role_zh": "勞氏：建築／機構／餐旅客戶代表性玩家",
+          "role_en": "Lowe's Companies: representative player in Construction / institutional / hospitality",
           "exchange": "NYSE"
         },
         {
           "ticker": "HLT",
           "name_en": "Hilton",
-          "name_zh": "希爾頓",
-          "role_zh": "希爾頓：鋼鐵／汽車／工業客戶代表性玩家",
-          "role_en": "Hilton: representative player in Steel / auto / industrial customers",
+          "name_zh": "希爾頓酒店",
+          "role_zh": "希爾頓酒店：建築／機構／餐旅客戶代表性玩家",
+          "role_en": "Hilton: representative player in Construction / institutional / hospitality",
           "exchange": "NYSE"
-        },
-        {
-          "ticker": "COST",
-          "name_en": "Costco Wholesale",
-          "name_zh": "好市多",
-          "role_zh": "好市多：鋼鐵／汽車／工業客戶代表性玩家",
-          "role_en": "Costco Wholesale: representative player in Steel / auto / industrial customers",
-          "exchange": "NASDAQ"
         }
       ]
     }
@@ -202,7 +202,7 @@
     {
       "ticker": "SHW",
       "name_en": "Sherwin-Williams",
-      "name_zh": "宣偉",
+      "name_zh": "宣偉塗料",
       "basis_zh": "特用化學／塗料對手",
       "basis_en": "Specialty chem / coatings rival",
       "exchange": "NYSE"
@@ -210,7 +210,7 @@
     {
       "ticker": "APD",
       "name_en": "Air Products",
-      "name_zh": "空氣產品",
+      "name_zh": "空氣化工",
       "basis_zh": "特用化學／塗料對手",
       "basis_en": "Specialty chem / coatings rival",
       "exchange": "NYSE"
@@ -234,7 +234,7 @@
     {
       "ticker": "DOW",
       "name_en": "Dow",
-      "name_zh": "陶氏",
+      "name_zh": "陶氏化學",
       "basis_zh": "特用化學／塗料對手",
       "basis_en": "Specialty chem / coatings rival",
       "exchange": "NYSE"

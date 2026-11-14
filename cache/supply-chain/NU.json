@@ -38,8 +38,8 @@
         {
           "ticker": "GS",
           "name_en": "Goldman Sachs",
-          "name_zh": "高盛",
-          "role_zh": "高盛：資金／資本市場代表性玩家",
+          "name_zh": "高盛集團",
+          "role_zh": "高盛集團：資金／資本市場代表性玩家",
           "role_en": "Goldman Sachs: representative player in Funding / capital markets",
           "exchange": "NYSE"
         },
@@ -106,16 +106,16 @@
         {
           "ticker": "V",
           "name_en": "Visa",
-          "name_zh": "Visa",
-          "role_zh": "Visa：支付／清算網路代表性玩家",
+          "name_zh": "威士卡",
+          "role_zh": "威士卡：支付／清算網路代表性玩家",
           "role_en": "Visa: representative player in Payments / clearing networks",
           "exchange": "NYSE"
         },
         {
           "ticker": "MA",
           "name_en": "Mastercard",
-          "name_zh": "Mastercard",
-          "role_zh": "Mastercard：支付／清算網路代表性玩家",
+          "name_zh": "萬事達卡",
+          "role_zh": "萬事達卡：支付／清算網路代表性玩家",
           "role_en": "Mastercard: representative player in Payments / clearing networks",
           "exchange": "NYSE"
         },
@@ -148,8 +148,8 @@
         {
           "ticker": "MCO",
           "name_en": "Moody's",
-          "name_zh": "穆迪",
-          "role_zh": "穆迪：資料／風控／評級代表性玩家",
+          "name_zh": "穆迪評級",
+          "role_zh": "穆迪評級：資料／風控／評級代表性玩家",
           "role_en": "Moody's: representative player in Data / risk / ratings",
           "exchange": "NYSE"
         },

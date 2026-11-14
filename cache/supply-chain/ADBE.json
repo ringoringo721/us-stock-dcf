@@ -72,8 +72,8 @@
         {
           "ticker": "EQIX",
           "name_en": "Equinix",
-          "name_zh": "Equinix",
-          "role_zh": "Equinix：資料中心／雲端基礎設施代表性玩家",
+          "name_zh": "易華電腦 (Equinix)",
+          "role_zh": "易華電腦 (Equinix)：資料中心／雲端基礎設施代表性玩家",
           "role_en": "Equinix: representative player in Data center / cloud infrastructure",
           "exchange": "NASDAQ"
         },
@@ -114,8 +114,8 @@
         {
           "ticker": "PANW",
           "name_en": "Palo Alto Networks",
-          "name_zh": "Palo Alto Networks",
-          "role_zh": "Palo Alto Networks：資料平台／資安代表性玩家",
+          "name_zh": "派拓網路",
+          "role_zh": "派拓網路：資料平台／資安代表性玩家",
           "role_en": "Palo Alto Networks: representative player in Data platform / security",
           "exchange": "NASDAQ"
         },
@@ -200,44 +200,46 @@
   ],
   "competitors": [
     {
-      "ticker": "MSFT",
-      "name_en": "Microsoft",
-      "name_zh": "微軟",
-      "basis_zh": "創意／檔案雲軟體對手",
-      "basis_en": "Creative / document-cloud software rival",
-      "exchange": "NASDAQ"
-    },
-    {
-      "ticker": "GOOG",
-      "name_en": "Alphabet",
-      "name_zh": "Alphabet（Google）",
-      "basis_zh": "創意／檔案雲軟體對手",
-      "basis_en": "Creative / document-cloud software rival",
-      "exchange": "NASDAQ"
-    },
-    {
       "ticker": "ADSK",
       "name_en": "Autodesk",
       "name_zh": "歐特克",
-      "basis_zh": "創意／檔案雲軟體對手",
-      "basis_en": "Creative / document-cloud software rival",
+      "basis_zh": "創意／設計軟體對手",
+      "basis_en": "Creative / design software rival",
       "exchange": "NASDAQ"
     },
     {
-      "ticker": "INTU",
-      "name_en": "Intuit",
-      "name_zh": "Intuit",
-      "basis_zh": "創意／檔案雲軟體對手",
-      "basis_en": "Creative / document-cloud software rival",
-      "exchange": "NASDAQ"
-    },
-    {
-      "ticker": "CRM",
-      "name_en": "Salesforce",
-      "name_zh": "Salesforce",
-      "basis_zh": "創意／檔案雲軟體對手",
-      "basis_en": "Creative / document-cloud software rival",
+      "ticker": "FIG",
+      "name_en": "Figma",
+      "name_zh": "Figma",
+      "basis_zh": "創意／設計軟體對手",
+      "basis_en": "Creative / design software rival",
       "exchange": "NYSE"
+    },
+    {
+      "ticker": "ANSS",
+      "name_en": "Ansys",
+      "name_zh": "安西斯",
+      "basis_zh": "創意／設計軟體對手",
+      "basis_en": "Creative / design software rival",
+      "exchange": "NASDAQ",
+      "listedInApp": false
+    },
+    {
+      "ticker": "PTC",
+      "name_en": "PTC",
+      "name_zh": "參數科技",
+      "basis_zh": "創意／設計軟體對手",
+      "basis_en": "Creative / design software rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "CANVA",
+      "name_en": "Canva",
+      "name_zh": "Canva",
+      "basis_zh": "創意／設計軟體對手",
+      "basis_en": "Creative / design software rival",
+      "exchange": "Private",
+      "listedInApp": false
     }
   ]
 }
