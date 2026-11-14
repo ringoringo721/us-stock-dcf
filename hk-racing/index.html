@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TRACKFORM HK — Win Probability</title>
+    <meta
+      name="description"
+      content="Hong Kong horse racing win-probability analyser using horse form, jockey ability, and race setup factors."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/app.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="brand">TRACK<span>FORM</span> HK</div>
+      <nav>
+        <a href="#factors">Factors</a>
+        <a href="#live">Race card</a>
+        <a href="#method">Model</a>
+      </nav>
+    </header>
+
+    <section class="hero" aria-label="Hero">
+      <div class="hero-visual" aria-hidden="true"></div>
+      <div class="hero-copy">
+        <p class="hero-brand">TRACK<em>FORM</em></p>
+        <h1>Win probabilities for every HKJC runner — from form, 騎師, and race shape.</h1>
+        <p>
+          Score Sha Tin and Happy Valley fields with transparent factors, then
+          convert ability into race-normalized win chances.
+        </p>
+        <a class="cta" id="scroll-live" href="#live">Open sample race cards</a>
+      </div>
+    </section>
+
+    <section id="factors">
+      <div class="section-head">
+        <p class="eyebrow">Signal map</p>
+        <h2>What actually moves an HK race</h2>
+        <p>
+          Handicapping in Hong Kong is dense: official ratings, tight fields, and
+          strong draw bias at Happy Valley. These are the factor families the
+          model scores before softmaxing to win %.
+        </p>
+      </div>
+      <div class="factor-grid" id="factors-legend"></div>
+    </section>
+
+    <section id="live">
+      <div class="section-head">
+        <p class="eyebrow">Live board</p>
+        <h2>Upcoming sample cards</h2>
+        <p>
+          Synthetic but realistic cards so you can inspect probabilities and
+          factor contributions before wiring a real HK feed.
+        </p>
+      </div>
+
+      <div class="live-controls">
+        <label class="field">
+          Race
+          <select id="race-select"></select>
+        </label>
+        <label class="field temp-row">
+          Softmax temperature
+          <input id="temp-slider" type="range" min="0.8" max="2.6" step="0.05" value="1.8" />
+          <output id="temp-value">1.80</output>
+        </label>
+      </div>
+
+      <div class="board">
+        <div class="board-main">
+          <div class="race-heading">
+            <p class="eyebrow">Model ranking</p>
+            <h2 id="race-title">—</h2>
+            <p id="race-sub">—</p>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>No</th>
+                  <th>Horse</th>
+                  <th>Draw</th>
+                  <th>Jockey</th>
+                  <th>Rtg</th>
+                  <th>Win %</th>
+                  <th>Odds</th>
+                  <th>Fair</th>
+                  <th>Edge</th>
+                </tr>
+              </thead>
+              <tbody id="prob-body"></tbody>
+            </table>
+          </div>
+        </div>
+        <aside class="factor-panel" id="factor-panel" aria-live="polite"></aside>
+      </div>
+    </section>
+
+    <section class="method" id="method">
+      <div class="section-head">
+        <p class="eyebrow">Probability engine</p>
+        <h2>From factors to P(win)</h2>
+      </div>
+      <div class="method-grid">
+        <article>
+          <h3>1. Score</h3>
+          <p>
+            Each runner gets a linear ability score: weighted sum of scaled
+            features (rating, 狀態, 騎師, draw, pace, going…).
+          </p>
+        </article>
+        <article>
+          <h3>2. Softmax</h3>
+          <p>
+            Win probability is softmax of scores. Higher temperature flattens the
+            board; lower sharpens favourites. Field always sums to 100%.
+          </p>
+        </article>
+        <article>
+          <h3>3. Edge</h3>
+          <p>
+            Market-implied probability is taken from win odds (normalized). Edge
+            = model % − market %. Positive means the model likes it more than the
+            tote.
+          </p>
+        </article>
+        <article>
+          <h3>4. Next</h3>
+          <p>
+            Fit weights on historical HKJC results (LightGBM / logistic), add
+            place/quinella via finishing-order simulation, and blend lightly with
+            the market for calibration.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      TRACKFORM HK is an analysis prototype. Not affiliated with the Hong Kong
+      Jockey Club. For personal research only — racing outcomes are uncertain.
+      See <code>DESIGN.md</code> for data schema and production build order.
+    </footer>
+
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>
