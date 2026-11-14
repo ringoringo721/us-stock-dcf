@@ -3186,7 +3186,7 @@
     <div id="subpage-supply-chain" class="subpage-content">
       <div class="panel historical-ratio-panel company-analysis-panel">
         <div class="panel-title" data-i18n="sec_supply_chain">供應鏈與競爭對手</div>
-        <p class="analysis-note" data-i18n="analysis_supply_chain_note">依硬體價值鏈五階段（材料→零組件→組裝→物流→零售）列出各階 Top 3 代表性玩家，並附競爭對手。資料為策展種子，非即時供應商 API。</p>
+        <p class="analysis-note" data-i18n="analysis_supply_chain_note">依該公司產業價值鏈模型列出各階 Top 3 代表性玩家，並附產品／市場競爭對手。資料為策展種子，非即時供應商 API。</p>
         <p id="supply-chain-status" class="analysis-note" role="status"></p>
         <p id="supply-chain-source" class="analysis-note" role="note"></p>
         <div class="panel-title" style="font-size:15px;margin-top:8px;" data-i18n="sec_supply_chain_graph">價值鏈蜘蛛圖（各階 Top 3）</div>
@@ -4246,7 +4246,7 @@
       tab_tradingview: "📈 11. TradingView 圖表",
       tab_news: "📰 10. 公司新聞",
       sec_supply_chain: "供應鏈與競爭對手",
-      analysis_supply_chain_note: "蜘蛛網圖：公司為中心；五階段（材料→零組件→組裝→物流→零售）以連線串起，各階 Top 3 掛在扇區外緣。藍色虛線箭頭＝上游→下游流動；金色點線＝競爭對手（對抗關係，非供應流）。南方金色弧為競爭對手區。資料為策展種子，非即時供應商 API。",
+      analysis_supply_chain_note: "蜘蛛網圖：公司為中心；依產業價值鏈模型串起各階段，每階 Top 3 掛在扇區外緣。藍色虛線箭頭＝上游→下游流動；金色點線＝競爭對手（對抗關係，非供應流）。南方金色弧為競爭對手區。美股市值≥1,000億美元批次為策展種子，其餘為空狀態；非即時供應商 API。",
       sec_supply_chain_graph: "價值鏈蜘蛛圖（各階 Top 3）",
       sec_supply_chain_players: "供應鏈玩家一覽",
       sec_supply_chain_competitors: "主要競爭對手（手機／裝置生態）",
@@ -4932,7 +4932,7 @@
       tab_supply_chain: "🔗 7b. Supply Chain / Peers",
       tab_charts: "📊 8. Trend Analysis",
       sec_supply_chain: "Supply chain & competitors",
-      analysis_supply_chain_note: "Spider graph: company at the hub; five stages (materials → components → assembly → logistics → retail) linked by edges, with Top 3 players on each sector rim. Blue dashed arrows = upstream→downstream flow; gold dotted links = competitors (rivalry, not supply flow). Southern gold arc = rivalry zone. Curated seed — not a live supplier API.",
+      analysis_supply_chain_note: "Spider graph: company at the hub; industry-specific value-chain stages with Top 3 players on each sector rim. Blue dashed arrows = upstream→downstream flow; gold dotted links = competitors (rivalry, not supply flow). Southern gold arc = rivalry zone. US mcap ≥ $100B batch is curated; others empty-state. Not a live supplier API.",
       sec_supply_chain_graph: "Value-chain spider graph (Top 3 per stage)",
       sec_supply_chain_players: "Supply-chain player roster",
       sec_supply_chain_competitors: "Major competitors (phone / device ecosystem)",
@@ -11697,6 +11697,14 @@
           pack.model ? (isEn ? pack.model.label_en : pack.model.label_zh) : '',
           updated
         ].filter(Boolean).join(' · ');
+      }
+      const noteEl = document.querySelector('#panel-supply-chain .analysis-note[data-i18n="analysis_supply_chain_note"]')
+        || document.querySelector('.analysis-note[data-i18n="analysis_supply_chain_note"]');
+      if (noteEl && pack.model) {
+        const modelLabel = isEn ? pack.model.label_en : pack.model.label_zh;
+        const modelDesc = isEn ? (pack.model.description_en || '') : (pack.model.description_zh || '');
+        const base = dict.analysis_supply_chain_note || '';
+        noteEl.textContent = [base, modelLabel, modelDesc].filter(Boolean).join(' — ');
       }
       if (sourceEl) {
         sourceEl.textContent = [
