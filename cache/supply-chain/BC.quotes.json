@@ -1,0 +1,190 @@
+{
+  "version": 1,
+  "ticker": "BC",
+  "updatedAt": "2026-11-14",
+  "basis": "lastTradingDayCloseVsPriorClose",
+  "notes_en": "changePct from last two EOD closes in price_charts; mcap from US listings screener (USD millions). Missing tickers stay null. No live FMP per pageview.",
+  "notes_zh": "漲跌%取自 price_charts 最近兩日收盤；市值取自美股清單（百萬美元）。缺資料維持 null，不造假。頁面不打即時 FMP。",
+  "quotes": {
+    "BC": {
+      "ticker": "BC",
+      "price": 76.14,
+      "previousClose": 76.5,
+      "changePct": -0.471,
+      "mcap": 5004.3,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "CMI": {
+      "ticker": "CMI",
+      "price": 452.18,
+      "previousClose": 455.4,
+      "changePct": -0.707,
+      "mcap": 61958.7,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "PCAR": {
+      "ticker": "PCAR",
+      "price": 106.66,
+      "previousClose": 106.33,
+      "changePct": 0.31,
+      "mcap": 53693.0,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "ETN": {
+      "ticker": "ETN",
+      "price": 352.97,
+      "previousClose": 359.04,
+      "changePct": -1.691,
+      "mcap": 132724.0,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "PII": {
+      "ticker": "PII",
+      "price": null,
+      "previousClose": null,
+      "changePct": null,
+      "mcap": null,
+      "currency": "USD",
+      "asOf": null,
+      "source": null
+    },
+    "THO": {
+      "ticker": "THO",
+      "price": null,
+      "previousClose": null,
+      "changePct": null,
+      "mcap": null,
+      "currency": "USD",
+      "asOf": null,
+      "source": null
+    },
+    "WGO": {
+      "ticker": "WGO",
+      "price": null,
+      "previousClose": null,
+      "changePct": null,
+      "mcap": null,
+      "currency": "USD",
+      "asOf": null,
+      "source": null
+    },
+    "KMX": {
+      "ticker": "KMX",
+      "price": 53.22,
+      "previousClose": 52.58,
+      "changePct": 1.217,
+      "mcap": 7307.2,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "AN": {
+      "ticker": "AN",
+      "price": 177.75,
+      "previousClose": 180.51,
+      "changePct": -1.529,
+      "mcap": 5885.0,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "PAG": {
+      "ticker": "PAG",
+      "price": 212.0,
+      "previousClose": 213.25,
+      "changePct": -0.586,
+      "mcap": 13943.9,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "GPC": {
+      "ticker": "GPC",
+      "price": 123.34,
+      "previousClose": 122.84,
+      "changePct": 0.407,
+      "mcap": 16929.2,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "ORLY": {
+      "ticker": "ORLY",
+      "price": 92.19,
+      "previousClose": 91.56,
+      "changePct": 0.688,
+      "mcap": 72717.5,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "AZO": {
+      "ticker": "AZO",
+      "price": 3259.7,
+      "previousClose": 3252.19,
+      "changePct": 0.231,
+      "mcap": 51765.0,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "MAR": {
+      "ticker": "MAR",
+      "price": 423.16,
+      "previousClose": 424.66,
+      "changePct": -0.353,
+      "mcap": 107242.9,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "HLT": {
+      "ticker": "HLT",
+      "price": 373.09,
+      "previousClose": 372.73,
+      "changePct": 0.097,
+      "mcap": 83779.6,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "RCL": {
+      "ticker": "RCL",
+      "price": 323.27,
+      "previousClose": 321.99,
+      "changePct": 0.398,
+      "mcap": 87505.8,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "MBUU": {
+      "ticker": "MBUU",
+      "price": null,
+      "previousClose": null,
+      "changePct": null,
+      "mcap": null,
+      "currency": "USD",
+      "asOf": null,
+      "source": null
+    },
+    "MCFT": {
+      "ticker": "MCFT",
+      "price": null,
+      "previousClose": null,
+      "changePct": null,
+      "mcap": null,
+      "currency": "USD",
+      "asOf": null,
+      "source": null
+    }
+  }
+}

@@ -1,0 +1,243 @@
+{
+  "version": 1,
+  "ticker": "AMTM",
+  "name_en": "Amentum",
+  "name_zh": "Amentum",
+  "updatedAt": "2026-11-14",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "gov-services-v1",
+    "references": [
+      "Industry model `gov-services-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "gov-services-v1",
+    "label_zh": "政府服務／工程承攬價值鏈",
+    "label_en": "Government services / engineering value chain",
+    "description_zh": "任務系統／軟體 → 工程／整合 → 人力交付 → 聯邦／民用機構客戶 → 基礎建設夥伴。",
+    "description_en": "Mission systems/software → engineering/integration → workforce delivery → federal/civil agency customers → infrastructure partners."
+  },
+  "stages": [
+    {
+      "id": "systems",
+      "order": 1,
+      "label_zh": "任務系統／軟體",
+      "label_en": "Mission systems / software",
+      "summary_zh": "任務 IT 與專業軟體。",
+      "summary_en": "Mission IT and specialty software.",
+      "players": [
+        {
+          "ticker": "MSFT",
+          "name_en": "Microsoft",
+          "name_zh": "微軟",
+          "role_zh": "微軟：任務系統／軟體代表性玩家",
+          "role_en": "Microsoft: representative player in Mission systems / software",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "ORCL",
+          "name_en": "Oracle",
+          "name_zh": "甲骨文",
+          "role_zh": "甲骨文：任務系統／軟體代表性玩家",
+          "role_en": "Oracle: representative player in Mission systems / software",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "IBM",
+          "name_en": "IBM",
+          "name_zh": "IBM",
+          "role_zh": "IBM：任務系統／軟體代表性玩家",
+          "role_en": "IBM: representative player in Mission systems / software",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "engineering",
+      "order": 2,
+      "label_zh": "工程／系統整合",
+      "label_en": "Engineering / systems integration",
+      "summary_zh": "工程設計與系統整合。",
+      "summary_en": "Engineering design and SI.",
+      "players": [
+        {
+          "ticker": "J",
+          "name_en": "Jacobs Solutions",
+          "name_zh": "Jacobs Solutions",
+          "role_zh": "Jacobs Solutions：工程／系統整合代表性玩家",
+          "role_en": "Jacobs Solutions: representative player in Engineering / systems integration",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "FLR",
+          "name_en": "Fluor",
+          "name_zh": "Fluor",
+          "role_zh": "Fluor：工程／系統整合代表性玩家",
+          "role_en": "Fluor: representative player in Engineering / systems integration",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "ACM",
+          "name_en": "Aecom",
+          "name_zh": "Aecom",
+          "role_zh": "Aecom：工程／系統整合代表性玩家",
+          "role_en": "Aecom: representative player in Engineering / systems integration",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "workforce",
+      "order": 3,
+      "label_zh": "人力／專案交付",
+      "label_en": "Workforce / project delivery",
+      "summary_zh": "合約人力與專案交付。",
+      "summary_en": "Contract workforce and delivery.",
+      "players": [
+        {
+          "ticker": "CTSH",
+          "name_en": "Cognizant",
+          "name_zh": "高知特",
+          "role_zh": "高知特：人力／專案交付代表性玩家",
+          "role_en": "Cognizant: representative player in Workforce / project delivery",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "ACN",
+          "name_en": "Accenture",
+          "name_zh": "埃森哲",
+          "role_zh": "埃森哲：人力／專案交付代表性玩家",
+          "role_en": "Accenture: representative player in Workforce / project delivery",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "INFY",
+          "name_en": "Infosys",
+          "name_zh": "Infosys",
+          "role_zh": "Infosys：人力／專案交付代表性玩家",
+          "role_en": "Infosys: representative player in Workforce / project delivery",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "agencies",
+      "order": 4,
+      "label_zh": "聯邦／民用機構",
+      "label_en": "Federal / civil agencies",
+      "summary_zh": "政府機關客戶（非同業）。",
+      "summary_en": "Government agency customers — not peers.",
+      "players": [
+        {
+          "ticker": "LMT",
+          "name_en": "Lockheed Martin",
+          "name_zh": "洛克希德·馬丁",
+          "role_zh": "洛克希德·馬丁：聯邦／民用機構代表性玩家",
+          "role_en": "Lockheed Martin: representative player in Federal / civil agencies",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "NOC",
+          "name_en": "Northrop Grumman",
+          "name_zh": "諾斯洛普·格魯曼",
+          "role_zh": "諾斯洛普·格魯曼：聯邦／民用機構代表性玩家",
+          "role_en": "Northrop Grumman: representative player in Federal / civil agencies",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "GD",
+          "name_en": "General Dynamics",
+          "name_zh": "通用動力",
+          "role_zh": "通用動力：聯邦／民用機構代表性玩家",
+          "role_en": "General Dynamics: representative player in Federal / civil agencies",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "infra",
+      "order": 5,
+      "label_zh": "基礎建設夥伴",
+      "label_en": "Infrastructure partners",
+      "summary_zh": "土木／設施與營運夥伴。",
+      "summary_en": "Civil, facilities, and ops partners.",
+      "players": [
+        {
+          "ticker": "PWR",
+          "name_en": "Quanta Services",
+          "name_zh": "Quanta Services",
+          "role_zh": "Quanta Services：基礎建設夥伴代表性玩家",
+          "role_en": "Quanta Services: representative player in Infrastructure partners",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "MTZ",
+          "name_en": "MasTec",
+          "name_zh": "MasTec",
+          "role_zh": "MasTec：基礎建設夥伴代表性玩家",
+          "role_en": "MasTec: representative player in Infrastructure partners",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "ACM",
+          "name_en": "Aecom",
+          "name_zh": "Aecom",
+          "role_zh": "Aecom：基礎建設夥伴代表性玩家",
+          "role_en": "Aecom: representative player in Infrastructure partners",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "SAIC",
+      "name_en": "Science Applications International",
+      "name_zh": "科學應用國際",
+      "basis_zh": "政府服務／工程承攬對手",
+      "basis_en": "Gov services / engineering-contractor rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "CACI",
+      "name_en": "CACI",
+      "name_zh": "CACI",
+      "basis_zh": "政府服務／工程承攬對手",
+      "basis_en": "Gov services / engineering-contractor rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "LDOS",
+      "name_en": "Leidos",
+      "name_zh": "Leidos",
+      "basis_zh": "政府服務／工程承攬對手",
+      "basis_en": "Gov services / engineering-contractor rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "PSN",
+      "name_en": "Parsons",
+      "name_zh": "Parsons",
+      "basis_zh": "政府服務／工程承攬對手",
+      "basis_en": "Gov services / engineering-contractor rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "FLR",
+      "name_en": "Fluor",
+      "name_zh": "Fluor",
+      "basis_zh": "政府服務／工程承攬對手",
+      "basis_en": "Gov services / engineering-contractor rival",
+      "exchange": "NYSE"
+    }
+  ]
+}
