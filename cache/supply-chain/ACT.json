@@ -1,0 +1,241 @@
+{
+  "version": 1,
+  "ticker": "ACT",
+  "name_en": "Enact",
+  "name_zh": "Enact",
+  "updatedAt": "2026-11-14",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "mi-specialty-v1",
+    "references": [
+      "Industry model `mi-specialty-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "mi-specialty-v1",
+    "label_zh": "抵押保險價值鏈",
+    "label_en": "Mortgage insurance value chain",
+    "description_zh": "機構／GSE → 放貸／服務 → 資金／資本 → 信用資料 → 住房需求。",
+    "description_en": "Agency/GSE → originators/servicers → funding/capital → credit data → housing demand."
+  },
+  "stages": [
+    {
+      "id": "agency",
+      "order": 1,
+      "label_zh": "機構／GSE 通道",
+      "label_en": "Agency / GSE channel",
+      "summary_zh": "機構 MBS 與銀行通道。",
+      "summary_en": "Agency MBS and bank channels.",
+      "players": [
+        {
+          "ticker": "FNMA",
+          "name_en": "Fannie Mae",
+          "name_zh": "房利美",
+          "role_zh": "房利美：機構／GSE 通道代表性玩家",
+          "role_en": "Fannie Mae: representative player in Agency / GSE channel",
+          "exchange": "OTC",
+          "listedInApp": false
+        },
+        {
+          "ticker": "FMCC",
+          "name_en": "Freddie Mac",
+          "name_zh": "房地美",
+          "role_zh": "房地美：機構／GSE 通道代表性玩家",
+          "role_en": "Freddie Mac: representative player in Agency / GSE channel",
+          "exchange": "OTC",
+          "listedInApp": false
+        },
+        {
+          "ticker": "JPM",
+          "name_en": "JPMorgan Chase & Co.",
+          "name_zh": "摩根大通",
+          "role_zh": "摩根大通：機構／GSE 通道代表性玩家",
+          "role_en": "JPMorgan Chase & Co.: representative player in Agency / GSE channel",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "originators",
+      "order": 2,
+      "label_zh": "放貸／貸款服務",
+      "label_en": "Originators / servicing",
+      "summary_zh": "按揭放貸與服務商。",
+      "summary_en": "Mortgage originators and servicers.",
+      "players": [
+        {
+          "ticker": "RKT",
+          "name_en": "Rocket Companies",
+          "name_zh": "Rocket",
+          "role_zh": "Rocket：放貸／貸款服務代表性玩家",
+          "role_en": "Rocket Companies: representative player in Originators / servicing",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "UWMC",
+          "name_en": "UWM Holdings",
+          "name_zh": "UWM",
+          "role_zh": "UWM：放貸／貸款服務代表性玩家",
+          "role_en": "UWM Holdings: representative player in Originators / servicing",
+          "exchange": "NYSE",
+          "listedInApp": false
+        },
+        {
+          "ticker": "PFSI",
+          "name_en": "PennyMac",
+          "name_zh": "PennyMac",
+          "role_zh": "PennyMac：放貸／貸款服務代表性玩家",
+          "role_en": "PennyMac: representative player in Originators / servicing",
+          "exchange": "NYSE",
+          "listedInApp": false
+        }
+      ]
+    },
+    {
+      "id": "funding",
+      "order": 3,
+      "label_zh": "資金／資本市場",
+      "label_en": "Funding / capital markets",
+      "summary_zh": "銀行融資與資管資本。",
+      "summary_en": "Bank funding and AM capital.",
+      "players": [
+        {
+          "ticker": "JPM",
+          "name_en": "JPMorgan Chase & Co.",
+          "name_zh": "摩根大通",
+          "role_zh": "摩根大通：資金／資本市場代表性玩家",
+          "role_en": "JPMorgan Chase & Co.: representative player in Funding / capital markets",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "BAC",
+          "name_en": "Bank of America",
+          "name_zh": "美國銀行",
+          "role_zh": "美國銀行：資金／資本市場代表性玩家",
+          "role_en": "Bank of America: representative player in Funding / capital markets",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "BLK",
+          "name_en": "BlackRock",
+          "name_zh": "貝萊德",
+          "role_zh": "貝萊德：資金／資本市場代表性玩家",
+          "role_en": "BlackRock: representative player in Funding / capital markets",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "data",
+      "order": 4,
+      "label_zh": "信用／風險資料",
+      "label_en": "Credit / risk data",
+      "summary_zh": "信用評分與風險資料。",
+      "summary_en": "Credit scores and risk data.",
+      "players": [
+        {
+          "ticker": "VRSK",
+          "name_en": "Verisk",
+          "name_zh": "威瑞斯克",
+          "role_zh": "威瑞斯克：信用／風險資料代表性玩家",
+          "role_en": "Verisk: representative player in Credit / risk data",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "SPGI",
+          "name_en": "S&P Global",
+          "name_zh": "標普全球",
+          "role_zh": "標普全球：信用／風險資料代表性玩家",
+          "role_en": "S&P Global: representative player in Credit / risk data",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "MCO",
+          "name_en": "Moody's",
+          "name_zh": "穆迪評級",
+          "role_zh": "穆迪評級：信用／風險資料代表性玩家",
+          "role_en": "Moody's: representative player in Credit / risk data",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "housing",
+      "order": 5,
+      "label_zh": "住房需求",
+      "label_en": "Housing demand",
+      "summary_zh": "住宅建商與住房週期。",
+      "summary_en": "Homebuilders and housing cycle.",
+      "players": [
+        {
+          "ticker": "DHI",
+          "name_en": "D.R. Horton",
+          "name_zh": "D.R. Horton",
+          "role_zh": "D.R. Horton：住房需求代表性玩家",
+          "role_en": "D.R. Horton: representative player in Housing demand",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "LEN",
+          "name_en": "Lennar",
+          "name_zh": "Lennar",
+          "role_zh": "Lennar：住房需求代表性玩家",
+          "role_en": "Lennar: representative player in Housing demand",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "PHM",
+          "name_en": "PulteGroup",
+          "name_zh": "PulteGroup",
+          "role_zh": "PulteGroup：住房需求代表性玩家",
+          "role_en": "PulteGroup: representative player in Housing demand",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "ESNT",
+      "name_en": "Essent",
+      "name_zh": "Essent",
+      "basis_zh": "抵押保險對手",
+      "basis_en": "Mortgage-insurance rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "MTG",
+      "name_en": "MGIC Investment",
+      "name_zh": "MGIC Investment",
+      "basis_zh": "抵押保險對手",
+      "basis_en": "Mortgage-insurance rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "RDN",
+      "name_en": "Radian",
+      "name_zh": "Radian",
+      "basis_zh": "抵押保險對手",
+      "basis_en": "Mortgage-insurance rival",
+      "exchange": "NYSE",
+      "listedInApp": false
+    },
+    {
+      "ticker": "NMIH",
+      "name_en": "NMI Holdings",
+      "name_zh": "NMI",
+      "basis_zh": "抵押保險對手",
+      "basis_en": "Mortgage-insurance rival",
+      "exchange": "NASDAQ",
+      "listedInApp": false
+    }
+  ]
+}

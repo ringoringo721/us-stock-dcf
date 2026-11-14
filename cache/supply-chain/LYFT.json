@@ -1,0 +1,227 @@
+{
+  "version": 1,
+  "ticker": "LYFT",
+  "name_en": "Lyft",
+  "name_zh": "Lyft",
+  "updatedAt": "2026-11-14",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "rideshare-v1",
+    "references": [
+      "Industry model `rideshare-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "rideshare-v1",
+    "label_zh": "共享出行／即時配送價值鏈",
+    "label_en": "Rideshare / mobility value chain",
+    "description_zh": "地圖／雲 → 支付 → 運力供給 → 出行／配送平台同業 → 廣告／會員。",
+    "description_en": "Maps/cloud → payments → driver supply → rideshare/delivery platform peers → ads/membership."
+  },
+  "stages": [
+    {
+      "id": "maps-cloud",
+      "order": 1,
+      "label_zh": "地圖／雲基礎設施",
+      "label_en": "Maps / cloud infrastructure",
+      "summary_zh": "地圖、路由與雲算力。",
+      "summary_en": "Maps, routing, and cloud compute.",
+      "players": [
+        {
+          "ticker": "GOOG",
+          "name_en": "Alphabet",
+          "name_zh": "Alphabet（Google）",
+          "role_zh": "Alphabet（Google）：地圖／雲基礎設施代表性玩家",
+          "role_en": "Alphabet: representative player in Maps / cloud infrastructure",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "MSFT",
+          "name_en": "Microsoft",
+          "name_zh": "微軟",
+          "role_zh": "微軟：地圖／雲基礎設施代表性玩家",
+          "role_en": "Microsoft: representative player in Maps / cloud infrastructure",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "AMZN",
+          "name_en": "Amazon.com",
+          "name_zh": "亞馬遜",
+          "role_zh": "亞馬遜：地圖／雲基礎設施代表性玩家",
+          "role_en": "Amazon.com: representative player in Maps / cloud infrastructure",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "payments",
+      "order": 2,
+      "label_zh": "支付",
+      "label_en": "Payments",
+      "summary_zh": "持卡人支付與撥款。",
+      "summary_en": "Card payments and payouts.",
+      "players": [
+        {
+          "ticker": "V",
+          "name_en": "Visa",
+          "name_zh": "威士卡",
+          "role_zh": "威士卡：支付代表性玩家",
+          "role_en": "Visa: representative player in Payments",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "MA",
+          "name_en": "Mastercard",
+          "name_zh": "萬事達卡",
+          "role_zh": "萬事達卡：支付代表性玩家",
+          "role_en": "Mastercard: representative player in Payments",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "PYPL",
+          "name_en": "PayPal",
+          "name_zh": "PayPal",
+          "role_zh": "PayPal：支付代表性玩家",
+          "role_en": "PayPal: representative player in Payments",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "supply",
+      "order": 3,
+      "label_zh": "運力／司機供給",
+      "label_en": "Driver / courier supply",
+      "summary_zh": "司機與外送運力生態。",
+      "summary_en": "Driver and courier supply ecosystem.",
+      "players": [
+        {
+          "ticker": "GM",
+          "name_en": "General Motors",
+          "name_zh": "通用汽車",
+          "role_zh": "通用汽車：運力／司機供給代表性玩家",
+          "role_en": "General Motors: representative player in Driver / courier supply",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "F",
+          "name_en": "Ford",
+          "name_zh": "福特",
+          "role_zh": "福特：運力／司機供給代表性玩家",
+          "role_en": "Ford: representative player in Driver / courier supply",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "TM",
+          "name_en": "Toyota Motor",
+          "name_zh": "豐田",
+          "role_zh": "豐田：運力／司機供給代表性玩家",
+          "role_en": "Toyota Motor: representative player in Driver / courier supply",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "platforms",
+      "order": 4,
+      "label_zh": "出行／配送平台",
+      "label_en": "Rideshare / delivery platforms",
+      "summary_zh": "共享出行與即時配送同業。",
+      "summary_en": "Rideshare and delivery platform peers.",
+      "players": [
+        {
+          "ticker": "UBER",
+          "name_en": "Uber Technologies",
+          "name_zh": "Uber",
+          "role_zh": "Uber：出行／配送平台代表性玩家",
+          "role_en": "Uber Technologies: representative player in Rideshare / delivery platforms",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "DASH",
+          "name_en": "DoorDash",
+          "name_zh": "DoorDash",
+          "role_zh": "DoorDash：出行／配送平台代表性玩家",
+          "role_en": "DoorDash: representative player in Rideshare / delivery platforms",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "GRAB",
+          "name_en": "Grab",
+          "name_zh": "Grab",
+          "role_zh": "Grab：出行／配送平台代表性玩家",
+          "role_en": "Grab: representative player in Rideshare / delivery platforms",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "monetization",
+      "order": 5,
+      "label_zh": "廣告／會員",
+      "label_en": "Ads / membership",
+      "summary_zh": "平台廣告與訂閱變現。",
+      "summary_en": "Platform ads and memberships.",
+      "players": [
+        {
+          "ticker": "GOOG",
+          "name_en": "Alphabet",
+          "name_zh": "Alphabet（Google）",
+          "role_zh": "Alphabet（Google）：廣告／會員代表性玩家",
+          "role_en": "Alphabet: representative player in Ads / membership",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "META",
+          "name_en": "Meta Platforms",
+          "name_zh": "Meta (臉書)",
+          "role_zh": "Meta (臉書)：廣告／會員代表性玩家",
+          "role_en": "Meta Platforms: representative player in Ads / membership",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "AMZN",
+          "name_en": "Amazon.com",
+          "name_zh": "亞馬遜",
+          "role_zh": "亞馬遜：廣告／會員代表性玩家",
+          "role_en": "Amazon.com: representative player in Ads / membership",
+          "exchange": "NASDAQ"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "UBER",
+      "name_en": "Uber Technologies",
+      "name_zh": "Uber",
+      "basis_zh": "共享出行／即時配送對手",
+      "basis_en": "Rideshare / mobility rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "DASH",
+      "name_en": "DoorDash",
+      "name_zh": "DoorDash",
+      "basis_zh": "共享出行／即時配送對手",
+      "basis_en": "Rideshare / mobility rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "GRAB",
+      "name_en": "Grab",
+      "name_zh": "Grab",
+      "basis_zh": "共享出行／即時配送對手",
+      "basis_en": "Rideshare / mobility rival",
+      "exchange": "NASDAQ"
+    }
+  ]
+}

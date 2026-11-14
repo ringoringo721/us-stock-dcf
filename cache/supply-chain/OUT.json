@@ -1,0 +1,220 @@
+{
+  "version": 1,
+  "ticker": "OUT",
+  "name_en": "Outfront Media",
+  "name_zh": "Outfront Media",
+  "updatedAt": "2026-11-14",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "outdoor-advertising-v1",
+    "references": [
+      "Industry model `outdoor-advertising-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "outdoor-advertising-v1",
+    "label_zh": "戶外廣告價值鏈",
+    "label_en": "Outdoor advertising value chain",
+    "description_zh": "版位／地租 → 數位看板硬體 → 廣告客戶 → 代理／媒介購買 → 資料／測量。",
+    "description_en": "Sites/leases → digital billboard hardware → advertisers → agencies/media buying → data/measurement."
+  },
+  "stages": [
+    {
+      "id": "sites",
+      "order": 1,
+      "label_zh": "版位／地租",
+      "label_en": "Sites / leases",
+      "summary_zh": "看板位置與土地租約。",
+      "summary_en": "Billboard sites and land leases.",
+      "players": [
+        {
+          "ticker": "SPG",
+          "name_en": "Simon Property",
+          "name_zh": "西蒙地產",
+          "role_zh": "西蒙地產：版位／地租代表性玩家",
+          "role_en": "Simon Property: representative player in Sites / leases",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "KIM",
+          "name_en": "Kimco Realty",
+          "name_zh": "Kimco",
+          "role_zh": "Kimco：版位／地租代表性玩家",
+          "role_en": "Kimco Realty: representative player in Sites / leases",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "O",
+          "name_en": "Realty Income",
+          "name_zh": "Realty Income",
+          "role_zh": "Realty Income：版位／地租代表性玩家",
+          "role_en": "Realty Income: representative player in Sites / leases",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "hardware",
+      "order": 2,
+      "label_zh": "數位看板硬體",
+      "label_en": "Digital billboard hardware",
+      "summary_zh": "LED 看板與顯示硬體。",
+      "summary_en": "LED boards and display hardware.",
+      "players": [
+        {
+          "ticker": "APH",
+          "name_en": "Amphenol",
+          "name_zh": "安費諾",
+          "role_zh": "安費諾：數位看板硬體代表性玩家",
+          "role_en": "Amphenol: representative player in Digital billboard hardware",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "TEL",
+          "name_en": "TE Connectivity",
+          "name_zh": "泰科電子",
+          "role_zh": "泰科電子：數位看板硬體代表性玩家",
+          "role_en": "TE Connectivity: representative player in Digital billboard hardware",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "GLW",
+          "name_en": "Corning",
+          "name_zh": "康寧",
+          "role_zh": "康寧：數位看板硬體代表性玩家",
+          "role_en": "Corning: representative player in Digital billboard hardware",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "advertisers",
+      "order": 3,
+      "label_zh": "廣告客戶",
+      "label_en": "Advertisers",
+      "summary_zh": "品牌與地方廣告主。",
+      "summary_en": "Brand and local advertisers.",
+      "players": [
+        {
+          "ticker": "KO",
+          "name_en": "Coca-Cola",
+          "name_zh": "可口可樂",
+          "role_zh": "可口可樂：廣告客戶代表性玩家",
+          "role_en": "Coca-Cola: representative player in Advertisers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "PEP",
+          "name_en": "PepsiCo",
+          "name_zh": "百事可樂",
+          "role_zh": "百事可樂：廣告客戶代表性玩家",
+          "role_en": "PepsiCo: representative player in Advertisers",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "NKE",
+          "name_en": "Nike",
+          "name_zh": "耐吉",
+          "role_zh": "耐吉：廣告客戶代表性玩家",
+          "role_en": "Nike: representative player in Advertisers",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "agencies",
+      "order": 4,
+      "label_zh": "代理／媒介購買",
+      "label_en": "Agencies / media buying",
+      "summary_zh": "廣告代理與媒介購買。",
+      "summary_en": "Agencies and media buyers.",
+      "players": [
+        {
+          "ticker": "OMC",
+          "name_en": "Omnicom",
+          "name_zh": "Omnicom",
+          "role_zh": "Omnicom：代理／媒介購買代表性玩家",
+          "role_en": "Omnicom: representative player in Agencies / media buying",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "WPP",
+          "name_en": "WPP plc",
+          "name_zh": "WPP",
+          "role_zh": "WPP：代理／媒介購買代表性玩家",
+          "role_en": "WPP plc: representative player in Agencies / media buying",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "DIS",
+          "name_en": "Walt Disney",
+          "name_zh": "迪士尼",
+          "role_zh": "迪士尼：代理／媒介購買代表性玩家",
+          "role_en": "Walt Disney: representative player in Agencies / media buying",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "measurement",
+      "order": 5,
+      "label_zh": "資料／測量",
+      "label_en": "Data / measurement",
+      "summary_zh": "曝光測量與受眾資料。",
+      "summary_en": "Impression measurement and audience data.",
+      "players": [
+        {
+          "ticker": "GOOG",
+          "name_en": "Alphabet",
+          "name_zh": "Alphabet（Google）",
+          "role_zh": "Alphabet（Google）：資料／測量代表性玩家",
+          "role_en": "Alphabet: representative player in Data / measurement",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "META",
+          "name_en": "Meta Platforms",
+          "name_zh": "Meta (臉書)",
+          "role_zh": "Meta (臉書)：資料／測量代表性玩家",
+          "role_en": "Meta Platforms: representative player in Data / measurement",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "TRU",
+          "name_en": "TransUnion",
+          "name_zh": "全聯徵信 (TransUnion)",
+          "role_zh": "全聯徵信 (TransUnion)：資料／測量代表性玩家",
+          "role_en": "TransUnion: representative player in Data / measurement",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "LAMR",
+      "name_en": "Lamar Advertising",
+      "name_zh": "Lamar Advertising",
+      "basis_zh": "戶外廣告對手",
+      "basis_en": "Outdoor advertising rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "CCO",
+      "name_en": "Clear Channel Outdoor",
+      "name_zh": "Clear Channel Outdoor",
+      "basis_zh": "戶外廣告對手",
+      "basis_en": "Outdoor advertising rival",
+      "exchange": "NYSE",
+      "listedInApp": false
+    }
+  ]
+}
