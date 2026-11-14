@@ -146,10 +146,10 @@
         },
         {
           "ticker": "IBM",
-          "name_en": "International Business Machines",
-          "name_zh": "International Business Machines",
-          "role_zh": "International Business Machines：系統整合／顧問代表性玩家",
-          "role_en": "International Business Machines: representative player in Systems integrators / consulting",
+          "name_en": "IBM",
+          "name_zh": "IBM",
+          "role_zh": "IBM：系統整合／顧問代表性玩家",
+          "role_en": "IBM: representative player in Systems integrators / consulting",
           "exchange": "NYSE"
         },
         {
@@ -233,7 +233,7 @@
     {
       "ticker": "SAP",
       "name_en": "SAP SE",
-      "name_zh": "SAP SE",
+      "name_zh": "SAP",
       "basis_zh": "ERP／企業應用對手",
       "basis_en": "ERP/enterprise applications rival",
       "exchange": "NYSE"

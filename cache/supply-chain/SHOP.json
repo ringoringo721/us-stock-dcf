@@ -146,10 +146,10 @@
         },
         {
           "ticker": "IBM",
-          "name_en": "International Business Machines",
-          "name_zh": "International Business Machines",
-          "role_zh": "International Business Machines：系統整合／顧問代表性玩家",
-          "role_en": "International Business Machines: representative player in Systems integrators / consulting",
+          "name_en": "IBM",
+          "name_zh": "IBM",
+          "role_zh": "IBM：系統整合／顧問代表性玩家",
+          "role_en": "IBM: representative player in Systems integrators / consulting",
           "exchange": "NYSE"
         },
         {
@@ -216,8 +216,8 @@
     },
     {
       "ticker": "SE",
-      "name_en": "Sea Limited",
-      "name_zh": "Sea Limited",
+      "name_en": "Sea",
+      "name_zh": "Sea",
       "basis_zh": "東南亞電商對手",
       "basis_en": "SEA commerce rival",
       "exchange": "NYSE"

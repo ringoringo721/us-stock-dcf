@@ -2,7 +2,7 @@
   "version": 1,
   "ticker": "IBM",
   "name_en": "International Business Machines",
-  "name_zh": "International Business Machines",
+  "name_zh": "IBM",
   "updatedAt": "2026-11-14",
   "source": {
     "type": "curated",
@@ -79,8 +79,8 @@
         {
           "ticker": "SAP",
           "name_en": "SAP SE",
-          "name_zh": "SAP SE",
-          "role_zh": "SAP SE：企業軟體代表性玩家",
+          "name_zh": "SAP",
+          "role_zh": "SAP：企業軟體代表性玩家",
           "role_en": "SAP SE: representative player in Enterprise software",
           "exchange": "NYSE"
         },

@@ -89,6 +89,49 @@ def listed_in_app(ticker: str, universe_tickers: set[str]) -> bool:
     return ticker in universe_tickers
 
 
+LEGAL_EN_NAME_RE = re.compile(
+    r"\b(Inc\.?|Corp\.?|Corporation|Company|Ltd\.?|Limited|Holdings|PLC|N\.?V\.?|Group)\b",
+    re.I,
+)
+# Known wrong / legal-dump name_zh corrections (ticker → curated 繁中 or brand).
+NAME_ZH_FIXES = {
+    "IBM": "IBM",  # Latin brand; never “International Business Machines”
+    "TDG": "環球透博",  # TransDigm — not Trimble 天寶集團
+    "BN": "Brookfield",
+    "SE": "Sea",
+    "TTD": "Trade Desk",
+    "FND": "Floor & Decor",
+    "TROW": "T. Rowe Price",
+    "CI": "信諾",
+}
+
+
+def looks_like_english_legal_name(text: str) -> bool:
+    """True when name_zh is an English legal/long dump rather than 繁中 or a short brand."""
+    raw = (text or "").strip()
+    if not raw:
+        return False
+    if re.search(r"[\u4e00-\u9fff]", raw):
+        return False
+    if LEGAL_EN_NAME_RE.search(raw):
+        return True
+    # Long multi-word English legal form (e.g. International Business Machines).
+    # Keep short brands like "Floor & Decor" / "T. Rowe Price".
+    words = [w for w in re.split(r"[\s&]+", raw) if w]
+    if len(words) >= 4:
+        return True
+    return len(words) >= 3 and len(raw) >= 24
+
+
+def short_brand_en(name_en: str, ticker: str) -> str:
+    """Strip common legal suffixes for a short EN brand fallback."""
+    raw = (name_en or "").strip() or ticker
+    cleaned = LEGAL_EN_NAME_RE.sub("", raw)
+    cleaned = re.sub(r"[,.\s]+$", "", cleaned).strip()
+    cleaned = re.sub(r"\s{2,}", " ", cleaned)
+    return cleaned or ticker
+
+
 def player_role(stage_label_zh: str, stage_label_en: str, name_zh: str, name_en: str) -> tuple[str, str]:
     return (
         traditionalize(f"{name_zh}：{stage_label_zh}代表性玩家"),
@@ -97,21 +140,45 @@ def player_role(stage_label_zh: str, stage_label_en: str, name_zh: str, name_en:
 
 
 def resolve_entity(ticker: str, entities: dict, universe_by_ticker: dict | None = None) -> dict:
-    """Prefer curated entity metadata; fall back to universe row; never ship raw-ticker stubs."""
+    """Prefer curated entity metadata; fall back to universe row; never ship raw-ticker stubs.
+
+    Latin brand labels where name_zh == ticker (e.g. IBM) are intentional — do NOT replace
+    them with the English legal name from universe.
+    """
     pe = entities.get(ticker) or {}
     uni = (universe_by_ticker or {}).get(ticker) or {}
     name_en = pe.get("name_en") or uni.get("name") or uni.get("name_en") or ticker
-    name_zh = pe.get("name_zh") or uni.get("name_zh") or ""
     exchange = pe.get("exchange") or uni.get("exchange") or ""
     if name_en == ticker and uni.get("name"):
         name_en = uni["name"]
-    if not name_zh or name_zh == ticker:
-        if uni.get("name_zh"):
-            name_zh = uni["name_zh"]
-        elif pe.get("name_zh") and pe.get("name_zh") != ticker:
-            name_zh = pe["name_zh"]
-        else:
-            name_zh = name_en if name_en != ticker else ticker
+
+    curated_zh = (pe.get("name_zh") or "").strip()
+    uni_zh = (uni.get("name_zh") or "").strip()
+    name_zh = curated_zh or uni_zh or ""
+
+    # Explicit curated fixes win (wrong CJK collisions, legal dumps, etc.).
+    if ticker in NAME_ZH_FIXES:
+        name_zh = NAME_ZH_FIXES[ticker]
+    elif not name_zh:
+        # Prefer short brand / ticker over English legal dump as 繁中 label.
+        name_zh = short_brand_en(name_en, ticker)
+        if looks_like_english_legal_name(name_zh):
+            name_zh = ticker
+    elif looks_like_english_legal_name(name_zh):
+        # Curated or universe wrongly stored English legal as name_zh.
+        name_zh = ticker if curated_zh in ("", ticker) or looks_like_english_legal_name(curated_zh) else curated_zh
+        if looks_like_english_legal_name(name_zh):
+            name_zh = short_brand_en(name_en, ticker)
+            if looks_like_english_legal_name(name_zh):
+                name_zh = ticker
+    # name_zh == ticker (Latin brand) is kept as-is — never promote name_en into name_zh.
+
+    # Shorten long English name_en for display consistency (keep legal form only if curated).
+    if pe.get("name_en"):
+        name_en = pe["name_en"]
+    elif looks_like_english_legal_name(name_en):
+        name_en = short_brand_en(name_en, ticker)
+
     return {"name_en": name_en, "name_zh": name_zh, "exchange": exchange}
 
 
@@ -130,11 +197,19 @@ def build_seed(
     model = MODELS[model_id]
     ent = resolve_entity(ticker, entities, universe_by_ticker)
     if row.get("name") and (ent["name_en"] == ticker or not ent["name_en"]):
-        ent["name_en"] = row["name"]
+        # Prefer short brand over full English legal dump for name_en fill.
+        cand = row["name"]
+        ent["name_en"] = short_brand_en(cand, ticker) if looks_like_english_legal_name(cand) else cand
     if row.get("name_zh"):
-        ent["name_zh"] = traditionalize(row["name_zh"])
-    elif ent["name_zh"] == ticker and row.get("name"):
-        ent["name_zh"] = traditionalize(row["name"])
+        zh = traditionalize(row["name_zh"])
+        # Never let universe English legal overwrite a Latin brand or 繁中 label.
+        if not looks_like_english_legal_name(zh):
+            ent["name_zh"] = zh
+    # Do NOT promote English legal row["name"] into name_zh when name_zh == ticker (Latin brand).
+    if ticker in NAME_ZH_FIXES:
+        ent["name_zh"] = NAME_ZH_FIXES[ticker]
+    if looks_like_english_legal_name(ent.get("name_zh") or ""):
+        ent["name_zh"] = NAME_ZH_FIXES.get(ticker) or ticker
     if row.get("exchange") and not ent.get("exchange"):
         ent["exchange"] = row["exchange"]
     stage_players = overrides.get(ticker) or players_by_model[model_id]
@@ -369,12 +444,14 @@ def validate_seed(seed: dict) -> list[str]:
             if not p.get("ticker"):
                 errors.append("player:missing-ticker")
             pt = p.get("ticker") or ""
-            if (p.get("name_en") or "") in ("", pt) or (p.get("name_zh") or "") in ("", pt):
-                # Allow Latin brand ZH == ticker only when name_en is a fuller company name.
-                if (p.get("name_en") or "") in ("", pt) or (p.get("name_zh") or "") in ("",):
-                    errors.append(f"entity:player:{pt}:blank-name")
-                elif (p.get("name_zh") or "") == pt and (p.get("name_en") or "") == pt:
-                    errors.append(f"entity:player:{pt}:blank-name")
+            en = (p.get("name_en") or "").strip()
+            zh = (p.get("name_zh") or "").strip()
+            # Stub = missing labels. Latin brand (name_zh == ticker, e.g. IBM) is OK when
+            # exchange is present; name_en may also equal ticker for brand tickers.
+            if not en or not zh:
+                errors.append(f"entity:player:{pt}:blank-name")
+            elif en == pt and zh == pt and not (p.get("exchange") or "").strip():
+                errors.append(f"entity:player:{pt}:blank-name")
             if not (p.get("exchange") or "").strip():
                 errors.append(f"entity:player:{pt}:blank-exchange")
     comps = seed.get("competitors") or []
@@ -387,15 +464,23 @@ def validate_seed(seed: dict) -> list[str]:
             if has_banned_simplified(c.get(key) or ""):
                 errors.append(f"simplified:comp:{c.get('ticker')}:{key}")
         ct = c.get("ticker") or ""
-        if (c.get("name_en") or "") in ("", ct) or (c.get("name_zh") or "") in ("",):
+        en = (c.get("name_en") or "").strip()
+        zh = (c.get("name_zh") or "").strip()
+        if not en or not zh:
             errors.append(f"entity:comp:{ct}:blank-name")
-        elif (c.get("name_en") or "") == ct and (c.get("name_zh") or "") == ct:
+        elif en == ct and zh == ct and not (c.get("exchange") or "").strip():
             errors.append(f"entity:comp:{ct}:blank-name")
         if not (c.get("exchange") or "").strip():
             errors.append(f"entity:comp:{ct}:blank-exchange")
-        # CI / other payers must not ship English legal name as name_zh
+        # CI must keep 繁中; never ship English legal / wrong-collision names as name_zh.
         if ct == "CI" and not re.search(r"[\u4e00-\u9fff]", c.get("name_zh") or ""):
             errors.append("entity:comp:CI:name_zh-not-zh")
+        if looks_like_english_legal_name(c.get("name_zh") or ""):
+            errors.append(f"entity:comp:{ct}:name_zh-english-legal")
+        if ct == "TDG" and "天寶" in (c.get("name_zh") or ""):
+            errors.append("entity:comp:TDG:trimble-collision")
+        if ct == "IBM" and looks_like_english_legal_name(c.get("name_zh") or ""):
+            errors.append("entity:comp:IBM:name_zh-english-legal")
     # model must not be hardware for banks etc.
     model_id = (seed.get("model") or {}).get("id") or ""
     sector_hint = seed["ticker"]
@@ -405,10 +490,19 @@ def validate_seed(seed: dict) -> list[str]:
         errors.append("model:saas-mismatch")
     if seed["ticker"] == "NVDA" and "semi" not in model_id and "fabless" not in model_id:
         errors.append("model:nvda-mismatch")
+    if looks_like_english_legal_name(seed.get("name_zh") or ""):
+        errors.append("entity:center:name_zh-english-legal")
     for stage in seed.get("stages") or []:
         for p in stage.get("players") or []:
-            if p.get("ticker") == "CI" and not re.search(r"[\u4e00-\u9fff]", p.get("name_zh") or ""):
+            pt = p.get("ticker") or ""
+            if pt == "CI" and not re.search(r"[\u4e00-\u9fff]", p.get("name_zh") or ""):
                 errors.append("entity:player:CI:name_zh-not-zh")
+            if looks_like_english_legal_name(p.get("name_zh") or ""):
+                errors.append(f"entity:player:{pt}:name_zh-english-legal")
+            if pt == "TDG" and "天寶" in (p.get("name_zh") or ""):
+                errors.append("entity:player:TDG:trimble-collision")
+            if pt == "IBM" and looks_like_english_legal_name(p.get("name_zh") or ""):
+                errors.append("entity:player:IBM:name_zh-english-legal")
     _ = sector_hint, model_id
     return errors
 

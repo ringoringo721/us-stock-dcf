@@ -86,10 +86,10 @@
         },
         {
           "ticker": "IBM",
-          "name_en": "International Business Machines",
-          "name_zh": "International Business Machines",
-          "role_zh": "International Business Machines：核心銀行／雲端科技代表性玩家",
-          "role_en": "International Business Machines: representative player in Core banking / cloud tech",
+          "name_en": "IBM",
+          "name_zh": "IBM",
+          "role_zh": "IBM：核心銀行／雲端科技代表性玩家",
+          "role_en": "IBM: representative player in Core banking / cloud tech",
           "exchange": "NYSE"
         }
       ]
@@ -200,7 +200,7 @@
   "competitors": [
     {
       "ticker": "BBVA",
-      "name_en": "Banco Bilbao Vizcaya Argentaria, S.A.",
+      "name_en": "BBVA",
       "name_zh": "西班牙對外銀行",
       "basis_zh": "綜合銀行／企業金融對手",
       "basis_en": "Diversified banking/wholesale rival",

@@ -2,7 +2,7 @@
   "version": 1,
   "ticker": "SAP",
   "name_en": "SAP SE",
-  "name_zh": "SAP SE",
+  "name_zh": "SAP",
   "updatedAt": "2026-11-14",
   "source": {
     "type": "curated",
@@ -146,10 +146,10 @@
         },
         {
           "ticker": "IBM",
-          "name_en": "International Business Machines",
-          "name_zh": "International Business Machines",
-          "role_zh": "International Business Machines：系統整合／顧問代表性玩家",
-          "role_en": "International Business Machines: representative player in Systems integrators / consulting",
+          "name_en": "IBM",
+          "name_zh": "IBM",
+          "role_zh": "IBM：系統整合／顧問代表性玩家",
+          "role_en": "IBM: representative player in Systems integrators / consulting",
           "exchange": "NYSE"
         },
         {
@@ -232,8 +232,8 @@
     },
     {
       "ticker": "IBM",
-      "name_en": "International Business Machines",
-      "name_zh": "International Business Machines",
+      "name_en": "IBM",
+      "name_zh": "IBM",
       "basis_zh": "企業應用競爭",
       "basis_en": "Enterprise apps competition",
       "exchange": "NYSE"
