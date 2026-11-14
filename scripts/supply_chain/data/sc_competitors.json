@@ -13274,7 +13274,7 @@
   ],
   "AXON": [
     [
-      "KTOS",
+      "MSI",
       "執法／安防裝備對手",
       "Law-enforcement / security-equipment rival"
     ]
@@ -13654,29 +13654,29 @@
   ],
   "UTHR": [
     [
-      "REGN",
-      "生物製藥對手",
-      "Biopharma rival"
+      "ASND",
+      "罕病／內分泌特用藥對手",
+      "Rare-disease / endocrine specialty rival"
     ],
     [
-      "VRTX",
-      "生物製藥對手",
-      "Biopharma rival"
+      "BMRN",
+      "罕病／內分泌特用藥對手",
+      "Rare-disease / endocrine specialty rival"
     ],
     [
-      "AMGN",
-      "生物製藥對手",
-      "Biopharma rival"
+      "ALNY",
+      "罕病／內分泌特用藥對手",
+      "Rare-disease / endocrine specialty rival"
     ],
     [
-      "GILD",
-      "生物製藥對手",
-      "Biopharma rival"
+      "ARWR",
+      "RNAi／反義核酸對手",
+      "RNAi / antisense oligonucleotide rival"
     ],
     [
-      "ABBV",
-      "生物製藥對手",
-      "Biopharma rival"
+      "IONS",
+      "RNAi／反義核酸對手",
+      "RNAi / antisense oligonucleotide rival"
     ]
   ],
   "KOF": [
@@ -14384,29 +14384,19 @@
   ],
   "PKG": [
     [
-      "SW",
-      "Packaging & Containers產品／市場對手",
-      "Packaging & Containers product/market rival"
-    ],
-    [
       "AMCR",
-      "Packaging & Containers產品／市場對手",
-      "Packaging & Containers product/market rival"
+      "包裝容器對手",
+      "Packaging & containers rival"
     ],
     [
       "BALL",
-      "Packaging & Containers產品／市場對手",
-      "Packaging & Containers product/market rival"
-    ],
-    [
-      "AVY",
-      "Packaging & Containers產品／市場對手",
-      "Packaging & Containers product/market rival"
+      "包裝容器對手",
+      "Packaging & containers rival"
     ],
     [
       "CCK",
-      "Packaging & Containers產品／市場對手",
-      "Packaging & Containers product/market rival"
+      "包裝容器對手",
+      "Packaging & containers rival"
     ]
   ],
   "L": [
@@ -14895,19 +14885,19 @@
   ],
   "AMCR": [
     [
-      "ATR",
-      "特用給藥／瓶蓋包裝對手",
-      "Specialty dispensing / closures rival"
+      "BALL",
+      "包裝容器對手",
+      "Packaging & containers rival"
     ],
     [
-      "SON",
-      "特用給藥／瓶蓋包裝對手",
-      "Specialty dispensing / closures rival"
+      "CCK",
+      "包裝容器對手",
+      "Packaging & containers rival"
     ],
     [
-      "SLGN",
-      "特用給藥／瓶蓋包裝對手",
-      "Specialty dispensing / closures rival"
+      "PKG",
+      "包裝容器對手",
+      "Packaging & containers rival"
     ]
   ],
   "XPO": [
@@ -15003,12 +14993,7 @@
       "BNPL / consumer-lending rival"
     ],
     [
-      "UPST",
-      "先買後付／消費貸對手",
-      "BNPL / consumer-lending rival"
-    ],
-    [
-      "LC",
+      "XYZ",
       "先買後付／消費貸對手",
       "BNPL / consumer-lending rival"
     ]
@@ -16147,29 +16132,19 @@
   ],
   "BALL": [
     [
-      "SW",
-      "Packaging & Containers產品／市場對手",
-      "Packaging & Containers product/market rival"
-    ],
-    [
-      "PKG",
-      "Packaging & Containers產品／市場對手",
-      "Packaging & Containers product/market rival"
-    ],
-    [
       "AMCR",
-      "Packaging & Containers產品／市場對手",
-      "Packaging & Containers product/market rival"
-    ],
-    [
-      "AVY",
-      "Packaging & Containers產品／市場對手",
-      "Packaging & Containers product/market rival"
+      "包裝容器對手",
+      "Packaging & containers rival"
     ],
     [
       "CCK",
-      "Packaging & Containers產品／市場對手",
-      "Packaging & Containers product/market rival"
+      "包裝容器對手",
+      "Packaging & containers rival"
+    ],
+    [
+      "PKG",
+      "包裝容器對手",
+      "Packaging & containers rival"
     ]
   ],
   "J": [
@@ -16642,29 +16617,19 @@
   ],
   "ASND": [
     [
-      "REGN",
-      "生物製藥對手",
-      "Biopharma rival"
+      "BMRN",
+      "罕病／內分泌特用藥對手",
+      "Rare-disease / endocrine specialty rival"
     ],
     [
-      "VRTX",
-      "生物製藥對手",
-      "Biopharma rival"
+      "UTHR",
+      "罕病／內分泌特用藥對手",
+      "Rare-disease / endocrine specialty rival"
     ],
     [
-      "AMGN",
-      "生物製藥對手",
-      "Biopharma rival"
-    ],
-    [
-      "GILD",
-      "生物製藥對手",
-      "Biopharma rival"
-    ],
-    [
-      "ABBV",
-      "生物製藥對手",
-      "Biopharma rival"
+      "ALNY",
+      "罕病／內分泌特用藥對手",
+      "Rare-disease / endocrine specialty rival"
     ]
   ],
   "WF": [
@@ -19624,29 +19589,19 @@
   ],
   "CCK": [
     [
-      "SW",
-      "Packaging & Containers產品／市場對手",
-      "Packaging & Containers product/market rival"
-    ],
-    [
-      "PKG",
-      "Packaging & Containers產品／市場對手",
-      "Packaging & Containers product/market rival"
-    ],
-    [
       "AMCR",
-      "Packaging & Containers產品／市場對手",
-      "Packaging & Containers product/market rival"
+      "包裝容器對手",
+      "Packaging & containers rival"
     ],
     [
       "BALL",
-      "Packaging & Containers產品／市場對手",
-      "Packaging & Containers product/market rival"
+      "包裝容器對手",
+      "Packaging & containers rival"
     ],
     [
-      "AVY",
-      "Packaging & Containers產品／市場對手",
-      "Packaging & Containers product/market rival"
+      "PKG",
+      "包裝容器對手",
+      "Packaging & containers rival"
     ]
   ],
   "SNN": [
@@ -21867,29 +21822,29 @@
   ],
   "BMRN": [
     [
-      "REGN",
-      "生物製藥對手",
-      "Biopharma rival"
+      "ASND",
+      "罕病／內分泌特用藥對手",
+      "Rare-disease / endocrine specialty rival"
     ],
     [
-      "VRTX",
-      "生物製藥對手",
-      "Biopharma rival"
+      "UTHR",
+      "罕病／內分泌特用藥對手",
+      "Rare-disease / endocrine specialty rival"
     ],
     [
-      "AMGN",
-      "生物製藥對手",
-      "Biopharma rival"
+      "ALNY",
+      "罕病／內分泌特用藥對手",
+      "Rare-disease / endocrine specialty rival"
     ],
     [
-      "GILD",
-      "生物製藥對手",
-      "Biopharma rival"
+      "ARWR",
+      "RNAi／反義核酸對手",
+      "RNAi / antisense oligonucleotide rival"
     ],
     [
-      "ABBV",
-      "生物製藥對手",
-      "Biopharma rival"
+      "IONS",
+      "RNAi／反義核酸對手",
+      "RNAi / antisense oligonucleotide rival"
     ]
   ],
   "HMY": [
@@ -24197,23 +24152,6 @@
       "Application software rival"
     ]
   ],
-  "ATR": [
-    [
-      "AMCR",
-      "特用給藥／瓶蓋包裝對手",
-      "Specialty dispensing / closures rival"
-    ],
-    [
-      "SON",
-      "特用給藥／瓶蓋包裝對手",
-      "Specialty dispensing / closures rival"
-    ],
-    [
-      "SLGN",
-      "特用給藥／瓶蓋包裝對手",
-      "Specialty dispensing / closures rival"
-    ]
-  ],
   "CTRE": [
     [
       "AHR",
@@ -24569,29 +24507,29 @@
   ],
   "LEVI": [
     [
-      "ANF",
-      "品牌服飾零售對手",
-      "Specialty apparel retail rival"
-    ],
-    [
-      "URBN",
-      "品牌服飾零售對手",
-      "Specialty apparel retail rival"
-    ],
-    [
-      "GAP",
-      "品牌服飾零售對手",
-      "Specialty apparel retail rival"
+      "NKE",
+      "運動鞋服對手",
+      "Athletic apparel rival"
     ],
     [
       "LULU",
-      "品牌服飾零售對手",
-      "Specialty apparel retail rival"
+      "運動鞋服對手",
+      "Athletic apparel rival"
     ],
     [
-      "VFC",
-      "品牌服飾零售對手",
-      "Specialty apparel retail rival"
+      "DECK",
+      "運動鞋服對手",
+      "Athletic apparel rival"
+    ],
+    [
+      "UAA",
+      "運動鞋服對手",
+      "Athletic apparel rival"
+    ],
+    [
+      "ADDYY",
+      "運動鞋服對手",
+      "Athletic apparel rival"
     ]
   ],
   "IREN": [
@@ -25728,29 +25666,29 @@
   ],
   "VFC": [
     [
-      "ANF",
-      "品牌服飾零售對手",
-      "Specialty apparel retail rival"
+      "AS",
+      "運動用品對手",
+      "Sporting-goods rival"
     ],
     [
-      "URBN",
-      "品牌服飾零售對手",
-      "Specialty apparel retail rival"
+      "DECK",
+      "運動用品對手",
+      "Sporting-goods rival"
     ],
     [
-      "GAP",
-      "品牌服飾零售對手",
-      "Specialty apparel retail rival"
+      "NKE",
+      "運動用品對手",
+      "Sporting-goods rival"
     ],
     [
       "LULU",
-      "品牌服飾零售對手",
-      "Specialty apparel retail rival"
+      "運動用品對手",
+      "Sporting-goods rival"
     ],
     [
-      "LEVI",
-      "品牌服飾零售對手",
-      "Specialty apparel retail rival"
+      "ONON",
+      "運動用品對手",
+      "Sporting-goods rival"
     ]
   ],
   "NIO": [
@@ -26790,16 +26728,6 @@
       "LULU",
       "品牌服飾零售對手",
       "Specialty apparel retail rival"
-    ],
-    [
-      "LEVI",
-      "品牌服飾零售對手",
-      "Specialty apparel retail rival"
-    ],
-    [
-      "VFC",
-      "品牌服飾零售對手",
-      "Specialty apparel retail rival"
     ]
   ],
   "DBX": [
@@ -27246,16 +27174,6 @@
     ],
     [
       "LULU",
-      "品牌服飾零售對手",
-      "Specialty apparel retail rival"
-    ],
-    [
-      "LEVI",
-      "品牌服飾零售對手",
-      "Specialty apparel retail rival"
-    ],
-    [
-      "VFC",
       "品牌服飾零售對手",
       "Specialty apparel retail rival"
     ]
@@ -29349,16 +29267,6 @@
     ],
     [
       "LULU",
-      "品牌服飾零售對手",
-      "Specialty apparel retail rival"
-    ],
-    [
-      "LEVI",
-      "品牌服飾零售對手",
-      "Specialty apparel retail rival"
-    ],
-    [
-      "VFC",
       "品牌服飾零售對手",
       "Specialty apparel retail rival"
     ]
@@ -34186,6 +34094,18 @@
       "FSS",
       "工業防護／PPE 對手",
       "Industrial PPE / safety equipment rival"
+    ]
+  ],
+  "ATR": [
+    [
+      "SON",
+      "特用給藥／瓶蓋包裝對手",
+      "Specialty dispensing / closures rival"
+    ],
+    [
+      "SLGN",
+      "特用給藥／瓶蓋包裝對手",
+      "Specialty dispensing / closures rival"
     ]
   ]
 }

@@ -640,7 +640,7 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "law-enforcement",
-        ["AXON", "KTOS"],  # LE bodycam/taser / defense-security electronics — drop ALLE door / ADT monitor / MSA PPE
+        ["AXON", "MSI"],  # LE bodycam/taser / public-safety radio (Motorola) — no KTOS drones/sat, no LMT/NOC pad
         "執法／安防裝備對手",
         "Law-enforcement / security-equipment rival",
     ),
@@ -664,7 +664,7 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "apparel-specialty",
-        ["ANF", "URBN", "GAP", "LULU", "LEVI", "VFC"],  # brand apparel; drop invalid VSXY
+        ["ANF", "URBN", "GAP", "LULU"],  # brand apparel; drop invalid VSXY
         "品牌服飾零售對手",
         "Specialty apparel retail rival",
     ),
@@ -736,9 +736,15 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "packaging-disp",
-        ["ATR", "AMCR", "SON", "SLGN"],  # live dispensing/closures — drop GPK paperboard + delisted BERY
+        ["ATR", "SON", "SLGN"],  # Aptar dispensing/closures niche — not AMCR/BALL/CCK/PKG containers
         "特用給藥／瓶蓋包裝對手",
         "Specialty dispensing / closures rival",
+    ),
+    (
+        "packaging-containers",
+        ["AMCR", "BALL", "CCK", "PKG"],  # Packaging & Containers — not Aptar dispensing
+        "包裝容器對手",
+        "Packaging & containers rival",
     ),
         (
         "water-heat",
@@ -897,6 +903,13 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
         "RNAi / antisense oligonucleotide rival",
     ),
     (
+        "rare-disease",
+        ["ASND", "BMRN", "UTHR", "ALNY"],  # rare / endo specialty — no REGN/VRTX/AMGN/GILD/ABBV pad
+        "罕病／內分泌特用藥對手",
+        "Rare-disease / endocrine specialty rival",
+    ),
+
+    (
         "grocery-retail",
         ["ACI", "KR", "CASY", "WMT", "COST"],  # grocery / food retail — not apparel/ecommerce stages
         "超市／雜貨零售對手",
@@ -922,7 +935,7 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "bnpl-lend",
-        ["AFRM", "PYPL", "SOFI", "UPST", "LC"],  # BNPL / consumer lending — V/MA/AXP/GPN are rails
+        ["AFRM", "PYPL", "SOFI", "XYZ"],  # true BNPL — Block/Afterpay; drop UPST/LC marketplace/AI lenders
         "先買後付／消費貸對手",
         "BNPL / consumer-lending rival",
     ),
@@ -1035,6 +1048,7 @@ TICKER_GROUP_FORCE: dict[str, str] = {
     "BKR": "energy-ofs-pure",
     "AEG": "ins-life",
     "AXON": "law-enforcement",
+    "ASND": "rare-disease",
     "AVAV": "mil-uav",
     "KTOS": "mil-uav",
     "BETA": "evtol",
@@ -1076,6 +1090,10 @@ TICKER_GROUP_FORCE: dict[str, str] = {
     "CIG": "util-latam",
     "BRZE": "saas-messaging",
     "ATR": "packaging-disp",
+    "AMCR": "packaging-containers",
+    "BALL": "packaging-containers",
+    "CCK": "packaging-containers",
+    "PKG": "packaging-containers",
     "AOS": "water-heat",
     "AVTR": "life-sci-dist",
     "A": "life-sci-tools",
@@ -1136,6 +1154,10 @@ TICKER_GROUP_FORCE: dict[str, str] = {
 # Specialty groups that must never be padded with same-industry megacaps.
 NO_PAD_GROUPS = {
     "door-hardware",
+    "apparel-specialty",
+    "rare-disease",
+    "packaging-containers",
+    "packaging-disp",
     "nutrition-chem",
     "packaged-food",
     "life-sci-tools",
@@ -1870,6 +1892,7 @@ def main() -> int:
         "ALKS": ("Alkermes", "Alkermes", "NASDAQ"),
         # Universe wrongly tags Walmart as NASDAQ; listing is NYSE (seeds must emit NYSE).
         "WMT": ("Walmart", "沃爾瑪", "NYSE"),
+        "MSI": ("Motorola Solutions", "摩托羅拉解決方案", "NYSE"),
         "COO": ("Cooper", "庫博", "NYSE"),  # The Cooper Companies — not CooperVision / NASDAQ
         "RGA": ("Reinsurance Group of America", "美國再保險集團", "NYSE"),
     }
@@ -1964,30 +1987,42 @@ def main() -> int:
         if ex:
             entities[t]["exchange"] = ex
     # Final gate: never leave English-legal dumps in name_zh.
-    # Prefer curated 繁中 / short_brand_en before ticker — resolve_entity must still recover brands.
+    # Prefer curated 繁中 / mega short_brand_en before ticker — resolve_entity must still recover brands.
+    # Import under aliases so we do not shadow module-level short_brand_en (UnboundLocalError).
     from scripts.build_supply_chain_mega_seeds import (
-        looks_like_english_legal_name,
-        short_brand_en,
-        NAME_ZH_FIXES,
+        looks_like_english_legal_name as _looks_legal_zh,
+        short_brand_en as _mega_short_brand_en,
+        NAME_ZH_FIXES as _NAME_ZH_FIXES,
     )
 
     for t, pe in list(entities.items()):
         if t.startswith("_"):
             continue
         zh = (pe.get("name_zh") or "").strip()
-        if looks_like_english_legal_name(zh):
-            curated = NAME_ZH_FIXES.get(t) or EXTRA_NAME_ZH.get(t)
-            if curated and not looks_like_english_legal_name(curated):
-                pe["name_zh"] = curated
+        if _looks_legal_zh(zh) or not zh:
+            # Order: true 繁中 (CJK curated) → short_brand_en (non-legal) → ticker.
+            # Never prefer EXTRA_NAME_ZH / curated English-legal dumps.
+            cjk = None
+            for cand in (
+                _NAME_ZH_FIXES.get(t),
+                EXTRA_NAME_ZH.get(t),
+                (main_ents.get(t) or {}).get("name_zh"),
+            ):
+                if cand and re.search(r"[\u4e00-\u9fff]", str(cand)):
+                    cjk = str(cand).strip()
+                    break
+            if cjk:
+                pe["name_zh"] = cjk
             else:
                 en_src = pe.get("name_en") or (uni.get(t) or {}).get("name") or t
-                brand = short_brand_en(en_src, t)
-                if brand and brand != t and not looks_like_english_legal_name(brand):
+                brand = _mega_short_brand_en(en_src, t)
+                if brand and not _looks_legal_zh(brand):
                     pe["name_zh"] = brand
-                elif pe.get("name_en") and not looks_like_english_legal_name(pe["name_en"]):
-                    pe["name_zh"] = pe["name_en"]
                 else:
-                    pe["name_zh"] = curated or brand or t
+                    pe["name_zh"] = t
+            # Re-check before write
+            if _looks_legal_zh(pe.get("name_zh") or ""):
+                pe["name_zh"] = t
             entities[t] = pe
 
     # Scrub banned / share-class / alias rivals from any competitor lists.
