@@ -291,9 +291,9 @@
       "PYPL"
     ],
     "settlement": [
-      "JPM",
-      "BAC",
-      "WFC"
+      "V",
+      "MA",
+      "AXP"
     ]
   },
   "capital-markets-v1": {
@@ -1050,6 +1050,33 @@
       "GOOG",
       "META",
       "TRU"
+    ]
+  },
+  "tax-pro-services-v1": {
+    "software": [
+      "MSFT",
+      "ORCL",
+      "ADBE"
+    ],
+    "practitioners": [
+      "RHI",
+      "MAN",
+      "ASGN"
+    ],
+    "channel": [
+      "CBRE",
+      "JLL",
+      "CWK"
+    ],
+    "marketing": [
+      "GOOG",
+      "META",
+      "AMZN"
+    ],
+    "settlement": [
+      "JPM",
+      "BAC",
+      "WFC"
     ]
   }
 }

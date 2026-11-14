@@ -558,7 +558,7 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "security-svc",
-        ["ADT", "ALLE", "MSA", "JCI"],  # listed only; no BCO/REZI OTC stubs
+        ["ADT", "ALLE", "JCI"],  # security services / access — MSA is PPE not monitored security
         "安防服務／產品對手",
         "Security services / products rival",
     ),
@@ -660,7 +660,7 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
         (
         "dental-devices",
-        ["ALGN", "XRAY", "NVST", "SOLV"],  # dental / aligner — no HSIC / MMSI / TFX
+        ["ALGN", "XRAY", "NVST"],  # dental / aligner OEMs only — drop SOLV
         "牙醫／隱適美器械對手",
         "Dental / aligner-device rival",
     ),

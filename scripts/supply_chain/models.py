@@ -1875,6 +1875,54 @@ MODELS: dict[str, dict] = {
             },
         ],
     },
+    "tax-pro-services-v1": {
+        "label_zh": "稅務／專業服務價值鏈",
+        "label_en": "Tax / professional-services value chain",
+        "description_zh": "稅務軟體／內容 → 執業人力 → 加盟／通路 → 行銷獲客 → 銀行／支付結算。",
+        "description_en": "Tax software/content → practitioner workforce → franchise/channel → marketing acquisition → bank/payment settlement.",
+        "stages": [
+            {
+                "id": "software",
+                "order": 1,
+                "label_zh": "稅務軟體／內容",
+                "label_en": "Tax software / content",
+                "summary_zh": "報稅引擎與稅務內容。",
+                "summary_en": "Tax engines and content.",
+            },
+            {
+                "id": "practitioners",
+                "order": 2,
+                "label_zh": "執業人力／顧問",
+                "label_en": "Practitioners / advisors",
+                "summary_zh": "會計師與稅務顧問人力。",
+                "summary_en": "Accountants and tax advisors.",
+            },
+            {
+                "id": "channel",
+                "order": 3,
+                "label_zh": "加盟／門市通路",
+                "label_en": "Franchise / store channel",
+                "summary_zh": "加盟與門市網絡。",
+                "summary_en": "Franchise and retail offices.",
+            },
+            {
+                "id": "marketing",
+                "order": 4,
+                "label_zh": "行銷／數位獲客",
+                "label_en": "Marketing / digital acquisition",
+                "summary_zh": "搜尋、社群與加盟行銷。",
+                "summary_en": "Search, social, and franchise marketing.",
+            },
+            {
+                "id": "settlement",
+                "order": 5,
+                "label_zh": "銀行／退稅支付",
+                "label_en": "Banks / refund payment",
+                "summary_zh": "退稅撥款與銀行結算。",
+                "summary_en": "Refund disbursement and bank rails.",
+            },
+        ],
+    },
 }
 
 
@@ -2175,7 +2223,8 @@ TICKER_MODEL: dict[str, str] = {
     "CE": "specialty-chem-v1",  # commodity/specialty chem — not coatings customers
     "AES": "utilities-v1",  # electric generation / utilities
     "ARES": "asset-mgmt-v1",  # alt managers
-    "ANDG": "industrials-v1",  # tax/professional services — not hospitality
+    "ANDG": "tax-pro-services-v1",
+    "AR": "energy-integrated-v1",  # E&P: services=OFS, upstream=E&P peers (not OFS copy)
     "AMTM": "gov-services-v1",
     "BLLN": "medtech-v1",  # molecular dx — peers via mol-dx group
     "CIG": "utilities-v1",

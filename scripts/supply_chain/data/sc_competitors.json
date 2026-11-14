@@ -17994,19 +17994,29 @@
   ],
   "SOLV": [
     [
-      "ALGN",
-      "牙醫／隱適美器械對手",
-      "Dental / aligner-device rival"
+      "BDX",
+      "醫療耗材對手",
+      "Medical supplies rival"
     ],
     [
-      "XRAY",
-      "牙醫／隱適美器械對手",
-      "Dental / aligner-device rival"
+      "ABT",
+      "醫療耗材對手",
+      "Medical supplies rival"
     ],
     [
-      "NVST",
-      "牙醫／隱適美器械對手",
-      "Dental / aligner-device rival"
+      "MDT",
+      "醫療耗材對手",
+      "Medical supplies rival"
+    ],
+    [
+      "SYK",
+      "醫療耗材對手",
+      "Medical supplies rival"
+    ],
+    [
+      "BAX",
+      "醫療耗材對手",
+      "Medical supplies rival"
     ]
   ],
   "OWL": [
@@ -21443,11 +21453,6 @@
     ],
     [
       "NVST",
-      "牙醫／隱適美器械對手",
-      "Dental / aligner-device rival"
-    ],
-    [
-      "SOLV",
       "牙醫／隱適美器械對手",
       "Dental / aligner-device rival"
     ]
@@ -29223,11 +29228,6 @@
       "Security services / products rival"
     ],
     [
-      "MSA",
-      "安防服務／產品對手",
-      "Security services / products rival"
-    ],
-    [
       "JCI",
       "安防服務／產品對手",
       "Security services / products rival"
@@ -29485,19 +29485,19 @@
   ],
   "MSA": [
     [
-      "ADT",
-      "安防服務／產品對手",
-      "Security services / products rival"
+      "ALLE",
+      "安防／門禁對手",
+      "Security / access-control rival"
     ],
     [
-      "ALLE",
-      "安防服務／產品對手",
-      "Security services / products rival"
+      "ADT",
+      "安防／門禁對手",
+      "Security / access-control rival"
     ],
     [
       "JCI",
-      "安防服務／產品對手",
-      "Security services / products rival"
+      "安防／門禁對手",
+      "Security / access-control rival"
     ],
     [
       "TT",
