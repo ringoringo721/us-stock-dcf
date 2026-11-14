@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-14T07:03:19Z",
+  "generatedAt": "2026-11-14T07:12:21Z",
   "policy": {
     "preferTraditionalChinese": true,
     "noInventedTranslations": true,
@@ -16,15 +16,15 @@
   },
   "coverage": {
     "universeTickers": 1350,
-    "withNameZh": 245,
-    "missingNameZh": 1105,
-    "pct": 18.1,
+    "withNameZh": 246,
+    "missingNameZh": 1104,
+    "pct": 18.2,
     "bySource": {
-      "STOCK_NAMES_ZH": 225,
+      "STOCK_NAMES_ZH": 226,
       "HKEX_dual_list": 20
     },
-    "curatedMapSize": 230,
-    "beforeCuratedOnly": 225,
+    "curatedMapSize": 231,
+    "beforeCuratedOnly": 226,
     "beforePct": 16.7
   },
   "missingTickers": [
@@ -207,7 +207,6 @@
     "FERG",
     "STT",
     "WAT",
-    "IQV",
     "NTRA",
     "FMX",
     "ARES",
@@ -1528,7 +1527,7 @@
       "source": "STOCK_NAMES_ZH"
     },
     "EQIX": {
-      "name_zh": "艾昆緯",
+      "name_zh": "Equinix",
       "source": "STOCK_NAMES_ZH"
     },
     "DUK": {
@@ -1777,6 +1776,10 @@
     },
     "WDAY": {
       "name_zh": "Workday",
+      "source": "STOCK_NAMES_ZH"
+    },
+    "IQV": {
+      "name_zh": "艾昆緯",
       "source": "STOCK_NAMES_ZH"
     },
     "YUM": {

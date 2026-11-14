@@ -803,7 +803,8 @@ def resolve_name_zh(ticker: str, name_en: str, stock_zh: dict, file_zh: dict) ->
     hard = {
         "CI": "信諾",
         "TDG": "環球透博",  # never Trimble 天寶
-        "EQIX": "艾昆緯",  # never Cadence-ish 易華電腦 from STOCK_NAMES
+        "EQIX": "Equinix",  # Latin — never IQVIA 艾昆緯 / Cadence 易華電腦
+        "IQV": "艾昆緯",
         "CDNS": "益華電腦",
         "BHP": "必和必拓",
         "ANSS": "安西斯",
@@ -939,7 +940,8 @@ def main() -> int:
     entities["IBM"] = {"name_en": "IBM", "name_zh": "IBM", "exchange": "NYSE"}
     entities["BN"] = {"name_en": "Brookfield", "name_zh": "Brookfield", "exchange": "NYSE"}
     entities["MET"]["name_zh"] = "大都會人壽"
-    entities["EQIX"] = {"name_en": "Equinix", "name_zh": "艾昆緯", "exchange": "NASDAQ"}
+    entities["EQIX"] = {"name_en": "Equinix", "name_zh": "Equinix", "exchange": "NASDAQ"}
+    entities["IQV"] = {"name_en": "IQVIA", "name_zh": "艾昆緯", "exchange": "NYSE"}
     entities["CDNS"] = {"name_en": "Cadence", "name_zh": "益華電腦", "exchange": "NASDAQ"}
     entities["BHP"] = {"name_en": "BHP", "name_zh": "必和必拓", "exchange": "NYSE"}
     entities["ANSS"] = {"name_en": "Ansys", "name_zh": "安西斯", "exchange": "NASDAQ"}
