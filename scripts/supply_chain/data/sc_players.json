@@ -705,7 +705,7 @@
     "fuel-capex": [
       "FSLR",
       "ENPH",
-      "ETN"
+      "GNRC"
     ],
     "generation": [
       "CEG",
@@ -713,14 +713,14 @@
       "GEV"
     ],
     "td": [
-      "ETN",
+      "PWR",
       "EMR",
       "HON"
     ],
     "grid-tech": [
       "ETN",
       "ROK",
-      "ANET"
+      "HUBB"
     ],
     "retail": [
       "AMZN",

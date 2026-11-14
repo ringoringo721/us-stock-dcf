@@ -749,5 +749,113 @@
       "VZ",
       "TMUS"
     ]
+  },
+  "CIG": {
+    "fuel-capex": [
+      "FSLR",
+      "ENPH",
+      "GNRC"
+    ],
+    "generation": [
+      "CEG",
+      "VST",
+      "GEV"
+    ],
+    "td": [
+      "PWR",
+      "EMR",
+      "HON"
+    ],
+    "grid-tech": [
+      "ETN",
+      "ROK",
+      "HUBB"
+    ],
+    "retail": [
+      "AMZN",
+      "WMT",
+      "TSLA"
+    ]
+  },
+  "ENIC": {
+    "fuel-capex": [
+      "FSLR",
+      "ENPH",
+      "GNRC"
+    ],
+    "generation": [
+      "CEG",
+      "VST",
+      "GEV"
+    ],
+    "td": [
+      "PWR",
+      "EMR",
+      "HON"
+    ],
+    "grid-tech": [
+      "ETN",
+      "ROK",
+      "HUBB"
+    ],
+    "retail": [
+      "AMZN",
+      "WMT",
+      "TSLA"
+    ]
+  },
+  "EBR": {
+    "fuel-capex": [
+      "FSLR",
+      "ENPH",
+      "GNRC"
+    ],
+    "generation": [
+      "CEG",
+      "VST",
+      "GEV"
+    ],
+    "td": [
+      "PWR",
+      "EMR",
+      "HON"
+    ],
+    "grid-tech": [
+      "ETN",
+      "ROK",
+      "HUBB"
+    ],
+    "retail": [
+      "AMZN",
+      "WMT",
+      "TSLA"
+    ]
+  },
+  "ELP": {
+    "fuel-capex": [
+      "FSLR",
+      "ENPH",
+      "GNRC"
+    ],
+    "generation": [
+      "CEG",
+      "VST",
+      "GEV"
+    ],
+    "td": [
+      "PWR",
+      "EMR",
+      "HON"
+    ],
+    "grid-tech": [
+      "ETN",
+      "ROK",
+      "HUBB"
+    ],
+    "retail": [
+      "AMZN",
+      "WMT",
+      "TSLA"
+    ]
   }
 }

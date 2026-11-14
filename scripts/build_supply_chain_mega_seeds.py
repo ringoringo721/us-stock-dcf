@@ -127,13 +127,18 @@ LEGAL_EN_NAME_RE = re.compile(
 # Suffixes safe to strip for short brands. Keep N.V. / S.A. / p.l.c. intact —
 # stripping N.V. via a trailing `\b` often leaves an orphan "." ("ASML Holding .").
 LEGAL_EN_SUFFIX_STRIP_RE = re.compile(
-    # Company/Companies / Corporation / Enterprises / Financial legal tails.
-    # Strip "Group" only as a trailing corporate suffix (… Group / … Group Inc.)
-    # — never "Reinsurance Group of America".
-    r"\b(Inc\.?|Incorporated|Corp\.?|Corporation|Compan(?:y|ies)|Enterprises?|Financial|"
-    r"Ltd\.?|Limited|Holdings|PLC)\b"
-    r"|\bGroup\b(?=\s*$|\s+(?:Inc\.?|Incorporated|Corp\.?|Corporation|Compan(?:y|ies)|"
-    r"Ltd\.?|Limited)\b)",
+    # Common legal tokens (Inc/Corp/Company/…). Never mid-name brand "Enterprise"
+    # (Enterprise Products / Enterprise Holdings). Holdings/Group only trailing.
+    # Trailing Enterprises (plural) / Corporation / Financial via TRAILING_LEGAL_SUFFIX_RE.
+    r"\b(Inc\.?|Incorporated|Corp\.?|Compan(?:y|ies)|Ltd\.?|Limited|PLC)\b"
+    r"|\b(?:Holdings|Group)\b(?=\s*$|\s+(?:Inc\.?|Incorporated|Corp\.?|Corporation|"
+    r"Compan(?:y|ies)|Ltd\.?|Limited)\b)",
+    re.I,
+)
+# Trailing-only after Inc/share-class cleanup. Plural Enterprises only — never bare
+# "Enterprise" brand (Enterprise Products / Enterprise Holdings).
+TRAILING_LEGAL_SUFFIX_RE = re.compile(
+    r"\b(Corporation|Enterprises|Financial)\s*$",
     re.I,
 )
 # Known wrong / legal-dump name_zh corrections (ticker → curated 繁中 or brand).
@@ -213,6 +218,14 @@ def short_brand_en(name_en: str, ticker: str) -> str:
     cleaned = re.sub(r"[,\s]+$", "", cleaned).strip()
     cleaned = re.sub(r"\s{2,}", " ", cleaned)
     cleaned = re.sub(r"-$", "", cleaned).strip()
+    # Trailing Corporation / Enterprises / Financial only (never mid-name Enterprise brand).
+    # Repeat: "Capital One Financial Corporation" → … Financial → Capital One.
+    for _ in range(3):
+        nxt = TRAILING_LEGAL_SUFFIX_RE.sub("", cleaned).strip()
+        nxt = re.sub(r"[,\s]+$", "", nxt).strip()
+        if nxt == cleaned:
+            break
+        cleaned = nxt
     # Drop leading "The " even on multi-word brands (The Procter & Gamble → Procter & Gamble).
     cleaned = re.sub(r"^The\s+", "", cleaned, flags=re.I).strip()
     return cleaned or ticker
@@ -246,6 +259,9 @@ def _assert_short_brand_en() -> None:
         ("Entergy Louisiana, LLC First Mortgage Bonds", "ELC", "Entergy Louisiana, LLC"),
         ("The Cooper Companies, Inc.", "COO", "Cooper"),
         ("Reinsurance Group of America, Incorporated", "RGA", "Reinsurance Group of America"),
+        ("Enterprise Products Partners L.P.", "EPD", "Enterprise Products Partners L.P."),
+        ("Enterprise Holdings, Inc.", "EHI", "Enterprise Holdings"),
+        ("Insight Enterprises, Inc.", "NSIT", "Insight"),
     )
     for raw, ticker, expect in cases:
         got = short_brand_en(raw, ticker)

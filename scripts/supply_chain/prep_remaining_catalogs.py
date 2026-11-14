@@ -1964,8 +1964,10 @@ def main() -> int:
         if ex:
             entities[t]["exchange"] = ex
     # Final gate: never leave English-legal dumps in name_zh.
+    # Prefer curated 繁中 / short_brand_en before ticker — resolve_entity must still recover brands.
     from scripts.build_supply_chain_mega_seeds import (
         looks_like_english_legal_name,
+        short_brand_en,
         NAME_ZH_FIXES,
     )
 
@@ -1974,9 +1976,18 @@ def main() -> int:
             continue
         zh = (pe.get("name_zh") or "").strip()
         if looks_like_english_legal_name(zh):
-            pe["name_zh"] = NAME_ZH_FIXES.get(t) or EXTRA_NAME_ZH.get(t) or pe.get("name_en") or t
-            if looks_like_english_legal_name(pe["name_zh"]):
-                pe["name_zh"] = NAME_ZH_FIXES.get(t) or t
+            curated = NAME_ZH_FIXES.get(t) or EXTRA_NAME_ZH.get(t)
+            if curated and not looks_like_english_legal_name(curated):
+                pe["name_zh"] = curated
+            else:
+                en_src = pe.get("name_en") or (uni.get(t) or {}).get("name") or t
+                brand = short_brand_en(en_src, t)
+                if brand and brand != t and not looks_like_english_legal_name(brand):
+                    pe["name_zh"] = brand
+                elif pe.get("name_en") and not looks_like_english_legal_name(pe["name_en"]):
+                    pe["name_zh"] = pe["name_en"]
+                else:
+                    pe["name_zh"] = curated or brand or t
             entities[t] = pe
 
     # Scrub banned / share-class / alias rivals from any competitor lists.
