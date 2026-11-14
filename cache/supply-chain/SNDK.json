@@ -1,0 +1,246 @@
+{
+  "version": 1,
+  "ticker": "SNDK",
+  "name_en": "Sandisk Corporation",
+  "name_zh": "SanDisk",
+  "updatedAt": "2026-11-14",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mega-cap ≥$100B expansion. Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates and spot review on NVDA/MSFT/JPM. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股市值≥1,000億美元批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for the US mcap≥$100B batch. No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "hardware-value-chain-v1",
+    "references": [
+      "Industry model `hardware-value-chain-v1`",
+      "cache/us_universe.json marketCap ≥ USD 100B screen",
+      "AAPL curated seed shape on main (schema reference)"
+    ]
+  },
+  "model": {
+    "id": "hardware-value-chain-v1",
+    "label_zh": "硬體價值鏈（五階段）",
+    "label_en": "Hardware value chain (5 stages)",
+    "description_zh": "上游材料／裝置 → 關鍵零元件 → 組裝代工 → 物流通路 → 零售／電信通路。",
+    "description_en": "Materials/equipment → components → EMS → logistics → retail/carrier."
+  },
+  "stages": [
+    {
+      "id": "materials",
+      "order": 1,
+      "label_zh": "關鍵材料／製程裝置",
+      "label_en": "Key materials / process equipment",
+      "summary_zh": "上游材料與製程裝置。",
+      "summary_en": "Upstream materials and process tools.",
+      "players": [
+        {
+          "ticker": "GLW",
+          "name_en": "Corning",
+          "name_zh": "Corning",
+          "role_zh": "Corning：關鍵材料／製程裝置代表性玩家",
+          "role_en": "Corning: representative player in Key materials / process equipment",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "AMAT",
+          "name_en": "Applied Materials, Inc.",
+          "name_zh": "應用材料",
+          "role_zh": "應用材料：關鍵材料／製程裝置代表性玩家",
+          "role_en": "Applied Materials, Inc.: representative player in Key materials / process equipment",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "ASML",
+          "name_en": "ASML Holding N.V.",
+          "name_zh": "艾司摩爾",
+          "role_zh": "艾司摩爾：關鍵材料／製程裝置代表性玩家",
+          "role_en": "ASML Holding N.V.: representative player in Key materials / process equipment",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "components",
+      "order": 2,
+      "label_zh": "關鍵零元件／半導體",
+      "label_en": "Key components / semiconductors",
+      "summary_zh": "核心晶片與模組供應。",
+      "summary_en": "Core chips and modules.",
+      "players": [
+        {
+          "ticker": "TSM",
+          "name_en": "Taiwan Semiconductor Manufacturing Company Limited",
+          "name_zh": "臺積電",
+          "role_zh": "臺積電：關鍵零元件／半導體代表性玩家",
+          "role_en": "Taiwan Semiconductor Manufacturing Company Limited: representative player in Key components / semiconductors",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "AVGO",
+          "name_en": "Broadcom Inc.",
+          "name_zh": "博通",
+          "role_zh": "博通：關鍵零元件／半導體代表性玩家",
+          "role_en": "Broadcom Inc.: representative player in Key components / semiconductors",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "QCOM",
+          "name_en": "QUALCOMM Incorporated",
+          "name_zh": "高通",
+          "role_zh": "高通：關鍵零元件／半導體代表性玩家",
+          "role_en": "QUALCOMM Incorporated: representative player in Key components / semiconductors",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "assembly",
+      "order": 3,
+      "label_zh": "組裝代工（EMS）",
+      "label_en": "Final assembly (EMS)",
+      "summary_zh": "整機／系統組裝。",
+      "summary_en": "System / final assembly.",
+      "players": [
+        {
+          "ticker": "2317.TW",
+          "name_en": "Hon Hai (Foxconn)",
+          "name_zh": "鴻海",
+          "role_zh": "鴻海：組裝代工（EMS）代表性玩家",
+          "role_en": "Hon Hai (Foxconn): representative player in Final assembly (EMS)",
+          "exchange": "TWSE",
+          "listedInApp": false
+        },
+        {
+          "ticker": "4938.TW",
+          "name_en": "Pegatron",
+          "name_zh": "和碩",
+          "role_zh": "和碩：組裝代工（EMS）代表性玩家",
+          "role_en": "Pegatron: representative player in Final assembly (EMS)",
+          "exchange": "TWSE",
+          "listedInApp": false
+        },
+        {
+          "ticker": "002475.SZ",
+          "name_en": "Luxshare Precision",
+          "name_zh": "立訊精密",
+          "role_zh": "立訊精密：組裝代工（EMS）代表性玩家",
+          "role_en": "Luxshare Precision: representative player in Final assembly (EMS)",
+          "exchange": "SZSE",
+          "listedInApp": false
+        }
+      ]
+    },
+    {
+      "id": "distribution",
+      "order": 4,
+      "label_zh": "物流／通路配送",
+      "label_en": "Logistics / distribution",
+      "summary_zh": "成品物流與配送。",
+      "summary_en": "Finished-goods logistics.",
+      "players": [
+        {
+          "ticker": "FDX",
+          "name_en": "FedEx",
+          "name_zh": "FedEx",
+          "role_zh": "FedEx：物流／通路配送代表性玩家",
+          "role_en": "FedEx: representative player in Logistics / distribution",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "UPS",
+          "name_en": "United Parcel Service",
+          "name_zh": "UPS",
+          "role_zh": "UPS：物流／通路配送代表性玩家",
+          "role_en": "United Parcel Service: representative player in Logistics / distribution",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "EXPD",
+          "name_en": "Expeditors",
+          "name_zh": "康捷國際",
+          "role_zh": "康捷國際：物流／通路配送代表性玩家",
+          "role_en": "Expeditors: representative player in Logistics / distribution",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "retail",
+      "order": 5,
+      "label_zh": "零售／電信通路",
+      "label_en": "Retail / carrier channels",
+      "summary_zh": "終端零售與電信通路。",
+      "summary_en": "Retail and carrier channels.",
+      "players": [
+        {
+          "ticker": "BBY",
+          "name_en": "Best Buy",
+          "name_zh": "百思買",
+          "role_zh": "百思買：零售／電信通路代表性玩家",
+          "role_en": "Best Buy: representative player in Retail / carrier channels",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "T",
+          "name_en": "AT&T Inc.",
+          "name_zh": "AT&T",
+          "role_zh": "AT&T：零售／電信通路代表性玩家",
+          "role_en": "AT&T Inc.: representative player in Retail / carrier channels",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "VZ",
+          "name_en": "Verizon Communications Inc.",
+          "name_zh": "Verizon",
+          "role_zh": "Verizon：零售／電信通路代表性玩家",
+          "role_en": "Verizon Communications Inc.: representative player in Retail / carrier channels",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "WDC",
+      "name_en": "Western Digital",
+      "name_zh": "Western Digital",
+      "basis_zh": "NAND／儲存對手",
+      "basis_en": "NAND/storage rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "STX",
+      "name_en": "Seagate Technology Holdings plc",
+      "name_zh": "Seagate",
+      "basis_zh": "儲存對手",
+      "basis_en": "Storage rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "MU",
+      "name_en": "Micron Technology, Inc.",
+      "name_zh": "美光",
+      "basis_zh": "NAND 對手",
+      "basis_en": "NAND rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "PSTG",
+      "name_en": "PSTG",
+      "name_zh": "PSTG",
+      "basis_zh": "企業儲存對手",
+      "basis_en": "Enterprise storage rival",
+      "exchange": "",
+      "listedInApp": false
+    },
+    {
+      "ticker": "NTAP",
+      "name_en": "NTAP",
+      "name_zh": "NTAP",
+      "basis_zh": "企業儲存對手",
+      "basis_en": "Enterprise storage rival",
+      "exchange": ""
+    }
+  ]
+}

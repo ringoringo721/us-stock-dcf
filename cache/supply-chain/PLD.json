@@ -1,0 +1,242 @@
+{
+  "version": 1,
+  "ticker": "PLD",
+  "name_en": "Prologis, Inc.",
+  "name_zh": "Prologis",
+  "updatedAt": "2026-11-14",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mega-cap ≥$100B expansion. Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates and spot review on NVDA/MSFT/JPM. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股市值≥1,000億美元批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for the US mcap≥$100B batch. No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "reit-v1",
+    "references": [
+      "Industry model `reit-v1`",
+      "cache/us_universe.json marketCap ≥ USD 100B screen",
+      "AAPL curated seed shape on main (schema reference)"
+    ]
+  },
+  "model": {
+    "id": "reit-v1",
+    "label_zh": "REIT／不動產價值鏈",
+    "label_en": "REIT / real estate value chain",
+    "description_zh": "建設／開發 → 建材裝置 → 物業科技 → 租戶產業 → 資本／融資。",
+    "description_en": "Construction/dev → building systems → proptech → tenant industries → capital/financing."
+  },
+  "stages": [
+    {
+      "id": "construction",
+      "order": 1,
+      "label_zh": "建設／開發",
+      "label_en": "Construction / development",
+      "summary_zh": "總包與開發夥伴。",
+      "summary_en": "GCs and development partners.",
+      "players": [
+        {
+          "ticker": "CAT",
+          "name_en": "Caterpillar Inc.",
+          "name_zh": "卡特彼勒",
+          "role_zh": "卡特彼勒：建設／開發代表性玩家",
+          "role_en": "Caterpillar Inc.: representative player in Construction / development",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "DE",
+          "name_en": "Deere & Company",
+          "name_zh": "約翰迪爾",
+          "role_zh": "約翰迪爾：建設／開發代表性玩家",
+          "role_en": "Deere & Company: representative player in Construction / development",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "PH",
+          "name_en": "Parker-Hannifin Corporation",
+          "name_zh": "Parker",
+          "role_zh": "Parker：建設／開發代表性玩家",
+          "role_en": "Parker-Hannifin Corporation: representative player in Construction / development",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "systems",
+      "order": 2,
+      "label_zh": "建材／機電裝置",
+      "label_en": "Building systems / MEP",
+      "summary_zh": "HVAC、電力與結構系統。",
+      "summary_en": "HVAC, power, structural systems.",
+      "players": [
+        {
+          "ticker": "ETN",
+          "name_en": "Eaton Corporation plc",
+          "name_zh": "伊頓",
+          "role_zh": "伊頓：建材／機電裝置代表性玩家",
+          "role_en": "Eaton Corporation plc: representative player in Building systems / MEP",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "EMR",
+          "name_en": "Emerson",
+          "name_zh": "艾默生",
+          "role_zh": "艾默生：建材／機電裝置代表性玩家",
+          "role_en": "Emerson: representative player in Building systems / MEP",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "HON",
+          "name_en": "Honeywell",
+          "name_zh": "霍尼韋爾",
+          "role_zh": "霍尼韋爾：建材／機電裝置代表性玩家",
+          "role_en": "Honeywell: representative player in Building systems / MEP",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "proptech",
+      "order": 3,
+      "label_zh": "物業科技／營運",
+      "label_en": "Proptech / operations",
+      "summary_zh": "樓宇自動化與資安。",
+      "summary_en": "Building automation and security.",
+      "players": [
+        {
+          "ticker": "MSFT",
+          "name_en": "Microsoft Corporation",
+          "name_zh": "微軟",
+          "role_zh": "微軟：物業科技／營運代表性玩家",
+          "role_en": "Microsoft Corporation: representative player in Proptech / operations",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "CSCO",
+          "name_en": "Cisco Systems, Inc.",
+          "name_zh": "思科",
+          "role_zh": "思科：物業科技／營運代表性玩家",
+          "role_en": "Cisco Systems, Inc.: representative player in Proptech / operations",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "PANW",
+          "name_en": "Palo Alto Networks, Inc.",
+          "name_zh": "Palo Alto",
+          "role_zh": "Palo Alto：物業科技／營運代表性玩家",
+          "role_en": "Palo Alto Networks, Inc.: representative player in Proptech / operations",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "tenants",
+      "order": 4,
+      "label_zh": "租戶產業",
+      "label_en": "Tenant industries",
+      "summary_zh": "雲、物流、醫療等租戶。",
+      "summary_en": "Cloud, logistics, healthcare tenants.",
+      "players": [
+        {
+          "ticker": "MSFT",
+          "name_en": "Microsoft Corporation",
+          "name_zh": "微軟",
+          "role_zh": "微軟：租戶產業代表性玩家",
+          "role_en": "Microsoft Corporation: representative player in Tenant industries",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "AMZN",
+          "name_en": "Amazon.com, Inc.",
+          "name_zh": "亞馬遜",
+          "role_zh": "亞馬遜：租戶產業代表性玩家",
+          "role_en": "Amazon.com, Inc.: representative player in Tenant industries",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "GOOG",
+          "name_en": "Alphabet Inc.",
+          "name_zh": "Alphabet（Google）",
+          "role_zh": "Alphabet（Google）：租戶產業代表性玩家",
+          "role_en": "Alphabet Inc.: representative player in Tenant industries",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "capital",
+      "order": 5,
+      "label_zh": "資本／融資",
+      "label_en": "Capital / financing",
+      "summary_zh": "銀行、債市與資管資金。",
+      "summary_en": "Banks, bonds, AM capital.",
+      "players": [
+        {
+          "ticker": "JPM",
+          "name_en": "JPMorgan Chase & Co.",
+          "name_zh": "摩根大通",
+          "role_zh": "摩根大通：資本／融資代表性玩家",
+          "role_en": "JPMorgan Chase & Co.: representative player in Capital / financing",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "BAC",
+          "name_en": "Bank of America Corporation",
+          "name_zh": "美國銀行",
+          "role_zh": "美國銀行：資本／融資代表性玩家",
+          "role_en": "Bank of America Corporation: representative player in Capital / financing",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "BLK",
+          "name_en": "BlackRock, Inc.",
+          "name_zh": "貝萊德",
+          "role_zh": "貝萊德：資本／融資代表性玩家",
+          "role_en": "BlackRock, Inc.: representative player in Capital / financing",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "EQIX",
+      "name_en": "Equinix, Inc.",
+      "name_zh": "Equinix",
+      "basis_zh": "工業／資料中心地產競爭",
+      "basis_en": "Industrial/data-center RE competition",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "DLR",
+      "name_en": "Digital Realty",
+      "name_zh": "Digital Realty",
+      "basis_zh": "資料中心地產競爭",
+      "basis_en": "Data-center RE competition",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "AMT",
+      "name_en": "American Tower",
+      "name_zh": "美國電塔",
+      "basis_zh": "另類 REIT 競爭",
+      "basis_en": "Specialty REIT competition",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "WELL",
+      "name_en": "Welltower Inc.",
+      "name_zh": "Welltower",
+      "basis_zh": "收益型不動產資本競爭",
+      "basis_en": "Income RE capital competition",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "O",
+      "name_en": "O",
+      "name_zh": "O",
+      "basis_zh": "收益型不動產資本競爭",
+      "basis_en": "Income RE capital competition",
+      "exchange": ""
+    }
+  ]
+}

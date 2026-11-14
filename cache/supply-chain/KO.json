@@ -1,0 +1,242 @@
+{
+  "version": 1,
+  "ticker": "KO",
+  "name_en": "The Coca-Cola Company",
+  "name_zh": "可口可樂",
+  "updatedAt": "2026-11-14",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mega-cap ≥$100B expansion. Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates and spot review on NVDA/MSFT/JPM. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股市值≥1,000億美元批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for the US mcap≥$100B batch. No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "consumer-staples-v1",
+    "references": [
+      "Industry model `consumer-staples-v1`",
+      "cache/us_universe.json marketCap ≥ USD 100B screen",
+      "AAPL curated seed shape on main (schema reference)"
+    ]
+  },
+  "model": {
+    "id": "consumer-staples-v1",
+    "label_zh": "消費必需品價值鏈",
+    "label_en": "Consumer staples value chain",
+    "description_zh": "農產／原料 → 包裝 → 製造 → 零售通路 → 行銷媒體。",
+    "description_en": "Agri/inputs → packaging → manufacturing → retail → marketing media."
+  },
+  "stages": [
+    {
+      "id": "inputs",
+      "order": 1,
+      "label_zh": "農產／原料",
+      "label_en": "Agriculture / inputs",
+      "summary_zh": "農商品與基礎原料。",
+      "summary_en": "Ag commodities and base inputs.",
+      "players": [
+        {
+          "ticker": "ADM",
+          "name_en": "ADM",
+          "name_zh": "ADM",
+          "role_zh": "ADM：農產／原料代表性玩家",
+          "role_en": "ADM: representative player in Agriculture / inputs",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "CTVA",
+          "name_en": "Corteva",
+          "name_zh": "Corteva",
+          "role_zh": "Corteva：農產／原料代表性玩家",
+          "role_en": "Corteva: representative player in Agriculture / inputs",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "DE",
+          "name_en": "Deere & Company",
+          "name_zh": "約翰迪爾",
+          "role_zh": "約翰迪爾：農產／原料代表性玩家",
+          "role_en": "Deere & Company: representative player in Agriculture / inputs",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "packaging",
+      "order": 2,
+      "label_zh": "包裝材料",
+      "label_en": "Packaging materials",
+      "summary_zh": "紙、塑、鋁包裝。",
+      "summary_en": "Paper, plastic, aluminum pack.",
+      "players": [
+        {
+          "ticker": "DD",
+          "name_en": "DD",
+          "name_zh": "DD",
+          "role_zh": "DD：包裝材料代表性玩家",
+          "role_en": "DD: representative player in Packaging materials",
+          "exchange": ""
+        },
+        {
+          "ticker": "DOW",
+          "name_en": "Dow",
+          "name_zh": "陶氏",
+          "role_zh": "陶氏：包裝材料代表性玩家",
+          "role_en": "Dow: representative player in Packaging materials",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "GLW",
+          "name_en": "Corning",
+          "name_zh": "Corning",
+          "role_zh": "Corning：包裝材料代表性玩家",
+          "role_en": "Corning: representative player in Packaging materials",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "manufacturing",
+      "order": 3,
+      "label_zh": "製造／代工",
+      "label_en": "Manufacturing / co-pack",
+      "summary_zh": "工廠與共同包裝。",
+      "summary_en": "Plants and co-packers.",
+      "players": [
+        {
+          "ticker": "HON",
+          "name_en": "Honeywell",
+          "name_zh": "霍尼韋爾",
+          "role_zh": "霍尼韋爾：製造／代工代表性玩家",
+          "role_en": "Honeywell: representative player in Manufacturing / co-pack",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "EMR",
+          "name_en": "Emerson",
+          "name_zh": "艾默生",
+          "role_zh": "艾默生：製造／代工代表性玩家",
+          "role_en": "Emerson: representative player in Manufacturing / co-pack",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "ROK",
+          "name_en": "Rockwell Automation",
+          "name_zh": "Rockwell",
+          "role_zh": "Rockwell：製造／代工代表性玩家",
+          "role_en": "Rockwell Automation: representative player in Manufacturing / co-pack",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "retail",
+      "order": 4,
+      "label_zh": "零售／倉店通路",
+      "label_en": "Retail / club channel",
+      "summary_zh": "商超、倉儲會員店與便利。",
+      "summary_en": "Grocery, clubs, convenience.",
+      "players": [
+        {
+          "ticker": "WMT",
+          "name_en": "Walmart Inc.",
+          "name_zh": "沃爾瑪",
+          "role_zh": "沃爾瑪：零售／倉店通路代表性玩家",
+          "role_en": "Walmart Inc.: representative player in Retail / club channel",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "COST",
+          "name_en": "Costco Wholesale Corporation",
+          "name_zh": "好市多",
+          "role_zh": "好市多：零售／倉店通路代表性玩家",
+          "role_en": "Costco Wholesale Corporation: representative player in Retail / club channel",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "TGT",
+          "name_en": "Target",
+          "name_zh": "Target",
+          "role_zh": "Target：零售／倉店通路代表性玩家",
+          "role_en": "Target: representative player in Retail / club channel",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "media",
+      "order": 5,
+      "label_zh": "行銷／媒體",
+      "label_en": "Marketing / media",
+      "summary_zh": "品牌廣告與零售媒體。",
+      "summary_en": "Brand ads and retail media.",
+      "players": [
+        {
+          "ticker": "GOOG",
+          "name_en": "Alphabet Inc.",
+          "name_zh": "Alphabet（Google）",
+          "role_zh": "Alphabet（Google）：行銷／媒體代表性玩家",
+          "role_en": "Alphabet Inc.: representative player in Marketing / media",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "META",
+          "name_en": "Meta Platforms, Inc.",
+          "name_zh": "Meta",
+          "role_zh": "Meta：行銷／媒體代表性玩家",
+          "role_en": "Meta Platforms, Inc.: representative player in Marketing / media",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "DIS",
+          "name_en": "The Walt Disney Company",
+          "name_zh": "迪士尼",
+          "role_zh": "迪士尼：行銷／媒體代表性玩家",
+          "role_en": "The Walt Disney Company: representative player in Marketing / media",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "PEP",
+      "name_en": "PepsiCo, Inc.",
+      "name_zh": "百事",
+      "basis_zh": "碳酸／非酒精飲料直接對手",
+      "basis_en": "CSD/NARTD direct rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "BUD",
+      "name_en": "Anheuser-Busch InBev SA/NV",
+      "name_zh": "百威英博",
+      "basis_zh": "飲料場合競爭",
+      "basis_en": "Beverage occasion competition",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "MNST",
+      "name_en": "MNST",
+      "name_zh": "MNST",
+      "basis_zh": "功能飲料對手",
+      "basis_en": "Energy-drink rival",
+      "exchange": ""
+    },
+    {
+      "ticker": "CELH",
+      "name_en": "CELH",
+      "name_zh": "CELH",
+      "basis_zh": "功能飲料對手",
+      "basis_en": "Energy-drink rival",
+      "exchange": ""
+    },
+    {
+      "ticker": "KDP",
+      "name_en": "KDP",
+      "name_zh": "KDP",
+      "basis_zh": "即飲咖啡／飲料對手",
+      "basis_en": "RTD coffee/beverage rival",
+      "exchange": ""
+    }
+  ]
+}

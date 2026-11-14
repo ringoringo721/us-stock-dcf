@@ -1,0 +1,4280 @@
+{
+  "NVDA": [
+    [
+      "AMD",
+      "AI／電競 GPU 直接產品對手",
+      "Direct AI/gaming GPU product rival"
+    ],
+    [
+      "INTC",
+      "資料中心 CPU 與加速路線對手",
+      "Datacenter CPU and accelerator rival"
+    ],
+    [
+      "AVGO",
+      "客製 ASIC／AI 網路矽搶同一算力預算",
+      "Custom ASIC / AI networking competing for AI budgets"
+    ],
+    [
+      "ARM",
+      "CPU／IP 架構在 AI 系統的替代路線",
+      "CPU/IP architecture alternative in AI systems"
+    ],
+    [
+      "MRVL",
+      "資料中心網路／客製矽替代壓力",
+      "Datacenter networking / custom-silicon pressure"
+    ]
+  ],
+  "AMD": [
+    [
+      "NVDA",
+      "AI／GPU 直接對手",
+      "Direct AI/GPU rival"
+    ],
+    [
+      "INTC",
+      "PC／伺服器 CPU 對手",
+      "PC/server CPU rival"
+    ],
+    [
+      "AVGO",
+      "資料中心客製矽競爭",
+      "Datacenter custom-silicon competition"
+    ],
+    [
+      "QCOM",
+      "PC／邊緣運算競爭",
+      "PC/edge compute competition"
+    ],
+    [
+      "MRVL",
+      "資料中心連接競爭",
+      "Datacenter connectivity competition"
+    ]
+  ],
+  "AVGO": [
+    [
+      "NVDA",
+      "AI 客製矽預算競爭",
+      "AI custom-silicon budget competition"
+    ],
+    [
+      "MRVL",
+      "網路／連接晶片對手",
+      "Networking/connectivity rival"
+    ],
+    [
+      "QCOM",
+      "無線與連接競爭",
+      "Wireless/connectivity competition"
+    ],
+    [
+      "AMD",
+      "資料中心矽替代",
+      "Datacenter silicon substitute"
+    ],
+    [
+      "NXPI",
+      "汽車／工業連接競爭",
+      "Auto/industrial connectivity"
+    ]
+  ],
+  "TSM": [
+    [
+      "INTC",
+      "IDM 代工擴張對手",
+      "IDM foundry expansion rival"
+    ],
+    [
+      "GFS",
+      "晶圓代工對手",
+      "Foundry rival"
+    ],
+    [
+      "2303.TW",
+      "成熟／特殊製程代工對手",
+      "Mature/specialty foundry rival"
+    ],
+    [
+      "005930.KS",
+      "邏輯代工與先進製程競爭",
+      "Logic foundry / advanced-node rival"
+    ],
+    [
+      "000660.KS",
+      "先進封裝／產能生態競爭",
+      "Advanced packaging/capacity ecosystem competition"
+    ]
+  ],
+  "MU": [
+    [
+      "000660.KS",
+      "DRAM／HBM 直接對手",
+      "Direct DRAM/HBM rival"
+    ],
+    [
+      "005930.KS",
+      "記憶體事業對手",
+      "Memory business rival"
+    ],
+    [
+      "WDC",
+      "NAND／儲存對手",
+      "NAND/storage rival"
+    ],
+    [
+      "STX",
+      "儲存裝置替代",
+      "Storage device substitute"
+    ],
+    [
+      "SNDK",
+      "快閃記憶體對手",
+      "Flash memory rival"
+    ]
+  ],
+  "SKHY": [
+    [
+      "MU",
+      "DRAM／HBM 直接對手",
+      "Direct DRAM/HBM rival"
+    ],
+    [
+      "005930.KS",
+      "記憶體事業對手",
+      "Memory business rival"
+    ],
+    [
+      "WDC",
+      "NAND 對手",
+      "NAND rival"
+    ],
+    [
+      "STX",
+      "儲存替代",
+      "Storage substitute"
+    ],
+    [
+      "SNDK",
+      "快閃記憶體對手",
+      "Flash rival"
+    ]
+  ],
+  "ASML": [
+    [
+      "AMAT",
+      "半導體設備對手",
+      "Semi equipment rival"
+    ],
+    [
+      "LRCX",
+      "半導體設備對手",
+      "Semi equipment rival"
+    ],
+    [
+      "KLAC",
+      "半導體設備對手",
+      "Semi equipment rival"
+    ],
+    [
+      "8035.T",
+      "半導體設備對手",
+      "Semi equipment rival"
+    ],
+    [
+      "TER",
+      "半導體設備對手",
+      "Semi equipment rival"
+    ]
+  ],
+  "AMAT": [
+    [
+      "LRCX",
+      "半導體設備對手",
+      "Semi equipment rival"
+    ],
+    [
+      "ASML",
+      "半導體設備對手",
+      "Semi equipment rival"
+    ],
+    [
+      "KLAC",
+      "半導體設備對手",
+      "Semi equipment rival"
+    ],
+    [
+      "8035.T",
+      "半導體設備對手",
+      "Semi equipment rival"
+    ],
+    [
+      "TER",
+      "半導體設備對手",
+      "Semi equipment rival"
+    ]
+  ],
+  "LRCX": [
+    [
+      "AMAT",
+      "半導體設備對手",
+      "Semi equipment rival"
+    ],
+    [
+      "ASML",
+      "半導體設備對手",
+      "Semi equipment rival"
+    ],
+    [
+      "KLAC",
+      "半導體設備對手",
+      "Semi equipment rival"
+    ],
+    [
+      "8035.T",
+      "半導體設備對手",
+      "Semi equipment rival"
+    ],
+    [
+      "TER",
+      "半導體設備對手",
+      "Semi equipment rival"
+    ]
+  ],
+  "KLAC": [
+    [
+      "AMAT",
+      "半導體設備對手",
+      "Semi equipment rival"
+    ],
+    [
+      "LRCX",
+      "半導體設備對手",
+      "Semi equipment rival"
+    ],
+    [
+      "ASML",
+      "半導體設備對手",
+      "Semi equipment rival"
+    ],
+    [
+      "TER",
+      "半導體設備對手",
+      "Semi equipment rival"
+    ],
+    [
+      "KEYS",
+      "半導體設備對手",
+      "Semi equipment rival"
+    ]
+  ],
+  "INTC": [
+    [
+      "AMD",
+      "CPU 直接對手",
+      "CPU direct rival"
+    ],
+    [
+      "NVDA",
+      "AI 加速對手",
+      "AI accelerator rival"
+    ],
+    [
+      "TSM",
+      "先進製程／代工生態對手",
+      "Advanced foundry ecosystem rival"
+    ],
+    [
+      "QCOM",
+      "PC／邊緣 SoC 競爭",
+      "PC/edge SoC competition"
+    ],
+    [
+      "AVGO",
+      "客製矽競爭",
+      "Custom-silicon competition"
+    ]
+  ],
+  "TXN": [
+    [
+      "ADI",
+      "類比對手",
+      "Analog rival"
+    ],
+    [
+      "ON",
+      "功率／感測對手",
+      "Power/sensing rival"
+    ],
+    [
+      "NXPI",
+      "嵌入式對手",
+      "Embedded rival"
+    ],
+    [
+      "STM",
+      "MCU／功率對手",
+      "MCU/power rival"
+    ],
+    [
+      "MPWR",
+      "電源管理對手",
+      "Power-management rival"
+    ]
+  ],
+  "ADI": [
+    [
+      "TXN",
+      "類比對手",
+      "Analog rival"
+    ],
+    [
+      "ON",
+      "功率／感測對手",
+      "Power/sensing rival"
+    ],
+    [
+      "NXPI",
+      "嵌入式對手",
+      "Embedded rival"
+    ],
+    [
+      "STM",
+      "MCU／功率對手",
+      "MCU/power rival"
+    ],
+    [
+      "MPWR",
+      "電源管理對手",
+      "Power-management rival"
+    ]
+  ],
+  "QCOM": [
+    [
+      "AVGO",
+      "連接／射頻對手",
+      "Connectivity/RF rival"
+    ],
+    [
+      "2454.TW",
+      "手機 SoC 對手",
+      "Mobile SoC rival"
+    ],
+    [
+      "NXPI",
+      "汽車／嵌入式對手",
+      "Auto/embedded rival"
+    ],
+    [
+      "SWKS",
+      "射頻對手",
+      "RF rival"
+    ],
+    [
+      "AAPL",
+      "自研數據機生態壓力",
+      "Custom-modem ecosystem pressure"
+    ]
+  ],
+  "ARM": [
+    [
+      "INTC",
+      "CPU 架構對手",
+      "CPU architecture rival"
+    ],
+    [
+      "AMD",
+      "CPU／IP 競爭",
+      "CPU/IP competition"
+    ],
+    [
+      "QCOM",
+      "授權／SoC 生態競爭",
+      "Licensing/SoC ecosystem competition"
+    ],
+    [
+      "NVDA",
+      "AI 系統架構競爭",
+      "AI system-architecture competition"
+    ],
+    [
+      "2454.TW",
+      "行動 SoC 生態競爭",
+      "Mobile SoC ecosystem competition"
+    ]
+  ],
+  "MRVL": [
+    [
+      "AVGO",
+      "網路／連接對手",
+      "Networking/connectivity rival"
+    ],
+    [
+      "AMD",
+      "資料中心矽競爭",
+      "Datacenter silicon competition"
+    ],
+    [
+      "NVDA",
+      "AI 網路／加速競爭",
+      "AI networking/accel competition"
+    ],
+    [
+      "NXPI",
+      "連接對手",
+      "Connectivity rival"
+    ],
+    [
+      "CSCO",
+      "網路系統替代",
+      "Networking systems substitute"
+    ]
+  ],
+  "MSFT": [
+    [
+      "GOOG",
+      "雲端（Azure vs GCP）與搜尋／生產力對手",
+      "Cloud (Azure vs GCP) and search/productivity rival"
+    ],
+    [
+      "AMZN",
+      "雲端基礎設施（Azure vs AWS）直接對手",
+      "Cloud infra (Azure vs AWS) direct rival"
+    ],
+    [
+      "ORCL",
+      "資料庫／企業雲對手",
+      "Database/enterprise cloud rival"
+    ],
+    [
+      "CRM",
+      "企業應用／CRM 雲對手",
+      "Enterprise apps/CRM cloud rival"
+    ],
+    [
+      "SAP",
+      "ERP／企業應用對手",
+      "ERP/enterprise applications rival"
+    ]
+  ],
+  "ORCL": [
+    [
+      "MSFT",
+      "資料庫／雲對手",
+      "Database/cloud rival"
+    ],
+    [
+      "AMZN",
+      "雲資料庫對手",
+      "Cloud DB rival"
+    ],
+    [
+      "SAP",
+      "企業應用對手",
+      "Enterprise apps rival"
+    ],
+    [
+      "CRM",
+      "應用雲對手",
+      "Apps cloud rival"
+    ],
+    [
+      "IBM",
+      "混合雲對手",
+      "Hybrid cloud rival"
+    ]
+  ],
+  "PLTR": [
+    [
+      "MSFT",
+      "企業數據／AI 平台對手",
+      "Enterprise data/AI platform rival"
+    ],
+    [
+      "SNOW",
+      "資料雲對手",
+      "Data cloud rival"
+    ],
+    [
+      "DDOG",
+      "可觀測／數據平台競爭",
+      "Observability/data platform competition"
+    ],
+    [
+      "GOOG",
+      "雲分析／AI 對手",
+      "Cloud analytics/AI rival"
+    ],
+    [
+      "IBM",
+      "政府／企業數據平台對手",
+      "Gov/enterprise data platform rival"
+    ]
+  ],
+  "PANW": [
+    [
+      "CRWD",
+      "端點／雲資安對手",
+      "Endpoint/cloud security rival"
+    ],
+    [
+      "ZS",
+      "雲資安／零信任對手",
+      "Cloud security/zero-trust rival"
+    ],
+    [
+      "FTNT",
+      "網關資安對手",
+      "Network security rival"
+    ],
+    [
+      "MSFT",
+      "身分／資安套件對手",
+      "Identity/security suite rival"
+    ],
+    [
+      "CSCO",
+      "網安設備對手",
+      "Network security appliances rival"
+    ]
+  ],
+  "CRWD": [
+    [
+      "PANW",
+      "平台化資安對手",
+      "Platform security rival"
+    ],
+    [
+      "ZS",
+      "雲資安對手",
+      "Cloud security rival"
+    ],
+    [
+      "FTNT",
+      "網安對手",
+      "Network security rival"
+    ],
+    [
+      "MSFT",
+      "Defender 資安套件對手",
+      "Defender security suite rival"
+    ],
+    [
+      "OKTA",
+      "身分資安競爭",
+      "Identity security competition"
+    ]
+  ],
+  "SAP": [
+    [
+      "ORCL",
+      "ERP 對手",
+      "ERP rival"
+    ],
+    [
+      "MSFT",
+      "Dynamics／雲應用對手",
+      "Dynamics/cloud apps rival"
+    ],
+    [
+      "CRM",
+      "CRM／應用雲對手",
+      "CRM/apps rival"
+    ],
+    [
+      "NOW",
+      "工作流平台對手",
+      "Workflow platform rival"
+    ],
+    [
+      "IBM",
+      "企業應用競爭",
+      "Enterprise apps competition"
+    ]
+  ],
+  "CRM": [
+    [
+      "MSFT",
+      "Dynamics 365 對手",
+      "Dynamics 365 rival"
+    ],
+    [
+      "ORCL",
+      "CX 雲對手",
+      "CX cloud rival"
+    ],
+    [
+      "SAP",
+      "企業應用對手",
+      "Enterprise apps rival"
+    ],
+    [
+      "NOW",
+      "服務雲對手",
+      "Service cloud rival"
+    ],
+    [
+      "HUBS",
+      "中小企業 CRM 對手",
+      "SMB CRM rival"
+    ]
+  ],
+  "SHOP": [
+    [
+      "AMZN",
+      "電商開店平台對手",
+      "Commerce platform rival"
+    ],
+    [
+      "MELI",
+      "拉美電商對手",
+      "LatAm commerce rival"
+    ],
+    [
+      "SE",
+      "東南亞電商對手",
+      "SEA commerce rival"
+    ],
+    [
+      "EBAY",
+      "市集對手",
+      "Marketplace rival"
+    ],
+    [
+      "SQ",
+      "商戶支付＋電商競爭",
+      "Merchant payments + commerce"
+    ]
+  ],
+  "UBER": [
+    [
+      "LYFT",
+      "叫車對手",
+      "Rideshare rival"
+    ],
+    [
+      "DASH",
+      "外送對手",
+      "Delivery rival"
+    ],
+    [
+      "ABNB",
+      "出行／本地服務替代",
+      "Mobility/local-services substitute"
+    ],
+    [
+      "BKNG",
+      "旅遊交通預訂替代",
+      "Travel transport substitute"
+    ],
+    [
+      "GOOG",
+      "地圖／本地流量競爭",
+      "Maps/local traffic competition"
+    ]
+  ],
+  "ADP": [
+    [
+      "PAYX",
+      "薪資外包對手",
+      "Payroll rival"
+    ],
+    [
+      "INTU",
+      "中小企業薪資對手",
+      "SMB payroll rival"
+    ],
+    [
+      "ORCL",
+      "人資雲對手",
+      "HR cloud rival"
+    ],
+    [
+      "SAP",
+      "SuccessFactors 對手",
+      "SuccessFactors rival"
+    ],
+    [
+      "WDAY",
+      "人資／財務雲對手",
+      "HR/finance cloud rival"
+    ]
+  ],
+  "APP": [
+    [
+      "GOOG",
+      "行動廣告對手",
+      "Mobile ads rival"
+    ],
+    [
+      "META",
+      "效果廣告對手",
+      "Performance ads rival"
+    ],
+    [
+      "TTD",
+      "程序化廣告對手",
+      "Programmatic ads rival"
+    ],
+    [
+      "AMZN",
+      "零售媒體廣告競爭",
+      "Retail media ads competition"
+    ],
+    [
+      "SNAP",
+      "廣告庫存競爭",
+      "Ad inventory competition"
+    ]
+  ],
+  "NOW": [
+    [
+      "MSFT",
+      "Power Platform／ITSM 對手",
+      "Power Platform/ITSM rival"
+    ],
+    [
+      "CRM",
+      "服務雲對手",
+      "Service cloud rival"
+    ],
+    [
+      "IBM",
+      "ITSM 對手",
+      "ITSM rival"
+    ],
+    [
+      "TEAM",
+      "工作管理替代",
+      "Work-management substitute"
+    ],
+    [
+      "ORCL",
+      "企業工作流競爭",
+      "Enterprise workflow competition"
+    ]
+  ],
+  "GOOG": [
+    [
+      "META",
+      "數位廣告對手",
+      "Digital advertising rival"
+    ],
+    [
+      "AMZN",
+      "零售媒體／雲／購物入口競爭",
+      "Retail media/cloud/shopping-entry competition"
+    ],
+    [
+      "MSFT",
+      "搜尋／雲／生產力對手",
+      "Search/cloud/productivity rival"
+    ],
+    [
+      "AAPL",
+      "裝置入口／隱私與分發競爭",
+      "Device gateway/privacy & distribution"
+    ],
+    [
+      "BIDU",
+      "部分市場搜尋對手",
+      "Search rival in some markets"
+    ]
+  ],
+  "META": [
+    [
+      "GOOG",
+      "數位廣告對手",
+      "Digital advertising rival"
+    ],
+    [
+      "SNAP",
+      "社群／短影音對手",
+      "Social/short-video rival"
+    ],
+    [
+      "TTD",
+      "程序化廣告預算競爭",
+      "Programmatic ad-budget competition"
+    ],
+    [
+      "AMZN",
+      "零售媒體廣告競爭",
+      "Retail media ads competition"
+    ],
+    [
+      "0700.HK",
+      "全球社交通訊／短影音生態對手",
+      "Global social/short-video ecosystem rival"
+    ]
+  ],
+  "SPOT": [
+    [
+      "AAPL",
+      "Apple Music 對手",
+      "Apple Music rival"
+    ],
+    [
+      "AMZN",
+      "Amazon Music 對手",
+      "Amazon Music rival"
+    ],
+    [
+      "GOOG",
+      "YouTube Music 對手",
+      "YouTube Music rival"
+    ],
+    [
+      "NFLX",
+      "音訊／影音注意力競爭",
+      "Audio/video attention competition"
+    ],
+    [
+      "DIS",
+      "娛樂訂閱替代",
+      "Entertainment subscription substitute"
+    ]
+  ],
+  "AMZN": [
+    [
+      "WMT",
+      "美國綜合零售／電商對手",
+      "US general merchandise/e-comm rival"
+    ],
+    [
+      "COST",
+      "倉儲會員／零售對手",
+      "Warehouse club/retail rival"
+    ],
+    [
+      "MSFT",
+      "雲端（AWS vs Azure）對手",
+      "Cloud (AWS vs Azure) rival"
+    ],
+    [
+      "GOOG",
+      "雲／廣告／購物入口競爭",
+      "Cloud/ads/shopping-entry competition"
+    ],
+    [
+      "BABA",
+      "全球電商競爭",
+      "Global e-comm competition"
+    ]
+  ],
+  "WMT": [
+    [
+      "AMZN",
+      "電商／零售對手",
+      "E-comm/retail rival"
+    ],
+    [
+      "COST",
+      "倉儲會員對手",
+      "Warehouse club rival"
+    ],
+    [
+      "TGT",
+      "綜合零售對手",
+      "General merchandise rival"
+    ],
+    [
+      "KR",
+      "食品雜貨對手",
+      "Grocery rival"
+    ],
+    [
+      "BJ",
+      "倉儲會員對手",
+      "Warehouse club rival"
+    ]
+  ],
+  "COST": [
+    [
+      "WMT",
+      "倉儲／零售對手",
+      "Warehouse/retail rival"
+    ],
+    [
+      "AMZN",
+      "會員電商對手",
+      "Membership e-comm rival"
+    ],
+    [
+      "TGT",
+      "零售對手",
+      "Retail rival"
+    ],
+    [
+      "BJ",
+      "倉儲會員對手",
+      "Warehouse club rival"
+    ],
+    [
+      "KR",
+      "食品雜貨競爭",
+      "Grocery competition"
+    ]
+  ],
+  "BABA": [
+    [
+      "PDD",
+      "中國電商對手",
+      "China e-comm rival"
+    ],
+    [
+      "JD",
+      "中國電商對手",
+      "China e-comm rival"
+    ],
+    [
+      "AMZN",
+      "全球電商對手",
+      "Global e-comm rival"
+    ],
+    [
+      "0700.HK",
+      "中國數位生態對手",
+      "China digital ecosystem rival"
+    ],
+    [
+      "MELI",
+      "新興市場電商對手",
+      "EM e-comm rival"
+    ]
+  ],
+  "PDD": [
+    [
+      "BABA",
+      "中國電商對手",
+      "China e-comm rival"
+    ],
+    [
+      "JD",
+      "中國電商對手",
+      "China e-comm rival"
+    ],
+    [
+      "AMZN",
+      "跨境電商競爭",
+      "Cross-border e-comm competition"
+    ],
+    [
+      "SE",
+      "東南亞電商對手",
+      "SEA e-comm rival"
+    ],
+    [
+      "MELI",
+      "新興市場電商對手",
+      "EM e-comm rival"
+    ]
+  ],
+  "TSLA": [
+    [
+      "TM",
+      "全球整車對手",
+      "Global OEM rival"
+    ],
+    [
+      "GM",
+      "美國電動車／整車對手",
+      "US EV/OEM rival"
+    ],
+    [
+      "F",
+      "美國電動車／整車對手",
+      "US EV/OEM rival"
+    ],
+    [
+      "1211.HK",
+      "全球電動車量產對手",
+      "Global EV volume rival"
+    ],
+    [
+      "RIVN",
+      "美國電動皮卡／SUV 對手",
+      "US EV truck/SUV rival"
+    ]
+  ],
+  "TM": [
+    [
+      "TSLA",
+      "電動車對手",
+      "EV rival"
+    ],
+    [
+      "GM",
+      "全球整車對手",
+      "Global OEM rival"
+    ],
+    [
+      "F",
+      "全球整車對手",
+      "Global OEM rival"
+    ],
+    [
+      "005380.KS",
+      "全球整車對手",
+      "Global OEM rival"
+    ],
+    [
+      "HMC",
+      "日本整車對手",
+      "Japan OEM rival"
+    ]
+  ],
+  "JPM": [
+    [
+      "BAC",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "WFC",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "C",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "GS",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "MS",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ]
+  ],
+  "BAC": [
+    [
+      "JPM",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "WFC",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "C",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "USB",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "PNC",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ]
+  ],
+  "WFC": [
+    [
+      "JPM",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "BAC",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "C",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "USB",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "PNC",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ]
+  ],
+  "C": [
+    [
+      "JPM",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "BAC",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "WFC",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "GS",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "MS",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ]
+  ],
+  "HSBC": [
+    [
+      "JPM",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "C",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "UBS",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "SAN",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "RY",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ]
+  ],
+  "RY": [
+    [
+      "TD",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "BMO",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "BNS",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "CM",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "JPM",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ]
+  ],
+  "TD": [
+    [
+      "RY",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "BMO",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "BNS",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "CM",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "JPM",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ]
+  ],
+  "BMO": [
+    [
+      "RY",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "TD",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "BNS",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "CM",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "JPM",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ]
+  ],
+  "BNS": [
+    [
+      "RY",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "TD",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "BMO",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "CM",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "JPM",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ]
+  ],
+  "CM": [
+    [
+      "RY",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "TD",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "BMO",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "BNS",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "JPM",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ]
+  ],
+  "MUFG": [
+    [
+      "MFG",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "HSBC",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "JPM",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "C",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "UBS",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ]
+  ],
+  "SAN": [
+    [
+      "BBVA",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "HSBC",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "C",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "JPM",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "UBS",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ]
+  ],
+  "UBS": [
+    [
+      "GS",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "MS",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "JPM",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "HSBC",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "C",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ]
+  ],
+  "BBVA": [
+    [
+      "SAN",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "HSBC",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "C",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "JPM",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "BMO",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ]
+  ],
+  "HDB": [
+    [
+      "IBN",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "JPM",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "HSBC",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "MFG",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "C",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ]
+  ],
+  "IBN": [
+    [
+      "HDB",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "JPM",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "HSBC",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "MFG",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "C",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ]
+  ],
+  "MFG": [
+    [
+      "MUFG",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "HSBC",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "JPM",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "C",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ],
+    [
+      "UBS",
+      "綜合銀行／企業金融對手",
+      "Diversified banking/wholesale rival"
+    ]
+  ],
+  "V": [
+    [
+      "MA",
+      "卡組織直接對手",
+      "Card-network direct rival"
+    ],
+    [
+      "AXP",
+      "高端卡網路對手",
+      "Premium card-network rival"
+    ],
+    [
+      "PYPL",
+      "數位錢包對手",
+      "Digital wallet rival"
+    ],
+    [
+      "AAPL",
+      "手機支付入口競爭",
+      "Mobile-pay gateway competition"
+    ],
+    [
+      "DFS",
+      "美國卡網路對手",
+      "US card-network rival"
+    ]
+  ],
+  "MA": [
+    [
+      "V",
+      "卡組織直接對手",
+      "Card-network direct rival"
+    ],
+    [
+      "AXP",
+      "高端卡網路對手",
+      "Premium card-network rival"
+    ],
+    [
+      "PYPL",
+      "數位支付對手",
+      "Digital payments rival"
+    ],
+    [
+      "AAPL",
+      "手機支付入口競爭",
+      "Mobile-pay gateway competition"
+    ],
+    [
+      "DFS",
+      "美國卡網路對手",
+      "US card-network rival"
+    ]
+  ],
+  "AXP": [
+    [
+      "V",
+      "卡網路對手",
+      "Card-network rival"
+    ],
+    [
+      "MA",
+      "卡網路對手",
+      "Card-network rival"
+    ],
+    [
+      "COF",
+      "消費金融對手",
+      "Consumer finance rival"
+    ],
+    [
+      "DFS",
+      "發卡對手",
+      "Issuing rival"
+    ],
+    [
+      "JPM",
+      "高端發卡競爭",
+      "Premium card issuing competition"
+    ]
+  ],
+  "COF": [
+    [
+      "AXP",
+      "消費金融對手",
+      "Consumer finance rival"
+    ],
+    [
+      "DFS",
+      "消費金融對手",
+      "Consumer finance rival"
+    ],
+    [
+      "SYF",
+      "消費金融對手",
+      "Consumer finance rival"
+    ],
+    [
+      "JPM",
+      "發卡銀行對手",
+      "Card issuing rival"
+    ],
+    [
+      "BAC",
+      "消費銀行對手",
+      "Consumer banking rival"
+    ]
+  ],
+  "MS": [
+    [
+      "GS",
+      "投行對手",
+      "IB rival"
+    ],
+    [
+      "JPM",
+      "投行／市場對手",
+      "IB/markets rival"
+    ],
+    [
+      "C",
+      "投行對手",
+      "IB rival"
+    ],
+    [
+      "UBS",
+      "財富／投行對手",
+      "Wealth/IB rival"
+    ],
+    [
+      "BAC",
+      "投行對手",
+      "IB rival"
+    ]
+  ],
+  "GS": [
+    [
+      "MS",
+      "投行對手",
+      "IB rival"
+    ],
+    [
+      "JPM",
+      "投行／市場對手",
+      "IB/markets rival"
+    ],
+    [
+      "C",
+      "投行對手",
+      "IB rival"
+    ],
+    [
+      "UBS",
+      "財富／投行對手",
+      "Wealth/IB rival"
+    ],
+    [
+      "BAC",
+      "投行對手",
+      "IB rival"
+    ]
+  ],
+  "SCHW": [
+    [
+      "IBKR",
+      "經紀平台對手",
+      "Brokerage platform rival"
+    ],
+    [
+      "MS",
+      "財富管理對手",
+      "Wealth rival"
+    ],
+    [
+      "JPM",
+      "財富／經紀競爭",
+      "Wealth/brokerage competition"
+    ],
+    [
+      "BAC",
+      "財富管理競爭",
+      "Wealth competition"
+    ],
+    [
+      "TROW",
+      "資管分銷競爭",
+      "AM distribution competition"
+    ]
+  ],
+  "IBKR": [
+    [
+      "SCHW",
+      "經紀平台對手",
+      "Brokerage platform rival"
+    ],
+    [
+      "MS",
+      "機構／交易對手",
+      "Institutional/trading rival"
+    ],
+    [
+      "GS",
+      "機構交易對手",
+      "Institutional trading rival"
+    ],
+    [
+      "CME",
+      "電子交易入口競爭",
+      "Electronic trading venue competition"
+    ],
+    [
+      "NDAQ",
+      "交易入口競爭",
+      "Trading venue competition"
+    ]
+  ],
+  "SPGI": [
+    [
+      "MCO",
+      "信用評級對手",
+      "Credit-ratings rival"
+    ],
+    [
+      "ICE",
+      "市場數據／指數競爭",
+      "Market data/index competition"
+    ],
+    [
+      "CME",
+      "基準／市場基礎設施競爭",
+      "Benchmark/market-infra competition"
+    ],
+    [
+      "NDAQ",
+      "指數／市場數據競爭",
+      "Index/market-data competition"
+    ],
+    [
+      "MSFT",
+      "企業數據雲競爭",
+      "Enterprise data cloud competition"
+    ]
+  ],
+  "CME": [
+    [
+      "ICE",
+      "衍生品交易所對手",
+      "Derivatives exchange rival"
+    ],
+    [
+      "NDAQ",
+      "交易所對手",
+      "Exchange rival"
+    ],
+    [
+      "CBOE",
+      "選擇權交易所對手",
+      "Options exchange rival"
+    ],
+    [
+      "SPGI",
+      "基準數據競爭",
+      "Benchmark data competition"
+    ],
+    [
+      "MS",
+      "電子交易替代壓力",
+      "Electronic trading pressure"
+    ]
+  ],
+  "BLK": [
+    [
+      "BX",
+      "另類／資管對手",
+      "Alternatives/AM rival"
+    ],
+    [
+      "BN",
+      "另類資管對手",
+      "Alternatives AM rival"
+    ],
+    [
+      "STT",
+      "指數／託管相關競爭",
+      "Indexing/custody-related competition"
+    ],
+    [
+      "TROW",
+      "主動型資管對手",
+      "Active AM rival"
+    ],
+    [
+      "APO",
+      "另類資管對手",
+      "Alternatives AM rival"
+    ]
+  ],
+  "BX": [
+    [
+      "BLK",
+      "資管／另類對手",
+      "AM/alternatives rival"
+    ],
+    [
+      "KKR",
+      "PE／另類對手",
+      "PE/alternatives rival"
+    ],
+    [
+      "APO",
+      "另類資管對手",
+      "Alternatives AM rival"
+    ],
+    [
+      "BN",
+      "另類資管對手",
+      "Alternatives AM rival"
+    ],
+    [
+      "CG",
+      "PE 對手",
+      "PE rival"
+    ]
+  ],
+  "BRK-A": [
+    [
+      "PGR",
+      "美國產險對手",
+      "US P&C rival"
+    ],
+    [
+      "CB",
+      "產險／再保對手",
+      "P&C/reinsurance rival"
+    ],
+    [
+      "TRV",
+      "產險對手",
+      "P&C rival"
+    ],
+    [
+      "JPM",
+      "多元金融集團資本競爭",
+      "Diversified financials capital competition"
+    ],
+    [
+      "BAC",
+      "多元金融集團競爭",
+      "Diversified financials competition"
+    ]
+  ],
+  "BRK-B": [
+    [
+      "PGR",
+      "美國產險對手",
+      "US P&C rival"
+    ],
+    [
+      "CB",
+      "產險／再保對手",
+      "P&C/reinsurance rival"
+    ],
+    [
+      "TRV",
+      "產險對手",
+      "P&C rival"
+    ],
+    [
+      "JPM",
+      "多元金融集團資本競爭",
+      "Diversified financials capital competition"
+    ],
+    [
+      "BAC",
+      "多元金融集團競爭",
+      "Diversified financials competition"
+    ]
+  ],
+  "CB": [
+    [
+      "PGR",
+      "產險對手",
+      "P&C rival"
+    ],
+    [
+      "TRV",
+      "產險對手",
+      "P&C rival"
+    ],
+    [
+      "AIG",
+      "產險／再保對手",
+      "P&C/reinsurance rival"
+    ],
+    [
+      "ALL",
+      "產險對手",
+      "P&C rival"
+    ],
+    [
+      "BRK-B",
+      "產險承保對手",
+      "P&C underwriting rival"
+    ]
+  ],
+  "PGR": [
+    [
+      "CB",
+      "產險對手",
+      "P&C rival"
+    ],
+    [
+      "ALL",
+      "個人車險對手",
+      "Personal auto rival"
+    ],
+    [
+      "TRV",
+      "產險對手",
+      "P&C rival"
+    ],
+    [
+      "BRK-B",
+      "GEICO 車險對手",
+      "GEICO auto rival"
+    ],
+    [
+      "AIG",
+      "產險對手",
+      "P&C rival"
+    ]
+  ],
+  "LLY": [
+    [
+      "NVO",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "JNJ",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "MRK",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "AMGN",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "PFE",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ]
+  ],
+  "JNJ": [
+    [
+      "PFE",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "MRK",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "ABBV",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "LLY",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "SNY",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ]
+  ],
+  "ABBV": [
+    [
+      "JNJ",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "PFE",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "MRK",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "LLY",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "BMY",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ]
+  ],
+  "MRK": [
+    [
+      "PFE",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "JNJ",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "ABBV",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "LLY",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "SNY",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ]
+  ],
+  "NVS": [
+    [
+      "PFE",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "SNY",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "GSK",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "AZN",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "JNJ",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ]
+  ],
+  "AZN": [
+    [
+      "PFE",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "MRK",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "NVS",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "GSK",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "LLY",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ]
+  ],
+  "AMGN": [
+    [
+      "LLY",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "GILD",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "REGN",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "PFE",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "BIIB",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ]
+  ],
+  "GILD": [
+    [
+      "MRK",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "ABBV",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "PFE",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "AMGN",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "REGN",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ]
+  ],
+  "NVO": [
+    [
+      "LLY",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "AZN",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "SNY",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "PFE",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "AMGN",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ]
+  ],
+  "PFE": [
+    [
+      "MRK",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "JNJ",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "ABBV",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "LLY",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "SNY",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ]
+  ],
+  "BMY": [
+    [
+      "PFE",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "MRK",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "ABBV",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "JNJ",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "GILD",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ]
+  ],
+  "SNY": [
+    [
+      "PFE",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "GSK",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "NVS",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "AZN",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "MRK",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ]
+  ],
+  "GSK": [
+    [
+      "SNY",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "PFE",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "AZN",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "NVS",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "MRK",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ]
+  ],
+  "VRTX": [
+    [
+      "REGN",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "BIIB",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "AMGN",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "GILD",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "MRNA",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ]
+  ],
+  "MRNA": [
+    [
+      "PFE",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "BNTX",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "VRTX",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "REGN",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ],
+    [
+      "JNJ",
+      "原廠藥／治療領域對手",
+      "Branded drug/therapy-area rival"
+    ]
+  ],
+  "ABT": [
+    [
+      "MDT",
+      "醫材對手",
+      "Medtech rival"
+    ],
+    [
+      "SYK",
+      "醫材對手",
+      "Medtech rival"
+    ],
+    [
+      "BSX",
+      "醫材對手",
+      "Medtech rival"
+    ],
+    [
+      "JNJ",
+      "醫材／消費健康競爭",
+      "Medtech/consumer health competition"
+    ],
+    [
+      "TMO",
+      "診斷競爭",
+      "Diagnostics competition"
+    ]
+  ],
+  "MDT": [
+    [
+      "ABT",
+      "醫材對手",
+      "Medtech rival"
+    ],
+    [
+      "SYK",
+      "醫材對手",
+      "Medtech rival"
+    ],
+    [
+      "BSX",
+      "醫材對手",
+      "Medtech rival"
+    ],
+    [
+      "ZBH",
+      "骨科對手",
+      "Orthopedics rival"
+    ],
+    [
+      "JNJ",
+      "醫材對手",
+      "Medtech rival"
+    ]
+  ],
+  "SYK": [
+    [
+      "MDT",
+      "醫材對手",
+      "Medtech rival"
+    ],
+    [
+      "ABT",
+      "醫材對手",
+      "Medtech rival"
+    ],
+    [
+      "ZBH",
+      "骨科對手",
+      "Orthopedics rival"
+    ],
+    [
+      "BSX",
+      "醫材對手",
+      "Medtech rival"
+    ],
+    [
+      "ISRG",
+      "手術機器人競爭",
+      "Surgical robotics competition"
+    ]
+  ],
+  "ISRG": [
+    [
+      "MDT",
+      "手術／醫材對手",
+      "Surgical/medtech rival"
+    ],
+    [
+      "SYK",
+      "手術／醫材對手",
+      "Surgical/medtech rival"
+    ],
+    [
+      "ABT",
+      "醫材對手",
+      "Medtech rival"
+    ],
+    [
+      "BSX",
+      "手術器材對手",
+      "Surgical devices rival"
+    ],
+    [
+      "GEHC",
+      "手術影像競爭",
+      "Surgical imaging competition"
+    ]
+  ],
+  "TMO": [
+    [
+      "DHR",
+      "生命科學工具對手",
+      "Life-science tools rival"
+    ],
+    [
+      "A",
+      "分析儀器對手",
+      "Analytical instruments rival"
+    ],
+    [
+      "IQV",
+      "臨床／數據服務競爭",
+      "Clinical/data services competition"
+    ],
+    [
+      "CRL",
+      "臨床前服務競爭",
+      "Preclinical services competition"
+    ],
+    [
+      "GEHC",
+      "醫技競爭",
+      "Medtech competition"
+    ]
+  ],
+  "DHR": [
+    [
+      "TMO",
+      "生命科學工具對手",
+      "Life-science tools rival"
+    ],
+    [
+      "A",
+      "分析儀器對手",
+      "Analytical instruments rival"
+    ],
+    [
+      "IQV",
+      "臨床數據競爭",
+      "Clinical data competition"
+    ],
+    [
+      "GEHC",
+      "醫技競爭",
+      "Medtech competition"
+    ],
+    [
+      "BDX",
+      "診斷／醫材競爭",
+      "Diagnostics/medtech competition"
+    ]
+  ],
+  "UNH": [
+    [
+      "ELV",
+      "管理式醫療對手",
+      "Managed care rival"
+    ],
+    [
+      "CI",
+      "管理式醫療對手",
+      "Managed care rival"
+    ],
+    [
+      "CVS",
+      "健康服務／保險對手",
+      "Health services/insurance rival"
+    ],
+    [
+      "HUM",
+      "管理式醫療對手",
+      "Managed care rival"
+    ],
+    [
+      "CNC",
+      "管理式醫療對手",
+      "Managed care rival"
+    ]
+  ],
+  "CVS": [
+    [
+      "UNH",
+      "健康服務／保險對手",
+      "Health services/insurance rival"
+    ],
+    [
+      "CI",
+      "保險／PBM 競爭",
+      "Insurance/PBM competition"
+    ],
+    [
+      "WBA",
+      "零售藥局對手",
+      "Retail pharmacy rival"
+    ],
+    [
+      "MCK",
+      "醫藥通路競爭",
+      "Drug distribution competition"
+    ],
+    [
+      "ELV",
+      "管理式醫療競爭",
+      "Managed care competition"
+    ]
+  ],
+  "HCA": [
+    [
+      "UNH",
+      "支付／網絡壓力",
+      "Payer/network pressure"
+    ],
+    [
+      "CVS",
+      "門診／零售健康競爭",
+      "Ambulatory/retail health competition"
+    ],
+    [
+      "ISRG",
+      "手術量／技術替代",
+      "Surgery volume/tech substitute"
+    ],
+    [
+      "MDT",
+      "手術耗材生態競爭",
+      "Surgical disposables ecosystem competition"
+    ],
+    [
+      "ELV",
+      "支付方壓力",
+      "Payer pressure"
+    ]
+  ],
+  "MCK": [
+    [
+      "COR",
+      "醫藥批發對手",
+      "Drug wholesale rival"
+    ],
+    [
+      "CAH",
+      "醫藥批發對手",
+      "Drug wholesale rival"
+    ],
+    [
+      "CVS",
+      "藥局／通路競爭",
+      "Pharmacy/channel competition"
+    ],
+    [
+      "WBA",
+      "藥局通路競爭",
+      "Pharmacy channel competition"
+    ],
+    [
+      "UNH",
+      "支付／通路壓力",
+      "Payer/channel pressure"
+    ]
+  ],
+  "XOM": [
+    [
+      "CVX",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "SHEL",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "BP",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "TTE",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "COP",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ]
+  ],
+  "CVX": [
+    [
+      "XOM",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "SHEL",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "BP",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "TTE",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "COP",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ]
+  ],
+  "SHEL": [
+    [
+      "XOM",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "CVX",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "BP",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "TTE",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "EQNR",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ]
+  ],
+  "TTE": [
+    [
+      "XOM",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "CVX",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "SHEL",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "BP",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "EQNR",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ]
+  ],
+  "PBR": [
+    [
+      "XOM",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "CVX",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "SHEL",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "BP",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "EQNR",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ]
+  ],
+  "PBR-A": [
+    [
+      "PBR",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "XOM",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "CVX",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "SHEL",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "BP",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ]
+  ],
+  "BP": [
+    [
+      "XOM",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "CVX",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "SHEL",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "TTE",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "EQNR",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ]
+  ],
+  "EQNR": [
+    [
+      "XOM",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "CVX",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "SHEL",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "BP",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "TTE",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ]
+  ],
+  "COP": [
+    [
+      "XOM",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "CVX",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "EOG",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "OXY",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "CNQ",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ]
+  ],
+  "CNQ": [
+    [
+      "COP",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "XOM",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "CVX",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "EOG",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "OXY",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ]
+  ],
+  "ENB": [
+    [
+      "KMI",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "WMB",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "OKE",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "LNG",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "XOM",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ]
+  ],
+  "MPC": [
+    [
+      "VLO",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "PSX",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "XOM",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "CVX",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ],
+    [
+      "SHEL",
+      "油氣產品對手",
+      "Oil & gas product rival"
+    ]
+  ],
+  "SPCX": [
+    [
+      "BA",
+      "航太發射／系統競爭",
+      "Aerospace launch/systems competition"
+    ],
+    [
+      "LMT",
+      "國防／航太系統對手",
+      "Defense/aerospace systems rival"
+    ],
+    [
+      "RKLB",
+      "小型火箭發射對手",
+      "Small-launch rival"
+    ],
+    [
+      "NOC",
+      "國防航太對手",
+      "Defense aerospace rival"
+    ],
+    [
+      "RTX",
+      "航太推進／系統競爭",
+      "Aerospace propulsion/systems competition"
+    ]
+  ],
+  "GE": [
+    [
+      "RTX",
+      "航太／動力對手",
+      "Aerospace/power rival"
+    ],
+    [
+      "HON",
+      "工業科技對手",
+      "Industrial tech rival"
+    ],
+    [
+      "BA",
+      "航太客戶／系統競爭",
+      "Aerospace customer/systems competition"
+    ],
+    [
+      "LMT",
+      "防務競爭",
+      "Defense competition"
+    ],
+    [
+      "ETN",
+      "電力／工業競爭",
+      "Power/industrial competition"
+    ]
+  ],
+  "RTX": [
+    [
+      "GE",
+      "航太推進對手",
+      "Aerospace propulsion rival"
+    ],
+    [
+      "HON",
+      "航電對手",
+      "Avionics rival"
+    ],
+    [
+      "LMT",
+      "防務對手",
+      "Defense rival"
+    ],
+    [
+      "BA",
+      "航太系統競爭",
+      "Aerospace systems competition"
+    ],
+    [
+      "NOC",
+      "防務對手",
+      "Defense rival"
+    ]
+  ],
+  "BA": [
+    [
+      "LMT",
+      "防務／航太對手",
+      "Defense/aerospace rival"
+    ],
+    [
+      "RTX",
+      "航太系統對手",
+      "Aerospace systems rival"
+    ],
+    [
+      "GE",
+      "推進系統競爭",
+      "Propulsion systems competition"
+    ],
+    [
+      "NOC",
+      "防務對手",
+      "Defense rival"
+    ],
+    [
+      "GD",
+      "防務對手",
+      "Defense rival"
+    ]
+  ],
+  "LMT": [
+    [
+      "NOC",
+      "防務對手",
+      "Defense rival"
+    ],
+    [
+      "RTX",
+      "防務對手",
+      "Defense rival"
+    ],
+    [
+      "BA",
+      "航太防務對手",
+      "Aerospace/defense rival"
+    ],
+    [
+      "GD",
+      "防務對手",
+      "Defense rival"
+    ],
+    [
+      "LHX",
+      "防務電子對手",
+      "Defense electronics rival"
+    ]
+  ],
+  "VZ": [
+    [
+      "T",
+      "美國無線對手",
+      "US wireless rival"
+    ],
+    [
+      "TMUS",
+      "美國無線對手",
+      "US wireless rival"
+    ],
+    [
+      "CMCSA",
+      "寬頻對手",
+      "Broadband rival"
+    ],
+    [
+      "CHTR",
+      "寬頻對手",
+      "Broadband rival"
+    ],
+    [
+      "DISH",
+      "無線競爭",
+      "Wireless competition"
+    ]
+  ],
+  "T": [
+    [
+      "VZ",
+      "美國無線對手",
+      "US wireless rival"
+    ],
+    [
+      "TMUS",
+      "美國無線對手",
+      "US wireless rival"
+    ],
+    [
+      "CMCSA",
+      "寬頻對手",
+      "Broadband rival"
+    ],
+    [
+      "CHTR",
+      "寬頻對手",
+      "Broadband rival"
+    ],
+    [
+      "DISH",
+      "無線競爭",
+      "Wireless competition"
+    ]
+  ],
+  "TMUS": [
+    [
+      "VZ",
+      "美國無線對手",
+      "US wireless rival"
+    ],
+    [
+      "T",
+      "美國無線對手",
+      "US wireless rival"
+    ],
+    [
+      "CMCSA",
+      "寬頻競爭",
+      "Broadband competition"
+    ],
+    [
+      "CHTR",
+      "寬頻競爭",
+      "Broadband competition"
+    ],
+    [
+      "DISH",
+      "無線競爭",
+      "Wireless competition"
+    ]
+  ],
+  "PG": [
+    [
+      "UL",
+      "日化對手",
+      "HPC rival"
+    ],
+    [
+      "CL",
+      "口腔／個護對手",
+      "Oral/personal care rival"
+    ],
+    [
+      "KMB",
+      "紙品／個護對手",
+      "Paper/personal care rival"
+    ],
+    [
+      "EL",
+      "高端美妝競爭",
+      "Premium beauty competition"
+    ],
+    [
+      "KO",
+      "品牌消費品注意力競爭",
+      "Branded staples attention competition"
+    ]
+  ],
+  "UL": [
+    [
+      "PG",
+      "日化對手",
+      "HPC rival"
+    ],
+    [
+      "CL",
+      "個護對手",
+      "Personal care rival"
+    ],
+    [
+      "EL",
+      "美妝對手",
+      "Beauty rival"
+    ],
+    [
+      "KMB",
+      "個護對手",
+      "Personal care rival"
+    ],
+    [
+      "MDLZ",
+      "食品消費對手",
+      "Food staples rival"
+    ]
+  ],
+  "KO": [
+    [
+      "PEP",
+      "碳酸／非酒精飲料直接對手",
+      "CSD/NARTD direct rival"
+    ],
+    [
+      "BUD",
+      "飲料場合競爭",
+      "Beverage occasion competition"
+    ],
+    [
+      "MNST",
+      "功能飲料對手",
+      "Energy-drink rival"
+    ],
+    [
+      "CELH",
+      "功能飲料對手",
+      "Energy-drink rival"
+    ],
+    [
+      "KDP",
+      "即飲咖啡／飲料對手",
+      "RTD coffee/beverage rival"
+    ]
+  ],
+  "PEP": [
+    [
+      "KO",
+      "碳酸／非酒精飲料直接對手",
+      "CSD/NARTD direct rival"
+    ],
+    [
+      "MNST",
+      "功能飲料對手",
+      "Energy-drink rival"
+    ],
+    [
+      "MDLZ",
+      "零食對手",
+      "Snacks rival"
+    ],
+    [
+      "KHC",
+      "包裝食品對手",
+      "Packaged food rival"
+    ],
+    [
+      "GIS",
+      "包裝食品對手",
+      "Packaged food rival"
+    ]
+  ],
+  "PM": [
+    [
+      "BTI",
+      "煙草對手",
+      "Tobacco rival"
+    ],
+    [
+      "MO",
+      "煙草對手",
+      "Tobacco rival"
+    ],
+    [
+      "BUD",
+      "成人口味消費替代",
+      "Adult oral-consumption substitute"
+    ],
+    [
+      "PEP",
+      "成人口味消費替代",
+      "Adult oral-consumption substitute"
+    ]
+  ],
+  "BTI": [
+    [
+      "PM",
+      "煙草對手",
+      "Tobacco rival"
+    ],
+    [
+      "MO",
+      "煙草對手",
+      "Tobacco rival"
+    ],
+    [
+      "BUD",
+      "成人口味消費替代",
+      "Adult oral-consumption substitute"
+    ],
+    [
+      "PEP",
+      "成人口味消費替代",
+      "Adult oral-consumption substitute"
+    ]
+  ],
+  "MO": [
+    [
+      "PM",
+      "煙草對手",
+      "Tobacco rival"
+    ],
+    [
+      "BTI",
+      "煙草對手",
+      "Tobacco rival"
+    ],
+    [
+      "BUD",
+      "成人口味消費替代",
+      "Adult oral-consumption substitute"
+    ],
+    [
+      "PEP",
+      "成人口味消費替代",
+      "Adult oral-consumption substitute"
+    ]
+  ],
+  "HD": [
+    [
+      "LOW",
+      "家居裝修直接對手",
+      "Home-improvement direct rival"
+    ],
+    [
+      "AMZN",
+      "建材／家居電商競爭",
+      "Building/home e-comm competition"
+    ],
+    [
+      "FND",
+      "地板專賣對手",
+      "Flooring specialty rival"
+    ],
+    [
+      "WMT",
+      "家居百貨競爭",
+      "Home general-merch competition"
+    ],
+    [
+      "TGT",
+      "家居百貨競爭",
+      "Home general-merch competition"
+    ]
+  ],
+  "LOW": [
+    [
+      "HD",
+      "家居裝修直接對手",
+      "Home-improvement direct rival"
+    ],
+    [
+      "AMZN",
+      "建材電商競爭",
+      "Building e-comm competition"
+    ],
+    [
+      "WMT",
+      "家居百貨競爭",
+      "Home general-merch competition"
+    ],
+    [
+      "TGT",
+      "家居百貨競爭",
+      "Home general-merch competition"
+    ],
+    [
+      "FND",
+      "地板專賣對手",
+      "Flooring specialty rival"
+    ]
+  ],
+  "MCD": [
+    [
+      "SBUX",
+      "快捷餐飲場合對手",
+      "QSR occasion rival"
+    ],
+    [
+      "YUM",
+      "快捷餐飲對手",
+      "QSR rival"
+    ],
+    [
+      "CMG",
+      "快捷餐飲對手",
+      "QSR rival"
+    ],
+    [
+      "QSR",
+      "快捷餐飲對手",
+      "QSR rival"
+    ],
+    [
+      "DPZ",
+      "快捷餐飲對手",
+      "QSR rival"
+    ]
+  ],
+  "SBUX": [
+    [
+      "MCD",
+      "咖啡／快捷場合對手",
+      "Coffee/QSR occasion rival"
+    ],
+    [
+      "CMG",
+      "快捷場合對手",
+      "QSR occasion rival"
+    ],
+    [
+      "YUM",
+      "快捷場合對手",
+      "QSR occasion rival"
+    ],
+    [
+      "DPZ",
+      "快捷場合對手",
+      "QSR occasion rival"
+    ],
+    [
+      "PEP",
+      "即飲咖啡飲料競爭",
+      "RTD coffee beverage competition"
+    ]
+  ],
+  "BKNG": [
+    [
+      "ABNB",
+      "住宿預訂對手",
+      "Lodging booking rival"
+    ],
+    [
+      "EXPE",
+      "OTA 對手",
+      "OTA rival"
+    ],
+    [
+      "MAR",
+      "直銷住宿競爭",
+      "Direct lodging competition"
+    ],
+    [
+      "HLT",
+      "直銷住宿競爭",
+      "Direct lodging competition"
+    ],
+    [
+      "TCOM",
+      "全球 OTA 對手",
+      "Global OTA rival"
+    ]
+  ],
+  "ABNB": [
+    [
+      "BKNG",
+      "住宿預訂對手",
+      "Lodging booking rival"
+    ],
+    [
+      "EXPE",
+      "OTA 對手",
+      "OTA rival"
+    ],
+    [
+      "MAR",
+      "飯店直銷對手",
+      "Hotel direct rival"
+    ],
+    [
+      "HLT",
+      "飯店直銷對手",
+      "Hotel direct rival"
+    ],
+    [
+      "UBER",
+      "短住／出行替代",
+      "Short-stay/mobility substitute"
+    ]
+  ],
+  "MAR": [
+    [
+      "HLT",
+      "國際飯店對手",
+      "Global hotel rival"
+    ],
+    [
+      "H",
+      "國際飯店對手",
+      "Global hotel rival"
+    ],
+    [
+      "ABNB",
+      "短租替代",
+      "Short-let substitute"
+    ],
+    [
+      "BKNG",
+      "OTA 分銷壓力",
+      "OTA distribution pressure"
+    ],
+    [
+      "IHG",
+      "國際飯店對手",
+      "Global hotel rival"
+    ]
+  ],
+  "TJX": [
+    [
+      "ROST",
+      "離價零售對手",
+      "Off-price retail rival"
+    ],
+    [
+      "BURL",
+      "離價零售對手",
+      "Off-price retail rival"
+    ],
+    [
+      "WMT",
+      "平價服飾零售競爭",
+      "Value apparel retail competition"
+    ],
+    [
+      "TGT",
+      "平價服飾零售競爭",
+      "Value apparel retail competition"
+    ],
+    [
+      "AMZN",
+      "服飾電商競爭",
+      "Apparel e-comm competition"
+    ]
+  ],
+  "BUD": [
+    [
+      "KO",
+      "飲料場合競爭",
+      "Beverage occasion competition"
+    ],
+    [
+      "PEP",
+      "飲料場合競爭",
+      "Beverage occasion competition"
+    ],
+    [
+      "STZ",
+      "啤酒對手",
+      "Beer rival"
+    ],
+    [
+      "TAP",
+      "啤酒對手",
+      "Beer rival"
+    ],
+    [
+      "SAM",
+      "精釀啤酒對手",
+      "Craft beer rival"
+    ]
+  ],
+  "NFLX": [
+    [
+      "DIS",
+      "串流內容對手",
+      "Streaming content rival"
+    ],
+    [
+      "WBD",
+      "串流內容對手",
+      "Streaming content rival"
+    ],
+    [
+      "CMCSA",
+      "串流／寬頻內容對手",
+      "Streaming/broadband content rival"
+    ],
+    [
+      "AMZN",
+      "Prime Video 對手",
+      "Prime Video rival"
+    ],
+    [
+      "AAPL",
+      "Apple TV+ 對手",
+      "Apple TV+ rival"
+    ]
+  ],
+  "DIS": [
+    [
+      "NFLX",
+      "串流對手",
+      "Streaming rival"
+    ],
+    [
+      "WBD",
+      "串流／影視對手",
+      "Streaming/studio rival"
+    ],
+    [
+      "CMCSA",
+      "影視／主題娛樂競爭",
+      "Studio/theme entertainment competition"
+    ],
+    [
+      "AMZN",
+      "串流對手",
+      "Streaming rival"
+    ],
+    [
+      "META",
+      "注意力／短影音競爭",
+      "Attention/short-video competition"
+    ]
+  ],
+  "ANET": [
+    [
+      "CSCO",
+      "資料中心交換對手",
+      "Datacenter switching rival"
+    ],
+    [
+      "JNPR",
+      "網路設備對手",
+      "Networking gear rival"
+    ],
+    [
+      "NVDA",
+      "AI 網路／系統競爭",
+      "AI networking/systems competition"
+    ],
+    [
+      "HPE",
+      "資料中心網路競爭",
+      "Datacenter networking competition"
+    ],
+    [
+      "DELL",
+      "資料中心系統競爭",
+      "Datacenter systems competition"
+    ]
+  ],
+  "DELL": [
+    [
+      "HPQ",
+      "PC／伺服器對手",
+      "PC/server rival"
+    ],
+    [
+      "HPE",
+      "企業伺服器對手",
+      "Enterprise server rival"
+    ],
+    [
+      "SMCI",
+      "AI 伺服器對手",
+      "AI server rival"
+    ],
+    [
+      "IBM",
+      "企業運算對手",
+      "Enterprise compute rival"
+    ],
+    [
+      "NTAP",
+      "企業儲存對手",
+      "Enterprise storage rival"
+    ]
+  ],
+  "SNDK": [
+    [
+      "WDC",
+      "NAND／儲存對手",
+      "NAND/storage rival"
+    ],
+    [
+      "STX",
+      "儲存對手",
+      "Storage rival"
+    ],
+    [
+      "MU",
+      "NAND 對手",
+      "NAND rival"
+    ],
+    [
+      "PSTG",
+      "企業儲存對手",
+      "Enterprise storage rival"
+    ],
+    [
+      "NTAP",
+      "企業儲存對手",
+      "Enterprise storage rival"
+    ]
+  ],
+  "STX": [
+    [
+      "WDC",
+      "硬碟／儲存對手",
+      "HDD/storage rival"
+    ],
+    [
+      "SNDK",
+      "快閃儲存對手",
+      "Flash storage rival"
+    ],
+    [
+      "MU",
+      "儲存媒體對手",
+      "Storage media rival"
+    ],
+    [
+      "PSTG",
+      "企業儲存對手",
+      "Enterprise storage rival"
+    ],
+    [
+      "NTAP",
+      "企業儲存對手",
+      "Enterprise storage rival"
+    ]
+  ],
+  "SONY": [
+    [
+      "005930.KS",
+      "消費電子對手",
+      "CE rival"
+    ],
+    [
+      "AAPL",
+      "消費電子／娛樂裝置對手",
+      "CE/entertainment-device rival"
+    ],
+    [
+      "MSFT",
+      "遊戲機／娛樂生態對手",
+      "Console/entertainment ecosystem rival"
+    ],
+    [
+      "NFLX",
+      "娛樂內容競爭",
+      "Entertainment content competition"
+    ],
+    [
+      "DIS",
+      "娛樂內容競爭",
+      "Entertainment content competition"
+    ]
+  ],
+  "CSCO": [
+    [
+      "ANET",
+      "資料中心交換對手",
+      "Datacenter switching rival"
+    ],
+    [
+      "JNPR",
+      "企業網路對手",
+      "Enterprise networking rival"
+    ],
+    [
+      "HPE",
+      "企業網路對手",
+      "Enterprise networking rival"
+    ],
+    [
+      "NOK",
+      "電信設備對手",
+      "Telecom equipment rival"
+    ],
+    [
+      "ERIC",
+      "電信設備對手",
+      "Telecom equipment rival"
+    ]
+  ],
+  "APH": [
+    [
+      "TEL",
+      "連接器對手",
+      "Connector rival"
+    ],
+    [
+      "GLW",
+      "互連／材料競爭",
+      "Interconnect/materials competition"
+    ],
+    [
+      "DD",
+      "電子材料競爭",
+      "Electronic materials competition"
+    ],
+    [
+      "KEYS",
+      "電子測試相關競爭",
+      "Electronics test-related competition"
+    ],
+    [
+      "JBL",
+      "電子製造競爭",
+      "Electronics manufacturing competition"
+    ]
+  ],
+  "IBM": [
+    [
+      "MSFT",
+      "混合雲／企業軟體對手",
+      "Hybrid cloud/enterprise software rival"
+    ],
+    [
+      "ORCL",
+      "企業軟體／雲對手",
+      "Enterprise software/cloud rival"
+    ],
+    [
+      "ACN",
+      "IT 服務對手",
+      "IT services rival"
+    ],
+    [
+      "GOOG",
+      "雲對手",
+      "Cloud rival"
+    ],
+    [
+      "AMZN",
+      "雲對手",
+      "Cloud rival"
+    ]
+  ],
+  "ACN": [
+    [
+      "IBM",
+      "IT 服務對手",
+      "IT services rival"
+    ],
+    [
+      "CTSH",
+      "IT 服務對手",
+      "IT services rival"
+    ],
+    [
+      "INFY",
+      "IT 服務對手",
+      "IT services rival"
+    ],
+    [
+      "MSFT",
+      "雲顧問競爭",
+      "Cloud consulting competition"
+    ],
+    [
+      "ORCL",
+      "應用導入競爭",
+      "Apps implementation competition"
+    ]
+  ],
+  "CAT": [
+    [
+      "DE",
+      "工程／農機對手",
+      "Construction/ag machinery rival"
+    ],
+    [
+      "PCAR",
+      "重型設備／卡車相關競爭",
+      "Heavy equipment/truck-related competition"
+    ],
+    [
+      "ETN",
+      "電氣化與動力管理競爭",
+      "Electrification & power-mgmt competition"
+    ],
+    [
+      "CMI",
+      "引擎／動力系統對手",
+      "Engine/powertrain rival"
+    ],
+    [
+      "HON",
+      "工業自動化競爭",
+      "Industrial automation competition"
+    ]
+  ],
+  "DE": [
+    [
+      "CAT",
+      "農機／工程機械對手",
+      "Ag/construction machinery rival"
+    ],
+    [
+      "CNHI",
+      "農機對手",
+      "Ag machinery rival"
+    ],
+    [
+      "AGCO",
+      "農機對手",
+      "Ag machinery rival"
+    ],
+    [
+      "PCAR",
+      "重型設備相關競爭",
+      "Heavy equipment-related competition"
+    ],
+    [
+      "ETN",
+      "電氣化競爭",
+      "Electrification competition"
+    ]
+  ],
+  "GEV": [
+    [
+      "ETN",
+      "電力設備對手",
+      "Power equipment rival"
+    ],
+    [
+      "EMR",
+      "自動化／電力對手",
+      "Automation/power rival"
+    ],
+    [
+      "HON",
+      "工業能源競爭",
+      "Industrial energy competition"
+    ],
+    [
+      "CEG",
+      "發電資產／服務競爭",
+      "Generation assets/services competition"
+    ],
+    [
+      "VST",
+      "發電競爭",
+      "Generation competition"
+    ]
+  ],
+  "PH": [
+    [
+      "EMR",
+      "運動控制／自動化對手",
+      "Motion/automation rival"
+    ],
+    [
+      "ITW",
+      "工業部件對手",
+      "Industrial components rival"
+    ],
+    [
+      "HON",
+      "工業技術對手",
+      "Industrial tech rival"
+    ],
+    [
+      "ROK",
+      "自動化對手",
+      "Automation rival"
+    ],
+    [
+      "ETN",
+      "電力／工業對手",
+      "Power/industrial rival"
+    ]
+  ],
+  "ETN": [
+    [
+      "EMR",
+      "電力管理對手",
+      "Power-management rival"
+    ],
+    [
+      "HON",
+      "工業電氣對手",
+      "Industrial electrical rival"
+    ],
+    [
+      "ROK",
+      "自動化對手",
+      "Automation rival"
+    ],
+    [
+      "PH",
+      "工業部件對手",
+      "Industrial components rival"
+    ],
+    [
+      "GEV",
+      "電力設備對手",
+      "Power equipment rival"
+    ]
+  ],
+  "UNP": [
+    [
+      "CSX",
+      "美國一級鐵路對手",
+      "US Class I rail rival"
+    ],
+    [
+      "NSC",
+      "美國一級鐵路對手",
+      "US Class I rail rival"
+    ],
+    [
+      "CNI",
+      "北美鐵路對手",
+      "North America rail rival"
+    ],
+    [
+      "CP",
+      "北美鐵路對手",
+      "North America rail rival"
+    ],
+    [
+      "UPS",
+      "貨運替代壓力",
+      "Freight modal substitute"
+    ]
+  ],
+  "BHP": [
+    [
+      "RIO",
+      "鐵礦／礦業對手",
+      "Iron ore/mining rival"
+    ],
+    [
+      "VALE",
+      "鐵礦對手",
+      "Iron ore rival"
+    ],
+    [
+      "FCX",
+      "銅礦競爭",
+      "Copper mining competition"
+    ],
+    [
+      "SCCO",
+      "銅礦競爭",
+      "Copper mining competition"
+    ],
+    [
+      "NUE",
+      "鋼鐵下游競爭",
+      "Steel downstream competition"
+    ]
+  ],
+  "RIO": [
+    [
+      "BHP",
+      "鐵礦／礦業對手",
+      "Iron ore/mining rival"
+    ],
+    [
+      "VALE",
+      "鐵礦對手",
+      "Iron ore rival"
+    ],
+    [
+      "FCX",
+      "銅礦競爭",
+      "Copper mining competition"
+    ],
+    [
+      "SCCO",
+      "銅礦競爭",
+      "Copper mining competition"
+    ],
+    [
+      "NUE",
+      "鋼鐵下游競爭",
+      "Steel downstream competition"
+    ]
+  ],
+  "LIN": [
+    [
+      "APD",
+      "工業氣體對手",
+      "Industrial gases rival"
+    ],
+    [
+      "ECL",
+      "特用化學／服務競爭",
+      "Specialty chem/services competition"
+    ],
+    [
+      "SHW",
+      "特用化學競爭",
+      "Specialty chem competition"
+    ],
+    [
+      "DOW",
+      "化學對手",
+      "Chemicals rival"
+    ],
+    [
+      "DD",
+      "化學對手",
+      "Chemicals rival"
+    ]
+  ],
+  "SCCO": [
+    [
+      "FCX",
+      "銅礦對手",
+      "Copper mining rival"
+    ],
+    [
+      "BHP",
+      "銅／礦業對手",
+      "Copper/mining rival"
+    ],
+    [
+      "RIO",
+      "銅／礦業對手",
+      "Copper/mining rival"
+    ],
+    [
+      "TECK",
+      "基本金屬對手",
+      "Base metals rival"
+    ],
+    [
+      "NEM",
+      "礦業資本競爭",
+      "Mining capital competition"
+    ]
+  ],
+  "NEM": [
+    [
+      "GOLD",
+      "金礦對手",
+      "Gold mining rival"
+    ],
+    [
+      "AEM",
+      "金礦對手",
+      "Gold mining rival"
+    ],
+    [
+      "WPM",
+      "貴金屬串流對手",
+      "Precious metals streaming rival"
+    ],
+    [
+      "FCX",
+      "礦業資本競爭",
+      "Mining capital competition"
+    ],
+    [
+      "SCCO",
+      "礦業資本競爭",
+      "Mining capital competition"
+    ]
+  ],
+  "NEE": [
+    [
+      "SO",
+      "受規管電力對手",
+      "Regulated electric rival"
+    ],
+    [
+      "DUK",
+      "受規管電力對手",
+      "Regulated electric rival"
+    ],
+    [
+      "CEG",
+      "潔淨發電對手",
+      "Clean generation rival"
+    ],
+    [
+      "AEP",
+      "受規管電力對手",
+      "Regulated electric rival"
+    ],
+    [
+      "SRE",
+      "公用事業對手",
+      "Utility rival"
+    ]
+  ],
+  "SO": [
+    [
+      "NEE",
+      "受規管電力對手",
+      "Regulated electric rival"
+    ],
+    [
+      "DUK",
+      "受規管電力對手",
+      "Regulated electric rival"
+    ],
+    [
+      "AEP",
+      "受規管電力對手",
+      "Regulated electric rival"
+    ],
+    [
+      "D",
+      "受規管電力對手",
+      "Regulated electric rival"
+    ],
+    [
+      "CEG",
+      "發電對手",
+      "Generation rival"
+    ]
+  ],
+  "WELL": [
+    [
+      "VTR",
+      "醫療 REIT 對手",
+      "Healthcare REIT rival"
+    ],
+    [
+      "DOC",
+      "醫療 REIT 對手",
+      "Healthcare REIT rival"
+    ],
+    [
+      "PLD",
+      "收益型不動產資本競爭",
+      "Income RE capital competition"
+    ],
+    [
+      "O",
+      "收益型不動產資本競爭",
+      "Income RE capital competition"
+    ],
+    [
+      "AMT",
+      "另類 REIT 資本競爭",
+      "Specialty REIT capital competition"
+    ]
+  ],
+  "PLD": [
+    [
+      "EQIX",
+      "工業／數據中心地產競爭",
+      "Industrial/data-center RE competition"
+    ],
+    [
+      "DLR",
+      "數據中心地產競爭",
+      "Data-center RE competition"
+    ],
+    [
+      "AMT",
+      "另類 REIT 競爭",
+      "Specialty REIT competition"
+    ],
+    [
+      "WELL",
+      "收益型不動產資本競爭",
+      "Income RE capital competition"
+    ],
+    [
+      "O",
+      "收益型不動產資本競爭",
+      "Income RE capital competition"
+    ]
+  ],
+  "EQIX": [
+    [
+      "DLR",
+      "數據中心 REIT 對手",
+      "Data-center REIT rival"
+    ],
+    [
+      "AMT",
+      "數位基建 REIT 對手",
+      "Digital infra REIT rival"
+    ],
+    [
+      "PLD",
+      "工業地產資本競爭",
+      "Industrial RE capital competition"
+    ],
+    [
+      "MSFT",
+      "超大規模自建機房替代壓力",
+      "Hyperscaler self-build pressure"
+    ],
+    [
+      "AMZN",
+      "超大規模自建機房替代壓力",
+      "Hyperscaler self-build pressure"
+    ]
+  ]
+}

@@ -1,0 +1,244 @@
+{
+  "version": 1,
+  "ticker": "T",
+  "name_en": "AT&T Inc.",
+  "name_zh": "AT&T",
+  "updatedAt": "2026-11-14",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mega-cap ≥$100B expansion. Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates and spot review on NVDA/MSFT/JPM. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股市值≥1,000億美元批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for the US mcap≥$100B batch. No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "telecom-v1",
+    "references": [
+      "Industry model `telecom-v1`",
+      "cache/us_universe.json marketCap ≥ USD 100B screen",
+      "AAPL curated seed shape on main (schema reference)"
+    ]
+  },
+  "model": {
+    "id": "telecom-v1",
+    "label_zh": "電信營運價值鏈",
+    "label_en": "Telecom operator value chain",
+    "description_zh": "網路裝置 → 頻譜／鐵塔 → 裝置／OEM → 內容／應用 → 企業／零售客戶。",
+    "description_en": "Network gear → spectrum/towers → devices/OEMs → content/apps → enterprise/retail."
+  },
+  "stages": [
+    {
+      "id": "equipment",
+      "order": 1,
+      "label_zh": "網路裝置／無線基礎設施",
+      "label_en": "Network equipment / RAN",
+      "summary_zh": "RAN、傳輸與核心網裝置。",
+      "summary_en": "RAN, transport, core gear.",
+      "players": [
+        {
+          "ticker": "CSCO",
+          "name_en": "Cisco Systems, Inc.",
+          "name_zh": "思科",
+          "role_zh": "思科：網路裝置／無線基礎設施代表性玩家",
+          "role_en": "Cisco Systems, Inc.: representative player in Network equipment / RAN",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "ERIC",
+          "name_en": "ERIC",
+          "name_zh": "ERIC",
+          "role_zh": "ERIC：網路裝置／無線基礎設施代表性玩家",
+          "role_en": "ERIC: representative player in Network equipment / RAN",
+          "exchange": ""
+        },
+        {
+          "ticker": "NOK",
+          "name_en": "NOK",
+          "name_zh": "NOK",
+          "role_zh": "NOK：網路裝置／無線基礎設施代表性玩家",
+          "role_en": "NOK: representative player in Network equipment / RAN",
+          "exchange": ""
+        }
+      ]
+    },
+    {
+      "id": "towers",
+      "order": 2,
+      "label_zh": "鐵塔／頻譜／回傳",
+      "label_en": "Towers / spectrum / backhaul",
+      "summary_zh": "站址、頻譜與光纖回傳。",
+      "summary_en": "Sites, spectrum, fiber backhaul.",
+      "players": [
+        {
+          "ticker": "AMT",
+          "name_en": "American Tower",
+          "name_zh": "美國電塔",
+          "role_zh": "美國電塔：鐵塔／頻譜／回傳代表性玩家",
+          "role_en": "American Tower: representative player in Towers / spectrum / backhaul",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "CCI",
+          "name_en": "Crown Castle",
+          "name_zh": "Crown Castle",
+          "role_zh": "Crown Castle：鐵塔／頻譜／回傳代表性玩家",
+          "role_en": "Crown Castle: representative player in Towers / spectrum / backhaul",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "SBAC",
+          "name_en": "SBA Communications",
+          "name_zh": "SBA",
+          "role_zh": "SBA：鐵塔／頻譜／回傳代表性玩家",
+          "role_en": "SBA Communications: representative player in Towers / spectrum / backhaul",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "devices",
+      "order": 3,
+      "label_zh": "終端裝置／OEM",
+      "label_en": "Handsets / OEMs",
+      "summary_zh": "手機與 CPE 供應。",
+      "summary_en": "Handsets and CPE supply.",
+      "players": [
+        {
+          "ticker": "AAPL",
+          "name_en": "Apple Inc.",
+          "name_zh": "蘋果",
+          "role_zh": "蘋果：終端裝置／OEM代表性玩家",
+          "role_en": "Apple Inc.: representative player in Handsets / OEMs",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "005930.KS",
+          "name_en": "Samsung Electronics",
+          "name_zh": "三星電子",
+          "role_zh": "三星電子：終端裝置／OEM代表性玩家",
+          "role_en": "Samsung Electronics: representative player in Handsets / OEMs",
+          "exchange": "KRX",
+          "listedInApp": false
+        },
+        {
+          "ticker": "SONY",
+          "name_en": "Sony Group Corporation",
+          "name_zh": "索尼",
+          "role_zh": "索尼：終端裝置／OEM代表性玩家",
+          "role_en": "Sony Group Corporation: representative player in Handsets / OEMs",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "content",
+      "order": 4,
+      "label_zh": "內容／應用生態",
+      "label_en": "Content / app ecosystem",
+      "summary_zh": "串流、雲遊戲與 App。",
+      "summary_en": "Streaming, cloud gaming, apps.",
+      "players": [
+        {
+          "ticker": "NFLX",
+          "name_en": "Netflix, Inc.",
+          "name_zh": "網飛",
+          "role_zh": "網飛：內容／應用生態代表性玩家",
+          "role_en": "Netflix, Inc.: representative player in Content / app ecosystem",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "DIS",
+          "name_en": "The Walt Disney Company",
+          "name_zh": "迪士尼",
+          "role_zh": "迪士尼：內容／應用生態代表性玩家",
+          "role_en": "The Walt Disney Company: representative player in Content / app ecosystem",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "GOOG",
+          "name_en": "Alphabet Inc.",
+          "name_zh": "Alphabet（Google）",
+          "role_zh": "Alphabet（Google）：內容／應用生態代表性玩家",
+          "role_en": "Alphabet Inc.: representative player in Content / app ecosystem",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "customers",
+      "order": 5,
+      "label_zh": "零售／企業客戶",
+      "label_en": "Retail / enterprise customers",
+      "summary_zh": "消費門號與企業專線。",
+      "summary_en": "Consumer lines and enterprise.",
+      "players": [
+        {
+          "ticker": "AMZN",
+          "name_en": "Amazon.com, Inc.",
+          "name_zh": "亞馬遜",
+          "role_zh": "亞馬遜：零售／企業客戶代表性玩家",
+          "role_en": "Amazon.com, Inc.: representative player in Retail / enterprise customers",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "MSFT",
+          "name_en": "Microsoft Corporation",
+          "name_zh": "微軟",
+          "role_zh": "微軟：零售／企業客戶代表性玩家",
+          "role_en": "Microsoft Corporation: representative player in Retail / enterprise customers",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "JPM",
+          "name_en": "JPMorgan Chase & Co.",
+          "name_zh": "摩根大通",
+          "role_zh": "摩根大通：零售／企業客戶代表性玩家",
+          "role_en": "JPMorgan Chase & Co.: representative player in Retail / enterprise customers",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "VZ",
+      "name_en": "Verizon Communications Inc.",
+      "name_zh": "Verizon",
+      "basis_zh": "美國無線對手",
+      "basis_en": "US wireless rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "TMUS",
+      "name_en": "T-Mobile US, Inc.",
+      "name_zh": "T-Mobile US",
+      "basis_zh": "美國無線對手",
+      "basis_en": "US wireless rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "CMCSA",
+      "name_en": "Comcast",
+      "name_zh": "康卡斯特",
+      "basis_zh": "寬頻對手",
+      "basis_en": "Broadband rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "CHTR",
+      "name_en": "Charter",
+      "name_zh": "Charter",
+      "basis_zh": "寬頻對手",
+      "basis_en": "Broadband rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "DISH",
+      "name_en": "Dish",
+      "name_zh": "Dish",
+      "basis_zh": "無線競爭",
+      "basis_en": "Wireless competition",
+      "exchange": "NASDAQ",
+      "listedInApp": false
+    }
+  ]
+}

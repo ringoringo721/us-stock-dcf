@@ -1,0 +1,785 @@
+{
+  "hardware-value-chain-v1": {
+    "materials": [
+      "GLW",
+      "AMAT",
+      "ASML"
+    ],
+    "components": [
+      "TSM",
+      "AVGO",
+      "QCOM"
+    ],
+    "assembly": [
+      "2317.TW",
+      "4938.TW",
+      "002475.SZ"
+    ],
+    "distribution": [
+      "FDX",
+      "UPS",
+      "EXPD"
+    ],
+    "retail": [
+      "BBY",
+      "T",
+      "VZ"
+    ]
+  },
+  "semiconductor-fabless-v1": {
+    "equipment": [
+      "ASML",
+      "AMAT",
+      "LRCX"
+    ],
+    "foundry": [
+      "TSM",
+      "GFS",
+      "2303.TW"
+    ],
+    "osat-memory": [
+      "3711.TW",
+      "MU",
+      "000660.KS"
+    ],
+    "customers": [
+      "MSFT",
+      "AMZN",
+      "META"
+    ],
+    "channel": [
+      "AVT",
+      "ARW",
+      "SNX"
+    ]
+  },
+  "semiconductor-foundry-v1": {
+    "equipment": [
+      "ASML",
+      "AMAT",
+      "LRCX"
+    ],
+    "materials": [
+      "4063.T",
+      "ENTG",
+      "GLW"
+    ],
+    "osat": [
+      "3711.TW",
+      "AMKR",
+      "002475.SZ"
+    ],
+    "fabless": [
+      "NVDA",
+      "AAPL",
+      "AMD"
+    ],
+    "platforms": [
+      "MSFT",
+      "AMZN",
+      "005930.KS"
+    ]
+  },
+  "semiconductor-equipment-v1": {
+    "components": [
+      "TEL",
+      "APH",
+      "MPWR"
+    ],
+    "optics": [
+      "COHR",
+      "KEYS",
+      "TER"
+    ],
+    "integration": [
+      "SNPS",
+      "CDNS",
+      "KEYS"
+    ],
+    "fabs": [
+      "TSM",
+      "INTC",
+      "000660.KS"
+    ],
+    "service": [
+      "CDW",
+      "SNX",
+      "JBL"
+    ]
+  },
+  "semiconductor-memory-v1": {
+    "equipment": [
+      "ASML",
+      "AMAT",
+      "LRCX"
+    ],
+    "materials": [
+      "ENTG",
+      "4063.T",
+      "GLW"
+    ],
+    "packaging": [
+      "3711.TW",
+      "AMKR",
+      "002475.SZ"
+    ],
+    "customers": [
+      "NVDA",
+      "AAPL",
+      "DELL"
+    ],
+    "channel": [
+      "WDC",
+      "STX",
+      "SNX"
+    ]
+  },
+  "saas-cloud-v1": {
+    "silicon": [
+      "NVDA",
+      "AMD",
+      "AVGO"
+    ],
+    "infra": [
+      "EQIX",
+      "DLR",
+      "ANET"
+    ],
+    "data-security": [
+      "CRWD",
+      "PANW",
+      "ZS"
+    ],
+    "integrators": [
+      "ACN",
+      "IBM",
+      "CTSH"
+    ],
+    "channel": [
+      "CDW",
+      "SNX",
+      "DELL"
+    ]
+  },
+  "internet-platform-v1": {
+    "infra": [
+      "EQIX",
+      "ANET",
+      "CSCO"
+    ],
+    "content": [
+      "NFLX",
+      "SPOT",
+      "DIS"
+    ],
+    "ads": [
+      "TTD",
+      "APP",
+      "SNAP"
+    ],
+    "devices": [
+      "AAPL",
+      "005930.KS",
+      "SONY"
+    ],
+    "commerce": [
+      "V",
+      "MA",
+      "SHOP"
+    ]
+  },
+  "ecommerce-retail-v1": {
+    "supply": [
+      "PG",
+      "NKE",
+      "SONY"
+    ],
+    "fulfillment": [
+      "PLD",
+      "EQIX",
+      "AMT"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "APP"
+    ],
+    "lastmile": [
+      "UPS",
+      "FDX",
+      "UNP"
+    ]
+  },
+  "auto-oem-v1": {
+    "materials": [
+      "ALB",
+      "FCX",
+      "NUE"
+    ],
+    "components": [
+      "000660.KS",
+      "ON",
+      "APH"
+    ],
+    "assembly": [
+      "JBL",
+      "FLEX",
+      "2317.TW"
+    ],
+    "dealers": [
+      "KMX",
+      "AN",
+      "PAG"
+    ],
+    "energy": [
+      "NEE",
+      "CEG",
+      "ENPH"
+    ]
+  },
+  "bank-diversified-v1": {
+    "funding": [
+      "GS",
+      "MS",
+      "BLK"
+    ],
+    "tech": [
+      "MSFT",
+      "ORCL",
+      "IBM"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "FISV"
+    ],
+    "data-risk": [
+      "SPGI",
+      "MCO",
+      "FICO"
+    ],
+    "channels": [
+      "SCHW",
+      "AXP",
+      "COF"
+    ]
+  },
+  "payments-v1": {
+    "issuers": [
+      "JPM",
+      "BAC",
+      "COF"
+    ],
+    "acquirers": [
+      "FISV",
+      "GPN",
+      "FIS"
+    ],
+    "merchant-tech": [
+      "SQ",
+      "TOST",
+      "SHOP"
+    ],
+    "consumer": [
+      "AAPL",
+      "GOOG",
+      "PYPL"
+    ],
+    "settlement": [
+      "JPM",
+      "BAC",
+      "WFC"
+    ]
+  },
+  "capital-markets-v1": {
+    "venues": [
+      "CME",
+      "ICE",
+      "NDAQ"
+    ],
+    "data": [
+      "SPGI",
+      "MCO",
+      "MSFT"
+    ],
+    "tech": [
+      "MSFT",
+      "ORCL",
+      "PANW"
+    ],
+    "buy-side": [
+      "BLK",
+      "BX",
+      "TROW"
+    ],
+    "issuers": [
+      "AAPL",
+      "MSFT",
+      "XOM"
+    ]
+  },
+  "insurance-v1": {
+    "reinsurance": [
+      "CB",
+      "AIG",
+      "MET"
+    ],
+    "data": [
+      "VRSK",
+      "SPGI",
+      "MCO"
+    ],
+    "investments": [
+      "BLK",
+      "BX",
+      "BRK-B"
+    ],
+    "distribution": [
+      "AON",
+      "MMC",
+      "AJG"
+    ],
+    "claims": [
+      "UNH",
+      "HCA",
+      "CI"
+    ]
+  },
+  "asset-mgmt-v1": {
+    "index-data": [
+      "SPGI",
+      "MCO",
+      "NDAQ"
+    ],
+    "custody": [
+      "BK",
+      "STT",
+      "NTRS"
+    ],
+    "execution": [
+      "GS",
+      "MS",
+      "SCHW"
+    ],
+    "distribution": [
+      "SCHW",
+      "AMZN",
+      "JPM"
+    ],
+    "owners": [
+      "MET",
+      "PRU",
+      "CB"
+    ]
+  },
+  "pharma-v1": {
+    "tools-cdmo": [
+      "TMO",
+      "DHR",
+      "IQV"
+    ],
+    "api": [
+      "TMO",
+      "CRL",
+      "GEHC"
+    ],
+    "clinical": [
+      "IQV",
+      "CRL",
+      "LH"
+    ],
+    "wholesale": [
+      "MCK",
+      "COR",
+      "CAH"
+    ],
+    "payers": [
+      "UNH",
+      "CVS",
+      "CI"
+    ]
+  },
+  "medtech-v1": {
+    "parts": [
+      "APH",
+      "TEL",
+      "DD"
+    ],
+    "electronics": [
+      "TXN",
+      "ADI",
+      "ON"
+    ],
+    "assembly": [
+      "JBL",
+      "FLEX",
+      "TMO"
+    ],
+    "providers": [
+      "HCA",
+      "UNH",
+      "CVS"
+    ],
+    "payers": [
+      "UNH",
+      "CI",
+      "ELV"
+    ]
+  },
+  "health-services-v1": {
+    "supply": [
+      "LLY",
+      "JNJ",
+      "ABT"
+    ],
+    "providers": [
+      "HCA",
+      "ISRG",
+      "MDT"
+    ],
+    "pharmacy": [
+      "CVS",
+      "MCK",
+      "WBA"
+    ],
+    "tech": [
+      "MSFT",
+      "ORCL",
+      "VEEV"
+    ],
+    "sponsors": [
+      "UNH",
+      "CI",
+      "ELV"
+    ]
+  },
+  "energy-integrated-v1": {
+    "services": [
+      "SLB",
+      "HAL",
+      "BKR"
+    ],
+    "upstream": [
+      "COP",
+      "EOG",
+      "OXY"
+    ],
+    "midstream": [
+      "ENB",
+      "KMI",
+      "WMB"
+    ],
+    "refining": [
+      "MPC",
+      "VLO",
+      "PSX"
+    ],
+    "marketing": [
+      "DAL",
+      "CAT",
+      "UNP"
+    ]
+  },
+  "industrials-v1": {
+    "materials": [
+      "NUE",
+      "FCX",
+      "DOW"
+    ],
+    "components": [
+      "ETN",
+      "PH",
+      "EMR"
+    ],
+    "automation": [
+      "ROK",
+      "HON",
+      "SNPS"
+    ],
+    "dealers": [
+      "CAT",
+      "DE",
+      "ETN"
+    ],
+    "customers": [
+      "XOM",
+      "UNP",
+      "NEE"
+    ]
+  },
+  "aerospace-defense-v1": {
+    "materials": [
+      "DD",
+      "HON",
+      "APH"
+    ],
+    "avionics": [
+      "HON",
+      "TXN",
+      "LHX"
+    ],
+    "tier1": [
+      "RTX",
+      "GE",
+      "TDG"
+    ],
+    "assembly": [
+      "BA",
+      "LMT",
+      "GD"
+    ],
+    "customers": [
+      "NOC",
+      "DAL",
+      "GD"
+    ]
+  },
+  "telecom-v1": {
+    "equipment": [
+      "CSCO",
+      "ERIC",
+      "NOK"
+    ],
+    "towers": [
+      "AMT",
+      "CCI",
+      "SBAC"
+    ],
+    "devices": [
+      "AAPL",
+      "005930.KS",
+      "SONY"
+    ],
+    "content": [
+      "NFLX",
+      "DIS",
+      "GOOG"
+    ],
+    "customers": [
+      "AMZN",
+      "MSFT",
+      "JPM"
+    ]
+  },
+  "consumer-staples-v1": {
+    "inputs": [
+      "ADM",
+      "CTVA",
+      "DE"
+    ],
+    "packaging": [
+      "DD",
+      "DOW",
+      "GLW"
+    ],
+    "manufacturing": [
+      "HON",
+      "EMR",
+      "ROK"
+    ],
+    "retail": [
+      "WMT",
+      "COST",
+      "TGT"
+    ],
+    "media": [
+      "GOOG",
+      "META",
+      "DIS"
+    ]
+  },
+  "consumer-discretionary-v1": {
+    "inputs": [
+      "ADM",
+      "NKE",
+      "DIS"
+    ],
+    "logistics": [
+      "UPS",
+      "FDX",
+      "UNP"
+    ],
+    "stores": [
+      "SBUX",
+      "MCD",
+      "MAR"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "AXP"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "BKNG"
+    ]
+  },
+  "basic-materials-v1": {
+    "equipment": [
+      "CAT",
+      "DE",
+      "PH"
+    ],
+    "extraction": [
+      "BHP",
+      "RIO",
+      "FCX"
+    ],
+    "smelting": [
+      "NUE",
+      "DOW",
+      "LIN"
+    ],
+    "logistics": [
+      "UNP",
+      "CSX",
+      "FDX"
+    ],
+    "customers": [
+      "CAT",
+      "F",
+      "GM"
+    ]
+  },
+  "utilities-v1": {
+    "fuel-capex": [
+      "FSLR",
+      "ENPH",
+      "ETN"
+    ],
+    "generation": [
+      "CEG",
+      "VST",
+      "GEV"
+    ],
+    "td": [
+      "ETN",
+      "EMR",
+      "HON"
+    ],
+    "grid-tech": [
+      "ETN",
+      "ROK",
+      "ANET"
+    ],
+    "retail": [
+      "AMZN",
+      "WMT",
+      "TSLA"
+    ]
+  },
+  "reit-v1": {
+    "construction": [
+      "CAT",
+      "DE",
+      "PH"
+    ],
+    "systems": [
+      "ETN",
+      "EMR",
+      "HON"
+    ],
+    "proptech": [
+      "MSFT",
+      "CSCO",
+      "PANW"
+    ],
+    "tenants": [
+      "MSFT",
+      "AMZN",
+      "GOOG"
+    ],
+    "capital": [
+      "JPM",
+      "BAC",
+      "BLK"
+    ]
+  },
+  "it-services-v1": {
+    "cloud": [
+      "MSFT",
+      "AMZN",
+      "GOOG"
+    ],
+    "software": [
+      "ORCL",
+      "SAP",
+      "CRM"
+    ],
+    "security": [
+      "CRWD",
+      "PANW",
+      "FTNT"
+    ],
+    "delivery": [
+      "INFY",
+      "CTSH",
+      "WIT"
+    ],
+    "clients": [
+      "JPM",
+      "XOM",
+      "UNH"
+    ]
+  },
+  "entertainment-v1": {
+    "production": [
+      "DIS",
+      "WBD",
+      "CMCSA"
+    ],
+    "cdn": [
+      "AMZN",
+      "MSFT",
+      "NET"
+    ],
+    "devices": [
+      "AAPL",
+      "SONY",
+      "005930.KS"
+    ],
+    "monetization": [
+      "GOOG",
+      "META",
+      "TTD"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ]
+  },
+  "diversified-holding-v1": {
+    "underwriting": [
+      "CB",
+      "PGR",
+      "TRV"
+    ],
+    "risk": [
+      "AON",
+      "MMC",
+      "VRSK"
+    ],
+    "portfolio": [
+      "AAPL",
+      "AMZN",
+      "COF"
+    ],
+    "capital": [
+      "JPM",
+      "GS",
+      "BAC"
+    ],
+    "opco": [
+      "UNP",
+      "XOM",
+      "APH"
+    ]
+  }
+}
