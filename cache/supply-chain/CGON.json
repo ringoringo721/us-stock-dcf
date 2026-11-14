@@ -1,0 +1,243 @@
+{
+  "version": 1,
+  "ticker": "CGON",
+  "name_en": "CG Oncology",
+  "name_zh": "CG Oncology",
+  "updatedAt": "2026-11-14",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "pharma-v1",
+    "references": [
+      "Industry model `pharma-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "pharma-v1",
+    "label_zh": "製藥價值鏈",
+    "label_en": "Pharma value chain",
+    "description_zh": "研發工具／CDMO → 原料藥／生物製程 → 臨床研究 → 通路批發 → 支付方／醫療體系。",
+    "description_en": "R&D tools/CDMO → API/biologics → clinical research → wholesale → payers/providers."
+  },
+  "stages": [
+    {
+      "id": "tools-cdmo",
+      "order": 1,
+      "label_zh": "研發工具／CDMO",
+      "label_en": "R&D tools / CDMO",
+      "summary_zh": "生命科學工具與委託開發製造。",
+      "summary_en": "Life-science tools and CDMO.",
+      "players": [
+        {
+          "ticker": "TMO",
+          "name_en": "Thermo Fisher",
+          "name_zh": "賽默飛世爾",
+          "role_zh": "賽默飛世爾：研發工具／CDMO代表性玩家",
+          "role_en": "Thermo Fisher: representative player in R&D tools / CDMO",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "DHR",
+          "name_en": "Danaher",
+          "name_zh": "丹納赫",
+          "role_zh": "丹納赫：研發工具／CDMO代表性玩家",
+          "role_en": "Danaher: representative player in R&D tools / CDMO",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "IQV",
+          "name_en": "IQVIA",
+          "name_zh": "艾昆緯",
+          "role_zh": "艾昆緯：研發工具／CDMO代表性玩家",
+          "role_en": "IQVIA: representative player in R&D tools / CDMO",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "api",
+      "order": 2,
+      "label_zh": "原料藥／生物製程",
+      "label_en": "API / biologics manufacturing",
+      "summary_zh": "API、填充與生物製劑產能。",
+      "summary_en": "API, fill-finish, biologics capacity.",
+      "players": [
+        {
+          "ticker": "TMO",
+          "name_en": "Thermo Fisher",
+          "name_zh": "賽默飛世爾",
+          "role_zh": "賽默飛世爾：原料藥／生物製程代表性玩家",
+          "role_en": "Thermo Fisher: representative player in API / biologics manufacturing",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "CRL",
+          "name_en": "Charles River",
+          "name_zh": "查爾斯河實驗室",
+          "role_zh": "查爾斯河實驗室：原料藥／生物製程代表性玩家",
+          "role_en": "Charles River: representative player in API / biologics manufacturing",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "GEHC",
+          "name_en": "GE HealthCare",
+          "name_zh": "GE醫療",
+          "role_zh": "GE醫療：原料藥／生物製程代表性玩家",
+          "role_en": "GE HealthCare: representative player in API / biologics manufacturing",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "clinical",
+      "order": 3,
+      "label_zh": "臨床試驗／CRO",
+      "label_en": "Clinical trials / CRO",
+      "summary_zh": "臨床營運與檢測服務。",
+      "summary_en": "Clinical ops and lab services.",
+      "players": [
+        {
+          "ticker": "IQV",
+          "name_en": "IQVIA",
+          "name_zh": "艾昆緯",
+          "role_zh": "艾昆緯：臨床試驗／CRO代表性玩家",
+          "role_en": "IQVIA: representative player in Clinical trials / CRO",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "CRL",
+          "name_en": "Charles River",
+          "name_zh": "查爾斯河實驗室",
+          "role_zh": "查爾斯河實驗室：臨床試驗／CRO代表性玩家",
+          "role_en": "Charles River: representative player in Clinical trials / CRO",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "LH",
+          "name_en": "Labcorp",
+          "name_zh": "來博科",
+          "role_zh": "來博科：臨床試驗／CRO代表性玩家",
+          "role_en": "Labcorp: representative player in Clinical trials / CRO",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "wholesale",
+      "order": 4,
+      "label_zh": "醫藥通路／批發",
+      "label_en": "Pharma wholesale / distribution",
+      "summary_zh": "藥品批發與 Specialty 通路。",
+      "summary_en": "Drug wholesale and specialty channel.",
+      "players": [
+        {
+          "ticker": "MCK",
+          "name_en": "McKesson",
+          "name_zh": "麥克森",
+          "role_zh": "麥克森：醫藥通路／批發代表性玩家",
+          "role_en": "McKesson: representative player in Pharma wholesale / distribution",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "COR",
+          "name_en": "Cencora",
+          "name_zh": "信卡拉 (前美源伯根)",
+          "role_zh": "信卡拉 (前美源伯根)：醫藥通路／批發代表性玩家",
+          "role_en": "Cencora: representative player in Pharma wholesale / distribution",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "CAH",
+          "name_en": "Cardinal Health",
+          "name_zh": "卡地納健康",
+          "role_zh": "卡地納健康：醫藥通路／批發代表性玩家",
+          "role_en": "Cardinal Health: representative player in Pharma wholesale / distribution",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "payers",
+      "order": 5,
+      "label_zh": "支付方／醫療體系",
+      "label_en": "Payers / providers",
+      "summary_zh": "保險、PBM 與醫院體系。",
+      "summary_en": "Insurers, PBMs, hospital systems.",
+      "players": [
+        {
+          "ticker": "UNH",
+          "name_en": "UnitedHealth",
+          "name_zh": "聯合健康集團",
+          "role_zh": "聯合健康集團：支付方／醫療體系代表性玩家",
+          "role_en": "UnitedHealth: representative player in Payers / providers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "CVS",
+          "name_en": "CVS Health",
+          "name_zh": "CVS Health",
+          "role_zh": "CVS Health：支付方／醫療體系代表性玩家",
+          "role_en": "CVS Health: representative player in Payers / providers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "CI",
+          "name_en": "Cigna",
+          "name_zh": "信諾",
+          "role_zh": "信諾：支付方／醫療體系代表性玩家",
+          "role_en": "Cigna: representative player in Payers / providers",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "REGN",
+      "name_en": "Regeneron",
+      "name_zh": "再生元製藥",
+      "basis_zh": "生物製藥對手",
+      "basis_en": "Biopharma rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "VRTX",
+      "name_en": "Vertex",
+      "name_zh": "福泰製藥",
+      "basis_zh": "生物製藥對手",
+      "basis_en": "Biopharma rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "AMGN",
+      "name_en": "Amgen",
+      "name_zh": "安進",
+      "basis_zh": "生物製藥對手",
+      "basis_en": "Biopharma rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "GILD",
+      "name_en": "Gilead Sciences",
+      "name_zh": "吉利德科學",
+      "basis_zh": "生物製藥對手",
+      "basis_en": "Biopharma rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "ABBV",
+      "name_en": "AbbVie",
+      "name_zh": "艾伯維",
+      "basis_zh": "生物製藥對手",
+      "basis_en": "Biopharma rival",
+      "exchange": "NYSE"
+    }
+  ]
+}
