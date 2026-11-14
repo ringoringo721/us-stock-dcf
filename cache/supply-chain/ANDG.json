@@ -1,0 +1,222 @@
+{
+  "version": 1,
+  "ticker": "ANDG",
+  "name_en": "Andersen",
+  "name_zh": "Andersen",
+  "updatedAt": "2026-11-14",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "tax-pro-services-v1",
+    "references": [
+      "Industry model `tax-pro-services-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "tax-pro-services-v1",
+    "label_zh": "稅務／專業服務價值鏈",
+    "label_en": "Tax / professional-services value chain",
+    "description_zh": "稅務軟體／內容 → 執業人力 → 加盟／通路 → 行銷獲客 → 銀行／支付結算。",
+    "description_en": "Tax software/content → practitioner workforce → franchise/channel → marketing acquisition → bank/payment settlement."
+  },
+  "stages": [
+    {
+      "id": "software",
+      "order": 1,
+      "label_zh": "稅務軟體／內容",
+      "label_en": "Tax software / content",
+      "summary_zh": "報稅引擎與稅務內容。",
+      "summary_en": "Tax engines and content.",
+      "players": [
+        {
+          "ticker": "MSFT",
+          "name_en": "Microsoft",
+          "name_zh": "微軟",
+          "role_zh": "微軟：稅務軟體／內容代表性玩家",
+          "role_en": "Microsoft: representative player in Tax software / content",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "ORCL",
+          "name_en": "Oracle",
+          "name_zh": "甲骨文",
+          "role_zh": "甲骨文：稅務軟體／內容代表性玩家",
+          "role_en": "Oracle: representative player in Tax software / content",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "ADBE",
+          "name_en": "Adobe",
+          "name_zh": "Adobe",
+          "role_zh": "Adobe：稅務軟體／內容代表性玩家",
+          "role_en": "Adobe: representative player in Tax software / content",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "practitioners",
+      "order": 2,
+      "label_zh": "執業人力／顧問",
+      "label_en": "Practitioners / advisors",
+      "summary_zh": "會計師與稅務顧問人力。",
+      "summary_en": "Accountants and tax advisors.",
+      "players": [
+        {
+          "ticker": "RHI",
+          "name_en": "Robert Half",
+          "name_zh": "Robert Half",
+          "role_zh": "Robert Half：執業人力／顧問代表性玩家",
+          "role_en": "Robert Half: representative player in Practitioners / advisors",
+          "exchange": "NYSE",
+          "listedInApp": false
+        },
+        {
+          "ticker": "MAN",
+          "name_en": "ManpowerGroup",
+          "name_zh": "ManpowerGroup",
+          "role_zh": "ManpowerGroup：執業人力／顧問代表性玩家",
+          "role_en": "ManpowerGroup: representative player in Practitioners / advisors",
+          "exchange": "NYSE",
+          "listedInApp": false
+        },
+        {
+          "ticker": "ASGN",
+          "name_en": "ASGN",
+          "name_zh": "ASGN",
+          "role_zh": "ASGN：執業人力／顧問代表性玩家",
+          "role_en": "ASGN: representative player in Practitioners / advisors",
+          "exchange": "NYSE",
+          "listedInApp": false
+        }
+      ]
+    },
+    {
+      "id": "channel",
+      "order": 3,
+      "label_zh": "加盟／門市通路",
+      "label_en": "Franchise / store channel",
+      "summary_zh": "加盟與門市網路。",
+      "summary_en": "Franchise and retail offices.",
+      "players": [
+        {
+          "ticker": "HRB",
+          "name_en": "H&R Block",
+          "name_zh": "H&R Block",
+          "role_zh": "H&R Block：加盟／門市通路代表性玩家",
+          "role_en": "H&R Block: representative player in Franchise / store channel",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "INTU",
+          "name_en": "Intuit",
+          "name_zh": "直覺電腦",
+          "role_zh": "直覺電腦：加盟／門市通路代表性玩家",
+          "role_en": "Intuit: representative player in Franchise / store channel",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "ADP",
+          "name_en": "ADP",
+          "name_zh": "安德普翰 (ADP)",
+          "role_zh": "安德普翰 (ADP)：加盟／門市通路代表性玩家",
+          "role_en": "ADP: representative player in Franchise / store channel",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "marketing",
+      "order": 4,
+      "label_zh": "行銷／數位獲客",
+      "label_en": "Marketing / digital acquisition",
+      "summary_zh": "搜尋、社群與加盟行銷。",
+      "summary_en": "Search, social, and franchise marketing.",
+      "players": [
+        {
+          "ticker": "GOOG",
+          "name_en": "Alphabet",
+          "name_zh": "Alphabet（Google）",
+          "role_zh": "Alphabet（Google）：行銷／數位獲客代表性玩家",
+          "role_en": "Alphabet: representative player in Marketing / digital acquisition",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "META",
+          "name_en": "Meta Platforms",
+          "name_zh": "Meta (臉書)",
+          "role_zh": "Meta (臉書)：行銷／數位獲客代表性玩家",
+          "role_en": "Meta Platforms: representative player in Marketing / digital acquisition",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "AMZN",
+          "name_en": "Amazon.com",
+          "name_zh": "亞馬遜",
+          "role_zh": "亞馬遜：行銷／數位獲客代表性玩家",
+          "role_en": "Amazon.com: representative player in Marketing / digital acquisition",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "settlement",
+      "order": 5,
+      "label_zh": "銀行／退稅支付",
+      "label_en": "Banks / refund payment",
+      "summary_zh": "退稅撥款與銀行結算。",
+      "summary_en": "Refund disbursement and bank rails.",
+      "players": [
+        {
+          "ticker": "JPM",
+          "name_en": "JPMorgan Chase & Co.",
+          "name_zh": "摩根大通",
+          "role_zh": "摩根大通：銀行／退稅支付代表性玩家",
+          "role_en": "JPMorgan Chase & Co.: representative player in Banks / refund payment",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "BAC",
+          "name_en": "Bank of America",
+          "name_zh": "美國銀行",
+          "role_zh": "美國銀行：銀行／退稅支付代表性玩家",
+          "role_en": "Bank of America: representative player in Banks / refund payment",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "WFC",
+          "name_en": "Wells Fargo",
+          "name_zh": "富國銀行",
+          "role_zh": "富國銀行：銀行／退稅支付代表性玩家",
+          "role_en": "Wells Fargo: representative player in Banks / refund payment",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "HRB",
+      "name_en": "H&R Block",
+      "name_zh": "H&R Block",
+      "basis_zh": "稅務／專業服務對手",
+      "basis_en": "Tax / professional-services rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "INTU",
+      "name_en": "Intuit",
+      "name_zh": "直覺電腦",
+      "basis_zh": "稅務／專業服務對手",
+      "basis_en": "Tax / professional-services rival",
+      "exchange": "NASDAQ"
+    }
+  ]
+}

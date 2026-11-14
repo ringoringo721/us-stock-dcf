@@ -1,0 +1,243 @@
+{
+  "version": 1,
+  "ticker": "CHRD",
+  "name_en": "Chord Energy",
+  "name_zh": "Chord Energy",
+  "updatedAt": "2026-11-14",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "energy-integrated-v1",
+    "references": [
+      "Industry model `energy-integrated-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "energy-integrated-v1",
+    "label_zh": "綜合油氣價值鏈",
+    "label_en": "Integrated oil & gas value chain",
+    "description_zh": "油服／裝置 → 上游開採 → 中游管輸 → 煉製化工 → 零售／航煤客戶。",
+    "description_en": "Oilfield services → upstream → midstream → refining/chem → retail/jet customers."
+  },
+  "stages": [
+    {
+      "id": "services",
+      "order": 1,
+      "label_zh": "油服／裝置",
+      "label_en": "Oilfield services / equipment",
+      "summary_zh": "鑽完井與油田服務。",
+      "summary_en": "Drilling and oilfield services.",
+      "players": [
+        {
+          "ticker": "SLB",
+          "name_en": "Schlumberger",
+          "name_zh": "斯倫貝謝",
+          "role_zh": "斯倫貝謝：油服／裝置代表性玩家",
+          "role_en": "Schlumberger: representative player in Oilfield services / equipment",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "HAL",
+          "name_en": "Halliburton",
+          "name_zh": "哈里伯頓",
+          "role_zh": "哈里伯頓：油服／裝置代表性玩家",
+          "role_en": "Halliburton: representative player in Oilfield services / equipment",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "BKR",
+          "name_en": "Baker Hughes",
+          "name_zh": "貝克休斯",
+          "role_zh": "貝克休斯：油服／裝置代表性玩家",
+          "role_en": "Baker Hughes: representative player in Oilfield services / equipment",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "upstream",
+      "order": 2,
+      "label_zh": "上游勘探開發",
+      "label_en": "Upstream E&P",
+      "summary_zh": "勘探開發與權益油。",
+      "summary_en": "Exploration and production.",
+      "players": [
+        {
+          "ticker": "COP",
+          "name_en": "ConocoPhillips",
+          "name_zh": "康菲石油",
+          "role_zh": "康菲石油：上游勘探開發代表性玩家",
+          "role_en": "ConocoPhillips: representative player in Upstream E&P",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "EOG",
+          "name_en": "EOG Resources",
+          "name_zh": "EOG 能源",
+          "role_zh": "EOG 能源：上游勘探開發代表性玩家",
+          "role_en": "EOG Resources: representative player in Upstream E&P",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "OXY",
+          "name_en": "Occidental",
+          "name_zh": "西方石油",
+          "role_zh": "西方石油：上游勘探開發代表性玩家",
+          "role_en": "Occidental: representative player in Upstream E&P",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "midstream",
+      "order": 3,
+      "label_zh": "中游管輸／液化",
+      "label_en": "Midstream / LNG",
+      "summary_zh": "管線、儲運與 LNG。",
+      "summary_en": "Pipelines, storage, LNG.",
+      "players": [
+        {
+          "ticker": "ENB",
+          "name_en": "Enbridge Inc.",
+          "name_zh": "恩橋公司",
+          "role_zh": "恩橋公司：中游管輸／液化代表性玩家",
+          "role_en": "Enbridge Inc.: representative player in Midstream / LNG",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "KMI",
+          "name_en": "Kinder Morgan",
+          "name_zh": "金德摩根",
+          "role_zh": "金德摩根：中游管輸／液化代表性玩家",
+          "role_en": "Kinder Morgan: representative player in Midstream / LNG",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "WMB",
+          "name_en": "Williams",
+          "name_zh": "威廉斯公司",
+          "role_zh": "威廉斯公司：中游管輸／液化代表性玩家",
+          "role_en": "Williams: representative player in Midstream / LNG",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "refining",
+      "order": 4,
+      "label_zh": "煉製／化工",
+      "label_en": "Refining / chemicals",
+      "summary_zh": "煉廠與石化下游。",
+      "summary_en": "Refineries and downstream chem.",
+      "players": [
+        {
+          "ticker": "MPC",
+          "name_en": "Marathon Petroleum",
+          "name_zh": "馬拉松原油",
+          "role_zh": "馬拉松原油：煉製／化工代表性玩家",
+          "role_en": "Marathon Petroleum: representative player in Refining / chemicals",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "VLO",
+          "name_en": "Valero",
+          "name_zh": "瓦萊羅能源",
+          "role_zh": "瓦萊羅能源：煉製／化工代表性玩家",
+          "role_en": "Valero: representative player in Refining / chemicals",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "PSX",
+          "name_en": "Phillips 66",
+          "name_zh": "菲利普斯66",
+          "role_zh": "菲利普斯66：煉製／化工代表性玩家",
+          "role_en": "Phillips 66: representative player in Refining / chemicals",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "marketing",
+      "order": 5,
+      "label_zh": "零售／航煤／工業客戶",
+      "label_en": "Retail / jet / industrial customers",
+      "summary_zh": "加油站、航空與工業使用者。",
+      "summary_en": "Fuel retail, aviation, industrials.",
+      "players": [
+        {
+          "ticker": "DAL",
+          "name_en": "Delta Air Lines",
+          "name_zh": "達美航空",
+          "role_zh": "達美航空：零售／航煤／工業客戶代表性玩家",
+          "role_en": "Delta Air Lines: representative player in Retail / jet / industrial customers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "CAT",
+          "name_en": "Caterpillar",
+          "name_zh": "開拓重工",
+          "role_zh": "開拓重工：零售／航煤／工業客戶代表性玩家",
+          "role_en": "Caterpillar: representative player in Retail / jet / industrial customers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "UNP",
+          "name_en": "Union Pacific",
+          "name_zh": "聯合太平洋鐵路",
+          "role_zh": "聯合太平洋鐵路：零售／航煤／工業客戶代表性玩家",
+          "role_en": "Union Pacific: representative player in Retail / jet / industrial customers",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "EOG",
+      "name_en": "EOG Resources",
+      "name_zh": "EOG 能源",
+      "basis_zh": "上游勘探開發對手",
+      "basis_en": "E&P rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "OXY",
+      "name_en": "Occidental",
+      "name_zh": "西方石油",
+      "basis_zh": "上游勘探開發對手",
+      "basis_en": "E&P rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "FANG",
+      "name_en": "Diamondback Energy",
+      "name_zh": "Diamondback",
+      "basis_zh": "上游勘探開發對手",
+      "basis_en": "E&P rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "COP",
+      "name_en": "ConocoPhillips",
+      "name_zh": "康菲石油",
+      "basis_zh": "上游勘探開發對手",
+      "basis_en": "E&P rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "DVN",
+      "name_en": "Devon Energy",
+      "name_zh": "Devon",
+      "basis_zh": "上游勘探開發對手",
+      "basis_en": "E&P rival",
+      "exchange": "NYSE"
+    }
+  ]
+}
