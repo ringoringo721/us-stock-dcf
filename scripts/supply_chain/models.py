@@ -1755,15 +1755,17 @@ TICKER_MODEL: dict[str, str] = {
     "AMH": "reit-v1",
     "AHR": "reit-v1",
     "AGNC": "reit-v1",
-    "ASR": "consumer-discretionary-v1",
+    "ASR": "industrials-v1",  # airport operators — not hospitality disc stages
+    "PAC": "industrials-v1",
+    "OMAB": "industrials-v1",
     "APTV": "industrials-v1",
     "ALSN": "industrials-v1",
     "ALV": "industrials-v1",
     "AEIS": "industrials-v1",
     "AMRX": "pharma-v1",
     "APPF": "saas-cloud-v1",
-    "ADT": "industrials-v1",
-    "ALLE": "industrials-v1",
+    "ADT": "consumer-discretionary-v1",  # security services, not industrial OEM chain
+    "ALLE": "consumer-discretionary-v1",
     "ASTS": "telecom-v1",
     "BILI": "entertainment-v1",
     "BC": "consumer-discretionary-v1",
@@ -1776,13 +1778,26 @@ TICKER_MODEL: dict[str, str] = {
     "BG": "consumer-staples-v1",
     "ABEV": "consumer-staples-v1",
     "ALC": "medtech-v1",
-    "ATR": "medtech-v1",
-    "AVTR": "medtech-v1",
+    "ATR": "industrials-v1",  # packaging/dispensing, not dental medtech
+    "AVTR": "medtech-v1",  # life-science reagents — peers via life-sci-dist group
     "ALB": "specialty-chem-v1",
     "BCPC": "specialty-chem-v1",
     "AA": "basic-materials-v1",
     "ARMK": "industrials-v1",
     "ACT": "insurance-v1",
+    "ACGL": "insurance-v1",  # specialty P&C / re — not diversified-holding life
+    "ARES": "asset-mgmt-v1",  # alt managers
+    "ANDG": "industrials-v1",  # tax/professional services — not hospitality
+    "AMTM": "industrials-v1",  # gov services / engineering — not aero primes
+    "BLLN": "medtech-v1",  # molecular dx — peers via mol-dx group
+    "CIG": "utilities-v1",
+    "BRZE": "saas-cloud-v1",
+    "AOS": "industrials-v1",
+    "AGCO": "industrials-v1",
+    "AS": "consumer-discretionary-v1",
+    "AVAV": "aerospace-defense-v1",  # military UAV — peers via mil-uav group
+    "BETA": "aerospace-defense-v1",
+    "JOBY": "aerospace-defense-v1",
 }
 
 

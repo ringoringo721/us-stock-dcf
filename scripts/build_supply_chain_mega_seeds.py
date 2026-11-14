@@ -275,7 +275,7 @@ STAGE_TICKER_ALIAS: dict[str, str] = {
     "PEAK": "DOC",
     "MMC": "MRSH",
 }
-STAGE_TICKER_BANNED = {"SPCX", "MAXR", "FLY", "FLYX", "SQ", "PEAK", "MYL"}
+STAGE_TICKER_BANNED = {"SPCX", "MAXR", "FLY", "FLYX", "SQ", "PEAK", "MYL", "RDFN"}
 
 
 def normalize_stage_ticker(t: str) -> str | None:
@@ -403,6 +403,8 @@ def build_seed(
     for ct, basis_zh, basis_en in competitors.get(ticker) or []:
         ct = normalize_stage_ticker(ct) or (ct or "").strip().upper()
         # Still drop banned even if alias missed; skip self / dupes.
+        # Stage/rival overlap (e.g. ATI+NUE) is handled by specialty peer groups,
+        # not a global filter — payments hubs intentionally share stage+rival names.
         if not ct or ct == ticker or ct in seen_comp or ct in STAGE_TICKER_BANNED:
             continue
         seen_comp.add(ct)

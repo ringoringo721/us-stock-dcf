@@ -8778,29 +8778,24 @@
   ],
   "KEYS": [
     [
-      "AMAT",
-      "半導體設備／製程材料對手",
-      "Semi equipment / process-materials rival"
+      "CDNS",
+      "EDA／設計軟體對手",
+      "EDA / design software rival"
     ],
     [
-      "LRCX",
-      "半導體設備／製程材料對手",
-      "Semi equipment / process-materials rival"
+      "SNPS",
+      "EDA／設計軟體對手",
+      "EDA / design software rival"
     ],
     [
-      "KLAC",
-      "半導體設備／製程材料對手",
-      "Semi equipment / process-materials rival"
+      "ANSS",
+      "EDA／設計軟體對手",
+      "EDA / design software rival"
     ],
     [
-      "ENTG",
-      "半導體設備／製程材料對手",
-      "Semi equipment / process-materials rival"
-    ],
-    [
-      "NVMI",
-      "半導體設備／製程材料對手",
-      "Semi equipment / process-materials rival"
+      "TER",
+      "EDA／設計軟體對手",
+      "EDA / design software rival"
     ]
   ],
   "XYZ": [
@@ -8962,33 +8957,6 @@
   ],
   "IQV": [
     [
-      "VEEV",
-      "生命科學雲／臨床軟體對手",
-      "Life-science cloud / clinical software rival"
-    ],
-    [
-      "TMO",
-      "生命科學雲／臨床軟體對手",
-      "Life-science cloud / clinical software rival"
-    ],
-    [
-      "DHR",
-      "生命科學雲／臨床軟體對手",
-      "Life-science cloud / clinical software rival"
-    ],
-    [
-      "CRM",
-      "生命科學雲／臨床軟體對手",
-      "Life-science cloud / clinical software rival"
-    ],
-    [
-      "NOW",
-      "生命科學雲／臨床軟體對手",
-      "Life-science cloud / clinical software rival"
-    ]
-  ],
-  "NTRA": [
-    [
       "IDXX",
       "診斷／生命科學工具對手",
       "Diagnostics / life-science tools rival"
@@ -9012,6 +8980,28 @@
       "A",
       "診斷／生命科學工具對手",
       "Diagnostics / life-science tools rival"
+    ]
+  ],
+  "NTRA": [
+    [
+      "BLLN",
+      "分子診斷／NIPT 對手",
+      "Molecular diagnostics / NIPT rival"
+    ],
+    [
+      "ILMN",
+      "分子診斷／NIPT 對手",
+      "Molecular diagnostics / NIPT rival"
+    ],
+    [
+      "DGX",
+      "分子診斷／NIPT 對手",
+      "Molecular diagnostics / NIPT rival"
+    ],
+    [
+      "LH",
+      "分子診斷／NIPT 對手",
+      "Molecular diagnostics / NIPT rival"
     ]
   ],
   "FMX": [
@@ -9043,29 +9033,29 @@
   ],
   "ARES": [
     [
-      "BEN",
-      "主動／共同基金資產管理對手",
-      "Active / mutual-fund asset-manager rival"
+      "KKR",
+      "另類資產管理對手",
+      "Alternative asset-manager rival"
     ],
     [
-      "TROW",
-      "主動／共同基金資產管理對手",
-      "Active / mutual-fund asset-manager rival"
+      "BX",
+      "另類資產管理對手",
+      "Alternative asset-manager rival"
     ],
     [
-      "IVZ",
-      "主動／共同基金資產管理對手",
-      "Active / mutual-fund asset-manager rival"
+      "APO",
+      "另類資產管理對手",
+      "Alternative asset-manager rival"
     ],
     [
-      "AMG",
-      "主動／共同基金資產管理對手",
-      "Active / mutual-fund asset-manager rival"
+      "CG",
+      "另類資產管理對手",
+      "Alternative asset-manager rival"
     ],
     [
-      "BLK",
-      "主動／共同基金資產管理對手",
-      "Active / mutual-fund asset-manager rival"
+      "OWL",
+      "另類資產管理對手",
+      "Alternative asset-manager rival"
     ]
   ],
   "YUM": [
@@ -9860,29 +9850,24 @@
   ],
   "CCI": [
     [
-      "ARE",
-      "辦公／生科園區 REIT 對手",
-      "Office / life-science REIT rival"
+      "AMT",
+      "電塔／通訊基礎設施對手",
+      "Tower / comms-infra REIT rival"
     ],
     [
-      "BXP",
-      "辦公／生科園區 REIT 對手",
-      "Office / life-science REIT rival"
-    ],
-    [
-      "VNO",
-      "辦公／生科園區 REIT 對手",
-      "Office / life-science REIT rival"
-    ],
-    [
-      "PLD",
-      "辦公／生科園區 REIT 對手",
-      "Office / life-science REIT rival"
+      "SBAC",
+      "電塔／通訊基礎設施對手",
+      "Tower / comms-infra REIT rival"
     ],
     [
       "EQIX",
-      "辦公／生科園區 REIT 對手",
-      "Office / life-science REIT rival"
+      "電塔／通訊基礎設施對手",
+      "Tower / comms-infra REIT rival"
+    ],
+    [
+      "DLR",
+      "電塔／通訊基礎設施對手",
+      "Tower / comms-infra REIT rival"
     ]
   ],
   "IX": [
@@ -10137,29 +10122,29 @@
   ],
   "ACGL": [
     [
-      "MET",
-      "壽險對手",
-      "Life insurance rival"
+      "TRV",
+      "產險／再保對手",
+      "P&C / reinsurance rival"
     ],
     [
-      "AFL",
-      "壽險對手",
-      "Life insurance rival"
+      "PGR",
+      "產險／再保對手",
+      "P&C / reinsurance rival"
     ],
     [
-      "MFC",
-      "壽險對手",
-      "Life insurance rival"
+      "CB",
+      "產險／再保對手",
+      "P&C / reinsurance rival"
     ],
     [
-      "PRU",
-      "壽險對手",
-      "Life insurance rival"
+      "EG",
+      "產險／再保對手",
+      "P&C / reinsurance rival"
     ],
     [
-      "LNC",
-      "壽險對手",
-      "Life insurance rival"
+      "RNR",
+      "產險／再保對手",
+      "P&C / reinsurance rival"
     ]
   ],
   "KVUE": [
@@ -10662,29 +10647,24 @@
   ],
   "TER": [
     [
-      "AMAT",
-      "半導體設備／製程材料對手",
-      "Semi equipment / process-materials rival"
+      "CDNS",
+      "EDA／設計軟體對手",
+      "EDA / design software rival"
     ],
     [
-      "LRCX",
-      "半導體設備／製程材料對手",
-      "Semi equipment / process-materials rival"
+      "SNPS",
+      "EDA／設計軟體對手",
+      "EDA / design software rival"
     ],
     [
-      "KLAC",
-      "半導體設備／製程材料對手",
-      "Semi equipment / process-materials rival"
+      "ANSS",
+      "EDA／設計軟體對手",
+      "EDA / design software rival"
     ],
     [
-      "ENTG",
-      "半導體設備／製程材料對手",
-      "Semi equipment / process-materials rival"
-    ],
-    [
-      "NVMI",
-      "半導體設備／製程材料對手",
-      "Semi equipment / process-materials rival"
+      "KEYS",
+      "EDA／設計軟體對手",
+      "EDA / design software rival"
     ]
   ],
   "NTR": [
@@ -11089,29 +11069,24 @@
   ],
   "ILMN": [
     [
-      "IDXX",
-      "診斷／生命科學工具對手",
-      "Diagnostics / life-science tools rival"
+      "BLLN",
+      "分子診斷／NIPT 對手",
+      "Molecular diagnostics / NIPT rival"
     ],
     [
-      "TMO",
-      "診斷／生命科學工具對手",
-      "Diagnostics / life-science tools rival"
+      "DGX",
+      "分子診斷／NIPT 對手",
+      "Molecular diagnostics / NIPT rival"
     ],
     [
-      "DHR",
-      "診斷／生命科學工具對手",
-      "Diagnostics / life-science tools rival"
+      "LH",
+      "分子診斷／NIPT 對手",
+      "Molecular diagnostics / NIPT rival"
     ],
     [
-      "BDX",
-      "診斷／生命科學工具對手",
-      "Diagnostics / life-science tools rival"
-    ],
-    [
-      "A",
-      "診斷／生命科學工具對手",
-      "Diagnostics / life-science tools rival"
+      "NTRA",
+      "分子診斷／NIPT 對手",
+      "Molecular diagnostics / NIPT rival"
     ]
   ],
   "ESLT": [
@@ -11273,56 +11248,51 @@
   ],
   "STLD": [
     [
-      "ATI",
-      "金屬加工／特鋼對手",
-      "Metal fabrication / specialty metals rival"
+      "NUE",
+      "鋼鐵對手",
+      "Steel rival"
     ],
     [
-      "CRS",
-      "金屬加工／特鋼對手",
-      "Metal fabrication / specialty metals rival"
+      "X",
+      "鋼鐵對手",
+      "Steel rival"
     ],
     [
-      "MLI",
-      "金屬加工／特鋼對手",
-      "Metal fabrication / specialty metals rival"
+      "CLF",
+      "鋼鐵對手",
+      "Steel rival"
     ],
     [
-      "WOR",
-      "金屬加工／特鋼對手",
-      "Metal fabrication / specialty metals rival"
-    ],
-    [
-      "SPXC",
-      "金屬加工／特鋼對手",
-      "Metal fabrication / specialty metals rival"
+      "MT",
+      "鋼鐵對手",
+      "Steel rival"
     ]
   ],
   "MCHP": [
     [
+      "NXPI",
+      "車用／工業類比半導體對手",
+      "Auto/industrial analog semi rival"
+    ],
+    [
       "TXN",
-      "類比／感測半導體對手",
-      "Analog / sensor semiconductor rival"
+      "車用／工業類比半導體對手",
+      "Auto/industrial analog semi rival"
     ],
     [
       "ADI",
-      "類比／感測半導體對手",
-      "Analog / sensor semiconductor rival"
+      "車用／工業類比半導體對手",
+      "Auto/industrial analog semi rival"
     ],
     [
       "ON",
-      "類比／感測半導體對手",
-      "Analog / sensor semiconductor rival"
+      "車用／工業類比半導體對手",
+      "Auto/industrial analog semi rival"
     ],
     [
-      "NXPI",
-      "類比／感測半導體對手",
-      "Analog / sensor semiconductor rival"
-    ],
-    [
-      "ALGM",
-      "類比／感測半導體對手",
-      "Analog / sensor semiconductor rival"
+      "IFX.DE",
+      "車用／工業類比半導體對手",
+      "Auto/industrial analog semi rival"
     ]
   ],
   "TS": [
@@ -11896,29 +11866,24 @@
   ],
   "LH": [
     [
-      "IDXX",
-      "診斷／生命科學工具對手",
-      "Diagnostics / life-science tools rival"
+      "BLLN",
+      "分子診斷／NIPT 對手",
+      "Molecular diagnostics / NIPT rival"
     ],
     [
-      "TMO",
-      "診斷／生命科學工具對手",
-      "Diagnostics / life-science tools rival"
+      "ILMN",
+      "分子診斷／NIPT 對手",
+      "Molecular diagnostics / NIPT rival"
     ],
     [
-      "DHR",
-      "診斷／生命科學工具對手",
-      "Diagnostics / life-science tools rival"
+      "DGX",
+      "分子診斷／NIPT 對手",
+      "Molecular diagnostics / NIPT rival"
     ],
     [
-      "BDX",
-      "診斷／生命科學工具對手",
-      "Diagnostics / life-science tools rival"
-    ],
-    [
-      "A",
-      "診斷／生命科學工具對手",
-      "Diagnostics / life-science tools rival"
+      "NTRA",
+      "分子診斷／NIPT 對手",
+      "Molecular diagnostics / NIPT rival"
     ]
   ],
   "EXPE": [
@@ -12377,29 +12342,24 @@
   ],
   "DGX": [
     [
-      "IDXX",
-      "診斷／生命科學工具對手",
-      "Diagnostics / life-science tools rival"
+      "BLLN",
+      "分子診斷／NIPT 對手",
+      "Molecular diagnostics / NIPT rival"
     ],
     [
-      "TMO",
-      "診斷／生命科學工具對手",
-      "Diagnostics / life-science tools rival"
+      "ILMN",
+      "分子診斷／NIPT 對手",
+      "Molecular diagnostics / NIPT rival"
     ],
     [
-      "DHR",
-      "診斷／生命科學工具對手",
-      "Diagnostics / life-science tools rival"
+      "LH",
+      "分子診斷／NIPT 對手",
+      "Molecular diagnostics / NIPT rival"
     ],
     [
-      "BDX",
-      "診斷／生命科學工具對手",
-      "Diagnostics / life-science tools rival"
-    ],
-    [
-      "A",
-      "診斷／生命科學工具對手",
-      "Diagnostics / life-science tools rival"
+      "NTRA",
+      "分子診斷／NIPT 對手",
+      "Molecular diagnostics / NIPT rival"
     ]
   ],
   "OKTA": [
@@ -12512,29 +12472,29 @@
   ],
   "WRB": [
     [
-      "TRV",
-      "產險對手",
-      "P&C insurance rival"
+      "ACGL",
+      "產險／再保對手",
+      "P&C / reinsurance rival"
     ],
     [
-      "ALL",
-      "產險對手",
-      "P&C insurance rival"
+      "TRV",
+      "產險／再保對手",
+      "P&C / reinsurance rival"
     ],
     [
       "PGR",
-      "產險對手",
-      "P&C insurance rival"
+      "產險／再保對手",
+      "P&C / reinsurance rival"
     ],
     [
       "CB",
-      "產險對手",
-      "P&C insurance rival"
+      "產險／再保對手",
+      "P&C / reinsurance rival"
     ],
     [
-      "AIG",
-      "產險對手",
-      "P&C insurance rival"
+      "EG",
+      "產險／再保對手",
+      "P&C / reinsurance rival"
     ]
   ],
   "BIDU": [
@@ -13133,14 +13093,29 @@
   ],
   "VRSK": [
     [
-      "CART",
-      "Software - Services產品／市場對手",
-      "Software - Services product/market rival"
+      "ANDG",
+      "稅務／專業服務對手",
+      "Tax / professional-services rival"
     ],
     [
-      "IREN",
-      "Software - Services產品／市場對手",
-      "Software - Services product/market rival"
+      "HRB",
+      "稅務／專業服務對手",
+      "Tax / professional-services rival"
+    ],
+    [
+      "INTU",
+      "稅務／專業服務對手",
+      "Tax / professional-services rival"
+    ],
+    [
+      "PAYX",
+      "稅務／專業服務對手",
+      "Tax / professional-services rival"
+    ],
+    [
+      "EFX",
+      "稅務／專業服務對手",
+      "Tax / professional-services rival"
     ]
   ],
   "CFG": [
@@ -13268,12 +13243,12 @@
       "Oilfield services rival"
     ],
     [
-      "FTI",
+      "XOM",
       "油服對手",
       "Oilfield services rival"
     ],
     [
-      "WHD",
+      "CVX",
       "油服對手",
       "Oilfield services rival"
     ]
@@ -13341,29 +13316,24 @@
   ],
   "IHG": [
     [
-      "CHH",
-      "飯店營運對手",
-      "Hotel operator rival"
-    ],
-    [
       "HLT",
-      "飯店營運對手",
-      "Hotel operator rival"
+      "飯店對手",
+      "Hotel rival"
     ],
     [
       "MAR",
-      "飯店營運對手",
-      "Hotel operator rival"
+      "飯店對手",
+      "Hotel rival"
     ],
     [
       "H",
-      "飯店營運對手",
-      "Hotel operator rival"
+      "飯店對手",
+      "Hotel rival"
     ],
     [
-      "WH",
-      "飯店營運對手",
-      "Hotel operator rival"
+      "ABNB",
+      "飯店對手",
+      "Hotel rival"
     ]
   ],
   "CLS": [
@@ -13763,29 +13733,29 @@
   ],
   "ON": [
     [
+      "NXPI",
+      "車用／工業類比半導體對手",
+      "Auto/industrial analog semi rival"
+    ],
+    [
       "TXN",
-      "類比／感測半導體對手",
-      "Analog / sensor semiconductor rival"
+      "車用／工業類比半導體對手",
+      "Auto/industrial analog semi rival"
     ],
     [
       "ADI",
-      "類比／感測半導體對手",
-      "Analog / sensor semiconductor rival"
+      "車用／工業類比半導體對手",
+      "Auto/industrial analog semi rival"
     ],
     [
       "MCHP",
-      "類比／感測半導體對手",
-      "Analog / sensor semiconductor rival"
+      "車用／工業類比半導體對手",
+      "Auto/industrial analog semi rival"
     ],
     [
-      "NXPI",
-      "類比／感測半導體對手",
-      "Analog / sensor semiconductor rival"
-    ],
-    [
-      "ALGM",
-      "類比／感測半導體對手",
-      "Analog / sensor semiconductor rival"
+      "IFX.DE",
+      "車用／工業類比半導體對手",
+      "Auto/industrial analog semi rival"
     ]
   ],
   "JBL": [
@@ -14033,29 +14003,24 @@
   ],
   "STZ": [
     [
-      "ABEV",
-      "啤酒／酒精飲料對手",
-      "Beer / alcoholic-beverage rival"
+      "DEO",
+      "烈酒對手",
+      "Spirits rival"
+    ],
+    [
+      "BF-B",
+      "烈酒對手",
+      "Spirits rival"
     ],
     [
       "BUD",
-      "啤酒／酒精飲料對手",
-      "Beer / alcoholic-beverage rival"
+      "烈酒對手",
+      "Spirits rival"
     ],
     [
       "TAP",
-      "啤酒／酒精飲料對手",
-      "Beer / alcoholic-beverage rival"
-    ],
-    [
-      "SAM",
-      "啤酒／酒精飲料對手",
-      "Beer / alcoholic-beverage rival"
-    ],
-    [
-      "DEO",
-      "啤酒／酒精飲料對手",
-      "Beer / alcoholic-beverage rival"
+      "烈酒對手",
+      "Spirits rival"
     ]
   ],
   "IOT": [
@@ -14183,7 +14148,7 @@
       "Metal fabrication / specialty metals rival"
     ],
     [
-      "NUE",
+      "STLD",
       "金屬加工／特鋼對手",
       "Metal fabrication / specialty metals rival"
     ]
@@ -14722,41 +14687,51 @@
   ],
   "EFX": [
     [
-      "BAH",
-      "Consulting Services產品／市場對手",
-      "Consulting Services product/market rival"
+      "ANDG",
+      "稅務／專業服務對手",
+      "Tax / professional-services rival"
     ],
     [
-      "FCN",
-      "Consulting Services產品／市場對手",
-      "Consulting Services product/market rival"
+      "HRB",
+      "稅務／專業服務對手",
+      "Tax / professional-services rival"
+    ],
+    [
+      "INTU",
+      "稅務／專業服務對手",
+      "Tax / professional-services rival"
+    ],
+    [
+      "PAYX",
+      "稅務／專業服務對手",
+      "Tax / professional-services rival"
+    ],
+    [
+      "VRSK",
+      "稅務／專業服務對手",
+      "Tax / professional-services rival"
     ]
   ],
   "PKG": [
     [
-      "SW",
-      "Packaging & Containers產品／市場對手",
-      "Packaging & Containers product/market rival"
+      "ATR",
+      "包裝／給藥裝置對手",
+      "Packaging / dispensing rival"
     ],
     [
       "AMCR",
-      "Packaging & Containers產品／市場對手",
-      "Packaging & Containers product/market rival"
+      "包裝／給藥裝置對手",
+      "Packaging / dispensing rival"
     ],
     [
       "BALL",
-      "Packaging & Containers產品／市場對手",
-      "Packaging & Containers product/market rival"
-    ],
-    [
-      "AVY",
-      "Packaging & Containers產品／市場對手",
-      "Packaging & Containers product/market rival"
+      "包裝／給藥裝置對手",
+      "Packaging / dispensing rival"
     ],
     [
       "CCK",
-      "Packaging & Containers產品／市場對手",
-      "Packaging & Containers product/market rival"
+      "包裝／給藥裝置對手",
+      "Packaging / dispensing rival"
     ]
   ],
   "L": [
@@ -15358,43 +15333,28 @@
       "OPEN",
       "房地產經紀／數位房仲對手",
       "Property brokerage / digital realtor rival"
-    ],
-    [
-      "RDFN",
-      "房地產經紀／數位房仲對手",
-      "Property brokerage / digital realtor rival"
-    ],
-    [
-      "UWMC",
-      "房地產經紀／數位房仲對手",
-      "Property brokerage / digital realtor rival"
     ]
   ],
   "AMCR": [
     [
-      "SW",
-      "Packaging & Containers產品／市場對手",
-      "Packaging & Containers product/market rival"
-    ],
-    [
-      "PKG",
-      "Packaging & Containers產品／市場對手",
-      "Packaging & Containers product/market rival"
+      "ATR",
+      "包裝／給藥裝置對手",
+      "Packaging / dispensing rival"
     ],
     [
       "BALL",
-      "Packaging & Containers產品／市場對手",
-      "Packaging & Containers product/market rival"
-    ],
-    [
-      "AVY",
-      "Packaging & Containers產品／市場對手",
-      "Packaging & Containers product/market rival"
+      "包裝／給藥裝置對手",
+      "Packaging / dispensing rival"
     ],
     [
       "CCK",
-      "Packaging & Containers產品／市場對手",
-      "Packaging & Containers product/market rival"
+      "包裝／給藥裝置對手",
+      "Packaging / dispensing rival"
+    ],
+    [
+      "PKG",
+      "包裝／給藥裝置對手",
+      "Packaging / dispensing rival"
     ]
   ],
   "XPO": [
@@ -16226,14 +16186,29 @@
   ],
   "AS": [
     [
-      "HAS",
-      "休閒用品對手",
-      "Leisure products rival"
+      "DECK",
+      "運動用品對手",
+      "Sporting-goods rival"
     ],
     [
-      "LTH",
-      "休閒用品對手",
-      "Leisure products rival"
+      "NKE",
+      "運動用品對手",
+      "Sporting-goods rival"
+    ],
+    [
+      "LULU",
+      "運動用品對手",
+      "Sporting-goods rival"
+    ],
+    [
+      "ONON",
+      "運動用品對手",
+      "Sporting-goods rival"
+    ],
+    [
+      "VFC",
+      "運動用品對手",
+      "Sporting-goods rival"
     ]
   ],
   "IP": [
@@ -16694,29 +16669,24 @@
   ],
   "BALL": [
     [
-      "SW",
-      "Packaging & Containers產品／市場對手",
-      "Packaging & Containers product/market rival"
-    ],
-    [
-      "PKG",
-      "Packaging & Containers產品／市場對手",
-      "Packaging & Containers product/market rival"
+      "ATR",
+      "包裝／給藥裝置對手",
+      "Packaging / dispensing rival"
     ],
     [
       "AMCR",
-      "Packaging & Containers產品／市場對手",
-      "Packaging & Containers product/market rival"
-    ],
-    [
-      "AVY",
-      "Packaging & Containers產品／市場對手",
-      "Packaging & Containers product/market rival"
+      "包裝／給藥裝置對手",
+      "Packaging / dispensing rival"
     ],
     [
       "CCK",
-      "Packaging & Containers產品／市場對手",
-      "Packaging & Containers product/market rival"
+      "包裝／給藥裝置對手",
+      "Packaging / dispensing rival"
+    ],
+    [
+      "PKG",
+      "包裝／給藥裝置對手",
+      "Packaging / dispensing rival"
     ]
   ],
   "J": [
@@ -16905,29 +16875,24 @@
   ],
   "H": [
     [
-      "CHH",
-      "飯店營運對手",
-      "Hotel operator rival"
-    ],
-    [
       "HLT",
-      "飯店營運對手",
-      "Hotel operator rival"
+      "飯店對手",
+      "Hotel rival"
     ],
     [
       "MAR",
-      "飯店營運對手",
-      "Hotel operator rival"
+      "飯店對手",
+      "Hotel rival"
     ],
     [
       "IHG",
-      "飯店營運對手",
-      "Hotel operator rival"
+      "飯店對手",
+      "Hotel rival"
     ],
     [
-      "WH",
-      "飯店營運對手",
-      "Hotel operator rival"
+      "ABNB",
+      "飯店對手",
+      "Hotel rival"
     ]
   ],
   "NVT": [
@@ -17334,29 +17299,29 @@
   ],
   "TYL": [
     [
-      "BRZE",
-      "行銷／互動 SaaS 對手",
-      "Marketing / engagement SaaS rival"
+      "SAP",
+      "應用軟體對手",
+      "Application software rival"
     ],
     [
-      "HUBS",
-      "行銷／互動 SaaS 對手",
-      "Marketing / engagement SaaS rival"
+      "SHOP",
+      "應用軟體對手",
+      "Application software rival"
     ],
     [
-      "TEAM",
-      "行銷／互動 SaaS 對手",
-      "Marketing / engagement SaaS rival"
+      "CRM",
+      "應用軟體對手",
+      "Application software rival"
     ],
     [
-      "ZM",
-      "行銷／互動 SaaS 對手",
-      "Marketing / engagement SaaS rival"
+      "UBER",
+      "應用軟體對手",
+      "Application software rival"
     ],
     [
-      "DDOG",
-      "行銷／互動 SaaS 對手",
-      "Marketing / engagement SaaS rival"
+      "ADP",
+      "應用軟體對手",
+      "Application software rival"
     ]
   ],
   "OVV": [
@@ -17469,29 +17434,29 @@
   ],
   "LDOS": [
     [
-      "INFY",
-      "IT 服務對手",
-      "IT services rival"
+      "AMTM",
+      "政府服務／工程承攬對手",
+      "Gov services / engineering-contractor rival"
     ],
     [
-      "ACN",
-      "IT 服務對手",
-      "IT services rival"
+      "SAIC",
+      "政府服務／工程承攬對手",
+      "Gov services / engineering-contractor rival"
     ],
     [
-      "CTSH",
-      "IT 服務對手",
-      "IT services rival"
+      "CACI",
+      "政府服務／工程承攬對手",
+      "Gov services / engineering-contractor rival"
     ],
     [
-      "IBM",
-      "IT 服務對手",
-      "IT services rival"
+      "PSN",
+      "政府服務／工程承攬對手",
+      "Gov services / engineering-contractor rival"
     ],
     [
-      "WIT",
-      "IT 服務對手",
-      "IT services rival"
+      "FLR",
+      "政府服務／工程承攬對手",
+      "Gov services / engineering-contractor rival"
     ]
   ],
   "HAS": [
@@ -18418,29 +18383,29 @@
   ],
   "EG": [
     [
-      "TRV",
-      "產險對手",
-      "P&C insurance rival"
+      "ACGL",
+      "產險／再保對手",
+      "P&C / reinsurance rival"
     ],
     [
-      "ALL",
-      "產險對手",
-      "P&C insurance rival"
+      "TRV",
+      "產險／再保對手",
+      "P&C / reinsurance rival"
     ],
     [
       "PGR",
-      "產險對手",
-      "P&C insurance rival"
+      "產險／再保對手",
+      "P&C / reinsurance rival"
     ],
     [
       "CB",
-      "產險對手",
-      "P&C insurance rival"
+      "產險／再保對手",
+      "P&C / reinsurance rival"
     ],
     [
-      "AIG",
-      "產險對手",
-      "P&C insurance rival"
+      "RNR",
+      "產險／再保對手",
+      "P&C / reinsurance rival"
     ]
   ],
   "FICO": [
@@ -19171,29 +19136,24 @@
   ],
   "KEP": [
     [
-      "DUK",
-      "受規管電力對手",
-      "Regulated electric rival"
+      "CIG",
+      "拉美／新興市場公用事業對手",
+      "LatAm / EM utility rival"
     ],
     [
-      "NEE",
-      "受規管電力對手",
-      "Regulated electric rival"
+      "ENIC",
+      "拉美／新興市場公用事業對手",
+      "LatAm / EM utility rival"
     ],
     [
-      "SO",
-      "受規管電力對手",
-      "Regulated electric rival"
+      "AES",
+      "拉美／新興市場公用事業對手",
+      "LatAm / EM utility rival"
     ],
     [
-      "AEP",
-      "受規管電力對手",
-      "Regulated electric rival"
-    ],
-    [
-      "D",
-      "受規管電力對手",
-      "Regulated electric rival"
+      "SBS",
+      "拉美／新興市場公用事業對手",
+      "LatAm / EM utility rival"
     ]
   ],
   "EQH": [
@@ -19252,29 +19212,29 @@
   ],
   "CNH": [
     [
-      "CAT",
-      "Agricultural - Machinery產品／市場對手",
-      "Agricultural - Machinery product/market rival"
+      "AGCO",
+      "農機對手",
+      "Agricultural machinery rival"
     ],
     [
       "DE",
-      "Agricultural - Machinery產品／市場對手",
-      "Agricultural - Machinery product/market rival"
+      "農機對手",
+      "Agricultural machinery rival"
     ],
     [
-      "OSK",
-      "Agricultural - Machinery產品／市場對手",
-      "Agricultural - Machinery product/market rival"
+      "CMI",
+      "動力總成／重卡對手",
+      "Powertrain / heavy truck rival"
     ],
     [
-      "AGCO",
-      "Agricultural - Machinery產品／市場對手",
-      "Agricultural - Machinery product/market rival"
+      "PCAR",
+      "動力總成／重卡對手",
+      "Powertrain / heavy truck rival"
     ],
     [
-      "FSS",
-      "Agricultural - Machinery產品／市場對手",
-      "Agricultural - Machinery product/market rival"
+      "CAT",
+      "動力總成／重卡對手",
+      "Powertrain / heavy truck rival"
     ]
   ],
   "WCC": [
@@ -19409,24 +19369,29 @@
   ],
   "CG": [
     [
-      "ARCC",
-      "BDC／另類信貸對手",
-      "BDC / alternative-credit rival"
+      "KKR",
+      "另類資產管理對手",
+      "Alternative asset-manager rival"
     ],
     [
-      "OBDC",
-      "BDC／另類信貸對手",
-      "BDC / alternative-credit rival"
+      "BX",
+      "另類資產管理對手",
+      "Alternative asset-manager rival"
     ],
     [
-      "MAIN",
-      "BDC／另類信貸對手",
-      "BDC / alternative-credit rival"
+      "APO",
+      "另類資產管理對手",
+      "Alternative asset-manager rival"
     ],
     [
-      "OWL",
-      "BDC／另類信貸對手",
-      "BDC / alternative-credit rival"
+      "BN",
+      "另類資產管理對手",
+      "Alternative asset-manager rival"
+    ],
+    [
+      "BAM",
+      "另類資產管理對手",
+      "Alternative asset-manager rival"
     ]
   ],
   "TOL": [
@@ -19458,29 +19423,29 @@
   ],
   "RNR": [
     [
-      "TRV",
-      "產險對手",
-      "P&C insurance rival"
+      "ACGL",
+      "產險／再保對手",
+      "P&C / reinsurance rival"
     ],
     [
-      "ALL",
-      "產險對手",
-      "P&C insurance rival"
+      "TRV",
+      "產險／再保對手",
+      "P&C / reinsurance rival"
     ],
     [
       "PGR",
-      "產險對手",
-      "P&C insurance rival"
+      "產險／再保對手",
+      "P&C / reinsurance rival"
     ],
     [
       "CB",
-      "產險對手",
-      "P&C insurance rival"
+      "產險／再保對手",
+      "P&C / reinsurance rival"
     ],
     [
-      "AIG",
-      "產險對手",
-      "P&C insurance rival"
+      "EG",
+      "產險／再保對手",
+      "P&C / reinsurance rival"
     ]
   ],
   "IONQ": [
@@ -19841,7 +19806,7 @@
       "Metal fabrication / specialty metals rival"
     ],
     [
-      "NUE",
+      "STLD",
       "金屬加工／特鋼對手",
       "Metal fabrication / specialty metals rival"
     ]
@@ -20049,29 +20014,29 @@
   ],
   "CACI": [
     [
-      "INFY",
-      "IT 服務對手",
-      "IT services rival"
+      "AMTM",
+      "政府服務／工程承攬對手",
+      "Gov services / engineering-contractor rival"
     ],
     [
-      "ACN",
-      "IT 服務對手",
-      "IT services rival"
+      "SAIC",
+      "政府服務／工程承攬對手",
+      "Gov services / engineering-contractor rival"
     ],
     [
-      "CTSH",
-      "IT 服務對手",
-      "IT services rival"
+      "LDOS",
+      "政府服務／工程承攬對手",
+      "Gov services / engineering-contractor rival"
     ],
     [
-      "IBM",
-      "IT 服務對手",
-      "IT services rival"
+      "PSN",
+      "政府服務／工程承攬對手",
+      "Gov services / engineering-contractor rival"
     ],
     [
-      "WIT",
-      "IT 服務對手",
-      "IT services rival"
+      "FLR",
+      "政府服務／工程承攬對手",
+      "Gov services / engineering-contractor rival"
     ]
   ],
   "TEM": [
@@ -20363,29 +20328,24 @@
   ],
   "CCK": [
     [
-      "SW",
-      "Packaging & Containers產品／市場對手",
-      "Packaging & Containers product/market rival"
-    ],
-    [
-      "PKG",
-      "Packaging & Containers產品／市場對手",
-      "Packaging & Containers product/market rival"
+      "ATR",
+      "包裝／給藥裝置對手",
+      "Packaging / dispensing rival"
     ],
     [
       "AMCR",
-      "Packaging & Containers產品／市場對手",
-      "Packaging & Containers product/market rival"
+      "包裝／給藥裝置對手",
+      "Packaging / dispensing rival"
     ],
     [
       "BALL",
-      "Packaging & Containers產品／市場對手",
-      "Packaging & Containers product/market rival"
+      "包裝／給藥裝置對手",
+      "Packaging / dispensing rival"
     ],
     [
-      "AVY",
-      "Packaging & Containers產品／市場對手",
-      "Packaging & Containers product/market rival"
+      "PKG",
+      "包裝／給藥裝置對手",
+      "Packaging / dispensing rival"
     ]
   ],
   "SNN": [
@@ -20591,29 +20551,24 @@
   ],
   "LULU": [
     [
-      "ANF",
-      "品牌服飾零售對手",
-      "Specialty apparel retail rival"
+      "NKE",
+      "運動鞋服對手",
+      "Athletic apparel rival"
     ],
     [
-      "URBN",
-      "品牌服飾零售對手",
-      "Specialty apparel retail rival"
+      "DECK",
+      "運動鞋服對手",
+      "Athletic apparel rival"
     ],
     [
-      "GAP",
-      "品牌服飾零售對手",
-      "Specialty apparel retail rival"
+      "UAA",
+      "運動鞋服對手",
+      "Athletic apparel rival"
     ],
     [
-      "VSXY",
-      "品牌服飾零售對手",
-      "Specialty apparel retail rival"
-    ],
-    [
-      "VFC",
-      "品牌服飾零售對手",
-      "Specialty apparel retail rival"
+      "ADDYY",
+      "運動鞋服對手",
+      "Athletic apparel rival"
     ]
   ],
   "STLA": [
@@ -21158,29 +21113,29 @@
   ],
   "ONON": [
     [
-      "NKE",
-      "運動鞋服對手",
-      "Athletic apparel rival"
-    ],
-    [
-      "LULU",
-      "運動鞋服對手",
-      "Athletic apparel rival"
+      "AS",
+      "運動用品對手",
+      "Sporting-goods rival"
     ],
     [
       "DECK",
-      "運動鞋服對手",
-      "Athletic apparel rival"
+      "運動用品對手",
+      "Sporting-goods rival"
     ],
     [
-      "UAA",
-      "運動鞋服對手",
-      "Athletic apparel rival"
+      "NKE",
+      "運動用品對手",
+      "Sporting-goods rival"
     ],
     [
-      "ADDYY",
-      "運動鞋服對手",
-      "Athletic apparel rival"
+      "LULU",
+      "運動用品對手",
+      "Sporting-goods rival"
+    ],
+    [
+      "VFC",
+      "運動用品對手",
+      "Sporting-goods rival"
     ]
   ],
   "CSGP": [
@@ -21755,11 +21710,6 @@
       "TFX",
       "牙醫／專科器械對手",
       "Dental / specialty-device rival"
-    ],
-    [
-      "ATR",
-      "牙醫／專科器械對手",
-      "Dental / specialty-device rival"
     ]
   ],
   "AMH": [
@@ -21921,29 +21871,19 @@
   ],
   "LII": [
     [
-      "EMR",
-      "工業自動化／機械對手",
-      "Industrial automation / machinery rival"
+      "AOS",
+      "熱水器／水暖設備對手",
+      "Water heater / hydronic equipment rival"
     ],
     [
-      "HON",
-      "工業自動化／機械對手",
-      "Industrial automation / machinery rival"
+      "WTS",
+      "熱水器／水暖設備對手",
+      "Water heater / hydronic equipment rival"
     ],
     [
-      "TT",
-      "工業自動化／機械對手",
-      "Industrial automation / machinery rival"
-    ],
-    [
-      "ITW",
-      "工業自動化／機械對手",
-      "Industrial automation / machinery rival"
-    ],
-    [
-      "ETN",
-      "工業自動化／機械對手",
-      "Industrial automation / machinery rival"
+      "TTC",
+      "熱水器／水暖設備對手",
+      "Water heater / hydronic equipment rival"
     ]
   ],
   "CR": [
@@ -22078,29 +22018,19 @@
   ],
   "WTS": [
     [
-      "EMR",
-      "工業自動化／機械對手",
-      "Industrial automation / machinery rival"
+      "AOS",
+      "熱水器／水暖設備對手",
+      "Water heater / hydronic equipment rival"
     ],
     [
-      "HON",
-      "工業自動化／機械對手",
-      "Industrial automation / machinery rival"
+      "LII",
+      "熱水器／水暖設備對手",
+      "Water heater / hydronic equipment rival"
     ],
     [
-      "TT",
-      "工業自動化／機械對手",
-      "Industrial automation / machinery rival"
-    ],
-    [
-      "ITW",
-      "工業自動化／機械對手",
-      "Industrial automation / machinery rival"
-    ],
-    [
-      "ETN",
-      "工業自動化／機械對手",
-      "Industrial automation / machinery rival"
+      "TTC",
+      "熱水器／水暖設備對手",
+      "Water heater / hydronic equipment rival"
     ]
   ],
   "MLI": [
@@ -22125,7 +22055,7 @@
       "Metal fabrication / specialty metals rival"
     ],
     [
-      "NUE",
+      "STLD",
       "金屬加工／特鋼對手",
       "Metal fabrication / specialty metals rival"
     ]
@@ -22620,29 +22550,19 @@
   ],
   "GSAT": [
     [
-      "CMCSA",
-      "有線／寬頻對手",
-      "Cable / broadband rival"
+      "ASTS",
+      "衛星通訊對手",
+      "Satellite communications rival"
     ],
     [
-      "CHTR",
-      "有線／寬頻對手",
-      "Cable / broadband rival"
+      "VSAT",
+      "衛星通訊對手",
+      "Satellite communications rival"
     ],
     [
-      "T",
-      "有線／寬頻對手",
-      "Cable / broadband rival"
-    ],
-    [
-      "VZ",
-      "有線／寬頻對手",
-      "Cable / broadband rival"
-    ],
-    [
-      "TMUS",
-      "有線／寬頻對手",
-      "Cable / broadband rival"
+      "IRDM",
+      "衛星通訊對手",
+      "Satellite communications rival"
     ]
   ],
   "FHN": [
@@ -22917,29 +22837,24 @@
   ],
   "AES": [
     [
-      "SRE",
-      "多元公用事業對手",
-      "Diversified utility rival"
+      "CIG",
+      "拉美／新興市場公用事業對手",
+      "LatAm / EM utility rival"
     ],
     [
-      "D",
-      "多元公用事業對手",
-      "Diversified utility rival"
+      "ENIC",
+      "拉美／新興市場公用事業對手",
+      "LatAm / EM utility rival"
     ],
     [
-      "NEE",
-      "多元公用事業對手",
-      "Diversified utility rival"
+      "SBS",
+      "拉美／新興市場公用事業對手",
+      "LatAm / EM utility rival"
     ],
     [
-      "AEP",
-      "多元公用事業對手",
-      "Diversified utility rival"
-    ],
-    [
-      "XEL",
-      "多元公用事業對手",
-      "Diversified utility rival"
+      "KEP",
+      "拉美／新興市場公用事業對手",
+      "LatAm / EM utility rival"
     ]
   ],
   "LTH": [
@@ -23010,29 +22925,24 @@
   ],
   "AVTR": [
     [
-      "BDX",
-      "醫療耗材對手",
-      "Medical supplies rival"
+      "TMO",
+      "生命科學試劑／實驗室通路對手",
+      "Life-science reagents / lab-distribution rival"
     ],
     [
-      "ABT",
-      "醫療耗材對手",
-      "Medical supplies rival"
+      "DHR",
+      "生命科學試劑／實驗室通路對手",
+      "Life-science reagents / lab-distribution rival"
     ],
     [
-      "MDT",
-      "醫療耗材對手",
-      "Medical supplies rival"
+      "IQV",
+      "生命科學試劑／實驗室通路對手",
+      "Life-science reagents / lab-distribution rival"
     ],
     [
-      "SYK",
-      "醫療耗材對手",
-      "Medical supplies rival"
-    ],
-    [
-      "BAX",
-      "醫療耗材對手",
-      "Medical supplies rival"
+      "A",
+      "生命科學試劑／實驗室通路對手",
+      "Life-science reagents / lab-distribution rival"
     ]
   ],
   "OGE": [
@@ -23444,14 +23354,29 @@
   ],
   "BAH": [
     [
-      "EFX",
-      "Consulting Services產品／市場對手",
-      "Consulting Services product/market rival"
+      "AMTM",
+      "政府服務／工程承攬對手",
+      "Gov services / engineering-contractor rival"
     ],
     [
-      "FCN",
-      "Consulting Services產品／市場對手",
-      "Consulting Services product/market rival"
+      "SAIC",
+      "政府服務／工程承攬對手",
+      "Gov services / engineering-contractor rival"
+    ],
+    [
+      "CACI",
+      "政府服務／工程承攬對手",
+      "Gov services / engineering-contractor rival"
+    ],
+    [
+      "LDOS",
+      "政府服務／工程承攬對手",
+      "Gov services / engineering-contractor rival"
+    ],
+    [
+      "PSN",
+      "政府服務／工程承攬對手",
+      "Gov services / engineering-contractor rival"
     ]
   ],
   "PODD": [
@@ -23770,29 +23695,19 @@
   ],
   "TTC": [
     [
-      "SNA",
-      "Manufacturing - Tools & Accessories產品／市場對手",
-      "Manufacturing - Tools & Accessories product/market rival"
+      "AOS",
+      "熱水器／水暖設備對手",
+      "Water heater / hydronic equipment rival"
     ],
     [
-      "SWK",
-      "Manufacturing - Tools & Accessories產品／市場對手",
-      "Manufacturing - Tools & Accessories product/market rival"
+      "WTS",
+      "熱水器／水暖設備對手",
+      "Water heater / hydronic equipment rival"
     ],
     [
-      "RBC",
-      "Manufacturing - Tools & Accessories產品／市場對手",
-      "Manufacturing - Tools & Accessories product/market rival"
-    ],
-    [
-      "LECO",
-      "Manufacturing - Tools & Accessories產品／市場對手",
-      "Manufacturing - Tools & Accessories product/market rival"
-    ],
-    [
-      "TKR",
-      "Manufacturing - Tools & Accessories產品／市場對手",
-      "Manufacturing - Tools & Accessories product/market rival"
+      "LII",
+      "熱水器／水暖設備對手",
+      "Water heater / hydronic equipment rival"
     ]
   ],
   "RML": [
@@ -24215,11 +24130,6 @@
       "TFX",
       "牙醫／專科器械對手",
       "Dental / specialty-device rival"
-    ],
-    [
-      "ATR",
-      "牙醫／專科器械對手",
-      "Dental / specialty-device rival"
     ]
   ],
   "OC": [
@@ -24602,24 +24512,29 @@
   ],
   "BEP": [
     [
-      "BBUC",
-      "Brookfield 上市業務對手",
-      "Brookfield listed business rival"
-    ],
-    [
-      "BAM",
-      "Brookfield 上市業務對手",
-      "Brookfield listed business rival"
-    ],
-    [
-      "BN",
-      "Brookfield 上市業務對手",
-      "Brookfield listed business rival"
-    ],
-    [
       "BIP",
-      "Brookfield 上市業務對手",
-      "Brookfield listed business rival"
+      "基建控股對手",
+      "Infrastructure holding rival"
+    ],
+    [
+      "NEE",
+      "基建控股對手",
+      "Infrastructure holding rival"
+    ],
+    [
+      "CWEN",
+      "基建控股對手",
+      "Infrastructure holding rival"
+    ],
+    [
+      "DUK",
+      "受規管電力對手",
+      "Regulated electric rival"
+    ],
+    [
+      "SO",
+      "受規管電力對手",
+      "Regulated electric rival"
     ]
   ],
   "HNGE": [
@@ -25159,24 +25074,24 @@
   ],
   "ATR": [
     [
-      "ALGN",
-      "牙醫／專科器械對手",
-      "Dental / specialty-device rival"
+      "AMCR",
+      "包裝／給藥裝置對手",
+      "Packaging / dispensing rival"
     ],
     [
-      "HSIC",
-      "牙醫／專科器械對手",
-      "Dental / specialty-device rival"
+      "BALL",
+      "包裝／給藥裝置對手",
+      "Packaging / dispensing rival"
     ],
     [
-      "MMSI",
-      "牙醫／專科器械對手",
-      "Dental / specialty-device rival"
+      "CCK",
+      "包裝／給藥裝置對手",
+      "Packaging / dispensing rival"
     ],
     [
-      "TFX",
-      "牙醫／專科器械對手",
-      "Dental / specialty-device rival"
+      "PKG",
+      "包裝／給藥裝置對手",
+      "Packaging / dispensing rival"
     ]
   ],
   "CTRE": [
@@ -25532,29 +25447,19 @@
   ],
   "VSAT": [
     [
-      "CSCO",
-      "Communication Equipment產品／市場對手",
-      "Communication Equipment product/market rival"
+      "ASTS",
+      "衛星通訊對手",
+      "Satellite communications rival"
     ],
     [
-      "MSI",
-      "Communication Equipment產品／市場對手",
-      "Communication Equipment product/market rival"
+      "GSAT",
+      "衛星通訊對手",
+      "Satellite communications rival"
     ],
     [
-      "LITE",
-      "Communication Equipment產品／市場對手",
-      "Communication Equipment product/market rival"
-    ],
-    [
-      "NOK",
-      "Communication Equipment產品／市場對手",
-      "Communication Equipment product/market rival"
-    ],
-    [
-      "UI",
-      "Communication Equipment產品／市場對手",
-      "Communication Equipment product/market rival"
+      "IRDM",
+      "衛星通訊對手",
+      "Satellite communications rival"
     ]
   ],
   "LEVI": [
@@ -25740,29 +25645,19 @@
   ],
   "AOS": [
     [
-      "EMR",
-      "工業自動化／機械對手",
-      "Industrial automation / machinery rival"
+      "WTS",
+      "熱水器／水暖設備對手",
+      "Water heater / hydronic equipment rival"
     ],
     [
-      "HON",
-      "工業自動化／機械對手",
-      "Industrial automation / machinery rival"
+      "LII",
+      "熱水器／水暖設備對手",
+      "Water heater / hydronic equipment rival"
     ],
     [
-      "TT",
-      "工業自動化／機械對手",
-      "Industrial automation / machinery rival"
-    ],
-    [
-      "ITW",
-      "工業自動化／機械對手",
-      "Industrial automation / machinery rival"
-    ],
-    [
-      "ETN",
-      "工業自動化／機械對手",
-      "Industrial automation / machinery rival"
+      "TTC",
+      "熱水器／水暖設備對手",
+      "Water heater / hydronic equipment rival"
     ]
   ],
   "TIMB": [
@@ -27055,6 +26950,33 @@
   ],
   "CTVA": [
     [
+      "ECL",
+      "特用化學／塗料對手",
+      "Specialty chem / coatings rival"
+    ],
+    [
+      "SHW",
+      "特用化學／塗料對手",
+      "Specialty chem / coatings rival"
+    ],
+    [
+      "PPG",
+      "特用化學／塗料對手",
+      "Specialty chem / coatings rival"
+    ],
+    [
+      "DD",
+      "特用化學／塗料對手",
+      "Specialty chem / coatings rival"
+    ],
+    [
+      "DOW",
+      "特用化學／塗料對手",
+      "Specialty chem / coatings rival"
+    ]
+  ],
+  "DAR": [
+    [
       "ADM",
       "農產品／大宗貿易對手",
       "Agribusiness rival"
@@ -27070,41 +26992,14 @@
       "Agribusiness rival"
     ],
     [
-      "DAR",
-      "農產品／大宗貿易對手",
-      "Agribusiness rival"
-    ],
-    [
       "TSN",
       "農產品／大宗貿易對手",
       "Agribusiness rival"
-    ]
-  ],
-  "DAR": [
-    [
-      "BCPC",
-      "營養／特用化學對手",
-      "Nutrition / specialty-chem rival"
     ],
     [
-      "INGR",
-      "營養／特用化學對手",
-      "Nutrition / specialty-chem rival"
-    ],
-    [
-      "FMC",
-      "營養／特用化學對手",
-      "Nutrition / specialty-chem rival"
-    ],
-    [
-      "IFF",
-      "營養／特用化學對手",
-      "Nutrition / specialty-chem rival"
-    ],
-    [
-      "ECL",
-      "營養／特用化學對手",
-      "Nutrition / specialty-chem rival"
+      "CTVA",
+      "農產品／大宗貿易對手",
+      "Agribusiness rival"
     ]
   ],
   "TBBB": [
@@ -27539,16 +27434,6 @@
       "OPEN",
       "房地產經紀／數位房仲對手",
       "Property brokerage / digital realtor rival"
-    ],
-    [
-      "RDFN",
-      "房地產經紀／數位房仲對手",
-      "Property brokerage / digital realtor rival"
-    ],
-    [
-      "UWMC",
-      "房地產經紀／數位房仲對手",
-      "Property brokerage / digital realtor rival"
     ]
   ],
   "RYTM": [
@@ -27715,29 +27600,14 @@
   ],
   "AGCO": [
     [
-      "CAT",
-      "Agricultural - Machinery產品／市場對手",
-      "Agricultural - Machinery product/market rival"
-    ],
-    [
       "DE",
-      "Agricultural - Machinery產品／市場對手",
-      "Agricultural - Machinery product/market rival"
+      "農機對手",
+      "Agricultural machinery rival"
     ],
     [
       "CNH",
-      "Agricultural - Machinery產品／市場對手",
-      "Agricultural - Machinery product/market rival"
-    ],
-    [
-      "OSK",
-      "Agricultural - Machinery產品／市場對手",
-      "Agricultural - Machinery product/market rival"
-    ],
-    [
-      "FSS",
-      "Agricultural - Machinery產品／市場對手",
-      "Agricultural - Machinery product/market rival"
+      "農機對手",
+      "Agricultural machinery rival"
     ]
   ],
   "LW": [
@@ -27958,29 +27828,24 @@
   ],
   "TAP": [
     [
-      "ABEV",
-      "啤酒／酒精飲料對手",
-      "Beer / alcoholic-beverage rival"
-    ],
-    [
-      "BUD",
-      "啤酒／酒精飲料對手",
-      "Beer / alcoholic-beverage rival"
+      "DEO",
+      "烈酒對手",
+      "Spirits rival"
     ],
     [
       "STZ",
-      "啤酒／酒精飲料對手",
-      "Beer / alcoholic-beverage rival"
+      "烈酒對手",
+      "Spirits rival"
     ],
     [
-      "SAM",
-      "啤酒／酒精飲料對手",
-      "Beer / alcoholic-beverage rival"
+      "BF-B",
+      "烈酒對手",
+      "Spirits rival"
     ],
     [
-      "DEO",
-      "啤酒／酒精飲料對手",
-      "Beer / alcoholic-beverage rival"
+      "BUD",
+      "烈酒對手",
+      "Spirits rival"
     ]
   ],
   "MSGK": [
@@ -28363,19 +28228,29 @@
   ],
   "ANDG": [
     [
-      "SCI",
-      "Personal Products & Services產品／市場對手",
-      "Personal Products & Services product/market rival"
-    ],
-    [
-      "FTDR",
-      "Personal Products & Services產品／市場對手",
-      "Personal Products & Services product/market rival"
-    ],
-    [
       "HRB",
-      "Personal Products & Services產品／市場對手",
-      "Personal Products & Services product/market rival"
+      "稅務／專業服務對手",
+      "Tax / professional-services rival"
+    ],
+    [
+      "INTU",
+      "稅務／專業服務對手",
+      "Tax / professional-services rival"
+    ],
+    [
+      "PAYX",
+      "稅務／專業服務對手",
+      "Tax / professional-services rival"
+    ],
+    [
+      "VRSK",
+      "稅務／專業服務對手",
+      "Tax / professional-services rival"
+    ],
+    [
+      "EFX",
+      "稅務／專業服務對手",
+      "Tax / professional-services rival"
     ]
   ],
   "KMX": [
@@ -28638,7 +28513,7 @@
       "Metal fabrication / specialty metals rival"
     ],
     [
-      "NUE",
+      "STLD",
       "金屬加工／特鋼對手",
       "Metal fabrication / specialty metals rival"
     ]
@@ -29320,27 +29195,27 @@
   ],
   "ZG": [
     [
+      "APPF",
+      "物業／垂直軟體對手",
+      "Proptech / vertical software rival"
+    ],
+    [
+      "CSGP",
+      "物業／垂直軟體對手",
+      "Proptech / vertical software rival"
+    ],
+    [
+      "COMP",
+      "物業／垂直軟體對手",
+      "Proptech / vertical software rival"
+    ],
+    [
       "BEKE",
       "房地產經紀／數位房仲對手",
       "Property brokerage / digital realtor rival"
     ],
     [
-      "COMP",
-      "房地產經紀／數位房仲對手",
-      "Property brokerage / digital realtor rival"
-    ],
-    [
       "OPEN",
-      "房地產經紀／數位房仲對手",
-      "Property brokerage / digital realtor rival"
-    ],
-    [
-      "RDFN",
-      "房地產經紀／數位房仲對手",
-      "Property brokerage / digital realtor rival"
-    ],
-    [
-      "UWMC",
       "房地產經紀／數位房仲對手",
       "Property brokerage / digital realtor rival"
     ]
@@ -29868,18 +29743,8 @@
   "KTOS": [
     [
       "AVAV",
-      "無人機／eVTOL 對手",
-      "UAV / eVTOL rival"
-    ],
-    [
-      "BETA",
-      "無人機／eVTOL 對手",
-      "UAV / eVTOL rival"
-    ],
-    [
-      "JOBY",
-      "無人機／eVTOL 對手",
-      "UAV / eVTOL rival"
+      "軍用無人機對手",
+      "Military UAV rival"
     ]
   ],
   "QLYS": [
@@ -29965,24 +29830,29 @@
   ],
   "MSA": [
     [
-      "AXON",
-      "執法／安防裝備對手",
-      "Law-enforcement / security-equipment rival"
+      "ADT",
+      "安防服務／產品對手",
+      "Security services / products rival"
     ],
     [
       "ALLE",
-      "執法／安防裝備對手",
-      "Law-enforcement / security-equipment rival"
-    ],
-    [
-      "ADT",
-      "執法／安防裝備對手",
-      "Law-enforcement / security-equipment rival"
+      "安防服務／產品對手",
+      "Security services / products rival"
     ],
     [
       "JCI",
       "安防服務／產品對手",
       "Security services / products rival"
+    ],
+    [
+      "TT",
+      "暖通空調對手",
+      "HVAC rival"
+    ],
+    [
+      "CARR",
+      "暖通空調對手",
+      "HVAC rival"
     ]
   ],
   "IONS": [
@@ -30323,19 +30193,29 @@
   ],
   "HRB": [
     [
-      "SCI",
-      "Personal Products & Services產品／市場對手",
-      "Personal Products & Services product/market rival"
-    ],
-    [
       "ANDG",
-      "Personal Products & Services產品／市場對手",
-      "Personal Products & Services product/market rival"
+      "稅務／專業服務對手",
+      "Tax / professional-services rival"
     ],
     [
-      "FTDR",
-      "Personal Products & Services產品／市場對手",
-      "Personal Products & Services product/market rival"
+      "INTU",
+      "稅務／專業服務對手",
+      "Tax / professional-services rival"
+    ],
+    [
+      "PAYX",
+      "稅務／專業服務對手",
+      "Tax / professional-services rival"
+    ],
+    [
+      "VRSK",
+      "稅務／專業服務對手",
+      "Tax / professional-services rival"
+    ],
+    [
+      "EFX",
+      "稅務／專業服務對手",
+      "Tax / professional-services rival"
     ]
   ],
   "GIL": [
@@ -30513,11 +30393,6 @@
     ],
     [
       "MMSI",
-      "牙醫／專科器械對手",
-      "Dental / specialty-device rival"
-    ],
-    [
-      "ATR",
       "牙醫／專科器械對手",
       "Dental / specialty-device rival"
     ]
@@ -31020,12 +30895,12 @@
       "Oilfield services rival"
     ],
     [
-      "FTI",
+      "XOM",
       "油服對手",
       "Oilfield services rival"
     ],
     [
-      "WHD",
+      "CVX",
       "油服對手",
       "Oilfield services rival"
     ]
@@ -31410,46 +31285,36 @@
   ],
   "BETA": [
     [
-      "AVAV",
-      "無人機／eVTOL 對手",
-      "UAV / eVTOL rival"
-    ],
-    [
       "JOBY",
-      "無人機／eVTOL 對手",
-      "UAV / eVTOL rival"
-    ],
-    [
-      "KTOS",
-      "無人機／eVTOL 對手",
-      "UAV / eVTOL rival"
+      "eVTOL／電動垂直起降對手",
+      "eVTOL rival"
     ]
   ],
   "SAIC": [
     [
-      "INFY",
-      "IT 服務對手",
-      "IT services rival"
+      "AMTM",
+      "政府服務／工程承攬對手",
+      "Gov services / engineering-contractor rival"
     ],
     [
-      "ACN",
-      "IT 服務對手",
-      "IT services rival"
+      "CACI",
+      "政府服務／工程承攬對手",
+      "Gov services / engineering-contractor rival"
     ],
     [
-      "CTSH",
-      "IT 服務對手",
-      "IT services rival"
+      "LDOS",
+      "政府服務／工程承攬對手",
+      "Gov services / engineering-contractor rival"
     ],
     [
-      "IBM",
-      "IT 服務對手",
-      "IT services rival"
+      "PSN",
+      "政府服務／工程承攬對手",
+      "Gov services / engineering-contractor rival"
     ],
     [
-      "WIT",
-      "IT 服務對手",
-      "IT services rival"
+      "FLR",
+      "政府服務／工程承攬對手",
+      "Gov services / engineering-contractor rival"
     ]
   ],
   "STEP": [
@@ -31893,29 +31758,24 @@
   ],
   "ENIC": [
     [
-      "DUK",
-      "受規管電力對手",
-      "Regulated electric rival"
+      "CIG",
+      "拉美／新興市場公用事業對手",
+      "LatAm / EM utility rival"
     ],
     [
-      "NEE",
-      "受規管電力對手",
-      "Regulated electric rival"
+      "AES",
+      "拉美／新興市場公用事業對手",
+      "LatAm / EM utility rival"
     ],
     [
-      "SO",
-      "受規管電力對手",
-      "Regulated electric rival"
+      "SBS",
+      "拉美／新興市場公用事業對手",
+      "LatAm / EM utility rival"
     ],
     [
-      "AEP",
-      "受規管電力對手",
-      "Regulated electric rival"
-    ],
-    [
-      "D",
-      "受規管電力對手",
-      "Regulated electric rival"
+      "KEP",
+      "拉美／新興市場公用事業對手",
+      "LatAm / EM utility rival"
     ]
   ],
   "WEX": [
@@ -32202,19 +32062,9 @@
   ],
   "JOBY": [
     [
-      "AVAV",
-      "無人機／eVTOL 對手",
-      "UAV / eVTOL rival"
-    ],
-    [
       "BETA",
-      "無人機／eVTOL 對手",
-      "UAV / eVTOL rival"
-    ],
-    [
-      "KTOS",
-      "無人機／eVTOL 對手",
-      "UAV / eVTOL rival"
+      "eVTOL／電動垂直起降對手",
+      "eVTOL rival"
     ]
   ],
   "AN": [
@@ -32614,29 +32464,29 @@
   ],
   "INGR": [
     [
-      "BCPC",
-      "營養／特用化學對手",
-      "Nutrition / specialty-chem rival"
+      "ADM",
+      "農產品／大宗貿易對手",
+      "Agribusiness rival"
+    ],
+    [
+      "BG",
+      "農產品／大宗貿易對手",
+      "Agribusiness rival"
     ],
     [
       "DAR",
-      "營養／特用化學對手",
-      "Nutrition / specialty-chem rival"
+      "農產品／大宗貿易對手",
+      "Agribusiness rival"
     ],
     [
-      "FMC",
-      "營養／特用化學對手",
-      "Nutrition / specialty-chem rival"
+      "TSN",
+      "農產品／大宗貿易對手",
+      "Agribusiness rival"
     ],
     [
-      "IFF",
-      "營養／特用化學對手",
-      "Nutrition / specialty-chem rival"
-    ],
-    [
-      "ECL",
-      "營養／特用化學對手",
-      "Nutrition / specialty-chem rival"
+      "CTVA",
+      "農產品／大宗貿易對手",
+      "Agribusiness rival"
     ]
   ],
   "SGHC": [
@@ -32803,19 +32653,9 @@
   ],
   "AVAV": [
     [
-      "BETA",
-      "無人機／eVTOL 對手",
-      "UAV / eVTOL rival"
-    ],
-    [
-      "JOBY",
-      "無人機／eVTOL 對手",
-      "UAV / eVTOL rival"
-    ],
-    [
       "KTOS",
-      "無人機／eVTOL 對手",
-      "UAV / eVTOL rival"
+      "軍用無人機對手",
+      "Military UAV rival"
     ]
   ],
   "ST": [
@@ -33755,29 +33595,24 @@
   ],
   "BLLN": [
     [
-      "IDXX",
-      "診斷／生命科學工具對手",
-      "Diagnostics / life-science tools rival"
+      "ILMN",
+      "分子診斷／NIPT 對手",
+      "Molecular diagnostics / NIPT rival"
     ],
     [
-      "TMO",
-      "診斷／生命科學工具對手",
-      "Diagnostics / life-science tools rival"
+      "DGX",
+      "分子診斷／NIPT 對手",
+      "Molecular diagnostics / NIPT rival"
     ],
     [
-      "DHR",
-      "診斷／生命科學工具對手",
-      "Diagnostics / life-science tools rival"
+      "LH",
+      "分子診斷／NIPT 對手",
+      "Molecular diagnostics / NIPT rival"
     ],
     [
-      "BDX",
-      "診斷／生命科學工具對手",
-      "Diagnostics / life-science tools rival"
-    ],
-    [
-      "A",
-      "診斷／生命科學工具對手",
-      "Diagnostics / life-science tools rival"
+      "NTRA",
+      "分子診斷／NIPT 對手",
+      "Molecular diagnostics / NIPT rival"
     ]
   ],
   "WTM": [
@@ -33924,29 +33759,24 @@
   ],
   "CIG": [
     [
-      "DUK",
-      "受規管電力對手",
-      "Regulated electric rival"
+      "ENIC",
+      "拉美／新興市場公用事業對手",
+      "LatAm / EM utility rival"
     ],
     [
-      "NEE",
-      "受規管電力對手",
-      "Regulated electric rival"
+      "AES",
+      "拉美／新興市場公用事業對手",
+      "LatAm / EM utility rival"
     ],
     [
-      "SO",
-      "受規管電力對手",
-      "Regulated electric rival"
+      "SBS",
+      "拉美／新興市場公用事業對手",
+      "LatAm / EM utility rival"
     ],
     [
-      "AEP",
-      "受規管電力對手",
-      "Regulated electric rival"
-    ],
-    [
-      "D",
-      "受規管電力對手",
-      "Regulated electric rival"
+      "KEP",
+      "拉美／新興市場公用事業對手",
+      "LatAm / EM utility rival"
     ]
   ],
   "GVA": [
@@ -34263,11 +34093,6 @@
       "TFX",
       "牙醫／專科器械對手",
       "Dental / specialty-device rival"
-    ],
-    [
-      "ATR",
-      "牙醫／專科器械對手",
-      "Dental / specialty-device rival"
     ]
   ],
   "PECO": [
@@ -34331,51 +34156,46 @@
       "Marketing / engagement SaaS rival"
     ],
     [
-      "TEAM",
+      "CRM",
       "行銷／互動 SaaS 對手",
       "Marketing / engagement SaaS rival"
     ],
     [
-      "ZM",
+      "APPF",
       "行銷／互動 SaaS 對手",
       "Marketing / engagement SaaS rival"
     ],
     [
-      "TYL",
-      "行銷／互動 SaaS 對手",
-      "Marketing / engagement SaaS rival"
-    ],
-    [
-      "DDOG",
+      "VEEV",
       "行銷／互動 SaaS 對手",
       "Marketing / engagement SaaS rival"
     ]
   ],
   "AMTM": [
     [
-      "GD",
-      "航太防務主承包對手",
-      "Aerospace & defense prime rival"
+      "SAIC",
+      "政府服務／工程承攬對手",
+      "Gov services / engineering-contractor rival"
     ],
     [
-      "NOC",
-      "航太防務主承包對手",
-      "Aerospace & defense prime rival"
+      "CACI",
+      "政府服務／工程承攬對手",
+      "Gov services / engineering-contractor rival"
     ],
     [
-      "LMT",
-      "航太防務主承包對手",
-      "Aerospace & defense prime rival"
+      "LDOS",
+      "政府服務／工程承攬對手",
+      "Gov services / engineering-contractor rival"
     ],
     [
-      "RTX",
-      "航太防務主承包對手",
-      "Aerospace & defense prime rival"
+      "PSN",
+      "政府服務／工程承攬對手",
+      "Gov services / engineering-contractor rival"
     ],
     [
-      "BA",
-      "航太防務主承包對手",
-      "Aerospace & defense prime rival"
+      "FLR",
+      "政府服務／工程承攬對手",
+      "Gov services / engineering-contractor rival"
     ]
   ],
   "RUSHA": [
@@ -34407,29 +34227,29 @@
   ],
   "PSN": [
     [
-      "INFY",
-      "IT 服務對手",
-      "IT services rival"
+      "AMTM",
+      "政府服務／工程承攬對手",
+      "Gov services / engineering-contractor rival"
     ],
     [
-      "ACN",
-      "IT 服務對手",
-      "IT services rival"
+      "SAIC",
+      "政府服務／工程承攬對手",
+      "Gov services / engineering-contractor rival"
     ],
     [
-      "CTSH",
-      "IT 服務對手",
-      "IT services rival"
+      "CACI",
+      "政府服務／工程承攬對手",
+      "Gov services / engineering-contractor rival"
     ],
     [
-      "IBM",
-      "IT 服務對手",
-      "IT services rival"
+      "LDOS",
+      "政府服務／工程承攬對手",
+      "Gov services / engineering-contractor rival"
     ],
     [
-      "WIT",
-      "IT 服務對手",
-      "IT services rival"
+      "FLR",
+      "政府服務／工程承攬對手",
+      "Gov services / engineering-contractor rival"
     ]
   ],
   "WFG": [

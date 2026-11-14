@@ -197,7 +197,7 @@ TICKER_ALIAS: dict[str, str] = {
 }
 
 # Never emit as rivals (delisted, private, wrong product, or charter mislabeled as lessor).
-BANNED_RIVAL_TICKERS = {"SPCX", "MAXR", "FLY", "FLYX", "PEAK", "MYL", "SQ"}
+BANNED_RIVAL_TICKERS = {"SPCX", "MAXR", "FLY", "FLYX", "PEAK", "MYL", "SQ", "RDFN"}
 
 # Preferred+common / dual-ADR of the same issuer → keep one preferred ticker only.
 SHARE_CLASS_PREFERRED: dict[str, str] = {
@@ -499,13 +499,13 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "brokerage-cn",
-        ["BEKE", "COMP", "ZG", "OPEN", "RDFN", "UWMC"],
+        ["BEKE", "COMP", "ZG", "OPEN"],  # no RDFN (delisted) / UWMC (mortgage)
         "房地產經紀／數位房仲對手",
         "Property brokerage / digital realtor rival",
     ),
     (
         "metal-fab",
-        ["ATI", "CRS", "MLI", "WOR", "SPXC", "NUE", "STLD"],  # WOR is NYSE Worthington
+        ["ATI", "CRS", "MLI", "WOR", "SPXC", "STLD"],  # no NUE (stage player overlap)
         "金屬加工／特鋼對手",
         "Metal fabrication / specialty metals rival",
     ),
@@ -612,10 +612,16 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
         "Law-enforcement / security-equipment rival",
     ),
     (
-        "uav-evtol",
-        ["AVAV", "BETA", "JOBY", "KTOS"],  # UAV / eVTOL peers — not GD/NOC/LMT primes
-        "無人機／eVTOL 對手",
-        "UAV / eVTOL rival",
+        "mil-uav",
+        ["AVAV", "KTOS"],  # military UAV — not civilian eVTOL BETA/JOBY
+        "軍用無人機對手",
+        "Military UAV rival",
+    ),
+    (
+        "evtol",
+        ["BETA", "JOBY"],  # civilian eVTOL only
+        "eVTOL／電動垂直起降對手",
+        "eVTOL rival",
     ),
     (
         "brookfield-biz",
@@ -637,25 +643,94 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "dental-devices",
-        ["ALGN", "HSIC", "MMSI", "TFX", "ATR"],  # dental / specialty devices — not BSX/MDT/SYK
+        ["ALGN", "HSIC", "MMSI", "TFX"],  # dental / specialty devices — not ATR packaging / BSX
         "牙醫／專科器械對手",
         "Dental / specialty-device rival",
     ),
     (
         "saas-messaging",
-        ["BRZE", "HUBS", "TEAM", "ZM", "TYL", "DDOG"],  # marketing/engagement SaaS; no UBER/ADP
+        ["BRZE", "HUBS", "CRM", "APPF", "VEEV"],  # engagement / marketing cloud; not TEAM/ZM/TYL/DDOG
         "行銷／互動 SaaS 對手",
         "Marketing / engagement SaaS rival",
     ),
+    (
+        "ag-machinery",
+        ["AGCO", "DE", "CNH"],  # true ag OEMs; drop OSK/FSS specialty vehicles
+        "農機對手",
+        "Agricultural machinery rival",
+    ),
+    (
+        "sporting-goods",
+        ["AS", "DECK", "NKE", "LULU", "ONON", "VFC"],  # sporting / outdoor apparel; not HAS toys / LTH gyms
+        "運動用品對手",
+        "Sporting-goods rival",
+    ),
+    (
+        "ins-pc-re",
+        ["ACGL", "TRV", "PGR", "CB", "EG", "RNR", "WRB"],  # specialty P&C / reinsurance
+        "產險／再保對手",
+        "P&C / reinsurance rival",
+    ),
+    (
+        "alt-pe",
+        ["ARES", "KKR", "BX", "APO", "CG", "OWL"],  # alt asset managers — not mutual-fund BEN/TROW
+        "另類資產管理對手",
+        "Alternative asset-manager rival",
+    ),
+    (
+        "tax-pro-svc",
+        ["ANDG", "HRB", "INTU", "PAYX", "VRSK", "EFX"],  # tax / professional services
+        "稅務／專業服務對手",
+        "Tax / professional-services rival",
+    ),
+    (
+        "gov-services",
+        ["AMTM", "SAIC", "CACI", "LDOS", "PSN", "FLR", "BAH"],  # gov services / eng contractors
+        "政府服務／工程承攬對手",
+        "Gov services / engineering-contractor rival",
+    ),
+    (
+        "mol-dx",
+        ["BLLN", "ILMN", "DGX", "LH", "NTRA"],  # molecular dx / NIPT — not IDXX vet
+        "分子診斷／NIPT 對手",
+        "Molecular diagnostics / NIPT rival",
+    ),
+    (
+        "util-latam",
+        ["CIG", "ENIC", "AES", "SBS", "KEP"],  # LatAm / EM utilities — not US DUK/NEE
+        "拉美／新興市場公用事業對手",
+        "LatAm / EM utility rival",
+    ),
+    (
+        "packaging-disp",
+        ["ATR", "AMCR", "BALL", "CCK", "PKG"],  # packaging / dispensing — not dental
+        "包裝／給藥裝置對手",
+        "Packaging / dispensing rival",
+    ),
+    (
+        "water-heat",
+        ["AOS", "WTS", "LII", "TTC"],  # water heater / boiler / water HVAC
+        "熱水器／水暖設備對手",
+        "Water heater / hydronic equipment rival",
+    ),
+    (
+        "life-sci-dist",
+        ["AVTR", "TMO", "DHR", "IQV", "A"],  # life-science reagents / lab distribution
+        "生命科學試劑／實驗室通路對手",
+        "Life-science reagents / lab-distribution rival",
+    ),
 ]
-
 for _gid, _members, _zh, _en in EXTRA_PEER_GROUPS:
     PEER_GROUPS.append((_gid, _members, _zh, _en))
     GROUP_BY_ID[_gid] = (_members, _zh, _en)
+    # Do NOT prepend specialty groups onto every member's HUB_TO_GROUPS.
+    # That poisoned mid-mega hubs (CCI/TYL/STLD/JNJ) so rivals_for used only the
+    # specialty roster. Intended remaining hubs use TICKER_GROUP_FORCE below.
+    # Optionally append (never insert-front) so existing industry groups stay first.
     for _t in _members:
         HUB_TO_GROUPS.setdefault(_t, [])
         if _gid not in HUB_TO_GROUPS[_t]:
-            HUB_TO_GROUPS[_t].insert(0, _gid)
+            HUB_TO_GROUPS[_t].append(_gid)
 
 # Hub → preferred specialty group (wins over industry map / HUB_TO_GROUPS first).
 TICKER_GROUP_FORCE: dict[str, str] = {
@@ -730,16 +805,19 @@ TICKER_GROUP_FORCE: dict[str, str] = {
     "ADT": "security-svc",
     "ALLE": "ind-security",
     "ASTS": "satellite",
+    "GSAT": "satellite",
+    "VSAT": "satellite",
+    "IRDM": "satellite",
     "ACT": "mi-specialty",
     "BCPC": "nutrition-chem",
     "AIT": "ind-dist",
     "BKR": "energy-ofs-pure",
     "AEG": "ins-life",
     "AXON": "law-enforcement",
-    "AVAV": "uav-evtol",
-    "BETA": "uav-evtol",
-    "JOBY": "uav-evtol",
-    "KTOS": "uav-evtol",
+    "AVAV": "mil-uav",
+    "KTOS": "mil-uav",
+    "BETA": "evtol",
+    "JOBY": "evtol",
     "BBUC": "brookfield-biz",
     "ANF": "apparel-specialty",
     "URBN": "apparel-specialty",
@@ -758,6 +836,18 @@ TICKER_GROUP_FORCE: dict[str, str] = {
     "ALKS": "pharma-generic",
     "RITM": "reit-mreit",
     "NLY": "reit-mreit",
+    "AGCO": "ag-machinery",
+    "AS": "sporting-goods",
+    "ACGL": "ins-pc-re",
+    "ARES": "alt-pe",
+    "ANDG": "tax-pro-svc",
+    "AMTM": "gov-services",
+    "BLLN": "mol-dx",
+    "CIG": "util-latam",
+    "BRZE": "saas-messaging",
+    "ATR": "packaging-disp",
+    "AOS": "water-heat",
+    "AVTR": "life-sci-dist",
 }
 
 
@@ -767,7 +857,8 @@ NO_PAD_GROUPS = {
     "airport-ops",
     "ophthalmology",
     "law-enforcement",
-    "uav-evtol",
+    "mil-uav",
+    "evtol",
     "satellite",
     "reit-mreit",
     "bdc-credit",
@@ -775,6 +866,17 @@ NO_PAD_GROUPS = {
     "brookfield-biz",
     "marine-rv",
     "wealth-am",
+    "ag-machinery",
+    "gov-services",
+    "mol-dx",
+    "util-latam",
+    "packaging-disp",
+    "water-heat",
+    "life-sci-dist",
+    "tax-pro-svc",
+    "ins-pc-re",
+    "alt-pe",
+    "sporting-goods",
 }
 
 
@@ -814,7 +916,13 @@ def resolve_rivals(
         riv = pad_rivals(ticker, sector, industry, riv, by_industry, n=n)
         return riv[:n]
 
+    # Primary curated group from mid-mega / appended EXTRA (never prepended).
+    primary = (HUB_TO_GROUPS.get(ticker) or [None])[0]
     riv = dedupe_rival_rows(ticker, rivals_for(ticker, n=n + 3), n=n)
+    # Short NO_PAD specialty lists must not fall through to industry megacaps
+    # (e.g. GSAT satellite → 3 peers must not remap to telecom-cable).
+    if primary in NO_PAD_GROUPS and riv:
+        return riv[:n]
     if len(riv) >= 4:
         return riv[:n]
 
@@ -910,6 +1018,62 @@ EXTRA_NAME_EN: dict[str, str] = {
     "APPF": "AppFolio",
     "ADT": "ADT",
     "ACIW": "ACI Worldwide",
+
+    "VRTX": "Vertex",
+    "TSM": "TSMC",
+    "BEP": "Brookfield Renewable",
+    "PAC": "GAP",
+    "OMAB": "OMA",
+    "WHD": "Cactus",
+    "TXN": "Texas Instruments",
+    "MLM": "Martin Marietta",
+    "CX": "CEMEX",
+    "SBS": "Sabesp",
+    "PKG": "Packaging Corp of America",
+    "RDN": "Radian",
+    "NMIH": "NMI Holdings",
+    "GPI": "Group 1 Automotive",
+    "FMC": "FMC",
+    "UWMC": "UWM Holdings",
+    "CENX": "Century Aluminum",
+    "KALU": "Kaiser Aluminum",
+    "ALK": "Alaska Air",
+    "NSIT": "Insight Enterprises",
+    "AMTM": "Amentum",
+    "BLLN": "BillionToOne",
+    "ANDG": "Andersen",
+    "AGCO": "AGCO",
+    "AOS": "A. O. Smith",
+    "ATR": "AptarGroup",
+    "AVTR": "Avantor",
+    "ACGL": "Arch Capital",
+    "ARES": "Ares Management",
+    "SAIC": "SAIC",
+    "CACI": "CACI",
+    "LDOS": "Leidos",
+    "PSN": "Parsons",
+    "BAH": "Booz Allen",
+    "ILMN": "Illumina",
+    "DGX": "Quest Diagnostics",
+    "LH": "Labcorp",
+    "NTRA": "Natera",
+    "ENIC": "Enel Chile",
+    "AMCR": "Amcor",
+    "BALL": "Ball",
+    "CCK": "Crown Holdings",
+    "WTS": "Watts Water",
+    "LII": "Lennox",
+    "TTC": "Toro",
+    "TRV": "Travelers",
+    "PGR": "Progressive",
+    "EG": "Everest",
+    "RNR": "RenaissanceRe",
+    "WRB": "W. R. Berkley",
+    "HRB": "H&R Block",
+    "INTU": "Intuit",
+    "DECK": "Deckers",
+    "ONON": "On Holding",
+    "STLD": "Steel Dynamics",
     "AUB": "Atlantic Union Bankshares",
     "WOR": "Worthington",
     "PII": "Polaris",
@@ -985,6 +1149,37 @@ EXTRA_NAME_ZH: dict[str, str] = {
     "CAKE": "起司蛋糕工廠",
     "ALGM": "Allegro MicroSystems",
     "CACC": "Credit Acceptance",
+
+    "VRTX": "福泰製藥",
+    "TSM": "臺積電",
+    "BEP": "Brookfield Renewable",
+    "PAC": "太平洋機場集團",
+    "OMAB": "OMA 機場",
+    "WHD": "Cactus",
+    "TXN": "德州儀器",
+    "MLM": "馬丁瑪麗埃塔",
+    "CX": "西麥斯",
+    "SBS": "Sabesp",
+    "PKG": "美國包裝公司",
+    "RDN": "Radian",
+    "NMIH": "NMI Holdings",
+    "GPI": "Group 1 Automotive",
+    "FMC": "FMC",
+    "UWMC": "UWM",
+    "CENX": "世紀鋁業",
+    "KALU": "凱撒鋁業",
+    "ALK": "阿拉斯加航空",
+    "NSIT": "Insight Enterprises",
+    "AMTM": "Amentum",
+    "BLLN": "BillionToOne",
+    "ANDG": "Andersen",
+    "CIG": "CEMIG",
+    "ATR": "AptarGroup",
+    "AOS": "A. O. Smith",
+    "AVTR": "Avantor",
+    "ACGL": "Arch Capital",
+    "ARES": "Ares",
+    "BRZE": "Braze",
     "AUB": "大西洋聯合銀行",
     "WOR": "Worthington",
     "PII": "Polaris",
@@ -1146,6 +1341,28 @@ def main() -> int:
         "BBU": ("Brookfield Business Partners", "Brookfield Business Partners", "NYSE"),
         "AVT": ("Avnet", "安富利", "NASDAQ"),
         "ARW": ("Arrow Electronics", "艾睿電子", "NYSE"),
+
+        "WHD": ("Cactus", "Cactus", "NYSE"),
+        "RDN": ("Radian", "Radian", "NYSE"),
+        "NMIH": ("NMI Holdings", "NMI Holdings", "NASDAQ"),
+        "GPI": ("Group 1 Automotive", "Group 1 Automotive", "NYSE"),
+        "FMC": ("FMC", "FMC", "NYSE"),
+        "UWMC": ("UWM Holdings", "UWM", "NYSE"),
+        "CENX": ("Century Aluminum", "世紀鋁業", "NASDAQ"),
+        "KALU": ("Kaiser Aluminum", "凱撒鋁業", "NASDAQ"),
+        "ALK": ("Alaska Air", "阿拉斯加航空", "NYSE"),
+        "NSIT": ("Insight Enterprises", "Insight Enterprises", "NASDAQ"),
+        "VRTX": ("Vertex", "福泰製藥", "NASDAQ"),
+        "TSM": ("TSMC", "臺積電", "NYSE"),
+        "BEP": ("Brookfield Renewable", "Brookfield Renewable", "NYSE"),
+        "PAC": ("GAP", "太平洋機場集團", "NYSE"),
+        "OMAB": ("OMA", "OMA 機場", "NASDAQ"),
+        "TXN": ("Texas Instruments", "德州儀器", "NASDAQ"),
+        "MLM": ("Martin Marietta", "馬丁瑪麗埃塔", "NYSE"),
+        "CX": ("CEMEX", "西麥斯", "NYSE"),
+        "SBS": ("Sabesp", "Sabesp", "NYSE"),
+        "PKG": ("Packaging Corp of America", "美國包裝公司", "NYSE"),
+        "NHYDY": ("Norsk Hydro", "挪威海德魯", "OTC"),
     }
     for t, (en, zh, ex) in forced_ents.items():
         entities[t] = {
@@ -1187,8 +1404,41 @@ def main() -> int:
             competitors[hub] = [[a, b, c] for a, b, c in riv]
 
     # Drop delisted / mislabeled stub entities (never ship OTC ticker-only rows).
-    for gone in ("PEAK", "MYL", "FLY", "FLYX", "MAXR", "SQ"):
+    for gone in ("PEAK", "MYL", "FLY", "FLYX", "MAXR", "SQ", "RDFN"):
         entities.pop(gone, None)
+
+    # Global: never ship ticker-as-name except intentional Latin brands.
+    LATIN_BRANDS = {
+        "IBM", "BBVA", "SAP", "AMD", "GE", "BA", "CAT", "DE", "UPS", "NKE", "BP",
+        "HSBC", "UBS", "ING", "KKR", "RH", "NVR", "ADP", "CME", "CSX", "AIG", "PNC",
+        "FIS", "ARM", "ASML", "CAVA", "BCE", "SQM", "UEC", "NRG", "SAIC", "CACI",
+        "FMC", "PKG",  # short brands that equal ticker intentionally only if curated
+    }
+    # Prefer EXTRA / universe short brands over ticker stubs.
+    for t, pe in list(entities.items()):
+        if t.startswith("_"):
+            continue
+        row = uni.get(t) or {}
+        en = (pe.get("name_en") or "").strip()
+        zh = (pe.get("name_zh") or "").strip()
+        if t in EXTRA_NAME_EN:
+            pe["name_en"] = EXTRA_NAME_EN[t]
+            en = pe["name_en"]
+        elif en == t and t not in LATIN_BRANDS:
+            src = row.get("name") or row.get("name_en") or en
+            pe["name_en"] = short_brand_en(src, t)
+            if pe["name_en"] == t and row.get("name"):
+                # last resort: first two tokens of legal name
+                parts = str(row["name"]).replace(",", " ").split()
+                pe["name_en"] = " ".join(parts[:3]) if parts else t
+        if t in EXTRA_NAME_ZH:
+            pe["name_zh"] = EXTRA_NAME_ZH[t]
+        elif zh == t and t not in LATIN_BRANDS:
+            pe["name_zh"] = pe.get("name_en") or t
+        # Exchange: never OTC for in-universe NYSE/NASDAQ; apply known listed peers.
+        if row.get("exchange"):
+            pe["exchange"] = row["exchange"]
+        entities[t] = pe
 
     # Scrub banned / share-class / alias rivals from any competitor lists.
     for hub, arr in list(competitors.items()):
