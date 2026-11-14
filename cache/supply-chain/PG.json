@@ -36,10 +36,10 @@
       "players": [
         {
           "ticker": "ADM",
-          "name_en": "ADM",
-          "name_zh": "ADM",
-          "role_zh": "ADM：農產／原料代表性玩家",
-          "role_en": "ADM: representative player in Agriculture / inputs",
+          "name_en": "Archer-Daniels-Midland Company",
+          "name_zh": "阿徹丹尼爾斯米德蘭",
+          "role_zh": "阿徹丹尼爾斯米德蘭：農產／原料代表性玩家",
+          "role_en": "Archer-Daniels-Midland Company: representative player in Agriculture / inputs",
           "exchange": "NYSE"
         },
         {
@@ -70,11 +70,11 @@
       "players": [
         {
           "ticker": "DD",
-          "name_en": "DD",
-          "name_zh": "DD",
-          "role_zh": "DD：包裝材料代表性玩家",
-          "role_en": "DD: representative player in Packaging materials",
-          "exchange": ""
+          "name_en": "DuPont de Nemours",
+          "name_zh": "杜邦",
+          "role_zh": "杜邦：包裝材料代表性玩家",
+          "role_en": "DuPont de Nemours: representative player in Packaging materials",
+          "exchange": "NYSE"
         },
         {
           "ticker": "DOW",
@@ -155,8 +155,8 @@
         {
           "ticker": "TGT",
           "name_en": "Target",
-          "name_zh": "Target",
-          "role_zh": "Target：零售／倉店通路代表性玩家",
+          "name_zh": "目標百貨 (Target)",
+          "role_zh": "目標百貨 (Target)：零售／倉店通路代表性玩家",
           "role_en": "Target: representative player in Retail / club channel",
           "exchange": "NYSE"
         }
@@ -181,8 +181,8 @@
         {
           "ticker": "META",
           "name_en": "Meta Platforms, Inc.",
-          "name_zh": "Meta",
-          "role_zh": "Meta：行銷／媒體代表性玩家",
+          "name_zh": "Meta (臉書)",
+          "role_zh": "Meta (臉書)：行銷／媒體代表性玩家",
           "role_en": "Meta Platforms, Inc.: representative player in Marketing / media",
           "exchange": "NASDAQ"
         },

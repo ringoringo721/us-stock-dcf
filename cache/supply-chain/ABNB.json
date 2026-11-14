@@ -22,7 +22,7 @@
     "id": "consumer-discretionary-v1",
     "label_zh": "非必需消費／餐旅價值鏈",
     "label_en": "Consumer discretionary / hospitality value chain",
-    "description_zh": "原料／商品 → 物流 → 門市／平臺 → 支付 → 行銷流量。",
+    "description_zh": "原料／商品 → 物流 → 門市／平台 → 支付 → 行銷流量。",
     "description_en": "Inputs/goods → logistics → stores/platforms → payments → marketing traffic."
   },
   "stages": [
@@ -36,10 +36,10 @@
       "players": [
         {
           "ticker": "ADM",
-          "name_en": "ADM",
-          "name_zh": "ADM",
-          "role_zh": "ADM：原料／商品供應代表性玩家",
-          "role_en": "ADM: representative player in Inputs / merchandise supply",
+          "name_en": "Archer-Daniels-Midland Company",
+          "name_zh": "阿徹丹尼爾斯米德蘭",
+          "role_zh": "阿徹丹尼爾斯米德蘭：原料／商品供應代表性玩家",
+          "role_en": "Archer-Daniels-Midland Company: representative player in Inputs / merchandise supply",
           "exchange": "NYSE"
         },
         {
@@ -71,8 +71,8 @@
         {
           "ticker": "UPS",
           "name_en": "United Parcel Service",
-          "name_zh": "UPS",
-          "role_zh": "UPS：物流／冷鏈代表性玩家",
+          "name_zh": "聯合包裹",
+          "role_zh": "聯合包裹：物流／冷鏈代表性玩家",
           "role_en": "United Parcel Service: representative player in Logistics / cold chain",
           "exchange": "NYSE"
         },
@@ -97,7 +97,7 @@
     {
       "id": "stores",
       "order": 3,
-      "label_zh": "門市／數位平臺",
+      "label_zh": "門市／數位平台",
       "label_en": "Stores / digital platforms",
       "summary_zh": "直營、加盟與 App。",
       "summary_en": "Owned, franchise, apps.",
@@ -106,7 +106,7 @@
           "ticker": "SBUX",
           "name_en": "Starbucks Corporation",
           "name_zh": "星巴克",
-          "role_zh": "星巴克：門市／數位平臺代表性玩家",
+          "role_zh": "星巴克：門市／數位平台代表性玩家",
           "role_en": "Starbucks Corporation: representative player in Stores / digital platforms",
           "exchange": "NASDAQ"
         },
@@ -114,7 +114,7 @@
           "ticker": "MCD",
           "name_en": "McDonald's Corporation",
           "name_zh": "麥當勞",
-          "role_zh": "麥當勞：門市／數位平臺代表性玩家",
+          "role_zh": "麥當勞：門市／數位平台代表性玩家",
           "role_en": "McDonald's Corporation: representative player in Stores / digital platforms",
           "exchange": "NYSE"
         },
@@ -122,7 +122,7 @@
           "ticker": "MAR",
           "name_en": "Marriott International, Inc.",
           "name_zh": "萬豪",
-          "role_zh": "萬豪：門市／數位平臺代表性玩家",
+          "role_zh": "萬豪：門市／數位平台代表性玩家",
           "role_en": "Marriott International, Inc.: representative player in Stores / digital platforms",
           "exchange": "NASDAQ"
         }
@@ -139,16 +139,16 @@
         {
           "ticker": "V",
           "name_en": "Visa Inc.",
-          "name_zh": "Visa",
-          "role_zh": "Visa：支付／忠誠代表性玩家",
+          "name_zh": "威士卡",
+          "role_zh": "威士卡：支付／忠誠代表性玩家",
           "role_en": "Visa Inc.: representative player in Payments / loyalty",
           "exchange": "NYSE"
         },
         {
           "ticker": "MA",
           "name_en": "Mastercard Incorporated",
-          "name_zh": "Mastercard",
-          "role_zh": "Mastercard：支付／忠誠代表性玩家",
+          "name_zh": "萬事達卡",
+          "role_zh": "萬事達卡：支付／忠誠代表性玩家",
           "role_en": "Mastercard Incorporated: representative player in Payments / loyalty",
           "exchange": "NYSE"
         },
@@ -181,16 +181,16 @@
         {
           "ticker": "META",
           "name_en": "Meta Platforms, Inc.",
-          "name_zh": "Meta",
-          "role_zh": "Meta：行銷／流量代表性玩家",
+          "name_zh": "Meta (臉書)",
+          "role_zh": "Meta (臉書)：行銷／流量代表性玩家",
           "role_en": "Meta Platforms, Inc.: representative player in Marketing / traffic",
           "exchange": "NASDAQ"
         },
         {
           "ticker": "BKNG",
           "name_en": "Booking Holdings Inc.",
-          "name_zh": "Booking",
-          "role_zh": "Booking：行銷／流量代表性玩家",
+          "name_zh": "Booking 控股",
+          "role_zh": "Booking 控股：行銷／流量代表性玩家",
           "role_en": "Booking Holdings Inc.: representative player in Marketing / traffic",
           "exchange": "NASDAQ"
         }
@@ -201,7 +201,7 @@
     {
       "ticker": "BKNG",
       "name_en": "Booking Holdings Inc.",
-      "name_zh": "Booking",
+      "name_zh": "Booking 控股",
       "basis_zh": "住宿預訂對手",
       "basis_en": "Lodging booking rival",
       "exchange": "NASDAQ"

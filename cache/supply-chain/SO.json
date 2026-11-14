@@ -44,10 +44,10 @@
         },
         {
           "ticker": "ENPH",
-          "name_en": "Enphase",
-          "name_zh": "Enphase",
-          "role_zh": "Enphase：燃料／再生能源裝置代表性玩家",
-          "role_en": "Enphase: representative player in Fuel / renewables equipment",
+          "name_en": "Enphase Energy",
+          "name_zh": "恩菲斯能源",
+          "role_zh": "恩菲斯能源：燃料／再生能源裝置代表性玩家",
+          "role_en": "Enphase Energy: representative player in Fuel / renewables equipment",
           "exchange": "NASDAQ",
           "listedInApp": false
         },
@@ -72,8 +72,8 @@
         {
           "ticker": "CEG",
           "name_en": "Constellation",
-          "name_zh": "Constellation",
-          "role_zh": "Constellation：發電資產代表性玩家",
+          "name_zh": "星座能源",
+          "role_zh": "星座能源：發電資產代表性玩家",
           "role_en": "Constellation: representative player in Generation assets",
           "exchange": "NASDAQ"
         },
@@ -156,8 +156,8 @@
         {
           "ticker": "ANET",
           "name_en": "Arista Networks, Inc.",
-          "name_zh": "Arista",
-          "role_zh": "Arista：電網科技／自動化代表性玩家",
+          "name_zh": "Arista 網路",
+          "role_zh": "Arista 網路：電網科技／自動化代表性玩家",
           "role_en": "Arista Networks, Inc.: representative player in Grid tech / automation",
           "exchange": "NYSE"
         }
@@ -202,7 +202,7 @@
     {
       "ticker": "NEE",
       "name_en": "NextEra Energy, Inc.",
-      "name_zh": "NextEra",
+      "name_zh": "新紀元能源",
       "basis_zh": "受規管電力對手",
       "basis_en": "Regulated electric rival",
       "exchange": "NYSE"
@@ -210,7 +210,7 @@
     {
       "ticker": "DUK",
       "name_en": "Duke Energy",
-      "name_zh": "Duke Energy",
+      "name_zh": "杜克能源",
       "basis_zh": "受規管電力對手",
       "basis_en": "Regulated electric rival",
       "exchange": "NYSE"
@@ -234,7 +234,7 @@
     {
       "ticker": "CEG",
       "name_en": "Constellation",
-      "name_zh": "Constellation",
+      "name_zh": "星座能源",
       "basis_zh": "發電對手",
       "basis_en": "Generation rival",
       "exchange": "NASDAQ"

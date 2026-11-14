@@ -2,7 +2,7 @@
   "version": 1,
   "ticker": "EQIX",
   "name_en": "Equinix, Inc.",
-  "name_zh": "Equinix",
+  "name_zh": "易華電腦 (Equinix)",
   "updatedAt": "2026-11-14",
   "source": {
     "type": "curated",
@@ -121,8 +121,8 @@
         {
           "ticker": "PANW",
           "name_en": "Palo Alto Networks, Inc.",
-          "name_zh": "Palo Alto",
-          "role_zh": "Palo Alto：物業科技／營運代表性玩家",
+          "name_zh": "派拓網路",
+          "role_zh": "派拓網路：物業科技／營運代表性玩家",
           "role_en": "Palo Alto Networks, Inc.: representative player in Proptech / operations",
           "exchange": "NASDAQ"
         }
@@ -217,7 +217,7 @@
     {
       "ticker": "PLD",
       "name_en": "Prologis, Inc.",
-      "name_zh": "Prologis",
+      "name_zh": "普洛斯 (Prologis)",
       "basis_zh": "工業地產資本競爭",
       "basis_en": "Industrial RE capital competition",
       "exchange": "NYSE"

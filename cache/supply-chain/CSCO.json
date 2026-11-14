@@ -150,8 +150,8 @@
         {
           "ticker": "UPS",
           "name_en": "United Parcel Service",
-          "name_zh": "UPS",
-          "role_zh": "UPS：物流／通路配送代表性玩家",
+          "name_zh": "聯合包裹",
+          "role_zh": "聯合包裹：物流／通路配送代表性玩家",
           "role_en": "United Parcel Service: representative player in Logistics / distribution",
           "exchange": "NYSE"
         },
@@ -192,8 +192,8 @@
         {
           "ticker": "VZ",
           "name_en": "Verizon Communications Inc.",
-          "name_zh": "Verizon",
-          "role_zh": "Verizon：零售／電信通路代表性玩家",
+          "name_zh": "威訊通訊",
+          "role_zh": "威訊通訊：零售／電信通路代表性玩家",
           "role_en": "Verizon Communications Inc.: representative player in Retail / carrier channels",
           "exchange": "NYSE"
         }
@@ -204,15 +204,15 @@
     {
       "ticker": "ANET",
       "name_en": "Arista Networks, Inc.",
-      "name_zh": "Arista",
+      "name_zh": "Arista 網路",
       "basis_zh": "資料中心交換對手",
       "basis_en": "Datacenter switching rival",
       "exchange": "NYSE"
     },
     {
       "ticker": "JNPR",
-      "name_en": "Juniper",
-      "name_zh": "Juniper",
+      "name_en": "Juniper Networks",
+      "name_zh": "瞻博網路",
       "basis_zh": "企業網路對手",
       "basis_en": "Enterprise networking rival",
       "exchange": "NYSE",
@@ -228,19 +228,19 @@
     },
     {
       "ticker": "NOK",
-      "name_en": "NOK",
-      "name_zh": "NOK",
+      "name_en": "Nokia",
+      "name_zh": "諾基亞",
       "basis_zh": "電信裝置對手",
       "basis_en": "Telecom equipment rival",
-      "exchange": ""
+      "exchange": "NYSE"
     },
     {
       "ticker": "ERIC",
-      "name_en": "ERIC",
-      "name_zh": "ERIC",
+      "name_en": "Ericsson",
+      "name_zh": "愛立信",
       "basis_zh": "電信裝置對手",
       "basis_en": "Telecom equipment rival",
-      "exchange": ""
+      "exchange": "NASDAQ"
     }
   ]
 }

@@ -36,11 +36,11 @@
       "players": [
         {
           "ticker": "DD",
-          "name_en": "DD",
-          "name_zh": "DD",
-          "role_zh": "DD：航太材料代表性玩家",
-          "role_en": "DD: representative player in Aerospace materials",
-          "exchange": ""
+          "name_en": "DuPont de Nemours",
+          "name_zh": "杜邦",
+          "role_zh": "杜邦：航太材料代表性玩家",
+          "role_en": "DuPont de Nemours: representative player in Aerospace materials",
+          "exchange": "NYSE"
         },
         {
           "ticker": "HON",
@@ -53,8 +53,8 @@
         {
           "ticker": "APH",
           "name_en": "Amphenol Corporation",
-          "name_zh": "Amphenol",
-          "role_zh": "Amphenol：航太材料代表性玩家",
+          "name_zh": "安費諾",
+          "role_zh": "安費諾：航太材料代表性玩家",
           "role_en": "Amphenol Corporation: representative player in Aerospace materials",
           "exchange": "NYSE"
         }
@@ -105,26 +105,26 @@
         {
           "ticker": "RTX",
           "name_en": "RTX Corporation",
-          "name_zh": "RTX",
-          "role_zh": "RTX：一級系統供應商代表性玩家",
+          "name_zh": "雷神技術",
+          "role_zh": "雷神技術：一級系統供應商代表性玩家",
           "role_en": "RTX Corporation: representative player in Tier-1 systems suppliers",
           "exchange": "NYSE"
         },
         {
           "ticker": "TDG",
           "name_en": "TransDigm",
-          "name_zh": "TransDigm",
-          "role_zh": "TransDigm：一級系統供應商代表性玩家",
+          "name_zh": "天寶集團 (TransDigm)",
+          "role_zh": "天寶集團 (TransDigm)：一級系統供應商代表性玩家",
           "role_en": "TransDigm: representative player in Tier-1 systems suppliers",
           "exchange": "NYSE"
         },
         {
           "ticker": "DD",
-          "name_en": "DD",
-          "name_zh": "DD",
-          "role_zh": "DD：一級系統供應商代表性玩家",
-          "role_en": "DD: representative player in Tier-1 systems suppliers",
-          "exchange": ""
+          "name_en": "DuPont de Nemours",
+          "name_zh": "杜邦",
+          "role_zh": "杜邦：一級系統供應商代表性玩家",
+          "role_en": "DuPont de Nemours: representative player in Tier-1 systems suppliers",
+          "exchange": "NYSE"
         }
       ]
     },
@@ -201,7 +201,7 @@
     {
       "ticker": "RTX",
       "name_en": "RTX Corporation",
-      "name_zh": "RTX",
+      "name_zh": "雷神技術",
       "basis_zh": "航太／動力對手",
       "basis_en": "Aerospace/power rival",
       "exchange": "NYSE"

@@ -20,7 +20,7 @@
   },
   "model": {
     "id": "internet-platform-v1",
-    "label_zh": "網際網路平臺價值鏈",
+    "label_zh": "網際網路平台價值鏈",
     "label_en": "Internet platform value chain",
     "description_zh": "雲端／基礎建設 → 內容／創作者 → 廣告／變現 → 裝置／作業系統 → 支付／商務。",
     "description_en": "Cloud/infra → content/creators → ads/monetization → devices/OS → payments/commerce."
@@ -37,16 +37,16 @@
         {
           "ticker": "EQIX",
           "name_en": "Equinix, Inc.",
-          "name_zh": "Equinix",
-          "role_zh": "Equinix：雲端／網路基礎設施代表性玩家",
+          "name_zh": "易華電腦 (Equinix)",
+          "role_zh": "易華電腦 (Equinix)：雲端／網路基礎設施代表性玩家",
           "role_en": "Equinix, Inc.: representative player in Cloud / network infrastructure",
           "exchange": "NASDAQ"
         },
         {
           "ticker": "ANET",
           "name_en": "Arista Networks, Inc.",
-          "name_zh": "Arista",
-          "role_zh": "Arista：雲端／網路基礎設施代表性玩家",
+          "name_zh": "Arista 網路",
+          "role_zh": "Arista 網路：雲端／網路基礎設施代表性玩家",
           "role_en": "Arista Networks, Inc.: representative player in Cloud / network infrastructure",
           "exchange": "NYSE"
         },
@@ -87,8 +87,8 @@
         {
           "ticker": "EQIX",
           "name_en": "Equinix, Inc.",
-          "name_zh": "Equinix",
-          "role_zh": "Equinix：內容／創作者生態代表性玩家",
+          "name_zh": "易華電腦 (Equinix)",
+          "role_zh": "易華電腦 (Equinix)：內容／創作者生態代表性玩家",
           "role_en": "Equinix, Inc.: representative player in Content / creator ecosystem",
           "exchange": "NASDAQ"
         }
@@ -174,16 +174,16 @@
         {
           "ticker": "V",
           "name_en": "Visa Inc.",
-          "name_zh": "Visa",
-          "role_zh": "Visa：支付／商務閉環代表性玩家",
+          "name_zh": "威士卡",
+          "role_zh": "威士卡：支付／商務閉環代表性玩家",
           "role_en": "Visa Inc.: representative player in Payments / commerce loop",
           "exchange": "NYSE"
         },
         {
           "ticker": "MA",
           "name_en": "Mastercard Incorporated",
-          "name_zh": "Mastercard",
-          "role_zh": "Mastercard：支付／商務閉環代表性玩家",
+          "name_zh": "萬事達卡",
+          "role_zh": "萬事達卡：支付／商務閉環代表性玩家",
           "role_en": "Mastercard Incorporated: representative player in Payments / commerce loop",
           "exchange": "NYSE"
         },

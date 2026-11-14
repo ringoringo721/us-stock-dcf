@@ -71,16 +71,16 @@
         {
           "ticker": "PLD",
           "name_en": "Prologis, Inc.",
-          "name_zh": "Prologis",
-          "role_zh": "Prologis：倉儲／履約代表性玩家",
+          "name_zh": "普洛斯 (Prologis)",
+          "role_zh": "普洛斯 (Prologis)：倉儲／履約代表性玩家",
           "role_en": "Prologis, Inc.: representative player in Warehousing / fulfillment",
           "exchange": "NYSE"
         },
         {
           "ticker": "EQIX",
           "name_en": "Equinix, Inc.",
-          "name_zh": "Equinix",
-          "role_zh": "Equinix：倉儲／履約代表性玩家",
+          "name_zh": "易華電腦 (Equinix)",
+          "role_zh": "易華電腦 (Equinix)：倉儲／履約代表性玩家",
           "role_en": "Equinix, Inc.: representative player in Warehousing / fulfillment",
           "exchange": "NASDAQ"
         },
@@ -105,16 +105,16 @@
         {
           "ticker": "V",
           "name_en": "Visa Inc.",
-          "name_zh": "Visa",
-          "role_zh": "Visa：支付／金融代表性玩家",
+          "name_zh": "威士卡",
+          "role_zh": "威士卡：支付／金融代表性玩家",
           "role_en": "Visa Inc.: representative player in Payments / fintech",
           "exchange": "NYSE"
         },
         {
           "ticker": "MA",
           "name_en": "Mastercard Incorporated",
-          "name_zh": "Mastercard",
-          "role_zh": "Mastercard：支付／金融代表性玩家",
+          "name_zh": "萬事達卡",
+          "role_zh": "萬事達卡：支付／金融代表性玩家",
           "role_en": "Mastercard Incorporated: representative player in Payments / fintech",
           "exchange": "NYSE"
         },
@@ -147,8 +147,8 @@
         {
           "ticker": "META",
           "name_en": "Meta Platforms, Inc.",
-          "name_zh": "Meta",
-          "role_zh": "Meta：流量／廣告獲客代表性玩家",
+          "name_zh": "Meta (臉書)",
+          "role_zh": "Meta (臉書)：流量／廣告獲客代表性玩家",
           "role_en": "Meta Platforms, Inc.: representative player in Traffic / ad acquisition",
           "exchange": "NASDAQ"
         },
@@ -173,8 +173,8 @@
         {
           "ticker": "UPS",
           "name_en": "United Parcel Service",
-          "name_zh": "UPS",
-          "role_zh": "UPS：最後一哩／宅配代表性玩家",
+          "name_zh": "聯合包裹",
+          "role_zh": "聯合包裹：最後一哩／宅配代表性玩家",
           "role_en": "United Parcel Service: representative player in Last-mile delivery",
           "exchange": "NYSE"
         },
@@ -217,7 +217,7 @@
     {
       "ticker": "TGT",
       "name_en": "Target",
-      "name_zh": "Target",
+      "name_zh": "目標百貨 (Target)",
       "basis_zh": "綜合零售對手",
       "basis_en": "General merchandise rival",
       "exchange": "NYSE"

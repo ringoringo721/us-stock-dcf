@@ -2,7 +2,7 @@
   "version": 1,
   "ticker": "CB",
   "name_en": "Chubb Limited",
-  "name_zh": "Chubb",
+  "name_zh": "安達保險",
   "updatedAt": "2026-11-14",
   "source": {
     "type": "curated",
@@ -36,25 +36,25 @@
       "players": [
         {
           "ticker": "AIG",
-          "name_en": "AIG",
-          "name_zh": "AIG",
-          "role_zh": "AIG：再保險代表性玩家",
-          "role_en": "AIG: representative player in Reinsurance",
+          "name_en": "American International Group, Inc.",
+          "name_zh": "美國國際集團",
+          "role_zh": "美國國際集團：再保險代表性玩家",
+          "role_en": "American International Group, Inc.: representative player in Reinsurance",
           "exchange": "NYSE"
         },
         {
           "ticker": "MET",
           "name_en": "MetLife",
-          "name_zh": "MetLife",
-          "role_zh": "MetLife：再保險代表性玩家",
+          "name_zh": "大都會人壽",
+          "role_zh": "大都會人壽：再保險代表性玩家",
           "role_en": "MetLife: representative player in Reinsurance",
           "exchange": "NYSE"
         },
         {
           "ticker": "VRSK",
           "name_en": "Verisk",
-          "name_zh": "Verisk",
-          "role_zh": "Verisk：再保險代表性玩家",
+          "name_zh": "威瑞斯克",
+          "role_zh": "威瑞斯克：再保險代表性玩家",
           "role_en": "Verisk: representative player in Reinsurance",
           "exchange": "NASDAQ"
         }
@@ -71,8 +71,8 @@
         {
           "ticker": "VRSK",
           "name_en": "Verisk",
-          "name_zh": "Verisk",
-          "role_zh": "Verisk：精算／資料／評級代表性玩家",
+          "name_zh": "威瑞斯克",
+          "role_zh": "威瑞斯克：精算／資料／評級代表性玩家",
           "role_en": "Verisk: representative player in Actuarial / data / ratings",
           "exchange": "NASDAQ"
         },
@@ -139,16 +139,16 @@
         {
           "ticker": "AON",
           "name_en": "Aon",
-          "name_zh": "Aon",
-          "role_zh": "Aon：代理／經紀／銀行通路代表性玩家",
+          "name_zh": "怡安集團",
+          "role_zh": "怡安集團：代理／經紀／銀行通路代表性玩家",
           "role_en": "Aon: representative player in Agents / brokers / bank channel",
           "exchange": "NYSE"
         },
         {
           "ticker": "MMC",
           "name_en": "Marsh McLennan",
-          "name_zh": "Marsh McLennan",
-          "role_zh": "Marsh McLennan：代理／經紀／銀行通路代表性玩家",
+          "name_zh": "威達信",
+          "role_zh": "威達信：代理／經紀／銀行通路代表性玩家",
           "role_en": "Marsh McLennan: representative player in Agents / brokers / bank channel",
           "exchange": "NYSE",
           "listedInApp": false
@@ -156,8 +156,8 @@
         {
           "ticker": "AJG",
           "name_en": "Arthur J. Gallagher",
-          "name_zh": "Arthur J. Gallagher",
-          "role_zh": "Arthur J. Gallagher：代理／經紀／銀行通路代表性玩家",
+          "name_zh": "亞瑟加拉格爾",
+          "role_zh": "亞瑟加拉格爾：代理／經紀／銀行通路代表性玩家",
           "role_en": "Arthur J. Gallagher: representative player in Agents / brokers / bank channel",
           "exchange": "NYSE"
         }
@@ -190,8 +190,8 @@
         {
           "ticker": "CI",
           "name_en": "Cigna",
-          "name_zh": "The Cigna Group",
-          "role_zh": "The Cigna Group：醫療／理賠服務代表性玩家",
+          "name_zh": "信諾",
+          "role_zh": "信諾：醫療／理賠服務代表性玩家",
           "role_en": "Cigna: representative player in Medical / claims services",
           "exchange": "NYSE"
         }
@@ -202,7 +202,7 @@
     {
       "ticker": "PGR",
       "name_en": "The Progressive Corporation",
-      "name_zh": "Progressive",
+      "name_zh": "前進保險",
       "basis_zh": "產險對手",
       "basis_en": "P&C rival",
       "exchange": "NYSE"
@@ -210,15 +210,15 @@
     {
       "ticker": "TRV",
       "name_en": "Travelers",
-      "name_zh": "Travelers",
+      "name_zh": "旅行者保險",
       "basis_zh": "產險對手",
       "basis_en": "P&C rival",
       "exchange": "NYSE"
     },
     {
       "ticker": "AIG",
-      "name_en": "AIG",
-      "name_zh": "AIG",
+      "name_en": "American International Group, Inc.",
+      "name_zh": "美國國際集團",
       "basis_zh": "產險／再保對手",
       "basis_en": "P&C/reinsurance rival",
       "exchange": "NYSE"
@@ -226,7 +226,7 @@
     {
       "ticker": "ALL",
       "name_en": "Allstate",
-      "name_zh": "Allstate",
+      "name_zh": "全州保險",
       "basis_zh": "產險對手",
       "basis_en": "P&C rival",
       "exchange": "NYSE"

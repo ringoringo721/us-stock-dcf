@@ -2,7 +2,7 @@
   "version": 1,
   "ticker": "VZ",
   "name_en": "Verizon Communications Inc.",
-  "name_zh": "Verizon",
+  "name_zh": "威訊通訊",
   "updatedAt": "2026-11-14",
   "source": {
     "type": "curated",
@@ -44,19 +44,19 @@
         },
         {
           "ticker": "ERIC",
-          "name_en": "ERIC",
-          "name_zh": "ERIC",
-          "role_zh": "ERIC：網路裝置／無線基礎設施代表性玩家",
-          "role_en": "ERIC: representative player in Network equipment / RAN",
-          "exchange": ""
+          "name_en": "Ericsson",
+          "name_zh": "愛立信",
+          "role_zh": "愛立信：網路裝置／無線基礎設施代表性玩家",
+          "role_en": "Ericsson: representative player in Network equipment / RAN",
+          "exchange": "NASDAQ"
         },
         {
           "ticker": "NOK",
-          "name_en": "NOK",
-          "name_zh": "NOK",
-          "role_zh": "NOK：網路裝置／無線基礎設施代表性玩家",
-          "role_en": "NOK: representative player in Network equipment / RAN",
-          "exchange": ""
+          "name_en": "Nokia",
+          "name_zh": "諾基亞",
+          "role_zh": "諾基亞：網路裝置／無線基礎設施代表性玩家",
+          "role_en": "Nokia: representative player in Network equipment / RAN",
+          "exchange": "NYSE"
         }
       ]
     },
@@ -210,7 +210,7 @@
     {
       "ticker": "TMUS",
       "name_en": "T-Mobile US, Inc.",
-      "name_zh": "T-Mobile US",
+      "name_zh": "T-Mobile 美國",
       "basis_zh": "美國無線對手",
       "basis_en": "US wireless rival",
       "exchange": "NASDAQ"
@@ -233,7 +233,7 @@
     },
     {
       "ticker": "DISH",
-      "name_en": "Dish",
+      "name_en": "EchoStar / Dish",
       "name_zh": "Dish",
       "basis_zh": "無線競爭",
       "basis_en": "Wireless competition",

@@ -86,10 +86,10 @@
         },
         {
           "ticker": "IBM",
-          "name_en": "International Business Machines Corporation",
-          "name_zh": "IBM",
-          "role_zh": "IBM：核心銀行／雲端科技代表性玩家",
-          "role_en": "International Business Machines Corporation: representative player in Core banking / cloud tech",
+          "name_en": "International Business Machines",
+          "name_zh": "International Business Machines",
+          "role_zh": "International Business Machines：核心銀行／雲端科技代表性玩家",
+          "role_en": "International Business Machines: representative player in Core banking / cloud tech",
           "exchange": "NYSE"
         }
       ]
@@ -105,16 +105,16 @@
         {
           "ticker": "V",
           "name_en": "Visa Inc.",
-          "name_zh": "Visa",
-          "role_zh": "Visa：支付／清算網路代表性玩家",
+          "name_zh": "威士卡",
+          "role_zh": "威士卡：支付／清算網路代表性玩家",
           "role_en": "Visa Inc.: representative player in Payments / clearing networks",
           "exchange": "NYSE"
         },
         {
           "ticker": "MA",
           "name_en": "Mastercard Incorporated",
-          "name_zh": "Mastercard",
-          "role_zh": "Mastercard：支付／清算網路代表性玩家",
+          "name_zh": "萬事達卡",
+          "role_zh": "萬事達卡：支付／清算網路代表性玩家",
           "role_en": "Mastercard Incorporated: representative player in Payments / clearing networks",
           "exchange": "NYSE"
         },
@@ -155,8 +155,8 @@
         {
           "ticker": "FICO",
           "name_en": "Fair Isaac",
-          "name_zh": "FICO",
-          "role_zh": "FICO：資料／風控／評級代表性玩家",
+          "name_zh": "費埃哲",
+          "role_zh": "費埃哲：資料／風控／評級代表性玩家",
           "role_en": "Fair Isaac: representative player in Data / risk / ratings",
           "exchange": "NYSE"
         }
@@ -201,7 +201,7 @@
     {
       "ticker": "BBVA",
       "name_en": "Banco Bilbao Vizcaya Argentaria, S.A.",
-      "name_zh": "BBVA",
+      "name_zh": "西班牙對外銀行",
       "basis_zh": "綜合銀行／企業金融對手",
       "basis_en": "Diversified banking/wholesale rival",
       "exchange": "NYSE"

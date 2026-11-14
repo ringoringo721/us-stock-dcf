@@ -37,24 +37,24 @@
         {
           "ticker": "CB",
           "name_en": "Chubb Limited",
-          "name_zh": "Chubb",
-          "role_zh": "Chubb：保險承保代表性玩家",
+          "name_zh": "安達保險",
+          "role_zh": "安達保險：保險承保代表性玩家",
           "role_en": "Chubb Limited: representative player in Insurance underwriting",
           "exchange": "NYSE"
         },
         {
           "ticker": "PGR",
           "name_en": "The Progressive Corporation",
-          "name_zh": "Progressive",
-          "role_zh": "Progressive：保險承保代表性玩家",
+          "name_zh": "前進保險",
+          "role_zh": "前進保險：保險承保代表性玩家",
           "role_en": "The Progressive Corporation: representative player in Insurance underwriting",
           "exchange": "NYSE"
         },
         {
           "ticker": "TRV",
           "name_en": "Travelers",
-          "name_zh": "Travelers",
-          "role_zh": "Travelers：保險承保代表性玩家",
+          "name_zh": "旅行者保險",
+          "role_zh": "旅行者保險：保險承保代表性玩家",
           "role_en": "Travelers: representative player in Insurance underwriting",
           "exchange": "NYSE"
         }
@@ -71,16 +71,16 @@
         {
           "ticker": "AON",
           "name_en": "Aon",
-          "name_zh": "Aon",
-          "role_zh": "Aon：再保／風控資料代表性玩家",
+          "name_zh": "怡安集團",
+          "role_zh": "怡安集團：再保／風控資料代表性玩家",
           "role_en": "Aon: representative player in Reinsurance / risk data",
           "exchange": "NYSE"
         },
         {
           "ticker": "MMC",
           "name_en": "Marsh McLennan",
-          "name_zh": "Marsh McLennan",
-          "role_zh": "Marsh McLennan：再保／風控資料代表性玩家",
+          "name_zh": "威達信",
+          "role_zh": "威達信：再保／風控資料代表性玩家",
           "role_en": "Marsh McLennan: representative player in Reinsurance / risk data",
           "exchange": "NYSE",
           "listedInApp": false
@@ -88,8 +88,8 @@
         {
           "ticker": "VRSK",
           "name_en": "Verisk",
-          "name_zh": "Verisk",
-          "role_zh": "Verisk：再保／風控資料代表性玩家",
+          "name_zh": "威瑞斯克",
+          "role_zh": "威瑞斯克：再保／風控資料代表性玩家",
           "role_en": "Verisk: representative player in Reinsurance / risk data",
           "exchange": "NASDAQ"
         }
@@ -190,8 +190,8 @@
         {
           "ticker": "APH",
           "name_en": "Amphenol Corporation",
-          "name_zh": "Amphenol",
-          "role_zh": "Amphenol：營運子公司供應鏈代表性玩家",
+          "name_zh": "安費諾",
+          "role_zh": "安費諾：營運子公司供應鏈代表性玩家",
           "role_en": "Amphenol Corporation: representative player in Operating subsidiary supply",
           "exchange": "NYSE"
         }
@@ -202,7 +202,7 @@
     {
       "ticker": "PGR",
       "name_en": "The Progressive Corporation",
-      "name_zh": "Progressive",
+      "name_zh": "前進保險",
       "basis_zh": "美國產險對手",
       "basis_en": "US P&C rival",
       "exchange": "NYSE"
@@ -210,7 +210,7 @@
     {
       "ticker": "CB",
       "name_en": "Chubb Limited",
-      "name_zh": "Chubb",
+      "name_zh": "安達保險",
       "basis_zh": "產險／再保對手",
       "basis_en": "P&C/reinsurance rival",
       "exchange": "NYSE"
@@ -218,7 +218,7 @@
     {
       "ticker": "TRV",
       "name_en": "Travelers",
-      "name_zh": "Travelers",
+      "name_zh": "旅行者保險",
       "basis_zh": "產險對手",
       "basis_en": "P&C rival",
       "exchange": "NYSE"

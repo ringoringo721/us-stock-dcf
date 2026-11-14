@@ -79,8 +79,8 @@
         {
           "ticker": "EOG",
           "name_en": "EOG Resources",
-          "name_zh": "EOG Resources",
-          "role_zh": "EOG Resources：上游勘探開發代表性玩家",
+          "name_zh": "EOG 能源",
+          "role_zh": "EOG 能源：上游勘探開發代表性玩家",
           "role_en": "EOG Resources: representative player in Upstream E&P",
           "exchange": "NYSE"
         },
@@ -105,24 +105,24 @@
         {
           "ticker": "ENB",
           "name_en": "Enbridge Inc.",
-          "name_zh": "Enbridge",
-          "role_zh": "Enbridge：中游管輸／液化代表性玩家",
+          "name_zh": "恩橋公司",
+          "role_zh": "恩橋公司：中游管輸／液化代表性玩家",
           "role_en": "Enbridge Inc.: representative player in Midstream / LNG",
           "exchange": "NYSE"
         },
         {
           "ticker": "KMI",
           "name_en": "Kinder Morgan",
-          "name_zh": "Kinder Morgan",
-          "role_zh": "Kinder Morgan：中游管輸／液化代表性玩家",
+          "name_zh": "金德摩根",
+          "role_zh": "金德摩根：中游管輸／液化代表性玩家",
           "role_en": "Kinder Morgan: representative player in Midstream / LNG",
           "exchange": "NYSE"
         },
         {
           "ticker": "WMB",
           "name_en": "Williams",
-          "name_zh": "Williams Companies",
-          "role_zh": "Williams Companies：中游管輸／液化代表性玩家",
+          "name_zh": "威廉斯公司",
+          "role_zh": "威廉斯公司：中游管輸／液化代表性玩家",
           "role_en": "Williams: representative player in Midstream / LNG",
           "exchange": "NYSE"
         }
@@ -155,8 +155,8 @@
         {
           "ticker": "PSX",
           "name_en": "Phillips 66",
-          "name_zh": "Phillips 66",
-          "role_zh": "Phillips 66：煉製／化工代表性玩家",
+          "name_zh": "菲利普斯66",
+          "role_zh": "菲利普斯66：煉製／化工代表性玩家",
           "role_en": "Phillips 66: representative player in Refining / chemicals",
           "exchange": "NYSE"
         }
@@ -225,7 +225,7 @@
     {
       "ticker": "EOG",
       "name_en": "EOG Resources",
-      "name_zh": "EOG Resources",
+      "name_zh": "EOG 能源",
       "basis_zh": "油氣產品對手",
       "basis_en": "Oil & gas product rival",
       "exchange": "NYSE"

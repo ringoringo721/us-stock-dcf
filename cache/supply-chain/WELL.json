@@ -121,8 +121,8 @@
         {
           "ticker": "PANW",
           "name_en": "Palo Alto Networks, Inc.",
-          "name_zh": "Palo Alto",
-          "role_zh": "Palo Alto：物業科技／營運代表性玩家",
+          "name_zh": "派拓網路",
+          "role_zh": "派拓網路：物業科技／營運代表性玩家",
           "role_en": "Palo Alto Networks, Inc.: representative player in Proptech / operations",
           "exchange": "NASDAQ"
         }
@@ -200,35 +200,35 @@
   "competitors": [
     {
       "ticker": "VTR",
-      "name_en": "VTR",
-      "name_zh": "VTR",
+      "name_en": "Ventas",
+      "name_zh": "Ventas 醫療地產",
       "basis_zh": "醫療 REIT 對手",
       "basis_en": "Healthcare REIT rival",
-      "exchange": ""
+      "exchange": "NYSE"
     },
     {
       "ticker": "DOC",
-      "name_en": "DOC",
-      "name_zh": "DOC",
+      "name_en": "Healthpeak Properties",
+      "name_zh": "Healthpeak 醫療地產",
       "basis_zh": "醫療 REIT 對手",
       "basis_en": "Healthcare REIT rival",
-      "exchange": ""
+      "exchange": "NYSE"
     },
     {
       "ticker": "PLD",
       "name_en": "Prologis, Inc.",
-      "name_zh": "Prologis",
+      "name_zh": "普洛斯 (Prologis)",
       "basis_zh": "收益型不動產資本競爭",
       "basis_en": "Income RE capital competition",
       "exchange": "NYSE"
     },
     {
       "ticker": "O",
-      "name_en": "O",
-      "name_zh": "O",
+      "name_en": "Realty Income",
+      "name_zh": "Realty Income",
       "basis_zh": "收益型不動產資本競爭",
       "basis_en": "Income RE capital competition",
-      "exchange": ""
+      "exchange": "NYSE"
     },
     {
       "ticker": "AMT",

@@ -181,8 +181,8 @@
         {
           "ticker": "NEE",
           "name_en": "NextEra Energy, Inc.",
-          "name_zh": "NextEra",
-          "role_zh": "NextEra：基建／能源／礦業客戶代表性玩家",
+          "name_zh": "新紀元能源",
+          "role_zh": "新紀元能源：基建／能源／礦業客戶代表性玩家",
           "role_en": "NextEra Energy, Inc.: representative player in Infra / energy / mining customers",
           "exchange": "NYSE"
         },
@@ -200,8 +200,8 @@
   "competitors": [
     {
       "ticker": "CSX",
-      "name_en": "CSX",
-      "name_zh": "CSX",
+      "name_en": "CSX Corporation",
+      "name_zh": "CSX 鐵路",
       "basis_zh": "美國一級鐵路對手",
       "basis_en": "US Class I rail rival",
       "exchange": "NASDAQ"
@@ -216,24 +216,24 @@
     },
     {
       "ticker": "CNI",
-      "name_en": "CNI",
-      "name_zh": "CNI",
+      "name_en": "Canadian National Railway",
+      "name_zh": "加拿大國家鐵路",
       "basis_zh": "北美鐵路對手",
       "basis_en": "North America rail rival",
-      "exchange": ""
+      "exchange": "NYSE"
     },
     {
       "ticker": "CP",
-      "name_en": "CP",
-      "name_zh": "CP",
+      "name_en": "Canadian Pacific Kansas City",
+      "name_zh": "加拿大太平洋鐵路",
       "basis_zh": "北美鐵路對手",
       "basis_en": "North America rail rival",
-      "exchange": ""
+      "exchange": "NYSE"
     },
     {
       "ticker": "UPS",
       "name_en": "United Parcel Service",
-      "name_zh": "UPS",
+      "name_zh": "聯合包裹",
       "basis_zh": "貨運替代壓力",
       "basis_en": "Freight modal substitute",
       "exchange": "NYSE"

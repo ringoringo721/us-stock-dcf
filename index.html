@@ -11657,6 +11657,9 @@
 
     if (!SC || typeof SC.load !== 'function' || typeof SC.layoutSpider !== 'function') {
       if (statusEl) statusEl.textContent = dict.sc_error || '';
+      const noteEl = document.querySelector('#panel-supply-chain .analysis-note[data-i18n="analysis_supply_chain_note"]')
+        || document.querySelector('.analysis-note[data-i18n="analysis_supply_chain_note"]');
+      if (noteEl) noteEl.textContent = dict.analysis_supply_chain_note || '';
       return;
     }
 
@@ -11700,11 +11703,15 @@
       }
       const noteEl = document.querySelector('#panel-supply-chain .analysis-note[data-i18n="analysis_supply_chain_note"]')
         || document.querySelector('.analysis-note[data-i18n="analysis_supply_chain_note"]');
-      if (noteEl && pack.model) {
-        const modelLabel = isEn ? pack.model.label_en : pack.model.label_zh;
-        const modelDesc = isEn ? (pack.model.description_en || '') : (pack.model.description_zh || '');
+      if (noteEl) {
         const base = dict.analysis_supply_chain_note || '';
-        noteEl.textContent = [base, modelLabel, modelDesc].filter(Boolean).join(' — ');
+        if (pack.model) {
+          const modelLabel = isEn ? pack.model.label_en : pack.model.label_zh;
+          const modelDesc = isEn ? (pack.model.description_en || '') : (pack.model.description_zh || '');
+          noteEl.textContent = [base, modelLabel, modelDesc].filter(Boolean).join(' — ');
+        } else {
+          noteEl.textContent = base;
+        }
       }
       if (sourceEl) {
         sourceEl.textContent = [
@@ -11801,6 +11808,12 @@
       const missing = error?.code === 'SUPPLY_CHAIN_NO_SEED'
         || String(error?.message || '').startsWith('SUPPLY_CHAIN_NO_SEED');
       if (statusEl) statusEl.textContent = missing ? (dict.sc_empty || '') : (dict.sc_error || '');
+      // Restore generic note so a prior seeded ticker's industry model does not stick.
+      const noteEl = document.querySelector('#panel-supply-chain .analysis-note[data-i18n="analysis_supply_chain_note"]')
+        || document.querySelector('.analysis-note[data-i18n="analysis_supply_chain_note"]');
+      if (noteEl) noteEl.textContent = dict.analysis_supply_chain_note || '';
+      if (sourceEl) sourceEl.textContent = '';
+      if (chipsEl) chipsEl.innerHTML = '';
       if (legendEl) legendEl.innerHTML = '';
       flowEl.innerHTML = '';
       playersBody.innerHTML = `<tr><td colspan="7">${scEscape(missing ? (dict.sc_empty || '') : (dict.sc_error || ''))}</td></tr>`;

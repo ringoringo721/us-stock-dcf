@@ -22,7 +22,7 @@
     "id": "asset-mgmt-v1",
     "label_zh": "資產管理價值鏈",
     "label_en": "Asset management value chain",
-    "description_zh": "指數／資料 → 託管／營運 → 交易執行 → 分銷平臺 → 資產所有人。",
+    "description_zh": "指數／資料 → 託管／營運 → 交易執行 → 分銷平台 → 資產所有人。",
     "description_en": "Index/data → custody/ops → execution → distribution → asset owners."
   },
   "stages": [
@@ -71,8 +71,8 @@
         {
           "ticker": "BK",
           "name_en": "BNY Mellon",
-          "name_zh": "BNY Mellon",
-          "role_zh": "BNY Mellon：託管／基金行政代表性玩家",
+          "name_zh": "紐約梅隆銀行",
+          "role_zh": "紐約梅隆銀行：託管／基金行政代表性玩家",
           "role_en": "BNY Mellon: representative player in Custody / fund admin",
           "exchange": "NYSE",
           "listedInApp": false
@@ -132,16 +132,16 @@
     {
       "id": "distribution",
       "order": 4,
-      "label_zh": "分銷／財富平臺",
+      "label_zh": "分銷／財富平台",
       "label_en": "Distribution / wealth platforms",
-      "summary_zh": "退休平臺、銀行與券商分銷。",
+      "summary_zh": "退休平台、銀行與券商分銷。",
       "summary_en": "Retirement, bank, broker platforms.",
       "players": [
         {
           "ticker": "SCHW",
           "name_en": "The Charles Schwab Corporation",
           "name_zh": "嘉信",
-          "role_zh": "嘉信：分銷／財富平臺代表性玩家",
+          "role_zh": "嘉信：分銷／財富平台代表性玩家",
           "role_en": "The Charles Schwab Corporation: representative player in Distribution / wealth platforms",
           "exchange": "NYSE"
         },
@@ -149,7 +149,7 @@
           "ticker": "AMZN",
           "name_en": "Amazon.com, Inc.",
           "name_zh": "亞馬遜",
-          "role_zh": "亞馬遜：分銷／財富平臺代表性玩家",
+          "role_zh": "亞馬遜：分銷／財富平台代表性玩家",
           "role_en": "Amazon.com, Inc.: representative player in Distribution / wealth platforms",
           "exchange": "NASDAQ"
         },
@@ -157,7 +157,7 @@
           "ticker": "JPM",
           "name_en": "JPMorgan Chase & Co.",
           "name_zh": "摩根大通",
-          "role_zh": "摩根大通：分銷／財富平臺代表性玩家",
+          "role_zh": "摩根大通：分銷／財富平台代表性玩家",
           "role_en": "JPMorgan Chase & Co.: representative player in Distribution / wealth platforms",
           "exchange": "NYSE"
         }
@@ -174,24 +174,24 @@
         {
           "ticker": "MET",
           "name_en": "MetLife",
-          "name_zh": "MetLife",
-          "role_zh": "MetLife：資產所有人／機構代表性玩家",
+          "name_zh": "大都會人壽",
+          "role_zh": "大都會人壽：資產所有人／機構代表性玩家",
           "role_en": "MetLife: representative player in Asset owners / institutions",
           "exchange": "NYSE"
         },
         {
           "ticker": "PRU",
           "name_en": "Prudential",
-          "name_zh": "Prudential",
-          "role_zh": "Prudential：資產所有人／機構代表性玩家",
+          "name_zh": "保德信金融",
+          "role_zh": "保德信金融：資產所有人／機構代表性玩家",
           "role_en": "Prudential: representative player in Asset owners / institutions",
           "exchange": "NYSE"
         },
         {
           "ticker": "CB",
           "name_en": "Chubb Limited",
-          "name_zh": "Chubb",
-          "role_zh": "Chubb：資產所有人／機構代表性玩家",
+          "name_zh": "安達保險",
+          "role_zh": "安達保險：資產所有人／機構代表性玩家",
           "role_en": "Chubb Limited: representative player in Asset owners / institutions",
           "exchange": "NYSE"
         }

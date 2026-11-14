@@ -2,7 +2,7 @@
   "version": 1,
   "ticker": "APH",
   "name_en": "Amphenol Corporation",
-  "name_zh": "Amphenol",
+  "name_zh": "安費諾",
   "updatedAt": "2026-11-14",
   "source": {
     "type": "curated",
@@ -150,8 +150,8 @@
         {
           "ticker": "UPS",
           "name_en": "United Parcel Service",
-          "name_zh": "UPS",
-          "role_zh": "UPS：物流／通路配送代表性玩家",
+          "name_zh": "聯合包裹",
+          "role_zh": "聯合包裹：物流／通路配送代表性玩家",
           "role_en": "United Parcel Service: representative player in Logistics / distribution",
           "exchange": "NYSE"
         },
@@ -192,8 +192,8 @@
         {
           "ticker": "VZ",
           "name_en": "Verizon Communications Inc.",
-          "name_zh": "Verizon",
-          "role_zh": "Verizon：零售／電信通路代表性玩家",
+          "name_zh": "威訊通訊",
+          "role_zh": "威訊通訊：零售／電信通路代表性玩家",
           "role_en": "Verizon Communications Inc.: representative player in Retail / carrier channels",
           "exchange": "NYSE"
         }
@@ -204,7 +204,7 @@
     {
       "ticker": "TEL",
       "name_en": "TE Connectivity",
-      "name_zh": "TE Connectivity",
+      "name_zh": "泰科電子",
       "basis_zh": "聯結器對手",
       "basis_en": "Connector rival",
       "exchange": "NYSE"
@@ -219,11 +219,11 @@
     },
     {
       "ticker": "DD",
-      "name_en": "DD",
-      "name_zh": "DD",
+      "name_en": "DuPont de Nemours",
+      "name_zh": "杜邦",
       "basis_zh": "電子材料競爭",
       "basis_en": "Electronic materials competition",
-      "exchange": ""
+      "exchange": "NYSE"
     },
     {
       "ticker": "KEYS",

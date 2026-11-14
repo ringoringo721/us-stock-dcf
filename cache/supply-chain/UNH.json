@@ -112,18 +112,18 @@
         },
         {
           "ticker": "MCK",
-          "name_en": "McKesson Corporation",
-          "name_zh": "McKesson",
-          "role_zh": "McKesson：PBM／藥房代表性玩家",
-          "role_en": "McKesson Corporation: representative player in PBM / pharmacy",
+          "name_en": "McKesson",
+          "name_zh": "麥克森",
+          "role_zh": "麥克森：PBM／藥房代表性玩家",
+          "role_en": "McKesson: representative player in PBM / pharmacy",
           "exchange": "NYSE"
         },
         {
           "ticker": "WBA",
-          "name_en": "Walgreens",
-          "name_zh": "Walgreens",
-          "role_zh": "Walgreens：PBM／藥房代表性玩家",
-          "role_en": "Walgreens: representative player in PBM / pharmacy",
+          "name_en": "Walgreens Boots Alliance",
+          "name_zh": "沃爾格林",
+          "role_zh": "沃爾格林：PBM／藥房代表性玩家",
+          "role_en": "Walgreens Boots Alliance: representative player in PBM / pharmacy",
           "exchange": "NASDAQ",
           "listedInApp": false
         }
@@ -156,8 +156,8 @@
         {
           "ticker": "VEEV",
           "name_en": "Veeva",
-          "name_zh": "Veeva",
-          "role_zh": "Veeva：醫療資訊／資料代表性玩家",
+          "name_zh": "維瓦系統 (Veeva)",
+          "role_zh": "維瓦系統 (Veeva)：醫療資訊／資料代表性玩家",
           "role_en": "Veeva: representative player in Health IT / data",
           "exchange": "NYSE"
         }
@@ -173,25 +173,25 @@
       "players": [
         {
           "ticker": "ELV",
-          "name_en": "Elevance",
-          "name_zh": "Elevance",
-          "role_zh": "Elevance：雇主／政府支付方代表性玩家",
-          "role_en": "Elevance: representative player in Employers / government payers",
+          "name_en": "Elevance Health",
+          "name_zh": "Elevance Health",
+          "role_zh": "Elevance Health：雇主／政府支付方代表性玩家",
+          "role_en": "Elevance Health: representative player in Employers / government payers",
           "exchange": "NYSE"
         },
         {
           "ticker": "CI",
           "name_en": "Cigna",
-          "name_zh": "The Cigna Group",
-          "role_zh": "The Cigna Group：雇主／政府支付方代表性玩家",
+          "name_zh": "信諾",
+          "role_zh": "信諾：雇主／政府支付方代表性玩家",
           "role_en": "Cigna: representative player in Employers / government payers",
           "exchange": "NYSE"
         },
         {
           "ticker": "HUM",
           "name_en": "Humana",
-          "name_zh": "Humana",
-          "role_zh": "Humana：雇主／政府支付方代表性玩家",
+          "name_zh": "哈門那",
+          "role_zh": "哈門那：雇主／政府支付方代表性玩家",
           "role_en": "Humana: representative player in Employers / government payers",
           "exchange": "NYSE"
         }
@@ -201,8 +201,8 @@
   "competitors": [
     {
       "ticker": "ELV",
-      "name_en": "Elevance",
-      "name_zh": "Elevance",
+      "name_en": "Elevance Health",
+      "name_zh": "Elevance Health",
       "basis_zh": "管理式醫療對手",
       "basis_en": "Managed care rival",
       "exchange": "NYSE"
@@ -210,7 +210,7 @@
     {
       "ticker": "CI",
       "name_en": "Cigna",
-      "name_zh": "The Cigna Group",
+      "name_zh": "信諾",
       "basis_zh": "管理式醫療對手",
       "basis_en": "Managed care rival",
       "exchange": "NYSE"
@@ -226,7 +226,7 @@
     {
       "ticker": "HUM",
       "name_en": "Humana",
-      "name_zh": "Humana",
+      "name_zh": "哈門那",
       "basis_zh": "管理式醫療對手",
       "basis_en": "Managed care rival",
       "exchange": "NYSE"

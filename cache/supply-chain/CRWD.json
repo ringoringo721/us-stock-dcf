@@ -71,8 +71,8 @@
         {
           "ticker": "EQIX",
           "name_en": "Equinix, Inc.",
-          "name_zh": "Equinix",
-          "role_zh": "Equinix：資料中心／雲端基礎設施代表性玩家",
+          "name_zh": "易華電腦 (Equinix)",
+          "role_zh": "易華電腦 (Equinix)：資料中心／雲端基礎設施代表性玩家",
           "role_en": "Equinix, Inc.: representative player in Data center / cloud infrastructure",
           "exchange": "NASDAQ"
         },
@@ -87,8 +87,8 @@
         {
           "ticker": "ANET",
           "name_en": "Arista Networks, Inc.",
-          "name_zh": "Arista",
-          "role_zh": "Arista：資料中心／雲端基礎設施代表性玩家",
+          "name_zh": "Arista 網路",
+          "role_zh": "Arista 網路：資料中心／雲端基礎設施代表性玩家",
           "role_en": "Arista Networks, Inc.: representative player in Data center / cloud infrastructure",
           "exchange": "NYSE"
         }
@@ -97,7 +97,7 @@
     {
       "id": "data-security",
       "order": 3,
-      "label_zh": "資料平臺／資安",
+      "label_zh": "資料平台／資安",
       "label_en": "Data platform / security",
       "summary_zh": "資料、身分與資安控制層。",
       "summary_en": "Data, identity, and security layer.",
@@ -105,8 +105,8 @@
         {
           "ticker": "PANW",
           "name_en": "Palo Alto Networks, Inc.",
-          "name_zh": "Palo Alto",
-          "role_zh": "Palo Alto：資料平臺／資安代表性玩家",
+          "name_zh": "派拓網路",
+          "role_zh": "派拓網路：資料平台／資安代表性玩家",
           "role_en": "Palo Alto Networks, Inc.: representative player in Data platform / security",
           "exchange": "NASDAQ"
         },
@@ -114,7 +114,7 @@
           "ticker": "ZS",
           "name_en": "Zscaler",
           "name_zh": "Zscaler",
-          "role_zh": "Zscaler：資料平臺／資安代表性玩家",
+          "role_zh": "Zscaler：資料平台／資安代表性玩家",
           "role_en": "Zscaler: representative player in Data platform / security",
           "exchange": "NASDAQ"
         },
@@ -122,7 +122,7 @@
           "ticker": "NVDA",
           "name_en": "NVIDIA Corporation",
           "name_zh": "輝達",
-          "role_zh": "輝達：資料平臺／資安代表性玩家",
+          "role_zh": "輝達：資料平台／資安代表性玩家",
           "role_en": "NVIDIA Corporation: representative player in Data platform / security",
           "exchange": "NASDAQ"
         }
@@ -146,10 +146,10 @@
         },
         {
           "ticker": "IBM",
-          "name_en": "International Business Machines Corporation",
-          "name_zh": "IBM",
-          "role_zh": "IBM：系統整合／顧問代表性玩家",
-          "role_en": "International Business Machines Corporation: representative player in Systems integrators / consulting",
+          "name_en": "International Business Machines",
+          "name_zh": "International Business Machines",
+          "role_zh": "International Business Machines：系統整合／顧問代表性玩家",
+          "role_en": "International Business Machines: representative player in Systems integrators / consulting",
           "exchange": "NYSE"
         },
         {
@@ -172,10 +172,10 @@
       "players": [
         {
           "ticker": "CDW",
-          "name_en": "CDW",
-          "name_zh": "CDW",
-          "role_zh": "CDW：企業銷售／市集通路代表性玩家",
-          "role_en": "CDW: representative player in Enterprise sales / marketplace",
+          "name_en": "CDW Corporation",
+          "name_zh": "CDW 科技",
+          "role_zh": "CDW 科技：企業銷售／市集通路代表性玩家",
+          "role_en": "CDW Corporation: representative player in Enterprise sales / marketplace",
           "exchange": "NASDAQ"
         },
         {
@@ -201,8 +201,8 @@
     {
       "ticker": "PANW",
       "name_en": "Palo Alto Networks, Inc.",
-      "name_zh": "Palo Alto",
-      "basis_zh": "平臺化資安對手",
+      "name_zh": "派拓網路",
+      "basis_zh": "平台化資安對手",
       "basis_en": "Platform security rival",
       "exchange": "NASDAQ"
     },
@@ -217,7 +217,7 @@
     {
       "ticker": "FTNT",
       "name_en": "Fortinet",
-      "name_zh": "Fortinet",
+      "name_zh": "飛塔資訊",
       "basis_zh": "網安對手",
       "basis_en": "Network security rival",
       "exchange": "NASDAQ"

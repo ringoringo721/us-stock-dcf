@@ -78,17 +78,17 @@
         },
         {
           "ticker": "CRL",
-          "name_en": "Charles River",
-          "name_zh": "Charles River",
-          "role_zh": "Charles River：原料藥／生物製程代表性玩家",
-          "role_en": "Charles River: representative player in API / biologics manufacturing",
+          "name_en": "Charles River Laboratories",
+          "name_zh": "查爾斯河實驗室",
+          "role_zh": "查爾斯河實驗室：原料藥／生物製程代表性玩家",
+          "role_en": "Charles River Laboratories: representative player in API / biologics manufacturing",
           "exchange": "NYSE"
         },
         {
           "ticker": "GEHC",
           "name_en": "GE HealthCare",
-          "name_zh": "GE HealthCare",
-          "role_zh": "GE HealthCare：原料藥／生物製程代表性玩家",
+          "name_zh": "GE醫療",
+          "role_zh": "GE醫療：原料藥／生物製程代表性玩家",
           "role_en": "GE HealthCare: representative player in API / biologics manufacturing",
           "exchange": "NASDAQ"
         }
@@ -112,17 +112,17 @@
         },
         {
           "ticker": "CRL",
-          "name_en": "Charles River",
-          "name_zh": "Charles River",
-          "role_zh": "Charles River：臨床試驗／CRO代表性玩家",
-          "role_en": "Charles River: representative player in Clinical trials / CRO",
+          "name_en": "Charles River Laboratories",
+          "name_zh": "查爾斯河實驗室",
+          "role_zh": "查爾斯河實驗室：臨床試驗／CRO代表性玩家",
+          "role_en": "Charles River Laboratories: representative player in Clinical trials / CRO",
           "exchange": "NYSE"
         },
         {
           "ticker": "LH",
           "name_en": "Labcorp",
-          "name_zh": "Labcorp",
-          "role_zh": "Labcorp：臨床試驗／CRO代表性玩家",
+          "name_zh": "來博科",
+          "role_zh": "來博科：臨床試驗／CRO代表性玩家",
           "role_en": "Labcorp: representative player in Clinical trials / CRO",
           "exchange": "NYSE"
         }
@@ -138,25 +138,25 @@
       "players": [
         {
           "ticker": "MCK",
-          "name_en": "McKesson Corporation",
-          "name_zh": "McKesson",
-          "role_zh": "McKesson：醫藥通路／批發代表性玩家",
-          "role_en": "McKesson Corporation: representative player in Pharma wholesale / distribution",
+          "name_en": "McKesson",
+          "name_zh": "麥克森",
+          "role_zh": "麥克森：醫藥通路／批發代表性玩家",
+          "role_en": "McKesson: representative player in Pharma wholesale / distribution",
           "exchange": "NYSE"
         },
         {
           "ticker": "COR",
           "name_en": "Cencora",
-          "name_zh": "Cencora",
-          "role_zh": "Cencora：醫藥通路／批發代表性玩家",
+          "name_zh": "信卡拉",
+          "role_zh": "信卡拉：醫藥通路／批發代表性玩家",
           "role_en": "Cencora: representative player in Pharma wholesale / distribution",
           "exchange": "NYSE"
         },
         {
           "ticker": "CAH",
           "name_en": "Cardinal Health",
-          "name_zh": "Cardinal Health",
-          "role_zh": "Cardinal Health：醫藥通路／批發代表性玩家",
+          "name_zh": "卡地納健康",
+          "role_zh": "卡地納健康：醫藥通路／批發代表性玩家",
           "role_en": "Cardinal Health: representative player in Pharma wholesale / distribution",
           "exchange": "NYSE"
         }
@@ -189,8 +189,8 @@
         {
           "ticker": "CI",
           "name_en": "Cigna",
-          "name_zh": "The Cigna Group",
-          "role_zh": "The Cigna Group：支付方／醫療體系代表性玩家",
+          "name_zh": "信諾",
+          "role_zh": "信諾：支付方／醫療體系代表性玩家",
           "role_en": "Cigna: representative player in Payers / providers",
           "exchange": "NYSE"
         }
@@ -208,16 +208,16 @@
     },
     {
       "ticker": "BNTX",
-      "name_en": "BNTX",
-      "name_zh": "BNTX",
+      "name_en": "BioNTech",
+      "name_zh": "拜恩泰科",
       "basis_zh": "原廠藥／治療領域對手",
       "basis_en": "Branded drug/therapy-area rival",
-      "exchange": ""
+      "exchange": "NASDAQ"
     },
     {
       "ticker": "VRTX",
       "name_en": "Vertex Pharmaceuticals Incorporated",
-      "name_zh": "Vertex",
+      "name_zh": "福泰製藥",
       "basis_zh": "原廠藥／治療領域對手",
       "basis_en": "Branded drug/therapy-area rival",
       "exchange": "NASDAQ"
@@ -225,7 +225,7 @@
     {
       "ticker": "REGN",
       "name_en": "Regeneron",
-      "name_zh": "Regeneron",
+      "name_zh": "再生元製藥",
       "basis_zh": "原廠藥／治療領域對手",
       "basis_en": "Branded drug/therapy-area rival",
       "exchange": "NASDAQ"

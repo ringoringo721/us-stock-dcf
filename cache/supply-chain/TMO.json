@@ -37,26 +37,26 @@
         {
           "ticker": "APH",
           "name_en": "Amphenol Corporation",
-          "name_zh": "Amphenol",
-          "role_zh": "Amphenol：精密零件／材料代表性玩家",
+          "name_zh": "安費諾",
+          "role_zh": "安費諾：精密零件／材料代表性玩家",
           "role_en": "Amphenol Corporation: representative player in Precision parts / materials",
           "exchange": "NYSE"
         },
         {
           "ticker": "TEL",
           "name_en": "TE Connectivity",
-          "name_zh": "TE Connectivity",
-          "role_zh": "TE Connectivity：精密零件／材料代表性玩家",
+          "name_zh": "泰科電子",
+          "role_zh": "泰科電子：精密零件／材料代表性玩家",
           "role_en": "TE Connectivity: representative player in Precision parts / materials",
           "exchange": "NYSE"
         },
         {
           "ticker": "DD",
-          "name_en": "DD",
-          "name_zh": "DD",
-          "role_zh": "DD：精密零件／材料代表性玩家",
-          "role_en": "DD: representative player in Precision parts / materials",
-          "exchange": ""
+          "name_en": "DuPont de Nemours",
+          "name_zh": "杜邦",
+          "role_zh": "杜邦：精密零件／材料代表性玩家",
+          "role_en": "DuPont de Nemours: representative player in Precision parts / materials",
+          "exchange": "NYSE"
         }
       ]
     },
@@ -121,8 +121,8 @@
         {
           "ticker": "APH",
           "name_en": "Amphenol Corporation",
-          "name_zh": "Amphenol",
-          "role_zh": "Amphenol：代工／無菌組裝代表性玩家",
+          "name_zh": "安費諾",
+          "role_zh": "安費諾：代工／無菌組裝代表性玩家",
           "role_en": "Amphenol Corporation: representative player in Contract / sterile assembly",
           "exchange": "NYSE"
         }
@@ -181,17 +181,17 @@
         {
           "ticker": "CI",
           "name_en": "Cigna",
-          "name_zh": "The Cigna Group",
-          "role_zh": "The Cigna Group：支付／術後服務代表性玩家",
+          "name_zh": "信諾",
+          "role_zh": "信諾：支付／術後服務代表性玩家",
           "role_en": "Cigna: representative player in Payers / post-acute services",
           "exchange": "NYSE"
         },
         {
           "ticker": "ELV",
-          "name_en": "Elevance",
-          "name_zh": "Elevance",
-          "role_zh": "Elevance：支付／術後服務代表性玩家",
-          "role_en": "Elevance: representative player in Payers / post-acute services",
+          "name_en": "Elevance Health",
+          "name_zh": "Elevance Health",
+          "role_zh": "Elevance Health：支付／術後服務代表性玩家",
+          "role_en": "Elevance Health: representative player in Payers / post-acute services",
           "exchange": "NYSE"
         }
       ]
@@ -208,11 +208,11 @@
     },
     {
       "ticker": "A",
-      "name_en": "A",
-      "name_zh": "A",
+      "name_en": "Agilent Technologies",
+      "name_zh": "安捷倫",
       "basis_zh": "分析儀器對手",
       "basis_en": "Analytical instruments rival",
-      "exchange": ""
+      "exchange": "NYSE"
     },
     {
       "ticker": "IQV",
@@ -224,8 +224,8 @@
     },
     {
       "ticker": "CRL",
-      "name_en": "Charles River",
-      "name_zh": "Charles River",
+      "name_en": "Charles River Laboratories",
+      "name_zh": "查爾斯河實驗室",
       "basis_zh": "臨床前服務競爭",
       "basis_en": "Preclinical services competition",
       "exchange": "NYSE"
@@ -233,7 +233,7 @@
     {
       "ticker": "GEHC",
       "name_en": "GE HealthCare",
-      "name_zh": "GE HealthCare",
+      "name_zh": "GE醫療",
       "basis_zh": "醫技競爭",
       "basis_en": "Medtech competition",
       "exchange": "NASDAQ"

@@ -22,7 +22,7 @@
     "id": "semiconductor-foundry-v1",
     "label_zh": "晶圓代工價值鏈",
     "label_en": "Foundry value chain",
-    "description_zh": "裝置 → 材料／氣體化學 → 封測夥伴 → 設計客戶 → 終端應用平臺。",
+    "description_zh": "裝置 → 材料／氣體化學 → 封測夥伴 → 設計客戶 → 終端應用平台。",
     "description_en": "Equipment → materials/gases → OSAT → fabless customers → end platforms."
   },
   "stages": [
@@ -168,16 +168,16 @@
     {
       "id": "platforms",
       "order": 5,
-      "label_zh": "終端平臺／系統",
+      "label_zh": "終端平台／系統",
       "label_en": "End platforms / systems",
-      "summary_zh": "手機、AI 伺服器與消費電子平臺。",
+      "summary_zh": "手機、AI 伺服器與消費電子平台。",
       "summary_en": "Phone, AI server, and CE platforms.",
       "players": [
         {
           "ticker": "MSFT",
           "name_en": "Microsoft Corporation",
           "name_zh": "微軟",
-          "role_zh": "微軟：終端平臺／系統代表性玩家",
+          "role_zh": "微軟：終端平台／系統代表性玩家",
           "role_en": "Microsoft Corporation: representative player in End platforms / systems",
           "exchange": "NASDAQ"
         },
@@ -185,7 +185,7 @@
           "ticker": "AMZN",
           "name_en": "Amazon.com, Inc.",
           "name_zh": "亞馬遜",
-          "role_zh": "亞馬遜：終端平臺／系統代表性玩家",
+          "role_zh": "亞馬遜：終端平台／系統代表性玩家",
           "role_en": "Amazon.com, Inc.: representative player in End platforms / systems",
           "exchange": "NASDAQ"
         },
@@ -193,7 +193,7 @@
           "ticker": "005930.KS",
           "name_en": "Samsung Electronics",
           "name_zh": "三星電子",
-          "role_zh": "三星電子：終端平臺／系統代表性玩家",
+          "role_zh": "三星電子：終端平台／系統代表性玩家",
           "role_en": "Samsung Electronics: representative player in End platforms / systems",
           "exchange": "KRX",
           "listedInApp": false

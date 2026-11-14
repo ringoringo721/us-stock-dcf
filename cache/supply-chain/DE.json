@@ -189,8 +189,8 @@
         {
           "ticker": "NEE",
           "name_en": "NextEra Energy, Inc.",
-          "name_zh": "NextEra",
-          "role_zh": "NextEra：基建／能源／礦業客戶代表性玩家",
+          "name_zh": "新紀元能源",
+          "role_zh": "新紀元能源：基建／能源／礦業客戶代表性玩家",
           "role_en": "NextEra Energy, Inc.: representative player in Infra / energy / mining customers",
           "exchange": "NYSE"
         }
@@ -208,28 +208,28 @@
     },
     {
       "ticker": "CNHI",
-      "name_en": "CNHI",
-      "name_zh": "CNHI",
+      "name_en": "CNH Industrial",
+      "name_zh": "CNH 工業",
       "basis_zh": "農機對手",
       "basis_en": "Ag machinery rival",
-      "exchange": "",
+      "exchange": "NYSE",
       "listedInApp": false
     },
     {
       "ticker": "AGCO",
-      "name_en": "AGCO",
-      "name_zh": "AGCO",
+      "name_en": "AGCO Corporation",
+      "name_zh": "愛科",
       "basis_zh": "農機對手",
       "basis_en": "Ag machinery rival",
-      "exchange": ""
+      "exchange": "NYSE"
     },
     {
       "ticker": "PCAR",
-      "name_en": "PCAR",
-      "name_zh": "PCAR",
+      "name_en": "PACCAR",
+      "name_zh": "Paccar",
       "basis_zh": "重型裝置相關競爭",
       "basis_en": "Heavy equipment-related competition",
-      "exchange": ""
+      "exchange": "NASDAQ"
     },
     {
       "ticker": "ETN",

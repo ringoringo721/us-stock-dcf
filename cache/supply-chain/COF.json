@@ -86,10 +86,10 @@
         },
         {
           "ticker": "FIS",
-          "name_en": "FIS",
-          "name_zh": "FIS",
-          "role_zh": "FIS：收單／處理代表性玩家",
-          "role_en": "FIS: representative player in Acquirers / processors",
+          "name_en": "Fidelity National Information Services",
+          "name_zh": "FIS 金融科技",
+          "role_zh": "FIS 金融科技：收單／處理代表性玩家",
+          "role_en": "Fidelity National Information Services: representative player in Acquirers / processors",
           "exchange": "NYSE"
         }
       ]
@@ -99,7 +99,7 @@
       "order": 3,
       "label_zh": "商戶科技／POS",
       "label_en": "Merchant tech / POS",
-      "summary_zh": "收單終端與商務平臺。",
+      "summary_zh": "收單終端與商務平台。",
       "summary_en": "POS and commerce platforms.",
       "players": [
         {
@@ -209,7 +209,7 @@
     },
     {
       "ticker": "DFS",
-      "name_en": "Discover",
+      "name_en": "Discover Financial",
       "name_zh": "Discover",
       "basis_zh": "消費金融對手",
       "basis_en": "Consumer finance rival",
@@ -218,11 +218,11 @@
     },
     {
       "ticker": "SYF",
-      "name_en": "SYF",
-      "name_zh": "SYF",
+      "name_en": "Synchrony Financial",
+      "name_zh": "Synchrony 金融",
       "basis_zh": "消費金融對手",
       "basis_en": "Consumer finance rival",
-      "exchange": ""
+      "exchange": "NYSE"
     },
     {
       "ticker": "JPM",

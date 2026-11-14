@@ -86,10 +86,10 @@
         },
         {
           "ticker": "FIS",
-          "name_en": "FIS",
-          "name_zh": "FIS",
-          "role_zh": "FIS：收單／處理代表性玩家",
-          "role_en": "FIS: representative player in Acquirers / processors",
+          "name_en": "Fidelity National Information Services",
+          "name_zh": "FIS 金融科技",
+          "role_zh": "FIS 金融科技：收單／處理代表性玩家",
+          "role_en": "Fidelity National Information Services: representative player in Acquirers / processors",
           "exchange": "NYSE"
         }
       ]
@@ -99,7 +99,7 @@
       "order": 3,
       "label_zh": "商戶科技／POS",
       "label_en": "Merchant tech / POS",
-      "summary_zh": "收單終端與商務平臺。",
+      "summary_zh": "收單終端與商務平台。",
       "summary_en": "POS and commerce platforms.",
       "players": [
         {
@@ -202,7 +202,7 @@
     {
       "ticker": "V",
       "name_en": "Visa Inc.",
-      "name_zh": "Visa",
+      "name_zh": "威士卡",
       "basis_zh": "卡網路對手",
       "basis_en": "Card-network rival",
       "exchange": "NYSE"
@@ -210,7 +210,7 @@
     {
       "ticker": "MA",
       "name_en": "Mastercard Incorporated",
-      "name_zh": "Mastercard",
+      "name_zh": "萬事達卡",
       "basis_zh": "卡網路對手",
       "basis_en": "Card-network rival",
       "exchange": "NYSE"
@@ -225,7 +225,7 @@
     },
     {
       "ticker": "DFS",
-      "name_en": "Discover",
+      "name_en": "Discover Financial",
       "name_zh": "Discover",
       "basis_zh": "發卡對手",
       "basis_en": "Issuing rival",

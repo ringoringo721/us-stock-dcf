@@ -146,10 +146,10 @@
         },
         {
           "ticker": "CSX",
-          "name_en": "CSX",
-          "name_zh": "CSX",
-          "role_zh": "CSX：物流／港口代表性玩家",
-          "role_en": "CSX: representative player in Logistics / ports",
+          "name_en": "CSX Corporation",
+          "name_zh": "CSX 鐵路",
+          "role_zh": "CSX 鐵路：物流／港口代表性玩家",
+          "role_en": "CSX Corporation: representative player in Logistics / ports",
           "exchange": "NASDAQ"
         },
         {
@@ -201,7 +201,7 @@
     {
       "ticker": "APD",
       "name_en": "Air Products",
-      "name_zh": "Air Products",
+      "name_zh": "空氣化工",
       "basis_zh": "工業氣體對手",
       "basis_en": "Industrial gases rival",
       "exchange": "NYSE"
@@ -209,7 +209,7 @@
     {
       "ticker": "ECL",
       "name_en": "Ecolab",
-      "name_zh": "Ecolab",
+      "name_zh": "藝康集團",
       "basis_zh": "特用化學／服務競爭",
       "basis_en": "Specialty chem/services competition",
       "exchange": "NYSE"
@@ -217,7 +217,7 @@
     {
       "ticker": "SHW",
       "name_en": "Sherwin-Williams",
-      "name_zh": "Sherwin-Williams",
+      "name_zh": "宣偉塗料",
       "basis_zh": "特用化學競爭",
       "basis_en": "Specialty chem competition",
       "exchange": "NYSE"
@@ -232,11 +232,11 @@
     },
     {
       "ticker": "DD",
-      "name_en": "DD",
-      "name_zh": "DD",
+      "name_en": "DuPont de Nemours",
+      "name_zh": "杜邦",
       "basis_zh": "化學對手",
       "basis_en": "Chemicals rival",
-      "exchange": ""
+      "exchange": "NYSE"
     }
   ]
 }

@@ -1,8 +1,8 @@
 {
   "version": 1,
   "ticker": "MCK",
-  "name_en": "McKesson Corporation",
-  "name_zh": "McKesson",
+  "name_en": "McKesson",
+  "name_zh": "麥克森",
   "updatedAt": "2026-11-14",
   "source": {
     "type": "curated",
@@ -22,7 +22,7 @@
     "id": "health-services-v1",
     "label_zh": "醫療服務／保險價值鏈",
     "label_en": "Health services / managed care value chain",
-    "description_zh": "藥品／醫材供應 → 診所醫院 → PBM／藥房 → 資料科技 → 僱主／政府支付。",
+    "description_zh": "藥品／醫材供應 → 診所醫院 → PBM／藥房 → 資料科技 → 雇主／政府支付。",
     "description_en": "Drug/device supply → clinics/hospitals → PBM/pharmacy → data tech → employers/gov payers."
   },
   "stages": [
@@ -112,10 +112,10 @@
         },
         {
           "ticker": "WBA",
-          "name_en": "Walgreens",
-          "name_zh": "Walgreens",
-          "role_zh": "Walgreens：PBM／藥房代表性玩家",
-          "role_en": "Walgreens: representative player in PBM / pharmacy",
+          "name_en": "Walgreens Boots Alliance",
+          "name_zh": "沃爾格林",
+          "role_zh": "沃爾格林：PBM／藥房代表性玩家",
+          "role_en": "Walgreens Boots Alliance: representative player in PBM / pharmacy",
           "exchange": "NASDAQ",
           "listedInApp": false
         },
@@ -156,8 +156,8 @@
         {
           "ticker": "VEEV",
           "name_en": "Veeva",
-          "name_zh": "Veeva",
-          "role_zh": "Veeva：醫療資訊／資料代表性玩家",
+          "name_zh": "維瓦系統 (Veeva)",
+          "role_zh": "維瓦系統 (Veeva)：醫療資訊／資料代表性玩家",
           "role_en": "Veeva: representative player in Health IT / data",
           "exchange": "NYSE"
         }
@@ -166,7 +166,7 @@
     {
       "id": "sponsors",
       "order": 5,
-      "label_zh": "僱主／政府支付方",
+      "label_zh": "雇主／政府支付方",
       "label_en": "Employers / government payers",
       "summary_zh": "企業福利與 Medicare／Medicaid。",
       "summary_en": "Employer benefits and public payers.",
@@ -175,24 +175,24 @@
           "ticker": "UNH",
           "name_en": "UnitedHealth Group Incorporated",
           "name_zh": "聯合健康",
-          "role_zh": "聯合健康：僱主／政府支付方代表性玩家",
+          "role_zh": "聯合健康：雇主／政府支付方代表性玩家",
           "role_en": "UnitedHealth Group Incorporated: representative player in Employers / government payers",
           "exchange": "NYSE"
         },
         {
           "ticker": "CI",
           "name_en": "Cigna",
-          "name_zh": "The Cigna Group",
-          "role_zh": "The Cigna Group：僱主／政府支付方代表性玩家",
+          "name_zh": "信諾",
+          "role_zh": "信諾：雇主／政府支付方代表性玩家",
           "role_en": "Cigna: representative player in Employers / government payers",
           "exchange": "NYSE"
         },
         {
           "ticker": "ELV",
-          "name_en": "Elevance",
-          "name_zh": "Elevance",
-          "role_zh": "Elevance：僱主／政府支付方代表性玩家",
-          "role_en": "Elevance: representative player in Employers / government payers",
+          "name_en": "Elevance Health",
+          "name_zh": "Elevance Health",
+          "role_zh": "Elevance Health：雇主／政府支付方代表性玩家",
+          "role_en": "Elevance Health: representative player in Employers / government payers",
           "exchange": "NYSE"
         }
       ]
@@ -202,7 +202,7 @@
     {
       "ticker": "COR",
       "name_en": "Cencora",
-      "name_zh": "Cencora",
+      "name_zh": "信卡拉",
       "basis_zh": "醫藥批發對手",
       "basis_en": "Drug wholesale rival",
       "exchange": "NYSE"
@@ -210,7 +210,7 @@
     {
       "ticker": "CAH",
       "name_en": "Cardinal Health",
-      "name_zh": "Cardinal Health",
+      "name_zh": "卡地納健康",
       "basis_zh": "醫藥批發對手",
       "basis_en": "Drug wholesale rival",
       "exchange": "NYSE"
@@ -225,8 +225,8 @@
     },
     {
       "ticker": "WBA",
-      "name_en": "Walgreens",
-      "name_zh": "Walgreens",
+      "name_en": "Walgreens Boots Alliance",
+      "name_zh": "沃爾格林",
       "basis_zh": "藥局通路競爭",
       "basis_en": "Pharmacy channel competition",
       "exchange": "NASDAQ",

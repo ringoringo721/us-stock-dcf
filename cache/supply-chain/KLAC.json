@@ -2,7 +2,7 @@
   "version": 1,
   "ticker": "KLAC",
   "name_en": "KLA Corporation",
-  "name_zh": "KLA",
+  "name_zh": "科磊",
   "updatedAt": "2026-11-14",
   "source": {
     "type": "curated",
@@ -37,16 +37,16 @@
         {
           "ticker": "TEL",
           "name_en": "TE Connectivity",
-          "name_zh": "TE Connectivity",
-          "role_zh": "TE Connectivity：精密零元件／子系統代表性玩家",
+          "name_zh": "泰科電子",
+          "role_zh": "泰科電子：精密零元件／子系統代表性玩家",
           "role_en": "TE Connectivity: representative player in Precision components / subsystems",
           "exchange": "NYSE"
         },
         {
           "ticker": "APH",
           "name_en": "Amphenol Corporation",
-          "name_zh": "Amphenol",
-          "role_zh": "Amphenol：精密零元件／子系統代表性玩家",
+          "name_zh": "安費諾",
+          "role_zh": "安費諾：精密零元件／子系統代表性玩家",
           "role_en": "Amphenol Corporation: representative player in Precision components / subsystems",
           "exchange": "NYSE"
         },
@@ -70,11 +70,11 @@
       "players": [
         {
           "ticker": "COHR",
-          "name_en": "COHR",
-          "name_zh": "COHR",
-          "role_zh": "COHR：光學／感測關鍵模組代表性玩家",
-          "role_en": "COHR: representative player in Optics / sensing modules",
-          "exchange": ""
+          "name_en": "Coherent",
+          "name_zh": "相干光電",
+          "role_zh": "相干光電：光學／感測關鍵模組代表性玩家",
+          "role_en": "Coherent: representative player in Optics / sensing modules",
+          "exchange": "NYSE"
         },
         {
           "ticker": "KEYS",
@@ -173,10 +173,10 @@
       "players": [
         {
           "ticker": "CDW",
-          "name_en": "CDW",
-          "name_zh": "CDW",
-          "role_zh": "CDW：服務／備件生態代表性玩家",
-          "role_en": "CDW: representative player in Service / spares ecosystem",
+          "name_en": "CDW Corporation",
+          "name_zh": "CDW 科技",
+          "role_zh": "CDW 科技：服務／備件生態代表性玩家",
+          "role_en": "CDW Corporation: representative player in Service / spares ecosystem",
           "exchange": "NASDAQ"
         },
         {
