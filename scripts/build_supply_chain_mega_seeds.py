@@ -387,10 +387,9 @@ def build_seed(
             nt = normalize_stage_ticker(t)
             if not nt or nt in seen_players:
                 continue
-            # Prefer rival arc over stage when same issuer is both partner and rival.
-            if nt in rival_tickers or (
-                nt in DUAL_LIST_ISSUER and issuer_key(nt) in rival_dual_issuer_keys
-            ):
+            # Only dual-list issuer keys (ASE ASX↔3711.TW) block stage peers.
+            # Ordinary rivals (OFS SLB/HAL, payments, etc.) intentionally stay on stages.
+            if nt in DUAL_LIST_ISSUER and issuer_key(nt) in rival_dual_issuer_keys:
                 continue
             picked.append(nt)
             seen_players.add(nt)
@@ -400,9 +399,7 @@ def build_seed(
                     nt = normalize_stage_ticker(t)
                     if not nt or nt in seen_players:
                         continue
-                    if nt in rival_tickers or (
-                        nt in DUAL_LIST_ISSUER and issuer_key(nt) in rival_dual_issuer_keys
-                    ):
+                    if nt in DUAL_LIST_ISSUER and issuer_key(nt) in rival_dual_issuer_keys:
                         continue
                     picked.append(nt)
                     seen_players.add(nt)
@@ -417,9 +414,7 @@ def build_seed(
                 nt = normalize_stage_ticker(t)
                 if not nt or nt in seen_players:
                     continue
-                if nt in rival_tickers or (
-                    nt in DUAL_LIST_ISSUER and issuer_key(nt) in rival_dual_issuer_keys
-                ):
+                if nt in DUAL_LIST_ISSUER and issuer_key(nt) in rival_dual_issuer_keys:
                     continue
                 picked.append(nt)
                 seen_players.add(nt)
@@ -464,8 +459,8 @@ def build_seed(
     for ct, basis_zh, basis_en in competitors.get(ticker) or []:
         ct = normalize_stage_ticker(ct) or (ct or "").strip().upper()
         # Still drop banned even if alias missed; skip self / dupes.
-        # Stage/rival same-issuer overlap is resolved above by preferring the rival arc
-        # (stage players skip rival tickers / dual-list issuer keys).
+        # Stage/rival overlap for ordinary peers is intentional (OFS SLB/HAL).
+        # Only dual-list issuer keys are dropped from stages above.
         if not ct or ct == ticker or ct in seen_comp or ct in STAGE_TICKER_BANNED:
             continue
         seen_comp.add(ct)

@@ -744,7 +744,7 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "retail-ce",
-        ["BBY", "GME", "AMZN"],  # CE electronics — not WSM home / ULTA beauty / DKS sport
+        ["BBY", "GME"],  # CE specialty only — never AMZN (saas-data pad poison)
         "消費電子零售對手",
         "Consumer-electronics retail rival",
     ),
@@ -837,6 +837,12 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
         ["KVYO", "BRZE", "HUBS"],  # marketing automation — not SAP/UBER dump
         "行銷自動化對手",
         "Marketing-automation rival",
+    ),
+    (
+        "cro-clinical",
+        ["IQV", "ICLR", "CRL", "MEDP"],  # CRO / clinical research — not tools or CRM SaaS
+        "臨床試驗／CRO 對手",
+        "CRO / clinical-research rival",
     ),
 ]
 for _gid, _members, _zh, _en in EXTRA_PEER_GROUPS:
@@ -996,7 +1002,13 @@ TICKER_GROUP_FORCE: dict[str, str] = {
     "YOU": "identity-sec",
     "NICE": "ccaas",
     "KVYO": "mkt-auto",
+    "GME": "retail-ce",
+    "IQV": "cro-clinical",
+    "ICLR": "cro-clinical",
+    "CRL": "cro-clinical",
+    "MEDP": "cro-clinical",
 }
+
 
 
 
@@ -1045,6 +1057,7 @@ NO_PAD_GROUPS = {
     "identity-sec",
     "ccaas",
     "mkt-auto",
+    "cro-clinical",
     "beer-bev",
     "farm-agri",
     "security-svc",
@@ -1301,6 +1314,9 @@ EXTRA_NAME_EN: dict[str, str] = {
     "OII": "Oceaneering",
     "UDR": "UDR",
     "GNTX": "Gentex",
+    "ICLR": "ICON",
+    "CRL": "Charles River",
+    "MEDP": "Medpace",
     "BTSG": "BrightSpring",
     "1200.HK": "Midland Holdings",
     "CCO": "Clear Channel Outdoor",
@@ -1432,6 +1448,9 @@ EXTRA_NAME_ZH: dict[str, str] = {
     "SAIC": "科學應用國際",
     "BBY": "百思買",
     "GNTX": "鏡泰",
+    "ICLR": "ICON",
+    "CRL": "查爾斯河實驗室",
+    "MEDP": "Medpace",
     "BTSG": "BrightSpring",
     "1200.HK": "美聯集團",
     "CCO": "Clear Channel Outdoor",
@@ -1641,6 +1660,9 @@ def main() -> int:
         "NICE": ("NICE", "NICE", "NASDAQ"),
         "ABEV": ("Ambev", "安貝夫", "NYSE"),
         "BTBT": ("Bit Digital", "Bit Digital", "NASDAQ"),
+        "ICLR": ("ICON", "ICON", "NASDAQ"),
+        "CRL": ("Charles River", "查爾斯河實驗室", "NYSE"),
+        "MEDP": ("Medpace", "Medpace", "NASDAQ"),
         "IREN": ("Iris Energy", "Iris Energy", "NASDAQ"),
         "BITF": ("Bitfarms", "Bitfarms", "NASDAQ"),
         "CIFR": ("Cipher Mining", "Cipher Mining", "NASDAQ"),
