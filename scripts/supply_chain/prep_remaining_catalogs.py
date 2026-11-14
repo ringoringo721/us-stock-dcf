@@ -454,9 +454,15 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "farm-agri",
-        ["ADM", "BG", "INGR", "CAG"],  # grain/oilseed / CPG crush — drop DAR renderer
+        ["ADM", "BG", "INGR"],  # grain/oilseed merchandising — no CAG packaged-food, no DAR renderer
         "農產品／大宗貿易對手",
         "Agribusiness / grain-oilseed rival",
+    ),
+    (
+        "packaged-food",
+        ["CAG", "MDLZ", "HSY", "GIS", "KHC", "PEP"],  # packaged / confection CPG — not grain merchants
+        "包裝食品／零食對手",
+        "Packaged-food / confection rival",
     ),
     (
         "beer-bev",
@@ -580,9 +586,9 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "nutrition-chem",
-        ["BCPC", "INGR", "DAR", "FMC", "IFF", "ECL"],
-        "營養／特用化學對手",
-        "Nutrition / specialty-chem rival",
+        ["BCPC", "INGR", "IFF"],  # nutrition ingredients — not DAR renderer / FMC ag / ECL hygiene
+        "營養配料對手",
+        "Nutrition ingredients rival",
     ),
     (
         "door-hardware",
@@ -634,7 +640,7 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "law-enforcement",
-        ["AXON", "ALLE", "ADT", "MSA"],  # bodycam / less-lethal / security — not defense primes
+        ["AXON", "KTOS"],  # LE bodycam/taser / defense-security electronics — drop ALLE door / ADT monitor / MSA PPE
         "執法／安防裝備對手",
         "Law-enforcement / security-equipment rival",
     ),
@@ -994,8 +1000,10 @@ TICKER_GROUP_FORCE: dict[str, str] = {
     "BWA": "auto-tier1",
     "ADM": "farm-agri",
     "BG": "farm-agri",
+    "CAG": "packaged-food",
+    "GIS": "packaged-food",
+    "KHC": "packaged-food",
     "INGR": "farm-agri",
-    "CAG": "farm-agri",
     "ABEV": "beer-bev",
     "ALC": "ophthalmology",
     "BEN": "fund-am",
@@ -1126,6 +1134,7 @@ TICKER_GROUP_FORCE: dict[str, str] = {
 # Specialty groups that must never be padded with same-industry megacaps.
 NO_PAD_GROUPS = {
     "door-hardware",
+    "packaged-food",
     "life-sci-tools",
     "ppe-safety",
     "metal-fab",

@@ -2005,6 +2005,35 @@ MODELS: dict[str, dict] = {
         ],
     },
 
+
+    "nutrition-ingredients-v1": {
+        "label_zh": "營養／食品配料價值鏈",
+        "label_en": "Nutrition / food-ingredients value chain",
+        "description_zh": "原料／農產 → 配料／口味研發 → 製程設備 → 食品／飼料客戶 → 零售通路。",
+        "description_en": "Agri/raw inputs → ingredient / flavor R&D → process equipment → food/feed customers → retail channel.",
+        "stages": [
+            {"id": "inputs", "order": 1, "label_zh": "原料／農產", "label_en": "Agri / raw inputs", "summary_zh": "穀物、油脂與基礎原料。", "summary_en": "Grains, oils, and base feedstocks."},
+            {"id": "ingredients", "order": 2, "label_zh": "配料／口味研發", "label_en": "Ingredients / flavor R&D", "summary_zh": "營養素、香精與機能配料。", "summary_en": "Nutrients, flavors, and functional ingredients."},
+            {"id": "equipment", "order": 3, "label_zh": "製程／混合設備", "label_en": "Process / mixing equipment", "summary_zh": "食品加工與混合設備。", "summary_en": "Food processing and mixing equipment."},
+            {"id": "customers", "order": 4, "label_zh": "食品／飼料客戶", "label_en": "Food / feed customers", "summary_zh": "包裝食品與飼料製造商。", "summary_en": "Packaged-food and feed manufacturers."},
+            {"id": "retail", "order": 5, "label_zh": "零售／通路", "label_en": "Retail / channel", "summary_zh": "超市與食品服務通路。", "summary_en": "Grocery and foodservice channels."},
+        ],
+    },
+
+    "life-sci-tools-v1": {
+        "label_zh": "生命科學分析儀器價值鏈",
+        "label_en": "Life-science analytical instruments value chain",
+        "description_zh": "關鍵元件 → 儀器／平台 → 耗材／試劑 → 實驗室／生技客戶 → 分銷通路。",
+        "description_en": "Critical components → instruments / platforms → consumables / reagents → lab / biotech customers → distribution.",
+        "stages": [
+            {"id": "components", "order": 1, "label_zh": "光學／流體／電子元件", "label_en": "Optics / fluidics / electronics", "summary_zh": "感測、光學與精密電子。", "summary_en": "Sensors, optics, and precision electronics."},
+            {"id": "instruments", "order": 2, "label_zh": "分析儀器／平台", "label_en": "Analytical instruments / platforms", "summary_zh": "色譜、質譜與細胞分析平台。", "summary_en": "Chromatography, mass-spec, and cell platforms."},
+            {"id": "consumables", "order": 3, "label_zh": "耗材／試劑", "label_en": "Consumables / reagents", "summary_zh": "管柱、試劑與耗材。", "summary_en": "Columns, reagents, and consumables."},
+            {"id": "customers", "order": 4, "label_zh": "實驗室／生技／藥廠", "label_en": "Labs / biotech / pharma", "summary_zh": "CRO、生技與製藥客戶。", "summary_en": "CRO, biotech, and pharma labs."},
+            {"id": "distribution", "order": 5, "label_zh": "分銷／服務通路", "label_en": "Distribution / service channel", "summary_zh": "儀器經銷與服務網路。", "summary_en": "Instrument distribution and service."},
+        ],
+    },
+
     "energy-gas-ep-v1": {
         "label_zh": "天然氣勘探開發價值鏈",
         "label_en": "Natural-gas E&P value chain",
@@ -2262,11 +2291,20 @@ TICKER_MODEL: dict[str, str] = {
     "VALE": "basic-materials-v1",
     "TEVA": "pharma-v1",
     "KDP": "consumer-staples-v1",
+    "CAG": "consumer-staples-v1",
+    "GIS": "consumer-staples-v1",
+    "KHC": "consumer-staples-v1",
     "CVE": "energy-integrated-v1",
     "EXE": "energy-integrated-v1",
     "SBAC": "reit-v1",
     "ZBH": "medtech-v1",
-    "A": "medtech-v1",
+    "A": "life-sci-tools-v1",
+    "TMO": "life-sci-tools-v1",
+    "DHR": "life-sci-tools-v1",
+    "WAT": "life-sci-tools-v1",
+    "MTD": "life-sci-tools-v1",
+    "INGR": "nutrition-ingredients-v1",
+    "IFF": "nutrition-ingredients-v1",
     # Bugbot specialty model overrides (remaining universe)
     "AER": "industrials-v1",  # aircraft lessor — rivals via aviation-lessor group
     "BIDU": "internet-platform-v1",
@@ -2320,7 +2358,7 @@ TICKER_MODEL: dict[str, str] = {
     "ATR": "industrials-v1",  # packaging/dispensing, not dental medtech
     "AVTR": "medtech-v1",  # life-science reagents — peers via life-sci-dist group
     "ALB": "specialty-chem-v1",
-    "BCPC": "specialty-chem-v1",
+    "BCPC": "nutrition-ingredients-v1",
     "AA": "basic-materials-v1",
     "ARMK": "industrials-v1",
     "ACT": "mi-specialty-v1",

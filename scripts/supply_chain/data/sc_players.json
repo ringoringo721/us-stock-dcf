@@ -1229,7 +1229,7 @@
     "smelting": [
       "LIN",
       "APD",
-      "SIG"
+      "AIQUY"
     ],
     "logistics": [
       "UNP",
@@ -1237,9 +1237,9 @@
       "FDX"
     ],
     "customers": [
+      "SIG",
       "JPM",
-      "GS",
-      "MS"
+      "GS"
     ]
   },
   "energy-gas-ep-v1": {
@@ -1279,6 +1279,60 @@
       "T",
       "VZ",
       "TMUS"
+    ]
+  },
+  "nutrition-ingredients-v1": {
+    "inputs": [
+      "ADM",
+      "BG",
+      "CTVA"
+    ],
+    "ingredients": [
+      "IFF",
+      "INGR",
+      "BCPC"
+    ],
+    "equipment": [
+      "HON",
+      "EMR",
+      "ROK"
+    ],
+    "customers": [
+      "GIS",
+      "KHC",
+      "CAG"
+    ],
+    "retail": [
+      "WMT",
+      "COST",
+      "SYY"
+    ]
+  },
+  "life-sci-tools-v1": {
+    "components": [
+      "TXN",
+      "ADI",
+      "TEL"
+    ],
+    "instruments": [
+      "TMO",
+      "DHR",
+      "A"
+    ],
+    "consumables": [
+      "AVTR",
+      "WAT",
+      "MTD"
+    ],
+    "customers": [
+      "LLY",
+      "MRK",
+      "PFE"
+    ],
+    "distribution": [
+      "AVTR",
+      "HSIC",
+      "CAH"
     ]
   }
 }

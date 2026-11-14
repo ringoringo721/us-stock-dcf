@@ -310,7 +310,7 @@
     "smelting": [
       "LIN",
       "APD",
-      "SIG"
+      "AIQUY"
     ],
     "logistics": [
       "UNP",
@@ -318,9 +318,9 @@
       "FDX"
     ],
     "customers": [
+      "SIG",
       "JPM",
-      "GS",
-      "MS"
+      "GS"
     ]
   },
   "AG": {
@@ -337,7 +337,7 @@
     "smelting": [
       "LIN",
       "APD",
-      "SIG"
+      "AIQUY"
     ],
     "logistics": [
       "UNP",
@@ -345,9 +345,9 @@
       "FDX"
     ],
     "customers": [
+      "SIG",
       "JPM",
-      "GS",
-      "MS"
+      "GS"
     ]
   },
   "AUGO": {
@@ -364,7 +364,7 @@
     "smelting": [
       "LIN",
       "APD",
-      "SIG"
+      "AIQUY"
     ],
     "logistics": [
       "UNP",
@@ -372,36 +372,36 @@
       "FDX"
     ],
     "customers": [
+      "SIG",
       "JPM",
-      "GS",
-      "MS"
+      "GS"
     ]
   },
   "BCPC": {
     "inputs": [
-      "DOW",
-      "DD",
-      "XOM"
+      "ADM",
+      "BG",
+      "CTVA"
     ],
-    "formulation": [
-      "SHW",
-      "PPG",
-      "APD"
+    "ingredients": [
+      "IFF",
+      "INGR",
+      "BCPC"
     ],
     "equipment": [
+      "HON",
       "EMR",
-      "ITW",
-      "PH"
-    ],
-    "distribution": [
-      "GWW",
-      "FAST",
-      "HD"
+      "ROK"
     ],
     "customers": [
-      "HD",
-      "LOW",
-      "HLT"
+      "GIS",
+      "KHC",
+      "CAG"
+    ],
+    "retail": [
+      "WMT",
+      "COST",
+      "SYY"
     ]
   },
   "BBUC": {
@@ -483,6 +483,249 @@
       "JPM",
       "BAC",
       "AN"
+    ]
+  },
+  "AU": {
+    "equipment": [
+      "CAT",
+      "DE",
+      "PH"
+    ],
+    "extraction": [
+      "BHP",
+      "RIO",
+      "FCX"
+    ],
+    "smelting": [
+      "LIN",
+      "APD",
+      "AIQUY"
+    ],
+    "logistics": [
+      "UNP",
+      "CSX",
+      "FDX"
+    ],
+    "customers": [
+      "SIG",
+      "JPM",
+      "GS"
+    ]
+  },
+  "GFI": {
+    "equipment": [
+      "CAT",
+      "DE",
+      "PH"
+    ],
+    "extraction": [
+      "BHP",
+      "RIO",
+      "FCX"
+    ],
+    "smelting": [
+      "LIN",
+      "APD",
+      "AIQUY"
+    ],
+    "logistics": [
+      "UNP",
+      "CSX",
+      "FDX"
+    ],
+    "customers": [
+      "SIG",
+      "JPM",
+      "GS"
+    ]
+  },
+  "KGC": {
+    "equipment": [
+      "CAT",
+      "DE",
+      "PH"
+    ],
+    "extraction": [
+      "BHP",
+      "RIO",
+      "FCX"
+    ],
+    "smelting": [
+      "LIN",
+      "APD",
+      "AIQUY"
+    ],
+    "logistics": [
+      "UNP",
+      "CSX",
+      "FDX"
+    ],
+    "customers": [
+      "SIG",
+      "JPM",
+      "GS"
+    ]
+  },
+  "PAAS": {
+    "equipment": [
+      "CAT",
+      "DE",
+      "PH"
+    ],
+    "extraction": [
+      "BHP",
+      "RIO",
+      "FCX"
+    ],
+    "smelting": [
+      "LIN",
+      "APD",
+      "AIQUY"
+    ],
+    "logistics": [
+      "UNP",
+      "CSX",
+      "FDX"
+    ],
+    "customers": [
+      "SIG",
+      "JPM",
+      "GS"
+    ]
+  },
+  "HL": {
+    "equipment": [
+      "CAT",
+      "DE",
+      "PH"
+    ],
+    "extraction": [
+      "BHP",
+      "RIO",
+      "FCX"
+    ],
+    "smelting": [
+      "LIN",
+      "APD",
+      "AIQUY"
+    ],
+    "logistics": [
+      "UNP",
+      "CSX",
+      "FDX"
+    ],
+    "customers": [
+      "SIG",
+      "JPM",
+      "GS"
+    ]
+  },
+  "CDE": {
+    "equipment": [
+      "CAT",
+      "DE",
+      "PH"
+    ],
+    "extraction": [
+      "BHP",
+      "RIO",
+      "FCX"
+    ],
+    "smelting": [
+      "LIN",
+      "APD",
+      "AIQUY"
+    ],
+    "logistics": [
+      "UNP",
+      "CSX",
+      "FDX"
+    ],
+    "customers": [
+      "SIG",
+      "JPM",
+      "GS"
+    ]
+  },
+  "A": {
+    "components": [
+      "TXN",
+      "ADI",
+      "TEL"
+    ],
+    "instruments": [
+      "TMO",
+      "DHR",
+      "A"
+    ],
+    "consumables": [
+      "AVTR",
+      "WAT",
+      "MTD"
+    ],
+    "customers": [
+      "LLY",
+      "MRK",
+      "PFE"
+    ],
+    "distribution": [
+      "AVTR",
+      "HSIC",
+      "CAH"
+    ]
+  },
+  "WAT": {
+    "components": [
+      "TXN",
+      "ADI",
+      "TEL"
+    ],
+    "instruments": [
+      "TMO",
+      "DHR",
+      "A"
+    ],
+    "consumables": [
+      "AVTR",
+      "WAT",
+      "MTD"
+    ],
+    "customers": [
+      "LLY",
+      "MRK",
+      "PFE"
+    ],
+    "distribution": [
+      "AVTR",
+      "HSIC",
+      "CAH"
+    ]
+  },
+  "MTD": {
+    "components": [
+      "TXN",
+      "ADI",
+      "TEL"
+    ],
+    "instruments": [
+      "TMO",
+      "DHR",
+      "A"
+    ],
+    "consumables": [
+      "AVTR",
+      "WAT",
+      "MTD"
+    ],
+    "customers": [
+      "LLY",
+      "MRK",
+      "PFE"
+    ],
+    "distribution": [
+      "AVTR",
+      "HSIC",
+      "CAH"
     ]
   }
 }

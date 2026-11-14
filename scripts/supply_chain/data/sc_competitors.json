@@ -10602,11 +10602,6 @@
       "INGR",
       "農產品／大宗貿易對手",
       "Agribusiness / grain-oilseed rival"
-    ],
-    [
-      "CAG",
-      "農產品／大宗貿易對手",
-      "Agribusiness / grain-oilseed rival"
     ]
   ],
   "EXR": [
@@ -11957,29 +11952,29 @@
   ],
   "KHC": [
     [
+      "CAG",
+      "包裝食品／零食對手",
+      "Packaged-food / confection rival"
+    ],
+    [
       "MDLZ",
-      "零食／包裝食品對手",
-      "Snacks / packaged-food rival"
+      "包裝食品／零食對手",
+      "Packaged-food / confection rival"
     ],
     [
       "HSY",
-      "零食／包裝食品對手",
-      "Snacks / packaged-food rival"
+      "包裝食品／零食對手",
+      "Packaged-food / confection rival"
     ],
     [
       "GIS",
-      "零食／包裝食品對手",
-      "Snacks / packaged-food rival"
+      "包裝食品／零食對手",
+      "Packaged-food / confection rival"
     ],
     [
       "PEP",
-      "零食／包裝食品對手",
-      "Snacks / packaged-food rival"
-    ],
-    [
-      "KO",
-      "零食／包裝食品對手",
-      "Snacks / packaged-food rival"
+      "包裝食品／零食對手",
+      "Packaged-food / confection rival"
     ]
   ],
   "CTSH": [
@@ -13279,17 +13274,7 @@
   ],
   "AXON": [
     [
-      "ALLE",
-      "執法／安防裝備對手",
-      "Law-enforcement / security-equipment rival"
-    ],
-    [
-      "ADT",
-      "執法／安防裝備對手",
-      "Law-enforcement / security-equipment rival"
-    ],
-    [
-      "MSA",
+      "KTOS",
       "執法／安防裝備對手",
       "Law-enforcement / security-equipment rival"
     ]
@@ -14819,28 +14804,23 @@
   "IFF": [
     [
       "BCPC",
-      "營養／特用化學對手",
-      "Nutrition / specialty-chem rival"
+      "營養配料對手",
+      "Nutrition ingredients rival"
     ],
     [
       "INGR",
-      "營養／特用化學對手",
-      "Nutrition / specialty-chem rival"
+      "營養配料對手",
+      "Nutrition ingredients rival"
     ],
     [
-      "DAR",
-      "營養／特用化學對手",
-      "Nutrition / specialty-chem rival"
+      "ADM",
+      "農產品／大宗貿易對手",
+      "Agribusiness / grain-oilseed rival"
     ],
     [
-      "FMC",
-      "營養／特用化學對手",
-      "Nutrition / specialty-chem rival"
-    ],
-    [
-      "ECL",
-      "營養／特用化學對手",
-      "Nutrition / specialty-chem rival"
+      "BG",
+      "農產品／大宗貿易對手",
+      "Agribusiness / grain-oilseed rival"
     ]
   ],
   "SOFI": [
@@ -15391,11 +15371,6 @@
       "INGR",
       "農產品／大宗貿易對手",
       "Agribusiness / grain-oilseed rival"
-    ],
-    [
-      "CAG",
-      "農產品／大宗貿易對手",
-      "Agribusiness / grain-oilseed rival"
     ]
   ],
   "SNA": [
@@ -15427,29 +15402,29 @@
   ],
   "GIS": [
     [
+      "CAG",
+      "包裝食品／零食對手",
+      "Packaged-food / confection rival"
+    ],
+    [
       "MDLZ",
-      "零食／包裝食品對手",
-      "Snacks / packaged-food rival"
+      "包裝食品／零食對手",
+      "Packaged-food / confection rival"
     ],
     [
       "HSY",
-      "零食／包裝食品對手",
-      "Snacks / packaged-food rival"
+      "包裝食品／零食對手",
+      "Packaged-food / confection rival"
     ],
     [
       "KHC",
-      "零食／包裝食品對手",
-      "Snacks / packaged-food rival"
+      "包裝食品／零食對手",
+      "Packaged-food / confection rival"
     ],
     [
       "PEP",
-      "零食／包裝食品對手",
-      "Snacks / packaged-food rival"
-    ],
-    [
-      "KO",
-      "零食／包裝食品對手",
-      "Snacks / packaged-food rival"
+      "包裝食品／零食對手",
+      "Packaged-food / confection rival"
     ]
   ],
   "TSCO": [
@@ -26040,29 +26015,29 @@
   ],
   "DAR": [
     [
-      "BCPC",
-      "營養／特用化學對手",
-      "Nutrition / specialty-chem rival"
+      "MDLZ",
+      "零食／包裝食品對手",
+      "Snacks / packaged-food rival"
     ],
     [
-      "INGR",
-      "營養／特用化學對手",
-      "Nutrition / specialty-chem rival"
+      "HSY",
+      "零食／包裝食品對手",
+      "Snacks / packaged-food rival"
     ],
     [
-      "FMC",
-      "營養／特用化學對手",
-      "Nutrition / specialty-chem rival"
+      "GIS",
+      "零食／包裝食品對手",
+      "Snacks / packaged-food rival"
     ],
     [
-      "IFF",
-      "營養／特用化學對手",
-      "Nutrition / specialty-chem rival"
+      "KHC",
+      "零食／包裝食品對手",
+      "Snacks / packaged-food rival"
     ],
     [
-      "ECL",
-      "營養／特用化學對手",
-      "Nutrition / specialty-chem rival"
+      "PEP",
+      "零食／包裝食品對手",
+      "Snacks / packaged-food rival"
     ]
   ],
   "TBBB": [
@@ -27248,19 +27223,29 @@
   ],
   "CAG": [
     [
-      "ADM",
-      "農產品／大宗貿易對手",
-      "Agribusiness / grain-oilseed rival"
+      "MDLZ",
+      "包裝食品／零食對手",
+      "Packaged-food / confection rival"
     ],
     [
-      "BG",
-      "農產品／大宗貿易對手",
-      "Agribusiness / grain-oilseed rival"
+      "HSY",
+      "包裝食品／零食對手",
+      "Packaged-food / confection rival"
     ],
     [
-      "INGR",
-      "農產品／大宗貿易對手",
-      "Agribusiness / grain-oilseed rival"
+      "GIS",
+      "包裝食品／零食對手",
+      "Packaged-food / confection rival"
+    ],
+    [
+      "KHC",
+      "包裝食品／零食對手",
+      "Packaged-food / confection rival"
+    ],
+    [
+      "PEP",
+      "包裝食品／零食對手",
+      "Packaged-food / confection rival"
     ]
   ],
   "URBN": [
@@ -31163,11 +31148,6 @@
       "BG",
       "農產品／大宗貿易對手",
       "Agribusiness / grain-oilseed rival"
-    ],
-    [
-      "CAG",
-      "農產品／大宗貿易對手",
-      "Agribusiness / grain-oilseed rival"
     ]
   ],
   "SGHC": [
@@ -31631,28 +31611,13 @@
   "BCPC": [
     [
       "INGR",
-      "營養／特用化學對手",
-      "Nutrition / specialty-chem rival"
-    ],
-    [
-      "DAR",
-      "營養／特用化學對手",
-      "Nutrition / specialty-chem rival"
-    ],
-    [
-      "FMC",
-      "營養／特用化學對手",
-      "Nutrition / specialty-chem rival"
+      "營養配料對手",
+      "Nutrition ingredients rival"
     ],
     [
       "IFF",
-      "營養／特用化學對手",
-      "Nutrition / specialty-chem rival"
-    ],
-    [
-      "ECL",
-      "營養／特用化學對手",
-      "Nutrition / specialty-chem rival"
+      "營養配料對手",
+      "Nutrition ingredients rival"
     ]
   ],
   "VAL": [
