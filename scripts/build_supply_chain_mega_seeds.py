@@ -387,7 +387,10 @@ def build_seed(
             nt = normalize_stage_ticker(t)
             if not nt or nt in seen_players:
                 continue
-            if nt in DUAL_LIST_ISSUER and issuer_key(nt) in rival_dual_issuer_keys:
+            # Prefer rival arc over stage when same issuer is both partner and rival.
+            if nt in rival_tickers or (
+                nt in DUAL_LIST_ISSUER and issuer_key(nt) in rival_dual_issuer_keys
+            ):
                 continue
             picked.append(nt)
             seen_players.add(nt)
@@ -397,7 +400,9 @@ def build_seed(
                     nt = normalize_stage_ticker(t)
                     if not nt or nt in seen_players:
                         continue
-                    if nt in DUAL_LIST_ISSUER and issuer_key(nt) in rival_dual_issuer_keys:
+                    if nt in rival_tickers or (
+                        nt in DUAL_LIST_ISSUER and issuer_key(nt) in rival_dual_issuer_keys
+                    ):
                         continue
                     picked.append(nt)
                     seen_players.add(nt)
@@ -411,6 +416,10 @@ def build_seed(
                     continue
                 nt = normalize_stage_ticker(t)
                 if not nt or nt in seen_players:
+                    continue
+                if nt in rival_tickers or (
+                    nt in DUAL_LIST_ISSUER and issuer_key(nt) in rival_dual_issuer_keys
+                ):
                     continue
                 picked.append(nt)
                 seen_players.add(nt)
@@ -450,23 +459,14 @@ def build_seed(
             }
         )
 
-    # Never list the same issuer as both a stage player and a rival on one hub page.
-    stage_tickers = {
-        (p.get("ticker") or "").strip().upper()
-        for st in stages
-        for p in (st.get("players") or [])
-        if (p.get("ticker") or "").strip()
-    }
     comps = []
     seen_comp = {ticker}
     for ct, basis_zh, basis_en in competitors.get(ticker) or []:
         ct = normalize_stage_ticker(ct) or (ct or "").strip().upper()
         # Still drop banned even if alias missed; skip self / dupes.
-        # Same ticker on a supply-chain stage cannot also appear on the rival arc
-        # (e.g. ADM must not list CTVA as both inputs supplier and agribusiness rival).
+        # Stage/rival same-issuer overlap is resolved above by preferring the rival arc
+        # (stage players skip rival tickers / dual-list issuer keys).
         if not ct or ct == ticker or ct in seen_comp or ct in STAGE_TICKER_BANNED:
-            continue
-        if ct in stage_tickers:
             continue
         seen_comp.add(ct)
         ce = resolve_entity(ct, entities, universe_by_ticker)
