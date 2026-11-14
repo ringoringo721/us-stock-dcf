@@ -23,23 +23,23 @@
     "id": "semiconductor-memory-v1",
     "label_zh": "記憶體半導體價值鏈",
     "label_en": "Memory semiconductor value chain",
-    "description_zh": "裝置 → 材料 → 代工／自有產能夥伴 → 模組／伺服器客戶 → 通路。",
+    "description_zh": "設備 → 材料 → 代工／自有產能夥伴 → 模組／伺服器客戶 → 通路。",
     "description_en": "Equipment → materials → capacity partners → module/server customers → channel."
   },
   "stages": [
     {
       "id": "equipment",
       "order": 1,
-      "label_zh": "製程裝置",
+      "label_zh": "製程設備",
       "label_en": "Process equipment",
-      "summary_zh": "記憶體製程關鍵裝置。",
+      "summary_zh": "記憶體製程關鍵設備。",
       "summary_en": "Memory-process tools.",
       "players": [
         {
           "ticker": "ASML",
           "name_en": "ASML",
           "name_zh": "ASML",
-          "role_zh": "ASML：製程裝置代表性玩家",
+          "role_zh": "ASML：製程設備代表性玩家",
           "role_en": "ASML: representative player in Process equipment",
           "exchange": "NASDAQ"
         },
@@ -47,7 +47,7 @@
           "ticker": "AMAT",
           "name_en": "Applied Materials",
           "name_zh": "應用材料",
-          "role_zh": "應用材料：製程裝置代表性玩家",
+          "role_zh": "應用材料：製程設備代表性玩家",
           "role_en": "Applied Materials: representative player in Process equipment",
           "exchange": "NASDAQ"
         },
@@ -55,7 +55,7 @@
           "ticker": "LRCX",
           "name_en": "Lam Research",
           "name_zh": "科林研發",
-          "role_zh": "科林研發：製程裝置代表性玩家",
+          "role_zh": "科林研發：製程設備代表性玩家",
           "role_en": "Lam Research: representative player in Process equipment",
           "exchange": "NASDAQ"
         }

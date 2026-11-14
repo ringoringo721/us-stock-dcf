@@ -23,23 +23,23 @@
     "id": "telecom-v1",
     "label_zh": "電信營運價值鏈",
     "label_en": "Telecom operator value chain",
-    "description_zh": "網路裝置 → 頻譜／鐵塔 → 裝置／OEM → 內容／應用 → 企業／零售客戶。",
+    "description_zh": "網路設備 → 頻譜／鐵塔 → 設備／OEM → 內容／應用 → 企業／零售客戶。",
     "description_en": "Network gear → spectrum/towers → devices/OEMs → content/apps → enterprise/retail."
   },
   "stages": [
     {
       "id": "equipment",
       "order": 1,
-      "label_zh": "網路裝置／無線基礎設施",
+      "label_zh": "網路設備／無線基礎設施",
       "label_en": "Network equipment / RAN",
-      "summary_zh": "RAN、傳輸與核心網裝置。",
+      "summary_zh": "RAN、傳輸與核心網設備。",
       "summary_en": "RAN, transport, core gear.",
       "players": [
         {
           "ticker": "CSCO",
           "name_en": "Cisco Systems",
           "name_zh": "思科",
-          "role_zh": "思科：網路裝置／無線基礎設施代表性玩家",
+          "role_zh": "思科：網路設備／無線基礎設施代表性玩家",
           "role_en": "Cisco Systems: representative player in Network equipment / RAN",
           "exchange": "NASDAQ"
         },
@@ -47,7 +47,7 @@
           "ticker": "ERIC",
           "name_en": "Ericsson",
           "name_zh": "Ericsson",
-          "role_zh": "Ericsson：網路裝置／無線基礎設施代表性玩家",
+          "role_zh": "Ericsson：網路設備／無線基礎設施代表性玩家",
           "role_en": "Ericsson: representative player in Network equipment / RAN",
           "exchange": "NASDAQ"
         },
@@ -55,7 +55,7 @@
           "ticker": "NOK",
           "name_en": "Nokia",
           "name_zh": "Nokia",
-          "role_zh": "Nokia：網路裝置／無線基礎設施代表性玩家",
+          "role_zh": "Nokia：網路設備／無線基礎設施代表性玩家",
           "role_en": "Nokia: representative player in Network equipment / RAN",
           "exchange": "NYSE"
         }

@@ -156,45 +156,25 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "ECL": {
-      "ticker": "ECL",
-      "price": 309.27,
-      "previousClose": 304.41,
-      "changePct": 1.597,
-      "mcap": 84331.1,
+    "NPNYY": {
+      "ticker": "NPNYY",
+      "price": null,
+      "previousClose": null,
+      "changePct": null,
+      "mcap": null,
       "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
+      "asOf": null,
+      "source": null
     },
-    "SHW": {
-      "ticker": "SHW",
-      "price": 349.89,
-      "previousClose": 351.39,
-      "changePct": -0.427,
-      "mcap": 83130.5,
+    "4091.T": {
+      "ticker": "4091.T",
+      "price": null,
+      "previousClose": null,
+      "changePct": null,
+      "mcap": null,
       "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "DD": {
-      "ticker": "DD",
-      "price": 153.78,
-      "previousClose": 154.7,
-      "changePct": -0.595,
-      "mcap": 19786.5,
-      "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "DOW": {
-      "ticker": "DOW",
-      "price": 33.04,
-      "previousClose": 33.15,
-      "changePct": -0.332,
-      "mcap": 22729.9,
-      "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
+      "asOf": null,
+      "source": null
     }
   }
 }

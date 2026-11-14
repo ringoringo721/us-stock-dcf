@@ -23,14 +23,14 @@
     "id": "basic-materials-v1",
     "label_zh": "基礎材料／礦業價值鏈",
     "label_en": "Basic materials / mining value chain",
-    "description_zh": "礦山裝置 → 開採 → 冶煉加工 → 物流港口 → 工業／汽車客戶。",
+    "description_zh": "礦山設備 → 開採 → 冶煉加工 → 物流港口 → 工業／汽車客戶。",
     "description_en": "Mining equipment → extraction → smelting → logistics/ports → industrial/auto customers."
   },
   "stages": [
     {
       "id": "equipment",
       "order": 1,
-      "label_zh": "礦山／工程裝置",
+      "label_zh": "礦山／工程設備",
       "label_en": "Mining / engineering equipment",
       "summary_zh": "挖土機、卡車與工程機械。",
       "summary_en": "Excavators, trucks, engineering kit.",
@@ -39,7 +39,7 @@
           "ticker": "CAT",
           "name_en": "Caterpillar",
           "name_zh": "開拓重工",
-          "role_zh": "開拓重工：礦山／工程裝置代表性玩家",
+          "role_zh": "開拓重工：礦山／工程設備代表性玩家",
           "role_en": "Caterpillar: representative player in Mining / engineering equipment",
           "exchange": "NYSE"
         },
@@ -47,7 +47,7 @@
           "ticker": "DE",
           "name_en": "Deere",
           "name_zh": "強鹿公司 (Deere)",
-          "role_zh": "強鹿公司 (Deere)：礦山／工程裝置代表性玩家",
+          "role_zh": "強鹿公司 (Deere)：礦山／工程設備代表性玩家",
           "role_en": "Deere: representative player in Mining / engineering equipment",
           "exchange": "NYSE"
         },
@@ -55,7 +55,7 @@
           "ticker": "PH",
           "name_en": "Parker-Hannifin",
           "name_zh": "派克漢尼汾",
-          "role_zh": "派克漢尼汾：礦山／工程裝置代表性玩家",
+          "role_zh": "派克漢尼汾：礦山／工程設備代表性玩家",
           "role_en": "Parker-Hannifin: representative player in Mining / engineering equipment",
           "exchange": "NYSE"
         }
@@ -72,8 +72,8 @@
         {
           "ticker": "BHP",
           "name_en": "BHP",
-          "name_zh": "BHP",
-          "role_zh": "BHP：開採／選礦代表性玩家",
+          "name_zh": "必和必拓",
+          "role_zh": "必和必拓：開採／選礦代表性玩家",
           "role_en": "BHP: representative player in Extraction / processing",
           "exchange": "NYSE"
         },
@@ -210,7 +210,7 @@
     {
       "ticker": "BHP",
       "name_en": "BHP",
-      "name_zh": "BHP",
+      "name_zh": "必和必拓",
       "basis_zh": "銅礦對手",
       "basis_en": "Copper mining rival",
       "exchange": "NYSE"

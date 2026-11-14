@@ -111,12 +111,17 @@ LEGAL_EN_SUFFIX_STRIP_RE = re.compile(
 NAME_ZH_FIXES = {
     "IBM": "IBM",  # Latin brand; never “International Business Machines”
     "TDG": "環球透博",  # TransDigm — not Trimble 天寶集團
+    "EQIX": "艾昆緯",  # Equinix — never Cadence-ish 易華電腦
+    "CDNS": "益華電腦",
+    "BHP": "必和必拓",
     "BN": "Brookfield",
     "SE": "Sea",
     "TTD": "Trade Desk",
     "FND": "Floor & Decor",
     "TROW": "T. Rowe Price",
     "CI": "信諾",
+    "ANSS": "安西斯",
+    "LIN": "林德集團",
 }
 
 

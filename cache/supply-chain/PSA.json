@@ -23,7 +23,7 @@
     "id": "reit-v1",
     "label_zh": "REIT／不動產價值鏈",
     "label_en": "REIT / real estate value chain",
-    "description_zh": "建設／開發 → 建材裝置 → 物業科技 → 租戶產業 → 資本／融資。",
+    "description_zh": "建設／開發 → 建材設備 → 物業科技 → 租戶產業 → 資本／融資。",
     "description_en": "Construction/dev → building systems → proptech → tenant industries → capital/financing."
   },
   "stages": [
@@ -64,7 +64,7 @@
     {
       "id": "systems",
       "order": 2,
-      "label_zh": "建材／機電裝置",
+      "label_zh": "建材／機電設備",
       "label_en": "Building systems / MEP",
       "summary_zh": "HVAC、電力與結構系統。",
       "summary_en": "HVAC, power, structural systems.",
@@ -73,7 +73,7 @@
           "ticker": "ETN",
           "name_en": "Eaton",
           "name_zh": "伊頓",
-          "role_zh": "伊頓：建材／機電裝置代表性玩家",
+          "role_zh": "伊頓：建材／機電設備代表性玩家",
           "role_en": "Eaton: representative player in Building systems / MEP",
           "exchange": "NYSE"
         },
@@ -81,7 +81,7 @@
           "ticker": "EMR",
           "name_en": "Emerson",
           "name_zh": "艾默生",
-          "role_zh": "艾默生：建材／機電裝置代表性玩家",
+          "role_zh": "艾默生：建材／機電設備代表性玩家",
           "role_en": "Emerson: representative player in Building systems / MEP",
           "exchange": "NYSE"
         },
@@ -89,7 +89,7 @@
           "ticker": "HON",
           "name_en": "Honeywell",
           "name_zh": "漢威聯合",
-          "role_zh": "漢威聯合：建材／機電裝置代表性玩家",
+          "role_zh": "漢威聯合：建材／機電設備代表性玩家",
           "role_en": "Honeywell: representative player in Building systems / MEP",
           "exchange": "NASDAQ"
         }

@@ -23,14 +23,14 @@
     "id": "energy-integrated-v1",
     "label_zh": "綜合油氣價值鏈",
     "label_en": "Integrated oil & gas value chain",
-    "description_zh": "油服／裝置 → 上游開採 → 中游管輸 → 煉製化工 → 零售／航煤客戶。",
+    "description_zh": "油服／設備 → 上游開採 → 中游管輸 → 煉製化工 → 零售／航煤客戶。",
     "description_en": "Oilfield services → upstream → midstream → refining/chem → retail/jet customers."
   },
   "stages": [
     {
       "id": "services",
       "order": 1,
-      "label_zh": "油服／裝置",
+      "label_zh": "油服／設備",
       "label_en": "Oilfield services / equipment",
       "summary_zh": "鑽完井與油田服務。",
       "summary_en": "Drilling and oilfield services.",
@@ -39,7 +39,7 @@
           "ticker": "HAL",
           "name_en": "Halliburton",
           "name_zh": "哈里伯頓",
-          "role_zh": "哈里伯頓：油服／裝置代表性玩家",
+          "role_zh": "哈里伯頓：油服／設備代表性玩家",
           "role_en": "Halliburton: representative player in Oilfield services / equipment",
           "exchange": "NYSE"
         },
@@ -47,7 +47,7 @@
           "ticker": "BKR",
           "name_en": "Baker Hughes",
           "name_zh": "貝克休斯",
-          "role_zh": "貝克休斯：油服／裝置代表性玩家",
+          "role_zh": "貝克休斯：油服／設備代表性玩家",
           "role_en": "Baker Hughes: representative player in Oilfield services / equipment",
           "exchange": "NASDAQ"
         },
@@ -55,7 +55,7 @@
           "ticker": "COP",
           "name_en": "ConocoPhillips",
           "name_zh": "康菲石油",
-          "role_zh": "康菲石油：油服／裝置代表性玩家",
+          "role_zh": "康菲石油：油服／設備代表性玩家",
           "role_en": "ConocoPhillips: representative player in Oilfield services / equipment",
           "exchange": "NYSE"
         }

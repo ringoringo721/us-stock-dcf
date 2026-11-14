@@ -7,9 +7,9 @@
   "source": {
     "type": "curated",
     "basis": "MVP curated seed for Apple’s hardware value chain; not a live supplier API dump.",
-    "notes_zh": "本頁為人工策展種子資料（供應鏈／競爭對手圖 MVP）。未呼叫即時供應商 API；FMP 同業名單僅作交叉參考，不作唯一依據。角色與排序依公開供應鏈報導與常見投資研究架構整理，非完整供應商名單或採購份額。競爭對手改為手機／裝置生態導向：保留三星、小米、傳音、Google（Android／Pixel）、索尼；拿掉微軟／戴爾／惠普等 PC／雲端同業（非 iPhone 直接產品對手）。",
+    "notes_zh": "本頁為人工策展種子資料（供應鏈／競爭對手圖 MVP）。未呼叫即時供應商 API；FMP 同業名單僅作交叉參考，不作唯一依據。角色與排序依公開供應鏈報導與常見投資研究架構整理，非完整供應商名單或採購份額。競爭對手改為手機／設備生態導向：保留三星、小米、傳音、Google（Android／Pixel）、索尼；拿掉微軟／戴爾／惠普等 PC／雲端同業（非 iPhone 直接產品對手）。",
     "notes_en": "Curated seed for the supply-chain / competitors MVP. No live supplier API. FMP peer lists are cross-checks only. Roles and ranks follow public supply-chain reporting and a standard investor value-chain model — not a full bill of materials or spend share. Competitors revised to phone/device-ecosystem peers: Samsung, Xiaomi, Transsion, Google (Android/Pixel), Sony. Dropped MSFT/DELL/HPQ as PC/cloud peers that are not direct iPhone product rivals.",
-    "competitorRationale_zh": "蘋果主力產品是 iPhone／裝置生態。競爭弧改列：①三星（Galaxy 主力手機對手）②小米（全球手機／AIoT）③傳音（新興市場量產 Android 手機）④Alphabet（Android OS＋Pixel，生態對手非雲端同業）⑤索尼（消費電子／影像裝置）。已移除 MSFT／DELL／HPQ。",
+    "competitorRationale_zh": "蘋果主力產品是 iPhone／設備生態。競爭弧改列：①三星（Galaxy 主力手機對手）②小米（全球手機／AIoT）③傳音（新興市場量產 Android 手機）④Alphabet（Android OS＋Pixel，生態對手非雲端同業）⑤索尼（消費電子／影像設備）。已移除 MSFT／DELL／HPQ。",
     "competitorRationale_en": "Apple’s core product is the iPhone / device ecosystem. Rival arc: (1) Samsung — primary Galaxy handset rival; (2) Xiaomi — global smartphone / AIoT peer; (3) Transsion — high-volume Android OEM in emerging markets; (4) Alphabet — Android OS + Pixel (ecosystem, not cloud/PC peer); (5) Sony — CE / imaging devices. Removed MSFT / DELL / HPQ.",
     "references": [
       "Apple Supplier List (public annual disclosures; illustrative)",
@@ -38,7 +38,7 @@
           "ticker": "GLW",
           "name_en": "Corning",
           "name_zh": "康寧",
-          "role_zh": "iPhone／裝置蓋板與特種玻璃",
+          "role_zh": "iPhone／設備蓋板與特種玻璃",
           "role_en": "Cover and specialty glass for iPhone and devices",
           "exchange": "NYSE"
         },
@@ -115,7 +115,7 @@
           "ticker": "4938.TW",
           "name_en": "Pegatron",
           "name_zh": "和碩",
-          "role_zh": "iPhone／裝置 EMS 組裝",
+          "role_zh": "iPhone／設備 EMS 組裝",
           "role_en": "iPhone / device EMS assembly",
           "exchange": "TWSE",
           "listedInApp": false
@@ -214,7 +214,7 @@
       "ticker": "1810.HK",
       "name_en": "Xiaomi",
       "name_zh": "小米",
-      "basis_zh": "全球智慧型手機／AIoT 裝置生態同業",
+      "basis_zh": "全球智慧型手機／AIoT 設備生態同業",
       "basis_en": "Global smartphone / AIoT device-ecosystem peer",
       "exchange": "HKSE",
       "listedInApp": false
@@ -240,7 +240,7 @@
       "ticker": "SONY",
       "name_en": "Sony Group",
       "name_zh": "索尼",
-      "basis_zh": "消費電子／影像與娛樂裝置同業（次要裝置對手）",
+      "basis_zh": "消費電子／影像與娛樂裝置同業（次要設備對手）",
       "basis_en": "Consumer electronics / imaging & entertainment devices (secondary device peer)",
       "exchange": "NYSE"
     }

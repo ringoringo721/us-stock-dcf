@@ -72,8 +72,8 @@
         {
           "ticker": "EQIX",
           "name_en": "Equinix",
-          "name_zh": "易華電腦 (Equinix)",
-          "role_zh": "易華電腦 (Equinix)：資料中心／雲端基礎設施代表性玩家",
+          "name_zh": "艾昆緯",
+          "role_zh": "艾昆緯：資料中心／雲端基礎設施代表性玩家",
           "role_en": "Equinix: representative player in Data center / cloud infrastructure",
           "exchange": "NASDAQ"
         },
@@ -216,26 +216,27 @@
       "exchange": "NYSE"
     },
     {
-      "ticker": "ANSS",
-      "name_en": "Ansys",
-      "name_zh": "安西斯",
-      "basis_zh": "創意／設計軟體對手",
-      "basis_en": "Creative / design software rival",
-      "exchange": "NASDAQ",
-      "listedInApp": false
-    },
-    {
-      "ticker": "PTC",
-      "name_en": "PTC",
-      "name_zh": "參數科技",
-      "basis_zh": "創意／設計軟體對手",
-      "basis_en": "Creative / design software rival",
-      "exchange": "NASDAQ"
-    },
-    {
       "ticker": "CANVA",
       "name_en": "Canva",
       "name_zh": "Canva",
+      "basis_zh": "創意／設計軟體對手",
+      "basis_en": "Creative / design software rival",
+      "exchange": "Private",
+      "listedInApp": false
+    },
+    {
+      "ticker": "AFFINITY",
+      "name_en": "Affinity (Serif)",
+      "name_zh": "Affinity",
+      "basis_zh": "創意／設計軟體對手",
+      "basis_en": "Creative / design software rival",
+      "exchange": "Private",
+      "listedInApp": false
+    },
+    {
+      "ticker": "CORELDRAW",
+      "name_en": "CorelDRAW",
+      "name_zh": "CorelDRAW",
       "basis_zh": "創意／設計軟體對手",
       "basis_en": "Creative / design software rival",
       "exchange": "Private",

@@ -22,23 +22,23 @@
     "id": "utilities-v1",
     "label_zh": "電力公用事業價值鏈",
     "label_en": "Electric utility value chain",
-    "description_zh": "燃料／再生能源裝置 → 發電 → 輸配電 → 電網科技 → 零售使用者。",
+    "description_zh": "燃料／再生能源設備 → 發電 → 輸配電 → 電網科技 → 零售使用者。",
     "description_en": "Fuel/renewables gear → generation → T&D → grid tech → retail customers."
   },
   "stages": [
     {
       "id": "fuel-capex",
       "order": 1,
-      "label_zh": "燃料／再生能源裝置",
+      "label_zh": "燃料／再生能源設備",
       "label_en": "Fuel / renewables equipment",
-      "summary_zh": "天然氣、太陽能／風電裝置。",
+      "summary_zh": "天然氣、太陽能／風電設備。",
       "summary_en": "Gas, solar, wind equipment.",
       "players": [
         {
           "ticker": "FSLR",
           "name_en": "First Solar",
           "name_zh": "First Solar",
-          "role_zh": "First Solar：燃料／再生能源裝置代表性玩家",
+          "role_zh": "First Solar：燃料／再生能源設備代表性玩家",
           "role_en": "First Solar: representative player in Fuel / renewables equipment",
           "exchange": "NASDAQ"
         },
@@ -46,7 +46,7 @@
           "ticker": "ENPH",
           "name_en": "Enphase Energy",
           "name_zh": "恩菲斯能源",
-          "role_zh": "恩菲斯能源：燃料／再生能源裝置代表性玩家",
+          "role_zh": "恩菲斯能源：燃料／再生能源設備代表性玩家",
           "role_en": "Enphase Energy: representative player in Fuel / renewables equipment",
           "exchange": "NASDAQ",
           "listedInApp": false
@@ -55,7 +55,7 @@
           "ticker": "ETN",
           "name_en": "Eaton Corporation plc",
           "name_zh": "伊頓",
-          "role_zh": "伊頓：燃料／再生能源裝置代表性玩家",
+          "role_zh": "伊頓：燃料／再生能源設備代表性玩家",
           "role_en": "Eaton Corporation plc: representative player in Fuel / renewables equipment",
           "exchange": "NYSE"
         }

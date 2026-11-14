@@ -186,8 +186,8 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "ANSS": {
-      "ticker": "ANSS",
+    "CANVA": {
+      "ticker": "CANVA",
       "price": null,
       "previousClose": null,
       "changePct": null,
@@ -196,18 +196,18 @@
       "asOf": null,
       "source": null
     },
-    "PTC": {
-      "ticker": "PTC",
-      "price": 196.0,
-      "previousClose": 196.25,
-      "changePct": -0.127,
-      "mcap": 21190.9,
+    "AFFINITY": {
+      "ticker": "AFFINITY",
+      "price": null,
+      "previousClose": null,
+      "changePct": null,
+      "mcap": null,
       "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
+      "asOf": null,
+      "source": null
     },
-    "CANVA": {
-      "ticker": "CANVA",
+    "CORELDRAW": {
+      "ticker": "CORELDRAW",
       "price": null,
       "previousClose": null,
       "changePct": null,

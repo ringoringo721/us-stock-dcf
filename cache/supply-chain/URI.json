@@ -134,7 +134,7 @@
       "order": 4,
       "label_zh": "經銷／租賃通路",
       "label_en": "Dealer / rental channel",
-      "summary_zh": "裝置經銷與租賃。",
+      "summary_zh": "設備經銷與租賃。",
       "summary_en": "Equipment dealers and rental.",
       "players": [
         {
@@ -203,7 +203,7 @@
       "ticker": "ASHTEAD",
       "name_en": "Ashtead",
       "name_zh": "Ashtead",
-      "basis_zh": "裝置租賃對手",
+      "basis_zh": "設備租賃對手",
       "basis_en": "Equipment rental rival",
       "exchange": "OTC",
       "listedInApp": false
@@ -212,7 +212,7 @@
       "ticker": "HEES",
       "name_en": "H&E Equipment",
       "name_zh": "H&E Equipment",
-      "basis_zh": "裝置租賃對手",
+      "basis_zh": "設備租賃對手",
       "basis_en": "Equipment rental rival",
       "exchange": "OTC",
       "listedInApp": false
@@ -221,7 +221,7 @@
       "ticker": "CAT",
       "name_en": "Caterpillar",
       "name_zh": "開拓重工",
-      "basis_zh": "裝置租賃對手",
+      "basis_zh": "設備租賃對手",
       "basis_en": "Equipment rental rival",
       "exchange": "NYSE"
     },
@@ -229,7 +229,7 @@
       "ticker": "DE",
       "name_en": "Deere",
       "name_zh": "強鹿公司 (Deere)",
-      "basis_zh": "裝置租賃對手",
+      "basis_zh": "設備租賃對手",
       "basis_en": "Equipment rental rival",
       "exchange": "NYSE"
     }

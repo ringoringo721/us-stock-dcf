@@ -100,7 +100,7 @@
       "order": 3,
       "label_zh": "包裝／施作設備",
       "label_en": "Packaging / application equipment",
-      "summary_zh": "計量、噴塗與衛生裝置。",
+      "summary_zh": "計量、噴塗與衛生設備。",
       "summary_en": "Dosing, spray, hygiene equipment.",
       "players": [
         {
@@ -208,20 +208,12 @@
       "exchange": "NYSE"
     },
     {
-      "ticker": "APD",
-      "name_en": "Air Products",
-      "name_zh": "空氣化工",
+      "ticker": "PPG",
+      "name_en": "PPG Industries",
+      "name_zh": "PPG Industries",
       "basis_zh": "特用化學／塗料對手",
       "basis_en": "Specialty chem / coatings rival",
       "exchange": "NYSE"
-    },
-    {
-      "ticker": "LIN",
-      "name_en": "Linde",
-      "name_zh": "林德集團",
-      "basis_zh": "特用化學／塗料對手",
-      "basis_en": "Specialty chem / coatings rival",
-      "exchange": "NASDAQ"
     },
     {
       "ticker": "DD",
@@ -235,6 +227,14 @@
       "ticker": "DOW",
       "name_en": "Dow",
       "name_zh": "陶氏化學",
+      "basis_zh": "特用化學／塗料對手",
+      "basis_en": "Specialty chem / coatings rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "CTVA",
+      "name_en": "Corteva",
+      "name_zh": "科迪華農業",
       "basis_zh": "特用化學／塗料對手",
       "basis_en": "Specialty chem / coatings rival",
       "exchange": "NYSE"

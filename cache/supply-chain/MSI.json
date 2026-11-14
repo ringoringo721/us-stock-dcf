@@ -23,23 +23,23 @@
     "id": "hardware-value-chain-v1",
     "label_zh": "硬體價值鏈（五階段）",
     "label_en": "Hardware value chain (5 stages)",
-    "description_zh": "上游材料／裝置 → 關鍵零元件 → 組裝代工 → 物流通路 → 零售／電信通路。",
+    "description_zh": "上游材料／設備 → 關鍵零元件 → 組裝代工 → 物流通路 → 零售／電信通路。",
     "description_en": "Materials/equipment → components → EMS → logistics → retail/carrier."
   },
   "stages": [
     {
       "id": "materials",
       "order": 1,
-      "label_zh": "關鍵材料／製程裝置",
+      "label_zh": "關鍵材料／製程設備",
       "label_en": "Key materials / process equipment",
-      "summary_zh": "上游材料與製程裝置。",
+      "summary_zh": "上游材料與製程設備。",
       "summary_en": "Upstream materials and process tools.",
       "players": [
         {
           "ticker": "GLW",
           "name_en": "Corning",
           "name_zh": "康寧",
-          "role_zh": "康寧：關鍵材料／製程裝置代表性玩家",
+          "role_zh": "康寧：關鍵材料／製程設備代表性玩家",
           "role_en": "Corning: representative player in Key materials / process equipment",
           "exchange": "NYSE"
         },
@@ -47,7 +47,7 @@
           "ticker": "AMAT",
           "name_en": "Applied Materials",
           "name_zh": "應用材料",
-          "role_zh": "應用材料：關鍵材料／製程裝置代表性玩家",
+          "role_zh": "應用材料：關鍵材料／製程設備代表性玩家",
           "role_en": "Applied Materials: representative player in Key materials / process equipment",
           "exchange": "NASDAQ"
         },
@@ -55,7 +55,7 @@
           "ticker": "ASML",
           "name_en": "ASML",
           "name_zh": "ASML",
-          "role_zh": "ASML：關鍵材料／製程裝置代表性玩家",
+          "role_zh": "ASML：關鍵材料／製程設備代表性玩家",
           "role_en": "ASML: representative player in Key materials / process equipment",
           "exchange": "NASDAQ"
         }
@@ -206,7 +206,7 @@
       "ticker": "CSCO",
       "name_en": "Cisco Systems",
       "name_zh": "思科",
-      "basis_zh": "任務通訊／網路裝置對手",
+      "basis_zh": "任務通訊／網路設備對手",
       "basis_en": "Mission-critical comms / networking rival",
       "exchange": "NASDAQ"
     },
@@ -214,7 +214,7 @@
       "ticker": "ERIC",
       "name_en": "Ericsson",
       "name_zh": "Ericsson",
-      "basis_zh": "任務通訊／網路裝置對手",
+      "basis_zh": "任務通訊／網路設備對手",
       "basis_en": "Mission-critical comms / networking rival",
       "exchange": "NASDAQ"
     },
@@ -222,7 +222,7 @@
       "ticker": "NOK",
       "name_en": "Nokia",
       "name_zh": "Nokia",
-      "basis_zh": "任務通訊／網路裝置對手",
+      "basis_zh": "任務通訊／網路設備對手",
       "basis_en": "Mission-critical comms / networking rival",
       "exchange": "NYSE"
     },
@@ -230,7 +230,7 @@
       "ticker": "JNPR",
       "name_en": "Juniper Networks",
       "name_zh": "瞻博網路",
-      "basis_zh": "任務通訊／網路裝置對手",
+      "basis_zh": "任務通訊／網路設備對手",
       "basis_en": "Mission-critical comms / networking rival",
       "exchange": "NYSE",
       "listedInApp": false
@@ -239,7 +239,7 @@
       "ticker": "ANET",
       "name_en": "Arista Networks",
       "name_zh": "Arista 網路",
-      "basis_zh": "任務通訊／網路裝置對手",
+      "basis_zh": "任務通訊／網路設備對手",
       "basis_en": "Mission-critical comms / networking rival",
       "exchange": "NYSE"
     }

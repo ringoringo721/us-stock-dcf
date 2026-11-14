@@ -678,8 +678,8 @@ PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ("saas-edge", ["NET", "AMZN", "MSFT", "GOOG", "AKAM", "FTNT"], "邊緣雲／CDN 安全對手", "Edge cloud / CDN security rival"),
     ("saas-fin", ["INTU", "ADP", "PAYX", "MSFT", "ORCL", "SAP"], "財稅／中小企業軟體對手", "Fintech / SMB software rival"),
     ("saas-bi", ["MSTR", "MSFT", "GOOG", "SNOW", "PLTR", "IBM"], "商業智慧／分析軟體對手", "BI / analytics software rival"),
-    # True creative/design software rivals — not general SaaS megacaps (MSFT/GOOG/CRM/INTU).
-    ("saas-creative", ["ADBE", "ADSK", "FIG", "ANSS", "PTC", "CANVA"], "創意／設計軟體對手", "Creative / design software rival"),
+    # Creative Cloud / design-tool rivals only — no CAE/PLM (ANSS/PTC) and no general SaaS.
+    ("saas-creative", ["ADBE", "ADSK", "FIG", "CANVA", "AFFINITY", "CORELDRAW"], "創意／設計軟體對手", "Creative / design software rival"),
     ("it-svc", ["INFY", "ACN", "CTSH", "IBM", "WIT", "MSFT"], "IT 服務對手", "IT services rival"),
     ("semi-fabless", ["NXPI", "TXN", "ADI", "ON", "MCHP", "IFX.DE", "STM"], "車用／工業類比半導體對手", "Auto/industrial analog semi rival"),
     ("semi-power", ["MPWR", "TXN", "ADI", "ON", "NXPI", "IFX.DE"], "電源管理半導體對手", "Power-management semi rival"),
@@ -703,8 +703,9 @@ PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     # Prefer listing ticker B (Barrick Mining); gold peers only — no copper names (SCCO/FCX).
     ("materials-gold", ["AEM", "NEM", "WPM", "B", "KGC", "AU", "GFI"], "金礦／貴金屬對手", "Gold / precious-metals rival"),
     ("materials-cu", ["FCX", "SCCO", "BHP", "RIO", "TECK", "NEM"], "銅礦對手", "Copper mining rival"),
-    ("materials-chem", ["ECL", "SHW", "APD", "LIN", "DD", "DOW"], "特用化學／塗料對手", "Specialty chem / coatings rival"),
-    ("materials-indgas", ["APD", "LIN", "ECL", "SHW", "DOW"], "工業氣體對手", "Industrial gases rival"),
+    # Industrial-gas hubs first so APD/LIN do not inherit coatings rivals from materials-chem.
+    ("materials-indgas", ["APD", "LIN", "AIQUY", "NPNYY", "4091.T"], "工業氣體對手", "Industrial gases rival"),
+    ("materials-chem", ["ECL", "SHW", "PPG", "DD", "DOW", "CTVA"], "特用化學／塗料對手", "Specialty chem / coatings rival"),
     ("materials-steel", ["NUE", "X", "CLF", "STLD", "MT"], "鋼鐵對手", "Steel rival"),
     ("materials-build", ["CRH", "VMC", "MLM", "SHW", "APD"], "建材對手", "Building materials rival"),
     ("ind-mach", ["EMR", "HON", "TT", "ITW", "ETN", "ROK", "PH", "CMI", "PCAR"], "工業自動化／機械對手", "Industrial automation / machinery rival"),
@@ -802,10 +803,17 @@ def resolve_name_zh(ticker: str, name_en: str, stock_zh: dict, file_zh: dict) ->
     hard = {
         "CI": "信諾",
         "TDG": "環球透博",  # never Trimble 天寶
+        "EQIX": "艾昆緯",  # never Cadence-ish 易華電腦 from STOCK_NAMES
+        "CDNS": "益華電腦",
+        "BHP": "必和必拓",
         "ANSS": "安西斯",
         "PTC": "參數科技",
         "ADSK": "歐特克",
         "IBM": "IBM",
+        "LIN": "林德集團",
+        "AIQUY": "液化空氣",
+        "NPNYY": "日本酸素",
+        "4091.T": "日本酸素控股",
     }
     if ticker in hard:
         return hard[ticker]
@@ -931,6 +939,9 @@ def main() -> int:
     entities["IBM"] = {"name_en": "IBM", "name_zh": "IBM", "exchange": "NYSE"}
     entities["BN"] = {"name_en": "Brookfield", "name_zh": "Brookfield", "exchange": "NYSE"}
     entities["MET"]["name_zh"] = "大都會人壽"
+    entities["EQIX"] = {"name_en": "Equinix", "name_zh": "艾昆緯", "exchange": "NASDAQ"}
+    entities["CDNS"] = {"name_en": "Cadence", "name_zh": "益華電腦", "exchange": "NASDAQ"}
+    entities["BHP"] = {"name_en": "BHP", "name_zh": "必和必拓", "exchange": "NYSE"}
     entities["ANSS"] = {"name_en": "Ansys", "name_zh": "安西斯", "exchange": "NASDAQ"}
     entities["FIG"] = {
         "name_en": CURATED_NAME_EN.get("FIG", "Figma"),
@@ -938,6 +949,8 @@ def main() -> int:
         "exchange": (uni.get("FIG") or {}).get("exchange") or "NYSE",
     }
     entities["CANVA"] = {"name_en": "Canva", "name_zh": "Canva", "exchange": "Private"}
+    entities["AFFINITY"] = {"name_en": "Affinity (Serif)", "name_zh": "Affinity", "exchange": "Private"}
+    entities["CORELDRAW"] = {"name_en": "CorelDRAW", "name_zh": "CorelDRAW", "exchange": "Private"}
     entities["PTC"] = {"name_en": "PTC", "name_zh": "參數科技", "exchange": "NASDAQ"}
     entities["ADSK"] = {"name_en": "Autodesk", "name_zh": "歐特克", "exchange": "NASDAQ"}
     entities["GPC"] = {"name_en": "Genuine Parts", "name_zh": "GPC／NAPA", "exchange": "NYSE"}
@@ -945,6 +958,9 @@ def main() -> int:
     entities["AU"] = {"name_en": "AngloGold Ashanti", "name_zh": "安格洛黃金", "exchange": "NYSE"}
     entities["GFI"] = {"name_en": "Gold Fields", "name_zh": "金田", "exchange": "NYSE"}
     entities["AIQUY"] = {"name_en": "Air Liquide", "name_zh": "液化空氣", "exchange": "OTC"}
+    entities["NPNYY"] = {"name_en": "Nippon Sanso", "name_zh": "日本酸素", "exchange": "OTC"}
+    entities["4091.T"] = {"name_en": "Nippon Sanso Holdings", "name_zh": "日本酸素控股", "exchange": "TSE"}
+    entities["LIN"] = {"name_en": "Linde", "name_zh": "林德集團", "exchange": "NASDAQ"}
     # Drop wrong Watsco mapping if present (WACLY is Wacoal ADR).
     if entities.get("WACLY", {}).get("name_en") == "Watsco" or "Watsco" in (
         entities.get("WACLY", {}).get("name_zh") or ""

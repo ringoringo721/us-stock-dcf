@@ -23,7 +23,7 @@
     "id": "basic-materials-v1",
     "label_zh": "基礎材料／礦業價值鏈",
     "label_en": "Basic materials / mining value chain",
-    "description_zh": "礦山裝置 → 開採 → 冶煉加工 → 物流港口 → 工業／汽車客戶。",
+    "description_zh": "礦山設備 → 開採 → 冶煉加工 → 物流港口 → 工業／汽車客戶。",
     "description_en": "Mining equipment → extraction → smelting → logistics/ports → industrial/auto customers."
   },
   "stages": [
@@ -72,8 +72,8 @@
         {
           "ticker": "BHP",
           "name_en": "BHP",
-          "name_zh": "BHP",
-          "role_zh": "BHP：開採／選礦代表性玩家",
+          "name_zh": "必和必拓",
+          "role_zh": "必和必拓：開採／選礦代表性玩家",
           "role_en": "BHP: representative player in Extraction / processing",
           "exchange": "NYSE"
         },

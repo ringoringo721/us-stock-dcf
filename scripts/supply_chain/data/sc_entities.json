@@ -341,7 +341,7 @@
   },
   "BHP": {
     "name_en": "BHP",
-    "name_zh": "BHP",
+    "name_zh": "必和必拓",
     "exchange": "NYSE"
   },
   "DIS": {
@@ -791,7 +791,7 @@
   },
   "EQIX": {
     "name_en": "Equinix",
-    "name_zh": "易華電腦 (Equinix)",
+    "name_zh": "艾昆緯",
     "exchange": "NASDAQ"
   },
   "CNQ": {
@@ -1661,7 +1661,7 @@
   },
   "CTVA": {
     "name_en": "Corteva",
-    "name_zh": "Corteva",
+    "name_zh": "科迪華農業",
     "exchange": "NYSE"
   },
   "INFY": {
@@ -3498,5 +3498,30 @@
     "name_en": "Air Liquide",
     "name_zh": "液化空氣",
     "exchange": "OTC"
+  },
+  "AFFINITY": {
+    "name_en": "Affinity (Serif)",
+    "name_zh": "Affinity",
+    "exchange": "Private"
+  },
+  "CORELDRAW": {
+    "name_en": "CorelDRAW",
+    "name_zh": "CorelDRAW",
+    "exchange": "Private"
+  },
+  "PPG": {
+    "name_en": "PPG Industries",
+    "name_zh": "PPG Industries",
+    "exchange": "NYSE"
+  },
+  "NPNYY": {
+    "name_en": "Nippon Sanso",
+    "name_zh": "日本酸素",
+    "exchange": "OTC"
+  },
+  "4091.T": {
+    "name_en": "Nippon Sanso Holdings",
+    "name_zh": "日本酸素控股",
+    "exchange": "TSE"
   }
 }

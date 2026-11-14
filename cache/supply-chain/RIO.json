@@ -22,14 +22,14 @@
     "id": "basic-materials-v1",
     "label_zh": "基礎材料／礦業價值鏈",
     "label_en": "Basic materials / mining value chain",
-    "description_zh": "礦山裝置 → 開採 → 冶煉加工 → 物流港口 → 工業／汽車客戶。",
+    "description_zh": "礦山設備 → 開採 → 冶煉加工 → 物流港口 → 工業／汽車客戶。",
     "description_en": "Mining equipment → extraction → smelting → logistics/ports → industrial/auto customers."
   },
   "stages": [
     {
       "id": "equipment",
       "order": 1,
-      "label_zh": "礦山／工程裝置",
+      "label_zh": "礦山／工程設備",
       "label_en": "Mining / engineering equipment",
       "summary_zh": "挖土機、卡車與工程機械。",
       "summary_en": "Excavators, trucks, engineering kit.",
@@ -38,7 +38,7 @@
           "ticker": "CAT",
           "name_en": "Caterpillar Inc.",
           "name_zh": "卡特彼勒",
-          "role_zh": "卡特彼勒：礦山／工程裝置代表性玩家",
+          "role_zh": "卡特彼勒：礦山／工程設備代表性玩家",
           "role_en": "Caterpillar Inc.: representative player in Mining / engineering equipment",
           "exchange": "NYSE"
         },
@@ -46,7 +46,7 @@
           "ticker": "DE",
           "name_en": "Deere & Company",
           "name_zh": "約翰迪爾",
-          "role_zh": "約翰迪爾：礦山／工程裝置代表性玩家",
+          "role_zh": "約翰迪爾：礦山／工程設備代表性玩家",
           "role_en": "Deere & Company: representative player in Mining / engineering equipment",
           "exchange": "NYSE"
         },
@@ -54,7 +54,7 @@
           "ticker": "PH",
           "name_en": "Parker-Hannifin Corporation",
           "name_zh": "Parker",
-          "role_zh": "Parker：礦山／工程裝置代表性玩家",
+          "role_zh": "Parker：礦山／工程設備代表性玩家",
           "role_en": "Parker-Hannifin Corporation: representative player in Mining / engineering equipment",
           "exchange": "NYSE"
         }
@@ -121,8 +121,8 @@
         {
           "ticker": "LIN",
           "name_en": "Linde plc",
-          "name_zh": "林德",
-          "role_zh": "林德：冶煉／化工加工代表性玩家",
+          "name_zh": "林德集團",
+          "role_zh": "林德集團：冶煉／化工加工代表性玩家",
           "role_en": "Linde plc: representative player in Smelting / chemical processing",
           "exchange": "NASDAQ"
         }

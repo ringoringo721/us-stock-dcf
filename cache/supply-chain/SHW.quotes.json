@@ -146,22 +146,12 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "APD": {
-      "ticker": "APD",
-      "price": 316.53,
-      "previousClose": 316.2,
-      "changePct": 0.104,
-      "mcap": 67883.5,
-      "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "LIN": {
-      "ticker": "LIN",
-      "price": 526.06,
-      "previousClose": 522.49,
-      "changePct": 0.683,
-      "mcap": 236543.0,
+    "CTVA": {
+      "ticker": "CTVA",
+      "price": 9.43,
+      "previousClose": 9.19,
+      "changePct": 2.612,
+      "mcap": 7940.9,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"

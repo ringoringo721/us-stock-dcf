@@ -66,7 +66,7 @@
       "order": 2,
       "label_zh": "製程／壓縮設備",
       "label_en": "Process / compression equipment",
-      "summary_zh": "壓縮機、熱交換器與廠務裝置。",
+      "summary_zh": "壓縮機、熱交換器與廠務設備。",
       "summary_en": "Compressors, heat exchangers, plant equipment.",
       "players": [
         {
@@ -201,44 +201,39 @@
   ],
   "competitors": [
     {
-      "ticker": "ECL",
-      "name_en": "Ecolab",
-      "name_zh": "藝康集團",
-      "basis_zh": "特用化學／塗料對手",
-      "basis_en": "Specialty chem / coatings rival",
-      "exchange": "NYSE"
-    },
-    {
-      "ticker": "SHW",
-      "name_en": "Sherwin-Williams",
-      "name_zh": "宣偉塗料",
-      "basis_zh": "特用化學／塗料對手",
-      "basis_en": "Specialty chem / coatings rival",
-      "exchange": "NYSE"
-    },
-    {
       "ticker": "LIN",
       "name_en": "Linde",
       "name_zh": "林德集團",
-      "basis_zh": "特用化學／塗料對手",
-      "basis_en": "Specialty chem / coatings rival",
+      "basis_zh": "工業氣體對手",
+      "basis_en": "Industrial gases rival",
       "exchange": "NASDAQ"
     },
     {
-      "ticker": "DD",
-      "name_en": "DuPont de Nemours",
-      "name_zh": "杜邦公司",
-      "basis_zh": "特用化學／塗料對手",
-      "basis_en": "Specialty chem / coatings rival",
-      "exchange": "NYSE"
+      "ticker": "AIQUY",
+      "name_en": "Air Liquide",
+      "name_zh": "液化空氣",
+      "basis_zh": "工業氣體對手",
+      "basis_en": "Industrial gases rival",
+      "exchange": "OTC",
+      "listedInApp": false
     },
     {
-      "ticker": "DOW",
-      "name_en": "Dow",
-      "name_zh": "陶氏化學",
-      "basis_zh": "特用化學／塗料對手",
-      "basis_en": "Specialty chem / coatings rival",
-      "exchange": "NYSE"
+      "ticker": "NPNYY",
+      "name_en": "Nippon Sanso",
+      "name_zh": "日本酸素",
+      "basis_zh": "工業氣體對手",
+      "basis_en": "Industrial gases rival",
+      "exchange": "OTC",
+      "listedInApp": false
+    },
+    {
+      "ticker": "4091.T",
+      "name_en": "Nippon Sanso Holdings",
+      "name_zh": "日本酸素控股",
+      "basis_zh": "工業氣體對手",
+      "basis_en": "Industrial gases rival",
+      "exchange": "TSE",
+      "listedInApp": false
     }
   ]
 }
