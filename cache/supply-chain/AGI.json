@@ -1,0 +1,245 @@
+{
+  "version": 1,
+  "ticker": "AGI",
+  "name_en": "Alamos Gold",
+  "name_zh": "Alamos Gold",
+  "updatedAt": "2026-11-14",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "precious-metals-v1",
+    "references": [
+      "Industry model `precious-metals-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "precious-metals-v1",
+    "label_zh": "貴金屬礦業價值鏈",
+    "label_en": "Precious-metals mining value chain",
+    "description_zh": "礦山裝置 → 開採 → 貴金屬冶煉／精煉 → 物流 → 珠寶／金條承銷。",
+    "description_en": "Mining equipment → extraction → precious smelting/refining → logistics → jewelry / bullion offtake."
+  },
+  "stages": [
+    {
+      "id": "equipment",
+      "order": 1,
+      "label_zh": "礦山／工程設備",
+      "label_en": "Mining / engineering equipment",
+      "summary_zh": "挖土機與工程機械。",
+      "summary_en": "Excavators and engineering kit.",
+      "players": [
+        {
+          "ticker": "CAT",
+          "name_en": "Caterpillar",
+          "name_zh": "開拓重工",
+          "role_zh": "開拓重工：礦山／工程設備代表性玩家",
+          "role_en": "Caterpillar: representative player in Mining / engineering equipment",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "DE",
+          "name_en": "Deere",
+          "name_zh": "強鹿公司 (Deere)",
+          "role_zh": "強鹿公司 (Deere)：礦山／工程設備代表性玩家",
+          "role_en": "Deere: representative player in Mining / engineering equipment",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "PH",
+          "name_en": "Parker-Hannifin",
+          "name_zh": "派克漢尼汾",
+          "role_zh": "派克漢尼汾：礦山／工程設備代表性玩家",
+          "role_en": "Parker-Hannifin: representative player in Mining / engineering equipment",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "extraction",
+      "order": 2,
+      "label_zh": "開採／選礦",
+      "label_en": "Extraction / processing",
+      "summary_zh": "礦場營運與選礦。",
+      "summary_en": "Mine ops and processing.",
+      "players": [
+        {
+          "ticker": "BHP",
+          "name_en": "BHP",
+          "name_zh": "必和必拓",
+          "role_zh": "必和必拓：開採／選礦代表性玩家",
+          "role_en": "BHP: representative player in Extraction / processing",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "RIO",
+          "name_en": "Rio Tinto",
+          "name_zh": "力拓",
+          "role_zh": "力拓：開採／選礦代表性玩家",
+          "role_en": "Rio Tinto: representative player in Extraction / processing",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "FCX",
+          "name_en": "Freeport-McMoRan",
+          "name_zh": "自由港麥克莫蘭",
+          "role_zh": "自由港麥克莫蘭：開採／選礦代表性玩家",
+          "role_en": "Freeport-McMoRan: representative player in Extraction / processing",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "smelting",
+      "order": 3,
+      "label_zh": "貴金屬冶煉／精煉",
+      "label_en": "Precious smelting / refining",
+      "summary_zh": "貴金屬精煉與工業氣體。",
+      "summary_en": "Precious refining and industrial gases.",
+      "players": [
+        {
+          "ticker": "LIN",
+          "name_en": "Linde",
+          "name_zh": "林德集團",
+          "role_zh": "林德集團：貴金屬冶煉／精煉代表性玩家",
+          "role_en": "Linde: representative player in Precious smelting / refining",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "APD",
+          "name_en": "Air Products",
+          "name_zh": "空氣化工",
+          "role_zh": "空氣化工：貴金屬冶煉／精煉代表性玩家",
+          "role_en": "Air Products: representative player in Precious smelting / refining",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "AIQUY",
+          "name_en": "Air Liquide",
+          "name_zh": "液化空氣",
+          "role_zh": "液化空氣：貴金屬冶煉／精煉代表性玩家",
+          "role_en": "Air Liquide: representative player in Precious smelting / refining",
+          "exchange": "OTC",
+          "listedInApp": false
+        }
+      ]
+    },
+    {
+      "id": "logistics",
+      "order": 4,
+      "label_zh": "物流／港口",
+      "label_en": "Logistics / ports",
+      "summary_zh": "礦產運輸。",
+      "summary_en": "Ore and metal transport.",
+      "players": [
+        {
+          "ticker": "UNP",
+          "name_en": "Union Pacific",
+          "name_zh": "聯合太平洋鐵路",
+          "role_zh": "聯合太平洋鐵路：物流／港口代表性玩家",
+          "role_en": "Union Pacific: representative player in Logistics / ports",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "CSX",
+          "name_en": "CSX",
+          "name_zh": "CSX",
+          "role_zh": "CSX：物流／港口代表性玩家",
+          "role_en": "CSX: representative player in Logistics / ports",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "FDX",
+          "name_en": "FedEx",
+          "name_zh": "聯邦快遞",
+          "role_zh": "聯邦快遞：物流／港口代表性玩家",
+          "role_en": "FedEx: representative player in Logistics / ports",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "customers",
+      "order": 5,
+      "label_zh": "珠寶／金條承銷",
+      "label_en": "Jewelry / bullion offtake",
+      "summary_zh": "珠寶商與金條／交易承銷。",
+      "summary_en": "Jewelers and bullion / trading offtake.",
+      "players": [
+        {
+          "ticker": "SIG",
+          "name_en": "Signet Jewelers",
+          "name_zh": "Signet 珠寶",
+          "role_zh": "Signet 珠寶：珠寶／金條承銷代表性玩家",
+          "role_en": "Signet Jewelers: representative player in Jewelry / bullion offtake",
+          "exchange": "NYSE",
+          "listedInApp": false
+        },
+        {
+          "ticker": "JPM",
+          "name_en": "JPMorgan Chase & Co.",
+          "name_zh": "摩根大通",
+          "role_zh": "摩根大通：珠寶／金條承銷代表性玩家",
+          "role_en": "JPMorgan Chase & Co.: representative player in Jewelry / bullion offtake",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "GS",
+          "name_en": "Goldman Sachs",
+          "name_zh": "高盛集團",
+          "role_zh": "高盛集團：珠寶／金條承銷代表性玩家",
+          "role_en": "Goldman Sachs: representative player in Jewelry / bullion offtake",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "AEM",
+      "name_en": "Agnico Eagle Mines",
+      "name_zh": "阿格納鷹礦業",
+      "basis_zh": "金礦對手",
+      "basis_en": "Gold miner rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "NEM",
+      "name_en": "Newmont",
+      "name_zh": "紐蒙特黃金",
+      "basis_zh": "金礦對手",
+      "basis_en": "Gold miner rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "B",
+      "name_en": "Barrick Mining",
+      "name_zh": "巴里克黃金",
+      "basis_zh": "金礦對手",
+      "basis_en": "Gold miner rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "KGC",
+      "name_en": "Kinross",
+      "name_zh": "金羅斯",
+      "basis_zh": "金礦對手",
+      "basis_en": "Gold miner rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "AU",
+      "name_en": "AngloGold Ashanti",
+      "name_zh": "安格洛黃金",
+      "basis_zh": "金礦對手",
+      "basis_en": "Gold miner rival",
+      "exchange": "NYSE"
+    }
+  ]
+}

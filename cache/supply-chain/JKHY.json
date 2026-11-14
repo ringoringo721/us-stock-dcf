@@ -1,0 +1,243 @@
+{
+  "version": 1,
+  "ticker": "JKHY",
+  "name_en": "Jack Henry & Associates",
+  "name_zh": "Jack Henry & Associates",
+  "updatedAt": "2026-11-14",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "it-services-v1",
+    "references": [
+      "Industry model `it-services-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "it-services-v1",
+    "label_zh": "IT 服務／顧問價值鏈",
+    "label_en": "IT services / consulting value chain",
+    "description_zh": "雲平台 → 企業軟體 → 資安 → 外包人才／交付 → 大型企業客戶。",
+    "description_en": "Cloud platforms → enterprise software → security → delivery talent → large enterprise clients."
+  },
+  "stages": [
+    {
+      "id": "cloud",
+      "order": 1,
+      "label_zh": "雲平台",
+      "label_en": "Cloud platforms",
+      "summary_zh": "超大規模雲。",
+      "summary_en": "Hyperscale clouds.",
+      "players": [
+        {
+          "ticker": "MSFT",
+          "name_en": "Microsoft",
+          "name_zh": "微軟",
+          "role_zh": "微軟：雲平台代表性玩家",
+          "role_en": "Microsoft: representative player in Cloud platforms",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "AMZN",
+          "name_en": "Amazon.com",
+          "name_zh": "亞馬遜",
+          "role_zh": "亞馬遜：雲平台代表性玩家",
+          "role_en": "Amazon.com: representative player in Cloud platforms",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "GOOG",
+          "name_en": "Alphabet",
+          "name_zh": "Alphabet（Google）",
+          "role_zh": "Alphabet（Google）：雲平台代表性玩家",
+          "role_en": "Alphabet: representative player in Cloud platforms",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "software",
+      "order": 2,
+      "label_zh": "企業軟體",
+      "label_en": "Enterprise software",
+      "summary_zh": "ERP／CRM／協作套件。",
+      "summary_en": "ERP/CRM/collaboration suites.",
+      "players": [
+        {
+          "ticker": "ORCL",
+          "name_en": "Oracle",
+          "name_zh": "甲骨文",
+          "role_zh": "甲骨文：企業軟體代表性玩家",
+          "role_en": "Oracle: representative player in Enterprise software",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "SAP",
+          "name_en": "SAP SE",
+          "name_zh": "SAP",
+          "role_zh": "SAP：企業軟體代表性玩家",
+          "role_en": "SAP SE: representative player in Enterprise software",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "CRM",
+          "name_en": "Salesforce",
+          "name_zh": "賽富時",
+          "role_zh": "賽富時：企業軟體代表性玩家",
+          "role_en": "Salesforce: representative player in Enterprise software",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "security",
+      "order": 3,
+      "label_zh": "資安",
+      "label_en": "Security",
+      "summary_zh": "端點、雲資安與身分。",
+      "summary_en": "Endpoint, cloud security, identity.",
+      "players": [
+        {
+          "ticker": "CRWD",
+          "name_en": "CrowdStrike",
+          "name_zh": "CrowdStrike",
+          "role_zh": "CrowdStrike：資安代表性玩家",
+          "role_en": "CrowdStrike: representative player in Security",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "PANW",
+          "name_en": "Palo Alto Networks",
+          "name_zh": "派拓網路",
+          "role_zh": "派拓網路：資安代表性玩家",
+          "role_en": "Palo Alto Networks: representative player in Security",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "FTNT",
+          "name_en": "Fortinet",
+          "name_zh": "飛塔資訊",
+          "role_zh": "飛塔資訊：資安代表性玩家",
+          "role_en": "Fortinet: representative player in Security",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "delivery",
+      "order": 4,
+      "label_zh": "交付／外包生態",
+      "label_en": "Delivery / outsourcing ecosystem",
+      "summary_zh": "近岸／離岸交付夥伴。",
+      "summary_en": "Nearshore/offshore delivery.",
+      "players": [
+        {
+          "ticker": "INFY",
+          "name_en": "Infosys",
+          "name_zh": "Infosys",
+          "role_zh": "Infosys：交付／外包生態代表性玩家",
+          "role_en": "Infosys: representative player in Delivery / outsourcing ecosystem",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "CTSH",
+          "name_en": "Cognizant",
+          "name_zh": "高知特",
+          "role_zh": "高知特：交付／外包生態代表性玩家",
+          "role_en": "Cognizant: representative player in Delivery / outsourcing ecosystem",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "WIT",
+          "name_en": "Wipro",
+          "name_zh": "Wipro",
+          "role_zh": "Wipro：交付／外包生態代表性玩家",
+          "role_en": "Wipro: representative player in Delivery / outsourcing ecosystem",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "clients",
+      "order": 5,
+      "label_zh": "大型企業／政府客戶",
+      "label_en": "Large enterprise / government",
+      "summary_zh": "Fortune 級與公共部門。",
+      "summary_en": "Fortune-scale and public sector.",
+      "players": [
+        {
+          "ticker": "JPM",
+          "name_en": "JPMorgan Chase & Co.",
+          "name_zh": "摩根大通",
+          "role_zh": "摩根大通：大型企業／政府客戶代表性玩家",
+          "role_en": "JPMorgan Chase & Co.: representative player in Large enterprise / government",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "XOM",
+          "name_en": "Exxonmobil",
+          "name_zh": "埃克森美孚",
+          "role_zh": "埃克森美孚：大型企業／政府客戶代表性玩家",
+          "role_en": "Exxonmobil: representative player in Large enterprise / government",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "UNH",
+          "name_en": "UnitedHealth",
+          "name_zh": "聯合健康集團",
+          "role_zh": "聯合健康集團：大型企業／政府客戶代表性玩家",
+          "role_en": "UnitedHealth: representative player in Large enterprise / government",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "ACIW",
+      "name_en": "ACI Worldwide",
+      "name_zh": "ACI Worldwide",
+      "basis_zh": "支付軟體／處理對手",
+      "basis_en": "Payments software / processing rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "FISV",
+      "name_en": "Fiserv",
+      "name_zh": "Fiserv",
+      "basis_zh": "支付軟體／處理對手",
+      "basis_en": "Payments software / processing rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "GPN",
+      "name_en": "Global Payments",
+      "name_zh": "Global Payments",
+      "basis_zh": "支付軟體／處理對手",
+      "basis_en": "Payments software / processing rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "FIS",
+      "name_en": "FIS",
+      "name_zh": "FIS",
+      "basis_zh": "支付軟體／處理對手",
+      "basis_en": "Payments software / processing rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "XYZ",
+      "name_en": "Block",
+      "name_zh": "Block",
+      "basis_zh": "支付軟體／處理對手",
+      "basis_en": "Payments software / processing rival",
+      "exchange": "NYSE"
+    }
+  ]
+}

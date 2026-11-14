@@ -1,0 +1,175 @@
+{
+  "version": 1,
+  "ticker": "AR",
+  "name_en": "Antero Resources",
+  "name_zh": "Antero Resources",
+  "updatedAt": "2026-11-14",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "energy-gas-ep-v1",
+    "references": [
+      "Industry model `energy-gas-ep-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "energy-gas-ep-v1",
+    "label_zh": "天然氣勘探開發價值鏈",
+    "label_en": "Natural-gas E&P value chain",
+    "description_zh": "油服／完井 → 中游集輸／管網 → 公用／LNG 承銷。上游同業僅列對手，不進階段。",
+    "description_en": "OFS / completions → midstream gathering / pipelines → utility / LNG offtake. Peer E&Ps stay rivals only — not stage players."
+  },
+  "stages": [
+    {
+      "id": "services",
+      "order": 1,
+      "label_zh": "油服／完井",
+      "label_en": "Oilfield services / completions",
+      "summary_zh": "鑽完井與壓裂服務供應。",
+      "summary_en": "Drilling, completion, and frac services.",
+      "players": [
+        {
+          "ticker": "SLB",
+          "name_en": "Schlumberger",
+          "name_zh": "斯倫貝謝",
+          "role_zh": "斯倫貝謝：油服／完井代表性玩家",
+          "role_en": "Schlumberger: representative player in Oilfield services / completions",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "HAL",
+          "name_en": "Halliburton",
+          "name_zh": "哈里伯頓",
+          "role_zh": "哈里伯頓：油服／完井代表性玩家",
+          "role_en": "Halliburton: representative player in Oilfield services / completions",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "BKR",
+          "name_en": "Baker Hughes",
+          "name_zh": "貝克休斯",
+          "role_zh": "貝克休斯：油服／完井代表性玩家",
+          "role_en": "Baker Hughes: representative player in Oilfield services / completions",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "midstream",
+      "order": 2,
+      "label_zh": "中游集輸／管網",
+      "label_en": "Midstream gathering / pipelines",
+      "summary_zh": "集氣、處理與幹線管輸。",
+      "summary_en": "Gathering, processing, and trunk pipelines.",
+      "players": [
+        {
+          "ticker": "WMB",
+          "name_en": "Williams",
+          "name_zh": "威廉斯公司",
+          "role_zh": "威廉斯公司：中游集輸／管網代表性玩家",
+          "role_en": "Williams: representative player in Midstream gathering / pipelines",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "KMI",
+          "name_en": "Kinder Morgan",
+          "name_zh": "金德摩根",
+          "role_zh": "金德摩根：中游集輸／管網代表性玩家",
+          "role_en": "Kinder Morgan: representative player in Midstream gathering / pipelines",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "AM",
+          "name_en": "Antero Midstream",
+          "name_zh": "Antero Midstream",
+          "role_zh": "Antero Midstream：中游集輸／管網代表性玩家",
+          "role_en": "Antero Midstream: representative player in Midstream gathering / pipelines",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "offtake",
+      "order": 3,
+      "label_zh": "公用／LNG 承銷",
+      "label_en": "Utility / LNG offtake",
+      "summary_zh": "電氣公用與 LNG 承銷客戶。",
+      "summary_en": "Electric/gas utilities and LNG offtakers.",
+      "players": [
+        {
+          "ticker": "DUK",
+          "name_en": "Duke Energy",
+          "name_zh": "杜克能源",
+          "role_zh": "杜克能源：公用／LNG 承銷代表性玩家",
+          "role_en": "Duke Energy: representative player in Utility / LNG offtake",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "NEE",
+          "name_en": "NextEra Energy",
+          "name_zh": "新紀元能源",
+          "role_zh": "新紀元能源：公用／LNG 承銷代表性玩家",
+          "role_en": "NextEra Energy: representative player in Utility / LNG offtake",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "LNG",
+          "name_en": "Cheniere",
+          "name_zh": "Cheniere",
+          "role_zh": "Cheniere：公用／LNG 承銷代表性玩家",
+          "role_en": "Cheniere: representative player in Utility / LNG offtake",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "EOG",
+      "name_en": "EOG Resources",
+      "name_zh": "EOG 能源",
+      "basis_zh": "上游勘探開發對手",
+      "basis_en": "E&P rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "OXY",
+      "name_en": "Occidental",
+      "name_zh": "西方石油",
+      "basis_zh": "上游勘探開發對手",
+      "basis_en": "E&P rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "FANG",
+      "name_en": "Diamondback Energy",
+      "name_zh": "Diamondback",
+      "basis_zh": "上游勘探開發對手",
+      "basis_en": "E&P rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "COP",
+      "name_en": "ConocoPhillips",
+      "name_zh": "康菲石油",
+      "basis_zh": "上游勘探開發對手",
+      "basis_en": "E&P rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "DVN",
+      "name_en": "Devon Energy",
+      "name_zh": "Devon",
+      "basis_zh": "上游勘探開發對手",
+      "basis_en": "E&P rival",
+      "exchange": "NYSE"
+    }
+  ]
+}
