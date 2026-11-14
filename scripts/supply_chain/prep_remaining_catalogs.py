@@ -1088,6 +1088,12 @@ TICKER_GROUP_FORCE: dict[str, str] = {
     "TU": "telco-canada",
     "BSAC": "bank-chile",
     "AIZ": "ins-specialty",
+    "CDE": "materials-silver",
+    "HL": "materials-silver",
+    "PAAS": "materials-silver",
+    "KGC": "materials-gold",
+    "GFI": "materials-gold",
+    "AU": "materials-gold",
 
 }
 

@@ -2338,6 +2338,12 @@ TICKER_MODEL: dict[str, str] = {
     "GME": "ecommerce-retail-v1",
     "BCE": "telecom-v1",
     "AIZ": "insurance-v1",
+    "AU": "precious-metals-v1",
+    "GFI": "precious-metals-v1",
+    "KGC": "precious-metals-v1",
+    "PAAS": "precious-metals-v1",
+    "HL": "precious-metals-v1",
+    "CDE": "precious-metals-v1",
 }
 
 
