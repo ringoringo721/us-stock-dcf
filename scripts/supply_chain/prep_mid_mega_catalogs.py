@@ -26,7 +26,7 @@ LEGAL_EN_NAME_RE = re.compile(
     re.I,
 )
 LEGAL_EN_SUFFIX_STRIP_RE = re.compile(
-    r"\b(Inc\.?|Corp\.?|Corporation|Company|Ltd\.?|Limited|Holdings|PLC|Group)\b",
+    r"\b(Inc\.?|Incorporated|Corp\.?|Corporation|Company|Ltd\.?|Limited|Holdings|PLC|Group)\b",
     re.I,
 )
 STOCK_NAMES_BLOCK = re.compile(r"const STOCK_NAMES_ZH = \{([\s\S]*?)\n  \};")
@@ -45,8 +45,11 @@ def short_brand_en(name_en: str, ticker: str) -> str:
     raw = (name_en or "").strip() or ticker
     cleaned = LEGAL_EN_SUFFIX_STRIP_RE.sub("", raw)
     cleaned = re.sub(r"\s+[.,](?=\s|$)", "", cleaned)
+    cleaned = re.sub(r"(?:\s+&|\s+and)\s*$", "", cleaned, flags=re.I)
     cleaned = re.sub(r"[,\s]+$", "", cleaned).strip()
     cleaned = re.sub(r"\s{2,}", " ", cleaned)
+    if re.match(r"^The\s+\S+$", cleaned, flags=re.I):
+        cleaned = re.sub(r"^The\s+", "", cleaned, flags=re.I).strip()
     return cleaned or ticker
 
 
@@ -132,6 +135,46 @@ CURATED_NAME_EN: dict[str, str] = {
     "BKR": "Baker Hughes",
     "600584.SS": "JCET",
     "002156.SZ": "Tongfu Microelectronics",
+    # short_brand_en mangled leftovers (Bugbot)
+    "DE": "Deere",
+    "SO": "Southern",
+    "AIG": "AIG",
+    "LLY": "Eli Lilly",
+    "UNH": "UnitedHealth",
+    "BA": "Boeing",
+    "CG": "Carlyle",
+    "GS": "Goldman Sachs",
+    "HSY": "Hershey",
+    "KO": "Coca-Cola",
+    "MA": "Mastercard",
+    "PGR": "Progressive",
+    "QCOM": "Qualcomm",
+    "SCHW": "Charles Schwab",
+    "WFC": "Wells Fargo",
+    "TMO": "Thermo Fisher",
+    "ANSS": "Ansys",
+    "PTC": "PTC",
+    "ADP": "ADP",
+    "ASML": "ASML",
+    "IBM": "IBM",
+    "KKR": "KKR",
+    "RTX": "RTX",
+    "CSX": "CSX",
+    "WTW": "WTW",
+    "X": "U.S. Steel",
+    "ALK": "Alaska Air",
+    "PLUG": "Plug Power",
+    "FCEL": "FuelCell Energy",
+    "ASHTEAD": "Ashtead",
+    "HEES": "H&E Equipment",
+    "MSC": "MSC Industrial",
+    "MYRG": "MYR Group",
+    "NSA": "National Storage Affiliates",
+    "GPI": "Group 1 Automotive",
+    "WACLY": "Watsco",
+    "ABM": "ABM",
+    "HCSG": "HCSG",
+    "VRSK": "Verisk",
 }
 
 # Curated 繁中 / Latin brands for mid-mega hubs + common peers (Bugbot lessons).
@@ -152,6 +195,21 @@ CURATED_NAME_ZH: dict[str, str] = {
     "ASX": "日月光投控",
     "600584.SS": "長電科技",
     "002156.SZ": "通富微電",
+    "ANSS": "Ansys",
+    "PTC": "PTC",
+    "TMO": "賽默飛世爾",
+    "VRSK": "Verisk",
+    "X": "美國鋼鐵",
+    "ALK": "阿拉斯加航空",
+    "PLUG": "Plug Power",
+    "FCEL": "FuelCell Energy",
+    "ASHTEAD": "Ashtead",
+    "HEES": "H&E Equipment",
+    "MSC": "MSC Industrial",
+    "MYRG": "MYR Group",
+    "NSA": "National Storage",
+    "GPI": "Group 1 Automotive",
+    "WACLY": "Watsco",
     "AZO": "AutoZone",
     "B": "巴里克黃金",
     "BAM": "Brookfield Asset Management",
@@ -580,14 +638,15 @@ PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ("medtech-dev", ["BSX", "MDT", "SYK", "ABT", "EW", "ZBH", "ISRG"], "醫療器材對手", "Medtech device rival"),
     ("medtech-dx", ["IDXX", "TMO", "DHR", "BDX", "A", "IQV"], "診斷／生命科學工具對手", "Diagnostics / life-science tools rival"),
     ("medtech-sup", ["BDX", "ABT", "MDT", "SYK", "BAX", "RMD"], "醫療耗材對手", "Medical supplies rival"),
-    ("saas-creative", ["ADBE", "MSFT", "GOOG", "CRM", "ORCL", "SAP"], "創意／文件雲軟體對手", "Creative / document-cloud software rival"),
-    ("saas-fin", ["INTU", "ADP", "PAYX", "MSFT", "ORCL", "SAP"], "財稅／中小企業軟體對手", "Fintech / SMB software rival"),
+    # More-specific SaaS peer sets first — HUB_TO_GROUPS keeps the first registration.
     ("saas-eda", ["CDNS", "SNPS", "ANSS", "KEYS", "TER"], "EDA／設計軟體對手", "EDA / design software rival"),
+    ("saas-cad", ["ADSK", "ANSS", "PTC", "MSFT", "ORCL"], "設計／工程軟體對手", "Design / engineering software rival"),
     ("saas-sec", ["FTNT", "CRWD", "PANW", "ZS", "OKTA", "NET"], "資安對手", "Cybersecurity rival"),
     ("saas-data", ["SNOW", "DDOG", "PLTR", "MSFT", "GOOG", "AMZN", "MDB"], "資料雲／觀測對手", "Data cloud / observability rival"),
     ("saas-edge", ["NET", "AMZN", "MSFT", "GOOG", "AKAM", "FTNT"], "邊緣雲／CDN 安全對手", "Edge cloud / CDN security rival"),
-    ("saas-cad", ["ADSK", "ANSS", "PTC", "MSFT", "ORCL"], "設計／工程軟體對手", "Design / engineering software rival"),
+    ("saas-fin", ["INTU", "ADP", "PAYX", "MSFT", "ORCL", "SAP"], "財稅／中小企業軟體對手", "Fintech / SMB software rival"),
     ("saas-bi", ["MSTR", "MSFT", "GOOG", "SNOW", "PLTR", "IBM"], "商業智慧／分析軟體對手", "BI / analytics software rival"),
+    ("saas-creative", ["ADBE", "MSFT", "GOOG", "ADSK", "INTU", "CRM"], "創意／文件雲軟體對手", "Creative / document-cloud software rival"),
     ("it-svc", ["INFY", "ACN", "CTSH", "IBM", "WIT", "MSFT"], "IT 服務對手", "IT services rival"),
     ("semi-fabless", ["NXPI", "TXN", "ADI", "ON", "MCHP", "IFX.DE", "STM"], "車用／工業類比半導體對手", "Auto/industrial analog semi rival"),
     ("semi-power", ["MPWR", "TXN", "ADI", "ON", "NXPI", "IFX.DE"], "電源管理半導體對手", "Power-management semi rival"),
@@ -608,7 +667,8 @@ PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ("energy-lng", ["LNG", "SHEL", "BP", "TTE", "XOM", "CVX"], "LNG 出口對手", "LNG export rival"),
     ("energy-int", ["E", "SU", "IMO", "XOM", "CVX", "SHEL", "BP", "TTE"], "綜合石油對手", "Integrated oil rival"),
     ("energy-ofs", ["SLB", "HAL", "BKR", "NOV", "XOM", "CVX"], "油服對手", "Oilfield services rival"),
-    ("materials-gold", ["AEM", "NEM", "GOLD", "WPM", "B", "FCX"], "金礦／貴金屬對手", "Gold / precious-metals rival"),
+    # Prefer listing ticker B (Barrick Mining); do not also list legacy GOLD ADR.
+    ("materials-gold", ["AEM", "NEM", "WPM", "B", "FCX", "SCCO"], "金礦／貴金屬對手", "Gold / precious-metals rival"),
     ("materials-cu", ["FCX", "SCCO", "BHP", "RIO", "TECK", "NEM"], "銅礦對手", "Copper mining rival"),
     ("materials-chem", ["ECL", "SHW", "APD", "LIN", "DD", "DOW"], "特用化學／塗料對手", "Specialty chem / coatings rival"),
     ("materials-indgas", ["APD", "LIN", "ECL", "SHW", "DOW"], "工業氣體對手", "Industrial gases rival"),
@@ -677,8 +737,8 @@ def rivals_for(ticker: str, n: int = 5) -> list[tuple[str, str, str]]:
     """Pick 4–6 product/market rivals from peer groups; pad from related groups."""
     seen: list[tuple[str, str, str]] = []
     used = {ticker}
-    group_ids = HUB_TO_GROUPS.get(ticker) or []
-    # Prefer groups where ticker is listed; else scan all groups that contain ticker (already).
+    # First registered group is the primary industry peer set (see PEER_GROUPS order).
+    group_ids = (HUB_TO_GROUPS.get(ticker) or [])[:1]
     for gid in group_ids:
         members, zh, en = GROUP_BY_ID[gid]
         for peer in members:
@@ -719,6 +779,19 @@ def resolve_name_zh(ticker: str, name_en: str, stock_zh: dict, file_zh: dict) ->
     return short
 
 
+def _looks_mangled_brand(name_en: str) -> bool:
+    raw = (name_en or "").strip()
+    if not raw:
+        return True
+    if raw.endswith("&") or re.search(r"\band$", raw, re.I):
+        return True
+    if re.match(r"^The\s+\S+$", raw, re.I):
+        return True
+    if re.search(r"\bIncorporated\b", raw, re.I):
+        return True
+    return False
+
+
 def ensure_entity(entities: dict, ticker: str, uni: dict, stock_zh: dict, file_zh: dict) -> None:
     if ticker.startswith("_"):
         return
@@ -728,9 +801,11 @@ def ensure_entity(entities: dict, ticker: str, uni: dict, stock_zh: dict, file_z
         name_en = CURATED_NAME_EN[ticker]
     else:
         name_en = (pe.get("name_en") or "").strip() or row.get("name") or ticker
-        if looks_like_english_legal_name(name_en):
-            name_en = short_brand_en(name_en, ticker)
-            if looks_like_english_legal_name(name_en):
+        if looks_like_english_legal_name(name_en) or _looks_mangled_brand(name_en):
+            # Prefer universe legal → improved short_brand_en when pe already mangled.
+            src = row.get("name") or name_en
+            name_en = short_brand_en(src, ticker)
+            if looks_like_english_legal_name(name_en) or _looks_mangled_brand(name_en):
                 name_en = ticker
     name_zh = resolve_name_zh(ticker, name_en, stock_zh, file_zh)
     if looks_like_english_legal_name(name_zh):
@@ -802,6 +877,7 @@ def main() -> int:
     entities["IBM"] = {"name_en": "IBM", "name_zh": "IBM", "exchange": "NYSE"}
     entities["BN"] = {"name_en": "Brookfield", "name_zh": "Brookfield", "exchange": "NYSE"}
     entities["MET"]["name_zh"] = "大都會人壽"
+    entities["ANSS"] = {"name_en": "Ansys", "name_zh": "Ansys", "exchange": "NASDAQ"}
 
     write_json(ENT_PATH, entities)
     write_json(COMP_PATH, competitors)

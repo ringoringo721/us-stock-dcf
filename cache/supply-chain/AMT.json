@@ -45,10 +45,10 @@
         },
         {
           "ticker": "DE",
-          "name_en": "Deere &",
+          "name_en": "Deere",
           "name_zh": "迪爾",
           "role_zh": "迪爾：建設／開發代表性玩家",
-          "role_en": "Deere &: representative player in Construction / development",
+          "role_en": "Deere: representative player in Construction / development",
           "exchange": "NYSE"
         },
         {
@@ -229,14 +229,6 @@
       "name_zh": "Digital Realty",
       "basis_zh": "電塔／通訊基礎設施對手",
       "basis_en": "Tower / comms-infra REIT rival",
-      "exchange": "NYSE"
-    },
-    {
-      "ticker": "PLD",
-      "name_en": "Prologis",
-      "name_zh": "普洛斯",
-      "basis_zh": "資料中心 REIT 對手",
-      "basis_en": "Datacenter REIT rival",
       "exchange": "NYSE"
     }
   ]

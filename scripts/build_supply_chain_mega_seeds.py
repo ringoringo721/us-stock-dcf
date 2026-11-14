@@ -96,7 +96,7 @@ LEGAL_EN_NAME_RE = re.compile(
 # Suffixes safe to strip for short brands. Keep N.V. / S.A. / p.l.c. intact —
 # stripping N.V. via a trailing `\b` often leaves an orphan "." ("ASML Holding .").
 LEGAL_EN_SUFFIX_STRIP_RE = re.compile(
-    r"\b(Inc\.?|Corp\.?|Corporation|Company|Ltd\.?|Limited|Holdings|PLC|Group)\b",
+    r"\b(Inc\.?|Incorporated|Corp\.?|Corporation|Company|Ltd\.?|Limited|Holdings|PLC|Group)\b",
     re.I,
 )
 # Known wrong / legal-dump name_zh corrections (ticker → curated 繁中 or brand).
@@ -143,8 +143,13 @@ def short_brand_en(name_en: str, ticker: str) -> str:
     # Orphans only: whitespace + lone "." / "," at end or before more whitespace.
     # Do NOT strip "S.A. Foo" / "U.S. Something" / "T. Rowe".
     cleaned = re.sub(r"\s+[.,](?=\s|$)", "", cleaned)
+    # Trailing connectors left after stripping "… & Company" / "… and Company".
+    cleaned = re.sub(r"(?:\s+&|\s+and)\s*$", "", cleaned, flags=re.I)
     cleaned = re.sub(r"[,\s]+$", "", cleaned).strip()
     cleaned = re.sub(r"\s{2,}", " ", cleaned)
+    # "The Southern" / "The Progressive" after stripping Company — drop leading The.
+    if re.match(r"^The\s+\S+$", cleaned, flags=re.I):
+        cleaned = re.sub(r"^The\s+", "", cleaned, flags=re.I).strip()
     return cleaned or ticker
 
 
@@ -159,6 +164,12 @@ def _assert_short_brand_en() -> None:
         ("U.S. Something Inc.", "USS", "U.S. Something"),
         ("T. Rowe Price", "TROW", "T. Rowe Price"),
         ("Banco Santander, S.A.", "SAN", "Banco Santander, S.A."),
+        ("Deere & Company", "DE", "Deere"),
+        ("The Southern Company", "SO", "Southern"),
+        ("Eli Lilly and Company", "LLY", "Eli Lilly"),
+        ("Mastercard Incorporated", "MA", "Mastercard"),
+        ("UnitedHealth Group Incorporated", "UNH", "UnitedHealth"),
+        ("Wells Fargo & Company", "WFC", "Wells Fargo"),
     )
     for raw, ticker, expect in cases:
         got = short_brand_en(raw, ticker)
@@ -535,6 +546,21 @@ def validate_seed(seed: dict) -> list[str]:
         errors.append("model:nvda-mismatch")
     if looks_like_english_legal_name(seed.get("name_zh") or ""):
         errors.append("entity:center:name_zh-english-legal")
+
+    def _mangled_en(text: str) -> bool:
+        raw = (text or "").strip()
+        if not raw:
+            return False
+        if raw.endswith("&") or re.search(r"\band$", raw, re.I):
+            return True
+        if re.match(r"^The\s+\S+$", raw, re.I):
+            return True
+        if re.search(r"\bIncorporated\b", raw, re.I):
+            return True
+        return False
+
+    if _mangled_en(seed.get("name_en") or ""):
+        errors.append("entity:center:name_en-mangled")
     for stage in seed.get("stages") or []:
         for p in stage.get("players") or []:
             pt = p.get("ticker") or ""
@@ -542,10 +568,16 @@ def validate_seed(seed: dict) -> list[str]:
                 errors.append("entity:player:CI:name_zh-not-zh")
             if looks_like_english_legal_name(p.get("name_zh") or ""):
                 errors.append(f"entity:player:{pt}:name_zh-english-legal")
+            if _mangled_en(p.get("name_en") or ""):
+                errors.append(f"entity:player:{pt}:name_en-mangled")
             if pt == "TDG" and "天寶" in (p.get("name_zh") or ""):
                 errors.append("entity:player:TDG:trimble-collision")
             if pt == "IBM" and looks_like_english_legal_name(p.get("name_zh") or ""):
                 errors.append("entity:player:IBM:name_zh-english-legal")
+    for c in comps:
+        ct = c.get("ticker") or ""
+        if _mangled_en(c.get("name_en") or ""):
+            errors.append(f"entity:comp:{ct}:name_en-mangled")
     _ = sector_hint, model_id
     return errors
 

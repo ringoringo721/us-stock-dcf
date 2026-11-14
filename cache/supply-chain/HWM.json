@@ -139,10 +139,10 @@
       "players": [
         {
           "ticker": "BA",
-          "name_en": "The Boeing",
+          "name_en": "Boeing",
           "name_zh": "波音",
           "role_zh": "波音：總裝／測試代表性玩家",
-          "role_en": "The Boeing: representative player in Final assembly / test",
+          "role_en": "Boeing: representative player in Final assembly / test",
           "exchange": "NYSE"
         },
         {
@@ -209,7 +209,7 @@
     },
     {
       "ticker": "BA",
-      "name_en": "The Boeing",
+      "name_en": "Boeing",
       "name_zh": "波音",
       "basis_zh": "航太結構／零件對手",
       "basis_en": "Aero structures / parts rival",

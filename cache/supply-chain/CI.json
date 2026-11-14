@@ -37,10 +37,10 @@
       "players": [
         {
           "ticker": "LLY",
-          "name_en": "Eli Lilly and",
+          "name_en": "Eli Lilly",
           "name_zh": "禮來",
           "role_zh": "禮來：藥品／醫材供應代表性玩家",
-          "role_en": "Eli Lilly and: representative player in Drug / device supply",
+          "role_en": "Eli Lilly: representative player in Drug / device supply",
           "exchange": "NYSE"
         },
         {
@@ -174,10 +174,10 @@
       "players": [
         {
           "ticker": "UNH",
-          "name_en": "UnitedHealth Incorporated",
+          "name_en": "UnitedHealth",
           "name_zh": "聯合健康集團",
           "role_zh": "聯合健康集團：雇主／政府支付方代表性玩家",
-          "role_en": "UnitedHealth Incorporated: representative player in Employers / government payers",
+          "role_en": "UnitedHealth: representative player in Employers / government payers",
           "exchange": "NYSE"
         },
         {
@@ -190,10 +190,10 @@
         },
         {
           "ticker": "LLY",
-          "name_en": "Eli Lilly and",
+          "name_en": "Eli Lilly",
           "name_zh": "禮來",
           "role_zh": "禮來：雇主／政府支付方代表性玩家",
-          "role_en": "Eli Lilly and: representative player in Employers / government payers",
+          "role_en": "Eli Lilly: representative player in Employers / government payers",
           "exchange": "NYSE"
         }
       ]
@@ -210,7 +210,7 @@
     },
     {
       "ticker": "UNH",
-      "name_en": "UnitedHealth Incorporated",
+      "name_en": "UnitedHealth",
       "name_zh": "聯合健康集團",
       "basis_zh": "醫療保險對手",
       "basis_en": "Managed-care rival",

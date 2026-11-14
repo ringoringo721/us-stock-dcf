@@ -195,16 +195,6 @@
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "PLD": {
-      "ticker": "PLD",
-      "price": 128.67,
-      "previousClose": 128.55,
-      "changePct": 0.093,
-      "mcap": 120654.3,
-      "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
     }
   }
 }

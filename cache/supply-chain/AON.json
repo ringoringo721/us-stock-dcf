@@ -45,10 +45,10 @@
         },
         {
           "ticker": "AIG",
-          "name_en": "American International",
+          "name_en": "AIG",
           "name_zh": "美國國際集團",
           "role_zh": "美國國際集團：再保險代表性玩家",
-          "role_en": "American International: representative player in Reinsurance",
+          "role_en": "AIG: representative player in Reinsurance",
           "exchange": "NYSE"
         },
         {
@@ -72,8 +72,8 @@
         {
           "ticker": "VRSK",
           "name_en": "Verisk",
-          "name_zh": "威瑞斯克",
-          "role_zh": "威瑞斯克：精算／資料／評級代表性玩家",
+          "name_zh": "Verisk",
+          "role_zh": "Verisk：精算／資料／評級代表性玩家",
           "role_en": "Verisk: representative player in Actuarial / data / ratings",
           "exchange": "NASDAQ"
         },
@@ -138,13 +138,12 @@
       "summary_en": "Agents, brokers, bancassurance.",
       "players": [
         {
-          "ticker": "MMC",
+          "ticker": "MRSH",
           "name_en": "Marsh McLennan",
           "name_zh": "威達信",
           "role_zh": "威達信：代理／經紀／銀行通路代表性玩家",
           "role_en": "Marsh McLennan: representative player in Agents / brokers / bank channel",
-          "exchange": "NYSE",
-          "listedInApp": false
+          "exchange": "NYSE"
         },
         {
           "ticker": "AJG",
@@ -174,10 +173,10 @@
       "players": [
         {
           "ticker": "UNH",
-          "name_en": "UnitedHealth Incorporated",
+          "name_en": "UnitedHealth",
           "name_zh": "聯合健康集團",
           "role_zh": "聯合健康集團：醫療／理賠服務代表性玩家",
-          "role_en": "UnitedHealth Incorporated: representative player in Medical / claims services",
+          "role_en": "UnitedHealth: representative player in Medical / claims services",
           "exchange": "NYSE"
         },
         {

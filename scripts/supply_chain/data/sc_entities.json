@@ -50,7 +50,7 @@
     "exchange": "NASDAQ"
   },
   "LLY": {
-    "name_en": "Eli Lilly and",
+    "name_en": "Eli Lilly",
     "name_zh": "禮來",
     "exchange": "NYSE"
   },
@@ -105,7 +105,7 @@
     "exchange": "NYSE"
   },
   "MA": {
-    "name_en": "Mastercard Incorporated",
+    "name_en": "Mastercard",
     "name_zh": "Mastercard",
     "exchange": "NYSE"
   },
@@ -130,7 +130,7 @@
     "exchange": "NYSE"
   },
   "KO": {
-    "name_en": "The Coca-Cola",
+    "name_en": "Coca-Cola",
     "name_zh": "可口可樂",
     "exchange": "NYSE"
   },
@@ -155,7 +155,7 @@
     "exchange": "NYSE"
   },
   "UNH": {
-    "name_en": "UnitedHealth Incorporated",
+    "name_en": "UnitedHealth",
     "name_zh": "聯合健康集團",
     "exchange": "NYSE"
   },
@@ -240,7 +240,7 @@
     "exchange": "NYSE"
   },
   "TMO": {
-    "name_en": "TMO",
+    "name_en": "Thermo Fisher",
     "name_zh": "賽默飛世爾",
     "exchange": "NYSE"
   },
@@ -270,7 +270,7 @@
     "exchange": "NASDAQ"
   },
   "WFC": {
-    "name_en": "Wells Fargo &",
+    "name_en": "Wells Fargo",
     "name_zh": "富國銀行",
     "exchange": "NYSE"
   },
@@ -280,7 +280,7 @@
     "exchange": "NASDAQ"
   },
   "GS": {
-    "name_en": "The Goldman Sachs",
+    "name_en": "Goldman Sachs",
     "name_zh": "高盛",
     "exchange": "NYSE"
   },
@@ -405,7 +405,7 @@
     "exchange": "NYSE"
   },
   "DE": {
-    "name_en": "Deere &",
+    "name_en": "Deere",
     "name_zh": "迪爾",
     "exchange": "NYSE"
   },
@@ -425,7 +425,7 @@
     "exchange": "NYSE"
   },
   "QCOM": {
-    "name_en": "QUALCOMM Incorporated",
+    "name_en": "Qualcomm",
     "name_zh": "高通",
     "exchange": "NASDAQ"
   },
@@ -490,7 +490,7 @@
     "exchange": "NYSE"
   },
   "SCHW": {
-    "name_en": "The Charles Schwab",
+    "name_en": "Charles Schwab",
     "name_zh": "嘉信理財",
     "exchange": "NYSE"
   },
@@ -545,7 +545,7 @@
     "exchange": "NYSE"
   },
   "BA": {
-    "name_en": "The Boeing",
+    "name_en": "Boeing",
     "name_zh": "波音",
     "exchange": "NYSE"
   },
@@ -570,7 +570,7 @@
     "exchange": "NYSE"
   },
   "PGR": {
-    "name_en": "The Progressive",
+    "name_en": "Progressive",
     "name_zh": "Progressive",
     "exchange": "NYSE"
   },
@@ -740,7 +740,7 @@
     "exchange": "NYSE"
   },
   "SO": {
-    "name_en": "The Southern",
+    "name_en": "Southern",
     "name_zh": "南方公司",
     "exchange": "NYSE"
   },
@@ -1316,7 +1316,7 @@
   },
   "VRSK": {
     "name_en": "Verisk",
-    "name_zh": "威瑞斯克",
+    "name_zh": "Verisk",
     "exchange": "NASDAQ"
   },
   "TRV": {
@@ -1330,7 +1330,7 @@
     "exchange": "NYSE"
   },
   "AIG": {
-    "name_en": "American International",
+    "name_en": "AIG",
     "name_zh": "美國國際集團",
     "exchange": "NYSE"
   },
@@ -2725,7 +2725,7 @@
     "exchange": "NASDAQ"
   },
   "CG": {
-    "name_en": "The Carlyle",
+    "name_en": "Carlyle",
     "name_zh": "凱雷集團",
     "exchange": "NASDAQ"
   },
@@ -2920,9 +2920,9 @@
     "exchange": "NASDAQ"
   },
   "ANSS": {
-    "name_en": "ANSS",
-    "name_zh": "ANSS",
-    "exchange": "OTC"
+    "name_en": "Ansys",
+    "name_zh": "Ansys",
+    "exchange": "NASDAQ"
   },
   "MSI": {
     "name_en": "Motorola Solutions",
@@ -2930,7 +2930,7 @@
     "exchange": "NYSE"
   },
   "HSY": {
-    "name_en": "The Hershey",
+    "name_en": "Hershey",
     "name_zh": "好時",
     "exchange": "NYSE"
   },
@@ -2975,8 +2975,8 @@
     "exchange": "NYSE"
   },
   "MYRG": {
-    "name_en": "MYRG",
-    "name_zh": "MYRG",
+    "name_en": "MYR Group",
+    "name_zh": "MYR Group",
     "exchange": "OTC"
   },
   "VRT": {
@@ -3010,8 +3010,8 @@
     "exchange": "NYSE"
   },
   "GPI": {
-    "name_en": "GPI",
-    "name_zh": "GPI",
+    "name_en": "Group 1 Automotive",
+    "name_zh": "Group 1 Automotive",
     "exchange": "OTC"
   },
   "EPD": {
@@ -3075,8 +3075,8 @@
     "exchange": "NYSE"
   },
   "WACLY": {
-    "name_en": "WACLY",
-    "name_zh": "WACLY",
+    "name_en": "Watsco",
+    "name_zh": "Watsco",
     "exchange": "OTC"
   },
   "DLTR": {
@@ -3125,8 +3125,8 @@
     "exchange": "NASDAQ"
   },
   "MSC": {
-    "name_en": "MSC",
-    "name_zh": "MSC",
+    "name_en": "MSC Industrial",
+    "name_zh": "MSC Industrial",
     "exchange": "OTC"
   },
   "TAK": {
@@ -3140,13 +3140,13 @@
     "exchange": "NYSE"
   },
   "ASHTEAD": {
-    "name_en": "ASHTEAD",
-    "name_zh": "ASHTEAD",
+    "name_en": "Ashtead",
+    "name_zh": "Ashtead",
     "exchange": "OTC"
   },
   "HEES": {
-    "name_en": "HEES",
-    "name_zh": "HEES",
+    "name_en": "H&E Equipment",
+    "name_zh": "H&E Equipment",
     "exchange": "OTC"
   },
   "HOOD": {
@@ -3185,8 +3185,8 @@
     "exchange": "NYSE"
   },
   "NSA": {
-    "name_en": "NSA",
-    "name_zh": "NSA",
+    "name_en": "National Storage Affiliates",
+    "name_zh": "National Storage",
     "exchange": "OTC"
   },
   "MCHP": {
@@ -3220,8 +3220,8 @@
     "exchange": "NYSE"
   },
   "ALK": {
-    "name_en": "ALK",
-    "name_zh": "ALK",
+    "name_en": "Alaska Air",
+    "name_zh": "阿拉斯加航空",
     "exchange": "OTC"
   },
   "MPLX": {
@@ -3230,8 +3230,8 @@
     "exchange": "NYSE"
   },
   "X": {
-    "name_en": "X",
-    "name_zh": "X",
+    "name_en": "U.S. Steel",
+    "name_zh": "美國鋼鐵",
     "exchange": "OTC"
   },
   "CLF": {
@@ -3285,13 +3285,13 @@
     "exchange": "NYSE"
   },
   "PLUG": {
-    "name_en": "PLUG",
-    "name_zh": "PLUG",
+    "name_en": "Plug Power",
+    "name_zh": "Plug Power",
     "exchange": "OTC"
   },
   "FCEL": {
-    "name_en": "FCEL",
-    "name_zh": "FCEL",
+    "name_en": "FuelCell Energy",
+    "name_zh": "FuelCell Energy",
     "exchange": "OTC"
   },
   "CTAS": {
@@ -3395,7 +3395,7 @@
     "exchange": "NYSE"
   },
   "MAC": {
-    "name_en": "The Macerich",
+    "name_en": "Macerich",
     "name_zh": "Macerich",
     "exchange": "NYSE"
   },

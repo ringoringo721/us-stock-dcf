@@ -195,16 +195,6 @@
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "H": {
-      "ticker": "H",
-      "price": 187.7,
-      "previousClose": 187.21,
-      "changePct": 0.262,
-      "mcap": 17213.7,
-      "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
     }
   }
 }

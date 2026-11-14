@@ -4414,11 +4414,6 @@
       "Gold / precious-metals rival"
     ],
     [
-      "GOLD",
-      "金礦／貴金屬對手",
-      "Gold / precious-metals rival"
-    ],
-    [
       "WPM",
       "金礦／貴金屬對手",
       "Gold / precious-metals rival"
@@ -4430,6 +4425,11 @@
     ],
     [
       "FCX",
+      "金礦／貴金屬對手",
+      "Gold / precious-metals rival"
+    ],
+    [
+      "SCCO",
       "金礦／貴金屬對手",
       "Gold / precious-metals rival"
     ]
@@ -4630,17 +4630,17 @@
       "Creative / document-cloud software rival"
     ],
     [
+      "ADSK",
+      "創意／文件雲軟體對手",
+      "Creative / document-cloud software rival"
+    ],
+    [
+      "INTU",
+      "創意／文件雲軟體對手",
+      "Creative / document-cloud software rival"
+    ],
+    [
       "CRM",
-      "創意／文件雲軟體對手",
-      "Creative / document-cloud software rival"
-    ],
-    [
-      "ORCL",
-      "創意／文件雲軟體對手",
-      "Creative / document-cloud software rival"
-    ],
-    [
-      "SAP",
       "創意／文件雲軟體對手",
       "Creative / document-cloud software rival"
     ]
@@ -4746,11 +4746,6 @@
       "KEYS",
       "連接器／材料對手",
       "Connectivity / materials rival"
-    ],
-    [
-      "ASML",
-      "特種玻璃／光學材料對手",
-      "Specialty glass / optics materials rival"
     ]
   ],
   "INTU": [
@@ -5028,11 +5023,6 @@
       "DLR",
       "電塔／通訊基礎設施對手",
       "Tower / comms-infra REIT rival"
-    ],
-    [
-      "PLD",
-      "資料中心 REIT 對手",
-      "Datacenter REIT rival"
     ]
   ],
   "RCL": [
@@ -5226,17 +5216,17 @@
       "Gold / precious-metals rival"
     ],
     [
-      "GOLD",
-      "金礦／貴金屬對手",
-      "Gold / precious-metals rival"
-    ],
-    [
       "WPM",
       "金礦／貴金屬對手",
       "Gold / precious-metals rival"
     ],
     [
       "B",
+      "金礦／貴金屬對手",
+      "Gold / precious-metals rival"
+    ],
+    [
+      "SCCO",
       "金礦／貴金屬對手",
       "Gold / precious-metals rival"
     ]
@@ -5342,11 +5332,6 @@
       "MAR",
       "郵輪／休閒旅遊對手",
       "Cruise / leisure-travel rival"
-    ],
-    [
-      "H",
-      "飯店對手",
-      "Hotel rival"
     ]
   ],
   "MDLZ": [
@@ -6325,11 +6310,6 @@
       "ETN",
       "電力基建 EPC 對手",
       "Power-infra EPC rival"
-    ],
-    [
-      "EMR",
-      "資料中心電力／冷卻對手",
-      "Datacenter power / cooling rival"
     ]
   ],
   "ASX": [
@@ -6528,17 +6508,17 @@
       "Gold / precious-metals rival"
     ],
     [
-      "GOLD",
-      "金礦／貴金屬對手",
-      "Gold / precious-metals rival"
-    ],
-    [
       "WPM",
       "金礦／貴金屬對手",
       "Gold / precious-metals rival"
     ],
     [
       "FCX",
+      "金礦／貴金屬對手",
+      "Gold / precious-metals rival"
+    ],
+    [
+      "SCCO",
       "金礦／貴金屬對手",
       "Gold / precious-metals rival"
     ]
@@ -6666,11 +6646,6 @@
       "EQIX",
       "電塔／通訊基礎設施對手",
       "Tower / comms-infra REIT rival"
-    ],
-    [
-      "PLD",
-      "資料中心 REIT 對手",
-      "Datacenter REIT rival"
     ]
   ],
   "DB": [
@@ -7038,17 +7013,17 @@
       "Gold / precious-metals rival"
     ],
     [
-      "GOLD",
-      "金礦／貴金屬對手",
-      "Gold / precious-metals rival"
-    ],
-    [
       "B",
       "金礦／貴金屬對手",
       "Gold / precious-metals rival"
     ],
     [
       "FCX",
+      "金礦／貴金屬對手",
+      "Gold / precious-metals rival"
+    ],
+    [
+      "SCCO",
       "金礦／貴金屬對手",
       "Gold / precious-metals rival"
     ]
@@ -7122,11 +7097,6 @@
       "KEYS",
       "連接器／材料對手",
       "Connectivity / materials rival"
-    ],
-    [
-      "ASML",
-      "特種玻璃／光學材料對手",
-      "Specialty glass / optics materials rival"
     ]
   ],
   "NDAQ": [

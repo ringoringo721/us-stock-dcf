@@ -176,22 +176,22 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "GOLD": {
-      "ticker": "GOLD",
-      "price": null,
-      "previousClose": null,
-      "changePct": null,
-      "mcap": null,
-      "currency": "USD",
-      "asOf": null,
-      "source": null
-    },
     "WPM": {
       "ticker": "WPM",
       "price": 131.45,
       "previousClose": 131.8,
       "changePct": -0.266,
       "mcap": 61906.5,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "SCCO": {
+      "ticker": "SCCO",
+      "price": 164.08,
+      "previousClose": 168.21,
+      "changePct": -2.455,
+      "mcap": 142730.3,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"

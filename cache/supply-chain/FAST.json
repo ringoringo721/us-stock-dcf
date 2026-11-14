@@ -147,10 +147,10 @@
         },
         {
           "ticker": "DE",
-          "name_en": "Deere &",
+          "name_en": "Deere",
           "name_zh": "迪爾",
           "role_zh": "迪爾：經銷／租賃通路代表性玩家",
-          "role_en": "Deere &: representative player in Dealer / rental channel",
+          "role_en": "Deere: representative player in Dealer / rental channel",
           "exchange": "NYSE"
         },
         {
@@ -209,8 +209,8 @@
     },
     {
       "ticker": "MSC",
-      "name_en": "MSC",
-      "name_zh": "MSC",
+      "name_en": "MSC Industrial",
+      "name_zh": "MSC Industrial",
       "basis_zh": "工業通路對手",
       "basis_en": "Industrial distribution rival",
       "exchange": "OTC",

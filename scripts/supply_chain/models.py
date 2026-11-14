@@ -1529,6 +1529,11 @@ TICKER_MODEL: dict[str, str] = {
     "DAL": "consumer-discretionary-v1",
     "CVNA": "consumer-discretionary-v1",
     "RCL": "consumer-discretionary-v1",
+    # Industrial gases / coatings — keep chem peer arcs, not mining excavator staging alone
+    "APD": "basic-materials-v1",
+    "LIN": "basic-materials-v1",
+    "ECL": "basic-materials-v1",
+    "SHW": "basic-materials-v1",
 }
 
 

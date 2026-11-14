@@ -45,10 +45,10 @@
         },
         {
           "ticker": "DE",
-          "name_en": "Deere &",
+          "name_en": "Deere",
           "name_zh": "迪爾",
           "role_zh": "迪爾：礦山／工程裝置代表性玩家",
-          "role_en": "Deere &: representative player in Mining / engineering equipment",
+          "role_en": "Deere: representative player in Mining / engineering equipment",
           "exchange": "NYSE"
         },
         {
@@ -216,15 +216,6 @@
       "exchange": "NYSE"
     },
     {
-      "ticker": "GOLD",
-      "name_en": "Barrick Gold",
-      "name_zh": "巴里克（GOLD）",
-      "basis_zh": "金礦／貴金屬對手",
-      "basis_en": "Gold / precious-metals rival",
-      "exchange": "NYSE",
-      "listedInApp": false
-    },
-    {
       "ticker": "WPM",
       "name_en": "Wheaton Precious Metals",
       "name_zh": "惠頓貴金屬",
@@ -236,6 +227,14 @@
       "ticker": "FCX",
       "name_en": "Freeport-McMoRan",
       "name_zh": "自由港麥克莫蘭",
+      "basis_zh": "金礦／貴金屬對手",
+      "basis_en": "Gold / precious-metals rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "SCCO",
+      "name_en": "Southern Copper",
+      "name_zh": "南方銅業",
       "basis_zh": "金礦／貴金屬對手",
       "basis_en": "Gold / precious-metals rival",
       "exchange": "NYSE"

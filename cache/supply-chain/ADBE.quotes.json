@@ -186,32 +186,32 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
+    "ADSK": {
+      "ticker": "ADSK",
+      "price": 264.42,
+      "previousClose": 259.48,
+      "changePct": 1.904,
+      "mcap": 54699.5,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "INTU": {
+      "ticker": "INTU",
+      "price": 341.7,
+      "previousClose": 340.17,
+      "changePct": 0.45,
+      "mcap": 91261.1,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
     "CRM": {
       "ticker": "CRM",
       "price": 217.84,
       "previousClose": 217.57,
       "changePct": 0.124,
       "mcap": 175834.0,
-      "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "ORCL": {
-      "ticker": "ORCL",
-      "price": 125.35,
-      "previousClose": 127.11,
-      "changePct": -1.385,
-      "mcap": 350905.0,
-      "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "SAP": {
-      "ticker": "SAP",
-      "price": 234.9,
-      "previousClose": 234.06,
-      "changePct": 0.359,
-      "mcap": 272024.1,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"

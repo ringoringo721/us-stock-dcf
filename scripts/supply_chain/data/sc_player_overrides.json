@@ -268,5 +268,33 @@
       "CAT",
       "UNP"
     ]
+  },
+  "APD": {
+    "equipment": ["EMR", "ETN", "HON"],
+    "extraction": ["XOM", "CVX", "SHEL"],
+    "smelting": ["LIN", "ECL", "DD"],
+    "logistics": ["UNP", "CSX", "FDX"],
+    "customers": ["TSM", "CAT", "JNJ"]
+  },
+  "LIN": {
+    "equipment": ["EMR", "ETN", "HON"],
+    "extraction": ["XOM", "CVX", "SHEL"],
+    "smelting": ["APD", "ECL", "DD"],
+    "logistics": ["UNP", "CSX", "FDX"],
+    "customers": ["TSM", "CAT", "JNJ"]
+  },
+  "ECL": {
+    "equipment": ["EMR", "ETN", "HON"],
+    "extraction": ["XOM", "CVX", "DOW"],
+    "smelting": ["LIN", "APD", "SHW"],
+    "logistics": ["UNP", "UPS", "FDX"],
+    "customers": ["MCD", "HLT", "COST"]
+  },
+  "SHW": {
+    "equipment": ["EMR", "ETN", "HON"],
+    "extraction": ["DOW", "DD", "XOM"],
+    "smelting": ["PPG", "ECL", "APD"],
+    "logistics": ["UNP", "FDX", "UPS"],
+    "customers": ["HD", "LOW", "TOL"]
   }
 }

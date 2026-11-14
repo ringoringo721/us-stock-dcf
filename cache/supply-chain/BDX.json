@@ -121,10 +121,10 @@
         },
         {
           "ticker": "TMO",
-          "name_en": "TMO",
+          "name_en": "Thermo Fisher",
           "name_zh": "賽默飛世爾",
           "role_zh": "賽默飛世爾：代工／無菌組裝代表性玩家",
-          "role_en": "TMO: representative player in Contract / sterile assembly",
+          "role_en": "Thermo Fisher: representative player in Contract / sterile assembly",
           "exchange": "NYSE"
         }
       ]
@@ -147,10 +147,10 @@
         },
         {
           "ticker": "UNH",
-          "name_en": "UnitedHealth Incorporated",
+          "name_en": "UnitedHealth",
           "name_zh": "聯合健康集團",
           "role_zh": "聯合健康集團：醫院／GPO 通路代表性玩家",
-          "role_en": "UnitedHealth Incorporated: representative player in Hospital / GPO channel",
+          "role_en": "UnitedHealth: representative player in Hospital / GPO channel",
           "exchange": "NYSE"
         },
         {
@@ -173,10 +173,10 @@
       "players": [
         {
           "ticker": "UNH",
-          "name_en": "UnitedHealth Incorporated",
+          "name_en": "UnitedHealth",
           "name_zh": "聯合健康集團",
           "role_zh": "聯合健康集團：支付／術後服務代表性玩家",
-          "role_en": "UnitedHealth Incorporated: representative player in Payers / post-acute services",
+          "role_en": "UnitedHealth: representative player in Payers / post-acute services",
           "exchange": "NYSE"
         },
         {
@@ -209,7 +209,7 @@
     },
     {
       "ticker": "TMO",
-      "name_en": "TMO",
+      "name_en": "Thermo Fisher",
       "name_zh": "賽默飛世爾",
       "basis_zh": "診斷／生命科學工具對手",
       "basis_en": "Diagnostics / life-science tools rival",

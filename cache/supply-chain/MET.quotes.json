@@ -106,14 +106,14 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "MMC": {
-      "ticker": "MMC",
-      "price": 182.7,
-      "previousClose": 185.63,
-      "changePct": -1.578,
-      "mcap": null,
+    "MRSH": {
+      "ticker": "MRSH",
+      "price": 207.78,
+      "previousClose": 205.69,
+      "changePct": 1.016,
+      "mcap": 97742.4,
       "currency": "USD",
-      "asOf": "2026-01-13",
+      "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
     "AJG": {

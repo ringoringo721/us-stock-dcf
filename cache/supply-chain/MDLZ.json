@@ -53,10 +53,10 @@
         },
         {
           "ticker": "DE",
-          "name_en": "Deere &",
+          "name_en": "Deere",
           "name_zh": "迪爾",
           "role_zh": "迪爾：農產／原料代表性玩家",
-          "role_en": "Deere &: representative player in Agriculture / inputs",
+          "role_en": "Deere: representative player in Agriculture / inputs",
           "exchange": "NYSE"
         }
       ]
@@ -201,7 +201,7 @@
   "competitors": [
     {
       "ticker": "HSY",
-      "name_en": "The Hershey",
+      "name_en": "Hershey",
       "name_zh": "好時",
       "basis_zh": "零食／包裝食品對手",
       "basis_en": "Snacks / packaged-food rival",
@@ -233,7 +233,7 @@
     },
     {
       "ticker": "KO",
-      "name_en": "The Coca-Cola",
+      "name_en": "Coca-Cola",
       "name_zh": "可口可樂",
       "basis_zh": "零食／包裝食品對手",
       "basis_en": "Snacks / packaged-food rival",

@@ -37,10 +37,10 @@
       "players": [
         {
           "ticker": "GS",
-          "name_en": "The Goldman Sachs",
+          "name_en": "Goldman Sachs",
           "name_zh": "高盛",
           "role_zh": "高盛：資金／資本市場代表性玩家",
-          "role_en": "The Goldman Sachs: representative player in Funding / capital markets",
+          "role_en": "Goldman Sachs: representative player in Funding / capital markets",
           "exchange": "NYSE"
         },
         {
@@ -113,10 +113,10 @@
         },
         {
           "ticker": "MA",
-          "name_en": "Mastercard Incorporated",
+          "name_en": "Mastercard",
           "name_zh": "Mastercard",
           "role_zh": "Mastercard：支付／清算網路代表性玩家",
-          "role_en": "Mastercard Incorporated: representative player in Payments / clearing networks",
+          "role_en": "Mastercard: representative player in Payments / clearing networks",
           "exchange": "NYSE"
         },
         {
@@ -173,10 +173,10 @@
       "players": [
         {
           "ticker": "SCHW",
-          "name_en": "The Charles Schwab",
+          "name_en": "Charles Schwab",
           "name_zh": "嘉信理財",
           "role_zh": "嘉信理財：零售／企業客戶通路代表性玩家",
-          "role_en": "The Charles Schwab: representative player in Retail / corporate channels",
+          "role_en": "Charles Schwab: representative player in Retail / corporate channels",
           "exchange": "NYSE"
         },
         {

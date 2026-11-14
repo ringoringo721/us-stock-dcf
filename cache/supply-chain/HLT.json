@@ -147,10 +147,10 @@
         },
         {
           "ticker": "MA",
-          "name_en": "Mastercard Incorporated",
+          "name_en": "Mastercard",
           "name_zh": "Mastercard",
           "role_zh": "Mastercard：支付／忠誠代表性玩家",
-          "role_en": "Mastercard Incorporated: representative player in Payments / loyalty",
+          "role_en": "Mastercard: representative player in Payments / loyalty",
           "exchange": "NYSE"
         },
         {
@@ -230,14 +230,6 @@
       "basis_zh": "郵輪／休閒旅遊對手",
       "basis_en": "Cruise / leisure-travel rival",
       "exchange": "NASDAQ"
-    },
-    {
-      "ticker": "H",
-      "name_en": "Hyatt",
-      "name_zh": "Hyatt",
-      "basis_zh": "飯店對手",
-      "basis_en": "Hotel rival",
-      "exchange": "NYSE"
     }
   ]
 }

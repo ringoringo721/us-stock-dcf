@@ -106,10 +106,10 @@
       "players": [
         {
           "ticker": "GS",
-          "name_en": "The Goldman Sachs",
+          "name_en": "Goldman Sachs",
           "name_zh": "高盛",
           "role_zh": "高盛：交易／市場進入代表性玩家",
-          "role_en": "The Goldman Sachs: representative player in Execution / market access",
+          "role_en": "Goldman Sachs: representative player in Execution / market access",
           "exchange": "NYSE"
         },
         {
@@ -122,10 +122,10 @@
         },
         {
           "ticker": "SCHW",
-          "name_en": "The Charles Schwab",
+          "name_en": "Charles Schwab",
           "name_zh": "嘉信理財",
           "role_zh": "嘉信理財：交易／市場進入代表性玩家",
-          "role_en": "The Charles Schwab: representative player in Execution / market access",
+          "role_en": "Charles Schwab: representative player in Execution / market access",
           "exchange": "NYSE"
         }
       ]
@@ -140,10 +140,10 @@
       "players": [
         {
           "ticker": "SCHW",
-          "name_en": "The Charles Schwab",
+          "name_en": "Charles Schwab",
           "name_zh": "嘉信理財",
           "role_zh": "嘉信理財：分銷／財富平台代表性玩家",
-          "role_en": "The Charles Schwab: representative player in Distribution / wealth platforms",
+          "role_en": "Charles Schwab: representative player in Distribution / wealth platforms",
           "exchange": "NYSE"
         },
         {
@@ -234,7 +234,7 @@
     },
     {
       "ticker": "CG",
-      "name_en": "The Carlyle",
+      "name_en": "Carlyle",
       "name_zh": "凱雷集團",
       "basis_zh": "另類資產管理對手",
       "basis_en": "Alternative asset-manager rival",

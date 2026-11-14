@@ -37,10 +37,10 @@
       "players": [
         {
           "ticker": "TMO",
-          "name_en": "TMO",
+          "name_en": "Thermo Fisher",
           "name_zh": "賽默飛世爾",
           "role_zh": "賽默飛世爾：研發工具／CDMO代表性玩家",
-          "role_en": "TMO: representative player in R&D tools / CDMO",
+          "role_en": "Thermo Fisher: representative player in R&D tools / CDMO",
           "exchange": "NYSE"
         },
         {
@@ -71,10 +71,10 @@
       "players": [
         {
           "ticker": "TMO",
-          "name_en": "TMO",
+          "name_en": "Thermo Fisher",
           "name_zh": "賽默飛世爾",
           "role_zh": "賽默飛世爾：原料藥／生物製程代表性玩家",
-          "role_en": "TMO: representative player in API / biologics manufacturing",
+          "role_en": "Thermo Fisher: representative player in API / biologics manufacturing",
           "exchange": "NYSE"
         },
         {
@@ -173,10 +173,10 @@
       "players": [
         {
           "ticker": "UNH",
-          "name_en": "UnitedHealth Incorporated",
+          "name_en": "UnitedHealth",
           "name_zh": "聯合健康集團",
           "role_zh": "聯合健康集團：支付方／醫療體系代表性玩家",
-          "role_en": "UnitedHealth Incorporated: representative player in Payers / providers",
+          "role_en": "UnitedHealth: representative player in Payers / providers",
           "exchange": "NYSE"
         },
         {
@@ -233,7 +233,7 @@
     },
     {
       "ticker": "LLY",
-      "name_en": "Eli Lilly and",
+      "name_en": "Eli Lilly",
       "name_zh": "禮來",
       "basis_zh": "生物製藥對手",
       "basis_en": "Biopharma rival",

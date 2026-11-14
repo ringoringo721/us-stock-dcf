@@ -147,10 +147,10 @@
         },
         {
           "ticker": "DE",
-          "name_en": "Deere &",
+          "name_en": "Deere",
           "name_zh": "迪爾",
           "role_zh": "迪爾：經銷／租賃通路代表性玩家",
-          "role_en": "Deere &: representative player in Dealer / rental channel",
+          "role_en": "Deere: representative player in Dealer / rental channel",
           "exchange": "NYSE"
         },
         {
@@ -201,8 +201,8 @@
   "competitors": [
     {
       "ticker": "ASHTEAD",
-      "name_en": "ASHTEAD",
-      "name_zh": "ASHTEAD",
+      "name_en": "Ashtead",
+      "name_zh": "Ashtead",
       "basis_zh": "裝置租賃對手",
       "basis_en": "Equipment rental rival",
       "exchange": "OTC",
@@ -210,8 +210,8 @@
     },
     {
       "ticker": "HEES",
-      "name_en": "HEES",
-      "name_zh": "HEES",
+      "name_en": "H&E Equipment",
+      "name_zh": "H&E Equipment",
       "basis_zh": "裝置租賃對手",
       "basis_en": "Equipment rental rival",
       "exchange": "OTC",
@@ -227,7 +227,7 @@
     },
     {
       "ticker": "DE",
-      "name_en": "Deere &",
+      "name_en": "Deere",
       "name_zh": "迪爾",
       "basis_zh": "裝置租賃對手",
       "basis_en": "Equipment rental rival",

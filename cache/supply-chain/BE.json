@@ -147,10 +147,10 @@
         },
         {
           "ticker": "DE",
-          "name_en": "Deere &",
+          "name_en": "Deere",
           "name_zh": "迪爾",
           "role_zh": "迪爾：經銷／租賃通路代表性玩家",
-          "role_en": "Deere &: representative player in Dealer / rental channel",
+          "role_en": "Deere: representative player in Dealer / rental channel",
           "exchange": "NYSE"
         },
         {
@@ -201,8 +201,8 @@
   "competitors": [
     {
       "ticker": "PLUG",
-      "name_en": "PLUG",
-      "name_zh": "PLUG",
+      "name_en": "Plug Power",
+      "name_zh": "Plug Power",
       "basis_zh": "燃料電池／潔淨電力對手",
       "basis_en": "Fuel-cell / clean-power rival",
       "exchange": "OTC",
@@ -210,8 +210,8 @@
     },
     {
       "ticker": "FCEL",
-      "name_en": "FCEL",
-      "name_zh": "FCEL",
+      "name_en": "FuelCell Energy",
+      "name_zh": "FuelCell Energy",
       "basis_zh": "燃料電池／潔淨電力對手",
       "basis_en": "Fuel-cell / clean-power rival",
       "exchange": "OTC",
