@@ -3186,7 +3186,7 @@
     <div id="subpage-supply-chain" class="subpage-content">
       <div class="panel historical-ratio-panel company-analysis-panel">
         <div class="panel-title" data-i18n="sec_supply_chain">供應鏈與競爭對手</div>
-        <p class="analysis-note" data-i18n="analysis_supply_chain_note">依硬體價值鏈五階段（材料→零組件→組裝→物流→零售）列出各階 Top 3 代表性玩家，並附競爭對手。資料為策展種子，非即時供應商 API。</p>
+        <p class="analysis-note" data-i18n="analysis_supply_chain_note">依該公司產業價值鏈模型列出各階 Top 3 代表性玩家，並附產品／市場競爭對手。資料為策展種子，非即時供應商 API。</p>
         <p id="supply-chain-status" class="analysis-note" role="status"></p>
         <p id="supply-chain-source" class="analysis-note" role="note"></p>
         <div class="panel-title" style="font-size:15px;margin-top:8px;" data-i18n="sec_supply_chain_graph">價值鏈蜘蛛圖（各階 Top 3）</div>
@@ -4246,7 +4246,7 @@
       tab_tradingview: "📈 11. TradingView 圖表",
       tab_news: "📰 10. 公司新聞",
       sec_supply_chain: "供應鏈與競爭對手",
-      analysis_supply_chain_note: "蜘蛛網圖：公司為中心；五階段（材料→零組件→組裝→物流→零售）以連線串起，各階 Top 3 掛在扇區外緣。藍色虛線箭頭＝上游→下游流動；金色點線＝競爭對手（對抗關係，非供應流）。南方金色弧為競爭對手區。資料為策展種子，非即時供應商 API。",
+      analysis_supply_chain_note: "蜘蛛網圖：公司為中心；依產業價值鏈模型串起各階段，每階 Top 3 掛在扇區外緣。藍色虛線箭頭＝上游→下游流動；金色點線＝競爭對手（對抗關係，非供應流）。南方金色弧為競爭對手區。美股市值≥1,000億美元批次為策展種子，其餘為空狀態；非即時供應商 API。",
       sec_supply_chain_graph: "價值鏈蜘蛛圖（各階 Top 3）",
       sec_supply_chain_players: "供應鏈玩家一覽",
       sec_supply_chain_competitors: "主要競爭對手（手機／裝置生態）",
@@ -4270,7 +4270,7 @@
       sc_in_app_yes: "可開公司頁",
       sc_in_app_no: "站外／未收錄（無法點進本站公司頁）",
       sc_loading: "正在載入供應鏈種子資料…",
-      sc_empty: "此股票尚無供應鏈策展種子（MVP 先支援 AAPL）。",
+      sc_empty: "此股票尚無供應鏈策展種子（目前覆蓋美股市值≥1,000億美元批次）。",
       sc_error: "供應鏈資料載入失敗。請重試；不以模擬資料替代。",
       sc_source_curated: "資料來源：策展種子（非即時供應商 API）",
       sc_quotes_note: "節點顯示公司名、最近交易日漲跌%、市值（美元）；站外上市亦盡力顯示，缺資料才 N/A，不造假",
@@ -4932,7 +4932,7 @@
       tab_supply_chain: "🔗 7b. Supply Chain / Peers",
       tab_charts: "📊 8. Trend Analysis",
       sec_supply_chain: "Supply chain & competitors",
-      analysis_supply_chain_note: "Spider graph: company at the hub; five stages (materials → components → assembly → logistics → retail) linked by edges, with Top 3 players on each sector rim. Blue dashed arrows = upstream→downstream flow; gold dotted links = competitors (rivalry, not supply flow). Southern gold arc = rivalry zone. Curated seed — not a live supplier API.",
+      analysis_supply_chain_note: "Spider graph: company at the hub; industry-specific value-chain stages with Top 3 players on each sector rim. Blue dashed arrows = upstream→downstream flow; gold dotted links = competitors (rivalry, not supply flow). Southern gold arc = rivalry zone. US mcap ≥ $100B batch is curated; others empty-state. Not a live supplier API.",
       sec_supply_chain_graph: "Value-chain spider graph (Top 3 per stage)",
       sec_supply_chain_players: "Supply-chain player roster",
       sec_supply_chain_competitors: "Major competitors (phone / device ecosystem)",
@@ -4956,7 +4956,7 @@
       sc_in_app_yes: "Open profile",
       sc_in_app_no: "External / not listed (no in-app profile link)",
       sc_loading: "Loading supply-chain seed…",
-      sc_empty: "No curated supply-chain seed for this ticker yet (MVP starts with AAPL).",
+      sc_empty: "No curated supply-chain seed for this ticker yet (coverage: US market cap ≥ $100B batch).",
       sc_error: "Supply-chain data failed to load. Retry; no simulated substitute.",
       sc_source_curated: "Source: curated seed (not a live supplier API)",
       sc_quotes_note: "Nodes show company name, last trading-day change %, and USD market cap — including off-universe listings when available; missing stays N/A (nothing invented)",
@@ -11657,6 +11657,9 @@
 
     if (!SC || typeof SC.load !== 'function' || typeof SC.layoutSpider !== 'function') {
       if (statusEl) statusEl.textContent = dict.sc_error || '';
+      const noteEl = document.querySelector('#panel-supply-chain .analysis-note[data-i18n="analysis_supply_chain_note"]')
+        || document.querySelector('.analysis-note[data-i18n="analysis_supply_chain_note"]');
+      if (noteEl) noteEl.textContent = dict.analysis_supply_chain_note || '';
       return;
     }
 
@@ -11697,6 +11700,18 @@
           pack.model ? (isEn ? pack.model.label_en : pack.model.label_zh) : '',
           updated
         ].filter(Boolean).join(' · ');
+      }
+      const noteEl = document.querySelector('#panel-supply-chain .analysis-note[data-i18n="analysis_supply_chain_note"]')
+        || document.querySelector('.analysis-note[data-i18n="analysis_supply_chain_note"]');
+      if (noteEl) {
+        const base = dict.analysis_supply_chain_note || '';
+        if (pack.model) {
+          const modelLabel = isEn ? pack.model.label_en : pack.model.label_zh;
+          const modelDesc = isEn ? (pack.model.description_en || '') : (pack.model.description_zh || '');
+          noteEl.textContent = [base, modelLabel, modelDesc].filter(Boolean).join(' — ');
+        } else {
+          noteEl.textContent = base;
+        }
       }
       if (sourceEl) {
         sourceEl.textContent = [
@@ -11793,6 +11808,12 @@
       const missing = error?.code === 'SUPPLY_CHAIN_NO_SEED'
         || String(error?.message || '').startsWith('SUPPLY_CHAIN_NO_SEED');
       if (statusEl) statusEl.textContent = missing ? (dict.sc_empty || '') : (dict.sc_error || '');
+      // Restore generic note so a prior seeded ticker's industry model does not stick.
+      const noteEl = document.querySelector('#panel-supply-chain .analysis-note[data-i18n="analysis_supply_chain_note"]')
+        || document.querySelector('.analysis-note[data-i18n="analysis_supply_chain_note"]');
+      if (noteEl) noteEl.textContent = dict.analysis_supply_chain_note || '';
+      if (sourceEl) sourceEl.textContent = '';
+      if (chipsEl) chipsEl.innerHTML = '';
       if (legendEl) legendEl.innerHTML = '';
       flowEl.innerHTML = '';
       playersBody.innerHTML = `<tr><td colspan="7">${scEscape(missing ? (dict.sc_empty || '') : (dict.sc_error || ''))}</td></tr>`;

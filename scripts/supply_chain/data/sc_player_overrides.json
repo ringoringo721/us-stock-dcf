@@ -1,0 +1,272 @@
+{
+  "NVDA": {
+    "equipment": [
+      "ASML",
+      "AMAT",
+      "LRCX"
+    ],
+    "foundry": [
+      "TSM",
+      "GFS",
+      "2303.TW"
+    ],
+    "osat-memory": [
+      "MU",
+      "000660.KS",
+      "3711.TW"
+    ],
+    "customers": [
+      "MSFT",
+      "AMZN",
+      "META"
+    ],
+    "channel": [
+      "DELL",
+      "SMCI",
+      "AVT"
+    ]
+  },
+  "AMD": {
+    "equipment": [
+      "ASML",
+      "AMAT",
+      "LRCX"
+    ],
+    "foundry": [
+      "TSM",
+      "GFS",
+      "2303.TW"
+    ],
+    "osat-memory": [
+      "MU",
+      "000660.KS",
+      "3711.TW"
+    ],
+    "customers": [
+      "MSFT",
+      "AMZN",
+      "DELL"
+    ],
+    "channel": [
+      "HPQ",
+      "AVT",
+      "SNX"
+    ]
+  },
+  "MSFT": {
+    "silicon": [
+      "NVDA",
+      "AMD",
+      "AVGO"
+    ],
+    "infra": [
+      "EQIX",
+      "DLR",
+      "ANET"
+    ],
+    "data-security": [
+      "CRWD",
+      "PANW",
+      "ZS"
+    ],
+    "integrators": [
+      "ACN",
+      "IBM",
+      "CTSH"
+    ],
+    "channel": [
+      "CDW",
+      "DELL",
+      "HPQ"
+    ]
+  },
+  "JPM": {
+    "funding": [
+      "GS",
+      "MS",
+      "BLK"
+    ],
+    "tech": [
+      "MSFT",
+      "ORCL",
+      "IBM"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "FISV"
+    ],
+    "data-risk": [
+      "SPGI",
+      "MCO",
+      "FICO"
+    ],
+    "channels": [
+      "SCHW",
+      "AXP",
+      "COF"
+    ]
+  },
+  "TSLA": {
+    "materials": [
+      "ALB",
+      "FCX",
+      "NUE"
+    ],
+    "components": [
+      "000660.KS",
+      "ON",
+      "APH"
+    ],
+    "assembly": [
+      "JBL",
+      "FLEX",
+      "2317.TW"
+    ],
+    "dealers": [
+      "KMX",
+      "AN",
+      "CVNA"
+    ],
+    "energy": [
+      "NEE",
+      "CEG",
+      "ENPH"
+    ]
+  },
+  "GOOG": {
+    "infra": [
+      "EQIX",
+      "ANET",
+      "CSCO"
+    ],
+    "content": [
+      "NFLX",
+      "SPOT",
+      "DIS"
+    ],
+    "ads": [
+      "TTD",
+      "APP",
+      "META"
+    ],
+    "devices": [
+      "AAPL",
+      "005930.KS",
+      "SONY"
+    ],
+    "commerce": [
+      "V",
+      "MA",
+      "SHOP"
+    ]
+  },
+  "META": {
+    "infra": [
+      "EQIX",
+      "ANET",
+      "NVDA"
+    ],
+    "content": [
+      "NFLX",
+      "SPOT",
+      "DIS"
+    ],
+    "ads": [
+      "GOOG",
+      "TTD",
+      "APP"
+    ],
+    "devices": [
+      "AAPL",
+      "005930.KS",
+      "QCOM"
+    ],
+    "commerce": [
+      "V",
+      "MA",
+      "SHOP"
+    ]
+  },
+  "AMZN": {
+    "supply": [
+      "PG",
+      "SONY",
+      "NKE"
+    ],
+    "fulfillment": [
+      "PLD",
+      "EQIX",
+      "AMT"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "AXP"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "APP"
+    ],
+    "lastmile": [
+      "UPS",
+      "FDX",
+      "UNP"
+    ]
+  },
+  "UNH": {
+    "supply": [
+      "LLY",
+      "JNJ",
+      "ABT"
+    ],
+    "providers": [
+      "HCA",
+      "ISRG",
+      "MDT"
+    ],
+    "pharmacy": [
+      "CVS",
+      "MCK",
+      "WBA"
+    ],
+    "tech": [
+      "MSFT",
+      "ORCL",
+      "VEEV"
+    ],
+    "sponsors": [
+      "ELV",
+      "CI",
+      "HUM"
+    ]
+  },
+  "XOM": {
+    "services": [
+      "SLB",
+      "HAL",
+      "BKR"
+    ],
+    "upstream": [
+      "COP",
+      "EOG",
+      "OXY"
+    ],
+    "midstream": [
+      "ENB",
+      "KMI",
+      "WMB"
+    ],
+    "refining": [
+      "MPC",
+      "VLO",
+      "PSX"
+    ],
+    "marketing": [
+      "DAL",
+      "CAT",
+      "UNP"
+    ]
+  }
+}

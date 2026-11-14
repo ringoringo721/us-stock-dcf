@@ -1,0 +1,242 @@
+{
+  "version": 1,
+  "ticker": "IBKR",
+  "name_en": "Interactive Brokers Group, Inc.",
+  "name_zh": "盈透證券",
+  "updatedAt": "2026-11-14",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mega-cap ≥$100B expansion. Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates and spot review on NVDA/MSFT/JPM. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股市值≥1,000億美元批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for the US mcap≥$100B batch. No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "capital-markets-v1",
+    "references": [
+      "Industry model `capital-markets-v1`",
+      "cache/us_universe.json marketCap ≥ USD 100B screen",
+      "AAPL curated seed shape on main (schema reference)"
+    ]
+  },
+  "model": {
+    "id": "capital-markets-v1",
+    "label_zh": "資本市場／投行價值鏈",
+    "label_en": "Capital markets / IB value chain",
+    "description_zh": "交易所／清算 → 市場資料 → 科技基礎設施 → 資產管理客戶 → 企業發行人。",
+    "description_en": "Exchanges/clearing → market data → tech infra → asset managers → corporate issuers."
+  },
+  "stages": [
+    {
+      "id": "venues",
+      "order": 1,
+      "label_zh": "交易所／清算",
+      "label_en": "Exchanges / clearing",
+      "summary_zh": "交易場所與 CCP。",
+      "summary_en": "Trading venues and CCPs.",
+      "players": [
+        {
+          "ticker": "CME",
+          "name_en": "CME Group Inc.",
+          "name_zh": "芝商所",
+          "role_zh": "芝商所：交易所／清算代表性玩家",
+          "role_en": "CME Group Inc.: representative player in Exchanges / clearing",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "ICE",
+          "name_en": "Intercontinental Exchange",
+          "name_zh": "洲際交易所",
+          "role_zh": "洲際交易所：交易所／清算代表性玩家",
+          "role_en": "Intercontinental Exchange: representative player in Exchanges / clearing",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "NDAQ",
+          "name_en": "Nasdaq",
+          "name_zh": "Nasdaq",
+          "role_zh": "Nasdaq：交易所／清算代表性玩家",
+          "role_en": "Nasdaq: representative player in Exchanges / clearing",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "data",
+      "order": 2,
+      "label_zh": "市場資料／指數",
+      "label_en": "Market data / indices",
+      "summary_zh": "行情、評級與指數授權。",
+      "summary_en": "Quotes, ratings, index licenses.",
+      "players": [
+        {
+          "ticker": "SPGI",
+          "name_en": "S&P Global Inc.",
+          "name_zh": "標普全球",
+          "role_zh": "標普全球：市場資料／指數代表性玩家",
+          "role_en": "S&P Global Inc.: representative player in Market data / indices",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "MCO",
+          "name_en": "Moody's",
+          "name_zh": "穆迪",
+          "role_zh": "穆迪：市場資料／指數代表性玩家",
+          "role_en": "Moody's: representative player in Market data / indices",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "MSFT",
+          "name_en": "Microsoft Corporation",
+          "name_zh": "微軟",
+          "role_zh": "微軟：市場資料／指數代表性玩家",
+          "role_en": "Microsoft Corporation: representative player in Market data / indices",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "tech",
+      "order": 3,
+      "label_zh": "交易／風控科技",
+      "label_en": "Trading / risk technology",
+      "summary_zh": "OMS／雲與資安。",
+      "summary_en": "OMS, cloud, security.",
+      "players": [
+        {
+          "ticker": "MSFT",
+          "name_en": "Microsoft Corporation",
+          "name_zh": "微軟",
+          "role_zh": "微軟：交易／風控科技代表性玩家",
+          "role_en": "Microsoft Corporation: representative player in Trading / risk technology",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "ORCL",
+          "name_en": "Oracle Corporation",
+          "name_zh": "甲骨文",
+          "role_zh": "甲骨文：交易／風控科技代表性玩家",
+          "role_en": "Oracle Corporation: representative player in Trading / risk technology",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "PANW",
+          "name_en": "Palo Alto Networks, Inc.",
+          "name_zh": "派拓網路",
+          "role_zh": "派拓網路：交易／風控科技代表性玩家",
+          "role_en": "Palo Alto Networks, Inc.: representative player in Trading / risk technology",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "buy-side",
+      "order": 4,
+      "label_zh": "買方／資管客戶",
+      "label_en": "Buy-side / asset managers",
+      "summary_zh": "機構資管與對沖基金客戶。",
+      "summary_en": "Asset managers and hedge funds.",
+      "players": [
+        {
+          "ticker": "BLK",
+          "name_en": "BlackRock, Inc.",
+          "name_zh": "貝萊德",
+          "role_zh": "貝萊德：買方／資管客戶代表性玩家",
+          "role_en": "BlackRock, Inc.: representative player in Buy-side / asset managers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "BX",
+          "name_en": "Blackstone Inc.",
+          "name_zh": "黑石",
+          "role_zh": "黑石：買方／資管客戶代表性玩家",
+          "role_en": "Blackstone Inc.: representative player in Buy-side / asset managers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "TROW",
+          "name_en": "T. Rowe Price",
+          "name_zh": "T. Rowe Price",
+          "role_zh": "T. Rowe Price：買方／資管客戶代表性玩家",
+          "role_en": "T. Rowe Price: representative player in Buy-side / asset managers",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "issuers",
+      "order": 5,
+      "label_zh": "企業／主權發行人",
+      "label_en": "Corporate / sovereign issuers",
+      "summary_zh": "IPO、債發與顧問需求方。",
+      "summary_en": "IPO, DCM, advisory demand.",
+      "players": [
+        {
+          "ticker": "AAPL",
+          "name_en": "Apple Inc.",
+          "name_zh": "蘋果",
+          "role_zh": "蘋果：企業／主權發行人代表性玩家",
+          "role_en": "Apple Inc.: representative player in Corporate / sovereign issuers",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "MSFT",
+          "name_en": "Microsoft Corporation",
+          "name_zh": "微軟",
+          "role_zh": "微軟：企業／主權發行人代表性玩家",
+          "role_en": "Microsoft Corporation: representative player in Corporate / sovereign issuers",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "XOM",
+          "name_en": "Exxonmobil Holdings Corporation",
+          "name_zh": "埃克森美孚",
+          "role_zh": "埃克森美孚：企業／主權發行人代表性玩家",
+          "role_en": "Exxonmobil Holdings Corporation: representative player in Corporate / sovereign issuers",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "SCHW",
+      "name_en": "The Charles Schwab Corporation",
+      "name_zh": "嘉信",
+      "basis_zh": "經紀平台對手",
+      "basis_en": "Brokerage platform rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "MS",
+      "name_en": "Morgan Stanley",
+      "name_zh": "摩根士丹利",
+      "basis_zh": "機構／交易對手",
+      "basis_en": "Institutional/trading rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "GS",
+      "name_en": "The Goldman Sachs Group, Inc.",
+      "name_zh": "高盛",
+      "basis_zh": "機構交易對手",
+      "basis_en": "Institutional trading rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "CME",
+      "name_en": "CME Group Inc.",
+      "name_zh": "芝商所",
+      "basis_zh": "電子交易入口競爭",
+      "basis_en": "Electronic trading venue competition",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "NDAQ",
+      "name_en": "Nasdaq",
+      "name_zh": "Nasdaq",
+      "basis_zh": "交易入口競爭",
+      "basis_en": "Trading venue competition",
+      "exchange": "NASDAQ"
+    }
+  ]
+}

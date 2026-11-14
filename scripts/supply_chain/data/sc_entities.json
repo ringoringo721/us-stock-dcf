@@ -1,0 +1,2847 @@
+{
+  "AAPL": {
+    "name_en": "Apple Inc.",
+    "name_zh": "蘋果",
+    "exchange": "NASDAQ"
+  },
+  "NVDA": {
+    "name_en": "NVIDIA Corporation",
+    "name_zh": "輝達",
+    "exchange": "NASDAQ"
+  },
+  "MSFT": {
+    "name_en": "Microsoft Corporation",
+    "name_zh": "微軟",
+    "exchange": "NASDAQ"
+  },
+  "GOOG": {
+    "name_en": "Alphabet Inc.",
+    "name_zh": "Alphabet（Google）",
+    "exchange": "NASDAQ"
+  },
+  "AMZN": {
+    "name_en": "Amazon.com, Inc.",
+    "name_zh": "亞馬遜",
+    "exchange": "NASDAQ"
+  },
+  "TSM": {
+    "name_en": "Taiwan Semiconductor Manufacturing Company Limited",
+    "name_zh": "台積電",
+    "exchange": "NYSE"
+  },
+  "SPCX": {
+    "name_en": "Space Exploration Technologies Corp.",
+    "name_zh": "SpaceX（FMP列示）",
+    "exchange": "NASDAQ"
+  },
+  "META": {
+    "name_en": "Meta Platforms, Inc.",
+    "name_zh": "Meta (臉書)",
+    "exchange": "NASDAQ"
+  },
+  "TSLA": {
+    "name_en": "Tesla, Inc.",
+    "name_zh": "特斯拉",
+    "exchange": "NASDAQ"
+  },
+  "AVGO": {
+    "name_en": "Broadcom Inc.",
+    "name_zh": "博通",
+    "exchange": "NASDAQ"
+  },
+  "LLY": {
+    "name_en": "Eli Lilly and Company",
+    "name_zh": "禮來",
+    "exchange": "NYSE"
+  },
+  "BRK-A": {
+    "name_en": "Berkshire Hathaway Inc.",
+    "name_zh": "波克夏Ａ",
+    "exchange": "NYSE"
+  },
+  "BRK-B": {
+    "name_en": "Berkshire Hathaway Inc.",
+    "name_zh": "波克夏Ｂ",
+    "exchange": "NYSE"
+  },
+  "WMT": {
+    "name_en": "Walmart Inc.",
+    "name_zh": "沃爾瑪",
+    "exchange": "NASDAQ"
+  },
+  "SKHY": {
+    "name_en": "SK hynix Inc.",
+    "name_zh": "SK海力士",
+    "exchange": "NASDAQ"
+  },
+  "JPM": {
+    "name_en": "JPMorgan Chase & Co.",
+    "name_zh": "摩根大通",
+    "exchange": "NYSE"
+  },
+  "V": {
+    "name_en": "Visa Inc.",
+    "name_zh": "威士卡",
+    "exchange": "NYSE"
+  },
+  "MU": {
+    "name_en": "Micron Technology, Inc.",
+    "name_zh": "美光",
+    "exchange": "NASDAQ"
+  },
+  "AMD": {
+    "name_en": "Advanced Micro Devices, Inc.",
+    "name_zh": "超微",
+    "exchange": "NASDAQ"
+  },
+  "XOM": {
+    "name_en": "Exxonmobil Holdings Corporation",
+    "name_zh": "埃克森美孚",
+    "exchange": "NYSE"
+  },
+  "JNJ": {
+    "name_en": "Johnson & Johnson",
+    "name_zh": "嬌生",
+    "exchange": "NYSE"
+  },
+  "MA": {
+    "name_en": "Mastercard Incorporated",
+    "name_zh": "萬事達卡",
+    "exchange": "NYSE"
+  },
+  "ASML": {
+    "name_en": "ASML Holding N.V.",
+    "name_zh": "艾司摩爾",
+    "exchange": "NASDAQ"
+  },
+  "ABBV": {
+    "name_en": "AbbVie Inc.",
+    "name_zh": "艾伯維",
+    "exchange": "NYSE"
+  },
+  "COST": {
+    "name_en": "Costco Wholesale Corporation",
+    "name_zh": "好市多",
+    "exchange": "NASDAQ"
+  },
+  "CVX": {
+    "name_en": "Chevron Corporation",
+    "name_zh": "雪佛龍",
+    "exchange": "NYSE"
+  },
+  "KO": {
+    "name_en": "The Coca-Cola Company",
+    "name_zh": "可口可樂",
+    "exchange": "NYSE"
+  },
+  "PG": {
+    "name_en": "The Procter & Gamble Company",
+    "name_zh": "寶潔",
+    "exchange": "NYSE"
+  },
+  "CSCO": {
+    "name_en": "Cisco Systems, Inc.",
+    "name_zh": "思科",
+    "exchange": "NASDAQ"
+  },
+  "PLTR": {
+    "name_en": "Palantir Technologies Inc.",
+    "name_zh": "Palantir",
+    "exchange": "NASDAQ"
+  },
+  "MRK": {
+    "name_en": "Merck & Co., Inc.",
+    "name_zh": "默沙東",
+    "exchange": "NYSE"
+  },
+  "UNH": {
+    "name_en": "UnitedHealth Group Incorporated",
+    "name_zh": "聯合健康",
+    "exchange": "NYSE"
+  },
+  "ORCL": {
+    "name_en": "Oracle Corporation",
+    "name_zh": "甲骨文",
+    "exchange": "NYSE"
+  },
+  "HD": {
+    "name_en": "The Home Depot, Inc.",
+    "name_zh": "家得寶",
+    "exchange": "NYSE"
+  },
+  "BAC": {
+    "name_en": "Bank of America Corporation",
+    "name_zh": "美國銀行",
+    "exchange": "NYSE"
+  },
+  "GE": {
+    "name_en": "GE Aerospace",
+    "name_zh": "奇異",
+    "exchange": "NYSE"
+  },
+  "PM": {
+    "name_en": "Philip Morris International Inc.",
+    "name_zh": "菲莫國際",
+    "exchange": "NYSE"
+  },
+  "NVS": {
+    "name_en": "Novartis AG",
+    "name_zh": "諾華",
+    "exchange": "NYSE"
+  },
+  "HSBC": {
+    "name_en": "HSBC Holdings plc",
+    "name_zh": "滙豐",
+    "exchange": "NYSE"
+  },
+  "INTC": {
+    "name_en": "Intel Corp.",
+    "name_zh": "英特爾",
+    "exchange": "NASDAQ"
+  },
+  "AZN": {
+    "name_en": "AstraZeneca PLC",
+    "name_zh": "阿斯特捷利康",
+    "exchange": "NYSE"
+  },
+  "SHEL": {
+    "name_en": "Shell plc",
+    "name_zh": "殼牌",
+    "exchange": "NYSE"
+  },
+  "MS": {
+    "name_en": "Morgan Stanley",
+    "name_zh": "摩根士丹利",
+    "exchange": "NYSE"
+  },
+  "RY": {
+    "name_en": "Royal Bank of Canada",
+    "name_zh": "加拿大皇家銀行",
+    "exchange": "NYSE"
+  },
+  "SAP": {
+    "name_en": "SAP SE",
+    "name_zh": "SAP",
+    "exchange": "NYSE"
+  },
+  "AMAT": {
+    "name_en": "Applied Materials, Inc.",
+    "name_zh": "應用材料",
+    "exchange": "NASDAQ"
+  },
+  "NFLX": {
+    "name_en": "Netflix, Inc.",
+    "name_zh": "網飛",
+    "exchange": "NASDAQ"
+  },
+  "BABA": {
+    "name_en": "Alibaba Group Holding Limited",
+    "name_zh": "阿里巴巴",
+    "exchange": "NYSE"
+  },
+  "TMO": {
+    "name_en": "Thermo Fisher Scientific Inc.",
+    "name_zh": "賽默飛",
+    "exchange": "NYSE"
+  },
+  "PANW": {
+    "name_en": "Palo Alto Networks, Inc.",
+    "name_zh": "派拓網路",
+    "exchange": "NASDAQ"
+  },
+  "CAT": {
+    "name_en": "Caterpillar Inc.",
+    "name_zh": "卡特彼勒",
+    "exchange": "NYSE"
+  },
+  "TM": {
+    "name_en": "Toyota Motor Corporation",
+    "name_zh": "豐田",
+    "exchange": "NYSE"
+  },
+  "RTX": {
+    "name_en": "RTX Corporation",
+    "name_zh": "雷神技術",
+    "exchange": "NYSE"
+  },
+  "TXN": {
+    "name_en": "Texas Instruments Incorporated",
+    "name_zh": "德州儀器",
+    "exchange": "NASDAQ"
+  },
+  "WFC": {
+    "name_en": "Wells Fargo & Company",
+    "name_zh": "富國銀行",
+    "exchange": "NYSE"
+  },
+  "LRCX": {
+    "name_en": "Lam Research Corporation",
+    "name_zh": "拉姆研究",
+    "exchange": "NASDAQ"
+  },
+  "GS": {
+    "name_en": "The Goldman Sachs Group, Inc.",
+    "name_zh": "高盛",
+    "exchange": "NYSE"
+  },
+  "AMGN": {
+    "name_en": "Amgen Inc.",
+    "name_zh": "安進",
+    "exchange": "NASDAQ"
+  },
+  "LIN": {
+    "name_en": "Linde plc",
+    "name_zh": "林德",
+    "exchange": "NASDAQ"
+  },
+  "MUFG": {
+    "name_en": "Mitsubishi UFJ Financial Group, Inc.",
+    "name_zh": "三菱日聯",
+    "exchange": "NYSE"
+  },
+  "IBM": {
+    "name_en": "IBM",
+    "name_zh": "IBM",
+    "exchange": "NYSE"
+  },
+  "CRWD": {
+    "name_en": "CrowdStrike Holdings, Inc.",
+    "name_zh": "CrowdStrike",
+    "exchange": "NASDAQ"
+  },
+  "ANET": {
+    "name_en": "Arista Networks, Inc.",
+    "name_zh": "Arista 網路",
+    "exchange": "NYSE"
+  },
+  "AXP": {
+    "name_en": "American Express Company",
+    "name_zh": "美國運通",
+    "exchange": "NYSE"
+  },
+  "DELL": {
+    "name_en": "Dell Technologies Inc.",
+    "name_zh": "戴爾",
+    "exchange": "NYSE"
+  },
+  "GILD": {
+    "name_en": "Gilead Sciences, Inc.",
+    "name_zh": "吉立亞",
+    "exchange": "NASDAQ"
+  },
+  "TD": {
+    "name_en": "The Toronto-Dominion Bank",
+    "name_zh": "道明銀行",
+    "exchange": "NYSE"
+  },
+  "GEV": {
+    "name_en": "GE Vernova Inc.",
+    "name_zh": "GE Vernova",
+    "exchange": "NYSE"
+  },
+  "BHP": {
+    "name_en": "BHP Group Limited",
+    "name_zh": "必和必拓",
+    "exchange": "NYSE"
+  },
+  "DIS": {
+    "name_en": "The Walt Disney Company",
+    "name_zh": "迪士尼",
+    "exchange": "NYSE"
+  },
+  "C": {
+    "name_en": "Citigroup Inc.",
+    "name_zh": "花旗",
+    "exchange": "NYSE"
+  },
+  "TTE": {
+    "name_en": "TotalEnergies SE",
+    "name_zh": "道達爾能源",
+    "exchange": "NYSE"
+  },
+  "MCD": {
+    "name_en": "McDonald's Corporation",
+    "name_zh": "麥當勞",
+    "exchange": "NYSE"
+  },
+  "PEP": {
+    "name_en": "PepsiCo, Inc.",
+    "name_zh": "百事",
+    "exchange": "NASDAQ"
+  },
+  "SHOP": {
+    "name_en": "Shopify Inc.",
+    "name_zh": "Shopify",
+    "exchange": "NASDAQ"
+  },
+  "ABT": {
+    "name_en": "Abbott Laboratories",
+    "name_zh": "雅培",
+    "exchange": "NYSE"
+  },
+  "VZ": {
+    "name_en": "Verizon Communications Inc.",
+    "name_zh": "威訊通訊",
+    "exchange": "NYSE"
+  },
+  "ARM": {
+    "name_en": "Arm Holdings plc American Depositary Shares",
+    "name_zh": "Arm",
+    "exchange": "NASDAQ"
+  },
+  "APH": {
+    "name_en": "Amphenol Corporation",
+    "name_zh": "安費諾",
+    "exchange": "NYSE"
+  },
+  "BLK": {
+    "name_en": "BlackRock, Inc.",
+    "name_zh": "貝萊德",
+    "exchange": "NYSE"
+  },
+  "NEE": {
+    "name_en": "NextEra Energy, Inc.",
+    "name_zh": "新紀元能源",
+    "exchange": "NYSE"
+  },
+  "DE": {
+    "name_en": "Deere & Company",
+    "name_zh": "約翰迪爾",
+    "exchange": "NYSE"
+  },
+  "KLAC": {
+    "name_en": "KLA Corporation",
+    "name_zh": "科磊",
+    "exchange": "NASDAQ"
+  },
+  "WELL": {
+    "name_en": "Welltower Inc.",
+    "name_zh": "Welltower",
+    "exchange": "NYSE"
+  },
+  "NVO": {
+    "name_en": "Novo Nordisk A/S",
+    "name_zh": "諾和諾德",
+    "exchange": "NYSE"
+  },
+  "QCOM": {
+    "name_en": "QUALCOMM Incorporated",
+    "name_zh": "高通",
+    "exchange": "NASDAQ"
+  },
+  "ADI": {
+    "name_en": "Analog Devices, Inc.",
+    "name_zh": "亞德諾",
+    "exchange": "NASDAQ"
+  },
+  "CRM": {
+    "name_en": "Salesforce, Inc.",
+    "name_zh": "賽富時",
+    "exchange": "NYSE"
+  },
+  "UNP": {
+    "name_en": "Union Pacific Corporation",
+    "name_zh": "聯合太平洋",
+    "exchange": "NYSE"
+  },
+  "TMUS": {
+    "name_en": "T-Mobile US, Inc.",
+    "name_zh": "T-Mobile 美國",
+    "exchange": "NASDAQ"
+  },
+  "SAN": {
+    "name_en": "Banco Santander, S.A.",
+    "name_zh": "桑坦德",
+    "exchange": "NYSE"
+  },
+  "PFE": {
+    "name_en": "Pfizer Inc.",
+    "name_zh": "輝瑞",
+    "exchange": "NYSE"
+  },
+  "BUD": {
+    "name_en": "Anheuser-Busch InBev SA/NV",
+    "name_zh": "百威英博",
+    "exchange": "NYSE"
+  },
+  "COP": {
+    "name_en": "ConocoPhillips",
+    "name_zh": "康菲石油",
+    "exchange": "NYSE"
+  },
+  "DHR": {
+    "name_en": "Danaher Corporation",
+    "name_zh": "丹納赫",
+    "exchange": "NYSE"
+  },
+  "ISRG": {
+    "name_en": "Intuitive Surgical, Inc.",
+    "name_zh": "直覺外科",
+    "exchange": "NASDAQ"
+  },
+  "ACN": {
+    "name_en": "Accenture plc",
+    "name_zh": "埃森哲",
+    "exchange": "NYSE"
+  },
+  "SONY": {
+    "name_en": "Sony Group Corporation",
+    "name_zh": "索尼",
+    "exchange": "NYSE"
+  },
+  "SCHW": {
+    "name_en": "The Charles Schwab Corporation",
+    "name_zh": "嘉信",
+    "exchange": "NYSE"
+  },
+  "TJX": {
+    "name_en": "TJX Companies",
+    "name_zh": "TJX 公司",
+    "exchange": "NYSE"
+  },
+  "UBS": {
+    "name_en": "UBS Group AG",
+    "name_zh": "瑞銀",
+    "exchange": "NYSE"
+  },
+  "T": {
+    "name_en": "AT&T Inc.",
+    "name_zh": "AT&T",
+    "exchange": "NYSE"
+  },
+  "SCCO": {
+    "name_en": "Southern Copper Corporation",
+    "name_zh": "南方銅業",
+    "exchange": "NYSE"
+  },
+  "UL": {
+    "name_en": "Unilever PLC",
+    "name_zh": "聯合利華",
+    "exchange": "NYSE"
+  },
+  "UBER": {
+    "name_en": "Uber Technologies, Inc.",
+    "name_zh": "Uber",
+    "exchange": "NYSE"
+  },
+  "CB": {
+    "name_en": "Chubb Limited",
+    "name_zh": "安達保險",
+    "exchange": "NYSE"
+  },
+  "BX": {
+    "name_en": "Blackstone Inc.",
+    "name_zh": "黑石",
+    "exchange": "NYSE"
+  },
+  "VRTX": {
+    "name_en": "Vertex Pharmaceuticals Incorporated",
+    "name_zh": "福泰製藥",
+    "exchange": "NASDAQ"
+  },
+  "BBVA": {
+    "name_en": "BBVA",
+    "name_zh": "西班牙對外銀行",
+    "exchange": "NYSE"
+  },
+  "BA": {
+    "name_en": "The Boeing Company",
+    "name_zh": "波音",
+    "exchange": "NYSE"
+  },
+  "RIO": {
+    "name_en": "Rio Tinto Group",
+    "name_zh": "力拓",
+    "exchange": "NYSE"
+  },
+  "SPGI": {
+    "name_en": "S&P Global Inc.",
+    "name_zh": "標普全球",
+    "exchange": "NYSE"
+  },
+  "IBKR": {
+    "name_en": "Interactive Brokers Group, Inc.",
+    "name_zh": "盈透證券",
+    "exchange": "NASDAQ"
+  },
+  "ETN": {
+    "name_en": "Eaton Corporation plc",
+    "name_zh": "伊頓",
+    "exchange": "NYSE"
+  },
+  "PGR": {
+    "name_en": "The Progressive Corporation",
+    "name_zh": "前進保險",
+    "exchange": "NYSE"
+  },
+  "LMT": {
+    "name_en": "Lockheed Martin Corporation",
+    "name_zh": "洛克希德馬丁",
+    "exchange": "NYSE"
+  },
+  "BTI": {
+    "name_en": "British American Tobacco p.l.c.",
+    "name_zh": "英美煙草",
+    "exchange": "NYSE"
+  },
+  "MDT": {
+    "name_en": "Medtronic Plc",
+    "name_zh": "美敦力",
+    "exchange": "NYSE"
+  },
+  "HDB": {
+    "name_en": "HDFC Bank Limited",
+    "name_zh": "HDFC銀行",
+    "exchange": "NYSE"
+  },
+  "BMY": {
+    "name_en": "Bristol-Myers Squibb Company",
+    "name_zh": "必治妥施貴寶",
+    "exchange": "NYSE"
+  },
+  "MO": {
+    "name_en": "Altria Group, Inc.",
+    "name_zh": "奧馳亞",
+    "exchange": "NYSE"
+  },
+  "LOW": {
+    "name_en": "Lowe's Companies, Inc.",
+    "name_zh": "勞氏",
+    "exchange": "NYSE"
+  },
+  "NEM": {
+    "name_en": "Newmont Corporation",
+    "name_zh": "紐蒙特",
+    "exchange": "NYSE"
+  },
+  "SYK": {
+    "name_en": "Stryker Corporation",
+    "name_zh": "史賽克",
+    "exchange": "NYSE"
+  },
+  "SPOT": {
+    "name_en": "Spotify Technology S.A.",
+    "name_zh": "Spotify",
+    "exchange": "NYSE"
+  },
+  "MCK": {
+    "name_en": "McKesson",
+    "name_zh": "麥克森",
+    "exchange": "NYSE"
+  },
+  "MRVL": {
+    "name_en": "Marvell Technology, Inc.",
+    "name_zh": "邁威爾科技",
+    "exchange": "NASDAQ"
+  },
+  "IBN": {
+    "name_en": "ICICI Bank Limited",
+    "name_zh": "ICICI銀行",
+    "exchange": "NYSE"
+  },
+  "COF": {
+    "name_en": "Capital One Financial Corporation",
+    "name_zh": "第一資本",
+    "exchange": "NYSE"
+  },
+  "BKNG": {
+    "name_en": "Booking Holdings Inc.",
+    "name_zh": "Booking 控股",
+    "exchange": "NASDAQ"
+  },
+  "PLD": {
+    "name_en": "Prologis, Inc.",
+    "name_zh": "普洛斯 (Prologis)",
+    "exchange": "NYSE"
+  },
+  "SBUX": {
+    "name_en": "Starbucks Corporation",
+    "name_zh": "星巴克",
+    "exchange": "NASDAQ"
+  },
+  "ADP": {
+    "name_en": "Automatic Data Processing, Inc.",
+    "name_zh": "安德普翰",
+    "exchange": "NASDAQ"
+  },
+  "PBR": {
+    "name_en": "Petróleo Brasileiro S.A. - Petrobras",
+    "name_zh": "巴西石油",
+    "exchange": "NYSE"
+  },
+  "APP": {
+    "name_en": "AppLovin Corporation",
+    "name_zh": "AppLovin",
+    "exchange": "NASDAQ"
+  },
+  "BMO": {
+    "name_en": "Bank of Montreal",
+    "name_zh": "滿地可銀行",
+    "exchange": "NYSE"
+  },
+  "SNDK": {
+    "name_en": "Sandisk Corporation",
+    "name_zh": "SanDisk",
+    "exchange": "NASDAQ"
+  },
+  "BP": {
+    "name_en": "BP",
+    "name_zh": "英國石油",
+    "exchange": "NYSE"
+  },
+  "PH": {
+    "name_en": "Parker-Hannifin Corporation",
+    "name_zh": "Parker",
+    "exchange": "NYSE"
+  },
+  "PDD": {
+    "name_en": "PDD Holdings Inc.",
+    "name_zh": "拼多多",
+    "exchange": "NASDAQ"
+  },
+  "SNY": {
+    "name_en": "Sanofi",
+    "name_zh": "賽諾菲",
+    "exchange": "NASDAQ"
+  },
+  "ABNB": {
+    "name_en": "Airbnb, Inc.",
+    "name_zh": "Airbnb",
+    "exchange": "NASDAQ"
+  },
+  "MFG": {
+    "name_en": "Mizuho Financial Group, Inc.",
+    "name_zh": "瑞穗金融",
+    "exchange": "NYSE"
+  },
+  "BNS": {
+    "name_en": "The Bank of Nova Scotia",
+    "name_zh": "豐業銀行",
+    "exchange": "NYSE"
+  },
+  "PBR-A": {
+    "name_en": "Petróleo Brasileiro S.A. - Petrobras",
+    "name_zh": "巴西石油Ａ",
+    "exchange": "NYSE"
+  },
+  "CME": {
+    "name_en": "CME Group Inc.",
+    "name_zh": "芝商所",
+    "exchange": "NASDAQ"
+  },
+  "MAR": {
+    "name_en": "Marriott International, Inc.",
+    "name_zh": "萬豪",
+    "exchange": "NASDAQ"
+  },
+  "CVS": {
+    "name_en": "CVS Health Corp.",
+    "name_zh": "CVS Health",
+    "exchange": "NYSE"
+  },
+  "SO": {
+    "name_en": "The Southern Company",
+    "name_zh": "南方公司",
+    "exchange": "NYSE"
+  },
+  "NOW": {
+    "name_en": "ServiceNow, Inc.",
+    "name_zh": "ServiceNow",
+    "exchange": "NYSE"
+  },
+  "STX": {
+    "name_en": "Seagate Technology Holdings plc",
+    "name_zh": "Seagate",
+    "exchange": "NASDAQ"
+  },
+  "MPC": {
+    "name_en": "Marathon Petroleum Corporation",
+    "name_zh": "馬拉松石油",
+    "exchange": "NYSE"
+  },
+  "CM": {
+    "name_en": "Canadian Imperial Bank of Commerce",
+    "name_zh": "加拿大帝國商業銀行",
+    "exchange": "NYSE"
+  },
+  "ENB": {
+    "name_en": "Enbridge Inc.",
+    "name_zh": "恩橋公司",
+    "exchange": "NYSE"
+  },
+  "HCA": {
+    "name_en": "HCA Healthcare, Inc.",
+    "name_zh": "HCA Healthcare",
+    "exchange": "NYSE"
+  },
+  "EQNR": {
+    "name_en": "Equinor ASA",
+    "name_zh": "Equinor",
+    "exchange": "NYSE"
+  },
+  "GSK": {
+    "name_en": "GSK plc",
+    "name_zh": "葛蘭素史克",
+    "exchange": "NYSE"
+  },
+  "MRNA": {
+    "name_en": "Moderna, Inc.",
+    "name_zh": "Moderna",
+    "exchange": "NASDAQ"
+  },
+  "EQIX": {
+    "name_en": "Equinix, Inc.",
+    "name_zh": "易華電腦 (Equinix)",
+    "exchange": "NASDAQ"
+  },
+  "CNQ": {
+    "name_en": "Canadian Natural Resources Limited",
+    "name_zh": "加拿大自然資源",
+    "exchange": "NYSE"
+  },
+  "GLW": {
+    "name_en": "Corning",
+    "name_zh": "Corning",
+    "exchange": "NYSE"
+  },
+  "FDX": {
+    "name_en": "FedEx",
+    "name_zh": "FedEx",
+    "exchange": "NYSE"
+  },
+  "UPS": {
+    "name_en": "United Parcel Service",
+    "name_zh": "聯合包裹",
+    "exchange": "NYSE"
+  },
+  "EXPD": {
+    "name_en": "Expeditors",
+    "name_zh": "康捷國際",
+    "exchange": "NASDAQ"
+  },
+  "BBY": {
+    "name_en": "Best Buy",
+    "name_zh": "百思買",
+    "exchange": "NYSE"
+  },
+  "2317.TW": {
+    "name_en": "Hon Hai (Foxconn)",
+    "name_zh": "鴻海",
+    "exchange": "TWSE"
+  },
+  "4938.TW": {
+    "name_en": "Pegatron",
+    "name_zh": "和碩",
+    "exchange": "TWSE"
+  },
+  "002475.SZ": {
+    "name_en": "Luxshare Precision",
+    "name_zh": "立訊精密",
+    "exchange": "SZSE"
+  },
+  "005930.KS": {
+    "name_en": "Samsung Electronics",
+    "name_zh": "三星電子",
+    "exchange": "KRX"
+  },
+  "1810.HK": {
+    "name_en": "Xiaomi",
+    "name_zh": "小米集團",
+    "exchange": "HKEX"
+  },
+  "688036.SS": {
+    "name_en": "Transsion",
+    "name_zh": "傳音控股",
+    "exchange": "SSE"
+  },
+  "000660.KS": {
+    "name_en": "SK hynix",
+    "name_zh": "SK海力士",
+    "exchange": "KRX"
+  },
+  "2330.TW": {
+    "name_en": "TSMC",
+    "name_zh": "台積電",
+    "exchange": "TWSE"
+  },
+  "3711.TW": {
+    "name_en": "ASE Technology",
+    "name_zh": "日月光投控",
+    "exchange": "TWSE"
+  },
+  "2454.TW": {
+    "name_en": "MediaTek",
+    "name_zh": "聯發科",
+    "exchange": "TWSE"
+  },
+  "2303.TW": {
+    "name_en": "UMC",
+    "name_zh": "聯電",
+    "exchange": "TWSE"
+  },
+  "8035.T": {
+    "name_en": "Tokyo Electron",
+    "name_zh": "東京威力科創",
+    "exchange": "TSE"
+  },
+  "4063.T": {
+    "name_en": "Shin-Etsu Chemical",
+    "name_zh": "信越化學",
+    "exchange": "TSE"
+  },
+  "6981.T": {
+    "name_en": "Murata",
+    "name_zh": "村田",
+    "exchange": "TSE"
+  },
+  "6758.T": {
+    "name_en": "Sony Group",
+    "name_zh": "索尼集團",
+    "exchange": "TSE"
+  },
+  "1211.HK": {
+    "name_en": "BYD",
+    "name_zh": "比亞迪股份",
+    "exchange": "HKEX"
+  },
+  "0700.HK": {
+    "name_en": "Tencent",
+    "name_zh": "騰訊",
+    "exchange": "HKEX"
+  },
+  "9988.HK": {
+    "name_en": "Alibaba",
+    "name_zh": "阿里巴巴",
+    "exchange": "HKEX"
+  },
+  "3690.HK": {
+    "name_en": "Meituan",
+    "name_zh": "美團",
+    "exchange": "HKEX"
+  },
+  "9618.HK": {
+    "name_en": "JD.com",
+    "name_zh": "京東集團",
+    "exchange": "HKEX"
+  },
+  "9999.HK": {
+    "name_en": "NetEase",
+    "name_zh": "網易",
+    "exchange": "HKEX"
+  },
+  "0941.HK": {
+    "name_en": "China Mobile",
+    "name_zh": "中國移動",
+    "exchange": "HKEX"
+  },
+  "005380.KS": {
+    "name_en": "Hyundai Motor",
+    "name_zh": "現代汽車",
+    "exchange": "KRX"
+  },
+  "7203.T": {
+    "name_en": "Toyota",
+    "name_zh": "豐田",
+    "exchange": "TSE"
+  },
+  "7267.T": {
+    "name_en": "Honda",
+    "name_zh": "本田",
+    "exchange": "TSE"
+  },
+  "NKE": {
+    "name_en": "Nike",
+    "name_zh": "耐克",
+    "exchange": "NYSE"
+  },
+  "F": {
+    "name_en": "Ford",
+    "name_zh": "福特",
+    "exchange": "NYSE"
+  },
+  "GM": {
+    "name_en": "General Motors",
+    "name_zh": "通用汽車",
+    "exchange": "NYSE"
+  },
+  "RIVN": {
+    "name_en": "Rivian",
+    "name_zh": "Rivian",
+    "exchange": "NASDAQ"
+  },
+  "NIO": {
+    "name_en": "NIO",
+    "name_zh": "蔚來",
+    "exchange": "NYSE"
+  },
+  "SLB": {
+    "name_en": "Schlumberger",
+    "name_zh": "斯倫貝謝",
+    "exchange": "NYSE"
+  },
+  "HAL": {
+    "name_en": "Halliburton",
+    "name_zh": "哈里伯頓",
+    "exchange": "NYSE"
+  },
+  "BKR": {
+    "name_en": "Baker Hughes",
+    "name_zh": "貝克休斯",
+    "exchange": "NASDAQ"
+  },
+  "OXY": {
+    "name_en": "Occidental",
+    "name_zh": "西方石油",
+    "exchange": "NYSE"
+  },
+  "EOG": {
+    "name_en": "EOG Resources",
+    "name_zh": "EOG 能源",
+    "exchange": "NYSE"
+  },
+  "VLO": {
+    "name_en": "Valero",
+    "name_zh": "維萊羅",
+    "exchange": "NYSE"
+  },
+  "PSX": {
+    "name_en": "Phillips 66",
+    "name_zh": "菲利普斯66",
+    "exchange": "NYSE"
+  },
+  "KMI": {
+    "name_en": "Kinder Morgan",
+    "name_zh": "金德摩根",
+    "exchange": "NYSE"
+  },
+  "WMB": {
+    "name_en": "Williams",
+    "name_zh": "威廉斯公司",
+    "exchange": "NYSE"
+  },
+  "OKE": {
+    "name_en": "ONEOK",
+    "name_zh": "ONEOK",
+    "exchange": "NYSE"
+  },
+  "LNG": {
+    "name_en": "Cheniere",
+    "name_zh": "Cheniere",
+    "exchange": "NYSE"
+  },
+  "NOC": {
+    "name_en": "Northrop Grumman",
+    "name_zh": "諾斯洛普格魯曼",
+    "exchange": "NYSE"
+  },
+  "GD": {
+    "name_en": "General Dynamics",
+    "name_zh": "通用動力",
+    "exchange": "NYSE"
+  },
+  "LHX": {
+    "name_en": "L3Harris",
+    "name_zh": "L3Harris",
+    "exchange": "NYSE"
+  },
+  "HON": {
+    "name_en": "Honeywell",
+    "name_zh": "霍尼韋爾",
+    "exchange": "NASDAQ"
+  },
+  "EMR": {
+    "name_en": "Emerson",
+    "name_zh": "艾默生",
+    "exchange": "NYSE"
+  },
+  "ROK": {
+    "name_en": "Rockwell Automation",
+    "name_zh": "Rockwell",
+    "exchange": "NYSE"
+  },
+  "MMM": {
+    "name_en": "3M",
+    "name_zh": "3M",
+    "exchange": "NYSE"
+  },
+  "ITW": {
+    "name_en": "Illinois Tool Works",
+    "name_zh": "伊利諾工具",
+    "exchange": "NYSE"
+  },
+  "CSX": {
+    "name_en": "CSX Corporation",
+    "name_zh": "CSX 鐵路",
+    "exchange": "NASDAQ"
+  },
+  "NSC": {
+    "name_en": "Norfolk Southern",
+    "name_zh": "諾福克南方",
+    "exchange": "NYSE"
+  },
+  "WM": {
+    "name_en": "Waste Management",
+    "name_zh": "Waste Management",
+    "exchange": "NYSE"
+  },
+  "RSG": {
+    "name_en": "Republic Services",
+    "name_zh": "Republic Services",
+    "exchange": "NYSE"
+  },
+  "AMT": {
+    "name_en": "American Tower",
+    "name_zh": "美國電塔",
+    "exchange": "NYSE"
+  },
+  "CCI": {
+    "name_en": "Crown Castle",
+    "name_zh": "Crown Castle",
+    "exchange": "NYSE"
+  },
+  "SBAC": {
+    "name_en": "SBA Communications",
+    "name_zh": "SBA",
+    "exchange": "NASDAQ"
+  },
+  "DLR": {
+    "name_en": "Digital Realty",
+    "name_zh": "Digital Realty",
+    "exchange": "NYSE"
+  },
+  "SNPS": {
+    "name_en": "Synopsys",
+    "name_zh": "新思科技",
+    "exchange": "NASDAQ"
+  },
+  "CDNS": {
+    "name_en": "Cadence",
+    "name_zh": "楷登電子",
+    "exchange": "NASDAQ"
+  },
+  "KEYS": {
+    "name_en": "Keysight",
+    "name_zh": "是德科技",
+    "exchange": "NYSE"
+  },
+  "TER": {
+    "name_en": "Teradyne",
+    "name_zh": "泰瑞達",
+    "exchange": "NASDAQ"
+  },
+  "ENTG": {
+    "name_en": "Entegris",
+    "name_zh": "Entegris",
+    "exchange": "NASDAQ"
+  },
+  "AMKR": {
+    "name_en": "Amkor",
+    "name_zh": "Amkor",
+    "exchange": "NASDAQ"
+  },
+  "GFS": {
+    "name_en": "GlobalFoundries",
+    "name_zh": "GlobalFoundries",
+    "exchange": "NASDAQ"
+  },
+  "ON": {
+    "name_en": "onsemi",
+    "name_zh": "安森美",
+    "exchange": "NASDAQ"
+  },
+  "NXPI": {
+    "name_en": "NXP",
+    "name_zh": "恩智浦",
+    "exchange": "NASDAQ"
+  },
+  "STM": {
+    "name_en": "STMicroelectronics",
+    "name_zh": "意法半導體",
+    "exchange": "NYSE"
+  },
+  "SWKS": {
+    "name_en": "Skyworks",
+    "name_zh": "Skyworks",
+    "exchange": "NASDAQ"
+  },
+  "MPWR": {
+    "name_en": "Monolithic Power",
+    "name_zh": "Monolithic Power",
+    "exchange": "NASDAQ"
+  },
+  "WDC": {
+    "name_en": "Western Digital",
+    "name_zh": "Western Digital",
+    "exchange": "NASDAQ"
+  },
+  "SMCI": {
+    "name_en": "Super Micro",
+    "name_zh": "超微電腦",
+    "exchange": "NASDAQ"
+  },
+  "HPQ": {
+    "name_en": "HP Inc.",
+    "name_zh": "惠普",
+    "exchange": "NYSE"
+  },
+  "HPE": {
+    "name_en": "Hewlett Packard Enterprise",
+    "name_zh": "慧與",
+    "exchange": "NYSE"
+  },
+  "JNPR": {
+    "name_en": "Juniper Networks",
+    "name_zh": "瞻博網路",
+    "exchange": "NYSE"
+  },
+  "CDW": {
+    "name_en": "CDW Corporation",
+    "name_zh": "CDW 科技",
+    "exchange": "NASDAQ"
+  },
+  "AVT": {
+    "name_en": "Avnet",
+    "name_zh": "Avnet",
+    "exchange": "NASDAQ"
+  },
+  "ARW": {
+    "name_en": "Arrow Electronics",
+    "name_zh": "Arrow Electronics",
+    "exchange": "NYSE"
+  },
+  "SNX": {
+    "name_en": "TD Synnex",
+    "name_zh": "TD Synnex",
+    "exchange": "NYSE"
+  },
+  "JBL": {
+    "name_en": "Jabil",
+    "name_zh": "Jabil",
+    "exchange": "NYSE"
+  },
+  "FLEX": {
+    "name_en": "Flex",
+    "name_zh": "Flex",
+    "exchange": "NASDAQ"
+  },
+  "TEL": {
+    "name_en": "TE Connectivity",
+    "name_zh": "泰科電子",
+    "exchange": "NYSE"
+  },
+  "PYPL": {
+    "name_en": "PayPal",
+    "name_zh": "PayPal",
+    "exchange": "NASDAQ"
+  },
+  "SQ": {
+    "name_en": "Block",
+    "name_zh": "Block",
+    "exchange": "NYSE"
+  },
+  "FIS": {
+    "name_en": "Fidelity National Information Services",
+    "name_zh": "FIS 金融科技",
+    "exchange": "NYSE"
+  },
+  "FISV": {
+    "name_en": "Fiserv",
+    "name_zh": "Fiserv",
+    "exchange": "NYSE"
+  },
+  "GPN": {
+    "name_en": "Global Payments",
+    "name_zh": "Global Payments",
+    "exchange": "NYSE"
+  },
+  "TOST": {
+    "name_en": "Toast",
+    "name_zh": "Toast",
+    "exchange": "NYSE"
+  },
+  "DFS": {
+    "name_en": "Discover Financial",
+    "name_zh": "Discover",
+    "exchange": "NYSE"
+  },
+  "USB": {
+    "name_en": "U.S. Bancorp",
+    "name_zh": "美國合眾銀行",
+    "exchange": "NYSE"
+  },
+  "PNC": {
+    "name_en": "The PNC Financial Services Group, Inc.",
+    "name_zh": "PNC 金融",
+    "exchange": "NYSE"
+  },
+  "TFC": {
+    "name_en": "Truist",
+    "name_zh": "Truist",
+    "exchange": "NYSE"
+  },
+  "BK": {
+    "name_en": "BNY Mellon",
+    "name_zh": "紐約梅隆銀行",
+    "exchange": "NYSE"
+  },
+  "STT": {
+    "name_en": "State Street",
+    "name_zh": "State Street",
+    "exchange": "NYSE"
+  },
+  "NTRS": {
+    "name_en": "Northern Trust",
+    "name_zh": "Northern Trust",
+    "exchange": "NASDAQ"
+  },
+  "ICE": {
+    "name_en": "Intercontinental Exchange",
+    "name_zh": "洲際交易所",
+    "exchange": "NYSE"
+  },
+  "NDAQ": {
+    "name_en": "Nasdaq",
+    "name_zh": "Nasdaq",
+    "exchange": "NASDAQ"
+  },
+  "MCO": {
+    "name_en": "Moody's",
+    "name_zh": "穆迪",
+    "exchange": "NYSE"
+  },
+  "FICO": {
+    "name_en": "Fair Isaac",
+    "name_zh": "費埃哲",
+    "exchange": "NYSE"
+  },
+  "VRSK": {
+    "name_en": "Verisk",
+    "name_zh": "威瑞斯克",
+    "exchange": "NASDAQ"
+  },
+  "TRV": {
+    "name_en": "Travelers",
+    "name_zh": "旅行者保險",
+    "exchange": "NYSE"
+  },
+  "ALL": {
+    "name_en": "Allstate",
+    "name_zh": "全州保險",
+    "exchange": "NYSE"
+  },
+  "AIG": {
+    "name_en": "American International Group, Inc.",
+    "name_zh": "美國國際集團",
+    "exchange": "NYSE"
+  },
+  "MET": {
+    "name_en": "MetLife",
+    "name_zh": "大都會人壽",
+    "exchange": "NYSE"
+  },
+  "PRU": {
+    "name_en": "Prudential",
+    "name_zh": "保德信金融",
+    "exchange": "NYSE"
+  },
+  "AON": {
+    "name_en": "Aon",
+    "name_zh": "怡安集團",
+    "exchange": "NYSE"
+  },
+  "MMC": {
+    "name_en": "Marsh McLennan",
+    "name_zh": "威達信",
+    "exchange": "NYSE"
+  },
+  "AJG": {
+    "name_en": "Arthur J. Gallagher",
+    "name_zh": "亞瑟加拉格爾",
+    "exchange": "NYSE"
+  },
+  "KKR": {
+    "name_en": "KKR",
+    "name_zh": "KKR 集團",
+    "exchange": "NYSE"
+  },
+  "APO": {
+    "name_en": "Apollo",
+    "name_zh": "Apollo",
+    "exchange": "NYSE"
+  },
+  "BN": {
+    "name_en": "Brookfield",
+    "name_zh": "Brookfield",
+    "exchange": "NYSE"
+  },
+  "TROW": {
+    "name_en": "T. Rowe Price",
+    "name_zh": "T. Rowe Price",
+    "exchange": "NASDAQ"
+  },
+  "CI": {
+    "name_en": "Cigna",
+    "name_zh": "信諾",
+    "exchange": "NYSE"
+  },
+  "ELV": {
+    "name_en": "Elevance Health",
+    "name_zh": "Elevance Health",
+    "exchange": "NYSE"
+  },
+  "HUM": {
+    "name_en": "Humana",
+    "name_zh": "哈門那",
+    "exchange": "NYSE"
+  },
+  "CNC": {
+    "name_en": "Centene",
+    "name_zh": "Centene",
+    "exchange": "NYSE"
+  },
+  "IQV": {
+    "name_en": "IQVIA",
+    "name_zh": "IQVIA",
+    "exchange": "NYSE"
+  },
+  "CRL": {
+    "name_en": "Charles River Laboratories",
+    "name_zh": "查爾斯河實驗室",
+    "exchange": "NYSE"
+  },
+  "LH": {
+    "name_en": "Labcorp",
+    "name_zh": "來博科",
+    "exchange": "NYSE"
+  },
+  "DGX": {
+    "name_en": "Quest Diagnostics",
+    "name_zh": "Quest Diagnostics",
+    "exchange": "NYSE"
+  },
+  "BSX": {
+    "name_en": "Boston Scientific",
+    "name_zh": "Boston Scientific",
+    "exchange": "NYSE"
+  },
+  "EW": {
+    "name_en": "Edwards Lifesciences",
+    "name_zh": "Edwards Lifesciences",
+    "exchange": "NYSE"
+  },
+  "ZBH": {
+    "name_en": "Zimmer Biomet",
+    "name_zh": "捷邁邦美",
+    "exchange": "NYSE"
+  },
+  "BDX": {
+    "name_en": "Becton Dickinson",
+    "name_zh": "碧迪醫療",
+    "exchange": "NYSE"
+  },
+  "BAX": {
+    "name_en": "Baxter",
+    "name_zh": "Baxter",
+    "exchange": "NYSE"
+  },
+  "RMD": {
+    "name_en": "ResMed",
+    "name_zh": "ResMed",
+    "exchange": "NYSE"
+  },
+  "DXCM": {
+    "name_en": "DexCom",
+    "name_zh": "DexCom",
+    "exchange": "NASDAQ"
+  },
+  "GEHC": {
+    "name_en": "GE HealthCare",
+    "name_zh": "GE醫療",
+    "exchange": "NASDAQ"
+  },
+  "REGN": {
+    "name_en": "Regeneron",
+    "name_zh": "再生元製藥",
+    "exchange": "NASDAQ"
+  },
+  "BIIB": {
+    "name_en": "Biogen",
+    "name_zh": "Biogen",
+    "exchange": "NASDAQ"
+  },
+  "ZTS": {
+    "name_en": "Zoetis",
+    "name_zh": "Zoetis",
+    "exchange": "NYSE"
+  },
+  "COR": {
+    "name_en": "Cencora",
+    "name_zh": "信卡拉",
+    "exchange": "NYSE"
+  },
+  "CAH": {
+    "name_en": "Cardinal Health",
+    "name_zh": "卡地納健康",
+    "exchange": "NYSE"
+  },
+  "WBA": {
+    "name_en": "Walgreens Boots Alliance",
+    "name_zh": "沃爾格林",
+    "exchange": "NASDAQ"
+  },
+  "ADM": {
+    "name_en": "Archer-Daniels-Midland Company",
+    "name_zh": "阿徹丹尼爾斯米德蘭",
+    "exchange": "NYSE"
+  },
+  "GIS": {
+    "name_en": "General Mills",
+    "name_zh": "通用磨坊",
+    "exchange": "NYSE"
+  },
+  "MDLZ": {
+    "name_en": "Mondelez",
+    "name_zh": "億滋",
+    "exchange": "NASDAQ"
+  },
+  "KHC": {
+    "name_en": "Kraft Heinz",
+    "name_zh": "卡夫亨氏",
+    "exchange": "NASDAQ"
+  },
+  "CL": {
+    "name_en": "Colgate-Palmolive",
+    "name_zh": "高露潔",
+    "exchange": "NYSE"
+  },
+  "KMB": {
+    "name_en": "Kimberly-Clark",
+    "name_zh": "金百利",
+    "exchange": "NYSE"
+  },
+  "EL": {
+    "name_en": "Estée Lauder",
+    "name_zh": "雅詩蘭黛",
+    "exchange": "NYSE"
+  },
+  "TGT": {
+    "name_en": "Target",
+    "name_zh": "目標百貨 (Target)",
+    "exchange": "NYSE"
+  },
+  "KR": {
+    "name_en": "Kroger",
+    "name_zh": "Kroger",
+    "exchange": "NYSE"
+  },
+  "SYY": {
+    "name_en": "Sysco",
+    "name_zh": "Sysco",
+    "exchange": "NYSE"
+  },
+  "CMG": {
+    "name_en": "Chipotle",
+    "name_zh": "奇波雷墨西哥燒烤",
+    "exchange": "NYSE"
+  },
+  "YUM": {
+    "name_en": "Yum! Brands",
+    "name_zh": "百勝餐飲",
+    "exchange": "NYSE"
+  },
+  "HLT": {
+    "name_en": "Hilton",
+    "name_zh": "希爾頓",
+    "exchange": "NYSE"
+  },
+  "DAL": {
+    "name_en": "Delta Air Lines",
+    "name_zh": "達美航空",
+    "exchange": "NYSE"
+  },
+  "UAL": {
+    "name_en": "United Airlines",
+    "name_zh": "聯合航空",
+    "exchange": "NASDAQ"
+  },
+  "RCL": {
+    "name_en": "Royal Caribbean",
+    "name_zh": "皇家加勒比",
+    "exchange": "NYSE"
+  },
+  "ROST": {
+    "name_en": "Ross",
+    "name_zh": "羅斯百貨",
+    "exchange": "NASDAQ"
+  },
+  "DG": {
+    "name_en": "Dollar General",
+    "name_zh": "Dollar General",
+    "exchange": "NYSE"
+  },
+  "FSLR": {
+    "name_en": "First Solar",
+    "name_zh": "First Solar",
+    "exchange": "NASDAQ"
+  },
+  "ENPH": {
+    "name_en": "Enphase Energy",
+    "name_zh": "恩菲斯能源",
+    "exchange": "NASDAQ"
+  },
+  "CEG": {
+    "name_en": "Constellation",
+    "name_zh": "星座能源",
+    "exchange": "NASDAQ"
+  },
+  "DUK": {
+    "name_en": "Duke Energy",
+    "name_zh": "杜克能源",
+    "exchange": "NYSE"
+  },
+  "AEP": {
+    "name_en": "American Electric Power",
+    "name_zh": "美國電力",
+    "exchange": "NASDAQ"
+  },
+  "SRE": {
+    "name_en": "Sempra",
+    "name_zh": "桑普拉能源",
+    "exchange": "NYSE"
+  },
+  "VST": {
+    "name_en": "Vistra",
+    "name_zh": "Vistra",
+    "exchange": "NYSE"
+  },
+  "ALB": {
+    "name_en": "Albemarle",
+    "name_zh": "Albemarle",
+    "exchange": "NYSE"
+  },
+  "FCX": {
+    "name_en": "Freeport-McMoRan",
+    "name_zh": "自由港麥inkan",
+    "exchange": "NYSE"
+  },
+  "NUE": {
+    "name_en": "Nucor",
+    "name_zh": "Nucor",
+    "exchange": "NYSE"
+  },
+  "VALE": {
+    "name_en": "Vale",
+    "name_zh": "淡水河谷",
+    "exchange": "NYSE"
+  },
+  "GOLD": {
+    "name_en": "Barrick Gold",
+    "name_zh": "巴里克黃金",
+    "exchange": "NYSE"
+  },
+  "DOW": {
+    "name_en": "Dow",
+    "name_zh": "陶氏",
+    "exchange": "NYSE"
+  },
+  "APD": {
+    "name_en": "Air Products",
+    "name_zh": "空氣化工",
+    "exchange": "NYSE"
+  },
+  "SHW": {
+    "name_en": "Sherwin-Williams",
+    "name_zh": "宣偉塗料",
+    "exchange": "NYSE"
+  },
+  "ECL": {
+    "name_en": "Ecolab",
+    "name_zh": "藝康集團",
+    "exchange": "NYSE"
+  },
+  "CTVA": {
+    "name_en": "Corteva",
+    "name_zh": "Corteva",
+    "exchange": "NYSE"
+  },
+  "INFY": {
+    "name_en": "Infosys",
+    "name_zh": "Infosys",
+    "exchange": "NYSE"
+  },
+  "CTSH": {
+    "name_en": "Cognizant",
+    "name_zh": "Cognizant",
+    "exchange": "NASDAQ"
+  },
+  "WIT": {
+    "name_en": "Wipro",
+    "name_zh": "Wipro",
+    "exchange": "NYSE"
+  },
+  "SNOW": {
+    "name_en": "Snowflake",
+    "name_zh": "Snowflake",
+    "exchange": "NYSE"
+  },
+  "DDOG": {
+    "name_en": "Datadog",
+    "name_zh": "Datadog",
+    "exchange": "NASDAQ"
+  },
+  "NET": {
+    "name_en": "Cloudflare",
+    "name_zh": "Cloudflare",
+    "exchange": "NYSE"
+  },
+  "ZS": {
+    "name_en": "Zscaler",
+    "name_zh": "Zscaler",
+    "exchange": "NASDAQ"
+  },
+  "FTNT": {
+    "name_en": "Fortinet",
+    "name_zh": "飛塔資訊",
+    "exchange": "NASDAQ"
+  },
+  "INTU": {
+    "name_en": "Intuit",
+    "name_zh": "直覺電腦",
+    "exchange": "NASDAQ"
+  },
+  "WDAY": {
+    "name_en": "Workday",
+    "name_zh": "Workday",
+    "exchange": "NASDAQ"
+  },
+  "TEAM": {
+    "name_en": "Atlassian",
+    "name_zh": "Atlassian",
+    "exchange": "NASDAQ"
+  },
+  "ADSK": {
+    "name_en": "Autodesk",
+    "name_zh": "Autodesk",
+    "exchange": "NASDAQ"
+  },
+  "TTD": {
+    "name_en": "Trade Desk",
+    "name_zh": "Trade Desk",
+    "exchange": "NASDAQ"
+  },
+  "EA": {
+    "name_en": "Electronic Arts",
+    "name_zh": "Electronic Arts",
+    "exchange": "NASDAQ"
+  },
+  "TTWO": {
+    "name_en": "Take-Two",
+    "name_zh": "Take-Two",
+    "exchange": "NASDAQ"
+  },
+  "CMCSA": {
+    "name_en": "Comcast",
+    "name_zh": "康卡斯特",
+    "exchange": "NASDAQ"
+  },
+  "WBD": {
+    "name_en": "Warner Bros. Discovery",
+    "name_zh": "華納兄弟探索",
+    "exchange": "NASDAQ"
+  },
+  "LYFT": {
+    "name_en": "Lyft",
+    "name_zh": "Lyft",
+    "exchange": "NASDAQ"
+  },
+  "DASH": {
+    "name_en": "DoorDash",
+    "name_zh": "DoorDash",
+    "exchange": "NASDAQ"
+  },
+  "MELI": {
+    "name_en": "MercadoLibre",
+    "name_zh": "MercadoLibre",
+    "exchange": "NASDAQ"
+  },
+  "JD": {
+    "name_en": "JD.com",
+    "name_zh": "京東",
+    "exchange": "NASDAQ"
+  },
+  "SE": {
+    "name_en": "Sea",
+    "name_zh": "Sea",
+    "exchange": "NYSE"
+  },
+  "CPNG": {
+    "name_en": "Coupang",
+    "name_zh": "Coupang",
+    "exchange": "NYSE"
+  },
+  "EBAY": {
+    "name_en": "eBay",
+    "name_zh": "eBay",
+    "exchange": "NASDAQ"
+  },
+  "PATH": {
+    "name_en": "UiPath",
+    "name_zh": "UiPath",
+    "exchange": "NYSE"
+  },
+  "OKTA": {
+    "name_en": "Okta",
+    "name_zh": "Okta",
+    "exchange": "NASDAQ"
+  },
+  "MDB": {
+    "name_en": "MongoDB",
+    "name_zh": "MongoDB",
+    "exchange": "NASDAQ"
+  },
+  "HUBS": {
+    "name_en": "HubSpot",
+    "name_zh": "HubSpot",
+    "exchange": "NYSE"
+  },
+  "VEEV": {
+    "name_en": "Veeva",
+    "name_zh": "維瓦系統 (Veeva)",
+    "exchange": "NYSE"
+  },
+  "ADBE": {
+    "name_en": "Adobe",
+    "name_zh": "Adobe",
+    "exchange": "NASDAQ"
+  },
+  "SMSN.IL": {
+    "name_en": "Samsung GDR",
+    "name_zh": "三星GDR",
+    "exchange": "LSE"
+  },
+  "TCEHY": {
+    "name_en": "Tencent ADR",
+    "name_zh": "騰訊ADR",
+    "exchange": "OTC"
+  },
+  "NTES": {
+    "name_en": "NetEase",
+    "name_zh": "網易",
+    "exchange": "NASDAQ"
+  },
+  "BIDU": {
+    "name_en": "Baidu",
+    "name_zh": "百度集團",
+    "exchange": "NASDAQ"
+  },
+  "LI": {
+    "name_en": "Li Auto",
+    "name_zh": "理想汽車",
+    "exchange": "NASDAQ"
+  },
+  "XPEV": {
+    "name_en": "XPeng",
+    "name_zh": "小鵬",
+    "exchange": "NYSE"
+  },
+  "RACE": {
+    "name_en": "Ferrari",
+    "name_zh": "法拉利",
+    "exchange": "NYSE"
+  },
+  "STLA": {
+    "name_en": "Stellantis",
+    "name_zh": "Stellantis",
+    "exchange": "NYSE"
+  },
+  "MBGYY": {
+    "name_en": "Mercedes-Benz",
+    "name_zh": "賓士",
+    "exchange": "OTC"
+  },
+  "VWAGY": {
+    "name_en": "Volkswagen",
+    "name_zh": "福斯",
+    "exchange": "OTC"
+  },
+  "NSANY": {
+    "name_en": "Nissan",
+    "name_zh": "日產",
+    "exchange": "OTC"
+  },
+  "HMC": {
+    "name_en": "Honda",
+    "name_zh": "本田",
+    "exchange": "NYSE"
+  },
+  "AZO": {
+    "name_en": "AutoZone",
+    "name_zh": "汽車地帶 (AutoZone)",
+    "exchange": "NYSE"
+  },
+  "ORLY": {
+    "name_en": "O'Reilly",
+    "name_zh": "奧萊利汽車",
+    "exchange": "NASDAQ"
+  },
+  "AAP": {
+    "name_en": "Advance Auto Parts",
+    "name_zh": "Advance Auto",
+    "exchange": "NYSE"
+  },
+  "KMX": {
+    "name_en": "CarMax",
+    "name_zh": "CarMax",
+    "exchange": "NYSE"
+  },
+  "CVNA": {
+    "name_en": "Carvana",
+    "name_zh": "Carvana",
+    "exchange": "NYSE"
+  },
+  "LAD": {
+    "name_en": "Lithia Motors",
+    "name_zh": "Lithia",
+    "exchange": "NYSE"
+  },
+  "AN": {
+    "name_en": "AutoNation",
+    "name_zh": "AutoNation",
+    "exchange": "NYSE"
+  },
+  "PAG": {
+    "name_en": "Penske Automotive",
+    "name_zh": "Penske",
+    "exchange": "NYSE"
+  },
+  "CHWY": {
+    "name_en": "Chewy",
+    "name_zh": "Chewy",
+    "exchange": "NYSE"
+  },
+  "W": {
+    "name_en": "Wayfair",
+    "name_zh": "Wayfair",
+    "exchange": "NYSE"
+  },
+  "ETSY": {
+    "name_en": "Etsy",
+    "name_zh": "Etsy",
+    "exchange": "NASDAQ"
+  },
+  "WSM": {
+    "name_en": "Williams-Sonoma",
+    "name_zh": "Williams-Sonoma",
+    "exchange": "NYSE"
+  },
+  "RH": {
+    "name_en": "RH",
+    "name_zh": "RH",
+    "exchange": "NYSE"
+  },
+  "TPX": {
+    "name_en": "Tempur Sealy",
+    "name_zh": "Tempur Sealy",
+    "exchange": "NYSE"
+  },
+  "LEN": {
+    "name_en": "Lennar",
+    "name_zh": "Lennar",
+    "exchange": "NYSE"
+  },
+  "DHI": {
+    "name_en": "D.R. Horton",
+    "name_zh": "D.R. Horton",
+    "exchange": "NYSE"
+  },
+  "PHM": {
+    "name_en": "PulteGroup",
+    "name_zh": "Pulte",
+    "exchange": "NYSE"
+  },
+  "NVR": {
+    "name_en": "NVR",
+    "name_zh": "NVR",
+    "exchange": "NYSE"
+  },
+  "BLDR": {
+    "name_en": "Builders FirstSource",
+    "name_zh": "Builders FirstSource",
+    "exchange": "NYSE"
+  },
+  "FND": {
+    "name_en": "Floor & Decor",
+    "name_zh": "Floor & Decor",
+    "exchange": "NYSE"
+  },
+  "WMS": {
+    "name_en": "Advanced Drainage",
+    "name_zh": "ADS",
+    "exchange": "NYSE"
+  },
+  "TREX": {
+    "name_en": "Trex",
+    "name_zh": "Trex",
+    "exchange": "NYSE"
+  },
+  "OC": {
+    "name_en": "Owens Corning",
+    "name_zh": "Owens Corning",
+    "exchange": "NYSE"
+  },
+  "MAS": {
+    "name_en": "Masco",
+    "name_zh": "Masco",
+    "exchange": "NYSE"
+  },
+  "FBHS": {
+    "name_en": "Fortune Brands",
+    "name_zh": "Fortune Brands",
+    "exchange": "NYSE"
+  },
+  "SWK": {
+    "name_en": "Stanley Black & Decker",
+    "name_zh": "Stanley",
+    "exchange": "NYSE"
+  },
+  "TT": {
+    "name_en": "Trane Technologies",
+    "name_zh": "Trane",
+    "exchange": "NYSE"
+  },
+  "CARR": {
+    "name_en": "Carrier",
+    "name_zh": "Carrier",
+    "exchange": "NYSE"
+  },
+  "JCI": {
+    "name_en": "Johnson Controls",
+    "name_zh": "Johnson Controls",
+    "exchange": "NYSE"
+  },
+  "IR": {
+    "name_en": "Ingersoll Rand",
+    "name_zh": "Ingersoll Rand",
+    "exchange": "NYSE"
+  },
+  "XYL": {
+    "name_en": "Xylem",
+    "name_zh": "賽萊默 (Xylem)",
+    "exchange": "NYSE"
+  },
+  "PNR": {
+    "name_en": "Pentair",
+    "name_zh": "Pentair",
+    "exchange": "NYSE"
+  },
+  "DOV": {
+    "name_en": "Dover",
+    "name_zh": "Dover",
+    "exchange": "NYSE"
+  },
+  "FTV": {
+    "name_en": "Fortive",
+    "name_zh": "Fortive",
+    "exchange": "NYSE"
+  },
+  "TDY": {
+    "name_en": "Teledyne",
+    "name_zh": "Teledyne",
+    "exchange": "NYSE"
+  },
+  "TDG": {
+    "name_en": "TransDigm",
+    "name_zh": "環球透博",
+    "exchange": "NYSE"
+  },
+  "HEI": {
+    "name_en": "HEICO",
+    "name_zh": "HEICO",
+    "exchange": "NYSE"
+  },
+  "SPR": {
+    "name_en": "Spirit AeroSystems",
+    "name_zh": "Spirit AeroSystems",
+    "exchange": "NYSE"
+  },
+  "TXT": {
+    "name_en": "Textron",
+    "name_zh": "Textron",
+    "exchange": "NYSE"
+  },
+  "LDOS": {
+    "name_en": "Leidos",
+    "name_zh": "Leidos",
+    "exchange": "NYSE"
+  },
+  "SAIC": {
+    "name_en": "SAIC",
+    "name_zh": "SAIC",
+    "exchange": "NYSE"
+  },
+  "BAH": {
+    "name_en": "Booz Allen",
+    "name_zh": "Booz Allen",
+    "exchange": "NYSE"
+  },
+  "CACI": {
+    "name_en": "CACI",
+    "name_zh": "CACI",
+    "exchange": "NYSE"
+  },
+  "KTOS": {
+    "name_en": "Kratos",
+    "name_zh": "Kratos",
+    "exchange": "NASDAQ"
+  },
+  "RKLB": {
+    "name_en": "Rocket Lab",
+    "name_zh": "Rocket Lab",
+    "exchange": "NASDAQ"
+  },
+  "ASTS": {
+    "name_en": "AST SpaceMobile",
+    "name_zh": "AST",
+    "exchange": "NASDAQ"
+  },
+  "MAXR": {
+    "name_en": "Maxar",
+    "name_zh": "Maxar",
+    "exchange": "NYSE"
+  },
+  "IRDM": {
+    "name_en": "Iridium",
+    "name_zh": "Iridium",
+    "exchange": "NASDAQ"
+  },
+  "GSAT": {
+    "name_en": "Globalstar",
+    "name_zh": "Globalstar",
+    "exchange": "NYSE"
+  },
+  "SATS": {
+    "name_en": "EchoStar",
+    "name_zh": "EchoStar",
+    "exchange": "NASDAQ"
+  },
+  "VSAT": {
+    "name_en": "Viasat",
+    "name_zh": "Viasat",
+    "exchange": "NASDAQ"
+  },
+  "LUMN": {
+    "name_en": "Lumen",
+    "name_zh": "Lumen",
+    "exchange": "NYSE"
+  },
+  "FYBR": {
+    "name_en": "Frontier",
+    "name_zh": "Frontier",
+    "exchange": "NASDAQ"
+  },
+  "UNIT": {
+    "name_en": "Uniti",
+    "name_zh": "Uniti",
+    "exchange": "NASDAQ"
+  },
+  "VOD": {
+    "name_en": "Vodafone",
+    "name_zh": "Vodafone",
+    "exchange": "NASDAQ"
+  },
+  "TEF": {
+    "name_en": "Telefónica",
+    "name_zh": "Telefónica",
+    "exchange": "NYSE"
+  },
+  "ORAN": {
+    "name_en": "Orange",
+    "name_zh": "Orange",
+    "exchange": "NYSE"
+  },
+  "DTEGY": {
+    "name_en": "Deutsche Telekom",
+    "name_zh": "Deutsche Telekom",
+    "exchange": "OTC"
+  },
+  "AMX": {
+    "name_en": "América Móvil",
+    "name_zh": "América Móvil",
+    "exchange": "NYSE"
+  },
+  "TU": {
+    "name_en": "TELUS",
+    "name_zh": "TELUS",
+    "exchange": "NYSE"
+  },
+  "BCE": {
+    "name_en": "BCE",
+    "name_zh": "BCE",
+    "exchange": "NYSE"
+  },
+  "RCI": {
+    "name_en": "Rogers",
+    "name_zh": "Rogers",
+    "exchange": "NYSE"
+  },
+  "CHTR": {
+    "name_en": "Charter",
+    "name_zh": "Charter",
+    "exchange": "NASDAQ"
+  },
+  "DISH": {
+    "name_en": "EchoStar / Dish",
+    "name_zh": "Dish",
+    "exchange": "NASDAQ"
+  },
+  "PARA": {
+    "name_en": "Paramount",
+    "name_zh": "Paramount",
+    "exchange": "NASDAQ"
+  },
+  "LYV": {
+    "name_en": "Live Nation",
+    "name_zh": "Live Nation",
+    "exchange": "NYSE"
+  },
+  "MSGS": {
+    "name_en": "Madison Square Garden",
+    "name_zh": "MSG",
+    "exchange": "NYSE"
+  },
+  "FWONK": {
+    "name_en": "Liberty Formula One",
+    "name_zh": "Liberty F1",
+    "exchange": "NASDAQ"
+  },
+  "ROKU": {
+    "name_en": "Roku",
+    "name_zh": "Roku",
+    "exchange": "NASDAQ"
+  },
+  "FUBO": {
+    "name_en": "fuboTV",
+    "name_zh": "fuboTV",
+    "exchange": "NYSE"
+  },
+  "PINS": {
+    "name_en": "Pinterest",
+    "name_zh": "Pinterest",
+    "exchange": "NYSE"
+  },
+  "SNAP": {
+    "name_en": "Snap",
+    "name_zh": "Snap",
+    "exchange": "NYSE"
+  },
+  "RDDT": {
+    "name_en": "Reddit",
+    "name_zh": "Reddit",
+    "exchange": "NYSE"
+  },
+  "MTCH": {
+    "name_en": "Match Group",
+    "name_zh": "Match",
+    "exchange": "NASDAQ"
+  },
+  "BMBL": {
+    "name_en": "Bumble",
+    "name_zh": "Bumble",
+    "exchange": "NASDAQ"
+  },
+  "ZG": {
+    "name_en": "Zillow",
+    "name_zh": "Zillow",
+    "exchange": "NASDAQ"
+  },
+  "OPEN": {
+    "name_en": "Opendoor",
+    "name_zh": "Opendoor",
+    "exchange": "NASDAQ"
+  },
+  "COMP": {
+    "name_en": "Compass",
+    "name_zh": "Compass",
+    "exchange": "NYSE"
+  },
+  "EXPE": {
+    "name_en": "Expedia",
+    "name_zh": "Expedia",
+    "exchange": "NASDAQ"
+  },
+  "TRIP": {
+    "name_en": "Tripadvisor",
+    "name_zh": "Tripadvisor",
+    "exchange": "NASDAQ"
+  },
+  "MMYT": {
+    "name_en": "MakeMyTrip",
+    "name_zh": "MakeMyTrip",
+    "exchange": "NASDAQ"
+  },
+  "DESP": {
+    "name_en": "Despegar",
+    "name_zh": "Despegar",
+    "exchange": "NYSE"
+  },
+  "NCLH": {
+    "name_en": "Norwegian Cruise",
+    "name_zh": "Norwegian",
+    "exchange": "NYSE"
+  },
+  "CCL": {
+    "name_en": "Carnival",
+    "name_zh": "嘉年華郵輪",
+    "exchange": "NYSE"
+  },
+  "WH": {
+    "name_en": "Wyndham",
+    "name_zh": "Wyndham",
+    "exchange": "NYSE"
+  },
+  "H": {
+    "name_en": "Hyatt",
+    "name_zh": "Hyatt",
+    "exchange": "NYSE"
+  },
+  "IHG": {
+    "name_en": "IHG",
+    "name_zh": "洲際酒店集團",
+    "exchange": "NYSE"
+  },
+  "TCOM": {
+    "name_en": "Trip.com",
+    "name_zh": "攜程",
+    "exchange": "NASDAQ"
+  },
+  "QSR": {
+    "name_en": "Restaurant Brands",
+    "name_zh": "Restaurant Brands",
+    "exchange": "NYSE"
+  },
+  "DPZ": {
+    "name_en": "Domino's",
+    "name_zh": "Domino's",
+    "exchange": "NYSE"
+  },
+  "WING": {
+    "name_en": "Wingstop",
+    "name_zh": "Wingstop",
+    "exchange": "NASDAQ"
+  },
+  "TXRH": {
+    "name_en": "Texas Roadhouse",
+    "name_zh": "Texas Roadhouse",
+    "exchange": "NASDAQ"
+  },
+  "CAVA": {
+    "name_en": "CAVA",
+    "name_zh": "CAVA",
+    "exchange": "NYSE"
+  },
+  "SHAK": {
+    "name_en": "Shake Shack",
+    "name_zh": "Shake Shack",
+    "exchange": "NYSE"
+  },
+  "EAT": {
+    "name_en": "Brinker",
+    "name_zh": "Brinker",
+    "exchange": "NYSE"
+  },
+  "DRI": {
+    "name_en": "Darden",
+    "name_zh": "Darden",
+    "exchange": "NYSE"
+  },
+  "BJ": {
+    "name_en": "BJ's Wholesale",
+    "name_zh": "BJ's",
+    "exchange": "NYSE"
+  },
+  "OLLI": {
+    "name_en": "Ollie's",
+    "name_zh": "Ollie's",
+    "exchange": "NASDAQ"
+  },
+  "FIVE": {
+    "name_en": "Five Below",
+    "name_zh": "Five Below",
+    "exchange": "NASDAQ"
+  },
+  "BURL": {
+    "name_en": "Burlington",
+    "name_zh": "Burlington",
+    "exchange": "NYSE"
+  },
+  "GPS": {
+    "name_en": "Gap",
+    "name_zh": "Gap",
+    "exchange": "NYSE"
+  },
+  "ANF": {
+    "name_en": "Abercrombie",
+    "name_zh": "Abercrombie",
+    "exchange": "NYSE"
+  },
+  "AEO": {
+    "name_en": "American Eagle",
+    "name_zh": "American Eagle",
+    "exchange": "NYSE"
+  },
+  "URBN": {
+    "name_en": "Urban Outfitters",
+    "name_zh": "Urban",
+    "exchange": "NASDAQ"
+  },
+  "LULU": {
+    "name_en": "Lululemon",
+    "name_zh": "Lululemon",
+    "exchange": "NASDAQ"
+  },
+  "ADDYY": {
+    "name_en": "Adidas",
+    "name_zh": "愛迪達",
+    "exchange": "OTC"
+  },
+  "DECK": {
+    "name_en": "Deckers",
+    "name_zh": "Deckers",
+    "exchange": "NYSE"
+  },
+  "CROX": {
+    "name_en": "Crocs",
+    "name_zh": "Crocs",
+    "exchange": "NASDAQ"
+  },
+  "ONON": {
+    "name_en": "On Holding",
+    "name_zh": "On",
+    "exchange": "NYSE"
+  },
+  "SKX": {
+    "name_en": "Skechers",
+    "name_zh": "Skechers",
+    "exchange": "NYSE"
+  },
+  "UAA": {
+    "name_en": "Under Armour",
+    "name_zh": "Under Armour",
+    "exchange": "NYSE"
+  },
+  "VFC": {
+    "name_en": "VF Corp",
+    "name_zh": "VF",
+    "exchange": "NYSE"
+  },
+  "PVH": {
+    "name_en": "PVH",
+    "name_zh": "PVH",
+    "exchange": "NYSE"
+  },
+  "RL": {
+    "name_en": "Ralph Lauren",
+    "name_zh": "Ralph Lauren",
+    "exchange": "NYSE"
+  },
+  "TPR": {
+    "name_en": "Tapestry",
+    "name_zh": "Tapestry",
+    "exchange": "NYSE"
+  },
+  "CPRI": {
+    "name_en": "Capri Holdings",
+    "name_zh": "Capri",
+    "exchange": "NYSE"
+  },
+  "SIG": {
+    "name_en": "Signet",
+    "name_zh": "Signet",
+    "exchange": "NYSE"
+  },
+  "MOV": {
+    "name_en": "Movado",
+    "name_zh": "Movado",
+    "exchange": "NYSE"
+  },
+  "REAL": {
+    "name_en": "RealReal",
+    "name_zh": "RealReal",
+    "exchange": "NASDAQ"
+  },
+  "POSH": {
+    "name_en": "Poshmark",
+    "name_zh": "Poshmark",
+    "exchange": "NASDAQ"
+  },
+  "FTCH": {
+    "name_en": "Farfetch",
+    "name_zh": "Farfetch",
+    "exchange": "NYSE"
+  },
+  "SQM": {
+    "name_en": "SQM",
+    "name_zh": "SQM",
+    "exchange": "NYSE"
+  },
+  "LAC": {
+    "name_en": "Lithium Americas",
+    "name_zh": "Lithium Americas",
+    "exchange": "NYSE"
+  },
+  "LTHM": {
+    "name_en": "Livent",
+    "name_zh": "Livent",
+    "exchange": "NYSE"
+  },
+  "PLL": {
+    "name_en": "Piedmont Lithium",
+    "name_zh": "Piedmont",
+    "exchange": "NASDAQ"
+  },
+  "MP": {
+    "name_en": "MP Materials",
+    "name_zh": "MP Materials",
+    "exchange": "NYSE"
+  },
+  "UUUU": {
+    "name_en": "Energy Fuels",
+    "name_zh": "Energy Fuels",
+    "exchange": "NYSE"
+  },
+  "CCJ": {
+    "name_en": "Cameco",
+    "name_zh": "Cameco",
+    "exchange": "NYSE"
+  },
+  "UEC": {
+    "name_en": "Uranium Energy",
+    "name_zh": "UEC",
+    "exchange": "NYSE"
+  },
+  "DNN": {
+    "name_en": "Denison Mines",
+    "name_zh": "Denison",
+    "exchange": "NYSE"
+  },
+  "LEU": {
+    "name_en": "Centrus",
+    "name_zh": "Centrus",
+    "exchange": "NYSE"
+  },
+  "SMR": {
+    "name_en": "NuScale",
+    "name_zh": "NuScale",
+    "exchange": "NYSE"
+  },
+  "OKLO": {
+    "name_en": "Oklo",
+    "name_zh": "Oklo",
+    "exchange": "NYSE"
+  },
+  "NRG": {
+    "name_en": "NRG",
+    "name_zh": "NRG",
+    "exchange": "NYSE"
+  },
+  "TLN": {
+    "name_en": "Talen",
+    "name_zh": "Talen",
+    "exchange": "NASDAQ"
+  },
+  "PCG": {
+    "name_en": "PG&E",
+    "name_zh": "PG&E",
+    "exchange": "NYSE"
+  },
+  "EIX": {
+    "name_en": "Edison International",
+    "name_zh": "Edison",
+    "exchange": "NYSE"
+  },
+  "D": {
+    "name_en": "Dominion",
+    "name_zh": "多明尼昂資源",
+    "exchange": "NYSE"
+  },
+  "EXC": {
+    "name_en": "Exelon",
+    "name_zh": "Exelon",
+    "exchange": "NASDAQ"
+  },
+  "PEG": {
+    "name_en": "PSEG",
+    "name_zh": "PSEG",
+    "exchange": "NYSE"
+  },
+  "ED": {
+    "name_en": "Con Edison",
+    "name_zh": "Con Edison",
+    "exchange": "NYSE"
+  },
+  "WEC": {
+    "name_en": "WEC Energy",
+    "name_zh": "WEC",
+    "exchange": "NYSE"
+  },
+  "XEL": {
+    "name_en": "Xcel",
+    "name_zh": "Xcel",
+    "exchange": "NASDAQ"
+  },
+  "ES": {
+    "name_en": "Eversource",
+    "name_zh": "Eversource",
+    "exchange": "NYSE"
+  },
+  "FE": {
+    "name_en": "FirstEnergy",
+    "name_zh": "FirstEnergy",
+    "exchange": "NYSE"
+  },
+  "AEE": {
+    "name_en": "Ameren",
+    "name_zh": "Ameren",
+    "exchange": "NYSE"
+  },
+  "CMS": {
+    "name_en": "CMS Energy",
+    "name_zh": "CMS",
+    "exchange": "NYSE"
+  },
+  "DTE": {
+    "name_en": "DTE Energy",
+    "name_zh": "DTE",
+    "exchange": "NYSE"
+  },
+  "ETR": {
+    "name_en": "Entergy",
+    "name_zh": "Entergy",
+    "exchange": "NYSE"
+  },
+  "CNP": {
+    "name_en": "CenterPoint",
+    "name_zh": "CenterPoint",
+    "exchange": "NYSE"
+  },
+  "NI": {
+    "name_en": "NiSource",
+    "name_zh": "NiSource",
+    "exchange": "NYSE"
+  },
+  "ATO": {
+    "name_en": "Atmos",
+    "name_zh": "Atmos",
+    "exchange": "NYSE"
+  },
+  "OGS": {
+    "name_en": "ONE Gas",
+    "name_zh": "ONE Gas",
+    "exchange": "NYSE"
+  },
+  "SWX": {
+    "name_en": "Southwest Gas",
+    "name_zh": "Southwest Gas",
+    "exchange": "NYSE"
+  },
+  "NWN": {
+    "name_en": "Northwest Natural",
+    "name_zh": "NWN",
+    "exchange": "NYSE"
+  },
+  "AWK": {
+    "name_en": "American Water",
+    "name_zh": "美國水務",
+    "exchange": "NYSE"
+  },
+  "WTRG": {
+    "name_en": "Essential Utilities",
+    "name_zh": "Essential",
+    "exchange": "NYSE"
+  },
+  "CWT": {
+    "name_en": "California Water",
+    "name_zh": "CWT",
+    "exchange": "NYSE"
+  },
+  "AWR": {
+    "name_en": "American States Water",
+    "name_zh": "AWR",
+    "exchange": "NYSE"
+  },
+  "MSEX": {
+    "name_en": "Middlesex Water",
+    "name_zh": "MSEX",
+    "exchange": "NASDAQ"
+  },
+  "SJW": {
+    "name_en": "SJW Group",
+    "name_zh": "SJW",
+    "exchange": "NYSE"
+  },
+  "YORW": {
+    "name_en": "York Water",
+    "name_zh": "York Water",
+    "exchange": "NASDAQ"
+  },
+  "CWCO": {
+    "name_en": "Consolidated Water",
+    "name_zh": "CWCO",
+    "exchange": "NASDAQ"
+  },
+  "GWRS": {
+    "name_en": "Global Water",
+    "name_zh": "GWRS",
+    "exchange": "NASDAQ"
+  },
+  "A": {
+    "name_en": "Agilent Technologies",
+    "name_zh": "安捷倫",
+    "exchange": "NYSE"
+  },
+  "AEM": {
+    "name_en": "Agnico Eagle Mines",
+    "name_zh": "阿格納鷹礦業",
+    "exchange": "NYSE"
+  },
+  "AGCO": {
+    "name_en": "AGCO Corporation",
+    "name_zh": "愛科",
+    "exchange": "NYSE"
+  },
+  "BNTX": {
+    "name_en": "BioNTech",
+    "name_zh": "拜恩泰科",
+    "exchange": "NASDAQ"
+  },
+  "CBOE": {
+    "name_en": "Cboe Global Markets",
+    "name_zh": "Cboe",
+    "exchange": "BATS"
+  },
+  "CELH": {
+    "name_en": "Celsius Holdings",
+    "name_zh": "Celsius 飲料",
+    "exchange": "NASDAQ"
+  },
+  "CG": {
+    "name_en": "The Carlyle Group",
+    "name_zh": "凱雷集團",
+    "exchange": "NASDAQ"
+  },
+  "CMI": {
+    "name_en": "Cummins",
+    "name_zh": "康明斯",
+    "exchange": "NYSE"
+  },
+  "CNHI": {
+    "name_en": "CNH Industrial",
+    "name_zh": "CNH 工業",
+    "exchange": "NYSE"
+  },
+  "CNI": {
+    "name_en": "Canadian National Railway",
+    "name_zh": "加拿大國家鐵路",
+    "exchange": "NYSE"
+  },
+  "COHR": {
+    "name_en": "Coherent",
+    "name_zh": "相干光電",
+    "exchange": "NYSE"
+  },
+  "CP": {
+    "name_en": "Canadian Pacific Kansas City",
+    "name_zh": "加拿大太平洋鐵路",
+    "exchange": "NYSE"
+  },
+  "DD": {
+    "name_en": "DuPont de Nemours",
+    "name_zh": "杜邦",
+    "exchange": "NYSE"
+  },
+  "DOC": {
+    "name_en": "Healthpeak Properties",
+    "name_zh": "Healthpeak 醫療地產",
+    "exchange": "NYSE"
+  },
+  "ERIC": {
+    "name_en": "Ericsson",
+    "name_zh": "愛立信",
+    "exchange": "NASDAQ"
+  },
+  "KDP": {
+    "name_en": "Keurig Dr Pepper",
+    "name_zh": "綠山咖啡／澎泉",
+    "exchange": "NASDAQ"
+  },
+  "MNST": {
+    "name_en": "Monster Beverage",
+    "name_zh": "怪獸飲料",
+    "exchange": "NASDAQ"
+  },
+  "NOK": {
+    "name_en": "Nokia",
+    "name_zh": "諾基亞",
+    "exchange": "NYSE"
+  },
+  "NTAP": {
+    "name_en": "NetApp",
+    "name_zh": "網威",
+    "exchange": "NASDAQ"
+  },
+  "O": {
+    "name_en": "Realty Income",
+    "name_zh": "Realty Income",
+    "exchange": "NYSE"
+  },
+  "PAYX": {
+    "name_en": "Paychex",
+    "name_zh": "培沛客",
+    "exchange": "NASDAQ"
+  },
+  "PCAR": {
+    "name_en": "PACCAR",
+    "name_zh": "Paccar",
+    "exchange": "NASDAQ"
+  },
+  "PSTG": {
+    "name_en": "Pure Storage",
+    "name_zh": "Pure Storage",
+    "exchange": "NYSE"
+  },
+  "SAM": {
+    "name_en": "Boston Beer",
+    "name_zh": "波士頓啤酒",
+    "exchange": "NYSE"
+  },
+  "STZ": {
+    "name_en": "Constellation Brands",
+    "name_zh": "星座品牌",
+    "exchange": "NYSE"
+  },
+  "SYF": {
+    "name_en": "Synchrony Financial",
+    "name_zh": "Synchrony 金融",
+    "exchange": "NYSE"
+  },
+  "TAP": {
+    "name_en": "Molson Coors",
+    "name_zh": "摩森庫爾斯",
+    "exchange": "NYSE"
+  },
+  "TECK": {
+    "name_en": "Teck Resources",
+    "name_zh": "Teck 資源",
+    "exchange": "NYSE"
+  },
+  "VTR": {
+    "name_en": "Ventas",
+    "name_zh": "Ventas 醫療地產",
+    "exchange": "NYSE"
+  },
+  "WPM": {
+    "name_en": "Wheaton Precious Metals",
+    "name_zh": "惠頓貴金屬",
+    "exchange": "NYSE"
+  }
+}
