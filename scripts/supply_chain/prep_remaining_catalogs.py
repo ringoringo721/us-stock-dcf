@@ -1660,6 +1660,7 @@ def main() -> int:
         "NICE": ("NICE", "NICE", "NASDAQ"),
         "ABEV": ("Ambev", "安貝夫", "NYSE"),
         "BTBT": ("Bit Digital", "Bit Digital", "NASDAQ"),
+        "CWK": ("Cushman & Wakefield", "Cushman & Wakefield", "NYSE"),
         "ICLR": ("ICON", "ICON", "NASDAQ"),
         "CRL": ("Charles River", "查爾斯河實驗室", "NYSE"),
         "MEDP": ("Medpace", "Medpace", "NASDAQ"),
