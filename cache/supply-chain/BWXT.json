@@ -1,0 +1,243 @@
+{
+  "version": 1,
+  "ticker": "BWXT",
+  "name_en": "BWX Technologies",
+  "name_zh": "BWX Technologies",
+  "updatedAt": "2026-11-14",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "aerospace-defense-v1",
+    "references": [
+      "Industry model `aerospace-defense-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "aerospace-defense-v1",
+    "label_zh": "航太防務價值鏈",
+    "label_en": "Aerospace & defense value chain",
+    "description_zh": "材料 → 航電／推進 → 一級供應商 → 總裝 → 政府／航司客戶。",
+    "description_en": "Materials → avionics/propulsion → tier-1 → final assembly → gov/airline customers."
+  },
+  "stages": [
+    {
+      "id": "materials",
+      "order": 1,
+      "label_zh": "航太材料",
+      "label_en": "Aerospace materials",
+      "summary_zh": "複合材料與特種合金。",
+      "summary_en": "Composites and specialty alloys.",
+      "players": [
+        {
+          "ticker": "DD",
+          "name_en": "DuPont",
+          "name_zh": "杜邦",
+          "role_zh": "杜邦：航太材料代表性玩家",
+          "role_en": "DuPont: representative player in Aerospace materials",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "HON",
+          "name_en": "Honeywell",
+          "name_zh": "漢威聯合",
+          "role_zh": "漢威聯合：航太材料代表性玩家",
+          "role_en": "Honeywell: representative player in Aerospace materials",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "APH",
+          "name_en": "Amphenol",
+          "name_zh": "安費諾",
+          "role_zh": "安費諾：航太材料代表性玩家",
+          "role_en": "Amphenol: representative player in Aerospace materials",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "avionics",
+      "order": 2,
+      "label_zh": "航電／推進／半導體",
+      "label_en": "Avionics / propulsion / semis",
+      "summary_zh": "引擎、航電與軍規半導體。",
+      "summary_en": "Engines, avionics, defense semis.",
+      "players": [
+        {
+          "ticker": "HON",
+          "name_en": "Honeywell",
+          "name_zh": "漢威聯合",
+          "role_zh": "漢威聯合：航電／推進／半導體代表性玩家",
+          "role_en": "Honeywell: representative player in Avionics / propulsion / semis",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "TXN",
+          "name_en": "TXN",
+          "name_zh": "德州儀器",
+          "role_zh": "德州儀器：航電／推進／半導體代表性玩家",
+          "role_en": "TXN: representative player in Avionics / propulsion / semis",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "LHX",
+          "name_en": "L3Harris",
+          "name_zh": "L3Harris",
+          "role_zh": "L3Harris：航電／推進／半導體代表性玩家",
+          "role_en": "L3Harris: representative player in Avionics / propulsion / semis",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "tier1",
+      "order": 3,
+      "label_zh": "一級系統供應商",
+      "label_en": "Tier-1 systems suppliers",
+      "summary_zh": "機身結構與系統整合商。",
+      "summary_en": "Airframe and systems integrators.",
+      "players": [
+        {
+          "ticker": "RTX",
+          "name_en": "RTX",
+          "name_zh": "雷神技術",
+          "role_zh": "雷神技術：一級系統供應商代表性玩家",
+          "role_en": "RTX: representative player in Tier-1 systems suppliers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "GE",
+          "name_en": "GE Aerospace",
+          "name_zh": "奇異航太 (GE Aerospace)",
+          "role_zh": "奇異航太 (GE Aerospace)：一級系統供應商代表性玩家",
+          "role_en": "GE Aerospace: representative player in Tier-1 systems suppliers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "TDG",
+          "name_en": "TransDigm",
+          "name_zh": "環球透博",
+          "role_zh": "環球透博：一級系統供應商代表性玩家",
+          "role_en": "TransDigm: representative player in Tier-1 systems suppliers",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "assembly",
+      "order": 4,
+      "label_zh": "總裝／測試",
+      "label_en": "Final assembly / test",
+      "summary_zh": "飛機／導彈總裝線。",
+      "summary_en": "Aircraft/missile final assembly.",
+      "players": [
+        {
+          "ticker": "BA",
+          "name_en": "Boeing",
+          "name_zh": "波音公司",
+          "role_zh": "波音公司：總裝／測試代表性玩家",
+          "role_en": "Boeing: representative player in Final assembly / test",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "LMT",
+          "name_en": "Lockheed Martin",
+          "name_zh": "洛克希德·馬丁",
+          "role_zh": "洛克希德·馬丁：總裝／測試代表性玩家",
+          "role_en": "Lockheed Martin: representative player in Final assembly / test",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "GD",
+          "name_en": "General Dynamics",
+          "name_zh": "通用動力",
+          "role_zh": "通用動力：總裝／測試代表性玩家",
+          "role_en": "General Dynamics: representative player in Final assembly / test",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "customers",
+      "order": 5,
+      "label_zh": "政府／航空公司客戶",
+      "label_en": "Government / airline customers",
+      "summary_zh": "國防部與民航客戶。",
+      "summary_en": "DoD and airline customers.",
+      "players": [
+        {
+          "ticker": "NOC",
+          "name_en": "Northrop Grumman",
+          "name_zh": "諾斯洛普·格魯曼",
+          "role_zh": "諾斯洛普·格魯曼：政府／航空公司客戶代表性玩家",
+          "role_en": "Northrop Grumman: representative player in Government / airline customers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "DAL",
+          "name_en": "Delta Air Lines",
+          "name_zh": "達美航空",
+          "role_zh": "達美航空：政府／航空公司客戶代表性玩家",
+          "role_en": "Delta Air Lines: representative player in Government / airline customers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "GD",
+          "name_en": "General Dynamics",
+          "name_zh": "通用動力",
+          "role_zh": "通用動力：政府／航空公司客戶代表性玩家",
+          "role_en": "General Dynamics: representative player in Government / airline customers",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "GD",
+      "name_en": "General Dynamics",
+      "name_zh": "通用動力",
+      "basis_zh": "航太防務主承包對手",
+      "basis_en": "Aerospace & defense prime rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "NOC",
+      "name_en": "Northrop Grumman",
+      "name_zh": "諾斯洛普·格魯曼",
+      "basis_zh": "航太防務主承包對手",
+      "basis_en": "Aerospace & defense prime rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "LMT",
+      "name_en": "Lockheed Martin",
+      "name_zh": "洛克希德·馬丁",
+      "basis_zh": "航太防務主承包對手",
+      "basis_en": "Aerospace & defense prime rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "RTX",
+      "name_en": "RTX",
+      "name_zh": "雷神技術",
+      "basis_zh": "航太防務主承包對手",
+      "basis_en": "Aerospace & defense prime rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "BA",
+      "name_en": "Boeing",
+      "name_zh": "波音公司",
+      "basis_zh": "航太防務主承包對手",
+      "basis_en": "Aerospace & defense prime rival",
+      "exchange": "NYSE"
+    }
+  ]
+}

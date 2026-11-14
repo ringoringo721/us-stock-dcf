@@ -1,0 +1,243 @@
+{
+  "version": 1,
+  "ticker": "SOLV",
+  "name_en": "Solventum",
+  "name_zh": "Solventum",
+  "updatedAt": "2026-11-14",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "medtech-v1",
+    "references": [
+      "Industry model `medtech-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "medtech-v1",
+    "label_zh": "醫材／醫技價值鏈",
+    "label_en": "Medtech value chain",
+    "description_zh": "精密零件 → 電子／感測 → 代工組裝 → 醫院集團通路 → 支付／服務。",
+    "description_en": "Precision parts → electronics/sensors → CM assembly → hospital GPO → payers/services."
+  },
+  "stages": [
+    {
+      "id": "parts",
+      "order": 1,
+      "label_zh": "精密零件／材料",
+      "label_en": "Precision parts / materials",
+      "summary_zh": "植入材料與精密加工。",
+      "summary_en": "Implant materials and precision machining.",
+      "players": [
+        {
+          "ticker": "APH",
+          "name_en": "Amphenol",
+          "name_zh": "安費諾",
+          "role_zh": "安費諾：精密零件／材料代表性玩家",
+          "role_en": "Amphenol: representative player in Precision parts / materials",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "TEL",
+          "name_en": "TE Connectivity",
+          "name_zh": "泰科電子",
+          "role_zh": "泰科電子：精密零件／材料代表性玩家",
+          "role_en": "TE Connectivity: representative player in Precision parts / materials",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "DD",
+          "name_en": "DuPont",
+          "name_zh": "杜邦",
+          "role_zh": "杜邦：精密零件／材料代表性玩家",
+          "role_en": "DuPont: representative player in Precision parts / materials",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "order": 2,
+      "label_zh": "電子／感測／半導體",
+      "label_en": "Electronics / sensors / semis",
+      "summary_zh": "感測、影像與功率元件。",
+      "summary_en": "Sensors, imaging, power devices.",
+      "players": [
+        {
+          "ticker": "TXN",
+          "name_en": "TXN",
+          "name_zh": "德州儀器",
+          "role_zh": "德州儀器：電子／感測／半導體代表性玩家",
+          "role_en": "TXN: representative player in Electronics / sensors / semis",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "ADI",
+          "name_en": "Analog Devices",
+          "name_zh": "亞德諾",
+          "role_zh": "亞德諾：電子／感測／半導體代表性玩家",
+          "role_en": "Analog Devices: representative player in Electronics / sensors / semis",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "ON",
+          "name_en": "onsemi",
+          "name_zh": "安森美",
+          "role_zh": "安森美：電子／感測／半導體代表性玩家",
+          "role_en": "onsemi: representative player in Electronics / sensors / semis",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "assembly",
+      "order": 3,
+      "label_zh": "代工／無菌組裝",
+      "label_en": "Contract / sterile assembly",
+      "summary_zh": "醫療器材代工與包裝。",
+      "summary_en": "Device CM and packaging.",
+      "players": [
+        {
+          "ticker": "JBL",
+          "name_en": "Jabil",
+          "name_zh": "Jabil",
+          "role_zh": "Jabil：代工／無菌組裝代表性玩家",
+          "role_en": "Jabil: representative player in Contract / sterile assembly",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "FLEX",
+          "name_en": "Flex",
+          "name_zh": "Flex",
+          "role_zh": "Flex：代工／無菌組裝代表性玩家",
+          "role_en": "Flex: representative player in Contract / sterile assembly",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "TMO",
+          "name_en": "Thermo Fisher",
+          "name_zh": "賽默飛世爾",
+          "role_zh": "賽默飛世爾：代工／無菌組裝代表性玩家",
+          "role_en": "Thermo Fisher: representative player in Contract / sterile assembly",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "providers",
+      "order": 4,
+      "label_zh": "醫院／GPO 通路",
+      "label_en": "Hospital / GPO channel",
+      "summary_zh": "醫院集團與採購組織。",
+      "summary_en": "Hospital systems and GPOs.",
+      "players": [
+        {
+          "ticker": "HCA",
+          "name_en": "HCA Healthcare, Inc.",
+          "name_zh": "HCA Healthcare",
+          "role_zh": "HCA Healthcare：醫院／GPO 通路代表性玩家",
+          "role_en": "HCA Healthcare, Inc.: representative player in Hospital / GPO channel",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "UNH",
+          "name_en": "UnitedHealth",
+          "name_zh": "聯合健康集團",
+          "role_zh": "聯合健康集團：醫院／GPO 通路代表性玩家",
+          "role_en": "UnitedHealth: representative player in Hospital / GPO channel",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "CVS",
+          "name_en": "CVS Health",
+          "name_zh": "CVS Health",
+          "role_zh": "CVS Health：醫院／GPO 通路代表性玩家",
+          "role_en": "CVS Health: representative player in Hospital / GPO channel",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "payers",
+      "order": 5,
+      "label_zh": "支付／術後服務",
+      "label_en": "Payers / post-acute services",
+      "summary_zh": "保險支付與術後照護。",
+      "summary_en": "Insurance payment and aftercare.",
+      "players": [
+        {
+          "ticker": "UNH",
+          "name_en": "UnitedHealth",
+          "name_zh": "聯合健康集團",
+          "role_zh": "聯合健康集團：支付／術後服務代表性玩家",
+          "role_en": "UnitedHealth: representative player in Payers / post-acute services",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "CI",
+          "name_en": "Cigna",
+          "name_zh": "信諾",
+          "role_zh": "信諾：支付／術後服務代表性玩家",
+          "role_en": "Cigna: representative player in Payers / post-acute services",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "ELV",
+          "name_en": "Elevance Health",
+          "name_zh": "Elevance Health",
+          "role_zh": "Elevance Health：支付／術後服務代表性玩家",
+          "role_en": "Elevance Health: representative player in Payers / post-acute services",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "BDX",
+      "name_en": "Becton Dickinson",
+      "name_zh": "碧迪醫療",
+      "basis_zh": "醫療耗材對手",
+      "basis_en": "Medical supplies rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "ABT",
+      "name_en": "Abbott Laboratories",
+      "name_zh": "亞培",
+      "basis_zh": "醫療耗材對手",
+      "basis_en": "Medical supplies rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "MDT",
+      "name_en": "Medtronic",
+      "name_zh": "美敦力",
+      "basis_zh": "醫療耗材對手",
+      "basis_en": "Medical supplies rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "SYK",
+      "name_en": "Stryker",
+      "name_zh": "史賽克",
+      "basis_zh": "醫療耗材對手",
+      "basis_en": "Medical supplies rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "BAX",
+      "name_en": "Baxter",
+      "name_zh": "Baxter",
+      "basis_zh": "醫療耗材對手",
+      "basis_en": "Medical supplies rival",
+      "exchange": "NYSE"
+    }
+  ]
+}
