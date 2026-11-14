@@ -727,5 +727,27 @@
       "HSIC",
       "CAH"
     ]
+  },
+  "ASTS": {
+    "launch": [
+      "RKLB",
+      "BA",
+      "LMT"
+    ],
+    "sat-bus": [
+      "BA",
+      "LMT",
+      "NOC"
+    ],
+    "ground": [
+      "TRMB",
+      "LHX",
+      "GD"
+    ],
+    "mno": [
+      "T",
+      "VZ",
+      "TMUS"
+    ]
   }
 }

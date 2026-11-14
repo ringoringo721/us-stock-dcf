@@ -120,16 +120,20 @@ def listed_in_app(ticker: str, universe_tickers: set[str]) -> bool:
 
 
 LEGAL_EN_NAME_RE = re.compile(
-    r"\b(Inc\.?|Corp\.?|Corporation|Company|Ltd\.?|Limited|Holdings|PLC|N\.?V\.?|Group)\b",
+    r"\b(Inc\.?|Corp\.?|Corporation|Compan(?:y|ies)|Enterprises?|Financial|"
+    r"Ltd\.?|Limited|Holdings?|Holding|PLC|N\.?V\.?|Group|Co\.?)\b",
     re.I,
 )
 # Suffixes safe to strip for short brands. Keep N.V. / S.A. / p.l.c. intact —
 # stripping N.V. via a trailing `\b` often leaves an orphan "." ("ASML Holding .").
 LEGAL_EN_SUFFIX_STRIP_RE = re.compile(
-    # Company/Companies legal tails. Strip "Group" only as a trailing corporate suffix
-    # (… Group / … Group Inc.) — never "Reinsurance Group of America".
-    r"\b(Inc\.?|Incorporated|Corp\.?|Corporation|Compan(?:y|ies)|Ltd\.?|Limited|Holdings|PLC)\b"
-    r"|\bGroup\b(?=\s*$|\s+(?:Inc\.?|Incorporated|Corp\.?|Corporation|Compan(?:y|ies)|Ltd\.?|Limited)\b)",
+    # Company/Companies / Corporation / Enterprises / Financial legal tails.
+    # Strip "Group" only as a trailing corporate suffix (… Group / … Group Inc.)
+    # — never "Reinsurance Group of America".
+    r"\b(Inc\.?|Incorporated|Corp\.?|Corporation|Compan(?:y|ies)|Enterprises?|Financial|"
+    r"Ltd\.?|Limited|Holdings|PLC)\b"
+    r"|\bGroup\b(?=\s*$|\s+(?:Inc\.?|Incorporated|Corp\.?|Corporation|Compan(?:y|ies)|"
+    r"Ltd\.?|Limited)\b)",
     re.I,
 )
 # Known wrong / legal-dump name_zh corrections (ticker → curated 繁中 or brand).
@@ -148,6 +152,11 @@ NAME_ZH_FIXES = {
     "CI": "信諾",
     "ANSS": "安西斯",
     "LIN": "林德集團",
+    "FIS": "FIS",  # never “Fidelity National Info”
+    "USFD": "US Foods",  # never “US Foods Holding”
+    "LEVI": "Levi's",  # never “Levi Strauss & Co.”
+    "NSIT": "Insight",  # never “Insight Enterprises”
+    "COO": "庫博",  # The Cooper Companies — not CooperVision-only label
 }
 
 
@@ -204,9 +213,8 @@ def short_brand_en(name_en: str, ticker: str) -> str:
     cleaned = re.sub(r"[,\s]+$", "", cleaned).strip()
     cleaned = re.sub(r"\s{2,}", " ", cleaned)
     cleaned = re.sub(r"-$", "", cleaned).strip()
-    # "The Southern" / "The Progressive" after stripping Company — drop leading The.
-    if re.match(r"^The\s+\S+$", cleaned, flags=re.I):
-        cleaned = re.sub(r"^The\s+", "", cleaned, flags=re.I).strip()
+    # Drop leading "The " even on multi-word brands (The Procter & Gamble → Procter & Gamble).
+    cleaned = re.sub(r"^The\s+", "", cleaned, flags=re.I).strip()
     return cleaned or ticker
 
 
@@ -223,13 +231,18 @@ def _assert_short_brand_en() -> None:
         ("Banco Santander, S.A.", "SAN", "Banco Santander, S.A."),
         ("Deere & Company", "DE", "Deere"),
         ("The Southern Company", "SO", "Southern"),
+        ("The Procter & Gamble Company", "PG", "Procter & Gamble"),
+        ("The Walt Disney Company", "DIS", "Walt Disney"),
         ("Eli Lilly and Company", "LLY", "Eli Lilly"),
         ("Associated Banc-Corp", "ASB", "Associated Bancorp"),
         ("Mastercard Incorporated", "MA", "Mastercard"),
         ("UnitedHealth Group Incorporated", "UNH", "UnitedHealth"),
         ("Wells Fargo & Company", "WFC", "Wells Fargo"),
         ("CoreWeave, Inc. Class A Common Stock", "CRWV", "CoreWeave"),
-        ("Chime Financial, Inc. Ordinary Shares", "CHYM", "Chime Financial"),
+        ("Chime Financial, Inc. Ordinary Shares", "CHYM", "Chime"),
+        ("CDW Corporation", "CDW", "CDW"),
+        ("Insight Enterprises, Inc.", "NSIT", "Insight"),
+        ("Capital One Financial Corporation", "COF", "Capital One"),
         ("Entergy Louisiana, LLC First Mortgage Bonds", "ELC", "Entergy Louisiana, LLC"),
         ("The Cooper Companies, Inc.", "COO", "Cooper"),
         ("Reinsurance Group of America, Incorporated", "RGA", "Reinsurance Group of America"),
@@ -387,10 +400,11 @@ def build_seed(
     for stage_meta in model["stages"]:
         sid = stage_meta["id"]
         raw_players = list(stage_players.get(sid) or players_by_model[model_id].get(sid) or [])
-        # Drop self; rewrite aliases (SQ→XYZ); keep order; pad from other stages, then entities.
+        # Keep hub when listed on THIS stage (do not strip then bleed adjacent-stage pads —
+        # e.g. A instruments→TXN, ADM inputs→DD). Never pad from other stages.
         # Drop stage names that share an issuer with a rival (prefer rival ASX over partner 3711.TW).
         picked: list[str] = []
-        seen_players: set[str] = {ticker}
+        seen_players: set[str] = set()
         for t in raw_players:
             nt = normalize_stage_ticker(t)
             if not nt or nt in seen_players:
@@ -401,26 +415,13 @@ def build_seed(
                 continue
             picked.append(nt)
             seen_players.add(nt)
-        if len(picked) < 3:
-            for other_sid, arr in (players_by_model.get(model_id) or {}).items():
-                for t in arr:
-                    nt = normalize_stage_ticker(t)
-                    if not nt or nt in seen_players:
-                        continue
-                    if nt in DUAL_LIST_ISSUER and issuer_key(nt) in rival_dual_issuer_keys:
-                        continue
-                    picked.append(nt)
-                    seen_players.add(nt)
-                    if len(picked) >= 3:
-                        break
-                if len(picked) >= 3:
-                    break
+        # Entity scrap only — never adjacent-stage bleed. Never invent hub onto a foreign stage.
         if len(picked) < 3:
             for t in entities:
                 if t.startswith("_"):
                     continue
                 nt = normalize_stage_ticker(t)
-                if not nt or nt in seen_players:
+                if not nt or nt in seen_players or nt == ticker:
                     continue
                 if nt in DUAL_LIST_ISSUER and issuer_key(nt) in rival_dual_issuer_keys:
                     continue

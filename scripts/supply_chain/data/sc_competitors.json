@@ -14804,23 +14804,18 @@
   "IFF": [
     [
       "BCPC",
-      "營養配料對手",
-      "Nutrition ingredients rival"
+      "營養配料／油脂原料對手",
+      "Nutrition ingredients / renderer-feedstock rival"
     ],
     [
       "INGR",
-      "營養配料對手",
-      "Nutrition ingredients rival"
+      "營養配料／油脂原料對手",
+      "Nutrition ingredients / renderer-feedstock rival"
     ],
     [
-      "ADM",
-      "農產品／大宗貿易對手",
-      "Agribusiness / grain-oilseed rival"
-    ],
-    [
-      "BG",
-      "農產品／大宗貿易對手",
-      "Agribusiness / grain-oilseed rival"
+      "DAR",
+      "營養配料／油脂原料對手",
+      "Nutrition ingredients / renderer-feedstock rival"
     ]
   ],
   "SOFI": [
@@ -26015,29 +26010,19 @@
   ],
   "DAR": [
     [
-      "MDLZ",
-      "零食／包裝食品對手",
-      "Snacks / packaged-food rival"
+      "BCPC",
+      "營養配料／油脂原料對手",
+      "Nutrition ingredients / renderer-feedstock rival"
     ],
     [
-      "HSY",
-      "零食／包裝食品對手",
-      "Snacks / packaged-food rival"
+      "INGR",
+      "營養配料／油脂原料對手",
+      "Nutrition ingredients / renderer-feedstock rival"
     ],
     [
-      "GIS",
-      "零食／包裝食品對手",
-      "Snacks / packaged-food rival"
-    ],
-    [
-      "KHC",
-      "零食／包裝食品對手",
-      "Snacks / packaged-food rival"
-    ],
-    [
-      "PEP",
-      "零食／包裝食品對手",
-      "Snacks / packaged-food rival"
+      "IFF",
+      "營養配料／油脂原料對手",
+      "Nutrition ingredients / renderer-feedstock rival"
     ]
   ],
   "TBBB": [
@@ -31611,13 +31596,18 @@
   "BCPC": [
     [
       "INGR",
-      "營養配料對手",
-      "Nutrition ingredients rival"
+      "營養配料／油脂原料對手",
+      "Nutrition ingredients / renderer-feedstock rival"
     ],
     [
       "IFF",
-      "營養配料對手",
-      "Nutrition ingredients rival"
+      "營養配料／油脂原料對手",
+      "Nutrition ingredients / renderer-feedstock rival"
+    ],
+    [
+      "DAR",
+      "營養配料／油脂原料對手",
+      "Nutrition ingredients / renderer-feedstock rival"
     ]
   ],
   "VAL": [

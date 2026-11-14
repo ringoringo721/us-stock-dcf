@@ -586,9 +586,9 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "nutrition-chem",
-        ["BCPC", "INGR", "IFF"],  # nutrition ingredients — not DAR renderer / FMC ag / ECL hygiene
-        "營養配料對手",
-        "Nutrition ingredients rival",
+        ["BCPC", "INGR", "IFF", "DAR"],  # ingredients + DAR renderer feedstock — not snack CPG
+        "營養配料／油脂原料對手",
+        "Nutrition ingredients / renderer-feedstock rival",
     ),
     (
         "door-hardware",
@@ -1029,6 +1029,8 @@ TICKER_GROUP_FORCE: dict[str, str] = {
     "IRDM": "satellite",
     "ACT": "mi-specialty",
     "BCPC": "nutrition-chem",
+    "IFF": "nutrition-chem",
+    "DAR": "nutrition-chem",
     "AIT": "ind-dist",
     "BKR": "energy-ofs-pure",
     "AEG": "ins-life",
@@ -1134,6 +1136,7 @@ TICKER_GROUP_FORCE: dict[str, str] = {
 # Specialty groups that must never be padded with same-industry megacaps.
 NO_PAD_GROUPS = {
     "door-hardware",
+    "nutrition-chem",
     "packaged-food",
     "life-sci-tools",
     "ppe-safety",
@@ -1265,8 +1268,17 @@ def resolve_rivals(
 
 
 EXTRA_NAME_EN: dict[str, str] = {
-    "COO": "CooperVision",
+    "COO": "Cooper",  # The Cooper Companies — not CooperVision-only
     "RGA": "Reinsurance Group of America",
+    "TEL": "TE Connectivity",
+    "FIS": "FIS",
+    "USFD": "US Foods",
+    "LEVI": "Levi's",
+    "NSIT": "Insight",
+    "CDW": "CDW",
+    "COF": "Capital One",
+    "PG": "Procter & Gamble",
+    "DIS": "Walt Disney",
     "CVE": "Cenovus",
     "KDP": "Keurig Dr Pepper",
     "F": "Ford",
@@ -1766,7 +1778,15 @@ def main() -> int:
         "CENX": ("Century Aluminum", "世紀鋁業", "NASDAQ"),
         "KALU": ("Kaiser Aluminum", "凱撒鋁業", "NASDAQ"),
         "ALK": ("Alaska Air", "阿拉斯加航空", "NYSE"),
-        "NSIT": ("Insight Enterprises", "Insight Enterprises", "NASDAQ"),
+        "NSIT": ("Insight", "Insight", "NASDAQ"),
+        "TEL": ("TE Connectivity", "泰科電子", "NYSE"),
+        "FIS": ("FIS", "FIS", "NYSE"),
+        "USFD": ("US Foods", "US Foods", "NYSE"),
+        "LEVI": ("Levi's", "Levi's", "NYSE"),
+        "CDW": ("CDW", "CDW", "NASDAQ"),
+        "COF": ("Capital One", "Capital One", "NYSE"),
+        "PG": ("Procter & Gamble", "寶僑", "NYSE"),
+        "DIS": ("Walt Disney", "迪士尼", "NYSE"),
         "VRTX": ("Vertex", "福泰製藥", "NASDAQ"),
         "TSM": ("TSMC", "臺積電", "NYSE"),
         "BEP": ("Brookfield Renewable", "Brookfield Renewable", "NYSE"),
@@ -1850,7 +1870,7 @@ def main() -> int:
         "ALKS": ("Alkermes", "Alkermes", "NASDAQ"),
         # Universe wrongly tags Walmart as NASDAQ; listing is NYSE (seeds must emit NYSE).
         "WMT": ("Walmart", "沃爾瑪", "NYSE"),
-        "COO": ("CooperVision", "庫博", "NASDAQ"),
+        "COO": ("Cooper", "庫博", "NYSE"),  # The Cooper Companies — not CooperVision / NASDAQ
         "RGA": ("Reinsurance Group of America", "美國再保險集團", "NYSE"),
     }
 
@@ -1932,10 +1952,32 @@ def main() -> int:
             pe["exchange"] = row["exchange"]
         entities[t] = pe
 
-    # Re-apply curated exchanges after universe overwrite (WMT is NYSE, not NASDAQ).
-    for t, (_en, _zh, ex) in forced_ents.items():
-        if ex and t in entities:
+    # Re-apply curated identity after universe / EXTRA scrub (exchange + names).
+    # WMT→NYSE, COO→Cooper/NYSE, FIS/USFD/LEVI never English-legal name_zh dumps.
+    for t, (en, zh, ex) in forced_ents.items():
+        if t not in entities:
+            continue
+        if en:
+            entities[t]["name_en"] = en
+        if zh:
+            entities[t]["name_zh"] = zh
+        if ex:
             entities[t]["exchange"] = ex
+    # Final gate: never leave English-legal dumps in name_zh.
+    from scripts.build_supply_chain_mega_seeds import (
+        looks_like_english_legal_name,
+        NAME_ZH_FIXES,
+    )
+
+    for t, pe in list(entities.items()):
+        if t.startswith("_"):
+            continue
+        zh = (pe.get("name_zh") or "").strip()
+        if looks_like_english_legal_name(zh):
+            pe["name_zh"] = NAME_ZH_FIXES.get(t) or EXTRA_NAME_ZH.get(t) or pe.get("name_en") or t
+            if looks_like_english_legal_name(pe["name_zh"]):
+                pe["name_zh"] = NAME_ZH_FIXES.get(t) or t
+            entities[t] = pe
 
     # Scrub banned / share-class / alias rivals from any competitor lists.
     for hub, arr in list(competitors.items()):
