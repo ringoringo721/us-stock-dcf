@@ -1,0 +1,219 @@
+{
+  "version": 1,
+  "ticker": "TTD",
+  "name_en": "Trade Desk",
+  "name_zh": "Trade Desk",
+  "updatedAt": "2026-11-14",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "adtech-v1",
+    "references": [
+      "Industry model `adtech-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "adtech-v1",
+    "label_zh": "廣告科技／DSP 價值鏈",
+    "label_en": "Ad-tech / DSP value chain",
+    "description_zh": "媒體供給 → 資料／身分 → DSP／買賣平台 → 代理／品牌客戶 → 測量／驗證。",
+    "description_en": "Media supply → data/identity → DSP/buy-side platforms → agency/brand customers → measurement/verification."
+  },
+  "stages": [
+    {
+      "id": "supply",
+      "order": 1,
+      "label_zh": "媒體供給／版位",
+      "label_en": "Media supply / inventory",
+      "summary_zh": "數位媒體與版位供給。",
+      "summary_en": "Digital media and inventory supply.",
+      "players": [
+        {
+          "ticker": "GOOG",
+          "name_en": "Alphabet",
+          "name_zh": "Alphabet（Google）",
+          "role_zh": "Alphabet（Google）：媒體供給／版位代表性玩家",
+          "role_en": "Alphabet: representative player in Media supply / inventory",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "META",
+          "name_en": "Meta Platforms",
+          "name_zh": "Meta (臉書)",
+          "role_zh": "Meta (臉書)：媒體供給／版位代表性玩家",
+          "role_en": "Meta Platforms: representative player in Media supply / inventory",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "AMZN",
+          "name_en": "Amazon.com",
+          "name_zh": "亞馬遜",
+          "role_zh": "亞馬遜：媒體供給／版位代表性玩家",
+          "role_en": "Amazon.com: representative player in Media supply / inventory",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "data",
+      "order": 2,
+      "label_zh": "資料／身分",
+      "label_en": "Data / identity",
+      "summary_zh": "受眾資料與身分圖譜。",
+      "summary_en": "Audience data and identity graphs.",
+      "players": [
+        {
+          "ticker": "TRU",
+          "name_en": "TransUnion",
+          "name_zh": "全聯徵信 (TransUnion)",
+          "role_zh": "全聯徵信 (TransUnion)：資料／身分代表性玩家",
+          "role_en": "TransUnion: representative player in Data / identity",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "ORCL",
+          "name_en": "Oracle",
+          "name_zh": "甲骨文",
+          "role_zh": "甲骨文：資料／身分代表性玩家",
+          "role_en": "Oracle: representative player in Data / identity",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "IBM",
+          "name_en": "IBM",
+          "name_zh": "IBM",
+          "role_zh": "IBM：資料／身分代表性玩家",
+          "role_en": "IBM: representative player in Data / identity",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "platforms",
+      "order": 3,
+      "label_zh": "DSP／買賣平台",
+      "label_en": "DSP / buy-side platforms",
+      "summary_zh": "程式化購買與廣告平台同業。",
+      "summary_en": "Programmatic buy-side and ad platforms.",
+      "players": [
+        {
+          "ticker": "GOOG",
+          "name_en": "Alphabet",
+          "name_zh": "Alphabet（Google）",
+          "role_zh": "Alphabet（Google）：DSP／買賣平台代表性玩家",
+          "role_en": "Alphabet: representative player in DSP / buy-side platforms",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "META",
+          "name_en": "Meta Platforms",
+          "name_zh": "Meta (臉書)",
+          "role_zh": "Meta (臉書)：DSP／買賣平台代表性玩家",
+          "role_en": "Meta Platforms: representative player in DSP / buy-side platforms",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "MSFT",
+          "name_en": "Microsoft",
+          "name_zh": "微軟",
+          "role_zh": "微軟：DSP／買賣平台代表性玩家",
+          "role_en": "Microsoft: representative player in DSP / buy-side platforms",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "customers",
+      "order": 4,
+      "label_zh": "代理／品牌客戶",
+      "label_en": "Agency / brand customers",
+      "summary_zh": "廣告代理與品牌主（非 DSP 對手）。",
+      "summary_en": "Agencies and brand advertisers — not DSP rivals.",
+      "players": [
+        {
+          "ticker": "OMC",
+          "name_en": "Omnicom",
+          "name_zh": "Omnicom",
+          "role_zh": "Omnicom：代理／品牌客戶代表性玩家",
+          "role_en": "Omnicom: representative player in Agency / brand customers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "WPP",
+          "name_en": "WPP plc",
+          "name_zh": "WPP",
+          "role_zh": "WPP：代理／品牌客戶代表性玩家",
+          "role_en": "WPP plc: representative player in Agency / brand customers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "DIS",
+          "name_en": "Walt Disney",
+          "name_zh": "迪士尼",
+          "role_zh": "迪士尼：代理／品牌客戶代表性玩家",
+          "role_en": "Walt Disney: representative player in Agency / brand customers",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "measurement",
+      "order": 5,
+      "label_zh": "測量／驗證",
+      "label_en": "Measurement / verification",
+      "summary_zh": "成效測量與廣告驗證。",
+      "summary_en": "Attribution and ad verification.",
+      "players": [
+        {
+          "ticker": "GOOG",
+          "name_en": "Alphabet",
+          "name_zh": "Alphabet（Google）",
+          "role_zh": "Alphabet（Google）：測量／驗證代表性玩家",
+          "role_en": "Alphabet: representative player in Measurement / verification",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "META",
+          "name_en": "Meta Platforms",
+          "name_zh": "Meta (臉書)",
+          "role_zh": "Meta (臉書)：測量／驗證代表性玩家",
+          "role_en": "Meta Platforms: representative player in Measurement / verification",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "ADBE",
+          "name_en": "Adobe",
+          "name_zh": "Adobe",
+          "role_zh": "Adobe：測量／驗證代表性玩家",
+          "role_en": "Adobe: representative player in Measurement / verification",
+          "exchange": "NASDAQ"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "APP",
+      "name_en": "AppLovin",
+      "name_zh": "AppLovin",
+      "basis_zh": "廣告科技／DSP 對手",
+      "basis_en": "Ad-tech / DSP rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "ROKU",
+      "name_en": "Roku",
+      "name_zh": "Roku",
+      "basis_zh": "廣告科技／DSP 對手",
+      "basis_en": "Ad-tech / DSP rival",
+      "exchange": "NASDAQ"
+    }
+  ]
+}

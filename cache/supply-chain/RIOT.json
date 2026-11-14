@@ -1,0 +1,239 @@
+{
+  "version": 1,
+  "ticker": "RIOT",
+  "name_en": "Riot Platforms",
+  "name_zh": "Riot Platforms",
+  "updatedAt": "2026-11-14",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "bitcoin-mining-v1",
+    "references": [
+      "Industry model `bitcoin-mining-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "bitcoin-mining-v1",
+    "label_zh": "比特幣挖礦價值鏈",
+    "label_en": "Bitcoin mining value chain",
+    "description_zh": "礦機／晶片 → 電力／場址 → 挖礦同業 → 託管／基礎設施 → 交易所／流動性。",
+    "description_en": "Miners/chips → power/sites → mining peers → hosting/infra → exchanges/liquidity."
+  },
+  "stages": [
+    {
+      "id": "hardware",
+      "order": 1,
+      "label_zh": "礦機／晶片",
+      "label_en": "Miners / chips",
+      "summary_zh": "ASIC 礦機與半導體。",
+      "summary_en": "ASIC miners and semiconductors.",
+      "players": [
+        {
+          "ticker": "NVDA",
+          "name_en": "NVIDIA",
+          "name_zh": "輝達",
+          "role_zh": "輝達：礦機／晶片代表性玩家",
+          "role_en": "NVIDIA: representative player in Miners / chips",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "AMD",
+          "name_en": "Advanced Micro Devices",
+          "name_zh": "超微半導體",
+          "role_zh": "超微半導體：礦機／晶片代表性玩家",
+          "role_en": "Advanced Micro Devices: representative player in Miners / chips",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "TSM",
+          "name_en": "TSMC",
+          "name_zh": "臺積電",
+          "role_zh": "臺積電：礦機／晶片代表性玩家",
+          "role_en": "TSMC: representative player in Miners / chips",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "power",
+      "order": 2,
+      "label_zh": "電力／場址",
+      "label_en": "Power / sites",
+      "summary_zh": "電力合約與資料中心場址。",
+      "summary_en": "Power contracts and site footprint.",
+      "players": [
+        {
+          "ticker": "CEG",
+          "name_en": "Constellation",
+          "name_zh": "星座能源",
+          "role_zh": "星座能源：電力／場址代表性玩家",
+          "role_en": "Constellation: representative player in Power / sites",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "VST",
+          "name_en": "Vistra",
+          "name_zh": "Vistra",
+          "role_zh": "Vistra：電力／場址代表性玩家",
+          "role_en": "Vistra: representative player in Power / sites",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "NRG",
+          "name_en": "NRG Energy",
+          "name_zh": "NRG Energy",
+          "role_zh": "NRG Energy：電力／場址代表性玩家",
+          "role_en": "NRG Energy: representative player in Power / sites",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "miners",
+      "order": 3,
+      "label_zh": "挖礦同業",
+      "label_en": "Mining peers",
+      "summary_zh": "公開市場比特幣礦工。",
+      "summary_en": "Public bitcoin miners.",
+      "players": [
+        {
+          "ticker": "IREN",
+          "name_en": "Iris Energy",
+          "name_zh": "Iris Energy",
+          "role_zh": "Iris Energy：挖礦同業代表性玩家",
+          "role_en": "Iris Energy: representative player in Mining peers",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "BITF",
+          "name_en": "Bitfarms",
+          "name_zh": "Bitfarms",
+          "role_zh": "Bitfarms：挖礦同業代表性玩家",
+          "role_en": "Bitfarms: representative player in Mining peers",
+          "exchange": "NASDAQ",
+          "listedInApp": false
+        },
+        {
+          "ticker": "CIFR",
+          "name_en": "Cipher Mining",
+          "name_zh": "Cipher Mining",
+          "role_zh": "Cipher Mining：挖礦同業代表性玩家",
+          "role_en": "Cipher Mining: representative player in Mining peers",
+          "exchange": "NASDAQ",
+          "listedInApp": false
+        }
+      ]
+    },
+    {
+      "id": "hosting",
+      "order": 4,
+      "label_zh": "託管／基礎設施",
+      "label_en": "Hosting / infrastructure",
+      "summary_zh": "託管與高密度算力基建。",
+      "summary_en": "Hosting and high-density compute infra.",
+      "players": [
+        {
+          "ticker": "EQIX",
+          "name_en": "Equinix",
+          "name_zh": "Equinix",
+          "role_zh": "Equinix：託管／基礎設施代表性玩家",
+          "role_en": "Equinix: representative player in Hosting / infrastructure",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "DLR",
+          "name_en": "Digital Realty",
+          "name_zh": "Digital Realty",
+          "role_zh": "Digital Realty：託管／基礎設施代表性玩家",
+          "role_en": "Digital Realty: representative player in Hosting / infrastructure",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "IRM",
+          "name_en": "Iron Mountain",
+          "name_zh": "Iron Mountain",
+          "role_zh": "Iron Mountain：託管／基礎設施代表性玩家",
+          "role_en": "Iron Mountain: representative player in Hosting / infrastructure",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "liquidity",
+      "order": 5,
+      "label_zh": "交易所／流動性",
+      "label_en": "Exchanges / liquidity",
+      "summary_zh": "加密交易所與法幣通道。",
+      "summary_en": "Crypto exchanges and fiat rails.",
+      "players": [
+        {
+          "ticker": "COIN",
+          "name_en": "Coinbase Global",
+          "name_zh": "Coinbase Global",
+          "role_zh": "Coinbase Global：交易所／流動性代表性玩家",
+          "role_en": "Coinbase Global: representative player in Exchanges / liquidity",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "PYPL",
+          "name_en": "PayPal",
+          "name_zh": "PayPal",
+          "role_zh": "PayPal：交易所／流動性代表性玩家",
+          "role_en": "PayPal: representative player in Exchanges / liquidity",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "V",
+          "name_en": "Visa",
+          "name_zh": "威士卡",
+          "role_zh": "威士卡：交易所／流動性代表性玩家",
+          "role_en": "Visa: representative player in Exchanges / liquidity",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "HUT",
+      "name_en": "Hut 8",
+      "name_zh": "Hut 8",
+      "basis_zh": "比特幣挖礦對手",
+      "basis_en": "Bitcoin-mining rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "WULF",
+      "name_en": "TeraWulf",
+      "name_zh": "TeraWulf",
+      "basis_zh": "比特幣挖礦對手",
+      "basis_en": "Bitcoin-mining rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "MARA",
+      "name_en": "MARA Holdings",
+      "name_zh": "MARA",
+      "basis_zh": "比特幣挖礦對手",
+      "basis_en": "Bitcoin-mining rival",
+      "exchange": "NASDAQ",
+      "listedInApp": false
+    },
+    {
+      "ticker": "CLSK",
+      "name_en": "CleanSpark",
+      "name_zh": "CleanSpark",
+      "basis_zh": "比特幣挖礦對手",
+      "basis_en": "Bitcoin-mining rival",
+      "exchange": "NASDAQ",
+      "listedInApp": false
+    }
+  ]
+}
