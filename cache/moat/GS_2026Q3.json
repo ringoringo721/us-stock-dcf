@@ -2,58 +2,58 @@
   "ticker": "GS",
   "period": "2026Q3",
   "m1_brand_pricing": {
-    "score": 8,
-    "comment_zh": "高盛作為全球頂級投資銀行，其品牌價值是無可取代的無形資產。客戶在尋求複雜金融服務時，高度信賴高盛的聲譽、專業知識和過往成功紀錄。這種品牌忠誠度轉化為定價權，使其能夠收取高額費用，並在競爭激烈的市場中脫穎而出。雖然金融業存在其他參與者，但高盛的品牌深度和廣度，使其在吸引頂尖人才和爭取大型交易方面具有顯著優勢，這是一種難以複製的護城河。",
-    "comment_en": "Goldman Sachs, as a premier global investment bank, possesses an irreplaceable intangible asset in its brand value. Clients seeking complex financial services place immense trust in Goldman's reputation, expertise, and track record of success. This brand loyalty translates into pricing power, enabling it to command premium fees and stand out in a highly competitive market. While other players exist in the financial industry, the depth and breadth of Goldman's brand give it a significant advantage in attracting top talent and securing large deals, forming a difficult-to-replicate moat."
+    "score": 7,
+    "comment_zh": "高盛作為全球頂級投資銀行，其品牌本身就是一種強大的無形資產，代表著信譽、專業和可靠性。客戶在尋求複雜金融服務時，往往傾向於選擇聲譽卓著的機構，這使得高盛能夠在一定程度上維持其定價能力。然而，金融服務業的競爭激烈，尤其是在科技進步和新興金融科技公司崛起的背景下，品牌優勢並非絕對，仍需不斷創新和服務升級來鞏固。其品牌壁壘屬於堅固等級，但非罕見。",
+    "comment_en": "Goldman Sachs, as a premier global investment bank, possesses a brand that is a powerful intangible asset, signifying trust, expertise, and reliability. Clients seeking complex financial services often gravitate towards institutions with stellar reputations, allowing Goldman Sachs to maintain a degree of pricing power. However, the financial services industry is intensely competitive, especially with technological advancements and the rise of fintech disruptors. The brand advantage is not absolute and requires continuous innovation and service enhancement to solidify. Its brand barrier is considered robust but not rare."
   },
   "m2_patents_regulatory": {
     "score": 2,
-    "comment_zh": "金融服務業的進入壁壘主要來自監管而非專利。高盛受到嚴格的金融監管，這在一定程度上限制了新進入者的數量，形成了一種監管壁壘。然而，這並非專利保護，監管環境的變化可能影響其業務模式。與科技公司依賴專利形成獨特技術壁壘不同，高盛的優勢更多來自於其營運能力和市場地位，而非受專利保護的創新。",
-    "comment_en": "The barriers to entry in the financial services industry stem primarily from regulation rather than patents. Goldman Sachs is subject to stringent financial regulations, which to some extent limit the number of new entrants, creating a form of regulatory barrier. However, this is not patent protection, and changes in the regulatory environment can impact its business model. Unlike technology companies that rely on patents for unique technological moats, Goldman's advantages arise more from its operational capabilities and market position than from patent-protected innovations."
+    "comment_zh": "金融服務業的進入壁壘主要體現在嚴格的監管和牌照要求，而非傳統意義上的專利保護。高盛在複雜的金融產品和服務方面擁有深厚的專業知識和運營經驗，這構成了一定的監管和合規壁壘。然而，這些並非專利，技術和模式的創新可以被模仿或規避，監管環境的變化也可能影響其優勢。因此，此類壁壘相對較弱，且不具備長期可持續性。",
+    "comment_en": "The barriers to entry in the financial services industry are primarily rooted in stringent regulations and licensing requirements, rather than traditional patent protection. Goldman Sachs possesses deep expertise and operational experience in complex financial products and services, which constitutes a certain regulatory and compliance barrier. However, these are not patents, and innovations in technology and models can be imitated or circumvented. Changes in the regulatory landscape can also impact its advantages. Therefore, this type of barrier is relatively weak and lacks long-term sustainability."
   },
   "m3_high_switching_costs": {
-    "score": 7,
-    "comment_zh": "對於大型機構客戶而言，轉換投資銀行服務的成本相當高昂。這不僅涉及時間和資源的投入，更重要的是，轉換可能意味著失去與高盛長期建立的信任關係、對其專業知識的依賴以及對其交易執行能力的熟悉。對於複雜的交易和長期的財務規劃，客戶傾向於維持與信譽良好的夥伴的合作關係，這構成了顯著的轉換成本。",
-    "comment_en": "For large institutional clients, the cost of switching investment banking services is considerable. This involves not only time and resource investment but, more importantly, the potential loss of long-established trust, reliance on expertise, and familiarity with transaction execution capabilities built with Goldman. For complex deals and long-term financial planning, clients tend to maintain relationships with reputable partners, creating significant switching costs."
+    "score": 6,
+    "comment_zh": "對於高盛的機構客戶而言，更換投資銀行服務的成本相對較高。這涉及到建立新的信任關係、重新熟悉服務流程、數據遷移以及潛在的業務中斷風險。特別是對於長期合作的客戶，其業務與高盛的服務深度綁定，轉換成本顯著。然而，隨著金融市場的標準化和技術的發展，部分服務的轉換成本可能有所降低，但整體而言，轉換成本仍構成中等程度的壁壘。",
+    "comment_en": "For Goldman Sachs' institutional clients, the cost of switching investment banking services is relatively high. This involves establishing new trust relationships, re-familiarizing with service processes, data migration, and potential business disruption risks. Especially for long-term clients whose businesses are deeply integrated with Goldman Sachs' services, the switching costs are significant. However, with the standardization of financial markets and technological advancements, the switching costs for some services may decrease. Overall, switching costs still represent a moderate barrier."
   },
   "m4_network_effects": {
-    "score": 8,
-    "comment_zh": "高盛的網絡效應體現在其龐大的客戶基礎和廣泛的行業聯繫。作為一個領先的金融平台，它連接了眾多投資者、發行人、企業和政府。這種網絡效應意味著，越多的參與者加入，平台的價值就越大，吸引更多優質交易和人才。例如，一個成功的IPO會吸引更多公司尋求高盛的服務，而更多的投資者參與則能提高交易的流動性和吸引力。",
-    "comment_en": "Goldman Sachs' network effects are evident in its vast client base and extensive industry connections. As a leading financial platform, it connects numerous investors, issuers, corporations, and governments. This network effect implies that the more participants join, the greater the platform's value, attracting more quality deals and talent. For instance, a successful IPO attracts more companies seeking Goldman's services, while increased investor participation enhances trading liquidity and attractiveness."
+    "score": 7,
+    "comment_zh": "高盛的網絡效應體現在其龐大的客戶基礎、廣泛的交易網絡和信息流。越多的客戶和交易夥伴參與其中，越能提升平台的價值和流動性，吸引更多參與者。例如，其承銷業務和交易業務的成功，依賴於與眾多投資者和發行人的聯繫。這種正向循環效應增強了其競爭優勢，尤其是在資本市場的撮合和流動性提供方面。這構成了一個堅固的壁壘。",
+    "comment_en": "Goldman Sachs' network effects are evident in its vast client base, extensive trading network, and information flow. The more clients and trading partners participate, the greater the value and liquidity of the platform, attracting more participants. For instance, the success of its underwriting and trading businesses relies on connections with numerous investors and issuers. This positive feedback loop enhances its competitive advantage, particularly in capital market matchmaking and liquidity provision. This constitutes a robust barrier."
   },
   "m5_cost_advantage_scale": {
     "score": 8,
-    "comment_zh": "作為全球最大的投資銀行之一，高盛享有顯著的規模經濟效益。其龐大的交易量、廣泛的全球網絡和多元化的業務使其能夠分攤固定成本，並在採購、技術和人才方面獲得更優惠的條件。這種規模優勢使其能夠以更低的單位成本提供服務，並在市場波動時更具韌性，從而對規模較小的競爭對手構成壓力。",
-    "comment_en": "As one of the world's largest investment banks, Goldman Sachs benefits from significant economies of scale. Its massive trading volumes, extensive global network, and diversified operations allow it to spread fixed costs and secure preferential terms in procurement, technology, and talent acquisition. This scale advantage enables it to offer services at a lower unit cost and provides greater resilience during market volatility, putting pressure on smaller competitors."
+    "comment_zh": "作為全球領先的投資銀行，高盛在規模經濟方面具有顯著優勢。其龐大的交易量、廣泛的業務範圍和全球佈局，使其能夠攤薄固定成本，並在採購、技術基礎設施和人才招聘上獲得更優惠的條件。這種規模優勢使其能夠提供更具競爭力的價格，並在市場波動中保持更強的韌性。相較於小型競爭對手，高盛的成本結構更具優勢，這是一個堅實的壁壘。",
+    "comment_en": "As a leading global investment bank, Goldman Sachs possesses a significant advantage in economies of scale. Its massive trading volumes, broad business scope, and global presence allow it to spread fixed costs and secure more favorable terms in procurement, technological infrastructure, and talent acquisition. This scale advantage enables it to offer more competitive pricing and maintain greater resilience during market volatility. Compared to smaller competitors, Goldman Sachs' cost structure is more advantageous, representing a solid barrier."
   },
   "m6_unique_geography_assets": {
-    "score": 6,
-    "comment_zh": "高盛在全球主要金融中心擁有廣泛的業務佈局和深厚的市場根基，這構成了一種地理上的優勢。其遍佈全球的辦事處和對當地市場的深入了解，使其能夠有效服務跨國客戶並抓住區域性機會。然而，金融業的資產流動性較高，且競爭者亦積極拓展全球佈局，因此這種地理優勢的獨特性相對較弱。",
-    "comment_en": "Goldman Sachs' extensive business presence and deep market roots in major global financial centers constitute a geographical advantage. Its worldwide offices and profound understanding of local markets enable it to effectively serve multinational clients and seize regional opportunities. However, the high liquidity of financial assets and the aggressive global expansion of competitors mean that the uniqueness of this geographical advantage is relatively weaker."
+    "score": 5,
+    "comment_zh": "高盛在全球主要金融中心擁有廣泛的業務網絡和深厚的市場根基，這使其能夠有效服務於跨國客戶並捕捉全球機會。然而，金融服務業的地理優勢相對流動，優秀人才和資本可以在全球範圍內配置。雖然其在關鍵市場的佈局是重要的資產，但並非絕對的、不可複製的地理壁壘，競爭對手亦能在主要市場建立據點。因此，此類壁壘屬於中等。",
+    "comment_en": "Goldman Sachs has an extensive business network and deep market roots in major global financial centers, enabling it to effectively serve multinational clients and capture global opportunities. However, geographical advantages in the financial services industry are relatively fluid, as top talent and capital can be deployed globally. While its presence in key markets is a significant asset, it is not an absolute, irreplicable geographical barrier, as competitors can also establish footholds in major markets. Thus, this type of barrier is moderate."
   },
   "m7_operational_efficiency": {
-    "score": 7,
-    "comment_zh": "高盛以其卓越的營運效率和風險管理能力而聞名。公司持續優化其內部流程，利用先進技術提高交易執行速度和準確性，並嚴格控制風險敞口。這種高效的運營能力不僅降低了成本，也增強了客戶信心，使其在複雜多變的市場環境中保持競爭力。其穩健的風險管理體系是其長期成功的關鍵。",
-    "comment_en": "Goldman Sachs is renowned for its exceptional operational efficiency and risk management capabilities. The firm continuously optimizes its internal processes, leverages advanced technology to enhance trading execution speed and accuracy, and strictly controls risk exposures. This efficient operational capacity not only reduces costs but also boosts client confidence, enabling it to remain competitive in a complex and volatile market environment. Its robust risk management system is key to its long-term success."
+    "score": 8,
+    "comment_zh": "高盛以其卓越的運營效率和風險管理能力聞名。公司在複雜交易的執行、後台支持系統的優化以及嚴格的合規流程方面，展現出高度的專業性。這種高效的運營能力不僅降低了成本，也提升了客戶滿意度和交易的成功率。在金融這個高度依賴精確度和執行力的行業，高盛的運營效率構成了一個堅實的競爭壁壘，使其能夠在動態市場中保持領先。",
+    "comment_en": "Goldman Sachs is renowned for its exceptional operational efficiency and risk management capabilities. The firm demonstrates a high degree of professionalism in executing complex transactions, optimizing back-office support systems, and maintaining rigorous compliance processes. This efficient operational capability not only reduces costs but also enhances client satisfaction and transaction success rates. In an industry like finance, which heavily relies on precision and execution, Goldman Sachs' operational efficiency constitutes a solid competitive barrier, allowing it to stay ahead in dynamic markets."
   },
   "m8_capital_allocation": {
-    "score": 8,
-    "comment_zh": "高盛在資本配置方面展現出高度的紀律性和戰略眼光。公司能夠識別並專注於高回報的業務領域，同時審慎管理風險。其在回購股票、派發股息以及對戰略性增長領域進行投資之間取得平衡，旨在為股東創造長期價值。儘管金融業的資本配置受監管影響，高盛仍能在此框架內做出明智決策。",
-    "comment_en": "Goldman Sachs demonstrates high discipline and strategic vision in its capital allocation. The firm effectively identifies and focuses on high-return business areas while prudently managing risks. It strikes a balance between share repurchases, dividend payouts, and investments in strategic growth areas, aiming to create long-term value for shareholders. Although capital allocation in the financial industry is influenced by regulation, Goldman Sachs consistently makes wise decisions within this framework."
+    "score": 9,
+    "comment_zh": "高盛在資本配置方面展現出卓越的智慧和紀律。公司歷史上多次成功地在市場低迷時進行戰略性收購，並在市場繁榮時剝離非核心資產，持續優化其業務組合。其對股東回報的關注，包括股票回購和股息支付，也顯示了其對資本有效運用的承諾。這種審慎且具前瞻性的資本配置能力，是其長期價值創造的關鍵，構成了一個罕見的壁壘。",
+    "comment_en": "Goldman Sachs demonstrates exceptional wisdom and discipline in capital allocation. Historically, the firm has successfully made strategic acquisitions during market downturns and divested non-core assets during market booms, continuously optimizing its business portfolio. Its focus on shareholder returns, including share buybacks and dividend payments, also reflects its commitment to effective capital utilization. This prudent and forward-looking capital allocation capability is key to its long-term value creation, representing a rare barrier."
   },
   "m9_customer_retention": {
     "score": 7,
-    "comment_zh": "高盛透過提供卓越的客戶服務、量身定制的解決方案以及建立長期的合作夥伴關係來實現高客戶留存率。其對客戶需求的深刻理解和持續的價值創造，使得客戶傾向於與其保持長期合作。這種關係的穩固性，加上轉換成本，共同構成了客戶忠誠度的堅實基礎。",
-    "comment_en": "Goldman Sachs achieves high customer retention by providing exceptional client service, tailored solutions, and building long-term partnerships. Its deep understanding of client needs and continuous value creation encourage clients to maintain long-term collaborations. The stability of these relationships, coupled with switching costs, forms a solid foundation for customer loyalty."
+    "comment_zh": "高盛通過提供卓越的客戶服務、深度行業洞察和個性化解決方案，成功地維持了高客戶忠誠度。其與客戶建立的長期、互信的合作關係，使得客戶傾向於持續依賴高盛的專業服務。儘管金融市場競爭激烈，但高盛通過持續的價值交付和關係管理，有效降低了客戶流失率，形成了堅固的客戶保留壁壘。",
+    "comment_en": "Goldman Sachs successfully maintains high customer loyalty by providing exceptional client service, deep industry insights, and personalized solutions. The long-term, trust-based relationships it builds with clients lead them to continue relying on Goldman Sachs' expertise. Despite intense competition in the financial markets, Goldman Sachs effectively reduces customer churn through continuous value delivery and relationship management, forming a robust customer retention barrier."
   },
   "m10_durability": {
-    "score": 7,
-    "comment_zh": "高盛的業務模式具有相當的持久性，其核心業務（如投資銀行、資產管理）在經濟週期中展現出韌性。儘管金融業易受宏觀經濟波動和監管變化的影響，但高盛憑藉其多元化的收入來源、強大的風險管理和卓越的品牌聲譽，能夠在不同市場環境下維持其競爭優勢。其長期穩定的盈利能力證明了其業務模式的持久性。",
-    "comment_en": "Goldman Sachs' business model exhibits considerable durability, with its core businesses (such as investment banking and asset management) demonstrating resilience through economic cycles. Although the financial industry is susceptible to macroeconomic fluctuations and regulatory changes, Goldman Sachs, with its diversified revenue streams, strong risk management, and excellent brand reputation, can maintain its competitive advantage across various market environments. Its long-term stable profitability attests to the durability of its business model."
+    "score": 8,
+    "comment_zh": "高盛的業務模式具有顯著的持久性。儘管金融行業面臨週期性波動和技術變革的挑戰，但其核心業務，如投資銀行、交易和資產管理，在經濟體系中扮演著不可或缺的角色。公司通過不斷適應市場變化、拓展新業務領域和加強風險管理，展現了其抵禦外部衝擊和保持長期競爭力的能力。這種持久性使其能夠在不同經濟週期中持續創造價值，構成堅固的壁壘。",
+    "comment_en": "Goldman Sachs' business model exhibits significant durability. Despite the financial industry facing challenges from cyclical fluctuations and technological changes, its core businesses, such as investment banking, trading, and asset management, play indispensable roles in the economic system. By continuously adapting to market changes, expanding into new business areas, and strengthening risk management, the firm demonstrates its ability to withstand external shocks and maintain long-term competitiveness. This durability allows it to create value across different economic cycles, forming a robust barrier."
   },
-  "overall_moat_verdict_zh": "高盛作為全球領先的投資銀行，其護城河主要體現在強大的品牌聲譽（M1）、顯著的規模經濟效益（M5）、廣泛的網絡效應（M4）以及客戶轉換成本（M3）。這些因素共同構建了一個難以被新進入者撼動的競爭優勢，使其能夠在金融服務這一高度競爭的領域中持續獲利。雖然其業務模式並非傳統意義上的「收費橋」，但其品牌和網絡效應使其在獲取優質交易和客戶方面具有類似特許經營的地位，能夠收取溢價費用。",
-  "overall_moat_verdict_en": "As a leading global investment bank, Goldman Sachs' moat primarily lies in its strong brand reputation (M1), significant economies of scale (M5), extensive network effects (M4), and customer switching costs (M3). These factors collectively build a competitive advantage that is difficult for new entrants to shake, enabling it to consistently profit in the highly competitive financial services sector. While its business model is not a 'toll bridge' in the traditional sense, its brand and network effects grant it a quasi-franchise-like position in securing quality deals and clients, allowing it to command premium fees.",
-  "evidenceHash": "c546f6c85c38cee7e2427add3e719fdb71a88e04fed367c8dd1aa2e91b2b582b",
+  "overall_moat_verdict_zh": "高盛作為全球頂級投資銀行，其護城河主要體現在品牌聲譽（M1）、網絡效應（M4）、規模成本優勢（M5）、卓越的運營效率（M7）以及極其出色的資本配置能力（M8）。這些因素共同構建了一個堅固的競爭壁壘，使其能夠在複雜且競爭激烈的金融市場中保持領先地位。雖然其轉換成本（M3）和客戶保留（M9）也提供了一定保護，但相較於前述核心優勢，則顯得相對較弱。專利/監管壁壘（M2）和地理資產（M6）則非其主要護城河。整體而言，高盛的護城河屬於一種「收費橋」與「專業服務型」的混合體，依賴其專業知識、網絡和規模來收取費用並提供服務。",
+  "overall_moat_verdict_en": "As a premier global investment bank, Goldman Sachs' moat primarily lies in its brand reputation (M1), network effects (M4), economies of scale (M5), exceptional operational efficiency (M7), and outstanding capital allocation capabilities (M8). These factors collectively build a robust competitive barrier, enabling it to maintain a leading position in the complex and competitive financial markets. While switching costs (M3) and customer retention (M9) offer some protection, they are relatively weaker compared to the core strengths mentioned above. Patent/regulatory barriers (M2) and geographical assets (M6) are not its primary moats. Overall, Goldman Sachs' moat can be characterized as a hybrid of a 'toll bridge' and a 'professional services' model, relying on its expertise, network, and scale to charge fees and deliver services.",
+  "evidenceHash": "1397405aa195149474c7ea3bac62c000b877fe7aa79743a1d3ba545bdb44dfb2",
   "assessmentPolicy": "buffett-moat-v3",
   "model": "gemini-2.5-flash-lite",
   "provider": "Vertex AI"
