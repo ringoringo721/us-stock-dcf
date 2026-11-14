@@ -1,0 +1,243 @@
+{
+  "version": 1,
+  "ticker": "WF",
+  "name_en": "Woori Financial",
+  "name_zh": "Woori",
+  "updatedAt": "2026-11-14",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "bank-diversified-v1",
+    "references": [
+      "Industry model `bank-diversified-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "bank-diversified-v1",
+    "label_zh": "銀行（綜合）價值鏈",
+    "label_en": "Diversified bank value chain",
+    "description_zh": "資金／批發市場 → 核心科技 → 支付清算 → 風控／資料 → 客戶通路。",
+    "description_en": "Funding/markets → core tech → payments/clearing → risk/data → client channels."
+  },
+  "stages": [
+    {
+      "id": "funding",
+      "order": 1,
+      "label_zh": "資金／資本市場",
+      "label_en": "Funding / capital markets",
+      "summary_zh": "批發融資、債券與市場基礎設施。",
+      "summary_en": "Wholesale funding, bonds, market infra.",
+      "players": [
+        {
+          "ticker": "GS",
+          "name_en": "Goldman Sachs",
+          "name_zh": "高盛集團",
+          "role_zh": "高盛集團：資金／資本市場代表性玩家",
+          "role_en": "Goldman Sachs: representative player in Funding / capital markets",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "MS",
+          "name_en": "Morgan Stanley",
+          "name_zh": "摩根士丹利",
+          "role_zh": "摩根士丹利：資金／資本市場代表性玩家",
+          "role_en": "Morgan Stanley: representative player in Funding / capital markets",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "BLK",
+          "name_en": "BlackRock",
+          "name_zh": "貝萊德",
+          "role_zh": "貝萊德：資金／資本市場代表性玩家",
+          "role_en": "BlackRock: representative player in Funding / capital markets",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "tech",
+      "order": 2,
+      "label_zh": "核心銀行／雲端科技",
+      "label_en": "Core banking / cloud tech",
+      "summary_zh": "核心系統、雲與資安供應。",
+      "summary_en": "Core systems, cloud, security.",
+      "players": [
+        {
+          "ticker": "MSFT",
+          "name_en": "Microsoft",
+          "name_zh": "微軟",
+          "role_zh": "微軟：核心銀行／雲端科技代表性玩家",
+          "role_en": "Microsoft: representative player in Core banking / cloud tech",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "ORCL",
+          "name_en": "Oracle",
+          "name_zh": "甲骨文",
+          "role_zh": "甲骨文：核心銀行／雲端科技代表性玩家",
+          "role_en": "Oracle: representative player in Core banking / cloud tech",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "IBM",
+          "name_en": "IBM",
+          "name_zh": "IBM",
+          "role_zh": "IBM：核心銀行／雲端科技代表性玩家",
+          "role_en": "IBM: representative player in Core banking / cloud tech",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "payments",
+      "order": 3,
+      "label_zh": "支付／清算網路",
+      "label_en": "Payments / clearing networks",
+      "summary_zh": "卡組織、ACH／即時支付軌道。",
+      "summary_en": "Card networks and payment rails.",
+      "players": [
+        {
+          "ticker": "V",
+          "name_en": "Visa",
+          "name_zh": "威士卡",
+          "role_zh": "威士卡：支付／清算網路代表性玩家",
+          "role_en": "Visa: representative player in Payments / clearing networks",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "MA",
+          "name_en": "Mastercard",
+          "name_zh": "萬事達卡",
+          "role_zh": "萬事達卡：支付／清算網路代表性玩家",
+          "role_en": "Mastercard: representative player in Payments / clearing networks",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "FISV",
+          "name_en": "Fiserv",
+          "name_zh": "Fiserv",
+          "role_zh": "Fiserv：支付／清算網路代表性玩家",
+          "role_en": "Fiserv: representative player in Payments / clearing networks",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "data-risk",
+      "order": 4,
+      "label_zh": "資料／風控／評級",
+      "label_en": "Data / risk / ratings",
+      "summary_zh": "信用資料、市場資料與評級。",
+      "summary_en": "Credit, market data, ratings.",
+      "players": [
+        {
+          "ticker": "SPGI",
+          "name_en": "S&P Global",
+          "name_zh": "標普全球",
+          "role_zh": "標普全球：資料／風控／評級代表性玩家",
+          "role_en": "S&P Global: representative player in Data / risk / ratings",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "MCO",
+          "name_en": "Moody's",
+          "name_zh": "穆迪評級",
+          "role_zh": "穆迪評級：資料／風控／評級代表性玩家",
+          "role_en": "Moody's: representative player in Data / risk / ratings",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "FICO",
+          "name_en": "Fair Isaac",
+          "name_zh": "費埃哲 (FICO)",
+          "role_zh": "費埃哲 (FICO)：資料／風控／評級代表性玩家",
+          "role_en": "Fair Isaac: representative player in Data / risk / ratings",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "channels",
+      "order": 5,
+      "label_zh": "零售／企業客戶通路",
+      "label_en": "Retail / corporate channels",
+      "summary_zh": "分行、數位銀行與企業司庫入口。",
+      "summary_en": "Branches, digital, corporate portals.",
+      "players": [
+        {
+          "ticker": "SCHW",
+          "name_en": "Charles Schwab",
+          "name_zh": "嘉信理財",
+          "role_zh": "嘉信理財：零售／企業客戶通路代表性玩家",
+          "role_en": "Charles Schwab: representative player in Retail / corporate channels",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "AXP",
+          "name_en": "American Express",
+          "name_zh": "美國運通",
+          "role_zh": "美國運通：零售／企業客戶通路代表性玩家",
+          "role_en": "American Express: representative player in Retail / corporate channels",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "COF",
+          "name_en": "Capital One",
+          "name_zh": "Capital One",
+          "role_zh": "Capital One：零售／企業客戶通路代表性玩家",
+          "role_en": "Capital One: representative player in Retail / corporate channels",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "USB",
+      "name_en": "U.S. Bancorp",
+      "name_zh": "美國合眾銀行",
+      "basis_zh": "美國區域／綜合銀行對手",
+      "basis_en": "US regional/diversified bank rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "PNC",
+      "name_en": "PNC",
+      "name_zh": "PNC 金融",
+      "basis_zh": "美國區域／綜合銀行對手",
+      "basis_en": "US regional/diversified bank rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "TFC",
+      "name_en": "Truist",
+      "name_zh": "Truist",
+      "basis_zh": "美國區域／綜合銀行對手",
+      "basis_en": "US regional/diversified bank rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "BAC",
+      "name_en": "Bank of America",
+      "name_zh": "美國銀行",
+      "basis_zh": "美國區域／綜合銀行對手",
+      "basis_en": "US regional/diversified bank rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "WFC",
+      "name_en": "Wells Fargo",
+      "name_zh": "富國銀行",
+      "basis_zh": "美國區域／綜合銀行對手",
+      "basis_en": "US regional/diversified bank rival",
+      "exchange": "NYSE"
+    }
+  ]
+}

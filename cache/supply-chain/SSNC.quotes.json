@@ -1,0 +1,220 @@
+{
+  "version": 1,
+  "ticker": "SSNC",
+  "updatedAt": "2026-11-14",
+  "basis": "lastTradingDayCloseVsPriorClose",
+  "notes_en": "changePct from last two EOD closes in price_charts; mcap from US listings screener (USD millions). Missing tickers stay null. No live FMP per pageview.",
+  "notes_zh": "漲跌%取自 price_charts 最近兩日收盤；市值取自美股清單（百萬美元）。缺資料維持 null，不造假。頁面不打即時 FMP。",
+  "quotes": {
+    "SSNC": {
+      "ticker": "SSNC",
+      "price": 79.5,
+      "previousClose": 79.37,
+      "changePct": 0.164,
+      "mcap": 18235.0,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "NVDA": {
+      "ticker": "NVDA",
+      "price": 162.85,
+      "previousClose": 166.19,
+      "changePct": -2.01,
+      "mcap": 4498024.0,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "AMD": {
+      "ticker": "AMD",
+      "price": 534.06,
+      "previousClose": 585.3,
+      "changePct": -8.754,
+      "mcap": 733048.8,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "AVGO": {
+      "ticker": "AVGO",
+      "price": 347.01,
+      "previousClose": 364.36,
+      "changePct": -4.762,
+      "mcap": 1401967.4,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "EQIX": {
+      "ticker": "EQIX",
+      "price": 1053.79,
+      "previousClose": 1072.77,
+      "changePct": -1.769,
+      "mcap": 100246.4,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "DLR": {
+      "ticker": "DLR",
+      "price": 179.99,
+      "previousClose": 183.47,
+      "changePct": -1.897,
+      "mcap": 64628.0,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "ANET": {
+      "ticker": "ANET",
+      "price": 197.29,
+      "previousClose": 206.63,
+      "changePct": -4.52,
+      "mcap": 215416.4,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "CRWD": {
+      "ticker": "CRWD",
+      "price": 226.61,
+      "previousClose": 229.87,
+      "changePct": -1.418,
+      "mcap": 222091.5,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "PANW": {
+      "ticker": "PANW",
+      "price": 322.24,
+      "previousClose": 322.66,
+      "changePct": -0.13,
+      "mcap": 256860.2,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "ZS": {
+      "ticker": "ZS",
+      "price": 192.47,
+      "previousClose": 193.22,
+      "changePct": -0.388,
+      "mcap": 32229.4,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "ACN": {
+      "ticker": "ACN",
+      "price": 250.49,
+      "previousClose": 249.95,
+      "changePct": 0.216,
+      "mcap": 159410.9,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "IBM": {
+      "ticker": "IBM",
+      "price": 247.13,
+      "previousClose": 244.67,
+      "changePct": 1.005,
+      "mcap": 231554.6,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "CTSH": {
+      "ticker": "CTSH",
+      "price": 63.01,
+      "previousClose": 63.75,
+      "changePct": -1.161,
+      "mcap": 28931.8,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "CDW": {
+      "ticker": "CDW",
+      "price": 171.65,
+      "previousClose": 172.79,
+      "changePct": -0.66,
+      "mcap": 19627.7,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "SNX": {
+      "ticker": "SNX",
+      "price": 237.58,
+      "previousClose": 242.51,
+      "changePct": -2.033,
+      "mcap": 17449.7,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "DELL": {
+      "ticker": "DELL",
+      "price": 344.53,
+      "previousClose": 371.17,
+      "changePct": -7.177,
+      "mcap": 208883.5,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "SAP": {
+      "ticker": "SAP",
+      "price": 234.9,
+      "previousClose": 234.06,
+      "changePct": 0.359,
+      "mcap": 272024.1,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "SHOP": {
+      "ticker": "SHOP",
+      "price": 147.09,
+      "previousClose": 146.78,
+      "changePct": 0.211,
+      "mcap": 191576.0,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "CRM": {
+      "ticker": "CRM",
+      "price": 217.84,
+      "previousClose": 217.57,
+      "changePct": 0.124,
+      "mcap": 175834.0,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "UBER": {
+      "ticker": "UBER",
+      "price": 69.69,
+      "previousClose": 69.12,
+      "changePct": 0.825,
+      "mcap": 140099.2,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "ADP": {
+      "ticker": "ADP",
+      "price": 309.93,
+      "previousClose": 307.92,
+      "changePct": 0.653,
+      "mcap": 119750.3,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    }
+  }
+}

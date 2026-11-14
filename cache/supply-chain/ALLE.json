@@ -1,0 +1,211 @@
+{
+  "version": 1,
+  "ticker": "ALLE",
+  "name_en": "Allegion",
+  "name_zh": "Allegion",
+  "updatedAt": "2026-11-14",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "security-services-v1",
+    "references": [
+      "Industry model `security-services-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "security-services-v1",
+    "label_zh": "安防服務／產品價值鏈",
+    "label_en": "Security services / products value chain",
+    "description_zh": "感測／硬體 → 軟體／監控平台 → 安裝／通路 → 企業／住宅客戶 → 保險／應變。",
+    "description_en": "Sensors/hardware → software/monitoring → install/channel → enterprise/residential customers → insurance/response."
+  },
+  "stages": [
+    {
+      "id": "hardware",
+      "order": 1,
+      "label_zh": "感測／安防硬體",
+      "label_en": "Sensors / security hardware",
+      "summary_zh": "感測器、門鎖與監控硬體。",
+      "summary_en": "Sensors, locks, and monitoring hardware.",
+      "players": [
+        {
+          "ticker": "APH",
+          "name_en": "Amphenol",
+          "name_zh": "安費諾",
+          "role_zh": "安費諾：感測／安防硬體代表性玩家",
+          "role_en": "Amphenol: representative player in Sensors / security hardware",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "TEL",
+          "name_en": "TE Connectivity",
+          "name_zh": "泰科電子",
+          "role_zh": "泰科電子：感測／安防硬體代表性玩家",
+          "role_en": "TE Connectivity: representative player in Sensors / security hardware",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "GLW",
+          "name_en": "Corning",
+          "name_zh": "康寧",
+          "role_zh": "康寧：感測／安防硬體代表性玩家",
+          "role_en": "Corning: representative player in Sensors / security hardware",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "software",
+      "order": 2,
+      "label_zh": "監控／軟體平台",
+      "label_en": "Monitoring / software platforms",
+      "summary_zh": "雲端監控與門禁軟體。",
+      "summary_en": "Cloud monitoring and access software.",
+      "players": [
+        {
+          "ticker": "MSFT",
+          "name_en": "Microsoft",
+          "name_zh": "微軟",
+          "role_zh": "微軟：監控／軟體平台代表性玩家",
+          "role_en": "Microsoft: representative player in Monitoring / software platforms",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "NOW",
+          "name_en": "ServiceNow",
+          "name_zh": "ServiceNow",
+          "role_zh": "ServiceNow：監控／軟體平台代表性玩家",
+          "role_en": "ServiceNow: representative player in Monitoring / software platforms",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "CRM",
+          "name_en": "Salesforce",
+          "name_zh": "賽富時",
+          "role_zh": "賽富時：監控／軟體平台代表性玩家",
+          "role_en": "Salesforce: representative player in Monitoring / software platforms",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "channel",
+      "order": 3,
+      "label_zh": "安裝／經銷通路",
+      "label_en": "Install / dealer channel",
+      "summary_zh": "經銷商與系統整合安裝。",
+      "summary_en": "Dealers and systems integrators.",
+      "players": [
+        {
+          "ticker": "HD",
+          "name_en": "The Home Depot",
+          "name_zh": "家得寶",
+          "role_zh": "家得寶：安裝／經銷通路代表性玩家",
+          "role_en": "The Home Depot: representative player in Install / dealer channel",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "LOW",
+          "name_en": "Lowe's Companies",
+          "name_zh": "勞氏",
+          "role_zh": "勞氏：安裝／經銷通路代表性玩家",
+          "role_en": "Lowe's Companies: representative player in Install / dealer channel",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "WCC",
+          "name_en": "WESCO International",
+          "name_zh": "WESCO International",
+          "role_zh": "WESCO International：安裝／經銷通路代表性玩家",
+          "role_en": "WESCO International: representative player in Install / dealer channel",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "customers",
+      "order": 4,
+      "label_zh": "企業／住宅客戶",
+      "label_en": "Enterprise / residential customers",
+      "summary_zh": "企業園區與住宅使用者。",
+      "summary_en": "Commercial campuses and homes.",
+      "players": [
+        {
+          "ticker": "JPM",
+          "name_en": "JPMorgan Chase & Co.",
+          "name_zh": "摩根大通",
+          "role_zh": "摩根大通：企業／住宅客戶代表性玩家",
+          "role_en": "JPMorgan Chase & Co.: representative player in Enterprise / residential customers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "WMT",
+          "name_en": "Walmart",
+          "name_zh": "沃爾瑪",
+          "role_zh": "沃爾瑪：企業／住宅客戶代表性玩家",
+          "role_en": "Walmart: representative player in Enterprise / residential customers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "COST",
+          "name_en": "Costco Wholesale",
+          "name_zh": "好市多",
+          "role_zh": "好市多：企業／住宅客戶代表性玩家",
+          "role_en": "Costco Wholesale: representative player in Enterprise / residential customers",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "ecosystem",
+      "order": 5,
+      "label_zh": "保險／應變生態",
+      "label_en": "Insurance / response ecosystem",
+      "summary_zh": "保險、出警與應變夥伴。",
+      "summary_en": "Insurance, dispatch, and response partners.",
+      "players": [
+        {
+          "ticker": "CB",
+          "name_en": "Chubb",
+          "name_zh": "安達保險",
+          "role_zh": "安達保險：保險／應變生態代表性玩家",
+          "role_en": "Chubb: representative player in Insurance / response ecosystem",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "PGR",
+          "name_en": "Progressive",
+          "name_zh": "前進保險",
+          "role_zh": "前進保險：保險／應變生態代表性玩家",
+          "role_en": "Progressive: representative player in Insurance / response ecosystem",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "ALL",
+          "name_en": "Allstate",
+          "name_zh": "全州保險",
+          "role_zh": "全州保險：保險／應變生態代表性玩家",
+          "role_en": "Allstate: representative player in Insurance / response ecosystem",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "JCI",
+      "name_en": "Johnson Controls",
+      "name_zh": "江森自控",
+      "basis_zh": "門禁／五金對手",
+      "basis_en": "Door hardware / access rival",
+      "exchange": "NYSE"
+    }
+  ]
+}

@@ -1,0 +1,223 @@
+{
+  "version": 1,
+  "ticker": "NLY",
+  "name_en": "Annaly Capital Management",
+  "name_zh": "NLY",
+  "updatedAt": "2026-11-14",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "mreit-v1",
+    "references": [
+      "Industry model `mreit-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "mreit-v1",
+    "label_zh": "抵押 REIT（機構 MBS）價值鏈",
+    "label_en": "Mortgage REIT (agency MBS) value chain",
+    "description_zh": "機構／GSE → 放貸／服務 → 融資／回購 → 利率／避險 → 資本／投資人。",
+    "description_en": "Agency/GSE → originators/servicers → funding/repo → rates/hedging → capital/investors."
+  },
+  "stages": [
+    {
+      "id": "agency",
+      "order": 1,
+      "label_zh": "機構／GSE",
+      "label_en": "Agency / GSE",
+      "summary_zh": "機構擔保與銀行通道。",
+      "summary_en": "Agency guarantee and bank channels.",
+      "players": [
+        {
+          "ticker": "FNMA",
+          "name_en": "Fannie Mae",
+          "name_zh": "房利美",
+          "role_zh": "房利美：機構／GSE代表性玩家",
+          "role_en": "Fannie Mae: representative player in Agency / GSE",
+          "exchange": "OTC",
+          "listedInApp": false
+        },
+        {
+          "ticker": "FMCC",
+          "name_en": "Freddie Mac",
+          "name_zh": "房地美",
+          "role_zh": "房地美：機構／GSE代表性玩家",
+          "role_en": "Freddie Mac: representative player in Agency / GSE",
+          "exchange": "OTC",
+          "listedInApp": false
+        },
+        {
+          "ticker": "JPM",
+          "name_en": "JPMorgan Chase & Co.",
+          "name_zh": "摩根大通",
+          "role_zh": "摩根大通：機構／GSE代表性玩家",
+          "role_en": "JPMorgan Chase & Co.: representative player in Agency / GSE",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "originators",
+      "order": 2,
+      "label_zh": "放貸／服務商",
+      "label_en": "Originators / servicers",
+      "summary_zh": "按揭產能與服務。",
+      "summary_en": "Mortgage production and servicing.",
+      "players": [
+        {
+          "ticker": "RKT",
+          "name_en": "Rocket Companies",
+          "name_zh": "Rocket",
+          "role_zh": "Rocket：放貸／服務商代表性玩家",
+          "role_en": "Rocket Companies: representative player in Originators / servicers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "UWMC",
+          "name_en": "UWM Holdings",
+          "name_zh": "UWM",
+          "role_zh": "UWM：放貸／服務商代表性玩家",
+          "role_en": "UWM Holdings: representative player in Originators / servicers",
+          "exchange": "NYSE",
+          "listedInApp": false
+        },
+        {
+          "ticker": "PFSI",
+          "name_en": "PennyMac",
+          "name_zh": "PennyMac",
+          "role_zh": "PennyMac：放貸／服務商代表性玩家",
+          "role_en": "PennyMac: representative player in Originators / servicers",
+          "exchange": "NYSE",
+          "listedInApp": false
+        }
+      ]
+    },
+    {
+      "id": "funding",
+      "order": 3,
+      "label_zh": "融資／回購",
+      "label_en": "Funding / repo",
+      "summary_zh": "回購與銀行融資。",
+      "summary_en": "Repo and bank funding.",
+      "players": [
+        {
+          "ticker": "JPM",
+          "name_en": "JPMorgan Chase & Co.",
+          "name_zh": "摩根大通",
+          "role_zh": "摩根大通：融資／回購代表性玩家",
+          "role_en": "JPMorgan Chase & Co.: representative player in Funding / repo",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "BAC",
+          "name_en": "Bank of America",
+          "name_zh": "美國銀行",
+          "role_zh": "美國銀行：融資／回購代表性玩家",
+          "role_en": "Bank of America: representative player in Funding / repo",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "GS",
+          "name_en": "Goldman Sachs",
+          "name_zh": "高盛集團",
+          "role_zh": "高盛集團：融資／回購代表性玩家",
+          "role_en": "Goldman Sachs: representative player in Funding / repo",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "rates",
+      "order": 4,
+      "label_zh": "利率／避險",
+      "label_en": "Rates / hedging",
+      "summary_zh": "利率市場與避險工具。",
+      "summary_en": "Rates markets and hedges.",
+      "players": [
+        {
+          "ticker": "CME",
+          "name_en": "CME",
+          "name_zh": "芝商所集團",
+          "role_zh": "芝商所集團：利率／避險代表性玩家",
+          "role_en": "CME: representative player in Rates / hedging",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "ICE",
+          "name_en": "Intercontinental Exchange",
+          "name_zh": "洲際交易所",
+          "role_zh": "洲際交易所：利率／避險代表性玩家",
+          "role_en": "Intercontinental Exchange: representative player in Rates / hedging",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "BX",
+          "name_en": "Blackstone",
+          "name_zh": "黑石",
+          "role_zh": "黑石：利率／避險代表性玩家",
+          "role_en": "Blackstone: representative player in Rates / hedging",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "capital",
+      "order": 5,
+      "label_zh": "資本／投資人",
+      "label_en": "Capital / investors",
+      "summary_zh": "機構與資管資金。",
+      "summary_en": "Institutional and AM capital.",
+      "players": [
+        {
+          "ticker": "BLK",
+          "name_en": "BlackRock",
+          "name_zh": "貝萊德",
+          "role_zh": "貝萊德：資本／投資人代表性玩家",
+          "role_en": "BlackRock: representative player in Capital / investors",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "BX",
+          "name_en": "Blackstone",
+          "name_zh": "黑石",
+          "role_zh": "黑石：資本／投資人代表性玩家",
+          "role_en": "Blackstone: representative player in Capital / investors",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "BRK-B",
+          "name_en": "Berkshire Hathaway",
+          "name_zh": "波克夏海瑟威 (B)",
+          "role_zh": "波克夏海瑟威 (B)：資本／投資人代表性玩家",
+          "role_en": "Berkshire Hathaway: representative player in Capital / investors",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "AGNC",
+      "name_en": "AGNC Investment",
+      "name_zh": "AGNC Investment",
+      "basis_zh": "抵押 REIT 對手",
+      "basis_en": "Mortgage REIT rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "RITM",
+      "name_en": "Rithm Capital",
+      "name_zh": "Rithm Capital",
+      "basis_zh": "抵押 REIT 對手",
+      "basis_en": "Mortgage REIT rival",
+      "exchange": "NYSE"
+    }
+  ]
+}
