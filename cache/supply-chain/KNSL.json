@@ -1,0 +1,243 @@
+{
+  "version": 1,
+  "ticker": "KNSL",
+  "name_en": "Kinsale Capital",
+  "name_zh": "Kinsale Capital",
+  "updatedAt": "2026-11-14",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "insurance-v1",
+    "references": [
+      "Industry model `insurance-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "insurance-v1",
+    "label_zh": "保險價值鏈",
+    "label_en": "Insurance value chain",
+    "description_zh": "再保 → 精算／資料 → 投資資產 → 代理／經紀通路 → 醫療／理賠生態。",
+    "description_en": "Reinsurance → actuarial/data → invested assets → agency/broker → medical/claims."
+  },
+  "stages": [
+    {
+      "id": "reinsurance",
+      "order": 1,
+      "label_zh": "再保險",
+      "label_en": "Reinsurance",
+      "summary_zh": "巨災與比例再保。",
+      "summary_en": "Cat and proportional reinsurance.",
+      "players": [
+        {
+          "ticker": "EG",
+          "name_en": "Everest",
+          "name_zh": "Everest",
+          "role_zh": "Everest：再保險代表性玩家",
+          "role_en": "Everest: representative player in Reinsurance",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "RNR",
+          "name_en": "RenaissanceRe",
+          "name_zh": "RenaissanceRe",
+          "role_zh": "RenaissanceRe：再保險代表性玩家",
+          "role_en": "RenaissanceRe: representative player in Reinsurance",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "RGA",
+          "name_en": "Reinsurance Group of America",
+          "name_zh": "美國再保險集團",
+          "role_zh": "美國再保險集團：再保險代表性玩家",
+          "role_en": "Reinsurance Group of America: representative player in Reinsurance",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "data",
+      "order": 2,
+      "label_zh": "精算／資料／評級",
+      "label_en": "Actuarial / data / ratings",
+      "summary_zh": "風險資料與資本評級。",
+      "summary_en": "Risk data and capital ratings.",
+      "players": [
+        {
+          "ticker": "VRSK",
+          "name_en": "Verisk",
+          "name_zh": "威瑞斯克",
+          "role_zh": "威瑞斯克：精算／資料／評級代表性玩家",
+          "role_en": "Verisk: representative player in Actuarial / data / ratings",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "SPGI",
+          "name_en": "S&P Global",
+          "name_zh": "標普全球",
+          "role_zh": "標普全球：精算／資料／評級代表性玩家",
+          "role_en": "S&P Global: representative player in Actuarial / data / ratings",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "MCO",
+          "name_en": "Moody's",
+          "name_zh": "穆迪評級",
+          "role_zh": "穆迪評級：精算／資料／評級代表性玩家",
+          "role_en": "Moody's: representative player in Actuarial / data / ratings",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "investments",
+      "order": 3,
+      "label_zh": "投資／資產管理",
+      "label_en": "Investments / asset management",
+      "summary_zh": "浮存金投資與資管。",
+      "summary_en": "Float investing and AM.",
+      "players": [
+        {
+          "ticker": "BLK",
+          "name_en": "BlackRock",
+          "name_zh": "貝萊德",
+          "role_zh": "貝萊德：投資／資產管理代表性玩家",
+          "role_en": "BlackRock: representative player in Investments / asset management",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "BX",
+          "name_en": "Blackstone",
+          "name_zh": "黑石",
+          "role_zh": "黑石：投資／資產管理代表性玩家",
+          "role_en": "Blackstone: representative player in Investments / asset management",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "BRK-B",
+          "name_en": "Berkshire Hathaway",
+          "name_zh": "波克夏海瑟威 (B)",
+          "role_zh": "波克夏海瑟威 (B)：投資／資產管理代表性玩家",
+          "role_en": "Berkshire Hathaway: representative player in Investments / asset management",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "distribution",
+      "order": 4,
+      "label_zh": "代理／經紀／銀行通路",
+      "label_en": "Agents / brokers / bank channel",
+      "summary_zh": "獨立代理、經紀與銀保。",
+      "summary_en": "Agents, brokers, bancassurance.",
+      "players": [
+        {
+          "ticker": "AON",
+          "name_en": "Aon",
+          "name_zh": "怡安集團",
+          "role_zh": "怡安集團：代理／經紀／銀行通路代表性玩家",
+          "role_en": "Aon: representative player in Agents / brokers / bank channel",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "MRSH",
+          "name_en": "Marsh McLennan",
+          "name_zh": "威達信",
+          "role_zh": "威達信：代理／經紀／銀行通路代表性玩家",
+          "role_en": "Marsh McLennan: representative player in Agents / brokers / bank channel",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "AJG",
+          "name_en": "Arthur J. Gallagher",
+          "name_zh": "亞瑟加拉格爾",
+          "role_zh": "亞瑟加拉格爾：代理／經紀／銀行通路代表性玩家",
+          "role_en": "Arthur J. Gallagher: representative player in Agents / brokers / bank channel",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "claims",
+      "order": 5,
+      "label_zh": "醫療／理賠服務",
+      "label_en": "Medical / claims services",
+      "summary_zh": "醫療網路與理賠處理。",
+      "summary_en": "Provider networks and claims ops.",
+      "players": [
+        {
+          "ticker": "UNH",
+          "name_en": "UnitedHealth",
+          "name_zh": "聯合健康集團",
+          "role_zh": "聯合健康集團：醫療／理賠服務代表性玩家",
+          "role_en": "UnitedHealth: representative player in Medical / claims services",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "HCA",
+          "name_en": "HCA Healthcare",
+          "name_zh": "HCA Healthcare",
+          "role_zh": "HCA Healthcare：醫療／理賠服務代表性玩家",
+          "role_en": "HCA Healthcare: representative player in Medical / claims services",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "CI",
+          "name_en": "Cigna",
+          "name_zh": "信諾",
+          "role_zh": "信諾：醫療／理賠服務代表性玩家",
+          "role_en": "Cigna: representative player in Medical / claims services",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "TRV",
+      "name_en": "Travelers",
+      "name_zh": "旅行者保險",
+      "basis_zh": "產險對手",
+      "basis_en": "P&C insurance rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "ALL",
+      "name_en": "Allstate",
+      "name_zh": "全州保險",
+      "basis_zh": "產險對手",
+      "basis_en": "P&C insurance rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "PGR",
+      "name_en": "Progressive",
+      "name_zh": "前進保險",
+      "basis_zh": "產險對手",
+      "basis_en": "P&C insurance rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "CB",
+      "name_en": "Chubb",
+      "name_zh": "安達保險",
+      "basis_zh": "產險對手",
+      "basis_en": "P&C insurance rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "AIG",
+      "name_en": "AIG",
+      "name_zh": "美國國際集團",
+      "basis_zh": "產險對手",
+      "basis_en": "P&C insurance rival",
+      "exchange": "NYSE"
+    }
+  ]
+}
