@@ -1,0 +1,220 @@
+{
+  "version": 1,
+  "ticker": "CCJ",
+  "updatedAt": "2026-11-14",
+  "basis": "lastTradingDayCloseVsPriorClose",
+  "notes_en": "changePct from last two EOD closes in price_charts; mcap from US listings screener (USD millions). Missing tickers stay null. No live FMP per pageview.",
+  "notes_zh": "漲跌%取自 price_charts 最近兩日收盤；市值取自美股清單（百萬美元）。缺資料維持 null，不造假。頁面不打即時 FMP。",
+  "quotes": {
+    "CCJ": {
+      "ticker": "CCJ",
+      "price": 70.73,
+      "previousClose": 71.78,
+      "changePct": -1.463,
+      "mcap": 31053.5,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "SLB": {
+      "ticker": "SLB",
+      "price": 51.67,
+      "previousClose": 50.91,
+      "changePct": 1.493,
+      "mcap": 73683.4,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "HAL": {
+      "ticker": "HAL",
+      "price": 33.78,
+      "previousClose": 32.76,
+      "changePct": 3.114,
+      "mcap": 26335.7,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "BKR": {
+      "ticker": "BKR",
+      "price": 49.44,
+      "previousClose": 48.86,
+      "changePct": 1.187,
+      "mcap": 47538.6,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "COP": {
+      "ticker": "COP",
+      "price": 142.28,
+      "previousClose": 140.06,
+      "changePct": 1.585,
+      "mcap": 163706.6,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "EOG": {
+      "ticker": "EOG",
+      "price": 158.32,
+      "previousClose": 155.62,
+      "changePct": 1.735,
+      "mcap": 77174.0,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "OXY": {
+      "ticker": "OXY",
+      "price": 58.75,
+      "previousClose": 58.4,
+      "changePct": 0.599,
+      "mcap": 56359.5,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "ENB": {
+      "ticker": "ENB",
+      "price": 47.67,
+      "previousClose": 48.11,
+      "changePct": -0.915,
+      "mcap": 104510.5,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "KMI": {
+      "ticker": "KMI",
+      "price": 31.92,
+      "previousClose": 32.01,
+      "changePct": -0.281,
+      "mcap": 66742.3,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "WMB": {
+      "ticker": "WMB",
+      "price": 69.09,
+      "previousClose": 69.44,
+      "changePct": -0.504,
+      "mcap": 80112.8,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "MPC": {
+      "ticker": "MPC",
+      "price": 414.65,
+      "previousClose": 412.85,
+      "changePct": 0.436,
+      "mcap": 104674.7,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "VLO": {
+      "ticker": "VLO",
+      "price": 379.83,
+      "previousClose": 374.95,
+      "changePct": 1.302,
+      "mcap": 96619.5,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "PSX": {
+      "ticker": "PSX",
+      "price": 264.9,
+      "previousClose": 262.91,
+      "changePct": 0.757,
+      "mcap": 95848.6,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "DAL": {
+      "ticker": "DAL",
+      "price": 86.25,
+      "previousClose": 86.55,
+      "changePct": -0.347,
+      "mcap": 57369.9,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "CAT": {
+      "ticker": "CAT",
+      "price": 600.2,
+      "previousClose": 605.28,
+      "changePct": -0.839,
+      "mcap": 256788.2,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "UNP": {
+      "ticker": "UNP",
+      "price": 302.44,
+      "previousClose": 304.2,
+      "changePct": -0.579,
+      "mcap": 172376.9,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "NXE": {
+      "ticker": "NXE",
+      "price": 7.76,
+      "previousClose": 7.87,
+      "changePct": -1.398,
+      "mcap": 5531.7,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "XOM": {
+      "ticker": "XOM",
+      "price": 170.59,
+      "previousClose": 169.78,
+      "changePct": 0.477,
+      "mcap": 676620.6,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "CVX": {
+      "ticker": "CVX",
+      "price": 219.89,
+      "previousClose": 216.35,
+      "changePct": 1.636,
+      "mcap": 414802.1,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "SHEL": {
+      "ticker": "SHEL",
+      "price": 99.08,
+      "previousClose": 98.56,
+      "changePct": 0.528,
+      "mcap": 287019.2,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "TTE": {
+      "ticker": "TTE",
+      "price": 90.74,
+      "previousClose": 89.55,
+      "changePct": 1.329,
+      "mcap": 196030.7,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    }
+  }
+}
