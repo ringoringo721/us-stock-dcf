@@ -1,0 +1,238 @@
+{
+  "version": 1,
+  "ticker": "ALB",
+  "name_en": "Albemarle",
+  "name_zh": "Albemarle",
+  "updatedAt": "2026-11-14",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "specialty-chem-v1",
+    "references": [
+      "Industry model `specialty-chem-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "specialty-chem-v1",
+    "label_zh": "特用化學／塗料／衛生價值鏈",
+    "label_en": "Specialty chem / coatings / hygiene value chain",
+    "description_zh": "基礎化學原料 → 配方／塗料製程 → 包裝與施作設備 → 通路經銷 → 建築／機構／餐旅客戶。",
+    "description_en": "Base chemicals → formulation/coatings → packaging & application equipment → distribution → construction/institutional/hospitality customers."
+  },
+  "stages": [
+    {
+      "id": "inputs",
+      "order": 1,
+      "label_zh": "基礎化學原料",
+      "label_en": "Base chemical inputs",
+      "summary_zh": "樹脂、溶劑與中間體。",
+      "summary_en": "Resins, solvents, intermediates.",
+      "players": [
+        {
+          "ticker": "DOW",
+          "name_en": "Dow",
+          "name_zh": "陶氏化學",
+          "role_zh": "陶氏化學：基礎化學原料代表性玩家",
+          "role_en": "Dow: representative player in Base chemical inputs",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "DD",
+          "name_en": "DuPont",
+          "name_zh": "杜邦",
+          "role_zh": "杜邦：基礎化學原料代表性玩家",
+          "role_en": "DuPont: representative player in Base chemical inputs",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "XOM",
+          "name_en": "Exxonmobil",
+          "name_zh": "埃克森美孚",
+          "role_zh": "埃克森美孚：基礎化學原料代表性玩家",
+          "role_en": "Exxonmobil: representative player in Base chemical inputs",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "formulation",
+      "order": 2,
+      "label_zh": "配方／塗料製程",
+      "label_en": "Formulation / coatings process",
+      "summary_zh": "塗料、清洗與水處理配方。",
+      "summary_en": "Coatings, cleaning, water-treatment formulas.",
+      "players": [
+        {
+          "ticker": "SHW",
+          "name_en": "Sherwin-Williams",
+          "name_zh": "宣偉塗料",
+          "role_zh": "宣偉塗料：配方／塗料製程代表性玩家",
+          "role_en": "Sherwin-Williams: representative player in Formulation / coatings process",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "ECL",
+          "name_en": "Ecolab",
+          "name_zh": "藝康集團",
+          "role_zh": "藝康集團：配方／塗料製程代表性玩家",
+          "role_en": "Ecolab: representative player in Formulation / coatings process",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "PPG",
+          "name_en": "PPG Industries",
+          "name_zh": "PPG Industries",
+          "role_zh": "PPG Industries：配方／塗料製程代表性玩家",
+          "role_en": "PPG Industries: representative player in Formulation / coatings process",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "equipment",
+      "order": 3,
+      "label_zh": "包裝／施作設備",
+      "label_en": "Packaging / application equipment",
+      "summary_zh": "計量、噴塗與衛生裝置。",
+      "summary_en": "Dosing, spray, hygiene equipment.",
+      "players": [
+        {
+          "ticker": "EMR",
+          "name_en": "Emerson",
+          "name_zh": "艾默生",
+          "role_zh": "艾默生：包裝／施作設備代表性玩家",
+          "role_en": "Emerson: representative player in Packaging / application equipment",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "ITW",
+          "name_en": "Illinois Tool Works",
+          "name_zh": "伊利諾工具",
+          "role_zh": "伊利諾工具：包裝／施作設備代表性玩家",
+          "role_en": "Illinois Tool Works: representative player in Packaging / application equipment",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "PH",
+          "name_en": "Parker-Hannifin",
+          "name_zh": "派克漢尼汾",
+          "role_zh": "派克漢尼汾：包裝／施作設備代表性玩家",
+          "role_en": "Parker-Hannifin: representative player in Packaging / application equipment",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "distribution",
+      "order": 4,
+      "label_zh": "通路／經銷",
+      "label_en": "Distribution / dealers",
+      "summary_zh": "工業經銷與專業通路。",
+      "summary_en": "Industrial distributors and pros.",
+      "players": [
+        {
+          "ticker": "GWW",
+          "name_en": "Grainger",
+          "name_zh": "固安捷",
+          "role_zh": "固安捷：通路／經銷代表性玩家",
+          "role_en": "Grainger: representative player in Distribution / dealers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "FAST",
+          "name_en": "Fastenal",
+          "name_zh": "Fastenal",
+          "role_zh": "Fastenal：通路／經銷代表性玩家",
+          "role_en": "Fastenal: representative player in Distribution / dealers",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "HD",
+          "name_en": "The Home Depot",
+          "name_zh": "家得寶",
+          "role_zh": "家得寶：通路／經銷代表性玩家",
+          "role_en": "The Home Depot: representative player in Distribution / dealers",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "customers",
+      "order": 5,
+      "label_zh": "建築／機構／餐旅客戶",
+      "label_en": "Construction / institutional / hospitality",
+      "summary_zh": "營建、醫院、旅館與餐飲終端。",
+      "summary_en": "Builders, hospitals, hotels, foodservice.",
+      "players": [
+        {
+          "ticker": "HD",
+          "name_en": "The Home Depot",
+          "name_zh": "家得寶",
+          "role_zh": "家得寶：建築／機構／餐旅客戶代表性玩家",
+          "role_en": "The Home Depot: representative player in Construction / institutional / hospitality",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "LOW",
+          "name_en": "Lowe's Companies",
+          "name_zh": "勞氏",
+          "role_zh": "勞氏：建築／機構／餐旅客戶代表性玩家",
+          "role_en": "Lowe's Companies: representative player in Construction / institutional / hospitality",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "HLT",
+          "name_en": "Hilton",
+          "name_zh": "希爾頓酒店",
+          "role_zh": "希爾頓酒店：建築／機構／餐旅客戶代表性玩家",
+          "role_en": "Hilton: representative player in Construction / institutional / hospitality",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "SQM",
+      "name_en": "SQM",
+      "name_zh": "SQM",
+      "basis_zh": "鋰／電池材料對手",
+      "basis_en": "Lithium / battery-materials rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "LAC",
+      "name_en": "Lithium Americas",
+      "name_zh": "Lithium Americas",
+      "basis_zh": "鋰／電池材料對手",
+      "basis_en": "Lithium / battery-materials rival",
+      "exchange": "NYSE",
+      "listedInApp": false
+    },
+    {
+      "ticker": "PLL",
+      "name_en": "Piedmont Lithium",
+      "name_zh": "Piedmont Lithium",
+      "basis_zh": "鋰／電池材料對手",
+      "basis_en": "Lithium / battery-materials rival",
+      "exchange": "NASDAQ",
+      "listedInApp": false
+    },
+    {
+      "ticker": "SGML",
+      "name_en": "SGML",
+      "name_zh": "SGML",
+      "basis_zh": "鋰／電池材料對手",
+      "basis_en": "Lithium / battery-materials rival",
+      "exchange": "OTC",
+      "listedInApp": false
+    }
+  ]
+}

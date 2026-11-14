@@ -1,0 +1,243 @@
+{
+  "version": 1,
+  "ticker": "SJM",
+  "name_en": "The J. M. Smucker",
+  "name_zh": "J. M. Smucker",
+  "updatedAt": "2026-11-14",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "consumer-staples-v1",
+    "references": [
+      "Industry model `consumer-staples-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "consumer-staples-v1",
+    "label_zh": "消費必需品價值鏈",
+    "label_en": "Consumer staples value chain",
+    "description_zh": "農產／原料 → 包裝 → 製造 → 零售通路 → 行銷媒體。",
+    "description_en": "Agri/inputs → packaging → manufacturing → retail → marketing media."
+  },
+  "stages": [
+    {
+      "id": "inputs",
+      "order": 1,
+      "label_zh": "農產／原料",
+      "label_en": "Agriculture / inputs",
+      "summary_zh": "農商品與基礎原料。",
+      "summary_en": "Ag commodities and base inputs.",
+      "players": [
+        {
+          "ticker": "CTVA",
+          "name_en": "Corteva",
+          "name_zh": "科迪華農業",
+          "role_zh": "科迪華農業：農產／原料代表性玩家",
+          "role_en": "Corteva: representative player in Agriculture / inputs",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "DE",
+          "name_en": "Deere",
+          "name_zh": "強鹿公司 (Deere)",
+          "role_zh": "強鹿公司 (Deere)：農產／原料代表性玩家",
+          "role_en": "Deere: representative player in Agriculture / inputs",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "BG",
+          "name_en": "Bunge",
+          "name_zh": "Bunge",
+          "role_zh": "Bunge：農產／原料代表性玩家",
+          "role_en": "Bunge: representative player in Agriculture / inputs",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "packaging",
+      "order": 2,
+      "label_zh": "包裝材料",
+      "label_en": "Packaging materials",
+      "summary_zh": "紙、塑、鋁包裝。",
+      "summary_en": "Paper, plastic, aluminum pack.",
+      "players": [
+        {
+          "ticker": "DD",
+          "name_en": "DuPont",
+          "name_zh": "杜邦",
+          "role_zh": "杜邦：包裝材料代表性玩家",
+          "role_en": "DuPont: representative player in Packaging materials",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "DOW",
+          "name_en": "Dow",
+          "name_zh": "陶氏化學",
+          "role_zh": "陶氏化學：包裝材料代表性玩家",
+          "role_en": "Dow: representative player in Packaging materials",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "GLW",
+          "name_en": "Corning",
+          "name_zh": "康寧",
+          "role_zh": "康寧：包裝材料代表性玩家",
+          "role_en": "Corning: representative player in Packaging materials",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "manufacturing",
+      "order": 3,
+      "label_zh": "製造／代工",
+      "label_en": "Manufacturing / co-pack",
+      "summary_zh": "工廠與共同包裝。",
+      "summary_en": "Plants and co-packers.",
+      "players": [
+        {
+          "ticker": "HON",
+          "name_en": "Honeywell",
+          "name_zh": "漢威聯合",
+          "role_zh": "漢威聯合：製造／代工代表性玩家",
+          "role_en": "Honeywell: representative player in Manufacturing / co-pack",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "EMR",
+          "name_en": "Emerson",
+          "name_zh": "艾默生",
+          "role_zh": "艾默生：製造／代工代表性玩家",
+          "role_en": "Emerson: representative player in Manufacturing / co-pack",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "ROK",
+          "name_en": "Rockwell Automation",
+          "name_zh": "羅克韋爾",
+          "role_zh": "羅克韋爾：製造／代工代表性玩家",
+          "role_en": "Rockwell Automation: representative player in Manufacturing / co-pack",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "retail",
+      "order": 4,
+      "label_zh": "零售／倉店通路",
+      "label_en": "Retail / club channel",
+      "summary_zh": "商超、倉儲會員店與便利。",
+      "summary_en": "Grocery, clubs, convenience.",
+      "players": [
+        {
+          "ticker": "WMT",
+          "name_en": "Walmart",
+          "name_zh": "沃爾瑪",
+          "role_zh": "沃爾瑪：零售／倉店通路代表性玩家",
+          "role_en": "Walmart: representative player in Retail / club channel",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "COST",
+          "name_en": "Costco Wholesale",
+          "name_zh": "好市多",
+          "role_zh": "好市多：零售／倉店通路代表性玩家",
+          "role_en": "Costco Wholesale: representative player in Retail / club channel",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "TGT",
+          "name_en": "Target",
+          "name_zh": "目標百貨 (Target)",
+          "role_zh": "目標百貨 (Target)：零售／倉店通路代表性玩家",
+          "role_en": "Target: representative player in Retail / club channel",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "media",
+      "order": 5,
+      "label_zh": "行銷／媒體",
+      "label_en": "Marketing / media",
+      "summary_zh": "品牌廣告與零售媒體。",
+      "summary_en": "Brand ads and retail media.",
+      "players": [
+        {
+          "ticker": "GOOG",
+          "name_en": "Alphabet",
+          "name_zh": "Alphabet（Google）",
+          "role_zh": "Alphabet（Google）：行銷／媒體代表性玩家",
+          "role_en": "Alphabet: representative player in Marketing / media",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "META",
+          "name_en": "Meta Platforms",
+          "name_zh": "Meta (臉書)",
+          "role_zh": "Meta (臉書)：行銷／媒體代表性玩家",
+          "role_en": "Meta Platforms: representative player in Marketing / media",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "DIS",
+          "name_en": "Walt Disney",
+          "name_zh": "迪士尼",
+          "role_zh": "迪士尼：行銷／媒體代表性玩家",
+          "role_en": "Walt Disney: representative player in Marketing / media",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "MDLZ",
+      "name_en": "Mondelez",
+      "name_zh": "億滋國際",
+      "basis_zh": "零食／包裝食品對手",
+      "basis_en": "Snacks / packaged-food rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "HSY",
+      "name_en": "Hershey",
+      "name_zh": "好時公司",
+      "basis_zh": "零食／包裝食品對手",
+      "basis_en": "Snacks / packaged-food rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "GIS",
+      "name_en": "General Mills",
+      "name_zh": "通用磨坊",
+      "basis_zh": "零食／包裝食品對手",
+      "basis_en": "Snacks / packaged-food rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "KHC",
+      "name_en": "Kraft Heinz",
+      "name_zh": "卡夫亨氏",
+      "basis_zh": "零食／包裝食品對手",
+      "basis_en": "Snacks / packaged-food rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "PEP",
+      "name_en": "PepsiCo",
+      "name_zh": "百事可樂",
+      "basis_zh": "零食／包裝食品對手",
+      "basis_en": "Snacks / packaged-food rival",
+      "exchange": "NASDAQ"
+    }
+  ]
+}

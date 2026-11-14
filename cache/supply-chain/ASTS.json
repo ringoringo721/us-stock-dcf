@@ -1,0 +1,194 @@
+{
+  "version": 1,
+  "ticker": "ASTS",
+  "name_en": "AST SpaceMobile",
+  "name_zh": "AST SpaceMobile",
+  "updatedAt": "2026-11-14",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "satellite-to-phone-v1",
+    "references": [
+      "Industry model `satellite-to-phone-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "satellite-to-phone-v1",
+    "label_zh": "衛星直連手機價值鏈",
+    "label_en": "Satellite-to-phone value chain",
+    "description_zh": "發射 → 衛星平台／酬載 → 地面關口 → 電信營運商夥伴。",
+    "description_en": "Launch → satellite bus / payload → ground gateways → MNO partners."
+  },
+  "stages": [
+    {
+      "id": "launch",
+      "order": 1,
+      "label_zh": "發射服務",
+      "label_en": "Launch services",
+      "summary_zh": "運載火箭與發射服務。",
+      "summary_en": "Launch vehicles and services.",
+      "players": [
+        {
+          "ticker": "RKLB",
+          "name_en": "Rocket Lab",
+          "name_zh": "Rocket Lab",
+          "role_zh": "Rocket Lab：發射服務代表性玩家",
+          "role_en": "Rocket Lab: representative player in Launch services",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "BA",
+          "name_en": "Boeing",
+          "name_zh": "波音公司",
+          "role_zh": "波音公司：發射服務代表性玩家",
+          "role_en": "Boeing: representative player in Launch services",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "LMT",
+          "name_en": "Lockheed Martin",
+          "name_zh": "洛克希德·馬丁",
+          "role_zh": "洛克希德·馬丁：發射服務代表性玩家",
+          "role_en": "Lockheed Martin: representative player in Launch services",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "sat-bus",
+      "order": 2,
+      "label_zh": "衛星平台／酬載",
+      "label_en": "Satellite bus / payload",
+      "summary_zh": "衛星本體與通訊酬載。",
+      "summary_en": "Spacecraft bus and comms payload.",
+      "players": [
+        {
+          "ticker": "BA",
+          "name_en": "Boeing",
+          "name_zh": "波音公司",
+          "role_zh": "波音公司：衛星平台／酬載代表性玩家",
+          "role_en": "Boeing: representative player in Satellite bus / payload",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "LMT",
+          "name_en": "Lockheed Martin",
+          "name_zh": "洛克希德·馬丁",
+          "role_zh": "洛克希德·馬丁：衛星平台／酬載代表性玩家",
+          "role_en": "Lockheed Martin: representative player in Satellite bus / payload",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "NOC",
+          "name_en": "Northrop Grumman",
+          "name_zh": "諾斯洛普·格魯曼",
+          "role_zh": "諾斯洛普·格魯曼：衛星平台／酬載代表性玩家",
+          "role_en": "Northrop Grumman: representative player in Satellite bus / payload",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "ground",
+      "order": 3,
+      "label_zh": "地面關口／網管",
+      "label_en": "Ground gateways / NOC",
+      "summary_zh": "關口站與地面網管。",
+      "summary_en": "Gateways and ground network ops.",
+      "players": [
+        {
+          "ticker": "TRMB",
+          "name_en": "Trimble",
+          "name_zh": "Trimble",
+          "role_zh": "Trimble：地面關口／網管代表性玩家",
+          "role_en": "Trimble: representative player in Ground gateways / NOC",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "LHX",
+          "name_en": "L3Harris",
+          "name_zh": "L3Harris",
+          "role_zh": "L3Harris：地面關口／網管代表性玩家",
+          "role_en": "L3Harris: representative player in Ground gateways / NOC",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "GD",
+          "name_en": "General Dynamics",
+          "name_zh": "通用動力",
+          "role_zh": "通用動力：地面關口／網管代表性玩家",
+          "role_en": "General Dynamics: representative player in Ground gateways / NOC",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "mno",
+      "order": 4,
+      "label_zh": "電信營運商夥伴",
+      "label_en": "MNO partners",
+      "summary_zh": "行動網路漫遊／批發夥伴。",
+      "summary_en": "Mobile-network roaming / wholesale partners.",
+      "players": [
+        {
+          "ticker": "T",
+          "name_en": "AT&T",
+          "name_zh": "AT&T",
+          "role_zh": "AT&T：電信營運商夥伴代表性玩家",
+          "role_en": "AT&T: representative player in MNO partners",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "VZ",
+          "name_en": "Verizon Communications",
+          "name_zh": "威訊通訊",
+          "role_zh": "威訊通訊：電信營運商夥伴代表性玩家",
+          "role_en": "Verizon Communications: representative player in MNO partners",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "TMUS",
+          "name_en": "T-Mobile US",
+          "name_zh": "T-Mobile 美國",
+          "role_zh": "T-Mobile 美國：電信營運商夥伴代表性玩家",
+          "role_en": "T-Mobile US: representative player in MNO partners",
+          "exchange": "NASDAQ"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "GSAT",
+      "name_en": "Globalstar",
+      "name_zh": "Globalstar",
+      "basis_zh": "衛星通訊對手",
+      "basis_en": "Satellite communications rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "VSAT",
+      "name_en": "Viasat",
+      "name_zh": "Viasat",
+      "basis_zh": "衛星通訊對手",
+      "basis_en": "Satellite communications rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "IRDM",
+      "name_en": "Iridium",
+      "name_zh": "Iridium",
+      "basis_zh": "衛星通訊對手",
+      "basis_en": "Satellite communications rival",
+      "exchange": "NASDAQ",
+      "listedInApp": false
+    }
+  ]
+}
