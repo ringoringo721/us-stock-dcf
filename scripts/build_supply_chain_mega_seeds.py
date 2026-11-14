@@ -126,7 +126,10 @@ LEGAL_EN_NAME_RE = re.compile(
 # Suffixes safe to strip for short brands. Keep N.V. / S.A. / p.l.c. intact —
 # stripping N.V. via a trailing `\b` often leaves an orphan "." ("ASML Holding .").
 LEGAL_EN_SUFFIX_STRIP_RE = re.compile(
-    r"\b(Inc\.?|Incorporated|Corp\.?|Corporation|Company|Ltd\.?|Limited|Holdings|PLC|Group)\b",
+    # Company/Companies legal tails. Strip "Group" only as a trailing corporate suffix
+    # (… Group / … Group Inc.) — never "Reinsurance Group of America".
+    r"\b(Inc\.?|Incorporated|Corp\.?|Corporation|Compan(?:y|ies)|Ltd\.?|Limited|Holdings|PLC)\b"
+    r"|\bGroup\b(?=\s*$|\s+(?:Inc\.?|Incorporated|Corp\.?|Corporation|Compan(?:y|ies)|Ltd\.?|Limited)\b)",
     re.I,
 )
 # Known wrong / legal-dump name_zh corrections (ticker → curated 繁中 or brand).
@@ -228,6 +231,8 @@ def _assert_short_brand_en() -> None:
         ("CoreWeave, Inc. Class A Common Stock", "CRWV", "CoreWeave"),
         ("Chime Financial, Inc. Ordinary Shares", "CHYM", "Chime Financial"),
         ("Entergy Louisiana, LLC First Mortgage Bonds", "ELC", "Entergy Louisiana, LLC"),
+        ("The Cooper Companies, Inc.", "COO", "Cooper"),
+        ("Reinsurance Group of America, Incorporated", "RGA", "Reinsurance Group of America"),
     )
     for raw, ticker, expect in cases:
         got = short_brand_en(raw, ticker)

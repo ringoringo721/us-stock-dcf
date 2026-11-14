@@ -1229,7 +1229,7 @@
     "smelting": [
       "LIN",
       "APD",
-      "NEM"
+      "SIG"
     ],
     "logistics": [
       "UNP",
@@ -1237,9 +1237,48 @@
       "FDX"
     ],
     "customers": [
-      "SIG",
       "JPM",
-      "GS"
+      "GS",
+      "MS"
+    ]
+  },
+  "energy-gas-ep-v1": {
+    "services": [
+      "SLB",
+      "HAL",
+      "BKR"
+    ],
+    "midstream": [
+      "WMB",
+      "KMI",
+      "AM"
+    ],
+    "offtake": [
+      "DUK",
+      "NEE",
+      "LNG"
+    ]
+  },
+  "satellite-to-phone-v1": {
+    "launch": [
+      "RKLB",
+      "BA",
+      "LMT"
+    ],
+    "sat-bus": [
+      "BA",
+      "LMT",
+      "NOC"
+    ],
+    "ground": [
+      "VSAT",
+      "IRDM",
+      "GSAT"
+    ],
+    "mno": [
+      "T",
+      "VZ",
+      "TMUS"
     ]
   }
 }

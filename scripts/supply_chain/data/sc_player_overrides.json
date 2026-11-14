@@ -310,7 +310,7 @@
     "smelting": [
       "LIN",
       "APD",
-      "NEM"
+      "SIG"
     ],
     "logistics": [
       "UNP",
@@ -318,9 +318,9 @@
       "FDX"
     ],
     "customers": [
-      "SIG",
       "JPM",
-      "GS"
+      "GS",
+      "MS"
     ]
   },
   "AG": {
@@ -337,7 +337,7 @@
     "smelting": [
       "LIN",
       "APD",
-      "NEM"
+      "SIG"
     ],
     "logistics": [
       "UNP",
@@ -345,9 +345,9 @@
       "FDX"
     ],
     "customers": [
-      "SIG",
       "JPM",
-      "GS"
+      "GS",
+      "MS"
     ]
   },
   "AUGO": {
@@ -364,7 +364,7 @@
     "smelting": [
       "LIN",
       "APD",
-      "NEM"
+      "SIG"
     ],
     "logistics": [
       "UNP",
@@ -372,9 +372,9 @@
       "FDX"
     ],
     "customers": [
-      "SIG",
       "JPM",
-      "GS"
+      "GS",
+      "MS"
     ]
   },
   "BCPC": {
@@ -456,6 +456,33 @@
       "UNH",
       "HCA",
       "CI"
+    ]
+  },
+  "ALLY": {
+    "funding": [
+      "GS",
+      "MS",
+      "BLK"
+    ],
+    "tech": [
+      "MSFT",
+      "ORCL",
+      "IBM"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "FISV"
+    ],
+    "data-risk": [
+      "SPGI",
+      "MCO",
+      "FICO"
+    ],
+    "channels": [
+      "JPM",
+      "BAC",
+      "AN"
     ]
   }
 }

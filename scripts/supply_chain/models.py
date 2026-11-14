@@ -2005,6 +2005,31 @@ MODELS: dict[str, dict] = {
         ],
     },
 
+    "energy-gas-ep-v1": {
+        "label_zh": "天然氣勘探開發價值鏈",
+        "label_en": "Natural-gas E&P value chain",
+        "description_zh": "油服／完井 → 中游集輸／管網 → 公用／LNG 承銷。上游同業僅列對手，不進階段。",
+        "description_en": "OFS / completions → midstream gathering / pipelines → utility / LNG offtake. Peer E&Ps stay rivals only — not stage players.",
+        "stages": [
+            {"id": "services", "order": 1, "label_zh": "油服／完井", "label_en": "Oilfield services / completions", "summary_zh": "鑽完井與壓裂服務供應。", "summary_en": "Drilling, completion, and frac services."},
+            {"id": "midstream", "order": 2, "label_zh": "中游集輸／管網", "label_en": "Midstream gathering / pipelines", "summary_zh": "集氣、處理與幹線管輸。", "summary_en": "Gathering, processing, and trunk pipelines."},
+            {"id": "offtake", "order": 3, "label_zh": "公用／LNG 承銷", "label_en": "Utility / LNG offtake", "summary_zh": "電氣公用與 LNG 承銷客戶。", "summary_en": "Electric/gas utilities and LNG offtakers."},
+        ],
+    },
+
+    "satellite-to-phone-v1": {
+        "label_zh": "衛星直連手機價值鏈",
+        "label_en": "Satellite-to-phone value chain",
+        "description_zh": "發射 → 衛星平台／酬載 → 地面關口 → 電信營運商夥伴。",
+        "description_en": "Launch → satellite bus / payload → ground gateways → MNO partners.",
+        "stages": [
+            {"id": "launch", "order": 1, "label_zh": "發射服務", "label_en": "Launch services", "summary_zh": "運載火箭與發射服務。", "summary_en": "Launch vehicles and services."},
+            {"id": "sat-bus", "order": 2, "label_zh": "衛星平台／酬載", "label_en": "Satellite bus / payload", "summary_zh": "衛星本體與通訊酬載。", "summary_en": "Spacecraft bus and comms payload."},
+            {"id": "ground", "order": 3, "label_zh": "地面關口／網管", "label_en": "Ground gateways / NOC", "summary_zh": "關口站與地面網管。", "summary_en": "Gateways and ground network ops."},
+            {"id": "mno", "order": 4, "label_zh": "電信營運商夥伴", "label_en": "MNO partners", "summary_zh": "行動網路漫遊／批發夥伴。", "summary_en": "Mobile-network roaming / wholesale partners."},
+        ],
+    },
+
 }
 
 
@@ -2280,7 +2305,7 @@ TICKER_MODEL: dict[str, str] = {
     "APPF": "saas-cloud-v1",
     "ADT": "security-services-v1",
     "ALLE": "security-services-v1",
-    "ASTS": "telecom-v1",
+    "ASTS": "satellite-to-phone-v1",
     "BILI": "entertainment-v1",
     "BC": "marine-recreation-v1",
     "CAKE": "consumer-discretionary-v1",
@@ -2306,7 +2331,10 @@ TICKER_MODEL: dict[str, str] = {
     "AES": "utilities-v1",  # electric generation / utilities
     "ARES": "asset-mgmt-v1",  # alt managers
     "ANDG": "tax-pro-services-v1",
-    "AR": "energy-integrated-v1",  # E&P: services=OFS, upstream=E&P peers (not OFS copy)
+    "AR": "energy-gas-ep-v1",  # pure-play gas E&P — OFS / midstream / offtake; rivals stay rivals
+    "EQT": "energy-gas-ep-v1",
+    "RRC": "energy-gas-ep-v1",
+    "EXE": "energy-gas-ep-v1",
     "AMTM": "gov-services-v1",
     "BLLN": "medtech-v1",  # molecular dx — peers via mol-dx group
     "CIG": "utilities-v1",

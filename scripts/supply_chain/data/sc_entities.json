@@ -32,7 +32,7 @@
   "SPCX": {
     "name_en": "SpaceX",
     "name_zh": "SpaceX",
-    "exchange": "NASDAQ"
+    "exchange": "Private"
   },
   "META": {
     "name_en": "Meta Platforms",
@@ -67,7 +67,7 @@
   "WMT": {
     "name_en": "Walmart",
     "name_zh": "沃爾瑪",
-    "exchange": "NASDAQ"
+    "exchange": "NYSE"
   },
   "SKHY": {
     "name_en": "SK hynix",
@@ -4500,8 +4500,8 @@
     "exchange": "NYSE"
   },
   "RGA": {
-    "name_en": "Reinsurance of America",
-    "name_zh": "Reinsurance of America",
+    "name_en": "Reinsurance Group of America",
+    "name_zh": "美國再保險集團",
     "exchange": "NYSE"
   },
   "PAAS": {
@@ -5170,8 +5170,8 @@
     "exchange": "NASDAQ"
   },
   "COO": {
-    "name_en": "The Cooper Companies",
-    "name_zh": "The Cooper Companies",
+    "name_en": "CooperVision",
+    "name_zh": "庫博",
     "exchange": "NASDAQ"
   },
   "ALGN": {
@@ -7718,10 +7718,5 @@
     "name_en": "Quebecor",
     "name_zh": "Quebecor",
     "exchange": "OTC"
-  },
-  "GOLD": {
-    "name_zh": "巴里克（GOLD）",
-    "name_en": "Barrick Gold",
-    "exchange": "NYSE"
   }
 }

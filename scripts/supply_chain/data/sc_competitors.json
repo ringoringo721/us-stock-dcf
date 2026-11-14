@@ -8147,24 +8147,24 @@
   ],
   "A": [
     [
-      "IDXX",
-      "診斷／生命科學工具對手",
-      "Diagnostics / life-science tools rival"
-    ],
-    [
       "TMO",
-      "診斷／生命科學工具對手",
-      "Diagnostics / life-science tools rival"
+      "生命科學分析儀器對手",
+      "Life-science analytical tools rival"
     ],
     [
       "DHR",
-      "診斷／生命科學工具對手",
-      "Diagnostics / life-science tools rival"
+      "生命科學分析儀器對手",
+      "Life-science analytical tools rival"
     ],
     [
-      "BDX",
-      "診斷／生命科學工具對手",
-      "Diagnostics / life-science tools rival"
+      "WAT",
+      "生命科學分析儀器對手",
+      "Life-science analytical tools rival"
+    ],
+    [
+      "MTD",
+      "生命科學分析儀器對手",
+      "Life-science analytical tools rival"
     ]
   ],
   "PYPL": [
@@ -8905,29 +8905,24 @@
   ],
   "WAT": [
     [
-      "IDXX",
-      "診斷／生命科學工具對手",
-      "Diagnostics / life-science tools rival"
+      "A",
+      "生命科學分析儀器對手",
+      "Life-science analytical tools rival"
     ],
     [
       "TMO",
-      "診斷／生命科學工具對手",
-      "Diagnostics / life-science tools rival"
+      "生命科學分析儀器對手",
+      "Life-science analytical tools rival"
     ],
     [
       "DHR",
-      "診斷／生命科學工具對手",
-      "Diagnostics / life-science tools rival"
+      "生命科學分析儀器對手",
+      "Life-science analytical tools rival"
     ],
     [
-      "BDX",
-      "診斷／生命科學工具對手",
-      "Diagnostics / life-science tools rival"
-    ],
-    [
-      "A",
-      "診斷／生命科學工具對手",
-      "Diagnostics / life-science tools rival"
+      "MTD",
+      "生命科學分析儀器對手",
+      "Life-science analytical tools rival"
     ]
   ],
   "IQV": [
@@ -10501,29 +10496,24 @@
   ],
   "MTD": [
     [
-      "IDXX",
-      "診斷／生命科學工具對手",
-      "Diagnostics / life-science tools rival"
+      "A",
+      "生命科學分析儀器對手",
+      "Life-science analytical tools rival"
     ],
     [
       "TMO",
-      "診斷／生命科學工具對手",
-      "Diagnostics / life-science tools rival"
+      "生命科學分析儀器對手",
+      "Life-science analytical tools rival"
     ],
     [
       "DHR",
-      "診斷／生命科學工具對手",
-      "Diagnostics / life-science tools rival"
+      "生命科學分析儀器對手",
+      "Life-science analytical tools rival"
     ],
     [
-      "BDX",
-      "診斷／生命科學工具對手",
-      "Diagnostics / life-science tools rival"
-    ],
-    [
-      "A",
-      "診斷／生命科學工具對手",
-      "Diagnostics / life-science tools rival"
+      "WAT",
+      "生命科學分析儀器對手",
+      "Life-science analytical tools rival"
     ]
   ],
   "ODFL": [
@@ -10614,7 +10604,7 @@
       "Agribusiness / grain-oilseed rival"
     ],
     [
-      "DAR",
+      "CAG",
       "農產品／大宗貿易對手",
       "Agribusiness / grain-oilseed rival"
     ]
@@ -15403,7 +15393,7 @@
       "Agribusiness / grain-oilseed rival"
     ],
     [
-      "DAR",
+      "CAG",
       "農產品／大宗貿易對手",
       "Agribusiness / grain-oilseed rival"
     ]
@@ -26050,27 +26040,27 @@
   ],
   "DAR": [
     [
-      "ADM",
-      "農產品／大宗貿易對手",
-      "Agribusiness / grain-oilseed rival"
-    ],
-    [
-      "BG",
-      "農產品／大宗貿易對手",
-      "Agribusiness / grain-oilseed rival"
-    ],
-    [
-      "INGR",
-      "農產品／大宗貿易對手",
-      "Agribusiness / grain-oilseed rival"
-    ],
-    [
       "BCPC",
       "營養／特用化學對手",
       "Nutrition / specialty-chem rival"
     ],
     [
+      "INGR",
+      "營養／特用化學對手",
+      "Nutrition / specialty-chem rival"
+    ],
+    [
       "FMC",
+      "營養／特用化學對手",
+      "Nutrition / specialty-chem rival"
+    ],
+    [
+      "IFF",
+      "營養／特用化學對手",
+      "Nutrition / specialty-chem rival"
+    ],
+    [
+      "ECL",
       "營養／特用化學對手",
       "Nutrition / specialty-chem rival"
     ]
@@ -27258,29 +27248,19 @@
   ],
   "CAG": [
     [
-      "MDLZ",
-      "零食／包裝食品對手",
-      "Snacks / packaged-food rival"
+      "ADM",
+      "農產品／大宗貿易對手",
+      "Agribusiness / grain-oilseed rival"
     ],
     [
-      "HSY",
-      "零食／包裝食品對手",
-      "Snacks / packaged-food rival"
+      "BG",
+      "農產品／大宗貿易對手",
+      "Agribusiness / grain-oilseed rival"
     ],
     [
-      "GIS",
-      "零食／包裝食品對手",
-      "Snacks / packaged-food rival"
-    ],
-    [
-      "KHC",
-      "零食／包裝食品對手",
-      "Snacks / packaged-food rival"
-    ],
-    [
-      "PEP",
-      "零食／包裝食品對手",
-      "Snacks / packaged-food rival"
+      "INGR",
+      "農產品／大宗貿易對手",
+      "Agribusiness / grain-oilseed rival"
     ]
   ],
   "URBN": [
@@ -31185,19 +31165,9 @@
       "Agribusiness / grain-oilseed rival"
     ],
     [
-      "DAR",
+      "CAG",
       "農產品／大宗貿易對手",
       "Agribusiness / grain-oilseed rival"
-    ],
-    [
-      "BCPC",
-      "營養／特用化學對手",
-      "Nutrition / specialty-chem rival"
-    ],
-    [
-      "FMC",
-      "營養／特用化學對手",
-      "Nutrition / specialty-chem rival"
     ]
   ],
   "SGHC": [

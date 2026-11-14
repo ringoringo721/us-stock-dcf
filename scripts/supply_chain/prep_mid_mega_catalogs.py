@@ -442,7 +442,6 @@ CURATED_NAME_ZH: dict[str, str] = {
     "VALE": "淡水河谷",
     "RIO": "力拓",
     "SCCO": "南方銅業",
-    "GOLD": "巴里克（GOLD）",
     "NEM": "紐蒙特",
     "EQIX": "Equinix",
     "PLD": "普洛斯",
@@ -981,6 +980,7 @@ def main() -> int:
     entities["NPNYY"] = {"name_en": "Nippon Sanso", "name_zh": "日本酸素", "exchange": "OTC"}
     entities["4091.T"] = {"name_en": "Nippon Sanso Holdings", "name_zh": "日本酸素控股", "exchange": "TSE"}
     entities["LIN"] = {"name_en": "Linde", "name_zh": "林德集團", "exchange": "NASDAQ"}
+    entities["WMT"] = {"name_en": "Walmart", "name_zh": "沃爾瑪", "exchange": "NYSE"}
     # Drop wrong Watsco mapping if present (WACLY is Wacoal ADR).
     if entities.get("WACLY", {}).get("name_en") == "Watsco" or "Watsco" in (
         entities.get("WACLY", {}).get("name_zh") or ""

@@ -454,7 +454,7 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "farm-agri",
-        ["ADM", "BG", "INGR", "DAR"],  # grain/oilseed merchandising — not TSN meat / CTVA seeds
+        ["ADM", "BG", "INGR", "CAG"],  # grain/oilseed / CPG crush — drop DAR renderer
         "農產品／大宗貿易對手",
         "Agribusiness / grain-oilseed rival",
     ),
@@ -777,6 +777,12 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
         "Life-science reagents / lab-distribution rival",
     ),
     (
+        "life-sci-tools",
+        ["A", "TMO", "DHR", "WAT", "MTD"],  # life-science tools — drop IDXX vet dx
+        "生命科學分析儀器對手",
+        "Life-science analytical tools rival",
+    ),
+    (
         "risk-data",
         ["VRSK", "EFX", "TRU", "FICO"],  # insurance/credit analytics — not tax-pro fallthrough
         "風險／信用數據對手",
@@ -988,6 +994,8 @@ TICKER_GROUP_FORCE: dict[str, str] = {
     "BWA": "auto-tier1",
     "ADM": "farm-agri",
     "BG": "farm-agri",
+    "INGR": "farm-agri",
+    "CAG": "farm-agri",
     "ABEV": "beer-bev",
     "ALC": "ophthalmology",
     "BEN": "fund-am",
@@ -1060,6 +1068,9 @@ TICKER_GROUP_FORCE: dict[str, str] = {
     "ATR": "packaging-disp",
     "AOS": "water-heat",
     "AVTR": "life-sci-dist",
+    "A": "life-sci-tools",
+    "WAT": "life-sci-tools",
+    "MTD": "life-sci-tools",
     "BBY": "retail-ce",
     "AES": "util-ipp",
     "CE": "chem-commodity",
@@ -1115,6 +1126,7 @@ TICKER_GROUP_FORCE: dict[str, str] = {
 # Specialty groups that must never be padded with same-industry megacaps.
 NO_PAD_GROUPS = {
     "door-hardware",
+    "life-sci-tools",
     "ppe-safety",
     "metal-fab",
     "ins-specialty",
@@ -1244,6 +1256,8 @@ def resolve_rivals(
 
 
 EXTRA_NAME_EN: dict[str, str] = {
+    "COO": "CooperVision",
+    "RGA": "Reinsurance Group of America",
     "CVE": "Cenovus",
     "KDP": "Keurig Dr Pepper",
     "F": "Ford",
@@ -1451,6 +1465,8 @@ EXTRA_NAME_EN: dict[str, str] = {
 
 # Prefer 繁中; Latin only when that is the intentional brand (Equinix/IBM style).
 EXTRA_NAME_ZH: dict[str, str] = {
+    "COO": "庫博",
+    "RGA": "美國再保險集團",
     "F": "福特",
     "TEVA": "梯瓦藥廠",
     "VALE": "淡水河谷",
@@ -1823,13 +1839,18 @@ def main() -> int:
         "ABVX": ("Abivax", "Abivax", "NASDAQ"),
         "ARWR": ("Arrowhead", "Arrowhead", "NASDAQ"),
         "ALKS": ("Alkermes", "Alkermes", "NASDAQ"),
+        # Universe wrongly tags Walmart as NASDAQ; listing is NYSE (seeds must emit NYSE).
+        "WMT": ("Walmart", "沃爾瑪", "NYSE"),
+        "COO": ("CooperVision", "庫博", "NASDAQ"),
+        "RGA": ("Reinsurance Group of America", "美國再保險集團", "NYSE"),
     }
 
     for t, (en, zh, ex) in forced_ents.items():
         entities[t] = {
             "name_en": en,
             "name_zh": zh,
-            "exchange": (uni.get(t) or {}).get("exchange") or ex,
+            # Prefer curated exchange — universe is wrong for some listings (e.g. WMT→NYSE).
+            "exchange": ex or (uni.get(t) or {}).get("exchange") or "",
         }
 
     # Restore any main CJK that remaining prep still lacks.
@@ -1865,7 +1886,7 @@ def main() -> int:
             competitors[hub] = [[a, b, c] for a, b, c in riv]
 
     # Drop delisted / mislabeled stub entities (never ship OTC ticker-only rows).
-    for gone in ("PEAK", "MYL", "FLY", "FLYX", "MAXR", "SQ", "RDFN", "SJW"):
+    for gone in ("PEAK", "MYL", "FLY", "FLYX", "MAXR", "SQ", "RDFN", "SJW", "GOLD", "BERY"):
         entities.pop(gone, None)
 
     # Global: never ship ticker-as-name except intentional Latin brands.
@@ -1897,9 +1918,15 @@ def main() -> int:
         elif zh == t and t not in LATIN_BRANDS:
             pe["name_zh"] = pe.get("name_en") or t
         # Exchange: never OTC for in-universe NYSE/NASDAQ; apply known listed peers.
+        # Curated forced_ents exchanges win below when universe is wrong (e.g. WMT).
         if row.get("exchange"):
             pe["exchange"] = row["exchange"]
         entities[t] = pe
+
+    # Re-apply curated exchanges after universe overwrite (WMT is NYSE, not NASDAQ).
+    for t, (_en, _zh, ex) in forced_ents.items():
+        if ex and t in entities:
+            entities[t]["exchange"] = ex
 
     # Scrub banned / share-class / alias rivals from any competitor lists.
     for hub, arr in list(competitors.items()):
