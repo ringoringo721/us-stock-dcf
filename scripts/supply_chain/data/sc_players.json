@@ -568,9 +568,9 @@
   },
   "consumer-staples-v1": {
     "inputs": [
-      "ADM",
       "CTVA",
-      "DE"
+      "DE",
+      "BG"
     ],
     "packaging": [
       "DD",
@@ -1290,7 +1290,7 @@
     "ingredients": [
       "IFF",
       "INGR",
-      "BCPC"
+      "DAR"
     ],
     "equipment": [
       "HON",
@@ -1317,7 +1317,7 @@
     "instruments": [
       "TMO",
       "DHR",
-      "A"
+      "WAT"
     ],
     "consumables": [
       "AVTR",

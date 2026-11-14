@@ -1290,6 +1290,7 @@ def resolve_rivals(
 
 
 EXTRA_NAME_EN: dict[str, str] = {
+    "AFG": "American Financial Group",
     "COO": "Cooper",  # The Cooper Companies — not CooperVision-only
     "RGA": "Reinsurance Group of America",
     "TEL": "TE Connectivity",
@@ -1508,6 +1509,7 @@ EXTRA_NAME_EN: dict[str, str] = {
 
 # Prefer 繁中; Latin only when that is the intentional brand (Equinix/IBM style).
 EXTRA_NAME_ZH: dict[str, str] = {
+    "AFG": "美國金融集團",
     "COO": "庫博",
     "RGA": "美國再保險集團",
     "F": "福特",
@@ -1892,6 +1894,7 @@ def main() -> int:
         "ALKS": ("Alkermes", "Alkermes", "NASDAQ"),
         # Universe wrongly tags Walmart as NASDAQ; listing is NYSE (seeds must emit NYSE).
         "WMT": ("Walmart", "沃爾瑪", "NYSE"),
+        "AFG": ("American Financial Group", "美國金融集團", "NYSE"),
         "MSI": ("Motorola Solutions", "摩托羅拉解決方案", "NYSE"),
         "COO": ("Cooper", "庫博", "NYSE"),  # The Cooper Companies — not CooperVision / NASDAQ
         "RGA": ("Reinsurance Group of America", "美國再保險集團", "NYSE"),
@@ -1991,6 +1994,7 @@ def main() -> int:
     # Import under aliases so we do not shadow module-level short_brand_en (UnboundLocalError).
     from scripts.build_supply_chain_mega_seeds import (
         looks_like_english_legal_name as _looks_legal_zh,
+        looks_like_incomplete_en_label as _incomplete_zh,
         short_brand_en as _mega_short_brand_en,
         NAME_ZH_FIXES as _NAME_ZH_FIXES,
     )
@@ -2020,8 +2024,8 @@ def main() -> int:
                     pe["name_zh"] = brand
                 else:
                     pe["name_zh"] = t
-            # Re-check before write
-            if _looks_legal_zh(pe.get("name_zh") or ""):
+            # Re-check before write — never English-legal dumps or lone adjectives ("American").
+            if _looks_legal_zh(pe.get("name_zh") or "") or _incomplete_zh(pe.get("name_zh") or ""):
                 pe["name_zh"] = t
             entities[t] = pe
 

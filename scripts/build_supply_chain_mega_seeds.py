@@ -162,7 +162,26 @@ NAME_ZH_FIXES = {
     "LEVI": "Levi's",  # never “Levi Strauss & Co.”
     "NSIT": "Insight",  # never “Insight Enterprises”
     "COO": "庫博",  # The Cooper Companies — not CooperVision-only label
+    "AFG": "美國金融集團",  # never truncated English adjective "American"
 }
+
+
+_COMMON_EN_ADJECTIVES = {
+    "american", "national", "general", "united", "global", "international",
+    "first", "federal", "northern", "southern", "eastern", "western",
+    "pacific", "atlantic", "central", "universal", "standard", "premier",
+}
+
+
+def looks_like_incomplete_en_label(text: str) -> bool:
+    """True when name_zh is a lone English adjective / truncated legal headword."""
+    raw = (text or "").strip()
+    if not raw or re.search(r"[\u4e00-\u9fff]", raw):
+        return False
+    words = [w for w in re.split(r"[\s&]+", raw) if w]
+    if len(words) == 1 and words[0].lower().rstrip(".,") in _COMMON_EN_ADJECTIVES:
+        return True
+    return False
 
 
 def looks_like_english_legal_name(text: str) -> bool:
@@ -262,6 +281,7 @@ def _assert_short_brand_en() -> None:
         ("Enterprise Products Partners L.P.", "EPD", "Enterprise Products Partners L.P."),
         ("Enterprise Holdings, Inc.", "EHI", "Enterprise Holdings"),
         ("Insight Enterprises, Inc.", "NSIT", "Insight"),
+        ("American Financial Group, Inc.", "AFG", "American Financial Group"),
     )
     for raw, ticker, expect in cases:
         got = short_brand_en(raw, ticker)
@@ -307,8 +327,8 @@ def resolve_entity(ticker: str, entities: dict, universe_by_ticker: dict | None 
         name_zh = short_brand_en(name_en, ticker)
         if looks_like_english_legal_name(name_zh):
             name_zh = ticker
-    elif looks_like_english_legal_name(name_zh):
-        # Curated or universe wrongly stored English legal as name_zh.
+    elif looks_like_english_legal_name(name_zh) or looks_like_incomplete_en_label(name_zh):
+        # Curated or universe wrongly stored English legal / truncated adjective as name_zh.
         name_zh = ticker if curated_zh in ("", ticker) or looks_like_english_legal_name(curated_zh) else curated_zh
         if looks_like_english_legal_name(name_zh):
             name_zh = short_brand_en(name_en, ticker)
@@ -393,7 +413,7 @@ def build_seed(
     # Do NOT promote English legal row["name"] into name_zh when name_zh == ticker (Latin brand).
     if ticker in NAME_ZH_FIXES:
         ent["name_zh"] = NAME_ZH_FIXES[ticker]
-    if looks_like_english_legal_name(ent.get("name_zh") or ""):
+    if looks_like_english_legal_name(ent.get("name_zh") or "") or looks_like_incomplete_en_label(ent.get("name_zh") or ""):
         ent["name_zh"] = NAME_ZH_FIXES.get(ticker) or ticker
     if row.get("exchange") and not ent.get("exchange"):
         ent["exchange"] = row["exchange"]
@@ -416,11 +436,11 @@ def build_seed(
     for stage_meta in model["stages"]:
         sid = stage_meta["id"]
         raw_players = list(stage_players.get(sid) or players_by_model[model_id].get(sid) or [])
-        # Keep hub when listed on THIS stage (do not strip then bleed adjacent-stage pads —
-        # e.g. A instruments→TXN, ADM inputs→DD). Never pad from other stages.
+        # Never list the hub as a player on its own stages (BCPC-on-ingredients Bugbot).
+        # Do not adjacent-stage pad after hub drop — leave thin / use true same-stage peers.
         # Drop stage names that share an issuer with a rival (prefer rival ASX over partner 3711.TW).
         picked: list[str] = []
-        seen_players: set[str] = set()
+        seen_players: set[str] = {ticker}
         for t in raw_players:
             nt = normalize_stage_ticker(t)
             if not nt or nt in seen_players:

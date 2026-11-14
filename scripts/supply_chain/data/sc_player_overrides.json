@@ -386,7 +386,7 @@
     "ingredients": [
       "IFF",
       "INGR",
-      "BCPC"
+      "DAR"
     ],
     "equipment": [
       "HON",
@@ -656,7 +656,7 @@
     "instruments": [
       "TMO",
       "DHR",
-      "A"
+      "WAT"
     ],
     "consumables": [
       "AVTR",
@@ -683,7 +683,7 @@
     "instruments": [
       "TMO",
       "DHR",
-      "A"
+      "WAT"
     ],
     "consumables": [
       "AVTR",
@@ -710,7 +710,7 @@
     "instruments": [
       "TMO",
       "DHR",
-      "A"
+      "WAT"
     ],
     "consumables": [
       "AVTR",
@@ -856,6 +856,87 @@
       "AMZN",
       "WMT",
       "TSLA"
+    ]
+  },
+  "INGR": {
+    "inputs": [
+      "ADM",
+      "BG",
+      "CTVA"
+    ],
+    "ingredients": [
+      "IFF",
+      "INGR",
+      "DAR"
+    ],
+    "equipment": [
+      "HON",
+      "EMR",
+      "ROK"
+    ],
+    "customers": [
+      "GIS",
+      "KHC",
+      "CAG"
+    ],
+    "retail": [
+      "WMT",
+      "COST",
+      "SYY"
+    ]
+  },
+  "IFF": {
+    "inputs": [
+      "ADM",
+      "BG",
+      "CTVA"
+    ],
+    "ingredients": [
+      "IFF",
+      "INGR",
+      "DAR"
+    ],
+    "equipment": [
+      "HON",
+      "EMR",
+      "ROK"
+    ],
+    "customers": [
+      "GIS",
+      "KHC",
+      "CAG"
+    ],
+    "retail": [
+      "WMT",
+      "COST",
+      "SYY"
+    ]
+  },
+  "ADM": {
+    "inputs": [
+      "CTVA",
+      "DE",
+      "BG"
+    ],
+    "packaging": [
+      "DD",
+      "DOW",
+      "GLW"
+    ],
+    "manufacturing": [
+      "HON",
+      "EMR",
+      "ROK"
+    ],
+    "retail": [
+      "WMT",
+      "COST",
+      "TGT"
+    ],
+    "media": [
+      "GOOG",
+      "META",
+      "DIS"
     ]
   }
 }
