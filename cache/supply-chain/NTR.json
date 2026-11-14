@@ -1,0 +1,243 @@
+{
+  "version": 1,
+  "ticker": "NTR",
+  "name_en": "Nutrien",
+  "name_zh": "Nutrien",
+  "updatedAt": "2026-11-14",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "basic-materials-v1",
+    "references": [
+      "Industry model `basic-materials-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "basic-materials-v1",
+    "label_zh": "基礎材料／礦業價值鏈",
+    "label_en": "Basic materials / mining value chain",
+    "description_zh": "礦山裝置 → 開採 → 冶煉加工 → 物流港口 → 工業／汽車客戶。",
+    "description_en": "Mining equipment → extraction → smelting → logistics/ports → industrial/auto customers."
+  },
+  "stages": [
+    {
+      "id": "equipment",
+      "order": 1,
+      "label_zh": "礦山／工程設備",
+      "label_en": "Mining / engineering equipment",
+      "summary_zh": "挖土機、卡車與工程機械。",
+      "summary_en": "Excavators, trucks, engineering kit.",
+      "players": [
+        {
+          "ticker": "CAT",
+          "name_en": "Caterpillar",
+          "name_zh": "開拓重工",
+          "role_zh": "開拓重工：礦山／工程設備代表性玩家",
+          "role_en": "Caterpillar: representative player in Mining / engineering equipment",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "DE",
+          "name_en": "Deere",
+          "name_zh": "強鹿公司 (Deere)",
+          "role_zh": "強鹿公司 (Deere)：礦山／工程設備代表性玩家",
+          "role_en": "Deere: representative player in Mining / engineering equipment",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "PH",
+          "name_en": "Parker-Hannifin",
+          "name_zh": "派克漢尼汾",
+          "role_zh": "派克漢尼汾：礦山／工程設備代表性玩家",
+          "role_en": "Parker-Hannifin: representative player in Mining / engineering equipment",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "extraction",
+      "order": 2,
+      "label_zh": "開採／選礦",
+      "label_en": "Extraction / processing",
+      "summary_zh": "礦場營運與選礦。",
+      "summary_en": "Mine ops and processing.",
+      "players": [
+        {
+          "ticker": "BHP",
+          "name_en": "BHP",
+          "name_zh": "必和必拓",
+          "role_zh": "必和必拓：開採／選礦代表性玩家",
+          "role_en": "BHP: representative player in Extraction / processing",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "RIO",
+          "name_en": "Rio Tinto",
+          "name_zh": "力拓",
+          "role_zh": "力拓：開採／選礦代表性玩家",
+          "role_en": "Rio Tinto: representative player in Extraction / processing",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "FCX",
+          "name_en": "Freeport-McMoRan",
+          "name_zh": "自由港麥克莫蘭",
+          "role_zh": "自由港麥克莫蘭：開採／選礦代表性玩家",
+          "role_en": "Freeport-McMoRan: representative player in Extraction / processing",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "smelting",
+      "order": 3,
+      "label_zh": "冶煉／化工加工",
+      "label_en": "Smelting / chemical processing",
+      "summary_zh": "精煉與中間品。",
+      "summary_en": "Refining and intermediates.",
+      "players": [
+        {
+          "ticker": "NUE",
+          "name_en": "Nucor",
+          "name_zh": "紐柯",
+          "role_zh": "紐柯：冶煉／化工加工代表性玩家",
+          "role_en": "Nucor: representative player in Smelting / chemical processing",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "DOW",
+          "name_en": "Dow",
+          "name_zh": "陶氏化學",
+          "role_zh": "陶氏化學：冶煉／化工加工代表性玩家",
+          "role_en": "Dow: representative player in Smelting / chemical processing",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "LIN",
+          "name_en": "Linde",
+          "name_zh": "林德集團",
+          "role_zh": "林德集團：冶煉／化工加工代表性玩家",
+          "role_en": "Linde: representative player in Smelting / chemical processing",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "logistics",
+      "order": 4,
+      "label_zh": "物流／港口",
+      "label_en": "Logistics / ports",
+      "summary_zh": "鐵礦煤運與海運。",
+      "summary_en": "Bulk rail and shipping.",
+      "players": [
+        {
+          "ticker": "UNP",
+          "name_en": "Union Pacific",
+          "name_zh": "聯合太平洋鐵路",
+          "role_zh": "聯合太平洋鐵路：物流／港口代表性玩家",
+          "role_en": "Union Pacific: representative player in Logistics / ports",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "CSX",
+          "name_en": "CSX",
+          "name_zh": "CSX",
+          "role_zh": "CSX：物流／港口代表性玩家",
+          "role_en": "CSX: representative player in Logistics / ports",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "FDX",
+          "name_en": "FedEx",
+          "name_zh": "聯邦快遞",
+          "role_zh": "聯邦快遞：物流／港口代表性玩家",
+          "role_en": "FedEx: representative player in Logistics / ports",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "customers",
+      "order": 5,
+      "label_zh": "鋼鐵／汽車／工業客戶",
+      "label_en": "Steel / auto / industrial customers",
+      "summary_zh": "鋼廠與製造業客戶。",
+      "summary_en": "Steel mills and manufacturers.",
+      "players": [
+        {
+          "ticker": "CAT",
+          "name_en": "Caterpillar",
+          "name_zh": "開拓重工",
+          "role_zh": "開拓重工：鋼鐵／汽車／工業客戶代表性玩家",
+          "role_en": "Caterpillar: representative player in Steel / auto / industrial customers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "F",
+          "name_en": "Ford",
+          "name_zh": "福特",
+          "role_zh": "福特：鋼鐵／汽車／工業客戶代表性玩家",
+          "role_en": "Ford: representative player in Steel / auto / industrial customers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "GM",
+          "name_en": "General Motors",
+          "name_zh": "通用汽車",
+          "role_zh": "通用汽車：鋼鐵／汽車／工業客戶代表性玩家",
+          "role_en": "General Motors: representative player in Steel / auto / industrial customers",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "ECL",
+      "name_en": "Ecolab",
+      "name_zh": "藝康集團",
+      "basis_zh": "特用化學／塗料對手",
+      "basis_en": "Specialty chem / coatings rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "SHW",
+      "name_en": "Sherwin-Williams",
+      "name_zh": "宣偉塗料",
+      "basis_zh": "特用化學／塗料對手",
+      "basis_en": "Specialty chem / coatings rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "PPG",
+      "name_en": "PPG Industries",
+      "name_zh": "PPG Industries",
+      "basis_zh": "特用化學／塗料對手",
+      "basis_en": "Specialty chem / coatings rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "DD",
+      "name_en": "DuPont",
+      "name_zh": "杜邦",
+      "basis_zh": "特用化學／塗料對手",
+      "basis_en": "Specialty chem / coatings rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "DOW",
+      "name_en": "Dow",
+      "name_zh": "陶氏化學",
+      "basis_zh": "特用化學／塗料對手",
+      "basis_en": "Specialty chem / coatings rival",
+      "exchange": "NYSE"
+    }
+  ]
+}

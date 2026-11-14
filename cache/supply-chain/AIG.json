@@ -1,0 +1,244 @@
+{
+  "version": 1,
+  "ticker": "AIG",
+  "name_en": "AIG",
+  "name_zh": "美國國際集團",
+  "updatedAt": "2026-11-14",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "diversified-holding-v1",
+    "references": [
+      "Industry model `diversified-holding-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "diversified-holding-v1",
+    "label_zh": "多元控股／保險浮存金價值鏈",
+    "label_en": "Diversified holding / insurance-float value chain",
+    "description_zh": "保險承保 → 再保／風控 → 投資組合公司 → 銀行／資本市場 → 營運子公司供應。",
+    "description_en": "Insurance underwriting → reinsurance/risk → portfolio cos → banks/markets → OpCo supply."
+  },
+  "stages": [
+    {
+      "id": "underwriting",
+      "order": 1,
+      "label_zh": "保險承保",
+      "label_en": "Insurance underwriting",
+      "summary_zh": "產險與再保承保能力。",
+      "summary_en": "P&C and reinsurance capacity.",
+      "players": [
+        {
+          "ticker": "CB",
+          "name_en": "Chubb",
+          "name_zh": "安達保險",
+          "role_zh": "安達保險：保險承保代表性玩家",
+          "role_en": "Chubb: representative player in Insurance underwriting",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "PGR",
+          "name_en": "Progressive",
+          "name_zh": "前進保險",
+          "role_zh": "前進保險：保險承保代表性玩家",
+          "role_en": "Progressive: representative player in Insurance underwriting",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "TRV",
+          "name_en": "Travelers",
+          "name_zh": "旅行者保險",
+          "role_zh": "旅行者保險：保險承保代表性玩家",
+          "role_en": "Travelers: representative player in Insurance underwriting",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "risk",
+      "order": 2,
+      "label_zh": "再保／風控資料",
+      "label_en": "Reinsurance / risk data",
+      "summary_zh": "再保與巨災模型。",
+      "summary_en": "Reinsurance and cat models.",
+      "players": [
+        {
+          "ticker": "AON",
+          "name_en": "Aon",
+          "name_zh": "怡安集團",
+          "role_zh": "怡安集團：再保／風控資料代表性玩家",
+          "role_en": "Aon: representative player in Reinsurance / risk data",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "MMC",
+          "name_en": "Marsh McLennan",
+          "name_zh": "威達信",
+          "role_zh": "威達信：再保／風控資料代表性玩家",
+          "role_en": "Marsh McLennan: representative player in Reinsurance / risk data",
+          "exchange": "NYSE",
+          "listedInApp": false
+        },
+        {
+          "ticker": "VRSK",
+          "name_en": "Verisk",
+          "name_zh": "威瑞斯克",
+          "role_zh": "威瑞斯克：再保／風控資料代表性玩家",
+          "role_en": "Verisk: representative player in Reinsurance / risk data",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "portfolio",
+      "order": 3,
+      "label_zh": "投資組合／公開市場",
+      "label_en": "Portfolio / public markets",
+      "summary_zh": "股票、債券與私募配置。",
+      "summary_en": "Equity, fixed income, private stakes.",
+      "players": [
+        {
+          "ticker": "AAPL",
+          "name_en": "Apple",
+          "name_zh": "蘋果",
+          "role_zh": "蘋果：投資組合／公開市場代表性玩家",
+          "role_en": "Apple: representative player in Portfolio / public markets",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "AMZN",
+          "name_en": "Amazon.com",
+          "name_zh": "亞馬遜",
+          "role_zh": "亞馬遜：投資組合／公開市場代表性玩家",
+          "role_en": "Amazon.com: representative player in Portfolio / public markets",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "COF",
+          "name_en": "Capital One Financial",
+          "name_zh": "Capital One",
+          "role_zh": "Capital One：投資組合／公開市場代表性玩家",
+          "role_en": "Capital One Financial: representative player in Portfolio / public markets",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "capital",
+      "order": 4,
+      "label_zh": "銀行／資本市場",
+      "label_en": "Banks / capital markets",
+      "summary_zh": "融資與市場中介。",
+      "summary_en": "Financing and market intermediaries.",
+      "players": [
+        {
+          "ticker": "JPM",
+          "name_en": "JPMorgan Chase & Co.",
+          "name_zh": "摩根大通",
+          "role_zh": "摩根大通：銀行／資本市場代表性玩家",
+          "role_en": "JPMorgan Chase & Co.: representative player in Banks / capital markets",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "GS",
+          "name_en": "Goldman Sachs",
+          "name_zh": "高盛集團",
+          "role_zh": "高盛集團：銀行／資本市場代表性玩家",
+          "role_en": "Goldman Sachs: representative player in Banks / capital markets",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "BAC",
+          "name_en": "Bank of America",
+          "name_zh": "美國銀行",
+          "role_zh": "美國銀行：銀行／資本市場代表性玩家",
+          "role_en": "Bank of America: representative player in Banks / capital markets",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "opco",
+      "order": 5,
+      "label_zh": "營運子公司供應鏈",
+      "label_en": "Operating subsidiary supply",
+      "summary_zh": "鐵路、能源、製造等 OpCo 供應。",
+      "summary_en": "Rail, energy, manufacturing OpCo supply.",
+      "players": [
+        {
+          "ticker": "UNP",
+          "name_en": "Union Pacific",
+          "name_zh": "聯合太平洋鐵路",
+          "role_zh": "聯合太平洋鐵路：營運子公司供應鏈代表性玩家",
+          "role_en": "Union Pacific: representative player in Operating subsidiary supply",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "XOM",
+          "name_en": "Exxonmobil",
+          "name_zh": "埃克森美孚",
+          "role_zh": "埃克森美孚：營運子公司供應鏈代表性玩家",
+          "role_en": "Exxonmobil: representative player in Operating subsidiary supply",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "APH",
+          "name_en": "Amphenol",
+          "name_zh": "安費諾",
+          "role_zh": "安費諾：營運子公司供應鏈代表性玩家",
+          "role_en": "Amphenol: representative player in Operating subsidiary supply",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "TRV",
+      "name_en": "Travelers",
+      "name_zh": "旅行者保險",
+      "basis_zh": "產險對手",
+      "basis_en": "P&C insurance rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "ALL",
+      "name_en": "Allstate",
+      "name_zh": "全州保險",
+      "basis_zh": "產險對手",
+      "basis_en": "P&C insurance rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "PGR",
+      "name_en": "Progressive",
+      "name_zh": "前進保險",
+      "basis_zh": "產險對手",
+      "basis_en": "P&C insurance rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "CB",
+      "name_en": "Chubb",
+      "name_zh": "安達保險",
+      "basis_zh": "產險對手",
+      "basis_en": "P&C insurance rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "BRK-B",
+      "name_en": "Berkshire Hathaway",
+      "name_zh": "波克夏海瑟威 (B)",
+      "basis_zh": "產險對手",
+      "basis_en": "P&C insurance rival",
+      "exchange": "NYSE"
+    }
+  ]
+}

@@ -1,0 +1,244 @@
+{
+  "version": 1,
+  "ticker": "UHS",
+  "name_en": "UHS",
+  "name_zh": "UHS",
+  "updatedAt": "2026-11-14",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "health-services-v1",
+    "references": [
+      "Industry model `health-services-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "health-services-v1",
+    "label_zh": "醫療服務／保險價值鏈",
+    "label_en": "Health services / managed care value chain",
+    "description_zh": "藥品／醫材供應 → 診所醫院 → PBM／藥房 → 資料科技 → 雇主／政府支付。",
+    "description_en": "Drug/device supply → clinics/hospitals → PBM/pharmacy → data tech → employers/gov payers."
+  },
+  "stages": [
+    {
+      "id": "supply",
+      "order": 1,
+      "label_zh": "藥品／醫材供應",
+      "label_en": "Drug / device supply",
+      "summary_zh": "原廠藥與醫材。",
+      "summary_en": "Branded drugs and devices.",
+      "players": [
+        {
+          "ticker": "LLY",
+          "name_en": "Eli Lilly",
+          "name_zh": "禮來公司",
+          "role_zh": "禮來公司：藥品／醫材供應代表性玩家",
+          "role_en": "Eli Lilly: representative player in Drug / device supply",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "JNJ",
+          "name_en": "Johnson & Johnson",
+          "name_zh": "嬌生",
+          "role_zh": "嬌生：藥品／醫材供應代表性玩家",
+          "role_en": "Johnson & Johnson: representative player in Drug / device supply",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "ABT",
+          "name_en": "Abbott Laboratories",
+          "name_zh": "亞培",
+          "role_zh": "亞培：藥品／醫材供應代表性玩家",
+          "role_en": "Abbott Laboratories: representative player in Drug / device supply",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "providers",
+      "order": 2,
+      "label_zh": "醫療提供方",
+      "label_en": "Care providers",
+      "summary_zh": "醫院、診所與手術中心。",
+      "summary_en": "Hospitals, clinics, ASCs.",
+      "players": [
+        {
+          "ticker": "HCA",
+          "name_en": "HCA Healthcare, Inc.",
+          "name_zh": "HCA Healthcare",
+          "role_zh": "HCA Healthcare：醫療提供方代表性玩家",
+          "role_en": "HCA Healthcare, Inc.: representative player in Care providers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "ISRG",
+          "name_en": "Intuitive Surgical",
+          "name_zh": "直覺外科 (達文西)",
+          "role_zh": "直覺外科 (達文西)：醫療提供方代表性玩家",
+          "role_en": "Intuitive Surgical: representative player in Care providers",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "MDT",
+          "name_en": "Medtronic",
+          "name_zh": "美敦力",
+          "role_zh": "美敦力：醫療提供方代表性玩家",
+          "role_en": "Medtronic: representative player in Care providers",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "pharmacy",
+      "order": 3,
+      "label_zh": "PBM／藥房",
+      "label_en": "PBM / pharmacy",
+      "summary_zh": "藥益管理與零售藥局。",
+      "summary_en": "PBMs and retail pharmacy.",
+      "players": [
+        {
+          "ticker": "CVS",
+          "name_en": "CVS Health",
+          "name_zh": "CVS Health",
+          "role_zh": "CVS Health：PBM／藥房代表性玩家",
+          "role_en": "CVS Health: representative player in PBM / pharmacy",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "MCK",
+          "name_en": "McKesson",
+          "name_zh": "麥克森",
+          "role_zh": "麥克森：PBM／藥房代表性玩家",
+          "role_en": "McKesson: representative player in PBM / pharmacy",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "WBA",
+          "name_en": "WBA",
+          "name_zh": "Walgreens",
+          "role_zh": "Walgreens：PBM／藥房代表性玩家",
+          "role_en": "WBA: representative player in PBM / pharmacy",
+          "exchange": "NASDAQ",
+          "listedInApp": false
+        }
+      ]
+    },
+    {
+      "id": "tech",
+      "order": 4,
+      "label_zh": "醫療資訊／資料",
+      "label_en": "Health IT / data",
+      "summary_zh": "電子病歷與分析。",
+      "summary_en": "EHR and analytics.",
+      "players": [
+        {
+          "ticker": "MSFT",
+          "name_en": "Microsoft",
+          "name_zh": "微軟",
+          "role_zh": "微軟：醫療資訊／資料代表性玩家",
+          "role_en": "Microsoft: representative player in Health IT / data",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "ORCL",
+          "name_en": "Oracle",
+          "name_zh": "甲骨文",
+          "role_zh": "甲骨文：醫療資訊／資料代表性玩家",
+          "role_en": "Oracle: representative player in Health IT / data",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "VEEV",
+          "name_en": "Veeva",
+          "name_zh": "Veeva",
+          "role_zh": "Veeva：醫療資訊／資料代表性玩家",
+          "role_en": "Veeva: representative player in Health IT / data",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "sponsors",
+      "order": 5,
+      "label_zh": "雇主／政府支付方",
+      "label_en": "Employers / government payers",
+      "summary_zh": "企業福利與 Medicare／Medicaid。",
+      "summary_en": "Employer benefits and public payers.",
+      "players": [
+        {
+          "ticker": "UNH",
+          "name_en": "UnitedHealth",
+          "name_zh": "聯合健康集團",
+          "role_zh": "聯合健康集團：雇主／政府支付方代表性玩家",
+          "role_en": "UnitedHealth: representative player in Employers / government payers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "CI",
+          "name_en": "Cigna",
+          "name_zh": "信諾",
+          "role_zh": "信諾：雇主／政府支付方代表性玩家",
+          "role_en": "Cigna: representative player in Employers / government payers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "ELV",
+          "name_en": "Elevance Health",
+          "name_zh": "Elevance Health",
+          "role_zh": "Elevance Health：雇主／政府支付方代表性玩家",
+          "role_en": "Elevance Health: representative player in Employers / government payers",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "ELV",
+      "name_en": "Elevance Health",
+      "name_zh": "Elevance Health",
+      "basis_zh": "醫療保險對手",
+      "basis_en": "Managed-care rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "UNH",
+      "name_en": "UnitedHealth",
+      "name_zh": "聯合健康集團",
+      "basis_zh": "醫療保險對手",
+      "basis_en": "Managed-care rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "CI",
+      "name_en": "Cigna",
+      "name_zh": "信諾",
+      "basis_zh": "醫療保險對手",
+      "basis_en": "Managed-care rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "HUM",
+      "name_en": "Humana",
+      "name_zh": "Humana",
+      "basis_zh": "醫療保險對手",
+      "basis_en": "Managed-care rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "CNC",
+      "name_en": "Centene",
+      "name_zh": "Centene",
+      "basis_zh": "醫療保險對手",
+      "basis_en": "Managed-care rival",
+      "exchange": "NYSE"
+    }
+  ]
+}

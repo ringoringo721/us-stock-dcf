@@ -41,42 +41,61 @@ def write_json(path: Path, data) -> None:
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
-def traditionalize(text: str) -> str:
-    raw = text or ""
+_OPENCC = None
+_OPENCC_FAILED = False
+
+
+def _get_opencc():
+    """Cache OpenCC converter — constructing per call is ~1s and dominates seed builds."""
+    global _OPENCC, _OPENCC_FAILED
+    if _OPENCC_FAILED:
+        return None
+    if _OPENCC is not None:
+        return _OPENCC
     try:
         from opencc import OpenCC
-        converted = None
         for cfg in ("s2twp", "s2t"):
             try:
-                converted = OpenCC(cfg).convert(raw)
-                break
+                _OPENCC = OpenCC(cfg)
+                return _OPENCC
             except Exception:
                 continue
-        if converted is None:
-            return raw
-        # Prefer common TW/HK finance forms over OpenCC over-conversions.
-        fixes = (
-            ("上遊", "上游"),
-            ("中遊", "中游"),
-            ("下遊", "下游"),
-            ("平臺", "平台"),
-            ("社羣", "社群"),
-            ("臨牀", "臨床"),
-            ("僱主", "雇主"),
-            # OpenCC s2twp over-conversions common in our stage/brand copy
-            ("引數", "參數"),
-            ("壓縮裝置", "壓縮設備"),
-            ("施作裝置", "施作設備"),
-            ("工程裝置", "工程設備"),
-            ("礦山／工程裝置", "礦山／工程設備"),
-            ("包裝／施作裝置", "包裝／施作設備"),
-            ("製程／壓縮裝置", "製程／壓縮設備"),
-        )
-        for a, b in fixes:
-            converted = converted.replace(a, b)
-        return converted
+    except Exception:
+        pass
+    _OPENCC_FAILED = True
+    return None
+
+
+def traditionalize(text: str) -> str:
+    raw = text or ""
+    cc = _get_opencc()
+    if cc is None:
+        return raw
+    try:
+        converted = cc.convert(raw)
     except Exception:
         return raw
+    # Prefer common TW/HK finance forms over OpenCC over-conversions.
+    fixes = (
+        ("上遊", "上游"),
+        ("中遊", "中游"),
+        ("下遊", "下游"),
+        ("平臺", "平台"),
+        ("社羣", "社群"),
+        ("臨牀", "臨床"),
+        ("僱主", "雇主"),
+        # OpenCC s2twp over-conversions common in our stage/brand copy
+        ("引數", "參數"),
+        ("壓縮裝置", "壓縮設備"),
+        ("施作裝置", "施作設備"),
+        ("工程裝置", "工程設備"),
+        ("礦山／工程裝置", "礦山／工程設備"),
+        ("包裝／施作裝置", "包裝／施作設備"),
+        ("製程／壓縮裝置", "製程／壓縮設備"),
+    )
+    for a, b in fixes:
+        converted = converted.replace(a, b)
+    return converted
 
 
 

@@ -1,0 +1,244 @@
+{
+  "version": 1,
+  "ticker": "IX",
+  "name_en": "ORIX",
+  "name_zh": "ORIX",
+  "updatedAt": "2026-11-14",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "payments-v1",
+    "references": [
+      "Industry model `payments-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "payments-v1",
+    "label_zh": "支付網路價值鏈",
+    "label_en": "Payments network value chain",
+    "description_zh": "發卡銀行 → 收單／處理 → 商戶科技 → 消費者入口 → 結算／外匯。",
+    "description_en": "Issuers → acquirers → merchant tech → consumer entry → settlement/FX."
+  },
+  "stages": [
+    {
+      "id": "issuers",
+      "order": 1,
+      "label_zh": "發卡銀行",
+      "label_en": "Issuing banks",
+      "summary_zh": "信用卡／簽帳卡發卡行。",
+      "summary_en": "Card issuing banks.",
+      "players": [
+        {
+          "ticker": "JPM",
+          "name_en": "JPMorgan Chase & Co.",
+          "name_zh": "摩根大通",
+          "role_zh": "摩根大通：發卡銀行代表性玩家",
+          "role_en": "JPMorgan Chase & Co.: representative player in Issuing banks",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "BAC",
+          "name_en": "Bank of America",
+          "name_zh": "美國銀行",
+          "role_zh": "美國銀行：發卡銀行代表性玩家",
+          "role_en": "Bank of America: representative player in Issuing banks",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "COF",
+          "name_en": "Capital One Financial",
+          "name_zh": "Capital One",
+          "role_zh": "Capital One：發卡銀行代表性玩家",
+          "role_en": "Capital One Financial: representative player in Issuing banks",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "acquirers",
+      "order": 2,
+      "label_zh": "收單／處理",
+      "label_en": "Acquirers / processors",
+      "summary_zh": "收單機構與交易處理。",
+      "summary_en": "Acquirers and processors.",
+      "players": [
+        {
+          "ticker": "FISV",
+          "name_en": "Fiserv",
+          "name_zh": "Fiserv",
+          "role_zh": "Fiserv：收單／處理代表性玩家",
+          "role_en": "Fiserv: representative player in Acquirers / processors",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "GPN",
+          "name_en": "Global Payments",
+          "name_zh": "Global Payments",
+          "role_zh": "Global Payments：收單／處理代表性玩家",
+          "role_en": "Global Payments: representative player in Acquirers / processors",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "FIS",
+          "name_en": "FIS",
+          "name_zh": "Fidelity National Info",
+          "role_zh": "Fidelity National Info：收單／處理代表性玩家",
+          "role_en": "FIS: representative player in Acquirers / processors",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "merchant-tech",
+      "order": 3,
+      "label_zh": "商戶科技／POS",
+      "label_en": "Merchant tech / POS",
+      "summary_zh": "收單終端與商務平台。",
+      "summary_en": "POS and commerce platforms.",
+      "players": [
+        {
+          "ticker": "SQ",
+          "name_en": "Block",
+          "name_zh": "Block",
+          "role_zh": "Block：商戶科技／POS代表性玩家",
+          "role_en": "Block: representative player in Merchant tech / POS",
+          "exchange": "NYSE",
+          "listedInApp": false
+        },
+        {
+          "ticker": "TOST",
+          "name_en": "Toast",
+          "name_zh": "Toast",
+          "role_zh": "Toast：商戶科技／POS代表性玩家",
+          "role_en": "Toast: representative player in Merchant tech / POS",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "SHOP",
+          "name_en": "Shopify",
+          "name_zh": "Shopify",
+          "role_zh": "Shopify：商戶科技／POS代表性玩家",
+          "role_en": "Shopify: representative player in Merchant tech / POS",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "consumer",
+      "order": 4,
+      "label_zh": "消費者錢包／入口",
+      "label_en": "Consumer wallets / entry",
+      "summary_zh": "手機支付與數位錢包。",
+      "summary_en": "Mobile pay and digital wallets.",
+      "players": [
+        {
+          "ticker": "AAPL",
+          "name_en": "Apple",
+          "name_zh": "蘋果",
+          "role_zh": "蘋果：消費者錢包／入口代表性玩家",
+          "role_en": "Apple: representative player in Consumer wallets / entry",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "GOOG",
+          "name_en": "Alphabet",
+          "name_zh": "Alphabet（Google）",
+          "role_zh": "Alphabet（Google）：消費者錢包／入口代表性玩家",
+          "role_en": "Alphabet: representative player in Consumer wallets / entry",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "PYPL",
+          "name_en": "PayPal",
+          "name_zh": "PayPal",
+          "role_zh": "PayPal：消費者錢包／入口代表性玩家",
+          "role_en": "PayPal: representative player in Consumer wallets / entry",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "settlement",
+      "order": 5,
+      "label_zh": "結算／銀行合作",
+      "label_en": "Settlement / bank partners",
+      "summary_zh": "清算銀行與財資合作。",
+      "summary_en": "Settlement banks and treasury.",
+      "players": [
+        {
+          "ticker": "JPM",
+          "name_en": "JPMorgan Chase & Co.",
+          "name_zh": "摩根大通",
+          "role_zh": "摩根大通：結算／銀行合作代表性玩家",
+          "role_en": "JPMorgan Chase & Co.: representative player in Settlement / bank partners",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "BAC",
+          "name_en": "Bank of America",
+          "name_zh": "美國銀行",
+          "role_zh": "美國銀行：結算／銀行合作代表性玩家",
+          "role_en": "Bank of America: representative player in Settlement / bank partners",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "WFC",
+          "name_en": "Wells Fargo",
+          "name_zh": "富國銀行",
+          "role_zh": "富國銀行：結算／銀行合作代表性玩家",
+          "role_en": "Wells Fargo: representative player in Settlement / bank partners",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "V",
+      "name_en": "Visa",
+      "name_zh": "威士卡",
+      "basis_zh": "支付／消費金融對手",
+      "basis_en": "Payments / consumer-finance rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "MA",
+      "name_en": "Mastercard",
+      "name_zh": "萬事達卡",
+      "basis_zh": "支付／消費金融對手",
+      "basis_en": "Payments / consumer-finance rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "AXP",
+      "name_en": "American Express",
+      "name_zh": "美國運通",
+      "basis_zh": "支付／消費金融對手",
+      "basis_en": "Payments / consumer-finance rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "PYPL",
+      "name_en": "PayPal",
+      "name_zh": "PayPal",
+      "basis_zh": "支付／消費金融對手",
+      "basis_en": "Payments / consumer-finance rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "GPN",
+      "name_en": "Global Payments",
+      "name_zh": "Global Payments",
+      "basis_zh": "支付／消費金融對手",
+      "basis_en": "Payments / consumer-finance rival",
+      "exchange": "NYSE"
+    }
+  ]
+}

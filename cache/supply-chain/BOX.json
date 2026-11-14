@@ -1,0 +1,243 @@
+{
+  "version": 1,
+  "ticker": "BOX",
+  "name_en": "Box",
+  "name_zh": "Box",
+  "updatedAt": "2026-11-14",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "saas-cloud-v1",
+    "references": [
+      "Industry model `saas-cloud-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "saas-cloud-v1",
+    "label_zh": "軟體／雲端價值鏈",
+    "label_en": "Software / cloud value chain",
+    "description_zh": "算力／矽晶 → 雲端基礎設施 → 資料／資安層 → 系統整合 → 企業通路。",
+    "description_en": "Compute/silicon → cloud infra → data/security → SI partners → enterprise channel."
+  },
+  "stages": [
+    {
+      "id": "silicon",
+      "order": 1,
+      "label_zh": "算力／加速矽晶",
+      "label_en": "Compute / accelerator silicon",
+      "summary_zh": "CPU／GPU／自研加速相關供應。",
+      "summary_en": "CPU/GPU and accelerator supply.",
+      "players": [
+        {
+          "ticker": "NVDA",
+          "name_en": "NVIDIA",
+          "name_zh": "輝達",
+          "role_zh": "輝達：算力／加速矽晶代表性玩家",
+          "role_en": "NVIDIA: representative player in Compute / accelerator silicon",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "AMD",
+          "name_en": "Advanced Micro Devices",
+          "name_zh": "超微半導體",
+          "role_zh": "超微半導體：算力／加速矽晶代表性玩家",
+          "role_en": "Advanced Micro Devices: representative player in Compute / accelerator silicon",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "AVGO",
+          "name_en": "Broadcom",
+          "name_zh": "博通",
+          "role_zh": "博通：算力／加速矽晶代表性玩家",
+          "role_en": "Broadcom: representative player in Compute / accelerator silicon",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "infra",
+      "order": 2,
+      "label_zh": "資料中心／雲端基礎設施",
+      "label_en": "Data center / cloud infrastructure",
+      "summary_zh": "機房、網路與基礎雲資源。",
+      "summary_en": "Colo, networking, base cloud.",
+      "players": [
+        {
+          "ticker": "EQIX",
+          "name_en": "Equinix",
+          "name_zh": "Equinix",
+          "role_zh": "Equinix：資料中心／雲端基礎設施代表性玩家",
+          "role_en": "Equinix: representative player in Data center / cloud infrastructure",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "DLR",
+          "name_en": "Digital Realty",
+          "name_zh": "Digital Realty",
+          "role_zh": "Digital Realty：資料中心／雲端基礎設施代表性玩家",
+          "role_en": "Digital Realty: representative player in Data center / cloud infrastructure",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "ANET",
+          "name_en": "Arista Networks",
+          "name_zh": "Arista 網路",
+          "role_zh": "Arista 網路：資料中心／雲端基礎設施代表性玩家",
+          "role_en": "Arista Networks: representative player in Data center / cloud infrastructure",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "data-security",
+      "order": 3,
+      "label_zh": "資料平台／資安",
+      "label_en": "Data platform / security",
+      "summary_zh": "資料、身分與資安控制層。",
+      "summary_en": "Data, identity, and security layer.",
+      "players": [
+        {
+          "ticker": "CRWD",
+          "name_en": "CrowdStrike",
+          "name_zh": "CrowdStrike",
+          "role_zh": "CrowdStrike：資料平台／資安代表性玩家",
+          "role_en": "CrowdStrike: representative player in Data platform / security",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "PANW",
+          "name_en": "Palo Alto Networks",
+          "name_zh": "派拓網路",
+          "role_zh": "派拓網路：資料平台／資安代表性玩家",
+          "role_en": "Palo Alto Networks: representative player in Data platform / security",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "ZS",
+          "name_en": "Zscaler",
+          "name_zh": "Zscaler",
+          "role_zh": "Zscaler：資料平台／資安代表性玩家",
+          "role_en": "Zscaler: representative player in Data platform / security",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "integrators",
+      "order": 4,
+      "label_zh": "系統整合／顧問",
+      "label_en": "Systems integrators / consulting",
+      "summary_zh": "匯入、客製與營運夥伴。",
+      "summary_en": "Implementation and ops partners.",
+      "players": [
+        {
+          "ticker": "ACN",
+          "name_en": "Accenture",
+          "name_zh": "埃森哲",
+          "role_zh": "埃森哲：系統整合／顧問代表性玩家",
+          "role_en": "Accenture: representative player in Systems integrators / consulting",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "IBM",
+          "name_en": "IBM",
+          "name_zh": "IBM",
+          "role_zh": "IBM：系統整合／顧問代表性玩家",
+          "role_en": "IBM: representative player in Systems integrators / consulting",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "CTSH",
+          "name_en": "Cognizant",
+          "name_zh": "高知特",
+          "role_zh": "高知特：系統整合／顧問代表性玩家",
+          "role_en": "Cognizant: representative player in Systems integrators / consulting",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "channel",
+      "order": 5,
+      "label_zh": "企業銷售／市集通路",
+      "label_en": "Enterprise sales / marketplace",
+      "summary_zh": "直銷、ISV 市集與經銷。",
+      "summary_en": "Direct, ISV marketplace, resellers.",
+      "players": [
+        {
+          "ticker": "CDW",
+          "name_en": "CDW",
+          "name_zh": "CDW",
+          "role_zh": "CDW：企業銷售／市集通路代表性玩家",
+          "role_en": "CDW: representative player in Enterprise sales / marketplace",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "SNX",
+          "name_en": "TD Synnex",
+          "name_zh": "SYNNEX",
+          "role_zh": "SYNNEX：企業銷售／市集通路代表性玩家",
+          "role_en": "TD Synnex: representative player in Enterprise sales / marketplace",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "DELL",
+          "name_en": "Dell Technologies",
+          "name_zh": "戴爾",
+          "role_zh": "戴爾：企業銷售／市集通路代表性玩家",
+          "role_en": "Dell Technologies: representative player in Enterprise sales / marketplace",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "FTNT",
+      "name_en": "Fortinet",
+      "name_zh": "飛塔資訊",
+      "basis_zh": "資安對手",
+      "basis_en": "Cybersecurity rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "CRWD",
+      "name_en": "CrowdStrike",
+      "name_zh": "CrowdStrike",
+      "basis_zh": "資安對手",
+      "basis_en": "Cybersecurity rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "PANW",
+      "name_en": "Palo Alto Networks",
+      "name_zh": "派拓網路",
+      "basis_zh": "資安對手",
+      "basis_en": "Cybersecurity rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "ZS",
+      "name_en": "Zscaler",
+      "name_zh": "Zscaler",
+      "basis_zh": "資安對手",
+      "basis_en": "Cybersecurity rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "OKTA",
+      "name_en": "Okta",
+      "name_zh": "Okta",
+      "basis_zh": "資安對手",
+      "basis_en": "Cybersecurity rival",
+      "exchange": "NASDAQ"
+    }
+  ]
+}

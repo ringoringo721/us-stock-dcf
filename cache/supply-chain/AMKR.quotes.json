@@ -1,0 +1,210 @@
+{
+  "version": 1,
+  "ticker": "AMKR",
+  "updatedAt": "2026-11-14",
+  "basis": "lastTradingDayCloseVsPriorClose",
+  "notes_en": "changePct from last two EOD closes in price_charts; mcap from US listings screener (USD millions). Missing tickers stay null. No live FMP per pageview.",
+  "notes_zh": "漲跌%取自 price_charts 最近兩日收盤；市值取自美股清單（百萬美元）。缺資料維持 null，不造假。頁面不打即時 FMP。",
+  "quotes": {
+    "AMKR": {
+      "ticker": "AMKR",
+      "price": 36.11,
+      "previousClose": 37.12,
+      "changePct": -2.721,
+      "mcap": 8133.1,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "ASML": {
+      "ticker": "ASML",
+      "price": 1495.16,
+      "previousClose": 1497.12,
+      "changePct": -0.131,
+      "mcap": 549124.3,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "AMAT": {
+      "ticker": "AMAT",
+      "price": 370.5,
+      "previousClose": 380.95,
+      "changePct": -2.743,
+      "mcap": 264041.8,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "LRCX": {
+      "ticker": "LRCX",
+      "price": 225.92,
+      "previousClose": 233.78,
+      "changePct": -3.362,
+      "mcap": 250835.5,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "4063.T": {
+      "ticker": "4063.T",
+      "price": null,
+      "previousClose": null,
+      "changePct": null,
+      "mcap": null,
+      "currency": "USD",
+      "asOf": null,
+      "source": null
+    },
+    "ENTG": {
+      "ticker": "ENTG",
+      "price": 147.41,
+      "previousClose": 153.21,
+      "changePct": -3.786,
+      "mcap": 19555.3,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "GLW": {
+      "ticker": "GLW",
+      "price": 114.08,
+      "previousClose": 119.5,
+      "changePct": -4.536,
+      "mcap": 91420.5,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "3711.TW": {
+      "ticker": "3711.TW",
+      "price": null,
+      "previousClose": null,
+      "changePct": null,
+      "mcap": null,
+      "currency": "USD",
+      "asOf": null,
+      "source": null
+    },
+    "002475.SZ": {
+      "ticker": "002475.SZ",
+      "price": null,
+      "previousClose": null,
+      "changePct": null,
+      "mcap": null,
+      "currency": "USD",
+      "asOf": null,
+      "source": null
+    },
+    "NVDA": {
+      "ticker": "NVDA",
+      "price": 162.85,
+      "previousClose": 166.19,
+      "changePct": -2.01,
+      "mcap": 4498024.0,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "AAPL": {
+      "ticker": "AAPL",
+      "price": 356.27,
+      "previousClose": 354.88,
+      "changePct": 0.392,
+      "mcap": 4996616.3,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "AMD": {
+      "ticker": "AMD",
+      "price": 534.06,
+      "previousClose": 585.3,
+      "changePct": -8.754,
+      "mcap": 733048.8,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "MSFT": {
+      "ticker": "MSFT",
+      "price": 523.88,
+      "previousClose": 523.0,
+      "changePct": 0.168,
+      "mcap": 3940410.7,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "AMZN": {
+      "ticker": "AMZN",
+      "price": 266.66,
+      "previousClose": 267.44,
+      "changePct": -0.292,
+      "mcap": 2803836.8,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "005930.KS": {
+      "ticker": "005930.KS",
+      "price": null,
+      "previousClose": null,
+      "changePct": null,
+      "mcap": null,
+      "currency": "USD",
+      "asOf": null,
+      "source": null
+    },
+    "ASX": {
+      "ticker": "ASX",
+      "price": 35.55,
+      "previousClose": 36.29,
+      "changePct": -2.039,
+      "mcap": 69825.6,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "600584.SS": {
+      "ticker": "600584.SS",
+      "price": null,
+      "previousClose": null,
+      "changePct": null,
+      "mcap": null,
+      "currency": "USD",
+      "asOf": null,
+      "source": null
+    },
+    "002156.SZ": {
+      "ticker": "002156.SZ",
+      "price": null,
+      "previousClose": null,
+      "changePct": null,
+      "mcap": null,
+      "currency": "USD",
+      "asOf": null,
+      "source": null
+    },
+    "TSM": {
+      "ticker": "TSM",
+      "price": 398.73,
+      "previousClose": 405.49,
+      "changePct": -1.667,
+      "mcap": 1947212.1,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "GFS": {
+      "ticker": "GFS",
+      "price": 41.47,
+      "previousClose": 42.62,
+      "changePct": -2.698,
+      "mcap": 21192.8,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    }
+  }
+}
