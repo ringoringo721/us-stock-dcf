@@ -386,7 +386,7 @@
     "api": [
       "TMO",
       "CRL",
-      "GEHC"
+      "RGEN"
     ],
     "clinical": [
       "IQV",
@@ -422,8 +422,8 @@
     ],
     "providers": [
       "HCA",
-      "UNH",
-      "CVS"
+      "THC",
+      "UHS"
     ],
     "payers": [
       "UNH",
@@ -573,9 +573,9 @@
       "BG"
     ],
     "packaging": [
-      "DD",
-      "DOW",
-      "GLW"
+      "PKG",
+      "AMCR",
+      "BALL"
     ],
     "manufacturing": [
       "HON",
@@ -1319,15 +1319,12 @@
     "instruments": [
       "TMO",
       "DHR",
-      "A",
-      "WAT",
-      "MTD"
+      "WAT"
     ],
     "consumables": [
       "AVTR",
-      "MTD",
-      "A",
-      "WAT"
+      "RGEN",
+      "WST"
     ],
     "customers": [
       "LLY",
@@ -1335,9 +1332,142 @@
       "PFE"
     ],
     "distribution": [
-      "AVTR",
-      "HSIC",
-      "CAH"
+      "AVTR"
+    ]
+  },
+  "airport-ops-v1": {
+    "construction": [
+      "ACM",
+      "J",
+      "PWR"
+    ],
+    "equipment": [
+      "HON",
+      "ETN",
+      "ROK"
+    ],
+    "airlines": [
+      "DAL",
+      "UAL",
+      "AAL"
+    ],
+    "retail": [
+      "SBUX",
+      "MCD",
+      "BKNG"
+    ],
+    "capital": [
+      "JPM",
+      "BAC",
+      "BLK"
+    ]
+  },
+  "auto-tier1-v1": {
+    "materials": [
+      "NUE",
+      "AA",
+      "DOW"
+    ],
+    "electronics": [
+      "TXN",
+      "ON",
+      "ADI"
+    ],
+    "modules": [
+      "TEL",
+      "APH",
+      "GLW"
+    ],
+    "oem": [
+      "F",
+      "GM",
+      "TSLA"
+    ],
+    "aftermarket": [
+      "ORLY",
+      "AZO",
+      "GPC"
+    ]
+  },
+  "power-electronics-v1": {
+    "devices": [
+      "TXN",
+      "ON",
+      "AVGO"
+    ],
+    "equipment": [
+      "AMAT",
+      "LRCX",
+      "KLAC"
+    ],
+    "modules": [
+      "COHR",
+      "MKSI",
+      "TEL"
+    ],
+    "customers": [
+      "TSM",
+      "AMAT",
+      "ASML"
+    ],
+    "channel": [
+      "AVT",
+      "ARW",
+      "CDW"
+    ]
+  },
+  "ag-machinery-v1": {
+    "materials": [
+      "NUE",
+      "STLD",
+      "DOW"
+    ],
+    "components": [
+      "ETN",
+      "PH",
+      "EMR"
+    ],
+    "automation": [
+      "ROK",
+      "HON",
+      "FTV"
+    ],
+    "dealers": [
+      "URI",
+      "WCC",
+      "FAST"
+    ],
+    "customers": [
+      "ADM",
+      "BG",
+      "CTVA"
+    ]
+  },
+  "door-hardware-v1": {
+    "hardware": [
+      "APH",
+      "TEL",
+      "DD"
+    ],
+    "software": [
+      "MSFT",
+      "NOW",
+      "CRM"
+    ],
+    "channel": [
+      "HD",
+      "LOW",
+      "WCC"
+    ],
+    "customers": [
+      "JPM",
+      "WMT",
+      "COST"
+    ],
+    "ecosystem": [
+      "CB",
+      "PGR",
+      "ALL"
     ]
   }
 }

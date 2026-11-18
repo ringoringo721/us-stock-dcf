@@ -1768,6 +1768,197 @@
     return `${sign}${n.toFixed(Math.abs(n) >= 10 ? 0 : 1)}%`;
   }
 
+
+  const TREND_PERIODS = Object.freeze(['1d', '1w', '1m', '3m', '6m', 'ytd', '1y', '3y', '5y', '10y']);
+
+  function trendCutoffIso(endIso, period) {
+    const end = new Date(`${endIso}T00:00:00Z`);
+    if (!Number.isFinite(end.getTime())) return null;
+    const y = end.getUTCFullYear();
+    const m = end.getUTCMonth();
+    const d = end.getUTCDate();
+    if (period === 'ytd') return `${y}-01-01`;
+    const dayOffsets = { '1d': 1, '1w': 7, '1m': 30 };
+    if (dayOffsets[period] != null) {
+      const t = new Date(Date.UTC(y, m, d - dayOffsets[period]));
+      return t.toISOString().slice(0, 10);
+    }
+    const months = { '3m': 3, '6m': 6, '1y': 12, '3y': 36, '5y': 60, '10y': 120 }[period];
+    if (months == null) return null;
+    const target = new Date(Date.UTC(y, m - months, 1));
+    const dim = new Date(Date.UTC(target.getUTCFullYear(), target.getUTCMonth() + 1, 0)).getUTCDate();
+    target.setUTCDate(Math.min(d, dim));
+    return target.toISOString().slice(0, 10);
+  }
+
+  /** Price return % for a chart record over a named trend period (null if unavailable). */
+  function priceTrendPct(chart, period) {
+    const rows = chart && Array.isArray(chart.rows) ? chart.rows : [];
+    if (rows.length < 2 || !TREND_PERIODS.includes(period)) return null;
+    const endIso = rows[rows.length - 1][0];
+    const cutoff = trendCutoffIso(endIso, period);
+    if (!cutoff) return null;
+    let startRow = null;
+    if (period === 'ytd') {
+      for (let i = rows.length - 1; i >= 0; i -= 1) {
+        if (rows[i][0] < cutoff) { startRow = rows[i]; break; }
+      }
+    }
+    if (!startRow) {
+      for (let i = 0; i < rows.length; i += 1) {
+        if (rows[i][0] >= cutoff) { startRow = rows[i]; break; }
+      }
+    }
+    if (!startRow) startRow = rows[0];
+    const endRow = rows[rows.length - 1];
+    if (!startRow || startRow[0] >= endRow[0] || !(startRow[1] > 0) || !(endRow[1] > 0)) return null;
+    const pct = (endRow[1] / startRow[1] - 1) * 100;
+    return Number.isFinite(pct) ? pct : null;
+  }
+
+  function quarterEndIso(year, quarter) {
+    const y = Number(year);
+    const q = Number(quarter);
+    if (!Number.isFinite(y) || ![1, 2, 3, 4].includes(q)) return null;
+    return [`${y}-03-31`, `${y}-06-30`, `${y}-09-30`, `${y}-12-31`][q - 1];
+  }
+
+  function sumOwnership(rows) {
+    return sumFinite((rows || []).map(r => finite(r.ownership)));
+  }
+
+  function sumShares(rows) {
+    return sumFinite((rows || []).map(r => finite(r.sharesNumber ?? r.shares)));
+  }
+
+  function sumMarketValue(rows) {
+    return sumFinite((rows || []).map(r => finite(r.marketValue)));
+  }
+
+  /**
+   * Smart vs Dump institutional trend over a window.
+   * Smart = net ownership change (pp) across holder books spanning the period.
+   * Dump = exit/reduction outflow as % of prior combined market value (negative pressure).
+   * Short windows (<~1 quarter) fall back to Form 4 net buy/sell when provided.
+   */
+  function smartDumpTrends(stockPayload, period, form4Trades = []) {
+    const empty = {
+      smartPct: null,
+      dumpPct: null,
+      smartLabel: null,
+      dumpLabel: null,
+      basis: null,
+      note: 'unavailable',
+    };
+    if (!TREND_PERIODS.includes(period)) return empty;
+
+    const quarters = (stockPayload && stockPayload.quarters) || [];
+    const snap = (stockPayload && stockPayload.snapshot) || {};
+    const endIso = (quarters[0] && quarterEndIso(quarters[0].year, quarters[0].quarter))
+      || (snap.key && String(snap.key))
+      || new Date().toISOString().slice(0, 10);
+    const cutoff = trendCutoffIso(String(endIso).slice(0, 10), period) || endIso;
+
+    // Prefer Form 4 for sub-quarter windows when trades exist.
+    const short = period === '1d' || period === '1w' || period === '1m';
+    const trades = Array.isArray(form4Trades) ? form4Trades : [];
+    if (short && trades.length) {
+      let buy = 0;
+      let sell = 0;
+      for (const t of trades) {
+        const day = String(t.transactionDate || t.filingDate || t.date || '').slice(0, 10);
+        if (!day || day < cutoff) continue;
+        const value = Math.abs(finite(t.value ?? t.transactionValue ?? (finite(t.price) * finite(t.shares))));
+        const side = String(t.side || t.transactionType || t.acqOrDisp || '').toLowerCase();
+        const isSell = side === 'sell' || side === 'd' || side.includes('sale') || side.includes('dispose');
+        const isBuy = side === 'buy' || side === 'a' || side.includes('purchase') || side.includes('acqu');
+        if (isSell) sell += value;
+        else if (isBuy) buy += value;
+      }
+      const net = buy - sell;
+      const denom = buy + sell;
+      if (denom > 0) {
+        return {
+          smartPct: (net / denom) * 100,
+          dumpPct: sell > 0 ? -(sell / denom) * 100 : 0,
+          smartLabel: 'form4-net',
+          dumpLabel: 'form4-sells',
+          basis: `${cutoff}→`,
+          note: 'form4',
+        };
+      }
+    }
+
+    if (quarters.length < 2) {
+      // Snapshot KPIs only — QoQ from holders vs exits.
+      const holders = snap.holders || [];
+      const exits = snap.exits || [];
+      const kpis = snap.kpis || {};
+      const priorValue = sumFinite(holders.map(r => finite(r.lastMarketValue)))
+        || (finite(kpis.combinedValue) + finite(kpis.outflow));
+      const inflow = finite(kpis.inflow);
+      const outflow = finite(kpis.outflow) || sumMarketValue(exits);
+      const ownNow = sumOwnership(holders);
+      const ownPrior = sumFinite(holders.map(r => {
+        const shares = finite(r.shares ?? r.sharesNumber);
+        const last = finite(r.lastShares ?? r.lastSharesNumber);
+        const own = finite(r.ownership);
+        if (shares > 0 && last > 0 && own != null) return own * (last / shares);
+        return null;
+      }));
+      return {
+        smartPct: ownNow != null && ownPrior != null ? (ownNow - ownPrior) : null,
+        dumpPct: priorValue > 0 && outflow != null ? -(outflow / priorValue) * 100 : null,
+        smartLabel: 'ownership-pp',
+        dumpLabel: 'exit-outflow',
+        basis: snap.key || 'latest',
+        note: quarters.length ? 'single-quarter' : 'snapshot-only',
+      };
+    }
+
+    // Pick latest quarter and the oldest quarter still on/after cutoff (else oldest on file).
+    const latest = quarters[0];
+    let prior = quarters[quarters.length - 1];
+    for (let i = 0; i < quarters.length; i += 1) {
+      const iso = quarterEndIso(quarters[i].year, quarters[i].quarter);
+      if (iso && iso >= cutoff) prior = quarters[i];
+    }
+    if (prior === latest && quarters[1]) prior = quarters[1];
+
+    const latestRows = latest.rows || [];
+    const priorRows = prior.rows || [];
+    const ownNow = sumOwnership(latestRows);
+    const ownPrior = sumOwnership(priorRows);
+    const valuePrior = sumMarketValue(priorRows);
+    // Dump: market value of CIKs that disappeared or cut shares ≥50% vs prior.
+    const latestBy = new Map(latestRows.map(r => [padCik(r.cik), r]));
+    let dumpValue = 0;
+    for (const row of priorRows) {
+      const cik = padCik(row.cik);
+      const now = latestBy.get(cik);
+      const prevShares = finite(row.sharesNumber ?? row.shares);
+      const prevVal = finite(row.marketValue);
+      if (!now || finite(now.sharesNumber ?? now.shares) <= 0) {
+        dumpValue += prevVal || 0;
+      } else if (prevShares > 0) {
+        const nowShares = finite(now.sharesNumber ?? now.shares);
+        if (nowShares < prevShares * 0.5) {
+          dumpValue += prevVal * ((prevShares - nowShares) / prevShares);
+        }
+      }
+    }
+
+    return {
+      smartPct: ownNow != null && ownPrior != null ? (ownNow - ownPrior) : null,
+      dumpPct: valuePrior > 0 ? -(dumpValue / valuePrior) * 100 : null,
+      smartLabel: 'ownership-pp',
+      dumpLabel: 'exit-outflow',
+      basis: `${prior.key || prior.year + '-Q' + prior.quarter}→${latest.key || latest.year + '-Q' + latest.quarter}`,
+      note: short ? '13f-lag' : '13f',
+    };
+  }
+
+
   return {
     INVESTORS,
     CIK_SET,
@@ -1844,5 +2035,9 @@
     summarizeFundQuarter,
     buildFundDirectoryEntry,
     loadFundsDirectory,
+    TREND_PERIODS,
+    priceTrendPct,
+    smartDumpTrends,
+    trendCutoffIso,
   };
 }));

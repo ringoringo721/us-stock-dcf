@@ -304,6 +304,9 @@ def _assert_short_brand_en() -> None:
         ("American Financial Group, Inc.", "AFG", "American Financial Group"),
         ("American Financial", "AFG", "American Financial"),  # never collapse to adjective American
         ("Mettler-Toledo International, Inc.", "MTD", "Mettler-Toledo"),
+        # Leading "International" is a brand headword — only trailing legal International strips.
+        ("International Paper Company", "IP", "International Paper"),
+        ("International Seaways, Inc.", "INSW", "International Seaways"),
     )
     for raw, ticker, expect in cases:
         got = short_brand_en(raw, ticker)

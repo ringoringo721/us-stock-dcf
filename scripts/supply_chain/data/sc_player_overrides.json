@@ -660,8 +660,8 @@
     ],
     "consumables": [
       "AVTR",
-      "MTD",
-      "WAT"
+      "RGEN",
+      "WST"
     ],
     "customers": [
       "LLY",
@@ -669,9 +669,7 @@
       "PFE"
     ],
     "distribution": [
-      "AVTR",
-      "HSIC",
-      "CAH"
+      "AVTR"
     ]
   },
   "WAT": {
@@ -687,8 +685,8 @@
     ],
     "consumables": [
       "AVTR",
-      "MTD",
-      "A"
+      "RGEN",
+      "WST"
     ],
     "customers": [
       "LLY",
@@ -696,9 +694,7 @@
       "PFE"
     ],
     "distribution": [
-      "AVTR",
-      "HSIC",
-      "CAH"
+      "AVTR"
     ]
   },
   "MTD": {
@@ -714,8 +710,8 @@
     ],
     "consumables": [
       "AVTR",
-      "A",
-      "WAT"
+      "RGEN",
+      "WST"
     ],
     "customers": [
       "LLY",
@@ -723,9 +719,7 @@
       "PFE"
     ],
     "distribution": [
-      "AVTR",
-      "HSIC",
-      "CAH"
+      "AVTR"
     ]
   },
   "ASTS": {
@@ -919,9 +913,9 @@
       "BG"
     ],
     "packaging": [
-      "DD",
-      "DOW",
-      "GLW"
+      "PKG",
+      "AMCR",
+      "BALL"
     ],
     "manufacturing": [
       "HON",
@@ -1032,9 +1026,8 @@
       "A"
     ],
     "consumables": [
-      "MTD",
-      "A",
-      "WAT"
+      "RGEN",
+      "WST"
     ],
     "customers": [
       "LLY",
@@ -1042,8 +1035,250 @@
       "PFE"
     ],
     "distribution": [
-      "HSIC",
+      "FDX",
+      "UPS"
+    ]
+  },
+  "ABEV": {
+    "inputs": [
+      "CTVA",
+      "DE",
+      "ADM"
+    ],
+    "packaging": [
+      "PKG",
+      "AMCR",
+      "BALL"
+    ],
+    "manufacturing": [
+      "HON",
+      "EMR",
+      "ROK"
+    ],
+    "retail": [
+      "WMT",
+      "COST",
+      "TGT"
+    ],
+    "media": [
+      "GOOG",
+      "META",
+      "DIS"
+    ]
+  },
+  "ALC": {
+    "parts": [
+      "APH",
+      "TEL",
+      "DD"
+    ],
+    "electronics": [
+      "TXN",
+      "ADI",
+      "ON"
+    ],
+    "assembly": [
+      "JBL",
+      "FLEX",
+      "TMO"
+    ],
+    "providers": [
+      "HCA",
+      "THC",
+      "UHS"
+    ],
+    "payers": [
+      "UNH",
+      "CI",
+      "ELV"
+    ]
+  },
+  "AGCO": {
+    "materials": [
+      "NUE",
+      "STLD",
+      "DOW"
+    ],
+    "components": [
+      "ETN",
+      "PH",
+      "EMR"
+    ],
+    "automation": [
+      "ROK",
+      "HON",
+      "FTV"
+    ],
+    "dealers": [
+      "URI",
+      "WCC",
+      "FAST"
+    ],
+    "customers": [
+      "ADM",
+      "BG",
+      "CTVA"
+    ]
+  },
+  "ALLE": {
+    "hardware": [
+      "APH",
+      "TEL",
+      "DD"
+    ],
+    "software": [
+      "MSFT",
+      "NOW",
+      "CRM"
+    ],
+    "channel": [
+      "HD",
+      "LOW",
+      "WCC"
+    ],
+    "customers": [
+      "JPM",
+      "WMT",
+      "COST"
+    ],
+    "ecosystem": [
+      "CB",
+      "PGR",
+      "ALL"
+    ]
+  },
+  "ASR": {
+    "construction": [
+      "ACM",
+      "J",
+      "PWR"
+    ],
+    "equipment": [
+      "HON",
+      "ETN",
+      "ROK"
+    ],
+    "airlines": [
+      "DAL",
+      "UAL",
+      "AAL"
+    ],
+    "retail": [
+      "SBUX",
+      "MCD",
+      "BKNG"
+    ],
+    "capital": [
+      "JPM",
+      "BAC",
+      "BLK"
+    ]
+  },
+  "APTV": {
+    "materials": [
+      "NUE",
+      "AA",
+      "DOW"
+    ],
+    "electronics": [
+      "TXN",
+      "ON",
+      "ADI"
+    ],
+    "modules": [
+      "TEL",
+      "APH",
+      "GLW"
+    ],
+    "oem": [
+      "F",
+      "GM",
+      "TSLA"
+    ],
+    "aftermarket": [
+      "ORLY",
+      "AZO",
+      "GPC"
+    ]
+  },
+  "AEIS": {
+    "devices": [
+      "TXN",
+      "ON",
+      "AVGO"
+    ],
+    "equipment": [
+      "AMAT",
+      "LRCX",
+      "KLAC"
+    ],
+    "modules": [
+      "COHR",
+      "MKSI",
+      "TEL"
+    ],
+    "customers": [
+      "TSM",
+      "AMAT",
+      "ASML"
+    ],
+    "channel": [
+      "AVT",
+      "ARW",
+      "CDW"
+    ]
+  },
+  "BIIB": {
+    "tools-cdmo": [
+      "TMO",
+      "DHR",
+      "IQV"
+    ],
+    "api": [
+      "TMO",
+      "CRL",
+      "RGEN"
+    ],
+    "clinical": [
+      "IQV",
+      "CRL",
+      "LH"
+    ],
+    "wholesale": [
+      "MCK",
+      "COR",
       "CAH"
+    ],
+    "payers": [
+      "UNH",
+      "CVS",
+      "CI"
+    ]
+  },
+  "HRB": {
+    "software": [
+      "MSFT",
+      "ORCL",
+      "ADBE"
+    ],
+    "practitioners": [
+      "RHI",
+      "MAN",
+      "ASGN"
+    ],
+    "channel": [
+      "INTU",
+      "ADP"
+    ],
+    "marketing": [
+      "GOOG",
+      "META",
+      "AMZN"
+    ],
+    "settlement": [
+      "JPM",
+      "BAC",
+      "WFC"
     ]
   }
 }

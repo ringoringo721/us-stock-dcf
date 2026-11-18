@@ -2034,6 +2034,77 @@ MODELS: dict[str, dict] = {
         ],
     },
 
+
+    "airport-ops-v1": {
+        "label_zh": "機場營運價值鏈",
+        "label_en": "Airport operations value chain",
+        "description_zh": "土木／航廈建設 → 地勤／航電設備 → 航司流量 → 零售免稅 → 資本／融資。",
+        "description_en": "Civil / terminal construction → ground / airside equipment → airline traffic → retail / duty-free → capital / financing.",
+        "stages": [
+            {"id": "construction", "order": 1, "label_zh": "土木／航廈建設", "label_en": "Civil / terminal construction", "summary_zh": "航廈與跑道工程承攬。", "summary_en": "Terminal and airfield contractors."},
+            {"id": "equipment", "order": 2, "label_zh": "地勤／航電設備", "label_en": "Ground / airside equipment", "summary_zh": "行李、登機橋與航電設備。", "summary_en": "Baggage, jet bridges, airside systems."},
+            {"id": "airlines", "order": 3, "label_zh": "航司／流量", "label_en": "Airlines / traffic", "summary_zh": "航空公司客貨流量。", "summary_en": "Passenger and cargo airline traffic."},
+            {"id": "retail", "order": 4, "label_zh": "零售／免稅", "label_en": "Retail / duty-free", "summary_zh": "航廈零售與餐飲租戶。", "summary_en": "Terminal retail and F&B tenants."},
+            {"id": "capital", "order": 5, "label_zh": "資本／融資", "label_en": "Capital / financing", "summary_zh": "基建融資與機構資金。", "summary_en": "Infra financing and institutional capital."},
+        ],
+    },
+
+    "auto-tier1-v1": {
+        "label_zh": "汽車 Tier-1 零組件價值鏈",
+        "label_en": "Auto Tier-1 components value chain",
+        "description_zh": "材料／金屬 → 汽車半導體／電子 → 線束／感測模組 → 整車 OEM → 售後通路。",
+        "description_en": "Materials / metals → auto semis / electronics → harness / sensor modules → OEM customers → aftermarket channel.",
+        "stages": [
+            {"id": "materials", "order": 1, "label_zh": "材料／金屬", "label_en": "Materials / metals", "summary_zh": "鋼鋁與工程塑膠。", "summary_en": "Steel, aluminum, engineering plastics."},
+            {"id": "electronics", "order": 2, "label_zh": "汽車半導體／電子", "label_en": "Auto semis / electronics", "summary_zh": "功率、感測與車用 MCU。", "summary_en": "Power, sensors, automotive MCUs."},
+            {"id": "modules", "order": 3, "label_zh": "線束／感測模組", "label_en": "Harness / sensor modules", "summary_zh": "連接、線束與模組供應。", "summary_en": "Connectors, harnesses, modules."},
+            {"id": "oem", "order": 4, "label_zh": "整車 OEM 客戶", "label_en": "Auto OEM customers", "summary_zh": "全球整車廠採購。", "summary_en": "Global OEM procurement."},
+            {"id": "aftermarket", "order": 5, "label_zh": "售後／經銷通路", "label_en": "Aftermarket / dealer channel", "summary_zh": "零件通路與經銷網絡。", "summary_en": "Parts channel and dealer networks."},
+        ],
+    },
+
+    "power-electronics-v1": {
+        "label_zh": "精密／半導體電源價值鏈",
+        "label_en": "Precision / semi power-electronics value chain",
+        "description_zh": "功率元件 → 設備／真空／光學 → 電源／射頻模組 → 晶圓廠／工業客戶 → 通路。",
+        "description_en": "Power devices → equipment / vacuum / optics → power / RF modules → fab / industrial customers → channel.",
+        "stages": [
+            {"id": "devices", "order": 1, "label_zh": "功率半導體／元件", "label_en": "Power semis / devices", "summary_zh": "功率元件與被動件。", "summary_en": "Power devices and passives."},
+            {"id": "equipment", "order": 2, "label_zh": "設備／真空／光學", "label_en": "Equipment / vacuum / optics", "summary_zh": "製程設備與光學供應。", "summary_en": "Process equipment and optics."},
+            {"id": "modules", "order": 3, "label_zh": "電源／射頻模組", "label_en": "Power / RF modules", "summary_zh": "精密電源與 RF 模組。", "summary_en": "Precision power and RF modules."},
+            {"id": "customers", "order": 4, "label_zh": "晶圓廠／工業客戶", "label_en": "Fab / industrial customers", "summary_zh": "半導體與工業終端。", "summary_en": "Semi fab and industrial end-markets."},
+            {"id": "channel", "order": 5, "label_zh": "通路／服務", "label_en": "Channel / service", "summary_zh": "設備服務與零件通路。", "summary_en": "Service and parts channel."},
+        ],
+    },
+
+    "ag-machinery-v1": {
+        "label_zh": "農機設備價值鏈",
+        "label_en": "Agricultural machinery value chain",
+        "description_zh": "材料 → 動力／液壓部件 → 自動化／精密農業 → 經銷通路 → 農場／農產客戶。對手 OEM 只列 rivals，不進經銷階段。",
+        "description_en": "Materials → powertrain / hydraulics → automation / precision ag → dealer channel → farm / agri customers. Rival OEMs stay rivals — not dealer-stage players.",
+        "stages": [
+            {"id": "materials", "order": 1, "label_zh": "原材料／鋼鐵", "label_en": "Raw materials / steel", "summary_zh": "鋼材與結構件原料。", "summary_en": "Steel and structural inputs."},
+            {"id": "components", "order": 2, "label_zh": "動力／液壓部件", "label_en": "Powertrain / hydraulics", "summary_zh": "引擎、傳動與液壓。", "summary_en": "Engines, drivetrains, hydraulics."},
+            {"id": "automation", "order": 3, "label_zh": "自動化／精密農業", "label_en": "Automation / precision ag", "summary_zh": "導航、感測與農機軟體。", "summary_en": "Guidance, sensors, ag software."},
+            {"id": "dealers", "order": 4, "label_zh": "經銷／融資通路", "label_en": "Dealer / finance channel", "summary_zh": "獨立經銷與設備融資（非對手 OEM）。", "summary_en": "Independent dealers and equipment finance — not rival OEMs."},
+            {"id": "customers", "order": 5, "label_zh": "農場／農產客戶", "label_en": "Farm / agri customers", "summary_zh": "農場與農產品貿易客戶。", "summary_en": "Farms and agribusiness customers."},
+        ],
+    },
+
+    "door-hardware-v1": {
+        "label_zh": "門禁／建築五金價值鏈",
+        "label_en": "Door hardware / access value chain",
+        "description_zh": "五金／電子鎖零件 → 安防軟體／憑證 → 五金通路 → 商業／住宅客戶 → 保險／物業生態。",
+        "description_en": "Hardware / electronic-lock parts → access software / credentials → hardware channel → commercial / residential customers → insurance / property ecosystem.",
+        "stages": [
+            {"id": "hardware", "order": 1, "label_zh": "五金／電子鎖零件", "label_en": "Hardware / electronic-lock parts", "summary_zh": "鎖芯、讀頭與精密五金。", "summary_en": "Cores, readers, precision hardware."},
+            {"id": "software", "order": 2, "label_zh": "門禁軟體／憑證", "label_en": "Access software / credentials", "summary_zh": "門禁管理與憑證平台。", "summary_en": "Access management and credential platforms."},
+            {"id": "channel", "order": 3, "label_zh": "五金／電氣通路", "label_en": "Hardware / electrical channel", "summary_zh": "DIY 與專業電氣通路。", "summary_en": "DIY and pro electrical channel."},
+            {"id": "customers", "order": 4, "label_zh": "商業／住宅客戶", "label_en": "Commercial / residential customers", "summary_zh": "商業樓宇與住宅開發。", "summary_en": "Commercial buildings and residential."},
+            {"id": "ecosystem", "order": 5, "label_zh": "保險／物業生態", "label_en": "Insurance / property ecosystem", "summary_zh": "保險與物業管理鄰接。", "summary_en": "Insurance and property-management adjacency."},
+        ],
+    },
+
     "energy-gas-ep-v1": {
         "label_zh": "天然氣勘探開發價值鏈",
         "label_en": "Natural-gas E&P value chain",
@@ -2334,17 +2405,17 @@ TICKER_MODEL: dict[str, str] = {
     "AMH": "reit-v1",
     "AHR": "reit-v1",
     "AGNC": "mreit-v1",
-    "ASR": "industrials-v1",  # airport operators — not hospitality disc stages
-    "PAC": "industrials-v1",
-    "OMAB": "industrials-v1",
-    "APTV": "industrials-v1",
+    "ASR": "airport-ops-v1",  # airport concessionaires — not industrials manufacturing
+    "PAC": "airport-ops-v1",
+    "OMAB": "airport-ops-v1",
+    "APTV": "auto-tier1-v1",  # Tier-1 auto components — not mining/CAT industrials
     "ALSN": "industrials-v1",
     "ALV": "industrials-v1",
-    "AEIS": "hardware-value-chain-v1",  # precision power for semi/industrial — not genset/utility industrials
+    "AEIS": "power-electronics-v1",  # precision / semi process power — not EMS/hardware retail chain
     "AMRX": "pharma-v1",
     "APPF": "saas-cloud-v1",
     "ADT": "security-services-v1",
-    "ALLE": "security-services-v1",
+    "ALLE": "door-hardware-v1",  # door hardware / electronic access — not monitored-security HVAC peers
     "ASTS": "satellite-to-phone-v1",
     "BILI": "entertainment-v1",
     "BC": "marine-recreation-v1",
@@ -2371,6 +2442,8 @@ TICKER_MODEL: dict[str, str] = {
     "AES": "utilities-v1",  # electric generation / utilities
     "ARES": "asset-mgmt-v1",  # alt managers
     "ANDG": "tax-pro-services-v1",
+    "HRB": "tax-pro-services-v1",  # consumer tax prep — peers INTU; not SCI/FTDR personal-services
+    "FCN": "it-services-v1",  # consulting / forensic advisory — peers BAH/EFX, not only ANDG
     "AR": "energy-gas-ep-v1",  # pure-play gas E&P — OFS / midstream / offtake; rivals stay rivals
     "EQT": "energy-gas-ep-v1",
     "RRC": "energy-gas-ep-v1",
@@ -2380,7 +2453,7 @@ TICKER_MODEL: dict[str, str] = {
     "CIG": "utilities-v1",
     "BRZE": "saas-cloud-v1",
     "AOS": "industrials-v1",
-    "AGCO": "industrials-v1",
+    "AGCO": "ag-machinery-v1",  # ag OEM — rival OEMs stay rivals, not dealer-stage
     "AS": "consumer-discretionary-v1",
     "AVAV": "aerospace-defense-v1",  # military UAV — peers via mil-uav group
     "BETA": "aerospace-defense-v1",

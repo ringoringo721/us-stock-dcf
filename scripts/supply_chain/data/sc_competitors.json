@@ -4710,29 +4710,9 @@
   ],
   "INTU": [
     [
-      "ADP",
-      "財稅／中小企業軟體對手",
-      "Fintech / SMB software rival"
-    ],
-    [
-      "PAYX",
-      "財稅／中小企業軟體對手",
-      "Fintech / SMB software rival"
-    ],
-    [
-      "MSFT",
-      "財稅／中小企業軟體對手",
-      "Fintech / SMB software rival"
-    ],
-    [
-      "ORCL",
-      "財稅／中小企業軟體對手",
-      "Fintech / SMB software rival"
-    ],
-    [
-      "SAP",
-      "財稅／中小企業軟體對手",
-      "Fintech / SMB software rival"
+      "HRB",
+      "消費稅務／報稅對手",
+      "Consumer tax-prep rival"
     ]
   ],
   "CSX": [
@@ -11407,29 +11387,19 @@
   ],
   "EQT": [
     [
-      "EOG",
-      "上游勘探開發對手",
-      "E&P rival"
+      "AR",
+      "天然氣勘探開發對手",
+      "Natural-gas E&P rival"
     ],
     [
-      "OXY",
-      "上游勘探開發對手",
-      "E&P rival"
+      "RRC",
+      "天然氣勘探開發對手",
+      "Natural-gas E&P rival"
     ],
     [
-      "FANG",
-      "上游勘探開發對手",
-      "E&P rival"
-    ],
-    [
-      "COP",
-      "上游勘探開發對手",
-      "E&P rival"
-    ],
-    [
-      "DVN",
-      "上游勘探開發對手",
-      "E&P rival"
+      "EXE",
+      "天然氣勘探開發對手",
+      "Natural-gas E&P rival"
     ]
   ],
   "RYAAY": [
@@ -15232,29 +15202,19 @@
   ],
   "EXE": [
     [
-      "EOG",
-      "上游勘探開發對手",
-      "E&P rival"
+      "AR",
+      "天然氣勘探開發對手",
+      "Natural-gas E&P rival"
     ],
     [
-      "OXY",
-      "上游勘探開發對手",
-      "E&P rival"
+      "EQT",
+      "天然氣勘探開發對手",
+      "Natural-gas E&P rival"
     ],
     [
-      "FANG",
-      "上游勘探開發對手",
-      "E&P rival"
-    ],
-    [
-      "COP",
-      "上游勘探開發對手",
-      "E&P rival"
-    ],
-    [
-      "DVN",
-      "上游勘探開發對手",
-      "E&P rival"
+      "RRC",
+      "天然氣勘探開發對手",
+      "Natural-gas E&P rival"
     ]
   ],
   "BCH": [
@@ -17229,13 +17189,6 @@
       "CPT",
       "住宅 REIT 對手",
       "Residential REIT rival"
-    ]
-  ],
-  "ALLE": [
-    [
-      "JCI",
-      "門禁／五金對手",
-      "Door hardware / access rival"
     ]
   ],
   "HTHT": [
@@ -21247,29 +21200,19 @@
   ],
   "RRC": [
     [
-      "EOG",
-      "上游勘探開發對手",
-      "E&P rival"
+      "AR",
+      "天然氣勘探開發對手",
+      "Natural-gas E&P rival"
     ],
     [
-      "OXY",
-      "上游勘探開發對手",
-      "E&P rival"
+      "EQT",
+      "天然氣勘探開發對手",
+      "Natural-gas E&P rival"
     ],
     [
-      "FANG",
-      "上游勘探開發對手",
-      "E&P rival"
-    ],
-    [
-      "COP",
-      "上游勘探開發對手",
-      "E&P rival"
-    ],
-    [
-      "DVN",
-      "上游勘探開發對手",
-      "E&P rival"
+      "EXE",
+      "天然氣勘探開發對手",
+      "Natural-gas E&P rival"
     ]
   ],
   "HII": [
@@ -21448,29 +21391,19 @@
   ],
   "AR": [
     [
-      "EOG",
-      "上游勘探開發對手",
-      "E&P rival"
+      "EQT",
+      "天然氣勘探開發對手",
+      "Natural-gas E&P rival"
     ],
     [
-      "OXY",
-      "上游勘探開發對手",
-      "E&P rival"
+      "RRC",
+      "天然氣勘探開發對手",
+      "Natural-gas E&P rival"
     ],
     [
-      "FANG",
-      "上游勘探開發對手",
-      "E&P rival"
-    ],
-    [
-      "COP",
-      "上游勘探開發對手",
-      "E&P rival"
-    ],
-    [
-      "DVN",
-      "上游勘探開發對手",
-      "E&P rival"
+      "EXE",
+      "天然氣勘探開發對手",
+      "Natural-gas E&P rival"
     ]
   ],
   "NYT": [
@@ -22399,27 +22332,27 @@
   ],
   "BAH": [
     [
+      "FCN",
+      "顧問／鑑識諮詢對手",
+      "Consulting / forensic-advisory rival"
+    ],
+    [
+      "EFX",
+      "顧問／鑑識諮詢對手",
+      "Consulting / forensic-advisory rival"
+    ],
+    [
+      "ANDG",
+      "專業稅務／顧問對手",
+      "Professional tax / advisory rival"
+    ],
+    [
       "AMTM",
       "政府服務／工程承攬對手",
       "Gov services / engineering-contractor rival"
     ],
     [
       "SAIC",
-      "政府服務／工程承攬對手",
-      "Gov services / engineering-contractor rival"
-    ],
-    [
-      "CACI",
-      "政府服務／工程承攬對手",
-      "Gov services / engineering-contractor rival"
-    ],
-    [
-      "LDOS",
-      "政府服務／工程承攬對手",
-      "Gov services / engineering-contractor rival"
-    ],
-    [
-      "PSN",
       "政府服務／工程承攬對手",
       "Gov services / engineering-contractor rival"
     ]
@@ -28798,19 +28731,9 @@
   ],
   "HRB": [
     [
-      "SCI",
-      "Personal Products & Services產品／市場對手",
-      "Personal Products & Services product/market rival"
-    ],
-    [
-      "ANDG",
-      "Personal Products & Services產品／市場對手",
-      "Personal Products & Services product/market rival"
-    ],
-    [
-      "FTDR",
-      "Personal Products & Services產品／市場對手",
-      "Personal Products & Services product/market rival"
+      "INTU",
+      "消費稅務／報稅對手",
+      "Consumer tax-prep rival"
     ]
   ],
   "GIL": [
@@ -32028,9 +31951,14 @@
   ],
   "FCN": [
     [
-      "ANDG",
-      "專業稅務／顧問對手",
-      "Professional tax / advisory rival"
+      "BAH",
+      "顧問／鑑識諮詢對手",
+      "Consulting / forensic-advisory rival"
+    ],
+    [
+      "EFX",
+      "顧問／鑑識諮詢對手",
+      "Consulting / forensic-advisory rival"
     ]
   ],
   "MAIN": [
@@ -33971,6 +33899,13 @@
       "CSGP",
       "物業／營運管理 SaaS 對手",
       "Property / ops-management SaaS rival"
+    ]
+  ],
+  "ALLE": [
+    [
+      "FBIN",
+      "門禁／五金對手",
+      "Door hardware / access rival"
     ]
   ]
 }

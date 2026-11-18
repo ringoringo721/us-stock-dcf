@@ -592,9 +592,27 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "door-hardware",
-        ["ALLE", "JCI"],  # door hardware / electronic access — drop SWK tools; ADT/MSA elsewhere
+        ["ALLE", "FBIN"],  # electronic access / locks — drop JCI HVAC; SWK tools elsewhere; thin OK
         "門禁／五金對手",
         "Door hardware / access rival",
+    ),
+    (
+        "gas-ep",
+        ["AR", "EQT", "RRC", "EXE"],  # pure-play gas E&P — not EOG/OXY/FANG/COP/DVN oil
+        "天然氣勘探開發對手",
+        "Natural-gas E&P rival",
+    ),
+    (
+        "consumer-tax",
+        ["HRB", "INTU"],  # consumer tax prep / DIY software — not SCI/FTDR personal services
+        "消費稅務／報稅對手",
+        "Consumer tax-prep rival",
+    ),
+    (
+        "consult-svc",
+        ["FCN", "BAH", "EFX"],  # consulting / forensic / advisory — not ANDG-only tax-pro fallthrough
+        "顧問／鑑識諮詢對手",
+        "Consulting / forensic-advisory rival",
     ),
     (
         "ppe-safety",
@@ -718,7 +736,7 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
         (
         "tax-pro-svc",
-        ["ANDG", "FCN"],  # Andersen professional tax/advisory — not HRB/INTU consumer DIY tax
+        ["ANDG", "FCN"],  # Andersen professional tax/advisory — FCN still listed for ANDG; FCN hub forced to consult-svc
         "專業稅務／顧問對手",
         "Professional tax / advisory rival",
     ),
@@ -1050,6 +1068,13 @@ TICKER_GROUP_FORCE: dict[str, str] = {
     "MKSI": "power-conv",
     "ADT": "security-svc",
     "ALLE": "door-hardware",
+    "AR": "gas-ep",
+    "EQT": "gas-ep",
+    "RRC": "gas-ep",
+    "EXE": "gas-ep",
+    "HRB": "consumer-tax",
+    "INTU": "consumer-tax",
+    "FCN": "consult-svc",  # BAH/EFX stay in gov-services / risk-data; still listed as FCN consult peers
     "ASTS": "satellite",
     "GSAT": "satellite",
     "VSAT": "satellite",
@@ -1102,7 +1127,7 @@ TICKER_GROUP_FORCE: dict[str, str] = {
     "ACGL": "ins-pc-re",
     "ARES": "alt-pe",
     "ANDG": "tax-pro-svc",
-    "FCN": "tax-pro-svc",
+    # FCN forced to consult-svc above — do not re-map to tax-pro-svc
     "AMTM": "gov-services",
     "BLLN": "mol-dx",
     "CIG": "util-latam",
@@ -1175,6 +1200,9 @@ TICKER_GROUP_FORCE: dict[str, str] = {
 # Specialty groups that must never be padded with same-industry megacaps.
 NO_PAD_GROUPS = {
     "door-hardware",
+    "gas-ep",
+    "consumer-tax",
+    "consult-svc",
     "power-conv",
     "apparel-brand",
     "construction-software",
