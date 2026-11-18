@@ -11,52 +11,52 @@
     "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
     "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
     "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
-    "modelId": "industrials-v1",
+    "modelId": "auto-driveline-v1",
     "references": [
-      "Industry model `industrials-v1`",
+      "Industry model `auto-driveline-v1`",
       "AAPL curated seed shape on main (schema reference)",
       "cache/us_universe.json screen: remaining US listings without supply-chain seed",
       "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
     ]
   },
   "model": {
-    "id": "industrials-v1",
-    "label_zh": "工業製造價值鏈",
-    "label_en": "Industrial manufacturing value chain",
-    "description_zh": "原材料 → 關鍵部件 → 製造自動化 → 經銷／租賃 → 終端基建客戶。",
-    "description_en": "Raw materials → critical parts → automation → dealers/rental → end infrastructure."
+    "id": "auto-driveline-v1",
+    "label_zh": "汽車傳動／動力系統價值鏈",
+    "label_en": "Auto driveline / powertrain value chain",
+    "description_zh": "材料／鍛件 → 齒輪／傳動部件 → 電控／液壓 → 整車／商用車 OEM → 售後通路。",
+    "description_en": "Materials / forgings → gears / transmission parts → controls / hydraulics → auto / CV OEMs → aftermarket."
   },
   "stages": [
     {
       "id": "materials",
       "order": 1,
-      "label_zh": "原材料／鋼鐵鋁",
-      "label_en": "Raw materials / metals",
-      "summary_zh": "鋼、鋁與基礎材料。",
-      "summary_en": "Steel, aluminum, base materials.",
+      "label_zh": "材料／鍛件",
+      "label_en": "Materials / forgings",
+      "summary_zh": "特鋼與鍛造毛坯。",
+      "summary_en": "Specialty steel and forgings.",
       "players": [
         {
           "ticker": "NUE",
           "name_en": "Nucor",
           "name_zh": "紐柯",
-          "role_zh": "紐柯：原材料／鋼鐵鋁代表性玩家",
-          "role_en": "Nucor: representative player in Raw materials / metals",
+          "role_zh": "紐柯：材料／鍛件代表性玩家",
+          "role_en": "Nucor: representative player in Materials / forgings",
           "exchange": "NYSE"
         },
         {
-          "ticker": "FCX",
-          "name_en": "Freeport-McMoRan",
-          "name_zh": "自由港麥克莫蘭",
-          "role_zh": "自由港麥克莫蘭：原材料／鋼鐵鋁代表性玩家",
-          "role_en": "Freeport-McMoRan: representative player in Raw materials / metals",
+          "ticker": "ATI",
+          "name_en": "ATI",
+          "name_zh": "ATI",
+          "role_zh": "ATI：材料／鍛件代表性玩家",
+          "role_en": "ATI: representative player in Materials / forgings",
           "exchange": "NYSE"
         },
         {
           "ticker": "DOW",
           "name_en": "Dow",
           "name_zh": "陶氏化學",
-          "role_zh": "陶氏化學：原材料／鋼鐵鋁代表性玩家",
-          "role_en": "Dow: representative player in Raw materials / metals",
+          "role_zh": "陶氏化學：材料／鍛件代表性玩家",
+          "role_en": "Dow: representative player in Materials / forgings",
           "exchange": "NYSE"
         }
       ]
@@ -64,135 +64,135 @@
     {
       "id": "components",
       "order": 2,
-      "label_zh": "關鍵部件／動力系統",
-      "label_en": "Critical components / powertrain",
-      "summary_zh": "引擎、液壓、電力電子。",
-      "summary_en": "Engines, hydraulics, power electronics.",
+      "label_zh": "齒輪／傳動部件",
+      "label_en": "Gears / transmission parts",
+      "summary_zh": "齒輪箱與動力總成件。",
+      "summary_en": "Gearbox and powertrain parts.",
       "players": [
-        {
-          "ticker": "ETN",
-          "name_en": "Eaton",
-          "name_zh": "伊頓",
-          "role_zh": "伊頓：關鍵部件／動力系統代表性玩家",
-          "role_en": "Eaton: representative player in Critical components / powertrain",
-          "exchange": "NYSE"
-        },
         {
           "ticker": "PH",
           "name_en": "Parker-Hannifin",
           "name_zh": "派克漢尼汾",
-          "role_zh": "派克漢尼汾：關鍵部件／動力系統代表性玩家",
-          "role_en": "Parker-Hannifin: representative player in Critical components / powertrain",
+          "role_zh": "派克漢尼汾：齒輪／傳動部件代表性玩家",
+          "role_en": "Parker-Hannifin: representative player in Gears / transmission parts",
           "exchange": "NYSE"
         },
         {
           "ticker": "EMR",
           "name_en": "Emerson",
           "name_zh": "艾默生",
-          "role_zh": "艾默生：關鍵部件／動力系統代表性玩家",
-          "role_en": "Emerson: representative player in Critical components / powertrain",
+          "role_zh": "艾默生：齒輪／傳動部件代表性玩家",
+          "role_en": "Emerson: representative player in Gears / transmission parts",
           "exchange": "NYSE"
-        }
-      ]
-    },
-    {
-      "id": "automation",
-      "order": 3,
-      "label_zh": "自動化／軟體",
-      "label_en": "Automation / software",
-      "summary_zh": "工控、感測與數位雙生。",
-      "summary_en": "Controls, sensors, digital twins.",
-      "players": [
+        },
         {
           "ticker": "ROK",
           "name_en": "Rockwell Automation",
           "name_zh": "羅克韋爾",
-          "role_zh": "羅克韋爾：自動化／軟體代表性玩家",
-          "role_en": "Rockwell Automation: representative player in Automation / software",
+          "role_zh": "羅克韋爾：齒輪／傳動部件代表性玩家",
+          "role_en": "Rockwell Automation: representative player in Gears / transmission parts",
           "exchange": "NYSE"
-        },
+        }
+      ]
+    },
+    {
+      "id": "controls",
+      "order": 3,
+      "label_zh": "電控／液壓",
+      "label_en": "Controls / hydraulics",
+      "summary_zh": "傳動電控與液壓系統。",
+      "summary_en": "Transmission controls and hydraulics.",
+      "players": [
         {
           "ticker": "HON",
           "name_en": "Honeywell",
           "name_zh": "漢威聯合",
-          "role_zh": "漢威聯合：自動化／軟體代表性玩家",
-          "role_en": "Honeywell: representative player in Automation / software",
+          "role_zh": "漢威聯合：電控／液壓代表性玩家",
+          "role_en": "Honeywell: representative player in Controls / hydraulics",
           "exchange": "NASDAQ"
         },
         {
-          "ticker": "SNPS",
-          "name_en": "Synopsys",
-          "name_zh": "新思科技",
-          "role_zh": "新思科技：自動化／軟體代表性玩家",
-          "role_en": "Synopsys: representative player in Automation / software",
+          "ticker": "ROK",
+          "name_en": "Rockwell Automation",
+          "name_zh": "羅克韋爾",
+          "role_zh": "羅克韋爾：電控／液壓代表性玩家",
+          "role_en": "Rockwell Automation: representative player in Controls / hydraulics",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "TXN",
+          "name_en": "Texas Instruments",
+          "name_zh": "德州儀器",
+          "role_zh": "德州儀器：電控／液壓代表性玩家",
+          "role_en": "Texas Instruments: representative player in Controls / hydraulics",
           "exchange": "NASDAQ"
         }
       ]
     },
     {
-      "id": "dealers",
+      "id": "oem",
       "order": 4,
-      "label_zh": "經銷／租賃通路",
-      "label_en": "Dealer / rental channel",
-      "summary_zh": "設備經銷與租賃。",
-      "summary_en": "Equipment dealers and rental.",
+      "label_zh": "整車／商用車 OEM",
+      "label_en": "Auto / CV OEMs",
+      "summary_zh": "乘用車與商用車採購。",
+      "summary_en": "Passenger and commercial OEM procurement.",
       "players": [
         {
-          "ticker": "CAT",
-          "name_en": "Caterpillar",
-          "name_zh": "開拓重工",
-          "role_zh": "開拓重工：經銷／租賃通路代表性玩家",
-          "role_en": "Caterpillar: representative player in Dealer / rental channel",
+          "ticker": "F",
+          "name_en": "Ford",
+          "name_zh": "福特",
+          "role_zh": "福特：整車／商用車 OEM代表性玩家",
+          "role_en": "Ford: representative player in Auto / CV OEMs",
           "exchange": "NYSE"
         },
         {
-          "ticker": "DE",
-          "name_en": "Deere",
-          "name_zh": "強鹿公司 (Deere)",
-          "role_zh": "強鹿公司 (Deere)：經銷／租賃通路代表性玩家",
-          "role_en": "Deere: representative player in Dealer / rental channel",
+          "ticker": "GM",
+          "name_en": "General Motors",
+          "name_zh": "通用汽車",
+          "role_zh": "通用汽車：整車／商用車 OEM代表性玩家",
+          "role_en": "General Motors: representative player in Auto / CV OEMs",
           "exchange": "NYSE"
         },
         {
-          "ticker": "ETN",
-          "name_en": "Eaton",
-          "name_zh": "伊頓",
-          "role_zh": "伊頓：經銷／租賃通路代表性玩家",
-          "role_en": "Eaton: representative player in Dealer / rental channel",
-          "exchange": "NYSE"
+          "ticker": "PCAR",
+          "name_en": "PACCAR",
+          "name_zh": "Paccar",
+          "role_zh": "Paccar：整車／商用車 OEM代表性玩家",
+          "role_en": "PACCAR: representative player in Auto / CV OEMs",
+          "exchange": "NASDAQ"
         }
       ]
     },
     {
-      "id": "customers",
+      "id": "aftermarket",
       "order": 5,
-      "label_zh": "基建／能源／礦業客戶",
-      "label_en": "Infra / energy / mining customers",
-      "summary_zh": "工程、能源與礦業終端。",
-      "summary_en": "Construction, energy, mining.",
+      "label_zh": "售後／經銷通路",
+      "label_en": "Aftermarket / dealer channel",
+      "summary_zh": "零件通路與經銷服務。",
+      "summary_en": "Parts channel and dealer service.",
       "players": [
         {
-          "ticker": "XOM",
-          "name_en": "Exxonmobil",
-          "name_zh": "埃克森美孚",
-          "role_zh": "埃克森美孚：基建／能源／礦業客戶代表性玩家",
-          "role_en": "Exxonmobil: representative player in Infra / energy / mining customers",
+          "ticker": "ORLY",
+          "name_en": "O'Reilly",
+          "name_zh": "奧萊利汽車",
+          "role_zh": "奧萊利汽車：售後／經銷通路代表性玩家",
+          "role_en": "O'Reilly: representative player in Aftermarket / dealer channel",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "AZO",
+          "name_en": "AutoZone",
+          "name_zh": "汽車地帶 (AutoZone)",
+          "role_zh": "汽車地帶 (AutoZone)：售後／經銷通路代表性玩家",
+          "role_en": "AutoZone: representative player in Aftermarket / dealer channel",
           "exchange": "NYSE"
         },
         {
-          "ticker": "UNP",
-          "name_en": "Union Pacific",
-          "name_zh": "聯合太平洋鐵路",
-          "role_zh": "聯合太平洋鐵路：基建／能源／礦業客戶代表性玩家",
-          "role_en": "Union Pacific: representative player in Infra / energy / mining customers",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "NEE",
-          "name_en": "NextEra Energy",
-          "name_zh": "新紀元能源",
-          "role_zh": "新紀元能源：基建／能源／礦業客戶代表性玩家",
-          "role_en": "NextEra Energy: representative player in Infra / energy / mining customers",
+          "ticker": "GPC",
+          "name_en": "Genuine Parts",
+          "name_zh": "GPC／NAPA",
+          "role_zh": "GPC／NAPA：售後／經銷通路代表性玩家",
+          "role_en": "Genuine Parts: representative player in Aftermarket / dealer channel",
           "exchange": "NYSE"
         }
       ]

@@ -26,12 +26,12 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "FCX": {
-      "ticker": "FCX",
-      "price": 59.24,
-      "previousClose": 60.45,
-      "changePct": -2.002,
-      "mcap": 85419.8,
+    "ATI": {
+      "ticker": "ATI",
+      "price": 183.09,
+      "previousClose": 190.16,
+      "changePct": -3.718,
+      "mcap": 23876.3,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
@@ -42,16 +42,6 @@
       "previousClose": 33.15,
       "changePct": -0.332,
       "mcap": 22729.9,
-      "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "ETN": {
-      "ticker": "ETN",
-      "price": 352.97,
-      "previousClose": 359.04,
-      "changePct": -1.691,
-      "mcap": 132724.0,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
@@ -96,62 +86,72 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "SNPS": {
-      "ticker": "SNPS",
-      "price": 455.2,
-      "previousClose": 462.69,
-      "changePct": -1.619,
-      "mcap": 86324.6,
+    "TXN": {
+      "ticker": "TXN",
+      "price": 303.6,
+      "previousClose": 312.48,
+      "changePct": -2.842,
+      "mcap": 253443.2,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "CAT": {
-      "ticker": "CAT",
-      "price": 600.2,
-      "previousClose": 605.28,
-      "changePct": -0.839,
-      "mcap": 256788.2,
+    "F": {
+      "ticker": "F",
+      "price": 11.91,
+      "previousClose": 11.9,
+      "changePct": 0.084,
+      "mcap": 49675.6,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "DE": {
-      "ticker": "DE",
-      "price": 673.54,
-      "previousClose": 678.79,
-      "changePct": -0.773,
-      "mcap": 181093.9,
+    "GM": {
+      "ticker": "GM",
+      "price": 86.0,
+      "previousClose": 86.25,
+      "changePct": -0.29,
+      "mcap": 73149.8,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "XOM": {
-      "ticker": "XOM",
-      "price": 170.59,
-      "previousClose": 169.78,
-      "changePct": 0.477,
-      "mcap": 676620.6,
+    "PCAR": {
+      "ticker": "PCAR",
+      "price": 106.66,
+      "previousClose": 106.33,
+      "changePct": 0.31,
+      "mcap": 53693.0,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "UNP": {
-      "ticker": "UNP",
-      "price": 302.44,
-      "previousClose": 304.2,
-      "changePct": -0.579,
-      "mcap": 172376.9,
+    "ORLY": {
+      "ticker": "ORLY",
+      "price": 92.19,
+      "previousClose": 91.56,
+      "changePct": 0.688,
+      "mcap": 72717.5,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "NEE": {
-      "ticker": "NEE",
-      "price": 85.12,
-      "previousClose": 85.29,
-      "changePct": -0.199,
-      "mcap": 182360.8,
+    "AZO": {
+      "ticker": "AZO",
+      "price": 3259.7,
+      "previousClose": 3252.19,
+      "changePct": 0.231,
+      "mcap": 51765.0,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "GPC": {
+      "ticker": "GPC",
+      "price": 123.34,
+      "previousClose": 122.84,
+      "changePct": 0.407,
+      "mcap": 16929.2,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
@@ -162,6 +162,16 @@
       "previousClose": 50.99,
       "changePct": -0.196,
       "mcap": 9801.7,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "ETN": {
+      "ticker": "ETN",
+      "price": 352.97,
+      "previousClose": 359.04,
+      "changePct": -1.691,
+      "mcap": 132724.0,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
