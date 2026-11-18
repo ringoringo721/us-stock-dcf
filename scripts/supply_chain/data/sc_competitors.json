@@ -9846,29 +9846,14 @@
   ],
   "COHR": [
     [
-      "APH",
-      "Hardware, Equipment & Parts產品／市場對手",
-      "Hardware, Equipment & Parts product/market rival"
+      "AEIS",
+      "精密／半導體電源對手",
+      "Precision / semi power-electronics rival"
     ],
     [
-      "GLW",
-      "Hardware, Equipment & Parts產品／市場對手",
-      "Hardware, Equipment & Parts product/market rival"
-    ],
-    [
-      "GRMN",
-      "Hardware, Equipment & Parts產品／市場對手",
-      "Hardware, Equipment & Parts product/market rival"
-    ],
-    [
-      "KEYS",
-      "Hardware, Equipment & Parts產品／市場對手",
-      "Hardware, Equipment & Parts product/market rival"
-    ],
-    [
-      "TDY",
-      "Hardware, Equipment & Parts產品／市場對手",
-      "Hardware, Equipment & Parts product/market rival"
+      "MKSI",
+      "精密／半導體電源對手",
+      "Precision / semi power-electronics rival"
     ]
   ],
   "SYY": [
@@ -19652,29 +19637,14 @@
   ],
   "MKSI": [
     [
-      "APH",
-      "Hardware, Equipment & Parts產品／市場對手",
-      "Hardware, Equipment & Parts product/market rival"
-    ],
-    [
-      "GLW",
-      "Hardware, Equipment & Parts產品／市場對手",
-      "Hardware, Equipment & Parts product/market rival"
-    ],
-    [
-      "GRMN",
-      "Hardware, Equipment & Parts產品／市場對手",
-      "Hardware, Equipment & Parts product/market rival"
-    ],
-    [
-      "KEYS",
-      "Hardware, Equipment & Parts產品／市場對手",
-      "Hardware, Equipment & Parts product/market rival"
+      "AEIS",
+      "精密／半導體電源對手",
+      "Precision / semi power-electronics rival"
     ],
     [
       "COHR",
-      "Hardware, Equipment & Parts產品／市場對手",
-      "Hardware, Equipment & Parts product/market rival"
+      "精密／半導體電源對手",
+      "Precision / semi power-electronics rival"
     ]
   ],
   "BSY": [
@@ -22049,29 +22019,29 @@
   ],
   "GNRC": [
     [
-      "AEIS",
-      "電源轉換／電力電子對手",
-      "Power conversion / power-electronics rival"
+      "EMR",
+      "工業自動化／機械對手",
+      "Industrial automation / machinery rival"
     ],
     [
-      "VRT",
-      "電源轉換／電力電子對手",
-      "Power conversion / power-electronics rival"
+      "HON",
+      "工業自動化／機械對手",
+      "Industrial automation / machinery rival"
+    ],
+    [
+      "TT",
+      "工業自動化／機械對手",
+      "Industrial automation / machinery rival"
+    ],
+    [
+      "ITW",
+      "工業自動化／機械對手",
+      "Industrial automation / machinery rival"
     ],
     [
       "ETN",
-      "電源轉換／電力電子對手",
-      "Power conversion / power-electronics rival"
-    ],
-    [
-      "EMR",
-      "電源轉換／電力電子對手",
-      "Power conversion / power-electronics rival"
-    ],
-    [
-      "ENPH",
-      "電源轉換／電力電子對手",
-      "Power conversion / power-electronics rival"
+      "工業自動化／機械對手",
+      "Industrial automation / machinery rival"
     ]
   ],
   "AA": [
@@ -25670,29 +25640,14 @@
   ],
   "AEIS": [
     [
-      "VRT",
-      "電源轉換／電力電子對手",
-      "Power conversion / power-electronics rival"
+      "COHR",
+      "精密／半導體電源對手",
+      "Precision / semi power-electronics rival"
     ],
     [
-      "ETN",
-      "電源轉換／電力電子對手",
-      "Power conversion / power-electronics rival"
-    ],
-    [
-      "EMR",
-      "電源轉換／電力電子對手",
-      "Power conversion / power-electronics rival"
-    ],
-    [
-      "GNRC",
-      "電源轉換／電力電子對手",
-      "Power conversion / power-electronics rival"
-    ],
-    [
-      "ENPH",
-      "電源轉換／電力電子對手",
-      "Power conversion / power-electronics rival"
+      "MKSI",
+      "精密／半導體電源對手",
+      "Precision / semi power-electronics rival"
     ]
   ],
   "PBF": [
@@ -27025,14 +26980,9 @@
   ],
   "ANDG": [
     [
-      "HRB",
-      "稅務／專業服務對手",
-      "Tax / professional-services rival"
-    ],
-    [
-      "INTU",
-      "稅務／專業服務對手",
-      "Tax / professional-services rival"
+      "FCN",
+      "專業稅務／顧問對手",
+      "Professional tax / advisory rival"
     ]
   ],
   "KMX": [
@@ -28848,29 +28798,19 @@
   ],
   "HRB": [
     [
+      "SCI",
+      "Personal Products & Services產品／市場對手",
+      "Personal Products & Services product/market rival"
+    ],
+    [
       "ANDG",
-      "稅務／專業服務對手",
-      "Tax / professional-services rival"
+      "Personal Products & Services產品／市場對手",
+      "Personal Products & Services product/market rival"
     ],
     [
-      "INTU",
-      "稅務／專業服務對手",
-      "Tax / professional-services rival"
-    ],
-    [
-      "ADP",
-      "財稅／中小企業軟體對手",
-      "Fintech / SMB software rival"
-    ],
-    [
-      "PAYX",
-      "財稅／中小企業軟體對手",
-      "Fintech / SMB software rival"
-    ],
-    [
-      "MSFT",
-      "財稅／中小企業軟體對手",
-      "Fintech / SMB software rival"
+      "FTDR",
+      "Personal Products & Services產品／市場對手",
+      "Personal Products & Services product/market rival"
     ]
   ],
   "GIL": [
@@ -32088,14 +32028,9 @@
   ],
   "FCN": [
     [
-      "EFX",
-      "Consulting Services產品／市場對手",
-      "Consulting Services product/market rival"
-    ],
-    [
-      "BAH",
-      "Consulting Services產品／市場對手",
-      "Consulting Services product/market rival"
+      "ANDG",
+      "專業稅務／顧問對手",
+      "Professional tax / advisory rival"
     ]
   ],
   "MAIN": [

@@ -11387,7 +11387,19 @@
     return escapeAttribute(text).replace(/&#10;/g, ' ');
   }
 
-  function scTickerLink(ticker, inApp, className) {
+  
+    function scUsListedExchange(ex) {
+      const e = String(ex || '').toUpperCase().replace(/\s+/g, '');
+      return e === 'NYSE' || e === 'NASDAQ' || e === 'AMEX' || e === 'NYSEARCA' || e === 'NYSEAMERICAN' || e === 'BATS';
+    }
+    function scInAppPeer(row) {
+      if (!row || row.listedInApp === false) return false;
+      if (SC.inUniverse(stockUniverse, row.ticker)) return true;
+      // Curated US listings under the $5B screener floor (e.g. XRAY/NVST dental peers).
+      return scUsListedExchange(row.exchange);
+    }
+
+function scTickerLink(ticker, inApp, className) {
     const safe = scEscape(ticker);
     const cls = scEscape(className || 'sc-player-ticker');
     if (inApp) {
@@ -11504,7 +11516,7 @@
     }).join('');
 
     const playersHtml = layout.players.map(node => {
-      const inApp = node.listedInApp !== false && SC.inUniverse(stockUniverse, node.ticker);
+      const inApp = scInAppPeer(node);
       const name = isEn ? node.name_en : node.name_zh;
       const shortName = name.length > 8 ? `${name.slice(0, 7)}…` : name;
       const badge = scQuoteBadge(quotes[node.ticker]);
@@ -11530,7 +11542,7 @@
     }).join('');
 
     const compsHtml = layout.competitors.map(node => {
-      const inApp = node.listedInApp !== false && SC.inUniverse(stockUniverse, node.ticker);
+      const inApp = scInAppPeer(node);
       const name = isEn ? node.name_en : node.name_zh;
       const shortName = name.length > 8 ? `${name.slice(0, 7)}…` : name;
       const role = isEn ? (node.role_en || '') : (node.role_zh || '');
@@ -11750,7 +11762,7 @@
         <th>${scEscape(dict.th_sc_in_app || '')}</th>`;
       const flat = SC.flattenPlayers(pack);
       playersBody.innerHTML = flat.map(row => {
-        const inApp = row.listedInApp !== false && SC.inUniverse(stockUniverse, row.ticker);
+        const inApp = scInAppPeer(row);
         const stageName = isEn ? row.stageLabel_en : row.stageLabel_zh;
         const badge = scQuoteBadge(quotesByTicker[row.ticker]);
         return `<tr>
@@ -11773,7 +11785,7 @@
       if (chipsEl) {
         const rivalTag = dict.sc_rival_badge || (isEn ? 'RIVAL' : '競爭');
         chipsEl.innerHTML = pack.competitors.map(row => {
-          const inApp = row.listedInApp !== false && SC.inUniverse(stockUniverse, row.ticker);
+          const inApp = scInAppPeer(row);
           const badge = scQuoteBadge(quotesByTicker[row.ticker]);
           const tip = [
             dict.sc_rival_label || '',
@@ -11792,7 +11804,7 @@
         }).join('');
       }
       compsBody.innerHTML = pack.competitors.map(row => {
-        const inApp = row.listedInApp !== false && SC.inUniverse(stockUniverse, row.ticker);
+        const inApp = scInAppPeer(row);
         const badge = scQuoteBadge(quotesByTicker[row.ticker]);
         return `<tr>
           <td>${scTickerLink(row.ticker, inApp)}</td>

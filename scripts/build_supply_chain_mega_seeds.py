@@ -111,17 +111,32 @@ STRICT_SIMPLIFIED = set(
 def has_banned_simplified(text: str) -> bool:
     return any(ch in STRICT_SIMPLIFIED for ch in text or "")
 
-def listed_in_app(ticker: str, universe_tickers: set[str]) -> bool:
+def listed_in_app(
+    ticker: str,
+    universe_tickers: set[str],
+    *,
+    exchange: str = "",
+) -> bool:
+    """True when the ticker is in the app universe, has a price chart, or is a US listing.
+
+    US dental/ortho peers (XRAY/NVST) may sit under the $5B screener floor yet remain
+    NYSE/NASDAQ names — treat curated US exchanges as listedInApp so rival arcs render.
+    """
     if ticker in universe_tickers:
         return True
     if OFF_EXCHANGE_SUFFIX.search(ticker):
         return False
-    return ticker in universe_tickers
+    if (CHARTS_DIR / f"{ticker}.json").is_file():
+        return True
+    ex = (exchange or "").strip().upper().replace(" ", "")
+    if ex in {"NYSE", "NASDAQ", "AMEX", "NYSEARCA", "NYSEAMERICAN", "BATS"}:
+        return True
+    return False
 
 
 LEGAL_EN_NAME_RE = re.compile(
     r"\b(Inc\.?|Corp\.?|Corporation|Compan(?:y|ies)|Enterprises?|Financial|"
-    r"Ltd\.?|Limited|Holdings?|Holding|PLC|N\.?V\.?|Group|Co\.?)\b",
+    r"Ltd\.?|Limited|Holdings?|Holding|PLC|N\.?V\.?|Group|International|Co\.?)\b",
     re.I,
 )
 # Suffixes safe to strip for short brands. Keep N.V. / S.A. / p.l.c. intact —
@@ -138,7 +153,7 @@ LEGAL_EN_SUFFIX_STRIP_RE = re.compile(
 # Trailing-only after Inc/share-class cleanup. Plural Enterprises only — never bare
 # "Enterprise" brand (Enterprise Products / Enterprise Holdings).
 TRAILING_LEGAL_SUFFIX_RE = re.compile(
-    r"\b(Corporation|Enterprises|Financial)\s*$",
+    r"\b(Corporation|Enterprises|Financial|International)\s*$",
     re.I,
 )
 # Known wrong / legal-dump name_zh corrections (ticker → curated 繁中 or brand).
@@ -163,6 +178,7 @@ NAME_ZH_FIXES = {
     "NSIT": "Insight",  # never “Insight Enterprises”
     "COO": "庫博",  # The Cooper Companies — not CooperVision-only label
     "AFG": "美國金融集團",  # never truncated English adjective "American"
+    "MTD": "Mettler-Toledo",  # never “Mettler-Toledo International”
 }
 
 
@@ -287,6 +303,7 @@ def _assert_short_brand_en() -> None:
         ("Insight Enterprises, Inc.", "NSIT", "Insight"),
         ("American Financial Group, Inc.", "AFG", "American Financial Group"),
         ("American Financial", "AFG", "American Financial"),  # never collapse to adjective American
+        ("Mettler-Toledo International, Inc.", "MTD", "Mettler-Toledo"),
     )
     for raw, ticker, expect in cases:
         got = short_brand_en(raw, ticker)
@@ -460,20 +477,8 @@ def build_seed(
                 continue
             picked.append(nt)
             seen_players.add(nt)
-        # Entity scrap only — never adjacent-stage bleed. Never invent hub onto a foreign stage.
-        if len(picked) < 3:
-            for t in entities:
-                if t.startswith("_"):
-                    continue
-                nt = normalize_stage_ticker(t)
-                if not nt or nt in seen_players or nt == ticker:
-                    continue
-                if nt in DUAL_LIST_ISSUER and issuer_key(nt) in rival_dual_issuer_keys:
-                    continue
-                picked.append(nt)
-                seen_players.add(nt)
-                if len(picked) >= 3:
-                    break
+        # Never backfill from global entity walk (AAPL scrap). Leave thin if short
+        # after hub exclusion — only curated same-stage peers stay.
         picked = picked[:3]
         players = []
         for pt in picked:
@@ -491,7 +496,7 @@ def build_seed(
                     "exchange": pe.get("exchange") or "",
                     **(
                         {"listedInApp": False}
-                        if not listed_in_app(pt, universe_tickers)
+                        if not listed_in_app(pt, universe_tickers, exchange=pe.get("exchange") or "")
                         else {}
                     ),
                 }
@@ -529,7 +534,7 @@ def build_seed(
                 "exchange": ce.get("exchange") or "",
                 **(
                     {"listedInApp": False}
-                    if not listed_in_app(ct, universe_tickers)
+                    if not listed_in_app(ct, universe_tickers, exchange=ce.get("exchange") or "")
                     else {}
                 ),
             }
@@ -677,8 +682,10 @@ def validate_seed(seed: dict) -> list[str]:
     if not seed.get("stages"):
         errors.append("stages")
     for stage in seed.get("stages") or []:
-        if len(stage.get("players") or []) != 3:
-            errors.append(f"stage:{stage.get('id')}:players!=3")
+        n_pl = len(stage.get("players") or [])
+        # Remaining specialty hubs may be thin after hub-drop (1–3); never require scrap pads.
+        if not (1 <= n_pl <= 3):
+            errors.append(f"stage:{stage.get('id')}:players={n_pl}")
         for key in ("label_zh", "summary_zh"):
             text = stage.get(key) or ""
             if has_banned_simplified(text):

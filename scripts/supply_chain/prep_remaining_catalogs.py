@@ -562,9 +562,9 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "power-conv",
-        ["AEIS", "VRT", "ETN", "EMR", "GNRC", "ENPH"],
-        "電源轉換／電力電子對手",
-        "Power conversion / power-electronics rival",
+        ["AEIS", "COHR", "MKSI"],  # precision / semi process power & photonics — not GNRC gensets / ENPH solar
+        "精密／半導體電源對手",
+        "Precision / semi power-electronics rival",
     ),
     (
         "security-svc",
@@ -718,9 +718,9 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
         (
         "tax-pro-svc",
-        ["ANDG", "HRB", "INTU"],  # tax only — no VRSK/EFX
-        "稅務／專業服務對手",
-        "Tax / professional-services rival",
+        ["ANDG", "FCN"],  # Andersen professional tax/advisory — not HRB/INTU consumer DIY tax
+        "專業稅務／顧問對手",
+        "Professional tax / advisory rival",
     ),
     (
         "gov-services",
@@ -1046,6 +1046,8 @@ TICKER_GROUP_FORCE: dict[str, str] = {
     "AMRX": "pharma-generic",
     "ASR": "airport-ops",
     "AEIS": "power-conv",
+    "COHR": "power-conv",
+    "MKSI": "power-conv",
     "ADT": "security-svc",
     "ALLE": "door-hardware",
     "ASTS": "satellite",
@@ -1100,6 +1102,7 @@ TICKER_GROUP_FORCE: dict[str, str] = {
     "ACGL": "ins-pc-re",
     "ARES": "alt-pe",
     "ANDG": "tax-pro-svc",
+    "FCN": "tax-pro-svc",
     "AMTM": "gov-services",
     "BLLN": "mol-dx",
     "CIG": "util-latam",
@@ -1172,6 +1175,7 @@ TICKER_GROUP_FORCE: dict[str, str] = {
 # Specialty groups that must never be padded with same-industry megacaps.
 NO_PAD_GROUPS = {
     "door-hardware",
+    "power-conv",
     "apparel-brand",
     "construction-software",
     "apparel-specialty",
@@ -1388,11 +1392,13 @@ EXTRA_NAME_EN: dict[str, str] = {
     "MSM": "MSC Industrial",
     "ATR": "AptarGroup",
     "AVTR": "Avantor",
+    "MTD": "Mettler-Toledo",
     "ALSN": "Allison Transmission",
     "ALV": "Autoliv",
     "ASR": "Grupo Aeroportuario del Sureste",
     "APTV": "Aptiv",
     "AEIS": "Advanced Energy",
+    "MTD": "Mettler-Toledo",
     "AMKR": "Amkor",
     "ARE": "Alexandria Real Estate",
     "AMRX": "Amneal",
@@ -1846,6 +1852,7 @@ def main() -> int:
         "HTO": ("H2O America", "H2O America", "NYSE"),
         "XRAY": ("Dentsply Sirona", "登士柏西諾德", "NASDAQ"),
         "NVST": ("Envista", "Envista", "NYSE"),
+        "MTD": ("Mettler-Toledo", "Mettler-Toledo", "NYSE"),
         "BXSL": ("Blackstone Secured Lending", "Blackstone Secured Lending", "NYSE"),
         "GBDC": ("Golub Capital BDC", "Golub Capital BDC", "NASDAQ"),
         "ABM": ("ABM Industries", "ABM Industries", "NYSE"),

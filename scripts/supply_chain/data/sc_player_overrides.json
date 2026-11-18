@@ -660,8 +660,8 @@
     ],
     "consumables": [
       "AVTR",
-      "WAT",
-      "MTD"
+      "MTD",
+      "WAT"
     ],
     "customers": [
       "LLY",
@@ -683,12 +683,12 @@
     "instruments": [
       "TMO",
       "DHR",
-      "WAT"
+      "A"
     ],
     "consumables": [
       "AVTR",
-      "WAT",
-      "MTD"
+      "MTD",
+      "A"
     ],
     "customers": [
       "LLY",
@@ -710,12 +710,12 @@
     "instruments": [
       "TMO",
       "DHR",
-      "WAT"
+      "A"
     ],
     "consumables": [
       "AVTR",
-      "WAT",
-      "MTD"
+      "A",
+      "WAT"
     ],
     "customers": [
       "LLY",
@@ -866,8 +866,8 @@
     ],
     "ingredients": [
       "IFF",
-      "INGR",
-      "DAR"
+      "DAR",
+      "BCPC"
     ],
     "equipment": [
       "HON",
@@ -892,9 +892,9 @@
       "CTVA"
     ],
     "ingredients": [
-      "IFF",
       "INGR",
-      "DAR"
+      "DAR",
+      "BCPC"
     ],
     "equipment": [
       "HON",
@@ -958,7 +958,6 @@
     "platforms": [
       "UBER",
       "DASH",
-      "LYFT",
       "GRAB"
     ],
     "monetization": [
@@ -985,7 +984,6 @@
     ],
     "platforms": [
       "UBER",
-      "DASH",
       "LYFT",
       "GRAB"
     ],
@@ -1014,13 +1012,38 @@
     "platforms": [
       "UBER",
       "DASH",
-      "LYFT",
-      "GRAB"
+      "LYFT"
     ],
     "monetization": [
       "GOOG",
       "META",
       "AMZN"
+    ]
+  },
+  "AVTR": {
+    "components": [
+      "TXN",
+      "ADI",
+      "TEL"
+    ],
+    "instruments": [
+      "TMO",
+      "DHR",
+      "A"
+    ],
+    "consumables": [
+      "MTD",
+      "A",
+      "WAT"
+    ],
+    "customers": [
+      "LLY",
+      "MRK",
+      "PFE"
+    ],
+    "distribution": [
+      "HSIC",
+      "CAH"
     ]
   }
 }

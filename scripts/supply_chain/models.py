@@ -2340,7 +2340,7 @@ TICKER_MODEL: dict[str, str] = {
     "APTV": "industrials-v1",
     "ALSN": "industrials-v1",
     "ALV": "industrials-v1",
-    "AEIS": "industrials-v1",
+    "AEIS": "hardware-value-chain-v1",  # precision power for semi/industrial — not genset/utility industrials
     "AMRX": "pharma-v1",
     "APPF": "saas-cloud-v1",
     "ADT": "security-services-v1",
@@ -2358,7 +2358,7 @@ TICKER_MODEL: dict[str, str] = {
     "ABEV": "consumer-staples-v1",
     "ALC": "medtech-v1",
     "ATR": "industrials-v1",  # packaging/dispensing, not dental medtech
-    "AVTR": "medtech-v1",  # life-science reagents — peers via life-sci-dist group
+    "AVTR": "life-sci-tools-v1",  # reagents / lab distribution — never medtech implants/GPOs/payers
     "ALB": "specialty-chem-v1",
     "BCPC": "nutrition-ingredients-v1",
     "AA": "basic-materials-v1",
