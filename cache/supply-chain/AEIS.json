@@ -1,0 +1,219 @@
+{
+  "version": 1,
+  "ticker": "AEIS",
+  "name_en": "Advanced Energy",
+  "name_zh": "Advanced Energy",
+  "updatedAt": "2026-11-18",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "power-electronics-v1",
+    "references": [
+      "Industry model `power-electronics-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "power-electronics-v1",
+    "label_zh": "精密／半導體電源價值鏈",
+    "label_en": "Precision / semi power-electronics value chain",
+    "description_zh": "功率元件 → 設備／真空／光學 → 電源／射頻模組 → 晶圓廠／工業客戶 → 通路。",
+    "description_en": "Power devices → equipment / vacuum / optics → power / RF modules → fab / industrial customers → channel."
+  },
+  "stages": [
+    {
+      "id": "devices",
+      "order": 1,
+      "label_zh": "功率半導體／元件",
+      "label_en": "Power semis / devices",
+      "summary_zh": "功率元件與被動件。",
+      "summary_en": "Power devices and passives.",
+      "players": [
+        {
+          "ticker": "TXN",
+          "name_en": "Texas Instruments",
+          "name_zh": "德州儀器",
+          "role_zh": "德州儀器：功率半導體／元件代表性玩家",
+          "role_en": "Texas Instruments: representative player in Power semis / devices",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "ON",
+          "name_en": "onsemi",
+          "name_zh": "安森美",
+          "role_zh": "安森美：功率半導體／元件代表性玩家",
+          "role_en": "onsemi: representative player in Power semis / devices",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "AVGO",
+          "name_en": "Broadcom",
+          "name_zh": "博通",
+          "role_zh": "博通：功率半導體／元件代表性玩家",
+          "role_en": "Broadcom: representative player in Power semis / devices",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "equipment",
+      "order": 2,
+      "label_zh": "設備／真空／光學",
+      "label_en": "Equipment / vacuum / optics",
+      "summary_zh": "製程設備與光學供應。",
+      "summary_en": "Process equipment and optics.",
+      "players": [
+        {
+          "ticker": "AMAT",
+          "name_en": "Applied Materials",
+          "name_zh": "應用材料",
+          "role_zh": "應用材料：設備／真空／光學代表性玩家",
+          "role_en": "Applied Materials: representative player in Equipment / vacuum / optics",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "LRCX",
+          "name_en": "Lam Research",
+          "name_zh": "科林研發",
+          "role_zh": "科林研發：設備／真空／光學代表性玩家",
+          "role_en": "Lam Research: representative player in Equipment / vacuum / optics",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "KLAC",
+          "name_en": "KLA",
+          "name_zh": "科磊",
+          "role_zh": "科磊：設備／真空／光學代表性玩家",
+          "role_en": "KLA: representative player in Equipment / vacuum / optics",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "modules",
+      "order": 3,
+      "label_zh": "電源／射頻模組",
+      "label_en": "Power / RF modules",
+      "summary_zh": "精密電源與 RF 模組。",
+      "summary_en": "Precision power and RF modules.",
+      "players": [
+        {
+          "ticker": "COHR",
+          "name_en": "Coherent",
+          "name_zh": "相干光電",
+          "role_zh": "相干光電：電源／射頻模組代表性玩家",
+          "role_en": "Coherent: representative player in Power / RF modules",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "MKSI",
+          "name_en": "MKS",
+          "name_zh": "MKS",
+          "role_zh": "MKS：電源／射頻模組代表性玩家",
+          "role_en": "MKS: representative player in Power / RF modules",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "TEL",
+          "name_en": "TE Connectivity",
+          "name_zh": "泰科電子",
+          "role_zh": "泰科電子：電源／射頻模組代表性玩家",
+          "role_en": "TE Connectivity: representative player in Power / RF modules",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "customers",
+      "order": 4,
+      "label_zh": "晶圓廠／工業客戶",
+      "label_en": "Fab / industrial customers",
+      "summary_zh": "半導體與工業終端。",
+      "summary_en": "Semi fab and industrial end-markets.",
+      "players": [
+        {
+          "ticker": "TSM",
+          "name_en": "TSMC",
+          "name_zh": "臺積電",
+          "role_zh": "臺積電：晶圓廠／工業客戶代表性玩家",
+          "role_en": "TSMC: representative player in Fab / industrial customers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "AMAT",
+          "name_en": "Applied Materials",
+          "name_zh": "應用材料",
+          "role_zh": "應用材料：晶圓廠／工業客戶代表性玩家",
+          "role_en": "Applied Materials: representative player in Fab / industrial customers",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "ASML",
+          "name_en": "ASML",
+          "name_zh": "ASML",
+          "role_zh": "ASML：晶圓廠／工業客戶代表性玩家",
+          "role_en": "ASML: representative player in Fab / industrial customers",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "channel",
+      "order": 5,
+      "label_zh": "通路／服務",
+      "label_en": "Channel / service",
+      "summary_zh": "設備服務與零件通路。",
+      "summary_en": "Service and parts channel.",
+      "players": [
+        {
+          "ticker": "AVT",
+          "name_en": "Avnet",
+          "name_zh": "安富利",
+          "role_zh": "安富利：通路／服務代表性玩家",
+          "role_en": "Avnet: representative player in Channel / service",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "ARW",
+          "name_en": "Arrow Electronics",
+          "name_zh": "艾睿電子",
+          "role_zh": "艾睿電子：通路／服務代表性玩家",
+          "role_en": "Arrow Electronics: representative player in Channel / service",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "CDW",
+          "name_en": "CDW",
+          "name_zh": "CDW",
+          "role_zh": "CDW：通路／服務代表性玩家",
+          "role_en": "CDW: representative player in Channel / service",
+          "exchange": "NASDAQ"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "COHR",
+      "name_en": "Coherent",
+      "name_zh": "相干光電",
+      "basis_zh": "精密／半導體電源對手",
+      "basis_en": "Precision / semi power-electronics rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "MKSI",
+      "name_en": "MKS",
+      "name_zh": "MKS",
+      "basis_zh": "精密／半導體電源對手",
+      "basis_en": "Precision / semi power-electronics rival",
+      "exchange": "NASDAQ"
+    }
+  ]
+}
