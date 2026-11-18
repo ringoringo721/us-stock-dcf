@@ -1590,7 +1590,7 @@ MODELS: dict[str, dict] = {
     "marine-recreation-v1": {
         "label_zh": "船舶／休閒車價值鏈",
         "label_en": "Marine / recreation value chain",
-        "description_zh": "動力／引擎 → 船体／底盤 → 經銷／融資 → 配件／售後 → 休閒終端客戶。",
+        "description_zh": "動力／引擎 → 船體／底盤 → 經銷／融資 → 配件／售後 → 休閒終端客戶。",
         "description_en": "Power/engines → hulls/chassis → dealers/financing → parts/aftersales → leisure end customers.",
         "stages": [
             {
@@ -1604,7 +1604,7 @@ MODELS: dict[str, dict] = {
             {
                 "id": "oem",
                 "order": 2,
-                "label_zh": "船体／車體 OEM",
+                "label_zh": "船體／車體 OEM",
                 "label_en": "Hull / chassis OEMs",
                 "summary_zh": "船舶與休閒車製造。",
                 "summary_en": "Boat and RV manufacturing.",
