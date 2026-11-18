@@ -668,6 +668,12 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
         "品牌服飾零售對手",
         "Specialty apparel retail rival",
     ),
+    (
+        "apparel-brand",
+        ["LEVI", "VFC", "RL"],  # denim / brand apparel manufacturers — not athletic NKE/LULU, not ANF retail
+        "品牌／丹寧服飾製造對手",
+        "Brand / denim apparel manufacturer rival",
+    ),
         (
         "bdc-credit",
         ["ARCC", "OBDC", "MAIN", "BXSL", "GBDC"],  # BDC-only — no OWL manager / CG PE GP
@@ -694,7 +700,7 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "sporting-goods",
-        ["AS", "DECK", "NKE", "LULU", "ONON", "VFC"],  # sporting / outdoor apparel; not HAS toys / LTH gyms
+        ["AS", "DECK", "NKE", "LULU", "ONON"],  # athletic / outdoor footwear & apparel — not LEVI/VFC denim brands
         "運動用品對手",
         "Sporting-goods rival",
     ),
@@ -929,9 +935,15 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "saas-prop-mgmt",
-        ["APPF", "PCOR"],  # property / construction ops SaaS — not ZG/CSGP/COMP listings
+        ["APPF"],  # property-management SaaS — PCOR is construction software
         "物業／營運管理 SaaS 對手",
         "Property / ops-management SaaS rival",
+    ),
+    (
+        "construction-software",
+        ["PCOR", "ADSK"],  # construction project / BIM software — not AppFolio property SaaS
+        "營建／施工軟體對手",
+        "Construction / project-software rival",
     ),
     (
         "bnpl-lend",
@@ -980,7 +992,7 @@ TICKER_GROUP_FORCE: dict[str, str] = {
     "TEAM": "saas-crm-collab",
     "WDAY": "saas-crm-collab",
     "APPF": "saas-prop-mgmt",
-    "PCOR": "saas-prop-mgmt",
+    "PCOR": "construction-software",
     "MSA": "ppe-safety",
     "FSS": "ppe-safety",
     "ACIW": "payments-soft",
@@ -1055,6 +1067,9 @@ TICKER_GROUP_FORCE: dict[str, str] = {
     "JOBY": "evtol",
     "BBUC": "brookfield-biz",
     "ANF": "apparel-specialty",
+    "LEVI": "apparel-brand",
+    "VFC": "apparel-brand",
+    "RL": "apparel-brand",
     "URBN": "apparel-specialty",
     "GAP": "apparel-specialty",
     "ARCC": "bdc-credit",
@@ -1126,6 +1141,9 @@ TICKER_GROUP_FORCE: dict[str, str] = {
     "HUT": "bitcoin-miner",
     "WULF": "bitcoin-miner",
     "LYFT": "rideshare",
+    "UBER": "rideshare",
+    "DASH": "rideshare",
+    "GRAB": "rideshare",
     "YOU": "identity-sec",
     "NICE": "ccaas",
     "KVYO": "mkt-auto",
@@ -1154,6 +1172,8 @@ TICKER_GROUP_FORCE: dict[str, str] = {
 # Specialty groups that must never be padded with same-industry megacaps.
 NO_PAD_GROUPS = {
     "door-hardware",
+    "apparel-brand",
+    "construction-software",
     "apparel-specialty",
     "rare-disease",
     "packaging-containers",
@@ -2003,8 +2023,9 @@ def main() -> int:
         if t.startswith("_"):
             continue
         zh = (pe.get("name_zh") or "").strip()
-        if _looks_legal_zh(zh) or not zh:
-            # Order: true 繁中 (CJK curated) → short_brand_en (non-legal) → ticker.
+        # Rewrite legal dumps, empty, or lone adjectives ("American") — never keep those as name_zh.
+        if _looks_legal_zh(zh) or _incomplete_zh(zh) or not zh:
+            # Order: true 繁中 (CJK curated) → short_brand_en (non-legal, non-adjective) → ticker.
             # Never prefer EXTRA_NAME_ZH / curated English-legal dumps.
             cjk = None
             for cand in (
@@ -2018,15 +2039,24 @@ def main() -> int:
             if cjk:
                 pe["name_zh"] = cjk
             else:
-                en_src = pe.get("name_en") or (uni.get(t) or {}).get("name") or t
+                en_src = (
+                    EXTRA_NAME_EN.get(t)
+                    or pe.get("name_en")
+                    or (uni.get(t) or {}).get("name")
+                    or t
+                )
                 brand = _mega_short_brand_en(en_src, t)
-                if brand and not _looks_legal_zh(brand):
+                if (
+                    brand
+                    and not _looks_legal_zh(brand)
+                    and not _incomplete_zh(brand)
+                ):
                     pe["name_zh"] = brand
                 else:
                     pe["name_zh"] = t
             # Re-check before write — never English-legal dumps or lone adjectives ("American").
             if _looks_legal_zh(pe.get("name_zh") or "") or _incomplete_zh(pe.get("name_zh") or ""):
-                pe["name_zh"] = t
+                pe["name_zh"] = _NAME_ZH_FIXES.get(t) or t
             entities[t] = pe
 
     # Scrub banned / share-class / alias rivals from any competitor lists.

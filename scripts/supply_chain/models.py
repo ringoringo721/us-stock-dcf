@@ -2207,6 +2207,9 @@ INDUSTRY_MODEL: dict[tuple[str, str], str] = {
 
 # Ticker-level model overrides (semiconductor subtypes, special cases)
 TICKER_MODEL: dict[str, str] = {
+    "GRAB": "rideshare-v1",
+    "UBER": "rideshare-v1",
+    "DASH": "rideshare-v1",
     # Foundry
     "TSM": "semiconductor-foundry-v1",
     # Memory
@@ -2232,14 +2235,13 @@ TICKER_MODEL: dict[str, str] = {
     "BABA": "ecommerce-retail-v1",
     "PDD": "ecommerce-retail-v1",
     # Uber more marketplace/mobility discretionary
-    "UBER": "consumer-discretionary-v1",
     "ABNB": "consumer-discretionary-v1",
     "BKNG": "consumer-discretionary-v1",
     # Mid-mega ($50–100B) specialty overrides
     "TEL": "hardware-value-chain-v1",  # TE Connectivity — components, not fabless silicon
     "ASX": "semiconductor-foundry-v1",  # ASE — OSAT / advanced packaging
     "WDC": "semiconductor-memory-v1",  # storage / NAND adjacency
-    "DASH": "consumer-discretionary-v1",  # delivery marketplace
+    # DASH/UBER/LYFT/GRAB → rideshare-v1 (above); never consumer-discretionary OTAs (BKNG/EXPE)
     "JCI": "industrials-v1",  # HVAC / building systems more than bulk materials
     "RELX": "capital-markets-v1",  # info / analytics / risk data adjacency
     "MSTR": "saas-cloud-v1",

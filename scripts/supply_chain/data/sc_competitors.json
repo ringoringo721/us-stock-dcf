@@ -650,28 +650,18 @@
   "UBER": [
     [
       "LYFT",
-      "叫車對手",
-      "Rideshare rival"
+      "共享出行／即時配送對手",
+      "Rideshare / mobility rival"
     ],
     [
       "DASH",
-      "外送對手",
-      "Delivery rival"
+      "共享出行／即時配送對手",
+      "Rideshare / mobility rival"
     ],
     [
-      "ABNB",
-      "出行／本地服務替代",
-      "Mobility/local-services substitute"
-    ],
-    [
-      "BKNG",
-      "旅遊交通預訂替代",
-      "Travel transport substitute"
-    ],
-    [
-      "GOOG",
-      "地圖／本地流量競爭",
-      "Maps/local traffic competition"
+      "GRAB",
+      "共享出行／即時配送對手",
+      "Rideshare / mobility rival"
     ]
   ],
   "ADP": [
@@ -5708,24 +5698,19 @@
   ],
   "DASH": [
     [
-      "UBER",
-      "即時配送／出行對手",
-      "Delivery / mobility rival"
-    ],
-    [
       "LYFT",
-      "即時配送／出行對手",
-      "Delivery / mobility rival"
+      "共享出行／即時配送對手",
+      "Rideshare / mobility rival"
     ],
     [
-      "AMZN",
-      "即時配送／出行對手",
-      "Delivery / mobility rival"
+      "UBER",
+      "共享出行／即時配送對手",
+      "Rideshare / mobility rival"
     ],
     [
-      "ABNB",
-      "即時配送／出行對手",
-      "Delivery / mobility rival"
+      "GRAB",
+      "共享出行／即時配送對手",
+      "Rideshare / mobility rival"
     ]
   ],
   "CI": [
@@ -14286,29 +14271,14 @@
   ],
   "RL": [
     [
-      "NKE",
-      "運動鞋服對手",
-      "Athletic apparel rival"
+      "LEVI",
+      "品牌／丹寧服飾製造對手",
+      "Brand / denim apparel manufacturer rival"
     ],
     [
-      "LULU",
-      "運動鞋服對手",
-      "Athletic apparel rival"
-    ],
-    [
-      "DECK",
-      "運動鞋服對手",
-      "Athletic apparel rival"
-    ],
-    [
-      "UAA",
-      "運動鞋服對手",
-      "Athletic apparel rival"
-    ],
-    [
-      "ADDYY",
-      "運動鞋服對手",
-      "Athletic apparel rival"
+      "VFC",
+      "品牌／丹寧服飾製造對手",
+      "Brand / denim apparel manufacturer rival"
     ]
   ],
   "XYL": [
@@ -15680,11 +15650,6 @@
     ],
     [
       "ONON",
-      "運動用品對手",
-      "Sporting-goods rival"
-    ],
-    [
-      "VFC",
       "運動用品對手",
       "Sporting-goods rival"
     ]
@@ -20357,11 +20322,6 @@
       "LULU",
       "運動用品對手",
       "Sporting-goods rival"
-    ],
-    [
-      "VFC",
-      "運動用品對手",
-      "Sporting-goods rival"
     ]
   ],
   "CSGP": [
@@ -21283,9 +21243,9 @@
   ],
   "PCOR": [
     [
-      "APPF",
-      "物業／營運管理 SaaS 對手",
-      "Property / ops-management SaaS rival"
+      "ADSK",
+      "營建／施工軟體對手",
+      "Construction / project-software rival"
     ]
   ],
   "TECH": [
@@ -24507,29 +24467,14 @@
   ],
   "LEVI": [
     [
-      "NKE",
-      "運動鞋服對手",
-      "Athletic apparel rival"
+      "VFC",
+      "品牌／丹寧服飾製造對手",
+      "Brand / denim apparel manufacturer rival"
     ],
     [
-      "LULU",
-      "運動鞋服對手",
-      "Athletic apparel rival"
-    ],
-    [
-      "DECK",
-      "運動鞋服對手",
-      "Athletic apparel rival"
-    ],
-    [
-      "UAA",
-      "運動鞋服對手",
-      "Athletic apparel rival"
-    ],
-    [
-      "ADDYY",
-      "運動鞋服對手",
-      "Athletic apparel rival"
+      "RL",
+      "品牌／丹寧服飾製造對手",
+      "Brand / denim apparel manufacturer rival"
     ]
   ],
   "IREN": [
@@ -25370,13 +25315,6 @@
       "Gaming / resort rival"
     ]
   ],
-  "APPF": [
-    [
-      "PCOR",
-      "物業／營運管理 SaaS 對手",
-      "Property / ops-management SaaS rival"
-    ]
-  ],
   "CELH": [
     [
       "MNST",
@@ -25666,29 +25604,14 @@
   ],
   "VFC": [
     [
-      "AS",
-      "運動用品對手",
-      "Sporting-goods rival"
+      "LEVI",
+      "品牌／丹寧服飾製造對手",
+      "Brand / denim apparel manufacturer rival"
     ],
     [
-      "DECK",
-      "運動用品對手",
-      "Sporting-goods rival"
-    ],
-    [
-      "NKE",
-      "運動用品對手",
-      "Sporting-goods rival"
-    ],
-    [
-      "LULU",
-      "運動用品對手",
-      "Sporting-goods rival"
-    ],
-    [
-      "ONON",
-      "運動用品對手",
-      "Sporting-goods rival"
+      "RL",
+      "品牌／丹寧服飾製造對手",
+      "Brand / denim apparel manufacturer rival"
     ]
   ],
   "NIO": [

@@ -938,5 +938,89 @@
       "META",
       "DIS"
     ]
+  },
+  "LYFT": {
+    "maps-cloud": [
+      "GOOG",
+      "MSFT",
+      "AMZN"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "supply": [
+      "GM",
+      "F",
+      "TM"
+    ],
+    "platforms": [
+      "UBER",
+      "DASH",
+      "LYFT",
+      "GRAB"
+    ],
+    "monetization": [
+      "GOOG",
+      "META",
+      "AMZN"
+    ]
+  },
+  "DASH": {
+    "maps-cloud": [
+      "GOOG",
+      "MSFT",
+      "AMZN"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "supply": [
+      "GM",
+      "F",
+      "TM"
+    ],
+    "platforms": [
+      "UBER",
+      "DASH",
+      "LYFT",
+      "GRAB"
+    ],
+    "monetization": [
+      "GOOG",
+      "META",
+      "AMZN"
+    ]
+  },
+  "GRAB": {
+    "maps-cloud": [
+      "GOOG",
+      "MSFT",
+      "AMZN"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "supply": [
+      "GM",
+      "F",
+      "TM"
+    ],
+    "platforms": [
+      "UBER",
+      "DASH",
+      "LYFT",
+      "GRAB"
+    ],
+    "monetization": [
+      "GOOG",
+      "META",
+      "AMZN"
+    ]
   }
 }

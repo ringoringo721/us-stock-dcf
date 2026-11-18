@@ -239,10 +239,14 @@ def short_brand_en(name_en: str, ticker: str) -> str:
     cleaned = re.sub(r"-$", "", cleaned).strip()
     # Trailing Corporation / Enterprises / Financial only (never mid-name Enterprise brand).
     # Repeat: "Capital One Financial Corporation" → … Financial → Capital One.
+    # Never strip trailing Financial when the remnant would be a lone adjective
+    # (keep "American Financial"; never emit "American"). Southern/etc. brands stay.
     for _ in range(3):
         nxt = TRAILING_LEGAL_SUFFIX_RE.sub("", cleaned).strip()
         nxt = re.sub(r"[,\s]+$", "", nxt).strip()
         if nxt == cleaned:
+            break
+        if looks_like_incomplete_en_label(nxt):
             break
         cleaned = nxt
     # Drop leading "The " even on multi-word brands (The Procter & Gamble → Procter & Gamble).
@@ -282,11 +286,16 @@ def _assert_short_brand_en() -> None:
         ("Enterprise Holdings, Inc.", "EHI", "Enterprise Holdings"),
         ("Insight Enterprises, Inc.", "NSIT", "Insight"),
         ("American Financial Group, Inc.", "AFG", "American Financial Group"),
+        ("American Financial", "AFG", "American Financial"),  # never collapse to adjective American
     )
     for raw, ticker, expect in cases:
         got = short_brand_en(raw, ticker)
         if got != expect:
             raise AssertionError(f"short_brand_en({raw!r}) -> {got!r}, want {expect!r}")
+    if looks_like_incomplete_en_label("American") is not True:
+        raise AssertionError("incomplete adjective gate must flag 'American'")
+    if short_brand_en("American Financial", "AFG") != "American Financial":
+        raise AssertionError("American Financial must not strip to adjective American")
 
 
 def player_role(stage_label_zh: str, stage_label_en: str, name_zh: str, name_en: str) -> tuple[str, str]:
