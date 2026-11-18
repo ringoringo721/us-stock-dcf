@@ -436,9 +436,15 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "bank-latam",
-        ["ITUB", "NU", "BSBR", "BBD", "CIB"],  # Brazil/LatAm — Chile banks in bank-chile
+        ["ITUB", "NU", "BSBR", "BBD", "CIB"],  # Brazil/LatAm — Chile banks in bank-chile; AVAL forced to bank-colombia
         "拉美銀行對手",
         "LatAm bank rival",
+    ),
+    (
+        "bank-colombia",
+        ["AVAL", "CIB", "NU"],  # Colombia holding + local peers; drop BR banks ITUB/BSBR/BBD
+        "哥倫比亞／數位銀行對手",
+        "Colombia / digital-bank rival",
     ),
     (
         "tech-dist",
@@ -772,7 +778,7 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
         (
         "water-heat",
-        ["AOS", "WTS"],  # hydronic / water heater only — no TTC lawn / LII HVAC
+        ["AOS", "LII"],  # heater / residential heating equipment — drop WTS valves; Rheem/Bradford White private
         "熱水器／水暖設備對手",
         "Water heater / hydronic equipment rival",
     ),
@@ -784,9 +790,15 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "auto-safety",
-        ["ALV", "MGA", "BWA"],  # drop APTV; nearest listed Tier-1 with safety/restraints exposure
+        ["ALV", "APTV"],  # restraints vs ADAS/safety electronics — drop MGA/BWA powertrain; GNTX below universe screen
         "汽車被動安全／約束系統對手",
         "Auto passive-safety / restraints rival",
+    ),
+    (
+        "mrna-vaccine",
+        ["BNTX", "MRNA"],  # mRNA vaccine platforms — drop ARGX/REGN/VRTX/AMGN broad biotech
+        "mRNA 疫苗對手",
+        "mRNA vaccine rival",
     ),
     (
         "retail-ce",
@@ -1026,7 +1038,7 @@ TICKER_GROUP_FORCE: dict[str, str] = {
     "SBS": "util-water",
     "ATO": "util-gas",
     "NI": "util-gas",
-    "AVAL": "bank-latam",
+    "AVAL": "bank-colombia",  # CIB/NU only — not BR ITUB/BSBR/BBD pad
     "BAP": "bank-latam",
     "BBD": "bank-latam",
     "BBDO": "bank-latam",
@@ -1072,8 +1084,8 @@ TICKER_GROUP_FORCE: dict[str, str] = {
     "EQT": "gas-ep",
     "RRC": "gas-ep",
     "EXE": "gas-ep",
-    "HRB": "consumer-tax",
-    "INTU": "consumer-tax",
+    "HRB": "consumer-tax",  # HRB↔INTU via consumer-tax members
+    "INTU": "saas-fin",  # ADP/PAYX/MSFT book — not consumer-tax HRB-only collapse
     "FCN": "consult-svc",  # BAH/EFX stay in gov-services / risk-data; still listed as FCN consult peers
     "ASTS": "satellite",
     "GSAT": "satellite",
@@ -1087,6 +1099,8 @@ TICKER_GROUP_FORCE: dict[str, str] = {
     "BKR": "energy-ofs-pure",
     "AEG": "ins-life",
     "AXON": "law-enforcement",
+    "BNTX": "mrna-vaccine",
+    "MRNA": "mrna-vaccine",
     "ASND": "rare-disease",
     "AVAV": "mil-uav",
     "KTOS": "mil-uav",
@@ -1138,6 +1152,7 @@ TICKER_GROUP_FORCE: dict[str, str] = {
     "CCK": "packaging-containers",
     "PKG": "packaging-containers",
     "AOS": "water-heat",
+    "LII": "water-heat",
     "AVTR": "life-sci-dist",
     "A": "life-sci-tools",
     "WAT": "life-sci-tools",
@@ -1219,6 +1234,7 @@ NO_PAD_GROUPS = {
     "bnpl-lend",
     "saas-prop-mgmt",
     "bank-chile",
+    "bank-colombia",
     "telco-canada",
     "aviation-lessor",
     "airport-ops",
@@ -1246,6 +1262,7 @@ NO_PAD_GROUPS = {
     "sporting-goods",
     "auto-driveline",
     "auto-safety",
+    "mrna-vaccine",
     "retail-ce",
     "util-ipp",
     "chem-commodity",

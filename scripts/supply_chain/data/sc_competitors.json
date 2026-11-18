@@ -2266,29 +2266,9 @@
   ],
   "MRNA": [
     [
-      "PFE",
-      "原廠藥／治療領域對手",
-      "Branded drug/therapy-area rival"
-    ],
-    [
       "BNTX",
-      "原廠藥／治療領域對手",
-      "Branded drug/therapy-area rival"
-    ],
-    [
-      "VRTX",
-      "原廠藥／治療領域對手",
-      "Branded drug/therapy-area rival"
-    ],
-    [
-      "REGN",
-      "原廠藥／治療領域對手",
-      "Branded drug/therapy-area rival"
-    ],
-    [
-      "JNJ",
-      "原廠藥／治療領域對手",
-      "Branded drug/therapy-area rival"
+      "mRNA 疫苗對手",
+      "mRNA vaccine rival"
     ]
   ],
   "ABT": [
@@ -4710,9 +4690,29 @@
   ],
   "INTU": [
     [
-      "HRB",
-      "消費稅務／報稅對手",
-      "Consumer tax-prep rival"
+      "ADP",
+      "財稅／中小企業軟體對手",
+      "Fintech / SMB software rival"
+    ],
+    [
+      "PAYX",
+      "財稅／中小企業軟體對手",
+      "Fintech / SMB software rival"
+    ],
+    [
+      "MSFT",
+      "財稅／中小企業軟體對手",
+      "Fintech / SMB software rival"
+    ],
+    [
+      "ORCL",
+      "財稅／中小企業軟體對手",
+      "Fintech / SMB software rival"
+    ],
+    [
+      "SAP",
+      "財稅／中小企業軟體對手",
+      "Fintech / SMB software rival"
     ]
   ],
   "CSX": [
@@ -14451,29 +14451,9 @@
   ],
   "BNTX": [
     [
-      "ARGX",
-      "免疫／生物製藥對手",
-      "Immunology / biotech rival"
-    ],
-    [
-      "REGN",
-      "免疫／生物製藥對手",
-      "Immunology / biotech rival"
-    ],
-    [
-      "VRTX",
-      "免疫／生物製藥對手",
-      "Immunology / biotech rival"
-    ],
-    [
       "MRNA",
-      "免疫／生物製藥對手",
-      "Immunology / biotech rival"
-    ],
-    [
-      "AMGN",
-      "免疫／生物製藥對手",
-      "Immunology / biotech rival"
+      "mRNA 疫苗對手",
+      "mRNA vaccine rival"
     ]
   ],
   "STRK": [
@@ -20960,29 +20940,9 @@
   ],
   "LII": [
     [
-      "EMR",
-      "工業自動化／機械對手",
-      "Industrial automation / machinery rival"
-    ],
-    [
-      "HON",
-      "工業自動化／機械對手",
-      "Industrial automation / machinery rival"
-    ],
-    [
-      "TT",
-      "工業自動化／機械對手",
-      "Industrial automation / machinery rival"
-    ],
-    [
-      "ITW",
-      "工業自動化／機械對手",
-      "Industrial automation / machinery rival"
-    ],
-    [
-      "ETN",
-      "工業自動化／機械對手",
-      "Industrial automation / machinery rival"
+      "AOS",
+      "熱水器／水暖設備對手",
+      "Water heater / hydronic equipment rival"
     ]
   ],
   "CR": [
@@ -24287,12 +24247,7 @@
   ],
   "ALV": [
     [
-      "MGA",
-      "汽車被動安全／約束系統對手",
-      "Auto passive-safety / restraints rival"
-    ],
-    [
-      "BWA",
+      "APTV",
       "汽車被動安全／約束系統對手",
       "Auto passive-safety / restraints rival"
     ]
@@ -24536,7 +24491,7 @@
   ],
   "AOS": [
     [
-      "WTS",
+      "LII",
       "熱水器／水暖設備對手",
       "Water heater / hydronic equipment rival"
     ]
@@ -32717,29 +32672,14 @@
   ],
   "AVAL": [
     [
-      "ITUB",
-      "拉美銀行對手",
-      "LatAm bank rival"
+      "CIB",
+      "哥倫比亞／數位銀行對手",
+      "Colombia / digital-bank rival"
     ],
     [
       "NU",
-      "拉美銀行對手",
-      "LatAm bank rival"
-    ],
-    [
-      "BSBR",
-      "拉美銀行對手",
-      "LatAm bank rival"
-    ],
-    [
-      "BBD",
-      "拉美銀行對手",
-      "LatAm bank rival"
-    ],
-    [
-      "CIB",
-      "拉美銀行對手",
-      "LatAm bank rival"
+      "哥倫比亞／數位銀行對手",
+      "Colombia / digital-bank rival"
     ]
   ],
   "NOVT": [
@@ -33622,19 +33562,29 @@
   ],
   "WTS": [
     [
-      "AOS",
-      "熱水器／水暖設備對手",
-      "Water heater / hydronic equipment rival"
+      "EMR",
+      "工業自動化／機械對手",
+      "Industrial automation / machinery rival"
     ],
     [
-      "LII",
-      "熱水器／水暖設備對手",
-      "Water heater / hydronic equipment rival"
+      "HON",
+      "工業自動化／機械對手",
+      "Industrial automation / machinery rival"
     ],
     [
-      "TTC",
-      "熱水器／水暖設備對手",
-      "Water heater / hydronic equipment rival"
+      "TT",
+      "工業自動化／機械對手",
+      "Industrial automation / machinery rival"
+    ],
+    [
+      "ITW",
+      "工業自動化／機械對手",
+      "Industrial automation / machinery rival"
+    ],
+    [
+      "ETN",
+      "工業自動化／機械對手",
+      "Industrial automation / machinery rival"
     ]
   ],
   "FRHC": [

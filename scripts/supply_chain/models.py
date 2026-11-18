@@ -2105,6 +2105,160 @@ MODELS: dict[str, dict] = {
         ],
     },
 
+    "auto-driveline-v1": {
+        "label_zh": "汽車傳動／動力系統價值鏈",
+        "label_en": "Auto driveline / powertrain value chain",
+        "description_zh": "材料／鍛件 → 齒輪／傳動部件 → 電控／液壓 → 整車／商用車 OEM → 售後通路。",
+        "description_en": "Materials / forgings → gears / transmission parts → controls / hydraulics → auto / CV OEMs → aftermarket.",
+        "stages": [
+            {"id": "materials", "order": 1, "label_zh": "材料／鍛件", "label_en": "Materials / forgings", "summary_zh": "特鋼與鍛造毛坯。", "summary_en": "Specialty steel and forgings."},
+            {"id": "components", "order": 2, "label_zh": "齒輪／傳動部件", "label_en": "Gears / transmission parts", "summary_zh": "齒輪箱與動力總成件。", "summary_en": "Gearbox and powertrain parts."},
+            {"id": "controls", "order": 3, "label_zh": "電控／液壓", "label_en": "Controls / hydraulics", "summary_zh": "傳動電控與液壓系統。", "summary_en": "Transmission controls and hydraulics."},
+            {"id": "oem", "order": 4, "label_zh": "整車／商用車 OEM", "label_en": "Auto / CV OEMs", "summary_zh": "乘用車與商用車採購。", "summary_en": "Passenger and commercial OEM procurement."},
+            {"id": "aftermarket", "order": 5, "label_zh": "售後／經銷通路", "label_en": "Aftermarket / dealer channel", "summary_zh": "零件通路與經銷服務。", "summary_en": "Parts channel and dealer service."},
+        ],
+    },
+
+    "auto-passive-safety-v1": {
+        "label_zh": "汽車被動安全價值鏈",
+        "label_en": "Auto passive-safety value chain",
+        "description_zh": "織物／金屬材料 → 感測／電子 → 氣囊／安全帶模組 → 整車 OEM → 售後／法規。",
+        "description_en": "Fabric / metal materials → sensors / electronics → airbag / seatbelt modules → auto OEMs → aftermarket / regulation.",
+        "stages": [
+            {"id": "materials", "order": 1, "label_zh": "織物／金屬材料", "label_en": "Fabric / metal materials", "summary_zh": "織帶、鋼材與推進藥原料。", "summary_en": "Webbing, steel, and propellant inputs."},
+            {"id": "electronics", "order": 2, "label_zh": "感測／電子", "label_en": "Sensors / electronics", "summary_zh": "碰撞感測與控制單元。", "summary_en": "Crash sensors and control units."},
+            {"id": "modules", "order": 3, "label_zh": "氣囊／安全帶模組", "label_en": "Airbag / seatbelt modules", "summary_zh": "約束系統模組供應。", "summary_en": "Restraint-system modules."},
+            {"id": "oem", "order": 4, "label_zh": "整車 OEM", "label_en": "Auto OEMs", "summary_zh": "全球整車廠採購。", "summary_en": "Global OEM procurement."},
+            {"id": "aftermarket", "order": 5, "label_zh": "售後／法規", "label_en": "Aftermarket / regulation", "summary_zh": "售後零件與安全法規鄰接。", "summary_en": "Aftermarket parts and safety adjacency."},
+        ],
+    },
+
+    "water-heat-v1": {
+        "label_zh": "熱水器／水暖設備價值鏈",
+        "label_en": "Water heater / hydronic equipment value chain",
+        "description_zh": "鋼材／銅材 → 控制／閥件 → 熱水器製造 → 五金／批發通路 → 住宅／商業客戶。",
+        "description_en": "Steel / copper → controls / valves → heater manufacturing → hardware / wholesale channel → residential / commercial customers.",
+        "stages": [
+            {"id": "materials", "order": 1, "label_zh": "鋼材／銅材", "label_en": "Steel / copper", "summary_zh": "鋼板、銅管與保溫材料。", "summary_en": "Steel, copper, insulation."},
+            {"id": "controls", "order": 2, "label_zh": "控制／閥件", "label_en": "Controls / valves", "summary_zh": "溫控、點火與閥件。", "summary_en": "Thermostats, ignition, valves."},
+            {"id": "manufacturing", "order": 3, "label_zh": "熱水器製造", "label_en": "Heater manufacturing", "summary_zh": "熱水器與鍋爐組裝。", "summary_en": "Water-heater and boiler assembly."},
+            {"id": "channel", "order": 4, "label_zh": "五金／批發通路", "label_en": "Hardware / wholesale channel", "summary_zh": "DIY 與專業批發。", "summary_en": "DIY and pro wholesale."},
+            {"id": "customers", "order": 5, "label_zh": "住宅／商業客戶", "label_en": "Residential / commercial customers", "summary_zh": "新建與置換需求。", "summary_en": "New-build and replacement demand."},
+        ],
+    },
+
+    "packaging-containers-v1": {
+        "label_zh": "包裝容器價值鏈",
+        "label_en": "Packaging containers value chain",
+        "description_zh": "樹脂／鋁材 → 容器製造 → 灌裝／設備 → CPG 客戶 → 零售通路。",
+        "description_en": "Resin / aluminum → container converting → filling / equipment → CPG customers → retail channel.",
+        "stages": [
+            {"id": "materials", "order": 1, "label_zh": "樹脂／鋁材", "label_en": "Resin / aluminum", "summary_zh": "聚合物與鋁捲原料。", "summary_en": "Polymers and aluminum coil."},
+            {"id": "converting", "order": 2, "label_zh": "容器製造", "label_en": "Container converting", "summary_zh": "瓶罐、軟包裝與蓋材。", "summary_en": "Cans, flexible pack, closures."},
+            {"id": "equipment", "order": 3, "label_zh": "灌裝／設備", "label_en": "Filling / equipment", "summary_zh": "灌裝與包裝線設備。", "summary_en": "Filling and packaging-line equipment."},
+            {"id": "customers", "order": 4, "label_zh": "CPG 客戶", "label_en": "CPG customers", "summary_zh": "食品飲料與個護品牌。", "summary_en": "Food, beverage, and personal-care brands."},
+            {"id": "retail", "order": 5, "label_zh": "零售通路", "label_en": "Retail channel", "summary_zh": "超市與便利通路。", "summary_en": "Grocery and convenience channels."},
+        ],
+    },
+
+    "sporting-goods-v1": {
+        "label_zh": "運動用品／戶外服飾價值鏈",
+        "label_en": "Sporting-goods / outdoor apparel value chain",
+        "description_zh": "紡織／鞋材 → 代工製造 → 品牌／批發 → 專賣／電商 → 流量行銷。",
+        "description_en": "Textiles / footwear materials → contract manufacturing → brand / wholesale → specialty / e-comm → traffic marketing.",
+        "stages": [
+            {"id": "materials", "order": 1, "label_zh": "紡織／鞋材", "label_en": "Textiles / footwear materials", "summary_zh": "機能布料與鞋底材料。", "summary_en": "Performance fabrics and sole materials."},
+            {"id": "manufacturing", "order": 2, "label_zh": "代工製造", "label_en": "Contract manufacturing", "summary_zh": "成衣與鞋履代工。", "summary_en": "Apparel and footwear CMs."},
+            {"id": "wholesale", "order": 3, "label_zh": "品牌／批發", "label_en": "Brand / wholesale", "summary_zh": "品牌批發與授權。", "summary_en": "Brand wholesale and licensing."},
+            {"id": "stores", "order": 4, "label_zh": "專賣／電商", "label_en": "Specialty / e-commerce", "summary_zh": "運動專賣與 DTC。", "summary_en": "Sporting specialty and DTC."},
+            {"id": "traffic", "order": 5, "label_zh": "流量／行銷", "label_en": "Traffic / marketing", "summary_zh": "搜尋、社群與運動行銷。", "summary_en": "Search, social, sports marketing."},
+        ],
+    },
+
+    "cement-aggregates-v1": {
+        "label_zh": "水泥／骨材價值鏈",
+        "label_en": "Cement / aggregates value chain",
+        "description_zh": "採石／骨材 → 水泥窯／熟料 → 預拌／物流 → 基建／住宅客戶 → 工程設備。對手同業只列 rivals。",
+        "description_en": "Quarry / aggregates → cement kiln / clinker → ready-mix / logistics → infra / residential customers → construction equipment. Peer producers stay rivals only.",
+        "stages": [
+            {"id": "aggregates", "order": 1, "label_zh": "採石／骨材", "label_en": "Quarry / aggregates", "summary_zh": "碎石、砂與骨材。", "summary_en": "Crushed stone, sand, aggregates."},
+            {"id": "cement", "order": 2, "label_zh": "水泥窯／熟料", "label_en": "Cement kiln / clinker", "summary_zh": "熟料與水泥生產（非對手墊）。", "summary_en": "Clinker and cement production — not rival pads."},
+            {"id": "logistics", "order": 3, "label_zh": "預拌／物流", "label_en": "Ready-mix / logistics", "summary_zh": "預拌混凝土與運輸。", "summary_en": "Ready-mix and bulk transport."},
+            {"id": "customers", "order": 4, "label_zh": "基建／住宅客戶", "label_en": "Infra / residential customers", "summary_zh": "公共工程與住宅開發。", "summary_en": "Public works and homebuilders."},
+            {"id": "equipment", "order": 5, "label_zh": "工程設備", "label_en": "Construction equipment", "summary_zh": "工程機械與設備租賃。", "summary_en": "Construction machinery and rental."},
+        ],
+    },
+
+    "law-enforcement-v1": {
+        "label_zh": "執法／公共安全裝備價值鏈",
+        "label_en": "Law-enforcement / public-safety equipment value chain",
+        "description_zh": "感測／攝像硬體 → 非致命／武器系統 → 取證／雲端軟體 → 系統整合通路 → 執法／政府客戶。",
+        "description_en": "Sensors / camera hardware → less-lethal / weapons systems → evidence / cloud software → systems-integrator channel → LE / government customers.",
+        "stages": [
+            {"id": "hardware", "order": 1, "label_zh": "感測／攝像硬體", "label_en": "Sensors / camera hardware", "summary_zh": "體戴、車載與感測硬體。", "summary_en": "Bodycam, in-car, sensor hardware."},
+            {"id": "devices", "order": 2, "label_zh": "非致命／武器系統", "label_en": "Less-lethal / weapons systems", "summary_zh": "電擊槍與相關系統。", "summary_en": "Conducted-energy and related systems."},
+            {"id": "software", "order": 3, "label_zh": "取證／雲端軟體", "label_en": "Evidence / cloud software", "summary_zh": "數位取證與證據管理。", "summary_en": "Digital evidence and case management."},
+            {"id": "channel", "order": 4, "label_zh": "系統整合通路", "label_en": "Systems-integrator channel", "summary_zh": "公共安全整合與無線電。", "summary_en": "Public-safety integrators and radio."},
+            {"id": "customers", "order": 5, "label_zh": "執法／政府客戶", "label_en": "LE / government customers", "summary_zh": "警局與聯邦／州政府。", "summary_en": "Police and federal / state agencies."},
+        ],
+    },
+
+    "bdc-credit-v1": {
+        "label_zh": "BDC／直接放貸價值鏈",
+        "label_en": "BDC / direct-lending value chain",
+        "description_zh": "融資／ABS → 信用數據 → 中介／銀行 → 中型企業借款人 → 服務／回收。對手 BDC 只列 rivals。",
+        "description_en": "Funding / ABS → credit data → intermediaries / banks → middle-market borrowers → servicing / recovery. Peer BDCs stay rivals only.",
+        "stages": [
+            {"id": "funding", "order": 1, "label_zh": "融資／ABS", "label_en": "Funding / ABS", "summary_zh": "銀行授信與證券化。", "summary_en": "Bank lines and securitization."},
+            {"id": "data", "order": 2, "label_zh": "信用／評級數據", "label_en": "Credit / ratings data", "summary_zh": "信用評級與風險數據。", "summary_en": "Credit ratings and risk data."},
+            {"id": "intermediaries", "order": 3, "label_zh": "中介／銀行", "label_en": "Intermediaries / banks", "summary_zh": "投行與私募中介。", "summary_en": "IB and PE intermediaries."},
+            {"id": "borrowers", "order": 4, "label_zh": "中型企業借款人", "label_en": "Middle-market borrowers", "summary_zh": "中型企業與贊助交易。", "summary_en": "Middle-market and sponsor deals."},
+            {"id": "servicing", "order": 5, "label_zh": "服務／回收", "label_en": "Servicing / recovery", "summary_zh": "貸後管理與重組。", "summary_en": "Loan admin and restructuring."},
+        ],
+    },
+
+    "housing-brokerage-v1": {
+        "label_zh": "住房經紀／交易價值鏈",
+        "label_en": "Housing brokerage / transaction value chain",
+        "description_zh": "流量／房源 → 經紀／加盟 → 按揭／交易服務 → 物業科技工具 → 住房需求。",
+        "description_en": "Traffic / listings → agents / franchise → mortgage / transaction services → proptech tools → housing demand.",
+        "stages": [
+            {"id": "traffic", "order": 1, "label_zh": "流量／房源", "label_en": "Traffic / listings", "summary_zh": "搜尋、入口與房源平台。", "summary_en": "Search, portals, listing platforms."},
+            {"id": "agents", "order": 2, "label_zh": "經紀／加盟", "label_en": "Agents / franchise", "summary_zh": "經紀人與加盟網絡。", "summary_en": "Agents and franchise networks."},
+            {"id": "transaction", "order": 3, "label_zh": "按揭／交易服務", "label_en": "Mortgage / transaction services", "summary_zh": "房貸、權證與結算。", "summary_en": "Mortgage, title, closing."},
+            {"id": "proptech", "order": 4, "label_zh": "物業科技工具", "label_en": "Proptech tools", "summary_zh": "CRM、估價與管理軟體。", "summary_en": "CRM, valuation, management software."},
+            {"id": "housing", "order": 5, "label_zh": "住房需求", "label_en": "Housing demand", "summary_zh": "建商與住房週期。", "summary_en": "Homebuilders and housing cycle."},
+        ],
+    },
+
+    "specialty-contracting-v1": {
+        "label_zh": "消防／特種工程承攬價值鏈",
+        "label_en": "Fire-protection / specialty contracting value chain",
+        "description_zh": "偵測／滅火部件 → 系統／設備 → 特種工程承攬 → 商業／工業客戶 → 保險／風險。對手 EPC 只列 rivals。",
+        "description_en": "Detection / suppression components → systems / equipment → specialty contractors → commercial / industrial customers → insurance / risk. Peer EPCs stay rivals only.",
+        "stages": [
+            {"id": "components", "order": 1, "label_zh": "偵測／滅火部件", "label_en": "Detection / suppression components", "summary_zh": "感測、噴頭與管件。", "summary_en": "Sensors, sprinklers, fittings."},
+            {"id": "systems", "order": 2, "label_zh": "系統／設備", "label_en": "Systems / equipment", "summary_zh": "消防與生命安全系統。", "summary_en": "Fire and life-safety systems."},
+            {"id": "contracting", "order": 3, "label_zh": "特種工程承攬", "label_en": "Specialty contracting", "summary_zh": "安裝與維運承攬（非對手墊）。", "summary_en": "Install and service contracting — not rival pads."},
+            {"id": "customers", "order": 4, "label_zh": "商業／工業客戶", "label_en": "Commercial / industrial customers", "summary_zh": "商業樓宇與工業設施。", "summary_en": "Commercial buildings and industrial sites."},
+            {"id": "insurance", "order": 5, "label_zh": "保險／風險", "label_en": "Insurance / risk", "summary_zh": "產險與風險工程鄰接。", "summary_en": "P&C and risk-engineering adjacency."},
+        ],
+    },
+
+    "auto-finance-v1": {
+        "label_zh": "汽車金融／消費貸價值鏈",
+        "label_en": "Auto finance / consumer-lending value chain",
+        "description_zh": "融資／ABS → 信用數據 → 經銷通路 → 整車／經銷客戶 → 服務／催收。對手貸方只列 rivals。",
+        "description_en": "Funding / ABS → credit data → dealer channel → auto / dealer customers → servicing / collections. Peer lenders stay rivals only.",
+        "stages": [
+            {"id": "funding", "order": 1, "label_zh": "融資／ABS", "label_en": "Funding / ABS", "summary_zh": "銀行授信與車貸證券化。", "summary_en": "Bank lines and auto ABS."},
+            {"id": "data", "order": 2, "label_zh": "信用／風險數據", "label_en": "Credit / risk data", "summary_zh": "信用評分與風險數據。", "summary_en": "Credit scores and risk data."},
+            {"id": "dealers", "order": 3, "label_zh": "經銷通路", "label_en": "Dealer channel", "summary_zh": "汽車經銷與 F&I。", "summary_en": "Auto dealers and F&I."},
+            {"id": "customers", "order": 4, "label_zh": "整車／經銷客戶", "label_en": "Auto / dealer customers", "summary_zh": "消費者與經銷庫融。", "summary_en": "Consumers and dealer floorplan."},
+            {"id": "servicing", "order": 5, "label_zh": "服務／催收", "label_en": "Servicing / collections", "summary_zh": "貸後管理與催收。", "summary_en": "Loan admin and collections."},
+        ],
+    },
+
     "energy-gas-ep-v1": {
         "label_zh": "天然氣勘探開發價值鏈",
         "label_en": "Natural-gas E&P value chain",
@@ -2381,7 +2535,7 @@ TICKER_MODEL: dict[str, str] = {
     # Bugbot specialty model overrides (remaining universe)
     "AER": "industrials-v1",  # aircraft lessor — rivals via aviation-lessor group
     "BIDU": "internet-platform-v1",
-    "BEKE": "consumer-discretionary-v1",
+    "BEKE": "housing-brokerage-v1",  # China housing brokerage — not disc hospitality
     "AWK": "utilities-v1",
     "ATO": "utilities-v1",
     "BAP": "bank-diversified-v1",
@@ -2394,8 +2548,8 @@ TICKER_MODEL: dict[str, str] = {
     "ALGM": "semiconductor-fabless-v1",
     "ACIW": "payments-v1",
     "AFRM": "payments-v1",
-    "ALLY": "bank-diversified-v1",
-    "CACC": "bank-diversified-v1",
+    "ALLY": "auto-finance-v1",  # auto lender — not bank custody stages
+    "CACC": "auto-finance-v1",
     "BKR": "oilfield-services-v1",
     "AMP": "asset-mgmt-v1",
     "BEN": "asset-mgmt-v1",
@@ -2409,8 +2563,8 @@ TICKER_MODEL: dict[str, str] = {
     "PAC": "airport-ops-v1",
     "OMAB": "airport-ops-v1",
     "APTV": "auto-tier1-v1",  # Tier-1 auto components — not mining/CAT industrials
-    "ALSN": "industrials-v1",
-    "ALV": "industrials-v1",
+    "ALSN": "auto-driveline-v1",  # CV transmission / driveline — not mining/CAT industrials
+    "ALV": "auto-passive-safety-v1",  # airbags / restraints — not MGA/BWA powertrain stages
     "AEIS": "power-electronics-v1",  # precision / semi process power — not EMS/hardware retail chain
     "AMRX": "pharma-v1",
     "APPF": "saas-cloud-v1",
@@ -2429,6 +2583,16 @@ TICKER_MODEL: dict[str, str] = {
     "ABEV": "consumer-staples-v1",
     "ALC": "medtech-v1",
     "ATR": "industrials-v1",  # packaging/dispensing, not dental medtech
+    "AMCR": "packaging-containers-v1",  # packaging containers — not CAT/DE industrials
+    "BALL": "packaging-containers-v1",
+    "CCK": "packaging-containers-v1",
+    "PKG": "packaging-containers-v1",
+    "APG": "specialty-contracting-v1",  # fire-protection / specialty EPC — not heavy-equipment industrials
+    "AMRZ": "cement-aggregates-v1",  # cement/aggregates — not mining excavator stages
+    "AXON": "law-enforcement-v1",  # LE bodycam/taser — not aero/defense pad
+    "ARCC": "bdc-credit-v1",  # BDC lending — not asset-mgmt custody/index
+    "OBDC": "bdc-credit-v1",
+    "MAIN": "bdc-credit-v1",
     "AVTR": "life-sci-tools-v1",  # reagents / lab distribution — never medtech implants/GPOs/payers
     "ALB": "specialty-chem-v1",
     "BCPC": "nutrition-ingredients-v1",
@@ -2452,9 +2616,9 @@ TICKER_MODEL: dict[str, str] = {
     "BLLN": "medtech-v1",  # molecular dx — peers via mol-dx group
     "CIG": "utilities-v1",
     "BRZE": "saas-cloud-v1",
-    "AOS": "industrials-v1",
+    "AOS": "water-heat-v1",  # water heaters — not CAT/DE industrials; WTS not a heater rival
     "AGCO": "ag-machinery-v1",  # ag OEM — rival OEMs stay rivals, not dealer-stage
-    "AS": "consumer-discretionary-v1",
+    "AS": "sporting-goods-v1",  # athletic / outdoor — not hospitality disc stores
     "AVAV": "aerospace-defense-v1",  # military UAV — peers via mil-uav group
     "BETA": "aerospace-defense-v1",
     "JOBY": "aerospace-defense-v1",

@@ -460,29 +460,29 @@
   },
   "ALLY": {
     "funding": [
-      "GS",
-      "MS",
-      "BLK"
-    ],
-    "tech": [
-      "MSFT",
-      "ORCL",
-      "IBM"
-    ],
-    "payments": [
-      "V",
-      "MA",
-      "FISV"
-    ],
-    "data-risk": [
-      "SPGI",
-      "MCO",
-      "FICO"
-    ],
-    "channels": [
       "JPM",
       "BAC",
-      "AN"
+      "WFC"
+    ],
+    "data": [
+      "FICO",
+      "EFX",
+      "TRU"
+    ],
+    "dealers": [
+      "AN",
+      "PAG",
+      "LAD"
+    ],
+    "customers": [
+      "F",
+      "GM",
+      "KMX"
+    ],
+    "servicing": [
+      "FIS",
+      "FISV",
+      "JKHY"
     ]
   },
   "AU": {
@@ -1127,9 +1127,9 @@
       "DD"
     ],
     "software": [
-      "MSFT",
-      "NOW",
-      "CRM"
+      "ADT",
+      "JCI",
+      "MSI"
     ],
     "channel": [
       "HD",
@@ -1279,6 +1279,330 @@
       "JPM",
       "BAC",
       "WFC"
+    ]
+  },
+  "ALSN": {
+    "materials": [
+      "NUE",
+      "ATI",
+      "DOW"
+    ],
+    "components": [
+      "PH",
+      "EMR",
+      "ROK"
+    ],
+    "controls": [
+      "HON",
+      "ROK",
+      "TXN"
+    ],
+    "oem": [
+      "F",
+      "GM",
+      "PCAR"
+    ],
+    "aftermarket": [
+      "ORLY",
+      "AZO",
+      "GPC"
+    ]
+  },
+  "ALV": {
+    "materials": [
+      "DOW",
+      "DD",
+      "NUE"
+    ],
+    "electronics": [
+      "TXN",
+      "ON",
+      "ADI"
+    ],
+    "modules": [
+      "TEL",
+      "APH",
+      "GLW"
+    ],
+    "oem": [
+      "F",
+      "GM",
+      "TSLA"
+    ],
+    "aftermarket": [
+      "ORLY",
+      "AZO",
+      "GPC"
+    ]
+  },
+  "AOS": {
+    "materials": [
+      "NUE",
+      "AA",
+      "DOW"
+    ],
+    "controls": [
+      "EMR",
+      "ROK",
+      "HON"
+    ],
+    "manufacturing": [
+      "CARR",
+      "TT",
+      "IR"
+    ],
+    "channel": [
+      "HD",
+      "LOW",
+      "WCC"
+    ],
+    "customers": [
+      "DHI",
+      "LEN",
+      "PHM"
+    ]
+  },
+  "AMCR": {
+    "materials": [
+      "DOW",
+      "DD",
+      "AA"
+    ],
+    "converting": [
+      "IP",
+      "ATR",
+      "REYN"
+    ],
+    "equipment": [
+      "ITW",
+      "EMR",
+      "ROK"
+    ],
+    "customers": [
+      "KO",
+      "PEP",
+      "PG"
+    ],
+    "retail": [
+      "WMT",
+      "COST",
+      "KR"
+    ]
+  },
+  "BALL": {
+    "materials": [
+      "DOW",
+      "DD",
+      "AA"
+    ],
+    "converting": [
+      "IP",
+      "ATR",
+      "REYN"
+    ],
+    "equipment": [
+      "ITW",
+      "EMR",
+      "ROK"
+    ],
+    "customers": [
+      "KO",
+      "PEP",
+      "PG"
+    ],
+    "retail": [
+      "WMT",
+      "COST",
+      "KR"
+    ]
+  },
+  "AS": {
+    "materials": [
+      "DOW",
+      "DD",
+      "VFC"
+    ],
+    "manufacturing": [
+      "UPS",
+      "FDX",
+      "EXPD"
+    ],
+    "wholesale": [
+      "DKS",
+      "WSM",
+      "BBY"
+    ],
+    "stores": [
+      "DKS",
+      "URBN",
+      "SPG"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "PINS"
+    ]
+  },
+  "AMRZ": {
+    "aggregates": [
+      "CAT",
+      "URI",
+      "OSK"
+    ],
+    "cement": [
+      "LIN",
+      "EMR",
+      "ROK"
+    ],
+    "logistics": [
+      "UNP",
+      "CSX",
+      "ODFL"
+    ],
+    "customers": [
+      "DHI",
+      "LEN",
+      "PWR"
+    ],
+    "equipment": [
+      "CAT",
+      "DE",
+      "URI"
+    ]
+  },
+  "AXON": {
+    "hardware": [
+      "APH",
+      "TEL",
+      "GLW"
+    ],
+    "devices": [
+      "OSK",
+      "TXT",
+      "HII"
+    ],
+    "software": [
+      "MSFT",
+      "ORCL",
+      "PANW"
+    ],
+    "channel": [
+      "JCI",
+      "ADT",
+      "BAH"
+    ],
+    "customers": [
+      "LDOS",
+      "CACI",
+      "SAIC"
+    ]
+  },
+  "ARCC": {
+    "funding": [
+      "JPM",
+      "BAC",
+      "WFC"
+    ],
+    "data": [
+      "SPGI",
+      "MCO",
+      "FICO"
+    ],
+    "intermediaries": [
+      "GS",
+      "MS",
+      "BX"
+    ],
+    "borrowers": [
+      "URI",
+      "FAST",
+      "AIT"
+    ],
+    "servicing": [
+      "ALLY",
+      "COF",
+      "SYF"
+    ]
+  },
+  "BEKE": {
+    "traffic": [
+      "GOOG",
+      "META",
+      "ZG"
+    ],
+    "agents": [
+      "COMP",
+      "JLL",
+      "CBRE"
+    ],
+    "transaction": [
+      "BAC",
+      "JPM",
+      "WFC"
+    ],
+    "proptech": [
+      "CSGP",
+      "APPF",
+      "ADBE"
+    ],
+    "housing": [
+      "DHI",
+      "LEN",
+      "PHM"
+    ]
+  },
+  "APG": {
+    "components": [
+      "EMR",
+      "HON",
+      "ROK"
+    ],
+    "systems": [
+      "JCI",
+      "CARR",
+      "TT"
+    ],
+    "contracting": [
+      "WCC",
+      "FAST",
+      "GWW"
+    ],
+    "customers": [
+      "AMT",
+      "EQIX",
+      "SPG"
+    ],
+    "insurance": [
+      "CB",
+      "PGR",
+      "TRV"
+    ]
+  },
+  "CACC": {
+    "funding": [
+      "JPM",
+      "BAC",
+      "WFC"
+    ],
+    "data": [
+      "FICO",
+      "EFX",
+      "TRU"
+    ],
+    "dealers": [
+      "AN",
+      "PAG",
+      "LAD"
+    ],
+    "customers": [
+      "F",
+      "GM",
+      "KMX"
+    ],
+    "servicing": [
+      "FIS",
+      "FISV",
+      "JKHY"
     ]
   }
 }
