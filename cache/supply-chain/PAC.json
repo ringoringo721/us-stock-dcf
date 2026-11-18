@@ -1,0 +1,219 @@
+{
+  "version": 1,
+  "ticker": "PAC",
+  "name_en": "Grupo Aeroportuario del Pacífico",
+  "name_zh": "太平洋機場集團",
+  "updatedAt": "2026-11-18",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "airport-ops-v1",
+    "references": [
+      "Industry model `airport-ops-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "airport-ops-v1",
+    "label_zh": "機場營運價值鏈",
+    "label_en": "Airport operations value chain",
+    "description_zh": "土木／航廈建設 → 地勤／航電設備 → 航司流量 → 零售免稅 → 資本／融資。",
+    "description_en": "Civil / terminal construction → ground / airside equipment → airline traffic → retail / duty-free → capital / financing."
+  },
+  "stages": [
+    {
+      "id": "construction",
+      "order": 1,
+      "label_zh": "土木／航廈建設",
+      "label_en": "Civil / terminal construction",
+      "summary_zh": "航廈與跑道工程承攬。",
+      "summary_en": "Terminal and airfield contractors.",
+      "players": [
+        {
+          "ticker": "ACM",
+          "name_en": "Aecom",
+          "name_zh": "Aecom",
+          "role_zh": "Aecom：土木／航廈建設代表性玩家",
+          "role_en": "Aecom: representative player in Civil / terminal construction",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "J",
+          "name_en": "Jacobs Solutions",
+          "name_zh": "Jacobs Solutions",
+          "role_zh": "Jacobs Solutions：土木／航廈建設代表性玩家",
+          "role_en": "Jacobs Solutions: representative player in Civil / terminal construction",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "PWR",
+          "name_en": "Quanta Services",
+          "name_zh": "Quanta Services",
+          "role_zh": "Quanta Services：土木／航廈建設代表性玩家",
+          "role_en": "Quanta Services: representative player in Civil / terminal construction",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "equipment",
+      "order": 2,
+      "label_zh": "地勤／航電設備",
+      "label_en": "Ground / airside equipment",
+      "summary_zh": "行李、登機橋與航電設備。",
+      "summary_en": "Baggage, jet bridges, airside systems.",
+      "players": [
+        {
+          "ticker": "HON",
+          "name_en": "Honeywell",
+          "name_zh": "漢威聯合",
+          "role_zh": "漢威聯合：地勤／航電設備代表性玩家",
+          "role_en": "Honeywell: representative player in Ground / airside equipment",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "ETN",
+          "name_en": "Eaton",
+          "name_zh": "伊頓",
+          "role_zh": "伊頓：地勤／航電設備代表性玩家",
+          "role_en": "Eaton: representative player in Ground / airside equipment",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "ROK",
+          "name_en": "Rockwell Automation",
+          "name_zh": "羅克韋爾",
+          "role_zh": "羅克韋爾：地勤／航電設備代表性玩家",
+          "role_en": "Rockwell Automation: representative player in Ground / airside equipment",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "airlines",
+      "order": 3,
+      "label_zh": "航司／流量",
+      "label_en": "Airlines / traffic",
+      "summary_zh": "航空公司客貨流量。",
+      "summary_en": "Passenger and cargo airline traffic.",
+      "players": [
+        {
+          "ticker": "DAL",
+          "name_en": "Delta Air Lines",
+          "name_zh": "達美航空",
+          "role_zh": "達美航空：航司／流量代表性玩家",
+          "role_en": "Delta Air Lines: representative player in Airlines / traffic",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "UAL",
+          "name_en": "United Airlines",
+          "name_zh": "聯合航空",
+          "role_zh": "聯合航空：航司／流量代表性玩家",
+          "role_en": "United Airlines: representative player in Airlines / traffic",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "AAL",
+          "name_en": "American Airlines",
+          "name_zh": "美國航空",
+          "role_zh": "美國航空：航司／流量代表性玩家",
+          "role_en": "American Airlines: representative player in Airlines / traffic",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "retail",
+      "order": 4,
+      "label_zh": "零售／免稅",
+      "label_en": "Retail / duty-free",
+      "summary_zh": "航廈零售與餐飲租戶。",
+      "summary_en": "Terminal retail and F&B tenants.",
+      "players": [
+        {
+          "ticker": "SBUX",
+          "name_en": "Starbucks",
+          "name_zh": "星巴克",
+          "role_zh": "星巴克：零售／免稅代表性玩家",
+          "role_en": "Starbucks: representative player in Retail / duty-free",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "MCD",
+          "name_en": "McDonald's",
+          "name_zh": "麥當勞",
+          "role_zh": "麥當勞：零售／免稅代表性玩家",
+          "role_en": "McDonald's: representative player in Retail / duty-free",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "BKNG",
+          "name_en": "Booking",
+          "name_zh": "Booking 控股",
+          "role_zh": "Booking 控股：零售／免稅代表性玩家",
+          "role_en": "Booking: representative player in Retail / duty-free",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "capital",
+      "order": 5,
+      "label_zh": "資本／融資",
+      "label_en": "Capital / financing",
+      "summary_zh": "基建融資與機構資金。",
+      "summary_en": "Infra financing and institutional capital.",
+      "players": [
+        {
+          "ticker": "JPM",
+          "name_en": "JPMorgan Chase & Co.",
+          "name_zh": "摩根大通",
+          "role_zh": "摩根大通：資本／融資代表性玩家",
+          "role_en": "JPMorgan Chase & Co.: representative player in Capital / financing",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "BAC",
+          "name_en": "Bank of America",
+          "name_zh": "美國銀行",
+          "role_zh": "美國銀行：資本／融資代表性玩家",
+          "role_en": "Bank of America: representative player in Capital / financing",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "BLK",
+          "name_en": "BlackRock",
+          "name_zh": "貝萊德",
+          "role_zh": "貝萊德：資本／融資代表性玩家",
+          "role_en": "BlackRock: representative player in Capital / financing",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "ASR",
+      "name_en": "Grupo Aeroportuario del Sureste",
+      "name_zh": "東南機場集團",
+      "basis_zh": "機場營運對手",
+      "basis_en": "Airport operator rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "OMAB",
+      "name_en": "OMA",
+      "name_zh": "OMA 機場",
+      "basis_zh": "機場營運對手",
+      "basis_en": "Airport operator rival",
+      "exchange": "NASDAQ"
+    }
+  ]
+}
