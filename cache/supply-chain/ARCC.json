@@ -11,188 +11,188 @@
     "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
     "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
     "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
-    "modelId": "asset-mgmt-v1",
+    "modelId": "bdc-credit-v1",
     "references": [
-      "Industry model `asset-mgmt-v1`",
+      "Industry model `bdc-credit-v1`",
       "AAPL curated seed shape on main (schema reference)",
       "cache/us_universe.json screen: remaining US listings without supply-chain seed",
       "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
     ]
   },
   "model": {
-    "id": "asset-mgmt-v1",
-    "label_zh": "資產管理價值鏈",
-    "label_en": "Asset management value chain",
-    "description_zh": "指數／數據 → 託管／營運 → 交易執行 → 分銷平台 → 資產所有人。",
-    "description_en": "Index/data → custody/ops → execution → distribution → asset owners."
+    "id": "bdc-credit-v1",
+    "label_zh": "BDC／直接放貸價值鏈",
+    "label_en": "BDC / direct-lending value chain",
+    "description_zh": "融資／ABS → 信用數據 → 中介／銀行 → 中型企業借款人 → 服務／回收。對手 BDC 只列 rivals。",
+    "description_en": "Funding / ABS → credit data → intermediaries / banks → middle-market borrowers → servicing / recovery. Peer BDCs stay rivals only."
   },
   "stages": [
     {
-      "id": "index-data",
+      "id": "funding",
       "order": 1,
-      "label_zh": "指數／評級／數據",
-      "label_en": "Index / ratings / data",
-      "summary_zh": "基準指數與研究數據。",
-      "summary_en": "Benchmarks and research data.",
+      "label_zh": "融資／ABS",
+      "label_en": "Funding / ABS",
+      "summary_zh": "銀行授信與證券化。",
+      "summary_en": "Bank lines and securitization.",
       "players": [
-        {
-          "ticker": "SPGI",
-          "name_en": "S&P Global",
-          "name_zh": "標普全球",
-          "role_zh": "標普全球：指數／評級／數據代表性玩家",
-          "role_en": "S&P Global: representative player in Index / ratings / data",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "MCO",
-          "name_en": "Moody's",
-          "name_zh": "穆迪評級",
-          "role_zh": "穆迪評級：指數／評級／數據代表性玩家",
-          "role_en": "Moody's: representative player in Index / ratings / data",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "NDAQ",
-          "name_en": "Nasdaq",
-          "name_zh": "納斯達克",
-          "role_zh": "納斯達克：指數／評級／數據代表性玩家",
-          "role_en": "Nasdaq: representative player in Index / ratings / data",
-          "exchange": "NASDAQ"
-        }
-      ]
-    },
-    {
-      "id": "custody",
-      "order": 2,
-      "label_zh": "託管／基金行政",
-      "label_en": "Custody / fund admin",
-      "summary_zh": "資產保管與基金營運。",
-      "summary_en": "Custody and fund administration.",
-      "players": [
-        {
-          "ticker": "BNY",
-          "name_en": "BNY Mellon",
-          "name_zh": "紐約梅隆銀行",
-          "role_zh": "紐約梅隆銀行：託管／基金行政代表性玩家",
-          "role_en": "BNY Mellon: representative player in Custody / fund admin",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "STT",
-          "name_en": "State Street",
-          "name_zh": "道富",
-          "role_zh": "道富：託管／基金行政代表性玩家",
-          "role_en": "State Street: representative player in Custody / fund admin",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "NTRS",
-          "name_en": "Northern Trust",
-          "name_zh": "Northern Trust",
-          "role_zh": "Northern Trust：託管／基金行政代表性玩家",
-          "role_en": "Northern Trust: representative player in Custody / fund admin",
-          "exchange": "NASDAQ"
-        }
-      ]
-    },
-    {
-      "id": "execution",
-      "order": 3,
-      "label_zh": "交易／市場進入",
-      "label_en": "Execution / market access",
-      "summary_zh": "券商執行與交易所。",
-      "summary_en": "Broker execution and exchanges.",
-      "players": [
-        {
-          "ticker": "GS",
-          "name_en": "Goldman Sachs",
-          "name_zh": "高盛集團",
-          "role_zh": "高盛集團：交易／市場進入代表性玩家",
-          "role_en": "Goldman Sachs: representative player in Execution / market access",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "MS",
-          "name_en": "Morgan Stanley",
-          "name_zh": "摩根士丹利",
-          "role_zh": "摩根士丹利：交易／市場進入代表性玩家",
-          "role_en": "Morgan Stanley: representative player in Execution / market access",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "SCHW",
-          "name_en": "Charles Schwab",
-          "name_zh": "嘉信理財",
-          "role_zh": "嘉信理財：交易／市場進入代表性玩家",
-          "role_en": "Charles Schwab: representative player in Execution / market access",
-          "exchange": "NYSE"
-        }
-      ]
-    },
-    {
-      "id": "distribution",
-      "order": 4,
-      "label_zh": "分銷／財富平台",
-      "label_en": "Distribution / wealth platforms",
-      "summary_zh": "退休平台、銀行與券商分銷。",
-      "summary_en": "Retirement, bank, broker platforms.",
-      "players": [
-        {
-          "ticker": "SCHW",
-          "name_en": "Charles Schwab",
-          "name_zh": "嘉信理財",
-          "role_zh": "嘉信理財：分銷／財富平台代表性玩家",
-          "role_en": "Charles Schwab: representative player in Distribution / wealth platforms",
-          "exchange": "NYSE"
-        },
         {
           "ticker": "JPM",
           "name_en": "JPMorgan Chase & Co.",
           "name_zh": "摩根大通",
-          "role_zh": "摩根大通：分銷／財富平台代表性玩家",
-          "role_en": "JPMorgan Chase & Co.: representative player in Distribution / wealth platforms",
+          "role_zh": "摩根大通：融資／ABS代表性玩家",
+          "role_en": "JPMorgan Chase & Co.: representative player in Funding / ABS",
           "exchange": "NYSE"
         },
         {
           "ticker": "BAC",
           "name_en": "Bank of America",
           "name_zh": "美國銀行",
-          "role_zh": "美國銀行：分銷／財富平台代表性玩家",
-          "role_en": "Bank of America: representative player in Distribution / wealth platforms",
+          "role_zh": "美國銀行：融資／ABS代表性玩家",
+          "role_en": "Bank of America: representative player in Funding / ABS",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "WFC",
+          "name_en": "Wells Fargo",
+          "name_zh": "富國銀行",
+          "role_zh": "富國銀行：融資／ABS代表性玩家",
+          "role_en": "Wells Fargo: representative player in Funding / ABS",
           "exchange": "NYSE"
         }
       ]
     },
     {
-      "id": "owners",
-      "order": 5,
-      "label_zh": "資產所有人／機構",
-      "label_en": "Asset owners / institutions",
-      "summary_zh": "退休金、主權與保險資金。",
-      "summary_en": "Pensions, sovereigns, insurers.",
+      "id": "data",
+      "order": 2,
+      "label_zh": "信用／評級數據",
+      "label_en": "Credit / ratings data",
+      "summary_zh": "信用評級與風險數據。",
+      "summary_en": "Credit ratings and risk data.",
       "players": [
         {
-          "ticker": "MET",
-          "name_en": "MetLife",
-          "name_zh": "大都會人壽",
-          "role_zh": "大都會人壽：資產所有人／機構代表性玩家",
-          "role_en": "MetLife: representative player in Asset owners / institutions",
+          "ticker": "SPGI",
+          "name_en": "S&P Global",
+          "name_zh": "標普全球",
+          "role_zh": "標普全球：信用／評級數據代表性玩家",
+          "role_en": "S&P Global: representative player in Credit / ratings data",
           "exchange": "NYSE"
         },
         {
-          "ticker": "PRU",
-          "name_en": "Prudential Financial",
-          "name_zh": "保德信金融",
-          "role_zh": "保德信金融：資產所有人／機構代表性玩家",
-          "role_en": "Prudential Financial: representative player in Asset owners / institutions",
+          "ticker": "MCO",
+          "name_en": "Moody's",
+          "name_zh": "穆迪評級",
+          "role_zh": "穆迪評級：信用／評級數據代表性玩家",
+          "role_en": "Moody's: representative player in Credit / ratings data",
           "exchange": "NYSE"
         },
         {
-          "ticker": "CB",
-          "name_en": "Chubb",
-          "name_zh": "安達保險",
-          "role_zh": "安達保險：資產所有人／機構代表性玩家",
-          "role_en": "Chubb: representative player in Asset owners / institutions",
+          "ticker": "FICO",
+          "name_en": "Fair Isaac",
+          "name_zh": "費埃哲 (FICO)",
+          "role_zh": "費埃哲 (FICO)：信用／評級數據代表性玩家",
+          "role_en": "Fair Isaac: representative player in Credit / ratings data",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "intermediaries",
+      "order": 3,
+      "label_zh": "中介／銀行",
+      "label_en": "Intermediaries / banks",
+      "summary_zh": "投行與私募中介。",
+      "summary_en": "IB and PE intermediaries.",
+      "players": [
+        {
+          "ticker": "GS",
+          "name_en": "Goldman Sachs",
+          "name_zh": "高盛集團",
+          "role_zh": "高盛集團：中介／銀行代表性玩家",
+          "role_en": "Goldman Sachs: representative player in Intermediaries / banks",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "MS",
+          "name_en": "Morgan Stanley",
+          "name_zh": "摩根士丹利",
+          "role_zh": "摩根士丹利：中介／銀行代表性玩家",
+          "role_en": "Morgan Stanley: representative player in Intermediaries / banks",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "BX",
+          "name_en": "Blackstone",
+          "name_zh": "黑石",
+          "role_zh": "黑石：中介／銀行代表性玩家",
+          "role_en": "Blackstone: representative player in Intermediaries / banks",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "borrowers",
+      "order": 4,
+      "label_zh": "中型企業借款人",
+      "label_en": "Middle-market borrowers",
+      "summary_zh": "中型企業與贊助交易。",
+      "summary_en": "Middle-market and sponsor deals.",
+      "players": [
+        {
+          "ticker": "URI",
+          "name_en": "United Rentals",
+          "name_zh": "United Rentals",
+          "role_zh": "United Rentals：中型企業借款人代表性玩家",
+          "role_en": "United Rentals: representative player in Middle-market borrowers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "FAST",
+          "name_en": "Fastenal",
+          "name_zh": "Fastenal",
+          "role_zh": "Fastenal：中型企業借款人代表性玩家",
+          "role_en": "Fastenal: representative player in Middle-market borrowers",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "AIT",
+          "name_en": "Applied Industrial",
+          "name_zh": "Applied Industrial",
+          "role_zh": "Applied Industrial：中型企業借款人代表性玩家",
+          "role_en": "Applied Industrial: representative player in Middle-market borrowers",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "servicing",
+      "order": 5,
+      "label_zh": "服務／回收",
+      "label_en": "Servicing / recovery",
+      "summary_zh": "貸後管理與重組。",
+      "summary_en": "Loan admin and restructuring.",
+      "players": [
+        {
+          "ticker": "ALLY",
+          "name_en": "Ally Financial",
+          "name_zh": "Ally",
+          "role_zh": "Ally：服務／回收代表性玩家",
+          "role_en": "Ally Financial: representative player in Servicing / recovery",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "COF",
+          "name_en": "Capital One",
+          "name_zh": "Capital One",
+          "role_zh": "Capital One：服務／回收代表性玩家",
+          "role_en": "Capital One: representative player in Servicing / recovery",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "SYF",
+          "name_en": "Synchrony Financial",
+          "name_zh": "Synchrony 金融",
+          "role_zh": "Synchrony 金融：服務／回收代表性玩家",
+          "role_en": "Synchrony Financial: representative player in Servicing / recovery",
           "exchange": "NYSE"
         }
       ]

@@ -156,32 +156,22 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "AOS": {
-      "ticker": "AOS",
-      "price": 64.24,
-      "previousClose": 63.98,
-      "changePct": 0.406,
-      "mcap": 8671.0,
+    "TT": {
+      "ticker": "TT",
+      "price": 417.99,
+      "previousClose": 424.05,
+      "changePct": -1.429,
+      "mcap": 87943.4,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "LII": {
-      "ticker": "LII",
-      "price": 352.02,
-      "previousClose": 348.08,
-      "changePct": 1.132,
-      "mcap": 11698.3,
-      "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "TTC": {
-      "ticker": "TTC",
-      "price": 105.89,
-      "previousClose": 106.85,
-      "changePct": -0.898,
-      "mcap": 9924.5,
+    "ITW": {
+      "ticker": "ITW",
+      "price": 287.52,
+      "previousClose": 286.75,
+      "changePct": 0.269,
+      "mcap": 79846.0,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"

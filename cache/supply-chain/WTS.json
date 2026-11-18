@@ -200,27 +200,43 @@
   ],
   "competitors": [
     {
-      "ticker": "AOS",
-      "name_en": "A. O. Smith",
-      "name_zh": "A. O. Smith",
-      "basis_zh": "熱水器／水暖設備對手",
-      "basis_en": "Water heater / hydronic equipment rival",
+      "ticker": "EMR",
+      "name_en": "Emerson",
+      "name_zh": "艾默生",
+      "basis_zh": "工業自動化／機械對手",
+      "basis_en": "Industrial automation / machinery rival",
       "exchange": "NYSE"
     },
     {
-      "ticker": "LII",
-      "name_en": "Lennox",
-      "name_zh": "Lennox",
-      "basis_zh": "熱水器／水暖設備對手",
-      "basis_en": "Water heater / hydronic equipment rival",
+      "ticker": "HON",
+      "name_en": "Honeywell",
+      "name_zh": "漢威聯合",
+      "basis_zh": "工業自動化／機械對手",
+      "basis_en": "Industrial automation / machinery rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "TT",
+      "name_en": "Trane Technologies",
+      "name_zh": "Trane Technologies",
+      "basis_zh": "工業自動化／機械對手",
+      "basis_en": "Industrial automation / machinery rival",
       "exchange": "NYSE"
     },
     {
-      "ticker": "TTC",
-      "name_en": "Toro",
-      "name_zh": "Toro",
-      "basis_zh": "熱水器／水暖設備對手",
-      "basis_en": "Water heater / hydronic equipment rival",
+      "ticker": "ITW",
+      "name_en": "Illinois Tool Works",
+      "name_zh": "伊利諾工具",
+      "basis_zh": "工業自動化／機械對手",
+      "basis_en": "Industrial automation / machinery rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "ETN",
+      "name_en": "Eaton",
+      "name_zh": "伊頓",
+      "basis_zh": "工業自動化／機械對手",
+      "basis_en": "Industrial automation / machinery rival",
       "exchange": "NYSE"
     }
   ]
