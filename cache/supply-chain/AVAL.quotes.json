@@ -166,12 +166,12 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "ITUB": {
-      "ticker": "ITUB",
-      "price": 7.53,
-      "previousClose": 7.37,
-      "changePct": 2.171,
-      "mcap": 81452.8,
+    "CIB": {
+      "ticker": "CIB",
+      "price": 89.51,
+      "previousClose": 88.64,
+      "changePct": 0.981,
+      "mcap": 21814.6,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
@@ -182,36 +182,6 @@
       "previousClose": 11.83,
       "changePct": 11.75,
       "mcap": 58113.2,
-      "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "BSBR": {
-      "ticker": "BSBR",
-      "price": 5.05,
-      "previousClose": 5.02,
-      "changePct": 0.598,
-      "mcap": 34742.1,
-      "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "BBD": {
-      "ticker": "BBD",
-      "price": 2.57,
-      "previousClose": 2.51,
-      "changePct": 2.39,
-      "mcap": 27748.9,
-      "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "CIB": {
-      "ticker": "CIB",
-      "price": 89.51,
-      "previousClose": 88.64,
-      "changePct": 0.981,
-      "mcap": 21814.6,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"

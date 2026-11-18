@@ -200,43 +200,19 @@
   ],
   "competitors": [
     {
-      "ticker": "ITUB",
-      "name_en": "Itaú Unibanco",
-      "name_zh": "Itaú Unibanco",
-      "basis_zh": "拉美銀行對手",
-      "basis_en": "LatAm bank rival",
+      "ticker": "CIB",
+      "name_en": "Cibest",
+      "name_zh": "西貝斯特",
+      "basis_zh": "哥倫比亞／數位銀行對手",
+      "basis_en": "Colombia / digital-bank rival",
       "exchange": "NYSE"
     },
     {
       "ticker": "NU",
       "name_en": "Nubank",
       "name_zh": "Nubank",
-      "basis_zh": "拉美銀行對手",
-      "basis_en": "LatAm bank rival",
-      "exchange": "NYSE"
-    },
-    {
-      "ticker": "BSBR",
-      "name_en": "Banco Santander Brasil",
-      "name_zh": "巴西桑坦德銀行",
-      "basis_zh": "拉美銀行對手",
-      "basis_en": "LatAm bank rival",
-      "exchange": "NYSE"
-    },
-    {
-      "ticker": "BBD",
-      "name_en": "Banco Bradesco",
-      "name_zh": "巴西布拉德斯科銀行",
-      "basis_zh": "拉美銀行對手",
-      "basis_en": "LatAm bank rival",
-      "exchange": "NYSE"
-    },
-    {
-      "ticker": "CIB",
-      "name_en": "Cibest",
-      "name_zh": "西貝斯特",
-      "basis_zh": "拉美銀行對手",
-      "basis_en": "LatAm bank rival",
+      "basis_zh": "哥倫比亞／數位銀行對手",
+      "basis_en": "Colombia / digital-bank rival",
       "exchange": "NYSE"
     }
   ]
