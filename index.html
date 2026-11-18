@@ -3082,6 +3082,9 @@
             <button type="button" class="stmt-btn" data-sm-trend="10y" data-i18n="sm_trend_10y">10 年</button>
           </div>
           <p id="smart-money-trends-status" class="analysis-note" role="status"></p>
+          <div id="smart-money-trends-chart-wrap" class="balance-chart" style="height:280px;margin-bottom:12px;">
+            <canvas id="smart-money-trends-chart" role="img" aria-label="Smart Money trends chart"></canvas>
+          </div>
           <div class="table-scroll-wrapper company-analysis-scroll" style="margin-bottom: 18px;">
             <table id="cmp-smart-money-trends" class="historical-ratio-table company-analysis-table">
               <thead><tr id="cmp-smart-money-trends-thead"></tr></thead>
@@ -4230,6 +4233,7 @@
       sm_trend_dump: "出清／Dump 趨勢",
       sm_trend_loading: "載入趨勢比較…",
       sm_trend_na: "—",
+      sm_trend_chart_note: "折線為期間累積變動％（股價／SPY 自區間起點＝0；智資為機構持股％變動；出清為累積減碼／出清壓力，無出清時為 0）。",
       sec_fund_holdings: "持倉明細",
       sec_fund_exits: "出清部位",
       sec_fund_sectors: "產業配置",
@@ -4952,6 +4956,7 @@
       sm_trend_dump: "Dump / exit trend",
       sm_trend_loading: "Loading trend comparison…",
       sm_trend_na: "—",
+      sm_trend_chart_note: "Lines are cumulative % change over the window (SPY/stock rebased to 0 at the start; Smart Money is institutional ownership Δ; Dump is cumulative exit/reduction pressure, 0 when none).",
       sec_fund_holdings: "Holdings",
       sec_fund_exits: "Exited positions",
       sec_fund_sectors: "Sector mix",
@@ -10536,6 +10541,90 @@
     });
   }
 
+  function destroySmartMoneyTrendsChart() {
+    const canvas = document.getElementById('smart-money-trends-chart');
+    const fromRegistry = (typeof Chart !== 'undefined' && canvas && typeof Chart.getChart === 'function')
+      ? Chart.getChart(canvas)
+      : null;
+    const existing = fromRegistry || window.__smartMoneyTrendsChart || null;
+    if (existing) {
+      try { existing.destroy(); } catch (_) { /* ignore */ }
+    }
+    window.__smartMoneyTrendsChart = null;
+  }
+
+  function paintSmartMoneyTrendsChart(ctx, series) {
+    const canvas = document.getElementById('smart-money-trends-chart');
+    if (!canvas || typeof Chart === 'undefined' || !series || !series.labels?.length) {
+      destroySmartMoneyTrendsChart();
+      return;
+    }
+    const { isEn, dict } = ctx;
+    destroySmartMoneyTrendsChart();
+    const mk = (label, data, color) => ({
+      type: 'line',
+      label,
+      data,
+      borderColor: color,
+      backgroundColor: color.replace(/[\d.]+\)$/, '0.12)'),
+      tension: 0.15,
+      pointRadius: 0,
+      pointHoverRadius: 3,
+      borderWidth: 2,
+      spanGaps: true,
+    });
+    window.__smartMoneyTrendsChart = new Chart(canvas.getContext('2d'), {
+      data: {
+        labels: series.labels,
+        datasets: [
+          mk(dict.sm_trend_spy, series.spy, 'rgba(100, 116, 139, 0.95)'),
+          mk(dict.sm_trend_stock, series.stock, 'rgba(37, 99, 235, 0.95)'),
+          mk(dict.sm_trend_smart, series.smart, 'rgba(5, 150, 105, 0.95)'),
+          mk(dict.sm_trend_dump, series.dump, 'rgba(220, 38, 38, 0.95)'),
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { mode: 'index', intersect: false },
+        plugins: {
+          legend: { position: 'bottom' },
+          tooltip: {
+            callbacks: {
+              label(item) {
+                const v = item.parsed?.y;
+                if (v == null || !Number.isFinite(v)) return `${item.dataset.label}: —`;
+                const sign = v > 0 ? '+' : '';
+                return `${item.dataset.label}: ${sign}${v.toFixed(2)}%`;
+              },
+            },
+          },
+        },
+        scales: {
+          x: {
+            ticks: {
+              maxTicksLimit: 8,
+              callback(value, index, ticks) {
+                const label = this.getLabelForValue(value);
+                return label || '';
+              },
+            },
+            grid: { display: false },
+          },
+          y: {
+            title: { display: true, text: isEn ? 'Cumulative %' : '累積 ％' },
+            ticks: {
+              callback(value) {
+                const sign = value > 0 ? '+' : '';
+                return `${sign}${value}%`;
+              },
+            },
+          },
+        },
+      },
+    });
+  }
+
   function paintSmartMoneyTrendsTable(ctx) {
     const head = document.getElementById('cmp-smart-money-trends-thead');
     const body = document.getElementById('cmp-smart-money-trends-tbody');
@@ -10543,27 +10632,47 @@
     if (!head || !body || !status || !ctx) return;
     const { SM, isEn, dict, ticker, stockPayload, form4Trades, spyChart, stockChart } = ctx;
     const period = smartMoneyTrendPeriod || '3m';
-    const spyPct = SM.priceTrendPct(spyChart, period);
-    const stockPct = SM.priceTrendPct(stockChart, period);
-    const trends = SM.smartDumpTrends(stockPayload, period, form4Trades || []);
+    const series = typeof SM.buildTrendLineSeries === 'function'
+      ? SM.buildTrendLineSeries(spyChart, stockChart, stockPayload, form4Trades || [], period)
+      : null;
+    const trends = series?.summary || SM.smartDumpTrends(stockPayload, period, form4Trades || []);
+    const spyPct = series?.spy?.length
+      ? series.spy.filter(v => v != null).at(-1)
+      : SM.priceTrendPct(spyChart, period);
+    const stockPct = series?.stock?.length
+      ? series.stock.filter(v => v != null).at(-1)
+      : SM.priceTrendPct(stockChart, period);
+    // Prefer end-of-line Smart/Dump so table matches chart; fall back to summary.
+    const smartEnd = series?.smart?.length ? series.smart.filter(v => v != null).at(-1) : null;
+    const dumpEnd = series?.dump?.length ? series.dump.filter(v => v != null).at(-1) : null;
+    const smartPct = smartEnd != null ? smartEnd : trends.smartPct;
+    const dumpPct = dumpEnd != null ? dumpEnd : (trends.dumpPct != null ? trends.dumpPct : 0);
+
+    paintSmartMoneyTrendsChart(ctx, series);
+
     head.innerHTML = `<th class="table-sticky-col">${dict.th_sm_trend_series}</th>`
       + `<th>${dict.th_sm_trend_change}</th>`;
     const rows = [
       [dict.sm_trend_spy, spyPct, false],
       [dict.sm_trend_stock, stockPct, false],
-      [dict.sm_trend_smart, trends.smartPct, trends.smartLabel === 'ownership-pp'],
-      [dict.sm_trend_dump, trends.dumpPct, false],
+      [dict.sm_trend_smart, smartPct, trends.smartLabel === 'ownership-pp'],
+      [dict.sm_trend_dump, dumpPct, false],
     ];
     body.innerHTML = rows.map(([label, value, asPoints]) => {
-      const cls = smartMoneyTrendTone(value);
+      const useZero = (label === dict.sm_trend_dump || label === dict.sm_trend_smart) && value == null;
+      const shown = useZero ? 0 : value; // Dump/Smart: show 0 instead of blank when no activity
+      const cls = smartMoneyTrendTone(shown);
+      const display = formatSmartMoneyTrendPct(shown, { points: asPoints && !useZero });
       return `<tr><td class="table-sticky-col" style="text-align:left;">${escapeAttribute(label)}</td>`
-        + `<td class="${cls}">${formatSmartMoneyTrendPct(value, { points: asPoints })}</td></tr>`;
+        + `<td class="${cls}">${display}</td></tr>`;
     }).join('');
-    const basis = trends.basis ? ` · ${trends.basis}` : '';
-    const noteKey = trends.note || '';
+    const basis = (series?.basis || trends.basis) ? ` · ${series?.basis || trends.basis}` : '';
+    const noteKey = series?.note || trends.note || '';
     let note = '';
     if (noteKey === 'form4') {
       note = isEn ? 'Form 4 window (timelier than 13F).' : 'Form 4 視窗（較 13F 及時）。';
+    } else if (noteKey === 'form4-empty') {
+      note = isEn ? 'No Form 4 buys/sells in this window — Smart/Dump at 0.' : '此視窗無 Form 4 買賣 — 智資／出清為 0。';
     } else if (noteKey === '13f-lag' || noteKey === 'single-quarter' || noteKey === 'snapshot-only') {
       note = isEn
         ? '13F is quarterly — short windows show the latest available book / lag.'
@@ -10573,7 +10682,8 @@
     } else if (noteKey === 'unavailable') {
       note = isEn ? 'Trend inputs unavailable for this period.' : '此期間缺少趨勢輸入。';
     }
-    status.textContent = `${ticker} · ${period}${basis}${note ? ' · ' + note : ''}`;
+    const chartNote = dict.sm_trend_chart_note || '';
+    status.textContent = `${ticker} · ${period}${basis}${note ? ' · ' + note : ''}${chartNote ? ' · ' + chartNote : ''}`;
   }
 
   function renderSmartMoneyTrendsSection(ticker, stock, SM, isEn, dict, stockPayload) {
@@ -10582,6 +10692,7 @@
     const body = document.getElementById('cmp-smart-money-trends-tbody');
     if (status) status.textContent = dict.sm_trend_loading || (isEn ? 'Loading…' : '載入中…');
     if (body) body.innerHTML = '';
+    destroySmartMoneyTrendsChart();
     const loadChart = (sym) => fetch(`cache/price_charts/${encodeURIComponent(sym)}.json`)
       .then(async (response) => (response.ok ? response.json() : null))
       .catch(() => null);

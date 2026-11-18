@@ -1868,12 +1868,30 @@
       for (const t of trades) {
         const day = String(t.transactionDate || t.filingDate || t.date || '').slice(0, 10);
         if (!day || day < cutoff) continue;
-        const value = Math.abs(finite(t.value ?? t.transactionValue ?? (finite(t.price) * finite(t.shares))));
-        const side = String(t.side || t.transactionType || t.acqOrDisp || '').toLowerCase();
-        const isSell = side === 'sell' || side === 'd' || side.includes('sale') || side.includes('dispose');
-        const isBuy = side === 'buy' || side === 'a' || side.includes('purchase') || side.includes('acqu');
-        if (isSell) sell += value;
-        else if (isBuy) buy += value;
+        // Normalized Form4 uses is_buy / action / acquisitionOrDisposition / total_val ($M).
+        const totalVal = finite(t.total_val);
+        const legacyVal = finite(t.value ?? t.transactionValue);
+        const px = finite(t.price);
+        const sh = finite(t.shares);
+        let value = null;
+        if (totalVal != null) value = Math.abs(totalVal) * 1e6; // total_val is $M
+        else if (legacyVal != null) value = Math.abs(legacyVal);
+        else if (px != null && sh != null) value = Math.abs(px * sh);
+        if (!(value > 0)) continue;
+
+        let isBuy = t.is_buy;
+        if (isBuy !== true && isBuy !== false) {
+          const acq = String(t.acquisitionOrDisposition || t.acqOrDisp || '').toUpperCase();
+          if (acq === 'A' || acq === 'ACQUIRED') isBuy = true;
+          else if (acq === 'D' || acq === 'DISPOSED') isBuy = false;
+        }
+        if (isBuy !== true && isBuy !== false) {
+          const action = String(t.action || t.side || t.transactionType || '');
+          if (/^P(?:-|$)/i.test(action) || /buy|purchase|acqu/i.test(action)) isBuy = true;
+          else if (/^S(?:-|$)/i.test(action) || /sell|sale|dispos/i.test(action)) isBuy = false;
+        }
+        if (isBuy === true) buy += value;
+        else if (isBuy === false) sell += value;
       }
       const net = buy - sell;
       const denom = buy + sell;
@@ -1887,6 +1905,15 @@
           note: 'form4',
         };
       }
+      // Trades exist but none in-window / unparseable — still show 0 dump, not blank.
+      return {
+        smartPct: 0,
+        dumpPct: 0,
+        smartLabel: 'form4-net',
+        dumpLabel: 'form4-sells',
+        basis: `${cutoff}→`,
+        note: 'form4-empty',
+      };
     }
 
     if (quarters.length < 2) {
@@ -1906,9 +1933,10 @@
         if (shares > 0 && last > 0 && own != null) return own * (last / shares);
         return null;
       }));
+      const dumpOut = outflow != null ? outflow : 0;
       return {
         smartPct: ownNow != null && ownPrior != null ? (ownNow - ownPrior) : null,
-        dumpPct: priorValue > 0 && outflow != null ? -(outflow / priorValue) * 100 : null,
+        dumpPct: priorValue > 0 ? -(dumpOut / priorValue) * 100 : 0,
         smartLabel: 'ownership-pp',
         dumpLabel: 'exit-outflow',
         basis: snap.key || 'latest',
@@ -1930,19 +1958,19 @@
     const ownNow = sumOwnership(latestRows);
     const ownPrior = sumOwnership(priorRows);
     const valuePrior = sumMarketValue(priorRows);
-    // Dump: market value of CIKs that disappeared or cut shares ≥50% vs prior.
+    // Dump: market value of exits + any share reductions vs prior (not only ≥50% cuts).
     const latestBy = new Map(latestRows.map(r => [padCik(r.cik), r]));
     let dumpValue = 0;
     for (const row of priorRows) {
       const cik = padCik(row.cik);
       const now = latestBy.get(cik);
       const prevShares = finite(row.sharesNumber ?? row.shares);
-      const prevVal = finite(row.marketValue);
+      const prevVal = finite(row.marketValue) || 0;
       if (!now || finite(now.sharesNumber ?? now.shares) <= 0) {
-        dumpValue += prevVal || 0;
+        dumpValue += prevVal;
       } else if (prevShares > 0) {
-        const nowShares = finite(now.sharesNumber ?? now.shares);
-        if (nowShares < prevShares * 0.5) {
+        const nowShares = finite(now.sharesNumber ?? now.shares) || 0;
+        if (nowShares < prevShares && prevVal > 0) {
           dumpValue += prevVal * ((prevShares - nowShares) / prevShares);
         }
       }
@@ -1950,11 +1978,225 @@
 
     return {
       smartPct: ownNow != null && ownPrior != null ? (ownNow - ownPrior) : null,
-      dumpPct: valuePrior > 0 ? -(dumpValue / valuePrior) * 100 : null,
+      dumpPct: valuePrior > 0 ? -(dumpValue / valuePrior) * 100 : 0,
       smartLabel: 'ownership-pp',
       dumpLabel: 'exit-outflow',
       basis: `${prior.key || prior.year + '-Q' + prior.quarter}→${latest.key || latest.year + '-Q' + latest.quarter}`,
       note: short ? '13f-lag' : '13f',
+    };
+  }
+
+
+
+  /** Slice price rows to a trend period; returns [{date, close}, ...]. */
+  function priceRowsForPeriod(chart, period) {
+    const rows = chart && Array.isArray(chart.rows) ? chart.rows : [];
+    if (rows.length < 2 || !TREND_PERIODS.includes(period)) return [];
+    const endIso = rows[rows.length - 1][0];
+    const cutoff = trendCutoffIso(endIso, period);
+    if (!cutoff) return [];
+    let startIdx = 0;
+    if (period === 'ytd') {
+      for (let i = rows.length - 1; i >= 0; i -= 1) {
+        if (rows[i][0] < cutoff) { startIdx = i; break; }
+      }
+    } else {
+      startIdx = rows.findIndex(row => row[0] >= cutoff);
+      if (startIdx < 0) startIdx = 0;
+    }
+    return rows.slice(startIdx).map(row => ({ date: row[0], close: row[1] }));
+  }
+
+  /** Indexed cumulative return % series from the first close (= 0). */
+  function indexedReturnSeries(points) {
+    if (!points.length || !(points[0].close > 0)) return [];
+    const base = points[0].close;
+    return points.map(p => ({
+      date: p.date,
+      value: Number.isFinite(p.close) && p.close > 0 ? (p.close / base - 1) * 100 : null,
+    }));
+  }
+
+  /**
+   * Build chart-ready trend lines for SPY / stock / Smart / Dump over a period.
+   * Prices are daily indexed returns (%). Smart/Dump are step series from 13F
+   * quarters (ownership Δ pp cumulative; cumulative exit/reduction % of prior book).
+   * Short windows may use Form 4 cumulative buy/sell when trades exist.
+   */
+  function buildTrendLineSeries(spyChart, stockChart, stockPayload, form4Trades, period) {
+    const spyPts = indexedReturnSeries(priceRowsForPeriod(spyChart, period));
+    const stockPts = indexedReturnSeries(priceRowsForPeriod(stockChart, period));
+    const labels = (stockPts.length >= spyPts.length ? stockPts : spyPts).map(p => p.date);
+    const byDate = (series) => {
+      const map = new Map(series.map(p => [p.date, p.value]));
+      let last = null;
+      return labels.map(d => {
+        if (map.has(d) && map.get(d) != null) last = map.get(d);
+        return last;
+      });
+    };
+
+    const quarters = (stockPayload && stockPayload.quarters) || [];
+    const short = period === '1d' || period === '1w' || period === '1m';
+    const trades = Array.isArray(form4Trades) ? form4Trades : [];
+    const endIso = labels.length ? labels[labels.length - 1]
+      : (quarters[0] && quarterEndIso(quarters[0].year, quarters[0].quarter))
+      || new Date().toISOString().slice(0, 10);
+    const cutoff = trendCutoffIso(String(endIso).slice(0, 10), period) || endIso;
+
+    let smartSeries = labels.map(() => null);
+    let dumpSeries = labels.map(() => null);
+    let basis = null;
+    let note = 'price-only';
+
+    if (short && trades.length && labels.length) {
+      const events = [];
+      for (const t of trades) {
+        const day = String(t.transactionDate || t.filingDate || t.date || '').slice(0, 10);
+        if (!day || day < cutoff) continue;
+        const totalVal = finite(t.total_val);
+        const legacyVal = finite(t.value ?? t.transactionValue);
+        const px = finite(t.price);
+        const sh = finite(t.shares);
+        let value = null;
+        if (totalVal != null) value = Math.abs(totalVal) * 1e6;
+        else if (legacyVal != null) value = Math.abs(legacyVal);
+        else if (px != null && sh != null) value = Math.abs(px * sh);
+        if (!(value > 0)) continue;
+        let isBuy = t.is_buy;
+        if (isBuy !== true && isBuy !== false) {
+          const acq = String(t.acquisitionOrDisposition || t.acqOrDisp || '').toUpperCase();
+          if (acq === 'A' || acq === 'ACQUIRED') isBuy = true;
+          else if (acq === 'D' || acq === 'DISPOSED') isBuy = false;
+        }
+        if (isBuy !== true && isBuy !== false) {
+          const action = String(t.action || t.side || t.transactionType || '');
+          if (/^P(?:-|$)/i.test(action) || /buy|purchase|acqu/i.test(action)) isBuy = true;
+          else if (/^S(?:-|$)/i.test(action) || /sell|sale|dispos/i.test(action)) isBuy = false;
+        }
+        if (isBuy !== true && isBuy !== false) continue;
+        events.push({ day, buy: isBuy ? value : 0, sell: isBuy ? 0 : value });
+      }
+      events.sort((a, b) => (a.day < b.day ? -1 : a.day > b.day ? 1 : 0));
+      let buy = 0;
+      let sell = 0;
+      const smartMap = new Map();
+      const dumpMap = new Map();
+      for (const ev of events) {
+        buy += ev.buy;
+        sell += ev.sell;
+        const denom = buy + sell;
+        smartMap.set(ev.day, denom > 0 ? ((buy - sell) / denom) * 100 : 0);
+        dumpMap.set(ev.day, denom > 0 ? -(sell / denom) * 100 : 0);
+      }
+      let sLast = 0;
+      let dLast = 0;
+      smartSeries = labels.map(d => {
+        if (smartMap.has(d)) sLast = smartMap.get(d);
+        return sLast;
+      });
+      dumpSeries = labels.map(d => {
+        if (dumpMap.has(d)) dLast = dumpMap.get(d);
+        return dLast;
+      });
+      basis = `${cutoff}→form4`;
+      note = events.length ? 'form4' : 'form4-empty';
+    } else if (quarters.length >= 1 && labels.length) {
+      // Oldest → newest for cumulative path
+      const ordered = [...quarters].reverse();
+      const qPoints = [];
+      for (let i = 0; i < ordered.length; i += 1) {
+        const q = ordered[i];
+        const iso = quarterEndIso(q.year, q.quarter);
+        if (!iso || iso < cutoff) continue;
+        const rows = q.rows || [];
+        const own = sumOwnership(rows);
+        let dumpPct = 0;
+        if (i > 0) {
+          const prevRows = ordered[i - 1].rows || [];
+          const valuePrior = sumMarketValue(prevRows);
+          const latestBy = new Map(rows.map(r => [padCik(r.cik), r]));
+          let dumpValue = 0;
+          for (const row of prevRows) {
+            const cik = padCik(row.cik);
+            const now = latestBy.get(cik);
+            const prevShares = finite(row.sharesNumber ?? row.shares);
+            const prevVal = finite(row.marketValue) || 0;
+            if (!now || finite(now.sharesNumber ?? now.shares) <= 0) dumpValue += prevVal;
+            else if (prevShares > 0) {
+              const nowShares = finite(now.sharesNumber ?? now.shares) || 0;
+              if (nowShares < prevShares && prevVal > 0) {
+                dumpValue += prevVal * ((prevShares - nowShares) / prevShares);
+              }
+            }
+          }
+          dumpPct = valuePrior > 0 ? -(dumpValue / valuePrior) * 100 : 0;
+        }
+        qPoints.push({ date: iso, ownership: own, dumpPct });
+      }
+      if (qPoints.length) {
+        const baseOwn = qPoints[0].ownership;
+        let cumDump = 0;
+        const steps = [];
+        for (const pt of qPoints) {
+          cumDump += pt.dumpPct || 0;
+          steps.push({
+            date: pt.date,
+            smart: baseOwn != null && pt.ownership != null ? (pt.ownership - baseOwn) : 0,
+            dump: cumDump,
+          });
+        }
+        let si = 0;
+        let sLast = 0;
+        let dLast = 0;
+        const firstQ = steps[0].date;
+        smartSeries = labels.map(d => {
+          while (si < steps.length && steps[si].date <= d) {
+            sLast = steps[si].smart;
+            dLast = steps[si].dump;
+            si += 1;
+          }
+          return d < firstQ ? 0 : sLast;
+        });
+        si = 0;
+        sLast = 0;
+        dLast = 0;
+        dumpSeries = labels.map(d => {
+          while (si < steps.length && steps[si].date <= d) {
+            sLast = steps[si].smart;
+            dLast = steps[si].dump;
+            si += 1;
+          }
+          return d < firstQ ? 0 : dLast;
+        });
+        basis = `${qPoints[0].date}→${qPoints[qPoints.length - 1].date}`;
+        note = short ? '13f-lag' : '13f';
+      }
+    }
+
+    const summary = smartDumpTrends(stockPayload, period, form4Trades);
+    // If no in-window 13F/Form4 steps, flat-line the period summary so Dump/Smart never blank.
+    const smartHas = smartSeries.some(v => v != null);
+    const dumpHas = dumpSeries.some(v => v != null);
+    if (labels.length && !smartHas) {
+      const v = summary.smartPct != null ? summary.smartPct : 0;
+      smartSeries = labels.map(() => v);
+      if (!basis) basis = summary.basis;
+      if (!note || note === 'price-only') note = summary.note || '13f';
+    }
+    if (labels.length && !dumpHas) {
+      const v = summary.dumpPct != null ? summary.dumpPct : 0;
+      dumpSeries = labels.map(() => v);
+    }
+    return {
+      labels,
+      spy: byDate(spyPts),
+      stock: byDate(stockPts),
+      smart: smartSeries,
+      dump: dumpSeries,
+      summary,
+      basis: summary.basis || basis,
+      note: summary.note || note,
     };
   }
 
@@ -2039,5 +2281,8 @@
     priceTrendPct,
     smartDumpTrends,
     trendCutoffIso,
+    priceRowsForPeriod,
+    indexedReturnSeries,
+    buildTrendLineSeries,
   };
 }));
