@@ -935,7 +935,7 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "saas-prop-mgmt",
-        ["APPF"],  # property-management SaaS — PCOR is construction software
+        ["APPF", "CSGP"],  # property-mgmt / real-estate software — PCOR is construction-software
         "物業／營運管理 SaaS 對手",
         "Property / ops-management SaaS rival",
     ),
