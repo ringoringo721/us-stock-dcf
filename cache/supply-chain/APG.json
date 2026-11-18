@@ -11,188 +11,188 @@
     "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
     "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
     "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
-    "modelId": "industrials-v1",
+    "modelId": "specialty-contracting-v1",
     "references": [
-      "Industry model `industrials-v1`",
+      "Industry model `specialty-contracting-v1`",
       "AAPL curated seed shape on main (schema reference)",
       "cache/us_universe.json screen: remaining US listings without supply-chain seed",
       "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
     ]
   },
   "model": {
-    "id": "industrials-v1",
-    "label_zh": "工業製造價值鏈",
-    "label_en": "Industrial manufacturing value chain",
-    "description_zh": "原材料 → 關鍵部件 → 製造自動化 → 經銷／租賃 → 終端基建客戶。",
-    "description_en": "Raw materials → critical parts → automation → dealers/rental → end infrastructure."
+    "id": "specialty-contracting-v1",
+    "label_zh": "消防／特種工程承攬價值鏈",
+    "label_en": "Fire-protection / specialty contracting value chain",
+    "description_zh": "偵測／滅火部件 → 系統／設備 → 特種工程承攬 → 商業／工業客戶 → 保險／風險。對手 EPC 只列 rivals。",
+    "description_en": "Detection / suppression components → systems / equipment → specialty contractors → commercial / industrial customers → insurance / risk. Peer EPCs stay rivals only."
   },
   "stages": [
     {
-      "id": "materials",
-      "order": 1,
-      "label_zh": "原材料／鋼鐵鋁",
-      "label_en": "Raw materials / metals",
-      "summary_zh": "鋼、鋁與基礎材料。",
-      "summary_en": "Steel, aluminum, base materials.",
-      "players": [
-        {
-          "ticker": "NUE",
-          "name_en": "Nucor",
-          "name_zh": "紐柯",
-          "role_zh": "紐柯：原材料／鋼鐵鋁代表性玩家",
-          "role_en": "Nucor: representative player in Raw materials / metals",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "FCX",
-          "name_en": "Freeport-McMoRan",
-          "name_zh": "自由港麥克莫蘭",
-          "role_zh": "自由港麥克莫蘭：原材料／鋼鐵鋁代表性玩家",
-          "role_en": "Freeport-McMoRan: representative player in Raw materials / metals",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "DOW",
-          "name_en": "Dow",
-          "name_zh": "陶氏化學",
-          "role_zh": "陶氏化學：原材料／鋼鐵鋁代表性玩家",
-          "role_en": "Dow: representative player in Raw materials / metals",
-          "exchange": "NYSE"
-        }
-      ]
-    },
-    {
       "id": "components",
-      "order": 2,
-      "label_zh": "關鍵部件／動力系統",
-      "label_en": "Critical components / powertrain",
-      "summary_zh": "引擎、液壓、電力電子。",
-      "summary_en": "Engines, hydraulics, power electronics.",
+      "order": 1,
+      "label_zh": "偵測／滅火部件",
+      "label_en": "Detection / suppression components",
+      "summary_zh": "感測、噴頭與管件。",
+      "summary_en": "Sensors, sprinklers, fittings.",
       "players": [
-        {
-          "ticker": "ETN",
-          "name_en": "Eaton",
-          "name_zh": "伊頓",
-          "role_zh": "伊頓：關鍵部件／動力系統代表性玩家",
-          "role_en": "Eaton: representative player in Critical components / powertrain",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "PH",
-          "name_en": "Parker-Hannifin",
-          "name_zh": "派克漢尼汾",
-          "role_zh": "派克漢尼汾：關鍵部件／動力系統代表性玩家",
-          "role_en": "Parker-Hannifin: representative player in Critical components / powertrain",
-          "exchange": "NYSE"
-        },
         {
           "ticker": "EMR",
           "name_en": "Emerson",
           "name_zh": "艾默生",
-          "role_zh": "艾默生：關鍵部件／動力系統代表性玩家",
-          "role_en": "Emerson: representative player in Critical components / powertrain",
-          "exchange": "NYSE"
-        }
-      ]
-    },
-    {
-      "id": "automation",
-      "order": 3,
-      "label_zh": "自動化／軟體",
-      "label_en": "Automation / software",
-      "summary_zh": "工控、感測與數位雙生。",
-      "summary_en": "Controls, sensors, digital twins.",
-      "players": [
-        {
-          "ticker": "ROK",
-          "name_en": "Rockwell Automation",
-          "name_zh": "羅克韋爾",
-          "role_zh": "羅克韋爾：自動化／軟體代表性玩家",
-          "role_en": "Rockwell Automation: representative player in Automation / software",
+          "role_zh": "艾默生：偵測／滅火部件代表性玩家",
+          "role_en": "Emerson: representative player in Detection / suppression components",
           "exchange": "NYSE"
         },
         {
           "ticker": "HON",
           "name_en": "Honeywell",
           "name_zh": "漢威聯合",
-          "role_zh": "漢威聯合：自動化／軟體代表性玩家",
-          "role_en": "Honeywell: representative player in Automation / software",
+          "role_zh": "漢威聯合：偵測／滅火部件代表性玩家",
+          "role_en": "Honeywell: representative player in Detection / suppression components",
           "exchange": "NASDAQ"
         },
         {
-          "ticker": "SNPS",
-          "name_en": "Synopsys",
-          "name_zh": "新思科技",
-          "role_zh": "新思科技：自動化／軟體代表性玩家",
-          "role_en": "Synopsys: representative player in Automation / software",
-          "exchange": "NASDAQ"
+          "ticker": "ROK",
+          "name_en": "Rockwell Automation",
+          "name_zh": "羅克韋爾",
+          "role_zh": "羅克韋爾：偵測／滅火部件代表性玩家",
+          "role_en": "Rockwell Automation: representative player in Detection / suppression components",
+          "exchange": "NYSE"
         }
       ]
     },
     {
-      "id": "dealers",
-      "order": 4,
-      "label_zh": "經銷／租賃通路",
-      "label_en": "Dealer / rental channel",
-      "summary_zh": "設備經銷與租賃。",
-      "summary_en": "Equipment dealers and rental.",
+      "id": "systems",
+      "order": 2,
+      "label_zh": "系統／設備",
+      "label_en": "Systems / equipment",
+      "summary_zh": "消防與生命安全系統。",
+      "summary_en": "Fire and life-safety systems.",
       "players": [
         {
-          "ticker": "CAT",
-          "name_en": "Caterpillar",
-          "name_zh": "開拓重工",
-          "role_zh": "開拓重工：經銷／租賃通路代表性玩家",
-          "role_en": "Caterpillar: representative player in Dealer / rental channel",
+          "ticker": "JCI",
+          "name_en": "Johnson Controls",
+          "name_zh": "江森自控",
+          "role_zh": "江森自控：系統／設備代表性玩家",
+          "role_en": "Johnson Controls: representative player in Systems / equipment",
           "exchange": "NYSE"
         },
         {
-          "ticker": "DE",
-          "name_en": "Deere",
-          "name_zh": "強鹿公司 (Deere)",
-          "role_zh": "強鹿公司 (Deere)：經銷／租賃通路代表性玩家",
-          "role_en": "Deere: representative player in Dealer / rental channel",
+          "ticker": "CARR",
+          "name_en": "Carrier",
+          "name_zh": "Carrier",
+          "role_zh": "Carrier：系統／設備代表性玩家",
+          "role_en": "Carrier: representative player in Systems / equipment",
           "exchange": "NYSE"
         },
         {
-          "ticker": "ETN",
-          "name_en": "Eaton",
-          "name_zh": "伊頓",
-          "role_zh": "伊頓：經銷／租賃通路代表性玩家",
-          "role_en": "Eaton: representative player in Dealer / rental channel",
+          "ticker": "TT",
+          "name_en": "Trane Technologies",
+          "name_zh": "Trane Technologies",
+          "role_zh": "Trane Technologies：系統／設備代表性玩家",
+          "role_en": "Trane Technologies: representative player in Systems / equipment",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "contracting",
+      "order": 3,
+      "label_zh": "特種工程承攬",
+      "label_en": "Specialty contracting",
+      "summary_zh": "安裝與維運承攬（非對手墊）。",
+      "summary_en": "Install and service contracting — not rival pads.",
+      "players": [
+        {
+          "ticker": "WCC",
+          "name_en": "WESCO International",
+          "name_zh": "WESCO",
+          "role_zh": "WESCO：特種工程承攬代表性玩家",
+          "role_en": "WESCO International: representative player in Specialty contracting",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "FAST",
+          "name_en": "Fastenal",
+          "name_zh": "Fastenal",
+          "role_zh": "Fastenal：特種工程承攬代表性玩家",
+          "role_en": "Fastenal: representative player in Specialty contracting",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "GWW",
+          "name_en": "Grainger",
+          "name_zh": "固安捷",
+          "role_zh": "固安捷：特種工程承攬代表性玩家",
+          "role_en": "Grainger: representative player in Specialty contracting",
           "exchange": "NYSE"
         }
       ]
     },
     {
       "id": "customers",
-      "order": 5,
-      "label_zh": "基建／能源／礦業客戶",
-      "label_en": "Infra / energy / mining customers",
-      "summary_zh": "工程、能源與礦業終端。",
-      "summary_en": "Construction, energy, mining.",
+      "order": 4,
+      "label_zh": "商業／工業客戶",
+      "label_en": "Commercial / industrial customers",
+      "summary_zh": "商業樓宇與工業設施。",
+      "summary_en": "Commercial buildings and industrial sites.",
       "players": [
         {
-          "ticker": "XOM",
-          "name_en": "Exxonmobil",
-          "name_zh": "埃克森美孚",
-          "role_zh": "埃克森美孚：基建／能源／礦業客戶代表性玩家",
-          "role_en": "Exxonmobil: representative player in Infra / energy / mining customers",
+          "ticker": "AMT",
+          "name_en": "American Tower",
+          "name_zh": "美國電塔",
+          "role_zh": "美國電塔：商業／工業客戶代表性玩家",
+          "role_en": "American Tower: representative player in Commercial / industrial customers",
           "exchange": "NYSE"
         },
         {
-          "ticker": "UNP",
-          "name_en": "Union Pacific",
-          "name_zh": "聯合太平洋鐵路",
-          "role_zh": "聯合太平洋鐵路：基建／能源／礦業客戶代表性玩家",
-          "role_en": "Union Pacific: representative player in Infra / energy / mining customers",
+          "ticker": "EQIX",
+          "name_en": "Equinix",
+          "name_zh": "Equinix",
+          "role_zh": "Equinix：商業／工業客戶代表性玩家",
+          "role_en": "Equinix: representative player in Commercial / industrial customers",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "SPG",
+          "name_en": "Simon Property",
+          "name_zh": "西蒙地產",
+          "role_zh": "西蒙地產：商業／工業客戶代表性玩家",
+          "role_en": "Simon Property: representative player in Commercial / industrial customers",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "insurance",
+      "order": 5,
+      "label_zh": "保險／風險",
+      "label_en": "Insurance / risk",
+      "summary_zh": "產險與風險工程鄰接。",
+      "summary_en": "P&C and risk-engineering adjacency.",
+      "players": [
+        {
+          "ticker": "CB",
+          "name_en": "Chubb",
+          "name_zh": "安達保險",
+          "role_zh": "安達保險：保險／風險代表性玩家",
+          "role_en": "Chubb: representative player in Insurance / risk",
           "exchange": "NYSE"
         },
         {
-          "ticker": "NEE",
-          "name_en": "NextEra Energy",
-          "name_zh": "新紀元能源",
-          "role_zh": "新紀元能源：基建／能源／礦業客戶代表性玩家",
-          "role_en": "NextEra Energy: representative player in Infra / energy / mining customers",
+          "ticker": "PGR",
+          "name_en": "Progressive",
+          "name_zh": "前進保險",
+          "role_zh": "前進保險：保險／風險代表性玩家",
+          "role_en": "Progressive: representative player in Insurance / risk",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "TRV",
+          "name_en": "Travelers",
+          "name_zh": "旅行者保險",
+          "role_zh": "旅行者保險：保險／風險代表性玩家",
+          "role_en": "Travelers: representative player in Insurance / risk",
           "exchange": "NYSE"
         }
       ]

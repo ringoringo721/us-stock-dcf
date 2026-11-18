@@ -46,32 +46,32 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "MSFT": {
-      "ticker": "MSFT",
-      "price": 523.88,
-      "previousClose": 523.0,
-      "changePct": 0.168,
-      "mcap": 3940410.7,
+    "ADT": {
+      "ticker": "ADT",
+      "price": 9.9,
+      "previousClose": 9.89,
+      "changePct": 0.101,
+      "mcap": 6663.5,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "NOW": {
-      "ticker": "NOW",
-      "price": 102.25,
-      "previousClose": 100.66,
-      "changePct": 1.58,
-      "mcap": 105836.4,
+    "JCI": {
+      "ticker": "JCI",
+      "price": 139.33,
+      "previousClose": 142.55,
+      "changePct": -2.259,
+      "mcap": 81793.3,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "CRM": {
-      "ticker": "CRM",
-      "price": 217.84,
-      "previousClose": 217.57,
-      "changePct": 0.124,
-      "mcap": 175834.0,
+    "MSI": {
+      "ticker": "MSI",
+      "price": 531.2,
+      "previousClose": 530.4,
+      "changePct": 0.151,
+      "mcap": 85148.3,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"

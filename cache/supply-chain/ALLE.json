@@ -70,27 +70,27 @@
       "summary_en": "Access management and credential platforms.",
       "players": [
         {
-          "ticker": "MSFT",
-          "name_en": "Microsoft",
-          "name_zh": "微軟",
-          "role_zh": "微軟：門禁軟體／憑證代表性玩家",
-          "role_en": "Microsoft: representative player in Access software / credentials",
-          "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "NOW",
-          "name_en": "ServiceNow",
-          "name_zh": "ServiceNow",
-          "role_zh": "ServiceNow：門禁軟體／憑證代表性玩家",
-          "role_en": "ServiceNow: representative player in Access software / credentials",
+          "ticker": "ADT",
+          "name_en": "ADT",
+          "name_zh": "ADT",
+          "role_zh": "ADT：門禁軟體／憑證代表性玩家",
+          "role_en": "ADT: representative player in Access software / credentials",
           "exchange": "NYSE"
         },
         {
-          "ticker": "CRM",
-          "name_en": "Salesforce",
-          "name_zh": "賽富時",
-          "role_zh": "賽富時：門禁軟體／憑證代表性玩家",
-          "role_en": "Salesforce: representative player in Access software / credentials",
+          "ticker": "JCI",
+          "name_en": "Johnson Controls",
+          "name_zh": "江森自控",
+          "role_zh": "江森自控：門禁軟體／憑證代表性玩家",
+          "role_en": "Johnson Controls: representative player in Access software / credentials",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "MSI",
+          "name_en": "Motorola Solutions",
+          "name_zh": "摩托羅拉解決方案",
+          "role_zh": "摩托羅拉解決方案：門禁軟體／憑證代表性玩家",
+          "role_en": "Motorola Solutions: representative player in Access software / credentials",
           "exchange": "NYSE"
         }
       ]
