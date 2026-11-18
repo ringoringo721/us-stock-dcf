@@ -11,189 +11,189 @@
     "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
     "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
     "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
-    "modelId": "consumer-discretionary-v1",
+    "modelId": "housing-brokerage-v1",
     "references": [
-      "Industry model `consumer-discretionary-v1`",
+      "Industry model `housing-brokerage-v1`",
       "AAPL curated seed shape on main (schema reference)",
       "cache/us_universe.json screen: remaining US listings without supply-chain seed",
       "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
     ]
   },
   "model": {
-    "id": "consumer-discretionary-v1",
-    "label_zh": "非必需消費／餐旅價值鏈",
-    "label_en": "Consumer discretionary / hospitality value chain",
-    "description_zh": "原料／商品 → 物流 → 門市／平台 → 支付 → 行銷流量。",
-    "description_en": "Inputs/goods → logistics → stores/platforms → payments → marketing traffic."
+    "id": "housing-brokerage-v1",
+    "label_zh": "住房經紀／交易價值鏈",
+    "label_en": "Housing brokerage / transaction value chain",
+    "description_zh": "流量／房源 → 經紀／加盟 → 按揭／交易服務 → 物業科技工具 → 住房需求。",
+    "description_en": "Traffic / listings → agents / franchise → mortgage / transaction services → proptech tools → housing demand."
   },
   "stages": [
     {
-      "id": "inputs",
-      "order": 1,
-      "label_zh": "原料／商品供應",
-      "label_en": "Inputs / merchandise supply",
-      "summary_zh": "食材、商品與授權 IP。",
-      "summary_en": "Food, goods, licensed IP.",
-      "players": [
-        {
-          "ticker": "ADM",
-          "name_en": "Archer-Daniels-Midland",
-          "name_zh": "阿徹丹尼爾斯米德蘭",
-          "role_zh": "阿徹丹尼爾斯米德蘭：原料／商品供應代表性玩家",
-          "role_en": "Archer-Daniels-Midland: representative player in Inputs / merchandise supply",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "NKE",
-          "name_en": "Nike",
-          "name_zh": "耐吉",
-          "role_zh": "耐吉：原料／商品供應代表性玩家",
-          "role_en": "Nike: representative player in Inputs / merchandise supply",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "DIS",
-          "name_en": "Walt Disney",
-          "name_zh": "迪士尼",
-          "role_zh": "迪士尼：原料／商品供應代表性玩家",
-          "role_en": "Walt Disney: representative player in Inputs / merchandise supply",
-          "exchange": "NYSE"
-        }
-      ]
-    },
-    {
-      "id": "logistics",
-      "order": 2,
-      "label_zh": "物流／冷鏈",
-      "label_en": "Logistics / cold chain",
-      "summary_zh": "配送與庫存網路。",
-      "summary_en": "Distribution and inventory.",
-      "players": [
-        {
-          "ticker": "UPS",
-          "name_en": "United Parcel Service",
-          "name_zh": "優比速",
-          "role_zh": "優比速：物流／冷鏈代表性玩家",
-          "role_en": "United Parcel Service: representative player in Logistics / cold chain",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "FDX",
-          "name_en": "FedEx",
-          "name_zh": "聯邦快遞",
-          "role_zh": "聯邦快遞：物流／冷鏈代表性玩家",
-          "role_en": "FedEx: representative player in Logistics / cold chain",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "UNP",
-          "name_en": "Union Pacific",
-          "name_zh": "聯合太平洋鐵路",
-          "role_zh": "聯合太平洋鐵路：物流／冷鏈代表性玩家",
-          "role_en": "Union Pacific: representative player in Logistics / cold chain",
-          "exchange": "NYSE"
-        }
-      ]
-    },
-    {
-      "id": "stores",
-      "order": 3,
-      "label_zh": "門市／數位平台",
-      "label_en": "Stores / digital platforms",
-      "summary_zh": "直營、加盟與 App。",
-      "summary_en": "Owned, franchise, apps.",
-      "players": [
-        {
-          "ticker": "SBUX",
-          "name_en": "Starbucks",
-          "name_zh": "星巴克",
-          "role_zh": "星巴克：門市／數位平台代表性玩家",
-          "role_en": "Starbucks: representative player in Stores / digital platforms",
-          "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "MCD",
-          "name_en": "McDonald's",
-          "name_zh": "麥當勞",
-          "role_zh": "麥當勞：門市／數位平台代表性玩家",
-          "role_en": "McDonald's: representative player in Stores / digital platforms",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "MAR",
-          "name_en": "Marriott International",
-          "name_zh": "萬豪國際",
-          "role_zh": "萬豪國際：門市／數位平台代表性玩家",
-          "role_en": "Marriott International: representative player in Stores / digital platforms",
-          "exchange": "NASDAQ"
-        }
-      ]
-    },
-    {
-      "id": "payments",
-      "order": 4,
-      "label_zh": "支付／忠誠",
-      "label_en": "Payments / loyalty",
-      "summary_zh": "卡支付與會員體系。",
-      "summary_en": "Card rails and loyalty.",
-      "players": [
-        {
-          "ticker": "V",
-          "name_en": "Visa",
-          "name_zh": "威士卡",
-          "role_zh": "威士卡：支付／忠誠代表性玩家",
-          "role_en": "Visa: representative player in Payments / loyalty",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "MA",
-          "name_en": "Mastercard",
-          "name_zh": "萬事達卡",
-          "role_zh": "萬事達卡：支付／忠誠代表性玩家",
-          "role_en": "Mastercard: representative player in Payments / loyalty",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "AXP",
-          "name_en": "American Express",
-          "name_zh": "美國運通",
-          "role_zh": "美國運通：支付／忠誠代表性玩家",
-          "role_en": "American Express: representative player in Payments / loyalty",
-          "exchange": "NYSE"
-        }
-      ]
-    },
-    {
       "id": "traffic",
-      "order": 5,
-      "label_zh": "行銷／流量",
-      "label_en": "Marketing / traffic",
-      "summary_zh": "搜尋、社群與旅遊 OTA。",
-      "summary_en": "Search, social, travel OTAs.",
+      "order": 1,
+      "label_zh": "流量／房源",
+      "label_en": "Traffic / listings",
+      "summary_zh": "搜尋、入口與房源平台。",
+      "summary_en": "Search, portals, listing platforms.",
       "players": [
         {
           "ticker": "GOOG",
           "name_en": "Alphabet",
           "name_zh": "Alphabet（Google）",
-          "role_zh": "Alphabet（Google）：行銷／流量代表性玩家",
-          "role_en": "Alphabet: representative player in Marketing / traffic",
+          "role_zh": "Alphabet（Google）：流量／房源代表性玩家",
+          "role_en": "Alphabet: representative player in Traffic / listings",
           "exchange": "NASDAQ"
         },
         {
           "ticker": "META",
           "name_en": "Meta Platforms",
           "name_zh": "Meta (臉書)",
-          "role_zh": "Meta (臉書)：行銷／流量代表性玩家",
-          "role_en": "Meta Platforms: representative player in Marketing / traffic",
+          "role_zh": "Meta (臉書)：流量／房源代表性玩家",
+          "role_en": "Meta Platforms: representative player in Traffic / listings",
           "exchange": "NASDAQ"
         },
         {
-          "ticker": "BKNG",
-          "name_en": "Booking",
-          "name_zh": "Booking 控股",
-          "role_zh": "Booking 控股：行銷／流量代表性玩家",
-          "role_en": "Booking: representative player in Marketing / traffic",
+          "ticker": "ZG",
+          "name_en": "Zillow",
+          "name_zh": "Zillow",
+          "role_zh": "Zillow：流量／房源代表性玩家",
+          "role_en": "Zillow: representative player in Traffic / listings",
           "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "agents",
+      "order": 2,
+      "label_zh": "經紀／加盟",
+      "label_en": "Agents / franchise",
+      "summary_zh": "經紀人與加盟網絡。",
+      "summary_en": "Agents and franchise networks.",
+      "players": [
+        {
+          "ticker": "COMP",
+          "name_en": "Compass",
+          "name_zh": "Compass",
+          "role_zh": "Compass：經紀／加盟代表性玩家",
+          "role_en": "Compass: representative player in Agents / franchise",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "JLL",
+          "name_en": "Jones Lang LaSalle",
+          "name_zh": "仲量聯行",
+          "role_zh": "仲量聯行：經紀／加盟代表性玩家",
+          "role_en": "Jones Lang LaSalle: representative player in Agents / franchise",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "CBRE",
+          "name_en": "CBRE Group Inc.",
+          "name_zh": "CBRE",
+          "role_zh": "CBRE：經紀／加盟代表性玩家",
+          "role_en": "CBRE Group Inc.: representative player in Agents / franchise",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "transaction",
+      "order": 3,
+      "label_zh": "按揭／交易服務",
+      "label_en": "Mortgage / transaction services",
+      "summary_zh": "房貸、權證與結算。",
+      "summary_en": "Mortgage, title, closing.",
+      "players": [
+        {
+          "ticker": "BAC",
+          "name_en": "Bank of America",
+          "name_zh": "美國銀行",
+          "role_zh": "美國銀行：按揭／交易服務代表性玩家",
+          "role_en": "Bank of America: representative player in Mortgage / transaction services",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "JPM",
+          "name_en": "JPMorgan Chase & Co.",
+          "name_zh": "摩根大通",
+          "role_zh": "摩根大通：按揭／交易服務代表性玩家",
+          "role_en": "JPMorgan Chase & Co.: representative player in Mortgage / transaction services",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "WFC",
+          "name_en": "Wells Fargo",
+          "name_zh": "富國銀行",
+          "role_zh": "富國銀行：按揭／交易服務代表性玩家",
+          "role_en": "Wells Fargo: representative player in Mortgage / transaction services",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "proptech",
+      "order": 4,
+      "label_zh": "物業科技工具",
+      "label_en": "Proptech tools",
+      "summary_zh": "CRM、估價與管理軟體。",
+      "summary_en": "CRM, valuation, management software.",
+      "players": [
+        {
+          "ticker": "CSGP",
+          "name_en": "CoStar",
+          "name_zh": "科斯塔集團",
+          "role_zh": "科斯塔集團：物業科技工具代表性玩家",
+          "role_en": "CoStar: representative player in Proptech tools",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "APPF",
+          "name_en": "AppFolio",
+          "name_zh": "AppFolio",
+          "role_zh": "AppFolio：物業科技工具代表性玩家",
+          "role_en": "AppFolio: representative player in Proptech tools",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "ADBE",
+          "name_en": "Adobe",
+          "name_zh": "Adobe",
+          "role_zh": "Adobe：物業科技工具代表性玩家",
+          "role_en": "Adobe: representative player in Proptech tools",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "housing",
+      "order": 5,
+      "label_zh": "住房需求",
+      "label_en": "Housing demand",
+      "summary_zh": "建商與住房週期。",
+      "summary_en": "Homebuilders and housing cycle.",
+      "players": [
+        {
+          "ticker": "DHI",
+          "name_en": "D.R. Horton",
+          "name_zh": "D.R. Horton",
+          "role_zh": "D.R. Horton：住房需求代表性玩家",
+          "role_en": "D.R. Horton: representative player in Housing demand",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "LEN",
+          "name_en": "Lennar",
+          "name_zh": "Lennar",
+          "role_zh": "Lennar：住房需求代表性玩家",
+          "role_en": "Lennar: representative player in Housing demand",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "PHM",
+          "name_en": "PulteGroup",
+          "name_zh": "PulteGroup",
+          "role_zh": "PulteGroup：住房需求代表性玩家",
+          "role_en": "PulteGroup: representative player in Housing demand",
+          "exchange": "NYSE"
         }
       ]
     }

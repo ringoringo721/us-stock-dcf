@@ -200,43 +200,11 @@
   ],
   "competitors": [
     {
-      "ticker": "ARGX",
-      "name_en": "argenx",
-      "name_zh": "argenx",
-      "basis_zh": "免疫／生物製藥對手",
-      "basis_en": "Immunology / biotech rival",
-      "exchange": "NASDAQ"
-    },
-    {
-      "ticker": "REGN",
-      "name_en": "Regeneron",
-      "name_zh": "再生元製藥",
-      "basis_zh": "免疫／生物製藥對手",
-      "basis_en": "Immunology / biotech rival",
-      "exchange": "NASDAQ"
-    },
-    {
-      "ticker": "VRTX",
-      "name_en": "Vertex",
-      "name_zh": "福泰製藥",
-      "basis_zh": "免疫／生物製藥對手",
-      "basis_en": "Immunology / biotech rival",
-      "exchange": "NASDAQ"
-    },
-    {
       "ticker": "MRNA",
       "name_en": "Moderna",
       "name_zh": "Moderna",
-      "basis_zh": "免疫／生物製藥對手",
-      "basis_en": "Immunology / biotech rival",
-      "exchange": "NASDAQ"
-    },
-    {
-      "ticker": "AMGN",
-      "name_en": "Amgen",
-      "name_zh": "安進",
-      "basis_zh": "免疫／生物製藥對手",
-      "basis_en": "Immunology / biotech rival",
+      "basis_zh": "mRNA 疫苗對手",
+      "basis_en": "mRNA vaccine rival",
       "exchange": "NASDAQ"
     }
   ]

@@ -11,188 +11,188 @@
     "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
     "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
     "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
-    "modelId": "basic-materials-v1",
+    "modelId": "cement-aggregates-v1",
     "references": [
-      "Industry model `basic-materials-v1`",
+      "Industry model `cement-aggregates-v1`",
       "AAPL curated seed shape on main (schema reference)",
       "cache/us_universe.json screen: remaining US listings without supply-chain seed",
       "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
     ]
   },
   "model": {
-    "id": "basic-materials-v1",
-    "label_zh": "基礎材料／礦業價值鏈",
-    "label_en": "Basic materials / mining value chain",
-    "description_zh": "礦山設備 → 開採 → 冶煉加工 → 物流港口 → 工業／汽車客戶。",
-    "description_en": "Mining equipment → extraction → smelting → logistics/ports → industrial/auto customers."
+    "id": "cement-aggregates-v1",
+    "label_zh": "水泥／骨材價值鏈",
+    "label_en": "Cement / aggregates value chain",
+    "description_zh": "採石／骨材 → 水泥窯／熟料 → 預拌／物流 → 基建／住宅客戶 → 工程設備。對手同業只列 rivals。",
+    "description_en": "Quarry / aggregates → cement kiln / clinker → ready-mix / logistics → infra / residential customers → construction equipment. Peer producers stay rivals only."
   },
   "stages": [
     {
-      "id": "equipment",
+      "id": "aggregates",
       "order": 1,
-      "label_zh": "礦山／工程設備",
-      "label_en": "Mining / engineering equipment",
-      "summary_zh": "挖土機、卡車與工程機械。",
-      "summary_en": "Excavators, trucks, engineering kit.",
+      "label_zh": "採石／骨材",
+      "label_en": "Quarry / aggregates",
+      "summary_zh": "碎石、砂與骨材。",
+      "summary_en": "Crushed stone, sand, aggregates.",
       "players": [
         {
           "ticker": "CAT",
           "name_en": "Caterpillar",
           "name_zh": "開拓重工",
-          "role_zh": "開拓重工：礦山／工程設備代表性玩家",
-          "role_en": "Caterpillar: representative player in Mining / engineering equipment",
+          "role_zh": "開拓重工：採石／骨材代表性玩家",
+          "role_en": "Caterpillar: representative player in Quarry / aggregates",
           "exchange": "NYSE"
         },
         {
-          "ticker": "DE",
-          "name_en": "Deere",
-          "name_zh": "強鹿公司 (Deere)",
-          "role_zh": "強鹿公司 (Deere)：礦山／工程設備代表性玩家",
-          "role_en": "Deere: representative player in Mining / engineering equipment",
+          "ticker": "URI",
+          "name_en": "United Rentals",
+          "name_zh": "United Rentals",
+          "role_zh": "United Rentals：採石／骨材代表性玩家",
+          "role_en": "United Rentals: representative player in Quarry / aggregates",
           "exchange": "NYSE"
         },
         {
-          "ticker": "PH",
-          "name_en": "Parker-Hannifin",
-          "name_zh": "派克漢尼汾",
-          "role_zh": "派克漢尼汾：礦山／工程設備代表性玩家",
-          "role_en": "Parker-Hannifin: representative player in Mining / engineering equipment",
+          "ticker": "OSK",
+          "name_en": "Oshkosh",
+          "name_zh": "Oshkosh",
+          "role_zh": "Oshkosh：採石／骨材代表性玩家",
+          "role_en": "Oshkosh: representative player in Quarry / aggregates",
           "exchange": "NYSE"
         }
       ]
     },
     {
-      "id": "extraction",
+      "id": "cement",
       "order": 2,
-      "label_zh": "開採／選礦",
-      "label_en": "Extraction / processing",
-      "summary_zh": "礦場營運與選礦。",
-      "summary_en": "Mine ops and processing.",
+      "label_zh": "水泥窯／熟料",
+      "label_en": "Cement kiln / clinker",
+      "summary_zh": "熟料與水泥生產（非對手墊）。",
+      "summary_en": "Clinker and cement production — not rival pads.",
       "players": [
-        {
-          "ticker": "BHP",
-          "name_en": "BHP",
-          "name_zh": "必和必拓",
-          "role_zh": "必和必拓：開採／選礦代表性玩家",
-          "role_en": "BHP: representative player in Extraction / processing",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "RIO",
-          "name_en": "Rio Tinto",
-          "name_zh": "力拓",
-          "role_zh": "力拓：開採／選礦代表性玩家",
-          "role_en": "Rio Tinto: representative player in Extraction / processing",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "FCX",
-          "name_en": "Freeport-McMoRan",
-          "name_zh": "自由港麥克莫蘭",
-          "role_zh": "自由港麥克莫蘭：開採／選礦代表性玩家",
-          "role_en": "Freeport-McMoRan: representative player in Extraction / processing",
-          "exchange": "NYSE"
-        }
-      ]
-    },
-    {
-      "id": "smelting",
-      "order": 3,
-      "label_zh": "冶煉／化工加工",
-      "label_en": "Smelting / chemical processing",
-      "summary_zh": "精煉與中間品。",
-      "summary_en": "Refining and intermediates.",
-      "players": [
-        {
-          "ticker": "NUE",
-          "name_en": "Nucor",
-          "name_zh": "紐柯",
-          "role_zh": "紐柯：冶煉／化工加工代表性玩家",
-          "role_en": "Nucor: representative player in Smelting / chemical processing",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "DOW",
-          "name_en": "Dow",
-          "name_zh": "陶氏化學",
-          "role_zh": "陶氏化學：冶煉／化工加工代表性玩家",
-          "role_en": "Dow: representative player in Smelting / chemical processing",
-          "exchange": "NYSE"
-        },
         {
           "ticker": "LIN",
           "name_en": "Linde",
           "name_zh": "林德集團",
-          "role_zh": "林德集團：冶煉／化工加工代表性玩家",
-          "role_en": "Linde: representative player in Smelting / chemical processing",
+          "role_zh": "林德集團：水泥窯／熟料代表性玩家",
+          "role_en": "Linde: representative player in Cement kiln / clinker",
           "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "EMR",
+          "name_en": "Emerson",
+          "name_zh": "艾默生",
+          "role_zh": "艾默生：水泥窯／熟料代表性玩家",
+          "role_en": "Emerson: representative player in Cement kiln / clinker",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "ROK",
+          "name_en": "Rockwell Automation",
+          "name_zh": "羅克韋爾",
+          "role_zh": "羅克韋爾：水泥窯／熟料代表性玩家",
+          "role_en": "Rockwell Automation: representative player in Cement kiln / clinker",
+          "exchange": "NYSE"
         }
       ]
     },
     {
       "id": "logistics",
-      "order": 4,
-      "label_zh": "物流／港口",
-      "label_en": "Logistics / ports",
-      "summary_zh": "鐵礦煤運與海運。",
-      "summary_en": "Bulk rail and shipping.",
+      "order": 3,
+      "label_zh": "預拌／物流",
+      "label_en": "Ready-mix / logistics",
+      "summary_zh": "預拌混凝土與運輸。",
+      "summary_en": "Ready-mix and bulk transport.",
       "players": [
         {
           "ticker": "UNP",
           "name_en": "Union Pacific",
           "name_zh": "聯合太平洋鐵路",
-          "role_zh": "聯合太平洋鐵路：物流／港口代表性玩家",
-          "role_en": "Union Pacific: representative player in Logistics / ports",
+          "role_zh": "聯合太平洋鐵路：預拌／物流代表性玩家",
+          "role_en": "Union Pacific: representative player in Ready-mix / logistics",
           "exchange": "NYSE"
         },
         {
           "ticker": "CSX",
           "name_en": "CSX",
           "name_zh": "CSX",
-          "role_zh": "CSX：物流／港口代表性玩家",
-          "role_en": "CSX: representative player in Logistics / ports",
+          "role_zh": "CSX：預拌／物流代表性玩家",
+          "role_en": "CSX: representative player in Ready-mix / logistics",
           "exchange": "NASDAQ"
         },
         {
-          "ticker": "FDX",
-          "name_en": "FedEx",
-          "name_zh": "聯邦快遞",
-          "role_zh": "聯邦快遞：物流／港口代表性玩家",
-          "role_en": "FedEx: representative player in Logistics / ports",
-          "exchange": "NYSE"
+          "ticker": "ODFL",
+          "name_en": "Old Dominion Freight Line",
+          "name_zh": "Old Dominion",
+          "role_zh": "Old Dominion：預拌／物流代表性玩家",
+          "role_en": "Old Dominion Freight Line: representative player in Ready-mix / logistics",
+          "exchange": "NASDAQ"
         }
       ]
     },
     {
       "id": "customers",
+      "order": 4,
+      "label_zh": "基建／住宅客戶",
+      "label_en": "Infra / residential customers",
+      "summary_zh": "公共工程與住宅開發。",
+      "summary_en": "Public works and homebuilders.",
+      "players": [
+        {
+          "ticker": "DHI",
+          "name_en": "D.R. Horton",
+          "name_zh": "D.R. Horton",
+          "role_zh": "D.R. Horton：基建／住宅客戶代表性玩家",
+          "role_en": "D.R. Horton: representative player in Infra / residential customers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "LEN",
+          "name_en": "Lennar",
+          "name_zh": "Lennar",
+          "role_zh": "Lennar：基建／住宅客戶代表性玩家",
+          "role_en": "Lennar: representative player in Infra / residential customers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "PWR",
+          "name_en": "Quanta Services",
+          "name_zh": "Quanta Services",
+          "role_zh": "Quanta Services：基建／住宅客戶代表性玩家",
+          "role_en": "Quanta Services: representative player in Infra / residential customers",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "equipment",
       "order": 5,
-      "label_zh": "鋼鐵／汽車／工業客戶",
-      "label_en": "Steel / auto / industrial customers",
-      "summary_zh": "鋼廠與製造業客戶。",
-      "summary_en": "Steel mills and manufacturers.",
+      "label_zh": "工程設備",
+      "label_en": "Construction equipment",
+      "summary_zh": "工程機械與設備租賃。",
+      "summary_en": "Construction machinery and rental.",
       "players": [
         {
           "ticker": "CAT",
           "name_en": "Caterpillar",
           "name_zh": "開拓重工",
-          "role_zh": "開拓重工：鋼鐵／汽車／工業客戶代表性玩家",
-          "role_en": "Caterpillar: representative player in Steel / auto / industrial customers",
+          "role_zh": "開拓重工：工程設備代表性玩家",
+          "role_en": "Caterpillar: representative player in Construction equipment",
           "exchange": "NYSE"
         },
         {
-          "ticker": "F",
-          "name_en": "Ford",
-          "name_zh": "福特",
-          "role_zh": "福特：鋼鐵／汽車／工業客戶代表性玩家",
-          "role_en": "Ford: representative player in Steel / auto / industrial customers",
+          "ticker": "DE",
+          "name_en": "Deere",
+          "name_zh": "強鹿公司 (Deere)",
+          "role_zh": "強鹿公司 (Deere)：工程設備代表性玩家",
+          "role_en": "Deere: representative player in Construction equipment",
           "exchange": "NYSE"
         },
         {
-          "ticker": "GM",
-          "name_en": "General Motors",
-          "name_zh": "通用汽車",
-          "role_zh": "通用汽車：鋼鐵／汽車／工業客戶代表性玩家",
-          "role_en": "General Motors: representative player in Steel / auto / industrial customers",
+          "ticker": "URI",
+          "name_en": "United Rentals",
+          "name_zh": "United Rentals",
+          "role_zh": "United Rentals：工程設備代表性玩家",
+          "role_en": "United Rentals: representative player in Construction equipment",
           "exchange": "NYSE"
         }
       ]

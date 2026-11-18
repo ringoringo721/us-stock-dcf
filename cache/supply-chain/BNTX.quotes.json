@@ -136,52 +136,12 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "ARGX": {
-      "ticker": "ARGX",
-      "price": 960.04,
-      "previousClose": 981.33,
-      "changePct": -2.17,
-      "mcap": 58308.6,
-      "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "REGN": {
-      "ticker": "REGN",
-      "price": 955.47,
-      "previousClose": 951.19,
-      "changePct": 0.45,
-      "mcap": 93537.6,
-      "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "VRTX": {
-      "ticker": "VRTX",
-      "price": 538.6,
-      "previousClose": 542.62,
-      "changePct": -0.741,
-      "mcap": 138666.0,
-      "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
     "MRNA": {
       "ticker": "MRNA",
       "price": 223.37,
       "previousClose": 231.35,
       "changePct": -3.449,
       "mcap": 101481.8,
-      "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "AMGN": {
-      "ticker": "AMGN",
-      "price": 465.67,
-      "previousClose": 467.06,
-      "changePct": -0.298,
-      "mcap": 248917.8,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
