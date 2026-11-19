@@ -1,0 +1,219 @@
+{
+  "version": 1,
+  "ticker": "ALSN",
+  "name_en": "Allison Transmission",
+  "name_zh": "Allison Transmission",
+  "updatedAt": "2026-11-19",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "auto-driveline-v1",
+    "references": [
+      "Industry model `auto-driveline-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "auto-driveline-v1",
+    "label_zh": "汽車傳動／動力系統價值鏈",
+    "label_en": "Auto driveline / powertrain value chain",
+    "description_zh": "材料／鍛件 → 齒輪／傳動部件 → 電控／液壓 → 整車／商用車 OEM → 售後通路。",
+    "description_en": "Materials / forgings → gears / transmission parts → controls / hydraulics → auto / CV OEMs → aftermarket."
+  },
+  "stages": [
+    {
+      "id": "materials",
+      "order": 1,
+      "label_zh": "材料／鍛件",
+      "label_en": "Materials / forgings",
+      "summary_zh": "特鋼與鍛造毛坯。",
+      "summary_en": "Specialty steel and forgings.",
+      "players": [
+        {
+          "ticker": "NUE",
+          "name_en": "Nucor",
+          "name_zh": "紐柯",
+          "role_zh": "紐柯：材料／鍛件代表性玩家",
+          "role_en": "Nucor: representative player in Materials / forgings",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "ATI",
+          "name_en": "ATI",
+          "name_zh": "ATI",
+          "role_zh": "ATI：材料／鍛件代表性玩家",
+          "role_en": "ATI: representative player in Materials / forgings",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "DOW",
+          "name_en": "Dow",
+          "name_zh": "陶氏化學",
+          "role_zh": "陶氏化學：材料／鍛件代表性玩家",
+          "role_en": "Dow: representative player in Materials / forgings",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "components",
+      "order": 2,
+      "label_zh": "齒輪／傳動部件",
+      "label_en": "Gears / transmission parts",
+      "summary_zh": "齒輪箱與動力總成件。",
+      "summary_en": "Gearbox and powertrain parts.",
+      "players": [
+        {
+          "ticker": "PH",
+          "name_en": "Parker-Hannifin",
+          "name_zh": "派克漢尼汾",
+          "role_zh": "派克漢尼汾：齒輪／傳動部件代表性玩家",
+          "role_en": "Parker-Hannifin: representative player in Gears / transmission parts",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "EMR",
+          "name_en": "Emerson",
+          "name_zh": "艾默生",
+          "role_zh": "艾默生：齒輪／傳動部件代表性玩家",
+          "role_en": "Emerson: representative player in Gears / transmission parts",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "ROK",
+          "name_en": "Rockwell Automation",
+          "name_zh": "羅克韋爾",
+          "role_zh": "羅克韋爾：齒輪／傳動部件代表性玩家",
+          "role_en": "Rockwell Automation: representative player in Gears / transmission parts",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "controls",
+      "order": 3,
+      "label_zh": "電控／液壓",
+      "label_en": "Controls / hydraulics",
+      "summary_zh": "傳動電控與液壓系統。",
+      "summary_en": "Transmission controls and hydraulics.",
+      "players": [
+        {
+          "ticker": "HON",
+          "name_en": "Honeywell",
+          "name_zh": "漢威聯合",
+          "role_zh": "漢威聯合：電控／液壓代表性玩家",
+          "role_en": "Honeywell: representative player in Controls / hydraulics",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "ROK",
+          "name_en": "Rockwell Automation",
+          "name_zh": "羅克韋爾",
+          "role_zh": "羅克韋爾：電控／液壓代表性玩家",
+          "role_en": "Rockwell Automation: representative player in Controls / hydraulics",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "TXN",
+          "name_en": "Texas Instruments",
+          "name_zh": "德州儀器",
+          "role_zh": "德州儀器：電控／液壓代表性玩家",
+          "role_en": "Texas Instruments: representative player in Controls / hydraulics",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "oem",
+      "order": 4,
+      "label_zh": "整車／商用車 OEM",
+      "label_en": "Auto / CV OEMs",
+      "summary_zh": "乘用車與商用車採購。",
+      "summary_en": "Passenger and commercial OEM procurement.",
+      "players": [
+        {
+          "ticker": "F",
+          "name_en": "Ford",
+          "name_zh": "福特",
+          "role_zh": "福特：整車／商用車 OEM代表性玩家",
+          "role_en": "Ford: representative player in Auto / CV OEMs",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "GM",
+          "name_en": "General Motors",
+          "name_zh": "通用汽車",
+          "role_zh": "通用汽車：整車／商用車 OEM代表性玩家",
+          "role_en": "General Motors: representative player in Auto / CV OEMs",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "PCAR",
+          "name_en": "PACCAR",
+          "name_zh": "Paccar",
+          "role_zh": "Paccar：整車／商用車 OEM代表性玩家",
+          "role_en": "PACCAR: representative player in Auto / CV OEMs",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "aftermarket",
+      "order": 5,
+      "label_zh": "售後／經銷通路",
+      "label_en": "Aftermarket / dealer channel",
+      "summary_zh": "零件通路與經銷服務。",
+      "summary_en": "Parts channel and dealer service.",
+      "players": [
+        {
+          "ticker": "ORLY",
+          "name_en": "O'Reilly",
+          "name_zh": "奧萊利汽車",
+          "role_zh": "奧萊利汽車：售後／經銷通路代表性玩家",
+          "role_en": "O'Reilly: representative player in Aftermarket / dealer channel",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "AZO",
+          "name_en": "AutoZone",
+          "name_zh": "汽車地帶 (AutoZone)",
+          "role_zh": "汽車地帶 (AutoZone)：售後／經銷通路代表性玩家",
+          "role_en": "AutoZone: representative player in Aftermarket / dealer channel",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "GPC",
+          "name_en": "Genuine Parts",
+          "name_zh": "GPC／NAPA",
+          "role_zh": "GPC／NAPA：售後／經銷通路代表性玩家",
+          "role_en": "Genuine Parts: representative player in Aftermarket / dealer channel",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "BWA",
+      "name_en": "BorgWarner",
+      "name_zh": "BorgWarner",
+      "basis_zh": "汽車傳動／動力系統對手",
+      "basis_en": "Auto driveline / powertrain rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "ETN",
+      "name_en": "Eaton",
+      "name_zh": "伊頓",
+      "basis_zh": "汽車傳動／動力系統對手",
+      "basis_en": "Auto driveline / powertrain rival",
+      "exchange": "NYSE"
+    }
+  ]
+}

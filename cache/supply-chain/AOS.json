@@ -1,0 +1,211 @@
+{
+  "version": 1,
+  "ticker": "AOS",
+  "name_en": "A. O. Smith",
+  "name_zh": "A. O. Smith",
+  "updatedAt": "2026-11-19",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "water-heat-v1",
+    "references": [
+      "Industry model `water-heat-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "water-heat-v1",
+    "label_zh": "熱水器／水暖設備價值鏈",
+    "label_en": "Water heater / hydronic equipment value chain",
+    "description_zh": "鋼材／銅材 → 控制／閥件 → 熱水器製造 → 五金／批發通路 → 住宅／商業客戶。",
+    "description_en": "Steel / copper → controls / valves → heater manufacturing → hardware / wholesale channel → residential / commercial customers."
+  },
+  "stages": [
+    {
+      "id": "materials",
+      "order": 1,
+      "label_zh": "鋼材／銅材",
+      "label_en": "Steel / copper",
+      "summary_zh": "鋼板、銅管與保溫材料。",
+      "summary_en": "Steel, copper, insulation.",
+      "players": [
+        {
+          "ticker": "NUE",
+          "name_en": "Nucor",
+          "name_zh": "紐柯",
+          "role_zh": "紐柯：鋼材／銅材代表性玩家",
+          "role_en": "Nucor: representative player in Steel / copper",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "AA",
+          "name_en": "Alcoa",
+          "name_zh": "美國鋁業",
+          "role_zh": "美國鋁業：鋼材／銅材代表性玩家",
+          "role_en": "Alcoa: representative player in Steel / copper",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "DOW",
+          "name_en": "Dow",
+          "name_zh": "陶氏化學",
+          "role_zh": "陶氏化學：鋼材／銅材代表性玩家",
+          "role_en": "Dow: representative player in Steel / copper",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "controls",
+      "order": 2,
+      "label_zh": "控制／閥件",
+      "label_en": "Controls / valves",
+      "summary_zh": "溫控、點火與閥件。",
+      "summary_en": "Thermostats, ignition, valves.",
+      "players": [
+        {
+          "ticker": "EMR",
+          "name_en": "Emerson",
+          "name_zh": "艾默生",
+          "role_zh": "艾默生：控制／閥件代表性玩家",
+          "role_en": "Emerson: representative player in Controls / valves",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "ROK",
+          "name_en": "Rockwell Automation",
+          "name_zh": "羅克韋爾",
+          "role_zh": "羅克韋爾：控制／閥件代表性玩家",
+          "role_en": "Rockwell Automation: representative player in Controls / valves",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "HON",
+          "name_en": "Honeywell",
+          "name_zh": "漢威聯合",
+          "role_zh": "漢威聯合：控制／閥件代表性玩家",
+          "role_en": "Honeywell: representative player in Controls / valves",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "manufacturing",
+      "order": 3,
+      "label_zh": "熱水器製造",
+      "label_en": "Heater manufacturing",
+      "summary_zh": "熱水器與鍋爐組裝。",
+      "summary_en": "Water-heater and boiler assembly.",
+      "players": [
+        {
+          "ticker": "CARR",
+          "name_en": "Carrier",
+          "name_zh": "Carrier",
+          "role_zh": "Carrier：熱水器製造代表性玩家",
+          "role_en": "Carrier: representative player in Heater manufacturing",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "TT",
+          "name_en": "Trane Technologies",
+          "name_zh": "Trane Technologies",
+          "role_zh": "Trane Technologies：熱水器製造代表性玩家",
+          "role_en": "Trane Technologies: representative player in Heater manufacturing",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "IR",
+          "name_en": "Ingersoll Rand",
+          "name_zh": "Ingersoll Rand",
+          "role_zh": "Ingersoll Rand：熱水器製造代表性玩家",
+          "role_en": "Ingersoll Rand: representative player in Heater manufacturing",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "channel",
+      "order": 4,
+      "label_zh": "五金／批發通路",
+      "label_en": "Hardware / wholesale channel",
+      "summary_zh": "DIY 與專業批發。",
+      "summary_en": "DIY and pro wholesale.",
+      "players": [
+        {
+          "ticker": "HD",
+          "name_en": "The Home Depot",
+          "name_zh": "家得寶",
+          "role_zh": "家得寶：五金／批發通路代表性玩家",
+          "role_en": "The Home Depot: representative player in Hardware / wholesale channel",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "LOW",
+          "name_en": "Lowe's Companies",
+          "name_zh": "勞氏",
+          "role_zh": "勞氏：五金／批發通路代表性玩家",
+          "role_en": "Lowe's Companies: representative player in Hardware / wholesale channel",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "WCC",
+          "name_en": "WESCO International",
+          "name_zh": "WESCO",
+          "role_zh": "WESCO：五金／批發通路代表性玩家",
+          "role_en": "WESCO International: representative player in Hardware / wholesale channel",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "customers",
+      "order": 5,
+      "label_zh": "住宅／商業客戶",
+      "label_en": "Residential / commercial customers",
+      "summary_zh": "新建與置換需求。",
+      "summary_en": "New-build and replacement demand.",
+      "players": [
+        {
+          "ticker": "DHI",
+          "name_en": "D.R. Horton",
+          "name_zh": "D.R. Horton",
+          "role_zh": "D.R. Horton：住宅／商業客戶代表性玩家",
+          "role_en": "D.R. Horton: representative player in Residential / commercial customers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "LEN",
+          "name_en": "Lennar",
+          "name_zh": "Lennar",
+          "role_zh": "Lennar：住宅／商業客戶代表性玩家",
+          "role_en": "Lennar: representative player in Residential / commercial customers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "PHM",
+          "name_en": "PulteGroup",
+          "name_zh": "PulteGroup",
+          "role_zh": "PulteGroup：住宅／商業客戶代表性玩家",
+          "role_en": "PulteGroup: representative player in Residential / commercial customers",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "LII",
+      "name_en": "Lennox",
+      "name_zh": "Lennox",
+      "basis_zh": "熱水器／水暖設備對手",
+      "basis_en": "Water heater / hydronic equipment rival",
+      "exchange": "NYSE"
+    }
+  ]
+}
