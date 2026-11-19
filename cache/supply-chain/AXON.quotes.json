@@ -1,7 +1,7 @@
 {
   "version": 1,
   "ticker": "AXON",
-  "updatedAt": "2026-11-18",
+  "updatedAt": "2026-11-19",
   "basis": "lastTradingDayCloseVsPriorClose",
   "notes_en": "changePct from last two EOD closes in price_charts; mcap from US listings screener (USD millions). Missing tickers stay null. No live FMP per pageview.",
   "notes_zh": "漲跌%取自 price_charts 最近兩日收盤；市值取自美股清單（百萬美元）。缺資料維持 null，不造假。頁面不打即時 FMP。",
@@ -46,32 +46,12 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "OSK": {
-      "ticker": "OSK",
-      "price": 141.78,
-      "previousClose": 140.4,
-      "changePct": 0.983,
-      "mcap": 8192.2,
-      "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "TXT": {
-      "ticker": "TXT",
-      "price": 83.65,
-      "previousClose": 84.31,
-      "changePct": -0.783,
-      "mcap": 14151.7,
-      "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "HII": {
-      "ticker": "HII",
-      "price": 306.24,
-      "previousClose": 308.33,
-      "changePct": -0.678,
-      "mcap": 11378.1,
+    "MSA": {
+      "ticker": "MSA",
+      "price": 174.17,
+      "previousClose": 174.61,
+      "changePct": -0.252,
+      "mcap": 6568.1,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"

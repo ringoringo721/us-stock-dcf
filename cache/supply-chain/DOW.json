@@ -3,7 +3,7 @@
   "ticker": "DOW",
   "name_en": "Dow",
   "name_zh": "陶氏化學",
-  "updatedAt": "2026-11-18",
+  "updatedAt": "2026-11-19",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -36,20 +36,28 @@
       "summary_en": "Resins, solvents, intermediates.",
       "players": [
         {
-          "ticker": "DD",
-          "name_en": "DuPont",
-          "name_zh": "杜邦",
-          "role_zh": "杜邦：基礎化學原料代表性玩家",
-          "role_en": "DuPont: representative player in Base chemical inputs",
-          "exchange": "NYSE"
-        },
-        {
           "ticker": "XOM",
           "name_en": "Exxonmobil",
           "name_zh": "埃克森美孚",
           "role_zh": "埃克森美孚：基礎化學原料代表性玩家",
           "role_en": "Exxonmobil: representative player in Base chemical inputs",
           "exchange": "NYSE"
+        },
+        {
+          "ticker": "CVX",
+          "name_en": "Chevron",
+          "name_zh": "雪佛龍",
+          "role_zh": "雪佛龍：基礎化學原料代表性玩家",
+          "role_en": "Chevron: representative player in Base chemical inputs",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "LIN",
+          "name_en": "Linde",
+          "name_zh": "林德集團",
+          "role_zh": "林德集團：基礎化學原料代表性玩家",
+          "role_en": "Linde: representative player in Base chemical inputs",
+          "exchange": "NASDAQ"
         }
       ]
     },
@@ -164,14 +172,6 @@
       "summary_en": "Builders, hospitals, hotels, foodservice.",
       "players": [
         {
-          "ticker": "HD",
-          "name_en": "The Home Depot",
-          "name_zh": "家得寶",
-          "role_zh": "家得寶：建築／機構／餐旅客戶代表性玩家",
-          "role_en": "The Home Depot: representative player in Construction / institutional / hospitality",
-          "exchange": "NYSE"
-        },
-        {
           "ticker": "LOW",
           "name_en": "Lowe's Companies",
           "name_zh": "勞氏",
@@ -180,11 +180,19 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "HLT",
-          "name_en": "Hilton",
-          "name_zh": "希爾頓酒店",
-          "role_zh": "希爾頓酒店：建築／機構／餐旅客戶代表性玩家",
-          "role_en": "Hilton: representative player in Construction / institutional / hospitality",
+          "ticker": "WMT",
+          "name_en": "Walmart",
+          "name_zh": "沃爾瑪",
+          "role_zh": "沃爾瑪：建築／機構／餐旅客戶代表性玩家",
+          "role_en": "Walmart: representative player in Construction / institutional / hospitality",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "CAT",
+          "name_en": "Caterpillar",
+          "name_zh": "開拓重工",
+          "role_zh": "開拓重工：建築／機構／餐旅客戶代表性玩家",
+          "role_en": "Caterpillar: representative player in Construction / institutional / hospitality",
           "exchange": "NYSE"
         }
       ]

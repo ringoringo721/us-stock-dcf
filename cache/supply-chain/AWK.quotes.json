@@ -1,7 +1,7 @@
 {
   "version": 1,
   "ticker": "AWK",
-  "updatedAt": "2026-11-18",
+  "updatedAt": "2026-11-19",
   "basis": "lastTradingDayCloseVsPriorClose",
   "notes_en": "changePct from last two EOD closes in price_charts; mcap from US listings screener (USD millions). Missing tickers stay null. No live FMP per pageview.",
   "notes_zh": "漲跌%取自 price_charts 最近兩日收盤；市值取自美股清單（百萬美元）。缺資料維持 null，不造假。頁面不打即時 FMP。",
@@ -46,32 +46,32 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "CEG": {
-      "ticker": "CEG",
-      "price": 280.2,
-      "previousClose": 282.4,
-      "changePct": -0.779,
-      "mcap": 88559.1,
-      "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "VST": {
-      "ticker": "VST",
-      "price": 133.01,
-      "previousClose": 134.51,
-      "changePct": -1.115,
-      "mcap": 41887.3,
-      "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
     "GEV": {
       "ticker": "GEV",
       "price": 803.13,
       "previousClose": 818.49,
       "changePct": -1.877,
       "mcap": 204889.2,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "NEE": {
+      "ticker": "NEE",
+      "price": 85.12,
+      "previousClose": 85.29,
+      "changePct": -0.199,
+      "mcap": 182360.8,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "DUK": {
+      "ticker": "DUK",
+      "price": 129.16,
+      "previousClose": 128.59,
+      "changePct": 0.443,
+      "mcap": 99630.3,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"

@@ -3,7 +3,7 @@
   "ticker": "PPL",
   "name_en": "PPL Corporation",
   "name_zh": "PPL",
-  "updatedAt": "2026-11-18",
+  "updatedAt": "2026-11-19",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -70,27 +70,27 @@
       "summary_en": "Power plants and IPPs.",
       "players": [
         {
-          "ticker": "CEG",
-          "name_en": "Constellation",
-          "name_zh": "星座能源",
-          "role_zh": "星座能源：發電資產代表性玩家",
-          "role_en": "Constellation: representative player in Generation assets",
-          "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "VST",
-          "name_en": "Vistra",
-          "name_zh": "Vistra",
-          "role_zh": "Vistra：發電資產代表性玩家",
-          "role_en": "Vistra: representative player in Generation assets",
-          "exchange": "NYSE"
-        },
-        {
           "ticker": "GEV",
           "name_en": "GE Vernova",
           "name_zh": "GE Vernova",
           "role_zh": "GE Vernova：發電資產代表性玩家",
           "role_en": "GE Vernova: representative player in Generation assets",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "NEE",
+          "name_en": "NextEra Energy",
+          "name_zh": "新紀元能源",
+          "role_zh": "新紀元能源：發電資產代表性玩家",
+          "role_en": "NextEra Energy: representative player in Generation assets",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "DUK",
+          "name_en": "Duke Energy",
+          "name_zh": "杜克能源",
+          "role_zh": "杜克能源：發電資產代表性玩家",
+          "role_en": "Duke Energy: representative player in Generation assets",
           "exchange": "NYSE"
         }
       ]

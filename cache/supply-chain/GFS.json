@@ -3,7 +3,7 @@
   "ticker": "GFS",
   "name_en": "GlobalFoundries",
   "name_zh": "GlobalFoundries",
-  "updatedAt": "2026-11-18",
+  "updatedAt": "2026-11-19",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -226,6 +226,15 @@
       "basis_zh": "封測／先進封裝對手",
       "basis_en": "OSAT / advanced packaging rival",
       "exchange": "SSE",
+      "listedInApp": false
+    },
+    {
+      "ticker": "002156.SZ",
+      "name_en": "Tongfu Microelectronics",
+      "name_zh": "通富微電",
+      "basis_zh": "封測／先進封裝對手",
+      "basis_en": "OSAT / advanced packaging rival",
+      "exchange": "SZSE",
       "listedInApp": false
     },
     {

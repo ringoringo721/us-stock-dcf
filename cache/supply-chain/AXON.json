@@ -3,7 +3,7 @@
   "ticker": "AXON",
   "name_en": "Axon",
   "name_zh": "Axon",
-  "updatedAt": "2026-11-18",
+  "updatedAt": "2026-11-19",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -70,27 +70,11 @@
       "summary_en": "Conducted-energy and related systems.",
       "players": [
         {
-          "ticker": "OSK",
-          "name_en": "Oshkosh",
-          "name_zh": "Oshkosh",
-          "role_zh": "Oshkosh：非致命／武器系統代表性玩家",
-          "role_en": "Oshkosh: representative player in Less-lethal / weapons systems",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "TXT",
-          "name_en": "Textron",
-          "name_zh": "德事隆",
-          "role_zh": "德事隆：非致命／武器系統代表性玩家",
-          "role_en": "Textron: representative player in Less-lethal / weapons systems",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "HII",
-          "name_en": "Huntington Ingalls Industries",
-          "name_zh": "亨廷頓英格爾斯",
-          "role_zh": "亨廷頓英格爾斯：非致命／武器系統代表性玩家",
-          "role_en": "Huntington Ingalls Industries: representative player in Less-lethal / weapons systems",
+          "ticker": "MSA",
+          "name_en": "MSA Safety",
+          "name_zh": "梅思安安全",
+          "role_zh": "梅思安安全：非致命／武器系統代表性玩家",
+          "role_en": "MSA Safety: representative player in Less-lethal / weapons systems",
           "exchange": "NYSE"
         }
       ]

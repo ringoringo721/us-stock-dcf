@@ -3,7 +3,7 @@
   "ticker": "PBA",
   "name_en": "Pembina Pipeline",
   "name_zh": "Pembina Pipeline",
-  "updatedAt": "2026-11-18",
+  "updatedAt": "2026-11-19",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -112,19 +112,19 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "KMI",
-          "name_en": "Kinder Morgan",
-          "name_zh": "金德摩根",
-          "role_zh": "金德摩根：中游管輸／液化代表性玩家",
-          "role_en": "Kinder Morgan: representative player in Midstream / LNG",
-          "exchange": "NYSE"
+          "ticker": "PAA",
+          "name_en": "Plains All American Pipeline, L.P.",
+          "name_zh": "PAA",
+          "role_zh": "PAA：中游管輸／液化代表性玩家",
+          "role_en": "Plains All American Pipeline, L.P.: representative player in Midstream / LNG",
+          "exchange": "NASDAQ"
         },
         {
-          "ticker": "WMB",
-          "name_en": "Williams",
-          "name_zh": "威廉斯公司",
-          "role_zh": "威廉斯公司：中游管輸／液化代表性玩家",
-          "role_en": "Williams: representative player in Midstream / LNG",
+          "ticker": "WES",
+          "name_en": "Western Midstream Partners, LP",
+          "name_zh": "WES",
+          "role_zh": "WES：中游管輸／液化代表性玩家",
+          "role_en": "Western Midstream Partners, LP: representative player in Midstream / LNG",
           "exchange": "NYSE"
         }
       ]
