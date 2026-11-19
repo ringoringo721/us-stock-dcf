@@ -3066,6 +3066,32 @@
           <div class="panel-title" style="font-size:15px;" data-i18n="sec_smart_money_13f">季度 13F 機構持倉</div>
           <p id="smart-money-status" class="analysis-note" role="status"></p>
           <div id="smart-money-kpi-grid" class="tv-kpi-grid" aria-live="polite"></div>
+
+          <div class="panel-title" style="font-size:15px;margin-top:10px;" data-i18n="sec_smart_money_trends">指數／股價 vs 智資／出清趨勢</div>
+          <p class="analysis-note" data-i18n="analysis_smart_money_trends_note">比較標普 500（SPY）、個股價格報酬、智資（機構持股％變動）與出清／減碼壓力。短天期優先 Form 4；較長天期依 13F 季度帳簿（有申報落後）。</p>
+          <div id="smart-money-trend-periods" class="price-actions" role="group" aria-label="Smart Money trend period" style="margin:8px 0 10px;flex-wrap:wrap;gap:6px;">
+            <button type="button" class="stmt-btn" data-sm-trend="1d" data-i18n="sm_trend_1d">1 日</button>
+            <button type="button" class="stmt-btn" data-sm-trend="1w" data-i18n="sm_trend_1w">1 週</button>
+            <button type="button" class="stmt-btn" data-sm-trend="1m" data-i18n="sm_trend_1m">1 個月</button>
+            <button type="button" class="stmt-btn active" data-sm-trend="3m" data-i18n="sm_trend_3m">3 個月</button>
+            <button type="button" class="stmt-btn" data-sm-trend="6m" data-i18n="sm_trend_6m">6 個月</button>
+            <button type="button" class="stmt-btn" data-sm-trend="ytd" data-i18n="sm_trend_ytd">今年至今</button>
+            <button type="button" class="stmt-btn" data-sm-trend="1y" data-i18n="sm_trend_1y">1 年</button>
+            <button type="button" class="stmt-btn" data-sm-trend="3y" data-i18n="sm_trend_3y">3 年</button>
+            <button type="button" class="stmt-btn" data-sm-trend="5y" data-i18n="sm_trend_5y">5 年</button>
+            <button type="button" class="stmt-btn" data-sm-trend="10y" data-i18n="sm_trend_10y">10 年</button>
+          </div>
+          <p id="smart-money-trends-status" class="analysis-note" role="status"></p>
+          <div id="smart-money-trends-chart-wrap" class="balance-chart" style="height:280px;margin-bottom:12px;">
+            <canvas id="smart-money-trends-chart" role="img" aria-label="Smart Money trends chart"></canvas>
+          </div>
+          <div class="table-scroll-wrapper company-analysis-scroll" style="margin-bottom: 18px;">
+            <table id="cmp-smart-money-trends" class="historical-ratio-table company-analysis-table">
+              <thead><tr id="cmp-smart-money-trends-thead"></tr></thead>
+              <tbody id="cmp-smart-money-trends-tbody"></tbody>
+            </table>
+          </div>
+
           <div class="panel-title" style="font-size:15px;" data-i18n="sec_smart_money_holders">持有者（最近一季）</div>
           <div class="table-scroll-wrapper company-analysis-scroll" style="margin-bottom: 18px;">
             <table id="cmp-smart-money-holders" class="historical-ratio-table company-analysis-table">
@@ -4187,6 +4213,27 @@
       sec_smart_money_holders: "持有者（最近一季）",
       sec_smart_money_exits: "本季出清",
       sec_smart_money_curated: "策展 20 亮點",
+      sec_smart_money_trends: "指數／股價 vs 智資／出清趨勢",
+      analysis_smart_money_trends_note: "比較標普 500（SPY）、個股價格報酬、智資（機構持股％變動）與出清／減碼壓力。短天期優先 Form 4；較長天期依 13F 季度帳簿（有申報落後）。",
+      sm_trend_1d: "1 日",
+      sm_trend_1w: "1 週",
+      sm_trend_1m: "1 個月",
+      sm_trend_3m: "3 個月",
+      sm_trend_6m: "6 個月",
+      sm_trend_ytd: "今年至今",
+      sm_trend_1y: "1 年",
+      sm_trend_3y: "3 年",
+      sm_trend_5y: "5 年",
+      sm_trend_10y: "10 年",
+      th_sm_trend_series: "序列",
+      th_sm_trend_change: "期間變動",
+      sm_trend_spy: "標普 500（SPY）",
+      sm_trend_stock: "股價",
+      sm_trend_smart: "智資趨勢",
+      sm_trend_dump: "出清／Dump 趨勢",
+      sm_trend_loading: "載入趨勢比較…",
+      sm_trend_na: "—",
+      sm_trend_chart_note: "折線為期間累積變動％（股價／SPY 自區間起點＝0；智資為機構持股％變動；出清為累積減碼／出清壓力，無出清時為 0）。",
       sec_fund_holdings: "持倉明細",
       sec_fund_exits: "出清部位",
       sec_fund_sectors: "產業配置",
@@ -4246,7 +4293,7 @@
       tab_tradingview: "📈 11. TradingView 圖表",
       tab_news: "📰 10. 公司新聞",
       sec_supply_chain: "供應鏈與競爭對手",
-      analysis_supply_chain_note: "蜘蛛網圖：公司為中心；依產業價值鏈模型串起各階段，每階 Top 3 掛在扇區外緣。藍色虛線箭頭＝上游→下游流動；金色點線＝競爭對手（對抗關係，非供應流）。南方金色弧為競爭對手區。美股市值≥1,000億美元批次為策展種子，其餘為空狀態；非即時供應商 API。",
+      analysis_supply_chain_note: "蜘蛛網圖：公司為中心；依產業價值鏈模型串起各階段，每階 Top 3 掛在扇區外緣。藍色虛線箭頭＝上游→下游流動；金色點線＝競爭對手（對抗關係，非供應流）。南方金色弧為競爭對手區。美股宇宙以產業價值鏈模板策展種子為主（分批入庫）；非即時供應商 API。",
       sec_supply_chain_graph: "價值鏈蜘蛛圖（各階 Top 3）",
       sec_supply_chain_players: "供應鏈玩家一覽",
       sec_supply_chain_competitors: "主要競爭對手（手機／裝置生態）",
@@ -4270,7 +4317,7 @@
       sc_in_app_yes: "可開公司頁",
       sc_in_app_no: "站外／未收錄（無法點進本站公司頁）",
       sc_loading: "正在載入供應鏈種子資料…",
-      sc_empty: "此股票尚無供應鏈策展種子（目前覆蓋美股市值≥500億美元批次）。",
+      sc_empty: "此股票尚無供應鏈策展種子（美股宇宙上市清單已分批策展入庫；若仍見此訊息請回報）。",
       sc_error: "供應鏈資料載入失敗。請重試；不以模擬資料替代。",
       sc_source_curated: "資料來源：策展種子（非即時供應商 API）",
       sc_quotes_note: "節點顯示公司名、最近交易日漲跌%、市值（美元）；站外上市亦盡力顯示，缺資料才 N/A，不造假",
@@ -4889,6 +4936,27 @@
       sec_smart_money_holders: "Holders (latest quarter)",
       sec_smart_money_exits: "Exited this quarter",
       sec_smart_money_curated: "Curated 20 highlight",
+      sec_smart_money_trends: "S&P 500 / price vs Smart / Dump trends",
+      analysis_smart_money_trends_note: "Compare S&P 500 (SPY), the stock’s price return, Smart Money (institutional ownership change), and Dump / exit pressure. Short windows prefer Form 4; longer windows use 13F quarter books (filing lag applies).",
+      sm_trend_1d: "1 day",
+      sm_trend_1w: "1 week",
+      sm_trend_1m: "1 month",
+      sm_trend_3m: "3 months",
+      sm_trend_6m: "6 months",
+      sm_trend_ytd: "Year to date",
+      sm_trend_1y: "1 year",
+      sm_trend_3y: "3 years",
+      sm_trend_5y: "5 years",
+      sm_trend_10y: "10 years",
+      th_sm_trend_series: "Series",
+      th_sm_trend_change: "Period change",
+      sm_trend_spy: "S&P 500 (SPY)",
+      sm_trend_stock: "Stock price",
+      sm_trend_smart: "Smart Money trend",
+      sm_trend_dump: "Dump / exit trend",
+      sm_trend_loading: "Loading trend comparison…",
+      sm_trend_na: "—",
+      sm_trend_chart_note: "Lines are cumulative % change over the window (SPY/stock rebased to 0 at the start; Smart Money is institutional ownership Δ; Dump is cumulative exit/reduction pressure, 0 when none).",
       sec_fund_holdings: "Holdings",
       sec_fund_exits: "Exited positions",
       sec_fund_sectors: "Sector mix",
@@ -4932,7 +5000,7 @@
       tab_supply_chain: "🔗 7b. Supply Chain / Peers",
       tab_charts: "📊 8. Trend Analysis",
       sec_supply_chain: "Supply chain & competitors",
-      analysis_supply_chain_note: "Spider graph: company at the hub; industry-specific value-chain stages with Top 3 players on each sector rim. Blue dashed arrows = upstream→downstream flow; gold dotted links = competitors (rivalry, not supply flow). Southern gold arc = rivalry zone. US mcap ≥ $100B batch is curated; others empty-state. Not a live supplier API.",
+      analysis_supply_chain_note: "Spider graph: company at the hub; industry-specific value-chain stages with Top 3 players on each sector rim. Blue dashed arrows = upstream→downstream flow; gold dotted links = competitors (rivalry, not supply flow). Southern gold arc = rivalry zone. US-universe seeds use industry value-chain templates (batched). Not a live supplier API.",
       sec_supply_chain_graph: "Value-chain spider graph (Top 3 per stage)",
       sec_supply_chain_players: "Supply-chain player roster",
       sec_supply_chain_competitors: "Major competitors (phone / device ecosystem)",
@@ -4956,7 +5024,7 @@
       sc_in_app_yes: "Open profile",
       sc_in_app_no: "External / not listed (no in-app profile link)",
       sc_loading: "Loading supply-chain seed…",
-      sc_empty: "No curated supply-chain seed for this ticker yet (coverage: US market cap ≥ $50B batches).",
+      sc_empty: "No curated supply-chain seed for this ticker yet (US-universe listing batches are curated; report if still empty).",
       sc_error: "Supply-chain data failed to load. Retry; no simulated substitute.",
       sc_source_curated: "Source: curated seed (not a live supplier API)",
       sc_quotes_note: "Nodes show company name, last trading-day change %, and USD market cap — including off-universe listings when available; missing stays N/A (nothing invented)",
@@ -10437,6 +10505,216 @@
     }).join('');
   }
 
+  let smartMoneyTrendPeriod = '3m';
+  let smartMoneyTrendCtx = null;
+
+  function formatSmartMoneyTrendPct(value, { points = false } = {}) {
+    if (value == null || !Number.isFinite(Number(value))) return '—';
+    const n = Number(value);
+    const sign = n > 0 ? '+' : '';
+    const abs = Math.abs(n);
+    const digits = abs >= 10 ? 1 : 2;
+    return `${sign}${n.toFixed(digits)}${points ? ' pp' : '%'}`;
+  }
+
+  function smartMoneyTrendTone(value) {
+    if (value == null || !Number.isFinite(Number(value))) return '';
+    if (Number(value) > 0.05) return 'text-green';
+    if (Number(value) < -0.05) return 'text-red';
+    return '';
+  }
+
+  function bindSmartMoneyTrendPeriodButtons() {
+    const root = document.getElementById('smart-money-trend-periods');
+    if (!root || root.dataset.bound === '1') return;
+    root.dataset.bound = '1';
+    root.addEventListener('click', (event) => {
+      const btn = event.target.closest('[data-sm-trend]');
+      if (!btn) return;
+      const period = btn.getAttribute('data-sm-trend');
+      if (!period) return;
+      smartMoneyTrendPeriod = period;
+      root.querySelectorAll('[data-sm-trend]').forEach((el) => {
+        el.classList.toggle('active', el === btn);
+      });
+      if (smartMoneyTrendCtx) paintSmartMoneyTrendsTable(smartMoneyTrendCtx);
+    });
+  }
+
+  function destroySmartMoneyTrendsChart() {
+    const canvas = document.getElementById('smart-money-trends-chart');
+    const fromRegistry = (typeof Chart !== 'undefined' && canvas && typeof Chart.getChart === 'function')
+      ? Chart.getChart(canvas)
+      : null;
+    const existing = fromRegistry || window.__smartMoneyTrendsChart || null;
+    if (existing) {
+      try { existing.destroy(); } catch (_) { /* ignore */ }
+    }
+    window.__smartMoneyTrendsChart = null;
+  }
+
+  function paintSmartMoneyTrendsChart(ctx, series) {
+    const canvas = document.getElementById('smart-money-trends-chart');
+    if (!canvas || typeof Chart === 'undefined' || !series || !series.labels?.length) {
+      destroySmartMoneyTrendsChart();
+      return;
+    }
+    const { isEn, dict } = ctx;
+    destroySmartMoneyTrendsChart();
+    const mk = (label, data, color) => ({
+      type: 'line',
+      label,
+      data,
+      borderColor: color,
+      backgroundColor: color.replace(/[\d.]+\)$/, '0.12)'),
+      tension: 0.15,
+      pointRadius: 0,
+      pointHoverRadius: 3,
+      borderWidth: 2,
+      spanGaps: true,
+    });
+    window.__smartMoneyTrendsChart = new Chart(canvas.getContext('2d'), {
+      data: {
+        labels: series.labels,
+        datasets: [
+          mk(dict.sm_trend_spy, series.spy, 'rgba(100, 116, 139, 0.95)'),
+          mk(dict.sm_trend_stock, series.stock, 'rgba(37, 99, 235, 0.95)'),
+          mk(dict.sm_trend_smart, series.smart, 'rgba(5, 150, 105, 0.95)'),
+          mk(dict.sm_trend_dump, series.dump, 'rgba(220, 38, 38, 0.95)'),
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { mode: 'index', intersect: false },
+        plugins: {
+          legend: { position: 'bottom' },
+          tooltip: {
+            callbacks: {
+              label(item) {
+                const v = item.parsed?.y;
+                if (v == null || !Number.isFinite(v)) return `${item.dataset.label}: —`;
+                const sign = v > 0 ? '+' : '';
+                return `${item.dataset.label}: ${sign}${v.toFixed(2)}%`;
+              },
+            },
+          },
+        },
+        scales: {
+          x: {
+            ticks: {
+              maxTicksLimit: 8,
+              callback(value, index, ticks) {
+                const label = this.getLabelForValue(value);
+                return label || '';
+              },
+            },
+            grid: { display: false },
+          },
+          y: {
+            title: { display: true, text: isEn ? 'Cumulative %' : '累積 ％' },
+            ticks: {
+              callback(value) {
+                const sign = value > 0 ? '+' : '';
+                return `${sign}${value}%`;
+              },
+            },
+          },
+        },
+      },
+    });
+  }
+
+  function paintSmartMoneyTrendsTable(ctx) {
+    const head = document.getElementById('cmp-smart-money-trends-thead');
+    const body = document.getElementById('cmp-smart-money-trends-tbody');
+    const status = document.getElementById('smart-money-trends-status');
+    if (!head || !body || !status || !ctx) return;
+    const { SM, isEn, dict, ticker, stockPayload, form4Trades, spyChart, stockChart } = ctx;
+    const period = smartMoneyTrendPeriod || '3m';
+    const series = typeof SM.buildTrendLineSeries === 'function'
+      ? SM.buildTrendLineSeries(spyChart, stockChart, stockPayload, form4Trades || [], period)
+      : null;
+    const trends = series?.summary || SM.smartDumpTrends(stockPayload, period, form4Trades || []);
+    const spyPct = series?.spy?.length
+      ? series.spy.filter(v => v != null).at(-1)
+      : SM.priceTrendPct(spyChart, period);
+    const stockPct = series?.stock?.length
+      ? series.stock.filter(v => v != null).at(-1)
+      : SM.priceTrendPct(stockChart, period);
+    // Prefer end-of-line Smart/Dump so table matches chart; fall back to summary.
+    const smartEnd = series?.smart?.length ? series.smart.filter(v => v != null).at(-1) : null;
+    const dumpEnd = series?.dump?.length ? series.dump.filter(v => v != null).at(-1) : null;
+    const smartPct = smartEnd != null ? smartEnd : trends.smartPct;
+    const dumpPct = dumpEnd != null ? dumpEnd : (trends.dumpPct != null ? trends.dumpPct : 0);
+
+    paintSmartMoneyTrendsChart(ctx, series);
+
+    head.innerHTML = `<th class="table-sticky-col">${dict.th_sm_trend_series}</th>`
+      + `<th>${dict.th_sm_trend_change}</th>`;
+    const rows = [
+      [dict.sm_trend_spy, spyPct, false],
+      [dict.sm_trend_stock, stockPct, false],
+      [dict.sm_trend_smart, smartPct, trends.smartLabel === 'ownership-pp'],
+      [dict.sm_trend_dump, dumpPct, false],
+    ];
+    body.innerHTML = rows.map(([label, value, asPoints]) => {
+      const useZero = (label === dict.sm_trend_dump || label === dict.sm_trend_smart) && value == null;
+      const shown = useZero ? 0 : value; // Dump/Smart: show 0 instead of blank when no activity
+      const cls = smartMoneyTrendTone(shown);
+      const display = formatSmartMoneyTrendPct(shown, { points: asPoints && !useZero });
+      return `<tr><td class="table-sticky-col" style="text-align:left;">${escapeAttribute(label)}</td>`
+        + `<td class="${cls}">${display}</td></tr>`;
+    }).join('');
+    const basis = (series?.basis || trends.basis) ? ` · ${series?.basis || trends.basis}` : '';
+    const noteKey = series?.note || trends.note || '';
+    let note = '';
+    if (noteKey === 'form4') {
+      note = isEn ? 'Form 4 window (timelier than 13F).' : 'Form 4 視窗（較 13F 及時）。';
+    } else if (noteKey === 'form4-empty') {
+      note = isEn ? 'No Form 4 buys/sells in this window — Smart/Dump at 0.' : '此視窗無 Form 4 買賣 — 智資／出清為 0。';
+    } else if (noteKey === '13f-lag' || noteKey === 'single-quarter' || noteKey === 'snapshot-only') {
+      note = isEn
+        ? '13F is quarterly — short windows show the latest available book / lag.'
+        : '13F 為季度資料 — 短天期顯示最近可取得帳簿／落後。';
+    } else if (noteKey === '13f') {
+      note = isEn ? 'Based on 13F quarter books on file.' : '依已載入的 13F 季度帳簿。';
+    } else if (noteKey === 'unavailable') {
+      note = isEn ? 'Trend inputs unavailable for this period.' : '此期間缺少趨勢輸入。';
+    }
+    const chartNote = dict.sm_trend_chart_note || '';
+    status.textContent = `${ticker} · ${period}${basis}${note ? ' · ' + note : ''}${chartNote ? ' · ' + chartNote : ''}`;
+  }
+
+  function renderSmartMoneyTrendsSection(ticker, stock, SM, isEn, dict, stockPayload) {
+    bindSmartMoneyTrendPeriodButtons();
+    const status = document.getElementById('smart-money-trends-status');
+    const body = document.getElementById('cmp-smart-money-trends-tbody');
+    if (status) status.textContent = dict.sm_trend_loading || (isEn ? 'Loading…' : '載入中…');
+    if (body) body.innerHTML = '';
+    destroySmartMoneyTrendsChart();
+    const loadChart = (sym) => fetch(`cache/price_charts/${encodeURIComponent(sym)}.json`)
+      .then(async (response) => (response.ok ? response.json() : null))
+      .catch(() => null);
+    const form4Promise = (typeof SM.loadForm4 === 'function')
+      ? SM.loadForm4(ticker, { stock }).catch(() => null)
+      : Promise.resolve(null);
+    Promise.all([loadChart('SPY'), loadChart(ticker), form4Promise]).then(([spyChart, stockChart, form4Result]) => {
+      if (activeCompanyTicker !== ticker) return;
+      const form4Trades = (form4Result && (form4Result.trades || form4Result.rows)) || [];
+      smartMoneyTrendCtx = {
+        SM, isEn, dict, ticker, stockPayload, form4Trades, spyChart, stockChart,
+      };
+      const root = document.getElementById('smart-money-trend-periods');
+      if (root) {
+        root.querySelectorAll('[data-sm-trend]').forEach((el) => {
+          el.classList.toggle('active', el.getAttribute('data-sm-trend') === smartMoneyTrendPeriod);
+        });
+      }
+      paintSmartMoneyTrendsTable(smartMoneyTrendCtx);
+    });
+  }
+
   function renderSmartMoneySubPage(stockObj) {
     const ticker = activeCompanyTicker || stockObj?.ticker || 'NVDA';
     const stock = stockObj || stockUniverse[ticker];
@@ -10514,6 +10792,9 @@
           <div class="tv-kpi-value">${escapeAttribute(String(value ?? '—'))}</div>
         </div>`).join('');
       }
+
+      // S&P 500 / price vs Smart / Dump trends (period selector on the Smart Money subpage).
+      renderSmartMoneyTrendsSection(ticker, stock, SM, isEn, dict, result);
 
       if (isEmpty) {
         status.className = 'sm-alert-empty';
@@ -11387,6 +11668,14 @@
     return escapeAttribute(text).replace(/&#10;/g, ' ');
   }
 
+  function scInAppPeer(row) {
+    // Only true stockUniverse members get in-app profile links (no broken XRAY/NVST nav).
+    if (!row || row.listedInApp === false) return false;
+    const api = window.SupplyChain;
+    if (!api || typeof api.inUniverse !== 'function') return false;
+    return !!api.inUniverse(stockUniverse, row.ticker);
+  }
+
   function scTickerLink(ticker, inApp, className) {
     const safe = scEscape(ticker);
     const cls = scEscape(className || 'sc-player-ticker');
@@ -11504,7 +11793,7 @@
     }).join('');
 
     const playersHtml = layout.players.map(node => {
-      const inApp = node.listedInApp !== false && SC.inUniverse(stockUniverse, node.ticker);
+      const inApp = scInAppPeer(node);
       const name = isEn ? node.name_en : node.name_zh;
       const shortName = name.length > 8 ? `${name.slice(0, 7)}…` : name;
       const badge = scQuoteBadge(quotes[node.ticker]);
@@ -11530,7 +11819,7 @@
     }).join('');
 
     const compsHtml = layout.competitors.map(node => {
-      const inApp = node.listedInApp !== false && SC.inUniverse(stockUniverse, node.ticker);
+      const inApp = scInAppPeer(node);
       const name = isEn ? node.name_en : node.name_zh;
       const shortName = name.length > 8 ? `${name.slice(0, 7)}…` : name;
       const role = isEn ? (node.role_en || '') : (node.role_zh || '');
@@ -11750,7 +12039,7 @@
         <th>${scEscape(dict.th_sc_in_app || '')}</th>`;
       const flat = SC.flattenPlayers(pack);
       playersBody.innerHTML = flat.map(row => {
-        const inApp = row.listedInApp !== false && SC.inUniverse(stockUniverse, row.ticker);
+        const inApp = scInAppPeer(row);
         const stageName = isEn ? row.stageLabel_en : row.stageLabel_zh;
         const badge = scQuoteBadge(quotesByTicker[row.ticker]);
         return `<tr>
@@ -11773,7 +12062,7 @@
       if (chipsEl) {
         const rivalTag = dict.sc_rival_badge || (isEn ? 'RIVAL' : '競爭');
         chipsEl.innerHTML = pack.competitors.map(row => {
-          const inApp = row.listedInApp !== false && SC.inUniverse(stockUniverse, row.ticker);
+          const inApp = scInAppPeer(row);
           const badge = scQuoteBadge(quotesByTicker[row.ticker]);
           const tip = [
             dict.sc_rival_label || '',
@@ -11792,7 +12081,7 @@
         }).join('');
       }
       compsBody.innerHTML = pack.competitors.map(row => {
-        const inApp = row.listedInApp !== false && SC.inUniverse(stockUniverse, row.ticker);
+        const inApp = scInAppPeer(row);
         const badge = scQuoteBadge(quotesByTicker[row.ticker]);
         return `<tr>
           <td>${scTickerLink(row.ticker, inApp)}</td>
