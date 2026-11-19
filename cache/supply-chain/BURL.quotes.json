@@ -1,7 +1,7 @@
 {
   "version": 1,
   "ticker": "BURL",
-  "updatedAt": "2026-11-18",
+  "updatedAt": "2026-11-19",
   "basis": "lastTradingDayCloseVsPriorClose",
   "notes_en": "changePct from last two EOD closes in price_charts; mcap from US listings screener (USD millions). Missing tickers stay null. No live FMP per pageview.",
   "notes_zh": "漲跌%取自 price_charts 最近兩日收盤；市值取自美股清單（百萬美元）。缺資料維持 null，不造假。頁面不打即時 FMP。",
@@ -96,12 +96,12 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "URBN": {
-      "ticker": "URBN",
-      "price": 86.34,
-      "previousClose": 84.8,
-      "changePct": 1.816,
-      "mcap": 7255.4,
+    "KIM": {
+      "ticker": "KIM",
+      "price": 25.55,
+      "previousClose": 25.46,
+      "changePct": 0.353,
+      "mcap": 16957.8,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"

@@ -3,7 +3,7 @@
   "ticker": "AS",
   "name_en": "Amer Sports",
   "name_zh": "Amer Sports",
-  "updatedAt": "2026-11-18",
+  "updatedAt": "2026-11-19",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -52,11 +52,11 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "VFC",
-          "name_en": "V.F.",
-          "name_zh": "V.F.",
-          "role_zh": "V.F.：紡織／鞋材代表性玩家",
-          "role_en": "V.F.: representative player in Textiles / footwear materials",
+          "ticker": "EMN",
+          "name_en": "Eastman",
+          "name_zh": "Eastman",
+          "role_zh": "Eastman：紡織／鞋材代表性玩家",
+          "role_en": "Eastman: representative player in Textiles / footwear materials",
           "exchange": "NYSE"
         }
       ]
@@ -70,27 +70,27 @@
       "summary_en": "Apparel and footwear CMs.",
       "players": [
         {
-          "ticker": "UPS",
-          "name_en": "United Parcel Service",
-          "name_zh": "優比速",
-          "role_zh": "優比速：代工製造代表性玩家",
-          "role_en": "United Parcel Service: representative player in Contract manufacturing",
+          "ticker": "PVH",
+          "name_en": "PVH",
+          "name_zh": "PVH",
+          "role_zh": "PVH：代工製造代表性玩家",
+          "role_en": "PVH: representative player in Contract manufacturing",
           "exchange": "NYSE"
         },
         {
-          "ticker": "FDX",
-          "name_en": "FedEx",
-          "name_zh": "聯邦快遞",
-          "role_zh": "聯邦快遞：代工製造代表性玩家",
-          "role_en": "FedEx: representative player in Contract manufacturing",
+          "ticker": "UAA",
+          "name_en": "Under Armour",
+          "name_zh": "Under Armour",
+          "role_zh": "Under Armour：代工製造代表性玩家",
+          "role_en": "Under Armour: representative player in Contract manufacturing",
           "exchange": "NYSE"
         },
         {
-          "ticker": "EXPD",
-          "name_en": "Expeditors",
-          "name_zh": "Expeditors",
-          "role_zh": "Expeditors：代工製造代表性玩家",
-          "role_en": "Expeditors: representative player in Contract manufacturing",
+          "ticker": "SKX",
+          "name_en": "Skechers",
+          "name_zh": "Skechers",
+          "role_zh": "Skechers：代工製造代表性玩家",
+          "role_en": "Skechers: representative player in Contract manufacturing",
           "exchange": "NYSE"
         }
       ]
@@ -110,22 +110,6 @@
           "role_zh": "Dick's Sporting Goods：品牌／批發代表性玩家",
           "role_en": "Dick's Sporting Goods: representative player in Brand / wholesale",
           "exchange": "NYSE"
-        },
-        {
-          "ticker": "WSM",
-          "name_en": "Williams-Sonoma",
-          "name_zh": "Williams-Sonoma",
-          "role_zh": "Williams-Sonoma：品牌／批發代表性玩家",
-          "role_en": "Williams-Sonoma: representative player in Brand / wholesale",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "BBY",
-          "name_en": "Best Buy",
-          "name_zh": "百思買",
-          "role_zh": "百思買：品牌／批發代表性玩家",
-          "role_en": "Best Buy: representative player in Brand / wholesale",
-          "exchange": "NYSE"
         }
       ]
     },
@@ -138,11 +122,19 @@
       "summary_en": "Sporting specialty and DTC.",
       "players": [
         {
-          "ticker": "DKS",
-          "name_en": "Dick's Sporting Goods",
-          "name_zh": "Dick's Sporting Goods",
-          "role_zh": "Dick's Sporting Goods：專賣／電商代表性玩家",
-          "role_en": "Dick's Sporting Goods: representative player in Specialty / e-commerce",
+          "ticker": "SPG",
+          "name_en": "Simon Property",
+          "name_zh": "西蒙地產",
+          "role_zh": "西蒙地產：專賣／電商代表性玩家",
+          "role_en": "Simon Property: representative player in Specialty / e-commerce",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "MAC",
+          "name_en": "Macerich",
+          "name_zh": "Macerich",
+          "role_zh": "Macerich：專賣／電商代表性玩家",
+          "role_en": "Macerich: representative player in Specialty / e-commerce",
           "exchange": "NYSE"
         },
         {
@@ -152,14 +144,6 @@
           "role_zh": "Urban Outfitters：專賣／電商代表性玩家",
           "role_en": "Urban Outfitters: representative player in Specialty / e-commerce",
           "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "SPG",
-          "name_en": "Simon Property",
-          "name_zh": "西蒙地產",
-          "role_zh": "西蒙地產：專賣／電商代表性玩家",
-          "role_en": "Simon Property: representative player in Specialty / e-commerce",
-          "exchange": "NYSE"
         }
       ]
     },
