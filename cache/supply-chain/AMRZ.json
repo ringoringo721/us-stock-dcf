@@ -1,0 +1,243 @@
+{
+  "version": 1,
+  "ticker": "AMRZ",
+  "name_en": "Amrize",
+  "name_zh": "Amrize",
+  "updatedAt": "2026-11-19",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "cement-aggregates-v1",
+    "references": [
+      "Industry model `cement-aggregates-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "cement-aggregates-v1",
+    "label_zh": "水泥／骨材價值鏈",
+    "label_en": "Cement / aggregates value chain",
+    "description_zh": "採石／骨材 → 水泥窯／熟料 → 預拌／物流 → 基建／住宅客戶 → 工程設備。對手同業只列 rivals。",
+    "description_en": "Quarry / aggregates → cement kiln / clinker → ready-mix / logistics → infra / residential customers → construction equipment. Peer producers stay rivals only."
+  },
+  "stages": [
+    {
+      "id": "aggregates",
+      "order": 1,
+      "label_zh": "採石／骨材",
+      "label_en": "Quarry / aggregates",
+      "summary_zh": "碎石、砂與骨材。",
+      "summary_en": "Crushed stone, sand, aggregates.",
+      "players": [
+        {
+          "ticker": "CAT",
+          "name_en": "Caterpillar",
+          "name_zh": "開拓重工",
+          "role_zh": "開拓重工：採石／骨材代表性玩家",
+          "role_en": "Caterpillar: representative player in Quarry / aggregates",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "URI",
+          "name_en": "United Rentals",
+          "name_zh": "United Rentals",
+          "role_zh": "United Rentals：採石／骨材代表性玩家",
+          "role_en": "United Rentals: representative player in Quarry / aggregates",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "OSK",
+          "name_en": "Oshkosh",
+          "name_zh": "Oshkosh",
+          "role_zh": "Oshkosh：採石／骨材代表性玩家",
+          "role_en": "Oshkosh: representative player in Quarry / aggregates",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "cement",
+      "order": 2,
+      "label_zh": "水泥窯／熟料",
+      "label_en": "Cement kiln / clinker",
+      "summary_zh": "熟料與水泥生產（非對手墊）。",
+      "summary_en": "Clinker and cement production — not rival pads.",
+      "players": [
+        {
+          "ticker": "LIN",
+          "name_en": "Linde",
+          "name_zh": "林德集團",
+          "role_zh": "林德集團：水泥窯／熟料代表性玩家",
+          "role_en": "Linde: representative player in Cement kiln / clinker",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "EMR",
+          "name_en": "Emerson",
+          "name_zh": "艾默生",
+          "role_zh": "艾默生：水泥窯／熟料代表性玩家",
+          "role_en": "Emerson: representative player in Cement kiln / clinker",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "ROK",
+          "name_en": "Rockwell Automation",
+          "name_zh": "羅克韋爾",
+          "role_zh": "羅克韋爾：水泥窯／熟料代表性玩家",
+          "role_en": "Rockwell Automation: representative player in Cement kiln / clinker",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "logistics",
+      "order": 3,
+      "label_zh": "預拌／物流",
+      "label_en": "Ready-mix / logistics",
+      "summary_zh": "預拌混凝土與運輸。",
+      "summary_en": "Ready-mix and bulk transport.",
+      "players": [
+        {
+          "ticker": "UNP",
+          "name_en": "Union Pacific",
+          "name_zh": "聯合太平洋鐵路",
+          "role_zh": "聯合太平洋鐵路：預拌／物流代表性玩家",
+          "role_en": "Union Pacific: representative player in Ready-mix / logistics",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "CSX",
+          "name_en": "CSX",
+          "name_zh": "CSX",
+          "role_zh": "CSX：預拌／物流代表性玩家",
+          "role_en": "CSX: representative player in Ready-mix / logistics",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "ODFL",
+          "name_en": "Old Dominion Freight Line",
+          "name_zh": "Old Dominion",
+          "role_zh": "Old Dominion：預拌／物流代表性玩家",
+          "role_en": "Old Dominion Freight Line: representative player in Ready-mix / logistics",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "customers",
+      "order": 4,
+      "label_zh": "基建／住宅客戶",
+      "label_en": "Infra / residential customers",
+      "summary_zh": "公共工程與住宅開發。",
+      "summary_en": "Public works and homebuilders.",
+      "players": [
+        {
+          "ticker": "DHI",
+          "name_en": "D.R. Horton",
+          "name_zh": "D.R. Horton",
+          "role_zh": "D.R. Horton：基建／住宅客戶代表性玩家",
+          "role_en": "D.R. Horton: representative player in Infra / residential customers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "LEN",
+          "name_en": "Lennar",
+          "name_zh": "Lennar",
+          "role_zh": "Lennar：基建／住宅客戶代表性玩家",
+          "role_en": "Lennar: representative player in Infra / residential customers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "PWR",
+          "name_en": "Quanta Services",
+          "name_zh": "Quanta Services",
+          "role_zh": "Quanta Services：基建／住宅客戶代表性玩家",
+          "role_en": "Quanta Services: representative player in Infra / residential customers",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "equipment",
+      "order": 5,
+      "label_zh": "工程設備",
+      "label_en": "Construction equipment",
+      "summary_zh": "工程機械與設備租賃。",
+      "summary_en": "Construction machinery and rental.",
+      "players": [
+        {
+          "ticker": "CAT",
+          "name_en": "Caterpillar",
+          "name_zh": "開拓重工",
+          "role_zh": "開拓重工：工程設備代表性玩家",
+          "role_en": "Caterpillar: representative player in Construction equipment",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "DE",
+          "name_en": "Deere",
+          "name_zh": "強鹿公司 (Deere)",
+          "role_zh": "強鹿公司 (Deere)：工程設備代表性玩家",
+          "role_en": "Deere: representative player in Construction equipment",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "URI",
+          "name_en": "United Rentals",
+          "name_zh": "United Rentals",
+          "role_zh": "United Rentals：工程設備代表性玩家",
+          "role_en": "United Rentals: representative player in Construction equipment",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "CRH",
+      "name_en": "CRH plc",
+      "name_zh": "CRH",
+      "basis_zh": "建材／水泥骨材對手",
+      "basis_en": "Cement / aggregates rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "VMC",
+      "name_en": "Vulcan Materials",
+      "name_zh": "瓦爾肯建材",
+      "basis_zh": "建材／水泥骨材對手",
+      "basis_en": "Cement / aggregates rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "MLM",
+      "name_en": "Martin Marietta",
+      "name_zh": "馬丁瑪麗埃塔",
+      "basis_zh": "建材／水泥骨材對手",
+      "basis_en": "Cement / aggregates rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "EXP",
+      "name_en": "Eagle Materials",
+      "name_zh": "Eagle Materials",
+      "basis_zh": "建材／水泥骨材對手",
+      "basis_en": "Cement / aggregates rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "CX",
+      "name_en": "CEMEX",
+      "name_zh": "西麥斯",
+      "basis_zh": "建材／水泥骨材對手",
+      "basis_en": "Cement / aggregates rival",
+      "exchange": "NYSE"
+    }
+  ]
+}

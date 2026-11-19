@@ -1,0 +1,212 @@
+{
+  "version": 1,
+  "ticker": "BEKE",
+  "name_en": "KE Holdings",
+  "name_zh": "貝殼找房",
+  "updatedAt": "2026-11-19",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "housing-brokerage-v1",
+    "references": [
+      "Industry model `housing-brokerage-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "housing-brokerage-v1",
+    "label_zh": "住房經紀／交易價值鏈",
+    "label_en": "Housing brokerage / transaction value chain",
+    "description_zh": "流量／房源 → 經紀／加盟 → 按揭／交易服務 → 物業科技工具 → 住房需求。",
+    "description_en": "Traffic / listings → agents / franchise → mortgage / transaction services → proptech tools → housing demand."
+  },
+  "stages": [
+    {
+      "id": "traffic",
+      "order": 1,
+      "label_zh": "流量／房源",
+      "label_en": "Traffic / listings",
+      "summary_zh": "搜尋、入口與房源平台。",
+      "summary_en": "Search, portals, listing platforms.",
+      "players": [
+        {
+          "ticker": "GOOG",
+          "name_en": "Alphabet",
+          "name_zh": "Alphabet（Google）",
+          "role_zh": "Alphabet（Google）：流量／房源代表性玩家",
+          "role_en": "Alphabet: representative player in Traffic / listings",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "META",
+          "name_en": "Meta Platforms",
+          "name_zh": "Meta (臉書)",
+          "role_zh": "Meta (臉書)：流量／房源代表性玩家",
+          "role_en": "Meta Platforms: representative player in Traffic / listings",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "ZG",
+          "name_en": "Zillow",
+          "name_zh": "Zillow",
+          "role_zh": "Zillow：流量／房源代表性玩家",
+          "role_en": "Zillow: representative player in Traffic / listings",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "agents",
+      "order": 2,
+      "label_zh": "經紀／加盟",
+      "label_en": "Agents / franchise",
+      "summary_zh": "經紀人與加盟網絡。",
+      "summary_en": "Agents and franchise networks.",
+      "players": [
+        {
+          "ticker": "COMP",
+          "name_en": "Compass",
+          "name_zh": "Compass",
+          "role_zh": "Compass：經紀／加盟代表性玩家",
+          "role_en": "Compass: representative player in Agents / franchise",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "JLL",
+          "name_en": "Jones Lang LaSalle",
+          "name_zh": "仲量聯行",
+          "role_zh": "仲量聯行：經紀／加盟代表性玩家",
+          "role_en": "Jones Lang LaSalle: representative player in Agents / franchise",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "CBRE",
+          "name_en": "CBRE Group Inc.",
+          "name_zh": "CBRE",
+          "role_zh": "CBRE：經紀／加盟代表性玩家",
+          "role_en": "CBRE Group Inc.: representative player in Agents / franchise",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "transaction",
+      "order": 3,
+      "label_zh": "按揭／交易服務",
+      "label_en": "Mortgage / transaction services",
+      "summary_zh": "房貸、權證與結算。",
+      "summary_en": "Mortgage, title, closing.",
+      "players": [
+        {
+          "ticker": "BAC",
+          "name_en": "Bank of America",
+          "name_zh": "美國銀行",
+          "role_zh": "美國銀行：按揭／交易服務代表性玩家",
+          "role_en": "Bank of America: representative player in Mortgage / transaction services",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "JPM",
+          "name_en": "JPMorgan Chase & Co.",
+          "name_zh": "摩根大通",
+          "role_zh": "摩根大通：按揭／交易服務代表性玩家",
+          "role_en": "JPMorgan Chase & Co.: representative player in Mortgage / transaction services",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "WFC",
+          "name_en": "Wells Fargo",
+          "name_zh": "富國銀行",
+          "role_zh": "富國銀行：按揭／交易服務代表性玩家",
+          "role_en": "Wells Fargo: representative player in Mortgage / transaction services",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "proptech",
+      "order": 4,
+      "label_zh": "物業科技工具",
+      "label_en": "Proptech tools",
+      "summary_zh": "CRM、估價與管理軟體。",
+      "summary_en": "CRM, valuation, management software.",
+      "players": [
+        {
+          "ticker": "CSGP",
+          "name_en": "CoStar",
+          "name_zh": "科斯塔集團",
+          "role_zh": "科斯塔集團：物業科技工具代表性玩家",
+          "role_en": "CoStar: representative player in Proptech tools",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "APPF",
+          "name_en": "AppFolio",
+          "name_zh": "AppFolio",
+          "role_zh": "AppFolio：物業科技工具代表性玩家",
+          "role_en": "AppFolio: representative player in Proptech tools",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "ADBE",
+          "name_en": "Adobe",
+          "name_zh": "Adobe",
+          "role_zh": "Adobe：物業科技工具代表性玩家",
+          "role_en": "Adobe: representative player in Proptech tools",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "housing",
+      "order": 5,
+      "label_zh": "住房需求",
+      "label_en": "Housing demand",
+      "summary_zh": "建商與住房週期。",
+      "summary_en": "Homebuilders and housing cycle.",
+      "players": [
+        {
+          "ticker": "DHI",
+          "name_en": "D.R. Horton",
+          "name_zh": "D.R. Horton",
+          "role_zh": "D.R. Horton：住房需求代表性玩家",
+          "role_en": "D.R. Horton: representative player in Housing demand",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "LEN",
+          "name_en": "Lennar",
+          "name_zh": "Lennar",
+          "role_zh": "Lennar：住房需求代表性玩家",
+          "role_en": "Lennar: representative player in Housing demand",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "PHM",
+          "name_en": "PulteGroup",
+          "name_zh": "PulteGroup",
+          "role_zh": "PulteGroup：住房需求代表性玩家",
+          "role_en": "PulteGroup: representative player in Housing demand",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "1200.HK",
+      "name_en": "Midland Holdings",
+      "name_zh": "美聯集團",
+      "basis_zh": "中國住宅經紀對手",
+      "basis_en": "China residential brokerage rival",
+      "exchange": "HKEX",
+      "listedInApp": false
+    }
+  ]
+}

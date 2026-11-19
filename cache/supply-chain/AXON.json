@@ -1,0 +1,195 @@
+{
+  "version": 1,
+  "ticker": "AXON",
+  "name_en": "Axon",
+  "name_zh": "Axon",
+  "updatedAt": "2026-11-19",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "law-enforcement-v1",
+    "references": [
+      "Industry model `law-enforcement-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "law-enforcement-v1",
+    "label_zh": "執法／公共安全裝備價值鏈",
+    "label_en": "Law-enforcement / public-safety equipment value chain",
+    "description_zh": "感測／攝像硬體 → 非致命／武器系統 → 取證／雲端軟體 → 系統整合通路 → 執法／政府客戶。",
+    "description_en": "Sensors / camera hardware → less-lethal / weapons systems → evidence / cloud software → systems-integrator channel → LE / government customers."
+  },
+  "stages": [
+    {
+      "id": "hardware",
+      "order": 1,
+      "label_zh": "感測／攝像硬體",
+      "label_en": "Sensors / camera hardware",
+      "summary_zh": "體戴、車載與感測硬體。",
+      "summary_en": "Bodycam, in-car, sensor hardware.",
+      "players": [
+        {
+          "ticker": "APH",
+          "name_en": "Amphenol",
+          "name_zh": "安費諾",
+          "role_zh": "安費諾：感測／攝像硬體代表性玩家",
+          "role_en": "Amphenol: representative player in Sensors / camera hardware",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "TEL",
+          "name_en": "TE Connectivity",
+          "name_zh": "泰科電子",
+          "role_zh": "泰科電子：感測／攝像硬體代表性玩家",
+          "role_en": "TE Connectivity: representative player in Sensors / camera hardware",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "GLW",
+          "name_en": "Corning",
+          "name_zh": "康寧",
+          "role_zh": "康寧：感測／攝像硬體代表性玩家",
+          "role_en": "Corning: representative player in Sensors / camera hardware",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "devices",
+      "order": 2,
+      "label_zh": "非致命／武器系統",
+      "label_en": "Less-lethal / weapons systems",
+      "summary_zh": "電擊槍與相關系統。",
+      "summary_en": "Conducted-energy and related systems.",
+      "players": [
+        {
+          "ticker": "MSA",
+          "name_en": "MSA Safety",
+          "name_zh": "梅思安安全",
+          "role_zh": "梅思安安全：非致命／武器系統代表性玩家",
+          "role_en": "MSA Safety: representative player in Less-lethal / weapons systems",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "software",
+      "order": 3,
+      "label_zh": "取證／雲端軟體",
+      "label_en": "Evidence / cloud software",
+      "summary_zh": "數位取證與證據管理。",
+      "summary_en": "Digital evidence and case management.",
+      "players": [
+        {
+          "ticker": "MSFT",
+          "name_en": "Microsoft",
+          "name_zh": "微軟",
+          "role_zh": "微軟：取證／雲端軟體代表性玩家",
+          "role_en": "Microsoft: representative player in Evidence / cloud software",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "ORCL",
+          "name_en": "Oracle",
+          "name_zh": "甲骨文",
+          "role_zh": "甲骨文：取證／雲端軟體代表性玩家",
+          "role_en": "Oracle: representative player in Evidence / cloud software",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "PANW",
+          "name_en": "Palo Alto Networks",
+          "name_zh": "派拓網路",
+          "role_zh": "派拓網路：取證／雲端軟體代表性玩家",
+          "role_en": "Palo Alto Networks: representative player in Evidence / cloud software",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "channel",
+      "order": 4,
+      "label_zh": "系統整合通路",
+      "label_en": "Systems-integrator channel",
+      "summary_zh": "公共安全整合與無線電。",
+      "summary_en": "Public-safety integrators and radio.",
+      "players": [
+        {
+          "ticker": "JCI",
+          "name_en": "Johnson Controls",
+          "name_zh": "江森自控",
+          "role_zh": "江森自控：系統整合通路代表性玩家",
+          "role_en": "Johnson Controls: representative player in Systems-integrator channel",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "ADT",
+          "name_en": "ADT",
+          "name_zh": "ADT",
+          "role_zh": "ADT：系統整合通路代表性玩家",
+          "role_en": "ADT: representative player in Systems-integrator channel",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "BAH",
+          "name_en": "Booz Allen",
+          "name_zh": "Booz Allen",
+          "role_zh": "Booz Allen：系統整合通路代表性玩家",
+          "role_en": "Booz Allen: representative player in Systems-integrator channel",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "customers",
+      "order": 5,
+      "label_zh": "執法／政府客戶",
+      "label_en": "LE / government customers",
+      "summary_zh": "警局與聯邦／州政府。",
+      "summary_en": "Police and federal / state agencies.",
+      "players": [
+        {
+          "ticker": "LDOS",
+          "name_en": "Leidos",
+          "name_zh": "Leidos",
+          "role_zh": "Leidos：執法／政府客戶代表性玩家",
+          "role_en": "Leidos: representative player in LE / government customers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "CACI",
+          "name_en": "CACI",
+          "name_zh": "CACI",
+          "role_zh": "CACI：執法／政府客戶代表性玩家",
+          "role_en": "CACI: representative player in LE / government customers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "SAIC",
+          "name_en": "Science Applications International",
+          "name_zh": "科學應用國際",
+          "role_zh": "科學應用國際：執法／政府客戶代表性玩家",
+          "role_en": "Science Applications International: representative player in LE / government customers",
+          "exchange": "NASDAQ"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "MSI",
+      "name_en": "Motorola Solutions",
+      "name_zh": "摩托羅拉解決方案",
+      "basis_zh": "執法／安防裝備對手",
+      "basis_en": "Law-enforcement / security-equipment rival",
+      "exchange": "NYSE"
+    }
+  ]
+}
