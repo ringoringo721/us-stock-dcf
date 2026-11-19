@@ -6247,21 +6247,6 @@
       "600584.SS",
       "封測／先進封裝對手",
       "OSAT / advanced packaging rival"
-    ],
-    [
-      "002156.SZ",
-      "封測／先進封裝對手",
-      "OSAT / advanced packaging rival"
-    ],
-    [
-      "TSM",
-      "封測／先進封裝對手",
-      "OSAT / advanced packaging rival"
-    ],
-    [
-      "GFS",
-      "封測／先進封裝對手",
-      "OSAT / advanced packaging rival"
     ]
   ],
   "HON": [
@@ -14615,6 +14600,11 @@
       "OSAT / advanced packaging rival"
     ],
     [
+      "002156.SZ",
+      "封測／先進封裝對手",
+      "OSAT / advanced packaging rival"
+    ],
+    [
       "TSM",
       "封測／先進封裝對手",
       "OSAT / advanced packaging rival"
@@ -20940,9 +20930,19 @@
   ],
   "LII": [
     [
-      "AOS",
-      "熱水器／水暖設備對手",
-      "Water heater / hydronic equipment rival"
+      "TT",
+      "暖通空調設備對手",
+      "HVAC equipment rival"
+    ],
+    [
+      "CARR",
+      "暖通空調設備對手",
+      "HVAC equipment rival"
+    ],
+    [
+      "JCI",
+      "暖通空調設備對手",
+      "HVAC equipment rival"
     ]
   ],
   "CR": [
@@ -25208,11 +25208,6 @@
     ],
     [
       "600584.SS",
-      "封測／先進封裝對手",
-      "OSAT / advanced packaging rival"
-    ],
-    [
-      "TSM",
       "封測／先進封裝對手",
       "OSAT / advanced packaging rival"
     ]

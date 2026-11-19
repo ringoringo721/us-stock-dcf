@@ -2161,6 +2161,48 @@ MODELS: dict[str, dict] = {
         ],
     },
 
+    "packaging-dispense-v1": {
+        "label_zh": "特用給藥／瓶蓋包裝價值鏈",
+        "label_en": "Specialty dispensing / closures value chain",
+        "description_zh": "聚合物原料 → 模具／設備 → 泵頭／瓶蓋製造 → CPG 客戶 → 零售通路。對手只列 rivals。",
+        "description_en": "Polymer resins → tooling / equipment → pumps / closures manufacturing → CPG customers → retail. Peer dispensers stay rivals only.",
+        "stages": [
+            {"id": "materials", "order": 1, "label_zh": "聚合物原料", "label_en": "Polymer resins", "summary_zh": "工程塑膠與彈性體。", "summary_en": "Engineering plastics and elastomers."},
+            {"id": "equipment", "order": 2, "label_zh": "模具／設備", "label_en": "Tooling / equipment", "summary_zh": "射出成型與組裝設備。", "summary_en": "Injection molding and assembly equipment."},
+            {"id": "manufacturing", "order": 3, "label_zh": "泵頭／瓶蓋製造", "label_en": "Pumps / closures manufacturing", "summary_zh": "給藥泵與瓶蓋組裝（非對手墊）。", "summary_en": "Dispensing pumps and closures — not rival pads."},
+            {"id": "customers", "order": 4, "label_zh": "CPG 客戶", "label_en": "CPG customers", "summary_zh": "美妝、個護與食品客戶。", "summary_en": "Beauty, personal-care, and food customers."},
+            {"id": "retail", "order": 5, "label_zh": "零售通路", "label_en": "Retail channel", "summary_zh": "超市與藥妝通路。", "summary_en": "Grocery and drugstore channels."},
+        ],
+    },
+
+    "semiconductor-osat-v1": {
+        "label_zh": "半導體封測（OSAT）價值鏈",
+        "label_en": "Semiconductor OSAT / advanced-packaging value chain",
+        "description_zh": "載板／材料 → 封裝設備 → 封測製造 → 無晶圓廠客戶 → 終端平台。對手 OSAT 只列 rivals（非晶圓代工）。",
+        "description_en": "Substrates / materials → packaging equipment → OSAT manufacturing → fabless customers → end platforms. Peer OSATs stay rivals only — not foundry pads.",
+        "stages": [
+            {"id": "materials", "order": 1, "label_zh": "載板／材料", "label_en": "Substrates / materials", "summary_zh": "載板、線材與特用化學。", "summary_en": "Substrates, wire, specialty chemicals."},
+            {"id": "equipment", "order": 2, "label_zh": "封裝／測試設備", "label_en": "Packaging / test equipment", "summary_zh": "打線、覆晶與測試設備。", "summary_en": "Bonding, flip-chip, and test gear."},
+            {"id": "manufacturing", "order": 3, "label_zh": "封測製造", "label_en": "OSAT manufacturing", "summary_zh": "後段封裝與測試產能（非對手墊）。", "summary_en": "Back-end packaging and test — not rival pads."},
+            {"id": "fabless", "order": 4, "label_zh": "無晶圓廠客戶", "label_en": "Fabless customers", "summary_zh": "設計公司委外封測。", "summary_en": "Fabless outsource customers."},
+            {"id": "platforms", "order": 5, "label_zh": "終端平台", "label_en": "End platforms", "summary_zh": "手機、雲端與系統客戶。", "summary_en": "Handset, cloud, and systems customers."},
+        ],
+    },
+
+    "hvac-equip-v1": {
+        "label_zh": "暖通空調設備價值鏈",
+        "label_en": "HVAC equipment value chain",
+        "description_zh": "壓縮機／零件 → 控制／電子 → HVAC 製造 → 批發／安裝通路 → 建築／住宅客戶。對手只列 rivals。",
+        "description_en": "Compressors / components → controls / electronics → HVAC manufacturing → wholesale / install channel → building / residential customers. Peer OEMs stay rivals only.",
+        "stages": [
+            {"id": "components", "order": 1, "label_zh": "壓縮機／零件", "label_en": "Compressors / components", "summary_zh": "壓縮機、盤管與結構件。", "summary_en": "Compressors, coils, structural parts."},
+            {"id": "controls", "order": 2, "label_zh": "控制／電子", "label_en": "Controls / electronics", "summary_zh": "溫控與變頻電子。", "summary_en": "Thermostats and inverter electronics."},
+            {"id": "manufacturing", "order": 3, "label_zh": "HVAC 製造", "label_en": "HVAC manufacturing", "summary_zh": "空調與熱泵組裝（非對手墊）。", "summary_en": "AC and heat-pump assembly — not rival pads."},
+            {"id": "channel", "order": 4, "label_zh": "批發／安裝通路", "label_en": "Wholesale / install channel", "summary_zh": "HVAC 批發與承包安裝。", "summary_en": "HVAC wholesale and contractors."},
+            {"id": "customers", "order": 5, "label_zh": "建築／住宅客戶", "label_en": "Building / residential customers", "summary_zh": "商辦與住宅開發。", "summary_en": "Commercial and residential demand."},
+        ],
+    },
+
     "sporting-goods-v1": {
         "label_zh": "運動用品／戶外服飾價值鏈",
         "label_en": "Sporting-goods / outdoor apparel value chain",
@@ -2464,7 +2506,7 @@ TICKER_MODEL: dict[str, str] = {
     "BKNG": "consumer-discretionary-v1",
     # Mid-mega ($50–100B) specialty overrides
     "TEL": "hardware-value-chain-v1",  # TE Connectivity — components, not fabless silicon
-    "ASX": "semiconductor-foundry-v1",  # ASE — OSAT / advanced packaging
+    "ASX": "semiconductor-osat-v1",  # ASE — OSAT / advanced packaging (not foundry)
     "WDC": "semiconductor-memory-v1",  # storage / NAND adjacency
     # DASH/UBER/LYFT/GRAB → rideshare-v1 (above); never consumer-discretionary OTAs (BKNG/EXPE)
     "JCI": "industrials-v1",  # HVAC / building systems more than bulk materials
@@ -2502,7 +2544,7 @@ TICKER_MODEL: dict[str, str] = {
     "NVMI": "semiconductor-equipment-v1",
     "ONTO": "semiconductor-equipment-v1",
     "TER": "semiconductor-equipment-v1",
-    "AMKR": "semiconductor-foundry-v1",
+    "AMKR": "semiconductor-osat-v1",  # OSAT — not foundry
     "GFS": "semiconductor-foundry-v1",
     "STX": "semiconductor-memory-v1",
     "SNDK": "semiconductor-memory-v1",
@@ -2543,7 +2585,7 @@ TICKER_MODEL: dict[str, str] = {
     "BBDO": "bank-diversified-v1",
     "BSBR": "bank-diversified-v1",
     "BCH": "bank-diversified-v1",
-    "AMKR": "semiconductor-foundry-v1",
+    "AMKR": "semiconductor-osat-v1",  # OSAT — not foundry
     "ALAB": "semiconductor-fabless-v1",
     "ALGM": "semiconductor-fabless-v1",
     "ACIW": "payments-v1",
@@ -2582,7 +2624,7 @@ TICKER_MODEL: dict[str, str] = {
     "BG": "consumer-staples-v1",
     "ABEV": "consumer-staples-v1",
     "ALC": "medtech-v1",
-    "ATR": "industrials-v1",  # packaging/dispensing, not dental medtech
+    "ATR": "packaging-dispense-v1",  # dispensing/closures — not industrials CAT/DE
     "AMCR": "packaging-containers-v1",  # packaging containers — not CAT/DE industrials
     "BALL": "packaging-containers-v1",
     "CCK": "packaging-containers-v1",
@@ -2617,8 +2659,11 @@ TICKER_MODEL: dict[str, str] = {
     "CIG": "utilities-v1",
     "BRZE": "saas-cloud-v1",
     "AOS": "water-heat-v1",  # water heaters — not CAT/DE industrials; WTS not a heater rival
+    "LII": "hvac-equip-v1",  # HVAC OEM — not water-heat FORCE; AOS lists LII one-way only
     "AGCO": "ag-machinery-v1",  # ag OEM — rival OEMs stay rivals, not dealer-stage
     "AS": "sporting-goods-v1",  # athletic / outdoor — not hospitality disc stores
+    "AMKR": "semiconductor-osat-v1",  # OSAT / advanced packaging — not foundry
+    "ASX": "semiconductor-osat-v1",
     "AVAV": "aerospace-defense-v1",  # military UAV — peers via mil-uav group
     "BETA": "aerospace-defense-v1",
     "JOBY": "aerospace-defense-v1",

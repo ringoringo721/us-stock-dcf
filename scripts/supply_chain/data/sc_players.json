@@ -146,9 +146,9 @@
       "ANET"
     ],
     "data-security": [
-      "CRWD",
-      "PANW",
-      "ZS"
+      "MSFT",
+      "ORCL",
+      "CSCO"
     ],
     "integrators": [
       "ACN",
@@ -276,9 +276,9 @@
       "COF"
     ],
     "acquirers": [
-      "FISV",
-      "GPN",
-      "FIS"
+      "JKHY",
+      "BR",
+      "ADP"
     ],
     "merchant-tech": [
       "TOST",
@@ -291,9 +291,9 @@
       "COIN"
     ],
     "settlement": [
-      "JPM",
-      "BAC",
-      "WFC"
+      "WFC",
+      "USB",
+      "PNC"
     ]
   },
   "capital-markets-v1": {
@@ -471,8 +471,8 @@
     ],
     "midstream": [
       "ENB",
-      "KMI",
-      "WMB"
+      "PAA",
+      "WES"
     ],
     "refining": [
       "MPC",
@@ -676,9 +676,9 @@
   },
   "specialty-chem-v1": {
     "inputs": [
-      "DOW",
-      "DD",
-      "XOM"
+      "XOM",
+      "CVX",
+      "LIN"
     ],
     "formulation": [
       "SHW",
@@ -696,9 +696,9 @@
       "HD"
     ],
     "customers": [
-      "HD",
       "LOW",
-      "HLT"
+      "WMT",
+      "CAT"
     ]
   },
   "utilities-v1": {
@@ -708,9 +708,9 @@
       "GNRC"
     ],
     "generation": [
-      "CEG",
-      "VST",
-      "GEV"
+      "GEV",
+      "NEE",
+      "DUK"
     ],
     "td": [
       "PWR",
@@ -925,8 +925,8 @@
     ],
     "engineering": [
       "J",
-      "FLR",
-      "ACM"
+      "ACM",
+      "BAH"
     ],
     "workforce": [
       "CTSH",
@@ -941,7 +941,7 @@
     "infra": [
       "PWR",
       "MTZ",
-      "ACM"
+      "EME"
     ]
   },
   "adtech-v1": {
@@ -1121,7 +1121,7 @@
     "stores": [
       "SPG",
       "MAC",
-      "URBN"
+      "KIM"
     ],
     "payments": [
       "V",
@@ -1143,7 +1143,7 @@
     "wholesale": [
       "SYY",
       "USFD",
-      "COST"
+      "PFGC"
     ],
     "logistics": [
       "UNP",
@@ -1288,11 +1288,9 @@
       "CTVA"
     ],
     "ingredients": [
-      "IFF",
-      "INGR",
-      "DAR",
-      "BCPC",
-      "SXT"
+      "SXT",
+      "LIN",
+      "APD"
     ],
     "equipment": [
       "HON",
@@ -1582,22 +1580,20 @@
     "materials": [
       "DOW",
       "DD",
-      "VFC"
+      "EMN"
     ],
     "manufacturing": [
-      "UPS",
-      "FDX",
-      "EXPD"
+      "PVH",
+      "UAA",
+      "SKX"
     ],
     "wholesale": [
-      "DKS",
-      "WSM",
-      "BBY"
+      "DKS"
     ],
     "stores": [
-      "DKS",
-      "URBN",
-      "SPG"
+      "SPG",
+      "MAC",
+      "URBN"
     ],
     "traffic": [
       "GOOG",
@@ -1639,9 +1635,7 @@
       "GLW"
     ],
     "devices": [
-      "OSK",
-      "TXT",
-      "HII"
+      "MSA"
     ],
     "software": [
       "MSFT",
@@ -1765,6 +1759,87 @@
       "FIS",
       "FISV",
       "JKHY"
+    ]
+  },
+  "packaging-dispense-v1": {
+    "materials": [
+      "DOW",
+      "DD",
+      "EMN"
+    ],
+    "equipment": [
+      "ITW",
+      "EMR",
+      "ROK"
+    ],
+    "manufacturing": [
+      "APD",
+      "LIN",
+      "DOV"
+    ],
+    "customers": [
+      "KO",
+      "PEP",
+      "PG"
+    ],
+    "retail": [
+      "WMT",
+      "COST",
+      "KR"
+    ]
+  },
+  "semiconductor-osat-v1": {
+    "materials": [
+      "4063.T",
+      "ENTG",
+      "GLW"
+    ],
+    "equipment": [
+      "AMAT",
+      "TER",
+      "KLAC"
+    ],
+    "manufacturing": [
+      "JBL",
+      "FLEX",
+      "SANM"
+    ],
+    "fabless": [
+      "NVDA",
+      "AMD",
+      "QCOM"
+    ],
+    "platforms": [
+      "AAPL",
+      "MSFT",
+      "AVGO"
+    ]
+  },
+  "hvac-equip-v1": {
+    "components": [
+      "ETN",
+      "EMR",
+      "PH"
+    ],
+    "controls": [
+      "HON",
+      "ROK",
+      "TXN"
+    ],
+    "manufacturing": [
+      "MOD",
+      "SPXC",
+      "IR"
+    ],
+    "channel": [
+      "WSO",
+      "FIX",
+      "EME"
+    ],
+    "customers": [
+      "DHI",
+      "LEN",
+      "AMT"
     ]
   }
 }

@@ -287,8 +287,8 @@
     ],
     "providers": [
       "HCA",
-      "UNH",
-      "CVS"
+      "THC",
+      "UHS"
     ],
     "payers": [
       "UNH",
@@ -384,9 +384,9 @@
       "CTVA"
     ],
     "ingredients": [
-      "IFF",
-      "INGR",
-      "DAR"
+      "SXT",
+      "LIN",
+      "APD"
     ],
     "equipment": [
       "HON",
@@ -1021,9 +1021,9 @@
       "TEL"
     ],
     "instruments": [
-      "TMO",
-      "DHR",
-      "A"
+      "WAT",
+      "MTD",
+      "BRKR"
     ],
     "consumables": [
       "RGEN",
@@ -1420,22 +1420,20 @@
     "materials": [
       "DOW",
       "DD",
-      "VFC"
+      "EMN"
     ],
     "manufacturing": [
-      "UPS",
-      "FDX",
-      "EXPD"
+      "PVH",
+      "UAA",
+      "SKX"
     ],
     "wholesale": [
-      "DKS",
-      "WSM",
-      "BBY"
+      "DKS"
     ],
     "stores": [
-      "DKS",
-      "URBN",
-      "SPG"
+      "SPG",
+      "MAC",
+      "URBN"
     ],
     "traffic": [
       "GOOG",
@@ -1477,9 +1475,7 @@
       "GLW"
     ],
     "devices": [
-      "OSK",
-      "TXT",
-      "HII"
+      "MSA"
     ],
     "software": [
       "MSFT",
@@ -1603,6 +1599,330 @@
       "FIS",
       "FISV",
       "JKHY"
+    ]
+  },
+  "ATR": {
+    "materials": [
+      "DOW",
+      "DD",
+      "EMN"
+    ],
+    "equipment": [
+      "ITW",
+      "EMR",
+      "ROK"
+    ],
+    "manufacturing": [
+      "APD",
+      "LIN",
+      "DOV"
+    ],
+    "customers": [
+      "KO",
+      "PEP",
+      "PG"
+    ],
+    "retail": [
+      "WMT",
+      "COST",
+      "KR"
+    ]
+  },
+  "AMKR": {
+    "materials": [
+      "4063.T",
+      "ENTG",
+      "GLW"
+    ],
+    "equipment": [
+      "AMAT",
+      "TER",
+      "KLAC"
+    ],
+    "manufacturing": [
+      "JBL",
+      "FLEX",
+      "SANM"
+    ],
+    "fabless": [
+      "NVDA",
+      "AMD",
+      "QCOM"
+    ],
+    "platforms": [
+      "AAPL",
+      "MSFT",
+      "AVGO"
+    ]
+  },
+  "ASX": {
+    "materials": [
+      "4063.T",
+      "ENTG",
+      "GLW"
+    ],
+    "equipment": [
+      "AMAT",
+      "TER",
+      "KLAC"
+    ],
+    "manufacturing": [
+      "JBL",
+      "FLEX",
+      "SANM"
+    ],
+    "fabless": [
+      "NVDA",
+      "AMD",
+      "QCOM"
+    ],
+    "platforms": [
+      "AAPL",
+      "MSFT",
+      "AVGO"
+    ]
+  },
+  "LII": {
+    "components": [
+      "ETN",
+      "EMR",
+      "PH"
+    ],
+    "controls": [
+      "HON",
+      "ROK",
+      "TXN"
+    ],
+    "manufacturing": [
+      "MOD",
+      "SPXC",
+      "IR"
+    ],
+    "channel": [
+      "WSO",
+      "FIX",
+      "EME"
+    ],
+    "customers": [
+      "DHI",
+      "LEN",
+      "AMT"
+    ]
+  },
+  "AES": {
+    "fuel-capex": [
+      "FSLR",
+      "ENPH",
+      "GNRC"
+    ],
+    "generation": [
+      "GEV",
+      "NEE",
+      "DUK"
+    ],
+    "td": [
+      "PWR",
+      "EMR",
+      "HON"
+    ],
+    "grid-tech": [
+      "ETN",
+      "ROK",
+      "HUBB"
+    ],
+    "retail": [
+      "AMZN",
+      "WMT",
+      "TSLA"
+    ]
+  },
+  "AM": {
+    "services": [
+      "SLB",
+      "HAL",
+      "BKR"
+    ],
+    "upstream": [
+      "COP",
+      "EOG",
+      "OXY"
+    ],
+    "midstream": [
+      "ENB",
+      "PAA",
+      "WES"
+    ],
+    "refining": [
+      "MPC",
+      "VLO",
+      "PSX"
+    ],
+    "marketing": [
+      "DAL",
+      "CAT",
+      "UNP"
+    ]
+  },
+  "BB": {
+    "silicon": [
+      "NVDA",
+      "AMD",
+      "AVGO"
+    ],
+    "infra": [
+      "EQIX",
+      "DLR",
+      "ANET"
+    ],
+    "data-security": [
+      "MSFT",
+      "ORCL",
+      "CSCO"
+    ],
+    "integrators": [
+      "ACN",
+      "IBM",
+      "CTSH"
+    ],
+    "channel": [
+      "CDW",
+      "SNX",
+      "DELL"
+    ]
+  },
+  "CE": {
+    "inputs": [
+      "XOM",
+      "CVX",
+      "LIN"
+    ],
+    "formulation": [
+      "SHW",
+      "ECL",
+      "PPG"
+    ],
+    "equipment": [
+      "EMR",
+      "ITW",
+      "PH"
+    ],
+    "distribution": [
+      "GWW",
+      "FAST",
+      "HD"
+    ],
+    "customers": [
+      "LOW",
+      "WMT",
+      "CAT"
+    ]
+  },
+  "AMTM": {
+    "systems": [
+      "MSFT",
+      "ORCL",
+      "IBM"
+    ],
+    "engineering": [
+      "J",
+      "ACM",
+      "BAH"
+    ],
+    "workforce": [
+      "CTSH",
+      "ACN",
+      "INFY"
+    ],
+    "agencies": [
+      "LMT",
+      "NOC",
+      "GD"
+    ],
+    "infra": [
+      "PWR",
+      "MTZ",
+      "EME"
+    ]
+  },
+  "ACIW": {
+    "issuers": [
+      "JPM",
+      "BAC",
+      "COF"
+    ],
+    "acquirers": [
+      "JKHY",
+      "BR",
+      "ADP"
+    ],
+    "merchant-tech": [
+      "TOST",
+      "SHOP",
+      "AFRM"
+    ],
+    "consumer": [
+      "AAPL",
+      "GOOG",
+      "COIN"
+    ],
+    "settlement": [
+      "WFC",
+      "USB",
+      "PNC"
+    ]
+  },
+  "ACI": {
+    "supply": [
+      "PG",
+      "KO",
+      "PEP"
+    ],
+    "wholesale": [
+      "SYY",
+      "USFD",
+      "PFGC"
+    ],
+    "logistics": [
+      "UNP",
+      "UPS",
+      "FDX"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "AMZN"
+    ]
+  },
+  "ANF": {
+    "supply": [
+      "VFC",
+      "LEVI",
+      "NKE"
+    ],
+    "logistics": [
+      "UPS",
+      "FDX",
+      "EXPD"
+    ],
+    "stores": [
+      "SPG",
+      "MAC",
+      "KIM"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "AXP"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "PINS"
     ]
   }
 }

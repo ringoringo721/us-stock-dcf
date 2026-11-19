@@ -351,9 +351,15 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "semi-osat",
-        ["AMKR", "ASX", "600584.SS", "TSM"],
+        ["AMKR", "ASX", "600584.SS"],  # OSAT-only — drop TSM foundry pad
         "封測／先進封裝對手",
         "OSAT / advanced packaging rival",
+    ),
+    (
+        "hvac-equip",
+        ["LII", "TT", "CARR", "JCI"],  # HVAC OEMs — LII not water-heat FORCE; AOS still lists LII one-way
+        "暖通空調設備對手",
+        "HVAC equipment rival",
     ),
     (
         "semi-conn",
@@ -1015,6 +1021,7 @@ TICKER_GROUP_FORCE: dict[str, str] = {
     "ONTO": "semi-equip-mat",
     "ALGM": "semi-analog",
     "AMKR": "semi-osat",
+    "ASX": "semi-osat",
     "ALAB": "semi-conn",
     "VEEV": "saas-life-sci",
     "HUBS": "saas-crm-collab",
@@ -1151,8 +1158,8 @@ TICKER_GROUP_FORCE: dict[str, str] = {
     "BALL": "packaging-containers",
     "CCK": "packaging-containers",
     "PKG": "packaging-containers",
-    "AOS": "water-heat",
-    "LII": "water-heat",
+    "AOS": "water-heat",  # AOS→LII one-way; do NOT force LII into water-heat
+    "LII": "hvac-equip",  # HVAC peers TT/CARR/JCI — not water-heater NO_PAD with AOS
     "AVTR": "life-sci-dist",
     "A": "life-sci-tools",
     "WAT": "life-sci-tools",
@@ -1255,6 +1262,8 @@ NO_PAD_GROUPS = {
     "util-latam",
     "packaging-disp",
     "water-heat",
+    "hvac-equip",
+    "semi-osat",
     "life-sci-dist",
     "tax-pro-svc",
     "ins-pc-re",
