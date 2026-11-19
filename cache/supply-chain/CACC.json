@@ -1,0 +1,243 @@
+{
+  "version": 1,
+  "ticker": "CACC",
+  "name_en": "Credit Acceptance",
+  "name_zh": "Credit Acceptance",
+  "updatedAt": "2026-11-19",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "auto-finance-v1",
+    "references": [
+      "Industry model `auto-finance-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "auto-finance-v1",
+    "label_zh": "汽車金融／消費貸價值鏈",
+    "label_en": "Auto finance / consumer-lending value chain",
+    "description_zh": "融資／ABS → 信用數據 → 經銷通路 → 整車／經銷客戶 → 服務／催收。對手貸方只列 rivals。",
+    "description_en": "Funding / ABS → credit data → dealer channel → auto / dealer customers → servicing / collections. Peer lenders stay rivals only."
+  },
+  "stages": [
+    {
+      "id": "funding",
+      "order": 1,
+      "label_zh": "融資／ABS",
+      "label_en": "Funding / ABS",
+      "summary_zh": "銀行授信與車貸證券化。",
+      "summary_en": "Bank lines and auto ABS.",
+      "players": [
+        {
+          "ticker": "JPM",
+          "name_en": "JPMorgan Chase & Co.",
+          "name_zh": "摩根大通",
+          "role_zh": "摩根大通：融資／ABS代表性玩家",
+          "role_en": "JPMorgan Chase & Co.: representative player in Funding / ABS",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "BAC",
+          "name_en": "Bank of America",
+          "name_zh": "美國銀行",
+          "role_zh": "美國銀行：融資／ABS代表性玩家",
+          "role_en": "Bank of America: representative player in Funding / ABS",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "WFC",
+          "name_en": "Wells Fargo",
+          "name_zh": "富國銀行",
+          "role_zh": "富國銀行：融資／ABS代表性玩家",
+          "role_en": "Wells Fargo: representative player in Funding / ABS",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "data",
+      "order": 2,
+      "label_zh": "信用／風險數據",
+      "label_en": "Credit / risk data",
+      "summary_zh": "信用評分與風險數據。",
+      "summary_en": "Credit scores and risk data.",
+      "players": [
+        {
+          "ticker": "FICO",
+          "name_en": "Fair Isaac",
+          "name_zh": "費埃哲 (FICO)",
+          "role_zh": "費埃哲 (FICO)：信用／風險數據代表性玩家",
+          "role_en": "Fair Isaac: representative player in Credit / risk data",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "EFX",
+          "name_en": "Equifax",
+          "name_zh": "艾可飛 (Equifax)",
+          "role_zh": "艾可飛 (Equifax)：信用／風險數據代表性玩家",
+          "role_en": "Equifax: representative player in Credit / risk data",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "TRU",
+          "name_en": "TransUnion",
+          "name_zh": "全聯徵信 (TransUnion)",
+          "role_zh": "全聯徵信 (TransUnion)：信用／風險數據代表性玩家",
+          "role_en": "TransUnion: representative player in Credit / risk data",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "dealers",
+      "order": 3,
+      "label_zh": "經銷通路",
+      "label_en": "Dealer channel",
+      "summary_zh": "汽車經銷與 F&I。",
+      "summary_en": "Auto dealers and F&I.",
+      "players": [
+        {
+          "ticker": "AN",
+          "name_en": "AutoNation",
+          "name_zh": "AutoNation",
+          "role_zh": "AutoNation：經銷通路代表性玩家",
+          "role_en": "AutoNation: representative player in Dealer channel",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "PAG",
+          "name_en": "Penske Automotive",
+          "name_zh": "Penske Automotive",
+          "role_zh": "Penske Automotive：經銷通路代表性玩家",
+          "role_en": "Penske Automotive: representative player in Dealer channel",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "LAD",
+          "name_en": "Lithia Motors",
+          "name_zh": "Lithia Motors",
+          "role_zh": "Lithia Motors：經銷通路代表性玩家",
+          "role_en": "Lithia Motors: representative player in Dealer channel",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "customers",
+      "order": 4,
+      "label_zh": "整車／經銷客戶",
+      "label_en": "Auto / dealer customers",
+      "summary_zh": "消費者與經銷庫融。",
+      "summary_en": "Consumers and dealer floorplan.",
+      "players": [
+        {
+          "ticker": "F",
+          "name_en": "Ford",
+          "name_zh": "福特",
+          "role_zh": "福特：整車／經銷客戶代表性玩家",
+          "role_en": "Ford: representative player in Auto / dealer customers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "GM",
+          "name_en": "General Motors",
+          "name_zh": "通用汽車",
+          "role_zh": "通用汽車：整車／經銷客戶代表性玩家",
+          "role_en": "General Motors: representative player in Auto / dealer customers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "KMX",
+          "name_en": "CarMax",
+          "name_zh": "CarMax",
+          "role_zh": "CarMax：整車／經銷客戶代表性玩家",
+          "role_en": "CarMax: representative player in Auto / dealer customers",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "servicing",
+      "order": 5,
+      "label_zh": "服務／催收",
+      "label_en": "Servicing / collections",
+      "summary_zh": "貸後管理與催收。",
+      "summary_en": "Loan admin and collections.",
+      "players": [
+        {
+          "ticker": "FIS",
+          "name_en": "FIS",
+          "name_zh": "FIS",
+          "role_zh": "FIS：服務／催收代表性玩家",
+          "role_en": "FIS: representative player in Servicing / collections",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "FISV",
+          "name_en": "Fiserv",
+          "name_zh": "Fiserv",
+          "role_zh": "Fiserv：服務／催收代表性玩家",
+          "role_en": "Fiserv: representative player in Servicing / collections",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "JKHY",
+          "name_en": "Jack Henry & Associates",
+          "name_zh": "Jack Henry & Associates",
+          "role_zh": "Jack Henry & Associates：服務／催收代表性玩家",
+          "role_en": "Jack Henry & Associates: representative player in Servicing / collections",
+          "exchange": "NASDAQ"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "ALLY",
+      "name_en": "Ally Financial",
+      "name_zh": "Ally",
+      "basis_zh": "汽車／消費貸款對手",
+      "basis_en": "Auto / consumer-lending rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "SOFI",
+      "name_en": "SoFi Technologies",
+      "name_zh": "SoFi Technologies",
+      "basis_zh": "汽車／消費貸款對手",
+      "basis_en": "Auto / consumer-lending rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "COF",
+      "name_en": "Capital One",
+      "name_zh": "Capital One",
+      "basis_zh": "汽車／消費貸款對手",
+      "basis_en": "Auto / consumer-lending rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "SYF",
+      "name_en": "Synchrony Financial",
+      "name_zh": "Synchrony 金融",
+      "basis_zh": "汽車／消費貸款對手",
+      "basis_en": "Auto / consumer-lending rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "OMF",
+      "name_en": "OneMain",
+      "name_zh": "OneMain",
+      "basis_zh": "汽車／消費貸款對手",
+      "basis_en": "Auto / consumer-lending rival",
+      "exchange": "NYSE"
+    }
+  ]
+}
