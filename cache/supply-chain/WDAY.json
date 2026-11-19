@@ -3,7 +3,7 @@
   "ticker": "WDAY",
   "name_en": "Workday",
   "name_zh": "Workday",
-  "updatedAt": "2026-11-18",
+  "updatedAt": "2026-11-19",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -104,27 +104,27 @@
       "summary_en": "Data, identity, and security layer.",
       "players": [
         {
-          "ticker": "CRWD",
-          "name_en": "CrowdStrike",
-          "name_zh": "CrowdStrike",
-          "role_zh": "CrowdStrike：資料平台／資安代表性玩家",
-          "role_en": "CrowdStrike: representative player in Data platform / security",
+          "ticker": "MSFT",
+          "name_en": "Microsoft",
+          "name_zh": "微軟",
+          "role_zh": "微軟：資料平台／資安代表性玩家",
+          "role_en": "Microsoft: representative player in Data platform / security",
           "exchange": "NASDAQ"
         },
         {
-          "ticker": "PANW",
-          "name_en": "Palo Alto Networks",
-          "name_zh": "派拓網路",
-          "role_zh": "派拓網路：資料平台／資安代表性玩家",
-          "role_en": "Palo Alto Networks: representative player in Data platform / security",
-          "exchange": "NASDAQ"
+          "ticker": "ORCL",
+          "name_en": "Oracle",
+          "name_zh": "甲骨文",
+          "role_zh": "甲骨文：資料平台／資安代表性玩家",
+          "role_en": "Oracle: representative player in Data platform / security",
+          "exchange": "NYSE"
         },
         {
-          "ticker": "ZS",
-          "name_en": "Zscaler",
-          "name_zh": "Zscaler",
-          "role_zh": "Zscaler：資料平台／資安代表性玩家",
-          "role_en": "Zscaler: representative player in Data platform / security",
+          "ticker": "CSCO",
+          "name_en": "Cisco Systems",
+          "name_zh": "思科",
+          "role_zh": "思科：資料平台／資安代表性玩家",
+          "role_en": "Cisco Systems: representative player in Data platform / security",
           "exchange": "NASDAQ"
         }
       ]

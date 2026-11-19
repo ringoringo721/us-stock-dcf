@@ -1,7 +1,7 @@
 {
   "version": 1,
   "ticker": "KR",
-  "updatedAt": "2026-11-18",
+  "updatedAt": "2026-11-19",
   "basis": "lastTradingDayCloseVsPriorClose",
   "notes_en": "changePct from last two EOD closes in price_charts; mcap from US listings screener (USD millions). Missing tickers stay null. No live FMP per pageview.",
   "notes_zh": "漲跌%取自 price_charts 最近兩日收盤；市值取自美股清單（百萬美元）。缺資料維持 null，不造假。頁面不打即時 FMP。",
@@ -66,12 +66,12 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "COST": {
-      "ticker": "COST",
-      "price": 1106.21,
-      "previousClose": 1092.21,
-      "changePct": 1.282,
-      "mcap": 466863.4,
+    "PFGC": {
+      "ticker": "PFGC",
+      "price": 111.17,
+      "previousClose": 109.96,
+      "changePct": 1.1,
+      "mcap": 16961.8,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
@@ -192,6 +192,16 @@
       "previousClose": 126.19,
       "changePct": 1.506,
       "mcap": 998898.1,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "COST": {
+      "ticker": "COST",
+      "price": 1106.21,
+      "previousClose": 1092.21,
+      "changePct": 1.282,
+      "mcap": 466863.4,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"

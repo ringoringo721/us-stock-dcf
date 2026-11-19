@@ -3,7 +3,7 @@
   "ticker": "KR",
   "name_en": "Kroger",
   "name_zh": "Kroger",
-  "updatedAt": "2026-11-18",
+  "updatedAt": "2026-11-19",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -86,12 +86,12 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "COST",
-          "name_en": "Costco Wholesale",
-          "name_zh": "好市多",
-          "role_zh": "好市多：批發／通路代表性玩家",
-          "role_en": "Costco Wholesale: representative player in Wholesale / distribution",
-          "exchange": "NASDAQ"
+          "ticker": "PFGC",
+          "name_en": "Performance Food Co",
+          "name_zh": "PFGC",
+          "role_zh": "PFGC：批發／通路代表性玩家",
+          "role_en": "Performance Food Co: representative player in Wholesale / distribution",
+          "exchange": "NYSE"
         }
       ]
     },
