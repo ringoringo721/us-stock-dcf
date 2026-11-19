@@ -1,0 +1,235 @@
+{
+  "version": 1,
+  "ticker": "APTV",
+  "name_en": "Aptiv",
+  "name_zh": "Aptiv",
+  "updatedAt": "2026-11-19",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "auto-tier1-v1",
+    "references": [
+      "Industry model `auto-tier1-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "auto-tier1-v1",
+    "label_zh": "汽車 Tier-1 零組件價值鏈",
+    "label_en": "Auto Tier-1 components value chain",
+    "description_zh": "材料／金屬 → 汽車半導體／電子 → 線束／感測模組 → 整車 OEM → 售後通路。",
+    "description_en": "Materials / metals → auto semis / electronics → harness / sensor modules → OEM customers → aftermarket channel."
+  },
+  "stages": [
+    {
+      "id": "materials",
+      "order": 1,
+      "label_zh": "材料／金屬",
+      "label_en": "Materials / metals",
+      "summary_zh": "鋼鋁與工程塑膠。",
+      "summary_en": "Steel, aluminum, engineering plastics.",
+      "players": [
+        {
+          "ticker": "NUE",
+          "name_en": "Nucor",
+          "name_zh": "紐柯",
+          "role_zh": "紐柯：材料／金屬代表性玩家",
+          "role_en": "Nucor: representative player in Materials / metals",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "AA",
+          "name_en": "Alcoa",
+          "name_zh": "美國鋁業",
+          "role_zh": "美國鋁業：材料／金屬代表性玩家",
+          "role_en": "Alcoa: representative player in Materials / metals",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "DOW",
+          "name_en": "Dow",
+          "name_zh": "陶氏化學",
+          "role_zh": "陶氏化學：材料／金屬代表性玩家",
+          "role_en": "Dow: representative player in Materials / metals",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "order": 2,
+      "label_zh": "汽車半導體／電子",
+      "label_en": "Auto semis / electronics",
+      "summary_zh": "功率、感測與車用 MCU。",
+      "summary_en": "Power, sensors, automotive MCUs.",
+      "players": [
+        {
+          "ticker": "TXN",
+          "name_en": "Texas Instruments",
+          "name_zh": "德州儀器",
+          "role_zh": "德州儀器：汽車半導體／電子代表性玩家",
+          "role_en": "Texas Instruments: representative player in Auto semis / electronics",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "ON",
+          "name_en": "onsemi",
+          "name_zh": "安森美",
+          "role_zh": "安森美：汽車半導體／電子代表性玩家",
+          "role_en": "onsemi: representative player in Auto semis / electronics",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "ADI",
+          "name_en": "Analog Devices",
+          "name_zh": "亞德諾",
+          "role_zh": "亞德諾：汽車半導體／電子代表性玩家",
+          "role_en": "Analog Devices: representative player in Auto semis / electronics",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "modules",
+      "order": 3,
+      "label_zh": "線束／感測模組",
+      "label_en": "Harness / sensor modules",
+      "summary_zh": "連接、線束與模組供應。",
+      "summary_en": "Connectors, harnesses, modules.",
+      "players": [
+        {
+          "ticker": "TEL",
+          "name_en": "TE Connectivity",
+          "name_zh": "泰科電子",
+          "role_zh": "泰科電子：線束／感測模組代表性玩家",
+          "role_en": "TE Connectivity: representative player in Harness / sensor modules",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "APH",
+          "name_en": "Amphenol",
+          "name_zh": "安費諾",
+          "role_zh": "安費諾：線束／感測模組代表性玩家",
+          "role_en": "Amphenol: representative player in Harness / sensor modules",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "GLW",
+          "name_en": "Corning",
+          "name_zh": "康寧",
+          "role_zh": "康寧：線束／感測模組代表性玩家",
+          "role_en": "Corning: representative player in Harness / sensor modules",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "oem",
+      "order": 4,
+      "label_zh": "整車 OEM 客戶",
+      "label_en": "Auto OEM customers",
+      "summary_zh": "全球整車廠採購。",
+      "summary_en": "Global OEM procurement.",
+      "players": [
+        {
+          "ticker": "F",
+          "name_en": "Ford",
+          "name_zh": "福特",
+          "role_zh": "福特：整車 OEM 客戶代表性玩家",
+          "role_en": "Ford: representative player in Auto OEM customers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "GM",
+          "name_en": "General Motors",
+          "name_zh": "通用汽車",
+          "role_zh": "通用汽車：整車 OEM 客戶代表性玩家",
+          "role_en": "General Motors: representative player in Auto OEM customers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "TSLA",
+          "name_en": "Tesla",
+          "name_zh": "特斯拉",
+          "role_zh": "特斯拉：整車 OEM 客戶代表性玩家",
+          "role_en": "Tesla: representative player in Auto OEM customers",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "aftermarket",
+      "order": 5,
+      "label_zh": "售後／經銷通路",
+      "label_en": "Aftermarket / dealer channel",
+      "summary_zh": "零件通路與經銷網絡。",
+      "summary_en": "Parts channel and dealer networks.",
+      "players": [
+        {
+          "ticker": "ORLY",
+          "name_en": "O'Reilly",
+          "name_zh": "奧萊利汽車",
+          "role_zh": "奧萊利汽車：售後／經銷通路代表性玩家",
+          "role_en": "O'Reilly: representative player in Aftermarket / dealer channel",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "AZO",
+          "name_en": "AutoZone",
+          "name_zh": "汽車地帶 (AutoZone)",
+          "role_zh": "汽車地帶 (AutoZone)：售後／經銷通路代表性玩家",
+          "role_en": "AutoZone: representative player in Aftermarket / dealer channel",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "GPC",
+          "name_en": "Genuine Parts",
+          "name_zh": "GPC／NAPA",
+          "role_zh": "GPC／NAPA：售後／經銷通路代表性玩家",
+          "role_en": "Genuine Parts: representative player in Aftermarket / dealer channel",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "BWA",
+      "name_en": "BorgWarner",
+      "name_zh": "BorgWarner",
+      "basis_zh": "汽車 Tier-1 零組件對手",
+      "basis_en": "Auto Tier-1 components rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "LEA",
+      "name_en": "Lear",
+      "name_zh": "Lear",
+      "basis_zh": "汽車 Tier-1 零組件對手",
+      "basis_en": "Auto Tier-1 components rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "MGA",
+      "name_en": "Magna International",
+      "name_zh": "Magna",
+      "basis_zh": "汽車 Tier-1 零組件對手",
+      "basis_en": "Auto Tier-1 components rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "GNTX",
+      "name_en": "Gentex",
+      "name_zh": "鏡泰",
+      "basis_zh": "汽車 Tier-1 零組件對手",
+      "basis_en": "Auto Tier-1 components rival",
+      "exchange": "NASDAQ"
+    }
+  ]
+}
