@@ -1,7 +1,7 @@
 {
   "version": 1,
   "ticker": "BLLN",
-  "updatedAt": "2026-11-18",
+  "updatedAt": "2026-11-19",
   "basis": "lastTradingDayCloseVsPriorClose",
   "notes_en": "changePct from last two EOD closes in price_charts; mcap from US listings screener (USD millions). Missing tickers stay null. No live FMP per pageview.",
   "notes_zh": "漲跌%取自 price_charts 最近兩日收盤；市值取自美股清單（百萬美元）。缺資料維持 null，不造假。頁面不打即時 FMP。",
@@ -116,22 +116,32 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
+    "THC": {
+      "ticker": "THC",
+      "price": 286.03,
+      "previousClose": 286.86,
+      "changePct": -0.289,
+      "mcap": 22549.7,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "UHS": {
+      "ticker": "UHS",
+      "price": 194.07,
+      "previousClose": 193.84,
+      "changePct": 0.119,
+      "mcap": 10105.0,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
     "UNH": {
       "ticker": "UNH",
       "price": 407.46,
       "previousClose": 405.13,
       "changePct": 0.575,
       "mcap": 353787.1,
-      "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "CVS": {
-      "ticker": "CVS",
-      "price": 89.35,
-      "previousClose": 89.79,
-      "changePct": -0.49,
-      "mcap": 107241.6,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"

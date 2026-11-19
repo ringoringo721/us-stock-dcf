@@ -3,7 +3,7 @@
   "ticker": "BLLN",
   "name_en": "BillionToOne",
   "name_zh": "BillionToOne",
-  "updatedAt": "2026-11-18",
+  "updatedAt": "2026-11-19",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -146,19 +146,19 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "UNH",
-          "name_en": "UnitedHealth",
-          "name_zh": "聯合健康集團",
-          "role_zh": "聯合健康集團：醫院／GPO 通路代表性玩家",
-          "role_en": "UnitedHealth: representative player in Hospital / GPO channel",
+          "ticker": "THC",
+          "name_en": "Tenet Healthcare",
+          "name_zh": "Tenet Healthcare",
+          "role_zh": "Tenet Healthcare：醫院／GPO 通路代表性玩家",
+          "role_en": "Tenet Healthcare: representative player in Hospital / GPO channel",
           "exchange": "NYSE"
         },
         {
-          "ticker": "CVS",
-          "name_en": "CVS Health",
-          "name_zh": "CVS Health",
-          "role_zh": "CVS Health：醫院／GPO 通路代表性玩家",
-          "role_en": "CVS Health: representative player in Hospital / GPO channel",
+          "ticker": "UHS",
+          "name_en": "Universal Health Services",
+          "name_zh": "UHS",
+          "role_zh": "UHS：醫院／GPO 通路代表性玩家",
+          "role_en": "Universal Health Services: representative player in Hospital / GPO channel",
           "exchange": "NYSE"
         }
       ]

@@ -3,7 +3,7 @@
   "ticker": "AMTM",
   "name_en": "Amentum",
   "name_zh": "Amentum",
-  "updatedAt": "2026-11-18",
+  "updatedAt": "2026-11-19",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -78,19 +78,19 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "FLR",
-          "name_en": "Fluor",
-          "name_zh": "Fluor",
-          "role_zh": "Fluor：工程／系統整合代表性玩家",
-          "role_en": "Fluor: representative player in Engineering / systems integration",
-          "exchange": "NYSE"
-        },
-        {
           "ticker": "ACM",
           "name_en": "Aecom",
           "name_zh": "Aecom",
           "role_zh": "Aecom：工程／系統整合代表性玩家",
           "role_en": "Aecom: representative player in Engineering / systems integration",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "BAH",
+          "name_en": "Booz Allen",
+          "name_zh": "Booz Allen",
+          "role_zh": "Booz Allen：工程／系統整合代表性玩家",
+          "role_en": "Booz Allen: representative player in Engineering / systems integration",
           "exchange": "NYSE"
         }
       ]
@@ -188,11 +188,11 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "ACM",
-          "name_en": "Aecom",
-          "name_zh": "Aecom",
-          "role_zh": "Aecom：基礎建設夥伴代表性玩家",
-          "role_en": "Aecom: representative player in Infrastructure partners",
+          "ticker": "EME",
+          "name_en": "EMCOR",
+          "name_zh": "EMCOR",
+          "role_zh": "EMCOR：基礎建設夥伴代表性玩家",
+          "role_en": "EMCOR: representative player in Infrastructure partners",
           "exchange": "NYSE"
         }
       ]

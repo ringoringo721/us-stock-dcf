@@ -1,7 +1,7 @@
 {
   "version": 1,
   "ticker": "AMTM",
-  "updatedAt": "2026-11-18",
+  "updatedAt": "2026-11-19",
   "basis": "lastTradingDayCloseVsPriorClose",
   "notes_en": "changePct from last two EOD closes in price_charts; mcap from US listings screener (USD millions). Missing tickers stay null. No live FMP per pageview.",
   "notes_zh": "漲跌%取自 price_charts 最近兩日收盤；市值取自美股清單（百萬美元）。缺資料維持 null，不造假。頁面不打即時 FMP。",
@@ -56,22 +56,22 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "FLR": {
-      "ticker": "FLR",
-      "price": 48.98,
-      "previousClose": 49.52,
-      "changePct": -1.09,
-      "mcap": 6216.3,
-      "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
     "ACM": {
       "ticker": "ACM",
       "price": 70.5,
       "previousClose": 70.11,
       "changePct": 0.556,
       "mcap": 8589.2,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "BAH": {
+      "ticker": "BAH",
+      "price": 86.22,
+      "previousClose": 86.44,
+      "changePct": -0.255,
+      "mcap": 10164.9,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
@@ -156,6 +156,16 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
+    "EME": {
+      "ticker": "EME",
+      "price": 659.36,
+      "previousClose": 662.77,
+      "changePct": -0.515,
+      "mcap": 26639.2,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
     "SAIC": {
       "ticker": "SAIC",
       "price": 150.24,
@@ -192,6 +202,16 @@
       "previousClose": 49.87,
       "changePct": -0.301,
       "mcap": 5160.9,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "FLR": {
+      "ticker": "FLR",
+      "price": 48.98,
+      "previousClose": 49.52,
+      "changePct": -1.09,
+      "mcap": 6216.3,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
