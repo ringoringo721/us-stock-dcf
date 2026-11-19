@@ -1,7 +1,7 @@
 {
   "version": 1,
   "ticker": "AVTR",
-  "updatedAt": "2026-11-18",
+  "updatedAt": "2026-11-19",
   "basis": "lastTradingDayCloseVsPriorClose",
   "notes_en": "changePct from last two EOD closes in price_charts; mcap from US listings screener (USD millions). Missing tickers stay null. No live FMP per pageview.",
   "notes_zh": "漲跌%取自 price_charts 最近兩日收盤；市值取自美股清單（百萬美元）。缺資料維持 null，不造假。頁面不打即時 FMP。",
@@ -46,32 +46,32 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "TMO": {
-      "ticker": "TMO",
-      "price": 700.22,
-      "previousClose": 699.44,
-      "changePct": 0.112,
-      "mcap": 257419.6,
+    "WAT": {
+      "ticker": "WAT",
+      "price": 460.25,
+      "previousClose": 462.2,
+      "changePct": -0.422,
+      "mcap": 44929.8,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "DHR": {
-      "ticker": "DHR",
-      "price": 233.02,
-      "previousClose": 232.16,
-      "changePct": 0.37,
-      "mcap": 161862.5,
+    "MTD": {
+      "ticker": "MTD",
+      "price": 1738.91,
+      "previousClose": 1730.93,
+      "changePct": 0.461,
+      "mcap": 34506.0,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "A": {
-      "ticker": "A",
-      "price": 173.96,
-      "previousClose": 173.01,
-      "changePct": 0.549,
-      "mcap": 49276.3,
+    "BRKR": {
+      "ticker": "BRKR",
+      "price": 61.59,
+      "previousClose": 60.33,
+      "changePct": 2.089,
+      "mcap": 9341.1,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
@@ -142,6 +142,36 @@
       "previousClose": 110.38,
       "changePct": 1.83,
       "mcap": 81147.0,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "TMO": {
+      "ticker": "TMO",
+      "price": 700.22,
+      "previousClose": 699.44,
+      "changePct": 0.112,
+      "mcap": 257419.6,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "DHR": {
+      "ticker": "DHR",
+      "price": 233.02,
+      "previousClose": 232.16,
+      "changePct": 0.37,
+      "mcap": 161862.5,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "A": {
+      "ticker": "A",
+      "price": 173.96,
+      "previousClose": 173.01,
+      "changePct": 0.549,
+      "mcap": 49276.3,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
