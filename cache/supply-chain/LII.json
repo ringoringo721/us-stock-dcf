@@ -3,7 +3,7 @@
   "ticker": "LII",
   "name_en": "Lennox",
   "name_zh": "Lennox",
-  "updatedAt": "2026-11-18",
+  "updatedAt": "2026-11-19",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -11,154 +11,154 @@
     "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
     "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
     "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
-    "modelId": "industrials-v1",
+    "modelId": "hvac-equip-v1",
     "references": [
-      "Industry model `industrials-v1`",
+      "Industry model `hvac-equip-v1`",
       "AAPL curated seed shape on main (schema reference)",
       "cache/us_universe.json screen: remaining US listings without supply-chain seed",
       "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
     ]
   },
   "model": {
-    "id": "industrials-v1",
-    "label_zh": "工業製造價值鏈",
-    "label_en": "Industrial manufacturing value chain",
-    "description_zh": "原材料 → 關鍵部件 → 製造自動化 → 經銷／租賃 → 終端基建客戶。",
-    "description_en": "Raw materials → critical parts → automation → dealers/rental → end infrastructure."
+    "id": "hvac-equip-v1",
+    "label_zh": "暖通空調設備價值鏈",
+    "label_en": "HVAC equipment value chain",
+    "description_zh": "壓縮機／零件 → 控制／電子 → HVAC 製造 → 批發／安裝通路 → 建築／住宅客戶。對手只列 rivals。",
+    "description_en": "Compressors / components → controls / electronics → HVAC manufacturing → wholesale / install channel → building / residential customers. Peer OEMs stay rivals only."
   },
   "stages": [
     {
-      "id": "materials",
-      "order": 1,
-      "label_zh": "原材料／鋼鐵鋁",
-      "label_en": "Raw materials / metals",
-      "summary_zh": "鋼、鋁與基礎材料。",
-      "summary_en": "Steel, aluminum, base materials.",
-      "players": [
-        {
-          "ticker": "NUE",
-          "name_en": "Nucor",
-          "name_zh": "紐柯",
-          "role_zh": "紐柯：原材料／鋼鐵鋁代表性玩家",
-          "role_en": "Nucor: representative player in Raw materials / metals",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "FCX",
-          "name_en": "Freeport-McMoRan",
-          "name_zh": "自由港麥克莫蘭",
-          "role_zh": "自由港麥克莫蘭：原材料／鋼鐵鋁代表性玩家",
-          "role_en": "Freeport-McMoRan: representative player in Raw materials / metals",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "DOW",
-          "name_en": "Dow",
-          "name_zh": "陶氏化學",
-          "role_zh": "陶氏化學：原材料／鋼鐵鋁代表性玩家",
-          "role_en": "Dow: representative player in Raw materials / metals",
-          "exchange": "NYSE"
-        }
-      ]
-    },
-    {
       "id": "components",
-      "order": 2,
-      "label_zh": "關鍵部件／動力系統",
-      "label_en": "Critical components / powertrain",
-      "summary_zh": "引擎、液壓、電力電子。",
-      "summary_en": "Engines, hydraulics, power electronics.",
+      "order": 1,
+      "label_zh": "壓縮機／零件",
+      "label_en": "Compressors / components",
+      "summary_zh": "壓縮機、盤管與結構件。",
+      "summary_en": "Compressors, coils, structural parts.",
       "players": [
         {
           "ticker": "ETN",
           "name_en": "Eaton",
           "name_zh": "伊頓",
-          "role_zh": "伊頓：關鍵部件／動力系統代表性玩家",
-          "role_en": "Eaton: representative player in Critical components / powertrain",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "PH",
-          "name_en": "Parker-Hannifin",
-          "name_zh": "派克漢尼汾",
-          "role_zh": "派克漢尼汾：關鍵部件／動力系統代表性玩家",
-          "role_en": "Parker-Hannifin: representative player in Critical components / powertrain",
+          "role_zh": "伊頓：壓縮機／零件代表性玩家",
+          "role_en": "Eaton: representative player in Compressors / components",
           "exchange": "NYSE"
         },
         {
           "ticker": "EMR",
           "name_en": "Emerson",
           "name_zh": "艾默生",
-          "role_zh": "艾默生：關鍵部件／動力系統代表性玩家",
-          "role_en": "Emerson: representative player in Critical components / powertrain",
+          "role_zh": "艾默生：壓縮機／零件代表性玩家",
+          "role_en": "Emerson: representative player in Compressors / components",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "PH",
+          "name_en": "Parker-Hannifin",
+          "name_zh": "派克漢尼汾",
+          "role_zh": "派克漢尼汾：壓縮機／零件代表性玩家",
+          "role_en": "Parker-Hannifin: representative player in Compressors / components",
           "exchange": "NYSE"
         }
       ]
     },
     {
-      "id": "automation",
-      "order": 3,
-      "label_zh": "自動化／軟體",
-      "label_en": "Automation / software",
-      "summary_zh": "工控、感測與數位雙生。",
-      "summary_en": "Controls, sensors, digital twins.",
+      "id": "controls",
+      "order": 2,
+      "label_zh": "控制／電子",
+      "label_en": "Controls / electronics",
+      "summary_zh": "溫控與變頻電子。",
+      "summary_en": "Thermostats and inverter electronics.",
       "players": [
-        {
-          "ticker": "ROK",
-          "name_en": "Rockwell Automation",
-          "name_zh": "羅克韋爾",
-          "role_zh": "羅克韋爾：自動化／軟體代表性玩家",
-          "role_en": "Rockwell Automation: representative player in Automation / software",
-          "exchange": "NYSE"
-        },
         {
           "ticker": "HON",
           "name_en": "Honeywell",
           "name_zh": "漢威聯合",
-          "role_zh": "漢威聯合：自動化／軟體代表性玩家",
-          "role_en": "Honeywell: representative player in Automation / software",
+          "role_zh": "漢威聯合：控制／電子代表性玩家",
+          "role_en": "Honeywell: representative player in Controls / electronics",
           "exchange": "NASDAQ"
         },
         {
-          "ticker": "SNPS",
-          "name_en": "Synopsys",
-          "name_zh": "新思科技",
-          "role_zh": "新思科技：自動化／軟體代表性玩家",
-          "role_en": "Synopsys: representative player in Automation / software",
+          "ticker": "ROK",
+          "name_en": "Rockwell Automation",
+          "name_zh": "羅克韋爾",
+          "role_zh": "羅克韋爾：控制／電子代表性玩家",
+          "role_en": "Rockwell Automation: representative player in Controls / electronics",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "TXN",
+          "name_en": "Texas Instruments",
+          "name_zh": "德州儀器",
+          "role_zh": "德州儀器：控制／電子代表性玩家",
+          "role_en": "Texas Instruments: representative player in Controls / electronics",
           "exchange": "NASDAQ"
         }
       ]
     },
     {
-      "id": "dealers",
-      "order": 4,
-      "label_zh": "經銷／租賃通路",
-      "label_en": "Dealer / rental channel",
-      "summary_zh": "設備經銷與租賃。",
-      "summary_en": "Equipment dealers and rental.",
+      "id": "manufacturing",
+      "order": 3,
+      "label_zh": "HVAC 製造",
+      "label_en": "HVAC manufacturing",
+      "summary_zh": "空調與熱泵組裝（非對手墊）。",
+      "summary_en": "AC and heat-pump assembly — not rival pads.",
       "players": [
         {
-          "ticker": "CAT",
-          "name_en": "Caterpillar",
-          "name_zh": "開拓重工",
-          "role_zh": "開拓重工：經銷／租賃通路代表性玩家",
-          "role_en": "Caterpillar: representative player in Dealer / rental channel",
+          "ticker": "MOD",
+          "name_en": "Modine Manufacturing",
+          "name_zh": "Modine Manufacturing",
+          "role_zh": "Modine Manufacturing：HVAC 製造代表性玩家",
+          "role_en": "Modine Manufacturing: representative player in HVAC manufacturing",
           "exchange": "NYSE"
         },
         {
-          "ticker": "DE",
-          "name_en": "Deere",
-          "name_zh": "強鹿公司 (Deere)",
-          "role_zh": "強鹿公司 (Deere)：經銷／租賃通路代表性玩家",
-          "role_en": "Deere: representative player in Dealer / rental channel",
+          "ticker": "SPXC",
+          "name_en": "SPX Technologies",
+          "name_zh": "SPX Technologies",
+          "role_zh": "SPX Technologies：HVAC 製造代表性玩家",
+          "role_en": "SPX Technologies: representative player in HVAC manufacturing",
           "exchange": "NYSE"
         },
         {
-          "ticker": "ETN",
-          "name_en": "Eaton",
-          "name_zh": "伊頓",
-          "role_zh": "伊頓：經銷／租賃通路代表性玩家",
-          "role_en": "Eaton: representative player in Dealer / rental channel",
+          "ticker": "IR",
+          "name_en": "Ingersoll Rand",
+          "name_zh": "Ingersoll Rand",
+          "role_zh": "Ingersoll Rand：HVAC 製造代表性玩家",
+          "role_en": "Ingersoll Rand: representative player in HVAC manufacturing",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "channel",
+      "order": 4,
+      "label_zh": "批發／安裝通路",
+      "label_en": "Wholesale / install channel",
+      "summary_zh": "HVAC 批發與承包安裝。",
+      "summary_en": "HVAC wholesale and contractors.",
+      "players": [
+        {
+          "ticker": "WSO",
+          "name_en": "Watsco",
+          "name_zh": "Watsco",
+          "role_zh": "Watsco：批發／安裝通路代表性玩家",
+          "role_en": "Watsco: representative player in Wholesale / install channel",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "FIX",
+          "name_en": "Comfort Systems USA",
+          "name_zh": "Comfort Systems USA",
+          "role_zh": "Comfort Systems USA：批發／安裝通路代表性玩家",
+          "role_en": "Comfort Systems USA: representative player in Wholesale / install channel",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "EME",
+          "name_en": "EMCOR",
+          "name_zh": "EMCOR",
+          "role_zh": "EMCOR：批發／安裝通路代表性玩家",
+          "role_en": "EMCOR: representative player in Wholesale / install channel",
           "exchange": "NYSE"
         }
       ]
@@ -166,33 +166,33 @@
     {
       "id": "customers",
       "order": 5,
-      "label_zh": "基建／能源／礦業客戶",
-      "label_en": "Infra / energy / mining customers",
-      "summary_zh": "工程、能源與礦業終端。",
-      "summary_en": "Construction, energy, mining.",
+      "label_zh": "建築／住宅客戶",
+      "label_en": "Building / residential customers",
+      "summary_zh": "商辦與住宅開發。",
+      "summary_en": "Commercial and residential demand.",
       "players": [
         {
-          "ticker": "XOM",
-          "name_en": "Exxonmobil",
-          "name_zh": "埃克森美孚",
-          "role_zh": "埃克森美孚：基建／能源／礦業客戶代表性玩家",
-          "role_en": "Exxonmobil: representative player in Infra / energy / mining customers",
+          "ticker": "DHI",
+          "name_en": "D.R. Horton",
+          "name_zh": "D.R. Horton",
+          "role_zh": "D.R. Horton：建築／住宅客戶代表性玩家",
+          "role_en": "D.R. Horton: representative player in Building / residential customers",
           "exchange": "NYSE"
         },
         {
-          "ticker": "UNP",
-          "name_en": "Union Pacific",
-          "name_zh": "聯合太平洋鐵路",
-          "role_zh": "聯合太平洋鐵路：基建／能源／礦業客戶代表性玩家",
-          "role_en": "Union Pacific: representative player in Infra / energy / mining customers",
+          "ticker": "LEN",
+          "name_en": "Lennar",
+          "name_zh": "Lennar",
+          "role_zh": "Lennar：建築／住宅客戶代表性玩家",
+          "role_en": "Lennar: representative player in Building / residential customers",
           "exchange": "NYSE"
         },
         {
-          "ticker": "NEE",
-          "name_en": "NextEra Energy",
-          "name_zh": "新紀元能源",
-          "role_zh": "新紀元能源：基建／能源／礦業客戶代表性玩家",
-          "role_en": "NextEra Energy: representative player in Infra / energy / mining customers",
+          "ticker": "AMT",
+          "name_en": "American Tower",
+          "name_zh": "美國電塔",
+          "role_zh": "美國電塔：建築／住宅客戶代表性玩家",
+          "role_en": "American Tower: representative player in Building / residential customers",
           "exchange": "NYSE"
         }
       ]
@@ -200,11 +200,27 @@
   ],
   "competitors": [
     {
-      "ticker": "AOS",
-      "name_en": "A. O. Smith",
-      "name_zh": "A. O. Smith",
-      "basis_zh": "熱水器／水暖設備對手",
-      "basis_en": "Water heater / hydronic equipment rival",
+      "ticker": "TT",
+      "name_en": "Trane Technologies",
+      "name_zh": "Trane Technologies",
+      "basis_zh": "暖通空調設備對手",
+      "basis_en": "HVAC equipment rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "CARR",
+      "name_en": "Carrier",
+      "name_zh": "Carrier",
+      "basis_zh": "暖通空調設備對手",
+      "basis_en": "HVAC equipment rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "JCI",
+      "name_en": "Johnson Controls",
+      "name_zh": "江森自控",
+      "basis_zh": "暖通空調設備對手",
+      "basis_en": "HVAC equipment rival",
       "exchange": "NYSE"
     }
   ]
