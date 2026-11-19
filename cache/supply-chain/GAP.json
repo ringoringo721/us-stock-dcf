@@ -3,7 +3,7 @@
   "ticker": "GAP",
   "name_en": "Gap",
   "name_zh": "Gap",
-  "updatedAt": "2026-11-18",
+  "updatedAt": "2026-11-19",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -120,12 +120,12 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "URBN",
-          "name_en": "Urban Outfitters",
-          "name_zh": "Urban Outfitters",
-          "role_zh": "Urban Outfitters：門市／電商代表性玩家",
-          "role_en": "Urban Outfitters: representative player in Stores / e-commerce",
-          "exchange": "NASDAQ"
+          "ticker": "KIM",
+          "name_en": "Kimco Realty",
+          "name_zh": "Kimco",
+          "role_zh": "Kimco：門市／電商代表性玩家",
+          "role_en": "Kimco Realty: representative player in Stores / e-commerce",
+          "exchange": "NYSE"
         }
       ]
     },

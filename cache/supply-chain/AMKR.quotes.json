@@ -1,7 +1,7 @@
 {
   "version": 1,
   "ticker": "AMKR",
-  "updatedAt": "2026-11-18",
+  "updatedAt": "2026-11-19",
   "basis": "lastTradingDayCloseVsPriorClose",
   "notes_en": "changePct from last two EOD closes in price_charts; mcap from US listings screener (USD millions). Missing tickers stay null. No live FMP per pageview.",
   "notes_zh": "漲跌%取自 price_charts 最近兩日收盤；市值取自美股清單（百萬美元）。缺資料維持 null，不造假。頁面不打即時 FMP。",
@@ -12,36 +12,6 @@
       "previousClose": 37.12,
       "changePct": -2.721,
       "mcap": 8133.1,
-      "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "ASML": {
-      "ticker": "ASML",
-      "price": 1495.16,
-      "previousClose": 1497.12,
-      "changePct": -0.131,
-      "mcap": 549124.3,
-      "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "AMAT": {
-      "ticker": "AMAT",
-      "price": 370.5,
-      "previousClose": 380.95,
-      "changePct": -2.743,
-      "mcap": 264041.8,
-      "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "LRCX": {
-      "ticker": "LRCX",
-      "price": 225.92,
-      "previousClose": 233.78,
-      "changePct": -3.362,
-      "mcap": 250835.5,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
@@ -76,25 +46,65 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "002156.SZ": {
-      "ticker": "002156.SZ",
-      "price": null,
-      "previousClose": null,
-      "changePct": null,
-      "mcap": null,
+    "AMAT": {
+      "ticker": "AMAT",
+      "price": 370.5,
+      "previousClose": 380.95,
+      "changePct": -2.743,
+      "mcap": 264041.8,
       "currency": "USD",
-      "asOf": null,
-      "source": null
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "002475.SZ": {
-      "ticker": "002475.SZ",
-      "price": null,
-      "previousClose": null,
-      "changePct": null,
-      "mcap": null,
+    "TER": {
+      "ticker": "TER",
+      "price": 249.55,
+      "previousClose": 263.75,
+      "changePct": -5.384,
+      "mcap": 34068.8,
       "currency": "USD",
-      "asOf": null,
-      "source": null
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "KLAC": {
+      "ticker": "KLAC",
+      "price": 152.32,
+      "previousClose": 157.3,
+      "changePct": -3.166,
+      "mcap": 180447.3,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "JBL": {
+      "ticker": "JBL",
+      "price": 254.25,
+      "previousClose": 259.96,
+      "changePct": -2.196,
+      "mcap": 24620.2,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "FLEX": {
+      "ticker": "FLEX",
+      "price": 74.98,
+      "previousClose": 78.12,
+      "changePct": -4.019,
+      "mcap": 25779.1,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "SANM": {
+      "ticker": "SANM",
+      "price": 158.31,
+      "previousClose": 164.48,
+      "changePct": -3.751,
+      "mcap": 7218.5,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
     },
     "NVDA": {
       "ticker": "NVDA",
@@ -102,16 +112,6 @@
       "previousClose": 166.19,
       "changePct": -2.01,
       "mcap": 4498024.0,
-      "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "AAPL": {
-      "ticker": "AAPL",
-      "price": 356.27,
-      "previousClose": 354.88,
-      "changePct": 0.392,
-      "mcap": 4996616.3,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
@@ -126,6 +126,26 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
+    "QCOM": {
+      "ticker": "QCOM",
+      "price": 172.47,
+      "previousClose": 177.14,
+      "changePct": -2.636,
+      "mcap": 176631.4,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "AAPL": {
+      "ticker": "AAPL",
+      "price": 356.27,
+      "previousClose": 354.88,
+      "changePct": 0.392,
+      "mcap": 4996616.3,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
     "MSFT": {
       "ticker": "MSFT",
       "price": 523.88,
@@ -136,25 +156,15 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "AMZN": {
-      "ticker": "AMZN",
-      "price": 266.66,
-      "previousClose": 267.44,
-      "changePct": -0.292,
-      "mcap": 2803836.8,
+    "AVGO": {
+      "ticker": "AVGO",
+      "price": 347.01,
+      "previousClose": 364.36,
+      "changePct": -4.762,
+      "mcap": 1401967.4,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "005930.KS": {
-      "ticker": "005930.KS",
-      "price": null,
-      "previousClose": null,
-      "changePct": null,
-      "mcap": null,
-      "currency": "USD",
-      "asOf": null,
-      "source": null
     },
     "ASX": {
       "ticker": "ASX",
@@ -175,16 +185,6 @@
       "currency": "USD",
       "asOf": null,
       "source": null
-    },
-    "TSM": {
-      "ticker": "TSM",
-      "price": 398.73,
-      "previousClose": 405.49,
-      "changePct": -1.667,
-      "mcap": 1947212.1,
-      "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
     }
   }
 }
