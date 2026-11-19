@@ -3,7 +3,7 @@
   "ticker": "BCPC",
   "name_en": "Balchem",
   "name_zh": "波奇姆 (Balchem)",
-  "updatedAt": "2026-11-18",
+  "updatedAt": "2026-11-19",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -70,27 +70,27 @@
       "summary_en": "Nutrients, flavors, and functional ingredients.",
       "players": [
         {
-          "ticker": "IFF",
-          "name_en": "International Flavors & Fragrances",
-          "name_zh": "國際香精香料",
-          "role_zh": "國際香精香料：配料／口味研發代表性玩家",
-          "role_en": "International Flavors & Fragrances: representative player in Ingredients / flavor R&D",
+          "ticker": "SXT",
+          "name_en": "Sensient Technologies",
+          "name_zh": "Sensient Technologies",
+          "role_zh": "Sensient Technologies：配料／口味研發代表性玩家",
+          "role_en": "Sensient Technologies: representative player in Ingredients / flavor R&D",
           "exchange": "NYSE"
         },
         {
-          "ticker": "INGR",
-          "name_en": "Ingredion",
-          "name_zh": "Ingredion",
-          "role_zh": "Ingredion：配料／口味研發代表性玩家",
-          "role_en": "Ingredion: representative player in Ingredients / flavor R&D",
-          "exchange": "NYSE"
+          "ticker": "LIN",
+          "name_en": "Linde",
+          "name_zh": "林德集團",
+          "role_zh": "林德集團：配料／口味研發代表性玩家",
+          "role_en": "Linde: representative player in Ingredients / flavor R&D",
+          "exchange": "NASDAQ"
         },
         {
-          "ticker": "DAR",
-          "name_en": "Darling Ingredients",
-          "name_zh": "Darling Ingredients",
-          "role_zh": "Darling Ingredients：配料／口味研發代表性玩家",
-          "role_en": "Darling Ingredients: representative player in Ingredients / flavor R&D",
+          "ticker": "APD",
+          "name_en": "Air Products",
+          "name_zh": "空氣化工",
+          "role_zh": "空氣化工：配料／口味研發代表性玩家",
+          "role_en": "Air Products: representative player in Ingredients / flavor R&D",
           "exchange": "NYSE"
         }
       ]

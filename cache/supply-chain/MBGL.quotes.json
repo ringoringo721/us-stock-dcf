@@ -1,7 +1,7 @@
 {
   "version": 1,
   "ticker": "MBGL",
-  "updatedAt": "2026-11-18",
+  "updatedAt": "2026-11-19",
   "basis": "lastTradingDayCloseVsPriorClose",
   "notes_en": "changePct from last two EOD closes in price_charts; mcap from US listings screener (USD millions). Missing tickers stay null. No live FMP per pageview.",
   "notes_zh": "漲跌%取自 price_charts 最近兩日收盤；市值取自美股清單（百萬美元）。缺資料維持 null，不造假。頁面不打即時 FMP。",
@@ -76,32 +76,32 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "CRWD": {
-      "ticker": "CRWD",
-      "price": 226.61,
-      "previousClose": 229.87,
-      "changePct": -1.418,
-      "mcap": 222091.5,
+    "MSFT": {
+      "ticker": "MSFT",
+      "price": 523.88,
+      "previousClose": 523.0,
+      "changePct": 0.168,
+      "mcap": 3940410.7,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "PANW": {
-      "ticker": "PANW",
-      "price": 322.24,
-      "previousClose": 322.66,
-      "changePct": -0.13,
-      "mcap": 256860.2,
+    "ORCL": {
+      "ticker": "ORCL",
+      "price": 125.35,
+      "previousClose": 127.11,
+      "changePct": -1.385,
+      "mcap": 350905.0,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "ZS": {
-      "ticker": "ZS",
-      "price": 192.47,
-      "previousClose": 193.22,
-      "changePct": -0.388,
-      "mcap": 32229.4,
+    "CSCO": {
+      "ticker": "CSCO",
+      "price": 95.64,
+      "previousClose": 102.01,
+      "changePct": -6.244,
+      "mcap": 370011.8,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
@@ -172,6 +172,36 @@
       "previousClose": 129.54,
       "changePct": -1.791,
       "mcap": 87312.9,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "CRWD": {
+      "ticker": "CRWD",
+      "price": 226.61,
+      "previousClose": 229.87,
+      "changePct": -1.418,
+      "mcap": 222091.5,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "PANW": {
+      "ticker": "PANW",
+      "price": 322.24,
+      "previousClose": 322.66,
+      "changePct": -0.13,
+      "mcap": 256860.2,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "ZS": {
+      "ticker": "ZS",
+      "price": 192.47,
+      "previousClose": 193.22,
+      "changePct": -0.388,
+      "mcap": 32229.4,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
