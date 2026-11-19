@@ -1,0 +1,227 @@
+{
+  "version": 1,
+  "ticker": "BALL",
+  "name_en": "Ball",
+  "name_zh": "Ball",
+  "updatedAt": "2026-11-19",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "packaging-containers-v1",
+    "references": [
+      "Industry model `packaging-containers-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "packaging-containers-v1",
+    "label_zh": "包裝容器價值鏈",
+    "label_en": "Packaging containers value chain",
+    "description_zh": "樹脂／鋁材 → 容器製造 → 灌裝／設備 → CPG 客戶 → 零售通路。",
+    "description_en": "Resin / aluminum → container converting → filling / equipment → CPG customers → retail channel."
+  },
+  "stages": [
+    {
+      "id": "materials",
+      "order": 1,
+      "label_zh": "樹脂／鋁材",
+      "label_en": "Resin / aluminum",
+      "summary_zh": "聚合物與鋁捲原料。",
+      "summary_en": "Polymers and aluminum coil.",
+      "players": [
+        {
+          "ticker": "DOW",
+          "name_en": "Dow",
+          "name_zh": "陶氏化學",
+          "role_zh": "陶氏化學：樹脂／鋁材代表性玩家",
+          "role_en": "Dow: representative player in Resin / aluminum",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "DD",
+          "name_en": "DuPont",
+          "name_zh": "杜邦",
+          "role_zh": "杜邦：樹脂／鋁材代表性玩家",
+          "role_en": "DuPont: representative player in Resin / aluminum",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "AA",
+          "name_en": "Alcoa",
+          "name_zh": "美國鋁業",
+          "role_zh": "美國鋁業：樹脂／鋁材代表性玩家",
+          "role_en": "Alcoa: representative player in Resin / aluminum",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "converting",
+      "order": 2,
+      "label_zh": "容器製造",
+      "label_en": "Container converting",
+      "summary_zh": "瓶罐、軟包裝與蓋材。",
+      "summary_en": "Cans, flexible pack, closures.",
+      "players": [
+        {
+          "ticker": "IP",
+          "name_en": "International Paper",
+          "name_zh": "IP",
+          "role_zh": "IP：容器製造代表性玩家",
+          "role_en": "International Paper: representative player in Container converting",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "ATR",
+          "name_en": "AptarGroup",
+          "name_zh": "AptarGroup",
+          "role_zh": "AptarGroup：容器製造代表性玩家",
+          "role_en": "AptarGroup: representative player in Container converting",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "REYN",
+          "name_en": "Reynolds Consumer Products",
+          "name_zh": "REYN",
+          "role_zh": "REYN：容器製造代表性玩家",
+          "role_en": "Reynolds Consumer Products: representative player in Container converting",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "equipment",
+      "order": 3,
+      "label_zh": "灌裝／設備",
+      "label_en": "Filling / equipment",
+      "summary_zh": "灌裝與包裝線設備。",
+      "summary_en": "Filling and packaging-line equipment.",
+      "players": [
+        {
+          "ticker": "ITW",
+          "name_en": "Illinois Tool Works",
+          "name_zh": "伊利諾工具",
+          "role_zh": "伊利諾工具：灌裝／設備代表性玩家",
+          "role_en": "Illinois Tool Works: representative player in Filling / equipment",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "EMR",
+          "name_en": "Emerson",
+          "name_zh": "艾默生",
+          "role_zh": "艾默生：灌裝／設備代表性玩家",
+          "role_en": "Emerson: representative player in Filling / equipment",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "ROK",
+          "name_en": "Rockwell Automation",
+          "name_zh": "羅克韋爾",
+          "role_zh": "羅克韋爾：灌裝／設備代表性玩家",
+          "role_en": "Rockwell Automation: representative player in Filling / equipment",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "customers",
+      "order": 4,
+      "label_zh": "CPG 客戶",
+      "label_en": "CPG customers",
+      "summary_zh": "食品飲料與個護品牌。",
+      "summary_en": "Food, beverage, and personal-care brands.",
+      "players": [
+        {
+          "ticker": "KO",
+          "name_en": "Coca-Cola",
+          "name_zh": "可口可樂",
+          "role_zh": "可口可樂：CPG 客戶代表性玩家",
+          "role_en": "Coca-Cola: representative player in CPG customers",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "PEP",
+          "name_en": "PepsiCo",
+          "name_zh": "百事可樂",
+          "role_zh": "百事可樂：CPG 客戶代表性玩家",
+          "role_en": "PepsiCo: representative player in CPG customers",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "PG",
+          "name_en": "Procter & Gamble",
+          "name_zh": "寶僑",
+          "role_zh": "寶僑：CPG 客戶代表性玩家",
+          "role_en": "Procter & Gamble: representative player in CPG customers",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "retail",
+      "order": 5,
+      "label_zh": "零售通路",
+      "label_en": "Retail channel",
+      "summary_zh": "超市與便利通路。",
+      "summary_en": "Grocery and convenience channels.",
+      "players": [
+        {
+          "ticker": "WMT",
+          "name_en": "Walmart",
+          "name_zh": "沃爾瑪",
+          "role_zh": "沃爾瑪：零售通路代表性玩家",
+          "role_en": "Walmart: representative player in Retail channel",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "COST",
+          "name_en": "Costco Wholesale",
+          "name_zh": "好市多",
+          "role_zh": "好市多：零售通路代表性玩家",
+          "role_en": "Costco Wholesale: representative player in Retail channel",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "KR",
+          "name_en": "Kroger",
+          "name_zh": "Kroger",
+          "role_zh": "Kroger：零售通路代表性玩家",
+          "role_en": "Kroger: representative player in Retail channel",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "AMCR",
+      "name_en": "Amcor",
+      "name_zh": "Amcor",
+      "basis_zh": "包裝容器對手",
+      "basis_en": "Packaging & containers rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "CCK",
+      "name_en": "Crown Holdings",
+      "name_zh": "Crown",
+      "basis_zh": "包裝容器對手",
+      "basis_en": "Packaging & containers rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "PKG",
+      "name_en": "Packaging Corp of America",
+      "name_zh": "美國包裝公司",
+      "basis_zh": "包裝容器對手",
+      "basis_en": "Packaging & containers rival",
+      "exchange": "NYSE"
+    }
+  ]
+}

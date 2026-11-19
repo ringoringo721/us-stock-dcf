@@ -1,0 +1,219 @@
+{
+  "version": 1,
+  "ticker": "AS",
+  "name_en": "Amer Sports",
+  "name_zh": "Amer Sports",
+  "updatedAt": "2026-11-19",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "sporting-goods-v1",
+    "references": [
+      "Industry model `sporting-goods-v1`",
+      "AAPL curated seed shape on main (schema reference)",
+      "cache/us_universe.json screen: remaining US listings without supply-chain seed",
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+    ]
+  },
+  "model": {
+    "id": "sporting-goods-v1",
+    "label_zh": "運動用品／戶外服飾價值鏈",
+    "label_en": "Sporting-goods / outdoor apparel value chain",
+    "description_zh": "紡織／鞋材 → 代工製造 → 品牌／批發 → 專賣／電商 → 流量行銷。",
+    "description_en": "Textiles / footwear materials → contract manufacturing → brand / wholesale → specialty / e-comm → traffic marketing."
+  },
+  "stages": [
+    {
+      "id": "materials",
+      "order": 1,
+      "label_zh": "紡織／鞋材",
+      "label_en": "Textiles / footwear materials",
+      "summary_zh": "機能布料與鞋底材料。",
+      "summary_en": "Performance fabrics and sole materials.",
+      "players": [
+        {
+          "ticker": "DOW",
+          "name_en": "Dow",
+          "name_zh": "陶氏化學",
+          "role_zh": "陶氏化學：紡織／鞋材代表性玩家",
+          "role_en": "Dow: representative player in Textiles / footwear materials",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "DD",
+          "name_en": "DuPont",
+          "name_zh": "杜邦",
+          "role_zh": "杜邦：紡織／鞋材代表性玩家",
+          "role_en": "DuPont: representative player in Textiles / footwear materials",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "EMN",
+          "name_en": "Eastman",
+          "name_zh": "Eastman",
+          "role_zh": "Eastman：紡織／鞋材代表性玩家",
+          "role_en": "Eastman: representative player in Textiles / footwear materials",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "manufacturing",
+      "order": 2,
+      "label_zh": "代工製造",
+      "label_en": "Contract manufacturing",
+      "summary_zh": "成衣與鞋履代工。",
+      "summary_en": "Apparel and footwear CMs.",
+      "players": [
+        {
+          "ticker": "PVH",
+          "name_en": "PVH",
+          "name_zh": "PVH",
+          "role_zh": "PVH：代工製造代表性玩家",
+          "role_en": "PVH: representative player in Contract manufacturing",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "UAA",
+          "name_en": "Under Armour",
+          "name_zh": "Under Armour",
+          "role_zh": "Under Armour：代工製造代表性玩家",
+          "role_en": "Under Armour: representative player in Contract manufacturing",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "SKX",
+          "name_en": "Skechers",
+          "name_zh": "Skechers",
+          "role_zh": "Skechers：代工製造代表性玩家",
+          "role_en": "Skechers: representative player in Contract manufacturing",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "wholesale",
+      "order": 3,
+      "label_zh": "品牌／批發",
+      "label_en": "Brand / wholesale",
+      "summary_zh": "品牌批發與授權。",
+      "summary_en": "Brand wholesale and licensing.",
+      "players": [
+        {
+          "ticker": "DKS",
+          "name_en": "Dick's Sporting Goods",
+          "name_zh": "Dick's Sporting Goods",
+          "role_zh": "Dick's Sporting Goods：品牌／批發代表性玩家",
+          "role_en": "Dick's Sporting Goods: representative player in Brand / wholesale",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "stores",
+      "order": 4,
+      "label_zh": "專賣／電商",
+      "label_en": "Specialty / e-commerce",
+      "summary_zh": "運動專賣與 DTC。",
+      "summary_en": "Sporting specialty and DTC.",
+      "players": [
+        {
+          "ticker": "SPG",
+          "name_en": "Simon Property",
+          "name_zh": "西蒙地產",
+          "role_zh": "西蒙地產：專賣／電商代表性玩家",
+          "role_en": "Simon Property: representative player in Specialty / e-commerce",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "MAC",
+          "name_en": "Macerich",
+          "name_zh": "Macerich",
+          "role_zh": "Macerich：專賣／電商代表性玩家",
+          "role_en": "Macerich: representative player in Specialty / e-commerce",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "URBN",
+          "name_en": "Urban Outfitters",
+          "name_zh": "Urban Outfitters",
+          "role_zh": "Urban Outfitters：專賣／電商代表性玩家",
+          "role_en": "Urban Outfitters: representative player in Specialty / e-commerce",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "traffic",
+      "order": 5,
+      "label_zh": "流量／行銷",
+      "label_en": "Traffic / marketing",
+      "summary_zh": "搜尋、社群與運動行銷。",
+      "summary_en": "Search, social, sports marketing.",
+      "players": [
+        {
+          "ticker": "GOOG",
+          "name_en": "Alphabet",
+          "name_zh": "Alphabet（Google）",
+          "role_zh": "Alphabet（Google）：流量／行銷代表性玩家",
+          "role_en": "Alphabet: representative player in Traffic / marketing",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "META",
+          "name_en": "Meta Platforms",
+          "name_zh": "Meta (臉書)",
+          "role_zh": "Meta (臉書)：流量／行銷代表性玩家",
+          "role_en": "Meta Platforms: representative player in Traffic / marketing",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "PINS",
+          "name_en": "Pinterest",
+          "name_zh": "Pinterest",
+          "role_zh": "Pinterest：流量／行銷代表性玩家",
+          "role_en": "Pinterest: representative player in Traffic / marketing",
+          "exchange": "NYSE"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "DECK",
+      "name_en": "Deckers",
+      "name_zh": "Deckers",
+      "basis_zh": "運動用品對手",
+      "basis_en": "Sporting-goods rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "NKE",
+      "name_en": "Nike",
+      "name_zh": "耐吉",
+      "basis_zh": "運動用品對手",
+      "basis_en": "Sporting-goods rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "LULU",
+      "name_en": "Lululemon",
+      "name_zh": "露露檸檬",
+      "basis_zh": "運動用品對手",
+      "basis_en": "Sporting-goods rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "ONON",
+      "name_en": "On Holding",
+      "name_zh": "ONON",
+      "basis_zh": "運動用品對手",
+      "basis_en": "Sporting-goods rival",
+      "exchange": "NYSE"
+    }
+  ]
+}
