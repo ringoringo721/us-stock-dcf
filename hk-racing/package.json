@@ -1,0 +1,11 @@
+{
+  "name": "hk-racing-trackform",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "description": "HKJC horse racing win-probability analyser",
+  "scripts": {
+    "test": "node --test tests/model.test.js",
+    "start": "python3 -m http.server 8765 --bind 127.0.0.1"
+  }
+}
