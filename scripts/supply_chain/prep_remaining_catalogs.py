@@ -357,7 +357,7 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "hvac-equip",
-        ["LII", "TT", "CARR", "JCI"],  # HVAC OEMs — LII not water-heat FORCE; AOS still lists LII one-way
+        ["LII", "TT", "CARR", "JCI"],  # HVAC OEMs — LII not water-heat (Bugbot: heater product mismatch)
         "暖通空調設備對手",
         "HVAC equipment rival",
     ),
@@ -550,9 +550,9 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
     (
         "marine-rv",
-        ["BC", "PII", "THO", "WGO", "MBUU", "MCFT"],
-        "船舶／休閒車對手",
-        "Marine / RV rival",
+        ["BC", "MBUU", "MCFT"],  # true marine OEMs — drop PII/THO/WGO RV (RV≠boat; were also on hull stage)
+        "船舶／休閒艇對手",
+        "Marine / recreational boat rival",
     ),
     (
         "restaurants",
@@ -748,7 +748,7 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
         (
         "tax-pro-svc",
-        ["ANDG", "FCN"],  # Andersen professional tax/advisory — FCN still listed for ANDG; FCN hub forced to consult-svc
+        ["ANDG", "FCN", "HRB", "INTU"],  # tax/advisory rivals — HRB/INTU off franchise channel pad
         "專業稅務／顧問對手",
         "Professional tax / advisory rival",
     ),
@@ -766,7 +766,7 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
         (
         "util-latam",
-        ["CIG", "ENIC"],  # LatAm electric — no SBS water / KEP Korea / AES US IPP
+        ["CIG", "ENIC", "SBS"],  # CEMIG BR + Enel Chile + Sabesp BR (EBR/ELP electric ADRs not in universe); no KEP/AES
         "拉美公用事業對手",
         "LatAm utility rival",
     ),
@@ -784,7 +784,7 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
     ),
         (
         "water-heat",
-        ["AOS", "LII"],  # heater / residential heating equipment — drop WTS valves; Rheem/Bradford White private
+        ["AOS", "PNR"],  # drop LII HVAC mismatch; PNR water equipment (Rheem/Bradford White private)
         "熱水器／水暖設備對手",
         "Water heater / hydronic equipment rival",
     ),
@@ -1158,8 +1158,8 @@ TICKER_GROUP_FORCE: dict[str, str] = {
     "BALL": "packaging-containers",
     "CCK": "packaging-containers",
     "PKG": "packaging-containers",
-    "AOS": "water-heat",  # AOS→LII one-way; do NOT force LII into water-heat
-    "LII": "hvac-equip",  # HVAC peers TT/CARR/JCI — not water-heater NO_PAD with AOS
+    "AOS": "water-heat",  # specialty NO_PAD; no public heater peers (LII removed — HVAC ≠ water heater)
+    "LII": "hvac-equip",  # HVAC peers TT/CARR/JCI
     "AVTR": "life-sci-dist",
     "A": "life-sci-tools",
     "WAT": "life-sci-tools",
@@ -1618,6 +1618,9 @@ EXTRA_NAME_ZH: dict[str, str] = {
     "ABEV": "安貝夫",
     "ALC": "愛爾康",
     "BKR": "貝克休斯",
+    "WST": "西氏醫藥",
+    "QGEN": "凱傑",
+    "SBS": "聖保羅基礎衛生",
     "BIDU": "百度",
     "BEKE": "貝殼找房",
     "AWK": "美國水務",
@@ -1857,6 +1860,9 @@ def main() -> int:
         "AVAL": ("Grupo Aval", "Grupo Aval", "NYSE"),
         "CHH": ("Choice Hotels", "Choice Hotels", "NYSE"),
         "CIG": ("CEMIG", "CEMIG", "NYSE"),
+        "WST": ("West Pharmaceutical", "西氏醫藥", "NYSE"),
+        "SBS": ("Sabesp", "聖保羅基礎衛生", "NYSE"),
+        "QGEN": ("Qiagen", "凱傑", "NYSE"),
         "AL": ("Air Lease", "Air Lease", "NYSE"),
         "SPXC": ("SPX Technologies", "SPX Technologies", "NYSE"),
         "AUB": ("Atlantic Union Bankshares", "大西洋聯合銀行", "NYSE"),

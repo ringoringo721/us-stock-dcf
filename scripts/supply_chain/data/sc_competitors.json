@@ -22307,14 +22307,14 @@
       "Professional tax / advisory rival"
     ],
     [
-      "AMTM",
-      "政府服務／工程承攬對手",
-      "Gov services / engineering-contractor rival"
+      "HRB",
+      "專業稅務／顧問對手",
+      "Professional tax / advisory rival"
     ],
     [
-      "SAIC",
-      "政府服務／工程承攬對手",
-      "Gov services / engineering-contractor rival"
+      "INTU",
+      "專業稅務／顧問對手",
+      "Professional tax / advisory rival"
     ]
   ],
   "PODD": [
@@ -24487,13 +24487,6 @@
       "FRT",
       "零售 REIT 對手",
       "Retail REIT rival"
-    ]
-  ],
-  "AOS": [
-    [
-      "LII",
-      "熱水器／水暖設備對手",
-      "Water heater / hydronic equipment rival"
     ]
   ],
   "TIMB": [
@@ -26864,6 +26857,16 @@
   "ANDG": [
     [
       "FCN",
+      "專業稅務／顧問對手",
+      "Professional tax / advisory rival"
+    ],
+    [
+      "HRB",
+      "專業稅務／顧問對手",
+      "Professional tax / advisory rival"
+    ],
+    [
+      "INTU",
       "專業稅務／顧問對手",
       "Professional tax / advisory rival"
     ]
@@ -31965,6 +31968,11 @@
       "ENIC",
       "拉美公用事業對手",
       "LatAm utility rival"
+    ],
+    [
+      "SBS",
+      "拉美公用事業對手",
+      "LatAm utility rival"
     ]
   ],
   "GVA": [
@@ -33155,29 +33163,14 @@
   ],
   "BC": [
     [
-      "PII",
-      "船舶／休閒車對手",
-      "Marine / RV rival"
-    ],
-    [
-      "THO",
-      "船舶／休閒車對手",
-      "Marine / RV rival"
-    ],
-    [
-      "WGO",
-      "船舶／休閒車對手",
-      "Marine / RV rival"
-    ],
-    [
       "MBUU",
-      "船舶／休閒車對手",
-      "Marine / RV rival"
+      "船舶／休閒艇對手",
+      "Marine / recreational boat rival"
     ],
     [
       "MCFT",
-      "船舶／休閒車對手",
-      "Marine / RV rival"
+      "船舶／休閒艇對手",
+      "Marine / recreational boat rival"
     ]
   ],
   "AL": [
@@ -33747,23 +33740,28 @@
   "ENIC": [
     [
       "CIG",
-      "拉美／新興市場公用事業對手",
-      "LatAm / EM utility rival"
-    ],
-    [
-      "AES",
-      "拉美／新興市場公用事業對手",
-      "LatAm / EM utility rival"
+      "拉美公用事業對手",
+      "LatAm utility rival"
     ],
     [
       "SBS",
-      "拉美／新興市場公用事業對手",
-      "LatAm / EM utility rival"
+      "拉美公用事業對手",
+      "LatAm utility rival"
     ],
     [
-      "KEP",
-      "拉美／新興市場公用事業對手",
-      "LatAm / EM utility rival"
+      "AWK",
+      "受規管水務對手",
+      "Regulated water utility rival"
+    ],
+    [
+      "WTRG",
+      "受規管水務對手",
+      "Regulated water utility rival"
+    ],
+    [
+      "CWT",
+      "受規管水務對手",
+      "Regulated water utility rival"
     ]
   ],
   "NXST": [
@@ -33851,6 +33849,13 @@
       "FBIN",
       "門禁／五金對手",
       "Door hardware / access rival"
+    ]
+  ],
+  "AOS": [
+    [
+      "PNR",
+      "熱水器／水暖設備對手",
+      "Water heater / hydronic equipment rival"
     ]
   ]
 }

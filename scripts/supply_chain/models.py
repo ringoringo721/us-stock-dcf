@@ -2658,8 +2658,8 @@ TICKER_MODEL: dict[str, str] = {
     "BLLN": "medtech-v1",  # molecular dx — peers via mol-dx group
     "CIG": "utilities-v1",
     "BRZE": "saas-cloud-v1",
-    "AOS": "water-heat-v1",  # water heaters — not CAT/DE industrials; WTS not a heater rival
-    "LII": "hvac-equip-v1",  # HVAC OEM — not water-heat FORCE; AOS lists LII one-way only
+    "AOS": "water-heat-v1",  # water heaters — not CAT/DE industrials; WTS not a heater rival; LII is HVAC not rival
+    "LII": "hvac-equip-v1",  # HVAC OEM peers TT/CARR/JCI
     "AGCO": "ag-machinery-v1",  # ag OEM — rival OEMs stay rivals, not dealer-stage
     "AS": "sporting-goods-v1",  # athletic / outdoor — not hospitality disc stores
     "AMKR": "semiconductor-osat-v1",  # OSAT / advanced packaging — not foundry
