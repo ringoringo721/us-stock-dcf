@@ -3,7 +3,7 @@
   "ticker": "ATR",
   "name_en": "AptarGroup",
   "name_zh": "AptarGroup",
-  "updatedAt": "2026-11-19",
+  "updatedAt": "2026-11-20",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -104,20 +104,20 @@
       "summary_en": "Dispensing pumps and closures — not rival pads.",
       "players": [
         {
-          "ticker": "APD",
-          "name_en": "Air Products",
-          "name_zh": "空氣化工",
-          "role_zh": "空氣化工：泵頭／瓶蓋製造代表性玩家",
-          "role_en": "Air Products: representative player in Pumps / closures manufacturing",
+          "ticker": "ITW",
+          "name_en": "Illinois Tool Works",
+          "name_zh": "伊利諾工具",
+          "role_zh": "伊利諾工具：泵頭／瓶蓋製造代表性玩家",
+          "role_en": "Illinois Tool Works: representative player in Pumps / closures manufacturing",
           "exchange": "NYSE"
         },
         {
-          "ticker": "LIN",
-          "name_en": "Linde",
-          "name_zh": "林德集團",
-          "role_zh": "林德集團：泵頭／瓶蓋製造代表性玩家",
-          "role_en": "Linde: representative player in Pumps / closures manufacturing",
-          "exchange": "NASDAQ"
+          "ticker": "PH",
+          "name_en": "Parker-Hannifin",
+          "name_zh": "派克漢尼汾",
+          "role_zh": "派克漢尼汾：泵頭／瓶蓋製造代表性玩家",
+          "role_en": "Parker-Hannifin: representative player in Pumps / closures manufacturing",
+          "exchange": "NYSE"
         },
         {
           "ticker": "DOV",

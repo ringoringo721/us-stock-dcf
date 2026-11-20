@@ -3,7 +3,7 @@
   "ticker": "A",
   "name_en": "Agilent",
   "name_zh": "安捷倫",
-  "updatedAt": "2026-11-19",
+  "updatedAt": "2026-11-20",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -112,19 +112,19 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "RGEN",
-          "name_en": "Repligen",
-          "name_zh": "Repligen",
-          "role_zh": "Repligen：耗材／試劑代表性玩家",
-          "role_en": "Repligen: representative player in Consumables / reagents",
+          "ticker": "TECH",
+          "name_en": "Bio-Techne",
+          "name_zh": "Bio-Techne",
+          "role_zh": "Bio-Techne：耗材／試劑代表性玩家",
+          "role_en": "Bio-Techne: representative player in Consumables / reagents",
           "exchange": "NASDAQ"
         },
         {
-          "ticker": "WST",
-          "name_en": "West Pharmaceutical Services",
-          "name_zh": "WST",
-          "role_zh": "WST：耗材／試劑代表性玩家",
-          "role_en": "West Pharmaceutical Services: representative player in Consumables / reagents",
+          "ticker": "BIO",
+          "name_en": "Bio-Rad Laboratories",
+          "name_zh": "Bio-Rad Laboratories",
+          "role_zh": "Bio-Rad Laboratories：耗材／試劑代表性玩家",
+          "role_en": "Bio-Rad Laboratories: representative player in Consumables / reagents",
           "exchange": "NYSE"
         }
       ]

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "ticker": "BC",
-  "updatedAt": "2026-11-19",
+  "updatedAt": "2026-11-20",
   "basis": "lastTradingDayCloseVsPriorClose",
   "notes_en": "changePct from last two EOD closes in price_charts; mcap from US listings screener (USD millions). Missing tickers stay null. No live FMP per pageview.",
   "notes_zh": "漲跌%取自 price_charts 最近兩日收盤；市值取自美股清單（百萬美元）。缺資料維持 null，不造假。頁面不打即時 FMP。",
@@ -46,8 +46,8 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "PII": {
-      "ticker": "PII",
+    "MBUU": {
+      "ticker": "MBUU",
       "price": null,
       "previousClose": null,
       "changePct": null,
@@ -56,18 +56,8 @@
       "asOf": null,
       "source": null
     },
-    "THO": {
-      "ticker": "THO",
-      "price": null,
-      "previousClose": null,
-      "changePct": null,
-      "mcap": null,
-      "currency": "USD",
-      "asOf": null,
-      "source": null
-    },
-    "WGO": {
-      "ticker": "WGO",
+    "MCFT": {
+      "ticker": "MCFT",
       "price": null,
       "previousClose": null,
       "changePct": null,
@@ -165,26 +155,6 @@
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "MBUU": {
-      "ticker": "MBUU",
-      "price": null,
-      "previousClose": null,
-      "changePct": null,
-      "mcap": null,
-      "currency": "USD",
-      "asOf": null,
-      "source": null
-    },
-    "MCFT": {
-      "ticker": "MCFT",
-      "price": null,
-      "previousClose": null,
-      "changePct": null,
-      "mcap": null,
-      "currency": "USD",
-      "asOf": null,
-      "source": null
     }
   }
 }

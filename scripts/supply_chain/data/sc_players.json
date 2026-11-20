@@ -276,9 +276,9 @@
       "COF"
     ],
     "acquirers": [
-      "JKHY",
-      "BR",
-      "ADP"
+      "GPN",
+      "FIS",
+      "FISV"
     ],
     "merchant-tech": [
       "TOST",
@@ -569,8 +569,7 @@
   "consumer-staples-v1": {
     "inputs": [
       "CTVA",
-      "DE",
-      "BG"
+      "DE"
     ],
     "packaging": [
       "PKG",
@@ -897,9 +896,8 @@
       "ETN"
     ],
     "oem": [
-      "PII",
-      "THO",
-      "WGO"
+      "MBUU",
+      "MCFT"
     ],
     "dealers": [
       "KMX",
@@ -934,9 +932,9 @@
       "INFY"
     ],
     "agencies": [
-      "LMT",
-      "NOC",
-      "GD"
+      "BAH",
+      "FLR",
+      "J"
     ],
     "infra": [
       "PWR",
@@ -1065,8 +1063,6 @@
       "ASGN"
     ],
     "channel": [
-      "HRB",
-      "INTU",
       "ADP"
     ],
     "marketing": [
@@ -1321,8 +1317,8 @@
     ],
     "consumables": [
       "AVTR",
-      "RGEN",
-      "WST"
+      "TECH",
+      "BIO"
     ],
     "customers": [
       "LLY",
@@ -1583,16 +1579,14 @@
       "EMN"
     ],
     "manufacturing": [
-      "PVH",
-      "UAA",
-      "SKX"
+      "ITW",
+      "EMR"
     ],
     "wholesale": [
-      "DKS"
+      "ANF"
     ],
     "stores": [
-      "SPG",
-      "MAC",
+      "DKS",
       "URBN"
     ],
     "traffic": [
@@ -1773,8 +1767,8 @@
       "ROK"
     ],
     "manufacturing": [
-      "APD",
-      "LIN",
+      "ITW",
+      "PH",
       "DOV"
     ],
     "customers": [

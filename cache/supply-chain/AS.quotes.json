@@ -1,7 +1,7 @@
 {
   "version": 1,
   "ticker": "AS",
-  "updatedAt": "2026-11-19",
+  "updatedAt": "2026-11-20",
   "basis": "lastTradingDayCloseVsPriorClose",
   "notes_en": "changePct from last two EOD closes in price_charts; mcap from US listings screener (USD millions). Missing tickers stay null. No live FMP per pageview.",
   "notes_zh": "漲跌%取自 price_charts 最近兩日收盤；市值取自美股清單（百萬美元）。缺資料維持 null，不造假。頁面不打即時 FMP。",
@@ -46,35 +46,35 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "PVH": {
-      "ticker": "PVH",
-      "price": null,
-      "previousClose": null,
-      "changePct": null,
-      "mcap": null,
+    "ITW": {
+      "ticker": "ITW",
+      "price": 287.52,
+      "previousClose": 286.75,
+      "changePct": 0.269,
+      "mcap": 79846.0,
       "currency": "USD",
-      "asOf": null,
-      "source": null
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "UAA": {
-      "ticker": "UAA",
-      "price": null,
-      "previousClose": null,
-      "changePct": null,
-      "mcap": null,
+    "EMR": {
+      "ticker": "EMR",
+      "price": 166.38,
+      "previousClose": 166.92,
+      "changePct": -0.324,
+      "mcap": 90558.8,
       "currency": "USD",
-      "asOf": null,
-      "source": null
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "SKX": {
-      "ticker": "SKX",
-      "price": null,
-      "previousClose": null,
-      "changePct": null,
-      "mcap": null,
+    "ANF": {
+      "ticker": "ANF",
+      "price": 148.88,
+      "previousClose": 150.49,
+      "changePct": -1.07,
+      "mcap": 6345.6,
       "currency": "USD",
-      "asOf": null,
-      "source": null
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
     },
     "DKS": {
       "ticker": "DKS",
@@ -82,26 +82,6 @@
       "previousClose": 145.66,
       "changePct": 2.774,
       "mcap": 12522.7,
-      "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "SPG": {
-      "ticker": "SPG",
-      "price": 232.97,
-      "previousClose": 233.61,
-      "changePct": -0.274,
-      "mcap": 73905.6,
-      "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "MAC": {
-      "ticker": "MAC",
-      "price": 25.07,
-      "previousClose": 25.28,
-      "changePct": -0.831,
-      "mcap": 7342.2,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"

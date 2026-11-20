@@ -1,7 +1,7 @@
 {
   "version": 1,
   "ticker": "A",
-  "updatedAt": "2026-11-19",
+  "updatedAt": "2026-11-20",
   "basis": "lastTradingDayCloseVsPriorClose",
   "notes_en": "changePct from last two EOD closes in price_charts; mcap from US listings screener (USD millions). Missing tickers stay null. No live FMP per pageview.",
   "notes_zh": "漲跌%取自 price_charts 最近兩日收盤；市值取自美股清單（百萬美元）。缺資料維持 null，不造假。頁面不打即時 FMP。",
@@ -86,22 +86,22 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "RGEN": {
-      "ticker": "RGEN",
-      "price": 167.79,
-      "previousClose": 166.52,
-      "changePct": 0.763,
-      "mcap": 11090.1,
+    "TECH": {
+      "ticker": "TECH",
+      "price": 72.8,
+      "previousClose": 72.84,
+      "changePct": -0.055,
+      "mcap": 11430.5,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "WST": {
-      "ticker": "WST",
-      "price": 416.42,
-      "previousClose": 411.3,
-      "changePct": 1.245,
-      "mcap": 27851.2,
+    "BIO": {
+      "ticker": "BIO",
+      "price": 366.36,
+      "previousClose": 370.48,
+      "changePct": -1.112,
+      "mcap": 10250.3,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"

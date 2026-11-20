@@ -1,7 +1,7 @@
 {
   "version": 1,
   "ticker": "AMTM",
-  "updatedAt": "2026-11-19",
+  "updatedAt": "2026-11-20",
   "basis": "lastTradingDayCloseVsPriorClose",
   "notes_en": "changePct from last two EOD closes in price_charts; mcap from US listings screener (USD millions). Missing tickers stay null. No live FMP per pageview.",
   "notes_zh": "漲跌%取自 price_charts 最近兩日收盤；市值取自美股清單（百萬美元）。缺資料維持 null，不造假。頁面不打即時 FMP。",
@@ -106,32 +106,12 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "LMT": {
-      "ticker": "LMT",
-      "price": 596.04,
-      "previousClose": 604.09,
-      "changePct": -1.333,
-      "mcap": 130998.1,
-      "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "NOC": {
-      "ticker": "NOC",
-      "price": 550.43,
-      "previousClose": 549.13,
-      "changePct": 0.237,
-      "mcap": 74585.0,
-      "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "GD": {
-      "ticker": "GD",
-      "price": 363.46,
-      "previousClose": 363.07,
-      "changePct": 0.107,
-      "mcap": 95675.5,
+    "FLR": {
+      "ticker": "FLR",
+      "price": 48.98,
+      "previousClose": 49.52,
+      "changePct": -1.09,
+      "mcap": 6216.3,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
@@ -202,16 +182,6 @@
       "previousClose": 49.87,
       "changePct": -0.301,
       "mcap": 5160.9,
-      "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "FLR": {
-      "ticker": "FLR",
-      "price": 48.98,
-      "previousClose": 49.52,
-      "changePct": -1.09,
-      "mcap": 6216.3,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"

@@ -3,7 +3,7 @@
   "ticker": "AOS",
   "name_en": "A. O. Smith",
   "name_zh": "A. O. Smith",
-  "updatedAt": "2026-11-19",
+  "updatedAt": "2026-11-20",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -200,9 +200,9 @@
   ],
   "competitors": [
     {
-      "ticker": "LII",
-      "name_en": "Lennox",
-      "name_zh": "Lennox",
+      "ticker": "PNR",
+      "name_en": "Pentair",
+      "name_zh": "Pentair",
       "basis_zh": "熱水器／水暖設備對手",
       "basis_en": "Water heater / hydronic equipment rival",
       "exchange": "NYSE"

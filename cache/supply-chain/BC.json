@@ -3,7 +3,7 @@
   "ticker": "BC",
   "name_en": "Brunswick",
   "name_zh": "Brunswick",
-  "updatedAt": "2026-11-19",
+  "updatedAt": "2026-11-20",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -70,28 +70,20 @@
       "summary_en": "Boat and RV manufacturing.",
       "players": [
         {
-          "ticker": "PII",
-          "name_en": "Polaris",
-          "name_zh": "Polaris",
-          "role_zh": "Polaris：船體／車體 OEM代表性玩家",
-          "role_en": "Polaris: representative player in Hull / chassis OEMs",
-          "exchange": "NYSE"
+          "ticker": "MBUU",
+          "name_en": "Malibu Boats",
+          "name_zh": "Malibu Boats",
+          "role_zh": "Malibu Boats：船體／車體 OEM代表性玩家",
+          "role_en": "Malibu Boats: representative player in Hull / chassis OEMs",
+          "exchange": "NASDAQ"
         },
         {
-          "ticker": "THO",
-          "name_en": "Thor Industries",
-          "name_zh": "Thor Industries",
-          "role_zh": "Thor Industries：船體／車體 OEM代表性玩家",
-          "role_en": "Thor Industries: representative player in Hull / chassis OEMs",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "WGO",
-          "name_en": "Winnebago",
-          "name_zh": "Winnebago",
-          "role_zh": "Winnebago：船體／車體 OEM代表性玩家",
-          "role_en": "Winnebago: representative player in Hull / chassis OEMs",
-          "exchange": "NYSE"
+          "ticker": "MCFT",
+          "name_en": "MasterCraft",
+          "name_zh": "MasterCraft",
+          "role_zh": "MasterCraft：船體／車體 OEM代表性玩家",
+          "role_en": "MasterCraft: representative player in Hull / chassis OEMs",
+          "exchange": "NASDAQ"
         }
       ]
     },
@@ -200,43 +192,19 @@
   ],
   "competitors": [
     {
-      "ticker": "PII",
-      "name_en": "Polaris",
-      "name_zh": "Polaris",
-      "basis_zh": "船舶／休閒車對手",
-      "basis_en": "Marine / RV rival",
-      "exchange": "NYSE"
-    },
-    {
-      "ticker": "THO",
-      "name_en": "Thor Industries",
-      "name_zh": "Thor Industries",
-      "basis_zh": "船舶／休閒車對手",
-      "basis_en": "Marine / RV rival",
-      "exchange": "NYSE"
-    },
-    {
-      "ticker": "WGO",
-      "name_en": "Winnebago",
-      "name_zh": "Winnebago",
-      "basis_zh": "船舶／休閒車對手",
-      "basis_en": "Marine / RV rival",
-      "exchange": "NYSE"
-    },
-    {
       "ticker": "MBUU",
       "name_en": "Malibu Boats",
       "name_zh": "Malibu Boats",
-      "basis_zh": "船舶／休閒車對手",
-      "basis_en": "Marine / RV rival",
+      "basis_zh": "船舶／休閒艇對手",
+      "basis_en": "Marine / recreational boat rival",
       "exchange": "NASDAQ"
     },
     {
       "ticker": "MCFT",
       "name_en": "MasterCraft",
       "name_zh": "MasterCraft",
-      "basis_zh": "船舶／休閒車對手",
-      "basis_en": "Marine / RV rival",
+      "basis_zh": "船舶／休閒艇對手",
+      "basis_en": "Marine / recreational boat rival",
       "exchange": "NASDAQ"
     }
   ]

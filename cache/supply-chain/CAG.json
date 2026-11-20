@@ -3,7 +3,7 @@
   "ticker": "CAG",
   "name_en": "Conagra Brands",
   "name_zh": "Conagra Brands",
-  "updatedAt": "2026-11-19",
+  "updatedAt": "2026-11-20",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -49,14 +49,6 @@
           "name_zh": "強鹿公司 (Deere)",
           "role_zh": "強鹿公司 (Deere)：農產／原料代表性玩家",
           "role_en": "Deere: representative player in Agriculture / inputs",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "BG",
-          "name_en": "Bunge",
-          "name_zh": "Bunge",
-          "role_zh": "Bunge：農產／原料代表性玩家",
-          "role_en": "Bunge: representative player in Agriculture / inputs",
           "exchange": "NYSE"
         }
       ]

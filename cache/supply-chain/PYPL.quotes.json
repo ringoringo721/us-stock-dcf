@@ -1,7 +1,7 @@
 {
   "version": 1,
   "ticker": "PYPL",
-  "updatedAt": "2026-11-19",
+  "updatedAt": "2026-11-20",
   "basis": "lastTradingDayCloseVsPriorClose",
   "notes_en": "changePct from last two EOD closes in price_charts; mcap from US listings screener (USD millions). Missing tickers stay null. No live FMP per pageview.",
   "notes_zh": "漲跌%取自 price_charts 最近兩日收盤；市值取自美股清單（百萬美元）。缺資料維持 null，不造假。頁面不打即時 FMP。",
@@ -46,32 +46,32 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "JKHY": {
-      "ticker": "JKHY",
-      "price": 177.67,
-      "previousClose": 176.03,
-      "changePct": 0.932,
-      "mcap": 12145.5,
+    "GPN": {
+      "ticker": "GPN",
+      "price": 91.9,
+      "previousClose": 88.19,
+      "changePct": 4.207,
+      "mcap": 25773.8,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "BR": {
-      "ticker": "BR",
-      "price": 192.45,
-      "previousClose": 191.47,
-      "changePct": 0.512,
-      "mcap": 21496.2,
+    "FIS": {
+      "ticker": "FIS",
+      "price": 29.54,
+      "previousClose": 28.36,
+      "changePct": 4.161,
+      "mcap": 14816.2,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "ADP": {
-      "ticker": "ADP",
-      "price": 309.93,
-      "previousClose": 307.92,
-      "changePct": 0.653,
-      "mcap": 119750.3,
+    "FISV": {
+      "ticker": "FISV",
+      "price": 63.78,
+      "previousClose": 61.5,
+      "changePct": 3.707,
+      "mcap": 33437.5,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
@@ -192,16 +192,6 @@
       "previousClose": 318.06,
       "changePct": 0.799,
       "mcap": 215240.5,
-      "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "GPN": {
-      "ticker": "GPN",
-      "price": 91.9,
-      "previousClose": 88.19,
-      "changePct": 4.207,
-      "mcap": 25773.8,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"

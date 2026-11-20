@@ -3,7 +3,7 @@
   "ticker": "ANDG",
   "name_en": "Andersen",
   "name_zh": "Andersen",
-  "updatedAt": "2026-11-19",
+  "updatedAt": "2026-11-20",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -104,22 +104,6 @@
       "summary_en": "Franchise and retail offices.",
       "players": [
         {
-          "ticker": "HRB",
-          "name_en": "H&R Block",
-          "name_zh": "H&R Block",
-          "role_zh": "H&R Block：加盟／門市通路代表性玩家",
-          "role_en": "H&R Block: representative player in Franchise / store channel",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "INTU",
-          "name_en": "Intuit",
-          "name_zh": "直覺電腦",
-          "role_zh": "直覺電腦：加盟／門市通路代表性玩家",
-          "role_en": "Intuit: representative player in Franchise / store channel",
-          "exchange": "NASDAQ"
-        },
-        {
           "ticker": "ADP",
           "name_en": "ADP",
           "name_zh": "安德普翰 (ADP)",
@@ -206,6 +190,22 @@
       "basis_zh": "專業稅務／顧問對手",
       "basis_en": "Professional tax / advisory rival",
       "exchange": "NYSE"
+    },
+    {
+      "ticker": "HRB",
+      "name_en": "H&R Block",
+      "name_zh": "H&R Block",
+      "basis_zh": "專業稅務／顧問對手",
+      "basis_en": "Professional tax / advisory rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "INTU",
+      "name_en": "Intuit",
+      "name_zh": "直覺電腦",
+      "basis_zh": "專業稅務／顧問對手",
+      "basis_en": "Professional tax / advisory rival",
+      "exchange": "NASDAQ"
     }
   ]
 }

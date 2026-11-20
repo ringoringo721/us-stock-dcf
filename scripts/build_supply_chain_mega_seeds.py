@@ -179,6 +179,8 @@ NAME_ZH_FIXES = {
     "COO": "庫博",  # The Cooper Companies — not CooperVision-only label
     "AFG": "美國金融集團",  # never truncated English adjective "American"
     "MTD": "Mettler-Toledo",  # never “Mettler-Toledo International”
+    "WST": "西氏醫藥",  # West Pharmaceutical — never ticker-as-zh
+    "QGEN": "凱傑",
 }
 
 
