@@ -3,7 +3,7 @@
   "ticker": "KLAR",
   "name_en": "Klarna",
   "name_zh": "Klarna",
-  "updatedAt": "2026-11-19",
+  "updatedAt": "2026-11-20",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -70,27 +70,27 @@
       "summary_en": "Acquirers and processors.",
       "players": [
         {
-          "ticker": "JKHY",
-          "name_en": "Jack Henry & Associates",
-          "name_zh": "Jack Henry & Associates",
-          "role_zh": "Jack Henry & Associates：收單／處理代表性玩家",
-          "role_en": "Jack Henry & Associates: representative player in Acquirers / processors",
-          "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "BR",
-          "name_en": "Broadridge Financial Solutions",
-          "name_zh": "寬嶺金融",
-          "role_zh": "寬嶺金融：收單／處理代表性玩家",
-          "role_en": "Broadridge Financial Solutions: representative player in Acquirers / processors",
+          "ticker": "GPN",
+          "name_en": "Global Payments",
+          "name_zh": "Global Payments",
+          "role_zh": "Global Payments：收單／處理代表性玩家",
+          "role_en": "Global Payments: representative player in Acquirers / processors",
           "exchange": "NYSE"
         },
         {
-          "ticker": "ADP",
-          "name_en": "ADP",
-          "name_zh": "安德普翰 (ADP)",
-          "role_zh": "安德普翰 (ADP)：收單／處理代表性玩家",
-          "role_en": "ADP: representative player in Acquirers / processors",
+          "ticker": "FIS",
+          "name_en": "FIS",
+          "name_zh": "FIS",
+          "role_zh": "FIS：收單／處理代表性玩家",
+          "role_en": "FIS: representative player in Acquirers / processors",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "FISV",
+          "name_en": "Fiserv",
+          "name_zh": "Fiserv",
+          "role_zh": "Fiserv：收單／處理代表性玩家",
+          "role_en": "Fiserv: representative player in Acquirers / processors",
           "exchange": "NASDAQ"
         }
       ]

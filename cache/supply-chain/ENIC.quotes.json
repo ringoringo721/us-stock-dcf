@@ -1,7 +1,7 @@
 {
   "version": 1,
   "ticker": "ENIC",
-  "updatedAt": "2026-11-19",
+  "updatedAt": "2026-11-20",
   "basis": "lastTradingDayCloseVsPriorClose",
   "notes_en": "changePct from last two EOD closes in price_charts; mcap from US listings screener (USD millions). Missing tickers stay null. No live FMP per pageview.",
   "notes_zh": "漲跌%取自 price_charts 最近兩日收盤；市值取自美股清單（百萬美元）。缺資料維持 null，不造假。頁面不打即時 FMP。",
@@ -176,16 +176,6 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "AES": {
-      "ticker": "AES",
-      "price": 14.91,
-      "previousClose": 14.91,
-      "changePct": 0.0,
-      "mcap": 10608.8,
-      "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
     "SBS": {
       "ticker": "SBS",
       "price": 4.92,
@@ -196,15 +186,35 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "KEP": {
-      "ticker": "KEP",
-      "price": 10.16,
-      "previousClose": 11.13,
-      "changePct": -8.715,
-      "mcap": 14380.0,
+    "AWK": {
+      "ticker": "AWK",
+      "price": 149.6,
+      "previousClose": 147.58,
+      "changePct": 1.369,
+      "mcap": 29923.4,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "WTRG": {
+      "ticker": "WTRG",
+      "price": 45.23,
+      "previousClose": 44.65,
+      "changePct": 1.299,
+      "mcap": 12891.1,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "CWT": {
+      "ticker": "CWT",
+      "price": null,
+      "previousClose": null,
+      "changePct": null,
+      "mcap": null,
+      "currency": "USD",
+      "asOf": null,
+      "source": null
     }
   }
 }

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "ticker": "CIG",
-  "updatedAt": "2026-11-19",
+  "updatedAt": "2026-11-20",
   "basis": "lastTradingDayCloseVsPriorClose",
   "notes_en": "changePct from last two EOD closes in price_charts; mcap from US listings screener (USD millions). Missing tickers stay null. No live FMP per pageview.",
   "notes_zh": "漲跌%取自 price_charts 最近兩日收盤；市值取自美股清單（百萬美元）。缺資料維持 null，不造假。頁面不打即時 FMP。",
@@ -172,6 +172,16 @@
       "previousClose": 4.21,
       "changePct": 0.238,
       "mcap": 6003.7,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "SBS": {
+      "ticker": "SBS",
+      "price": 4.92,
+      "previousClose": 4.84,
+      "changePct": 1.653,
+      "mcap": 16438.4,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"

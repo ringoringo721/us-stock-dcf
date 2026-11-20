@@ -3,7 +3,7 @@
   "ticker": "APA",
   "name_en": "APA Corporation",
   "name_zh": "APA",
-  "updatedAt": "2026-11-19",
+  "updatedAt": "2026-11-20",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -70,27 +70,27 @@
       "summary_en": "Exploration and production.",
       "players": [
         {
-          "ticker": "COP",
-          "name_en": "ConocoPhillips",
-          "name_zh": "康菲石油",
-          "role_zh": "康菲石油：上游勘探開發代表性玩家",
-          "role_en": "ConocoPhillips: representative player in Upstream E&P",
+          "ticker": "PR",
+          "name_en": "Permian Resources",
+          "name_zh": "Permian Resources",
+          "role_zh": "Permian Resources：上游勘探開發代表性玩家",
+          "role_en": "Permian Resources: representative player in Upstream E&P",
           "exchange": "NYSE"
         },
         {
-          "ticker": "EOG",
-          "name_en": "EOG Resources",
-          "name_zh": "EOG 能源",
-          "role_zh": "EOG 能源：上游勘探開發代表性玩家",
-          "role_en": "EOG Resources: representative player in Upstream E&P",
-          "exchange": "NYSE"
+          "ticker": "CHRD",
+          "name_en": "Chord Energy",
+          "name_zh": "Chord Energy",
+          "role_zh": "Chord Energy：上游勘探開發代表性玩家",
+          "role_en": "Chord Energy: representative player in Upstream E&P",
+          "exchange": "NASDAQ"
         },
         {
-          "ticker": "OXY",
-          "name_en": "Occidental",
-          "name_zh": "西方石油",
-          "role_zh": "西方石油：上游勘探開發代表性玩家",
-          "role_en": "Occidental: representative player in Upstream E&P",
+          "ticker": "MTDR",
+          "name_en": "Matador Resources",
+          "name_zh": "Matador Resources",
+          "role_zh": "Matador Resources：上游勘探開發代表性玩家",
+          "role_en": "Matador Resources: representative player in Upstream E&P",
           "exchange": "NYSE"
         }
       ]

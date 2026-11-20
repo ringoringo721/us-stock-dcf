@@ -1,7 +1,7 @@
 {
   "version": 1,
   "ticker": "PPC",
-  "updatedAt": "2026-11-19",
+  "updatedAt": "2026-11-20",
   "basis": "lastTradingDayCloseVsPriorClose",
   "notes_en": "changePct from last two EOD closes in price_charts; mcap from US listings screener (USD millions). Missing tickers stay null. No live FMP per pageview.",
   "notes_zh": "漲跌%取自 price_charts 最近兩日收盤；市值取自美股清單（百萬美元）。缺資料維持 null，不造假。頁面不打即時 FMP。",
@@ -32,16 +32,6 @@
       "previousClose": 678.79,
       "changePct": -0.773,
       "mcap": 181093.9,
-      "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "BG": {
-      "ticker": "BG",
-      "price": 101.65,
-      "previousClose": 99.98,
-      "changePct": 1.67,
-      "mcap": 19041.4,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"

@@ -1,0 +1,14 @@
+{
+  "bandMin": 0.0,
+  "bandMax": 50000000000.0,
+  "bandTotal": 1041,
+  "written": 1,
+  "skippedExisting": [],
+  "failures": [],
+  "tickers": [
+    "APA"
+  ],
+  "dryRun": false,
+  "date": "2026-11-20",
+  "chartsDir": "/agent/repos/us-stock-dcf/cache/price_charts"
+}

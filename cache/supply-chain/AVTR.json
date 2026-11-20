@@ -3,7 +3,7 @@
   "ticker": "AVTR",
   "name_en": "Avantor",
   "name_zh": "Avantor",
-  "updatedAt": "2026-11-19",
+  "updatedAt": "2026-11-20",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -113,10 +113,10 @@
         },
         {
           "ticker": "WST",
-          "name_en": "West Pharmaceutical Services",
-          "name_zh": "WST",
-          "role_zh": "WST：耗材／試劑代表性玩家",
-          "role_en": "West Pharmaceutical Services: representative player in Consumables / reagents",
+          "name_en": "West Pharmaceutical",
+          "name_zh": "西氏醫藥",
+          "role_zh": "西氏醫藥：耗材／試劑代表性玩家",
+          "role_en": "West Pharmaceutical: representative player in Consumables / reagents",
           "exchange": "NYSE"
         }
       ]

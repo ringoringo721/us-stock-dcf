@@ -1,7 +1,7 @@
 {
   "version": 1,
   "ticker": "CHH",
-  "updatedAt": "2026-11-19",
+  "updatedAt": "2026-11-20",
   "basis": "lastTradingDayCloseVsPriorClose",
   "notes_en": "changePct from last two EOD closes in price_charts; mcap from US listings screener (USD millions). Missing tickers stay null. No live FMP per pageview.",
   "notes_zh": "漲跌%取自 price_charts 最近兩日收盤；市值取自美股清單（百萬美元）。缺資料維持 null，不造假。頁面不打即時 FMP。",
@@ -96,16 +96,6 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "MAR": {
-      "ticker": "MAR",
-      "price": 423.16,
-      "previousClose": 424.66,
-      "changePct": -0.353,
-      "mcap": 107242.9,
-      "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
     "V": {
       "ticker": "V",
       "price": 425.76,
@@ -172,6 +162,16 @@
       "previousClose": 372.73,
       "changePct": 0.097,
       "mcap": 83779.6,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "MAR": {
+      "ticker": "MAR",
+      "price": 423.16,
+      "previousClose": 424.66,
+      "changePct": -0.353,
+      "mcap": 107242.9,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"

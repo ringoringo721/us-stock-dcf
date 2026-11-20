@@ -3,7 +3,7 @@
   "ticker": "AS",
   "name_en": "Amer Sports",
   "name_zh": "Amer Sports",
-  "updatedAt": "2026-11-19",
+  "updatedAt": "2026-11-20",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -70,27 +70,19 @@
       "summary_en": "Apparel and footwear CMs.",
       "players": [
         {
-          "ticker": "PVH",
-          "name_en": "PVH",
-          "name_zh": "PVH",
-          "role_zh": "PVH：代工製造代表性玩家",
-          "role_en": "PVH: representative player in Contract manufacturing",
+          "ticker": "ITW",
+          "name_en": "Illinois Tool Works",
+          "name_zh": "伊利諾工具",
+          "role_zh": "伊利諾工具：代工製造代表性玩家",
+          "role_en": "Illinois Tool Works: representative player in Contract manufacturing",
           "exchange": "NYSE"
         },
         {
-          "ticker": "UAA",
-          "name_en": "Under Armour",
-          "name_zh": "Under Armour",
-          "role_zh": "Under Armour：代工製造代表性玩家",
-          "role_en": "Under Armour: representative player in Contract manufacturing",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "SKX",
-          "name_en": "Skechers",
-          "name_zh": "Skechers",
-          "role_zh": "Skechers：代工製造代表性玩家",
-          "role_en": "Skechers: representative player in Contract manufacturing",
+          "ticker": "EMR",
+          "name_en": "Emerson",
+          "name_zh": "艾默生",
+          "role_zh": "艾默生：代工製造代表性玩家",
+          "role_en": "Emerson: representative player in Contract manufacturing",
           "exchange": "NYSE"
         }
       ]
@@ -104,11 +96,11 @@
       "summary_en": "Brand wholesale and licensing.",
       "players": [
         {
-          "ticker": "DKS",
-          "name_en": "Dick's Sporting Goods",
-          "name_zh": "Dick's Sporting Goods",
-          "role_zh": "Dick's Sporting Goods：品牌／批發代表性玩家",
-          "role_en": "Dick's Sporting Goods: representative player in Brand / wholesale",
+          "ticker": "ANF",
+          "name_en": "Abercrombie & Fitch",
+          "name_zh": "Abercrombie & Fitch",
+          "role_zh": "Abercrombie & Fitch：品牌／批發代表性玩家",
+          "role_en": "Abercrombie & Fitch: representative player in Brand / wholesale",
           "exchange": "NYSE"
         }
       ]
@@ -122,19 +114,11 @@
       "summary_en": "Sporting specialty and DTC.",
       "players": [
         {
-          "ticker": "SPG",
-          "name_en": "Simon Property",
-          "name_zh": "西蒙地產",
-          "role_zh": "西蒙地產：專賣／電商代表性玩家",
-          "role_en": "Simon Property: representative player in Specialty / e-commerce",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "MAC",
-          "name_en": "Macerich",
-          "name_zh": "Macerich",
-          "role_zh": "Macerich：專賣／電商代表性玩家",
-          "role_en": "Macerich: representative player in Specialty / e-commerce",
+          "ticker": "DKS",
+          "name_en": "Dick's Sporting Goods",
+          "name_zh": "Dick's Sporting Goods",
+          "role_zh": "Dick's Sporting Goods：專賣／電商代表性玩家",
+          "role_en": "Dick's Sporting Goods: representative player in Specialty / e-commerce",
           "exchange": "NYSE"
         },
         {

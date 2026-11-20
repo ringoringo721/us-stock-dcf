@@ -1,7 +1,7 @@
 {
   "version": 1,
   "ticker": "APA",
-  "updatedAt": "2026-11-19",
+  "updatedAt": "2026-11-20",
   "basis": "lastTradingDayCloseVsPriorClose",
   "notes_en": "changePct from last two EOD closes in price_charts; mcap from US listings screener (USD millions). Missing tickers stay null. No live FMP per pageview.",
   "notes_zh": "漲跌%取自 price_charts 最近兩日收盤；市值取自美股清單（百萬美元）。缺資料維持 null，不造假。頁面不打即時 FMP。",
@@ -46,32 +46,32 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "COP": {
-      "ticker": "COP",
-      "price": 142.28,
-      "previousClose": 140.06,
-      "changePct": 1.585,
-      "mcap": 163706.6,
+    "PR": {
+      "ticker": "PR",
+      "price": 23.05,
+      "previousClose": 22.77,
+      "changePct": 1.23,
+      "mcap": 18211.0,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "EOG": {
-      "ticker": "EOG",
-      "price": 158.32,
-      "previousClose": 155.62,
-      "changePct": 1.735,
-      "mcap": 77174.0,
+    "CHRD": {
+      "ticker": "CHRD",
+      "price": 149.93,
+      "previousClose": 147.05,
+      "changePct": 1.959,
+      "mcap": 7465.7,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "OXY": {
-      "ticker": "OXY",
-      "price": 58.75,
-      "previousClose": 58.4,
-      "changePct": 0.599,
-      "mcap": 56359.5,
+    "MTDR": {
+      "ticker": "MTDR",
+      "price": 53.47,
+      "previousClose": 52.81,
+      "changePct": 1.25,
+      "mcap": 6238.4,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
@@ -166,12 +166,42 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
+    "EOG": {
+      "ticker": "EOG",
+      "price": 158.32,
+      "previousClose": 155.62,
+      "changePct": 1.735,
+      "mcap": 77174.0,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "OXY": {
+      "ticker": "OXY",
+      "price": 58.75,
+      "previousClose": 58.4,
+      "changePct": 0.599,
+      "mcap": 56359.5,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
     "FANG": {
       "ticker": "FANG",
       "price": 184.93,
       "previousClose": 182.2,
       "changePct": 1.498,
       "mcap": 50113.1,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "COP": {
+      "ticker": "COP",
+      "price": 142.28,
+      "previousClose": 140.06,
+      "changePct": 1.585,
+      "mcap": 163706.6,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
