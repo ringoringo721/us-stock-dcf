@@ -110,6 +110,8 @@ def end_card_png(path: Path) -> None:
 
 
 def main() -> None:
+    WORK.mkdir(parents=True, exist_ok=True)
+
     talking = WORK / "talking_body.mp4"
     if not talking.exists():
         talking = WORK / "talking_raw.mp4"
