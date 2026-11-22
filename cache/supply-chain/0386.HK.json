@@ -7,10 +7,10 @@
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for HK MVP hubs (trial batch). Not a live supplier API dump. Prefer .HK dual-list counters on HK pages. Preview-before-merge.",
-    "notes_zh": "本頁為港股 MVP 龍頭供應鏈／競爭策展種子（產業價值鏈模板＋人工策展對手）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。雙重上市優先港股 .HK 代號。競爭對手採產品／市場真實對手原則（參考美股 AAPL 教訓：不以階段玩家或跨業巨頭灌水）。",
-    "notes_en": "HK MVP hub curated seed (industry value-chain template + curated rivals). No live supplier API. FMP peers are not the value chain. Dual-listed names prefer .HK on HK pages. Competitors follow true product/market rivalry (AAPL lesson).",
-    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開；雙重上市優先 .HK。",
-    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players stay separate from rivals; dual listings prefer .HK.",
+    "notes_zh": "本頁為港股 MVP 龍頭供應鏈／競爭策展種子（產業價值鏈模板＋人工策展對手）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。雙重上市優先港股 .HK 代號。若主力市場在中國／亞洲，階段玩家與對手優先中港／區域上市，不以美股公司名單灌水。競爭對手採產品／市場真實對手原則（參考美股 AAPL 教訓）。",
+    "notes_en": "HK MVP hub curated seed (industry value-chain template + curated rivals). No live supplier API. Dual-listed names prefer .HK. When the major market is China/Asia, stage players and rivals prefer CN/HK/regional listings — not US-company dumps. Competitors follow true product/market rivalry (AAPL lesson).",
+    "competitorRationale_zh": "競爭弧只列主力市場真實產品對手；階段玩家與對手分開；雙重上市優先 .HK；中國市場不以美股節點為預設。",
+    "competitorRationale_en": "Rival arc = true product rivals in the major market; stages ≠ rivals; dual listings prefer .HK; China-facing hubs are not US-node dumps.",
     "modelId": "energy-integrated-v1",
     "references": [
       "Industry model via TICKER_MODEL (HK MVP)",
@@ -36,28 +36,28 @@
       "summary_en": "Drilling and oilfield services.",
       "players": [
         {
-          "ticker": "SLB",
-          "name_en": "Schlumberger",
-          "name_zh": "斯倫貝謝",
-          "role_zh": "斯倫貝謝：油服／設備代表性玩家",
-          "role_en": "Schlumberger: representative player in Oilfield services / equipment",
-          "exchange": "NYSE"
+          "ticker": "1033.HK",
+          "name_en": "Sinopec Oilfield Service",
+          "name_zh": "中石化油服",
+          "role_zh": "中石化油服：油服／設備代表性玩家",
+          "role_en": "Sinopec Oilfield Service: representative player in Oilfield services / equipment",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "HAL",
-          "name_en": "Halliburton",
-          "name_zh": "哈里伯頓",
-          "role_zh": "哈里伯頓：油服／設備代表性玩家",
-          "role_en": "Halliburton: representative player in Oilfield services / equipment",
-          "exchange": "NYSE"
+          "ticker": "2883.HK",
+          "name_en": "COSL",
+          "name_zh": "中海油服",
+          "role_zh": "中海油服：油服／設備代表性玩家",
+          "role_en": "COSL: representative player in Oilfield services / equipment",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "BKR",
-          "name_en": "Baker Hughes",
-          "name_zh": "貝克休斯",
-          "role_zh": "貝克休斯：油服／設備代表性玩家",
-          "role_en": "Baker Hughes: representative player in Oilfield services / equipment",
-          "exchange": "NASDAQ"
+          "ticker": "3337.HK",
+          "name_en": "Anton Oilfield",
+          "name_zh": "安東油田",
+          "role_zh": "安東油田：油服／設備代表性玩家",
+          "role_en": "Anton Oilfield: representative player in Oilfield services / equipment",
+          "exchange": "HKEX"
         }
       ]
     },
@@ -70,28 +70,28 @@
       "summary_en": "Exploration and production.",
       "players": [
         {
-          "ticker": "COP",
-          "name_en": "ConocoPhillips",
-          "name_zh": "康菲石油",
-          "role_zh": "康菲石油：上游勘探開發代表性玩家",
-          "role_en": "ConocoPhillips: representative player in Upstream E&P",
-          "exchange": "NYSE"
+          "ticker": "1171.HK",
+          "name_en": "Yankuang Energy",
+          "name_zh": "兗礦能源",
+          "role_zh": "兗礦能源：上游勘探開發代表性玩家",
+          "role_en": "Yankuang Energy: representative player in Upstream E&P",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "EOG",
-          "name_en": "EOG Resources",
-          "name_zh": "EOG 能源",
-          "role_zh": "EOG 能源：上游勘探開發代表性玩家",
-          "role_en": "EOG Resources: representative player in Upstream E&P",
-          "exchange": "NYSE"
+          "ticker": "1898.HK",
+          "name_en": "China Coal",
+          "name_zh": "中煤能源",
+          "role_zh": "中煤能源：上游勘探開發代表性玩家",
+          "role_en": "China Coal: representative player in Upstream E&P",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "OXY",
-          "name_en": "Occidental",
-          "name_zh": "西方石油",
-          "role_zh": "西方石油：上游勘探開發代表性玩家",
-          "role_en": "Occidental: representative player in Upstream E&P",
-          "exchange": "NYSE"
+          "ticker": "2899.HK",
+          "name_en": "Zijin Mining",
+          "name_zh": "紫金礦業",
+          "role_zh": "紫金礦業：上游勘探開發代表性玩家",
+          "role_en": "Zijin Mining: representative player in Upstream E&P",
+          "exchange": "HKEX"
         }
       ]
     },
@@ -104,28 +104,28 @@
       "summary_en": "Pipelines, storage, LNG.",
       "players": [
         {
-          "ticker": "ENB",
-          "name_en": "Enbridge Inc.",
-          "name_zh": "恩橋公司",
-          "role_zh": "恩橋公司：中游管輸／液化代表性玩家",
-          "role_en": "Enbridge Inc.: representative player in Midstream / LNG",
-          "exchange": "NYSE"
+          "ticker": "1138.HK",
+          "name_en": "COSCO Shipping Energy",
+          "name_zh": "中遠海能",
+          "role_zh": "中遠海能：中游管輸／液化代表性玩家",
+          "role_en": "COSCO Shipping Energy: representative player in Midstream / LNG",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "PAA",
-          "name_en": "Plains All American Pipeline, L.P.",
-          "name_zh": "PAA",
-          "role_zh": "PAA：中游管輸／液化代表性玩家",
-          "role_en": "Plains All American Pipeline, L.P.: representative player in Midstream / LNG",
-          "exchange": "NASDAQ"
+          "ticker": "1919.HK",
+          "name_en": "COSCO Shipping Holdings",
+          "name_zh": "中遠海控",
+          "role_zh": "中遠海控：中游管輸／液化代表性玩家",
+          "role_en": "COSCO Shipping Holdings: representative player in Midstream / LNG",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "WES",
-          "name_en": "Western Midstream Partners, LP",
-          "name_zh": "WES",
-          "role_zh": "WES：中游管輸／液化代表性玩家",
-          "role_en": "Western Midstream Partners, LP: representative player in Midstream / LNG",
-          "exchange": "NYSE"
+          "ticker": "0316.HK",
+          "name_en": "OOIL",
+          "name_zh": "東方海外",
+          "role_zh": "東方海外：中游管輸／液化代表性玩家",
+          "role_en": "OOIL: representative player in Midstream / LNG",
+          "exchange": "HKEX"
         }
       ]
     },
@@ -138,28 +138,28 @@
       "summary_en": "Refineries and downstream chem.",
       "players": [
         {
-          "ticker": "MPC",
-          "name_en": "Marathon Petroleum",
-          "name_zh": "馬拉松原油",
-          "role_zh": "馬拉松原油：煉製／化工代表性玩家",
-          "role_en": "Marathon Petroleum: representative player in Refining / chemicals",
-          "exchange": "NYSE"
+          "ticker": "1033.HK",
+          "name_en": "Sinopec Oilfield Service",
+          "name_zh": "中石化油服",
+          "role_zh": "中石化油服：煉製／化工代表性玩家",
+          "role_en": "Sinopec Oilfield Service: representative player in Refining / chemicals",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "VLO",
-          "name_en": "Valero",
-          "name_zh": "瓦萊羅能源",
-          "role_zh": "瓦萊羅能源：煉製／化工代表性玩家",
-          "role_en": "Valero: representative player in Refining / chemicals",
-          "exchange": "NYSE"
+          "ticker": "2899.HK",
+          "name_en": "Zijin Mining",
+          "name_zh": "紫金礦業",
+          "role_zh": "紫金礦業：煉製／化工代表性玩家",
+          "role_en": "Zijin Mining: representative player in Refining / chemicals",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "PSX",
-          "name_en": "Phillips 66",
-          "name_zh": "菲利普斯66",
-          "role_zh": "菲利普斯66：煉製／化工代表性玩家",
-          "role_en": "Phillips 66: representative player in Refining / chemicals",
-          "exchange": "NYSE"
+          "ticker": "2688.HK",
+          "name_en": "ENN Energy",
+          "name_zh": "新奧能源",
+          "role_zh": "新奧能源：煉製／化工代表性玩家",
+          "role_en": "ENN Energy: representative player in Refining / chemicals",
+          "exchange": "HKEX"
         }
       ]
     },
@@ -172,28 +172,28 @@
       "summary_en": "Fuel retail, aviation, industrials.",
       "players": [
         {
-          "ticker": "DAL",
-          "name_en": "Delta Air Lines",
-          "name_zh": "達美航空",
-          "role_zh": "達美航空：零售／航煤／工業客戶代表性玩家",
-          "role_en": "Delta Air Lines: representative player in Retail / jet / industrial customers",
-          "exchange": "NYSE"
+          "ticker": "2688.HK",
+          "name_en": "ENN Energy",
+          "name_zh": "新奧能源",
+          "role_zh": "新奧能源：零售／航煤／工業客戶代表性玩家",
+          "role_en": "ENN Energy: representative player in Retail / jet / industrial customers",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "CAT",
-          "name_en": "Caterpillar",
-          "name_zh": "開拓重工",
-          "role_zh": "開拓重工：零售／航煤／工業客戶代表性玩家",
-          "role_en": "Caterpillar: representative player in Retail / jet / industrial customers",
-          "exchange": "NYSE"
+          "ticker": "1193.HK",
+          "name_en": "CR Gas",
+          "name_zh": "華潤燃氣",
+          "role_zh": "華潤燃氣：零售／航煤／工業客戶代表性玩家",
+          "role_en": "CR Gas: representative player in Retail / jet / industrial customers",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "UNP",
-          "name_en": "Union Pacific",
-          "name_zh": "聯合太平洋鐵路",
-          "role_zh": "聯合太平洋鐵路：零售／航煤／工業客戶代表性玩家",
-          "role_en": "Union Pacific: representative player in Retail / jet / industrial customers",
-          "exchange": "NYSE"
+          "ticker": "0384.HK",
+          "name_en": "China Gas",
+          "name_zh": "中國燃氣",
+          "role_zh": "中國燃氣：零售／航煤／工業客戶代表性玩家",
+          "role_en": "China Gas: representative player in Retail / jet / industrial customers",
+          "exchange": "HKEX"
         }
       ]
     }
@@ -216,28 +216,20 @@
       "exchange": "HKEX"
     },
     {
-      "ticker": "XOM",
-      "name_en": "Exxonmobil",
-      "name_zh": "埃克森美孚",
-      "basis_zh": "全球一體化油氣對手",
-      "basis_en": "Global integrated oil & gas rival",
-      "exchange": "NYSE"
+      "ticker": "0338.HK",
+      "name_en": "Shanghai Petrochemical",
+      "name_zh": "上海石化",
+      "basis_zh": "中國煉化對手",
+      "basis_en": "China refining / petrochemical rival",
+      "exchange": "HKEX"
     },
     {
-      "ticker": "CVX",
-      "name_en": "Chevron",
-      "name_zh": "雪佛龍",
-      "basis_zh": "全球一體化油氣對手",
-      "basis_en": "Global integrated oil & gas rival",
-      "exchange": "NYSE"
-    },
-    {
-      "ticker": "BP",
-      "name_en": "BP",
-      "name_zh": "BP",
-      "basis_zh": "全球一體化油氣對手",
-      "basis_en": "Global integrated oil & gas rival",
-      "exchange": "NYSE"
+      "ticker": "1088.HK",
+      "name_en": "China Shenhua",
+      "name_zh": "中國神華",
+      "basis_zh": "中國能源對手",
+      "basis_en": "China energy rival",
+      "exchange": "HKEX"
     }
   ]
 }

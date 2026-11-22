@@ -7,10 +7,10 @@
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for HK MVP hubs (trial batch). Not a live supplier API dump. Prefer .HK dual-list counters on HK pages. Preview-before-merge.",
-    "notes_zh": "本頁為港股 MVP 龍頭供應鏈／競爭策展種子（產業價值鏈模板＋人工策展對手）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。雙重上市優先港股 .HK 代號。競爭對手採產品／市場真實對手原則（參考美股 AAPL 教訓：不以階段玩家或跨業巨頭灌水）。",
-    "notes_en": "HK MVP hub curated seed (industry value-chain template + curated rivals). No live supplier API. FMP peers are not the value chain. Dual-listed names prefer .HK on HK pages. Competitors follow true product/market rivalry (AAPL lesson).",
-    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開；雙重上市優先 .HK。",
-    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players stay separate from rivals; dual listings prefer .HK.",
+    "notes_zh": "本頁為港股 MVP 龍頭供應鏈／競爭策展種子（產業價值鏈模板＋人工策展對手）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。雙重上市優先港股 .HK 代號。若主力市場在中國／亞洲，階段玩家與對手優先中港／區域上市，不以美股公司名單灌水。競爭對手採產品／市場真實對手原則（參考美股 AAPL 教訓）。",
+    "notes_en": "HK MVP hub curated seed (industry value-chain template + curated rivals). No live supplier API. Dual-listed names prefer .HK. When the major market is China/Asia, stage players and rivals prefer CN/HK/regional listings — not US-company dumps. Competitors follow true product/market rivalry (AAPL lesson).",
+    "competitorRationale_zh": "競爭弧只列主力市場真實產品對手；階段玩家與對手分開；雙重上市優先 .HK；中國市場不以美股節點為預設。",
+    "competitorRationale_en": "Rival arc = true product rivals in the major market; stages ≠ rivals; dual listings prefer .HK; China-facing hubs are not US-node dumps.",
     "modelId": "bank-diversified-v1",
     "references": [
       "Industry model via TICKER_MODEL (HK MVP)",
@@ -36,28 +36,28 @@
       "summary_en": "Wholesale funding, bonds, market infra.",
       "players": [
         {
-          "ticker": "GS",
-          "name_en": "Goldman Sachs",
-          "name_zh": "高盛集團",
-          "role_zh": "高盛集團：資金／資本市場代表性玩家",
-          "role_en": "Goldman Sachs: representative player in Funding / capital markets",
-          "exchange": "NYSE"
+          "ticker": "0388.HK",
+          "name_en": "HKEX",
+          "name_zh": "港交所",
+          "role_zh": "港交所：資金／資本市場代表性玩家",
+          "role_en": "HKEX: representative player in Funding / capital markets",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "MS",
-          "name_en": "Morgan Stanley",
-          "name_zh": "摩根士丹利",
-          "role_zh": "摩根士丹利：資金／資本市場代表性玩家",
-          "role_en": "Morgan Stanley: representative player in Funding / capital markets",
-          "exchange": "NYSE"
+          "ticker": "6030.HK",
+          "name_en": "CITIC Securities",
+          "name_zh": "中信證券",
+          "role_zh": "中信證券：資金／資本市場代表性玩家",
+          "role_en": "CITIC Securities: representative player in Funding / capital markets",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "BLK",
-          "name_en": "BlackRock",
-          "name_zh": "貝萊德",
-          "role_zh": "貝萊德：資金／資本市場代表性玩家",
-          "role_en": "BlackRock: representative player in Funding / capital markets",
-          "exchange": "NYSE"
+          "ticker": "3908.HK",
+          "name_en": "CICC",
+          "name_zh": "中金公司",
+          "role_zh": "中金公司：資金／資本市場代表性玩家",
+          "role_en": "CICC: representative player in Funding / capital markets",
+          "exchange": "HKEX"
         }
       ]
     },
@@ -70,28 +70,28 @@
       "summary_en": "Core systems, cloud, security.",
       "players": [
         {
-          "ticker": "MSFT",
-          "name_en": "Microsoft",
-          "name_zh": "微軟",
-          "role_zh": "微軟：核心銀行／雲端科技代表性玩家",
-          "role_en": "Microsoft: representative player in Core banking / cloud tech",
-          "exchange": "NASDAQ"
+          "ticker": "3888.HK",
+          "name_en": "Kingsoft",
+          "name_zh": "金山軟件",
+          "role_zh": "金山軟件：核心銀行／雲端科技代表性玩家",
+          "role_en": "Kingsoft: representative player in Core banking / cloud tech",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "ORCL",
-          "name_en": "Oracle",
-          "name_zh": "甲骨文",
-          "role_zh": "甲骨文：核心銀行／雲端科技代表性玩家",
-          "role_en": "Oracle: representative player in Core banking / cloud tech",
-          "exchange": "NYSE"
+          "ticker": "6060.HK",
+          "name_en": "ZhongAn",
+          "name_zh": "眾安在線",
+          "role_zh": "眾安在線：核心銀行／雲端科技代表性玩家",
+          "role_en": "ZhongAn: representative player in Core banking / cloud tech",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "IBM",
-          "name_en": "IBM",
-          "name_zh": "IBM",
-          "role_zh": "IBM：核心銀行／雲端科技代表性玩家",
-          "role_en": "IBM: representative player in Core banking / cloud tech",
-          "exchange": "NYSE"
+          "ticker": "0981.HK",
+          "name_en": "SMIC",
+          "name_zh": "中芯國際",
+          "role_zh": "中芯國際：核心銀行／雲端科技代表性玩家",
+          "role_en": "SMIC: representative player in Core banking / cloud tech",
+          "exchange": "HKEX"
         }
       ]
     },
@@ -104,28 +104,28 @@
       "summary_en": "Card networks and payment rails.",
       "players": [
         {
-          "ticker": "V",
-          "name_en": "Visa",
-          "name_zh": "威士卡",
-          "role_zh": "威士卡：支付／清算網路代表性玩家",
-          "role_en": "Visa: representative player in Payments / clearing networks",
-          "exchange": "NYSE"
+          "ticker": "0388.HK",
+          "name_en": "HKEX",
+          "name_zh": "港交所",
+          "role_zh": "港交所：支付／清算網路代表性玩家",
+          "role_en": "HKEX: representative player in Payments / clearing networks",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "MA",
-          "name_en": "Mastercard",
-          "name_zh": "萬事達卡",
-          "role_zh": "萬事達卡：支付／清算網路代表性玩家",
-          "role_en": "Mastercard: representative player in Payments / clearing networks",
-          "exchange": "NYSE"
+          "ticker": "6060.HK",
+          "name_en": "ZhongAn",
+          "name_zh": "眾安在線",
+          "role_zh": "眾安在線：支付／清算網路代表性玩家",
+          "role_en": "ZhongAn: representative player in Payments / clearing networks",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "FISV",
-          "name_en": "Fiserv",
-          "name_zh": "Fiserv",
-          "role_zh": "Fiserv：支付／清算網路代表性玩家",
-          "role_en": "Fiserv: representative player in Payments / clearing networks",
-          "exchange": "NASDAQ"
+          "ticker": "2318.HK",
+          "name_en": "Ping An",
+          "name_zh": "中國平安",
+          "role_zh": "中國平安：支付／清算網路代表性玩家",
+          "role_en": "Ping An: representative player in Payments / clearing networks",
+          "exchange": "HKEX"
         }
       ]
     },
@@ -138,28 +138,28 @@
       "summary_en": "Credit, market data, ratings.",
       "players": [
         {
-          "ticker": "SPGI",
-          "name_en": "S&P Global",
-          "name_zh": "標普全球",
-          "role_zh": "標普全球：數據／風控／評級代表性玩家",
-          "role_en": "S&P Global: representative player in Data / risk / ratings",
-          "exchange": "NYSE"
+          "ticker": "0388.HK",
+          "name_en": "HKEX",
+          "name_zh": "港交所",
+          "role_zh": "港交所：數據／風控／評級代表性玩家",
+          "role_en": "HKEX: representative player in Data / risk / ratings",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "MCO",
-          "name_en": "Moody's",
-          "name_zh": "穆迪評級",
-          "role_zh": "穆迪評級：數據／風控／評級代表性玩家",
-          "role_en": "Moody's: representative player in Data / risk / ratings",
-          "exchange": "NYSE"
+          "ticker": "6030.HK",
+          "name_en": "CITIC Securities",
+          "name_zh": "中信證券",
+          "role_zh": "中信證券：數據／風控／評級代表性玩家",
+          "role_en": "CITIC Securities: representative player in Data / risk / ratings",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "FICO",
-          "name_en": "Fair Isaac",
-          "name_zh": "費埃哲 (FICO)",
-          "role_zh": "費埃哲 (FICO)：數據／風控／評級代表性玩家",
-          "role_en": "Fair Isaac: representative player in Data / risk / ratings",
-          "exchange": "NYSE"
+          "ticker": "6886.HK",
+          "name_en": "Huatai Securities",
+          "name_zh": "華泰證券",
+          "role_zh": "華泰證券：數據／風控／評級代表性玩家",
+          "role_en": "Huatai Securities: representative player in Data / risk / ratings",
+          "exchange": "HKEX"
         }
       ]
     },
@@ -172,40 +172,56 @@
       "summary_en": "Branches, digital, corporate portals.",
       "players": [
         {
-          "ticker": "SCHW",
-          "name_en": "Charles Schwab",
-          "name_zh": "嘉信理財",
-          "role_zh": "嘉信理財：零售／企業客戶通路代表性玩家",
-          "role_en": "Charles Schwab: representative player in Retail / corporate channels",
-          "exchange": "NYSE"
+          "ticker": "6030.HK",
+          "name_en": "CITIC Securities",
+          "name_zh": "中信證券",
+          "role_zh": "中信證券：零售／企業客戶通路代表性玩家",
+          "role_en": "CITIC Securities: representative player in Retail / corporate channels",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "AXP",
-          "name_en": "American Express",
-          "name_zh": "美國運通",
-          "role_zh": "美國運通：零售／企業客戶通路代表性玩家",
-          "role_en": "American Express: representative player in Retail / corporate channels",
-          "exchange": "NYSE"
+          "ticker": "6886.HK",
+          "name_en": "Huatai Securities",
+          "name_zh": "華泰證券",
+          "role_zh": "華泰證券：零售／企業客戶通路代表性玩家",
+          "role_en": "Huatai Securities: representative player in Retail / corporate channels",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "COF",
-          "name_en": "Capital One",
-          "name_zh": "Capital One",
-          "role_zh": "Capital One：零售／企業客戶通路代表性玩家",
-          "role_en": "Capital One: representative player in Retail / corporate channels",
-          "exchange": "NYSE"
+          "ticker": "3908.HK",
+          "name_en": "CICC",
+          "name_zh": "中金公司",
+          "role_zh": "中金公司：零售／企業客戶通路代表性玩家",
+          "role_en": "CICC: representative player in Retail / corporate channels",
+          "exchange": "HKEX"
         }
       ]
     }
   ],
   "competitors": [
     {
-      "ticker": "JPM",
-      "name_en": "JPMorgan Chase & Co.",
-      "name_zh": "摩根大通",
-      "basis_zh": "全球全能銀行對手",
-      "basis_en": "Global diversified bank rival",
-      "exchange": "NYSE"
+      "ticker": "2388.HK",
+      "name_en": "BOCHK",
+      "name_zh": "中銀香港",
+      "basis_zh": "香港零售／企業銀行對手",
+      "basis_en": "Hong Kong banking rival",
+      "exchange": "HKEX"
+    },
+    {
+      "ticker": "2888.HK",
+      "name_en": "Standard Chartered",
+      "name_zh": "渣打集團",
+      "basis_zh": "亞洲國際銀行對手",
+      "basis_en": "Asia international banking rival",
+      "exchange": "HKEX"
+    },
+    {
+      "ticker": "0023.HK",
+      "name_en": "Bank of East Asia",
+      "name_zh": "東亞銀行",
+      "basis_zh": "香港銀行對手",
+      "basis_en": "Hong Kong banking rival",
+      "exchange": "HKEX"
     },
     {
       "ticker": "1398.HK",
@@ -221,22 +237,6 @@
       "name_zh": "建設銀行",
       "basis_zh": "中國大型銀行對手",
       "basis_en": "China megabank rival",
-      "exchange": "HKEX"
-    },
-    {
-      "ticker": "3988.HK",
-      "name_en": "Bank of China",
-      "name_zh": "中國銀行",
-      "basis_zh": "中國大型銀行對手",
-      "basis_en": "China megabank rival",
-      "exchange": "HKEX"
-    },
-    {
-      "ticker": "2388.HK",
-      "name_en": "BOCHK",
-      "name_zh": "中銀香港",
-      "basis_zh": "香港零售／企業銀行對手",
-      "basis_en": "Hong Kong banking rival",
       "exchange": "HKEX"
     }
   ]

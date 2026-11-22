@@ -7,10 +7,10 @@
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for HK MVP hubs (trial batch). Not a live supplier API dump. Prefer .HK dual-list counters on HK pages. Preview-before-merge.",
-    "notes_zh": "本頁為港股 MVP 龍頭供應鏈／競爭策展種子（產業價值鏈模板＋人工策展對手）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。雙重上市優先港股 .HK 代號。競爭對手採產品／市場真實對手原則（參考美股 AAPL 教訓：不以階段玩家或跨業巨頭灌水）。",
-    "notes_en": "HK MVP hub curated seed (industry value-chain template + curated rivals). No live supplier API. FMP peers are not the value chain. Dual-listed names prefer .HK on HK pages. Competitors follow true product/market rivalry (AAPL lesson).",
-    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開；雙重上市優先 .HK。",
-    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players stay separate from rivals; dual listings prefer .HK.",
+    "notes_zh": "本頁為港股 MVP 龍頭供應鏈／競爭策展種子（產業價值鏈模板＋人工策展對手）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。雙重上市優先港股 .HK 代號。若主力市場在中國／亞洲，階段玩家與對手優先中港／區域上市，不以美股公司名單灌水。競爭對手採產品／市場真實對手原則（參考美股 AAPL 教訓）。",
+    "notes_en": "HK MVP hub curated seed (industry value-chain template + curated rivals). No live supplier API. Dual-listed names prefer .HK. When the major market is China/Asia, stage players and rivals prefer CN/HK/regional listings — not US-company dumps. Competitors follow true product/market rivalry (AAPL lesson).",
+    "competitorRationale_zh": "競爭弧只列主力市場真實產品對手；階段玩家與對手分開；雙重上市優先 .HK；中國市場不以美股節點為預設。",
+    "competitorRationale_en": "Rival arc = true product rivals in the major market; stages ≠ rivals; dual listings prefer .HK; China-facing hubs are not US-node dumps.",
     "modelId": "telecom-v1",
     "references": [
       "Industry model via TICKER_MODEL (HK MVP)",
@@ -36,28 +36,28 @@
       "summary_en": "RAN, transport, core gear.",
       "players": [
         {
-          "ticker": "CSCO",
-          "name_en": "Cisco Systems",
-          "name_zh": "思科",
-          "role_zh": "思科：網路設備／無線基礎設施代表性玩家",
-          "role_en": "Cisco Systems: representative player in Network equipment / RAN",
-          "exchange": "NASDAQ"
+          "ticker": "0763.HK",
+          "name_en": "ZTE",
+          "name_zh": "中興通訊",
+          "role_zh": "中興通訊：網路設備／無線基礎設施代表性玩家",
+          "role_en": "ZTE: representative player in Network equipment / RAN",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "ERIC",
-          "name_en": "Ericsson",
-          "name_zh": "Ericsson",
-          "role_zh": "Ericsson：網路設備／無線基礎設施代表性玩家",
-          "role_en": "Ericsson: representative player in Network equipment / RAN",
-          "exchange": "NASDAQ"
+          "ticker": "2342.HK",
+          "name_en": "Comba",
+          "name_zh": "京信通信",
+          "role_zh": "京信通信：網路設備／無線基礎設施代表性玩家",
+          "role_en": "Comba: representative player in Network equipment / RAN",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "NOK",
-          "name_en": "Nokia",
-          "name_zh": "Nokia",
-          "role_zh": "Nokia：網路設備／無線基礎設施代表性玩家",
-          "role_en": "Nokia: representative player in Network equipment / RAN",
-          "exchange": "NYSE"
+          "ticker": "0522.HK",
+          "name_en": "ASMPT",
+          "name_zh": "ASMPT",
+          "role_zh": "ASMPT：網路設備／無線基礎設施代表性玩家",
+          "role_en": "ASMPT: representative player in Network equipment / RAN",
+          "exchange": "HKEX"
         }
       ]
     },
@@ -70,28 +70,28 @@
       "summary_en": "Sites, spectrum, fiber backhaul.",
       "players": [
         {
-          "ticker": "AMT",
-          "name_en": "American Tower",
-          "name_zh": "美國電塔",
-          "role_zh": "美國電塔：鐵塔／頻譜／回傳代表性玩家",
-          "role_en": "American Tower: representative player in Towers / spectrum / backhaul",
-          "exchange": "NYSE"
+          "ticker": "0788.HK",
+          "name_en": "China Tower",
+          "name_zh": "中國鐵塔",
+          "role_zh": "中國鐵塔：鐵塔／頻譜／回傳代表性玩家",
+          "role_en": "China Tower: representative player in Towers / spectrum / backhaul",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "CCI",
-          "name_en": "Crown Castle",
-          "name_zh": "Crown Castle",
-          "role_zh": "Crown Castle：鐵塔／頻譜／回傳代表性玩家",
-          "role_en": "Crown Castle: representative player in Towers / spectrum / backhaul",
-          "exchange": "NYSE"
+          "ticker": "2342.HK",
+          "name_en": "Comba",
+          "name_zh": "京信通信",
+          "role_zh": "京信通信：鐵塔／頻譜／回傳代表性玩家",
+          "role_en": "Comba: representative player in Towers / spectrum / backhaul",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "SBAC",
-          "name_en": "SBA Communications",
-          "name_zh": "SBA Communications",
-          "role_zh": "SBA Communications：鐵塔／頻譜／回傳代表性玩家",
-          "role_en": "SBA Communications: representative player in Towers / spectrum / backhaul",
-          "exchange": "NASDAQ"
+          "ticker": "0763.HK",
+          "name_en": "ZTE",
+          "name_zh": "中興通訊",
+          "role_zh": "中興通訊：鐵塔／頻譜／回傳代表性玩家",
+          "role_en": "ZTE: representative player in Towers / spectrum / backhaul",
+          "exchange": "HKEX"
         }
       ]
     },
@@ -104,28 +104,27 @@
       "summary_en": "Handsets and CPE supply.",
       "players": [
         {
-          "ticker": "AAPL",
-          "name_en": "Apple",
-          "name_zh": "蘋果",
-          "role_zh": "蘋果：終端裝置／OEM代表性玩家",
-          "role_en": "Apple: representative player in Handsets / OEMs",
-          "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "005930.KS",
-          "name_en": "Samsung Electronics",
-          "name_zh": "三星電子",
-          "role_zh": "三星電子：終端裝置／OEM代表性玩家",
-          "role_en": "Samsung Electronics: representative player in Handsets / OEMs",
-          "exchange": "KRX",
-          "listedInApp": false
-        },
-        {
           "ticker": "1810.HK",
           "name_en": "Xiaomi",
           "name_zh": "小米",
           "role_zh": "小米：終端裝置／OEM代表性玩家",
           "role_en": "Xiaomi: representative player in Handsets / OEMs",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "0992.HK",
+          "name_en": "Lenovo",
+          "name_zh": "聯想",
+          "role_zh": "聯想：終端裝置／OEM代表性玩家",
+          "role_en": "Lenovo: representative player in Handsets / OEMs",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "2018.HK",
+          "name_en": "AAC Technologies",
+          "name_zh": "瑞聲科技",
+          "role_zh": "瑞聲科技：終端裝置／OEM代表性玩家",
+          "role_en": "AAC Technologies: representative player in Handsets / OEMs",
           "exchange": "HKEX"
         }
       ]
@@ -139,28 +138,28 @@
       "summary_en": "Streaming, cloud gaming, apps.",
       "players": [
         {
-          "ticker": "NFLX",
-          "name_en": "Netflix",
-          "name_zh": "網飛",
-          "role_zh": "網飛：內容／應用生態代表性玩家",
-          "role_en": "Netflix: representative player in Content / app ecosystem",
-          "exchange": "NASDAQ"
+          "ticker": "0700.HK",
+          "name_en": "Tencent",
+          "name_zh": "騰訊",
+          "role_zh": "騰訊：內容／應用生態代表性玩家",
+          "role_en": "Tencent: representative player in Content / app ecosystem",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "DIS",
-          "name_en": "Walt Disney",
-          "name_zh": "迪士尼",
-          "role_zh": "迪士尼：內容／應用生態代表性玩家",
-          "role_en": "Walt Disney: representative player in Content / app ecosystem",
-          "exchange": "NYSE"
+          "ticker": "0772.HK",
+          "name_en": "China Literature",
+          "name_zh": "閱文集團",
+          "role_zh": "閱文集團：內容／應用生態代表性玩家",
+          "role_en": "China Literature: representative player in Content / app ecosystem",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "GOOG",
-          "name_en": "Alphabet",
-          "name_zh": "Alphabet（Google）",
-          "role_zh": "Alphabet（Google）：內容／應用生態代表性玩家",
-          "role_en": "Alphabet: representative player in Content / app ecosystem",
-          "exchange": "NASDAQ"
+          "ticker": "9899.HK",
+          "name_en": "Cloud Music",
+          "name_zh": "雲音樂",
+          "role_zh": "雲音樂：內容／應用生態代表性玩家",
+          "role_en": "Cloud Music: representative player in Content / app ecosystem",
+          "exchange": "HKEX"
         }
       ]
     },
@@ -173,27 +172,27 @@
       "summary_en": "Consumer lines and enterprise.",
       "players": [
         {
-          "ticker": "AMZN",
-          "name_en": "Amazon.com",
-          "name_zh": "亞馬遜",
-          "role_zh": "亞馬遜：零售／企業客戶代表性玩家",
-          "role_en": "Amazon.com: representative player in Retail / enterprise customers",
-          "exchange": "NASDAQ"
+          "ticker": "9988.HK",
+          "name_en": "Alibaba",
+          "name_zh": "阿里巴巴",
+          "role_zh": "阿里巴巴：零售／企業客戶代表性玩家",
+          "role_en": "Alibaba: representative player in Retail / enterprise customers",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "MSFT",
-          "name_en": "Microsoft",
-          "name_zh": "微軟",
-          "role_zh": "微軟：零售／企業客戶代表性玩家",
-          "role_en": "Microsoft: representative player in Retail / enterprise customers",
-          "exchange": "NASDAQ"
+          "ticker": "3888.HK",
+          "name_en": "Kingsoft",
+          "name_zh": "金山軟件",
+          "role_zh": "金山軟件：零售／企業客戶代表性玩家",
+          "role_en": "Kingsoft: representative player in Retail / enterprise customers",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "0700.HK",
-          "name_en": "Tencent",
-          "name_zh": "騰訊",
-          "role_zh": "騰訊：零售／企業客戶代表性玩家",
-          "role_en": "Tencent: representative player in Retail / enterprise customers",
+          "ticker": "1398.HK",
+          "name_en": "ICBC",
+          "name_zh": "工商銀行",
+          "role_zh": "工商銀行：零售／企業客戶代表性玩家",
+          "role_en": "ICBC: representative player in Retail / enterprise customers",
           "exchange": "HKEX"
         }
       ]

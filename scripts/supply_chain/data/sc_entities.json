@@ -26,7 +26,7 @@
   },
   "TSM": {
     "name_en": "TSMC",
-    "name_zh": "臺積電",
+    "name_zh": "台積電",
     "exchange": "NYSE"
   },
   "SPCX": {
@@ -695,7 +695,7 @@
     "exchange": "NYSE"
   },
   "PDD": {
-    "name_en": "PDD Holdings Inc.",
+    "name_en": "PDD",
     "name_zh": "拼多多",
     "exchange": "NASDAQ"
   },
@@ -726,7 +726,7 @@
   },
   "CME": {
     "name_en": "CME",
-    "name_zh": "芝商所集團",
+    "name_zh": "芝商所",
     "exchange": "NASDAQ"
   },
   "MAR": {
@@ -1290,7 +1290,7 @@
     "exchange": "NASDAQ"
   },
   "ICE": {
-    "name_en": "Intercontinental Exchange",
+    "name_en": "ICE",
     "name_zh": "洲際交易所",
     "exchange": "NYSE"
   },
@@ -7852,6 +7852,296 @@
   "0669.HK": {
     "name_en": "Techtronic",
     "name_zh": "創科實業",
+    "exchange": "HKEX"
+  },
+  "3888.HK": {
+    "name_en": "Kingsoft",
+    "name_zh": "金山軟件",
+    "exchange": "HKEX"
+  },
+  "9698.HK": {
+    "name_en": "GDS",
+    "name_zh": "萬國數據",
+    "exchange": "HKEX"
+  },
+  "0772.HK": {
+    "name_en": "China Literature",
+    "name_zh": "閱文集團",
+    "exchange": "HKEX"
+  },
+  "9899.HK": {
+    "name_en": "Cloud Music",
+    "name_zh": "雲音樂",
+    "exchange": "HKEX"
+  },
+  "6618.HK": {
+    "name_en": "JD Health",
+    "name_zh": "京東健康",
+    "exchange": "HKEX"
+  },
+  "0788.HK": {
+    "name_en": "China Tower",
+    "name_zh": "中國鐵塔",
+    "exchange": "HKEX"
+  },
+  "0763.HK": {
+    "name_en": "ZTE",
+    "name_zh": "中興通訊",
+    "exchange": "HKEX"
+  },
+  "2342.HK": {
+    "name_en": "Comba",
+    "name_zh": "京信通信",
+    "exchange": "HKEX"
+  },
+  "2018.HK": {
+    "name_en": "AAC Technologies",
+    "name_zh": "瑞聲科技",
+    "exchange": "HKEX"
+  },
+  "2038.HK": {
+    "name_en": "FIH Mobile",
+    "name_zh": "富智康",
+    "exchange": "HKEX"
+  },
+  "1478.HK": {
+    "name_en": "Q Technology",
+    "name_zh": "丘鈦科技",
+    "exchange": "HKEX"
+  },
+  "0981.HK": {
+    "name_en": "SMIC",
+    "name_zh": "中芯國際",
+    "exchange": "HKEX"
+  },
+  "1347.HK": {
+    "name_en": "Hua Hong",
+    "name_zh": "華虹半導體",
+    "exchange": "HKEX"
+  },
+  "0522.HK": {
+    "name_en": "ASMPT",
+    "name_zh": "ASMPT",
+    "exchange": "HKEX"
+  },
+  "2333.HK": {
+    "name_en": "Great Wall Motor",
+    "name_zh": "長城汽車",
+    "exchange": "HKEX"
+  },
+  "2238.HK": {
+    "name_en": "GAC",
+    "name_zh": "廣汽集團",
+    "exchange": "HKEX"
+  },
+  "1114.HK": {
+    "name_en": "Brilliance",
+    "name_zh": "華晨中國",
+    "exchange": "HKEX"
+  },
+  "1316.HK": {
+    "name_en": "Nexteer",
+    "name_zh": "耐世特",
+    "exchange": "HKEX"
+  },
+  "1958.HK": {
+    "name_en": "BAIC Motor",
+    "name_zh": "北京汽車",
+    "exchange": "HKEX"
+  },
+  "9863.HK": {
+    "name_en": "Leapmotor",
+    "name_zh": "零跑汽車",
+    "exchange": "HKEX"
+  },
+  "3750.HK": {
+    "name_en": "CATL",
+    "name_zh": "寧德時代",
+    "exchange": "HKEX"
+  },
+  "3800.HK": {
+    "name_en": "GCL Technology",
+    "name_zh": "協鑫科技",
+    "exchange": "HKEX"
+  },
+  "2057.HK": {
+    "name_en": "ZTO Express",
+    "name_zh": "中通快遞",
+    "exchange": "HKEX"
+  },
+  "1519.HK": {
+    "name_en": "J&T Express",
+    "name_zh": "極兔速遞",
+    "exchange": "HKEX"
+  },
+  "0316.HK": {
+    "name_en": "OOIL",
+    "name_zh": "東方海外",
+    "exchange": "HKEX"
+  },
+  "1308.HK": {
+    "name_en": "SITC",
+    "name_zh": "海豐國際",
+    "exchange": "HKEX"
+  },
+  "0144.HK": {
+    "name_en": "CMPort",
+    "name_zh": "招商港口",
+    "exchange": "HKEX"
+  },
+  "1919.HK": {
+    "name_en": "COSCO Shipping Holdings",
+    "name_zh": "中遠海控",
+    "exchange": "HKEX"
+  },
+  "1138.HK": {
+    "name_en": "COSCO Shipping Energy",
+    "name_zh": "中遠海能",
+    "exchange": "HKEX"
+  },
+  "2020.HK": {
+    "name_en": "ANTA",
+    "name_zh": "安踏",
+    "exchange": "HKEX"
+  },
+  "2331.HK": {
+    "name_en": "Li Ning",
+    "name_zh": "李寧",
+    "exchange": "HKEX"
+  },
+  "2319.HK": {
+    "name_en": "Mengniu",
+    "name_zh": "蒙牛",
+    "exchange": "HKEX"
+  },
+  "1044.HK": {
+    "name_en": "Hengan",
+    "name_zh": "恒安國際",
+    "exchange": "HKEX"
+  },
+  "2888.HK": {
+    "name_en": "Standard Chartered",
+    "name_zh": "渣打集團",
+    "exchange": "HKEX"
+  },
+  "0023.HK": {
+    "name_en": "Bank of East Asia",
+    "name_zh": "東亞銀行",
+    "exchange": "HKEX"
+  },
+  "0966.HK": {
+    "name_en": "China Taiping",
+    "name_zh": "中國太平",
+    "exchange": "HKEX"
+  },
+  "2601.HK": {
+    "name_en": "CPIC",
+    "name_zh": "中國太保",
+    "exchange": "HKEX"
+  },
+  "2378.HK": {
+    "name_en": "Prudential",
+    "name_zh": "保誠",
+    "exchange": "HKEX"
+  },
+  "1508.HK": {
+    "name_en": "China Re",
+    "name_zh": "中國再保險",
+    "exchange": "HKEX"
+  },
+  "6060.HK": {
+    "name_en": "ZhongAn",
+    "name_zh": "眾安在線",
+    "exchange": "HKEX"
+  },
+  "1833.HK": {
+    "name_en": "Ping An Good Doctor",
+    "name_zh": "平安好醫生",
+    "exchange": "HKEX"
+  },
+  "6030.HK": {
+    "name_en": "CITIC Securities",
+    "name_zh": "中信證券",
+    "exchange": "HKEX"
+  },
+  "6886.HK": {
+    "name_en": "Huatai Securities",
+    "name_zh": "華泰證券",
+    "exchange": "HKEX"
+  },
+  "3908.HK": {
+    "name_en": "CICC",
+    "name_zh": "中金公司",
+    "exchange": "HKEX"
+  },
+  "1788.HK": {
+    "name_en": "Guotai Junan Intl",
+    "name_zh": "國泰君安國際",
+    "exchange": "HKEX"
+  },
+  "1093.HK": {
+    "name_en": "CSPC",
+    "name_zh": "石藥集團",
+    "exchange": "HKEX"
+  },
+  "1177.HK": {
+    "name_en": "Sino Biopharm",
+    "name_zh": "中國生物製藥",
+    "exchange": "HKEX"
+  },
+  "2883.HK": {
+    "name_en": "COSL",
+    "name_zh": "中海油服",
+    "exchange": "HKEX"
+  },
+  "3337.HK": {
+    "name_en": "Anton Oilfield",
+    "name_zh": "安東油田",
+    "exchange": "HKEX"
+  },
+  "1033.HK": {
+    "name_en": "Sinopec Oilfield Service",
+    "name_zh": "中石化油服",
+    "exchange": "HKEX"
+  },
+  "0338.HK": {
+    "name_en": "Shanghai Petrochemical",
+    "name_zh": "上海石化",
+    "exchange": "HKEX"
+  },
+  "1088.HK": {
+    "name_en": "China Shenhua",
+    "name_zh": "中國神華",
+    "exchange": "HKEX"
+  },
+  "1898.HK": {
+    "name_en": "China Coal",
+    "name_zh": "中煤能源",
+    "exchange": "HKEX"
+  },
+  "1171.HK": {
+    "name_en": "Yankuang Energy",
+    "name_zh": "兗礦能源",
+    "exchange": "HKEX"
+  },
+  "2688.HK": {
+    "name_en": "ENN Energy",
+    "name_zh": "新奧能源",
+    "exchange": "HKEX"
+  },
+  "1193.HK": {
+    "name_en": "CR Gas",
+    "name_zh": "華潤燃氣",
+    "exchange": "HKEX"
+  },
+  "0384.HK": {
+    "name_en": "China Gas",
+    "name_zh": "中國燃氣",
+    "exchange": "HKEX"
+  },
+  "2899.HK": {
+    "name_en": "Zijin Mining",
+    "name_zh": "紫金礦業",
     "exchange": "HKEX"
   }
 }

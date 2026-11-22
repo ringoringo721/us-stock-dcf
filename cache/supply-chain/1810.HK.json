@@ -7,10 +7,10 @@
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for HK MVP hubs (trial batch). Not a live supplier API dump. Prefer .HK dual-list counters on HK pages. Preview-before-merge.",
-    "notes_zh": "本頁為港股 MVP 龍頭供應鏈／競爭策展種子（產業價值鏈模板＋人工策展對手）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。雙重上市優先港股 .HK 代號。競爭對手採產品／市場真實對手原則（參考美股 AAPL 教訓：不以階段玩家或跨業巨頭灌水）。",
-    "notes_en": "HK MVP hub curated seed (industry value-chain template + curated rivals). No live supplier API. FMP peers are not the value chain. Dual-listed names prefer .HK on HK pages. Competitors follow true product/market rivalry (AAPL lesson).",
-    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開；雙重上市優先 .HK。",
-    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players stay separate from rivals; dual listings prefer .HK.",
+    "notes_zh": "本頁為港股 MVP 龍頭供應鏈／競爭策展種子（產業價值鏈模板＋人工策展對手）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。雙重上市優先港股 .HK 代號。若主力市場在中國／亞洲，階段玩家與對手優先中港／區域上市，不以美股公司名單灌水。競爭對手採產品／市場真實對手原則（參考美股 AAPL 教訓）。",
+    "notes_en": "HK MVP hub curated seed (industry value-chain template + curated rivals). No live supplier API. Dual-listed names prefer .HK. When the major market is China/Asia, stage players and rivals prefer CN/HK/regional listings — not US-company dumps. Competitors follow true product/market rivalry (AAPL lesson).",
+    "competitorRationale_zh": "競爭弧只列主力市場真實產品對手；階段玩家與對手分開；雙重上市優先 .HK；中國市場不以美股節點為預設。",
+    "competitorRationale_en": "Rival arc = true product rivals in the major market; stages ≠ rivals; dual listings prefer .HK; China-facing hubs are not US-node dumps.",
     "modelId": "hardware-value-chain-v1",
     "references": [
       "Industry model via TICKER_MODEL (HK MVP)",
@@ -36,28 +36,28 @@
       "summary_en": "Upstream materials and process tools.",
       "players": [
         {
-          "ticker": "GLW",
-          "name_en": "Corning",
-          "name_zh": "康寧",
-          "role_zh": "康寧：關鍵材料／製程設備代表性玩家",
-          "role_en": "Corning: representative player in Key materials / process equipment",
-          "exchange": "NYSE"
+          "ticker": "0981.HK",
+          "name_en": "SMIC",
+          "name_zh": "中芯國際",
+          "role_zh": "中芯國際：關鍵材料／製程設備代表性玩家",
+          "role_en": "SMIC: representative player in Key materials / process equipment",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "AMAT",
-          "name_en": "Applied Materials",
-          "name_zh": "應用材料",
-          "role_zh": "應用材料：關鍵材料／製程設備代表性玩家",
-          "role_en": "Applied Materials: representative player in Key materials / process equipment",
-          "exchange": "NASDAQ"
+          "ticker": "1347.HK",
+          "name_en": "Hua Hong",
+          "name_zh": "華虹半導體",
+          "role_zh": "華虹半導體：關鍵材料／製程設備代表性玩家",
+          "role_en": "Hua Hong: representative player in Key materials / process equipment",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "ASML",
-          "name_en": "ASML",
-          "name_zh": "ASML",
-          "role_zh": "ASML：關鍵材料／製程設備代表性玩家",
-          "role_en": "ASML: representative player in Key materials / process equipment",
-          "exchange": "NASDAQ"
+          "ticker": "2899.HK",
+          "name_en": "Zijin Mining",
+          "name_zh": "紫金礦業",
+          "role_zh": "紫金礦業：關鍵材料／製程設備代表性玩家",
+          "role_en": "Zijin Mining: representative player in Key materials / process equipment",
+          "exchange": "HKEX"
         }
       ]
     },
@@ -72,18 +72,10 @@
         {
           "ticker": "TSM",
           "name_en": "TSMC",
-          "name_zh": "臺積電",
-          "role_zh": "臺積電：關鍵零組件／半導體代表性玩家",
+          "name_zh": "台積電",
+          "role_zh": "台積電：關鍵零組件／半導體代表性玩家",
           "role_en": "TSMC: representative player in Key components / semiconductors",
           "exchange": "NYSE"
-        },
-        {
-          "ticker": "QCOM",
-          "name_en": "Qualcomm",
-          "name_zh": "高通",
-          "role_zh": "高通：關鍵零組件／半導體代表性玩家",
-          "role_en": "Qualcomm: representative player in Key components / semiconductors",
-          "exchange": "NASDAQ"
         },
         {
           "ticker": "2382.HK",
@@ -91,6 +83,14 @@
           "name_zh": "舜宇光學",
           "role_zh": "舜宇光學：關鍵零組件／半導體代表性玩家",
           "role_en": "Sunny Optical: representative player in Key components / semiconductors",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "2018.HK",
+          "name_en": "AAC Technologies",
+          "name_zh": "瑞聲科技",
+          "role_zh": "瑞聲科技：關鍵零組件／半導體代表性玩家",
+          "role_en": "AAC Technologies: representative player in Key components / semiconductors",
           "exchange": "HKEX"
         }
       ]
@@ -141,28 +141,28 @@
       "summary_en": "Finished-goods logistics.",
       "players": [
         {
-          "ticker": "FDX",
-          "name_en": "FedEx",
-          "name_zh": "聯邦快遞",
-          "role_zh": "聯邦快遞：物流／通路配送代表性玩家",
-          "role_en": "FedEx: representative player in Logistics / distribution",
-          "exchange": "NYSE"
+          "ticker": "1308.HK",
+          "name_en": "SITC",
+          "name_zh": "海豐國際",
+          "role_zh": "海豐國際：物流／通路配送代表性玩家",
+          "role_en": "SITC: representative player in Logistics / distribution",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "UPS",
-          "name_en": "United Parcel Service",
-          "name_zh": "優比速",
-          "role_zh": "優比速：物流／通路配送代表性玩家",
-          "role_en": "United Parcel Service: representative player in Logistics / distribution",
-          "exchange": "NYSE"
+          "ticker": "0316.HK",
+          "name_en": "OOIL",
+          "name_zh": "東方海外",
+          "role_zh": "東方海外：物流／通路配送代表性玩家",
+          "role_en": "OOIL: representative player in Logistics / distribution",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "EXPD",
-          "name_en": "Expeditors",
-          "name_zh": "Expeditors",
-          "role_zh": "Expeditors：物流／通路配送代表性玩家",
-          "role_en": "Expeditors: representative player in Logistics / distribution",
-          "exchange": "NYSE"
+          "ticker": "0144.HK",
+          "name_en": "CMPort",
+          "name_zh": "招商港口",
+          "role_zh": "招商港口：物流／通路配送代表性玩家",
+          "role_en": "CMPort: representative player in Logistics / distribution",
+          "exchange": "HKEX"
         }
       ]
     },
@@ -175,28 +175,28 @@
       "summary_en": "Retail and carrier channels.",
       "players": [
         {
-          "ticker": "BBY",
-          "name_en": "Best Buy",
-          "name_zh": "百思買",
-          "role_zh": "百思買：零售／電信通路代表性玩家",
-          "role_en": "Best Buy: representative player in Retail / carrier channels",
-          "exchange": "NYSE"
+          "ticker": "0762.HK",
+          "name_en": "China Unicom",
+          "name_zh": "中國聯通",
+          "role_zh": "中國聯通：零售／電信通路代表性玩家",
+          "role_en": "China Unicom: representative player in Retail / carrier channels",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "T",
-          "name_en": "AT&T",
-          "name_zh": "AT&T",
-          "role_zh": "AT&T：零售／電信通路代表性玩家",
-          "role_en": "AT&T: representative player in Retail / carrier channels",
-          "exchange": "NYSE"
+          "ticker": "0728.HK",
+          "name_en": "China Telecom",
+          "name_zh": "中國電信",
+          "role_zh": "中國電信：零售／電信通路代表性玩家",
+          "role_en": "China Telecom: representative player in Retail / carrier channels",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "VZ",
-          "name_en": "Verizon Communications",
-          "name_zh": "威訊通訊",
-          "role_zh": "威訊通訊：零售／電信通路代表性玩家",
-          "role_en": "Verizon Communications: representative player in Retail / carrier channels",
-          "exchange": "NYSE"
+          "ticker": "0941.HK",
+          "name_en": "China Mobile",
+          "name_zh": "中國移動",
+          "role_zh": "中國移動：零售／電信通路代表性玩家",
+          "role_en": "China Mobile: representative player in Retail / carrier channels",
+          "exchange": "HKEX"
         }
       ]
     }
@@ -206,16 +206,16 @@
       "ticker": "AAPL",
       "name_en": "Apple",
       "name_zh": "蘋果",
-      "basis_zh": "智慧手機／裝置生態對手",
-      "basis_en": "Smartphone / device-ecosystem rival",
+      "basis_zh": "智慧手機／裝置生態對手（中國亦直接競爭）",
+      "basis_en": "Smartphone rival also active in China",
       "exchange": "NASDAQ"
     },
     {
       "ticker": "005930.KS",
       "name_en": "Samsung Electronics",
       "name_zh": "三星電子",
-      "basis_zh": "全球手機對手",
-      "basis_en": "Global handset rival",
+      "basis_zh": "全球／中國手機對手",
+      "basis_en": "Handset rival in China / global",
       "exchange": "KRX",
       "listedInApp": false
     },
@@ -229,19 +229,19 @@
       "listedInApp": false
     },
     {
-      "ticker": "GOOG",
-      "name_en": "Alphabet",
-      "name_zh": "Alphabet（Google）",
-      "basis_zh": "Android／Pixel 生態對手",
-      "basis_en": "Android / Pixel ecosystem rival",
-      "exchange": "NASDAQ"
-    },
-    {
       "ticker": "0992.HK",
       "name_en": "Lenovo",
       "name_zh": "聯想",
       "basis_zh": "PC／消費電子對手",
       "basis_en": "PC / consumer electronics rival",
+      "exchange": "HKEX"
+    },
+    {
+      "ticker": "2038.HK",
+      "name_en": "FIH Mobile",
+      "name_zh": "富智康",
+      "basis_zh": "手機代工／裝置對手",
+      "basis_en": "Handset ODM / device rival",
       "exchange": "HKEX"
     }
   ]

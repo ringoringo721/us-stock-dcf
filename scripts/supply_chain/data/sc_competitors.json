@@ -33880,11 +33880,6 @@
       "Search / advertising rival"
     ],
     [
-      "META",
-      "社交／廣告全球對手",
-      "Global social / ads rival"
-    ],
-    [
       "9626.HK",
       "影音內容對手",
       "Video content rival"
@@ -33907,14 +33902,14 @@
       "China internet ecosystem rival"
     ],
     [
-      "AMZN",
-      "全球電商／雲對手",
-      "Global e-commerce / cloud rival"
-    ],
-    [
       "3690.HK",
       "本地生活／即時零售對手",
       "Local services / instant retail rival"
+    ],
+    [
+      "6618.HK",
+      "醫藥電商／健康零售對手",
+      "Health e-commerce rival"
     ]
   ],
   "3690.HK": [
@@ -33929,31 +33924,31 @@
       "Instant retail / logistics rival"
     ],
     [
-      "DASH",
-      "即時配送全球對手",
-      "Global on-demand delivery rival"
+      "6618.HK",
+      "即時零售／健康電商對手",
+      "Instant retail / health commerce rival"
     ],
     [
-      "UBER",
-      "出行／配送平台對手",
-      "Mobility / delivery platform rival"
+      "2057.HK",
+      "快遞／末端配送對手",
+      "Express / last-mile rival"
     ],
     [
-      "GRAB",
-      "亞洲出行／本地生活對手",
-      "Asia mobility / local-services rival"
+      "1519.HK",
+      "快遞／末端配送對手",
+      "Express / last-mile rival"
     ]
   ],
   "1810.HK": [
     [
       "AAPL",
-      "智慧手機／裝置生態對手",
-      "Smartphone / device-ecosystem rival"
+      "智慧手機／裝置生態對手（中國亦直接競爭）",
+      "Smartphone rival also active in China"
     ],
     [
       "005930.KS",
-      "全球手機對手",
-      "Global handset rival"
+      "全球／中國手機對手",
+      "Handset rival in China / global"
     ],
     [
       "688036.SS",
@@ -33961,22 +33956,17 @@
       "Emerging-market Android OEM rival"
     ],
     [
-      "GOOG",
-      "Android／Pixel 生態對手",
-      "Android / Pixel ecosystem rival"
-    ],
-    [
       "0992.HK",
       "PC／消費電子對手",
       "PC / consumer electronics rival"
+    ],
+    [
+      "2038.HK",
+      "手機代工／裝置對手",
+      "Handset ODM / device rival"
     ]
   ],
   "1211.HK": [
-    [
-      "TSLA",
-      "電動車／新能源車對手",
-      "EV / NEV rival"
-    ],
     [
       "2015.HK",
       "中國新勢力電動車對手",
@@ -33993,14 +33983,19 @@
       "China EV rival"
     ],
     [
-      "TM",
-      "全球整車對手",
-      "Global auto OEM rival"
-    ],
-    [
       "0175.HK",
       "中國整車對手",
       "China auto OEM rival"
+    ],
+    [
+      "2333.HK",
+      "中國整車對手",
+      "China auto OEM rival"
+    ],
+    [
+      "TSLA",
+      "在華銷售之電動車對手",
+      "EV rival with China sales"
     ]
   ],
   "0941.HK": [
@@ -34017,9 +34012,19 @@
   ],
   "0005.HK": [
     [
-      "JPM",
-      "全球全能銀行對手",
-      "Global diversified bank rival"
+      "2388.HK",
+      "香港零售／企業銀行對手",
+      "Hong Kong banking rival"
+    ],
+    [
+      "2888.HK",
+      "亞洲國際銀行對手",
+      "Asia international banking rival"
+    ],
+    [
+      "0023.HK",
+      "香港銀行對手",
+      "Hong Kong banking rival"
     ],
     [
       "1398.HK",
@@ -34030,16 +34035,6 @@
       "0939.HK",
       "中國大型銀行對手",
       "China megabank rival"
-    ],
-    [
-      "3988.HK",
-      "中國大型銀行對手",
-      "China megabank rival"
-    ],
-    [
-      "2388.HK",
-      "香港零售／企業銀行對手",
-      "Hong Kong banking rival"
     ]
   ],
   "2318.HK": [
@@ -34054,41 +34049,31 @@
       "China life insurance rival"
     ],
     [
+      "2601.HK",
+      "中國綜合保險對手",
+      "China multi-line insurance rival"
+    ],
+    [
       "2328.HK",
       "中國產險對手",
       "China P&C insurance rival"
     ],
     [
-      "1339.HK",
+      "0966.HK",
       "中國保險集團對手",
       "China insurance group rival"
-    ],
-    [
-      "MET",
-      "全球壽險對手",
-      "Global life insurance rival"
     ]
   ],
   "0388.HK": [
     [
       "ICE",
-      "交易所／清算對手",
-      "Exchange / clearing rival"
+      "國際交易所／清算對手",
+      "International exchange / clearing peer"
     ],
     [
       "CME",
-      "衍生品交易所對手",
-      "Derivatives exchange rival"
-    ],
-    [
-      "NDAQ",
-      "證券交易所對手",
-      "Securities exchange rival"
-    ],
-    [
-      "CBOE",
-      "選擇權／交易所對手",
-      "Options exchange rival"
+      "國際衍生品交易所對手",
+      "International derivatives exchange peer"
     ]
   ],
   "0883.HK": [
@@ -34103,19 +34088,14 @@
       "China integrated oil & gas rival"
     ],
     [
-      "XOM",
-      "全球一體化油氣對手",
-      "Global integrated oil & gas rival"
+      "1088.HK",
+      "中國能源上游對手",
+      "China energy upstream rival"
     ],
     [
-      "CVX",
-      "全球一體化油氣對手",
-      "Global integrated oil & gas rival"
-    ],
-    [
-      "SHEL",
-      "全球一體化油氣對手",
-      "Global integrated oil & gas rival"
+      "1171.HK",
+      "中國能源上游對手",
+      "China energy upstream rival"
     ]
   ],
   "1299.HK": [
@@ -34130,19 +34110,19 @@
       "China life insurance rival"
     ],
     [
-      "PRU",
-      "全球壽險對手",
-      "Global life insurance rival"
+      "2601.HK",
+      "中國綜合保險對手",
+      "China multi-line insurance rival"
     ],
     [
-      "MET",
-      "全球壽險對手",
-      "Global life insurance rival"
+      "0966.HK",
+      "中國保險集團對手",
+      "China insurance group rival"
     ],
     [
-      "MFC",
-      "全球壽險對手",
-      "Global life insurance rival"
+      "2378.HK",
+      "亞洲壽險對手（港股）",
+      "Asia life insurance rival (.HK)"
     ]
   ],
   "0386.HK": [
@@ -34157,19 +34137,14 @@
       "China upstream oil & gas rival"
     ],
     [
-      "XOM",
-      "全球一體化油氣對手",
-      "Global integrated oil & gas rival"
+      "0338.HK",
+      "中國煉化對手",
+      "China refining / petrochemical rival"
     ],
     [
-      "CVX",
-      "全球一體化油氣對手",
-      "Global integrated oil & gas rival"
-    ],
-    [
-      "BP",
-      "全球一體化油氣對手",
-      "Global integrated oil & gas rival"
+      "1088.HK",
+      "中國能源對手",
+      "China energy rival"
     ]
   ]
 }

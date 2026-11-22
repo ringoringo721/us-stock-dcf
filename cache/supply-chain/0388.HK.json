@@ -7,10 +7,10 @@
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for HK MVP hubs (trial batch). Not a live supplier API dump. Prefer .HK dual-list counters on HK pages. Preview-before-merge.",
-    "notes_zh": "本頁為港股 MVP 龍頭供應鏈／競爭策展種子（產業價值鏈模板＋人工策展對手）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。雙重上市優先港股 .HK 代號。競爭對手採產品／市場真實對手原則（參考美股 AAPL 教訓：不以階段玩家或跨業巨頭灌水）。",
-    "notes_en": "HK MVP hub curated seed (industry value-chain template + curated rivals). No live supplier API. FMP peers are not the value chain. Dual-listed names prefer .HK on HK pages. Competitors follow true product/market rivalry (AAPL lesson).",
-    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開；雙重上市優先 .HK。",
-    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players stay separate from rivals; dual listings prefer .HK.",
+    "notes_zh": "本頁為港股 MVP 龍頭供應鏈／競爭策展種子（產業價值鏈模板＋人工策展對手）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。雙重上市優先港股 .HK 代號。若主力市場在中國／亞洲，階段玩家與對手優先中港／區域上市，不以美股公司名單灌水。競爭對手採產品／市場真實對手原則（參考美股 AAPL 教訓）。",
+    "notes_en": "HK MVP hub curated seed (industry value-chain template + curated rivals). No live supplier API. Dual-listed names prefer .HK. When the major market is China/Asia, stage players and rivals prefer CN/HK/regional listings — not US-company dumps. Competitors follow true product/market rivalry (AAPL lesson).",
+    "competitorRationale_zh": "競爭弧只列主力市場真實產品對手；階段玩家與對手分開；雙重上市優先 .HK；中國市場不以美股節點為預設。",
+    "competitorRationale_en": "Rival arc = true product rivals in the major market; stages ≠ rivals; dual listings prefer .HK; China-facing hubs are not US-node dumps.",
     "modelId": "capital-markets-v1",
     "references": [
       "Industry model via TICKER_MODEL (HK MVP)",
@@ -36,28 +36,28 @@
       "summary_en": "Trading venues and CCPs.",
       "players": [
         {
-          "ticker": "GS",
-          "name_en": "Goldman Sachs",
-          "name_zh": "高盛集團",
-          "role_zh": "高盛集團：交易所／清算代表性玩家",
-          "role_en": "Goldman Sachs: representative player in Exchanges / clearing",
-          "exchange": "NYSE"
+          "ticker": "6030.HK",
+          "name_en": "CITIC Securities",
+          "name_zh": "中信證券",
+          "role_zh": "中信證券：交易所／清算代表性玩家",
+          "role_en": "CITIC Securities: representative player in Exchanges / clearing",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "JPM",
-          "name_en": "JPMorgan Chase & Co.",
-          "name_zh": "摩根大通",
-          "role_zh": "摩根大通：交易所／清算代表性玩家",
-          "role_en": "JPMorgan Chase & Co.: representative player in Exchanges / clearing",
-          "exchange": "NYSE"
+          "ticker": "6886.HK",
+          "name_en": "Huatai Securities",
+          "name_zh": "華泰證券",
+          "role_zh": "華泰證券：交易所／清算代表性玩家",
+          "role_en": "Huatai Securities: representative player in Exchanges / clearing",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "MS",
-          "name_en": "Morgan Stanley",
-          "name_zh": "摩根士丹利",
-          "role_zh": "摩根士丹利：交易所／清算代表性玩家",
-          "role_en": "Morgan Stanley: representative player in Exchanges / clearing",
-          "exchange": "NYSE"
+          "ticker": "3908.HK",
+          "name_en": "CICC",
+          "name_zh": "中金公司",
+          "role_zh": "中金公司：交易所／清算代表性玩家",
+          "role_en": "CICC: representative player in Exchanges / clearing",
+          "exchange": "HKEX"
         }
       ]
     },
@@ -70,28 +70,28 @@
       "summary_en": "Quotes, ratings, index licenses.",
       "players": [
         {
-          "ticker": "SPGI",
-          "name_en": "S&P Global",
-          "name_zh": "標普全球",
-          "role_zh": "標普全球：市場數據／指數代表性玩家",
-          "role_en": "S&P Global: representative player in Market data / indices",
-          "exchange": "NYSE"
+          "ticker": "6030.HK",
+          "name_en": "CITIC Securities",
+          "name_zh": "中信證券",
+          "role_zh": "中信證券：市場數據／指數代表性玩家",
+          "role_en": "CITIC Securities: representative player in Market data / indices",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "MCO",
-          "name_en": "Moody's",
-          "name_zh": "穆迪評級",
-          "role_zh": "穆迪評級：市場數據／指數代表性玩家",
-          "role_en": "Moody's: representative player in Market data / indices",
-          "exchange": "NYSE"
+          "ticker": "1788.HK",
+          "name_en": "Guotai Junan Intl",
+          "name_zh": "國泰君安國際",
+          "role_zh": "國泰君安國際：市場數據／指數代表性玩家",
+          "role_en": "Guotai Junan Intl: representative player in Market data / indices",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "VRSK",
-          "name_en": "Verisk",
-          "name_zh": "威瑞斯克",
-          "role_zh": "威瑞斯克：市場數據／指數代表性玩家",
-          "role_en": "Verisk: representative player in Market data / indices",
-          "exchange": "NASDAQ"
+          "ticker": "3908.HK",
+          "name_en": "CICC",
+          "name_zh": "中金公司",
+          "role_zh": "中金公司：市場數據／指數代表性玩家",
+          "role_en": "CICC: representative player in Market data / indices",
+          "exchange": "HKEX"
         }
       ]
     },
@@ -104,28 +104,28 @@
       "summary_en": "OMS, cloud, security.",
       "players": [
         {
-          "ticker": "MSFT",
-          "name_en": "Microsoft",
-          "name_zh": "微軟",
-          "role_zh": "微軟：交易／風控科技代表性玩家",
-          "role_en": "Microsoft: representative player in Trading / risk technology",
-          "exchange": "NASDAQ"
+          "ticker": "3888.HK",
+          "name_en": "Kingsoft",
+          "name_zh": "金山軟件",
+          "role_zh": "金山軟件：交易／風控科技代表性玩家",
+          "role_en": "Kingsoft: representative player in Trading / risk technology",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "ORCL",
-          "name_en": "Oracle",
-          "name_zh": "甲骨文",
-          "role_zh": "甲骨文：交易／風控科技代表性玩家",
-          "role_en": "Oracle: representative player in Trading / risk technology",
-          "exchange": "NYSE"
+          "ticker": "0700.HK",
+          "name_en": "Tencent",
+          "name_zh": "騰訊",
+          "role_zh": "騰訊：交易／風控科技代表性玩家",
+          "role_en": "Tencent: representative player in Trading / risk technology",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "PANW",
-          "name_en": "Palo Alto Networks",
-          "name_zh": "派拓網路",
-          "role_zh": "派拓網路：交易／風控科技代表性玩家",
-          "role_en": "Palo Alto Networks: representative player in Trading / risk technology",
-          "exchange": "NASDAQ"
+          "ticker": "0981.HK",
+          "name_en": "SMIC",
+          "name_zh": "中芯國際",
+          "role_zh": "中芯國際：交易／風控科技代表性玩家",
+          "role_en": "SMIC: representative player in Trading / risk technology",
+          "exchange": "HKEX"
         }
       ]
     },
@@ -138,28 +138,28 @@
       "summary_en": "Asset managers and hedge funds.",
       "players": [
         {
-          "ticker": "BLK",
-          "name_en": "BlackRock",
-          "name_zh": "貝萊德",
-          "role_zh": "貝萊德：買方／資管客戶代表性玩家",
-          "role_en": "BlackRock: representative player in Buy-side / asset managers",
-          "exchange": "NYSE"
+          "ticker": "0005.HK",
+          "name_en": "HSBC",
+          "name_zh": "滙豐",
+          "role_zh": "滙豐：買方／資管客戶代表性玩家",
+          "role_en": "HSBC: representative player in Buy-side / asset managers",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "BX",
-          "name_en": "Blackstone",
-          "name_zh": "黑石",
-          "role_zh": "黑石：買方／資管客戶代表性玩家",
-          "role_en": "Blackstone: representative player in Buy-side / asset managers",
-          "exchange": "NYSE"
+          "ticker": "1299.HK",
+          "name_en": "AIA",
+          "name_zh": "友邦",
+          "role_zh": "友邦：買方／資管客戶代表性玩家",
+          "role_en": "AIA: representative player in Buy-side / asset managers",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "TROW",
-          "name_en": "T. Rowe Price",
-          "name_zh": "T. Rowe Price",
-          "role_zh": "T. Rowe Price：買方／資管客戶代表性玩家",
-          "role_en": "T. Rowe Price: representative player in Buy-side / asset managers",
-          "exchange": "NASDAQ"
+          "ticker": "2318.HK",
+          "name_en": "Ping An",
+          "name_zh": "中國平安",
+          "role_zh": "中國平安：買方／資管客戶代表性玩家",
+          "role_en": "Ping An: representative player in Buy-side / asset managers",
+          "exchange": "HKEX"
         }
       ]
     },
@@ -188,11 +188,11 @@
           "exchange": "HKEX"
         },
         {
-          "ticker": "0005.HK",
-          "name_en": "HSBC",
-          "name_zh": "滙豐",
-          "role_zh": "滙豐：企業／主權發行人代表性玩家",
-          "role_en": "HSBC: representative player in Corporate / sovereign issuers",
+          "ticker": "1810.HK",
+          "name_en": "Xiaomi",
+          "name_zh": "小米",
+          "role_zh": "小米：企業／主權發行人代表性玩家",
+          "role_en": "Xiaomi: representative player in Corporate / sovereign issuers",
           "exchange": "HKEX"
         }
       ]
@@ -201,35 +201,19 @@
   "competitors": [
     {
       "ticker": "ICE",
-      "name_en": "Intercontinental Exchange",
+      "name_en": "ICE",
       "name_zh": "洲際交易所",
-      "basis_zh": "交易所／清算對手",
-      "basis_en": "Exchange / clearing rival",
+      "basis_zh": "國際交易所／清算對手",
+      "basis_en": "International exchange / clearing peer",
       "exchange": "NYSE"
     },
     {
       "ticker": "CME",
       "name_en": "CME",
-      "name_zh": "芝商所集團",
-      "basis_zh": "衍生品交易所對手",
-      "basis_en": "Derivatives exchange rival",
+      "name_zh": "芝商所",
+      "basis_zh": "國際衍生品交易所對手",
+      "basis_en": "International derivatives exchange peer",
       "exchange": "NASDAQ"
-    },
-    {
-      "ticker": "NDAQ",
-      "name_en": "Nasdaq",
-      "name_zh": "納斯達克",
-      "basis_zh": "證券交易所對手",
-      "basis_en": "Securities exchange rival",
-      "exchange": "NASDAQ"
-    },
-    {
-      "ticker": "CBOE",
-      "name_en": "Cboe Global Markets",
-      "name_zh": "Cboe Global Markets",
-      "basis_zh": "選擇權／交易所對手",
-      "basis_en": "Options exchange rival",
-      "exchange": "BATS"
     }
   ]
 }

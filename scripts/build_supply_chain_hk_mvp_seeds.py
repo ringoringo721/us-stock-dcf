@@ -65,19 +65,21 @@ def patch_seed_source(seed: dict) -> dict:
     src["notes_zh"] = traditionalize(
         "本頁為港股 MVP 龍頭供應鏈／競爭策展種子（產業價值鏈模板＋人工策展對手）。"
         "未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。雙重上市優先港股 .HK 代號。"
-        "競爭對手採產品／市場真實對手原則（參考美股 AAPL 教訓：不以階段玩家或跨業巨頭灌水）。"
+        "若主力市場在中國／亞洲，階段玩家與對手優先中港／區域上市，不以美股公司名單灌水。"
+        "競爭對手採產品／市場真實對手原則（參考美股 AAPL 教訓）。"
     )
     src["notes_en"] = (
         "HK MVP hub curated seed (industry value-chain template + curated rivals). "
-        "No live supplier API. FMP peers are not the value chain. Dual-listed names prefer "
-        ".HK on HK pages. Competitors follow true product/market rivalry (AAPL lesson)."
+        "No live supplier API. Dual-listed names prefer .HK. When the major market is China/Asia, "
+        "stage players and rivals prefer CN/HK/regional listings — not US-company dumps. "
+        "Competitors follow true product/market rivalry (AAPL lesson)."
     )
     src["competitorRationale_zh"] = traditionalize(
-        "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開；雙重上市優先 .HK。"
+        "競爭弧只列主力市場真實產品對手；階段玩家與對手分開；雙重上市優先 .HK；中國市場不以美股節點為預設。"
     )
     src["competitorRationale_en"] = (
-        "Rival arc lists product/market overlaps only; stage players stay separate from rivals; "
-        "dual listings prefer .HK."
+        "Rival arc = true product rivals in the major market; stages ≠ rivals; dual listings "
+        "prefer .HK; China-facing hubs are not US-node dumps."
     )
     refs = [
         "Industry model via TICKER_MODEL (HK MVP)",

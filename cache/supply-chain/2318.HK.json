@@ -7,10 +7,10 @@
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for HK MVP hubs (trial batch). Not a live supplier API dump. Prefer .HK dual-list counters on HK pages. Preview-before-merge.",
-    "notes_zh": "本頁為港股 MVP 龍頭供應鏈／競爭策展種子（產業價值鏈模板＋人工策展對手）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。雙重上市優先港股 .HK 代號。競爭對手採產品／市場真實對手原則（參考美股 AAPL 教訓：不以階段玩家或跨業巨頭灌水）。",
-    "notes_en": "HK MVP hub curated seed (industry value-chain template + curated rivals). No live supplier API. FMP peers are not the value chain. Dual-listed names prefer .HK on HK pages. Competitors follow true product/market rivalry (AAPL lesson).",
-    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開；雙重上市優先 .HK。",
-    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players stay separate from rivals; dual listings prefer .HK.",
+    "notes_zh": "本頁為港股 MVP 龍頭供應鏈／競爭策展種子（產業價值鏈模板＋人工策展對手）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。雙重上市優先港股 .HK 代號。若主力市場在中國／亞洲，階段玩家與對手優先中港／區域上市，不以美股公司名單灌水。競爭對手採產品／市場真實對手原則（參考美股 AAPL 教訓）。",
+    "notes_en": "HK MVP hub curated seed (industry value-chain template + curated rivals). No live supplier API. Dual-listed names prefer .HK. When the major market is China/Asia, stage players and rivals prefer CN/HK/regional listings — not US-company dumps. Competitors follow true product/market rivalry (AAPL lesson).",
+    "competitorRationale_zh": "競爭弧只列主力市場真實產品對手；階段玩家與對手分開；雙重上市優先 .HK；中國市場不以美股節點為預設。",
+    "competitorRationale_en": "Rival arc = true product rivals in the major market; stages ≠ rivals; dual listings prefer .HK; China-facing hubs are not US-node dumps.",
     "modelId": "insurance-v1",
     "references": [
       "Industry model via TICKER_MODEL (HK MVP)",
@@ -36,28 +36,28 @@
       "summary_en": "Cat and proportional reinsurance.",
       "players": [
         {
-          "ticker": "EG",
-          "name_en": "Everest",
-          "name_zh": "Everest",
-          "role_zh": "Everest：再保險代表性玩家",
-          "role_en": "Everest: representative player in Reinsurance",
-          "exchange": "NYSE"
+          "ticker": "1508.HK",
+          "name_en": "China Re",
+          "name_zh": "中國再保險",
+          "role_zh": "中國再保險：再保險代表性玩家",
+          "role_en": "China Re: representative player in Reinsurance",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "RNR",
-          "name_en": "RenaissanceRe",
-          "name_zh": "RenaissanceRe",
-          "role_zh": "RenaissanceRe：再保險代表性玩家",
-          "role_en": "RenaissanceRe: representative player in Reinsurance",
-          "exchange": "NYSE"
+          "ticker": "6060.HK",
+          "name_en": "ZhongAn",
+          "name_zh": "眾安在線",
+          "role_zh": "眾安在線：再保險代表性玩家",
+          "role_en": "ZhongAn: representative player in Reinsurance",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "RGA",
-          "name_en": "Reinsurance Group of America",
-          "name_zh": "美國再保險集團",
-          "role_zh": "美國再保險集團：再保險代表性玩家",
-          "role_en": "Reinsurance Group of America: representative player in Reinsurance",
-          "exchange": "NYSE"
+          "ticker": "0388.HK",
+          "name_en": "HKEX",
+          "name_zh": "港交所",
+          "role_zh": "港交所：再保險代表性玩家",
+          "role_en": "HKEX: representative player in Reinsurance",
+          "exchange": "HKEX"
         }
       ]
     },
@@ -70,28 +70,28 @@
       "summary_en": "Risk data and capital ratings.",
       "players": [
         {
-          "ticker": "VRSK",
-          "name_en": "Verisk",
-          "name_zh": "威瑞斯克",
-          "role_zh": "威瑞斯克：精算／數據／評級代表性玩家",
-          "role_en": "Verisk: representative player in Actuarial / data / ratings",
-          "exchange": "NASDAQ"
+          "ticker": "0388.HK",
+          "name_en": "HKEX",
+          "name_zh": "港交所",
+          "role_zh": "港交所：精算／數據／評級代表性玩家",
+          "role_en": "HKEX: representative player in Actuarial / data / ratings",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "SPGI",
-          "name_en": "S&P Global",
-          "name_zh": "標普全球",
-          "role_zh": "標普全球：精算／數據／評級代表性玩家",
-          "role_en": "S&P Global: representative player in Actuarial / data / ratings",
-          "exchange": "NYSE"
+          "ticker": "6030.HK",
+          "name_en": "CITIC Securities",
+          "name_zh": "中信證券",
+          "role_zh": "中信證券：精算／數據／評級代表性玩家",
+          "role_en": "CITIC Securities: representative player in Actuarial / data / ratings",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "MCO",
-          "name_en": "Moody's",
-          "name_zh": "穆迪評級",
-          "role_zh": "穆迪評級：精算／數據／評級代表性玩家",
-          "role_en": "Moody's: representative player in Actuarial / data / ratings",
-          "exchange": "NYSE"
+          "ticker": "0700.HK",
+          "name_en": "Tencent",
+          "name_zh": "騰訊",
+          "role_zh": "騰訊：精算／數據／評級代表性玩家",
+          "role_en": "Tencent: representative player in Actuarial / data / ratings",
+          "exchange": "HKEX"
         }
       ]
     },
@@ -104,28 +104,28 @@
       "summary_en": "Float investing and AM.",
       "players": [
         {
-          "ticker": "BLK",
-          "name_en": "BlackRock",
-          "name_zh": "貝萊德",
-          "role_zh": "貝萊德：投資／資產管理代表性玩家",
-          "role_en": "BlackRock: representative player in Investments / asset management",
-          "exchange": "NYSE"
+          "ticker": "1398.HK",
+          "name_en": "ICBC",
+          "name_zh": "工商銀行",
+          "role_zh": "工商銀行：投資／資產管理代表性玩家",
+          "role_en": "ICBC: representative player in Investments / asset management",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "BX",
-          "name_en": "Blackstone",
-          "name_zh": "黑石",
-          "role_zh": "黑石：投資／資產管理代表性玩家",
-          "role_en": "Blackstone: representative player in Investments / asset management",
-          "exchange": "NYSE"
+          "ticker": "0939.HK",
+          "name_en": "CCB",
+          "name_zh": "建設銀行",
+          "role_zh": "建設銀行：投資／資產管理代表性玩家",
+          "role_en": "CCB: representative player in Investments / asset management",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "BRK-B",
-          "name_en": "Berkshire Hathaway",
-          "name_zh": "波克夏海瑟威 (B)",
-          "role_zh": "波克夏海瑟威 (B)：投資／資產管理代表性玩家",
-          "role_en": "Berkshire Hathaway: representative player in Investments / asset management",
-          "exchange": "NYSE"
+          "ticker": "0388.HK",
+          "name_en": "HKEX",
+          "name_zh": "港交所",
+          "role_zh": "港交所：投資／資產管理代表性玩家",
+          "role_en": "HKEX: representative player in Investments / asset management",
+          "exchange": "HKEX"
         }
       ]
     },
@@ -138,28 +138,28 @@
       "summary_en": "Agents, brokers, bancassurance.",
       "players": [
         {
-          "ticker": "AON",
-          "name_en": "Aon",
-          "name_zh": "怡安集團",
-          "role_zh": "怡安集團：代理／經紀／銀行通路代表性玩家",
-          "role_en": "Aon: representative player in Agents / brokers / bank channel",
-          "exchange": "NYSE"
+          "ticker": "1398.HK",
+          "name_en": "ICBC",
+          "name_zh": "工商銀行",
+          "role_zh": "工商銀行：代理／經紀／銀行通路代表性玩家",
+          "role_en": "ICBC: representative player in Agents / brokers / bank channel",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "MRSH",
-          "name_en": "Marsh McLennan",
-          "name_zh": "威達信",
-          "role_zh": "威達信：代理／經紀／銀行通路代表性玩家",
-          "role_en": "Marsh McLennan: representative player in Agents / brokers / bank channel",
-          "exchange": "NYSE"
+          "ticker": "0939.HK",
+          "name_en": "CCB",
+          "name_zh": "建設銀行",
+          "role_zh": "建設銀行：代理／經紀／銀行通路代表性玩家",
+          "role_en": "CCB: representative player in Agents / brokers / bank channel",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "AJG",
-          "name_en": "Arthur J. Gallagher",
-          "name_zh": "亞瑟加拉格爾",
-          "role_zh": "亞瑟加拉格爾：代理／經紀／銀行通路代表性玩家",
-          "role_en": "Arthur J. Gallagher: representative player in Agents / brokers / bank channel",
-          "exchange": "NYSE"
+          "ticker": "3988.HK",
+          "name_en": "Bank of China",
+          "name_zh": "中國銀行",
+          "role_zh": "中國銀行：代理／經紀／銀行通路代表性玩家",
+          "role_en": "Bank of China: representative player in Agents / brokers / bank channel",
+          "exchange": "HKEX"
         }
       ]
     },
@@ -172,28 +172,28 @@
       "summary_en": "Provider networks and claims ops.",
       "players": [
         {
-          "ticker": "UNH",
-          "name_en": "UnitedHealth",
-          "name_zh": "聯合健康集團",
-          "role_zh": "聯合健康集團：醫療／理賠服務代表性玩家",
-          "role_en": "UnitedHealth: representative player in Medical / claims services",
-          "exchange": "NYSE"
+          "ticker": "1833.HK",
+          "name_en": "Ping An Good Doctor",
+          "name_zh": "平安好醫生",
+          "role_zh": "平安好醫生：醫療／理賠服務代表性玩家",
+          "role_en": "Ping An Good Doctor: representative player in Medical / claims services",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "HCA",
-          "name_en": "HCA Healthcare",
-          "name_zh": "HCA Healthcare",
-          "role_zh": "HCA Healthcare：醫療／理賠服務代表性玩家",
-          "role_en": "HCA Healthcare: representative player in Medical / claims services",
-          "exchange": "NYSE"
+          "ticker": "1093.HK",
+          "name_en": "CSPC",
+          "name_zh": "石藥集團",
+          "role_zh": "石藥集團：醫療／理賠服務代表性玩家",
+          "role_en": "CSPC: representative player in Medical / claims services",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "CI",
-          "name_en": "Cigna",
-          "name_zh": "信諾",
-          "role_zh": "信諾：醫療／理賠服務代表性玩家",
-          "role_en": "Cigna: representative player in Medical / claims services",
-          "exchange": "NYSE"
+          "ticker": "1177.HK",
+          "name_en": "Sino Biopharm",
+          "name_zh": "中國生物製藥",
+          "role_zh": "中國生物製藥：醫療／理賠服務代表性玩家",
+          "role_en": "Sino Biopharm: representative player in Medical / claims services",
+          "exchange": "HKEX"
         }
       ]
     }
@@ -216,6 +216,14 @@
       "exchange": "HKEX"
     },
     {
+      "ticker": "2601.HK",
+      "name_en": "CPIC",
+      "name_zh": "中國太保",
+      "basis_zh": "中國綜合保險對手",
+      "basis_en": "China multi-line insurance rival",
+      "exchange": "HKEX"
+    },
+    {
       "ticker": "2328.HK",
       "name_en": "PICC P&C",
       "name_zh": "人保財險",
@@ -224,20 +232,12 @@
       "exchange": "HKEX"
     },
     {
-      "ticker": "1339.HK",
-      "name_en": "PICC Group",
-      "name_zh": "中國人保",
+      "ticker": "0966.HK",
+      "name_en": "China Taiping",
+      "name_zh": "中國太平",
       "basis_zh": "中國保險集團對手",
       "basis_en": "China insurance group rival",
       "exchange": "HKEX"
-    },
-    {
-      "ticker": "MET",
-      "name_en": "MetLife",
-      "name_zh": "大都會人壽",
-      "basis_zh": "全球壽險對手",
-      "basis_en": "Global life insurance rival",
-      "exchange": "NYSE"
     }
   ]
 }

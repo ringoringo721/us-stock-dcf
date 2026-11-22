@@ -7,10 +7,10 @@
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for HK MVP hubs (trial batch). Not a live supplier API dump. Prefer .HK dual-list counters on HK pages. Preview-before-merge.",
-    "notes_zh": "本頁為港股 MVP 龍頭供應鏈／競爭策展種子（產業價值鏈模板＋人工策展對手）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。雙重上市優先港股 .HK 代號。競爭對手採產品／市場真實對手原則（參考美股 AAPL 教訓：不以階段玩家或跨業巨頭灌水）。",
-    "notes_en": "HK MVP hub curated seed (industry value-chain template + curated rivals). No live supplier API. FMP peers are not the value chain. Dual-listed names prefer .HK on HK pages. Competitors follow true product/market rivalry (AAPL lesson).",
-    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開；雙重上市優先 .HK。",
-    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players stay separate from rivals; dual listings prefer .HK.",
+    "notes_zh": "本頁為港股 MVP 龍頭供應鏈／競爭策展種子（產業價值鏈模板＋人工策展對手）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。雙重上市優先港股 .HK 代號。若主力市場在中國／亞洲，階段玩家與對手優先中港／區域上市，不以美股公司名單灌水。競爭對手採產品／市場真實對手原則（參考美股 AAPL 教訓）。",
+    "notes_en": "HK MVP hub curated seed (industry value-chain template + curated rivals). No live supplier API. Dual-listed names prefer .HK. When the major market is China/Asia, stage players and rivals prefer CN/HK/regional listings — not US-company dumps. Competitors follow true product/market rivalry (AAPL lesson).",
+    "competitorRationale_zh": "競爭弧只列主力市場真實產品對手；階段玩家與對手分開；雙重上市優先 .HK；中國市場不以美股節點為預設。",
+    "competitorRationale_en": "Rival arc = true product rivals in the major market; stages ≠ rivals; dual listings prefer .HK; China-facing hubs are not US-node dumps.",
     "modelId": "internet-platform-v1",
     "references": [
       "Industry model via TICKER_MODEL (HK MVP)",
@@ -36,28 +36,28 @@
       "summary_en": "Compute, bandwidth, CDN/cloud.",
       "players": [
         {
-          "ticker": "EQIX",
-          "name_en": "Equinix",
-          "name_zh": "Equinix",
-          "role_zh": "Equinix：雲端／網路基礎設施代表性玩家",
-          "role_en": "Equinix: representative player in Cloud / network infrastructure",
-          "exchange": "NASDAQ"
+          "ticker": "9698.HK",
+          "name_en": "GDS",
+          "name_zh": "萬國數據",
+          "role_zh": "萬國數據：雲端／網路基礎設施代表性玩家",
+          "role_en": "GDS: representative player in Cloud / network infrastructure",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "MSFT",
-          "name_en": "Microsoft",
-          "name_zh": "微軟",
-          "role_zh": "微軟：雲端／網路基礎設施代表性玩家",
-          "role_en": "Microsoft: representative player in Cloud / network infrastructure",
-          "exchange": "NASDAQ"
+          "ticker": "3888.HK",
+          "name_en": "Kingsoft",
+          "name_zh": "金山軟件",
+          "role_zh": "金山軟件：雲端／網路基礎設施代表性玩家",
+          "role_en": "Kingsoft: representative player in Cloud / network infrastructure",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "AMZN",
-          "name_en": "Amazon.com",
-          "name_zh": "亞馬遜",
-          "role_zh": "亞馬遜：雲端／網路基礎設施代表性玩家",
-          "role_en": "Amazon.com: representative player in Cloud / network infrastructure",
-          "exchange": "NASDAQ"
+          "ticker": "0788.HK",
+          "name_en": "China Tower",
+          "name_zh": "中國鐵塔",
+          "role_zh": "中國鐵塔：雲端／網路基礎設施代表性玩家",
+          "role_en": "China Tower: representative player in Cloud / network infrastructure",
+          "exchange": "HKEX"
         }
       ]
     },
@@ -70,28 +70,28 @@
       "summary_en": "Media, music, short-form, creator tools.",
       "players": [
         {
-          "ticker": "NFLX",
-          "name_en": "Netflix",
-          "name_zh": "網飛",
-          "role_zh": "網飛：內容／創作者生態代表性玩家",
-          "role_en": "Netflix: representative player in Content / creator ecosystem",
-          "exchange": "NASDAQ"
+          "ticker": "0772.HK",
+          "name_en": "China Literature",
+          "name_zh": "閱文集團",
+          "role_zh": "閱文集團：內容／創作者生態代表性玩家",
+          "role_en": "China Literature: representative player in Content / creator ecosystem",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "DIS",
-          "name_en": "Walt Disney",
-          "name_zh": "迪士尼",
-          "role_zh": "迪士尼：內容／創作者生態代表性玩家",
-          "role_en": "Walt Disney: representative player in Content / creator ecosystem",
-          "exchange": "NYSE"
+          "ticker": "9899.HK",
+          "name_en": "Cloud Music",
+          "name_zh": "雲音樂",
+          "role_zh": "雲音樂：內容／創作者生態代表性玩家",
+          "role_en": "Cloud Music: representative player in Content / creator ecosystem",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "SPOT",
-          "name_en": "Spotify Technology S.A.",
-          "name_zh": "Spotify",
-          "role_zh": "Spotify：內容／創作者生態代表性玩家",
-          "role_en": "Spotify Technology S.A.: representative player in Content / creator ecosystem",
-          "exchange": "NYSE"
+          "ticker": "1833.HK",
+          "name_en": "Ping An Good Doctor",
+          "name_zh": "平安好醫生",
+          "role_zh": "平安好醫生：內容／創作者生態代表性玩家",
+          "role_en": "Ping An Good Doctor: representative player in Content / creator ecosystem",
+          "exchange": "HKEX"
         }
       ]
     },
@@ -104,28 +104,28 @@
       "summary_en": "Ad-tech and measurement partners.",
       "players": [
         {
-          "ticker": "TTD",
-          "name_en": "Trade Desk",
-          "name_zh": "Trade Desk",
-          "role_zh": "Trade Desk：廣告／數據變現代表性玩家",
-          "role_en": "Trade Desk: representative player in Ads / data monetization",
-          "exchange": "NASDAQ"
+          "ticker": "3888.HK",
+          "name_en": "Kingsoft",
+          "name_zh": "金山軟件",
+          "role_zh": "金山軟件：廣告／數據變現代表性玩家",
+          "role_en": "Kingsoft: representative player in Ads / data monetization",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "APP",
-          "name_en": "AppLovin",
-          "name_zh": "AppLovin",
-          "role_zh": "AppLovin：廣告／數據變現代表性玩家",
-          "role_en": "AppLovin: representative player in Ads / data monetization",
-          "exchange": "NASDAQ"
+          "ticker": "0772.HK",
+          "name_en": "China Literature",
+          "name_zh": "閱文集團",
+          "role_zh": "閱文集團：廣告／數據變現代表性玩家",
+          "role_en": "China Literature: representative player in Ads / data monetization",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "SNAP",
-          "name_en": "Snap",
-          "name_zh": "Snap",
-          "role_zh": "Snap：廣告／數據變現代表性玩家",
-          "role_en": "Snap: representative player in Ads / data monetization",
-          "exchange": "NYSE"
+          "ticker": "6060.HK",
+          "name_en": "ZhongAn",
+          "name_zh": "眾安在線",
+          "role_zh": "眾安在線：廣告／數據變現代表性玩家",
+          "role_en": "ZhongAn: representative player in Ads / data monetization",
+          "exchange": "HKEX"
         }
       ]
     },
@@ -138,29 +138,28 @@
       "summary_en": "Phones, browsers, OS distribution.",
       "players": [
         {
-          "ticker": "AAPL",
-          "name_en": "Apple",
-          "name_zh": "蘋果",
-          "role_zh": "蘋果：裝置／作業系統入口代表性玩家",
-          "role_en": "Apple: representative player in Devices / OS entry points",
-          "exchange": "NASDAQ"
+          "ticker": "1810.HK",
+          "name_en": "Xiaomi",
+          "name_zh": "小米",
+          "role_zh": "小米：裝置／作業系統入口代表性玩家",
+          "role_en": "Xiaomi: representative player in Devices / OS entry points",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "005930.KS",
-          "name_en": "Samsung Electronics",
-          "name_zh": "三星電子",
-          "role_zh": "三星電子：裝置／作業系統入口代表性玩家",
-          "role_en": "Samsung Electronics: representative player in Devices / OS entry points",
-          "exchange": "KRX",
-          "listedInApp": false
+          "ticker": "0992.HK",
+          "name_en": "Lenovo",
+          "name_zh": "聯想",
+          "role_zh": "聯想：裝置／作業系統入口代表性玩家",
+          "role_en": "Lenovo: representative player in Devices / OS entry points",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "SONY",
-          "name_en": "Sony",
-          "name_zh": "Sony",
-          "role_zh": "Sony：裝置／作業系統入口代表性玩家",
-          "role_en": "Sony: representative player in Devices / OS entry points",
-          "exchange": "NYSE"
+          "ticker": "2018.HK",
+          "name_en": "AAC Technologies",
+          "name_zh": "瑞聲科技",
+          "role_zh": "瑞聲科技：裝置／作業系統入口代表性玩家",
+          "role_en": "AAC Technologies: representative player in Devices / OS entry points",
+          "exchange": "HKEX"
         }
       ]
     },
@@ -173,28 +172,28 @@
       "summary_en": "Payment networks and commerce fulfillment.",
       "players": [
         {
-          "ticker": "V",
-          "name_en": "Visa",
-          "name_zh": "威士卡",
-          "role_zh": "威士卡：支付／商務閉環代表性玩家",
-          "role_en": "Visa: representative player in Payments / commerce loop",
-          "exchange": "NYSE"
+          "ticker": "6060.HK",
+          "name_en": "ZhongAn",
+          "name_zh": "眾安在線",
+          "role_zh": "眾安在線：支付／商務閉環代表性玩家",
+          "role_en": "ZhongAn: representative player in Payments / commerce loop",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "MA",
-          "name_en": "Mastercard",
-          "name_zh": "萬事達卡",
-          "role_zh": "萬事達卡：支付／商務閉環代表性玩家",
-          "role_en": "Mastercard: representative player in Payments / commerce loop",
-          "exchange": "NYSE"
+          "ticker": "0388.HK",
+          "name_en": "HKEX",
+          "name_zh": "港交所",
+          "role_zh": "港交所：支付／商務閉環代表性玩家",
+          "role_en": "HKEX: representative player in Payments / commerce loop",
+          "exchange": "HKEX"
         },
         {
-          "ticker": "SHOP",
-          "name_en": "Shopify",
-          "name_zh": "Shopify",
-          "role_zh": "Shopify：支付／商務閉環代表性玩家",
-          "role_en": "Shopify: representative player in Payments / commerce loop",
-          "exchange": "NASDAQ"
+          "ticker": "0005.HK",
+          "name_en": "HSBC",
+          "name_zh": "滙豐",
+          "role_zh": "滙豐：支付／商務閉環代表性玩家",
+          "role_en": "HSBC: representative player in Payments / commerce loop",
+          "exchange": "HKEX"
         }
       ]
     }
@@ -231,14 +230,6 @@
       "basis_zh": "搜尋／廣告對手",
       "basis_en": "Search / advertising rival",
       "exchange": "HKEX"
-    },
-    {
-      "ticker": "META",
-      "name_en": "Meta Platforms",
-      "name_zh": "Meta (臉書)",
-      "basis_zh": "社交／廣告全球對手",
-      "basis_en": "Global social / ads rival",
-      "exchange": "NASDAQ"
     },
     {
       "ticker": "9626.HK",
