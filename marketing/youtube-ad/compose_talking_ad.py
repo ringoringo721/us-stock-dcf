@@ -115,12 +115,23 @@ def main() -> None:
         talking = WORK / "talking_raw.mp4"
     if not talking.exists() and (ASSETS / "talking_host.mp4").exists():
         talking = ASSETS / "talking_host.mp4"
-    voice = WORK / "voice.wav"
+    # Prefer the original Edge TTS render (higher sample rate), not the 16 kHz
+    # mono dump that Wav2Lip consumes.
+    voice_candidates = [
+        WORK / "voice.mp3",
+        Path("/tmp/dcf-ad2/voice.mp3"),
+        ROOT / "assets" / "voice.mp3",
+        WORK / "voice.wav",
+    ]
+    voice = next((p for p in voice_candidates if p.exists()), None)
     bgm_src = ASSETS / "bgm-source.mp3"
     if not talking.exists():
         raise SystemExit(f"Missing talking clip under {WORK} or {ASSETS / 'talking_host.mp4'}")
-    if not voice.exists():
-        raise SystemExit(f"Missing voice: {voice}")
+    if voice is None:
+        raise SystemExit(
+            "Missing voice track. Provide /tmp/talking/voice.mp3 (Edge TTS) "
+            "or /tmp/talking/voice.wav."
+        )
 
     ass = WORK / "captions.ass"
     write_ass(ass)
@@ -158,11 +169,22 @@ def main() -> None:
     ).strip()
     width_s, height_s = probe.split("x")
     width, height = int(width_s), int(height_s)
+    aspect = width / max(height, 1)
     if width == 1920 and height == 1080:
         base_vf = "setsar=1,rotate=0.008*sin(2*PI*t/2.8):c=0x050A12:ow=1920:oh=1080"
-    else:
+    elif aspect >= 1.5:
+        # Landscape / 16:9-ish: fit inside 1920x1080 without squashing.
         base_vf = (
-            "setsar=1,scale=980:980,"
+            "setsar=1,"
+            "scale=1920:1080:force_original_aspect_ratio=decrease,"
+            "pad=1920:1080:(ow-iw)/2:(oh-ih)/2:color=0x050A12,"
+            "rotate=0.008*sin(2*PI*t/2.8):c=0x050A12:ow=1920:oh=1080"
+        )
+    else:
+        # Square / portrait lip-sync plate: letterbox, keep aspect.
+        base_vf = (
+            "setsar=1,"
+            "scale=980:980:force_original_aspect_ratio=decrease,"
             "pad=1920:1080:(ow-iw)/2:(oh-ih)/2:color=0x050A12,"
             "rotate=0.012*sin(2*PI*t/2.6):c=0x050A12:ow=1920:oh=1080"
         )
@@ -218,7 +240,7 @@ def main() -> None:
         stderr=subprocess.DEVNULL,
     )
 
-    # Mix original voice + BGM (plated may lose/alter audio; remux clean mix)
+    # Mix high-quality VO + BGM at 48 kHz stereo (never leave the mix at 16 kHz).
     mixed = WORK / "final_audio.m4a"
     subprocess.run(
         [
@@ -226,12 +248,13 @@ def main() -> None:
             "-i", str(voice),
             "-i", str(bgm30),
             "-filter_complex",
-            "[0:a]aformat=channel_layouts=stereo,loudnorm=I=-14:TP=-1.5:LRA=8,apad=pad_dur=30[voice];"
-            "[1:a]aformat=channel_layouts=stereo,volume=0.26,"
+            "[0:a]aresample=48000,aformat=sample_fmts=fltp:channel_layouts=stereo,"
+            "loudnorm=I=-14:TP=-1.5:LRA=8,apad=pad_dur=30[voice];"
+            "[1:a]aresample=48000,aformat=sample_fmts=fltp:channel_layouts=stereo,volume=0.26,"
             "afade=t=in:st=0:d=0.5,afade=t=out:st=28.7:d=1.2[bg];"
             "[voice][bg]amix=inputs=2:duration=first:dropout_transition=0,"
             "atrim=0:30,asetpts=PTS-STARTPTS,loudnorm=I=-15:TP=-1.5:LRA=9[aout]",
-            "-map", "[aout]", "-c:a", "aac", "-b:a", "192k",
+            "-map", "[aout]", "-ar", "48000", "-c:a", "aac", "-b:a", "192k",
             str(mixed),
         ],
         check=True,
