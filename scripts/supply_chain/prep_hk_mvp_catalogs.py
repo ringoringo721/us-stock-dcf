@@ -242,10 +242,10 @@ COMPETITORS: dict[str, list[list[str]]] = {
 }
 
 # Default players for china-platform-builder-v1 (also written into sc_players.json).
+# External inputs/partners only — no game/IP (Tencent self-creates games).
 CHINA_PLATFORM_BUILDER_PLAYERS: dict[str, list[str]] = {
     "infra": ["9698.HK", "3888.HK", "0788.HK"],
-    "game-ip": ["0772.HK", "1119.HK", "9992.HK"],  # 閱文 IP／創夢發行研發／泡泡瑪特文化 IP
-    "social-graph": ["1698.HK", "1357.HK", "1810.HK"],  # TME 社交娛樂／美圖 UGC／小米終端到達
+    "distribution": ["0941.HK", "0762.HK", "1810.HK"],
     "payments": ["0005.HK", "1398.HK", "6060.HK"],
     "advertisers": ["2020.HK", "2331.HK", "2319.HK"],
 }
@@ -253,10 +253,9 @@ CHINA_PLATFORM_BUILDER_PLAYERS: dict[str, list[str]] = {
 # Stage players: must fit the stage role for China/HK major market; rivals≠stage.
 OVERRIDES: dict[str, dict[str, list[str]]] = {
     "0700.HK": {
-        # china-platform-builder-v1 — builds games/WeChat/WeChat Pay; FY2025 VAS~49 / FinTech~31 / Marketing~19.
+        # china-platform-builder-v1 — external partners only; games/WeChat self-built ≠ SC stages.
         "infra": ["9698.HK", "3888.HK", "0788.HK"],
-        "game-ip": ["0772.HK", "1119.HK", "9992.HK"],
-        "social-graph": ["1698.HK", "1357.HK", "1810.HK"],
+        "distribution": ["0941.HK", "0762.HK", "1810.HK"],
         "payments": ["0005.HK", "1398.HK", "6060.HK"],
         "advertisers": ["2020.HK", "2331.HK", "2319.HK"],
     },
