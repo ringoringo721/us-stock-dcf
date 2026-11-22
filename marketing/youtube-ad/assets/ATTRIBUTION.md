@@ -10,7 +10,8 @@ with the steps in `../README.md`.
 
 ## Presenter stills / talking host
 
-`presenter-*.jpg` are generated host stills used as the Wav2Lip source.
-`talking_host.mp4` is the lip-synced host plate (mouth driven by the Cantonese
-voiceover). Replace with your own filmed talking-head footage for a full
-real-person shoot.
+`presenter-*.jpg` are earlier generated host stills.
+`ai-host-*.jpg` and `ai-bg-plate.jpg` are futuristic AI-styled host/background
+plates used by `build_ai_talking_ad.py`.
+`talking_host.mp4` is a lip-synced preview segment. Replace with your own
+filmed talking-head footage for a full real-person shoot.
