@@ -45,16 +45,19 @@ def load_presenter(name: str) -> Image.Image:
 
 
 def vignette(img: Image.Image, strength: float = 0.45) -> Image.Image:
+    """Darken frame edges; keep the centre (host face) bright."""
     overlay = Image.new("RGB", (W, H), (0, 0, 0))
-    # Radial falloff from center
+    # Image.composite(overlay, img, mask): higher mask => more black.
+    # Paint large→small ellipses so the centre is overwritten with low alpha.
     mask = Image.new("L", (W, H), 0)
     md = ImageDraw.Draw(mask)
     cx, cy = W // 2, H // 2
     max_r = int(math.hypot(cx, cy))
     for i in range(48, 0, -1):
         r = int(max_r * i / 48)
-        # Outer rings darker (higher mask => more black overlay)
-        alpha = int(255 * strength * ((48 - i) / 48) ** 1.35)
+        # i=48 (outer): high alpha; i→0 (centre): near-zero alpha
+        t = i / 48
+        alpha = int(255 * strength * (t ** 1.8))
         md.ellipse([cx - r, cy - r, cx + r, cy + r], fill=alpha)
     mask = mask.filter(ImageFilter.GaussianBlur(28))
     return Image.composite(overlay, img, mask)
