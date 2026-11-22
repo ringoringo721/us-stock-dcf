@@ -8,7 +8,9 @@
 Replace this file with your preferred licensed track if needed, then rebuild
 with the steps in `../README.md`.
 
-## Presenter stills
+## Presenter stills / talking host
 
-`presenter-*.jpg` are generated host stills for ad composition. Replace with
-your own filmed footage / photos for a fully real-person shoot.
+`presenter-*.jpg` are generated host stills used as the Wav2Lip source.
+`talking_host.mp4` is the lip-synced host plate (mouth driven by the Cantonese
+voiceover). Replace with your own filmed talking-head footage for a full
+real-person shoot.
