@@ -101,7 +101,7 @@
       color-scheme: dark;
       --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       --table-font-size: 14px;
-      --bg: #000000;
+      --bg: #F5E642;
       --card-bg: #121212;
       --card-border: #383838;
       --accent: #38bdf8;
@@ -135,7 +135,7 @@
     }
     :root[data-theme="light"] {
       color-scheme: light;
-      --bg: #f1f5f9;
+      --bg: #F5E642;
       --card-bg: #ffffff;
       --card-border: #cbd5e1;
       --surface-bg: #e8eef5;
@@ -195,6 +195,11 @@
     .header-actions label { color: var(--text-secondary); font-size: 12px; }
     .header-actions select { background: var(--card-bg); color: var(--text); border: 1px solid var(--card-border); border-radius: 6px; padding: 7px; }
     h1 { font-size: 22px; font-weight: 700; color: var(--text); }
+    /* Dark theme keeps light card text; page chrome on yellow --bg needs dark ink. */
+    :root[data-theme="dark"] h1,
+    :root:not([data-theme="light"]) h1 { color: #1a1a1a; }
+    :root[data-theme="dark"] .header-actions label,
+    :root:not([data-theme="light"]) .header-actions label { color: #334155; }
     .status-badge { 
       background: rgba(74, 222, 128, 0.15); 
       border: 1px solid var(--green); 
