@@ -92,6 +92,29 @@ HUB_STAGE_LABEL_OVERRIDES: dict[str, dict[str, dict[str, str]]] = {
             "summary_en": "Bank/clearing/internet-insurance rails — exchanges are not e-commerce pay.",
         },
     },
+    "0883.HK": {
+        # Marine logistics stand-in — not affiliate OFS as fake E&P.
+        "upstream": {
+            "label_zh": "原油海運／外輸物流",
+            "label_en": "Crude marine / export logistics",
+            "summary_zh": "海上原油外輸與集裝箱／油輪船東（非把自身 E&P 再畫成上游階段）。",
+            "summary_en": "Crude marine export and tanker/container logistics — not own E&P re-labeled as upstream.",
+        },
+    },
+    "0386.HK": {
+        "upstream": {
+            "label_zh": "原油海運／外輸物流",
+            "label_en": "Crude marine / export logistics",
+            "summary_zh": "外部原油海運／貿易物流（上游偏弱的一體化敘事；非集團油服假扮 E&P）。",
+            "summary_en": "External crude marine/trade logistics — not affiliate OFS as fake E&P.",
+        },
+        "refining": {
+            "label_zh": "化工／燃氣下游客戶",
+            "label_en": "Chem / gas downstream customers",
+            "summary_zh": "外部燃氣／化工銷售客戶（非上海石化／冠德等集團附屬煉廠）。",
+            "summary_en": "External gas/chem offtakers — not group affiliate refineries.",
+        },
+    },
 }
 
 
@@ -103,6 +126,14 @@ HUB_MODEL_DESCRIPTION_OVERRIDES: dict[str, dict[str, str]] = {
     "0388.HK": {
         "description_zh": "會員／經紀 → 結算／託管銀行 → 交易科技 → 買方資管 → 上市發行人；國際交易所在對手弧。",
         "description_en": "Members/brokers → settlement/custody banks → trading tech → buy-side → issuers; peer exchanges on rival arc.",
+    },
+    "0883.HK": {
+        "description_zh": "外部油服 → 原油海運／外輸 → 中游港口船運 → 煉化／燃氣客戶 → 零售能源客戶。",
+        "description_en": "External OFS → crude marine/export → midstream ports/shipping → refining/gas customers → retail energy.",
+    },
+    "0386.HK": {
+        "description_zh": "外部油服 → 原油海運／貿易物流 → 油品運輸 → 化工／燃氣下游客戶 → 零售能源客戶。",
+        "description_en": "External OFS → crude marine/trade logistics → product transport → chem/gas offtakers → retail energy.",
     },
 }
 

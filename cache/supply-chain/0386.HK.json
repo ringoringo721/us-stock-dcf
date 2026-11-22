@@ -23,8 +23,8 @@
     "id": "energy-integrated-v1",
     "label_zh": "綜合油氣價值鏈",
     "label_en": "Integrated oil & gas value chain",
-    "description_zh": "油服／設備 → 上游開採 → 中游管輸 → 煉製化工 → 零售／航煤客戶。",
-    "description_en": "Oilfield services → upstream → midstream → refining/chem → retail/jet customers."
+    "description_zh": "外部油服 → 原油海運／貿易物流 → 油品運輸 → 化工／燃氣下游客戶 → 零售能源客戶。",
+    "description_en": "External OFS → crude marine/trade logistics → product transport → chem/gas offtakers → retail energy."
   },
   "stages": [
     {
@@ -64,33 +64,33 @@
     {
       "id": "upstream",
       "order": 2,
-      "label_zh": "上游勘探開發",
-      "label_en": "Upstream E&P",
-      "summary_zh": "勘探開發與權益油。",
-      "summary_en": "Exploration and production.",
+      "label_zh": "原油海運／外輸物流",
+      "label_en": "Crude marine / export logistics",
+      "summary_zh": "外部原油海運／貿易物流（上游偏弱的一體化敘事；非集團油服假扮 E&P）。",
+      "summary_en": "External crude marine/trade logistics — not affiliate OFS as fake E&P.",
       "players": [
         {
           "ticker": "1138.HK",
           "name_en": "COSCO Shipping Energy",
           "name_zh": "中遠海能",
-          "role_zh": "中遠海能：上游勘探開發代表性玩家",
-          "role_en": "COSCO Shipping Energy: representative player in Upstream E&P",
+          "role_zh": "中遠海能：原油海運／外輸物流代表性玩家",
+          "role_en": "COSCO Shipping Energy: representative player in Crude marine / export logistics",
           "exchange": "HKEX"
         },
         {
           "ticker": "1919.HK",
           "name_en": "COSCO Shipping Holdings",
           "name_zh": "中遠海控",
-          "role_zh": "中遠海控：上游勘探開發代表性玩家",
-          "role_en": "COSCO Shipping Holdings: representative player in Upstream E&P",
+          "role_zh": "中遠海控：原油海運／外輸物流代表性玩家",
+          "role_en": "COSCO Shipping Holdings: representative player in Crude marine / export logistics",
           "exchange": "HKEX"
         },
         {
           "ticker": "0316.HK",
           "name_en": "OOIL",
           "name_zh": "東方海外",
-          "role_zh": "東方海外：上游勘探開發代表性玩家",
-          "role_en": "OOIL: representative player in Upstream E&P",
+          "role_zh": "東方海外：原油海運／外輸物流代表性玩家",
+          "role_en": "OOIL: representative player in Crude marine / export logistics",
           "exchange": "HKEX"
         }
       ]
@@ -132,33 +132,33 @@
     {
       "id": "refining",
       "order": 4,
-      "label_zh": "煉製／化工",
-      "label_en": "Refining / chemicals",
-      "summary_zh": "煉廠與石化下游。",
-      "summary_en": "Refineries and downstream chem.",
+      "label_zh": "化工／燃氣下游客戶",
+      "label_en": "Chem / gas downstream customers",
+      "summary_zh": "外部燃氣／化工銷售客戶（非上海石化／冠德等集團附屬煉廠）。",
+      "summary_en": "External gas/chem offtakers — not group affiliate refineries.",
       "players": [
         {
           "ticker": "2688.HK",
           "name_en": "ENN Energy",
           "name_zh": "新奧能源",
-          "role_zh": "新奧能源：煉製／化工代表性玩家",
-          "role_en": "ENN Energy: representative player in Refining / chemicals",
+          "role_zh": "新奧能源：化工／燃氣下游客戶代表性玩家",
+          "role_en": "ENN Energy: representative player in Chem / gas downstream customers",
           "exchange": "HKEX"
         },
         {
           "ticker": "1193.HK",
           "name_en": "CR Gas",
           "name_zh": "華潤燃氣",
-          "role_zh": "華潤燃氣：煉製／化工代表性玩家",
-          "role_en": "CR Gas: representative player in Refining / chemicals",
+          "role_zh": "華潤燃氣：化工／燃氣下游客戶代表性玩家",
+          "role_en": "CR Gas: representative player in Chem / gas downstream customers",
           "exchange": "HKEX"
         },
         {
           "ticker": "0384.HK",
           "name_en": "China Gas",
           "name_zh": "中國燃氣",
-          "role_zh": "中國燃氣：煉製／化工代表性玩家",
-          "role_en": "China Gas: representative player in Refining / chemicals",
+          "role_zh": "中國燃氣：化工／燃氣下游客戶代表性玩家",
+          "role_en": "China Gas: representative player in Chem / gas downstream customers",
           "exchange": "HKEX"
         }
       ]

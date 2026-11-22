@@ -262,13 +262,14 @@ OVERRIDES: dict[str, dict[str, list[str]]] = {
     },
     "9988.HK": {
         "supply": ["2020.HK", "2331.HK", "2319.HK"],
-        # Warehouse / port fulfillment vs express last-mile — avoid spider-graph dupes.
+        # Warehouse / port fulfillment vs express last-mile — no cross-stage player dupes.
         "fulfillment": ["0144.HK", "0316.HK", "1308.HK"],
         # Bank / clearing rails — HKEX ≠ e-commerce payments.
         "payments": ["0005.HK", "1398.HK", "6060.HK"],
         # External ad / media partners (not Alibaba's own traffic stack).
         "traffic": ["9888.HK", "1024.HK", "9626.HK"],
-        "lastmile": ["2057.HK", "1519.HK", "1308.HK"],
+        # Express only — 1308 stays on fulfillment/port, not last-mile.
+        "lastmile": ["2057.HK", "1519.HK", "1919.HK"],
     },
     "3690.HK": {
         # china-local-life-v1 — CPG on merchants/ads; platform peers stay on rival arc.

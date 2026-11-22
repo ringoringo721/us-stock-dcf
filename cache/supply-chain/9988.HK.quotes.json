@@ -156,6 +156,16 @@
       "asOf": "2026-10-30",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
+    "1919.HK": {
+      "ticker": "1919.HK",
+      "price": 17.68,
+      "previousClose": 17.81,
+      "changePct": -0.73,
+      "mcap": 269056.1,
+      "currency": "HKD",
+      "asOf": "2026-11-06",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
     "9618.HK": {
       "ticker": "9618.HK",
       "price": 101.1,

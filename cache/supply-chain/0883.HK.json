@@ -23,8 +23,8 @@
     "id": "energy-integrated-v1",
     "label_zh": "綜合油氣價值鏈",
     "label_en": "Integrated oil & gas value chain",
-    "description_zh": "油服／設備 → 上游開採 → 中游管輸 → 煉製化工 → 零售／航煤客戶。",
-    "description_en": "Oilfield services → upstream → midstream → refining/chem → retail/jet customers."
+    "description_zh": "外部油服 → 原油海運／外輸 → 中游港口船運 → 煉化／燃氣客戶 → 零售能源客戶。",
+    "description_en": "External OFS → crude marine/export → midstream ports/shipping → refining/gas customers → retail energy."
   },
   "stages": [
     {
@@ -64,33 +64,33 @@
     {
       "id": "upstream",
       "order": 2,
-      "label_zh": "上游勘探開發",
-      "label_en": "Upstream E&P",
-      "summary_zh": "勘探開發與權益油。",
-      "summary_en": "Exploration and production.",
+      "label_zh": "原油海運／外輸物流",
+      "label_en": "Crude marine / export logistics",
+      "summary_zh": "海上原油外輸與集裝箱／油輪船東（非把自身 E&P 再畫成上游階段）。",
+      "summary_en": "Crude marine export and tanker/container logistics — not own E&P re-labeled as upstream.",
       "players": [
         {
           "ticker": "1138.HK",
           "name_en": "COSCO Shipping Energy",
           "name_zh": "中遠海能",
-          "role_zh": "中遠海能：上游勘探開發代表性玩家",
-          "role_en": "COSCO Shipping Energy: representative player in Upstream E&P",
+          "role_zh": "中遠海能：原油海運／外輸物流代表性玩家",
+          "role_en": "COSCO Shipping Energy: representative player in Crude marine / export logistics",
           "exchange": "HKEX"
         },
         {
           "ticker": "1919.HK",
           "name_en": "COSCO Shipping Holdings",
           "name_zh": "中遠海控",
-          "role_zh": "中遠海控：上游勘探開發代表性玩家",
-          "role_en": "COSCO Shipping Holdings: representative player in Upstream E&P",
+          "role_zh": "中遠海控：原油海運／外輸物流代表性玩家",
+          "role_en": "COSCO Shipping Holdings: representative player in Crude marine / export logistics",
           "exchange": "HKEX"
         },
         {
           "ticker": "0316.HK",
           "name_en": "OOIL",
           "name_zh": "東方海外",
-          "role_zh": "東方海外：上游勘探開發代表性玩家",
-          "role_en": "OOIL: representative player in Upstream E&P",
+          "role_zh": "東方海外：原油海運／外輸物流代表性玩家",
+          "role_en": "OOIL: representative player in Crude marine / export logistics",
           "exchange": "HKEX"
         }
       ]
