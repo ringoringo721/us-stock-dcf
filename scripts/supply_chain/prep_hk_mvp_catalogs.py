@@ -143,6 +143,18 @@ ENTITIES: dict[str, dict[str, str]] = {
     "0934.HK": {"name_en": "Sinopec Kantons", "name_zh": "中石化冠德", "exchange": "HKEX"},
     "1060.HK": {"name_en": "Ali Pictures", "name_zh": "阿里影業", "exchange": "HKEX"},
     "2799.HK": {"name_en": "China CITIC Financial AMC", "name_zh": "中國中信金融資產", "exchange": "HKEX"},
+    "0881.HK": {"name_en": "Zhongsheng", "name_zh": "中升控股", "exchange": "HKEX"},
+    "1268.HK": {"name_en": "Meidong Auto", "name_zh": "美東汽車", "exchange": "HKEX"},
+    "3669.HK": {"name_en": "Yongda Auto", "name_zh": "永達汽車", "exchange": "HKEX"},
+}
+
+# Default players for china-local-life-v1
+CHINA_LOCAL_LIFE_PLAYERS: dict[str, list[str]] = {
+    "maps-cloud": ["9888.HK", "3888.HK", "9698.HK"],
+    "payments": ["6060.HK", "0388.HK", "0005.HK"],
+    "fleet": ["1211.HK", "0175.HK", "2333.HK"],
+    "merchants": ["2319.HK", "2020.HK", "1044.HK"],
+    "ads": ["2020.HK", "2331.HK", "1044.HK"],
 }
 
 # Product/market rivals — China/HK first; dual-list prefer .HK.
@@ -253,11 +265,12 @@ OVERRIDES: dict[str, dict[str, list[str]]] = {
         "lastmile": ["2057.HK", "1519.HK", "1308.HK"],
     },
     "3690.HK": {
+        # china-local-life-v1 — CPG on merchants/ads; platform peers stay on rival arc.
         "maps-cloud": ["9888.HK", "3888.HK", "9698.HK"],
         "payments": ["6060.HK", "0388.HK", "0005.HK"],
-        "supply": ["1211.HK", "0175.HK", "2333.HK"],
-        "platforms": ["2319.HK", "2020.HK", "1044.HK"],  # CPG merchants on delivery, not rival apps
-        "monetization": ["2020.HK", "2331.HK", "1044.HK"],
+        "fleet": ["1211.HK", "0175.HK", "2333.HK"],
+        "merchants": ["2319.HK", "2020.HK", "1044.HK"],
+        "ads": ["2020.HK", "2331.HK", "1044.HK"],
     },
     "1810.HK": {
         "materials": ["0981.HK", "1347.HK", "2899.HK"],
@@ -270,7 +283,7 @@ OVERRIDES: dict[str, dict[str, list[str]]] = {
         "materials": ["3750.HK", "2899.HK", "0868.HK"],
         "components": ["1316.HK", "0425.HK", "2018.HK"],
         "assembly": ["0425.HK", "0868.HK", "0179.HK"],  # Tier-1 parts — not rival OEMs
-        "dealers": ["2688.HK", "1193.HK", "0384.HK"],  # energy/charging retail channels
+        "dealers": ["0881.HK", "1268.HK", "3669.HK"],  # China auto dealerships (中升／美東／永達)
         "energy": ["3750.HK", "2688.HK", "1193.HK"],
     },
     "0941.HK": {
@@ -352,6 +365,7 @@ def main() -> int:
         overrides[hub] = {sid: list(ticks) for sid, ticks in stages.items()}
 
     players["china-superapp-v1"] = {sid: list(ticks) for sid, ticks in CHINA_SUPERAPP_PLAYERS.items()}
+    players["china-local-life-v1"] = {sid: list(ticks) for sid, ticks in CHINA_LOCAL_LIFE_PLAYERS.items()}
 
     ENT_PATH.write_text(json.dumps(entities, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     COMP_PATH.write_text(json.dumps(competitors, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -359,7 +373,7 @@ def main() -> int:
     PLAYERS_PATH.write_text(json.dumps(players, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(
         f"Updated entities(+{len(ENTITIES)}), competitors hubs={len(COMPETITORS)}, "
-        f"overrides hubs={len(OVERRIDES)}, model china-superapp-v1 players"
+        f"overrides hubs={len(OVERRIDES)}, china-superapp + china-local-life players"
     )
     return 0
 

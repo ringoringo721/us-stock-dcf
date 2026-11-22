@@ -11,7 +11,7 @@
     "notes_en": "HK MVP hub curated seed (industry value-chain template + curated rivals). No live supplier API. Dual-listed names prefer .HK. When the major market is China/Asia, stage players and rivals prefer CN/HK/regional listings — not US-company dumps. Competitors follow true product/market rivalry (AAPL lesson).",
     "competitorRationale_zh": "競爭弧只列主力市場真實產品對手；階段玩家與對手分開；雙重上市優先 .HK；中國市場不以美股節點為預設。",
     "competitorRationale_en": "Rival arc = true product rivals in the major market; stages ≠ rivals; dual listings prefer .HK; China-facing hubs are not US-node dumps.",
-    "modelId": "rideshare-v1",
+    "modelId": "china-local-life-v1",
     "references": [
       "Industry model via TICKER_MODEL (HK MVP)",
       "HKEX listings + hk_market_dcf.json hub rows",
@@ -20,11 +20,11 @@
     ]
   },
   "model": {
-    "id": "rideshare-v1",
-    "label_zh": "共享出行／即時配送價值鏈",
-    "label_en": "Rideshare / mobility value chain",
-    "description_zh": "地圖／雲 → 支付 → 運力供給 → 出行／配送平台同業 → 廣告／會員。",
-    "description_en": "Maps/cloud → payments → driver supply → rideshare/delivery platform peers → ads/membership."
+    "id": "china-local-life-v1",
+    "label_zh": "中國本地生活／即配價值鏈",
+    "label_en": "China local-life / delivery value chain",
+    "description_zh": "地圖／雲 → 支付 → 運力車隊 → 餐飲／零售商戶供給 → 品牌廣告變現。平台同業放對手弧，不塞進階段。",
+    "description_en": "Maps/cloud → payments → fleet → merchant supply → brand ads. Platform peers stay on the rival arc."
   },
   "stages": [
     {
@@ -64,135 +64,135 @@
     {
       "id": "payments",
       "order": 2,
-      "label_zh": "支付",
-      "label_en": "Payments",
-      "summary_zh": "持卡人支付與撥款。",
-      "summary_en": "Card payments and payouts.",
+      "label_zh": "支付／清算",
+      "label_en": "Payments / clearing",
+      "summary_zh": "用戶支付與騎手／商戶撥款。",
+      "summary_en": "User pay-in and courier/merchant payouts.",
       "players": [
         {
           "ticker": "6060.HK",
           "name_en": "ZhongAn",
           "name_zh": "眾安在線",
-          "role_zh": "眾安在線：支付代表性玩家",
-          "role_en": "ZhongAn: representative player in Payments",
+          "role_zh": "眾安在線：支付／清算代表性玩家",
+          "role_en": "ZhongAn: representative player in Payments / clearing",
           "exchange": "HKEX"
         },
         {
           "ticker": "0388.HK",
           "name_en": "HKEX",
           "name_zh": "港交所",
-          "role_zh": "港交所：支付代表性玩家",
-          "role_en": "HKEX: representative player in Payments",
+          "role_zh": "港交所：支付／清算代表性玩家",
+          "role_en": "HKEX: representative player in Payments / clearing",
           "exchange": "HKEX"
         },
         {
           "ticker": "0005.HK",
           "name_en": "HSBC",
           "name_zh": "滙豐",
-          "role_zh": "滙豐：支付代表性玩家",
-          "role_en": "HSBC: representative player in Payments",
+          "role_zh": "滙豐：支付／清算代表性玩家",
+          "role_en": "HSBC: representative player in Payments / clearing",
           "exchange": "HKEX"
         }
       ]
     },
     {
-      "id": "supply",
+      "id": "fleet",
       "order": 3,
-      "label_zh": "運力／司機供給",
-      "label_en": "Driver / courier supply",
-      "summary_zh": "司機與外送運力生態。",
-      "summary_en": "Driver and courier supply ecosystem.",
+      "label_zh": "運力／車隊供給",
+      "label_en": "Fleet / vehicle supply",
+      "summary_zh": "即配與出行車隊相關整車供給。",
+      "summary_en": "Vehicles for delivery / mobility fleets.",
       "players": [
         {
           "ticker": "1211.HK",
           "name_en": "BYD",
           "name_zh": "比亞迪",
-          "role_zh": "比亞迪：運力／司機供給代表性玩家",
-          "role_en": "BYD: representative player in Driver / courier supply",
+          "role_zh": "比亞迪：運力／車隊供給代表性玩家",
+          "role_en": "BYD: representative player in Fleet / vehicle supply",
           "exchange": "HKEX"
         },
         {
           "ticker": "0175.HK",
           "name_en": "Geely",
           "name_zh": "吉利汽車",
-          "role_zh": "吉利汽車：運力／司機供給代表性玩家",
-          "role_en": "Geely: representative player in Driver / courier supply",
+          "role_zh": "吉利汽車：運力／車隊供給代表性玩家",
+          "role_en": "Geely: representative player in Fleet / vehicle supply",
           "exchange": "HKEX"
         },
         {
           "ticker": "2333.HK",
           "name_en": "Great Wall Motor",
           "name_zh": "長城汽車",
-          "role_zh": "長城汽車：運力／司機供給代表性玩家",
-          "role_en": "Great Wall Motor: representative player in Driver / courier supply",
+          "role_zh": "長城汽車：運力／車隊供給代表性玩家",
+          "role_en": "Great Wall Motor: representative player in Fleet / vehicle supply",
           "exchange": "HKEX"
         }
       ]
     },
     {
-      "id": "platforms",
+      "id": "merchants",
       "order": 4,
-      "label_zh": "出行／配送平台",
-      "label_en": "Rideshare / delivery platforms",
-      "summary_zh": "共享出行與即時配送同業。",
-      "summary_en": "Rideshare and delivery platform peers.",
+      "label_zh": "餐飲／零售商戶供給",
+      "label_en": "Restaurant / retail merchants",
+      "summary_zh": "即配訂單背後的消費品與餐飲品牌商戶。",
+      "summary_en": "CPG and F&B brands supplying delivery demand.",
       "players": [
         {
           "ticker": "2319.HK",
           "name_en": "Mengniu",
           "name_zh": "蒙牛",
-          "role_zh": "蒙牛：出行／配送平台代表性玩家",
-          "role_en": "Mengniu: representative player in Rideshare / delivery platforms",
+          "role_zh": "蒙牛：餐飲／零售商戶供給代表性玩家",
+          "role_en": "Mengniu: representative player in Restaurant / retail merchants",
           "exchange": "HKEX"
         },
         {
           "ticker": "2020.HK",
           "name_en": "ANTA",
           "name_zh": "安踏",
-          "role_zh": "安踏：出行／配送平台代表性玩家",
-          "role_en": "ANTA: representative player in Rideshare / delivery platforms",
+          "role_zh": "安踏：餐飲／零售商戶供給代表性玩家",
+          "role_en": "ANTA: representative player in Restaurant / retail merchants",
           "exchange": "HKEX"
         },
         {
           "ticker": "1044.HK",
           "name_en": "Hengan",
           "name_zh": "恒安國際",
-          "role_zh": "恒安國際：出行／配送平台代表性玩家",
-          "role_en": "Hengan: representative player in Rideshare / delivery platforms",
+          "role_zh": "恒安國際：餐飲／零售商戶供給代表性玩家",
+          "role_en": "Hengan: representative player in Restaurant / retail merchants",
           "exchange": "HKEX"
         }
       ]
     },
     {
-      "id": "monetization",
+      "id": "ads",
       "order": 5,
-      "label_zh": "廣告／會員",
-      "label_en": "Ads / membership",
-      "summary_zh": "平台廣告與訂閱變現。",
-      "summary_en": "Platform ads and memberships.",
+      "label_zh": "品牌廣告／推廣變現",
+      "label_en": "Brand ads / promotion",
+      "summary_zh": "在本地生活平台投放的品牌廣告主。",
+      "summary_en": "Brand advertisers on local-life inventory.",
       "players": [
         {
           "ticker": "2020.HK",
           "name_en": "ANTA",
           "name_zh": "安踏",
-          "role_zh": "安踏：廣告／會員代表性玩家",
-          "role_en": "ANTA: representative player in Ads / membership",
+          "role_zh": "安踏：品牌廣告／推廣變現代表性玩家",
+          "role_en": "ANTA: representative player in Brand ads / promotion",
           "exchange": "HKEX"
         },
         {
           "ticker": "2331.HK",
           "name_en": "Li Ning",
           "name_zh": "李寧",
-          "role_zh": "李寧：廣告／會員代表性玩家",
-          "role_en": "Li Ning: representative player in Ads / membership",
+          "role_zh": "李寧：品牌廣告／推廣變現代表性玩家",
+          "role_en": "Li Ning: representative player in Brand ads / promotion",
           "exchange": "HKEX"
         },
         {
           "ticker": "1044.HK",
           "name_en": "Hengan",
           "name_zh": "恒安國際",
-          "role_zh": "恒安國際：廣告／會員代表性玩家",
-          "role_en": "Hengan: representative player in Ads / membership",
+          "role_zh": "恒安國際：品牌廣告／推廣變現代表性玩家",
+          "role_en": "Hengan: representative player in Brand ads / promotion",
           "exchange": "HKEX"
         }
       ]
