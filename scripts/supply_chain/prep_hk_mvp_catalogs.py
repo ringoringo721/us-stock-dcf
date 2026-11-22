@@ -154,8 +154,10 @@ ENTITIES: dict[str, dict[str, str]] = {
 # Default players for china-local-life-v1
 CHINA_LOCAL_LIFE_PLAYERS: dict[str, list[str]] = {
     "maps-cloud": ["9888.HK", "3888.HK", "9698.HK"],
-    "payments": ["6060.HK", "0388.HK", "0005.HK"],
-    "fleet": ["1211.HK", "0175.HK", "2333.HK"],
+    # Bank / clearing / internet-insurance rails — not HKEX.
+    "payments": ["0005.HK", "1398.HK", "6060.HK"],
+    # Two-wheel / fleet equipment / charging — not passenger-car OEMs as fake fleet.
+    "fleet": ["1211.HK", "3800.HK", "2688.HK"],
     "merchants": ["2319.HK", "2020.HK", "1044.HK"],
     "ads": ["2020.HK", "2331.HK", "1044.HK"],
 }
@@ -177,11 +179,10 @@ COMPETITORS: dict[str, list[list[str]]] = {
         ["6618.HK", "醫藥電商／健康零售對手", "Health e-commerce rival"],
     ],
     "3690.HK": [
+        # Express/parcel carriers (中通／極兔) are logistics partners — not product rivals.
         ["9988.HK", "本地生活／即配生態對手（餓了麼等）", "Local services / delivery ecosystem rival"],
-        ["9618.HK", "即時零售／物流對手", "Instant retail / logistics rival"],
+        ["9618.HK", "即時零售對手", "Instant retail rival"],
         ["6618.HK", "即時零售／健康電商對手", "Instant retail / health commerce rival"],
-        ["2057.HK", "快遞／末端配送對手", "Express / last-mile rival"],
-        ["1519.HK", "快遞／末端配送對手", "Express / last-mile rival"],
     ],
     "1810.HK": [
         ["AAPL", "智慧手機／裝置生態對手（中國亦直接競爭）", "Smartphone rival also active in China"],
@@ -261,16 +262,19 @@ OVERRIDES: dict[str, dict[str, list[str]]] = {
     },
     "9988.HK": {
         "supply": ["2020.HK", "2331.HK", "2319.HK"],
-        "fulfillment": ["2057.HK", "1519.HK", "0144.HK"],
-        "payments": ["6060.HK", "0388.HK", "0005.HK"],
+        # Warehouse / port fulfillment vs express last-mile — avoid spider-graph dupes.
+        "fulfillment": ["0144.HK", "0316.HK", "1308.HK"],
+        # Bank / clearing rails — HKEX ≠ e-commerce payments.
+        "payments": ["0005.HK", "1398.HK", "6060.HK"],
+        # External ad / media partners (not Alibaba's own traffic stack).
         "traffic": ["9888.HK", "1024.HK", "9626.HK"],
         "lastmile": ["2057.HK", "1519.HK", "1308.HK"],
     },
     "3690.HK": {
         # china-local-life-v1 — CPG on merchants/ads; platform peers stay on rival arc.
         "maps-cloud": ["9888.HK", "3888.HK", "9698.HK"],
-        "payments": ["6060.HK", "0388.HK", "0005.HK"],
-        "fleet": ["1211.HK", "0175.HK", "2333.HK"],
+        "payments": ["0005.HK", "1398.HK", "6060.HK"],
+        "fleet": ["1211.HK", "3800.HK", "2688.HK"],
         "merchants": ["2319.HK", "2020.HK", "1044.HK"],
         "ads": ["2020.HK", "2331.HK", "1044.HK"],
     },
@@ -282,11 +286,13 @@ OVERRIDES: dict[str, dict[str, list[str]]] = {
         "retail": ["0762.HK", "0728.HK", "0941.HK"],
     },
     "1211.HK": {
-        "materials": ["3750.HK", "2899.HK", "0868.HK"],
-        "components": ["1316.HK", "0425.HK", "2018.HK"],
-        "assembly": ["0425.HK", "0868.HK", "0179.HK"],  # Tier-1 parts — not rival OEMs
+        # CATL = battery (components), not raw materials; glass stays Tier-1 assembly.
+        "materials": ["2899.HK", "3800.HK"],
+        "components": ["3750.HK", "1316.HK", "2018.HK"],
+        "assembly": ["0425.HK", "0868.HK", "0179.HK"],  # Tier-1 body/chassis — not EMS
         "dealers": ["0881.HK", "1268.HK", "3669.HK"],  # China auto dealerships (中升／美東／永達)
-        "energy": ["3750.HK", "2688.HK", "1193.HK"],
+        # Charging / energy services — no CATL duplicate; thin gas utilities as grid proxies.
+        "energy": ["3800.HK", "2688.HK", "1193.HK"],
     },
     "0941.HK": {
         "equipment": ["0763.HK", "2342.HK", "0522.HK"],
@@ -296,45 +302,59 @@ OVERRIDES: dict[str, dict[str, list[str]]] = {
         "customers": ["9988.HK", "3888.HK", "1398.HK"],
     },
     "0005.HK": {
+        # HKEX OK on funding (capital-markets contra); not on payments / risk-rating.
         "funding": ["0388.HK", "6030.HK", "3908.HK"],
         "tech": ["0700.HK", "9988.HK", "3888.HK"],  # bank cloud/fintech — not SMIC foundry
-        "payments": ["0700.HK", "6060.HK", "0388.HK"],
-        "data-risk": ["0388.HK", "6030.HK", "2799.HK"],
-        "channels": ["6030.HK", "6886.HK", "1788.HK"],
+        # Keep megabank rivals (1398/0939) off stages — use non-rival payment rails.
+        "payments": ["0700.HK", "6060.HK", "3988.HK"],
+        "data-risk": ["6030.HK", "2799.HK", "0700.HK"],
+        # Corporate / institutional clients — not brokers-as-retail-channels.
+        "channels": ["9988.HK", "0700.HK", "1810.HK"],
     },
     "2318.HK": {
-        "reinsurance": ["1508.HK", "6060.HK", "0388.HK"],
-        "data": ["0388.HK", "6030.HK", "0700.HK"],
-        "investments": ["1398.HK", "0939.HK", "0388.HK"],
+        # True reinsurer only — ZhongAn ≈ peer/adjacent; HKEX ≠ reinsurance.
+        "reinsurance": ["1508.HK"],
+        "data": ["6030.HK", "0700.HK", "3888.HK"],
+        "investments": ["1398.HK", "0939.HK", "0388.HK"],  # HKEX OK as capital-markets venue
         "distribution": ["1398.HK", "0939.HK", "3988.HK"],
-        "claims": ["1833.HK", "1093.HK", "1177.HK"],
+        # External pharma / medical — not 1833 Ping An Good Doctor (own ecosystem).
+        "claims": ["1093.HK", "1177.HK"],
     },
     "0388.HK": {
+        # Brokers = exchange members (labels patched in hk mvp builder); not peer venues.
         "venues": ["6030.HK", "6886.HK", "3908.HK"],
-        "data": ["6030.HK", "1788.HK", "3908.HK"],
+        # Settlement / custody banks — not random brokers as "market data".
+        "data": ["0005.HK", "2388.HK", "1398.HK"],
         "tech": ["3888.HK", "0700.HK", "6060.HK"],  # not SMIC
         "buy-side": ["0005.HK", "1299.HK", "2318.HK"],
         "issuers": ["0700.HK", "9988.HK", "1810.HK"],
     },
     "0883.HK": {
-        "services": ["2883.HK", "3337.HK", "1033.HK"],
-        "upstream": ["2883.HK", "3337.HK", "1138.HK"],  # oilfield + crude shipping — not coal/miners
-        "midstream": ["1138.HK", "1919.HK", "0316.HK"],
+        # External OFS only — drop 2883 COSL (CNOOC-group affiliate).
+        "services": ["3337.HK", "1033.HK", "SLB"],
+        # Crude marine logistics stand-in — not affiliate OFS as fake E&P.
+        "upstream": ["1138.HK", "1919.HK", "0316.HK"],
+        "midstream": ["0144.HK", "1138.HK", "1919.HK"],
+        # Sinopec-group plants are external offtakers for CNOOC crude.
         "refining": ["0338.HK", "0934.HK", "2688.HK"],
         "marketing": ["2688.HK", "1193.HK", "0384.HK"],
     },
     "1299.HK": {
-        "reinsurance": ["1508.HK", "6060.HK", "0388.HK"],
-        "data": ["0388.HK", "6030.HK", "0700.HK"],
+        "reinsurance": ["1508.HK"],
+        "data": ["6030.HK", "0700.HK", "3888.HK"],
         "investments": ["0005.HK", "1398.HK", "0388.HK"],
         "distribution": ["0005.HK", "2388.HK", "2888.HK"],
-        "claims": ["1833.HK", "1093.HK", "1177.HK"],
+        # Independent pharma / medical — not rival-ecosystem 1833 Good Doctor.
+        "claims": ["1093.HK", "1177.HK"],
     },
     "0386.HK": {
-        "services": ["1033.HK", "2883.HK", "3337.HK"],
-        "upstream": ["2883.HK", "3337.HK", "1138.HK"],  # not coal/miners as fake upstream
-        "midstream": ["1138.HK", "1919.HK", "0316.HK"],
-        "refining": ["0338.HK", "0934.HK", "2688.HK"],  # 0338 = affiliate plant on stage, not rival
+        # External OFS — drop 1033 Sinopec Oilfield Service (group affiliate).
+        "services": ["2883.HK", "3337.HK", "SLB"],
+        # External crude marine logistics — not affiliate OFS as fake upstream.
+        "upstream": ["1138.HK", "1919.HK", "0316.HK"],
+        "midstream": ["0144.HK", "1138.HK", "1919.HK"],
+        # External gas / chem offtakers — drop 0338 / 0934 group affiliates.
+        "refining": ["2688.HK", "1193.HK", "0384.HK"],
         "marketing": ["2688.HK", "1193.HK", "0384.HK"],
     },
 }

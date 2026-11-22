@@ -42,22 +42,6 @@
           "role_zh": "中國再保險：再保險代表性玩家",
           "role_en": "China Re: representative player in Reinsurance",
           "exchange": "HKEX"
-        },
-        {
-          "ticker": "6060.HK",
-          "name_en": "ZhongAn",
-          "name_zh": "眾安在線",
-          "role_zh": "眾安在線：再保險代表性玩家",
-          "role_en": "ZhongAn: representative player in Reinsurance",
-          "exchange": "HKEX"
-        },
-        {
-          "ticker": "0388.HK",
-          "name_en": "HKEX",
-          "name_zh": "港交所",
-          "role_zh": "港交所：再保險代表性玩家",
-          "role_en": "HKEX: representative player in Reinsurance",
-          "exchange": "HKEX"
         }
       ]
     },
@@ -69,14 +53,6 @@
       "summary_zh": "風險數據與資本評級。",
       "summary_en": "Risk data and capital ratings.",
       "players": [
-        {
-          "ticker": "0388.HK",
-          "name_en": "HKEX",
-          "name_zh": "港交所",
-          "role_zh": "港交所：精算／數據／評級代表性玩家",
-          "role_en": "HKEX: representative player in Actuarial / data / ratings",
-          "exchange": "HKEX"
-        },
         {
           "ticker": "6030.HK",
           "name_en": "CITIC Securities",
@@ -91,6 +67,14 @@
           "name_zh": "騰訊",
           "role_zh": "騰訊：精算／數據／評級代表性玩家",
           "role_en": "Tencent: representative player in Actuarial / data / ratings",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "3888.HK",
+          "name_en": "Kingsoft",
+          "name_zh": "金山軟件",
+          "role_zh": "金山軟件：精算／數據／評級代表性玩家",
+          "role_en": "Kingsoft: representative player in Actuarial / data / ratings",
           "exchange": "HKEX"
         }
       ]
@@ -171,14 +155,6 @@
       "summary_zh": "醫療網絡與理賠處理。",
       "summary_en": "Provider networks and claims ops.",
       "players": [
-        {
-          "ticker": "1833.HK",
-          "name_en": "Ping An Good Doctor",
-          "name_zh": "平安好醫生",
-          "role_zh": "平安好醫生：醫療／理賠服務代表性玩家",
-          "role_en": "Ping An Good Doctor: representative player in Medical / claims services",
-          "exchange": "HKEX"
-        },
         {
           "ticker": "1093.HK",
           "name_en": "CSPC",

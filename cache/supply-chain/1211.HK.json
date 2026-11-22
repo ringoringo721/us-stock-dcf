@@ -23,8 +23,8 @@
     "id": "auto-oem-v1",
     "label_zh": "整車／出行價值鏈",
     "label_en": "Auto OEM / mobility value chain",
-    "description_zh": "原材料 → 電池／關鍵零組件 → 代工／組裝夥伴 → 銷售通路 → 充電／能源服務。",
-    "description_en": "Materials → batteries/components → assembly partners → dealers → charging/energy."
+    "description_zh": "原材料／礦 → 電池與 Tier-1 → 車身／底盤 Tier-1 → 經銷交付 → 充電／能源服務（主自製整車，非 EMS）。",
+    "description_en": "Materials → battery/Tier-1 → body/chassis Tier-1 → dealers → charging/energy (self-assembled OEM, not EMS)."
   },
   "stages": [
     {
@@ -36,14 +36,6 @@
       "summary_en": "Lithium, nickel, steel/aluminum.",
       "players": [
         {
-          "ticker": "3750.HK",
-          "name_en": "CATL",
-          "name_zh": "寧德時代",
-          "role_zh": "寧德時代：原材料／礦產代表性玩家",
-          "role_en": "CATL: representative player in Raw materials / mining",
-          "exchange": "HKEX"
-        },
-        {
           "ticker": "2899.HK",
           "name_en": "Zijin Mining",
           "name_zh": "紫金礦業",
@@ -52,11 +44,11 @@
           "exchange": "HKEX"
         },
         {
-          "ticker": "0868.HK",
-          "name_en": "Xinyi Glass",
-          "name_zh": "信義玻璃",
-          "role_zh": "信義玻璃：原材料／礦產代表性玩家",
-          "role_en": "Xinyi Glass: representative player in Raw materials / mining",
+          "ticker": "3800.HK",
+          "name_en": "GCL Technology",
+          "name_zh": "協鑫科技",
+          "role_zh": "協鑫科技：原材料／礦產代表性玩家",
+          "role_en": "GCL Technology: representative player in Raw materials / mining",
           "exchange": "HKEX"
         }
       ]
@@ -70,19 +62,19 @@
       "summary_en": "Cells, power semis, auto electronics.",
       "players": [
         {
+          "ticker": "3750.HK",
+          "name_en": "CATL",
+          "name_zh": "寧德時代",
+          "role_zh": "寧德時代：電池／電子／汽車半導體代表性玩家",
+          "role_en": "CATL: representative player in Battery / electronics / auto semis",
+          "exchange": "HKEX"
+        },
+        {
           "ticker": "1316.HK",
           "name_en": "Nexteer",
           "name_zh": "耐世特",
           "role_zh": "耐世特：電池／電子／汽車半導體代表性玩家",
           "role_en": "Nexteer: representative player in Battery / electronics / auto semis",
-          "exchange": "HKEX"
-        },
-        {
-          "ticker": "0425.HK",
-          "name_en": "Minth",
-          "name_zh": "敏實集團",
-          "role_zh": "敏實集團：電池／電子／汽車半導體代表性玩家",
-          "role_en": "Minth: representative player in Battery / electronics / auto semis",
           "exchange": "HKEX"
         },
         {
@@ -98,33 +90,33 @@
     {
       "id": "assembly",
       "order": 3,
-      "label_zh": "組裝／合約製造",
-      "label_en": "Assembly / contract manufacturing",
-      "summary_zh": "車體與電子代工夥伴。",
-      "summary_en": "Body and electronics CM partners.",
+      "label_zh": "車身／底盤 Tier-1",
+      "label_en": "Body / chassis Tier-1",
+      "summary_zh": "車身、玻璃與底盤 Tier-1 零件（比亞迪主自製整車，非 EMS 代工段）。",
+      "summary_en": "Body, glass, and chassis Tier-1 — BYD self-assembles; not an EMS stage.",
       "players": [
         {
           "ticker": "0425.HK",
           "name_en": "Minth",
           "name_zh": "敏實集團",
-          "role_zh": "敏實集團：組裝／合約製造代表性玩家",
-          "role_en": "Minth: representative player in Assembly / contract manufacturing",
+          "role_zh": "敏實集團：車身／底盤 Tier-1代表性玩家",
+          "role_en": "Minth: representative player in Body / chassis Tier-1",
           "exchange": "HKEX"
         },
         {
           "ticker": "0868.HK",
           "name_en": "Xinyi Glass",
           "name_zh": "信義玻璃",
-          "role_zh": "信義玻璃：組裝／合約製造代表性玩家",
-          "role_en": "Xinyi Glass: representative player in Assembly / contract manufacturing",
+          "role_zh": "信義玻璃：車身／底盤 Tier-1代表性玩家",
+          "role_en": "Xinyi Glass: representative player in Body / chassis Tier-1",
           "exchange": "HKEX"
         },
         {
           "ticker": "0179.HK",
           "name_en": "Johnson Electric",
           "name_zh": "德昌電機",
-          "role_zh": "德昌電機：組裝／合約製造代表性玩家",
-          "role_en": "Johnson Electric: representative player in Assembly / contract manufacturing",
+          "role_zh": "德昌電機：車身／底盤 Tier-1代表性玩家",
+          "role_en": "Johnson Electric: representative player in Body / chassis Tier-1",
           "exchange": "HKEX"
         }
       ]
@@ -172,11 +164,11 @@
       "summary_en": "Charging networks and energy mgmt.",
       "players": [
         {
-          "ticker": "3750.HK",
-          "name_en": "CATL",
-          "name_zh": "寧德時代",
-          "role_zh": "寧德時代：充電／能源服務代表性玩家",
-          "role_en": "CATL: representative player in Charging / energy services",
+          "ticker": "3800.HK",
+          "name_en": "GCL Technology",
+          "name_zh": "協鑫科技",
+          "role_zh": "協鑫科技：充電／能源服務代表性玩家",
+          "role_en": "GCL Technology: representative player in Charging / energy services",
           "exchange": "HKEX"
         },
         {

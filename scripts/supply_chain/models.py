@@ -1945,10 +1945,10 @@ MODELS: dict[str, dict] = {
             {
                 "id": "fleet",
                 "order": 3,
-                "label_zh": "運力／車隊供給",
-                "label_en": "Fleet / vehicle supply",
-                "summary_zh": "即配與出行車隊相關整車供給。",
-                "summary_en": "Vehicles for delivery / mobility fleets.",
+                "label_zh": "兩輪／運力設備／充電",
+                "label_en": "Two-wheel / fleet equipment / charging",
+                "summary_zh": "即配運力相關的兩輪、車隊設備與充電供給（非乘用車 OEM 假扮車隊）。",
+                "summary_en": "Two-wheelers, fleet equipment, and charging — not passenger-car OEMs as fake fleet.",
             },
             {
                 "id": "merchants",

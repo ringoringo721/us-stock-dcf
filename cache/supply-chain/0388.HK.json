@@ -23,40 +23,40 @@
     "id": "capital-markets-v1",
     "label_zh": "資本市場／投行價值鏈",
     "label_en": "Capital markets / IB value chain",
-    "description_zh": "交易所／清算 → 市場數據 → 科技基礎設施 → 資產管理客戶 → 企業發行人。",
-    "description_en": "Exchanges/clearing → market data → tech infra → asset managers → corporate issuers."
+    "description_zh": "會員／經紀 → 結算／託管銀行 → 交易科技 → 買方資管 → 上市發行人；國際交易所在對手弧。",
+    "description_en": "Members/brokers → settlement/custody banks → trading tech → buy-side → issuers; peer exchanges on rival arc."
   },
   "stages": [
     {
       "id": "venues",
       "order": 1,
-      "label_zh": "交易所／清算",
-      "label_en": "Exchanges / clearing",
-      "summary_zh": "交易場所與 CCP。",
-      "summary_en": "Trading venues and CCPs.",
+      "label_zh": "會員／經紀",
+      "label_en": "Members / brokers",
+      "summary_zh": "交易所會員券商（非其他交易所；國際交易所在對手弧）。",
+      "summary_en": "Exchange member brokers — peer venues stay on the rival arc.",
       "players": [
         {
           "ticker": "6030.HK",
           "name_en": "CITIC Securities",
           "name_zh": "中信證券",
-          "role_zh": "中信證券：交易所／清算代表性玩家",
-          "role_en": "CITIC Securities: representative player in Exchanges / clearing",
+          "role_zh": "中信證券：會員／經紀代表性玩家",
+          "role_en": "CITIC Securities: representative player in Members / brokers",
           "exchange": "HKEX"
         },
         {
           "ticker": "6886.HK",
           "name_en": "Huatai Securities",
           "name_zh": "華泰證券",
-          "role_zh": "華泰證券：交易所／清算代表性玩家",
-          "role_en": "Huatai Securities: representative player in Exchanges / clearing",
+          "role_zh": "華泰證券：會員／經紀代表性玩家",
+          "role_en": "Huatai Securities: representative player in Members / brokers",
           "exchange": "HKEX"
         },
         {
           "ticker": "3908.HK",
           "name_en": "CICC",
           "name_zh": "中金公司",
-          "role_zh": "中金公司：交易所／清算代表性玩家",
-          "role_en": "CICC: representative player in Exchanges / clearing",
+          "role_zh": "中金公司：會員／經紀代表性玩家",
+          "role_en": "CICC: representative player in Members / brokers",
           "exchange": "HKEX"
         }
       ]
@@ -64,33 +64,33 @@
     {
       "id": "data",
       "order": 2,
-      "label_zh": "市場數據／指數",
-      "label_en": "Market data / indices",
-      "summary_zh": "行情、評級與指數授權。",
-      "summary_en": "Quotes, ratings, index licenses.",
+      "label_zh": "結算／託管銀行",
+      "label_en": "Settlement / custody banks",
+      "summary_zh": "清算交收與託管銀行夥伴（非券商假扮市場數據商）。",
+      "summary_en": "Clearing/settlement and custody banks — not brokers as fake data vendors.",
       "players": [
         {
-          "ticker": "6030.HK",
-          "name_en": "CITIC Securities",
-          "name_zh": "中信證券",
-          "role_zh": "中信證券：市場數據／指數代表性玩家",
-          "role_en": "CITIC Securities: representative player in Market data / indices",
+          "ticker": "0005.HK",
+          "name_en": "HSBC",
+          "name_zh": "滙豐",
+          "role_zh": "滙豐：結算／託管銀行代表性玩家",
+          "role_en": "HSBC: representative player in Settlement / custody banks",
           "exchange": "HKEX"
         },
         {
-          "ticker": "1788.HK",
-          "name_en": "Guotai Junan Intl",
-          "name_zh": "國泰君安國際",
-          "role_zh": "國泰君安國際：市場數據／指數代表性玩家",
-          "role_en": "Guotai Junan Intl: representative player in Market data / indices",
+          "ticker": "2388.HK",
+          "name_en": "BOCHK",
+          "name_zh": "中銀香港",
+          "role_zh": "中銀香港：結算／託管銀行代表性玩家",
+          "role_en": "BOCHK: representative player in Settlement / custody banks",
           "exchange": "HKEX"
         },
         {
-          "ticker": "3908.HK",
-          "name_en": "CICC",
-          "name_zh": "中金公司",
-          "role_zh": "中金公司：市場數據／指數代表性玩家",
-          "role_en": "CICC: representative player in Market data / indices",
+          "ticker": "1398.HK",
+          "name_en": "ICBC",
+          "name_zh": "工商銀行",
+          "role_zh": "工商銀行：結算／託管銀行代表性玩家",
+          "role_en": "ICBC: representative player in Settlement / custody banks",
           "exchange": "HKEX"
         }
       ]

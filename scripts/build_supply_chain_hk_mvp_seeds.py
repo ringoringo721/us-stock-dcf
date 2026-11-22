@@ -28,6 +28,7 @@ from scripts.build_supply_chain_mega_seeds import (  # noqa: E402
     build_quotes,
     build_seed,
     load_json,
+    player_role,
     traditionalize,
     validate_seed,
     write_json,
@@ -52,6 +53,94 @@ HUBS: list[str] = [
     "1299.HK",
     "0386.HK",
 ]
+
+# Hub-only stage label/summary patches (keep shared model_id; align labels to curated players).
+HUB_STAGE_LABEL_OVERRIDES: dict[str, dict[str, dict[str, str]]] = {
+    "1211.HK": {
+        "assembly": {
+            "label_zh": "車身／底盤 Tier-1",
+            "label_en": "Body / chassis Tier-1",
+            "summary_zh": "車身、玻璃與底盤 Tier-1 零件（比亞迪主自製整車，非 EMS 代工段）。",
+            "summary_en": "Body, glass, and chassis Tier-1 — BYD self-assembles; not an EMS stage.",
+        },
+    },
+    "0388.HK": {
+        "venues": {
+            "label_zh": "會員／經紀",
+            "label_en": "Members / brokers",
+            "summary_zh": "交易所會員券商（非其他交易所；國際交易所在對手弧）。",
+            "summary_en": "Exchange member brokers — peer venues stay on the rival arc.",
+        },
+        "data": {
+            "label_zh": "結算／託管銀行",
+            "label_en": "Settlement / custody banks",
+            "summary_zh": "清算交收與託管銀行夥伴（非券商假扮市場數據商）。",
+            "summary_en": "Clearing/settlement and custody banks — not brokers as fake data vendors.",
+        },
+    },
+    "9988.HK": {
+        "traffic": {
+            "label_zh": "外部廣告／聯播夥伴",
+            "label_en": "External ads / media partners",
+            "summary_zh": "外部買量／聯播夥伴；主流量仍在自有平台，不把自有流量當上游。",
+            "summary_en": "External paid/media partners — own-platform traffic is not an upstream stage.",
+        },
+        "payments": {
+            "label_zh": "支付／清算（銀行軌道）",
+            "label_en": "Payments / clearing (bank rails)",
+            "summary_zh": "銀行／清算／互聯網保險軌道；交易所≠電商支付。",
+            "summary_en": "Bank/clearing/internet-insurance rails — exchanges are not e-commerce pay.",
+        },
+    },
+}
+
+
+HUB_MODEL_DESCRIPTION_OVERRIDES: dict[str, dict[str, str]] = {
+    "1211.HK": {
+        "description_zh": "原材料／礦 → 電池與 Tier-1 → 車身／底盤 Tier-1 → 經銷交付 → 充電／能源服務（主自製整車，非 EMS）。",
+        "description_en": "Materials → battery/Tier-1 → body/chassis Tier-1 → dealers → charging/energy (self-assembled OEM, not EMS).",
+    },
+    "0388.HK": {
+        "description_zh": "會員／經紀 → 結算／託管銀行 → 交易科技 → 買方資管 → 上市發行人；國際交易所在對手弧。",
+        "description_en": "Members/brokers → settlement/custody banks → trading tech → buy-side → issuers; peer exchanges on rival arc.",
+    },
+}
+
+
+def apply_hub_stage_label_overrides(seed: dict) -> dict:
+    """Relabel selected stages and refresh player roles to match new labels."""
+    ticker = seed.get("ticker") or ""
+    model_patch = HUB_MODEL_DESCRIPTION_OVERRIDES.get(ticker) or {}
+    if model_patch and isinstance(seed.get("model"), dict):
+        if model_patch.get("description_zh"):
+            seed["model"]["description_zh"] = traditionalize(model_patch["description_zh"])
+        if model_patch.get("description_en"):
+            seed["model"]["description_en"] = model_patch["description_en"]
+    overrides = HUB_STAGE_LABEL_OVERRIDES.get(ticker) or {}
+    if not overrides:
+        return seed
+    for stage in seed.get("stages") or []:
+        sid = stage.get("id") or ""
+        patch = overrides.get(sid)
+        if not patch:
+            continue
+        if patch.get("label_zh"):
+            stage["label_zh"] = traditionalize(patch["label_zh"])
+        if patch.get("label_en"):
+            stage["label_en"] = patch["label_en"]
+        if patch.get("summary_zh"):
+            stage["summary_zh"] = traditionalize(patch["summary_zh"])
+        if patch.get("summary_en"):
+            stage["summary_en"] = patch["summary_en"]
+        label_zh = stage["label_zh"]
+        label_en = stage["label_en"]
+        for p in stage.get("players") or []:
+            role_zh, role_en = player_role(
+                label_zh, label_en, p.get("name_zh") or "", p.get("name_en") or ""
+            )
+            p["role_zh"] = role_zh
+            p["role_en"] = role_en
+    return seed
 
 
 def patch_seed_source(seed: dict) -> dict:
@@ -227,6 +316,7 @@ def main() -> int:
             universe_by_ticker,
         )
         seed = patch_seed_source(seed)
+        seed = apply_hub_stage_label_overrides(seed)
         errors = validate_seed(seed)
         if errors:
             failures.append((ticker, errors))

@@ -120,11 +120,11 @@
           "exchange": "HKEX"
         },
         {
-          "ticker": "0388.HK",
-          "name_en": "HKEX",
-          "name_zh": "港交所",
-          "role_zh": "港交所：支付／清算網路代表性玩家",
-          "role_en": "HKEX: representative player in Payments / clearing networks",
+          "ticker": "3988.HK",
+          "name_en": "Bank of China",
+          "name_zh": "中國銀行",
+          "role_zh": "中國銀行：支付／清算網路代表性玩家",
+          "role_en": "Bank of China: representative player in Payments / clearing networks",
           "exchange": "HKEX"
         }
       ]
@@ -137,14 +137,6 @@
       "summary_zh": "信用數據、市場數據與評級。",
       "summary_en": "Credit, market data, ratings.",
       "players": [
-        {
-          "ticker": "0388.HK",
-          "name_en": "HKEX",
-          "name_zh": "港交所",
-          "role_zh": "港交所：數據／風控／評級代表性玩家",
-          "role_en": "HKEX: representative player in Data / risk / ratings",
-          "exchange": "HKEX"
-        },
         {
           "ticker": "6030.HK",
           "name_en": "CITIC Securities",
@@ -160,6 +152,14 @@
           "role_zh": "中國中信金融資產：數據／風控／評級代表性玩家",
           "role_en": "China CITIC Financial AMC: representative player in Data / risk / ratings",
           "exchange": "HKEX"
+        },
+        {
+          "ticker": "0700.HK",
+          "name_en": "Tencent",
+          "name_zh": "騰訊",
+          "role_zh": "騰訊：數據／風控／評級代表性玩家",
+          "role_en": "Tencent: representative player in Data / risk / ratings",
+          "exchange": "HKEX"
         }
       ]
     },
@@ -172,27 +172,27 @@
       "summary_en": "Branches, digital, corporate portals.",
       "players": [
         {
-          "ticker": "6030.HK",
-          "name_en": "CITIC Securities",
-          "name_zh": "中信證券",
-          "role_zh": "中信證券：零售／企業客戶通路代表性玩家",
-          "role_en": "CITIC Securities: representative player in Retail / corporate channels",
+          "ticker": "9988.HK",
+          "name_en": "Alibaba",
+          "name_zh": "阿里巴巴",
+          "role_zh": "阿里巴巴：零售／企業客戶通路代表性玩家",
+          "role_en": "Alibaba: representative player in Retail / corporate channels",
           "exchange": "HKEX"
         },
         {
-          "ticker": "6886.HK",
-          "name_en": "Huatai Securities",
-          "name_zh": "華泰證券",
-          "role_zh": "華泰證券：零售／企業客戶通路代表性玩家",
-          "role_en": "Huatai Securities: representative player in Retail / corporate channels",
+          "ticker": "0700.HK",
+          "name_en": "Tencent",
+          "name_zh": "騰訊",
+          "role_zh": "騰訊：零售／企業客戶通路代表性玩家",
+          "role_en": "Tencent: representative player in Retail / corporate channels",
           "exchange": "HKEX"
         },
         {
-          "ticker": "1788.HK",
-          "name_en": "Guotai Junan Intl",
-          "name_zh": "國泰君安國際",
-          "role_zh": "國泰君安國際：零售／企業客戶通路代表性玩家",
-          "role_en": "Guotai Junan Intl: representative player in Retail / corporate channels",
+          "ticker": "1810.HK",
+          "name_en": "Xiaomi",
+          "name_zh": "小米",
+          "role_zh": "小米：零售／企業客戶通路代表性玩家",
+          "role_en": "Xiaomi: representative player in Retail / corporate channels",
           "exchange": "HKEX"
         }
       ]
