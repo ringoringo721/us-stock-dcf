@@ -11,7 +11,7 @@
     "notes_en": "HK MVP hub curated seed (industry value-chain template + curated rivals). No live supplier API. Dual-listed names prefer .HK. When the major market is China/Asia, stage players and rivals prefer CN/HK/regional listings — not US-company dumps. Competitors follow true product/market rivalry (AAPL lesson).",
     "competitorRationale_zh": "競爭弧只列主力市場真實產品對手；階段玩家與對手分開；雙重上市優先 .HK；中國市場不以美股節點為預設。",
     "competitorRationale_en": "Rival arc = true product rivals in the major market; stages ≠ rivals; dual listings prefer .HK; China-facing hubs are not US-node dumps.",
-    "modelId": "china-superapp-v1",
+    "modelId": "china-platform-builder-v1",
     "references": [
       "Industry model via TICKER_MODEL (HK MVP)",
       "HKEX listings + hk_market_dcf.json hub rows",
@@ -20,26 +20,26 @@
     ]
   },
   "model": {
-    "id": "china-superapp-v1",
-    "label_zh": "中國超級應用價值鏈",
-    "label_en": "China super-app value chain",
-    "description_zh": "雲／網路基建 → 內容／遊戲 IP 上游 → 電信／裝置分發 → 支付清算 → 廣告主／商戶下游。",
-    "description_en": "Cloud/network infra → content/game IP upstream → carrier/device distribution → payment clearing → advertiser/merchant demand."
+    "id": "china-platform-builder-v1",
+    "label_zh": "中國平台建造／運營價值鏈",
+    "label_en": "China platform builder / operator value chain",
+    "description_zh": "雲／網路基建 → 遊戲／IP 創作 → 微信社交圖譜 → 支付軌道 → 廣告主／商戶變現。對手放對手弧。",
+    "description_en": "Cloud/network infra → game/IP creation → WeChat social graph → payment rails → advertiser/merchant monetization. Rivals on rival arc only."
   },
   "stages": [
     {
       "id": "infra",
       "order": 1,
-      "label_zh": "雲端／網路基礎設施",
+      "label_zh": "雲／網路基建",
       "label_en": "Cloud / network infrastructure",
-      "summary_zh": "IDC、雲與移動網路鐵塔等流量底座。",
-      "summary_en": "IDC, cloud, and mobile towers under traffic.",
+      "summary_zh": "跑遊戲、微信與雲服務所需的 IDC／雲／鐵塔底座（成本與企業服務底座，非營收主標籤）。",
+      "summary_en": "IDC/cloud/towers that run games, WeChat, and cloud — cost & enterprise base, not the revenue label.",
       "players": [
         {
           "ticker": "9698.HK",
           "name_en": "GDS",
           "name_zh": "萬國數據",
-          "role_zh": "萬國數據：雲端／網路基礎設施代表性玩家",
+          "role_zh": "萬國數據：雲／網路基建代表性玩家",
           "role_en": "GDS: representative player in Cloud / network infrastructure",
           "exchange": "HKEX"
         },
@@ -47,7 +47,7 @@
           "ticker": "3888.HK",
           "name_en": "Kingsoft",
           "name_zh": "金山軟件",
-          "role_zh": "金山軟件：雲端／網路基礎設施代表性玩家",
+          "role_zh": "金山軟件：雲／網路基建代表性玩家",
           "role_en": "Kingsoft: representative player in Cloud / network infrastructure",
           "exchange": "HKEX"
         },
@@ -55,110 +55,110 @@
           "ticker": "0788.HK",
           "name_en": "China Tower",
           "name_zh": "中國鐵塔",
-          "role_zh": "中國鐵塔：雲端／網路基礎設施代表性玩家",
+          "role_zh": "中國鐵塔：雲／網路基建代表性玩家",
           "role_en": "China Tower: representative player in Cloud / network infrastructure",
           "exchange": "HKEX"
         }
       ]
     },
     {
-      "id": "content-ip",
+      "id": "game-ip",
       "order": 2,
-      "label_zh": "內容／遊戲 IP 上游",
-      "label_en": "Content / game IP upstream",
-      "summary_zh": "網文、音樂與可授權內容／IP 供給（非對手平台）。",
-      "summary_en": "Literature, music, and licensable IP supply (not rival platforms).",
+      "label_zh": "遊戲／IP 創作",
+      "label_en": "Game / IP creation",
+      "summary_zh": "對應 VAS 遊戲現金流：網文 IP、發行／研發夥伴、可改編文化 IP（非網易等對手工作室）。",
+      "summary_en": "VAS games cashflow: literature IP, publish/dev partners, adaptable cultural IP — not rival studios.",
       "players": [
         {
           "ticker": "0772.HK",
           "name_en": "China Literature",
           "name_zh": "閱文集團",
-          "role_zh": "閱文集團：內容／遊戲 IP 上游代表性玩家",
-          "role_en": "China Literature: representative player in Content / game IP upstream",
+          "role_zh": "閱文集團：遊戲／IP 創作代表性玩家",
+          "role_en": "China Literature: representative player in Game / IP creation",
           "exchange": "HKEX"
         },
         {
-          "ticker": "1698.HK",
-          "name_en": "TME",
-          "name_zh": "騰訊音樂",
-          "role_zh": "騰訊音樂：內容／遊戲 IP 上游代表性玩家",
-          "role_en": "TME: representative player in Content / game IP upstream",
+          "ticker": "1119.HK",
+          "name_en": "iDreamSky",
+          "name_zh": "創夢天地",
+          "role_zh": "創夢天地：遊戲／IP 創作代表性玩家",
+          "role_en": "iDreamSky: representative player in Game / IP creation",
           "exchange": "HKEX"
         },
         {
-          "ticker": "3888.HK",
-          "name_en": "Kingsoft",
-          "name_zh": "金山軟件",
-          "role_zh": "金山軟件：內容／遊戲 IP 上游代表性玩家",
-          "role_en": "Kingsoft: representative player in Content / game IP upstream",
+          "ticker": "9992.HK",
+          "name_en": "Pop Mart",
+          "name_zh": "泡泡瑪特",
+          "role_zh": "泡泡瑪特：遊戲／IP 創作代表性玩家",
+          "role_en": "Pop Mart: representative player in Game / IP creation",
           "exchange": "HKEX"
         }
       ]
     },
     {
-      "id": "distribution",
+      "id": "social-graph",
       "order": 3,
-      "label_zh": "電信／裝置分發入口",
-      "label_en": "Carrier / device distribution",
-      "summary_zh": "用戶透過電信與終端裝置進入微信／應用生態。",
-      "summary_en": "Users reach the app via carriers and devices.",
+      "label_zh": "微信社交圖譜／連接",
+      "label_en": "WeChat social graph / reach",
+      "summary_zh": "對應 VAS 社交：掛在微信／QQ 圖譜上的社交娛樂、UGC 工具與終端到達（非對手 App）。",
+      "summary_en": "VAS social: entertainment, UGC tools, and device reach attached to the WeChat/QQ graph — not rival apps.",
       "players": [
         {
-          "ticker": "0941.HK",
-          "name_en": "China Mobile",
-          "name_zh": "中國移動",
-          "role_zh": "中國移動：電信／裝置分發入口代表性玩家",
-          "role_en": "China Mobile: representative player in Carrier / device distribution",
+          "ticker": "1698.HK",
+          "name_en": "TME",
+          "name_zh": "騰訊音樂",
+          "role_zh": "騰訊音樂：微信社交圖譜／連接代表性玩家",
+          "role_en": "TME: representative player in WeChat social graph / reach",
           "exchange": "HKEX"
         },
         {
-          "ticker": "0762.HK",
-          "name_en": "China Unicom",
-          "name_zh": "中國聯通",
-          "role_zh": "中國聯通：電信／裝置分發入口代表性玩家",
-          "role_en": "China Unicom: representative player in Carrier / device distribution",
+          "ticker": "1357.HK",
+          "name_en": "Meitu",
+          "name_zh": "美圖",
+          "role_zh": "美圖：微信社交圖譜／連接代表性玩家",
+          "role_en": "Meitu: representative player in WeChat social graph / reach",
           "exchange": "HKEX"
         },
         {
           "ticker": "1810.HK",
           "name_en": "Xiaomi",
           "name_zh": "小米",
-          "role_zh": "小米：電信／裝置分發入口代表性玩家",
-          "role_en": "Xiaomi: representative player in Carrier / device distribution",
+          "role_zh": "小米：微信社交圖譜／連接代表性玩家",
+          "role_en": "Xiaomi: representative player in WeChat social graph / reach",
           "exchange": "HKEX"
         }
       ]
     },
     {
-      "id": "fintech",
+      "id": "payments",
       "order": 4,
-      "label_zh": "支付／清算金融基礎設施",
-      "label_en": "Payments / clearing rails",
-      "summary_zh": "微信支付背後的銀行結算、清算與互聯網保險軌道。",
-      "summary_en": "Bank settlement, clearing, and internet-insurance rails for WeChat Pay.",
+      "label_zh": "支付／清算軌道",
+      "label_en": "Payment / clearing rails",
+      "summary_zh": "對應 FinTech：微信支付背後的銀行結算與互聯網保險軌道。",
+      "summary_en": "FinTech: bank settlement and internet-insurance rails under WeChat Pay.",
       "players": [
         {
           "ticker": "0005.HK",
           "name_en": "HSBC",
           "name_zh": "滙豐",
-          "role_zh": "滙豐：支付／清算金融基礎設施代表性玩家",
-          "role_en": "HSBC: representative player in Payments / clearing rails",
+          "role_zh": "滙豐：支付／清算軌道代表性玩家",
+          "role_en": "HSBC: representative player in Payment / clearing rails",
           "exchange": "HKEX"
         },
         {
           "ticker": "1398.HK",
           "name_en": "ICBC",
           "name_zh": "工商銀行",
-          "role_zh": "工商銀行：支付／清算金融基礎設施代表性玩家",
-          "role_en": "ICBC: representative player in Payments / clearing rails",
+          "role_zh": "工商銀行：支付／清算軌道代表性玩家",
+          "role_en": "ICBC: representative player in Payment / clearing rails",
           "exchange": "HKEX"
         },
         {
           "ticker": "6060.HK",
           "name_en": "ZhongAn",
           "name_zh": "眾安在線",
-          "role_zh": "眾安在線：支付／清算金融基礎設施代表性玩家",
-          "role_en": "ZhongAn: representative player in Payments / clearing rails",
+          "role_zh": "眾安在線：支付／清算軌道代表性玩家",
+          "role_en": "ZhongAn: representative player in Payment / clearing rails",
           "exchange": "HKEX"
         }
       ]
@@ -166,33 +166,33 @@
     {
       "id": "advertisers",
       "order": 5,
-      "label_zh": "廣告主／小程序商戶下游",
-      "label_en": "Advertisers / mini-program merchants",
-      "summary_zh": "在朋友圈／小程序投放或經營的品牌與商戶代表。",
-      "summary_en": "Brand advertisers and mini-program merchants downstream.",
+      "label_zh": "廣告主／商戶下游",
+      "label_en": "Advertisers / merchants downstream",
+      "summary_zh": "對應營銷服務：朋友圈／小程序的品牌廣告主與消費商戶。",
+      "summary_en": "Marketing Services: Moments/mini-program brand advertisers and consumer merchants.",
       "players": [
         {
           "ticker": "2020.HK",
           "name_en": "ANTA",
           "name_zh": "安踏",
-          "role_zh": "安踏：廣告主／小程序商戶下游代表性玩家",
-          "role_en": "ANTA: representative player in Advertisers / mini-program merchants",
+          "role_zh": "安踏：廣告主／商戶下游代表性玩家",
+          "role_en": "ANTA: representative player in Advertisers / merchants downstream",
           "exchange": "HKEX"
         },
         {
           "ticker": "2331.HK",
           "name_en": "Li Ning",
           "name_zh": "李寧",
-          "role_zh": "李寧：廣告主／小程序商戶下游代表性玩家",
-          "role_en": "Li Ning: representative player in Advertisers / mini-program merchants",
+          "role_zh": "李寧：廣告主／商戶下游代表性玩家",
+          "role_en": "Li Ning: representative player in Advertisers / merchants downstream",
           "exchange": "HKEX"
         },
         {
           "ticker": "2319.HK",
           "name_en": "Mengniu",
           "name_zh": "蒙牛",
-          "role_zh": "蒙牛：廣告主／小程序商戶下游代表性玩家",
-          "role_en": "Mengniu: representative player in Advertisers / mini-program merchants",
+          "role_zh": "蒙牛：廣告主／商戶下游代表性玩家",
+          "role_en": "Mengniu: representative player in Advertisers / merchants downstream",
           "exchange": "HKEX"
         }
       ]

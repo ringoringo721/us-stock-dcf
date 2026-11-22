@@ -340,11 +340,12 @@ MODELS: dict[str, dict] = {
         ],
     },
     # China super-app (Tencent-class): WeChat/games/ads/fintech flow — not US internet dump.
+    # Legacy label kept for older seeds; 0700 uses china-platform-builder-v1.
     "china-superapp-v1": {
-        "label_zh": "中國超級應用價值鏈",
-        "label_en": "China super-app value chain",
-        "description_zh": "雲／網路基建 → 內容／遊戲 IP 上游 → 電信／裝置分發 → 支付清算 → 廣告主／商戶下游。",
-        "description_en": "Cloud/network infra → content/game IP upstream → carrier/device distribution → payment clearing → advertiser/merchant demand.",
+        "label_zh": "中國超級應用價值鏈（舊）",
+        "label_en": "China super-app value chain (legacy)",
+        "description_zh": "舊模板：基建 → IP → 分發 → 支付 → 廣告。0700 已改用 china-platform-builder-v1。",
+        "description_en": "Legacy template. 0700 now uses china-platform-builder-v1.",
         "stages": [
             {
                 "id": "infra",
@@ -385,6 +386,56 @@ MODELS: dict[str, dict] = {
                 "label_en": "Advertisers / mini-program merchants",
                 "summary_zh": "在朋友圈／小程序投放或經營的品牌與商戶代表。",
                 "summary_en": "Brand advertisers and mini-program merchants downstream.",
+            },
+        ],
+    },
+    # Tencent-class: builds platforms (games, WeChat, WeChat Pay) — not a carrier-distributed app dump.
+    # Revenue anchor FY2025: VAS~49% (games~32% + social~17%), FinTech~31%, Marketing~19%.
+    "china-platform-builder-v1": {
+        "label_zh": "中國平台建造／運營價值鏈",
+        "label_en": "China platform builder / operator value chain",
+        "description_zh": "雲／網路基建 → 遊戲／IP 創作 → 微信社交圖譜 → 支付軌道 → 廣告主／商戶變現。對手放對手弧。",
+        "description_en": "Cloud/network infra → game/IP creation → WeChat social graph → payment rails → advertiser/merchant monetization. Rivals on rival arc only.",
+        "stages": [
+            {
+                "id": "infra",
+                "order": 1,
+                "label_zh": "雲／網路基建",
+                "label_en": "Cloud / network infrastructure",
+                "summary_zh": "跑遊戲、微信與雲服務所需的 IDC／雲／鐵塔底座（成本與企業服務底座，非營收主標籤）。",
+                "summary_en": "IDC/cloud/towers that run games, WeChat, and cloud — cost & enterprise base, not the revenue label.",
+            },
+            {
+                "id": "game-ip",
+                "order": 2,
+                "label_zh": "遊戲／IP 創作",
+                "label_en": "Game / IP creation",
+                "summary_zh": "對應 VAS 遊戲現金流：網文 IP、發行／研發夥伴、可改編文化 IP（非網易等對手工作室）。",
+                "summary_en": "VAS games cashflow: literature IP, publish/dev partners, adaptable cultural IP — not rival studios.",
+            },
+            {
+                "id": "social-graph",
+                "order": 3,
+                "label_zh": "微信社交圖譜／連接",
+                "label_en": "WeChat social graph / reach",
+                "summary_zh": "對應 VAS 社交：掛在微信／QQ 圖譜上的社交娛樂、UGC 工具與終端到達（非對手 App）。",
+                "summary_en": "VAS social: entertainment, UGC tools, and device reach attached to the WeChat/QQ graph — not rival apps.",
+            },
+            {
+                "id": "payments",
+                "order": 4,
+                "label_zh": "支付／清算軌道",
+                "label_en": "Payment / clearing rails",
+                "summary_zh": "對應 FinTech：微信支付背後的銀行結算與互聯網保險軌道。",
+                "summary_en": "FinTech: bank settlement and internet-insurance rails under WeChat Pay.",
+            },
+            {
+                "id": "advertisers",
+                "order": 5,
+                "label_zh": "廣告主／商戶下游",
+                "label_en": "Advertisers / merchants downstream",
+                "summary_zh": "對應營銷服務：朋友圈／小程序的品牌廣告主與消費商戶。",
+                "summary_en": "Marketing Services: Moments/mini-program brand advertisers and consumer merchants.",
             },
         ],
     },
@@ -2793,7 +2844,7 @@ TICKER_MODEL: dict[str, str] = {
     "HL": "precious-metals-v1",
     "CDE": "precious-metals-v1",
     # HK MVP hubs (GICS labels miss INDUSTRY_MODEL — force explicit models)
-    "0700.HK": "china-superapp-v1",
+    "0700.HK": "china-platform-builder-v1",
     "9988.HK": "ecommerce-retail-v1",
     "3690.HK": "china-local-life-v1",
     "1810.HK": "hardware-value-chain-v1",

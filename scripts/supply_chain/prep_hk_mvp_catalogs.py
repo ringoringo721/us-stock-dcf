@@ -146,6 +146,9 @@ ENTITIES: dict[str, dict[str, str]] = {
     "0881.HK": {"name_en": "Zhongsheng", "name_zh": "中升控股", "exchange": "HKEX"},
     "1268.HK": {"name_en": "Meidong Auto", "name_zh": "美東汽車", "exchange": "HKEX"},
     "3669.HK": {"name_en": "Yongda Auto", "name_zh": "永達汽車", "exchange": "HKEX"},
+    "1119.HK": {"name_en": "iDreamSky", "name_zh": "創夢天地", "exchange": "HKEX"},
+    "9992.HK": {"name_en": "Pop Mart", "name_zh": "泡泡瑪特", "exchange": "HKEX"},
+    "1357.HK": {"name_en": "Meitu", "name_zh": "美圖", "exchange": "HKEX"},
 }
 
 # Default players for china-local-life-v1
@@ -238,23 +241,23 @@ COMPETITORS: dict[str, list[list[str]]] = {
     ],
 }
 
-# Default players for china-superapp-v1 (also written into sc_players.json).
-CHINA_SUPERAPP_PLAYERS: dict[str, list[str]] = {
+# Default players for china-platform-builder-v1 (also written into sc_players.json).
+CHINA_PLATFORM_BUILDER_PLAYERS: dict[str, list[str]] = {
     "infra": ["9698.HK", "3888.HK", "0788.HK"],
-    "content-ip": ["0772.HK", "1698.HK", "3888.HK"],  # 閱文／騰訊音樂／金山內容工具
-    "distribution": ["0941.HK", "0762.HK", "1810.HK"],
-    "fintech": ["0005.HK", "1398.HK", "6060.HK"],
+    "game-ip": ["0772.HK", "1119.HK", "9992.HK"],  # 閱文 IP／創夢發行研發／泡泡瑪特文化 IP
+    "social-graph": ["1698.HK", "1357.HK", "1810.HK"],  # TME 社交娛樂／美圖 UGC／小米終端到達
+    "payments": ["0005.HK", "1398.HK", "6060.HK"],
     "advertisers": ["2020.HK", "2331.HK", "2319.HK"],
 }
 
 # Stage players: must fit the stage role for China/HK major market; rivals≠stage.
 OVERRIDES: dict[str, dict[str, list[str]]] = {
     "0700.HK": {
-        # china-superapp-v1 — WeChat/games/ads/fintech flow (not US internet dump).
+        # china-platform-builder-v1 — builds games/WeChat/WeChat Pay; FY2025 VAS~49 / FinTech~31 / Marketing~19.
         "infra": ["9698.HK", "3888.HK", "0788.HK"],
-        "content-ip": ["0772.HK", "1698.HK", "3888.HK"],
-        "distribution": ["0941.HK", "0762.HK", "1810.HK"],
-        "fintech": ["0005.HK", "1398.HK", "6060.HK"],
+        "game-ip": ["0772.HK", "1119.HK", "9992.HK"],
+        "social-graph": ["1698.HK", "1357.HK", "1810.HK"],
+        "payments": ["0005.HK", "1398.HK", "6060.HK"],
         "advertisers": ["2020.HK", "2331.HK", "2319.HK"],
     },
     "9988.HK": {
@@ -364,7 +367,9 @@ def main() -> int:
     for hub, stages in OVERRIDES.items():
         overrides[hub] = {sid: list(ticks) for sid, ticks in stages.items()}
 
-    players["china-superapp-v1"] = {sid: list(ticks) for sid, ticks in CHINA_SUPERAPP_PLAYERS.items()}
+    players["china-platform-builder-v1"] = {
+        sid: list(ticks) for sid, ticks in CHINA_PLATFORM_BUILDER_PLAYERS.items()
+    }
     players["china-local-life-v1"] = {sid: list(ticks) for sid, ticks in CHINA_LOCAL_LIFE_PLAYERS.items()}
 
     ENT_PATH.write_text(json.dumps(entities, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -373,7 +378,7 @@ def main() -> int:
     PLAYERS_PATH.write_text(json.dumps(players, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(
         f"Updated entities(+{len(ENTITIES)}), competitors hubs={len(COMPETITORS)}, "
-        f"overrides hubs={len(OVERRIDES)}, china-superapp + china-local-life players"
+        f"overrides hubs={len(OVERRIDES)}, china-platform-builder + china-local-life players"
     )
     return 0
 
