@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build a ~30s Cantonese YouTube ad for 美股 DCF 估值雷達."""
+"""Build a lively ~30s Cantonese presenter YouTube ad for 美股 DCF 估值雷達."""
 
 from __future__ import annotations
 
@@ -7,316 +7,421 @@ import math
 import subprocess
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont
 
 ROOT = Path(__file__).resolve().parent
-WORK = Path("/tmp/dcf-ad")
+ASSETS = ROOT / "assets"
+WORK = Path("/tmp/dcf-ad2")
 W, H = 1920, 1080
 FPS = 30
 
-BG = (5, 8, 14)
 ACCENT = (56, 189, 248)
 GREEN = (74, 222, 128)
 GOLD = (251, 191, 36)
-TEXT = (250, 250, 250)
-MUTED = (163, 163, 163)
-CARD = (18, 22, 30)
+WHITE = (255, 255, 255)
+MUTED = (210, 220, 230)
 
-FONT_PATH = "/usr/share/fonts/truetype/wqy/wqy-microhei.ttc"
+FONT = "/usr/share/fonts/truetype/wqy/wqy-microhei.ttc"
 
 
 def font(size: int) -> ImageFont.FreeTypeFont:
-    return ImageFont.truetype(FONT_PATH, size=size)
+    return ImageFont.truetype(FONT, size=size)
 
 
-def draw_bg(base_shift: float = 0.0) -> Image.Image:
-    img = Image.new("RGB", (W, H), BG)
-    px = img.load()
-    for y in range(H):
-        t = y / H
-        r = int(5 + 18 * t)
-        g = int(8 + 28 * t)
-        b = int(14 + 42 * t)
-        for x in range(W):
-            wave = 0.5 + 0.5 * math.sin((x / W) * math.pi * 2 + base_shift)
-            px[x, y] = (
-                min(255, int(r + 10 * wave * (1 - t))),
-                min(255, int(g + 18 * wave * (1 - t))),
-                min(255, int(b + 30 * wave * (1 - t))),
-            )
-    overlay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    d = ImageDraw.Draw(overlay)
-    # Soft spotlight behind brand
-    for i, alpha in enumerate((55, 35, 18)):
-        r = 420 - i * 70
-        d.ellipse(
-            [W // 2 - r, 140 - i * 20, W // 2 + r, 520 + i * 20],
-            fill=(56, 189, 248, alpha),
-        )
-    # Diagonal scan lines for a radar feel
-    for i in range(-2, 8):
-        y0 = 180 + i * 120
-        d.line([(0, y0), (W, y0 + 80)], fill=(56, 189, 248, 18), width=2)
-    img = Image.alpha_composite(img.convert("RGBA"), overlay).convert("RGB")
-    return img
+def load_presenter(name: str) -> Image.Image:
+    img = Image.open(ASSETS / name).convert("RGB")
+    # Cover-crop to 16:9 1920x1080
+    src_w, src_h = img.size
+    target = W / H
+    if src_w / src_h > target:
+        new_w = int(src_h * target)
+        left = (src_w - new_w) // 2
+        img = img.crop((left, 0, left + new_w, src_h))
+    else:
+        new_h = int(src_w / target)
+        top = max(0, (src_h - new_h) // 3)  # bias upward to keep face
+        img = img.crop((0, top, src_w, top + new_h))
+    return img.resize((W, H), Image.Resampling.LANCZOS)
 
 
-def center_text(
-    draw: ImageDraw.ImageDraw,
+def vignette(img: Image.Image, strength: float = 0.45) -> Image.Image:
+    overlay = Image.new("RGB", (W, H), (0, 0, 0))
+    # Radial falloff from center
+    mask = Image.new("L", (W, H), 0)
+    md = ImageDraw.Draw(mask)
+    cx, cy = W // 2, H // 2
+    max_r = int(math.hypot(cx, cy))
+    for i in range(48, 0, -1):
+        r = int(max_r * i / 48)
+        # Outer rings darker (higher mask => more black overlay)
+        alpha = int(255 * strength * ((48 - i) / 48) ** 1.35)
+        md.ellipse([cx - r, cy - r, cx + r, cy + r], fill=alpha)
+    mask = mask.filter(ImageFilter.GaussianBlur(28))
+    return Image.composite(overlay, img, mask)
+
+
+def draw_caption(
+    base: Image.Image,
     text: str,
-    y: int,
-    fnt: ImageFont.FreeTypeFont,
-    fill=TEXT,
-    max_width: int = 1600,
-) -> int:
-    words = list(text)
-    # Prefer wrapping on punctuation / spaces for CJK lines provided as wholes.
-    lines = []
-    if draw.textlength(text, font=fnt) <= max_width:
+    *,
+    y: int = 820,
+    size: int = 64,
+    fill=WHITE,
+    accent_bar: bool = True,
+) -> Image.Image:
+    img = base.copy()
+    # Dark gradient banner for readability
+    banner = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    bd = ImageDraw.Draw(banner)
+    for i in range(280):
+        a = int(190 * (i / 280) ** 0.7)
+        bd.rectangle([0, H - 280 + i, W, H - 279 + i], fill=(4, 10, 18, a))
+    img = Image.alpha_composite(img.convert("RGBA"), banner).convert("RGB")
+    d = ImageDraw.Draw(img)
+    f = font(size)
+    # Soft wrap
+    max_w = 1680
+    lines: list[str] = []
+    if d.textlength(text, font=f) <= max_w:
         lines = [text]
     else:
-        # Character wrap
         cur = ""
-        for ch in words:
+        for ch in text:
             trial = cur + ch
-            if draw.textlength(trial, font=fnt) <= max_width:
+            if d.textlength(trial, font=f) <= max_w:
                 cur = trial
             else:
-                if cur:
-                    lines.append(cur)
+                lines.append(cur)
                 cur = ch
         if cur:
             lines.append(cur)
+    total_h = len(lines) * (size + 14)
+    ty = y - total_h // 2
+    if accent_bar:
+        d.rectangle([80, ty - 18, 92, ty + total_h + 8], fill=ACCENT)
     for i, line in enumerate(lines):
-        tw = draw.textlength(line, font=fnt)
-        draw.text(((W - tw) / 2, y + i * (fnt.size + 18)), line, font=fnt, fill=fill)
-    return len(lines)
-
-
-def scene_hook() -> Image.Image:
-    img = draw_bg(0.2)
-    d = ImageDraw.Draw(img)
-    center_text(d, "仲喺度靠感覺買股？", 430, font(84), TEXT)
-    sub = "情緒買賣，未必夠穩陣"
-    tw = d.textlength(sub, font=font(40))
-    d.text(((W - tw) / 2, 560), sub, font=font(40), fill=MUTED)
+        # Shadow
+        d.text((118, ty + i * (size + 14) + 3), line, font=f, fill=(0, 0, 0))
+        d.text((116, ty + i * (size + 14)), line, font=f, fill=fill)
     return img
 
 
-def scene_brand() -> Image.Image:
-    img = draw_bg(0.8)
-    d = ImageDraw.Draw(img)
-    brand = "美股 DCF 估值雷達"
-    tw = d.textlength(brand, font=font(92))
-    d.text(((W - tw) / 2, 360), brand, font=font(92), fill=TEXT)
-    # Accent underline
-    d.rectangle([W // 2 - 220, 480, W // 2 + 220, 486], fill=ACCENT)
-    line = "一秒睇穿低估定高估"
-    tw = d.textlength(line, font=font(52))
-    d.text(((W - tw) / 2, 520), line, font=font(52), fill=ACCENT)
-    tag = "估值篩選  ·  公司財報  ·  趨勢分析"
-    tw = d.textlength(tag, font=font(34))
-    d.text(((W - tw) / 2, 620), tag, font=font(34), fill=MUTED)
-    return img
+def draw_brand_chip(img: Image.Image, x: int = 70, y: int = 60) -> Image.Image:
+    out = img.copy()
+    d = ImageDraw.Draw(out)
+    label = "美股 DCF 估值雷達"
+    f = font(34)
+    tw = d.textlength(label, font=f)
+    d.rounded_rectangle([x, y, x + tw + 48, y + 64], radius=18, fill=(8, 16, 28), outline=ACCENT, width=3)
+    d.text((x + 24, y + 12), label, font=f, fill=ACCENT)
+    return out
 
 
-def scene_features() -> Image.Image:
-    img = draw_bg(1.4)
-    d = ImageDraw.Draw(img)
-    title = "美股 + 港股，一站搞掂"
-    tw = d.textlength(title, font=font(64))
-    d.text(((W - tw) / 2, 220), title, font=font(64), fill=TEXT)
-
+def feature_cards(base: Image.Image) -> Image.Image:
+    img = base.copy().convert("RGBA")
     cards = [
-        ("DCF 估值", "指示 / 槓桿 DCF\n低估高估一眼清", GREEN),
-        ("巴菲特護城河", "十大維度診斷\n睇清競爭優勢", GOLD),
-        ("智資動態", "機構動向追蹤\n掌握市場信號", ACCENT),
+        ("DCF 估值", "低估／高估一眼清", GREEN),
+        ("巴菲特護城河", "十大維度診斷", GOLD),
+        ("智資動態", "掌握機構信號", ACCENT),
     ]
-    card_w, card_h = 480, 320
-    gap = 60
+    card_w, card_h = 420, 180
+    gap = 36
     total = 3 * card_w + 2 * gap
     x0 = (W - total) // 2
-    y0 = 360
-    for i, (h, body, color) in enumerate(cards):
+    y0 = 120
+    overlay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    od = ImageDraw.Draw(overlay)
+    for i, (title, body, color) in enumerate(cards):
         x = x0 + i * (card_w + gap)
-        # Card background
-        overlay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-        od = ImageDraw.Draw(overlay)
         od.rounded_rectangle(
             [x, y0, x + card_w, y0 + card_h],
-            radius=28,
-            fill=(18, 22, 30, 220),
-            outline=(*color, 200),
-            width=3,
+            radius=24,
+            fill=(8, 14, 24, 230),
+            outline=(*color, 255),
+            width=4,
         )
-        img = Image.alpha_composite(img.convert("RGBA"), overlay).convert("RGB")
-        d = ImageDraw.Draw(img)
-        d.text((x + 36, y0 + 40), h, font=font(42), fill=color)
-        by = y0 + 120
-        for line in body.split("\n"):
-            d.text((x + 36, by), line, font=font(34), fill=TEXT)
-            by += 56
-    return img
+        od.text((x + 28, y0 + 34), title, font=font(40), fill=color)
+        od.text((x + 28, y0 + 100), body, font=font(30), fill=WHITE)
+    return Image.alpha_composite(img, overlay).convert("RGB")
 
 
-def scene_cta() -> Image.Image:
-    img = draw_bg(2.0)
+def cta_button(base: Image.Image, text: str = "即刻打開美股 DCF 估值雷達") -> Image.Image:
+    img = base.copy()
     d = ImageDraw.Draw(img)
-    line1 = "用數據投資，唔好靠運氣"
-    tw = d.textlength(line1, font=font(68))
-    d.text(((W - tw) / 2, 340), line1, font=font(68), fill=TEXT)
-
-    # CTA button
-    cta = "即刻打開美股 DCF 估值雷達"
     f = font(44)
-    tw = d.textlength(cta, font=f)
-    bw, bh = tw + 100, 96
-    bx, by = (W - bw) // 2, 480
-    d.rounded_rectangle([bx, by, bx + bw, by + bh], radius=20, fill=ACCENT)
-    d.text((bx + 50, by + 22), cta, font=f, fill=(0, 0, 0))
-
-    tip = "開始你嘅價值投資之路"
-    tw = d.textlength(tip, font=font(36))
-    d.text(((W - tw) / 2, 620), tip, font=font(36), fill=MUTED)
+    tw = d.textlength(text, font=f)
+    bw, bh = tw + 90, 92
+    bx, by = (W - bw) // 2, 760
+    # Glow
+    glow = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    gd = ImageDraw.Draw(glow)
+    gd.rounded_rectangle([bx - 10, by - 10, bx + bw + 10, by + bh + 10], radius=26, fill=(*ACCENT, 70))
+    img = Image.alpha_composite(img.convert("RGBA"), glow).convert("RGB")
+    d = ImageDraw.Draw(img)
+    d.rounded_rectangle([bx, by, bx + bw, by + bh], radius=22, fill=ACCENT)
+    d.text((bx + 45, by + 20), text, font=f, fill=(0, 0, 0))
     return img
 
 
-def scene_disclaimer() -> Image.Image:
-    img = draw_bg(2.4)
+def end_card() -> Image.Image:
+    img = Image.new("RGB", (W, H), (5, 10, 18))
+    px = img.load()
+    for y in range(H):
+        for x in range(0, W, 4):
+            t = y / H
+            c = (
+                int(5 + 20 * (1 - t)),
+                int(10 + 30 * (1 - t)),
+                int(18 + 45 * (1 - t)),
+            )
+            for dx in range(4):
+                if x + dx < W:
+                    px[x + dx, y] = c
+    d = ImageDraw.Draw(img)
+    # Soft orb
+    orb = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    od = ImageDraw.Draw(orb)
+    for r, a in ((420, 50), (300, 70), (180, 90)):
+        od.ellipse([W // 2 - r, 220 - r // 4, W // 2 + r, 520 + r // 4], fill=(56, 189, 248, a))
+    img = Image.alpha_composite(img.convert("RGBA"), orb).convert("RGB")
     d = ImageDraw.Draw(img)
     brand = "美股 DCF 估值雷達"
-    tw = d.textlength(brand, font=font(72))
-    d.text(((W - tw) / 2, 400), brand, font=font(72), fill=TEXT)
+    tw = d.textlength(brand, font=font(86))
+    d.text(((W - tw) / 2, 360), brand, font=font(86), fill=WHITE)
+    d.rectangle([W // 2 - 180, 470, W // 2 + 180, 476], fill=ACCENT)
+    tip = "用數據投資，唔好靠運氣"
+    tw = d.textlength(tip, font=font(44))
+    d.text(((W - tw) / 2, 520), tip, font=font(44), fill=ACCENT)
     note = "投資涉及風險，請自行判斷"
-    tw = d.textlength(note, font=font(40))
-    d.text(((W - tw) / 2, 520), note, font=font(40), fill=MUTED)
+    tw = d.textlength(note, font=font(34))
+    d.text(((W - tw) / 2, 620), note, font=font(34), fill=MUTED)
     return img
 
 
 def write_scenes() -> list[tuple[Path, float]]:
     WORK.mkdir(parents=True, exist_ok=True)
-    scenes = [
-        (scene_hook(), "01_hook.png", 2.7),
-        (scene_brand(), "02_brand.png", 5.0),
-        (scene_features(), "03_features.png", 6.8),
-        (scene_cta(), "04_cta.png", 8.0),
-        (scene_disclaimer(), "05_disclaimer.png", 7.5),  # end hold pads to 30s
+    p_smile = vignette(load_presenter("presenter-speak-01.jpg"))
+    p_talk = vignette(load_presenter("presenter-speak-02.jpg"))
+    p_point = vignette(load_presenter("presenter-point-03.jpg"))
+    p_lively = vignette(load_presenter("presenter-lively-04.jpg"))
+
+    scenes: list[tuple[Image.Image, str, float]] = [
+        # Hook
+        (draw_caption(draw_brand_chip(p_lively), "喂！", y=760, size=120), "01.png", 1.15),
+        (draw_caption(draw_brand_chip(p_talk), "你仲喺度靠感覺買股呀？", y=820, size=58), "02.png", 2.65),
+        # Brand intro
+        (
+            draw_caption(
+                draw_brand_chip(p_smile),
+                "等我介紹吓——美股 DCF 估值雷達！",
+                y=820,
+                size=52,
+                fill=ACCENT,
+            ),
+            "03.png",
+            3.5,
+        ),
+        # Value
+        (
+            draw_caption(draw_brand_chip(p_talk), "一秒睇穿低估定高估 · 美股港股都齊全", y=820, size=50),
+            "04.png",
+            4.45,
+        ),
+        # Features with cards
+        (
+            draw_caption(
+                feature_cards(draw_brand_chip(p_point)),
+                "DCF 估值、護城河、智資動態，一站搞掂",
+                y=860,
+                size=46,
+            ),
+            "05.png",
+            5.0,
+        ),
+        # Energy CTA line
+        (
+            draw_caption(draw_brand_chip(p_lively), "用數據投資，唔好靠運氣啦！", y=820, size=58, fill=GREEN),
+            "06.png",
+            3.05,
+        ),
+        # CTA button
+        (
+            cta_button(draw_caption(draw_brand_chip(p_smile), "開始你嘅價值投資之路", y=680, size=44, accent_bar=False)),
+            "07.png",
+            4.75,
+        ),
+        # End
+        (end_card(), "08.png", 5.45),
     ]
-    out = []
+
+    out: list[tuple[Path, float]] = []
     for img, name, dur in scenes:
+        # Slight punchier contrast for ad feel
+        img = ImageEnhance.Contrast(img).enhance(1.08)
+        img = ImageEnhance.Color(img).enhance(1.05)
         path = WORK / name
-        img.save(path, "PNG")
+        img.save(path, "PNG", optimize=True)
         out.append((path, dur))
     return out
 
 
-def build_video(scenes: list[tuple[Path, float]], voice: Path, out_mp4: Path) -> None:
-    # Build concat list with durations
-    list_file = WORK / "scenes.txt"
-    lines = []
-    for path, dur in scenes:
-        lines.append(f"file '{path}'")
-        lines.append(f"duration {dur:.3f}")
-    # Last frame must be repeated for concat demuxer
-    lines.append(f"file '{scenes[-1][0]}'")
-    list_file.write_text("\n".join(lines) + "\n", encoding="utf-8")
+def build_silent_video(scenes: list[tuple[Path, float]], out_path: Path) -> None:
+    # Per-scene zoompan for lively motion, then concat
+    parts: list[Path] = []
+    for i, (path, dur) in enumerate(scenes):
+        frames = max(1, int(round(dur * FPS)))
+        part = WORK / f"part_{i:02d}.mp4"
+        # Alternate zoom direction for energy
+        if i % 2 == 0:
+            z = f"min(zoom+0.0009,1.12)"
+            x = "iw/2-(iw/zoom/2)"
+            y = "ih/2-(ih/zoom/2)-20"
+        else:
+            z = f"if(eq(on,1),1.10,max(zoom-0.0008,1.0))"
+            x = "iw/2-(iw/zoom/2)+10"
+            y = "ih/2-(ih/zoom/2)"
+        vf = (
+            f"scale=8000:-1,zoompan=z='{z}':x='{x}':y='{y}':d={frames}:s={W}x{H}:fps={FPS},"
+            f"format=yuv420p"
+        )
+        subprocess.run(
+            [
+                "ffmpeg", "-y", "-loop", "1", "-i", str(path),
+                "-vf", vf, "-frames:v", str(frames),
+                "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "18",
+                str(part),
+            ],
+            check=True,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        )
+        parts.append(part)
 
-    silent_video = WORK / "video_silent.mp4"
+    concat = WORK / "parts.txt"
+    concat.write_text("".join(f"file '{p}'\n" for p in parts), encoding="utf-8")
     subprocess.run(
         [
-            "ffmpeg", "-y",
-            "-f", "concat", "-safe", "0", "-i", str(list_file),
-            "-vf", f"fps={FPS},format=yuv420p",
-            "-c:v", "libx264", "-pix_fmt", "yuv420p",
+            "ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(concat),
+            "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "18",
             "-movflags", "+faststart",
-            str(silent_video),
+            str(out_path),
         ],
         check=True,
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
     )
 
-    # Soft bed: very quiet filtered noise under voice (keeps ad from feeling dry)
-    bed = WORK / "bed.wav"
-    subprocess.run(
-        [
-            "ffmpeg", "-y",
-            "-f", "lavfi", "-i", "anoisesrc=color=pink:amplitude=0.015:sample_rate=44100",
-            "-t", "30",
-            "-af", "lowpass=f=400,volume=0.35",
-            str(bed),
-        ],
-        check=True,
-    )
 
-    # Mix voice + bed, pad/trim to 30s
-    mixed = WORK / "mixed.m4a"
+def mix_audio(voice: Path, bgm: Path, out_audio: Path) -> None:
+    # Duck BGM under voice; pad/trim to 30s
     subprocess.run(
         [
             "ffmpeg", "-y",
             "-i", str(voice),
-            "-i", str(bed),
+            "-i", str(bgm),
             "-filter_complex",
-            "[0:a]loudnorm=I=-16:TP=-1.5:LRA=11,apad=pad_dur=30[a0];"
-            "[1:a]volume=0.25,atrim=0:30,apad=pad_dur=30[a1];"
-            "[a0][a1]amix=inputs=2:duration=first:dropout_transition=0,"
-            "atrim=0:30,asetpts=PTS-STARTPTS[aout]",
+            "[0:a]aformat=channel_layouts=stereo,loudnorm=I=-14:TP=-1.5:LRA=8,apad=pad_dur=30[voice];"
+            "[1:a]aformat=channel_layouts=stereo,volume=0.28,"
+            "afade=t=in:st=0:d=0.6,afade=t=out:st=28.8:d=1.2[bg];"
+            "[voice][bg]amix=inputs=2:duration=first:dropout_transition=0,"
+            "atrim=0:30,asetpts=PTS-STARTPTS,loudnorm=I=-15:TP=-1.5:LRA=9[aout]",
             "-map", "[aout]",
             "-c:a", "aac", "-b:a", "192k",
-            str(mixed),
+            str(out_audio),
         ],
         check=True,
-    )
-
-    # Ensure video is exactly 30s
-    padded = WORK / "video_30.mp4"
-    subprocess.run(
-        [
-            "ffmpeg", "-y",
-            "-i", str(silent_video),
-            "-vf", "tpad=stop_mode=clone:stop_duration=30",
-            "-t", "30",
-            "-c:v", "libx264", "-pix_fmt", "yuv420p",
-            str(padded),
-        ],
-        check=True,
-    )
-
-    subprocess.run(
-        [
-            "ffmpeg", "-y",
-            "-i", str(padded),
-            "-i", str(mixed),
-            "-c:v", "copy",
-            "-c:a", "aac", "-b:a", "192k",
-            "-shortest",
-            "-movflags", "+faststart",
-            str(out_mp4),
-        ],
-        check=True,
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
     )
 
 
 def main() -> None:
     voice = WORK / "voice.mp3"
+    bgm = WORK / "bgm30.mp3"
     if not voice.exists():
         raise SystemExit(
             f"Missing voice track: {voice}\n"
             "Generate it first with edge-tts (see marketing/youtube-ad/README.md)."
         )
+    if not bgm.exists():
+        # Build from checked-in source if needed
+        src = ASSETS / "bgm-source.mp3"
+        if not src.exists():
+            raise SystemExit(f"Missing BGM: {bgm} and {src}")
+        subprocess.run(
+            [
+                "ffmpeg", "-y", "-ss", "8", "-i", str(src), "-t", "30",
+                "-af", "loudnorm=I=-18:TP=-2:LRA=9,afade=t=in:st=0:d=0.8,afade=t=out:st=28.5:d=1.5",
+                str(bgm),
+            ],
+            check=True,
+        )
     if not (ROOT / "script-yue.txt").is_file():
         raise SystemExit(f"Missing canonical script: {ROOT / 'script-yue.txt'}")
+    for name in (
+        "presenter-speak-01.jpg",
+        "presenter-speak-02.jpg",
+        "presenter-point-03.jpg",
+        "presenter-lively-04.jpg",
+    ):
+        if not (ASSETS / name).is_file():
+            raise SystemExit(f"Missing presenter asset: {ASSETS / name}")
 
     scenes = write_scenes()
-    out = ROOT / "us-stock-dcf-cantonese-ad-30s.mp4"
-    build_video(scenes, voice, out)
-
-    # Refresh checked-in scene stills next to the mp4
+    # Keep a few compressed JPEG stills for PR preview
+    keep = {"01.png", "03.png", "05.png", "07.png", "08.png"}
     for path, _ in scenes:
-        Image.open(path).save(ROOT / path.name)
+        if path.name in keep:
+            Image.open(path).convert("RGB").save(
+                ROOT / f"preview_{path.stem}.jpg", quality=85, optimize=True
+            )
+
+    silent = WORK / "video_silent.mp4"
+    build_silent_video(scenes, silent)
+
+    # Ensure exactly 30s video
+    video30 = WORK / "video_30.mp4"
+    subprocess.run(
+        [
+            "ffmpeg", "-y", "-i", str(silent),
+            "-vf", "tpad=stop_mode=clone:stop_duration=30",
+            "-t", "30",
+            "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "18",
+            str(video30),
+        ],
+        check=True,
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+    )
+
+    mixed = WORK / "mixed.m4a"
+    mix_audio(voice, bgm, mixed)
+
+    out = ROOT / "us-stock-dcf-cantonese-ad-30s.mp4"
+    subprocess.run(
+        [
+            "ffmpeg", "-y",
+            "-i", str(video30),
+            "-i", str(mixed),
+            "-c:v", "copy",
+            "-c:a", "aac", "-b:a", "192k",
+            "-shortest",
+            "-movflags", "+faststart",
+            str(out),
+        ],
+        check=True,
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+    )
 
     print(f"Wrote {out}")
     subprocess.run(
-        ["ffprobe", "-v", "error", "-show_entries", "format=duration,size",
-         "-of", "default=noprint_wrappers=1", str(out)],
+        [
+            "ffprobe", "-v", "error",
+            "-show_entries", "format=duration,size",
+            "-of", "default=noprint_wrappers=1",
+            str(out),
+        ],
         check=True,
     )
 
