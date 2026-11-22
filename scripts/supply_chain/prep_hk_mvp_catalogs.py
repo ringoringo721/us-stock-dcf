@@ -21,6 +21,7 @@ DATA = ROOT / "scripts" / "supply_chain" / "data"
 ENT_PATH = DATA / "sc_entities.json"
 COMP_PATH = DATA / "sc_competitors.json"
 OVERRIDE_PATH = DATA / "sc_player_overrides.json"
+PLAYERS_PATH = DATA / "sc_players.json"
 
 # Short Traditional Chinese brands; never Simplified.
 ENTITIES: dict[str, dict[str, str]] = {
@@ -135,6 +136,13 @@ ENTITIES: dict[str, dict[str, str]] = {
     "AAPL": {"name_en": "Apple", "name_zh": "蘋果", "exchange": "NASDAQ"},
     "ICE": {"name_en": "ICE", "name_zh": "洲際交易所", "exchange": "NYSE"},
     "CME": {"name_en": "CME", "name_zh": "芝商所", "exchange": "NASDAQ"},
+    "1698.HK": {"name_en": "TME", "name_zh": "騰訊音樂", "exchange": "HKEX"},
+    "0425.HK": {"name_en": "Minth", "name_zh": "敏實集團", "exchange": "HKEX"},
+    "0868.HK": {"name_en": "Xinyi Glass", "name_zh": "信義玻璃", "exchange": "HKEX"},
+    "0179.HK": {"name_en": "Johnson Electric", "name_zh": "德昌電機", "exchange": "HKEX"},
+    "0934.HK": {"name_en": "Sinopec Kantons", "name_zh": "中石化冠德", "exchange": "HKEX"},
+    "1060.HK": {"name_en": "Ali Pictures", "name_zh": "阿里影業", "exchange": "HKEX"},
+    "2799.HK": {"name_en": "China CITIC Financial AMC", "name_zh": "中國中信金融資產", "exchange": "HKEX"},
 }
 
 # Product/market rivals — China/HK first; dual-list prefer .HK.
@@ -165,14 +173,13 @@ COMPETITORS: dict[str, list[list[str]]] = {
         ["005930.KS", "全球／中國手機對手", "Handset rival in China / global"],
         ["688036.SS", "新興市場量產 Android 對手", "Emerging-market Android OEM rival"],
         ["0992.HK", "PC／消費電子對手", "PC / consumer electronics rival"],
-        ["2038.HK", "手機代工／裝置對手", "Handset ODM / device rival"],
     ],
     "1211.HK": [
         ["2015.HK", "中國新勢力電動車對手", "China EV rival"],
         ["9868.HK", "中國新勢力電動車對手", "China EV rival"],
         ["9866.HK", "中國新勢力電動車對手", "China EV rival"],
+        ["9863.HK", "中國新勢力電動車對手", "China EV rival"],
         ["0175.HK", "中國整車對手", "China auto OEM rival"],
-        ["2333.HK", "中國整車對手", "China auto OEM rival"],
         ["TSLA", "在華銷售之電動車對手", "EV rival with China sales"],
     ],
     "0941.HK": [
@@ -214,61 +221,71 @@ COMPETITORS: dict[str, list[list[str]]] = {
     "0386.HK": [
         ["0857.HK", "中國油氣一體化對手", "China integrated oil & gas rival"],
         ["0883.HK", "中國上游油氣對手", "China upstream oil & gas rival"],
-        ["0338.HK", "中國煉化對手", "China refining / petrochemical rival"],
         ["1088.HK", "中國能源對手", "China energy rival"],
+        ["1171.HK", "中國能源上游對手", "China energy upstream rival"],
     ],
 }
 
-# Stage players: China/HK/regional; scrub rivals off stages.
+# Default players for china-superapp-v1 (also written into sc_players.json).
+CHINA_SUPERAPP_PLAYERS: dict[str, list[str]] = {
+    "infra": ["9698.HK", "3888.HK", "0788.HK"],
+    "content-ip": ["0772.HK", "1698.HK", "3888.HK"],  # 閱文／騰訊音樂／金山內容工具
+    "distribution": ["0941.HK", "0762.HK", "1810.HK"],
+    "fintech": ["0005.HK", "1398.HK", "6060.HK"],
+    "advertisers": ["2020.HK", "2331.HK", "2319.HK"],
+}
+
+# Stage players: must fit the stage role for China/HK major market; rivals≠stage.
 OVERRIDES: dict[str, dict[str, list[str]]] = {
     "0700.HK": {
+        # china-superapp-v1 — WeChat/games/ads/fintech flow (not US internet dump).
         "infra": ["9698.HK", "3888.HK", "0788.HK"],
-        "content": ["0772.HK", "9899.HK", "1833.HK"],
-        "ads": ["3888.HK", "0772.HK", "6060.HK"],
-        "devices": ["1810.HK", "0992.HK", "2018.HK"],
-        "commerce": ["6060.HK", "0388.HK", "0005.HK"],
+        "content-ip": ["0772.HK", "1698.HK", "3888.HK"],
+        "distribution": ["0941.HK", "0762.HK", "1810.HK"],
+        "fintech": ["0005.HK", "1398.HK", "6060.HK"],
+        "advertisers": ["2020.HK", "2331.HK", "2319.HK"],
     },
     "9988.HK": {
         "supply": ["2020.HK", "2331.HK", "2319.HK"],
         "fulfillment": ["2057.HK", "1519.HK", "0144.HK"],
         "payments": ["6060.HK", "0388.HK", "0005.HK"],
-        "traffic": ["9888.HK", "0772.HK", "9899.HK"],
+        "traffic": ["9888.HK", "1024.HK", "9626.HK"],
         "lastmile": ["2057.HK", "1519.HK", "1308.HK"],
     },
     "3690.HK": {
         "maps-cloud": ["9888.HK", "3888.HK", "9698.HK"],
         "payments": ["6060.HK", "0388.HK", "0005.HK"],
         "supply": ["1211.HK", "0175.HK", "2333.HK"],
-        "platforms": ["1833.HK", "0772.HK", "9899.HK"],
-        "monetization": ["9888.HK", "0772.HK", "3888.HK"],
+        "platforms": ["2319.HK", "2020.HK", "1044.HK"],  # CPG merchants on delivery, not rival apps
+        "monetization": ["2020.HK", "2331.HK", "1044.HK"],
     },
     "1810.HK": {
         "materials": ["0981.HK", "1347.HK", "2899.HK"],
         "components": ["TSM", "2382.HK", "2018.HK"],
-        "assembly": ["2317.TW", "002475.SZ", "4938.TW"],  # scrub 2038 rival
+        "assembly": ["2317.TW", "002475.SZ", "2038.HK"],  # FIH = ODM supplier, not rival
         "distribution": ["1308.HK", "0316.HK", "0144.HK"],
         "retail": ["0762.HK", "0728.HK", "0941.HK"],
     },
     "1211.HK": {
-        "materials": ["3750.HK", "2899.HK", "3800.HK"],
-        "components": ["1316.HK", "2018.HK", "2382.HK"],
-        "assembly": ["2238.HK", "1114.HK", "1958.HK"],
-        "dealers": ["9863.HK", "1958.HK", "1114.HK"],
+        "materials": ["3750.HK", "2899.HK", "0868.HK"],
+        "components": ["1316.HK", "0425.HK", "2018.HK"],
+        "assembly": ["0425.HK", "0868.HK", "0179.HK"],  # Tier-1 parts — not rival OEMs
+        "dealers": ["2688.HK", "1193.HK", "0384.HK"],  # energy/charging retail channels
         "energy": ["3750.HK", "2688.HK", "1193.HK"],
     },
     "0941.HK": {
         "equipment": ["0763.HK", "2342.HK", "0522.HK"],
         "towers": ["0788.HK", "2342.HK", "0763.HK"],
         "devices": ["1810.HK", "0992.HK", "2018.HK"],
-        "content": ["0700.HK", "0772.HK", "9899.HK"],
+        "content": ["0700.HK", "0772.HK", "1698.HK"],
         "customers": ["9988.HK", "3888.HK", "1398.HK"],
     },
     "0005.HK": {
         "funding": ["0388.HK", "6030.HK", "3908.HK"],
-        "tech": ["3888.HK", "6060.HK", "0981.HK"],
-        "payments": ["0388.HK", "6060.HK", "2318.HK"],
-        "data-risk": ["0388.HK", "6030.HK", "6886.HK"],
-        "channels": ["6030.HK", "6886.HK", "3908.HK"],
+        "tech": ["0700.HK", "9988.HK", "3888.HK"],  # bank cloud/fintech — not SMIC foundry
+        "payments": ["0700.HK", "6060.HK", "0388.HK"],
+        "data-risk": ["0388.HK", "6030.HK", "2799.HK"],
+        "channels": ["6030.HK", "6886.HK", "1788.HK"],
     },
     "2318.HK": {
         "reinsurance": ["1508.HK", "6060.HK", "0388.HK"],
@@ -280,16 +297,15 @@ OVERRIDES: dict[str, dict[str, list[str]]] = {
     "0388.HK": {
         "venues": ["6030.HK", "6886.HK", "3908.HK"],
         "data": ["6030.HK", "1788.HK", "3908.HK"],
-        "tech": ["3888.HK", "0700.HK", "0981.HK"],
+        "tech": ["3888.HK", "0700.HK", "6060.HK"],  # not SMIC
         "buy-side": ["0005.HK", "1299.HK", "2318.HK"],
         "issuers": ["0700.HK", "9988.HK", "1810.HK"],
     },
     "0883.HK": {
         "services": ["2883.HK", "3337.HK", "1033.HK"],
-        # Scrub rivals 0857/0386/1088/1171 off stages.
-        "upstream": ["1898.HK", "2899.HK", "3800.HK"],
+        "upstream": ["2883.HK", "3337.HK", "1138.HK"],  # oilfield + crude shipping — not coal/miners
         "midstream": ["1138.HK", "1919.HK", "0316.HK"],
-        "refining": ["0338.HK", "1033.HK", "2688.HK"],
+        "refining": ["0338.HK", "0934.HK", "2688.HK"],
         "marketing": ["2688.HK", "1193.HK", "0384.HK"],
     },
     "1299.HK": {
@@ -301,10 +317,9 @@ OVERRIDES: dict[str, dict[str, list[str]]] = {
     },
     "0386.HK": {
         "services": ["1033.HK", "2883.HK", "3337.HK"],
-        # Scrub rivals 0857/0883/0338/1088 off stages.
-        "upstream": ["1171.HK", "1898.HK", "2899.HK"],
+        "upstream": ["2883.HK", "3337.HK", "1138.HK"],  # not coal/miners as fake upstream
         "midstream": ["1138.HK", "1919.HK", "0316.HK"],
-        "refining": ["1033.HK", "2899.HK", "2688.HK"],
+        "refining": ["0338.HK", "0934.HK", "2688.HK"],  # 0338 = affiliate plant on stage, not rival
         "marketing": ["2688.HK", "1193.HK", "0384.HK"],
     },
 }
@@ -321,6 +336,7 @@ def main() -> int:
     entities = json.loads(ENT_PATH.read_text(encoding="utf-8"))
     competitors = json.loads(COMP_PATH.read_text(encoding="utf-8"))
     overrides = json.loads(OVERRIDE_PATH.read_text(encoding="utf-8"))
+    players = json.loads(PLAYERS_PATH.read_text(encoding="utf-8"))
 
     for ticker, meta in ENTITIES.items():
         entities[ticker] = {
@@ -335,12 +351,15 @@ def main() -> int:
     for hub, stages in OVERRIDES.items():
         overrides[hub] = {sid: list(ticks) for sid, ticks in stages.items()}
 
+    players["china-superapp-v1"] = {sid: list(ticks) for sid, ticks in CHINA_SUPERAPP_PLAYERS.items()}
+
     ENT_PATH.write_text(json.dumps(entities, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     COMP_PATH.write_text(json.dumps(competitors, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     OVERRIDE_PATH.write_text(json.dumps(overrides, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    PLAYERS_PATH.write_text(json.dumps(players, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(
         f"Updated entities(+{len(ENTITIES)}), competitors hubs={len(COMPETITORS)}, "
-        f"overrides hubs={len(OVERRIDES)}"
+        f"overrides hubs={len(OVERRIDES)}, model china-superapp-v1 players"
     )
     return 0
 

@@ -11,7 +11,7 @@
     "notes_en": "HK MVP hub curated seed (industry value-chain template + curated rivals). No live supplier API. Dual-listed names prefer .HK. When the major market is China/Asia, stage players and rivals prefer CN/HK/regional listings — not US-company dumps. Competitors follow true product/market rivalry (AAPL lesson).",
     "competitorRationale_zh": "競爭弧只列主力市場真實產品對手；階段玩家與對手分開；雙重上市優先 .HK；中國市場不以美股節點為預設。",
     "competitorRationale_en": "Rival arc = true product rivals in the major market; stages ≠ rivals; dual listings prefer .HK; China-facing hubs are not US-node dumps.",
-    "modelId": "internet-platform-v1",
+    "modelId": "china-superapp-v1",
     "references": [
       "Industry model via TICKER_MODEL (HK MVP)",
       "HKEX listings + hk_market_dcf.json hub rows",
@@ -20,11 +20,11 @@
     ]
   },
   "model": {
-    "id": "internet-platform-v1",
-    "label_zh": "網際網路平台價值鏈",
-    "label_en": "Internet platform value chain",
-    "description_zh": "雲端／基礎建設 → 內容／創作者 → 廣告／變現 → 裝置／作業系統 → 支付／商務。",
-    "description_en": "Cloud/infra → content/creators → ads/monetization → devices/OS → payments/commerce."
+    "id": "china-superapp-v1",
+    "label_zh": "中國超級應用價值鏈",
+    "label_en": "China super-app value chain",
+    "description_zh": "雲／網路基建 → 內容／遊戲 IP 上游 → 電信／裝置分發 → 支付清算 → 廣告主／商戶下游。",
+    "description_en": "Cloud/network infra → content/game IP upstream → carrier/device distribution → payment clearing → advertiser/merchant demand."
   },
   "stages": [
     {
@@ -32,8 +32,8 @@
       "order": 1,
       "label_zh": "雲端／網路基礎設施",
       "label_en": "Cloud / network infrastructure",
-      "summary_zh": "運算、頻寬與 CDN／雲資源。",
-      "summary_en": "Compute, bandwidth, CDN/cloud.",
+      "summary_zh": "IDC、雲與移動網路鐵塔等流量底座。",
+      "summary_en": "IDC, cloud, and mobile towers under traffic.",
       "players": [
         {
           "ticker": "9698.HK",
@@ -62,137 +62,137 @@
       ]
     },
     {
-      "id": "content",
+      "id": "content-ip",
       "order": 2,
-      "label_zh": "內容／創作者生態",
-      "label_en": "Content / creator ecosystem",
-      "summary_zh": "媒體、音樂、短影音與創作者工具。",
-      "summary_en": "Media, music, short-form, creator tools.",
+      "label_zh": "內容／遊戲 IP 上游",
+      "label_en": "Content / game IP upstream",
+      "summary_zh": "網文、音樂與可授權內容／IP 供給（非對手平台）。",
+      "summary_en": "Literature, music, and licensable IP supply (not rival platforms).",
       "players": [
         {
           "ticker": "0772.HK",
           "name_en": "China Literature",
           "name_zh": "閱文集團",
-          "role_zh": "閱文集團：內容／創作者生態代表性玩家",
-          "role_en": "China Literature: representative player in Content / creator ecosystem",
+          "role_zh": "閱文集團：內容／遊戲 IP 上游代表性玩家",
+          "role_en": "China Literature: representative player in Content / game IP upstream",
           "exchange": "HKEX"
         },
         {
-          "ticker": "9899.HK",
-          "name_en": "Cloud Music",
-          "name_zh": "雲音樂",
-          "role_zh": "雲音樂：內容／創作者生態代表性玩家",
-          "role_en": "Cloud Music: representative player in Content / creator ecosystem",
+          "ticker": "1698.HK",
+          "name_en": "TME",
+          "name_zh": "騰訊音樂",
+          "role_zh": "騰訊音樂：內容／遊戲 IP 上游代表性玩家",
+          "role_en": "TME: representative player in Content / game IP upstream",
           "exchange": "HKEX"
         },
-        {
-          "ticker": "1833.HK",
-          "name_en": "Ping An Good Doctor",
-          "name_zh": "平安好醫生",
-          "role_zh": "平安好醫生：內容／創作者生態代表性玩家",
-          "role_en": "Ping An Good Doctor: representative player in Content / creator ecosystem",
-          "exchange": "HKEX"
-        }
-      ]
-    },
-    {
-      "id": "ads",
-      "order": 3,
-      "label_zh": "廣告／數據變現",
-      "label_en": "Ads / data monetization",
-      "summary_zh": "廣告科技與測量夥伴。",
-      "summary_en": "Ad-tech and measurement partners.",
-      "players": [
         {
           "ticker": "3888.HK",
           "name_en": "Kingsoft",
           "name_zh": "金山軟件",
-          "role_zh": "金山軟件：廣告／數據變現代表性玩家",
-          "role_en": "Kingsoft: representative player in Ads / data monetization",
-          "exchange": "HKEX"
-        },
-        {
-          "ticker": "0772.HK",
-          "name_en": "China Literature",
-          "name_zh": "閱文集團",
-          "role_zh": "閱文集團：廣告／數據變現代表性玩家",
-          "role_en": "China Literature: representative player in Ads / data monetization",
-          "exchange": "HKEX"
-        },
-        {
-          "ticker": "6060.HK",
-          "name_en": "ZhongAn",
-          "name_zh": "眾安在線",
-          "role_zh": "眾安在線：廣告／數據變現代表性玩家",
-          "role_en": "ZhongAn: representative player in Ads / data monetization",
+          "role_zh": "金山軟件：內容／遊戲 IP 上游代表性玩家",
+          "role_en": "Kingsoft: representative player in Content / game IP upstream",
           "exchange": "HKEX"
         }
       ]
     },
     {
-      "id": "devices",
-      "order": 4,
-      "label_zh": "裝置／作業系統入口",
-      "label_en": "Devices / OS entry points",
-      "summary_zh": "手機、瀏覽器與 OS 分發。",
-      "summary_en": "Phones, browsers, OS distribution.",
+      "id": "distribution",
+      "order": 3,
+      "label_zh": "電信／裝置分發入口",
+      "label_en": "Carrier / device distribution",
+      "summary_zh": "用戶透過電信與終端裝置進入微信／應用生態。",
+      "summary_en": "Users reach the app via carriers and devices.",
       "players": [
+        {
+          "ticker": "0941.HK",
+          "name_en": "China Mobile",
+          "name_zh": "中國移動",
+          "role_zh": "中國移動：電信／裝置分發入口代表性玩家",
+          "role_en": "China Mobile: representative player in Carrier / device distribution",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "0762.HK",
+          "name_en": "China Unicom",
+          "name_zh": "中國聯通",
+          "role_zh": "中國聯通：電信／裝置分發入口代表性玩家",
+          "role_en": "China Unicom: representative player in Carrier / device distribution",
+          "exchange": "HKEX"
+        },
         {
           "ticker": "1810.HK",
           "name_en": "Xiaomi",
           "name_zh": "小米",
-          "role_zh": "小米：裝置／作業系統入口代表性玩家",
-          "role_en": "Xiaomi: representative player in Devices / OS entry points",
-          "exchange": "HKEX"
-        },
-        {
-          "ticker": "0992.HK",
-          "name_en": "Lenovo",
-          "name_zh": "聯想",
-          "role_zh": "聯想：裝置／作業系統入口代表性玩家",
-          "role_en": "Lenovo: representative player in Devices / OS entry points",
-          "exchange": "HKEX"
-        },
-        {
-          "ticker": "2018.HK",
-          "name_en": "AAC Technologies",
-          "name_zh": "瑞聲科技",
-          "role_zh": "瑞聲科技：裝置／作業系統入口代表性玩家",
-          "role_en": "AAC Technologies: representative player in Devices / OS entry points",
+          "role_zh": "小米：電信／裝置分發入口代表性玩家",
+          "role_en": "Xiaomi: representative player in Carrier / device distribution",
           "exchange": "HKEX"
         }
       ]
     },
     {
-      "id": "commerce",
-      "order": 5,
-      "label_zh": "支付／商務閉環",
-      "label_en": "Payments / commerce loop",
-      "summary_zh": "支付網路與電商履約。",
-      "summary_en": "Payment networks and commerce fulfillment.",
+      "id": "fintech",
+      "order": 4,
+      "label_zh": "支付／清算金融基礎設施",
+      "label_en": "Payments / clearing rails",
+      "summary_zh": "微信支付背後的銀行結算、清算與互聯網保險軌道。",
+      "summary_en": "Bank settlement, clearing, and internet-insurance rails for WeChat Pay.",
       "players": [
-        {
-          "ticker": "6060.HK",
-          "name_en": "ZhongAn",
-          "name_zh": "眾安在線",
-          "role_zh": "眾安在線：支付／商務閉環代表性玩家",
-          "role_en": "ZhongAn: representative player in Payments / commerce loop",
-          "exchange": "HKEX"
-        },
-        {
-          "ticker": "0388.HK",
-          "name_en": "HKEX",
-          "name_zh": "港交所",
-          "role_zh": "港交所：支付／商務閉環代表性玩家",
-          "role_en": "HKEX: representative player in Payments / commerce loop",
-          "exchange": "HKEX"
-        },
         {
           "ticker": "0005.HK",
           "name_en": "HSBC",
           "name_zh": "滙豐",
-          "role_zh": "滙豐：支付／商務閉環代表性玩家",
-          "role_en": "HSBC: representative player in Payments / commerce loop",
+          "role_zh": "滙豐：支付／清算金融基礎設施代表性玩家",
+          "role_en": "HSBC: representative player in Payments / clearing rails",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "1398.HK",
+          "name_en": "ICBC",
+          "name_zh": "工商銀行",
+          "role_zh": "工商銀行：支付／清算金融基礎設施代表性玩家",
+          "role_en": "ICBC: representative player in Payments / clearing rails",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "6060.HK",
+          "name_en": "ZhongAn",
+          "name_zh": "眾安在線",
+          "role_zh": "眾安在線：支付／清算金融基礎設施代表性玩家",
+          "role_en": "ZhongAn: representative player in Payments / clearing rails",
+          "exchange": "HKEX"
+        }
+      ]
+    },
+    {
+      "id": "advertisers",
+      "order": 5,
+      "label_zh": "廣告主／小程序商戶下游",
+      "label_en": "Advertisers / mini-program merchants",
+      "summary_zh": "在朋友圈／小程序投放或經營的品牌與商戶代表。",
+      "summary_en": "Brand advertisers and mini-program merchants downstream.",
+      "players": [
+        {
+          "ticker": "2020.HK",
+          "name_en": "ANTA",
+          "name_zh": "安踏",
+          "role_zh": "安踏：廣告主／小程序商戶下游代表性玩家",
+          "role_en": "ANTA: representative player in Advertisers / mini-program merchants",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "2331.HK",
+          "name_en": "Li Ning",
+          "name_zh": "李寧",
+          "role_zh": "李寧：廣告主／小程序商戶下游代表性玩家",
+          "role_en": "Li Ning: representative player in Advertisers / mini-program merchants",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "2319.HK",
+          "name_en": "Mengniu",
+          "name_zh": "蒙牛",
+          "role_zh": "蒙牛：廣告主／小程序商戶下游代表性玩家",
+          "role_en": "Mengniu: representative player in Advertisers / mini-program merchants",
           "exchange": "HKEX"
         }
       ]

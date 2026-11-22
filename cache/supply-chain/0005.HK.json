@@ -70,27 +70,27 @@
       "summary_en": "Core systems, cloud, security.",
       "players": [
         {
+          "ticker": "0700.HK",
+          "name_en": "Tencent",
+          "name_zh": "騰訊",
+          "role_zh": "騰訊：核心銀行／雲端科技代表性玩家",
+          "role_en": "Tencent: representative player in Core banking / cloud tech",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "9988.HK",
+          "name_en": "Alibaba",
+          "name_zh": "阿里巴巴",
+          "role_zh": "阿里巴巴：核心銀行／雲端科技代表性玩家",
+          "role_en": "Alibaba: representative player in Core banking / cloud tech",
+          "exchange": "HKEX"
+        },
+        {
           "ticker": "3888.HK",
           "name_en": "Kingsoft",
           "name_zh": "金山軟件",
           "role_zh": "金山軟件：核心銀行／雲端科技代表性玩家",
           "role_en": "Kingsoft: representative player in Core banking / cloud tech",
-          "exchange": "HKEX"
-        },
-        {
-          "ticker": "6060.HK",
-          "name_en": "ZhongAn",
-          "name_zh": "眾安在線",
-          "role_zh": "眾安在線：核心銀行／雲端科技代表性玩家",
-          "role_en": "ZhongAn: representative player in Core banking / cloud tech",
-          "exchange": "HKEX"
-        },
-        {
-          "ticker": "0981.HK",
-          "name_en": "SMIC",
-          "name_zh": "中芯國際",
-          "role_zh": "中芯國際：核心銀行／雲端科技代表性玩家",
-          "role_en": "SMIC: representative player in Core banking / cloud tech",
           "exchange": "HKEX"
         }
       ]
@@ -104,11 +104,11 @@
       "summary_en": "Card networks and payment rails.",
       "players": [
         {
-          "ticker": "0388.HK",
-          "name_en": "HKEX",
-          "name_zh": "港交所",
-          "role_zh": "港交所：支付／清算網路代表性玩家",
-          "role_en": "HKEX: representative player in Payments / clearing networks",
+          "ticker": "0700.HK",
+          "name_en": "Tencent",
+          "name_zh": "騰訊",
+          "role_zh": "騰訊：支付／清算網路代表性玩家",
+          "role_en": "Tencent: representative player in Payments / clearing networks",
           "exchange": "HKEX"
         },
         {
@@ -120,11 +120,11 @@
           "exchange": "HKEX"
         },
         {
-          "ticker": "2318.HK",
-          "name_en": "Ping An",
-          "name_zh": "中國平安",
-          "role_zh": "中國平安：支付／清算網路代表性玩家",
-          "role_en": "Ping An: representative player in Payments / clearing networks",
+          "ticker": "0388.HK",
+          "name_en": "HKEX",
+          "name_zh": "港交所",
+          "role_zh": "港交所：支付／清算網路代表性玩家",
+          "role_en": "HKEX: representative player in Payments / clearing networks",
           "exchange": "HKEX"
         }
       ]
@@ -154,11 +154,11 @@
           "exchange": "HKEX"
         },
         {
-          "ticker": "6886.HK",
-          "name_en": "Huatai Securities",
-          "name_zh": "華泰證券",
-          "role_zh": "華泰證券：數據／風控／評級代表性玩家",
-          "role_en": "Huatai Securities: representative player in Data / risk / ratings",
+          "ticker": "2799.HK",
+          "name_en": "China CITIC Financial AMC",
+          "name_zh": "中國中信金融資產",
+          "role_zh": "中國中信金融資產：數據／風控／評級代表性玩家",
+          "role_en": "China CITIC Financial AMC: representative player in Data / risk / ratings",
           "exchange": "HKEX"
         }
       ]
@@ -188,11 +188,11 @@
           "exchange": "HKEX"
         },
         {
-          "ticker": "3908.HK",
-          "name_en": "CICC",
-          "name_zh": "中金公司",
-          "role_zh": "中金公司：零售／企業客戶通路代表性玩家",
-          "role_en": "CICC: representative player in Retail / corporate channels",
+          "ticker": "1788.HK",
+          "name_en": "Guotai Junan Intl",
+          "name_zh": "國泰君安國際",
+          "role_zh": "國泰君安國際：零售／企業客戶通路代表性玩家",
+          "role_en": "Guotai Junan Intl: representative player in Retail / corporate channels",
           "exchange": "HKEX"
         }
       ]

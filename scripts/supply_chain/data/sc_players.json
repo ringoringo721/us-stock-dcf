@@ -1835,5 +1835,32 @@
       "LEN",
       "AMT"
     ]
+  },
+  "china-superapp-v1": {
+    "infra": [
+      "9698.HK",
+      "3888.HK",
+      "0788.HK"
+    ],
+    "content-ip": [
+      "0772.HK",
+      "1698.HK",
+      "3888.HK"
+    ],
+    "distribution": [
+      "0941.HK",
+      "0762.HK",
+      "1810.HK"
+    ],
+    "fintech": [
+      "0005.HK",
+      "1398.HK",
+      "6060.HK"
+    ],
+    "advertisers": [
+      "2020.HK",
+      "2331.HK",
+      "2319.HK"
+    ]
   }
 }

@@ -96,15 +96,15 @@
       "asOf": null,
       "source": null
     },
-    "4938.TW": {
-      "ticker": "4938.TW",
-      "price": null,
-      "previousClose": null,
-      "changePct": null,
-      "mcap": null,
-      "currency": "USD",
-      "asOf": null,
-      "source": null
+    "2038.HK": {
+      "ticker": "2038.HK",
+      "price": 13.08,
+      "previousClose": 13.58,
+      "changePct": -3.682,
+      "mcap": 10208.5,
+      "currency": "HKD",
+      "asOf": "2026-11-06",
+      "source": "FMP historical-price-eod via cache/price_charts"
     },
     "1308.HK": {
       "ticker": "1308.HK",
@@ -204,16 +204,6 @@
       "mcap": 266267.8,
       "currency": "HKD",
       "asOf": "2026-10-30",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "2038.HK": {
-      "ticker": "2038.HK",
-      "price": 13.08,
-      "previousClose": 13.58,
-      "changePct": -3.682,
-      "mcap": 10208.5,
-      "currency": "HKD",
-      "asOf": "2026-11-06",
       "source": "FMP historical-price-eod via cache/price_charts"
     }
   }

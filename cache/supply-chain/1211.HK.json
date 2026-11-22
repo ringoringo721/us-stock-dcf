@@ -52,11 +52,11 @@
           "exchange": "HKEX"
         },
         {
-          "ticker": "3800.HK",
-          "name_en": "GCL Technology",
-          "name_zh": "協鑫科技",
-          "role_zh": "協鑫科技：原材料／礦產代表性玩家",
-          "role_en": "GCL Technology: representative player in Raw materials / mining",
+          "ticker": "0868.HK",
+          "name_en": "Xinyi Glass",
+          "name_zh": "信義玻璃",
+          "role_zh": "信義玻璃：原材料／礦產代表性玩家",
+          "role_en": "Xinyi Glass: representative player in Raw materials / mining",
           "exchange": "HKEX"
         }
       ]
@@ -78,19 +78,19 @@
           "exchange": "HKEX"
         },
         {
+          "ticker": "0425.HK",
+          "name_en": "Minth",
+          "name_zh": "敏實集團",
+          "role_zh": "敏實集團：電池／電子／汽車半導體代表性玩家",
+          "role_en": "Minth: representative player in Battery / electronics / auto semis",
+          "exchange": "HKEX"
+        },
+        {
           "ticker": "2018.HK",
           "name_en": "AAC Technologies",
           "name_zh": "瑞聲科技",
           "role_zh": "瑞聲科技：電池／電子／汽車半導體代表性玩家",
           "role_en": "AAC Technologies: representative player in Battery / electronics / auto semis",
-          "exchange": "HKEX"
-        },
-        {
-          "ticker": "2382.HK",
-          "name_en": "Sunny Optical",
-          "name_zh": "舜宇光學",
-          "role_zh": "舜宇光學：電池／電子／汽車半導體代表性玩家",
-          "role_en": "Sunny Optical: representative player in Battery / electronics / auto semis",
           "exchange": "HKEX"
         }
       ]
@@ -104,27 +104,27 @@
       "summary_en": "Body and electronics CM partners.",
       "players": [
         {
-          "ticker": "2238.HK",
-          "name_en": "GAC",
-          "name_zh": "廣汽集團",
-          "role_zh": "廣汽集團：組裝／合約製造代表性玩家",
-          "role_en": "GAC: representative player in Assembly / contract manufacturing",
+          "ticker": "0425.HK",
+          "name_en": "Minth",
+          "name_zh": "敏實集團",
+          "role_zh": "敏實集團：組裝／合約製造代表性玩家",
+          "role_en": "Minth: representative player in Assembly / contract manufacturing",
           "exchange": "HKEX"
         },
         {
-          "ticker": "1114.HK",
-          "name_en": "Brilliance",
-          "name_zh": "華晨中國",
-          "role_zh": "華晨中國：組裝／合約製造代表性玩家",
-          "role_en": "Brilliance: representative player in Assembly / contract manufacturing",
+          "ticker": "0868.HK",
+          "name_en": "Xinyi Glass",
+          "name_zh": "信義玻璃",
+          "role_zh": "信義玻璃：組裝／合約製造代表性玩家",
+          "role_en": "Xinyi Glass: representative player in Assembly / contract manufacturing",
           "exchange": "HKEX"
         },
         {
-          "ticker": "1958.HK",
-          "name_en": "BAIC Motor",
-          "name_zh": "北京汽車",
-          "role_zh": "北京汽車：組裝／合約製造代表性玩家",
-          "role_en": "BAIC Motor: representative player in Assembly / contract manufacturing",
+          "ticker": "0179.HK",
+          "name_en": "Johnson Electric",
+          "name_zh": "德昌電機",
+          "role_zh": "德昌電機：組裝／合約製造代表性玩家",
+          "role_en": "Johnson Electric: representative player in Assembly / contract manufacturing",
           "exchange": "HKEX"
         }
       ]
@@ -138,27 +138,27 @@
       "summary_en": "Direct, dealers, delivery centers.",
       "players": [
         {
-          "ticker": "9863.HK",
-          "name_en": "Leapmotor",
-          "name_zh": "零跑汽車",
-          "role_zh": "零跑汽車：銷售／交付通路代表性玩家",
-          "role_en": "Leapmotor: representative player in Sales / delivery channel",
+          "ticker": "2688.HK",
+          "name_en": "ENN Energy",
+          "name_zh": "新奧能源",
+          "role_zh": "新奧能源：銷售／交付通路代表性玩家",
+          "role_en": "ENN Energy: representative player in Sales / delivery channel",
           "exchange": "HKEX"
         },
         {
-          "ticker": "1958.HK",
-          "name_en": "BAIC Motor",
-          "name_zh": "北京汽車",
-          "role_zh": "北京汽車：銷售／交付通路代表性玩家",
-          "role_en": "BAIC Motor: representative player in Sales / delivery channel",
+          "ticker": "1193.HK",
+          "name_en": "CR Gas",
+          "name_zh": "華潤燃氣",
+          "role_zh": "華潤燃氣：銷售／交付通路代表性玩家",
+          "role_en": "CR Gas: representative player in Sales / delivery channel",
           "exchange": "HKEX"
         },
         {
-          "ticker": "1114.HK",
-          "name_en": "Brilliance",
-          "name_zh": "華晨中國",
-          "role_zh": "華晨中國：銷售／交付通路代表性玩家",
-          "role_en": "Brilliance: representative player in Sales / delivery channel",
+          "ticker": "0384.HK",
+          "name_en": "China Gas",
+          "name_zh": "中國燃氣",
+          "role_zh": "中國燃氣：銷售／交付通路代表性玩家",
+          "role_en": "China Gas: representative player in Sales / delivery channel",
           "exchange": "HKEX"
         }
       ]
@@ -224,17 +224,17 @@
       "exchange": "HKEX"
     },
     {
-      "ticker": "0175.HK",
-      "name_en": "Geely",
-      "name_zh": "吉利汽車",
-      "basis_zh": "中國整車對手",
-      "basis_en": "China auto OEM rival",
+      "ticker": "9863.HK",
+      "name_en": "Leapmotor",
+      "name_zh": "零跑汽車",
+      "basis_zh": "中國新勢力電動車對手",
+      "basis_en": "China EV rival",
       "exchange": "HKEX"
     },
     {
-      "ticker": "2333.HK",
-      "name_en": "Great Wall Motor",
-      "name_zh": "長城汽車",
+      "ticker": "0175.HK",
+      "name_en": "Geely",
+      "name_zh": "吉利汽車",
       "basis_zh": "中國整車對手",
       "basis_en": "China auto OEM rival",
       "exchange": "HKEX"

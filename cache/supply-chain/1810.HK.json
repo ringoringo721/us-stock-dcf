@@ -122,13 +122,12 @@
           "listedInApp": false
         },
         {
-          "ticker": "4938.TW",
-          "name_en": "Pegatron",
-          "name_zh": "和碩",
-          "role_zh": "和碩：組裝代工（EMS）代表性玩家",
-          "role_en": "Pegatron: representative player in Final assembly (EMS)",
-          "exchange": "TWSE",
-          "listedInApp": false
+          "ticker": "2038.HK",
+          "name_en": "FIH Mobile",
+          "name_zh": "富智康",
+          "role_zh": "富智康：組裝代工（EMS）代表性玩家",
+          "role_en": "FIH Mobile: representative player in Final assembly (EMS)",
+          "exchange": "HKEX"
         }
       ]
     },
@@ -234,14 +233,6 @@
       "name_zh": "聯想",
       "basis_zh": "PC／消費電子對手",
       "basis_en": "PC / consumer electronics rival",
-      "exchange": "HKEX"
-    },
-    {
-      "ticker": "2038.HK",
-      "name_en": "FIH Mobile",
-      "name_zh": "富智康",
-      "basis_zh": "手機代工／裝置對手",
-      "basis_en": "Handset ODM / device rival",
       "exchange": "HKEX"
     }
   ]

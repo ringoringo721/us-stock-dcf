@@ -70,27 +70,27 @@
       "summary_en": "Exploration and production.",
       "players": [
         {
-          "ticker": "1171.HK",
-          "name_en": "Yankuang Energy",
-          "name_zh": "兗礦能源",
-          "role_zh": "兗礦能源：上游勘探開發代表性玩家",
-          "role_en": "Yankuang Energy: representative player in Upstream E&P",
+          "ticker": "2883.HK",
+          "name_en": "COSL",
+          "name_zh": "中海油服",
+          "role_zh": "中海油服：上游勘探開發代表性玩家",
+          "role_en": "COSL: representative player in Upstream E&P",
           "exchange": "HKEX"
         },
         {
-          "ticker": "1898.HK",
-          "name_en": "China Coal",
-          "name_zh": "中煤能源",
-          "role_zh": "中煤能源：上游勘探開發代表性玩家",
-          "role_en": "China Coal: representative player in Upstream E&P",
+          "ticker": "3337.HK",
+          "name_en": "Anton Oilfield",
+          "name_zh": "安東油田",
+          "role_zh": "安東油田：上游勘探開發代表性玩家",
+          "role_en": "Anton Oilfield: representative player in Upstream E&P",
           "exchange": "HKEX"
         },
         {
-          "ticker": "2899.HK",
-          "name_en": "Zijin Mining",
-          "name_zh": "紫金礦業",
-          "role_zh": "紫金礦業：上游勘探開發代表性玩家",
-          "role_en": "Zijin Mining: representative player in Upstream E&P",
+          "ticker": "1138.HK",
+          "name_en": "COSCO Shipping Energy",
+          "name_zh": "中遠海能",
+          "role_zh": "中遠海能：上游勘探開發代表性玩家",
+          "role_en": "COSCO Shipping Energy: representative player in Upstream E&P",
           "exchange": "HKEX"
         }
       ]
@@ -138,19 +138,19 @@
       "summary_en": "Refineries and downstream chem.",
       "players": [
         {
-          "ticker": "1033.HK",
-          "name_en": "Sinopec Oilfield Service",
-          "name_zh": "中石化油服",
-          "role_zh": "中石化油服：煉製／化工代表性玩家",
-          "role_en": "Sinopec Oilfield Service: representative player in Refining / chemicals",
+          "ticker": "0338.HK",
+          "name_en": "Shanghai Petrochemical",
+          "name_zh": "上海石化",
+          "role_zh": "上海石化：煉製／化工代表性玩家",
+          "role_en": "Shanghai Petrochemical: representative player in Refining / chemicals",
           "exchange": "HKEX"
         },
         {
-          "ticker": "2899.HK",
-          "name_en": "Zijin Mining",
-          "name_zh": "紫金礦業",
-          "role_zh": "紫金礦業：煉製／化工代表性玩家",
-          "role_en": "Zijin Mining: representative player in Refining / chemicals",
+          "ticker": "0934.HK",
+          "name_en": "Sinopec Kantons",
+          "name_zh": "中石化冠德",
+          "role_zh": "中石化冠德：煉製／化工代表性玩家",
+          "role_en": "Sinopec Kantons: representative player in Refining / chemicals",
           "exchange": "HKEX"
         },
         {
@@ -216,19 +216,19 @@
       "exchange": "HKEX"
     },
     {
-      "ticker": "0338.HK",
-      "name_en": "Shanghai Petrochemical",
-      "name_zh": "上海石化",
-      "basis_zh": "中國煉化對手",
-      "basis_en": "China refining / petrochemical rival",
-      "exchange": "HKEX"
-    },
-    {
       "ticker": "1088.HK",
       "name_en": "China Shenhua",
       "name_zh": "中國神華",
       "basis_zh": "中國能源對手",
       "basis_en": "China energy rival",
+      "exchange": "HKEX"
+    },
+    {
+      "ticker": "1171.HK",
+      "name_en": "Yankuang Energy",
+      "name_zh": "兗礦能源",
+      "basis_zh": "中國能源上游對手",
+      "basis_en": "China energy upstream rival",
       "exchange": "HKEX"
     }
   ]
