@@ -22,6 +22,18 @@ async function main() {
     now,
   });
   UsIndexes.validatePayload(payload);
+  // Refuse partial belts: validatePayload only needs ≥1 row, but the public seed
+  // must keep the full catalog so a thin FMP response cannot strip the ribbon.
+  const expected = UsIndexes.SYMBOLS.length;
+  if (!Array.isArray(payload.indexes) || payload.indexes.length !== expected) {
+    const got = Array.isArray(payload.indexes) ? payload.indexes.length : 0;
+    const have = new Set((payload.indexes || []).map(row => row.symbol));
+    const missing = UsIndexes.SYMBOLS.filter(symbol => !have.has(symbol));
+    throw new Error(
+      `US_INDEX_SEED_INCOMPLETE: got ${got}/${expected}`
+      + (missing.length ? `; missing ${missing.join(',')}` : ''),
+    );
+  }
 
   const outDir = path.join(__dirname, '..', 'cache', 'us-indexes');
   fs.mkdirSync(outDir, { recursive: true });

@@ -193,7 +193,12 @@ jobs:
           fi
           echo "Persist target branch: ${TARGET_BRANCH}"
 
-          git pull origin "${TARGET_BRANCH}" --rebase --autostash || git pull origin main --rebase --autostash || true
+          # Pull only the persist target. Never fall back to rebasing onto main when
+          # dispatching a feature branch — that rewrites the PR tip or mixes trees.
+          if ! git pull origin "${TARGET_BRANCH}" --rebase --autostash; then
+            echo "::error::Could not rebase onto origin/${TARGET_BRANCH}; refusing main fallback"
+            exit 1
+          fi
 
           # 暫存資料集與強制追蹤快取資料夾
           git add full_market_dcf.json market_data.js 2>/dev/null || true

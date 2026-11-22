@@ -207,6 +207,11 @@ test('committed seed validates', () => {
     'utf8',
   ));
   UsIndexes.validatePayload(seed);
+  assert.equal(seed.indexes.length, UsIndexes.SYMBOLS.length);
+  assert.deepEqual(
+    seed.indexes.map(row => row.symbol).sort(),
+    [...UsIndexes.SYMBOLS].sort(),
+  );
   assert.ok(seed.indexes.some(row => row.symbol === '^GSPC'));
   assert.ok(seed.indexes.some(row => row.symbol === 'XLK'));
 });
