@@ -151,6 +151,18 @@ jobs:
         if: inputs.peers_only != true && inputs.prices_only != true
         run: node scripts/apply_liquidation.cjs
 
+      - name: Refresh US frontpage index-belt seed
+        id: us-indexes-seed
+        if: inputs.peers_only != true && inputs.liquidation_only != true
+        continue-on-error: ${{ inputs.prices_only != true }}
+        env:
+          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+        run: node scripts/refresh_us_indexes_seed.cjs
+
+      - name: Report retained index-belt seed
+        if: steps.us-indexes-seed.outcome == 'failure' && inputs.prices_only != true
+        run: echo "::warning::US index belt seed could not be refreshed. Existing cache/us-indexes/latest.json is retained."
+
       - name: Validate provider parsing and comparison coverage
         run: |
           python -m unittest discover -s tests -p test_peer_cache.py
@@ -158,26 +170,34 @@ jobs:
           python -m unittest discover -s tests -p test_liquidation.py
           node --test tests/peer_comparison.test.cjs tests/reported_growth.test.cjs tests/price_history.test.cjs tests/liquidation.test.cjs
           node --test tests/fcff.test.cjs tests/fcff_drivers.test.cjs tests/fcff_sources.test.cjs tests/fcff_integration.test.cjs
+          node --test tests/us_indexes.test.cjs
 
       - name: Commit & Push New DCF Dataset & Persistent Cache
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          
-          # 拉取遠端最新代碼以防止衝突
-          git pull origin main --rebase --autostash || true
-          
+
+          # Schedule always lands on main. workflow_dispatch on a non-main ref pushes
+          # back to that branch so preview/PR can review data before an explicit merge.
+          TARGET_BRANCH="main"
+          if [ "${GITHUB_EVENT_NAME}" = "workflow_dispatch" ] && [ "${GITHUB_REF_NAME}" != "main" ]; then
+            TARGET_BRANCH="${GITHUB_REF_NAME}"
+          fi
+          echo "Persist target branch: ${TARGET_BRANCH}"
+
+          git pull origin "${TARGET_BRANCH}" --rebase --autostash || git pull origin main --rebase --autostash || true
+
           # 暫存資料集與強制追蹤快取資料夾
           git add full_market_dcf.json market_data.js 2>/dev/null || true
           git add us_expansion_data.js 2>/dev/null || true
           git add fcff_data.js
           git add fmp_model_data.js
           git add -f cache/
-          
+
           # 檢查是否有更動，有更動才提交以節省 Actions 次數
           if ! git diff --cached --quiet; then
             git commit -m "Auto refresh US stock DCF data & persist AI Cache [skip ci]"
-            git push origin main
+            git push origin "HEAD:${TARGET_BRANCH}"
           else
             echo "No data changes detected. Skipping push."
           fi
