@@ -216,6 +216,22 @@ DUAL_LIST_ISSUER: dict[str, str] = {
     "2423.HK": "BEKE",  # KE Holdings HK listing
     "GOLD": "B",  # Barrick rename — never GOLD+B as mutual rivals
     "B": "B",
+    "9988.HK": "ALIBABA",
+    "BABA": "ALIBABA",
+    "9618.HK": "JD",
+    "JD": "JD",
+    "9888.HK": "BAIDU",
+    "BIDU": "BAIDU",
+    "9999.HK": "NETEASE",
+    "NTES": "NETEASE",
+    "0005.HK": "HSBC",
+    "HSBC": "HSBC",
+    "2015.HK": "LI_AUTO",
+    "LI": "LI_AUTO",
+    "9868.HK": "XPENG",
+    "XPEV": "XPENG",
+    "9866.HK": "NIO",
+    "NIO": "NIO",
 }
 
 # Parent/subsidiary controlling-stake pairs — never mutual product/market rivals.

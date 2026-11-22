@@ -2694,6 +2694,19 @@ TICKER_MODEL: dict[str, str] = {
     "PAAS": "precious-metals-v1",
     "HL": "precious-metals-v1",
     "CDE": "precious-metals-v1",
+    # HK MVP hubs (GICS labels miss INDUSTRY_MODEL — force explicit models)
+    "0700.HK": "internet-platform-v1",
+    "9988.HK": "ecommerce-retail-v1",
+    "3690.HK": "rideshare-v1",
+    "1810.HK": "hardware-value-chain-v1",
+    "1211.HK": "auto-oem-v1",
+    "0941.HK": "telecom-v1",
+    "0005.HK": "bank-diversified-v1",
+    "2318.HK": "insurance-v1",
+    "0388.HK": "capital-markets-v1",
+    "0883.HK": "energy-integrated-v1",
+    "1299.HK": "insurance-v1",
+    "0386.HK": "energy-integrated-v1",
 }
 
 

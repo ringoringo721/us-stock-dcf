@@ -2106,5 +2106,329 @@
       "USB",
       "PNC"
     ]
+  },
+  "0700.HK": {
+    "infra": [
+      "EQIX",
+      "MSFT",
+      "AMZN"
+    ],
+    "content": [
+      "NFLX",
+      "DIS",
+      "SPOT"
+    ],
+    "ads": [
+      "TTD",
+      "APP",
+      "SNAP"
+    ],
+    "devices": [
+      "AAPL",
+      "005930.KS",
+      "SONY"
+    ],
+    "commerce": [
+      "V",
+      "MA",
+      "SHOP"
+    ]
+  },
+  "9988.HK": {
+    "supply": [
+      "PG",
+      "NKE",
+      "SONY"
+    ],
+    "fulfillment": [
+      "PLD",
+      "EQIX",
+      "AMT"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "APP"
+    ],
+    "lastmile": [
+      "UPS",
+      "FDX",
+      "EXPD"
+    ]
+  },
+  "3690.HK": {
+    "maps-cloud": [
+      "GOOG",
+      "MSFT",
+      "AMZN"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "supply": [
+      "1211.HK",
+      "0175.HK",
+      "TM"
+    ],
+    "platforms": [
+      "LYFT",
+      "AMZN",
+      "SHOP"
+    ],
+    "monetization": [
+      "GOOG",
+      "META",
+      "APP"
+    ]
+  },
+  "1810.HK": {
+    "materials": [
+      "GLW",
+      "AMAT",
+      "ASML"
+    ],
+    "components": [
+      "TSM",
+      "QCOM",
+      "2382.HK"
+    ],
+    "assembly": [
+      "2317.TW",
+      "002475.SZ",
+      "4938.TW"
+    ],
+    "distribution": [
+      "FDX",
+      "UPS",
+      "EXPD"
+    ],
+    "retail": [
+      "BBY",
+      "T",
+      "VZ"
+    ]
+  },
+  "1211.HK": {
+    "materials": [
+      "ALB",
+      "FCX",
+      "NUE"
+    ],
+    "components": [
+      "000660.KS",
+      "ON",
+      "APH"
+    ],
+    "assembly": [
+      "JBL",
+      "FLEX",
+      "2317.TW"
+    ],
+    "dealers": [
+      "KMX",
+      "AN",
+      "PAG"
+    ],
+    "energy": [
+      "NEE",
+      "ENPH",
+      "FSLR"
+    ]
+  },
+  "0941.HK": {
+    "equipment": [
+      "CSCO",
+      "ERIC",
+      "NOK"
+    ],
+    "towers": [
+      "AMT",
+      "CCI",
+      "SBAC"
+    ],
+    "devices": [
+      "AAPL",
+      "005930.KS",
+      "1810.HK"
+    ],
+    "content": [
+      "NFLX",
+      "DIS",
+      "GOOG"
+    ],
+    "customers": [
+      "AMZN",
+      "MSFT",
+      "0700.HK"
+    ]
+  },
+  "0005.HK": {
+    "funding": [
+      "GS",
+      "MS",
+      "BLK"
+    ],
+    "tech": [
+      "MSFT",
+      "ORCL",
+      "IBM"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "FISV"
+    ],
+    "data-risk": [
+      "SPGI",
+      "MCO",
+      "FICO"
+    ],
+    "channels": [
+      "SCHW",
+      "AXP",
+      "COF"
+    ]
+  },
+  "2318.HK": {
+    "reinsurance": [
+      "EG",
+      "RNR",
+      "RGA"
+    ],
+    "data": [
+      "VRSK",
+      "SPGI",
+      "MCO"
+    ],
+    "investments": [
+      "BLK",
+      "BX",
+      "BRK-B"
+    ],
+    "distribution": [
+      "AON",
+      "MRSH",
+      "AJG"
+    ],
+    "claims": [
+      "UNH",
+      "HCA",
+      "CI"
+    ]
+  },
+  "0388.HK": {
+    "venues": [
+      "GS",
+      "JPM",
+      "MS"
+    ],
+    "data": [
+      "SPGI",
+      "MCO",
+      "VRSK"
+    ],
+    "tech": [
+      "MSFT",
+      "ORCL",
+      "PANW"
+    ],
+    "buy-side": [
+      "BLK",
+      "BX",
+      "TROW"
+    ],
+    "issuers": [
+      "0700.HK",
+      "9988.HK",
+      "0005.HK"
+    ]
+  },
+  "0883.HK": {
+    "services": [
+      "SLB",
+      "HAL",
+      "BKR"
+    ],
+    "upstream": [
+      "COP",
+      "EOG",
+      "OXY"
+    ],
+    "midstream": [
+      "ENB",
+      "PAA",
+      "WES"
+    ],
+    "refining": [
+      "MPC",
+      "VLO",
+      "PSX"
+    ],
+    "marketing": [
+      "DAL",
+      "CAT",
+      "UNP"
+    ]
+  },
+  "1299.HK": {
+    "reinsurance": [
+      "EG",
+      "RNR",
+      "RGA"
+    ],
+    "data": [
+      "VRSK",
+      "SPGI",
+      "MCO"
+    ],
+    "investments": [
+      "BLK",
+      "BX",
+      "BRK-B"
+    ],
+    "distribution": [
+      "AON",
+      "MRSH",
+      "AJG"
+    ],
+    "claims": [
+      "UNH",
+      "HCA",
+      "CI"
+    ]
+  },
+  "0386.HK": {
+    "services": [
+      "SLB",
+      "HAL",
+      "BKR"
+    ],
+    "upstream": [
+      "COP",
+      "EOG",
+      "OXY"
+    ],
+    "midstream": [
+      "ENB",
+      "PAA",
+      "WES"
+    ],
+    "refining": [
+      "MPC",
+      "VLO",
+      "PSX"
+    ],
+    "marketing": [
+      "DAL",
+      "CAT",
+      "UNP"
+    ]
   }
 }

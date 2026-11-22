@@ -385,6 +385,7 @@ STAGE_TICKER_ALIAS: dict[str, str] = {
 STAGE_TICKER_BANNED = {"SPCX", "MAXR", "FLY", "FLYX", "SQ", "PEAK", "MYL", "RDFN", "SJW", "GOLD", "BERY"}
 
 # Same-issuer dual listings (TWSE/ADR etc.) — never stage+rival the same issuer.
+# HK pages prefer .HK counters; map both sides to one issuer key.
 DUAL_LIST_ISSUER: dict[str, str] = {
     "3711.TW": "ASE",
     "ASX": "ASE",
@@ -392,6 +393,22 @@ DUAL_LIST_ISSUER: dict[str, str] = {
     "2423.HK": "BEKE",
     "GOLD": "B",
     "B": "B",
+    "9988.HK": "ALIBABA",
+    "BABA": "ALIBABA",
+    "9618.HK": "JD",
+    "JD": "JD",
+    "9888.HK": "BAIDU",
+    "BIDU": "BAIDU",
+    "9999.HK": "NETEASE",
+    "NTES": "NETEASE",
+    "0005.HK": "HSBC",
+    "HSBC": "HSBC",
+    "2015.HK": "LI_AUTO",
+    "LI": "LI_AUTO",
+    "9868.HK": "XPENG",
+    "XPEV": "XPENG",
+    "9866.HK": "NIO",
+    "NIO": "NIO",
 }
 
 def issuer_key(t: str) -> str:

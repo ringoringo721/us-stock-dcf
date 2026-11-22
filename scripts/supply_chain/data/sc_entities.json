@@ -825,7 +825,7 @@
     "exchange": "NYSE"
   },
   "2317.TW": {
-    "name_en": "Hon Hai (Foxconn)",
+    "name_en": "Hon Hai",
     "name_zh": "鴻海",
     "exchange": "TWSE"
   },
@@ -835,7 +835,7 @@
     "exchange": "TWSE"
   },
   "002475.SZ": {
-    "name_en": "Luxshare Precision",
+    "name_en": "Luxshare",
     "name_zh": "立訊精密",
     "exchange": "SZSE"
   },
@@ -846,7 +846,7 @@
   },
   "1810.HK": {
     "name_en": "Xiaomi",
-    "name_zh": "小米集團",
+    "name_zh": "小米",
     "exchange": "HKEX"
   },
   "688036.SS": {
@@ -921,7 +921,7 @@
   },
   "9618.HK": {
     "name_en": "JD.com",
-    "name_zh": "京東集團",
+    "name_zh": "京東",
     "exchange": "HKEX"
   },
   "9999.HK": {
@@ -7718,5 +7718,140 @@
     "name_en": "Quebecor",
     "name_zh": "Quebecor",
     "exchange": "OTC"
+  },
+  "0005.HK": {
+    "name_en": "HSBC",
+    "name_zh": "滙豐",
+    "exchange": "HKEX"
+  },
+  "2318.HK": {
+    "name_en": "Ping An",
+    "name_zh": "中國平安",
+    "exchange": "HKEX"
+  },
+  "0388.HK": {
+    "name_en": "HKEX",
+    "name_zh": "港交所",
+    "exchange": "HKEX"
+  },
+  "0883.HK": {
+    "name_en": "CNOOC",
+    "name_zh": "中海油",
+    "exchange": "HKEX"
+  },
+  "1299.HK": {
+    "name_en": "AIA",
+    "name_zh": "友邦",
+    "exchange": "HKEX"
+  },
+  "0386.HK": {
+    "name_en": "Sinopec",
+    "name_zh": "中石化",
+    "exchange": "HKEX"
+  },
+  "9888.HK": {
+    "name_en": "Baidu",
+    "name_zh": "百度",
+    "exchange": "HKEX"
+  },
+  "1024.HK": {
+    "name_en": "Kuaishou",
+    "name_zh": "快手",
+    "exchange": "HKEX"
+  },
+  "9626.HK": {
+    "name_en": "Bilibili",
+    "name_zh": "嗶哩嗶哩",
+    "exchange": "HKEX"
+  },
+  "0762.HK": {
+    "name_en": "China Unicom",
+    "name_zh": "中國聯通",
+    "exchange": "HKEX"
+  },
+  "0728.HK": {
+    "name_en": "China Telecom",
+    "name_zh": "中國電信",
+    "exchange": "HKEX"
+  },
+  "2015.HK": {
+    "name_en": "Li Auto",
+    "name_zh": "理想汽車",
+    "exchange": "HKEX"
+  },
+  "9868.HK": {
+    "name_en": "XPeng",
+    "name_zh": "小鵬",
+    "exchange": "HKEX"
+  },
+  "9866.HK": {
+    "name_en": "NIO",
+    "name_zh": "蔚來",
+    "exchange": "HKEX"
+  },
+  "0857.HK": {
+    "name_en": "PetroChina",
+    "name_zh": "中國石油",
+    "exchange": "HKEX"
+  },
+  "1398.HK": {
+    "name_en": "ICBC",
+    "name_zh": "工商銀行",
+    "exchange": "HKEX"
+  },
+  "0939.HK": {
+    "name_en": "CCB",
+    "name_zh": "建設銀行",
+    "exchange": "HKEX"
+  },
+  "3988.HK": {
+    "name_en": "Bank of China",
+    "name_zh": "中國銀行",
+    "exchange": "HKEX"
+  },
+  "1288.HK": {
+    "name_en": "ABC",
+    "name_zh": "農業銀行",
+    "exchange": "HKEX"
+  },
+  "2388.HK": {
+    "name_en": "BOCHK",
+    "name_zh": "中銀香港",
+    "exchange": "HKEX"
+  },
+  "2628.HK": {
+    "name_en": "China Life",
+    "name_zh": "中國人壽",
+    "exchange": "HKEX"
+  },
+  "2328.HK": {
+    "name_en": "PICC P&C",
+    "name_zh": "人保財險",
+    "exchange": "HKEX"
+  },
+  "1339.HK": {
+    "name_en": "PICC Group",
+    "name_zh": "中國人保",
+    "exchange": "HKEX"
+  },
+  "0175.HK": {
+    "name_en": "Geely",
+    "name_zh": "吉利汽車",
+    "exchange": "HKEX"
+  },
+  "0992.HK": {
+    "name_en": "Lenovo",
+    "name_zh": "聯想",
+    "exchange": "HKEX"
+  },
+  "2382.HK": {
+    "name_en": "Sunny Optical",
+    "name_zh": "舜宇光學",
+    "exchange": "HKEX"
+  },
+  "0669.HK": {
+    "name_en": "Techtronic",
+    "name_zh": "創科實業",
+    "exchange": "HKEX"
   }
 }
