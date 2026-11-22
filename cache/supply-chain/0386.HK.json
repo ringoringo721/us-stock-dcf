@@ -1,0 +1,235 @@
+{
+  "version": 1,
+  "ticker": "0386.HK",
+  "name_en": "Sinopec",
+  "name_zh": "中國石油化工股份",
+  "updatedAt": "2026-11-22",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for HK MVP hubs (trial batch). Not a live supplier API dump. Prefer .HK dual-list counters on HK pages. Preview-before-merge.",
+    "notes_zh": "本頁為港股 MVP 龍頭供應鏈／競爭策展種子（產業價值鏈模板＋人工策展對手）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。雙重上市優先港股 .HK 代號。若主力市場在中國／亞洲，階段玩家與對手優先中港／區域上市，不以美股公司名單灌水。競爭對手採產品／市場真實對手原則（參考美股 AAPL 教訓）。",
+    "notes_en": "HK MVP hub curated seed (industry value-chain template + curated rivals). No live supplier API. Dual-listed names prefer .HK. When the major market is China/Asia, stage players and rivals prefer CN/HK/regional listings — not US-company dumps. Competitors follow true product/market rivalry (AAPL lesson).",
+    "competitorRationale_zh": "競爭弧只列主力市場真實產品對手；階段玩家與對手分開；雙重上市優先 .HK；中國市場不以美股節點為預設。",
+    "competitorRationale_en": "Rival arc = true product rivals in the major market; stages ≠ rivals; dual listings prefer .HK; China-facing hubs are not US-node dumps.",
+    "modelId": "energy-integrated-v1",
+    "references": [
+      "Industry model via TICKER_MODEL (HK MVP)",
+      "HKEX listings + hk_market_dcf.json hub rows",
+      "AAPL curated seed shape (schema reference)",
+      "docs/hk-supply-chain-plan.md MVP hubs"
+    ]
+  },
+  "model": {
+    "id": "energy-integrated-v1",
+    "label_zh": "綜合油氣價值鏈",
+    "label_en": "Integrated oil & gas value chain",
+    "description_zh": "油服／設備 → 上游開採 → 中游管輸 → 煉製化工 → 零售／航煤客戶。",
+    "description_en": "Oilfield services → upstream → midstream → refining/chem → retail/jet customers."
+  },
+  "stages": [
+    {
+      "id": "services",
+      "order": 1,
+      "label_zh": "油服／設備",
+      "label_en": "Oilfield services / equipment",
+      "summary_zh": "鑽完井與油田服務。",
+      "summary_en": "Drilling and oilfield services.",
+      "players": [
+        {
+          "ticker": "1033.HK",
+          "name_en": "Sinopec Oilfield Service",
+          "name_zh": "中石化油服",
+          "role_zh": "中石化油服：油服／設備代表性玩家",
+          "role_en": "Sinopec Oilfield Service: representative player in Oilfield services / equipment",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "2883.HK",
+          "name_en": "COSL",
+          "name_zh": "中海油服",
+          "role_zh": "中海油服：油服／設備代表性玩家",
+          "role_en": "COSL: representative player in Oilfield services / equipment",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "3337.HK",
+          "name_en": "Anton Oilfield",
+          "name_zh": "安東油田",
+          "role_zh": "安東油田：油服／設備代表性玩家",
+          "role_en": "Anton Oilfield: representative player in Oilfield services / equipment",
+          "exchange": "HKEX"
+        }
+      ]
+    },
+    {
+      "id": "upstream",
+      "order": 2,
+      "label_zh": "上游勘探開發",
+      "label_en": "Upstream E&P",
+      "summary_zh": "勘探開發與權益油。",
+      "summary_en": "Exploration and production.",
+      "players": [
+        {
+          "ticker": "2883.HK",
+          "name_en": "COSL",
+          "name_zh": "中海油服",
+          "role_zh": "中海油服：上游勘探開發代表性玩家",
+          "role_en": "COSL: representative player in Upstream E&P",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "3337.HK",
+          "name_en": "Anton Oilfield",
+          "name_zh": "安東油田",
+          "role_zh": "安東油田：上游勘探開發代表性玩家",
+          "role_en": "Anton Oilfield: representative player in Upstream E&P",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "1138.HK",
+          "name_en": "COSCO Shipping Energy",
+          "name_zh": "中遠海能",
+          "role_zh": "中遠海能：上游勘探開發代表性玩家",
+          "role_en": "COSCO Shipping Energy: representative player in Upstream E&P",
+          "exchange": "HKEX"
+        }
+      ]
+    },
+    {
+      "id": "midstream",
+      "order": 3,
+      "label_zh": "中游管輸／液化",
+      "label_en": "Midstream / LNG",
+      "summary_zh": "管線、儲運與 LNG。",
+      "summary_en": "Pipelines, storage, LNG.",
+      "players": [
+        {
+          "ticker": "1138.HK",
+          "name_en": "COSCO Shipping Energy",
+          "name_zh": "中遠海能",
+          "role_zh": "中遠海能：中游管輸／液化代表性玩家",
+          "role_en": "COSCO Shipping Energy: representative player in Midstream / LNG",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "1919.HK",
+          "name_en": "COSCO Shipping Holdings",
+          "name_zh": "中遠海控",
+          "role_zh": "中遠海控：中游管輸／液化代表性玩家",
+          "role_en": "COSCO Shipping Holdings: representative player in Midstream / LNG",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "0316.HK",
+          "name_en": "OOIL",
+          "name_zh": "東方海外",
+          "role_zh": "東方海外：中游管輸／液化代表性玩家",
+          "role_en": "OOIL: representative player in Midstream / LNG",
+          "exchange": "HKEX"
+        }
+      ]
+    },
+    {
+      "id": "refining",
+      "order": 4,
+      "label_zh": "煉製／化工",
+      "label_en": "Refining / chemicals",
+      "summary_zh": "煉廠與石化下游。",
+      "summary_en": "Refineries and downstream chem.",
+      "players": [
+        {
+          "ticker": "0338.HK",
+          "name_en": "Shanghai Petrochemical",
+          "name_zh": "上海石化",
+          "role_zh": "上海石化：煉製／化工代表性玩家",
+          "role_en": "Shanghai Petrochemical: representative player in Refining / chemicals",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "0934.HK",
+          "name_en": "Sinopec Kantons",
+          "name_zh": "中石化冠德",
+          "role_zh": "中石化冠德：煉製／化工代表性玩家",
+          "role_en": "Sinopec Kantons: representative player in Refining / chemicals",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "2688.HK",
+          "name_en": "ENN Energy",
+          "name_zh": "新奧能源",
+          "role_zh": "新奧能源：煉製／化工代表性玩家",
+          "role_en": "ENN Energy: representative player in Refining / chemicals",
+          "exchange": "HKEX"
+        }
+      ]
+    },
+    {
+      "id": "marketing",
+      "order": 5,
+      "label_zh": "零售／航煤／工業客戶",
+      "label_en": "Retail / jet / industrial customers",
+      "summary_zh": "加油站、航空與工業用戶。",
+      "summary_en": "Fuel retail, aviation, industrials.",
+      "players": [
+        {
+          "ticker": "2688.HK",
+          "name_en": "ENN Energy",
+          "name_zh": "新奧能源",
+          "role_zh": "新奧能源：零售／航煤／工業客戶代表性玩家",
+          "role_en": "ENN Energy: representative player in Retail / jet / industrial customers",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "1193.HK",
+          "name_en": "CR Gas",
+          "name_zh": "華潤燃氣",
+          "role_zh": "華潤燃氣：零售／航煤／工業客戶代表性玩家",
+          "role_en": "CR Gas: representative player in Retail / jet / industrial customers",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "0384.HK",
+          "name_en": "China Gas",
+          "name_zh": "中國燃氣",
+          "role_zh": "中國燃氣：零售／航煤／工業客戶代表性玩家",
+          "role_en": "China Gas: representative player in Retail / jet / industrial customers",
+          "exchange": "HKEX"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "0857.HK",
+      "name_en": "PetroChina",
+      "name_zh": "中國石油",
+      "basis_zh": "中國油氣一體化對手",
+      "basis_en": "China integrated oil & gas rival",
+      "exchange": "HKEX"
+    },
+    {
+      "ticker": "0883.HK",
+      "name_en": "CNOOC",
+      "name_zh": "中海油",
+      "basis_zh": "中國上游油氣對手",
+      "basis_en": "China upstream oil & gas rival",
+      "exchange": "HKEX"
+    },
+    {
+      "ticker": "1088.HK",
+      "name_en": "China Shenhua",
+      "name_zh": "中國神華",
+      "basis_zh": "中國能源對手",
+      "basis_en": "China energy rival",
+      "exchange": "HKEX"
+    },
+    {
+      "ticker": "1171.HK",
+      "name_en": "Yankuang Energy",
+      "name_zh": "兗礦能源",
+      "basis_zh": "中國能源上游對手",
+      "basis_en": "China energy upstream rival",
+      "exchange": "HKEX"
+    }
+  ]
+}

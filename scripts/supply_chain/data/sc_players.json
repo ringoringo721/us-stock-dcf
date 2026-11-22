@@ -1835,5 +1835,81 @@
       "LEN",
       "AMT"
     ]
+  },
+  "china-superapp-v1": {
+    "infra": [
+      "9698.HK",
+      "3888.HK",
+      "0788.HK"
+    ],
+    "content-ip": [
+      "0772.HK",
+      "1698.HK",
+      "3888.HK"
+    ],
+    "distribution": [
+      "0941.HK",
+      "0762.HK",
+      "1810.HK"
+    ],
+    "fintech": [
+      "0005.HK",
+      "1398.HK",
+      "6060.HK"
+    ],
+    "advertisers": [
+      "2020.HK",
+      "2331.HK",
+      "2319.HK"
+    ]
+  },
+  "china-local-life-v1": {
+    "maps-cloud": [
+      "9888.HK",
+      "3888.HK",
+      "9698.HK"
+    ],
+    "payments": [
+      "6060.HK",
+      "0388.HK",
+      "0005.HK"
+    ],
+    "fleet": [
+      "1211.HK",
+      "0175.HK",
+      "2333.HK"
+    ],
+    "merchants": [
+      "2319.HK",
+      "2020.HK",
+      "1044.HK"
+    ],
+    "ads": [
+      "2020.HK",
+      "2331.HK",
+      "1044.HK"
+    ]
+  },
+  "china-platform-builder-v1": {
+    "infra": [
+      "9698.HK",
+      "3888.HK",
+      "0788.HK"
+    ],
+    "distribution": [
+      "0941.HK",
+      "0762.HK",
+      "1810.HK"
+    ],
+    "payments": [
+      "0005.HK",
+      "1398.HK",
+      "6060.HK"
+    ],
+    "advertisers": [
+      "2020.HK",
+      "2331.HK",
+      "2319.HK"
+    ]
   }
 }

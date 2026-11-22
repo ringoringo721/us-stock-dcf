@@ -1,0 +1,243 @@
+{
+  "version": 1,
+  "ticker": "9988.HK",
+  "name_en": "Alibaba",
+  "name_zh": "阿里巴巴",
+  "updatedAt": "2026-11-22",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for HK MVP hubs (trial batch). Not a live supplier API dump. Prefer .HK dual-list counters on HK pages. Preview-before-merge.",
+    "notes_zh": "本頁為港股 MVP 龍頭供應鏈／競爭策展種子（產業價值鏈模板＋人工策展對手）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。雙重上市優先港股 .HK 代號。若主力市場在中國／亞洲，階段玩家與對手優先中港／區域上市，不以美股公司名單灌水。競爭對手採產品／市場真實對手原則（參考美股 AAPL 教訓）。",
+    "notes_en": "HK MVP hub curated seed (industry value-chain template + curated rivals). No live supplier API. Dual-listed names prefer .HK. When the major market is China/Asia, stage players and rivals prefer CN/HK/regional listings — not US-company dumps. Competitors follow true product/market rivalry (AAPL lesson).",
+    "competitorRationale_zh": "競爭弧只列主力市場真實產品對手；階段玩家與對手分開；雙重上市優先 .HK；中國市場不以美股節點為預設。",
+    "competitorRationale_en": "Rival arc = true product rivals in the major market; stages ≠ rivals; dual listings prefer .HK; China-facing hubs are not US-node dumps.",
+    "modelId": "ecommerce-retail-v1",
+    "references": [
+      "Industry model via TICKER_MODEL (HK MVP)",
+      "HKEX listings + hk_market_dcf.json hub rows",
+      "AAPL curated seed shape (schema reference)",
+      "docs/hk-supply-chain-plan.md MVP hubs"
+    ]
+  },
+  "model": {
+    "id": "ecommerce-retail-v1",
+    "label_zh": "電商／零售價值鏈",
+    "label_en": "E-commerce / retail value chain",
+    "description_zh": "商品供應 → 倉儲物流 → 支付 → 流量／廣告 → 最後一哩配送。",
+    "description_en": "Merchants/supply → fulfillment → payments → traffic/ads → last-mile."
+  },
+  "stages": [
+    {
+      "id": "supply",
+      "order": 1,
+      "label_zh": "品牌／賣家供應",
+      "label_en": "Brands / seller supply",
+      "summary_zh": "第三方賣家與品牌貨源。",
+      "summary_en": "3P sellers and brand supply.",
+      "players": [
+        {
+          "ticker": "2020.HK",
+          "name_en": "ANTA",
+          "name_zh": "安踏",
+          "role_zh": "安踏：品牌／賣家供應代表性玩家",
+          "role_en": "ANTA: representative player in Brands / seller supply",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "2331.HK",
+          "name_en": "Li Ning",
+          "name_zh": "李寧",
+          "role_zh": "李寧：品牌／賣家供應代表性玩家",
+          "role_en": "Li Ning: representative player in Brands / seller supply",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "2319.HK",
+          "name_en": "Mengniu",
+          "name_zh": "蒙牛",
+          "role_zh": "蒙牛：品牌／賣家供應代表性玩家",
+          "role_en": "Mengniu: representative player in Brands / seller supply",
+          "exchange": "HKEX"
+        }
+      ]
+    },
+    {
+      "id": "fulfillment",
+      "order": 2,
+      "label_zh": "倉儲／履約",
+      "label_en": "Warehousing / fulfillment",
+      "summary_zh": "倉庫、自動化與庫存節點。",
+      "summary_en": "Warehouses, automation, inventory nodes.",
+      "players": [
+        {
+          "ticker": "2057.HK",
+          "name_en": "ZTO Express",
+          "name_zh": "中通快遞",
+          "role_zh": "中通快遞：倉儲／履約代表性玩家",
+          "role_en": "ZTO Express: representative player in Warehousing / fulfillment",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "1519.HK",
+          "name_en": "J&T Express",
+          "name_zh": "極兔速遞",
+          "role_zh": "極兔速遞：倉儲／履約代表性玩家",
+          "role_en": "J&T Express: representative player in Warehousing / fulfillment",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "0144.HK",
+          "name_en": "CMPort",
+          "name_zh": "招商港口",
+          "role_zh": "招商港口：倉儲／履約代表性玩家",
+          "role_en": "CMPort: representative player in Warehousing / fulfillment",
+          "exchange": "HKEX"
+        }
+      ]
+    },
+    {
+      "id": "payments",
+      "order": 3,
+      "label_zh": "支付／金融",
+      "label_en": "Payments / fintech",
+      "summary_zh": "卡組織、收單與消費金融。",
+      "summary_en": "Card networks, acquirers, consumer finance.",
+      "players": [
+        {
+          "ticker": "6060.HK",
+          "name_en": "ZhongAn",
+          "name_zh": "眾安在線",
+          "role_zh": "眾安在線：支付／金融代表性玩家",
+          "role_en": "ZhongAn: representative player in Payments / fintech",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "0388.HK",
+          "name_en": "HKEX",
+          "name_zh": "港交所",
+          "role_zh": "港交所：支付／金融代表性玩家",
+          "role_en": "HKEX: representative player in Payments / fintech",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "0005.HK",
+          "name_en": "HSBC",
+          "name_zh": "滙豐",
+          "role_zh": "滙豐：支付／金融代表性玩家",
+          "role_en": "HSBC: representative player in Payments / fintech",
+          "exchange": "HKEX"
+        }
+      ]
+    },
+    {
+      "id": "traffic",
+      "order": 4,
+      "label_zh": "流量／廣告獲客",
+      "label_en": "Traffic / ad acquisition",
+      "summary_zh": "搜尋、社群與零售媒體。",
+      "summary_en": "Search, social, retail media.",
+      "players": [
+        {
+          "ticker": "9888.HK",
+          "name_en": "Baidu",
+          "name_zh": "百度",
+          "role_zh": "百度：流量／廣告獲客代表性玩家",
+          "role_en": "Baidu: representative player in Traffic / ad acquisition",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "1024.HK",
+          "name_en": "Kuaishou",
+          "name_zh": "快手",
+          "role_zh": "快手：流量／廣告獲客代表性玩家",
+          "role_en": "Kuaishou: representative player in Traffic / ad acquisition",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "9626.HK",
+          "name_en": "Bilibili",
+          "name_zh": "嗶哩嗶哩",
+          "role_zh": "嗶哩嗶哩：流量／廣告獲客代表性玩家",
+          "role_en": "Bilibili: representative player in Traffic / ad acquisition",
+          "exchange": "HKEX"
+        }
+      ]
+    },
+    {
+      "id": "lastmile",
+      "order": 5,
+      "label_zh": "最後一哩／宅配",
+      "label_en": "Last-mile delivery",
+      "summary_zh": "快遞與本地配送網路。",
+      "summary_en": "Parcel and local delivery networks.",
+      "players": [
+        {
+          "ticker": "2057.HK",
+          "name_en": "ZTO Express",
+          "name_zh": "中通快遞",
+          "role_zh": "中通快遞：最後一哩／宅配代表性玩家",
+          "role_en": "ZTO Express: representative player in Last-mile delivery",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "1519.HK",
+          "name_en": "J&T Express",
+          "name_zh": "極兔速遞",
+          "role_zh": "極兔速遞：最後一哩／宅配代表性玩家",
+          "role_en": "J&T Express: representative player in Last-mile delivery",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "1308.HK",
+          "name_en": "SITC",
+          "name_zh": "海豐國際",
+          "role_zh": "海豐國際：最後一哩／宅配代表性玩家",
+          "role_en": "SITC: representative player in Last-mile delivery",
+          "exchange": "HKEX"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "9618.HK",
+      "name_en": "JD.com",
+      "name_zh": "京東",
+      "basis_zh": "中國電商對手",
+      "basis_en": "China e-commerce rival",
+      "exchange": "HKEX"
+    },
+    {
+      "ticker": "PDD",
+      "name_en": "PDD",
+      "name_zh": "拼多多",
+      "basis_zh": "下沉市場電商對手",
+      "basis_en": "Value e-commerce rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "0700.HK",
+      "name_en": "Tencent",
+      "name_zh": "騰訊",
+      "basis_zh": "中國互聯網生態對手",
+      "basis_en": "China internet ecosystem rival",
+      "exchange": "HKEX"
+    },
+    {
+      "ticker": "3690.HK",
+      "name_en": "Meituan",
+      "name_zh": "美團",
+      "basis_zh": "本地生活／即時零售對手",
+      "basis_en": "Local services / instant retail rival",
+      "exchange": "HKEX"
+    },
+    {
+      "ticker": "6618.HK",
+      "name_en": "JD Health",
+      "name_zh": "京東健康",
+      "basis_zh": "醫藥電商／健康零售對手",
+      "basis_en": "Health e-commerce rival",
+      "exchange": "HKEX"
+    }
+  ]
+}

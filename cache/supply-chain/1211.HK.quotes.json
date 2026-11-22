@@ -1,0 +1,200 @@
+{
+  "version": 1,
+  "ticker": "1211.HK",
+  "updatedAt": "2026-11-22",
+  "basis": "lastTradingDayCloseVsPriorClose",
+  "notes_en": "changePct from last two EOD closes in price_charts when present; mcap from HK/US universe overlays (HKD millions for .HK, USD millions for US). Missing stays null. No live FMP per pageview.",
+  "notes_zh": "漲跌%取自 price_charts 最近兩日收盤（若有）；市值取自港股／美股宇宙覆寫（.HK 為百萬港元，美股為百萬美元）。缺資料維持 null，不造假。頁面不打即時 FMP。",
+  "quotes": {
+    "1211.HK": {
+      "ticker": "1211.HK",
+      "price": 68.05,
+      "previousClose": 68.65,
+      "changePct": -0.874,
+      "mcap": 621337.0,
+      "currency": "HKD",
+      "asOf": "2026-10-30",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "3750.HK": {
+      "ticker": "3750.HK",
+      "price": 339.8,
+      "previousClose": 338.8,
+      "changePct": 0.295,
+      "mcap": 1445084.1,
+      "currency": "HKD",
+      "asOf": "2026-10-30",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "2899.HK": {
+      "ticker": "2899.HK",
+      "price": 27.56,
+      "previousClose": 27.98,
+      "changePct": -1.501,
+      "mcap": 731778.7,
+      "currency": "HKD",
+      "asOf": "2026-10-30",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "0868.HK": {
+      "ticker": "0868.HK",
+      "price": 8.03,
+      "previousClose": 7.92,
+      "changePct": 1.389,
+      "mcap": 35618.6,
+      "currency": "HKD",
+      "asOf": "2026-10-30",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "1316.HK": {
+      "ticker": "1316.HK",
+      "price": 4.18,
+      "previousClose": 4.33,
+      "changePct": -3.464,
+      "mcap": 10491.0,
+      "currency": "HKD",
+      "asOf": "2026-11-20",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "0425.HK": {
+      "ticker": "0425.HK",
+      "price": 22.38,
+      "previousClose": 21.86,
+      "changePct": 2.379,
+      "mcap": 26216.7,
+      "currency": "HKD",
+      "asOf": "2026-10-16",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "2018.HK": {
+      "ticker": "2018.HK",
+      "price": 37.64,
+      "previousClose": 38.02,
+      "changePct": -0.999,
+      "mcap": 43564.2,
+      "currency": "HKD",
+      "asOf": "2026-11-06",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "0179.HK": {
+      "ticker": "0179.HK",
+      "price": 13.22,
+      "previousClose": 13.09,
+      "changePct": 0.993,
+      "mcap": 12251.3,
+      "currency": "HKD",
+      "asOf": "2026-10-16",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "0881.HK": {
+      "ticker": "0881.HK",
+      "price": 1.78,
+      "previousClose": 1.82,
+      "changePct": -2.198,
+      "mcap": 4201.4,
+      "currency": "HKD",
+      "asOf": "2026-11-18",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "1268.HK": {
+      "ticker": "1268.HK",
+      "price": 0.226,
+      "previousClose": 0.237,
+      "changePct": -4.641,
+      "mcap": 304.3,
+      "currency": "HKD",
+      "asOf": "2026-11-19",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "3669.HK": {
+      "ticker": "3669.HK",
+      "price": 0.72,
+      "previousClose": 0.735,
+      "changePct": -2.041,
+      "mcap": 1361.8,
+      "currency": "HKD",
+      "asOf": "2026-10-20",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "2688.HK": {
+      "ticker": "2688.HK",
+      "price": 48.04,
+      "previousClose": 48.26,
+      "changePct": -0.456,
+      "mcap": 53435.7,
+      "currency": "HKD",
+      "asOf": "2026-10-30",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "1193.HK": {
+      "ticker": "1193.HK",
+      "price": 16.6,
+      "previousClose": 16.96,
+      "changePct": -2.123,
+      "mcap": 37393.1,
+      "currency": "HKD",
+      "asOf": "2026-11-19",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "2015.HK": {
+      "ticker": "2015.HK",
+      "price": 43.74,
+      "previousClose": 43.54,
+      "changePct": 0.459,
+      "mcap": 84710.2,
+      "currency": "HKD",
+      "asOf": "2026-10-30",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "9868.HK": {
+      "ticker": "9868.HK",
+      "price": 36.18,
+      "previousClose": 38.14,
+      "changePct": -5.139,
+      "mcap": 69319.2,
+      "currency": "HKD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "9866.HK": {
+      "ticker": "9866.HK",
+      "price": 23.32,
+      "previousClose": 24.64,
+      "changePct": -5.357,
+      "mcap": 54969.1,
+      "currency": "HKD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "9863.HK": {
+      "ticker": "9863.HK",
+      "price": 30.16,
+      "previousClose": 31.12,
+      "changePct": -3.085,
+      "mcap": null,
+      "currency": "HKD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "0175.HK": {
+      "ticker": "0175.HK",
+      "price": 13.53,
+      "previousClose": 13.57,
+      "changePct": -0.295,
+      "mcap": 145933.0,
+      "currency": "HKD",
+      "asOf": "2026-10-30",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "TSLA": {
+      "ticker": "TSLA",
+      "price": 390.22,
+      "previousClose": 397.45,
+      "changePct": -1.819,
+      "mcap": 1415947.0,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    }
+  }
+}

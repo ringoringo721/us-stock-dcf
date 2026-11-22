@@ -1,0 +1,243 @@
+{
+  "version": 1,
+  "ticker": "1299.HK",
+  "name_en": "AIA",
+  "name_zh": "友邦保險",
+  "updatedAt": "2026-11-22",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for HK MVP hubs (trial batch). Not a live supplier API dump. Prefer .HK dual-list counters on HK pages. Preview-before-merge.",
+    "notes_zh": "本頁為港股 MVP 龍頭供應鏈／競爭策展種子（產業價值鏈模板＋人工策展對手）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。雙重上市優先港股 .HK 代號。若主力市場在中國／亞洲，階段玩家與對手優先中港／區域上市，不以美股公司名單灌水。競爭對手採產品／市場真實對手原則（參考美股 AAPL 教訓）。",
+    "notes_en": "HK MVP hub curated seed (industry value-chain template + curated rivals). No live supplier API. Dual-listed names prefer .HK. When the major market is China/Asia, stage players and rivals prefer CN/HK/regional listings — not US-company dumps. Competitors follow true product/market rivalry (AAPL lesson).",
+    "competitorRationale_zh": "競爭弧只列主力市場真實產品對手；階段玩家與對手分開；雙重上市優先 .HK；中國市場不以美股節點為預設。",
+    "competitorRationale_en": "Rival arc = true product rivals in the major market; stages ≠ rivals; dual listings prefer .HK; China-facing hubs are not US-node dumps.",
+    "modelId": "insurance-v1",
+    "references": [
+      "Industry model via TICKER_MODEL (HK MVP)",
+      "HKEX listings + hk_market_dcf.json hub rows",
+      "AAPL curated seed shape (schema reference)",
+      "docs/hk-supply-chain-plan.md MVP hubs"
+    ]
+  },
+  "model": {
+    "id": "insurance-v1",
+    "label_zh": "保險價值鏈",
+    "label_en": "Insurance value chain",
+    "description_zh": "再保 → 精算／數據 → 投資資產 → 代理／經紀通路 → 醫療／理賠生態。",
+    "description_en": "Reinsurance → actuarial/data → invested assets → agency/broker → medical/claims."
+  },
+  "stages": [
+    {
+      "id": "reinsurance",
+      "order": 1,
+      "label_zh": "再保險",
+      "label_en": "Reinsurance",
+      "summary_zh": "巨災與比例再保。",
+      "summary_en": "Cat and proportional reinsurance.",
+      "players": [
+        {
+          "ticker": "1508.HK",
+          "name_en": "China Re",
+          "name_zh": "中國再保險",
+          "role_zh": "中國再保險：再保險代表性玩家",
+          "role_en": "China Re: representative player in Reinsurance",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "6060.HK",
+          "name_en": "ZhongAn",
+          "name_zh": "眾安在線",
+          "role_zh": "眾安在線：再保險代表性玩家",
+          "role_en": "ZhongAn: representative player in Reinsurance",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "0388.HK",
+          "name_en": "HKEX",
+          "name_zh": "港交所",
+          "role_zh": "港交所：再保險代表性玩家",
+          "role_en": "HKEX: representative player in Reinsurance",
+          "exchange": "HKEX"
+        }
+      ]
+    },
+    {
+      "id": "data",
+      "order": 2,
+      "label_zh": "精算／數據／評級",
+      "label_en": "Actuarial / data / ratings",
+      "summary_zh": "風險數據與資本評級。",
+      "summary_en": "Risk data and capital ratings.",
+      "players": [
+        {
+          "ticker": "0388.HK",
+          "name_en": "HKEX",
+          "name_zh": "港交所",
+          "role_zh": "港交所：精算／數據／評級代表性玩家",
+          "role_en": "HKEX: representative player in Actuarial / data / ratings",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "6030.HK",
+          "name_en": "CITIC Securities",
+          "name_zh": "中信證券",
+          "role_zh": "中信證券：精算／數據／評級代表性玩家",
+          "role_en": "CITIC Securities: representative player in Actuarial / data / ratings",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "0700.HK",
+          "name_en": "Tencent",
+          "name_zh": "騰訊",
+          "role_zh": "騰訊：精算／數據／評級代表性玩家",
+          "role_en": "Tencent: representative player in Actuarial / data / ratings",
+          "exchange": "HKEX"
+        }
+      ]
+    },
+    {
+      "id": "investments",
+      "order": 3,
+      "label_zh": "投資／資產管理",
+      "label_en": "Investments / asset management",
+      "summary_zh": "浮存金投資與資管。",
+      "summary_en": "Float investing and AM.",
+      "players": [
+        {
+          "ticker": "0005.HK",
+          "name_en": "HSBC",
+          "name_zh": "滙豐",
+          "role_zh": "滙豐：投資／資產管理代表性玩家",
+          "role_en": "HSBC: representative player in Investments / asset management",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "1398.HK",
+          "name_en": "ICBC",
+          "name_zh": "工商銀行",
+          "role_zh": "工商銀行：投資／資產管理代表性玩家",
+          "role_en": "ICBC: representative player in Investments / asset management",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "0388.HK",
+          "name_en": "HKEX",
+          "name_zh": "港交所",
+          "role_zh": "港交所：投資／資產管理代表性玩家",
+          "role_en": "HKEX: representative player in Investments / asset management",
+          "exchange": "HKEX"
+        }
+      ]
+    },
+    {
+      "id": "distribution",
+      "order": 4,
+      "label_zh": "代理／經紀／銀行通路",
+      "label_en": "Agents / brokers / bank channel",
+      "summary_zh": "獨立代理、經紀與銀保。",
+      "summary_en": "Agents, brokers, bancassurance.",
+      "players": [
+        {
+          "ticker": "0005.HK",
+          "name_en": "HSBC",
+          "name_zh": "滙豐",
+          "role_zh": "滙豐：代理／經紀／銀行通路代表性玩家",
+          "role_en": "HSBC: representative player in Agents / brokers / bank channel",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "2388.HK",
+          "name_en": "BOCHK",
+          "name_zh": "中銀香港",
+          "role_zh": "中銀香港：代理／經紀／銀行通路代表性玩家",
+          "role_en": "BOCHK: representative player in Agents / brokers / bank channel",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "2888.HK",
+          "name_en": "Standard Chartered",
+          "name_zh": "渣打集團",
+          "role_zh": "渣打集團：代理／經紀／銀行通路代表性玩家",
+          "role_en": "Standard Chartered: representative player in Agents / brokers / bank channel",
+          "exchange": "HKEX"
+        }
+      ]
+    },
+    {
+      "id": "claims",
+      "order": 5,
+      "label_zh": "醫療／理賠服務",
+      "label_en": "Medical / claims services",
+      "summary_zh": "醫療網絡與理賠處理。",
+      "summary_en": "Provider networks and claims ops.",
+      "players": [
+        {
+          "ticker": "1833.HK",
+          "name_en": "Ping An Good Doctor",
+          "name_zh": "平安好醫生",
+          "role_zh": "平安好醫生：醫療／理賠服務代表性玩家",
+          "role_en": "Ping An Good Doctor: representative player in Medical / claims services",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "1093.HK",
+          "name_en": "CSPC",
+          "name_zh": "石藥集團",
+          "role_zh": "石藥集團：醫療／理賠服務代表性玩家",
+          "role_en": "CSPC: representative player in Medical / claims services",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "1177.HK",
+          "name_en": "Sino Biopharm",
+          "name_zh": "中國生物製藥",
+          "role_zh": "中國生物製藥：醫療／理賠服務代表性玩家",
+          "role_en": "Sino Biopharm: representative player in Medical / claims services",
+          "exchange": "HKEX"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "2318.HK",
+      "name_en": "Ping An",
+      "name_zh": "中國平安",
+      "basis_zh": "亞洲壽險／綜合保險對手",
+      "basis_en": "Asia life / multi-line insurance rival",
+      "exchange": "HKEX"
+    },
+    {
+      "ticker": "2628.HK",
+      "name_en": "China Life",
+      "name_zh": "中國人壽",
+      "basis_zh": "中國壽險對手",
+      "basis_en": "China life insurance rival",
+      "exchange": "HKEX"
+    },
+    {
+      "ticker": "2601.HK",
+      "name_en": "CPIC",
+      "name_zh": "中國太保",
+      "basis_zh": "中國綜合保險對手",
+      "basis_en": "China multi-line insurance rival",
+      "exchange": "HKEX"
+    },
+    {
+      "ticker": "0966.HK",
+      "name_en": "China Taiping",
+      "name_zh": "中國太平",
+      "basis_zh": "中國保險集團對手",
+      "basis_en": "China insurance group rival",
+      "exchange": "HKEX"
+    },
+    {
+      "ticker": "2378.HK",
+      "name_en": "Prudential",
+      "name_zh": "保誠",
+      "basis_zh": "亞洲壽險對手（港股）",
+      "basis_en": "Asia life insurance rival (.HK)",
+      "exchange": "HKEX"
+    }
+  ]
+}

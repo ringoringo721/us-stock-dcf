@@ -1,0 +1,239 @@
+{
+  "version": 1,
+  "ticker": "1810.HK",
+  "name_en": "Xiaomi",
+  "name_zh": "小米集團",
+  "updatedAt": "2026-11-22",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for HK MVP hubs (trial batch). Not a live supplier API dump. Prefer .HK dual-list counters on HK pages. Preview-before-merge.",
+    "notes_zh": "本頁為港股 MVP 龍頭供應鏈／競爭策展種子（產業價值鏈模板＋人工策展對手）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。雙重上市優先港股 .HK 代號。若主力市場在中國／亞洲，階段玩家與對手優先中港／區域上市，不以美股公司名單灌水。競爭對手採產品／市場真實對手原則（參考美股 AAPL 教訓）。",
+    "notes_en": "HK MVP hub curated seed (industry value-chain template + curated rivals). No live supplier API. Dual-listed names prefer .HK. When the major market is China/Asia, stage players and rivals prefer CN/HK/regional listings — not US-company dumps. Competitors follow true product/market rivalry (AAPL lesson).",
+    "competitorRationale_zh": "競爭弧只列主力市場真實產品對手；階段玩家與對手分開；雙重上市優先 .HK；中國市場不以美股節點為預設。",
+    "competitorRationale_en": "Rival arc = true product rivals in the major market; stages ≠ rivals; dual listings prefer .HK; China-facing hubs are not US-node dumps.",
+    "modelId": "hardware-value-chain-v1",
+    "references": [
+      "Industry model via TICKER_MODEL (HK MVP)",
+      "HKEX listings + hk_market_dcf.json hub rows",
+      "AAPL curated seed shape (schema reference)",
+      "docs/hk-supply-chain-plan.md MVP hubs"
+    ]
+  },
+  "model": {
+    "id": "hardware-value-chain-v1",
+    "label_zh": "硬體價值鏈（五階段）",
+    "label_en": "Hardware value chain (5 stages)",
+    "description_zh": "上游材料／設備 → 關鍵零組件 → 組裝代工 → 物流通路 → 零售／電信通路。",
+    "description_en": "Materials/equipment → components → EMS → logistics → retail/carrier."
+  },
+  "stages": [
+    {
+      "id": "materials",
+      "order": 1,
+      "label_zh": "關鍵材料／製程設備",
+      "label_en": "Key materials / process equipment",
+      "summary_zh": "上游材料與製程設備。",
+      "summary_en": "Upstream materials and process tools.",
+      "players": [
+        {
+          "ticker": "0981.HK",
+          "name_en": "SMIC",
+          "name_zh": "中芯國際",
+          "role_zh": "中芯國際：關鍵材料／製程設備代表性玩家",
+          "role_en": "SMIC: representative player in Key materials / process equipment",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "1347.HK",
+          "name_en": "Hua Hong",
+          "name_zh": "華虹半導體",
+          "role_zh": "華虹半導體：關鍵材料／製程設備代表性玩家",
+          "role_en": "Hua Hong: representative player in Key materials / process equipment",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "2899.HK",
+          "name_en": "Zijin Mining",
+          "name_zh": "紫金礦業",
+          "role_zh": "紫金礦業：關鍵材料／製程設備代表性玩家",
+          "role_en": "Zijin Mining: representative player in Key materials / process equipment",
+          "exchange": "HKEX"
+        }
+      ]
+    },
+    {
+      "id": "components",
+      "order": 2,
+      "label_zh": "關鍵零組件／半導體",
+      "label_en": "Key components / semiconductors",
+      "summary_zh": "核心晶片與模組供應。",
+      "summary_en": "Core chips and modules.",
+      "players": [
+        {
+          "ticker": "TSM",
+          "name_en": "TSMC",
+          "name_zh": "台積電",
+          "role_zh": "台積電：關鍵零組件／半導體代表性玩家",
+          "role_en": "TSMC: representative player in Key components / semiconductors",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "2382.HK",
+          "name_en": "Sunny Optical",
+          "name_zh": "舜宇光學",
+          "role_zh": "舜宇光學：關鍵零組件／半導體代表性玩家",
+          "role_en": "Sunny Optical: representative player in Key components / semiconductors",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "2018.HK",
+          "name_en": "AAC Technologies",
+          "name_zh": "瑞聲科技",
+          "role_zh": "瑞聲科技：關鍵零組件／半導體代表性玩家",
+          "role_en": "AAC Technologies: representative player in Key components / semiconductors",
+          "exchange": "HKEX"
+        }
+      ]
+    },
+    {
+      "id": "assembly",
+      "order": 3,
+      "label_zh": "組裝代工（EMS）",
+      "label_en": "Final assembly (EMS)",
+      "summary_zh": "整機／系統組裝。",
+      "summary_en": "System / final assembly.",
+      "players": [
+        {
+          "ticker": "2317.TW",
+          "name_en": "Hon Hai",
+          "name_zh": "鴻海",
+          "role_zh": "鴻海：組裝代工（EMS）代表性玩家",
+          "role_en": "Hon Hai: representative player in Final assembly (EMS)",
+          "exchange": "TWSE",
+          "listedInApp": false
+        },
+        {
+          "ticker": "002475.SZ",
+          "name_en": "Luxshare",
+          "name_zh": "立訊精密",
+          "role_zh": "立訊精密：組裝代工（EMS）代表性玩家",
+          "role_en": "Luxshare: representative player in Final assembly (EMS)",
+          "exchange": "SZSE",
+          "listedInApp": false
+        },
+        {
+          "ticker": "2038.HK",
+          "name_en": "FIH Mobile",
+          "name_zh": "富智康",
+          "role_zh": "富智康：組裝代工（EMS）代表性玩家",
+          "role_en": "FIH Mobile: representative player in Final assembly (EMS)",
+          "exchange": "HKEX"
+        }
+      ]
+    },
+    {
+      "id": "distribution",
+      "order": 4,
+      "label_zh": "物流／通路配送",
+      "label_en": "Logistics / distribution",
+      "summary_zh": "成品物流與配送。",
+      "summary_en": "Finished-goods logistics.",
+      "players": [
+        {
+          "ticker": "1308.HK",
+          "name_en": "SITC",
+          "name_zh": "海豐國際",
+          "role_zh": "海豐國際：物流／通路配送代表性玩家",
+          "role_en": "SITC: representative player in Logistics / distribution",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "0316.HK",
+          "name_en": "OOIL",
+          "name_zh": "東方海外",
+          "role_zh": "東方海外：物流／通路配送代表性玩家",
+          "role_en": "OOIL: representative player in Logistics / distribution",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "0144.HK",
+          "name_en": "CMPort",
+          "name_zh": "招商港口",
+          "role_zh": "招商港口：物流／通路配送代表性玩家",
+          "role_en": "CMPort: representative player in Logistics / distribution",
+          "exchange": "HKEX"
+        }
+      ]
+    },
+    {
+      "id": "retail",
+      "order": 5,
+      "label_zh": "零售／電信通路",
+      "label_en": "Retail / carrier channels",
+      "summary_zh": "終端零售與電信通路。",
+      "summary_en": "Retail and carrier channels.",
+      "players": [
+        {
+          "ticker": "0762.HK",
+          "name_en": "China Unicom",
+          "name_zh": "中國聯通",
+          "role_zh": "中國聯通：零售／電信通路代表性玩家",
+          "role_en": "China Unicom: representative player in Retail / carrier channels",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "0728.HK",
+          "name_en": "China Telecom",
+          "name_zh": "中國電信",
+          "role_zh": "中國電信：零售／電信通路代表性玩家",
+          "role_en": "China Telecom: representative player in Retail / carrier channels",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "0941.HK",
+          "name_en": "China Mobile",
+          "name_zh": "中國移動",
+          "role_zh": "中國移動：零售／電信通路代表性玩家",
+          "role_en": "China Mobile: representative player in Retail / carrier channels",
+          "exchange": "HKEX"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "AAPL",
+      "name_en": "Apple",
+      "name_zh": "蘋果",
+      "basis_zh": "智慧手機／裝置生態對手（中國亦直接競爭）",
+      "basis_en": "Smartphone rival also active in China",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "005930.KS",
+      "name_en": "Samsung Electronics",
+      "name_zh": "三星電子",
+      "basis_zh": "全球／中國手機對手",
+      "basis_en": "Handset rival in China / global",
+      "exchange": "KRX",
+      "listedInApp": false
+    },
+    {
+      "ticker": "688036.SS",
+      "name_en": "Transsion",
+      "name_zh": "傳音控股",
+      "basis_zh": "新興市場量產 Android 對手",
+      "basis_en": "Emerging-market Android OEM rival",
+      "exchange": "SSE",
+      "listedInApp": false
+    },
+    {
+      "ticker": "0992.HK",
+      "name_en": "Lenovo",
+      "name_zh": "聯想",
+      "basis_zh": "PC／消費電子對手",
+      "basis_en": "PC / consumer electronics rival",
+      "exchange": "HKEX"
+    }
+  ]
+}

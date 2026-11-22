@@ -1,0 +1,243 @@
+{
+  "version": 1,
+  "ticker": "0005.HK",
+  "name_en": "HSBC",
+  "name_zh": "滙豐控股",
+  "updatedAt": "2026-11-22",
+  "source": {
+    "type": "curated",
+    "basis": "Industry value-chain template + curated product/market rivals for HK MVP hubs (trial batch). Not a live supplier API dump. Prefer .HK dual-list counters on HK pages. Preview-before-merge.",
+    "notes_zh": "本頁為港股 MVP 龍頭供應鏈／競爭策展種子（產業價值鏈模板＋人工策展對手）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。雙重上市優先港股 .HK 代號。若主力市場在中國／亞洲，階段玩家與對手優先中港／區域上市，不以美股公司名單灌水。競爭對手採產品／市場真實對手原則（參考美股 AAPL 教訓）。",
+    "notes_en": "HK MVP hub curated seed (industry value-chain template + curated rivals). No live supplier API. Dual-listed names prefer .HK. When the major market is China/Asia, stage players and rivals prefer CN/HK/regional listings — not US-company dumps. Competitors follow true product/market rivalry (AAPL lesson).",
+    "competitorRationale_zh": "競爭弧只列主力市場真實產品對手；階段玩家與對手分開；雙重上市優先 .HK；中國市場不以美股節點為預設。",
+    "competitorRationale_en": "Rival arc = true product rivals in the major market; stages ≠ rivals; dual listings prefer .HK; China-facing hubs are not US-node dumps.",
+    "modelId": "bank-diversified-v1",
+    "references": [
+      "Industry model via TICKER_MODEL (HK MVP)",
+      "HKEX listings + hk_market_dcf.json hub rows",
+      "AAPL curated seed shape (schema reference)",
+      "docs/hk-supply-chain-plan.md MVP hubs"
+    ]
+  },
+  "model": {
+    "id": "bank-diversified-v1",
+    "label_zh": "銀行（綜合）價值鏈",
+    "label_en": "Diversified bank value chain",
+    "description_zh": "資金／批發市場 → 核心科技 → 支付清算 → 風控／數據 → 客戶通路。",
+    "description_en": "Funding/markets → core tech → payments/clearing → risk/data → client channels."
+  },
+  "stages": [
+    {
+      "id": "funding",
+      "order": 1,
+      "label_zh": "資金／資本市場",
+      "label_en": "Funding / capital markets",
+      "summary_zh": "批發融資、債券與市場基礎設施。",
+      "summary_en": "Wholesale funding, bonds, market infra.",
+      "players": [
+        {
+          "ticker": "0388.HK",
+          "name_en": "HKEX",
+          "name_zh": "港交所",
+          "role_zh": "港交所：資金／資本市場代表性玩家",
+          "role_en": "HKEX: representative player in Funding / capital markets",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "6030.HK",
+          "name_en": "CITIC Securities",
+          "name_zh": "中信證券",
+          "role_zh": "中信證券：資金／資本市場代表性玩家",
+          "role_en": "CITIC Securities: representative player in Funding / capital markets",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "3908.HK",
+          "name_en": "CICC",
+          "name_zh": "中金公司",
+          "role_zh": "中金公司：資金／資本市場代表性玩家",
+          "role_en": "CICC: representative player in Funding / capital markets",
+          "exchange": "HKEX"
+        }
+      ]
+    },
+    {
+      "id": "tech",
+      "order": 2,
+      "label_zh": "核心銀行／雲端科技",
+      "label_en": "Core banking / cloud tech",
+      "summary_zh": "核心系統、雲與資安供應。",
+      "summary_en": "Core systems, cloud, security.",
+      "players": [
+        {
+          "ticker": "0700.HK",
+          "name_en": "Tencent",
+          "name_zh": "騰訊",
+          "role_zh": "騰訊：核心銀行／雲端科技代表性玩家",
+          "role_en": "Tencent: representative player in Core banking / cloud tech",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "9988.HK",
+          "name_en": "Alibaba",
+          "name_zh": "阿里巴巴",
+          "role_zh": "阿里巴巴：核心銀行／雲端科技代表性玩家",
+          "role_en": "Alibaba: representative player in Core banking / cloud tech",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "3888.HK",
+          "name_en": "Kingsoft",
+          "name_zh": "金山軟件",
+          "role_zh": "金山軟件：核心銀行／雲端科技代表性玩家",
+          "role_en": "Kingsoft: representative player in Core banking / cloud tech",
+          "exchange": "HKEX"
+        }
+      ]
+    },
+    {
+      "id": "payments",
+      "order": 3,
+      "label_zh": "支付／清算網路",
+      "label_en": "Payments / clearing networks",
+      "summary_zh": "卡組織、ACH／即時支付軌道。",
+      "summary_en": "Card networks and payment rails.",
+      "players": [
+        {
+          "ticker": "0700.HK",
+          "name_en": "Tencent",
+          "name_zh": "騰訊",
+          "role_zh": "騰訊：支付／清算網路代表性玩家",
+          "role_en": "Tencent: representative player in Payments / clearing networks",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "6060.HK",
+          "name_en": "ZhongAn",
+          "name_zh": "眾安在線",
+          "role_zh": "眾安在線：支付／清算網路代表性玩家",
+          "role_en": "ZhongAn: representative player in Payments / clearing networks",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "0388.HK",
+          "name_en": "HKEX",
+          "name_zh": "港交所",
+          "role_zh": "港交所：支付／清算網路代表性玩家",
+          "role_en": "HKEX: representative player in Payments / clearing networks",
+          "exchange": "HKEX"
+        }
+      ]
+    },
+    {
+      "id": "data-risk",
+      "order": 4,
+      "label_zh": "數據／風控／評級",
+      "label_en": "Data / risk / ratings",
+      "summary_zh": "信用數據、市場數據與評級。",
+      "summary_en": "Credit, market data, ratings.",
+      "players": [
+        {
+          "ticker": "0388.HK",
+          "name_en": "HKEX",
+          "name_zh": "港交所",
+          "role_zh": "港交所：數據／風控／評級代表性玩家",
+          "role_en": "HKEX: representative player in Data / risk / ratings",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "6030.HK",
+          "name_en": "CITIC Securities",
+          "name_zh": "中信證券",
+          "role_zh": "中信證券：數據／風控／評級代表性玩家",
+          "role_en": "CITIC Securities: representative player in Data / risk / ratings",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "2799.HK",
+          "name_en": "China CITIC Financial AMC",
+          "name_zh": "中國中信金融資產",
+          "role_zh": "中國中信金融資產：數據／風控／評級代表性玩家",
+          "role_en": "China CITIC Financial AMC: representative player in Data / risk / ratings",
+          "exchange": "HKEX"
+        }
+      ]
+    },
+    {
+      "id": "channels",
+      "order": 5,
+      "label_zh": "零售／企業客戶通路",
+      "label_en": "Retail / corporate channels",
+      "summary_zh": "分行、數位銀行與企業司庫入口。",
+      "summary_en": "Branches, digital, corporate portals.",
+      "players": [
+        {
+          "ticker": "6030.HK",
+          "name_en": "CITIC Securities",
+          "name_zh": "中信證券",
+          "role_zh": "中信證券：零售／企業客戶通路代表性玩家",
+          "role_en": "CITIC Securities: representative player in Retail / corporate channels",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "6886.HK",
+          "name_en": "Huatai Securities",
+          "name_zh": "華泰證券",
+          "role_zh": "華泰證券：零售／企業客戶通路代表性玩家",
+          "role_en": "Huatai Securities: representative player in Retail / corporate channels",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "1788.HK",
+          "name_en": "Guotai Junan Intl",
+          "name_zh": "國泰君安國際",
+          "role_zh": "國泰君安國際：零售／企業客戶通路代表性玩家",
+          "role_en": "Guotai Junan Intl: representative player in Retail / corporate channels",
+          "exchange": "HKEX"
+        }
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "ticker": "2388.HK",
+      "name_en": "BOCHK",
+      "name_zh": "中銀香港",
+      "basis_zh": "香港零售／企業銀行對手",
+      "basis_en": "Hong Kong banking rival",
+      "exchange": "HKEX"
+    },
+    {
+      "ticker": "2888.HK",
+      "name_en": "Standard Chartered",
+      "name_zh": "渣打集團",
+      "basis_zh": "亞洲國際銀行對手",
+      "basis_en": "Asia international banking rival",
+      "exchange": "HKEX"
+    },
+    {
+      "ticker": "0023.HK",
+      "name_en": "Bank of East Asia",
+      "name_zh": "東亞銀行",
+      "basis_zh": "香港銀行對手",
+      "basis_en": "Hong Kong banking rival",
+      "exchange": "HKEX"
+    },
+    {
+      "ticker": "1398.HK",
+      "name_en": "ICBC",
+      "name_zh": "工商銀行",
+      "basis_zh": "中國大型銀行對手",
+      "basis_en": "China megabank rival",
+      "exchange": "HKEX"
+    },
+    {
+      "ticker": "0939.HK",
+      "name_en": "CCB",
+      "name_zh": "建設銀行",
+      "basis_zh": "中國大型銀行對手",
+      "basis_en": "China megabank rival",
+      "exchange": "HKEX"
+    }
+  ]
+}
