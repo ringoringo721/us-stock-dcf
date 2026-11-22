@@ -79,6 +79,7 @@ ENTITIES: dict[str, dict[str, str]] = {
     # Logistics / brands
     "2057.HK": {"name_en": "ZTO Express", "name_zh": "中通快遞", "exchange": "HKEX"},
     "1519.HK": {"name_en": "J&T Express", "name_zh": "極兔速遞", "exchange": "HKEX"},
+    "2618.HK": {"name_en": "JD Logistics", "name_zh": "京東物流", "exchange": "HKEX"},
     "0316.HK": {"name_en": "OOIL", "name_zh": "東方海外", "exchange": "HKEX"},
     "1308.HK": {"name_en": "SITC", "name_zh": "海豐國際", "exchange": "HKEX"},
     "0144.HK": {"name_en": "CMPort", "name_zh": "招商港口", "exchange": "HKEX"},
@@ -268,8 +269,8 @@ OVERRIDES: dict[str, dict[str, list[str]]] = {
         "payments": ["0005.HK", "1398.HK", "6060.HK"],
         # External ad / media partners (not Alibaba's own traffic stack).
         "traffic": ["9888.HK", "1024.HK", "9626.HK"],
-        # Express only — 1308 stays on fulfillment/port, not last-mile.
-        "lastmile": ["2057.HK", "1519.HK", "1919.HK"],
+        # Express parcel only — no ocean liners; 1308 stays on fulfillment/port.
+        "lastmile": ["2057.HK", "1519.HK", "2618.HK"],
     },
     "3690.HK": {
         # china-local-life-v1 — CPG on merchants/ads; platform peers stay on rival arc.
