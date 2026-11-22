@@ -135,6 +135,14 @@ jobs:
         if: steps.price-refresh.outcome == 'failure' && inputs.prices_only != true
         run: echo "::warning::Profile prices could not be refreshed. Existing dated price caches are retained; independent financial updates continue."
 
+      # Recovery / prices_only: patch frontpage price+quoteDate even when the full
+      # market engine is skipped. Full runs already overwrite prices via build_full_market.
+      - name: Patch frontpage quote prices (prices_only / recovery)
+        if: inputs.prices_only == true
+        env:
+          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+        run: python -u scripts/refresh_us_quote_prices.py
+
       - name: Refresh latest-quarter liquidation sources
         id: liquidation-refresh
         if: inputs.peers_only != true && inputs.prices_only != true
