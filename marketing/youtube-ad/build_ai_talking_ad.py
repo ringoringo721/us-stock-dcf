@@ -247,36 +247,18 @@ def main() -> None:
         composite_pose_segment(stem, start, end, part)
         parts.append(part)
 
-    # Concat with short crossfades for gesture transitions
-    # Build filter_complex xfade chain
+    # Hard-cut concat keeps segment clocks aligned with captions/voice.
+    # (xfade would overlap cuts and desync lip-sync by ~fade*(n-1) seconds.)
+    gesture_vid = WORK / "gesture_timeline.mp4"
     if len(parts) == 1:
-        gesture_vid = parts[0]
+        run(["ffmpeg", "-y", "-i", str(parts[0]), "-c:v", "libx264",
+             "-pix_fmt", "yuv420p", "-crf", "17", str(gesture_vid)])
     else:
-        inputs = []
-        for p in parts:
-            inputs.extend(["-i", str(p)])
-        # cumulative offsets for xfade
-        filter_parts = []
-        # durations
-        durs = [end - start for _, start, end in SEGMENTS]
-        fade = 0.25
-        # First stream
-        prev = "[0:v]"
-        offset = durs[0] - fade
-        for i in range(1, len(parts)):
-            out = f"[v{i}]" if i < len(parts) - 1 else "[vout]"
-            filter_parts.append(
-                f"{prev}[{i}:v]xfade=transition=fade:duration={fade}:offset={offset:.3f}{out}"
-            )
-            prev = out
-            if i < len(parts) - 1:
-                offset += durs[i] - fade
-        gesture_vid = WORK / "gesture_timeline.mp4"
+        glist = WORK / "gesture_concat.txt"
+        glist.write_text("".join(f"file '{p}'\n" for p in parts), encoding="utf-8")
         run(
             [
-                "ffmpeg", "-y", *inputs,
-                "-filter_complex", ";".join(filter_parts),
-                "-map", "[vout]",
+                "ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(glist),
                 "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "17",
                 str(gesture_vid),
             ]
