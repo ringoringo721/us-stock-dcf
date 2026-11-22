@@ -100,7 +100,7 @@ window.FULL_MARKET_DATA = {
     "sector": "資訊科技",
     "industry": "Semiconductors",
     "reportedCurrency": "USD",
-    "price": 162.85,
+    "price": 125.53,
     "shares": 24100.0,
     "shares_outstanding": 24100000000,
     "shares_display": "24,100.00 M",
@@ -113,10 +113,10 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:33:53Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 3924685.0,
-    "liq_val_1": 4.403485477178423,
-    "liq_val_2": 3.0836390041493775,
-    "liq_val_3": 0.3353112033195021,
+    "mcap": 3025273.0,
+    "liq_val_1": 4.832863070539419,
+    "liq_val_2": 3.1907634854771785,
+    "liq_val_3": -0.3232780082987552,
     "debt": 38860.0,
     "cash": 33123.0,
     "short_term_investments": 76926.0,
@@ -3548,33 +3548,33 @@ window.FULL_MARKET_DATA = {
       "ticker": "NVDA",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:33:53Z",
-      "balanceDate": "2026-07-26",
-      "filingDate": "2026-08-26",
-      "quoteDate": "2026-11-12",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
+      "balanceDate": "2026-10-25",
+      "filingDate": "2026-11-17",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
         "basis": "closing",
         "start": null,
-        "end": "2026-07-26",
-        "observationDate": "2026-07-26",
+        "end": "2026-10-25",
+        "observationDate": "2026-10-25",
         "reason": null
       },
       "receivablesBasis": "trade",
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 166.19,
-        "marketCap": 4005179000000
+        "date": "2026-11-20",
+        "price": 125.53,
+        "marketCap": 3025273000000
       },
       "amounts": {
-        "currentAssets": 197412000000,
-        "totalLiabilities": 91288000000,
-        "cashAndShortTermInvestments": 99369000000,
-        "tradeReceivables": 63059000000,
-        "inventory": 31575000000,
+        "currentAssets": 221994000000,
+        "totalLiabilities": 105522000000,
+        "cashAndShortTermInvestments": 97731000000,
+        "tradeReceivables": 81033000000,
+        "inventory": 39724000000,
         "preferredStock": 0
       },
       "sharesOutstanding": 24100000000,
@@ -3805,7 +3805,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.8068 × -0.327 = -0.2638",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280296Z"
+    }
   },
   "AAPL": {
     "reported_growth": {
@@ -3908,7 +3914,7 @@ window.FULL_MARKET_DATA = {
     "sector": "資訊科技",
     "industry": "Technology Hardware, Storage & Peripherals",
     "reportedCurrency": "USD",
-    "price": 356.27,
+    "price": 342.56,
     "shares": 14532.2,
     "shares_outstanding": 14532200000,
     "shares_display": "14,532.20 M",
@@ -3921,7 +3927,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:34:02Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 5177386.9,
+    "mcap": 4978150.4,
     "liq_val_1": -8.161049256134653,
     "liq_val_2": -13.308989691856704,
     "liq_val_3": -16.221425524008755,
@@ -7350,10 +7356,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "AAPL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:34:02Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-26",
       "filingDate": "2026-11-03",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -7367,9 +7373,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 354.88,
-        "marketCap": 5157187136000
+        "date": "2026-11-20",
+        "price": 342.56,
+        "marketCap": 4978150432000
       },
       "amounts": {
         "currentAssets": 173857000000,
@@ -7607,7 +7613,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.8668 × -0.327 = -0.2834",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.667789Z"
+    }
   },
   "MSFT": {
     "reported_growth": {
@@ -7710,7 +7722,7 @@ window.FULL_MARKET_DATA = {
     "sector": "資訊科技",
     "industry": "Systems Software",
     "reportedCurrency": "USD",
-    "price": 523.88,
+    "price": 484.52,
     "shares": 7426.19,
     "shares_outstanding": 7426190000,
     "shares_display": "7,426.19 M",
@@ -7723,7 +7735,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:34:10Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 3890432.4,
+    "mcap": 3598137.6,
     "liq_val_1": -16.530279995529337,
     "liq_val_2": -26.078823730607485,
     "liq_val_3": -32.890486238569174,
@@ -11176,10 +11188,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "MSFT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:34:10Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -11193,9 +11205,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 523,
-        "marketCap": 3883897370000
+        "date": "2026-11-20",
+        "price": 484.52,
+        "marketCap": 3598137578800
       },
       "amounts": {
         "currentAssets": 186137000000,
@@ -11433,7 +11445,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.8996 × -0.327 = -0.2942",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080775Z"
+    }
   },
   "AVGO": {
     "reported_growth": {
@@ -11536,7 +11554,7 @@ window.FULL_MARKET_DATA = {
     "sector": "資訊科技",
     "industry": "Semiconductors",
     "reportedCurrency": "USD",
-    "price": 347.01,
+    "price": 304.41,
     "shares": 4773.629865,
     "shares_outstanding": 4773629865,
     "shares_display": "4,773.63 M",
@@ -11549,7 +11567,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:34:18Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 1656497.3,
+    "mcap": 1453140.7,
     "liq_val_1": -7.6011339433833545,
     "liq_val_2": -10.73730084852316,
     "liq_val_3": -13.508169217891384,
@@ -14954,10 +14972,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "AVGO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:34:18Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-08-02",
       "filingDate": "2026-09-10",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -14971,9 +14989,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 364.36,
-        "marketCap": 1739319777611
+        "date": "2026-11-20",
+        "price": 304.41,
+        "marketCap": 1453140667205
       },
       "amounts": {
         "currentAssets": 52173000000,
@@ -15211,7 +15229,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9391 × -0.327 = -0.3071",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.667994Z"
+    }
   },
   "ORCL": {
     "reported_growth": {
@@ -15314,7 +15338,7 @@ window.FULL_MARKET_DATA = {
     "sector": "資訊科技",
     "industry": "Application Software",
     "reportedCurrency": "USD",
-    "price": 125.35,
+    "price": 101.185,
     "shares": 3023.74,
     "shares_outstanding": 3023740000,
     "shares_display": "3,023.74 M",
@@ -15327,7 +15351,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:34:26Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 379025.8,
+    "mcap": 305957.1,
     "liq_val_1": -59.67212789459411,
     "liq_val_2": -62.79336186312315,
     "liq_val_3": -65.80790676447049,
@@ -18781,10 +18805,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "ORCL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:34:26Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-08-31",
       "filingDate": "2026-09-11",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -18798,9 +18822,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 127.14,
-        "marketCap": 384438303600
+        "date": "2026-11-20",
+        "price": 101.185,
+        "marketCap": 305957131900
       },
       "amounts": {
         "currentAssets": 55630000000,
@@ -19038,7 +19062,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.8950 × -0.327 = -0.2927",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280311Z"
+    }
   },
   "CRM": {
     "reported_growth": {
@@ -19141,7 +19171,7 @@ window.FULL_MARKET_DATA = {
     "sector": "資訊科技",
     "industry": "Application Software",
     "reportedCurrency": "USD",
-    "price": 217.84,
+    "price": 180.62,
     "shares": 823.0,
     "shares_outstanding": 823000000,
     "shares_display": "823.00 M",
@@ -19154,7 +19184,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:34:48Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 179282.3,
+    "mcap": 148650.3,
     "liq_val_1": -59.7314702308627,
     "liq_val_2": -66.56500607533414,
     "liq_val_3": -72.70838396111786,
@@ -22558,10 +22588,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "CRM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:34:48Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-07-31",
       "filingDate": "2026-08-27",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -22575,9 +22605,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 217.57,
-        "marketCap": 179060110000
+        "date": "2026-11-20",
+        "price": 180.62,
+        "marketCap": 148650260000
       },
       "amounts": {
         "currentAssets": 22083000000,
@@ -22815,7 +22845,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.1970 × -0.327 = -0.3914",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874098Z"
+    }
   },
   "AMD": {
     "reported_growth": {
@@ -22918,7 +22954,7 @@ window.FULL_MARKET_DATA = {
     "sector": "資訊科技",
     "industry": "Semiconductors",
     "reportedCurrency": "USD",
-    "price": 534.06,
+    "price": 424.39,
     "shares": 1640.087251,
     "shares_outstanding": 1640087251,
     "shares_display": "1,640.09 M",
@@ -22931,7 +22967,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:34:56Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 875905.0,
+    "mcap": 696037.8,
     "liq_val_1": 7.955674304549545,
     "liq_val_2": 1.4948594951306038,
     "liq_val_3": -6.491727798937692,
@@ -26366,10 +26402,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "AMD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:34:56Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-26",
       "filingDate": "2026-11-04",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -26383,9 +26419,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 585.3,
-        "marketCap": 959943068010
+        "date": "2026-11-20",
+        "price": 424.39,
+        "marketCap": 696037795100
       },
       "amounts": {
         "currentAssets": 39471000000,
@@ -26623,7 +26659,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.2424 × -0.327 = -0.4063",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.667921Z"
+    }
   },
   "CSCO": {
     "reported_growth": {
@@ -26726,7 +26768,7 @@ window.FULL_MARKET_DATA = {
     "sector": "資訊科技",
     "industry": "Communications Equipment",
     "reportedCurrency": "USD",
-    "price": 95.64,
+    "price": 90.64,
     "shares": 3942.586873,
     "shares_outstanding": 3942586873,
     "shares_display": "3,942.59 M",
@@ -26739,10 +26781,10 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:35:05Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 377069.0,
+    "mcap": 357343.5,
     "liq_val_1": -10.12786814501221,
-    "liq_val_2": -16.96373527188985,
-    "liq_val_3": -17.77335598611171,
+    "liq_val_2": -13.714751695212678,
+    "liq_val_3": -15.727237470564164,
     "debt": 29799.0,
     "cash": 15845.0,
     "short_term_investments": 8067.0,
@@ -30192,10 +30234,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "CSCO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:35:05Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-10-24",
-      "filingDate": "2026-11-12",
-      "quoteDate": "2026-11-12",
+      "filingDate": "2026-11-17",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -30209,15 +30251,15 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 102.01,
-        "marketCap": 402183286915
+        "date": "2026-11-20",
+        "price": 90.64,
+        "marketCap": 357343471946
       },
       "amounts": {
         "currentAssets": 37921000000,
         "totalLiabilities": 77851000000,
-        "cashAndShortTermInvestments": 7778000000,
-        "tradeReceivables": 0,
+        "cashAndShortTermInvestments": 15845000000,
+        "tradeReceivables": 5928000000,
         "inventory": 6384000000,
         "preferredStock": 0
       },
@@ -30449,7 +30491,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9917 × -0.327 = -0.3243",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874112Z"
+    }
   },
   "ACN": {
     "reported_growth": {
@@ -30552,7 +30600,7 @@ window.FULL_MARKET_DATA = {
     "sector": "資訊科技",
     "industry": "IT Consulting & Other Services",
     "reportedCurrency": "USD",
-    "price": 250.49,
+    "price": 221.17,
     "shares": 591.038183,
     "shares_outstanding": 591038183,
     "shares_display": "591.04 M",
@@ -30565,7 +30613,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:35:25Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 148049.2,
+    "mcap": 130719.9,
     "liq_val_1": -14.397607878406733,
     "liq_val_2": -24.432423175610637,
     "liq_val_3": -46.53321526606006,
@@ -33963,10 +34011,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "ACN",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:35:25Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-08-31",
       "filingDate": "2026-10-16",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -33980,9 +34028,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 249.95,
-        "marketCap": 147729985343
+        "date": "2026-11-20",
+        "price": 221.17,
+        "marketCap": 130719908741
       },
       "amounts": {
         "currentAssets": 31831140000,
@@ -34220,7 +34268,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.1306 × -0.327 = -0.3697",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.667833Z"
+    }
   },
   "ADBE": {
     "reported_growth": {
@@ -34323,7 +34377,7 @@ window.FULL_MARKET_DATA = {
     "sector": "資訊科技",
     "industry": "Application Software",
     "reportedCurrency": "USD",
-    "price": 243.08,
+    "price": 217.71,
     "shares": 389.2,
     "shares_outstanding": 389200000,
     "shares_display": "389.20 M",
@@ -34336,7 +34390,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:35:33Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 94606.7,
+    "mcap": 84732.7,
     "liq_val_1": -23.275950668036998,
     "liq_val_2": -28.040082219938334,
     "liq_val_3": -32.31757451181912,
@@ -37770,10 +37824,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "ADBE",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:35:33Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-08-28",
       "filingDate": "2026-09-22",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -37787,9 +37841,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 238.54,
-        "marketCap": 92839768000
+        "date": "2026-11-20",
+        "price": 217.71,
+        "marketCap": 84732732000
       },
       "amounts": {
         "currentAssets": 9158000000,
@@ -38027,7 +38081,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.1480 × -0.327 = -0.3754",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.667840Z"
+    }
   },
   "QCOM": {
     "reported_growth": {
@@ -38130,7 +38190,7 @@ window.FULL_MARKET_DATA = {
     "sector": "資訊科技",
     "industry": "Semiconductors",
     "reportedCurrency": "USD",
-    "price": 172.47,
+    "price": 149.94,
     "shares": 1070.0,
     "shares_outstanding": 1070000000,
     "shares_display": "1,070.00 M",
@@ -38143,7 +38203,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:35:41Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 184542.9,
+    "mcap": 160435.8,
     "liq_val_1": -7.622429906542056,
     "liq_val_2": -14.082056074766355,
     "liq_val_3": -21.258878504672897,
@@ -41566,10 +41626,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "QCOM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:35:41Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-27",
       "filingDate": "2026-11-04",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -41583,9 +41643,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 177.14,
-        "marketCap": 189539800000
+        "date": "2026-11-20",
+        "price": 149.94,
+        "marketCap": 160435800000
       },
       "amounts": {
         "currentAssets": 22272000000,
@@ -41823,7 +41883,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.8214 × -0.327 = -0.2686",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280415Z"
+    }
   },
   "TXN": {
     "reported_growth": {
@@ -41926,7 +41992,7 @@ window.FULL_MARKET_DATA = {
     "sector": "資訊科技",
     "industry": "Semiconductors",
     "reportedCurrency": "USD",
-    "price": 303.6,
+    "price": 263.75,
     "shares": 913.77,
     "shares_outstanding": 913770000,
     "shares_display": "913.77 M",
@@ -41939,7 +42005,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:35:51Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 277420.6,
+    "mcap": 241006.8,
     "liq_val_1": -0.847040283660002,
     "liq_val_2": -5.559385841075982,
     "liq_val_3": -10.40962167722731,
@@ -45374,10 +45440,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "TXN",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:35:51Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-23",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -45391,9 +45457,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 312.48,
-        "marketCap": 285534849600
+        "date": "2026-11-20",
+        "price": 263.75,
+        "marketCap": 241006837500
       },
       "amounts": {
         "currentAssets": 16880000000,
@@ -45631,7 +45697,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0367 × -0.327 = -0.3390",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.476737Z"
+    }
   },
   "IBM": {
     "reported_growth": {
@@ -45734,7 +45806,7 @@ window.FULL_MARKET_DATA = {
     "sector": "資訊科技",
     "industry": "IT Consulting & Other Services",
     "reportedCurrency": "USD",
-    "price": 247.13,
+    "price": 224.44,
     "shares": 945.120805,
     "shares_outstanding": 945120805,
     "shares_display": "945.12 M",
@@ -45747,7 +45819,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:35:59Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 233567.7,
+    "mcap": 212122.9,
     "liq_val_1": -92.70349307356534,
     "liq_val_2": -108.07115816268588,
     "liq_val_3": -114.00447374555468,
@@ -49194,10 +49266,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "IBM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:35:59Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-22",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -49211,9 +49283,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 244.67,
-        "marketCap": 231242707359
+        "date": "2026-11-20",
+        "price": 224.44,
+        "marketCap": 212122913474
       },
       "amounts": {
         "currentAssets": 31190000000,
@@ -49451,7 +49523,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0448 × -0.327 = -0.3416",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080451Z"
+    }
   },
   "INTC": {
     "reported_growth": {
@@ -49558,7 +49636,7 @@ window.FULL_MARKET_DATA = {
     "sector": "資訊科技",
     "industry": "Semiconductors",
     "reportedCurrency": "USD",
-    "price": 59.66,
+    "price": 51.28,
     "shares": 5315.0,
     "shares_outstanding": 5315000000,
     "shares_display": "5,315.00 M",
@@ -49571,7 +49649,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:36:09Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 317092.9,
+    "mcap": 272553.2,
     "liq_val_1": -2.7175917215428034,
     "liq_val_2": -6.247337723424271,
     "liq_val_3": -8.092756349952964,
@@ -53030,10 +53108,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "INTC",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:36:09Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-26",
       "filingDate": "2026-10-30",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -53047,9 +53125,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 61.2,
-        "marketCap": 325278000000
+        "date": "2026-11-20",
+        "price": 51.28,
+        "marketCap": 272553200000
       },
       "amounts": {
         "currentAssets": 82574000000,
@@ -53287,7 +53365,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.8580 × -0.327 = -0.2806",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080490Z"
+    }
   },
   "INTU": {
     "reported_growth": {
@@ -53390,7 +53474,7 @@ window.FULL_MARKET_DATA = {
     "sector": "資訊科技",
     "industry": "Application Software",
     "reportedCurrency": "USD",
-    "price": 341.7,
+    "price": 270.44,
     "shares": 267.236,
     "shares_outstanding": 267236000,
     "shares_display": "267.24 M",
@@ -53403,10 +53487,10 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:36:17Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 91314.5,
-    "liq_val_1": -9.291412833600264,
-    "liq_val_2": -37.77185708512326,
-    "liq_val_3": -39.642862488586864,
+    "mcap": 72271.3,
+    "liq_val_1": -12.633028484186262,
+    "liq_val_2": -43.603406726638624,
+    "liq_val_3": -45.43549521771019,
     "debt": 8421.0,
     "cash": 7200.0,
     "short_term_investments": 2495.0,
@@ -56818,32 +56902,32 @@ window.FULL_MARKET_DATA = {
       "ticker": "INTU",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:36:17Z",
-      "balanceDate": "2026-07-31",
-      "filingDate": "2026-09-09",
-      "quoteDate": "2026-11-12",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
+      "balanceDate": "2026-10-31",
+      "filingDate": "2026-11-19",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
         "basis": "closing",
         "start": null,
-        "end": "2026-07-31",
-        "observationDate": "2026-07-31",
+        "end": "2026-10-31",
+        "observationDate": "2026-10-31",
         "reason": null
       },
       "receivablesBasis": "trade",
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 340.17,
-        "marketCap": 90905670120
+        "date": "2026-11-20",
+        "price": 270.44,
+        "marketCap": 72271303840
       },
       "amounts": {
-        "currentAssets": 15311000000,
-        "totalLiabilities": 17794000000,
-        "cashAndShortTermInvestments": 7200000000,
-        "tradeReceivables": 625000000,
+        "currentAssets": 14087000000,
+        "totalLiabilities": 17463000000,
+        "cashAndShortTermInvestments": 5321000000,
+        "tradeReceivables": 612000000,
         "inventory": 0,
         "preferredStock": 0
       },
@@ -57075,7 +57159,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0194 × -0.327 = -0.3334",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080496Z"
+    }
   },
   "NOW": {
     "reported_growth": {
@@ -57178,7 +57268,7 @@ window.FULL_MARKET_DATA = {
     "sector": "資訊科技",
     "industry": "Systems Software",
     "reportedCurrency": "USD",
-    "price": 102.25,
+    "price": 87.61,
     "shares": 1037.917,
     "shares_outstanding": 1037916999,
     "shares_display": "1,037.92 M",
@@ -57191,7 +57281,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:36:26Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 106127.0,
+    "mcap": 90931.9,
     "liq_val_1": -9.882293102321567,
     "liq_val_2": -11.89825391808618,
     "liq_val_3": -13.61091495139873,
@@ -60590,10 +60680,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "NOW",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:36:26Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -60607,9 +60697,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 100.66,
-        "marketCap": 104476725220
+        "date": "2026-11-20",
+        "price": 87.61,
+        "marketCap": 90931908370
       },
       "amounts": {
         "currentAssets": 8477000000,
@@ -60847,7 +60937,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9487 × -0.327 = -0.3102",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280289Z"
+    }
   },
   "AMAT": {
     "reported_growth": {
@@ -60950,7 +61046,7 @@ window.FULL_MARKET_DATA = {
     "sector": "資訊科技",
     "industry": "Semiconductor Materials & Equipment",
     "reportedCurrency": "USD",
-    "price": 370.5,
+    "price": 302.63,
     "shares": 793.597443,
     "shares_outstanding": 793597443,
     "shares_display": "793.60 M",
@@ -60963,7 +61059,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:36:34Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 294027.9,
+    "mcap": 240166.4,
     "liq_val_1": 9.885364512193872,
     "liq_val_2": 0.8668122686983002,
     "liq_val_3": -12.544143240138943,
@@ -64416,10 +64512,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "AMAT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:36:34Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-10-25",
       "filingDate": "2026-11-12",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -64433,9 +64529,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 380.95,
-        "marketCap": 302320945911
+        "date": "2026-11-20",
+        "price": 302.63,
+        "marketCap": 240166394175
       },
       "amounts": {
         "currentAssets": 27139000000,
@@ -64673,7 +64769,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9300 × -0.327 = -0.3041",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.667915Z"
+    }
   },
   "LRCX": {
     "reported_growth": {
@@ -64776,7 +64878,7 @@ window.FULL_MARKET_DATA = {
     "sector": "資訊科技",
     "industry": "Semiconductors",
     "reportedCurrency": "USD",
-    "price": 225.92,
+    "price": 183.27,
     "shares": 1249.171,
     "shares_outstanding": 1249171000,
     "shares_display": "1,249.17 M",
@@ -64789,7 +64891,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:37:09Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 282212.7,
+    "mcap": 228935.6,
     "liq_val_1": 4.546639331204455,
     "liq_val_2": 1.436774628933909,
     "liq_val_3": -4.008416782009829,
@@ -68206,10 +68308,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "LRCX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:37:09Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-27",
       "filingDate": "2026-10-22",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -68223,9 +68325,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 233.78,
-        "marketCap": 292031196380
+        "date": "2026-11-20",
+        "price": 183.27,
+        "marketCap": 228935569170
       },
       "amounts": {
         "currentAssets": 18124112000,
@@ -68463,7 +68565,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.8517 × -0.327 = -0.2785",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080616Z"
+    }
   },
   "MU": {
     "reported_growth": {
@@ -68566,7 +68674,7 @@ window.FULL_MARKET_DATA = {
     "sector": "資訊科技",
     "industry": "Semiconductors",
     "reportedCurrency": "USD",
-    "price": 778.31,
+    "price": 594.51,
     "shares": 1131.42,
     "shares_outstanding": 1131420000,
     "shares_display": "1,131.42 M",
@@ -68579,7 +68687,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:37:18Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 880595.5,
+    "mcap": 672640.5,
     "liq_val_1": 29.66184087253186,
     "liq_val_2": 14.622686535504057,
     "liq_val_3": -12.441003340934401,
@@ -71996,10 +72104,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "MU",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:37:18Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-03",
       "filingDate": "2026-10-09",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -72013,9 +72121,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 798.44,
-        "marketCap": 903370984800
+        "date": "2026-11-20",
+        "price": 594.51,
+        "marketCap": 672640504200
       },
       "amounts": {
         "currentAssets": 91070000000,
@@ -72253,7 +72361,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.5024 × -0.327 = -0.1643",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080789Z"
+    }
   },
   "TSM": {
     "reported_growth": {
@@ -72320,7 +72434,7 @@ window.FULL_MARKET_DATA = {
     "sector": "資訊科技",
     "industry": "Semiconductors",
     "reportedCurrency": "TWD",
-    "price": 398.73,
+    "price": 318.71,
     "shares": 5186.48,
     "shares_outstanding": 5186480000,
     "shares_display": "5,186.48 M",
@@ -72333,10 +72447,10 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:37:26Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 2068005.2,
-    "liq_val_1": 12.534729161899913,
-    "liq_val_2": 9.712663182697908,
-    "liq_val_3": 6.084266230225393,
+    "mcap": 1652983.0,
+    "liq_val_1": 12.562946301368946,
+    "liq_val_2": 9.73441156038425,
+    "liq_val_3": 6.09784460851686,
     "debt": 30810.163014128728,
     "cash": 113461.78904238617,
     "short_term_investments": 12376.68769230769,
@@ -75963,10 +76077,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "TSM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:37:26Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
-      "filingDate": "2026-10-15",
-      "quoteDate": "2026-11-12",
+      "filingDate": "2026-11-13",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "TWD",
       "fx": {
         "rate": 0.03139717425431711,
@@ -75981,16 +76095,16 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 405.49,
-        "marketCap": 2103065775200
+        "date": "2026-11-20",
+        "price": 318.71,
+        "marketCap": 1652983040800
       },
       "amounts": {
-        "currentAssets": 159293673720.56512,
-        "totalLiabilities": 94282551616.95447,
-        "cashAndShortTermInvestments": 125838476734.69386,
-        "tradeReceivables": 15148218681.31868,
-        "inventory": 13400066562.009418,
+        "currentAssets": 159652291836.73468,
+        "totalLiabilities": 94494822103.61067,
+        "cashAndShortTermInvestments": 126121171208.7912,
+        "tradeReceivables": 15182322574.568287,
+        "inventory": 13430247409.733124,
         "preferredStock": 0
       },
       "sharesOutstanding": 5186480000,
@@ -76221,7 +76335,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.8999 × -0.327 = -0.2943",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.476712Z"
+    }
   },
   "FICO": {
     "reported_growth": {
@@ -76326,7 +76446,7 @@ window.FULL_MARKET_DATA = {
     "sector": "資訊科技",
     "industry": "Application Software",
     "reportedCurrency": "USD",
-    "price": 720.19,
+    "price": 694.31,
     "shares": 21.380929,
     "shares_outstanding": 21380929,
     "shares_display": "21.38 M",
@@ -76339,7 +76459,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:37:34Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 15398.3,
+    "mcap": 14845.0,
     "liq_val_1": -235.56329100573694,
     "liq_val_2": -245.46534905008104,
     "liq_val_3": -268.02549131518094,
@@ -79757,10 +79877,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "FICO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:37:34Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-06",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -79774,9 +79894,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 717.38,
-        "marketCap": 15338250846
+        "date": "2026-11-20",
+        "price": 694.31,
+        "marketCap": 14844992814
       },
       "amounts": {
         "currentAssets": 911671000,
@@ -80014,7 +80134,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.5002 × -0.327 = -0.4906",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874285Z"
+    }
   },
   "ADSK": {
     "reported_growth": {
@@ -80117,7 +80243,7 @@ window.FULL_MARKET_DATA = {
     "sector": "資訊科技",
     "industry": "Application Software",
     "reportedCurrency": "USD",
-    "price": 264.42,
+    "price": 244.48,
     "shares": 209.0,
     "shares_outstanding": 209000000,
     "shares_display": "209.00 M",
@@ -80130,7 +80256,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:37:42Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 55263.8,
+    "mcap": 51096.3,
     "liq_val_1": -18.803827751196174,
     "liq_val_2": -23.43444976076555,
     "liq_val_3": -26.05263157894737,
@@ -83552,10 +83678,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "ADSK",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:37:42Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-07-31",
       "filingDate": "2026-08-28",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -83569,9 +83695,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 259.48,
-        "marketCap": 54231320000
+        "date": "2026-11-20",
+        "price": 244.48,
+        "marketCap": 51096320000
       },
       "amounts": {
         "currentAssets": 5670000000,
@@ -83809,7 +83935,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0093 × -0.327 = -0.3300",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.667861Z"
+    }
   },
   "TYL": {
     "reported_growth": {
@@ -83912,7 +84044,7 @@ window.FULL_MARKET_DATA = {
     "sector": "資訊科技",
     "industry": "Application Software",
     "reportedCurrency": "USD",
-    "price": 424.06,
+    "price": 404.44,
     "shares": 39.759524,
     "shares_outstanding": 39759524,
     "shares_display": "39.76 M",
@@ -83925,7 +84057,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:37:50Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 16860.4,
+    "mcap": 16080.3,
     "liq_val_1": -30.00838239411518,
     "liq_val_2": -35.92498240170079,
     "liq_val_3": -49.69126390949751,
@@ -87341,10 +87473,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "TYL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:37:50Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -87358,9 +87490,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 423.59,
-        "marketCap": 16841736771
+        "date": "2026-11-20",
+        "price": 404.44,
+        "marketCap": 16080341887
       },
       "amounts": {
         "currentAssets": 1661976000,
@@ -87598,7 +87730,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9694 × -0.327 = -0.3170",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.476743Z"
+    }
   },
   "APPF": {
     "reported_growth": {
@@ -87701,7 +87839,7 @@ window.FULL_MARKET_DATA = {
     "sector": "資訊科技",
     "industry": "Application Software",
     "reportedCurrency": "USD",
-    "price": 224.34,
+    "price": 203.49,
     "shares": 35.455776,
     "shares_outstanding": 35455776,
     "shares_display": "35.46 M",
@@ -87714,7 +87852,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:37:58Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 7954.1,
+    "mcap": 7214.9,
     "liq_val_1": 7.734000801449107,
     "liq_val_2": 6.096242259653265,
     "liq_val_3": 4.910878272696669,
@@ -91107,10 +91245,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "APPF",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:37:58Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-22",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -91124,9 +91262,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 222.8,
-        "marketCap": 7899547116
+        "date": "2026-11-20",
+        "price": 203.49,
+        "marketCap": 7214895655
       },
       "amounts": {
         "currentAssets": 407372000,
@@ -91364,7 +91502,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.5358 × -0.327 = -0.5022",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.667980Z"
+    }
   },
   "YOU": {
     "reported_growth": {
@@ -91467,7 +91611,7 @@ window.FULL_MARKET_DATA = {
     "sector": "資訊科技",
     "industry": "Application Software",
     "reportedCurrency": "USD",
-    "price": 57.21,
+    "price": 52.43,
     "shares": 99.618115,
     "shares_outstanding": 99618115,
     "shares_display": "99.62 M",
@@ -91480,7 +91624,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:38:07Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 5699.2,
+    "mcap": 5223.0,
     "liq_val_1": -4.273439624911593,
     "liq_val_2": -5.002036025275122,
     "liq_val_3": -5.009440301093832,
@@ -94878,10 +95022,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "YOU",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:38:07Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-04",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -94895,9 +95039,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 56.79,
-        "marketCap": 5657312751
+        "date": "2026-11-20",
+        "price": 52.43,
+        "marketCap": 5222977769
       },
       "amounts": {
         "currentAssets": 706288000,
@@ -95135,7 +95279,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0834 × -0.327 = -0.3543",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.476900Z"
+    }
   },
   "ITRI": {
     "reported_growth": {
@@ -95238,7 +95388,7 @@ window.FULL_MARKET_DATA = {
     "sector": "資訊科技",
     "industry": "Electronic Equipment & Instruments",
     "reportedCurrency": "USD",
-    "price": 96.06,
+    "price": 97.14,
     "shares": 43.8604,
     "shares_outstanding": 43860400,
     "shares_display": "43.86 M",
@@ -95251,7 +95401,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:38:16Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 4213.2,
+    "mcap": 4260.6,
     "liq_val_1": -16.264899544919793,
     "liq_val_2": -25.372673299833107,
     "liq_val_3": -35.507929704243466,
@@ -98643,10 +98793,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "ITRI",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:38:16Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-27",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -98660,9 +98810,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 96.41,
-        "marketCap": 4228581164
+        "date": "2026-11-20",
+        "price": 97.14,
+        "marketCap": 4260599256
       },
       "amounts": {
         "currentAssets": 1684330000,
@@ -98900,7 +99050,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9417 × -0.327 = -0.3079",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080517Z"
+    }
   },
   "SNPS": {
     "reported_growth": {
@@ -99003,7 +99159,7 @@ window.FULL_MARKET_DATA = {
     "sector": "資訊科技",
     "industry": "Application Software",
     "reportedCurrency": "USD",
-    "price": 455.2,
+    "price": 396.17,
     "shares": 191.636646,
     "shares_outstanding": 191636646,
     "shares_display": "191.64 M",
@@ -99016,7 +99172,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:38:35Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 87233.0,
+    "mcap": 75920.7,
     "liq_val_1": -51.81967127519024,
     "liq_val_2": -60.91033809890411,
     "liq_val_3": -67.6656332213203,
@@ -102425,10 +102581,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "SNPS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:38:35Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-07-31",
       "filingDate": "2026-08-26",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -102442,9 +102598,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 462.69,
-        "marketCap": 88668359738
+        "date": "2026-11-20",
+        "price": 396.17,
+        "marketCap": 75920690046
       },
       "amounts": {
         "currentAssets": 6644336000,
@@ -102682,7 +102838,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.7477 × -0.327 = -0.5715",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280508Z"
+    }
   },
   "BR": {
     "reported_growth": {
@@ -102785,7 +102947,7 @@ window.FULL_MARKET_DATA = {
     "sector": "資訊科技",
     "industry": "Data Processing & Outsourced Services",
     "reportedCurrency": "USD",
-    "price": 192.45,
+    "price": 181.41,
     "shares": 113.106,
     "shares_outstanding": 113106000,
     "shares_display": "113.11 M",
@@ -102798,7 +102960,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:38:43Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 21767.2,
+    "mcap": 20518.6,
     "liq_val_1": -39.45944512227468,
     "liq_val_2": -43.411843757183526,
     "liq_val_3": -50.5463901119304,
@@ -106193,10 +106355,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "BR",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:38:43Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-03",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -106210,9 +106372,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 191.47,
-        "marketCap": 21656405820
+        "date": "2026-11-20",
+        "price": 181.41,
+        "marketCap": 20518559460
       },
       "amounts": {
         "currentAssets": 1538100000,
@@ -106450,7 +106612,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9667 × -0.327 = -0.3161",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.668075Z"
+    }
   },
   "KLAC": {
     "reported_growth": {
@@ -106553,7 +106721,7 @@ window.FULL_MARKET_DATA = {
     "sector": "資訊科技",
     "industry": "Semiconductor Materials & Equipment",
     "reportedCurrency": "USD",
-    "price": 152.32,
+    "price": 126.87,
     "shares": 1302.962435,
     "shares_outstanding": 1302962435,
     "shares_display": "1,302.96 M",
@@ -106566,7 +106734,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:38:51Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 198467.2,
+    "mcap": 165306.8,
     "liq_val_1": 0.5311642004475747,
     "liq_val_2": -2.024044845160866,
     "liq_val_3": -5.479925443898158,
@@ -110001,10 +110169,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "KLAC",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:38:51Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -110018,9 +110186,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 157.3,
-        "marketCap": 204955991026
+        "date": "2026-11-20",
+        "price": 126.87,
+        "marketCap": 165306844128
       },
       "amounts": {
         "currentAssets": 12573415000,
@@ -110258,7 +110426,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9150 × -0.327 = -0.2992",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080551Z"
+    }
   },
   "MRVL": {
     "reported_growth": {
@@ -110361,7 +110535,7 @@ window.FULL_MARKET_DATA = {
     "sector": "資訊科技",
     "industry": "Semiconductors",
     "reportedCurrency": "USD",
-    "price": 156.76,
+    "price": 122.28,
     "shares": 875.766423,
     "shares_outstanding": 875766423,
     "shares_display": "875.77 M",
@@ -110374,7 +110548,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:38:59Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 137285.1,
+    "mcap": 107088.7,
     "liq_val_1": -1.2602675451054601,
     "liq_val_2": -3.0089986676732865,
     "liq_val_3": -5.812280382437088,
@@ -113785,10 +113959,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "MRVL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:38:59Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-08-01",
       "filingDate": "2026-08-28",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -113802,9 +113976,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 164.45,
-        "marketCap": 144019788262
+        "date": "2026-11-20",
+        "price": 122.28,
+        "marketCap": 107088718204
       },
       "amounts": {
         "currentAssets": 7919300000,
@@ -114042,7 +114216,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0937 × -0.327 = -0.3577",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080747Z"
+    }
   },
   "CDNS": {
     "reported_growth": {
@@ -114145,7 +114325,7 @@ window.FULL_MARKET_DATA = {
     "sector": "資訊科技",
     "industry": "Application Software",
     "reportedCurrency": "USD",
-    "price": 323.01,
+    "price": 281.58,
     "shares": 274.379,
     "shares_outstanding": 274379000,
     "shares_display": "274.38 M",
@@ -114158,7 +114338,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:39:07Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 88627.2,
+    "mcap": 77259.6,
     "liq_val_1": -7.27328257629046,
     "liq_val_2": -10.148802204250325,
     "liq_val_3": -14.204815237317725,
@@ -117575,10 +117755,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "CDNS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:39:07Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -117592,9 +117772,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 333.32,
-        "marketCap": 91456008280
+        "date": "2026-11-20",
+        "price": 281.58,
+        "marketCap": 77259638820
       },
       "amounts": {
         "currentAssets": 3353887000,
@@ -117832,7 +118012,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9458 × -0.327 = -0.3093",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.668109Z"
+    }
   },
   "FTNT": {
     "reported_growth": {
@@ -117935,7 +118121,7 @@ window.FULL_MARKET_DATA = {
     "sector": "資訊科技",
     "industry": "Systems Software",
     "reportedCurrency": "USD",
-    "price": 127.22,
+    "price": 124.56,
     "shares": 734.709741,
     "shares_outstanding": 734709741,
     "shares_display": "734.71 M",
@@ -117948,7 +118134,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:39:15Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 93469.8,
+    "mcap": 91515.4,
     "liq_val_1": -3.5224794984717644,
     "liq_val_2": -4.672049121504706,
     "liq_val_3": -6.665217196296844,
@@ -121359,10 +121545,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "FTNT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:39:15Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -121376,9 +121562,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 129.54,
-        "marketCap": 95174299849
+        "date": "2026-11-20",
+        "price": 124.56,
+        "marketCap": 91515445339
       },
       "amounts": {
         "currentAssets": 7108000000,
@@ -121616,7 +121802,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0281 × -0.327 = -0.3362",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874302Z"
+    }
   },
   "PANW": {
     "reported_growth": {
@@ -121719,7 +121911,7 @@ window.FULL_MARKET_DATA = {
     "sector": "資訊科技",
     "industry": "Systems Software",
     "reportedCurrency": "USD",
-    "price": 322.24,
+    "price": 343.32,
     "shares": 818.443112,
     "shares_outstanding": 818443112,
     "shares_display": "818.44 M",
@@ -121732,10 +121924,10 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:39:23Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 263735.1,
-    "liq_val_1": -15.05907963460263,
-    "liq_val_2": -18.31990492700243,
-    "liq_val_3": -21.86712764466396,
+    "mcap": 281865.7,
+    "liq_val_1": -15.877707087355878,
+    "liq_val_2": -19.248741627872604,
+    "liq_val_3": -21.247658811013366,
     "debt": 2500.0,
     "cash": 3071.0,
     "short_term_investments": 557.0,
@@ -125142,32 +125334,32 @@ window.FULL_MARKET_DATA = {
       "ticker": "PANW",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:39:23Z",
-      "balanceDate": "2026-07-31",
-      "filingDate": "2026-09-10",
-      "quoteDate": "2026-11-12",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
+      "balanceDate": "2026-10-31",
+      "filingDate": "2026-11-19",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
         "basis": "closing",
         "start": null,
-        "end": "2026-07-31",
-        "observationDate": "2026-07-31",
+        "end": "2026-10-31",
+        "observationDate": "2026-10-31",
         "reason": null
       },
       "receivablesBasis": "trade",
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 322.66,
-        "marketCap": 264078854518
+        "date": "2026-11-20",
+        "price": 343.32,
+        "marketCap": 281865720000
       },
       "amounts": {
-        "currentAssets": 8643000000,
-        "totalLiabilities": 20968000000,
-        "cashAndShortTermInvestments": 3071000000,
-        "tradeReceivables": 3629000000,
+        "currentAssets": 7450000000,
+        "totalLiabilities": 20445000000,
+        "cashAndShortTermInvestments": 3055000000,
+        "tradeReceivables": 2045000000,
         "inventory": 0,
         "preferredStock": 0
       },
@@ -125399,7 +125591,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.7124 × -0.327 = -0.2330",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280343Z"
+    }
   },
   "CRWD": {
     "reported_growth": {
@@ -125502,7 +125700,7 @@ window.FULL_MARKET_DATA = {
     "sector": "資訊科技",
     "industry": "Systems Software",
     "reportedCurrency": "USD",
-    "price": 226.61,
+    "price": 229.44,
     "shares": 1023.934842,
     "shares_outstanding": 1023934842,
     "shares_display": "1,023.93 M",
@@ -125515,7 +125713,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:39:31Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 232033.9,
+    "mcap": 234931.6,
     "liq_val_1": 0.06807269089882186,
     "liq_val_2": -1.0354848341023637,
     "liq_val_3": -1.8278790048244105,
@@ -128920,10 +129118,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "CRWD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:39:31Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-07-31",
       "filingDate": "2026-08-27",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -128937,9 +129135,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 229.87,
-        "marketCap": 235371902131
+        "date": "2026-11-20",
+        "price": 229.44,
+        "marketCap": 234931610148
       },
       "amounts": {
         "currentAssets": 6955178000,
@@ -129177,7 +129375,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9201 × -0.327 = -0.3009",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874105Z"
+    }
   },
   "WDAY": {
     "reported_growth": {
@@ -129280,7 +129484,7 @@ window.FULL_MARKET_DATA = {
     "sector": "資訊科技",
     "industry": "Application Software",
     "reportedCurrency": "USD",
-    "price": 196.45,
+    "price": 174.52,
     "shares": 240.999996,
     "shares_outstanding": 240999996,
     "shares_display": "241.00 M",
@@ -129293,7 +129497,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:39:40Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 47344.4,
+    "mcap": 42059.3,
     "liq_val_1": -14.224066626125587,
     "liq_val_2": -18.58091317146744,
     "liq_val_3": -24.871369707408626,
@@ -132690,10 +132894,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "WDAY",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:39:40Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-07-31",
       "filingDate": "2026-08-27",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -132707,9 +132911,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 190.64,
-        "marketCap": 45944237903
+        "date": "2026-11-20",
+        "price": 174.52,
+        "marketCap": 42059321222
       },
       "amounts": {
         "currentAssets": 5969000000,
@@ -132947,7 +133151,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0917 × -0.327 = -0.3570",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.476850Z"
+    }
   },
   "ANET": {
     "reported_growth": {
@@ -133050,7 +133260,7 @@ window.FULL_MARKET_DATA = {
     "sector": "資訊科技",
     "industry": "Communications Equipment",
     "reportedCurrency": "USD",
-    "price": 197.29,
+    "price": 167.62,
     "shares": 1263.4,
     "shares_outstanding": 1263400000,
     "shares_display": "1,263.40 M",
@@ -133063,7 +133273,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:39:48Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 249256.2,
+    "mcap": 211771.1,
     "liq_val_1": 10.53894253601393,
     "liq_val_2": 7.130552477441824,
     "liq_val_3": 4.386259300300775,
@@ -136469,10 +136679,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "ANET",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:39:48Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-04",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -136486,9 +136696,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 206.63,
-        "marketCap": 261056342000
+        "date": "2026-11-20",
+        "price": 167.62,
+        "marketCap": 211771108000
       },
       "amounts": {
         "currentAssets": 22132300000,
@@ -136726,7 +136936,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.4210 × -0.327 = -0.4647",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.667947Z"
+    }
   },
   "APH": {
     "reported_growth": {
@@ -136829,7 +137045,7 @@ window.FULL_MARKET_DATA = {
     "sector": "資訊科技",
     "industry": "Electronic Components",
     "reportedCurrency": "USD",
-    "price": 78.23,
+    "price": 69.72,
     "shares": 2469.26,
     "shares_outstanding": 2469260000,
     "shares_display": "2,469.26 M",
@@ -136842,7 +137058,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:39:55Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 193170.2,
+    "mcap": 172156.8,
     "liq_val_1": -4.158695317625523,
     "liq_val_2": -6.314057652900059,
     "liq_val_3": -9.901306464284847,
@@ -140283,10 +140499,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "APH",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:39:55Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -140300,9 +140516,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 79.62,
-        "marketCap": 196602481200
+        "date": "2026-11-20",
+        "price": 69.72,
+        "marketCap": 172156807200
       },
       "amounts": {
         "currentAssets": 19481400000,
@@ -140540,7 +140756,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.1963 × -0.327 = -0.3912",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.667974Z"
+    }
   },
   "TEL": {
     "reported_growth": {
@@ -140643,7 +140865,7 @@ window.FULL_MARKET_DATA = {
     "sector": "資訊科技",
     "industry": "Electronic Components",
     "reportedCurrency": "USD",
-    "price": 216.34,
+    "price": 200.12,
     "shares": 286.695115,
     "shares_outstanding": 286695115,
     "shares_display": "286.70 M",
@@ -140656,7 +140878,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:40:05Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 62023.6,
+    "mcap": 57373.4,
     "liq_val_1": -12.78710312172567,
     "liq_val_2": -23.36907623975386,
     "liq_val_3": -39.24726795571665,
@@ -144054,10 +144276,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "TEL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:40:05Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-25",
       "filingDate": "2026-11-09",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -144071,9 +144293,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 217.82,
-        "marketCap": 62623467820
+        "date": "2026-11-20",
+        "price": 200.12,
+        "marketCap": 57373422812
       },
       "amounts": {
         "currentAssets": 9283000000,
@@ -144311,7 +144533,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9562 × -0.327 = -0.3127",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280569Z"
+    }
   },
   "GOOGL": {
     "reported_growth": {
@@ -144414,7 +144642,7 @@ window.FULL_MARKET_DATA = {
     "sector": "通訊服務",
     "industry": "Interactive Media & Services",
     "reportedCurrency": "USD",
-    "price": 295.77,
+    "price": 265.29,
     "shares": 12175.688728,
     "shares_outstanding": 12175688728,
     "shares_display": "12,175.69 M",
@@ -144427,7 +144655,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:40:13Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 3601203.5,
+    "mcap": 3235509.9,
     "liq_val_1": 4.016364173924864,
     "liq_val_2": 0.3462802059241342,
     "liq_val_3": -4.982469686539444,
@@ -147838,10 +148066,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "GOOGL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:40:13Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -147855,9 +148083,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 298.7,
-        "marketCap": 3638749284334
+        "date": "2026-11-20",
+        "price": 265.29,
+        "marketCap": 3235509896991.0005
       },
       "amounts": {
         "currentAssets": 374665000000,
@@ -148095,7 +148323,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.1292 × -0.327 = -0.3692",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874357Z"
+    }
   },
   "GOOG": {
     "reported_growth": {
@@ -148198,7 +148432,7 @@ window.FULL_MARKET_DATA = {
     "sector": "通訊服務",
     "industry": "Interactive Media & Services",
     "reportedCurrency": "USD",
-    "price": 292.52,
+    "price": 264.0,
     "shares": 12280.813656,
     "shares_outstanding": 12280813656,
     "shares_display": "12,280.81 M",
@@ -148211,7 +148445,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:40:22Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 3592383.6,
+    "mcap": 3235509.9,
     "liq_val_1": 3.981983716209886,
     "liq_val_2": 0.3433160145655417,
     "liq_val_3": -4.939819274137514,
@@ -151622,10 +151856,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "GOOG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:40:22Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -151639,9 +151873,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 295.35,
-        "marketCap": 3627138313300
+        "date": "2026-11-20",
+        "price": 264,
+        "marketCap": 3235509896784
       },
       "amounts": {
         "currentAssets": 374665000000,
@@ -151879,7 +152113,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.1292 × -0.327 = -0.3692",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874350Z"
+    }
   },
   "META": {
     "reported_growth": {
@@ -151982,7 +152222,7 @@ window.FULL_MARKET_DATA = {
     "sector": "通訊服務",
     "industry": "Interactive Media & Services",
     "reportedCurrency": "USD",
-    "price": 641.69,
+    "price": 560.84,
     "shares": 2556.833045,
     "shares_outstanding": 2556833045,
     "shares_display": "2,556.83 M",
@@ -151995,7 +152235,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:40:30Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 1640694.2,
+    "mcap": 1433642.2,
     "liq_val_1": -33.85046988861958,
     "liq_val_2": -41.39034428037909,
     "liq_val_3": -48.497886963127854,
@@ -155393,10 +155633,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "META",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:40:30Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-22",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -155410,9 +155650,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 623.61,
-        "marketCap": 1594097519854
+        "date": "2026-11-20",
+        "price": 560.84,
+        "marketCap": 1433642209170
       },
       "amounts": {
         "currentAssets": 119900000000,
@@ -155650,7 +155890,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.2152 × -0.327 = -0.3974",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080692Z"
+    }
   },
   "NFLX": {
     "reported_growth": {
@@ -155753,7 +155999,7 @@ window.FULL_MARKET_DATA = {
     "sector": "通訊服務",
     "industry": "Movies & Entertainment",
     "reportedCurrency": "USD",
-    "price": 62.15,
+    "price": 56.73,
     "shares": 4106.33,
     "shares_outstanding": 4106330000,
     "shares_display": "4,106.33 M",
@@ -155766,7 +156012,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:40:38Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 255208.4,
+    "mcap": 232952.1,
     "liq_val_1": -3.9386420477652795,
     "liq_val_2": -5.156124325127304,
     "liq_val_3": -5.156124325127304,
@@ -159183,10 +159429,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "NFLX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:40:38Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-21",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -159200,9 +159446,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 62.69,
-        "marketCap": 257425827700
+        "date": "2026-11-20",
+        "price": 56.73,
+        "marketCap": 232952100900
       },
       "amounts": {
         "currentAssets": 13222337000,
@@ -159440,7 +159686,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9604 × -0.327 = -0.3140",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280264Z"
+    }
   },
   "DIS": {
     "reported_growth": {
@@ -159543,7 +159795,7 @@ window.FULL_MARKET_DATA = {
     "sector": "通訊服務",
     "industry": "Movies & Entertainment",
     "reportedCurrency": "USD",
-    "price": 118.97,
+    "price": 118.0,
     "shares": 1726.69,
     "shares_outstanding": 1726690000,
     "shares_display": "1,726.69 M",
@@ -159556,10 +159808,10 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:40:46Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 205424.3,
-    "liq_val_1": -36.48946828903856,
-    "liq_val_2": -40.557424899663516,
-    "liq_val_3": -47.90263452038293,
+    "mcap": 201547.5,
+    "liq_val_1": -35.66013586688983,
+    "liq_val_2": -41.2394813197505,
+    "liq_val_3": -46.76809386745739,
     "debt": 46041.0,
     "cash": 5185.0,
     "short_term_investments": 0.0,
@@ -163015,33 +163267,33 @@ window.FULL_MARKET_DATA = {
       "ticker": "DIS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:40:46Z",
-      "balanceDate": "2026-06-27",
-      "filingDate": "2026-08-05",
-      "quoteDate": "2026-11-12",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
+      "balanceDate": "2026-10-03",
+      "filingDate": "2026-11-17",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
         "basis": "closing",
         "start": null,
-        "end": "2026-06-27",
-        "observationDate": "2026-06-27",
+        "end": "2026-10-03",
+        "observationDate": "2026-10-03",
         "reason": null
       },
       "receivablesBasis": "trade",
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 118.23,
-        "marketCap": 204146558700
+        "date": "2026-11-20",
+        "price": 118,
+        "marketCap": 201547540000
       },
       "amounts": {
-        "currentAssets": 24892000000,
-        "totalLiabilities": 87898000000,
-        "cashAndShortTermInvestments": 5185000000,
-        "tradeReceivables": 14553000000,
-        "inventory": 2081000000,
+        "currentAssets": 25859000000,
+        "totalLiabilities": 87433000000,
+        "cashAndShortTermInvestments": 6679000000,
+        "tradeReceivables": 10564000000,
+        "inventory": 2190000000,
         "preferredStock": 0
       },
       "sharesOutstanding": 1726690000,
@@ -163272,7 +163524,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9382 × -0.327 = -0.3068",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874180Z"
+    }
   },
   "TMUS": {
     "reported_growth": {
@@ -163375,7 +163633,7 @@ window.FULL_MARKET_DATA = {
     "sector": "通訊服務",
     "industry": "Wireless Telecommunication Services",
     "reportedCurrency": "USD",
-    "price": 169.95,
+    "price": 165.6,
     "shares": 1059.272571,
     "shares_outstanding": 1059272571,
     "shares_display": "1,059.27 M",
@@ -163388,7 +163646,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:40:54Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 180023.4,
+    "mcap": 175415.5,
     "liq_val_1": -127.40346884711319,
     "liq_val_2": -137.47632477873347,
     "liq_val_3": -142.71775191656502,
@@ -166785,10 +167043,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "TMUS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:40:54Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -166802,9 +167060,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 171.03,
-        "marketCap": 181167387818
+        "date": "2026-11-20",
+        "price": 165.6,
+        "marketCap": 175415537758
       },
       "amounts": {
         "currentAssets": 21842000000,
@@ -167042,7 +167300,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0623 × -0.327 = -0.3474",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280604Z"
+    }
   },
   "VZ": {
     "reported_growth": {
@@ -167145,7 +167409,7 @@ window.FULL_MARKET_DATA = {
     "sector": "通訊服務",
     "industry": "Integrated Telecommunication Services",
     "reportedCurrency": "USD",
-    "price": 46.36,
+    "price": 46.48,
     "shares": 4144.6,
     "shares_outstanding": 4144600000,
     "shares_display": "4,144.60 M",
@@ -167158,7 +167422,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:41:02Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 192143.7,
+    "mcap": 192641.0,
     "liq_val_1": -64.35337547652367,
     "liq_val_2": -67.8607103218646,
     "liq_val_3": -73.28451479032958,
@@ -170587,10 +170851,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "VZ",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:41:02Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -170604,9 +170868,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 46.55,
-        "marketCap": 192931130000
+        "date": "2026-11-20",
+        "price": 46.48,
+        "marketCap": 192641008000
       },
       "amounts": {
         "currentAssets": 41511000000,
@@ -170844,7 +171108,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0322 × -0.327 = -0.3375",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.476835Z"
+    }
   },
   "T": {
     "reported_growth": {
@@ -170947,7 +171217,7 @@ window.FULL_MARKET_DATA = {
     "sector": "通訊服務",
     "industry": "Integrated Telecommunication Services",
     "reportedCurrency": "USD",
-    "price": 22.18,
+    "price": 22.31,
     "shares": 6736.473433,
     "shares_outstanding": 6736473433,
     "shares_display": "6,736.47 M",
@@ -170960,7 +171230,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:41:11Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 149415.0,
+    "mcap": 150290.7,
     "liq_val_1": -40.194918408431285,
     "liq_val_2": -45.20316201475622,
     "liq_val_3": -46.366990548777245,
@@ -174383,10 +174653,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "T",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:41:11Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-21",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -174400,9 +174670,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 22.18,
-        "marketCap": 149414980744
+        "date": "2026-11-20",
+        "price": 22.31,
+        "marketCap": 150290722290
       },
       "amounts": {
         "currentAssets": 52345000000,
@@ -174640,7 +174910,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.1356 × -0.327 = -0.3713",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280556Z"
+    }
   },
   "CMCSA": {
     "reported_growth": {
@@ -174743,7 +175019,7 @@ window.FULL_MARKET_DATA = {
     "sector": "通訊服務",
     "industry": "Cable & Satellite",
     "reportedCurrency": "USD",
-    "price": 25.16,
+    "price": 24.9,
     "shares": 3541.56,
     "shares_outstanding": 3541560000,
     "shares_display": "3,541.56 M",
@@ -174756,7 +175032,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:41:19Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 89105.6,
+    "mcap": 88184.8,
     "liq_val_1": -39.496154237115846,
     "liq_val_2": -41.41434847920126,
     "liq_val_3": -44.47333943234055,
@@ -178215,10 +178491,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "CMCSA",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:41:19Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-22",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -178232,9 +178508,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 24.8,
-        "marketCap": 87830688000
+        "date": "2026-11-20",
+        "price": 24.9,
+        "marketCap": 88184844000
       },
       "amounts": {
         "currentAssets": 25223000000,
@@ -178472,7 +178748,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9629 × -0.327 = -0.3149",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.668147Z"
+    }
   },
   "TKO": {
     "reported_growth": {
@@ -178575,7 +178857,7 @@ window.FULL_MARKET_DATA = {
     "sector": "通訊服務",
     "industry": "Movies & Entertainment",
     "reportedCurrency": "USD",
-    "price": 195.42,
+    "price": 177.99,
     "shares": 72.440231,
     "shares_outstanding": 72440231,
     "shares_display": "72.44 M",
@@ -178588,7 +178870,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:41:27Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 14156.3,
+    "mcap": 12893.6,
     "liq_val_1": -64.64454813789868,
     "liq_val_2": -88.36852135383168,
     "liq_val_3": -99.77903024632818,
@@ -181986,10 +182268,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "TKO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:41:27Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-04",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -182003,9 +182285,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 194.08,
-        "marketCap": 14059200032
+        "date": "2026-11-20",
+        "price": 177.99,
+        "marketCap": 12893636716
       },
       "amounts": {
         "currentAssets": 3176087000,
@@ -182243,7 +182525,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.4043 × -0.327 = -0.4592",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280590Z"
+    }
   },
   "LYV": {
     "reported_growth": {
@@ -182346,7 +182634,7 @@ window.FULL_MARKET_DATA = {
     "sector": "通訊服務",
     "industry": "Movies & Entertainment",
     "reportedCurrency": "USD",
-    "price": 178.45,
+    "price": 174.96,
     "shares": 235.63387,
     "shares_outstanding": 235633870,
     "shares_display": "235.63 M",
@@ -182359,7 +182647,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:41:35Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 42048.9,
+    "mcap": 41226.5,
     "liq_val_1": -52.84176251911493,
     "liq_val_2": -67.13735084009782,
     "liq_val_3": -78.30404432096286,
@@ -185756,10 +186044,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "LYV",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:41:35Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-05",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -185773,9 +186061,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 180.14,
-        "marketCap": 42447084261
+        "date": "2026-11-20",
+        "price": 174.96,
+        "marketCap": 41226502595
       },
       "amounts": {
         "currentAssets": 14257244000,
@@ -186013,7 +186301,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.1406 × -0.327 = -0.3730",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080629Z"
+    }
   },
   "IRDM": {
     "reported_growth": {
@@ -186116,7 +186410,7 @@ window.FULL_MARKET_DATA = {
     "sector": "通訊服務",
     "industry": "Alternative Carriers",
     "reportedCurrency": "USD",
-    "price": 45.87,
+    "price": 42.08,
     "shares": 105.981552,
     "shares_outstanding": 105981552,
     "shares_display": "105.98 M",
@@ -186129,7 +186423,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:41:43Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 4861.4,
+    "mcap": 4459.7,
     "liq_val_1": -20.74282701578101,
     "liq_val_2": -21.521726724666195,
     "liq_val_3": -22.71364171002138,
@@ -189522,10 +189816,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "IRDM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:41:43Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-20",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -189539,9 +189833,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 46.12,
-        "marketCap": 4887869178
+        "date": "2026-11-20",
+        "price": 42.08,
+        "marketCap": 4459703708
       },
       "amounts": {
         "currentAssets": 306723000,
@@ -189779,7 +190073,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0236 × -0.327 = -0.3347",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080504Z"
+    }
   },
   "EA": {
     "reported_growth": {
@@ -193318,7 +193618,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "EA",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:41:51Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-03",
       "quoteDate": "2026-08-05",
@@ -193575,7 +193875,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0065 × -0.327 = -0.3291",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-08-05",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 109,
+      "capturedAt": "2026-11-22T02:53:07.874207Z"
+    }
   },
   "TTWO": {
     "reported_growth": {
@@ -193682,7 +193988,7 @@ window.FULL_MARKET_DATA = {
     "sector": "通訊服務",
     "industry": "Interactive Home Entertainment",
     "reportedCurrency": "USD",
-    "price": 227.82,
+    "price": 210.0,
     "shares": 187.213,
     "shares_outstanding": 187213000,
     "shares_display": "187.21 M",
@@ -193695,7 +194001,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:42:00Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 42650.9,
+    "mcap": 39314.7,
     "liq_val_1": -13.144920491632526,
     "liq_val_2": -18.063969916619037,
     "liq_val_3": -21.491563085896814,
@@ -197100,10 +197406,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "TTWO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:42:00Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-09",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -197117,9 +197423,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 226.95,
-        "marketCap": 42487990350
+        "date": "2026-11-20",
+        "price": 210,
+        "marketCap": 39314730000
       },
       "amounts": {
         "currentAssets": 3236200000,
@@ -197357,7 +197663,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.8105 × -0.327 = -0.2650",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.476722Z"
+    }
   },
   "WBD": {
     "reported_growth": {
@@ -200888,7 +201200,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "WBD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:42:09Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-06",
       "quoteDate": "2026-10-06",
@@ -201145,7 +201457,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.8929 × -0.327 = -0.2920",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-10-06",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 47,
+      "capturedAt": "2026-11-22T02:53:08.476843Z"
+    }
   },
   "AMZN": {
     "reported_growth": {
@@ -201248,7 +201566,7 @@ window.FULL_MARKET_DATA = {
     "sector": "非必需消費",
     "industry": "Broadline Retail",
     "reportedCurrency": "USD",
-    "price": 266.66,
+    "price": 246.82,
     "shares": 10813.1,
     "shares_outstanding": 10813100000,
     "shares_display": "10,813.10 M",
@@ -201261,7 +201579,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:42:17Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 2883421.2,
+    "mcap": 2668889.3,
     "liq_val_1": -34.65139506709454,
     "liq_val_2": -38.43979987237702,
     "liq_val_3": -47.67948136981994,
@@ -204684,10 +205002,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "AMZN",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:42:17Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -204701,9 +205019,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 267.44,
-        "marketCap": 2891855464000
+        "date": "2026-11-20",
+        "price": 246.82,
+        "marketCap": 2668889342000
       },
       "amounts": {
         "currentAssets": 255100000000,
@@ -204941,7 +205259,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9337 × -0.327 = -0.3053",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.667941Z"
+    }
   },
   "TSLA": {
     "reported_growth": {
@@ -205044,7 +205368,7 @@ window.FULL_MARKET_DATA = {
     "sector": "非必需消費",
     "industry": "Automobile Manufacturers",
     "reportedCurrency": "USD",
-    "price": 390.22,
+    "price": 345.82,
     "shares": 3952.757946,
     "shares_outstanding": 3952757946,
     "shares_display": "3,952.76 M",
@@ -205057,7 +205381,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:42:38Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 1542445.2,
+    "mcap": 1366942.8,
     "liq_val_1": 0.6881271348154543,
     "liq_val_2": -2.961021180627588,
     "liq_val_3": -5.625186339199127,
@@ -208468,10 +208792,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "TSLA",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:42:38Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-22",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -208485,9 +208809,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 397.45,
-        "marketCap": 1571023638881
+        "date": "2026-11-20",
+        "price": 345.82,
+        "marketCap": 1366942752886
       },
       "amounts": {
         "currentAssets": 70402000000,
@@ -208725,7 +209049,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9914 × -0.327 = -0.3242",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.476696Z"
+    }
   },
   "HD": {
     "reported_growth": {
@@ -208828,7 +209158,7 @@ window.FULL_MARKET_DATA = {
     "sector": "非必需消費",
     "industry": "Home Improvement Retail",
     "reportedCurrency": "USD",
-    "price": 348.69,
+    "price": 339.04,
     "shares": 997.689626,
     "shares_outstanding": 997689626,
     "shares_display": "997.69 M",
@@ -208841,10 +209171,10 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:42:47Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 347884.4,
-    "liq_val_1": -55.17447366942953,
-    "liq_val_2": -71.85410986723039,
-    "liq_val_3": -90.89199450090302,
+    "mcap": 338256.7,
+    "liq_val_1": -53.83738449336146,
+    "liq_val_2": -70.82292745018479,
+    "liq_val_3": -90.20841517700616,
     "debt": 62567.0,
     "cash": 2085.0,
     "short_term_investments": 0.0,
@@ -212296,33 +212626,33 @@ window.FULL_MARKET_DATA = {
       "ticker": "HD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:42:47Z",
-      "balanceDate": "2026-08-02",
-      "filingDate": "2026-08-25",
-      "quoteDate": "2026-11-12",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
+      "balanceDate": "2026-11-01",
+      "filingDate": "2026-11-20",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
         "basis": "closing",
         "start": null,
-        "end": "2026-08-02",
-        "observationDate": "2026-08-02",
+        "end": "2026-11-01",
+        "observationDate": "2026-11-01",
         "reason": null
       },
       "receivablesBasis": "trade",
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 348.26,
-        "marketCap": 347455389151
+        "date": "2026-11-20",
+        "price": 339.04,
+        "marketCap": 338256690799
       },
       "amounts": {
-        "currentAssets": 37720000000,
-        "totalLiabilities": 92767000000,
-        "cashAndShortTermInvestments": 2085000000,
-        "tradeReceivables": 6963000000,
-        "inventory": 26847000000,
+        "currentAssets": 38255000000,
+        "totalLiabilities": 91968000000,
+        "cashAndShortTermInvestments": 1968000000,
+        "tradeReceivables": 6924000000,
+        "inventory": 27603000000,
         "preferredStock": 0
       },
       "sharesOutstanding": 997689626,
@@ -212553,7 +212883,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9338 × -0.327 = -0.3053",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874377Z"
+    }
   },
   "MCD": {
     "reported_growth": {
@@ -212658,7 +212994,7 @@ window.FULL_MARKET_DATA = {
     "sector": "非必需消費",
     "industry": "Restaurants",
     "reportedCurrency": "USD",
-    "price": 271.97,
+    "price": 273.24,
     "shares": 705.785,
     "shares_outstanding": 705785000,
     "shares_display": "705.78 M",
@@ -212671,7 +213007,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:42:55Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 191952.3,
+    "mcap": 192848.7,
     "liq_val_1": -79.73674702636072,
     "liq_val_2": -81.79700617043434,
     "liq_val_3": -84.65325842855827,
@@ -216124,10 +216460,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "MCD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:42:55Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-06",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -216141,9 +216477,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 273.63,
-        "marketCap": 193123949550
+        "date": "2026-11-20",
+        "price": 273.24,
+        "marketCap": 192848693400
       },
       "amounts": {
         "currentAssets": 4723000000,
@@ -216381,7 +216717,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9721 × -0.327 = -0.3179",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080649Z"
+    }
   },
   "BKNG": {
     "reported_growth": {
@@ -216486,7 +216828,7 @@ window.FULL_MARKET_DATA = {
     "sector": "非必需消費",
     "industry": "Hotels, Resorts & Cruise Lines",
     "reportedCurrency": "USD",
-    "price": 159.58,
+    "price": 144.91,
     "shares": 743.701257,
     "shares_outstanding": 743701257,
     "shares_display": "743.70 M",
@@ -216499,7 +216841,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:43:03Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 118679.8,
+    "mcap": 107769.7,
     "liq_val_1": -22.964866388547733,
     "liq_val_2": -26.09031491794292,
     "liq_val_3": -30.73411505609436,
@@ -219910,10 +220252,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "BKNG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:43:03Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-03",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -219927,9 +220269,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 161.2,
-        "marketCap": 119884642628
+        "date": "2026-11-20",
+        "price": 144.91,
+        "marketCap": 107769749152
       },
       "amounts": {
         "currentAssets": 21592000000,
@@ -220167,7 +220509,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0416 × -0.327 = -0.3406",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.668050Z"
+    }
   },
   "NKE": {
     "reported_growth": {
@@ -220270,7 +220618,7 @@ window.FULL_MARKET_DATA = {
     "sector": "非必需消費",
     "industry": "Footwear",
     "reportedCurrency": "USD",
-    "price": 37.99,
+    "price": 32.92,
     "shares": 1485.308793,
     "shares_outstanding": 1485308793,
     "shares_display": "1,485.31 M",
@@ -220283,7 +220631,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:43:11Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 56426.9,
+    "mcap": 48896.4,
     "liq_val_1": 0.739913481411673,
     "liq_val_2": -4.099753552054815,
     "liq_val_3": -9.564341143707212,
@@ -223724,10 +224072,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "NKE",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:43:11Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-08-31",
       "filingDate": "2026-10-02",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -223741,9 +224089,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 37.76,
-        "marketCap": 56085258098
+        "date": "2026-11-20",
+        "price": 32.92,
+        "marketCap": 48896366058
       },
       "amounts": {
         "currentAssets": 23673000000,
@@ -223981,7 +224329,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9504 × -0.327 = -0.3108",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280281Z"
+    }
   },
   "SBUX": {
     "reported_growth": {
@@ -224086,7 +224440,7 @@ window.FULL_MARKET_DATA = {
     "sector": "非必需消費",
     "industry": "Restaurants",
     "reportedCurrency": "USD",
-    "price": 106.44,
+    "price": 103.13,
     "shares": 1140.1,
     "shares_outstanding": 1140100000,
     "shares_display": "1,140.10 M",
@@ -224099,7 +224453,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:43:19Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 121352.2,
+    "mcap": 117578.5,
     "liq_val_1": -24.892816419612316,
     "liq_val_2": -26.422068239628103,
     "liq_val_3": -28.232172616437154,
@@ -227529,10 +227883,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "SBUX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:43:19Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-27",
       "filingDate": "2026-11-12",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -227546,9 +227900,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 107.26,
-        "marketCap": 122287126000
+        "date": "2026-11-20",
+        "price": 103.13,
+        "marketCap": 117578513000
       },
       "amounts": {
         "currentAssets": 7671400000,
@@ -227786,7 +228140,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9961 × -0.327 = -0.3257",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280470Z"
+    }
   },
   "LOW": {
     "reported_growth": {
@@ -227891,7 +228251,7 @@ window.FULL_MARKET_DATA = {
     "sector": "非必需消費",
     "industry": "Home Improvement Retail",
     "reportedCurrency": "USD",
-    "price": 227.73,
+    "price": 220.89,
     "shares": 561.054,
     "shares_outstanding": 561054000,
     "shares_display": "561.05 M",
@@ -227904,10 +228264,10 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:43:27Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 127768.8,
-    "liq_val_1": -71.25160857956632,
-    "liq_val_2": -89.21084245010285,
-    "liq_val_3": -106.78294780894531,
+    "mcap": 123931.2,
+    "liq_val_1": -69.18228904882596,
+    "liq_val_2": -89.38890017716655,
+    "liq_val_3": -105.70818495189411,
     "debt": 42023.0,
     "cash": 3407.0,
     "short_term_investments": 235.0,
@@ -231354,33 +231714,33 @@ window.FULL_MARKET_DATA = {
       "ticker": "LOW",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:43:27Z",
-      "balanceDate": "2026-07-31",
-      "filingDate": "2026-08-27",
-      "quoteDate": "2026-11-12",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
+      "balanceDate": "2026-10-30",
+      "filingDate": "2026-11-18",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
         "basis": "closing",
         "start": null,
-        "end": "2026-07-31",
-        "observationDate": "2026-07-31",
+        "end": "2026-10-30",
+        "observationDate": "2026-10-30",
         "reason": null
       },
       "receivablesBasis": "trade",
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 227.52,
-        "marketCap": 127651006080
+        "date": "2026-11-20",
+        "price": 220.89,
+        "marketCap": 123931221914
       },
       "amounts": {
-        "currentAssets": 23342000000,
-        "totalLiabilities": 63318000000,
-        "cashAndShortTermInvestments": 3407000000,
-        "tradeReceivables": 1238000000,
-        "inventory": 17737000000,
+        "currentAssets": 24228000000,
+        "totalLiabilities": 63043000000,
+        "cashAndShortTermInvestments": 3735000000,
+        "tradeReceivables": 0,
+        "inventory": 18312000000,
         "preferredStock": 0
       },
       "sharesOutstanding": 561054000,
@@ -231611,7 +231971,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9839 × -0.327 = -0.3217",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080609Z"
+    }
   },
   "TJX": {
     "reported_growth": {
@@ -231714,7 +232080,7 @@ window.FULL_MARKET_DATA = {
     "sector": "非必需消費",
     "industry": "Apparel Retail",
     "reportedCurrency": "USD",
-    "price": 134.37,
+    "price": 139.71,
     "shares": 1099.974061,
     "shares_outstanding": 1099974061,
     "shares_display": "1,099.97 M",
@@ -231727,10 +232093,10 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:43:36Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 147803.5,
-    "liq_val_1": -10.122965981467813,
-    "liq_val_2": -13.962692889355324,
-    "liq_val_3": -18.60043861525204,
+    "mcap": 153677.4,
+    "liq_val_1": -10.33206182122871,
+    "liq_val_2": -15.079628318617234,
+    "liq_val_3": -20.65139606960241,
     "debt": 14317.0,
     "cash": 6004.0,
     "short_term_investments": 0.0,
@@ -235185,33 +235551,33 @@ window.FULL_MARKET_DATA = {
       "ticker": "TJX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:43:36Z",
-      "balanceDate": "2026-08-01",
-      "filingDate": "2026-08-28",
-      "quoteDate": "2026-11-12",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
+      "balanceDate": "2026-10-31",
+      "filingDate": "2026-11-18",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
         "basis": "closing",
         "start": null,
-        "end": "2026-08-01",
-        "observationDate": "2026-08-01",
+        "end": "2026-10-31",
+        "observationDate": "2026-10-31",
         "reason": null
       },
       "receivablesBasis": "trade",
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 135.97,
-        "marketCap": 149563473074
+        "date": "2026-11-20",
+        "price": 139.71,
+        "marketCap": 153677376062
       },
       "amounts": {
-        "currentAssets": 15329000000,
-        "totalLiabilities": 26464000000,
-        "cashAndShortTermInvestments": 6004000000,
-        "tradeReceivables": 1463000000,
-        "inventory": 7862000000,
+        "currentAssets": 15961000000,
+        "totalLiabilities": 27326000000,
+        "cashAndShortTermInvestments": 4610000000,
+        "tradeReceivables": 1511000000,
+        "inventory": 9840000000,
         "preferredStock": 0
       },
       "sharesOutstanding": 1099974061,
@@ -235442,7 +235808,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9745 × -0.327 = -0.3187",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280584Z"
+    }
   },
   "CHDN": {
     "reported_growth": {
@@ -235545,7 +235917,7 @@ window.FULL_MARKET_DATA = {
     "sector": "非必需消費",
     "industry": "Casinos & Gaming",
     "reportedCurrency": "USD",
-    "price": 99.72,
+    "price": 92.27,
     "shares": 68.548344,
     "shares_outstanding": 68548344,
     "shares_display": "68.55 M",
@@ -235558,7 +235930,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:43:44Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 6835.6,
+    "mcap": 6325.0,
     "liq_val_1": -82.36522825409175,
     "liq_val_2": -84.70955913975106,
     "liq_val_3": -86.02687761501576,
@@ -238975,10 +239347,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "CHDN",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:43:44Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -238992,9 +239364,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 99.62,
-        "marketCap": 6828786029
+        "date": "2026-11-20",
+        "price": 92.27,
+        "marketCap": 6324955516
       },
       "amounts": {
         "currentAssets": 418000000,
@@ -239232,7 +239604,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0117 × -0.327 = -0.3308",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.668129Z"
+    }
   },
   "TSCO": {
     "reported_growth": {
@@ -239335,7 +239713,7 @@ window.FULL_MARKET_DATA = {
     "sector": "非必需消費",
     "industry": "Specialty Stores",
     "reportedCurrency": "USD",
-    "price": 36.45,
+    "price": 38.44,
     "shares": 518.574,
     "shares_outstanding": 518573999,
     "shares_display": "518.57 M",
@@ -239348,7 +239726,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:43:52Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 18902.0,
+    "mcap": 19934.0,
     "liq_val_1": -10.33527521691268,
     "liq_val_2": -14.622519668596034,
     "liq_val_3": -18.11166008730029,
@@ -242771,10 +243149,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "TSCO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:43:52Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-26",
       "filingDate": "2026-11-05",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -242788,9 +243166,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 36.63,
-        "marketCap": 18995365620
+        "date": "2026-11-20",
+        "price": 38.44,
+        "marketCap": 19933984560
       },
       "amounts": {
         "currentAssets": 4231507000,
@@ -243028,7 +243406,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9958 × -0.327 = -0.3256",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280624Z"
+    }
   },
   "MTN": {
     "reported_growth": {
@@ -243131,7 +243515,7 @@ window.FULL_MARKET_DATA = {
     "sector": "非必需消費",
     "industry": "Hotels, Resorts & Cruise Lines",
     "reportedCurrency": "USD",
-    "price": 152.61,
+    "price": 149.08,
     "shares": 35.717551,
     "shares_outstanding": 35717551,
     "shares_display": "35.72 M",
@@ -243144,7 +243528,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:44:00Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 5450.9,
+    "mcap": 5324.8,
     "liq_val_1": -114.58187600824031,
     "liq_val_2": -121.78084662075516,
     "liq_val_3": -131.60445966746153,
@@ -246542,10 +246926,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "MTN",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:44:00Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-07-31",
       "filingDate": "2026-09-28",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -246559,9 +246943,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 151.17,
-        "marketCap": 5399422185
+        "date": "2026-11-20",
+        "price": 149.08,
+        "marketCap": 5324772503
       },
       "amounts": {
         "currentAssets": 876466000,
@@ -246799,7 +247183,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.1319 × -0.327 = -0.3701",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080782Z"
+    }
   },
   "SCI": {
     "reported_growth": {
@@ -246902,7 +247292,7 @@ window.FULL_MARKET_DATA = {
     "sector": "非必需消費",
     "industry": "Personal Services",
     "reportedCurrency": "USD",
-    "price": 74.98,
+    "price": 69.14,
     "shares": 135.907343,
     "shares_outstanding": 135907343,
     "shares_display": "135.91 M",
@@ -246915,7 +247305,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:44:08Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 10190.3,
+    "mcap": 9396.6,
     "liq_val_1": -126.24148645154516,
     "liq_val_2": -126.8796057619933,
     "liq_val_3": -127.626017970199,
@@ -250349,10 +250739,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "SCI",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:44:08Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -250366,9 +250756,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 74.97,
-        "marketCap": 10188973505
+        "date": "2026-11-20",
+        "price": 69.14,
+        "marketCap": 9396633695
       },
       "amounts": {
         "currentAssets": 360821000,
@@ -250606,7 +250996,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9918 × -0.327 = -0.3243",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280486Z"
+    }
   },
   "AZO": {
     "reported_growth": {
@@ -250711,7 +251107,7 @@ window.FULL_MARKET_DATA = {
     "sector": "非必需消費",
     "industry": "Automotive Retail",
     "reportedCurrency": "USD",
-    "price": 3259.7,
+    "price": 3255.43,
     "shares": 16.094341,
     "shares_outstanding": 16094341,
     "shares_display": "16.09 M",
@@ -250724,7 +251120,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:44:17Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 52462.7,
+    "mcap": 52394.0,
     "liq_val_1": -933.6726492871004,
     "liq_val_2": -1201.3579307161442,
     "liq_val_3": -1479.2071946282238,
@@ -254129,10 +254525,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "AZO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:44:17Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-08-29",
       "filingDate": "2026-10-26",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -254146,9 +254542,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 3252.19,
-        "marketCap": 52341854857
+        "date": "2026-11-20",
+        "price": 3255.43,
+        "marketCap": 52394000522
       },
       "amounts": {
         "currentAssets": 9106134000,
@@ -254386,7 +254782,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9165 × -0.327 = -0.2997",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.668015Z"
+    }
   },
   "MAR": {
     "reported_growth": {
@@ -254491,7 +254893,7 @@ window.FULL_MARKET_DATA = {
     "sector": "非必需消費",
     "industry": "Hotels, Resorts & Cruise Lines",
     "reportedCurrency": "USD",
-    "price": 423.16,
+    "price": 406.64,
     "shares": 257.504397,
     "shares_outstanding": 257504396,
     "shares_display": "257.50 M",
@@ -254504,7 +254906,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:44:25Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 108965.6,
+    "mcap": 104711.6,
     "liq_val_1": -114.16892471226006,
     "liq_val_2": -116.69626020675778,
     "liq_val_3": -126.80560218474872,
@@ -257915,10 +258317,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "MAR",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:44:25Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-02",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -257932,9 +258334,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 424.66,
-        "marketCap": 109351817230
+        "date": "2026-11-20",
+        "price": 406.64,
+        "marketCap": 104711587996
       },
       "amounts": {
         "currentAssets": 3707000000,
@@ -258172,7 +258574,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0208 × -0.327 = -0.3338",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080642Z"
+    }
   },
   "HLT": {
     "reported_growth": {
@@ -258277,7 +258685,7 @@ window.FULL_MARKET_DATA = {
     "sector": "非必需消費",
     "industry": "Hotels, Resorts & Cruise Lines",
     "reportedCurrency": "USD",
-    "price": 373.09,
+    "price": 356.25,
     "shares": 222.504355,
     "shares_outstanding": 222504355,
     "shares_display": "222.50 M",
@@ -258290,7 +258698,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:44:34Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 83014.1,
+    "mcap": 79267.2,
     "liq_val_1": -91.00046603582209,
     "liq_val_2": -95.03634209766366,
     "liq_val_3": -101.50812553758779,
@@ -261695,10 +262103,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "HLT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:44:34Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-27",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -261712,9 +262120,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 372.73,
-        "marketCap": 82934048239
+        "date": "2026-11-20",
+        "price": 356.25,
+        "marketCap": 79267176469
       },
       "amounts": {
         "currentAssets": 3112000000,
@@ -261952,7 +262360,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0834 × -0.327 = -0.3543",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874389Z"
+    }
   },
   "CMG": {
     "reported_growth": {
@@ -262055,7 +262469,7 @@ window.FULL_MARKET_DATA = {
     "sector": "非必需消費",
     "industry": "Restaurants",
     "reportedCurrency": "USD",
-    "price": 35.28,
+    "price": 35.55,
     "shares": 1264.975,
     "shares_outstanding": 1264975000,
     "shares_display": "1,264.97 M",
@@ -262068,7 +262482,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:44:42Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 44628.3,
+    "mcap": 44969.9,
     "liq_val_1": -4.589415601098836,
     "liq_val_2": -4.720177315757228,
     "liq_val_3": -4.802446688669736,
@@ -265469,10 +265883,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "CMG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:44:42Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -265486,9 +265900,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 35.18,
-        "marketCap": 44501820500
+        "date": "2026-11-20",
+        "price": 35.55,
+        "marketCap": 44969861250
       },
       "amounts": {
         "currentAssets": 1172043000,
@@ -265726,7 +266140,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0403 × -0.327 = -0.3402",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874048Z"
+    }
   },
   "YUM": {
     "reported_growth": {
@@ -265831,7 +266251,7 @@ window.FULL_MARKET_DATA = {
     "sector": "非必需消費",
     "industry": "Restaurants",
     "reportedCurrency": "USD",
-    "price": 161.33,
+    "price": 160.75,
     "shares": 268.259,
     "shares_outstanding": 268259000,
     "shares_display": "268.26 M",
@@ -265844,7 +266264,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:44:50Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 43278.2,
+    "mcap": 43122.6,
     "liq_val_1": -43.349896927968864,
     "liq_val_2": -45.906381519352564,
     "liq_val_3": -47.81200257959659,
@@ -269261,10 +269681,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "YUM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:44:50Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-06",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -269278,9 +269698,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 159.35,
-        "marketCap": 42747071650
+        "date": "2026-11-20",
+        "price": 160.75,
+        "marketCap": 43122634250
       },
       "amounts": {
         "currentAssets": 3305000000,
@@ -269518,7 +269938,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.8778 × -0.327 = -0.2871",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.476907Z"
+    }
   },
   "ORLY": {
     "reported_growth": {
@@ -269623,7 +270049,7 @@ window.FULL_MARKET_DATA = {
     "sector": "非必需消費",
     "industry": "Automotive Retail",
     "reportedCurrency": "USD",
-    "price": 92.19,
+    "price": 92.65,
     "shares": 802.049,
     "shares_outstanding": 802049000,
     "shares_display": "802.05 M",
@@ -269636,7 +270062,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:44:59Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 73940.9,
+    "mcap": 74309.8,
     "liq_val_1": -15.549158467874157,
     "liq_val_2": -20.008555088280144,
     "liq_val_3": -24.312781388668274,
@@ -273052,10 +273478,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "ORLY",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:44:59Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-06",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -273069,9 +273495,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 91.56,
-        "marketCap": 73435606440
+        "date": "2026-11-20",
+        "price": 92.65,
+        "marketCap": 74309839850
       },
       "amounts": {
         "currentAssets": 7223300000,
@@ -273309,7 +273735,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9650 × -0.327 = -0.3156",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280318Z"
+    }
   },
   "ROST": {
     "reported_growth": {
@@ -273412,7 +273844,7 @@ window.FULL_MARKET_DATA = {
     "sector": "非必需消費",
     "industry": "Apparel Retail",
     "reportedCurrency": "USD",
-    "price": 231.68,
+    "price": 213.46,
     "shares": 320.781076,
     "shares_outstanding": 320781076,
     "shares_display": "320.78 M",
@@ -273425,10 +273857,10 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:45:07Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 74318.6,
-    "liq_val_1": -4.24818077485344,
-    "liq_val_2": -10.003005912979729,
-    "liq_val_3": -15.434114947603705,
+    "mcap": 68473.9,
+    "liq_val_1": -4.770671072878376,
+    "liq_val_2": -11.285045380918916,
+    "liq_val_3": -17.31233671652127,
     "debt": 4739.2,
     "cash": 4288.1,
     "short_term_investments": 0.0,
@@ -276853,33 +277285,33 @@ window.FULL_MARKET_DATA = {
       "ticker": "ROST",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:45:07Z",
-      "balanceDate": "2026-08-01",
-      "filingDate": "2026-09-01",
-      "quoteDate": "2026-11-12",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
+      "balanceDate": "2026-10-31",
+      "filingDate": "2026-11-19",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
         "basis": "closing",
         "start": null,
-        "end": "2026-08-01",
-        "observationDate": "2026-08-01",
+        "end": "2026-10-31",
+        "observationDate": "2026-10-31",
         "reason": null
       },
       "receivablesBasis": "trade",
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 237.24,
-        "marketCap": 76102102470
+        "date": "2026-11-20",
+        "price": 213.46,
+        "marketCap": 68473928483
       },
       "amounts": {
-        "currentAssets": 7876360000,
-        "totalLiabilities": 9239096000,
-        "cashAndShortTermInvestments": 4288124000,
-        "tradeReceivables": 248140000,
-        "inventory": 3087370000,
+        "currentAssets": 8203109000,
+        "totalLiabilities": 9733450000,
+        "cashAndShortTermInvestments": 4179980000,
+        "tradeReceivables": 204180000,
+        "inventory": 3540194000,
         "preferredStock": 0
       },
       "sharesOutstanding": 320781076,
@@ -277110,7 +277542,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9071 × -0.327 = -0.2966",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280442Z"
+    }
   },
   "LULU": {
     "reported_growth": {
@@ -277213,7 +277651,7 @@ window.FULL_MARKET_DATA = {
     "sector": "非必需消費",
     "industry": "Apparel Retail",
     "reportedCurrency": "USD",
-    "price": 105.65,
+    "price": 102.62,
     "shares": 115.825986,
     "shares_outstanding": 115825986,
     "shares_display": "115.83 M",
@@ -277226,7 +277664,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:45:15Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 12237.0,
+    "mcap": 11886.1,
     "liq_val_1": 2.1772575283753683,
     "liq_val_2": -11.318796802644961,
     "liq_val_3": -19.889034227604157,
@@ -280630,10 +281068,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "LULU",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:45:15Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-08-02",
       "filingDate": "2026-09-03",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -280647,9 +281085,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 104.46,
-        "marketCap": 12099182706
+        "date": "2026-11-20",
+        "price": 102.62,
+        "marketCap": 11886062273
       },
       "amounts": {
         "currentAssets": 3945587000,
@@ -280887,7 +281325,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9225 × -0.327 = -0.3017",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080622Z"
+    }
   },
   "F": {
     "reported_growth": {
@@ -280994,7 +281438,7 @@ window.FULL_MARKET_DATA = {
     "sector": "非必需消費",
     "industry": "Automobile Manufacturers",
     "reportedCurrency": "USD",
-    "price": 11.92,
+    "price": 11.18,
     "shares": 3993.217467,
     "shares_outstanding": 3993217467,
     "shares_display": "3,993.22 M",
@@ -281007,7 +281451,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:45:23Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 47599.2,
+    "mcap": 44644.2,
     "liq_val_1": -33.61875507893545,
     "liq_val_2": -49.5180143916765,
     "liq_val_3": -55.448269930148534,
@@ -284454,10 +284898,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "F",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:45:23Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -284471,9 +284915,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 11.92,
-        "marketCap": 47599151611
+        "date": "2026-11-20",
+        "price": 11.18,
+        "marketCap": 44644171192
       },
       "amounts": {
         "currentAssets": 121277000000,
@@ -284711,7 +285155,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0396 × -0.327 = -0.3400",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874264Z"
+    }
   },
   "GM": {
     "reported_growth": {
@@ -284814,7 +285264,7 @@ window.FULL_MARKET_DATA = {
     "sector": "非必需消費",
     "industry": "Automobile Manufacturers",
     "reportedCurrency": "USD",
-    "price": 86.0,
+    "price": 78.71,
     "shares": 843.549444,
     "shares_outstanding": 843549444,
     "shares_display": "843.55 M",
@@ -284827,7 +285277,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:45:31Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 72545.3,
+    "mcap": 66395.8,
     "liq_val_1": -128.97643496046214,
     "liq_val_2": -207.84744895167046,
     "liq_val_3": -233.37102691516918,
@@ -288225,10 +288675,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "GM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:45:31Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-20",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -288242,9 +288692,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 86.25,
-        "marketCap": 72756143340
+        "date": "2026-11-20",
+        "price": 78.71,
+        "marketCap": 66395775084
       },
       "amounts": {
         "currentAssets": 115867000000,
@@ -288482,7 +288932,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0020 × -0.327 = -0.3276",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874343Z"
+    }
   },
   "EBAY": {
     "reported_growth": {
@@ -288585,7 +289041,7 @@ window.FULL_MARKET_DATA = {
     "sector": "非必需消費",
     "industry": "Broadline Retail",
     "reportedCurrency": "USD",
-    "price": 120.92,
+    "price": 115.59,
     "shares": 439.0,
     "shares_outstanding": 439000000,
     "shares_display": "439.00 M",
@@ -288598,7 +289054,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:45:40Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 53083.9,
+    "mcap": 50744.0,
     "liq_val_1": -20.06378132118451,
     "liq_val_2": -23.507517084282462,
     "liq_val_3": -26.466970387243737,
@@ -292027,10 +292483,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "EBAY",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:45:40Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -292044,9 +292500,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 120.14,
-        "marketCap": 52741460000
+        "date": "2026-11-20",
+        "price": 115.59,
+        "marketCap": 50744010000
       },
       "amounts": {
         "currentAssets": 4786000000,
@@ -292284,7 +292740,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0160 × -0.327 = -0.3322",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874215Z"
+    }
   },
   "BRK.B": {
     "reported_growth": {
@@ -292387,23 +292849,23 @@ window.FULL_MARKET_DATA = {
     "sector": "金融",
     "industry": "Multi-Sector Holdings",
     "reportedCurrency": "USD",
-    "price": 150.0,
-    "shares": 2124.519273,
-    "shares_outstanding": 2124519273,
-    "shares_display": "2,124.52 M",
+    "price": 569.88,
+    "shares": 1403.805594,
+    "shares_outstanding": 1403805594,
+    "shares_display": "1,403.81 M",
     "shareSource": {
-      "shares": 2124.519273,
-      "date": "2026-11-13",
+      "shares": 1403.805594,
+      "date": "2026-11-21",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526452412/brka-20260930.htm",
       "capturedAt": "2026-11-14T01:45:55Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 100000.0,
-    "liq_val_1": -19.28812815246228,
-    "liq_val_2": -35.71659761544559,
-    "liq_val_3": -76.64981065107052,
+    "mcap": 800000.7,
+    "liq_val_1": -29.190651593884446,
+    "liq_val_2": -54.0534959572187,
+    "liq_val_3": -116.001817271573,
     "debt": 37486.0,
     "cash": 38717.0,
     "short_term_investments": 0.0,
@@ -295717,10 +296179,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "BRK.B",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:45:55Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-09",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -295734,9 +296196,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 590.08,
-        "marketCap": 1258492995493
+        "date": "2026-11-20",
+        "price": 569.88,
+        "marketCap": 800000731909
       },
       "amounts": {
         "currentAssets": 499301000000,
@@ -295746,10 +296208,10 @@ window.FULL_MARKET_DATA = {
         "inventory": 35098000000,
         "preferredStock": 0
       },
-      "sharesOutstanding": 2124519273,
+      "sharesOutstanding": 1403805594,
       "shareSource": {
-        "shares": 2124.519273,
-        "date": "2026-11-13",
+        "shares": 1403.805594,
+        "date": "2026-11-21",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526452412/brka-20260930.htm",
@@ -295974,7 +296436,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.8877 × -0.327 = -0.2903",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.668082Z"
+    }
   },
   "JPM": {
     "reported_growth": {
@@ -296077,7 +296545,7 @@ window.FULL_MARKET_DATA = {
     "sector": "金融",
     "industry": "Diversified Banks",
     "reportedCurrency": "USD",
-    "price": 346.19,
+    "price": 310.53,
     "shares": 2655.61,
     "shares_outstanding": 2655610000,
     "shares_display": "2,655.61 M",
@@ -296090,7 +296558,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:46:05Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 919345.6,
+    "mcap": 824646.6,
     "liq_val_1": -572.7832776650185,
     "liq_val_2": -709.4228444688791,
     "liq_val_3": -759.1280346135163,
@@ -299536,10 +300004,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "JPM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:46:05Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-03",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -299553,9 +300021,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 342.82,
-        "marketCap": 910396220200
+        "date": "2026-11-20",
+        "price": 310.53,
+        "marketCap": 824646573300
       },
       "amounts": {
         "currentAssets": 3198088000000,
@@ -299581,7 +300049,13 @@ window.FULL_MARKET_DATA = {
     "z_score_breakdown": [],
     "m_score": null,
     "m_score_zone": null,
-    "m_score_breakdown": []
+    "m_score_breakdown": [],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080537Z"
+    }
   },
   "V": {
     "reported_growth": {
@@ -299684,7 +300158,7 @@ window.FULL_MARKET_DATA = {
     "sector": "金融",
     "industry": "Transaction & Payment Processing Services",
     "reportedCurrency": "USD",
-    "price": 425.76,
+    "price": 401.87,
     "shares": 1865.799986,
     "shares_outstanding": 1865799986,
     "shares_display": "1,865.80 M",
@@ -299697,7 +300171,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:46:26Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 794383.0,
+    "mcap": 749809.1,
     "liq_val_1": -14.879944371486344,
     "liq_val_2": -22.063886970143862,
     "liq_val_3": -23.671347588915676,
@@ -303102,10 +303576,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "V",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:46:26Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-05",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -303119,9 +303593,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 420.31,
-        "marketCap": 784214399681
+        "date": "2026-11-20",
+        "price": 401.87,
+        "marketCap": 749809067299
       },
       "amounts": {
         "currentAssets": 30486000000,
@@ -303359,7 +303833,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9842 × -0.327 = -0.3218",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.476781Z"
+    }
   },
   "MA": {
     "reported_growth": {
@@ -303462,7 +303942,7 @@ window.FULL_MARKET_DATA = {
     "sector": "金融",
     "industry": "Transaction & Payment Processing Services",
     "reportedCurrency": "USD",
-    "price": 661.19,
+    "price": 625.59,
     "shares": 871.176109,
     "shares_outstanding": 871176109,
     "shares_display": "871.18 M",
@@ -303475,7 +303955,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:46:34Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 576012.9,
+    "mcap": 544999.1,
     "liq_val_1": -30.91108642879462,
     "liq_val_2": -42.17126665947172,
     "liq_val_3": -46.99968189784231,
@@ -306879,10 +307359,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "MA",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:46:34Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -306896,9 +307376,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 652.6,
-        "marketCap": 568529552227
+        "date": "2026-11-20",
+        "price": 625.59,
+        "marketCap": 544999085176
       },
       "amounts": {
         "currentAssets": 24480000000,
@@ -307136,7 +307616,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9923 × -0.327 = -0.3245",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080636Z"
+    }
   },
   "BAC": {
     "reported_growth": {
@@ -307239,7 +307725,7 @@ window.FULL_MARKET_DATA = {
     "sector": "金融",
     "industry": "Diversified Banks",
     "reportedCurrency": "USD",
-    "price": 51.02,
+    "price": 47.04,
     "shares": 6900.21,
     "shares_outstanding": 6900210000,
     "shares_display": "6,900.21 M",
@@ -307252,7 +307738,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:46:42Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 352048.7,
+    "mcap": 324585.9,
     "liq_val_1": -449.8483379491349,
     "liq_val_2": -449.8483379491349,
     "liq_val_3": -449.8483379491349,
@@ -310692,10 +311178,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "BAC",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:46:42Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -310709,9 +311195,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 50.51,
-        "marketCap": 348529607100
+        "date": "2026-11-20",
+        "price": 47.04,
+        "marketCap": 324585878400
       },
       "amounts": {
         "currentAssets": 26907000000,
@@ -310737,7 +311223,13 @@ window.FULL_MARKET_DATA = {
     "z_score_breakdown": [],
     "m_score": null,
     "m_score_zone": null,
-    "m_score_breakdown": []
+    "m_score_breakdown": [],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.668029Z"
+    }
   },
   "WFC": {
     "reported_growth": {
@@ -310840,7 +311332,7 @@ window.FULL_MARKET_DATA = {
     "sector": "金融",
     "industry": "Diversified Banks",
     "reportedCurrency": "USD",
-    "price": 86.04,
+    "price": 78.65,
     "shares": 3001.85,
     "shares_outstanding": 3001850000,
     "shares_display": "3,001.85 M",
@@ -310853,7 +311345,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:46:50Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 258279.2,
+    "mcap": 236095.5,
     "liq_val_1": -327.6805969652048,
     "liq_val_2": -327.6805969652048,
     "liq_val_3": -327.6805969652048,
@@ -314311,10 +314803,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "WFC",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:46:50Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -314328,9 +314820,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 85.79,
-        "marketCap": 257528711500
+        "date": "2026-11-20",
+        "price": 78.65,
+        "marketCap": 236095502500
       },
       "amounts": {
         "currentAssets": 1091766000000,
@@ -314356,7 +314848,13 @@ window.FULL_MARKET_DATA = {
     "z_score_breakdown": [],
     "m_score": null,
     "m_score_zone": null,
-    "m_score_breakdown": []
+    "m_score_breakdown": [],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.476857Z"
+    }
   },
   "MS": {
     "reported_growth": {
@@ -314459,7 +314957,7 @@ window.FULL_MARKET_DATA = {
     "sector": "金融",
     "industry": "Investment Banking & Brokerage",
     "reportedCurrency": "USD",
-    "price": 190.65,
+    "price": 165.67,
     "shares": 1577.284817,
     "shares_outstanding": 1577284817,
     "shares_display": "1,577.28 M",
@@ -314472,7 +314970,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:46:58Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 300709.4,
+    "mcap": 261308.8,
     "liq_val_1": -147.21944793817158,
     "liq_val_2": -355.98643564448895,
     "liq_val_3": -355.98643564448895,
@@ -317906,10 +318404,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "MS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:46:58Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-05",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -317923,9 +318421,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 189.17,
-        "marketCap": 298374968832
+        "date": "2026-11-20",
+        "price": 165.67,
+        "marketCap": 261308775632
       },
       "amounts": {
         "currentAssets": 1341500000000,
@@ -317951,7 +318449,13 @@ window.FULL_MARKET_DATA = {
     "z_score_breakdown": [],
     "m_score": null,
     "m_score_zone": null,
-    "m_score_breakdown": []
+    "m_score_breakdown": [],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080753Z"
+    }
   },
   "GS": {
     "reported_growth": {
@@ -318054,7 +318558,7 @@ window.FULL_MARKET_DATA = {
     "sector": "金融",
     "industry": "Investment Banking & Brokerage",
     "reportedCurrency": "USD",
-    "price": 916.56,
+    "price": 790.69,
     "shares": 288.435,
     "shares_outstanding": 288435000,
     "shares_display": "288.44 M",
@@ -318067,7 +318571,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:47:16Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 264368.0,
+    "mcap": 228062.7,
     "liq_val_1": -1605.2143463865343,
     "liq_val_2": -3006.569937767608,
     "liq_val_3": -3633.4009395531057,
@@ -321488,10 +321992,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "GS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:47:16Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-02",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -321505,9 +322009,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 913.6,
-        "marketCap": 263514216000
+        "date": "2026-11-20",
+        "price": 790.69,
+        "marketCap": 228062670150
       },
       "amounts": {
         "currentAssets": 1594000000000,
@@ -321533,7 +322037,13 @@ window.FULL_MARKET_DATA = {
     "z_score_breakdown": [],
     "m_score": null,
     "m_score_zone": null,
-    "m_score_breakdown": []
+    "m_score_breakdown": [],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874364Z"
+    }
   },
   "AXP": {
     "reported_growth": {
@@ -321636,7 +322146,7 @@ window.FULL_MARKET_DATA = {
     "sector": "金融",
     "industry": "Consumer Finance",
     "reportedCurrency": "USD",
-    "price": 320.6,
+    "price": 301.7,
     "shares": 670.552018,
     "shares_outstanding": 670552018,
     "shares_display": "670.55 M",
@@ -321649,7 +322159,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:48:48Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 214979.0,
+    "mcap": 202305.5,
     "liq_val_1": -6.100943536344707,
     "liq_val_2": -87.87237741188932,
     "liq_val_3": -344.90239950332983,
@@ -325107,10 +325617,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "AXP",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:48:48Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-23",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -325124,9 +325634,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 318.06,
-        "marketCap": 213275774845
+        "date": "2026-11-20",
+        "price": 301.7,
+        "marketCap": 202305543831
       },
       "amounts": {
         "currentAssets": 270387000000,
@@ -325152,7 +325662,13 @@ window.FULL_MARKET_DATA = {
     "z_score_breakdown": [],
     "m_score": null,
     "m_score_zone": null,
-    "m_score_breakdown": []
+    "m_score_breakdown": [],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.668006Z"
+    }
   },
   "BLK": {
     "reported_growth": {
@@ -325255,7 +325771,7 @@ window.FULL_MARKET_DATA = {
     "sector": "金融",
     "industry": "Asset Management & Custody Banks",
     "reportedCurrency": "USD",
-    "price": 1222.91,
+    "price": 1101.72,
     "shares": 154.423421,
     "shares_outstanding": 154423421,
     "shares_display": "154.42 M",
@@ -325268,7 +325784,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:48:56Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 188845.9,
+    "mcap": 170131.4,
     "liq_val_1": -592.4230884640226,
     "liq_val_2": -599.885687029301,
     "liq_val_3": -629.7360812904151,
@@ -328666,10 +329182,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "BLK",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:48:56Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-04",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -328683,9 +329199,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 1216.61,
-        "marketCap": 187873078223
+        "date": "2026-11-20",
+        "price": 1101.72,
+        "marketCap": 170131371384
       },
       "amounts": {
         "currentAssets": 18639000000,
@@ -328923,7 +329439,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.8541 × -0.327 = -0.2793",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.668063Z"
+    }
   },
   "SPGI": {
     "reported_growth": {
@@ -329026,7 +329548,7 @@ window.FULL_MARKET_DATA = {
     "sector": "金融",
     "industry": "Financial Exchanges & Data",
     "reportedCurrency": "USD",
-    "price": 473.59,
+    "price": 439.57,
     "shares": 289.9,
     "shares_outstanding": 289900000,
     "shares_display": "289.90 M",
@@ -329039,7 +329561,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:49:04Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 137293.7,
+    "mcap": 127431.3,
     "liq_val_1": -56.70231114177302,
     "liq_val_2": -61.862021386685065,
     "liq_val_3": -70.41393583994481,
@@ -332462,10 +332984,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "SPGI",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:49:04Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -332479,9 +333001,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 468.51,
-        "marketCap": 135821049000
+        "date": "2026-11-20",
+        "price": 439.57,
+        "marketCap": 127431343000
       },
       "amounts": {
         "currentAssets": 6416000000,
@@ -332719,7 +333241,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.1342 × -0.327 = -0.3709",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280530Z"
+    }
   },
   "C": {
     "reported_growth": {
@@ -332822,7 +333350,7 @@ window.FULL_MARKET_DATA = {
     "sector": "金融",
     "industry": "Diversified Banks",
     "reportedCurrency": "USD",
-    "price": 124.01,
+    "price": 110.775,
     "shares": 1655.204519,
     "shares_outstanding": 1655204519,
     "shares_display": "1,655.20 M",
@@ -332835,7 +333363,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:49:12Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 205261.9,
+    "mcap": 183355.3,
     "liq_val_1": -454.7540750159105,
     "liq_val_2": -715.6766347615319,
     "liq_val_3": -765.3459046652107,
@@ -336311,10 +336839,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "C",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:49:12Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-05",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -336328,9 +336856,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 124.06,
-        "marketCap": 208103206400
+        "date": "2026-11-20",
+        "price": 110.775,
+        "marketCap": 183355280592
       },
       "amounts": {
         "currentAssets": 1976777000000,
@@ -336356,7 +336884,13 @@ window.FULL_MARKET_DATA = {
     "z_score_breakdown": [],
     "m_score": null,
     "m_score_zone": null,
-    "m_score_breakdown": []
+    "m_score_breakdown": [],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.668088Z"
+    }
   },
   "PGR": {
     "reported_growth": {
@@ -336459,7 +336993,7 @@ window.FULL_MARKET_DATA = {
     "sector": "金融",
     "industry": "Property & Casualty Insurance",
     "reportedCurrency": "USD",
-    "price": 235.78,
+    "price": 231.39,
     "shares": 579.362175,
     "shares_outstanding": 579362175,
     "shares_display": "579.36 M",
@@ -336472,7 +337006,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:49:32Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 136602.0,
+    "mcap": 133674.0,
     "liq_val_1": 52.75111375712437,
     "liq_val_2": 35.46348188850955,
     "liq_val_3": 10.492573147358128,
@@ -339948,10 +340482,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "PGR",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:49:32Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-02",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -339965,9 +340499,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 235.49,
-        "marketCap": 136433998591
+        "date": "2026-11-20",
+        "price": 231.39,
+        "marketCap": 133674005314
       },
       "amounts": {
         "currentAssets": 123821000000,
@@ -339993,7 +340527,13 @@ window.FULL_MARKET_DATA = {
     "z_score_breakdown": [],
     "m_score": null,
     "m_score_zone": null,
-    "m_score_breakdown": []
+    "m_score_breakdown": [],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280381Z"
+    }
   },
   "CB": {
     "reported_growth": {
@@ -340096,7 +340636,7 @@ window.FULL_MARKET_DATA = {
     "sector": "金融",
     "industry": "Property & Casualty Insurance",
     "reportedCurrency": "USD",
-    "price": 375.74,
+    "price": 371.63,
     "shares": 382.079222,
     "shares_outstanding": 382079222,
     "shares_display": "382.08 M",
@@ -340109,7 +340649,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:49:40Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 143562.4,
+    "mcap": 141992.1,
     "liq_val_1": -3.310831699714883,
     "liq_val_2": -116.02934011418186,
     "liq_val_3": -157.3757392125343,
@@ -343561,10 +344101,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "CB",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:49:40Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -343578,9 +344118,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 371.76,
-        "marketCap": 142041771571
+        "date": "2026-11-20",
+        "price": 371.63,
+        "marketCap": 141992101272
       },
       "amounts": {
         "currentAssets": 203732000000,
@@ -343606,7 +344146,13 @@ window.FULL_MARKET_DATA = {
     "z_score_breakdown": [],
     "m_score": null,
     "m_score_zone": null,
-    "m_score_breakdown": []
+    "m_score_breakdown": [],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.668101Z"
+    }
   },
   "FDS": {
     "reported_growth": {
@@ -343709,7 +344255,7 @@ window.FULL_MARKET_DATA = {
     "sector": "金融",
     "industry": "Financial Exchanges & Data",
     "reportedCurrency": "USD",
-    "price": 332.69,
+    "price": 311.93,
     "shares": 35.26987,
     "shares_outstanding": 35269870,
     "shares_display": "35.27 M",
@@ -343722,7 +344268,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:49:49Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 11733.9,
+    "mcap": 10997.3,
     "liq_val_1": -42.13976405356753,
     "liq_val_2": -46.34249573361058,
     "liq_val_3": -53.17981041608603,
@@ -347137,10 +347683,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "FDS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:49:49Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-08-31",
       "filingDate": "2026-10-20",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -347154,9 +347700,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 331.71,
-        "marketCap": 11699368578
+        "date": "2026-11-20",
+        "price": 311.93,
+        "marketCap": 10997298024
       },
       "amounts": {
         "currentAssets": 654713000,
@@ -347394,7 +347940,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0793 × -0.327 = -0.3529",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874277Z"
+    }
   },
   "TW": {
     "reported_growth": {
@@ -347497,7 +348049,7 @@ window.FULL_MARKET_DATA = {
     "sector": "金融",
     "industry": "Financial Exchanges & Data",
     "reportedCurrency": "USD",
-    "price": 132.74,
+    "price": 126.38,
     "shares": 216.028261,
     "shares_outstanding": 216028261,
     "shares_display": "216.03 M",
@@ -347510,7 +348062,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:49:58Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 28675.6,
+    "mcap": 27062.3,
     "liq_val_1": 7.17791733739874,
     "liq_val_2": 5.9304481463191525,
     "liq_val_3": 4.720428685022836,
@@ -350908,10 +351460,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "TW",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:49:58Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -350925,9 +351477,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 131.64,
-        "marketCap": 28437958172
+        "date": "2026-11-20",
+        "price": 126.38,
+        "marketCap": 27062280070
       },
       "amounts": {
         "currentAssets": 2645782000,
@@ -351165,7 +351717,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.3043 × -0.327 = -0.4265",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.476730Z"
+    }
   },
   "CME": {
     "reported_growth": {
@@ -351268,7 +351826,7 @@ window.FULL_MARKET_DATA = {
     "sector": "金融",
     "industry": "Financial Exchanges & Data",
     "reportedCurrency": "USD",
-    "price": 317.97,
+    "price": 307.56,
     "shares": 357.933913,
     "shares_outstanding": 357933913,
     "shares_display": "357.93 M",
@@ -351281,7 +351839,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:50:06Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 113812.2,
+    "mcap": 110086.1,
     "liq_val_1": -17.86363283213122,
     "liq_val_2": -454.19619123935877,
     "liq_val_3": -455.9576337210607,
@@ -354686,10 +355244,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "CME",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:50:06Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-23",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -354703,9 +355261,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 315.5,
-        "marketCap": 112928137247
+        "date": "2026-11-20",
+        "price": 307.56,
+        "marketCap": 110086146901
       },
       "amounts": {
         "currentAssets": 159138200000,
@@ -354943,7 +355501,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0801 × -0.327 = -0.3532",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874029Z"
+    }
   },
   "MSCI": {
     "reported_growth": {
@@ -355048,7 +355612,7 @@ window.FULL_MARKET_DATA = {
     "sector": "金融",
     "industry": "Financial Exchanges & Data",
     "reportedCurrency": "USD",
-    "price": 658.17,
+    "price": 610.48,
     "shares": 71.500003,
     "shares_outstanding": 71500003,
     "shares_display": "71.50 M",
@@ -355061,7 +355625,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:50:14Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 47059.2,
+    "mcap": 43649.3,
     "liq_val_1": -102.27691878558383,
     "liq_val_2": -107.16950599288786,
     "liq_val_3": -116.79300209260131,
@@ -358455,10 +359019,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "MSCI",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:50:14Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-20",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -358472,9 +359036,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 651.51,
-        "marketCap": 46588250049
+        "date": "2026-11-20",
+        "price": 610.48,
+        "marketCap": 43649320000
       },
       "amounts": {
         "currentAssets": 1298900000,
@@ -358712,7 +359276,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.2581 × -0.327 = -0.4114",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080767Z"
+    }
   },
   "MCO": {
     "reported_growth": {
@@ -358815,7 +359385,7 @@ window.FULL_MARKET_DATA = {
     "sector": "金融",
     "industry": "Financial Exchanges & Data",
     "reportedCurrency": "USD",
-    "price": 508.2,
+    "price": 466.77,
     "shares": 172.424082,
     "shares_outstanding": 172424082,
     "shares_display": "172.42 M",
@@ -358828,7 +359398,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:50:22Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 87625.9,
+    "mcap": 80482.4,
     "liq_val_1": -41.722710172236845,
     "liq_val_2": -48.328515966812574,
     "liq_val_3": -56.819209279594716,
@@ -362232,10 +362802,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "MCO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:50:22Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-21",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -362249,9 +362819,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 506.56,
-        "marketCap": 87343142978
+        "date": "2026-11-20",
+        "price": 466.77,
+        "marketCap": 80482388755
       },
       "amounts": {
         "currentAssets": 4224000000,
@@ -362489,7 +363059,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9460 × -0.327 = -0.3093",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080663Z"
+    }
   },
   "ICE": {
     "reported_growth": {
@@ -362592,7 +363168,7 @@ window.FULL_MARKET_DATA = {
     "sector": "金融",
     "industry": "Financial Exchanges & Data",
     "reportedCurrency": "USD",
-    "price": 178.51,
+    "price": 170.0,
     "shares": 558.858412,
     "shares_outstanding": 558858412,
     "shares_display": "558.86 M",
@@ -362605,7 +363181,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:50:31Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 99761.8,
+    "mcap": 95005.9,
     "liq_val_1": -39.66299786143328,
     "liq_val_2": -258.76643689135346,
     "liq_val_3": -261.45620583411744,
@@ -366010,10 +366586,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "ICE",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:50:31Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -366027,9 +366603,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 177.86,
-        "marketCap": 99398557158
+        "date": "2026-11-20",
+        "price": 170,
+        "marketCap": 95005930040
       },
       "amounts": {
         "currentAssets": 124887000000,
@@ -366267,7 +366843,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9788 × -0.327 = -0.3201",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080468Z"
+    }
   },
   "AIG": {
     "reported_growth": {
@@ -366370,7 +366952,7 @@ window.FULL_MARKET_DATA = {
     "sector": "金融",
     "industry": "Multi-line Insurance",
     "reportedCurrency": "USD",
-    "price": 82.86,
+    "price": 79.68,
     "shares": 530.206221,
     "shares_outstanding": 530206221,
     "shares_display": "530.21 M",
@@ -366383,7 +366965,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:50:39Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 43932.9,
+    "mcap": 42246.8,
     "liq_val_1": 26.606628593292193,
     "liq_val_2": -52.61801709414496,
     "liq_val_3": -71.09686478009091,
@@ -369865,10 +370447,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "AIG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:50:39Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-04",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -369882,9 +370464,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 82.57,
-        "marketCap": 43779127668
+        "date": "2026-11-20",
+        "price": 79.68,
+        "marketCap": 42246831689
       },
       "amounts": {
         "currentAssets": 137059000000,
@@ -369910,7 +370492,13 @@ window.FULL_MARKET_DATA = {
     "z_score_breakdown": [],
     "m_score": null,
     "m_score_zone": null,
-    "m_score_breakdown": []
+    "m_score_breakdown": [],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.667880Z"
+    }
   },
   "MET": {
     "reported_growth": {
@@ -370013,7 +370601,7 @@ window.FULL_MARKET_DATA = {
     "sector": "金融",
     "industry": "Life & Health Insurance",
     "reportedCurrency": "USD",
-    "price": 102.65,
+    "price": 95.67,
     "shares": 628.442143,
     "shares_outstanding": 628442143,
     "shares_display": "628.44 M",
@@ -370026,7 +370614,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:50:47Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 64509.6,
+    "mcap": 60123.1,
     "liq_val_1": -460.5690487564899,
     "liq_val_2": -513.9251140259701,
     "liq_val_3": -584.6409316951234,
@@ -373456,10 +374044,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "MET",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:50:47Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-06",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -373473,9 +374061,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 101.87,
-        "marketCap": 64019401107
+        "date": "2026-11-20",
+        "price": 95.67,
+        "marketCap": 60123059821
       },
       "amounts": {
         "currentAssets": 432453000000,
@@ -373501,7 +374089,13 @@ window.FULL_MARKET_DATA = {
     "z_score_breakdown": [],
     "m_score": null,
     "m_score_zone": null,
-    "m_score_breakdown": []
+    "m_score_breakdown": [],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080685Z"
+    }
   },
   "PRU": {
     "reported_growth": {
@@ -373604,7 +374198,7 @@ window.FULL_MARKET_DATA = {
     "sector": "金融",
     "industry": "Life & Health Insurance",
     "reportedCurrency": "USD",
-    "price": 123.55,
+    "price": 117.73,
     "shares": 343.000002,
     "shares_outstanding": 343000002,
     "shares_display": "343.00 M",
@@ -373617,7 +374211,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:50:55Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 42377.7,
+    "mcap": 40381.4,
     "liq_val_1": -826.9387706884037,
     "liq_val_2": -1026.4524721489652,
     "liq_val_3": -1035.294454604697,
@@ -377038,10 +377632,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "PRU",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:50:55Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-04",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -377055,9 +377649,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 122.41,
-        "marketCap": 41986630979
+        "date": "2026-11-20",
+        "price": 117.73,
+        "marketCap": 40381390000
       },
       "amounts": {
         "currentAssets": 455274000000,
@@ -377083,7 +377677,13 @@ window.FULL_MARKET_DATA = {
     "z_score_breakdown": [],
     "m_score": null,
     "m_score_zone": null,
-    "m_score_breakdown": []
+    "m_score_breakdown": [],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280401Z"
+    }
   },
   "TRV": {
     "reported_growth": {
@@ -377186,7 +377786,7 @@ window.FULL_MARKET_DATA = {
     "sector": "金融",
     "industry": "Property & Casualty Insurance",
     "reportedCurrency": "USD",
-    "price": 403.23,
+    "price": 393.24,
     "shares": 204.946,
     "shares_outstanding": 204946000,
     "shares_display": "204.95 M",
@@ -377199,7 +377799,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:51:03Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 82640.4,
+    "mcap": 80593.0,
     "liq_val_1": 61.56255794209206,
     "liq_val_2": -31.00036107072107,
     "liq_val_3": -81.75324231748851,
@@ -380639,10 +381239,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "TRV",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:51:03Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-16",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -380656,9 +381256,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 403.18,
-        "marketCap": 82630128280
+        "date": "2026-11-20",
+        "price": 393.24,
+        "marketCap": 80592965040
       },
       "amounts": {
         "currentAssets": 125711000000,
@@ -380684,7 +381284,13 @@ window.FULL_MARKET_DATA = {
     "z_score_breakdown": [],
     "m_score": null,
     "m_score_zone": null,
-    "m_score_breakdown": []
+    "m_score_breakdown": [],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280617Z"
+    }
   },
   "AFL": {
     "reported_growth": {
@@ -380787,7 +381393,7 @@ window.FULL_MARKET_DATA = {
     "sector": "金融",
     "industry": "Life & Health Insurance",
     "reportedCurrency": "USD",
-    "price": 127.61,
+    "price": 124.32,
     "shares": 494.60706,
     "shares_outstanding": 494607060,
     "shares_display": "494.61 M",
@@ -380800,7 +381406,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:51:12Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 63116.8,
+    "mcap": 61489.5,
     "liq_val_1": 20.258505812674812,
     "liq_val_2": 1.0638748262105275,
     "liq_val_3": -1.4253739119696351,
@@ -384282,10 +384888,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "AFL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:51:12Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-05",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -384299,9 +384905,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 126.51,
-        "marketCap": 62572739667
+        "date": "2026-11-20",
+        "price": 124.32,
+        "marketCap": 61489549699
       },
       "amounts": {
         "currentAssets": 94248000000,
@@ -384327,7 +384933,13 @@ window.FULL_MARKET_DATA = {
     "z_score_breakdown": [],
     "m_score": null,
     "m_score_zone": null,
-    "m_score_breakdown": []
+    "m_score_breakdown": [],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.667874Z"
+    }
   },
   "ALL": {
     "reported_growth": {
@@ -384430,7 +385042,7 @@ window.FULL_MARKET_DATA = {
     "sector": "金融",
     "industry": "Property & Casualty Insurance",
     "reportedCurrency": "USD",
-    "price": 267.64,
+    "price": 267.0,
     "shares": 247.45,
     "shares_outstanding": 247450000,
     "shares_display": "247.45 M",
@@ -384443,7 +385055,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:51:20Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 66227.5,
+    "mcap": 66069.1,
     "liq_val_1": 48.38957365124268,
     "liq_val_2": -33.67387350979996,
     "liq_val_3": -76.01939785815316,
@@ -387871,10 +388483,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "ALL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:51:20Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-04",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -387888,9 +388500,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 266.69,
-        "marketCap": 65992440500
+        "date": "2026-11-20",
+        "price": 267,
+        "marketCap": 66069150000
       },
       "amounts": {
         "currentAssets": 107531000000,
@@ -387916,7 +388528,13 @@ window.FULL_MARKET_DATA = {
     "z_score_breakdown": [],
     "m_score": null,
     "m_score_zone": null,
-    "m_score_breakdown": []
+    "m_score_breakdown": [],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.667908Z"
+    }
   },
   "AON": {
     "reported_growth": {
@@ -388019,7 +388637,7 @@ window.FULL_MARKET_DATA = {
     "sector": "金融",
     "industry": "Insurance Brokers",
     "reportedCurrency": "USD",
-    "price": 338.31,
+    "price": 333.07,
     "shares": 212.157,
     "shares_outstanding": 212157000,
     "shares_display": "212.16 M",
@@ -388032,7 +388650,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:51:29Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 71774.8,
+    "mcap": 70663.1,
     "liq_val_1": -70.86732938342831,
     "liq_val_2": -168.6694287720886,
     "liq_val_3": -186.68250399468317,
@@ -391450,10 +392068,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "AON",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:51:29Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -391467,9 +392085,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 333.42,
-        "marketCap": 70737386940
+        "date": "2026-11-20",
+        "price": 333.07,
+        "marketCap": 70663131990
       },
       "amounts": {
         "currentAssets": 39887000000,
@@ -391707,7 +392325,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9462 × -0.327 = -0.3094",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.667954Z"
+    }
   },
   "AJG": {
     "reported_growth": {
@@ -391810,7 +392434,7 @@ window.FULL_MARKET_DATA = {
     "sector": "金融",
     "industry": "Insurance Brokers",
     "reportedCurrency": "USD",
-    "price": 282.94,
+    "price": 279.26,
     "shares": 256.415,
     "shares_outstanding": 256415000,
     "shares_display": "256.42 M",
@@ -391823,7 +392447,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:51:40Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 72550.1,
+    "mcap": 71606.5,
     "liq_val_1": -49.419885732113954,
     "liq_val_2": -191.09022483084064,
     "liq_val_3": -209.73811984478286,
@@ -395238,10 +395862,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "AJG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:51:40Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-05",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -395255,9 +395879,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 277.28,
-        "marketCap": 71098751200
+        "date": "2026-11-20",
+        "price": 279.26,
+        "marketCap": 71606452900
       },
       "amounts": {
         "currentAssets": 42321000000,
@@ -395495,7 +396119,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9774 × -0.327 = -0.3196",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.667887Z"
+    }
   },
   "MMC": {
     "reported_growth": {
@@ -399038,7 +399668,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MMC",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:51:56Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-15",
       "quoteDate": "2026-01-13",
@@ -399295,7 +399925,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9728 × -0.327 = -0.3181",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-01-13",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 313,
+      "capturedAt": "2026-11-22T02:53:08.080720Z"
+    }
   },
   "USB": {
     "reported_growth": {
@@ -399398,7 +400034,7 @@ window.FULL_MARKET_DATA = {
     "sector": "金融",
     "industry": "Diversified Banks",
     "reportedCurrency": "USD",
-    "price": 60.99,
+    "price": 56.05,
     "shares": 1558.208825,
     "shares_outstanding": 1558208825,
     "shares_display": "1,558.21 M",
@@ -399411,7 +400047,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:52:06Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 95035.2,
+    "mcap": 87337.6,
     "liq_val_1": -276.58552119931676,
     "liq_val_2": -278.14243703824485,
     "liq_val_3": -278.14243703824485,
@@ -402881,10 +403517,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "USB",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:52:06Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-05",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -402898,9 +403534,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 60.47,
-        "marketCap": 94224883354
+        "date": "2026-11-20",
+        "price": 56.05,
+        "marketCap": 87337604641
       },
       "amounts": {
         "currentAssets": 205100000000,
@@ -402926,7 +403562,13 @@ window.FULL_MARKET_DATA = {
     "z_score_breakdown": [],
     "m_score": null,
     "m_score_zone": null,
-    "m_score_breakdown": []
+    "m_score_breakdown": [],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.476774Z"
+    }
   },
   "LLY": {
     "reported_growth": {
@@ -403029,7 +403671,7 @@ window.FULL_MARKET_DATA = {
     "sector": "醫療保健",
     "industry": "Pharmaceuticals",
     "reportedCurrency": "USD",
-    "price": 1443.5,
+    "price": 1347.11,
     "shares": 940.745,
     "shares_outstanding": 940745000,
     "shares_display": "940.75 M",
@@ -403042,7 +403684,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:52:15Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 1357965.4,
+    "mcap": 1267287.0,
     "liq_val_1": -45.21735433087606,
     "liq_val_2": -80.94414533162546,
     "liq_val_3": -109.3984023300682,
@@ -406465,10 +407107,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "LLY",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:52:15Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -406482,9 +407124,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 1430.74,
-        "marketCap": 1345961501300
+        "date": "2026-11-20",
+        "price": 1347.11,
+        "marketCap": 1267286996950
       },
       "amounts": {
         "currentAssets": 65263000000,
@@ -406722,7 +407364,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9359 × -0.327 = -0.3060",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080594Z"
+    }
   },
   "UNH": {
     "reported_growth": {
@@ -406825,7 +407473,7 @@ window.FULL_MARKET_DATA = {
     "sector": "醫療保健",
     "industry": "Managed Healthcare",
     "reportedCurrency": "USD",
-    "price": 407.46,
+    "price": 339.85,
     "shares": 896.023,
     "shares_outstanding": 896023000,
     "shares_display": "896.02 M",
@@ -406838,7 +407486,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:52:23Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 365093.5,
+    "mcap": 304513.4,
     "liq_val_1": -135.75767586323119,
     "liq_val_2": -181.081958833646,
     "liq_val_3": -199.42345229977354,
@@ -410265,10 +410913,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "UNH",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:52:23Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-03",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -410282,9 +410930,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 405.13,
-        "marketCap": 363005797990
+        "date": "2026-11-20",
+        "price": 339.85,
+        "marketCap": 304513416550
       },
       "amounts": {
         "currentAssets": 85595000000,
@@ -410522,7 +411170,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0241 × -0.327 = -0.3349",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.476751Z"
+    }
   },
   "JNJ": {
     "reported_growth": {
@@ -410625,7 +411279,7 @@ window.FULL_MARKET_DATA = {
     "sector": "醫療保健",
     "industry": "Pharmaceuticals",
     "reportedCurrency": "USD",
-    "price": 285.75,
+    "price": 270.47,
     "shares": 2407.310266,
     "shares_outstanding": 2407310266,
     "shares_display": "2,407.31 M",
@@ -410638,7 +411292,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:52:31Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 687888.9,
+    "mcap": 651105.2,
     "liq_val_1": -24.73507500923024,
     "liq_val_2": -31.483228842758567,
     "liq_val_3": -40.986823091959515,
@@ -414079,10 +414733,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "JNJ",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:52:31Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-27",
       "filingDate": "2026-10-21",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -414096,9 +414750,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 283.52,
-        "marketCap": 682520606616
+        "date": "2026-11-20",
+        "price": 270.47,
+        "marketCap": 651105207645
       },
       "amounts": {
         "currentAssets": 56351000000,
@@ -414336,7 +414990,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0447 × -0.327 = -0.3416",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080530Z"
+    }
   },
   "ABBV": {
     "reported_growth": {
@@ -414441,7 +415101,7 @@ window.FULL_MARKET_DATA = {
     "sector": "醫療保健",
     "industry": "Biotechnology",
     "reportedCurrency": "USD",
-    "price": 295.03,
+    "price": 286.2,
     "shares": 1767.616306,
     "shares_outstanding": 1767616306,
     "shares_display": "1,767.62 M",
@@ -414454,7 +415114,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:52:40Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 521499.8,
+    "mcap": 505891.8,
     "liq_val_1": -64.91114593734687,
     "liq_val_2": -72.40502340104572,
     "liq_val_3": -80.01962842268553,
@@ -417852,10 +418512,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "ABBV",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:52:40Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-03",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -417869,9 +418529,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 294.49,
-        "marketCap": 520545325954
+        "date": "2026-11-20",
+        "price": 286.2,
+        "marketCap": 505891786777
       },
       "amounts": {
         "currentAssets": 37480000000,
@@ -418109,7 +418769,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0477 × -0.327 = -0.3426",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.667813Z"
+    }
   },
   "MRK": {
     "reported_growth": {
@@ -418212,7 +418878,7 @@ window.FULL_MARKET_DATA = {
     "sector": "醫療保健",
     "industry": "Pharmaceuticals",
     "reportedCurrency": "USD",
-    "price": 147.76,
+    "price": 133.72,
     "shares": 2465.25,
     "shares_outstanding": 2465250000,
     "shares_display": "2,465.25 M",
@@ -418225,7 +418891,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:52:48Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 364265.3,
+    "mcap": 329653.2,
     "liq_val_1": -19.83003752154954,
     "liq_val_2": -26.325849305344285,
     "liq_val_3": -31.711591116519624,
@@ -421666,10 +422332,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "MRK",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:52:48Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-04",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -421683,9 +422349,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 146.95,
-        "marketCap": 362268487500
+        "date": "2026-11-20",
+        "price": 133.72,
+        "marketCap": 329653230000
       },
       "amounts": {
         "currentAssets": 38941000000,
@@ -421923,7 +422589,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0216 × -0.327 = -0.3341",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080740Z"
+    }
   },
   "TMO": {
     "reported_growth": {
@@ -422026,7 +422698,7 @@ window.FULL_MARKET_DATA = {
     "sector": "醫療保健",
     "industry": "Life Sciences Tools & Services",
     "reportedCurrency": "USD",
-    "price": 700.22,
+    "price": 669.54,
     "shares": 370.515868,
     "shares_outstanding": 370515868,
     "shares_display": "370.52 M",
@@ -422039,7 +422711,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:52:56Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 259442.6,
+    "mcap": 248075.2,
     "liq_val_1": -91.35911015827263,
     "liq_val_2": -115.73728334895497,
     "liq_val_3": -144.1341778107058,
@@ -425486,10 +426158,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "TMO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:52:56Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-26",
       "filingDate": "2026-10-30",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -425503,9 +426175,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 699.44,
-        "marketCap": 259153618714
+        "date": "2026-11-20",
+        "price": 669.54,
+        "marketCap": 248075194261
       },
       "amounts": {
         "currentAssets": 25615000000,
@@ -425743,7 +426415,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0619 × -0.327 = -0.3472",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280597Z"
+    }
   },
   "ABT": {
     "reported_growth": {
@@ -425846,7 +426524,7 @@ window.FULL_MARKET_DATA = {
     "sector": "醫療保健",
     "industry": "Health Care Equipment",
     "reportedCurrency": "USD",
-    "price": 108.52,
+    "price": 103.0,
     "shares": 1731.94,
     "shares_outstanding": 1731940000,
     "shares_display": "1,731.94 M",
@@ -425859,7 +426537,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:53:04Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 187950.1,
+    "mcap": 178389.8,
     "liq_val_1": -19.127683407046433,
     "liq_val_2": -23.9222490386503,
     "liq_val_3": -30.212363014885042,
@@ -429312,10 +429990,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "ABT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:53:04Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-04",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -429329,9 +430007,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 107.25,
-        "marketCap": 185750565000
+        "date": "2026-11-20",
+        "price": 103,
+        "marketCap": 178389820000
       },
       "amounts": {
         "currentAssets": 23496000000,
@@ -429569,7 +430247,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9579 × -0.327 = -0.3132",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.667825Z"
+    }
   },
   "DHR": {
     "reported_growth": {
@@ -429672,7 +430356,7 @@ window.FULL_MARKET_DATA = {
     "sector": "醫療保健",
     "industry": "Life Sciences Tools & Services",
     "reportedCurrency": "USD",
-    "price": 233.02,
+    "price": 220.36,
     "shares": 703.530815,
     "shares_outstanding": 703530815,
     "shares_display": "703.53 M",
@@ -429685,7 +430369,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:53:12Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 163936.8,
+    "mcap": 155030.1,
     "liq_val_1": -35.35452814529524,
     "liq_val_2": -41.377292052232285,
     "liq_val_3": -48.296391964010844,
@@ -433126,10 +433810,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "DHR",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:53:12Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-25",
       "filingDate": "2026-10-21",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -433143,9 +433827,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 232.17,
-        "marketCap": 163338746997
+        "date": "2026-11-20",
+        "price": 220.36,
+        "marketCap": 155030050393
       },
       "amounts": {
         "currentAssets": 14787000000,
@@ -433383,7 +434067,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0509 × -0.327 = -0.3437",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874172Z"
+    }
   },
   "ISRG": {
     "reported_growth": {
@@ -433486,7 +434176,7 @@ window.FULL_MARKET_DATA = {
     "sector": "醫療保健",
     "industry": "Health Care Equipment",
     "reportedCurrency": "USD",
-    "price": 443.59,
+    "price": 399.05,
     "shares": 346.644,
     "shares_outstanding": 346644000,
     "shares_display": "346.64 M",
@@ -433499,7 +434189,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:53:21Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 153767.8,
+    "mcap": 138328.3,
     "liq_val_1": 14.992326421342934,
     "liq_val_2": 9.382363462226376,
     "liq_val_3": 2.3401530100045003,
@@ -436914,10 +437604,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "ISRG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:53:21Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-21",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -436931,9 +437621,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 439.89,
-        "marketCap": 152485229160
+        "date": "2026-11-20",
+        "price": 399.05,
+        "marketCap": 138328288200
       },
       "amounts": {
         "currentAssets": 8428300000,
@@ -437171,7 +437861,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0531 × -0.327 = -0.3444",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080510Z"
+    }
   },
   "PFE": {
     "reported_growth": {
@@ -437274,7 +437970,7 @@ window.FULL_MARKET_DATA = {
     "sector": "醫療保健",
     "industry": "Pharmaceuticals",
     "reportedCurrency": "USD",
-    "price": 28.89,
+    "price": 27.4,
     "shares": 5699.85,
     "shares_outstanding": 5699850000,
     "shares_display": "5,699.85 M",
@@ -437287,7 +437983,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:53:29Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 164668.7,
+    "mcap": 156175.9,
     "liq_val_1": -12.322254094405993,
     "liq_val_2": -14.843618691719957,
     "liq_val_3": -17.714676702018473,
@@ -440722,10 +441418,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "PFE",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:53:29Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-27",
       "filingDate": "2026-11-03",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -440739,9 +441435,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 28.83,
-        "marketCap": 164326675500
+        "date": "2026-11-20",
+        "price": 27.4,
+        "marketCap": 156175890000
       },
       "amounts": {
         "currentAssets": 45008000000,
@@ -440979,7 +441675,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0070 × -0.327 = -0.3293",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280366Z"
+    }
   },
   "AMGN": {
     "reported_growth": {
@@ -441082,7 +441784,7 @@ window.FULL_MARKET_DATA = {
     "sector": "醫療保健",
     "industry": "Biotechnology",
     "reportedCurrency": "USD",
-    "price": 465.67,
+    "price": 435.64,
     "shares": 540.91149,
     "shares_outstanding": 540911490,
     "shares_display": "540.91 M",
@@ -441095,7 +441797,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:53:44Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 251886.3,
+    "mcap": 235642.7,
     "liq_val_1": -87.5059984397817,
     "liq_val_2": -105.43148196020017,
     "liq_val_3": -126.64918617276923,
@@ -444524,10 +445226,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "AMGN",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:53:44Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-04",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -444541,9 +445243,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 467.06,
-        "marketCap": 252638120519
+        "date": "2026-11-20",
+        "price": 435.64,
+        "marketCap": 235642681504
       },
       "amounts": {
         "currentAssets": 34363000000,
@@ -444781,7 +445483,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9610 × -0.327 = -0.3142",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.667928Z"
+    }
   },
   "BMY": {
     "reported_growth": {
@@ -444884,7 +445592,7 @@ window.FULL_MARKET_DATA = {
     "sector": "醫療保健",
     "industry": "Pharmaceuticals",
     "reportedCurrency": "USD",
-    "price": 63.43,
+    "price": 58.8,
     "shares": 2044.085831,
     "shares_outstanding": 2044085831,
     "shares_display": "2,044.09 M",
@@ -444897,7 +445605,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:53:52Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 129656.4,
+    "mcap": 120192.2,
     "liq_val_1": -17.416587630561196,
     "liq_val_2": -20.99902036843579,
     "liq_val_3": -25.824258061695843,
@@ -448332,10 +449040,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "BMY",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:53:52Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -448349,9 +449057,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 62.32,
-        "marketCap": 127387428988
+        "date": "2026-11-20",
+        "price": 58.8,
+        "marketCap": 120192246863
       },
       "amounts": {
         "currentAssets": 29767000000,
@@ -448589,7 +449297,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9549 × -0.327 = -0.3122",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.668069Z"
+    }
   },
   "MDT": {
     "reported_growth": {
@@ -448692,7 +449406,7 @@ window.FULL_MARKET_DATA = {
     "sector": "醫療保健",
     "industry": "Health Care Equipment",
     "reportedCurrency": "USD",
-    "price": 102.86,
+    "price": 99.94,
     "shares": 1279.17,
     "shares_outstanding": 1279170000,
     "shares_display": "1,279.17 M",
@@ -448705,7 +449419,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:54:00Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 131575.4,
+    "mcap": 127840.2,
     "liq_val_1": -14.123220525809705,
     "liq_val_2": -26.249677525270293,
     "liq_val_3": -26.295957534964078,
@@ -452146,10 +452860,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "MDT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:54:00Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-07-31",
       "filingDate": "2026-09-03",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -452163,9 +452877,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 100.99,
-        "marketCap": 129183378300
+        "date": "2026-11-20",
+        "price": 99.94,
+        "marketCap": 127840249800
       },
       "amounts": {
         "currentAssets": 24390000000,
@@ -452403,7 +453117,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9678 × -0.327 = -0.3165",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080678Z"
+    }
   },
   "GILD": {
     "reported_growth": {
@@ -452510,7 +453230,7 @@ window.FULL_MARKET_DATA = {
     "sector": "醫療保健",
     "industry": "Biotechnology",
     "reportedCurrency": "USD",
-    "price": 168.08,
+    "price": 166.43,
     "shares": 1240.338614,
     "shares_outstanding": 1240338614,
     "shares_display": "1,240.34 M",
@@ -452523,7 +453243,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:54:09Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 208476.1,
+    "mcap": 206429.6,
     "liq_val_1": -17.6548563052315,
     "liq_val_2": -21.81775177725782,
     "liq_val_3": -25.811499890948326,
@@ -455952,10 +456672,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "GILD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:54:09Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -455969,9 +456689,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 167.95,
-        "marketCap": 208314870221
+        "date": "2026-11-20",
+        "price": 166.43,
+        "marketCap": 206429555528
       },
       "amounts": {
         "currentAssets": 16554000000,
@@ -456209,7 +456929,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9194 × -0.327 = -0.3006",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874328Z"
+    }
   },
   "ILMN": {
     "reported_growth": {
@@ -456312,7 +457038,7 @@ window.FULL_MARKET_DATA = {
     "sector": "醫療保健",
     "industry": "Life Sciences Tools & Services",
     "reportedCurrency": "USD",
-    "price": 207.01,
+    "price": 192.82,
     "shares": 151.2,
     "shares_outstanding": 151200000,
     "shares_display": "151.20 M",
@@ -456325,7 +457051,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:54:17Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 31299.9,
+    "mcap": 29154.4,
     "liq_val_1": -4.1798941798941796,
     "liq_val_2": -9.299603174603174,
     "liq_val_3": -15.41005291005291,
@@ -459730,10 +460456,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "ILMN",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:54:17Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-27",
       "filingDate": "2026-10-30",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -459747,9 +460473,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 209.55,
-        "marketCap": 31683960000
+        "date": "2026-11-20",
+        "price": 192.82,
+        "marketCap": 29154384000
       },
       "amounts": {
         "currentAssets": 3035000000,
@@ -459987,7 +460713,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9605 × -0.327 = -0.3141",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080485Z"
+    }
   },
   "ZTS": {
     "reported_growth": {
@@ -460090,7 +460822,7 @@ window.FULL_MARKET_DATA = {
     "sector": "醫療保健",
     "industry": "Pharmaceuticals",
     "reportedCurrency": "USD",
-    "price": 83.82,
+    "price": 79.11,
     "shares": 406.31616,
     "shares_outstanding": 406316160,
     "shares_display": "406.32 M",
@@ -460103,7 +460835,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:54:25Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 34057.4,
+    "mcap": 32143.7,
     "liq_val_1": -13.51656798489137,
     "liq_val_2": -18.779464739969978,
     "liq_val_3": -25.231583208504432,
@@ -463496,10 +464228,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "ZTS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:54:25Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-05",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -463513,9 +464245,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 82.965,
-        "marketCap": 33710020214
+        "date": "2026-11-20",
+        "price": 79.11,
+        "marketCap": 32143670389
       },
       "amounts": {
         "currentAssets": 6293000000,
@@ -463753,7 +464485,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.2234 × -0.327 = -0.4001",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.476921Z"
+    }
   },
   "ALGN": {
     "reported_growth": {
@@ -463856,7 +464594,7 @@ window.FULL_MARKET_DATA = {
     "sector": "醫療保健",
     "industry": "Health Care Supplies",
     "reportedCurrency": "USD",
-    "price": 168.32,
+    "price": 155.17,
     "shares": 70.487053,
     "shares_outstanding": 70487053,
     "shares_display": "70.49 M",
@@ -463869,7 +464607,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:54:33Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 11864.4,
+    "mcap": 10937.5,
     "liq_val_1": 7.2501683394253975,
     "liq_val_2": -0.37866244741427907,
     "liq_val_3": -15.18152560584424,
@@ -467261,10 +467999,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "ALGN",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:54:33Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-04",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -467278,9 +468016,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 166.97,
-        "marketCap": 11769223239
+        "date": "2026-11-20",
+        "price": 155.17,
+        "marketCap": 10937476014
       },
       "amounts": {
         "currentAssets": 2726075000,
@@ -467518,7 +468256,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9392 × -0.327 = -0.3071",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.667895Z"
+    }
   },
   "FMS": {
     "reported_growth": {
@@ -467585,7 +468329,7 @@ window.FULL_MARKET_DATA = {
     "sector": "醫療保健",
     "industry": "Health Care Services",
     "reportedCurrency": "EUR",
-    "price": 22.03,
+    "price": 20.44,
     "shares": 541.072748,
     "shares_outstanding": 541072748,
     "shares_display": "541.07 M",
@@ -467598,7 +468342,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:54:41Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 11919.8,
+    "mcap": 10954.4,
     "liq_val_1": -20.656955880357884,
     "liq_val_2": -26.64342933614169,
     "liq_val_3": -34.79074077761536,
@@ -471085,10 +471829,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "FMS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:54:41Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-03",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "EUR",
       "fx": {
         "rate": 1.1345,
@@ -471103,9 +471847,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 21.6,
-        "marketCap": 11474204688
+        "date": "2026-11-20",
+        "price": 20.44,
+        "marketCap": 10954379828
       },
       "amounts": {
         "currentAssets": 8894350667,
@@ -471343,7 +472087,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0842 × -0.327 = -0.3545",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874293Z"
+    }
   },
   "BDX": {
     "reported_growth": {
@@ -471446,7 +472196,7 @@ window.FULL_MARKET_DATA = {
     "sector": "醫療保健",
     "industry": "Health Care Equipment",
     "reportedCurrency": "USD",
-    "price": 218.03,
+    "price": 212.78,
     "shares": 272.387,
     "shares_outstanding": 272387000,
     "shares_display": "272.39 M",
@@ -471459,8 +472209,8 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:54:49Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 59388.5,
-    "liq_val_1": -65.32250070671508,
+    "mcap": 57958.5,
+    "liq_val_1": -65.3188294595557,
     "liq_val_2": -79.165672370561,
     "liq_val_3": -93.16156791623682,
     "debt": 16345.0,
@@ -474894,10 +475644,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "BDX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:54:49Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-05",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -474911,12 +475661,12 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 215.71,
-        "marketCap": 58756599770
+        "date": "2026-11-20",
+        "price": 212.78,
+        "marketCap": 57958505860
       },
       "amounts": {
-        "currentAssets": 8316000000,
+        "currentAssets": 8317000000,
         "totalLiabilities": 26109000000,
         "cashAndShortTermInvestments": 733000000,
         "tradeReceivables": 2771000000,
@@ -475151,7 +475901,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9646 × -0.327 = -0.3154",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.668042Z"
+    }
   },
   "ZBH": {
     "reported_growth": {
@@ -475254,7 +476010,7 @@ window.FULL_MARKET_DATA = {
     "sector": "醫療保健",
     "industry": "Health Care Equipment",
     "reportedCurrency": "USD",
-    "price": 103.21,
+    "price": 101.1,
     "shares": 189.254,
     "shares_outstanding": 189254000,
     "shares_display": "189.25 M",
@@ -475267,7 +476023,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:54:58Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 19532.9,
+    "mcap": 19133.6,
     "liq_val_1": -30.03423969902882,
     "liq_val_2": -41.09186595791899,
     "liq_val_3": -55.02235091464381,
@@ -478672,10 +479428,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "ZBH",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:54:58Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-04",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -478689,9 +479445,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 104.56,
-        "marketCap": 19788398240
+        "date": "2026-11-20",
+        "price": 101.1,
+        "marketCap": 19133579400
       },
       "amounts": {
         "currentAssets": 5129000000,
@@ -478929,7 +479685,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.1298 × -0.327 = -0.3695",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.476914Z"
+    }
   },
   "DXCM": {
     "reported_growth": {
@@ -479032,7 +479794,7 @@ window.FULL_MARKET_DATA = {
     "sector": "醫療保健",
     "industry": "Health Care Equipment",
     "reportedCurrency": "USD",
-    "price": 83.33,
+    "price": 79.32,
     "shares": 372.951,
     "shares_outstanding": 372951000,
     "shares_display": "372.95 M",
@@ -479045,7 +479807,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:55:06Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 31078.0,
+    "mcap": 29582.5,
     "liq_val_1": 0.5700480760207105,
     "liq_val_2": -1.477915329359621,
     "liq_val_3": -5.05562392914887,
@@ -482450,10 +483212,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "DXCM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:55:06Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -482467,9 +483229,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 81.39,
-        "marketCap": 30354481890
+        "date": "2026-11-20",
+        "price": 79.32,
+        "marketCap": 29582473320
       },
       "amounts": {
         "currentAssets": 3916000000,
@@ -482707,7 +483469,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.8301 × -0.327 = -0.2714",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874200Z"
+    }
   },
   "RMD": {
     "reported_growth": {
@@ -482810,7 +483578,7 @@ window.FULL_MARKET_DATA = {
     "sector": "醫療保健",
     "industry": "Health Care Equipment",
     "reportedCurrency": "USD",
-    "price": 239.53,
+    "price": 235.63,
     "shares": 140.657,
     "shares_outstanding": 140657000,
     "shares_display": "140.66 M",
@@ -482823,7 +483591,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:55:14Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 33691.6,
+    "mcap": 33143.0,
     "liq_val_1": 8.849897267821722,
     "liq_val_2": 0.25095373852705516,
     "liq_val_3": -8.910889610897431,
@@ -486246,10 +487014,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "RMD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:55:14Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -486263,9 +487031,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 238.89,
-        "marketCap": 33601550730
+        "date": "2026-11-20",
+        "price": 235.63,
+        "marketCap": 33143008910
       },
       "amounts": {
         "currentAssets": 3508921000,
@@ -486503,7 +487271,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9753 × -0.327 = -0.3189",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280429Z"
+    }
   },
   "COR": {
     "reported_growth": {
@@ -486606,7 +487380,7 @@ window.FULL_MARKET_DATA = {
     "sector": "醫療保健",
     "industry": "Health Care Distributors",
     "reportedCurrency": "USD",
-    "price": 359.03,
+    "price": 339.09,
     "shares": 190.827165,
     "shares_outstanding": 190827165,
     "shares_display": "190.83 M",
@@ -486619,7 +487393,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:55:22Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 68512.7,
+    "mcap": 64707.6,
     "liq_val_1": -130.86280456977914,
     "liq_val_2": -245.21778961606435,
     "liq_val_3": -411.5944498782445,
@@ -490034,10 +490808,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "COR",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:55:22Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-04",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -490051,9 +490825,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 349.38,
-        "marketCap": 66671194908
+        "date": "2026-11-20",
+        "price": 339.09,
+        "marketCap": 64707583380
       },
       "amounts": {
         "currentAssets": 58451559000,
@@ -490291,7 +491065,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9880 × -0.327 = -0.3231",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874074Z"
+    }
   },
   "STE": {
     "reported_growth": {
@@ -490394,7 +491174,7 @@ window.FULL_MARKET_DATA = {
     "sector": "醫療保健",
     "industry": "Health Care Equipment",
     "reportedCurrency": "USD",
-    "price": 264.32,
+    "price": 255.76,
     "shares": 97.107022,
     "shares_outstanding": 97107022,
     "shares_display": "97.11 M",
@@ -490407,7 +491187,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:55:30Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 25667.3,
+    "mcap": 24836.1,
     "liq_val_1": -9.913804173708467,
     "liq_val_2": -17.899220511571244,
     "liq_val_3": -29.97517522471238,
@@ -493813,10 +494593,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "STE",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:55:30Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-05",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -493830,9 +494610,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 253.44,
-        "marketCap": 24610803909
+        "date": "2026-11-20",
+        "price": 255.76,
+        "marketCap": 24836091435
       },
       "amounts": {
         "currentAssets": 2479200000,
@@ -494070,7 +494850,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9505 × -0.327 = -0.3108",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280542Z"
+    }
   },
   "MCK": {
     "reported_growth": {
@@ -494175,7 +494961,7 @@ window.FULL_MARKET_DATA = {
     "sector": "醫療保健",
     "industry": "Health Care Distributors",
     "reportedCurrency": "USD",
-    "price": 1102.81,
+    "price": 1069.43,
     "shares": 115.457,
     "shares_outstanding": 115457000,
     "shares_display": "115.46 M",
@@ -494188,7 +494974,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:55:38Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 127327.1,
+    "mcap": 123473.2,
     "liq_val_1": -253.05525000649592,
     "liq_val_2": -438.4376867578406,
     "liq_val_3": -774.0890547996223,
@@ -497589,10 +498375,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "MCK",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:55:38Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-04",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -497606,9 +498392,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 1077.05,
-        "marketCap": 124352961850
+        "date": "2026-11-20",
+        "price": 1069.43,
+        "marketCap": 123473179510
       },
       "amounts": {
         "currentAssets": 66685000000,
@@ -497846,7 +498632,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9964 × -0.327 = -0.3258",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080656Z"
+    }
   },
   "SYK": {
     "reported_growth": {
@@ -497949,7 +498741,7 @@ window.FULL_MARKET_DATA = {
     "sector": "醫療保健",
     "industry": "Health Care Equipment",
     "reportedCurrency": "USD",
-    "price": 309.64,
+    "price": 310.0,
     "shares": 380.691004,
     "shares_outstanding": 380691004,
     "shares_display": "380.69 M",
@@ -497962,7 +498754,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:55:46Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 117877.2,
+    "mcap": 118014.2,
     "liq_val_1": -25.235689572533214,
     "liq_val_2": -38.5906150805707,
     "liq_val_3": -53.89935612978131,
@@ -501415,10 +502207,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "SYK",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:55:46Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -501432,9 +502224,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 312.39,
-        "marketCap": 118924062740
+        "date": "2026-11-20",
+        "price": 310,
+        "marketCap": 118014211240
       },
       "amounts": {
         "currentAssets": 14183000000,
@@ -501672,7 +502464,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0274 × -0.327 = -0.3359",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280550Z"
+    }
   },
   "VEEV": {
     "reported_growth": {
@@ -501775,7 +502573,7 @@ window.FULL_MARKET_DATA = {
     "sector": "醫療保健",
     "industry": "Health Care Technology",
     "reportedCurrency": "USD",
-    "price": 301.53,
+    "price": 266.22,
     "shares": 161.909,
     "shares_outstanding": 161909000,
     "shares_display": "161.91 M",
@@ -501788,7 +502586,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:55:54Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 48820.4,
+    "mcap": 43103.4,
     "liq_val_1": 39.018541279360626,
     "liq_val_2": 37.12897121222415,
     "liq_val_3": 34.67486674613517,
@@ -505181,10 +505979,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "VEEV",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:55:54Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-07-31",
       "filingDate": "2026-08-27",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -505198,9 +505996,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 302.42,
-        "marketCap": 48964519780
+        "date": "2026-11-20",
+        "price": 266.22,
+        "marketCap": 43103413980
       },
       "amounts": {
         "currentAssets": 7946227000,
@@ -505438,7 +506236,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9569 × -0.327 = -0.3129",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.476789Z"
+    }
   },
   "LH": {
     "reported_growth": {
@@ -505541,7 +506345,7 @@ window.FULL_MARKET_DATA = {
     "sector": "醫療保健",
     "industry": "Health Care Services",
     "reportedCurrency": "USD",
-    "price": 370.48,
+    "price": 367.13,
     "shares": 81.2,
     "shares_outstanding": 81200000,
     "shares_display": "81.20 M",
@@ -505554,7 +506358,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:56:04Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 30083.0,
+    "mcap": 29811.0,
     "liq_val_1": -75.05541871921183,
     "liq_val_2": -93.58842364532019,
     "liq_val_3": -120.67610837438424,
@@ -508977,10 +509781,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "LH",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:56:04Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -508994,9 +509798,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 372.32,
-        "marketCap": 30232384000
+        "date": "2026-11-20",
+        "price": 367.13,
+        "marketCap": 29810956000
       },
       "amounts": {
         "currentAssets": 3966200000,
@@ -509234,7 +510038,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9911 × -0.327 = -0.3241",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080580Z"
+    }
   },
   "REGN": {
     "reported_growth": {
@@ -509337,7 +510147,7 @@ window.FULL_MARKET_DATA = {
     "sector": "醫療保健",
     "industry": "Biotechnology",
     "reportedCurrency": "USD",
-    "price": 955.47,
+    "price": 920.69,
     "shares": 103.430711,
     "shares_outstanding": 103430711,
     "shares_display": "103.43 M",
@@ -509350,7 +510160,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:56:12Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 98824.9,
+    "mcap": 95227.6,
     "liq_val_1": 95.60409963729245,
     "liq_val_2": 30.429066662801922,
     "liq_val_3": -15.523435781080535,
@@ -512748,10 +513558,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "REGN",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:56:12Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -512765,9 +513575,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 951.19,
-        "marketCap": 98382260850
+        "date": "2026-11-20",
+        "price": 920.69,
+        "marketCap": 95227624073
       },
       "amounts": {
         "currentAssets": 20795100000,
@@ -513005,7 +513815,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9978 × -0.327 = -0.3263",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280421Z"
+    }
   },
   "VRTX": {
     "reported_growth": {
@@ -513108,7 +513924,7 @@ window.FULL_MARKET_DATA = {
     "sector": "醫療保健",
     "industry": "Biotechnology",
     "reportedCurrency": "USD",
-    "price": 538.6,
+    "price": 515.02,
     "shares": 253.537674,
     "shares_outstanding": 253537674,
     "shares_display": "253.54 M",
@@ -513121,7 +513937,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:56:20Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 136555.4,
+    "mcap": 130577.0,
     "liq_val_1": -0.5624410674367866,
     "liq_val_2": -10.074045248202443,
     "liq_val_3": -21.793999735124178,
@@ -516526,10 +517342,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "VRTX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:56:20Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-03",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -516543,9 +517359,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 542.62,
-        "marketCap": 137574612666
+        "date": "2026-11-20",
+        "price": 515.02,
+        "marketCap": 130576972863
       },
       "amounts": {
         "currentAssets": 11686300000,
@@ -516783,7 +517599,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9518 × -0.327 = -0.3113",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.476828Z"
+    }
   },
   "WMT": {
     "reported_growth": {
@@ -516886,7 +517708,7 @@ window.FULL_MARKET_DATA = {
     "sector": "必需消費",
     "industry": "Consumer Staples Merchandise Retail",
     "reportedCurrency": "USD",
-    "price": 128.09,
+    "price": 127.95,
     "shares": 7958.079155,
     "shares_outstanding": 7958079155,
     "shares_display": "7,958.08 M",
@@ -516899,10 +517721,10 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:56:28Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 1019350.4,
-    "liq_val_1": -12.654435579059028,
-    "liq_val_2": -17.36838718337679,
-    "liq_val_3": -22.352001850627484,
+    "mcap": 1018236.2,
+    "liq_val_1": -13.031410969925192,
+    "liq_val_2": -18.369357372897355,
+    "liq_val_3": -24.090612353302234,
     "debt": 73755.0,
     "cash": 11529.0,
     "short_term_investments": 0.0,
@@ -520358,33 +521180,33 @@ window.FULL_MARKET_DATA = {
       "ticker": "WMT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:56:28Z",
-      "balanceDate": "2026-07-31",
-      "filingDate": "2026-08-28",
-      "quoteDate": "2026-11-12",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
+      "balanceDate": "2026-10-31",
+      "filingDate": "2026-11-19",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
         "basis": "closing",
         "start": null,
-        "end": "2026-07-31",
-        "observationDate": "2026-07-31",
+        "end": "2026-10-31",
+        "observationDate": "2026-10-31",
         "reason": null
       },
       "receivablesBasis": "trade",
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 126.19,
-        "marketCap": 1004230008569
+        "date": "2026-11-20",
+        "price": 127.95,
+        "marketCap": 1018236227882
       },
       "amounts": {
-        "currentAssets": 88703000000,
-        "totalLiabilities": 189408000000,
-        "cashAndShortTermInvestments": 11529000000,
-        "tradeReceivables": 11075000000,
-        "inventory": 61600000000,
+        "currentAssets": 101442000000,
+        "totalLiabilities": 205147000000,
+        "cashAndShortTermInvestments": 13432000000,
+        "tradeReceivables": 12769000000,
+        "inventory": 70630000000,
         "preferredStock": 0
       },
       "sharesOutstanding": 7958079155,
@@ -520615,7 +521437,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0016 × -0.327 = -0.3275",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.476879Z"
+    }
   },
   "COST": {
     "reported_growth": {
@@ -520718,7 +521546,7 @@ window.FULL_MARKET_DATA = {
     "sector": "必需消費",
     "industry": "Consumer Staples Merchandise Retail",
     "reportedCurrency": "USD",
-    "price": 1106.21,
+    "price": 1102.15,
     "shares": 443.129349,
     "shares_outstanding": 443129349,
     "shares_display": "443.13 M",
@@ -520731,7 +521559,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:56:36Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 490194.1,
+    "mcap": 488395.0,
     "liq_val_1": -15.02947167690308,
     "liq_val_2": -43.129167686882326,
     "liq_val_3": -72.08053375855275,
@@ -524166,10 +524994,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "COST",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:56:36Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-08-30",
       "filingDate": "2026-10-07",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -524183,9 +525011,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 1092.21,
-        "marketCap": 483990306271
+        "date": "2026-11-20",
+        "price": 1102.15,
+        "marketCap": 488395012000
       },
       "amounts": {
         "currentAssets": 46582000000,
@@ -524423,7 +525251,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9679 × -0.327 = -0.3165",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874082Z"
+    }
   },
   "PG": {
     "reported_growth": {
@@ -524526,7 +525360,7 @@ window.FULL_MARKET_DATA = {
     "sector": "必需消費",
     "industry": "Household Products",
     "reportedCurrency": "USD",
-    "price": 169.8,
+    "price": 169.37,
     "shares": 2317.783143,
     "shares_outstanding": 2317783143,
     "shares_display": "2,317.78 M",
@@ -524539,7 +525373,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:56:57Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 393559.6,
+    "mcap": 392562.9,
     "liq_val_1": -19.53892888416783,
     "liq_val_2": -22.819865680591846,
     "liq_val_3": -26.9352204879678,
@@ -527974,10 +528808,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "PG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:56:57Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-22",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -527991,9 +528825,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 168.03,
-        "marketCap": 389457101518
+        "date": "2026-11-20",
+        "price": 169.37,
+        "marketCap": 392562930930
       },
       "amounts": {
         "currentAssets": 32508000000,
@@ -528231,7 +529065,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9976 × -0.327 = -0.3262",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280374Z"
+    }
   },
   "KO": {
     "reported_growth": {
@@ -528334,7 +529174,7 @@ window.FULL_MARKET_DATA = {
     "sector": "必需消費",
     "industry": "Soft Drinks & Non-alcoholic Beverages",
     "reportedCurrency": "USD",
-    "price": 99.25,
+    "price": 96.99,
     "shares": 4301.902335,
     "shares_outstanding": 4301902335,
     "shares_display": "4,301.90 M",
@@ -528347,7 +529187,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:57:05Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 426963.8,
+    "mcap": 417241.5,
     "liq_val_1": -8.157088949812247,
     "liq_val_2": -10.869656342395787,
     "liq_val_3": -12.04629858246189,
@@ -531800,10 +532640,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "KO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:57:05Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-10-02",
       "filingDate": "2026-10-28",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -531817,9 +532657,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 97.44,
-        "marketCap": 419177363522
+        "date": "2026-11-20",
+        "price": 96.99,
+        "marketCap": 417241507472
       },
       "amounts": {
         "currentAssets": 33326000000,
@@ -532057,7 +532897,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.8994 × -0.327 = -0.2941",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080572Z"
+    }
   },
   "PEP": {
     "reported_growth": {
@@ -532160,7 +533006,7 @@ window.FULL_MARKET_DATA = {
     "sector": "必需消費",
     "industry": "Soft Drinks & Non-alcoholic Beverages",
     "reportedCurrency": "USD",
-    "price": 145.44,
+    "price": 140.54,
     "shares": 1362.741092,
     "shares_outstanding": 1362741092,
     "shares_display": "1,362.74 M",
@@ -532173,7 +533019,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:57:14Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 198197.1,
+    "mcap": 191519.6,
     "liq_val_1": -41.77609403151395,
     "liq_val_2": -47.11870829825978,
     "liq_val_3": -57.476802057129134,
@@ -535596,10 +536442,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "PEP",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:57:14Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-05",
       "filingDate": "2026-10-08",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -535613,9 +536459,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 142.26,
-        "marketCap": 193863547748
+        "date": "2026-11-20",
+        "price": 140.54,
+        "marketCap": 191519633070
       },
       "amounts": {
         "currentAssets": 32559000000,
@@ -535853,7 +536699,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0113 × -0.327 = -0.3307",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280360Z"
+    }
   },
   "PM": {
     "reported_growth": {
@@ -535958,7 +536810,7 @@ window.FULL_MARKET_DATA = {
     "sector": "必需消費",
     "industry": "Tobacco",
     "reportedCurrency": "USD",
-    "price": 198.96,
+    "price": 184.09,
     "shares": 1558.655629,
     "shares_outstanding": 1558655629,
     "shares_display": "1,558.66 M",
@@ -535971,7 +536823,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:57:22Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 310110.1,
+    "mcap": 286932.9,
     "liq_val_1": -30.081692920251854,
     "liq_val_2": -36.38019774539948,
     "liq_val_3": -42.33905089242776,
@@ -539368,10 +540220,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "PM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:57:22Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-23",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -539385,9 +540237,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 196.66,
-        "marketCap": 306525215999
+        "date": "2026-11-20",
+        "price": 184.09,
+        "marketCap": 286932914743
       },
       "amounts": {
         "currentAssets": 25788000000,
@@ -539625,7 +540477,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9682 × -0.327 = -0.3166",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280395Z"
+    }
   },
   "MDLZ": {
     "reported_growth": {
@@ -539728,7 +540586,7 @@ window.FULL_MARKET_DATA = {
     "sector": "必需消費",
     "industry": "Packaged Foods & Meats",
     "reportedCurrency": "USD",
-    "price": 67.54,
+    "price": 66.28,
     "shares": 1265.84,
     "shares_outstanding": 1265840000,
     "shares_display": "1,265.84 M",
@@ -539741,7 +540599,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:57:30Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 85494.8,
+    "mcap": 83899.9,
     "liq_val_1": -24.74957340580168,
     "liq_val_2": -29.492905896479808,
     "liq_val_3": -34.35584276053846,
@@ -543141,10 +543999,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "MDLZ",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:57:30Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -543158,9 +544016,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 66.56,
-        "marketCap": 84254310400
+        "date": "2026-11-20",
+        "price": 66.28,
+        "marketCap": 83899875200
       },
       "amounts": {
         "currentAssets": 13788000000,
@@ -543398,7 +544256,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0799 × -0.327 = -0.3531",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080671Z"
+    }
   },
   "CL": {
     "reported_growth": {
@@ -543501,7 +544365,7 @@ window.FULL_MARKET_DATA = {
     "sector": "必需消費",
     "industry": "Household Products",
     "reportedCurrency": "USD",
-    "price": 99.67,
+    "price": 98.71,
     "shares": 794.921,
     "shares_outstanding": 794921000,
     "shares_display": "794.92 M",
@@ -543514,7 +544378,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:57:38Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 79229.8,
+    "mcap": 78466.7,
     "liq_val_1": -12.259079833090333,
     "liq_val_2": -15.049545803922653,
     "liq_val_3": -18.33515531732084,
@@ -546943,10 +547807,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "CL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:57:38Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -546960,9 +547824,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 97.9,
-        "marketCap": 77822765900
+        "date": "2026-11-20",
+        "price": 98.71,
+        "marketCap": 78466651910
       },
       "amounts": {
         "currentAssets": 6357000000,
@@ -547200,7 +548064,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0335 × -0.327 = -0.3380",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.668135Z"
+    }
   },
   "MKC": {
     "reported_growth": {
@@ -547303,7 +548173,7 @@ window.FULL_MARKET_DATA = {
     "sector": "必需消費",
     "industry": "Packaged Foods & Meats",
     "reportedCurrency": "USD",
-    "price": 46.96,
+    "price": 47.4,
     "shares": 269.064464,
     "shares_outstanding": 269064464,
     "shares_display": "269.06 M",
@@ -547316,7 +548186,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:57:46Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 12635.3,
+    "mcap": 12753.7,
     "liq_val_1": -22.889310273243662,
     "liq_val_2": -29.982406000667556,
     "liq_val_3": -32.45467599169841,
@@ -550751,10 +551621,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "MKC",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:57:46Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-08-31",
       "filingDate": "2026-10-01",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -550768,9 +551638,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 46.41,
-        "marketCap": 12487282610
+        "date": "2026-11-20",
+        "price": 47.4,
+        "marketCap": 12753656826
       },
       "amounts": {
         "currentAssets": 2904800000,
@@ -551008,7 +551878,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9430 × -0.327 = -0.3084",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080706Z"
+    }
   },
   "CLX": {
     "reported_growth": {
@@ -551113,7 +551989,7 @@ window.FULL_MARKET_DATA = {
     "sector": "必需消費",
     "industry": "Household Products",
     "reportedCurrency": "USD",
-    "price": 109.46,
+    "price": 104.73,
     "shares": 120.938184,
     "shares_outstanding": 120938184,
     "shares_display": "120.94 M",
@@ -551126,7 +552002,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:57:54Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 13237.9,
+    "mcap": 12687.7,
     "liq_val_1": -47.793011345366324,
     "liq_val_2": -54.11028827752201,
     "liq_val_3": -62.238407681067876,
@@ -554543,10 +555419,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "CLX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:57:54Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-02",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -554560,9 +555436,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 108.2,
-        "marketCap": 13085511509
+        "date": "2026-11-20",
+        "price": 104.73,
+        "marketCap": 12687725310
       },
       "amounts": {
         "currentAssets": 1931000000,
@@ -554800,7 +555676,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0945 × -0.327 = -0.3579",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.668141Z"
+    }
   },
   "HSY": {
     "reported_growth": {
@@ -554903,7 +555785,7 @@ window.FULL_MARKET_DATA = {
     "sector": "必需消費",
     "industry": "Packaged Foods & Meats",
     "reportedCurrency": "USD",
-    "price": 174.27,
+    "price": 175.48,
     "shares": 200.980386,
     "shares_outstanding": 200980386,
     "shares_display": "200.98 M",
@@ -554916,7 +555798,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:58:02Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 35024.9,
+    "mcap": 35268.0,
     "liq_val_1": -25.64755746861786,
     "liq_val_2": -33.06446928607252,
     "liq_val_3": -41.49869132005747,
@@ -558334,10 +559216,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "HSY",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:58:02Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-27",
       "filingDate": "2026-10-29",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -558351,9 +559233,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 173.29,
-        "marketCap": 34827888491
+        "date": "2026-11-20",
+        "price": 175.48,
+        "marketCap": 35268038486
       },
       "amounts": {
         "currentAssets": 3862455000,
@@ -558591,7 +559473,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0279 × -0.327 = -0.3361",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874405Z"
+    }
   },
   "ADM": {
     "reported_growth": {
@@ -558694,7 +559582,7 @@ window.FULL_MARKET_DATA = {
     "sector": "必需消費",
     "industry": "Agricultural Products & Services",
     "reportedCurrency": "USD",
-    "price": 72.9,
+    "price": 66.95,
     "shares": 475.919192,
     "shares_outstanding": 475919192,
     "shares_display": "475.92 M",
@@ -558707,7 +559595,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:58:10Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 34694.5,
+    "mcap": 31862.8,
     "liq_val_1": -3.4207487896390614,
     "liq_val_2": -45.77983062301047,
     "liq_val_3": -64.07180150028495,
@@ -562161,10 +563049,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "ADM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:58:10Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-03",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -562178,9 +563066,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 70.97,
-        "marketCap": 33775985056
+        "date": "2026-11-20",
+        "price": 66.95,
+        "marketCap": 31862789904
       },
       "amounts": {
         "currentAssets": 29621000000,
@@ -562418,7 +563306,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9659 × -0.327 = -0.3159",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.667848Z"
+    }
   },
   "CHD": {
     "reported_growth": {
@@ -562521,7 +563415,7 @@ window.FULL_MARKET_DATA = {
     "sector": "必需消費",
     "industry": "Household Products",
     "reportedCurrency": "USD",
-    "price": 113.01,
+    "price": 110.84,
     "shares": 236.032052,
     "shares_outstanding": 236032052,
     "shares_display": "236.03 M",
@@ -562534,7 +563428,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:58:18Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 26674.0,
+    "mcap": 26161.8,
     "liq_val_1": -13.059666998107529,
     "liq_val_2": -15.183065052537865,
     "liq_val_3": -18.675429725112078,
@@ -565981,10 +566875,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "CHD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:58:18Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -565998,9 +566892,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 111.73,
-        "marketCap": 26371861170
+        "date": "2026-11-20",
+        "price": 110.84,
+        "marketCap": 26161792644
       },
       "amounts": {
         "currentAssets": 1772400000,
@@ -566238,7 +567132,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0483 × -0.327 = -0.3428",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.668122Z"
+    }
   },
   "TGT": {
     "reported_growth": {
@@ -566341,7 +567241,7 @@ window.FULL_MARKET_DATA = {
     "sector": "必需消費",
     "industry": "Consumer Staples Merchandise Retail",
     "reportedCurrency": "USD",
-    "price": 161.45,
+    "price": 165.98,
     "shares": 454.296736,
     "shares_outstanding": 454296736,
     "shares_display": "454.30 M",
@@ -566354,10 +567254,10 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:58:26Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 73346.2,
-    "liq_val_1": -49.44785691790663,
-    "liq_val_2": -69.02206755013974,
-    "liq_val_3": -83.60394647431497,
+    "mcap": 75145.0,
+    "liq_val_1": -49.66357495467456,
+    "liq_val_2": -72.96112292561133,
+    "liq_val_3": -90.7292453010272,
     "debt": 18701.0,
     "cash": 5411.0,
     "short_term_investments": 0.0,
@@ -569783,33 +570683,33 @@ window.FULL_MARKET_DATA = {
       "ticker": "TGT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:58:26Z",
-      "balanceDate": "2026-08-01",
-      "filingDate": "2026-08-28",
-      "quoteDate": "2026-11-12",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
+      "balanceDate": "2026-10-31",
+      "filingDate": "2026-11-18",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
         "basis": "closing",
         "start": null,
-        "end": "2026-08-01",
-        "observationDate": "2026-08-01",
+        "end": "2026-10-31",
+        "observationDate": "2026-10-31",
         "reason": null
       },
       "receivablesBasis": "trade",
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 160.9,
-        "marketCap": 73096344822
+        "date": "2026-11-20",
+        "price": 165.98,
+        "marketCap": 75144955300
       },
       "amounts": {
-        "currentAssets": 20928000000,
-        "totalLiabilities": 43392000000,
-        "cashAndShortTermInvestments": 5411000000,
+        "currentAssets": 23120000000,
+        "totalLiabilities": 45682000000,
+        "cashAndShortTermInvestments": 4464000000,
         "tradeReceivables": 0,
-        "inventory": 13249000000,
+        "inventory": 16144000000,
         "preferredStock": 0
       },
       "sharesOutstanding": 454296736,
@@ -570040,7 +570940,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9836 × -0.327 = -0.3216",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280576Z"
+    }
   },
   "KMB": {
     "reported_growth": {
@@ -570143,7 +571049,7 @@ window.FULL_MARKET_DATA = {
     "sector": "必需消費",
     "industry": "Household Products",
     "reportedCurrency": "USD",
-    "price": 109.43,
+    "price": 106.38,
     "shares": 332.579,
     "shares_outstanding": 332579000,
     "shares_display": "332.58 M",
@@ -570156,7 +571062,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:58:34Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 36394.1,
+    "mcap": 35379.8,
     "liq_val_1": -25.666082344345252,
     "liq_val_2": -30.78216002814369,
     "liq_val_3": -37.90678305004224,
@@ -573585,10 +574491,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "KMB",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:58:34Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-05",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -573602,9 +574508,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 107.19,
-        "marketCap": 35649143010
+        "date": "2026-11-20",
+        "price": 106.38,
+        "marketCap": 35379754020
       },
       "amounts": {
         "currentAssets": 5945000000,
@@ -573842,7 +574748,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9411 × -0.327 = -0.3078",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080557Z"
+    }
   },
   "MNST": {
     "reported_growth": {
@@ -573945,7 +574857,7 @@ window.FULL_MARKET_DATA = {
     "sector": "必需消費",
     "industry": "Soft Drinks & Non-alcoholic Beverages",
     "reportedCurrency": "USD",
-    "price": 46.46,
+    "price": 43.69,
     "shares": 1957.511926,
     "shares_outstanding": 1957511926,
     "shares_display": "1,957.51 M",
@@ -573958,7 +574870,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:58:43Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 90946.0,
+    "mcap": 85523.7,
     "liq_val_1": 2.424977307647831,
     "liq_val_2": 1.8631632081305645,
     "liq_val_3": 0.8280409322011967,
@@ -577399,10 +578311,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "MNST",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:58:43Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-06",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -577416,9 +578328,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 45.57,
-        "marketCap": 89203822113
+        "date": "2026-11-20",
+        "price": 43.69,
+        "marketCap": 85523695872
       },
       "amounts": {
         "currentAssets": 6830274000,
@@ -577656,7 +578568,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.7603 × -0.327 = -0.2486",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080727Z"
+    }
   },
   "GIS": {
     "reported_growth": {
@@ -577763,7 +578681,7 @@ window.FULL_MARKET_DATA = {
     "sector": "必需消費",
     "industry": "Packaged Foods & Meats",
     "reportedCurrency": "USD",
-    "price": 34.32,
+    "price": 35.74,
     "shares": 534.687,
     "shares_outstanding": 534687000,
     "shares_display": "534.69 M",
@@ -577776,7 +578694,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:58:51Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 18350.5,
+    "mcap": 19109.7,
     "liq_val_1": -33.524847247081006,
     "liq_val_2": -37.17079338005225,
     "liq_val_3": -41.8497176853,
@@ -581211,10 +582129,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "GIS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:58:51Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-08-30",
       "filingDate": "2026-09-23",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -581228,9 +582146,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 33.52,
-        "marketCap": 17922708240
+        "date": "2026-11-20",
+        "price": 35.74,
+        "marketCap": 19109713380
       },
       "amounts": {
         "currentAssets": 4884300000,
@@ -581468,7 +582386,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0298 × -0.327 = -0.3368",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874336Z"
+    }
   },
   "KHC": {
     "reported_growth": {
@@ -581575,7 +582499,7 @@ window.FULL_MARKET_DATA = {
     "sector": "必需消費",
     "industry": "Packaged Foods & Meats",
     "reportedCurrency": "USD",
-    "price": 25.11,
+    "price": 25.39,
     "shares": 1183.83,
     "shares_outstanding": 1183830000,
     "shares_display": "1,183.83 M",
@@ -581588,7 +582512,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:58:59Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 29726.0,
+    "mcap": 30057.4,
     "liq_val_1": -23.20856879788483,
     "liq_val_2": -25.981517616549674,
     "liq_val_3": -28.918003429546474,
@@ -584986,10 +585910,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "KHC",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:58:59Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-26",
       "filingDate": "2026-11-04",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -585003,9 +585927,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 24.48,
-        "marketCap": 28980158400
+        "date": "2026-11-20",
+        "price": 25.39,
+        "marketCap": 30057443700
       },
       "amounts": {
         "currentAssets": 8663000000,
@@ -585243,7 +586167,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.1456 × -0.327 = -0.3746",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080544Z"
+    }
   },
   "GE": {
     "reported_growth": {
@@ -585346,7 +586276,7 @@ window.FULL_MARKET_DATA = {
     "sector": "工業",
     "industry": "Aerospace & Defense",
     "reportedCurrency": "USD",
-    "price": 331.81,
+    "price": 309.62,
     "shares": 1037.562513,
     "shares_outstanding": 1037562513,
     "shares_display": "1,037.56 M",
@@ -585359,7 +586289,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:59:07Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 344273.6,
+    "mcap": 319946.4,
     "liq_val_1": -65.45822458795791,
     "liq_val_2": -80.08510230361416,
     "liq_val_3": -97.035117150575,
@@ -588818,10 +589748,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "GE",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:59:07Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-20",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -588835,9 +589765,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 330.86,
-        "marketCap": 343287933051
+        "date": "2026-11-20",
+        "price": 309.62,
+        "marketCap": 319946421780
       },
       "amounts": {
         "currentAssets": 41527000000,
@@ -589075,7 +590005,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0815 × -0.327 = -0.3536",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874310Z"
+    }
   },
   "CAT": {
     "reported_growth": {
@@ -589178,7 +590114,7 @@ window.FULL_MARKET_DATA = {
     "sector": "工業",
     "industry": "Construction Machinery & Heavy Transportation Equipment",
     "reportedCurrency": "USD",
-    "price": 600.2,
+    "price": 510.45,
     "shares": 457.594174,
     "shares_outstanding": 457594174,
     "shares_display": "457.59 M",
@@ -589191,7 +590127,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:59:33Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 274648.0,
+    "mcap": 233578.9,
     "liq_val_1": -60.15592322641765,
     "liq_val_2": -121.44603921465136,
     "liq_val_3": -169.21544110393327,
@@ -592620,10 +593556,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "CAT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:59:33Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-04",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -592637,9 +593573,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 605.28,
-        "marketCap": 276972606481
+        "date": "2026-11-20",
+        "price": 510.45,
+        "marketCap": 233578946118
       },
       "amounts": {
         "currentAssets": 57834000000,
@@ -592877,7 +593813,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0024 × -0.327 = -0.3278",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.668095Z"
+    }
   },
   "UNP": {
     "reported_growth": {
@@ -592980,7 +593922,7 @@ window.FULL_MARKET_DATA = {
     "sector": "工業",
     "industry": "Rail Transportation",
     "reportedCurrency": "USD",
-    "price": 302.44,
+    "price": 287.29,
     "shares": 594.25,
     "shares_outstanding": 594250000,
     "shares_display": "594.25 M",
@@ -592993,7 +593935,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:59:42Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 179725.0,
+    "mcap": 170722.1,
     "liq_val_1": -74.16743794699201,
     "liq_val_2": -76.23138409760202,
     "liq_val_3": -79.9411022297013,
@@ -596422,10 +597364,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "UNP",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:59:42Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-22",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -596439,9 +597381,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 304.2,
-        "marketCap": 180770850000
+        "date": "2026-11-20",
+        "price": 287.29,
+        "marketCap": 170722082500
       },
       "amounts": {
         "currentAssets": 6517000000,
@@ -596679,7 +597621,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9795 × -0.327 = -0.3203",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.476757Z"
+    }
   },
   "RTX": {
     "reported_growth": {
@@ -596782,7 +597730,7 @@ window.FULL_MARKET_DATA = {
     "sector": "工業",
     "industry": "Aerospace & Defense",
     "reportedCurrency": "USD",
-    "price": 198.58,
+    "price": 190.17,
     "shares": 1349.44,
     "shares_outstanding": 1349440000,
     "shares_display": "1,349.44 M",
@@ -596795,7 +597743,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:59:50Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 267971.8,
+    "mcap": 256623.0,
     "liq_val_1": -29.318087502964193,
     "liq_val_2": -57.23685380602324,
     "liq_val_3": -71.48076239032487,
@@ -600230,10 +601178,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "RTX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:59:50Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-20",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -600247,9 +601195,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 198.36,
-        "marketCap": 267674918400
+        "date": "2026-11-20",
+        "price": 190.17,
+        "marketCap": 256623004800
       },
       "amounts": {
         "currentAssets": 66069000000,
@@ -600487,7 +601435,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9820 × -0.327 = -0.3211",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280463Z"
+    }
   },
   "HON": {
     "reported_growth": {
@@ -600590,7 +601544,7 @@ window.FULL_MARKET_DATA = {
     "sector": "工業",
     "industry": "Industrial Conglomerates",
     "reportedCurrency": "USD",
-    "price": 222.46,
+    "price": 212.64,
     "shares": 316.94001,
     "shares_outstanding": 316940010,
     "shares_display": "316.94 M",
@@ -600603,7 +601557,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T01:59:58Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 70506.5,
+    "mcap": 67483.1,
     "liq_val_1": -50.88660153699118,
     "liq_val_2": -60.45686690045854,
     "liq_val_3": -76.5381436064194,
@@ -604032,10 +604986,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "HON",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T01:59:58Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-22",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -604049,9 +605003,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 223.45,
-        "marketCap": 70820245235
+        "date": "2026-11-20",
+        "price": 212.64,
+        "marketCap": 67483115268
       },
       "amounts": {
         "currentAssets": 14316000000,
@@ -604289,7 +605243,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0976 × -0.327 = -0.3589",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874397Z"
+    }
   },
   "BA": {
     "reported_growth": {
@@ -604394,7 +605354,7 @@ window.FULL_MARKET_DATA = {
     "sector": "工業",
     "industry": "Aerospace & Defense",
     "reportedCurrency": "USD",
-    "price": 171.5,
+    "price": 155.89,
     "shares": 792.44994,
     "shares_outstanding": 792449940,
     "shares_display": "792.45 M",
@@ -604407,7 +605367,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:00:09Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 135905.2,
+    "mcap": 123535.0,
     "liq_val_1": -44.04694635979151,
     "liq_val_2": -119.54546933273791,
     "liq_val_3": -181.03730312604984,
@@ -607854,10 +608814,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "BA",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:00:09Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-27",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -607871,9 +608831,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 171.55,
-        "marketCap": 135944787207
+        "date": "2026-11-20",
+        "price": 155.89,
+        "marketCap": 123535021147
       },
       "amounts": {
         "currentAssets": 129272000000,
@@ -608111,7 +609071,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9549 × -0.327 = -0.3123",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.668022Z"
+    }
   },
   "LMT": {
     "reported_growth": {
@@ -608214,7 +609180,7 @@ window.FULL_MARKET_DATA = {
     "sector": "工業",
     "industry": "Aerospace & Defense",
     "reportedCurrency": "USD",
-    "price": 596.04,
+    "price": 565.5,
     "shares": 231.00464,
     "shares_outstanding": 231004640,
     "shares_display": "231.00 M",
@@ -608227,7 +609193,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:00:28Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 137688.0,
+    "mcap": 130633.1,
     "liq_val_1": -101.49579679438473,
     "liq_val_2": -190.54465745796276,
     "liq_val_3": -209.89621680326422,
@@ -611644,10 +612610,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "LMT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:00:28Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-27",
       "filingDate": "2026-10-22",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -611661,9 +612627,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 604.09,
-        "marketCap": 139547592978
+        "date": "2026-11-20",
+        "price": 565.5,
+        "marketCap": 130633123920
       },
       "amounts": {
         "currentAssets": 31001000000,
@@ -611901,7 +612867,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0442 × -0.327 = -0.3414",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080602Z"
+    }
   },
   "DE": {
     "reported_growth": {
@@ -612004,7 +612976,7 @@ window.FULL_MARKET_DATA = {
     "sector": "工業",
     "industry": "Agricultural & Farm Machinery",
     "reportedCurrency": "USD",
-    "price": 673.54,
+    "price": 609.25,
     "shares": 269.625412,
     "shares_outstanding": 269625412,
     "shares_display": "269.63 M",
@@ -612017,7 +612989,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:00:37Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 181603.5,
+    "mcap": 164269.3,
     "liq_val_1": -190.21945898779006,
     "liq_val_2": -219.5790803279329,
     "liq_val_3": -256.97874501532516,
@@ -615439,10 +616411,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "DE",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:00:37Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-08-02",
       "filingDate": "2026-08-27",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -615456,9 +616428,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 678.79,
-        "marketCap": 183019033411
+        "date": "2026-11-20",
+        "price": 609.25,
+        "marketCap": 164269282261
       },
       "amounts": {
         "currentAssets": 28278000000,
@@ -615696,7 +616668,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9662 × -0.327 = -0.3160",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874164Z"
+    }
   },
   "UPS": {
     "reported_growth": {
@@ -615799,7 +616777,7 @@ window.FULL_MARKET_DATA = {
     "sector": "工業",
     "industry": "Air Freight & Logistics",
     "reportedCurrency": "USD",
-    "price": 112.4,
+    "price": 106.22,
     "shares": 751.657335,
     "shares_outstanding": 751657335,
     "shares_display": "751.66 M",
@@ -615812,7 +616790,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:00:45Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 84486.3,
+    "mcap": 79841.0,
     "liq_val_1": -51.06050085974349,
     "liq_val_2": -56.5981305830003,
     "liq_val_3": -67.65848962280133,
@@ -619210,10 +620188,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "UPS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:00:45Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-04",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -619227,9 +620205,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 110.395,
-        "marketCap": 82979211497
+        "date": "2026-11-20",
+        "price": 106.22,
+        "marketCap": 79841042124
       },
       "amounts": {
         "currentAssets": 19313000000,
@@ -619467,7 +620445,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0455 × -0.327 = -0.3419",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.476766Z"
+    }
   },
   "EFX": {
     "reported_growth": {
@@ -619570,7 +620554,7 @@ window.FULL_MARKET_DATA = {
     "sector": "工業",
     "industry": "Research & Consulting Services",
     "reportedCurrency": "USD",
-    "price": 188.12,
+    "price": 177.19,
     "shares": 117.017174,
     "shares_outstanding": 117017174,
     "shares_display": "117.02 M",
@@ -619583,7 +620567,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:00:53Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 22013.3,
+    "mcap": 20734.3,
     "liq_val_1": -50.047354587455686,
     "liq_val_2": -54.40859475891975,
     "liq_val_3": -61.957572142359204,
@@ -623012,10 +623996,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "EFX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:00:53Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-20",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -623029,9 +624013,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 186.78,
-        "marketCap": 21856468507
+        "date": "2026-11-20",
+        "price": 177.19,
+        "marketCap": 20734273061
       },
       "amounts": {
         "currentAssets": 1586600000,
@@ -623269,7 +624253,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0326 × -0.327 = -0.3377",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874229Z"
+    }
   },
   "TRU": {
     "reported_growth": {
@@ -623372,7 +624362,7 @@ window.FULL_MARKET_DATA = {
     "sector": "工業",
     "industry": "Research & Consulting Services",
     "reportedCurrency": "USD",
-    "price": 81.07,
+    "price": 74.4,
     "shares": 190.7,
     "shares_outstanding": 190700000,
     "shares_display": "190.70 M",
@@ -623385,7 +624375,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:01:03Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 15460.0,
+    "mcap": 14188.1,
     "liq_val_1": -25.661248033560565,
     "liq_val_2": -28.265023597273203,
     "liq_val_3": -32.54483481908757,
@@ -626779,10 +627769,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "TRU",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:01:03Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-27",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -626796,9 +627786,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 80.97,
-        "marketCap": 15440979000
+        "date": "2026-11-20",
+        "price": 74.4,
+        "marketCap": 14188080000
       },
       "amounts": {
         "currentAssets": 2195800000,
@@ -627036,7 +628026,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9764 × -0.327 = -0.3193",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280611Z"
+    }
   },
   "CPRT": {
     "reported_growth": {
@@ -627139,7 +628135,7 @@ window.FULL_MARKET_DATA = {
     "sector": "工業",
     "industry": "Diversified Support Services",
     "reportedCurrency": "USD",
-    "price": 31.83,
+    "price": 31.09,
     "shares": 926.330452,
     "shares_outstanding": 926330452,
     "shares_display": "926.33 M",
@@ -627152,7 +628148,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:01:28Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 29485.1,
+    "mcap": 28801.1,
     "liq_val_1": 5.024410014753569,
     "liq_val_2": 4.5868734972776215,
     "liq_val_3": 3.8602552601822486,
@@ -630591,10 +631587,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "CPRT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:01:28Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-07-31",
       "filingDate": "2026-09-29",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -630608,9 +631604,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 31.995,
-        "marketCap": 29637942812
+        "date": "2026-11-20",
+        "price": 31.09,
+        "marketCap": 28801092020
       },
       "amounts": {
         "currentAssets": 5568194000,
@@ -630848,7 +631844,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0364 × -0.327 = -0.3389",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874089Z"
+    }
   },
   "PAYX": {
     "reported_growth": {
@@ -630951,7 +631953,7 @@ window.FULL_MARKET_DATA = {
     "sector": "工業",
     "industry": "Human Resource & Employment Services",
     "reportedCurrency": "USD",
-    "price": 115.68,
+    "price": 112.63,
     "shares": 355.98,
     "shares_outstanding": 355980000,
     "shares_display": "355.98 M",
@@ -630964,7 +631966,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:01:36Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 41179.8,
+    "mcap": 40094.0,
     "liq_val_1": -10.847800438226866,
     "liq_val_2": -27.327883588965673,
     "liq_val_3": -30.959604472161356,
@@ -634421,10 +635423,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "PAYX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:01:36Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-08-31",
       "filingDate": "2026-09-24",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -634438,9 +635440,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 115.18,
-        "marketCap": 41001776400
+        "date": "2026-11-20",
+        "price": 112.63,
+        "marketCap": 40094027400
       },
       "amounts": {
         "currentAssets": 8093600000,
@@ -634678,7 +635680,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0145 × -0.327 = -0.3317",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280351Z"
+    }
   },
   "AOS": {
     "reported_growth": {
@@ -634781,7 +635789,7 @@ window.FULL_MARKET_DATA = {
     "sector": "工業",
     "industry": "Building Products",
     "reportedCurrency": "USD",
-    "price": 64.24,
+    "price": 63.24,
     "shares": 134.330079,
     "shares_outstanding": 134330079,
     "shares_display": "134.33 M",
@@ -634794,7 +635802,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:01:44Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 8629.4,
+    "mcap": 8495.0,
     "liq_val_1": -3.1333265277094045,
     "liq_val_2": -6.345786486137628,
     "liq_val_3": -11.891603220154437,
@@ -638218,10 +639226,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "AOS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:01:44Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -638235,9 +639243,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 63.98,
-        "marketCap": 8594438454
+        "date": "2026-11-20",
+        "price": 63.24,
+        "marketCap": 8495034386
       },
       "amounts": {
         "currentAssets": 1411000000,
@@ -638475,7 +639483,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9305 × -0.327 = -0.3043",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.667960Z"
+    }
   },
   "ASR": {
     "reported_growth": {
@@ -638542,7 +639556,7 @@ window.FULL_MARKET_DATA = {
     "sector": "工業",
     "industry": "Airport Services",
     "reportedCurrency": "MXN",
-    "price": 270.16,
+    "price": 272.6,
     "shares": 29.512274,
     "shares_outstanding": 29512274,
     "shares_display": "29.51 M",
@@ -638555,7 +639569,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:01:52Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 7973,
+    "mcap": 8176.7,
     "liq_val_1": -129.48916787795372,
     "liq_val_2": -141.2997778191251,
     "liq_val_3": -146.13569609997407,
@@ -642124,10 +643138,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "ASR",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:01:52Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-09-30",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "MXN",
       "fx": {
         "rate": 0.055368226389604064,
@@ -642142,9 +643156,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 271.73,
-        "marketCap": 8093248982
+        "date": "2026-11-20",
+        "price": 272.6,
+        "marketCap": 8176680616
       },
       "amounts": {
         "currentAssets": 1632462003.5546403,
@@ -642382,7 +643396,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.7383 × -0.327 = -0.5684",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.667987Z"
+    }
   },
   "XYL": {
     "reported_growth": {
@@ -642485,7 +643505,7 @@ window.FULL_MARKET_DATA = {
     "sector": "工業",
     "industry": "Industrial Machinery",
     "reportedCurrency": "USD",
-    "price": 94.18,
+    "price": 94.65,
     "shares": 229.335,
     "shares_outstanding": 229335000,
     "shares_display": "229.34 M",
@@ -642498,7 +643518,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:02:01Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 21598.8,
+    "mcap": 21706.6,
     "liq_val_1": -12.483920901737633,
     "liq_val_2": -17.480977609174353,
     "liq_val_3": -26.629166939193755,
@@ -645896,10 +646916,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "XYL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:02:01Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-27",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -645913,9 +646933,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 94.03,
-        "marketCap": 21564370050
+        "date": "2026-11-20",
+        "price": 94.65,
+        "marketCap": 21706557750
       },
       "amounts": {
         "currentAssets": 3952000000,
@@ -646153,7 +647173,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9245 × -0.327 = -0.3023",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.476893Z"
+    }
   },
   "ROL": {
     "reported_growth": {
@@ -646256,7 +647282,7 @@ window.FULL_MARKET_DATA = {
     "sector": "工業",
     "industry": "Environmental & Facilities Services",
     "reportedCurrency": "USD",
-    "price": 38.88,
+    "price": 37.82,
     "shares": 478.045303,
     "shares_outstanding": 478045303,
     "shares_display": "478.05 M",
@@ -646269,7 +647295,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:02:09Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 18586.4,
+    "mcap": 18079.7,
     "liq_val_1": -2.8355157795578214,
     "liq_val_2": -3.3751506183086586,
     "liq_val_3": -3.8475014574089434,
@@ -649722,10 +650748,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "ROL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:02:09Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-22",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -649739,9 +650765,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 37.91,
-        "marketCap": 18240222266
+        "date": "2026-11-20",
+        "price": 37.82,
+        "marketCap": 18079672490
       },
       "amounts": {
         "currentAssets": 612825000,
@@ -649979,7 +651005,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0974 × -0.327 = -0.3588",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280436Z"
+    }
   },
   "OTIS": {
     "reported_growth": {
@@ -650084,7 +651116,7 @@ window.FULL_MARKET_DATA = {
     "sector": "工業",
     "industry": "Industrial Machinery",
     "reportedCurrency": "USD",
-    "price": 77.5,
+    "price": 76.05,
     "shares": 380.710513,
     "shares_outstanding": 380710513,
     "shares_display": "380.71 M",
@@ -650097,7 +651129,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:02:18Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 29505.1,
+    "mcap": 28953.0,
     "liq_val_1": -25.363103119771214,
     "liq_val_2": -31.82759494745027,
     "liq_val_3": -41.259695920191206,
@@ -653486,10 +654518,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "OTIS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:02:18Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -653503,9 +654535,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 77.14,
-        "marketCap": 29368008973
+        "date": "2026-11-20",
+        "price": 76.05,
+        "marketCap": 28953034514
       },
       "amounts": {
         "currentAssets": 6918000000,
@@ -653743,7 +654775,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0789 × -0.327 = -0.3528",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280326Z"
+    }
   },
   "VRSK": {
     "reported_growth": {
@@ -653846,7 +654884,7 @@ window.FULL_MARKET_DATA = {
     "sector": "工業",
     "industry": "Research & Consulting Services",
     "reportedCurrency": "USD",
-    "price": 207.82,
+    "price": 202.09,
     "shares": 128.286417,
     "shares_outstanding": 128286417,
     "shares_display": "128.29 M",
@@ -653859,7 +654897,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:02:26Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 26660.5,
+    "mcap": 25925.4,
     "liq_val_1": -35.13544228146928,
     "liq_val_2": -37.21407232068848,
     "liq_val_3": -39.74154177211138,
@@ -657257,10 +658295,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "VRSK",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:02:26Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-05",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -657274,9 +658312,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 206.32,
-        "marketCap": 26468054174
+        "date": "2026-11-20",
+        "price": 202.09,
+        "marketCap": 25925402012
       },
       "amounts": {
         "currentAssets": 1147700000,
@@ -657514,7 +658552,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0348 × -0.327 = -0.3384",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.476821Z"
+    }
   },
   "MIDD": {
     "reported_growth": {
@@ -657617,7 +658661,7 @@ window.FULL_MARKET_DATA = {
     "sector": "工業",
     "industry": "Industrial Machinery",
     "reportedCurrency": "USD",
-    "price": 135.16,
+    "price": 131.67,
     "shares": 45.2223,
     "shares_outstanding": 45222300,
     "shares_display": "45.22 M",
@@ -657630,10 +658674,10 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:02:34Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 6112.2,
-    "liq_val_1": -0.03263427556758502,
-    "liq_val_2": -0.042005384511623695,
-    "liq_val_3": -0.05517837438608828,
+    "mcap": 5735.0,
+    "liq_val_1": -32.63427556758502,
+    "liq_val_2": -42.00538451162369,
+    "liq_val_3": -55.17837438608828,
     "debt": 1748.7,
     "cash": 104.3,
     "short_term_investments": 0.0,
@@ -661047,10 +662091,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "MIDD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:02:34Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-10-03",
       "filingDate": "2026-11-12",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -661064,16 +662108,16 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 135.44,
-        "marketCap": 6124908312
+        "date": "2026-11-20",
+        "price": 131.67,
+        "marketCap": 5734952685
       },
       "amounts": {
-        "currentAssets": 1123823,
-        "totalLiabilities": 2599620,
-        "cashAndShortTermInvestments": 104327,
-        "tradeReceivables": 418158,
-        "inventory": 522373,
+        "currentAssets": 1123823000,
+        "totalLiabilities": 2599620000,
+        "cashAndShortTermInvestments": 104327000,
+        "tradeReceivables": 418158000,
+        "inventory": 522373000,
         "preferredStock": 0
       },
       "sharesOutstanding": 45222300,
@@ -661304,7 +662348,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.1592 × -0.327 = -0.3791",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080699Z"
+    }
   },
   "ADP": {
     "reported_growth": {
@@ -661407,7 +662457,7 @@ window.FULL_MARKET_DATA = {
     "sector": "工業",
     "industry": "Human Resource & Employment Services",
     "reportedCurrency": "USD",
-    "price": 309.93,
+    "price": 301.71,
     "shares": 394.759432,
     "shares_outstanding": 394759432,
     "shares_display": "394.76 M",
@@ -661420,7 +662470,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:02:53Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 122347.8,
+    "mcap": 119102.9,
     "liq_val_1": -14.023224149334576,
     "liq_val_2": -132.39835647549518,
     "liq_val_3": -139.53992111327184,
@@ -664865,10 +665915,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "ADP",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:02:53Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -664882,9 +665932,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 307.92,
-        "marketCap": 121554324301
+        "date": "2026-11-20",
+        "price": 301.71,
+        "marketCap": 119102868229
       },
       "amounts": {
         "currentAssets": 52825900000,
@@ -665122,7 +666172,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0262 × -0.327 = -0.3356",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.667854Z"
+    }
   },
   "HII": {
     "reported_growth": {
@@ -665225,7 +666281,7 @@ window.FULL_MARKET_DATA = {
     "sector": "工業",
     "industry": "Aerospace & Defense",
     "reportedCurrency": "USD",
-    "price": 306.24,
+    "price": 280.34,
     "shares": 39.40606,
     "shares_outstanding": 39406060,
     "shares_display": "39.41 M",
@@ -665238,7 +666294,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:03:02Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 12067.7,
+    "mcap": 11047.1,
     "liq_val_1": -102.14165029439634,
     "liq_val_2": -169.8266713292321,
     "liq_val_3": -180.20071024608905,
@@ -668636,10 +669692,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "HII",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:03:02Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -668653,9 +669709,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 308.33,
-        "marketCap": 12150070480
+        "date": "2026-11-20",
+        "price": 280.34,
+        "marketCap": 11047094860
       },
       "amounts": {
         "currentAssets": 3463000000,
@@ -668893,7 +669949,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9987 × -0.327 = -0.3266",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874383Z"
+    }
   },
   "MSA": {
     "reported_growth": {
@@ -668996,7 +670058,7 @@ window.FULL_MARKET_DATA = {
     "sector": "工業",
     "industry": "Commercial & Professional Services",
     "reportedCurrency": "USD",
-    "price": 174.17,
+    "price": 170.03,
     "shares": 38.604089,
     "shares_outstanding": 38604089,
     "shares_display": "38.60 M",
@@ -669009,7 +670071,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:03:10Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 6723.7,
+    "mcap": 6563.9,
     "liq_val_1": -22.11115511623652,
     "liq_val_2": -30.370117010143666,
     "liq_val_3": -42.924908809530514,
@@ -672436,10 +673498,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "MSA",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:03:10Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-03",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -672453,9 +673515,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 174.61,
-        "marketCap": 6740659980
+        "date": "2026-11-20",
+        "price": 170.03,
+        "marketCap": 6563853253
       },
       "amounts": {
         "currentAssets": 990744000,
@@ -672693,7 +673755,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9670 × -0.327 = -0.3162",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080761Z"
+    }
   },
   "TDG": {
     "reported_growth": {
@@ -672798,7 +673866,7 @@ window.FULL_MARKET_DATA = {
     "sector": "工業",
     "industry": "Aerospace & Defense",
     "reportedCurrency": "USD",
-    "price": 1217.28,
+    "price": 1121.22,
     "shares": 54.589836,
     "shares_outstanding": 54589836,
     "shares_display": "54.59 M",
@@ -672811,7 +673879,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:03:18Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 66451.1,
+    "mcap": 61207.2,
     "liq_val_1": -554.4805080564814,
     "liq_val_2": -597.9556340854367,
     "liq_val_3": -652.905423639668,
@@ -676209,10 +677277,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "TDG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:03:18Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-10",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -676226,9 +677294,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 1203,
-        "marketCap": 65699997192
+        "date": "2026-11-20",
+        "price": 1121.22,
+        "marketCap": 61207215920
       },
       "amounts": {
         "currentAssets": 7652000000,
@@ -676466,7 +677534,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9404 × -0.327 = -0.3075",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280563Z"
+    }
   },
   "RRX": {
     "reported_growth": {
@@ -676569,7 +677643,7 @@ window.FULL_MARKET_DATA = {
     "sector": "工業",
     "industry": "Electrical Components & Equipment",
     "reportedCurrency": "USD",
-    "price": 176.41,
+    "price": 152.35,
     "shares": 66.5972,
     "shares_outstanding": 66597200,
     "shares_display": "66.60 M",
@@ -676582,7 +677656,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:03:26Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 11748.4,
+    "mcap": 10146.1,
     "liq_val_1": -57.34024853897761,
     "liq_val_2": -76.55862408629793,
     "liq_val_3": -94.038488104605,
@@ -680023,10 +681097,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "RRX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:03:26Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-03",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -680040,9 +681114,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 180.53,
-        "marketCap": 12022792516
+        "date": "2026-11-20",
+        "price": 152.35,
+        "marketCap": 10146083420
       },
       "amounts": {
         "currentAssets": 2893600000,
@@ -680280,7 +681354,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9287 × -0.327 = -0.3037",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280456Z"
+    }
   },
   "GGG": {
     "reported_growth": {
@@ -680383,7 +681463,7 @@ window.FULL_MARKET_DATA = {
     "sector": "工業",
     "industry": "Industrial Machinery",
     "reportedCurrency": "USD",
-    "price": 72.42,
+    "price": 69.39,
     "shares": 160.375132,
     "shares_outstanding": 160375132,
     "shares_display": "160.38 M",
@@ -680396,7 +681476,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:03:34Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 11614.4,
+    "mcap": 11128.4,
     "liq_val_1": 1.9979593843763757,
     "liq_val_2": -0.40238969218743964,
     "liq_val_3": -4.07396702875356,
@@ -683855,10 +684935,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "GGG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:03:34Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-25",
       "filingDate": "2026-10-21",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -683872,9 +684952,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 72.44,
-        "marketCap": 11617574562
+        "date": "2026-11-20",
+        "price": 69.39,
+        "marketCap": 11128430409
       },
       "amounts": {
         "currentAssets": 1113604000,
@@ -684112,7 +685192,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.1468 × -0.327 = -0.3750",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874321Z"
+    }
   },
   "DCI": {
     "reported_growth": {
@@ -684215,7 +685301,7 @@ window.FULL_MARKET_DATA = {
     "sector": "工業",
     "industry": "Industrial Machinery",
     "reportedCurrency": "USD",
-    "price": 86.7,
+    "price": 80.85,
     "shares": 115.821,
     "shares_outstanding": 115821000,
     "shares_display": "115.82 M",
@@ -684228,7 +685314,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:03:42Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 10041.7,
+    "mcap": 9364.1,
     "liq_val_1": -4.772018891220072,
     "liq_val_2": -9.464345844017924,
     "liq_val_3": -17.026273301042124,
@@ -687668,10 +688754,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "DCI",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:03:42Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-07-31",
       "filingDate": "2026-09-25",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -687685,9 +688771,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 86.99,
-        "marketCap": 10075268790
+        "date": "2026-11-20",
+        "price": 80.85,
+        "marketCap": 9364127850
       },
       "amounts": {
         "currentAssets": 1669700000,
@@ -687925,7 +689011,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.1216 × -0.327 = -0.3668",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874150Z"
+    }
   },
   "ITW": {
     "reported_growth": {
@@ -688028,7 +689120,7 @@ window.FULL_MARKET_DATA = {
     "sector": "工業",
     "industry": "Industrial Machinery",
     "reportedCurrency": "USD",
-    "price": 287.52,
+    "price": 273.57,
     "shares": 284.2,
     "shares_outstanding": 284200000,
     "shares_display": "284.20 M",
@@ -688041,7 +689133,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:03:55Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 81713.2,
+    "mcap": 77748.6,
     "liq_val_1": -23.775510204081634,
     "liq_val_2": -31.040464461646728,
     "liq_val_3": -44.14496833216045,
@@ -691470,10 +692562,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "ITW",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:03:55Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -691487,9 +692579,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 286.75,
-        "marketCap": 81494350000
+        "date": "2026-11-20",
+        "price": 273.57,
+        "marketCap": 77748594000
       },
       "amounts": {
         "currentAssets": 6598000000,
@@ -691727,7 +692819,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0379 × -0.327 = -0.3394",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080524Z"
+    }
   },
   "CNI": {
     "reported_growth": {
@@ -691794,7 +692892,7 @@ window.FULL_MARKET_DATA = {
     "sector": "工業",
     "industry": "Rail Transportation",
     "reportedCurrency": "CAD",
-    "price": 127.18,
+    "price": 122.4,
     "shares": 599.7,
     "shares_outstanding": 599700000,
     "shares_display": "599.70 M",
@@ -691807,7 +692905,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:04:04Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 76269.8,
+    "mcap": 73403.3,
     "liq_val_1": -41.955102085408164,
     "liq_val_2": -43.34606892667539,
     "liq_val_3": -45.15107567506483,
@@ -695301,10 +696399,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "CNI",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:04:04Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "CAD",
       "fx": {
         "rate": 0.7037297677691766,
@@ -695319,9 +696417,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 127.78,
-        "marketCap": 76629666000
+        "date": "2026-11-20",
+        "price": 122.4,
+        "marketCap": 73403280000
       },
       "amounts": {
         "currentAssets": 2451218360.309641,
@@ -695559,7 +696657,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9996 × -0.327 = -0.3269",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874058Z"
+    }
   },
   "WM": {
     "reported_growth": {
@@ -695662,7 +696766,7 @@ window.FULL_MARKET_DATA = {
     "sector": "工業",
     "industry": "Environmental & Facilities Services",
     "reportedCurrency": "USD",
-    "price": 243.83,
+    "price": 239.63,
     "shares": 397.635,
     "shares_outstanding": 397635000,
     "shares_display": "397.63 M",
@@ -695675,7 +696779,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:04:12Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 96955.3,
+    "mcap": 95285.3,
     "liq_val_1": -78.96940661662077,
     "liq_val_2": -83.883209476027,
     "liq_val_3": -91.5512970437713,
@@ -699073,10 +700177,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "WM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:04:12Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -699090,9 +700194,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 244.11,
-        "marketCap": 97066679850
+        "date": "2026-11-20",
+        "price": 239.63,
+        "marketCap": 95285275050
       },
       "amounts": {
         "currentAssets": 5250000000,
@@ -699330,7 +700434,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9359 × -0.327 = -0.3060",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.476864Z"
+    }
   },
   "XOM": {
     "reported_growth": {
@@ -699433,7 +700543,7 @@ window.FULL_MARKET_DATA = {
     "sector": "能源",
     "industry": "Integrated Oil & Gas",
     "reportedCurrency": "USD",
-    "price": 170.59,
+    "price": 159.99,
     "shares": 4079.222444,
     "shares_outstanding": 4079222444,
     "shares_display": "4,079.22 M",
@@ -699446,7 +700556,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:04:20Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 695874.6,
+    "mcap": 652634.8,
     "liq_val_1": -22.252279998486888,
     "liq_val_2": -29.568527251415563,
     "liq_val_3": -45.65674036088433,
@@ -702875,10 +703985,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "XOM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:04:20Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-02",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -702892,9 +704002,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 169.785,
-        "marketCap": 692590782655
+        "date": "2026-11-20",
+        "price": 159.99,
+        "marketCap": 652634798816
       },
       "amounts": {
         "currentAssets": 107625000000,
@@ -703132,7 +704242,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0439 × -0.327 = -0.3414",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.476885Z"
+    }
   },
   "CVX": {
     "reported_growth": {
@@ -703235,7 +704351,7 @@ window.FULL_MARKET_DATA = {
     "sector": "能源",
     "industry": "Integrated Oil & Gas",
     "reportedCurrency": "USD",
-    "price": 219.89,
+    "price": 208.37,
     "shares": 1951.253686,
     "shares_outstanding": 1951253686,
     "shares_display": "1,951.25 M",
@@ -703248,7 +704364,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:04:29Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 429061.2,
+    "mcap": 406582.7,
     "liq_val_1": -39.8103027593717,
     "liq_val_2": -48.39211870680356,
     "liq_val_3": -62.01397638256659,
@@ -706677,10 +707793,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "CVX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:04:29Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-05",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -706694,9 +707810,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 216.35,
-        "marketCap": 422153734966
+        "date": "2026-11-20",
+        "price": 208.37,
+        "marketCap": 406582730552
       },
       "amounts": {
         "currentAssets": 56129000000,
@@ -706934,7 +708050,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9889 × -0.327 = -0.3234",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874135Z"
+    }
   },
   "COP": {
     "reported_growth": {
@@ -707037,7 +708159,7 @@ window.FULL_MARKET_DATA = {
     "sector": "能源",
     "industry": "Oil & Gas Exploration & Production",
     "reportedCurrency": "USD",
-    "price": 142.28,
+    "price": 136.12,
     "shares": 1182.34,
     "shares_outstanding": 1182340000,
     "shares_display": "1,182.34 M",
@@ -707050,7 +708172,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:04:38Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 168223.3,
+    "mcap": 160940.1,
     "liq_val_1": -33.16643266742223,
     "liq_val_2": -36.22621242620566,
     "liq_val_3": -42.418424480267944,
@@ -710473,10 +711595,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "COP",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:04:38Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-05",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -710490,9 +711612,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 140.06,
-        "marketCap": 165598540400
+        "date": "2026-11-20",
+        "price": 136.12,
+        "marketCap": 160940120800
       },
       "amounts": {
         "currentAssets": 20868000000,
@@ -710730,7 +711852,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9962 × -0.327 = -0.3258",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874066Z"
+    }
   },
   "SLB": {
     "reported_growth": {
@@ -710833,7 +711961,7 @@ window.FULL_MARKET_DATA = {
     "sector": "能源",
     "industry": "Oil & Gas Equipment & Services",
     "reportedCurrency": "USD",
-    "price": 51.67,
+    "price": 45.89,
     "shares": 1476.029613,
     "shares_outstanding": 1476029613,
     "shares_display": "1,476.03 M",
@@ -710846,7 +711974,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:04:46Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 76266.5,
+    "mcap": 67735.0,
     "liq_val_1": -5.75191711956527,
     "liq_val_2": -10.08753474107975,
     "liq_val_3": -17.23271659049025,
@@ -714287,10 +715415,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "SLB",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:04:46Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -714304,9 +715432,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 50.91,
-        "marketCap": 75144667598
+        "date": "2026-11-20",
+        "price": 45.89,
+        "marketCap": 67734998941
       },
       "amounts": {
         "currentAssets": 20497000000,
@@ -714544,7 +715672,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9154 × -0.327 = -0.2993",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280501Z"
+    }
   },
   "EOG": {
     "reported_growth": {
@@ -714647,7 +715781,7 @@ window.FULL_MARKET_DATA = {
     "sector": "能源",
     "industry": "Oil & Gas Exploration & Production",
     "reportedCurrency": "USD",
-    "price": 158.32,
+    "price": 148.6,
     "shares": 518.484224,
     "shares_outstanding": 518484224,
     "shares_display": "518.48 M",
@@ -714660,7 +715794,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:04:54Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 82086.4,
+    "mcap": 77046.8,
     "liq_val_1": -23.37583177844192,
     "liq_val_2": -26.97671279579762,
     "liq_val_3": -33.983676232355336,
@@ -718077,10 +719211,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "EOG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:04:54Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-05",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -718094,9 +719228,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 155.62,
-        "marketCap": 80686514939
+        "date": "2026-11-20",
+        "price": 148.6,
+        "marketCap": 77046755686
       },
       "amounts": {
         "currentAssets": 11247000000,
@@ -718334,7 +719468,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.2051 × -0.327 = -0.3941",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874242Z"
+    }
   },
   "EPD": {
     "reported_growth": {
@@ -718437,7 +719577,7 @@ window.FULL_MARKET_DATA = {
     "sector": "能源",
     "industry": "Oil & Gas Storage & Transportation",
     "reportedCurrency": "USD",
-    "price": 38.28,
+    "price": 35.83,
     "shares": 2156.604858,
     "shares_outstanding": 2156604858,
     "shares_display": "2,156.60 M",
@@ -718450,7 +719590,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:05:02Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 82554.8,
+    "mcap": 77271.2,
     "liq_val_1": -16.225503652278242,
     "liq_val_2": -19.149126854095215,
     "liq_val_3": -24.223723602499646,
@@ -721860,10 +723000,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "EPD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:05:02Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-04",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -721877,9 +723017,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 37.4,
-        "marketCap": 80657022026
+        "date": "2026-11-20",
+        "price": 35.83,
+        "marketCap": 77271152062
       },
       "amounts": {
         "currentAssets": 17481000000,
@@ -722117,7 +723257,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9846 × -0.327 = -0.3220",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874249Z"
+    }
   },
   "ENB": {
     "reported_growth": {
@@ -722184,7 +723330,7 @@ window.FULL_MARKET_DATA = {
     "sector": "能源",
     "industry": "Oil & Gas Storage & Transportation",
     "reportedCurrency": "CAD",
-    "price": 47.67,
+    "price": 45.69,
     "shares": 2228.888088,
     "shares_outstanding": 2228888088,
     "shares_display": "2,228.89 M",
@@ -722197,7 +723343,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:05:10Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 106251.1,
+    "mcap": 101837.9,
     "liq_val_1": -46.074039384888316,
     "liq_val_2": -48.527840021445215,
     "liq_val_3": -51.135212369783325,
@@ -725797,10 +726943,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "ENB",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:05:10Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-06",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "CAD",
       "fx": {
         "rate": 0.7037297677691766,
@@ -725815,9 +726961,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 48.11,
-        "marketCap": 107231805914
+        "date": "2026-11-20",
+        "price": 45.69,
+        "marketCap": 101837896741
       },
       "amounts": {
         "currentAssets": 14727656579.87333,
@@ -726055,7 +727201,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.8990 × -0.327 = -0.2940",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874236Z"
+    }
   },
   "MPC": {
     "reported_growth": {
@@ -726158,7 +727310,7 @@ window.FULL_MARKET_DATA = {
     "sector": "能源",
     "industry": "Oil & Gas Refining & Marketing",
     "reportedCurrency": "USD",
-    "price": 414.65,
+    "price": 367.19,
     "shares": 272.28228,
     "shares_outstanding": 272282280,
     "shares_display": "272.28 M",
@@ -726171,7 +727323,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:05:29Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 112901.8,
+    "mcap": 99979.3,
     "liq_val_1": -112.60372874797434,
     "liq_val_2": -146.93501170917182,
     "liq_val_3": -216.8815392613871,
@@ -729576,10 +730728,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "MPC",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:05:29Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-03",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -729593,9 +730745,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 412.85,
-        "marketCap": 112411739298
+        "date": "2026-11-20",
+        "price": 367.19,
+        "marketCap": 99979330393
       },
       "amounts": {
         "currentAssets": 42002000000,
@@ -729833,7 +730985,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0415 × -0.327 = -0.3406",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080734Z"
+    }
   },
   "VLO": {
     "reported_growth": {
@@ -729936,7 +731094,7 @@ window.FULL_MARKET_DATA = {
     "sector": "能源",
     "industry": "Oil & Gas Refining & Marketing",
     "reportedCurrency": "USD",
-    "price": 379.83,
+    "price": 334.18,
     "shares": 278.8844,
     "shares_outstanding": 278884400,
     "shares_display": "278.88 M",
@@ -729949,7 +731107,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:05:37Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 105928.7,
+    "mcap": 93197.6,
     "liq_val_1": -11.854374070403365,
     "liq_val_2": -40.95711341329956,
     "liq_val_3": -96.91112159733567,
@@ -733365,10 +734523,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "VLO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:05:37Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -733382,9 +734540,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 374.95,
-        "marketCap": 104567705780
+        "date": "2026-11-20",
+        "price": 334.18,
+        "marketCap": 93197588792
       },
       "amounts": {
         "currentAssets": 33561000000,
@@ -733622,7 +734780,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9781 × -0.327 = -0.3198",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.476806Z"
+    }
   },
   "PSX": {
     "reported_growth": {
@@ -733725,7 +734889,7 @@ window.FULL_MARKET_DATA = {
     "sector": "能源",
     "industry": "Oil & Gas Refining & Marketing",
     "reportedCurrency": "USD",
-    "price": 264.9,
+    "price": 239.33,
     "shares": 390.072362,
     "shares_outstanding": 390072362,
     "shares_display": "390.07 M",
@@ -733738,7 +734902,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:05:45Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 103330.2,
+    "mcap": 93356.0,
     "liq_val_1": -57.76107767409576,
     "liq_val_2": -80.75014553325364,
     "liq_val_3": -114.34801422819082,
@@ -737136,10 +738300,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "PSX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:05:45Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -737153,9 +738317,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 262.91,
-        "marketCap": 102553924693
+        "date": "2026-11-20",
+        "price": 239.33,
+        "marketCap": 93356018397
       },
       "amounts": {
         "currentAssets": 27921000000,
@@ -737393,7 +738557,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9756 × -0.327 = -0.3190",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280408Z"
+    }
   },
   "OXY": {
     "reported_growth": {
@@ -737496,7 +738666,7 @@ window.FULL_MARKET_DATA = {
     "sector": "能源",
     "industry": "Oil & Gas Exploration & Production",
     "reportedCurrency": "USD",
-    "price": 58.75,
+    "price": 53.9,
     "shares": 999.894745,
     "shares_outstanding": 999894745,
     "shares_display": "999.89 M",
@@ -737509,7 +738679,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:05:53Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 58743.8,
+    "mcap": 53894.3,
     "liq_val_1": -24.99763112566413,
     "liq_val_2": -28.320580882740813,
     "liq_val_3": -32.11938072541825,
@@ -740920,10 +742090,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "OXY",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:05:53Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-09",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -740937,9 +742107,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 58.4,
-        "marketCap": 58393853108
+        "date": "2026-11-20",
+        "price": 53.9,
+        "marketCap": 53894326756
       },
       "amounts": {
         "currentAssets": 11005000000,
@@ -741177,7 +742347,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.8686 × -0.327 = -0.2840",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280335Z"
+    }
   },
   "KMI": {
     "reported_growth": {
@@ -741280,7 +742456,7 @@ window.FULL_MARKET_DATA = {
     "sector": "能源",
     "industry": "Oil & Gas Storage & Transportation",
     "reportedCurrency": "USD",
-    "price": 31.92,
+    "price": 30.36,
     "shares": 2227.715229,
     "shares_outstanding": 2227715229,
     "shares_display": "2,227.72 M",
@@ -741293,7 +742469,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:06:01Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 71108.7,
+    "mcap": 67633.4,
     "liq_val_1": -17.55161498696205,
     "liq_val_2": -17.98465956440252,
     "liq_val_3": -18.69718331040776,
@@ -744690,10 +745866,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "KMI",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:06:01Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-23",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -744707,9 +745883,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 32.01,
-        "marketCap": 71309164480
+        "date": "2026-11-20",
+        "price": 30.36,
+        "marketCap": 67633434352
       },
       "amounts": {
         "currentAssets": 3470000000,
@@ -744947,7 +746123,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9733 × -0.327 = -0.3183",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080564Z"
+    }
   },
   "WMB": {
     "reported_growth": {
@@ -745050,7 +746232,7 @@ window.FULL_MARKET_DATA = {
     "sector": "能源",
     "industry": "Oil & Gas Storage & Transportation",
     "reportedCurrency": "USD",
-    "price": 69.09,
+    "price": 64.31,
     "shares": 1250.2,
     "shares_outstanding": 1250200000,
     "shares_display": "1,250.20 M",
@@ -745063,7 +746245,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:06:10Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 86376.3,
+    "mcap": 80400.4,
     "liq_val_1": -35.557510798272276,
     "liq_val_2": -36.46784514477684,
     "liq_val_3": -37.93792993121101,
@@ -748497,10 +749679,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "WMB",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:06:10Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-02",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -748514,9 +749696,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 69.44,
-        "marketCap": 86813888000
+        "date": "2026-11-20",
+        "price": 64.31,
+        "marketCap": 80400362000
       },
       "amounts": {
         "currentAssets": 4732000000,
@@ -748754,7 +749936,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0355 × -0.327 = -0.3386",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.476872Z"
+    }
   },
   "HAL": {
     "reported_growth": {
@@ -748857,7 +750045,7 @@ window.FULL_MARKET_DATA = {
     "sector": "能源",
     "industry": "Oil & Gas Equipment & Services",
     "reportedCurrency": "USD",
-    "price": 33.78,
+    "price": 30.53,
     "shares": 827.126342,
     "shares_outstanding": 827126342,
     "shares_display": "827.13 M",
@@ -748870,7 +750058,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:06:27Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 27940.3,
+    "mcap": 25252.2,
     "liq_val_1": -3.3513622517417057,
     "liq_val_2": -8.492656615209095,
     "liq_val_3": -15.800488191923646,
@@ -752299,10 +753487,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "HAL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:06:27Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-23",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -752316,9 +753504,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 32.76,
-        "marketCap": 27096658964
+        "date": "2026-11-20",
+        "price": 30.53,
+        "marketCap": 25252167221
       },
       "amounts": {
         "currentAssets": 12140000000,
@@ -752556,7 +753744,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9871 × -0.327 = -0.3228",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874370Z"
+    }
   },
   "BKR": {
     "reported_growth": {
@@ -752659,7 +753853,7 @@ window.FULL_MARKET_DATA = {
     "sector": "能源",
     "industry": "Oil & Gas Equipment & Services",
     "reportedCurrency": "USD",
-    "price": 49.44,
+    "price": 44.81,
     "shares": 993.078,
     "shares_outstanding": 993078000,
     "shares_display": "993.08 M",
@@ -752672,7 +753866,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:06:36Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 49097.8,
+    "mcap": 44499.8,
     "liq_val_1": -16.97953232273799,
     "liq_val_2": -24.94899695693591,
     "liq_val_3": -33.329708240440326,
@@ -756070,10 +757264,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "BKR",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:06:36Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -756087,9 +757281,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 48.86,
-        "marketCap": 48521791080
+        "date": "2026-11-20",
+        "price": 44.81,
+        "marketCap": 44499825180
       },
       "amounts": {
         "currentAssets": 21640000000,
@@ -756327,7 +757521,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9758 × -0.327 = -0.3191",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.668056Z"
+    }
   },
   "LIN": {
     "reported_growth": {
@@ -756430,7 +757630,7 @@ window.FULL_MARKET_DATA = {
     "sector": "原物料",
     "industry": "Industrial Gases",
     "reportedCurrency": "USD",
-    "price": 526.06,
+    "price": 502.83,
     "shares": 459.084,
     "shares_outstanding": 459084000,
     "shares_display": "459.08 M",
@@ -756443,7 +757643,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:06:44Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 241505.7,
+    "mcap": 230841.2,
     "liq_val_1": -73.32862831203005,
     "liq_val_2": -81.88588580739037,
     "liq_val_3": -93.95448327539187,
@@ -759841,10 +761041,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "LIN",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:06:44Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -759858,9 +761058,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 522.49,
-        "marketCap": 239866799160
+        "date": "2026-11-20",
+        "price": 502.83,
+        "marketCap": 230841207720
       },
       "amounts": {
         "currentAssets": 13416000000,
@@ -760098,7 +761298,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.1083 × -0.327 = -0.3624",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080586Z"
+    }
   },
   "SHW": {
     "reported_growth": {
@@ -760201,7 +761407,7 @@ window.FULL_MARKET_DATA = {
     "sector": "原物料",
     "industry": "Specialty Chemicals",
     "reportedCurrency": "USD",
-    "price": 349.89,
+    "price": 339.74,
     "shares": 241.588072,
     "shares_outstanding": 241588072,
     "shares_display": "241.59 M",
@@ -760214,7 +761420,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:07:09Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 84529.3,
+    "mcap": 82077.1,
     "liq_val_1": -66.05168818102906,
     "liq_val_2": -76.86025161043547,
     "liq_val_3": -94.04644778985612,
@@ -763646,10 +764852,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "SHW",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:07:09Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-27",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -763663,9 +764869,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 351.39,
-        "marketCap": 84891632620
+        "date": "2026-11-20",
+        "price": 339.74,
+        "marketCap": 82077131581
       },
       "amounts": {
         "currentAssets": 7027400000,
@@ -763903,7 +765109,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9888 × -0.327 = -0.3234",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280493Z"
+    }
   },
   "FCX": {
     "reported_growth": {
@@ -764006,7 +765218,7 @@ window.FULL_MARKET_DATA = {
     "sector": "原物料",
     "industry": "Copper",
     "reportedCurrency": "USD",
-    "price": 59.26,
+    "price": 45.995,
     "shares": 1437.559865,
     "shares_outstanding": 1437559865,
     "shares_display": "1,437.56 M",
@@ -764019,7 +765231,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:07:20Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 85189.8,
+    "mcap": 66120.6,
     "liq_val_1": -8.737723072144895,
     "liq_val_2": -12.945547836367844,
     "liq_val_3": -16.36870962587704,
@@ -767424,10 +768636,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "FCX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:07:20Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-06",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -767441,9 +768653,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 60.465,
-        "marketCap": 86922057237
+        "date": "2026-11-20",
+        "price": 45.995,
+        "marketCap": 66120565991
       },
       "amounts": {
         "currentAssets": 15305000000,
@@ -767681,7 +768893,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9776 × -0.327 = -0.3197",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874270Z"
+    }
   },
   "NEM": {
     "reported_growth": {
@@ -767784,7 +769002,7 @@ window.FULL_MARKET_DATA = {
     "sector": "原物料",
     "industry": "Gold",
     "reportedCurrency": "USD",
-    "price": 113.14,
+    "price": 94.68,
     "shares": 1039.193185,
     "shares_outstanding": 1039193185,
     "shares_display": "1,039.19 M",
@@ -767797,7 +769015,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:07:29Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 117574.3,
+    "mcap": 98390.8,
     "liq_val_1": -8.431541051724661,
     "liq_val_2": -11.500171645178755,
     "liq_val_3": -12.996621027686974,
@@ -771214,10 +772432,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "NEM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:07:29Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-22",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -771231,9 +772449,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 112.64,
-        "marketCap": 117054720358
+        "date": "2026-11-20",
+        "price": 94.68,
+        "marketCap": 98390810756
       },
       "amounts": {
         "currentAssets": 13571000000,
@@ -771471,7 +772689,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.7076 × -0.327 = -0.2314",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080803Z"
+    }
   },
   "SCCO": {
     "reported_growth": {
@@ -771574,7 +772798,7 @@ window.FULL_MARKET_DATA = {
     "sector": "原物料",
     "industry": "Copper",
     "reportedCurrency": "USD",
-    "price": 164.08,
+    "price": 134.02,
     "shares": 853.293,
     "shares_outstanding": 853293000,
     "shares_display": "853.29 M",
@@ -771587,7 +772811,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:07:37Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 140008.3,
+    "mcap": 114358.3,
     "liq_val_1": -0.1760239448817698,
     "liq_val_2": -1.7120496710977355,
     "liq_val_3": -4.625257678194946,
@@ -775016,10 +776240,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "SCCO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:07:37Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -775033,9 +776257,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 168.21,
-        "marketCap": 143532415530
+        "date": "2026-11-20",
+        "price": 134.02,
+        "marketCap": 114358327860
       },
       "amounts": {
         "currentAssets": 11859400000,
@@ -775273,7 +776497,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9724 × -0.327 = -0.3180",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280477Z"
+    }
   },
   "IFF": {
     "reported_growth": {
@@ -775376,7 +776606,7 @@ window.FULL_MARKET_DATA = {
     "sector": "原物料",
     "industry": "Specialty Chemicals",
     "reportedCurrency": "USD",
-    "price": 81.16,
+    "price": 79.62,
     "shares": 250.391293,
     "shares_outstanding": 250391293,
     "shares_display": "250.39 M",
@@ -775389,7 +776619,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:07:45Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 20321.8,
+    "mcap": 19936.2,
     "liq_val_1": -9.025872956373128,
     "liq_val_2": -37.55801524616113,
     "liq_val_3": -44.981596065323245,
@@ -778799,10 +780029,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "IFF",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:07:45Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-03",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -778816,9 +780046,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 80.38,
-        "marketCap": 20126452131
+        "date": "2026-11-20",
+        "price": 79.62,
+        "marketCap": 19936154749
       },
       "amounts": {
         "currentAssets": 9275000000,
@@ -779056,7 +780286,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.8183 × -0.327 = -0.2676",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080478Z"
+    }
   },
   "RPM": {
     "reported_growth": {
@@ -779159,7 +780395,7 @@ window.FULL_MARKET_DATA = {
     "sector": "原物料",
     "industry": "Specialty Chemicals",
     "reportedCurrency": "USD",
-    "price": 103.73,
+    "price": 102.54,
     "shares": 127.534,
     "shares_outstanding": 127534000,
     "shares_display": "127.53 M",
@@ -779172,7 +780408,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:07:53Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 13229.1,
+    "mcap": 13077.3,
     "liq_val_1": -10.773033073533332,
     "liq_val_2": -20.80133611429109,
     "liq_val_3": -34.79436071949441,
@@ -782631,10 +783867,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "RPM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:07:53Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-08-31",
       "filingDate": "2026-10-06",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -782648,9 +783884,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 103.12,
-        "marketCap": 13151306080
+        "date": "2026-11-20",
+        "price": 102.54,
+        "marketCap": 13077336360
       },
       "amounts": {
         "currentAssets": 3376378000,
@@ -782888,7 +784124,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9501 × -0.327 = -0.3107",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280449Z"
+    }
   },
   "VMC": {
     "reported_growth": {
@@ -782991,7 +784233,7 @@ window.FULL_MARKET_DATA = {
     "sector": "原物料",
     "industry": "Construction Materials",
     "reportedCurrency": "USD",
-    "price": 278.63,
+    "price": 270.87,
     "shares": 128.344422,
     "shares_outstanding": 128344422,
     "shares_display": "128.34 M",
@@ -783004,7 +784246,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:08:02Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 35760.6,
+    "mcap": 34764.7,
     "liq_val_1": -48.258427623757576,
     "liq_val_2": -54.029539359334215,
     "liq_val_3": -63.62411293573787,
@@ -786421,10 +787663,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "VMC",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:08:02Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -786438,9 +787680,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 280.18,
-        "marketCap": 35959540156
+        "date": "2026-11-20",
+        "price": 270.87,
+        "marketCap": 34764653587
       },
       "amounts": {
         "currentAssets": 2078700000,
@@ -786678,7 +787920,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9733 × -0.327 = -0.3183",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.476812Z"
+    }
   },
   "BCPC": {
     "reported_growth": {
@@ -786781,7 +788029,7 @@ window.FULL_MARKET_DATA = {
     "sector": "原物料",
     "industry": "Specialty Chemicals",
     "reportedCurrency": "USD",
-    "price": 173.14,
+    "price": 163.54,
     "shares": 31.878021,
     "shares_outstanding": 31878021,
     "shares_display": "31.88 M",
@@ -786794,7 +788042,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:08:10Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 5519.4,
+    "mcap": 5196.9,
     "liq_val_1": 0.8809204310393045,
     "liq_val_2": -3.4241774293328935,
     "liq_val_3": -9.741225780609154,
@@ -790241,10 +791489,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "BCPC",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:08:10Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-23",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -790258,9 +791506,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 172.35,
-        "marketCap": 5494176919
+        "date": "2026-11-20",
+        "price": 163.54,
+        "marketCap": 5196863567
       },
       "amounts": {
         "currentAssets": 404877000,
@@ -790498,7 +791746,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9146 × -0.327 = -0.2991",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.668036Z"
+    }
   },
   "APD": {
     "reported_growth": {
@@ -790601,7 +791855,7 @@ window.FULL_MARKET_DATA = {
     "sector": "原物料",
     "industry": "Industrial Gases",
     "reportedCurrency": "USD",
-    "price": 316.53,
+    "price": 297.09,
     "shares": 222.68553,
     "shares_outstanding": 222685530,
     "shares_display": "222.69 M",
@@ -790614,7 +791868,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:08:18Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 70486.7,
+    "mcap": 66157.6,
     "liq_val_1": -85.51341436509144,
     "liq_val_2": -93.78489927028487,
     "liq_val_3": -102.06006649825878,
@@ -794054,10 +795308,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "APD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:08:18Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
-      "filingDate": "2026-11-05",
-      "quoteDate": "2026-11-12",
+      "filingDate": "2026-11-19",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -794071,9 +795325,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 316.2,
-        "marketCap": 70413164586
+        "date": "2026-11-20",
+        "price": 297.09,
+        "marketCap": 66157644108
       },
       "amounts": {
         "currentAssets": 5016400000,
@@ -794311,7 +795565,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.1518 × -0.327 = -0.3766",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.667967Z"
+    }
   },
   "ECL": {
     "reported_growth": {
@@ -794414,7 +795674,7 @@ window.FULL_MARKET_DATA = {
     "sector": "原物料",
     "industry": "Specialty Chemicals",
     "reportedCurrency": "USD",
-    "price": 309.27,
+    "price": 294.7,
     "shares": 280.467785,
     "shares_outstanding": 280467785,
     "shares_display": "280.47 M",
@@ -794427,7 +795687,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:08:26Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 86740.3,
+    "mcap": 82653.9,
     "liq_val_1": -48.32462309352213,
     "liq_val_2": -57.09169058400058,
     "liq_val_3": -71.06377654032529,
@@ -797850,10 +799110,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "ECL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:08:26Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -797867,9 +799127,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 304.41,
-        "marketCap": 85377198432
+        "date": "2026-11-20",
+        "price": 294.7,
+        "marketCap": 82653856240
       },
       "amounts": {
         "currentAssets": 7099900000,
@@ -798107,7 +799367,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0420 × -0.327 = -0.3407",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874222Z"
+    }
   },
   "CTVA": {
     "reported_growth": {
@@ -798210,7 +799476,7 @@ window.FULL_MARKET_DATA = {
     "sector": "原物料",
     "industry": "Fertilizers & Agricultural Chemicals",
     "reportedCurrency": "USD",
-    "price": 9.43,
+    "price": 7.89,
     "shares": 667.3,
     "shares_outstanding": 667300000,
     "shares_display": "667.30 M",
@@ -798223,10 +799489,10 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:08:36Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 6292.6,
-    "liq_val_1": 2.776861981117938,
-    "liq_val_2": 0.5331934662071033,
-    "liq_val_3": -8.496927918477446,
+    "mcap": 5265.2,
+    "liq_val_1": -0.6114191518057845,
+    "liq_val_2": -9.993705979319646,
+    "liq_val_3": -21.521054997752135,
     "debt": 7446.0,
     "cash": 3933.0,
     "short_term_investments": 1.0,
@@ -801627,10 +802893,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "CTVA",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:08:36Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-12",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -801644,15 +802910,15 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 9.195,
-        "marketCap": 6135823500
+        "date": "2026-11-20",
+        "price": 7.89,
+        "marketCap": 5265178470
       },
       "amounts": {
-        "currentAssets": 9322000000,
-        "totalLiabilities": 7469000000,
-        "cashAndShortTermInvestments": 1799000000,
-        "tradeReceivables": 4106000000,
+        "currentAssets": 17886000000,
+        "totalLiabilities": 18294000000,
+        "cashAndShortTermInvestments": 3933000000,
+        "tradeReceivables": 6189000000,
         "inventory": 5482000000,
         "preferredStock": 0
       },
@@ -801884,7 +803150,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0665 × -0.327 = -0.3488",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874128Z"
+    }
   },
   "DOW": {
     "reported_growth": {
@@ -801991,7 +803263,7 @@ window.FULL_MARKET_DATA = {
     "sector": "原物料",
     "industry": "Commodity Chemicals",
     "reportedCurrency": "USD",
-    "price": 33.04,
+    "price": 29.03,
     "shares": 723.881907,
     "shares_outstanding": 723881907,
     "shares_display": "723.88 M",
@@ -802004,7 +803276,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:09:08Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 23917.1,
+    "mcap": 21014.3,
     "liq_val_1": -31.972065852448498,
     "liq_val_2": -42.76249993356996,
     "liq_val_3": -54.12346906468544,
@@ -805402,10 +806674,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "DOW",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:09:08Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-23",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -805419,9 +806691,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 33.15,
-        "marketCap": 23996685217
+        "date": "2026-11-20",
+        "price": 29.03,
+        "marketCap": 21014291760
       },
       "amounts": {
         "currentAssets": 20177000000,
@@ -805659,7 +806931,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0121 × -0.327 = -0.3310",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874187Z"
+    }
   },
   "DD": {
     "reported_growth": {
@@ -805762,7 +807040,7 @@ window.FULL_MARKET_DATA = {
     "sector": "原物料",
     "industry": "Specialty Chemicals",
     "reportedCurrency": "USD",
-    "price": 153.78,
+    "price": 145.43,
     "shares": 132.532349,
     "shares_outstanding": 132532349,
     "shares_display": "132.53 M",
@@ -805775,7 +807053,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:09:16Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 20380.8,
+    "mcap": 19274.2,
     "liq_val_1": -17.92015321482003,
     "liq_val_2": -26.149087571065387,
     "liq_val_3": -41.25030636859836,
@@ -809221,10 +810499,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "DD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:09:16Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-03",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -809238,9 +810516,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 154.7,
-        "marketCap": 20502754854
+        "date": "2026-11-20",
+        "price": 145.43,
+        "marketCap": 19274177915
       },
       "amounts": {
         "currentAssets": 4744000000,
@@ -809478,7 +810756,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9123 × -0.327 = -0.2983",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874157Z"
+    }
   },
   "MLM": {
     "reported_growth": {
@@ -809581,7 +810865,7 @@ window.FULL_MARKET_DATA = {
     "sector": "原物料",
     "industry": "Construction Materials",
     "reportedCurrency": "USD",
-    "price": 513.61,
+    "price": 500.74,
     "shares": 60.0658,
     "shares_outstanding": 60065800,
     "shares_display": "60.07 M",
@@ -809594,7 +810878,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:09:24Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 30850.4,
+    "mcap": 30077.3,
     "liq_val_1": -276.4967752031938,
     "liq_val_2": -293.35994858971327,
     "liq_val_3": -321.04791745052927,
@@ -812992,10 +814276,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "MLM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:09:24Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-04",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -813009,9 +814293,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 517.33,
-        "marketCap": 31073840314
+        "date": "2026-11-20",
+        "price": 500.74,
+        "marketCap": 30077348692
       },
       "amounts": {
         "currentAssets": 2816000000,
@@ -813249,7 +814533,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9532 × -0.327 = -0.3117",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080713Z"
+    }
   },
   "NEE": {
     "reported_growth": {
@@ -813352,7 +814642,7 @@ window.FULL_MARKET_DATA = {
     "sector": "公用事業",
     "industry": "Electric Utilities",
     "reportedCurrency": "USD",
-    "price": 85.12,
+    "price": 83.45,
     "shares": 2097.306049,
     "shares_outstanding": 2097306048,
     "shares_display": "2,097.31 M",
@@ -813365,7 +814655,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:09:32Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 178522.7,
+    "mcap": 175020.2,
     "liq_val_1": -72.53304788066868,
     "liq_val_2": -76.21214850947686,
     "liq_val_3": -78.7348132417153,
@@ -816781,10 +818071,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "NEE",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:09:32Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-21",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -816798,9 +818088,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 85.29,
-        "marketCap": 178879232919
+        "date": "2026-11-20",
+        "price": 83.45,
+        "marketCap": 175020189789
       },
       "amounts": {
         "currentAssets": 18586000000,
@@ -817038,7 +818328,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0277 × -0.327 = -0.3361",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.080797Z"
+    }
   },
   "SO": {
     "reported_growth": {
@@ -817141,7 +818437,7 @@ window.FULL_MARKET_DATA = {
     "sector": "公用事業",
     "industry": "Electric Utilities",
     "reportedCurrency": "USD",
-    "price": 93.59,
+    "price": 93.13,
     "shares": 1150.36,
     "shares_outstanding": 1150360000,
     "shares_display": "1,150.36 M",
@@ -817154,7 +818450,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:09:52Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 107662.2,
+    "mcap": 108427.5,
     "liq_val_1": -93.48899474946973,
     "liq_val_2": -98.31522306060711,
     "liq_val_3": -102.27928648423102,
@@ -820565,10 +821861,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "SO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:09:52Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-05",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -820582,9 +821878,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 92.47,
-        "marketCap": 106373789200
+        "date": "2026-11-20",
+        "price": 93.13,
+        "marketCap": 108427533800
       },
       "amounts": {
         "currentAssets": 11852000000,
@@ -820822,7 +822118,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0293 × -0.327 = -0.3366",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280515Z"
+    }
   },
   "DUK": {
     "reported_growth": {
@@ -820925,7 +822227,7 @@ window.FULL_MARKET_DATA = {
     "sector": "公用事業",
     "industry": "Electric Utilities",
     "reportedCurrency": "USD",
-    "price": 129.16,
+    "price": 129.78,
     "shares": 779.702,
     "shares_outstanding": 779702000,
     "shares_display": "779.70 M",
@@ -820938,7 +822240,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:10:14Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 100706.3,
+    "mcap": 101190.5,
     "liq_val_1": -170.49462486950142,
     "liq_val_2": -178.92451218542467,
     "liq_val_3": -187.0842963080767,
@@ -824361,10 +825663,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "DUK",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:10:14Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-05",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -824378,9 +825680,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 128.59,
-        "marketCap": 100261880180
+        "date": "2026-11-20",
+        "price": 129.78,
+        "marketCap": 101190504240
       },
       "amounts": {
         "currentAssets": 13386000000,
@@ -824618,7 +825920,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.2197 × -0.327 = -0.0718",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874194Z"
+    }
   },
   "CEG": {
     "reported_growth": {
@@ -824721,7 +826029,7 @@ window.FULL_MARKET_DATA = {
     "sector": "公用事業",
     "industry": "Multi-Utilities",
     "reportedCurrency": "USD",
-    "price": 280.2,
+    "price": 237.41,
     "shares": 354.30737,
     "shares_outstanding": 354307370,
     "shares_display": "354.31 M",
@@ -824734,7 +826042,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:10:36Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 99276.9,
+    "mcap": 84116.1,
     "liq_val_1": -133.29386854131766,
     "liq_val_2": -168.82064857979105,
     "liq_val_3": -183.84319806838903,
@@ -828125,10 +829433,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "CEG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:10:36Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-09",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -828142,9 +829450,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 282.4,
-        "marketCap": 100056401288
+        "date": "2026-11-20",
+        "price": 237.41,
+        "marketCap": 84116112712
       },
       "amounts": {
         "currentAssets": 18919000000,
@@ -828382,7 +829690,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9871 × -0.327 = -0.3228",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.668115Z"
+    }
   },
   "AWK": {
     "reported_growth": {
@@ -828485,7 +829799,7 @@ window.FULL_MARKET_DATA = {
     "sector": "公用事業",
     "industry": "Water Utilities",
     "reportedCurrency": "USD",
-    "price": 149.6,
+    "price": 149.53,
     "shares": 199.104661,
     "shares_outstanding": 199104661,
     "shares_display": "199.10 M",
@@ -828498,7 +829812,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:10:46Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 29786.1,
+    "mcap": 29772.1,
     "liq_val_1": -119.5953920938094,
     "liq_val_2": -124.26429334067674,
     "liq_val_3": -126.44103796244127,
@@ -831896,10 +833210,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "AWK",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:10:46Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -831913,9 +833227,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 147.58,
-        "marketCap": 29383865870
+        "date": "2026-11-20",
+        "price": 149.53,
+        "marketCap": 29772119959
       },
       "amounts": {
         "currentAssets": 1484000000,
@@ -832153,7 +833467,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0360 × -0.327 = -0.3388",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.668000Z"
+    }
   },
   "SRE": {
     "reported_growth": {
@@ -832256,7 +833576,7 @@ window.FULL_MARKET_DATA = {
     "sector": "公用事業",
     "industry": "Multi-Utilities",
     "reportedCurrency": "USD",
-    "price": 79.54,
+    "price": 76.19,
     "shares": 653.9,
     "shares_outstanding": 653900000,
     "shares_display": "653.90 M",
@@ -832269,7 +833589,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:11:06Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 52011.2,
+    "mcap": 49820.6,
     "liq_val_1": -61.05214864658205,
     "liq_val_2": -115.73956262425448,
     "liq_val_3": -118.07004129071724,
@@ -835686,10 +837006,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "SRE",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:11:06Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-05",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -835703,9 +837023,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 78.98,
-        "marketCap": 51645022000
+        "date": "2026-11-20",
+        "price": 76.19,
+        "marketCap": 49820641000
       },
       "amounts": {
         "currentAssets": 37318000000,
@@ -835943,7 +837263,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0443 × -0.327 = -0.3415",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280536Z"
+    }
   },
   "AEP": {
     "reported_growth": {
@@ -836046,7 +837372,7 @@ window.FULL_MARKET_DATA = {
     "sector": "公用事業",
     "industry": "Electric Utilities",
     "reportedCurrency": "USD",
-    "price": 129.18,
+    "price": 125.14,
     "shares": 544.526,
     "shares_outstanding": 544526000,
     "shares_display": "544.53 M",
@@ -836059,7 +837385,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:11:27Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 70341.9,
+    "mcap": 68142.0,
     "liq_val_1": -153.77778104259485,
     "liq_val_2": -160.31980107469616,
     "liq_val_3": -166.945196372625,
@@ -839464,10 +840790,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "AEP",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:11:27Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -839481,9 +840807,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 128.91,
-        "marketCap": 70194846660
+        "date": "2026-11-20",
+        "price": 125.14,
+        "marketCap": 68141983640
       },
       "amounts": {
         "currentAssets": 7840000000,
@@ -839721,7 +841047,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9750 × -0.327 = -0.3188",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.667867Z"
+    }
   },
   "D": {
     "reported_growth": {
@@ -839824,7 +841156,7 @@ window.FULL_MARKET_DATA = {
     "sector": "公用事業",
     "industry": "Multi-Utilities",
     "reportedCurrency": "USD",
-    "price": 67.66,
+    "price": 66.28,
     "shares": 879.566,
     "shares_outstanding": 879566000,
     "shares_display": "879.57 M",
@@ -839837,7 +841169,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:11:35Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 59511.4,
+    "mcap": 58297.6,
     "liq_val_1": -91.65770391306621,
     "liq_val_2": -98.02880056755264,
     "liq_val_3": -101.99689392268459,
@@ -843253,10 +844585,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "D",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:11:35Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -843270,9 +844602,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 67.51,
-        "marketCap": 59379500660
+        "date": "2026-11-20",
+        "price": 66.28,
+        "marketCap": 58297634480
       },
       "amounts": {
         "currentAssets": 9750000000,
@@ -843510,7 +844842,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0342 × -0.327 = -0.3382",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874142Z"
+    }
   },
   "PLD": {
     "reported_growth": {
@@ -843613,7 +844951,7 @@ window.FULL_MARKET_DATA = {
     "sector": "房地產",
     "industry": "Industrial REITs",
     "reportedCurrency": "USD",
-    "price": 128.67,
+    "price": 122.59,
     "shares": 950.513,
     "shares_outstanding": 950513000,
     "shares_display": "950.51 M",
@@ -843626,7 +844964,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:11:54Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 122302.5,
+    "mcap": 116523.4,
     "liq_val_1": -42.854532236802655,
     "liq_val_2": -43.42873585106148,
     "liq_val_3": -43.42873585106148,
@@ -847024,10 +848362,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "PLD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:11:54Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -847041,9 +848379,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 128.55,
-        "marketCap": 122188446150
+        "date": "2026-11-20",
+        "price": 122.59,
+        "marketCap": 116523388670
       },
       "amounts": {
         "currentAssets": 2819285000,
@@ -847281,7 +848619,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0377 × -0.327 = -0.3393",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280388Z"
+    }
   },
   "AMT": {
     "reported_growth": {
@@ -847384,7 +848728,7 @@ window.FULL_MARKET_DATA = {
     "sector": "房地產",
     "industry": "Telecom Tower REITs",
     "reportedCurrency": "USD",
-    "price": 191.64,
+    "price": 184.21,
     "shares": 463.764,
     "shares_outstanding": 463764000,
     "shares_display": "463.76 M",
@@ -847397,7 +848741,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:12:02Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 88875.7,
+    "mcap": 85430.0,
     "liq_val_1": -107.95232057684512,
     "liq_val_2": -109.63559051586583,
     "liq_val_3": -110.7088950414435,
@@ -850795,10 +852139,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "AMT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:12:02Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-27",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -850812,9 +852156,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 189.79,
-        "marketCap": 88017769560
+        "date": "2026-11-20",
+        "price": 184.21,
+        "marketCap": 85429966440
       },
       "amounts": {
         "currentAssets": 3150300000,
@@ -851052,7 +852396,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9874 × -0.327 = -0.3229",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.667934Z"
+    }
   },
   "EQIX": {
     "reported_growth": {
@@ -851155,7 +852505,7 @@ window.FULL_MARKET_DATA = {
     "sector": "房地產",
     "industry": "Data Center REITs",
     "reportedCurrency": "USD",
-    "price": 1053.79,
+    "price": 968.22,
     "shares": 98.9883,
     "shares_outstanding": 98988300,
     "shares_display": "98.99 M",
@@ -851168,7 +852518,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:12:10Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 104312.9,
+    "mcap": 95842.5,
     "liq_val_1": -243.81669348801827,
     "liq_val_2": -255.9150929958389,
     "liq_val_3": -265.63745412336607,
@@ -854573,10 +855923,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "EQIX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:12:10Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -854590,9 +855940,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 1072.77,
-        "marketCap": 106191678591
+        "date": "2026-11-20",
+        "price": 968.22,
+        "marketCap": 95842451826
       },
       "amounts": {
         "currentAssets": 5757000000,
@@ -854830,7 +856180,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0822 × -0.327 = -0.3539",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874256Z"
+    }
   },
   "SPG": {
     "reported_growth": {
@@ -854933,7 +856289,7 @@ window.FULL_MARKET_DATA = {
     "sector": "房地產",
     "industry": "Retail REITs",
     "reportedCurrency": "USD",
-    "price": 232.97,
+    "price": 224.35,
     "shares": 323.551513,
     "shares_outstanding": 323551513,
     "shares_display": "323.55 M",
@@ -854946,7 +856302,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:12:31Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 75377.8,
+    "mcap": 72588.7,
     "liq_val_1": -99.51068595373869,
     "liq_val_2": -100.0667562942288,
     "liq_val_3": -102.29103765618923,
@@ -858352,10 +859708,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "SPG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:12:31Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-06",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -858369,9 +859725,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 233.61,
-        "marketCap": 75584867317
+        "date": "2026-11-20",
+        "price": 224.35,
+        "marketCap": 72588666850
       },
       "amounts": {
         "currentAssets": 1469528000,
@@ -858609,7 +859965,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9289 × -0.327 = -0.3038",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280522Z"
+    }
   },
   "CSGP": {
     "reported_growth": {
@@ -858712,7 +860074,7 @@ window.FULL_MARKET_DATA = {
     "sector": "房地產",
     "industry": "Real Estate Services",
     "reportedCurrency": "USD",
-    "price": 30.96,
+    "price": 29.61,
     "shares": 402.337328,
     "shares_outstanding": 402337328,
     "shares_display": "402.34 M",
@@ -858725,7 +860087,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:12:39Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 12456.4,
+    "mcap": 11913.2,
     "liq_val_1": -3.298227401858174,
     "liq_val_2": -3.8500031993054344,
     "liq_val_3": -4.40674994988285,
@@ -862124,10 +863486,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "CSGP",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:12:39Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -862141,9 +863503,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 30.1,
-        "marketCap": 12110353573
+        "date": "2026-11-20",
+        "price": 29.61,
+        "marketCap": 11913208282
       },
       "amounts": {
         "currentAssets": 946000000,
@@ -862381,7 +863743,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9892 × -0.327 = -0.3235",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:07.874120Z"
+    }
   },
   "VICI": {
     "reported_growth": {
@@ -862484,7 +863852,7 @@ window.FULL_MARKET_DATA = {
     "sector": "房地產",
     "industry": "Hotel & Resort REITs",
     "reportedCurrency": "USD",
-    "price": 25.01,
+    "price": 24.2,
     "shares": 1101.085584,
     "shares_outstanding": 1101085584,
     "shares_display": "1,101.09 M",
@@ -862497,7 +863865,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:12:48Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 27538.2,
+    "mcap": 26646.3,
     "liq_val_1": -16.630484738051024,
     "liq_val_2": -16.665077871004076,
     "liq_val_3": -16.669299159582856,
@@ -865887,10 +867255,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "VICI",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:12:48Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -865904,9 +867272,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 24.8,
-        "marketCap": 27306922483
+        "date": "2026-11-20",
+        "price": 24.2,
+        "marketCap": 26646271133
       },
       "amounts": {
         "currentAssets": 313059000,
@@ -866144,7 +867512,13 @@ window.FULL_MARKET_DATA = {
         "detail_en": "0.9758 × -0.327 = -0.3191",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.476798Z"
+    }
   },
   "O": {
     "reported_growth": {
@@ -866247,7 +867621,7 @@ window.FULL_MARKET_DATA = {
     "sector": "房地產",
     "industry": "Retail REITs",
     "reportedCurrency": "USD",
-    "price": 58.82,
+    "price": 58.03,
     "shares": 950.997,
     "shares_outstanding": 950997000,
     "shares_display": "951.00 M",
@@ -866260,7 +867634,7 @@ window.FULL_MARKET_DATA = {
       "capturedAt": "2026-11-14T02:12:56Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 55937.6,
+    "mcap": 55186.4,
     "liq_val_1": -35.22059585887232,
     "liq_val_2": -35.681742844614654,
     "liq_val_3": -36.70619781134956,
@@ -869668,10 +871042,10 @@ window.FULL_MARKET_DATA = {
       "ticker": "O",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-14T02:12:56Z",
+      "fetchedAt": "2026-11-22T02:53:11.693317+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-03",
-      "quoteDate": "2026-11-12",
+      "quoteDate": "2026-11-20",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
@@ -869685,9 +871059,9 @@ window.FULL_MARKET_DATA = {
       "shareBasis": "commonSharesOutstandingExcludingTreasury",
       "quote": {
         "currency": "USD",
-        "date": "2026-11-12",
-        "price": 59.26,
-        "marketCap": 56356082220
+        "date": "2026-11-20",
+        "price": 58.03,
+        "marketCap": 55186355910
       },
       "amounts": {
         "currentAssets": 1781337000,
@@ -869925,6 +871299,12 @@ window.FULL_MARKET_DATA = {
         "detail_en": "1.0562 × -0.327 = -0.3454",
         "reason": null
       }
-    ]
+    ],
+    "quoteDate": "2026-11-20",
+    "quoteAvailability": {
+      "reason": null,
+      "ageDays": 2,
+      "capturedAt": "2026-11-22T02:53:08.280303Z"
+    }
   }
 };

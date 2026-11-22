@@ -129,5 +129,9 @@ test('all covered stocks publish the shared source-derived liquidation outputs a
       near(result.values[2], (b.cashAndShortTermInvestments - b.totalLiabilities) * r / shares);
     }
   }
-  assert.ok(calculate(market['BRK.B'].liquidation, 'BRK.B').shares > 2e9);
+  // Class B outstanding floats with filings (~1.4B as of late 2026). Guard million-unit
+  // mixups (e.g. 1400) without a brittle >2e9 floor that blocked daily_update after FMP updates.
+  const brkShares = calculate(market['BRK.B'].liquidation, 'BRK.B').shares;
+  assert.equal(brkShares, market['BRK.B'].shares_outstanding);
+  assert.ok(brkShares > 1e9 && brkShares < 5e9);
 });
