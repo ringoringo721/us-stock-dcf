@@ -298,25 +298,22 @@ def build_video(scenes: list[tuple[Path, float]], voice: Path, out_mp4: Path) ->
 def main() -> None:
     voice = WORK / "voice.mp3"
     if not voice.exists():
-        raise SystemExit(f"Missing voice track: {voice}")
+        raise SystemExit(
+            f"Missing voice track: {voice}\n"
+            "Generate it first with edge-tts (see marketing/youtube-ad/README.md)."
+        )
+    if not (ROOT / "script-yue.txt").is_file():
+        raise SystemExit(f"Missing canonical script: {ROOT / 'script-yue.txt'}")
 
     scenes = write_scenes()
     out = ROOT / "us-stock-dcf-cantonese-ad-30s.mp4"
     build_video(scenes, voice, out)
 
-    # Also copy frames + script into marketing folder for reuse
-    (ROOT / "script-yue.txt").write_text(
-        Path("/tmp/dcf-ad/script.txt").read_text(encoding="utf-8"),
-        encoding="utf-8",
-    )
+    # Refresh checked-in scene stills next to the mp4
     for path, _ in scenes:
         Image.open(path).save(ROOT / path.name)
 
-    # Artifact copy
-    artifact = Path("/opt/cursor/artifacts/us-stock-dcf-cantonese-ad-30s.mp4")
-    artifact.write_bytes(out.read_bytes())
     print(f"Wrote {out}")
-    print(f"Wrote {artifact}")
     subprocess.run(
         ["ffprobe", "-v", "error", "-show_entries", "format=duration,size",
          "-of", "default=noprint_wrappers=1", str(out)],
