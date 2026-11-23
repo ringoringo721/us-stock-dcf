@@ -1921,12 +1921,53 @@ MODELS: dict[str, dict] = {
             },
         ],
     },
-    # SEA Grab-class super-app: mobility + deliveries + fintech — regional merchants/fleet.
+    # Mobility-first core (UBER / GRAB): no Delivery merchants or brand-ads stages on spider.
+    "mobility-core-v1": {
+        "label_zh": "出行主鏈（Mobility）",
+        "label_en": "Mobility core value chain",
+        "description_zh": "地圖／雲 → 支付 → 車隊／能源 → 保險／信任。即配商戶與品牌廣告不進蜘蛛階段（Delivery／Ads 另敘）。平台同業放對手弧。",
+        "description_en": "Maps/cloud → payments → fleet/energy → insurance/trust. Delivery merchants and brand ads stay off the spider. Platform peers on the rival arc.",
+        "stages": [
+            {
+                "id": "maps-cloud",
+                "order": 1,
+                "label_zh": "地圖／雲基礎設施",
+                "label_en": "Maps / cloud infrastructure",
+                "summary_zh": "地圖、路由與雲算力。",
+                "summary_en": "Maps, routing, and cloud compute.",
+            },
+            {
+                "id": "payments",
+                "order": 2,
+                "label_zh": "支付／清算",
+                "label_en": "Payments / clearing",
+                "summary_zh": "乘客支付與司機撥款軌道。",
+                "summary_en": "Rider pay-in and driver payouts.",
+            },
+            {
+                "id": "fleet",
+                "order": 3,
+                "label_zh": "車隊／運力設備／能源",
+                "label_en": "Fleet / capacity equipment / energy",
+                "summary_zh": "出行運力相關的車輛／兩輪與燃油能源供給。",
+                "summary_en": "Vehicles/two-wheel and fuel energy under ride capacity.",
+            },
+            {
+                "id": "insurance-trust",
+                "order": 4,
+                "label_zh": "保險／信任",
+                "label_en": "Insurance / trust",
+                "summary_zh": "行程責任險、司機／乘客保障與信任驗證的外部保險夥伴。",
+                "summary_en": "External insurers for trip liability, driver/rider cover, and trust.",
+            },
+        ],
+    },
+    # Legacy SEA super-app template (merchants/ads). GRAB now uses mobility-core-v1.
     "sea-superapp-v1": {
-        "label_zh": "東南亞超級應用價值鏈",
-        "label_en": "Southeast Asia super-app value chain",
-        "description_zh": "地圖／雲 → 支付 → 兩輪／運力與能源 → 東南亞餐飲零售商戶 → 品牌廣告。平台同業放對手弧。",
-        "description_en": "Maps/cloud → payments → two-wheel/fleet & energy → SEA F&B/retail merchants → brand ads. Platform peers stay on the rival arc.",
+        "label_zh": "東南亞超級應用價值鏈（舊）",
+        "label_en": "Southeast Asia super-app value chain (legacy)",
+        "description_zh": "舊模板：地圖／雲 → 支付 → 兩輪／運力 → 餐飲商戶 → 品牌廣告。GRAB 已改用 mobility-core-v1。",
+        "description_en": "Legacy template. GRAB now uses mobility-core-v1.",
         "stages": [
             {
                 "id": "maps-cloud",
@@ -2960,8 +3001,8 @@ INDUSTRY_MODEL: dict[tuple[str, str], str] = {
 
 # Ticker-level model overrides (semiconductor subtypes, special cases)
 TICKER_MODEL: dict[str, str] = {
-    "GRAB": "sea-superapp-v1",  # SEA mobility + deliveries + fintech
-    "UBER": "rideshare-v1",
+    "GRAB": "mobility-core-v1",  # SEA Mobility-first (drop food/ads stages)
+    "UBER": "mobility-core-v1",  # Mobility-first core (drop Delivery merchants / brand ads)
     "DASH": "rideshare-v1",
     "LYFT": "rideshare-v1",
     "ABNB": "short-term-lodging-v1",  # short-stay marketplace fees

@@ -11,20 +11,20 @@
     "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
     "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
     "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
-    "modelId": "sea-superapp-v1",
+    "modelId": "mobility-core-v1",
     "references": [
-      "Industry model `sea-superapp-v1`",
+      "Industry model `mobility-core-v1`",
       "AAPL curated seed shape on main (schema reference)",
       "cache/us_universe.json screen: remaining US listings without supply-chain seed",
       "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
     ]
   },
   "model": {
-    "id": "sea-superapp-v1",
-    "label_zh": "東南亞超級應用價值鏈",
-    "label_en": "Southeast Asia super-app value chain",
-    "description_zh": "地圖／雲 → 支付 → 兩輪／運力與能源 → 東南亞餐飲零售商戶 → 品牌廣告。平台同業放對手弧。",
-    "description_en": "Maps/cloud → payments → two-wheel/fleet & energy → SEA F&B/retail merchants → brand ads. Platform peers stay on the rival arc."
+    "id": "mobility-core-v1",
+    "label_zh": "出行主鏈（Mobility）",
+    "label_en": "Mobility core value chain",
+    "description_zh": "地圖／雲 → 支付 → 車隊／能源 → 保險／信任。即配商戶與品牌廣告不進蜘蛛階段（Delivery／Ads 另敘）。平台同業放對手弧。",
+    "description_en": "Maps/cloud → payments → fleet/energy → insurance/trust. Delivery merchants and brand ads stay off the spider. Platform peers on the rival arc."
   },
   "stages": [
     {
@@ -32,8 +32,8 @@
       "order": 1,
       "label_zh": "地圖／雲基礎設施",
       "label_en": "Maps / cloud infrastructure",
-      "summary_zh": "東南亞地圖、路由與雲算力。",
-      "summary_en": "SEA maps, routing, and cloud compute.",
+      "summary_zh": "地圖、路由與雲算力。",
+      "summary_en": "Maps, routing, and cloud compute.",
       "players": [
         {
           "ticker": "GOOG",
@@ -66,8 +66,8 @@
       "order": 2,
       "label_zh": "支付／清算",
       "label_en": "Payments / clearing",
-      "summary_zh": "用戶支付與司機／商戶撥款（含 GrabPay 軌道）。",
-      "summary_en": "User pay-in and driver/merchant payouts (incl. GrabPay rails).",
+      "summary_zh": "乘客支付與司機撥款軌道。",
+      "summary_en": "Rider pay-in and driver payouts.",
       "players": [
         {
           "ticker": "V",
@@ -131,69 +131,37 @@
       ]
     },
     {
-      "id": "merchants",
+      "id": "insurance-trust",
       "order": 4,
-      "label_zh": "東南亞餐飲／零售商戶",
-      "label_en": "SEA F&B / retail merchants",
-      "summary_zh": "GrabFood／商戶訂單背後的東南亞餐飲與零售品牌。",
-      "summary_en": "SEA F&B and retail brands behind GrabFood/merchant orders.",
+      "label_zh": "保險／信任（區域）",
+      "label_en": "Insurance / trust (regional)",
+      "summary_zh": "東南亞行程責任與司機／乘客保障的外部保險夥伴（友邦／保誠等）。",
+      "summary_en": "External SEA insurers for trip liability and driver/rider cover (AIA/Prudential et al.).",
       "players": [
         {
-          "ticker": "MCD",
-          "name_en": "McDonald's",
-          "name_zh": "麥當勞",
-          "role_zh": "麥當勞：東南亞餐飲／零售商戶代表性玩家",
-          "role_en": "McDonald's: representative player in SEA F&B / retail merchants",
-          "exchange": "NYSE"
+          "ticker": "1299.HK",
+          "name_en": "AIA",
+          "name_zh": "友邦",
+          "role_zh": "友邦：保險／信任（區域）代表性玩家",
+          "role_en": "AIA: representative player in Insurance / trust (regional)",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "SBUX",
-          "name_en": "Starbucks",
-          "name_zh": "星巴克",
-          "role_zh": "星巴克：東南亞餐飲／零售商戶代表性玩家",
-          "role_en": "Starbucks: representative player in SEA F&B / retail merchants",
-          "exchange": "NASDAQ"
+          "ticker": "2378.HK",
+          "name_en": "Prudential",
+          "name_zh": "保誠",
+          "role_zh": "保誠：保險／信任（區域）代表性玩家",
+          "role_en": "Prudential: representative player in Insurance / trust (regional)",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "YUM",
-          "name_en": "Yum! Brands",
-          "name_zh": "百勝餐飲",
-          "role_zh": "百勝餐飲：東南亞餐飲／零售商戶代表性玩家",
-          "role_en": "Yum! Brands: representative player in SEA F&B / retail merchants",
-          "exchange": "NYSE"
-        }
-      ]
-    },
-    {
-      "id": "ads",
-      "order": 5,
-      "label_zh": "品牌廣告／推廣變現",
-      "label_en": "Brand ads / promotion",
-      "summary_zh": "在 Grab 庫存投放的全球／區域品牌廣告主。",
-      "summary_en": "Global/regional brand advertisers on Grab inventory.",
-      "players": [
-        {
-          "ticker": "KO",
-          "name_en": "Coca-Cola",
-          "name_zh": "可口可樂",
-          "role_zh": "可口可樂：品牌廣告／推廣變現代表性玩家",
-          "role_en": "Coca-Cola: representative player in Brand ads / promotion",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "PEP",
-          "name_en": "PepsiCo",
-          "name_zh": "百事",
-          "role_zh": "百事：品牌廣告／推廣變現代表性玩家",
-          "role_en": "PepsiCo: representative player in Brand ads / promotion",
-          "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "UL",
-          "name_en": "Unilever",
-          "name_zh": "聯合利華",
-          "role_zh": "聯合利華：品牌廣告／推廣變現代表性玩家",
-          "role_en": "Unilever: representative player in Brand ads / promotion",
+          "ticker": "CB",
+          "name_en": "Chubb",
+          "name_zh": "安達保險",
+          "role_zh": "安達保險：保險／信任（區域）代表性玩家",
+          "role_en": "Chubb: representative player in Insurance / trust (regional)",
           "exchange": "NYSE"
         }
       ]

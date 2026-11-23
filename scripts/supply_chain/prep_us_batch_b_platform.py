@@ -93,10 +93,23 @@ ENTITIES: dict[str, dict[str, str]] = {
     "TCOM": {"name_en": "Trip.com", "name_zh": "攜程", "exchange": "NASDAQ"},
     "TME": {"name_en": "Tencent Music", "name_zh": "騰訊音樂", "exchange": "NYSE"},
     "3690.HK": {"name_en": "Meituan", "name_zh": "美團", "exchange": "HKEX"},
+    "1299.HK": {"name_en": "AIA", "name_zh": "友邦", "exchange": "HKEX"},
+    "2378.HK": {"name_en": "Prudential", "name_zh": "保誠", "exchange": "HKEX"},
+    "CB": {"name_en": "Chubb", "name_zh": "安達保險", "exchange": "NYSE"},
+    "PGR": {"name_en": "Progressive", "name_zh": "前進保險", "exchange": "NYSE"},
+    "ALL": {"name_en": "Allstate", "name_zh": "全州保險", "exchange": "NYSE"},
 }
 
-# US mobility/delivery (UBER/DASH) — merchants not rival platforms.
+# UBER — Mobility core only (no Delivery merchants / brand-ads stages).
 # maps-cloud drops AMZN (AMZN stays on rival arc as delivery substitute).
+US_UBER_MOBILITY = {
+    "maps-cloud": ["GOOG", "MSFT", "ORCL"],
+    "payments": ["V", "MA", "PYPL"],
+    "fleet": ["GM", "F", "XOM"],
+    "insurance-trust": ["CB", "PGR", "ALL"],
+}
+
+# DASH still on rideshare-v1 (Delivery-weighted merchants/ads OK).
 US_MOBILITY = {
     "maps-cloud": ["GOOG", "MSFT", "ORCL"],
     "payments": ["V", "MA", "PYPL"],
@@ -114,7 +127,16 @@ US_LYFT = {
     "ads": ["KO", "PEP", "NKE"],
 }
 
-# GRAB — SEA super-app (not China local-life; not US rideshare peers-as-stage).
+# GRAB — SEA Mobility core (Honda/BYD/Shell fleet; AIA/Prudential/Chubb insurance).
+# Drop restaurants/brand-ads overweight; Delivery/Ads stay off spider.
+SEA_GRAB_MOBILITY = {
+    "maps-cloud": ["GOOG", "MSFT", "AMZN"],
+    "payments": ["V", "MA", "PYPL"],
+    "fleet": ["HMC", "1211.HK", "SHEL"],
+    "insurance-trust": ["1299.HK", "2378.HK", "CB"],
+}
+
+# Legacy SEA super-app defaults (kept for sea-superapp-v1 catalog completeness).
 SEA_SUPERAPP = {
     "maps-cloud": ["GOOG", "MSFT", "AMZN"],
     "payments": ["V", "MA", "PYPL"],
@@ -299,10 +321,10 @@ COMPETITORS: dict[str, list[list[str]]] = {
 }
 
 OVERRIDES: dict[str, dict[str, list[str]]] = {
-    "UBER": dict(US_MOBILITY),
+    "UBER": dict(US_UBER_MOBILITY),
     "DASH": dict(US_MOBILITY),
     "LYFT": dict(US_LYFT),
-    "GRAB": dict(SEA_SUPERAPP),
+    "GRAB": dict(SEA_GRAB_MOBILITY),
     "BKNG": dict(OTA_BKNG),
     "EXPE": dict(OTA_EXPE),
     "ABNB": dict(ABNB_LODGING),
@@ -316,6 +338,20 @@ OVERRIDES: dict[str, dict[str, list[str]]] = {
 
 # Hub-only stage label honesty (applied after rebuild).
 HUB_STAGE_LABEL_OVERRIDES: dict[str, dict[str, dict[str, str]]] = {
+    "GRAB": {
+        "fleet": {
+            "label_zh": "兩輪／運力設備／能源",
+            "label_en": "Two-wheel / fleet equipment / energy",
+            "summary_zh": "東南亞機車／兩輪與運力能源供給（非乘用車假扮車隊）。",
+            "summary_en": "SEA scooters/two-wheel and fleet energy — not passenger-car OEMs as fake fleet.",
+        },
+        "insurance-trust": {
+            "label_zh": "保險／信任（區域）",
+            "label_en": "Insurance / trust (regional)",
+            "summary_zh": "東南亞行程責任與司機／乘客保障的外部保險夥伴（友邦／保誠等）。",
+            "summary_en": "External SEA insurers for trip liability and driver/rider cover (AIA/Prudential et al.).",
+        },
+    },
     "LYFT": {
         "merchants": {
             "label_zh": "本地生活／需求側品牌",
@@ -436,6 +472,7 @@ def main() -> int:
     for hub, stages in OVERRIDES.items():
         overrides[hub] = {sid: list(ticks) for sid, ticks in stages.items()}
 
+    players["mobility-core-v1"] = {sid: list(ticks) for sid, ticks in US_UBER_MOBILITY.items()}
     players["rideshare-v1"] = {sid: list(ticks) for sid, ticks in US_MOBILITY.items()}
     players["sea-superapp-v1"] = {sid: list(ticks) for sid, ticks in SEA_SUPERAPP.items()}
     players["ota-marketplace-v1"] = {sid: list(ticks) for sid, ticks in OTA_BKNG.items()}
@@ -451,7 +488,7 @@ def main() -> int:
     PLAYERS_PATH.write_text(json.dumps(players, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(
         f"Batch B prep: entities+={len(ENTITIES)}, competitors hubs={len(COMPETITORS)}, "
-        f"overrides hubs={len(OVERRIDES)}; models rideshare/sea/ota/lodging/games/music"
+        f"overrides hubs={len(OVERRIDES)}; mobility-core for UBER/GRAB"
     )
     missing = [t for t in BATCH_B if t not in COMPETITORS or t not in OVERRIDES]
     if missing:

@@ -11,19 +11,19 @@
     "notes_en": "Industry value-chain template plus curated rivals for the US mcap≥$100B batch. No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
     "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
     "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
-    "modelId": "rideshare-v1",
+    "modelId": "mobility-core-v1",
     "references": [
-      "Industry model `rideshare-v1`",
+      "Industry model `mobility-core-v1`",
       "cache/us_universe.json marketCap ≥ USD 100B screen",
       "AAPL curated seed shape on main (schema reference)"
     ]
   },
   "model": {
-    "id": "rideshare-v1",
-    "label_zh": "共享出行／即時配送價值鏈",
-    "label_en": "Rideshare / mobility value chain",
-    "description_zh": "地圖／雲 → 支付 → 車隊／能源運力 → 餐飲商戶供給 → 品牌廣告。平台同業放對手弧，不塞進階段。",
-    "description_en": "Maps/cloud → payments → fleet/energy → merchant supply → brand ads. Platform peers stay on the rival arc."
+    "id": "mobility-core-v1",
+    "label_zh": "出行主鏈（Mobility）",
+    "label_en": "Mobility core value chain",
+    "description_zh": "地圖／雲 → 支付 → 車隊／能源 → 保險／信任。即配商戶與品牌廣告不進蜘蛛階段（Delivery／Ads 另敘）。平台同業放對手弧。",
+    "description_en": "Maps/cloud → payments → fleet/energy → insurance/trust. Delivery merchants and brand ads stay off the spider. Platform peers on the rival arc."
   },
   "stages": [
     {
@@ -65,8 +65,8 @@
       "order": 2,
       "label_zh": "支付／清算",
       "label_en": "Payments / clearing",
-      "summary_zh": "用戶支付與司機／商戶撥款。",
-      "summary_en": "User pay-in and driver/merchant payouts.",
+      "summary_zh": "乘客支付與司機撥款軌道。",
+      "summary_en": "Rider pay-in and driver payouts.",
       "players": [
         {
           "ticker": "V",
@@ -99,8 +99,8 @@
       "order": 3,
       "label_zh": "車隊／運力設備／能源",
       "label_en": "Fleet / capacity equipment / energy",
-      "summary_zh": "乘用車／運力設備與燃油能源供給（非對手平台）。",
-      "summary_en": "Passenger vehicles, capacity equipment, and fuel energy — not rival platforms.",
+      "summary_zh": "出行運力相關的車輛／兩輪與燃油能源供給。",
+      "summary_en": "Vehicles/two-wheel and fuel energy under ride capacity.",
       "players": [
         {
           "ticker": "GM",
@@ -129,69 +129,35 @@
       ]
     },
     {
-      "id": "merchants",
+      "id": "insurance-trust",
       "order": 4,
-      "label_zh": "餐飲／零售商戶供給",
-      "label_en": "Restaurant / retail merchants",
-      "summary_zh": "即配與本地生活訂單背後的餐飲／零售品牌商戶。",
-      "summary_en": "F&B and retail brands behind delivery / local-commerce demand.",
+      "label_zh": "保險／信任",
+      "label_en": "Insurance / trust",
+      "summary_zh": "行程責任險、司機／乘客保障與信任驗證的外部保險夥伴。",
+      "summary_en": "External insurers for trip liability, driver/rider cover, and trust.",
       "players": [
         {
-          "ticker": "MCD",
-          "name_en": "McDonald's",
-          "name_zh": "麥當勞",
-          "role_zh": "麥當勞：餐飲／零售商戶供給代表性玩家",
-          "role_en": "McDonald's: representative player in Restaurant / retail merchants",
+          "ticker": "CB",
+          "name_en": "Chubb",
+          "name_zh": "安達保險",
+          "role_zh": "安達保險：保險／信任代表性玩家",
+          "role_en": "Chubb: representative player in Insurance / trust",
           "exchange": "NYSE"
         },
         {
-          "ticker": "SBUX",
-          "name_en": "Starbucks",
-          "name_zh": "星巴克",
-          "role_zh": "星巴克：餐飲／零售商戶供給代表性玩家",
-          "role_en": "Starbucks: representative player in Restaurant / retail merchants",
-          "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "YUM",
-          "name_en": "Yum! Brands",
-          "name_zh": "百勝餐飲",
-          "role_zh": "百勝餐飲：餐飲／零售商戶供給代表性玩家",
-          "role_en": "Yum! Brands: representative player in Restaurant / retail merchants",
-          "exchange": "NYSE"
-        }
-      ]
-    },
-    {
-      "id": "ads",
-      "order": 5,
-      "label_zh": "品牌廣告／推廣變現",
-      "label_en": "Brand ads / promotion",
-      "summary_zh": "在出行／配送庫存投放的品牌廣告主。",
-      "summary_en": "Brand advertisers on mobility/delivery inventory.",
-      "players": [
-        {
-          "ticker": "KO",
-          "name_en": "Coca-Cola",
-          "name_zh": "可口可樂",
-          "role_zh": "可口可樂：品牌廣告／推廣變現代表性玩家",
-          "role_en": "Coca-Cola: representative player in Brand ads / promotion",
+          "ticker": "PGR",
+          "name_en": "Progressive",
+          "name_zh": "前進保險",
+          "role_zh": "前進保險：保險／信任代表性玩家",
+          "role_en": "Progressive: representative player in Insurance / trust",
           "exchange": "NYSE"
         },
         {
-          "ticker": "PEP",
-          "name_en": "PepsiCo",
-          "name_zh": "百事",
-          "role_zh": "百事：品牌廣告／推廣變現代表性玩家",
-          "role_en": "PepsiCo: representative player in Brand ads / promotion",
-          "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "UL",
-          "name_en": "Unilever",
-          "name_zh": "聯合利華",
-          "role_zh": "聯合利華：品牌廣告／推廣變現代表性玩家",
-          "role_en": "Unilever: representative player in Brand ads / promotion",
+          "ticker": "ALL",
+          "name_en": "Allstate",
+          "name_zh": "全州保險",
+          "role_zh": "全州保險：保險／信任代表性玩家",
+          "role_en": "Allstate: representative player in Insurance / trust",
           "exchange": "NYSE"
         }
       ]
