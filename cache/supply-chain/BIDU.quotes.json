@@ -36,14 +36,14 @@
       "asOf": "2026-11-10",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "0788.HK": {
-      "ticker": "0788.HK",
-      "price": 9.03,
-      "previousClose": 9.06,
-      "changePct": -0.331,
-      "mcap": null,
-      "currency": "HKD",
-      "asOf": "2026-11-17",
+    "EQIX": {
+      "ticker": "EQIX",
+      "price": 1053.79,
+      "previousClose": 1072.77,
+      "changePct": -1.769,
+      "mcap": 100246.4,
+      "currency": "USD",
+      "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
     "0941.HK": {
@@ -156,22 +156,22 @@
       "asOf": "2026-10-30",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "GOOG": {
-      "ticker": "GOOG",
-      "price": 292.52,
-      "previousClose": 295.35,
-      "changePct": -0.958,
-      "mcap": 3481876.2,
-      "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
     "BABA": {
       "ticker": "BABA",
       "price": 94.38,
       "previousClose": 94.36,
       "changePct": 0.021,
       "mcap": 262382.7,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "BILI": {
+      "ticker": "BILI",
+      "price": 13.25,
+      "previousClose": 13.5,
+      "changePct": -1.852,
+      "mcap": 6059.6,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"

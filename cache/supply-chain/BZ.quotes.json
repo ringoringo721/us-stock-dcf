@@ -36,15 +36,15 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "035420.KS": {
-      "ticker": "035420.KS",
-      "price": null,
-      "previousClose": null,
-      "changePct": null,
+    "0941.HK": {
+      "ticker": "0941.HK",
+      "price": 79.35,
+      "previousClose": 78.5,
+      "changePct": 1.083,
       "mcap": null,
-      "currency": "USD",
-      "asOf": null,
-      "source": null
+      "currency": "HKD",
+      "asOf": "2026-10-30",
+      "source": "FMP historical-price-eod via cache/price_charts"
     },
     "1810.HK": {
       "ticker": "1810.HK",
@@ -76,32 +76,32 @@
       "asOf": "2026-10-30",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "3888.HK": {
-      "ticker": "3888.HK",
-      "price": 25.06,
-      "previousClose": 25.2,
-      "changePct": -0.556,
-      "mcap": null,
-      "currency": "HKD",
-      "asOf": "2026-11-10",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "9698.HK": {
-      "ticker": "9698.HK",
-      "price": 19.92,
-      "previousClose": 21.68,
-      "changePct": -8.118,
-      "mcap": null,
-      "currency": "HKD",
+    "ADP": {
+      "ticker": "ADP",
+      "price": 309.93,
+      "previousClose": 307.92,
+      "changePct": 0.653,
+      "mcap": 119750.3,
+      "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "RELX": {
-      "ticker": "RELX",
-      "price": 40.51,
-      "previousClose": 40.04,
-      "changePct": 1.174,
-      "mcap": 69708.6,
+    "WDAY": {
+      "ticker": "WDAY",
+      "price": 196.45,
+      "previousClose": 190.64,
+      "changePct": 3.048,
+      "mcap": 46488.9,
+      "currency": "USD",
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "PAYX": {
+      "ticker": "PAYX",
+      "price": 115.68,
+      "previousClose": 115.18,
+      "changePct": 0.434,
+      "mcap": 41671.0,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"

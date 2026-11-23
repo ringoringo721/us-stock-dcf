@@ -1893,7 +1893,7 @@
     "infra": [
       "9698.HK",
       "3888.HK",
-      "0788.HK"
+      "EQIX"
     ],
     "distribution": [
       "0941.HK",
@@ -2179,8 +2179,8 @@
   "china-games-operator-v1": {
     "infra": [
       "9698.HK",
-      "0788.HK",
-      "3888.HK"
+      "EQIX",
+      "DLR"
     ],
     "distribution": [
       "0941.HK",
@@ -2200,14 +2200,14 @@
   },
   "china-music-platform-v1": {
     "labels": [
+      "UMG",
       "SONY",
-      "WMG",
-      "DIS"
+      "WMG"
     ],
     "infra": [
       "9698.HK",
-      "0788.HK",
-      "3888.HK"
+      "EQIX",
+      "DLR"
     ],
     "distribution": [
       "0941.HK",
@@ -2228,8 +2228,8 @@
   "china-video-community-v1": {
     "infra": [
       "9698.HK",
-      "0788.HK",
-      "3888.HK"
+      "EQIX",
+      "DLR"
     ],
     "distribution": [
       "0941.HK",
@@ -2247,16 +2247,16 @@
       "2319.HK"
     ],
     "game-publish": [
-      "TTWO",
-      "RBLX",
-      "U"
+      "1119.HK",
+      "0777.HK",
+      "0799.HK"
     ]
   },
   "online-recruitment-v1": {
     "traffic": [
       "1024.HK",
       "9626.HK",
-      "035420.KS"
+      "0941.HK"
     ],
     "employers": [
       "1810.HK",
@@ -2264,9 +2264,9 @@
       "2318.HK"
     ],
     "hr-tools": [
-      "3888.HK",
-      "9698.HK",
-      "RELX"
+      "ADP",
+      "WDAY",
+      "PAYX"
     ],
     "payments": [
       "0005.HK",
@@ -2291,9 +2291,9 @@
       "RELX"
     ],
     "facilities": [
-      "0823.HK",
-      "1997.HK",
-      "0014.HK"
+      "1109.HK",
+      "0688.HK",
+      "0960.HK"
     ],
     "payments": [
       "0005.HK",
@@ -2304,6 +2304,33 @@
       "0941.HK",
       "0762.HK",
       "1810.HK"
+    ]
+  },
+  "sea-superapp-v1": {
+    "maps-cloud": [
+      "GOOG",
+      "MSFT",
+      "AMZN"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "fleet": [
+      "HMC",
+      "1211.HK",
+      "SHEL"
+    ],
+    "merchants": [
+      "MCD",
+      "SBUX",
+      "YUM"
+    ],
+    "ads": [
+      "KO",
+      "PEP",
+      "UL"
     ]
   }
 }

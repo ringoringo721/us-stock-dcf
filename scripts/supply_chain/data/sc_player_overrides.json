@@ -990,12 +990,12 @@
     "maps-cloud": [
       "GOOG",
       "MSFT",
-      "035420.KS"
+      "AMZN"
     ],
     "payments": [
       "V",
       "MA",
-      "0005.HK"
+      "PYPL"
     ],
     "fleet": [
       "HMC",
@@ -2788,8 +2788,8 @@
   "NTES": {
     "infra": [
       "9698.HK",
-      "0788.HK",
-      "3888.HK"
+      "EQIX",
+      "DLR"
     ],
     "distribution": [
       "0941.HK",
@@ -2811,7 +2811,7 @@
     "infra": [
       "9698.HK",
       "3888.HK",
-      "0788.HK"
+      "EQIX"
     ],
     "distribution": [
       "0941.HK",
@@ -2831,14 +2831,14 @@
   },
   "TME": {
     "labels": [
+      "UMG",
       "SONY",
-      "WMG",
-      "DIS"
+      "WMG"
     ],
     "infra": [
       "9698.HK",
-      "0788.HK",
-      "3888.HK"
+      "EQIX",
+      "DLR"
     ],
     "distribution": [
       "0941.HK",
@@ -2859,8 +2859,8 @@
   "BILI": {
     "infra": [
       "9698.HK",
-      "0788.HK",
-      "3888.HK"
+      "EQIX",
+      "DLR"
     ],
     "distribution": [
       "0941.HK",
@@ -2878,16 +2878,16 @@
       "2319.HK"
     ],
     "game-publish": [
-      "TTWO",
-      "RBLX",
-      "U"
+      "1119.HK",
+      "0777.HK",
+      "0799.HK"
     ]
   },
   "BZ": {
     "traffic": [
       "1024.HK",
       "9626.HK",
-      "035420.KS"
+      "0941.HK"
     ],
     "employers": [
       "1810.HK",
@@ -2895,9 +2895,9 @@
       "2318.HK"
     ],
     "hr-tools": [
-      "3888.HK",
-      "9698.HK",
-      "RELX"
+      "ADP",
+      "WDAY",
+      "PAYX"
     ],
     "payments": [
       "0005.HK",
@@ -3132,9 +3132,9 @@
       "RELX"
     ],
     "facilities": [
-      "0823.HK",
-      "1997.HK",
-      "0014.HK"
+      "1109.HK",
+      "0688.HK",
+      "0960.HK"
     ],
     "payments": [
       "0005.HK",
@@ -3159,9 +3159,9 @@
       "RELX"
     ],
     "facilities": [
-      "0823.HK",
-      "1997.HK",
-      "0014.HK"
+      "1109.HK",
+      "0688.HK",
+      "0960.HK"
     ],
     "payments": [
       "0005.HK",

@@ -26,24 +26,24 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "0788.HK": {
-      "ticker": "0788.HK",
-      "price": 9.03,
-      "previousClose": 9.06,
-      "changePct": -0.331,
-      "mcap": null,
-      "currency": "HKD",
-      "asOf": "2026-11-17",
+    "EQIX": {
+      "ticker": "EQIX",
+      "price": 1053.79,
+      "previousClose": 1072.77,
+      "changePct": -1.769,
+      "mcap": 100246.4,
+      "currency": "USD",
+      "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "3888.HK": {
-      "ticker": "3888.HK",
-      "price": 25.06,
-      "previousClose": 25.2,
-      "changePct": -0.556,
-      "mcap": null,
-      "currency": "HKD",
-      "asOf": "2026-11-10",
+    "DLR": {
+      "ticker": "DLR",
+      "price": 179.99,
+      "previousClose": 183.47,
+      "changePct": -1.897,
+      "mcap": 64628.0,
+      "currency": "USD",
+      "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
     "0941.HK": {

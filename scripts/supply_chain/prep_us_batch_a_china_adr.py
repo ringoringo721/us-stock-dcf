@@ -106,6 +106,20 @@ ENTITIES: dict[str, dict[str, str]] = {
     "TCOM": {"name_en": "Trip.com", "name_zh": "攜程", "exchange": "NASDAQ"},
     "TM": {"name_en": "Toyota", "name_zh": "豐田", "exchange": "NYSE"},
     "HMC": {"name_en": "Honda", "name_zh": "本田", "exchange": "NYSE"},
+    # Music majors / China game co-publish / IDC (Bugbot partner honesty).
+    "UMG": {"name_en": "Universal Music", "name_zh": "環球音樂", "exchange": "EURONEXT"},
+    "0777.HK": {"name_en": "NetDragon", "name_zh": "網龍", "exchange": "HKEX"},
+    "0799.HK": {"name_en": "IGG", "name_zh": "IGG", "exchange": "HKEX"},
+    "1119.HK": {"name_en": "iDreamSky", "name_zh": "創夢天地", "exchange": "HKEX"},
+    "EQIX": {"name_en": "Equinix", "name_zh": "Equinix", "exchange": "NASDAQ"},
+    "DLR": {"name_en": "Digital Realty", "name_zh": "Digital Realty", "exchange": "NYSE"},
+    "ADP": {"name_en": "ADP", "name_zh": "ADP", "exchange": "NASDAQ"},
+    "WDAY": {"name_en": "Workday", "name_zh": "Workday", "exchange": "NASDAQ"},
+    "PAYX": {"name_en": "Paychex", "name_zh": "Paychex", "exchange": "NASDAQ"},
+    "SHEL": {"name_en": "Shell", "name_zh": "殼牌", "exchange": "NYSE"},
+    "KO": {"name_en": "Coca-Cola", "name_zh": "可口可樂", "exchange": "NYSE"},
+    "PEP": {"name_en": "PepsiCo", "name_zh": "百事", "exchange": "NASDAQ"},
+    "UL": {"name_en": "Unilever", "name_zh": "聯合利華", "exchange": "NYSE"},
 }
 
 CN_ECOM = {
@@ -123,8 +137,9 @@ CN_ECOM_JD = {
 }
 
 # BIDU — online marketing + AI Cloud (china-platform skeleton, ads/cloud framing — not WeChat clone copy).
+# Infra = true IDC/cloud (GDS / Kingsoft Cloud peers / Equinix) — not China Tower.
 CN_BIDU = {
-    "infra": ["9698.HK", "3888.HK", "0788.HK"],
+    "infra": ["9698.HK", "3888.HK", "EQIX"],
     "distribution": ["0941.HK", "0762.HK", "1810.HK"],
     "payments": ["0005.HK", "1398.HK", "6060.HK"],
     "advertisers": ["2020.HK", "2331.HK", "2319.HK"],
@@ -192,45 +207,47 @@ FREIGHT_DEFAULTS = {
 
 # NTES — games ~80%+: cloud → carrier/device → top-up rails → UA/co-publish (not WeChat ads clone).
 CN_GAMES = {
-    "infra": ["9698.HK", "0788.HK", "3888.HK"],
+    "infra": ["9698.HK", "EQIX", "DLR"],
     "distribution": ["0941.HK", "0762.HK", "1810.HK"],
     "payments": ["0005.HK", "1398.HK", "6060.HK"],
     # External UA media + licensed co-publish partners (rivals 0700/BILI/SE stay off stages).
     "ua-publish": ["1024.HK", "GOOG", "TTWO"],
 }
 
-# TME — music sub + social + ads: labels are core COGS (not china-platform advertisers-first).
+# TME — music sub + social + ads: label majors are core COGS (UMG/SONY/WMG — not Disney).
 CN_MUSIC = {
-    "labels": ["SONY", "WMG", "DIS"],
-    "infra": ["9698.HK", "0788.HK", "3888.HK"],
+    "labels": ["UMG", "SONY", "WMG"],
+    "infra": ["9698.HK", "EQIX", "DLR"],
     "distribution": ["0941.HK", "0762.HK", "1810.HK"],
     "payments": ["0005.HK", "1398.HK", "6060.HK"],
     "advertisers": ["2020.HK", "2331.HK", "2319.HK"],
 }
 
-# BILI — VAS + ads + games: infra/reach/pay → advertisers → external game licensing.
+# BILI — VAS + ads + games: China co-publish (not TTWO/RBLX/Unity dump).
 CN_VIDEO = {
-    "infra": ["9698.HK", "0788.HK", "3888.HK"],
+    "infra": ["9698.HK", "EQIX", "DLR"],
     "distribution": ["0941.HK", "0762.HK", "1810.HK"],
     "payments": ["0005.HK", "1398.HK", "6060.HK"],
     "advertisers": ["2020.HK", "2331.HK", "2319.HK"],
-    "game-publish": ["TTWO", "RBLX", "U"],
+    "game-publish": ["1119.HK", "0777.HK", "0799.HK"],
 }
 
 # BZ — employer-paid recruitment (not WeChat advertisers clone).
 CN_RECRUIT = {
-    "traffic": ["1024.HK", "9626.HK", "035420.KS"],
+    # China traffic only — not NAVER. Carriers as acquisition reach (rivals BIDU/0700/BABA off stages).
+    "traffic": ["1024.HK", "9626.HK", "0941.HK"],
     "employers": ["1810.HK", "1211.HK", "2318.HK"],
-    "hr-tools": ["3888.HK", "9698.HK", "RELX"],
+    # Real HR-tech / payroll / HCM — not Kingsoft/GDS/RELX role mismatch.
+    "hr-tools": ["ADP", "WDAY", "PAYX"],
     "payments": ["0005.HK", "1398.HK", "6060.HK"],
     "branding": ["2020.HK", "2331.HK", "2319.HK"],
 }
 
-# EDU/TAL — tutoring fees: traffic → content licenses → campus → tuition pay → device reach.
+# EDU/TAL — tutoring fees: mainland campus landlords (not HK mall REITs).
 CN_EDU = {
     "traffic": ["1024.HK", "9626.HK", "9888.HK"],
     "content": ["0772.HK", "PSO", "RELX"],
-    "facilities": ["0823.HK", "1997.HK", "0014.HK"],
+    "facilities": ["1109.HK", "0688.HK", "0960.HK"],
     "payments": ["0005.HK", "1398.HK", "6060.HK"],
     "distribution": ["0941.HK", "0762.HK", "1810.HK"],
 }
@@ -253,14 +270,14 @@ KR_ECOM = {
     "lastmile": ["1519.HK", "FDX", "UPS"],
 }
 
-# GRAB — mobility + deliveries + fintech on china-local-life stages (SEA merchants/fleet/maps).
-GRAB_LIFE = {
-    "maps-cloud": ["GOOG", "MSFT", "035420.KS"],
-    "payments": ["V", "MA", "0005.HK"],
-    # Two-wheel / fleet equipment / charging proxies for SEA delivery+mobility (not rival apps).
-    "fleet": ["005380.KS", "3800.HK", "2688.HK"],
+# GRAB — SEA super-app (sea-superapp-v1): SEA merchants/ads/fleet — not China CPG or china-local-life.
+SEA_SUPERAPP = {
+    "maps-cloud": ["GOOG", "MSFT", "AMZN"],
+    "payments": ["V", "MA", "PYPL"],
+    # Honda scooters (SEA two-wheel), BYD e-mobility, Shell fuel/energy — not Hyundai/GCL/ENN.
+    "fleet": ["HMC", "1211.HK", "SHEL"],
     "merchants": ["MCD", "SBUX", "YUM"],
-    "ads": ["2020.HK", "2331.HK", "2319.HK"],
+    "ads": ["KO", "PEP", "UL"],
 }
 
 COMPETITORS: dict[str, list[list[str]]] = {
@@ -312,10 +329,11 @@ COMPETITORS: dict[str, list[list[str]]] = {
         ["RBLX", "互動娛樂／UGC 遊戲對手", "Interactive / UGC games rival"],
     ],
     "BIDU": [
+        # China major-market search/ads/cloud peers — not GOOG (no material China search).
         ["0700.HK", "搜尋／線上行銷對手", "Search / online-marketing rival"],
         ["1024.HK", "資訊流廣告對手", "Feed-ads rival"],
-        ["GOOG", "搜尋／雲對手", "Search / cloud rival"],
         ["BABA", "數字營銷／雲對手", "Digital marketing / cloud rival"],
+        ["BILI", "內容／流量對手", "Content / traffic rival"],
     ],
     "TME": [
         # 0700 = Tencent parent of TME — never a product rival.
@@ -473,7 +491,7 @@ OVERRIDES: dict[str, dict[str, list[str]]] = {
         "buy-side": ["1299.HK", "2318.HK"],
         "issuers": ["0700.HK", "9988.HK", "1810.HK"],
     },
-    "GRAB": dict(GRAB_LIFE),
+    "GRAB": dict(SEA_SUPERAPP),
     "EDU": dict(CN_EDU),
     "TAL": dict(CN_EDU),
     "LU": {
@@ -544,20 +562,6 @@ HUB_STAGE_LABEL_OVERRIDES: dict[str, dict[str, dict[str, str]]] = {
             "label_en": "Battery-swap / charging energy",
             "summary_zh": "換電與充電網絡相關的外部能源／加氣充電夥伴（非自有換電站名單）。",
             "summary_en": "External energy partners for swap/charging networks — not own swap-station pads.",
-        },
-    },
-    "GRAB": {
-        "merchants": {
-            "label_zh": "東南亞餐飲／零售商戶",
-            "label_en": "SEA F&B / retail merchants",
-            "summary_zh": "GrabFood／商戶訂單背後的餐飲與零售品牌（即配＋到店營收）。",
-            "summary_en": "F&B and retail brands behind GrabFood/merchant orders.",
-        },
-        "fleet": {
-            "label_zh": "運力／兩輪與能源",
-            "label_en": "Fleet / two-wheel & energy",
-            "summary_zh": "出行與即配運力相關的車隊設備與能源供給。",
-            "summary_en": "Fleet equipment and energy for mobility + delivery capacity.",
         },
     },
 }
@@ -650,6 +654,9 @@ def main() -> int:
     players["china-education-services-v1"] = {
         sid: list(ticks) for sid, ticks in CN_EDU.items()
     }
+    players["sea-superapp-v1"] = {
+        sid: list(ticks) for sid, ticks in SEA_SUPERAPP.items()
+    }
     # Fix rideshare default: platforms = fleet equipment, not rival apps.
     players["rideshare-v1"] = {
         "maps-cloud": ["GOOG", "MSFT", "AMZN"],
@@ -669,7 +676,7 @@ def main() -> int:
     PLAYERS_PATH.write_text(json.dumps(players, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(
         f"Batch A prep: entities+={len(ENTITIES)}, competitors hubs={len(COMPETITORS)}, "
-        f"overrides hubs={len(OVERRIDES)}; models games/music/video/recruit/edu/express/freight defaults"
+        f"overrides hubs={len(OVERRIDES)}; models sea-superapp/games/music/video/recruit/edu defaults"
     )
     missing = [t for t in BATCH_A if t not in COMPETITORS or t not in OVERRIDES]
     if missing:

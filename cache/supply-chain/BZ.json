@@ -54,12 +54,12 @@
           "listedInApp": false
         },
         {
-          "ticker": "035420.KS",
-          "name_en": "NAVER",
-          "name_zh": "NAVER",
-          "role_zh": "NAVER：流量／獲客代表性玩家",
-          "role_en": "NAVER: representative player in Traffic / acquisition",
-          "exchange": "KRX",
+          "ticker": "0941.HK",
+          "name_en": "China Mobile",
+          "name_zh": "中國移動",
+          "role_zh": "中國移動：流量／獲客代表性玩家",
+          "role_en": "China Mobile: representative player in Traffic / acquisition",
+          "exchange": "HKEX",
           "listedInApp": false
         }
       ]
@@ -110,30 +110,28 @@
       "summary_en": "External assessment, screening, and HR-tech partners.",
       "players": [
         {
-          "ticker": "3888.HK",
-          "name_en": "Kingsoft",
-          "name_zh": "金山軟件",
-          "role_zh": "金山軟件：人資／評估工具代表性玩家",
-          "role_en": "Kingsoft: representative player in HR / assessment tools",
-          "exchange": "HKEX",
-          "listedInApp": false
+          "ticker": "ADP",
+          "name_en": "ADP",
+          "name_zh": "ADP",
+          "role_zh": "ADP：人資／評估工具代表性玩家",
+          "role_en": "ADP: representative player in HR / assessment tools",
+          "exchange": "NASDAQ"
         },
         {
-          "ticker": "9698.HK",
-          "name_en": "GDS",
-          "name_zh": "萬國數據",
-          "role_zh": "萬國數據：人資／評估工具代表性玩家",
-          "role_en": "GDS: representative player in HR / assessment tools",
-          "exchange": "HKEX",
-          "listedInApp": false
+          "ticker": "WDAY",
+          "name_en": "Workday",
+          "name_zh": "Workday",
+          "role_zh": "Workday：人資／評估工具代表性玩家",
+          "role_en": "Workday: representative player in HR / assessment tools",
+          "exchange": "NASDAQ"
         },
         {
-          "ticker": "RELX",
-          "name_en": "RELX Plc",
-          "name_zh": "RELX",
-          "role_zh": "RELX：人資／評估工具代表性玩家",
-          "role_en": "RELX Plc: representative player in HR / assessment tools",
-          "exchange": "NYSE"
+          "ticker": "PAYX",
+          "name_en": "Paychex",
+          "name_zh": "Paychex",
+          "role_zh": "Paychex：人資／評估工具代表性玩家",
+          "role_en": "Paychex: representative player in HR / assessment tools",
+          "exchange": "NASDAQ"
         }
       ]
     },

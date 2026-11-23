@@ -45,22 +45,20 @@
           "listedInApp": false
         },
         {
-          "ticker": "0788.HK",
-          "name_en": "China Tower",
-          "name_zh": "中國鐵塔",
-          "role_zh": "中國鐵塔：雲／CDN 基建代表性玩家",
-          "role_en": "China Tower: representative player in Cloud / CDN infrastructure",
-          "exchange": "HKEX",
-          "listedInApp": false
+          "ticker": "EQIX",
+          "name_en": "Equinix",
+          "name_zh": "Equinix",
+          "role_zh": "Equinix：雲／CDN 基建代表性玩家",
+          "role_en": "Equinix: representative player in Cloud / CDN infrastructure",
+          "exchange": "NASDAQ"
         },
         {
-          "ticker": "3888.HK",
-          "name_en": "Kingsoft",
-          "name_zh": "金山軟件",
-          "role_zh": "金山軟件：雲／CDN 基建代表性玩家",
-          "role_en": "Kingsoft: representative player in Cloud / CDN infrastructure",
-          "exchange": "HKEX",
-          "listedInApp": false
+          "ticker": "DLR",
+          "name_en": "Digital Realty",
+          "name_zh": "Digital Realty",
+          "role_zh": "Digital Realty：雲／CDN 基建代表性玩家",
+          "role_en": "Digital Realty: representative player in Cloud / CDN infrastructure",
+          "exchange": "NYSE"
         }
       ]
     },
@@ -184,28 +182,31 @@
       "summary_en": "External game co-publish and licensing partners — not self-studio pads.",
       "players": [
         {
-          "ticker": "TTWO",
-          "name_en": "Take-Two",
-          "name_zh": "Take-Two 互動",
-          "role_zh": "Take-Two 互動：遊戲聯運／發行夥伴代表性玩家",
-          "role_en": "Take-Two: representative player in Game co-publish / licensing partners",
-          "exchange": "NASDAQ"
+          "ticker": "1119.HK",
+          "name_en": "iDreamSky",
+          "name_zh": "創夢天地",
+          "role_zh": "創夢天地：遊戲聯運／發行夥伴代表性玩家",
+          "role_en": "iDreamSky: representative player in Game co-publish / licensing partners",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "RBLX",
-          "name_en": "Roblox",
-          "name_zh": "Roblox",
-          "role_zh": "Roblox：遊戲聯運／發行夥伴代表性玩家",
-          "role_en": "Roblox: representative player in Game co-publish / licensing partners",
-          "exchange": "NYSE"
+          "ticker": "0777.HK",
+          "name_en": "NetDragon",
+          "name_zh": "網龍",
+          "role_zh": "網龍：遊戲聯運／發行夥伴代表性玩家",
+          "role_en": "NetDragon: representative player in Game co-publish / licensing partners",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "U",
-          "name_en": "Unity Software",
-          "name_zh": "Unity",
-          "role_zh": "Unity：遊戲聯運／發行夥伴代表性玩家",
-          "role_en": "Unity Software: representative player in Game co-publish / licensing partners",
-          "exchange": "NYSE"
+          "ticker": "0799.HK",
+          "name_en": "IGG",
+          "name_zh": "IGG",
+          "role_zh": "IGG：遊戲聯運／發行夥伴代表性玩家",
+          "role_en": "IGG: representative player in Game co-publish / licensing partners",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     }

@@ -36,6 +36,15 @@
       "summary_en": "External labels and catalog licenses — core streaming COGS.",
       "players": [
         {
+          "ticker": "UMG",
+          "name_en": "Universal Music",
+          "name_zh": "環球音樂",
+          "role_zh": "環球音樂：唱片／曲庫授權代表性玩家",
+          "role_en": "Universal Music: representative player in Record labels / catalog licensing",
+          "exchange": "EURONEXT",
+          "listedInApp": false
+        },
+        {
           "ticker": "SONY",
           "name_en": "Sony",
           "name_zh": "Sony",
@@ -50,14 +59,6 @@
           "role_zh": "Warner Music：唱片／曲庫授權代表性玩家",
           "role_en": "Warner Music: representative player in Record labels / catalog licensing",
           "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "DIS",
-          "name_en": "Walt Disney",
-          "name_zh": "迪士尼",
-          "role_zh": "迪士尼：唱片／曲庫授權代表性玩家",
-          "role_en": "Walt Disney: representative player in Record labels / catalog licensing",
-          "exchange": "NYSE"
         }
       ]
     },
@@ -79,22 +80,20 @@
           "listedInApp": false
         },
         {
-          "ticker": "0788.HK",
-          "name_en": "China Tower",
-          "name_zh": "中國鐵塔",
-          "role_zh": "中國鐵塔：雲／CDN 基建代表性玩家",
-          "role_en": "China Tower: representative player in Cloud / CDN infrastructure",
-          "exchange": "HKEX",
-          "listedInApp": false
+          "ticker": "EQIX",
+          "name_en": "Equinix",
+          "name_zh": "Equinix",
+          "role_zh": "Equinix：雲／CDN 基建代表性玩家",
+          "role_en": "Equinix: representative player in Cloud / CDN infrastructure",
+          "exchange": "NASDAQ"
         },
         {
-          "ticker": "3888.HK",
-          "name_en": "Kingsoft",
-          "name_zh": "金山軟件",
-          "role_zh": "金山軟件：雲／CDN 基建代表性玩家",
-          "role_en": "Kingsoft: representative player in Cloud / CDN infrastructure",
-          "exchange": "HKEX",
-          "listedInApp": false
+          "ticker": "DLR",
+          "name_en": "Digital Realty",
+          "name_zh": "Digital Realty",
+          "role_zh": "Digital Realty：雲／CDN 基建代表性玩家",
+          "role_en": "Digital Realty: representative player in Cloud / CDN infrastructure",
+          "exchange": "NYSE"
         }
       ]
     },
