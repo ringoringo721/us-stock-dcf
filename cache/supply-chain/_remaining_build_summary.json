@@ -2,13 +2,20 @@
   "bandMin": 0.0,
   "bandMax": 50000000000.0,
   "bandTotal": 1041,
-  "written": 1,
+  "written": 8,
   "skippedExisting": [],
   "failures": [],
   "tickers": [
-    "APA"
+    "SE",
+    "TTWO",
+    "RBLX",
+    "EXPE",
+    "CPNG",
+    "U",
+    "GRAB",
+    "LYFT"
   ],
   "dryRun": false,
-  "date": "2026-11-20",
+  "date": "2026-11-23",
   "chartsDir": "/agent/repos/us-stock-dcf/cache/price_charts"
 }

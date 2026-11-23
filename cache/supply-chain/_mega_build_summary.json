@@ -1,12 +1,14 @@
 {
   "megaTotal": 160,
   "excludedAAPL": true,
-  "written": 2,
+  "written": 4,
   "failures": [],
   "tickers": [
-    "BHP",
-    "EQIX"
+    "UBER",
+    "SPOT",
+    "BKNG",
+    "ABNB"
   ],
   "dryRun": false,
-  "date": "2026-11-14"
+  "date": "2026-11-23"
 }

@@ -936,54 +936,54 @@
     "maps-cloud": [
       "GOOG",
       "MSFT",
-      "AMZN"
+      "ORCL"
     ],
     "payments": [
       "V",
       "MA",
       "PYPL"
     ],
-    "supply": [
+    "fleet": [
       "GM",
       "F",
-      "TM"
+      "TSLA"
     ],
-    "platforms": [
-      "UBER",
-      "DASH",
-      "GRAB"
+    "merchants": [
+      "MCD",
+      "SBUX",
+      "YUM"
     ],
-    "monetization": [
-      "GOOG",
-      "META",
-      "AMZN"
+    "ads": [
+      "KO",
+      "PEP",
+      "NKE"
     ]
   },
   "DASH": {
     "maps-cloud": [
       "GOOG",
       "MSFT",
-      "AMZN"
+      "ORCL"
     ],
     "payments": [
       "V",
       "MA",
       "PYPL"
     ],
-    "supply": [
+    "fleet": [
       "GM",
       "F",
-      "TM"
+      "XOM"
     ],
-    "platforms": [
-      "UBER",
-      "LYFT",
-      "GRAB"
+    "merchants": [
+      "MCD",
+      "SBUX",
+      "YUM"
     ],
-    "monetization": [
-      "GOOG",
-      "META",
-      "AMZN"
+    "ads": [
+      "KO",
+      "PEP",
+      "UL"
     ]
   },
   "GRAB": {
@@ -997,20 +997,20 @@
       "MA",
       "PYPL"
     ],
-    "supply": [
-      "GM",
-      "F",
-      "TM"
+    "fleet": [
+      "HMC",
+      "1211.HK",
+      "SHEL"
     ],
-    "platforms": [
-      "UBER",
-      "DASH",
-      "LYFT"
+    "merchants": [
+      "MCD",
+      "SBUX",
+      "YUM"
     ],
-    "monetization": [
-      "GOOG",
-      "META",
-      "AMZN"
+    "ads": [
+      "KO",
+      "PEP",
+      "UL"
     ]
   },
   "AVTR": {
@@ -2417,6 +2417,276 @@
       "2688.HK",
       "1193.HK",
       "0384.HK"
+    ]
+  },
+  "UBER": {
+    "maps-cloud": [
+      "GOOG",
+      "MSFT",
+      "ORCL"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "fleet": [
+      "GM",
+      "F",
+      "XOM"
+    ],
+    "merchants": [
+      "MCD",
+      "SBUX",
+      "YUM"
+    ],
+    "ads": [
+      "KO",
+      "PEP",
+      "UL"
+    ]
+  },
+  "BKNG": {
+    "inventory": [
+      "DAL",
+      "UAL",
+      "WH"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "AXP"
+    ],
+    "cloud-trust": [
+      "MSFT",
+      "AMZN",
+      "CRWD"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "SNAP"
+    ],
+    "loyalty": [
+      "AAPL",
+      "KO",
+      "NKE"
+    ]
+  },
+  "EXPE": {
+    "inventory": [
+      "DAL",
+      "UAL",
+      "H"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "AXP"
+    ],
+    "cloud-trust": [
+      "MSFT",
+      "AMZN",
+      "CRWD"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "SNAP"
+    ],
+    "loyalty": [
+      "AAPL",
+      "KO",
+      "NKE"
+    ]
+  },
+  "ABNB": {
+    "host-trust": [
+      "CB",
+      "PGR",
+      "ALL"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "cloud-trust": [
+      "MSFT",
+      "AMZN",
+      "CRWD"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "SNAP"
+    ],
+    "ads": [
+      "KO",
+      "PEP",
+      "NKE"
+    ]
+  },
+  "RBLX": {
+    "infra": [
+      "AMZN",
+      "MSFT",
+      "AKAM"
+    ],
+    "distribution": [
+      "AAPL",
+      "GOOG",
+      "SONY"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "creator-tools": [
+      "ADBE",
+      "ADSK",
+      "HUBS"
+    ],
+    "ua": [
+      "META",
+      "SNAP",
+      "TTD"
+    ]
+  },
+  "TTWO": {
+    "infra": [
+      "AMZN",
+      "AKAM",
+      "EQIX"
+    ],
+    "distribution": [
+      "AAPL",
+      "SONY",
+      "MSFT"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "services": [
+      "ACN",
+      "CTSH",
+      "ADBE"
+    ],
+    "ua": [
+      "META",
+      "GOOG",
+      "SNAP"
+    ]
+  },
+  "U": {
+    "cloud": [
+      "AMZN",
+      "MSFT",
+      "GOOG"
+    ],
+    "distribution": [
+      "AAPL",
+      "SONY",
+      "005930.KS"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "tools": [
+      "ADBE",
+      "ADSK",
+      "CRM"
+    ],
+    "ua": [
+      "META",
+      "SNAP",
+      "TTD"
+    ]
+  },
+  "SPOT": {
+    "labels": [
+      "UMG",
+      "SONY",
+      "WMG"
+    ],
+    "infra": [
+      "EQIX",
+      "AKAM",
+      "NET"
+    ],
+    "devices": [
+      "005930.KS",
+      "TSLA",
+      "MSFT"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "advertisers": [
+      "KO",
+      "PEP",
+      "NKE"
+    ]
+  },
+  "SE": {
+    "supply": [
+      "005930.KS",
+      "1810.HK",
+      "2020.HK"
+    ],
+    "fulfillment": [
+      "0144.HK",
+      "0316.HK",
+      "1308.HK"
+    ],
+    "payments": [
+      "0005.HK",
+      "V",
+      "MA"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "035420.KS"
+    ],
+    "lastmile": [
+      "1519.HK",
+      "FDX",
+      "UPS"
+    ]
+  },
+  "CPNG": {
+    "supply": [
+      "005930.KS",
+      "2020.HK",
+      "2331.HK"
+    ],
+    "fulfillment": [
+      "0144.HK",
+      "0316.HK",
+      "1308.HK"
+    ],
+    "payments": [
+      "0005.HK",
+      "V",
+      "MA"
+    ],
+    "traffic": [
+      "035420.KS",
+      "035720.KS",
+      "GOOG"
+    ],
+    "lastmile": [
+      "1519.HK",
+      "FDX",
+      "UPS"
     ]
   }
 }

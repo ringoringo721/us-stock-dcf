@@ -650,18 +650,23 @@
   "UBER": [
     [
       "LYFT",
-      "共享出行／即時配送對手",
-      "Rideshare / mobility rival"
+      "共享出行對手",
+      "Rideshare rival"
     ],
     [
       "DASH",
-      "共享出行／即時配送對手",
-      "Rideshare / mobility rival"
+      "即時配送對手",
+      "Delivery rival"
     ],
     [
       "GRAB",
-      "共享出行／即時配送對手",
-      "Rideshare / mobility rival"
+      "全球出行／配送對手",
+      "Global mobility / delivery rival"
+    ],
+    [
+      "AMZN",
+      "即配／本地物流替代",
+      "Delivery / local-logistics substitute"
     ]
   ],
   "ADP": [
@@ -816,14 +821,9 @@
       "YouTube Music rival"
     ],
     [
-      "NFLX",
-      "音訊／影音注意力競爭",
-      "Audio/video attention competition"
-    ],
-    [
-      "DIS",
-      "娛樂訂閱替代",
-      "Entertainment subscription substitute"
+      "TME",
+      "全球音樂串流對手",
+      "Global music streaming rival"
     ]
   ],
   "AMZN": [
@@ -3376,13 +3376,13 @@
     ],
     [
       "MAR",
-      "直銷住宿競爭",
-      "Direct lodging competition"
+      "飯店直銷對手",
+      "Hotel direct rival"
     ],
     [
       "HLT",
-      "直銷住宿競爭",
-      "Direct lodging competition"
+      "飯店直銷對手",
+      "Hotel direct rival"
     ],
     [
       "TCOM",
@@ -3410,11 +3410,6 @@
       "HLT",
       "飯店直銷對手",
       "Hotel direct rival"
-    ],
-    [
-      "UBER",
-      "短住／出行替代",
-      "Short-stay/mobility substitute"
     ]
   ],
   "MAR": [
@@ -5678,19 +5673,24 @@
   ],
   "DASH": [
     [
-      "LYFT",
-      "共享出行／即時配送對手",
-      "Rideshare / mobility rival"
+      "UBER",
+      "即時配送／出行對手",
+      "Delivery / mobility rival"
     ],
     [
-      "UBER",
-      "共享出行／即時配送對手",
-      "Rideshare / mobility rival"
+      "LYFT",
+      "本地出行替代",
+      "Local mobility substitute"
+    ],
+    [
+      "AMZN",
+      "即配／雜貨配送對手",
+      "Delivery / grocery rival"
     ],
     [
       "GRAB",
-      "共享出行／即時配送對手",
-      "Rideshare / mobility rival"
+      "全球即配對手",
+      "Global delivery rival"
     ]
   ],
   "CI": [
@@ -8654,24 +8654,29 @@
   ],
   "SE": [
     [
-      "MELI",
-      "電商平台對手",
-      "E-commerce platform rival"
-    ],
-    [
-      "AMZN",
-      "電商平台對手",
-      "E-commerce platform rival"
+      "PDD",
+      "新興市場電商對手",
+      "EM e-commerce rival"
     ],
     [
       "BABA",
-      "電商平台對手",
-      "E-commerce platform rival"
+      "跨境／區域電商對手",
+      "Cross-border / regional e-comm rival"
     ],
     [
-      "SHOP",
-      "電商平台對手",
-      "E-commerce platform rival"
+      "GRAB",
+      "東南亞超級應用對手",
+      "SEA super-app rival"
+    ],
+    [
+      "CPNG",
+      "韓／亞電商對手",
+      "Korea / Asia e-comm rival"
+    ],
+    [
+      "MELI",
+      "新興市場電商對手",
+      "EM e-commerce rival"
     ]
   ],
   "HEI": [
@@ -9426,27 +9431,27 @@
   ],
   "TTWO": [
     [
+      "EA",
+      "遊戲發行對手",
+      "Games publisher rival"
+    ],
+    [
+      "RBLX",
+      "互動／UGC 遊戲對手",
+      "Interactive / UGC games rival"
+    ],
+    [
+      "U",
+      "遊戲工具／引擎對手",
+      "Game tools / engine rival"
+    ],
+    [
       "NTES",
       "遊戲／互動娛樂對手",
       "Gaming / interactive entertainment rival"
     ],
     [
       "0700.HK",
-      "遊戲／互動娛樂對手",
-      "Gaming / interactive entertainment rival"
-    ],
-    [
-      "EA",
-      "遊戲／互動娛樂對手",
-      "Gaming / interactive entertainment rival"
-    ],
-    [
-      "RBLX",
-      "遊戲／互動娛樂對手",
-      "Gaming / interactive entertainment rival"
-    ],
-    [
-      "U",
       "遊戲／互動娛樂對手",
       "Gaming / interactive entertainment rival"
     ]
@@ -10671,16 +10676,6 @@
   ],
   "RBLX": [
     [
-      "NTES",
-      "遊戲／互動娛樂對手",
-      "Gaming / interactive entertainment rival"
-    ],
-    [
-      "0700.HK",
-      "遊戲／互動娛樂對手",
-      "Gaming / interactive entertainment rival"
-    ],
-    [
       "EA",
       "遊戲／互動娛樂對手",
       "Gaming / interactive entertainment rival"
@@ -10692,6 +10687,16 @@
     ],
     [
       "U",
+      "遊戲工具／引擎對手",
+      "Game tools / engine rival"
+    ],
+    [
+      "NTES",
+      "遊戲／互動娛樂對手",
+      "Gaming / interactive entertainment rival"
+    ],
+    [
+      "0700.HK",
       "遊戲／互動娛樂對手",
       "Gaming / interactive entertainment rival"
     ]
@@ -11635,28 +11640,28 @@
   "EXPE": [
     [
       "BKNG",
-      "Travel Services產品／市場對手",
-      "Travel Services product/market rival"
+      "OTA 對手",
+      "OTA rival"
     ],
     [
       "ABNB",
-      "Travel Services產品／市場對手",
-      "Travel Services product/market rival"
+      "住宿預訂對手",
+      "Lodging booking rival"
     ],
     [
       "RCL",
-      "Travel Services產品／市場對手",
-      "Travel Services product/market rival"
+      "度假／郵輪替代",
+      "Cruise / vacation substitute"
     ],
     [
       "CCL",
-      "Travel Services產品／市場對手",
-      "Travel Services product/market rival"
+      "度假／郵輪替代",
+      "Cruise / vacation substitute"
     ],
     [
-      "VIK",
-      "Travel Services產品／市場對手",
-      "Travel Services product/market rival"
+      "TCOM",
+      "全球 OTA 對手",
+      "Global OTA rival"
     ]
   ],
   "PHG": [
@@ -11850,29 +11855,29 @@
   ],
   "CPNG": [
     [
-      "TGT",
-      "折扣零售對手",
-      "Discount retail rival"
+      "SE",
+      "亞洲電商對手",
+      "Asia e-commerce rival"
     ],
     [
-      "WMT",
-      "折扣零售對手",
-      "Discount retail rival"
+      "BABA",
+      "亞洲電商對手",
+      "Asia e-commerce rival"
     ],
     [
-      "COST",
-      "折扣零售對手",
-      "Discount retail rival"
+      "PDD",
+      "價值電商對手",
+      "Value e-commerce rival"
+    ],
+    [
+      "JD",
+      "亞洲電商對手",
+      "Asia e-commerce rival"
     ],
     [
       "AMZN",
-      "折扣零售對手",
-      "Discount retail rival"
-    ],
-    [
-      "DG",
-      "折扣零售對手",
-      "Discount retail rival"
+      "全球電商對手",
+      "Global e-commerce rival"
     ]
   ],
   "KHC": [
@@ -14081,27 +14086,27 @@
   ],
   "U": [
     [
+      "TTWO",
+      "遊戲發行／工具對手",
+      "Games publish / tools rival"
+    ],
+    [
+      "EA",
+      "遊戲發行／工具對手",
+      "Games publish / tools rival"
+    ],
+    [
+      "RBLX",
+      "UGC／創作生態對手",
+      "UGC / create-ecosystem rival"
+    ],
+    [
       "NTES",
       "遊戲／互動娛樂對手",
       "Gaming / interactive entertainment rival"
     ],
     [
       "0700.HK",
-      "遊戲／互動娛樂對手",
-      "Gaming / interactive entertainment rival"
-    ],
-    [
-      "EA",
-      "遊戲／互動娛樂對手",
-      "Gaming / interactive entertainment rival"
-    ],
-    [
-      "TTWO",
-      "遊戲／互動娛樂對手",
-      "Gaming / interactive entertainment rival"
-    ],
-    [
-      "RBLX",
       "遊戲／互動娛樂對手",
       "Gaming / interactive entertainment rival"
     ]
@@ -19131,19 +19136,24 @@
   ],
   "GRAB": [
     [
-      "LYFT",
-      "共享出行／即時配送對手",
-      "Rideshare / mobility rival"
+      "UBER",
+      "出行／即配對手",
+      "Mobility / delivery rival"
     ],
     [
-      "UBER",
-      "共享出行／即時配送對手",
-      "Rideshare / mobility rival"
+      "SE",
+      "東南亞超級應用對手",
+      "SEA super-app rival"
     ],
     [
       "DASH",
-      "共享出行／即時配送對手",
-      "Rideshare / mobility rival"
+      "即配對手",
+      "Delivery rival"
+    ],
+    [
+      "3690.HK",
+      "本地生活／即配參照",
+      "Local-life / delivery reference"
     ]
   ],
   "CACI": [
@@ -28668,18 +28678,23 @@
   "LYFT": [
     [
       "UBER",
-      "共享出行／即時配送對手",
-      "Rideshare / mobility rival"
+      "共享出行對手",
+      "Rideshare rival"
     ],
     [
       "DASH",
-      "共享出行／即時配送對手",
-      "Rideshare / mobility rival"
+      "本地出行／配送替代",
+      "Local mobility / delivery substitute"
     ],
     [
       "GRAB",
-      "共享出行／即時配送對手",
-      "Rideshare / mobility rival"
+      "全球出行對手",
+      "Global mobility rival"
+    ],
+    [
+      "AMZN",
+      "本地物流替代",
+      "Local logistics substitute"
     ]
   ],
   "HRB": [

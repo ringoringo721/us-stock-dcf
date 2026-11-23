@@ -1000,28 +1000,27 @@
     "maps-cloud": [
       "GOOG",
       "MSFT",
-      "AMZN"
+      "ORCL"
     ],
     "payments": [
       "V",
       "MA",
       "PYPL"
     ],
-    "supply": [
+    "fleet": [
       "GM",
       "F",
-      "TM"
+      "XOM"
     ],
-    "platforms": [
-      "UBER",
-      "DASH",
-      "LYFT",
-      "GRAB"
+    "merchants": [
+      "MCD",
+      "SBUX",
+      "YUM"
     ],
-    "monetization": [
-      "GOOG",
-      "META",
-      "AMZN"
+    "ads": [
+      "KO",
+      "PEP",
+      "UL"
     ]
   },
   "outdoor-advertising-v1": {
@@ -1910,6 +1909,195 @@
       "2020.HK",
       "2331.HK",
       "2319.HK"
+    ]
+  },
+  "sea-superapp-v1": {
+    "maps-cloud": [
+      "GOOG",
+      "MSFT",
+      "AMZN"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "fleet": [
+      "HMC",
+      "1211.HK",
+      "SHEL"
+    ],
+    "merchants": [
+      "MCD",
+      "SBUX",
+      "YUM"
+    ],
+    "ads": [
+      "KO",
+      "PEP",
+      "UL"
+    ]
+  },
+  "ota-marketplace-v1": {
+    "inventory": [
+      "DAL",
+      "UAL",
+      "WH"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "AXP"
+    ],
+    "cloud-trust": [
+      "MSFT",
+      "AMZN",
+      "CRWD"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "SNAP"
+    ],
+    "loyalty": [
+      "AAPL",
+      "KO",
+      "NKE"
+    ]
+  },
+  "short-term-lodging-v1": {
+    "host-trust": [
+      "CB",
+      "PGR",
+      "ALL"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "cloud-trust": [
+      "MSFT",
+      "AMZN",
+      "CRWD"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "SNAP"
+    ],
+    "ads": [
+      "KO",
+      "PEP",
+      "NKE"
+    ]
+  },
+  "games-ugc-platform-v1": {
+    "infra": [
+      "AMZN",
+      "MSFT",
+      "AKAM"
+    ],
+    "distribution": [
+      "AAPL",
+      "GOOG",
+      "SONY"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "creator-tools": [
+      "ADBE",
+      "ADSK",
+      "HUBS"
+    ],
+    "ua": [
+      "META",
+      "SNAP",
+      "TTD"
+    ]
+  },
+  "games-publisher-v1": {
+    "infra": [
+      "AMZN",
+      "AKAM",
+      "EQIX"
+    ],
+    "distribution": [
+      "AAPL",
+      "SONY",
+      "MSFT"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "services": [
+      "ACN",
+      "CTSH",
+      "ADBE"
+    ],
+    "ua": [
+      "META",
+      "GOOG",
+      "SNAP"
+    ]
+  },
+  "game-engine-v1": {
+    "cloud": [
+      "AMZN",
+      "MSFT",
+      "GOOG"
+    ],
+    "distribution": [
+      "AAPL",
+      "SONY",
+      "005930.KS"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "tools": [
+      "ADBE",
+      "ADSK",
+      "CRM"
+    ],
+    "ua": [
+      "META",
+      "SNAP",
+      "TTD"
+    ]
+  },
+  "music-streaming-v1": {
+    "labels": [
+      "UMG",
+      "SONY",
+      "WMG"
+    ],
+    "infra": [
+      "EQIX",
+      "AKAM",
+      "NET"
+    ],
+    "devices": [
+      "005930.KS",
+      "TSLA",
+      "MSFT"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "advertisers": [
+      "KO",
+      "PEP",
+      "NKE"
     ]
   }
 }

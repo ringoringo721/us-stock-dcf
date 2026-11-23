@@ -1871,11 +1871,13 @@ MODELS: dict[str, dict] = {
             },
         ],
     },
+    # US mobility/delivery platforms (UBER/DASH/LYFT): external inputs only.
+    # Platform peers (UBER/DASH/LYFT/GRAB) stay on the rival arc — never a stage.
     "rideshare-v1": {
         "label_zh": "共享出行／即時配送價值鏈",
         "label_en": "Rideshare / mobility value chain",
-        "description_zh": "地圖／雲 → 支付 → 運力供給 → 出行／配送平台同業 → 廣告／會員。",
-        "description_en": "Maps/cloud → payments → driver supply → rideshare/delivery platform peers → ads/membership.",
+        "description_zh": "地圖／雲 → 支付 → 車隊／能源運力 → 餐飲商戶供給 → 品牌廣告。平台同業放對手弧，不塞進階段。",
+        "description_en": "Maps/cloud → payments → fleet/energy → merchant supply → brand ads. Platform peers stay on the rival arc.",
         "stages": [
             {
                 "id": "maps-cloud",
@@ -1888,34 +1890,377 @@ MODELS: dict[str, dict] = {
             {
                 "id": "payments",
                 "order": 2,
-                "label_zh": "支付",
-                "label_en": "Payments",
-                "summary_zh": "持卡人支付與撥款。",
-                "summary_en": "Card payments and payouts.",
+                "label_zh": "支付／清算",
+                "label_en": "Payments / clearing",
+                "summary_zh": "用戶支付與司機／商戶撥款。",
+                "summary_en": "User pay-in and driver/merchant payouts.",
             },
             {
-                "id": "supply",
+                "id": "fleet",
                 "order": 3,
-                "label_zh": "運力／司機供給",
-                "label_en": "Driver / courier supply",
-                "summary_zh": "司機與外送運力生態。",
-                "summary_en": "Driver and courier supply ecosystem.",
+                "label_zh": "車隊／運力設備／能源",
+                "label_en": "Fleet / capacity equipment / energy",
+                "summary_zh": "乘用車／運力設備與燃油能源供給（非對手平台）。",
+                "summary_en": "Passenger vehicles, capacity equipment, and fuel energy — not rival platforms.",
             },
             {
-                "id": "platforms",
+                "id": "merchants",
                 "order": 4,
-                "label_zh": "出行／配送平台",
-                "label_en": "Rideshare / delivery platforms",
-                "summary_zh": "共享出行與即時配送同業。",
-                "summary_en": "Rideshare and delivery platform peers.",
+                "label_zh": "餐飲／零售商戶供給",
+                "label_en": "Restaurant / retail merchants",
+                "summary_zh": "即配與本地生活訂單背後的餐飲／零售品牌商戶。",
+                "summary_en": "F&B and retail brands behind delivery / local-commerce demand.",
             },
             {
-                "id": "monetization",
+                "id": "ads",
                 "order": 5,
-                "label_zh": "廣告／會員",
-                "label_en": "Ads / membership",
-                "summary_zh": "平台廣告與訂閱變現。",
-                "summary_en": "Platform ads and memberships.",
+                "label_zh": "品牌廣告／推廣變現",
+                "label_en": "Brand ads / promotion",
+                "summary_zh": "在出行／配送庫存投放的品牌廣告主。",
+                "summary_en": "Brand advertisers on mobility/delivery inventory.",
+            },
+        ],
+    },
+    # SEA Grab-class super-app: mobility + deliveries + fintech — regional merchants/fleet.
+    "sea-superapp-v1": {
+        "label_zh": "東南亞超級應用價值鏈",
+        "label_en": "Southeast Asia super-app value chain",
+        "description_zh": "地圖／雲 → 支付 → 兩輪／運力與能源 → 東南亞餐飲零售商戶 → 品牌廣告。平台同業放對手弧。",
+        "description_en": "Maps/cloud → payments → two-wheel/fleet & energy → SEA F&B/retail merchants → brand ads. Platform peers stay on the rival arc.",
+        "stages": [
+            {
+                "id": "maps-cloud",
+                "order": 1,
+                "label_zh": "地圖／雲基礎設施",
+                "label_en": "Maps / cloud infrastructure",
+                "summary_zh": "東南亞地圖、路由與雲算力。",
+                "summary_en": "SEA maps, routing, and cloud compute.",
+            },
+            {
+                "id": "payments",
+                "order": 2,
+                "label_zh": "支付／清算",
+                "label_en": "Payments / clearing",
+                "summary_zh": "用戶支付與司機／商戶撥款（含 GrabPay 軌道）。",
+                "summary_en": "User pay-in and driver/merchant payouts (incl. GrabPay rails).",
+            },
+            {
+                "id": "fleet",
+                "order": 3,
+                "label_zh": "兩輪／運力設備／能源",
+                "label_en": "Two-wheel / fleet equipment / energy",
+                "summary_zh": "東南亞機車／兩輪與運力能源供給（非乘用車假扮車隊）。",
+                "summary_en": "SEA scooters/two-wheel and fleet energy — not passenger-car OEMs as fake fleet.",
+            },
+            {
+                "id": "merchants",
+                "order": 4,
+                "label_zh": "東南亞餐飲／零售商戶",
+                "label_en": "SEA F&B / retail merchants",
+                "summary_zh": "GrabFood／商戶訂單背後的東南亞餐飲與零售品牌。",
+                "summary_en": "SEA F&B and retail brands behind GrabFood/merchant orders.",
+            },
+            {
+                "id": "ads",
+                "order": 5,
+                "label_zh": "品牌廣告／推廣變現",
+                "label_en": "Brand ads / promotion",
+                "summary_zh": "在 Grab 庫存投放的全球／區域品牌廣告主。",
+                "summary_en": "Global/regional brand advertisers on Grab inventory.",
+            },
+        ],
+    },
+    # OTA marketplace (BKNG/EXPE): commission on third-party travel inventory — not F&B inputs.
+    "ota-marketplace-v1": {
+        "label_zh": "線上旅遊代理（OTA）價值鏈",
+        "label_en": "Online travel agency (OTA) value chain",
+        "description_zh": "航司／住宿庫存 → 支付 → 雲／身分 → 搜尋流量 → 會員／忠誠夥伴。直銷酒店對手放對手弧。",
+        "description_en": "Airline/lodging inventory → payments → cloud/identity → search traffic → loyalty partners. Direct-hotel rivals stay on the rival arc.",
+        "stages": [
+            {
+                "id": "inventory",
+                "order": 1,
+                "label_zh": "航司／住宿庫存供給",
+                "label_en": "Airline / lodging inventory",
+                "summary_zh": "OTA 佣金背後的航司與飯店庫存 API（非對手直銷品牌名單）。",
+                "summary_en": "Airline and hotel inventory APIs behind OTA commissions — not direct-booking rival pads.",
+            },
+            {
+                "id": "payments",
+                "order": 2,
+                "label_zh": "支付／清算",
+                "label_en": "Payments / clearing",
+                "summary_zh": "旅客付款與商戶撥款軌道。",
+                "summary_en": "Traveler pay-in and merchant payouts.",
+            },
+            {
+                "id": "cloud-trust",
+                "order": 3,
+                "label_zh": "雲／身分與信任",
+                "label_en": "Cloud / identity & trust",
+                "summary_zh": "預訂平台雲算力與身分／資安基礎設施。",
+                "summary_en": "Booking-platform cloud compute and identity/security infra.",
+            },
+            {
+                "id": "traffic",
+                "order": 4,
+                "label_zh": "搜尋／流量獲客",
+                "label_en": "Search / traffic acquisition",
+                "summary_zh": "搜尋與社群流量入口（非對手 OTA）。",
+                "summary_en": "Search and social acquisition — not rival OTAs.",
+            },
+            {
+                "id": "loyalty",
+                "order": 5,
+                "label_zh": "會員／支付卡忠誠",
+                "label_en": "Membership / card loyalty",
+                "summary_zh": "聯名卡與會員權益變現夥伴。",
+                "summary_en": "Co-brand cards and membership-benefit partners.",
+            },
+        ],
+    },
+    # Airbnb-class short-term lodging marketplace (not hotel ops / F&B template).
+    "short-term-lodging-v1": {
+        "label_zh": "短租平台價值鏈",
+        "label_en": "Short-term lodging marketplace value chain",
+        "description_zh": "房東保險／信任 → 支付 → 雲／身分 → 旅遊流量 → 品牌廣告。OTA／酒店直銷對手放對手弧。",
+        "description_en": "Host insurance/trust → payments → cloud/identity → travel traffic → brand ads. OTA/hotel rivals stay on the rival arc.",
+        "stages": [
+            {
+                "id": "host-trust",
+                "order": 1,
+                "label_zh": "房東保險／信任服務",
+                "label_en": "Host insurance / trust services",
+                "summary_zh": "房東保障、責任險與信任驗證的外部保險夥伴。",
+                "summary_en": "External insurers for host protection, liability, and trust.",
+            },
+            {
+                "id": "payments",
+                "order": 2,
+                "label_zh": "支付／清算",
+                "label_en": "Payments / clearing",
+                "summary_zh": "房客付款與房東撥款。",
+                "summary_en": "Guest pay-in and host payouts.",
+            },
+            {
+                "id": "cloud-trust",
+                "order": 3,
+                "label_zh": "雲／身分基礎設施",
+                "label_en": "Cloud / identity infrastructure",
+                "summary_zh": "預訂與身分核驗所需的雲與資安底座。",
+                "summary_en": "Cloud and security rails under booking and identity checks.",
+            },
+            {
+                "id": "traffic",
+                "order": 4,
+                "label_zh": "旅遊／搜尋流量",
+                "label_en": "Travel / search traffic",
+                "summary_zh": "搜尋與旅遊內容流量獲客（非對手 OTA 名單）。",
+                "summary_en": "Search and travel-content acquisition — not rival OTA pads.",
+            },
+            {
+                "id": "ads",
+                "order": 5,
+                "label_zh": "品牌廣告／推廣",
+                "label_en": "Brand ads / promotion",
+                "summary_zh": "在短租庫存投放的旅遊與消費品牌廣告主。",
+                "summary_en": "Travel and consumer brand advertisers on short-stay inventory.",
+            },
+        ],
+    },
+    # Roblox-class UGC games platform — virtual currency/subs; no self/rival IP as upstream.
+    "games-ugc-platform-v1": {
+        "label_zh": "UGC 遊戲平台價值鏈",
+        "label_en": "UGC games platform value chain",
+        "description_zh": "雲／CDN → 裝置商店分發 → 支付 → 創作者工具 → 獲客廣告。自研／對手遊戲 IP 不進階段。",
+        "description_en": "Cloud/CDN → app-store distribution → payments → creator tools → UA ads. Self/rival game IP is not a stage.",
+        "stages": [
+            {
+                "id": "infra",
+                "order": 1,
+                "label_zh": "雲／CDN 基礎設施",
+                "label_en": "Cloud / CDN infrastructure",
+                "summary_zh": "UGC 平台運行所需的雲與邊緣分發。",
+                "summary_en": "Cloud and edge delivery under the UGC platform.",
+            },
+            {
+                "id": "distribution",
+                "order": 2,
+                "label_zh": "裝置／應用商店分發",
+                "label_en": "Device / app-store distribution",
+                "summary_zh": "手機、主機與應用商店到達入口。",
+                "summary_en": "Phone, console, and app-store reach.",
+            },
+            {
+                "id": "payments",
+                "order": 3,
+                "label_zh": "支付／虛擬貨幣軌道",
+                "label_en": "Payments / virtual-currency rails",
+                "summary_zh": "儲值、訂閱與創作者分成清算。",
+                "summary_en": "Top-up, subscription, and creator-payout clearing.",
+            },
+            {
+                "id": "creator-tools",
+                "order": 4,
+                "label_zh": "創作者工具／素材生態",
+                "label_en": "Creator tools / asset ecosystem",
+                "summary_zh": "外部設計／製作工具與素材市集（非自研遊戲 IP）。",
+                "summary_en": "External design/production tools and asset markets — not self-made game IP.",
+            },
+            {
+                "id": "ua",
+                "order": 5,
+                "label_zh": "用戶獲客／廣告",
+                "label_en": "User acquisition / ads",
+                "summary_zh": "獲客媒體與效果廣告夥伴。",
+                "summary_en": "UA media and performance-ad partners.",
+            },
+        ],
+    },
+    # Take-Two-class publisher: self-developed/published titles stay off stages.
+    "games-publisher-v1": {
+        "label_zh": "遊戲發行商價值鏈",
+        "label_en": "Games publisher value chain",
+        "description_zh": "雲／線上服務 → 主機／商店分發 → 支付 → 本地化／品管外包 → 獲客媒體。自研 IP 不進階段。",
+        "description_en": "Cloud/online services → console/store distribution → payments → localization/QA vendors → UA media. Self-made IP is not a stage.",
+        "stages": [
+            {
+                "id": "infra",
+                "order": 1,
+                "label_zh": "雲／線上服務基礎設施",
+                "label_en": "Cloud / online-services infrastructure",
+                "summary_zh": "多人連線與後端雲資源。",
+                "summary_en": "Multiplayer and backend cloud resources.",
+            },
+            {
+                "id": "distribution",
+                "order": 2,
+                "label_zh": "主機／應用商店分發",
+                "label_en": "Console / storefront distribution",
+                "summary_zh": "PlayStation／Xbox／行動商店等外部到達。",
+                "summary_en": "PlayStation/Xbox/mobile storefront reach.",
+            },
+            {
+                "id": "payments",
+                "order": 3,
+                "label_zh": "支付／數位商務",
+                "label_en": "Payments / digital commerce",
+                "summary_zh": "數位購買與內購清算。",
+                "summary_en": "Digital purchase and IAP clearing.",
+            },
+            {
+                "id": "services",
+                "order": 4,
+                "label_zh": "本地化／品管／製作服務",
+                "label_en": "Localization / QA / production services",
+                "summary_zh": "外協本地化、品管與中間件工具（非自研工作室）。",
+                "summary_en": "External localization, QA, and middleware tools — not own studios.",
+            },
+            {
+                "id": "ua",
+                "order": 5,
+                "label_zh": "用戶獲客／廣告",
+                "label_en": "User acquisition / ads",
+                "summary_zh": "發行期獲客媒體夥伴。",
+                "summary_en": "Launch-window UA media partners.",
+            },
+        ],
+    },
+    # Unity-class engine/create tools — not generic SaaS channel (CDW/SNX) dump.
+    "game-engine-v1": {
+        "label_zh": "遊戲引擎／創作工具價值鏈",
+        "label_en": "Game engine / create-tools value chain",
+        "description_zh": "雲／算力 → 裝置／商店到達 → 支付 → 周邊創作工具 → 獲客。引擎同業對手放對手弧。",
+        "description_en": "Cloud/compute → device/store reach → payments → adjacent create tools → UA. Engine peers stay on the rival arc.",
+        "stages": [
+            {
+                "id": "cloud",
+                "order": 1,
+                "label_zh": "雲／算力基礎設施",
+                "label_en": "Cloud / compute infrastructure",
+                "summary_zh": "引擎雲服務與編輯器後端算力。",
+                "summary_en": "Engine cloud services and editor backend compute.",
+            },
+            {
+                "id": "distribution",
+                "order": 2,
+                "label_zh": "裝置／商店到達",
+                "label_en": "Device / storefront reach",
+                "summary_zh": "引擎輸出目標的裝置與商店生態。",
+                "summary_en": "Device and storefront ecosystems the engine targets.",
+            },
+            {
+                "id": "payments",
+                "order": 3,
+                "label_zh": "支付／授權清算",
+                "label_en": "Payments / license clearing",
+                "summary_zh": "引擎授權與運行時費用清算。",
+                "summary_en": "Engine license and runtime fee clearing.",
+            },
+            {
+                "id": "tools",
+                "order": 4,
+                "label_zh": "周邊創作／設計工具",
+                "label_en": "Adjacent create / design tools",
+                "summary_zh": "與引擎併用的外部 DCC／設計工具（非對手引擎）。",
+                "summary_en": "External DCC/design tools used with the engine — not rival engines.",
+            },
+            {
+                "id": "ua",
+                "order": 5,
+                "label_zh": "用戶獲客／廣告",
+                "label_en": "User acquisition / ads",
+                "summary_zh": "Grow／獲客與效果廣告夥伴。",
+                "summary_en": "Grow/UA and performance-ad partners.",
+            },
+        ],
+    },
+    # Spotify-class music streaming: labels are COGS/content supply — not NFLX/DIS dump.
+    "music-streaming-v1": {
+        "label_zh": "音樂串流價值鏈",
+        "label_en": "Music streaming value chain",
+        "description_zh": "唱片公司授權 → 雲／CDN → 裝置入口 → 訂閱支付 → 廣告主。音樂服務對手放對手弧。",
+        "description_en": "Label licensing → cloud/CDN → device entry → subscription pay → advertisers. Music-service rivals stay on the rival arc.",
+        "stages": [
+            {
+                "id": "labels",
+                "order": 1,
+                "label_zh": "唱片公司／音樂授權",
+                "label_en": "Record labels / music licensing",
+                "summary_zh": "串流授權成本背後的三大唱片公司等內容供給。",
+                "summary_en": "Major-label content supply behind streaming license COGS.",
+            },
+            {
+                "id": "infra",
+                "order": 2,
+                "label_zh": "雲／CDN 基礎設施",
+                "label_en": "Cloud / CDN infrastructure",
+                "summary_zh": "串流播放所需的雲與邊緣分發。",
+                "summary_en": "Cloud and edge delivery for streaming playback.",
+            },
+            {
+                "id": "devices",
+                "order": 3,
+                "label_zh": "裝置／OS 入口",
+                "label_en": "Devices / OS entry points",
+                "summary_zh": "手機、車載與音箱等到達入口。",
+                "summary_en": "Phone, auto, and speaker reach.",
+            },
+            {
+                "id": "payments",
+                "order": 4,
+                "label_zh": "訂閱支付軌道",
+                "label_en": "Subscription payment rails",
+                "summary_zh": "訂閱扣款與應用內購買清算。",
+                "summary_en": "Subscription billing and IAP clearing.",
+            },
+            {
+                "id": "advertisers",
+                "order": 5,
+                "label_zh": "廣告主／品牌變現",
+                "label_en": "Advertisers / brand monetization",
+                "summary_zh": "免費層與播客廣告庫存的品牌廣告主。",
+                "summary_en": "Brand advertisers on free-tier and podcast inventory.",
             },
         ],
     },
@@ -2615,9 +2960,17 @@ INDUSTRY_MODEL: dict[tuple[str, str], str] = {
 
 # Ticker-level model overrides (semiconductor subtypes, special cases)
 TICKER_MODEL: dict[str, str] = {
-    "GRAB": "rideshare-v1",
+    "GRAB": "sea-superapp-v1",  # SEA mobility + deliveries + fintech
     "UBER": "rideshare-v1",
     "DASH": "rideshare-v1",
+    "LYFT": "rideshare-v1",
+    "ABNB": "short-term-lodging-v1",  # short-stay marketplace fees
+    "BKNG": "ota-marketplace-v1",  # OTA commissions
+    "EXPE": "ota-marketplace-v1",
+    "RBLX": "games-ugc-platform-v1",  # UGC virtual currency / subs
+    "TTWO": "games-publisher-v1",  # self-published games (IP ≠ upstream)
+    "U": "game-engine-v1",  # engine/create tools — not SaaS channel dump
+    "SPOT": "music-streaming-v1",  # labels = content COGS
     # Foundry
     "TSM": "semiconductor-foundry-v1",
     # Memory
@@ -2642,14 +2995,11 @@ TICKER_MODEL: dict[str, str] = {
     "COST": "ecommerce-retail-v1",
     "BABA": "ecommerce-retail-v1",
     "PDD": "ecommerce-retail-v1",
-    # Uber more marketplace/mobility discretionary
-    "ABNB": "consumer-discretionary-v1",
-    "BKNG": "consumer-discretionary-v1",
     # Mid-mega ($50–100B) specialty overrides
     "TEL": "hardware-value-chain-v1",  # TE Connectivity — components, not fabless silicon
     "ASX": "semiconductor-osat-v1",  # ASE — OSAT / advanced packaging (not foundry)
     "WDC": "semiconductor-memory-v1",  # storage / NAND adjacency
-    # DASH/UBER/LYFT/GRAB → rideshare-v1 (above); never consumer-discretionary OTAs (BKNG/EXPE)
+    # DASH/UBER/LYFT → rideshare-v1; GRAB → sea-superapp-v1; ABNB/BKNG/EXPE → lodging/OTA (above)
     "JCI": "industrials-v1",  # HVAC / building systems more than bulk materials
     "RELX": "capital-markets-v1",  # info / analytics / risk data adjacency
     "MSTR": "saas-cloud-v1",
@@ -2812,7 +3162,6 @@ TICKER_MODEL: dict[str, str] = {
     "RIOT": "bitcoin-mining-v1",
     "HUT": "bitcoin-mining-v1",
     "WULF": "bitcoin-mining-v1",
-    "LYFT": "rideshare-v1",
     "OUT": "outdoor-advertising-v1",
     "BOX": "saas-cloud-v1",  # content/collab peers via specialty group
     "AN": "auto-dealer-v1",

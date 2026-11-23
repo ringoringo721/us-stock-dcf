@@ -3,7 +3,7 @@
   "ticker": "U",
   "name_en": "Unity Software",
   "name_zh": "Unity",
-  "updatedAt": "2026-11-20",
+  "updatedAt": "2026-11-23",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -11,194 +11,219 @@
     "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
     "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
     "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
-    "modelId": "saas-cloud-v1",
+    "modelId": "game-engine-v1",
     "references": [
-      "Industry model `saas-cloud-v1`",
+      "Industry model `game-engine-v1`",
       "AAPL curated seed shape on main (schema reference)",
       "cache/us_universe.json screen: remaining US listings without supply-chain seed",
       "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
     ]
   },
   "model": {
-    "id": "saas-cloud-v1",
-    "label_zh": "軟體／雲端價值鏈",
-    "label_en": "Software / cloud value chain",
-    "description_zh": "算力／矽晶 → 雲端基礎設施 → 資料／資安層 → 系統整合 → 企業通路。",
-    "description_en": "Compute/silicon → cloud infra → data/security → SI partners → enterprise channel."
+    "id": "game-engine-v1",
+    "label_zh": "遊戲引擎／創作工具價值鏈",
+    "label_en": "Game engine / create-tools value chain",
+    "description_zh": "雲／算力 → 裝置／商店到達 → 支付 → 周邊創作工具 → 獲客。引擎同業對手放對手弧。",
+    "description_en": "Cloud/compute → device/store reach → payments → adjacent create tools → UA. Engine peers stay on the rival arc."
   },
   "stages": [
     {
-      "id": "silicon",
+      "id": "cloud",
       "order": 1,
-      "label_zh": "算力／加速矽晶",
-      "label_en": "Compute / accelerator silicon",
-      "summary_zh": "CPU／GPU／自研加速相關供應。",
-      "summary_en": "CPU/GPU and accelerator supply.",
+      "label_zh": "雲／算力基礎設施",
+      "label_en": "Cloud / compute infrastructure",
+      "summary_zh": "引擎雲服務與編輯器後端算力。",
+      "summary_en": "Engine cloud services and editor backend compute.",
       "players": [
         {
-          "ticker": "NVDA",
-          "name_en": "NVIDIA",
-          "name_zh": "輝達",
-          "role_zh": "輝達：算力／加速矽晶代表性玩家",
-          "role_en": "NVIDIA: representative player in Compute / accelerator silicon",
+          "ticker": "AMZN",
+          "name_en": "Amazon.com",
+          "name_zh": "亞馬遜",
+          "role_zh": "亞馬遜：雲／算力基礎設施代表性玩家",
+          "role_en": "Amazon.com: representative player in Cloud / compute infrastructure",
           "exchange": "NASDAQ"
         },
-        {
-          "ticker": "AMD",
-          "name_en": "Advanced Micro Devices",
-          "name_zh": "超微半導體",
-          "role_zh": "超微半導體：算力／加速矽晶代表性玩家",
-          "role_en": "Advanced Micro Devices: representative player in Compute / accelerator silicon",
-          "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "AVGO",
-          "name_en": "Broadcom",
-          "name_zh": "博通",
-          "role_zh": "博通：算力／加速矽晶代表性玩家",
-          "role_en": "Broadcom: representative player in Compute / accelerator silicon",
-          "exchange": "NASDAQ"
-        }
-      ]
-    },
-    {
-      "id": "infra",
-      "order": 2,
-      "label_zh": "資料中心／雲端基礎設施",
-      "label_en": "Data center / cloud infrastructure",
-      "summary_zh": "機房、網路與基礎雲資源。",
-      "summary_en": "Colo, networking, base cloud.",
-      "players": [
-        {
-          "ticker": "EQIX",
-          "name_en": "Equinix",
-          "name_zh": "Equinix",
-          "role_zh": "Equinix：資料中心／雲端基礎設施代表性玩家",
-          "role_en": "Equinix: representative player in Data center / cloud infrastructure",
-          "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "DLR",
-          "name_en": "Digital Realty",
-          "name_zh": "Digital Realty",
-          "role_zh": "Digital Realty：資料中心／雲端基礎設施代表性玩家",
-          "role_en": "Digital Realty: representative player in Data center / cloud infrastructure",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "ANET",
-          "name_en": "Arista Networks",
-          "name_zh": "Arista 網路",
-          "role_zh": "Arista 網路：資料中心／雲端基礎設施代表性玩家",
-          "role_en": "Arista Networks: representative player in Data center / cloud infrastructure",
-          "exchange": "NYSE"
-        }
-      ]
-    },
-    {
-      "id": "data-security",
-      "order": 3,
-      "label_zh": "資料平台／資安",
-      "label_en": "Data platform / security",
-      "summary_zh": "資料、身分與資安控制層。",
-      "summary_en": "Data, identity, and security layer.",
-      "players": [
         {
           "ticker": "MSFT",
           "name_en": "Microsoft",
           "name_zh": "微軟",
-          "role_zh": "微軟：資料平台／資安代表性玩家",
-          "role_en": "Microsoft: representative player in Data platform / security",
+          "role_zh": "微軟：雲／算力基礎設施代表性玩家",
+          "role_en": "Microsoft: representative player in Cloud / compute infrastructure",
           "exchange": "NASDAQ"
         },
         {
-          "ticker": "ORCL",
-          "name_en": "Oracle",
-          "name_zh": "甲骨文",
-          "role_zh": "甲骨文：資料平台／資安代表性玩家",
-          "role_en": "Oracle: representative player in Data platform / security",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "CSCO",
-          "name_en": "Cisco Systems",
-          "name_zh": "思科",
-          "role_zh": "思科：資料平台／資安代表性玩家",
-          "role_en": "Cisco Systems: representative player in Data platform / security",
+          "ticker": "GOOG",
+          "name_en": "Alphabet",
+          "name_zh": "Alphabet（Google）",
+          "role_zh": "Alphabet（Google）：雲／算力基礎設施代表性玩家",
+          "role_en": "Alphabet: representative player in Cloud / compute infrastructure",
           "exchange": "NASDAQ"
         }
       ]
     },
     {
-      "id": "integrators",
+      "id": "distribution",
+      "order": 2,
+      "label_zh": "裝置／商店到達",
+      "label_en": "Device / storefront reach",
+      "summary_zh": "引擎輸出目標的裝置與商店生態。",
+      "summary_en": "Device and storefront ecosystems the engine targets.",
+      "players": [
+        {
+          "ticker": "AAPL",
+          "name_en": "Apple",
+          "name_zh": "蘋果",
+          "role_zh": "蘋果：裝置／商店到達代表性玩家",
+          "role_en": "Apple: representative player in Device / storefront reach",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "SONY",
+          "name_en": "Sony",
+          "name_zh": "索尼",
+          "role_zh": "索尼：裝置／商店到達代表性玩家",
+          "role_en": "Sony: representative player in Device / storefront reach",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "005930.KS",
+          "name_en": "Samsung Electronics",
+          "name_zh": "三星電子",
+          "role_zh": "三星電子：裝置／商店到達代表性玩家",
+          "role_en": "Samsung Electronics: representative player in Device / storefront reach",
+          "exchange": "KRX",
+          "listedInApp": false
+        }
+      ]
+    },
+    {
+      "id": "payments",
+      "order": 3,
+      "label_zh": "支付／授權清算",
+      "label_en": "Payments / license clearing",
+      "summary_zh": "引擎授權與運行時費用清算。",
+      "summary_en": "Engine license and runtime fee clearing.",
+      "players": [
+        {
+          "ticker": "V",
+          "name_en": "Visa",
+          "name_zh": "威士卡",
+          "role_zh": "威士卡：支付／授權清算代表性玩家",
+          "role_en": "Visa: representative player in Payments / license clearing",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "MA",
+          "name_en": "Mastercard",
+          "name_zh": "萬事達卡",
+          "role_zh": "萬事達卡：支付／授權清算代表性玩家",
+          "role_en": "Mastercard: representative player in Payments / license clearing",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "PYPL",
+          "name_en": "PayPal",
+          "name_zh": "PayPal",
+          "role_zh": "PayPal：支付／授權清算代表性玩家",
+          "role_en": "PayPal: representative player in Payments / license clearing",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "tools",
       "order": 4,
-      "label_zh": "系統整合／顧問",
-      "label_en": "Systems integrators / consulting",
-      "summary_zh": "導入、客製與營運夥伴。",
-      "summary_en": "Implementation and ops partners.",
+      "label_zh": "周邊創作／設計工具",
+      "label_en": "Adjacent create / design tools",
+      "summary_zh": "與 Unity 引擎併用的外部 DCC／CRM 設計工具（對手引擎放對手弧）。",
+      "summary_en": "External DCC/CRM design tools used with Unity — rival engines stay on the rival arc.",
       "players": [
         {
-          "ticker": "ACN",
-          "name_en": "Accenture",
-          "name_zh": "埃森哲",
-          "role_zh": "埃森哲：系統整合／顧問代表性玩家",
-          "role_en": "Accenture: representative player in Systems integrators / consulting",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "IBM",
-          "name_en": "IBM",
-          "name_zh": "IBM",
-          "role_zh": "IBM：系統整合／顧問代表性玩家",
-          "role_en": "IBM: representative player in Systems integrators / consulting",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "CTSH",
-          "name_en": "Cognizant",
-          "name_zh": "高知特",
-          "role_zh": "高知特：系統整合／顧問代表性玩家",
-          "role_en": "Cognizant: representative player in Systems integrators / consulting",
+          "ticker": "ADBE",
+          "name_en": "Adobe",
+          "name_zh": "Adobe",
+          "role_zh": "Adobe：周邊創作／設計工具代表性玩家",
+          "role_en": "Adobe: representative player in Adjacent create / design tools",
           "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "ADSK",
+          "name_en": "Autodesk",
+          "name_zh": "歐特克",
+          "role_zh": "歐特克：周邊創作／設計工具代表性玩家",
+          "role_en": "Autodesk: representative player in Adjacent create / design tools",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "CRM",
+          "name_en": "Salesforce",
+          "name_zh": "賽富時",
+          "role_zh": "賽富時：周邊創作／設計工具代表性玩家",
+          "role_en": "Salesforce: representative player in Adjacent create / design tools",
+          "exchange": "NYSE"
         }
       ]
     },
     {
-      "id": "channel",
+      "id": "ua",
       "order": 5,
-      "label_zh": "企業銷售／市集通路",
-      "label_en": "Enterprise sales / marketplace",
-      "summary_zh": "直銷、ISV 市集與經銷。",
-      "summary_en": "Direct, ISV marketplace, resellers.",
+      "label_zh": "用戶獲客／廣告",
+      "label_en": "User acquisition / ads",
+      "summary_zh": "Grow／獲客與效果廣告夥伴。",
+      "summary_en": "Grow/UA and performance-ad partners.",
       "players": [
         {
-          "ticker": "CDW",
-          "name_en": "CDW",
-          "name_zh": "CDW",
-          "role_zh": "CDW：企業銷售／市集通路代表性玩家",
-          "role_en": "CDW: representative player in Enterprise sales / marketplace",
+          "ticker": "META",
+          "name_en": "Meta Platforms",
+          "name_zh": "Meta (臉書)",
+          "role_zh": "Meta (臉書)：用戶獲客／廣告代表性玩家",
+          "role_en": "Meta Platforms: representative player in User acquisition / ads",
           "exchange": "NASDAQ"
         },
         {
-          "ticker": "SNX",
-          "name_en": "TD Synnex",
-          "name_zh": "SYNNEX",
-          "role_zh": "SYNNEX：企業銷售／市集通路代表性玩家",
-          "role_en": "TD Synnex: representative player in Enterprise sales / marketplace",
+          "ticker": "SNAP",
+          "name_en": "Snap",
+          "name_zh": "Snap",
+          "role_zh": "Snap：用戶獲客／廣告代表性玩家",
+          "role_en": "Snap: representative player in User acquisition / ads",
           "exchange": "NYSE"
         },
         {
-          "ticker": "DELL",
-          "name_en": "Dell Technologies",
-          "name_zh": "戴爾",
-          "role_zh": "戴爾：企業銷售／市集通路代表性玩家",
-          "role_en": "Dell Technologies: representative player in Enterprise sales / marketplace",
-          "exchange": "NYSE"
+          "ticker": "TTD",
+          "name_en": "Trade Desk",
+          "name_zh": "Trade Desk",
+          "role_zh": "Trade Desk：用戶獲客／廣告代表性玩家",
+          "role_en": "Trade Desk: representative player in User acquisition / ads",
+          "exchange": "NASDAQ"
         }
       ]
     }
   ],
   "competitors": [
+    {
+      "ticker": "TTWO",
+      "name_en": "Take-Two",
+      "name_zh": "Take-Two 互動",
+      "basis_zh": "遊戲發行／工具對手",
+      "basis_en": "Games publish / tools rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "EA",
+      "name_en": "Electronic Arts",
+      "name_zh": "美商藝電",
+      "basis_zh": "遊戲發行／工具對手",
+      "basis_en": "Games publish / tools rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "RBLX",
+      "name_en": "Roblox",
+      "name_zh": "Roblox",
+      "basis_zh": "UGC／創作生態對手",
+      "basis_en": "UGC / create-ecosystem rival",
+      "exchange": "NYSE"
+    },
     {
       "ticker": "NTES",
       "name_en": "NetEase",
@@ -215,30 +240,6 @@
       "basis_en": "Gaming / interactive entertainment rival",
       "exchange": "HKEX",
       "listedInApp": false
-    },
-    {
-      "ticker": "EA",
-      "name_en": "Electronic Arts",
-      "name_zh": "美商藝電",
-      "basis_zh": "遊戲／互動娛樂對手",
-      "basis_en": "Gaming / interactive entertainment rival",
-      "exchange": "NASDAQ"
-    },
-    {
-      "ticker": "TTWO",
-      "name_en": "Take-Two",
-      "name_zh": "Take-Two 互動",
-      "basis_zh": "遊戲／互動娛樂對手",
-      "basis_en": "Gaming / interactive entertainment rival",
-      "exchange": "NASDAQ"
-    },
-    {
-      "ticker": "RBLX",
-      "name_en": "Roblox",
-      "name_zh": "Roblox",
-      "basis_zh": "遊戲／互動娛樂對手",
-      "basis_en": "Gaming / interactive entertainment rival",
-      "exchange": "NYSE"
     }
   ]
 }

@@ -1,9 +1,9 @@
 {
   "version": 1,
   "ticker": "ABNB",
-  "name_en": "Airbnb, Inc.",
+  "name_en": "Airbnb",
   "name_zh": "Airbnb",
-  "updatedAt": "2026-11-14",
+  "updatedAt": "2026-11-23",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mega-cap ≥$100B expansion. Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates and spot review on NVDA/MSFT/JPM. Preview-before-merge.",
@@ -11,188 +11,188 @@
     "notes_en": "Industry value-chain template plus curated rivals for the US mcap≥$100B batch. No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
     "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
     "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
-    "modelId": "consumer-discretionary-v1",
+    "modelId": "short-term-lodging-v1",
     "references": [
-      "Industry model `consumer-discretionary-v1`",
+      "Industry model `short-term-lodging-v1`",
       "cache/us_universe.json marketCap ≥ USD 100B screen",
       "AAPL curated seed shape on main (schema reference)"
     ]
   },
   "model": {
-    "id": "consumer-discretionary-v1",
-    "label_zh": "非必需消費／餐旅價值鏈",
-    "label_en": "Consumer discretionary / hospitality value chain",
-    "description_zh": "原料／商品 → 物流 → 門市／平台 → 支付 → 行銷流量。",
-    "description_en": "Inputs/goods → logistics → stores/platforms → payments → marketing traffic."
+    "id": "short-term-lodging-v1",
+    "label_zh": "短租平台價值鏈",
+    "label_en": "Short-term lodging marketplace value chain",
+    "description_zh": "房東保險／信任 → 支付 → 雲／身分 → 旅遊流量 → 品牌廣告。OTA／酒店直銷對手放對手弧。",
+    "description_en": "Host insurance/trust → payments → cloud/identity → travel traffic → brand ads. OTA/hotel rivals stay on the rival arc."
   },
   "stages": [
     {
-      "id": "inputs",
+      "id": "host-trust",
       "order": 1,
-      "label_zh": "原料／商品供應",
-      "label_en": "Inputs / merchandise supply",
-      "summary_zh": "食材、商品與授權 IP。",
-      "summary_en": "Food, goods, licensed IP.",
+      "label_zh": "房東保險／信任服務",
+      "label_en": "Host insurance / trust services",
+      "summary_zh": "房東保障、責任險與信任驗證的外部保險夥伴。",
+      "summary_en": "External insurers for host protection, liability, and trust.",
       "players": [
         {
-          "ticker": "ADM",
-          "name_en": "Archer-Daniels-Midland Company",
-          "name_zh": "阿徹丹尼爾斯米德蘭",
-          "role_zh": "阿徹丹尼爾斯米德蘭：原料／商品供應代表性玩家",
-          "role_en": "Archer-Daniels-Midland Company: representative player in Inputs / merchandise supply",
+          "ticker": "CB",
+          "name_en": "Chubb",
+          "name_zh": "安達保險",
+          "role_zh": "安達保險：房東保險／信任服務代表性玩家",
+          "role_en": "Chubb: representative player in Host insurance / trust services",
           "exchange": "NYSE"
         },
         {
-          "ticker": "NKE",
-          "name_en": "Nike",
-          "name_zh": "耐克",
-          "role_zh": "耐克：原料／商品供應代表性玩家",
-          "role_en": "Nike: representative player in Inputs / merchandise supply",
+          "ticker": "PGR",
+          "name_en": "Progressive",
+          "name_zh": "前進保險",
+          "role_zh": "前進保險：房東保險／信任服務代表性玩家",
+          "role_en": "Progressive: representative player in Host insurance / trust services",
           "exchange": "NYSE"
         },
         {
-          "ticker": "DIS",
-          "name_en": "The Walt Disney Company",
-          "name_zh": "迪士尼",
-          "role_zh": "迪士尼：原料／商品供應代表性玩家",
-          "role_en": "The Walt Disney Company: representative player in Inputs / merchandise supply",
+          "ticker": "ALL",
+          "name_en": "Allstate",
+          "name_zh": "全州保險",
+          "role_zh": "全州保險：房東保險／信任服務代表性玩家",
+          "role_en": "Allstate: representative player in Host insurance / trust services",
           "exchange": "NYSE"
-        }
-      ]
-    },
-    {
-      "id": "logistics",
-      "order": 2,
-      "label_zh": "物流／冷鏈",
-      "label_en": "Logistics / cold chain",
-      "summary_zh": "配送與庫存網路。",
-      "summary_en": "Distribution and inventory.",
-      "players": [
-        {
-          "ticker": "UPS",
-          "name_en": "United Parcel Service",
-          "name_zh": "聯合包裹",
-          "role_zh": "聯合包裹：物流／冷鏈代表性玩家",
-          "role_en": "United Parcel Service: representative player in Logistics / cold chain",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "FDX",
-          "name_en": "FedEx",
-          "name_zh": "FedEx",
-          "role_zh": "FedEx：物流／冷鏈代表性玩家",
-          "role_en": "FedEx: representative player in Logistics / cold chain",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "UNP",
-          "name_en": "Union Pacific Corporation",
-          "name_zh": "聯合太平洋",
-          "role_zh": "聯合太平洋：物流／冷鏈代表性玩家",
-          "role_en": "Union Pacific Corporation: representative player in Logistics / cold chain",
-          "exchange": "NYSE"
-        }
-      ]
-    },
-    {
-      "id": "stores",
-      "order": 3,
-      "label_zh": "門市／數位平台",
-      "label_en": "Stores / digital platforms",
-      "summary_zh": "直營、加盟與 App。",
-      "summary_en": "Owned, franchise, apps.",
-      "players": [
-        {
-          "ticker": "SBUX",
-          "name_en": "Starbucks Corporation",
-          "name_zh": "星巴克",
-          "role_zh": "星巴克：門市／數位平台代表性玩家",
-          "role_en": "Starbucks Corporation: representative player in Stores / digital platforms",
-          "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "MCD",
-          "name_en": "McDonald's Corporation",
-          "name_zh": "麥當勞",
-          "role_zh": "麥當勞：門市／數位平台代表性玩家",
-          "role_en": "McDonald's Corporation: representative player in Stores / digital platforms",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "MAR",
-          "name_en": "Marriott International, Inc.",
-          "name_zh": "萬豪",
-          "role_zh": "萬豪：門市／數位平台代表性玩家",
-          "role_en": "Marriott International, Inc.: representative player in Stores / digital platforms",
-          "exchange": "NASDAQ"
         }
       ]
     },
     {
       "id": "payments",
-      "order": 4,
-      "label_zh": "支付／忠誠",
-      "label_en": "Payments / loyalty",
-      "summary_zh": "卡支付與會員體系。",
-      "summary_en": "Card rails and loyalty.",
+      "order": 2,
+      "label_zh": "支付／清算",
+      "label_en": "Payments / clearing",
+      "summary_zh": "房客付款與房東撥款。",
+      "summary_en": "Guest pay-in and host payouts.",
       "players": [
         {
           "ticker": "V",
-          "name_en": "Visa Inc.",
+          "name_en": "Visa",
           "name_zh": "威士卡",
-          "role_zh": "威士卡：支付／忠誠代表性玩家",
-          "role_en": "Visa Inc.: representative player in Payments / loyalty",
+          "role_zh": "威士卡：支付／清算代表性玩家",
+          "role_en": "Visa: representative player in Payments / clearing",
           "exchange": "NYSE"
         },
         {
           "ticker": "MA",
-          "name_en": "Mastercard Incorporated",
+          "name_en": "Mastercard",
           "name_zh": "萬事達卡",
-          "role_zh": "萬事達卡：支付／忠誠代表性玩家",
-          "role_en": "Mastercard Incorporated: representative player in Payments / loyalty",
+          "role_zh": "萬事達卡：支付／清算代表性玩家",
+          "role_en": "Mastercard: representative player in Payments / clearing",
           "exchange": "NYSE"
         },
         {
-          "ticker": "AXP",
-          "name_en": "American Express Company",
-          "name_zh": "美國運通",
-          "role_zh": "美國運通：支付／忠誠代表性玩家",
-          "role_en": "American Express Company: representative player in Payments / loyalty",
-          "exchange": "NYSE"
+          "ticker": "PYPL",
+          "name_en": "PayPal",
+          "name_zh": "PayPal",
+          "role_zh": "PayPal：支付／清算代表性玩家",
+          "role_en": "PayPal: representative player in Payments / clearing",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "cloud-trust",
+      "order": 3,
+      "label_zh": "雲／身分基礎設施",
+      "label_en": "Cloud / identity infrastructure",
+      "summary_zh": "預訂與身分核驗所需的雲與資安底座。",
+      "summary_en": "Cloud and security rails under booking and identity checks.",
+      "players": [
+        {
+          "ticker": "MSFT",
+          "name_en": "Microsoft",
+          "name_zh": "微軟",
+          "role_zh": "微軟：雲／身分基礎設施代表性玩家",
+          "role_en": "Microsoft: representative player in Cloud / identity infrastructure",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "AMZN",
+          "name_en": "Amazon.com",
+          "name_zh": "亞馬遜",
+          "role_zh": "亞馬遜：雲／身分基礎設施代表性玩家",
+          "role_en": "Amazon.com: representative player in Cloud / identity infrastructure",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "CRWD",
+          "name_en": "CrowdStrike",
+          "name_zh": "CrowdStrike",
+          "role_zh": "CrowdStrike：雲／身分基礎設施代表性玩家",
+          "role_en": "CrowdStrike: representative player in Cloud / identity infrastructure",
+          "exchange": "NASDAQ"
         }
       ]
     },
     {
       "id": "traffic",
-      "order": 5,
-      "label_zh": "行銷／流量",
-      "label_en": "Marketing / traffic",
-      "summary_zh": "搜尋、社群與旅遊 OTA。",
-      "summary_en": "Search, social, travel OTAs.",
+      "order": 4,
+      "label_zh": "旅遊／搜尋流量",
+      "label_en": "Travel / search traffic",
+      "summary_zh": "搜尋與旅遊內容流量獲客（非對手 OTA 名單）。",
+      "summary_en": "Search and travel-content acquisition — not rival OTA pads.",
       "players": [
         {
           "ticker": "GOOG",
-          "name_en": "Alphabet Inc.",
+          "name_en": "Alphabet",
           "name_zh": "Alphabet（Google）",
-          "role_zh": "Alphabet（Google）：行銷／流量代表性玩家",
-          "role_en": "Alphabet Inc.: representative player in Marketing / traffic",
+          "role_zh": "Alphabet（Google）：旅遊／搜尋流量代表性玩家",
+          "role_en": "Alphabet: representative player in Travel / search traffic",
           "exchange": "NASDAQ"
         },
         {
           "ticker": "META",
-          "name_en": "Meta Platforms, Inc.",
+          "name_en": "Meta Platforms",
           "name_zh": "Meta (臉書)",
-          "role_zh": "Meta (臉書)：行銷／流量代表性玩家",
-          "role_en": "Meta Platforms, Inc.: representative player in Marketing / traffic",
+          "role_zh": "Meta (臉書)：旅遊／搜尋流量代表性玩家",
+          "role_en": "Meta Platforms: representative player in Travel / search traffic",
           "exchange": "NASDAQ"
         },
         {
-          "ticker": "BKNG",
-          "name_en": "Booking Holdings Inc.",
-          "name_zh": "Booking 控股",
-          "role_zh": "Booking 控股：行銷／流量代表性玩家",
-          "role_en": "Booking Holdings Inc.: representative player in Marketing / traffic",
+          "ticker": "SNAP",
+          "name_en": "Snap",
+          "name_zh": "Snap",
+          "role_zh": "Snap：旅遊／搜尋流量代表性玩家",
+          "role_en": "Snap: representative player in Travel / search traffic",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "ads",
+      "order": 5,
+      "label_zh": "品牌廣告／推廣",
+      "label_en": "Brand ads / promotion",
+      "summary_zh": "在短租庫存投放的旅遊與消費品牌廣告主。",
+      "summary_en": "Travel and consumer brand advertisers on short-stay inventory.",
+      "players": [
+        {
+          "ticker": "KO",
+          "name_en": "Coca-Cola",
+          "name_zh": "可口可樂",
+          "role_zh": "可口可樂：品牌廣告／推廣代表性玩家",
+          "role_en": "Coca-Cola: representative player in Brand ads / promotion",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "PEP",
+          "name_en": "PepsiCo",
+          "name_zh": "百事",
+          "role_zh": "百事：品牌廣告／推廣代表性玩家",
+          "role_en": "PepsiCo: representative player in Brand ads / promotion",
           "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "NKE",
+          "name_en": "Nike",
+          "name_zh": "耐吉",
+          "role_zh": "耐吉：品牌廣告／推廣代表性玩家",
+          "role_en": "Nike: representative player in Brand ads / promotion",
+          "exchange": "NYSE"
         }
       ]
     }
@@ -200,7 +200,7 @@
   "competitors": [
     {
       "ticker": "BKNG",
-      "name_en": "Booking Holdings Inc.",
+      "name_en": "Booking",
       "name_zh": "Booking 控股",
       "basis_zh": "住宿預訂對手",
       "basis_en": "Lodging booking rival",
@@ -216,8 +216,8 @@
     },
     {
       "ticker": "MAR",
-      "name_en": "Marriott International, Inc.",
-      "name_zh": "萬豪",
+      "name_en": "Marriott International",
+      "name_zh": "萬豪國際",
       "basis_zh": "飯店直銷對手",
       "basis_en": "Hotel direct rival",
       "exchange": "NASDAQ"
@@ -225,17 +225,9 @@
     {
       "ticker": "HLT",
       "name_en": "Hilton",
-      "name_zh": "希爾頓",
+      "name_zh": "希爾頓酒店",
       "basis_zh": "飯店直銷對手",
       "basis_en": "Hotel direct rival",
-      "exchange": "NYSE"
-    },
-    {
-      "ticker": "UBER",
-      "name_en": "Uber Technologies, Inc.",
-      "name_zh": "Uber",
-      "basis_zh": "短住／出行替代",
-      "basis_en": "Short-stay/mobility substitute",
       "exchange": "NYSE"
     }
   ]

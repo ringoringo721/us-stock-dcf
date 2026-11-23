@@ -3,7 +3,7 @@
   "ticker": "LYFT",
   "name_en": "Lyft",
   "name_zh": "Lyft",
-  "updatedAt": "2026-11-20",
+  "updatedAt": "2026-11-23",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -23,8 +23,8 @@
     "id": "rideshare-v1",
     "label_zh": "共享出行／即時配送價值鏈",
     "label_en": "Rideshare / mobility value chain",
-    "description_zh": "地圖／雲 → 支付 → 運力供給 → 出行／配送平台同業 → 廣告／會員。",
-    "description_en": "Maps/cloud → payments → driver supply → rideshare/delivery platform peers → ads/membership."
+    "description_zh": "地圖／雲 → 支付 → 車隊／能源運力 → 餐飲商戶供給 → 品牌廣告。平台同業放對手弧，不塞進階段。",
+    "description_en": "Maps/cloud → payments → fleet/energy → merchant supply → brand ads. Platform peers stay on the rival arc."
   },
   "stages": [
     {
@@ -52,148 +52,148 @@
           "exchange": "NASDAQ"
         },
         {
-          "ticker": "AMZN",
-          "name_en": "Amazon.com",
-          "name_zh": "亞馬遜",
-          "role_zh": "亞馬遜：地圖／雲基礎設施代表性玩家",
-          "role_en": "Amazon.com: representative player in Maps / cloud infrastructure",
-          "exchange": "NASDAQ"
+          "ticker": "ORCL",
+          "name_en": "Oracle",
+          "name_zh": "甲骨文",
+          "role_zh": "甲骨文：地圖／雲基礎設施代表性玩家",
+          "role_en": "Oracle: representative player in Maps / cloud infrastructure",
+          "exchange": "NYSE"
         }
       ]
     },
     {
       "id": "payments",
       "order": 2,
-      "label_zh": "支付",
-      "label_en": "Payments",
-      "summary_zh": "持卡人支付與撥款。",
-      "summary_en": "Card payments and payouts.",
+      "label_zh": "支付／清算",
+      "label_en": "Payments / clearing",
+      "summary_zh": "用戶支付與司機／商戶撥款。",
+      "summary_en": "User pay-in and driver/merchant payouts.",
       "players": [
         {
           "ticker": "V",
           "name_en": "Visa",
           "name_zh": "威士卡",
-          "role_zh": "威士卡：支付代表性玩家",
-          "role_en": "Visa: representative player in Payments",
+          "role_zh": "威士卡：支付／清算代表性玩家",
+          "role_en": "Visa: representative player in Payments / clearing",
           "exchange": "NYSE"
         },
         {
           "ticker": "MA",
           "name_en": "Mastercard",
           "name_zh": "萬事達卡",
-          "role_zh": "萬事達卡：支付代表性玩家",
-          "role_en": "Mastercard: representative player in Payments",
+          "role_zh": "萬事達卡：支付／清算代表性玩家",
+          "role_en": "Mastercard: representative player in Payments / clearing",
           "exchange": "NYSE"
         },
         {
           "ticker": "PYPL",
           "name_en": "PayPal",
           "name_zh": "PayPal",
-          "role_zh": "PayPal：支付代表性玩家",
-          "role_en": "PayPal: representative player in Payments",
+          "role_zh": "PayPal：支付／清算代表性玩家",
+          "role_en": "PayPal: representative player in Payments / clearing",
           "exchange": "NASDAQ"
         }
       ]
     },
     {
-      "id": "supply",
+      "id": "fleet",
       "order": 3,
-      "label_zh": "運力／司機供給",
-      "label_en": "Driver / courier supply",
-      "summary_zh": "司機與外送運力生態。",
-      "summary_en": "Driver and courier supply ecosystem.",
+      "label_zh": "車隊／運力設備／能源",
+      "label_en": "Fleet / capacity equipment / energy",
+      "summary_zh": "乘用車／運力設備與燃油能源供給（非對手平台）。",
+      "summary_en": "Passenger vehicles, capacity equipment, and fuel energy — not rival platforms.",
       "players": [
         {
           "ticker": "GM",
           "name_en": "General Motors",
           "name_zh": "通用汽車",
-          "role_zh": "通用汽車：運力／司機供給代表性玩家",
-          "role_en": "General Motors: representative player in Driver / courier supply",
+          "role_zh": "通用汽車：車隊／運力設備／能源代表性玩家",
+          "role_en": "General Motors: representative player in Fleet / capacity equipment / energy",
           "exchange": "NYSE"
         },
         {
           "ticker": "F",
           "name_en": "Ford",
           "name_zh": "福特",
-          "role_zh": "福特：運力／司機供給代表性玩家",
-          "role_en": "Ford: representative player in Driver / courier supply",
+          "role_zh": "福特：車隊／運力設備／能源代表性玩家",
+          "role_en": "Ford: representative player in Fleet / capacity equipment / energy",
           "exchange": "NYSE"
         },
         {
-          "ticker": "TM",
-          "name_en": "Toyota Motor",
-          "name_zh": "豐田",
-          "role_zh": "豐田：運力／司機供給代表性玩家",
-          "role_en": "Toyota Motor: representative player in Driver / courier supply",
-          "exchange": "NYSE"
+          "ticker": "TSLA",
+          "name_en": "Tesla",
+          "name_zh": "特斯拉",
+          "role_zh": "特斯拉：車隊／運力設備／能源代表性玩家",
+          "role_en": "Tesla: representative player in Fleet / capacity equipment / energy",
+          "exchange": "NASDAQ"
         }
       ]
     },
     {
-      "id": "platforms",
+      "id": "merchants",
       "order": 4,
-      "label_zh": "出行／配送平台",
-      "label_en": "Rideshare / delivery platforms",
-      "summary_zh": "共享出行與即時配送同業。",
-      "summary_en": "Rideshare and delivery platform peers.",
+      "label_zh": "本地生活／需求側品牌",
+      "label_en": "Local-life / demand-side brands",
+      "summary_zh": "出行需求與品牌合作相關的餐飲／零售代表（非對手平台）。",
+      "summary_en": "F&B/retail brands tied to ride demand and brand partnerships — not rival platforms.",
       "players": [
         {
-          "ticker": "UBER",
-          "name_en": "Uber Technologies",
-          "name_zh": "Uber",
-          "role_zh": "Uber：出行／配送平台代表性玩家",
-          "role_en": "Uber Technologies: representative player in Rideshare / delivery platforms",
+          "ticker": "MCD",
+          "name_en": "McDonald's",
+          "name_zh": "麥當勞",
+          "role_zh": "麥當勞：本地生活／需求側品牌代表性玩家",
+          "role_en": "McDonald's: representative player in Local-life / demand-side brands",
           "exchange": "NYSE"
         },
         {
-          "ticker": "DASH",
-          "name_en": "DoorDash",
-          "name_zh": "DoorDash",
-          "role_zh": "DoorDash：出行／配送平台代表性玩家",
-          "role_en": "DoorDash: representative player in Rideshare / delivery platforms",
+          "ticker": "SBUX",
+          "name_en": "Starbucks",
+          "name_zh": "星巴克",
+          "role_zh": "星巴克：本地生活／需求側品牌代表性玩家",
+          "role_en": "Starbucks: representative player in Local-life / demand-side brands",
           "exchange": "NASDAQ"
         },
         {
-          "ticker": "GRAB",
-          "name_en": "Grab",
-          "name_zh": "Grab",
-          "role_zh": "Grab：出行／配送平台代表性玩家",
-          "role_en": "Grab: representative player in Rideshare / delivery platforms",
-          "exchange": "NASDAQ"
+          "ticker": "YUM",
+          "name_en": "Yum! Brands",
+          "name_zh": "百勝餐飲",
+          "role_zh": "百勝餐飲：本地生活／需求側品牌代表性玩家",
+          "role_en": "Yum! Brands: representative player in Local-life / demand-side brands",
+          "exchange": "NYSE"
         }
       ]
     },
     {
-      "id": "monetization",
+      "id": "ads",
       "order": 5,
-      "label_zh": "廣告／會員",
-      "label_en": "Ads / membership",
-      "summary_zh": "平台廣告與訂閱變現。",
-      "summary_en": "Platform ads and memberships.",
+      "label_zh": "品牌廣告／推廣變現",
+      "label_en": "Brand ads / promotion",
+      "summary_zh": "在出行／配送庫存投放的品牌廣告主。",
+      "summary_en": "Brand advertisers on mobility/delivery inventory.",
       "players": [
         {
-          "ticker": "GOOG",
-          "name_en": "Alphabet",
-          "name_zh": "Alphabet（Google）",
-          "role_zh": "Alphabet（Google）：廣告／會員代表性玩家",
-          "role_en": "Alphabet: representative player in Ads / membership",
+          "ticker": "KO",
+          "name_en": "Coca-Cola",
+          "name_zh": "可口可樂",
+          "role_zh": "可口可樂：品牌廣告／推廣變現代表性玩家",
+          "role_en": "Coca-Cola: representative player in Brand ads / promotion",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "PEP",
+          "name_en": "PepsiCo",
+          "name_zh": "百事",
+          "role_zh": "百事：品牌廣告／推廣變現代表性玩家",
+          "role_en": "PepsiCo: representative player in Brand ads / promotion",
           "exchange": "NASDAQ"
         },
         {
-          "ticker": "META",
-          "name_en": "Meta Platforms",
-          "name_zh": "Meta (臉書)",
-          "role_zh": "Meta (臉書)：廣告／會員代表性玩家",
-          "role_en": "Meta Platforms: representative player in Ads / membership",
-          "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "AMZN",
-          "name_en": "Amazon.com",
-          "name_zh": "亞馬遜",
-          "role_zh": "亞馬遜：廣告／會員代表性玩家",
-          "role_en": "Amazon.com: representative player in Ads / membership",
-          "exchange": "NASDAQ"
+          "ticker": "NKE",
+          "name_en": "Nike",
+          "name_zh": "耐吉",
+          "role_zh": "耐吉：品牌廣告／推廣變現代表性玩家",
+          "role_en": "Nike: representative player in Brand ads / promotion",
+          "exchange": "NYSE"
         }
       ]
     }
@@ -201,26 +201,34 @@
   "competitors": [
     {
       "ticker": "UBER",
-      "name_en": "Uber Technologies",
+      "name_en": "Uber",
       "name_zh": "Uber",
-      "basis_zh": "共享出行／即時配送對手",
-      "basis_en": "Rideshare / mobility rival",
+      "basis_zh": "共享出行對手",
+      "basis_en": "Rideshare rival",
       "exchange": "NYSE"
     },
     {
       "ticker": "DASH",
       "name_en": "DoorDash",
       "name_zh": "DoorDash",
-      "basis_zh": "共享出行／即時配送對手",
-      "basis_en": "Rideshare / mobility rival",
+      "basis_zh": "本地出行／配送替代",
+      "basis_en": "Local mobility / delivery substitute",
       "exchange": "NASDAQ"
     },
     {
       "ticker": "GRAB",
       "name_en": "Grab",
       "name_zh": "Grab",
-      "basis_zh": "共享出行／即時配送對手",
-      "basis_en": "Rideshare / mobility rival",
+      "basis_zh": "全球出行對手",
+      "basis_en": "Global mobility rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "AMZN",
+      "name_en": "Amazon.com",
+      "name_zh": "亞馬遜",
+      "basis_zh": "本地物流替代",
+      "basis_en": "Local logistics substitute",
       "exchange": "NASDAQ"
     }
   ]
