@@ -8,6 +8,9 @@ Traditional Chinese only. Does not call FMP.
 Batch A hubs:
   BABA PDD NTES SE JD CPNG BIDU BEKE YUMC HTHT TME ZTO FUTU GRAB
   LI XPEV YMM EDU BZ LU NIO VIPS TAL BILI
+
+After Batch B merge: GRAB / SE / CPNG seeds+overrides are owned by main
+(Batch B Mobility-core / SEA). This prep must not overwrite those three.
 """
 
 from __future__ import annotations
@@ -53,6 +56,9 @@ BATCH_A = [
     "TAL",
     "BILI",
 ]
+
+# Owned by Batch B / main after #144 — do not write competitors/overrides/seeds here.
+BATCH_B_OWNED = frozenset({"GRAB", "SE", "CPNG"})
 
 ENTITIES: dict[str, dict[str, str]] = {
     "BABA": {"name_en": "Alibaba", "name_zh": "阿里巴巴", "exchange": "NYSE"},
@@ -276,16 +282,6 @@ KR_ECOM = {
     "lastmile": ["1519.HK", "FDX", "UPS"],
 }
 
-# GRAB — SEA super-app (sea-superapp-v1): SEA merchants/ads/fleet — not China CPG or china-local-life.
-SEA_SUPERAPP = {
-    "maps-cloud": ["GOOG", "MSFT", "AMZN"],
-    "payments": ["V", "MA", "PYPL"],
-    # Honda scooters (SEA two-wheel), BYD e-mobility, Shell fuel/energy — not Hyundai/GCL/ENN.
-    "fleet": ["HMC", "1211.HK", "SHEL"],
-    "merchants": ["MCD", "SBUX", "YUM"],
-    "ads": ["KO", "PEP", "UL"],
-}
-
 COMPETITORS: dict[str, list[list[str]]] = {
     "BABA": [
         ["JD", "中國電商對手", "China e-commerce rival"],
@@ -314,19 +310,7 @@ COMPETITORS: dict[str, list[list[str]]] = {
         ["PDD", "下沉市場電商對手", "Value e-commerce rival"],
         ["3690.HK", "本地生活對手", "Local services rival"],
     ],
-    "SE": [
-        ["PDD", "新興市場電商對手", "EM e-commerce rival"],
-        ["BABA", "跨境／區域電商對手", "Cross-border / regional e-comm rival"],
-        ["GRAB", "東南亞超級應用對手", "SEA super-app rival"],
-        ["CPNG", "韓／亞電商對手", "Korea / Asia e-comm rival"],
-        ["MELI", "新興市場電商對手", "EM e-commerce rival"],
-    ],
-    "CPNG": [
-        ["SE", "亞洲電商對手", "Asia e-commerce rival"],
-        ["BABA", "亞洲電商對手", "Asia e-commerce rival"],
-        ["PDD", "價值電商對手", "Value e-commerce rival"],
-        ["JD", "亞洲電商對手", "Asia e-commerce rival"],
-    ],
+    # SE / CPNG / GRAB competitors: owned by Batch B / main — omitted here.
     "NTES": [
         # Product overlap = games / interactive entertainment (not generic internet peers).
         ["0700.HK", "遊戲／互動娛樂對手", "Games / interactive entertainment rival"],
@@ -418,12 +402,6 @@ COMPETITORS: dict[str, list[list[str]]] = {
         ["6886.HK", "中資券商對手", "China broker rival"],
         ["3908.HK", "中資券商對手", "China broker rival"],
     ],
-    "GRAB": [
-        ["UBER", "共享出行／即配對手", "Rideshare / delivery rival"],
-        ["SE", "東南亞超級應用對手", "SEA super-app rival"],
-        ["DASH", "即時配送對手", "Instant delivery rival"],
-        ["3690.HK", "本地生活／即配對手", "Local services / delivery rival"],
-    ],
     "EDU": [
         ["TAL", "中國教育培訓對手", "China education rival"],
         ["BILI", "線上學習／內容鄰接對手", "Online learning / content adjacent rival"],
@@ -445,8 +423,7 @@ OVERRIDES: dict[str, dict[str, list[str]]] = {
     "PDD": dict(CN_PDD),
     "JD": dict(CN_JD),
     "VIPS": dict(CN_VIPS),
-    "SE": dict(SEA_ECOM),
-    "CPNG": dict(KR_ECOM),
+    # SE / CPNG / GRAB overrides: owned by Batch B / main — omitted here.
     "NTES": dict(CN_GAMES),
     "BIDU": dict(CN_BIDU),
     "TME": dict(CN_MUSIC),
@@ -497,7 +474,6 @@ OVERRIDES: dict[str, dict[str, list[str]]] = {
         "buy-side": ["1299.HK", "2318.HK"],
         "issuers": ["0700.HK", "9988.HK", "1810.HK"],
     },
-    "GRAB": dict(SEA_SUPERAPP),
     "EDU": dict(CN_EDU),
     "TAL": dict(CN_EDU),
     "LU": {
@@ -641,12 +617,16 @@ def main() -> int:
         }
 
     for hub, rows in COMPETITORS.items():
+        if hub in BATCH_B_OWNED:
+            continue
         competitors[hub] = _trad_comp_rows(rows)
 
     for hub, stages in OVERRIDES.items():
+        if hub in BATCH_B_OWNED:
+            continue
         overrides[hub] = {sid: list(ticks) for sid, ticks in stages.items()}
 
-    # Model defaults for new / corrected models.
+    # Model defaults for Batch A–owned models only (do not clobber Batch B rideshare/mobility/sea-superapp).
     players["express-logistics-v1"] = {
         sid: list(ticks) for sid, ticks in EXPRESS_DEFAULTS.items()
     }
@@ -668,17 +648,6 @@ def main() -> int:
     players["china-education-services-v1"] = {
         sid: list(ticks) for sid, ticks in CN_EDU.items()
     }
-    players["sea-superapp-v1"] = {
-        sid: list(ticks) for sid, ticks in SEA_SUPERAPP.items()
-    }
-    # Fix rideshare default: platforms = fleet equipment, not rival apps.
-    players["rideshare-v1"] = {
-        "maps-cloud": ["GOOG", "MSFT", "AMZN"],
-        "payments": ["V", "MA", "PYPL"],
-        "supply": ["GM", "F", "TM"],
-        "platforms": ["1211.HK", "3800.HK", "2688.HK"],
-        "monetization": ["GOOG", "META", "AMZN"],
-    }
     # china-platform-builder defaults (BIDU-shaped ads+cloud skeleton).
     players["china-platform-builder-v1"] = {
         sid: list(ticks) for sid, ticks in CN_BIDU.items()
@@ -690,9 +659,13 @@ def main() -> int:
     PLAYERS_PATH.write_text(json.dumps(players, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(
         f"Batch A prep: entities+={len(ENTITIES)}, competitors hubs={len(COMPETITORS)}, "
-        f"overrides hubs={len(OVERRIDES)}; models sea-superapp/games/music/video/recruit/edu defaults"
+        f"overrides hubs={len(OVERRIDES)}; skip Batch B–owned {sorted(BATCH_B_OWNED)}"
     )
-    missing = [t for t in BATCH_A if t not in COMPETITORS or t not in OVERRIDES]
+    missing = [
+        t
+        for t in BATCH_A
+        if t not in BATCH_B_OWNED and (t not in COMPETITORS or t not in OVERRIDES)
+    ]
     if missing:
         raise SystemExit(f"Missing Batch A hub coverage: {missing}")
     return 0
