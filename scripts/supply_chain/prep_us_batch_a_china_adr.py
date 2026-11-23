@@ -122,11 +122,48 @@ CN_ECOM_JD = {
     "lastmile": ["2057.HK", "1519.HK"],
 }
 
-CN_PLATFORM = {
+# BIDU — online marketing + AI Cloud (china-platform skeleton, ads/cloud framing — not WeChat clone copy).
+CN_BIDU = {
     "infra": ["9698.HK", "3888.HK", "0788.HK"],
     "distribution": ["0941.HK", "0762.HK", "1810.HK"],
     "payments": ["0005.HK", "1398.HK", "6060.HK"],
     "advertisers": ["2020.HK", "2331.HK", "2319.HK"],
+}
+
+# BABA — Taobao/Tmall GMV + Cloud + Cainiao (broad marketplace + logistics partners).
+CN_BABA = {
+    "supply": ["2020.HK", "2331.HK", "2319.HK"],
+    "fulfillment": ["0144.HK", "0316.HK", "1308.HK"],
+    "payments": ["0005.HK", "1398.HK", "6060.HK"],
+    "traffic": ["9888.HK", "1024.HK", "9626.HK"],
+    "lastmile": ["2057.HK", "1519.HK", "2618.HK"],
+}
+
+# PDD — Temu/PDD GMV value commerce; social traffic heavier, less port-centric fulfillment.
+CN_PDD = {
+    "supply": ["2020.HK", "2331.HK", "0151.HK"],
+    "fulfillment": ["0316.HK", "1308.HK", "0144.HK"],
+    "payments": ["0005.HK", "1398.HK", "6060.HK"],
+    "traffic": ["1024.HK", "9626.HK", "0700.HK"],
+    "lastmile": ["2057.HK", "1519.HK", "2618.HK"],
+}
+
+# VIPS — brand-outlet / apparel-heavy inventory commerce.
+CN_VIPS = {
+    "supply": ["2020.HK", "2331.HK", "1044.HK"],
+    "fulfillment": ["0144.HK", "0316.HK", "1308.HK"],
+    "payments": ["0005.HK", "1398.HK", "6060.HK"],
+    "traffic": ["9888.HK", "1024.HK", "9626.HK"],
+    "lastmile": ["2057.HK", "1519.HK"],
+}
+
+# JD owns 2618 logistics — peer express only on lastmile.
+CN_JD = {
+    "supply": ["2020.HK", "2331.HK", "2319.HK"],
+    "fulfillment": ["0144.HK", "0316.HK", "1308.HK"],
+    "payments": ["0005.HK", "1398.HK", "6060.HK"],
+    "traffic": ["9888.HK", "1024.HK", "9626.HK"],
+    "lastmile": ["2057.HK", "1519.HK"],
 }
 
 CN_EV = {
@@ -134,7 +171,6 @@ CN_EV = {
     "components": ["3750.HK", "1316.HK", "2018.HK"],
     "assembly": ["0425.HK", "0868.HK", "0179.HK"],
     "dealers": ["0881.HK", "1268.HK", "3669.HK"],
-    # No 3800 materials dupe — charging / gas utilities only.
     "energy": ["2688.HK", "1193.HK", "0384.HK"],
 }
 
@@ -154,7 +190,52 @@ FREIGHT_DEFAULTS = {
     "maps-data": ["9888.HK", "3888.HK", "9698.HK"],
 }
 
-# SEA ecommerce (SE) — regional brands / logistics / payments; not US Target dump.
+# NTES — games ~80%+: cloud → carrier/device → top-up rails → UA/co-publish (not WeChat ads clone).
+CN_GAMES = {
+    "infra": ["9698.HK", "0788.HK", "3888.HK"],
+    "distribution": ["0941.HK", "0762.HK", "1810.HK"],
+    "payments": ["0005.HK", "1398.HK", "6060.HK"],
+    # External UA media + licensed co-publish partners (rivals 0700/BILI/SE stay off stages).
+    "ua-publish": ["1024.HK", "GOOG", "TTWO"],
+}
+
+# TME — music sub + social + ads: labels are core COGS (not china-platform advertisers-first).
+CN_MUSIC = {
+    "labels": ["SONY", "WMG", "DIS"],
+    "infra": ["9698.HK", "0788.HK", "3888.HK"],
+    "distribution": ["0941.HK", "0762.HK", "1810.HK"],
+    "payments": ["0005.HK", "1398.HK", "6060.HK"],
+    "advertisers": ["2020.HK", "2331.HK", "2319.HK"],
+}
+
+# BILI — VAS + ads + games: infra/reach/pay → advertisers → external game licensing.
+CN_VIDEO = {
+    "infra": ["9698.HK", "0788.HK", "3888.HK"],
+    "distribution": ["0941.HK", "0762.HK", "1810.HK"],
+    "payments": ["0005.HK", "1398.HK", "6060.HK"],
+    "advertisers": ["2020.HK", "2331.HK", "2319.HK"],
+    "game-publish": ["TTWO", "RBLX", "U"],
+}
+
+# BZ — employer-paid recruitment (not WeChat advertisers clone).
+CN_RECRUIT = {
+    "traffic": ["1024.HK", "9626.HK", "035420.KS"],
+    "employers": ["1810.HK", "1211.HK", "2318.HK"],
+    "hr-tools": ["3888.HK", "9698.HK", "RELX"],
+    "payments": ["0005.HK", "1398.HK", "6060.HK"],
+    "branding": ["2020.HK", "2331.HK", "2319.HK"],
+}
+
+# EDU/TAL — tutoring fees: traffic → content licenses → campus → tuition pay → device reach.
+CN_EDU = {
+    "traffic": ["1024.HK", "9626.HK", "9888.HK"],
+    "content": ["0772.HK", "PSO", "RELX"],
+    "facilities": ["0823.HK", "1997.HK", "0014.HK"],
+    "payments": ["0005.HK", "1398.HK", "6060.HK"],
+    "distribution": ["0941.HK", "0762.HK", "1810.HK"],
+}
+
+# SEA ecommerce (SE) — Shopee GMV-centric regional partners.
 SEA_ECOM = {
     "supply": ["005930.KS", "1810.HK", "2020.HK"],
     "fulfillment": ["0144.HK", "0316.HK", "1308.HK"],
@@ -163,13 +244,23 @@ SEA_ECOM = {
     "lastmile": ["1519.HK", "FDX", "UPS"],
 }
 
-# Korea ecommerce (CPNG). NAVER stays traffic partner — not also on rival arc.
+# Korea ecommerce (CPNG).
 KR_ECOM = {
     "supply": ["005930.KS", "2020.HK", "2331.HK"],
     "fulfillment": ["0144.HK", "0316.HK", "1308.HK"],
     "payments": ["0005.HK", "V", "MA"],
     "traffic": ["035420.KS", "035720.KS", "GOOG"],
     "lastmile": ["1519.HK", "FDX", "UPS"],
+}
+
+# GRAB — mobility + deliveries + fintech on china-local-life stages (SEA merchants/fleet/maps).
+GRAB_LIFE = {
+    "maps-cloud": ["GOOG", "MSFT", "035420.KS"],
+    "payments": ["V", "MA", "0005.HK"],
+    # Two-wheel / fleet equipment / charging proxies for SEA delivery+mobility (not rival apps).
+    "fleet": ["005380.KS", "3800.HK", "2688.HK"],
+    "merchants": ["MCD", "SBUX", "YUM"],
+    "ads": ["2020.HK", "2331.HK", "2319.HK"],
 }
 
 COMPETITORS: dict[str, list[list[str]]] = {
@@ -214,39 +305,36 @@ COMPETITORS: dict[str, list[list[str]]] = {
         ["JD", "亞洲電商對手", "Asia e-commerce rival"],
     ],
     "NTES": [
+        # Product overlap = games / interactive entertainment (not generic internet peers).
         ["0700.HK", "遊戲／互動娛樂對手", "Games / interactive entertainment rival"],
-        ["BILI", "影音／遊戲內容對手", "Video / games content rival"],
-        ["BIDU", "中國互聯網生態對手", "China internet ecosystem rival"],
-        ["BABA", "中國互聯網生態對手", "China internet ecosystem rival"],
-        ["1024.HK", "短影音／資訊流對手", "Short-video / feed rival"],
+        ["BILI", "遊戲／互動娛樂對手", "Games / interactive entertainment rival"],
+        ["SE", "東南亞／全球遊戲對手", "SEA / global games rival"],
+        ["RBLX", "互動娛樂／UGC 遊戲對手", "Interactive / UGC games rival"],
     ],
     "BIDU": [
-        ["0700.HK", "搜尋／廣告對手", "Search / advertising rival"],
-        ["BABA", "中國互聯網生態對手", "China internet ecosystem rival"],
+        ["0700.HK", "搜尋／線上行銷對手", "Search / online-marketing rival"],
         ["1024.HK", "資訊流廣告對手", "Feed-ads rival"],
-        ["BILI", "內容／流量對手", "Content / traffic rival"],
-        ["NTES", "內容／遊戲生態對手", "Content / games ecosystem rival"],
+        ["GOOG", "搜尋／雲對手", "Search / cloud rival"],
+        ["BABA", "數字營銷／雲對手", "Digital marketing / cloud rival"],
     ],
     "TME": [
         # 0700 = Tencent parent of TME — never a product rival.
         ["SPOT", "串流音樂對手", "Music streaming rival"],
+        ["NTES", "雲音樂對手", "Cloud music rival"],
+        ["1024.HK", "短影音音樂／內容對手", "Short-video music / content rival"],
         ["BILI", "影音內容對手", "Video content rival"],
-        ["NTES", "雲音樂／內容對手", "Cloud music / content rival"],
-        ["1024.HK", "短影音內容對手", "Short-video content rival"],
-        ["BIDU", "內容／流量對手", "Content / traffic rival"],
     ],
     "BILI": [
-        ["0700.HK", "影音／互動娛樂對手", "Video / interactive entertainment rival"],
+        ["1024.HK", "長／短影音社區對手", "Long/short-video community rival"],
         ["NTES", "遊戲／內容對手", "Games / content rival"],
-        ["1024.HK", "短影音對手", "Short-video rival"],
-        ["TME", "音樂／內容對手", "Music / content rival"],
-        ["BIDU", "內容／流量對手", "Content / traffic rival"],
+        ["0700.HK", "影音／互動娛樂對手", "Video / interactive entertainment rival"],
+        ["TME", "音樂／直播內容對手", "Music / live content rival"],
     ],
     "BZ": [
-        ["0700.HK", "中國互聯網流量對手", "China internet traffic rival"],
-        ["BIDU", "招聘／資訊流對手", "Recruiting / feed rival"],
-        ["BABA", "本地生活／服務生態對手", "Local services ecosystem rival"],
-        ["3690.HK", "本地生活對手", "Local services rival"],
+        # Recruitment product overlap — not generic internet traffic peers as rivals.
+        ["BIDU", "招聘／資訊服務對手", "Recruiting / info-services rival"],
+        ["0700.HK", "招聘流量／資訊服務對手", "Recruiting traffic / info-services rival"],
+        ["BABA", "本地生活／服務招聘鄰接對手", "Local-services recruiting adjacent rival"],
     ],
     "LI": [
         ["XPEV", "中國新能源車對手", "China EV rival"],
@@ -314,13 +402,11 @@ COMPETITORS: dict[str, list[list[str]]] = {
     ],
     "EDU": [
         ["TAL", "中國教育培訓對手", "China education rival"],
-        ["BILI", "線上內容／學習對手", "Online content / learning rival"],
-        ["NTES", "線上內容／學習對手", "Online content / learning rival"],
+        ["BILI", "線上學習／內容鄰接對手", "Online learning / content adjacent rival"],
     ],
     "TAL": [
         ["EDU", "中國教育培訓對手", "China education rival"],
-        ["BILI", "線上內容／學習對手", "Online content / learning rival"],
-        ["NTES", "線上內容／學習對手", "Online content / learning rival"],
+        ["BILI", "線上學習／內容鄰接對手", "Online learning / content adjacent rival"],
     ],
     "LU": [
         ["6060.HK", "互聯網金融對手", "Internet-finance rival"],
@@ -331,20 +417,24 @@ COMPETITORS: dict[str, list[list[str]]] = {
 }
 
 OVERRIDES: dict[str, dict[str, list[str]]] = {
-    "BABA": dict(CN_ECOM),
-    "PDD": dict(CN_ECOM),
-    "JD": dict(CN_ECOM_JD),
-    "VIPS": dict(CN_ECOM),
+    "BABA": dict(CN_BABA),
+    "PDD": dict(CN_PDD),
+    "JD": dict(CN_JD),
+    "VIPS": dict(CN_VIPS),
     "SE": dict(SEA_ECOM),
     "CPNG": dict(KR_ECOM),
-    "NTES": dict(CN_PLATFORM),
-    "BIDU": dict(CN_PLATFORM),
-    "TME": dict(CN_PLATFORM),
-    "BILI": dict(CN_PLATFORM),
-    "BZ": dict(CN_PLATFORM),
+    "NTES": dict(CN_GAMES),
+    "BIDU": dict(CN_BIDU),
+    "TME": dict(CN_MUSIC),
+    "BILI": dict(CN_VIDEO),
+    "BZ": dict(CN_RECRUIT),
     "LI": dict(CN_EV),
     "XPEV": dict(CN_EV),
-    "NIO": dict(CN_EV),
+    # NIO BaaS/swap — energy partners tilt to fuel+gas/charging (label patched); keep off materials/components.
+    "NIO": {
+        **CN_EV,
+        "energy": ["2688.HK", "0386.HK", "0857.HK"],
+    },
     "ZTO": {
         **EXPRESS_DEFAULTS,
         # Hub dual-list 2057.HK must not appear on own stages; shippers stay external e-comm.
@@ -383,29 +473,9 @@ OVERRIDES: dict[str, dict[str, list[str]]] = {
         "buy-side": ["1299.HK", "2318.HK"],
         "issuers": ["0700.HK", "9988.HK", "1810.HK"],
     },
-    "GRAB": {
-        # rideshare-v1 — platforms stage = fleet equipment (not UBER/DASH/LYFT).
-        "maps-cloud": ["GOOG", "MSFT", "3888.HK"],
-        "payments": ["0005.HK", "V", "MA"],
-        "supply": ["TM", "HMC", "0175.HK"],
-        "platforms": ["1211.HK", "3800.HK", "2688.HK"],
-        "monetization": ["2020.HK", "2331.HK", "2319.HK"],
-    },
-    "EDU": {
-        # External publishing / campus landlords — not rival studios as "content upstream".
-        "inputs": ["0772.HK", "0151.HK", "1044.HK"],
-        "logistics": ["2057.HK", "1519.HK", "0316.HK"],
-        "stores": ["1109.HK", "0688.HK", "0960.HK"],
-        "payments": ["0005.HK", "1398.HK", "6060.HK"],
-        "traffic": ["0700.HK", "9888.HK", "1024.HK"],
-    },
-    "TAL": {
-        "inputs": ["0772.HK", "0151.HK", "1044.HK"],
-        "logistics": ["2057.HK", "1519.HK", "0316.HK"],
-        "stores": ["1109.HK", "0688.HK", "0960.HK"],
-        "payments": ["0005.HK", "1398.HK", "6060.HK"],
-        "traffic": ["0700.HK", "9888.HK", "1024.HK"],
-    },
+    "GRAB": dict(GRAB_LIFE),
+    "EDU": dict(CN_EDU),
+    "TAL": dict(CN_EDU),
     "LU": {
         # Split bank rails vs platform partners — no cross-stage player dupes.
         "issuers": ["0005.HK", "1398.HK", "0939.HK"],
@@ -452,6 +522,42 @@ HUB_STAGE_LABEL_OVERRIDES: dict[str, dict[str, dict[str, str]]] = {
             "label_en": "Housing / retail demand",
             "summary_zh": "商場與物業需求週期代表（非對手開發商）。",
             "summary_en": "Mall/property demand-cycle proxies — rival developers stay on the rival arc.",
+        },
+    },
+    "BIDU": {
+        "infra": {
+            "label_zh": "AI 雲／IDC 基建",
+            "label_en": "AI Cloud / IDC infrastructure",
+            "summary_zh": "支撐百度廣告與 AI 雲營收的外部雲／IDC／GPU 基建。",
+            "summary_en": "External cloud/IDC/GPU under Baidu ads + AI Cloud revenue.",
+        },
+        "advertisers": {
+            "label_zh": "搜尋／資訊流廣告主",
+            "label_en": "Search / feed advertisers",
+            "summary_zh": "在搜尋與資訊流投放的品牌廣告主（線上行銷主營收）。",
+            "summary_en": "Brand advertisers on search/feed — core online-marketing revenue.",
+        },
+    },
+    "NIO": {
+        "energy": {
+            "label_zh": "換電／充電能源",
+            "label_en": "Battery-swap / charging energy",
+            "summary_zh": "換電與充電網絡相關的外部能源／加氣充電夥伴（非自有換電站名單）。",
+            "summary_en": "External energy partners for swap/charging networks — not own swap-station pads.",
+        },
+    },
+    "GRAB": {
+        "merchants": {
+            "label_zh": "東南亞餐飲／零售商戶",
+            "label_en": "SEA F&B / retail merchants",
+            "summary_zh": "GrabFood／商戶訂單背後的餐飲與零售品牌（即配＋到店營收）。",
+            "summary_en": "F&B and retail brands behind GrabFood/merchant orders.",
+        },
+        "fleet": {
+            "label_zh": "運力／兩輪與能源",
+            "label_en": "Fleet / two-wheel & energy",
+            "summary_zh": "出行與即配運力相關的車隊設備與能源供給。",
+            "summary_en": "Fleet equipment and energy for mobility + delivery capacity.",
         },
     },
 }
@@ -529,6 +635,21 @@ def main() -> int:
     players["freight-platform-v1"] = {
         sid: list(ticks) for sid, ticks in FREIGHT_DEFAULTS.items()
     }
+    players["china-games-operator-v1"] = {
+        sid: list(ticks) for sid, ticks in CN_GAMES.items()
+    }
+    players["china-music-platform-v1"] = {
+        sid: list(ticks) for sid, ticks in CN_MUSIC.items()
+    }
+    players["china-video-community-v1"] = {
+        sid: list(ticks) for sid, ticks in CN_VIDEO.items()
+    }
+    players["online-recruitment-v1"] = {
+        sid: list(ticks) for sid, ticks in CN_RECRUIT.items()
+    }
+    players["china-education-services-v1"] = {
+        sid: list(ticks) for sid, ticks in CN_EDU.items()
+    }
     # Fix rideshare default: platforms = fleet equipment, not rival apps.
     players["rideshare-v1"] = {
         "maps-cloud": ["GOOG", "MSFT", "AMZN"],
@@ -537,9 +658,9 @@ def main() -> int:
         "platforms": ["1211.HK", "3800.HK", "2688.HK"],
         "monetization": ["GOOG", "META", "AMZN"],
     }
-    # Ensure china-platform-builder defaults stay gold.
+    # china-platform-builder defaults (BIDU-shaped ads+cloud skeleton).
     players["china-platform-builder-v1"] = {
-        sid: list(ticks) for sid, ticks in CN_PLATFORM.items()
+        sid: list(ticks) for sid, ticks in CN_BIDU.items()
     }
 
     ENT_PATH.write_text(json.dumps(entities, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -548,7 +669,7 @@ def main() -> int:
     PLAYERS_PATH.write_text(json.dumps(players, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(
         f"Batch A prep: entities+={len(ENTITIES)}, competitors hubs={len(COMPETITORS)}, "
-        f"overrides hubs={len(OVERRIDES)}; models express/freight/rideshare/china-platform defaults"
+        f"overrides hubs={len(OVERRIDES)}; models games/music/video/recruit/edu/express/freight defaults"
     )
     missing = [t for t in BATCH_A if t not in COMPETITORS or t not in OVERRIDES]
     if missing:

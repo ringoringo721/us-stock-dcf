@@ -6,20 +6,17 @@
   "updatedAt": "2026-11-23",
   "source": {
     "type": "curated",
-    "basis": "China/Asia ADR Batch A concept scrub: China-centric external-partner chains (0700/9988/1211 gold). Not a live supplier API dump. Preview-before-merge.",
-    "notes_zh": "本頁為中國／亞洲主力市場供應鏈策展種子（對齊 0700／9988／1211 外部夥伴規則）。階段只列外部供應商／夥伴／通路／基建；自研產品／內容／IP／附屬不進階段。對手弧＝產品／市場真對手，且對手≠階段玩家。雙重上市生態節點優先 .HK；不以美股零售／互聯網模板灌水。",
-    "notes_en": "China/Asia major-market curated seed (aligned with 0700/9988/1211 external-partner rules). Stages = external suppliers/partners/channels/infra only — not self-built products/IP/subsidiaries. Rival arc = true product/market rivals; rivals ≠ stage players. Dual-list ecosystem nodes prefer .HK; not a US retail/internet template dump.",
-    "competitorRationale_zh": "競爭弧只列主力市場真實產品對手；階段玩家與對手分開；雙重上市生態節點優先 .HK；中國／亞洲市場不以美股節點為預設。",
-    "competitorRationale_en": "Rival arc = true product rivals in the major market; stages ≠ rivals; dual-list ecosystem nodes prefer .HK; China/Asia hubs are not US-node dumps.",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
     "modelId": "auto-oem-v1",
     "references": [
       "Industry model `auto-oem-v1`",
       "AAPL curated seed shape on main (schema reference)",
       "cache/us_universe.json screen: remaining US listings without supply-chain seed",
-      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)",
-      "docs/0700-hk-supply-chain-concepts.md",
-      "docs/us-sc-concept-audit.md Batch A",
-      "scripts/supply_chain/prep_us_batch_a_china_adr.py"
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
     ]
   },
   "model": {
@@ -172,35 +169,35 @@
     {
       "id": "energy",
       "order": 5,
-      "label_zh": "充電／能源服務",
-      "label_en": "Charging / energy services",
-      "summary_zh": "充電網路與能源管理。",
-      "summary_en": "Charging networks and energy mgmt.",
+      "label_zh": "換電／充電能源",
+      "label_en": "Battery-swap / charging energy",
+      "summary_zh": "換電與充電網絡相關的外部能源／加氣充電夥伴（非自有換電站名單）。",
+      "summary_en": "External energy partners for swap/charging networks — not own swap-station pads.",
       "players": [
         {
           "ticker": "2688.HK",
           "name_en": "ENN Energy",
           "name_zh": "新奧能源",
-          "role_zh": "新奧能源：充電／能源服務代表性玩家",
-          "role_en": "ENN Energy: representative player in Charging / energy services",
+          "role_zh": "新奧能源：換電／充電能源代表性玩家",
+          "role_en": "ENN Energy: representative player in Battery-swap / charging energy",
           "exchange": "HKEX",
           "listedInApp": false
         },
         {
-          "ticker": "1193.HK",
-          "name_en": "CR Gas",
-          "name_zh": "華潤燃氣",
-          "role_zh": "華潤燃氣：充電／能源服務代表性玩家",
-          "role_en": "CR Gas: representative player in Charging / energy services",
+          "ticker": "0386.HK",
+          "name_en": "Sinopec",
+          "name_zh": "中石化",
+          "role_zh": "中石化：換電／充電能源代表性玩家",
+          "role_en": "Sinopec: representative player in Battery-swap / charging energy",
           "exchange": "HKEX",
           "listedInApp": false
         },
         {
-          "ticker": "0384.HK",
-          "name_en": "China Gas",
-          "name_zh": "中國燃氣",
-          "role_zh": "中國燃氣：充電／能源服務代表性玩家",
-          "role_en": "China Gas: representative player in Charging / energy services",
+          "ticker": "0857.HK",
+          "name_en": "PetroChina",
+          "name_zh": "中國石油",
+          "role_zh": "中國石油：換電／充電能源代表性玩家",
+          "role_en": "PetroChina: representative player in Battery-swap / charging energy",
           "exchange": "HKEX",
           "listedInApp": false
         }

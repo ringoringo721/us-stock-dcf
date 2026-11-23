@@ -146,16 +146,6 @@
       "asOf": "2026-10-30",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "BABA": {
-      "ticker": "BABA",
-      "price": 94.38,
-      "previousClose": 94.36,
-      "changePct": 0.021,
-      "mcap": 262382.7,
-      "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
     "1024.HK": {
       "ticker": "1024.HK",
       "price": 26.46,
@@ -166,22 +156,22 @@
       "asOf": "2026-10-30",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "BILI": {
-      "ticker": "BILI",
-      "price": 13.25,
-      "previousClose": 13.5,
-      "changePct": -1.852,
-      "mcap": 6059.6,
+    "GOOG": {
+      "ticker": "GOOG",
+      "price": 292.52,
+      "previousClose": 295.35,
+      "changePct": -0.958,
+      "mcap": 3481876.2,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "NTES": {
-      "ticker": "NTES",
-      "price": 122.18,
-      "previousClose": 122.63,
-      "changePct": -0.367,
-      "mcap": 82449.5,
+    "BABA": {
+      "ticker": "BABA",
+      "price": 94.38,
+      "previousClose": 94.36,
+      "changePct": 0.021,
+      "mcap": 262382.7,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"

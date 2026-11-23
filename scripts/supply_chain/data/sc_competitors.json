@@ -5353,23 +5353,18 @@
     ],
     [
       "BILI",
-      "影音／遊戲內容對手",
-      "Video / games content rival"
+      "遊戲／互動娛樂對手",
+      "Games / interactive entertainment rival"
     ],
     [
-      "BIDU",
-      "中國互聯網生態對手",
-      "China internet ecosystem rival"
+      "SE",
+      "東南亞／全球遊戲對手",
+      "SEA / global games rival"
     ],
     [
-      "BABA",
-      "中國互聯網生態對手",
-      "China internet ecosystem rival"
-    ],
-    [
-      "1024.HK",
-      "短影音／資訊流對手",
-      "Short-video / feed rival"
+      "RBLX",
+      "互動娛樂／UGC 遊戲對手",
+      "Interactive / UGC games rival"
     ]
   ],
   "HWM": [
@@ -12224,13 +12219,8 @@
   "BIDU": [
     [
       "0700.HK",
-      "搜尋／廣告對手",
-      "Search / advertising rival"
-    ],
-    [
-      "BABA",
-      "中國互聯網生態對手",
-      "China internet ecosystem rival"
+      "搜尋／線上行銷對手",
+      "Search / online-marketing rival"
     ],
     [
       "1024.HK",
@@ -12238,14 +12228,14 @@
       "Feed-ads rival"
     ],
     [
-      "BILI",
-      "內容／流量對手",
-      "Content / traffic rival"
+      "GOOG",
+      "搜尋／雲對手",
+      "Search / cloud rival"
     ],
     [
-      "NTES",
-      "內容／遊戲生態對手",
-      "Content / games ecosystem rival"
+      "BABA",
+      "數字營銷／雲對手",
+      "Digital marketing / cloud rival"
     ]
   ],
   "WST": [
@@ -17254,24 +17244,19 @@
       "Music streaming rival"
     ],
     [
-      "BILI",
-      "影音內容對手",
-      "Video content rival"
-    ],
-    [
       "NTES",
-      "雲音樂／內容對手",
-      "Cloud music / content rival"
+      "雲音樂對手",
+      "Cloud music rival"
     ],
     [
       "1024.HK",
-      "短影音內容對手",
-      "Short-video content rival"
+      "短影音音樂／內容對手",
+      "Short-video music / content rival"
     ],
     [
-      "BIDU",
-      "內容／流量對手",
-      "Content / traffic rival"
+      "BILI",
+      "影音內容對手",
+      "Video content rival"
     ]
   ],
   "NWS": [
@@ -25004,24 +24989,19 @@
   ],
   "BZ": [
     [
-      "0700.HK",
-      "中國互聯網流量對手",
-      "China internet traffic rival"
+      "BIDU",
+      "招聘／資訊服務對手",
+      "Recruiting / info-services rival"
     ],
     [
-      "BIDU",
-      "招聘／資訊流對手",
-      "Recruiting / feed rival"
+      "0700.HK",
+      "招聘流量／資訊服務對手",
+      "Recruiting traffic / info-services rival"
     ],
     [
       "BABA",
-      "本地生活／服務生態對手",
-      "Local services ecosystem rival"
-    ],
-    [
-      "3690.HK",
-      "本地生活對手",
-      "Local services rival"
+      "本地生活／服務招聘鄰接對手",
+      "Local-services recruiting adjacent rival"
     ]
   ],
   "NCLH": [
@@ -29929,9 +29909,9 @@
   ],
   "BILI": [
     [
-      "0700.HK",
-      "影音／互動娛樂對手",
-      "Video / interactive entertainment rival"
+      "1024.HK",
+      "長／短影音社區對手",
+      "Long/short-video community rival"
     ],
     [
       "NTES",
@@ -29939,19 +29919,14 @@
       "Games / content rival"
     ],
     [
-      "1024.HK",
-      "短影音對手",
-      "Short-video rival"
+      "0700.HK",
+      "影音／互動娛樂對手",
+      "Video / interactive entertainment rival"
     ],
     [
       "TME",
-      "音樂／內容對手",
-      "Music / content rival"
-    ],
-    [
-      "BIDU",
-      "內容／流量對手",
-      "Content / traffic rival"
+      "音樂／直播內容對手",
+      "Music / live content rival"
     ]
   ],
   "ACIW": [
@@ -33632,13 +33607,8 @@
     ],
     [
       "BILI",
-      "線上內容／學習對手",
-      "Online content / learning rival"
-    ],
-    [
-      "NTES",
-      "線上內容／學習對手",
-      "Online content / learning rival"
+      "線上學習／內容鄰接對手",
+      "Online learning / content adjacent rival"
     ]
   ],
   "MSGK": [
@@ -33676,13 +33646,8 @@
     ],
     [
       "BILI",
-      "線上內容／學習對手",
-      "Online content / learning rival"
-    ],
-    [
-      "NTES",
-      "線上內容／學習對手",
-      "Online content / learning rival"
+      "線上學習／內容鄰接對手",
+      "Online learning / content adjacent rival"
     ]
   ],
   "M": [

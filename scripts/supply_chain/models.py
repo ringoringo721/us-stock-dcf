@@ -391,6 +391,243 @@ MODELS: dict[str, dict] = {
     },
     # Tencent-class: external inputs/partners only. Games/WeChat are self-built — not SC stages.
     # Revenue context FY2025: VAS~49%, FinTech~31%, Marketing~19% (games stay on rival arc / product story).
+    # NetEase-class: games ~80%+ of revenue — external ops partners only (not self-built game IP).
+    "china-games-operator-v1": {
+        "label_zh": "中國遊戲運營價值鏈",
+        "label_en": "China games operator value chain",
+        "description_zh": "雲／IDC → 電信／裝置到達 → 支付軌道 → 買量／聯運夥伴。自研遊戲／IP 不進階段；對手放對手弧。",
+        "description_en": "Cloud/IDC → carrier/device reach → payment rails → UA/publishing partners. Self-built games/IP are not stages; rivals on rival arc.",
+        "stages": [
+            {
+                "id": "infra",
+                "order": 1,
+                "label_zh": "雲／遊戲基建",
+                "label_en": "Cloud / game infrastructure",
+                "summary_zh": "跑遊戲服務的外部 IDC／雲底座。",
+                "summary_en": "External IDC/cloud under game services.",
+            },
+            {
+                "id": "distribution",
+                "order": 2,
+                "label_zh": "電信／裝置到達",
+                "label_en": "Carrier / device reach",
+                "summary_zh": "用戶經電信與終端到達遊戲客戶端（外部到達）。",
+                "summary_en": "Carriers and devices delivering game-client reach.",
+            },
+            {
+                "id": "payments",
+                "order": 3,
+                "label_zh": "支付／點卡軌道",
+                "label_en": "Payment / top-up rails",
+                "summary_zh": "遊戲儲值與結算的銀行／互聯網支付軌道。",
+                "summary_en": "Bank and internet-payment rails for game top-up/settlement.",
+            },
+            {
+                "id": "ua-publish",
+                "order": 4,
+                "label_zh": "買量／聯運夥伴",
+                "label_en": "UA / co-publish partners",
+                "summary_zh": "外部買量媒體與聯運／發行夥伴（非自研工作室）。",
+                "summary_en": "External UA media and co-publish partners — not self-built studios.",
+            },
+        ],
+    },
+    # TME-class: music subscription + social entertainment — licensed labels are EXTERNAL inputs.
+    "china-music-platform-v1": {
+        "label_zh": "中國音樂／音頻平台價值鏈",
+        "label_en": "China music / audio platform value chain",
+        "description_zh": "唱片授權 → 雲／CDN → 電信／裝置 → 支付訂閱 → 廣告主。授權內容是外部投入；自有社交功能不拆成上游。",
+        "description_en": "Label licensing → cloud/CDN → carriers/devices → subscription payments → advertisers. Licensed catalogs are external; self-built social features are not upstream.",
+        "stages": [
+            {
+                "id": "labels",
+                "order": 1,
+                "label_zh": "唱片／曲庫授權",
+                "label_en": "Record labels / catalog licensing",
+                "summary_zh": "外部唱片公司與曲庫授權（串流成本核心）。",
+                "summary_en": "External labels and catalog licenses — core streaming COGS.",
+            },
+            {
+                "id": "infra",
+                "order": 2,
+                "label_zh": "雲／CDN 基建",
+                "label_en": "Cloud / CDN infrastructure",
+                "summary_zh": "音頻分發所需的外部雲／CDN。",
+                "summary_en": "External cloud/CDN for audio delivery.",
+            },
+            {
+                "id": "distribution",
+                "order": 3,
+                "label_zh": "電信／裝置到達",
+                "label_en": "Carrier / device reach",
+                "summary_zh": "用戶經電信與終端到達 App。",
+                "summary_en": "Carriers and devices delivering app reach.",
+            },
+            {
+                "id": "payments",
+                "order": 4,
+                "label_zh": "訂閱／打賞支付",
+                "label_en": "Subscription / tipping payments",
+                "summary_zh": "會員訂閱與直播打賞的支付清算軌道。",
+                "summary_en": "Payment rails for memberships and live tipping.",
+            },
+            {
+                "id": "advertisers",
+                "order": 5,
+                "label_zh": "品牌廣告主",
+                "label_en": "Brand advertisers",
+                "summary_zh": "在音樂／直播庫存投放的品牌廣告主。",
+                "summary_en": "Brand advertisers on music/live inventory.",
+            },
+        ],
+    },
+    # Bilibili-class: VAS + advertising + mobile games.
+    "china-video-community-v1": {
+        "label_zh": "中國影音社區價值鏈",
+        "label_en": "China video community value chain",
+        "description_zh": "雲／CDN → 電信／裝置 → 支付（大會員／打賞）→ 廣告主 → 遊戲聯運／發行。UGC／自研不進階段。",
+        "description_en": "Cloud/CDN → carriers/devices → payments (VIP/tips) → advertisers → game co-publish. UGC/self-built IP are not stages.",
+        "stages": [
+            {
+                "id": "infra",
+                "order": 1,
+                "label_zh": "雲／CDN 基建",
+                "label_en": "Cloud / CDN infrastructure",
+                "summary_zh": "影音流量所需的外部雲／CDN。",
+                "summary_en": "External cloud/CDN under video traffic.",
+            },
+            {
+                "id": "distribution",
+                "order": 2,
+                "label_zh": "電信／裝置到達",
+                "label_en": "Carrier / device reach",
+                "summary_zh": "用戶經電信與終端到達 App。",
+                "summary_en": "Carriers and devices delivering app reach.",
+            },
+            {
+                "id": "payments",
+                "order": 3,
+                "label_zh": "會員／打賞支付",
+                "label_en": "Membership / tipping payments",
+                "summary_zh": "大會員與直播打賞的支付軌道。",
+                "summary_en": "Payment rails for premium memberships and live tipping.",
+            },
+            {
+                "id": "advertisers",
+                "order": 4,
+                "label_zh": "品牌廣告主",
+                "label_en": "Brand advertisers",
+                "summary_zh": "在資訊流／視頻庫存投放的廣告主（第二大營收）。",
+                "summary_en": "Brand advertisers on feed/video inventory (second-largest revenue).",
+            },
+            {
+                "id": "game-publish",
+                "order": 5,
+                "label_zh": "遊戲聯運／發行夥伴",
+                "label_en": "Game co-publish / licensing partners",
+                "summary_zh": "外部遊戲聯運與授權夥伴（非自研工作室名單）。",
+                "summary_en": "External game co-publish and licensing partners — not self-studio pads.",
+            },
+        ],
+    },
+    # BOSS Zhipin-class: online recruitment — employers are demand, not "WeChat advertisers".
+    "online-recruitment-v1": {
+        "label_zh": "線上招聘平台價值鏈",
+        "label_en": "Online recruitment platform value chain",
+        "description_zh": "流量獲客 → 雇主客戶（營收需求方）→ 人資／評估工具 → 支付結算 → 雇主品牌廣告。",
+        "description_en": "Traffic acquisition → employer customers (revenue demand) → HR/assessment tools → payment settlement → employer-brand ads.",
+        "stages": [
+            {
+                "id": "traffic",
+                "order": 1,
+                "label_zh": "流量／獲客",
+                "label_en": "Traffic / acquisition",
+                "summary_zh": "求職者到達所需的外部流量與入口夥伴。",
+                "summary_en": "External traffic and entry partners for candidate reach.",
+            },
+            {
+                "id": "employers",
+                "order": 2,
+                "label_zh": "雇主客戶",
+                "label_en": "Employer customers",
+                "summary_zh": "付費招聘的大型雇主客戶（營收下游）。",
+                "summary_en": "Paying large employers — revenue downstream.",
+            },
+            {
+                "id": "hr-tools",
+                "order": 3,
+                "label_zh": "人資／評估工具",
+                "label_en": "HR / assessment tools",
+                "summary_zh": "外部測評、背景與人資科技夥伴。",
+                "summary_en": "External assessment, screening, and HR-tech partners.",
+            },
+            {
+                "id": "payments",
+                "order": 4,
+                "label_zh": "支付／結算",
+                "label_en": "Payments / settlement",
+                "summary_zh": "雇主付費與結算軌道。",
+                "summary_en": "Employer billing and settlement rails.",
+            },
+            {
+                "id": "branding",
+                "order": 5,
+                "label_zh": "雇主品牌廣告",
+                "label_en": "Employer-brand advertising",
+                "summary_zh": "在平台投放雇主品牌的廣告主。",
+                "summary_en": "Employers buying brand inventory on the platform.",
+            },
+        ],
+    },
+    # New Oriental / TAL-class: tutoring & education services fees.
+    "china-education-services-v1": {
+        "label_zh": "中國教育服務價值鏈",
+        "label_en": "China education services value chain",
+        "description_zh": "流量獲客 → 教材／內容授權 → 校區物業 → 支付學費 → 電信／裝置到課。自有師資不進上游。",
+        "description_en": "Traffic → curriculum/content licensing → campus property → tuition payments → carrier/device reach. Own teachers are not upstream.",
+        "stages": [
+            {
+                "id": "traffic",
+                "order": 1,
+                "label_zh": "流量／獲客",
+                "label_en": "Traffic / acquisition",
+                "summary_zh": "學員到達的外部流量與入口。",
+                "summary_en": "External traffic and entry for student acquisition.",
+            },
+            {
+                "id": "content",
+                "order": 2,
+                "label_zh": "教材／內容授權",
+                "label_en": "Curriculum / content licensing",
+                "summary_zh": "外部出版社與內容授權（非自有師資）。",
+                "summary_en": "External publishers and content licenses — not own teachers.",
+            },
+            {
+                "id": "facilities",
+                "order": 3,
+                "label_zh": "校區／物業",
+                "label_en": "Campus / property",
+                "summary_zh": "教學點物業與商場業主。",
+                "summary_en": "Learning-center landlords and mall owners.",
+            },
+            {
+                "id": "payments",
+                "order": 4,
+                "label_zh": "學費支付",
+                "label_en": "Tuition payments",
+                "summary_zh": "學費收取與清算軌道。",
+                "summary_en": "Tuition collection and settlement rails.",
+            },
+            {
+                "id": "distribution",
+                "order": 5,
+                "label_zh": "電信／裝置到課",
+                "label_en": "Carrier / device reach",
+                "summary_zh": "線上課程到達的電信與終端。",
+                "summary_en": "Carriers and devices delivering online lessons.",
+            },
+        ],
+    },
     # Shared China internet-platform skeleton (0700 gold shape). Copy is product-neutral —
     # do not name WeChat/WeChat Pay/Moments; hub-specific 0700 wording lives on the HK seed.
     "china-platform-builder-v1": {
@@ -3151,12 +3388,15 @@ TICKER_MODEL: dict[str, str] = {
     "SLB": "oilfield-services-v1",
     "CEG": "utilities-v1",
     "SRE": "utilities-v1",
-    # China/Asia ADR platforms — external-partner builder (0700 gold), not US internet dump
-    "NTES": "china-platform-builder-v1",
-    "BIDU": "china-platform-builder-v1",
-    "TME": "china-platform-builder-v1",
-    "BILI": "china-platform-builder-v1",
-    "BZ": "china-platform-builder-v1",
+    # China/Asia ADR — revenue-first models (not cloned china-platform for every ADR)
+    "NTES": "china-games-operator-v1",  # games ~80%+
+    "BIDU": "china-platform-builder-v1",  # ads + AI cloud
+    "TME": "china-music-platform-v1",  # music sub + social entertainment
+    "BILI": "china-video-community-v1",  # VAS + ads + games
+    "BZ": "online-recruitment-v1",  # employer-paid recruitment
+    "EDU": "china-education-services-v1",
+    "TAL": "china-education-services-v1",
+    # GRAB stays mobility-core-v1 (Batch B / main) — do not remap to china-local-life / sea-superapp.
     # China EV ADRs — same auto-oem skeleton as 1211; China nodes via overrides
     "LI": "auto-oem-v1",
     "XPEV": "auto-oem-v1",
@@ -3164,11 +3404,9 @@ TICKER_MODEL: dict[str, str] = {
     # Express / freight — not industrials CAT or saas-cloud
     "ZTO": "express-logistics-v1",
     "YMM": "freight-platform-v1",
-    # China lodging / QSR / education / brokerage / broker / fintech stay on models; China nodes via overrides
+    # China lodging / QSR / brokerage / broker / fintech
     "YUMC": "consumer-discretionary-v1",
     "HTHT": "consumer-discretionary-v1",
-    "EDU": "consumer-discretionary-v1",
-    "TAL": "consumer-discretionary-v1",
     "FUTU": "capital-markets-v1",
     "LU": "payments-v1",
     "NKE": "consumer-discretionary-v1",

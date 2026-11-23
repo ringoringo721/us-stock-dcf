@@ -6,136 +6,122 @@
   "updatedAt": "2026-11-23",
   "source": {
     "type": "curated",
-    "basis": "China/Asia ADR Batch A concept scrub: China-centric external-partner chains (0700/9988/1211 gold). Not a live supplier API dump. Preview-before-merge.",
-    "notes_zh": "本頁為中國／亞洲主力市場供應鏈策展種子（對齊 0700／9988／1211 外部夥伴規則）。階段只列外部供應商／夥伴／通路／基建；自研產品／內容／IP／附屬不進階段。對手弧＝產品／市場真對手，且對手≠階段玩家。雙重上市生態節點優先 .HK；不以美股零售／互聯網模板灌水。",
-    "notes_en": "China/Asia major-market curated seed (aligned with 0700/9988/1211 external-partner rules). Stages = external suppliers/partners/channels/infra only — not self-built products/IP/subsidiaries. Rival arc = true product/market rivals; rivals ≠ stage players. Dual-list ecosystem nodes prefer .HK; not a US retail/internet template dump.",
-    "competitorRationale_zh": "競爭弧只列主力市場真實產品對手；階段玩家與對手分開；雙重上市生態節點優先 .HK；中國／亞洲市場不以美股節點為預設。",
-    "competitorRationale_en": "Rival arc = true product rivals in the major market; stages ≠ rivals; dual-list ecosystem nodes prefer .HK; China/Asia hubs are not US-node dumps.",
-    "modelId": "consumer-discretionary-v1",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "china-education-services-v1",
     "references": [
-      "Industry model `consumer-discretionary-v1`",
+      "Industry model `china-education-services-v1`",
       "AAPL curated seed shape on main (schema reference)",
       "cache/us_universe.json screen: remaining US listings without supply-chain seed",
-      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)",
-      "docs/0700-hk-supply-chain-concepts.md",
-      "docs/us-sc-concept-audit.md Batch A",
-      "scripts/supply_chain/prep_us_batch_a_china_adr.py"
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
     ]
   },
   "model": {
-    "id": "consumer-discretionary-v1",
-    "label_zh": "非必需消費／餐旅價值鏈",
-    "label_en": "Consumer discretionary / hospitality value chain",
-    "description_zh": "原料／商品 → 物流 → 門市／平台 → 支付 → 行銷流量。",
-    "description_en": "Inputs/goods → logistics → stores/platforms → payments → marketing traffic."
+    "id": "china-education-services-v1",
+    "label_zh": "中國教育服務價值鏈",
+    "label_en": "China education services value chain",
+    "description_zh": "流量獲客 → 教材／內容授權 → 校區物業 → 支付學費 → 電信／裝置到課。自有師資不進上游。",
+    "description_en": "Traffic → curriculum/content licensing → campus property → tuition payments → carrier/device reach. Own teachers are not upstream."
   },
   "stages": [
     {
-      "id": "inputs",
+      "id": "traffic",
       "order": 1,
-      "label_zh": "原料／商品供應",
-      "label_en": "Inputs / merchandise supply",
-      "summary_zh": "食材、商品與授權 IP。",
-      "summary_en": "Food, goods, licensed IP.",
+      "label_zh": "流量／獲客",
+      "label_en": "Traffic / acquisition",
+      "summary_zh": "學員到達的外部流量與入口。",
+      "summary_en": "External traffic and entry for student acquisition.",
+      "players": [
+        {
+          "ticker": "1024.HK",
+          "name_en": "Kuaishou",
+          "name_zh": "快手",
+          "role_zh": "快手：流量／獲客代表性玩家",
+          "role_en": "Kuaishou: representative player in Traffic / acquisition",
+          "exchange": "HKEX",
+          "listedInApp": false
+        },
+        {
+          "ticker": "9888.HK",
+          "name_en": "Baidu",
+          "name_zh": "百度",
+          "role_zh": "百度：流量／獲客代表性玩家",
+          "role_en": "Baidu: representative player in Traffic / acquisition",
+          "exchange": "HKEX",
+          "listedInApp": false
+        }
+      ]
+    },
+    {
+      "id": "content",
+      "order": 2,
+      "label_zh": "教材／內容授權",
+      "label_en": "Curriculum / content licensing",
+      "summary_zh": "外部出版社與內容授權（非自有師資）。",
+      "summary_en": "External publishers and content licenses — not own teachers.",
       "players": [
         {
           "ticker": "0772.HK",
           "name_en": "China Literature",
           "name_zh": "閱文集團",
-          "role_zh": "閱文集團：原料／商品供應代表性玩家",
-          "role_en": "China Literature: representative player in Inputs / merchandise supply",
+          "role_zh": "閱文集團：教材／內容授權代表性玩家",
+          "role_en": "China Literature: representative player in Curriculum / content licensing",
           "exchange": "HKEX",
           "listedInApp": false
         },
         {
-          "ticker": "0151.HK",
-          "name_en": "Want Want",
-          "name_zh": "旺旺",
-          "role_zh": "旺旺：原料／商品供應代表性玩家",
-          "role_en": "Want Want: representative player in Inputs / merchandise supply",
-          "exchange": "HKEX",
-          "listedInApp": false
+          "ticker": "PSO",
+          "name_en": "Pearson",
+          "name_zh": "Pearson",
+          "role_zh": "Pearson：教材／內容授權代表性玩家",
+          "role_en": "Pearson: representative player in Curriculum / content licensing",
+          "exchange": "NYSE"
         },
         {
-          "ticker": "1044.HK",
-          "name_en": "Hengan",
-          "name_zh": "恒安國際",
-          "role_zh": "恒安國際：原料／商品供應代表性玩家",
-          "role_en": "Hengan: representative player in Inputs / merchandise supply",
-          "exchange": "HKEX",
-          "listedInApp": false
+          "ticker": "RELX",
+          "name_en": "RELX Plc",
+          "name_zh": "RELX",
+          "role_zh": "RELX：教材／內容授權代表性玩家",
+          "role_en": "RELX Plc: representative player in Curriculum / content licensing",
+          "exchange": "NYSE"
         }
       ]
     },
     {
-      "id": "logistics",
-      "order": 2,
-      "label_zh": "物流／冷鏈",
-      "label_en": "Logistics / cold chain",
-      "summary_zh": "配送與庫存網路。",
-      "summary_en": "Distribution and inventory.",
-      "players": [
-        {
-          "ticker": "2057.HK",
-          "name_en": "ZTO Express",
-          "name_zh": "中通快遞",
-          "role_zh": "中通快遞：物流／冷鏈代表性玩家",
-          "role_en": "ZTO Express: representative player in Logistics / cold chain",
-          "exchange": "HKEX",
-          "listedInApp": false
-        },
-        {
-          "ticker": "1519.HK",
-          "name_en": "J&T Express",
-          "name_zh": "極兔速遞",
-          "role_zh": "極兔速遞：物流／冷鏈代表性玩家",
-          "role_en": "J&T Express: representative player in Logistics / cold chain",
-          "exchange": "HKEX",
-          "listedInApp": false
-        },
-        {
-          "ticker": "0316.HK",
-          "name_en": "OOIL",
-          "name_zh": "東方海外",
-          "role_zh": "東方海外：物流／冷鏈代表性玩家",
-          "role_en": "OOIL: representative player in Logistics / cold chain",
-          "exchange": "HKEX",
-          "listedInApp": false
-        }
-      ]
-    },
-    {
-      "id": "stores",
+      "id": "facilities",
       "order": 3,
-      "label_zh": "門市／數位平台",
-      "label_en": "Stores / digital platforms",
-      "summary_zh": "直營、加盟與 App。",
-      "summary_en": "Owned, franchise, apps.",
+      "label_zh": "校區／物業",
+      "label_en": "Campus / property",
+      "summary_zh": "教學點物業與商場業主。",
+      "summary_en": "Learning-center landlords and mall owners.",
       "players": [
         {
-          "ticker": "1109.HK",
-          "name_en": "CR Land",
-          "name_zh": "華潤置地",
-          "role_zh": "華潤置地：門市／數位平台代表性玩家",
-          "role_en": "CR Land: representative player in Stores / digital platforms",
+          "ticker": "0823.HK",
+          "name_en": "Link REIT",
+          "name_zh": "領展房產基金",
+          "role_zh": "領展房產基金：校區／物業代表性玩家",
+          "role_en": "Link REIT: representative player in Campus / property",
           "exchange": "HKEX",
           "listedInApp": false
         },
         {
-          "ticker": "0688.HK",
-          "name_en": "China Overseas",
-          "name_zh": "中國海外發展",
-          "role_zh": "中國海外發展：門市／數位平台代表性玩家",
-          "role_en": "China Overseas: representative player in Stores / digital platforms",
+          "ticker": "1997.HK",
+          "name_en": "Wharf REIC",
+          "name_zh": "九龍倉置業",
+          "role_zh": "九龍倉置業：校區／物業代表性玩家",
+          "role_en": "Wharf REIC: representative player in Campus / property",
           "exchange": "HKEX",
           "listedInApp": false
         },
         {
-          "ticker": "0960.HK",
-          "name_en": "Longfor",
-          "name_zh": "龍湖集團",
-          "role_zh": "龍湖集團：門市／數位平台代表性玩家",
-          "role_en": "Longfor: representative player in Stores / digital platforms",
+          "ticker": "0014.HK",
+          "name_en": "Hysan",
+          "name_zh": "希慎興業",
+          "role_zh": "希慎興業：校區／物業代表性玩家",
+          "role_en": "Hysan: representative player in Campus / property",
           "exchange": "HKEX",
           "listedInApp": false
         }
@@ -144,17 +130,17 @@
     {
       "id": "payments",
       "order": 4,
-      "label_zh": "支付／忠誠",
-      "label_en": "Payments / loyalty",
-      "summary_zh": "卡支付與會員體系。",
-      "summary_en": "Card rails and loyalty.",
+      "label_zh": "學費支付",
+      "label_en": "Tuition payments",
+      "summary_zh": "學費收取與清算軌道。",
+      "summary_en": "Tuition collection and settlement rails.",
       "players": [
         {
           "ticker": "0005.HK",
           "name_en": "HSBC",
           "name_zh": "滙豐",
-          "role_zh": "滙豐：支付／忠誠代表性玩家",
-          "role_en": "HSBC: representative player in Payments / loyalty",
+          "role_zh": "滙豐：學費支付代表性玩家",
+          "role_en": "HSBC: representative player in Tuition payments",
           "exchange": "HKEX",
           "listedInApp": false
         },
@@ -162,8 +148,8 @@
           "ticker": "1398.HK",
           "name_en": "ICBC",
           "name_zh": "工商銀行",
-          "role_zh": "工商銀行：支付／忠誠代表性玩家",
-          "role_en": "ICBC: representative player in Payments / loyalty",
+          "role_zh": "工商銀行：學費支付代表性玩家",
+          "role_en": "ICBC: representative player in Tuition payments",
           "exchange": "HKEX",
           "listedInApp": false
         },
@@ -171,45 +157,45 @@
           "ticker": "6060.HK",
           "name_en": "ZhongAn",
           "name_zh": "眾安在線",
-          "role_zh": "眾安在線：支付／忠誠代表性玩家",
-          "role_en": "ZhongAn: representative player in Payments / loyalty",
+          "role_zh": "眾安在線：學費支付代表性玩家",
+          "role_en": "ZhongAn: representative player in Tuition payments",
           "exchange": "HKEX",
           "listedInApp": false
         }
       ]
     },
     {
-      "id": "traffic",
+      "id": "distribution",
       "order": 5,
-      "label_zh": "行銷／流量",
-      "label_en": "Marketing / traffic",
-      "summary_zh": "搜尋、社群與旅遊 OTA。",
-      "summary_en": "Search, social, travel OTAs.",
+      "label_zh": "電信／裝置到課",
+      "label_en": "Carrier / device reach",
+      "summary_zh": "線上課程到達的電信與終端。",
+      "summary_en": "Carriers and devices delivering online lessons.",
       "players": [
         {
-          "ticker": "0700.HK",
-          "name_en": "Tencent",
-          "name_zh": "騰訊",
-          "role_zh": "騰訊：行銷／流量代表性玩家",
-          "role_en": "Tencent: representative player in Marketing / traffic",
+          "ticker": "0941.HK",
+          "name_en": "China Mobile",
+          "name_zh": "中國移動",
+          "role_zh": "中國移動：電信／裝置到課代表性玩家",
+          "role_en": "China Mobile: representative player in Carrier / device reach",
           "exchange": "HKEX",
           "listedInApp": false
         },
         {
-          "ticker": "9888.HK",
-          "name_en": "Baidu",
-          "name_zh": "百度",
-          "role_zh": "百度：行銷／流量代表性玩家",
-          "role_en": "Baidu: representative player in Marketing / traffic",
+          "ticker": "0762.HK",
+          "name_en": "China Unicom",
+          "name_zh": "中國聯通",
+          "role_zh": "中國聯通：電信／裝置到課代表性玩家",
+          "role_en": "China Unicom: representative player in Carrier / device reach",
           "exchange": "HKEX",
           "listedInApp": false
         },
         {
-          "ticker": "1024.HK",
-          "name_en": "Kuaishou",
-          "name_zh": "快手",
-          "role_zh": "快手：行銷／流量代表性玩家",
-          "role_en": "Kuaishou: representative player in Marketing / traffic",
+          "ticker": "1810.HK",
+          "name_en": "Xiaomi",
+          "name_zh": "小米",
+          "role_zh": "小米：電信／裝置到課代表性玩家",
+          "role_en": "Xiaomi: representative player in Carrier / device reach",
           "exchange": "HKEX",
           "listedInApp": false
         }
@@ -229,16 +215,8 @@
       "ticker": "BILI",
       "name_en": "Bilibili",
       "name_zh": "嗶哩嗶哩",
-      "basis_zh": "線上內容／學習對手",
-      "basis_en": "Online content / learning rival",
-      "exchange": "NASDAQ"
-    },
-    {
-      "ticker": "NTES",
-      "name_en": "NetEase",
-      "name_zh": "網易",
-      "basis_zh": "線上內容／學習對手",
-      "basis_en": "Online content / learning rival",
+      "basis_zh": "線上學習／內容鄰接對手",
+      "basis_en": "Online learning / content adjacent rival",
       "exchange": "NASDAQ"
     }
   ]

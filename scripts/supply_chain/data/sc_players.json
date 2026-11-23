@@ -2175,5 +2175,135 @@
       "3888.HK",
       "9698.HK"
     ]
+  },
+  "china-games-operator-v1": {
+    "infra": [
+      "9698.HK",
+      "0788.HK",
+      "3888.HK"
+    ],
+    "distribution": [
+      "0941.HK",
+      "0762.HK",
+      "1810.HK"
+    ],
+    "payments": [
+      "0005.HK",
+      "1398.HK",
+      "6060.HK"
+    ],
+    "ua-publish": [
+      "1024.HK",
+      "GOOG",
+      "TTWO"
+    ]
+  },
+  "china-music-platform-v1": {
+    "labels": [
+      "SONY",
+      "WMG",
+      "DIS"
+    ],
+    "infra": [
+      "9698.HK",
+      "0788.HK",
+      "3888.HK"
+    ],
+    "distribution": [
+      "0941.HK",
+      "0762.HK",
+      "1810.HK"
+    ],
+    "payments": [
+      "0005.HK",
+      "1398.HK",
+      "6060.HK"
+    ],
+    "advertisers": [
+      "2020.HK",
+      "2331.HK",
+      "2319.HK"
+    ]
+  },
+  "china-video-community-v1": {
+    "infra": [
+      "9698.HK",
+      "0788.HK",
+      "3888.HK"
+    ],
+    "distribution": [
+      "0941.HK",
+      "0762.HK",
+      "1810.HK"
+    ],
+    "payments": [
+      "0005.HK",
+      "1398.HK",
+      "6060.HK"
+    ],
+    "advertisers": [
+      "2020.HK",
+      "2331.HK",
+      "2319.HK"
+    ],
+    "game-publish": [
+      "TTWO",
+      "RBLX",
+      "U"
+    ]
+  },
+  "online-recruitment-v1": {
+    "traffic": [
+      "1024.HK",
+      "9626.HK",
+      "035420.KS"
+    ],
+    "employers": [
+      "1810.HK",
+      "1211.HK",
+      "2318.HK"
+    ],
+    "hr-tools": [
+      "3888.HK",
+      "9698.HK",
+      "RELX"
+    ],
+    "payments": [
+      "0005.HK",
+      "1398.HK",
+      "6060.HK"
+    ],
+    "branding": [
+      "2020.HK",
+      "2331.HK",
+      "2319.HK"
+    ]
+  },
+  "china-education-services-v1": {
+    "traffic": [
+      "1024.HK",
+      "9626.HK",
+      "9888.HK"
+    ],
+    "content": [
+      "0772.HK",
+      "PSO",
+      "RELX"
+    ],
+    "facilities": [
+      "0823.HK",
+      "1997.HK",
+      "0014.HK"
+    ],
+    "payments": [
+      "0005.HK",
+      "1398.HK",
+      "6060.HK"
+    ],
+    "distribution": [
+      "0941.HK",
+      "0762.HK",
+      "1810.HK"
+    ]
   }
 }

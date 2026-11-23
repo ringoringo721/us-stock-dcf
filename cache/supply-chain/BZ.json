@@ -6,118 +6,151 @@
   "updatedAt": "2026-11-23",
   "source": {
     "type": "curated",
-    "basis": "China/Asia ADR Batch A concept scrub: China-centric external-partner chains (0700/9988/1211 gold). Not a live supplier API dump. Preview-before-merge.",
-    "notes_zh": "本頁為中國／亞洲主力市場供應鏈策展種子（對齊 0700／9988／1211 外部夥伴規則）。階段只列外部供應商／夥伴／通路／基建；自研產品／內容／IP／附屬不進階段。對手弧＝產品／市場真對手，且對手≠階段玩家。雙重上市生態節點優先 .HK；不以美股零售／互聯網模板灌水。",
-    "notes_en": "China/Asia major-market curated seed (aligned with 0700/9988/1211 external-partner rules). Stages = external suppliers/partners/channels/infra only — not self-built products/IP/subsidiaries. Rival arc = true product/market rivals; rivals ≠ stage players. Dual-list ecosystem nodes prefer .HK; not a US retail/internet template dump.",
-    "competitorRationale_zh": "競爭弧只列主力市場真實產品對手；階段玩家與對手分開；雙重上市生態節點優先 .HK；中國／亞洲市場不以美股節點為預設。",
-    "competitorRationale_en": "Rival arc = true product rivals in the major market; stages ≠ rivals; dual-list ecosystem nodes prefer .HK; China/Asia hubs are not US-node dumps.",
-    "modelId": "china-platform-builder-v1",
+    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
+    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
+    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "modelId": "online-recruitment-v1",
     "references": [
-      "Industry model `china-platform-builder-v1`",
+      "Industry model `online-recruitment-v1`",
       "AAPL curated seed shape on main (schema reference)",
       "cache/us_universe.json screen: remaining US listings without supply-chain seed",
-      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)",
-      "docs/0700-hk-supply-chain-concepts.md",
-      "docs/us-sc-concept-audit.md Batch A",
-      "scripts/supply_chain/prep_us_batch_a_china_adr.py"
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
     ]
   },
   "model": {
-    "id": "china-platform-builder-v1",
-    "label_zh": "中國平台建造／運營價值鏈",
-    "label_en": "China platform builder / operator value chain",
-    "description_zh": "雲／網路基建 → 電信／裝置分發 → 支付軌道 → 廣告主／商戶變現。自研產品／內容／IP 不進供應鏈階段；對手放對手弧。",
-    "description_en": "Cloud/network infra → carrier/device distribution → payment rails → advertiser/merchant monetization. Self-built products/content/IP are not SC stages; rivals on rival arc."
+    "id": "online-recruitment-v1",
+    "label_zh": "線上招聘平台價值鏈",
+    "label_en": "Online recruitment platform value chain",
+    "description_zh": "流量獲客 → 雇主客戶（營收需求方）→ 人資／評估工具 → 支付結算 → 雇主品牌廣告。",
+    "description_en": "Traffic acquisition → employer customers (revenue demand) → HR/assessment tools → payment settlement → employer-brand ads."
   },
   "stages": [
     {
-      "id": "infra",
+      "id": "traffic",
       "order": 1,
-      "label_zh": "雲／網路基建",
-      "label_en": "Cloud / network infrastructure",
-      "summary_zh": "平台服務所需的外部 IDC／雲／鐵塔底座。",
-      "summary_en": "External IDC/cloud/towers under the platform.",
+      "label_zh": "流量／獲客",
+      "label_en": "Traffic / acquisition",
+      "summary_zh": "求職者到達所需的外部流量與入口夥伴。",
+      "summary_en": "External traffic and entry partners for candidate reach.",
       "players": [
         {
-          "ticker": "9698.HK",
-          "name_en": "GDS",
-          "name_zh": "萬國數據",
-          "role_zh": "萬國數據：雲／網路基建代表性玩家",
-          "role_en": "GDS: representative player in Cloud / network infrastructure",
+          "ticker": "1024.HK",
+          "name_en": "Kuaishou",
+          "name_zh": "快手",
+          "role_zh": "快手：流量／獲客代表性玩家",
+          "role_en": "Kuaishou: representative player in Traffic / acquisition",
           "exchange": "HKEX",
           "listedInApp": false
         },
         {
-          "ticker": "3888.HK",
-          "name_en": "Kingsoft",
-          "name_zh": "金山軟件",
-          "role_zh": "金山軟件：雲／網路基建代表性玩家",
-          "role_en": "Kingsoft: representative player in Cloud / network infrastructure",
+          "ticker": "9626.HK",
+          "name_en": "Bilibili",
+          "name_zh": "嗶哩嗶哩",
+          "role_zh": "嗶哩嗶哩：流量／獲客代表性玩家",
+          "role_en": "Bilibili: representative player in Traffic / acquisition",
           "exchange": "HKEX",
           "listedInApp": false
         },
         {
-          "ticker": "0788.HK",
-          "name_en": "China Tower",
-          "name_zh": "中國鐵塔",
-          "role_zh": "中國鐵塔：雲／網路基建代表性玩家",
-          "role_en": "China Tower: representative player in Cloud / network infrastructure",
+          "ticker": "035420.KS",
+          "name_en": "NAVER",
+          "name_zh": "NAVER",
+          "role_zh": "NAVER：流量／獲客代表性玩家",
+          "role_en": "NAVER: representative player in Traffic / acquisition",
+          "exchange": "KRX",
+          "listedInApp": false
+        }
+      ]
+    },
+    {
+      "id": "employers",
+      "order": 2,
+      "label_zh": "雇主客戶",
+      "label_en": "Employer customers",
+      "summary_zh": "付費招聘的大型雇主客戶（營收下游）。",
+      "summary_en": "Paying large employers — revenue downstream.",
+      "players": [
+        {
+          "ticker": "1810.HK",
+          "name_en": "Xiaomi",
+          "name_zh": "小米",
+          "role_zh": "小米：雇主客戶代表性玩家",
+          "role_en": "Xiaomi: representative player in Employer customers",
+          "exchange": "HKEX",
+          "listedInApp": false
+        },
+        {
+          "ticker": "1211.HK",
+          "name_en": "BYD",
+          "name_zh": "比亞迪",
+          "role_zh": "比亞迪：雇主客戶代表性玩家",
+          "role_en": "BYD: representative player in Employer customers",
+          "exchange": "HKEX",
+          "listedInApp": false
+        },
+        {
+          "ticker": "2318.HK",
+          "name_en": "Ping An",
+          "name_zh": "中國平安",
+          "role_zh": "中國平安：雇主客戶代表性玩家",
+          "role_en": "Ping An: representative player in Employer customers",
           "exchange": "HKEX",
           "listedInApp": false
         }
       ]
     },
     {
-      "id": "distribution",
-      "order": 2,
-      "label_zh": "電信／裝置分發",
-      "label_en": "Carrier / device distribution",
-      "summary_zh": "用戶經電信網路與終端裝置到達應用（外部到達夥伴，非自研產品本身）。",
-      "summary_en": "Carriers and devices that deliver app reach — external partners, not self-built product.",
+      "id": "hr-tools",
+      "order": 3,
+      "label_zh": "人資／評估工具",
+      "label_en": "HR / assessment tools",
+      "summary_zh": "外部測評、背景與人資科技夥伴。",
+      "summary_en": "External assessment, screening, and HR-tech partners.",
       "players": [
         {
-          "ticker": "0941.HK",
-          "name_en": "China Mobile",
-          "name_zh": "中國移動",
-          "role_zh": "中國移動：電信／裝置分發代表性玩家",
-          "role_en": "China Mobile: representative player in Carrier / device distribution",
+          "ticker": "3888.HK",
+          "name_en": "Kingsoft",
+          "name_zh": "金山軟件",
+          "role_zh": "金山軟件：人資／評估工具代表性玩家",
+          "role_en": "Kingsoft: representative player in HR / assessment tools",
           "exchange": "HKEX",
           "listedInApp": false
         },
         {
-          "ticker": "0762.HK",
-          "name_en": "China Unicom",
-          "name_zh": "中國聯通",
-          "role_zh": "中國聯通：電信／裝置分發代表性玩家",
-          "role_en": "China Unicom: representative player in Carrier / device distribution",
+          "ticker": "9698.HK",
+          "name_en": "GDS",
+          "name_zh": "萬國數據",
+          "role_zh": "萬國數據：人資／評估工具代表性玩家",
+          "role_en": "GDS: representative player in HR / assessment tools",
           "exchange": "HKEX",
           "listedInApp": false
         },
         {
-          "ticker": "1810.HK",
-          "name_en": "Xiaomi",
-          "name_zh": "小米",
-          "role_zh": "小米：電信／裝置分發代表性玩家",
-          "role_en": "Xiaomi: representative player in Carrier / device distribution",
-          "exchange": "HKEX",
-          "listedInApp": false
+          "ticker": "RELX",
+          "name_en": "RELX Plc",
+          "name_zh": "RELX",
+          "role_zh": "RELX：人資／評估工具代表性玩家",
+          "role_en": "RELX Plc: representative player in HR / assessment tools",
+          "exchange": "NYSE"
         }
       ]
     },
     {
       "id": "payments",
-      "order": 3,
-      "label_zh": "支付／清算軌道",
-      "label_en": "Payment / clearing rails",
-      "summary_zh": "銀行結算與互聯網保險等外部支付／清算軌道。",
-      "summary_en": "External bank settlement and internet-insurance payment rails.",
+      "order": 4,
+      "label_zh": "支付／結算",
+      "label_en": "Payments / settlement",
+      "summary_zh": "雇主付費與結算軌道。",
+      "summary_en": "Employer billing and settlement rails.",
       "players": [
         {
           "ticker": "0005.HK",
           "name_en": "HSBC",
           "name_zh": "滙豐",
-          "role_zh": "滙豐：支付／清算軌道代表性玩家",
-          "role_en": "HSBC: representative player in Payment / clearing rails",
+          "role_zh": "滙豐：支付／結算代表性玩家",
+          "role_en": "HSBC: representative player in Payments / settlement",
           "exchange": "HKEX",
           "listedInApp": false
         },
@@ -125,8 +158,8 @@
           "ticker": "1398.HK",
           "name_en": "ICBC",
           "name_zh": "工商銀行",
-          "role_zh": "工商銀行：支付／清算軌道代表性玩家",
-          "role_en": "ICBC: representative player in Payment / clearing rails",
+          "role_zh": "工商銀行：支付／結算代表性玩家",
+          "role_en": "ICBC: representative player in Payments / settlement",
           "exchange": "HKEX",
           "listedInApp": false
         },
@@ -134,27 +167,27 @@
           "ticker": "6060.HK",
           "name_en": "ZhongAn",
           "name_zh": "眾安在線",
-          "role_zh": "眾安在線：支付／清算軌道代表性玩家",
-          "role_en": "ZhongAn: representative player in Payment / clearing rails",
+          "role_zh": "眾安在線：支付／結算代表性玩家",
+          "role_en": "ZhongAn: representative player in Payments / settlement",
           "exchange": "HKEX",
           "listedInApp": false
         }
       ]
     },
     {
-      "id": "advertisers",
-      "order": 4,
-      "label_zh": "廣告主／商戶下游",
-      "label_en": "Advertisers / merchants downstream",
-      "summary_zh": "在平台投放或經營的品牌廣告主與消費商戶（營銷變現出口）。",
-      "summary_en": "Brand advertisers and consumer merchants monetizing on the platform.",
+      "id": "branding",
+      "order": 5,
+      "label_zh": "雇主品牌廣告",
+      "label_en": "Employer-brand advertising",
+      "summary_zh": "在平台投放雇主品牌的廣告主。",
+      "summary_en": "Employers buying brand inventory on the platform.",
       "players": [
         {
           "ticker": "2020.HK",
           "name_en": "ANTA",
           "name_zh": "安踏",
-          "role_zh": "安踏：廣告主／商戶下游代表性玩家",
-          "role_en": "ANTA: representative player in Advertisers / merchants downstream",
+          "role_zh": "安踏：雇主品牌廣告代表性玩家",
+          "role_en": "ANTA: representative player in Employer-brand advertising",
           "exchange": "HKEX",
           "listedInApp": false
         },
@@ -162,8 +195,8 @@
           "ticker": "2331.HK",
           "name_en": "Li Ning",
           "name_zh": "李寧",
-          "role_zh": "李寧：廣告主／商戶下游代表性玩家",
-          "role_en": "Li Ning: representative player in Advertisers / merchants downstream",
+          "role_zh": "李寧：雇主品牌廣告代表性玩家",
+          "role_en": "Li Ning: representative player in Employer-brand advertising",
           "exchange": "HKEX",
           "listedInApp": false
         },
@@ -171,8 +204,8 @@
           "ticker": "2319.HK",
           "name_en": "Mengniu",
           "name_zh": "蒙牛",
-          "role_zh": "蒙牛：廣告主／商戶下游代表性玩家",
-          "role_en": "Mengniu: representative player in Advertisers / merchants downstream",
+          "role_zh": "蒙牛：雇主品牌廣告代表性玩家",
+          "role_en": "Mengniu: representative player in Employer-brand advertising",
           "exchange": "HKEX",
           "listedInApp": false
         }
@@ -181,38 +214,29 @@
   ],
   "competitors": [
     {
-      "ticker": "0700.HK",
-      "name_en": "Tencent",
-      "name_zh": "騰訊",
-      "basis_zh": "中國互聯網流量對手",
-      "basis_en": "China internet traffic rival",
-      "exchange": "HKEX",
-      "listedInApp": false
-    },
-    {
       "ticker": "BIDU",
       "name_en": "Baidu",
       "name_zh": "百度",
-      "basis_zh": "招聘／資訊流對手",
-      "basis_en": "Recruiting / feed rival",
+      "basis_zh": "招聘／資訊服務對手",
+      "basis_en": "Recruiting / info-services rival",
       "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "0700.HK",
+      "name_en": "Tencent",
+      "name_zh": "騰訊",
+      "basis_zh": "招聘流量／資訊服務對手",
+      "basis_en": "Recruiting traffic / info-services rival",
+      "exchange": "HKEX",
+      "listedInApp": false
     },
     {
       "ticker": "BABA",
       "name_en": "Alibaba",
       "name_zh": "阿里巴巴",
-      "basis_zh": "本地生活／服務生態對手",
-      "basis_en": "Local services ecosystem rival",
+      "basis_zh": "本地生活／服務招聘鄰接對手",
+      "basis_en": "Local-services recruiting adjacent rival",
       "exchange": "NYSE"
-    },
-    {
-      "ticker": "3690.HK",
-      "name_en": "Meituan",
-      "name_zh": "美團",
-      "basis_zh": "本地生活對手",
-      "basis_en": "Local services rival",
-      "exchange": "HKEX",
-      "listedInApp": false
     }
   ]
 }
