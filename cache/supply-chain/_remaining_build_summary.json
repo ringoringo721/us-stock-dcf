@@ -2,12 +2,11 @@
   "bandMin": 0.0,
   "bandMax": 50000000000.0,
   "bandTotal": 1041,
-  "written": 2,
+  "written": 1,
   "skippedExisting": [],
   "failures": [],
   "tickers": [
-    "RBLX",
-    "EXPE"
+    "RBLX"
   ],
   "dryRun": false,
   "date": "2026-11-23",

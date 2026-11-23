@@ -126,15 +126,15 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "ANSS": {
-      "ticker": "ANSS",
-      "price": null,
-      "previousClose": null,
-      "changePct": null,
-      "mcap": null,
+    "PTC": {
+      "ticker": "PTC",
+      "price": 196.0,
+      "previousClose": 196.25,
+      "changePct": -0.127,
+      "mcap": 21190.9,
       "currency": "USD",
-      "asOf": null,
-      "source": null
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
     },
     "META": {
       "ticker": "META",

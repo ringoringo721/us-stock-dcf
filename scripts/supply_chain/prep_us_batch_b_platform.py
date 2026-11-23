@@ -153,12 +153,13 @@ ABNB_LODGING = {
 }
 
 # RBLX — UGC platform; no NFLX/SPOT/DIS content dump; no EA/TTWO as upstream.
-# creator-tools = real DCC/3D (ADBE/ADSK/ANSS) — not HUBS CRM (Bugbot).
+# creator-tools = live in-universe DCC/3D (ADBE/ADSK/PTC) — not HUBS CRM, not delisted ANSS.
+# U (Unity) is a RBLX rival → keep off stages.
 RBLX_UGC = {
     "infra": ["AMZN", "MSFT", "AKAM"],
     "distribution": ["AAPL", "GOOG", "SONY"],
     "payments": ["V", "MA", "PYPL"],
-    "creator-tools": ["ADBE", "ADSK", "ANSS"],
+    "creator-tools": ["ADBE", "ADSK", "PTC"],
     "ua": ["META", "SNAP", "TTD"],
 }
 
