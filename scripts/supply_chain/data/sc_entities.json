@@ -235,7 +235,7 @@
     "exchange": "NASDAQ"
   },
   "BABA": {
-    "name_en": "Alibaba Holding",
+    "name_en": "Alibaba",
     "name_zh": "阿里巴巴",
     "exchange": "NYSE"
   },
@@ -255,7 +255,7 @@
     "exchange": "NYSE"
   },
   "TM": {
-    "name_en": "Toyota Motor",
+    "name_en": "Toyota",
     "name_zh": "豐田",
     "exchange": "NYSE"
   },
@@ -970,7 +970,7 @@
     "exchange": "NASDAQ"
   },
   "NIO": {
-    "name_en": "NIO Inc.",
+    "name_en": "NIO",
     "name_zh": "蔚來",
     "exchange": "NYSE"
   },
@@ -1756,7 +1756,7 @@
   },
   "JD": {
     "name_en": "JD.com",
-    "name_zh": "京東集團",
+    "name_zh": "京東",
     "exchange": "NASDAQ"
   },
   "SE": {
@@ -1831,7 +1831,7 @@
   },
   "XPEV": {
     "name_en": "XPeng",
-    "name_zh": "小鵬集團",
+    "name_zh": "小鵬",
     "exchange": "NYSE"
   },
   "RACE": {
@@ -4636,7 +4636,7 @@
   },
   "HTHT": {
     "name_en": "H World",
-    "name_zh": "華住集團",
+    "name_zh": "華住",
     "exchange": "NASDAQ"
   },
   "APA": {
@@ -4670,7 +4670,7 @@
     "exchange": "NYSE"
   },
   "ZTO": {
-    "name_en": "ZTO Express (Cayman)",
+    "name_en": "ZTO Express",
     "name_zh": "中通快遞",
     "exchange": "NYSE"
   },
@@ -4901,7 +4901,7 @@
   },
   "FUTU": {
     "name_en": "Futu",
-    "name_zh": "Futu",
+    "name_zh": "富途",
     "exchange": "NASDAQ"
   },
   "CART": {
@@ -5585,8 +5585,8 @@
     "exchange": "NASDAQ"
   },
   "YMM": {
-    "name_en": "Full Truck Alliance Co.",
-    "name_zh": "YMM",
+    "name_en": "Full Truck Alliance",
+    "name_zh": "滿幫",
     "exchange": "NYSE"
   },
   "ENLT": {
@@ -5880,13 +5880,13 @@
     "exchange": "NASDAQ"
   },
   "EDU": {
-    "name_en": "New Oriental Education & Technology",
+    "name_en": "New Oriental",
     "name_zh": "新東方",
     "exchange": "NYSE"
   },
   "TAL": {
     "name_en": "TAL Education",
-    "name_zh": "TAL Education",
+    "name_zh": "好未來",
     "exchange": "NYSE"
   },
   "DOCN": {
@@ -5916,7 +5916,7 @@
   },
   "BZ": {
     "name_en": "Kanzhun",
-    "name_zh": "ＢＯＳＳ直聘",
+    "name_zh": "BOSS直聘",
     "exchange": "NASDAQ"
   },
   "EPAM": {
@@ -5960,8 +5960,8 @@
     "exchange": "NYSE"
   },
   "LU": {
-    "name_en": "Lufax Holding",
-    "name_zh": "陸控",
+    "name_en": "Lufax",
+    "name_zh": "陸金所",
     "exchange": "NYSE"
   },
   "SSD": {
@@ -6446,7 +6446,7 @@
   },
   "VIPS": {
     "name_en": "Vipshop",
-    "name_zh": "Vipshop",
+    "name_zh": "唯品會",
     "exchange": "NYSE"
   },
   "QLYS": {
@@ -8218,6 +8218,66 @@
     "name_en": "Universal Music",
     "name_zh": "環球音樂",
     "exchange": "EURONEXT"
+  },
+  "2423.HK": {
+    "name_en": "KE Holdings",
+    "name_zh": "貝殼找房",
+    "exchange": "HKEX"
+  },
+  "1109.HK": {
+    "name_en": "CR Land",
+    "name_zh": "華潤置地",
+    "exchange": "HKEX"
+  },
+  "0688.HK": {
+    "name_en": "China Overseas",
+    "name_zh": "中國海外發展",
+    "exchange": "HKEX"
+  },
+  "0960.HK": {
+    "name_en": "Longfor",
+    "name_zh": "龍湖集團",
+    "exchange": "HKEX"
+  },
+  "0670.HK": {
+    "name_en": "China Eastern",
+    "name_zh": "東方航空",
+    "exchange": "HKEX"
+  },
+  "0753.HK": {
+    "name_en": "Air China",
+    "name_zh": "中國國航",
+    "exchange": "HKEX"
+  },
+  "0293.HK": {
+    "name_en": "Cathay Pacific",
+    "name_zh": "國泰航空",
+    "exchange": "HKEX"
+  },
+  "0322.HK": {
+    "name_en": "Tingyi",
+    "name_zh": "康師傅",
+    "exchange": "HKEX"
+  },
+  "0151.HK": {
+    "name_en": "Want Want",
+    "name_zh": "旺旺",
+    "exchange": "HKEX"
+  },
+  "6862.HK": {
+    "name_en": "Haidilao",
+    "name_zh": "海底撈",
+    "exchange": "HKEX"
+  },
+  "9987.HK": {
+    "name_en": "Yum China",
+    "name_zh": "百勝中國",
+    "exchange": "HKEX"
+  },
+  "1179.HK": {
+    "name_en": "H World",
+    "name_zh": "華住",
+    "exchange": "HKEX"
   },
   "035420.KS": {
     "name_en": "NAVER",

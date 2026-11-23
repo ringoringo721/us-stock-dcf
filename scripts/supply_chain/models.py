@@ -2305,6 +2305,104 @@ MODELS: dict[str, dict] = {
             },
         ],
     },
+    # China express parcel (ZTO-class) — not CAT/DE industrials dump.
+    "express-logistics-v1": {
+        "label_zh": "快遞／宅配價值鏈",
+        "label_en": "Express parcel / logistics value chain",
+        "description_zh": "分揀設備 → 航空／幹線運力 → 電商出貨客戶 → 包裝耗材 → 代收／清算。快遞同業放對手弧。",
+        "description_en": "Sortation equipment → air/linehaul → e-comm shippers → packaging → COD/settlement. Express peers stay on the rival arc.",
+        "stages": [
+            {
+                "id": "equipment",
+                "order": 1,
+                "label_zh": "分揀／自動化設備",
+                "label_en": "Sortation / automation equipment",
+                "summary_zh": "分揀線、自動化與倉儲設備供給。",
+                "summary_en": "Sortation lines, automation, and warehouse equipment.",
+            },
+            {
+                "id": "linehaul",
+                "order": 2,
+                "label_zh": "航空／幹線運力",
+                "label_en": "Air / linehaul capacity",
+                "summary_zh": "航空貨運與幹線物流運力。",
+                "summary_en": "Air cargo and trunk logistics capacity.",
+            },
+            {
+                "id": "shippers",
+                "order": 3,
+                "label_zh": "電商／出貨客戶",
+                "label_en": "E-commerce / shipper customers",
+                "summary_zh": "產生包裹量的電商與品牌出貨方。",
+                "summary_en": "E-comm and brand shippers that generate parcel volume.",
+            },
+            {
+                "id": "packaging",
+                "order": 4,
+                "label_zh": "包裝／耗材",
+                "label_en": "Packaging / consumables",
+                "summary_zh": "紙箱、包材與耗材供給。",
+                "summary_en": "Cartons, packaging, and consumables.",
+            },
+            {
+                "id": "settlement",
+                "order": 5,
+                "label_zh": "代收／清算",
+                "label_en": "COD / settlement rails",
+                "summary_zh": "貨到付款與運費清算銀行軌道。",
+                "summary_en": "COD and freight-settlement bank rails.",
+            },
+        ],
+    },
+    # Full Truck Alliance-class digital freight — not SaaS/cloud channel dump.
+    "freight-platform-v1": {
+        "label_zh": "數位貨運／車貨匹配價值鏈",
+        "label_en": "Digital freight / truck-matching value chain",
+        "description_zh": "卡車運力 → 燃油能源 → 保險／金融 → 貨主出貨 → 地圖／車隊數據。同業平台放對手弧。",
+        "description_en": "Truck capacity → fuel/energy → insurance/fintech → shippers → maps/fleet data. Peer platforms stay on the rival arc.",
+        "stages": [
+            {
+                "id": "capacity",
+                "order": 1,
+                "label_zh": "卡車／運力供給",
+                "label_en": "Truck / capacity supply",
+                "summary_zh": "商用車與運力生態（外部運力，非平台本身）。",
+                "summary_en": "Commercial vehicles and capacity ecosystem — external, not the platform itself.",
+            },
+            {
+                "id": "fuel",
+                "order": 2,
+                "label_zh": "燃油／能源",
+                "label_en": "Fuel / energy",
+                "summary_zh": "柴油、天然氣與能源補給。",
+                "summary_en": "Diesel, gas, and energy supply.",
+            },
+            {
+                "id": "fintech",
+                "order": 3,
+                "label_zh": "保險／金融軌道",
+                "label_en": "Insurance / fintech rails",
+                "summary_zh": "貨運保險與車貸／支付軌道。",
+                "summary_en": "Cargo insurance and truck-loan / payment rails.",
+            },
+            {
+                "id": "shippers",
+                "order": 4,
+                "label_zh": "貨主／出貨客戶",
+                "label_en": "Shippers / cargo customers",
+                "summary_zh": "產生幹線貨量的品牌與製造貨主。",
+                "summary_en": "Brand and manufacturing shippers generating trunk cargo.",
+            },
+            {
+                "id": "maps-data",
+                "order": 5,
+                "label_zh": "地圖／車隊數據",
+                "label_en": "Maps / fleet data",
+                "summary_zh": "地圖、路由與車隊數據夥伴。",
+                "summary_en": "Maps, routing, and fleet-data partners.",
+            },
+        ],
+    },
     # Meituan-class China local services: merchants (not fake "platform peers").
     "china-local-life-v1": {
         "label_zh": "中國本地生活／即配價值鏈",
@@ -3036,6 +3134,8 @@ TICKER_MODEL: dict[str, str] = {
     "COST": "ecommerce-retail-v1",
     "BABA": "ecommerce-retail-v1",
     "PDD": "ecommerce-retail-v1",
+    "JD": "ecommerce-retail-v1",
+    "VIPS": "ecommerce-retail-v1",
     # Mid-mega ($50–100B) specialty overrides
     "TEL": "hardware-value-chain-v1",  # TE Connectivity — components, not fabless silicon
     "ASX": "semiconductor-osat-v1",  # ASE — OSAT / advanced packaging (not foundry)
@@ -3049,7 +3149,26 @@ TICKER_MODEL: dict[str, str] = {
     "SLB": "oilfield-services-v1",
     "CEG": "utilities-v1",
     "SRE": "utilities-v1",
-    "NTES": "internet-platform-v1",
+    # China/Asia ADR platforms — external-partner builder (0700 gold), not US internet dump
+    "NTES": "china-platform-builder-v1",
+    "BIDU": "china-platform-builder-v1",
+    "TME": "china-platform-builder-v1",
+    "BILI": "china-platform-builder-v1",
+    "BZ": "china-platform-builder-v1",
+    # China EV ADRs — same auto-oem skeleton as 1211; China nodes via overrides
+    "LI": "auto-oem-v1",
+    "XPEV": "auto-oem-v1",
+    "NIO": "auto-oem-v1",
+    # Express / freight — not industrials CAT or saas-cloud
+    "ZTO": "express-logistics-v1",
+    "YMM": "freight-platform-v1",
+    # China lodging / QSR / education / brokerage / broker / fintech stay on models; China nodes via overrides
+    "YUMC": "consumer-discretionary-v1",
+    "HTHT": "consumer-discretionary-v1",
+    "EDU": "consumer-discretionary-v1",
+    "TAL": "consumer-discretionary-v1",
+    "FUTU": "capital-markets-v1",
+    "LU": "payments-v1",
     "NKE": "consumer-discretionary-v1",
     "DAL": "consumer-discretionary-v1",
     "CVNA": "consumer-discretionary-v1",
@@ -3108,7 +3227,6 @@ TICKER_MODEL: dict[str, str] = {
     "IFF": "nutrition-ingredients-v1",
     # Bugbot specialty model overrides (remaining universe)
     "AER": "industrials-v1",  # aircraft lessor — rivals via aviation-lessor group
-    "BIDU": "internet-platform-v1",
     "BEKE": "housing-brokerage-v1",  # China housing brokerage — not disc hospitality
     "AWK": "utilities-v1",
     "ATO": "utilities-v1",
@@ -3145,7 +3263,6 @@ TICKER_MODEL: dict[str, str] = {
     "ADT": "security-services-v1",
     "ALLE": "door-hardware-v1",  # door hardware / electronic access — not monitored-security HVAC peers
     "ASTS": "satellite-to-phone-v1",
-    "BILI": "entertainment-v1",
     "BC": "marine-recreation-v1",
     "CAKE": "consumer-discretionary-v1",
     "AAL": "consumer-discretionary-v1",

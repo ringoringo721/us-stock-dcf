@@ -1,22 +1,25 @@
 {
   "version": 1,
   "ticker": "NIO",
-  "name_en": "NIO Inc.",
+  "name_en": "NIO",
   "name_zh": "蔚來",
-  "updatedAt": "2026-11-20",
+  "updatedAt": "2026-11-23",
   "source": {
     "type": "curated",
-    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
-    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
-    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
-    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
-    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "basis": "China/Asia ADR Batch A concept scrub: China-centric external-partner chains (0700/9988/1211 gold). Not a live supplier API dump. Preview-before-merge.",
+    "notes_zh": "本頁為中國／亞洲主力市場供應鏈策展種子（對齊 0700／9988／1211 外部夥伴規則）。階段只列外部供應商／夥伴／通路／基建；自研產品／內容／IP／附屬不進階段。對手弧＝產品／市場真對手，且對手≠階段玩家。雙重上市生態節點優先 .HK；不以美股零售／互聯網模板灌水。",
+    "notes_en": "China/Asia major-market curated seed (aligned with 0700/9988/1211 external-partner rules). Stages = external suppliers/partners/channels/infra only — not self-built products/IP/subsidiaries. Rival arc = true product/market rivals; rivals ≠ stage players. Dual-list ecosystem nodes prefer .HK; not a US retail/internet template dump.",
+    "competitorRationale_zh": "競爭弧只列主力市場真實產品對手；階段玩家與對手分開；雙重上市生態節點優先 .HK；中國／亞洲市場不以美股節點為預設。",
+    "competitorRationale_en": "Rival arc = true product rivals in the major market; stages ≠ rivals; dual-list ecosystem nodes prefer .HK; China/Asia hubs are not US-node dumps.",
     "modelId": "auto-oem-v1",
     "references": [
       "Industry model `auto-oem-v1`",
       "AAPL curated seed shape on main (schema reference)",
       "cache/us_universe.json screen: remaining US listings without supply-chain seed",
-      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)",
+      "docs/0700-hk-supply-chain-concepts.md",
+      "docs/us-sc-concept-audit.md Batch A",
+      "scripts/supply_chain/prep_us_batch_a_china_adr.py"
     ]
   },
   "model": {
@@ -36,28 +39,22 @@
       "summary_en": "Lithium, nickel, steel/aluminum.",
       "players": [
         {
-          "ticker": "ALB",
-          "name_en": "Albemarle",
-          "name_zh": "Albemarle",
-          "role_zh": "Albemarle：原材料／礦產代表性玩家",
-          "role_en": "Albemarle: representative player in Raw materials / mining",
-          "exchange": "NYSE"
+          "ticker": "2899.HK",
+          "name_en": "Zijin Mining",
+          "name_zh": "紫金礦業",
+          "role_zh": "紫金礦業：原材料／礦產代表性玩家",
+          "role_en": "Zijin Mining: representative player in Raw materials / mining",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "FCX",
-          "name_en": "Freeport-McMoRan",
-          "name_zh": "自由港麥克莫蘭",
-          "role_zh": "自由港麥克莫蘭：原材料／礦產代表性玩家",
-          "role_en": "Freeport-McMoRan: representative player in Raw materials / mining",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "NUE",
-          "name_en": "Nucor",
-          "name_zh": "紐柯",
-          "role_zh": "紐柯：原材料／礦產代表性玩家",
-          "role_en": "Nucor: representative player in Raw materials / mining",
-          "exchange": "NYSE"
+          "ticker": "3800.HK",
+          "name_en": "GCL Technology",
+          "name_zh": "協鑫科技",
+          "role_zh": "協鑫科技：原材料／礦產代表性玩家",
+          "role_en": "GCL Technology: representative player in Raw materials / mining",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     },
@@ -70,29 +67,31 @@
       "summary_en": "Cells, power semis, auto electronics.",
       "players": [
         {
-          "ticker": "000660.KS",
-          "name_en": "SK hynix",
-          "name_zh": "SK 海力士",
-          "role_zh": "SK 海力士：電池／電子／汽車半導體代表性玩家",
-          "role_en": "SK hynix: representative player in Battery / electronics / auto semis",
-          "exchange": "KRX",
+          "ticker": "3750.HK",
+          "name_en": "CATL",
+          "name_zh": "寧德時代",
+          "role_zh": "寧德時代：電池／電子／汽車半導體代表性玩家",
+          "role_en": "CATL: representative player in Battery / electronics / auto semis",
+          "exchange": "HKEX",
           "listedInApp": false
         },
         {
-          "ticker": "ON",
-          "name_en": "onsemi",
-          "name_zh": "安森美",
-          "role_zh": "安森美：電池／電子／汽車半導體代表性玩家",
-          "role_en": "onsemi: representative player in Battery / electronics / auto semis",
-          "exchange": "NASDAQ"
+          "ticker": "1316.HK",
+          "name_en": "Nexteer",
+          "name_zh": "耐世特",
+          "role_zh": "耐世特：電池／電子／汽車半導體代表性玩家",
+          "role_en": "Nexteer: representative player in Battery / electronics / auto semis",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "APH",
-          "name_en": "Amphenol",
-          "name_zh": "安費諾",
-          "role_zh": "安費諾：電池／電子／汽車半導體代表性玩家",
-          "role_en": "Amphenol: representative player in Battery / electronics / auto semis",
-          "exchange": "NYSE"
+          "ticker": "2018.HK",
+          "name_en": "AAC Technologies",
+          "name_zh": "瑞聲科技",
+          "role_zh": "瑞聲科技：電池／電子／汽車半導體代表性玩家",
+          "role_en": "AAC Technologies: representative player in Battery / electronics / auto semis",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     },
@@ -105,28 +104,30 @@
       "summary_en": "Body and electronics CM partners.",
       "players": [
         {
-          "ticker": "JBL",
-          "name_en": "Jabil",
-          "name_zh": "Jabil",
-          "role_zh": "Jabil：組裝／合約製造代表性玩家",
-          "role_en": "Jabil: representative player in Assembly / contract manufacturing",
-          "exchange": "NYSE"
+          "ticker": "0425.HK",
+          "name_en": "Minth",
+          "name_zh": "敏實集團",
+          "role_zh": "敏實集團：組裝／合約製造代表性玩家",
+          "role_en": "Minth: representative player in Assembly / contract manufacturing",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "FLEX",
-          "name_en": "Flex",
-          "name_zh": "Flex",
-          "role_zh": "Flex：組裝／合約製造代表性玩家",
-          "role_en": "Flex: representative player in Assembly / contract manufacturing",
-          "exchange": "NASDAQ"
+          "ticker": "0868.HK",
+          "name_en": "Xinyi Glass",
+          "name_zh": "信義玻璃",
+          "role_zh": "信義玻璃：組裝／合約製造代表性玩家",
+          "role_en": "Xinyi Glass: representative player in Assembly / contract manufacturing",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "2317.TW",
-          "name_en": "Hon Hai (Foxconn)",
-          "name_zh": "鴻海",
-          "role_zh": "鴻海：組裝／合約製造代表性玩家",
-          "role_en": "Hon Hai (Foxconn): representative player in Assembly / contract manufacturing",
-          "exchange": "TWSE",
+          "ticker": "0179.HK",
+          "name_en": "Johnson Electric",
+          "name_zh": "德昌電機",
+          "role_zh": "德昌電機：組裝／合約製造代表性玩家",
+          "role_en": "Johnson Electric: representative player in Assembly / contract manufacturing",
+          "exchange": "HKEX",
           "listedInApp": false
         }
       ]
@@ -140,28 +141,31 @@
       "summary_en": "Direct, dealers, delivery centers.",
       "players": [
         {
-          "ticker": "KMX",
-          "name_en": "CarMax",
-          "name_zh": "CarMax",
-          "role_zh": "CarMax：銷售／交付通路代表性玩家",
-          "role_en": "CarMax: representative player in Sales / delivery channel",
-          "exchange": "NYSE"
+          "ticker": "0881.HK",
+          "name_en": "Zhongsheng",
+          "name_zh": "中升控股",
+          "role_zh": "中升控股：銷售／交付通路代表性玩家",
+          "role_en": "Zhongsheng: representative player in Sales / delivery channel",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "AN",
-          "name_en": "AutoNation",
-          "name_zh": "AutoNation",
-          "role_zh": "AutoNation：銷售／交付通路代表性玩家",
-          "role_en": "AutoNation: representative player in Sales / delivery channel",
-          "exchange": "NYSE"
+          "ticker": "1268.HK",
+          "name_en": "Meidong Auto",
+          "name_zh": "美東汽車",
+          "role_zh": "美東汽車：銷售／交付通路代表性玩家",
+          "role_en": "Meidong Auto: representative player in Sales / delivery channel",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "PAG",
-          "name_en": "Penske Automotive",
-          "name_zh": "Penske Automotive",
-          "role_zh": "Penske Automotive：銷售／交付通路代表性玩家",
-          "role_en": "Penske Automotive: representative player in Sales / delivery channel",
-          "exchange": "NYSE"
+          "ticker": "3669.HK",
+          "name_en": "Yongda Auto",
+          "name_zh": "永達汽車",
+          "role_zh": "永達汽車：銷售／交付通路代表性玩家",
+          "role_en": "Yongda Auto: representative player in Sales / delivery channel",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     },
@@ -174,72 +178,77 @@
       "summary_en": "Charging networks and energy mgmt.",
       "players": [
         {
-          "ticker": "NEE",
-          "name_en": "NextEra Energy",
-          "name_zh": "新紀元能源",
-          "role_zh": "新紀元能源：充電／能源服務代表性玩家",
-          "role_en": "NextEra Energy: representative player in Charging / energy services",
-          "exchange": "NYSE"
+          "ticker": "2688.HK",
+          "name_en": "ENN Energy",
+          "name_zh": "新奧能源",
+          "role_zh": "新奧能源：充電／能源服務代表性玩家",
+          "role_en": "ENN Energy: representative player in Charging / energy services",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "CEG",
-          "name_en": "Constellation",
-          "name_zh": "星座能源",
-          "role_zh": "星座能源：充電／能源服務代表性玩家",
-          "role_en": "Constellation: representative player in Charging / energy services",
-          "exchange": "NASDAQ"
+          "ticker": "1193.HK",
+          "name_en": "CR Gas",
+          "name_zh": "華潤燃氣",
+          "role_zh": "華潤燃氣：充電／能源服務代表性玩家",
+          "role_en": "CR Gas: representative player in Charging / energy services",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "ENPH",
-          "name_en": "Enphase Energy",
-          "name_zh": "恩菲斯能源",
-          "role_zh": "恩菲斯能源：充電／能源服務代表性玩家",
-          "role_en": "Enphase Energy: representative player in Charging / energy services",
-          "exchange": "NASDAQ"
+          "ticker": "0384.HK",
+          "name_en": "China Gas",
+          "name_zh": "中國燃氣",
+          "role_zh": "中國燃氣：充電／能源服務代表性玩家",
+          "role_en": "China Gas: representative player in Charging / energy services",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     }
   ],
   "competitors": [
     {
-      "ticker": "GM",
-      "name_en": "General Motors",
-      "name_zh": "通用汽車",
-      "basis_zh": "整車對手",
-      "basis_en": "Auto OEM rival",
+      "ticker": "LI",
+      "name_en": "Li Auto",
+      "name_zh": "理想汽車",
+      "basis_zh": "中國新能源車對手",
+      "basis_en": "China EV rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "XPEV",
+      "name_en": "XPeng",
+      "name_zh": "小鵬",
+      "basis_zh": "中國新能源車對手",
+      "basis_en": "China EV rival",
       "exchange": "NYSE"
     },
     {
-      "ticker": "F",
-      "name_en": "Ford",
-      "name_zh": "福特",
-      "basis_zh": "整車對手",
-      "basis_en": "Auto OEM rival",
-      "exchange": "NYSE"
+      "ticker": "1211.HK",
+      "name_en": "BYD",
+      "name_zh": "比亞迪",
+      "basis_zh": "中國新能源車對手",
+      "basis_en": "China EV rival",
+      "exchange": "HKEX",
+      "listedInApp": false
     },
     {
-      "ticker": "TM",
-      "name_en": "Toyota Motor",
-      "name_zh": "豐田",
-      "basis_zh": "整車對手",
-      "basis_en": "Auto OEM rival",
-      "exchange": "NYSE"
+      "ticker": "0175.HK",
+      "name_en": "Geely",
+      "name_zh": "吉利汽車",
+      "basis_zh": "中國乘用車對手",
+      "basis_en": "China passenger-auto rival",
+      "exchange": "HKEX",
+      "listedInApp": false
     },
     {
       "ticker": "TSLA",
       "name_en": "Tesla",
       "name_zh": "特斯拉",
-      "basis_zh": "整車對手",
-      "basis_en": "Auto OEM rival",
+      "basis_zh": "在華銷售電動車對手",
+      "basis_en": "EV rival with China sales",
       "exchange": "NASDAQ"
-    },
-    {
-      "ticker": "HMC",
-      "name_en": "Honda",
-      "name_zh": "本田",
-      "basis_zh": "整車對手",
-      "basis_en": "Auto OEM rival",
-      "exchange": "NYSE"
     }
   ]
 }

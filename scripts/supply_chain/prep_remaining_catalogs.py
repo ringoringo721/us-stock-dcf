@@ -232,6 +232,14 @@ DUAL_LIST_ISSUER: dict[str, str] = {
     "XPEV": "XPENG",
     "9866.HK": "NIO",
     "NIO": "NIO",
+    "1698.HK": "TME",
+    "TME": "TME",
+    "9626.HK": "BILIBILI",
+    "BILI": "BILIBILI",
+    "2057.HK": "ZTO",
+    "ZTO": "ZTO",
+    "TCOM": "CTRIP",
+    "9961.HK": "CTRIP",
 }
 
 # Parent/subsidiary controlling-stake pairs — never mutual product/market rivals.

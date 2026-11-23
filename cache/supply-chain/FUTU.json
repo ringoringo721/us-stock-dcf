@@ -2,21 +2,24 @@
   "version": 1,
   "ticker": "FUTU",
   "name_en": "Futu",
-  "name_zh": "Futu",
-  "updatedAt": "2026-11-20",
+  "name_zh": "富途",
+  "updatedAt": "2026-11-23",
   "source": {
     "type": "curated",
-    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
-    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
-    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
-    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
-    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "basis": "China/Asia ADR Batch A concept scrub: China-centric external-partner chains (0700/9988/1211 gold). Not a live supplier API dump. Preview-before-merge.",
+    "notes_zh": "本頁為中國／亞洲主力市場供應鏈策展種子（對齊 0700／9988／1211 外部夥伴規則）。階段只列外部供應商／夥伴／通路／基建；自研產品／內容／IP／附屬不進階段。對手弧＝產品／市場真對手，且對手≠階段玩家。雙重上市生態節點優先 .HK；不以美股零售／互聯網模板灌水。",
+    "notes_en": "China/Asia major-market curated seed (aligned with 0700/9988/1211 external-partner rules). Stages = external suppliers/partners/channels/infra only — not self-built products/IP/subsidiaries. Rival arc = true product/market rivals; rivals ≠ stage players. Dual-list ecosystem nodes prefer .HK; not a US retail/internet template dump.",
+    "competitorRationale_zh": "競爭弧只列主力市場真實產品對手；階段玩家與對手分開；雙重上市生態節點優先 .HK；中國／亞洲市場不以美股節點為預設。",
+    "competitorRationale_en": "Rival arc = true product rivals in the major market; stages ≠ rivals; dual-list ecosystem nodes prefer .HK; China/Asia hubs are not US-node dumps.",
     "modelId": "capital-markets-v1",
     "references": [
       "Industry model `capital-markets-v1`",
       "AAPL curated seed shape on main (schema reference)",
       "cache/us_universe.json screen: remaining US listings without supply-chain seed",
-      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)",
+      "docs/0700-hk-supply-chain-concepts.md",
+      "docs/us-sc-concept-audit.md Batch A",
+      "scripts/supply_chain/prep_us_batch_a_china_adr.py"
     ]
   },
   "model": {
@@ -30,68 +33,56 @@
     {
       "id": "venues",
       "order": 1,
-      "label_zh": "交易所／清算",
-      "label_en": "Exchanges / clearing",
-      "summary_zh": "交易場所與 CCP。",
-      "summary_en": "Trading venues and CCPs.",
+      "label_zh": "交易場所／清算",
+      "label_en": "Venue / clearing",
+      "summary_zh": "港交所等交易場所與清算基礎設施（非對手券商）。",
+      "summary_en": "HKEX venue/clearing infra — rival brokers stay on the rival arc.",
       "players": [
         {
-          "ticker": "CME",
-          "name_en": "CME",
-          "name_zh": "芝商所集團",
-          "role_zh": "芝商所集團：交易所／清算代表性玩家",
-          "role_en": "CME: representative player in Exchanges / clearing",
-          "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "ICE",
-          "name_en": "Intercontinental Exchange",
-          "name_zh": "洲際交易所",
-          "role_zh": "洲際交易所：交易所／清算代表性玩家",
-          "role_en": "Intercontinental Exchange: representative player in Exchanges / clearing",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "NDAQ",
-          "name_en": "Nasdaq",
-          "name_zh": "納斯達克",
-          "role_zh": "納斯達克：交易所／清算代表性玩家",
-          "role_en": "Nasdaq: representative player in Exchanges / clearing",
-          "exchange": "NASDAQ"
+          "ticker": "0388.HK",
+          "name_en": "HKEX",
+          "name_zh": "港交所",
+          "role_zh": "港交所：交易場所／清算代表性玩家",
+          "role_en": "HKEX: representative player in Venue / clearing",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     },
     {
       "id": "data",
       "order": 2,
-      "label_zh": "市場數據／指數",
-      "label_en": "Market data / indices",
-      "summary_zh": "行情、評級與指數授權。",
-      "summary_en": "Quotes, ratings, index licenses.",
+      "label_zh": "結算／託管銀行",
+      "label_en": "Settlement / custody banks",
+      "summary_zh": "清算交收與託管銀行夥伴。",
+      "summary_en": "Clearing/settlement and custody banks.",
       "players": [
         {
-          "ticker": "SPGI",
-          "name_en": "S&P Global",
-          "name_zh": "標普全球",
-          "role_zh": "標普全球：市場數據／指數代表性玩家",
-          "role_en": "S&P Global: representative player in Market data / indices",
-          "exchange": "NYSE"
+          "ticker": "0005.HK",
+          "name_en": "HSBC",
+          "name_zh": "滙豐",
+          "role_zh": "滙豐：結算／託管銀行代表性玩家",
+          "role_en": "HSBC: representative player in Settlement / custody banks",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "MCO",
-          "name_en": "Moody's",
-          "name_zh": "穆迪評級",
-          "role_zh": "穆迪評級：市場數據／指數代表性玩家",
-          "role_en": "Moody's: representative player in Market data / indices",
-          "exchange": "NYSE"
+          "ticker": "2388.HK",
+          "name_en": "BOCHK",
+          "name_zh": "中銀香港",
+          "role_zh": "中銀香港：結算／託管銀行代表性玩家",
+          "role_en": "BOCHK: representative player in Settlement / custody banks",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "MSFT",
-          "name_en": "Microsoft",
-          "name_zh": "微軟",
-          "role_zh": "微軟：市場數據／指數代表性玩家",
-          "role_en": "Microsoft: representative player in Market data / indices",
-          "exchange": "NASDAQ"
+          "ticker": "1398.HK",
+          "name_en": "ICBC",
+          "name_zh": "工商銀行",
+          "role_zh": "工商銀行：結算／託管銀行代表性玩家",
+          "role_en": "ICBC: representative player in Settlement / custody banks",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     },
@@ -104,28 +95,31 @@
       "summary_en": "OMS, cloud, security.",
       "players": [
         {
-          "ticker": "MSFT",
-          "name_en": "Microsoft",
-          "name_zh": "微軟",
-          "role_zh": "微軟：交易／風控科技代表性玩家",
-          "role_en": "Microsoft: representative player in Trading / risk technology",
-          "exchange": "NASDAQ"
+          "ticker": "3888.HK",
+          "name_en": "Kingsoft",
+          "name_zh": "金山軟件",
+          "role_zh": "金山軟件：交易／風控科技代表性玩家",
+          "role_en": "Kingsoft: representative player in Trading / risk technology",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "ORCL",
-          "name_en": "Oracle",
-          "name_zh": "甲骨文",
-          "role_zh": "甲骨文：交易／風控科技代表性玩家",
-          "role_en": "Oracle: representative player in Trading / risk technology",
-          "exchange": "NYSE"
+          "ticker": "6060.HK",
+          "name_en": "ZhongAn",
+          "name_zh": "眾安在線",
+          "role_zh": "眾安在線：交易／風控科技代表性玩家",
+          "role_en": "ZhongAn: representative player in Trading / risk technology",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "PANW",
-          "name_en": "Palo Alto Networks",
-          "name_zh": "派拓網路",
-          "role_zh": "派拓網路：交易／風控科技代表性玩家",
-          "role_en": "Palo Alto Networks: representative player in Trading / risk technology",
-          "exchange": "NASDAQ"
+          "ticker": "9698.HK",
+          "name_en": "GDS",
+          "name_zh": "萬國數據",
+          "role_zh": "萬國數據：交易／風控科技代表性玩家",
+          "role_en": "GDS: representative player in Trading / risk technology",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     },
@@ -138,28 +132,22 @@
       "summary_en": "Asset managers and hedge funds.",
       "players": [
         {
-          "ticker": "BLK",
-          "name_en": "BlackRock",
-          "name_zh": "貝萊德",
-          "role_zh": "貝萊德：買方／資管客戶代表性玩家",
-          "role_en": "BlackRock: representative player in Buy-side / asset managers",
-          "exchange": "NYSE"
+          "ticker": "1299.HK",
+          "name_en": "AIA",
+          "name_zh": "友邦",
+          "role_zh": "友邦：買方／資管客戶代表性玩家",
+          "role_en": "AIA: representative player in Buy-side / asset managers",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "BX",
-          "name_en": "Blackstone",
-          "name_zh": "黑石",
-          "role_zh": "黑石：買方／資管客戶代表性玩家",
-          "role_en": "Blackstone: representative player in Buy-side / asset managers",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "TROW",
-          "name_en": "T. Rowe Price",
-          "name_zh": "T. Rowe Price",
-          "role_zh": "T. Rowe Price：買方／資管客戶代表性玩家",
-          "role_en": "T. Rowe Price: representative player in Buy-side / asset managers",
-          "exchange": "NASDAQ"
+          "ticker": "2318.HK",
+          "name_en": "Ping An",
+          "name_zh": "中國平安",
+          "role_zh": "中國平安：買方／資管客戶代表性玩家",
+          "role_en": "Ping An: representative player in Buy-side / asset managers",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     },
@@ -172,72 +160,78 @@
       "summary_en": "IPO, DCM, advisory demand.",
       "players": [
         {
-          "ticker": "AAPL",
-          "name_en": "Apple",
-          "name_zh": "蘋果",
-          "role_zh": "蘋果：企業／主權發行人代表性玩家",
-          "role_en": "Apple: representative player in Corporate / sovereign issuers",
-          "exchange": "NASDAQ"
+          "ticker": "0700.HK",
+          "name_en": "Tencent",
+          "name_zh": "騰訊",
+          "role_zh": "騰訊：企業／主權發行人代表性玩家",
+          "role_en": "Tencent: representative player in Corporate / sovereign issuers",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "MSFT",
-          "name_en": "Microsoft",
-          "name_zh": "微軟",
-          "role_zh": "微軟：企業／主權發行人代表性玩家",
-          "role_en": "Microsoft: representative player in Corporate / sovereign issuers",
-          "exchange": "NASDAQ"
+          "ticker": "9988.HK",
+          "name_en": "Alibaba",
+          "name_zh": "阿里巴巴",
+          "role_zh": "阿里巴巴：企業／主權發行人代表性玩家",
+          "role_en": "Alibaba: representative player in Corporate / sovereign issuers",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "XOM",
-          "name_en": "Exxonmobil",
-          "name_zh": "埃克森美孚",
-          "role_zh": "埃克森美孚：企業／主權發行人代表性玩家",
-          "role_en": "Exxonmobil: representative player in Corporate / sovereign issuers",
-          "exchange": "NYSE"
+          "ticker": "1810.HK",
+          "name_en": "Xiaomi",
+          "name_zh": "小米",
+          "role_zh": "小米：企業／主權發行人代表性玩家",
+          "role_en": "Xiaomi: representative player in Corporate / sovereign issuers",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     }
   ],
   "competitors": [
     {
-      "ticker": "ICE",
-      "name_en": "Intercontinental Exchange",
-      "name_zh": "洲際交易所",
-      "basis_zh": "交易所／市場基礎設施對手",
-      "basis_en": "Exchange / market-infra rival",
-      "exchange": "NYSE"
-    },
-    {
-      "ticker": "NDAQ",
-      "name_en": "Nasdaq",
-      "name_zh": "納斯達克",
-      "basis_zh": "交易所／市場基礎設施對手",
-      "basis_en": "Exchange / market-infra rival",
+      "ticker": "IBKR",
+      "name_en": "Interactive Brokers",
+      "name_zh": "盈透證券",
+      "basis_zh": "零售券商對手",
+      "basis_en": "Retail brokerage rival",
       "exchange": "NASDAQ"
     },
     {
-      "ticker": "CBOE",
-      "name_en": "Cboe Global Markets",
-      "name_zh": "Cboe Global Markets",
-      "basis_zh": "交易所／市場基礎設施對手",
-      "basis_en": "Exchange / market-infra rival",
-      "exchange": "BATS"
-    },
-    {
-      "ticker": "CME",
-      "name_en": "CME",
-      "name_zh": "芝商所集團",
-      "basis_zh": "交易所／市場基礎設施對手",
-      "basis_en": "Exchange / market-infra rival",
-      "exchange": "NASDAQ"
-    },
-    {
-      "ticker": "SPGI",
-      "name_en": "S&P Global",
-      "name_zh": "標普全球",
-      "basis_zh": "交易所／市場基礎設施對手",
-      "basis_en": "Exchange / market-infra rival",
+      "ticker": "SCHW",
+      "name_en": "Charles Schwab",
+      "name_zh": "嘉信理財",
+      "basis_zh": "零售券商對手",
+      "basis_en": "Retail brokerage rival",
       "exchange": "NYSE"
+    },
+    {
+      "ticker": "6030.HK",
+      "name_en": "CITIC Securities",
+      "name_zh": "中信證券",
+      "basis_zh": "中資券商對手",
+      "basis_en": "China broker rival",
+      "exchange": "HKEX",
+      "listedInApp": false
+    },
+    {
+      "ticker": "6886.HK",
+      "name_en": "Huatai Securities",
+      "name_zh": "華泰證券",
+      "basis_zh": "中資券商對手",
+      "basis_en": "China broker rival",
+      "exchange": "HKEX",
+      "listedInApp": false
+    },
+    {
+      "ticker": "3908.HK",
+      "name_en": "CICC",
+      "name_zh": "中金公司",
+      "basis_zh": "中資券商對手",
+      "basis_en": "China broker rival",
+      "exchange": "HKEX",
+      "listedInApp": false
     }
   ]
 }

@@ -3,20 +3,23 @@
   "ticker": "YUMC",
   "name_en": "Yum China",
   "name_zh": "百勝中國",
-  "updatedAt": "2026-11-20",
+  "updatedAt": "2026-11-23",
   "source": {
     "type": "curated",
-    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
-    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
-    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
-    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
-    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
+    "basis": "China/Asia ADR Batch A concept scrub: China-centric external-partner chains (0700/9988/1211 gold). Not a live supplier API dump. Preview-before-merge.",
+    "notes_zh": "本頁為中國／亞洲主力市場供應鏈策展種子（對齊 0700／9988／1211 外部夥伴規則）。階段只列外部供應商／夥伴／通路／基建；自研產品／內容／IP／附屬不進階段。對手弧＝產品／市場真對手，且對手≠階段玩家。雙重上市生態節點優先 .HK；不以美股零售／互聯網模板灌水。",
+    "notes_en": "China/Asia major-market curated seed (aligned with 0700/9988/1211 external-partner rules). Stages = external suppliers/partners/channels/infra only — not self-built products/IP/subsidiaries. Rival arc = true product/market rivals; rivals ≠ stage players. Dual-list ecosystem nodes prefer .HK; not a US retail/internet template dump.",
+    "competitorRationale_zh": "競爭弧只列主力市場真實產品對手；階段玩家與對手分開；雙重上市生態節點優先 .HK；中國／亞洲市場不以美股節點為預設。",
+    "competitorRationale_en": "Rival arc = true product rivals in the major market; stages ≠ rivals; dual-list ecosystem nodes prefer .HK; China/Asia hubs are not US-node dumps.",
     "modelId": "consumer-discretionary-v1",
     "references": [
       "Industry model `consumer-discretionary-v1`",
       "AAPL curated seed shape on main (schema reference)",
       "cache/us_universe.json screen: remaining US listings without supply-chain seed",
-      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)",
+      "docs/0700-hk-supply-chain-concepts.md",
+      "docs/us-sc-concept-audit.md Batch A",
+      "scripts/supply_chain/prep_us_batch_a_china_adr.py"
     ]
   },
   "model": {
@@ -36,28 +39,31 @@
       "summary_en": "Food, goods, licensed IP.",
       "players": [
         {
-          "ticker": "ADM",
-          "name_en": "Archer-Daniels-Midland",
-          "name_zh": "阿徹丹尼爾斯米德蘭",
-          "role_zh": "阿徹丹尼爾斯米德蘭：原料／商品供應代表性玩家",
-          "role_en": "Archer-Daniels-Midland: representative player in Inputs / merchandise supply",
-          "exchange": "NYSE"
+          "ticker": "2319.HK",
+          "name_en": "Mengniu",
+          "name_zh": "蒙牛",
+          "role_zh": "蒙牛：原料／商品供應代表性玩家",
+          "role_en": "Mengniu: representative player in Inputs / merchandise supply",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "NKE",
-          "name_en": "Nike",
-          "name_zh": "耐吉",
-          "role_zh": "耐吉：原料／商品供應代表性玩家",
-          "role_en": "Nike: representative player in Inputs / merchandise supply",
-          "exchange": "NYSE"
+          "ticker": "0322.HK",
+          "name_en": "Tingyi",
+          "name_zh": "康師傅",
+          "role_zh": "康師傅：原料／商品供應代表性玩家",
+          "role_en": "Tingyi: representative player in Inputs / merchandise supply",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "DIS",
-          "name_en": "Walt Disney",
-          "name_zh": "迪士尼",
-          "role_zh": "迪士尼：原料／商品供應代表性玩家",
-          "role_en": "Walt Disney: representative player in Inputs / merchandise supply",
-          "exchange": "NYSE"
+          "ticker": "0151.HK",
+          "name_en": "Want Want",
+          "name_zh": "旺旺",
+          "role_zh": "旺旺：原料／商品供應代表性玩家",
+          "role_en": "Want Want: representative player in Inputs / merchandise supply",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     },
@@ -70,28 +76,31 @@
       "summary_en": "Distribution and inventory.",
       "players": [
         {
-          "ticker": "UPS",
-          "name_en": "United Parcel Service",
-          "name_zh": "優比速",
-          "role_zh": "優比速：物流／冷鏈代表性玩家",
-          "role_en": "United Parcel Service: representative player in Logistics / cold chain",
-          "exchange": "NYSE"
+          "ticker": "2057.HK",
+          "name_en": "ZTO Express",
+          "name_zh": "中通快遞",
+          "role_zh": "中通快遞：物流／冷鏈代表性玩家",
+          "role_en": "ZTO Express: representative player in Logistics / cold chain",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "FDX",
-          "name_en": "FedEx",
-          "name_zh": "聯邦快遞",
-          "role_zh": "聯邦快遞：物流／冷鏈代表性玩家",
-          "role_en": "FedEx: representative player in Logistics / cold chain",
-          "exchange": "NYSE"
+          "ticker": "1519.HK",
+          "name_en": "J&T Express",
+          "name_zh": "極兔速遞",
+          "role_zh": "極兔速遞：物流／冷鏈代表性玩家",
+          "role_en": "J&T Express: representative player in Logistics / cold chain",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "UNP",
-          "name_en": "Union Pacific",
-          "name_zh": "聯合太平洋鐵路",
-          "role_zh": "聯合太平洋鐵路：物流／冷鏈代表性玩家",
-          "role_en": "Union Pacific: representative player in Logistics / cold chain",
-          "exchange": "NYSE"
+          "ticker": "2618.HK",
+          "name_en": "JD Logistics",
+          "name_zh": "京東物流",
+          "role_zh": "京東物流：物流／冷鏈代表性玩家",
+          "role_en": "JD Logistics: representative player in Logistics / cold chain",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     },
@@ -104,28 +113,31 @@
       "summary_en": "Owned, franchise, apps.",
       "players": [
         {
-          "ticker": "SBUX",
-          "name_en": "Starbucks",
-          "name_zh": "星巴克",
-          "role_zh": "星巴克：門市／數位平台代表性玩家",
-          "role_en": "Starbucks: representative player in Stores / digital platforms",
-          "exchange": "NASDAQ"
+          "ticker": "0144.HK",
+          "name_en": "CMPort",
+          "name_zh": "招商港口",
+          "role_zh": "招商港口：門市／數位平台代表性玩家",
+          "role_en": "CMPort: representative player in Stores / digital platforms",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "MCD",
-          "name_en": "McDonald's",
-          "name_zh": "麥當勞",
-          "role_zh": "麥當勞：門市／數位平台代表性玩家",
-          "role_en": "McDonald's: representative player in Stores / digital platforms",
-          "exchange": "NYSE"
+          "ticker": "1109.HK",
+          "name_en": "CR Land",
+          "name_zh": "華潤置地",
+          "role_zh": "華潤置地：門市／數位平台代表性玩家",
+          "role_en": "CR Land: representative player in Stores / digital platforms",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "MAR",
-          "name_en": "Marriott International",
-          "name_zh": "萬豪國際",
-          "role_zh": "萬豪國際：門市／數位平台代表性玩家",
-          "role_en": "Marriott International: representative player in Stores / digital platforms",
-          "exchange": "NASDAQ"
+          "ticker": "0688.HK",
+          "name_en": "China Overseas",
+          "name_zh": "中國海外發展",
+          "role_zh": "中國海外發展：門市／數位平台代表性玩家",
+          "role_en": "China Overseas: representative player in Stores / digital platforms",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     },
@@ -138,28 +150,31 @@
       "summary_en": "Card rails and loyalty.",
       "players": [
         {
-          "ticker": "V",
-          "name_en": "Visa",
-          "name_zh": "威士卡",
-          "role_zh": "威士卡：支付／忠誠代表性玩家",
-          "role_en": "Visa: representative player in Payments / loyalty",
-          "exchange": "NYSE"
+          "ticker": "0005.HK",
+          "name_en": "HSBC",
+          "name_zh": "滙豐",
+          "role_zh": "滙豐：支付／忠誠代表性玩家",
+          "role_en": "HSBC: representative player in Payments / loyalty",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "MA",
-          "name_en": "Mastercard",
-          "name_zh": "萬事達卡",
-          "role_zh": "萬事達卡：支付／忠誠代表性玩家",
-          "role_en": "Mastercard: representative player in Payments / loyalty",
-          "exchange": "NYSE"
+          "ticker": "1398.HK",
+          "name_en": "ICBC",
+          "name_zh": "工商銀行",
+          "role_zh": "工商銀行：支付／忠誠代表性玩家",
+          "role_en": "ICBC: representative player in Payments / loyalty",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "AXP",
-          "name_en": "American Express",
-          "name_zh": "美國運通",
-          "role_zh": "美國運通：支付／忠誠代表性玩家",
-          "role_en": "American Express: representative player in Payments / loyalty",
-          "exchange": "NYSE"
+          "ticker": "6060.HK",
+          "name_en": "ZhongAn",
+          "name_zh": "眾安在線",
+          "role_zh": "眾安在線：支付／忠誠代表性玩家",
+          "role_en": "ZhongAn: representative player in Payments / loyalty",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     },
@@ -172,28 +187,31 @@
       "summary_en": "Search, social, travel OTAs.",
       "players": [
         {
-          "ticker": "GOOG",
-          "name_en": "Alphabet",
-          "name_zh": "Alphabet（Google）",
-          "role_zh": "Alphabet（Google）：行銷／流量代表性玩家",
-          "role_en": "Alphabet: representative player in Marketing / traffic",
-          "exchange": "NASDAQ"
+          "ticker": "0700.HK",
+          "name_en": "Tencent",
+          "name_zh": "騰訊",
+          "role_zh": "騰訊：行銷／流量代表性玩家",
+          "role_en": "Tencent: representative player in Marketing / traffic",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "META",
-          "name_en": "Meta Platforms",
-          "name_zh": "Meta (臉書)",
-          "role_zh": "Meta (臉書)：行銷／流量代表性玩家",
-          "role_en": "Meta Platforms: representative player in Marketing / traffic",
-          "exchange": "NASDAQ"
+          "ticker": "1024.HK",
+          "name_en": "Kuaishou",
+          "name_zh": "快手",
+          "role_zh": "快手：行銷／流量代表性玩家",
+          "role_en": "Kuaishou: representative player in Marketing / traffic",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "BKNG",
-          "name_en": "Booking",
-          "name_zh": "Booking 控股",
-          "role_zh": "Booking 控股：行銷／流量代表性玩家",
-          "role_en": "Booking: representative player in Marketing / traffic",
-          "exchange": "NASDAQ"
+          "ticker": "9888.HK",
+          "name_en": "Baidu",
+          "name_zh": "百度",
+          "role_zh": "百度：行銷／流量代表性玩家",
+          "role_en": "Baidu: representative player in Marketing / traffic",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     }
@@ -203,41 +221,35 @@
       "ticker": "MCD",
       "name_en": "McDonald's",
       "name_zh": "麥當勞",
-      "basis_zh": "餐飲對手",
-      "basis_en": "Restaurant rival",
+      "basis_zh": "中國餐飲對手",
+      "basis_en": "China restaurant rival",
       "exchange": "NYSE"
     },
     {
       "ticker": "SBUX",
       "name_en": "Starbucks",
       "name_zh": "星巴克",
-      "basis_zh": "餐飲對手",
-      "basis_en": "Restaurant rival",
+      "basis_zh": "中國餐飲對手",
+      "basis_en": "China restaurant rival",
       "exchange": "NASDAQ"
     },
     {
-      "ticker": "YUM",
-      "name_en": "Yum! Brands",
-      "name_zh": "百勝餐飲",
-      "basis_zh": "餐飲對手",
-      "basis_en": "Restaurant rival",
-      "exchange": "NYSE"
+      "ticker": "6862.HK",
+      "name_en": "Haidilao",
+      "name_zh": "海底撈",
+      "basis_zh": "中國餐飲對手",
+      "basis_en": "China restaurant rival",
+      "exchange": "HKEX",
+      "listedInApp": false
     },
     {
-      "ticker": "CMG",
-      "name_en": "Chipotle",
-      "name_zh": "奇波雷墨西哥燒烤",
-      "basis_zh": "餐飲對手",
-      "basis_en": "Restaurant rival",
-      "exchange": "NYSE"
-    },
-    {
-      "ticker": "QSR",
-      "name_en": "Restaurant Brands",
-      "name_zh": "Restaurant Brands",
-      "basis_zh": "餐飲對手",
-      "basis_en": "Restaurant rival",
-      "exchange": "NYSE"
+      "ticker": "3690.HK",
+      "name_en": "Meituan",
+      "name_zh": "美團",
+      "basis_zh": "本地生活／到店對手",
+      "basis_en": "Local services / dine-out rival",
+      "exchange": "HKEX",
+      "listedInApp": false
     }
   ]
 }

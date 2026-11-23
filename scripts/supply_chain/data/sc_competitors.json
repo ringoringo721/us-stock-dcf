@@ -909,56 +909,56 @@
   ],
   "BABA": [
     [
-      "PDD",
-      "中國電商對手",
-      "China e-comm rival"
-    ],
-    [
       "JD",
       "中國電商對手",
-      "China e-comm rival"
+      "China e-commerce rival"
     ],
     [
-      "AMZN",
-      "全球電商對手",
-      "Global e-comm rival"
+      "PDD",
+      "下沉市場電商對手",
+      "Value e-commerce rival"
     ],
     [
       "0700.HK",
-      "中國數位生態對手",
-      "China digital ecosystem rival"
+      "中國互聯網生態對手",
+      "China internet ecosystem rival"
     ],
     [
-      "MELI",
-      "新興市場電商對手",
-      "EM e-comm rival"
+      "3690.HK",
+      "本地生活／即時零售對手",
+      "Local services / instant retail rival"
+    ],
+    [
+      "VIPS",
+      "品牌特賣電商對手",
+      "Brand-outlet e-commerce rival"
     ]
   ],
   "PDD": [
     [
       "BABA",
       "中國電商對手",
-      "China e-comm rival"
+      "China e-commerce rival"
     ],
     [
       "JD",
       "中國電商對手",
-      "China e-comm rival"
-    ],
-    [
-      "AMZN",
-      "跨境電商競爭",
-      "Cross-border e-comm competition"
+      "China e-commerce rival"
     ],
     [
       "SE",
-      "東南亞電商對手",
-      "SEA e-comm rival"
+      "新興市場電商對手",
+      "EM e-commerce rival"
     ],
     [
-      "MELI",
-      "新興市場電商對手",
-      "EM e-comm rival"
+      "3690.HK",
+      "本地生活／即配對手",
+      "Local services rival"
+    ],
+    [
+      "VIPS",
+      "特賣電商對手",
+      "Outlet e-commerce rival"
     ]
   ],
   "TSLA": [
@@ -5349,27 +5349,27 @@
     [
       "0700.HK",
       "遊戲／互動娛樂對手",
-      "Gaming / interactive entertainment rival"
+      "Games / interactive entertainment rival"
     ],
     [
-      "EA",
-      "遊戲／互動娛樂對手",
-      "Gaming / interactive entertainment rival"
+      "BILI",
+      "影音／遊戲內容對手",
+      "Video / games content rival"
     ],
     [
-      "TTWO",
-      "遊戲／互動娛樂對手",
-      "Gaming / interactive entertainment rival"
+      "BIDU",
+      "中國互聯網生態對手",
+      "China internet ecosystem rival"
     ],
     [
-      "RBLX",
-      "遊戲／互動娛樂對手",
-      "Gaming / interactive entertainment rival"
+      "BABA",
+      "中國互聯網生態對手",
+      "China internet ecosystem rival"
     ],
     [
-      "U",
-      "遊戲／互動娛樂對手",
-      "Gaming / interactive entertainment rival"
+      "1024.HK",
+      "短影音／資訊流對手",
+      "Short-video / feed rival"
     ]
   ],
   "HWM": [
@@ -9578,29 +9578,29 @@
   ],
   "JD": [
     [
-      "TGT",
-      "折扣零售對手",
-      "Discount retail rival"
+      "BABA",
+      "中國電商對手",
+      "China e-commerce rival"
     ],
     [
-      "WMT",
-      "折扣零售對手",
-      "Discount retail rival"
+      "PDD",
+      "下沉市場電商對手",
+      "Value e-commerce rival"
     ],
     [
-      "COST",
-      "折扣零售對手",
-      "Discount retail rival"
+      "3690.HK",
+      "本地生活／即時零售對手",
+      "Local services / instant retail rival"
     ],
     [
-      "AMZN",
-      "折扣零售對手",
-      "Discount retail rival"
+      "VIPS",
+      "品牌特賣電商對手",
+      "Brand-outlet e-commerce rival"
     ],
     [
-      "DG",
-      "折扣零售對手",
-      "Discount retail rival"
+      "0700.HK",
+      "中國互聯網生態對手",
+      "China internet ecosystem rival"
     ]
   ],
   "KB": [
@@ -12223,29 +12223,29 @@
   ],
   "BIDU": [
     [
-      "GOOG",
-      "搜尋／AI 平台對手",
-      "Search / AI platform rival"
-    ],
-    [
-      "META",
-      "搜尋／AI 平台對手",
-      "Search / AI platform rival"
+      "0700.HK",
+      "搜尋／廣告對手",
+      "Search / advertising rival"
     ],
     [
       "BABA",
-      "搜尋／AI 平台對手",
-      "Search / AI platform rival"
+      "中國互聯網生態對手",
+      "China internet ecosystem rival"
     ],
     [
-      "0700.HK",
-      "搜尋／AI 平台對手",
-      "Search / AI platform rival"
+      "1024.HK",
+      "資訊流廣告對手",
+      "Feed-ads rival"
     ],
     [
-      "MSFT",
-      "搜尋／AI 平台對手",
-      "Search / AI platform rival"
+      "BILI",
+      "內容／流量對手",
+      "Content / traffic rival"
+    ],
+    [
+      "NTES",
+      "內容／遊戲生態對手",
+      "Content / games ecosystem rival"
     ]
   ],
   "WST": [
@@ -14778,9 +14778,19 @@
   ],
   "BEKE": [
     [
-      "1200.HK",
-      "中國住宅經紀對手",
-      "China residential brokerage rival"
+      "ZG",
+      "房源／經紀平台對手",
+      "Listing / brokerage platform rival"
+    ],
+    [
+      "COMP",
+      "經紀平台對手",
+      "Brokerage platform rival"
+    ],
+    [
+      "RDFN",
+      "經紀平台對手",
+      "Brokerage platform rival"
     ]
   ],
   "AMCR": [
@@ -16327,28 +16337,23 @@
   "YUMC": [
     [
       "MCD",
-      "餐飲對手",
-      "Restaurant rival"
+      "中國餐飲對手",
+      "China restaurant rival"
     ],
     [
       "SBUX",
-      "餐飲對手",
-      "Restaurant rival"
+      "中國餐飲對手",
+      "China restaurant rival"
     ],
     [
-      "YUM",
-      "餐飲對手",
-      "Restaurant rival"
+      "6862.HK",
+      "中國餐飲對手",
+      "China restaurant rival"
     ],
     [
-      "CMG",
-      "餐飲對手",
-      "Restaurant rival"
-    ],
-    [
-      "QSR",
-      "餐飲對手",
-      "Restaurant rival"
+      "3690.HK",
+      "本地生活／到店對手",
+      "Local services / dine-out rival"
     ]
   ],
   "RGA": [
@@ -17168,17 +17173,12 @@
   ],
   "HTHT": [
     [
-      "HLT",
-      "飯店對手",
-      "Hotel rival"
-    ],
-    [
       "MAR",
       "飯店對手",
       "Hotel rival"
     ],
     [
-      "H",
+      "HLT",
       "飯店對手",
       "Hotel rival"
     ],
@@ -17189,8 +17189,8 @@
     ],
     [
       "ABNB",
-      "飯店對手",
-      "Hotel rival"
+      "短租／住宿對手",
+      "Short-stay / lodging rival"
     ]
   ],
   "APA": [
@@ -17249,29 +17249,29 @@
   ],
   "TME": [
     [
-      "GOOG",
-      "網路內容／搜尋對手",
-      "Internet content / search rival"
-    ],
-    [
-      "META",
-      "網路內容／搜尋對手",
-      "Internet content / search rival"
-    ],
-    [
       "SPOT",
-      "網路內容／搜尋對手",
-      "Internet content / search rival"
+      "串流音樂對手",
+      "Music streaming rival"
     ],
     [
-      "DASH",
-      "網路內容／搜尋對手",
-      "Internet content / search rival"
+      "0700.HK",
+      "中國內容生態對手",
+      "China content ecosystem rival"
     ],
     [
-      "BIDU",
-      "網路內容／搜尋對手",
-      "Internet content / search rival"
+      "BILI",
+      "影音內容對手",
+      "Video content rival"
+    ],
+    [
+      "NTES",
+      "雲音樂／內容對手",
+      "Cloud music / content rival"
+    ],
+    [
+      "1024.HK",
+      "短影音內容對手",
+      "Short-video content rival"
     ]
   ],
   "NWS": [
@@ -17347,29 +17347,24 @@
   ],
   "ZTO": [
     [
-      "UPS",
-      "快遞／物流對手",
-      "Parcel / logistics rival"
+      "1519.HK",
+      "中國快遞對手",
+      "China express rival"
+    ],
+    [
+      "2618.HK",
+      "電商物流對手",
+      "E-comm logistics rival"
+    ],
+    [
+      "3690.HK",
+      "即配／本地物流對手",
+      "Instant delivery / local logistics rival"
     ],
     [
       "FDX",
-      "快遞／物流對手",
-      "Parcel / logistics rival"
-    ],
-    [
-      "AMZN",
-      "快遞／物流對手",
-      "Parcel / logistics rival"
-    ],
-    [
-      "JBHT",
-      "快遞／物流對手",
-      "Parcel / logistics rival"
-    ],
-    [
-      "ODFL",
-      "快遞／物流對手",
-      "Parcel / logistics rival"
+      "國際快遞對手",
+      "International express rival"
     ]
   ],
   "BURL": [
@@ -18989,29 +18984,29 @@
   ],
   "FUTU": [
     [
-      "ICE",
-      "交易所／市場基礎設施對手",
-      "Exchange / market-infra rival"
+      "IBKR",
+      "零售券商對手",
+      "Retail brokerage rival"
     ],
     [
-      "NDAQ",
-      "交易所／市場基礎設施對手",
-      "Exchange / market-infra rival"
+      "SCHW",
+      "零售券商對手",
+      "Retail brokerage rival"
     ],
     [
-      "CBOE",
-      "交易所／市場基礎設施對手",
-      "Exchange / market-infra rival"
+      "6030.HK",
+      "中資券商對手",
+      "China broker rival"
     ],
     [
-      "CME",
-      "交易所／市場基礎設施對手",
-      "Exchange / market-infra rival"
+      "6886.HK",
+      "中資券商對手",
+      "China broker rival"
     ],
     [
-      "SPGI",
-      "交易所／市場基礎設施對手",
-      "Exchange / market-infra rival"
+      "3908.HK",
+      "中資券商對手",
+      "China broker rival"
     ]
   ],
   "CART": [
@@ -20241,29 +20236,29 @@
   ],
   "LI": [
     [
-      "GM",
-      "整車對手",
-      "Auto OEM rival"
+      "XPEV",
+      "中國新能源車對手",
+      "China EV rival"
     ],
     [
-      "F",
-      "整車對手",
-      "Auto OEM rival"
+      "NIO",
+      "中國新能源車對手",
+      "China EV rival"
     ],
     [
-      "TM",
-      "整車對手",
-      "Auto OEM rival"
+      "1211.HK",
+      "中國新能源車對手",
+      "China EV rival"
+    ],
+    [
+      "0175.HK",
+      "中國乘用車對手",
+      "China passenger-auto rival"
     ],
     [
       "TSLA",
-      "整車對手",
-      "Auto OEM rival"
-    ],
-    [
-      "HMC",
-      "整車對手",
-      "Auto OEM rival"
+      "在華銷售電動車對手",
+      "EV rival with China sales"
     ]
   ],
   "FROG": [
@@ -22898,29 +22893,29 @@
   ],
   "XPEV": [
     [
-      "GM",
-      "整車對手",
-      "Auto OEM rival"
+      "LI",
+      "中國新能源車對手",
+      "China EV rival"
     ],
     [
-      "F",
-      "整車對手",
-      "Auto OEM rival"
+      "NIO",
+      "中國新能源車對手",
+      "China EV rival"
     ],
     [
-      "TM",
-      "整車對手",
-      "Auto OEM rival"
+      "1211.HK",
+      "中國新能源車對手",
+      "China EV rival"
+    ],
+    [
+      "0175.HK",
+      "中國乘用車對手",
+      "China passenger-auto rival"
     ],
     [
       "TSLA",
-      "整車對手",
-      "Auto OEM rival"
-    ],
-    [
-      "HMC",
-      "整車對手",
-      "Auto OEM rival"
+      "在華銷售電動車對手",
+      "EV rival with China sales"
     ]
   ],
   "AYI": [
@@ -23106,29 +23101,24 @@
   ],
   "YMM": [
     [
-      "SAP",
-      "應用軟體對手",
-      "Application software rival"
+      "ZTO",
+      "幹線／物流鄰接對手",
+      "Trunk / logistics adjacent rival"
     ],
     [
-      "SHOP",
-      "應用軟體對手",
-      "Application software rival"
+      "2618.HK",
+      "電商物流對手",
+      "E-comm logistics rival"
     ],
     [
-      "CRM",
-      "應用軟體對手",
-      "Application software rival"
+      "1519.HK",
+      "快遞／運力對手",
+      "Express / capacity rival"
     ],
     [
-      "UBER",
-      "應用軟體對手",
-      "Application software rival"
-    ],
-    [
-      "ADP",
-      "應用軟體對手",
-      "Application software rival"
+      "3690.HK",
+      "本地即配對手",
+      "Local delivery rival"
     ]
   ],
   "ENLT": [
@@ -25014,29 +25004,24 @@
   ],
   "BZ": [
     [
-      "GOOG",
-      "網路內容／搜尋對手",
-      "Internet content / search rival"
-    ],
-    [
-      "META",
-      "網路內容／搜尋對手",
-      "Internet content / search rival"
-    ],
-    [
-      "SPOT",
-      "網路內容／搜尋對手",
-      "Internet content / search rival"
-    ],
-    [
-      "DASH",
-      "網路內容／搜尋對手",
-      "Internet content / search rival"
+      "0700.HK",
+      "中國互聯網流量對手",
+      "China internet traffic rival"
     ],
     [
       "BIDU",
-      "網路內容／搜尋對手",
-      "Internet content / search rival"
+      "招聘／資訊流對手",
+      "Recruiting / feed rival"
+    ],
+    [
+      "BABA",
+      "本地生活／服務生態對手",
+      "Local services ecosystem rival"
+    ],
+    [
+      "3690.HK",
+      "本地生活對手",
+      "Local services rival"
     ]
   ],
   "NCLH": [
@@ -25298,29 +25283,24 @@
   ],
   "LU": [
     [
-      "V",
-      "支付／消費金融對手",
-      "Payments / consumer-finance rival"
+      "6060.HK",
+      "互聯網金融對手",
+      "Internet-finance rival"
     ],
     [
-      "MA",
-      "支付／消費金融對手",
-      "Payments / consumer-finance rival"
+      "2318.HK",
+      "綜合金融對手",
+      "Diversified finance rival"
     ],
     [
-      "AXP",
-      "支付／消費金融對手",
-      "Payments / consumer-finance rival"
+      "FUTU",
+      "線上財富／經紀對手",
+      "Online wealth / brokerage rival"
     ],
     [
       "PYPL",
-      "支付／消費金融對手",
-      "Payments / consumer-finance rival"
-    ],
-    [
-      "GPN",
-      "支付／消費金融對手",
-      "Payments / consumer-finance rival"
+      "消費金融／支付對手",
+      "Consumer-finance / payments rival"
     ]
   ],
   "SSD": [
@@ -25472,29 +25452,29 @@
   ],
   "NIO": [
     [
-      "GM",
-      "整車對手",
-      "Auto OEM rival"
+      "LI",
+      "中國新能源車對手",
+      "China EV rival"
     ],
     [
-      "F",
-      "整車對手",
-      "Auto OEM rival"
+      "XPEV",
+      "中國新能源車對手",
+      "China EV rival"
     ],
     [
-      "TM",
-      "整車對手",
-      "Auto OEM rival"
+      "1211.HK",
+      "中國新能源車對手",
+      "China EV rival"
+    ],
+    [
+      "0175.HK",
+      "中國乘用車對手",
+      "China passenger-auto rival"
     ],
     [
       "TSLA",
-      "整車對手",
-      "Auto OEM rival"
-    ],
-    [
-      "HMC",
-      "整車對手",
-      "Auto OEM rival"
+      "在華銷售電動車對手",
+      "EV rival with China sales"
     ]
   ],
   "RMBS": [
@@ -28273,29 +28253,24 @@
   ],
   "VIPS": [
     [
-      "TGT",
-      "折扣零售對手",
-      "Discount retail rival"
+      "BABA",
+      "中國電商對手",
+      "China e-commerce rival"
     ],
     [
-      "WMT",
-      "折扣零售對手",
-      "Discount retail rival"
+      "JD",
+      "中國電商對手",
+      "China e-commerce rival"
     ],
     [
-      "COST",
-      "折扣零售對手",
-      "Discount retail rival"
+      "PDD",
+      "下沉市場電商對手",
+      "Value e-commerce rival"
     ],
     [
-      "AMZN",
-      "折扣零售對手",
-      "Discount retail rival"
-    ],
-    [
-      "DG",
-      "折扣零售對手",
-      "Discount retail rival"
+      "3690.HK",
+      "本地生活對手",
+      "Local services rival"
     ]
   ],
   "KTOS": [
@@ -29954,24 +29929,29 @@
   ],
   "BILI": [
     [
-      "IQ",
-      "影音／互動娛樂對手",
-      "Video / interactive entertainment rival"
-    ],
-    [
-      "HUYA",
+      "0700.HK",
       "影音／互動娛樂對手",
       "Video / interactive entertainment rival"
     ],
     [
       "NTES",
-      "影音／互動娛樂對手",
-      "Video / interactive entertainment rival"
+      "遊戲／內容對手",
+      "Games / content rival"
     ],
     [
-      "0700.HK",
-      "影音／互動娛樂對手",
-      "Video / interactive entertainment rival"
+      "1024.HK",
+      "短影音對手",
+      "Short-video rival"
+    ],
+    [
+      "TME",
+      "音樂／內容對手",
+      "Music / content rival"
+    ],
+    [
+      "BIDU",
+      "內容／流量對手",
+      "Content / traffic rival"
     ]
   ],
   "ACIW": [
@@ -33647,28 +33627,18 @@
   "EDU": [
     [
       "TAL",
-      "Education & Training Services產品／市場對手",
-      "Education & Training Services product/market rival"
+      "中國教育培訓對手",
+      "China education rival"
     ],
     [
-      "WMT",
-      "Education & Training Services產品／市場對手",
-      "Education & Training Services product/market rival"
+      "BILI",
+      "線上內容／學習對手",
+      "Online content / learning rival"
     ],
     [
-      "COST",
-      "Education & Training Services產品／市場對手",
-      "Education & Training Services product/market rival"
-    ],
-    [
-      "KO",
-      "Education & Training Services產品／市場對手",
-      "Education & Training Services product/market rival"
-    ],
-    [
-      "PG",
-      "Education & Training Services產品／市場對手",
-      "Education & Training Services product/market rival"
+      "NTES",
+      "線上內容／學習對手",
+      "Online content / learning rival"
     ]
   ],
   "MSGK": [
@@ -33701,28 +33671,18 @@
   "TAL": [
     [
       "EDU",
-      "Education & Training Services產品／市場對手",
-      "Education & Training Services product/market rival"
+      "中國教育培訓對手",
+      "China education rival"
     ],
     [
-      "WMT",
-      "Education & Training Services產品／市場對手",
-      "Education & Training Services product/market rival"
+      "BILI",
+      "線上內容／學習對手",
+      "Online content / learning rival"
     ],
     [
-      "COST",
-      "Education & Training Services產品／市場對手",
-      "Education & Training Services product/market rival"
-    ],
-    [
-      "KO",
-      "Education & Training Services產品／市場對手",
-      "Education & Training Services product/market rival"
-    ],
-    [
-      "PG",
-      "Education & Training Services產品／市場對手",
-      "Education & Training Services product/market rival"
+      "NTES",
+      "線上內容／學習對手",
+      "Online content / learning rival"
     ]
   ],
   "M": [

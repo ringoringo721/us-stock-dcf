@@ -1,243 +1,255 @@
 {
   "version": 1,
   "ticker": "ZTO",
-  "name_en": "ZTO Express (Cayman)",
+  "name_en": "ZTO Express",
   "name_zh": "中通快遞",
-  "updatedAt": "2026-11-20",
+  "updatedAt": "2026-11-23",
   "source": {
     "type": "curated",
-    "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
-    "notes_zh": "本頁為產業價值鏈模板＋人工策展競爭對手的種子資料（美股剩餘市值＜500億美元批次，接續≥1,000億與500–1,000億批次）。未呼叫即時供應商 API；FMP 同業名單不作價值鏈依據。角色與排序依公開產業結構整理，非完整供應商名單或採購份額。競爭對手採產品／市場真實對手原則（參考 AAPL 教訓：不以跨業巨頭充當直接產品對手）。Gemini 草稿因帳單不可用，改走策展模板＋審核閘。",
-    "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
-    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
-    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
-    "modelId": "industrials-v1",
+    "basis": "China/Asia ADR Batch A concept scrub: China-centric external-partner chains (0700/9988/1211 gold). Not a live supplier API dump. Preview-before-merge.",
+    "notes_zh": "本頁為中國／亞洲主力市場供應鏈策展種子（對齊 0700／9988／1211 外部夥伴規則）。階段只列外部供應商／夥伴／通路／基建；自研產品／內容／IP／附屬不進階段。對手弧＝產品／市場真對手，且對手≠階段玩家。雙重上市生態節點優先 .HK；不以美股零售／互聯網模板灌水。",
+    "notes_en": "China/Asia major-market curated seed (aligned with 0700/9988/1211 external-partner rules). Stages = external suppliers/partners/channels/infra only — not self-built products/IP/subsidiaries. Rival arc = true product/market rivals; rivals ≠ stage players. Dual-list ecosystem nodes prefer .HK; not a US retail/internet template dump.",
+    "competitorRationale_zh": "競爭弧只列主力市場真實產品對手；階段玩家與對手分開；雙重上市生態節點優先 .HK；中國／亞洲市場不以美股節點為預設。",
+    "competitorRationale_en": "Rival arc = true product rivals in the major market; stages ≠ rivals; dual-list ecosystem nodes prefer .HK; China/Asia hubs are not US-node dumps.",
+    "modelId": "express-logistics-v1",
     "references": [
-      "Industry model `industrials-v1`",
+      "Industry model `express-logistics-v1`",
       "AAPL curated seed shape on main (schema reference)",
       "cache/us_universe.json screen: remaining US listings without supply-chain seed",
-      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)",
+      "docs/0700-hk-supply-chain-concepts.md",
+      "docs/us-sc-concept-audit.md Batch A",
+      "scripts/supply_chain/prep_us_batch_a_china_adr.py"
     ]
   },
   "model": {
-    "id": "industrials-v1",
-    "label_zh": "工業製造價值鏈",
-    "label_en": "Industrial manufacturing value chain",
-    "description_zh": "原材料 → 關鍵部件 → 製造自動化 → 經銷／租賃 → 終端基建客戶。",
-    "description_en": "Raw materials → critical parts → automation → dealers/rental → end infrastructure."
+    "id": "express-logistics-v1",
+    "label_zh": "快遞／宅配價值鏈",
+    "label_en": "Express parcel / logistics value chain",
+    "description_zh": "分揀設備 → 航空／幹線運力 → 電商出貨客戶 → 包裝耗材 → 代收／清算。快遞同業放對手弧。",
+    "description_en": "Sortation equipment → air/linehaul → e-comm shippers → packaging → COD/settlement. Express peers stay on the rival arc."
   },
   "stages": [
     {
-      "id": "materials",
+      "id": "equipment",
       "order": 1,
-      "label_zh": "原材料／鋼鐵鋁",
-      "label_en": "Raw materials / metals",
-      "summary_zh": "鋼、鋁與基礎材料。",
-      "summary_en": "Steel, aluminum, base materials.",
+      "label_zh": "分揀／自動化設備",
+      "label_en": "Sortation / automation equipment",
+      "summary_zh": "分揀線、自動化與倉儲設備供給。",
+      "summary_en": "Sortation lines, automation, and warehouse equipment.",
       "players": [
         {
-          "ticker": "NUE",
-          "name_en": "Nucor",
-          "name_zh": "紐柯",
-          "role_zh": "紐柯：原材料／鋼鐵鋁代表性玩家",
-          "role_en": "Nucor: representative player in Raw materials / metals",
-          "exchange": "NYSE"
+          "ticker": "0669.HK",
+          "name_en": "Techtronic",
+          "name_zh": "創科實業",
+          "role_zh": "創科實業：分揀／自動化設備代表性玩家",
+          "role_en": "Techtronic: representative player in Sortation / automation equipment",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "FCX",
-          "name_en": "Freeport-McMoRan",
-          "name_zh": "自由港麥克莫蘭",
-          "role_zh": "自由港麥克莫蘭：原材料／鋼鐵鋁代表性玩家",
-          "role_en": "Freeport-McMoRan: representative player in Raw materials / metals",
-          "exchange": "NYSE"
+          "ticker": "2018.HK",
+          "name_en": "AAC Technologies",
+          "name_zh": "瑞聲科技",
+          "role_zh": "瑞聲科技：分揀／自動化設備代表性玩家",
+          "role_en": "AAC Technologies: representative player in Sortation / automation equipment",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "DOW",
-          "name_en": "Dow",
-          "name_zh": "陶氏化學",
-          "role_zh": "陶氏化學：原材料／鋼鐵鋁代表性玩家",
-          "role_en": "Dow: representative player in Raw materials / metals",
-          "exchange": "NYSE"
+          "ticker": "3888.HK",
+          "name_en": "Kingsoft",
+          "name_zh": "金山軟件",
+          "role_zh": "金山軟件：分揀／自動化設備代表性玩家",
+          "role_en": "Kingsoft: representative player in Sortation / automation equipment",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     },
     {
-      "id": "components",
+      "id": "linehaul",
       "order": 2,
-      "label_zh": "關鍵部件／動力系統",
-      "label_en": "Critical components / powertrain",
-      "summary_zh": "引擎、液壓、電力電子。",
-      "summary_en": "Engines, hydraulics, power electronics.",
+      "label_zh": "航空／幹線運力",
+      "label_en": "Air / linehaul capacity",
+      "summary_zh": "航空貨運與幹線物流運力。",
+      "summary_en": "Air cargo and trunk logistics capacity.",
       "players": [
         {
-          "ticker": "ETN",
-          "name_en": "Eaton",
-          "name_zh": "伊頓",
-          "role_zh": "伊頓：關鍵部件／動力系統代表性玩家",
-          "role_en": "Eaton: representative player in Critical components / powertrain",
-          "exchange": "NYSE"
+          "ticker": "0670.HK",
+          "name_en": "China Eastern",
+          "name_zh": "東方航空",
+          "role_zh": "東方航空：航空／幹線運力代表性玩家",
+          "role_en": "China Eastern: representative player in Air / linehaul capacity",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "PH",
-          "name_en": "Parker-Hannifin",
-          "name_zh": "派克漢尼汾",
-          "role_zh": "派克漢尼汾：關鍵部件／動力系統代表性玩家",
-          "role_en": "Parker-Hannifin: representative player in Critical components / powertrain",
-          "exchange": "NYSE"
+          "ticker": "0753.HK",
+          "name_en": "Air China",
+          "name_zh": "中國國航",
+          "role_zh": "中國國航：航空／幹線運力代表性玩家",
+          "role_en": "Air China: representative player in Air / linehaul capacity",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "EMR",
-          "name_en": "Emerson",
-          "name_zh": "艾默生",
-          "role_zh": "艾默生：關鍵部件／動力系統代表性玩家",
-          "role_en": "Emerson: representative player in Critical components / powertrain",
-          "exchange": "NYSE"
+          "ticker": "0293.HK",
+          "name_en": "Cathay Pacific",
+          "name_zh": "國泰航空",
+          "role_zh": "國泰航空：航空／幹線運力代表性玩家",
+          "role_en": "Cathay Pacific: representative player in Air / linehaul capacity",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     },
     {
-      "id": "automation",
+      "id": "shippers",
       "order": 3,
-      "label_zh": "自動化／軟體",
-      "label_en": "Automation / software",
-      "summary_zh": "工控、感測與數位雙生。",
-      "summary_en": "Controls, sensors, digital twins.",
+      "label_zh": "電商／出貨客戶",
+      "label_en": "E-commerce / shipper customers",
+      "summary_zh": "產生包裹量的電商與品牌出貨方。",
+      "summary_en": "E-comm and brand shippers that generate parcel volume.",
       "players": [
         {
-          "ticker": "ROK",
-          "name_en": "Rockwell Automation",
-          "name_zh": "羅克韋爾",
-          "role_zh": "羅克韋爾：自動化／軟體代表性玩家",
-          "role_en": "Rockwell Automation: representative player in Automation / software",
-          "exchange": "NYSE"
+          "ticker": "9988.HK",
+          "name_en": "Alibaba",
+          "name_zh": "阿里巴巴",
+          "role_zh": "阿里巴巴：電商／出貨客戶代表性玩家",
+          "role_en": "Alibaba: representative player in E-commerce / shipper customers",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "HON",
-          "name_en": "Honeywell",
-          "name_zh": "漢威聯合",
-          "role_zh": "漢威聯合：自動化／軟體代表性玩家",
-          "role_en": "Honeywell: representative player in Automation / software",
-          "exchange": "NASDAQ"
+          "ticker": "9618.HK",
+          "name_en": "JD.com",
+          "name_zh": "京東",
+          "role_zh": "京東：電商／出貨客戶代表性玩家",
+          "role_en": "JD.com: representative player in E-commerce / shipper customers",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "SNPS",
-          "name_en": "Synopsys",
-          "name_zh": "新思科技",
-          "role_zh": "新思科技：自動化／軟體代表性玩家",
-          "role_en": "Synopsys: representative player in Automation / software",
+          "ticker": "PDD",
+          "name_en": "PDD",
+          "name_zh": "拼多多",
+          "role_zh": "拼多多：電商／出貨客戶代表性玩家",
+          "role_en": "PDD: representative player in E-commerce / shipper customers",
           "exchange": "NASDAQ"
         }
       ]
     },
     {
-      "id": "dealers",
+      "id": "packaging",
       "order": 4,
-      "label_zh": "經銷／租賃通路",
-      "label_en": "Dealer / rental channel",
-      "summary_zh": "設備經銷與租賃。",
-      "summary_en": "Equipment dealers and rental.",
+      "label_zh": "包裝／耗材",
+      "label_en": "Packaging / consumables",
+      "summary_zh": "紙箱、包材與耗材供給。",
+      "summary_en": "Cartons, packaging, and consumables.",
       "players": [
         {
-          "ticker": "CAT",
-          "name_en": "Caterpillar",
-          "name_zh": "開拓重工",
-          "role_zh": "開拓重工：經銷／租賃通路代表性玩家",
-          "role_en": "Caterpillar: representative player in Dealer / rental channel",
-          "exchange": "NYSE"
+          "ticker": "2319.HK",
+          "name_en": "Mengniu",
+          "name_zh": "蒙牛",
+          "role_zh": "蒙牛：包裝／耗材代表性玩家",
+          "role_en": "Mengniu: representative player in Packaging / consumables",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "DE",
-          "name_en": "Deere",
-          "name_zh": "強鹿公司 (Deere)",
-          "role_zh": "強鹿公司 (Deere)：經銷／租賃通路代表性玩家",
-          "role_en": "Deere: representative player in Dealer / rental channel",
-          "exchange": "NYSE"
+          "ticker": "1044.HK",
+          "name_en": "Hengan",
+          "name_zh": "恒安國際",
+          "role_zh": "恒安國際：包裝／耗材代表性玩家",
+          "role_en": "Hengan: representative player in Packaging / consumables",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "ETN",
-          "name_en": "Eaton",
-          "name_zh": "伊頓",
-          "role_zh": "伊頓：經銷／租賃通路代表性玩家",
-          "role_en": "Eaton: representative player in Dealer / rental channel",
-          "exchange": "NYSE"
+          "ticker": "0151.HK",
+          "name_en": "Want Want",
+          "name_zh": "旺旺",
+          "role_zh": "旺旺：包裝／耗材代表性玩家",
+          "role_en": "Want Want: representative player in Packaging / consumables",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     },
     {
-      "id": "customers",
+      "id": "settlement",
       "order": 5,
-      "label_zh": "基建／能源／礦業客戶",
-      "label_en": "Infra / energy / mining customers",
-      "summary_zh": "工程、能源與礦業終端。",
-      "summary_en": "Construction, energy, mining.",
+      "label_zh": "代收／清算",
+      "label_en": "COD / settlement rails",
+      "summary_zh": "貨到付款與運費清算銀行軌道。",
+      "summary_en": "COD and freight-settlement bank rails.",
       "players": [
         {
-          "ticker": "XOM",
-          "name_en": "Exxonmobil",
-          "name_zh": "埃克森美孚",
-          "role_zh": "埃克森美孚：基建／能源／礦業客戶代表性玩家",
-          "role_en": "Exxonmobil: representative player in Infra / energy / mining customers",
-          "exchange": "NYSE"
+          "ticker": "0005.HK",
+          "name_en": "HSBC",
+          "name_zh": "滙豐",
+          "role_zh": "滙豐：代收／清算代表性玩家",
+          "role_en": "HSBC: representative player in COD / settlement rails",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "UNP",
-          "name_en": "Union Pacific",
-          "name_zh": "聯合太平洋鐵路",
-          "role_zh": "聯合太平洋鐵路：基建／能源／礦業客戶代表性玩家",
-          "role_en": "Union Pacific: representative player in Infra / energy / mining customers",
-          "exchange": "NYSE"
+          "ticker": "1398.HK",
+          "name_en": "ICBC",
+          "name_zh": "工商銀行",
+          "role_zh": "工商銀行：代收／清算代表性玩家",
+          "role_en": "ICBC: representative player in COD / settlement rails",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "NEE",
-          "name_en": "NextEra Energy",
-          "name_zh": "新紀元能源",
-          "role_zh": "新紀元能源：基建／能源／礦業客戶代表性玩家",
-          "role_en": "NextEra Energy: representative player in Infra / energy / mining customers",
-          "exchange": "NYSE"
+          "ticker": "6060.HK",
+          "name_en": "ZhongAn",
+          "name_zh": "眾安在線",
+          "role_zh": "眾安在線：代收／清算代表性玩家",
+          "role_en": "ZhongAn: representative player in COD / settlement rails",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     }
   ],
   "competitors": [
     {
-      "ticker": "UPS",
-      "name_en": "United Parcel Service",
-      "name_zh": "優比速",
-      "basis_zh": "快遞／物流對手",
-      "basis_en": "Parcel / logistics rival",
-      "exchange": "NYSE"
+      "ticker": "1519.HK",
+      "name_en": "J&T Express",
+      "name_zh": "極兔速遞",
+      "basis_zh": "中國快遞對手",
+      "basis_en": "China express rival",
+      "exchange": "HKEX",
+      "listedInApp": false
+    },
+    {
+      "ticker": "2618.HK",
+      "name_en": "JD Logistics",
+      "name_zh": "京東物流",
+      "basis_zh": "電商物流對手",
+      "basis_en": "E-comm logistics rival",
+      "exchange": "HKEX",
+      "listedInApp": false
+    },
+    {
+      "ticker": "3690.HK",
+      "name_en": "Meituan",
+      "name_zh": "美團",
+      "basis_zh": "即配／本地物流對手",
+      "basis_en": "Instant delivery / local logistics rival",
+      "exchange": "HKEX",
+      "listedInApp": false
     },
     {
       "ticker": "FDX",
       "name_en": "FedEx",
       "name_zh": "聯邦快遞",
-      "basis_zh": "快遞／物流對手",
-      "basis_en": "Parcel / logistics rival",
+      "basis_zh": "國際快遞對手",
+      "basis_en": "International express rival",
       "exchange": "NYSE"
-    },
-    {
-      "ticker": "AMZN",
-      "name_en": "Amazon.com",
-      "name_zh": "亞馬遜",
-      "basis_zh": "快遞／物流對手",
-      "basis_en": "Parcel / logistics rival",
-      "exchange": "NASDAQ"
-    },
-    {
-      "ticker": "JBHT",
-      "name_en": "J.B. Hunt Transport Services",
-      "name_zh": "J.B. Hunt",
-      "basis_zh": "快遞／物流對手",
-      "basis_en": "Parcel / logistics rival",
-      "exchange": "NASDAQ"
-    },
-    {
-      "ticker": "ODFL",
-      "name_en": "Old Dominion Freight Line",
-      "name_zh": "Old Dominion",
-      "basis_zh": "快遞／物流對手",
-      "basis_en": "Parcel / logistics rival",
-      "exchange": "NASDAQ"
     }
   ]
 }
