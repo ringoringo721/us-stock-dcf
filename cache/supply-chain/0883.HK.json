@@ -23,8 +23,8 @@
     "id": "energy-integrated-v1",
     "label_zh": "綜合油氣價值鏈",
     "label_en": "Integrated oil & gas value chain",
-    "description_zh": "油服／設備 → 上游開採 → 中游管輸 → 煉製化工 → 零售／航煤客戶。",
-    "description_en": "Oilfield services → upstream → midstream → refining/chem → retail/jet customers."
+    "description_zh": "外部油服 → 原油海運／外輸 → 中游港口船運 → 煉化／燃氣客戶 → 零售能源客戶。",
+    "description_en": "External OFS → crude marine/export → midstream ports/shipping → refining/gas customers → retail energy."
   },
   "stages": [
     {
@@ -35,14 +35,6 @@
       "summary_zh": "鑽完井與油田服務。",
       "summary_en": "Drilling and oilfield services.",
       "players": [
-        {
-          "ticker": "2883.HK",
-          "name_en": "COSL",
-          "name_zh": "中海油服",
-          "role_zh": "中海油服：油服／設備代表性玩家",
-          "role_en": "COSL: representative player in Oilfield services / equipment",
-          "exchange": "HKEX"
-        },
         {
           "ticker": "3337.HK",
           "name_en": "Anton Oilfield",
@@ -58,39 +50,47 @@
           "role_zh": "中石化油服：油服／設備代表性玩家",
           "role_en": "Sinopec Oilfield Service: representative player in Oilfield services / equipment",
           "exchange": "HKEX"
+        },
+        {
+          "ticker": "SLB",
+          "name_en": "Schlumberger",
+          "name_zh": "斯倫貝謝",
+          "role_zh": "斯倫貝謝：油服／設備代表性玩家",
+          "role_en": "Schlumberger: representative player in Oilfield services / equipment",
+          "exchange": "NYSE"
         }
       ]
     },
     {
       "id": "upstream",
       "order": 2,
-      "label_zh": "上游勘探開發",
-      "label_en": "Upstream E&P",
-      "summary_zh": "勘探開發與權益油。",
-      "summary_en": "Exploration and production.",
+      "label_zh": "原油海運／外輸物流",
+      "label_en": "Crude marine / export logistics",
+      "summary_zh": "海上原油外輸與集裝箱／油輪船東（非把自身 E&P 再畫成上游階段）。",
+      "summary_en": "Crude marine export and tanker/container logistics — not own E&P re-labeled as upstream.",
       "players": [
-        {
-          "ticker": "2883.HK",
-          "name_en": "COSL",
-          "name_zh": "中海油服",
-          "role_zh": "中海油服：上游勘探開發代表性玩家",
-          "role_en": "COSL: representative player in Upstream E&P",
-          "exchange": "HKEX"
-        },
-        {
-          "ticker": "3337.HK",
-          "name_en": "Anton Oilfield",
-          "name_zh": "安東油田",
-          "role_zh": "安東油田：上游勘探開發代表性玩家",
-          "role_en": "Anton Oilfield: representative player in Upstream E&P",
-          "exchange": "HKEX"
-        },
         {
           "ticker": "1138.HK",
           "name_en": "COSCO Shipping Energy",
           "name_zh": "中遠海能",
-          "role_zh": "中遠海能：上游勘探開發代表性玩家",
-          "role_en": "COSCO Shipping Energy: representative player in Upstream E&P",
+          "role_zh": "中遠海能：原油海運／外輸物流代表性玩家",
+          "role_en": "COSCO Shipping Energy: representative player in Crude marine / export logistics",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "1919.HK",
+          "name_en": "COSCO Shipping Holdings",
+          "name_zh": "中遠海控",
+          "role_zh": "中遠海控：原油海運／外輸物流代表性玩家",
+          "role_en": "COSCO Shipping Holdings: representative player in Crude marine / export logistics",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "0316.HK",
+          "name_en": "OOIL",
+          "name_zh": "東方海外",
+          "role_zh": "東方海外：原油海運／外輸物流代表性玩家",
+          "role_en": "OOIL: representative player in Crude marine / export logistics",
           "exchange": "HKEX"
         }
       ]
@@ -103,6 +103,14 @@
       "summary_zh": "管線、儲運與 LNG。",
       "summary_en": "Pipelines, storage, LNG.",
       "players": [
+        {
+          "ticker": "0144.HK",
+          "name_en": "CMPort",
+          "name_zh": "招商港口",
+          "role_zh": "招商港口：中游管輸／液化代表性玩家",
+          "role_en": "CMPort: representative player in Midstream / LNG",
+          "exchange": "HKEX"
+        },
         {
           "ticker": "1138.HK",
           "name_en": "COSCO Shipping Energy",
@@ -117,14 +125,6 @@
           "name_zh": "中遠海控",
           "role_zh": "中遠海控：中游管輸／液化代表性玩家",
           "role_en": "COSCO Shipping Holdings: representative player in Midstream / LNG",
-          "exchange": "HKEX"
-        },
-        {
-          "ticker": "0316.HK",
-          "name_en": "OOIL",
-          "name_zh": "東方海外",
-          "role_zh": "東方海外：中游管輸／液化代表性玩家",
-          "role_en": "OOIL: representative player in Midstream / LNG",
           "exchange": "HKEX"
         }
       ]

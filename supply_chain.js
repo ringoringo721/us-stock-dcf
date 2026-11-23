@@ -277,7 +277,8 @@
     const southGap = Math.PI * 1.02; // ~184° — keep a clear angular buffer from end stages
     const stageSweep = (2 * Math.PI) - southGap;
     const stageStart = (Math.PI / 2) + (southGap / 2); // leave south, sweep CCW through W→N→E
-    const playerNodeR = 22;
+    // Match competitor packing: ticker + company name + quote + mcap under the node.
+    const playerNodeR = 24;
     // Full fan width for Top-3: chord clearance at playerR, then stages are inset so
     // end-stage fans stay inside the stage sweep and never enter the rival south gap.
     const minPlayerGap = (2 * playerNodeR) + 12;

@@ -70,27 +70,27 @@
       "summary_en": "User pay-in and courier/merchant payouts.",
       "players": [
         {
-          "ticker": "6060.HK",
-          "name_en": "ZhongAn",
-          "name_zh": "眾安在線",
-          "role_zh": "眾安在線：支付／清算代表性玩家",
-          "role_en": "ZhongAn: representative player in Payments / clearing",
-          "exchange": "HKEX"
-        },
-        {
-          "ticker": "0388.HK",
-          "name_en": "HKEX",
-          "name_zh": "港交所",
-          "role_zh": "港交所：支付／清算代表性玩家",
-          "role_en": "HKEX: representative player in Payments / clearing",
-          "exchange": "HKEX"
-        },
-        {
           "ticker": "0005.HK",
           "name_en": "HSBC",
           "name_zh": "滙豐",
           "role_zh": "滙豐：支付／清算代表性玩家",
           "role_en": "HSBC: representative player in Payments / clearing",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "1398.HK",
+          "name_en": "ICBC",
+          "name_zh": "工商銀行",
+          "role_zh": "工商銀行：支付／清算代表性玩家",
+          "role_en": "ICBC: representative player in Payments / clearing",
+          "exchange": "HKEX"
+        },
+        {
+          "ticker": "6060.HK",
+          "name_en": "ZhongAn",
+          "name_zh": "眾安在線",
+          "role_zh": "眾安在線：支付／清算代表性玩家",
+          "role_en": "ZhongAn: representative player in Payments / clearing",
           "exchange": "HKEX"
         }
       ]
@@ -98,33 +98,33 @@
     {
       "id": "fleet",
       "order": 3,
-      "label_zh": "運力／車隊供給",
-      "label_en": "Fleet / vehicle supply",
-      "summary_zh": "即配與出行車隊相關整車供給。",
-      "summary_en": "Vehicles for delivery / mobility fleets.",
+      "label_zh": "兩輪／運力設備／充電",
+      "label_en": "Two-wheel / fleet equipment / charging",
+      "summary_zh": "即配運力相關的兩輪、車隊設備與充電供給（非乘用車 OEM 假扮車隊）。",
+      "summary_en": "Two-wheelers, fleet equipment, and charging — not passenger-car OEMs as fake fleet.",
       "players": [
         {
           "ticker": "1211.HK",
           "name_en": "BYD",
           "name_zh": "比亞迪",
-          "role_zh": "比亞迪：運力／車隊供給代表性玩家",
-          "role_en": "BYD: representative player in Fleet / vehicle supply",
+          "role_zh": "比亞迪：兩輪／運力設備／充電代表性玩家",
+          "role_en": "BYD: representative player in Two-wheel / fleet equipment / charging",
           "exchange": "HKEX"
         },
         {
-          "ticker": "0175.HK",
-          "name_en": "Geely",
-          "name_zh": "吉利汽車",
-          "role_zh": "吉利汽車：運力／車隊供給代表性玩家",
-          "role_en": "Geely: representative player in Fleet / vehicle supply",
+          "ticker": "3800.HK",
+          "name_en": "GCL Technology",
+          "name_zh": "協鑫科技",
+          "role_zh": "協鑫科技：兩輪／運力設備／充電代表性玩家",
+          "role_en": "GCL Technology: representative player in Two-wheel / fleet equipment / charging",
           "exchange": "HKEX"
         },
         {
-          "ticker": "2333.HK",
-          "name_en": "Great Wall Motor",
-          "name_zh": "長城汽車",
-          "role_zh": "長城汽車：運力／車隊供給代表性玩家",
-          "role_en": "Great Wall Motor: representative player in Fleet / vehicle supply",
+          "ticker": "2688.HK",
+          "name_en": "ENN Energy",
+          "name_zh": "新奧能源",
+          "role_zh": "新奧能源：兩輪／運力設備／充電代表性玩家",
+          "role_en": "ENN Energy: representative player in Two-wheel / fleet equipment / charging",
           "exchange": "HKEX"
         }
       ]
@@ -211,8 +211,8 @@
       "ticker": "9618.HK",
       "name_en": "JD.com",
       "name_zh": "京東",
-      "basis_zh": "即時零售／物流對手",
-      "basis_en": "Instant retail / logistics rival",
+      "basis_zh": "即時零售對手",
+      "basis_en": "Instant retail rival",
       "exchange": "HKEX"
     },
     {
@@ -221,22 +221,6 @@
       "name_zh": "京東健康",
       "basis_zh": "即時零售／健康電商對手",
       "basis_en": "Instant retail / health commerce rival",
-      "exchange": "HKEX"
-    },
-    {
-      "ticker": "2057.HK",
-      "name_en": "ZTO Express",
-      "name_zh": "中通快遞",
-      "basis_zh": "快遞／末端配送對手",
-      "basis_en": "Express / last-mile rival",
-      "exchange": "HKEX"
-    },
-    {
-      "ticker": "1519.HK",
-      "name_en": "J&T Express",
-      "name_zh": "極兔速遞",
-      "basis_zh": "快遞／末端配送對手",
-      "basis_en": "Express / last-mile rival",
       "exchange": "HKEX"
     }
   ]
