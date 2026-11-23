@@ -171,28 +171,28 @@
       "summary_en": "Co-brand cards and membership-benefit partners.",
       "players": [
         {
-          "ticker": "AAPL",
-          "name_en": "Apple",
-          "name_zh": "蘋果",
-          "role_zh": "蘋果：會員／支付卡忠誠代表性玩家",
-          "role_en": "Apple: representative player in Membership / card loyalty",
+          "ticker": "JPM",
+          "name_en": "JPMorgan Chase & Co.",
+          "name_zh": "摩根大通",
+          "role_zh": "摩根大通：會員／支付卡忠誠代表性玩家",
+          "role_en": "JPMorgan Chase & Co.: representative player in Membership / card loyalty",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "COF",
+          "name_en": "Capital One",
+          "name_zh": "Capital One",
+          "role_zh": "Capital One：會員／支付卡忠誠代表性玩家",
+          "role_en": "Capital One: representative player in Membership / card loyalty",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "AAL",
+          "name_en": "American Airlines",
+          "name_zh": "美國航空",
+          "role_zh": "美國航空：會員／支付卡忠誠代表性玩家",
+          "role_en": "American Airlines: representative player in Membership / card loyalty",
           "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "KO",
-          "name_en": "Coca-Cola",
-          "name_zh": "可口可樂",
-          "role_zh": "可口可樂：會員／支付卡忠誠代表性玩家",
-          "role_en": "Coca-Cola: representative player in Membership / card loyalty",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "NKE",
-          "name_en": "Nike",
-          "name_zh": "耐吉",
-          "role_zh": "耐吉：會員／支付卡忠誠代表性玩家",
-          "role_en": "Nike: representative player in Membership / card loyalty",
-          "exchange": "NYSE"
         }
       ]
     }

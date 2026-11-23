@@ -1,13 +1,10 @@
 {
   "megaTotal": 160,
   "excludedAAPL": true,
-  "written": 4,
+  "written": 1,
   "failures": [],
   "tickers": [
-    "UBER",
-    "SPOT",
-    "BKNG",
-    "ABNB"
+    "BKNG"
   ],
   "dryRun": false,
   "date": "2026-11-23"

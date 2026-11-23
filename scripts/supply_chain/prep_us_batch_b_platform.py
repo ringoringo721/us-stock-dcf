@@ -125,12 +125,13 @@ SEA_SUPERAPP = {
 
 # BKNG — OTA; inventory avoids MAR/HLT (rivals = direct lodging).
 # traffic third slot = SNAP (in-universe), not TRIP (below universe floor → Bugbot listedInApp).
+# loyalty = bank/airline co-brand partners (not KO/NKE advertisers — Bugbot).
 OTA_BKNG = {
     "inventory": ["DAL", "UAL", "WH"],
     "payments": ["V", "MA", "AXP"],
     "cloud-trust": ["MSFT", "AMZN", "CRWD"],
     "traffic": ["GOOG", "META", "SNAP"],
-    "loyalty": ["AAPL", "KO", "NKE"],
+    "loyalty": ["JPM", "COF", "AAL"],
 }
 
 # EXPE — Hyatt inventory OK (not on EXPE rival arc); avoid BKNG/ABNB on stages.
@@ -139,7 +140,7 @@ OTA_EXPE = {
     "payments": ["V", "MA", "AXP"],
     "cloud-trust": ["MSFT", "AMZN", "CRWD"],
     "traffic": ["GOOG", "META", "SNAP"],
-    "loyalty": ["AAPL", "KO", "NKE"],
+    "loyalty": ["JPM", "COF", "AAL"],
 }
 
 # ABNB — short-stay marketplace; MAR/HLT/BKNG/EXPE stay on rival arc.
@@ -152,11 +153,12 @@ ABNB_LODGING = {
 }
 
 # RBLX — UGC platform; no NFLX/SPOT/DIS content dump; no EA/TTWO as upstream.
+# creator-tools = real DCC/3D (ADBE/ADSK/ANSS) — not HUBS CRM (Bugbot).
 RBLX_UGC = {
     "infra": ["AMZN", "MSFT", "AKAM"],
     "distribution": ["AAPL", "GOOG", "SONY"],
     "payments": ["V", "MA", "PYPL"],
-    "creator-tools": ["ADBE", "ADSK", "HUBS"],
+    "creator-tools": ["ADBE", "ADSK", "ANSS"],
     "ua": ["META", "SNAP", "TTD"],
 }
 

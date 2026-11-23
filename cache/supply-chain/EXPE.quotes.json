@@ -136,32 +136,32 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "AAPL": {
-      "ticker": "AAPL",
-      "price": 356.27,
-      "previousClose": 354.88,
-      "changePct": 0.392,
-      "mcap": 4996616.3,
+    "JPM": {
+      "ticker": "JPM",
+      "price": 346.19,
+      "previousClose": 342.82,
+      "changePct": 0.983,
+      "mcap": 889138.0,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "KO": {
-      "ticker": "KO",
-      "price": 99.25,
-      "previousClose": 97.44,
-      "changePct": 1.858,
-      "mcap": 411563.0,
+    "COF": {
+      "ticker": "COF",
+      "price": 195.08,
+      "previousClose": 193.6,
+      "changePct": 0.764,
+      "mcap": 121431.5,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "NKE": {
-      "ticker": "NKE",
-      "price": 37.99,
-      "previousClose": 37.76,
-      "changePct": 0.609,
-      "mcap": 57318.1,
+    "AAL": {
+      "ticker": "AAL",
+      "price": 13.17,
+      "previousClose": 13.31,
+      "changePct": -1.052,
+      "mcap": 8733.3,
       "currency": "USD",
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"

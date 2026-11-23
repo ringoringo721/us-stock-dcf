@@ -2,18 +2,12 @@
   "bandMin": 0.0,
   "bandMax": 50000000000.0,
   "bandTotal": 1041,
-  "written": 8,
+  "written": 2,
   "skippedExisting": [],
   "failures": [],
   "tickers": [
-    "SE",
-    "TTWO",
     "RBLX",
-    "EXPE",
-    "CPNG",
-    "U",
-    "GRAB",
-    "LYFT"
+    "EXPE"
   ],
   "dryRun": false,
   "date": "2026-11-23",

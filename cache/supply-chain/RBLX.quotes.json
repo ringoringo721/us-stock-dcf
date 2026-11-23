@@ -126,15 +126,15 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "HUBS": {
-      "ticker": "HUBS",
-      "price": 217.25,
-      "previousClose": 215.84,
-      "changePct": 0.653,
-      "mcap": 10003.7,
+    "ANSS": {
+      "ticker": "ANSS",
+      "price": null,
+      "previousClose": null,
+      "changePct": null,
+      "mcap": null,
       "currency": "USD",
-      "asOf": "2026-11-13",
-      "source": "FMP historical-price-eod via cache/price_charts"
+      "asOf": null,
+      "source": null
     },
     "META": {
       "ticker": "META",
