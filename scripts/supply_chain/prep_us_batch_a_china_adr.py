@@ -139,8 +139,9 @@ CN_ECOM_JD = {
     "lastmile": ["2057.HK", "1519.HK"],
 }
 
-# China IDC/CDN only — GDS / Kingsoft Cloud / VNET (not EQIX/DLR; not China Tower).
-CN_IDC = ["9698.HK", "3896.HK", "VNET"]
+# China IDC/CDN only — GDS / Kingsoft Cloud / China Telecom cloud (not EQIX/DLR/VNET; not Tower).
+# Prefer .HK peers (listedInApp false off US universe) over NASDAQ names missing from US universe.
+CN_IDC = ["9698.HK", "3896.HK", "0728.HK"]
 
 # BIDU — online marketing + AI Cloud (china-platform skeleton, ads/cloud framing — not WeChat clone copy).
 CN_BIDU = {
@@ -551,8 +552,8 @@ HUB_STAGE_LABEL_OVERRIDES: dict[str, dict[str, dict[str, str]]] = {
         "infra": {
             "label_zh": "AI 雲／IDC 基建",
             "label_en": "AI Cloud / IDC infrastructure",
-            "summary_zh": "支撐百度廣告與 AI 雲營收的中國 IDC／雲夥伴（萬國／金山雲／世紀互聯）。",
-            "summary_en": "China IDC/cloud under Baidu ads + AI Cloud (GDS / Kingsoft Cloud / VNET).",
+            "summary_zh": "支撐百度廣告與 AI 雲營收的中國 IDC／雲夥伴（萬國／金山雲／中國電信雲）。",
+            "summary_en": "China IDC/cloud under Baidu ads + AI Cloud (GDS / Kingsoft Cloud / China Telecom).",
         },
         "advertisers": {
             "label_zh": "搜尋／資訊流廣告主",

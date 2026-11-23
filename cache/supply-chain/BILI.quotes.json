@@ -36,15 +36,15 @@
       "asOf": "2026-11-10",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "VNET": {
-      "ticker": "VNET",
-      "price": null,
-      "previousClose": null,
-      "changePct": null,
+    "0728.HK": {
+      "ticker": "0728.HK",
+      "price": 4.43,
+      "previousClose": 4.39,
+      "changePct": 0.911,
       "mcap": null,
-      "currency": "USD",
-      "asOf": null,
-      "source": null
+      "currency": "HKD",
+      "asOf": "2026-10-30",
+      "source": "FMP historical-price-eod via cache/price_charts"
     },
     "0941.HK": {
       "ticker": "0941.HK",

@@ -89,12 +89,13 @@
           "listedInApp": false
         },
         {
-          "ticker": "VNET",
-          "name_en": "VNET",
-          "name_zh": "世紀互聯",
-          "role_zh": "世紀互聯：雲／CDN 基建代表性玩家",
-          "role_en": "VNET: representative player in Cloud / CDN infrastructure",
-          "exchange": "NASDAQ"
+          "ticker": "0728.HK",
+          "name_en": "China Telecom",
+          "name_zh": "中國電信",
+          "role_zh": "中國電信：雲／CDN 基建代表性玩家",
+          "role_en": "China Telecom: representative player in Cloud / CDN infrastructure",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     },

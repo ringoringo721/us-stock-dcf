@@ -32,8 +32,8 @@
       "order": 1,
       "label_zh": "AI 雲／IDC 基建",
       "label_en": "AI Cloud / IDC infrastructure",
-      "summary_zh": "支撐百度廣告與 AI 雲營收的中國 IDC／雲夥伴（萬國／金山雲／世紀互聯）。",
-      "summary_en": "China IDC/cloud under Baidu ads + AI Cloud (GDS / Kingsoft Cloud / VNET).",
+      "summary_zh": "支撐百度廣告與 AI 雲營收的中國 IDC／雲夥伴（萬國／金山雲／中國電信雲）。",
+      "summary_en": "China IDC/cloud under Baidu ads + AI Cloud (GDS / Kingsoft Cloud / China Telecom).",
       "players": [
         {
           "ticker": "9698.HK",
@@ -54,12 +54,13 @@
           "listedInApp": false
         },
         {
-          "ticker": "VNET",
-          "name_en": "VNET",
-          "name_zh": "世紀互聯",
-          "role_zh": "世紀互聯：AI 雲／IDC 基建代表性玩家",
-          "role_en": "VNET: representative player in AI Cloud / IDC infrastructure",
-          "exchange": "NASDAQ"
+          "ticker": "0728.HK",
+          "name_en": "China Telecom",
+          "name_zh": "中國電信",
+          "role_zh": "中國電信：AI 雲／IDC 基建代表性玩家",
+          "role_en": "China Telecom: representative player in AI Cloud / IDC infrastructure",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     },
