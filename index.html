@@ -11668,6 +11668,24 @@
     return escapeAttribute(text).replace(/&#10;/g, ' ');
   }
 
+  /** Prefer seed short brand; fall back to universe display name when seed name is blank/ticker-only. */
+  function scResolveDisplayName(row, isEn) {
+    if (!row) return '';
+    const ticker = row.ticker || '';
+    const seed = isEn
+      ? (row.name_en || row.name_zh || '')
+      : (row.name_zh || row.name_en || '');
+    if (seed && seed !== ticker) return seed;
+    const stock = (typeof stockUniverse === 'object' && stockUniverse)
+      ? (stockUniverse[ticker] || stockUniverse[String(ticker).toUpperCase()])
+      : null;
+    if (stock && typeof getStockDisplayName === 'function') {
+      const fromUniverse = getStockDisplayName(stock);
+      if (fromUniverse && fromUniverse !== ticker) return fromUniverse;
+    }
+    return seed || ticker;
+  }
+
   function scInAppPeer(row) {
     // Only true stockUniverse members get in-app profile links (no broken XRAY/NVST nav).
     if (!row || row.listedInApp === false) return false;
@@ -11773,7 +11791,7 @@
     }).join('');
 
     const hubQuote = scQuoteBadge(quotes[layout.hub.ticker]);
-    const hubName = isEn ? layout.hub.name_en : layout.hub.name_zh;
+    const hubName = scResolveDisplayName(layout.hub, isEn);
     const hubHtml = scSvgNodeLink(layout.hub.ticker, true, `
       <circle cx="${layout.hub.x.toFixed(1)}" cy="${layout.hub.y.toFixed(1)}" r="${layout.hub.r}"></circle>
       <text class="sc-node-label" x="${layout.hub.x.toFixed(1)}" y="${(layout.hub.y - 10).toFixed(1)}">${scEscape(layout.hub.ticker)}</text>
@@ -11794,10 +11812,10 @@
 
     const playersHtml = layout.players.map(node => {
       const inApp = scInAppPeer(node);
-      const name = isEn ? node.name_en : node.name_zh;
+      const name = scResolveDisplayName(node, isEn);
       const shortName = name.length > 8 ? `${name.slice(0, 7)}…` : name;
       const badge = scQuoteBadge(quotes[node.ticker]);
-      // Always surface name + quote metrics, even when the node is not clickable in-app.
+      // Always surface ticker + company name + quote metrics (in-app peers used to hide the name).
       const tipParts = [
         node.ticker,
         name,
@@ -11806,21 +11824,18 @@
         inApp ? '' : (dict.sc_in_app_no || '')
       ].filter(Boolean);
       const tip = tipParts.join(' · ');
-      const nameLine = inApp
-        ? ''
-        : `<text class="sc-node-sub" x="${node.x.toFixed(1)}" y="${(node.y - 18).toFixed(1)}">${scEscape(shortName)}</text>`;
       return scSvgNodeLink(node.ticker, inApp, `
         <circle cx="${node.x.toFixed(1)}" cy="${node.y.toFixed(1)}" r="${node.r}"></circle>
-        ${nameLine}
-        <text class="sc-node-label" x="${node.x.toFixed(1)}" y="${(node.y - 8).toFixed(1)}">${scEscape(node.ticker)}</text>
-        <text class="sc-node-quote ${badge.chg.cls}" x="${node.x.toFixed(1)}" y="${(node.y + 4).toFixed(1)}">${scEscape(badge.chg.text)}</text>
-        <text class="sc-node-mcap" x="${node.x.toFixed(1)}" y="${(node.y + 14).toFixed(1)}">${scEscape(badge.mcap)}</text>
+        <text class="sc-node-label" x="${node.x.toFixed(1)}" y="${(node.y - 10).toFixed(1)}">${scEscape(node.ticker)}</text>
+        <text class="sc-node-sub" x="${node.x.toFixed(1)}" y="${(node.y + 2).toFixed(1)}">${scEscape(shortName)}</text>
+        <text class="sc-node-quote ${badge.chg.cls}" x="${node.x.toFixed(1)}" y="${(node.y + 14).toFixed(1)}">${scEscape(badge.chg.text)}</text>
+        <text class="sc-node-mcap" x="${node.x.toFixed(1)}" y="${(node.y + 24).toFixed(1)}">${scEscape(badge.mcap)}</text>
       `, `sc-node-player${inApp ? ' is-link' : ''}`, tip);
     }).join('');
 
     const compsHtml = layout.competitors.map(node => {
       const inApp = scInAppPeer(node);
-      const name = isEn ? node.name_en : node.name_zh;
+      const name = scResolveDisplayName(node, isEn);
       const shortName = name.length > 8 ? `${name.slice(0, 7)}…` : name;
       const role = isEn ? (node.role_en || '') : (node.role_zh || '');
       const badge = scQuoteBadge(quotes[node.ticker]);
@@ -11976,7 +11991,7 @@
       }
       const quotesByTicker = quotesPack.quotes || {};
 
-      const playerName = (row) => isEn ? row.name_en : row.name_zh;
+      const playerName = (row) => scResolveDisplayName(row, isEn);
       const playerRole = (row) => isEn ? row.role_en : row.role_zh;
       const sourceNotes = pack.source
         ? (isEn ? (pack.source.notes_en || '') : (pack.source.notes_zh || ''))
