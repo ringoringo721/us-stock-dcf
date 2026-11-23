@@ -2,11 +2,14 @@
   "bandMin": 0.0,
   "bandMax": 50000000000.0,
   "bandTotal": 1041,
-  "written": 1,
+  "written": 4,
   "skippedExisting": [],
   "failures": [],
   "tickers": [
-    "GRAB"
+    "JD",
+    "BEKE",
+    "HTHT",
+    "VIPS"
   ],
   "dryRun": false,
   "date": "2026-11-23",

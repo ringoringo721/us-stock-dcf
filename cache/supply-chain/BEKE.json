@@ -141,17 +141,17 @@
     {
       "id": "proptech",
       "order": 4,
-      "label_zh": "物業科技工具",
-      "label_en": "Proptech tools",
-      "summary_zh": "CRM、估價與管理軟體。",
-      "summary_en": "CRM, valuation, management software.",
+      "label_zh": "雲協作／成交保險／IDC",
+      "label_en": "Cloud collab / deal insurance / IDC",
+      "summary_zh": "金山協作雲、眾安成交／家財保險、萬國數據 IDC — 支撐貝殼數位成交與平台運營（非對手經紀 CRM 軟體名單）。",
+      "summary_en": "Kingsoft collab cloud, ZhongAn deal/home insurance, and GDS IDC — Beike digital-close / platform ops (not rival brokerage CRM suites).",
       "players": [
         {
           "ticker": "3888.HK",
           "name_en": "Kingsoft",
           "name_zh": "金山軟件",
-          "role_zh": "金山軟件：物業科技工具代表性玩家",
-          "role_en": "Kingsoft: representative player in Proptech tools",
+          "role_zh": "金山軟件：雲協作／成交保險／IDC代表性玩家",
+          "role_en": "Kingsoft: representative player in Cloud collab / deal insurance / IDC",
           "exchange": "HKEX",
           "listedInApp": false
         },
@@ -159,8 +159,8 @@
           "ticker": "6060.HK",
           "name_en": "ZhongAn",
           "name_zh": "眾安在線",
-          "role_zh": "眾安在線：物業科技工具代表性玩家",
-          "role_en": "ZhongAn: representative player in Proptech tools",
+          "role_zh": "眾安在線：雲協作／成交保險／IDC代表性玩家",
+          "role_en": "ZhongAn: representative player in Cloud collab / deal insurance / IDC",
           "exchange": "HKEX",
           "listedInApp": false
         },
@@ -168,8 +168,8 @@
           "ticker": "9698.HK",
           "name_en": "GDS",
           "name_zh": "萬國數據",
-          "role_zh": "萬國數據：物業科技工具代表性玩家",
-          "role_en": "GDS: representative player in Proptech tools",
+          "role_zh": "萬國數據：雲協作／成交保險／IDC代表性玩家",
+          "role_en": "GDS: representative player in Cloud collab / deal insurance / IDC",
           "exchange": "HKEX",
           "listedInApp": false
         }

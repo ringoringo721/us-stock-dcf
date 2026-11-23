@@ -104,17 +104,17 @@
     {
       "id": "stores",
       "order": 3,
-      "label_zh": "門市／數位平台",
-      "label_en": "Stores / digital platforms",
-      "summary_zh": "直營、加盟與 App。",
-      "summary_en": "Owned, franchise, apps.",
+      "label_zh": "酒店物業／業主夥伴",
+      "label_en": "Hotel property / landlord partners",
+      "summary_zh": "華住門市所在的內地開發商／業主與物業夥伴（非對手酒店品牌或加盟平台）。",
+      "summary_en": "Mainland developers/landlords hosting H World sites — not rival hotel brands or franchise platforms.",
       "players": [
         {
           "ticker": "1109.HK",
           "name_en": "CR Land",
           "name_zh": "華潤置地",
-          "role_zh": "華潤置地：門市／數位平台代表性玩家",
-          "role_en": "CR Land: representative player in Stores / digital platforms",
+          "role_zh": "華潤置地：酒店物業／業主夥伴代表性玩家",
+          "role_en": "CR Land: representative player in Hotel property / landlord partners",
           "exchange": "HKEX",
           "listedInApp": false
         },
@@ -122,8 +122,8 @@
           "ticker": "0688.HK",
           "name_en": "China Overseas",
           "name_zh": "中國海外發展",
-          "role_zh": "中國海外發展：門市／數位平台代表性玩家",
-          "role_en": "China Overseas: representative player in Stores / digital platforms",
+          "role_zh": "中國海外發展：酒店物業／業主夥伴代表性玩家",
+          "role_en": "China Overseas: representative player in Hotel property / landlord partners",
           "exchange": "HKEX",
           "listedInApp": false
         },
@@ -131,8 +131,8 @@
           "ticker": "0960.HK",
           "name_en": "Longfor",
           "name_zh": "龍湖集團",
-          "role_zh": "龍湖集團：門市／數位平台代表性玩家",
-          "role_en": "Longfor: representative player in Stores / digital platforms",
+          "role_zh": "龍湖集團：酒店物業／業主夥伴代表性玩家",
+          "role_en": "Longfor: representative player in Hotel property / landlord partners",
           "exchange": "HKEX",
           "listedInApp": false
         }

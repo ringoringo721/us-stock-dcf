@@ -129,11 +129,19 @@ ENTITIES: dict[str, dict[str, str]] = {
     "KO": {"name_en": "Coca-Cola", "name_zh": "可口可樂", "exchange": "NYSE"},
     "PEP": {"name_en": "PepsiCo", "name_zh": "百事", "exchange": "NASDAQ"},
     "UL": {"name_en": "Unilever", "name_zh": "聯合利華", "exchange": "NYSE"},
+    # Warehouse / contract logistics / logistics parks (fulfillment — not ocean ports).
+    "6936.HK": {"name_en": "SF Holdings", "name_zh": "順豐控股", "exchange": "HKEX"},
+    "0598.HK": {"name_en": "Sinotrans", "name_zh": "中國外運", "exchange": "HKEX"},
+    "1821.HK": {"name_en": "ESR", "name_zh": "ESR", "exchange": "HKEX"},
 }
+
+# Cainiao/JD-style warehousing & contract logistics (not CMPort/OOIL/SITC ocean ports).
+# Keep disjoint from express lastmile (2057 / 1519 / 2618).
+CN_WAREHOUSE = ["6936.HK", "0598.HK", "1821.HK"]
 
 CN_ECOM = {
     "supply": ["2020.HK", "2331.HK", "2319.HK"],
-    "fulfillment": ["0144.HK", "0316.HK", "1308.HK"],
+    "fulfillment": list(CN_WAREHOUSE),
     "payments": ["0005.HK", "1398.HK", "6060.HK"],
     "traffic": ["9888.HK", "1024.HK", "9626.HK"],
     "lastmile": ["2057.HK", "1519.HK", "2618.HK"],
@@ -157,19 +165,19 @@ CN_BIDU = {
     "advertisers": ["2020.HK", "2331.HK", "2319.HK"],
 }
 
-# BABA — Taobao/Tmall GMV + Cloud + Cainiao (broad marketplace + logistics partners).
+# BABA — Taobao/Tmall GMV + Cloud + Cainiao (marketplace + warehouse/3PL partners).
 CN_BABA = {
     "supply": ["2020.HK", "2331.HK", "2319.HK"],
-    "fulfillment": ["0144.HK", "0316.HK", "1308.HK"],
+    "fulfillment": list(CN_WAREHOUSE),
     "payments": ["0005.HK", "1398.HK", "6060.HK"],
     "traffic": ["9888.HK", "1024.HK", "9626.HK"],
     "lastmile": ["2057.HK", "1519.HK", "2618.HK"],
 }
 
-# PDD — Temu/PDD GMV value commerce; social traffic heavier, less port-centric fulfillment.
+# PDD — Temu/PDD GMV value commerce; social traffic; same warehouse proxies as peers.
 CN_PDD = {
     "supply": ["2020.HK", "2331.HK", "0151.HK"],
-    "fulfillment": ["0316.HK", "1308.HK", "0144.HK"],
+    "fulfillment": list(CN_WAREHOUSE),
     "payments": ["0005.HK", "1398.HK", "6060.HK"],
     "traffic": ["1024.HK", "9626.HK", "0700.HK"],
     "lastmile": ["2057.HK", "1519.HK", "2618.HK"],
@@ -178,16 +186,16 @@ CN_PDD = {
 # VIPS — brand-outlet / apparel-heavy inventory commerce.
 CN_VIPS = {
     "supply": ["2020.HK", "2331.HK", "1044.HK"],
-    "fulfillment": ["0144.HK", "0316.HK", "1308.HK"],
+    "fulfillment": list(CN_WAREHOUSE),
     "payments": ["0005.HK", "1398.HK", "6060.HK"],
     "traffic": ["9888.HK", "1024.HK", "9626.HK"],
     "lastmile": ["2057.HK", "1519.HK"],
 }
 
-# JD owns 2618 logistics — peer express only on lastmile.
+# JD owns 2618 logistics — peer express only on lastmile; warehouse peers on fulfillment.
 CN_JD = {
     "supply": ["2020.HK", "2331.HK", "2319.HK"],
-    "fulfillment": ["0144.HK", "0316.HK", "1308.HK"],
+    "fulfillment": list(CN_WAREHOUSE),
     "payments": ["0005.HK", "1398.HK", "6060.HK"],
     "traffic": ["9888.HK", "1024.HK", "9626.HK"],
     "lastmile": ["2057.HK", "1519.HK"],
@@ -517,11 +525,41 @@ HUB_STAGE_LABEL_OVERRIDES: dict[str, dict[str, dict[str, str]]] = {
             "summary_zh": "外部新盤分銷／渠道夥伴（對手經紀與對手放在對手弧）。",
             "summary_en": "External new-home distribution partners — rival brokerages stay on the rival arc.",
         },
+        "proptech": {
+            "label_zh": "雲協作／成交保險／IDC",
+            "label_en": "Cloud collab / deal insurance / IDC",
+            "summary_zh": "金山協作雲、眾安成交／家財保險、萬國數據 IDC — 支撐貝殼數位成交與平台運營（非對手經紀 CRM 軟體名單）。",
+            "summary_en": "Kingsoft collab cloud, ZhongAn deal/home insurance, and GDS IDC — Beike digital-close / platform ops (not rival brokerage CRM suites).",
+        },
         "housing": {
             "label_zh": "住房／商場需求",
             "label_en": "Housing / retail demand",
             "summary_zh": "商場與物業需求週期代表（非對手開發商）。",
             "summary_en": "Mall/property demand-cycle proxies — rival developers stay on the rival arc.",
+        },
+    },
+    "HTHT": {
+        "stores": {
+            "label_zh": "酒店物業／業主夥伴",
+            "label_en": "Hotel property / landlord partners",
+            "summary_zh": "華住門市所在的內地開發商／業主與物業夥伴（非對手酒店品牌或加盟平台）。",
+            "summary_en": "Mainland developers/landlords hosting H World sites — not rival hotel brands or franchise platforms.",
+        },
+    },
+    "BABA": {
+        "fulfillment": {
+            "label_zh": "倉儲／合約物流",
+            "label_en": "Warehousing / contract logistics",
+            "summary_zh": "順豐、中國外運與 ESR 倉網／合約物流 — 菜鳥履約倉節點（非港口／集裝箱航運）。",
+            "summary_en": "SF, Sinotrans, and ESR warehouse/contract-logistics nodes for Cainiao fulfillment — not ocean ports/container shipping.",
+        },
+    },
+    "JD": {
+        "fulfillment": {
+            "label_zh": "倉儲／合約物流",
+            "label_en": "Warehousing / contract logistics",
+            "summary_zh": "順豐、中國外運與 ESR 倉網／合約物流 — 京東履約倉節點（非港口／集裝箱航運；2618 自有物流不進階段）。",
+            "summary_en": "SF, Sinotrans, and ESR warehouse/contract-logistics nodes for JD fulfillment — not ocean ports; own 2618 stays off stages.",
         },
     },
     "BIDU": {
