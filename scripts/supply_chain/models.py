@@ -556,10 +556,10 @@ MODELS: dict[str, dict] = {
             {
                 "id": "hr-tools",
                 "order": 3,
-                "label_zh": "人資／評估工具",
-                "label_en": "HR / assessment tools",
-                "summary_zh": "外部測評、背景與人資科技夥伴。",
-                "summary_en": "External assessment, screening, and HR-tech partners.",
+                "label_zh": "企業人資SaaS／入職核驗",
+                "label_en": "Enterprise HR SaaS / onboarding verification",
+                "summary_zh": "中國企業人資／ERP SaaS 與入職核驗／團體保險夥伴（非美股 HCM 模板）。",
+                "summary_en": "China enterprise HR/ERP SaaS and onboarding verification / group-insurance partners — not US HCM dumps.",
             },
             {
                 "id": "payments",

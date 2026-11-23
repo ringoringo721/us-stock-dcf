@@ -80,20 +80,21 @@
           "listedInApp": false
         },
         {
-          "ticker": "EQIX",
-          "name_en": "Equinix",
-          "name_zh": "Equinix",
-          "role_zh": "Equinix：雲／CDN 基建代表性玩家",
-          "role_en": "Equinix: representative player in Cloud / CDN infrastructure",
-          "exchange": "NASDAQ"
+          "ticker": "3896.HK",
+          "name_en": "Kingsoft Cloud",
+          "name_zh": "金山雲",
+          "role_zh": "金山雲：雲／CDN 基建代表性玩家",
+          "role_en": "Kingsoft Cloud: representative player in Cloud / CDN infrastructure",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "DLR",
-          "name_en": "Digital Realty",
-          "name_zh": "Digital Realty",
-          "role_zh": "Digital Realty：雲／CDN 基建代表性玩家",
-          "role_en": "Digital Realty: representative player in Cloud / CDN infrastructure",
-          "exchange": "NYSE"
+          "ticker": "VNET",
+          "name_en": "VNET",
+          "name_zh": "世紀互聯",
+          "role_zh": "世紀互聯：雲／CDN 基建代表性玩家",
+          "role_en": "VNET: representative player in Cloud / CDN infrastructure",
+          "exchange": "NASDAQ"
         }
       ]
     },

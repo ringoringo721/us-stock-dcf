@@ -32,8 +32,8 @@
       "order": 1,
       "label_zh": "AI 雲／IDC 基建",
       "label_en": "AI Cloud / IDC infrastructure",
-      "summary_zh": "支撐百度廣告與 AI 雲營收的外部雲／IDC／GPU 基建。",
-      "summary_en": "External cloud/IDC/GPU under Baidu ads + AI Cloud revenue.",
+      "summary_zh": "支撐百度廣告與 AI 雲營收的中國 IDC／雲夥伴（萬國／金山雲／世紀互聯）。",
+      "summary_en": "China IDC/cloud under Baidu ads + AI Cloud (GDS / Kingsoft Cloud / VNET).",
       "players": [
         {
           "ticker": "9698.HK",
@@ -45,20 +45,20 @@
           "listedInApp": false
         },
         {
-          "ticker": "3888.HK",
-          "name_en": "Kingsoft",
-          "name_zh": "金山軟件",
-          "role_zh": "金山軟件：AI 雲／IDC 基建代表性玩家",
-          "role_en": "Kingsoft: representative player in AI Cloud / IDC infrastructure",
+          "ticker": "3896.HK",
+          "name_en": "Kingsoft Cloud",
+          "name_zh": "金山雲",
+          "role_zh": "金山雲：AI 雲／IDC 基建代表性玩家",
+          "role_en": "Kingsoft Cloud: representative player in AI Cloud / IDC infrastructure",
           "exchange": "HKEX",
           "listedInApp": false
         },
         {
-          "ticker": "EQIX",
-          "name_en": "Equinix",
-          "name_zh": "Equinix",
-          "role_zh": "Equinix：AI 雲／IDC 基建代表性玩家",
-          "role_en": "Equinix: representative player in AI Cloud / IDC infrastructure",
+          "ticker": "VNET",
+          "name_en": "VNET",
+          "name_zh": "世紀互聯",
+          "role_zh": "世紀互聯：AI 雲／IDC 基建代表性玩家",
+          "role_en": "VNET: representative player in AI Cloud / IDC infrastructure",
           "exchange": "NASDAQ"
         }
       ]

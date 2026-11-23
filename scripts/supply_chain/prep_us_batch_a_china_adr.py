@@ -113,6 +113,9 @@ ENTITIES: dict[str, dict[str, str]] = {
     "1119.HK": {"name_en": "iDreamSky", "name_zh": "創夢天地", "exchange": "HKEX"},
     "EQIX": {"name_en": "Equinix", "name_zh": "Equinix", "exchange": "NASDAQ"},
     "DLR": {"name_en": "Digital Realty", "name_zh": "Digital Realty", "exchange": "NYSE"},
+    "VNET": {"name_en": "VNET", "name_zh": "世紀互聯", "exchange": "NASDAQ"},
+    "3896.HK": {"name_en": "Kingsoft Cloud", "name_zh": "金山雲", "exchange": "HKEX"},
+    "0268.HK": {"name_en": "Kingdee", "name_zh": "金蝶國際", "exchange": "HKEX"},
     "ADP": {"name_en": "ADP", "name_zh": "ADP", "exchange": "NASDAQ"},
     "WDAY": {"name_en": "Workday", "name_zh": "Workday", "exchange": "NASDAQ"},
     "PAYX": {"name_en": "Paychex", "name_zh": "Paychex", "exchange": "NASDAQ"},
@@ -136,10 +139,12 @@ CN_ECOM_JD = {
     "lastmile": ["2057.HK", "1519.HK"],
 }
 
+# China IDC/CDN only — GDS / Kingsoft Cloud / VNET (not EQIX/DLR; not China Tower).
+CN_IDC = ["9698.HK", "3896.HK", "VNET"]
+
 # BIDU — online marketing + AI Cloud (china-platform skeleton, ads/cloud framing — not WeChat clone copy).
-# Infra = true IDC/cloud (GDS / Kingsoft Cloud peers / Equinix) — not China Tower.
 CN_BIDU = {
-    "infra": ["9698.HK", "3888.HK", "EQIX"],
+    "infra": list(CN_IDC),
     "distribution": ["0941.HK", "0762.HK", "1810.HK"],
     "payments": ["0005.HK", "1398.HK", "6060.HK"],
     "advertisers": ["2020.HK", "2331.HK", "2319.HK"],
@@ -207,7 +212,7 @@ FREIGHT_DEFAULTS = {
 
 # NTES — games ~80%+: cloud → carrier/device → top-up rails → UA/co-publish (not WeChat ads clone).
 CN_GAMES = {
-    "infra": ["9698.HK", "EQIX", "DLR"],
+    "infra": list(CN_IDC),
     "distribution": ["0941.HK", "0762.HK", "1810.HK"],
     "payments": ["0005.HK", "1398.HK", "6060.HK"],
     # External UA media + licensed co-publish partners (rivals 0700/BILI/SE stay off stages).
@@ -217,7 +222,7 @@ CN_GAMES = {
 # TME — music sub + social + ads: label majors are core COGS (UMG/SONY/WMG — not Disney).
 CN_MUSIC = {
     "labels": ["UMG", "SONY", "WMG"],
-    "infra": ["9698.HK", "EQIX", "DLR"],
+    "infra": list(CN_IDC),
     "distribution": ["0941.HK", "0762.HK", "1810.HK"],
     "payments": ["0005.HK", "1398.HK", "6060.HK"],
     "advertisers": ["2020.HK", "2331.HK", "2319.HK"],
@@ -225,7 +230,7 @@ CN_MUSIC = {
 
 # BILI — VAS + ads + games: China co-publish (not TTWO/RBLX/Unity dump).
 CN_VIDEO = {
-    "infra": ["9698.HK", "EQIX", "DLR"],
+    "infra": list(CN_IDC),
     "distribution": ["0941.HK", "0762.HK", "1810.HK"],
     "payments": ["0005.HK", "1398.HK", "6060.HK"],
     "advertisers": ["2020.HK", "2331.HK", "2319.HK"],
@@ -236,9 +241,9 @@ CN_VIDEO = {
 CN_RECRUIT = {
     # China traffic only — not NAVER. Carriers as acquisition reach (rivals BIDU/0700/BABA off stages).
     "traffic": ["1024.HK", "9626.HK", "0941.HK"],
-    "employers": ["1810.HK", "1211.HK", "2318.HK"],
-    # Real HR-tech / payroll / HCM — not Kingsoft/GDS/RELX role mismatch.
-    "hr-tools": ["ADP", "WDAY", "PAYX"],
+    "employers": ["1810.HK", "1211.HK", "1299.HK"],  # drop 2318 → free for HR screening stack
+    # China HR SaaS / onboarding verification — not US ADP/WDAY/PAYX.
+    "hr-tools": ["0268.HK", "3888.HK", "2318.HK"],
     "payments": ["0005.HK", "1398.HK", "6060.HK"],
     "branding": ["2020.HK", "2331.HK", "2319.HK"],
 }
@@ -546,14 +551,22 @@ HUB_STAGE_LABEL_OVERRIDES: dict[str, dict[str, dict[str, str]]] = {
         "infra": {
             "label_zh": "AI 雲／IDC 基建",
             "label_en": "AI Cloud / IDC infrastructure",
-            "summary_zh": "支撐百度廣告與 AI 雲營收的外部雲／IDC／GPU 基建。",
-            "summary_en": "External cloud/IDC/GPU under Baidu ads + AI Cloud revenue.",
+            "summary_zh": "支撐百度廣告與 AI 雲營收的中國 IDC／雲夥伴（萬國／金山雲／世紀互聯）。",
+            "summary_en": "China IDC/cloud under Baidu ads + AI Cloud (GDS / Kingsoft Cloud / VNET).",
         },
         "advertisers": {
             "label_zh": "搜尋／資訊流廣告主",
             "label_en": "Search / feed advertisers",
             "summary_zh": "在搜尋與資訊流投放的品牌廣告主（線上行銷主營收）。",
             "summary_en": "Brand advertisers on search/feed — core online-marketing revenue.",
+        },
+    },
+    "BZ": {
+        "hr-tools": {
+            "label_zh": "企業人資SaaS／入職核驗",
+            "label_en": "Enterprise HR SaaS / onboarding verification",
+            "summary_zh": "金蝶等人資／ERP SaaS、金山協同與平安入職／團體保險核驗（中國市場夥伴）。",
+            "summary_en": "Kingdee HR/ERP SaaS, Kingsoft collaboration, and Ping An onboarding/group-insurance verification — China-market partners.",
         },
     },
     "NIO": {
