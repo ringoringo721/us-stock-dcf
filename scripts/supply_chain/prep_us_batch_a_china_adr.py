@@ -86,9 +86,12 @@ ENTITIES: dict[str, dict[str, str]] = {
     "2007.HK": {"name_en": "Country Garden", "name_zh": "碧桂園", "exchange": "HKEX"},
     "0017.HK": {"name_en": "New World Dev", "name_zh": "新世界發展", "exchange": "HKEX"},
     "1200.HK": {"name_en": "Midland", "name_zh": "美聯集團", "exchange": "HKEX"},
-    "0014.HK": {"name_en": "CM Shekou", "name_zh": "招商蛇口", "exchange": "HKEX"},
+    # 0014.HK = Hysan（希慎興業）— NOT China Merchants Shekou (001979.SZ).
+    "0014.HK": {"name_en": "Hysan", "name_zh": "希慎興業", "exchange": "HKEX"},
     "0823.HK": {"name_en": "Link REIT", "name_zh": "領展房產基金", "exchange": "HKEX"},
     "1997.HK": {"name_en": "Wharf REIC", "name_zh": "九龍倉置業", "exchange": "HKEX"},
+    # Optional A-share property arm if used elsewhere; not on BEKE housing (prefer HK landlords).
+    "001979.SZ": {"name_en": "CM Shekou", "name_zh": "招商蛇口", "exchange": "SZSE"},
     "0670.HK": {"name_en": "China Eastern", "name_zh": "東方航空", "exchange": "HKEX"},
     "0753.HK": {"name_en": "Air China", "name_zh": "中國國航", "exchange": "HKEX"},
     "0293.HK": {"name_en": "Cathay Pacific", "name_zh": "國泰航空", "exchange": "HKEX"},
@@ -354,7 +357,7 @@ OVERRIDES: dict[str, dict[str, list[str]]] = {
         "agents": ["0960.HK", "2007.HK", "0017.HK"],
         "transaction": ["0005.HK", "1398.HK", "0939.HK"],
         "proptech": ["3888.HK", "6060.HK", "9698.HK"],
-        # Housing / mall demand — property landlords (not CMPort 0144 seaport).
+        # Housing / mall demand — HK landlords (0014=Hysan 希慎; not CMPort 0144; not mislabeled Shekou).
         "housing": ["0014.HK", "0823.HK", "1997.HK"],
     },
     "YUMC": {
