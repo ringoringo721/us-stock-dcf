@@ -69,8 +69,8 @@
       "order": 2,
       "label_zh": "倉儲／合約物流",
       "label_en": "Warehousing / contract logistics",
-      "summary_zh": "順豐、中國外運與 ESR 倉網／合約物流 — 京東履約倉節點（非港口／集裝箱航運；2618 自有物流不進階段）。",
-      "summary_en": "SF, Sinotrans, and ESR warehouse/contract-logistics nodes for JD fulfillment — not ocean ports; own 2618 stays off stages.",
+      "summary_zh": "順豐、中國外運與深國際倉網／物流園 — 京東履約倉節點（非港口；2618 自有物流不進階段；不用已下市 ESR）。",
+      "summary_en": "SF, Sinotrans, and Shenzhen International warehouse/logistics-park nodes for JD — not ocean ports; own 2618 off stages; not delisted ESR.",
       "players": [
         {
           "ticker": "6936.HK",
@@ -91,11 +91,11 @@
           "listedInApp": false
         },
         {
-          "ticker": "1821.HK",
-          "name_en": "ESR",
-          "name_zh": "ESR",
-          "role_zh": "ESR：倉儲／合約物流代表性玩家",
-          "role_en": "ESR: representative player in Warehousing / contract logistics",
+          "ticker": "0152.HK",
+          "name_en": "Shenzhen International",
+          "name_zh": "深國際",
+          "role_zh": "深國際：倉儲／合約物流代表性玩家",
+          "role_en": "Shenzhen International: representative player in Warehousing / contract logistics",
           "exchange": "HKEX",
           "listedInApp": false
         }

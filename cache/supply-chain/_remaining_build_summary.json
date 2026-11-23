@@ -2,13 +2,11 @@
   "bandMin": 0.0,
   "bandMax": 50000000000.0,
   "bandTotal": 1041,
-  "written": 4,
+  "written": 2,
   "skippedExisting": [],
   "failures": [],
   "tickers": [
     "JD",
-    "BEKE",
-    "HTHT",
     "VIPS"
   ],
   "dryRun": false,

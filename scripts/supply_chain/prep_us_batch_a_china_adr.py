@@ -130,14 +130,20 @@ ENTITIES: dict[str, dict[str, str]] = {
     "PEP": {"name_en": "PepsiCo", "name_zh": "百事", "exchange": "NASDAQ"},
     "UL": {"name_en": "Unilever", "name_zh": "聯合利華", "exchange": "NYSE"},
     # Warehouse / contract logistics / logistics parks (fulfillment — not ocean ports).
+    # 1821.HK ESR privatized/delisted Jul 2025 — do not use.
     "6936.HK": {"name_en": "SF Holdings", "name_zh": "順豐控股", "exchange": "HKEX"},
     "0598.HK": {"name_en": "Sinotrans", "name_zh": "中國外運", "exchange": "HKEX"},
-    "1821.HK": {"name_en": "ESR", "name_zh": "ESR", "exchange": "HKEX"},
+    "0152.HK": {
+        "name_en": "Shenzhen International",
+        "name_zh": "深國際",
+        "exchange": "HKEX",
+    },
 }
 
 # Cainiao/JD-style warehousing & contract logistics (not CMPort/OOIL/SITC ocean ports).
 # Keep disjoint from express lastmile (2057 / 1519 / 2618).
-CN_WAREHOUSE = ["6936.HK", "0598.HK", "1821.HK"]
+# 0152 = Shenzhen International logistics parks / warehouse nodes (still listed; replaces delisted ESR).
+CN_WAREHOUSE = ["6936.HK", "0598.HK", "0152.HK"]
 
 CN_ECOM = {
     "supply": ["2020.HK", "2331.HK", "2319.HK"],
@@ -550,16 +556,16 @@ HUB_STAGE_LABEL_OVERRIDES: dict[str, dict[str, dict[str, str]]] = {
         "fulfillment": {
             "label_zh": "倉儲／合約物流",
             "label_en": "Warehousing / contract logistics",
-            "summary_zh": "順豐、中國外運與 ESR 倉網／合約物流 — 菜鳥履約倉節點（非港口／集裝箱航運）。",
-            "summary_en": "SF, Sinotrans, and ESR warehouse/contract-logistics nodes for Cainiao fulfillment — not ocean ports/container shipping.",
+            "summary_zh": "順豐、中國外運與深國際倉網／物流園 — 菜鳥履約倉節點（非港口／集裝箱航運；不用已私有化下市的 ESR）。",
+            "summary_en": "SF, Sinotrans, and Shenzhen International warehouse/logistics-park nodes for Cainiao — not ocean ports; not delisted ESR.",
         },
     },
     "JD": {
         "fulfillment": {
             "label_zh": "倉儲／合約物流",
             "label_en": "Warehousing / contract logistics",
-            "summary_zh": "順豐、中國外運與 ESR 倉網／合約物流 — 京東履約倉節點（非港口／集裝箱航運；2618 自有物流不進階段）。",
-            "summary_en": "SF, Sinotrans, and ESR warehouse/contract-logistics nodes for JD fulfillment — not ocean ports; own 2618 stays off stages.",
+            "summary_zh": "順豐、中國外運與深國際倉網／物流園 — 京東履約倉節點（非港口；2618 自有物流不進階段；不用已下市 ESR）。",
+            "summary_en": "SF, Sinotrans, and Shenzhen International warehouse/logistics-park nodes for JD — not ocean ports; own 2618 off stages; not delisted ESR.",
         },
     },
     "BIDU": {

@@ -66,15 +66,15 @@
       "asOf": "2026-10-16",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "1821.HK": {
-      "ticker": "1821.HK",
-      "price": null,
-      "previousClose": null,
-      "changePct": null,
+    "0152.HK": {
+      "ticker": "0152.HK",
+      "price": 4.51,
+      "previousClose": 4.61,
+      "changePct": -2.169,
       "mcap": null,
       "currency": "HKD",
-      "asOf": null,
-      "source": null
+      "asOf": "2026-11-13",
+      "source": "FMP historical-price-eod via cache/price_charts"
     },
     "0005.HK": {
       "ticker": "0005.HK",
