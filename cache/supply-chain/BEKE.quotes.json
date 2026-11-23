@@ -136,11 +136,11 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "0144.HK": {
-      "ticker": "0144.HK",
-      "price": 16.89,
-      "previousClose": 16.97,
-      "changePct": -0.471,
+    "0014.HK": {
+      "ticker": "0014.HK",
+      "price": 16.01,
+      "previousClose": 16.2,
+      "changePct": -1.173,
       "mcap": null,
       "currency": "HKD",
       "asOf": "2026-11-13",

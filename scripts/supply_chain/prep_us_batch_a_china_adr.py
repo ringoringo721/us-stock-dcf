@@ -86,6 +86,7 @@ ENTITIES: dict[str, dict[str, str]] = {
     "2007.HK": {"name_en": "Country Garden", "name_zh": "碧桂園", "exchange": "HKEX"},
     "0017.HK": {"name_en": "New World Dev", "name_zh": "新世界發展", "exchange": "HKEX"},
     "1200.HK": {"name_en": "Midland", "name_zh": "美聯集團", "exchange": "HKEX"},
+    "0014.HK": {"name_en": "CM Shekou", "name_zh": "招商蛇口", "exchange": "HKEX"},
     "0823.HK": {"name_en": "Link REIT", "name_zh": "領展房產基金", "exchange": "HKEX"},
     "1997.HK": {"name_en": "Wharf REIC", "name_zh": "九龍倉置業", "exchange": "HKEX"},
     "0670.HK": {"name_en": "China Eastern", "name_zh": "東方航空", "exchange": "HKEX"},
@@ -353,8 +354,8 @@ OVERRIDES: dict[str, dict[str, list[str]]] = {
         "agents": ["0960.HK", "2007.HK", "0017.HK"],
         "transaction": ["0005.HK", "1398.HK", "0939.HK"],
         "proptech": ["3888.HK", "6060.HK", "9698.HK"],
-        # Housing cycle demand — landlords / ports as demand proxies (not rival developers).
-        "housing": ["0144.HK", "0823.HK", "1997.HK"],
+        # Housing / mall demand — property landlords (not CMPort 0144 seaport).
+        "housing": ["0014.HK", "0823.HK", "1997.HK"],
     },
     "YUMC": {
         "inputs": ["2319.HK", "0322.HK", "0151.HK"],
