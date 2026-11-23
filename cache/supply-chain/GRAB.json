@@ -3,7 +3,7 @@
   "ticker": "GRAB",
   "name_en": "Grab",
   "name_zh": "Grab",
-  "updatedAt": "2026-11-20",
+  "updatedAt": "2026-11-23",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -11,20 +11,20 @@
     "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
     "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
     "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
-    "modelId": "rideshare-v1",
+    "modelId": "mobility-core-v1",
     "references": [
-      "Industry model `rideshare-v1`",
+      "Industry model `mobility-core-v1`",
       "AAPL curated seed shape on main (schema reference)",
       "cache/us_universe.json screen: remaining US listings without supply-chain seed",
       "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
     ]
   },
   "model": {
-    "id": "rideshare-v1",
-    "label_zh": "共享出行／即時配送價值鏈",
-    "label_en": "Rideshare / mobility value chain",
-    "description_zh": "地圖／雲 → 支付 → 運力供給 → 出行／配送平台同業 → 廣告／會員。",
-    "description_en": "Maps/cloud → payments → driver supply → rideshare/delivery platform peers → ads/membership."
+    "id": "mobility-core-v1",
+    "label_zh": "出行主鏈（Mobility）",
+    "label_en": "Mobility core value chain",
+    "description_zh": "地圖／雲 → 支付 → 車隊／能源 → 保險／信任。即配商戶與品牌廣告不進蜘蛛階段（Delivery／Ads 另敘）。平台同業放對手弧。",
+    "description_en": "Maps/cloud → payments → fleet/energy → insurance/trust. Delivery merchants and brand ads stay off the spider. Platform peers on the rival arc."
   },
   "stages": [
     {
@@ -64,164 +64,142 @@
     {
       "id": "payments",
       "order": 2,
-      "label_zh": "支付",
-      "label_en": "Payments",
-      "summary_zh": "持卡人支付與撥款。",
-      "summary_en": "Card payments and payouts.",
+      "label_zh": "支付／清算",
+      "label_en": "Payments / clearing",
+      "summary_zh": "乘客支付與司機撥款軌道。",
+      "summary_en": "Rider pay-in and driver payouts.",
       "players": [
         {
           "ticker": "V",
           "name_en": "Visa",
           "name_zh": "威士卡",
-          "role_zh": "威士卡：支付代表性玩家",
-          "role_en": "Visa: representative player in Payments",
+          "role_zh": "威士卡：支付／清算代表性玩家",
+          "role_en": "Visa: representative player in Payments / clearing",
           "exchange": "NYSE"
         },
         {
           "ticker": "MA",
           "name_en": "Mastercard",
           "name_zh": "萬事達卡",
-          "role_zh": "萬事達卡：支付代表性玩家",
-          "role_en": "Mastercard: representative player in Payments",
+          "role_zh": "萬事達卡：支付／清算代表性玩家",
+          "role_en": "Mastercard: representative player in Payments / clearing",
           "exchange": "NYSE"
         },
         {
           "ticker": "PYPL",
           "name_en": "PayPal",
           "name_zh": "PayPal",
-          "role_zh": "PayPal：支付代表性玩家",
-          "role_en": "PayPal: representative player in Payments",
+          "role_zh": "PayPal：支付／清算代表性玩家",
+          "role_en": "PayPal: representative player in Payments / clearing",
           "exchange": "NASDAQ"
         }
       ]
     },
     {
-      "id": "supply",
+      "id": "fleet",
       "order": 3,
-      "label_zh": "運力／司機供給",
-      "label_en": "Driver / courier supply",
-      "summary_zh": "司機與外送運力生態。",
-      "summary_en": "Driver and courier supply ecosystem.",
+      "label_zh": "兩輪／運力設備／能源",
+      "label_en": "Two-wheel / fleet equipment / energy",
+      "summary_zh": "東南亞機車／兩輪與運力能源供給（非乘用車假扮車隊）。",
+      "summary_en": "SEA scooters/two-wheel and fleet energy — not passenger-car OEMs as fake fleet.",
       "players": [
         {
-          "ticker": "GM",
-          "name_en": "General Motors",
-          "name_zh": "通用汽車",
-          "role_zh": "通用汽車：運力／司機供給代表性玩家",
-          "role_en": "General Motors: representative player in Driver / courier supply",
+          "ticker": "HMC",
+          "name_en": "Honda",
+          "name_zh": "本田",
+          "role_zh": "本田：兩輪／運力設備／能源代表性玩家",
+          "role_en": "Honda: representative player in Two-wheel / fleet equipment / energy",
           "exchange": "NYSE"
         },
         {
-          "ticker": "F",
-          "name_en": "Ford",
-          "name_zh": "福特",
-          "role_zh": "福特：運力／司機供給代表性玩家",
-          "role_en": "Ford: representative player in Driver / courier supply",
-          "exchange": "NYSE"
+          "ticker": "1211.HK",
+          "name_en": "BYD",
+          "name_zh": "比亞迪",
+          "role_zh": "比亞迪：兩輪／運力設備／能源代表性玩家",
+          "role_en": "BYD: representative player in Two-wheel / fleet equipment / energy",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "TM",
-          "name_en": "Toyota Motor",
-          "name_zh": "豐田",
-          "role_zh": "豐田：運力／司機供給代表性玩家",
-          "role_en": "Toyota Motor: representative player in Driver / courier supply",
+          "ticker": "SHEL",
+          "name_en": "Shell",
+          "name_zh": "殼牌",
+          "role_zh": "殼牌：兩輪／運力設備／能源代表性玩家",
+          "role_en": "Shell: representative player in Two-wheel / fleet equipment / energy",
           "exchange": "NYSE"
         }
       ]
     },
     {
-      "id": "platforms",
+      "id": "insurance-trust",
       "order": 4,
-      "label_zh": "出行／配送平台",
-      "label_en": "Rideshare / delivery platforms",
-      "summary_zh": "共享出行與即時配送同業。",
-      "summary_en": "Rideshare and delivery platform peers.",
+      "label_zh": "保險／信任（區域）",
+      "label_en": "Insurance / trust (regional)",
+      "summary_zh": "東南亞行程責任與司機／乘客保障的外部保險夥伴（友邦／保誠等）。",
+      "summary_en": "External SEA insurers for trip liability and driver/rider cover (AIA/Prudential et al.).",
       "players": [
         {
-          "ticker": "UBER",
-          "name_en": "Uber Technologies",
-          "name_zh": "Uber",
-          "role_zh": "Uber：出行／配送平台代表性玩家",
-          "role_en": "Uber Technologies: representative player in Rideshare / delivery platforms",
+          "ticker": "1299.HK",
+          "name_en": "AIA",
+          "name_zh": "友邦",
+          "role_zh": "友邦：保險／信任（區域）代表性玩家",
+          "role_en": "AIA: representative player in Insurance / trust (regional)",
+          "exchange": "HKEX",
+          "listedInApp": false
+        },
+        {
+          "ticker": "2378.HK",
+          "name_en": "Prudential",
+          "name_zh": "保誠",
+          "role_zh": "保誠：保險／信任（區域）代表性玩家",
+          "role_en": "Prudential: representative player in Insurance / trust (regional)",
+          "exchange": "HKEX",
+          "listedInApp": false
+        },
+        {
+          "ticker": "CB",
+          "name_en": "Chubb",
+          "name_zh": "安達保險",
+          "role_zh": "安達保險：保險／信任（區域）代表性玩家",
+          "role_en": "Chubb: representative player in Insurance / trust (regional)",
           "exchange": "NYSE"
-        },
-        {
-          "ticker": "DASH",
-          "name_en": "DoorDash",
-          "name_zh": "DoorDash",
-          "role_zh": "DoorDash：出行／配送平台代表性玩家",
-          "role_en": "DoorDash: representative player in Rideshare / delivery platforms",
-          "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "LYFT",
-          "name_en": "Lyft",
-          "name_zh": "Lyft",
-          "role_zh": "Lyft：出行／配送平台代表性玩家",
-          "role_en": "Lyft: representative player in Rideshare / delivery platforms",
-          "exchange": "NASDAQ"
-        }
-      ]
-    },
-    {
-      "id": "monetization",
-      "order": 5,
-      "label_zh": "廣告／會員",
-      "label_en": "Ads / membership",
-      "summary_zh": "平台廣告與訂閱變現。",
-      "summary_en": "Platform ads and memberships.",
-      "players": [
-        {
-          "ticker": "GOOG",
-          "name_en": "Alphabet",
-          "name_zh": "Alphabet（Google）",
-          "role_zh": "Alphabet（Google）：廣告／會員代表性玩家",
-          "role_en": "Alphabet: representative player in Ads / membership",
-          "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "META",
-          "name_en": "Meta Platforms",
-          "name_zh": "Meta (臉書)",
-          "role_zh": "Meta (臉書)：廣告／會員代表性玩家",
-          "role_en": "Meta Platforms: representative player in Ads / membership",
-          "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "AMZN",
-          "name_en": "Amazon.com",
-          "name_zh": "亞馬遜",
-          "role_zh": "亞馬遜：廣告／會員代表性玩家",
-          "role_en": "Amazon.com: representative player in Ads / membership",
-          "exchange": "NASDAQ"
         }
       ]
     }
   ],
   "competitors": [
     {
-      "ticker": "LYFT",
-      "name_en": "Lyft",
-      "name_zh": "Lyft",
-      "basis_zh": "共享出行／即時配送對手",
-      "basis_en": "Rideshare / mobility rival",
-      "exchange": "NASDAQ"
+      "ticker": "UBER",
+      "name_en": "Uber",
+      "name_zh": "Uber",
+      "basis_zh": "出行／即配對手",
+      "basis_en": "Mobility / delivery rival",
+      "exchange": "NYSE"
     },
     {
-      "ticker": "UBER",
-      "name_en": "Uber Technologies",
-      "name_zh": "Uber",
-      "basis_zh": "共享出行／即時配送對手",
-      "basis_en": "Rideshare / mobility rival",
+      "ticker": "SE",
+      "name_en": "Sea",
+      "name_zh": "Sea",
+      "basis_zh": "東南亞超級應用對手",
+      "basis_en": "SEA super-app rival",
       "exchange": "NYSE"
     },
     {
       "ticker": "DASH",
       "name_en": "DoorDash",
       "name_zh": "DoorDash",
-      "basis_zh": "共享出行／即時配送對手",
-      "basis_en": "Rideshare / mobility rival",
+      "basis_zh": "即配對手",
+      "basis_en": "Delivery rival",
       "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "3690.HK",
+      "name_en": "Meituan",
+      "name_zh": "美團",
+      "basis_zh": "本地生活／即配參照",
+      "basis_en": "Local-life / delivery reference",
+      "exchange": "HKEX",
+      "listedInApp": false
     }
   ]
 }

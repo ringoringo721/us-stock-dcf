@@ -2,8 +2,8 @@
   "version": 1,
   "ticker": "CPNG",
   "name_en": "Coupang",
-  "name_zh": "Coupang",
-  "updatedAt": "2026-11-20",
+  "name_zh": "酷澎",
+  "updatedAt": "2026-11-23",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -36,28 +36,31 @@
       "summary_en": "3P sellers and brand supply.",
       "players": [
         {
-          "ticker": "PG",
-          "name_en": "Procter & Gamble",
-          "name_zh": "寶僑",
-          "role_zh": "寶僑：品牌／賣家供應代表性玩家",
-          "role_en": "Procter & Gamble: representative player in Brands / seller supply",
-          "exchange": "NYSE"
+          "ticker": "005930.KS",
+          "name_en": "Samsung Electronics",
+          "name_zh": "三星電子",
+          "role_zh": "三星電子：品牌／賣家供應代表性玩家",
+          "role_en": "Samsung Electronics: representative player in Brands / seller supply",
+          "exchange": "KRX",
+          "listedInApp": false
         },
         {
-          "ticker": "NKE",
-          "name_en": "Nike",
-          "name_zh": "耐吉",
-          "role_zh": "耐吉：品牌／賣家供應代表性玩家",
-          "role_en": "Nike: representative player in Brands / seller supply",
-          "exchange": "NYSE"
+          "ticker": "2020.HK",
+          "name_en": "ANTA",
+          "name_zh": "安踏",
+          "role_zh": "安踏：品牌／賣家供應代表性玩家",
+          "role_en": "ANTA: representative player in Brands / seller supply",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "SONY",
-          "name_en": "Sony",
-          "name_zh": "Sony",
-          "role_zh": "Sony：品牌／賣家供應代表性玩家",
-          "role_en": "Sony: representative player in Brands / seller supply",
-          "exchange": "NYSE"
+          "ticker": "2331.HK",
+          "name_en": "Li Ning",
+          "name_zh": "李寧",
+          "role_zh": "李寧：品牌／賣家供應代表性玩家",
+          "role_en": "Li Ning: representative player in Brands / seller supply",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     },
@@ -70,28 +73,31 @@
       "summary_en": "Warehouses, automation, inventory nodes.",
       "players": [
         {
-          "ticker": "PLD",
-          "name_en": "Prologis",
-          "name_zh": "普洛斯 (Prologis)",
-          "role_zh": "普洛斯 (Prologis)：倉儲／履約代表性玩家",
-          "role_en": "Prologis: representative player in Warehousing / fulfillment",
-          "exchange": "NYSE"
+          "ticker": "0144.HK",
+          "name_en": "CMPort",
+          "name_zh": "招商港口",
+          "role_zh": "招商港口：倉儲／履約代表性玩家",
+          "role_en": "CMPort: representative player in Warehousing / fulfillment",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "EQIX",
-          "name_en": "Equinix",
-          "name_zh": "Equinix",
-          "role_zh": "Equinix：倉儲／履約代表性玩家",
-          "role_en": "Equinix: representative player in Warehousing / fulfillment",
-          "exchange": "NASDAQ"
+          "ticker": "0316.HK",
+          "name_en": "OOIL",
+          "name_zh": "東方海外",
+          "role_zh": "東方海外：倉儲／履約代表性玩家",
+          "role_en": "OOIL: representative player in Warehousing / fulfillment",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "AMT",
-          "name_en": "American Tower",
-          "name_zh": "美國電塔",
-          "role_zh": "美國電塔：倉儲／履約代表性玩家",
-          "role_en": "American Tower: representative player in Warehousing / fulfillment",
-          "exchange": "NYSE"
+          "ticker": "1308.HK",
+          "name_en": "SITC",
+          "name_zh": "海豐國際",
+          "role_zh": "海豐國際：倉儲／履約代表性玩家",
+          "role_en": "SITC: representative player in Warehousing / fulfillment",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     },
@@ -103,6 +109,15 @@
       "summary_zh": "卡組織、收單與消費金融。",
       "summary_en": "Card networks, acquirers, consumer finance.",
       "players": [
+        {
+          "ticker": "0005.HK",
+          "name_en": "HSBC",
+          "name_zh": "滙豐",
+          "role_zh": "滙豐：支付／金融代表性玩家",
+          "role_en": "HSBC: representative player in Payments / fintech",
+          "exchange": "HKEX",
+          "listedInApp": false
+        },
         {
           "ticker": "V",
           "name_en": "Visa",
@@ -118,14 +133,6 @@
           "role_zh": "萬事達卡：支付／金融代表性玩家",
           "role_en": "Mastercard: representative player in Payments / fintech",
           "exchange": "NYSE"
-        },
-        {
-          "ticker": "PYPL",
-          "name_en": "PayPal",
-          "name_zh": "PayPal",
-          "role_zh": "PayPal：支付／金融代表性玩家",
-          "role_en": "PayPal: representative player in Payments / fintech",
-          "exchange": "NASDAQ"
         }
       ]
     },
@@ -138,27 +145,29 @@
       "summary_en": "Search, social, retail media.",
       "players": [
         {
+          "ticker": "035420.KS",
+          "name_en": "NAVER",
+          "name_zh": "NAVER",
+          "role_zh": "NAVER：流量／廣告獲客代表性玩家",
+          "role_en": "NAVER: representative player in Traffic / ad acquisition",
+          "exchange": "KRX",
+          "listedInApp": false
+        },
+        {
+          "ticker": "035720.KS",
+          "name_en": "Kakao",
+          "name_zh": "Kakao",
+          "role_zh": "Kakao：流量／廣告獲客代表性玩家",
+          "role_en": "Kakao: representative player in Traffic / ad acquisition",
+          "exchange": "KRX",
+          "listedInApp": false
+        },
+        {
           "ticker": "GOOG",
           "name_en": "Alphabet",
           "name_zh": "Alphabet（Google）",
           "role_zh": "Alphabet（Google）：流量／廣告獲客代表性玩家",
           "role_en": "Alphabet: representative player in Traffic / ad acquisition",
-          "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "META",
-          "name_en": "Meta Platforms",
-          "name_zh": "Meta (臉書)",
-          "role_zh": "Meta (臉書)：流量／廣告獲客代表性玩家",
-          "role_en": "Meta Platforms: representative player in Traffic / ad acquisition",
-          "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "APP",
-          "name_en": "AppLovin",
-          "name_zh": "AppLovin",
-          "role_zh": "AppLovin：流量／廣告獲客代表性玩家",
-          "role_en": "AppLovin: representative player in Traffic / ad acquisition",
           "exchange": "NASDAQ"
         }
       ]
@@ -172,12 +181,13 @@
       "summary_en": "Parcel and local delivery networks.",
       "players": [
         {
-          "ticker": "UPS",
-          "name_en": "United Parcel Service",
-          "name_zh": "優比速",
-          "role_zh": "優比速：最後一哩／宅配代表性玩家",
-          "role_en": "United Parcel Service: representative player in Last-mile delivery",
-          "exchange": "NYSE"
+          "ticker": "1519.HK",
+          "name_en": "J&T Express",
+          "name_zh": "極兔速遞",
+          "role_zh": "極兔速遞：最後一哩／宅配代表性玩家",
+          "role_en": "J&T Express: representative player in Last-mile delivery",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
           "ticker": "FDX",
@@ -188,11 +198,11 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "UNP",
-          "name_en": "Union Pacific",
-          "name_zh": "聯合太平洋鐵路",
-          "role_zh": "聯合太平洋鐵路：最後一哩／宅配代表性玩家",
-          "role_en": "Union Pacific: representative player in Last-mile delivery",
+          "ticker": "UPS",
+          "name_en": "United Parcel Service",
+          "name_zh": "優比速",
+          "role_zh": "優比速：最後一哩／宅配代表性玩家",
+          "role_en": "United Parcel Service: representative player in Last-mile delivery",
           "exchange": "NYSE"
         }
       ]
@@ -200,44 +210,44 @@
   ],
   "competitors": [
     {
-      "ticker": "TGT",
-      "name_en": "Target",
-      "name_zh": "目標百貨 (Target)",
-      "basis_zh": "折扣零售對手",
-      "basis_en": "Discount retail rival",
+      "ticker": "SE",
+      "name_en": "Sea",
+      "name_zh": "Sea",
+      "basis_zh": "亞洲電商對手",
+      "basis_en": "Asia e-commerce rival",
       "exchange": "NYSE"
     },
     {
-      "ticker": "WMT",
-      "name_en": "Walmart",
-      "name_zh": "沃爾瑪",
-      "basis_zh": "折扣零售對手",
-      "basis_en": "Discount retail rival",
+      "ticker": "BABA",
+      "name_en": "Alibaba Holding",
+      "name_zh": "阿里巴巴",
+      "basis_zh": "亞洲電商對手",
+      "basis_en": "Asia e-commerce rival",
       "exchange": "NYSE"
     },
     {
-      "ticker": "COST",
-      "name_en": "Costco Wholesale",
-      "name_zh": "好市多",
-      "basis_zh": "折扣零售對手",
-      "basis_en": "Discount retail rival",
+      "ticker": "PDD",
+      "name_en": "PDD",
+      "name_zh": "拼多多",
+      "basis_zh": "價值電商對手",
+      "basis_en": "Value e-commerce rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "JD",
+      "name_en": "JD.com",
+      "name_zh": "京東集團",
+      "basis_zh": "亞洲電商對手",
+      "basis_en": "Asia e-commerce rival",
       "exchange": "NASDAQ"
     },
     {
       "ticker": "AMZN",
       "name_en": "Amazon.com",
       "name_zh": "亞馬遜",
-      "basis_zh": "折扣零售對手",
-      "basis_en": "Discount retail rival",
+      "basis_zh": "全球電商對手",
+      "basis_en": "Global e-commerce rival",
       "exchange": "NASDAQ"
-    },
-    {
-      "ticker": "DG",
-      "name_en": "Dollar General",
-      "name_zh": "Dollar General",
-      "basis_zh": "折扣零售對手",
-      "basis_en": "Discount retail rival",
-      "exchange": "NYSE"
     }
   ]
 }

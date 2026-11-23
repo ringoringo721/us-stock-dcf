@@ -366,7 +366,7 @@
   },
   "PEP": {
     "name_en": "PepsiCo",
-    "name_zh": "百事可樂",
+    "name_zh": "百事",
     "exchange": "NASDAQ"
   },
   "SHOP": {
@@ -486,7 +486,7 @@
   },
   "SONY": {
     "name_en": "Sony",
-    "name_zh": "Sony",
+    "name_zh": "索尼",
     "exchange": "NYSE"
   },
   "SCHW": {
@@ -516,11 +516,11 @@
   },
   "UL": {
     "name_en": "Unilever",
-    "name_zh": "Unilever",
+    "name_zh": "聯合利華",
     "exchange": "NYSE"
   },
   "UBER": {
-    "name_en": "Uber Technologies",
+    "name_en": "Uber",
     "name_zh": "Uber",
     "exchange": "NYSE"
   },
@@ -620,7 +620,7 @@
     "exchange": "NYSE"
   },
   "SPOT": {
-    "name_en": "Spotify Technology S.A.",
+    "name_en": "Spotify",
     "name_zh": "Spotify",
     "exchange": "NYSE"
   },
@@ -1766,7 +1766,7 @@
   },
   "CPNG": {
     "name_en": "Coupang",
-    "name_zh": "Coupang",
+    "name_zh": "酷澎",
     "exchange": "NYSE"
   },
   "EBAY": {
@@ -2281,12 +2281,12 @@
   },
   "WH": {
     "name_en": "Wyndham",
-    "name_zh": "Wyndham",
+    "name_zh": "溫德姆",
     "exchange": "NYSE"
   },
   "H": {
     "name_en": "Hyatt",
-    "name_zh": "Hyatt",
+    "name_zh": "凱悅",
     "exchange": "NYSE"
   },
   "IHG": {
@@ -2296,7 +2296,7 @@
   },
   "TCOM": {
     "name_en": "Trip.com",
-    "name_zh": "攜程集團",
+    "name_zh": "攜程",
     "exchange": "NASDAQ"
   },
   "QSR": {
@@ -3925,8 +3925,8 @@
     "exchange": "NYSE"
   },
   "AKAM": {
-    "name_en": "Akamai Technologies",
-    "name_zh": "Akamai Technologies",
+    "name_en": "Akamai",
+    "name_zh": "Akamai",
     "exchange": "NASDAQ"
   },
   "WST": {
@@ -4576,7 +4576,7 @@
   },
   "WMG": {
     "name_en": "Warner Music",
-    "name_zh": "Warner Music",
+    "name_zh": "華納音樂",
     "exchange": "NASDAQ"
   },
   "GFL": {
@@ -4650,7 +4650,7 @@
     "exchange": "NASDAQ"
   },
   "TME": {
-    "name_en": "Tencent Music Entertainment",
+    "name_en": "Tencent Music",
     "name_zh": "騰訊音樂",
     "exchange": "NYSE"
   },
@@ -8213,5 +8213,20 @@
     "name_en": "JD Logistics",
     "name_zh": "京東物流",
     "exchange": "HKEX"
+  },
+  "UMG": {
+    "name_en": "Universal Music",
+    "name_zh": "環球音樂",
+    "exchange": "EURONEXT"
+  },
+  "035420.KS": {
+    "name_en": "NAVER",
+    "name_zh": "NAVER",
+    "exchange": "KRX"
+  },
+  "035720.KS": {
+    "name_en": "Kakao",
+    "name_zh": "Kakao",
+    "exchange": "KRX"
   }
 }
