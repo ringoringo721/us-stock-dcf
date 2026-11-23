@@ -83,6 +83,11 @@ ENTITIES: dict[str, dict[str, str]] = {
     "1109.HK": {"name_en": "CR Land", "name_zh": "華潤置地", "exchange": "HKEX"},
     "0688.HK": {"name_en": "China Overseas", "name_zh": "中國海外發展", "exchange": "HKEX"},
     "0960.HK": {"name_en": "Longfor", "name_zh": "龍湖集團", "exchange": "HKEX"},
+    "2007.HK": {"name_en": "Country Garden", "name_zh": "碧桂園", "exchange": "HKEX"},
+    "0017.HK": {"name_en": "New World Dev", "name_zh": "新世界發展", "exchange": "HKEX"},
+    "1200.HK": {"name_en": "Midland", "name_zh": "美聯集團", "exchange": "HKEX"},
+    "0823.HK": {"name_en": "Link REIT", "name_zh": "領展房產基金", "exchange": "HKEX"},
+    "1997.HK": {"name_en": "Wharf REIC", "name_zh": "九龍倉置業", "exchange": "HKEX"},
     "0670.HK": {"name_en": "China Eastern", "name_zh": "東方航空", "exchange": "HKEX"},
     "0753.HK": {"name_en": "Air China", "name_zh": "中國國航", "exchange": "HKEX"},
     "0293.HK": {"name_en": "Cathay Pacific", "name_zh": "國泰航空", "exchange": "HKEX"},
@@ -219,11 +224,12 @@ COMPETITORS: dict[str, list[list[str]]] = {
         ["NTES", "內容／遊戲生態對手", "Content / games ecosystem rival"],
     ],
     "TME": [
+        # 0700 = Tencent parent of TME — never a product rival.
         ["SPOT", "串流音樂對手", "Music streaming rival"],
-        ["0700.HK", "中國內容生態對手", "China content ecosystem rival"],
         ["BILI", "影音內容對手", "Video content rival"],
         ["NTES", "雲音樂／內容對手", "Cloud music / content rival"],
         ["1024.HK", "短影音內容對手", "Short-video content rival"],
+        ["BIDU", "內容／流量對手", "Content / traffic rival"],
     ],
     "BILI": [
         ["0700.HK", "影音／互動娛樂對手", "Video / interactive entertainment rival"],
@@ -272,9 +278,10 @@ COMPETITORS: dict[str, list[list[str]]] = {
         ["3690.HK", "本地即配對手", "Local delivery rival"],
     ],
     "BEKE": [
-        ["ZG", "房源／經紀平台對手", "Listing / brokerage platform rival"],
-        ["COMP", "經紀平台對手", "Brokerage platform rival"],
-        ["RDFN", "經紀平台對手", "Brokerage platform rival"],
+        # China housing brokerage peers — not US Zillow/Compass dump.
+        ["1200.HK", "中國住宅經紀對手", "China residential brokerage rival"],
+        ["1109.HK", "開發商自銷／渠道對手", "Developer channel rival"],
+        ["0688.HK", "開發商自銷／渠道對手", "Developer channel rival"],
     ],
     "YUMC": [
         ["MCD", "中國餐飲對手", "China restaurant rival"],
@@ -342,11 +349,12 @@ OVERRIDES: dict[str, dict[str, list[str]]] = {
     "YMM": dict(FREIGHT_DEFAULTS),
     "BEKE": {
         "traffic": ["0700.HK", "9888.HK", "1024.HK"],
-        # Midland = external agency peer (not on rival arc).
-        "agents": ["1200.HK"],
+        # Midland + big developers are rivals — agents = other developers as 新盤分銷夥伴 (label patch).
+        "agents": ["0960.HK", "2007.HK", "0017.HK"],
         "transaction": ["0005.HK", "1398.HK", "0939.HK"],
         "proptech": ["3888.HK", "6060.HK", "9698.HK"],
-        "housing": ["1109.HK", "0688.HK", "0960.HK"],
+        # Housing cycle demand — landlords / ports as demand proxies (not rival developers).
+        "housing": ["0144.HK", "0823.HK", "1997.HK"],
     },
     "YUMC": {
         "inputs": ["2319.HK", "0322.HK", "0151.HK"],
@@ -426,6 +434,20 @@ HUB_STAGE_LABEL_OVERRIDES: dict[str, dict[str, dict[str, str]]] = {
             "label_en": "Settlement / custody banks",
             "summary_zh": "清算交收與託管銀行夥伴。",
             "summary_en": "Clearing/settlement and custody banks.",
+        },
+    },
+    "BEKE": {
+        "agents": {
+            "label_zh": "新盤分銷夥伴",
+            "label_en": "New-home distribution partners",
+            "summary_zh": "外部新盤分銷／渠道夥伴（對手經紀與對手放在對手弧）。",
+            "summary_en": "External new-home distribution partners — rival brokerages stay on the rival arc.",
+        },
+        "housing": {
+            "label_zh": "住房／商場需求",
+            "label_en": "Housing / retail demand",
+            "summary_zh": "商場與物業需求週期代表（非對手開發商）。",
+            "summary_en": "Mall/property demand-cycle proxies — rival developers stay on the rival arc.",
         },
     },
 }

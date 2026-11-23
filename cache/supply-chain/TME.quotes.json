@@ -146,16 +146,6 @@
       "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "0700.HK": {
-      "ticker": "0700.HK",
-      "price": 383.0,
-      "previousClose": 377.6,
-      "changePct": 1.43,
-      "mcap": null,
-      "currency": "HKD",
-      "asOf": "2026-10-30",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
     "BILI": {
       "ticker": "BILI",
       "price": 13.25,
@@ -184,6 +174,16 @@
       "mcap": null,
       "currency": "HKD",
       "asOf": "2026-10-30",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "BIDU": {
+      "ticker": "BIDU",
+      "price": 78.14,
+      "previousClose": 77.63,
+      "changePct": 0.657,
+      "mcap": 27870.5,
+      "currency": "USD",
+      "asOf": "2026-11-13",
       "source": "FMP historical-price-eod via cache/price_charts"
     }
   }

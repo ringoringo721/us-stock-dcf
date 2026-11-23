@@ -246,6 +246,10 @@ DUAL_LIST_ISSUER: dict[str, str] = {
 PARENT_SUB_ISSUER: dict[str, str] = {
     "ABEV": "BUD-GROUP",  # Ambev is AB InBev's LatAm subsidiary
     "BUD": "BUD-GROUP",
+    # TME is Tencent's majority-owned music arm — never mutual product rivals.
+    "TME": "TENCENT-GROUP",
+    "1698.HK": "TENCENT-GROUP",
+    "0700.HK": "TENCENT-GROUP",
 }
 
 

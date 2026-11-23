@@ -391,43 +391,45 @@ MODELS: dict[str, dict] = {
     },
     # Tencent-class: external inputs/partners only. Games/WeChat are self-built — not SC stages.
     # Revenue context FY2025: VAS~49%, FinTech~31%, Marketing~19% (games stay on rival arc / product story).
+    # Shared China internet-platform skeleton (0700 gold shape). Copy is product-neutral —
+    # do not name WeChat/WeChat Pay/Moments; hub-specific 0700 wording lives on the HK seed.
     "china-platform-builder-v1": {
         "label_zh": "中國平台建造／運營價值鏈",
         "label_en": "China platform builder / operator value chain",
-        "description_zh": "雲／網路基建 → 電信／裝置分發 → 支付軌道 → 廣告主／商戶變現。遊戲／微信自研不進供應鏈階段；對手放對手弧。",
-        "description_en": "Cloud/network infra → carrier/device distribution → payment rails → advertiser/merchant monetization. Self-built games/WeChat are not SC stages; rivals on rival arc.",
+        "description_zh": "雲／網路基建 → 電信／裝置分發 → 支付軌道 → 廣告主／商戶變現。自研產品／內容／IP 不進供應鏈階段；對手放對手弧。",
+        "description_en": "Cloud/network infra → carrier/device distribution → payment rails → advertiser/merchant monetization. Self-built products/content/IP are not SC stages; rivals on rival arc.",
         "stages": [
             {
                 "id": "infra",
                 "order": 1,
                 "label_zh": "雲／網路基建",
                 "label_en": "Cloud / network infrastructure",
-                "summary_zh": "跑微信／雲／遊戲服務所需的外部 IDC／雲／鐵塔底座。",
-                "summary_en": "External IDC/cloud/towers that run WeChat, cloud, and game services.",
+                "summary_zh": "平台服務所需的外部 IDC／雲／鐵塔底座。",
+                "summary_en": "External IDC/cloud/towers under the platform.",
             },
             {
                 "id": "distribution",
                 "order": 2,
                 "label_zh": "電信／裝置分發",
                 "label_en": "Carrier / device distribution",
-                "summary_zh": "用戶經電信網路與終端裝置到達微信／應用（外部到達夥伴，非自研產品本身）。",
-                "summary_en": "Carriers and devices that deliver reach to WeChat/apps — external partners, not self-built product.",
+                "summary_zh": "用戶經電信網路與終端裝置到達應用（外部到達夥伴，非自研產品本身）。",
+                "summary_en": "Carriers and devices that deliver app reach — external partners, not self-built product.",
             },
             {
                 "id": "payments",
                 "order": 3,
                 "label_zh": "支付／清算軌道",
                 "label_en": "Payment / clearing rails",
-                "summary_zh": "微信支付背後的銀行結算與互聯網保險軌道。",
-                "summary_en": "Bank settlement and internet-insurance rails under WeChat Pay.",
+                "summary_zh": "銀行結算與互聯網保險等外部支付／清算軌道。",
+                "summary_en": "External bank settlement and internet-insurance payment rails.",
             },
             {
                 "id": "advertisers",
                 "order": 4,
                 "label_zh": "廣告主／商戶下游",
                 "label_en": "Advertisers / merchants downstream",
-                "summary_zh": "朋友圈／小程序的品牌廣告主與消費商戶（營銷變現出口）。",
-                "summary_en": "Moments/mini-program brand advertisers and consumer merchants.",
+                "summary_zh": "在平台投放或經營的品牌廣告主與消費商戶（營銷變現出口）。",
+                "summary_en": "Brand advertisers and consumer merchants monetizing on the platform.",
             },
         ],
     },

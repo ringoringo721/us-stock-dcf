@@ -499,7 +499,11 @@ def build_seed(
     stages = []
     for stage_meta in model["stages"]:
         sid = stage_meta["id"]
-        raw_players = list(stage_players.get(sid) or players_by_model[model_id].get(sid) or [])
+        # Explicit override key (even []) wins — do not fall through on empty list.
+        if sid in stage_players:
+            raw_players = list(stage_players.get(sid) or [])
+        else:
+            raw_players = list(players_by_model[model_id].get(sid) or [])
         # Never list the hub as a player on its own stages (BCPC-on-ingredients Bugbot).
         # Do not adjacent-stage pad after hub drop — leave thin / use true same-stage peers.
         # Drop stage names that share an issuer with a rival (prefer rival ASX over partner 3711.TW).

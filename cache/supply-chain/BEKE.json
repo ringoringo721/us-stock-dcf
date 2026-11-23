@@ -8,18 +8,15 @@
     "type": "curated",
     "basis": "China/Asia ADR Batch A concept scrub: China-centric external-partner chains (0700/9988/1211 gold). Not a live supplier API dump. Preview-before-merge.",
     "notes_zh": "本頁為中國／亞洲主力市場供應鏈策展種子（對齊 0700／9988／1211 外部夥伴規則）。階段只列外部供應商／夥伴／通路／基建；自研產品／內容／IP／附屬不進階段。對手弧＝產品／市場真對手，且對手≠階段玩家。雙重上市生態節點優先 .HK；不以美股零售／互聯網模板灌水。",
-    "notes_en": "China/Asia major-market curated seed (aligned with 0700/9988/1211 external-partner rules). Stages = external suppliers/partners/channels/infra only — not self-built products/IP/subsidiaries. Rival arc = true product/market rivals; rivals ≠ stage players. Dual-list ecosystem nodes prefer .HK; not a US retail/internet template dump.",
-    "competitorRationale_zh": "競爭弧只列主力市場真實產品對手；階段玩家與對手分開；雙重上市生態節點優先 .HK；中國／亞洲市場不以美股節點為預設。",
-    "competitorRationale_en": "Rival arc = true product rivals in the major market; stages ≠ rivals; dual-list ecosystem nodes prefer .HK; China/Asia hubs are not US-node dumps.",
+    "notes_en": "China/Asia major-market curated seed (aligned with 0700/9988/1211 external-partner rules). Stages = external suppliers/partners/channels/infra only — not self-built products/IP/subsidiaries. Rival arc = true product/market rivals; rivals ≠ stage players. Dual-list ecosystem nodes prefer .HK; China/Asia hubs are not US-node dumps.",
+    "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
+    "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
     "modelId": "housing-brokerage-v1",
     "references": [
       "Industry model `housing-brokerage-v1`",
       "AAPL curated seed shape on main (schema reference)",
       "cache/us_universe.json screen: remaining US listings without supply-chain seed",
-      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)",
-      "docs/0700-hk-supply-chain-concepts.md",
-      "docs/us-sc-concept-audit.md Batch A",
-      "scripts/supply_chain/prep_us_batch_a_china_adr.py"
+      "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
     ]
   },
   "model": {
@@ -70,17 +67,35 @@
     {
       "id": "agents",
       "order": 2,
-      "label_zh": "經紀／加盟",
-      "label_en": "Agents / franchise",
-      "summary_zh": "經紀人與加盟網絡。",
-      "summary_en": "Agents and franchise networks.",
+      "label_zh": "新盤分銷夥伴",
+      "label_en": "New-home distribution partners",
+      "summary_zh": "外部新盤分銷／渠道夥伴（對手經紀與對手放在對手弧）。",
+      "summary_en": "External new-home distribution partners — rival brokerages stay on the rival arc.",
       "players": [
         {
-          "ticker": "1200.HK",
-          "name_en": "Midland Holdings",
-          "name_zh": "美聯集團",
-          "role_zh": "美聯集團：經紀／加盟代表性玩家",
-          "role_en": "Midland Holdings: representative player in Agents / franchise",
+          "ticker": "0960.HK",
+          "name_en": "Longfor",
+          "name_zh": "龍湖集團",
+          "role_zh": "龍湖集團：新盤分銷夥伴代表性玩家",
+          "role_en": "Longfor: representative player in New-home distribution partners",
+          "exchange": "HKEX",
+          "listedInApp": false
+        },
+        {
+          "ticker": "2007.HK",
+          "name_en": "Country Garden",
+          "name_zh": "碧桂園",
+          "role_zh": "碧桂園：新盤分銷夥伴代表性玩家",
+          "role_en": "Country Garden: representative player in New-home distribution partners",
+          "exchange": "HKEX",
+          "listedInApp": false
+        },
+        {
+          "ticker": "0017.HK",
+          "name_en": "New World Dev",
+          "name_zh": "新世界發展",
+          "role_zh": "新世界發展：新盤分銷夥伴代表性玩家",
+          "role_en": "New World Dev: representative player in New-home distribution partners",
           "exchange": "HKEX",
           "listedInApp": false
         }
@@ -163,35 +178,35 @@
     {
       "id": "housing",
       "order": 5,
-      "label_zh": "住房需求",
-      "label_en": "Housing demand",
-      "summary_zh": "建商與住房週期。",
-      "summary_en": "Homebuilders and housing cycle.",
+      "label_zh": "住房／商場需求",
+      "label_en": "Housing / retail demand",
+      "summary_zh": "商場與物業需求週期代表（非對手開發商）。",
+      "summary_en": "Mall/property demand-cycle proxies — rival developers stay on the rival arc.",
       "players": [
         {
-          "ticker": "1109.HK",
-          "name_en": "CR Land",
-          "name_zh": "華潤置地",
-          "role_zh": "華潤置地：住房需求代表性玩家",
-          "role_en": "CR Land: representative player in Housing demand",
+          "ticker": "0144.HK",
+          "name_en": "CMPort",
+          "name_zh": "招商港口",
+          "role_zh": "招商港口：住房／商場需求代表性玩家",
+          "role_en": "CMPort: representative player in Housing / retail demand",
           "exchange": "HKEX",
           "listedInApp": false
         },
         {
-          "ticker": "0688.HK",
-          "name_en": "China Overseas",
-          "name_zh": "中國海外發展",
-          "role_zh": "中國海外發展：住房需求代表性玩家",
-          "role_en": "China Overseas: representative player in Housing demand",
+          "ticker": "0823.HK",
+          "name_en": "Link REIT",
+          "name_zh": "領展房產基金",
+          "role_zh": "領展房產基金：住房／商場需求代表性玩家",
+          "role_en": "Link REIT: representative player in Housing / retail demand",
           "exchange": "HKEX",
           "listedInApp": false
         },
         {
-          "ticker": "0960.HK",
-          "name_en": "Longfor",
-          "name_zh": "龍湖集團",
-          "role_zh": "龍湖集團：住房需求代表性玩家",
-          "role_en": "Longfor: representative player in Housing demand",
+          "ticker": "1997.HK",
+          "name_en": "Wharf REIC",
+          "name_zh": "九龍倉置業",
+          "role_zh": "九龍倉置業：住房／商場需求代表性玩家",
+          "role_en": "Wharf REIC: representative player in Housing / retail demand",
           "exchange": "HKEX",
           "listedInApp": false
         }
@@ -200,20 +215,31 @@
   ],
   "competitors": [
     {
-      "ticker": "ZG",
-      "name_en": "Zillow",
-      "name_zh": "Zillow",
-      "basis_zh": "房源／經紀平台對手",
-      "basis_en": "Listing / brokerage platform rival",
-      "exchange": "NASDAQ"
+      "ticker": "1200.HK",
+      "name_en": "Midland",
+      "name_zh": "美聯集團",
+      "basis_zh": "中國住宅經紀對手",
+      "basis_en": "China residential brokerage rival",
+      "exchange": "HKEX",
+      "listedInApp": false
     },
     {
-      "ticker": "COMP",
-      "name_en": "Compass",
-      "name_zh": "Compass",
-      "basis_zh": "經紀平台對手",
-      "basis_en": "Brokerage platform rival",
-      "exchange": "NYSE"
+      "ticker": "1109.HK",
+      "name_en": "CR Land",
+      "name_zh": "華潤置地",
+      "basis_zh": "開發商自銷／渠道對手",
+      "basis_en": "Developer channel rival",
+      "exchange": "HKEX",
+      "listedInApp": false
+    },
+    {
+      "ticker": "0688.HK",
+      "name_en": "China Overseas",
+      "name_zh": "中國海外發展",
+      "basis_zh": "開發商自銷／渠道對手",
+      "basis_en": "Developer channel rival",
+      "exchange": "HKEX",
+      "listedInApp": false
     }
   ]
 }

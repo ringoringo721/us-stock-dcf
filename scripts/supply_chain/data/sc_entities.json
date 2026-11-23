@@ -7605,7 +7605,7 @@
     "exchange": "NASDAQ"
   },
   "1200.HK": {
-    "name_en": "Midland Holdings",
+    "name_en": "Midland",
     "name_zh": "美聯集團",
     "exchange": "HKEX"
   },
@@ -8288,5 +8288,25 @@
     "name_en": "Kakao",
     "name_zh": "Kakao",
     "exchange": "KRX"
+  },
+  "2007.HK": {
+    "name_en": "Country Garden",
+    "name_zh": "碧桂園",
+    "exchange": "HKEX"
+  },
+  "0017.HK": {
+    "name_en": "New World Dev",
+    "name_zh": "新世界發展",
+    "exchange": "HKEX"
+  },
+  "0823.HK": {
+    "name_en": "Link REIT",
+    "name_zh": "領展房產基金",
+    "exchange": "HKEX"
+  },
+  "1997.HK": {
+    "name_en": "Wharf REIC",
+    "name_zh": "九龍倉置業",
+    "exchange": "HKEX"
   }
 }
