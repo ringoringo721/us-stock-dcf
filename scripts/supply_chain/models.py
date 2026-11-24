@@ -2987,6 +2987,54 @@ MODELS: dict[str, dict] = {
             },
         ],
     },
+    "flooring-manufacturing-v1": {
+        "label_zh": "地板／磁磚製造價值鏈",
+        "label_en": "Flooring / tile manufacturing value chain",
+        "description_zh": "纖維／樹脂／瓷土原料 → 製程化學品 → 製造設備 → 物流 → 零售／家裝通路。",
+        "description_en": "Fiber/resin/clay inputs → process chemicals → manufacturing equipment → logistics → retail/home channels.",
+        "stages": [
+            {
+                "id": "raw-inputs",
+                "order": 1,
+                "label_zh": "纖維／樹脂／瓷土原料",
+                "label_en": "Fiber / resin / clay inputs",
+                "summary_zh": "地毯纖維、乙烯基／LVT 樹脂與瓷磚／黏土等外部原料。",
+                "summary_en": "External carpet fiber, vinyl/LVT resins, and ceramic/clay inputs.",
+            },
+            {
+                "id": "chemicals",
+                "order": 2,
+                "label_zh": "製程化學品／助劑",
+                "label_en": "Process chemicals / additives",
+                "summary_zh": "接著劑、塗層、工業氣體與專用化學助劑。",
+                "summary_en": "Adhesives, coatings, industrial gases, and specialty process chemicals.",
+            },
+            {
+                "id": "equipment",
+                "order": 3,
+                "label_zh": "製造設備／自動化",
+                "label_en": "Manufacturing equipment / automation",
+                "summary_zh": "工廠自動化、壓縮空氣與工業控制設備。",
+                "summary_en": "Plant automation, compressed air, and industrial controls.",
+            },
+            {
+                "id": "logistics",
+                "order": 4,
+                "label_zh": "物流／配送",
+                "label_en": "Logistics / distribution",
+                "summary_zh": "鐵路、零擔與包裹把成品送至 DC／通路。",
+                "summary_en": "Rail, LTL, and parcel into DCs/channels.",
+            },
+            {
+                "id": "retail-channels",
+                "order": 5,
+                "label_zh": "零售／家裝通路",
+                "label_en": "Retail / home channels",
+                "summary_zh": "硬面地板專科與家裝大賣場等下游通路（非製造對手）。",
+                "summary_en": "Hard-surface specialty and home-improvement retail channels (not manufacturing rivals).",
+            },
+        ],
+    },
     "mi-specialty-v1": {
         "label_zh": "抵押保險價值鏈",
         "label_en": "Mortgage insurance value chain",
@@ -3713,6 +3761,8 @@ TICKER_MODEL: dict[str, str] = {
     "HD": "home-improvement-retail-v1",
     "LOW": "home-improvement-retail-v1",
     "FND": "home-improvement-retail-v1",
+    # Flooring / tile manufacturer (not Furnishings F&B pad; SN/SGI stay off MHK)
+    "MHK": "flooring-manufacturing-v1",
     # Racing / iGaming / wagering hubs (not casino-resort hospitality pad)
     "CHDN": "us-racing-gaming-v1",
     "DKNG": "us-racing-gaming-v1",

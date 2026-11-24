@@ -2,14 +2,11 @@
   "bandMin": 0.0,
   "bandMax": 50000000000.0,
   "bandTotal": 1041,
-  "written": 4,
+  "written": 1,
   "skippedExisting": [],
   "failures": [],
   "tickers": [
-    "FLUT",
-    "DKNG",
-    "CHDN",
-    "SGHC"
+    "MHK"
   ],
   "dryRun": false,
   "date": "2026-11-24",

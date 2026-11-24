@@ -1209,6 +1209,33 @@
       "APP"
     ]
   },
+  "flooring-manufacturing-v1": {
+    "raw-inputs": [
+      "DOW",
+      "LYB",
+      "EMN"
+    ],
+    "chemicals": [
+      "PPG",
+      "DD",
+      "APD"
+    ],
+    "equipment": [
+      "ROK",
+      "EMR",
+      "IR"
+    ],
+    "logistics": [
+      "UNP",
+      "ODFL",
+      "UPS"
+    ],
+    "retail-channels": [
+      "FND",
+      "HD",
+      "LOW"
+    ]
+  },
   "mi-specialty-v1": {
     "agency": [
       "FNMA",

@@ -637,6 +637,12 @@ EXTRA_PEER_GROUPS: list[tuple[str, list[str], str, str]] = [
         "Door hardware / access rival",
     ),
     (
+        "flooring-mfg",
+        ["MHK", "TREX", "AWI", "OC"],  # flooring/tile/surface makers — not SN/SGI furnishings bucket
+        "地板／表面材料製造對手",
+        "Flooring / surface materials manufacturing rival",
+    ),
+    (
         "gas-ep",
         ["AR", "EQT", "RRC", "EXE"],  # pure-play gas E&P — not EOG/OXY/FANG/COP/DVN oil
         "天然氣勘探開發對手",
@@ -1115,6 +1121,7 @@ TICKER_GROUP_FORCE: dict[str, str] = {
     "MKSI": "power-conv",
     "ADT": "security-svc",
     "ALLE": "door-hardware",
+    "MHK": "flooring-mfg",
     "AR": "gas-ep",
     "EQT": "gas-ep",
     "RRC": "gas-ep",
@@ -1250,6 +1257,7 @@ TICKER_GROUP_FORCE: dict[str, str] = {
 # Specialty groups that must never be padded with same-industry megacaps.
 NO_PAD_GROUPS = {
     "door-hardware",
+    "flooring-mfg",
     "gas-ep",
     "consumer-tax",
     "consult-svc",
