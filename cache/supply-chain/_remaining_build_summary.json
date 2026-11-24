@@ -2,13 +2,11 @@
   "bandMin": 0.0,
   "bandMax": 50000000000.0,
   "bandTotal": 1041,
-  "written": 3,
+  "written": 1,
   "skippedExisting": [],
   "failures": [],
   "tickers": [
-    "WSM",
-    "TSCO",
-    "FND"
+    "WSM"
   ],
   "dryRun": false,
   "date": "2026-11-24",

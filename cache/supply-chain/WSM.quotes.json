@@ -36,15 +36,15 @@
       "asOf": "2026-11-23",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "TPX": {
-      "ticker": "TPX",
-      "price": null,
-      "previousClose": null,
-      "changePct": null,
-      "mcap": null,
+    "SGI": {
+      "ticker": "SGI",
+      "price": 60.58,
+      "previousClose": 57.85,
+      "changePct": 4.719,
+      "mcap": 14774.4,
       "currency": "USD",
-      "asOf": null,
-      "source": null
+      "asOf": "2026-11-23",
+      "source": "FMP historical-price-eod via cache/price_charts"
     },
     "MHK": {
       "ticker": "MHK",
