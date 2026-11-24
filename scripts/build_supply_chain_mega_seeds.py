@@ -19,7 +19,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from scripts.supply_chain.models import MODELS, resolve_model_id  # noqa: E402
+from scripts.supply_chain.models import (  # noqa: E402
+    HUB_STAGE_SUMMARY_OVERRIDES,
+    MODELS,
+    resolve_model_id,
+)
 
 CACHE_DIR = ROOT / "cache" / "supply-chain"
 UNIVERSE_PATH = ROOT / "cache" / "us_universe.json"
@@ -564,14 +568,21 @@ def build_seed(
                     **({"listedInApp": False} if not is_listed else {}),
                 }
             )
+        summary_zh = stage_meta["summary_zh"]
+        summary_en = stage_meta["summary_en"]
+        hub_sum = (HUB_STAGE_SUMMARY_OVERRIDES.get(ticker) or {}).get(sid) or {}
+        if hub_sum.get("summary_zh"):
+            summary_zh = hub_sum["summary_zh"]
+        if hub_sum.get("summary_en"):
+            summary_en = hub_sum["summary_en"]
         stages.append(
             {
                 "id": sid,
                 "order": stage_meta["order"],
                 "label_zh": traditionalize(stage_meta["label_zh"]),
                 "label_en": stage_meta["label_en"],
-                "summary_zh": traditionalize(stage_meta["summary_zh"]),
-                "summary_en": stage_meta["summary_en"],
+                "summary_zh": traditionalize(summary_zh),
+                "summary_en": summary_en,
                 "players": players,
             }
         )

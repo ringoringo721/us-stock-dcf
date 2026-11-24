@@ -2950,8 +2950,8 @@ MODELS: dict[str, dict] = {
                 "order": 1,
                 "label_zh": "博弈／HRM／角子機設備",
                 "label_en": "Gaming / HRM / slot systems",
-                "summary_zh": "外部角子機、HRM 與賭桌系統供應商（自有 Exacta／United Tote 不進此階段）。",
-                "summary_en": "External slot, HRM, and table systems (owned Exacta/United Tote stay off this stage).",
+                "summary_zh": "外部角子機、HRM 與賭桌／iGaming 系統供應商。",
+                "summary_en": "External slot, HRM, and table/iGaming systems suppliers.",
             },
             {
                 "id": "sports-data",
@@ -3748,6 +3748,18 @@ TICKER_MODEL: dict[str, str] = {
     "0883.HK": "energy-integrated-v1",
     "1299.HK": "insurance-v1",
     "0386.HK": "energy-integrated-v1",
+}
+
+
+# Hub-only stage summary honesty (shared model copy must not claim another hub's assets).
+# Applied in build_seed after model stage metadata; labels stay on the shared model.
+HUB_STAGE_SUMMARY_OVERRIDES: dict[str, dict[str, dict[str, str]]] = {
+    "CHDN": {
+        "gaming-systems": {
+            "summary_zh": "外部角子機、HRM 與賭桌系統供應商（自有 Exacta／United Tote 不進此階段）。",
+            "summary_en": "External slot, HRM, and table systems (owned Exacta/United Tote stay off this stage).",
+        },
+    },
 }
 
 
