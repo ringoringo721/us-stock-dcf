@@ -11573,19 +11573,29 @@
   ],
   "WSM": [
     [
-      "BBY",
-      "消費電子／專賣零售對手",
-      "Consumer-electronics / specialty retail rival"
+      "HD",
+      "家居／廚衛大賣場對手",
+      "Home / kitchen big-box rival"
     ],
     [
-      "GME",
-      "消費電子／專賣零售對手",
-      "Consumer-electronics / specialty retail rival"
+      "LOW",
+      "家居／廚衛大賣場對手",
+      "Home / kitchen big-box rival"
     ],
     [
-      "TSCO",
-      "消費電子／專賣零售對手",
-      "Consumer-electronics / specialty retail rival"
+      "RH",
+      "奢華家居專賣對手",
+      "Luxury home specialty rival"
+    ],
+    [
+      "W",
+      "家居電商對手",
+      "Home furnishings e-commerce rival"
+    ],
+    [
+      "AMZN",
+      "家居／廚電電商競爭",
+      "Home / kitchen e-comm competition"
     ]
   ],
   "CPAY": [
@@ -15299,19 +15309,29 @@
   ],
   "TSCO": [
     [
-      "BBY",
-      "消費電子／專賣零售對手",
-      "Consumer-electronics / specialty retail rival"
+      "HD",
+      "家居裝修／五金大賣場對手",
+      "Home-improvement / hardlines big-box rival"
     ],
     [
-      "GME",
-      "消費電子／專賣零售對手",
-      "Consumer-electronics / specialty retail rival"
+      "LOW",
+      "家居裝修／五金大賣場對手",
+      "Home-improvement / hardlines big-box rival"
     ],
     [
-      "WSM",
-      "消費電子／專賣零售對手",
-      "Consumer-electronics / specialty retail rival"
+      "FND",
+      "硬面地板／家居專賣對手",
+      "Hard-surface flooring / home specialty rival"
+    ],
+    [
+      "CHWY",
+      "寵物電商對手",
+      "Pet e-commerce rival"
+    ],
+    [
+      "AMZN",
+      "農牧場／寵物／五金電商競爭",
+      "Farm-ranch / pet / hardlines e-comm competition"
     ]
   ],
   "SMCI": [

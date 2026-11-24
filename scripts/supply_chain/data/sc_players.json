@@ -1183,6 +1183,60 @@
       "C"
     ]
   },
+  "rural-specialty-retail-v1": {
+    "farm-pet": [
+      "SJM",
+      "HRL",
+      "TSN"
+    ],
+    "tools-hardware": [
+      "SWK",
+      "FAST",
+      "GWW"
+    ],
+    "outdoor-equipment": [
+      "DE",
+      "AGCO",
+      "CAT"
+    ],
+    "logistics": [
+      "UNP",
+      "ODFL",
+      "UPS"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "C"
+    ]
+  },
+  "home-furnishings-retail-v1": {
+    "kitchen-home": [
+      "FBIN",
+      "MAS",
+      "TPX"
+    ],
+    "surfaces-finishes": [
+      "MHK",
+      "PPG",
+      "SHW"
+    ],
+    "logistics": [
+      "UPS",
+      "FDX",
+      "EXPD"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "AXP"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "PINS"
+    ]
+  },
   "us-racing-gaming-v1": {
     "gaming-systems": [
       "IGT",

@@ -36,19 +36,19 @@
       "summary_en": "Structural lumber, insulation, building-product makers.",
       "players": [
         {
+          "ticker": "MHK",
+          "name_en": "Mohawk Industries",
+          "name_zh": "Mohawk Industries",
+          "role_zh": "Mohawk Industries：建材／木材製造代表性玩家",
+          "role_en": "Mohawk Industries: representative player in Building products / lumber",
+          "exchange": "NYSE"
+        },
+        {
           "ticker": "WY",
           "name_en": "Weyerhaeuser",
           "name_zh": "Weyerhaeuser",
           "role_zh": "Weyerhaeuser：建材／木材製造代表性玩家",
           "role_en": "Weyerhaeuser: representative player in Building products / lumber",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "BLDR",
-          "name_en": "Builders FirstSource",
-          "name_zh": "Builders FirstSource",
-          "role_zh": "Builders FirstSource：建材／木材製造代表性玩家",
-          "role_en": "Builders FirstSource: representative player in Building products / lumber",
           "exchange": "NYSE"
         },
         {
@@ -78,19 +78,19 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "CARR",
-          "name_en": "Carrier",
-          "name_zh": "Carrier",
-          "role_zh": "Carrier：工具／家電代表性玩家",
-          "role_en": "Carrier: representative player in Tools / appliances",
+          "ticker": "FBIN",
+          "name_en": "Fortune Brands Innovations",
+          "name_zh": "FBIN",
+          "role_zh": "FBIN：工具／家電代表性玩家",
+          "role_en": "Fortune Brands Innovations: representative player in Tools / appliances",
           "exchange": "NYSE"
         },
         {
-          "ticker": "AOS",
-          "name_en": "A. O. Smith",
-          "name_zh": "A. O. Smith",
-          "role_zh": "A. O. Smith：工具／家電代表性玩家",
-          "role_en": "A. O. Smith: representative player in Tools / appliances",
+          "ticker": "MAS",
+          "name_en": "Masco",
+          "name_zh": "Masco",
+          "role_zh": "Masco：工具／家電代表性玩家",
+          "role_en": "Masco: representative player in Tools / appliances",
           "exchange": "NYSE"
         }
       ]
@@ -104,11 +104,19 @@
       "summary_en": "Electrical, plumbing fixtures, and coatings/finishes.",
       "players": [
         {
-          "ticker": "MAS",
-          "name_en": "Masco",
-          "name_zh": "Masco",
-          "role_zh": "Masco：水電／塗料飾面代表性玩家",
-          "role_en": "Masco: representative player in MEP / finishes",
+          "ticker": "PPG",
+          "name_en": "PPG Industries",
+          "name_zh": "PPG Industries",
+          "role_zh": "PPG Industries：水電／塗料飾面代表性玩家",
+          "role_en": "PPG Industries: representative player in MEP / finishes",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "SHW",
+          "name_en": "Sherwin-Williams",
+          "name_zh": "宣偉塗料",
+          "role_zh": "宣偉塗料：水電／塗料飾面代表性玩家",
+          "role_en": "Sherwin-Williams: representative player in MEP / finishes",
           "exchange": "NYSE"
         },
         {
@@ -117,14 +125,6 @@
           "name_zh": "Hubbell",
           "role_zh": "Hubbell：水電／塗料飾面代表性玩家",
           "role_en": "Hubbell: representative player in MEP / finishes",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "PPG",
-          "name_en": "PPG Industries",
-          "name_zh": "PPG Industries",
-          "role_zh": "PPG Industries：水電／塗料飾面代表性玩家",
-          "role_en": "PPG Industries: representative player in MEP / finishes",
           "exchange": "NYSE"
         }
       ]

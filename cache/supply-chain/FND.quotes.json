@@ -16,22 +16,22 @@
       "asOf": "2026-11-23",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
+    "MHK": {
+      "ticker": "MHK",
+      "price": 144.78,
+      "previousClose": 140.86,
+      "changePct": 2.783,
+      "mcap": 8750.3,
+      "currency": "USD",
+      "asOf": "2026-11-23",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
     "WY": {
       "ticker": "WY",
       "price": 19.75,
       "previousClose": 19.59,
       "changePct": 0.817,
       "mcap": 15112.8,
-      "currency": "USD",
-      "asOf": "2026-11-23",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "BLDR": {
-      "ticker": "BLDR",
-      "price": 56.92,
-      "previousClose": 55.03,
-      "changePct": 3.434,
-      "mcap": 6729.7,
       "currency": "USD",
       "asOf": "2026-11-23",
       "source": "FMP historical-price-eod via cache/price_charts"
@@ -56,22 +56,12 @@
       "asOf": "2026-11-23",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "CARR": {
-      "ticker": "CARR",
-      "price": 52.03,
-      "previousClose": 49.96,
-      "changePct": 4.143,
-      "mcap": 42855.2,
-      "currency": "USD",
-      "asOf": "2026-11-23",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "AOS": {
-      "ticker": "AOS",
-      "price": 65.0,
-      "previousClose": 63.24,
-      "changePct": 2.783,
-      "mcap": 8671.0,
+    "FBIN": {
+      "ticker": "FBIN",
+      "price": 48.48,
+      "previousClose": 46.45,
+      "changePct": 4.37,
+      "mcap": 5735.6,
       "currency": "USD",
       "asOf": "2026-11-23",
       "source": "FMP historical-price-eod via cache/price_charts"
@@ -86,22 +76,32 @@
       "asOf": "2026-11-23",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "HUBB": {
-      "ticker": "HUBB",
-      "price": 434.72,
-      "previousClose": 403.66,
-      "changePct": 7.695,
-      "mcap": 22690.0,
-      "currency": "USD",
-      "asOf": "2026-11-23",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
     "PPG": {
       "ticker": "PPG",
       "price": 120.62,
       "previousClose": 117.12,
       "changePct": 2.988,
       "mcap": 27033.7,
+      "currency": "USD",
+      "asOf": "2026-11-23",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "SHW": {
+      "ticker": "SHW",
+      "price": 349.47,
+      "previousClose": 339.74,
+      "changePct": 2.864,
+      "mcap": 83130.5,
+      "currency": "USD",
+      "asOf": "2026-11-23",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "HUBB": {
+      "ticker": "HUBB",
+      "price": 434.72,
+      "previousClose": 403.66,
+      "changePct": 7.695,
+      "mcap": 22690.0,
       "currency": "USD",
       "asOf": "2026-11-23",
       "source": "FMP historical-price-eod via cache/price_charts"
