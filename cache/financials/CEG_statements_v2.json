@@ -828,7 +828,7 @@
         "costOfRevenue": 6175000000,
         "grossProfit": 1329000000,
         "researchAndDevelopmentExpenses": 0,
-        "generalAndAdministrativeExpenses": 0,
+        "generalAndAdministrativeExpenses": 29000000,
         "sellingAndMarketingExpenses": 0,
         "sellingGeneralAndAdministrativeExpenses": 29000000,
         "otherExpenses": 720000000,
@@ -851,10 +851,10 @@
         "netIncome": 513000000,
         "netIncomeDeductions": 0,
         "bottomLineNetIncome": 513000000,
-        "eps": 1.45,
-        "epsDiluted": 1.45,
-        "weightedAverageShsOut": 354000000,
-        "weightedAverageShsOutDil": 354000000
+        "eps": 1.42,
+        "epsDiluted": 1.42,
+        "weightedAverageShsOut": 360000000,
+        "weightedAverageShsOutDil": 360000000
       },
       {
         "date": "2026-03-31",

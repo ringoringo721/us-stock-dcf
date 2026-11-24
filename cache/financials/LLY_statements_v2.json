@@ -217,8 +217,8 @@
         "acceptedDate": "2026-02-12 13:58:32",
         "fiscalYear": "2025",
         "period": "FY",
-        "cashAndCashEquivalents": 7163000000,
-        "shortTermInvestments": 105000000,
+        "cashAndCashEquivalents": 7268000000,
+        "shortTermInvestments": 0,
         "cashAndShortTermInvestments": 7268000000,
         "netReceivables": 20155000000,
         "accountsReceivables": 17760000000,
@@ -243,7 +243,7 @@
         "accruedExpenses": 0,
         "shortTermDebt": 1635000000,
         "capitalLeaseObligationsCurrent": 0,
-        "taxPayables": 5875000000,
+        "taxPayables": 0,
         "deferredRevenue": 0,
         "otherCurrentLiabilities": 28214000000,
         "totalCurrentLiabilities": 35228000000,
@@ -267,9 +267,9 @@
         "totalEquity": 26535000000,
         "minorityInterest": 0,
         "totalLiabilitiesAndTotalEquity": 112476000000,
-        "totalInvestments": 2907000000,
+        "totalInvestments": 2802000000,
         "totalDebt": 42503000000,
-        "netDebt": 35340000000
+        "netDebt": 35235000000
       },
       {
         "date": "2024-12-31",
@@ -1302,10 +1302,10 @@
         "netIncome": -57400000,
         "netIncomeDeductions": 0,
         "bottomLineNetIncome": -57400000,
-        "eps": -0.0605,
-        "epsDiluted": -0.0605,
-        "weightedAverageShsOut": 949303000,
-        "weightedAverageShsOutDil": 949303000
+        "eps": -0.06,
+        "epsDiluted": -0.06,
+        "weightedAverageShsOut": 899800000,
+        "weightedAverageShsOutDil": 899800000
       },
       {
         "date": "2023-06-30",
@@ -1343,10 +1343,10 @@
         "netIncome": 1763200000,
         "netIncomeDeductions": 0,
         "bottomLineNetIncome": 1763200000,
-        "eps": 1.86,
-        "epsDiluted": 1.86,
-        "weightedAverageShsOut": 949286000,
-        "weightedAverageShsOutDil": 949286000
+        "eps": 1.96,
+        "epsDiluted": 1.95,
+        "weightedAverageShsOut": 899700000,
+        "weightedAverageShsOutDil": 902700000
       },
       {
         "date": "2023-03-31",
@@ -1384,10 +1384,10 @@
         "netIncome": 1344900000,
         "netIncomeDeductions": 0,
         "bottomLineNetIncome": 1344900000,
-        "eps": 1.42,
-        "epsDiluted": 1.42,
-        "weightedAverageShsOut": 949267000,
-        "weightedAverageShsOutDil": 949267000
+        "eps": 1.49,
+        "epsDiluted": 1.49,
+        "weightedAverageShsOut": 901000000,
+        "weightedAverageShsOutDil": 903300000
       },
       {
         "date": "2022-12-31",
@@ -1548,10 +1548,10 @@
         "netIncome": 1902900000,
         "netIncomeDeductions": 0,
         "bottomLineNetIncome": 1902900000,
-        "eps": 2,
-        "epsDiluted": 2,
-        "weightedAverageShsOut": 950605000,
-        "weightedAverageShsOutDil": 950605000
+        "eps": 2.11,
+        "epsDiluted": 2.1,
+        "weightedAverageShsOut": 903700000,
+        "weightedAverageShsOutDil": 906400000
       },
       {
         "date": "2021-12-31",
@@ -1668,8 +1668,8 @@
         "acceptedDate": "2026-08-05 14:40:40",
         "fiscalYear": "2026",
         "period": "Q2",
-        "cashAndCashEquivalents": 8890000000,
-        "shortTermInvestments": 60000000,
+        "cashAndCashEquivalents": 8950000000,
+        "shortTermInvestments": 0,
         "cashAndShortTermInvestments": 8950000000,
         "netReceivables": 23475000000,
         "accountsReceivables": 20083000000,
@@ -1694,15 +1694,15 @@
         "accruedExpenses": 22920000000,
         "shortTermDebt": 7050000000,
         "capitalLeaseObligationsCurrent": 0,
-        "taxPayables": 5461000000,
+        "taxPayables": 0,
         "deferredRevenue": 0,
         "otherCurrentLiabilities": 11659000000,
         "totalCurrentLiabilities": 47741000000,
         "longTermDebt": 47858000000,
         "capitalLeaseObligationsNonCurrent": 0,
         "deferredRevenueNonCurrent": 0,
-        "deferredTaxLiabilitiesNonCurrent": 5461000000,
-        "otherNonCurrentLiabilities": 7344000000,
+        "deferredTaxLiabilitiesNonCurrent": 0,
+        "otherNonCurrentLiabilities": 12805000000,
         "totalNonCurrentLiabilities": 60663000000,
         "otherLiabilities": 0,
         "capitalLeaseObligations": 0,
@@ -1718,9 +1718,9 @@
         "totalEquity": 33879000000,
         "minorityInterest": 0,
         "totalLiabilitiesAndTotalEquity": 142283000000,
-        "totalInvestments": 3916000000,
+        "totalInvestments": 3856000000,
         "totalDebt": 54908000000,
-        "netDebt": 46018000000
+        "netDebt": 45958000000
       },
       {
         "date": "2026-03-31",
@@ -1731,8 +1731,8 @@
         "acceptedDate": "2026-04-30 11:25:48",
         "fiscalYear": "2026",
         "period": "Q1",
-        "cashAndCashEquivalents": 5136000000,
-        "shortTermInvestments": 146000000,
+        "cashAndCashEquivalents": 5282000000,
+        "shortTermInvestments": 0,
         "cashAndShortTermInvestments": 5282000000,
         "netReceivables": 21177000000,
         "accountsReceivables": 18429000000,
@@ -1757,7 +1757,7 @@
         "accruedExpenses": 17547000000,
         "shortTermDebt": 4000000000,
         "capitalLeaseObligationsCurrent": 0,
-        "taxPayables": 5289000000,
+        "taxPayables": 0,
         "deferredRevenue": 0,
         "otherCurrentLiabilities": 10058000000,
         "totalCurrentLiabilities": 36634000000,
@@ -1781,9 +1781,9 @@
         "totalEquity": 31198000000,
         "minorityInterest": 0,
         "totalLiabilitiesAndTotalEquity": 116576000000,
-        "totalInvestments": 3262000000,
+        "totalInvestments": 3116000000,
         "totalDebt": 43370000000,
-        "netDebt": 38234000000
+        "netDebt": 38088000000
       },
       {
         "date": "2025-12-31",
@@ -1794,8 +1794,8 @@
         "acceptedDate": "2026-02-12 13:58:32",
         "fiscalYear": "2025",
         "period": "Q4",
-        "cashAndCashEquivalents": 7163000000,
-        "shortTermInvestments": 105000000,
+        "cashAndCashEquivalents": 7268000000,
+        "shortTermInvestments": 0,
         "cashAndShortTermInvestments": 7268000000,
         "netReceivables": 20155000000,
         "accountsReceivables": 17760000000,
@@ -1844,9 +1844,9 @@
         "totalEquity": 26535000000,
         "minorityInterest": 0,
         "totalLiabilitiesAndTotalEquity": 112476000000,
-        "totalInvestments": 2907000000,
+        "totalInvestments": 2802000000,
         "totalDebt": 42503000000,
-        "netDebt": 35340000000
+        "netDebt": 35235000000
       },
       {
         "date": "2025-09-30",

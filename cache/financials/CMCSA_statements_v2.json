@@ -39,8 +39,8 @@
         "bottomLineNetIncome": 19998000000,
         "eps": 5.41,
         "epsDiluted": 5.39,
-        "weightedAverageShsOut": 3636000000,
-        "weightedAverageShsOutDil": 3636000000
+        "weightedAverageShsOut": 3699000000,
+        "weightedAverageShsOutDil": 3709000000
       },
       {
         "date": "2024-12-31",
@@ -140,18 +140,18 @@
         "generalAndAdministrativeExpenses": 0,
         "sellingAndMarketingExpenses": 8506000000,
         "sellingGeneralAndAdministrativeExpenses": 8506000000,
-        "otherExpenses": 52084000000,
-        "operatingExpenses": 60590000000,
-        "costAndExpenses": 98803000000,
+        "otherExpenses": 60667000000,
+        "operatingExpenses": 69173000000,
+        "costAndExpenses": 107386000000,
         "netInterestIncome": -3896000000,
         "interestIncome": 0,
         "interestExpense": 3896000000,
         "depreciationAndAmortization": 13821000000,
         "ebitda": 27001000000,
         "ebit": 13180000000,
-        "nonOperatingIncomeExcludingInterest": 9444000000,
-        "operatingIncome": 22624000000,
-        "totalOtherIncomeExpensesNet": -13340000000,
+        "nonOperatingIncomeExcludingInterest": 861000000,
+        "operatingIncome": 14041000000,
+        "totalOtherIncomeExpensesNet": -4757000000,
         "incomeBeforeTax": 9284000000,
         "incomeTaxExpense": 4359000000,
         "netIncomeFromContinuingOperations": 4925000000,
@@ -974,10 +974,10 @@
         "netIncome": 3332000000,
         "netIncomeDeductions": 0,
         "bottomLineNetIncome": 3332000000,
-        "eps": 0.89,
+        "eps": 0.91,
         "epsDiluted": 0.9,
-        "weightedAverageShsOut": 3733000000,
-        "weightedAverageShsOutDil": 3733000000
+        "weightedAverageShsOut": 3679000000,
+        "weightedAverageShsOutDil": 3689000000
       },
       {
         "date": "2025-06-30",
@@ -1016,9 +1016,9 @@
         "netIncomeDeductions": 0,
         "bottomLineNetIncome": 11123000000,
         "eps": 2.99,
-        "epsDiluted": 2.97,
-        "weightedAverageShsOut": 3756000000,
-        "weightedAverageShsOutDil": 3756000000
+        "epsDiluted": 2.98,
+        "weightedAverageShsOut": 3720000000,
+        "weightedAverageShsOutDil": 3727000000
       },
       {
         "date": "2025-03-31",
@@ -1466,8 +1466,8 @@
         "netIncome": -4598000000,
         "netIncomeDeductions": 0,
         "bottomLineNetIncome": -4598000000,
-        "eps": -1.07,
-        "epsDiluted": -1.07,
+        "eps": -1.05,
+        "epsDiluted": -1.05,
         "weightedAverageShsOut": 4377000000,
         "weightedAverageShsOutDil": 4377000000
       },

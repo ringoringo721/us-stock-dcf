@@ -17,8 +17,8 @@
         "generalAndAdministrativeExpenses": 965000000,
         "sellingAndMarketingExpenses": 0,
         "sellingGeneralAndAdministrativeExpenses": 965000000,
-        "otherExpenses": 486000000,
-        "operatingExpenses": 1451000000,
+        "otherExpenses": 481000000,
+        "operatingExpenses": 1446000000,
         "costAndExpenses": 22045000000,
         "netInterestIncome": -767000000,
         "interestIncome": 42000000,
@@ -37,10 +37,10 @@
         "netIncome": 2601000000,
         "netIncomeDeductions": 0,
         "bottomLineNetIncome": 2601000000,
-        "eps": 9.52,
-        "epsDiluted": 9.49,
-        "weightedAverageShsOut": 268500000,
-        "weightedAverageShsOutDil": 269400000
+        "eps": 9.53,
+        "epsDiluted": 9.51,
+        "weightedAverageShsOut": 272900000,
+        "weightedAverageShsOutDil": 273600000
       },
       {
         "date": "2024-12-31",
@@ -844,17 +844,17 @@
         "operatingIncome": 1229000000,
         "totalOtherIncomeExpensesNet": -185000000,
         "incomeBeforeTax": 1044000000,
-        "incomeTaxExpense": -278000000,
-        "netIncomeFromContinuingOperations": 1322000000,
+        "incomeTaxExpense": 278000000,
+        "netIncomeFromContinuingOperations": 766000000,
         "netIncomeFromDiscontinuedOperations": 0,
-        "otherAdjustmentsToNetIncome": -556000000,
+        "otherAdjustmentsToNetIncome": 0,
         "netIncome": 766000000,
         "netIncomeDeductions": 0,
         "bottomLineNetIncome": 766000000,
-        "eps": 2.85,
-        "epsDiluted": 2.84,
-        "weightedAverageShsOut": 268500000,
-        "weightedAverageShsOutDil": 269400000
+        "eps": 2.9,
+        "epsDiluted": 2.9,
+        "weightedAverageShsOut": 263900000,
+        "weightedAverageShsOutDil": 264500000
       },
       {
         "date": "2026-03-31",
@@ -892,10 +892,10 @@
         "netIncome": 648000000,
         "netIncomeDeductions": 0,
         "bottomLineNetIncome": 648000000,
-        "eps": 2.41,
-        "epsDiluted": 2.41,
-        "weightedAverageShsOut": 268500000,
-        "weightedAverageShsOutDil": 269400000
+        "eps": 2.44,
+        "epsDiluted": 2.43,
+        "weightedAverageShsOut": 266100000,
+        "weightedAverageShsOutDil": 266800000
       },
       {
         "date": "2025-12-31",

@@ -161,9 +161,9 @@
         "netIncomeDeductions": -1000000,
         "bottomLineNetIncome": 48000000,
         "eps": 0.02728540990332411,
-        "epsDiluted": 0.02728540990332411,
+        "epsDiluted": 0.0436,
         "weightedAverageShsOut": 1759181928,
-        "weightedAverageShsOutDil": 1759181928
+        "weightedAverageShsOutDil": 1101000000
       },
       {
         "date": "2021-12-31",
@@ -1302,10 +1302,10 @@
         "netIncome": 352000000,
         "netIncomeDeductions": 0,
         "bottomLineNetIncome": 261000000,
-        "eps": 0.1923361771084577,
-        "epsDiluted": 0.19162840828745142,
-        "weightedAverageShsOut": 1356999000,
-        "weightedAverageShsOutDil": 1362011000
+        "eps": 0.24,
+        "epsDiluted": 0.2375,
+        "weightedAverageShsOut": 1088000000,
+        "weightedAverageShsOutDil": 1099000000
       },
       {
         "date": "2023-06-30",

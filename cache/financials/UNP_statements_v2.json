@@ -1629,11 +1629,11 @@
         "accountPayables": 1038000000,
         "otherPayables": 1218000000,
         "accruedExpenses": 1181000000,
-        "shortTermDebt": 1514000000,
+        "shortTermDebt": 1289000000,
         "capitalLeaseObligationsCurrent": 225000000,
-        "taxPayables": 1218000000,
+        "taxPayables": 0,
         "deferredRevenue": 0,
-        "otherCurrentLiabilities": 429000000,
+        "otherCurrentLiabilities": 654000000,
         "totalCurrentLiabilities": 5605000000,
         "longTermDebt": 29035000000,
         "capitalLeaseObligationsNonCurrent": 563000000,
@@ -1656,8 +1656,8 @@
         "minorityInterest": 0,
         "totalLiabilitiesAndTotalEquity": 72609000000,
         "totalInvestments": 3905000000,
-        "totalDebt": 31337000000,
-        "netDebt": 29126000000
+        "totalDebt": 31112000000,
+        "netDebt": 28901000000
       },
       {
         "date": "2026-06-30",
