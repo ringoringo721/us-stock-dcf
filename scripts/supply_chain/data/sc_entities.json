@@ -1932,7 +1932,8 @@
   "TPX": {
     "name_en": "Tempur Sealy",
     "name_zh": "Tempur Sealy",
-    "exchange": "NYSE"
+    "exchange": "NYSE",
+    "listedInApp": false
   },
   "LEN": {
     "name_en": "Lennar",
@@ -8385,5 +8386,20 @@
     "name_zh": "Genius Sports",
     "exchange": "NYSE",
     "listedInApp": false
+  },
+  "HELE": {
+    "name_en": "Helen of Troy",
+    "name_zh": "Helen of Troy",
+    "exchange": "NASDAQ"
+  },
+  "WHR": {
+    "name_en": "Whirlpool",
+    "name_zh": "Whirlpool",
+    "exchange": "NYSE"
+  },
+  "SNBR": {
+    "name_en": "Sleep Number",
+    "name_zh": "Sleep Number",
+    "exchange": "NASDAQ"
   }
 }

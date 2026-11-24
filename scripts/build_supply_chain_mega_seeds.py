@@ -411,6 +411,7 @@ STAGE_TICKER_BANNED = {
     "GOLD",
     "BERY",
     "EVRI",  # Everi acquired by Apollo/IGT Jul 2025 — delisted
+    "TPX",  # Tempur Sealy → Somnigroup (SGI); delisted
 }
 
 # Same-issuer dual listings (TWSE/ADR etc.) — never stage+rival the same issuer.
