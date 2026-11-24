@@ -3262,9 +3262,9 @@
       "Home-improvement direct rival"
     ],
     [
-      "AMZN",
-      "建材／家居電商競爭",
-      "Building/home e-comm competition"
+      "TSCO",
+      "鄉村／家居專賣對手",
+      "Rural / home specialty rival"
     ],
     [
       "FND",
@@ -3272,14 +3272,14 @@
       "Flooring specialty rival"
     ],
     [
-      "WMT",
-      "家居百貨競爭",
-      "Home general-merch competition"
+      "WSM",
+      "家居精品專賣對手",
+      "Home specialty retail rival"
     ],
     [
-      "TGT",
-      "家居百貨競爭",
-      "Home general-merch competition"
+      "AMZN",
+      "建材／家居電商競爭",
+      "Building/home e-comm competition"
     ]
   ],
   "LOW": [
@@ -3289,24 +3289,24 @@
       "Home-improvement direct rival"
     ],
     [
-      "AMZN",
-      "建材電商競爭",
-      "Building e-comm competition"
-    ],
-    [
-      "WMT",
-      "家居百貨競爭",
-      "Home general-merch competition"
-    ],
-    [
-      "TGT",
-      "家居百貨競爭",
-      "Home general-merch competition"
+      "TSCO",
+      "鄉村／家居專賣對手",
+      "Rural / home specialty rival"
     ],
     [
       "FND",
       "地板專賣對手",
       "Flooring specialty rival"
+    ],
+    [
+      "WSM",
+      "家居精品專賣對手",
+      "Home specialty retail rival"
+    ],
+    [
+      "AMZN",
+      "建材／家居電商競爭",
+      "Building/home e-comm competition"
     ]
   ],
   "MCD": [
@@ -31820,29 +31820,29 @@
   ],
   "FND": [
     [
-      "TGT",
-      "折扣零售對手",
-      "Discount retail rival"
+      "HD",
+      "家居裝修直接對手",
+      "Home-improvement direct rival"
     ],
     [
-      "WMT",
-      "折扣零售對手",
-      "Discount retail rival"
+      "LOW",
+      "家居裝修直接對手",
+      "Home-improvement direct rival"
     ],
     [
-      "COST",
-      "折扣零售對手",
-      "Discount retail rival"
+      "TSCO",
+      "鄉村／家居專賣對手",
+      "Rural / home specialty rival"
+    ],
+    [
+      "WSM",
+      "家居精品專賣對手",
+      "Home specialty retail rival"
     ],
     [
       "AMZN",
-      "折扣零售對手",
-      "Discount retail rival"
-    ],
-    [
-      "DG",
-      "折扣零售對手",
-      "Discount retail rival"
+      "建材／家居電商競爭",
+      "Building/home e-comm competition"
     ]
   ],
   "VEON": [

@@ -2,14 +2,13 @@
   "bandMin": 0.0,
   "bandMax": 50000000000.0,
   "bandTotal": 1041,
-  "written": 2,
+  "written": 1,
   "skippedExisting": [],
   "failures": [],
   "tickers": [
-    "JD",
-    "VIPS"
+    "FND"
   ],
   "dryRun": false,
-  "date": "2026-11-23",
+  "date": "2026-11-24",
   "chartsDir": "/agent/repos/us-stock-dcf/cache/price_charts"
 }
