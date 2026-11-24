@@ -3,7 +3,7 @@
   "ticker": "WSM",
   "name_en": "Williams-Sonoma",
   "name_zh": "Williams-Sonoma",
-  "updatedAt": "2026-11-20",
+  "updatedAt": "2026-11-24",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -11,97 +11,131 @@
     "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
     "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
     "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
-    "modelId": "ecommerce-retail-v1",
+    "modelId": "home-furnishings-retail-v1",
     "references": [
-      "Industry model `ecommerce-retail-v1`",
+      "Industry model `home-furnishings-retail-v1`",
       "AAPL curated seed shape on main (schema reference)",
       "cache/us_universe.json screen: remaining US listings without supply-chain seed",
       "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
     ]
   },
   "model": {
-    "id": "ecommerce-retail-v1",
-    "label_zh": "電商／零售價值鏈",
-    "label_en": "E-commerce / retail value chain",
-    "description_zh": "商品供應 → 倉儲物流 → 支付 → 流量／廣告 → 最後一哩配送。",
-    "description_en": "Merchants/supply → fulfillment → payments → traffic/ads → last-mile."
+    "id": "home-furnishings-retail-v1",
+    "label_zh": "家居／廚衛專賣零售價值鏈",
+    "label_en": "Home furnishings / kitchen specialty retail value chain",
+    "description_zh": "廚衛／家居品牌 → 表面／飾面 → 物流配送 → 支付 → 流量獲客。",
+    "description_en": "Kitchen/home brands → surfaces/finishes → logistics → payments → traffic."
   },
   "stages": [
     {
-      "id": "supply",
+      "id": "kitchen-home",
       "order": 1,
-      "label_zh": "品牌／賣家供應",
-      "label_en": "Brands / seller supply",
-      "summary_zh": "第三方賣家與品牌貨源。",
-      "summary_en": "3P sellers and brand supply.",
+      "label_zh": "廚衛／家居品牌供應",
+      "label_en": "Kitchen / home brand supply",
+      "summary_zh": "廚衛五金、櫃體與小家電等家居品牌貨源。",
+      "summary_en": "Kitchen fixtures, cabinetry, and small-appliance/home brands.",
       "players": [
         {
-          "ticker": "PG",
-          "name_en": "Procter & Gamble",
-          "name_zh": "寶僑",
-          "role_zh": "寶僑：品牌／賣家供應代表性玩家",
-          "role_en": "Procter & Gamble: representative player in Brands / seller supply",
+          "ticker": "FBIN",
+          "name_en": "Fortune Brands Innovations",
+          "name_zh": "FBIN",
+          "role_zh": "FBIN：廚衛／家居品牌供應代表性玩家",
+          "role_en": "Fortune Brands Innovations: representative player in Kitchen / home brand supply",
           "exchange": "NYSE"
         },
         {
-          "ticker": "NKE",
-          "name_en": "Nike",
-          "name_zh": "耐吉",
-          "role_zh": "耐吉：品牌／賣家供應代表性玩家",
-          "role_en": "Nike: representative player in Brands / seller supply",
+          "ticker": "MAS",
+          "name_en": "Masco",
+          "name_zh": "Masco",
+          "role_zh": "Masco：廚衛／家居品牌供應代表性玩家",
+          "role_en": "Masco: representative player in Kitchen / home brand supply",
           "exchange": "NYSE"
         },
         {
-          "ticker": "SONY",
-          "name_en": "Sony",
-          "name_zh": "Sony",
-          "role_zh": "Sony：品牌／賣家供應代表性玩家",
-          "role_en": "Sony: representative player in Brands / seller supply",
+          "ticker": "SN",
+          "name_en": "SharkNinja",
+          "name_zh": "SharkNinja",
+          "role_zh": "SharkNinja：廚衛／家居品牌供應代表性玩家",
+          "role_en": "SharkNinja: representative player in Kitchen / home brand supply",
           "exchange": "NYSE"
         }
       ]
     },
     {
-      "id": "fulfillment",
+      "id": "surfaces-finishes",
       "order": 2,
-      "label_zh": "倉儲／履約",
-      "label_en": "Warehousing / fulfillment",
-      "summary_zh": "倉庫、自動化與庫存節點。",
-      "summary_en": "Warehouses, automation, inventory nodes.",
+      "label_zh": "表面／飾面",
+      "label_en": "Surfaces / finishes",
+      "summary_zh": "地板、地毯與塗料飾面供應。",
+      "summary_en": "Flooring, rugs, and coatings/finishes.",
       "players": [
         {
-          "ticker": "PLD",
-          "name_en": "Prologis",
-          "name_zh": "普洛斯 (Prologis)",
-          "role_zh": "普洛斯 (Prologis)：倉儲／履約代表性玩家",
-          "role_en": "Prologis: representative player in Warehousing / fulfillment",
+          "ticker": "MHK",
+          "name_en": "Mohawk Industries",
+          "name_zh": "Mohawk Industries",
+          "role_zh": "Mohawk Industries：表面／飾面代表性玩家",
+          "role_en": "Mohawk Industries: representative player in Surfaces / finishes",
           "exchange": "NYSE"
         },
         {
-          "ticker": "EQIX",
-          "name_en": "Equinix",
-          "name_zh": "Equinix",
-          "role_zh": "Equinix：倉儲／履約代表性玩家",
-          "role_en": "Equinix: representative player in Warehousing / fulfillment",
-          "exchange": "NASDAQ"
+          "ticker": "PPG",
+          "name_en": "PPG Industries",
+          "name_zh": "PPG Industries",
+          "role_zh": "PPG Industries：表面／飾面代表性玩家",
+          "role_en": "PPG Industries: representative player in Surfaces / finishes",
+          "exchange": "NYSE"
         },
         {
-          "ticker": "AMT",
-          "name_en": "American Tower",
-          "name_zh": "美國電塔",
-          "role_zh": "美國電塔：倉儲／履約代表性玩家",
-          "role_en": "American Tower: representative player in Warehousing / fulfillment",
+          "ticker": "SHW",
+          "name_en": "Sherwin-Williams",
+          "name_zh": "宣偉塗料",
+          "role_zh": "宣偉塗料：表面／飾面代表性玩家",
+          "role_en": "Sherwin-Williams: representative player in Surfaces / finishes",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "logistics",
+      "order": 3,
+      "label_zh": "物流／配送",
+      "label_en": "Logistics / distribution",
+      "summary_zh": "包裹與貨代配送至 DC／宅配。",
+      "summary_en": "Parcel and freight into DCs/home delivery.",
+      "players": [
+        {
+          "ticker": "UPS",
+          "name_en": "United Parcel Service",
+          "name_zh": "優比速",
+          "role_zh": "優比速：物流／配送代表性玩家",
+          "role_en": "United Parcel Service: representative player in Logistics / distribution",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "FDX",
+          "name_en": "FedEx",
+          "name_zh": "聯邦快遞",
+          "role_zh": "聯邦快遞：物流／配送代表性玩家",
+          "role_en": "FedEx: representative player in Logistics / distribution",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "EXPD",
+          "name_en": "Expeditors",
+          "name_zh": "Expeditors",
+          "role_zh": "Expeditors：物流／配送代表性玩家",
+          "role_en": "Expeditors: representative player in Logistics / distribution",
           "exchange": "NYSE"
         }
       ]
     },
     {
       "id": "payments",
-      "order": 3,
+      "order": 4,
       "label_zh": "支付／金融",
       "label_en": "Payments / fintech",
-      "summary_zh": "卡組織、收單與消費金融。",
-      "summary_en": "Card networks, acquirers, consumer finance.",
+      "summary_zh": "卡組織與消費金融。",
+      "summary_en": "Card rails and consumer finance.",
       "players": [
         {
           "ticker": "V",
@@ -120,79 +154,45 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "PYPL",
-          "name_en": "PayPal",
-          "name_zh": "PayPal",
-          "role_zh": "PayPal：支付／金融代表性玩家",
-          "role_en": "PayPal: representative player in Payments / fintech",
-          "exchange": "NASDAQ"
+          "ticker": "AXP",
+          "name_en": "American Express",
+          "name_zh": "美國運通",
+          "role_zh": "美國運通：支付／金融代表性玩家",
+          "role_en": "American Express: representative player in Payments / fintech",
+          "exchange": "NYSE"
         }
       ]
     },
     {
       "id": "traffic",
-      "order": 4,
-      "label_zh": "流量／廣告獲客",
-      "label_en": "Traffic / ad acquisition",
-      "summary_zh": "搜尋、社群與零售媒體。",
-      "summary_en": "Search, social, retail media.",
+      "order": 5,
+      "label_zh": "流量／行銷",
+      "label_en": "Traffic / marketing",
+      "summary_zh": "搜尋、社群與靈感／網紅流量。",
+      "summary_en": "Search, social, and inspiration traffic.",
       "players": [
         {
           "ticker": "GOOG",
           "name_en": "Alphabet",
           "name_zh": "Alphabet（Google）",
-          "role_zh": "Alphabet（Google）：流量／廣告獲客代表性玩家",
-          "role_en": "Alphabet: representative player in Traffic / ad acquisition",
+          "role_zh": "Alphabet（Google）：流量／行銷代表性玩家",
+          "role_en": "Alphabet: representative player in Traffic / marketing",
           "exchange": "NASDAQ"
         },
         {
           "ticker": "META",
           "name_en": "Meta Platforms",
           "name_zh": "Meta (臉書)",
-          "role_zh": "Meta (臉書)：流量／廣告獲客代表性玩家",
-          "role_en": "Meta Platforms: representative player in Traffic / ad acquisition",
+          "role_zh": "Meta (臉書)：流量／行銷代表性玩家",
+          "role_en": "Meta Platforms: representative player in Traffic / marketing",
           "exchange": "NASDAQ"
         },
         {
-          "ticker": "APP",
-          "name_en": "AppLovin",
-          "name_zh": "AppLovin",
-          "role_zh": "AppLovin：流量／廣告獲客代表性玩家",
-          "role_en": "AppLovin: representative player in Traffic / ad acquisition",
-          "exchange": "NASDAQ"
-        }
-      ]
-    },
-    {
-      "id": "lastmile",
-      "order": 5,
-      "label_zh": "最後一哩／宅配",
-      "label_en": "Last-mile delivery",
-      "summary_zh": "快遞與本地配送網路。",
-      "summary_en": "Parcel and local delivery networks.",
-      "players": [
-        {
-          "ticker": "UPS",
-          "name_en": "United Parcel Service",
-          "name_zh": "優比速",
-          "role_zh": "優比速：最後一哩／宅配代表性玩家",
-          "role_en": "United Parcel Service: representative player in Last-mile delivery",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "FDX",
-          "name_en": "FedEx",
-          "name_zh": "聯邦快遞",
-          "role_zh": "聯邦快遞：最後一哩／宅配代表性玩家",
-          "role_en": "FedEx: representative player in Last-mile delivery",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "UNP",
-          "name_en": "Union Pacific",
-          "name_zh": "聯合太平洋鐵路",
-          "role_zh": "聯合太平洋鐵路：最後一哩／宅配代表性玩家",
-          "role_en": "Union Pacific: representative player in Last-mile delivery",
+          "ticker": "PINS",
+          "name_en": "Pinterest",
+          "name_zh": "Pinterest",
+          "role_zh": "Pinterest：流量／行銷代表性玩家",
+          "role_en": "Pinterest: representative player in Traffic / marketing",
           "exchange": "NYSE"
         }
       ]
@@ -200,27 +200,43 @@
   ],
   "competitors": [
     {
-      "ticker": "BBY",
-      "name_en": "Best Buy",
-      "name_zh": "百思買",
-      "basis_zh": "消費電子／專賣零售對手",
-      "basis_en": "Consumer-electronics / specialty retail rival",
+      "ticker": "HD",
+      "name_en": "The Home Depot",
+      "name_zh": "家得寶",
+      "basis_zh": "家居／廚衛大賣場對手",
+      "basis_en": "Home / kitchen big-box rival",
       "exchange": "NYSE"
     },
     {
-      "ticker": "GME",
-      "name_en": "GameStop",
-      "name_zh": "GameStop",
-      "basis_zh": "消費電子／專賣零售對手",
-      "basis_en": "Consumer-electronics / specialty retail rival",
+      "ticker": "LOW",
+      "name_en": "Lowe's Companies",
+      "name_zh": "勞氏",
+      "basis_zh": "家居／廚衛大賣場對手",
+      "basis_en": "Home / kitchen big-box rival",
       "exchange": "NYSE"
     },
     {
-      "ticker": "TSCO",
-      "name_en": "Tractor Supply",
-      "name_zh": "Tractor Supply",
-      "basis_zh": "消費電子／專賣零售對手",
-      "basis_en": "Consumer-electronics / specialty retail rival",
+      "ticker": "RH",
+      "name_en": "RH",
+      "name_zh": "RH",
+      "basis_zh": "奢華家居專賣對手",
+      "basis_en": "Luxury home specialty rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "W",
+      "name_en": "Wayfair",
+      "name_zh": "Wayfair",
+      "basis_zh": "家居電商對手",
+      "basis_en": "Home furnishings e-commerce rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "AMZN",
+      "name_en": "Amazon.com",
+      "name_zh": "亞馬遜",
+      "basis_zh": "家居／廚電電商競爭",
+      "basis_en": "Home / kitchen e-comm competition",
       "exchange": "NASDAQ"
     }
   ]

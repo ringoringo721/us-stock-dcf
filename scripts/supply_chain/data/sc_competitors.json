@@ -11191,14 +11191,14 @@
   ],
   "SN": [
     [
-      "SGI",
-      "Furnishings, Fixtures & Appliances產品／市場對手",
-      "Furnishings, Fixtures & Appliances product/market rival"
+      "HELE",
+      "小家電／個人護理電器品牌對手",
+      "Small-appliance / personal-care appliance brand rival"
     ],
     [
-      "MHK",
-      "Furnishings, Fixtures & Appliances產品／市場對手",
-      "Furnishings, Fixtures & Appliances product/market rival"
+      "WHR",
+      "家電品牌對手",
+      "Home-appliance brand rival"
     ]
   ],
   "NTRS": [
@@ -11573,19 +11573,29 @@
   ],
   "WSM": [
     [
-      "BBY",
-      "消費電子／專賣零售對手",
-      "Consumer-electronics / specialty retail rival"
+      "HD",
+      "家居／廚衛大賣場對手",
+      "Home / kitchen big-box rival"
     ],
     [
-      "GME",
-      "消費電子／專賣零售對手",
-      "Consumer-electronics / specialty retail rival"
+      "LOW",
+      "家居／廚衛大賣場對手",
+      "Home / kitchen big-box rival"
     ],
     [
-      "TSCO",
-      "消費電子／專賣零售對手",
-      "Consumer-electronics / specialty retail rival"
+      "RH",
+      "奢華家居專賣對手",
+      "Luxury home specialty rival"
+    ],
+    [
+      "W",
+      "家居電商對手",
+      "Home furnishings e-commerce rival"
+    ],
+    [
+      "AMZN",
+      "家居／廚電電商競爭",
+      "Home / kitchen e-comm competition"
     ]
   ],
   "CPAY": [
@@ -15299,19 +15309,29 @@
   ],
   "TSCO": [
     [
-      "BBY",
-      "消費電子／專賣零售對手",
-      "Consumer-electronics / specialty retail rival"
+      "HD",
+      "家居裝修／五金大賣場對手",
+      "Home-improvement / hardlines big-box rival"
     ],
     [
-      "GME",
-      "消費電子／專賣零售對手",
-      "Consumer-electronics / specialty retail rival"
+      "LOW",
+      "家居裝修／五金大賣場對手",
+      "Home-improvement / hardlines big-box rival"
     ],
     [
-      "WSM",
-      "消費電子／專賣零售對手",
-      "Consumer-electronics / specialty retail rival"
+      "FND",
+      "硬面地板／家居專賣對手",
+      "Hard-surface flooring / home specialty rival"
+    ],
+    [
+      "CHWY",
+      "寵物電商對手",
+      "Pet e-commerce rival"
+    ],
+    [
+      "AMZN",
+      "農牧場／寵物／五金電商競爭",
+      "Farm-ranch / pet / hardlines e-comm competition"
     ]
   ],
   "SMCI": [
@@ -17959,14 +17979,9 @@
   ],
   "SGI": [
     [
-      "SN",
-      "Furnishings, Fixtures & Appliances產品／市場對手",
-      "Furnishings, Fixtures & Appliances product/market rival"
-    ],
-    [
-      "MHK",
-      "Furnishings, Fixtures & Appliances產品／市場對手",
-      "Furnishings, Fixtures & Appliances product/market rival"
+      "SNBR",
+      "床墊／睡眠系統品牌對手",
+      "Mattress / sleep-system brand rival"
     ]
   ],
   "NLY": [
@@ -24361,14 +24376,19 @@
   ],
   "MHK": [
     [
-      "SN",
-      "Furnishings, Fixtures & Appliances產品／市場對手",
-      "Furnishings, Fixtures & Appliances product/market rival"
+      "TREX",
+      "戶外複合地板／表面材料製造對手",
+      "Outdoor composite decking / surface materials manufacturing rival"
     ],
     [
-      "SGI",
-      "Furnishings, Fixtures & Appliances產品／市場對手",
-      "Furnishings, Fixtures & Appliances product/market rival"
+      "AWI",
+      "商業天花板／表面系統製造對手",
+      "Commercial ceiling / surface systems manufacturing rival"
+    ],
+    [
+      "OC",
+      "建材／複合材料製造對手",
+      "Building products / composites manufacturing rival"
     ]
   ],
   "AAL": [

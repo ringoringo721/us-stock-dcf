@@ -2358,5 +2358,135 @@
       "0762.HK",
       "1810.HK"
     ]
+  },
+  "rural-specialty-retail-v1": {
+    "farm-pet": [
+      "SJM",
+      "HRL",
+      "TSN"
+    ],
+    "tools-hardware": [
+      "SWK",
+      "FAST",
+      "GWW"
+    ],
+    "outdoor-equipment": [
+      "DE",
+      "AGCO",
+      "CAT"
+    ],
+    "logistics": [
+      "UNP",
+      "ODFL",
+      "UPS"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "C"
+    ]
+  },
+  "home-furnishings-retail-v1": {
+    "kitchen-home": [
+      "FBIN",
+      "MAS",
+      "SN"
+    ],
+    "surfaces-finishes": [
+      "MHK",
+      "PPG",
+      "SHW"
+    ],
+    "logistics": [
+      "UPS",
+      "FDX",
+      "EXPD"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "AXP"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "PINS"
+    ]
+  },
+  "flooring-manufacturing-v1": {
+    "raw-inputs": [
+      "DOW",
+      "LYB",
+      "EMN"
+    ],
+    "chemicals": [
+      "PPG",
+      "DD",
+      "APD"
+    ],
+    "equipment": [
+      "ROK",
+      "EMR",
+      "IR"
+    ],
+    "logistics": [
+      "UNP",
+      "ODFL",
+      "UPS"
+    ],
+    "retail-channels": [
+      "FND",
+      "HD",
+      "LOW"
+    ]
+  },
+  "small-appliance-brand-v1": {
+    "plastics-materials": [
+      "DOW",
+      "LYB",
+      "EMN"
+    ],
+    "components": [
+      "APH",
+      "TEL",
+      "IR"
+    ],
+    "logistics": [
+      "UPS",
+      "FDX",
+      "EXPD"
+    ],
+    "retail-channels": [
+      "WMT",
+      "TGT",
+      "AMZN"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "PINS"
+    ]
+  },
+  "mattress-bedding-brand-v1": {
+    "foam-materials": [
+      "DOW",
+      "LYB",
+      "EMN"
+    ],
+    "logistics": [
+      "UPS",
+      "FDX",
+      "UNP"
+    ],
+    "retail-channels": [
+      "WSM",
+      "HD",
+      "AMZN"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "PINS"
+    ]
   }
 }
