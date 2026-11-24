@@ -1,10 +1,11 @@
 {
   "megaTotal": 160,
   "excludedAAPL": true,
-  "written": 1,
+  "written": 2,
   "failures": [],
   "tickers": [
-    "UBER"
+    "BABA",
+    "PDD"
   ],
   "dryRun": false,
   "date": "2026-11-23"

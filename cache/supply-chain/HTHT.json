@@ -2,8 +2,8 @@
   "version": 1,
   "ticker": "HTHT",
   "name_en": "H World",
-  "name_zh": "華住集團",
-  "updatedAt": "2026-11-20",
+  "name_zh": "華住",
+  "updatedAt": "2026-11-23",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -36,28 +36,31 @@
       "summary_en": "Food, goods, licensed IP.",
       "players": [
         {
-          "ticker": "ADM",
-          "name_en": "Archer-Daniels-Midland",
-          "name_zh": "阿徹丹尼爾斯米德蘭",
-          "role_zh": "阿徹丹尼爾斯米德蘭：原料／商品供應代表性玩家",
-          "role_en": "Archer-Daniels-Midland: representative player in Inputs / merchandise supply",
-          "exchange": "NYSE"
+          "ticker": "2319.HK",
+          "name_en": "Mengniu",
+          "name_zh": "蒙牛",
+          "role_zh": "蒙牛：原料／商品供應代表性玩家",
+          "role_en": "Mengniu: representative player in Inputs / merchandise supply",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "NKE",
-          "name_en": "Nike",
-          "name_zh": "耐吉",
-          "role_zh": "耐吉：原料／商品供應代表性玩家",
-          "role_en": "Nike: representative player in Inputs / merchandise supply",
-          "exchange": "NYSE"
+          "ticker": "0322.HK",
+          "name_en": "Tingyi",
+          "name_zh": "康師傅",
+          "role_zh": "康師傅：原料／商品供應代表性玩家",
+          "role_en": "Tingyi: representative player in Inputs / merchandise supply",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "DIS",
-          "name_en": "Walt Disney",
-          "name_zh": "迪士尼",
-          "role_zh": "迪士尼：原料／商品供應代表性玩家",
-          "role_en": "Walt Disney: representative player in Inputs / merchandise supply",
-          "exchange": "NYSE"
+          "ticker": "1044.HK",
+          "name_en": "Hengan",
+          "name_zh": "恒安國際",
+          "role_zh": "恒安國際：原料／商品供應代表性玩家",
+          "role_en": "Hengan: representative player in Inputs / merchandise supply",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     },
@@ -70,62 +73,68 @@
       "summary_en": "Distribution and inventory.",
       "players": [
         {
-          "ticker": "UPS",
-          "name_en": "United Parcel Service",
-          "name_zh": "優比速",
-          "role_zh": "優比速：物流／冷鏈代表性玩家",
-          "role_en": "United Parcel Service: representative player in Logistics / cold chain",
-          "exchange": "NYSE"
+          "ticker": "2057.HK",
+          "name_en": "ZTO Express",
+          "name_zh": "中通快遞",
+          "role_zh": "中通快遞：物流／冷鏈代表性玩家",
+          "role_en": "ZTO Express: representative player in Logistics / cold chain",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "FDX",
-          "name_en": "FedEx",
-          "name_zh": "聯邦快遞",
-          "role_zh": "聯邦快遞：物流／冷鏈代表性玩家",
-          "role_en": "FedEx: representative player in Logistics / cold chain",
-          "exchange": "NYSE"
+          "ticker": "1519.HK",
+          "name_en": "J&T Express",
+          "name_zh": "極兔速遞",
+          "role_zh": "極兔速遞：物流／冷鏈代表性玩家",
+          "role_en": "J&T Express: representative player in Logistics / cold chain",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "UNP",
-          "name_en": "Union Pacific",
-          "name_zh": "聯合太平洋鐵路",
-          "role_zh": "聯合太平洋鐵路：物流／冷鏈代表性玩家",
-          "role_en": "Union Pacific: representative player in Logistics / cold chain",
-          "exchange": "NYSE"
+          "ticker": "0316.HK",
+          "name_en": "OOIL",
+          "name_zh": "東方海外",
+          "role_zh": "東方海外：物流／冷鏈代表性玩家",
+          "role_en": "OOIL: representative player in Logistics / cold chain",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     },
     {
       "id": "stores",
       "order": 3,
-      "label_zh": "門市／數位平台",
-      "label_en": "Stores / digital platforms",
-      "summary_zh": "直營、加盟與 App。",
-      "summary_en": "Owned, franchise, apps.",
+      "label_zh": "酒店物業／業主夥伴",
+      "label_en": "Hotel property / landlord partners",
+      "summary_zh": "華住門市所在的內地開發商／業主與物業夥伴（非對手酒店品牌或加盟平台）。",
+      "summary_en": "Mainland developers/landlords hosting H World sites — not rival hotel brands or franchise platforms.",
       "players": [
         {
-          "ticker": "SBUX",
-          "name_en": "Starbucks",
-          "name_zh": "星巴克",
-          "role_zh": "星巴克：門市／數位平台代表性玩家",
-          "role_en": "Starbucks: representative player in Stores / digital platforms",
-          "exchange": "NASDAQ"
+          "ticker": "1109.HK",
+          "name_en": "CR Land",
+          "name_zh": "華潤置地",
+          "role_zh": "華潤置地：酒店物業／業主夥伴代表性玩家",
+          "role_en": "CR Land: representative player in Hotel property / landlord partners",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "MCD",
-          "name_en": "McDonald's",
-          "name_zh": "麥當勞",
-          "role_zh": "麥當勞：門市／數位平台代表性玩家",
-          "role_en": "McDonald's: representative player in Stores / digital platforms",
-          "exchange": "NYSE"
+          "ticker": "0688.HK",
+          "name_en": "China Overseas",
+          "name_zh": "中國海外發展",
+          "role_zh": "中國海外發展：酒店物業／業主夥伴代表性玩家",
+          "role_en": "China Overseas: representative player in Hotel property / landlord partners",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "MAR",
-          "name_en": "Marriott International",
-          "name_zh": "萬豪國際",
-          "role_zh": "萬豪國際：門市／數位平台代表性玩家",
-          "role_en": "Marriott International: representative player in Stores / digital platforms",
-          "exchange": "NASDAQ"
+          "ticker": "0960.HK",
+          "name_en": "Longfor",
+          "name_zh": "龍湖集團",
+          "role_zh": "龍湖集團：酒店物業／業主夥伴代表性玩家",
+          "role_en": "Longfor: representative player in Hotel property / landlord partners",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     },
@@ -138,28 +147,31 @@
       "summary_en": "Card rails and loyalty.",
       "players": [
         {
-          "ticker": "V",
-          "name_en": "Visa",
-          "name_zh": "威士卡",
-          "role_zh": "威士卡：支付／忠誠代表性玩家",
-          "role_en": "Visa: representative player in Payments / loyalty",
-          "exchange": "NYSE"
+          "ticker": "0005.HK",
+          "name_en": "HSBC",
+          "name_zh": "滙豐",
+          "role_zh": "滙豐：支付／忠誠代表性玩家",
+          "role_en": "HSBC: representative player in Payments / loyalty",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "MA",
-          "name_en": "Mastercard",
-          "name_zh": "萬事達卡",
-          "role_zh": "萬事達卡：支付／忠誠代表性玩家",
-          "role_en": "Mastercard: representative player in Payments / loyalty",
-          "exchange": "NYSE"
+          "ticker": "1398.HK",
+          "name_en": "ICBC",
+          "name_zh": "工商銀行",
+          "role_zh": "工商銀行：支付／忠誠代表性玩家",
+          "role_en": "ICBC: representative player in Payments / loyalty",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "AXP",
-          "name_en": "American Express",
-          "name_zh": "美國運通",
-          "role_zh": "美國運通：支付／忠誠代表性玩家",
-          "role_en": "American Express: representative player in Payments / loyalty",
-          "exchange": "NYSE"
+          "ticker": "6060.HK",
+          "name_en": "ZhongAn",
+          "name_zh": "眾安在線",
+          "role_zh": "眾安在線：支付／忠誠代表性玩家",
+          "role_en": "ZhongAn: representative player in Payments / loyalty",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     },
@@ -172,41 +184,35 @@
       "summary_en": "Search, social, travel OTAs.",
       "players": [
         {
-          "ticker": "GOOG",
-          "name_en": "Alphabet",
-          "name_zh": "Alphabet（Google）",
-          "role_zh": "Alphabet（Google）：行銷／流量代表性玩家",
-          "role_en": "Alphabet: representative player in Marketing / traffic",
+          "ticker": "TCOM",
+          "name_en": "Trip.com",
+          "name_zh": "攜程",
+          "role_zh": "攜程：行銷／流量代表性玩家",
+          "role_en": "Trip.com: representative player in Marketing / traffic",
           "exchange": "NASDAQ"
         },
         {
-          "ticker": "META",
-          "name_en": "Meta Platforms",
-          "name_zh": "Meta (臉書)",
-          "role_zh": "Meta (臉書)：行銷／流量代表性玩家",
-          "role_en": "Meta Platforms: representative player in Marketing / traffic",
-          "exchange": "NASDAQ"
+          "ticker": "0700.HK",
+          "name_en": "Tencent",
+          "name_zh": "騰訊",
+          "role_zh": "騰訊：行銷／流量代表性玩家",
+          "role_en": "Tencent: representative player in Marketing / traffic",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "BKNG",
-          "name_en": "Booking",
-          "name_zh": "Booking 控股",
-          "role_zh": "Booking 控股：行銷／流量代表性玩家",
-          "role_en": "Booking: representative player in Marketing / traffic",
-          "exchange": "NASDAQ"
+          "ticker": "3690.HK",
+          "name_en": "Meituan",
+          "name_zh": "美團",
+          "role_zh": "美團：行銷／流量代表性玩家",
+          "role_en": "Meituan: representative player in Marketing / traffic",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     }
   ],
   "competitors": [
-    {
-      "ticker": "HLT",
-      "name_en": "Hilton",
-      "name_zh": "希爾頓酒店",
-      "basis_zh": "飯店對手",
-      "basis_en": "Hotel rival",
-      "exchange": "NYSE"
-    },
     {
       "ticker": "MAR",
       "name_en": "Marriott International",
@@ -216,9 +222,9 @@
       "exchange": "NASDAQ"
     },
     {
-      "ticker": "H",
-      "name_en": "Hyatt",
-      "name_zh": "Hyatt",
+      "ticker": "HLT",
+      "name_en": "Hilton",
+      "name_zh": "希爾頓酒店",
       "basis_zh": "飯店對手",
       "basis_en": "Hotel rival",
       "exchange": "NYSE"
@@ -235,8 +241,8 @@
       "ticker": "ABNB",
       "name_en": "Airbnb",
       "name_zh": "Airbnb",
-      "basis_zh": "飯店對手",
-      "basis_en": "Hotel rival",
+      "basis_zh": "短租／住宿對手",
+      "basis_en": "Short-stay / lodging rival",
       "exchange": "NASDAQ"
     }
   ]

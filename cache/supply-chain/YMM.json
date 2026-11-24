@@ -1,9 +1,9 @@
 {
   "version": 1,
   "ticker": "YMM",
-  "name_en": "Full Truck Alliance Co.",
-  "name_zh": "YMM",
-  "updatedAt": "2026-11-20",
+  "name_en": "Full Truck Alliance",
+  "name_zh": "滿幫",
+  "updatedAt": "2026-11-23",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -11,233 +11,243 @@
     "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
     "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
     "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
-    "modelId": "saas-cloud-v1",
+    "modelId": "freight-platform-v1",
     "references": [
-      "Industry model `saas-cloud-v1`",
+      "Industry model `freight-platform-v1`",
       "AAPL curated seed shape on main (schema reference)",
       "cache/us_universe.json screen: remaining US listings without supply-chain seed",
       "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
     ]
   },
   "model": {
-    "id": "saas-cloud-v1",
-    "label_zh": "軟體／雲端價值鏈",
-    "label_en": "Software / cloud value chain",
-    "description_zh": "算力／矽晶 → 雲端基礎設施 → 資料／資安層 → 系統整合 → 企業通路。",
-    "description_en": "Compute/silicon → cloud infra → data/security → SI partners → enterprise channel."
+    "id": "freight-platform-v1",
+    "label_zh": "數位貨運／車貨匹配價值鏈",
+    "label_en": "Digital freight / truck-matching value chain",
+    "description_zh": "卡車運力 → 燃油能源 → 保險／金融 → 貨主出貨 → 地圖／車隊數據。同業平台放對手弧。",
+    "description_en": "Truck capacity → fuel/energy → insurance/fintech → shippers → maps/fleet data. Peer platforms stay on the rival arc."
   },
   "stages": [
     {
-      "id": "silicon",
+      "id": "capacity",
       "order": 1,
-      "label_zh": "算力／加速矽晶",
-      "label_en": "Compute / accelerator silicon",
-      "summary_zh": "CPU／GPU／自研加速相關供應。",
-      "summary_en": "CPU/GPU and accelerator supply.",
+      "label_zh": "卡車／運力供給",
+      "label_en": "Truck / capacity supply",
+      "summary_zh": "商用車與運力生態（外部運力，非平台本身）。",
+      "summary_en": "Commercial vehicles and capacity ecosystem — external, not the platform itself.",
       "players": [
         {
-          "ticker": "NVDA",
-          "name_en": "NVIDIA",
-          "name_zh": "輝達",
-          "role_zh": "輝達：算力／加速矽晶代表性玩家",
-          "role_en": "NVIDIA: representative player in Compute / accelerator silicon",
-          "exchange": "NASDAQ"
+          "ticker": "1211.HK",
+          "name_en": "BYD",
+          "name_zh": "比亞迪",
+          "role_zh": "比亞迪：卡車／運力供給代表性玩家",
+          "role_en": "BYD: representative player in Truck / capacity supply",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "AMD",
-          "name_en": "Advanced Micro Devices",
-          "name_zh": "超微半導體",
-          "role_zh": "超微半導體：算力／加速矽晶代表性玩家",
-          "role_en": "Advanced Micro Devices: representative player in Compute / accelerator silicon",
-          "exchange": "NASDAQ"
+          "ticker": "0175.HK",
+          "name_en": "Geely",
+          "name_zh": "吉利汽車",
+          "role_zh": "吉利汽車：卡車／運力供給代表性玩家",
+          "role_en": "Geely: representative player in Truck / capacity supply",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "AVGO",
-          "name_en": "Broadcom",
-          "name_zh": "博通",
-          "role_zh": "博通：算力／加速矽晶代表性玩家",
-          "role_en": "Broadcom: representative player in Compute / accelerator silicon",
-          "exchange": "NASDAQ"
+          "ticker": "2333.HK",
+          "name_en": "Great Wall Motor",
+          "name_zh": "長城汽車",
+          "role_zh": "長城汽車：卡車／運力供給代表性玩家",
+          "role_en": "Great Wall Motor: representative player in Truck / capacity supply",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     },
     {
-      "id": "infra",
+      "id": "fuel",
       "order": 2,
-      "label_zh": "資料中心／雲端基礎設施",
-      "label_en": "Data center / cloud infrastructure",
-      "summary_zh": "機房、網路與基礎雲資源。",
-      "summary_en": "Colo, networking, base cloud.",
+      "label_zh": "燃油／能源",
+      "label_en": "Fuel / energy",
+      "summary_zh": "柴油、天然氣與能源補給。",
+      "summary_en": "Diesel, gas, and energy supply.",
       "players": [
         {
-          "ticker": "EQIX",
-          "name_en": "Equinix",
-          "name_zh": "Equinix",
-          "role_zh": "Equinix：資料中心／雲端基礎設施代表性玩家",
-          "role_en": "Equinix: representative player in Data center / cloud infrastructure",
-          "exchange": "NASDAQ"
+          "ticker": "0386.HK",
+          "name_en": "Sinopec",
+          "name_zh": "中石化",
+          "role_zh": "中石化：燃油／能源代表性玩家",
+          "role_en": "Sinopec: representative player in Fuel / energy",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "DLR",
-          "name_en": "Digital Realty",
-          "name_zh": "Digital Realty",
-          "role_zh": "Digital Realty：資料中心／雲端基礎設施代表性玩家",
-          "role_en": "Digital Realty: representative player in Data center / cloud infrastructure",
-          "exchange": "NYSE"
+          "ticker": "0857.HK",
+          "name_en": "PetroChina",
+          "name_zh": "中國石油",
+          "role_zh": "中國石油：燃油／能源代表性玩家",
+          "role_en": "PetroChina: representative player in Fuel / energy",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "ANET",
-          "name_en": "Arista Networks",
-          "name_zh": "Arista 網路",
-          "role_zh": "Arista 網路：資料中心／雲端基礎設施代表性玩家",
-          "role_en": "Arista Networks: representative player in Data center / cloud infrastructure",
-          "exchange": "NYSE"
+          "ticker": "2688.HK",
+          "name_en": "ENN Energy",
+          "name_zh": "新奧能源",
+          "role_zh": "新奧能源：燃油／能源代表性玩家",
+          "role_en": "ENN Energy: representative player in Fuel / energy",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     },
     {
-      "id": "data-security",
+      "id": "fintech",
       "order": 3,
-      "label_zh": "資料平台／資安",
-      "label_en": "Data platform / security",
-      "summary_zh": "資料、身分與資安控制層。",
-      "summary_en": "Data, identity, and security layer.",
+      "label_zh": "保險／金融軌道",
+      "label_en": "Insurance / fintech rails",
+      "summary_zh": "貨運保險與車貸／支付軌道。",
+      "summary_en": "Cargo insurance and truck-loan / payment rails.",
       "players": [
         {
-          "ticker": "MSFT",
-          "name_en": "Microsoft",
-          "name_zh": "微軟",
-          "role_zh": "微軟：資料平台／資安代表性玩家",
-          "role_en": "Microsoft: representative player in Data platform / security",
-          "exchange": "NASDAQ"
+          "ticker": "6060.HK",
+          "name_en": "ZhongAn",
+          "name_zh": "眾安在線",
+          "role_zh": "眾安在線：保險／金融軌道代表性玩家",
+          "role_en": "ZhongAn: representative player in Insurance / fintech rails",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "ORCL",
-          "name_en": "Oracle",
-          "name_zh": "甲骨文",
-          "role_zh": "甲骨文：資料平台／資安代表性玩家",
-          "role_en": "Oracle: representative player in Data platform / security",
-          "exchange": "NYSE"
+          "ticker": "0005.HK",
+          "name_en": "HSBC",
+          "name_zh": "滙豐",
+          "role_zh": "滙豐：保險／金融軌道代表性玩家",
+          "role_en": "HSBC: representative player in Insurance / fintech rails",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "CSCO",
-          "name_en": "Cisco Systems",
-          "name_zh": "思科",
-          "role_zh": "思科：資料平台／資安代表性玩家",
-          "role_en": "Cisco Systems: representative player in Data platform / security",
-          "exchange": "NASDAQ"
+          "ticker": "1398.HK",
+          "name_en": "ICBC",
+          "name_zh": "工商銀行",
+          "role_zh": "工商銀行：保險／金融軌道代表性玩家",
+          "role_en": "ICBC: representative player in Insurance / fintech rails",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     },
     {
-      "id": "integrators",
+      "id": "shippers",
       "order": 4,
-      "label_zh": "系統整合／顧問",
-      "label_en": "Systems integrators / consulting",
-      "summary_zh": "導入、客製與營運夥伴。",
-      "summary_en": "Implementation and ops partners.",
+      "label_zh": "貨主／出貨客戶",
+      "label_en": "Shippers / cargo customers",
+      "summary_zh": "產生幹線貨量的品牌與製造貨主。",
+      "summary_en": "Brand and manufacturing shippers generating trunk cargo.",
       "players": [
         {
-          "ticker": "ACN",
-          "name_en": "Accenture",
-          "name_zh": "埃森哲",
-          "role_zh": "埃森哲：系統整合／顧問代表性玩家",
-          "role_en": "Accenture: representative player in Systems integrators / consulting",
-          "exchange": "NYSE"
+          "ticker": "2020.HK",
+          "name_en": "ANTA",
+          "name_zh": "安踏",
+          "role_zh": "安踏：貨主／出貨客戶代表性玩家",
+          "role_en": "ANTA: representative player in Shippers / cargo customers",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "IBM",
-          "name_en": "IBM",
-          "name_zh": "IBM",
-          "role_zh": "IBM：系統整合／顧問代表性玩家",
-          "role_en": "IBM: representative player in Systems integrators / consulting",
-          "exchange": "NYSE"
+          "ticker": "2331.HK",
+          "name_en": "Li Ning",
+          "name_zh": "李寧",
+          "role_zh": "李寧：貨主／出貨客戶代表性玩家",
+          "role_en": "Li Ning: representative player in Shippers / cargo customers",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "CTSH",
-          "name_en": "Cognizant",
-          "name_zh": "高知特",
-          "role_zh": "高知特：系統整合／顧問代表性玩家",
-          "role_en": "Cognizant: representative player in Systems integrators / consulting",
-          "exchange": "NASDAQ"
+          "ticker": "2319.HK",
+          "name_en": "Mengniu",
+          "name_zh": "蒙牛",
+          "role_zh": "蒙牛：貨主／出貨客戶代表性玩家",
+          "role_en": "Mengniu: representative player in Shippers / cargo customers",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     },
     {
-      "id": "channel",
+      "id": "maps-data",
       "order": 5,
-      "label_zh": "企業銷售／市集通路",
-      "label_en": "Enterprise sales / marketplace",
-      "summary_zh": "直銷、ISV 市集與經銷。",
-      "summary_en": "Direct, ISV marketplace, resellers.",
+      "label_zh": "地圖／車隊數據",
+      "label_en": "Maps / fleet data",
+      "summary_zh": "地圖、路由與車隊數據夥伴。",
+      "summary_en": "Maps, routing, and fleet-data partners.",
       "players": [
         {
-          "ticker": "CDW",
-          "name_en": "CDW",
-          "name_zh": "CDW",
-          "role_zh": "CDW：企業銷售／市集通路代表性玩家",
-          "role_en": "CDW: representative player in Enterprise sales / marketplace",
-          "exchange": "NASDAQ"
+          "ticker": "9888.HK",
+          "name_en": "Baidu",
+          "name_zh": "百度",
+          "role_zh": "百度：地圖／車隊數據代表性玩家",
+          "role_en": "Baidu: representative player in Maps / fleet data",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "SNX",
-          "name_en": "TD Synnex",
-          "name_zh": "SYNNEX",
-          "role_zh": "SYNNEX：企業銷售／市集通路代表性玩家",
-          "role_en": "TD Synnex: representative player in Enterprise sales / marketplace",
-          "exchange": "NYSE"
+          "ticker": "3888.HK",
+          "name_en": "Kingsoft",
+          "name_zh": "金山軟件",
+          "role_zh": "金山軟件：地圖／車隊數據代表性玩家",
+          "role_en": "Kingsoft: representative player in Maps / fleet data",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "DELL",
-          "name_en": "Dell Technologies",
-          "name_zh": "戴爾",
-          "role_zh": "戴爾：企業銷售／市集通路代表性玩家",
-          "role_en": "Dell Technologies: representative player in Enterprise sales / marketplace",
-          "exchange": "NYSE"
+          "ticker": "9698.HK",
+          "name_en": "GDS",
+          "name_zh": "萬國數據",
+          "role_zh": "萬國數據：地圖／車隊數據代表性玩家",
+          "role_en": "GDS: representative player in Maps / fleet data",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     }
   ],
   "competitors": [
     {
-      "ticker": "SAP",
-      "name_en": "SAP SE",
-      "name_zh": "SAP",
-      "basis_zh": "應用軟體對手",
-      "basis_en": "Application software rival",
+      "ticker": "ZTO",
+      "name_en": "ZTO Express",
+      "name_zh": "中通快遞",
+      "basis_zh": "幹線／物流鄰接對手",
+      "basis_en": "Trunk / logistics adjacent rival",
       "exchange": "NYSE"
     },
     {
-      "ticker": "SHOP",
-      "name_en": "Shopify",
-      "name_zh": "Shopify",
-      "basis_zh": "應用軟體對手",
-      "basis_en": "Application software rival",
-      "exchange": "NASDAQ"
+      "ticker": "2618.HK",
+      "name_en": "JD Logistics",
+      "name_zh": "京東物流",
+      "basis_zh": "電商物流對手",
+      "basis_en": "E-comm logistics rival",
+      "exchange": "HKEX",
+      "listedInApp": false
     },
     {
-      "ticker": "CRM",
-      "name_en": "Salesforce",
-      "name_zh": "賽富時",
-      "basis_zh": "應用軟體對手",
-      "basis_en": "Application software rival",
-      "exchange": "NYSE"
+      "ticker": "1519.HK",
+      "name_en": "J&T Express",
+      "name_zh": "極兔速遞",
+      "basis_zh": "快遞／運力對手",
+      "basis_en": "Express / capacity rival",
+      "exchange": "HKEX",
+      "listedInApp": false
     },
     {
-      "ticker": "UBER",
-      "name_en": "Uber Technologies",
-      "name_zh": "Uber",
-      "basis_zh": "應用軟體對手",
-      "basis_en": "Application software rival",
-      "exchange": "NYSE"
-    },
-    {
-      "ticker": "ADP",
-      "name_en": "ADP",
-      "name_zh": "安德普翰 (ADP)",
-      "basis_zh": "應用軟體對手",
-      "basis_en": "Application software rival",
-      "exchange": "NASDAQ"
+      "ticker": "3690.HK",
+      "name_en": "Meituan",
+      "name_zh": "美團",
+      "basis_zh": "本地即配對手",
+      "basis_en": "Local delivery rival",
+      "exchange": "HKEX",
+      "listedInApp": false
     }
   ]
 }

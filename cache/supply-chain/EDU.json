@@ -1,9 +1,9 @@
 {
   "version": 1,
   "ticker": "EDU",
-  "name_en": "New Oriental Education & Technology",
+  "name_en": "New Oriental",
   "name_zh": "新東方",
-  "updatedAt": "2026-11-20",
+  "updatedAt": "2026-11-23",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -11,189 +11,193 @@
     "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
     "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
     "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
-    "modelId": "consumer-discretionary-v1",
+    "modelId": "china-education-services-v1",
     "references": [
-      "Industry model `consumer-discretionary-v1`",
+      "Industry model `china-education-services-v1`",
       "AAPL curated seed shape on main (schema reference)",
       "cache/us_universe.json screen: remaining US listings without supply-chain seed",
       "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
     ]
   },
   "model": {
-    "id": "consumer-discretionary-v1",
-    "label_zh": "非必需消費／餐旅價值鏈",
-    "label_en": "Consumer discretionary / hospitality value chain",
-    "description_zh": "原料／商品 → 物流 → 門市／平台 → 支付 → 行銷流量。",
-    "description_en": "Inputs/goods → logistics → stores/platforms → payments → marketing traffic."
+    "id": "china-education-services-v1",
+    "label_zh": "中國教育服務價值鏈",
+    "label_en": "China education services value chain",
+    "description_zh": "流量獲客 → 教材／內容授權 → 校區物業 → 支付學費 → 電信／裝置到課。自有師資不進上游。",
+    "description_en": "Traffic → curriculum/content licensing → campus property → tuition payments → carrier/device reach. Own teachers are not upstream."
   },
   "stages": [
     {
-      "id": "inputs",
+      "id": "traffic",
       "order": 1,
-      "label_zh": "原料／商品供應",
-      "label_en": "Inputs / merchandise supply",
-      "summary_zh": "食材、商品與授權 IP。",
-      "summary_en": "Food, goods, licensed IP.",
+      "label_zh": "流量／獲客",
+      "label_en": "Traffic / acquisition",
+      "summary_zh": "學員到達的外部流量與入口。",
+      "summary_en": "External traffic and entry for student acquisition.",
       "players": [
         {
-          "ticker": "ADM",
-          "name_en": "Archer-Daniels-Midland",
-          "name_zh": "阿徹丹尼爾斯米德蘭",
-          "role_zh": "阿徹丹尼爾斯米德蘭：原料／商品供應代表性玩家",
-          "role_en": "Archer-Daniels-Midland: representative player in Inputs / merchandise supply",
-          "exchange": "NYSE"
+          "ticker": "1024.HK",
+          "name_en": "Kuaishou",
+          "name_zh": "快手",
+          "role_zh": "快手：流量／獲客代表性玩家",
+          "role_en": "Kuaishou: representative player in Traffic / acquisition",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "NKE",
-          "name_en": "Nike",
-          "name_zh": "耐吉",
-          "role_zh": "耐吉：原料／商品供應代表性玩家",
-          "role_en": "Nike: representative player in Inputs / merchandise supply",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "DIS",
-          "name_en": "Walt Disney",
-          "name_zh": "迪士尼",
-          "role_zh": "迪士尼：原料／商品供應代表性玩家",
-          "role_en": "Walt Disney: representative player in Inputs / merchandise supply",
-          "exchange": "NYSE"
+          "ticker": "9888.HK",
+          "name_en": "Baidu",
+          "name_zh": "百度",
+          "role_zh": "百度：流量／獲客代表性玩家",
+          "role_en": "Baidu: representative player in Traffic / acquisition",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     },
     {
-      "id": "logistics",
+      "id": "content",
       "order": 2,
-      "label_zh": "物流／冷鏈",
-      "label_en": "Logistics / cold chain",
-      "summary_zh": "配送與庫存網路。",
-      "summary_en": "Distribution and inventory.",
+      "label_zh": "教材／內容授權",
+      "label_en": "Curriculum / content licensing",
+      "summary_zh": "外部出版社與內容授權（非自有師資）。",
+      "summary_en": "External publishers and content licenses — not own teachers.",
       "players": [
         {
-          "ticker": "UPS",
-          "name_en": "United Parcel Service",
-          "name_zh": "優比速",
-          "role_zh": "優比速：物流／冷鏈代表性玩家",
-          "role_en": "United Parcel Service: representative player in Logistics / cold chain",
+          "ticker": "0772.HK",
+          "name_en": "China Literature",
+          "name_zh": "閱文集團",
+          "role_zh": "閱文集團：教材／內容授權代表性玩家",
+          "role_en": "China Literature: representative player in Curriculum / content licensing",
+          "exchange": "HKEX",
+          "listedInApp": false
+        },
+        {
+          "ticker": "PSO",
+          "name_en": "Pearson",
+          "name_zh": "Pearson",
+          "role_zh": "Pearson：教材／內容授權代表性玩家",
+          "role_en": "Pearson: representative player in Curriculum / content licensing",
           "exchange": "NYSE"
         },
         {
-          "ticker": "FDX",
-          "name_en": "FedEx",
-          "name_zh": "聯邦快遞",
-          "role_zh": "聯邦快遞：物流／冷鏈代表性玩家",
-          "role_en": "FedEx: representative player in Logistics / cold chain",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "UNP",
-          "name_en": "Union Pacific",
-          "name_zh": "聯合太平洋鐵路",
-          "role_zh": "聯合太平洋鐵路：物流／冷鏈代表性玩家",
-          "role_en": "Union Pacific: representative player in Logistics / cold chain",
+          "ticker": "RELX",
+          "name_en": "RELX Plc",
+          "name_zh": "RELX",
+          "role_zh": "RELX：教材／內容授權代表性玩家",
+          "role_en": "RELX Plc: representative player in Curriculum / content licensing",
           "exchange": "NYSE"
         }
       ]
     },
     {
-      "id": "stores",
+      "id": "facilities",
       "order": 3,
-      "label_zh": "門市／數位平台",
-      "label_en": "Stores / digital platforms",
-      "summary_zh": "直營、加盟與 App。",
-      "summary_en": "Owned, franchise, apps.",
+      "label_zh": "校區／物業",
+      "label_en": "Campus / property",
+      "summary_zh": "教學點物業與商場業主。",
+      "summary_en": "Learning-center landlords and mall owners.",
       "players": [
         {
-          "ticker": "SBUX",
-          "name_en": "Starbucks",
-          "name_zh": "星巴克",
-          "role_zh": "星巴克：門市／數位平台代表性玩家",
-          "role_en": "Starbucks: representative player in Stores / digital platforms",
-          "exchange": "NASDAQ"
+          "ticker": "1109.HK",
+          "name_en": "CR Land",
+          "name_zh": "華潤置地",
+          "role_zh": "華潤置地：校區／物業代表性玩家",
+          "role_en": "CR Land: representative player in Campus / property",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "MCD",
-          "name_en": "McDonald's",
-          "name_zh": "麥當勞",
-          "role_zh": "麥當勞：門市／數位平台代表性玩家",
-          "role_en": "McDonald's: representative player in Stores / digital platforms",
-          "exchange": "NYSE"
+          "ticker": "0688.HK",
+          "name_en": "China Overseas",
+          "name_zh": "中國海外發展",
+          "role_zh": "中國海外發展：校區／物業代表性玩家",
+          "role_en": "China Overseas: representative player in Campus / property",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "MAR",
-          "name_en": "Marriott International",
-          "name_zh": "萬豪國際",
-          "role_zh": "萬豪國際：門市／數位平台代表性玩家",
-          "role_en": "Marriott International: representative player in Stores / digital platforms",
-          "exchange": "NASDAQ"
+          "ticker": "0960.HK",
+          "name_en": "Longfor",
+          "name_zh": "龍湖集團",
+          "role_zh": "龍湖集團：校區／物業代表性玩家",
+          "role_en": "Longfor: representative player in Campus / property",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     },
     {
       "id": "payments",
       "order": 4,
-      "label_zh": "支付／忠誠",
-      "label_en": "Payments / loyalty",
-      "summary_zh": "卡支付與會員體系。",
-      "summary_en": "Card rails and loyalty.",
+      "label_zh": "學費支付",
+      "label_en": "Tuition payments",
+      "summary_zh": "學費收取與清算軌道。",
+      "summary_en": "Tuition collection and settlement rails.",
       "players": [
         {
-          "ticker": "V",
-          "name_en": "Visa",
-          "name_zh": "威士卡",
-          "role_zh": "威士卡：支付／忠誠代表性玩家",
-          "role_en": "Visa: representative player in Payments / loyalty",
-          "exchange": "NYSE"
+          "ticker": "0005.HK",
+          "name_en": "HSBC",
+          "name_zh": "滙豐",
+          "role_zh": "滙豐：學費支付代表性玩家",
+          "role_en": "HSBC: representative player in Tuition payments",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "MA",
-          "name_en": "Mastercard",
-          "name_zh": "萬事達卡",
-          "role_zh": "萬事達卡：支付／忠誠代表性玩家",
-          "role_en": "Mastercard: representative player in Payments / loyalty",
-          "exchange": "NYSE"
+          "ticker": "1398.HK",
+          "name_en": "ICBC",
+          "name_zh": "工商銀行",
+          "role_zh": "工商銀行：學費支付代表性玩家",
+          "role_en": "ICBC: representative player in Tuition payments",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "AXP",
-          "name_en": "American Express",
-          "name_zh": "美國運通",
-          "role_zh": "美國運通：支付／忠誠代表性玩家",
-          "role_en": "American Express: representative player in Payments / loyalty",
-          "exchange": "NYSE"
+          "ticker": "6060.HK",
+          "name_en": "ZhongAn",
+          "name_zh": "眾安在線",
+          "role_zh": "眾安在線：學費支付代表性玩家",
+          "role_en": "ZhongAn: representative player in Tuition payments",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     },
     {
-      "id": "traffic",
+      "id": "distribution",
       "order": 5,
-      "label_zh": "行銷／流量",
-      "label_en": "Marketing / traffic",
-      "summary_zh": "搜尋、社群與旅遊 OTA。",
-      "summary_en": "Search, social, travel OTAs.",
+      "label_zh": "電信／裝置到課",
+      "label_en": "Carrier / device reach",
+      "summary_zh": "線上課程到達的電信與終端。",
+      "summary_en": "Carriers and devices delivering online lessons.",
       "players": [
         {
-          "ticker": "GOOG",
-          "name_en": "Alphabet",
-          "name_zh": "Alphabet（Google）",
-          "role_zh": "Alphabet（Google）：行銷／流量代表性玩家",
-          "role_en": "Alphabet: representative player in Marketing / traffic",
-          "exchange": "NASDAQ"
+          "ticker": "0941.HK",
+          "name_en": "China Mobile",
+          "name_zh": "中國移動",
+          "role_zh": "中國移動：電信／裝置到課代表性玩家",
+          "role_en": "China Mobile: representative player in Carrier / device reach",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "META",
-          "name_en": "Meta Platforms",
-          "name_zh": "Meta (臉書)",
-          "role_zh": "Meta (臉書)：行銷／流量代表性玩家",
-          "role_en": "Meta Platforms: representative player in Marketing / traffic",
-          "exchange": "NASDAQ"
+          "ticker": "0762.HK",
+          "name_en": "China Unicom",
+          "name_zh": "中國聯通",
+          "role_zh": "中國聯通：電信／裝置到課代表性玩家",
+          "role_en": "China Unicom: representative player in Carrier / device reach",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "BKNG",
-          "name_en": "Booking",
-          "name_zh": "Booking 控股",
-          "role_zh": "Booking 控股：行銷／流量代表性玩家",
-          "role_en": "Booking: representative player in Marketing / traffic",
-          "exchange": "NASDAQ"
+          "ticker": "1810.HK",
+          "name_en": "Xiaomi",
+          "name_zh": "小米",
+          "role_zh": "小米：電信／裝置到課代表性玩家",
+          "role_en": "Xiaomi: representative player in Carrier / device reach",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     }
@@ -202,42 +206,18 @@
     {
       "ticker": "TAL",
       "name_en": "TAL Education",
-      "name_zh": "TAL Education",
-      "basis_zh": "Education & Training Services產品／市場對手",
-      "basis_en": "Education & Training Services product/market rival",
+      "name_zh": "好未來",
+      "basis_zh": "中國教育培訓對手",
+      "basis_en": "China education rival",
       "exchange": "NYSE"
     },
     {
-      "ticker": "WMT",
-      "name_en": "Walmart",
-      "name_zh": "沃爾瑪",
-      "basis_zh": "Education & Training Services產品／市場對手",
-      "basis_en": "Education & Training Services product/market rival",
-      "exchange": "NYSE"
-    },
-    {
-      "ticker": "COST",
-      "name_en": "Costco Wholesale",
-      "name_zh": "好市多",
-      "basis_zh": "Education & Training Services產品／市場對手",
-      "basis_en": "Education & Training Services product/market rival",
+      "ticker": "BILI",
+      "name_en": "Bilibili",
+      "name_zh": "嗶哩嗶哩",
+      "basis_zh": "線上學習／內容鄰接對手",
+      "basis_en": "Online learning / content adjacent rival",
       "exchange": "NASDAQ"
-    },
-    {
-      "ticker": "KO",
-      "name_en": "Coca-Cola",
-      "name_zh": "可口可樂",
-      "basis_zh": "Education & Training Services產品／市場對手",
-      "basis_en": "Education & Training Services product/market rival",
-      "exchange": "NYSE"
-    },
-    {
-      "ticker": "PG",
-      "name_en": "Procter & Gamble",
-      "name_zh": "寶僑",
-      "basis_zh": "Education & Training Services產品／市場對手",
-      "basis_en": "Education & Training Services product/market rival",
-      "exchange": "NYSE"
     }
   ]
 }

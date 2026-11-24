@@ -166,6 +166,14 @@ NAME_ZH_FIXES = {
     "BHP": "必和必拓",
     "BN": "Brookfield",
     "SE": "Sea",
+    "CPNG": "酷澎",
+    "FUTU": "富途",
+    "GRAB": "Grab",
+    "YMM": "滿幫",
+    "VIPS": "唯品會",
+    "TAL": "好未來",
+    "BZ": "BOSS直聘",
+    "LU": "陸金所",
     "TTD": "Trade Desk",
     "FND": "Floor & Decor",
     "TROW": "T. Rowe Price",
@@ -409,6 +417,14 @@ DUAL_LIST_ISSUER: dict[str, str] = {
     "XPEV": "XPENG",
     "9866.HK": "NIO",
     "NIO": "NIO",
+    "1698.HK": "TME",
+    "TME": "TME",
+    "9626.HK": "BILIBILI",
+    "BILI": "BILIBILI",
+    "2057.HK": "ZTO",
+    "ZTO": "ZTO",
+    "TCOM": "CTRIP",
+    "9961.HK": "CTRIP",
 }
 
 def issuer_key(t: str) -> str:
@@ -483,7 +499,11 @@ def build_seed(
     stages = []
     for stage_meta in model["stages"]:
         sid = stage_meta["id"]
-        raw_players = list(stage_players.get(sid) or players_by_model[model_id].get(sid) or [])
+        # Explicit override key (even []) wins — do not fall through on empty list.
+        if sid in stage_players:
+            raw_players = list(stage_players.get(sid) or [])
+        else:
+            raw_players = list(players_by_model[model_id].get(sid) or [])
         # Never list the hub as a player on its own stages (BCPC-on-ingredients Bugbot).
         # Do not adjacent-stage pad after hub drop — leave thin / use true same-stage peers.
         # Drop stage names that share an issuer with a rival (prefer rival ASX over partner 3711.TW).

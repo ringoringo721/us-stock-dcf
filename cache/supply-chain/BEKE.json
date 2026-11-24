@@ -3,7 +3,7 @@
   "ticker": "BEKE",
   "name_en": "KE Holdings",
   "name_zh": "貝殼找房",
-  "updatedAt": "2026-11-20",
+  "updatedAt": "2026-11-23",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -36,62 +36,68 @@
       "summary_en": "Search, portals, listing platforms.",
       "players": [
         {
-          "ticker": "GOOG",
-          "name_en": "Alphabet",
-          "name_zh": "Alphabet（Google）",
-          "role_zh": "Alphabet（Google）：流量／房源代表性玩家",
-          "role_en": "Alphabet: representative player in Traffic / listings",
-          "exchange": "NASDAQ"
+          "ticker": "0700.HK",
+          "name_en": "Tencent",
+          "name_zh": "騰訊",
+          "role_zh": "騰訊：流量／房源代表性玩家",
+          "role_en": "Tencent: representative player in Traffic / listings",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "META",
-          "name_en": "Meta Platforms",
-          "name_zh": "Meta (臉書)",
-          "role_zh": "Meta (臉書)：流量／房源代表性玩家",
-          "role_en": "Meta Platforms: representative player in Traffic / listings",
-          "exchange": "NASDAQ"
+          "ticker": "9888.HK",
+          "name_en": "Baidu",
+          "name_zh": "百度",
+          "role_zh": "百度：流量／房源代表性玩家",
+          "role_en": "Baidu: representative player in Traffic / listings",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "ZG",
-          "name_en": "Zillow",
-          "name_zh": "Zillow",
-          "role_zh": "Zillow：流量／房源代表性玩家",
-          "role_en": "Zillow: representative player in Traffic / listings",
-          "exchange": "NASDAQ"
+          "ticker": "1024.HK",
+          "name_en": "Kuaishou",
+          "name_zh": "快手",
+          "role_zh": "快手：流量／房源代表性玩家",
+          "role_en": "Kuaishou: representative player in Traffic / listings",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     },
     {
       "id": "agents",
       "order": 2,
-      "label_zh": "經紀／加盟",
-      "label_en": "Agents / franchise",
-      "summary_zh": "經紀人與加盟網絡。",
-      "summary_en": "Agents and franchise networks.",
+      "label_zh": "新盤分銷夥伴",
+      "label_en": "New-home distribution partners",
+      "summary_zh": "外部新盤分銷／渠道夥伴（對手經紀與對手放在對手弧）。",
+      "summary_en": "External new-home distribution partners — rival brokerages stay on the rival arc.",
       "players": [
         {
-          "ticker": "COMP",
-          "name_en": "Compass",
-          "name_zh": "Compass",
-          "role_zh": "Compass：經紀／加盟代表性玩家",
-          "role_en": "Compass: representative player in Agents / franchise",
-          "exchange": "NYSE"
+          "ticker": "0960.HK",
+          "name_en": "Longfor",
+          "name_zh": "龍湖集團",
+          "role_zh": "龍湖集團：新盤分銷夥伴代表性玩家",
+          "role_en": "Longfor: representative player in New-home distribution partners",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "JLL",
-          "name_en": "Jones Lang LaSalle",
-          "name_zh": "仲量聯行",
-          "role_zh": "仲量聯行：經紀／加盟代表性玩家",
-          "role_en": "Jones Lang LaSalle: representative player in Agents / franchise",
-          "exchange": "NYSE"
+          "ticker": "2007.HK",
+          "name_en": "Country Garden",
+          "name_zh": "碧桂園",
+          "role_zh": "碧桂園：新盤分銷夥伴代表性玩家",
+          "role_en": "Country Garden: representative player in New-home distribution partners",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "CBRE",
-          "name_en": "CBRE Group Inc.",
-          "name_zh": "CBRE",
-          "role_zh": "CBRE：經紀／加盟代表性玩家",
-          "role_en": "CBRE Group Inc.: representative player in Agents / franchise",
-          "exchange": "NYSE"
+          "ticker": "0017.HK",
+          "name_en": "New World Dev",
+          "name_zh": "新世界發展",
+          "role_zh": "新世界發展：新盤分銷夥伴代表性玩家",
+          "role_en": "New World Dev: representative player in New-home distribution partners",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     },
@@ -104,96 +110,105 @@
       "summary_en": "Mortgage, title, closing.",
       "players": [
         {
-          "ticker": "BAC",
-          "name_en": "Bank of America",
-          "name_zh": "美國銀行",
-          "role_zh": "美國銀行：按揭／交易服務代表性玩家",
-          "role_en": "Bank of America: representative player in Mortgage / transaction services",
-          "exchange": "NYSE"
+          "ticker": "0005.HK",
+          "name_en": "HSBC",
+          "name_zh": "滙豐",
+          "role_zh": "滙豐：按揭／交易服務代表性玩家",
+          "role_en": "HSBC: representative player in Mortgage / transaction services",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "JPM",
-          "name_en": "JPMorgan Chase & Co.",
-          "name_zh": "摩根大通",
-          "role_zh": "摩根大通：按揭／交易服務代表性玩家",
-          "role_en": "JPMorgan Chase & Co.: representative player in Mortgage / transaction services",
-          "exchange": "NYSE"
+          "ticker": "1398.HK",
+          "name_en": "ICBC",
+          "name_zh": "工商銀行",
+          "role_zh": "工商銀行：按揭／交易服務代表性玩家",
+          "role_en": "ICBC: representative player in Mortgage / transaction services",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "WFC",
-          "name_en": "Wells Fargo",
-          "name_zh": "富國銀行",
-          "role_zh": "富國銀行：按揭／交易服務代表性玩家",
-          "role_en": "Wells Fargo: representative player in Mortgage / transaction services",
-          "exchange": "NYSE"
+          "ticker": "0939.HK",
+          "name_en": "CCB",
+          "name_zh": "建設銀行",
+          "role_zh": "建設銀行：按揭／交易服務代表性玩家",
+          "role_en": "CCB: representative player in Mortgage / transaction services",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     },
     {
       "id": "proptech",
       "order": 4,
-      "label_zh": "物業科技工具",
-      "label_en": "Proptech tools",
-      "summary_zh": "CRM、估價與管理軟體。",
-      "summary_en": "CRM, valuation, management software.",
+      "label_zh": "雲協作／成交保險／IDC",
+      "label_en": "Cloud collab / deal insurance / IDC",
+      "summary_zh": "金山協作雲、眾安成交／家財保險、萬國數據 IDC — 支撐貝殼數位成交與平台運營（非對手經紀 CRM 軟體名單）。",
+      "summary_en": "Kingsoft collab cloud, ZhongAn deal/home insurance, and GDS IDC — Beike digital-close / platform ops (not rival brokerage CRM suites).",
       "players": [
         {
-          "ticker": "CSGP",
-          "name_en": "CoStar",
-          "name_zh": "科斯塔集團",
-          "role_zh": "科斯塔集團：物業科技工具代表性玩家",
-          "role_en": "CoStar: representative player in Proptech tools",
-          "exchange": "NASDAQ"
+          "ticker": "3888.HK",
+          "name_en": "Kingsoft",
+          "name_zh": "金山軟件",
+          "role_zh": "金山軟件：雲協作／成交保險／IDC代表性玩家",
+          "role_en": "Kingsoft: representative player in Cloud collab / deal insurance / IDC",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "APPF",
-          "name_en": "AppFolio",
-          "name_zh": "AppFolio",
-          "role_zh": "AppFolio：物業科技工具代表性玩家",
-          "role_en": "AppFolio: representative player in Proptech tools",
-          "exchange": "NASDAQ"
+          "ticker": "6060.HK",
+          "name_en": "ZhongAn",
+          "name_zh": "眾安在線",
+          "role_zh": "眾安在線：雲協作／成交保險／IDC代表性玩家",
+          "role_en": "ZhongAn: representative player in Cloud collab / deal insurance / IDC",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "ADBE",
-          "name_en": "Adobe",
-          "name_zh": "Adobe",
-          "role_zh": "Adobe：物業科技工具代表性玩家",
-          "role_en": "Adobe: representative player in Proptech tools",
-          "exchange": "NASDAQ"
+          "ticker": "9698.HK",
+          "name_en": "GDS",
+          "name_zh": "萬國數據",
+          "role_zh": "萬國數據：雲協作／成交保險／IDC代表性玩家",
+          "role_en": "GDS: representative player in Cloud collab / deal insurance / IDC",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     },
     {
       "id": "housing",
       "order": 5,
-      "label_zh": "住房需求",
-      "label_en": "Housing demand",
-      "summary_zh": "建商與住房週期。",
-      "summary_en": "Homebuilders and housing cycle.",
+      "label_zh": "住房／商場需求",
+      "label_en": "Housing / retail demand",
+      "summary_zh": "商場與物業需求週期代表（非對手開發商）。",
+      "summary_en": "Mall/property demand-cycle proxies — rival developers stay on the rival arc.",
       "players": [
         {
-          "ticker": "DHI",
-          "name_en": "D.R. Horton",
-          "name_zh": "D.R. Horton",
-          "role_zh": "D.R. Horton：住房需求代表性玩家",
-          "role_en": "D.R. Horton: representative player in Housing demand",
-          "exchange": "NYSE"
+          "ticker": "0014.HK",
+          "name_en": "Hysan",
+          "name_zh": "希慎興業",
+          "role_zh": "希慎興業：住房／商場需求代表性玩家",
+          "role_en": "Hysan: representative player in Housing / retail demand",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "LEN",
-          "name_en": "Lennar",
-          "name_zh": "Lennar",
-          "role_zh": "Lennar：住房需求代表性玩家",
-          "role_en": "Lennar: representative player in Housing demand",
-          "exchange": "NYSE"
+          "ticker": "0823.HK",
+          "name_en": "Link REIT",
+          "name_zh": "領展房產基金",
+          "role_zh": "領展房產基金：住房／商場需求代表性玩家",
+          "role_en": "Link REIT: representative player in Housing / retail demand",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "PHM",
-          "name_en": "PulteGroup",
-          "name_zh": "PulteGroup",
-          "role_zh": "PulteGroup：住房需求代表性玩家",
-          "role_en": "PulteGroup: representative player in Housing demand",
-          "exchange": "NYSE"
+          "ticker": "1997.HK",
+          "name_en": "Wharf REIC",
+          "name_zh": "九龍倉置業",
+          "role_zh": "九龍倉置業：住房／商場需求代表性玩家",
+          "role_en": "Wharf REIC: representative player in Housing / retail demand",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     }
@@ -201,10 +216,28 @@
   "competitors": [
     {
       "ticker": "1200.HK",
-      "name_en": "Midland Holdings",
+      "name_en": "Midland",
       "name_zh": "美聯集團",
       "basis_zh": "中國住宅經紀對手",
       "basis_en": "China residential brokerage rival",
+      "exchange": "HKEX",
+      "listedInApp": false
+    },
+    {
+      "ticker": "1109.HK",
+      "name_en": "CR Land",
+      "name_zh": "華潤置地",
+      "basis_zh": "開發商自銷／渠道對手",
+      "basis_en": "Developer channel rival",
+      "exchange": "HKEX",
+      "listedInApp": false
+    },
+    {
+      "ticker": "0688.HK",
+      "name_en": "China Overseas",
+      "name_zh": "中國海外發展",
+      "basis_zh": "開發商自銷／渠道對手",
+      "basis_en": "Developer channel rival",
       "exchange": "HKEX",
       "listedInApp": false
     }

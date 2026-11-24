@@ -2,8 +2,8 @@
   "version": 1,
   "ticker": "BZ",
   "name_en": "Kanzhun",
-  "name_zh": "ＢＯＳＳ直聘",
-  "updatedAt": "2026-11-20",
+  "name_zh": "BOSS直聘",
+  "updatedAt": "2026-11-23",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -11,234 +11,233 @@
     "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
     "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
     "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
-    "modelId": "internet-platform-v1",
+    "modelId": "online-recruitment-v1",
     "references": [
-      "Industry model `internet-platform-v1`",
+      "Industry model `online-recruitment-v1`",
       "AAPL curated seed shape on main (schema reference)",
       "cache/us_universe.json screen: remaining US listings without supply-chain seed",
       "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
     ]
   },
   "model": {
-    "id": "internet-platform-v1",
-    "label_zh": "網際網路平台價值鏈",
-    "label_en": "Internet platform value chain",
-    "description_zh": "雲端／基礎建設 → 內容／創作者 → 廣告／變現 → 裝置／作業系統 → 支付／商務。",
-    "description_en": "Cloud/infra → content/creators → ads/monetization → devices/OS → payments/commerce."
+    "id": "online-recruitment-v1",
+    "label_zh": "線上招聘平台價值鏈",
+    "label_en": "Online recruitment platform value chain",
+    "description_zh": "流量獲客 → 雇主客戶（營收需求方）→ 人資／評估工具 → 支付結算 → 雇主品牌廣告。",
+    "description_en": "Traffic acquisition → employer customers (revenue demand) → HR/assessment tools → payment settlement → employer-brand ads."
   },
   "stages": [
     {
-      "id": "infra",
+      "id": "traffic",
       "order": 1,
-      "label_zh": "雲端／網路基礎設施",
-      "label_en": "Cloud / network infrastructure",
-      "summary_zh": "運算、頻寬與 CDN／雲資源。",
-      "summary_en": "Compute, bandwidth, CDN/cloud.",
+      "label_zh": "流量／獲客",
+      "label_en": "Traffic / acquisition",
+      "summary_zh": "求職者到達所需的外部流量與入口夥伴。",
+      "summary_en": "External traffic and entry partners for candidate reach.",
       "players": [
         {
-          "ticker": "EQIX",
-          "name_en": "Equinix",
-          "name_zh": "Equinix",
-          "role_zh": "Equinix：雲端／網路基礎設施代表性玩家",
-          "role_en": "Equinix: representative player in Cloud / network infrastructure",
-          "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "ANET",
-          "name_en": "Arista Networks",
-          "name_zh": "Arista 網路",
-          "role_zh": "Arista 網路：雲端／網路基礎設施代表性玩家",
-          "role_en": "Arista Networks: representative player in Cloud / network infrastructure",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "CSCO",
-          "name_en": "Cisco Systems",
-          "name_zh": "思科",
-          "role_zh": "思科：雲端／網路基礎設施代表性玩家",
-          "role_en": "Cisco Systems: representative player in Cloud / network infrastructure",
-          "exchange": "NASDAQ"
-        }
-      ]
-    },
-    {
-      "id": "content",
-      "order": 2,
-      "label_zh": "內容／創作者生態",
-      "label_en": "Content / creator ecosystem",
-      "summary_zh": "媒體、音樂、短影音與創作者工具。",
-      "summary_en": "Media, music, short-form, creator tools.",
-      "players": [
-        {
-          "ticker": "NFLX",
-          "name_en": "Netflix",
-          "name_zh": "網飛",
-          "role_zh": "網飛：內容／創作者生態代表性玩家",
-          "role_en": "Netflix: representative player in Content / creator ecosystem",
-          "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "SPOT",
-          "name_en": "Spotify Technology S.A.",
-          "name_zh": "Spotify",
-          "role_zh": "Spotify：內容／創作者生態代表性玩家",
-          "role_en": "Spotify Technology S.A.: representative player in Content / creator ecosystem",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "DIS",
-          "name_en": "Walt Disney",
-          "name_zh": "迪士尼",
-          "role_zh": "迪士尼：內容／創作者生態代表性玩家",
-          "role_en": "Walt Disney: representative player in Content / creator ecosystem",
-          "exchange": "NYSE"
-        }
-      ]
-    },
-    {
-      "id": "ads",
-      "order": 3,
-      "label_zh": "廣告／數據變現",
-      "label_en": "Ads / data monetization",
-      "summary_zh": "廣告科技與測量夥伴。",
-      "summary_en": "Ad-tech and measurement partners.",
-      "players": [
-        {
-          "ticker": "TTD",
-          "name_en": "Trade Desk",
-          "name_zh": "Trade Desk",
-          "role_zh": "Trade Desk：廣告／數據變現代表性玩家",
-          "role_en": "Trade Desk: representative player in Ads / data monetization",
-          "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "APP",
-          "name_en": "AppLovin",
-          "name_zh": "AppLovin",
-          "role_zh": "AppLovin：廣告／數據變現代表性玩家",
-          "role_en": "AppLovin: representative player in Ads / data monetization",
-          "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "SNAP",
-          "name_en": "Snap",
-          "name_zh": "Snap",
-          "role_zh": "Snap：廣告／數據變現代表性玩家",
-          "role_en": "Snap: representative player in Ads / data monetization",
-          "exchange": "NYSE"
-        }
-      ]
-    },
-    {
-      "id": "devices",
-      "order": 4,
-      "label_zh": "裝置／作業系統入口",
-      "label_en": "Devices / OS entry points",
-      "summary_zh": "手機、瀏覽器與 OS 分發。",
-      "summary_en": "Phones, browsers, OS distribution.",
-      "players": [
-        {
-          "ticker": "AAPL",
-          "name_en": "Apple",
-          "name_zh": "蘋果",
-          "role_zh": "蘋果：裝置／作業系統入口代表性玩家",
-          "role_en": "Apple: representative player in Devices / OS entry points",
-          "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "005930.KS",
-          "name_en": "Samsung Electronics",
-          "name_zh": "三星電子",
-          "role_zh": "三星電子：裝置／作業系統入口代表性玩家",
-          "role_en": "Samsung Electronics: representative player in Devices / OS entry points",
-          "exchange": "KRX",
+          "ticker": "1024.HK",
+          "name_en": "Kuaishou",
+          "name_zh": "快手",
+          "role_zh": "快手：流量／獲客代表性玩家",
+          "role_en": "Kuaishou: representative player in Traffic / acquisition",
+          "exchange": "HKEX",
           "listedInApp": false
         },
         {
-          "ticker": "SONY",
-          "name_en": "Sony",
-          "name_zh": "Sony",
-          "role_zh": "Sony：裝置／作業系統入口代表性玩家",
-          "role_en": "Sony: representative player in Devices / OS entry points",
-          "exchange": "NYSE"
+          "ticker": "9626.HK",
+          "name_en": "Bilibili",
+          "name_zh": "嗶哩嗶哩",
+          "role_zh": "嗶哩嗶哩：流量／獲客代表性玩家",
+          "role_en": "Bilibili: representative player in Traffic / acquisition",
+          "exchange": "HKEX",
+          "listedInApp": false
+        },
+        {
+          "ticker": "0941.HK",
+          "name_en": "China Mobile",
+          "name_zh": "中國移動",
+          "role_zh": "中國移動：流量／獲客代表性玩家",
+          "role_en": "China Mobile: representative player in Traffic / acquisition",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     },
     {
-      "id": "commerce",
-      "order": 5,
-      "label_zh": "支付／商務閉環",
-      "label_en": "Payments / commerce loop",
-      "summary_zh": "支付網路與電商履約。",
-      "summary_en": "Payment networks and commerce fulfillment.",
+      "id": "employers",
+      "order": 2,
+      "label_zh": "雇主客戶",
+      "label_en": "Employer customers",
+      "summary_zh": "付費招聘的大型雇主客戶（營收下游）。",
+      "summary_en": "Paying large employers — revenue downstream.",
       "players": [
         {
-          "ticker": "V",
-          "name_en": "Visa",
-          "name_zh": "威士卡",
-          "role_zh": "威士卡：支付／商務閉環代表性玩家",
-          "role_en": "Visa: representative player in Payments / commerce loop",
-          "exchange": "NYSE"
+          "ticker": "1810.HK",
+          "name_en": "Xiaomi",
+          "name_zh": "小米",
+          "role_zh": "小米：雇主客戶代表性玩家",
+          "role_en": "Xiaomi: representative player in Employer customers",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "MA",
-          "name_en": "Mastercard",
-          "name_zh": "萬事達卡",
-          "role_zh": "萬事達卡：支付／商務閉環代表性玩家",
-          "role_en": "Mastercard: representative player in Payments / commerce loop",
-          "exchange": "NYSE"
+          "ticker": "1211.HK",
+          "name_en": "BYD",
+          "name_zh": "比亞迪",
+          "role_zh": "比亞迪：雇主客戶代表性玩家",
+          "role_en": "BYD: representative player in Employer customers",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "SHOP",
-          "name_en": "Shopify",
-          "name_zh": "Shopify",
-          "role_zh": "Shopify：支付／商務閉環代表性玩家",
-          "role_en": "Shopify: representative player in Payments / commerce loop",
-          "exchange": "NASDAQ"
+          "ticker": "1299.HK",
+          "name_en": "AIA",
+          "name_zh": "友邦",
+          "role_zh": "友邦：雇主客戶代表性玩家",
+          "role_en": "AIA: representative player in Employer customers",
+          "exchange": "HKEX",
+          "listedInApp": false
+        }
+      ]
+    },
+    {
+      "id": "hr-tools",
+      "order": 3,
+      "label_zh": "企業人資SaaS／入職核驗",
+      "label_en": "Enterprise HR SaaS / onboarding verification",
+      "summary_zh": "金蝶等人資／ERP SaaS、金山協同與平安入職／團體保險核驗（中國市場夥伴）。",
+      "summary_en": "Kingdee HR/ERP SaaS, Kingsoft collaboration, and Ping An onboarding/group-insurance verification — China-market partners.",
+      "players": [
+        {
+          "ticker": "0268.HK",
+          "name_en": "Kingdee",
+          "name_zh": "金蝶國際",
+          "role_zh": "金蝶國際：企業人資SaaS／入職核驗代表性玩家",
+          "role_en": "Kingdee: representative player in Enterprise HR SaaS / onboarding verification",
+          "exchange": "HKEX",
+          "listedInApp": false
+        },
+        {
+          "ticker": "3888.HK",
+          "name_en": "Kingsoft",
+          "name_zh": "金山軟件",
+          "role_zh": "金山軟件：企業人資SaaS／入職核驗代表性玩家",
+          "role_en": "Kingsoft: representative player in Enterprise HR SaaS / onboarding verification",
+          "exchange": "HKEX",
+          "listedInApp": false
+        },
+        {
+          "ticker": "2318.HK",
+          "name_en": "Ping An",
+          "name_zh": "中國平安",
+          "role_zh": "中國平安：企業人資SaaS／入職核驗代表性玩家",
+          "role_en": "Ping An: representative player in Enterprise HR SaaS / onboarding verification",
+          "exchange": "HKEX",
+          "listedInApp": false
+        }
+      ]
+    },
+    {
+      "id": "payments",
+      "order": 4,
+      "label_zh": "支付／結算",
+      "label_en": "Payments / settlement",
+      "summary_zh": "雇主付費與結算軌道。",
+      "summary_en": "Employer billing and settlement rails.",
+      "players": [
+        {
+          "ticker": "0005.HK",
+          "name_en": "HSBC",
+          "name_zh": "滙豐",
+          "role_zh": "滙豐：支付／結算代表性玩家",
+          "role_en": "HSBC: representative player in Payments / settlement",
+          "exchange": "HKEX",
+          "listedInApp": false
+        },
+        {
+          "ticker": "1398.HK",
+          "name_en": "ICBC",
+          "name_zh": "工商銀行",
+          "role_zh": "工商銀行：支付／結算代表性玩家",
+          "role_en": "ICBC: representative player in Payments / settlement",
+          "exchange": "HKEX",
+          "listedInApp": false
+        },
+        {
+          "ticker": "6060.HK",
+          "name_en": "ZhongAn",
+          "name_zh": "眾安在線",
+          "role_zh": "眾安在線：支付／結算代表性玩家",
+          "role_en": "ZhongAn: representative player in Payments / settlement",
+          "exchange": "HKEX",
+          "listedInApp": false
+        }
+      ]
+    },
+    {
+      "id": "branding",
+      "order": 5,
+      "label_zh": "雇主品牌廣告",
+      "label_en": "Employer-brand advertising",
+      "summary_zh": "在平台投放雇主品牌的廣告主。",
+      "summary_en": "Employers buying brand inventory on the platform.",
+      "players": [
+        {
+          "ticker": "2020.HK",
+          "name_en": "ANTA",
+          "name_zh": "安踏",
+          "role_zh": "安踏：雇主品牌廣告代表性玩家",
+          "role_en": "ANTA: representative player in Employer-brand advertising",
+          "exchange": "HKEX",
+          "listedInApp": false
+        },
+        {
+          "ticker": "2331.HK",
+          "name_en": "Li Ning",
+          "name_zh": "李寧",
+          "role_zh": "李寧：雇主品牌廣告代表性玩家",
+          "role_en": "Li Ning: representative player in Employer-brand advertising",
+          "exchange": "HKEX",
+          "listedInApp": false
+        },
+        {
+          "ticker": "2319.HK",
+          "name_en": "Mengniu",
+          "name_zh": "蒙牛",
+          "role_zh": "蒙牛：雇主品牌廣告代表性玩家",
+          "role_en": "Mengniu: representative player in Employer-brand advertising",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     }
   ],
   "competitors": [
     {
-      "ticker": "GOOG",
-      "name_en": "Alphabet",
-      "name_zh": "Alphabet（Google）",
-      "basis_zh": "網路內容／搜尋對手",
-      "basis_en": "Internet content / search rival",
-      "exchange": "NASDAQ"
-    },
-    {
-      "ticker": "META",
-      "name_en": "Meta Platforms",
-      "name_zh": "Meta (臉書)",
-      "basis_zh": "網路內容／搜尋對手",
-      "basis_en": "Internet content / search rival",
-      "exchange": "NASDAQ"
-    },
-    {
-      "ticker": "SPOT",
-      "name_en": "Spotify Technology S.A.",
-      "name_zh": "Spotify",
-      "basis_zh": "網路內容／搜尋對手",
-      "basis_en": "Internet content / search rival",
-      "exchange": "NYSE"
-    },
-    {
-      "ticker": "DASH",
-      "name_en": "DoorDash",
-      "name_zh": "DoorDash",
-      "basis_zh": "網路內容／搜尋對手",
-      "basis_en": "Internet content / search rival",
-      "exchange": "NASDAQ"
-    },
-    {
       "ticker": "BIDU",
       "name_en": "Baidu",
       "name_zh": "百度",
-      "basis_zh": "網路內容／搜尋對手",
-      "basis_en": "Internet content / search rival",
+      "basis_zh": "招聘／資訊服務對手",
+      "basis_en": "Recruiting / info-services rival",
       "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "0700.HK",
+      "name_en": "Tencent",
+      "name_zh": "騰訊",
+      "basis_zh": "招聘流量／資訊服務對手",
+      "basis_en": "Recruiting traffic / info-services rival",
+      "exchange": "HKEX",
+      "listedInApp": false
+    },
+    {
+      "ticker": "BABA",
+      "name_en": "Alibaba",
+      "name_zh": "阿里巴巴",
+      "basis_zh": "本地生活／服務招聘鄰接對手",
+      "basis_en": "Local-services recruiting adjacent rival",
+      "exchange": "NYSE"
     }
   ]
 }
