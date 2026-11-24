@@ -3,7 +3,7 @@
   "ticker": "DKNG",
   "name_en": "DraftKings",
   "name_zh": "DraftKings",
-  "updatedAt": "2026-11-20",
+  "updatedAt": "2026-11-24",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -11,188 +11,185 @@
     "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
     "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
     "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
-    "modelId": "consumer-discretionary-v1",
+    "modelId": "us-racing-gaming-v1",
     "references": [
-      "Industry model `consumer-discretionary-v1`",
+      "Industry model `us-racing-gaming-v1`",
       "AAPL curated seed shape on main (schema reference)",
       "cache/us_universe.json screen: remaining US listings without supply-chain seed",
       "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
     ]
   },
   "model": {
-    "id": "consumer-discretionary-v1",
-    "label_zh": "非必需消費／餐旅價值鏈",
-    "label_en": "Consumer discretionary / hospitality value chain",
-    "description_zh": "原料／商品 → 物流 → 門市／平台 → 支付 → 行銷流量。",
-    "description_en": "Inputs/goods → logistics → stores/platforms → payments → marketing traffic."
+    "id": "us-racing-gaming-v1",
+    "label_zh": "賽馬／博弈／運彩價值鏈",
+    "label_en": "Racing / gaming / wagering value chain",
+    "description_zh": "角子機／HRM／賭桌系統 → 賽事／運彩數據饋送 → 雲／數位投注基建 → 支付／入金 → 獲客行銷。",
+    "description_en": "Slot/HRM/table systems → racing/sports data feeds → cloud/digital wagering stack → payments/funding → acquisition marketing."
   },
   "stages": [
     {
-      "id": "inputs",
+      "id": "gaming-systems",
       "order": 1,
-      "label_zh": "原料／商品供應",
-      "label_en": "Inputs / merchandise supply",
-      "summary_zh": "食材、商品與授權 IP。",
-      "summary_en": "Food, goods, licensed IP.",
+      "label_zh": "博弈／HRM／角子機設備",
+      "label_en": "Gaming / HRM / slot systems",
+      "summary_zh": "外部角子機、HRM 與賭桌／iGaming 系統供應商。",
+      "summary_en": "External slot, HRM, and table/iGaming systems suppliers.",
       "players": [
         {
-          "ticker": "ADM",
-          "name_en": "Archer-Daniels-Midland",
-          "name_zh": "阿徹丹尼爾斯米德蘭",
-          "role_zh": "阿徹丹尼爾斯米德蘭：原料／商品供應代表性玩家",
-          "role_en": "Archer-Daniels-Midland: representative player in Inputs / merchandise supply",
-          "exchange": "NYSE"
+          "ticker": "IGT",
+          "name_en": "IGT",
+          "name_zh": "IGT",
+          "role_zh": "IGT：博弈／HRM／角子機設備代表性玩家",
+          "role_en": "IGT: representative player in Gaming / HRM / slot systems",
+          "exchange": "Private",
+          "listedInApp": false
         },
         {
-          "ticker": "NKE",
-          "name_en": "Nike",
-          "name_zh": "耐吉",
-          "role_zh": "耐吉：原料／商品供應代表性玩家",
-          "role_en": "Nike: representative player in Inputs / merchandise supply",
-          "exchange": "NYSE"
+          "ticker": "LNW",
+          "name_en": "Light & Wonder",
+          "name_zh": "Light & Wonder",
+          "role_zh": "Light & Wonder：博弈／HRM／角子機設備代表性玩家",
+          "role_en": "Light & Wonder: representative player in Gaming / HRM / slot systems",
+          "exchange": "ASX",
+          "listedInApp": false
         },
         {
-          "ticker": "DIS",
-          "name_en": "Walt Disney",
-          "name_zh": "迪士尼",
-          "role_zh": "迪士尼：原料／商品供應代表性玩家",
-          "role_en": "Walt Disney: representative player in Inputs / merchandise supply",
-          "exchange": "NYSE"
+          "ticker": "ALL.AX",
+          "name_en": "Aristocrat",
+          "name_zh": "Aristocrat",
+          "role_zh": "Aristocrat：博弈／HRM／角子機設備代表性玩家",
+          "role_en": "Aristocrat: representative player in Gaming / HRM / slot systems",
+          "exchange": "ASX",
+          "listedInApp": false
         }
       ]
     },
     {
-      "id": "logistics",
+      "id": "sports-data",
       "order": 2,
-      "label_zh": "物流／冷鏈",
-      "label_en": "Logistics / cold chain",
-      "summary_zh": "配送與庫存網路。",
-      "summary_en": "Distribution and inventory.",
+      "label_zh": "賽事／運彩數據饋送",
+      "label_en": "Racing / sports data feeds",
+      "summary_zh": "賽事與運彩官方／聚合數據與內容饋送。",
+      "summary_en": "Official and aggregated racing/sports data and content feeds.",
       "players": [
         {
-          "ticker": "UPS",
-          "name_en": "United Parcel Service",
-          "name_zh": "優比速",
-          "role_zh": "優比速：物流／冷鏈代表性玩家",
-          "role_en": "United Parcel Service: representative player in Logistics / cold chain",
-          "exchange": "NYSE"
+          "ticker": "SRAD",
+          "name_en": "Sportradar",
+          "name_zh": "Sportradar",
+          "role_zh": "Sportradar：賽事／運彩數據饋送代表性玩家",
+          "role_en": "Sportradar: representative player in Racing / sports data feeds",
+          "exchange": "NASDAQ",
+          "listedInApp": false
         },
         {
-          "ticker": "FDX",
-          "name_en": "FedEx",
-          "name_zh": "聯邦快遞",
-          "role_zh": "聯邦快遞：物流／冷鏈代表性玩家",
-          "role_en": "FedEx: representative player in Logistics / cold chain",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "UNP",
-          "name_en": "Union Pacific",
-          "name_zh": "聯合太平洋鐵路",
-          "role_zh": "聯合太平洋鐵路：物流／冷鏈代表性玩家",
-          "role_en": "Union Pacific: representative player in Logistics / cold chain",
-          "exchange": "NYSE"
+          "ticker": "GENI",
+          "name_en": "Genius Sports",
+          "name_zh": "Genius Sports",
+          "role_zh": "Genius Sports：賽事／運彩數據饋送代表性玩家",
+          "role_en": "Genius Sports: representative player in Racing / sports data feeds",
+          "exchange": "NYSE",
+          "listedInApp": false
         }
       ]
     },
     {
-      "id": "stores",
+      "id": "cloud-wagering",
       "order": 3,
-      "label_zh": "門市／數位平台",
-      "label_en": "Stores / digital platforms",
-      "summary_zh": "直營、加盟與 App。",
-      "summary_en": "Owned, franchise, apps.",
+      "label_zh": "雲／數位投注基建",
+      "label_en": "Cloud / digital wagering stack",
+      "summary_zh": "雲端、後台與 App／投注平台基建。",
+      "summary_en": "Cloud, backend, and app/wagering platform infrastructure.",
       "players": [
         {
-          "ticker": "SBUX",
-          "name_en": "Starbucks",
-          "name_zh": "星巴克",
-          "role_zh": "星巴克：門市／數位平台代表性玩家",
-          "role_en": "Starbucks: representative player in Stores / digital platforms",
+          "ticker": "AMZN",
+          "name_en": "Amazon.com",
+          "name_zh": "亞馬遜",
+          "role_zh": "亞馬遜：雲／數位投注基建代表性玩家",
+          "role_en": "Amazon.com: representative player in Cloud / digital wagering stack",
           "exchange": "NASDAQ"
         },
         {
-          "ticker": "MCD",
-          "name_en": "McDonald's",
-          "name_zh": "麥當勞",
-          "role_zh": "麥當勞：門市／數位平台代表性玩家",
-          "role_en": "McDonald's: representative player in Stores / digital platforms",
+          "ticker": "MSFT",
+          "name_en": "Microsoft",
+          "name_zh": "微軟",
+          "role_zh": "微軟：雲／數位投注基建代表性玩家",
+          "role_en": "Microsoft: representative player in Cloud / digital wagering stack",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "ORCL",
+          "name_en": "Oracle",
+          "name_zh": "甲骨文",
+          "role_zh": "甲骨文：雲／數位投注基建代表性玩家",
+          "role_en": "Oracle: representative player in Cloud / digital wagering stack",
           "exchange": "NYSE"
-        },
-        {
-          "ticker": "MAR",
-          "name_en": "Marriott International",
-          "name_zh": "萬豪國際",
-          "role_zh": "萬豪國際：門市／數位平台代表性玩家",
-          "role_en": "Marriott International: representative player in Stores / digital platforms",
-          "exchange": "NASDAQ"
         }
       ]
     },
     {
       "id": "payments",
       "order": 4,
-      "label_zh": "支付／忠誠",
-      "label_en": "Payments / loyalty",
-      "summary_zh": "卡支付與會員體系。",
-      "summary_en": "Card rails and loyalty.",
+      "label_zh": "支付／入金／KYC 軌道",
+      "label_en": "Payments / funding / KYC rails",
+      "summary_zh": "卡組織、錢包與入金軌道。",
+      "summary_en": "Card networks, wallets, and funding rails.",
       "players": [
         {
           "ticker": "V",
           "name_en": "Visa",
           "name_zh": "威士卡",
-          "role_zh": "威士卡：支付／忠誠代表性玩家",
-          "role_en": "Visa: representative player in Payments / loyalty",
+          "role_zh": "威士卡：支付／入金／KYC 軌道代表性玩家",
+          "role_en": "Visa: representative player in Payments / funding / KYC rails",
           "exchange": "NYSE"
         },
         {
           "ticker": "MA",
           "name_en": "Mastercard",
           "name_zh": "萬事達卡",
-          "role_zh": "萬事達卡：支付／忠誠代表性玩家",
-          "role_en": "Mastercard: representative player in Payments / loyalty",
+          "role_zh": "萬事達卡：支付／入金／KYC 軌道代表性玩家",
+          "role_en": "Mastercard: representative player in Payments / funding / KYC rails",
           "exchange": "NYSE"
         },
         {
-          "ticker": "AXP",
-          "name_en": "American Express",
-          "name_zh": "美國運通",
-          "role_zh": "美國運通：支付／忠誠代表性玩家",
-          "role_en": "American Express: representative player in Payments / loyalty",
-          "exchange": "NYSE"
+          "ticker": "PYPL",
+          "name_en": "PayPal",
+          "name_zh": "PayPal",
+          "role_zh": "PayPal：支付／入金／KYC 軌道代表性玩家",
+          "role_en": "PayPal: representative player in Payments / funding / KYC rails",
+          "exchange": "NASDAQ"
         }
       ]
     },
     {
       "id": "traffic",
       "order": 5,
-      "label_zh": "行銷／流量",
-      "label_en": "Marketing / traffic",
-      "summary_zh": "搜尋、社群與旅遊 OTA。",
-      "summary_en": "Search, social, travel OTAs.",
+      "label_zh": "獲客／行銷流量",
+      "label_en": "Acquisition / marketing traffic",
+      "summary_zh": "搜尋、社群與數位廣告流量（非 OTA）。",
+      "summary_en": "Search, social, and digital-ad traffic (not OTAs).",
       "players": [
         {
           "ticker": "GOOG",
           "name_en": "Alphabet",
           "name_zh": "Alphabet（Google）",
-          "role_zh": "Alphabet（Google）：行銷／流量代表性玩家",
-          "role_en": "Alphabet: representative player in Marketing / traffic",
+          "role_zh": "Alphabet（Google）：獲客／行銷流量代表性玩家",
+          "role_en": "Alphabet: representative player in Acquisition / marketing traffic",
           "exchange": "NASDAQ"
         },
         {
           "ticker": "META",
           "name_en": "Meta Platforms",
           "name_zh": "Meta (臉書)",
-          "role_zh": "Meta (臉書)：行銷／流量代表性玩家",
-          "role_en": "Meta Platforms: representative player in Marketing / traffic",
+          "role_zh": "Meta (臉書)：獲客／行銷流量代表性玩家",
+          "role_en": "Meta Platforms: representative player in Acquisition / marketing traffic",
           "exchange": "NASDAQ"
         },
         {
-          "ticker": "BKNG",
-          "name_en": "Booking",
-          "name_zh": "Booking 控股",
-          "role_zh": "Booking 控股：行銷／流量代表性玩家",
-          "role_en": "Booking: representative player in Marketing / traffic",
+          "ticker": "APP",
+          "name_en": "AppLovin",
+          "name_zh": "AppLovin",
+          "role_zh": "AppLovin：獲客／行銷流量代表性玩家",
+          "role_en": "AppLovin: representative player in Acquisition / marketing traffic",
           "exchange": "NASDAQ"
         }
       ]
@@ -200,44 +197,44 @@
   ],
   "competitors": [
     {
-      "ticker": "LVS",
-      "name_en": "Las Vegas Sands",
-      "name_zh": "Las Vegas Sands",
-      "basis_zh": "博弈／渡假村對手",
-      "basis_en": "Gaming / resort rival",
-      "exchange": "NYSE"
-    },
-    {
       "ticker": "FLUT",
       "name_en": "Flutter Entertainment",
       "name_zh": "Flutter Entertainment",
-      "basis_zh": "博弈／渡假村對手",
-      "basis_en": "Gaming / resort rival",
+      "basis_zh": "數位運彩／iGaming 對手",
+      "basis_en": "Digital sportsbook / iGaming rival",
       "exchange": "NYSE"
     },
     {
-      "ticker": "WYNN",
-      "name_en": "Wynn Resorts",
-      "name_zh": "Wynn Resorts",
-      "basis_zh": "博弈／渡假村對手",
-      "basis_en": "Gaming / resort rival",
-      "exchange": "NASDAQ"
-    },
-    {
-      "ticker": "MGM",
-      "name_en": "MGM Resorts International",
-      "name_zh": "MGM Resorts",
-      "basis_zh": "博弈／渡假村對手",
-      "basis_en": "Gaming / resort rival",
+      "ticker": "SGHC",
+      "name_en": "Super (SGHC)",
+      "name_zh": "Super (SGHC)",
+      "basis_zh": "線上博弈／iGaming 對手",
+      "basis_en": "Online gaming / iGaming rival",
       "exchange": "NYSE"
     },
     {
       "ticker": "CHDN",
       "name_en": "Churchill Downs",
       "name_zh": "邱吉爾唐斯",
-      "basis_zh": "博弈／渡假村對手",
-      "basis_en": "Gaming / resort rival",
+      "basis_zh": "賽馬／歷史賽馬／投注對手",
+      "basis_en": "Racing / HRM / wagering rival",
       "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "CZR",
+      "name_en": "Caesars",
+      "name_zh": "凱撒娛樂",
+      "basis_zh": "實體賭場＋數位博弈對手",
+      "basis_en": "Land-based + digital gaming rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "BYD",
+      "name_en": "Boyd Gaming",
+      "name_zh": "博伊德博弈",
+      "basis_zh": "區域賭場／博弈對手",
+      "basis_en": "Regional casino / gaming rival",
+      "exchange": "NYSE"
     }
   ]
 }

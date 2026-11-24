@@ -6800,8 +6800,8 @@
     "exchange": "NYSE"
   },
   "CZR": {
-    "name_en": "Caesars Entertainment",
-    "name_zh": "Caesars Entertainment",
+    "name_en": "Caesars",
+    "name_zh": "凱撒娛樂",
     "exchange": "NASDAQ"
   },
   "UGP": {
@@ -7066,7 +7066,7 @@
   },
   "BYD": {
     "name_en": "Boyd Gaming",
-    "name_zh": "Boyd Gaming",
+    "name_zh": "博伊德博弈",
     "exchange": "NYSE"
   },
   "OBDC": {
@@ -8358,5 +8358,32 @@
     "name_en": "Shenzhen International",
     "name_zh": "深國際",
     "exchange": "HKEX"
+  },
+  "IGT": {
+    "name_en": "IGT",
+    "name_zh": "IGT",
+    "exchange": "Private"
+  },
+  "LNW": {
+    "name_en": "Light & Wonder",
+    "name_zh": "Light & Wonder",
+    "exchange": "ASX"
+  },
+  "ALL.AX": {
+    "name_en": "Aristocrat",
+    "name_zh": "Aristocrat",
+    "exchange": "ASX"
+  },
+  "SRAD": {
+    "name_en": "Sportradar",
+    "name_zh": "Sportradar",
+    "exchange": "NASDAQ",
+    "listedInApp": false
+  },
+  "GENI": {
+    "name_en": "Genius Sports",
+    "name_zh": "Genius Sports",
+    "exchange": "NYSE",
+    "listedInApp": false
   }
 }

@@ -19,7 +19,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from scripts.supply_chain.models import MODELS, resolve_model_id  # noqa: E402
+from scripts.supply_chain.models import (  # noqa: E402
+    HUB_STAGE_SUMMARY_OVERRIDES,
+    MODELS,
+    resolve_model_id,
+)
 
 CACHE_DIR = ROOT / "cache" / "supply-chain"
 UNIVERSE_PATH = ROOT / "cache" / "us_universe.json"
@@ -375,7 +379,11 @@ def resolve_entity(ticker: str, entities: dict, universe_by_ticker: dict | None 
                 name_zh = ticker
     # name_zh == ticker (Latin brand) is kept as-is — never promote name_en into name_zh.
 
-    return {"name_en": name_en, "name_zh": name_zh, "exchange": exchange}
+    out = {"name_en": name_en, "name_zh": name_zh, "exchange": exchange}
+    # Optional honesty override: below-universe-floor US names stay clickable-false.
+    if pe.get("listedInApp") is False:
+        out["listedInApp"] = False
+    return out
 
 
 # Stage-player ticker rewrites (must match catalog aliases). Never emit both SQ and XYZ.
@@ -390,7 +398,20 @@ STAGE_TICKER_ALIAS: dict[str, str] = {
     "SJW": "HTO",
     "GOLD": "B",  # Barrick Gold → Barrick Mining
 }
-STAGE_TICKER_BANNED = {"SPCX", "MAXR", "FLY", "FLYX", "SQ", "PEAK", "MYL", "RDFN", "SJW", "GOLD", "BERY"}
+STAGE_TICKER_BANNED = {
+    "SPCX",
+    "MAXR",
+    "FLY",
+    "FLYX",
+    "SQ",
+    "PEAK",
+    "MYL",
+    "RDFN",
+    "SJW",
+    "GOLD",
+    "BERY",
+    "EVRI",  # Everi acquired by Apollo/IGT Jul 2025 — delisted
+}
 
 # Same-issuer dual listings (TWSE/ADR etc.) — never stage+rival the same issuer.
 # HK pages prefer .HK counters; map both sides to one issuer key.
@@ -528,6 +549,14 @@ def build_seed(
             role_zh, role_en = player_role(
                 stage_meta["label_zh"], stage_meta["label_en"], pe["name_zh"], pe["name_en"]
             )
+            # Entity may set listedInApp: false to opt out of the US-exchange
+            # heuristic (below screener floor but still NYSE/NASDAQ — not in-app).
+            ent_listed = pe.get("listedInApp")
+            is_listed = (
+                False
+                if ent_listed is False
+                else listed_in_app(pt, universe_tickers, exchange=pe.get("exchange") or "")
+            )
             players.append(
                 {
                     "ticker": pt,
@@ -536,21 +565,24 @@ def build_seed(
                     "role_zh": role_zh,
                     "role_en": role_en,
                     "exchange": pe.get("exchange") or "",
-                    **(
-                        {"listedInApp": False}
-                        if not listed_in_app(pt, universe_tickers, exchange=pe.get("exchange") or "")
-                        else {}
-                    ),
+                    **({"listedInApp": False} if not is_listed else {}),
                 }
             )
+        summary_zh = stage_meta["summary_zh"]
+        summary_en = stage_meta["summary_en"]
+        hub_sum = (HUB_STAGE_SUMMARY_OVERRIDES.get(ticker) or {}).get(sid) or {}
+        if hub_sum.get("summary_zh"):
+            summary_zh = hub_sum["summary_zh"]
+        if hub_sum.get("summary_en"):
+            summary_en = hub_sum["summary_en"]
         stages.append(
             {
                 "id": sid,
                 "order": stage_meta["order"],
                 "label_zh": traditionalize(stage_meta["label_zh"]),
                 "label_en": stage_meta["label_en"],
-                "summary_zh": traditionalize(stage_meta["summary_zh"]),
-                "summary_en": stage_meta["summary_en"],
+                "summary_zh": traditionalize(summary_zh),
+                "summary_en": summary_en,
                 "players": players,
             }
         )
