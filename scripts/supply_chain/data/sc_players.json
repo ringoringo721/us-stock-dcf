@@ -2775,5 +2775,111 @@
       "MA",
       "AXP"
     ]
+  },
+  "hotel-brand-v1": {
+    "property-ops-supplies": [
+      "PG",
+      "CL",
+      "ECL"
+    ],
+    "foodservice-dist": [
+      "SYY",
+      "USFD",
+      "PFGC"
+    ],
+    "distribution": [
+      "BKNG",
+      "EXPE"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "AXP"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "PINS"
+    ]
+  },
+  "cruise-line-v1": {
+    "marine-fuel": [
+      "XOM",
+      "CVX",
+      "SHEL"
+    ],
+    "shipyard-marine": [
+      "GD",
+      "HII",
+      "HWM"
+    ],
+    "foodservice-dist": [
+      "SYY",
+      "USFD",
+      "PFGC"
+    ],
+    "distribution": [
+      "BKNG",
+      "EXPE"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "AXP"
+    ]
+  },
+  "casino-resort-v1": {
+    "property-ops-supplies": [
+      "PG",
+      "CL",
+      "ECL"
+    ],
+    "foodservice-dist": [
+      "SYY",
+      "USFD",
+      "PFGC"
+    ],
+    "distribution": [
+      "BKNG",
+      "EXPE",
+      "ABNB"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "AXP"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "APP"
+    ]
+  },
+  "ski-resort-v1": {
+    "mountain-apparel": [
+      "NKE",
+      "VFC",
+      "DECK"
+    ],
+    "foodservice-dist": [
+      "SYY",
+      "USFD",
+      "PFGC"
+    ],
+    "property-ops-supplies": [
+      "PG",
+      "CL",
+      "ECL"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "AXP"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "BKNG"
+    ]
   }
 }

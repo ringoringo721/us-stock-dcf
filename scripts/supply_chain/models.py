@@ -3314,6 +3314,58 @@ MODELS: dict[str, dict] = {
             {"id": "payments", "order": 6, "label_zh": "支付／金融", "label_en": "Payments / fintech", "summary_zh": "卡組織與旅遊支付軌道。", "summary_en": "Card rails and travel payment rails."},
         ],
     },
+    "hotel-brand-v1": {
+        "label_zh": "酒店品牌／管理價值鏈",
+        "label_en": "Hotel brand / management value chain",
+        "description_zh": "房務耗材 → 餐飲配送 → OTA／訂房通路 → 支付 → 流量（非 F&B 消費墊）。",
+        "description_en": "Property ops supplies → foodservice distribution → OTA/booking → payments → traffic (not F&B consumer pad).",
+        "stages": [
+            {"id": "property-ops-supplies", "order": 1, "label_zh": "房務／清潔耗材", "label_en": "Property ops / cleaning supplies", "summary_zh": "客房清潔與個護耗材供應。", "summary_en": "Housekeeping and personal-care supply."},
+            {"id": "foodservice-dist", "order": 2, "label_zh": "餐飲配送", "label_en": "Foodservice distribution", "summary_zh": "酒店／餐飲食材配送。", "summary_en": "Hotel and F&B foodservice distributors."},
+            {"id": "distribution", "order": 3, "label_zh": "OTA／訂房通路", "label_en": "OTA / booking channels", "summary_zh": "線上旅行社與替代住宿通路。", "summary_en": "OTAs and alternative-stay booking channels."},
+            {"id": "payments", "order": 4, "label_zh": "支付／金融", "label_en": "Payments / fintech", "summary_zh": "卡組織與旅遊支付。", "summary_en": "Card rails and travel payments."},
+            {"id": "traffic", "order": 5, "label_zh": "流量／獲客", "label_en": "Traffic / acquisition", "summary_zh": "搜尋與社群流量（OTA 已在通路段）。", "summary_en": "Search and social traffic (OTAs live on distribution)."},
+        ],
+    },
+    "cruise-line-v1": {
+        "label_zh": "郵輪價值鏈",
+        "label_en": "Cruise line value chain",
+        "description_zh": "船用燃油 → 造船／海工鄰近 → 餐飲配送 → 旅遊通路 → 支付。",
+        "description_en": "Marine fuel → shipyard/marine adjacency → foodservice → travel distribution → payments.",
+        "stages": [
+            {"id": "marine-fuel", "order": 1, "label_zh": "船用燃油", "label_en": "Marine fuel", "summary_zh": "一體化能源與船用燃油供應。", "summary_en": "Integrated energy and marine fuel supply."},
+            {"id": "shipyard-marine", "order": 2, "label_zh": "造船／海工鄰近", "label_en": "Shipyard / marine adjacency", "summary_zh": "國防造船與航太／海工結構鄰近（商船廠稀缺）。", "summary_en": "Defense shipyards and aero/marine structure adjacency (scarce pure cruise yards)."},
+            {"id": "foodservice-dist", "order": 3, "label_zh": "餐飲配送", "label_en": "Foodservice distribution", "summary_zh": "船上餐飲食材配送。", "summary_en": "Onboard F&B foodservice distributors."},
+            {"id": "distribution", "order": 4, "label_zh": "旅遊／訂票通路", "label_en": "Travel / booking channels", "summary_zh": "OTA 與旅遊分銷。", "summary_en": "OTAs and travel distribution."},
+            {"id": "payments", "order": 5, "label_zh": "支付／金融", "label_en": "Payments / fintech", "summary_zh": "卡組織與旅遊支付。", "summary_en": "Card rails and travel payments."},
+        ],
+    },
+    "casino-resort-v1": {
+        "label_zh": "度假賭場價值鏈",
+        "label_en": "Casino resort value chain",
+        "description_zh": "房務耗材 → 餐飲配送 → 訂房通路 → 支付 → 流量（設備商未達宇宙則不硬塞）。",
+        "description_en": "Property ops → foodservice → booking channels → payments → traffic (no fake slot-OEM pad if below universe).",
+        "stages": [
+            {"id": "property-ops-supplies", "order": 1, "label_zh": "房務／清潔耗材", "label_en": "Property ops / cleaning supplies", "summary_zh": "客房與物業清潔耗材。", "summary_en": "Rooms and property cleaning supplies."},
+            {"id": "foodservice-dist", "order": 2, "label_zh": "餐飲配送", "label_en": "Foodservice distribution", "summary_zh": "度假村／賭場餐飲配送。", "summary_en": "Resort and casino foodservice distributors."},
+            {"id": "distribution", "order": 3, "label_zh": "訂房／旅遊通路", "label_en": "Booking / travel channels", "summary_zh": "OTA 與渡假訂房通路。", "summary_en": "OTAs and resort booking channels."},
+            {"id": "payments", "order": 4, "label_zh": "支付／金融", "label_en": "Payments / fintech", "summary_zh": "卡組織與旅遊支付。", "summary_en": "Card rails and travel payments."},
+            {"id": "traffic", "order": 5, "label_zh": "流量／獲客", "label_en": "Traffic / acquisition", "summary_zh": "搜尋、社群與應用流量。", "summary_en": "Search, social, and app traffic."},
+        ],
+    },
+    "ski-resort-v1": {
+        "label_zh": "滑雪度假價值鏈",
+        "label_en": "Ski resort value chain",
+        "description_zh": "山地服飾／裝備 → 餐飲配送 → 房務耗材 → 支付 → 流量／訂房。",
+        "description_en": "Mountain apparel/gear → foodservice → property ops → payments → traffic/booking.",
+        "stages": [
+            {"id": "mountain-apparel", "order": 1, "label_zh": "山地服飾／裝備", "label_en": "Mountain apparel / gear", "summary_zh": "滑雪／戶外服飾與鞋履品牌。", "summary_en": "Ski and outdoor apparel/footwear brands."},
+            {"id": "foodservice-dist", "order": 2, "label_zh": "餐飲配送", "label_en": "Foodservice distribution", "summary_zh": "山內餐飲食材配送。", "summary_en": "On-mountain foodservice distributors."},
+            {"id": "property-ops-supplies", "order": 3, "label_zh": "房務／清潔耗材", "label_en": "Property ops / cleaning supplies", "summary_zh": "住宿與物業清潔耗材。", "summary_en": "Lodging and property cleaning supplies."},
+            {"id": "payments", "order": 4, "label_zh": "支付／金融", "label_en": "Payments / fintech", "summary_zh": "卡組織與旅遊支付。", "summary_en": "Card rails and travel payments."},
+            {"id": "traffic", "order": 5, "label_zh": "流量／訂房", "label_en": "Traffic / booking", "summary_zh": "搜尋、社群與 OTA 流量。", "summary_en": "Search, social, and OTA traffic."},
+        ],
+    },
 
     "us-racing-gaming-v1": {
         "label_zh": "賽馬／博弈／運彩價值鏈",
@@ -3933,7 +3985,22 @@ TICKER_MODEL: dict[str, str] = {
     "NKE": "consumer-discretionary-v1",
     "DAL": "passenger-airline-v1",  # network carrier — not F&B discretionary pad
     "CVNA": "consumer-discretionary-v1",
-    "RCL": "consumer-discretionary-v1",
+    "RCL": "cruise-line-v1",  # cruise — not F&B discretionary pad
+    "CCL": "cruise-line-v1",
+    "NCLH": "cruise-line-v1",
+    "VIK": "cruise-line-v1",
+    "MAR": "hotel-brand-v1",  # hotel brand/mgmt — not F&B pad
+    "HLT": "hotel-brand-v1",
+    "IHG": "hotel-brand-v1",
+    "H": "hotel-brand-v1",
+    "WH": "hotel-brand-v1",
+    "CHH": "hotel-brand-v1",
+    "LVS": "casino-resort-v1",
+    "WYNN": "casino-resort-v1",
+    "MGM": "casino-resort-v1",
+    "CZR": "casino-resort-v1",
+    "BYD": "casino-resort-v1",
+    "MTN": "ski-resort-v1",  # ski resort — not casino peer pad
     # Industrial gases / specialty chem — dedicated models (not mining excavator staging)
     "APD": "industrial-gases-v1",
     "LIN": "industrial-gases-v1",
