@@ -2,14 +2,16 @@
   "bandMin": 0.0,
   "bandMax": 50000000000.0,
   "bandTotal": 1041,
-  "written": 4,
+  "written": 6,
   "skippedExisting": [],
   "failures": [],
   "tickers": [
-    "ULTA",
-    "GME",
-    "DKS",
-    "CHWY"
+    "UAL",
+    "RYAAY",
+    "LUV",
+    "LTM",
+    "AAL",
+    "CPA"
   ],
   "dryRun": false,
   "date": "2026-11-25",

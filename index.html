@@ -12033,7 +12033,12 @@
           <span class="sc-legend-item"><span class="sc-legend-swatch" style="border-top:1.5px dashed var(--text-muted)" aria-hidden="true"></span>${scEscape(dict.sc_legend_member || '')}</span>`;
       }
 
-      const layout = SC.layoutSpider(pack, { height: 920 });
+      const stageCount = Array.isArray(pack.stages) ? pack.stages.length : 0;
+      // Taller viewBox for 6-stage packs so north players + southern rivals stay in frame.
+      const layout = SC.layoutSpider(pack, {
+        height: stageCount >= 6 ? 1120 : 920,
+        width: stageCount >= 6 ? 1220 : undefined
+      });
       flowEl.innerHTML = `
         <div class="sc-spider-toolbar" role="toolbar" aria-label="${scEscape(dict.sc_zoom_hint || '')}">
           <button type="button" data-sc-zoom="out" title="${scEscape(dict.sc_zoom_out || '')}">− ${scEscape(dict.sc_zoom_out || '')}</button>

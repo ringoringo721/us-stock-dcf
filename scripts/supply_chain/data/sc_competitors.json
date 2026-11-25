@@ -7235,23 +7235,23 @@
   "DAL": [
     [
       "UAL",
-      "航空公司對手",
-      "Airline rival"
+      "美網路全服務航司對手",
+      "US network carrier rival"
     ],
     [
       "AAL",
-      "航空公司對手",
-      "Airline rival"
+      "美網路全服務航司對手",
+      "US network carrier rival"
     ],
     [
       "LUV",
-      "航空公司對手",
-      "Airline rival"
+      "美低成本航司對手",
+      "US LCC rival"
     ],
     [
-      "ALK",
-      "航空公司對手",
-      "Airline rival"
+      "RYAAY",
+      "跨區客運航司對手",
+      "Cross-region passenger airline rival"
     ]
   ],
   "NKE": [
@@ -9944,23 +9944,23 @@
   "UAL": [
     [
       "DAL",
-      "航空公司對手",
-      "Airline rival"
+      "美網路全服務航司對手",
+      "US network carrier rival"
     ],
     [
       "AAL",
-      "航空公司對手",
-      "Airline rival"
+      "美網路全服務航司對手",
+      "US network carrier rival"
     ],
     [
       "LUV",
-      "航空公司對手",
-      "Airline rival"
+      "美低成本航司對手",
+      "US LCC rival"
     ],
     [
-      "ALK",
-      "航空公司對手",
-      "Airline rival"
+      "RYAAY",
+      "跨區客運航司對手",
+      "Cross-region passenger airline rival"
     ]
   ],
   "ACGL": [
@@ -11389,29 +11389,24 @@
   ],
   "RYAAY": [
     [
+      "LUV",
+      "低成本航司對手",
+      "LCC rival"
+    ],
+    [
       "DAL",
-      "航空公司對手",
-      "Airline rival"
+      "跨區網路航司對手",
+      "Cross-region network carrier rival"
     ],
     [
       "UAL",
-      "航空公司對手",
-      "Airline rival"
+      "跨區網路航司對手",
+      "Cross-region network carrier rival"
     ],
     [
       "AAL",
-      "航空公司對手",
-      "Airline rival"
-    ],
-    [
-      "LUV",
-      "航空公司對手",
-      "Airline rival"
-    ],
-    [
-      "ALK",
-      "航空公司對手",
-      "Airline rival"
+      "跨區網路航司對手",
+      "Cross-region network carrier rival"
     ]
   ],
   "FTS": [
@@ -14388,23 +14383,23 @@
   "LUV": [
     [
       "DAL",
-      "航空公司對手",
-      "Airline rival"
+      "美網路航司對手",
+      "US network carrier rival"
     ],
     [
       "UAL",
-      "航空公司對手",
-      "Airline rival"
+      "美網路航司對手",
+      "US network carrier rival"
     ],
     [
       "AAL",
-      "航空公司對手",
-      "Airline rival"
+      "美網路航司對手",
+      "US network carrier rival"
     ],
     [
-      "ALK",
-      "航空公司對手",
-      "Airline rival"
+      "RYAAY",
+      "低成本航司對手",
+      "LCC rival"
     ]
   ],
   "CMS": [
@@ -18621,29 +18616,24 @@
   ],
   "LTM": [
     [
+      "CPA",
+      "拉美網路航司對手",
+      "LatAm network airline rival"
+    ],
+    [
       "DAL",
-      "航空公司對手",
-      "Airline rival"
+      "跨區網路航司對手",
+      "Cross-region network carrier rival"
     ],
     [
       "UAL",
-      "航空公司對手",
-      "Airline rival"
+      "跨區網路航司對手",
+      "Cross-region network carrier rival"
     ],
     [
       "AAL",
-      "航空公司對手",
-      "Airline rival"
-    ],
-    [
-      "LUV",
-      "航空公司對手",
-      "Airline rival"
-    ],
-    [
-      "ALK",
-      "航空公司對手",
-      "Airline rival"
+      "跨區網路航司對手",
+      "Cross-region network carrier rival"
     ]
   ],
   "MTZ": [
@@ -24369,23 +24359,23 @@
   "AAL": [
     [
       "DAL",
-      "航空公司對手",
-      "Airline rival"
+      "美網路全服務航司對手",
+      "US network carrier rival"
     ],
     [
       "UAL",
-      "航空公司對手",
-      "Airline rival"
+      "美網路全服務航司對手",
+      "US network carrier rival"
     ],
     [
       "LUV",
-      "航空公司對手",
-      "Airline rival"
+      "美低成本航司對手",
+      "US LCC rival"
     ],
     [
-      "ALK",
-      "航空公司對手",
-      "Airline rival"
+      "RYAAY",
+      "跨區客運航司對手",
+      "Cross-region passenger airline rival"
     ]
   ],
   "NTSK": [
@@ -30401,29 +30391,24 @@
   ],
   "CPA": [
     [
+      "LTM",
+      "拉美網路航司對手",
+      "LatAm network airline rival"
+    ],
+    [
       "DAL",
-      "航空公司對手",
-      "Airline rival"
+      "跨區網路航司對手",
+      "Cross-region network carrier rival"
     ],
     [
       "UAL",
-      "航空公司對手",
-      "Airline rival"
+      "跨區網路航司對手",
+      "Cross-region network carrier rival"
     ],
     [
       "AAL",
-      "航空公司對手",
-      "Airline rival"
-    ],
-    [
-      "LUV",
-      "航空公司對手",
-      "Airline rival"
-    ],
-    [
-      "ALK",
-      "航空公司對手",
-      "Airline rival"
+      "跨區網路航司對手",
+      "Cross-region network carrier rival"
     ]
   ],
   "NICE": [

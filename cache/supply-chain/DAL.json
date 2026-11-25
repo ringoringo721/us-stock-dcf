@@ -3,7 +3,7 @@
   "ticker": "DAL",
   "name_en": "Delta Air Lines",
   "name_zh": "達美航空",
-  "updatedAt": "2026-11-14",
+  "updatedAt": "2026-11-25",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mid-mega caps ($50B–$100B). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -11,189 +11,199 @@
     "notes_en": "Industry value-chain template plus curated rivals for the US mcap $50B–$100B batch. No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
     "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
     "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
-    "modelId": "consumer-discretionary-v1",
+    "modelId": "passenger-airline-v1",
     "references": [
-      "Industry model `consumer-discretionary-v1`",
+      "Industry model `passenger-airline-v1`",
       "AAPL curated seed shape on main (schema reference)",
       "cache/us_universe.json marketCap screen: USD 50B ≤ mcap < 100B",
       "Mega ≥$100B batch patterns (entity gates, short_brand_en, industry models)"
     ]
   },
   "model": {
-    "id": "consumer-discretionary-v1",
-    "label_zh": "非必需消費／餐旅價值鏈",
-    "label_en": "Consumer discretionary / hospitality value chain",
-    "description_zh": "原料／商品 → 物流 → 門市／平台 → 支付 → 行銷流量。",
-    "description_en": "Inputs/goods → logistics → stores/platforms → payments → marketing traffic."
+    "id": "passenger-airline-v1",
+    "label_zh": "客運航空價值鏈",
+    "label_en": "Passenger airline value chain",
+    "description_zh": "航油 → 機體／發動機 OEM → 飛機租賃 → 機場 → 訂位／OTA 分銷 → 支付（非 F&B 消費墊）。",
+    "description_en": "Jet fuel → airframe/engine OEMs → aircraft lessors → airports → OTA/distribution → payments (not F&B consumer pad)."
   },
   "stages": [
     {
-      "id": "inputs",
+      "id": "jet-fuel",
       "order": 1,
-      "label_zh": "原料／商品供應",
-      "label_en": "Inputs / merchandise supply",
-      "summary_zh": "食材、商品與授權 IP。",
-      "summary_en": "Food, goods, licensed IP.",
+      "label_zh": "航油／能源",
+      "label_en": "Jet fuel / energy",
+      "summary_zh": "噴射燃油與一體化能源供應。",
+      "summary_en": "Jet fuel and integrated energy supply.",
       "players": [
         {
-          "ticker": "ADM",
-          "name_en": "Archer-Daniels-Midland Company",
-          "name_zh": "阿徹丹尼爾斯米德蘭",
-          "role_zh": "阿徹丹尼爾斯米德蘭：原料／商品供應代表性玩家",
-          "role_en": "Archer-Daniels-Midland Company: representative player in Inputs / merchandise supply",
+          "ticker": "XOM",
+          "name_en": "Exxonmobil",
+          "name_zh": "埃克森美孚",
+          "role_zh": "埃克森美孚：航油／能源代表性玩家",
+          "role_en": "Exxonmobil: representative player in Jet fuel / energy",
           "exchange": "NYSE"
         },
         {
-          "ticker": "NKE",
-          "name_en": "Nike",
-          "name_zh": "耐吉",
-          "role_zh": "耐吉：原料／商品供應代表性玩家",
-          "role_en": "Nike: representative player in Inputs / merchandise supply",
+          "ticker": "CVX",
+          "name_en": "Chevron",
+          "name_zh": "雪佛龍",
+          "role_zh": "雪佛龍：航油／能源代表性玩家",
+          "role_en": "Chevron: representative player in Jet fuel / energy",
           "exchange": "NYSE"
         },
         {
-          "ticker": "DIS",
-          "name_en": "The Walt Disney",
-          "name_zh": "迪士尼",
-          "role_zh": "迪士尼：原料／商品供應代表性玩家",
-          "role_en": "The Walt Disney: representative player in Inputs / merchandise supply",
+          "ticker": "SHEL",
+          "name_en": "Shell",
+          "name_zh": "殼牌",
+          "role_zh": "殼牌：航油／能源代表性玩家",
+          "role_en": "Shell: representative player in Jet fuel / energy",
           "exchange": "NYSE"
         }
       ]
     },
     {
-      "id": "logistics",
+      "id": "fleet-oem",
       "order": 2,
-      "label_zh": "物流／冷鏈",
-      "label_en": "Logistics / cold chain",
-      "summary_zh": "配送與庫存網路。",
-      "summary_en": "Distribution and inventory.",
+      "label_zh": "機體／發動機 OEM",
+      "label_en": "Airframe / engine OEMs",
+      "summary_zh": "商用機體與航發供應。",
+      "summary_en": "Commercial airframe and engine supply.",
       "players": [
         {
-          "ticker": "UPS",
-          "name_en": "United Parcel Service",
-          "name_zh": "優比速",
-          "role_zh": "優比速：物流／冷鏈代表性玩家",
-          "role_en": "United Parcel Service: representative player in Logistics / cold chain",
+          "ticker": "BA",
+          "name_en": "Boeing",
+          "name_zh": "波音公司",
+          "role_zh": "波音公司：機體／發動機 OEM代表性玩家",
+          "role_en": "Boeing: representative player in Airframe / engine OEMs",
           "exchange": "NYSE"
         },
         {
-          "ticker": "FDX",
-          "name_en": "FedEx",
-          "name_zh": "聯邦快遞",
-          "role_zh": "聯邦快遞：物流／冷鏈代表性玩家",
-          "role_en": "FedEx: representative player in Logistics / cold chain",
+          "ticker": "GE",
+          "name_en": "GE Aerospace",
+          "name_zh": "奇異航太 (GE Aerospace)",
+          "role_zh": "奇異航太 (GE Aerospace)：機體／發動機 OEM代表性玩家",
+          "role_en": "GE Aerospace: representative player in Airframe / engine OEMs",
           "exchange": "NYSE"
         },
         {
-          "ticker": "UNP",
-          "name_en": "Union Pacific",
-          "name_zh": "聯合太平洋鐵路",
-          "role_zh": "聯合太平洋鐵路：物流／冷鏈代表性玩家",
-          "role_en": "Union Pacific: representative player in Logistics / cold chain",
+          "ticker": "RTX",
+          "name_en": "RTX Corporation",
+          "name_zh": "雷神技術",
+          "role_zh": "雷神技術：機體／發動機 OEM代表性玩家",
+          "role_en": "RTX Corporation: representative player in Airframe / engine OEMs",
           "exchange": "NYSE"
         }
       ]
     },
     {
-      "id": "stores",
+      "id": "aircraft-lessors",
       "order": 3,
-      "label_zh": "門市／數位平台",
-      "label_en": "Stores / digital platforms",
-      "summary_zh": "直營、加盟與 App。",
-      "summary_en": "Owned, franchise, apps.",
+      "label_zh": "飛機租賃",
+      "label_en": "Aircraft lessors",
+      "summary_zh": "營運租賃與機隊融資出租人。",
+      "summary_en": "Operating lessors and fleet financing lessors.",
       "players": [
         {
-          "ticker": "SBUX",
-          "name_en": "Starbucks Corporation",
-          "name_zh": "星巴克",
-          "role_zh": "星巴克：門市／數位平台代表性玩家",
-          "role_en": "Starbucks Corporation: representative player in Stores / digital platforms",
+          "ticker": "AER",
+          "name_en": "AerCap",
+          "name_zh": "AerCap",
+          "role_zh": "AerCap：飛機租賃代表性玩家",
+          "role_en": "AerCap: representative player in Aircraft lessors",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "airports",
+      "order": 4,
+      "label_zh": "機場營運",
+      "label_en": "Airport operators",
+      "summary_zh": "上市機場集團與起降／航廈節點。",
+      "summary_en": "Listed airport groups and airside/terminal nodes.",
+      "players": [
+        {
+          "ticker": "ASR",
+          "name_en": "Grupo Aeroportuario del Sureste",
+          "name_zh": "東南機場集團",
+          "role_zh": "東南機場集團：機場營運代表性玩家",
+          "role_en": "Grupo Aeroportuario del Sureste: representative player in Airport operators",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "PAC",
+          "name_en": "Grupo Aeroportuario del Pacífico",
+          "name_zh": "太平洋機場集團",
+          "role_zh": "太平洋機場集團：機場營運代表性玩家",
+          "role_en": "Grupo Aeroportuario del Pacífico: representative player in Airport operators",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "OMAB",
+          "name_en": "OMA",
+          "name_zh": "OMA 機場",
+          "role_zh": "OMA 機場：機場營運代表性玩家",
+          "role_en": "OMA: representative player in Airport operators",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "distribution",
+      "order": 5,
+      "label_zh": "訂位／OTA 分銷",
+      "label_en": "Booking / OTA distribution",
+      "summary_zh": "OTA 與間接分銷（GDS 未達宇宙門檻則不硬塞）。",
+      "summary_en": "OTAs and indirect distribution (no fake GDS pad if below universe floor).",
+      "players": [
+        {
+          "ticker": "BKNG",
+          "name_en": "Booking",
+          "name_zh": "Booking 控股",
+          "role_zh": "Booking 控股：訂位／OTA 分銷代表性玩家",
+          "role_en": "Booking: representative player in Booking / OTA distribution",
           "exchange": "NASDAQ"
         },
         {
-          "ticker": "MCD",
-          "name_en": "McDonald's Corporation",
-          "name_zh": "麥當勞",
-          "role_zh": "麥當勞：門市／數位平台代表性玩家",
-          "role_en": "McDonald's Corporation: representative player in Stores / digital platforms",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "MAR",
-          "name_en": "Marriott International",
-          "name_zh": "萬豪國際",
-          "role_zh": "萬豪國際：門市／數位平台代表性玩家",
-          "role_en": "Marriott International: representative player in Stores / digital platforms",
+          "ticker": "EXPE",
+          "name_en": "Expedia",
+          "name_zh": "Expedia",
+          "role_zh": "Expedia：訂位／OTA 分銷代表性玩家",
+          "role_en": "Expedia: representative player in Booking / OTA distribution",
           "exchange": "NASDAQ"
         }
       ]
     },
     {
       "id": "payments",
-      "order": 4,
-      "label_zh": "支付／忠誠",
-      "label_en": "Payments / loyalty",
-      "summary_zh": "卡支付與會員體系。",
-      "summary_en": "Card rails and loyalty.",
+      "order": 6,
+      "label_zh": "支付／金融",
+      "label_en": "Payments / fintech",
+      "summary_zh": "卡組織與旅遊支付軌道。",
+      "summary_en": "Card rails and travel payment rails.",
       "players": [
         {
           "ticker": "V",
           "name_en": "Visa",
           "name_zh": "威士卡",
-          "role_zh": "威士卡：支付／忠誠代表性玩家",
-          "role_en": "Visa: representative player in Payments / loyalty",
+          "role_zh": "威士卡：支付／金融代表性玩家",
+          "role_en": "Visa: representative player in Payments / fintech",
           "exchange": "NYSE"
         },
         {
           "ticker": "MA",
           "name_en": "Mastercard",
           "name_zh": "萬事達卡",
-          "role_zh": "萬事達卡：支付／忠誠代表性玩家",
-          "role_en": "Mastercard: representative player in Payments / loyalty",
+          "role_zh": "萬事達卡：支付／金融代表性玩家",
+          "role_en": "Mastercard: representative player in Payments / fintech",
           "exchange": "NYSE"
         },
         {
           "ticker": "AXP",
           "name_en": "American Express",
           "name_zh": "美國運通",
-          "role_zh": "美國運通：支付／忠誠代表性玩家",
-          "role_en": "American Express: representative player in Payments / loyalty",
+          "role_zh": "美國運通：支付／金融代表性玩家",
+          "role_en": "American Express: representative player in Payments / fintech",
           "exchange": "NYSE"
-        }
-      ]
-    },
-    {
-      "id": "traffic",
-      "order": 5,
-      "label_zh": "行銷／流量",
-      "label_en": "Marketing / traffic",
-      "summary_zh": "搜尋、社群與旅遊 OTA。",
-      "summary_en": "Search, social, travel OTAs.",
-      "players": [
-        {
-          "ticker": "GOOG",
-          "name_en": "Alphabet",
-          "name_zh": "Alphabet（Google）",
-          "role_zh": "Alphabet（Google）：行銷／流量代表性玩家",
-          "role_en": "Alphabet: representative player in Marketing / traffic",
-          "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "META",
-          "name_en": "Meta Platforms",
-          "name_zh": "Meta (臉書)",
-          "role_zh": "Meta (臉書)：行銷／流量代表性玩家",
-          "role_en": "Meta Platforms: representative player in Marketing / traffic",
-          "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "BKNG",
-          "name_en": "Booking",
-          "name_zh": "Booking 控股",
-          "role_zh": "Booking 控股：行銷／流量代表性玩家",
-          "role_en": "Booking: representative player in Marketing / traffic",
-          "exchange": "NASDAQ"
         }
       ]
     }
@@ -203,34 +213,33 @@
       "ticker": "UAL",
       "name_en": "United Airlines",
       "name_zh": "聯合航空",
-      "basis_zh": "航空公司對手",
-      "basis_en": "Airline rival",
+      "basis_zh": "美網路全服務航司對手",
+      "basis_en": "US network carrier rival",
       "exchange": "NASDAQ"
     },
     {
       "ticker": "AAL",
       "name_en": "American Airlines",
       "name_zh": "美國航空",
-      "basis_zh": "航空公司對手",
-      "basis_en": "Airline rival",
+      "basis_zh": "美網路全服務航司對手",
+      "basis_en": "US network carrier rival",
       "exchange": "NASDAQ"
     },
     {
       "ticker": "LUV",
       "name_en": "Southwest Airlines Co.",
       "name_zh": "西南航空",
-      "basis_zh": "航空公司對手",
-      "basis_en": "Airline rival",
+      "basis_zh": "美低成本航司對手",
+      "basis_en": "US LCC rival",
       "exchange": "NYSE"
     },
     {
-      "ticker": "ALK",
-      "name_en": "Alaska Air",
-      "name_zh": "阿拉斯加航空",
-      "basis_zh": "航空公司對手",
-      "basis_en": "Airline rival",
-      "exchange": "OTC",
-      "listedInApp": false
+      "ticker": "RYAAY",
+      "name_en": "Ryanair",
+      "name_zh": "Ryanair",
+      "basis_zh": "跨區客運航司對手",
+      "basis_en": "Cross-region passenger airline rival",
+      "exchange": "NASDAQ"
     }
   ]
 }
