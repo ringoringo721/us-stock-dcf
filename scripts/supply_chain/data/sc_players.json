@@ -2488,5 +2488,265 @@
       "META",
       "PINS"
     ]
+  },
+  "auto-parts-retail-v1": {
+    "parts-suppliers": [
+      "GPC",
+      "BWA",
+      "ALV"
+    ],
+    "chemicals-consumables": [
+      "PSX",
+      "CLX",
+      "PG"
+    ],
+    "logistics": [
+      "UNP",
+      "ODFL",
+      "UPS"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "AXP"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "APP"
+    ]
+  },
+  "ce-specialty-retail-v1": {
+    "device-brands": [
+      "AAPL",
+      "MSFT",
+      "SONY"
+    ],
+    "pc-peripherals": [
+      "DELL",
+      "HPQ",
+      "LOGI"
+    ],
+    "logistics": [
+      "UPS",
+      "FDX",
+      "EXPD"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "APP"
+    ]
+  },
+  "gaming-specialty-retail-v1": {
+    "console-platforms": [
+      "MSFT",
+      "SONY",
+      "AAPL"
+    ],
+    "game-publishers": [
+      "TTWO",
+      "RBLX",
+      "DIS"
+    ],
+    "logistics": [
+      "UPS",
+      "FDX",
+      "EXPD"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "APP"
+    ]
+  },
+  "sporting-goods-retail-v1": {
+    "apparel-footwear": [
+      "NKE",
+      "LULU",
+      "DECK"
+    ],
+    "outdoor-brands": [
+      "VFC",
+      "ONON",
+      "ANF"
+    ],
+    "logistics": [
+      "UPS",
+      "FDX",
+      "UNP"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "AXP"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "PINS"
+    ]
+  },
+  "beauty-specialty-retail-v1": {
+    "beauty-brands": [
+      "EL",
+      "PG",
+      "ELF"
+    ],
+    "personal-care": [
+      "CL",
+      "CLX",
+      "CHD"
+    ],
+    "logistics": [
+      "UPS",
+      "FDX",
+      "EXPD"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "AXP"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "PINS"
+    ]
+  },
+  "pet-ecommerce-v1": {
+    "pet-food": [
+      "SJM",
+      "HRL",
+      "TSN"
+    ],
+    "pet-consumables": [
+      "CL",
+      "PG",
+      "CHD"
+    ],
+    "logistics": [
+      "UPS",
+      "FDX",
+      "EXPD"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "PINS"
+    ]
+  },
+  "home-ecommerce-v1": {
+    "home-brands-supply": [
+      "FBIN",
+      "MAS",
+      "SN"
+    ],
+    "surfaces-finishes": [
+      "MHK",
+      "PPG",
+      "SHW"
+    ],
+    "logistics": [
+      "UPS",
+      "FDX",
+      "EXPD"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "AXP"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "PINS"
+    ]
+  },
+  "cstore-fuel-retail-v1": {
+    "fuel-refining": [
+      "PSX",
+      "VLO",
+      "MPC"
+    ],
+    "cstore-cpg": [
+      "KO",
+      "PEP",
+      "MDLZ"
+    ],
+    "foodservice-wholesale": [
+      "SYY",
+      "USFD",
+      "PFGC"
+    ],
+    "logistics": [
+      "UNP",
+      "UPS",
+      "FDX"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ]
+  },
+  "value-specialty-retail-v1": {
+    "discretionary-cpg": [
+      "PG",
+      "CL",
+      "MDLZ"
+    ],
+    "logistics": [
+      "UPS",
+      "FDX",
+      "UNP"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "PINS"
+    ]
+  },
+  "online-marketplace-v1": {
+    "cloud-infra": [
+      "MSFT",
+      "GOOG",
+      "ORCL"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "shipping-partners": [
+      "UPS",
+      "FDX",
+      "EXPD"
+    ],
+    "traffic": [
+      "META",
+      "APP",
+      "PINS"
+    ]
   }
 }

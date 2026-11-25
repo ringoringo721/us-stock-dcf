@@ -3171,6 +3171,136 @@ MODELS: dict[str, dict] = {
             },
         ],
     },
+
+    "auto-parts-retail-v1": {
+        "label_zh": "汽車售後零件零售價值鏈",
+        "label_en": "Auto aftermarket parts retail value chain",
+        "description_zh": "售後零件製造 → 油品／耗材 → 物流配送 → 支付 → 流量獲客。",
+        "description_en": "Aftermarket parts makers → fluids/consumables → logistics → payments → traffic.",
+        "stages": [
+            {"id": "parts-suppliers", "order": 1, "label_zh": "售後零件製造／供應", "label_en": "Aftermarket parts suppliers", "summary_zh": "煞車、底盤、電氣等售後零件製造商／供應。", "summary_en": "Brake, chassis, electrical aftermarket parts makers."},
+            {"id": "chemicals-consumables", "order": 2, "label_zh": "油品／化學／耗材", "label_en": "Fluids / chemicals / consumables", "summary_zh": "機油、清潔與汽車耗材品牌。", "summary_en": "Motor oil, cleaners, and auto consumable brands."},
+            {"id": "logistics", "order": 3, "label_zh": "物流／配送", "label_en": "Logistics / distribution", "summary_zh": "鐵路、零擔與包裹至 DC／門市／商業客戶。", "summary_en": "Rail, LTL, and parcel into DCs/stores/commercial accounts."},
+            {"id": "payments", "order": 4, "label_zh": "支付／金融", "label_en": "Payments / fintech", "summary_zh": "卡組織與消費／商業支付。", "summary_en": "Card rails and consumer/commercial payments."},
+            {"id": "traffic", "order": 5, "label_zh": "流量／行銷", "label_en": "Traffic / marketing", "summary_zh": "搜尋與數位獲客。", "summary_en": "Search and digital acquisition."},
+        ],
+    },
+    "ce-specialty-retail-v1": {
+        "label_zh": "消費電子專賣零售價值鏈",
+        "label_en": "Consumer-electronics specialty retail value chain",
+        "description_zh": "裝置品牌 → PC／周邊 → 物流 → 支付 → 流量。",
+        "description_en": "Device brands → PC/peripherals → logistics → payments → traffic.",
+        "stages": [
+            {"id": "device-brands", "order": 1, "label_zh": "裝置／平台品牌", "label_en": "Device / platform brands", "summary_zh": "手機、電腦與消費電子品牌貨源。", "summary_en": "Phone, PC, and CE brand supply."},
+            {"id": "pc-peripherals", "order": 2, "label_zh": "PC／周邊", "label_en": "PC / peripherals", "summary_zh": "PC OEM 與周邊配件。", "summary_en": "PC OEMs and peripherals."},
+            {"id": "logistics", "order": 3, "label_zh": "物流／配送", "label_en": "Logistics / distribution", "summary_zh": "包裹與貨代至 DC／門市。", "summary_en": "Parcel and freight into DCs/stores."},
+            {"id": "payments", "order": 4, "label_zh": "支付／金融", "label_en": "Payments / fintech", "summary_zh": "卡組織與數位支付。", "summary_en": "Card rails and digital payments."},
+            {"id": "traffic", "order": 5, "label_zh": "流量／行銷", "label_en": "Traffic / marketing", "summary_zh": "搜尋、社群與應用流量。", "summary_en": "Search, social, and app traffic."},
+        ],
+    },
+    "gaming-specialty-retail-v1": {
+        "label_zh": "遊戲專賣零售價值鏈",
+        "label_en": "Gaming specialty retail value chain",
+        "description_zh": "主機／平台 → 遊戲發行 → 物流 → 支付 → 流量。",
+        "description_en": "Consoles/platforms → game publishers → logistics → payments → traffic.",
+        "stages": [
+            {"id": "console-platforms", "order": 1, "label_zh": "主機／平台", "label_en": "Consoles / platforms", "summary_zh": "遊戲主機與平台生態供應。", "summary_en": "Console and platform ecosystem supply."},
+            {"id": "game-publishers", "order": 2, "label_zh": "遊戲發行／內容", "label_en": "Game publishers / content", "summary_zh": "外部遊戲發行與互動娛樂內容。", "summary_en": "External game publishers and interactive content."},
+            {"id": "logistics", "order": 3, "label_zh": "物流／配送", "label_en": "Logistics / distribution", "summary_zh": "包裹與貨代至 DC／門市。", "summary_en": "Parcel and freight into DCs/stores."},
+            {"id": "payments", "order": 4, "label_zh": "支付／金融", "label_en": "Payments / fintech", "summary_zh": "卡組織與數位支付。", "summary_en": "Card rails and digital payments."},
+            {"id": "traffic", "order": 5, "label_zh": "流量／行銷", "label_en": "Traffic / marketing", "summary_zh": "搜尋、社群與應用流量。", "summary_en": "Search, social, and app traffic."},
+        ],
+    },
+    "sporting-goods-retail-v1": {
+        "label_zh": "運動用品專賣零售價值鏈",
+        "label_en": "Sporting-goods specialty retail value chain",
+        "description_zh": "服飾／鞋品牌 → 戶外／運動品牌 → 物流 → 支付 → 流量。",
+        "description_en": "Apparel/footwear brands → outdoor/sport brands → logistics → payments → traffic.",
+        "stages": [
+            {"id": "apparel-footwear", "order": 1, "label_zh": "服飾／鞋品牌", "label_en": "Apparel / footwear brands", "summary_zh": "運動服飾與鞋履品牌貨源。", "summary_en": "Athletic apparel and footwear brand supply."},
+            {"id": "outdoor-brands", "order": 2, "label_zh": "戶外／運動品牌", "label_en": "Outdoor / sport brands", "summary_zh": "戶外與運動生活方式品牌。", "summary_en": "Outdoor and sport lifestyle brands."},
+            {"id": "logistics", "order": 3, "label_zh": "物流／配送", "label_en": "Logistics / distribution", "summary_zh": "包裹與貨運至 DC／門市。", "summary_en": "Parcel and freight into DCs/stores."},
+            {"id": "payments", "order": 4, "label_zh": "支付／金融", "label_en": "Payments / fintech", "summary_zh": "卡組織與消費金融。", "summary_en": "Card rails and consumer finance."},
+            {"id": "traffic", "order": 5, "label_zh": "流量／行銷", "label_en": "Traffic / marketing", "summary_zh": "搜尋、社群與靈感流量。", "summary_en": "Search, social, and inspiration traffic."},
+        ],
+    },
+    "beauty-specialty-retail-v1": {
+        "label_zh": "美妝專賣零售價值鏈",
+        "label_en": "Beauty specialty retail value chain",
+        "description_zh": "美妝品牌 → 個護品牌 → 物流 → 支付 → 流量。",
+        "description_en": "Beauty brands → personal care → logistics → payments → traffic.",
+        "stages": [
+            {"id": "beauty-brands", "order": 1, "label_zh": "美妝品牌供應", "label_en": "Beauty brand supply", "summary_zh": "彩妝、護膚與香水品牌。", "summary_en": "Color cosmetics, skincare, and fragrance brands."},
+            {"id": "personal-care", "order": 2, "label_zh": "個人護理品牌", "label_en": "Personal-care brands", "summary_zh": "洗護、清潔與個護品牌。", "summary_en": "Haircare, cleansing, and personal-care brands."},
+            {"id": "logistics", "order": 3, "label_zh": "物流／配送", "label_en": "Logistics / distribution", "summary_zh": "包裹與貨代至 DC／門市。", "summary_en": "Parcel and freight into DCs/stores."},
+            {"id": "payments", "order": 4, "label_zh": "支付／金融", "label_en": "Payments / fintech", "summary_zh": "卡組織與消費金融。", "summary_en": "Card rails and consumer finance."},
+            {"id": "traffic", "order": 5, "label_zh": "流量／行銷", "label_en": "Traffic / marketing", "summary_zh": "搜尋、社群與靈感流量。", "summary_en": "Search, social, and inspiration traffic."},
+        ],
+    },
+    "pet-ecommerce-v1": {
+        "label_zh": "寵物電商價值鏈",
+        "label_en": "Pet e-commerce value chain",
+        "description_zh": "寵物食品 → 寵物耗材 → 物流 → 支付 → 流量。",
+        "description_en": "Pet food → pet consumables → logistics → payments → traffic.",
+        "stages": [
+            {"id": "pet-food", "order": 1, "label_zh": "寵物食品供應", "label_en": "Pet food supply", "summary_zh": "寵物食品與動物營養貨源。", "summary_en": "Pet food and animal-nutrition supply."},
+            {"id": "pet-consumables", "order": 2, "label_zh": "寵物耗材／用品", "label_en": "Pet consumables / supplies", "summary_zh": "清潔、個護與寵物用品鄰近品牌。", "summary_en": "Cleaning, personal-care, and pet-supply adjacency."},
+            {"id": "logistics", "order": 3, "label_zh": "物流／配送", "label_en": "Logistics / distribution", "summary_zh": "電商宅配與貨代。", "summary_en": "E-comm parcel and freight."},
+            {"id": "payments", "order": 4, "label_zh": "支付／金融", "label_en": "Payments / fintech", "summary_zh": "卡組織與數位支付。", "summary_en": "Card rails and digital payments."},
+            {"id": "traffic", "order": 5, "label_zh": "流量／行銷", "label_en": "Traffic / marketing", "summary_zh": "搜尋、社群與靈感流量。", "summary_en": "Search, social, and inspiration traffic."},
+        ],
+    },
+    "home-ecommerce-v1": {
+        "label_zh": "家居電商價值鏈",
+        "label_en": "Home furnishings e-commerce value chain",
+        "description_zh": "廚衛／家居品牌 → 表面／飾面 → 物流 → 支付 → 流量。",
+        "description_en": "Kitchen/home brands → surfaces/finishes → logistics → payments → traffic.",
+        "stages": [
+            {"id": "home-brands-supply", "order": 1, "label_zh": "廚衛／家居品牌供應", "label_en": "Kitchen / home brand supply", "summary_zh": "廚衛五金、櫃體與小家電品牌。", "summary_en": "Kitchen fixtures, cabinetry, and small-appliance brands."},
+            {"id": "surfaces-finishes", "order": 2, "label_zh": "表面／飾面", "label_en": "Surfaces / finishes", "summary_zh": "地板、地毯與塗料飾面。", "summary_en": "Flooring, rugs, and coatings/finishes."},
+            {"id": "logistics", "order": 3, "label_zh": "物流／配送", "label_en": "Logistics / distribution", "summary_zh": "大件宅配與貨代。", "summary_en": "Bulky home delivery and freight."},
+            {"id": "payments", "order": 4, "label_zh": "支付／金融", "label_en": "Payments / fintech", "summary_zh": "卡組織與消費金融。", "summary_en": "Card rails and consumer finance."},
+            {"id": "traffic", "order": 5, "label_zh": "流量／行銷", "label_en": "Traffic / marketing", "summary_zh": "搜尋、社群與靈感流量。", "summary_en": "Search, social, and inspiration traffic."},
+        ],
+    },
+    "cstore-fuel-retail-v1": {
+        "label_zh": "便利店／加油站零售價值鏈",
+        "label_en": "Convenience / fuel retail value chain",
+        "description_zh": "煉油／燃油 → 店內 CPG → 鮮食批發 → 物流 → 支付。",
+        "description_en": "Refining/fuel → in-store CPG → foodservice wholesale → logistics → payments.",
+        "stages": [
+            {"id": "fuel-refining", "order": 1, "label_zh": "煉油／燃油供應", "label_en": "Refining / fuel supply", "summary_zh": "成品油與煉油通路供應。", "summary_en": "Refined product and fuel-channel supply."},
+            {"id": "cstore-cpg", "order": 2, "label_zh": "店內 CPG／飲料", "label_en": "In-store CPG / beverages", "summary_zh": "飲料、零食與便利商品品牌。", "summary_en": "Beverage, snack, and convenience CPG brands."},
+            {"id": "foodservice-wholesale", "order": 3, "label_zh": "鮮食／餐飲批發", "label_en": "Foodservice wholesale", "summary_zh": "鮮食與便利餐飲批發。", "summary_en": "Fresh food and convenience foodservice wholesale."},
+            {"id": "logistics", "order": 4, "label_zh": "物流／配送", "label_en": "Logistics / distribution", "summary_zh": "燃油／商品配送至站點。", "summary_en": "Fuel and merchandise into sites."},
+            {"id": "payments", "order": 5, "label_zh": "支付／金融", "label_en": "Payments / fintech", "summary_zh": "卡組織與數位支付。", "summary_en": "Card rails and digital payments."},
+        ],
+    },
+    "value-specialty-retail-v1": {
+        "label_zh": "價值／折扣專賣零售價值鏈",
+        "label_en": "Value / discount specialty retail value chain",
+        "description_zh": "可選消費 CPG → 物流 → 支付 → 流量。",
+        "description_en": "Discretionary CPG → logistics → payments → traffic.",
+        "stages": [
+            {"id": "discretionary-cpg", "order": 1, "label_zh": "可選消費／CPG 供應", "label_en": "Discretionary / CPG supply", "summary_zh": "個護、家清與零食等低價可選商品。", "summary_en": "Personal care, household, and snack value goods."},
+            {"id": "logistics", "order": 2, "label_zh": "物流／配送", "label_en": "Logistics / distribution", "summary_zh": "包裹與貨運至 DC／門市。", "summary_en": "Parcel and freight into DCs/stores."},
+            {"id": "payments", "order": 3, "label_zh": "支付／金融", "label_en": "Payments / fintech", "summary_zh": "卡組織與數位支付。", "summary_en": "Card rails and digital payments."},
+            {"id": "traffic", "order": 4, "label_zh": "流量／行銷", "label_en": "Traffic / marketing", "summary_zh": "搜尋、社群與靈感流量。", "summary_en": "Search, social, and inspiration traffic."},
+        ],
+    },
+    "online-marketplace-v1": {
+        "label_zh": "線上市集平台價值鏈",
+        "label_en": "Online marketplace platform value chain",
+        "description_zh": "雲端基建 → 支付 → 物流夥伴 → 流量獲客（平台抽成，非自營進貨）。",
+        "description_en": "Cloud infra → payments → shipping partners → traffic (take-rate marketplace, not 1P inventory).",
+        "stages": [
+            {"id": "cloud-infra", "order": 1, "label_zh": "雲端／平台基建", "label_en": "Cloud / platform infra", "summary_zh": "雲端與平台運算基建。", "summary_en": "Cloud and platform compute infrastructure."},
+            {"id": "payments", "order": 2, "label_zh": "支付／結算", "label_en": "Payments / settlement", "summary_zh": "卡組織與數位支付軌道。", "summary_en": "Card rails and digital payment rails."},
+            {"id": "shipping-partners", "order": 3, "label_zh": "物流夥伴", "label_en": "Shipping partners", "summary_zh": "賣家常用包裹／貨代夥伴。", "summary_en": "Parcel and freight partners used by sellers."},
+            {"id": "traffic", "order": 4, "label_zh": "流量／獲客", "label_en": "Traffic / acquisition", "summary_zh": "搜尋、社群與應用流量。", "summary_en": "Search, social, and app traffic."},
+        ],
+    },
+
     "us-racing-gaming-v1": {
         "label_zh": "賽馬／博弈／運彩價值鏈",
         "label_en": "Racing / gaming / wagering value chain",
@@ -3909,7 +4039,7 @@ TICKER_MODEL: dict[str, str] = {
     "ACT": "mi-specialty-v1",
     "ACGL": "insurance-v1",  # specialty P&C / re — not diversified-holding life
     "AIG": "insurance-v1",  # P&C / diversified insurer — not Berkshire holding chain
-    "BBY": "ecommerce-retail-v1",  # CE specialty retail
+    "BBY": "ce-specialty-retail-v1",  # CE specialty — not PG/NKE pad
     "CE": "specialty-chem-v1",  # commodity/specialty chem — not coatings customers
     "AES": "utilities-v1",  # electric generation / utilities
     "ARES": "asset-mgmt-v1",  # alt managers
@@ -3950,6 +4080,17 @@ TICKER_MODEL: dict[str, str] = {
     "MHK": "flooring-manufacturing-v1",  # flooring/tile mfg — not F&B discretionary pad
     "SN": "small-appliance-brand-v1",  # SharkNinja appliances — not MHK/SGI furnishings bucket
     "SGI": "mattress-bedding-brand-v1",  # Somnigroup mattress — not SN/MHK bucket
+    "ORLY": "auto-parts-retail-v1",
+    "AZO": "auto-parts-retail-v1",
+    "DKS": "sporting-goods-retail-v1",  # sporting retail — not brand sporting-goods-v1
+    "ULTA": "beauty-specialty-retail-v1",
+    "CHWY": "pet-ecommerce-v1",
+    "W": "home-ecommerce-v1",
+    "CASY": "cstore-fuel-retail-v1",
+    "MUSA": "cstore-fuel-retail-v1",
+    "FIVE": "value-specialty-retail-v1",
+    "EBAY": "online-marketplace-v1",
+    "ETSY": "online-marketplace-v1",
     # Racing / iGaming / wagering hubs (not casino-resort hospitality pad)
     "CHDN": "us-racing-gaming-v1",
     "DKNG": "us-racing-gaming-v1",
@@ -3963,7 +4104,7 @@ TICKER_MODEL: dict[str, str] = {
     "ABVX": "pharma-v1",
     "ARWR": "pharma-v1",
     "ALKS": "pharma-v1",
-    "GME": "ecommerce-retail-v1",
+    "GME": "gaming-specialty-retail-v1",  # gaming specialty — not CE ecommerce pad
     "BCE": "telecom-v1",
     "AIZ": "insurance-v1",
     "AU": "precious-metals-v1",
