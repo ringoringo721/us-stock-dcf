@@ -12034,9 +12034,9 @@
       }
 
       const stageCount = Array.isArray(pack.stages) ? pack.stages.length : 0;
-      // Taller viewBox for 6-stage packs so southern rivals are not clipped (LTM airlines).
+      // Taller viewBox for 6-stage packs so north players + southern rivals stay in frame.
       const layout = SC.layoutSpider(pack, {
-        height: stageCount >= 6 ? 1040 : 920,
+        height: stageCount >= 6 ? 1120 : 920,
         width: stageCount >= 6 ? 1220 : undefined
       });
       flowEl.innerHTML = `

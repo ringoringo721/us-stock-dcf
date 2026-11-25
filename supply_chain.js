@@ -267,14 +267,14 @@
     // 6-stage packs (e.g. passenger airlines) need a taller canvas so the southern
     // rivalry arc + quote lines stay inside the viewBox instead of clipping.
     const width = Number(options.width) || (n >= 6 ? 1220 : 1100);
-    const height = Number(options.height) || (n >= 6 ? 1040 : 860);
-    // Lift hub so the reserved southern rivalry arc has room below the player ring.
+    // Extra height + lower hub for n≥6 so northern stage players (ASR/PAC/AER) are not clipped.
+    let height = Number(options.height) || (n >= 6 ? 1120 : 860);
     const cx = width / 2;
-    const cy = height * (n >= 6 ? 0.36 : 0.40);
-    const stageR = Number(options.stageRadius) || Math.min(width, height) * (n >= 6 ? 0.23 : 0.25);
-    const playerR = Number(options.playerRadius) || Math.min(width, height) * (n >= 6 ? 0.36 : 0.38);
+    let cy = height * (n >= 6 ? 0.44 : 0.40);
+    const stageR = Number(options.stageRadius) || Math.min(width, height) * (n >= 6 ? 0.22 : 0.25);
+    const playerR = Number(options.playerRadius) || Math.min(width, height) * (n >= 6 ? 0.33 : 0.38);
     // Competitors live on a separate outer southern arc — never on the player ring.
-    const competitorR = Number(options.competitorRadius) || Math.min(width, height) * (n >= 6 ? 0.52 : 0.54);
+    const competitorR = Number(options.competitorRadius) || Math.min(width, height) * (n >= 6 ? 0.48 : 0.54);
     // With more stages, shrink the south reserve so stages are not crushed into ~30° wedges
     // (LTM screenshot: 6 stages + Top-3 fan cap left awkward gaps and edge collisions).
     // Keep enough south for rivals, but prefer stage readability when n≥6.
@@ -512,6 +512,34 @@
         x1: hub.x, y1: hub.y, x2: node.x, y2: node.y
       });
     });
+
+    // Fit vertical bounds: keep player labels (~28px above) and rivalry caption inside viewBox.
+    const topPad = 52;
+    const bottomPad = 36;
+    const allNodes = [hub, ...stageNodes, ...playerNodes, ...competitorNodes];
+    let minY = Infinity;
+    let maxY = -Infinity;
+    allNodes.forEach(node => {
+      const top = node.y - (node.kind === 'competitor' ? 40 : node.r + 6);
+      const bot = node.y + (node.r || 24) + 30;
+      if (top < minY) minY = top;
+      if (bot > maxY) maxY = bot;
+    });
+    if (rivalryZone.y + 18 > maxY) maxY = rivalryZone.y + 18;
+    const shiftY = minY < topPad ? (topPad - minY) : 0;
+    if (shiftY > 0) {
+      allNodes.forEach(node => { node.y += shiftY; });
+      playerNodes.forEach(node => { node.stageY += shiftY; });
+      edges.forEach(edge => {
+        edge.y1 += shiftY;
+        edge.y2 += shiftY;
+      });
+      rivalryZone.y += shiftY;
+      maxY += shiftY;
+      cy += shiftY;
+    }
+    const needHeight = Math.ceil(maxY + bottomPad);
+    if (needHeight > height) height = needHeight;
 
     return {
       width,
