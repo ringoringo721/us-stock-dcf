@@ -262,32 +262,57 @@
    */
   function layoutSpider(pack, options = {}) {
     const data = pack?.stages ? pack : normalize(pack);
-    const width = Number(options.width) || 1100;
-    const height = Number(options.height) || 860;
-    // Lift hub so the reserved southern rivalry arc has room below the player ring.
-    const cx = width / 2;
-    const cy = height * 0.40;
-    const stageR = Number(options.stageRadius) || Math.min(width, height) * 0.25;
-    const playerR = Number(options.playerRadius) || Math.min(width, height) * 0.38;
-    // Competitors live on a separate outer southern arc — never on the player ring.
-    const competitorR = Number(options.competitorRadius) || Math.min(width, height) * 0.54;
     const stages = data.stages;
     const n = Math.max(stages.length, 1);
-    // Reserve a wide southern sector for rivals only (SVG +y is south).
-    const southGap = Math.PI * 1.02; // ~184° — keep a clear angular buffer from end stages
+    // 6-stage packs (e.g. passenger airlines) need a taller canvas so the southern
+    // rivalry arc + quote lines stay inside the viewBox instead of clipping.
+    const width = Number(options.width) || (n >= 6 ? 1220 : 1100);
+    const height = Number(options.height) || (n >= 6 ? 1040 : 860);
+    // Lift hub so the reserved southern rivalry arc has room below the player ring.
+    const cx = width / 2;
+    const cy = height * (n >= 6 ? 0.36 : 0.40);
+    const stageR = Number(options.stageRadius) || Math.min(width, height) * (n >= 6 ? 0.23 : 0.25);
+    const playerR = Number(options.playerRadius) || Math.min(width, height) * (n >= 6 ? 0.36 : 0.38);
+    // Competitors live on a separate outer southern arc — never on the player ring.
+    const competitorR = Number(options.competitorRadius) || Math.min(width, height) * (n >= 6 ? 0.52 : 0.54);
+    // With more stages, shrink the south reserve so stages are not crushed into ~30° wedges
+    // (LTM screenshot: 6 stages + Top-3 fan cap left awkward gaps and edge collisions).
+    // Keep enough south for rivals, but prefer stage readability when n≥6.
+    const southGap = n >= 6
+      ? Math.PI * 0.78
+      : n >= 5
+        ? Math.PI * 0.90
+        : Math.PI * 1.02;
     const stageSweep = (2 * Math.PI) - southGap;
     const stageStart = (Math.PI / 2) + (southGap / 2); // leave south, sweep CCW through W→N→E
     // Match competitor packing: ticker + company name + quote + mcap under the node.
     const playerNodeR = 24;
-    // Full fan width for Top-3: chord clearance at playerR, then stages are inset so
-    // end-stage fans stay inside the stage sweep and never enter the rival south gap.
-    const minPlayerGap = (2 * playerNodeR) + 12;
-    const minFanForThree = 2 * (minPlayerGap / Math.max(playerR, 1));
-    const playerEdgePad = Math.max(0.07, minPlayerGap / Math.max(playerR, 1) * 0.35);
-    // Provisional step for fan cap; final step uses the inset usable sweep below.
+    // Chord clearance at playerR for packing Top-N in a fan.
+    const minPlayerGap = (2 * playerNodeR) + 14;
+    const gapAngle = minPlayerGap / Math.max(playerR, 1);
+    const minFanForThree = 2 * gapAngle;
+    const playerEdgePad = Math.max(0.06, gapAngle * 0.30);
     const provisionalStep = n <= 1 ? stageSweep : stageSweep / (n - 1);
-    const playerFanWidth = Math.min(provisionalStep * 0.72, Math.max(minFanForThree, 0.42));
-    const stageInset = (playerFanWidth / 2) + playerEdgePad;
+    // Cap any stage fan so neighbouring stages cannot collide; still allow Top-3 clearance.
+    const playerFanCap = Math.min(
+      provisionalStep * (n >= 6 ? 0.58 : 0.72),
+      Math.max(minFanForThree, n >= 6 ? 0.34 : 0.42)
+    );
+    /** Fan width in radians for this stage's actual player count (no empty Top-3 pad). */
+    function fanWidthForCount(count) {
+      const c = Math.max(1, count | 0);
+      if (c <= 1) return 0;
+      const needed = (c - 1) * gapAngle;
+      // 2-player stages stay tight under their stage node (LTM stage 5 BKNG/EXPE).
+      const floor = c === 2 ? Math.min(0.26, needed) : Math.min(minFanForThree, needed);
+      return Math.min(playerFanCap, Math.max(floor, needed * 0.92));
+    }
+    const maxStageFan = stages.reduce(
+      (max, stage) => Math.max(max, fanWidthForCount((stage.players || []).length)),
+      0
+    );
+    // Inset end stages by the largest fan so players never enter the rival south gap.
+    const stageInset = (Math.max(maxStageFan, playerFanCap) / 2) + playerEdgePad;
     const usableSweep = Math.max(stageSweep - (2 * stageInset), minFanForThree);
     const stageStep = n <= 1 ? usableSweep : usableSweep / (n - 1);
 
@@ -335,7 +360,8 @@
     stages.forEach((stage, index) => {
       const stageNode = stageNodes[index];
       const count = stage.players.length || 1;
-      const half = count <= 1 ? 0 : playerFanWidth / 2;
+      const fan = fanWidthForCount(count);
+      const half = fan / 2;
       // Symmetric fan in param-space, hard-clamped to the inset legal arc (no rival bearings).
       const loParam = Math.max(playerEdgePad, stageNode.param - half);
       const hiParam = Math.min(stageSweep - playerEdgePad, stageNode.param + half);
@@ -365,11 +391,16 @@
     });
 
     const competitors = Array.isArray(data.competitors) ? data.competitors : [];
-    // Southern arc only (inside the reserved gap), outside the player ring.
-    // Extra pad keeps rivalry bearings away from end-stage player fans.
-    const rivalPad = 0.22;
-    const rivalStart = (Math.PI / 2) - (southGap / 2) + rivalPad;
-    const rivalEnd = (Math.PI / 2) + (southGap / 2) - rivalPad;
+    // Keep rivals in a compact southern band under the hub — do not stretch to the
+    // full southGap edges (that pulled end rivals into stage-1/6 players and clipped).
+    const rivalPad = n >= 6 ? 0.18 : 0.22;
+    const rivalSpanCap = n >= 6 ? Math.PI * 0.52 : Math.PI * 0.70;
+    const rivalSpan = Math.min(Math.max(southGap - (2 * rivalPad), Math.PI * 0.36), rivalSpanCap);
+    const rivalMid = Math.PI / 2;
+    const rivalStart = rivalMid - (rivalSpan / 2);
+    const rivalEnd = rivalMid + (rivalSpan / 2);
+    // Side padding so leftmost/rightmost rivals stay inside the SVG (badge + name width).
+    const rivalXPad = 56;
     const competitorNodes = competitors.map((row, index) => {
       const t = competitors.length <= 1 ? 0.5 : index / (competitors.length - 1);
       const angle = rivalStart + (rivalEnd - rivalStart) * t;
@@ -384,7 +415,7 @@
         role_zh: row.role_zh,
         listedInApp: row.listedInApp !== false,
         angle,
-        x: pos.x,
+        x: Math.min(width - rivalXPad, Math.max(rivalXPad, pos.x)),
         y: pos.y,
         // Larger hit target: rival nodes carry badge + name + quote lines.
         r: 24
@@ -392,22 +423,28 @@
     });
 
     // Safety: if any rival still collides with a player/stage, push it farther south on the same ray.
+    const rivalBottomPad = 58; // room for quote/mcap under the node + rivalry caption
     competitorNodes.forEach(comp => {
       let guard = 0;
       while (guard < 8 && [...playerNodes, ...stageNodes].some(node => overlaps(comp, node, 16))) {
-        const next = polar(competitorR + 32 * (guard + 1), comp.angle);
-        comp.x = next.x;
-        comp.y = Math.min(height - 40, next.y);
+        const next = polar(competitorR + 36 * (guard + 1), comp.angle);
+        comp.x = Math.min(width - rivalXPad, Math.max(rivalXPad, next.x));
+        comp.y = Math.min(height - rivalBottomPad, next.y);
         guard += 1;
+      }
+      // Keep badge (drawn above the circle) inside the viewBox.
+      if (comp.y - 40 < cy + stageR) {
+        comp.y = Math.min(height - rivalBottomPad, Math.max(comp.y, cy + competitorR * 0.92));
       }
     });
 
+    const rivalMaxY = competitorNodes.reduce((m, node) => Math.max(m, node.y), cy + competitorR);
     // Geometry for a southern “rivalry zone” caption (rendered by the SVG layer).
     const rivalryZone = {
       kind: 'rivalry-zone',
       x: cx,
-      y: Math.min(height - 18, cy + competitorR + 36),
-      width: Math.max(220, (competitorR * 1.15)),
+      y: Math.min(height - 22, rivalMaxY + 48),
+      width: Math.max(220, Math.min(width - 80, competitorR * 1.05)),
       label_en: 'Competitors (rivalry — not supply flow)',
       label_zh: '競爭對手區（對抗關係｜非供應流）'
     };
