@@ -66,16 +66,6 @@
       "asOf": "2026-11-23",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "DIS": {
-      "ticker": "DIS",
-      "price": 120.27,
-      "previousClose": 117.98,
-      "changePct": 1.941,
-      "mcap": 201591.1,
-      "currency": "USD",
-      "asOf": "2026-11-23",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
     "UPS": {
       "ticker": "UPS",
       "price": 108.51,

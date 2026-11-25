@@ -66,16 +66,6 @@
       "asOf": "2026-11-23",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "ANF": {
-      "ticker": "ANF",
-      "price": 140.44,
-      "previousClose": 137.92,
-      "changePct": 1.827,
-      "mcap": 6345.6,
-      "currency": "USD",
-      "asOf": "2026-11-23",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
     "UPS": {
       "ticker": "UPS",
       "price": 108.51,

@@ -2,20 +2,14 @@
   "bandMin": 0.0,
   "bandMax": 50000000000.0,
   "bandTotal": 1041,
-  "written": 10,
+  "written": 4,
   "skippedExisting": [],
   "failures": [],
   "tickers": [
     "ULTA",
-    "CASY",
-    "BBY",
-    "W",
-    "FIVE",
     "GME",
     "DKS",
-    "MUSA",
-    "CHWY",
-    "ETSY"
+    "CHWY"
   ],
   "dryRun": false,
   "date": "2026-11-25",
