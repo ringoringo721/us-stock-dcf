@@ -2746,5 +2746,34 @@
       "APP",
       "PINS"
     ]
+  },
+  "passenger-airline-v1": {
+    "jet-fuel": [
+      "XOM",
+      "CVX",
+      "SHEL"
+    ],
+    "fleet-oem": [
+      "BA",
+      "GE",
+      "RTX"
+    ],
+    "aircraft-lessors": [
+      "AER"
+    ],
+    "airports": [
+      "ASR",
+      "PAC",
+      "OMAB"
+    ],
+    "distribution": [
+      "BKNG",
+      "EXPE"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "AXP"
+    ]
   }
 }

@@ -3300,6 +3300,20 @@ MODELS: dict[str, dict] = {
             {"id": "traffic", "order": 4, "label_zh": "流量／獲客", "label_en": "Traffic / acquisition", "summary_zh": "搜尋、社群與應用流量。", "summary_en": "Search, social, and app traffic."},
         ],
     },
+    "passenger-airline-v1": {
+        "label_zh": "客運航空價值鏈",
+        "label_en": "Passenger airline value chain",
+        "description_zh": "航油 → 機體／發動機 OEM → 飛機租賃 → 機場 → 訂位／OTA 分銷 → 支付（非 F&B 消費墊）。",
+        "description_en": "Jet fuel → airframe/engine OEMs → aircraft lessors → airports → OTA/distribution → payments (not F&B consumer pad).",
+        "stages": [
+            {"id": "jet-fuel", "order": 1, "label_zh": "航油／能源", "label_en": "Jet fuel / energy", "summary_zh": "噴射燃油與一體化能源供應。", "summary_en": "Jet fuel and integrated energy supply."},
+            {"id": "fleet-oem", "order": 2, "label_zh": "機體／發動機 OEM", "label_en": "Airframe / engine OEMs", "summary_zh": "商用機體與航發供應。", "summary_en": "Commercial airframe and engine supply."},
+            {"id": "aircraft-lessors", "order": 3, "label_zh": "飛機租賃", "label_en": "Aircraft lessors", "summary_zh": "營運租賃與機隊融資出租人。", "summary_en": "Operating lessors and fleet financing lessors."},
+            {"id": "airports", "order": 4, "label_zh": "機場營運", "label_en": "Airport operators", "summary_zh": "上市機場集團與起降／航廈節點。", "summary_en": "Listed airport groups and airside/terminal nodes."},
+            {"id": "distribution", "order": 5, "label_zh": "訂位／OTA 分銷", "label_en": "Booking / OTA distribution", "summary_zh": "OTA 與間接分銷（GDS 未達宇宙門檻則不硬塞）。", "summary_en": "OTAs and indirect distribution (no fake GDS pad if below universe floor)."},
+            {"id": "payments", "order": 6, "label_zh": "支付／金融", "label_en": "Payments / fintech", "summary_zh": "卡組織與旅遊支付軌道。", "summary_en": "Card rails and travel payment rails."},
+        ],
+    },
 
     "us-racing-gaming-v1": {
         "label_zh": "賽馬／博弈／運彩價值鏈",
@@ -3917,7 +3931,7 @@ TICKER_MODEL: dict[str, str] = {
     "FUTU": "capital-markets-v1",
     "LU": "payments-v1",
     "NKE": "consumer-discretionary-v1",
-    "DAL": "consumer-discretionary-v1",
+    "DAL": "passenger-airline-v1",  # network carrier — not F&B discretionary pad
     "CVNA": "consumer-discretionary-v1",
     "RCL": "consumer-discretionary-v1",
     # Industrial gases / specialty chem — dedicated models (not mining excavator staging)
@@ -4012,7 +4026,12 @@ TICKER_MODEL: dict[str, str] = {
     "ASTS": "satellite-to-phone-v1",
     "BC": "marine-recreation-v1",
     "CAKE": "consumer-discretionary-v1",
-    "AAL": "consumer-discretionary-v1",
+    "AAL": "passenger-airline-v1",  # network carrier — not F&B discretionary pad
+    "UAL": "passenger-airline-v1",
+    "LUV": "passenger-airline-v1",  # US LCC — same external cost chain
+    "RYAAY": "passenger-airline-v1",  # EU ultra-LCC ADR
+    "LTM": "passenger-airline-v1",  # LatAm network
+    "CPA": "passenger-airline-v1",  # Copa Panama hub
     "AVT": "hardware-value-chain-v1",
     "ARW": "hardware-value-chain-v1",
     "AIT": "industrials-v1",
