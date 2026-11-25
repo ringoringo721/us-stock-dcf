@@ -1,12 +1,14 @@
 {
   "midTotal": 149,
-  "written": 1,
+  "written": 3,
   "skippedExisting": [],
   "failures": [],
   "tickers": [
-    "DASH"
+    "ORLY",
+    "EBAY",
+    "AZO"
   ],
   "dryRun": false,
-  "date": "2026-11-23",
+  "date": "2026-11-25",
   "chartsDir": "/agent/repos/us-stock-dcf/cache/price_charts"
 }

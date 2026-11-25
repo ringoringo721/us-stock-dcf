@@ -3,7 +3,7 @@
   "ticker": "DKS",
   "name_en": "Dick's Sporting Goods",
   "name_zh": "Dick's Sporting Goods",
-  "updatedAt": "2026-11-20",
+  "updatedAt": "2026-11-25",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -11,97 +11,123 @@
     "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
     "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
     "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
-    "modelId": "ecommerce-retail-v1",
+    "modelId": "sporting-goods-retail-v1",
     "references": [
-      "Industry model `ecommerce-retail-v1`",
+      "Industry model `sporting-goods-retail-v1`",
       "AAPL curated seed shape on main (schema reference)",
       "cache/us_universe.json screen: remaining US listings without supply-chain seed",
       "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
     ]
   },
   "model": {
-    "id": "ecommerce-retail-v1",
-    "label_zh": "電商／零售價值鏈",
-    "label_en": "E-commerce / retail value chain",
-    "description_zh": "商品供應 → 倉儲物流 → 支付 → 流量／廣告 → 最後一哩配送。",
-    "description_en": "Merchants/supply → fulfillment → payments → traffic/ads → last-mile."
+    "id": "sporting-goods-retail-v1",
+    "label_zh": "運動用品專賣零售價值鏈",
+    "label_en": "Sporting-goods specialty retail value chain",
+    "description_zh": "服飾／鞋品牌 → 戶外／運動品牌 → 物流 → 支付 → 流量。",
+    "description_en": "Apparel/footwear brands → outdoor/sport brands → logistics → payments → traffic."
   },
   "stages": [
     {
-      "id": "supply",
+      "id": "apparel-footwear",
       "order": 1,
-      "label_zh": "品牌／賣家供應",
-      "label_en": "Brands / seller supply",
-      "summary_zh": "第三方賣家與品牌貨源。",
-      "summary_en": "3P sellers and brand supply.",
+      "label_zh": "服飾／鞋品牌",
+      "label_en": "Apparel / footwear brands",
+      "summary_zh": "運動服飾與鞋履品牌貨源。",
+      "summary_en": "Athletic apparel and footwear brand supply.",
       "players": [
-        {
-          "ticker": "PG",
-          "name_en": "Procter & Gamble",
-          "name_zh": "寶僑",
-          "role_zh": "寶僑：品牌／賣家供應代表性玩家",
-          "role_en": "Procter & Gamble: representative player in Brands / seller supply",
-          "exchange": "NYSE"
-        },
         {
           "ticker": "NKE",
           "name_en": "Nike",
           "name_zh": "耐吉",
-          "role_zh": "耐吉：品牌／賣家供應代表性玩家",
-          "role_en": "Nike: representative player in Brands / seller supply",
+          "role_zh": "耐吉：服飾／鞋品牌代表性玩家",
+          "role_en": "Nike: representative player in Apparel / footwear brands",
           "exchange": "NYSE"
         },
         {
-          "ticker": "SONY",
-          "name_en": "Sony",
-          "name_zh": "Sony",
-          "role_zh": "Sony：品牌／賣家供應代表性玩家",
-          "role_en": "Sony: representative player in Brands / seller supply",
+          "ticker": "LULU",
+          "name_en": "Lululemon",
+          "name_zh": "露露檸檬",
+          "role_zh": "露露檸檬：服飾／鞋品牌代表性玩家",
+          "role_en": "Lululemon: representative player in Apparel / footwear brands",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "DECK",
+          "name_en": "Deckers",
+          "name_zh": "Deckers",
+          "role_zh": "Deckers：服飾／鞋品牌代表性玩家",
+          "role_en": "Deckers: representative player in Apparel / footwear brands",
           "exchange": "NYSE"
         }
       ]
     },
     {
-      "id": "fulfillment",
+      "id": "outdoor-brands",
       "order": 2,
-      "label_zh": "倉儲／履約",
-      "label_en": "Warehousing / fulfillment",
-      "summary_zh": "倉庫、自動化與庫存節點。",
-      "summary_en": "Warehouses, automation, inventory nodes.",
+      "label_zh": "戶外／運動品牌",
+      "label_en": "Outdoor / sport brands",
+      "summary_zh": "戶外與運動生活方式品牌。",
+      "summary_en": "Outdoor and sport lifestyle brands.",
       "players": [
         {
-          "ticker": "PLD",
-          "name_en": "Prologis",
-          "name_zh": "普洛斯 (Prologis)",
-          "role_zh": "普洛斯 (Prologis)：倉儲／履約代表性玩家",
-          "role_en": "Prologis: representative player in Warehousing / fulfillment",
+          "ticker": "VFC",
+          "name_en": "V.F.",
+          "name_zh": "V.F.",
+          "role_zh": "V.F.：戶外／運動品牌代表性玩家",
+          "role_en": "V.F.: representative player in Outdoor / sport brands",
           "exchange": "NYSE"
         },
         {
-          "ticker": "EQIX",
-          "name_en": "Equinix",
-          "name_zh": "Equinix",
-          "role_zh": "Equinix：倉儲／履約代表性玩家",
-          "role_en": "Equinix: representative player in Warehousing / fulfillment",
-          "exchange": "NASDAQ"
+          "ticker": "ONON",
+          "name_en": "On Holding",
+          "name_zh": "ONON",
+          "role_zh": "ONON：戶外／運動品牌代表性玩家",
+          "role_en": "On Holding: representative player in Outdoor / sport brands",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "logistics",
+      "order": 3,
+      "label_zh": "物流／配送",
+      "label_en": "Logistics / distribution",
+      "summary_zh": "包裹與貨運至 DC／門市。",
+      "summary_en": "Parcel and freight into DCs/stores.",
+      "players": [
+        {
+          "ticker": "UPS",
+          "name_en": "United Parcel Service",
+          "name_zh": "優比速",
+          "role_zh": "優比速：物流／配送代表性玩家",
+          "role_en": "United Parcel Service: representative player in Logistics / distribution",
+          "exchange": "NYSE"
         },
         {
-          "ticker": "AMT",
-          "name_en": "American Tower",
-          "name_zh": "美國電塔",
-          "role_zh": "美國電塔：倉儲／履約代表性玩家",
-          "role_en": "American Tower: representative player in Warehousing / fulfillment",
+          "ticker": "FDX",
+          "name_en": "FedEx",
+          "name_zh": "聯邦快遞",
+          "role_zh": "聯邦快遞：物流／配送代表性玩家",
+          "role_en": "FedEx: representative player in Logistics / distribution",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "UNP",
+          "name_en": "Union Pacific",
+          "name_zh": "聯合太平洋鐵路",
+          "role_zh": "聯合太平洋鐵路：物流／配送代表性玩家",
+          "role_en": "Union Pacific: representative player in Logistics / distribution",
           "exchange": "NYSE"
         }
       ]
     },
     {
       "id": "payments",
-      "order": 3,
+      "order": 4,
       "label_zh": "支付／金融",
       "label_en": "Payments / fintech",
-      "summary_zh": "卡組織、收單與消費金融。",
-      "summary_en": "Card networks, acquirers, consumer finance.",
+      "summary_zh": "卡組織與消費金融。",
+      "summary_en": "Card rails and consumer finance.",
       "players": [
         {
           "ticker": "V",
@@ -120,79 +146,45 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "PYPL",
-          "name_en": "PayPal",
-          "name_zh": "PayPal",
-          "role_zh": "PayPal：支付／金融代表性玩家",
-          "role_en": "PayPal: representative player in Payments / fintech",
-          "exchange": "NASDAQ"
+          "ticker": "AXP",
+          "name_en": "American Express",
+          "name_zh": "美國運通",
+          "role_zh": "美國運通：支付／金融代表性玩家",
+          "role_en": "American Express: representative player in Payments / fintech",
+          "exchange": "NYSE"
         }
       ]
     },
     {
       "id": "traffic",
-      "order": 4,
-      "label_zh": "流量／廣告獲客",
-      "label_en": "Traffic / ad acquisition",
-      "summary_zh": "搜尋、社群與零售媒體。",
-      "summary_en": "Search, social, retail media.",
+      "order": 5,
+      "label_zh": "流量／行銷",
+      "label_en": "Traffic / marketing",
+      "summary_zh": "搜尋、社群與靈感流量。",
+      "summary_en": "Search, social, and inspiration traffic.",
       "players": [
         {
           "ticker": "GOOG",
           "name_en": "Alphabet",
           "name_zh": "Alphabet（Google）",
-          "role_zh": "Alphabet（Google）：流量／廣告獲客代表性玩家",
-          "role_en": "Alphabet: representative player in Traffic / ad acquisition",
+          "role_zh": "Alphabet（Google）：流量／行銷代表性玩家",
+          "role_en": "Alphabet: representative player in Traffic / marketing",
           "exchange": "NASDAQ"
         },
         {
           "ticker": "META",
           "name_en": "Meta Platforms",
           "name_zh": "Meta (臉書)",
-          "role_zh": "Meta (臉書)：流量／廣告獲客代表性玩家",
-          "role_en": "Meta Platforms: representative player in Traffic / ad acquisition",
+          "role_zh": "Meta (臉書)：流量／行銷代表性玩家",
+          "role_en": "Meta Platforms: representative player in Traffic / marketing",
           "exchange": "NASDAQ"
         },
         {
-          "ticker": "APP",
-          "name_en": "AppLovin",
-          "name_zh": "AppLovin",
-          "role_zh": "AppLovin：流量／廣告獲客代表性玩家",
-          "role_en": "AppLovin: representative player in Traffic / ad acquisition",
-          "exchange": "NASDAQ"
-        }
-      ]
-    },
-    {
-      "id": "lastmile",
-      "order": 5,
-      "label_zh": "最後一哩／宅配",
-      "label_en": "Last-mile delivery",
-      "summary_zh": "快遞與本地配送網路。",
-      "summary_en": "Parcel and local delivery networks.",
-      "players": [
-        {
-          "ticker": "UPS",
-          "name_en": "United Parcel Service",
-          "name_zh": "優比速",
-          "role_zh": "優比速：最後一哩／宅配代表性玩家",
-          "role_en": "United Parcel Service: representative player in Last-mile delivery",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "FDX",
-          "name_en": "FedEx",
-          "name_zh": "聯邦快遞",
-          "role_zh": "聯邦快遞：最後一哩／宅配代表性玩家",
-          "role_en": "FedEx: representative player in Last-mile delivery",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "UNP",
-          "name_en": "Union Pacific",
-          "name_zh": "聯合太平洋鐵路",
-          "role_zh": "聯合太平洋鐵路：最後一哩／宅配代表性玩家",
-          "role_en": "Union Pacific: representative player in Last-mile delivery",
+          "ticker": "PINS",
+          "name_en": "Pinterest",
+          "name_zh": "Pinterest",
+          "role_zh": "Pinterest：流量／行銷代表性玩家",
+          "role_en": "Pinterest: representative player in Traffic / marketing",
           "exchange": "NYSE"
         }
       ]
@@ -200,44 +192,36 @@
   ],
   "competitors": [
     {
-      "ticker": "TGT",
-      "name_en": "Target",
-      "name_zh": "目標百貨 (Target)",
-      "basis_zh": "折扣零售對手",
-      "basis_en": "Discount retail rival",
-      "exchange": "NYSE"
+      "ticker": "AMZN",
+      "name_en": "Amazon.com",
+      "name_zh": "亞馬遜",
+      "basis_zh": "運動用品電商對手",
+      "basis_en": "Sporting-goods e-commerce rival",
+      "exchange": "NASDAQ"
     },
     {
       "ticker": "WMT",
       "name_en": "Walmart",
       "name_zh": "沃爾瑪",
-      "basis_zh": "折扣零售對手",
-      "basis_en": "Discount retail rival",
+      "basis_zh": "運動用品大賣場對手",
+      "basis_en": "Sporting-goods big-box rival",
       "exchange": "NYSE"
     },
     {
-      "ticker": "COST",
-      "name_en": "Costco Wholesale",
-      "name_zh": "好市多",
-      "basis_zh": "折扣零售對手",
-      "basis_en": "Discount retail rival",
-      "exchange": "NASDAQ"
-    },
-    {
-      "ticker": "AMZN",
-      "name_en": "Amazon.com",
-      "name_zh": "亞馬遜",
-      "basis_zh": "折扣零售對手",
-      "basis_en": "Discount retail rival",
-      "exchange": "NASDAQ"
-    },
-    {
-      "ticker": "DG",
-      "name_en": "Dollar General",
-      "name_zh": "Dollar General",
-      "basis_zh": "折扣零售對手",
-      "basis_en": "Discount retail rival",
+      "ticker": "TGT",
+      "name_en": "Target",
+      "name_zh": "目標百貨 (Target)",
+      "basis_zh": "運動用品零售對手",
+      "basis_en": "Sporting-goods retail rival",
       "exchange": "NYSE"
+    },
+    {
+      "ticker": "URBN",
+      "name_en": "Urban Outfitters",
+      "name_zh": "Urban Outfitters",
+      "basis_zh": "生活方式／運動服飾零售對手",
+      "basis_en": "Lifestyle / athletic apparel retail rival",
+      "exchange": "NASDAQ"
     }
   ]
 }

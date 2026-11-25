@@ -6044,23 +6044,23 @@
   "ORLY": [
     [
       "AZO",
-      "汽車售後零件對手",
-      "Auto aftermarket parts rival"
+      "汽車售後零件零售直接對手",
+      "Auto aftermarket parts retail direct rival"
     ],
     [
       "AAP",
-      "汽車售後零件對手",
-      "Auto aftermarket parts rival"
-    ],
-    [
-      "GPC",
-      "汽車售後零件對手",
-      "Auto aftermarket parts rival"
+      "汽車零件專賣對手",
+      "Auto-parts specialty retail rival"
     ],
     [
       "AMZN",
-      "汽車售後零件對手",
-      "Auto aftermarket parts rival"
+      "汽車零件電商競爭",
+      "Auto-parts e-commerce competition"
+    ],
+    [
+      "WMT",
+      "汽車零件／耗材零售對手",
+      "Auto-parts / consumables retail rival"
     ]
   ],
   "AJG": [
@@ -7555,24 +7555,24 @@
   ],
   "EBAY": [
     [
-      "AMZN",
-      "線上市集對手",
-      "Online marketplace rival"
-    ],
-    [
-      "SHOP",
-      "線上市集對手",
-      "Online marketplace rival"
-    ],
-    [
       "ETSY",
       "線上市集對手",
       "Online marketplace rival"
     ],
     [
-      "BABA",
-      "線上市集對手",
-      "Online marketplace rival"
+      "AMZN",
+      "電商／市集對手",
+      "E-commerce / marketplace rival"
+    ],
+    [
+      "SHOP",
+      "商家／市集平台對手",
+      "Merchant / marketplace platform rival"
+    ],
+    [
+      "MELI",
+      "區域電商／市集對手",
+      "Regional e-commerce / marketplace rival"
     ]
   ],
   "IDXX": [
@@ -7708,23 +7708,23 @@
   "AZO": [
     [
       "ORLY",
-      "汽車售後零件對手",
-      "Auto aftermarket parts rival"
+      "汽車售後零件零售直接對手",
+      "Auto aftermarket parts retail direct rival"
     ],
     [
       "AAP",
-      "汽車售後零件對手",
-      "Auto aftermarket parts rival"
-    ],
-    [
-      "GPC",
-      "汽車售後零件對手",
-      "Auto aftermarket parts rival"
+      "汽車零件專賣對手",
+      "Auto-parts specialty retail rival"
     ],
     [
       "AMZN",
-      "汽車售後零件對手",
-      "Auto aftermarket parts rival"
+      "汽車零件電商競爭",
+      "Auto-parts e-commerce competition"
+    ],
+    [
+      "WMT",
+      "汽車零件／耗材零售對手",
+      "Auto-parts / consumables retail rival"
     ]
   ],
   "CCEP": [
@@ -12461,29 +12461,24 @@
   ],
   "ULTA": [
     [
+      "AMZN",
+      "美妝電商對手",
+      "Beauty e-commerce rival"
+    ],
+    [
       "TGT",
-      "折扣零售對手",
-      "Discount retail rival"
+      "美妝／個護零售對手",
+      "Beauty / personal-care retail rival"
     ],
     [
       "WMT",
-      "折扣零售對手",
-      "Discount retail rival"
-    ],
-    [
-      "COST",
-      "折扣零售對手",
-      "Discount retail rival"
-    ],
-    [
-      "AMZN",
-      "折扣零售對手",
-      "Discount retail rival"
+      "美妝／個護零售對手",
+      "Beauty / personal-care retail rival"
     ],
     [
       "DG",
-      "折扣零售對手",
-      "Discount retail rival"
+      "美妝／個護折扣通路對手",
+      "Beauty / personal-care discount channel rival"
     ]
   ],
   "NMR": [
@@ -13211,24 +13206,24 @@
   ],
   "CASY": [
     [
-      "ACI",
-      "超市／雜貨零售對手",
-      "Grocery / food retail rival"
-    ],
-    [
-      "KR",
-      "超市／雜貨零售對手",
-      "Grocery / food retail rival"
+      "MUSA",
+      "便利店／加油站對手",
+      "C-store / fuel retail rival"
     ],
     [
       "WMT",
-      "超市／雜貨零售對手",
-      "Grocery / food retail rival"
+      "便利／鮮食零售對手",
+      "Convenience / fresh retail rival"
     ],
     [
-      "COST",
-      "超市／雜貨零售對手",
-      "Grocery / food retail rival"
+      "KR",
+      "食品雜貨／便利對手",
+      "Grocery / convenience rival"
+    ],
+    [
+      "ACI",
+      "食品雜貨對手",
+      "Grocery rival"
     ]
   ],
   "FWONA": [
@@ -14749,19 +14744,19 @@
   ],
   "BBY": [
     [
-      "GME",
-      "消費電子／專賣零售對手",
-      "Consumer-electronics / specialty retail rival"
+      "AMZN",
+      "消費電子電商對手",
+      "CE e-commerce rival"
     ],
     [
-      "WSM",
-      "消費電子／專賣零售對手",
-      "Consumer-electronics / specialty retail rival"
+      "WMT",
+      "消費電子／科技零售對手",
+      "CE / tech retail rival"
     ],
     [
-      "TSCO",
-      "消費電子／專賣零售對手",
-      "Consumer-electronics / specialty retail rival"
+      "TGT",
+      "消費電子零售對手",
+      "CE retail rival"
     ]
   ],
   "ALNY": [
@@ -17484,29 +17479,29 @@
   ],
   "W": [
     [
-      "TGT",
-      "折扣零售對手",
-      "Discount retail rival"
-    ],
-    [
-      "WMT",
-      "折扣零售對手",
-      "Discount retail rival"
-    ],
-    [
-      "COST",
-      "折扣零售對手",
-      "Discount retail rival"
-    ],
-    [
       "AMZN",
-      "折扣零售對手",
-      "Discount retail rival"
+      "家居電商對手",
+      "Home e-commerce rival"
     ],
     [
-      "DG",
-      "折扣零售對手",
-      "Discount retail rival"
+      "WSM",
+      "家居專賣對手",
+      "Home specialty retail rival"
+    ],
+    [
+      "HD",
+      "家居／家裝零售對手",
+      "Home / home-improvement retail rival"
+    ],
+    [
+      "LOW",
+      "家居／家裝零售對手",
+      "Home / home-improvement retail rival"
+    ],
+    [
+      "RH",
+      "奢華家居對手",
+      "Luxury home rival"
     ]
   ],
   "GIB": [
@@ -19369,29 +19364,29 @@
   ],
   "FIVE": [
     [
+      "DG",
+      "美元店／價值零售對手",
+      "Dollar / value retail rival"
+    ],
+    [
+      "DLTR",
+      "美元店／價值零售對手",
+      "Dollar / value retail rival"
+    ],
+    [
       "TGT",
-      "折扣零售對手",
-      "Discount retail rival"
-    ],
-    [
-      "WMT",
-      "折扣零售對手",
-      "Discount retail rival"
-    ],
-    [
-      "COST",
-      "折扣零售對手",
-      "Discount retail rival"
+      "價值零售對手",
+      "Value retail rival"
     ],
     [
       "AMZN",
-      "折扣零售對手",
-      "Discount retail rival"
+      "價值／潮流電商對手",
+      "Value / trend e-commerce rival"
     ],
     [
-      "DG",
+      "BURL",
       "折扣零售對手",
-      "Discount retail rival"
+      "Off-price retail rival"
     ]
   ],
   "GKOS": [
@@ -19786,18 +19781,18 @@
   "GME": [
     [
       "BBY",
-      "消費電子／專賣零售對手",
-      "Consumer-electronics / specialty retail rival"
+      "遊戲／娛樂硬體零售對手",
+      "Gaming / entertainment hardware retail rival"
     ],
     [
-      "WSM",
-      "消費電子／專賣零售對手",
-      "Consumer-electronics / specialty retail rival"
+      "AMZN",
+      "遊戲軟硬體電商對手",
+      "Games / hardware e-commerce rival"
     ],
     [
-      "TSCO",
-      "消費電子／專賣零售對手",
-      "Consumer-electronics / specialty retail rival"
+      "WMT",
+      "遊戲／娛樂零售對手",
+      "Gaming / entertainment retail rival"
     ]
   ],
   "WSO": [
@@ -19991,29 +19986,24 @@
   ],
   "DKS": [
     [
-      "TGT",
-      "折扣零售對手",
-      "Discount retail rival"
+      "AMZN",
+      "運動用品電商對手",
+      "Sporting-goods e-commerce rival"
     ],
     [
       "WMT",
-      "折扣零售對手",
-      "Discount retail rival"
+      "運動用品大賣場對手",
+      "Sporting-goods big-box rival"
     ],
     [
-      "COST",
-      "折扣零售對手",
-      "Discount retail rival"
+      "TGT",
+      "運動用品零售對手",
+      "Sporting-goods retail rival"
     ],
     [
-      "AMZN",
-      "折扣零售對手",
-      "Discount retail rival"
-    ],
-    [
-      "DG",
-      "折扣零售對手",
-      "Discount retail rival"
+      "URBN",
+      "生活方式／運動服飾零售對手",
+      "Lifestyle / athletic apparel retail rival"
     ]
   ],
   "SITM": [
@@ -23307,29 +23297,19 @@
   ],
   "MUSA": [
     [
-      "TGT",
-      "折扣零售對手",
-      "Discount retail rival"
+      "CASY",
+      "便利店／加油站對手",
+      "C-store / fuel retail rival"
     ],
     [
       "WMT",
-      "折扣零售對手",
-      "Discount retail rival"
+      "便利／燃油零售對手",
+      "Convenience / fuel retail rival"
     ],
     [
-      "COST",
-      "折扣零售對手",
-      "Discount retail rival"
-    ],
-    [
-      "AMZN",
-      "折扣零售對手",
-      "Discount retail rival"
-    ],
-    [
-      "DG",
-      "折扣零售對手",
-      "Discount retail rival"
+      "KR",
+      "食品雜貨／便利對手",
+      "Grocery / convenience rival"
     ]
   ],
   "ONB": [
@@ -23815,29 +23795,24 @@
   ],
   "CHWY": [
     [
-      "TGT",
-      "折扣零售對手",
-      "Discount retail rival"
+      "AMZN",
+      "寵物電商直接對手",
+      "Pet e-commerce direct rival"
     ],
     [
       "WMT",
-      "折扣零售對手",
-      "Discount retail rival"
+      "寵物食品／用品零售對手",
+      "Pet food / supply retail rival"
     ],
     [
-      "COST",
-      "折扣零售對手",
-      "Discount retail rival"
+      "TGT",
+      "寵物用品零售對手",
+      "Pet supply retail rival"
     ],
     [
-      "AMZN",
-      "折扣零售對手",
-      "Discount retail rival"
-    ],
-    [
-      "DG",
-      "折扣零售對手",
-      "Discount retail rival"
+      "TSCO",
+      "鄉村／寵物專賣對手",
+      "Rural / pet specialty rival"
     ]
   ],
   "MORN": [
@@ -26066,18 +26041,13 @@
     ],
     [
       "AMZN",
-      "線上市集對手",
-      "Online marketplace rival"
+      "電商／市集對手",
+      "E-commerce / marketplace rival"
     ],
     [
       "SHOP",
-      "線上市集對手",
-      "Online marketplace rival"
-    ],
-    [
-      "BABA",
-      "線上市集對手",
-      "Online marketplace rival"
+      "商家／市集平台對手",
+      "Merchant / marketplace platform rival"
     ]
   ],
   "PRAX": [

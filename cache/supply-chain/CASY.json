@@ -3,7 +3,7 @@
   "ticker": "CASY",
   "name_en": "Casey's General Stores",
   "name_zh": "Casey's General Stores",
-  "updatedAt": "2026-11-20",
+  "updatedAt": "2026-11-25",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -11,97 +11,165 @@
     "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
     "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
     "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
-    "modelId": "ecommerce-retail-v1",
+    "modelId": "cstore-fuel-retail-v1",
     "references": [
-      "Industry model `ecommerce-retail-v1`",
+      "Industry model `cstore-fuel-retail-v1`",
       "AAPL curated seed shape on main (schema reference)",
       "cache/us_universe.json screen: remaining US listings without supply-chain seed",
       "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
     ]
   },
   "model": {
-    "id": "ecommerce-retail-v1",
-    "label_zh": "電商／零售價值鏈",
-    "label_en": "E-commerce / retail value chain",
-    "description_zh": "商品供應 → 倉儲物流 → 支付 → 流量／廣告 → 最後一哩配送。",
-    "description_en": "Merchants/supply → fulfillment → payments → traffic/ads → last-mile."
+    "id": "cstore-fuel-retail-v1",
+    "label_zh": "便利店／加油站零售價值鏈",
+    "label_en": "Convenience / fuel retail value chain",
+    "description_zh": "煉油／燃油 → 店內 CPG → 鮮食批發 → 物流 → 支付。",
+    "description_en": "Refining/fuel → in-store CPG → foodservice wholesale → logistics → payments."
   },
   "stages": [
     {
-      "id": "supply",
+      "id": "fuel-refining",
       "order": 1,
-      "label_zh": "品牌／賣家供應",
-      "label_en": "Brands / seller supply",
-      "summary_zh": "第三方賣家與品牌貨源。",
-      "summary_en": "3P sellers and brand supply.",
+      "label_zh": "煉油／燃油供應",
+      "label_en": "Refining / fuel supply",
+      "summary_zh": "成品油與煉油通路供應。",
+      "summary_en": "Refined product and fuel-channel supply.",
       "players": [
         {
-          "ticker": "PG",
-          "name_en": "Procter & Gamble",
-          "name_zh": "寶僑",
-          "role_zh": "寶僑：品牌／賣家供應代表性玩家",
-          "role_en": "Procter & Gamble: representative player in Brands / seller supply",
+          "ticker": "PSX",
+          "name_en": "Phillips 66",
+          "name_zh": "菲利普斯66",
+          "role_zh": "菲利普斯66：煉油／燃油供應代表性玩家",
+          "role_en": "Phillips 66: representative player in Refining / fuel supply",
           "exchange": "NYSE"
         },
         {
-          "ticker": "NKE",
-          "name_en": "Nike",
-          "name_zh": "耐吉",
-          "role_zh": "耐吉：品牌／賣家供應代表性玩家",
-          "role_en": "Nike: representative player in Brands / seller supply",
+          "ticker": "VLO",
+          "name_en": "Valero",
+          "name_zh": "瓦萊羅能源",
+          "role_zh": "瓦萊羅能源：煉油／燃油供應代表性玩家",
+          "role_en": "Valero: representative player in Refining / fuel supply",
           "exchange": "NYSE"
         },
         {
-          "ticker": "SONY",
-          "name_en": "Sony",
-          "name_zh": "Sony",
-          "role_zh": "Sony：品牌／賣家供應代表性玩家",
-          "role_en": "Sony: representative player in Brands / seller supply",
+          "ticker": "MPC",
+          "name_en": "Marathon Petroleum",
+          "name_zh": "馬拉松原油",
+          "role_zh": "馬拉松原油：煉油／燃油供應代表性玩家",
+          "role_en": "Marathon Petroleum: representative player in Refining / fuel supply",
           "exchange": "NYSE"
         }
       ]
     },
     {
-      "id": "fulfillment",
+      "id": "cstore-cpg",
       "order": 2,
-      "label_zh": "倉儲／履約",
-      "label_en": "Warehousing / fulfillment",
-      "summary_zh": "倉庫、自動化與庫存節點。",
-      "summary_en": "Warehouses, automation, inventory nodes.",
+      "label_zh": "店內 CPG／飲料",
+      "label_en": "In-store CPG / beverages",
+      "summary_zh": "飲料、零食與便利商品品牌。",
+      "summary_en": "Beverage, snack, and convenience CPG brands.",
       "players": [
         {
-          "ticker": "PLD",
-          "name_en": "Prologis",
-          "name_zh": "普洛斯 (Prologis)",
-          "role_zh": "普洛斯 (Prologis)：倉儲／履約代表性玩家",
-          "role_en": "Prologis: representative player in Warehousing / fulfillment",
+          "ticker": "KO",
+          "name_en": "Coca-Cola",
+          "name_zh": "可口可樂",
+          "role_zh": "可口可樂：店內 CPG／飲料代表性玩家",
+          "role_en": "Coca-Cola: representative player in In-store CPG / beverages",
           "exchange": "NYSE"
         },
         {
-          "ticker": "EQIX",
-          "name_en": "Equinix",
-          "name_zh": "Equinix",
-          "role_zh": "Equinix：倉儲／履約代表性玩家",
-          "role_en": "Equinix: representative player in Warehousing / fulfillment",
+          "ticker": "PEP",
+          "name_en": "PepsiCo",
+          "name_zh": "百事",
+          "role_zh": "百事：店內 CPG／飲料代表性玩家",
+          "role_en": "PepsiCo: representative player in In-store CPG / beverages",
           "exchange": "NASDAQ"
         },
         {
-          "ticker": "AMT",
-          "name_en": "American Tower",
-          "name_zh": "美國電塔",
-          "role_zh": "美國電塔：倉儲／履約代表性玩家",
-          "role_en": "American Tower: representative player in Warehousing / fulfillment",
+          "ticker": "MDLZ",
+          "name_en": "Mondelez",
+          "name_zh": "億滋國際",
+          "role_zh": "億滋國際：店內 CPG／飲料代表性玩家",
+          "role_en": "Mondelez: representative player in In-store CPG / beverages",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "foodservice-wholesale",
+      "order": 3,
+      "label_zh": "鮮食／餐飲批發",
+      "label_en": "Foodservice wholesale",
+      "summary_zh": "鮮食與便利餐飲批發。",
+      "summary_en": "Fresh food and convenience foodservice wholesale.",
+      "players": [
+        {
+          "ticker": "SYY",
+          "name_en": "Sysco",
+          "name_zh": "Sysco",
+          "role_zh": "Sysco：鮮食／餐飲批發代表性玩家",
+          "role_en": "Sysco: representative player in Foodservice wholesale",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "USFD",
+          "name_en": "US Foods",
+          "name_zh": "US Foods",
+          "role_zh": "US Foods：鮮食／餐飲批發代表性玩家",
+          "role_en": "US Foods: representative player in Foodservice wholesale",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "PFGC",
+          "name_en": "Performance Food Co",
+          "name_zh": "PFGC",
+          "role_zh": "PFGC：鮮食／餐飲批發代表性玩家",
+          "role_en": "Performance Food Co: representative player in Foodservice wholesale",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "logistics",
+      "order": 4,
+      "label_zh": "物流／配送",
+      "label_en": "Logistics / distribution",
+      "summary_zh": "燃油／商品配送至站點。",
+      "summary_en": "Fuel and merchandise into sites.",
+      "players": [
+        {
+          "ticker": "UNP",
+          "name_en": "Union Pacific",
+          "name_zh": "聯合太平洋鐵路",
+          "role_zh": "聯合太平洋鐵路：物流／配送代表性玩家",
+          "role_en": "Union Pacific: representative player in Logistics / distribution",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "UPS",
+          "name_en": "United Parcel Service",
+          "name_zh": "優比速",
+          "role_zh": "優比速：物流／配送代表性玩家",
+          "role_en": "United Parcel Service: representative player in Logistics / distribution",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "FDX",
+          "name_en": "FedEx",
+          "name_zh": "聯邦快遞",
+          "role_zh": "聯邦快遞：物流／配送代表性玩家",
+          "role_en": "FedEx: representative player in Logistics / distribution",
           "exchange": "NYSE"
         }
       ]
     },
     {
       "id": "payments",
-      "order": 3,
+      "order": 5,
       "label_zh": "支付／金融",
       "label_en": "Payments / fintech",
-      "summary_zh": "卡組織、收單與消費金融。",
-      "summary_en": "Card networks, acquirers, consumer finance.",
+      "summary_zh": "卡組織與數位支付。",
+      "summary_en": "Card rails and digital payments.",
       "players": [
         {
           "ticker": "V",
@@ -128,108 +196,40 @@
           "exchange": "NASDAQ"
         }
       ]
-    },
-    {
-      "id": "traffic",
-      "order": 4,
-      "label_zh": "流量／廣告獲客",
-      "label_en": "Traffic / ad acquisition",
-      "summary_zh": "搜尋、社群與零售媒體。",
-      "summary_en": "Search, social, retail media.",
-      "players": [
-        {
-          "ticker": "GOOG",
-          "name_en": "Alphabet",
-          "name_zh": "Alphabet（Google）",
-          "role_zh": "Alphabet（Google）：流量／廣告獲客代表性玩家",
-          "role_en": "Alphabet: representative player in Traffic / ad acquisition",
-          "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "META",
-          "name_en": "Meta Platforms",
-          "name_zh": "Meta (臉書)",
-          "role_zh": "Meta (臉書)：流量／廣告獲客代表性玩家",
-          "role_en": "Meta Platforms: representative player in Traffic / ad acquisition",
-          "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "APP",
-          "name_en": "AppLovin",
-          "name_zh": "AppLovin",
-          "role_zh": "AppLovin：流量／廣告獲客代表性玩家",
-          "role_en": "AppLovin: representative player in Traffic / ad acquisition",
-          "exchange": "NASDAQ"
-        }
-      ]
-    },
-    {
-      "id": "lastmile",
-      "order": 5,
-      "label_zh": "最後一哩／宅配",
-      "label_en": "Last-mile delivery",
-      "summary_zh": "快遞與本地配送網路。",
-      "summary_en": "Parcel and local delivery networks.",
-      "players": [
-        {
-          "ticker": "UPS",
-          "name_en": "United Parcel Service",
-          "name_zh": "優比速",
-          "role_zh": "優比速：最後一哩／宅配代表性玩家",
-          "role_en": "United Parcel Service: representative player in Last-mile delivery",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "FDX",
-          "name_en": "FedEx",
-          "name_zh": "聯邦快遞",
-          "role_zh": "聯邦快遞：最後一哩／宅配代表性玩家",
-          "role_en": "FedEx: representative player in Last-mile delivery",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "UNP",
-          "name_en": "Union Pacific",
-          "name_zh": "聯合太平洋鐵路",
-          "role_zh": "聯合太平洋鐵路：最後一哩／宅配代表性玩家",
-          "role_en": "Union Pacific: representative player in Last-mile delivery",
-          "exchange": "NYSE"
-        }
-      ]
     }
   ],
   "competitors": [
     {
-      "ticker": "ACI",
-      "name_en": "Albertsons",
-      "name_zh": "Albertsons",
-      "basis_zh": "超市／雜貨零售對手",
-      "basis_en": "Grocery / food retail rival",
-      "exchange": "NYSE"
-    },
-    {
-      "ticker": "KR",
-      "name_en": "Kroger",
-      "name_zh": "Kroger",
-      "basis_zh": "超市／雜貨零售對手",
-      "basis_en": "Grocery / food retail rival",
+      "ticker": "MUSA",
+      "name_en": "Murphy USA",
+      "name_zh": "Murphy USA",
+      "basis_zh": "便利店／加油站對手",
+      "basis_en": "C-store / fuel retail rival",
       "exchange": "NYSE"
     },
     {
       "ticker": "WMT",
       "name_en": "Walmart",
       "name_zh": "沃爾瑪",
-      "basis_zh": "超市／雜貨零售對手",
-      "basis_en": "Grocery / food retail rival",
+      "basis_zh": "便利／鮮食零售對手",
+      "basis_en": "Convenience / fresh retail rival",
       "exchange": "NYSE"
     },
     {
-      "ticker": "COST",
-      "name_en": "Costco Wholesale",
-      "name_zh": "好市多",
-      "basis_zh": "超市／雜貨零售對手",
-      "basis_en": "Grocery / food retail rival",
-      "exchange": "NASDAQ"
+      "ticker": "KR",
+      "name_en": "Kroger",
+      "name_zh": "Kroger",
+      "basis_zh": "食品雜貨／便利對手",
+      "basis_en": "Grocery / convenience rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "ACI",
+      "name_en": "Albertsons",
+      "name_zh": "Albertsons",
+      "basis_zh": "食品雜貨對手",
+      "basis_en": "Grocery rival",
+      "exchange": "NYSE"
     }
   ]
 }

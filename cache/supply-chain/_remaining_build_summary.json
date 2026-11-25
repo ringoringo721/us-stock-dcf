@@ -2,18 +2,16 @@
   "bandMin": 0.0,
   "bandMax": 50000000000.0,
   "bandTotal": 1041,
-  "written": 6,
+  "written": 4,
   "skippedExisting": [],
   "failures": [],
   "tickers": [
-    "SN",
-    "WSM",
-    "TSCO",
-    "SGI",
-    "MHK",
-    "FND"
+    "ULTA",
+    "GME",
+    "DKS",
+    "CHWY"
   ],
   "dryRun": false,
-  "date": "2026-11-24",
+  "date": "2026-11-25",
   "chartsDir": "/agent/repos/us-stock-dcf/cache/price_charts"
 }
