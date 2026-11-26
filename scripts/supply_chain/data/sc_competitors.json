@@ -3415,28 +3415,23 @@
   "MAR": [
     [
       "HLT",
-      "國際飯店對手",
-      "Global hotel rival"
-    ],
-    [
-      "H",
-      "國際飯店對手",
-      "Global hotel rival"
-    ],
-    [
-      "ABNB",
-      "短租替代",
-      "Short-let substitute"
-    ],
-    [
-      "BKNG",
-      "OTA 分銷壓力",
-      "OTA distribution pressure"
+      "全球酒店品牌對手",
+      "Global hotel-brand rival"
     ],
     [
       "IHG",
-      "國際飯店對手",
-      "Global hotel rival"
+      "全球酒店品牌對手",
+      "Global hotel-brand rival"
+    ],
+    [
+      "H",
+      "全球酒店品牌對手",
+      "Global hotel-brand rival"
+    ],
+    [
+      "ABNB",
+      "替代住宿對手",
+      "Alternative-stay rival"
     ]
   ],
   "TJX": [
@@ -4963,23 +4958,23 @@
   "RCL": [
     [
       "CCL",
-      "郵輪／休閒旅遊對手",
-      "Cruise / leisure-travel rival"
+      "郵輪同業對手",
+      "Cruise-line rival"
     ],
     [
       "NCLH",
-      "郵輪／休閒旅遊對手",
-      "Cruise / leisure-travel rival"
+      "郵輪同業對手",
+      "Cruise-line rival"
     ],
     [
-      "MAR",
-      "郵輪／休閒旅遊對手",
-      "Cruise / leisure-travel rival"
+      "VIK",
+      "郵輪同業對手",
+      "Cruise-line rival"
     ],
     [
-      "HLT",
-      "郵輪／休閒旅遊對手",
-      "Cruise / leisure-travel rival"
+      "ABNB",
+      "休閒旅遊／渡假替代",
+      "Leisure travel / vacation alternative"
     ]
   ],
   "FTNT": [
@@ -5244,24 +5239,24 @@
   ],
   "HLT": [
     [
-      "RCL",
-      "郵輪／休閒旅遊對手",
-      "Cruise / leisure-travel rival"
-    ],
-    [
-      "CCL",
-      "郵輪／休閒旅遊對手",
-      "Cruise / leisure-travel rival"
-    ],
-    [
-      "NCLH",
-      "郵輪／休閒旅遊對手",
-      "Cruise / leisure-travel rival"
-    ],
-    [
       "MAR",
-      "郵輪／休閒旅遊對手",
-      "Cruise / leisure-travel rival"
+      "全球酒店品牌對手",
+      "Global hotel-brand rival"
+    ],
+    [
+      "IHG",
+      "全球酒店品牌對手",
+      "Global hotel-brand rival"
+    ],
+    [
+      "H",
+      "全球酒店品牌對手",
+      "Global hotel-brand rival"
+    ],
+    [
+      "ABNB",
+      "替代住宿對手",
+      "Alternative-stay rival"
     ]
   ],
   "MDLZ": [
@@ -9525,23 +9520,23 @@
   "CCL": [
     [
       "RCL",
-      "郵輪／休閒旅遊對手",
-      "Cruise / leisure-travel rival"
+      "郵輪同業對手",
+      "Cruise-line rival"
     ],
     [
       "NCLH",
-      "郵輪／休閒旅遊對手",
-      "Cruise / leisure-travel rival"
+      "郵輪同業對手",
+      "Cruise-line rival"
     ],
     [
-      "MAR",
-      "郵輪／休閒旅遊對手",
-      "Cruise / leisure-travel rival"
+      "VIK",
+      "郵輪同業對手",
+      "Cruise-line rival"
     ],
     [
-      "HLT",
-      "郵輪／休閒旅遊對手",
-      "Cruise / leisure-travel rival"
+      "ABNB",
+      "休閒旅遊／渡假替代",
+      "Leisure travel / vacation alternative"
     ]
   ],
   "SLF": [
@@ -9627,29 +9622,24 @@
   ],
   "VIK": [
     [
-      "BKNG",
-      "Travel Services產品／市場對手",
-      "Travel Services product/market rival"
-    ],
-    [
-      "ABNB",
-      "Travel Services產品／市場對手",
-      "Travel Services product/market rival"
-    ],
-    [
       "RCL",
-      "Travel Services產品／市場對手",
-      "Travel Services product/market rival"
+      "郵輪同業對手",
+      "Cruise-line rival"
     ],
     [
       "CCL",
-      "Travel Services產品／市場對手",
-      "Travel Services product/market rival"
+      "郵輪同業對手",
+      "Cruise-line rival"
     ],
     [
-      "EXPE",
-      "Travel Services產品／市場對手",
-      "Travel Services product/market rival"
+      "NCLH",
+      "郵輪同業對手",
+      "Cruise-line rival"
+    ],
+    [
+      "ABNB",
+      "休閒旅遊／渡假替代",
+      "Leisure travel / vacation alternative"
     ]
   ],
   "CBRE": [
@@ -12868,29 +12858,24 @@
   ],
   "LVS": [
     [
-      "FLUT",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
-    ],
-    [
-      "DKNG",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
-    ],
-    [
       "WYNN",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
+      "度假賭場對手",
+      "Casino-resort rival"
     ],
     [
       "MGM",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
+      "度假賭場對手",
+      "Casino-resort rival"
     ],
     [
-      "CHDN",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
+      "CZR",
+      "度假賭場對手",
+      "Casino-resort rival"
+    ],
+    [
+      "FLUT",
+      "線上博彩替代對手",
+      "Online-gaming substitute rival"
     ]
   ],
   "HAL": [
@@ -12983,24 +12968,24 @@
   ],
   "IHG": [
     [
-      "HLT",
-      "飯店對手",
-      "Hotel rival"
+      "MAR",
+      "全球酒店品牌對手",
+      "Global hotel-brand rival"
     ],
     [
-      "MAR",
-      "飯店對手",
-      "Hotel rival"
+      "HLT",
+      "全球酒店品牌對手",
+      "Global hotel-brand rival"
     ],
     [
       "H",
-      "飯店對手",
-      "Hotel rival"
+      "全球酒店品牌對手",
+      "Global hotel-brand rival"
     ],
     [
       "ABNB",
-      "飯店對手",
-      "Hotel rival"
+      "替代住宿對手",
+      "Alternative-stay rival"
     ]
   ],
   "CLS": [
@@ -16233,24 +16218,24 @@
   ],
   "H": [
     [
-      "HLT",
-      "飯店對手",
-      "Hotel rival"
+      "MAR",
+      "全球酒店品牌對手",
+      "Global hotel-brand rival"
     ],
     [
-      "MAR",
-      "飯店對手",
-      "Hotel rival"
+      "HLT",
+      "全球酒店品牌對手",
+      "Global hotel-brand rival"
     ],
     [
       "IHG",
-      "飯店對手",
-      "Hotel rival"
+      "全球酒店品牌對手",
+      "Global hotel-brand rival"
     ],
     [
-      "ABNB",
-      "飯店對手",
-      "Hotel rival"
+      "WH",
+      "精選／特許酒店對手",
+      "Select-service hotel rival"
     ]
   ],
   "NVT": [
@@ -24759,28 +24744,23 @@
   "WYNN": [
     [
       "LVS",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
-    ],
-    [
-      "FLUT",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
-    ],
-    [
-      "DKNG",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
+      "度假賭場對手",
+      "Casino-resort rival"
     ],
     [
       "MGM",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
+      "度假賭場對手",
+      "Casino-resort rival"
     ],
     [
-      "CHDN",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
+      "CZR",
+      "度假賭場對手",
+      "Casino-resort rival"
+    ],
+    [
+      "FLUT",
+      "線上博彩替代對手",
+      "Online-gaming substitute rival"
     ]
   ],
   "PTGX": [
@@ -24992,23 +24972,23 @@
   "NCLH": [
     [
       "RCL",
-      "郵輪／休閒旅遊對手",
-      "Cruise / leisure-travel rival"
+      "郵輪同業對手",
+      "Cruise-line rival"
     ],
     [
       "CCL",
-      "郵輪／休閒旅遊對手",
-      "Cruise / leisure-travel rival"
+      "郵輪同業對手",
+      "Cruise-line rival"
     ],
     [
-      "MAR",
-      "郵輪／休閒旅遊對手",
-      "Cruise / leisure-travel rival"
+      "VIK",
+      "郵輪同業對手",
+      "Cruise-line rival"
     ],
     [
-      "HLT",
-      "郵輪／休閒旅遊對手",
-      "Cruise / leisure-travel rival"
+      "ABNB",
+      "休閒旅遊／渡假替代",
+      "Leisure travel / vacation alternative"
     ]
   ],
   "EPAM": [
@@ -25102,28 +25082,23 @@
   "MGM": [
     [
       "LVS",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
-    ],
-    [
-      "FLUT",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
-    ],
-    [
-      "DKNG",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
+      "度假賭場對手",
+      "Casino-resort rival"
     ],
     [
       "WYNN",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
+      "度假賭場對手",
+      "Casino-resort rival"
     ],
     [
-      "CHDN",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
+      "BYD",
+      "度假賭場對手",
+      "Casino-resort rival"
+    ],
+    [
+      "FLUT",
+      "線上博彩替代對手",
+      "Online-gaming substitute rival"
     ]
   ],
   "CELH": [
@@ -30236,28 +30211,23 @@
   "CZR": [
     [
       "LVS",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
-    ],
-    [
-      "FLUT",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
-    ],
-    [
-      "DKNG",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
-    ],
-    [
-      "WYNN",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
+      "度假賭場對手",
+      "Casino-resort rival"
     ],
     [
       "MGM",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
+      "度假賭場對手",
+      "Casino-resort rival"
+    ],
+    [
+      "BYD",
+      "度假賭場對手",
+      "Casino-resort rival"
+    ],
+    [
+      "FLUT",
+      "線上博彩替代對手",
+      "Online-gaming substitute rival"
     ]
   ],
   "UGP": [
@@ -30786,28 +30756,23 @@
   "WH": [
     [
       "CHH",
-      "飯店營運對手",
-      "Hotel operator rival"
+      "經濟／精選酒店對手",
+      "Economy/select hotel rival"
     ],
     [
       "HLT",
-      "飯店營運對手",
-      "Hotel operator rival"
+      "酒店品牌對手",
+      "Hotel-brand rival"
     ],
     [
       "MAR",
-      "飯店營運對手",
-      "Hotel operator rival"
-    ],
-    [
-      "H",
-      "飯店營運對手",
-      "Hotel operator rival"
+      "酒店品牌對手",
+      "Hotel-brand rival"
     ],
     [
       "IHG",
-      "飯店營運對手",
-      "Hotel operator rival"
+      "酒店品牌對手",
+      "Hotel-brand rival"
     ]
   ],
   "FBIN": [
@@ -31052,29 +31017,24 @@
   ],
   "MTN": [
     [
-      "LVS",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
+      "MAR",
+      "山地／渡假住宿替代",
+      "Mountain/resort lodging alternative"
     ],
     [
-      "FLUT",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
+      "HLT",
+      "山地／渡假住宿替代",
+      "Mountain/resort lodging alternative"
     ],
     [
-      "DKNG",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
+      "H",
+      "山地／渡假住宿替代",
+      "Mountain/resort lodging alternative"
     ],
     [
-      "WYNN",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
-    ],
-    [
-      "MGM",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
+      "ABNB",
+      "替代住宿對手",
+      "Alternative-stay rival"
     ]
   ],
   "ORA": [
@@ -31594,29 +31554,24 @@
   ],
   "BYD": [
     [
+      "MGM",
+      "度假賭場對手",
+      "Casino-resort rival"
+    ],
+    [
+      "CZR",
+      "度假賭場對手",
+      "Casino-resort rival"
+    ],
+    [
       "LVS",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
+      "度假賭場對手",
+      "Casino-resort rival"
     ],
     [
       "FLUT",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
-    ],
-    [
-      "DKNG",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
-    ],
-    [
-      "WYNN",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
-    ],
-    [
-      "MGM",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
+      "線上博彩替代對手",
+      "Online-gaming substitute rival"
     ]
   ],
   "OBDC": [
@@ -32037,29 +31992,24 @@
   ],
   "CHH": [
     [
+      "WH",
+      "經濟／精選酒店對手",
+      "Economy/select hotel rival"
+    ],
+    [
       "HLT",
-      "飯店營運對手",
-      "Hotel operator rival"
+      "酒店品牌對手",
+      "Hotel-brand rival"
     ],
     [
       "MAR",
-      "飯店營運對手",
-      "Hotel operator rival"
-    ],
-    [
-      "H",
-      "飯店營運對手",
-      "Hotel operator rival"
+      "酒店品牌對手",
+      "Hotel-brand rival"
     ],
     [
       "IHG",
-      "飯店營運對手",
-      "Hotel operator rival"
-    ],
-    [
-      "WH",
-      "飯店營運對手",
-      "Hotel operator rival"
+      "酒店品牌對手",
+      "Hotel-brand rival"
     ]
   ],
   "PI": [
