@@ -2829,20 +2829,25 @@
     ]
   },
   "casino-resort-v1": {
-    "property-ops-supplies": [
-      "PG",
-      "CL",
-      "ECL"
+    "gaming-property-capital": [
+      "VICI",
+      "GLPI",
+      "HST"
+    ],
+    "building-systems": [
+      "JCI",
+      "TT",
+      "CARR"
     ],
     "foodservice-dist": [
       "SYY",
       "USFD",
       "PFGC"
     ],
-    "distribution": [
-      "BKNG",
-      "EXPE",
-      "ABNB"
+    "entertainment-attractions": [
+      "LYV",
+      "TKO",
+      "DIS"
     ],
     "payments": [
       "V",

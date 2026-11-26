@@ -1,7 +1,7 @@
 {
   "version": 1,
   "ticker": "BYD",
-  "updatedAt": "2026-11-25",
+  "updatedAt": "2026-11-26",
   "basis": "lastTradingDayCloseVsPriorClose",
   "notes_en": "changePct from last two EOD closes in price_charts; mcap from US listings screener (USD millions). Missing tickers stay null. No live FMP per pageview.",
   "notes_zh": "漲跌%取自 price_charts 最近兩日收盤；市值取自美股清單（百萬美元）。缺資料維持 null，不造假。頁面不打即時 FMP。",
@@ -16,32 +16,62 @@
       "asOf": "2026-11-24",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "PG": {
-      "ticker": "PG",
-      "price": 172.47,
-      "previousClose": 169.6,
-      "changePct": 1.692,
-      "mcap": 383361.3,
+    "VICI": {
+      "ticker": "VICI",
+      "price": 24.77,
+      "previousClose": 24.16,
+      "changePct": 2.525,
+      "mcap": 27295.9,
       "currency": "USD",
       "asOf": "2026-11-24",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "CL": {
-      "ticker": "CL",
-      "price": 99.24,
-      "previousClose": 97.93,
-      "changePct": 1.338,
-      "mcap": 76757.6,
+    "GLPI": {
+      "ticker": "GLPI",
+      "price": 38.63,
+      "previousClose": 37.81,
+      "changePct": 2.169,
+      "mcap": 11313.9,
       "currency": "USD",
       "asOf": "2026-11-24",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "ECL": {
-      "ticker": "ECL",
-      "price": 307.14,
-      "previousClose": 305.91,
-      "changePct": 0.402,
-      "mcap": 84331.1,
+    "HST": {
+      "ticker": "HST",
+      "price": 24.86,
+      "previousClose": 24.74,
+      "changePct": 0.485,
+      "mcap": 16867.8,
+      "currency": "USD",
+      "asOf": "2026-11-24",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "JCI": {
+      "ticker": "JCI",
+      "price": 137.04,
+      "previousClose": 138.02,
+      "changePct": -0.71,
+      "mcap": 81793.3,
+      "currency": "USD",
+      "asOf": "2026-11-24",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "TT": {
+      "ticker": "TT",
+      "price": 404.49,
+      "previousClose": 408.38,
+      "changePct": -0.953,
+      "mcap": 87943.4,
+      "currency": "USD",
+      "asOf": "2026-11-24",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "CARR": {
+      "ticker": "CARR",
+      "price": 52.72,
+      "previousClose": 52.03,
+      "changePct": 1.326,
+      "mcap": 42855.2,
       "currency": "USD",
       "asOf": "2026-11-24",
       "source": "FMP historical-price-eod via cache/price_charts"
@@ -76,32 +106,32 @@
       "asOf": "2026-11-24",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "BKNG": {
-      "ticker": "BKNG",
-      "price": 146.64,
-      "previousClose": 144.94,
-      "changePct": 1.173,
-      "mcap": 120720.6,
+    "LYV": {
+      "ticker": "LYV",
+      "price": 183.63,
+      "previousClose": 180.88,
+      "changePct": 1.52,
+      "mcap": 40826.2,
       "currency": "USD",
       "asOf": "2026-11-24",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "EXPE": {
-      "ticker": "EXPE",
-      "price": 239.26,
-      "previousClose": 239.46,
-      "changePct": -0.084,
-      "mcap": 29681.9,
+    "TKO": {
+      "ticker": "TKO",
+      "price": 189.45,
+      "previousClose": 185.14,
+      "changePct": 2.328,
+      "mcap": 13964.2,
       "currency": "USD",
       "asOf": "2026-11-24",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "ABNB": {
-      "ticker": "ABNB",
-      "price": 173.39,
-      "previousClose": 173.96,
-      "changePct": -0.328,
-      "mcap": 113763.3,
+    "DIS": {
+      "ticker": "DIS",
+      "price": 122.51,
+      "previousClose": 120.27,
+      "changePct": 1.862,
+      "mcap": 201591.1,
       "currency": "USD",
       "asOf": "2026-11-24",
       "source": "FMP historical-price-eod via cache/price_charts"

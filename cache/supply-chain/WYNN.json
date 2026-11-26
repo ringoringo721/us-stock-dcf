@@ -3,7 +3,7 @@
   "ticker": "WYNN",
   "name_en": "Wynn Resorts",
   "name_zh": "Wynn Resorts",
-  "updatedAt": "2026-11-25",
+  "updatedAt": "2026-11-26",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -23,119 +23,153 @@
     "id": "casino-resort-v1",
     "label_zh": "度假賭場價值鏈",
     "label_en": "Casino resort value chain",
-    "description_zh": "房務耗材 → 餐飲配送 → 訂房通路 → 支付 → 流量（設備商未達宇宙則不硬塞）。",
-    "description_en": "Property ops → foodservice → booking channels → payments → traffic (no fake slot-OEM pad if below universe)."
+    "description_zh": "博弈物業資本 → 樓宇系統 → 餐飲／MICE → 娛樂秀 → 支付 → 數位獲客（非酒店 OTA／房務皂墊；角子機 OEM 未達 ≥$5B 不硬塞）。",
+    "description_en": "Gaming property capital → building systems → F&B/MICE → entertainment → payments → digital acquisition (not hotel OTA/housekeeping pad; no fake slot-OEM pad below universe floor)."
   },
   "stages": [
     {
-      "id": "property-ops-supplies",
+      "id": "gaming-property-capital",
       "order": 1,
-      "label_zh": "房務／清潔耗材",
-      "label_en": "Property ops / cleaning supplies",
-      "summary_zh": "客房與物業清潔耗材。",
-      "summary_en": "Rooms and property cleaning supplies.",
+      "label_zh": "博弈物業／REIT 資本",
+      "label_en": "Gaming property / REIT capital",
+      "summary_zh": "博弈與休閒物業房東／資本（角子機 OEM 未達宇宙門檻則以 REIT 資本層誠實代表）。",
+      "summary_en": "Gaming and leisure property landlords/capital (REIT capital layer when slot OEMs are below universe floor).",
       "players": [
         {
-          "ticker": "PG",
-          "name_en": "Procter & Gamble",
-          "name_zh": "寶僑",
-          "role_zh": "寶僑：房務／清潔耗材代表性玩家",
-          "role_en": "Procter & Gamble: representative player in Property ops / cleaning supplies",
+          "ticker": "VICI",
+          "name_en": "VICI Properties",
+          "name_zh": "維奇房產 (VICI)",
+          "role_zh": "維奇房產 (VICI)：博弈物業／REIT 資本代表性玩家",
+          "role_en": "VICI Properties: representative player in Gaming property / REIT capital",
           "exchange": "NYSE"
         },
         {
-          "ticker": "CL",
-          "name_en": "Colgate-Palmolive",
-          "name_zh": "高露潔-棕欖",
-          "role_zh": "高露潔-棕欖：房務／清潔耗材代表性玩家",
-          "role_en": "Colgate-Palmolive: representative player in Property ops / cleaning supplies",
+          "ticker": "GLPI",
+          "name_en": "Gaming and Leisure Properties",
+          "name_zh": "GLPI",
+          "role_zh": "GLPI：博弈物業／REIT 資本代表性玩家",
+          "role_en": "Gaming and Leisure Properties: representative player in Gaming property / REIT capital",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "HST",
+          "name_en": "Host Hotels & Resorts",
+          "name_zh": "Host Hotels & Resorts",
+          "role_zh": "Host Hotels & Resorts：博弈物業／REIT 資本代表性玩家",
+          "role_en": "Host Hotels & Resorts: representative player in Gaming property / REIT capital",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "building-systems",
+      "order": 2,
+      "label_zh": "樓宇／暖通系統",
+      "label_en": "Building / HVAC systems",
+      "summary_zh": "巨型度假村樓控、暖通與建築系統。",
+      "summary_en": "Mega-resort building controls, HVAC, and systems.",
+      "players": [
+        {
+          "ticker": "JCI",
+          "name_en": "Johnson Controls",
+          "name_zh": "江森自控",
+          "role_zh": "江森自控：樓宇／暖通系統代表性玩家",
+          "role_en": "Johnson Controls: representative player in Building / HVAC systems",
           "exchange": "NYSE"
         },
         {
-          "ticker": "ECL",
-          "name_en": "Ecolab",
-          "name_zh": "藝康集團",
-          "role_zh": "藝康集團：房務／清潔耗材代表性玩家",
-          "role_en": "Ecolab: representative player in Property ops / cleaning supplies",
+          "ticker": "TT",
+          "name_en": "Trane Technologies",
+          "name_zh": "Trane Technologies",
+          "role_zh": "Trane Technologies：樓宇／暖通系統代表性玩家",
+          "role_en": "Trane Technologies: representative player in Building / HVAC systems",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "CARR",
+          "name_en": "Carrier",
+          "name_zh": "Carrier",
+          "role_zh": "Carrier：樓宇／暖通系統代表性玩家",
+          "role_en": "Carrier: representative player in Building / HVAC systems",
           "exchange": "NYSE"
         }
       ]
     },
     {
       "id": "foodservice-dist",
-      "order": 2,
-      "label_zh": "餐飲配送",
-      "label_en": "Foodservice distribution",
-      "summary_zh": "度假村／賭場餐飲配送。",
-      "summary_en": "Resort and casino foodservice distributors.",
+      "order": 3,
+      "label_zh": "餐飲／MICE 配送",
+      "label_en": "F&B / MICE foodservice",
+      "summary_zh": "客房、餐飲與會展食材配送。",
+      "summary_en": "Rooms, F&B, and MICE foodservice distributors.",
       "players": [
         {
           "ticker": "SYY",
           "name_en": "Sysco",
           "name_zh": "Sysco",
-          "role_zh": "Sysco：餐飲配送代表性玩家",
-          "role_en": "Sysco: representative player in Foodservice distribution",
+          "role_zh": "Sysco：餐飲／MICE 配送代表性玩家",
+          "role_en": "Sysco: representative player in F&B / MICE foodservice",
           "exchange": "NYSE"
         },
         {
           "ticker": "USFD",
           "name_en": "US Foods",
           "name_zh": "US Foods",
-          "role_zh": "US Foods：餐飲配送代表性玩家",
-          "role_en": "US Foods: representative player in Foodservice distribution",
+          "role_zh": "US Foods：餐飲／MICE 配送代表性玩家",
+          "role_en": "US Foods: representative player in F&B / MICE foodservice",
           "exchange": "NYSE"
         },
         {
           "ticker": "PFGC",
           "name_en": "Performance Food Co",
           "name_zh": "PFGC",
-          "role_zh": "PFGC：餐飲配送代表性玩家",
-          "role_en": "Performance Food Co: representative player in Foodservice distribution",
+          "role_zh": "PFGC：餐飲／MICE 配送代表性玩家",
+          "role_en": "Performance Food Co: representative player in F&B / MICE foodservice",
           "exchange": "NYSE"
         }
       ]
     },
     {
-      "id": "distribution",
-      "order": 3,
-      "label_zh": "訂房／旅遊通路",
-      "label_en": "Booking / travel channels",
-      "summary_zh": "OTA 與渡假訂房通路。",
-      "summary_en": "OTAs and resort booking channels.",
+      "id": "entertainment-attractions",
+      "order": 4,
+      "label_zh": "娛樂／秀演引流",
+      "label_en": "Entertainment / attractions",
+      "summary_zh": "秀演、賽事與主題娛樂夥伴（非 OTA／ABNB）。",
+      "summary_en": "Shows, events, and attraction partners (not OTAs/Airbnb).",
       "players": [
         {
-          "ticker": "BKNG",
-          "name_en": "Booking",
-          "name_zh": "Booking 控股",
-          "role_zh": "Booking 控股：訂房／旅遊通路代表性玩家",
-          "role_en": "Booking: representative player in Booking / travel channels",
-          "exchange": "NASDAQ"
+          "ticker": "LYV",
+          "name_en": "Live Nation",
+          "name_zh": "理想國演藝",
+          "role_zh": "理想國演藝：娛樂／秀演引流代表性玩家",
+          "role_en": "Live Nation: representative player in Entertainment / attractions",
+          "exchange": "NYSE"
         },
         {
-          "ticker": "EXPE",
-          "name_en": "Expedia",
-          "name_zh": "Expedia",
-          "role_zh": "Expedia：訂房／旅遊通路代表性玩家",
-          "role_en": "Expedia: representative player in Booking / travel channels",
-          "exchange": "NASDAQ"
+          "ticker": "TKO",
+          "name_en": "TKO Group Holdings",
+          "name_zh": "TKO 控股 (WWE/UFC)",
+          "role_zh": "TKO 控股 (WWE/UFC)：娛樂／秀演引流代表性玩家",
+          "role_en": "TKO Group Holdings: representative player in Entertainment / attractions",
+          "exchange": "NYSE"
         },
         {
-          "ticker": "ABNB",
-          "name_en": "Airbnb",
-          "name_zh": "Airbnb",
-          "role_zh": "Airbnb：訂房／旅遊通路代表性玩家",
-          "role_en": "Airbnb: representative player in Booking / travel channels",
-          "exchange": "NASDAQ"
+          "ticker": "DIS",
+          "name_en": "Walt Disney",
+          "name_zh": "迪士尼",
+          "role_zh": "迪士尼：娛樂／秀演引流代表性玩家",
+          "role_en": "Walt Disney: representative player in Entertainment / attractions",
+          "exchange": "NYSE"
         }
       ]
     },
     {
       "id": "payments",
-      "order": 4,
+      "order": 5,
       "label_zh": "支付／金融",
       "label_en": "Payments / fintech",
-      "summary_zh": "卡組織與旅遊支付。",
-      "summary_en": "Card rails and travel payments.",
+      "summary_zh": "卡組織與賭場／度假支付軌道。",
+      "summary_en": "Card rails and casino/resort payment rails.",
       "players": [
         {
           "ticker": "V",
@@ -165,34 +199,34 @@
     },
     {
       "id": "traffic",
-      "order": 5,
-      "label_zh": "流量／獲客",
-      "label_en": "Traffic / acquisition",
-      "summary_zh": "搜尋、社群與應用流量。",
-      "summary_en": "Search, social, and app traffic.",
+      "order": 6,
+      "label_zh": "流量／行銷獲客",
+      "label_en": "Traffic / marketing",
+      "summary_zh": "搜尋、社群與應用廣告獲客（禁止 OTA 墊）。",
+      "summary_en": "Search, social, and app-ad acquisition (no OTA pad).",
       "players": [
         {
           "ticker": "GOOG",
           "name_en": "Alphabet",
           "name_zh": "Alphabet（Google）",
-          "role_zh": "Alphabet（Google）：流量／獲客代表性玩家",
-          "role_en": "Alphabet: representative player in Traffic / acquisition",
+          "role_zh": "Alphabet（Google）：流量／行銷獲客代表性玩家",
+          "role_en": "Alphabet: representative player in Traffic / marketing",
           "exchange": "NASDAQ"
         },
         {
           "ticker": "META",
           "name_en": "Meta Platforms",
           "name_zh": "Meta (臉書)",
-          "role_zh": "Meta (臉書)：流量／獲客代表性玩家",
-          "role_en": "Meta Platforms: representative player in Traffic / acquisition",
+          "role_zh": "Meta (臉書)：流量／行銷獲客代表性玩家",
+          "role_en": "Meta Platforms: representative player in Traffic / marketing",
           "exchange": "NASDAQ"
         },
         {
           "ticker": "APP",
           "name_en": "AppLovin",
           "name_zh": "AppLovin",
-          "role_zh": "AppLovin：流量／獲客代表性玩家",
-          "role_en": "AppLovin: representative player in Traffic / acquisition",
+          "role_zh": "AppLovin：流量／行銷獲客代表性玩家",
+          "role_en": "AppLovin: representative player in Traffic / marketing",
           "exchange": "NASDAQ"
         }
       ]
