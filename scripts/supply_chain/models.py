@@ -4169,7 +4169,7 @@ TICKER_MODEL: dict[str, str] = {
     "FOX": "broadcast-sports-v1",
     "FWONA": "motorsports-media-v1",
     "FWONK": "motorsports-media-v1",
-    "LLYVK": "motorsports-media-v1",
+    "LLYVK": "live-events-v1",
     "ROKU": "ctv-ads-v1",
     "NWSA": "news-publishing-v1",
     "NWS": "news-publishing-v1",

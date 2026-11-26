@@ -16,32 +16,32 @@
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "AMZN": {
-      "ticker": "AMZN",
-      "price": 244.43,
-      "previousClose": 252.29,
-      "changePct": -3.115,
-      "mcap": 2803836.8,
+    "JCI": {
+      "ticker": "JCI",
+      "price": 136.5,
+      "previousClose": 137.04,
+      "changePct": -0.394,
+      "mcap": 81793.3,
       "currency": "USD",
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "MSFT": {
-      "ticker": "MSFT",
-      "price": 489.93,
-      "previousClose": 496.13,
-      "changePct": -1.25,
-      "mcap": 3940410.7,
+    "TT": {
+      "ticker": "TT",
+      "price": 403.48,
+      "previousClose": 404.49,
+      "changePct": -0.25,
+      "mcap": 87943.4,
       "currency": "USD",
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "NET": {
-      "ticker": "NET",
-      "price": 283.3,
-      "previousClose": 287.29,
-      "changePct": -1.389,
-      "mcap": 95696.4,
+    "CARR": {
+      "ticker": "CARR",
+      "price": 53.9,
+      "previousClose": 52.72,
+      "changePct": 2.238,
+      "mcap": 42855.2,
       "currency": "USD",
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
@@ -76,34 +76,34 @@
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "CHTR": {
-      "ticker": "CHTR",
-      "price": 147.27,
-      "previousClose": 135.87,
-      "changePct": 8.39,
-      "mcap": 15913.2,
+    "NFLX": {
+      "ticker": "NFLX",
+      "price": 59.41,
+      "previousClose": 58.87,
+      "changePct": 0.917,
+      "mcap": 264035.4,
       "currency": "USD",
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "T": {
-      "ticker": "T",
-      "price": 22.97,
-      "previousClose": 22.88,
-      "changePct": 0.393,
-      "mcap": 145709.9,
+    "AMZN": {
+      "ticker": "AMZN",
+      "price": 244.43,
+      "previousClose": 252.29,
+      "changePct": -3.115,
+      "mcap": 2803836.8,
       "currency": "USD",
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "VZ": {
-      "ticker": "VZ",
-      "price": 47.28,
-      "previousClose": 47.16,
-      "changePct": 0.254,
-      "mcap": 189366.8,
+    "ROKU": {
+      "ticker": "ROKU",
+      "price": 160.52,
+      "previousClose": 160.52,
+      "changePct": 0.0,
+      "mcap": 21307.1,
       "currency": "USD",
-      "asOf": "2026-11-25",
+      "asOf": "2026-11-09",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
     "V": {
@@ -156,32 +156,22 @@
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
+    "FWONA": {
+      "ticker": "FWONA",
+      "price": 103.15,
+      "previousClose": 101.35,
+      "changePct": 1.776,
+      "mcap": 25313.7,
+      "currency": "USD",
+      "asOf": "2026-11-25",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
     "DIS": {
       "ticker": "DIS",
       "price": 125.6,
       "previousClose": 122.51,
       "changePct": 2.522,
       "mcap": 201591.1,
-      "currency": "USD",
-      "asOf": "2026-11-25",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "NFLX": {
-      "ticker": "NFLX",
-      "price": 59.41,
-      "previousClose": 58.87,
-      "changePct": 0.917,
-      "mcap": 264035.4,
-      "currency": "USD",
-      "asOf": "2026-11-25",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "CMCSA": {
-      "ticker": "CMCSA",
-      "price": 25.73,
-      "previousClose": 25.38,
-      "changePct": 1.379,
-      "mcap": 86378.6,
       "currency": "USD",
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
