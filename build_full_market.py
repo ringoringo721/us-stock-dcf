@@ -2123,29 +2123,46 @@ def main():
             if fmp_official_ev == 0:
                 fmp_official_ev = round(mcap * 0.8, 1)
 
-            sum_pv = 0
-            cur_fcf = fcf0
-            for t, gr_pct in enumerate(growth_10y, 1):
-                cur_fcf *= (1.0 + (gr_pct / 100.0))
-                sum_pv += cur_fcf / ((1.0 + wacc) ** t)
+            # FCF-based DCF needs a positive cash-flow base. Negative/zero annual FCF
+            # (IPO / loss-making) must not produce fair_val=-$6, premium -1400%, or
+            # is_undervalued=true — align with financial-model path (null when not usable).
+            dcf_fcf_usable = fcf0 is not None and fcf0 > 0 and shares > 0
+            if dcf_fcf_usable:
+                sum_pv = 0.0
+                cur_fcf = fcf0
+                for t, gr_pct in enumerate(growth_10y, 1):
+                    cur_fcf *= (1.0 + (gr_pct / 100.0))
+                    sum_pv += cur_fcf / ((1.0 + wacc) ** t)
 
-            safe_wacc = max(wacc, DEFAULT_G + 0.015)
-            tv = (cur_fcf * (1.0 + DEFAULT_G)) / (safe_wacc - DEFAULT_G)
-            pv_tv = tv / ((1.0 + safe_wacc) ** 10)
-            ev = round(sum_pv + pv_tv, 1)
-            eq_val = ev - net_debt
-            fair_val = round(eq_val / shares, 2)
-            premium_pct = round(((price / fair_val) - 1.0) * 100.0, 1)
+                safe_wacc = max(wacc, DEFAULT_G + 0.015)
+                tv = (cur_fcf * (1.0 + DEFAULT_G)) / (safe_wacc - DEFAULT_G)
+                pv_tv = tv / ((1.0 + safe_wacc) ** 10)
+                ev = round(sum_pv + pv_tv, 1)
+                eq_val = ev - net_debt
+                fair_val = round(eq_val / shares, 2)
+                if not (fair_val and fair_val > 0):
+                    fair_val = None
+                    premium_pct = None
+                    ev = None
+                else:
+                    premium_pct = round(((price / fair_val) - 1.0) * 100.0, 1)
+            else:
+                ev = None
+                fair_val = None
+                premium_pct = None
 
             ebitda_m = ttm_ebitda / 1e6
             if ebitda_m > 0:
-                ev_to_ebitda = round(ev / ebitda_m, 1)
+                # Prefer market EV for trading multiples when DCF EV is unavailable.
+                multiple_ev = fmp_official_ev if ev is None else ev
+                ev_to_ebitda = round(multiple_ev / ebitda_m, 1)
                 debt_to_ebitda = round(debt / ebitda_m, 2)
                 net_debt_to_ebitda = round(net_debt / ebitda_m, 2)
             else:
-                ev_to_ebitda = round(pe_trailing * 0.75, 1)
-                debt_to_ebitda = round(debt / max(fcf0, 1.0), 2)
-                net_debt_to_ebitda = round(net_debt / max(fcf0, 1.0), 2)
+                # Do not invent debt/FCF multiples from max(fcf0, 1) when FCF ≤ 0.
+                ev_to_ebitda = None
+                debt_to_ebitda = None
+                net_debt_to_ebitda = None
 
             f_score, f_score_breakdown = calculate_piotroski_score(roa, fcf0, cr, liab_r, ttm_net_income)
 
@@ -2336,9 +2353,17 @@ def main():
                 "pb_trailing": pb_trailing,
                 "pb_forward": pb_forward,
                 "div_yield": div_yield_real,
-                "ps_ratio": round(mcap / max(fcf0 * 4.0, 1.0), 1),
-                "fcf_to_ev": round((fcf0 / fmp_official_ev) * 100.0, 2) if fmp_official_ev > 0 else 0.0,
-                "fcf_to_mcap": round((fcf0 / mcap) * 100.0, 2) if mcap > 0 else 0.0,
+                # Positive FCF keeps the legacy P/FCF-style proxy; otherwise prefer
+                # revenue-based P/S. Never coerce max(fcf0*4, 1) → ps_ratio ≈ mcap.
+                "ps_ratio": (
+                    round(mcap / (fcf0 * 4.0), 1) if fcf0 and fcf0 > 0
+                    else (
+                        round(mcap / ((ttm_rev * fx_rate) / 1e6), 1)
+                        if ttm_rev and (ttm_rev * fx_rate) > 0 else None
+                    )
+                ),
+                "fcf_to_ev": round((fcf0 / fmp_official_ev) * 100.0, 2) if fmp_official_ev > 0 else None,
+                "fcf_to_mcap": round((fcf0 / mcap) * 100.0, 2) if mcap > 0 else None,
                 "liab_to_assets": liab_r,
                 "cash_to_assets": cash_to_assets,
                 "current_ratio": cr,
