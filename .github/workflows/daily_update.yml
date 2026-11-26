@@ -63,11 +63,19 @@ jobs:
       # Prefs: daily ≥ USD 5B US universe rescreen so new IPOs (e.g. ANT) enter
       # US_LISTINGS without waiting for manual expand_all_us. Frontpage merge reads
       # us_universe_data.js; expansion financial refresh then picks up net-new names.
+      # Isolated like other provider steps: failure retains prior catalogue and must
+      # not abort baseline DCF / quote / FCFF / liquidation refresh.
       - name: Rescreen US universe (NYSE/NASDAQ/AMEX marketCap > USD 5B)
+        id: us-universe-rescreen
         if: inputs.peers_only != true && inputs.prices_only != true && inputs.liquidation_only != true
+        continue-on-error: true
         env:
           FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
         run: python -u scripts/import_us_universe.py
+
+      - name: Report retained US universe catalogue
+        if: steps.us-universe-rescreen.outcome == 'failure'
+        run: echo "::warning::US ≥$5B universe rescreen failed or refused a truncated screen. Existing us_universe catalogue retained; baseline DCF/quote/FCFF refresh continues."
 
       # Gemini cost levers: daily remoat/desc caps (see MAX_US_* below). Expansion jobs
       # leave these unset so new names stay uncapped unless explicitly overridden.
@@ -212,11 +220,22 @@ jobs:
           # 暫存資料集與強制追蹤快取資料夾
           git add full_market_dcf.json market_data.js 2>/dev/null || true
           git add us_expansion_data.js 2>/dev/null || true
-          # Persist daily ≥$5B rescreen so new listings appear on the site catalogue.
-          git add us_universe_data.js cache/us_universe.json 2>/dev/null || true
+          # Persist daily ≥$5B rescreen only when the guarded import succeeded.
+          # On failure/refusal, restore committed catalogue so a partial write never ships.
+          if [ "${{ steps.us-universe-rescreen.outcome }}" = "success" ]; then
+            git add us_universe_data.js cache/us_universe.json 2>/dev/null || true
+          else
+            echo "Skipping US universe catalogue persist (rescreen outcome=${{ steps.us-universe-rescreen.outcome }})"
+            git checkout -- us_universe_data.js cache/us_universe.json 2>/dev/null || true
+          fi
           git add fcff_data.js
           git add fmp_model_data.js
           git add -f cache/
+          # Never let a failed rescreen's cache/ touch ship a wiped catalogue.
+          if [ "${{ steps.us-universe-rescreen.outcome }}" != "success" ]; then
+            git reset HEAD -- cache/us_universe.json 2>/dev/null || true
+            git checkout -- cache/us_universe.json 2>/dev/null || true
+          fi
 
           # 檢查是否有更動，有更動才提交以節省 Actions 次數
           if ! git diff --cached --quiet; then

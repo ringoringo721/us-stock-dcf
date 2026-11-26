@@ -46,6 +46,10 @@ RETAINED_US_COMMONS = (
 )
 # Baseline commons kept on site even if live mcap ≤ $5B (user: keep ITRI/IRDM).
 KEEP_BELOW_MIN_CAP_BASELINE = frozenset({"ITRI", "IRDM"})
+# Refuse to overwrite the published catalogue when FMP returns a truncated screen
+# (empty/partial responses would otherwise wipe US_LISTINGS on daily push).
+MIN_ELIGIBLE_ABSOLUTE = 1000
+MIN_ELIGIBLE_PRIOR_RATIO = 0.85
 
 
 def normalize_exchange(value: str | None) -> str | None:
@@ -273,6 +277,38 @@ def merge_retained_commons(stocks: list[dict], root: Path) -> tuple[list[dict], 
     return selected, retained
 
 
+def prior_eligible_count(path: Path) -> int | None:
+    """Return the previously published eligible count, or None if unavailable."""
+    if not path.exists():
+        return None
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        stocks = payload.get("stocks") if isinstance(payload, dict) else None
+        if not isinstance(stocks, list):
+            return None
+        return len(stocks)
+    except (OSError, TypeError, ValueError, KeyError):
+        return None
+
+
+def catalogue_write_block_reason(eligible: int, prior: int | None,
+                                 absolute_floor: int = MIN_ELIGIBLE_ABSOLUTE,
+                                 prior_ratio: float = MIN_ELIGIBLE_PRIOR_RATIO) -> str | None:
+    """Return a refusal reason when a live screen must not replace the catalogue."""
+    if eligible < absolute_floor:
+        return (
+            f"eligibleCountBelowAbsoluteFloor:{eligible}<{absolute_floor}"
+        )
+    if prior is not None and prior > 0:
+        floor = max(absolute_floor, int(prior * prior_ratio))
+        if eligible < floor:
+            return (
+                f"eligibleCountBelowPriorFloor:{eligible}<{floor}"
+                f"(prior={prior},ratio={prior_ratio})"
+            )
+    return None
+
+
 def write_catalogue(path: Path, stocks: list[dict], excluded: dict, retrieved_at: str) -> dict:
     reviewed = set()
     market_path = path.resolve().parents[1] / "full_market_dcf.json"
@@ -387,11 +423,26 @@ def main(argv: list[str] | None = None) -> int:
     report = inventory_only(reviewed, stocks, reviewed_above_min=reviewed_above)
     report["excluded"] = excluded
     report["retainedCommons"] = retained
+    output_path = args.output if args.output.is_absolute() else root / args.output
+    prior_count = prior_eligible_count(output_path)
+    block = catalogue_write_block_reason(len(stocks), prior_count)
+    report["priorEligible"] = prior_count
+    report["catalogueGuard"] = {
+        "absoluteFloor": MIN_ELIGIBLE_ABSOLUTE,
+        "priorRatio": MIN_ELIGIBLE_PRIOR_RATIO,
+        "blockReason": block,
+    }
     if args.inventory_only or args.dry_run:
         print(json.dumps(report, ensure_ascii=False, indent=2))
         return 0
-    payload = write_catalogue(args.output if args.output.is_absolute() else root / args.output,
-                              stocks, excluded, retrieved_at)
+    if block:
+        report["blocker"] = (
+            "Refusing to overwrite US universe catalogue; "
+            f"retained existing files ({block})"
+        )
+        print(json.dumps(report, ensure_ascii=False, indent=2))
+        return 3
+    payload = write_catalogue(output_path, stocks, excluded, retrieved_at)
     report["wrote"] = str(args.output)
     report["counts"] = payload["counts"]
     print(json.dumps(report, ensure_ascii=False, indent=2))
