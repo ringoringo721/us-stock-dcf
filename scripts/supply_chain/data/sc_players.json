@@ -2829,15 +2829,20 @@
     ]
   },
   "casino-resort-v1": {
+    "gaming-floor-systems": [
+      "ORCL",
+      "IBM",
+      "MSFT"
+    ],
     "building-systems": [
       "JCI",
       "TT",
       "CARR"
     ],
-    "foodservice-dist": [
-      "SYY",
-      "USFD",
-      "PFGC"
+    "in-casino-restaurants": [
+      "CAKE",
+      "DRI",
+      "TXRH"
     ],
     "entertainment-attractions": [
       "LYV",

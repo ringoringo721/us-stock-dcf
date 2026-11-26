@@ -16,6 +16,36 @@
       "asOf": "2026-11-24",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
+    "ORCL": {
+      "ticker": "ORCL",
+      "price": 109.51,
+      "previousClose": 113.68,
+      "changePct": -3.668,
+      "mcap": 350905.0,
+      "currency": "USD",
+      "asOf": "2026-11-24",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "IBM": {
+      "ticker": "IBM",
+      "price": 235.62,
+      "previousClose": 233.0,
+      "changePct": 1.124,
+      "mcap": 231554.6,
+      "currency": "USD",
+      "asOf": "2026-11-24",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "MSFT": {
+      "ticker": "MSFT",
+      "price": 496.13,
+      "previousClose": 492.5,
+      "changePct": 0.737,
+      "mcap": 3940410.7,
+      "currency": "USD",
+      "asOf": "2026-11-24",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
     "JCI": {
       "ticker": "JCI",
       "price": 137.04,
@@ -46,32 +76,32 @@
       "asOf": "2026-11-24",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "SYY": {
-      "ticker": "SYY",
-      "price": 80.22,
-      "previousClose": 80.3,
-      "changePct": -0.1,
-      "mcap": 37809.5,
+    "CAKE": {
+      "ticker": "CAKE",
+      "price": 109.42,
+      "previousClose": 109.92,
+      "changePct": -0.455,
+      "mcap": 5322.6,
       "currency": "USD",
       "asOf": "2026-11-24",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "USFD": {
-      "ticker": "USFD",
-      "price": 110.55,
-      "previousClose": 109.11,
-      "changePct": 1.32,
-      "mcap": 23076.0,
+    "DRI": {
+      "ticker": "DRI",
+      "price": 240.2,
+      "previousClose": 232.27,
+      "changePct": 3.414,
+      "mcap": 25610.0,
       "currency": "USD",
       "asOf": "2026-11-24",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "PFGC": {
-      "ticker": "PFGC",
-      "price": 109.53,
-      "previousClose": 110.48,
-      "changePct": -0.86,
-      "mcap": 16961.8,
+    "TXRH": {
+      "ticker": "TXRH",
+      "price": 182.7,
+      "previousClose": 179.23,
+      "changePct": 1.936,
+      "mcap": 12070.1,
       "currency": "USD",
       "asOf": "2026-11-24",
       "source": "FMP historical-price-eod via cache/price_charts"

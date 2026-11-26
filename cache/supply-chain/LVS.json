@@ -23,13 +23,47 @@
     "id": "casino-resort-v1",
     "label_zh": "度假賭場價值鏈",
     "label_en": "Casino resort value chain",
-    "description_zh": "樓宇系統 → 餐飲／MICE → 娛樂秀 → 支付 → 數位獲客（外部供應／夥伴；非 REIT 房東、非酒店 OTA／房務皂墊；角子機 OEM 未達 ≥$5B 不硬塞）。",
-    "description_en": "Building systems → F&B/MICE → entertainment → payments → digital acquisition (external suppliers/partners; not REIT landlords, not hotel OTA/housekeeping pad; no fake slot-OEM pad below universe floor)."
+    "description_zh": "博弈樓面系統 → 樓宇系統 → 賭場內品牌餐廳 → 娛樂秀 → 支付 → 數位獲客（非 REIT、非食材配送商、非酒店 OTA；角子機 OEM 未達 ≥$5B 則用 CMS／樓面 IT 最近誠實替代）。",
+    "description_en": "Gaming-floor systems → building systems → in-casino branded restaurants → entertainment → payments → digital acquisition (not REITs, not foodservice distributors, not hotel OTAs; CMS/floor IT as nearest honest stand-in when slot OEMs are below the $5B floor)."
   },
   "stages": [
     {
-      "id": "building-systems",
+      "id": "gaming-floor-systems",
       "order": 1,
+      "label_zh": "博弈樓面／CMS 系統",
+      "label_en": "Gaming-floor / CMS systems",
+      "summary_zh": "賭場營運、忠誠與樓面 IT／CMS（角子機 OEM 未達宇宙則不硬塞）。",
+      "summary_en": "Casino ops, loyalty, and floor IT/CMS (no fake slot-OEM pad below universe floor).",
+      "players": [
+        {
+          "ticker": "ORCL",
+          "name_en": "Oracle",
+          "name_zh": "甲骨文",
+          "role_zh": "甲骨文：博弈樓面／CMS 系統代表性玩家",
+          "role_en": "Oracle: representative player in Gaming-floor / CMS systems",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "IBM",
+          "name_en": "IBM",
+          "name_zh": "IBM",
+          "role_zh": "IBM：博弈樓面／CMS 系統代表性玩家",
+          "role_en": "IBM: representative player in Gaming-floor / CMS systems",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "MSFT",
+          "name_en": "Microsoft",
+          "name_zh": "微軟",
+          "role_zh": "微軟：博弈樓面／CMS 系統代表性玩家",
+          "role_en": "Microsoft: representative player in Gaming-floor / CMS systems",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "building-systems",
+      "order": 2,
       "label_zh": "樓宇／暖通系統",
       "label_en": "Building / HVAC systems",
       "summary_zh": "巨型度假村樓控、暖通與建築系統。",
@@ -62,42 +96,42 @@
       ]
     },
     {
-      "id": "foodservice-dist",
-      "order": 2,
-      "label_zh": "餐飲／MICE 配送",
-      "label_en": "F&B / MICE foodservice",
-      "summary_zh": "客房、餐飲與會展食材配送。",
-      "summary_en": "Rooms, F&B, and MICE foodservice distributors.",
+      "id": "in-casino-restaurants",
+      "order": 3,
+      "label_zh": "賭場內品牌餐廳",
+      "label_en": "In-casino branded restaurants",
+      "summary_zh": "進駐賭場的品牌／連鎖餐廳營運商（非 SYY 食材配送）。",
+      "summary_en": "Branded restaurant operators inside casinos (not SYY foodservice distributors).",
       "players": [
         {
-          "ticker": "SYY",
-          "name_en": "Sysco",
-          "name_zh": "Sysco",
-          "role_zh": "Sysco：餐飲／MICE 配送代表性玩家",
-          "role_en": "Sysco: representative player in F&B / MICE foodservice",
+          "ticker": "CAKE",
+          "name_en": "Cheesecake Factory",
+          "name_zh": "起司蛋糕工廠",
+          "role_zh": "起司蛋糕工廠：賭場內品牌餐廳代表性玩家",
+          "role_en": "Cheesecake Factory: representative player in In-casino branded restaurants",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "DRI",
+          "name_en": "Darden",
+          "name_zh": "Darden",
+          "role_zh": "Darden：賭場內品牌餐廳代表性玩家",
+          "role_en": "Darden: representative player in In-casino branded restaurants",
           "exchange": "NYSE"
         },
         {
-          "ticker": "USFD",
-          "name_en": "US Foods",
-          "name_zh": "US Foods",
-          "role_zh": "US Foods：餐飲／MICE 配送代表性玩家",
-          "role_en": "US Foods: representative player in F&B / MICE foodservice",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "PFGC",
-          "name_en": "Performance Food Co",
-          "name_zh": "PFGC",
-          "role_zh": "PFGC：餐飲／MICE 配送代表性玩家",
-          "role_en": "Performance Food Co: representative player in F&B / MICE foodservice",
-          "exchange": "NYSE"
+          "ticker": "TXRH",
+          "name_en": "Texas Roadhouse",
+          "name_zh": "Texas Roadhouse",
+          "role_zh": "Texas Roadhouse：賭場內品牌餐廳代表性玩家",
+          "role_en": "Texas Roadhouse: representative player in In-casino branded restaurants",
+          "exchange": "NASDAQ"
         }
       ]
     },
     {
       "id": "entertainment-attractions",
-      "order": 3,
+      "order": 4,
       "label_zh": "娛樂／秀演引流",
       "label_en": "Entertainment / attractions",
       "summary_zh": "秀演、賽事與主題娛樂夥伴（非 OTA／ABNB）。",
@@ -131,7 +165,7 @@
     },
     {
       "id": "payments",
-      "order": 4,
+      "order": 5,
       "label_zh": "支付／金融",
       "label_en": "Payments / fintech",
       "summary_zh": "卡組織與賭場／度假支付軌道。",
@@ -165,7 +199,7 @@
     },
     {
       "id": "traffic",
-      "order": 5,
+      "order": 6,
       "label_zh": "流量／行銷獲客",
       "label_en": "Traffic / marketing",
       "summary_zh": "搜尋、社群與應用廣告獲客（禁止 OTA 墊）。",
