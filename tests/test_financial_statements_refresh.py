@@ -12,7 +12,12 @@ from unittest.mock import Mock
 
 def _extract_statement_helpers(directory: str, fetch_json):
     source = ast.parse((Path(__file__).resolve().parents[1] / "build_full_market.py").read_text(encoding="utf-8"))
-    names = {"_load_statements_cache", "_valid_statement_rows", "fetch_cached_financial_statements"}
+    names = {
+        "_load_statements_cache",
+        "_valid_statement_rows",
+        "_acceptable_quarterly_rows",
+        "fetch_cached_financial_statements",
+    }
     functions = [
         node for node in source.body
         if isinstance(node, ast.FunctionDef) and node.name in names
@@ -39,6 +44,7 @@ class FinancialStatementsRefreshTests(unittest.TestCase):
         self.fetch = Mock()
         scope = _extract_statement_helpers(self.directory.name, self.fetch)
         self.valid = scope["_valid_statement_rows"]
+        self.quarterly_ok = scope["_acceptable_quarterly_rows"]
         self.refresh = scope["fetch_cached_financial_statements"]
         self.cache_path = Path(self.directory.name) / "KO_statements_v2.json"
         self.prior = {
@@ -96,6 +102,26 @@ class FinancialStatementsRefreshTests(unittest.TestCase):
         result = self.refresh("META", "META")
         self.assertEqual(result["quarterly"]["income"], [])
         self.assertFalse(missing.exists())
+
+    def test_empty_quarterly_allowed_when_annual_complete(self):
+        """IPO / thin coverage: annual OK + empty quarterly CF must still write cache."""
+        missing = Path(self.directory.name) / "ANT_statements_v2.json"
+        annual = self._rows("2025-12-31", "FY")
+        self.fetch.side_effect = [
+            annual, annual, annual,
+            self._rows("2026-03-31", "Q1"),
+            self._rows("2026-03-31", "Q1"),
+            [],  # quarterly cashflow still empty at FMP
+        ]
+        result = self.refresh("ANT", "ANT")
+        self.assertEqual(len(result["annual"]["income"]), 1)
+        self.assertEqual(result["quarterly"]["cashflow"], [])
+        self.assertTrue(missing.exists())
+        saved = json.loads(missing.read_text(encoding="utf-8"))
+        self.assertEqual(saved["annual"]["cashflow"][0]["date"], "2025-12-31")
+        self.assertTrue(self.quarterly_ok([]))
+        self.assertFalse(self.quarterly_ok(None))
+        self.assertFalse(self.quarterly_ok({"Error Message": "x"}))
 
 
 if __name__ == "__main__":

@@ -1227,6 +1227,15 @@ def _valid_statement_rows(payload: Any) -> bool:
     return all(isinstance(row, dict) for row in payload)
 
 
+def _acceptable_quarterly_rows(payload: Any) -> bool:
+    """Quarterly may be empty for new listings; reject None / error objects / non-dicts."""
+    if not isinstance(payload, list):
+        return False
+    if not payload:
+        return True
+    return all(isinstance(row, dict) for row in payload)
+
+
 def fetch_cached_financial_statements(fmp_sym: str, sym: str) -> Dict[str, Any]:
     """Fetch annual/quarter statements from FMP and refresh the on-disk cache.
 
@@ -1235,6 +1244,10 @@ def fetch_cached_financial_statements(fmp_sym: str, sym: str) -> Dict[str, Any]:
     FINANCIALS_CACHE_ONLY=1 to reuse the file (offline / unit fixtures).
     On FMP failure (None, error object, empty/non-list body), retain the prior
     cache and do not write empty statements.
+
+    Annual income/balance/cashflow must all be non-empty. Quarterly endpoints may
+    return [] (e.g. IPO with annual CF but no quarterly CF yet) without aborting
+    the refresh.
     """
     default_payload = {
         "annual": {"income": [], "balance": [], "cashflow": []},
@@ -1260,8 +1273,11 @@ def fetch_cached_financial_statements(fmp_sym: str, sym: str) -> Dict[str, Any]:
     cf_quarter = fetch_json("cash-flow-statement", {"symbol": fmp_sym, "period": "quarter", "limit": 20})
     time.sleep(0.04)
 
-    fetched = [inc_annual, bs_annual, cf_annual, inc_quarter, bs_quarter, cf_quarter]
-    if not all(_valid_statement_rows(rows) for rows in fetched):
+    annual_ok = all(_valid_statement_rows(rows) for rows in [inc_annual, bs_annual, cf_annual])
+    quarterly_ok = all(
+        _acceptable_quarterly_rows(rows) for rows in [inc_quarter, bs_quarter, cf_quarter]
+    )
+    if not (annual_ok and quarterly_ok):
         if cached is not None:
             print(f"⚠️ [{sym}] FMP statement refresh incomplete; retaining cached statements", flush=True)
             return cached

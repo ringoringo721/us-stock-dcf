@@ -75,7 +75,7 @@ jobs:
 
       - name: Report retained US universe catalogue
         if: steps.us-universe-rescreen.outcome == 'failure'
-        run: echo "::warning::US ≥$5B universe rescreen failed or refused a truncated screen. Existing us_universe catalogue retained; baseline DCF/quote/FCFF refresh continues."
+        run: echo "::warning::US ≥\$5B universe rescreen failed or refused a truncated screen. Existing us_universe catalogue retained; baseline DCF/quote/FCFF refresh continues."
 
       # Gemini cost levers: daily remoat/desc caps (see MAX_US_* below). Expansion jobs
       # leave these unset so new names stay uncapped unless explicitly overridden.
