@@ -1,7 +1,7 @@
 {
   "version": 1,
   "ticker": "CHH",
-  "updatedAt": "2026-11-25",
+  "updatedAt": "2026-11-26",
   "basis": "lastTradingDayCloseVsPriorClose",
   "notes_en": "changePct from last two EOD closes in price_charts; mcap from US listings screener (USD millions). Missing tickers stay null. No live FMP per pageview.",
   "notes_zh": "漲跌%取自 price_charts 最近兩日收盤；市值取自美股清單（百萬美元）。缺資料維持 null，不造假。頁面不打即時 FMP。",
@@ -142,6 +142,16 @@
       "previousClose": 597.6,
       "changePct": -1.302,
       "mcap": 1559690.6,
+      "currency": "USD",
+      "asOf": "2026-11-24",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "PINS": {
+      "ticker": "PINS",
+      "price": 18.5,
+      "previousClose": 16.9,
+      "changePct": 9.467,
+      "mcap": 9490.0,
       "currency": "USD",
       "asOf": "2026-11-24",
       "source": "FMP historical-price-eod via cache/price_charts"
