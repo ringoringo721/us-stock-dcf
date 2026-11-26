@@ -23,47 +23,13 @@
     "id": "casino-resort-v1",
     "label_zh": "度假賭場價值鏈",
     "label_en": "Casino resort value chain",
-    "description_zh": "博弈物業資本 → 樓宇系統 → 餐飲／MICE → 娛樂秀 → 支付 → 數位獲客（非酒店 OTA／房務皂墊；角子機 OEM 未達 ≥$5B 不硬塞）。",
-    "description_en": "Gaming property capital → building systems → F&B/MICE → entertainment → payments → digital acquisition (not hotel OTA/housekeeping pad; no fake slot-OEM pad below universe floor)."
+    "description_zh": "樓宇系統 → 餐飲／MICE → 娛樂秀 → 支付 → 數位獲客（外部供應／夥伴；非 REIT 房東、非酒店 OTA／房務皂墊；角子機 OEM 未達 ≥$5B 不硬塞）。",
+    "description_en": "Building systems → F&B/MICE → entertainment → payments → digital acquisition (external suppliers/partners; not REIT landlords, not hotel OTA/housekeeping pad; no fake slot-OEM pad below universe floor)."
   },
   "stages": [
     {
-      "id": "gaming-property-capital",
-      "order": 1,
-      "label_zh": "博弈物業／REIT 資本",
-      "label_en": "Gaming property / REIT capital",
-      "summary_zh": "博弈與休閒物業房東／資本（角子機 OEM 未達宇宙門檻則以 REIT 資本層誠實代表）。",
-      "summary_en": "Gaming and leisure property landlords/capital (REIT capital layer when slot OEMs are below universe floor).",
-      "players": [
-        {
-          "ticker": "VICI",
-          "name_en": "VICI Properties",
-          "name_zh": "維奇房產 (VICI)",
-          "role_zh": "維奇房產 (VICI)：博弈物業／REIT 資本代表性玩家",
-          "role_en": "VICI Properties: representative player in Gaming property / REIT capital",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "GLPI",
-          "name_en": "Gaming and Leisure Properties",
-          "name_zh": "GLPI",
-          "role_zh": "GLPI：博弈物業／REIT 資本代表性玩家",
-          "role_en": "Gaming and Leisure Properties: representative player in Gaming property / REIT capital",
-          "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "HST",
-          "name_en": "Host Hotels & Resorts",
-          "name_zh": "Host Hotels & Resorts",
-          "role_zh": "Host Hotels & Resorts：博弈物業／REIT 資本代表性玩家",
-          "role_en": "Host Hotels & Resorts: representative player in Gaming property / REIT capital",
-          "exchange": "NASDAQ"
-        }
-      ]
-    },
-    {
       "id": "building-systems",
-      "order": 2,
+      "order": 1,
       "label_zh": "樓宇／暖通系統",
       "label_en": "Building / HVAC systems",
       "summary_zh": "巨型度假村樓控、暖通與建築系統。",
@@ -97,7 +63,7 @@
     },
     {
       "id": "foodservice-dist",
-      "order": 3,
+      "order": 2,
       "label_zh": "餐飲／MICE 配送",
       "label_en": "F&B / MICE foodservice",
       "summary_zh": "客房、餐飲與會展食材配送。",
@@ -131,7 +97,7 @@
     },
     {
       "id": "entertainment-attractions",
-      "order": 4,
+      "order": 3,
       "label_zh": "娛樂／秀演引流",
       "label_en": "Entertainment / attractions",
       "summary_zh": "秀演、賽事與主題娛樂夥伴（非 OTA／ABNB）。",
@@ -165,7 +131,7 @@
     },
     {
       "id": "payments",
-      "order": 5,
+      "order": 4,
       "label_zh": "支付／金融",
       "label_en": "Payments / fintech",
       "summary_zh": "卡組織與賭場／度假支付軌道。",
@@ -199,7 +165,7 @@
     },
     {
       "id": "traffic",
-      "order": 6,
+      "order": 5,
       "label_zh": "流量／行銷獲客",
       "label_en": "Traffic / marketing",
       "summary_zh": "搜尋、社群與應用廣告獲客（禁止 OTA 墊）。",

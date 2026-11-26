@@ -16,36 +16,6 @@
       "asOf": "2026-11-24",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "VICI": {
-      "ticker": "VICI",
-      "price": 24.77,
-      "previousClose": 24.16,
-      "changePct": 2.525,
-      "mcap": 27295.9,
-      "currency": "USD",
-      "asOf": "2026-11-24",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "GLPI": {
-      "ticker": "GLPI",
-      "price": 38.63,
-      "previousClose": 37.81,
-      "changePct": 2.169,
-      "mcap": 11313.9,
-      "currency": "USD",
-      "asOf": "2026-11-24",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "HST": {
-      "ticker": "HST",
-      "price": 24.86,
-      "previousClose": 24.74,
-      "changePct": 0.485,
-      "mcap": 16867.8,
-      "currency": "USD",
-      "asOf": "2026-11-24",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
     "JCI": {
       "ticker": "JCI",
       "price": 137.04,
