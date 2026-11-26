@@ -16,6 +16,7 @@ def _extract_statement_helpers(directory: str, fetch_json):
         "_load_statements_cache",
         "_valid_statement_rows",
         "_acceptable_quarterly_rows",
+        "_merge_quarterly_statement",
         "fetch_cached_financial_statements",
     }
     functions = [
@@ -27,6 +28,7 @@ def _extract_statement_helpers(directory: str, fetch_json):
         "Any": typing.Any,
         "Dict": typing.Dict,
         "Optional": typing.Optional,
+        "Tuple": typing.Tuple,
         "os": os,
         "json": json,
         "time": Mock(),
@@ -45,6 +47,7 @@ class FinancialStatementsRefreshTests(unittest.TestCase):
         scope = _extract_statement_helpers(self.directory.name, self.fetch)
         self.valid = scope["_valid_statement_rows"]
         self.quarterly_ok = scope["_acceptable_quarterly_rows"]
+        self.merge_q = scope["_merge_quarterly_statement"]
         self.refresh = scope["fetch_cached_financial_statements"]
         self.cache_path = Path(self.directory.name) / "KO_statements_v2.json"
         self.prior = {
@@ -103,8 +106,8 @@ class FinancialStatementsRefreshTests(unittest.TestCase):
         self.assertEqual(result["quarterly"]["income"], [])
         self.assertFalse(missing.exists())
 
-    def test_empty_quarterly_allowed_when_annual_complete(self):
-        """IPO / thin coverage: annual OK + empty quarterly CF must still write cache."""
+    def test_empty_quarterly_allowed_for_first_ipo_cache(self):
+        """No prior cache: annual OK + empty quarterly CF may write first IPO file."""
         missing = Path(self.directory.name) / "ANT_statements_v2.json"
         annual = self._rows("2025-12-31", "FY")
         self.fetch.side_effect = [
@@ -122,6 +125,25 @@ class FinancialStatementsRefreshTests(unittest.TestCase):
         self.assertTrue(self.quarterly_ok([]))
         self.assertFalse(self.quarterly_ok(None))
         self.assertFalse(self.quarterly_ok({"Error Message": "x"}))
+
+    def test_empty_quarterly_retains_prior_when_cache_exists(self):
+        """Established name: empty quarterly CF must not wipe prior quarterly CF."""
+        annual = self._rows("2025-12-31", "FY")
+        fresh_inc = self._rows("2026-09-30", "Q3")
+        fresh_bs = self._rows("2026-09-30", "Q3")
+        self.fetch.side_effect = [
+            annual, annual, annual,
+            fresh_inc, fresh_bs,
+            [],  # truncated / empty quarterly cashflow
+        ]
+        result = self.refresh("KO", "KO")
+        self.assertEqual(result["quarterly"]["income"][0]["period"], "Q3")
+        self.assertEqual(result["quarterly"]["cashflow"][0]["period"], "Q2")
+        saved = json.loads(self.cache_path.read_text(encoding="utf-8"))
+        self.assertEqual(saved["quarterly"]["cashflow"][0]["date"], "2026-07-03")
+        rows, ok = self.merge_q([], self.prior["quarterly"]["cashflow"])
+        self.assertTrue(ok)
+        self.assertEqual(rows[0]["period"], "Q2")
 
 
 if __name__ == "__main__":

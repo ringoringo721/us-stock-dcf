@@ -1228,12 +1228,32 @@ def _valid_statement_rows(payload: Any) -> bool:
 
 
 def _acceptable_quarterly_rows(payload: Any) -> bool:
-    """Quarterly may be empty for new listings; reject None / error objects / non-dicts."""
+    """Non-empty quarterly lists of dict rows, or exactly [] (coverage gap / IPO).
+
+    Reject None and FMP error objects. Callers must still merge with prior cache
+    so an empty refresh cannot wipe established quarterly history.
+    """
     if not isinstance(payload, list):
         return False
     if not payload:
         return True
     return all(isinstance(row, dict) for row in payload)
+
+
+def _merge_quarterly_statement(fresh: Any, prior_rows: Any) -> Tuple[Any, bool]:
+    """Resolve one quarterly statement type for cache write.
+
+    Returns ``(rows, ok)``. Non-empty fresh wins. Empty fresh keeps prior rows when
+    they exist (daily refresh must not wipe KO-class history on a truncated FMP
+    body). Empty fresh with no prior is OK (first-time IPO). None/errors → not ok.
+    """
+    if _valid_statement_rows(fresh):
+        return fresh, True
+    if isinstance(fresh, list) and not fresh:
+        if _valid_statement_rows(prior_rows):
+            return prior_rows, True
+        return [], True
+    return None, False
 
 
 def fetch_cached_financial_statements(fmp_sym: str, sym: str) -> Dict[str, Any]:
@@ -1242,12 +1262,12 @@ def fetch_cached_financial_statements(fmp_sym: str, sym: str) -> Dict[str, Any]:
     Previously any existing *_statements_v2.json was returned forever, so daily
     refreshes never picked up new fiscal quarters after earnings. Set
     FINANCIALS_CACHE_ONLY=1 to reuse the file (offline / unit fixtures).
-    On FMP failure (None, error object, empty/non-list body), retain the prior
-    cache and do not write empty statements.
+    On FMP failure (None, error object, empty annual, or bad quarterly body),
+    retain the prior cache and do not write empty statements.
 
-    Annual income/balance/cashflow must all be non-empty. Quarterly endpoints may
-    return [] (e.g. IPO with annual CF but no quarterly CF yet) without aborting
-    the refresh.
+    Annual income/balance/cashflow must all be non-empty. Empty quarterly is
+    allowed only when writing a first cache (IPO) or when merging keeps prior
+    non-empty quarterly rows for that statement type.
     """
     default_payload = {
         "annual": {"income": [], "balance": [], "cashflow": []},
@@ -1274,15 +1294,30 @@ def fetch_cached_financial_statements(fmp_sym: str, sym: str) -> Dict[str, Any]:
     time.sleep(0.04)
 
     annual_ok = all(_valid_statement_rows(rows) for rows in [inc_annual, bs_annual, cf_annual])
-    quarterly_ok = all(
-        _acceptable_quarterly_rows(rows) for rows in [inc_quarter, bs_quarter, cf_quarter]
-    )
+    prior_q = (cached or {}).get("quarterly") or {}
+    merged_inc, ok_inc = _merge_quarterly_statement(inc_quarter, prior_q.get("income"))
+    merged_bs, ok_bs = _merge_quarterly_statement(bs_quarter, prior_q.get("balance"))
+    merged_cf, ok_cf = _merge_quarterly_statement(cf_quarter, prior_q.get("cashflow"))
+    quarterly_ok = ok_inc and ok_bs and ok_cf
     if not (annual_ok and quarterly_ok):
         if cached is not None:
             print(f"⚠️ [{sym}] FMP statement refresh incomplete; retaining cached statements", flush=True)
             return cached
         print(f"⚠️ [{sym}] FMP statement refresh incomplete; no cache to retain", flush=True)
         return default_payload
+
+    if (
+        cached is not None
+        and (
+            (not cf_quarter and _valid_statement_rows(prior_q.get("cashflow")))
+            or (not inc_quarter and _valid_statement_rows(prior_q.get("income")))
+            or (not bs_quarter and _valid_statement_rows(prior_q.get("balance")))
+        )
+    ):
+        print(
+            f"ℹ️ [{sym}] FMP returned empty quarterly statement(s); retaining prior quarterly rows",
+            flush=True,
+        )
 
     payload = {
         "annual": {
@@ -1291,9 +1326,9 @@ def fetch_cached_financial_statements(fmp_sym: str, sym: str) -> Dict[str, Any]:
             "cashflow": cf_annual
         },
         "quarterly": {
-            "income": inc_quarter,
-            "balance": bs_quarter,
-            "cashflow": cf_quarter
+            "income": merged_inc,
+            "balance": merged_bs,
+            "cashflow": merged_cf
         }
     }
 
@@ -1744,23 +1779,45 @@ def main():
 
             inc_latest_4q = inc_quarter[:4]
             cf_latest_4q = cf_quarter[:4]
+            # When FMP has no quarterly cash flow (IPO), prefer latest annual CF —
+            # never treat empty quarterly CF as TTM FCF=0 (that fabricates mcap*3.8%).
+            fcf_source = "ttmQuarterly" if cf_latest_4q else ("annual" if cf_annual else "none")
 
             trade_ar_map = fetch_as_reported_trade_ar(sym, FMP_KEY)
 
             ttm_net_income = sum(float(x.get("netIncome") or 0.0) for x in inc_latest_4q)
             ttm_ebitda = sum(float(x.get("ebitda") or x.get("operatingIncome") or 0.0) for x in inc_latest_4q)
             ttm_rev = sum(float(x.get("revenue") or 0.0) for x in inc_latest_4q)
-            ttm_cfo = sum(float(x.get("operatingCashFlow") or 0.0) for x in cf_latest_4q)
-            ttm_capex = sum(float(x.get("capitalExpenditure") or 0.0) for x in cf_latest_4q)
-            ttm_fcf_sum = sum(float(x.get("freeCashFlow") or 0.0) for x in cf_latest_4q)
-
-            ttm_dividends_paid = 0.0
-            ttm_buybacks_paid = 0.0
-            for q_cf in cf_latest_4q:
-                div_val = q_cf.get("dividendsPaid") or q_cf.get("netDividendsPaid") or q_cf.get("commonStockDividendsPaid") or 0.0
-                ttm_dividends_paid += abs(float(div_val))
-                bb_val = q_cf.get("commonStockRepurchased") or 0.0
-                ttm_buybacks_paid += abs(float(bb_val))
+            if fcf_source == "ttmQuarterly":
+                ttm_cfo = sum(float(x.get("operatingCashFlow") or 0.0) for x in cf_latest_4q)
+                ttm_capex = sum(float(x.get("capitalExpenditure") or 0.0) for x in cf_latest_4q)
+                ttm_fcf_sum = sum(float(x.get("freeCashFlow") or 0.0) for x in cf_latest_4q)
+                ttm_dividends_paid = 0.0
+                ttm_buybacks_paid = 0.0
+                for q_cf in cf_latest_4q:
+                    div_val = q_cf.get("dividendsPaid") or q_cf.get("netDividendsPaid") or q_cf.get("commonStockDividendsPaid") or 0.0
+                    ttm_dividends_paid += abs(float(div_val))
+                    bb_val = q_cf.get("commonStockRepurchased") or 0.0
+                    ttm_buybacks_paid += abs(float(bb_val))
+            elif fcf_source == "annual":
+                annual_cf0 = cf_annual[0]
+                ttm_cfo = float(annual_cf0.get("operatingCashFlow") or 0.0)
+                ttm_capex = float(annual_cf0.get("capitalExpenditure") or 0.0)
+                ttm_fcf_sum = float(annual_cf0.get("freeCashFlow") or 0.0)
+                div_val = (
+                    annual_cf0.get("dividendsPaid")
+                    or annual_cf0.get("netDividendsPaid")
+                    or annual_cf0.get("commonStockDividendsPaid")
+                    or 0.0
+                )
+                ttm_dividends_paid = abs(float(div_val))
+                ttm_buybacks_paid = abs(float(annual_cf0.get("commonStockRepurchased") or 0.0))
+            else:
+                ttm_cfo = 0.0
+                ttm_capex = 0.0
+                ttm_fcf_sum = 0.0
+                ttm_dividends_paid = 0.0
+                ttm_buybacks_paid = 0.0
 
             fcf0 = round(ttm_fcf_sum / 1e6, 1)
 
@@ -1783,6 +1840,8 @@ def main():
         
             hist_cfo.append(round(ttm_cfo * fx_rate / 1e6, 1))
             hist_capex.append(round(-abs(ttm_capex) * fx_rate / 1e6, 1))
+            # Trailing point uses TTM quarterly CF, or annual CF when quarterly is empty —
+            # never append a fabricated 0 that later becomes mcap*3.8% in DCF/history.
             hist_fcf.append(round(ttm_fcf_sum * fx_rate / 1e6, 1))
 
             real_history = {
@@ -1994,7 +2053,11 @@ def main():
                 ttm_dividends_paid = ttm_dividends_paid * fx_rate
                 ttm_buybacks_paid = ttm_buybacks_paid * fx_rate
 
-            if fcf0 <= 0: fcf0 = round(mcap * 0.038, 1)
+            # Proxy FCF only when no cash-flow statement exists at all. Annual-only
+            # (empty quarterly CF) must keep real annual FCF — including negatives —
+            # so Piotroski / DCF are not scored on fabricated mcap*3.8% TTM.
+            if fcf0 <= 0 and fcf_source != "annual":
+                fcf0 = round(mcap * 0.038, 1)
 
             div_yield_real = 0.0
             if mcap > 0 and ttm_dividends_paid > 0:
