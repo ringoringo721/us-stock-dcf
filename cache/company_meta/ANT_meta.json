@@ -1,0 +1,109 @@
+{
+  "sourceVersion": 2,
+  "top_holders": [],
+  "insider_trades": [
+    {
+      "date": "2026-11-23",
+      "name": "Narasimhan Vasant",
+      "title": "director",
+      "is_buy": null,
+      "action": "C-Conversion",
+      "shares": 169770,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-23",
+      "name": "Narasimhan Vasant",
+      "title": "director",
+      "is_buy": null,
+      "action": "C-Conversion",
+      "shares": 16977,
+      "price": 0.0,
+      "total_val": 0.0
+    },
+    {
+      "date": "2026-11-23",
+      "name": "LIDDELL CHRISTOPHER P",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 18072,
+      "price": 83.0,
+      "total_val": 1.5
+    },
+    {
+      "date": "2026-11-23",
+      "name": "LIDDELL CHRISTOPHER P",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 24096,
+      "price": 83.0,
+      "total_val": 2.0
+    },
+    {
+      "date": "2026-11-23",
+      "name": "LIDDELL CHRISTOPHER P",
+      "title": "director",
+      "is_buy": true,
+      "action": "P-Purchase",
+      "shares": 18072,
+      "price": 83.0,
+      "total_val": 1.5
+    },
+    {
+      "date": "2026-11-23",
+      "name": "Amodei Daniela",
+      "title": "director, officer: President",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 345011,
+      "price": 83.0,
+      "total_val": 28.64
+    },
+    {
+      "date": "2026-11-23",
+      "name": "Amodei Daniela",
+      "title": "director, officer: President",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 3378378,
+      "price": 83.0,
+      "total_val": 280.41
+    },
+    {
+      "date": "2026-11-23",
+      "name": "Amodei Daniela",
+      "title": "director, officer: President",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 72267,
+      "price": 83.0,
+      "total_val": 6.0
+    },
+    {
+      "date": "2026-11-23",
+      "name": "Amodei Dario",
+      "title": "director, officer: Chief Executive Officer",
+      "is_buy": null,
+      "action": "F-InKind",
+      "shares": 345011,
+      "price": 83.0,
+      "total_val": 28.64
+    },
+    {
+      "date": "2026-11-23",
+      "name": "Amodei Dario",
+      "title": "director, officer: Chief Executive Officer",
+      "is_buy": false,
+      "action": "S-Sale",
+      "shares": 3378378,
+      "price": 83.0,
+      "total_val": 280.41
+    }
+  ],
+  "stock_splits": [],
+  "inst_ownership_pct": null,
+  "insider_ownership_pct": null
+}

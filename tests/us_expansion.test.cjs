@@ -44,10 +44,15 @@ test('shipped US universe+expansion merge is baseline+catalogue (not market_data
   // Expansion catalogue grows with financial refresh; AEFC stays excluded.
   // Live screen is FMP common equity marketCap > USD 5B (AMRO/ITRI/IRDM dropped);
   // dual-class / inactive commons (FOXA…) are retained when the screener omits them.
-  assert.equal(expansion, 1127);
-  assert.equal(context.US_LISTINGS.stocks.length, 1350);
-  assert.equal(keys.length, 1357);
+  // 2026-11-26 rescreen: ANT (Anthropic IPO) enters; eligible listings 1332.
+  assert.equal(expansion, 1128);
+  assert.equal(context.US_LISTINGS.stocks.length, 1332);
+  assert.equal(keys.length, 1339);
   assert.ok(keys.length > baseline, 'frontpage must not stay on sync market_data.js alone');
+  assert.equal(merged.ANT?.ticker, 'ANT');
+  assert.equal(merged.ANT?.name, 'Anthropic PBC');
+  assert.ok(Number.isFinite(merged.ANT?.price), 'ANT should ship with a captured quote');
+  assert.ok(Number.isFinite(merged.ANT?.mcap) && merged.ANT.mcap > 5_000, 'ANT mcap is USD millions > 5B');
   let expansionWithMoat = 0;
   const expansionWithoutMoat = [];
   for (const ticker of Object.keys(context.US_EXPANSION.stocks)) {
@@ -55,12 +60,17 @@ test('shipped US universe+expansion merge is baseline+catalogue (not market_data
     if (merged[ticker]?.moat) expansionWithMoat++;
     else expansionWithoutMoat.push(ticker);
   }
-  // Complete assessments (incl. archived staleEvidence) keep screener scores; only
-  // analysisUnavailable capture stubs stay moat-null (prior 13 + net-new >$5B awaiting Actions remoat).
-  assert.equal(expansionWithMoat, 702);
-  assert.equal(expansionWithoutMoat.length, 425);
-  assert.ok(expansionWithoutMoat.every(ticker =>
-    context.US_EXPANSION.stocks[ticker]?.ratingSources?.moat?.reason === 'analysisUnavailable'));
+  // Complete assessments keep screener scores when still in the live ≥$5B merge.
+  // Moat-null rows = ANT (analysisUnavailable, awaiting remoat) plus orphaned
+  // expansion snapshots that fell out of the latest FMP screen (not in merge).
+  assert.equal(expansionWithMoat, 1082);
+  assert.equal(expansionWithoutMoat.length, 46);
+  assert.ok(expansionWithoutMoat.includes('ANT'));
+  assert.equal(context.US_EXPANSION.stocks.ANT.ratingSources.moat.reason, 'analysisUnavailable');
+  assert.ok(expansionWithoutMoat.every(ticker => {
+    if (ticker === 'ANT') return true;
+    return !merged[ticker];
+  }), 'non-ANT moat-null expansion rows must be off-catalogue orphans');
   assert.ok(context.US_EXPANSION.stocks.BABA?.moat?.m1_brand_pricing?.score === 7);
   assert.equal(context.US_EXPANSION.stocks.BABA.ratingSources.moat.reason, 'staleEvidence');
   assert.equal(context.US_EXPANSION.stocks.AEFC, undefined);
