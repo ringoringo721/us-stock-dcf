@@ -3103,5 +3103,167 @@
       "MA",
       "PYPL"
     ]
+  },
+  "athletic-footwear-brand-v1": {
+    "materials": [
+      "DOW",
+      "CE",
+      "WLK"
+    ],
+    "logistics": [
+      "UPS",
+      "FDX",
+      "ODFL"
+    ],
+    "retail-channel": [
+      "DKS",
+      "AMZN",
+      "URBN"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "AXP"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "SNAP"
+    ]
+  },
+  "apparel-brand-v1": {
+    "materials": [
+      "DD",
+      "LYB",
+      "IFF"
+    ],
+    "logistics": [
+      "UPS",
+      "CHRW",
+      "EXPD"
+    ],
+    "retail-channel": [
+      "TJX",
+      "ROST",
+      "M"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "PINS"
+    ]
+  },
+  "blank-apparel-mfg-v1": {
+    "materials": [
+      "DOW",
+      "LYB",
+      "EMN"
+    ],
+    "logistics": [
+      "UNP",
+      "JBHT",
+      "XPO"
+    ],
+    "mass-channel": [
+      "WMT",
+      "TGT",
+      "AMZN"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "GPN"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "APP"
+    ]
+  },
+  "off-price-retail-v1": {
+    "brand-supply": [
+      "NKE",
+      "VFC",
+      "LEVI"
+    ],
+    "logistics": [
+      "UPS",
+      "FDX",
+      "SAIA"
+    ],
+    "real-estate": [
+      "SPG",
+      "REG",
+      "FRT"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "FISV"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "PINS"
+    ]
+  },
+  "luxury-accessories-v1": {
+    "materials": [
+      "PPG",
+      "SHW",
+      "ECL"
+    ],
+    "logistics": [
+      "UPS",
+      "FDX",
+      "EXPD"
+    ],
+    "wholesale-dept": [
+      "M",
+      "BURL",
+      "TJX"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "AXP"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "PINS"
+    ]
+  },
+  "mass-merchandise-retail-v1": {
+    "cpg-staples": [
+      "PG",
+      "KO",
+      "PEP"
+    ],
+    "softlines": [
+      "NKE",
+      "LEVI",
+      "VFC"
+    ],
+    "logistics": [
+      "UPS",
+      "FDX",
+      "UNP"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "APP"
+    ]
   }
 }

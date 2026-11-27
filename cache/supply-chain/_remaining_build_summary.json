@@ -1,14 +1,15 @@
 {
   "bandMin": 0.0,
   "bandMax": 50000000000.0,
-  "bandTotal": 1041,
-  "written": 1,
+  "bandTotal": 1019,
+  "written": 2,
   "skippedExisting": [],
   "failures": [],
   "tickers": [
-    "LLYVK"
+    "LEVI",
+    "GIL"
   ],
   "dryRun": false,
-  "date": "2026-11-26",
+  "date": "2026-11-27",
   "chartsDir": "/agent/repos/us-stock-dcf/cache/price_charts"
 }

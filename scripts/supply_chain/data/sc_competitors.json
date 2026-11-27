@@ -3447,13 +3447,13 @@
     ],
     [
       "WMT",
-      "平價服飾零售競爭",
-      "Value apparel retail competition"
+      "平價零售競爭",
+      "Value retail competition"
     ],
     [
       "TGT",
-      "平價服飾零售競爭",
-      "Value apparel retail competition"
+      "平價零售競爭",
+      "Value retail competition"
     ],
     [
       "AMZN",
@@ -5872,23 +5872,23 @@
   "ROST": [
     [
       "TJX",
-      "平價服飾零售對手",
-      "Off-price apparel retail rival"
+      "離價零售對手",
+      "Off-price retail rival"
     ],
     [
       "BURL",
-      "平價服飾零售對手",
-      "Off-price apparel retail rival"
+      "離價零售對手",
+      "Off-price retail rival"
     ],
     [
-      "GAP",
-      "平價服飾零售對手",
-      "Off-price apparel retail rival"
+      "WMT",
+      "平價零售競爭",
+      "Value retail competition"
     ],
     [
-      "ANF",
-      "平價服飾零售對手",
-      "Off-price apparel retail rival"
+      "AMZN",
+      "服飾電商競爭",
+      "Apparel e-comm competition"
     ]
   ],
   "SPG": [
@@ -7247,18 +7247,18 @@
     ],
     [
       "DECK",
-      "運動鞋服對手",
-      "Athletic apparel rival"
+      "運動鞋／休閒鞋對手",
+      "Athletic / lifestyle footwear rival"
     ],
     [
-      "UAA",
-      "運動鞋服對手",
-      "Athletic apparel rival"
+      "ONON",
+      "運動鞋對手",
+      "Athletic footwear rival"
     ],
     [
-      "ADDYY",
-      "運動鞋服對手",
-      "Athletic apparel rival"
+      "AS",
+      "運動鞋對手",
+      "Athletic footwear rival"
     ]
   ],
   "LNG": [
@@ -14157,13 +14157,18 @@
   "RL": [
     [
       "LEVI",
-      "品牌／丹寧服飾製造對手",
-      "Brand / denim apparel manufacturer rival"
+      "品牌成衣對手",
+      "Apparel brand rival"
     ],
     [
       "VFC",
-      "品牌／丹寧服飾製造對手",
-      "Brand / denim apparel manufacturer rival"
+      "品牌成衣對手",
+      "Apparel brand rival"
+    ],
+    [
+      "GAP",
+      "成衣零售重疊",
+      "Apparel retail overlap"
     ]
   ],
   "XYL": [
@@ -20112,24 +20117,24 @@
   ],
   "ONON": [
     [
-      "AS",
-      "運動用品對手",
-      "Sporting-goods rival"
+      "NKE",
+      "運動鞋對手",
+      "Athletic footwear rival"
     ],
     [
       "DECK",
-      "運動用品對手",
-      "Sporting-goods rival"
+      "運動鞋／休閒鞋對手",
+      "Athletic / lifestyle footwear rival"
     ],
     [
-      "NKE",
-      "運動用品對手",
-      "Sporting-goods rival"
+      "AS",
+      "運動鞋對手",
+      "Athletic footwear rival"
     ],
     [
       "LULU",
-      "運動用品對手",
-      "Sporting-goods rival"
+      "運動鞋服對手",
+      "Athletic apparel rival"
     ]
   ],
   "CSGP": [
@@ -20917,21 +20922,21 @@
   "DECK": [
     [
       "NKE",
-      "運動鞋服對手",
-      "Athletic apparel rival"
+      "運動鞋／休閒鞋對手",
+      "Athletic / lifestyle footwear rival"
+    ],
+    [
+      "ONON",
+      "運動鞋對手",
+      "Athletic footwear rival"
+    ],
+    [
+      "CROX",
+      "休閒鞋對手",
+      "Lifestyle footwear rival"
     ],
     [
       "LULU",
-      "運動鞋服對手",
-      "Athletic apparel rival"
-    ],
-    [
-      "UAA",
-      "運動鞋服對手",
-      "Athletic apparel rival"
-    ],
-    [
-      "ADDYY",
       "運動鞋服對手",
       "Athletic apparel rival"
     ]
@@ -24216,13 +24221,18 @@
   "LEVI": [
     [
       "VFC",
-      "品牌／丹寧服飾製造對手",
-      "Brand / denim apparel manufacturer rival"
+      "品牌成衣對手",
+      "Apparel brand rival"
     ],
     [
       "RL",
-      "品牌／丹寧服飾製造對手",
-      "Brand / denim apparel manufacturer rival"
+      "品牌成衣對手",
+      "Apparel brand rival"
+    ],
+    [
+      "GAP",
+      "成衣零售重疊",
+      "Apparel retail overlap"
     ]
   ],
   "IREN": [
@@ -25316,13 +25326,18 @@
   "VFC": [
     [
       "LEVI",
-      "品牌／丹寧服飾製造對手",
-      "Brand / denim apparel manufacturer rival"
+      "品牌成衣對手",
+      "Apparel brand rival"
     ],
     [
       "RL",
-      "品牌／丹寧服飾製造對手",
-      "Brand / denim apparel manufacturer rival"
+      "品牌成衣對手",
+      "Apparel brand rival"
+    ],
+    [
+      "GAP",
+      "成衣零售重疊",
+      "Apparel retail overlap"
     ]
   ],
   "NIO": [
@@ -27464,29 +27479,24 @@
   ],
   "CROX": [
     [
-      "NKE",
-      "運動鞋服對手",
-      "Athletic apparel rival"
-    ],
-    [
-      "LULU",
-      "運動鞋服對手",
-      "Athletic apparel rival"
-    ],
-    [
       "DECK",
-      "運動鞋服對手",
-      "Athletic apparel rival"
+      "休閒鞋對手",
+      "Lifestyle footwear rival"
     ],
     [
-      "UAA",
-      "運動鞋服對手",
-      "Athletic apparel rival"
+      "BIRK",
+      "休閒鞋對手",
+      "Lifestyle footwear rival"
     ],
     [
-      "ADDYY",
-      "運動鞋服對手",
-      "Athletic apparel rival"
+      "NKE",
+      "運動鞋／休閒鞋對手",
+      "Athletic / lifestyle footwear rival"
+    ],
+    [
+      "ONON",
+      "運動鞋對手",
+      "Athletic footwear rival"
     ]
   ],
   "FSS": [
@@ -28069,29 +28079,24 @@
   ],
   "BIRK": [
     [
-      "NKE",
-      "運動鞋服對手",
-      "Athletic apparel rival"
-    ],
-    [
-      "LULU",
-      "運動鞋服對手",
-      "Athletic apparel rival"
+      "CROX",
+      "休閒鞋對手",
+      "Lifestyle footwear rival"
     ],
     [
       "DECK",
-      "運動鞋服對手",
-      "Athletic apparel rival"
+      "休閒鞋對手",
+      "Lifestyle footwear rival"
     ],
     [
-      "UAA",
-      "運動鞋服對手",
-      "Athletic apparel rival"
+      "NKE",
+      "運動鞋／休閒鞋對手",
+      "Athletic / lifestyle footwear rival"
     ],
     [
-      "ADDYY",
-      "運動鞋服對手",
-      "Athletic apparel rival"
+      "ONON",
+      "運動鞋對手",
+      "Athletic footwear rival"
     ]
   ],
   "SWX": [
@@ -28551,29 +28556,9 @@
   ],
   "GIL": [
     [
-      "NKE",
-      "運動鞋服對手",
-      "Athletic apparel rival"
-    ],
-    [
-      "LULU",
-      "運動鞋服對手",
-      "Athletic apparel rival"
-    ],
-    [
-      "DECK",
-      "運動鞋服對手",
-      "Athletic apparel rival"
-    ],
-    [
-      "UAA",
-      "運動鞋服對手",
-      "Athletic apparel rival"
-    ],
-    [
-      "ADDYY",
-      "運動鞋服對手",
-      "Athletic apparel rival"
+      "GAP",
+      "空白／基本款成衣重疊",
+      "Blank / basics apparel overlap"
     ]
   ],
   "OMF": [
@@ -33272,29 +33257,19 @@
   ],
   "TPR": [
     [
+      "RL",
+      "精品生活風格對手",
+      "Luxury lifestyle rival"
+    ],
+    [
+      "LULU",
+      "配件／生活風格重疊",
+      "Accessories / lifestyle overlap"
+    ],
+    [
       "AMZN",
-      "Luxury Goods產品／市場對手",
-      "Luxury Goods product/market rival"
-    ],
-    [
-      "TSLA",
-      "Luxury Goods產品／市場對手",
-      "Luxury Goods product/market rival"
-    ],
-    [
-      "HD",
-      "Luxury Goods產品／市場對手",
-      "Luxury Goods product/market rival"
-    ],
-    [
-      "BABA",
-      "Luxury Goods產品／市場對手",
-      "Luxury Goods product/market rival"
-    ],
-    [
-      "TM",
-      "Luxury Goods產品／市場對手",
-      "Luxury Goods product/market rival"
+      "精品電商競爭",
+      "Luxury e-comm competition"
     ]
   ],
   "STE": [

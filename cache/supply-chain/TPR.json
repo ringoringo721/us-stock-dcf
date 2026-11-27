@@ -3,7 +3,7 @@
   "ticker": "TPR",
   "name_en": "Tapestry",
   "name_zh": "Tapestry",
-  "updatedAt": "2026-11-20",
+  "updatedAt": "2026-11-27",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -11,52 +11,52 @@
     "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
     "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
     "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
-    "modelId": "consumer-discretionary-v1",
+    "modelId": "luxury-accessories-v1",
     "references": [
-      "Industry model `consumer-discretionary-v1`",
+      "Industry model `luxury-accessories-v1`",
       "AAPL curated seed shape on main (schema reference)",
       "cache/us_universe.json screen: remaining US listings without supply-chain seed",
       "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
     ]
   },
   "model": {
-    "id": "consumer-discretionary-v1",
-    "label_zh": "非必需消費／餐旅價值鏈",
-    "label_en": "Consumer discretionary / hospitality value chain",
-    "description_zh": "原料／商品 → 物流 → 門市／平台 → 支付 → 行銷流量。",
-    "description_en": "Inputs/goods → logistics → stores/platforms → payments → marketing traffic."
+    "id": "luxury-accessories-v1",
+    "label_zh": "精品配件價值鏈",
+    "label_en": "Luxury accessories value chain",
+    "description_zh": "皮料／化學原料 → 物流 → 百貨／離價通路 → 支付 → 流量。",
+    "description_en": "Leather / chemical inputs → logistics → department/off-price channel → payments → traffic."
   },
   "stages": [
     {
-      "id": "inputs",
+      "id": "materials",
       "order": 1,
-      "label_zh": "原料／商品供應",
-      "label_en": "Inputs / merchandise supply",
-      "summary_zh": "食材、商品與授權 IP。",
-      "summary_en": "Food, goods, licensed IP.",
+      "label_zh": "皮料／化學原料",
+      "label_en": "Leather / chemical inputs",
+      "summary_zh": "皮革加工與塗層相關化學。",
+      "summary_en": "Leather processing and coating chemicals.",
       "players": [
         {
-          "ticker": "ADM",
-          "name_en": "Archer-Daniels-Midland",
-          "name_zh": "阿徹丹尼爾斯米德蘭",
-          "role_zh": "阿徹丹尼爾斯米德蘭：原料／商品供應代表性玩家",
-          "role_en": "Archer-Daniels-Midland: representative player in Inputs / merchandise supply",
+          "ticker": "PPG",
+          "name_en": "PPG Industries",
+          "name_zh": "PPG Industries",
+          "role_zh": "PPG Industries：皮料／化學原料代表性玩家",
+          "role_en": "PPG Industries: representative player in Leather / chemical inputs",
           "exchange": "NYSE"
         },
         {
-          "ticker": "NKE",
-          "name_en": "Nike",
-          "name_zh": "耐吉",
-          "role_zh": "耐吉：原料／商品供應代表性玩家",
-          "role_en": "Nike: representative player in Inputs / merchandise supply",
+          "ticker": "SHW",
+          "name_en": "Sherwin-Williams",
+          "name_zh": "宣偉塗料",
+          "role_zh": "宣偉塗料：皮料／化學原料代表性玩家",
+          "role_en": "Sherwin-Williams: representative player in Leather / chemical inputs",
           "exchange": "NYSE"
         },
         {
-          "ticker": "DIS",
-          "name_en": "Walt Disney",
-          "name_zh": "迪士尼",
-          "role_zh": "迪士尼：原料／商品供應代表性玩家",
-          "role_en": "Walt Disney: representative player in Inputs / merchandise supply",
+          "ticker": "ECL",
+          "name_en": "Ecolab",
+          "name_zh": "藝康集團",
+          "role_zh": "藝康集團：皮料／化學原料代表性玩家",
+          "role_en": "Ecolab: representative player in Leather / chemical inputs",
           "exchange": "NYSE"
         }
       ]
@@ -64,101 +64,101 @@
     {
       "id": "logistics",
       "order": 2,
-      "label_zh": "物流／冷鏈",
-      "label_en": "Logistics / cold chain",
-      "summary_zh": "配送與庫存網路。",
-      "summary_en": "Distribution and inventory.",
+      "label_zh": "物流／配送",
+      "label_en": "Logistics / distribution",
+      "summary_zh": "包裹與貨運至通路。",
+      "summary_en": "Parcel and freight into channels.",
       "players": [
         {
           "ticker": "UPS",
           "name_en": "United Parcel Service",
           "name_zh": "優比速",
-          "role_zh": "優比速：物流／冷鏈代表性玩家",
-          "role_en": "United Parcel Service: representative player in Logistics / cold chain",
+          "role_zh": "優比速：物流／配送代表性玩家",
+          "role_en": "United Parcel Service: representative player in Logistics / distribution",
           "exchange": "NYSE"
         },
         {
           "ticker": "FDX",
           "name_en": "FedEx",
           "name_zh": "聯邦快遞",
-          "role_zh": "聯邦快遞：物流／冷鏈代表性玩家",
-          "role_en": "FedEx: representative player in Logistics / cold chain",
+          "role_zh": "聯邦快遞：物流／配送代表性玩家",
+          "role_en": "FedEx: representative player in Logistics / distribution",
           "exchange": "NYSE"
         },
         {
-          "ticker": "UNP",
-          "name_en": "Union Pacific",
-          "name_zh": "聯合太平洋鐵路",
-          "role_zh": "聯合太平洋鐵路：物流／冷鏈代表性玩家",
-          "role_en": "Union Pacific: representative player in Logistics / cold chain",
+          "ticker": "EXPD",
+          "name_en": "Expeditors",
+          "name_zh": "Expeditors",
+          "role_zh": "Expeditors：物流／配送代表性玩家",
+          "role_en": "Expeditors: representative player in Logistics / distribution",
           "exchange": "NYSE"
         }
       ]
     },
     {
-      "id": "stores",
+      "id": "wholesale-dept",
       "order": 3,
-      "label_zh": "門市／數位平台",
-      "label_en": "Stores / digital platforms",
-      "summary_zh": "直營、加盟與 App。",
-      "summary_en": "Owned, franchise, apps.",
+      "label_zh": "百貨／離價通路",
+      "label_en": "Department / off-price channel",
+      "summary_zh": "百貨與離價批發／直營通路。",
+      "summary_en": "Department and off-price wholesale/owned channels.",
       "players": [
         {
-          "ticker": "SBUX",
-          "name_en": "Starbucks",
-          "name_zh": "星巴克",
-          "role_zh": "星巴克：門市／數位平台代表性玩家",
-          "role_en": "Starbucks: representative player in Stores / digital platforms",
-          "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "MCD",
-          "name_en": "McDonald's",
-          "name_zh": "麥當勞",
-          "role_zh": "麥當勞：門市／數位平台代表性玩家",
-          "role_en": "McDonald's: representative player in Stores / digital platforms",
+          "ticker": "M",
+          "name_en": "Macy's",
+          "name_zh": "Macy's",
+          "role_zh": "Macy's：百貨／離價通路代表性玩家",
+          "role_en": "Macy's: representative player in Department / off-price channel",
           "exchange": "NYSE"
         },
         {
-          "ticker": "MAR",
-          "name_en": "Marriott International",
-          "name_zh": "萬豪國際",
-          "role_zh": "萬豪國際：門市／數位平台代表性玩家",
-          "role_en": "Marriott International: representative player in Stores / digital platforms",
-          "exchange": "NASDAQ"
+          "ticker": "BURL",
+          "name_en": "Burlington",
+          "name_zh": "Burlington",
+          "role_zh": "Burlington：百貨／離價通路代表性玩家",
+          "role_en": "Burlington: representative player in Department / off-price channel",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "TJX",
+          "name_en": "TJX Companies",
+          "name_zh": "TJX 公司",
+          "role_zh": "TJX 公司：百貨／離價通路代表性玩家",
+          "role_en": "TJX Companies: representative player in Department / off-price channel",
+          "exchange": "NYSE"
         }
       ]
     },
     {
       "id": "payments",
       "order": 4,
-      "label_zh": "支付／忠誠",
-      "label_en": "Payments / loyalty",
-      "summary_zh": "卡支付與會員體系。",
-      "summary_en": "Card rails and loyalty.",
+      "label_zh": "支付／金融",
+      "label_en": "Payments / fintech",
+      "summary_zh": "卡組織與數位支付。",
+      "summary_en": "Card rails and digital payments.",
       "players": [
         {
           "ticker": "V",
           "name_en": "Visa",
           "name_zh": "威士卡",
-          "role_zh": "威士卡：支付／忠誠代表性玩家",
-          "role_en": "Visa: representative player in Payments / loyalty",
+          "role_zh": "威士卡：支付／金融代表性玩家",
+          "role_en": "Visa: representative player in Payments / fintech",
           "exchange": "NYSE"
         },
         {
           "ticker": "MA",
           "name_en": "Mastercard",
           "name_zh": "萬事達卡",
-          "role_zh": "萬事達卡：支付／忠誠代表性玩家",
-          "role_en": "Mastercard: representative player in Payments / loyalty",
+          "role_zh": "萬事達卡：支付／金融代表性玩家",
+          "role_en": "Mastercard: representative player in Payments / fintech",
           "exchange": "NYSE"
         },
         {
           "ticker": "AXP",
           "name_en": "American Express",
           "name_zh": "美國運通",
-          "role_zh": "美國運通：支付／忠誠代表性玩家",
-          "role_en": "American Express: representative player in Payments / loyalty",
+          "role_zh": "美國運通：支付／金融代表性玩家",
+          "role_en": "American Express: representative player in Payments / fintech",
           "exchange": "NYSE"
         }
       ]
@@ -166,78 +166,62 @@
     {
       "id": "traffic",
       "order": 5,
-      "label_zh": "行銷／流量",
-      "label_en": "Marketing / traffic",
-      "summary_zh": "搜尋、社群與旅遊 OTA。",
-      "summary_en": "Search, social, travel OTAs.",
+      "label_zh": "流量／行銷",
+      "label_en": "Traffic / marketing",
+      "summary_zh": "搜尋、社群與品牌行銷。",
+      "summary_en": "Search, social, and brand marketing.",
       "players": [
         {
           "ticker": "GOOG",
           "name_en": "Alphabet",
           "name_zh": "Alphabet（Google）",
-          "role_zh": "Alphabet（Google）：行銷／流量代表性玩家",
-          "role_en": "Alphabet: representative player in Marketing / traffic",
+          "role_zh": "Alphabet（Google）：流量／行銷代表性玩家",
+          "role_en": "Alphabet: representative player in Traffic / marketing",
           "exchange": "NASDAQ"
         },
         {
           "ticker": "META",
           "name_en": "Meta Platforms",
           "name_zh": "Meta (臉書)",
-          "role_zh": "Meta (臉書)：行銷／流量代表性玩家",
-          "role_en": "Meta Platforms: representative player in Marketing / traffic",
+          "role_zh": "Meta (臉書)：流量／行銷代表性玩家",
+          "role_en": "Meta Platforms: representative player in Traffic / marketing",
           "exchange": "NASDAQ"
         },
         {
-          "ticker": "BKNG",
-          "name_en": "Booking",
-          "name_zh": "Booking 控股",
-          "role_zh": "Booking 控股：行銷／流量代表性玩家",
-          "role_en": "Booking: representative player in Marketing / traffic",
-          "exchange": "NASDAQ"
+          "ticker": "PINS",
+          "name_en": "Pinterest",
+          "name_zh": "Pinterest",
+          "role_zh": "Pinterest：流量／行銷代表性玩家",
+          "role_en": "Pinterest: representative player in Traffic / marketing",
+          "exchange": "NYSE"
         }
       ]
     }
   ],
   "competitors": [
     {
+      "ticker": "RL",
+      "name_en": "Ralph Lauren",
+      "name_zh": "Ralph Lauren",
+      "basis_zh": "精品生活風格對手",
+      "basis_en": "Luxury lifestyle rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "LULU",
+      "name_en": "Lululemon",
+      "name_zh": "露露檸檬",
+      "basis_zh": "配件／生活風格重疊",
+      "basis_en": "Accessories / lifestyle overlap",
+      "exchange": "NASDAQ"
+    },
+    {
       "ticker": "AMZN",
       "name_en": "Amazon.com",
       "name_zh": "亞馬遜",
-      "basis_zh": "Luxury Goods產品／市場對手",
-      "basis_en": "Luxury Goods product/market rival",
+      "basis_zh": "精品電商競爭",
+      "basis_en": "Luxury e-comm competition",
       "exchange": "NASDAQ"
-    },
-    {
-      "ticker": "TSLA",
-      "name_en": "Tesla",
-      "name_zh": "特斯拉",
-      "basis_zh": "Luxury Goods產品／市場對手",
-      "basis_en": "Luxury Goods product/market rival",
-      "exchange": "NASDAQ"
-    },
-    {
-      "ticker": "HD",
-      "name_en": "The Home Depot",
-      "name_zh": "家得寶",
-      "basis_zh": "Luxury Goods產品／市場對手",
-      "basis_en": "Luxury Goods product/market rival",
-      "exchange": "NYSE"
-    },
-    {
-      "ticker": "BABA",
-      "name_en": "Alibaba Holding",
-      "name_zh": "阿里巴巴",
-      "basis_zh": "Luxury Goods產品／市場對手",
-      "basis_en": "Luxury Goods product/market rival",
-      "exchange": "NYSE"
-    },
-    {
-      "ticker": "TM",
-      "name_en": "Toyota Motor",
-      "name_zh": "豐田",
-      "basis_zh": "Luxury Goods產品／市場對手",
-      "basis_en": "Luxury Goods product/market rival",
-      "exchange": "NYSE"
     }
   ]
 }
