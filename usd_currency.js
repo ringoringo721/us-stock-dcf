@@ -162,17 +162,29 @@
     return result;
   }
   const pending = {};
+  /** Accept both `cache/fx/...` (stored by build) and `/cache/fx/...` (root-absolute fetch). */
+  function normalizeFxPath(path) {
+    return String(path || '').replace(/^\/+/, '');
+  }
+  function absoluteFxPath(path) {
+    const relative = normalizeFxPath(path);
+    return relative ? `/${relative}` : '';
+  }
   function loadRates(reload = false, target = 'USD', capturedSource = null) {
     if (!['USD', 'HKD'].includes(target)) throw new TypeError('Unsupported calculation currency');
+    const expectedRel = capturedSource
+      ? `cache/fx/hk_expansion_${capturedSource.sha256}.json`
+      : '';
     if (capturedSource && (target !== 'HKD' || !/^[a-f0-9]{64}$/.test(capturedSource.sha256)
-        || capturedSource.path !== `cache/fx/hk_expansion_${capturedSource.sha256}.json`)) {
+        || normalizeFxPath(capturedSource.path) !== expectedRel)) {
       throw new TypeError('Invalid captured HKD FX source');
     }
-    const key = capturedSource?.path || target;
+    const file = target === 'HKD' ? 'hkd_rates.json' : 'usd_rates.json';
+    const fetchPath = absoluteFxPath(capturedSource?.path) || `/cache/fx/${file}`;
+    const key = fetchPath || target;
     if (reload) delete pending[key];
     if (!pending[key]) {
-      const file = target === 'HKD' ? 'hkd_rates.json' : 'usd_rates.json';
-      pending[key] = fetch(capturedSource?.path || `cache/fx/${file}`).then(response => {
+      pending[key] = fetch(fetchPath).then(response => {
         if (!response.ok) throw new Error(`Historical FX HTTP ${response.status}`);
         return response.json();
       }).catch(error => { delete pending[key]; throw error; });

@@ -511,7 +511,7 @@
     }
     if (reload) cache.delete(ticker);
     if (!cache.has(ticker)) {
-      const pending = fetch(`cache/financials/${encodeURIComponent(ticker)}_statements_v2.json`)
+      const pending = fetch(`/cache/financials/${encodeURIComponent(ticker)}_statements_v2.json`)
         .then(response => {
           if (!response.ok) throw new Error(`Financial statements HTTP ${response.status}`);
           return response.json();

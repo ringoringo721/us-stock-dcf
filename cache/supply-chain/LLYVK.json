@@ -3,7 +3,7 @@
   "ticker": "LLYVK",
   "name_en": "Liberty Live",
   "name_zh": "Liberty Live",
-  "updatedAt": "2026-11-20",
+  "updatedAt": "2026-11-26",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -11,189 +11,154 @@
     "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
     "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
     "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
-    "modelId": "entertainment-v1",
+    "modelId": "live-events-v1",
     "references": [
-      "Industry model `entertainment-v1`",
+      "Industry model `live-events-v1`",
       "AAPL curated seed shape on main (schema reference)",
       "cache/us_universe.json screen: remaining US listings without supply-chain seed",
       "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
     ]
   },
   "model": {
-    "id": "entertainment-v1",
-    "label_zh": "娛樂／串流價值鏈",
-    "label_en": "Entertainment / streaming value chain",
-    "description_zh": "製作／IP → 雲／CDN → 裝置／OS → 廣告／訂閱變現 → 支付。",
-    "description_en": "Production/IP → cloud/CDN → devices/OS → ads/subscriptions → payments."
+    "id": "live-events-v1",
+    "label_zh": "現場娛樂／體育娛樂價值鏈",
+    "label_en": "Live events / sports entertainment value chain",
+    "description_zh": "場館系統 → 廣告贊助 → 媒體轉播分銷 → 支付。",
+    "description_en": "Venue systems → advertising/sponsors → media distribution → payments."
   },
   "stages": [
     {
-      "id": "production",
+      "id": "venue-systems",
       "order": 1,
-      "label_zh": "內容製作／IP",
-      "label_en": "Production / IP",
-      "summary_zh": "製片、體育與授權 IP。",
-      "summary_en": "Studios, sports, licensed IP.",
+      "label_zh": "場館／樓宇系統",
+      "label_en": "Venue / building systems",
+      "summary_zh": "場館樓控與暖通。",
+      "summary_en": "Venue building controls and HVAC.",
       "players": [
         {
-          "ticker": "DIS",
-          "name_en": "Walt Disney",
-          "name_zh": "迪士尼",
-          "role_zh": "迪士尼：內容製作／IP代表性玩家",
-          "role_en": "Walt Disney: representative player in Production / IP",
+          "ticker": "JCI",
+          "name_en": "Johnson Controls",
+          "name_zh": "江森自控",
+          "role_zh": "江森自控：場館／樓宇系統代表性玩家",
+          "role_en": "Johnson Controls: representative player in Venue / building systems",
           "exchange": "NYSE"
         },
         {
-          "ticker": "WBD",
-          "name_en": "Warner Bros. Discovery",
-          "name_zh": "華納兄弟探索",
-          "role_zh": "華納兄弟探索：內容製作／IP代表性玩家",
-          "role_en": "Warner Bros. Discovery: representative player in Production / IP",
-          "exchange": "NASDAQ"
+          "ticker": "TT",
+          "name_en": "Trane Technologies",
+          "name_zh": "Trane Technologies",
+          "role_zh": "Trane Technologies：場館／樓宇系統代表性玩家",
+          "role_en": "Trane Technologies: representative player in Venue / building systems",
+          "exchange": "NYSE"
         },
         {
-          "ticker": "CMCSA",
-          "name_en": "Comcast",
-          "name_zh": "康卡斯特",
-          "role_zh": "康卡斯特：內容製作／IP代表性玩家",
-          "role_en": "Comcast: representative player in Production / IP",
-          "exchange": "NASDAQ"
+          "ticker": "CARR",
+          "name_en": "Carrier",
+          "name_zh": "Carrier",
+          "role_zh": "Carrier：場館／樓宇系統代表性玩家",
+          "role_en": "Carrier: representative player in Venue / building systems",
+          "exchange": "NYSE"
         }
       ]
     },
     {
-      "id": "cdn",
+      "id": "advertising",
       "order": 2,
-      "label_zh": "雲／CDN 傳輸",
-      "label_en": "Cloud / CDN delivery",
-      "summary_zh": "串流傳輸與編碼。",
-      "summary_en": "Streaming delivery and encode.",
-      "players": [
-        {
-          "ticker": "AMZN",
-          "name_en": "Amazon.com",
-          "name_zh": "亞馬遜",
-          "role_zh": "亞馬遜：雲／CDN 傳輸代表性玩家",
-          "role_en": "Amazon.com: representative player in Cloud / CDN delivery",
-          "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "MSFT",
-          "name_en": "Microsoft",
-          "name_zh": "微軟",
-          "role_zh": "微軟：雲／CDN 傳輸代表性玩家",
-          "role_en": "Microsoft: representative player in Cloud / CDN delivery",
-          "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "NET",
-          "name_en": "Cloudflare",
-          "name_zh": "Cloudflare",
-          "role_zh": "Cloudflare：雲／CDN 傳輸代表性玩家",
-          "role_en": "Cloudflare: representative player in Cloud / CDN delivery",
-          "exchange": "NYSE"
-        }
-      ]
-    },
-    {
-      "id": "devices",
-      "order": 3,
-      "label_zh": "裝置／智慧電視 OS",
-      "label_en": "Devices / smart-TV OS",
-      "summary_zh": "電視、手機與遊戲機入口。",
-      "summary_en": "TV, phone, console entry points.",
-      "players": [
-        {
-          "ticker": "AAPL",
-          "name_en": "Apple",
-          "name_zh": "蘋果",
-          "role_zh": "蘋果：裝置／智慧電視 OS代表性玩家",
-          "role_en": "Apple: representative player in Devices / smart-TV OS",
-          "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "SONY",
-          "name_en": "Sony",
-          "name_zh": "Sony",
-          "role_zh": "Sony：裝置／智慧電視 OS代表性玩家",
-          "role_en": "Sony: representative player in Devices / smart-TV OS",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "005930.KS",
-          "name_en": "Samsung Electronics",
-          "name_zh": "三星電子",
-          "role_zh": "三星電子：裝置／智慧電視 OS代表性玩家",
-          "role_en": "Samsung Electronics: representative player in Devices / smart-TV OS",
-          "exchange": "KRX",
-          "listedInApp": false
-        }
-      ]
-    },
-    {
-      "id": "monetization",
-      "order": 4,
-      "label_zh": "廣告／訂閱變現",
-      "label_en": "Ads / subscription monetization",
-      "summary_zh": "廣告科技與套餐。",
-      "summary_en": "Ad-tech and plan packaging.",
+      "label_zh": "廣告／贊助",
+      "label_en": "Advertising / sponsors",
+      "summary_zh": "品牌廣告與贊助變現。",
+      "summary_en": "Brand ads and sponsor monetization.",
       "players": [
         {
           "ticker": "GOOG",
           "name_en": "Alphabet",
           "name_zh": "Alphabet（Google）",
-          "role_zh": "Alphabet（Google）：廣告／訂閱變現代表性玩家",
-          "role_en": "Alphabet: representative player in Ads / subscription monetization",
+          "role_zh": "Alphabet（Google）：廣告／贊助代表性玩家",
+          "role_en": "Alphabet: representative player in Advertising / sponsors",
           "exchange": "NASDAQ"
         },
         {
           "ticker": "META",
           "name_en": "Meta Platforms",
           "name_zh": "Meta (臉書)",
-          "role_zh": "Meta (臉書)：廣告／訂閱變現代表性玩家",
-          "role_en": "Meta Platforms: representative player in Ads / subscription monetization",
+          "role_zh": "Meta (臉書)：廣告／贊助代表性玩家",
+          "role_en": "Meta Platforms: representative player in Advertising / sponsors",
           "exchange": "NASDAQ"
         },
         {
           "ticker": "TTD",
           "name_en": "Trade Desk",
           "name_zh": "Trade Desk",
-          "role_zh": "Trade Desk：廣告／訂閱變現代表性玩家",
-          "role_en": "Trade Desk: representative player in Ads / subscription monetization",
+          "role_zh": "Trade Desk：廣告／贊助代表性玩家",
+          "role_en": "Trade Desk: representative player in Advertising / sponsors",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "media-distribution",
+      "order": 3,
+      "label_zh": "媒體／串流通路",
+      "label_en": "Media / streaming distribution",
+      "summary_zh": "轉播與串流分銷夥伴。",
+      "summary_en": "Broadcast and streaming distribution partners.",
+      "players": [
+        {
+          "ticker": "NFLX",
+          "name_en": "Netflix",
+          "name_zh": "網飛",
+          "role_zh": "網飛：媒體／串流通路代表性玩家",
+          "role_en": "Netflix: representative player in Media / streaming distribution",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "AMZN",
+          "name_en": "Amazon.com",
+          "name_zh": "亞馬遜",
+          "role_zh": "亞馬遜：媒體／串流通路代表性玩家",
+          "role_en": "Amazon.com: representative player in Media / streaming distribution",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "ROKU",
+          "name_en": "Roku",
+          "name_zh": "Roku",
+          "role_zh": "Roku：媒體／串流通路代表性玩家",
+          "role_en": "Roku: representative player in Media / streaming distribution",
           "exchange": "NASDAQ"
         }
       ]
     },
     {
       "id": "payments",
-      "order": 5,
-      "label_zh": "支付／電信代收",
-      "label_en": "Payments / carrier billing",
-      "summary_zh": "卡支付與電信帳單。",
-      "summary_en": "Cards and carrier billing.",
+      "order": 4,
+      "label_zh": "支付／票務清算",
+      "label_en": "Payments / ticketing rails",
+      "summary_zh": "票務與消費支付軌道。",
+      "summary_en": "Ticketing and spend payment rails.",
       "players": [
         {
           "ticker": "V",
           "name_en": "Visa",
           "name_zh": "威士卡",
-          "role_zh": "威士卡：支付／電信代收代表性玩家",
-          "role_en": "Visa: representative player in Payments / carrier billing",
+          "role_zh": "威士卡：支付／票務清算代表性玩家",
+          "role_en": "Visa: representative player in Payments / ticketing rails",
           "exchange": "NYSE"
         },
         {
           "ticker": "MA",
           "name_en": "Mastercard",
           "name_zh": "萬事達卡",
-          "role_zh": "萬事達卡：支付／電信代收代表性玩家",
-          "role_en": "Mastercard: representative player in Payments / carrier billing",
+          "role_zh": "萬事達卡：支付／票務清算代表性玩家",
+          "role_en": "Mastercard: representative player in Payments / ticketing rails",
           "exchange": "NYSE"
         },
         {
           "ticker": "PYPL",
           "name_en": "PayPal",
           "name_zh": "PayPal",
-          "role_zh": "PayPal：支付／電信代收代表性玩家",
-          "role_en": "PayPal: representative player in Payments / carrier billing",
+          "role_zh": "PayPal：支付／票務清算代表性玩家",
+          "role_en": "PayPal: representative player in Payments / ticketing rails",
           "exchange": "NASDAQ"
         }
       ]
@@ -201,44 +166,36 @@
   ],
   "competitors": [
     {
-      "ticker": "NFLX",
-      "name_en": "Netflix",
-      "name_zh": "網飛",
-      "basis_zh": "娛樂／串流對手",
-      "basis_en": "Entertainment / streaming rival",
-      "exchange": "NASDAQ"
-    },
-    {
-      "ticker": "DIS",
-      "name_en": "Walt Disney",
-      "name_zh": "迪士尼",
-      "basis_zh": "娛樂／串流對手",
-      "basis_en": "Entertainment / streaming rival",
-      "exchange": "NYSE"
-    },
-    {
-      "ticker": "LYV",
-      "name_en": "Live Nation",
-      "name_zh": "理想國演藝",
-      "basis_zh": "娛樂／串流對手",
-      "basis_en": "Entertainment / streaming rival",
+      "ticker": "TKO",
+      "name_en": "TKO Group Holdings",
+      "name_zh": "TKO 控股 (WWE/UFC)",
+      "basis_zh": "現場／體育娛樂對手",
+      "basis_en": "Live / sports-entertainment rival",
       "exchange": "NYSE"
     },
     {
       "ticker": "FOXA",
       "name_en": "Fox",
       "name_zh": "Fox",
-      "basis_zh": "娛樂／串流對手",
-      "basis_en": "Entertainment / streaming rival",
+      "basis_zh": "體育媒體對手",
+      "basis_en": "Sports-media rival",
       "exchange": "NASDAQ"
     },
     {
-      "ticker": "FOX",
-      "name_en": "Fox",
-      "name_zh": "Fox",
-      "basis_zh": "娛樂／串流對手",
-      "basis_en": "Entertainment / streaming rival",
+      "ticker": "FWONA",
+      "name_en": "Formula One",
+      "name_zh": "Formula One",
+      "basis_zh": "賽事媒體對手",
+      "basis_en": "Motorsports-media rival",
       "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "DIS",
+      "name_en": "Walt Disney",
+      "name_zh": "迪士尼",
+      "basis_zh": "主題娛樂／體育媒體對手",
+      "basis_en": "Theme/sports-media rival",
+      "exchange": "NYSE"
     }
   ]
 }

@@ -7,6 +7,10 @@
   function resolve(location = root.location || {}) {
     const explicit = new URLSearchParams(location.search || '').get('market')?.toUpperCase();
     if (explicit === 'HKEX' || explicit === 'US') return explicit;
+    // Path deep-links: /en|zh/hk/... → HKEX, /en|zh/us/... → US
+    const path = String(location.pathname || '');
+    if (/^\/(en|zh)\/hk(\/|$)/i.test(path)) return 'HKEX';
+    if (/^\/(en|zh)\/us(\/|$)/i.test(path)) return 'US';
     return /(?:^|[/:#])\d{4,5}\.HK(?:[/:]|$)/i.test(decodeURIComponent(location.hash || '')) ? 'HKEX' : 'US';
   }
   const market = resolve();

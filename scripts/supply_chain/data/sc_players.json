@@ -2886,5 +2886,222 @@
       "META",
       "BKNG"
     ]
+  },
+  "svod-streaming-v1": {
+    "cloud-cdn": [
+      "MSFT",
+      "NET",
+      "AKAM"
+    ],
+    "devices": [
+      "SONY",
+      "MSFT",
+      "ROKU"
+    ],
+    "advertising": [
+      "GOOG",
+      "META",
+      "TTD"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "isp-distribution": [
+      "CHTR",
+      "T",
+      "VZ"
+    ]
+  },
+  "studio-parks-v1": {
+    "cloud-cdn": [
+      "MSFT",
+      "NET",
+      "GOOG"
+    ],
+    "devices": [
+      "AAPL",
+      "SONY",
+      "ROKU"
+    ],
+    "parks-ops": [
+      "SYY",
+      "USFD",
+      "ECL"
+    ],
+    "advertising": [
+      "GOOG",
+      "TTD",
+      "APP"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "AXP"
+    ]
+  },
+  "film-studio-v1": {
+    "cloud-post": [
+      "AMZN",
+      "MSFT",
+      "GOOG"
+    ],
+    "production-gear": [
+      "SONY",
+      "AAPL"
+    ],
+    "marketing": [
+      "GOOG",
+      "META",
+      "TTD"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ]
+  },
+  "live-events-v1": {
+    "venue-systems": [
+      "JCI",
+      "TT",
+      "CARR"
+    ],
+    "advertising": [
+      "GOOG",
+      "META",
+      "TTD"
+    ],
+    "media-distribution": [
+      "NFLX",
+      "AMZN",
+      "ROKU"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ]
+  },
+  "broadcast-sports-v1": {
+    "sports-content": [
+      "TKO",
+      "LYV"
+    ],
+    "cloud-cdn": [
+      "AMZN",
+      "MSFT",
+      "NET"
+    ],
+    "advertising": [
+      "GOOG",
+      "META",
+      "TTD"
+    ],
+    "isp-distribution": [
+      "CHTR",
+      "T",
+      "VZ"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ]
+  },
+  "motorsports-media-v1": {
+    "cloud-cdn": [
+      "AMZN",
+      "MSFT",
+      "NET"
+    ],
+    "advertising": [
+      "GOOG",
+      "META",
+      "TTD"
+    ],
+    "isp-distribution": [
+      "CHTR",
+      "T",
+      "VZ"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "live-partners": [
+      "TKO"
+    ]
+  },
+  "ctv-ads-v1": {
+    "cloud-cdn": [
+      "AMZN",
+      "MSFT",
+      "NET"
+    ],
+    "content-apps": [
+      "NFLX",
+      "DIS",
+      "CMCSA"
+    ],
+    "devices": [
+      "SONY",
+      "AAPL"
+    ],
+    "advertising-reach": [
+      "GOOG",
+      "META"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ]
+  },
+  "news-publishing-v1": {
+    "cloud-infra": [
+      "AMZN",
+      "MSFT",
+      "GOOG"
+    ],
+    "advertising": [
+      "GOOG",
+      "META",
+      "TTD"
+    ],
+    "social-distribution": [
+      "SNAP",
+      "RDDT",
+      "PINS"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ]
+  },
+  "music-label-v1": {
+    "dsp-distribution": [
+      "SPOT",
+      "AAPL",
+      "AMZN"
+    ],
+    "cloud-infra": [
+      "MSFT",
+      "NET",
+      "AKAM"
+    ],
+    "marketing": [
+      "GOOG",
+      "META",
+      "APP"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ]
   }
 }

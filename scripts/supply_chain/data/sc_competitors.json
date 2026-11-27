@@ -3495,11 +3495,6 @@
       "Streaming content rival"
     ],
     [
-      "WBD",
-      "串流內容對手",
-      "Streaming content rival"
-    ],
-    [
       "CMCSA",
       "串流／寬頻內容對手",
       "Streaming/broadband content rival"
@@ -3520,11 +3515,6 @@
       "NFLX",
       "串流對手",
       "Streaming rival"
-    ],
-    [
-      "WBD",
-      "串流／影視對手",
-      "Streaming/studio rival"
     ],
     [
       "CMCSA",
@@ -9372,29 +9362,24 @@
   ],
   "LYV": [
     [
-      "NFLX",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
-    ],
-    [
-      "DIS",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "TKO",
+      "現場／體育娛樂對手",
+      "Live / sports-entertainment rival"
     ],
     [
       "FOXA",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
-    ],
-    [
-      "FOX",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "體育媒體對手",
+      "Sports-media rival"
     ],
     [
       "FWONA",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "賽事媒體對手",
+      "Motorsports-media rival"
+    ],
+    [
+      "DIS",
+      "主題娛樂／體育媒體對手",
+      "Theme/sports-media rival"
     ]
   ],
   "HLN": [
@@ -12289,29 +12274,24 @@
   ],
   "FOXA": [
     [
-      "NFLX",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
-    ],
-    [
       "DIS",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "體育／廣播媒體對手",
+      "Sports/broadcast media rival"
     ],
     [
-      "LYV",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "CMCSA",
+      "廣播／電信媒體對手",
+      "Broadcast/telecom media rival"
     ],
     [
-      "FOX",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "NFLX",
+      "串流內容對手",
+      "Streaming content rival"
     ],
     [
       "FWONA",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "賽事媒體對手",
+      "Motorsports-media rival"
     ]
   ],
   "BBD": [
@@ -12733,29 +12713,24 @@
   ],
   "FOX": [
     [
-      "NFLX",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
-    ],
-    [
       "DIS",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "體育／廣播媒體對手",
+      "Sports/broadcast media rival"
     ],
     [
-      "LYV",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "CMCSA",
+      "廣播／電信媒體對手",
+      "Broadcast/telecom media rival"
     ],
     [
-      "FOXA",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "NFLX",
+      "串流內容對手",
+      "Streaming content rival"
     ],
     [
       "FWONA",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "賽事媒體對手",
+      "Motorsports-media rival"
     ]
   ],
   "EME": [
@@ -13208,29 +13183,24 @@
   ],
   "FWONA": [
     [
-      "NFLX",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "FOXA",
+      "體育媒體對手",
+      "Sports-media rival"
     ],
     [
       "DIS",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "體育媒體對手",
+      "Sports-media rival"
     ],
     [
-      "LYV",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "NFLX",
+      "串流內容對手",
+      "Streaming content rival"
     ],
     [
-      "FOXA",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
-    ],
-    [
-      "FOX",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "CMCSA",
+      "廣播媒體對手",
+      "Broadcast media rival"
     ]
   ],
   "FCNCA": [
@@ -13936,29 +13906,24 @@
   ],
   "FWONK": [
     [
-      "NFLX",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "FOXA",
+      "體育媒體對手",
+      "Sports-media rival"
     ],
     [
       "DIS",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "體育媒體對手",
+      "Sports-media rival"
     ],
     [
-      "LYV",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "NFLX",
+      "串流內容對手",
+      "Streaming content rival"
     ],
     [
-      "FOXA",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
-    ],
-    [
-      "FOX",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "CMCSA",
+      "廣播媒體對手",
+      "Broadcast media rival"
     ]
   ],
   "VTRS": [
@@ -16387,19 +16352,19 @@
   ],
   "NWSA": [
     [
-      "NWS",
-      "Publishing產品／市場對手",
-      "Publishing product/market rival"
-    ],
-    [
       "NYT",
-      "Publishing產品／市場對手",
-      "Publishing product/market rival"
+      "新聞／出版對手",
+      "News / publishing rival"
     ],
     [
       "PSO",
-      "Publishing產品／市場對手",
-      "Publishing product/market rival"
+      "出版對手",
+      "Publishing rival"
+    ],
+    [
+      "RELX",
+      "資訊／出版對手",
+      "Info / publishing rival"
     ]
   ],
   "PFGC": [
@@ -16852,29 +16817,14 @@
   ],
   "WMG": [
     [
-      "NFLX",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
-    ],
-    [
-      "DIS",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "SONY",
+      "音樂／廠牌對手",
+      "Music / label rival"
     ],
     [
       "LYV",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
-    ],
-    [
-      "FOXA",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
-    ],
-    [
-      "FOX",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "現場音樂／娛樂對手",
+      "Live-music / entertainment rival"
     ]
   ],
   "CRL": [
@@ -17256,19 +17206,19 @@
   ],
   "NWS": [
     [
-      "NWSA",
-      "Publishing產品／市場對手",
-      "Publishing product/market rival"
-    ],
-    [
       "NYT",
-      "Publishing產品／市場對手",
-      "Publishing product/market rival"
+      "新聞／出版對手",
+      "News / publishing rival"
     ],
     [
       "PSO",
-      "Publishing產品／市場對手",
-      "Publishing product/market rival"
+      "出版對手",
+      "Publishing rival"
+    ],
+    [
+      "RELX",
+      "資訊／出版對手",
+      "Info / publishing rival"
     ]
   ],
   "EMA": [
@@ -18677,29 +18627,24 @@
   ],
   "TKO": [
     [
-      "NFLX",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
-    ],
-    [
-      "DIS",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
-    ],
-    [
       "LYV",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "現場娛樂對手",
+      "Live-entertainment rival"
     ],
     [
       "FOXA",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "體育媒體對手",
+      "Sports-media rival"
     ],
     [
-      "FOX",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "DIS",
+      "體育媒體對手",
+      "Sports-media rival"
+    ],
+    [
+      "FWONA",
+      "賽事媒體對手",
+      "Motorsports-media rival"
     ]
   ],
   "TIGO": [
@@ -21339,18 +21284,18 @@
   "NYT": [
     [
       "NWSA",
-      "Publishing產品／市場對手",
-      "Publishing product/market rival"
-    ],
-    [
-      "NWS",
-      "Publishing產品／市場對手",
-      "Publishing product/market rival"
+      "新聞／出版對手",
+      "News / publishing rival"
     ],
     [
       "PSO",
-      "Publishing產品／市場對手",
-      "Publishing product/market rival"
+      "出版對手",
+      "Publishing rival"
+    ],
+    [
+      "RELX",
+      "資訊／出版對手",
+      "Info / publishing rival"
     ]
   ],
   "DPZ": [
@@ -21927,18 +21872,18 @@
   "PSO": [
     [
       "NWSA",
-      "Publishing產品／市場對手",
-      "Publishing product/market rival"
-    ],
-    [
-      "NWS",
-      "Publishing產品／市場對手",
-      "Publishing product/market rival"
+      "新聞／出版對手",
+      "News / publishing rival"
     ],
     [
       "NYT",
-      "Publishing產品／市場對手",
-      "Publishing product/market rival"
+      "新聞／出版對手",
+      "News / publishing rival"
+    ],
+    [
+      "RELX",
+      "資訊／出版對手",
+      "Info / publishing rival"
     ]
   ],
   "EGP": [
@@ -22804,29 +22749,24 @@
   ],
   "LLYVK": [
     [
-      "NFLX",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
-    ],
-    [
-      "DIS",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
-    ],
-    [
-      "LYV",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "TKO",
+      "現場／體育娛樂對手",
+      "Live / sports-entertainment rival"
     ],
     [
       "FOXA",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "體育媒體對手",
+      "Sports-media rival"
     ],
     [
-      "FOX",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "FWONA",
+      "賽事媒體對手",
+      "Motorsports-media rival"
+    ],
+    [
+      "DIS",
+      "主題娛樂／體育媒體對手",
+      "Theme/sports-media rival"
     ]
   ],
   "DCI": [
@@ -24299,29 +24239,24 @@
   ],
   "SKYD": [
     [
-      "NFLX",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
-    ],
-    [
       "DIS",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "製片／影視對手",
+      "Studio / film rival"
     ],
     [
-      "LYV",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "NFLX",
+      "內容平台對手",
+      "Content-platform rival"
     ],
     [
       "FOXA",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "影視／電視內容對手",
+      "Film/TV content rival"
     ],
     [
-      "FOX",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "CMCSA",
+      "影視內容對手",
+      "Studio content rival"
     ]
   ],
   "MHK": [

@@ -11,6 +11,24 @@
       "ringoringo721-dcf-historical-chart-fix": false
     }
   },
+  "rewrites": [
+    {
+      "source": "/en/us/supply-chain/:ticker([A-Za-z0-9][A-Za-z0-9.-]*)",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/zh/us/supply-chain/:ticker([A-Za-z0-9][A-Za-z0-9.-]*)",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/en/hk/supply-chain/:ticker([A-Za-z0-9][A-Za-z0-9.-]*)",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/zh/hk/supply-chain/:ticker([A-Za-z0-9][A-Za-z0-9.-]*)",
+      "destination": "/index.html"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
