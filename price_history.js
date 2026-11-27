@@ -145,7 +145,7 @@
     if (!/^[A-Z0-9]+(?:[.-][A-Z0-9]+)*$/.test(ticker)) throw new TypeError('Invalid price ticker');
     if (reload || !cache.has(ticker)) {
       const promise = (async () => {
-        const path = `cache/price_charts/${encodeURIComponent(ticker)}.json`;
+        const path = `/cache/price_charts/${encodeURIComponent(ticker)}.json`;
         let chartError = null;
         try {
           const response = await fetch(path, { cache: reload ? 'reload' : 'default' });

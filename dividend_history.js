@@ -494,7 +494,7 @@
     // Never reuse a statements-only fallback from memory when we can retry FMP.
     if (!reload && cached && !cached.fallback) return Promise.resolve(cached);
 
-    const local = fetch(`cache/dividends/${encodeURIComponent(ticker)}.json`)
+    const local = fetch(`/cache/dividends/${encodeURIComponent(ticker)}.json`)
       .then(async (response) => {
         if (!response.ok) throw new Error('MISSING_DIVIDEND_CACHE');
         const record = validateCache(await response.json(), ticker);
@@ -520,7 +520,7 @@
         });
     };
 
-    const statementsFallback = () => fetch(`cache/financials/${encodeURIComponent(ticker)}_statements_v2.json`)
+    const statementsFallback = () => fetch(`/cache/financials/${encodeURIComponent(ticker)}_statements_v2.json`)
       .then(async (response) => {
         if (!response.ok) throw new Error('MISSING_STATEMENT_FALLBACK');
         const statements = await response.json();

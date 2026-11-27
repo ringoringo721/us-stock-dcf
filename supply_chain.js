@@ -10,7 +10,7 @@
   'use strict';
 
   const TAB_KEY = 'supply-chain';
-  const CACHE_DIR = 'cache/supply-chain';
+  const CACHE_DIR = '/cache/supply-chain';
 
   function symbol(value) {
     return typeof value === 'string' ? value.trim().toUpperCase() : '';
@@ -540,6 +540,28 @@
     }
     const needHeight = Math.ceil(maxY + bottomPad);
     if (needHeight > height) height = needHeight;
+
+    // Pull endpoints back to each node's rim so marker-end arrowheads are not
+    // buried under the destination circle (edges previously terminated at centers).
+    const nodesById = Object.fromEntries(allNodes.map(node => [node.id, node]));
+    edges.forEach(edge => {
+      const from = nodesById[edge.from];
+      const to = nodesById[edge.to];
+      if (!from || !to) return;
+      const dx = edge.x2 - edge.x1;
+      const dy = edge.y2 - edge.y1;
+      const len = Math.hypot(dx, dy) || 1;
+      const ux = dx / len;
+      const uy = dy / len;
+      const tipPad = edge.kind === 'flow-chain' ? 3 : 2;
+      const startInset = (from.r || 0) + tipPad;
+      const endInset = (to.r || 0) + tipPad;
+      if (startInset + endInset >= len - 4) return;
+      edge.x1 += ux * startInset;
+      edge.y1 += uy * startInset;
+      edge.x2 -= ux * endInset;
+      edge.y2 -= uy * endInset;
+    });
 
     return {
       width,

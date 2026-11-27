@@ -47,6 +47,12 @@ const server = http.createServer((req, res) => {
   let filename;
   try { filename = decodeURIComponent(url.pathname); }
   catch { res.writeHead(400).end(); return; }
+  // SPA deep links: /en|zh/(us|hk)/supply-chain/{TICKER} → index.html
+  // Ticker-shaped only (reject site_theme.js etc. if <base href> is missing).
+  if (/^\/(en|zh)\/(us|hk)\/supply-chain\/[A-Za-z0-9][A-Za-z0-9.-]*\/?$/i.test(filename)
+      && !/\.(js|css|json|map|png|jpg|svg|ico|webp)$/i.test(filename)) {
+    filename = '/index.html';
+  }
   const file = path.resolve(root, '.' + (filename === '/' ? '/index.html' : filename));
   if (!file.startsWith(root + path.sep)) { res.writeHead(403).end(); return; }
   fs.readFile(file, (error, body) => {

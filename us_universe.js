@@ -112,7 +112,7 @@
     }
     if (refresh) pending.delete(ticker);
     if (!pending.has(ticker)) {
-      const request = root.fetch(`cache/us_companies/${ticker}.json`, { cache: refresh ? 'reload' : 'default' })
+      const request = root.fetch(`/cache/us_companies/${ticker}.json`, { cache: refresh ? 'reload' : 'default' })
         .then(response => {
           if (!response.ok) throw new Error(`US_COMPANY_HTTP_${response.status}`);
           return response.json();

@@ -1998,32 +1998,6 @@
       "TSLA"
     ]
   },
-  "CHH": {
-    "inputs": [
-      "ADM",
-      "NKE",
-      "DIS"
-    ],
-    "logistics": [
-      "UPS",
-      "FDX",
-      "UNP"
-    ],
-    "stores": [
-      "SBUX",
-      "MCD"
-    ],
-    "payments": [
-      "V",
-      "MA",
-      "AXP"
-    ],
-    "traffic": [
-      "GOOG",
-      "META",
-      "BKNG"
-    ]
-  },
   "ANDG": {
     "software": [
       "MSFT",

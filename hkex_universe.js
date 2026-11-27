@@ -66,7 +66,7 @@
     if (!/^\d{4,5}\.HK$/.test(ticker)) return Promise.reject(new Error('INVALID_HK_TICKER'));
     if (refresh) pending.delete(ticker);
     if (!pending.has(ticker)) {
-      const request = root.fetch(`cache/hk_companies/${ticker}.json`, { cache: refresh ? 'reload' : 'default' })
+      const request = root.fetch(`/cache/hk_companies/${ticker}.json`, { cache: refresh ? 'reload' : 'default' })
         .then(response => {
           if (!response.ok) throw new Error(`HK_COMPANY_HTTP_${response.status}`);
           return response.json();

@@ -8,7 +8,7 @@
       "historical-price-eod/full"
     ]
   },
-  "capturedAt": "2026-11-26T04:56:20.714Z",
+  "capturedAt": "2026-11-27T04:58:26.556Z",
   "indexes": [
     {
       "id": "GSPC",
@@ -16,8 +16,8 @@
       "kind": "major",
       "labelZh": "標普500",
       "labelEn": "S&P 500",
-      "price": 7185.96,
-      "changePct": -0.21011,
+      "price": 7182.78,
+      "changePct": -0.25427,
       "sparkline": [
         7666.45,
         7722.72,
@@ -67,7 +67,7 @@
       "kind": "major",
       "labelZh": "納斯達克綜合",
       "labelEn": "NASDAQ Composite",
-      "price": 23585.8023,
+      "price": 23585.803,
       "changePct": -0.62246,
       "sparkline": [
         26871.6,
@@ -169,8 +169,8 @@
       "kind": "major",
       "labelZh": "羅素2000",
       "labelEn": "Russell 2000",
-      "price": 2704.06123,
-      "changePct": 0.71209,
+      "price": 2704.061,
+      "changePct": 0.71208,
       "sparkline": [
         2806.63,
         2832.89,
@@ -220,8 +220,8 @@
       "kind": "major",
       "labelZh": "VIX 波動率",
       "labelEn": "VIX",
-      "price": 28.29,
-      "changePct": 7.3217,
+      "price": 26.8,
+      "changePct": -5.26688,
       "sparkline": [
         16.39,
         15.31,

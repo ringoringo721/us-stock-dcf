@@ -106,11 +106,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "24,100.00 M",
     "shareSource": {
       "shares": 24100.0,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000088/q3fy27pr.htm",
-      "capturedAt": "2026-11-26T03:42:19Z"
+      "capturedAt": "2026-11-27T03:43:04Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 3598130.0,
@@ -655,7 +655,7 @@ window.FULL_MARKET_DATA = {
           25.0,
           24.0,
           24.0,
-          0.0
+          266666.0
         ],
         "retainedEarnings": [
           16235.0,
@@ -679,7 +679,7 @@ window.FULL_MARKET_DATA = {
           0.0,
           0.0,
           0.0,
-          266666.0
+          0.0
         ],
         "totalStockholdersEquity": [
           26612.0,
@@ -2316,7 +2316,7 @@ window.FULL_MARKET_DATA = {
             24.0,
             24.0,
             24.0,
-            0.0
+            266666.0
           ],
           "retainedEarnings": [
             16235.0,
@@ -2382,7 +2382,7 @@ window.FULL_MARKET_DATA = {
             0.0,
             0.0,
             0.0,
-            266666.0
+            0.0
           ],
           "totalStockholdersEquity": [
             26612.0,
@@ -3358,8 +3358,8 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
-        "evidenceHash": "52428105f188cab79ead6f82ea2bc0062978c8338cbd32bbdc9e93bc27693860"
+        "checkedAt": "2026-11-27T04:16:04.892Z",
+        "evidenceHash": "6529f5620777caa7cb6bc3cf6e0d9dbadc46d7fec35089e5093b0f9242f1b177"
       },
       "mScore": {
         "asOfDate": "2026-01-25",
@@ -3370,8 +3370,8 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
-        "evidenceHash": "52428105f188cab79ead6f82ea2bc0062978c8338cbd32bbdc9e93bc27693860"
+        "checkedAt": "2026-11-27T04:16:04.892Z",
+        "evidenceHash": "6529f5620777caa7cb6bc3cf6e0d9dbadc46d7fec35089e5093b0f9242f1b177"
       }
     },
     "fin_valuation": {
@@ -3548,7 +3548,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "NVDA",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-10-25",
       "filingDate": "2026-11-17",
       "quoteDate": "2026-11-25",
@@ -3580,11 +3580,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 24100000000,
       "shareSource": {
         "shares": 24100,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000088/q3fy27pr.htm",
-        "capturedAt": "2026-11-26T03:42:19Z"
+        "capturedAt": "2026-11-27T03:43:04Z"
       }
     },
     "z_score": 48.45,
@@ -3914,11 +3914,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "14,532.20 M",
     "shareSource": {
       "shares": 14532.2,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/320193/000032019326000026/aapl-20260926.htm",
-      "capturedAt": "2026-11-26T03:42:27Z"
+      "capturedAt": "2026-11-27T03:43:14Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 5167359.7,
@@ -4036,16 +4036,16 @@ window.FULL_MARKET_DATA = {
           0.0,
           7458.0,
           8077.0,
-          0.0,
-          6683.0
+          8640.0,
+          8640.0
         ],
         "sellingAndMarketingExpenses": [
           0.0,
           0.0,
           18639.0,
           19524.0,
-          0.0,
-          15632.0
+          21134.0,
+          21134.0
         ],
         "sellingGeneralAndAdministrativeExpenses": [
           25094.0,
@@ -4956,7 +4956,7 @@ window.FULL_MARKET_DATA = {
             2095.0,
             2276.0,
             2312.0,
-            0.0
+            1957.0
           ],
           "sellingAndMarketingExpenses": [
             0.0,
@@ -4978,7 +4978,7 @@ window.FULL_MARKET_DATA = {
             5397.0,
             5201.0,
             5034.0,
-            0.0
+            5502.0
           ],
           "sellingGeneralAndAdministrativeExpenses": [
             6449.0,
@@ -7166,8 +7166,8 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
-        "evidenceHash": "355ff72a628e3836fe3b601ae875594a1931b782747ded3ce034666c24e014ba"
+        "checkedAt": "2026-11-27T04:16:04.892Z",
+        "evidenceHash": "99ac62917d5d72ba2c41755e4002a0ddb7a797efa98b60711657db3f08d1cc8a"
       },
       "mScore": {
         "asOfDate": "2026-09-26",
@@ -7178,8 +7178,8 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
-        "evidenceHash": "355ff72a628e3836fe3b601ae875594a1931b782747ded3ce034666c24e014ba"
+        "checkedAt": "2026-11-27T04:16:04.892Z",
+        "evidenceHash": "99ac62917d5d72ba2c41755e4002a0ddb7a797efa98b60711657db3f08d1cc8a"
       }
     },
     "fin_valuation": {
@@ -7350,7 +7350,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AAPL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-26",
       "filingDate": "2026-11-03",
       "quoteDate": "2026-11-25",
@@ -7382,11 +7382,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 14532200000,
       "shareSource": {
         "shares": 14532.2,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/320193/000032019326000026/aapl-20260926.htm",
-        "capturedAt": "2026-11-26T03:42:27Z"
+        "capturedAt": "2026-11-27T03:43:14Z"
       }
     },
     "z_score": 13.14,
@@ -7716,11 +7716,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "7,426.19 M",
     "shareSource": {
       "shares": 7426.19,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/789019/000119312526436133/msft-20260930.htm",
-      "capturedAt": "2026-11-26T03:42:34Z"
+      "capturedAt": "2026-11-27T03:43:22Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 3638313.3,
@@ -10968,7 +10968,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "f095029de1675e32bab3d67c7e0637ef677ce8110ea5c18a61866406b85565ce"
       },
       "mScore": {
@@ -10980,7 +10980,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "f095029de1675e32bab3d67c7e0637ef677ce8110ea5c18a61866406b85565ce"
       }
     },
@@ -11176,7 +11176,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MSFT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-11-25",
@@ -11208,11 +11208,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 7426190000,
       "shareSource": {
         "shares": 7426.19,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/789019/000119312526436133/msft-20260930.htm",
-        "capturedAt": "2026-11-26T03:42:34Z"
+        "capturedAt": "2026-11-27T03:43:22Z"
       }
     },
     "z_score": 8.75,
@@ -11542,11 +11542,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "4,773.63 M",
     "shareSource": {
       "shares": 4773.629865,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1730168/000173016826000080/avgo-20260802.htm",
-      "capturedAt": "2026-11-26T03:42:43Z"
+      "capturedAt": "2026-11-27T03:43:30Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 1436194.3,
@@ -14794,7 +14794,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "6ea4c0062ef1694d8b000ff47745e98d11a79673f33efa143b3c35656648f372"
       },
       "mScore": {
@@ -14806,7 +14806,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "6ea4c0062ef1694d8b000ff47745e98d11a79673f33efa143b3c35656648f372"
       }
     },
@@ -14954,7 +14954,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AVGO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-08-02",
       "filingDate": "2026-09-10",
       "quoteDate": "2026-11-25",
@@ -14986,11 +14986,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 4773629865,
       "shareSource": {
         "shares": 4773.629865,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1730168/000173016826000080/avgo-20260802.htm",
-        "capturedAt": "2026-11-26T03:42:43Z"
+        "capturedAt": "2026-11-27T03:43:30Z"
       }
     },
     "z_score": 10.64,
@@ -15320,11 +15320,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "3,023.74 M",
     "shareSource": {
       "shares": 3023.74,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526389274/orcl-20260831.htm",
-      "capturedAt": "2026-11-26T03:42:50Z"
+      "capturedAt": "2026-11-27T03:43:38Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 314106.1,
@@ -18567,7 +18567,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "04ae54c572eab8434f13c47de43c0a3610821273761ea7344e476920b72ccbe2"
       },
       "mScore": {
@@ -18579,7 +18579,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "04ae54c572eab8434f13c47de43c0a3610821273761ea7344e476920b72ccbe2"
       }
     },
@@ -18781,7 +18781,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ORCL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-08-31",
       "filingDate": "2026-09-11",
       "quoteDate": "2026-11-25",
@@ -18813,11 +18813,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 3023740000,
       "shareSource": {
         "shares": 3023.74,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526389274/orcl-20260831.htm",
-        "capturedAt": "2026-11-26T03:42:50Z"
+        "capturedAt": "2026-11-27T03:43:38Z"
       }
     },
     "z_score": 1.42,
@@ -19147,11 +19147,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "823.00 M",
     "shareSource": {
       "shares": 823.0,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1108524/000110852426000190/crm-20260731.htm",
-      "capturedAt": "2026-11-26T03:43:08Z"
+      "capturedAt": "2026-11-27T03:43:46Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 162303.8,
@@ -22398,7 +22398,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "7a50d5f720c8f6739397c02543dab3efab5b499567e78ddee6b9e67e5fd66e53"
       },
       "mScore": {
@@ -22410,7 +22410,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "7a50d5f720c8f6739397c02543dab3efab5b499567e78ddee6b9e67e5fd66e53"
       }
     },
@@ -22558,7 +22558,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CRM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-07-31",
       "filingDate": "2026-08-27",
       "quoteDate": "2026-11-25",
@@ -22590,11 +22590,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 823000000,
       "shareSource": {
         "shares": 823,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1108524/000110852426000190/crm-20260731.htm",
-        "capturedAt": "2026-11-26T03:43:08Z"
+        "capturedAt": "2026-11-27T03:43:46Z"
       }
     },
     "z_score": 2.66,
@@ -22924,11 +22924,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "1,640.09 M",
     "shareSource": {
       "shares": 1640.09,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000191/amd-20260926.htm",
-      "capturedAt": "2026-11-26T03:43:16Z"
+      "capturedAt": "2026-11-27T03:43:54Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 665925.7,
@@ -26176,7 +26176,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "f187e5a7b8a74149cf4fa4b9c426575c563f1a6efe7b570e7516268e17602a3c"
       },
       "mScore": {
@@ -26188,7 +26188,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "f187e5a7b8a74149cf4fa4b9c426575c563f1a6efe7b570e7516268e17602a3c"
       }
     },
@@ -26366,7 +26366,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AMD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-26",
       "filingDate": "2026-11-04",
       "quoteDate": "2026-11-25",
@@ -26398,11 +26398,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 1640090000,
       "shareSource": {
         "shares": 1640.09,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000191/amd-20260926.htm",
-        "capturedAt": "2026-11-26T03:43:16Z"
+        "capturedAt": "2026-11-27T03:43:54Z"
       }
     },
     "z_score": 29.72,
@@ -26736,7 +26736,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/858877/000085887726000185/csco-20261024.htm",
-      "capturedAt": "2026-11-26T03:43:24Z"
+      "capturedAt": "2026-11-27T03:44:03Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 371378.6,
@@ -29984,7 +29984,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "e95fa02367decb98f6886892ed698a38be54e257bd729ebf6d188aa469fe5265"
       },
       "mScore": {
@@ -29996,7 +29996,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "e95fa02367decb98f6886892ed698a38be54e257bd729ebf6d188aa469fe5265"
       }
     },
@@ -30192,7 +30192,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CSCO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-10-24",
       "filingDate": "2026-11-17",
       "quoteDate": "2026-11-25",
@@ -30228,7 +30228,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/858877/000085887726000185/csco-20261024.htm",
-        "capturedAt": "2026-11-26T03:43:24Z"
+        "capturedAt": "2026-11-27T03:44:03Z"
       }
     },
     "z_score": 3.73,
@@ -30553,22 +30553,22 @@ window.FULL_MARKET_DATA = {
     "industry": "IT Consulting & Other Services",
     "reportedCurrency": "USD",
     "price": 240.49,
-    "shares": 590.737507,
-    "shares_outstanding": 590737507,
+    "shares": 590.737485,
+    "shares_outstanding": 590737485,
     "shares_display": "590.74 M",
     "shareSource": {
-      "shares": 590.737507,
-      "date": "2026-11-25",
+      "shares": 590.737485,
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000049/acn-20260831.htm",
-      "capturedAt": "2026-11-26T03:43:31Z"
+      "capturedAt": "2026-11-27T03:44:11Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 142066.5,
-    "liq_val_1": -14.404936031935415,
-    "liq_val_2": -24.444858890600287,
-    "liq_val_3": -46.55689993288339,
+    "liq_val_1": -14.404936568398059,
+    "liq_val_2": -24.444859800965567,
+    "liq_val_3": -46.55690166673612,
     "debt": 13397.0,
     "cash": 12837.8,
     "short_term_investments": 6.3,
@@ -33810,7 +33810,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "e5efab2d35d3aa6a0cf04a598a5fe745fe3d3caf8e4c707dbdf77025ca20e025"
       },
       "mScore": {
@@ -33822,7 +33822,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "e5efab2d35d3aa6a0cf04a598a5fe745fe3d3caf8e4c707dbdf77025ca20e025"
       }
     },
@@ -33963,7 +33963,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ACN",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-08-31",
       "filingDate": "2026-10-16",
       "quoteDate": "2026-11-25",
@@ -33982,7 +33982,7 @@ window.FULL_MARKET_DATA = {
         "currency": "USD",
         "date": "2026-11-25",
         "price": 240.49,
-        "marketCap": 142066463058
+        "marketCap": 142066457768
       },
       "amounts": {
         "currentAssets": 31831140000,
@@ -33992,14 +33992,14 @@ window.FULL_MARKET_DATA = {
         "inventory": 0,
         "preferredStock": 0
       },
-      "sharesOutstanding": 590737507,
+      "sharesOutstanding": 590737485,
       "shareSource": {
-        "shares": 590.737507,
-        "date": "2026-11-25",
+        "shares": 590.737485,
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000049/acn-20260831.htm",
-        "capturedAt": "2026-11-26T03:43:31Z"
+        "capturedAt": "2026-11-27T03:44:11Z"
       }
     },
     "z_score": 4.27,
@@ -34329,11 +34329,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "389.20 M",
     "shareSource": {
       "shares": 389.2,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/796343/000079634326000156/adbe-20260828.htm",
-      "capturedAt": "2026-11-26T03:43:39Z"
+      "capturedAt": "2026-11-27T03:44:19Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 90617.4,
@@ -37580,7 +37580,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "1a29fa7db8363d5acc5b5cf80d5af9d04b1b4310289fc688dd8d4cc62cd365d0"
       },
       "mScore": {
@@ -37592,7 +37592,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "1a29fa7db8363d5acc5b5cf80d5af9d04b1b4310289fc688dd8d4cc62cd365d0"
       }
     },
@@ -37770,7 +37770,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ADBE",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-08-28",
       "filingDate": "2026-09-22",
       "quoteDate": "2026-11-25",
@@ -37802,11 +37802,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 389200000,
       "shareSource": {
         "shares": 389.2,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/796343/000079634326000156/adbe-20260828.htm",
-        "capturedAt": "2026-11-26T03:43:39Z"
+        "capturedAt": "2026-11-27T03:44:19Z"
       }
     },
     "z_score": 7.01,
@@ -38136,11 +38136,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "1,070.00 M",
     "shareSource": {
       "shares": 1070.0,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/804328/000080432826000128/qcom-20260927.htm",
-      "capturedAt": "2026-11-26T03:43:47Z"
+      "capturedAt": "2026-11-27T03:44:28Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 180466.2,
@@ -41388,7 +41388,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "fc7962aacd3f70b8f276879a89e8b187d46640fd2da0d92980f30254d245f438"
       },
       "mScore": {
@@ -41400,7 +41400,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "fc7962aacd3f70b8f276879a89e8b187d46640fd2da0d92980f30254d245f438"
       }
     },
@@ -41566,7 +41566,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "QCOM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-27",
       "filingDate": "2026-11-04",
       "quoteDate": "2026-11-25",
@@ -41598,11 +41598,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 1070000000,
       "shareSource": {
         "shares": 1070,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/804328/000080432826000128/qcom-20260927.htm",
-        "capturedAt": "2026-11-26T03:43:47Z"
+        "capturedAt": "2026-11-27T03:44:28Z"
       }
     },
     "z_score": 5.65,
@@ -41932,11 +41932,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "913.77 M",
     "shareSource": {
       "shares": 913.77,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/97476/000009747626000169/txn-20260930.htm",
-      "capturedAt": "2026-11-26T03:43:54Z"
+      "capturedAt": "2026-11-27T03:44:36Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 246891.5,
@@ -45184,7 +45184,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "56f794db48e867b575866f2f4b6fd78e5c47029fe8e6247ddc62b796d1cccd7e"
       },
       "mScore": {
@@ -45196,7 +45196,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "56f794db48e867b575866f2f4b6fd78e5c47029fe8e6247ddc62b796d1cccd7e"
       }
     },
@@ -45218,11 +45218,11 @@ window.FULL_MARKET_DATA = {
     "country": "US",
     "phone": "214 479 3773",
     "full_address": "12500 TI Boulevard, Dallas, TX 75243, US",
-    "range_52w": "162.05-334.03",
+    "range_52w": "165.42-334.03",
     "year_high": 334.03,
-    "year_low": 162.05,
+    "year_low": 165.42,
     "all_time_high": 0.0,
-    "all_time_low": 162.05,
+    "all_time_low": 165.42,
     "inst_ownership_pct": null,
     "insider_ownership_pct": null,
     "top_holders": [],
@@ -45374,7 +45374,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TXN",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-23",
       "quoteDate": "2026-11-25",
@@ -45406,11 +45406,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 913770000,
       "shareSource": {
         "shares": 913.77,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/97476/000009747626000169/txn-20260930.htm",
-        "capturedAt": "2026-11-26T03:43:54Z"
+        "capturedAt": "2026-11-27T03:44:36Z"
       }
     },
     "z_score": 11.68,
@@ -45740,11 +45740,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "945.12 M",
     "shareSource": {
       "shares": 945.120805,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/51143/000005114326000095/ibm-20260930.htm",
-      "capturedAt": "2026-11-26T03:44:02Z"
+      "capturedAt": "2026-11-27T03:44:44Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 230108.6,
@@ -48992,7 +48992,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "9c2f79779bcb6af784c52a5d747163fd6b4d7277facd6461e297cd5e850ec339"
       },
       "mScore": {
@@ -49004,7 +49004,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "9c2f79779bcb6af784c52a5d747163fd6b4d7277facd6461e297cd5e850ec339"
       }
     },
@@ -49194,7 +49194,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "IBM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-22",
       "quoteDate": "2026-11-25",
@@ -49226,11 +49226,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 945120805,
       "shareSource": {
         "shares": 945.120805,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/51143/000005114326000095/ibm-20260930.htm",
-        "capturedAt": "2026-11-26T03:44:02Z"
+        "capturedAt": "2026-11-27T03:44:44Z"
       }
     },
     "z_score": 3.28,
@@ -49564,11 +49564,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "5,315.00 M",
     "shareSource": {
       "shares": 5315.0,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/50863/000005086326000191/intc-20260926.htm",
-      "capturedAt": "2026-11-26T03:44:10Z"
+      "capturedAt": "2026-11-27T03:44:53Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 289508.0,
@@ -50331,7 +50331,7 @@ window.FULL_MARKET_DATA = {
           7024.0,
           687.0,
           -3750.0,
-          507.0
+          -444.0
         ],
         "commonStockIssued": [
           0.0,
@@ -50339,7 +50339,7 @@ window.FULL_MARKET_DATA = {
           4001.0,
           12714.0,
           14398.0,
-          27449.0
+          4832.0
         ],
         "commonStockRepurchased": [
           -2415.0,
@@ -50347,7 +50347,7 @@ window.FULL_MARKET_DATA = {
           0.0,
           0.0,
           0.0,
-          -617.0
+          0.0
         ],
         "dividendsPaid": [
           -5644.0,
@@ -50355,7 +50355,7 @@ window.FULL_MARKET_DATA = {
           -3088.0,
           -1599.0,
           0.0,
-          -14339.0
+          0.0
         ],
         "otherFinancingActivites": [
           -626.0,
@@ -50363,7 +50363,7 @@ window.FULL_MARKET_DATA = {
           568.0,
           -664.0,
           939.0,
-          9674.0
+          16222.0
         ],
         "netCashUsedProvidedByFinancingActivities": [
           -6211.0,
@@ -52325,8 +52325,8 @@ window.FULL_MARKET_DATA = {
             -4247.0,
             -3493.0,
             -1500.0,
-            5500.0,
-            0.0
+            4668.0,
+            -119.0
           ],
           "commonStockIssued": [
             0.0,
@@ -52348,7 +52348,7 @@ window.FULL_MARKET_DATA = {
             4096.0,
             427.0,
             0.0,
-            22926.0
+            309.0
           ],
           "commonStockRepurchased": [
             0.0,
@@ -52369,7 +52369,7 @@ window.FULL_MARKET_DATA = {
             0.0,
             0.0,
             0.0,
-            -617.0,
+            0.0,
             0.0
           ],
           "dividendsPaid": [
@@ -52391,7 +52391,7 @@ window.FULL_MARKET_DATA = {
             0.0,
             0.0,
             0.0,
-            -14339.0,
+            0.0,
             0.0
           ],
           "otherFinancingActivites": [
@@ -52413,8 +52413,8 @@ window.FULL_MARKET_DATA = {
             5376.0,
             5246.0,
             -133.0,
-            4178.0,
-            383.0
+            -12010.0,
+            23119.0
           ],
           "netCashUsedProvidedByFinancingActivities": [
             -3806.0,
@@ -52730,7 +52730,7 @@ window.FULL_MARKET_DATA = {
     "pe_forward": 21.1,
     "pb_trailing": 2.5193449014045286,
     "pb_forward": 2.2,
-    "div_yield": 4.95,
+    "div_yield": 0.0,
     "ps_ratio": 19.2,
     "fcf_to_ev": 1.32,
     "fcf_to_mcap": 1.3,
@@ -52816,8 +52816,8 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
-        "evidenceHash": "0e4b578949b8af4a53be57effdceb3fc4424b0d9f0cae004fc95f5b9732688c4"
+        "checkedAt": "2026-11-27T04:16:04.892Z",
+        "evidenceHash": "39942f9ba7572bb55aa4b66ad69a1bb52f00891fd43f82237b138d0f390397b6"
       },
       "mScore": {
         "asOfDate": "2025-12-27",
@@ -52828,8 +52828,8 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
-        "evidenceHash": "0e4b578949b8af4a53be57effdceb3fc4424b0d9f0cae004fc95f5b9732688c4"
+        "checkedAt": "2026-11-27T04:16:04.892Z",
+        "evidenceHash": "39942f9ba7572bb55aa4b66ad69a1bb52f00891fd43f82237b138d0f390397b6"
       }
     },
     "fin_valuation": {
@@ -53030,7 +53030,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "INTC",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-26",
       "filingDate": "2026-10-30",
       "quoteDate": "2026-11-25",
@@ -53062,11 +53062,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 5315000000,
       "shareSource": {
         "shares": 5315,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/50863/000005086326000191/intc-20260926.htm",
-        "capturedAt": "2026-11-26T03:44:10Z"
+        "capturedAt": "2026-11-27T03:44:53Z"
       }
     },
     "z_score": 2.84,
@@ -53391,22 +53391,22 @@ window.FULL_MARKET_DATA = {
     "industry": "Application Software",
     "reportedCurrency": "USD",
     "price": 271.72,
-    "shares": 267.236,
-    "shares_outstanding": 267236000,
-    "shares_display": "267.24 M",
+    "shares": 264.015027,
+    "shares_outstanding": 264015026,
+    "shares_display": "264.02 M",
     "shareSource": {
-      "shares": 267.236,
-      "date": "2026-11-25",
+      "shares": 264.015027,
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/896878/000089687826000045/intu-20261031.htm",
-      "capturedAt": "2026-11-26T03:44:18Z"
+      "capturedAt": "2026-11-27T03:45:02Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 72613.4,
-    "liq_val_1": -12.633028484186262,
-    "liq_val_2": -43.603406726638624,
-    "liq_val_3": -45.43549521771019,
+    "mcap": 71738.2,
+    "liq_val_1": -12.787150985868509,
+    "liq_val_2": -44.135366749921275,
+    "liq_val_3": -45.989806655928746,
     "debt": 7711.0,
     "cash": 5321.0,
     "short_term_investments": 1279.0,
@@ -56478,12 +56478,12 @@ window.FULL_MARKET_DATA = {
     "g1": 10.8,
     "g2": 6.0,
     "g": 2.25,
-    "wacc": 8.36,
-    "ev": 75003.4,
-    "fmp_official_ev": 75003.4,
+    "wacc": 8.35,
+    "ev": 74128.2,
+    "fmp_official_ev": 74128.2,
     "enterpriseValueBasis": "USD market capitalization + USD debt - USD cash and short-term investments",
-    "dcf_model_ev": 215041.6,
-    "ev_to_ebitda": 9.9,
+    "dcf_model_ev": 215248.4,
+    "ev_to_ebitda": 9.8,
     "debt_to_ebitda": 1.02,
     "net_debt_to_ebitda": 0.31,
     "f_score": 9,
@@ -56552,18 +56552,18 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 795.74,
-    "default_fair_val": 795.74,
-    "premium_pct": -65.9,
+    "fair_val": 806.24,
+    "default_fair_val": 806.24,
+    "premium_pct": -66.3,
     "is_undervalued": true,
-    "pe_trailing": 15.1,
-    "pe_forward": 13.3,
-    "pb_trailing": 3.9820893885385247,
-    "pb_forward": 3.6,
-    "div_yield": 1.91,
+    "pe_trailing": 14.9,
+    "pe_forward": 13.1,
+    "pb_trailing": 3.9340937757060597,
+    "pb_forward": 3.5,
+    "div_yield": 1.93,
     "ps_ratio": 2.0,
-    "fcf_to_ev": 12.07,
-    "fcf_to_mcap": 12.46,
+    "fcf_to_ev": 12.21,
+    "fcf_to_mcap": 12.62,
     "liab_to_assets": 48.918706930360244,
     "cash_to_assets": 14.905596952210207,
     "current_ratio": 1.4449687147399732,
@@ -56646,7 +56646,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "0dbb30bb1720b5576a774363c3f59a2a9c8adf217117a60f34e6f02a38a0f12e"
       },
       "mScore": {
@@ -56658,7 +56658,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "0dbb30bb1720b5576a774363c3f59a2a9c8adf217117a60f34e6f02a38a0f12e"
       }
     },
@@ -56818,7 +56818,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "INTU",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-10-31",
       "filingDate": "2026-11-19",
       "quoteDate": "2026-11-25",
@@ -56837,7 +56837,7 @@ window.FULL_MARKET_DATA = {
         "currency": "USD",
         "date": "2026-11-25",
         "price": 271.72,
-        "marketCap": 72613365920
+        "marketCap": 71738163136
       },
       "amounts": {
         "currentAssets": 14087000000,
@@ -56847,17 +56847,17 @@ window.FULL_MARKET_DATA = {
         "inventory": 0,
         "preferredStock": 0
       },
-      "sharesOutstanding": 267236000,
+      "sharesOutstanding": 264015026,
       "shareSource": {
-        "shares": 267.236,
-        "date": "2026-11-25",
+        "shares": 264.015027,
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/896878/000089687826000045/intu-20261031.htm",
-        "capturedAt": "2026-11-26T03:44:18Z"
+        "capturedAt": "2026-11-27T03:45:02Z"
       }
     },
-    "z_score": 4.49,
+    "z_score": 4.46,
     "z_score_model": "z",
     "z_score_zone": "superRobust",
     "z_score_breakdown": [
@@ -56913,12 +56913,12 @@ window.FULL_MARKET_DATA = {
         "desc": "市值權益 / 總負債 (X4)",
         "desc_en": "Market equity / Total liabilities (X4)",
         "weight": 0.6,
-        "value": 4.080780038215129,
-        "contribution": 2.448468022929077,
+        "value": 4.0315949196358325,
+        "contribution": 2.4189569517814995,
         "passed": null,
-        "detail": "4.0808 × 0.6 = 2.4485",
-        "detail_zh": "4.0808 × 0.6 = 2.4485",
-        "detail_en": "4.0808 × 0.6 = 2.4485",
+        "detail": "4.0316 × 0.6 = 2.4190",
+        "detail_zh": "4.0316 × 0.6 = 2.4190",
+        "detail_en": "4.0316 × 0.6 = 2.4190",
         "reason": null
       },
       {
@@ -57184,11 +57184,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "1,037.92 M",
     "shareSource": {
       "shares": 1037.917,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1373715/000137371526000096/now-20260930.htm",
-      "capturedAt": "2026-11-26T03:44:25Z"
+      "capturedAt": "2026-11-27T03:45:10Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 95654.4,
@@ -60430,7 +60430,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "3497e7457c2afda10e42ccc22adf65dd03072d9dc039e26a90bae895490e3c7f"
       },
       "mScore": {
@@ -60442,7 +60442,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "3497e7457c2afda10e42ccc22adf65dd03072d9dc039e26a90bae895490e3c7f"
       }
     },
@@ -60590,7 +60590,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "NOW",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-11-25",
@@ -60622,11 +60622,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 1037916999,
       "shareSource": {
         "shares": 1037.917,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1373715/000137371526000096/now-20260930.htm",
-        "capturedAt": "2026-11-26T03:44:25Z"
+        "capturedAt": "2026-11-27T03:45:10Z"
       }
     },
     "z_score": 5.47,
@@ -60956,11 +60956,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "793.60 M",
     "shareSource": {
       "shares": 793.597443,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/6951/000162828026073360/exhibit991q42026earningsre.htm",
-      "capturedAt": "2026-11-26T03:44:33Z"
+      "capturedAt": "2026-11-27T03:45:18Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 246951.7,
@@ -64208,7 +64208,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "b0786cfddccb53e06ac82e1fd3fb96ae2bedf8f04279fb6054e7a4a8e956afba"
       },
       "mScore": {
@@ -64220,7 +64220,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "b0786cfddccb53e06ac82e1fd3fb96ae2bedf8f04279fb6054e7a4a8e956afba"
       }
     },
@@ -64242,11 +64242,11 @@ window.FULL_MARKET_DATA = {
     "country": "US",
     "phone": "408 727 5555",
     "full_address": "3050 Bowers Ave, Santa Clara, CA 95052-8039, US",
-    "range_52w": "242.83-739.67",
+    "range_52w": "246.92-739.67",
     "year_high": 739.67,
-    "year_low": 242.83,
+    "year_low": 246.92,
     "all_time_high": 0.0,
-    "all_time_low": 242.83,
+    "all_time_low": 246.92,
     "inst_ownership_pct": null,
     "insider_ownership_pct": null,
     "top_holders": [],
@@ -64416,7 +64416,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AMAT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-10-25",
       "filingDate": "2026-11-12",
       "quoteDate": "2026-11-25",
@@ -64448,11 +64448,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 793597443,
       "shareSource": {
         "shares": 793.597443,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/6951/000162828026073360/exhibit991q42026earningsre.htm",
-        "capturedAt": "2026-11-26T03:44:33Z"
+        "capturedAt": "2026-11-27T03:45:18Z"
       }
     },
     "z_score": 13.53,
@@ -64782,11 +64782,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "1,249.17 M",
     "shareSource": {
       "shares": 1249.171,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/707549/000070754926000054/lrcx-20260927.htm",
-      "capturedAt": "2026-11-26T03:44:40Z"
+      "capturedAt": "2026-11-27T03:45:26Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 231109.1,
@@ -68034,7 +68034,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "fa4f2d4b7e19a688d4d2c98b168f92fbc3df467ffcf730ec2bb592c48e265214"
       },
       "mScore": {
@@ -68046,7 +68046,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "fa4f2d4b7e19a688d4d2c98b168f92fbc3df467ffcf730ec2bb592c48e265214"
       }
     },
@@ -68068,11 +68068,11 @@ window.FULL_MARKET_DATA = {
     "country": "US",
     "phone": "510 572 0200",
     "full_address": "4650 Cushing Parkway, Fremont, CA 94538, US",
-    "range_52w": "152.5-438.5",
+    "range_52w": "153.15-438.5",
     "year_high": 438.5,
-    "year_low": 152.5,
+    "year_low": 153.15,
     "all_time_high": 0.0,
-    "all_time_low": 152.5,
+    "all_time_low": 153.15,
     "inst_ownership_pct": null,
     "insider_ownership_pct": null,
     "top_holders": [],
@@ -68206,7 +68206,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "LRCX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-27",
       "filingDate": "2026-10-22",
       "quoteDate": "2026-11-25",
@@ -68238,11 +68238,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 1249171000,
       "shareSource": {
         "shares": 1249.171,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/707549/000070754926000054/lrcx-20260927.htm",
-        "capturedAt": "2026-11-26T03:44:40Z"
+        "capturedAt": "2026-11-27T03:45:26Z"
       }
     },
     "z_score": 17.26,
@@ -68572,11 +68572,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "1,131.42 M",
     "shareSource": {
       "shares": 1131.42,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000023/mu-20260903.htm",
-      "capturedAt": "2026-11-26T03:44:47Z"
+      "capturedAt": "2026-11-27T03:45:35Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 680266.3,
@@ -71824,7 +71824,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "5c9335060b75f2422e8a59b0aff511933544c72402bd7e8ad3ac4410bbfbab2d"
       },
       "mScore": {
@@ -71836,7 +71836,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "5c9335060b75f2422e8a59b0aff511933544c72402bd7e8ad3ac4410bbfbab2d"
       }
     },
@@ -71996,7 +71996,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MU",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-03",
       "filingDate": "2026-10-09",
       "quoteDate": "2026-11-25",
@@ -72028,11 +72028,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 1131420000,
       "shareSource": {
         "shares": 1131.42,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000023/mu-20260903.htm",
-        "capturedAt": "2026-11-26T03:44:47Z"
+        "capturedAt": "2026-11-27T03:45:35Z"
       }
     },
     "z_score": 10.78,
@@ -72326,11 +72326,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "5,186.48 M",
     "shareSource": {
       "shares": 5186.48,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1046179/000104617926000801/a2026q3consolidatedreport-.htm",
-      "capturedAt": "2026-11-26T03:44:55Z"
+      "capturedAt": "2026-11-27T03:45:43Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 1775539.6,
@@ -75668,15 +75668,15 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "TWD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "d29a0fca6cca3ed8a8311b0cee2a2b48100a4c0250f6b6b484102a71d825b7f4",
         "mcapFx": {
-          "asOf": "2026-11-25",
+          "asOf": "2026-11-26",
           "from": "USD",
           "to": "TWD",
           "fromUsdPerUnit": 1,
           "toUsdPerUnit": 0.030330603579011222,
-          "fromObservationDate": "2026-11-25",
+          "fromObservationDate": "2026-11-26",
           "toObservationDate": "2026-11-20"
         }
       },
@@ -75689,7 +75689,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "TWD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "d29a0fca6cca3ed8a8311b0cee2a2b48100a4c0250f6b6b484102a71d825b7f4"
       }
     },
@@ -75963,7 +75963,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TSM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-13",
       "quoteDate": "2026-11-25",
@@ -75996,11 +75996,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 5186480000,
       "shareSource": {
         "shares": 5186.48,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1046179/000104617926000801/a2026q3consolidatedreport-.htm",
-        "capturedAt": "2026-11-26T03:44:55Z"
+        "capturedAt": "2026-11-27T03:45:43Z"
       }
     },
     "z_score": 16.42,
@@ -76332,11 +76332,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "21.38 M",
     "shareSource": {
       "shares": 21.380929,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/814547/000081454726000042/fico-20260930.htm",
-      "capturedAt": "2026-11-26T03:45:03Z"
+      "capturedAt": "2026-11-27T03:45:52Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 14962.6,
@@ -79579,7 +79579,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "6bb7e3f89f9f331fb9d8751059cd9f57e489f349d2fad3d2fd4c21c30bf8469a"
       },
       "mScore": {
@@ -79591,7 +79591,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "6bb7e3f89f9f331fb9d8751059cd9f57e489f349d2fad3d2fd4c21c30bf8469a"
       }
     },
@@ -79757,7 +79757,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "FICO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-06",
       "quoteDate": "2026-11-25",
@@ -79789,11 +79789,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 21380929,
       "shareSource": {
         "shares": 21.380929,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/814547/000081454726000042/fico-20260930.htm",
-        "capturedAt": "2026-11-26T03:45:03Z"
+        "capturedAt": "2026-11-27T03:45:52Z"
       }
     },
     "z_score": 8.11,
@@ -80123,11 +80123,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "209.00 M",
     "shareSource": {
       "shares": 209.0,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/769397/000076939726000071/adsk-20261031.htm",
-      "capturedAt": "2026-11-26T03:45:11Z"
+      "capturedAt": "2026-11-27T03:46:00Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 51578.1,
@@ -83374,7 +83374,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "1cbdefc5615b2ffad089ce64b09913b6ffaf348667d0b8e9652d010bd43c883e"
       },
       "mScore": {
@@ -83386,7 +83386,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "1cbdefc5615b2ffad089ce64b09913b6ffaf348667d0b8e9652d010bd43c883e"
       }
     },
@@ -83408,8 +83408,8 @@ window.FULL_MARKET_DATA = {
     "country": "US",
     "phone": "415 507 5000",
     "full_address": "One Market Street, San Francisco, CA 94105, US",
-    "range_52w": "185.5-320",
-    "year_high": 320.0,
+    "range_52w": "185.5-312.62",
+    "year_high": 312.62,
     "year_low": 185.5,
     "all_time_high": 0.0,
     "all_time_low": 185.5,
@@ -83552,7 +83552,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ADSK",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-10-31",
       "filingDate": "2026-11-25",
       "quoteDate": "2026-11-25",
@@ -83584,11 +83584,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 209000000,
       "shareSource": {
         "shares": 209,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/769397/000076939726000071/adsk-20261031.htm",
-        "capturedAt": "2026-11-26T03:45:11Z"
+        "capturedAt": "2026-11-27T03:46:00Z"
       }
     },
     "z_score": 4.1,
@@ -83918,11 +83918,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "39.76 M",
     "shareSource": {
       "shares": 39.759524,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/860731/000086073126000058/tyl-20260930.htm",
-      "capturedAt": "2026-11-26T03:45:18Z"
+      "capturedAt": "2026-11-27T03:46:09Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 16710.1,
@@ -87163,7 +87163,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "07bdc0a88e12657c333064bbeea945e950ece98564e6d3c3528e7590f0e02bbd"
       },
       "mScore": {
@@ -87175,7 +87175,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "07bdc0a88e12657c333064bbeea945e950ece98564e6d3c3528e7590f0e02bbd"
       }
     },
@@ -87197,8 +87197,8 @@ window.FULL_MARKET_DATA = {
     "country": "US",
     "phone": "972 713 3700",
     "full_address": "5101 Tennyson Parkway, Plano, TX 75024, US",
-    "range_52w": "270.71-473.31",
-    "year_high": 473.31,
+    "range_52w": "270.71-472",
+    "year_high": 472.0,
     "year_low": 270.71,
     "all_time_high": 0.0,
     "all_time_low": 270.71,
@@ -87341,7 +87341,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TYL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-11-25",
@@ -87373,11 +87373,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 39759524,
       "shareSource": {
         "shares": 39.759524,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/860731/000086073126000058/tyl-20260930.htm",
-        "capturedAt": "2026-11-26T03:45:18Z"
+        "capturedAt": "2026-11-27T03:46:09Z"
       }
     },
     "z_score": 6.38,
@@ -87707,11 +87707,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "35.46 M",
     "shareSource": {
       "shares": 35.455775,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1433195/000143319526000064/appf-20260930.htm",
-      "capturedAt": "2026-11-26T03:45:26Z"
+      "capturedAt": "2026-11-27T03:46:17Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 7534.4,
@@ -90954,7 +90954,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "758d28e707d82d3e401d7b815450074348b54f13c5ebd45f53736377e7b33f5d"
       },
       "mScore": {
@@ -90966,7 +90966,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "758d28e707d82d3e401d7b815450074348b54f13c5ebd45f53736377e7b33f5d"
       }
     },
@@ -91107,7 +91107,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "APPF",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-22",
       "quoteDate": "2026-11-25",
@@ -91126,7 +91126,7 @@ window.FULL_MARKET_DATA = {
         "currency": "USD",
         "date": "2026-11-25",
         "price": 212.5,
-        "marketCap": 7534352400
+        "marketCap": 7534352188
       },
       "amounts": {
         "currentAssets": 407372000,
@@ -91139,11 +91139,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 35455775,
       "shareSource": {
         "shares": 35.455775,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1433195/000143319526000064/appf-20260930.htm",
-        "capturedAt": "2026-11-26T03:45:26Z"
+        "capturedAt": "2026-11-27T03:46:17Z"
       }
     },
     "z_score": 34.34,
@@ -91473,11 +91473,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "99.62 M",
     "shareSource": {
       "shares": 99.618115,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1856314/000185631426000055/you-20260930.htm",
-      "capturedAt": "2026-11-26T03:45:33Z"
+      "capturedAt": "2026-11-27T03:46:25Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 5417.2,
@@ -94725,7 +94725,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "42540b3817f3721f60977d53aaccf218a4c8179b5d519b3d1c2b3bec7d256dcc"
       },
       "mScore": {
@@ -94737,7 +94737,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "42540b3817f3721f60977d53aaccf218a4c8179b5d519b3d1c2b3bec7d256dcc"
       }
     },
@@ -94878,7 +94878,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "YOU",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-04",
       "quoteDate": "2026-11-25",
@@ -94910,11 +94910,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 99618115,
       "shareSource": {
         "shares": 99.618115,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1856314/000185631426000055/you-20260930.htm",
-        "capturedAt": "2026-11-26T03:45:33Z"
+        "capturedAt": "2026-11-27T03:46:25Z"
       }
     },
     "z_score": 4.3,
@@ -95244,11 +95244,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "43.86 M",
     "shareSource": {
       "shares": 43.8604,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/780571/000078057126000233/itri-20260930.htm",
-      "capturedAt": "2026-11-26T03:45:43Z"
+      "capturedAt": "2026-11-27T03:46:34Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 4421.6,
@@ -98490,7 +98490,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "aa4147e471596a3ec1d04a10d6c9c4000eb4b37a77d250b58a83793a2fe87e0b"
       },
       "mScore": {
@@ -98502,7 +98502,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "aa4147e471596a3ec1d04a10d6c9c4000eb4b37a77d250b58a83793a2fe87e0b"
       }
     },
@@ -98643,7 +98643,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ITRI",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-27",
       "quoteDate": "2026-11-25",
@@ -98675,11 +98675,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 43860400,
       "shareSource": {
         "shares": 43.8604,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/780571/000078057126000233/itri-20260930.htm",
-        "capturedAt": "2026-11-26T03:45:43Z"
+        "capturedAt": "2026-11-27T03:46:34Z"
       }
     },
     "z_score": 2.6,
@@ -99009,11 +99009,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "191.64 M",
     "shareSource": {
       "shares": 191.636646,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/883241/000088324126000025/snps-20260731.htm",
-      "capturedAt": "2026-11-26T03:45:50Z"
+      "capturedAt": "2026-11-27T03:46:42Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 77630.1,
@@ -102259,7 +102259,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "c09ef06575ca79d9bf9e77db2f57f3f7c3ee4d60f85f10ab8a291e47369eaa9c"
       },
       "mScore": {
@@ -102271,7 +102271,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "c09ef06575ca79d9bf9e77db2f57f3f7c3ee4d60f85f10ab8a291e47369eaa9c"
       }
     },
@@ -102425,7 +102425,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "SNPS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-07-31",
       "filingDate": "2026-08-26",
       "quoteDate": "2026-11-25",
@@ -102457,11 +102457,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 191636646,
       "shareSource": {
         "shares": 191.636646,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/883241/000088324126000025/snps-20260731.htm",
-        "capturedAt": "2026-11-26T03:45:50Z"
+        "capturedAt": "2026-11-27T03:46:42Z"
       }
     },
     "z_score": 2.97,
@@ -102791,11 +102791,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "113.11 M",
     "shareSource": {
       "shares": 113.106,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1383312/000162828026069260/br-20260930.htm",
-      "capturedAt": "2026-11-26T03:45:58Z"
+      "capturedAt": "2026-11-27T03:46:50Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 21166.7,
@@ -106040,7 +106040,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "296592c6174ce6905aec5976700a0b9e772ff2cbe6de3e80076673c5d206bf69"
       },
       "mScore": {
@@ -106052,7 +106052,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "296592c6174ce6905aec5976700a0b9e772ff2cbe6de3e80076673c5d206bf69"
       }
     },
@@ -106193,7 +106193,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "BR",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-03",
       "quoteDate": "2026-11-25",
@@ -106225,11 +106225,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 113106000,
       "shareSource": {
         "shares": 113.106,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1383312/000162828026069260/br-20260930.htm",
-        "capturedAt": "2026-11-26T03:45:58Z"
+        "capturedAt": "2026-11-27T03:46:50Z"
       }
     },
     "z_score": 4.15,
@@ -106559,11 +106559,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "1,302.96 M",
     "shareSource": {
       "shares": 1302.962435,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000034/klac-20260930.htm",
-      "capturedAt": "2026-11-26T03:46:05Z"
+      "capturedAt": "2026-11-27T03:46:59Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 174857.6,
@@ -109811,7 +109811,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "63da13c3ccc8c8a8124dc1cff66aa041fa28e475472ab58a7302614a0d2527a9"
       },
       "mScore": {
@@ -109823,7 +109823,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "63da13c3ccc8c8a8124dc1cff66aa041fa28e475472ab58a7302614a0d2527a9"
       }
     },
@@ -109845,11 +109845,11 @@ window.FULL_MARKET_DATA = {
     "country": "US",
     "phone": "408 875 3000",
     "full_address": "One Technology Drive, Milpitas, CA 95035, US",
-    "range_52w": "114.487-307.37",
+    "range_52w": "115.1-307.37",
     "year_high": 307.37,
-    "year_low": 114.487,
+    "year_low": 115.1,
     "all_time_high": 0.0,
-    "all_time_low": 114.487,
+    "all_time_low": 115.1,
     "inst_ownership_pct": null,
     "insider_ownership_pct": null,
     "top_holders": [],
@@ -110001,7 +110001,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "KLAC",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-11-25",
@@ -110033,11 +110033,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 1302962435,
       "shareSource": {
         "shares": 1302.962435,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000034/klac-20260930.htm",
-        "capturedAt": "2026-11-26T03:46:05Z"
+        "capturedAt": "2026-11-27T03:46:59Z"
       }
     },
     "z_score": 11.67,
@@ -110367,11 +110367,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "875.77 M",
     "shareSource": {
       "shares": 875.766423,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1835632/000183563226000025/mrvl-20260801.htm",
-      "capturedAt": "2026-11-26T03:46:13Z"
+      "capturedAt": "2026-11-27T03:47:07Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 114664.1,
@@ -113619,7 +113619,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "044f084578bc5eed6e9610ff2a371f94f93c95a9704ff7ad2e92dc7ff870ea5b"
       },
       "mScore": {
@@ -113631,7 +113631,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "044f084578bc5eed6e9610ff2a371f94f93c95a9704ff7ad2e92dc7ff870ea5b"
       }
     },
@@ -113785,7 +113785,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MRVL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-08-01",
       "filingDate": "2026-08-28",
       "quoteDate": "2026-11-25",
@@ -113817,11 +113817,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 875766423,
       "shareSource": {
         "shares": 875.766423,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1835632/000183563226000025/mrvl-20260801.htm",
-        "capturedAt": "2026-11-26T03:46:13Z"
+        "capturedAt": "2026-11-27T03:47:07Z"
       }
     },
     "z_score": 9.73,
@@ -114151,11 +114151,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "274.38 M",
     "shareSource": {
       "shares": 274.379,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/813672/000081367226000121/cdns-20260930.htm",
-      "capturedAt": "2026-11-26T03:46:21Z"
+      "capturedAt": "2026-11-27T03:47:16Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 80911.6,
@@ -117397,7 +117397,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "6b4e95c85817eed5d476c61169e5f3db577861a6f6ea537a80decb3a5c7082c1"
       },
       "mScore": {
@@ -117409,7 +117409,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "6b4e95c85817eed5d476c61169e5f3db577861a6f6ea537a80decb3a5c7082c1"
       }
     },
@@ -117575,7 +117575,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CDNS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-11-25",
@@ -117607,11 +117607,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 274379000,
       "shareSource": {
         "shares": 274.379,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/813672/000081367226000121/cdns-20260930.htm",
-        "capturedAt": "2026-11-26T03:46:21Z"
+        "capturedAt": "2026-11-27T03:47:16Z"
       }
     },
     "z_score": 12.73,
@@ -117941,11 +117941,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "734.71 M",
     "shareSource": {
       "shares": 734.709741,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1262039/000126203926000027/ftnt-20260930.htm",
-      "capturedAt": "2026-11-26T03:46:30Z"
+      "capturedAt": "2026-11-27T03:47:24Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 99156.4,
@@ -121193,7 +121193,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "4239e8a938449c3535708837a7f9299a9fa06607f3e24f2679867d3bd01cb9a4"
       },
       "mScore": {
@@ -121205,7 +121205,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "4239e8a938449c3535708837a7f9299a9fa06607f3e24f2679867d3bd01cb9a4"
       }
     },
@@ -121359,7 +121359,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "FTNT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
       "quoteDate": "2026-11-25",
@@ -121391,11 +121391,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 734709741,
       "shareSource": {
         "shares": 734.709741,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1262039/000126203926000027/ftnt-20260930.htm",
-        "capturedAt": "2026-11-26T03:46:30Z"
+        "capturedAt": "2026-11-27T03:47:24Z"
       }
     },
     "z_score": 7.87,
@@ -121725,11 +121725,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "821.00 M",
     "shareSource": {
       "shares": 821.0,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1327567/000132756726000033/panw-20261031.htm",
-      "capturedAt": "2026-11-26T03:46:37Z"
+      "capturedAt": "2026-11-27T03:47:33Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 292390.9,
@@ -124976,7 +124976,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "769f5dbe614a96f352bf99bb22151bead5f0115306a738f016e0f322764daa48"
       },
       "mScore": {
@@ -124988,7 +124988,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "769f5dbe614a96f352bf99bb22151bead5f0115306a738f016e0f322764daa48"
       }
     },
@@ -125142,7 +125142,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "PANW",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-10-31",
       "filingDate": "2026-11-19",
       "quoteDate": "2026-11-25",
@@ -125174,11 +125174,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 821000000,
       "shareSource": {
         "shares": 821,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1327567/000132756726000033/panw-20261031.htm",
-        "capturedAt": "2026-11-26T03:46:37Z"
+        "capturedAt": "2026-11-27T03:47:33Z"
       }
     },
     "z_score": 8.69,
@@ -125512,7 +125512,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000038/crwd-20261031.htm",
-      "capturedAt": "2026-11-26T03:46:45Z"
+      "capturedAt": "2026-11-27T03:47:41Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 215703.9,
@@ -128760,7 +128760,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "e24816f538a2d3516209de9ec53663fbd3ec4f24b495f25763cdf55f7fb11bc4"
       },
       "mScore": {
@@ -128772,7 +128772,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "e24816f538a2d3516209de9ec53663fbd3ec4f24b495f25763cdf55f7fb11bc4"
       }
     },
@@ -128783,7 +128783,7 @@ window.FULL_MARKET_DATA = {
     "logo": "https://images.financialmodelingprep.com/symbol/CRWD.png",
     "website": "https://www.crowdstrike.com",
     "ceo": "George R. Kurtz",
-    "full_time_employees": "10698",
+    "full_time_employees": "11706",
     "description": "CrowdStrike Holdings, Inc. delivers cloud-native cybersecurity solutions. Its comprehensive suite safeguards endpoints, cloud workloads, user identities, and critical data. The company's offerings span a wide range, including threat intelligence, managed security services, IT operations management, proactive threat hunting, Zero Trust identity protection, and log management capabilities. CrowdStrike primarily generates revenue through subscription sales of its flagship Falcon platform and its array of cloud modules. These offerings are distributed globally via a direct sales force, augmented by an extensive network of channel partners. Established in 2011, the company is headquartered in Austin, Texas.",
     "description_en": "CrowdStrike Holdings, Inc. delivers cloud-native cybersecurity solutions. Its comprehensive suite safeguards endpoints, cloud workloads, user identities, and critical data. The company's offerings span a wide range, including threat intelligence, managed security services, IT operations management, proactive threat hunting, Zero Trust identity protection, and log management capabilities. CrowdStrike primarily generates revenue through subscription sales of its flagship Falcon platform and its array of cloud modules. These offerings are distributed globally via a direct sales force, augmented by an extensive network of channel partners. Established in 2011, the company is headquartered in Austin, Texas.",
     "description_zh": "CrowdStrike Holdings, Inc. (CRWD) 的核心業務為雲端原生網路安全解決方案，旨在防護企業端點、雲端工作負載、使用者身份及關鍵資料。其產品服務範疇廣泛，涵蓋威脅情資、託管式資安服務、IT營運管理、主動威脅獵捕、零信任身份保護與日誌管理等。公司主要營收來自於旗下旗艦級Falcon平台及其多樣雲端模組的訂閱制銷售。透過直銷團隊與廣泛的通路夥伴網絡，服務全球市場。",
@@ -128920,7 +128920,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CRWD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-10-31",
       "filingDate": "2026-11-23",
       "quoteDate": "2026-11-25",
@@ -128956,7 +128956,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000038/crwd-20261031.htm",
-        "capturedAt": "2026-11-26T03:46:45Z"
+        "capturedAt": "2026-11-27T03:47:41Z"
       }
     },
     "z_score": 20.16,
@@ -129281,22 +129281,22 @@ window.FULL_MARKET_DATA = {
     "industry": "Application Software",
     "reportedCurrency": "USD",
     "price": 180.44,
-    "shares": 241.0,
-    "shares_outstanding": 241000000,
-    "shares_display": "241.00 M",
+    "shares": 238.000003,
+    "shares_outstanding": 238000003,
+    "shares_display": "238.00 M",
     "shareSource": {
-      "shares": 241.0,
-      "date": "2026-11-26",
+      "shares": 238.000003,
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1327811/000132781126000058/wday-20261031.htm",
-      "capturedAt": "2026-11-26T03:46:52Z"
+      "capturedAt": "2026-11-27T03:47:50Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 43486.0,
-    "liq_val_1": -14.705394190871369,
-    "liq_val_2": -19.01576763485477,
-    "liq_val_3": -25.601659751037346,
+    "mcap": 42944.7,
+    "liq_val_1": -14.890756114822402,
+    "liq_val_2": -19.255461942158043,
+    "liq_val_3": -25.924369421121394,
     "debt": 6201.0,
     "cash": 5684.0,
     "short_term_investments": 3184.0,
@@ -132369,12 +132369,12 @@ window.FULL_MARKET_DATA = {
     "g1": 12.2,
     "g2": 6.8,
     "g": 2.25,
-    "wacc": 8.58,
-    "ev": 44003.0,
-    "fmp_official_ev": 44003.0,
+    "wacc": 8.57,
+    "ev": 43461.7,
+    "fmp_official_ev": 43461.7,
     "enterpriseValueBasis": "USD market capitalization + USD debt - USD cash and short-term investments",
-    "dcf_model_ev": 72873.4,
-    "ev_to_ebitda": 26.8,
+    "dcf_model_ev": 72969.2,
+    "ev_to_ebitda": 26.5,
     "debt_to_ebitda": 3.78,
     "net_debt_to_ebitda": 0.31,
     "f_score": 6,
@@ -132443,18 +132443,18 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 300.23,
-    "default_fair_val": 300.23,
-    "premium_pct": -39.9,
+    "fair_val": 304.42,
+    "default_fair_val": 304.42,
+    "premium_pct": -40.7,
     "is_undervalued": true,
-    "pe_trailing": 35.2,
-    "pe_forward": 31.0,
-    "pb_trailing": 6.93003984063745,
-    "pb_forward": 6.2,
+    "pe_trailing": 34.7,
+    "pe_forward": 30.5,
+    "pb_trailing": 6.843776892430278,
+    "pb_forward": 6.1,
     "div_yield": 0.0,
     "ps_ratio": 3.6,
-    "fcf_to_ev": 6.78,
-    "fcf_to_mcap": 6.86,
+    "fcf_to_ev": 6.87,
+    "fcf_to_mcap": 6.95,
     "liab_to_assets": 65.38694908709802,
     "cash_to_assets": 31.35308069943185,
     "current_ratio": 1.2518830973184694,
@@ -132537,7 +132537,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "3caf31f4cdb8abe1f1a0e9f0f2b995a6f68f0a67c1a97459491595dbd12eb80a"
       },
       "mScore": {
@@ -132549,7 +132549,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "3caf31f4cdb8abe1f1a0e9f0f2b995a6f68f0a67c1a97459491595dbd12eb80a"
       }
     },
@@ -132560,7 +132560,7 @@ window.FULL_MARKET_DATA = {
     "logo": "https://images.financialmodelingprep.com/symbol/WDAY.png",
     "website": "https://www.workday.com",
     "ceo": "Aneel Bhusri",
-    "full_time_employees": "20896",
+    "full_time_employees": "20941",
     "description": "Workday, Inc. delivers comprehensive, cloud-hosted enterprise software solutions to clients worldwide. These platforms empower organizations to strategize, operate, examine performance, integrate with existing systems, and oversee their overall business functions. A core offering includes a robust suite of financial management tools. These are designed to assist Chief Financial Officers (CFOs) in meticulously maintaining general ledger accounting data, streamlining financial workflows, gaining instant insights into financial and operational metrics, optimizing consolidation, accelerating month-end closes, bolstering internal controls and audit readiness, and ensuring uniformity throughout their financial activities. Workday also provides cloud-based spend management solutions. These facilitate smoother supplier engagement and contract administration, optimize the handling of indirect expenditures, and enable the effective execution of sourcing initiatives, including requests for proposals (RFPs). Its Human Capital Management (HCM) platform stands out, offering a comprehensive set of applications for overseeing the entire employee journey—from initial recruitment through to retirement. This empowers HR departments to efficiently handle hiring, onboarding, payroll, talent development, reskilling programs, and to cultivate exceptional employee experiences. Furthermore, the company offers dedicated applications for business planning, alongside powerful analytics and reporting capabilities. These advanced tools feature augmented analytics that translate complex data into easily digestible narratives for business users, leverage machine learning for enhanced operational efficiency and automation, and provide benchmarking features to compare performance against industry peers. Workday's diverse clientele spans numerous sectors, including professional and business services, financial institutions, healthcare providers, educational bodies, government agencies, technology firms, media organizations, retailers, and the hospitality industry. Originally incorporated in 2005 as North Tahoe Power Tools, Inc., the company adopted the name Workday, Inc. in July of the same year. Its corporate headquarters are located in Pleasanton, California.",
     "description_en": "Workday, Inc. delivers comprehensive, cloud-hosted enterprise software solutions to clients worldwide. These platforms empower organizations to strategize, operate, examine performance, integrate with existing systems, and oversee their overall business functions. A core offering includes a robust suite of financial management tools. These are designed to assist Chief Financial Officers (CFOs) in meticulously maintaining general ledger accounting data, streamlining financial workflows, gaining instant insights into financial and operational metrics, optimizing consolidation, accelerating month-end closes, bolstering internal controls and audit readiness, and ensuring uniformity throughout their financial activities. Workday also provides cloud-based spend management solutions. These facilitate smoother supplier engagement and contract administration, optimize the handling of indirect expenditures, and enable the effective execution of sourcing initiatives, including requests for proposals (RFPs). Its Human Capital Management (HCM) platform stands out, offering a comprehensive set of applications for overseeing the entire employee journey—from initial recruitment through to retirement. This empowers HR departments to efficiently handle hiring, onboarding, payroll, talent development, reskilling programs, and to cultivate exceptional employee experiences. Furthermore, the company offers dedicated applications for business planning, alongside powerful analytics and reporting capabilities. These advanced tools feature augmented analytics that translate complex data into easily digestible narratives for business users, leverage machine learning for enhanced operational efficiency and automation, and provide benchmarking features to compare performance against industry peers. Workday's diverse clientele spans numerous sectors, including professional and business services, financial institutions, healthcare providers, educational bodies, government agencies, technology firms, media organizations, retailers, and the hospitality industry. Originally incorporated in 2005 as North Tahoe Power Tools, Inc., the company adopted the name Workday, Inc. in July of the same year. Its corporate headquarters are located in Pleasanton, California.",
     "description_zh": "Workday, Inc. (WDAY) 是一家全球領先的雲端企業級軟體供應商，提供全面性的解決方案，核心業務板塊涵蓋財務管理與人力資本管理 (HCM)。\n\n其財務管理解決方案，旨在協助財務長 (CFO) 精準維護總帳會計數據、簡化財務流程、即時洞察財務與營運指標、優化合併報表、加速月結作業、強化內部控制及提升稽核準備度。此外，亦提供雲端採購支出管理，促進供應商協作、合約管理、優化間接採購支出處理，並有效執行採購專案 (含RFP)。\n\nWorkday 的 HCM 平台為其核心強項，提供涵蓋員工從招募、到職、薪資、人才發展、技能再培訓，乃至退休的完整生命週期應用程式，旨在協助人資部門提升效率並優化員工體驗。\n\n公司亦提供企業規劃專用應用程式，整合強大分析與報告功能。這些工具運用增強分析 (augmented analytics) 將複雜數據轉化為易懂洞察，並運用機器學習 (ML) 提升營運效率與自動化，同時具備基準比較 (benchmarking) 功能，供客戶與同業績效對比。\n\n其客戶群體多元，橫跨專業服務、金融、醫療、教育、政府機關、科技、媒體、零售及飯店業等主要產業板塊。",
@@ -132690,7 +132690,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "WDAY",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-10-31",
       "filingDate": "2026-11-24",
       "quoteDate": "2026-11-25",
@@ -132709,7 +132709,7 @@ window.FULL_MARKET_DATA = {
         "currency": "USD",
         "date": "2026-11-25",
         "price": 180.44,
-        "marketCap": 43486040000
+        "marketCap": 42944720541
       },
       "amounts": {
         "currentAssets": 8310000000,
@@ -132719,17 +132719,17 @@ window.FULL_MARKET_DATA = {
         "inventory": 0,
         "preferredStock": 0
       },
-      "sharesOutstanding": 241000000,
+      "sharesOutstanding": 238000003,
       "shareSource": {
-        "shares": 241,
-        "date": "2026-11-26",
+        "shares": 238.000003,
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1327811/000132781126000058/wday-20261031.htm",
-        "capturedAt": "2026-11-26T03:46:52Z"
+        "capturedAt": "2026-11-27T03:47:50Z"
       }
     },
-    "z_score": 3.31,
+    "z_score": 3.28,
     "z_score_model": "z",
     "z_score_zone": "safe",
     "z_score_breakdown": [
@@ -132785,12 +132785,12 @@ window.FULL_MARKET_DATA = {
         "desc": "市值權益 / 總負債 (X4)",
         "desc_en": "Market equity / Total liabilities (X4)",
         "weight": 0.6,
-        "value": 4.234686921803486,
-        "contribution": 2.5408121530820913,
+        "value": 4.181974875839907,
+        "contribution": 2.509184925503944,
         "passed": null,
-        "detail": "4.2347 × 0.6 = 2.5408",
-        "detail_zh": "4.2347 × 0.6 = 2.5408",
-        "detail_en": "4.2347 × 0.6 = 2.5408",
+        "detail": "4.1820 × 0.6 = 2.5092",
+        "detail_zh": "4.1820 × 0.6 = 2.5092",
+        "detail_en": "4.1820 × 0.6 = 2.5092",
         "reason": null
       },
       {
@@ -133056,11 +133056,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "1,263.40 M",
     "shareSource": {
       "shares": 1263.4,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1596532/000159653226000254/anet-20260930.htm",
-      "capturedAt": "2026-11-26T03:47:00Z"
+      "capturedAt": "2026-11-27T03:47:58Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 207185.0,
@@ -136303,7 +136303,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "6cb44db4414937bd2766c592ff9f159182ec4a8ef8a0f722f5ae688f47633d92"
       },
       "mScore": {
@@ -136315,7 +136315,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "6cb44db4414937bd2766c592ff9f159182ec4a8ef8a0f722f5ae688f47633d92"
       }
     },
@@ -136469,7 +136469,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ANET",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-04",
       "quoteDate": "2026-11-25",
@@ -136501,11 +136501,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 1263400000,
       "shareSource": {
         "shares": 1263.4,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1596532/000159653226000254/anet-20260930.htm",
-        "capturedAt": "2026-11-26T03:47:00Z"
+        "capturedAt": "2026-11-27T03:47:58Z"
       }
     },
     "z_score": 20.11,
@@ -136835,11 +136835,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "2,469.26 M",
     "shareSource": {
       "shares": 2469.26,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/820313/000110465926120646/aph-20260930x10q.htm",
-      "capturedAt": "2026-11-26T03:47:08Z"
+      "capturedAt": "2026-11-27T03:48:07Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 180453.5,
@@ -140087,7 +140087,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "f1e143bbd9455c11e8a046c4a48453485cd1ee17e0698834afedd84a3f68fc34"
       },
       "mScore": {
@@ -140099,7 +140099,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "f1e143bbd9455c11e8a046c4a48453485cd1ee17e0698834afedd84a3f68fc34"
       }
     },
@@ -140283,7 +140283,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "APH",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
       "quoteDate": "2026-11-25",
@@ -140315,11 +140315,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 2469260000,
       "shareSource": {
         "shares": 2469.26,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/820313/000110465926120646/aph-20260930x10q.htm",
-        "capturedAt": "2026-11-26T03:47:08Z"
+        "capturedAt": "2026-11-27T03:48:07Z"
       }
     },
     "z_score": 6.78,
@@ -140649,11 +140649,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "286.70 M",
     "shareSource": {
       "shares": 286.695097,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1385157/000110465926124497/tel-20260925x10k.htm",
-      "capturedAt": "2026-11-26T03:47:15Z"
+      "capturedAt": "2026-11-27T03:48:15Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 60630.3,
@@ -143901,7 +143901,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "3bef81c37da7eb8ebb208163ce505f1079e53fdb6c105ffde1d12e873dedc687"
       },
       "mScore": {
@@ -143913,7 +143913,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "3bef81c37da7eb8ebb208163ce505f1079e53fdb6c105ffde1d12e873dedc687"
       }
     },
@@ -144054,7 +144054,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TEL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-25",
       "filingDate": "2026-11-09",
       "quoteDate": "2026-11-25",
@@ -144086,11 +144086,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 286695097,
       "shareSource": {
         "shares": 286.695097,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1385157/000110465926124497/tel-20260925x10k.htm",
-        "capturedAt": "2026-11-26T03:47:15Z"
+        "capturedAt": "2026-11-27T03:48:15Z"
       }
     },
     "z_score": 5.04,
@@ -144415,22 +144415,22 @@ window.FULL_MARKET_DATA = {
     "industry": "Interactive Media & Services",
     "reportedCurrency": "USD",
     "price": 273.1,
-    "shares": 12196.124607,
-    "shares_outstanding": 12196124607,
-    "shares_display": "12,196.12 M",
+    "shares": 12174.077419,
+    "shares_outstanding": 12174077419,
+    "shares_display": "12,174.08 M",
     "shareSource": {
-      "shares": 12196.124607,
-      "date": "2026-11-25",
+      "shares": 12174.077419,
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/goog-20260930.htm",
-      "capturedAt": "2026-11-26T03:47:23Z"
+      "capturedAt": "2026-11-27T03:48:23Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 3330761.6,
-    "liq_val_1": 4.009634336790275,
-    "liq_val_2": 0.3456999773173931,
-    "liq_val_3": -4.97412103884058,
+    "mcap": 3324740.5,
+    "liq_val_1": 4.0168957627687645,
+    "liq_val_2": 0.34632603809630824,
+    "liq_val_3": -4.983129144991352,
     "debt": 141917.0,
     "cash": 106039.2,
     "short_term_investments": 208764.0,
@@ -147504,12 +147504,12 @@ window.FULL_MARKET_DATA = {
     "g1": 9.9,
     "g2": 5.7,
     "g": 2.25,
-    "wacc": 10.07,
-    "ev": 3366639.4,
-    "fmp_official_ev": 3366639.4,
+    "wacc": 10.06,
+    "ev": 3360618.3,
+    "fmp_official_ev": 3360618.3,
     "enterpriseValueBasis": "USD market capitalization + USD debt - USD cash and short-term investments",
-    "dcf_model_ev": 349999.9,
-    "ev_to_ebitda": 10.6,
+    "dcf_model_ev": 350022.5,
+    "ev_to_ebitda": 10.5,
     "debt_to_ebitda": 0.45,
     "net_debt_to_ebitda": 0.11,
     "f_score": 8,
@@ -147578,16 +147578,16 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 25.76,
-    "default_fair_val": 25.76,
-    "premium_pct": 960.2,
+    "fair_val": 25.8,
+    "default_fair_val": 25.8,
+    "premium_pct": 958.5,
     "is_undervalued": false,
     "pe_trailing": 14.1,
     "pe_forward": 12.4,
-    "pb_trailing": 4.915897743189054,
+    "pb_trailing": 4.907011153436873,
     "pb_forward": 4.4,
     "div_yield": 0.32,
-    "ps_ratio": 42.2,
+    "ps_ratio": 42.1,
     "fcf_to_ev": 0.59,
     "fcf_to_mcap": 0.59,
     "liab_to_assets": 32.46876345543559,
@@ -147672,7 +147672,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "7144fb1094c91c22f7ce0ce447bf252186de680285415bdcb070a970066a476a"
       },
       "mScore": {
@@ -147684,7 +147684,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "7144fb1094c91c22f7ce0ce447bf252186de680285415bdcb070a970066a476a"
       }
     },
@@ -147838,7 +147838,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "GOOGL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-11-25",
@@ -147857,7 +147857,7 @@ window.FULL_MARKET_DATA = {
         "currency": "USD",
         "date": "2026-11-25",
         "price": 273.1,
-        "marketCap": 3330761630172
+        "marketCap": 3324740543128.9995
       },
       "amounts": {
         "currentAssets": 374665000000,
@@ -147867,17 +147867,17 @@ window.FULL_MARKET_DATA = {
         "inventory": 13308000000,
         "preferredStock": 18023000000
       },
-      "sharesOutstanding": 12196124607,
+      "sharesOutstanding": 12174077419,
       "shareSource": {
-        "shares": 12196.124607,
-        "date": "2026-11-25",
+        "shares": 12174.077419,
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/goog-20260930.htm",
-        "capturedAt": "2026-11-26T03:47:23Z"
+        "capturedAt": "2026-11-27T03:48:23Z"
       }
     },
-    "z_score": 13.63,
+    "z_score": 13.61,
     "z_score_model": "z",
     "z_score_zone": "superRobust",
     "z_score_breakdown": [
@@ -147933,12 +147933,12 @@ window.FULL_MARKET_DATA = {
         "desc": "市值權益 / 總負債 (X4)",
         "desc_en": "Market equity / Total liabilities (X4)",
         "weight": 0.6,
-        "value": 18.502586436761177,
-        "contribution": 11.101551862056706,
+        "value": 18.46913885432406,
+        "contribution": 11.081483312594436,
         "passed": null,
-        "detail": "18.5026 × 0.6 = 11.1016",
-        "detail_zh": "18.5026 × 0.6 = 11.1016",
-        "detail_en": "18.5026 × 0.6 = 11.1016",
+        "detail": "18.4691 × 0.6 = 11.0815",
+        "detail_zh": "18.4691 × 0.6 = 11.0815",
+        "detail_en": "18.4691 × 0.6 = 11.0815",
         "reason": null
       },
       {
@@ -148199,22 +148199,22 @@ window.FULL_MARKET_DATA = {
     "industry": "Interactive Media & Services",
     "reportedCurrency": "USD",
     "price": 270.98,
-    "shares": 12294.000134,
-    "shares_outstanding": 12294000134,
+    "shares": 12293.999284,
+    "shares_outstanding": 12293999284,
     "shares_display": "12,294.00 M",
     "shareSource": {
-      "shares": 12294.000134,
-      "date": "2026-11-25",
+      "shares": 12293.999284,
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/goog-20260930.htm",
-      "capturedAt": "2026-11-26T03:47:30Z"
+      "capturedAt": "2026-11-27T03:48:32Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 3326640.4,
-    "liq_val_1": 3.9777126620291607,
-    "liq_val_2": 0.3429477756665852,
-    "liq_val_3": -4.9345208507218326,
+    "mcap": 3330761.6,
+    "liq_val_1": 3.9777129370459137,
+    "liq_val_2": 0.342947799377796,
+    "liq_val_3": -4.93452119189175,
     "debt": 141917.0,
     "cash": 106039.2,
     "short_term_investments": 208764.0,
@@ -151289,10 +151289,10 @@ window.FULL_MARKET_DATA = {
     "g2": 5.7,
     "g": 2.25,
     "wacc": 10.02,
-    "ev": 3362518.2,
-    "fmp_official_ev": 3362518.2,
+    "ev": 3366639.4,
+    "fmp_official_ev": 3366639.4,
     "enterpriseValueBasis": "USD market capitalization + USD debt - USD cash and short-term investments",
-    "dcf_model_ev": 352165.6,
+    "dcf_model_ev": 352150.1,
     "ev_to_ebitda": 10.6,
     "debt_to_ebitda": 0.45,
     "net_debt_to_ebitda": 0.11,
@@ -151368,10 +151368,10 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": false,
     "pe_trailing": 14.1,
     "pe_forward": 12.4,
-    "pb_trailing": 4.909815231075538,
+    "pb_trailing": 4.915897743189054,
     "pb_forward": 4.4,
     "div_yield": 0.32,
-    "ps_ratio": 42.1,
+    "ps_ratio": 42.2,
     "fcf_to_ev": 0.59,
     "fcf_to_mcap": 0.59,
     "liab_to_assets": 32.46876345543559,
@@ -151456,7 +151456,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "aa3f03f4bf9f6e873ac0aa592e41b92f14808b5aa0ca6f393262ab7f2303fc26"
       },
       "mScore": {
@@ -151468,7 +151468,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "aa3f03f4bf9f6e873ac0aa592e41b92f14808b5aa0ca6f393262ab7f2303fc26"
       }
     },
@@ -151490,11 +151490,11 @@ window.FULL_MARKET_DATA = {
     "country": "US",
     "phone": "650 253 0000",
     "full_address": "1600 Amphitheatre Parkway, Mountain View, CA 94043, US",
-    "range_52w": "260.69199-404.47",
+    "range_52w": "260.69-404.47",
     "year_high": 404.47,
-    "year_low": 260.69199,
+    "year_low": 260.69,
     "all_time_high": 0.0,
-    "all_time_low": 260.69199,
+    "all_time_low": 260.69,
     "inst_ownership_pct": null,
     "insider_ownership_pct": null,
     "top_holders": [],
@@ -151622,7 +151622,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "GOOG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-11-25",
@@ -151641,7 +151641,7 @@ window.FULL_MARKET_DATA = {
         "currency": "USD",
         "date": "2026-11-25",
         "price": 270.98,
-        "marketCap": 3326640382222
+        "marketCap": 3330761630056.9995
       },
       "amounts": {
         "currentAssets": 374665000000,
@@ -151651,17 +151651,17 @@ window.FULL_MARKET_DATA = {
         "inventory": 13308000000,
         "preferredStock": 18023000000
       },
-      "sharesOutstanding": 12294000134,
+      "sharesOutstanding": 12293999284,
       "shareSource": {
-        "shares": 12294.000134,
-        "date": "2026-11-25",
+        "shares": 12293.999284,
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/goog-20260930.htm",
-        "capturedAt": "2026-11-26T03:47:30Z"
+        "capturedAt": "2026-11-27T03:48:32Z"
       }
     },
-    "z_score": 13.62,
+    "z_score": 13.63,
     "z_score_model": "z",
     "z_score_zone": "superRobust",
     "z_score_breakdown": [
@@ -151717,12 +151717,12 @@ window.FULL_MARKET_DATA = {
         "desc": "市值權益 / 總負債 (X4)",
         "desc_en": "Market equity / Total liabilities (X4)",
         "weight": 0.6,
-        "value": 18.47969291618523,
-        "contribution": 11.087815749711137,
+        "value": 18.502586436761177,
+        "contribution": 11.101551862056706,
         "passed": null,
-        "detail": "18.4797 × 0.6 = 11.0878",
-        "detail_zh": "18.4797 × 0.6 = 11.0878",
-        "detail_en": "18.4797 × 0.6 = 11.0878",
+        "detail": "18.5026 × 0.6 = 11.1016",
+        "detail_zh": "18.5026 × 0.6 = 11.1016",
+        "detail_en": "18.5026 × 0.6 = 11.1016",
         "reason": null
       },
       {
@@ -151983,22 +151983,22 @@ window.FULL_MARKET_DATA = {
     "industry": "Interactive Media & Services",
     "reportedCurrency": "USD",
     "price": 609.89,
-    "shares": 2556.241113,
-    "shares_outstanding": 2556241113,
+    "shares": 2556.241085,
+    "shares_outstanding": 2556241085,
     "shares_display": "2,556.24 M",
     "shareSource": {
-      "shares": 2556.241113,
-      "date": "2026-11-26",
+      "shares": 2556.241085,
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026066773/meta-20260930.htm",
-      "capturedAt": "2026-11-26T03:47:38Z"
+      "capturedAt": "2026-11-27T03:48:40Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 1559025.9,
-    "liq_val_1": -33.858308420063345,
-    "liq_val_2": -41.39992877111667,
-    "liq_val_3": -48.50911730093905,
+    "liq_val_1": -33.85830879093315,
+    "liq_val_2": -41.399929224594246,
+    "liq_val_3": -48.509117832287714,
     "debt": 112095.0,
     "cash": 82449.0,
     "short_term_investments": 71227.0,
@@ -155240,7 +155240,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "30e5d3c4a10cced7bbe8f5b4fae86d898ed037e80615dc6f340cfd8f900b4496"
       },
       "mScore": {
@@ -155252,7 +155252,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "30e5d3c4a10cced7bbe8f5b4fae86d898ed037e80615dc6f340cfd8f900b4496"
       }
     },
@@ -155393,7 +155393,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "META",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-22",
       "quoteDate": "2026-11-25",
@@ -155412,7 +155412,7 @@ window.FULL_MARKET_DATA = {
         "currency": "USD",
         "date": "2026-11-25",
         "price": 609.89,
-        "marketCap": 1559025930831
+        "marketCap": 1559025892408
       },
       "amounts": {
         "currentAssets": 119900000000,
@@ -155422,14 +155422,14 @@ window.FULL_MARKET_DATA = {
         "inventory": 0,
         "preferredStock": 0
       },
-      "sharesOutstanding": 2556241113,
+      "sharesOutstanding": 2556241085,
       "shareSource": {
-        "shares": 2556.241113,
-        "date": "2026-11-26",
+        "shares": 2556.241085,
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026066773/meta-20260930.htm",
-        "capturedAt": "2026-11-26T03:47:38Z"
+        "capturedAt": "2026-11-27T03:48:40Z"
       }
     },
     "z_score": 8.29,
@@ -155759,11 +155759,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "4,106.33 M",
     "shareSource": {
       "shares": 4106.33,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000291/nflx-20260930.htm",
-      "capturedAt": "2026-11-26T03:47:45Z"
+      "capturedAt": "2026-11-27T03:48:48Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 243957.1,
@@ -159011,7 +159011,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "048bec9467c828cd5f8eaac6ffdb455cf7ea742785e88110b75a6d65486d683d"
       },
       "mScore": {
@@ -159023,7 +159023,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "048bec9467c828cd5f8eaac6ffdb455cf7ea742785e88110b75a6d65486d683d"
       }
     },
@@ -159183,7 +159183,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "NFLX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-21",
       "quoteDate": "2026-11-25",
@@ -159215,11 +159215,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 4106330000,
       "shareSource": {
         "shares": 4106.33,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000291/nflx-20260930.htm",
-        "capturedAt": "2026-11-26T03:47:45Z"
+        "capturedAt": "2026-11-27T03:48:48Z"
       }
     },
     "z_score": 7.77,
@@ -159549,11 +159549,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "1,708.03 M",
     "shareSource": {
       "shares": 1708.03,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1744489/000174448926000066/dis-20261003.htm",
-      "capturedAt": "2026-11-26T03:47:52Z"
+      "capturedAt": "2026-11-27T03:48:57Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 214528.6,
@@ -162801,7 +162801,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "3b1dbc3afd659722823d54f344f0785563e43fd07cd52c574cc1df7d512c5102"
       },
       "mScore": {
@@ -162813,7 +162813,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "3b1dbc3afd659722823d54f344f0785563e43fd07cd52c574cc1df7d512c5102"
       }
     },
@@ -163015,7 +163015,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "DIS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-10-03",
       "filingDate": "2026-11-17",
       "quoteDate": "2026-11-25",
@@ -163047,11 +163047,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 1708030000,
       "shareSource": {
         "shares": 1708.03,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1744489/000174448926000066/dis-20261003.htm",
-        "capturedAt": "2026-11-26T03:47:52Z"
+        "capturedAt": "2026-11-27T03:48:57Z"
       }
     },
     "z_score": 2.63,
@@ -163381,11 +163381,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "1,059.27 M",
     "shareSource": {
       "shares": 1059.272571,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1283699/000128369926000129/tmus-20260930.htm",
-      "capturedAt": "2026-11-26T03:48:00Z"
+      "capturedAt": "2026-11-27T03:49:05Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 176104.1,
@@ -166625,7 +166625,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "c9a59c0aea9fecab1f6138f74767dca7ccfd052e7abb259fb9b80ccd23ff39da"
       },
       "mScore": {
@@ -166637,7 +166637,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "c9a59c0aea9fecab1f6138f74767dca7ccfd052e7abb259fb9b80ccd23ff39da"
       }
     },
@@ -166785,7 +166785,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TMUS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-11-25",
@@ -166817,11 +166817,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 1059272571,
       "shareSource": {
         "shares": 1059.272571,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1283699/000128369926000129/tmus-20260930.htm",
-        "capturedAt": "2026-11-26T03:48:00Z"
+        "capturedAt": "2026-11-27T03:49:05Z"
       }
     },
     "z_score": 1.47,
@@ -167151,11 +167151,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "4,144.60 M",
     "shareSource": {
       "shares": 4144.6,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/732712/000073271226000052/vz-20260930.htm",
-      "capturedAt": "2026-11-26T03:48:08Z"
+      "capturedAt": "2026-11-27T03:49:14Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 195956.7,
@@ -170403,7 +170403,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "909c8aadc3529b877481e25a6e406c196407f230bfde8206ded5dfe9429f2143"
       },
       "mScore": {
@@ -170415,7 +170415,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "909c8aadc3529b877481e25a6e406c196407f230bfde8206ded5dfe9429f2143"
       }
     },
@@ -170587,7 +170587,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "VZ",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-11-25",
@@ -170619,11 +170619,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 4144600000,
       "shareSource": {
         "shares": 4144.6,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/732712/000073271226000052/vz-20260930.htm",
-        "capturedAt": "2026-11-26T03:48:08Z"
+        "capturedAt": "2026-11-27T03:49:14Z"
       }
     },
     "z_score": 1.29,
@@ -170953,11 +170953,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "6,736.47 M",
     "shareSource": {
       "shares": 6736.473433,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/732717/000073271726000372/t-20260930.htm",
-      "capturedAt": "2026-11-26T03:48:16Z"
+      "capturedAt": "2026-11-27T03:49:22Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 154736.8,
@@ -174205,7 +174205,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "21667e5f2adc97f325c64807cc38fc33066eb3a093dbddc2281b733ed781a160"
       },
       "mScore": {
@@ -174217,7 +174217,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "21667e5f2adc97f325c64807cc38fc33066eb3a093dbddc2281b733ed781a160"
       }
     },
@@ -174383,7 +174383,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "T",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-21",
       "quoteDate": "2026-11-25",
@@ -174415,11 +174415,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 6736473433,
       "shareSource": {
         "shares": 6736.473433,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/732717/000073271726000372/t-20260930.htm",
-        "capturedAt": "2026-11-26T03:48:16Z"
+        "capturedAt": "2026-11-27T03:49:22Z"
       }
     },
     "z_score": 0.92,
@@ -174749,11 +174749,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "3,541.56 M",
     "shareSource": {
       "shares": 3541.56,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1166691/000162828026066863/cmcsa-20260930.htm",
-      "capturedAt": "2026-11-26T03:48:23Z"
+      "capturedAt": "2026-11-27T03:49:30Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 91124.3,
@@ -178001,7 +178001,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "3090702d9370ac2e56c9a91667a0efcd9dfceb4ed358e6362616e86f20dce7be"
       },
       "mScore": {
@@ -178013,7 +178013,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "3090702d9370ac2e56c9a91667a0efcd9dfceb4ed358e6362616e86f20dce7be"
       }
     },
@@ -178215,7 +178215,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CMCSA",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-22",
       "quoteDate": "2026-11-25",
@@ -178247,11 +178247,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 3541560000,
       "shareSource": {
         "shares": 3541.56,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1166691/000162828026066863/cmcsa-20260930.htm",
-        "capturedAt": "2026-11-26T03:48:23Z"
+        "capturedAt": "2026-11-27T03:49:30Z"
       }
     },
     "z_score": 1.46,
@@ -178581,11 +178581,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "72.44 M",
     "shareSource": {
       "shares": 72.440231,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1973266/000119312526447266/tko-20260930.htm",
-      "capturedAt": "2026-11-26T03:48:31Z"
+      "capturedAt": "2026-11-27T03:49:39Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 13868.0,
@@ -181833,7 +181833,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "b00a33f088fa1e93a785f70bd56191889f34065fdc558c19918288bed4602df1"
       },
       "mScore": {
@@ -181845,7 +181845,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "b00a33f088fa1e93a785f70bd56191889f34065fdc558c19918288bed4602df1"
       }
     },
@@ -181986,7 +181986,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TKO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-04",
       "quoteDate": "2026-11-25",
@@ -182018,11 +182018,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 72440231,
       "shareSource": {
         "shares": 72.440231,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1973266/000119312526447266/tko-20260930.htm",
-        "capturedAt": "2026-11-26T03:48:31Z"
+        "capturedAt": "2026-11-27T03:49:39Z"
       }
     },
     "z_score": 1.78,
@@ -182352,11 +182352,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "235.63 M",
     "shareSource": {
       "shares": 235.633871,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1335258/000133525826000053/lyv-20260930.htm",
-      "capturedAt": "2026-11-26T03:48:40Z"
+      "capturedAt": "2026-11-27T03:49:47Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 42821.7,
@@ -185603,7 +185603,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "402fc8dfe7fe094b3b7ff49ed51fe37d77a7c8ba976c7edd3b26c43d5548dd7c"
       },
       "mScore": {
@@ -185615,7 +185615,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "402fc8dfe7fe094b3b7ff49ed51fe37d77a7c8ba976c7edd3b26c43d5548dd7c"
       }
     },
@@ -185756,7 +185756,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "LYV",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-05",
       "quoteDate": "2026-11-25",
@@ -185788,11 +185788,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 235633871,
       "shareSource": {
         "shares": 235.633871,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1335258/000133525826000053/lyv-20260930.htm",
-        "capturedAt": "2026-11-26T03:48:40Z"
+        "capturedAt": "2026-11-27T03:49:47Z"
       }
     },
     "z_score": 2.42,
@@ -186122,11 +186122,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "105.98 M",
     "shareSource": {
       "shares": 105.981552,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1418819/000141881926000052/irdm-20260930.htm",
-      "capturedAt": "2026-11-26T03:48:48Z"
+      "capturedAt": "2026-11-27T03:49:56Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 4553.0,
@@ -189369,7 +189369,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "0fed273a910d38172cc7519009e1731b349537d163c4cec27522f2f71b95c045"
       },
       "mScore": {
@@ -189381,7 +189381,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "0fed273a910d38172cc7519009e1731b349537d163c4cec27522f2f71b95c045"
       }
     },
@@ -189522,7 +189522,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "IRDM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-20",
       "quoteDate": "2026-11-25",
@@ -189554,11 +189554,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 105981552,
       "shareSource": {
         "shares": 105.981552,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1418819/000141881926000052/irdm-20260930.htm",
-        "capturedAt": "2026-11-26T03:48:48Z"
+        "capturedAt": "2026-11-27T03:49:56Z"
       }
     },
     "z_score": 1.81,
@@ -189892,7 +189892,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/712515/000162828026051829/ea-20260630.htm",
-      "capturedAt": "2026-11-26T03:48:55Z"
+      "capturedAt": "2026-11-27T03:50:07Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 52925.6,
@@ -193140,7 +193140,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "dc9b49391ceff243162d5af4d213adec362fd6f17cb8397cc3ff554ed04993f1"
       },
       "mScore": {
@@ -193152,7 +193152,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "dc9b49391ceff243162d5af4d213adec362fd6f17cb8397cc3ff554ed04993f1"
       }
     },
@@ -193318,7 +193318,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "EA",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-03",
       "quoteDate": "2026-08-05",
@@ -193354,7 +193354,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/712515/000162828026051829/ea-20260630.htm",
-        "capturedAt": "2026-11-26T03:48:55Z"
+        "capturedAt": "2026-11-27T03:50:07Z"
       }
     },
     "z_score": 6.58,
@@ -193688,11 +193688,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "187.21 M",
     "shareSource": {
       "shares": 187.213,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/946581/000162828026072254/ttwo-20260930.htm",
-      "capturedAt": "2026-11-26T03:49:03Z"
+      "capturedAt": "2026-11-27T03:50:15Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 42561.0,
@@ -196940,7 +196940,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "ca0d50a8f99f31a60846fc3d4c7b69417f6d48fca68993c943d36739612e869e"
       },
       "mScore": {
@@ -196952,7 +196952,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "ca0d50a8f99f31a60846fc3d4c7b69417f6d48fca68993c943d36739612e869e"
       }
     },
@@ -197100,7 +197100,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TTWO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-09",
       "quoteDate": "2026-11-25",
@@ -197132,11 +197132,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 187213000,
       "shareSource": {
         "shares": 187.213,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/946581/000162828026072254/ttwo-20260930.htm",
-        "capturedAt": "2026-11-26T03:49:03Z"
+        "capturedAt": "2026-11-27T03:50:15Z"
       }
     },
     "z_score": 4.03,
@@ -197474,7 +197474,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1437107/000143710726000075/wbd-20260630.htm",
-      "capturedAt": "2026-11-26T03:49:11Z"
+      "capturedAt": "2026-11-27T03:50:23Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 77595.9,
@@ -200722,7 +200722,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "240ba09e10c58b04b9f480a3108f9897c45488eec473410e3ee55b6728b8ae1e"
       },
       "mScore": {
@@ -200734,7 +200734,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "240ba09e10c58b04b9f480a3108f9897c45488eec473410e3ee55b6728b8ae1e"
       }
     },
@@ -200888,7 +200888,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "WBD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-06-30",
       "filingDate": "2026-08-06",
       "quoteDate": "2026-10-06",
@@ -200924,7 +200924,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1437107/000143710726000075/wbd-20260630.htm",
-        "capturedAt": "2026-11-26T03:49:11Z"
+        "capturedAt": "2026-11-27T03:50:23Z"
       }
     },
     "z_score": 1.08,
@@ -201254,11 +201254,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "10,813.10 M",
     "shareSource": {
       "shares": 10813.1,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/amzn-20260930.htm",
-      "capturedAt": "2026-11-26T03:49:18Z"
+      "capturedAt": "2026-11-27T03:50:32Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 2643046.0,
@@ -204506,7 +204506,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "1a413cb70ab375cafafb7ce69e1c423852e22bb0b3d51b52b1b076452a55d83d"
       },
       "mScore": {
@@ -204518,7 +204518,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "1a413cb70ab375cafafb7ce69e1c423852e22bb0b3d51b52b1b076452a55d83d"
       }
     },
@@ -204684,7 +204684,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AMZN",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
       "quoteDate": "2026-11-25",
@@ -204716,11 +204716,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 10813100000,
       "shareSource": {
         "shares": 10813.1,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/amzn-20260930.htm",
-        "capturedAt": "2026-11-26T03:49:18Z"
+        "capturedAt": "2026-11-27T03:50:32Z"
       }
     },
     "z_score": 5.62,
@@ -205050,11 +205050,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "3,952.76 M",
     "shareSource": {
       "shares": 3952.757946,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026066775/tsla-20260930.htm",
-      "capturedAt": "2026-11-26T03:49:38Z"
+      "capturedAt": "2026-11-27T03:50:40Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 1502601.4,
@@ -208302,7 +208302,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "e2a40a8a52f1e373a0039c2126ea3bf26c3dcb76056e8803f4c9ba3991a11881"
       },
       "mScore": {
@@ -208314,7 +208314,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "e2a40a8a52f1e373a0039c2126ea3bf26c3dcb76056e8803f4c9ba3991a11881"
       }
     },
@@ -208468,7 +208468,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TSLA",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-22",
       "quoteDate": "2026-11-25",
@@ -208500,11 +208500,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 3952757946,
       "shareSource": {
         "shares": 3952.757946,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026066775/tsla-20260930.htm",
-        "capturedAt": "2026-11-26T03:49:38Z"
+        "capturedAt": "2026-11-27T03:50:40Z"
       }
     },
     "z_score": 17.95,
@@ -208829,22 +208829,22 @@ window.FULL_MARKET_DATA = {
     "industry": "Home Improvement Retail",
     "reportedCurrency": "USD",
     "price": 361.26,
-    "shares": 997.689626,
-    "shares_outstanding": 997689626,
-    "shares_display": "997.69 M",
+    "shares": 997.852,
+    "shares_outstanding": 997852000,
+    "shares_display": "997.85 M",
     "shareSource": {
-      "shares": 997.689626,
-      "date": "2026-11-25",
+      "shares": 997.852,
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/354950/000162828026075287/hd-20261101.htm",
-      "capturedAt": "2026-11-26T03:49:45Z"
+      "capturedAt": "2026-11-27T03:50:48Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 360425.4,
-    "liq_val_1": -53.83738449336146,
-    "liq_val_2": -70.82292745018479,
-    "liq_val_3": -90.20841517700616,
+    "mcap": 360484.0,
+    "liq_val_1": -53.82862388410305,
+    "liq_val_2": -70.81140289341505,
+    "liq_val_3": -90.19373614523998,
     "debt": 32663.0,
     "cash": 1968.0,
     "short_term_investments": 0.0,
@@ -211915,10 +211915,10 @@ window.FULL_MARKET_DATA = {
     "g2": 3.5,
     "g": 2.25,
     "wacc": 8.56,
-    "ev": 391120.4,
-    "fmp_official_ev": 391120.4,
+    "ev": 391179.0,
+    "fmp_official_ev": 391179.0,
     "enterpriseValueBasis": "USD market capitalization + USD debt - USD cash and short-term investments",
-    "dcf_model_ev": 268122.6,
+    "dcf_model_ev": 268119.6,
     "ev_to_ebitda": 15.4,
     "debt_to_ebitda": 1.28,
     "net_debt_to_ebitda": 1.21,
@@ -211988,13 +211988,13 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 237.98,
-    "default_fair_val": 237.98,
+    "fair_val": 237.94,
+    "default_fair_val": 237.94,
     "premium_pct": 51.8,
     "is_undervalued": false,
     "pe_trailing": 25.1,
     "pe_forward": 22.1,
-    "pb_trailing": 19.87567001213191,
+    "pb_trailing": 19.87890151097386,
     "pb_forward": 17.9,
     "div_yield": 2.57,
     "ps_ratio": 6.0,
@@ -212082,7 +212082,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "eef7505258e356f028160c01dde1491cab0f98fe4bd3c2399a44acd8efdea54e"
       },
       "mScore": {
@@ -212094,7 +212094,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "eef7505258e356f028160c01dde1491cab0f98fe4bd3c2399a44acd8efdea54e"
       }
     },
@@ -212296,7 +212296,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "HD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-11-01",
       "filingDate": "2026-11-20",
       "quoteDate": "2026-11-25",
@@ -212315,7 +212315,7 @@ window.FULL_MARKET_DATA = {
         "currency": "USD",
         "date": "2026-11-25",
         "price": 361.26,
-        "marketCap": 360425354289
+        "marketCap": 360484013520
       },
       "amounts": {
         "currentAssets": 38255000000,
@@ -212325,14 +212325,14 @@ window.FULL_MARKET_DATA = {
         "inventory": 27603000000,
         "preferredStock": 0
       },
-      "sharesOutstanding": 997689626,
+      "sharesOutstanding": 997852000,
       "shareSource": {
-        "shares": 997.689626,
-        "date": "2026-11-25",
+        "shares": 997.852,
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/354950/000162828026075287/hd-20261101.htm",
-        "capturedAt": "2026-11-26T03:49:45Z"
+        "capturedAt": "2026-11-27T03:50:48Z"
       }
     },
     "z_score": 5.85,
@@ -212391,12 +212391,12 @@ window.FULL_MARKET_DATA = {
         "desc": "市值權益 / 總負債 (X4)",
         "desc_en": "Market equity / Total liabilities (X4)",
         "weight": 0.6,
-        "value": 3.905695585271234,
-        "contribution": 2.3434173511627403,
+        "value": 3.906330595349039,
+        "contribution": 2.3437983572094234,
         "passed": null,
-        "detail": "3.9057 × 0.6 = 2.3434",
-        "detail_zh": "3.9057 × 0.6 = 2.3434",
-        "detail_en": "3.9057 × 0.6 = 2.3434",
+        "detail": "3.9063 × 0.6 = 2.3438",
+        "detail_zh": "3.9063 × 0.6 = 2.3438",
+        "detail_en": "3.9063 × 0.6 = 2.3438",
         "reason": null
       },
       {
@@ -212664,11 +212664,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "705.78 M",
     "shareSource": {
       "shares": 705.785,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/63908/000006390826000083/mcd-20260930.htm",
-      "capturedAt": "2026-11-26T03:49:53Z"
+      "capturedAt": "2026-11-27T03:50:57Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 200090.0,
@@ -215916,7 +215916,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "440ca990826506dea4d9c21179c413ca37001bf494f7c6bb6d62ff43a1654346"
       },
       "mScore": {
@@ -215928,7 +215928,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "440ca990826506dea4d9c21179c413ca37001bf494f7c6bb6d62ff43a1654346"
       }
     },
@@ -216124,7 +216124,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MCD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-06",
       "quoteDate": "2026-11-25",
@@ -216156,11 +216156,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 705785000,
       "shareSource": {
         "shares": 705.785,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/63908/000006390826000083/mcd-20260930.htm",
-        "capturedAt": "2026-11-26T03:49:53Z"
+        "capturedAt": "2026-11-27T03:50:57Z"
       }
     },
     "z_score": 4.75,
@@ -216492,11 +216492,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "743.70 M",
     "shareSource": {
       "shares": 743.701257,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1075531/000107553126000045/bkng-20260930.htm",
-      "capturedAt": "2026-11-26T03:50:01Z"
+      "capturedAt": "2026-11-27T03:51:05Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 111183.3,
@@ -219744,7 +219744,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "241c67068065d0236ee18947d259e914c334fc5646cbece67c6a9f3450a1fa29"
       },
       "mScore": {
@@ -219756,7 +219756,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "241c67068065d0236ee18947d259e914c334fc5646cbece67c6a9f3450a1fa29"
       }
     },
@@ -219910,7 +219910,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "BKNG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-03",
       "quoteDate": "2026-11-25",
@@ -219942,11 +219942,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 743701257,
       "shareSource": {
         "shares": 743.701257,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1075531/000107553126000045/bkng-20260930.htm",
-        "capturedAt": "2026-11-26T03:50:01Z"
+        "capturedAt": "2026-11-27T03:51:05Z"
       }
     },
     "z_score": 5.96,
@@ -220271,22 +220271,22 @@ window.FULL_MARKET_DATA = {
     "industry": "Footwear",
     "reportedCurrency": "USD",
     "price": 36.66,
-    "shares": 1485.308774,
-    "shares_outstanding": 1485308774,
+    "shares": 1485.308695,
+    "shares_outstanding": 1485308695,
     "shares_display": "1,485.31 M",
     "shareSource": {
-      "shares": 1485.308774,
-      "date": "2026-11-25",
+      "shares": 1485.308695,
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/320187/000032018726000193/nke-20260831.htm",
-      "capturedAt": "2026-11-26T03:50:09Z"
+      "capturedAt": "2026-11-27T03:51:14Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 54451.4,
-    "liq_val_1": 0.7399134908766115,
-    "liq_val_2": -4.0997536044986695,
-    "liq_val_3": -9.564341266053814,
+    "liq_val_1": 0.739913530230832,
+    "liq_val_2": -4.099753822554711,
+    "liq_val_3": -9.564341774758143,
     "debt": 11072.0,
     "cash": 8368.0,
     "short_term_investments": 1465.0,
@@ -223528,7 +223528,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "65c9fc06be43d65caac6bf5eb79e8f6366ec8667cf327e2221265ba2db2faea8"
       },
       "mScore": {
@@ -223540,7 +223540,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "65c9fc06be43d65caac6bf5eb79e8f6366ec8667cf327e2221265ba2db2faea8"
       }
     },
@@ -223724,7 +223724,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "NKE",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-08-31",
       "filingDate": "2026-10-02",
       "quoteDate": "2026-11-25",
@@ -223743,7 +223743,7 @@ window.FULL_MARKET_DATA = {
         "currency": "USD",
         "date": "2026-11-25",
         "price": 36.66,
-        "marketCap": 54451419655
+        "marketCap": 54451416759
       },
       "amounts": {
         "currentAssets": 23673000000,
@@ -223753,14 +223753,14 @@ window.FULL_MARKET_DATA = {
         "inventory": 7846000000,
         "preferredStock": 0
       },
-      "sharesOutstanding": 1485308774,
+      "sharesOutstanding": 1485308695,
       "shareSource": {
-        "shares": 1485.308774,
-        "date": "2026-11-25",
+        "shares": 1485.308695,
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/320187/000032018726000193/nke-20260831.htm",
-        "capturedAt": "2026-11-26T03:50:09Z"
+        "capturedAt": "2026-11-27T03:51:14Z"
       }
     },
     "z_score": 3.29,
@@ -224092,11 +224092,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "1,140.10 M",
     "shareSource": {
       "shares": 1140.1,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/829224/000082922426000162/sbux-20260927.htm",
-      "capturedAt": "2026-11-26T03:50:17Z"
+      "capturedAt": "2026-11-27T03:51:22Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 122834.4,
@@ -227339,7 +227339,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "19d90463e047d4d9eae591a8a79b8ddceb0e43f676c0669dd23bdc4922dffc8a"
       },
       "mScore": {
@@ -227351,7 +227351,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "19d90463e047d4d9eae591a8a79b8ddceb0e43f676c0669dd23bdc4922dffc8a"
       }
     },
@@ -227529,7 +227529,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "SBUX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-27",
       "filingDate": "2026-11-12",
       "quoteDate": "2026-11-25",
@@ -227561,11 +227561,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 1140100000,
       "shareSource": {
         "shares": 1140.1,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/829224/000082922426000162/sbux-20260927.htm",
-        "capturedAt": "2026-11-26T03:50:17Z"
+        "capturedAt": "2026-11-27T03:51:22Z"
       }
     },
     "z_score": 3.36,
@@ -227897,11 +227897,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "561.05 M",
     "shareSource": {
       "shares": 561.054019,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/60667/000006066726000130/low-20261030.htm",
-      "capturedAt": "2026-11-26T03:50:24Z"
+      "capturedAt": "2026-11-27T03:51:30Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 132212.4,
@@ -231146,7 +231146,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "b16e47cbb567d4b8e1236b02f5b061e82d00d78476583283ffdbd967b9c6d570"
       },
       "mScore": {
@@ -231158,7 +231158,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "b16e47cbb567d4b8e1236b02f5b061e82d00d78476583283ffdbd967b9c6d570"
       }
     },
@@ -231354,7 +231354,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "LOW",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-10-30",
       "filingDate": "2026-11-25",
       "quoteDate": "2026-11-25",
@@ -231386,11 +231386,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 561054019,
       "shareSource": {
         "shares": 561.054019,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/60667/000006066726000130/low-20261030.htm",
-        "capturedAt": "2026-11-26T03:50:24Z"
+        "capturedAt": "2026-11-27T03:51:30Z"
       }
     },
     "z_score": 3.21,
@@ -231720,11 +231720,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "1,099.97 M",
     "shareSource": {
       "shares": 1099.974061,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/109198/000010919826000058/tjxq3fy27earningspressrele.htm",
-      "capturedAt": "2026-11-26T03:50:32Z"
+      "capturedAt": "2026-11-27T03:51:39Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 160717.2,
@@ -234971,7 +234971,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "11a3e3770a94e68887a75883d75ab00afd4f11ec91fe6a4ca86d83c35a27ef1b"
       },
       "mScore": {
@@ -234983,7 +234983,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "11a3e3770a94e68887a75883d75ab00afd4f11ec91fe6a4ca86d83c35a27ef1b"
       }
     },
@@ -235185,7 +235185,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TJX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-10-31",
       "filingDate": "2026-11-18",
       "quoteDate": "2026-11-25",
@@ -235217,11 +235217,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 1099974061,
       "shareSource": {
         "shares": 1099.974061,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/109198/000010919826000058/tjxq3fy27earningspressrele.htm",
-        "capturedAt": "2026-11-26T03:50:32Z"
+        "capturedAt": "2026-11-27T03:51:39Z"
       }
     },
     "z_score": 6.56,
@@ -235551,11 +235551,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "68.55 M",
     "shareSource": {
       "shares": 68.548342,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/20212/000002021226000084/chdn-20260930.htm",
-      "capturedAt": "2026-11-26T03:50:40Z"
+      "capturedAt": "2026-11-27T03:51:47Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 6560.1,
@@ -238803,7 +238803,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "f5b641a952399120bdb858a1600cae9acf96f7aba1d8aa4bbc98fcded0629aa4"
       },
       "mScore": {
@@ -238815,7 +238815,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "f5b641a952399120bdb858a1600cae9acf96f7aba1d8aa4bbc98fcded0629aa4"
       }
     },
@@ -238975,7 +238975,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CHDN",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-11-25",
@@ -239007,11 +239007,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 68548342,
       "shareSource": {
         "shares": 68.548342,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/20212/000002021226000084/chdn-20260930.htm",
-        "capturedAt": "2026-11-26T03:50:40Z"
+        "capturedAt": "2026-11-27T03:51:47Z"
       }
     },
     "z_score": 1.51,
@@ -239341,11 +239341,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "518.57 M",
     "shareSource": {
       "shares": 518.574,
-      "date": "2026-11-25",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/916365/000091636526000079/tsco-20260926.htm",
-      "capturedAt": "2026-11-26T03:50:47Z"
+      "capturedAt": "2026-11-27T03:51:55Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 20934.8,
@@ -242587,7 +242587,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "a2f02a8acc64506032699ba48b95edbc697dc45758a31368ba69a579cfa4d559"
       },
       "mScore": {
@@ -242599,7 +242599,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "a2f02a8acc64506032699ba48b95edbc697dc45758a31368ba69a579cfa4d559"
       }
     },
@@ -242771,7 +242771,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TSCO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-26",
       "filingDate": "2026-11-05",
       "quoteDate": "2026-11-25",
@@ -242803,11 +242803,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 518573999,
       "shareSource": {
         "shares": 518.574,
-        "date": "2026-11-25",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/916365/000091636526000079/tsco-20260926.htm",
-        "capturedAt": "2026-11-26T03:50:47Z"
+        "capturedAt": "2026-11-27T03:51:55Z"
       }
     },
     "z_score": 4.43,
@@ -243137,11 +243137,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "35.72 M",
     "shareSource": {
       "shares": 35.717551,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/812011/000081201126000049/mtn-20260731.htm",
-      "capturedAt": "2026-11-26T03:50:55Z"
+      "capturedAt": "2026-11-27T03:52:04Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 5195.8,
@@ -246389,7 +246389,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "99bfdd218dffedbaaeaa8724deffc1073e6f13b096f083925425ef8e750168e8"
       },
       "mScore": {
@@ -246401,7 +246401,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "99bfdd218dffedbaaeaa8724deffc1073e6f13b096f083925425ef8e750168e8"
       }
     },
@@ -246542,7 +246542,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MTN",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-07-31",
       "filingDate": "2026-09-28",
       "quoteDate": "2026-11-25",
@@ -246574,11 +246574,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 35717551,
       "shareSource": {
         "shares": 35.717551,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/812011/000081201126000049/mtn-20260731.htm",
-        "capturedAt": "2026-11-26T03:50:55Z"
+        "capturedAt": "2026-11-27T03:52:04Z"
       }
     },
     "z_score": 1.49,
@@ -246908,11 +246908,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "135.91 M",
     "shareSource": {
       "shares": 135.907343,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/89089/000008908926000098/sci-20260930.htm",
-      "capturedAt": "2026-11-26T03:51:02Z"
+      "capturedAt": "2026-11-27T03:52:13Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 9966.1,
@@ -250153,7 +250153,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "46bb9b7ff17d47b7d9842a1db61ab2b91abeb398f24053a8233f98c903bc1c58"
       },
       "mScore": {
@@ -250165,7 +250165,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "46bb9b7ff17d47b7d9842a1db61ab2b91abeb398f24053a8233f98c903bc1c58"
       }
     },
@@ -250349,7 +250349,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "SCI",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-11-25",
@@ -250381,11 +250381,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 135907343,
       "shareSource": {
         "shares": 135.907343,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/89089/000008908926000098/sci-20260930.htm",
-        "capturedAt": "2026-11-26T03:51:02Z"
+        "capturedAt": "2026-11-27T03:52:13Z"
       }
     },
     "z_score": 0.77,
@@ -250717,11 +250717,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "16.09 M",
     "shareSource": {
       "shares": 16.094341,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/866787/000110465926118791/azo-20260829x10k.htm",
-      "capturedAt": "2026-11-26T03:51:10Z"
+      "capturedAt": "2026-11-27T03:52:21Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 54792.5,
@@ -253963,7 +253963,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "da7e10aa9e75ab9e47ac596e234251c28742809cb15075f43d82cd1c696194ec"
       },
       "mScore": {
@@ -253975,7 +253975,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "da7e10aa9e75ab9e47ac596e234251c28742809cb15075f43d82cd1c696194ec"
       }
     },
@@ -254129,7 +254129,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AZO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-08-29",
       "filingDate": "2026-10-26",
       "quoteDate": "2026-11-25",
@@ -254161,11 +254161,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 16094341,
       "shareSource": {
         "shares": 16.094341,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/866787/000110465926118791/azo-20260829x10k.htm",
-        "capturedAt": "2026-11-26T03:51:10Z"
+        "capturedAt": "2026-11-27T03:52:21Z"
       }
     },
     "z_score": 2.63,
@@ -254497,11 +254497,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "257.50 M",
     "shareSource": {
       "shares": 257.504397,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1048286/000104828626000043/mar-20260930.htm",
-      "capturedAt": "2026-11-26T03:51:18Z"
+      "capturedAt": "2026-11-27T03:52:29Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 107062.6,
@@ -257749,7 +257749,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "f48b9e06294e5020fef74011e439ad0bbde1a274f3f0082a7a0086edd1925151"
       },
       "mScore": {
@@ -257761,7 +257761,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "f48b9e06294e5020fef74011e439ad0bbde1a274f3f0082a7a0086edd1925151"
       }
     },
@@ -257915,7 +257915,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MAR",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-02",
       "quoteDate": "2026-11-25",
@@ -257947,11 +257947,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 257504396,
       "shareSource": {
         "shares": 257.504397,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1048286/000104828626000043/mar-20260930.htm",
-        "capturedAt": "2026-11-26T03:51:18Z"
+        "capturedAt": "2026-11-27T03:52:29Z"
       }
     },
     "z_score": 4.23,
@@ -258283,11 +258283,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "222.50 M",
     "shareSource": {
       "shares": 222.504355,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1585689/000158568926000054/hlt-20260930.htm",
-      "capturedAt": "2026-11-26T03:51:25Z"
+      "capturedAt": "2026-11-27T03:52:38Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 81481.1,
@@ -261535,7 +261535,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "a26e9db6820144fc641ca5a79fbea4ba4863b3bc0d2a1ce07d7d168a8b5b5e9f"
       },
       "mScore": {
@@ -261547,7 +261547,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "a26e9db6820144fc641ca5a79fbea4ba4863b3bc0d2a1ce07d7d168a8b5b5e9f"
       }
     },
@@ -261695,7 +261695,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "HLT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-27",
       "quoteDate": "2026-11-25",
@@ -261727,11 +261727,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 222504355,
       "shareSource": {
         "shares": 222.504355,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1585689/000158568926000054/hlt-20260930.htm",
-        "capturedAt": "2026-11-26T03:51:25Z"
+        "capturedAt": "2026-11-27T03:52:38Z"
       }
     },
     "z_score": 3.22,
@@ -262061,11 +262061,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "1,264.97 M",
     "shareSource": {
       "shares": 1264.975,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1058090/000105809026000104/cmg-20260930.htm",
-      "capturedAt": "2026-11-26T03:51:33Z"
+      "capturedAt": "2026-11-27T03:52:46Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 47310.1,
@@ -265309,7 +265309,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "74136df49dcc375124342767db57c2e9f1cf3ebad63d5008c4ebf46b84a79332"
       },
       "mScore": {
@@ -265321,7 +265321,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "74136df49dcc375124342767db57c2e9f1cf3ebad63d5008c4ebf46b84a79332"
       }
     },
@@ -265469,7 +265469,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CMG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-11-25",
@@ -265501,11 +265501,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 1264975000,
       "shareSource": {
         "shares": 1264.975,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1058090/000105809026000104/cmg-20260930.htm",
-        "capturedAt": "2026-11-26T03:51:33Z"
+        "capturedAt": "2026-11-27T03:52:46Z"
       }
     },
     "z_score": 6.8,
@@ -265837,11 +265837,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "268.26 M",
     "shareSource": {
       "shares": 268.259,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1041061/000104106126000210/yum-20260930.htm",
-      "capturedAt": "2026-11-26T03:51:40Z"
+      "capturedAt": "2026-11-27T03:52:54Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 44831.4,
@@ -269089,7 +269089,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "d4bb1025828c7c47ab43cc0efb42c0acd1b3f66c7bcd542c772c6972565183f5"
       },
       "mScore": {
@@ -269101,7 +269101,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "d4bb1025828c7c47ab43cc0efb42c0acd1b3f66c7bcd542c772c6972565183f5"
       }
     },
@@ -269261,7 +269261,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "YUM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-06",
       "quoteDate": "2026-11-25",
@@ -269293,11 +269293,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 268259000,
       "shareSource": {
         "shares": 268.259,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1041061/000104106126000210/yum-20260930.htm",
-        "capturedAt": "2026-11-26T03:51:40Z"
+        "capturedAt": "2026-11-27T03:52:54Z"
       }
     },
     "z_score": 2.65,
@@ -269629,11 +269629,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "802.05 M",
     "shareSource": {
       "shares": 802.049,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/898173/000089817326000053/orly-20260930x10q.htm",
-      "capturedAt": "2026-11-26T03:51:48Z"
+      "capturedAt": "2026-11-27T03:53:03Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 77550.1,
@@ -272874,7 +272874,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "d7263968b986b1e38e6fee7041c5d834ff17548801eed237d3bc5d3bab178802"
       },
       "mScore": {
@@ -272886,7 +272886,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "d7263968b986b1e38e6fee7041c5d834ff17548801eed237d3bc5d3bab178802"
       }
     },
@@ -273052,7 +273052,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ORLY",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-06",
       "quoteDate": "2026-11-25",
@@ -273084,11 +273084,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 802049000,
       "shareSource": {
         "shares": 802.049,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/898173/000089817326000053/orly-20260930x10q.htm",
-        "capturedAt": "2026-11-26T03:51:48Z"
+        "capturedAt": "2026-11-27T03:53:03Z"
       }
     },
     "z_score": 4.11,
@@ -273418,11 +273418,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "320.78 M",
     "shareSource": {
       "shares": 320.781076,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/745732/000074573226000047/q326exhibit991.htm",
-      "capturedAt": "2026-11-26T03:51:56Z"
+      "capturedAt": "2026-11-27T03:53:11Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 71617.6,
@@ -276669,7 +276669,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "e09e83b6e6f24dfc2c7c222fe90b43c33b95f94da911d5971c76cc43133cf644"
       },
       "mScore": {
@@ -276681,7 +276681,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "e09e83b6e6f24dfc2c7c222fe90b43c33b95f94da911d5971c76cc43133cf644"
       }
     },
@@ -276853,7 +276853,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ROST",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-10-31",
       "filingDate": "2026-11-19",
       "quoteDate": "2026-11-25",
@@ -276885,11 +276885,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 320781076,
       "shareSource": {
         "shares": 320.781076,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/745732/000074573226000047/q326exhibit991.htm",
-        "capturedAt": "2026-11-26T03:51:56Z"
+        "capturedAt": "2026-11-27T03:53:11Z"
       }
     },
     "z_score": 7.31,
@@ -277214,22 +277214,22 @@ window.FULL_MARKET_DATA = {
     "industry": "Apparel Retail",
     "reportedCurrency": "USD",
     "price": 107.44,
-    "shares": 115.825977,
-    "shares_outstanding": 115825977,
+    "shares": 115.825986,
+    "shares_outstanding": 115825986,
     "shares_display": "115.83 M",
     "shareSource": {
-      "shares": 115.825977,
-      "date": "2026-11-25",
+      "shares": 115.825986,
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1397187/000139718726000127/lulu-20260802.htm",
-      "capturedAt": "2026-11-26T03:52:04Z"
+      "capturedAt": "2026-11-27T03:53:20Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 12444.3,
-    "liq_val_1": 2.177257697554323,
-    "liq_val_2": -11.318797682146899,
-    "liq_val_3": -19.88903577303734,
+    "liq_val_1": 2.1772575283753683,
+    "liq_val_2": -11.318796802644961,
+    "liq_val_3": -19.889034227604157,
     "debt": 2141.1,
     "cash": 1389.7,
     "short_term_investments": 0.0,
@@ -280470,7 +280470,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "adb15a012fd4c30da417d0d52e193efe26bb14a535f805cc1e228d5220e54faa"
       },
       "mScore": {
@@ -280482,7 +280482,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "adb15a012fd4c30da417d0d52e193efe26bb14a535f805cc1e228d5220e54faa"
       }
     },
@@ -280630,7 +280630,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "LULU",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-08-02",
       "filingDate": "2026-09-03",
       "quoteDate": "2026-11-25",
@@ -280649,7 +280649,7 @@ window.FULL_MARKET_DATA = {
         "currency": "USD",
         "date": "2026-11-25",
         "price": 107.44,
-        "marketCap": 12444342969
+        "marketCap": 12444343936
       },
       "amounts": {
         "currentAssets": 3945587000,
@@ -280659,14 +280659,14 @@ window.FULL_MARKET_DATA = {
         "inventory": 1711450000,
         "preferredStock": 0
       },
-      "sharesOutstanding": 115825977,
+      "sharesOutstanding": 115825986,
       "shareSource": {
-        "shares": 115.825977,
-        "date": "2026-11-25",
+        "shares": 115.825986,
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1397187/000139718726000127/lulu-20260802.htm",
-        "capturedAt": "2026-11-26T03:52:04Z"
+        "capturedAt": "2026-11-27T03:53:20Z"
       }
     },
     "z_score": 5.41,
@@ -280995,22 +280995,22 @@ window.FULL_MARKET_DATA = {
     "industry": "Automobile Manufacturers",
     "reportedCurrency": "USD",
     "price": 12.17,
-    "shares": 3993.217482,
-    "shares_outstanding": 3993217482,
+    "shares": 3993.217485,
+    "shares_outstanding": 3993217485,
     "shares_display": "3,993.22 M",
     "shareSource": {
-      "shares": 3993.217482,
-      "date": "2026-11-25",
+      "shares": 3993.217485,
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/37996/000003799626000191/f-20260930.htm",
-      "capturedAt": "2026-11-26T03:52:11Z"
+      "capturedAt": "2026-11-27T03:53:28Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 48597.5,
-    "liq_val_1": -33.61875495265099,
-    "liq_val_2": -49.51801420566855,
-    "liq_val_3": -55.44826972186435,
+    "liq_val_1": -33.61875492739409,
+    "liq_val_2": -49.51801416846696,
+    "liq_val_3": -55.44826968020751,
     "debt": 163082.0,
     "cash": 34107.0,
     "short_term_investments": 11832.0,
@@ -284252,7 +284252,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "c17b29567e1c974b7cd97a7f873cbb95596c82e4c25a4724a8669206527544db"
       },
       "mScore": {
@@ -284264,7 +284264,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "c17b29567e1c974b7cd97a7f873cbb95596c82e4c25a4724a8669206527544db"
       }
     },
@@ -284454,7 +284454,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "F",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-11-25",
@@ -284483,14 +284483,14 @@ window.FULL_MARKET_DATA = {
         "inventory": 16232000000,
         "preferredStock": 0
       },
-      "sharesOutstanding": 3993217482,
+      "sharesOutstanding": 3993217485,
       "shareSource": {
-        "shares": 3993.217482,
-        "date": "2026-11-25",
+        "shares": 3993.217485,
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/37996/000003799626000191/f-20260930.htm",
-        "capturedAt": "2026-11-26T03:52:11Z"
+        "capturedAt": "2026-11-27T03:53:28Z"
       }
     },
     "z_score": 0.79,
@@ -284820,11 +284820,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "843.55 M",
     "shareSource": {
       "shares": 843.549423,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1467858/000146785826000059/gm-20260930.htm",
-      "capturedAt": "2026-11-26T03:52:19Z"
+      "capturedAt": "2026-11-27T03:53:36Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 70849.7,
@@ -288072,7 +288072,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "89e658280d9b163df95afa0ddd4b68875cb6e24606d2e59c673bd97e3f98b041"
       },
       "mScore": {
@@ -288084,7 +288084,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "89e658280d9b163df95afa0ddd4b68875cb6e24606d2e59c673bd97e3f98b041"
       }
     },
@@ -288225,7 +288225,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "GM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-20",
       "quoteDate": "2026-11-25",
@@ -288257,11 +288257,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 843549423,
       "shareSource": {
         "shares": 843.549423,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1467858/000146785826000059/gm-20260930.htm",
-        "capturedAt": "2026-11-26T03:52:19Z"
+        "capturedAt": "2026-11-27T03:53:36Z"
       }
     },
     "z_score": 1.22,
@@ -288591,11 +288591,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "439.00 M",
     "shareSource": {
       "shares": 439.0,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1065088/000106508826000212/ebay-20260930.htm",
-      "capturedAt": "2026-11-26T03:52:26Z"
+      "capturedAt": "2026-11-27T03:53:45Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 50722.1,
@@ -291843,7 +291843,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "b9cb1dad588397c6bbf7b99de97924232a8bf80d795e81182afdbbfc8dbdef4f"
       },
       "mScore": {
@@ -291855,7 +291855,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "b9cb1dad588397c6bbf7b99de97924232a8bf80d795e81182afdbbfc8dbdef4f"
       }
     },
@@ -292027,7 +292027,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "EBAY",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-11-25",
@@ -292059,11 +292059,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 439000000,
       "shareSource": {
         "shares": 439,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1065088/000106508826000212/ebay-20260930.htm",
-        "capturedAt": "2026-11-26T03:52:26Z"
+        "capturedAt": "2026-11-27T03:53:45Z"
       }
     },
     "z_score": 6.62,
@@ -292393,11 +292393,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "1,403.81 M",
     "shareSource": {
       "shares": 1403.805594,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526452412/brka-20260930.htm",
-      "capturedAt": "2026-11-26T03:52:34Z"
+      "capturedAt": "2026-11-27T03:53:53Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 100000.0,
@@ -295634,7 +295634,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "6bc3753c6aa5729b9b108c94d83c84e116fe30d6285080287f2e4ec9898c6f18"
       },
       "mScore": {
@@ -295646,7 +295646,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "6bc3753c6aa5729b9b108c94d83c84e116fe30d6285080287f2e4ec9898c6f18"
       }
     },
@@ -295717,7 +295717,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "BRK.B",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-09",
       "quoteDate": "2026-11-25",
@@ -295749,11 +295749,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 1403805594,
       "shareSource": {
         "shares": 1403.805594,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526452412/brka-20260930.htm",
-        "capturedAt": "2026-11-26T03:52:34Z"
+        "capturedAt": "2026-11-27T03:53:53Z"
       }
     },
     "z_score": 1.63,
@@ -296083,11 +296083,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "2,655.61 M",
     "shareSource": {
       "shares": 2655.61,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/19617/000162828026069523/jpm-20260930.htm",
-      "capturedAt": "2026-11-26T03:52:42Z"
+      "capturedAt": "2026-11-27T03:54:02Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 841137.9,
@@ -299335,7 +299335,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "6cd45beab9d672b6271cc4a864984781a17642a969b22fe4d92697bced792b35"
       },
       "mScore": {
@@ -299347,7 +299347,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "6cd45beab9d672b6271cc4a864984781a17642a969b22fe4d92697bced792b35"
       }
     },
@@ -299536,7 +299536,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "JPM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-03",
       "quoteDate": "2026-11-25",
@@ -299568,11 +299568,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 2655610000,
       "shareSource": {
         "shares": 2655.61,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/19617/000162828026069523/jpm-20260930.htm",
-        "capturedAt": "2026-11-26T03:52:42Z"
+        "capturedAt": "2026-11-27T03:54:02Z"
       }
     },
     "z_score": null,
@@ -299685,22 +299685,22 @@ window.FULL_MARKET_DATA = {
     "industry": "Transaction & Payment Processing Services",
     "reportedCurrency": "USD",
     "price": 424.39,
-    "shares": 1865.80003,
-    "shares_outstanding": 1865800030,
+    "shares": 1865.800114,
+    "shares_outstanding": 1865800114,
     "shares_display": "1,865.80 M",
     "shareSource": {
-      "shares": 1865.80003,
-      "date": "2026-11-25",
+      "shares": 1865.800114,
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1403161/000140316126000134/v-20260930.htm",
-      "capturedAt": "2026-11-26T03:53:03Z"
+      "capturedAt": "2026-11-27T03:54:10Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 791826.9,
-    "liq_val_1": -14.879944020581885,
-    "liq_val_2": -22.06388644982496,
-    "liq_val_3": -23.671347030689027,
+    "liq_val_1": -14.879943350673415,
+    "liq_val_2": -22.063885456488936,
+    "liq_val_3": -23.671345964983686,
     "debt": 22071.0,
     "cash": 14083.0,
     "short_term_investments": 1145.0,
@@ -302942,7 +302942,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "5de88ca1e76ce320200b1f8387025be0654d40c3fab33c1365533fd268af788e"
       },
       "mScore": {
@@ -302954,7 +302954,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "5de88ca1e76ce320200b1f8387025be0654d40c3fab33c1365533fd268af788e"
       }
     },
@@ -303102,7 +303102,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "V",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-05",
       "quoteDate": "2026-11-25",
@@ -303121,7 +303121,7 @@ window.FULL_MARKET_DATA = {
         "currency": "USD",
         "date": "2026-11-25",
         "price": 424.39,
-        "marketCap": 791826874732
+        "marketCap": 791826910380
       },
       "amounts": {
         "currentAssets": 30486000000,
@@ -303131,14 +303131,14 @@ window.FULL_MARKET_DATA = {
         "inventory": 0,
         "preferredStock": 507000000
       },
-      "sharesOutstanding": 1865800030,
+      "sharesOutstanding": 1865800114,
       "shareSource": {
-        "shares": 1865.80003,
-        "date": "2026-11-25",
+        "shares": 1865.800114,
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1403161/000140316126000134/v-20260930.htm",
-        "capturedAt": "2026-11-26T03:53:03Z"
+        "capturedAt": "2026-11-27T03:54:10Z"
       }
     },
     "z_score": 9.84,
@@ -303463,22 +303463,22 @@ window.FULL_MARKET_DATA = {
     "industry": "Transaction & Payment Processing Services",
     "reportedCurrency": "USD",
     "price": 659.97,
-    "shares": 871.176142,
-    "shares_outstanding": 871176142,
+    "shares": 871.176112,
+    "shares_outstanding": 871176112,
     "shares_display": "871.18 M",
     "shareSource": {
-      "shares": 871.176142,
-      "date": "2026-11-25",
+      "shares": 871.176112,
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1141391/000114139126000124/ma-20260930.htm",
-      "capturedAt": "2026-11-26T03:53:11Z"
+      "capturedAt": "2026-11-27T03:54:19Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 574950.1,
-    "liq_val_1": -30.911085257888065,
-    "liq_val_2": -42.17126506203151,
-    "liq_val_3": -46.99968011750258,
+    "liq_val_1": -30.911086322348563,
+    "liq_val_2": -42.17126651424988,
+    "liq_val_3": -46.999681735993235,
     "debt": 23938.0,
     "cash": 10464.0,
     "short_term_investments": 317.0,
@@ -306719,7 +306719,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "38a8e24c09ef12348fc9364a7f2f9fc3de9de1cec7fb016304884e5cce7ce6d0"
       },
       "mScore": {
@@ -306731,7 +306731,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "38a8e24c09ef12348fc9364a7f2f9fc3de9de1cec7fb016304884e5cce7ce6d0"
       }
     },
@@ -306879,7 +306879,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MA",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-11-25",
@@ -306898,7 +306898,7 @@ window.FULL_MARKET_DATA = {
         "currency": "USD",
         "date": "2026-11-25",
         "price": 659.97,
-        "marketCap": 574950118436
+        "marketCap": 574950098637
       },
       "amounts": {
         "currentAssets": 24480000000,
@@ -306908,14 +306908,14 @@ window.FULL_MARKET_DATA = {
         "inventory": 0,
         "preferredStock": 0
       },
-      "sharesOutstanding": 871176142,
+      "sharesOutstanding": 871176112,
       "shareSource": {
-        "shares": 871.176142,
-        "date": "2026-11-25",
+        "shares": 871.176112,
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1141391/000114139126000124/ma-20260930.htm",
-        "capturedAt": "2026-11-26T03:53:11Z"
+        "capturedAt": "2026-11-27T03:54:19Z"
       }
     },
     "z_score": 11.44,
@@ -307245,11 +307245,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "6,900.21 M",
     "shareSource": {
       "shares": 6900.21,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/70858/000007085826000548/bac-20260930.htm",
-      "capturedAt": "2026-11-26T03:53:18Z"
+      "capturedAt": "2026-11-27T03:54:27Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 334936.2,
@@ -310497,7 +310497,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "5cda9f0aa95c9d19bebc30af76f4b14960560b1d973d81521dda0234d28f9655"
       },
       "mScore": {
@@ -310509,7 +310509,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "5cda9f0aa95c9d19bebc30af76f4b14960560b1d973d81521dda0234d28f9655"
       }
     },
@@ -310692,7 +310692,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "BAC",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
       "quoteDate": "2026-11-25",
@@ -310724,11 +310724,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 6900210000,
       "shareSource": {
         "shares": 6900.21,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/70858/000007085826000548/bac-20260930.htm",
-        "capturedAt": "2026-11-26T03:53:18Z"
+        "capturedAt": "2026-11-27T03:54:27Z"
       }
     },
     "z_score": null,
@@ -310846,11 +310846,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "3,001.85 M",
     "shareSource": {
       "shares": 3001.85,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/72971/000007297126000327/wfc-20260930.htm",
-      "capturedAt": "2026-11-26T03:53:26Z"
+      "capturedAt": "2026-11-27T03:54:36Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 242969.7,
@@ -314098,7 +314098,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "003c1cacd40566ea6d0c756c81017eae311bfe83a2d97918b0fbedad29078fdd"
       },
       "mScore": {
@@ -314110,7 +314110,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "003c1cacd40566ea6d0c756c81017eae311bfe83a2d97918b0fbedad29078fdd"
       }
     },
@@ -314311,7 +314311,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "WFC",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-11-25",
@@ -314343,11 +314343,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 3001850000,
       "shareSource": {
         "shares": 3001.85,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/72971/000007297126000327/wfc-20260930.htm",
-        "capturedAt": "2026-11-26T03:53:26Z"
+        "capturedAt": "2026-11-27T03:54:36Z"
       }
     },
     "z_score": null,
@@ -314465,11 +314465,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "1,577.28 M",
     "shareSource": {
       "shares": 1577.284817,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/895421/000089542126000293/ms-20260930.htm",
-      "capturedAt": "2026-11-26T03:53:33Z"
+      "capturedAt": "2026-11-27T03:54:44Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 264274.1,
@@ -317717,7 +317717,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "6c355d09184632dce1b84d597dd24f3cff6fbd1f460e9bee53a759c2fd1e53a3"
       },
       "mScore": {
@@ -317729,7 +317729,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "6c355d09184632dce1b84d597dd24f3cff6fbd1f460e9bee53a759c2fd1e53a3"
       }
     },
@@ -317906,7 +317906,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-05",
       "quoteDate": "2026-11-25",
@@ -317938,11 +317938,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 1577284817,
       "shareSource": {
         "shares": 1577.284817,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/895421/000089542126000293/ms-20260930.htm",
-        "capturedAt": "2026-11-26T03:53:33Z"
+        "capturedAt": "2026-11-27T03:54:44Z"
       }
     },
     "z_score": null,
@@ -318060,11 +318060,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "288.44 M",
     "shareSource": {
       "shares": 288.435,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/886982/000088698226000532/gs-20260930.htm",
-      "capturedAt": "2026-11-26T03:53:53Z"
+      "capturedAt": "2026-11-27T03:54:52Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 231045.1,
@@ -321312,7 +321312,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "f2a7d92d34d5f686ed2cfb197f18cbd8e219c812929a49733e9929a4bea0b827"
       },
       "mScore": {
@@ -321324,7 +321324,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "f2a7d92d34d5f686ed2cfb197f18cbd8e219c812929a49733e9929a4bea0b827"
       }
     },
@@ -321488,7 +321488,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "GS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-02",
       "quoteDate": "2026-11-25",
@@ -321520,11 +321520,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 288435000,
       "shareSource": {
         "shares": 288.435,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/886982/000088698226000532/gs-20260930.htm",
-        "capturedAt": "2026-11-26T03:53:53Z"
+        "capturedAt": "2026-11-27T03:54:52Z"
       }
     },
     "z_score": null,
@@ -321642,11 +321642,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "670.55 M",
     "shareSource": {
       "shares": 670.552018,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/4962/000000496226000409/axp-20260930.htm",
-      "capturedAt": "2026-11-26T03:54:13Z"
+      "capturedAt": "2026-11-27T03:55:01Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 209473.7,
@@ -324894,7 +324894,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "5e3847e593db6c4a1a478e4ee1a824380b87e99e9401a0a027819cbbe4ca96d4"
       },
       "mScore": {
@@ -324906,7 +324906,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "5e3847e593db6c4a1a478e4ee1a824380b87e99e9401a0a027819cbbe4ca96d4"
       }
     },
@@ -325107,7 +325107,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AXP",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-23",
       "quoteDate": "2026-11-25",
@@ -325139,11 +325139,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 670552018,
       "shareSource": {
         "shares": 670.552018,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/4962/000000496226000409/axp-20260930.htm",
-        "capturedAt": "2026-11-26T03:54:13Z"
+        "capturedAt": "2026-11-27T03:55:01Z"
       }
     },
     "z_score": null,
@@ -325261,11 +325261,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "154.42 M",
     "shareSource": {
       "shares": 154.423421,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/2012383/000119312526447043/blk-20260930.htm",
-      "capturedAt": "2026-11-26T03:54:21Z"
+      "capturedAt": "2026-11-27T03:55:10Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 176329.9,
@@ -328513,7 +328513,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "f7c69b7096205d990e6305728b7df317f62fb9eb666ff10e1da4553f9d2a1133"
       },
       "mScore": {
@@ -328525,7 +328525,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "f7c69b7096205d990e6305728b7df317f62fb9eb666ff10e1da4553f9d2a1133"
       }
     },
@@ -328666,7 +328666,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "BLK",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-04",
       "quoteDate": "2026-11-25",
@@ -328698,11 +328698,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 154423421,
       "shareSource": {
         "shares": 154.423421,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/2012383/000119312526447043/blk-20260930.htm",
-        "capturedAt": "2026-11-26T03:54:21Z"
+        "capturedAt": "2026-11-27T03:55:10Z"
       }
     },
     "z_score": 1.75,
@@ -329032,11 +329032,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "289.90 M",
     "shareSource": {
       "shares": 289.9,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/64040/000006404026000058/spgi-20260930.htm",
-      "capturedAt": "2026-11-26T03:54:28Z"
+      "capturedAt": "2026-11-27T03:55:18Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 133568.5,
@@ -332284,7 +332284,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "929a34cd7c76eca0c1e5b7cae8438dc2e3defa382c3a3bc9dcb4f1dd4044338f"
       },
       "mScore": {
@@ -332296,7 +332296,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "929a34cd7c76eca0c1e5b7cae8438dc2e3defa382c3a3bc9dcb4f1dd4044338f"
       }
     },
@@ -332462,7 +332462,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "SPGI",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-11-25",
@@ -332494,11 +332494,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 289900000,
       "shareSource": {
         "shares": 289.9,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/64040/000006404026000058/spgi-20260930.htm",
-        "capturedAt": "2026-11-26T03:54:28Z"
+        "capturedAt": "2026-11-27T03:55:18Z"
       }
     },
     "z_score": 4.32,
@@ -332828,11 +332828,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "1,655.20 M",
     "shareSource": {
       "shares": 1655.204519,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/831001/000083100126000056/c-20260930.htm",
-      "capturedAt": "2026-11-26T03:54:36Z"
+      "capturedAt": "2026-11-27T03:55:26Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 187584.3,
@@ -336080,7 +336080,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "27d8dd623cdd60ee5028fc15036db577806d85f5ecd1e11297ed33f97975231f"
       },
       "mScore": {
@@ -336092,7 +336092,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "27d8dd623cdd60ee5028fc15036db577806d85f5ecd1e11297ed33f97975231f"
       }
     },
@@ -336137,11 +336137,11 @@ window.FULL_MARKET_DATA = {
     "country": "US",
     "phone": "212 559 1000",
     "full_address": "388 Greenwich Street, New York, NY 10013, US",
-    "range_52w": "101.46-147.96",
+    "range_52w": "102.01-147.96",
     "year_high": 147.96,
-    "year_low": 101.46,
+    "year_low": 102.01,
     "all_time_high": 0.0,
-    "all_time_low": 101.46,
+    "all_time_low": 102.01,
     "inst_ownership_pct": null,
     "insider_ownership_pct": null,
     "top_holders": [],
@@ -336311,7 +336311,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "C",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-05",
       "quoteDate": "2026-11-25",
@@ -336343,11 +336343,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 1655204519,
       "shareSource": {
         "shares": 1655.204519,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/831001/000083100126000056/c-20260930.htm",
-        "capturedAt": "2026-11-26T03:54:36Z"
+        "capturedAt": "2026-11-27T03:55:26Z"
       }
     },
     "z_score": null,
@@ -336460,22 +336460,22 @@ window.FULL_MARKET_DATA = {
     "industry": "Property & Casualty Insurance",
     "reportedCurrency": "USD",
     "price": 238.7,
-    "shares": 577.700013,
-    "shares_outstanding": 577700013,
+    "shares": 577.7,
+    "shares_outstanding": 577700000,
     "shares_display": "577.70 M",
     "shareSource": {
-      "shares": 577.700013,
-      "date": "2026-11-25",
+      "shares": 577.7,
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/80661/000008066126000379/pgr-20260930.htm",
-      "capturedAt": "2026-11-26T03:54:55Z"
+      "capturedAt": "2026-11-27T03:55:34Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 137897.0,
-    "liq_val_1": 52.902889583282736,
-    "liq_val_2": 35.56551763484208,
-    "liq_val_3": 10.522762442797452,
+    "liq_val_1": 52.902890773758,
+    "liq_val_2": 35.56551843517396,
+    "liq_val_3": 10.522762679591484,
     "debt": 8389.0,
     "cash": 99338.0,
     "short_term_investments": 99197.0,
@@ -339717,7 +339717,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "83d2d9860fdb81b04a583bc3abbf02994fdcb9deb176b0655e98ad491bb7641c"
       },
       "mScore": {
@@ -339729,13 +339729,13 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "83d2d9860fdb81b04a583bc3abbf02994fdcb9deb176b0655e98ad491bb7641c"
       }
     },
     "fin_valuation": {
       "is_financial": true,
-      "tbvps": 59.693611258409305,
+      "tbvps": 59.69361260169638,
       "bvps": 59.69,
       "rote": 34.92082569634326,
       "reference": {
@@ -339746,7 +339746,7 @@ window.FULL_MARKET_DATA = {
         "balance": "beginning",
         "rote": 34.92082569634326,
         "warnings": [],
-        "tbvps": 59.693611258409305,
+        "tbvps": 59.69361260169638,
         "reason": null
       },
       "ke": 9.0,
@@ -339948,7 +339948,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "PGR",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-02",
       "quoteDate": "2026-11-25",
@@ -339967,7 +339967,7 @@ window.FULL_MARKET_DATA = {
         "currency": "USD",
         "date": "2026-11-25",
         "price": 238.7,
-        "marketCap": 137896993103
+        "marketCap": 137896990000
       },
       "amounts": {
         "currentAssets": 123821000000,
@@ -339977,14 +339977,14 @@ window.FULL_MARKET_DATA = {
         "inventory": 0,
         "preferredStock": 0
       },
-      "sharesOutstanding": 577700013,
+      "sharesOutstanding": 577700000,
       "shareSource": {
-        "shares": 577.700013,
-        "date": "2026-11-25",
+        "shares": 577.7,
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/80661/000008066126000379/pgr-20260930.htm",
-        "capturedAt": "2026-11-26T03:54:55Z"
+        "capturedAt": "2026-11-27T03:55:34Z"
       }
     },
     "z_score": null,
@@ -340102,11 +340102,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "382.08 M",
     "shareSource": {
       "shares": 382.079222,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/896159/000089615926000021/cb-20260930.htm",
-      "capturedAt": "2026-11-26T03:55:03Z"
+      "capturedAt": "2026-11-27T03:55:43Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 145385.0,
@@ -343354,7 +343354,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "1c05c105a6c6e34a7c18cbfb40c47f3a935b067dbfee567fddc4e6a2b42ebe91"
       },
       "mScore": {
@@ -343366,7 +343366,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "1c05c105a6c6e34a7c18cbfb40c47f3a935b067dbfee567fddc4e6a2b42ebe91"
       }
     },
@@ -343561,7 +343561,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CB",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-11-25",
@@ -343593,11 +343593,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 382079222,
       "shareSource": {
         "shares": 382.079222,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/896159/000089615926000021/cb-20260930.htm",
-        "capturedAt": "2026-11-26T03:55:03Z"
+        "capturedAt": "2026-11-27T03:55:43Z"
       }
     },
     "z_score": null,
@@ -343715,11 +343715,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "35.26 M",
     "shareSource": {
       "shares": 35.25566,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1013237/000162828026066391/fds-20260831.htm",
-      "capturedAt": "2026-11-26T03:55:10Z"
+      "capturedAt": "2026-11-27T03:55:51Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 11442.2,
@@ -346965,7 +346965,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "03ca5675bbf699d67bdbeea64df070307aec85f51b08497b144439bcf132f8b9"
       },
       "mScore": {
@@ -346977,7 +346977,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "03ca5675bbf699d67bdbeea64df070307aec85f51b08497b144439bcf132f8b9"
       }
     },
@@ -347137,7 +347137,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "FDS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-08-31",
       "filingDate": "2026-10-20",
       "quoteDate": "2026-11-25",
@@ -347169,11 +347169,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 35255660,
       "shareSource": {
         "shares": 35.25566,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1013237/000162828026066391/fds-20260831.htm",
-        "capturedAt": "2026-11-26T03:55:10Z"
+        "capturedAt": "2026-11-27T03:55:51Z"
       }
     },
     "z_score": 5.19,
@@ -347503,11 +347503,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "214.13 M",
     "shareSource": {
       "shares": 214.134209,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1758730/000175873026000144/tw-20260930.htm",
-      "capturedAt": "2026-11-26T03:55:18Z"
+      "capturedAt": "2026-11-27T03:55:59Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 27419.9,
@@ -350755,7 +350755,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "c2ec9a01ace17a834b908d842484dde2c85426af1e1e8f91f5fb5d3019ae6bb9"
       },
       "mScore": {
@@ -350767,7 +350767,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "c2ec9a01ace17a834b908d842484dde2c85426af1e1e8f91f5fb5d3019ae6bb9"
       }
     },
@@ -350908,7 +350908,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TW",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-11-25",
@@ -350940,11 +350940,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 214134209,
       "shareSource": {
         "shares": 214.134209,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1758730/000175873026000144/tw-20260930.htm",
-        "capturedAt": "2026-11-26T03:55:18Z"
+        "capturedAt": "2026-11-27T03:55:59Z"
       }
     },
     "z_score": 17.72,
@@ -351269,22 +351269,22 @@ window.FULL_MARKET_DATA = {
     "industry": "Financial Exchanges & Data",
     "reportedCurrency": "USD",
     "price": 311.74,
-    "shares": 357.933885,
-    "shares_outstanding": 357933885,
+    "shares": 357.933893,
+    "shares_outstanding": 357933893,
     "shares_display": "357.93 M",
     "shareSource": {
-      "shares": 357.933885,
-      "date": "2026-11-26",
+      "shares": 357.933893,
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1156375/000115637526000068/cme-20260930.htm",
-      "capturedAt": "2026-11-26T03:55:26Z"
+      "capturedAt": "2026-11-27T03:56:08Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 111582.3,
-    "liq_val_1": -17.863634229544935,
-    "liq_val_2": -454.1962267696449,
-    "liq_val_3": -455.95766938913874,
+    "liq_val_1": -17.863633830283852,
+    "liq_val_2": -454.19621661813403,
+    "liq_val_3": -455.95765919825874,
     "debt": 3425.1,
     "cash": 2329.5,
     "short_term_investments": 131.0,
@@ -354526,7 +354526,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "e97f77a4a4cab1e13d5cc9de308b748afcb04b96d934c9ad045fa943a12e443b"
       },
       "mScore": {
@@ -354538,7 +354538,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "e97f77a4a4cab1e13d5cc9de308b748afcb04b96d934c9ad045fa943a12e443b"
       }
     },
@@ -354686,7 +354686,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CME",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-23",
       "quoteDate": "2026-11-25",
@@ -354705,7 +354705,7 @@ window.FULL_MARKET_DATA = {
         "currency": "USD",
         "date": "2026-11-25",
         "price": 311.74,
-        "marketCap": 111582310869
+        "marketCap": 111582309310
       },
       "amounts": {
         "currentAssets": 159138200000,
@@ -354715,14 +354715,14 @@ window.FULL_MARKET_DATA = {
         "inventory": 0,
         "preferredStock": 0
       },
-      "sharesOutstanding": 357933885,
+      "sharesOutstanding": 357933893,
       "shareSource": {
-        "shares": 357.933885,
-        "date": "2026-11-26",
+        "shares": 357.933893,
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1156375/000115637526000068/cme-20260930.htm",
-        "capturedAt": "2026-11-26T03:55:26Z"
+        "capturedAt": "2026-11-27T03:56:08Z"
       }
     },
     "z_score": 0.59,
@@ -355054,11 +355054,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "71.50 M",
     "shareSource": {
       "shares": 71.5,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1408198/000140819826000056/msci-20260930.htm",
-      "capturedAt": "2026-11-26T03:55:34Z"
+      "capturedAt": "2026-11-27T03:56:16Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 45259.5,
@@ -358302,7 +358302,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "ec183e803cbacaae198a6f1c6a728d674cb1a8290dda861d29e9bcf4fe7de5a2"
       },
       "mScore": {
@@ -358314,7 +358314,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "ec183e803cbacaae198a6f1c6a728d674cb1a8290dda861d29e9bcf4fe7de5a2"
       }
     },
@@ -358455,7 +358455,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MSCI",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-20",
       "quoteDate": "2026-11-25",
@@ -358487,11 +358487,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 71500000,
       "shareSource": {
         "shares": 71.5,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1408198/000140819826000056/msci-20260930.htm",
-        "capturedAt": "2026-11-26T03:55:34Z"
+        "capturedAt": "2026-11-27T03:56:16Z"
       }
     },
     "z_score": 6.08,
@@ -358821,11 +358821,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "172.42 M",
     "shareSource": {
       "shares": 172.424082,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1059556/000162828026066731/mco-20260930.htm",
-      "capturedAt": "2026-11-26T03:55:42Z"
+      "capturedAt": "2026-11-27T03:56:24Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 83789.5,
@@ -362072,7 +362072,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "726280a00e039969be1d751e2980be99732c673582714f7c76e7aa5b7d753df3"
       },
       "mScore": {
@@ -362084,7 +362084,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "726280a00e039969be1d751e2980be99732c673582714f7c76e7aa5b7d753df3"
       }
     },
@@ -362232,7 +362232,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MCO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-21",
       "quoteDate": "2026-11-25",
@@ -362264,11 +362264,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 172424082,
       "shareSource": {
         "shares": 172.424082,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1059556/000162828026066731/mco-20260930.htm",
-        "capturedAt": "2026-11-26T03:55:42Z"
+        "capturedAt": "2026-11-27T03:56:24Z"
       }
     },
     "z_score": 7.28,
@@ -362598,11 +362598,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "558.86 M",
     "shareSource": {
       "shares": 558.858412,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1571949/000157194926000015/ice-20260930.htm",
-      "capturedAt": "2026-11-26T03:55:50Z"
+      "capturedAt": "2026-11-27T03:56:33Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 99370.6,
@@ -365850,7 +365850,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "2efda1fe1835d90bb1ebf6b2e5c610cbdae238785cdcc9983be2aef86c7c92e4"
       },
       "mScore": {
@@ -365862,7 +365862,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "2efda1fe1835d90bb1ebf6b2e5c610cbdae238785cdcc9983be2aef86c7c92e4"
       }
     },
@@ -366010,7 +366010,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ICE",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-11-25",
@@ -366042,11 +366042,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 558858412,
       "shareSource": {
         "shares": 558.858412,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1571949/000157194926000015/ice-20260930.htm",
-        "capturedAt": "2026-11-26T03:55:50Z"
+        "capturedAt": "2026-11-27T03:56:33Z"
       }
     },
     "z_score": 0.99,
@@ -366376,11 +366376,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "530.21 M",
     "shareSource": {
       "shares": 530.206221,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/5272/000000527226000104/aig-20260930.htm",
-      "capturedAt": "2026-11-26T03:55:57Z"
+      "capturedAt": "2026-11-27T03:56:41Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 43598.9,
@@ -369628,7 +369628,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "86de1b6a129b1c39110991fdea979a616d38cdfb228b6c00640229cec150aac3"
       },
       "mScore": {
@@ -369640,7 +369640,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "86de1b6a129b1c39110991fdea979a616d38cdfb228b6c00640229cec150aac3"
       }
     },
@@ -369865,7 +369865,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AIG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-04",
       "quoteDate": "2026-11-25",
@@ -369897,11 +369897,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 530206221,
       "shareSource": {
         "shares": 530.206221,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/5272/000000527226000104/aig-20260930.htm",
-        "capturedAt": "2026-11-26T03:55:57Z"
+        "capturedAt": "2026-11-27T03:56:41Z"
       }
     },
     "z_score": null,
@@ -370019,11 +370019,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "628.44 M",
     "shareSource": {
       "shares": 628.442143,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1099219/000109921926000062/met-20260930.htm",
-      "capturedAt": "2026-11-26T03:56:05Z"
+      "capturedAt": "2026-11-27T03:56:49Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 62706.0,
@@ -373271,7 +373271,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "2708ad23fef8b7921758120b8d978122d051998d3ffd9ded9ff3652581d25edb"
       },
       "mScore": {
@@ -373283,7 +373283,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "2708ad23fef8b7921758120b8d978122d051998d3ffd9ded9ff3652581d25edb"
       }
     },
@@ -373456,7 +373456,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MET",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-06",
       "quoteDate": "2026-11-25",
@@ -373488,11 +373488,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 628442143,
       "shareSource": {
         "shares": 628.442143,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1099219/000109921926000062/met-20260930.htm",
-        "capturedAt": "2026-11-26T03:56:05Z"
+        "capturedAt": "2026-11-27T03:56:49Z"
       }
     },
     "z_score": null,
@@ -373610,11 +373610,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "343.00 M",
     "shareSource": {
       "shares": 343.0,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1137774/000113777426000221/pru-20260930.htm",
-      "capturedAt": "2026-11-26T03:56:13Z"
+      "capturedAt": "2026-11-27T03:56:58Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 41235.5,
@@ -376862,7 +376862,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "e70f913a396a5b0d146522b2f0f444a714711970b6d41c8c4852d117d5e0f2e0"
       },
       "mScore": {
@@ -376874,7 +376874,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "e70f913a396a5b0d146522b2f0f444a714711970b6d41c8c4852d117d5e0f2e0"
       }
     },
@@ -377038,7 +377038,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "PRU",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-04",
       "quoteDate": "2026-11-25",
@@ -377070,11 +377070,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 343000000,
       "shareSource": {
         "shares": 343,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1137774/000113777426000221/pru-20260930.htm",
-        "capturedAt": "2026-11-26T03:56:13Z"
+        "capturedAt": "2026-11-27T03:56:58Z"
       }
     },
     "z_score": null,
@@ -377192,11 +377192,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "204.95 M",
     "shareSource": {
       "shares": 204.946,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/86312/000008631226000181/trv-20260930.htm",
-      "capturedAt": "2026-11-26T03:56:20Z"
+      "capturedAt": "2026-11-27T03:57:07Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 83384.3,
@@ -380444,7 +380444,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "7eb64de60eaad9513b2c9b2c7d90390ca46ee5a236db9d63f26d98b8627ed63b"
       },
       "mScore": {
@@ -380456,7 +380456,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "7eb64de60eaad9513b2c9b2c7d90390ca46ee5a236db9d63f26d98b8627ed63b"
       }
     },
@@ -380639,7 +380639,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TRV",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-16",
       "quoteDate": "2026-11-25",
@@ -380671,11 +380671,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 204946000,
       "shareSource": {
         "shares": 204.946,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/86312/000008631226000181/trv-20260930.htm",
-        "capturedAt": "2026-11-26T03:56:20Z"
+        "capturedAt": "2026-11-27T03:57:07Z"
       }
     },
     "z_score": null,
@@ -380793,11 +380793,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "494.61 M",
     "shareSource": {
       "shares": 494.60706,
-      "date": "2026-11-25",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/4977/000162828026070776/afl-20260930.htm",
-      "capturedAt": "2026-11-26T03:56:28Z"
+      "capturedAt": "2026-11-27T03:57:15Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 63067.3,
@@ -384045,7 +384045,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "a23a89e1b4e091b140c66950242f53ef87f8996312f7439837719682d4b5686a"
       },
       "mScore": {
@@ -384057,7 +384057,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "a23a89e1b4e091b140c66950242f53ef87f8996312f7439837719682d4b5686a"
       }
     },
@@ -384282,7 +384282,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AFL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-05",
       "quoteDate": "2026-11-25",
@@ -384314,11 +384314,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 494607060,
       "shareSource": {
         "shares": 494.60706,
-        "date": "2026-11-25",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/4977/000162828026070776/afl-20260930.htm",
-        "capturedAt": "2026-11-26T03:56:28Z"
+        "capturedAt": "2026-11-27T03:57:15Z"
       }
     },
     "z_score": null,
@@ -384436,11 +384436,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "247.45 M",
     "shareSource": {
       "shares": 247.45,
-      "date": "2026-11-25",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/899051/000089905126000157/all-20260930.htm",
-      "capturedAt": "2026-11-26T03:56:36Z"
+      "capturedAt": "2026-11-27T03:57:24Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 67155.5,
@@ -387688,7 +387688,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "355d8354b9cfa5d03be8edbc2d4ac7e1f221388e498bd50c0ce23b5fb7a39d55"
       },
       "mScore": {
@@ -387700,7 +387700,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "355d8354b9cfa5d03be8edbc2d4ac7e1f221388e498bd50c0ce23b5fb7a39d55"
       }
     },
@@ -387871,7 +387871,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ALL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-04",
       "quoteDate": "2026-11-25",
@@ -387903,11 +387903,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 247450000,
       "shareSource": {
         "shares": 247.45,
-        "date": "2026-11-25",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/899051/000089905126000157/all-20260930.htm",
-        "capturedAt": "2026-11-26T03:56:36Z"
+        "capturedAt": "2026-11-27T03:57:24Z"
       }
     },
     "z_score": null,
@@ -388025,11 +388025,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "212.16 M",
     "shareSource": {
       "shares": 212.157,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/315293/000162828026067879/aon-20260930.htm",
-      "capturedAt": "2026-11-26T03:56:43Z"
+      "capturedAt": "2026-11-27T03:57:33Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 73722.4,
@@ -391272,7 +391272,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "7912f667fa1b149600f879cf7d1bb9050cd1b09c25c34d9d405e604f522f853e"
       },
       "mScore": {
@@ -391284,7 +391284,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "7912f667fa1b149600f879cf7d1bb9050cd1b09c25c34d9d405e604f522f853e"
       }
     },
@@ -391450,7 +391450,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AON",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-11-25",
@@ -391482,11 +391482,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 212157000,
       "shareSource": {
         "shares": 212.157,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/315293/000162828026067879/aon-20260930.htm",
-        "capturedAt": "2026-11-26T03:56:43Z"
+        "capturedAt": "2026-11-27T03:57:33Z"
       }
     },
     "z_score": 1.75,
@@ -391816,11 +391816,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "256.42 M",
     "shareSource": {
       "shares": 256.415,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/354190/000162828026070650/ajg-20260930.htm",
-      "capturedAt": "2026-11-26T03:56:51Z"
+      "capturedAt": "2026-11-27T03:57:41Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 74973.2,
@@ -393804,7 +393804,7 @@ window.FULL_MARKET_DATA = {
             41114.7,
             38985.4,
             31653.0,
-            37924.0,
+            33873.0,
             40865.0,
             38349.0
           ],
@@ -393870,7 +393870,7 @@ window.FULL_MARKET_DATA = {
             66.8,
             891.1,
             892.0,
-            0.0,
+            177.0,
             0.0,
             0.0
           ],
@@ -393914,7 +393914,7 @@ window.FULL_MARKET_DATA = {
             1960.0,
             1501.8,
             -14026.0,
-            2394.0,
+            2217.0,
             14391.0,
             14279.0
           ],
@@ -393980,7 +393980,7 @@ window.FULL_MARKET_DATA = {
             13297.1,
             13685.4,
             14000.0,
-            12873.0,
+            13372.0,
             2017.0,
             1526.0
           ],
@@ -394002,7 +394002,7 @@ window.FULL_MARKET_DATA = {
             -1002.4,
             12286.1,
             12604.0,
-            11460.0,
+            11959.0,
             631.0,
             313.0
           ],
@@ -395066,8 +395066,8 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
-        "evidenceHash": "6e23bae39f3662468c28d6d9b641c2243b628229a0fcaf86ae72169b5fc4c417"
+        "checkedAt": "2026-11-27T04:16:04.892Z",
+        "evidenceHash": "d84594ae19446d6bb40d113f8d995eef6014bb502902ea44cf764c713441f669"
       },
       "mScore": {
         "asOfDate": "2025-12-31",
@@ -395078,8 +395078,8 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
-        "evidenceHash": "6e23bae39f3662468c28d6d9b641c2243b628229a0fcaf86ae72169b5fc4c417"
+        "checkedAt": "2026-11-27T04:16:04.892Z",
+        "evidenceHash": "d84594ae19446d6bb40d113f8d995eef6014bb502902ea44cf764c713441f669"
       }
     },
     "fin_valuation": {
@@ -395100,8 +395100,8 @@ window.FULL_MARKET_DATA = {
     "country": "US",
     "phone": "630 773 3800",
     "full_address": "2850 Golf Road, Rolling Meadows, IL 60008-4050, US",
-    "range_52w": "190.75-294.615",
-    "year_high": 294.615,
+    "range_52w": "190.75-294.62",
+    "year_high": 294.62,
     "year_low": 190.75,
     "all_time_high": 0.0,
     "all_time_low": 190.75,
@@ -395238,7 +395238,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AJG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-05",
       "quoteDate": "2026-11-25",
@@ -395270,11 +395270,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 256415000,
       "shareSource": {
         "shares": 256.415,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/354190/000162828026070650/ajg-20260930.htm",
-        "capturedAt": "2026-11-26T03:56:51Z"
+        "capturedAt": "2026-11-27T03:57:41Z"
       }
     },
     "z_score": 1.41,
@@ -395608,7 +395608,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/62709/000006270926000258/mrsh-20260930.htm",
-      "capturedAt": "2026-11-26T03:56:59Z"
+      "capturedAt": "2026-11-27T03:57:50Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 89819.7,
@@ -398854,7 +398854,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "faa904aba005419112e389129e5eba7df7f0b501c9da069b3e8fa59c6f3f7a53"
       },
       "mScore": {
@@ -398866,7 +398866,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "faa904aba005419112e389129e5eba7df7f0b501c9da069b3e8fa59c6f3f7a53"
       }
     },
@@ -399038,7 +399038,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MMC",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-15",
       "quoteDate": "2026-01-13",
@@ -399074,7 +399074,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/62709/000006270926000258/mrsh-20260930.htm",
-        "capturedAt": "2026-11-26T03:56:59Z"
+        "capturedAt": "2026-11-27T03:57:50Z"
       }
     },
     "z_score": 2.77,
@@ -399404,11 +399404,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "1,558.21 M",
     "shareSource": {
       "shares": 1558.208825,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/36104/000003610426000058/usb-20260930.htm",
-      "capturedAt": "2026-11-26T03:57:06Z"
+      "capturedAt": "2026-11-27T03:57:58Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 91233.1,
@@ -402656,7 +402656,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "051aa5214cb729dd0c13e581e73fa6e029bb42c8449924c54c6a5f562a8a4b4a"
       },
       "mScore": {
@@ -402668,7 +402668,7 @@ window.FULL_MARKET_DATA = {
         "reason": "financialSectorNotApplicable",
         "scoringCurrency": null,
         "applicability": "financialSector",
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "051aa5214cb729dd0c13e581e73fa6e029bb42c8449924c54c6a5f562a8a4b4a"
       }
     },
@@ -402713,11 +402713,11 @@ window.FULL_MARKET_DATA = {
     "country": "US",
     "phone": "651 466 3000",
     "full_address": "800 Nicollet Mall, Minneapolis, MN 55402, US",
-    "range_52w": "48.74-66.08",
+    "range_52w": "48.84-66.08",
     "year_high": 66.08,
-    "year_low": 48.74,
+    "year_low": 48.84,
     "all_time_high": 0.0,
-    "all_time_low": 48.74,
+    "all_time_low": 48.84,
     "inst_ownership_pct": null,
     "insider_ownership_pct": null,
     "top_holders": [],
@@ -402881,7 +402881,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "USB",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-05",
       "quoteDate": "2026-11-25",
@@ -402913,11 +402913,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 1558208825,
       "shareSource": {
         "shares": 1558.208825,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/36104/000003610426000058/usb-20260930.htm",
-        "capturedAt": "2026-11-26T03:57:06Z"
+        "capturedAt": "2026-11-27T03:57:58Z"
       }
     },
     "z_score": null,
@@ -403035,11 +403035,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "940.75 M",
     "shareSource": {
       "shares": 940.745,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/59478/000005947826000108/lly-20260930.htm",
-      "capturedAt": "2026-11-26T03:57:14Z"
+      "capturedAt": "2026-11-27T03:58:07Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 1309724.0,
@@ -406287,7 +406287,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "e67163beaf399e7062c6e38b26d7962f345c791442301a43446e3143e970f0cb"
       },
       "mScore": {
@@ -406299,7 +406299,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "e67163beaf399e7062c6e38b26d7962f345c791442301a43446e3143e970f0cb"
       }
     },
@@ -406465,7 +406465,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "LLY",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-11-25",
@@ -406497,11 +406497,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 940745000,
       "shareSource": {
         "shares": 940.745,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/59478/000005947826000108/lly-20260930.htm",
-        "capturedAt": "2026-11-26T03:57:14Z"
+        "capturedAt": "2026-11-27T03:58:07Z"
       }
     },
     "z_score": 11.12,
@@ -406831,11 +406831,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "896.02 M",
     "shareSource": {
       "shares": 896.023,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/731766/000073176626000266/unh-20260930.htm",
-      "capturedAt": "2026-11-26T03:57:22Z"
+      "capturedAt": "2026-11-27T03:58:16Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 310194.2,
@@ -410081,7 +410081,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "89abdf2690eb1e8db917ae6fd1f9c3d7069e21e6d9cf148d8c289746c6a28818"
       },
       "mScore": {
@@ -410093,7 +410093,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "89abdf2690eb1e8db917ae6fd1f9c3d7069e21e6d9cf148d8c289746c6a28818"
       }
     },
@@ -410265,7 +410265,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "UNH",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-03",
       "quoteDate": "2026-11-25",
@@ -410297,11 +410297,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 896023000,
       "shareSource": {
         "shares": 896.023,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/731766/000073176626000266/unh-20260930.htm",
-        "capturedAt": "2026-11-26T03:57:22Z"
+        "capturedAt": "2026-11-27T03:58:16Z"
       }
     },
     "z_score": 2.88,
@@ -410631,11 +410631,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "2,407.31 M",
     "shareSource": {
       "shares": 2407.310266,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000197/jnj-20260927.htm",
-      "capturedAt": "2026-11-26T03:57:29Z"
+      "capturedAt": "2026-11-27T03:58:24Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 659458.6,
@@ -413883,7 +413883,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "922be353ba177534cb2bf863b106ded22c2d990eb5764b6cdf4b8b23cb8c2968"
       },
       "mScore": {
@@ -413895,7 +413895,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "922be353ba177534cb2bf863b106ded22c2d990eb5764b6cdf4b8b23cb8c2968"
       }
     },
@@ -414079,7 +414079,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "JNJ",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-27",
       "filingDate": "2026-10-21",
       "quoteDate": "2026-11-25",
@@ -414111,11 +414111,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 2407310266,
       "shareSource": {
         "shares": 2407.310266,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000197/jnj-20260927.htm",
-        "capturedAt": "2026-11-26T03:57:29Z"
+        "capturedAt": "2026-11-27T03:58:24Z"
       }
     },
     "z_score": 5.59,
@@ -414447,11 +414447,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "1,767.62 M",
     "shareSource": {
       "shares": 1767.616306,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1551152/000155115226000037/abbv-20260930.htm",
-      "capturedAt": "2026-11-26T03:57:37Z"
+      "capturedAt": "2026-11-27T03:58:32Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 520527.6,
@@ -417699,7 +417699,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "1d6a5cb61eadc3ca294ed6658b37ec0ac21105045698a0b77e3e244251be30d7"
       },
       "mScore": {
@@ -417711,7 +417711,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "1d6a5cb61eadc3ca294ed6658b37ec0ac21105045698a0b77e3e244251be30d7"
       }
     },
@@ -417852,7 +417852,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ABBV",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-03",
       "quoteDate": "2026-11-25",
@@ -417884,11 +417884,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 1767616306,
       "shareSource": {
         "shares": 1767.616306,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1551152/000155115226000037/abbv-20260930.htm",
-        "capturedAt": "2026-11-26T03:57:37Z"
+        "capturedAt": "2026-11-27T03:58:32Z"
       }
     },
     "z_score": 2.68,
@@ -418218,11 +418218,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "2,465.25 M",
     "shareSource": {
       "shares": 2465.25,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/310158/000031015826000248/mrk-20260930.htm",
-      "capturedAt": "2026-11-26T03:57:45Z"
+      "capturedAt": "2026-11-27T03:58:41Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 345849.9,
@@ -421470,7 +421470,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "f5fb5c878c3f509f97475de7ab47f6ec98353714e9724bb610f90473342ff447"
       },
       "mScore": {
@@ -421482,7 +421482,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "f5fb5c878c3f509f97475de7ab47f6ec98353714e9724bb610f90473342ff447"
       }
     },
@@ -421504,11 +421504,11 @@ window.FULL_MARKET_DATA = {
     "country": "US",
     "phone": "908 740 4000",
     "full_address": "126 East Lincoln Avenue, Rahway, NJ 07065, US",
-    "range_52w": "76.66-156.92",
+    "range_52w": "96.06-156.92",
     "year_high": 156.92,
-    "year_low": 76.66,
+    "year_low": 96.06,
     "all_time_high": 0.0,
-    "all_time_low": 76.66,
+    "all_time_low": 96.06,
     "inst_ownership_pct": null,
     "insider_ownership_pct": null,
     "top_holders": [],
@@ -421666,7 +421666,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MRK",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-04",
       "quoteDate": "2026-11-25",
@@ -421698,11 +421698,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 2465250000,
       "shareSource": {
         "shares": 2465.25,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/310158/000031015826000248/mrk-20260930.htm",
-        "capturedAt": "2026-11-26T03:57:45Z"
+        "capturedAt": "2026-11-27T03:58:41Z"
       }
     },
     "z_score": 4.36,
@@ -422032,11 +422032,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "370.52 M",
     "shareSource": {
       "shares": 370.515868,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/97745/000009774526000179/tmo-20260926.htm",
-      "capturedAt": "2026-11-26T03:57:52Z"
+      "capturedAt": "2026-11-27T03:58:49Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 253996.0,
@@ -425284,7 +425284,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "40e0e39f3520ff510961c9b28be452cd00da314a39b165010cf3ca7edcd98e10"
       },
       "mScore": {
@@ -425296,7 +425296,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "40e0e39f3520ff510961c9b28be452cd00da314a39b165010cf3ca7edcd98e10"
       }
     },
@@ -425486,7 +425486,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TMO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-26",
       "filingDate": "2026-10-30",
       "quoteDate": "2026-11-25",
@@ -425518,11 +425518,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 370515868,
       "shareSource": {
         "shares": 370.515868,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/97745/000009774526000179/tmo-20260926.htm",
-        "capturedAt": "2026-11-26T03:57:52Z"
+        "capturedAt": "2026-11-27T03:58:49Z"
       }
     },
     "z_score": 4.24,
@@ -425852,11 +425852,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "1,731.94 M",
     "shareSource": {
       "shares": 1731.94,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1800/000162828026070154/abt-20260930.htm",
-      "capturedAt": "2026-11-26T03:58:00Z"
+      "capturedAt": "2026-11-27T03:58:57Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 187049.5,
@@ -429104,7 +429104,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "1b9a201365199426d1e22bb3e8e9c49149e952ba0684c43a5240605bebe924be"
       },
       "mScore": {
@@ -429116,7 +429116,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "1b9a201365199426d1e22bb3e8e9c49149e952ba0684c43a5240605bebe924be"
       }
     },
@@ -429312,7 +429312,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ABT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-04",
       "quoteDate": "2026-11-25",
@@ -429344,11 +429344,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 1731940000,
       "shareSource": {
         "shares": 1731.94,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1800/000162828026070154/abt-20260930.htm",
-        "capturedAt": "2026-11-26T03:58:00Z"
+        "capturedAt": "2026-11-27T03:58:57Z"
       }
     },
     "z_score": 5.09,
@@ -429678,11 +429678,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "703.53 M",
     "shareSource": {
       "shares": 703.530815,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/313616/000031361626000199/dhr-20260925.htm",
-      "capturedAt": "2026-11-26T03:58:08Z"
+      "capturedAt": "2026-11-27T03:59:06Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 159947.7,
@@ -432930,7 +432930,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "6f6c115e9dd02d3b9592c2d5f4748818cf3029426cca8be91cc33557b8ed05e1"
       },
       "mScore": {
@@ -432942,7 +432942,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "6f6c115e9dd02d3b9592c2d5f4748818cf3029426cca8be91cc33557b8ed05e1"
       }
     },
@@ -433126,7 +433126,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "DHR",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-25",
       "filingDate": "2026-10-21",
       "quoteDate": "2026-11-25",
@@ -433158,11 +433158,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 703530815,
       "shareSource": {
         "shares": 703.530815,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/313616/000031361626000199/dhr-20260925.htm",
-        "capturedAt": "2026-11-26T03:58:08Z"
+        "capturedAt": "2026-11-27T03:59:06Z"
       }
     },
     "z_score": 4.45,
@@ -433492,11 +433492,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "346.64 M",
     "shareSource": {
       "shares": 346.644,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000071/isrg-20260930.htm",
-      "capturedAt": "2026-11-26T03:58:15Z"
+      "capturedAt": "2026-11-27T03:59:14Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 148079.4,
@@ -436742,7 +436742,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "726ed2436781cd6002f835b2be93c2609b483f6e6dfc97dfac61d8c58be4a41b"
       },
       "mScore": {
@@ -436754,7 +436754,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "726ed2436781cd6002f835b2be93c2609b483f6e6dfc97dfac61d8c58be4a41b"
       }
     },
@@ -436914,7 +436914,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ISRG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-21",
       "quoteDate": "2026-11-25",
@@ -436946,11 +436946,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 346644000,
       "shareSource": {
         "shares": 346.644,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000071/isrg-20260930.htm",
-        "capturedAt": "2026-11-26T03:58:15Z"
+        "capturedAt": "2026-11-27T03:59:14Z"
       }
     },
     "z_score": 37.26,
@@ -437280,11 +437280,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "5,699.85 M",
     "shareSource": {
       "shares": 5699.85,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/78003/000007800326000127/pfe-20260927.htm",
-      "capturedAt": "2026-11-26T03:58:23Z"
+      "capturedAt": "2026-11-27T03:59:22Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 162217.7,
@@ -440532,7 +440532,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "71d8ba8c60dfd0b4d6eb0257ea80e8dfc47f5ce483885352c67472633964ac61"
       },
       "mScore": {
@@ -440544,7 +440544,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "71d8ba8c60dfd0b4d6eb0257ea80e8dfc47f5ce483885352c67472633964ac61"
       }
     },
@@ -440722,7 +440722,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "PFE",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-27",
       "filingDate": "2026-11-03",
       "quoteDate": "2026-11-25",
@@ -440754,11 +440754,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 5699850000,
       "shareSource": {
         "shares": 5699.85,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/78003/000007800326000127/pfe-20260927.htm",
-        "capturedAt": "2026-11-26T03:58:23Z"
+        "capturedAt": "2026-11-27T03:59:22Z"
       }
     },
     "z_score": 2.07,
@@ -441088,11 +441088,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "540.91 M",
     "shareSource": {
       "shares": 540.91149,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/318154/000031815426000155/amgn-20260930.htm",
-      "capturedAt": "2026-11-26T03:58:31Z"
+      "capturedAt": "2026-11-27T03:59:30Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 253817.3,
@@ -444340,7 +444340,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "721b6da9b37e58a6ae8fa2e757a3e14bdacbfe8ac3b8986bed432a503d369b2b"
       },
       "mScore": {
@@ -444352,7 +444352,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "721b6da9b37e58a6ae8fa2e757a3e14bdacbfe8ac3b8986bed432a503d369b2b"
       }
     },
@@ -444524,7 +444524,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AMGN",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-04",
       "quoteDate": "2026-11-25",
@@ -444556,11 +444556,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 540911490,
       "shareSource": {
         "shares": 540.91149,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/318154/000031815426000155/amgn-20260930.htm",
-        "capturedAt": "2026-11-26T03:58:31Z"
+        "capturedAt": "2026-11-27T03:59:30Z"
       }
     },
     "z_score": 2.35,
@@ -444890,11 +444890,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "2,044.09 M",
     "shareSource": {
       "shares": 2044.085831,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/14272/000001427226000024/bmy-20260930.htm",
-      "capturedAt": "2026-11-26T03:58:39Z"
+      "capturedAt": "2026-11-27T03:59:39Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 125833.9,
@@ -448142,7 +448142,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "14fe28c07b2d6d989f03d01e02a5a1761af1d181f11daee0d656b03844d4cbae"
       },
       "mScore": {
@@ -448154,7 +448154,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "14fe28c07b2d6d989f03d01e02a5a1761af1d181f11daee0d656b03844d4cbae"
       }
     },
@@ -448332,7 +448332,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "BMY",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-11-25",
@@ -448364,11 +448364,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 2044085831,
       "shareSource": {
         "shares": 2044.085831,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/14272/000001427226000024/bmy-20260930.htm",
-        "capturedAt": "2026-11-26T03:58:39Z"
+        "capturedAt": "2026-11-27T03:59:39Z"
       }
     },
     "z_score": 2.34,
@@ -448698,11 +448698,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "1,279.17 M",
     "shareSource": {
       "shares": 1279.17,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1613103/000162828026075604/exhibit991-fy27q2earningsr.htm",
-      "capturedAt": "2026-11-26T03:58:47Z"
+      "capturedAt": "2026-11-27T03:59:47Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 122877.1,
@@ -451950,7 +451950,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "c5db01257e5335c5db509c750a1c4343fb850c49b88eb324af34295771d9597f"
       },
       "mScore": {
@@ -451962,7 +451962,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "c5db01257e5335c5db509c750a1c4343fb850c49b88eb324af34295771d9597f"
       }
     },
@@ -451984,8 +451984,8 @@ window.FULL_MARKET_DATA = {
     "country": "IE",
     "phone": "353 1 438 1700",
     "full_address": "Building Two, Parkmore Business Park West, Galway, GA H91 4K49, IE",
-    "range_52w": "73.31-106.33",
-    "year_high": 106.33,
+    "range_52w": "73.31-106.2",
+    "year_high": 106.2,
     "year_low": 73.31,
     "all_time_high": 0.0,
     "all_time_low": 73.31,
@@ -452146,7 +452146,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MDT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-10-30",
       "filingDate": "2026-11-24",
       "quoteDate": "2026-11-25",
@@ -452178,11 +452178,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 1279170000,
       "shareSource": {
         "shares": 1279.17,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1613103/000162828026075604/exhibit991-fy27q2earningsr.htm",
-        "capturedAt": "2026-11-26T03:58:47Z"
+        "capturedAt": "2026-11-27T03:59:47Z"
       }
     },
     "z_score": 3.01,
@@ -452516,11 +452516,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "1,240.34 M",
     "shareSource": {
       "shares": 1240.338614,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/882095/000088209526000039/gild-20260930.htm",
-      "capturedAt": "2026-11-26T03:59:05Z"
+      "capturedAt": "2026-11-27T03:59:55Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 219217.4,
@@ -455768,7 +455768,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "b7a558e3e43907f630a7a96b05916d58250cd04089d66aa08c553e91f735b486"
       },
       "mScore": {
@@ -455780,7 +455780,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "b7a558e3e43907f630a7a96b05916d58250cd04089d66aa08c553e91f735b486"
       }
     },
@@ -455952,7 +455952,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "GILD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
       "quoteDate": "2026-11-25",
@@ -455984,11 +455984,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 1240338614,
       "shareSource": {
         "shares": 1240.338614,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/882095/000088209526000039/gild-20260930.htm",
-        "capturedAt": "2026-11-26T03:59:05Z"
+        "capturedAt": "2026-11-27T03:59:55Z"
       }
     },
     "z_score": 5.18,
@@ -456318,11 +456318,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "151.20 M",
     "shareSource": {
       "shares": 151.2,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1110803/000111080326000207/ilmn-20260927.htm",
-      "capturedAt": "2026-11-26T03:59:13Z"
+      "capturedAt": "2026-11-27T04:00:06Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 30299.0,
@@ -459570,7 +459570,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "fc3f95bfb8ac3b194abfd0ffc569267ea7124c2cd94fda83e23ee85bb99a8cf0"
       },
       "mScore": {
@@ -459582,7 +459582,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "fc3f95bfb8ac3b194abfd0ffc569267ea7124c2cd94fda83e23ee85bb99a8cf0"
       }
     },
@@ -459730,7 +459730,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ILMN",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-27",
       "filingDate": "2026-10-30",
       "quoteDate": "2026-11-25",
@@ -459762,11 +459762,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 151200000,
       "shareSource": {
         "shares": 151.2,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1110803/000111080326000207/ilmn-20260927.htm",
-        "capturedAt": "2026-11-26T03:59:13Z"
+        "capturedAt": "2026-11-27T04:00:06Z"
       }
     },
     "z_score": 6.08,
@@ -460096,11 +460096,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "406.32 M",
     "shareSource": {
       "shares": 406.316147,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1555280/000155528026000050/zts-20260930.htm",
-      "capturedAt": "2026-11-26T03:59:20Z"
+      "capturedAt": "2026-11-27T04:00:16Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 33561.7,
@@ -463343,7 +463343,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "61e108645d230d3c0df76a5f59c435a04f41415484af812e4d9c580ab2e1ab3c"
       },
       "mScore": {
@@ -463355,7 +463355,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "61e108645d230d3c0df76a5f59c435a04f41415484af812e4d9c580ab2e1ab3c"
       }
     },
@@ -463496,7 +463496,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ZTS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-05",
       "quoteDate": "2026-11-25",
@@ -463528,11 +463528,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 406316147,
       "shareSource": {
         "shares": 406.316147,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1555280/000155528026000050/zts-20260930.htm",
-        "capturedAt": "2026-11-26T03:59:20Z"
+        "capturedAt": "2026-11-27T04:00:16Z"
       }
     },
     "z_score": 4.63,
@@ -463862,11 +463862,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "70.49 M",
     "shareSource": {
       "shares": 70.487053,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1097149/000109714926000081/algn-20260930.htm",
-      "capturedAt": "2026-11-26T03:59:28Z"
+      "capturedAt": "2026-11-27T04:00:24Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 11658.6,
@@ -467108,7 +467108,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "7ed74105577ef81f0f790169e4df77d317c475bae724da83d1b71a328b9ea0cb"
       },
       "mScore": {
@@ -467120,7 +467120,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "7ed74105577ef81f0f790169e4df77d317c475bae724da83d1b71a328b9ea0cb"
       }
     },
@@ -467261,7 +467261,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ALGN",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-04",
       "quoteDate": "2026-11-25",
@@ -467293,11 +467293,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 70487053,
       "shareSource": {
         "shares": 70.487053,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1097149/000109714926000081/algn-20260930.htm",
-        "capturedAt": "2026-11-26T03:59:28Z"
+        "capturedAt": "2026-11-27T04:00:24Z"
       }
     },
     "z_score": 4.85,
@@ -467586,22 +467586,22 @@ window.FULL_MARKET_DATA = {
     "industry": "Health Care Services",
     "reportedCurrency": "EUR",
     "price": 21.17,
-    "shares": 531.21318,
-    "shares_outstanding": 531213179,
-    "shares_display": "531.21 M",
+    "shares": 531.572612,
+    "shares_outstanding": 531572612,
+    "shares_display": "531.57 M",
     "shareSource": {
-      "shares": 531.21318,
-      "date": "2026-11-25",
+      "shares": 531.572612,
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1333141/000110465926121730/fms-20260930x6k.htm",
-      "capturedAt": "2026-11-26T03:59:36Z"
+      "capturedAt": "2026-11-27T04:00:33Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 11245.8,
-    "liq_val_1": -21.040358796331745,
-    "liq_val_2": -27.137944043835553,
-    "liq_val_3": -35.43647345673252,
+    "mcap": 11253.4,
+    "liq_val_1": -21.026131954856996,
+    "liq_val_2": -27.119594203340935,
+    "liq_val_3": -35.412512406677564,
     "debt": 12350.7217705,
     "cash": 1246.944833,
     "short_term_investments": 0,
@@ -470760,12 +470760,12 @@ window.FULL_MARKET_DATA = {
     "g1": 4,
     "g2": 3.5,
     "g": 2.25,
-    "wacc": 5.630537211642284,
-    "ev": 22349.5769375,
-    "fmp_official_ev": 22349.5769375,
+    "wacc": 5.631271147747169,
+    "ev": 22357.1769375,
+    "fmp_official_ev": 22357.1769375,
     "enterpriseValueBasis": "USD market capitalization + USD debt - USD cash and short-term investments",
-    "dcf_model_ev": 68881.09523573062,
-    "ev_to_ebitda": 6.458670600919349,
+    "dcf_model_ev": 68866.00978098303,
+    "ev_to_ebitda": 6.460866879475504,
     "debt_to_ebitda": 3.5691612338942917,
     "net_debt_to_ebitda": 3.2088141026538626,
     "f_score": 5,
@@ -470834,18 +470834,18 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 108.76484333131687,
-    "default_fair_val": 108.76484333131687,
-    "premium_pct": -80.53598998390274,
+    "fair_val": 108.66292118805215,
+    "default_fair_val": 108.66292118805215,
+    "premium_pct": -80.5177334011082,
     "is_undervalued": true,
-    "pe_trailing": 11.761668263279395,
-    "pe_forward": 10.350268071685868,
-    "pb_trailing": 0.7748622238416115,
-    "pb_forward": 0.6973760014574504,
-    "div_yield": 0.022637663829334985,
-    "ps_ratio": 0.49688864936930727,
-    "fcf_to_ev": 9.238224271886962,
-    "fcf_to_mcap": 18.359779129134218,
+    "pe_trailing": 11.769616891104976,
+    "pe_forward": 10.357262864172379,
+    "pb_trailing": 0.7753858818206967,
+    "pb_forward": 0.6978472936386271,
+    "div_yield": 0.022622375450258178,
+    "ps_ratio": 0.4972244506226825,
+    "fcf_to_ev": 9.235083870723496,
+    "fcf_to_mcap": 18.3473798256898,
     "liab_to_assets": 56.25492162585574,
     "cash_to_assets": 3.4948857699482505,
     "current_ratio": 0.9917025921635888,
@@ -470928,15 +470928,15 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "EUR",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "9b3119466b8ef78b26065f848497904579d5a7ba614777b09494b8d56e1f8f47",
         "mcapFx": {
-          "asOf": "2026-11-25",
+          "asOf": "2026-11-26",
           "from": "USD",
           "to": "EUR",
           "fromUsdPerUnit": 1,
           "toUsdPerUnit": 1.0981,
-          "fromObservationDate": "2026-11-25",
+          "fromObservationDate": "2026-11-26",
           "toObservationDate": "2026-11-20"
         }
       },
@@ -470949,7 +470949,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "EUR",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "9b3119466b8ef78b26065f848497904579d5a7ba614777b09494b8d56e1f8f47"
       }
     },
@@ -471085,7 +471085,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "FMS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-03",
       "quoteDate": "2026-11-25",
@@ -471105,7 +471105,7 @@ window.FULL_MARKET_DATA = {
         "currency": "USD",
         "date": "2026-11-25",
         "price": 21.17,
-        "marketCap": 11245783021
+        "marketCap": 11253392196
       },
       "amounts": {
         "currentAssets": 8894350667,
@@ -471115,14 +471115,14 @@ window.FULL_MARKET_DATA = {
         "inventory": 2737930826.5,
         "preferredStock": 0
       },
-      "sharesOutstanding": 531213179,
+      "sharesOutstanding": 531572612,
       "shareSource": {
-        "shares": 531.21318,
-        "date": "2026-11-25",
+        "shares": 531.572612,
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1333141/000110465926121730/fms-20260930x6k.htm",
-        "capturedAt": "2026-11-26T03:59:36Z"
+        "capturedAt": "2026-11-27T04:00:33Z"
       }
     },
     "z_score": 1.62,
@@ -471181,12 +471181,12 @@ window.FULL_MARKET_DATA = {
         "desc": "市值權益 / 總負債 (X4)",
         "desc_en": "Market equity / Total liabilities (X4)",
         "weight": 0.6,
-        "value": 0.5754076759702822,
-        "contribution": 0.3452446055821693,
+        "value": 0.5757965409987705,
+        "contribution": 0.3454779245992623,
         "passed": null,
-        "detail": "0.5754 × 0.6 = 0.3452",
-        "detail_zh": "0.5754 × 0.6 = 0.3452",
-        "detail_en": "0.5754 × 0.6 = 0.3452",
+        "detail": "0.5758 × 0.6 = 0.3455",
+        "detail_zh": "0.5758 × 0.6 = 0.3455",
+        "detail_en": "0.5758 × 0.6 = 0.3455",
         "reason": null
       },
       {
@@ -471452,11 +471452,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "272.39 M",
     "shareSource": {
       "shares": 272.387,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/10795/000001079526000039/bdx-20260930.htm",
-      "capturedAt": "2026-11-26T03:59:44Z"
+      "capturedAt": "2026-11-27T04:00:42Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 60262.9,
@@ -471832,8 +471832,8 @@ window.FULL_MARKET_DATA = {
           10947.0,
           10917.0,
           2994.0,
-          0.0,
-          0.0
+          442.0,
+          33624.0
         ],
         "goodwillAndIntangibleAssets": [
           36930.0,
@@ -471888,7 +471888,7 @@ window.FULL_MARKET_DATA = {
           1641.0,
           1896.0,
           1974.0,
-          0.0,
+          1749.0,
           0.0
         ],
         "shortTermDebt": [
@@ -471920,7 +471920,7 @@ window.FULL_MARKET_DATA = {
           2487.0,
           3334.0,
           4450.0,
-          6620.0,
+          4461.0,
           6620.0
         ],
         "totalCurrentLiabilities": [
@@ -472000,15 +472000,15 @@ window.FULL_MARKET_DATA = {
           371.0,
           371.0,
           371.0,
-          0.0,
-          0.0
+          371.0,
+          24682.0
         ],
         "retainedEarnings": [
           15157.0,
           15535.0,
           16139.0,
           16622.0,
-          0.0,
+          17936.0,
           0.0
         ],
         "accumulatedOtherComprehensiveIncomeLoss": [
@@ -472016,7 +472016,7 @@ window.FULL_MARKET_DATA = {
           -1548.0,
           -1732.0,
           -1870.0,
-          0.0,
+          -1660.0,
           0.0
         ],
         "otherTotalStockholdersEquity": [
@@ -472024,8 +472024,8 @@ window.FULL_MARKET_DATA = {
           24.0,
           25.0,
           25.0,
-          24682.0,
-          24682.0
+          31.0,
+          0.0
         ],
         "totalStockholdersEquity": [
           25282.0,
@@ -473200,7 +473200,7 @@ window.FULL_MARKET_DATA = {
             9025.0,
             8348.0,
             8021.0,
-            0.0
+            33624.0
           ],
           "goodwillAndIntangibleAssets": [
             36727.0,
@@ -473662,7 +473662,7 @@ window.FULL_MARKET_DATA = {
             371.0,
             371.0,
             371.0,
-            0.0
+            24682.0
           ],
           "retainedEarnings": [
             14233.0,
@@ -473728,7 +473728,7 @@ window.FULL_MARKET_DATA = {
             25.0,
             0.0,
             31.0,
-            24682.0
+            0.0
           ],
           "totalStockholdersEquity": [
             24161.0,
@@ -474696,16 +474696,16 @@ window.FULL_MARKET_DATA = {
         "checkedAt": null
       },
       "zScore": {
-        "asOfDate": "2025-09-30",
-        "period": "FY 2025",
+        "asOfDate": "2026-09-30",
+        "period": "FY 2026",
         "basis": "comparableAnnual",
         "model": "z",
         "zone": "grey",
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
-        "evidenceHash": "a2c307e65971d876ebecbe336c38b0d11731b69829ee18c2a826e2aab466affe"
+        "checkedAt": "2026-11-27T04:16:04.892Z",
+        "evidenceHash": "8abe5af49dbcb5c01bc43a16c4aea1206bc49c1b5b866d1f33e3318e00befcd3"
       },
       "mScore": {
         "asOfDate": "2026-09-30",
@@ -474716,8 +474716,8 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
-        "evidenceHash": "a2c307e65971d876ebecbe336c38b0d11731b69829ee18c2a826e2aab466affe"
+        "checkedAt": "2026-11-27T04:16:04.892Z",
+        "evidenceHash": "8abe5af49dbcb5c01bc43a16c4aea1206bc49c1b5b866d1f33e3318e00befcd3"
       }
     },
     "fin_valuation": {
@@ -474894,7 +474894,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "BDX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-24",
       "quoteDate": "2026-11-25",
@@ -474926,14 +474926,14 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 272387000,
       "shareSource": {
         "shares": 272.387,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/10795/000001079526000039/bdx-20260930.htm",
-        "capturedAt": "2026-11-26T03:59:44Z"
+        "capturedAt": "2026-11-27T04:00:42Z"
       }
     },
-    "z_score": 2.19,
+    "z_score": 2.39,
     "z_score_model": "z",
     "z_score_zone": "grey",
     "z_score_breakdown": [
@@ -474944,12 +474944,12 @@ window.FULL_MARKET_DATA = {
         "desc": "營運資金 / 總資產 (X1)",
         "desc_en": "Working capital / Total assets (X1)",
         "weight": 1.2,
-        "value": 0.017026660641662902,
-        "contribution": 0.020431992769995484,
+        "value": -0.02413813470890512,
+        "contribution": -0.028965761650686143,
         "passed": null,
-        "detail": "0.0170 × 1.2 = 0.0204",
-        "detail_zh": "0.0170 × 1.2 = 0.0204",
-        "detail_en": "0.0170 × 1.2 = 0.0204",
+        "detail": "-0.0241 × 1.2 = -0.0290",
+        "detail_zh": "-0.0241 × 1.2 = -0.0290",
+        "detail_en": "-0.0241 × 1.2 = -0.0290",
         "reason": null
       },
       {
@@ -474959,12 +474959,12 @@ window.FULL_MARKET_DATA = {
         "desc": "保留盈餘 / 總資產 (X2)",
         "desc_en": "Retained earnings / Total assets (X2)",
         "weight": 1.4,
-        "value": 0.3004428377767736,
-        "contribution": 0.42061997288748304,
+        "value": 0.3531334291508338,
+        "contribution": 0.49438680081116726,
         "passed": null,
-        "detail": "0.3004 × 1.4 = 0.4206",
-        "detail_zh": "0.3004 × 1.4 = 0.4206",
-        "detail_en": "0.3004 × 1.4 = 0.4206",
+        "detail": "0.3531 × 1.4 = 0.4944",
+        "detail_zh": "0.3531 × 1.4 = 0.4944",
+        "detail_en": "0.3531 × 1.4 = 0.4944",
         "reason": null
       },
       {
@@ -474974,12 +474974,12 @@ window.FULL_MARKET_DATA = {
         "desc": "EBIT / 總資產 (X3)",
         "desc_en": "EBIT / Total assets (X3)",
         "weight": 3.3,
-        "value": 0.04509715318572074,
-        "contribution": 0.14882060551287843,
+        "value": 0.046642121635722865,
+        "contribution": 0.15391900139788545,
         "passed": null,
-        "detail": "0.0451 × 3.3 = 0.1488",
-        "detail_zh": "0.0451 × 3.3 = 0.1488",
-        "detail_en": "0.0451 × 3.3 = 0.1488",
+        "detail": "0.0466 × 3.3 = 0.1539",
+        "detail_zh": "0.0466 × 3.3 = 0.1539",
+        "detail_en": "0.0466 × 3.3 = 0.1539",
         "reason": null
       },
       {
@@ -474989,12 +474989,12 @@ window.FULL_MARKET_DATA = {
         "desc": "市值權益 / 總負債 (X4)",
         "desc_en": "Market equity / Total liabilities (X4)",
         "weight": 0.6,
-        "value": 2.0130578567610904,
-        "contribution": 1.207834714056654,
+        "value": 2.3081274656248802,
+        "contribution": 1.3848764793749282,
         "passed": null,
-        "detail": "2.0131 × 0.6 = 1.2078",
-        "detail_zh": "2.0131 × 0.6 = 1.2078",
-        "detail_en": "2.0131 × 0.6 = 1.2078",
+        "detail": "2.3081 × 0.6 = 1.3849",
+        "detail_zh": "2.3081 × 0.6 = 1.3849",
+        "detail_en": "2.3081 × 0.6 = 1.3849",
         "reason": null
       },
       {
@@ -475004,12 +475004,12 @@ window.FULL_MARKET_DATA = {
         "desc": "營收 / 總資產 (X5)",
         "desc_en": "Sales / Total assets (X5)",
         "weight": 1,
-        "value": 0.39474017171260734,
-        "contribution": 0.39474017171260734,
+        "value": 0.38307967947077237,
+        "contribution": 0.38307967947077237,
         "passed": null,
-        "detail": "0.3947 × 1 = 0.3947",
-        "detail_zh": "0.3947 × 1 = 0.3947",
-        "detail_en": "0.3947 × 1 = 0.3947",
+        "detail": "0.3831 × 1 = 0.3831",
+        "detail_zh": "0.3831 × 1 = 0.3831",
+        "detail_en": "0.3831 × 1 = 0.3831",
         "reason": null
       }
     ],
@@ -475260,11 +475260,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "189.25 M",
     "shareSource": {
       "shares": 189.254,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1136869/000119312526447203/zbh-20260930.htm",
-      "capturedAt": "2026-11-26T03:59:51Z"
+      "capturedAt": "2026-11-27T04:00:50Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 20829.3,
@@ -478512,7 +478512,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "58686248de0f125ddf36a23b41fde7045319758c4f5ec97fdab58f76cc094848"
       },
       "mScore": {
@@ -478524,7 +478524,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "58686248de0f125ddf36a23b41fde7045319758c4f5ec97fdab58f76cc094848"
       }
     },
@@ -478672,7 +478672,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ZBH",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-04",
       "quoteDate": "2026-11-25",
@@ -478704,11 +478704,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 189254000,
       "shareSource": {
         "shares": 189.254,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1136869/000119312526447203/zbh-20260930.htm",
-        "capturedAt": "2026-11-26T03:59:51Z"
+        "capturedAt": "2026-11-27T04:00:50Z"
       }
     },
     "z_score": 2.56,
@@ -479038,11 +479038,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "372.95 M",
     "shareSource": {
       "shares": 372.951,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1093557/000109355726000195/dxcm-20260930.htm",
-      "capturedAt": "2026-11-26T03:59:59Z"
+      "capturedAt": "2026-11-27T04:01:01Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 31641.2,
@@ -482290,7 +482290,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "c9c50b8e33ab6b7a5db87aa74ca68aefaec223bef941e40c163a6561250af830"
       },
       "mScore": {
@@ -482302,7 +482302,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "c9c50b8e33ab6b7a5db87aa74ca68aefaec223bef941e40c163a6561250af830"
       }
     },
@@ -482450,7 +482450,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "DXCM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-11-25",
@@ -482482,11 +482482,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 372951000,
       "shareSource": {
         "shares": 372.951,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1093557/000109355726000195/dxcm-20260930.htm",
-        "capturedAt": "2026-11-26T03:59:59Z"
+        "capturedAt": "2026-11-27T04:01:01Z"
       }
     },
     "z_score": 7.49,
@@ -482816,11 +482816,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "140.66 M",
     "shareSource": {
       "shares": 140.657,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/943819/000094381926000089/rmd-20260930.htm",
-      "capturedAt": "2026-11-26T04:00:09Z"
+      "capturedAt": "2026-11-27T04:01:11Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 34559.4,
@@ -486068,7 +486068,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "fd0f3cab0e320a3c1e159bfa3deead051891e8781fc45b83824cca2cfdec0a75"
       },
       "mScore": {
@@ -486080,7 +486080,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "fd0f3cab0e320a3c1e159bfa3deead051891e8781fc45b83824cca2cfdec0a75"
       }
     },
@@ -486246,7 +486246,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "RMD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
       "quoteDate": "2026-11-25",
@@ -486278,11 +486278,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 140657000,
       "shareSource": {
         "shares": 140.657,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/943819/000094381926000089/rmd-20260930.htm",
-        "capturedAt": "2026-11-26T04:00:09Z"
+        "capturedAt": "2026-11-27T04:01:11Z"
       }
     },
     "z_score": 11.57,
@@ -486569,7 +486569,7 @@ window.FULL_MARKET_DATA = {
         "basis": "marketCapOverReportedParentEquity",
         "date": "2026-09-30",
         "reason": null,
-        "bookEquity": 3681240000,
+        "bookEquity": 3486988000,
         "preferredEquityDeducted": false
       },
       "current_ratio": {
@@ -486612,11 +486612,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "190.83 M",
     "shareSource": {
       "shares": 190.827165,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1140859/000114085926000044/cor-20260930.htm",
-      "capturedAt": "2026-11-26T04:00:18Z"
+      "capturedAt": "2026-11-27T04:01:20Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 67562.4,
@@ -487080,7 +487080,7 @@ window.FULL_MARKET_DATA = {
           2171.36,
           2553.79,
           2729.22,
-          905.88,
+          584.64,
           905.88
         ],
         "totalCurrentLiabilities": [
@@ -487121,7 +487121,7 @@ window.FULL_MARKET_DATA = {
           4522.43,
           6442.14,
           6346.61,
-          8220.21
+          6346.61
         ],
         "totalNonCurrentLiabilities": [
           13011.39,
@@ -487144,7 +487144,7 @@ window.FULL_MARKET_DATA = {
           6818.41,
           6652.8,
           9331.18,
-          11266.15,
+          13460.98,
           11266.15
         ],
         "netDebt": [
@@ -487152,7 +487152,7 @@ window.FULL_MARKET_DATA = {
           4128.64,
           3421.55,
           4936.63,
-          6385.81,
+          8580.65,
           6385.81
         ],
         "commonStock": [
@@ -487161,7 +487161,7 @@ window.FULL_MARKET_DATA = {
           2.96,
           2.97,
           2.98,
-          3681.24
+          2.98
         ],
         "retainedEarnings": [
           2977.65,
@@ -487193,7 +487193,7 @@ window.FULL_MARKET_DATA = {
           645.94,
           1508.02,
           3486.99,
-          3681.24
+          3486.99
         ],
         "totalEquity": [
           71.27,
@@ -488712,7 +488712,7 @@ window.FULL_MARKET_DATA = {
             7917.98,
             8003.83,
             8139.41,
-            8220.21
+            6346.61
           ],
           "totalNonCurrentLiabilities": [
             15362.84,
@@ -488822,7 +488822,7 @@ window.FULL_MARKET_DATA = {
             2.98,
             2.98,
             2.98,
-            3681.24
+            2.98
           ],
           "retainedEarnings": [
             2019.08,
@@ -488910,7 +488910,7 @@ window.FULL_MARKET_DATA = {
             1908.33,
             3397.59,
             3050.96,
-            3681.24
+            3486.99
           ],
           "totalEquity": [
             601.12,
@@ -489774,8 +489774,8 @@ window.FULL_MARKET_DATA = {
     "is_undervalued": true,
     "pe_trailing": 19.4,
     "pe_forward": 17.1,
-    "pb_trailing": 18.353163607914723,
-    "pb_forward": 16.6,
+    "pb_trailing": 19.37557571176041,
+    "pb_forward": 17.5,
     "div_yield": 0.71,
     "ps_ratio": 4.4,
     "fcf_to_ev": 5.25,
@@ -489790,57 +489790,57 @@ window.FULL_MARKET_DATA = {
       "period": "2026Q4",
       "m1_brand_pricing": {
         "score": 7,
-        "comment_zh": "Cencora 作為醫療保健分銷巨頭，擁有顯著的定價權。其龐大的採購量使其能與製藥商協商獲得有利價格，並將成本節約轉嫁給客戶。儘管醫療保健分銷本質上商品化程度較高，但 Cencora 的規模和效率使其在價格談判中處於有利地位。其品牌在行業內代表著可靠性和效率，這在一定程度上轉化為客戶的忠誠度，儘管這種忠誠度更多是基於服務的穩定性而非品牌情感。與其他分銷商相比，其規模優勢是關鍵的定價壁壘。",
-        "comment_en": "As a major healthcare distributor, Cencora possesses significant pricing power. Its immense purchasing volume allows it to negotiate favorable prices with pharmaceutical manufacturers and pass cost savings onto its customers. While healthcare distribution is inherently somewhat commoditized, Cencora's scale and efficiency give it leverage in price negotiations. Its brand signifies reliability and efficiency within the industry, which translates to some degree of customer loyalty, though this loyalty is more based on service stability than emotional brand connection. Its scale advantage is a key pricing barrier compared to other distributors."
+        "comment_zh": "Cencora 作為醫療保健分銷領域的領導者，展現出穩固的定價權。其龐大的分銷網絡和與製藥商的長期合作關係，使其在議價過程中處於有利地位。儘管醫療保健產業受到嚴格監管，但 Cencora 的規模和效率使其能夠在維持利潤率的同時，為客戶提供具競爭力的價格。這種能力源於其在供應鏈中的關鍵角色，確保藥品能夠高效、可靠地送達醫療機構，這本身就是一種無形的品牌價值，讓其在眾多競爭者中脫穎而出，儘管其品牌形象不如直接面向消費者的品牌那樣廣為人知，但在 B2B 領域，其可靠性和效率已成為一種強大的定價籌碼。",
+        "comment_en": "Cencora, as a leader in the healthcare distribution sector, demonstrates solid pricing power. Its extensive distribution network and long-standing relationships with pharmaceutical manufacturers place it in a favorable position during negotiations. Despite the highly regulated nature of the healthcare industry, Cencora's scale and efficiency allow it to maintain profit margins while offering competitive prices to its customers. This capability stems from its critical role in the supply chain, ensuring efficient and reliable delivery of medications to healthcare providers, which itself constitutes an intangible brand value. This allows it to stand out among numerous competitors. Although its brand recognition may not be as widespread as direct-to-consumer brands, in the B2B space, its reliability and efficiency have become a powerful pricing lever."
       },
       "m2_patents_regulatory": {
-        "score": 2,
-        "comment_zh": "醫療保健分銷行業的進入壁壘主要來自於監管合規和運營複雜性，而非專利或特許經營權。Cencora 的業務模式不依賴於專利保護，其競爭優勢更多來自於運營效率和規模。雖然行業受到嚴格監管，但這些監管並未賦予 Cencora 獨特的專利式壟斷地位，而是所有參與者都必須遵守的標準。因此，在專利和特許權方面，其護城河相對較弱。",
-        "comment_en": "Barriers to entry in the healthcare distribution industry stem primarily from regulatory compliance and operational complexity, rather than patents or exclusive franchises. Cencora's business model does not rely on patent protection; its competitive advantages arise more from operational efficiency and scale. While the industry is heavily regulated, these regulations do not grant Cencora a unique patent-like monopoly but rather set standards that all participants must adhere to. Therefore, its moat in terms of patents and exclusive rights is relatively weak."
+        "score": 6,
+        "comment_zh": "Cencora 的業務模式主要依賴於其高效的物流和分銷網絡，而非專利或獨家許可。然而，醫療保健產業的嚴格監管和准入壁壘，實際上構成了另一種形式的特許經營。藥品分銷需要符合複雜的法規要求，包括儲存、運輸和記錄保存，這對新進入者構成了顯著的挑戰。Cencora 憑藉其豐富的經驗和合規能力，能夠有效應對這些監管要求，從而形成了一定的進入壁壘。雖然沒有傳統意義上的專利保護，但其在合規方面的專業知識和運營能力，使其在市場中獲得了相對穩定的地位，不易被輕易取代。",
+        "comment_en": "Cencora's business model relies primarily on its efficient logistics and distribution network rather than patents or exclusive licenses. However, the stringent regulations and entry barriers in the healthcare industry effectively constitute another form of franchise. Pharmaceutical distribution requires compliance with complex regulatory requirements, including storage, transportation, and record-keeping, which pose significant challenges for new entrants. Cencora, with its extensive experience and compliance capabilities, can effectively navigate these regulatory demands, thereby creating a certain entry barrier. While there is no patent protection in the traditional sense, its expertise in compliance and operational capabilities grant it a relatively stable market position that is not easily displaced."
       },
       "m3_high_switching_costs": {
-        "score": 7,
-        "comment_zh": "對於醫院、藥房和其他醫療服務提供者而言，更換主要的藥品分銷商涉及複雜的後勤、供應鏈整合和數據遷移。Cencora 提供的服務不僅僅是藥品配送，還包括庫存管理、數據分析和合規支持等增值服務。這些服務的整合程度使得客戶在轉換供應商時面臨較高的時間、精力和潛在的運營中斷成本。這種對現有運營流程的深度嵌入構成了顯著的轉換成本壁壘。",
-        "comment_en": "For hospitals, pharmacies, and other healthcare providers, switching primary drug distributors involves complex logistics, supply chain integration, and data migration. Cencora offers more than just drug delivery; it provides value-added services like inventory management, data analytics, and compliance support. The integration of these services creates significant time, effort, and potential operational disruption costs for customers when changing suppliers. This deep embedding into existing operational workflows constitutes a notable switching cost barrier."
+        "score": 8,
+        "comment_zh": "醫療保健分銷領域的轉換成本相當高。製藥商和醫療機構與分銷商建立長期合作關係後，需要投入大量的時間和資源來整合供應鏈、調整物流系統以及確保數據的無縫轉移。Cencora 龐大的客戶基礎和成熟的運營體系，意味著一旦客戶選擇了 Cencora，由於其系統的複雜性和對 Cencora 服務的依賴性，轉換到其他分銷商的成本將非常高昂。這種依賴性不僅體現在物理物流上，還包括信息系統的集成和數據分析的共享。因此，客戶的忠誠度相對較高，轉換的阻力巨大。",
+        "comment_en": "The switching costs in the healthcare distribution sector are considerably high. Once pharmaceutical manufacturers and healthcare providers establish long-term relationships with a distributor, they invest significant time and resources in integrating supply chains, adjusting logistics systems, and ensuring seamless data transfer. Cencora's large customer base and mature operational infrastructure mean that once a customer chooses Cencora, the cost of switching to another distributor becomes very high due to the complexity of its systems and their reliance on Cencora's services. This reliance is reflected not only in physical logistics but also in the integration of information systems and the sharing of data analytics. Consequently, customer loyalty is relatively high, and the barriers to switching are substantial."
       },
       "m4_network_effects": {
-        "score": 3,
-        "comment_zh": "Cencora 的業務模式主要基於其龐大的分銷網絡和與供應商及客戶的關係，而非典型的網絡效應。雖然其網絡的廣度和效率對客戶有吸引力，但這更多是規模優勢的體現，而非用戶越多，服務價值越高的直接反饋循環。製藥商和醫療機構選擇 Cencora 是因為其可靠性、效率和成本效益，而不是因為有更多的製藥商或醫療機構在使用它。因此，網絡效應在此並非主要的護城河。",
-        "comment_en": "Cencora's business model relies primarily on its extensive distribution network and relationships with suppliers and customers, rather than typical network effects. While the breadth and efficiency of its network are attractive to customers, this is more a reflection of scale advantage than a direct feedback loop where more users increase the service's value. Pharmaceutical manufacturers and healthcare institutions choose Cencora for its reliability, efficiency, and cost-effectiveness, not because more manufacturers or institutions are using it. Therefore, network effects are not a primary moat here."
+        "score": 5,
+        "comment_zh": "Cencora 的網絡效應相對有限，主要體現在其分銷網絡的廣度和效率上。隨著 Cencora 服務更多製藥商和醫療機構，其網絡的覆蓋範圍和效率會得到提升，這可能吸引更多參與者加入，形成一定的正反饋循環。然而，與社交媒體或市場平台不同，Cencora 的核心價值並非直接由用戶間的互動產生。其網絡效應更多是基於運營效率和規模經濟的結果，而非用戶增長帶來的邊際效用遞增。儘管如此，其龐大的網絡在協調供需、降低物流成本方面確實具有一定的網絡優勢。",
+        "comment_en": "Cencora's network effects are relatively limited, primarily manifesting in the breadth and efficiency of its distribution network. As Cencora serves more pharmaceutical manufacturers and healthcare providers, the reach and efficiency of its network improve, potentially attracting more participants and creating a positive feedback loop. However, unlike social media or marketplace platforms, Cencora's core value is not directly generated by user-to-user interactions. Its network effects are more a result of operational efficiency and economies of scale rather than the increasing marginal utility derived from user growth. Nevertheless, its vast network does offer certain network advantages in coordinating supply and demand and reducing logistics costs."
       },
       "m5_cost_advantage_scale": {
         "score": 9,
-        "comment_zh": "Cencora 的核心競爭力在於其巨大的規模經濟。作為美國最大的藥品分銷商之一，它能夠以極低的單位成本採購、儲存和運輸藥品。這種規模使其能夠獲得製藥商的批量折扣，並通過優化物流網絡來降低運營費用。這種成本優勢是難以被規模較小的競爭對手複製的，為其在價格談判和利潤率方面提供了堅實的壁壘。其龐大的分銷網絡本身就是一種規模帶來的成本優勢。",
-        "comment_en": "Cencora's core strength lies in its immense economies of scale. As one of the largest drug distributors in the United States, it can procure, store, and transport pharmaceuticals at extremely low unit costs. This scale allows it to secure bulk discounts from manufacturers and reduce operational expenses through optimized logistics networks. This cost advantage is difficult for smaller competitors to replicate, providing a solid barrier in terms of pricing negotiations and profit margins. Its vast distribution network itself is a cost advantage derived from scale."
+        "comment_zh": "規模經濟是 Cencora 最顯著的護城河之一。作為全球領先的醫療保健產品分銷商，Cencora 擁有巨大的採購量和分銷網絡，這使其能夠從製藥商那裡獲得更優惠的採購價格，並通過優化的物流路線和倉儲管理來降低運輸和倉儲成本。這種成本優勢使得小型競爭對手難以匹敵。其龐大的運營規模也支持了對先進技術和數據分析的投資，進一步提升了運營效率，形成了難以逾越的成本壁壘。這種規模帶來的效率和成本控制能力，是其長期盈利能力的堅實基礎。",
+        "comment_en": "Economies of scale are one of Cencora's most significant moats. As a leading global distributor of healthcare products, Cencora possesses immense purchasing volume and a vast distribution network, enabling it to secure more favorable procurement prices from manufacturers and reduce transportation and warehousing costs through optimized logistics routes and inventory management. This cost advantage makes it difficult for smaller competitors to compete. Its large operational scale also supports investments in advanced technology and data analytics, further enhancing operational efficiency and creating an insurmountable cost barrier. This efficiency and cost control capability derived from scale form a solid foundation for its long-term profitability."
       },
       "m6_unique_geography_assets": {
-        "score": 2,
-        "comment_zh": "Cencora 的業務遍及全球，但其核心競爭力並非來自於獨特的地理位置或特定資產。其分銷網絡雖然廣泛，但本質上是可複製的基礎設施。公司在不同地區的運營依賴於對當地市場的理解和監管適應，而非依賴於某個無法替代的地理位置或自然資源。因此，在獨特地理資產方面，其護城河較為薄弱，競爭對手可以通過建立類似的基礎設施來進入市場。",
-        "comment_en": "Cencora operates globally, but its core competitive strength does not stem from unique geographic locations or specific assets. While its distribution network is extensive, it is essentially replicable infrastructure. The company's operations in different regions rely on understanding local markets and adapting to regulations, rather than on an irreplaceable geographic location or natural resource. Therefore, its moat in terms of unique geographic assets is relatively weak, and competitors can enter the market by establishing similar infrastructure."
+        "score": 6,
+        "comment_zh": "Cencora 的獨特地理資產主要體現在其全球性的分銷網絡和在關鍵市場的深厚佈局。其遍布全球的倉儲設施和物流網絡，使其能夠高效地服務於不同地區的客戶，並應對複雜的國際運輸挑戰。在一些特定區域，Cencora 可能擁有比競爭對手更廣泛或更深入的網絡覆蓋，這構成了一定的地理壁壘。然而，醫療保健分銷的本質使其難以形成絕對的、不可複製的地理壟斷，因為市場需求和監管環境在不同地區存在差異。但其全球網絡的廣度和效率，仍是其重要的競爭優勢。",
+        "comment_en": "Cencora's unique geographical assets are primarily reflected in its global distribution network and deep presence in key markets. Its worldwide network of warehousing facilities and logistics enables it to efficiently serve customers in different regions and navigate complex international transportation challenges. In certain specific areas, Cencora may possess a broader or more extensive network coverage than its competitors, creating a certain geographical barrier. However, the nature of healthcare distribution makes it difficult to form an absolute, irreplicable geographical monopoly, as market demands and regulatory environments vary across regions. Nonetheless, the breadth and efficiency of its global network remain a significant competitive advantage."
       },
       "m7_operational_efficiency": {
         "score": 8,
-        "comment_zh": "Cencora 在運營效率方面表現出色，這得益於其先進的物流技術、優化的庫存管理系統以及對供應鏈的精確控制。公司能夠高效地處理海量藥品，確保及時準確的交付，同時最大限度地減少損耗和庫存持有成本。這種卓越的運營能力不僅降低了成本，也提高了客戶滿意度，成為其重要的競爭優勢。高達 94.6% 的 ROE 表明其資產運用效率極高。",
-        "comment_en": "Cencora excels in operational efficiency, driven by its advanced logistics technology, optimized inventory management systems, and precise supply chain control. The company can handle massive volumes of pharmaceuticals efficiently, ensuring timely and accurate delivery while minimizing waste and inventory holding costs. This superior operational capability not only reduces costs but also enhances customer satisfaction, serving as a significant competitive advantage. An ROE of 94.6% indicates extremely high asset utilization efficiency."
+        "comment_zh": "Cencora 在運營效率方面表現出色，這得益於其對技術的持續投入和對流程的精細化管理。通過先進的庫存管理系統、自動化倉庫和優化的運輸路線規劃，Cencora 能夠顯著降低運營成本，提高藥品交付的準確性和及時性。這種高效率不僅降低了自身成本，也為客戶提供了可靠的服務，進一步鞏固了其市場地位。在醫療保健這個對精確度和可靠性要求極高的行業，Cencora 的運營效率本身就是一種強大的競爭壁壘，使其能夠在激烈的市場競爭中保持領先。",
+        "comment_en": "Cencora excels in operational efficiency, thanks to its continuous investment in technology and meticulous process management. Through advanced inventory management systems, automated warehouses, and optimized route planning, Cencora significantly reduces operating costs and enhances the accuracy and timeliness of drug deliveries. This high efficiency not only lowers its own costs but also provides reliable services to its customers, further solidifying its market position. In the healthcare industry, which demands extreme precision and reliability, Cencora's operational efficiency is itself a formidable competitive barrier, enabling it to maintain a leading edge in a fiercely competitive market."
       },
       "m8_capital_allocation": {
         "score": 7,
-        "comment_zh": "Cencora 在資本配置方面展現出穩健的策略。公司歷史上通過戰略性收購擴大了其市場份額和服務範圍，同時也注重通過股票回購和股息來回報股東。其穩定的自由現金流（FCF TTM: $3,880.7M）為其提供了進行再投資、償還債務和尋求增長機會的靈活性。儘管其負債水平相對較高（$11,266.1M），但其強勁的盈利能力和現金流使其能夠有效管理債務，並在必要時進行戰略性投資。",
-        "comment_en": "Cencora demonstrates a sound strategy in capital allocation. Historically, the company has expanded its market share and service offerings through strategic acquisitions, while also focusing on returning value to shareholders via share buybacks and dividends. Its stable free cash flow (FCF TTM: $3,880.7M) provides flexibility for reinvestment, debt repayment, and pursuing growth opportunities. Although its debt level is relatively high ($11,266.1M), its strong profitability and cash flow enable effective debt management and strategic investments when necessary."
+        "comment_zh": "Cencora 的資本配置策略顯示出其對股東價值的關注。公司歷史上通過戰略性收購擴大了其業務範圍和市場份額，同時也注重通過股票回購和股息支付來回饋股東。其穩健的自由現金流為其提供了進行再投資、償還債務和進行潛在收購的靈活性。管理層在平衡增長投資與股東回報方面展現出一定的能力，儘管偶爾的收購可能帶來整合風險，但總體而言，其資本配置決策支持了公司的長期穩健發展，並為股東創造了可觀的回報。",
+        "comment_en": "Cencora's capital allocation strategy demonstrates a focus on shareholder value. The company has historically expanded its business scope and market share through strategic acquisitions, while also prioritizing shareholder returns via share buybacks and dividend payments. Its robust free cash flow provides flexibility for reinvestment, debt repayment, and potential acquisitions. Management has shown a degree of capability in balancing growth investments with shareholder returns. Although occasional acquisitions may carry integration risks, overall, its capital allocation decisions support the company's long-term stable development and have generated considerable returns for shareholders."
       },
       "m9_customer_retention": {
-        "score": 7,
-        "comment_zh": "Cencora 的客戶保留率很高，這主要歸功於其服務的不可或缺性和高轉換成本。醫療機構依賴 Cencora 提供穩定、可靠的藥品供應，任何供應中斷都可能對患者護理產生嚴重影響。此外，公司提供的數據分析、庫存管理和合規服務進一步加深了與客戶的聯繫。雖然客戶可能出於成本考慮尋求替代方案，但 Cencora 提供的綜合服務和運營的深度整合，使得客戶在短期內難以輕易更換供應商。",
-        "comment_en": "Cencora enjoys high customer retention, primarily due to the indispensability of its services and high switching costs. Healthcare institutions rely on Cencora for a stable and reliable supply of pharmaceuticals, where any disruption could severely impact patient care. Furthermore, the data analytics, inventory management, and compliance services offered by the company deepen its ties with clients. While customers might explore alternatives for cost reasons, the comprehensive services and deep operational integration provided by Cencora make it difficult for clients to switch suppliers easily in the short term."
+        "score": 8,
+        "comment_zh": "Cencora 在客戶保留方面表現出色，這主要歸功於其高轉換成本、卓越的服務質量和與客戶建立的深厚信任關係。一旦製藥商和醫療機構與 Cencora 建立合作，其複雜的供應鏈整合和對 Cencora 系統的依賴性，使得轉換成本極高。此外，Cencora 持續提供高標準的服務，包括及時可靠的藥品配送、準確的數據報告以及對法規的嚴格遵守，贏得了客戶的信任和滿意度。這種穩固的客戶關係，加上其在行業中的領導地位，確保了高度的客戶忠誠度和持續的業務收入。",
+        "comment_en": "Cencora excels in customer retention, primarily due to high switching costs, exceptional service quality, and the deep trust built with its clients. Once pharmaceutical manufacturers and healthcare providers establish a partnership with Cencora, the complexity of supply chain integration and their reliance on Cencora's systems create extremely high switching costs. Furthermore, Cencora consistently delivers high standards of service, including timely and reliable drug distribution, accurate data reporting, and strict regulatory compliance, earning customer trust and satisfaction. These strong customer relationships, coupled with its industry leadership position, ensure a high degree of customer loyalty and sustained business revenue."
       },
       "m10_durability": {
-        "score": 8,
-        "comment_zh": "Cencora 的業務模式具有高度的持久性。醫療保健分銷是現代醫療體系中不可或缺的一環，其需求隨著人口老齡化和醫療技術的進步而持續增長。儘管面臨來自其他分銷商和潛在的直接銷售模式的競爭，但 Cencora 的規模、效率和與供應商及客戶建立的長期關係，使其能夠抵禦大部分的顛覆性威脅。其在行業中的領導地位和持續的盈利能力（ROE 94.6%）證明了其業務模式的韌性與持久性。",
-        "comment_en": "Cencora's business model exhibits high durability. Healthcare distribution is an essential component of the modern healthcare system, with demand continuously growing due to an aging population and advancements in medical technology. Despite facing competition from other distributors and potential direct-to-market models, Cencora's scale, efficiency, and established long-term relationships with suppliers and customers enable it to withstand most disruptive threats. Its leadership position in the industry and consistent profitability (ROE 94.6%) attest to the resilience and durability of its business model."
+        "score": 7,
+        "comment_zh": "Cencora 的業務模式具有相當的持久性。作為醫療保健供應鏈中的關鍵環節，其服務需求相對穩定，不易受到經濟週期的劇烈波動影響。人們對藥品和醫療服務的需求是持續存在的，這為 Cencora 提供了穩定的收入基礎。儘管行業內存在技術變革和監管調整的風險，但 Cencora 龐大的規模、高效的運營和與客戶建立的長期關係，使其能夠較好地適應這些變化。其在分銷領域的領導地位和不斷優化的運營效率，為其長期抵禦顛覆性挑戰提供了堅實的基礎。",
+        "comment_en": "Cencora's business model possesses considerable durability. As a critical link in the healthcare supply chain, the demand for its services is relatively stable and less susceptible to severe economic cycle fluctuations. The need for pharmaceuticals and healthcare services is persistent, providing Cencora with a stable revenue base. Despite risks of technological changes and regulatory adjustments within the industry, Cencora's substantial scale, efficient operations, and established long-term relationships with clients enable it to adapt well to these changes. Its leadership position in distribution and continuously optimized operational efficiency provide a solid foundation for long-term resilience against disruptive challenges."
       },
-      "overall_moat_verdict_zh": "Cencora 是一家典型的「收費橋」式公司，其護城河主要建立在龐大的規模經濟和卓越的運營效率之上。作為醫療保健分銷鏈條中的關鍵樞紐，其規模優勢帶來了顯著的成本領先地位和議價能力。高轉換成本和穩定的客戶關係進一步鞏固了其市場地位。雖然缺乏專利或強網絡效應，但其在行業中的領導地位和持續的盈利能力（高 ROE）證明了其業務模式的持久性與韌性，使其成為一個穩固的價值投資標的。",
-      "overall_moat_verdict_en": "Cencora operates as a classic 'toll bridge' company, with its moat primarily built on massive economies of scale and exceptional operational efficiency. As a critical hub in the healthcare distribution chain, its scale advantage provides a significant cost leadership and bargaining power. High switching costs and stable customer relationships further solidify its market position. While lacking patents or strong network effects, its industry leadership and consistent profitability (high ROE) demonstrate the durability and resilience of its business model, making it a solid long-term investment.",
-      "evidenceHash": "993d6ea0fa39969f692bfe2aab2b16fb32206af45256be4b6d9e9aada3acdf76",
+      "overall_moat_verdict_zh": "Cencora 作為醫療保健分銷領域的領導者，展現出一個典型的「收費橋」或「關鍵基礎設施」型態的經濟護城河。其核心競爭力來自於龐大的規模經濟（M5），這使其在採購和物流上擁有顯著的成本優勢，並構成了極高的進入壁壘。此外，高昂的客戶轉換成本（M3）和穩固的客戶關係（M9）進一步鎖定了市場份額。雖然缺乏專利（M2），但行業的監管屬性變相提供了保護。其全球化的運營網絡（M6）和卓越的運營效率（M7）是其價值的體現。整體而言，Cencora 的護城河堅固，能夠在可預見的未來持續產生穩定的現金流，適合長期持有。",
+      "overall_moat_verdict_en": "Cencora, as a leader in healthcare distribution, exhibits an economic moat typical of a 'toll bridge' or 'critical infrastructure' model. Its core strength lies in its significant economies of scale (M5), providing substantial cost advantages in procurement and logistics and creating formidable entry barriers. Furthermore, high customer switching costs (M3) and strong customer relationships (M9) further lock in market share. While lacking patents (M2), the industry's regulatory nature offers indirect protection. Its global operational network (M6) and excellent operational efficiency (M7) reflect its value. Overall, Cencora possesses a robust moat, capable of generating stable cash flows for the foreseeable future, making it suitable for long-term holding.",
+      "evidenceHash": "649d0b57efcccfc0fd517513a06dd65a81c255f0dea2722c46c98baabfd74b43",
       "assessmentPolicy": "buffett-moat-v3",
       "model": "gemini-2.5-flash-lite",
       "provider": "Vertex AI"
@@ -489862,8 +489862,8 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
-        "evidenceHash": "006bf3ea4c32bdda6bfc6e9881c42455e4900045c3e3485dd7cf4558c4d912db"
+        "checkedAt": "2026-11-27T04:16:04.892Z",
+        "evidenceHash": "32a461deb5bf9dc5de19be510513727396ffe8ab7ca59c3db63800bc4b599132"
       },
       "mScore": {
         "asOfDate": "2026-09-30",
@@ -489874,8 +489874,8 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
-        "evidenceHash": "006bf3ea4c32bdda6bfc6e9881c42455e4900045c3e3485dd7cf4558c4d912db"
+        "checkedAt": "2026-11-27T04:16:04.892Z",
+        "evidenceHash": "32a461deb5bf9dc5de19be510513727396ffe8ab7ca59c3db63800bc4b599132"
       }
     },
     "fin_valuation": {
@@ -489896,8 +489896,8 @@ window.FULL_MARKET_DATA = {
     "country": "US",
     "phone": "610 727 7000",
     "full_address": "1 West First Avenue, Conshohocken, PA 19428-1800, US",
-    "range_52w": "244.82-376.98",
-    "year_high": 376.98,
+    "range_52w": "244.82-376.92",
+    "year_high": 376.92,
     "year_low": 244.82,
     "all_time_high": 0.0,
     "all_time_low": 244.82,
@@ -490034,7 +490034,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "COR",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-24",
       "quoteDate": "2026-11-25",
@@ -490066,11 +490066,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 190827165,
       "shareSource": {
         "shares": 190.827165,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1140859/000114085926000044/cor-20260930.htm",
-        "capturedAt": "2026-11-26T04:00:18Z"
+        "capturedAt": "2026-11-27T04:01:20Z"
       }
     },
     "z_score": 4.65,
@@ -490400,11 +490400,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "97.11 M",
     "shareSource": {
       "shares": 97.10702,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1757898/000162828026070997/ste-20260930.htm",
-      "capturedAt": "2026-11-26T04:00:26Z"
+      "capturedAt": "2026-11-27T04:01:42Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 25361.4,
@@ -493647,7 +493647,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "011420e976aa63134af9a07eb7d29a1715bcb29ce9103654e19d52af0bb11891"
       },
       "mScore": {
@@ -493659,7 +493659,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "011420e976aa63134af9a07eb7d29a1715bcb29ce9103654e19d52af0bb11891"
       }
     },
@@ -493813,7 +493813,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "STE",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-05",
       "quoteDate": "2026-11-25",
@@ -493845,11 +493845,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 97107020,
       "shareSource": {
         "shares": 97.10702,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1757898/000162828026070997/ste-20260930.htm",
-        "capturedAt": "2026-11-26T04:00:26Z"
+        "capturedAt": "2026-11-27T04:01:42Z"
       }
     },
     "z_score": 5.72,
@@ -494181,11 +494181,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "115.46 M",
     "shareSource": {
       "shares": 115.457,
-      "date": "2026-11-25",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/927653/000092765326000281/mck-20260930.htm",
-      "capturedAt": "2026-11-26T04:00:33Z"
+      "capturedAt": "2026-11-27T04:01:51Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 124384.1,
@@ -497429,7 +497429,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "1449a2a1c2162c4ebb0541652e2d40866775f3ddc90951b53302b8942fcd7f08"
       },
       "mScore": {
@@ -497441,7 +497441,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "1449a2a1c2162c4ebb0541652e2d40866775f3ddc90951b53302b8942fcd7f08"
       }
     },
@@ -497589,7 +497589,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MCK",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-04",
       "quoteDate": "2026-11-25",
@@ -497621,11 +497621,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 115457000,
       "shareSource": {
         "shares": 115.457,
-        "date": "2026-11-25",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/927653/000092765326000281/mck-20260930.htm",
-        "capturedAt": "2026-11-26T04:00:33Z"
+        "capturedAt": "2026-11-27T04:01:51Z"
       }
     },
     "z_score": 6.29,
@@ -497955,11 +497955,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "380.69 M",
     "shareSource": {
       "shares": 380.691004,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/310764/000031076426000061/syk-20260930.htm",
-      "capturedAt": "2026-11-26T04:00:41Z"
+      "capturedAt": "2026-11-27T04:01:59Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 126732.0,
@@ -501207,7 +501207,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "c23d63d614ac2ab1394866806c5cf76262021f0ce8e2bb5725498f36b77fc0c7"
       },
       "mScore": {
@@ -501219,7 +501219,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "c23d63d614ac2ab1394866806c5cf76262021f0ce8e2bb5725498f36b77fc0c7"
       }
     },
@@ -501415,7 +501415,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "SYK",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
       "quoteDate": "2026-11-25",
@@ -501447,11 +501447,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 380691004,
       "shareSource": {
         "shares": 380.691004,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/310764/000031076426000061/syk-20260930.htm",
-        "capturedAt": "2026-11-26T04:00:41Z"
+        "capturedAt": "2026-11-27T04:01:59Z"
       }
     },
     "z_score": 4.64,
@@ -501781,11 +501781,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "161.91 M",
     "shareSource": {
       "shares": 161.909,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1393052/000139305226000036/veev-20260731.htm",
-      "capturedAt": "2026-11-26T04:00:49Z"
+      "capturedAt": "2026-11-27T04:02:08Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 44023.1,
@@ -505028,7 +505028,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "3e825e6a702de25cd0661f0fc8050cc44ec60570a5f5786955a619807a9d712c"
       },
       "mScore": {
@@ -505040,7 +505040,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "3e825e6a702de25cd0661f0fc8050cc44ec60570a5f5786955a619807a9d712c"
       }
     },
@@ -505181,7 +505181,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "VEEV",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-07-31",
       "filingDate": "2026-08-27",
       "quoteDate": "2026-11-25",
@@ -505213,11 +505213,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 161909000,
       "shareSource": {
         "shares": 161.909,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1393052/000139305226000036/veev-20260731.htm",
-        "capturedAt": "2026-11-26T04:00:49Z"
+        "capturedAt": "2026-11-27T04:02:08Z"
       }
     },
     "z_score": 17.29,
@@ -505547,11 +505547,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "81.20 M",
     "shareSource": {
       "shares": 81.2,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/920148/000092014826000222/lh-20260930.htm",
-      "capturedAt": "2026-11-26T04:00:57Z"
+      "capturedAt": "2026-11-27T04:02:16Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 29958.7,
@@ -508799,7 +508799,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "102d7c96a1aed7cfd388de2e88f0b10aba3ce6605c4df4f20ab903f97d2994bd"
       },
       "mScore": {
@@ -508811,7 +508811,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "102d7c96a1aed7cfd388de2e88f0b10aba3ce6605c4df4f20ab903f97d2994bd"
       }
     },
@@ -508977,7 +508977,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "LH",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
       "quoteDate": "2026-11-25",
@@ -509009,11 +509009,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 81200000,
       "shareSource": {
         "shares": 81.2,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/920148/000092014826000222/lh-20260930.htm",
-        "capturedAt": "2026-11-26T04:00:57Z"
+        "capturedAt": "2026-11-27T04:02:16Z"
       }
     },
     "z_score": 3.58,
@@ -509338,22 +509338,22 @@ window.FULL_MARKET_DATA = {
     "industry": "Biotechnology",
     "reportedCurrency": "USD",
     "price": 981.87,
-    "shares": 103.430713,
-    "shares_outstanding": 103430713,
+    "shares": 103.430717,
+    "shares_outstanding": 103430717,
     "shares_display": "103.43 M",
     "shareSource": {
-      "shares": 103.430713,
-      "date": "2026-11-25",
+      "shares": 103.430717,
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/872589/000087258926000034/regn-20260930.htm",
-      "capturedAt": "2026-11-26T04:01:05Z"
+      "capturedAt": "2026-11-27T04:02:25Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 101555.5,
-    "liq_val_1": 95.60409778863267,
-    "liq_val_2": 30.429066074406737,
-    "liq_val_3": -15.523435480909814,
+    "liq_val_1": 95.60409409131331,
+    "liq_val_2": 30.429064897616442,
+    "liq_val_3": -15.52343488056841,
     "debt": 2707.0,
     "cash": 9301.1,
     "short_term_investments": 5642.0,
@@ -512595,7 +512595,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "c1181fca86ee928b53967e95bf6ffce10febb82a597d32be19984a7c3509d2a4"
       },
       "mScore": {
@@ -512607,7 +512607,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "c1181fca86ee928b53967e95bf6ffce10febb82a597d32be19984a7c3509d2a4"
       }
     },
@@ -512748,7 +512748,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "REGN",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
       "quoteDate": "2026-11-25",
@@ -512767,7 +512767,7 @@ window.FULL_MARKET_DATA = {
         "currency": "USD",
         "date": "2026-11-25",
         "price": 981.87,
-        "marketCap": 101555514173
+        "marketCap": 101555518101
       },
       "amounts": {
         "currentAssets": 20795100000,
@@ -512777,14 +512777,14 @@ window.FULL_MARKET_DATA = {
         "inventory": 2894600000,
         "preferredStock": 0
       },
-      "sharesOutstanding": 103430713,
+      "sharesOutstanding": 103430717,
       "shareSource": {
-        "shares": 103.430713,
-        "date": "2026-11-25",
+        "shares": 103.430717,
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/872589/000087258926000034/regn-20260930.htm",
-        "capturedAt": "2026-11-26T04:01:05Z"
+        "capturedAt": "2026-11-27T04:02:25Z"
       }
     },
     "z_score": 8.97,
@@ -513114,11 +513114,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "253.54 M",
     "shareSource": {
       "shares": 253.537674,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/875320/000087532026000291/vrtx-20260930.htm",
-      "capturedAt": "2026-11-26T04:01:13Z"
+      "capturedAt": "2026-11-27T04:02:33Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 143025.7,
@@ -516366,7 +516366,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "3b60d25b42815d99085b7a10571eba36589004b3e4ff57e815a10fd3948a81b7"
       },
       "mScore": {
@@ -516378,7 +516378,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "3b60d25b42815d99085b7a10571eba36589004b3e4ff57e815a10fd3948a81b7"
       }
     },
@@ -516526,7 +516526,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "VRTX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-03",
       "quoteDate": "2026-11-25",
@@ -516558,11 +516558,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 253537674,
       "shareSource": {
         "shares": 253.537674,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/875320/000087532026000291/vrtx-20260930.htm",
-        "capturedAt": "2026-11-26T04:01:13Z"
+        "capturedAt": "2026-11-27T04:02:33Z"
       }
     },
     "z_score": 14.39,
@@ -516892,11 +516892,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "7,958.08 M",
     "shareSource": {
       "shares": 7958.079155,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000168/earningsreleasefy27q3.htm",
-      "capturedAt": "2026-11-26T04:01:21Z"
+      "capturedAt": "2026-11-27T04:02:42Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 1049989.0,
@@ -520144,7 +520144,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "ae7bc138177e18a84aced2a37bee2804100b8dacb2ab7405030697130f684664"
       },
       "mScore": {
@@ -520156,7 +520156,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "ae7bc138177e18a84aced2a37bee2804100b8dacb2ab7405030697130f684664"
       }
     },
@@ -520358,7 +520358,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "WMT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-10-31",
       "filingDate": "2026-11-19",
       "quoteDate": "2026-11-25",
@@ -520390,11 +520390,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 7958079155,
       "shareSource": {
         "shares": 7958.079155,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000168/earningsreleasefy27q3.htm",
-        "capturedAt": "2026-11-26T04:01:21Z"
+        "capturedAt": "2026-11-27T04:02:42Z"
       }
     },
     "z_score": 6.83,
@@ -520724,11 +520724,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "443.13 M",
     "shareSource": {
       "shares": 443.129349,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/cost-20260830.htm",
-      "capturedAt": "2026-11-26T04:01:28Z"
+      "capturedAt": "2026-11-27T04:02:50Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 481597.4,
@@ -523976,7 +523976,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "7ad87e1688e64298ba3ed3e3ece6e9469b0b61acbb15b64194e8e7aa253b5d54"
       },
       "mScore": {
@@ -523988,7 +523988,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "7ad87e1688e64298ba3ed3e3ece6e9469b0b61acbb15b64194e8e7aa253b5d54"
       }
     },
@@ -524166,7 +524166,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "COST",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-08-30",
       "filingDate": "2026-10-07",
       "quoteDate": "2026-11-25",
@@ -524198,11 +524198,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 443129349,
       "shareSource": {
         "shares": 443.129349,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/cost-20260830.htm",
-        "capturedAt": "2026-11-26T04:01:28Z"
+        "capturedAt": "2026-11-27T04:02:50Z"
       }
     },
     "z_score": 9.75,
@@ -524532,11 +524532,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "2,317.78 M",
     "shareSource": {
       "shares": 2317.783143,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/80424/000008042426000256/pg-20260930.htm",
-      "capturedAt": "2026-11-26T04:01:36Z"
+      "capturedAt": "2026-11-27T04:02:58Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 401498.0,
@@ -527784,7 +527784,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "829ddcb08a3e259503fae5d6f9a7a558e3e665fe5908ea4bb50aac318911945c"
       },
       "mScore": {
@@ -527796,7 +527796,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "829ddcb08a3e259503fae5d6f9a7a558e3e665fe5908ea4bb50aac318911945c"
       }
     },
@@ -527974,7 +527974,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "PG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-22",
       "quoteDate": "2026-11-25",
@@ -528006,11 +528006,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 2317783143,
       "shareSource": {
         "shares": 2317.783143,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/80424/000008042426000256/pg-20260930.htm",
-        "capturedAt": "2026-11-26T04:01:36Z"
+        "capturedAt": "2026-11-27T04:02:58Z"
       }
     },
     "z_score": 5.96,
@@ -528340,11 +528340,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "4,301.90 M",
     "shareSource": {
       "shares": 4301.902335,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/21344/000162828026067844/ko-20261002.htm",
-      "capturedAt": "2026-11-26T04:01:44Z"
+      "capturedAt": "2026-11-27T04:03:07Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 419822.6,
@@ -531592,7 +531592,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "f2588a98f52a380bd5004906121f87dc4eef78323f6ed6ca6f2c520115d90474"
       },
       "mScore": {
@@ -531604,7 +531604,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "f2588a98f52a380bd5004906121f87dc4eef78323f6ed6ca6f2c520115d90474"
       }
     },
@@ -531800,7 +531800,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "KO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-10-02",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-11-25",
@@ -531832,11 +531832,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 4301902335,
       "shareSource": {
         "shares": 4301.902335,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/21344/000162828026067844/ko-20261002.htm",
-        "capturedAt": "2026-11-26T04:01:44Z"
+        "capturedAt": "2026-11-27T04:03:07Z"
       }
     },
     "z_score": 5.77,
@@ -532166,11 +532166,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "1,362.74 M",
     "shareSource": {
       "shares": 1362.741092,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/77476/000007747626000048/pep-20260905.htm",
-      "capturedAt": "2026-11-26T04:01:52Z"
+      "capturedAt": "2026-11-27T04:03:15Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 196139.3,
@@ -535418,7 +535418,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "5b1968a969b6ec213455b5822fc208a1b114ad5be60d355d0f2dba08c3efd982"
       },
       "mScore": {
@@ -535430,7 +535430,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "5b1968a969b6ec213455b5822fc208a1b114ad5be60d355d0f2dba08c3efd982"
       }
     },
@@ -535596,7 +535596,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "PEP",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-05",
       "filingDate": "2026-10-08",
       "quoteDate": "2026-11-25",
@@ -535628,11 +535628,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 1362741092,
       "shareSource": {
         "shares": 1362.741092,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/77476/000007747626000048/pep-20260905.htm",
-        "capturedAt": "2026-11-26T04:01:52Z"
+        "capturedAt": "2026-11-27T04:03:15Z"
       }
     },
     "z_score": 3.47,
@@ -535964,11 +535964,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "1,558.66 M",
     "shareSource": {
       "shares": 1558.655629,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1413329/000162828026066976/pm-20260930.htm",
-      "capturedAt": "2026-11-26T04:01:59Z"
+      "capturedAt": "2026-11-27T04:03:23Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 287291.4,
@@ -539215,7 +539215,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "938cb49f90e68ff174733d093fc3212e80976f4214f93fbd8138ddfd2b416127"
       },
       "mScore": {
@@ -539227,7 +539227,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "938cb49f90e68ff174733d093fc3212e80976f4214f93fbd8138ddfd2b416127"
       }
     },
@@ -539368,7 +539368,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "PM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-23",
       "quoteDate": "2026-11-25",
@@ -539400,11 +539400,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 1558655629,
       "shareSource": {
         "shares": 1558.655629,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1413329/000162828026066976/pm-20260930.htm",
-        "capturedAt": "2026-11-26T04:01:59Z"
+        "capturedAt": "2026-11-27T04:03:23Z"
       }
     },
     "z_score": 4.32,
@@ -539734,11 +539734,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "1,265.84 M",
     "shareSource": {
       "shares": 1265.84,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1103982/000162828026068256/mdlz-20260930.htm",
-      "capturedAt": "2026-11-26T04:02:08Z"
+      "capturedAt": "2026-11-27T04:03:32Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 85836.6,
@@ -542981,7 +542981,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "e95889305a9f68dc5efc5190a6d105c3540569ba8b725dd5491eb2536f006e82"
       },
       "mScore": {
@@ -542993,7 +542993,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "e95889305a9f68dc5efc5190a6d105c3540569ba8b725dd5491eb2536f006e82"
       }
     },
@@ -543141,7 +543141,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MDLZ",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-11-25",
@@ -543173,11 +543173,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 1265840000,
       "shareSource": {
         "shares": 1265.84,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1103982/000162828026068256/mdlz-20260930.htm",
-        "capturedAt": "2026-11-26T04:02:08Z"
+        "capturedAt": "2026-11-27T04:03:32Z"
       }
     },
     "z_score": 2.4,
@@ -543507,11 +543507,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "794.92 M",
     "shareSource": {
       "shares": 794.921,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/21665/000002166526000048/cl-20260930.htm",
-      "capturedAt": "2026-11-26T04:02:16Z"
+      "capturedAt": "2026-11-27T04:03:41Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 79221.8,
@@ -546759,7 +546759,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "8a642247d72a9c7df201de3aa4787e428b3358ae227fc4d2cb6bab2a95d17748"
       },
       "mScore": {
@@ -546771,7 +546771,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "8a642247d72a9c7df201de3aa4787e428b3358ae227fc4d2cb6bab2a95d17748"
       }
     },
@@ -546943,7 +546943,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
       "quoteDate": "2026-11-25",
@@ -546975,11 +546975,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 794921000,
       "shareSource": {
         "shares": 794.921,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/21665/000002166526000048/cl-20260930.htm",
-        "capturedAt": "2026-11-26T04:02:16Z"
+        "capturedAt": "2026-11-27T04:03:41Z"
       }
     },
     "z_score": 7.28,
@@ -547304,22 +547304,22 @@ window.FULL_MARKET_DATA = {
     "industry": "Packaged Foods & Meats",
     "reportedCurrency": "USD",
     "price": 49.85,
-    "shares": 269.064481,
-    "shares_outstanding": 269064481,
+    "shares": 269.064475,
+    "shares_outstanding": 269064475,
     "shares_display": "269.06 M",
     "shareSource": {
-      "shares": 269.064481,
-      "date": "2026-11-25",
+      "shares": 269.064475,
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/63754/000006375426000329/mkc-20260831.htm",
-      "capturedAt": "2026-11-26T04:02:24Z"
+      "capturedAt": "2026-11-27T04:03:49Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 13412.9,
-    "liq_val_1": -22.889308827053988,
-    "liq_val_2": -29.98240410632275,
-    "liq_val_3": -32.45467394115093,
+    "liq_val_1": -22.889309337473854,
+    "liq_val_2": -29.982404774915008,
+    "liq_val_3": -32.454674664873544,
     "debt": 4246.3,
     "cash": 331.1,
     "short_term_investments": 0.0,
@@ -550561,7 +550561,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "ebd0eaa76439c27fc1b179a459c081219750777757fe648d68901da60b341c4c"
       },
       "mScore": {
@@ -550573,7 +550573,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "ebd0eaa76439c27fc1b179a459c081219750777757fe648d68901da60b341c4c"
       }
     },
@@ -550751,7 +550751,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MKC",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-08-31",
       "filingDate": "2026-10-01",
       "quoteDate": "2026-11-25",
@@ -550770,7 +550770,7 @@ window.FULL_MARKET_DATA = {
         "currency": "USD",
         "date": "2026-11-25",
         "price": 49.85,
-        "marketCap": 13412864378
+        "marketCap": 13412864079
       },
       "amounts": {
         "currentAssets": 2904800000,
@@ -550780,14 +550780,14 @@ window.FULL_MARKET_DATA = {
         "inventory": 0,
         "preferredStock": 0
       },
-      "sharesOutstanding": 269064481,
+      "sharesOutstanding": 269064475,
       "shareSource": {
-        "shares": 269.064481,
-        "date": "2026-11-25",
+        "shares": 269.064475,
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/63754/000006375426000329/mkc-20260831.htm",
-        "capturedAt": "2026-11-26T04:02:24Z"
+        "capturedAt": "2026-11-27T04:03:49Z"
       }
     },
     "z_score": 2.2,
@@ -551119,11 +551119,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "121.15 M",
     "shareSource": {
       "shares": 121.147,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/21076/000002107626000046/clx-20260930.htm",
-      "capturedAt": "2026-11-26T04:02:32Z"
+      "capturedAt": "2026-11-27T04:03:58Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 13440.0,
@@ -554371,7 +554371,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "a9c1af1fff581a8b00afe05ab1eef9b187b6f84d57b6fd4766eac4bf23f3e59b"
       },
       "mScore": {
@@ -554383,7 +554383,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "a9c1af1fff581a8b00afe05ab1eef9b187b6f84d57b6fd4766eac4bf23f3e59b"
       }
     },
@@ -554543,7 +554543,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CLX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-02",
       "quoteDate": "2026-11-25",
@@ -554575,11 +554575,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 121147000,
       "shareSource": {
         "shares": 121.147,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/21076/000002107626000046/clx-20260930.htm",
-        "capturedAt": "2026-11-26T04:02:32Z"
+        "capturedAt": "2026-11-27T04:03:58Z"
       }
     },
     "z_score": 2.24,
@@ -554904,22 +554904,22 @@ window.FULL_MARKET_DATA = {
     "industry": "Packaged Foods & Meats",
     "reportedCurrency": "USD",
     "price": 182.57,
-    "shares": 200.980388,
-    "shares_outstanding": 200980388,
+    "shares": 200.980373,
+    "shares_outstanding": 200980373,
     "shares_display": "200.98 M",
     "shareSource": {
-      "shares": 200.980388,
-      "date": "2026-11-25",
+      "shares": 200.980373,
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/47111/000162828026068136/hsy-20260927.htm",
-      "capturedAt": "2026-11-26T04:02:39Z"
+      "capturedAt": "2026-11-27T04:04:07Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 36693.0,
-    "liq_val_1": -25.64755721339338,
-    "liq_val_2": -33.064468957040724,
-    "liq_val_3": -41.498690907094876,
+    "liq_val_1": -25.6475591275771,
+    "liq_val_2": -33.06447142477938,
+    "liq_val_3": -41.498694004314544,
     "debt": 5126.5,
     "cash": 676.7,
     "short_term_investments": 0.0,
@@ -558156,7 +558156,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "06ec6d548c93a929b712f324f65a04e7c211b0a8e275088c7b49f9aabad64bdf"
       },
       "mScore": {
@@ -558168,7 +558168,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "06ec6d548c93a929b712f324f65a04e7c211b0a8e275088c7b49f9aabad64bdf"
       }
     },
@@ -558334,7 +558334,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "HSY",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-27",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-11-25",
@@ -558353,7 +558353,7 @@ window.FULL_MARKET_DATA = {
         "currency": "USD",
         "date": "2026-11-25",
         "price": 182.57,
-        "marketCap": 36692989437
+        "marketCap": 36692986699
       },
       "amounts": {
         "currentAssets": 3862455000,
@@ -558363,14 +558363,14 @@ window.FULL_MARKET_DATA = {
         "inventory": 1608756000,
         "preferredStock": 0
       },
-      "sharesOutstanding": 200980388,
+      "sharesOutstanding": 200980373,
       "shareSource": {
-        "shares": 200.980388,
-        "date": "2026-11-25",
+        "shares": 200.980373,
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/47111/000162828026068136/hsy-20260927.htm",
-        "capturedAt": "2026-11-26T04:02:39Z"
+        "capturedAt": "2026-11-27T04:04:07Z"
       }
     },
     "z_score": 4.23,
@@ -558700,11 +558700,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "475.92 M",
     "shareSource": {
       "shares": 475.919192,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/7084/000000708426000057/adm-20260930.htm",
-      "capturedAt": "2026-11-26T04:02:47Z"
+      "capturedAt": "2026-11-27T04:04:15Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 31724.8,
@@ -561947,7 +561947,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "0d263f8c969b6e9d2e1877089ab22b63be9e38238e2faaa6e27346072c6f264e"
       },
       "mScore": {
@@ -561959,7 +561959,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "0d263f8c969b6e9d2e1877089ab22b63be9e38238e2faaa6e27346072c6f264e"
       }
     },
@@ -562161,7 +562161,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ADM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-03",
       "quoteDate": "2026-11-25",
@@ -562193,11 +562193,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 475919192,
       "shareSource": {
         "shares": 475.919192,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/7084/000000708426000057/adm-20260930.htm",
-        "capturedAt": "2026-11-26T04:02:47Z"
+        "capturedAt": "2026-11-27T04:04:15Z"
       }
     },
     "z_score": 3.05,
@@ -562527,11 +562527,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "236.03 M",
     "shareSource": {
       "shares": 236.032052,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/313927/000119312526441040/chd-20260930.htm",
-      "capturedAt": "2026-11-26T04:02:54Z"
+      "capturedAt": "2026-11-27T04:04:24Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 26744.8,
@@ -565779,7 +565779,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "0986b0ef8287496c4f76fa5e54cef3effb807d1255539f003de6bf24c48635d8"
       },
       "mScore": {
@@ -565791,7 +565791,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "0986b0ef8287496c4f76fa5e54cef3effb807d1255539f003de6bf24c48635d8"
       }
     },
@@ -565981,7 +565981,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CHD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
       "quoteDate": "2026-11-25",
@@ -566013,11 +566013,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 236032052,
       "shareSource": {
         "shares": 236.032052,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/313927/000119312526441040/chd-20260930.htm",
-        "capturedAt": "2026-11-26T04:02:54Z"
+        "capturedAt": "2026-11-27T04:04:24Z"
       }
     },
     "z_score": 5.43,
@@ -566347,11 +566347,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "452.74 M",
     "shareSource": {
       "shares": 452.735,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/27419/000002741926000053/tgt-20261031.htm",
-      "capturedAt": "2026-11-26T04:03:03Z"
+      "capturedAt": "2026-11-27T04:04:32Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 77970.0,
@@ -569599,7 +569599,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "67ae206f25db6ecfa82778945d8b6c109cf4a4b696c88337a189db09e11cf47e"
       },
       "mScore": {
@@ -569611,7 +569611,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "67ae206f25db6ecfa82778945d8b6c109cf4a4b696c88337a189db09e11cf47e"
       }
     },
@@ -569633,11 +569633,11 @@ window.FULL_MARKET_DATA = {
     "country": "US",
     "phone": "612 304 6073",
     "full_address": "1000 Nicollet Mall, Minneapolis, MN 55403, US",
-    "range_52w": "86.61-176.73",
+    "range_52w": "89.36-176.73",
     "year_high": 176.73,
-    "year_low": 86.61,
+    "year_low": 89.36,
     "all_time_high": 0.0,
-    "all_time_low": 86.61,
+    "all_time_low": 89.36,
     "inst_ownership_pct": null,
     "insider_ownership_pct": null,
     "top_holders": [],
@@ -569783,7 +569783,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TGT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-10-31",
       "filingDate": "2026-11-25",
       "quoteDate": "2026-11-25",
@@ -569815,11 +569815,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 452735000,
       "shareSource": {
         "shares": 452.735,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/27419/000002741926000053/tgt-20261031.htm",
-        "capturedAt": "2026-11-26T04:03:03Z"
+        "capturedAt": "2026-11-27T04:04:32Z"
       }
     },
     "z_score": 3.32,
@@ -570149,11 +570149,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "332.58 M",
     "shareSource": {
       "shares": 332.579,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/55785/000162828026070754/kmb-20260930.htm",
-      "capturedAt": "2026-11-26T04:03:11Z"
+      "capturedAt": "2026-11-27T04:04:40Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 36400.8,
@@ -573401,7 +573401,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "f1e6a76049d8bd9014ae2d525b8412dd525aedc9da0b211e71238f186a5ce0e0"
       },
       "mScore": {
@@ -573413,7 +573413,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "f1e6a76049d8bd9014ae2d525b8412dd525aedc9da0b211e71238f186a5ce0e0"
       }
     },
@@ -573585,7 +573585,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "KMB",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-05",
       "quoteDate": "2026-11-25",
@@ -573617,11 +573617,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 332579000,
       "shareSource": {
         "shares": 332.579,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/55785/000162828026070754/kmb-20260930.htm",
-        "capturedAt": "2026-11-26T04:03:11Z"
+        "capturedAt": "2026-11-27T04:04:40Z"
       }
     },
     "z_score": 3.45,
@@ -573951,11 +573951,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "1,957.51 M",
     "shareSource": {
       "shares": 1957.511922,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/865752/000110465926123503/mnst-20260930x10q.htm",
-      "capturedAt": "2026-11-26T04:03:19Z"
+      "capturedAt": "2026-11-27T04:04:49Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 83390.0,
@@ -577203,7 +577203,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "13c594c18d40dad3097eb36202b95f049e37392ee1366bf3a805f0f54f5af59a"
       },
       "mScore": {
@@ -577215,7 +577215,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "13c594c18d40dad3097eb36202b95f049e37392ee1366bf3a805f0f54f5af59a"
       }
     },
@@ -577399,7 +577399,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MNST",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-06",
       "quoteDate": "2026-11-25",
@@ -577431,11 +577431,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 1957511922,
       "shareSource": {
         "shares": 1957.511922,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/865752/000110465926123503/mnst-20260930x10q.htm",
-        "capturedAt": "2026-11-26T04:03:19Z"
+        "capturedAt": "2026-11-27T04:04:49Z"
       }
     },
     "z_score": 32.27,
@@ -577769,11 +577769,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "534.69 M",
     "shareSource": {
       "shares": 534.687,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/40704/000162828026063201/gis-20260830.htm",
-      "capturedAt": "2026-11-26T04:03:27Z"
+      "capturedAt": "2026-11-27T04:04:57Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 19382.4,
@@ -581021,7 +581021,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "03ae46e494b260736c2fc97bd78f7a6cae5239efa87bff5fa1fe949b03c4fe6d"
       },
       "mScore": {
@@ -581033,7 +581033,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "03ae46e494b260736c2fc97bd78f7a6cae5239efa87bff5fa1fe949b03c4fe6d"
       }
     },
@@ -581211,7 +581211,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "GIS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-08-30",
       "filingDate": "2026-09-23",
       "quoteDate": "2026-11-25",
@@ -581243,11 +581243,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 534687000,
       "shareSource": {
         "shares": 534.687,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/40704/000162828026063201/gis-20260830.htm",
-        "capturedAt": "2026-11-26T04:03:27Z"
+        "capturedAt": "2026-11-27T04:04:57Z"
       }
     },
     "z_score": 2.31,
@@ -581581,11 +581581,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "1,183.83 M",
     "shareSource": {
       "shares": 1183.83,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1637459/000163745926000081/khc-20260926.htm",
-      "capturedAt": "2026-11-26T04:03:34Z"
+      "capturedAt": "2026-11-27T04:05:06Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 31383.3,
@@ -584833,7 +584833,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "4f6159e568e7fe04bcf203e687bbd7325bc4c1227213aeb10557fcd9b03d682e"
       },
       "mScore": {
@@ -584845,7 +584845,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "4f6159e568e7fe04bcf203e687bbd7325bc4c1227213aeb10557fcd9b03d682e"
       }
     },
@@ -584986,7 +584986,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "KHC",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-26",
       "filingDate": "2026-11-04",
       "quoteDate": "2026-11-25",
@@ -585018,11 +585018,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 1183830000,
       "shareSource": {
         "shares": 1183.83,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1637459/000163745926000081/khc-20260926.htm",
-        "capturedAt": "2026-11-26T04:03:34Z"
+        "capturedAt": "2026-11-27T04:05:06Z"
       }
     },
     "z_score": 0.53,
@@ -585352,11 +585352,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "1,033.35 M",
     "shareSource": {
       "shares": 1033.351921,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/40545/000004054526000064/ge-20260930.htm",
-      "capturedAt": "2026-11-26T04:03:42Z"
+      "capturedAt": "2026-11-27T04:05:15Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 327551.9,
@@ -588604,7 +588604,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "997680b930b5d2bce0761ef0129c8cda878d667e5c05bff459d8fafa5aae6668"
       },
       "mScore": {
@@ -588616,7 +588616,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "997680b930b5d2bce0761ef0129c8cda878d667e5c05bff459d8fafa5aae6668"
       }
     },
@@ -588818,7 +588818,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "GE",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-20",
       "quoteDate": "2026-11-25",
@@ -588850,11 +588850,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 1033351921,
       "shareSource": {
         "shares": 1033.351921,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/40545/000004054526000064/ge-20260930.htm",
-        "capturedAt": "2026-11-26T04:03:42Z"
+        "capturedAt": "2026-11-27T04:05:15Z"
       }
     },
     "z_score": 3.35,
@@ -589184,11 +589184,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "457.59 M",
     "shareSource": {
       "shares": 457.594174,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/18230/000001823026000057/cat-20260930.htm",
-      "capturedAt": "2026-11-26T04:03:49Z"
+      "capturedAt": "2026-11-27T04:05:24Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 248789.4,
@@ -592436,7 +592436,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "33a43497f91f8d53fe39a7a5a8ddcfd6c13af41ae7ae1e4fe448c6392c76e1c3"
       },
       "mScore": {
@@ -592448,7 +592448,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "33a43497f91f8d53fe39a7a5a8ddcfd6c13af41ae7ae1e4fe448c6392c76e1c3"
       }
     },
@@ -592620,7 +592620,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CAT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-04",
       "quoteDate": "2026-11-25",
@@ -592652,11 +592652,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 457594174,
       "shareSource": {
         "shares": 457.594174,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/18230/000001823026000057/cat-20260930.htm",
-        "capturedAt": "2026-11-26T04:03:49Z"
+        "capturedAt": "2026-11-27T04:05:24Z"
       }
     },
     "z_score": 4.16,
@@ -592986,11 +592986,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "594.25 M",
     "shareSource": {
       "shares": 594.25,
-      "date": "2026-11-25",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/100885/000010088526000321/unp-20260930.htm",
-      "capturedAt": "2026-11-26T04:03:57Z"
+      "capturedAt": "2026-11-27T04:05:32Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 177312.3,
@@ -596232,7 +596232,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "8cde4542ef32aa8e5e0b5a0695fedd3d4d7957e9549cf1b81216b1239e59bc8e"
       },
       "mScore": {
@@ -596244,7 +596244,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "8cde4542ef32aa8e5e0b5a0695fedd3d4d7957e9549cf1b81216b1239e59bc8e"
       }
     },
@@ -596422,7 +596422,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "UNP",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-22",
       "quoteDate": "2026-11-25",
@@ -596454,11 +596454,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 594250000,
       "shareSource": {
         "shares": 594.25,
-        "date": "2026-11-25",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/100885/000010088526000321/unp-20260930.htm",
-        "capturedAt": "2026-11-26T04:03:57Z"
+        "capturedAt": "2026-11-27T04:05:32Z"
       }
     },
     "z_score": 4.31,
@@ -596788,11 +596788,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "1,349.44 M",
     "shareSource": {
       "shares": 1349.44,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/101829/000010182926000031/rtx-20260930.htm",
-      "capturedAt": "2026-11-26T04:04:05Z"
+      "capturedAt": "2026-11-27T04:05:41Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 264746.6,
@@ -600040,7 +600040,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "039dc8a21eea46f40462a5cf8d828c1dce948b737256d1cf0e0b9e10667e3321"
       },
       "mScore": {
@@ -600052,7 +600052,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "039dc8a21eea46f40462a5cf8d828c1dce948b737256d1cf0e0b9e10667e3321"
       }
     },
@@ -600230,7 +600230,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "RTX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-20",
       "quoteDate": "2026-11-25",
@@ -600262,11 +600262,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 1349440000,
       "shareSource": {
         "shares": 1349.44,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/101829/000010182926000031/rtx-20260930.htm",
-        "capturedAt": "2026-11-26T04:04:05Z"
+        "capturedAt": "2026-11-27T04:05:41Z"
       }
     },
     "z_score": 2.73,
@@ -600596,11 +600596,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "317.36 M",
     "shareSource": {
       "shares": 317.358518,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000143/hon-20260930.htm",
-      "capturedAt": "2026-11-26T04:04:12Z"
+      "capturedAt": "2026-11-27T04:05:49Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 71437.4,
@@ -603848,7 +603848,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "ceab93ffe211bebcafecdeea3fd066ade6e8fa4970bf9bb002dfadcae168dfd2"
       },
       "mScore": {
@@ -603860,7 +603860,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "ceab93ffe211bebcafecdeea3fd066ade6e8fa4970bf9bb002dfadcae168dfd2"
       }
     },
@@ -604032,7 +604032,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "HON",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-22",
       "quoteDate": "2026-11-25",
@@ -604064,11 +604064,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 317358518,
       "shareSource": {
         "shares": 317.358518,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000143/hon-20260930.htm",
-        "capturedAt": "2026-11-26T04:04:12Z"
+        "capturedAt": "2026-11-27T04:05:49Z"
       }
     },
     "z_score": 2.6,
@@ -604400,11 +604400,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "792.45 M",
     "shareSource": {
       "shares": 792.44994,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/12927/000162828026067508/ba-20260930.htm",
-      "capturedAt": "2026-11-26T04:04:20Z"
+      "capturedAt": "2026-11-27T04:05:58Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 130381.8,
@@ -607652,7 +607652,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "5cdca066e2d6893f73ff93efecfe4cca1d4338190e2d2ba2b45964e5827e1c8a"
       },
       "mScore": {
@@ -607664,7 +607664,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "5cdca066e2d6893f73ff93efecfe4cca1d4338190e2d2ba2b45964e5827e1c8a"
       }
     },
@@ -607854,7 +607854,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "BA",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-27",
       "quoteDate": "2026-11-25",
@@ -607886,11 +607886,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 792449940,
       "shareSource": {
         "shares": 792.44994,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/12927/000162828026067508/ba-20260930.htm",
-        "capturedAt": "2026-11-26T04:04:20Z"
+        "capturedAt": "2026-11-27T04:05:58Z"
       }
     },
     "z_score": 1.41,
@@ -608220,11 +608220,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "231.00 M",
     "shareSource": {
       "shares": 231.00464,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/936468/000162828026066928/lmt-20260927.htm",
-      "capturedAt": "2026-11-26T04:04:28Z"
+      "capturedAt": "2026-11-27T04:06:07Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 138427.2,
@@ -611472,7 +611472,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "5f78d15b6b893332def74dee3037752d48e6c58266ddc0ab1c1387ae4399befd"
       },
       "mScore": {
@@ -611484,7 +611484,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "5f78d15b6b893332def74dee3037752d48e6c58266ddc0ab1c1387ae4399befd"
       }
     },
@@ -611644,7 +611644,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "LMT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-27",
       "filingDate": "2026-10-22",
       "quoteDate": "2026-11-25",
@@ -611676,11 +611676,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 231004640,
       "shareSource": {
         "shares": 231.00464,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/936468/000162828026066928/lmt-20260927.htm",
-        "capturedAt": "2026-11-26T04:04:28Z"
+        "capturedAt": "2026-11-27T04:06:07Z"
       }
     },
     "z_score": 3.58,
@@ -611908,54 +611908,54 @@ window.FULL_MARKET_DATA = {
       "version": 1,
       "currency": "USD",
       "basis": "TTM versus prior-year TTM",
-      "date": "2026-08-02",
+      "date": "2026-11-01",
       "fields": {
         "revenue": {
-          "value": 9.873954420812492,
-          "date": "2026-08-02",
-          "previousDate": "2025-07-27",
+          "value": 6.804137560451373,
+          "date": "2026-11-01",
+          "previousDate": "2025-11-02",
           "reason": null
         },
         "grossProfit": {
-          "value": 4.149605818004032,
-          "date": "2026-08-02",
-          "previousDate": "2025-07-27",
+          "value": 6.6470263303259,
+          "date": "2026-11-01",
+          "previousDate": "2025-11-02",
           "reason": null
         },
         "operatingIncome": {
-          "value": 4.432644580399403,
-          "date": "2026-08-02",
-          "previousDate": "2025-07-27",
+          "value": 9.875222816399276,
+          "date": "2026-11-01",
+          "previousDate": "2025-11-02",
           "reason": null
         },
         "netIncome": {
-          "value": -6.414442097176876,
-          "date": "2026-08-02",
-          "previousDate": "2025-07-27",
+          "value": -3.3419534513626448,
+          "date": "2026-11-01",
+          "previousDate": "2025-11-02",
           "reason": null
         },
         "ebitda": {
-          "value": -1.0071090047393372,
-          "date": "2026-08-02",
-          "previousDate": "2025-07-27",
+          "value": -5.2509652509652565,
+          "date": "2026-11-01",
+          "previousDate": "2025-11-02",
           "reason": null
         },
         "epsDiluted": {
-          "value": -5.906952430737055,
-          "date": "2026-08-02",
-          "previousDate": "2025-07-27",
+          "value": -2.97136682874124,
+          "date": "2026-11-01",
+          "previousDate": "2025-11-02",
           "reason": null
         },
         "operatingCashFlow": {
-          "value": -15.322580645161288,
-          "date": "2026-08-02",
-          "previousDate": "2025-07-27",
+          "value": -19.85520847298565,
+          "date": "2026-11-01",
+          "previousDate": "2025-11-02",
           "reason": null
         },
         "freeCashFlow": {
-          "value": -5.705925384052668,
-          "date": "2026-08-02",
-          "previousDate": "2025-07-27",
+          "value": -13.710925410089757,
+          "date": "2026-11-01",
+          "previousDate": "2025-11-02",
           "reason": null
         }
       }
@@ -611965,35 +611965,35 @@ window.FULL_MARKET_DATA = {
     "marketRatioSources": {
       "pb": {
         "basis": "marketCapOverReportedParentEquity",
-        "date": "2026-08-02",
+        "date": "2026-11-01",
         "reason": null,
-        "bookEquity": 27990000000,
+        "bookEquity": 28248000000,
         "preferredEquityDeducted": false
       },
       "current_ratio": {
         "basis": "reportedCurrentAssetsOverCurrentLiabilities",
-        "date": "2026-08-02",
+        "date": "2026-11-01",
         "reason": null
       },
       "cash_to_assets": {
         "basis": "reportedCashAndShortTermInvestmentsOverAssets",
-        "date": "2026-08-02",
+        "date": "2026-11-01",
         "reason": null
       },
       "liab_to_assets": {
         "basis": "reportedLiabilitiesOverAssets",
-        "date": "2026-08-02",
+        "date": "2026-11-01",
         "reason": null
       },
       "roe": {
         "basis": "ttmNetIncomeOverBeginningParentEquity",
-        "date": "2026-08-02",
+        "date": "2026-11-01",
         "reason": null,
         "warnings": []
       },
       "roa": {
         "basis": "ttmNetIncomeOverBeginningAssets",
-        "date": "2026-08-02",
+        "date": "2026-11-01",
         "reason": null,
         "warnings": []
       }
@@ -612010,106 +612010,106 @@ window.FULL_MARKET_DATA = {
     "shares_display": "269.63 M",
     "shareSource": {
       "shares": 269.625412,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
-      "providerSource": "https://www.sec.gov/Archives/edgar/data/315189/000110465926102213/de-20260802x10q.htm",
-      "capturedAt": "2026-11-26T04:04:36Z"
+      "providerSource": "https://www.sec.gov/Archives/edgar/data/315189/000110465926131741/de-ex99d1.htm",
+      "capturedAt": "2026-11-27T04:06:17Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 172835.3,
-    "liq_val_1": -190.21945898779006,
-    "liq_val_2": -219.5790803279329,
-    "liq_val_3": -256.97874501532516,
-    "debt": 64180.0,
-    "cash": 10278.0,
-    "short_term_investments": 1350.0,
-    "cash_and_short_term": 10278.0,
-    "net_debt": 53902.0,
-    "fcf0": 3867.0,
+    "liq_val_1": -189.65571390577978,
+    "liq_val_2": -219.8450048172759,
+    "liq_val_3": -255.0872319112117,
+    "debt": 61217.0,
+    "cash": 8535.0,
+    "short_term_investments": 1324.0,
+    "cash_and_short_term": 8535.0,
+    "net_debt": 52682.0,
+    "fcf0": 2788.0,
     "real_history": {
       "revenue": [
-        43033.0,
         51282.0,
         60248.0,
         50518.0,
         44665.0,
-        47682.0
+        47704.0,
+        47703.0
       ],
       "net_income": [
-        5963.0,
         7131.0,
         10166.0,
         7100.0,
         5027.0,
-        4873.0
+        4860.0,
+        4859.0
       ],
       "gross_profit": [
-        13715.0,
         15730.0,
         22306.0,
         19495.0,
         16295.0,
-        17042.0
+        17376.0,
+        17376.0
       ],
       "operating_income": [
-        7663.0,
         9026.0,
         14591.0,
         11427.0,
         8416.0,
-        9047.0
+        9246.0,
+        9246.0
       ],
       "cfo": [
-        7726.0,
         4699.0,
         8589.0,
         9231.0,
         7459.0,
-        7245.0
+        5978.0,
+        5978.0
       ],
       "capex": [
-        -2580.0,
         -3788.0,
         -4468.0,
         -4802.0,
         -4228.0,
-        -3378.0
+        -3828.0,
+        -3190.0
       ],
       "fcf": [
-        5146.0,
         911.0,
         4121.0,
         4429.0,
         3231.0,
-        3867.0
+        2150.0,
+        2788.0
       ]
     },
     "statements_raw": {
       "income": {
         "revenue": [
-          43033.0,
           51282.0,
           60248.0,
           50518.0,
           44665.0,
-          47682.0
+          47704.0,
+          47703.0
         ],
         "costOfRevenue": [
-          29318.0,
           35552.0,
           37942.0,
           31023.0,
           28370.0,
-          30640.0
+          30328.0,
+          30327.0
         ],
         "grossProfit": [
-          13715.0,
           15730.0,
           22306.0,
           19495.0,
           16295.0,
-          17042.0
+          17376.0,
+          17376.0
         ],
         "grossProfitRatio": [
           0.0,
@@ -612120,19 +612120,19 @@ window.FULL_MARKET_DATA = {
           0.0
         ],
         "researchAndDevelopmentExpenses": [
-          1587.0,
           1912.0,
           2177.0,
           2290.0,
           2311.0,
-          2385.0
+          2360.0,
+          2360.0
         ],
         "generalAndAdministrativeExpenses": [
-          3200.0,
           3645.0,
           4309.0,
           4507.0,
           4241.0,
+          0.0,
           1220.0
         ],
         "sellingAndMarketingExpenses": [
@@ -612144,44 +612144,44 @@ window.FULL_MARKET_DATA = {
           0.0
         ],
         "sellingGeneralAndAdministrativeExpenses": [
-          3200.0,
           3645.0,
           4309.0,
           4507.0,
           4241.0,
-          4255.0
+          4620.0,
+          4620.0
         ],
         "otherExpenses": [
-          1265.0,
           1147.0,
           1229.0,
           1271.0,
           1327.0,
-          1356.0
+          1150.0,
+          1150.0
         ],
         "operatingExpenses": [
-          6052.0,
           6704.0,
           7715.0,
           8068.0,
           7879.0,
-          7995.0
+          8130.0,
+          8130.0
         ],
         "costAndExpenses": [
-          35370.0,
           42256.0,
           45657.0,
           39091.0,
           36249.0,
-          38635.0
+          38458.0,
+          38457.0
         ],
         "operatingIncome": [
-          7663.0,
           9026.0,
           14591.0,
           11427.0,
           8416.0,
-          9047.0
+          9246.0,
+          9246.0
         ],
         "operatingIncomeRatio": [
           0.0,
@@ -612192,20 +612192,20 @@ window.FULL_MARKET_DATA = {
           0.0
         ],
         "totalOtherIncomeExpensesNet": [
-          -40.0,
           111.0,
           -1565.0,
           -2245.0,
           -2159.0,
-          -2601.0
+          -2809.0,
+          -2834.0
         ],
         "netInterestIncome": [
-          -993.0,
           -1062.0,
           -2453.0,
           -3348.0,
           -3170.0,
-          -1550.0
+          -2849.0,
+          -1496.0
         ],
         "interestIncome": [
           0.0,
@@ -612216,20 +612216,20 @@ window.FULL_MARKET_DATA = {
           1353.0
         ],
         "interestExpense": [
-          993.0,
           1062.0,
           2453.0,
           3348.0,
           3170.0,
-          2903.0
+          2849.0,
+          2849.0
         ],
         "incomeBeforeTax": [
-          7623.0,
           9137.0,
           13026.0,
           9182.0,
           6257.0,
-          6446.0
+          6437.0,
+          6412.0
         ],
         "incomeBeforeTaxRatio": [
           0.0,
@@ -612240,20 +612240,20 @@ window.FULL_MARKET_DATA = {
           0.0
         ],
         "incomeTaxExpense": [
-          1658.0,
           2007.0,
           2871.0,
           2094.0,
           1259.0,
-          1608.0
+          1584.0,
+          1584.0
         ],
         "netIncome": [
-          5963.0,
           7131.0,
           10166.0,
           7100.0,
           5027.0,
-          4873.0
+          4860.0,
+          4859.0
         ],
         "netIncomeRatio": [
           0.0,
@@ -612264,12 +612264,12 @@ window.FULL_MARKET_DATA = {
           0.0
         ],
         "eps": [
-          19.14,
           23.42,
           34.8,
           25.72,
           18.56,
-          18.04
+          18.0,
+          18.0
         ],
         "epsdiluted": [
           0.0,
@@ -612280,28 +612280,28 @@ window.FULL_MARKET_DATA = {
           0.0
         ],
         "weightedAverageShsOut": [
-          311600000.0,
           304500000.0,
           292200000.0,
           276000000.0,
           270900000.0,
-          269800000.0
+          270000000.0,
+          269600000.0
         ],
         "weightedAverageShsOutDil": [
-          314000000.0,
           306300000.0,
           293600000.0,
           277100000.0,
           271700000.0,
-          270700000.0
+          270800000.0,
+          270600000.0
         ],
         "ebitda": [
-          10645.0,
           12084.0,
           17476.0,
           14672.0,
           11656.0,
-          11697.0
+          11607.0,
+          11043.0
         ],
         "ebitdaratio": [
           0.0,
@@ -612314,188 +612314,188 @@ window.FULL_MARKET_DATA = {
       },
       "balance": {
         "cashAndCashEquivalents": [
-          8017.0,
           4774.0,
           7458.0,
           7324.0,
           8276.0,
-          8928.0
+          7211.0,
+          7211.0
         ],
         "shortTermInvestments": [
-          728.0,
           734.0,
           946.0,
           1154.0,
           1411.0,
-          1350.0
+          1324.0,
+          1324.0
         ],
         "cashAndShortTermInvestments": [
-          8745.0,
           5508.0,
           8404.0,
           8478.0,
           9687.0,
-          10278.0
+          8535.0,
+          8535.0
         ],
         "netReceivables": [
-          42693.0,
           48980.0,
           58750.0,
           58361.0,
           57119.0,
-          10189.0
+          10076.0,
+          10076.0
         ],
         "inventory": [
-          6836.0,
           8539.0,
           8219.0,
           7199.0,
           7508.0,
-          7811.0
+          7566.0,
+          7566.0
         ],
         "otherCurrentAssets": [
-          121.0,
           876.0,
           829.0,
           3391.0,
           329.0,
+          0.0,
           0.0
         ],
         "totalCurrentAssets": [
-          58588.0,
           64088.0,
           76369.0,
           77667.0,
           74902.0,
-          28278.0
+          26177.0,
+          26177.0
         ],
         "propertyPlantEquipmentNet": [
-          13213.0,
           13097.0,
           14206.0,
           15446.0,
           16152.0,
-          8006.0
+          15679.0,
+          15679.0
         ],
         "goodwill": [
-          3291.0,
           3687.0,
           3900.0,
           3959.0,
           4188.0,
-          4466.0
+          4392.0,
+          4392.0
         ],
         "intangibleAssets": [
-          1557.0,
           1590.0,
           1583.0,
           1503.0,
           1362.0,
-          940.0
+          890.0,
+          890.0
         ],
         "goodwillAndIntangibleAssets": [
-          4848.0,
           5277.0,
           5483.0,
           5462.0,
           5550.0,
-          5406.0
+          5282.0,
+          5282.0
         ],
         "longTermInvestments": [
-          175.0,
           117.0,
           126.0,
           122.0,
           510.0,
-          0.0
+          49241.0,
+          49241.0
         ],
         "taxAssets": [
-          1037.0,
           824.0,
           1814.0,
           2086.0,
           2284.0,
-          2343.0
+          2441.0,
+          2441.0
         ],
         "otherNonCurrentAssets": [
-          6253.0,
           6627.0,
           6089.0,
           6537.0,
           6598.0,
-          0.0
+          6748.0,
+          6748.0
         ],
         "totalNonCurrentAssets": [
-          25526.0,
           25942.0,
           27718.0,
           29653.0,
           31094.0,
-          15755.0
+          79391.0,
+          79391.0
         ],
         "totalAssets": [
-          84114.0,
           90030.0,
           104087.0,
           107320.0,
           105996.0,
-          107607.0
+          105568.0,
+          105568.0
         ],
         "accountPayables": [
-          3173.0,
           3894.0,
           3467.0,
           2698.0,
           2985.0,
-          3447.0
+          14239.0,
+          14239.0
         ],
         "shortTermDebt": [
-          15501.0,
           18282.0,
           24909.0,
           21931.0,
           20353.0,
-          23554.0
+          20605.0,
+          20605.0
         ],
         "taxPayables": [
-          933.0,
           1255.0,
           1558.0,
           1509.0,
           0.0,
+          0.0,
           0.0
         ],
         "deferredRevenue": [
-          991.0,
           956.0,
           1127.0,
           1239.0,
           1371.0,
-          1405.0
+          0.0,
+          0.0
         ],
         "otherCurrentLiabilities": [
-          228.0,
           1342.0,
           1130.0,
           2409.0,
           120.0,
-          6323.0
+          0.0,
+          0.0
         ],
         "totalCurrentLiabilities": [
-          26341.0,
           31708.0,
           38912.0,
           36409.0,
           32455.0,
-          36878.0
+          34844.0,
+          34844.0
         ],
         "longTermDebt": [
-          32888.0,
           33596.0,
           38477.0,
           43229.0,
           43544.0,
-          40626.0
+          40612.0,
+          40612.0
         ],
         "deferredRevenueNonCurrent": [
           0.0,
@@ -612506,124 +612506,124 @@ window.FULL_MARKET_DATA = {
           0.0
         ],
         "deferredTaxLiabilitiesNonCurrent": [
-          576.0,
           495.0,
           520.0,
           478.0,
           434.0,
-          411.0
+          401.0,
+          401.0
         ],
         "otherNonCurrentLiabilities": [
-          5835.0,
           3874.0,
           4292.0,
           4279.0,
           3556.0,
-          1651.0
+          1456.0,
+          1456.0
         ],
         "totalNonCurrentLiabilities": [
-          39339.0,
           37965.0,
           43289.0,
           47986.0,
           47534.0,
-          42688.0
+          42469.0,
+          42469.0
         ],
         "totalLiabilities": [
-          65680.0,
           69673.0,
           82201.0,
           84395.0,
           79989.0,
-          79566.0
+          77313.0,
+          77313.0
         ],
         "totalDebt": [
-          48731.0,
           52201.0,
           63692.0,
           65463.0,
           63936.0,
-          64180.0
+          61217.0,
+          61217.0
         ],
         "netDebt": [
-          40714.0,
           47427.0,
           56234.0,
           58139.0,
           55660.0,
-          55252.0
+          54006.0,
+          54006.0
         ],
         "commonStock": [
-          5054.0,
           5165.0,
           5303.0,
           5489.0,
           5668.0,
-          5826.0
+          0.0,
+          28248.0
         ],
         "retainedEarnings": [
-          36449.0,
           42247.0,
           50931.0,
           56402.0,
           59676.0,
-          62169.0
+          0.0,
+          0.0
         ],
         "accumulatedOtherComprehensiveIncomeLoss": [
-          -2539.0,
           -3056.0,
           -3114.0,
           -3706.0,
           -3032.0,
-          -2976.0
+          0.0,
+          0.0
         ],
         "otherTotalStockholdersEquity": [
           0.0,
           0.0,
           0.0,
           0.0,
-          0.0,
+          28248.0,
           0.0
         ],
         "totalStockholdersEquity": [
-          18431.0,
           20262.0,
           21785.0,
           22836.0,
           25950.0,
-          27990.0
+          28248.0,
+          28248.0
         ],
         "totalEquity": [
-          18434.0,
           20357.0,
           21886.0,
           22925.0,
           26007.0,
-          28034.0
+          28255.0,
+          28255.0
         ],
         "totalLiabilitiesAndTotalEquity": [
-          84114.0,
           90030.0,
           104087.0,
           107320.0,
           105996.0,
-          107607.0
+          105568.0,
+          105568.0
         ],
         "totalInvestments": [
-          903.0,
           851.0,
           1072.0,
           1276.0,
           1921.0,
-          1350.0
+          50565.0,
+          50565.0
         ],
         "tradeAccountsReceivables": [
-          42693.0,
           48980.0,
           58750.0,
           58361.0,
           57119.0,
-          10189.0
+          10076.0,
+          10076.0
         ],
         "vendorNonTradeReceivables": [
           0.0,
@@ -612636,249 +612636,248 @@ window.FULL_MARKET_DATA = {
       },
       "cashflow": {
         "netIncome": [
-          5965.0,
           7130.0,
           10166.0,
           7088.0,
           4998.0,
-          4862.0
+          4860.0,
+          4853.0
         ],
         "depreciationAndAmortization": [
-          2050.0,
           1895.0,
           2004.0,
           2118.0,
           2229.0,
-          2348.0
+          2361.0,
+          1787.0
         ],
         "deferredIncomeTax": [
-          -441.0,
           -66.0,
           -790.0,
           -294.0,
           -288.0,
-          -247.0
+          -199.0,
+          -199.0
         ],
         "stockBasedCompensation": [
-          82.0,
           85.0,
           130.0,
           208.0,
           151.0,
-          163.0
+          0.0,
+          116.0
         ],
         "changeInWorkingCapital": [
-          396.0,
           -4315.0,
           -3337.0,
           -181.0,
           -443.0,
-          -100.0
+          -1460.0,
+          -1215.0
         ],
         "accountsReceivables": [
-          969.0,
           -2483.0,
           -4253.0,
           421.0,
           1084.0,
-          326.0
+          -389.0,
+          -389.0
         ],
         "inventory": [
-          -2497.0,
           -2091.0,
           279.0,
           788.0,
           -275.0,
-          -192.0
+          -362.0,
+          -362.0
         ],
         "accountsPayables": [
-          1884.0,
           1133.0,
           830.0,
           0.0,
           0.0,
-          67.0
+          85.0,
+          418.0
         ],
         "otherWorkingCapital": [
-          40.0,
           -874.0,
           -193.0,
           -1390.0,
           -1252.0,
-          -301.0
+          -794.0,
+          -882.0
         ],
         "otherNonCashItems": [
-          -326.0,
           -30.0,
           416.0,
           292.0,
           812.0,
-          219.0
+          416.0,
+          636.0
         ],
         "netCashProvidedByOperatingActivities": [
-          7726.0,
           4699.0,
           8589.0,
           9231.0,
           7459.0,
-          7245.0
+          5978.0,
+          5978.0
         ],
         "investmentsInPropertyPlantAndEquipment": [
-          -2580.0,
           -3788.0,
           -4468.0,
           -4802.0,
           -4228.0,
-          -3378.0
+          -3828.0,
+          -3190.0
         ],
         "acquisitionsNet": [
-          -244.0,
           -498.0,
           -82.0,
           1929.0,
           1816.0,
-          481.0
+          1522.0,
+          482.0
         ],
         "purchasesOfInvestments": [
-          -194.0,
           -250.0,
           -491.0,
           -1055.0,
           -703.0,
-          -466.0
+          -430.0,
+          -430.0
         ],
         "salesMaturitiesOfInvestments": [
-          109.0,
           79.0,
           186.0,
           832.0,
           486.0,
-          516.0
+          469.0,
+          469.0
         ],
         "otherInvestingActivites": [
-          -2841.0,
           -4028.0,
           -3894.0,
           -3368.0,
           572.0,
-          766.0
+          -49.0,
+          353.0
         ],
         "netCashUsedForInvestingActivites": [
-          -5750.0,
           -8485.0,
           -8749.0,
           -6464.0,
           -2057.0,
-          -2081.0
+          -2316.0,
+          -2316.0
         ],
         "debtRepayment": [
-          2450.0,
           5765.0,
           11524.0,
           3008.0,
           -1642.0,
-          -2306.0
+          -2107.0,
+          -2107.0
         ],
         "commonStockIssued": [
-          148.0,
           63.0,
+          0.0,
           0.0,
           0.0,
           0.0,
           0.0
         ],
         "commonStockRepurchased": [
-          -2538.0,
           -3597.0,
           -7216.0,
           -4007.0,
           -1138.0,
-          -699.0
+          -796.0,
+          -796.0
         ],
         "dividendsPaid": [
-          -1040.0,
           -1313.0,
           -1427.0,
           -1605.0,
           -1720.0,
-          -1754.0
+          -1753.0,
+          -1753.0
         ],
         "otherFinancingActivites": [
-          -98.0,
           -92.0,
           -73.0,
           -113.0,
           -79.0,
-          -91.0
+          -62.0,
+          -62.0
         ],
         "netCashUsedProvidedByFinancingActivities": [
-          -1078.0,
           826.0,
           2808.0,
           -2717.0,
           -4579.0,
-          -4850.0
+          -4718.0,
+          -4718.0
         ],
         "effectOfForexChangesOnCash": [
-          55.0,
           -224.0,
           31.0,
           -37.0,
           77.0,
-          -11.0
+          -9.0,
+          -44.0
         ],
         "netChangeInCash": [
-          953.0,
           -3184.0,
           2679.0,
           13.0,
           900.0,
-          303.0
+          -1065.0,
+          -1100.0
         ],
         "cashAtEndOfPeriod": [
-          8125.0,
           4941.0,
           7620.0,
           7633.0,
           8533.0,
-          9150.0
+          7211.0,
+          7211.0
         ],
         "cashAtBeginningOfPeriod": [
-          7172.0,
           8125.0,
           4941.0,
           7620.0,
           7633.0,
-          8847.0
+          8276.0,
+          8533.0
         ],
         "capitalExpenditure": [
-          -2580.0,
           -3788.0,
           -4468.0,
           -4802.0,
           -4228.0,
-          -3378.0
+          -3828.0,
+          -3190.0
         ],
         "freeCashFlow": [
-          5146.0,
           911.0,
           4121.0,
           4429.0,
           3231.0,
-          3867.0
+          2150.0,
+          2788.0
         ]
       },
       "annual_dates": [
-        "2021-10",
         "2022-10",
         "2023-10",
         "2024-10",
         "2025-11",
-        "2026-08"
+        "2026-11",
+        "2026-11"
       ],
       "quarterly_raw": {
         "periods": [
-          "2021Q4",
           "2022Q1",
           "2022Q2",
           "2022Q3",
@@ -612897,10 +612896,10 @@ window.FULL_MARKET_DATA = {
           "2025Q4",
           "2026Q1",
           "2026Q2",
-          "2026Q3"
+          "2026Q3",
+          "2026Q4"
         ],
         "dates": [
-          "2021-10",
           "2022-01",
           "2022-05",
           "2022-07",
@@ -612919,11 +612918,11 @@ window.FULL_MARKET_DATA = {
           "2025-11",
           "2026-02",
           "2026-05",
-          "2026-08"
+          "2026-08",
+          "2026-11"
         ],
         "income": {
           "revenue": [
-            11104.0,
             9331.0,
             12830.0,
             13846.0,
@@ -612942,10 +612941,10 @@ window.FULL_MARKET_DATA = {
             12094.0,
             9611.0,
             13369.0,
-            12608.0
+            12608.0,
+            12115.0
           ],
           "costOfRevenue": [
-            8011.0,
             6695.0,
             8918.0,
             9511.0,
@@ -612964,10 +612963,10 @@ window.FULL_MARKET_DATA = {
             8155.0,
             6280.0,
             8266.0,
-            7939.0
+            7939.0,
+            7842.0
           ],
           "grossProfit": [
-            3093.0,
             2636.0,
             3912.0,
             4335.0,
@@ -612986,7 +612985,8 @@ window.FULL_MARKET_DATA = {
             3939.0,
             3331.0,
             5103.0,
-            4669.0
+            4669.0,
+            4273.0
           ],
           "grossProfitRatio": [
             0.0,
@@ -613011,7 +613011,6 @@ window.FULL_MARKET_DATA = {
             0.0
           ],
           "researchAndDevelopmentExpenses": [
-            450.0,
             402.0,
             453.0,
             481.0,
@@ -613030,7 +613029,8 @@ window.FULL_MARKET_DATA = {
             681.0,
             554.0,
             583.0,
-            567.0
+            567.0,
+            656.0
           ],
           "generalAndAdministrativeExpenses": [
             0.0,
@@ -613051,8 +613051,8 @@ window.FULL_MARKET_DATA = {
             0.0,
             0.0,
             0.0,
-            0.0,
-            1220.0
+            1220.0,
+            0.0
           ],
           "sellingAndMarketingExpenses": [
             0.0,
@@ -613077,7 +613077,6 @@ window.FULL_MARKET_DATA = {
             0.0
           ],
           "sellingGeneralAndAdministrativeExpenses": [
-            752.0,
             781.0,
             932.0,
             959.0,
@@ -613096,10 +613095,10 @@ window.FULL_MARKET_DATA = {
             854.0,
             972.0,
             1209.0,
-            1220.0
+            1220.0,
+            1219.0
           ],
           "otherExpenses": [
-            291.0,
             311.0,
             328.0,
             316.0,
@@ -613118,10 +613117,10 @@ window.FULL_MARKET_DATA = {
             510.0,
             250.0,
             306.0,
-            290.0
+            290.0,
+            304.0
           ],
           "operatingExpenses": [
-            1493.0,
             1494.0,
             1713.0,
             1756.0,
@@ -613140,10 +613139,10 @@ window.FULL_MARKET_DATA = {
             2044.0,
             1776.0,
             2098.0,
-            2077.0
+            2077.0,
+            2179.0
           ],
           "costAndExpenses": [
-            9504.0,
             8189.0,
             10631.0,
             11267.0,
@@ -613162,10 +613161,10 @@ window.FULL_MARKET_DATA = {
             10199.0,
             8056.0,
             10364.0,
-            10016.0
+            10016.0,
+            10021.0
           ],
           "operatingIncome": [
-            1600.0,
             1142.0,
             2199.0,
             2579.0,
@@ -613184,7 +613183,8 @@ window.FULL_MARKET_DATA = {
             1895.0,
             1555.0,
             3005.0,
-            2592.0
+            2592.0,
+            2094.0
           ],
           "operatingIncomeRatio": [
             0.0,
@@ -613209,7 +613209,6 @@ window.FULL_MARKET_DATA = {
             0.0
           ],
           "totalOtherIncomeExpensesNet": [
-            13.0,
             12.0,
             359.0,
             -40.0,
@@ -613228,10 +613227,10 @@ window.FULL_MARKET_DATA = {
             -470.0,
             -704.0,
             -717.0,
-            -710.0
+            -710.0,
+            -703.0
           ],
           "netInterestIncome": [
-            -210.0,
             -229.0,
             -187.0,
             -296.0,
@@ -613250,7 +613249,8 @@ window.FULL_MARKET_DATA = {
             -762.0,
             -719.0,
             -712.0,
-            643.0
+            643.0,
+            -708.0
           ],
           "interestIncome": [
             0.0,
@@ -613271,11 +613271,10 @@ window.FULL_MARKET_DATA = {
             0.0,
             0.0,
             0.0,
-            0.0,
-            1353.0
+            1353.0,
+            0.0
           ],
           "interestExpense": [
-            210.0,
             229.0,
             187.0,
             296.0,
@@ -613294,10 +613293,10 @@ window.FULL_MARKET_DATA = {
             762.0,
             719.0,
             712.0,
-            710.0
+            710.0,
+            708.0
           ],
           "incomeBeforeTax": [
-            1613.0,
             1154.0,
             2558.0,
             2539.0,
@@ -613316,7 +613315,8 @@ window.FULL_MARKET_DATA = {
             1425.0,
             851.0,
             2288.0,
-            1882.0
+            1882.0,
+            1391.0
           ],
           "incomeBeforeTaxRatio": [
             0.0,
@@ -613341,7 +613341,6 @@ window.FULL_MARKET_DATA = {
             0.0
           ],
           "incomeTaxExpense": [
-            330.0,
             250.0,
             461.0,
             654.0,
@@ -613360,10 +613359,10 @@ window.FULL_MARKET_DATA = {
             365.0,
             196.0,
             518.0,
-            529.0
+            529.0,
+            341.0
           ],
           "netIncome": [
-            1283.0,
             903.0,
             2098.0,
             1884.0,
@@ -613382,7 +613381,8 @@ window.FULL_MARKET_DATA = {
             1065.0,
             656.0,
             1773.0,
-            1379.0
+            1379.0,
+            1051.0
           ],
           "netIncomeRatio": [
             0.0,
@@ -613407,7 +613407,6 @@ window.FULL_MARKET_DATA = {
             0.0
           ],
           "eps": [
-            4.15,
             2.94,
             6.85,
             6.2,
@@ -613426,7 +613425,8 @@ window.FULL_MARKET_DATA = {
             3.94,
             2.43,
             6.56,
-            5.11
+            5.11,
+            3.9
           ],
           "epsdiluted": [
             0.0,
@@ -613451,7 +613451,6 @@ window.FULL_MARKET_DATA = {
             0.0
           ],
           "weightedAverageShsOut": [
-            309100000.0,
             307400000.0,
             306200000.0,
             304100000.0,
@@ -613470,10 +613469,10 @@ window.FULL_MARKET_DATA = {
             270300000.0,
             270300000.0,
             270100000.0,
-            269800000.0
+            269800000.0,
+            269600000.0
           ],
           "weightedAverageShsOutDil": [
-            311500000.0,
             309400000.0,
             308100000.0,
             305700000.0,
@@ -613492,10 +613491,10 @@ window.FULL_MARKET_DATA = {
             271100000.0,
             270900000.0,
             270800000.0,
-            270700000.0
+            270700000.0,
+            270600000.0
           ],
           "ebitda": [
-            2304.0,
             1866.0,
             3186.0,
             3345.0,
@@ -613514,7 +613513,8 @@ window.FULL_MARKET_DATA = {
             2748.0,
             2160.0,
             3594.0,
-            3195.0
+            3195.0,
+            2094.0
           ],
           "ebitdaratio": [
             0.0,
@@ -613541,7 +613541,6 @@ window.FULL_MARKET_DATA = {
         },
         "balance": {
           "cashAndCashEquivalents": [
-            8017.0,
             4472.0,
             3878.0,
             4359.0,
@@ -613560,10 +613559,10 @@ window.FULL_MARKET_DATA = {
             8276.0,
             6798.0,
             7905.0,
-            8928.0
+            8928.0,
+            7211.0
           ],
           "shortTermInvestments": [
-            728.0,
             735.0,
             682.0,
             719.0,
@@ -613582,10 +613581,10 @@ window.FULL_MARKET_DATA = {
             1411.0,
             1398.0,
             1430.0,
-            1350.0
+            1350.0,
+            1324.0
           ],
           "cashAndShortTermInvestments": [
-            8745.0,
             5207.0,
             4560.0,
             5078.0,
@@ -613604,10 +613603,10 @@ window.FULL_MARKET_DATA = {
             9687.0,
             8196.0,
             9335.0,
-            10278.0
+            10278.0,
+            8535.0
           ],
           "netReceivables": [
-            42693.0,
             43498.0,
             46722.0,
             48892.0,
@@ -613626,10 +613625,10 @@ window.FULL_MARKET_DATA = {
             57119.0,
             8404.0,
             10153.0,
-            10189.0
+            10189.0,
+            10076.0
           ],
           "inventory": [
-            6836.0,
             7935.0,
             9030.0,
             9121.0,
@@ -613648,10 +613647,10 @@ window.FULL_MARKET_DATA = {
             7508.0,
             8286.0,
             8188.0,
-            7811.0
+            7811.0,
+            7566.0
           ],
           "otherCurrentAssets": [
-            121.0,
             0.0,
             0.0,
             0.0,
@@ -613670,10 +613669,10 @@ window.FULL_MARKET_DATA = {
             329.0,
             0.0,
             0.0,
+            0.0,
             0.0
           ],
           "totalCurrentAssets": [
-            58588.0,
             56640.0,
             60312.0,
             63091.0,
@@ -613692,10 +613691,10 @@ window.FULL_MARKET_DATA = {
             74902.0,
             24886.0,
             27676.0,
-            28278.0
+            28278.0,
+            26177.0
           ],
           "propertyPlantEquipmentNet": [
-            13213.0,
             12289.0,
             12180.0,
             12220.0,
@@ -613714,10 +613713,10 @@ window.FULL_MARKET_DATA = {
             16152.0,
             15596.0,
             15549.0,
-            8006.0
+            8006.0,
+            15679.0
           ],
           "goodwill": [
-            3291.0,
             3192.0,
             3812.0,
             3754.0,
@@ -613736,10 +613735,10 @@ window.FULL_MARKET_DATA = {
             4188.0,
             4280.0,
             4513.0,
-            4466.0
+            4466.0,
+            4392.0
           ],
           "intangibleAssets": [
-            1557.0,
             1209.0,
             1352.0,
             1281.0,
@@ -613758,10 +613757,10 @@ window.FULL_MARKET_DATA = {
             1362.0,
             880.0,
             975.0,
-            940.0
+            940.0,
+            890.0
           ],
           "goodwillAndIntangibleAssets": [
-            4848.0,
             4401.0,
             5164.0,
             5035.0,
@@ -613780,10 +613779,10 @@ window.FULL_MARKET_DATA = {
             5550.0,
             5160.0,
             5488.0,
-            5406.0
+            5406.0,
+            5282.0
           ],
           "longTermInvestments": [
-            175.0,
             176.0,
             0.0,
             0.0,
@@ -613802,10 +613801,10 @@ window.FULL_MARKET_DATA = {
             510.0,
             49712.0,
             49016.0,
-            0.0
+            0.0,
+            49241.0
           ],
           "taxAssets": [
-            1037.0,
             923.0,
             1104.0,
             1110.0,
@@ -613824,10 +613823,10 @@ window.FULL_MARKET_DATA = {
             2284.0,
             2268.0,
             2361.0,
-            2343.0
+            2343.0,
+            2441.0
           ],
           "otherNonCurrentAssets": [
-            6253.0,
             5185.0,
             5339.0,
             5361.0,
@@ -613846,10 +613845,10 @@ window.FULL_MARKET_DATA = {
             6598.0,
             5814.0,
             6911.0,
-            0.0
+            0.0,
+            6748.0
           ],
           "totalNonCurrentAssets": [
-            25526.0,
             22974.0,
             23787.0,
             23726.0,
@@ -613868,10 +613867,10 @@ window.FULL_MARKET_DATA = {
             31094.0,
             78550.0,
             79325.0,
-            15755.0
+            15755.0,
+            79391.0
           ],
           "totalAssets": [
-            84114.0,
             79614.0,
             84099.0,
             86817.0,
@@ -613890,10 +613889,10 @@ window.FULL_MARKET_DATA = {
             105996.0,
             103436.0,
             107001.0,
-            107607.0
+            107607.0,
+            105568.0
           ],
           "accountPayables": [
-            3173.0,
             10479.0,
             11256.0,
             11562.0,
@@ -613912,10 +613911,10 @@ window.FULL_MARKET_DATA = {
             2985.0,
             3217.0,
             3516.0,
-            3447.0
+            3447.0,
+            14239.0
           ],
           "shortTermDebt": [
-            15501.0,
             14449.0,
             16419.0,
             19096.0,
@@ -613934,10 +613933,10 @@ window.FULL_MARKET_DATA = {
             20353.0,
             20995.0,
             21901.0,
-            23554.0
+            23554.0,
+            20605.0
           ],
           "taxPayables": [
-            933.0,
             0.0,
             0.0,
             0.0,
@@ -613956,10 +613955,10 @@ window.FULL_MARKET_DATA = {
             0.0,
             0.0,
             0.0,
+            0.0,
             0.0
           ],
           "deferredRevenue": [
-            991.0,
             0.0,
             1423.0,
             1424.0,
@@ -613978,10 +613977,10 @@ window.FULL_MARKET_DATA = {
             1371.0,
             1441.0,
             1498.0,
-            1405.0
+            1405.0,
+            0.0
           ],
           "otherCurrentLiabilities": [
-            228.0,
             0.0,
             0.0,
             0.0,
@@ -614000,10 +613999,10 @@ window.FULL_MARKET_DATA = {
             120.0,
             6024.0,
             6410.0,
-            6323.0
+            6323.0,
+            0.0
           ],
           "totalCurrentLiabilities": [
-            26341.0,
             25123.0,
             29098.0,
             32082.0,
@@ -614022,10 +614021,10 @@ window.FULL_MARKET_DATA = {
             32455.0,
             33208.0,
             35214.0,
-            36878.0
+            36878.0,
+            34844.0
           ],
           "longTermDebt": [
-            32888.0,
             32786.0,
             32397.0,
             32132.0,
@@ -614044,7 +614043,8 @@ window.FULL_MARKET_DATA = {
             43544.0,
             41804.0,
             42261.0,
-            40626.0
+            40626.0,
+            40612.0
           ],
           "deferredRevenueNonCurrent": [
             0.0,
@@ -614069,7 +614069,6 @@ window.FULL_MARKET_DATA = {
             0.0
           ],
           "deferredTaxLiabilitiesNonCurrent": [
-            576.0,
             556.0,
             584.0,
             561.0,
@@ -614088,10 +614087,10 @@ window.FULL_MARKET_DATA = {
             434.0,
             434.0,
             422.0,
-            411.0
+            411.0,
+            401.0
           ],
           "otherNonCurrentLiabilities": [
-            5835.0,
             3289.0,
             2964.0,
             2911.0,
@@ -614110,10 +614109,10 @@ window.FULL_MARKET_DATA = {
             3556.0,
             1633.0,
             1644.0,
-            1651.0
+            1651.0,
+            1456.0
           ],
           "totalNonCurrentLiabilities": [
-            39339.0,
             36683.0,
             35995.0,
             35604.0,
@@ -614132,10 +614131,10 @@ window.FULL_MARKET_DATA = {
             47534.0,
             43871.0,
             44327.0,
-            42688.0
+            42688.0,
+            42469.0
           ],
           "totalLiabilities": [
-            65680.0,
             61806.0,
             65093.0,
             67686.0,
@@ -614154,10 +614153,10 @@ window.FULL_MARKET_DATA = {
             79989.0,
             77079.0,
             79541.0,
-            79566.0
+            79566.0,
+            77313.0
           ],
           "totalDebt": [
-            48731.0,
             47310.0,
             48866.0,
             51228.0,
@@ -614176,10 +614175,10 @@ window.FULL_MARKET_DATA = {
             63936.0,
             62799.0,
             64162.0,
-            64180.0
+            64180.0,
+            61217.0
           ],
           "netDebt": [
-            40714.0,
             42838.0,
             44988.0,
             46869.0,
@@ -614198,10 +614197,10 @@ window.FULL_MARKET_DATA = {
             55660.0,
             56001.0,
             56257.0,
-            55252.0
+            55252.0,
+            54006.0
           ],
           "commonStock": [
-            5054.0,
             5066.0,
             5117.0,
             5139.0,
@@ -614220,10 +614219,10 @@ window.FULL_MARKET_DATA = {
             5668.0,
             5715.0,
             5777.0,
-            5826.0
+            5826.0,
+            28248.0
           ],
           "retainedEarnings": [
-            36449.0,
             37029.0,
             38805.0,
             40346.0,
@@ -614242,10 +614241,10 @@ window.FULL_MARKET_DATA = {
             59676.0,
             59895.0,
             61228.0,
-            62169.0
+            62169.0,
+            0.0
           ],
           "accumulatedOtherComprehensiveIncomeLoss": [
-            -2539.0,
             -3152.0,
             -3291.0,
             -3476.0,
@@ -614264,7 +614263,8 @@ window.FULL_MARKET_DATA = {
             -3032.0,
             -2665.0,
             -2768.0,
-            -2976.0
+            -2976.0,
+            0.0
           ],
           "otherTotalStockholdersEquity": [
             0.0,
@@ -614289,7 +614289,6 @@ window.FULL_MARKET_DATA = {
             0.0
           ],
           "totalStockholdersEquity": [
-            18431.0,
             17804.0,
             18904.0,
             19033.0,
@@ -614308,10 +614307,10 @@ window.FULL_MARKET_DATA = {
             25950.0,
             26300.0,
             27406.0,
-            27990.0
+            27990.0,
+            28248.0
           ],
           "totalEquity": [
-            18434.0,
             17808.0,
             19006.0,
             19131.0,
@@ -614330,10 +614329,10 @@ window.FULL_MARKET_DATA = {
             26007.0,
             26357.0,
             27460.0,
-            28034.0
+            28034.0,
+            28255.0
           ],
           "totalLiabilitiesAndTotalEquity": [
-            84114.0,
             79614.0,
             84099.0,
             86817.0,
@@ -614352,10 +614351,10 @@ window.FULL_MARKET_DATA = {
             105996.0,
             103436.0,
             107001.0,
-            107607.0
+            107607.0,
+            105568.0
           ],
           "totalInvestments": [
-            903.0,
             911.0,
             682.0,
             719.0,
@@ -614374,12 +614373,12 @@ window.FULL_MARKET_DATA = {
             1921.0,
             51110.0,
             50446.0,
-            1350.0
+            1350.0,
+            50565.0
           ]
         },
         "cashflow": {
           "netIncome": [
-            1283.0,
             904.0,
             2098.0,
             1885.0,
@@ -614398,10 +614397,10 @@ window.FULL_MARKET_DATA = {
             1060.0,
             655.0,
             1770.0,
-            1377.0
+            1377.0,
+            1051.0
           ],
           "depreciationAndAmortization": [
-            481.0,
             486.0,
             447.0,
             510.0,
@@ -614420,10 +614419,10 @@ window.FULL_MARKET_DATA = {
             561.0,
             590.0,
             594.0,
-            603.0
+            603.0,
+            0.0
           ],
           "deferredIncomeTax": [
-            -170.0,
             210.0,
             -173.0,
             -43.0,
@@ -614442,10 +614441,10 @@ window.FULL_MARKET_DATA = {
             -186.0,
             18.0,
             -86.0,
-            7.0
+            7.0,
+            -138.0
           ],
           "stockBasedCompensation": [
-            18.0,
             18.0,
             26.0,
             20.0,
@@ -614464,10 +614463,10 @@ window.FULL_MARKET_DATA = {
             47.0,
             41.0,
             28.0,
-            47.0
+            47.0,
+            0.0
           ],
           "changeInWorkingCapital": [
-            1868.0,
             -4151.0,
             -1402.0,
             -214.0,
@@ -614486,10 +614485,10 @@ window.FULL_MARKET_DATA = {
             2254.0,
             -2164.0,
             -286.0,
-            96.0
+            96.0,
+            1139.0
           ],
           "accountsReceivables": [
-            1413.0,
             -106.0,
             -1429.0,
             -822.0,
@@ -614508,10 +614507,10 @@ window.FULL_MARKET_DATA = {
             1578.0,
             350.0,
             -1434.0,
-            -168.0
+            -168.0,
+            863.0
           ],
           "inventory": [
-            -680.0,
             -1297.0,
             -968.0,
             -261.0,
@@ -614530,10 +614529,10 @@ window.FULL_MARKET_DATA = {
             251.0,
             -746.0,
             8.0,
-            295.0
+            295.0,
+            81.0
           ],
           "accountsPayables": [
-            1142.0,
             -1554.0,
             1111.0,
             428.0,
@@ -614552,10 +614551,10 @@ window.FULL_MARKET_DATA = {
             0.0,
             0.0,
             0.0,
-            67.0
+            67.0,
+            351.0
           ],
           "otherWorkingCapital": [
-            -7.0,
             -1194.0,
             -116.0,
             441.0,
@@ -614574,10 +614573,10 @@ window.FULL_MARKET_DATA = {
             425.0,
             -1768.0,
             1140.0,
-            -98.0
+            -98.0,
+            -156.0
           ],
           "otherNonCashItems": [
-            -68.0,
             -20.0,
             -205.0,
             22.0,
@@ -614596,10 +614595,10 @@ window.FULL_MARKET_DATA = {
             259.0,
             -30.0,
             -88.0,
-            78.0
+            78.0,
+            676.0
           ],
           "netCashProvidedByOperatingActivities": [
-            3412.0,
             -2553.0,
             791.0,
             2180.0,
@@ -614618,10 +614617,10 @@ window.FULL_MARKET_DATA = {
             3995.0,
             -890.0,
             1932.0,
-            2208.0
+            2208.0,
+            2728.0
           ],
           "investmentsInPropertyPlantAndEquipment": [
-            -878.0,
             -584.0,
             -766.0,
             -963.0,
@@ -614640,10 +614639,10 @@ window.FULL_MARKET_DATA = {
             -1367.0,
             -688.0,
             -1058.0,
-            -265.0
+            -265.0,
+            -1179.0
           ],
           "acquisitionsNet": [
-            -225.0,
             -24.0,
             107.0,
             -15.0,
@@ -614662,10 +614661,10 @@ window.FULL_MARKET_DATA = {
             497.0,
             0.0,
             0.0,
-            -16.0
+            -16.0,
+            498.0
           ],
           "purchasesOfInvestments": [
-            -79.0,
             -48.0,
             48.0,
             55.0,
@@ -614684,10 +614683,10 @@ window.FULL_MARKET_DATA = {
             -105.0,
             -129.0,
             -155.0,
-            -77.0
+            -77.0,
+            -69.0
           ],
           "salesMaturitiesOfInvestments": [
-            27.0,
             21.0,
             -21.0,
             0.0,
@@ -614706,10 +614705,10 @@ window.FULL_MARKET_DATA = {
             127.0,
             144.0,
             114.0,
-            131.0
+            131.0,
+            80.0
           ],
           "otherInvestingActivites": [
-            -1493.0,
             1283.0,
             -1904.0,
             -1619.0,
@@ -614728,10 +614727,10 @@ window.FULL_MARKET_DATA = {
             -408.0,
             2495.0,
             -630.0,
-            -691.0
+            -691.0,
+            -821.0
           ],
           "netCashUsedForInvestingActivites": [
-            -2648.0,
             648.0,
             -2536.0,
             -2542.0,
@@ -614750,10 +614749,10 @@ window.FULL_MARKET_DATA = {
             -1256.0,
             1822.0,
             -1729.0,
-            -918.0
+            -918.0,
+            -1491.0
           ],
           "debtRepayment": [
-            816.0,
             -605.0,
             2090.0,
             2485.0,
@@ -614772,10 +614771,10 @@ window.FULL_MARKET_DATA = {
             -2546.0,
             -1732.0,
             1494.0,
-            478.0
+            478.0,
+            -2347.0
           ],
           "commonStockIssued": [
-            12.0,
             11.0,
             39.0,
             5.0,
@@ -614794,10 +614793,10 @@ window.FULL_MARKET_DATA = {
             0.0,
             0.0,
             0.0,
+            0.0,
             0.0
           ],
           "commonStockRepurchased": [
-            -758.0,
             -623.0,
             -603.0,
             -1251.0,
@@ -614816,10 +614815,10 @@ window.FULL_MARKET_DATA = {
             -2.0,
             -302.0,
             -198.0,
-            -197.0
+            -197.0,
+            -99.0
           ],
           "dividendsPaid": [
-            -279.0,
             -327.0,
             -322.0,
             -322.0,
@@ -614838,10 +614837,10 @@ window.FULL_MARKET_DATA = {
             -438.0,
             -441.0,
             -437.0,
-            -438.0
+            -438.0,
+            -437.0
           ],
           "otherFinancingActivites": [
-            -6.0,
             -33.0,
             -13.0,
             -16.0,
@@ -614860,10 +614859,10 @@ window.FULL_MARKET_DATA = {
             -36.0,
             -15.0,
             4.0,
-            -44.0
+            -44.0,
+            -7.0
           ],
           "netCashUsedProvidedByFinancingActivities": [
-            -227.0,
             -1577.0,
             1191.0,
             901.0,
@@ -614882,10 +614881,10 @@ window.FULL_MARKET_DATA = {
             -3022.0,
             -2490.0,
             863.0,
-            -201.0
+            -201.0,
+            -2890.0
           ],
           "effectOfForexChangesOnCash": [
-            -51.0,
             -74.0,
             -36.0,
             -33.0,
@@ -614904,10 +614903,10 @@ window.FULL_MARKET_DATA = {
             -31.0,
             98.0,
             -4.0,
-            -74.0
+            -74.0,
+            -64.0
           ],
           "netChangeInCash": [
-            486.0,
             -3556.0,
             -590.0,
             506.0,
@@ -614926,10 +614925,10 @@ window.FULL_MARKET_DATA = {
             -314.0,
             -1460.0,
             1062.0,
-            1015.0
+            1015.0,
+            -1717.0
           ],
           "cashAtEndOfPeriod": [
-            8125.0,
             4569.0,
             3878.0,
             4485.0,
@@ -614948,10 +614947,10 @@ window.FULL_MARKET_DATA = {
             8533.0,
             7073.0,
             8135.0,
-            9150.0
+            9150.0,
+            7211.0
           ],
           "cashAtBeginningOfPeriod": [
-            7639.0,
             8125.0,
             4472.0,
             3979.0,
@@ -614970,10 +614969,10 @@ window.FULL_MARKET_DATA = {
             8847.0,
             8533.0,
             7073.0,
-            8135.0
+            8135.0,
+            8928.0
           ],
           "capitalExpenditure": [
-            -878.0,
             -584.0,
             -766.0,
             -963.0,
@@ -614992,10 +614991,10 @@ window.FULL_MARKET_DATA = {
             -1367.0,
             -688.0,
             -1058.0,
-            -265.0
+            -265.0,
+            -1179.0
           ],
           "freeCashFlow": [
-            2534.0,
             -3137.0,
             25.0,
             1217.0,
@@ -615014,11 +615013,11 @@ window.FULL_MARKET_DATA = {
             2628.0,
             -1578.0,
             874.0,
-            1943.0
+            1943.0,
+            1549.0
           ]
         },
         "tradeAccountsReceivables": [
-          42693.0,
           43498.0,
           46722.0,
           48892.0,
@@ -615037,7 +615036,8 @@ window.FULL_MARKET_DATA = {
           57119.0,
           8404.0,
           10153.0,
-          10189.0
+          10189.0,
+          10076.0
         ],
         "vendorNonTradeReceivables": [
           0.0,
@@ -615093,14 +615093,14 @@ window.FULL_MARKET_DATA = {
     "g1": 3.8,
     "g2": 3.5,
     "g": 2.25,
-    "wacc": 7.36,
-    "ev": 226737.3,
-    "fmp_official_ev": 226737.3,
+    "wacc": 7.41,
+    "ev": 225517.3,
+    "fmp_official_ev": 225517.3,
     "enterpriseValueBasis": "USD market capitalization + USD debt - USD cash and short-term investments",
-    "dcf_model_ev": 84782.5,
-    "ev_to_ebitda": 19.4,
-    "debt_to_ebitda": 5.49,
-    "net_debt_to_ebitda": 4.61,
+    "dcf_model_ev": 60547.9,
+    "ev_to_ebitda": 20.4,
+    "debt_to_ebitda": 5.54,
+    "net_debt_to_ebitda": 4.77,
     "f_score": 4,
     "f_score_breakdown": [
       {
@@ -615108,14 +615108,14 @@ window.FULL_MARKET_DATA = {
         "category": "盈利能力",
         "desc": "資產回報率 ROA > 0",
         "passed": 1,
-        "detail": "當期 ROA = 4.5%"
+        "detail": "當期 ROA = 4.6%"
       },
       {
         "id": 2,
         "category": "盈利能力",
         "desc": "營業現金流 CFO > 0",
         "passed": 1,
-        "detail": "自由現金流 = $3,867M"
+        "detail": "自由現金流 = $2,788M"
       },
       {
         "id": 3,
@@ -615136,14 +615136,14 @@ window.FULL_MARKET_DATA = {
         "category": "槓桿與償債",
         "desc": "財務槓桿未惡化 (ΔLeverage ≤ 0)",
         "passed": 0,
-        "detail": "總負債資產比率 = 73.9%"
+        "detail": "總負債資產比率 = 73.2%"
       },
       {
         "id": 6,
         "category": "槓桿與償債",
         "desc": "短期流動性安全 (ΔLiquidity > 0)",
         "passed": 0,
-        "detail": "流動比率 = 0.77"
+        "detail": "流動比率 = 0.75"
       },
       {
         "id": 7,
@@ -615167,79 +615167,79 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 114.53,
-    "default_fair_val": 114.53,
-    "premium_pct": 459.7,
+    "fair_val": 29.17,
+    "default_fair_val": 29.17,
+    "premium_pct": 2097.5,
     "is_undervalued": false,
-    "pe_trailing": 35.5,
-    "pe_forward": 31.2,
-    "pb_trailing": 6.174894605216148,
-    "pb_forward": 5.6,
+    "pe_trailing": 35.6,
+    "pe_forward": 31.3,
+    "pb_trailing": 6.118496884735202,
+    "pb_forward": 5.5,
     "div_yield": 1.01,
-    "ps_ratio": 11.2,
-    "fcf_to_ev": 1.71,
-    "fcf_to_mcap": 2.24,
-    "liab_to_assets": 73.94128634754244,
-    "cash_to_assets": 9.551423234547938,
-    "current_ratio": 0.7667986333315255,
-    "roe": 19.356504468718967,
-    "roa": 4.519695409814779,
+    "ps_ratio": 15.5,
+    "fcf_to_ev": 1.24,
+    "fcf_to_mcap": 1.61,
+    "liab_to_assets": 73.23526068505608,
+    "cash_to_assets": 8.084836314034556,
+    "current_ratio": 0.7512627712088165,
+    "roe": 18.72447013487476,
+    "roa": 4.584135250386807,
     "moat": {
       "ticker": "DE",
-      "period": "2026Q3",
+      "period": "2026Q4",
       "m1_brand_pricing": {
-        "score": 8,
-        "comment_zh": "Deere憑藉其百年歷史與卓越品質，在全球農業機械領域建立了無可匹敵的品牌聲譽。其標誌性的綠色與黃色塗裝，不僅代表著可靠與耐用，更在農民心中形成強烈的情感連結與信任。這種深厚的品牌心智，賦予Deere顯著的定價權，使其產品即使價格較高，客戶仍願意選擇，因為他們深知Deere設備能帶來更高的生產效率、更低的長期維護成本及優異的二手殘值。競爭對手難以在短期內複製這種品牌忠誠度與溢價能力。",
-        "comment_en": "Deere's century-long history and superior quality have forged an unparalleled brand reputation in global agricultural machinery. Its iconic green and yellow livery symbolizes reliability and durability, creating a strong emotional bond and trust among farmers. This deep brand loyalty grants Deere significant pricing power; customers willingly pay a premium, understanding that Deere equipment delivers higher productivity, lower long-term maintenance costs, and excellent resale value. Competitors struggle to replicate this level of brand loyalty and pricing power in the short term."
+        "score": 9,
+        "comment_zh": "迪爾公司（John Deere）的綠黃色標誌是全球農業機械領域的代名詞，代表著可靠性、耐用性與卓越性能。這種深植人心的品牌形象賦予公司強大的定價權，使其產品即使價格較高，農民仍因其優異的性能、高轉售價值及廣泛的經銷商網絡而忠誠選購。巴菲特深知品牌的力量，迪爾的品牌不僅是標誌，更是品質與信任的承諾，讓公司能有效轉嫁成本，維持高利潤率，形成堅實的護城河。",
+        "comment_en": "John Deere's green and yellow livery is synonymous with reliability, durability, and superior performance in global agricultural machinery. This deeply ingrained brand image grants the company significant pricing power, allowing it to command premium prices. Farmers remain loyal despite higher costs due to exceptional product performance, strong resale value, and an extensive dealer network. Buffett understands the power of brand; Deere's brand is not just a logo but a promise of quality and trust, enabling the company to effectively pass on costs and maintain high margins, forming a robust moat."
       },
       "m2_patents_regulatory": {
-        "score": 7,
-        "comment_zh": "Deere在精密農業、自動駕駛技術及引擎設計等領域擁有大量專利組合，這些智慧財產權構成了重要的技術壁壘。特別是其在數據驅動農業解決方案上的創新，如John Deere Operations Center，結合了軟硬體優勢，為農民提供獨特的價值。此外，其廣泛且專業的經銷商網絡，雖非政府特許，卻形成了一種區域性的服務壟斷，新進入者難以在短時間內建立同等規模與專業度的銷售與售後服務體系，進一步鞏固了其市場地位。",
-        "comment_en": "Deere holds a substantial patent portfolio in precision agriculture, autonomous technology, and engine design, forming significant technological barriers. Its innovations in data-driven farming solutions, such as the John Deere Operations Center, integrate hardware and software to offer unique value to farmers. Furthermore, its extensive and specialized dealer network, while not a government franchise, creates a regional service quasi-monopoly. New entrants would find it extremely challenging to establish a comparable sales and after-sales service infrastructure in a short period, further solidifying Deere's market position."
+        "score": 8,
+        "comment_zh": "迪爾在精準農業、自動化技術及引擎設計等領域擁有大量專利組合，這些專利是其技術領先地位的基石。公司每年投入巨額研發，不斷推出創新產品與解決方案，例如其自動駕駛拖拉機和數據分析平台，這些技術不僅提升了農民的生產效率，也築起了競爭對手難以逾越的技術壁壘。雖然非政府特許，但其專利集群與技術標準已形成行業內的準入門檻，確保了其在高端市場的競爭優勢。",
+        "comment_en": "Deere holds an extensive patent portfolio in precision agriculture, automation technologies, and engine design, forming the bedrock of its technological leadership. The company invests heavily in R&D annually, continuously launching innovative products and solutions like autonomous tractors and data analytics platforms. These technologies not only boost farmer productivity but also create formidable technological barriers for competitors. While not a government-granted license, Deere's patent clusters and technical standards have established de facto entry barriers within the industry, securing its competitive edge in high-end markets."
       },
       "m3_high_switching_costs": {
         "score": 8,
-        "comment_zh": "對於農民而言，更換Deere設備的轉換成本極高。這不僅涉及數十萬甚至數百萬美元的初期投資，還包括操作人員的重新培訓、現有農具與新設備的兼容性問題、以及對新品牌維修服務網絡的適應。Deere提供的整合式解決方案，從精準農業軟體到售後服務，形成了一個緊密的生態系統。一旦農民習慣了Deere的操作介面與數據管理平台，轉換到其他品牌將面臨巨大的時間、金錢與效率損失，這種黏性是其強大護城河的體現。",
-        "comment_en": "For farmers, the switching costs associated with replacing Deere equipment are exceptionally high. This involves not only initial investments of hundreds of thousands or even millions of dollars but also retraining operators, addressing compatibility issues with existing implements, and adapting to a new brand's service network. Deere's integrated solutions, from precision agriculture software to after-sales support, create a cohesive ecosystem. Once farmers are accustomed to Deere's operating interface and data management platforms, switching to another brand would incur significant losses in time, money, and efficiency, demonstrating a powerful moat."
+        "comment_zh": "對於農民而言，更換迪爾的農業設備涉及高昂的轉換成本。這不僅包括新設備的採購費用，更重要的是與現有農場作業系統（如精準農業數據平台、農具兼容性）的整合問題，以及操作人員的培訓成本。迪爾的設備通常壽命長，且其廣泛的經銷商網絡提供無與倫比的售後服務與零件供應，進一步鎖定客戶。這種深度整合與服務保障，使得客戶一旦選擇迪爾，便難以輕易轉投他牌。",
+        "comment_en": "For farmers, switching from John Deere agricultural equipment entails significant costs. This includes not only the direct purchase price of new machinery but, more critically, integration challenges with existing farm operating systems (e.g., precision agriculture data platforms, implement compatibility) and operator training expenses. Deere's equipment typically boasts a long lifespan, and its extensive dealer network provides unparalleled after-sales service and parts availability, further locking in customers. This deep integration and service assurance make it difficult for customers, once committed to Deere, to easily switch to other brands."
       },
       "m4_network_effects": {
-        "score": 6,
-        "comment_zh": "Deere的網絡效應主要體現在其龐大的設備裝機量與完善的經銷商及服務網絡。隨著更多農民使用Deere設備，其售後市場對零件、維修服務的需求增加，吸引更多第三方供應商與技術人員加入，進一步提升了服務的可及性與效率。此外，Deere透過其精準農業平台收集的數據，能不斷優化產品與服務，為所有用戶帶來更好的農業生產效率，形成良性循環。然而，這種網絡效應不如純粹的數位平台那般強烈。",
-        "comment_en": "Deere's network effects primarily stem from its vast installed base of equipment and comprehensive dealer and service network. As more farmers use Deere equipment, demand for aftermarket parts and repair services grows, attracting more third-party suppliers and technicians, thereby enhancing service accessibility and efficiency. Furthermore, data collected through Deere's precision agriculture platforms continuously optimizes products and services, leading to improved agricultural productivity for all users, creating a virtuous cycle. However, this network effect is not as potent as that of pure digital platforms."
+        "score": 7,
+        "comment_zh": "迪爾的網絡效應主要體現在其全球龐大的經銷商與服務網絡。遍布各地的經銷商不僅提供銷售，更是零件供應、維修保養和技術支持的核心。這種密集的服務網絡確保了迪爾設備的高稼動率和低停機時間，對農民至關重要。此外，隨著越來越多的農民使用迪爾的精準農業解決方案，數據累積與共享潛力增加，提升了整個生態系統的價值，為所有用戶帶來更優化的農作決策與效率。",
+        "comment_en": "Deere's network effect primarily manifests through its vast global dealer and service network. Dealers worldwide not only facilitate sales but are crucial hubs for parts supply, maintenance, and technical support. This dense service network ensures high uptime and minimal downtime for Deere equipment, which is critical for farmers. Furthermore, as more farmers adopt Deere's precision agriculture solutions, the potential for data accumulation and sharing increases, enhancing the value of the entire ecosystem and leading to optimized farming decisions and efficiency for all users."
       },
       "m5_cost_advantage_scale": {
         "score": 8,
-        "comment_zh": "作為全球領先的農業與工程機械製造商，Deere享有顯著的規模經濟優勢。其龐大的生產規模使其能夠進行大規模的研發投入，開發尖端技術；在原材料採購上獲得議價能力，降低單位成本；並在全球範圍內建立高效的製造與分銷網絡。這種規模優勢使得Deere能夠以競爭對手難以企及的成本效益生產高品質產品，並提供廣泛的產品線與服務，從而鞏固其市場領導地位，形成強大的成本護城河。",
-        "comment_en": "As a leading global manufacturer of agricultural and construction machinery, Deere enjoys significant economies of scale. Its vast production volume enables substantial R&D investments in cutting-edge technologies, secures strong bargaining power for raw material procurement to lower unit costs, and facilitates the establishment of an efficient global manufacturing and distribution network. This scale advantage allows Deere to produce high-quality products at cost efficiencies unattainable by competitors, offering a broad product line and services, thereby solidifying its market leadership and forming a robust cost moat."
+        "comment_zh": "作為全球領先的農業與工程機械製造商，迪爾享有顯著的規模經濟優勢。其龐大的生產規模使其在原材料採購、零部件製造和物流配送方面擁有強大的議價能力，有效降低單位成本。同時，巨額的研發投入分散在海量產品上，使得單一產品的研發成本攤薄。這種規模效應讓迪爾能夠以競爭對手難以企及的成本效率生產高品質產品，並持續投資於先進製造工藝，鞏固其市場領導地位。",
+        "comment_en": "As a global leader in agricultural and construction machinery, Deere enjoys significant economies of scale. Its massive production volume grants strong bargaining power in raw material procurement, component manufacturing, and logistics, effectively lowering unit costs. Concurrently, substantial R&D investments are spread across a vast product portfolio, diluting per-product development costs. This scale allows Deere to produce high-quality products with cost efficiencies that competitors struggle to match, while continuously investing in advanced manufacturing processes, solidifying its market leadership."
       },
       "m6_unique_geography_assets": {
         "score": 7,
-        "comment_zh": "大型農業機械市場是一個資本密集且技術門檻極高的領域，需要巨額研發投入、複雜的製造工藝以及廣泛的售後服務網絡。這使得市場自然形成寡占格局，Deere與少數幾家全球巨頭共同主導。對於潛在的新進入者而言，建立足以與Deere競爭的品牌、技術和分銷體系，所需的時間與資金成本極其龐大，且市場容量相對有限，新競爭者進入只會稀釋現有參與者的利潤，導致雙輸局面，因此形成了天然的理性寡占。",
-        "comment_en": "The large agricultural machinery market is a capital-intensive and technologically demanding sector, requiring immense R&D investment, complex manufacturing processes, and an extensive after-sales service network. This naturally leads to an oligopolistic structure, dominated by Deere and a few other global giants. For potential new entrants, establishing a brand, technology, and distribution system capable of competing with Deere would entail prohibitively high time and capital costs. Given the relatively limited market capacity, new competition would only dilute existing players' profits, leading to a lose-lose scenario, thus creating a natural rational oligopoly."
+        "comment_zh": "農業和重型工程機械市場屬於資本密集型行業，進入門檻極高。迪爾在這一市場中已建立起主導地位，其廣泛的產品線、全球分銷網絡和品牌聲譽，使得新進入者難以在短期內與之競爭。市場容量雖大，但已高度集中於少數幾家巨頭手中，形成一種「有效規模」的寡占格局。在這種環境下，任何新競爭者若想大規模進入，都將面臨巨大的資本投入和市場份額爭奪戰，最終可能導致雙輸局面。",
+        "comment_en": "The agricultural and heavy construction machinery market is a capital-intensive industry with extremely high barriers to entry. Deere has established a dominant position within this market, with its extensive product lines, global distribution network, and brand reputation making it difficult for new entrants to compete in the short term. While the market capacity is substantial, it is highly concentrated among a few giants, forming an \"efficient scale\" oligopoly. In this environment, any new competitor attempting large-scale entry would face immense capital investment and market share battles, potentially leading to a lose-lose scenario."
       },
       "m7_operational_efficiency": {
-        "score": 6,
-        "comment_zh": "Deere的ROE為17.4%，顯示其股東權益報酬率良好。然而，ROA為4.5%，結合其高額負債（總負債641.8億美元），表明其業務資本密集且槓桿運用較高。雖然Deere在歷史上展現了穿越經濟週期的盈利能力，但其ROIC是否能持續大幅超越WACC，仍需仔細評估其資本結構與營運效率。儘管如此，其穩定的市場地位和品牌優勢，使其在長期內仍能維持相對健康的資本回報，但並非所有年份都能實現超額的資本回報率。",
-        "comment_en": "Deere's ROE of 17.4% indicates good returns on equity. However, its ROA of 4.5%, coupled with substantial debt ($64.18 billion total debt), suggests a capital-intensive business with significant leverage. While Deere has historically demonstrated profitability through economic cycles, whether its ROIC can consistently and significantly exceed WACC requires careful evaluation of its capital structure and operational efficiency. Nevertheless, its stable market position and brand strength enable it to maintain relatively healthy capital returns over the long term, though not every year will see exceptional excess returns on invested capital."
+        "score": 8,
+        "comment_zh": "迪爾公司展現出卓越的營運效率和資本配置能力，其18.0%的股東權益報酬率（ROE）和8.0%的資產報酬率（ROA）遠超行業平均水平，且皮氏F-Score高達8/9，證明了其穩健的財務狀況和高效的資產運用。這表明公司能夠持續將投入資本轉化為豐厚利潤，並創造實質的股東價值。這種長期超額的資本回報能力，是巴菲特衡量企業護城河寬度的關鍵指標，顯示迪爾擁有強大的競爭優勢和成本控制能力。",
+        "comment_en": "Deere & Company demonstrates exceptional operational efficiency and capital allocation capabilities, with an 18.0% Return on Equity (ROE) and 8.0% Return on Assets (ROA) significantly exceeding industry averages. A Piotroski F-Score of 8/9 further attests to its robust financial health and efficient asset utilization. This indicates the company's sustained ability to convert invested capital into substantial profits and create tangible shareholder value. Such long-term superior returns on capital are a key metric for Buffett in assessing moat width, highlighting Deere's strong competitive advantages and cost control."
       },
       "m8_capital_allocation": {
-        "score": 9,
-        "comment_zh": "即使給予競爭對手千億美元，也幾乎不可能在短時間內複製Deere的核心戰略資產。這不僅包括其享譽全球的品牌聲譽、遍布全球的經銷商與服務網絡、龐大的製造規模與供應鏈，更重要的是其數十年累積的工程技術、精準農業數據與軟體生態系統，以及與農民建立的深厚信任關係。這些無形資產與複雜的運營體系，是時間與經驗的結晶，無法單純透過資本投入來快速複製，構成了極高的進入壁壘。",
-        "comment_en": "Even with a hundred billion dollars, it would be nearly impossible for a competitor to replicate Deere's core strategic assets in a short period. This encompasses not only its globally renowned brand reputation, extensive worldwide dealer and service network, vast manufacturing scale, and supply chain, but more critically, its decades of accumulated engineering expertise, precision agriculture data and software ecosystem, and deep trust relationships built with farmers. These intangible assets and complex operational systems are the culmination of time and experience, not merely reproducible through capital injection, thus forming an exceptionally high barrier to entry."
+        "score": 8,
+        "comment_zh": "迪爾公司長期以來展現出穩健且負責任的資本配置策略。儘管具體回購和併購數據未提供，但其持續的盈利能力、高F-Score以及在行業中的領導地位，暗示管理層在資本運用上是審慎且以股東利益為導向的。公司通常會將自由現金流用於研發投資以維持技術領先、適度派發股息，並在股價被低估時進行股票回購，以提升每股價值。這種紀律性確保了資本被有效利用，而非盲目擴張或浪費。",
+        "comment_en": "Deere & Company has consistently demonstrated a prudent and responsible capital allocation strategy over the long term. Although specific buyback and M&A data are not provided, its sustained profitability, high F-Score, and industry leadership suggest management is judicious and shareholder-oriented in its capital deployment. The company typically allocates free cash flow to R&D investments to maintain technological leadership, distributes moderate dividends, and engages in share buybacks when the stock is undervalued to enhance per-share value. This discipline ensures capital is utilized effectively rather than for indiscriminate expansion or waste."
       },
       "m9_customer_retention": {
-        "score": 8,
-        "comment_zh": "農業作為人類生存的基礎產業，對重型機械的需求具有高度確定性與抗週期性。儘管精準農業和自動化技術不斷發展，但耕種、播種、收割等核心環節對實體機械的需求依然不可或缺。Deere不僅沒有被這些技術變革顛覆，反而積極將其整合到產品線中，成為行業技術創新的引領者。其在自動駕駛拖拉機、數據驅動農場管理等方面的投入，使其能夠適應並塑造行業未來，而非被動應對，展現出強大的技術轉移抗性。",
-        "comment_en": "Agriculture, as a foundational industry for human survival, exhibits high certainty and counter-cyclical demand for heavy machinery. Despite advancements in precision agriculture and automation, the core need for physical machinery in tilling, planting, and harvesting remains indispensable. Deere has not been disrupted by these technological shifts; instead, it actively integrates them into its product lines, becoming a leader in industry innovation. Its investments in autonomous tractors and data-driven farm management enable it to adapt and shape the industry's future, rather than passively react, demonstrating strong immunity to technological disruption."
+        "score": 9,
+        "comment_zh": "迪爾所處的農業和基礎建設行業，其產品需求具有高度的確定性和持久性。無論技術如何演進，人類對食物和基礎設施的需求始終存在。迪爾不僅沒有被技術變革顛覆，反而積極擁抱並引領精準農業、自動化和電動化等趨勢，將其轉化為新的增長點和護城河。這種將技術變革內化為自身優勢的能力，加上其產品的基礎性需求，賦予迪爾極強的抗顛覆性，確保其業務模式的長期穩定性。",
+        "comment_en": "Deere operates in the agriculture and infrastructure sectors, where product demand is highly certain and enduring. Regardless of technological evolution, humanity's need for food and infrastructure persists. Deere has not been disrupted by technological change; instead, it actively embraces and leads trends like precision agriculture, automation, and electrification, transforming them into new growth drivers and moats. This ability to internalize technological shifts into its own advantages, coupled with the fundamental demand for its products, grants Deere strong disruption immunity, ensuring the long-term stability of its business model."
       },
       "m10_durability": {
-        "score": 6,
-        "comment_zh": "Deere的管理層在資本配置方面展現出對股東價值的重視，透過持續的研發投入鞏固市場領導地位，並透過股息發放與股票回購將價值回饋股東。然而，其Piotroski F-Score為4/9，且總負債較高，這可能暗示在某些財務健康或營運效率方面存在改進空間。儘管如此，Deere在過去幾十年中，其管理層在應對行業週期性波動和戰略性投資方面表現出相對穩健的判斷力，避免了盲目溢價併購，但仍需密切關注其債務管理策略。",
-        "comment_en": "Deere's management demonstrates a commitment to shareholder value through capital allocation, reinforcing market leadership with continuous R&D investments and returning value via dividends and share buybacks. However, its Piotroski F-Score of 4/9 and relatively high total debt may suggest areas for improvement in financial health or operational efficiency. Nevertheless, over decades, Deere's management has shown relatively sound judgment in navigating industry cyclicality and making strategic investments, avoiding blind premium acquisitions. Close monitoring of its debt management strategy remains important."
+        "score": 9,
+        "comment_zh": "即使給予競爭對手千億美元，也難以在短時間內複製迪爾的核心戰略資產。這不僅包括其全球領先的製造設施、龐大的研發團隊和專利組合，更重要的是其百年積累的品牌聲譽、與農民建立的深厚信任關係，以及遍布全球、提供無與倫比售後服務的經銷商網絡。這些無形資產是時間與歷史沉澱的結果，無法僅憑資金快速建立，構成了極高的進入壁壘，確保了迪爾的長期競爭優勢。",
+        "comment_en": "Even with a hundred billion dollars, it would be nearly impossible for a competitor to replicate Deere's core strategic assets in a short timeframe. This encompasses not only its globally leading manufacturing facilities, vast R&D teams, and patent portfolio, but more critically, its century-long accumulated brand reputation, deep trust relationships with farmers, and a worldwide dealer network offering unparalleled after-sales service. These intangible assets are the result of time and historical accumulation, impossible to quickly establish with mere capital, forming extremely high barriers to entry and ensuring Deere's long-term competitive advantage."
       },
-      "overall_moat_verdict_zh": "Deere & Company本質上是一家擁有堅固護城河的「特許經營權平台」與「收費橋樑」型企業。其核心競爭力源於無可匹敵的品牌忠誠度、極高的客戶轉換成本、全球領先的規模經濟效益，以及遍布全球的經銷商與服務網絡。這些要素共同構建了一個難以被複製的商業生態系統，使得農民對其產品與服務產生高度依賴。儘管農業機械行業資本密集，且存在一定的週期性，但Deere憑藉其持續的技術創新（尤其在精準農業領域）和穩固的市場地位，確保了長期穩定的盈利能力與現金流，為股東創造持續價值。",
-      "overall_moat_verdict_en": "Deere & Company fundamentally operates as a \"franchise platform\" and \"toll bridge\" enterprise with a robust economic moat. Its core competitive advantages stem from unparalleled brand loyalty, exceptionally high customer switching costs, leading global economies of scale, and an extensive worldwide dealer and service network. These elements collectively forge an irreplicable business ecosystem, fostering high dependency among farmers on its products and services. Despite the capital-intensive and somewhat cyclical nature of the agricultural machinery industry, Deere's continuous technological innovation (especially in precision agriculture) and solid market position ensure long-term stable profitability and cash flow, consistently creating value for shareholders.",
-      "evidenceHash": "40235e8784f246bc6b8c830ed832893b4574ffcc2acc8da29b3971cf8892adb3",
+      "overall_moat_verdict_zh": "迪爾公司無疑擁有一條寬廣且深厚的經濟護城河，其本質可被定性為一個「特許經營權平台」與「收費橋樑」的結合體。它不僅憑藉百年品牌「John Deere」在農民心中建立起無可取代的信任與忠誠，賦予其強大的定價權，更透過其全球領先的精準農業技術、龐大的經銷商網絡和高轉換成本，將客戶牢牢鎖定在其生態系統內。迪爾持續的研發投入和規模經濟優勢，使其能以無與倫比的效率提供關鍵設備與服務，並從中收取「過路費」。這是一個需求穩定、競爭壁壘極高、且能持續創造超額回報的優質企業，完美契合巴菲特對卓越企業的定義。",
+      "overall_moat_verdict_en": "Deere & Company undoubtedly possesses a wide and deep economic moat, fundamentally characterized as a combination of a \"franchise platform\" and a \"toll bridge.\" It has not only built irreplaceable trust and loyalty among farmers through its century-old \"John Deere\" brand, granting it significant pricing power, but also firmly locks customers into its ecosystem via globally leading precision agriculture technology, a vast dealer network, and high switching costs. Deere's continuous R&D investment and economies of scale enable it to provide critical equipment and services with unparalleled efficiency, collecting \"tolls\" along the way. This is a high-quality enterprise with stable demand, extremely high competitive barriers, and a consistent ability to generate superior returns, perfectly aligning with Buffett's definition of an excellent business.",
+      "evidenceHash": "635d8f4fcb72f5fe81e6d8f9d08736f78ee1cca879389cfb206e8d839e4b3b20",
       "assessmentPolicy": "buffett-moat-v3",
       "model": "gemini-2.5-flash-lite",
       "provider": "Vertex AI"
@@ -615261,20 +615261,20 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
-        "evidenceHash": "96b079975bbc0b7e35c70fc68775db6e2018620a66acb4cd9aa27c44e481b325"
+        "checkedAt": "2026-11-27T04:16:04.892Z",
+        "evidenceHash": "a811d4782aaca704ce56444ae49147dedec07bda695123a50122e261f582226b"
       },
       "mScore": {
-        "asOfDate": "2025-11-02",
-        "period": "FY 2025",
+        "asOfDate": "2026-11-01",
+        "period": "FY 2026",
         "basis": "comparableAnnual",
         "model": null,
         "zone": "clean",
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
-        "evidenceHash": "96b079975bbc0b7e35c70fc68775db6e2018620a66acb4cd9aa27c44e481b325"
+        "checkedAt": "2026-11-27T04:16:04.892Z",
+        "evidenceHash": "a811d4782aaca704ce56444ae49147dedec07bda695123a50122e261f582226b"
       }
     },
     "fin_valuation": {
@@ -615439,17 +615439,17 @@ window.FULL_MARKET_DATA = {
       "ticker": "DE",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
-      "balanceDate": "2026-08-02",
-      "filingDate": "2026-08-27",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
+      "balanceDate": "2026-11-01",
+      "filingDate": "2026-11-25",
       "quoteDate": "2026-11-25",
       "sourceCurrency": "USD",
       "fx": {
         "rate": 1,
         "basis": "closing",
         "start": null,
-        "end": "2026-08-02",
-        "observationDate": "2026-08-02",
+        "end": "2026-11-01",
+        "observationDate": "2026-11-01",
         "reason": null
       },
       "receivablesBasis": "trade",
@@ -615461,21 +615461,21 @@ window.FULL_MARKET_DATA = {
         "marketCap": 172835281600
       },
       "amounts": {
-        "currentAssets": 28278000000,
-        "totalLiabilities": 79566000000,
-        "cashAndShortTermInvestments": 10278000000,
-        "tradeReceivables": 7723000000,
-        "inventory": 7811000000,
+        "currentAssets": 26177000000,
+        "totalLiabilities": 77313000000,
+        "cashAndShortTermInvestments": 8535000000,
+        "tradeReceivables": 7149000000,
+        "inventory": 7566000000,
         "preferredStock": 0
       },
       "sharesOutstanding": 269625412,
       "shareSource": {
         "shares": 269.625412,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
-        "providerSource": "https://www.sec.gov/Archives/edgar/data/315189/000110465926102213/de-20260802x10q.htm",
-        "capturedAt": "2026-11-26T04:04:36Z"
+        "providerSource": "https://www.sec.gov/Archives/edgar/data/315189/000110465926131741/de-ex99d1.htm",
+        "capturedAt": "2026-11-27T04:06:17Z"
       }
     },
     "z_score": 3.28,
@@ -615558,7 +615558,7 @@ window.FULL_MARKET_DATA = {
         "reason": null
       }
     ],
-    "m_score": -2.5,
+    "m_score": -3.18,
     "m_score_zone": "clean",
     "m_score_breakdown": [
       {
@@ -615583,12 +615583,12 @@ window.FULL_MARKET_DATA = {
         "desc": "DSRI 應收帳款指數",
         "desc_en": "DSRI Days sales receivable index",
         "weight": 0.92,
-        "value": 1.1291309413647617,
-        "contribution": 1.0388004660555807,
+        "value": 1.2588998411336714,
+        "contribution": 1.1581878538429777,
         "passed": null,
-        "detail": "1.1291 × 0.92 = 1.0388",
-        "detail_zh": "1.1291 × 0.92 = 1.0388",
-        "detail_en": "1.1291 × 0.92 = 1.0388",
+        "detail": "1.2589 × 0.92 = 1.1582",
+        "detail_zh": "1.2589 × 0.92 = 1.1582",
+        "detail_en": "1.2589 × 0.92 = 1.1582",
         "reason": null
       },
       {
@@ -615598,12 +615598,12 @@ window.FULL_MARKET_DATA = {
         "desc": "GMI 毛利率指數",
         "desc_en": "GMI Gross margin index",
         "weight": 0.528,
-        "value": 1.0577671232748576,
-        "contribution": 0.5585010410891248,
+        "value": 1.001594693378309,
+        "contribution": 0.5288419981037472,
         "passed": null,
-        "detail": "1.0578 × 0.528 = 0.5585",
-        "detail_zh": "1.0578 × 0.528 = 0.5585",
-        "detail_en": "1.0578 × 0.528 = 0.5585",
+        "detail": "1.0016 × 0.528 = 0.5288",
+        "detail_zh": "1.0016 × 0.528 = 0.5288",
+        "detail_en": "1.0016 × 0.528 = 0.5288",
         "reason": null
       },
       {
@@ -615613,12 +615613,12 @@ window.FULL_MARKET_DATA = {
         "desc": "AQI 資產質素指數",
         "desc_en": "AQI Asset quality index",
         "weight": 0.404,
-        "value": 1.064872322150736,
-        "contribution": 0.4302084181488973,
+        "value": 4.2812411284226455,
+        "contribution": 1.729621415882749,
         "passed": null,
-        "detail": "1.0649 × 0.404 = 0.4302",
-        "detail_zh": "1.0649 × 0.404 = 0.4302",
-        "detail_en": "1.0649 × 0.404 = 0.4302",
+        "detail": "4.2812 × 0.404 = 1.7296",
+        "detail_zh": "4.2812 × 0.404 = 1.7296",
+        "detail_en": "4.2812 × 0.404 = 1.7296",
         "reason": null
       },
       {
@@ -615628,12 +615628,12 @@ window.FULL_MARKET_DATA = {
         "desc": "SGI 銷售成長指數",
         "desc_en": "SGI Sales growth index",
         "weight": 0.892,
-        "value": 0.8841403064254325,
-        "contribution": 0.7886531533314858,
+        "value": 1.0680398522332923,
+        "contribution": 0.9526915481920968,
         "passed": null,
-        "detail": "0.8841 × 0.892 = 0.7887",
-        "detail_zh": "0.8841 × 0.892 = 0.7887",
-        "detail_en": "0.8841 × 0.892 = 0.7887",
+        "detail": "1.0680 × 0.892 = 0.9527",
+        "detail_zh": "1.0680 × 0.892 = 0.9527",
+        "detail_en": "1.0680 × 0.892 = 0.9527",
         "reason": null
       },
       {
@@ -615643,12 +615643,12 @@ window.FULL_MARKET_DATA = {
         "desc": "DEPI 折舊指數",
         "desc_en": "DEPI Depreciation index",
         "weight": 0.115,
-        "value": 0.9944010951067475,
-        "contribution": 0.11435612593727597,
+        "value": 0.9265769228721967,
+        "contribution": 0.10655634613030263,
         "passed": null,
-        "detail": "0.9944 × 0.115 = 0.1144",
-        "detail_zh": "0.9944 × 0.115 = 0.1144",
-        "detail_en": "0.9944 × 0.115 = 0.1144",
+        "detail": "0.9266 × 0.115 = 0.1066",
+        "detail_zh": "0.9266 × 0.115 = 0.1066",
+        "detail_en": "0.9266 × 0.115 = 0.1066",
         "reason": null
       },
       {
@@ -615658,12 +615658,12 @@ window.FULL_MARKET_DATA = {
         "desc": "SGAI 管銷費用指數",
         "desc_en": "SGAI SG&A index",
         "weight": -0.172,
-        "value": 1.0642888802326003,
-        "contribution": -0.18305768740000722,
+        "value": 1.0199672918152074,
+        "contribution": -0.17543437419221566,
         "passed": null,
-        "detail": "1.0643 × -0.172 = -0.1831",
-        "detail_zh": "1.0643 × -0.172 = -0.1831",
-        "detail_en": "1.0643 × -0.172 = -0.1831",
+        "detail": "1.0200 × -0.172 = -0.1754",
+        "detail_zh": "1.0200 × -0.172 = -0.1754",
+        "detail_en": "1.0200 × -0.172 = -0.1754",
         "reason": null
       },
       {
@@ -615673,12 +615673,12 @@ window.FULL_MARKET_DATA = {
         "desc": "TATA 總應計項目 / 總資產",
         "desc_en": "TATA Total accruals to total assets",
         "weight": 4.679,
-        "value": -0.019444129967168572,
-        "contribution": -0.09097908411638175,
+        "value": -0.49407017277963017,
+        "contribution": -2.3117543384358896,
         "passed": null,
-        "detail": "-0.0194 × 4.679 = -0.0910",
-        "detail_zh": "-0.0194 × 4.679 = -0.0910",
-        "detail_en": "-0.0194 × 4.679 = -0.0910",
+        "detail": "-0.4941 × 4.679 = -2.3117",
+        "detail_zh": "-0.4941 × 4.679 = -2.3117",
+        "detail_en": "-0.4941 × 4.679 = -2.3117",
         "reason": null
       },
       {
@@ -615688,12 +615688,12 @@ window.FULL_MARKET_DATA = {
         "desc": "LVGI 槓桿指數",
         "desc_en": "LVGI Leverage index",
         "weight": -0.327,
-        "value": 0.9662260020490603,
-        "contribution": -0.3159559026700427,
+        "value": 0.9968804610194514,
+        "contribution": -0.32597991075336064,
         "passed": null,
-        "detail": "0.9662 × -0.327 = -0.3160",
-        "detail_zh": "0.9662 × -0.327 = -0.3160",
-        "detail_en": "0.9662 × -0.327 = -0.3160",
+        "detail": "0.9969 × -0.327 = -0.3260",
+        "detail_zh": "0.9969 × -0.327 = -0.3260",
+        "detail_en": "0.9969 × -0.327 = -0.3260",
         "reason": null
       }
     ]
@@ -615805,11 +615805,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "751.66 M",
     "shareSource": {
       "shares": 751.657335,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1090727/000162828026070246/ups-20260930.htm",
-      "capturedAt": "2026-11-26T04:04:43Z"
+      "capturedAt": "2026-11-27T04:06:25Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 83787.2,
@@ -619057,7 +619057,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "399c3a7e13296c624052870395b7074df557bf122651b72fc5cdfd367ed5394a"
       },
       "mScore": {
@@ -619069,7 +619069,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "399c3a7e13296c624052870395b7074df557bf122651b72fc5cdfd367ed5394a"
       }
     },
@@ -619210,7 +619210,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "UPS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-04",
       "quoteDate": "2026-11-25",
@@ -619242,11 +619242,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 751657335,
       "shareSource": {
         "shares": 751.657335,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1090727/000162828026070246/ups-20260930.htm",
-        "capturedAt": "2026-11-26T04:04:43Z"
+        "capturedAt": "2026-11-27T04:06:25Z"
       }
     },
     "z_score": 2.91,
@@ -619576,11 +619576,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "117.02 M",
     "shareSource": {
       "shares": 117.017174,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/33185/000003318526000044/efx-20260930.htm",
-      "capturedAt": "2026-11-26T04:04:51Z"
+      "capturedAt": "2026-11-27T04:06:33Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 21727.7,
@@ -622828,7 +622828,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "cd4f7df7f311331c33c9b7a644d8b2078f46e4f8956bfa91d17225c548fdf2dc"
       },
       "mScore": {
@@ -622840,7 +622840,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "cd4f7df7f311331c33c9b7a644d8b2078f46e4f8956bfa91d17225c548fdf2dc"
       }
     },
@@ -623012,7 +623012,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "EFX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-20",
       "quoteDate": "2026-11-25",
@@ -623044,11 +623044,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 117017174,
       "shareSource": {
         "shares": 117.017174,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/33185/000003318526000044/efx-20260930.htm",
-        "capturedAt": "2026-11-26T04:04:51Z"
+        "capturedAt": "2026-11-27T04:06:33Z"
       }
     },
     "z_score": 3.33,
@@ -623378,11 +623378,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "190.70 M",
     "shareSource": {
       "shares": 190.7,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1552033/000155203326000058/tru-20260930.htm",
-      "capturedAt": "2026-11-26T04:04:58Z"
+      "capturedAt": "2026-11-27T04:06:41Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 15015.7,
@@ -626626,7 +626626,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "69ee0f5e856cc6a46c88c7dd7c21104ffbdc26252568f86dafd82f5615371edb"
       },
       "mScore": {
@@ -626638,7 +626638,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "69ee0f5e856cc6a46c88c7dd7c21104ffbdc26252568f86dafd82f5615371edb"
       }
     },
@@ -626779,7 +626779,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TRU",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-27",
       "quoteDate": "2026-11-25",
@@ -626811,11 +626811,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 190700000,
       "shareSource": {
         "shares": 190.7,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1552033/000155203326000058/tru-20260930.htm",
-        "capturedAt": "2026-11-26T04:04:58Z"
+        "capturedAt": "2026-11-27T04:06:41Z"
       }
     },
     "z_score": 2.48,
@@ -627145,11 +627145,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "926.38 M",
     "shareSource": {
       "shares": 926.378,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/900075/000119312526405731/cprt-20260731.htm",
-      "capturedAt": "2026-11-26T04:05:06Z"
+      "capturedAt": "2026-11-27T04:06:50Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 30723.3,
@@ -630395,7 +630395,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "89c2bb04d2556f338509a2cd43c5c7f721e420c7409db6b03a0c9353de935fbf"
       },
       "mScore": {
@@ -630407,7 +630407,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "89c2bb04d2556f338509a2cd43c5c7f721e420c7409db6b03a0c9353de935fbf"
       }
     },
@@ -630591,7 +630591,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CPRT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-07-31",
       "filingDate": "2026-09-29",
       "quoteDate": "2026-11-25",
@@ -630623,11 +630623,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 926378000,
       "shareSource": {
         "shares": 926.378,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/900075/000119312526405731/cprt-20260731.htm",
-        "capturedAt": "2026-11-26T04:05:06Z"
+        "capturedAt": "2026-11-27T04:06:50Z"
       }
     },
     "z_score": 22.94,
@@ -630957,11 +630957,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "355.98 M",
     "shareSource": {
       "shares": 355.98,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/723531/000072353126000006/payx-20260831.htm",
-      "capturedAt": "2026-11-26T04:05:14Z"
+      "capturedAt": "2026-11-27T04:06:58Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 42180.1,
@@ -634207,7 +634207,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "75b5f7341a80275876ecbea19dd39e3e5233de90369902324ee5e6c8dd5fd4bf"
       },
       "mScore": {
@@ -634219,7 +634219,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "75b5f7341a80275876ecbea19dd39e3e5233de90369902324ee5e6c8dd5fd4bf"
       }
     },
@@ -634421,7 +634421,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "PAYX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-08-31",
       "filingDate": "2026-09-24",
       "quoteDate": "2026-11-25",
@@ -634453,11 +634453,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 355980000,
       "shareSource": {
         "shares": 355.98,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/723531/000072353126000006/payx-20260831.htm",
-        "capturedAt": "2026-11-26T04:05:14Z"
+        "capturedAt": "2026-11-27T04:06:58Z"
       }
     },
     "z_score": 3.25,
@@ -634782,22 +634782,22 @@ window.FULL_MARKET_DATA = {
     "industry": "Building Products",
     "reportedCurrency": "USD",
     "price": 67.28,
-    "shares": 134.328966,
-    "shares_outstanding": 134328966,
+    "shares": 134.328961,
+    "shares_outstanding": 134328961,
     "shares_display": "134.33 M",
     "shareSource": {
-      "shares": 134.328966,
-      "date": "2026-11-25",
+      "shares": 134.328961,
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/91142/000009114226000104/aos-20260930.htm",
-      "capturedAt": "2026-11-26T04:05:22Z"
+      "capturedAt": "2026-11-27T04:07:07Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 9037.7,
-    "liq_val_1": -3.1333524892911035,
-    "liq_val_2": -6.345839064971289,
-    "liq_val_3": -11.89170174956904,
+    "liq_val_1": -3.1333526059209227,
+    "liq_val_2": -6.3458393011764604,
+    "liq_val_3": -11.891702192202619,
     "debt": 714.8,
     "cash": 234.5,
     "short_term_investments": 0.0,
@@ -638034,7 +638034,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "f0c666c49c168f577bf173878c0e8802fabf23076ba68d560342d2bcd8d61f87"
       },
       "mScore": {
@@ -638046,7 +638046,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "f0c666c49c168f577bf173878c0e8802fabf23076ba68d560342d2bcd8d61f87"
       }
     },
@@ -638218,7 +638218,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AOS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-11-25",
@@ -638237,7 +638237,7 @@ window.FULL_MARKET_DATA = {
         "currency": "USD",
         "date": "2026-11-25",
         "price": 67.28,
-        "marketCap": 9037652832
+        "marketCap": 9037652496
       },
       "amounts": {
         "currentAssets": 1411000000,
@@ -638247,14 +638247,14 @@ window.FULL_MARKET_DATA = {
         "inventory": 509300000,
         "preferredStock": 0
       },
-      "sharesOutstanding": 134328966,
+      "sharesOutstanding": 134328961,
       "shareSource": {
-        "shares": 134.328966,
-        "date": "2026-11-25",
+        "shares": 134.328961,
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/91142/000009114226000104/aos-20260930.htm",
-        "capturedAt": "2026-11-26T04:05:22Z"
+        "capturedAt": "2026-11-27T04:07:07Z"
       }
     },
     "z_score": 8.13,
@@ -638543,22 +638543,22 @@ window.FULL_MARKET_DATA = {
     "industry": "Airport Services",
     "reportedCurrency": "MXN",
     "price": 281.34,
-    "shares": 29.828261,
-    "shares_outstanding": 29828261,
-    "shares_display": "29.83 M",
+    "shares": 30.05744,
+    "shares_outstanding": 30057440,
+    "shares_display": "30.06 M",
     "shareSource": {
-      "shares": 29.828261,
-      "date": "2026-11-25",
+      "shares": 30.05744,
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": null,
-      "capturedAt": "2026-11-26T04:05:29Z"
+      "capturedAt": "2026-11-27T04:07:16Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
-    "mcap": 8391.9,
-    "liq_val_1": -128.11741866031574,
-    "liq_val_2": -139.8029123835661,
-    "liq_val_3": -144.58760115057214,
+    "mcap": 8456.4,
+    "liq_val_1": -127.14056161955803,
+    "liq_val_2": -138.73695694434198,
+    "liq_val_3": -143.48516388897943,
     "debt": 4894.074160202426,
     "cash": 1126.070959918941,
     "short_term_investments": 15.11408623047578,
@@ -641716,12 +641716,12 @@ window.FULL_MARKET_DATA = {
     "g1": 6.3,
     "g2": 3.7,
     "g": 2.25,
-    "wacc": 4.5656176512235085,
-    "ev": 12144.789058684783,
-    "fmp_official_ev": 12144.789058684783,
+    "wacc": 4.568465127728081,
+    "ev": 12209.289058684783,
+    "fmp_official_ev": 12209.289058684783,
     "enterpriseValueBasis": "USD market capitalization + USD debt - USD cash and short-term investments",
-    "dcf_model_ev": 33402.71270241917,
-    "ev_to_ebitda": 10.871270693024384,
+    "dcf_model_ev": 33361.339238753106,
+    "ev_to_ebitda": 10.929007139191693,
     "debt_to_ebitda": 4.380875182780521,
     "net_debt_to_ebitda": 3.3593562342424113,
     "f_score": 6,
@@ -641790,18 +641790,18 @@ window.FULL_MARKET_DATA = {
         "detail": "每單位資產產出效益改善"
       }
     ],
-    "fair_val": 994.0178424660555,
-    "default_fair_val": 994.0178424660555,
-    "premium_pct": -71.69668511160478,
+    "fair_val": 985.0622734360718,
+    "default_fair_val": 985.0622734360718,
+    "premium_pct": -71.4393691052002,
     "is_undervalued": true,
-    "pe_trailing": 14.7894244792531,
-    "pe_forward": 13.014693541742728,
-    "pb_trailing": 3.3318261947619954,
-    "pb_forward": 2.998643575285796,
-    "div_yield": 7.935506202832218,
-    "ps_ratio": 3.7105280952695345,
-    "fcf_to_ev": 5.272427409335427,
-    "fcf_to_mcap": 7.630276661257482,
+    "pe_trailing": 14.90309574308034,
+    "pe_forward": 13.1147242539107,
+    "pb_trailing": 3.3574345539610024,
+    "pb_forward": 3.021691098564902,
+    "div_yield": 7.874979246907395,
+    "ps_ratio": 3.7390471508046206,
+    "fcf_to_ev": 5.244573898269586,
+    "fcf_to_mcap": 7.572077800672468,
     "liab_to_assets": 65.27178777735037,
     "cash_to_assets": 13.657396450970595,
     "current_ratio": 1.1490573193985034,
@@ -641884,15 +641884,15 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "MXN",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "d6e354a74a8b4abcfe09e92ebbdfce4b5c5eb8d4aa1de0cf1f60e14c1fbc4451",
         "mcapFx": {
-          "asOf": "2026-11-25",
+          "asOf": "2026-11-26",
           "from": "USD",
           "to": "MXN",
           "fromUsdPerUnit": 1,
           "toUsdPerUnit": 0.05252652589557726,
-          "fromObservationDate": "2026-11-25",
+          "fromObservationDate": "2026-11-26",
           "toObservationDate": "2026-11-20"
         }
       },
@@ -641905,7 +641905,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "MXN",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "d6e354a74a8b4abcfe09e92ebbdfce4b5c5eb8d4aa1de0cf1f60e14c1fbc4451"
       }
     },
@@ -642124,7 +642124,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ASR",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-09-30",
       "quoteDate": "2026-11-25",
@@ -642144,7 +642144,7 @@ window.FULL_MARKET_DATA = {
         "currency": "USD",
         "date": "2026-11-25",
         "price": 281.34,
-        "marketCap": 8391882668
+        "marketCap": 8456360170
       },
       "amounts": {
         "currentAssets": 1632462003.5546403,
@@ -642154,17 +642154,17 @@ window.FULL_MARKET_DATA = {
         "inventory": 10750627.045163862,
         "preferredStock": 0
       },
-      "sharesOutstanding": 29828261,
+      "sharesOutstanding": 30057440,
       "shareSource": {
-        "shares": 29.828261,
-        "date": "2026-11-25",
+        "shares": 30.05744,
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": null,
-        "capturedAt": "2026-11-26T04:05:29Z"
+        "capturedAt": "2026-11-27T04:07:16Z"
       }
     },
-    "z_score": 3.96,
+    "z_score": 3.98,
     "z_score_model": "z",
     "z_score_zone": "safe",
     "z_score_breakdown": [
@@ -642220,12 +642220,12 @@ window.FULL_MARKET_DATA = {
         "desc": "市值權益 / 總負債 (X4)",
         "desc_en": "Market equity / Total liabilities (X4)",
         "weight": 0.6,
-        "value": 3.8281345922013923,
-        "contribution": 2.2968807553208355,
+        "value": 3.8575575692622475,
+        "contribution": 2.3145345415573484,
         "passed": null,
-        "detail": "3.8281 × 0.6 = 2.2969",
-        "detail_zh": "3.8281 × 0.6 = 2.2969",
-        "detail_en": "3.8281 × 0.6 = 2.2969",
+        "detail": "3.8576 × 0.6 = 2.3145",
+        "detail_zh": "3.8576 × 0.6 = 2.3145",
+        "detail_en": "3.8576 × 0.6 = 2.3145",
         "reason": null
       },
       {
@@ -642491,11 +642491,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "229.34 M",
     "shareSource": {
       "shares": 229.335,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1524472/000152447226000148/xyl-20260930.htm",
-      "capturedAt": "2026-11-26T04:05:38Z"
+      "capturedAt": "2026-11-27T04:07:24Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 22112.5,
@@ -645743,7 +645743,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "822c38aa2263222851bb1d3e0596ab88bf01006ca3fffed872303a4294f61593"
       },
       "mScore": {
@@ -645755,7 +645755,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "822c38aa2263222851bb1d3e0596ab88bf01006ca3fffed872303a4294f61593"
       }
     },
@@ -645896,7 +645896,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "XYL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-27",
       "quoteDate": "2026-11-25",
@@ -645928,11 +645928,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 229335000,
       "shareSource": {
         "shares": 229.335,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1524472/000152447226000148/xyl-20260930.htm",
-        "capturedAt": "2026-11-26T04:05:38Z"
+        "capturedAt": "2026-11-27T04:07:24Z"
       }
     },
     "z_score": 3.41,
@@ -646262,11 +646262,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "478.05 M",
     "shareSource": {
       "shares": 478.04528,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/84839/000008483926000045/rol-20260930.htm",
-      "capturedAt": "2026-11-26T04:05:45Z"
+      "capturedAt": "2026-11-27T04:07:32Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 18380.8,
@@ -649508,7 +649508,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "d2d36ede75d87ff47354b01c5b3437d63ec616292fa241b40999e0777b901ee3"
       },
       "mScore": {
@@ -649520,7 +649520,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "d2d36ede75d87ff47354b01c5b3437d63ec616292fa241b40999e0777b901ee3"
       }
     },
@@ -649722,7 +649722,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ROL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-22",
       "quoteDate": "2026-11-25",
@@ -649754,11 +649754,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 478045280,
       "shareSource": {
         "shares": 478.04528,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/84839/000008483926000045/rol-20260930.htm",
-        "capturedAt": "2026-11-26T04:05:45Z"
+        "capturedAt": "2026-11-27T04:07:32Z"
       }
     },
     "z_score": 8.42,
@@ -650090,11 +650090,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "380.71 M",
     "shareSource": {
       "shares": 380.710513,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1781335/000178133526000127/otis-20260930.htm",
-      "capturedAt": "2026-11-26T04:05:53Z"
+      "capturedAt": "2026-11-27T04:07:41Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 30038.1,
@@ -653333,7 +653333,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "18e551750d520436916c05ada97d823de0bb6256da97ce7b3bfff40f4c1749fc"
       },
       "mScore": {
@@ -653345,7 +653345,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "18e551750d520436916c05ada97d823de0bb6256da97ce7b3bfff40f4c1749fc"
       }
     },
@@ -653486,7 +653486,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "OTIS",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-11-25",
@@ -653518,11 +653518,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 380710513,
       "shareSource": {
         "shares": 380.710513,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1781335/000178133526000127/otis-20260930.htm",
-        "capturedAt": "2026-11-26T04:05:53Z"
+        "capturedAt": "2026-11-27T04:07:41Z"
       }
     },
     "z_score": 2.96,
@@ -653852,11 +653852,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "128.29 M",
     "shareSource": {
       "shares": 128.286417,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1442145/000143774926035083/vrsk20260820_10q.htm",
-      "capturedAt": "2026-11-26T04:06:02Z"
+      "capturedAt": "2026-11-27T04:07:50Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 26267.9,
@@ -657104,7 +657104,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "ec6a8d973ca30da6b927f3781a3ba7be8775fd17d3bcdf6f585d7e93810e4d30"
       },
       "mScore": {
@@ -657116,7 +657116,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "ec6a8d973ca30da6b927f3781a3ba7be8775fd17d3bcdf6f585d7e93810e4d30"
       }
     },
@@ -657257,7 +657257,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "VRSK",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-05",
       "quoteDate": "2026-11-25",
@@ -657289,11 +657289,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 128286417,
       "shareSource": {
         "shares": 128.286417,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1442145/000143774926035083/vrsk20260820_10q.htm",
-        "capturedAt": "2026-11-26T04:06:02Z"
+        "capturedAt": "2026-11-27T04:07:50Z"
       }
     },
     "z_score": 5.76,
@@ -657623,11 +657623,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "43.56 M",
     "shareSource": {
       "shares": 43.5555,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/769520/000076952026000059/midd-20261003.htm",
-      "capturedAt": "2026-11-26T04:06:10Z"
+      "capturedAt": "2026-11-27T04:07:58Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 5891.3,
@@ -660869,7 +660869,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "76cd9bb313834f55bf2d85639cfac09edcc777d5072baefac997cc81552508b3"
       },
       "mScore": {
@@ -660881,7 +660881,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "76cd9bb313834f55bf2d85639cfac09edcc777d5072baefac997cc81552508b3"
       }
     },
@@ -660903,11 +660903,11 @@ window.FULL_MARKET_DATA = {
     "country": "US",
     "phone": "847 741 3300",
     "full_address": "1400 Toastmaster Drive, Elgin, IL 60120, US",
-    "range_52w": "93.39501-148.55",
+    "range_52w": "93.74899-148.55",
     "year_high": 148.55,
-    "year_low": 93.39501,
+    "year_low": 93.74899,
     "all_time_high": 0.0,
-    "all_time_low": 93.39501,
+    "all_time_low": 93.74899,
     "inst_ownership_pct": null,
     "insider_ownership_pct": null,
     "top_holders": [],
@@ -661047,7 +661047,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MIDD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-10-03",
       "filingDate": "2026-11-12",
       "quoteDate": "2026-11-25",
@@ -661079,11 +661079,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 43555500,
       "shareSource": {
         "shares": 43.5555,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/769520/000076952026000059/midd-20261003.htm",
-        "capturedAt": "2026-11-26T04:06:10Z"
+        "capturedAt": "2026-11-27T04:07:58Z"
       }
     },
     "z_score": 3.02,
@@ -661413,11 +661413,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "394.76 M",
     "shareSource": {
       "shares": 394.759432,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/8670/000000867026000044/adp-20260930.htm",
-      "capturedAt": "2026-11-26T04:06:18Z"
+      "capturedAt": "2026-11-27T04:08:06Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 125028.2,
@@ -664663,7 +664663,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "5faef883c51cde8b2d732a7ce310e5ad51ebb56b330e524ad49231b5c716eaa6"
       },
       "mScore": {
@@ -664675,7 +664675,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "5faef883c51cde8b2d732a7ce310e5ad51ebb56b330e524ad49231b5c716eaa6"
       }
     },
@@ -664697,8 +664697,8 @@ window.FULL_MARKET_DATA = {
     "country": "US",
     "phone": "973 974 5000",
     "full_address": "One ADP Boulevard, Roseland, NJ 07068, US",
-    "range_52w": "188.16-319.565",
-    "year_high": 319.565,
+    "range_52w": "188.16-319.58",
+    "year_high": 319.58,
     "year_low": 188.16,
     "all_time_high": 0.0,
     "all_time_low": 188.16,
@@ -664865,7 +664865,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ADP",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
       "quoteDate": "2026-11-25",
@@ -664897,11 +664897,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 394759432,
       "shareSource": {
         "shares": 394.759432,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/8670/000000867026000044/adp-20260930.htm",
-        "capturedAt": "2026-11-26T04:06:18Z"
+        "capturedAt": "2026-11-27T04:08:06Z"
       }
     },
     "z_score": 1.78,
@@ -665231,11 +665231,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "39.41 M",
     "shareSource": {
       "shares": 39.40606,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1501585/000150158526000056/hii-20260930.htm",
-      "capturedAt": "2026-11-26T04:06:26Z"
+      "capturedAt": "2026-11-27T04:08:15Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 11795.8,
@@ -668483,7 +668483,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "ae0bf0612ab6eaa1d4e13b0f09205785a03d0879a1bc039d7566df8891df2149"
       },
       "mScore": {
@@ -668495,7 +668495,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "ae0bf0612ab6eaa1d4e13b0f09205785a03d0879a1bc039d7566df8891df2149"
       }
     },
@@ -668636,7 +668636,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "HII",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-11-25",
@@ -668668,11 +668668,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 39406060,
       "shareSource": {
         "shares": 39.40606,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1501585/000150158526000056/hii-20260930.htm",
-        "capturedAt": "2026-11-26T04:06:26Z"
+        "capturedAt": "2026-11-27T04:08:15Z"
       }
     },
     "z_score": 2.77,
@@ -669002,11 +669002,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "38.60 M",
     "shareSource": {
       "shares": 38.604089,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/66570/000006657026000033/msa-20260930.htm",
-      "capturedAt": "2026-11-26T04:06:34Z"
+      "capturedAt": "2026-11-27T04:08:24Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 6824.8,
@@ -672252,7 +672252,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "17d70e05e3d2f1efb429df09900c95c049d33ea2de5882df701443d69b5e9805"
       },
       "mScore": {
@@ -672264,7 +672264,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "17d70e05e3d2f1efb429df09900c95c049d33ea2de5882df701443d69b5e9805"
       }
     },
@@ -672436,7 +672436,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MSA",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-03",
       "quoteDate": "2026-11-25",
@@ -672468,11 +672468,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 38604089,
       "shareSource": {
         "shares": 38.604089,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/66570/000006657026000033/msa-20260930.htm",
-        "capturedAt": "2026-11-26T04:06:34Z"
+        "capturedAt": "2026-11-27T04:08:24Z"
       }
     },
     "z_score": 5.82,
@@ -672804,11 +672804,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "54.59 M",
     "shareSource": {
       "shares": 54.589836,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1260221/000126022126000077/tdg-20260930.htm",
-      "capturedAt": "2026-11-26T04:06:42Z"
+      "capturedAt": "2026-11-27T04:08:32Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 62818.2,
@@ -676056,7 +676056,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "ef36e71b0b62ae2a759c88c7d0d3d92366ee099f5e7d5a8409cae815b7cbe08b"
       },
       "mScore": {
@@ -676068,7 +676068,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "ef36e71b0b62ae2a759c88c7d0d3d92366ee099f5e7d5a8409cae815b7cbe08b"
       }
     },
@@ -676209,7 +676209,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "TDG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-10",
       "quoteDate": "2026-11-25",
@@ -676241,11 +676241,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 54589836,
       "shareSource": {
         "shares": 54.589836,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1260221/000126022126000077/tdg-20260930.htm",
-        "capturedAt": "2026-11-26T04:06:42Z"
+        "capturedAt": "2026-11-27T04:08:32Z"
       }
     },
     "z_score": 1.72,
@@ -676575,11 +676575,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "66.60 M",
     "shareSource": {
       "shares": 66.5972,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/82811/000008281126000238/rbc-20260930.htm",
-      "capturedAt": "2026-11-26T04:06:50Z"
+      "capturedAt": "2026-11-27T04:08:40Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 10688.9,
@@ -679827,7 +679827,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "1778b083af32f4bd44c790260d4ef1554f12a9548297312395a49cc512ae50cf"
       },
       "mScore": {
@@ -679839,7 +679839,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "1778b083af32f4bd44c790260d4ef1554f12a9548297312395a49cc512ae50cf"
       }
     },
@@ -680023,7 +680023,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "RRX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-03",
       "quoteDate": "2026-11-25",
@@ -680055,11 +680055,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 66597200,
       "shareSource": {
         "shares": 66.5972,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/82811/000008281126000238/rbc-20260930.htm",
-        "capturedAt": "2026-11-26T04:06:50Z"
+        "capturedAt": "2026-11-27T04:08:40Z"
       }
     },
     "z_score": 1.85,
@@ -680389,11 +680389,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "160.38 M",
     "shareSource": {
       "shares": 160.375132,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/42888/000004288826000145/ggg-20260925.htm",
-      "capturedAt": "2026-11-26T04:06:57Z"
+      "capturedAt": "2026-11-27T04:08:49Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 11563.0,
@@ -683641,7 +683641,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "38cf5569680da6fa4c90f16157bd0e6ce7e8ac8dfda4160299bb9afde8b25398"
       },
       "mScore": {
@@ -683653,7 +683653,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "38cf5569680da6fa4c90f16157bd0e6ce7e8ac8dfda4160299bb9afde8b25398"
       }
     },
@@ -683855,7 +683855,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "GGG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-25",
       "filingDate": "2026-10-21",
       "quoteDate": "2026-11-25",
@@ -683887,11 +683887,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 160375132,
       "shareSource": {
         "shares": 160.375132,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/42888/000004288826000145/ggg-20260925.htm",
-        "capturedAt": "2026-11-26T04:06:57Z"
+        "capturedAt": "2026-11-27T04:08:49Z"
       }
     },
     "z_score": 13.51,
@@ -684221,11 +684221,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "115.82 M",
     "shareSource": {
       "shares": 115.821,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/29644/000002964426000085/dci-20260731.htm",
-      "capturedAt": "2026-11-26T04:07:05Z"
+      "capturedAt": "2026-11-27T04:08:57Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 9637.5,
@@ -687466,7 +687466,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "0179e7648163df84f38f3cf1f9497f3b5c884444e9765413deae07ae7d4c728e"
       },
       "mScore": {
@@ -687478,7 +687478,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "0179e7648163df84f38f3cf1f9497f3b5c884444e9765413deae07ae7d4c728e"
       }
     },
@@ -687668,7 +687668,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "DCI",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-07-31",
       "filingDate": "2026-09-25",
       "quoteDate": "2026-11-25",
@@ -687700,11 +687700,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 115821000,
       "shareSource": {
         "shares": 115.821,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/29644/000002964426000085/dci-20260731.htm",
-        "capturedAt": "2026-11-26T04:07:05Z"
+        "capturedAt": "2026-11-27T04:08:57Z"
       }
     },
     "z_score": 5.38,
@@ -688034,11 +688034,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "284.20 M",
     "shareSource": {
       "shares": 284.2,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/49826/000004982626000060/itw-20260930.htm",
-      "capturedAt": "2026-11-26T04:07:13Z"
+      "capturedAt": "2026-11-27T04:09:05Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 81019.7,
@@ -691286,7 +691286,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "ddafb2d5170b2ce22b2c33e1cdc5a6f05d20d3d083fe668f8d7038c4081e58e6"
       },
       "mScore": {
@@ -691298,7 +691298,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "ddafb2d5170b2ce22b2c33e1cdc5a6f05d20d3d083fe668f8d7038c4081e58e6"
       }
     },
@@ -691470,7 +691470,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ITW",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-11-25",
@@ -691502,11 +691502,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 284200000,
       "shareSource": {
         "shares": 284.2,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/49826/000004982626000060/itw-20260930.htm",
-        "capturedAt": "2026-11-26T04:07:13Z"
+        "capturedAt": "2026-11-27T04:09:05Z"
       }
     },
     "z_score": 8.32,
@@ -691800,11 +691800,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "599.70 M",
     "shareSource": {
       "shares": 599.7,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/16868/000001686826000041/a2026q3fsnotes.htm",
-      "capturedAt": "2026-11-26T04:07:20Z"
+      "capturedAt": "2026-11-27T04:09:15Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 75802.1,
@@ -695137,15 +695137,15 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "CAD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "240dce2d2c350717effb8081e79c085ec4a045c85f1163380ffee0d28cc4c661",
         "mcapFx": {
-          "asOf": "2026-11-25",
+          "asOf": "2026-11-26",
           "from": "USD",
           "to": "CAD",
           "fromUsdPerUnit": 1,
           "toUsdPerUnit": 0.6981777560566921,
-          "fromObservationDate": "2026-11-25",
+          "fromObservationDate": "2026-11-26",
           "toObservationDate": "2026-11-20"
         }
       },
@@ -695158,7 +695158,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "CAD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "240dce2d2c350717effb8081e79c085ec4a045c85f1163380ffee0d28cc4c661"
       }
     },
@@ -695180,11 +695180,11 @@ window.FULL_MARKET_DATA = {
     "country": "CA",
     "phone": "15143996569",
     "full_address": "935 de La Gauchetiere Street West, Montreal, QC H3B 2M9, CA",
-    "range_52w": "92.46-131.55",
+    "range_52w": "94.06-131.55",
     "year_high": 131.55,
-    "year_low": 92.46,
+    "year_low": 94.06,
     "all_time_high": 0,
-    "all_time_low": 92.46,
+    "all_time_low": 94.06,
     "inst_ownership_pct": null,
     "insider_ownership_pct": null,
     "top_holders": [],
@@ -695301,7 +695301,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CNI",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
       "quoteDate": "2026-11-25",
@@ -695334,11 +695334,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 599700000,
       "shareSource": {
         "shares": 599.7,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/16868/000001686826000041/a2026q3fsnotes.htm",
-        "capturedAt": "2026-11-26T04:07:20Z"
+        "capturedAt": "2026-11-27T04:09:15Z"
       }
     },
     "z_score": 2.89,
@@ -695668,11 +695668,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "397.63 M",
     "shareSource": {
       "shares": 397.635,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/823768/000162828026067830/wm-20260930.htm",
-      "capturedAt": "2026-11-26T04:07:28Z"
+      "capturedAt": "2026-11-27T04:09:23Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 98331.2,
@@ -698920,7 +698920,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "3e6f7e9de382ee1a1e85e12d9f7fe708e232fad921018edd5551d77c924dda1e"
       },
       "mScore": {
@@ -698932,7 +698932,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "3e6f7e9de382ee1a1e85e12d9f7fe708e232fad921018edd5551d77c924dda1e"
       }
     },
@@ -698954,8 +698954,8 @@ window.FULL_MARKET_DATA = {
     "country": "US",
     "phone": "713-512-6200",
     "full_address": "800 Capitol Street, Houston, TX 77002, US",
-    "range_52w": "200.58-249.82",
-    "year_high": 249.82,
+    "range_52w": "200.58-249.92",
+    "year_high": 249.92,
     "year_low": 200.58,
     "all_time_high": 0.0,
     "all_time_low": 200.58,
@@ -699073,7 +699073,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "WM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-11-25",
@@ -699105,11 +699105,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 397635000,
       "shareSource": {
         "shares": 397.635,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/823768/000162828026067830/wm-20260930.htm",
-        "capturedAt": "2026-11-26T04:07:28Z"
+        "capturedAt": "2026-11-27T04:09:23Z"
       }
     },
     "z_score": 3.02,
@@ -699439,11 +699439,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "4,079.22 M",
     "shareSource": {
       "shares": 4079.222444,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/2115436/000211543626000020/xom-20260930.htm",
-      "capturedAt": "2026-11-26T04:07:36Z"
+      "capturedAt": "2026-11-27T04:09:31Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 645190.2,
@@ -702691,7 +702691,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "db340c2715de91ad5325177bddfbce6046faf0513831c899bb666ad357b95ef7"
       },
       "mScore": {
@@ -702703,7 +702703,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "db340c2715de91ad5325177bddfbce6046faf0513831c899bb666ad357b95ef7"
       }
     },
@@ -702875,7 +702875,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "XOM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-02",
       "quoteDate": "2026-11-25",
@@ -702907,11 +702907,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 4079222444,
       "shareSource": {
         "shares": 4079.222444,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/2115436/000211543626000020/xom-20260930.htm",
-        "capturedAt": "2026-11-26T04:07:36Z"
+        "capturedAt": "2026-11-27T04:09:31Z"
       }
     },
     "z_score": 4.69,
@@ -703241,11 +703241,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "1,951.25 M",
     "shareSource": {
       "shares": 1951.253686,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000200/cvx-20260930.htm",
-      "capturedAt": "2026-11-26T04:07:44Z"
+      "capturedAt": "2026-11-27T04:09:40Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 411617.0,
@@ -706493,7 +706493,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "b040f1969f7e3e40c196a8a11fe39d4cb209ab24874bc56a8ced9c3c6fde837c"
       },
       "mScore": {
@@ -706505,7 +706505,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "b040f1969f7e3e40c196a8a11fe39d4cb209ab24874bc56a8ced9c3c6fde837c"
       }
     },
@@ -706677,7 +706677,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CVX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-05",
       "quoteDate": "2026-11-25",
@@ -706709,11 +706709,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 1951253686,
       "shareSource": {
         "shares": 1951.253686,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000200/cvx-20260930.htm",
-        "capturedAt": "2026-11-26T04:07:44Z"
+        "capturedAt": "2026-11-27T04:09:40Z"
       }
     },
     "z_score": 3.56,
@@ -707043,11 +707043,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "1,182.34 M",
     "shareSource": {
       "shares": 1182.34,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1163165/000116316526000045/cop-20260930.htm",
-      "capturedAt": "2026-11-26T04:07:51Z"
+      "capturedAt": "2026-11-27T04:09:48Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 159639.5,
@@ -710295,7 +710295,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "10963d50293e98edacaf0290584858872c30be184910a9923ed5d14be9e97ba2"
       },
       "mScore": {
@@ -710307,7 +710307,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "10963d50293e98edacaf0290584858872c30be184910a9923ed5d14be9e97ba2"
       }
     },
@@ -710329,11 +710329,11 @@ window.FULL_MARKET_DATA = {
     "country": "US",
     "phone": "281 293 1000",
     "full_address": "925 North Eldridge Parkway, Houston, TX 77079-2703, US",
-    "range_52w": "86.4-154.28",
+    "range_52w": "86.88-154.28",
     "year_high": 154.28,
-    "year_low": 86.4,
+    "year_low": 86.88,
     "all_time_high": 0.0,
-    "all_time_low": 86.4,
+    "all_time_low": 86.88,
     "inst_ownership_pct": null,
     "insider_ownership_pct": null,
     "top_holders": [],
@@ -710473,7 +710473,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "COP",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-05",
       "quoteDate": "2026-11-25",
@@ -710505,11 +710505,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 1182340000,
       "shareSource": {
         "shares": 1182.34,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1163165/000116316526000045/cop-20260930.htm",
-        "capturedAt": "2026-11-26T04:07:51Z"
+        "capturedAt": "2026-11-27T04:09:48Z"
       }
     },
     "z_score": 3.35,
@@ -710839,11 +710839,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "1,476.03 M",
     "shareSource": {
       "shares": 1476.029613,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/87347/000119312526435577/slb-20260930.htm",
-      "capturedAt": "2026-11-26T04:08:02Z"
+      "capturedAt": "2026-11-27T04:09:56Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 71617.0,
@@ -714091,7 +714091,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "d641a1cb00732ca81458706033707b265d8a23cbf9bf774d8d999594d1993331"
       },
       "mScore": {
@@ -714103,7 +714103,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "d641a1cb00732ca81458706033707b265d8a23cbf9bf774d8d999594d1993331"
       }
     },
@@ -714125,11 +714125,11 @@ window.FULL_MARKET_DATA = {
     "country": "US",
     "phone": "713 513 2000",
     "full_address": "5599 San Felipe, Houston, TX 77056, US",
-    "range_52w": "35.29-60.46",
+    "range_52w": "35.51-60.46",
     "year_high": 60.46,
-    "year_low": 35.29,
+    "year_low": 35.51,
     "all_time_high": 0.0,
-    "all_time_low": 35.29,
+    "all_time_low": 35.51,
     "inst_ownership_pct": null,
     "insider_ownership_pct": null,
     "top_holders": [],
@@ -714287,7 +714287,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "SLB",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-11-25",
@@ -714319,11 +714319,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 1476029613,
       "shareSource": {
         "shares": 1476.029613,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/87347/000119312526435577/slb-20260930.htm",
-        "capturedAt": "2026-11-26T04:08:02Z"
+        "capturedAt": "2026-11-27T04:09:56Z"
       }
     },
     "z_score": 3.09,
@@ -714653,11 +714653,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "518.48 M",
     "shareSource": {
       "shares": 518.484224,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/821189/000082118926000227/eog-20260930.htm",
-      "capturedAt": "2026-11-26T04:08:09Z"
+      "capturedAt": "2026-11-27T04:10:07Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 76896.4,
@@ -717905,7 +717905,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "5ed2d6fdc7661de08d0e90ef4f00318267a75ea2c29b1b662bd5504c68303bf1"
       },
       "mScore": {
@@ -717917,7 +717917,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "5ed2d6fdc7661de08d0e90ef4f00318267a75ea2c29b1b662bd5504c68303bf1"
       }
     },
@@ -718077,7 +718077,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "EOG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-05",
       "quoteDate": "2026-11-25",
@@ -718109,11 +718109,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 518484224,
       "shareSource": {
         "shares": 518.484224,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/821189/000082118926000227/eog-20260930.htm",
-        "capturedAt": "2026-11-26T04:08:09Z"
+        "capturedAt": "2026-11-27T04:10:07Z"
       }
     },
     "z_score": 3.83,
@@ -718443,11 +718443,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "2,156.60 M",
     "shareSource": {
       "shares": 2156.604858,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1061219/000106121926000031/epd-20260930.htm",
-      "capturedAt": "2026-11-26T04:08:17Z"
+      "capturedAt": "2026-11-27T04:10:16Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 77767.2,
@@ -721694,7 +721694,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "efb1c4abb00c6ce81c4807ae789ab037af1fcdb9906d57f4f5a80b6c225034e9"
       },
       "mScore": {
@@ -721706,7 +721706,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "efb1c4abb00c6ce81c4807ae789ab037af1fcdb9906d57f4f5a80b6c225034e9"
       }
     },
@@ -721860,7 +721860,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "EPD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-04",
       "quoteDate": "2026-11-25",
@@ -721892,11 +721892,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 2156604858,
       "shareSource": {
         "shares": 2156.604858,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1061219/000106121926000031/epd-20260930.htm",
-        "capturedAt": "2026-11-26T04:08:17Z"
+        "capturedAt": "2026-11-27T04:10:16Z"
       }
     },
     "z_score": 1.98,
@@ -722190,11 +722190,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "2,228.89 M",
     "shareSource": {
       "shares": 2228.888088,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/895728/000119312526450714/enb-20260930.htm",
-      "capturedAt": "2026-11-26T04:08:25Z"
+      "capturedAt": "2026-11-27T04:10:25Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 104646.3,
@@ -725532,15 +725532,15 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "CAD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "e3b474f11c2281cdab6635088e8a604c1028ee5e98a033db54d174f962a212e1",
         "mcapFx": {
-          "asOf": "2026-11-25",
+          "asOf": "2026-11-26",
           "from": "USD",
           "to": "CAD",
           "fromUsdPerUnit": 1,
           "toUsdPerUnit": 0.6981777560566921,
-          "fromObservationDate": "2026-11-25",
+          "fromObservationDate": "2026-11-26",
           "toObservationDate": "2026-11-20"
         }
       },
@@ -725553,7 +725553,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "CAD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "e3b474f11c2281cdab6635088e8a604c1028ee5e98a033db54d174f962a212e1"
       }
     },
@@ -725797,7 +725797,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ENB",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-06",
       "quoteDate": "2026-11-25",
@@ -725830,11 +725830,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 2228888088,
       "shareSource": {
         "shares": 2228.888088,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/895728/000119312526450714/enb-20260930.htm",
-        "capturedAt": "2026-11-26T04:08:25Z"
+        "capturedAt": "2026-11-27T04:10:25Z"
       }
     },
     "z_score": 0.93,
@@ -726164,11 +726164,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "272.28 M",
     "shareSource": {
       "shares": 272.28228,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1510295/000151029526000071/mpc-20260930.htm",
-      "capturedAt": "2026-11-26T04:08:34Z"
+      "capturedAt": "2026-11-27T04:10:33Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 94283.2,
@@ -729416,7 +729416,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "2aad4cf84c31ea782cf32c18688b9044c460b826cee3d9c5b7a7826157373c5b"
       },
       "mScore": {
@@ -729428,7 +729428,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "2aad4cf84c31ea782cf32c18688b9044c460b826cee3d9c5b7a7826157373c5b"
       }
     },
@@ -729576,7 +729576,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MPC",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-03",
       "quoteDate": "2026-11-25",
@@ -729608,11 +729608,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 272282280,
       "shareSource": {
         "shares": 272.28228,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1510295/000151029526000071/mpc-20260930.htm",
-        "capturedAt": "2026-11-26T04:08:34Z"
+        "capturedAt": "2026-11-27T04:10:33Z"
       }
     },
     "z_score": 3.59,
@@ -729942,11 +729942,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "278.88 M",
     "shareSource": {
       "shares": 278.8844,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1035002/000162828026067679/vlo-20260930.htm",
-      "capturedAt": "2026-11-26T04:08:41Z"
+      "capturedAt": "2026-11-27T04:10:41Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 90079.7,
@@ -733193,7 +733193,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "dd1819e0d42d57dcf8388bc4c64f9f87f19fb581986b0f4aad148c27befc5c23"
       },
       "mScore": {
@@ -733205,7 +733205,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "dd1819e0d42d57dcf8388bc4c64f9f87f19fb581986b0f4aad148c27befc5c23"
       }
     },
@@ -733365,7 +733365,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "VLO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-11-25",
@@ -733397,11 +733397,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 278884400,
       "shareSource": {
         "shares": 278.8844,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1035002/000162828026067679/vlo-20260930.htm",
-        "capturedAt": "2026-11-26T04:08:41Z"
+        "capturedAt": "2026-11-27T04:10:41Z"
       }
     },
     "z_score": 5.39,
@@ -733731,11 +733731,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "390.07 M",
     "shareSource": {
       "shares": 390.072362,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1534701/000153470126000037/psx-20260930.htm",
-      "capturedAt": "2026-11-26T04:08:49Z"
+      "capturedAt": "2026-11-27T04:10:50Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 92088.3,
@@ -736983,7 +736983,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "0c442e009b9d1b0d63f98a4b3f2de413a4263f4417a8c941216cf472bd7f2f39"
       },
       "mScore": {
@@ -736995,7 +736995,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "0c442e009b9d1b0d63f98a4b3f2de413a4263f4417a8c941216cf472bd7f2f39"
       }
     },
@@ -737136,7 +737136,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "PSX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-11-25",
@@ -737168,11 +737168,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 390072362,
       "shareSource": {
         "shares": 390.072362,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1534701/000153470126000037/psx-20260930.htm",
-        "capturedAt": "2026-11-26T04:08:49Z"
+        "capturedAt": "2026-11-27T04:10:50Z"
       }
     },
     "z_score": 4.05,
@@ -737502,11 +737502,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "999.89 M",
     "shareSource": {
       "shares": 999.894745,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/797468/000162828026072198/oxy-20260930.htm",
-      "capturedAt": "2026-11-26T04:08:57Z"
+      "capturedAt": "2026-11-27T04:10:59Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 53944.3,
@@ -740754,7 +740754,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "10451b52650ac35b594f23c56f059b46619849f299dff964e7a2a1fc226910d3"
       },
       "mScore": {
@@ -740766,7 +740766,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "10451b52650ac35b594f23c56f059b46619849f299dff964e7a2a1fc226910d3"
       }
     },
@@ -740920,7 +740920,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "OXY",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-09",
       "quoteDate": "2026-11-25",
@@ -740952,11 +740952,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 999894745,
       "shareSource": {
         "shares": 999.894745,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/797468/000162828026072198/oxy-20260930.htm",
-        "capturedAt": "2026-11-26T04:08:57Z"
+        "capturedAt": "2026-11-27T04:10:59Z"
       }
     },
     "z_score": 1.39,
@@ -741286,11 +741286,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "2,227.72 M",
     "shareSource": {
       "shares": 2227.715229,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1506307/000150630726000132/kmi-20260930.htm",
-      "capturedAt": "2026-11-26T04:09:04Z"
+      "capturedAt": "2026-11-27T04:11:07Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 70596.3,
@@ -744537,7 +744537,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "0ff5d59e380990fb7121ab47dd276dd57e9a62aab8a1785e7cbb639823db3609"
       },
       "mScore": {
@@ -744549,7 +744549,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "0ff5d59e380990fb7121ab47dd276dd57e9a62aab8a1785e7cbb639823db3609"
       }
     },
@@ -744690,7 +744690,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "KMI",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-23",
       "quoteDate": "2026-11-25",
@@ -744722,11 +744722,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 2227715229,
       "shareSource": {
         "shares": 2227.715229,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1506307/000150630726000132/kmi-20260930.htm",
-        "capturedAt": "2026-11-26T04:09:04Z"
+        "capturedAt": "2026-11-27T04:11:07Z"
       }
     },
     "z_score": 1.29,
@@ -745056,11 +745056,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "1,250.20 M",
     "shareSource": {
       "shares": 1250.2,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/99250/000010726326000036/wmb-20260930.htm",
-      "capturedAt": "2026-11-26T04:09:12Z"
+      "capturedAt": "2026-11-27T04:11:16Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 83075.8,
@@ -748307,7 +748307,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "a21ccb1bb383fbb17f70b27ba5d2759d48c4ff20862c5b0ea1cbb20f88310bfd"
       },
       "mScore": {
@@ -748319,7 +748319,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "a21ccb1bb383fbb17f70b27ba5d2759d48c4ff20862c5b0ea1cbb20f88310bfd"
       }
     },
@@ -748497,7 +748497,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "WMB",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-02",
       "quoteDate": "2026-11-25",
@@ -748529,11 +748529,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 1250200000,
       "shareSource": {
         "shares": 1250.2,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/99250/000010726326000036/wmb-20260930.htm",
-        "capturedAt": "2026-11-26T04:09:12Z"
+        "capturedAt": "2026-11-27T04:11:16Z"
       }
     },
     "z_score": 1.28,
@@ -748863,11 +748863,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "827.13 M",
     "shareSource": {
       "shares": 827.126342,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/45012/000004501226000074/hal-20260930.htm",
-      "capturedAt": "2026-11-26T04:09:31Z"
+      "capturedAt": "2026-11-27T04:11:24Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 26145.5,
@@ -752115,7 +752115,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "efe50f8aa5622d51efe3d5a714bed364138eec5983325614acdf16b99aecae25"
       },
       "mScore": {
@@ -752127,7 +752127,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "efe50f8aa5622d51efe3d5a714bed364138eec5983325614acdf16b99aecae25"
       }
     },
@@ -752149,11 +752149,11 @@ window.FULL_MARKET_DATA = {
     "country": "US",
     "phone": "281 871 2699",
     "full_address": "3000 North Sam Houston Parkway East, Houston, TX 77032, US",
-    "range_52w": "25.59-43.59",
+    "range_52w": "25.63-43.59",
     "year_high": 43.59,
-    "year_low": 25.59,
+    "year_low": 25.63,
     "all_time_high": 0.0,
-    "all_time_low": 25.59,
+    "all_time_low": 25.63,
     "inst_ownership_pct": null,
     "insider_ownership_pct": null,
     "top_holders": [],
@@ -752299,7 +752299,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "HAL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-23",
       "quoteDate": "2026-11-25",
@@ -752331,11 +752331,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 827126342,
       "shareSource": {
         "shares": 827.126342,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/45012/000004501226000074/hal-20260930.htm",
-        "capturedAt": "2026-11-26T04:09:31Z"
+        "capturedAt": "2026-11-27T04:11:24Z"
       }
     },
     "z_score": 3.48,
@@ -752665,11 +752665,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "993.08 M",
     "shareSource": {
       "shares": 993.078,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1701605/000170160526000035/bkr-20260930.htm",
-      "capturedAt": "2026-11-26T04:09:38Z"
+      "capturedAt": "2026-11-27T04:11:33Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 46039.1,
@@ -755917,7 +755917,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "5fd0af787d8682018e982c6323c1b080166567b2000a1bed8309d3513c9485c8"
       },
       "mScore": {
@@ -755929,7 +755929,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "5fd0af787d8682018e982c6323c1b080166567b2000a1bed8309d3513c9485c8"
       }
     },
@@ -756070,7 +756070,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "BKR",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-11-25",
@@ -756102,11 +756102,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 993078000,
       "shareSource": {
         "shares": 993.078,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1701605/000170160526000035/bkr-20260930.htm",
-        "capturedAt": "2026-11-26T04:09:38Z"
+        "capturedAt": "2026-11-27T04:11:33Z"
       }
     },
     "z_score": 2.23,
@@ -756436,11 +756436,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "459.08 M",
     "shareSource": {
       "shares": 459.084,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1707925/000162828026068079/lin-20260930.htm",
-      "capturedAt": "2026-11-26T04:09:46Z"
+      "capturedAt": "2026-11-27T04:11:41Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 240840.1,
@@ -759681,7 +759681,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "32c844f344aa628da1de92461107a11c3c32d7ecd51686839a3db5aaf37bf329"
       },
       "mScore": {
@@ -759693,7 +759693,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "32c844f344aa628da1de92461107a11c3c32d7ecd51686839a3db5aaf37bf329"
       }
     },
@@ -759841,7 +759841,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "LIN",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-11-25",
@@ -759873,11 +759873,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 459084000,
       "shareSource": {
         "shares": 459.084,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1707925/000162828026068079/lin-20260930.htm",
-        "capturedAt": "2026-11-26T04:09:46Z"
+        "capturedAt": "2026-11-27T04:11:41Z"
       }
     },
     "z_score": 4.05,
@@ -760207,11 +760207,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "241.59 M",
     "shareSource": {
       "shares": 241.588072,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/89800/000008980026000056/shw-20260930.htm",
-      "capturedAt": "2026-11-26T04:09:53Z"
+      "capturedAt": "2026-11-27T04:11:50Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 87218.1,
@@ -763456,7 +763456,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "7adf156539bcd304442414b2bfb19f27e04265ea388087e0c1883c619f0039a5"
       },
       "mScore": {
@@ -763468,7 +763468,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "7adf156539bcd304442414b2bfb19f27e04265ea388087e0c1883c619f0039a5"
       }
     },
@@ -763646,7 +763646,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "SHW",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-27",
       "quoteDate": "2026-11-25",
@@ -763678,11 +763678,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 241588072,
       "shareSource": {
         "shares": 241.588072,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/89800/000008980026000056/shw-20260930.htm",
-        "capturedAt": "2026-11-26T04:09:53Z"
+        "capturedAt": "2026-11-27T04:11:50Z"
       }
     },
     "z_score": 3.86,
@@ -764012,11 +764012,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "1,437.56 M",
     "shareSource": {
       "shares": 1437.559865,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/831259/000083125926000051/fcx-20260930.htm",
-      "capturedAt": "2026-11-26T04:10:01Z"
+      "capturedAt": "2026-11-27T04:11:58Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 69822.3,
@@ -767264,7 +767264,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "fc8dc0105971641e49046952fa551fd88cd1fd0ebbf1c48f986619c59f579211"
       },
       "mScore": {
@@ -767276,7 +767276,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "fc8dc0105971641e49046952fa551fd88cd1fd0ebbf1c48f986619c59f579211"
       }
     },
@@ -767424,7 +767424,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "FCX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-06",
       "quoteDate": "2026-11-25",
@@ -767456,11 +767456,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 1437559865,
       "shareSource": {
         "shares": 1437.559865,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/831259/000083125926000051/fcx-20260930.htm",
-        "capturedAt": "2026-11-26T04:10:01Z"
+        "capturedAt": "2026-11-27T04:11:58Z"
       }
     },
     "z_score": 2.55,
@@ -767790,11 +767790,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "1,039.19 M",
     "shareSource": {
       "shares": 1039.193185,
-      "date": "2026-11-25",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1164727/000116472726000043/nem-20260930.htm",
-      "capturedAt": "2026-11-26T04:10:09Z"
+      "capturedAt": "2026-11-27T04:12:08Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 105415.8,
@@ -771042,7 +771042,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "514972fab3d15c1b3465d786ab73d8c41da130716b779cf5525c1aab1c95e4c3"
       },
       "mScore": {
@@ -771054,7 +771054,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "514972fab3d15c1b3465d786ab73d8c41da130716b779cf5525c1aab1c95e4c3"
       }
     },
@@ -771076,11 +771076,11 @@ window.FULL_MARKET_DATA = {
     "country": "US",
     "phone": "303 863 7414",
     "full_address": "6900 East Layton Avenue, Denver, CO 80237, US",
-    "range_52w": "87.17-135.29",
+    "range_52w": "88.25-135.29",
     "year_high": 135.29,
-    "year_low": 87.17,
+    "year_low": 88.25,
     "all_time_high": 0.0,
-    "all_time_low": 87.17,
+    "all_time_low": 88.25,
     "inst_ownership_pct": null,
     "insider_ownership_pct": null,
     "top_holders": [],
@@ -771214,7 +771214,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "NEM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-22",
       "quoteDate": "2026-11-25",
@@ -771246,11 +771246,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 1039193185,
       "shareSource": {
         "shares": 1039.193185,
-        "date": "2026-11-25",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1164727/000116472726000043/nem-20260930.htm",
-        "capturedAt": "2026-11-26T04:10:09Z"
+        "capturedAt": "2026-11-27T04:12:08Z"
       }
     },
     "z_score": 4.04,
@@ -771580,11 +771580,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "853.29 M",
     "shareSource": {
       "shares": 853.293,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1001838/000110465926120639/scco-20260930x10q.htm",
-      "capturedAt": "2026-11-26T04:10:17Z"
+      "capturedAt": "2026-11-27T04:12:16Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 120305.8,
@@ -774832,7 +774832,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "da89eaa460e4d54ba05972a4b53e03638c8c3d748734f260e73b7a2d37f83161"
       },
       "mScore": {
@@ -774844,7 +774844,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "da89eaa460e4d54ba05972a4b53e03638c8c3d748734f260e73b7a2d37f83161"
       }
     },
@@ -774866,11 +774866,11 @@ window.FULL_MARKET_DATA = {
     "country": "US",
     "phone": "602 264 1375",
     "full_address": "7310 North 16th St, Phoenix, AZ 85020, US",
-    "range_52w": "125.42-218.59406",
+    "range_52w": "127.92-218.59406",
     "year_high": 218.59406,
-    "year_low": 125.42,
+    "year_low": 127.92,
     "all_time_high": 0.0,
-    "all_time_low": 125.42,
+    "all_time_low": 127.92,
     "inst_ownership_pct": null,
     "insider_ownership_pct": null,
     "top_holders": [],
@@ -775016,7 +775016,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "SCCO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
       "quoteDate": "2026-11-25",
@@ -775048,11 +775048,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 853293000,
       "shareSource": {
         "shares": 853.293,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1001838/000110465926120639/scco-20260930x10q.htm",
-        "capturedAt": "2026-11-26T04:10:17Z"
+        "capturedAt": "2026-11-27T04:12:16Z"
       }
     },
     "z_score": 9.48,
@@ -775382,11 +775382,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "250.39 M",
     "shareSource": {
       "shares": 250.391293,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/51253/000005125326000041/iff-20260930.htm",
-      "capturedAt": "2026-11-26T04:10:26Z"
+      "capturedAt": "2026-11-27T04:12:25Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 21561.2,
@@ -778633,7 +778633,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "1bfbaf58c84d27f718bcbe000e0b427a652ac86f17b647c33946063706eaf31e"
       },
       "mScore": {
@@ -778645,7 +778645,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "1bfbaf58c84d27f718bcbe000e0b427a652ac86f17b647c33946063706eaf31e"
       }
     },
@@ -778799,7 +778799,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "IFF",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-03",
       "quoteDate": "2026-11-25",
@@ -778831,11 +778831,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 250391293,
       "shareSource": {
         "shares": 250.391293,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/51253/000005125326000041/iff-20260930.htm",
-        "capturedAt": "2026-11-26T04:10:26Z"
+        "capturedAt": "2026-11-27T04:12:25Z"
       }
     },
     "z_score": 1.43,
@@ -779165,11 +779165,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "127.53 M",
     "shareSource": {
       "shares": 127.534,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/110621/000119312526415321/rpm-20260831.htm",
-      "capturedAt": "2026-11-26T04:10:33Z"
+      "capturedAt": "2026-11-27T04:12:33Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 13703.5,
@@ -782417,7 +782417,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "1de66c46810e87c5b929ffe9fe1a9963d459772a3840eef5f297a7b0a1bfb1e7"
       },
       "mScore": {
@@ -782429,7 +782429,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "1de66c46810e87c5b929ffe9fe1a9963d459772a3840eef5f297a7b0a1bfb1e7"
       }
     },
@@ -782631,7 +782631,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "RPM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-08-31",
       "filingDate": "2026-10-06",
       "quoteDate": "2026-11-25",
@@ -782663,11 +782663,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 127534000,
       "shareSource": {
         "shares": 127.534,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/110621/000119312526415321/rpm-20260831.htm",
-        "capturedAt": "2026-11-26T04:10:33Z"
+        "capturedAt": "2026-11-27T04:12:33Z"
       }
     },
     "z_score": 3.77,
@@ -782997,11 +782997,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "128.34 M",
     "shareSource": {
       "shares": 128.344422,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1396009/000162828026068102/vmc-20260930.htm",
-      "capturedAt": "2026-11-26T04:10:41Z"
+      "capturedAt": "2026-11-27T04:12:42Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 37345.7,
@@ -786249,7 +786249,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "8b99089e0f4f7a5ead999dddcb504b4c74342c6bd8260fed602fd7fe76697eb8"
       },
       "mScore": {
@@ -786261,7 +786261,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "8b99089e0f4f7a5ead999dddcb504b4c74342c6bd8260fed602fd7fe76697eb8"
       }
     },
@@ -786421,7 +786421,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "VMC",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-11-25",
@@ -786453,11 +786453,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 128344422,
       "shareSource": {
         "shares": 128.344422,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1396009/000162828026068102/vmc-20260930.htm",
-        "capturedAt": "2026-11-26T04:10:41Z"
+        "capturedAt": "2026-11-27T04:12:42Z"
       }
     },
     "z_score": 4.13,
@@ -786787,11 +786787,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "31.78 M",
     "shareSource": {
       "shares": 31.777324,
-      "date": "2026-11-25",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/9326/000000932626000035/bcpc-20260930.htm",
-      "capturedAt": "2026-11-26T04:10:49Z"
+      "capturedAt": "2026-11-27T04:12:50Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 5348.1,
@@ -790039,7 +790039,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "fb8228933fd445f501665942761f066034c5f8f78daab00444e823b8a45b5d59"
       },
       "mScore": {
@@ -790051,7 +790051,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "fb8228933fd445f501665942761f066034c5f8f78daab00444e823b8a45b5d59"
       }
     },
@@ -790241,7 +790241,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "BCPC",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-23",
       "quoteDate": "2026-11-25",
@@ -790273,11 +790273,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 31777324,
       "shareSource": {
         "shares": 31.777324,
-        "date": "2026-11-25",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/9326/000000932626000035/bcpc-20260930.htm",
-        "capturedAt": "2026-11-26T04:10:49Z"
+        "capturedAt": "2026-11-27T04:12:50Z"
       }
     },
     "z_score": 9.57,
@@ -790607,11 +790607,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "222.68 M",
     "shareSource": {
       "shares": 222.680686,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/2969/000000296926000050/apd-20260930.htm",
-      "capturedAt": "2026-11-26T04:10:57Z"
+      "capturedAt": "2026-11-27T04:12:58Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 69979.6,
@@ -793852,7 +793852,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "647dbfe5f344a62107432aee13cf650e2a8e0ad4d3fff1714068a083f270dfe7"
       },
       "mScore": {
@@ -793864,7 +793864,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "647dbfe5f344a62107432aee13cf650e2a8e0ad4d3fff1714068a083f270dfe7"
       }
     },
@@ -794054,7 +794054,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "APD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-19",
       "quoteDate": "2026-11-25",
@@ -794086,11 +794086,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 222680686,
       "shareSource": {
         "shares": 222.680686,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/2969/000000296926000050/apd-20260930.htm",
-        "capturedAt": "2026-11-26T04:10:57Z"
+        "capturedAt": "2026-11-27T04:12:58Z"
       }
     },
     "z_score": 2.69,
@@ -794420,11 +794420,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "280.47 M",
     "shareSource": {
       "shares": 280.467785,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/31462/000162828026068208/ecl-20260930.htm",
-      "capturedAt": "2026-11-26T04:11:05Z"
+      "capturedAt": "2026-11-27T04:13:08Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 86633.7,
@@ -797672,7 +797672,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "ee74876c54faeed26a5d0c8bc55aac222d5dd151b662310c7f5c8319d0163c89"
       },
       "mScore": {
@@ -797684,7 +797684,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "ee74876c54faeed26a5d0c8bc55aac222d5dd151b662310c7f5c8319d0163c89"
       }
     },
@@ -797850,7 +797850,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "ECL",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-29",
       "quoteDate": "2026-11-25",
@@ -797882,11 +797882,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 280467785,
       "shareSource": {
         "shares": 280.467785,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/31462/000162828026068208/ecl-20260930.htm",
-        "capturedAt": "2026-11-26T04:11:05Z"
+        "capturedAt": "2026-11-27T04:13:08Z"
       }
     },
     "z_score": 5.26,
@@ -798216,11 +798216,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "667.32 M",
     "shareSource": {
       "shares": 667.323,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/30554/000175567226000035/ctva-20260930.htm",
-      "capturedAt": "2026-11-26T04:11:14Z"
+      "capturedAt": "2026-11-27T04:13:17Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 5492.1,
@@ -801467,7 +801467,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "46c3de5b32d7953c470598e77d11fee7e303820e3a275dcb230f3b8964c4866f"
       },
       "mScore": {
@@ -801479,7 +801479,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "46c3de5b32d7953c470598e77d11fee7e303820e3a275dcb230f3b8964c4866f"
       }
     },
@@ -801627,7 +801627,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CTVA",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-12",
       "quoteDate": "2026-11-25",
@@ -801659,11 +801659,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 667323000,
       "shareSource": {
         "shares": 667.323,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/30554/000175567226000035/ctva-20260930.htm",
-        "capturedAt": "2026-11-26T04:11:14Z"
+        "capturedAt": "2026-11-27T04:13:17Z"
       }
     },
     "z_score": 0.87,
@@ -801997,11 +801997,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "723.88 M",
     "shareSource": {
       "shares": 723.881907,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/29915/000175178826000160/dow-20260930.htm",
-      "capturedAt": "2026-11-26T04:11:35Z"
+      "capturedAt": "2026-11-27T04:13:25Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 21470.3,
@@ -805249,7 +805249,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "fcb2e0276c682f34e4674d15549a079c13cfd930963f5721f996f15dad3315b8"
       },
       "mScore": {
@@ -805261,7 +805261,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "fcb2e0276c682f34e4674d15549a079c13cfd930963f5721f996f15dad3315b8"
       }
     },
@@ -805402,7 +805402,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "DOW",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-23",
       "quoteDate": "2026-11-25",
@@ -805434,11 +805434,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 723881907,
       "shareSource": {
         "shares": 723.881907,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/29915/000175178826000160/dow-20260930.htm",
-        "capturedAt": "2026-11-26T04:11:35Z"
+        "capturedAt": "2026-11-27T04:13:25Z"
       }
     },
     "z_score": 1.49,
@@ -805768,11 +805768,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "132.53 M",
     "shareSource": {
       "shares": 132.532338,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000060/dd-20260930.htm",
-      "capturedAt": "2026-11-26T04:11:43Z"
+      "capturedAt": "2026-11-27T04:13:33Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 20359.6,
@@ -809019,7 +809019,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "a47e7131dd6be1af44c080f4aa450d13d1abb55770974091d630c9677b51fb48"
       },
       "mScore": {
@@ -809031,7 +809031,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "a47e7131dd6be1af44c080f4aa450d13d1abb55770974091d630c9677b51fb48"
       }
     },
@@ -809053,11 +809053,11 @@ window.FULL_MARKET_DATA = {
     "country": "US",
     "phone": "302 774 3034",
     "full_address": "Building 730, Wilmington, DE 19805, US",
-    "range_52w": "116.34-159.48",
+    "range_52w": "116.79-159.48",
     "year_high": 159.48,
-    "year_low": 116.34,
+    "year_low": 116.79,
     "all_time_high": 0.0,
-    "all_time_low": 116.34,
+    "all_time_low": 116.79,
     "inst_ownership_pct": null,
     "insider_ownership_pct": null,
     "top_holders": [],
@@ -809221,7 +809221,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "DD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-03",
       "quoteDate": "2026-11-25",
@@ -809253,11 +809253,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 132532338,
       "shareSource": {
         "shares": 132.532338,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000060/dd-20260930.htm",
-        "capturedAt": "2026-11-26T04:11:43Z"
+        "capturedAt": "2026-11-27T04:13:33Z"
       }
     },
     "z_score": 0.64,
@@ -809587,11 +809587,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "60.07 M",
     "shareSource": {
       "shares": 60.0658,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/916076/000119312526447418/mlm-20260930.htm",
-      "capturedAt": "2026-11-26T04:11:51Z"
+      "capturedAt": "2026-11-27T04:13:42Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 32227.7,
@@ -812839,7 +812839,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "7107ec21755d8b4fc9c6487c2aec2e00053cc3146c99419742841b3bc7d20bed"
       },
       "mScore": {
@@ -812851,7 +812851,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "7107ec21755d8b4fc9c6487c2aec2e00053cc3146c99419742841b3bc7d20bed"
       }
     },
@@ -812992,7 +812992,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "MLM",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-04",
       "quoteDate": "2026-11-25",
@@ -813024,11 +813024,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 60065800,
       "shareSource": {
         "shares": 60.0658,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/916076/000119312526447418/mlm-20260930.htm",
-        "capturedAt": "2026-11-26T04:11:51Z"
+        "capturedAt": "2026-11-27T04:13:42Z"
       }
     },
     "z_score": 3.44,
@@ -813358,11 +813358,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "2,097.31 M",
     "shareSource": {
       "shares": 2097.306049,
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/37634/000075330826000081/nee-20260930.htm",
-      "capturedAt": "2026-11-26T04:11:59Z"
+      "capturedAt": "2026-11-27T04:13:50Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 179130.9,
@@ -816609,7 +816609,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "f0f6b40a50a2590be7d49fed9d2090660fcf3b054c6032670339858c86b61f25"
       },
       "mScore": {
@@ -816621,7 +816621,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "f0f6b40a50a2590be7d49fed9d2090660fcf3b054c6032670339858c86b61f25"
       }
     },
@@ -816781,7 +816781,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "NEE",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-21",
       "quoteDate": "2026-11-25",
@@ -816813,11 +816813,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 2097306048,
       "shareSource": {
         "shares": 2097.306049,
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/37634/000075330826000081/nee-20260930.htm",
-        "capturedAt": "2026-11-26T04:11:59Z"
+        "capturedAt": "2026-11-27T04:13:50Z"
       }
     },
     "z_score": 1.18,
@@ -817147,11 +817147,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "1,164.26 M",
     "shareSource": {
       "shares": 1164.26,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/3153/000009212226000069/so-20260930.htm",
-      "capturedAt": "2026-11-26T04:12:19Z"
+      "capturedAt": "2026-11-27T04:13:58Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 110604.7,
@@ -820399,7 +820399,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "f3ae28be1231cff87730e7833801462ba59dafab130d5832ad7d0f8b8d7cf339"
       },
       "mScore": {
@@ -820411,7 +820411,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "f3ae28be1231cff87730e7833801462ba59dafab130d5832ad7d0f8b8d7cf339"
       }
     },
@@ -820565,7 +820565,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "SO",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-05",
       "quoteDate": "2026-11-25",
@@ -820597,11 +820597,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 1164260000,
       "shareSource": {
         "shares": 1164.26,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/3153/000009212226000069/so-20260930.htm",
-        "capturedAt": "2026-11-26T04:12:19Z"
+        "capturedAt": "2026-11-27T04:13:58Z"
       }
     },
     "z_score": 1.02,
@@ -820931,11 +820931,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "779.71 M",
     "shareSource": {
       "shares": 779.708,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/17797/000132616026000051/duk-20260930.htm",
-      "capturedAt": "2026-11-26T04:12:37Z"
+      "capturedAt": "2026-11-27T04:14:07Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 102843.5,
@@ -824183,7 +824183,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "fe4b7a6e175f1ca0f8c74c8d0a300464f7ac69e42b3ac6a5153161eab2be9cb0"
       },
       "mScore": {
@@ -824195,7 +824195,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "fe4b7a6e175f1ca0f8c74c8d0a300464f7ac69e42b3ac6a5153161eab2be9cb0"
       }
     },
@@ -824361,7 +824361,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "DUK",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-05",
       "quoteDate": "2026-11-25",
@@ -824393,11 +824393,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 779708000,
       "shareSource": {
         "shares": 779.708,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/17797/000132616026000051/duk-20260930.htm",
-        "capturedAt": "2026-11-26T04:12:37Z"
+        "capturedAt": "2026-11-27T04:14:07Z"
       }
     },
     "z_score": 0.73,
@@ -824727,11 +824727,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "354.31 M",
     "shareSource": {
       "shares": 354.30737,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1168165/000186827526000119/ceg-20260930.htm",
-      "capturedAt": "2026-11-26T04:12:57Z"
+      "capturedAt": "2026-11-27T04:14:15Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 83361.4,
@@ -827972,7 +827972,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "121faac6cc1947a4ea0fe187125159beb0d990ead351cc2298d84cdf20497b41"
       },
       "mScore": {
@@ -827984,7 +827984,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "121faac6cc1947a4ea0fe187125159beb0d990ead351cc2298d84cdf20497b41"
       }
     },
@@ -828125,7 +828125,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CEG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-09",
       "quoteDate": "2026-11-25",
@@ -828157,11 +828157,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 354307370,
       "shareSource": {
         "shares": 354.30737,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1168165/000186827526000119/ceg-20260930.htm",
-        "capturedAt": "2026-11-26T04:12:57Z"
+        "capturedAt": "2026-11-27T04:14:15Z"
       }
     },
     "z_score": 2.03,
@@ -828491,11 +828491,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "199.10 M",
     "shareSource": {
       "shares": 199.104661,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1410636/000141063626000149/awk-20260930.htm",
-      "capturedAt": "2026-11-26T04:13:05Z"
+      "capturedAt": "2026-11-27T04:14:23Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 30431.2,
@@ -831743,7 +831743,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "d56001916ca994513ddca41ff4c00310717b8b91833c7c4eaaf28bf79954537e"
       },
       "mScore": {
@@ -831755,7 +831755,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "d56001916ca994513ddca41ff4c00310717b8b91833c7c4eaaf28bf79954537e"
       }
     },
@@ -831777,8 +831777,8 @@ window.FULL_MARKET_DATA = {
     "country": "US",
     "phone": "856 955 4001",
     "full_address": "1 Water Street, Camden, NJ 08102-1658, US",
-    "range_52w": "120.57-153.79",
-    "year_high": 153.79,
+    "range_52w": "120.57-153.8",
+    "year_high": 153.8,
     "year_low": 120.57,
     "all_time_high": 0.0,
     "all_time_low": 120.57,
@@ -831896,7 +831896,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AWK",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-11-25",
@@ -831928,11 +831928,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 199104661,
       "shareSource": {
         "shares": 199.104661,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1410636/000141063626000149/awk-20260930.htm",
-        "capturedAt": "2026-11-26T04:13:05Z"
+        "capturedAt": "2026-11-27T04:14:23Z"
       }
     },
     "z_score": 1.09,
@@ -832262,11 +832262,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "653.90 M",
     "shareSource": {
       "shares": 653.9,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/86521/000103220826000054/sre-20260930.htm",
-      "capturedAt": "2026-11-26T04:13:25Z"
+      "capturedAt": "2026-11-27T04:14:32Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 51717.0,
@@ -835514,7 +835514,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "7570c2e08804e26d0c0b4f27f6f1c40c3bf334533ba7e2861eb25f2c1e9d589a"
       },
       "mScore": {
@@ -835526,7 +835526,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "7570c2e08804e26d0c0b4f27f6f1c40c3bf334533ba7e2861eb25f2c1e9d589a"
       }
     },
@@ -835686,7 +835686,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "SRE",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-05",
       "quoteDate": "2026-11-25",
@@ -835718,11 +835718,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 653900000,
       "shareSource": {
         "shares": 653.9,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/86521/000103220826000054/sre-20260930.htm",
-        "capturedAt": "2026-11-26T04:13:25Z"
+        "capturedAt": "2026-11-27T04:14:32Z"
       }
     },
     "z_score": 1.06,
@@ -836052,11 +836052,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "544.53 M",
     "shareSource": {
       "shares": 544.526,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/4904/000000490426000072/aep-20260930.htm",
-      "capturedAt": "2026-11-26T04:13:44Z"
+      "capturedAt": "2026-11-27T04:14:40Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 69476.1,
@@ -839304,7 +839304,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "63c2e0a1c2fa09ef25876d67e57f5ed17692acfaf77013d64efd60a4adac300e"
       },
       "mScore": {
@@ -839316,7 +839316,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "63c2e0a1c2fa09ef25876d67e57f5ed17692acfaf77013d64efd60a4adac300e"
       }
     },
@@ -839464,7 +839464,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AEP",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-11-25",
@@ -839496,11 +839496,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 544526000,
       "shareSource": {
         "shares": 544.526,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/4904/000000490426000072/aep-20260930.htm",
-        "capturedAt": "2026-11-26T04:13:44Z"
+        "capturedAt": "2026-11-27T04:14:40Z"
       }
     },
     "z_score": 0.95,
@@ -839830,11 +839830,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "879.57 M",
     "shareSource": {
       "shares": 879.566,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/103682/000119312526440697/d-20260930.htm",
-      "capturedAt": "2026-11-26T04:13:51Z"
+      "capturedAt": "2026-11-27T04:14:48Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 59801.7,
@@ -843081,7 +843081,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "561deef7a5e55956d1ff8b63e4257caeba4245ee45b947932b41e38e5b3d2593"
       },
       "mScore": {
@@ -843093,7 +843093,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "561deef7a5e55956d1ff8b63e4257caeba4245ee45b947932b41e38e5b3d2593"
       }
     },
@@ -843253,7 +843253,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "D",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-30",
       "quoteDate": "2026-11-25",
@@ -843285,11 +843285,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 879566000,
       "shareSource": {
         "shares": 879.566,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/103682/000119312526440697/d-20260930.htm",
-        "capturedAt": "2026-11-26T04:13:51Z"
+        "capturedAt": "2026-11-27T04:14:48Z"
       }
     },
     "z_score": 0.74,
@@ -843619,11 +843619,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "950.51 M",
     "shareSource": {
       "shares": 950.513,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1045609/000119312526436160/pld-20260930.htm",
-      "capturedAt": "2026-11-26T04:14:11Z"
+      "capturedAt": "2026-11-27T04:14:57Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 120791.2,
@@ -846871,7 +846871,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "3c6fd1f8c79e320917ba5b6ea6514dd392d0d166813bc4345d769cce1ce8e903"
       },
       "mScore": {
@@ -846883,7 +846883,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "3c6fd1f8c79e320917ba5b6ea6514dd392d0d166813bc4345d769cce1ce8e903"
       }
     },
@@ -847024,7 +847024,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "PLD",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-11-25",
@@ -847056,11 +847056,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 950513000,
       "shareSource": {
         "shares": 950.513,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1045609/000119312526436160/pld-20260930.htm",
-        "capturedAt": "2026-11-26T04:14:11Z"
+        "capturedAt": "2026-11-27T04:14:57Z"
       }
     },
     "z_score": 1.94,
@@ -847390,11 +847390,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "463.76 M",
     "shareSource": {
       "shares": 463.764,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1053507/000105350726000157/amt-20260930.htm",
-      "capturedAt": "2026-11-26T04:14:19Z"
+      "capturedAt": "2026-11-27T04:15:05Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 85606.2,
@@ -850642,7 +850642,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "750d2d0a7e3706292725b3beef6b621a51f8b3e3f4a28392246a823dbb91c8f4"
       },
       "mScore": {
@@ -850654,7 +850654,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "750d2d0a7e3706292725b3beef6b621a51f8b3e3f4a28392246a823dbb91c8f4"
       }
     },
@@ -850795,7 +850795,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "AMT",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-27",
       "quoteDate": "2026-11-25",
@@ -850827,11 +850827,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 463764000,
       "shareSource": {
         "shares": 463.764,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1053507/000105350726000157/amt-20260930.htm",
-        "capturedAt": "2026-11-26T04:14:19Z"
+        "capturedAt": "2026-11-27T04:15:05Z"
       }
     },
     "z_score": 1.18,
@@ -851161,11 +851161,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "98.99 M",
     "shareSource": {
       "shares": 98.9883,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1101239/000110123926000180/eqix-20260930.htm",
-      "capturedAt": "2026-11-26T04:14:26Z"
+      "capturedAt": "2026-11-27T04:15:13Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 96832.3,
@@ -854413,7 +854413,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "2d90ca559c7aab2a463cb42ce3e8580e0ff8b1c0022bc57d2e022f774a4dc778"
       },
       "mScore": {
@@ -854425,7 +854425,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "2d90ca559c7aab2a463cb42ce3e8580e0ff8b1c0022bc57d2e022f774a4dc778"
       }
     },
@@ -854573,7 +854573,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "EQIX",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-11-25",
@@ -854605,11 +854605,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 98988300,
       "shareSource": {
         "shares": 98.9883,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1101239/000110123926000180/eqix-20260930.htm",
-        "capturedAt": "2026-11-26T04:14:26Z"
+        "capturedAt": "2026-11-27T04:15:13Z"
       }
     },
     "z_score": 2.46,
@@ -854939,11 +854939,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "323.55 M",
     "shareSource": {
       "shares": 323.551,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1022344/000110465926123591/spg-20260930x10q.htm",
-      "capturedAt": "2026-11-26T04:14:45Z"
+      "capturedAt": "2026-11-27T04:15:22Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 75704.5,
@@ -858186,7 +858186,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "f5e4e0ae05bc920cd60ab80bc79be8a657e2fe5761d3c7ff225a8c36b43cdbfb"
       },
       "mScore": {
@@ -858198,7 +858198,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "f5e4e0ae05bc920cd60ab80bc79be8a657e2fe5761d3c7ff225a8c36b43cdbfb"
       }
     },
@@ -858352,7 +858352,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "SPG",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-06",
       "quoteDate": "2026-11-25",
@@ -858384,11 +858384,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 323551000,
       "shareSource": {
         "shares": 323.551,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1022344/000110465926123591/spg-20260930x10q.htm",
-        "capturedAt": "2026-11-26T04:14:45Z"
+        "capturedAt": "2026-11-27T04:15:22Z"
       }
     },
     "z_score": 1.58,
@@ -858718,11 +858718,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "402.34 M",
     "shareSource": {
       "shares": 402.337328,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1057352/000105735226000083/csgp-20260930.htm",
-      "capturedAt": "2026-11-26T04:14:53Z"
+      "capturedAt": "2026-11-27T04:15:30Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 13687.5,
@@ -861964,7 +861964,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "44eede5785269c606d07d10644f6e67005845e4013fb63a54bcd3e65f4450977"
       },
       "mScore": {
@@ -861976,7 +861976,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "44eede5785269c606d07d10644f6e67005845e4013fb63a54bcd3e65f4450977"
       }
     },
@@ -862124,7 +862124,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "CSGP",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-11-25",
@@ -862156,11 +862156,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 402337328,
       "shareSource": {
         "shares": 402.337328,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1057352/000105735226000083/csgp-20260930.htm",
-        "capturedAt": "2026-11-26T04:14:53Z"
+        "capturedAt": "2026-11-27T04:15:30Z"
       }
     },
     "z_score": 4.58,
@@ -862490,11 +862490,11 @@ window.FULL_MARKET_DATA = {
     "shares_display": "1,101.09 M",
     "shareSource": {
       "shares": 1101.085584,
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/1705696/000170569626000120/vici-20260930.htm",
-      "capturedAt": "2026-11-26T04:15:02Z"
+      "capturedAt": "2026-11-27T04:15:38Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 27659.3,
@@ -865734,7 +865734,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "d6cc7fdca872e5320ebdc2e19578f24e3ca49d55dd80833aebe96625842b750a"
       },
       "mScore": {
@@ -865746,7 +865746,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "d6cc7fdca872e5320ebdc2e19578f24e3ca49d55dd80833aebe96625842b750a"
       }
     },
@@ -865887,7 +865887,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "VICI",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-10-28",
       "quoteDate": "2026-11-25",
@@ -865919,11 +865919,11 @@ window.FULL_MARKET_DATA = {
       "sharesOutstanding": 1101085584,
       "shareSource": {
         "shares": 1101.085584,
-        "date": "2026-11-25",
+        "date": "2026-11-26",
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/1705696/000170569626000120/vici-20260930.htm",
-        "capturedAt": "2026-11-26T04:15:02Z"
+        "capturedAt": "2026-11-27T04:15:38Z"
       }
     },
     "z_score": 1.8,
@@ -866257,7 +866257,7 @@ window.FULL_MARKET_DATA = {
       "basis": "commonSharesOutstandingExcludingTreasury",
       "source": "FMP shares-float outstandingShares",
       "providerSource": "https://www.sec.gov/Archives/edgar/data/726728/000072672826000059/o-20260930.htm",
-      "capturedAt": "2026-11-26T04:15:10Z"
+      "capturedAt": "2026-11-27T04:15:47Z"
     },
     "shareBasis": "commonSharesOutstandingExcludingTreasury",
     "mcap": 57297.6,
@@ -869502,7 +869502,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "185490af1591e05d64cb7c756bf6e722eecbd56368f301a97b14a1471bc87c7b"
       },
       "mScore": {
@@ -869514,7 +869514,7 @@ window.FULL_MARKET_DATA = {
         "reason": null,
         "scoringCurrency": "USD",
         "applicability": null,
-        "checkedAt": "2026-11-26T04:15:30.002Z",
+        "checkedAt": "2026-11-27T04:16:04.892Z",
         "evidenceHash": "185490af1591e05d64cb7c756bf6e722eecbd56368f301a97b14a1471bc87c7b"
       }
     },
@@ -869668,7 +869668,7 @@ window.FULL_MARKET_DATA = {
       "ticker": "O",
       "currency": "USD",
       "source": "FMP stable balance-sheet-statement and quote",
-      "fetchedAt": "2026-11-26T04:40:15.788482+00:00",
+      "fetchedAt": "2026-11-27T04:41:27.827000+00:00",
       "balanceDate": "2026-09-30",
       "filingDate": "2026-11-03",
       "quoteDate": "2026-11-25",
@@ -869704,7 +869704,7 @@ window.FULL_MARKET_DATA = {
         "basis": "commonSharesOutstandingExcludingTreasury",
         "source": "FMP shares-float outstandingShares",
         "providerSource": "https://www.sec.gov/Archives/edgar/data/726728/000072672826000059/o-20260930.htm",
-        "capturedAt": "2026-11-26T04:15:10Z"
+        "capturedAt": "2026-11-27T04:15:47Z"
       }
     },
     "z_score": 0.95,

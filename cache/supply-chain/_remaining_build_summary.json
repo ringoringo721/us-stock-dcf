@@ -2,18 +2,13 @@
   "bandMin": 0.0,
   "bandMax": 50000000000.0,
   "bandTotal": 1041,
-  "written": 6,
+  "written": 1,
   "skippedExisting": [],
   "failures": [],
   "tickers": [
-    "UAL",
-    "RYAAY",
-    "LUV",
-    "LTM",
-    "AAL",
-    "CPA"
+    "LLYVK"
   ],
   "dryRun": false,
-  "date": "2026-11-25",
+  "date": "2026-11-26",
   "chartsDir": "/agent/repos/us-stock-dcf/cache/price_charts"
 }

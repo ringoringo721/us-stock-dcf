@@ -3415,28 +3415,23 @@
   "MAR": [
     [
       "HLT",
-      "國際飯店對手",
-      "Global hotel rival"
-    ],
-    [
-      "H",
-      "國際飯店對手",
-      "Global hotel rival"
-    ],
-    [
-      "ABNB",
-      "短租替代",
-      "Short-let substitute"
-    ],
-    [
-      "BKNG",
-      "OTA 分銷壓力",
-      "OTA distribution pressure"
+      "全球酒店品牌對手",
+      "Global hotel-brand rival"
     ],
     [
       "IHG",
-      "國際飯店對手",
-      "Global hotel rival"
+      "全球酒店品牌對手",
+      "Global hotel-brand rival"
+    ],
+    [
+      "H",
+      "全球酒店品牌對手",
+      "Global hotel-brand rival"
+    ],
+    [
+      "ABNB",
+      "替代住宿對手",
+      "Alternative-stay rival"
     ]
   ],
   "TJX": [
@@ -3500,11 +3495,6 @@
       "Streaming content rival"
     ],
     [
-      "WBD",
-      "串流內容對手",
-      "Streaming content rival"
-    ],
-    [
       "CMCSA",
       "串流／寬頻內容對手",
       "Streaming/broadband content rival"
@@ -3525,11 +3515,6 @@
       "NFLX",
       "串流對手",
       "Streaming rival"
-    ],
-    [
-      "WBD",
-      "串流／影視對手",
-      "Streaming/studio rival"
     ],
     [
       "CMCSA",
@@ -4963,23 +4948,23 @@
   "RCL": [
     [
       "CCL",
-      "郵輪／休閒旅遊對手",
-      "Cruise / leisure-travel rival"
+      "郵輪同業對手",
+      "Cruise-line rival"
     ],
     [
       "NCLH",
-      "郵輪／休閒旅遊對手",
-      "Cruise / leisure-travel rival"
+      "郵輪同業對手",
+      "Cruise-line rival"
     ],
     [
-      "MAR",
-      "郵輪／休閒旅遊對手",
-      "Cruise / leisure-travel rival"
+      "VIK",
+      "郵輪同業對手",
+      "Cruise-line rival"
     ],
     [
-      "HLT",
-      "郵輪／休閒旅遊對手",
-      "Cruise / leisure-travel rival"
+      "ABNB",
+      "休閒旅遊／渡假替代",
+      "Leisure travel / vacation alternative"
     ]
   ],
   "FTNT": [
@@ -5244,24 +5229,24 @@
   ],
   "HLT": [
     [
-      "RCL",
-      "郵輪／休閒旅遊對手",
-      "Cruise / leisure-travel rival"
-    ],
-    [
-      "CCL",
-      "郵輪／休閒旅遊對手",
-      "Cruise / leisure-travel rival"
-    ],
-    [
-      "NCLH",
-      "郵輪／休閒旅遊對手",
-      "Cruise / leisure-travel rival"
-    ],
-    [
       "MAR",
-      "郵輪／休閒旅遊對手",
-      "Cruise / leisure-travel rival"
+      "全球酒店品牌對手",
+      "Global hotel-brand rival"
+    ],
+    [
+      "IHG",
+      "全球酒店品牌對手",
+      "Global hotel-brand rival"
+    ],
+    [
+      "H",
+      "全球酒店品牌對手",
+      "Global hotel-brand rival"
+    ],
+    [
+      "ABNB",
+      "替代住宿對手",
+      "Alternative-stay rival"
     ]
   ],
   "MDLZ": [
@@ -9377,29 +9362,24 @@
   ],
   "LYV": [
     [
-      "NFLX",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
-    ],
-    [
-      "DIS",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "TKO",
+      "現場／體育娛樂對手",
+      "Live / sports-entertainment rival"
     ],
     [
       "FOXA",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
-    ],
-    [
-      "FOX",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "體育媒體對手",
+      "Sports-media rival"
     ],
     [
       "FWONA",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "賽事媒體對手",
+      "Motorsports-media rival"
+    ],
+    [
+      "DIS",
+      "主題娛樂／體育媒體對手",
+      "Theme/sports-media rival"
     ]
   ],
   "HLN": [
@@ -9525,23 +9505,23 @@
   "CCL": [
     [
       "RCL",
-      "郵輪／休閒旅遊對手",
-      "Cruise / leisure-travel rival"
+      "郵輪同業對手",
+      "Cruise-line rival"
     ],
     [
       "NCLH",
-      "郵輪／休閒旅遊對手",
-      "Cruise / leisure-travel rival"
+      "郵輪同業對手",
+      "Cruise-line rival"
     ],
     [
-      "MAR",
-      "郵輪／休閒旅遊對手",
-      "Cruise / leisure-travel rival"
+      "VIK",
+      "郵輪同業對手",
+      "Cruise-line rival"
     ],
     [
-      "HLT",
-      "郵輪／休閒旅遊對手",
-      "Cruise / leisure-travel rival"
+      "ABNB",
+      "休閒旅遊／渡假替代",
+      "Leisure travel / vacation alternative"
     ]
   ],
   "SLF": [
@@ -9627,29 +9607,24 @@
   ],
   "VIK": [
     [
-      "BKNG",
-      "Travel Services產品／市場對手",
-      "Travel Services product/market rival"
-    ],
-    [
-      "ABNB",
-      "Travel Services產品／市場對手",
-      "Travel Services product/market rival"
-    ],
-    [
       "RCL",
-      "Travel Services產品／市場對手",
-      "Travel Services product/market rival"
+      "郵輪同業對手",
+      "Cruise-line rival"
     ],
     [
       "CCL",
-      "Travel Services產品／市場對手",
-      "Travel Services product/market rival"
+      "郵輪同業對手",
+      "Cruise-line rival"
     ],
     [
-      "EXPE",
-      "Travel Services產品／市場對手",
-      "Travel Services product/market rival"
+      "NCLH",
+      "郵輪同業對手",
+      "Cruise-line rival"
+    ],
+    [
+      "ABNB",
+      "休閒旅遊／渡假替代",
+      "Leisure travel / vacation alternative"
     ]
   ],
   "CBRE": [
@@ -12299,29 +12274,24 @@
   ],
   "FOXA": [
     [
-      "NFLX",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
-    ],
-    [
       "DIS",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "體育／廣播媒體對手",
+      "Sports/broadcast media rival"
     ],
     [
-      "LYV",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "CMCSA",
+      "廣播／電信媒體對手",
+      "Broadcast/telecom media rival"
     ],
     [
-      "FOX",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "NFLX",
+      "串流內容對手",
+      "Streaming content rival"
     ],
     [
       "FWONA",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "賽事媒體對手",
+      "Motorsports-media rival"
     ]
   ],
   "BBD": [
@@ -12743,29 +12713,24 @@
   ],
   "FOX": [
     [
-      "NFLX",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
-    ],
-    [
       "DIS",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "體育／廣播媒體對手",
+      "Sports/broadcast media rival"
     ],
     [
-      "LYV",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "CMCSA",
+      "廣播／電信媒體對手",
+      "Broadcast/telecom media rival"
     ],
     [
-      "FOXA",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "NFLX",
+      "串流內容對手",
+      "Streaming content rival"
     ],
     [
       "FWONA",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "賽事媒體對手",
+      "Motorsports-media rival"
     ]
   ],
   "EME": [
@@ -12868,29 +12833,24 @@
   ],
   "LVS": [
     [
-      "FLUT",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
-    ],
-    [
-      "DKNG",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
-    ],
-    [
       "WYNN",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
+      "度假賭場對手",
+      "Casino-resort rival"
     ],
     [
       "MGM",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
+      "度假賭場對手",
+      "Casino-resort rival"
     ],
     [
-      "CHDN",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
+      "CZR",
+      "度假賭場對手",
+      "Casino-resort rival"
+    ],
+    [
+      "FLUT",
+      "線上博彩替代對手",
+      "Online-gaming substitute rival"
     ]
   ],
   "HAL": [
@@ -12983,24 +12943,24 @@
   ],
   "IHG": [
     [
-      "HLT",
-      "飯店對手",
-      "Hotel rival"
+      "MAR",
+      "全球酒店品牌對手",
+      "Global hotel-brand rival"
     ],
     [
-      "MAR",
-      "飯店對手",
-      "Hotel rival"
+      "HLT",
+      "全球酒店品牌對手",
+      "Global hotel-brand rival"
     ],
     [
       "H",
-      "飯店對手",
-      "Hotel rival"
+      "全球酒店品牌對手",
+      "Global hotel-brand rival"
     ],
     [
       "ABNB",
-      "飯店對手",
-      "Hotel rival"
+      "替代住宿對手",
+      "Alternative-stay rival"
     ]
   ],
   "CLS": [
@@ -13223,29 +13183,24 @@
   ],
   "FWONA": [
     [
-      "NFLX",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "FOXA",
+      "體育媒體對手",
+      "Sports-media rival"
     ],
     [
       "DIS",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "體育媒體對手",
+      "Sports-media rival"
     ],
     [
-      "LYV",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "NFLX",
+      "串流內容對手",
+      "Streaming content rival"
     ],
     [
-      "FOXA",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
-    ],
-    [
-      "FOX",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "CMCSA",
+      "廣播媒體對手",
+      "Broadcast media rival"
     ]
   ],
   "FCNCA": [
@@ -13951,29 +13906,24 @@
   ],
   "FWONK": [
     [
-      "NFLX",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "FOXA",
+      "體育媒體對手",
+      "Sports-media rival"
     ],
     [
       "DIS",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "體育媒體對手",
+      "Sports-media rival"
     ],
     [
-      "LYV",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "NFLX",
+      "串流內容對手",
+      "Streaming content rival"
     ],
     [
-      "FOXA",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
-    ],
-    [
-      "FOX",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "CMCSA",
+      "廣播媒體對手",
+      "Broadcast media rival"
     ]
   ],
   "VTRS": [
@@ -16233,24 +16183,24 @@
   ],
   "H": [
     [
-      "HLT",
-      "飯店對手",
-      "Hotel rival"
+      "MAR",
+      "全球酒店品牌對手",
+      "Global hotel-brand rival"
     ],
     [
-      "MAR",
-      "飯店對手",
-      "Hotel rival"
+      "HLT",
+      "全球酒店品牌對手",
+      "Global hotel-brand rival"
     ],
     [
       "IHG",
-      "飯店對手",
-      "Hotel rival"
+      "全球酒店品牌對手",
+      "Global hotel-brand rival"
     ],
     [
-      "ABNB",
-      "飯店對手",
-      "Hotel rival"
+      "WH",
+      "精選／特許酒店對手",
+      "Select-service hotel rival"
     ]
   ],
   "NVT": [
@@ -16402,19 +16352,19 @@
   ],
   "NWSA": [
     [
-      "NWS",
-      "Publishing產品／市場對手",
-      "Publishing product/market rival"
-    ],
-    [
       "NYT",
-      "Publishing產品／市場對手",
-      "Publishing product/market rival"
+      "新聞／出版對手",
+      "News / publishing rival"
     ],
     [
       "PSO",
-      "Publishing產品／市場對手",
-      "Publishing product/market rival"
+      "出版對手",
+      "Publishing rival"
+    ],
+    [
+      "RELX",
+      "資訊／出版對手",
+      "Info / publishing rival"
     ]
   ],
   "PFGC": [
@@ -16867,29 +16817,14 @@
   ],
   "WMG": [
     [
-      "NFLX",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
-    ],
-    [
-      "DIS",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "SONY",
+      "音樂／廠牌對手",
+      "Music / label rival"
     ],
     [
       "LYV",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
-    ],
-    [
-      "FOXA",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
-    ],
-    [
-      "FOX",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "現場音樂／娛樂對手",
+      "Live-music / entertainment rival"
     ]
   ],
   "CRL": [
@@ -17271,19 +17206,19 @@
   ],
   "NWS": [
     [
-      "NWSA",
-      "Publishing產品／市場對手",
-      "Publishing product/market rival"
-    ],
-    [
       "NYT",
-      "Publishing產品／市場對手",
-      "Publishing product/market rival"
+      "新聞／出版對手",
+      "News / publishing rival"
     ],
     [
       "PSO",
-      "Publishing產品／市場對手",
-      "Publishing product/market rival"
+      "出版對手",
+      "Publishing rival"
+    ],
+    [
+      "RELX",
+      "資訊／出版對手",
+      "Info / publishing rival"
     ]
   ],
   "EMA": [
@@ -18692,29 +18627,24 @@
   ],
   "TKO": [
     [
-      "NFLX",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
-    ],
-    [
-      "DIS",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
-    ],
-    [
       "LYV",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "現場娛樂對手",
+      "Live-entertainment rival"
     ],
     [
       "FOXA",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "體育媒體對手",
+      "Sports-media rival"
     ],
     [
-      "FOX",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "DIS",
+      "體育媒體對手",
+      "Sports-media rival"
+    ],
+    [
+      "FWONA",
+      "賽事媒體對手",
+      "Motorsports-media rival"
     ]
   ],
   "TIGO": [
@@ -21354,18 +21284,18 @@
   "NYT": [
     [
       "NWSA",
-      "Publishing產品／市場對手",
-      "Publishing product/market rival"
-    ],
-    [
-      "NWS",
-      "Publishing產品／市場對手",
-      "Publishing product/market rival"
+      "新聞／出版對手",
+      "News / publishing rival"
     ],
     [
       "PSO",
-      "Publishing產品／市場對手",
-      "Publishing product/market rival"
+      "出版對手",
+      "Publishing rival"
+    ],
+    [
+      "RELX",
+      "資訊／出版對手",
+      "Info / publishing rival"
     ]
   ],
   "DPZ": [
@@ -21942,18 +21872,18 @@
   "PSO": [
     [
       "NWSA",
-      "Publishing產品／市場對手",
-      "Publishing product/market rival"
-    ],
-    [
-      "NWS",
-      "Publishing產品／市場對手",
-      "Publishing product/market rival"
+      "新聞／出版對手",
+      "News / publishing rival"
     ],
     [
       "NYT",
-      "Publishing產品／市場對手",
-      "Publishing product/market rival"
+      "新聞／出版對手",
+      "News / publishing rival"
+    ],
+    [
+      "RELX",
+      "資訊／出版對手",
+      "Info / publishing rival"
     ]
   ],
   "EGP": [
@@ -22819,29 +22749,24 @@
   ],
   "LLYVK": [
     [
-      "NFLX",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
-    ],
-    [
-      "DIS",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
-    ],
-    [
-      "LYV",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "TKO",
+      "現場／體育娛樂對手",
+      "Live / sports-entertainment rival"
     ],
     [
       "FOXA",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "體育媒體對手",
+      "Sports-media rival"
     ],
     [
-      "FOX",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "FWONA",
+      "賽事媒體對手",
+      "Motorsports-media rival"
+    ],
+    [
+      "DIS",
+      "主題娛樂／體育媒體對手",
+      "Theme/sports-media rival"
     ]
   ],
   "DCI": [
@@ -24314,29 +24239,24 @@
   ],
   "SKYD": [
     [
-      "NFLX",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
-    ],
-    [
       "DIS",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "製片／影視對手",
+      "Studio / film rival"
     ],
     [
-      "LYV",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "NFLX",
+      "內容平台對手",
+      "Content-platform rival"
     ],
     [
       "FOXA",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "影視／電視內容對手",
+      "Film/TV content rival"
     ],
     [
-      "FOX",
-      "娛樂／串流對手",
-      "Entertainment / streaming rival"
+      "CMCSA",
+      "影視內容對手",
+      "Studio content rival"
     ]
   ],
   "MHK": [
@@ -24759,28 +24679,23 @@
   "WYNN": [
     [
       "LVS",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
-    ],
-    [
-      "FLUT",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
-    ],
-    [
-      "DKNG",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
+      "度假賭場對手",
+      "Casino-resort rival"
     ],
     [
       "MGM",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
+      "度假賭場對手",
+      "Casino-resort rival"
     ],
     [
-      "CHDN",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
+      "CZR",
+      "度假賭場對手",
+      "Casino-resort rival"
+    ],
+    [
+      "FLUT",
+      "線上博彩替代對手",
+      "Online-gaming substitute rival"
     ]
   ],
   "PTGX": [
@@ -24992,23 +24907,23 @@
   "NCLH": [
     [
       "RCL",
-      "郵輪／休閒旅遊對手",
-      "Cruise / leisure-travel rival"
+      "郵輪同業對手",
+      "Cruise-line rival"
     ],
     [
       "CCL",
-      "郵輪／休閒旅遊對手",
-      "Cruise / leisure-travel rival"
+      "郵輪同業對手",
+      "Cruise-line rival"
     ],
     [
-      "MAR",
-      "郵輪／休閒旅遊對手",
-      "Cruise / leisure-travel rival"
+      "VIK",
+      "郵輪同業對手",
+      "Cruise-line rival"
     ],
     [
-      "HLT",
-      "郵輪／休閒旅遊對手",
-      "Cruise / leisure-travel rival"
+      "ABNB",
+      "休閒旅遊／渡假替代",
+      "Leisure travel / vacation alternative"
     ]
   ],
   "EPAM": [
@@ -25102,28 +25017,23 @@
   "MGM": [
     [
       "LVS",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
-    ],
-    [
-      "FLUT",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
-    ],
-    [
-      "DKNG",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
+      "度假賭場對手",
+      "Casino-resort rival"
     ],
     [
       "WYNN",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
+      "度假賭場對手",
+      "Casino-resort rival"
     ],
     [
-      "CHDN",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
+      "BYD",
+      "度假賭場對手",
+      "Casino-resort rival"
+    ],
+    [
+      "FLUT",
+      "線上博彩替代對手",
+      "Online-gaming substitute rival"
     ]
   ],
   "CELH": [
@@ -30236,28 +30146,23 @@
   "CZR": [
     [
       "LVS",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
-    ],
-    [
-      "FLUT",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
-    ],
-    [
-      "DKNG",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
-    ],
-    [
-      "WYNN",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
+      "度假賭場對手",
+      "Casino-resort rival"
     ],
     [
       "MGM",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
+      "度假賭場對手",
+      "Casino-resort rival"
+    ],
+    [
+      "BYD",
+      "度假賭場對手",
+      "Casino-resort rival"
+    ],
+    [
+      "FLUT",
+      "線上博彩替代對手",
+      "Online-gaming substitute rival"
     ]
   ],
   "UGP": [
@@ -30786,28 +30691,23 @@
   "WH": [
     [
       "CHH",
-      "飯店營運對手",
-      "Hotel operator rival"
+      "經濟／精選酒店對手",
+      "Economy/select hotel rival"
     ],
     [
       "HLT",
-      "飯店營運對手",
-      "Hotel operator rival"
+      "酒店品牌對手",
+      "Hotel-brand rival"
     ],
     [
       "MAR",
-      "飯店營運對手",
-      "Hotel operator rival"
-    ],
-    [
-      "H",
-      "飯店營運對手",
-      "Hotel operator rival"
+      "酒店品牌對手",
+      "Hotel-brand rival"
     ],
     [
       "IHG",
-      "飯店營運對手",
-      "Hotel operator rival"
+      "酒店品牌對手",
+      "Hotel-brand rival"
     ]
   ],
   "FBIN": [
@@ -31052,29 +30952,24 @@
   ],
   "MTN": [
     [
-      "LVS",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
+      "MAR",
+      "山地／渡假住宿替代",
+      "Mountain/resort lodging alternative"
     ],
     [
-      "FLUT",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
+      "HLT",
+      "山地／渡假住宿替代",
+      "Mountain/resort lodging alternative"
     ],
     [
-      "DKNG",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
+      "H",
+      "山地／渡假住宿替代",
+      "Mountain/resort lodging alternative"
     ],
     [
-      "WYNN",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
-    ],
-    [
-      "MGM",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
+      "ABNB",
+      "替代住宿對手",
+      "Alternative-stay rival"
     ]
   ],
   "ORA": [
@@ -31594,29 +31489,24 @@
   ],
   "BYD": [
     [
+      "MGM",
+      "度假賭場對手",
+      "Casino-resort rival"
+    ],
+    [
+      "CZR",
+      "度假賭場對手",
+      "Casino-resort rival"
+    ],
+    [
       "LVS",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
+      "度假賭場對手",
+      "Casino-resort rival"
     ],
     [
       "FLUT",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
-    ],
-    [
-      "DKNG",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
-    ],
-    [
-      "WYNN",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
-    ],
-    [
-      "MGM",
-      "博弈／渡假村對手",
-      "Gaming / resort rival"
+      "線上博彩替代對手",
+      "Online-gaming substitute rival"
     ]
   ],
   "OBDC": [
@@ -32037,29 +31927,24 @@
   ],
   "CHH": [
     [
+      "WH",
+      "經濟／精選酒店對手",
+      "Economy/select hotel rival"
+    ],
+    [
       "HLT",
-      "飯店營運對手",
-      "Hotel operator rival"
+      "酒店品牌對手",
+      "Hotel-brand rival"
     ],
     [
       "MAR",
-      "飯店營運對手",
-      "Hotel operator rival"
-    ],
-    [
-      "H",
-      "飯店營運對手",
-      "Hotel operator rival"
+      "酒店品牌對手",
+      "Hotel-brand rival"
     ],
     [
       "IHG",
-      "飯店營運對手",
-      "Hotel operator rival"
-    ],
-    [
-      "WH",
-      "飯店營運對手",
-      "Hotel operator rival"
+      "酒店品牌對手",
+      "Hotel-brand rival"
     ]
   ],
   "PI": [
