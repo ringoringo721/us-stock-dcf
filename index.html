@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Keep assets rooted at / so /en|zh/.../supply-chain/{TICKER} deep links still load JS/CSS. -->
+  <base href="/">
   <title>美股 DCF 估值雷達</title>
   <script src="site_theme.js"></script>
   <script src="market_data.js?v=show-all-1"></script>
@@ -5505,8 +5507,15 @@
     const cmpView = document.getElementById('company-view');
     if (cmpView && cmpView.style.display === 'block') {
       const activePage = document.querySelector('#company-view .subpage-content.active');
-      const tab = activePage ? activePage.id.replace('subpage-', '') : 'basic';
-      loadCompanyProfile(activeCompanyTicker);
+      const pathLink = typeof parseSupplyChainPath === 'function'
+        ? parseSupplyChainPath(window.location.pathname)
+        : null;
+      const tab = pathLink
+        ? 'supply-chain'
+        : (pendingCompanyTab
+          || (activeCompanyTicker && stockUniverse[activeCompanyTicker]?.expansion?.requestedTab)
+          || (activePage ? activePage.id.replace('subpage-', '') : 'basic'));
+      loadCompanyProfile(activeCompanyTicker, { tab });
       switchSubPage(tab, false);
     }
     const rView = document.getElementById('subpage-ratios');
@@ -5528,7 +5537,18 @@
   }
 
   function toggleLanguage() {
-    applyLanguage(currentLang === 'zh' ? 'en' : 'zh');
+    const next = currentLang === 'zh' ? 'en' : 'zh';
+    applyLanguage(next);
+    // Keep /en|zh/.../supply-chain/{TICKER} in sync with the language toggle.
+    const pathLink = parseSupplyChainPath(window.location.pathname);
+    if (pathLink && activeCompanyTicker) {
+      const marketKey = pathLink.marketKey || (/\.HK$/i.test(activeCompanyTicker) ? 'hk' : 'us');
+      history.replaceState(
+        { view: 'company', ticker: activeCompanyTicker, tab: 'supply-chain' },
+        '',
+        supplyChainPathHref(next, activeCompanyTicker, marketKey) + (location.search || '')
+      );
+    }
   }
 
   function themeColor(name) {
@@ -8451,10 +8471,19 @@
     stock.expansion.status = 'loading';
     const loader = isUsExpansion ? UsUniverse.load(ticker, retry) : HkUniverse.load(ticker, retry);
     loader.then(full => {
-      stockUniverse[ticker] = { ...full, expansion: { ...full.expansion, status: 'loaded' } };
+      const requestedTab = stock.expansion.requestedTab || pendingCompanyTab || 'basic';
+      stockUniverse[ticker] = {
+        ...full,
+        expansion: { ...full.expansion, status: 'loaded', requestedTab }
+      };
       if (activeCompanyTicker !== ticker || panel.hidden) return;
       panel.hidden = true; loadedValuationTicker = null;
-      showView('company', false); switchSubPage(stock.expansion.requestedTab, false);
+      // Reveal company shell, then populate chrome + open requested tab (not always basic).
+      document.getElementById('screener-view').style.display = 'none';
+      document.getElementById('detail-view').style.display = 'none';
+      document.getElementById('company-view').style.display = 'block';
+      syncCompanyNavControls();
+      loadCompanyProfile(ticker, { tab: requestedTab });
     }).catch(error => {
       stock.expansion.status = 'loadFailed'; stock.expansion.error = error.message;
       console.error('Company evidence failed to load', ticker, error.message);
@@ -8467,7 +8496,18 @@
   function switchSubPage(tabKey, updateHistory = true) {
     const expansionStock = stockUniverse[activeCompanyTicker];
     if (expansionStock?.expansion && expansionStock.expansion.status !== 'loaded') {
-      if (updateHistory) history.pushState({ view: 'company', ticker: activeCompanyTicker, tab: tabKey }, '', `#${activeCompanyTicker}/${tabKey === 'basic' ? 'profile' : tabKey}`);
+      if (updateHistory) {
+        if (tabKey === 'supply-chain') {
+          const marketKey = /\.HK$/i.test(activeCompanyTicker) ? 'hk' : 'us';
+          history.pushState(
+            { view: 'company', ticker: activeCompanyTicker, tab: tabKey },
+            '',
+            supplyChainPathHref(currentLang, activeCompanyTicker, marketKey) + (location.search || '')
+          );
+        } else {
+          history.pushState({ view: 'company', ticker: activeCompanyTicker, tab: tabKey }, '', `#${activeCompanyTicker}/${tabKey === 'basic' ? 'profile' : tabKey}`);
+        }
+      }
       showExpansionStock(activeCompanyTicker, tabKey); return;
     }
     BalanceSheet.deactivate();
@@ -8501,8 +8541,18 @@
     if (!curStock) return;
     MarketContext.localize(document.getElementById('company-view'), I18N_DICT[currentLang], curStock);
     if (updateHistory && document.getElementById('company-view').style.display === 'block') {
-      const route = `#${curTicker}/${tabKey === 'basic' ? 'profile' : tabKey}`;
-      if (location.hash !== route) history.pushState({ view: 'company', ticker: curTicker, tab: tabKey }, '', route);
+      // Prefer path deep-links for supply-chain so /en|zh/us/supply-chain/{TICKER} works in Preview.
+      if (tabKey === 'supply-chain') {
+        const marketKey = /\.HK$/i.test(curTicker) ? 'hk' : 'us';
+        const route = supplyChainPathHref(currentLang, curTicker, marketKey);
+        const next = route + (location.search || '');
+        if (`${location.pathname}${location.search}` !== next || location.hash) {
+          history.pushState({ view: 'company', ticker: curTicker, tab: tabKey }, '', next);
+        }
+      } else {
+        const route = `#${curTicker}/${tabKey === 'basic' ? 'profile' : tabKey}`;
+        if (location.hash !== route) history.pushState({ view: 'company', ticker: curTicker, tab: tabKey }, '', route);
+      }
     }
 
     if (tabKey === 'basic') {
@@ -12634,11 +12684,21 @@
   // ========================================================
   // 5. 企業概況專頁主載入函式 (統合 7 大子分頁與 TradingView)
   // ========================================================
-  function loadCompanyProfile(ticker) {
+  let pendingCompanyTab = null;
+
+  function loadCompanyProfile(ticker, options = {}) {
     activeCompanyTicker = ticker;
     const s = stockUniverse[ticker];
     if (!s) return;
-    if (s.expansion && s.expansion.status !== 'loaded') { showExpansionStock(ticker, 'basic'); return; }
+    if (typeof options.tab === 'string' && options.tab) {
+      pendingCompanyTab = options.tab;
+      if (s.expansion) s.expansion.requestedTab = options.tab;
+    }
+    // Honor a pre-set requestedTab (e.g. /en/us/supply-chain/{TICKER} deep link) instead of always forcing basic.
+    if (s.expansion && s.expansion.status !== 'loaded') {
+      showExpansionStock(ticker, s.expansion.requestedTab || pendingCompanyTab || 'basic');
+      return;
+    }
     const propertyNote = document.getElementById('cmp-property-fv-note');
     let expansionNote = document.getElementById('cmp-expansion-note');
     if (!expansionNote) {
@@ -12778,8 +12838,15 @@
       });
     }
 
-    // 強制重設 Tab 並顯示 1. 基本資料 (Profile)
-    switchSubPage('basic', false);
+    // Default to Profile, but honor deep-link / expansion requestedTab (e.g. supply-chain path).
+    const preferredTab = (typeof options.tab === 'string' && options.tab)
+      ? options.tab
+      : (s.expansion && typeof s.expansion.requestedTab === 'string' && s.expansion.requestedTab)
+        ? s.expansion.requestedTab
+        : (pendingCompanyTab || 'basic');
+    if (s.expansion) s.expansion.requestedTab = preferredTab;
+    pendingCompanyTab = null;
+    switchSubPage(preferredTab, false);
 
     // 捲動回頂部
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -13639,7 +13706,50 @@
   // ========================================================
   // 9. 路由導航與全域數據輪詢
   // ========================================================
+  /** Deep-link: /en|zh/(us|hk)/supply-chain/{TICKER} (Vercel + local preview rewrite to index.html). */
+  function parseSupplyChainPath(pathname) {
+    const match = String(pathname || '').match(/^\/(en|zh)\/(us|hk)\/supply-chain\/([^/]+)\/?$/i);
+    if (!match) return null;
+    const ticker = decodeURIComponent(match[3]).trim().toUpperCase();
+    if (!ticker) return null;
+    return {
+      lang: match[1].toLowerCase() === 'zh' ? 'zh' : 'en',
+      marketKey: match[2].toLowerCase(),
+      ticker
+    };
+  }
+
+  function supplyChainPathHref(lang, ticker, marketKey = 'us') {
+    const locale = lang === 'zh' ? 'zh' : 'en';
+    const market = marketKey === 'hk' ? 'hk' : 'us';
+    return `/${locale}/${market}/supply-chain/${encodeURIComponent(String(ticker || '').toUpperCase())}`;
+  }
+
   function handleInitialNavigation() {
+    const pathLink = parseSupplyChainPath(window.location.pathname);
+    if (pathLink) {
+      if (currentLang !== pathLink.lang) applyLanguage(pathLink.lang);
+      const ticker = pathLink.ticker;
+      if (stockUniverse[ticker]) {
+        activeCompanyTicker = ticker;
+        pendingCompanyTab = 'supply-chain';
+        // Seed requestedTab before showView→loadCompanyProfile so expansion hubs keep SC.
+        if (stockUniverse[ticker].expansion) {
+          stockUniverse[ticker].expansion.requestedTab = 'supply-chain';
+        }
+        showView('company', false);
+        switchSubPage('supply-chain', false);
+        history.replaceState(
+          { view: 'company', ticker, tab: 'supply-chain' },
+          '',
+          supplyChainPathHref(pathLink.lang, ticker, pathLink.marketKey)
+        );
+        return;
+      }
+      // Unknown ticker on a SC deep link — fall through to screener after note.
+      console.warn('Supply-chain path ticker not in universe', ticker);
+    }
+
     const rawHash = window.location.hash.replace(/^#/, '');
     const hashUpper = rawHash.toUpperCase();
     const [pathPart, queryPart] = rawHash.split('?');
@@ -13789,7 +13899,27 @@
     UsUniverse.install();
     if (MarketContext.market === 'HKEX') data = HkUniverse.merge(window.HK_MARKET_DATA || data);
     else data = UsUniverse.merge(window.FULL_MARKET_DATA || data);
+    const previousUniverse = stockUniverse;
     stockUniverse = JSON.parse(JSON.stringify(data));
+    // Late-upgrade must not wipe in-flight expansion loads or deep-link requestedTab
+    // (e.g. /en/us/supply-chain/{TICKER} falling back to Profile).
+    if (previousUniverse && typeof previousUniverse === 'object') {
+      for (const [ticker, stock] of Object.entries(stockUniverse)) {
+        const prev = previousUniverse[ticker];
+        if (!prev) continue;
+        if (prev.expansion?.status === 'loaded') {
+          stockUniverse[ticker] = prev;
+          continue;
+        }
+        if (prev.expansion && stock.expansion) {
+          if (prev.expansion.requestedTab) stock.expansion.requestedTab = prev.expansion.requestedTab;
+          if (prev.expansion.status === 'loading' || prev.expansion.status === 'loadFailed') {
+            stock.expansion.status = prev.expansion.status;
+            if (prev.expansion.error) stock.expansion.error = prev.expansion.error;
+          }
+        }
+      }
+    }
     lastHydrateHadExpansion = MarketContext.market === 'US'
       ? !!window.US_EXPANSION
       : !!window.HKEX_EXPANSION;
@@ -13833,6 +13963,9 @@
     applyLanguage(currentLang);
     if (initial) {
       initInteractions();
+      handleInitialNavigation();
+    } else if (typeof parseSupplyChainPath === 'function' && parseSupplyChainPath(window.location.pathname)) {
+      // Re-apply SC deep link after listings→expansion late-upgrade.
       handleInitialNavigation();
     }
     const rView = document.getElementById('subpage-ratios');
