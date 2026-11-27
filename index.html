@@ -8310,14 +8310,19 @@
       }
     } else if (viewName === 'funds') {
       if (fundsView) fundsView.style.display = 'block';
-      if (pushState) history.pushState({ view: 'funds' }, '', '#funds');
+      // Clear sticky /…/supply-chain/{TICKER} pathname (fragment-only push keeps it).
+      if (pushState) history.pushState({ view: 'funds' }, '', historyUrlWithRoot('#funds'));
       renderFundsDirectory();
     } else if (viewName === 'fund') {
       if (fundView) fundView.style.display = 'block';
       if (pushState && activeFundSlug) {
         const SM = typeof SmartMoney !== 'undefined' ? SmartMoney : null;
         const route = SM ? SM.fundHref(activeFundSlug, activeFundVs) : `#fund/${activeFundSlug}`;
-        history.pushState({ view: 'fund', slug: activeFundSlug, vs: activeFundVs }, '', route);
+        history.pushState(
+          { view: 'fund', slug: activeFundSlug, vs: activeFundVs },
+          '',
+          historyUrlWithRoot(route)
+        );
       }
       if (activeFundSlug) renderFundPage(activeFundSlug, activeFundVs);
     }
@@ -10975,7 +10980,7 @@
           tbody.innerHTML = `<tr><td class="table-sticky-col text-muted" colspan="8">N/A</td></tr>`;
         }
       }
-      const route = '#funds';
+      const route = historyUrlWithRoot('#funds');
       const state = { view: 'funds' };
       if (replace) history.replaceState(state, '', route);
       else history.pushState(state, '', route);
@@ -10987,7 +10992,7 @@
     if (fundsView) fundsView.style.display = 'block';
     cameFromFundsDirectory = true;
     openFundsDirectory._notice = notice || null;
-    const route = SM ? SM.fundsDirectoryHref() : '#funds';
+    const route = historyUrlWithRoot(SM ? SM.fundsDirectoryHref() : '#funds');
     const state = { view: 'funds' };
     if (replace) history.replaceState(state, '', route);
     else history.pushState(state, '', route);
@@ -11109,7 +11114,7 @@
     }
     activeFundSlug = identity.slug;
     activeFundVs = vs || null;
-    const route = SM.fundHref(activeFundSlug, activeFundVs);
+    const route = historyUrlWithRoot(SM.fundHref(activeFundSlug, activeFundVs));
     hideSmartMoneyViews();
     const fundView = document.getElementById('fund-view');
     if (fundView) fundView.style.display = 'block';
