@@ -3,7 +3,7 @@
   "ticker": "CNM",
   "name_en": "Core & Main",
   "name_zh": "Core & Main",
-  "updatedAt": "2026-11-20",
+  "updatedAt": "2026-11-27",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -11,232 +11,216 @@
     "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
     "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
     "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
-    "modelId": "industrials-v1",
+    "modelId": "mech-plumbing-wholesale-v1",
     "references": [
-      "Industry model `industrials-v1`",
+      "Industry model `mech-plumbing-wholesale-v1`",
       "AAPL curated seed shape on main (schema reference)",
       "cache/us_universe.json screen: remaining US listings without supply-chain seed",
       "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
     ]
   },
   "model": {
-    "id": "industrials-v1",
-    "label_zh": "工業製造價值鏈",
-    "label_en": "Industrial manufacturing value chain",
-    "description_zh": "原材料 → 關鍵部件 → 製造自動化 → 經銷／租賃 → 終端基建客戶。",
-    "description_en": "Raw materials → critical parts → automation → dealers/rental → end infrastructure."
+    "id": "mech-plumbing-wholesale-v1",
+    "label_zh": "水暖／暖通／水務批發價值鏈",
+    "label_en": "Mech / plumbing / waterworks wholesale value chain",
+    "description_zh": "設備品牌供應 → 物流 → 承包商通路 → 支付 → 流量（非工業製造 CAT／XOM 墊）。",
+    "description_en": "Equipment brand supply → logistics → contractor channel → payments → traffic (not industrial OEM CAT/XOM pad)."
   },
   "stages": [
     {
-      "id": "materials",
+      "id": "brand-supply",
       "order": 1,
-      "label_zh": "原材料／鋼鐵鋁",
-      "label_en": "Raw materials / metals",
-      "summary_zh": "鋼、鋁與基礎材料。",
-      "summary_en": "Steel, aluminum, base materials.",
+      "label_zh": "設備／品牌供應",
+      "label_en": "Equipment / brand supply",
+      "summary_zh": "水暖、暖通與水務設備品牌。",
+      "summary_en": "Plumbing, HVAC, and waterworks equipment brands.",
       "players": [
         {
-          "ticker": "NUE",
-          "name_en": "Nucor",
-          "name_zh": "紐柯",
-          "role_zh": "紐柯：原材料／鋼鐵鋁代表性玩家",
-          "role_en": "Nucor: representative player in Raw materials / metals",
+          "ticker": "WMS",
+          "name_en": "Advanced Drainage",
+          "name_zh": "Advanced Drainage",
+          "role_zh": "Advanced Drainage：設備／品牌供應代表性玩家",
+          "role_en": "Advanced Drainage: representative player in Equipment / brand supply",
           "exchange": "NYSE"
         },
         {
-          "ticker": "FCX",
-          "name_en": "Freeport-McMoRan",
-          "name_zh": "自由港麥克莫蘭",
-          "role_zh": "自由港麥克莫蘭：原材料／鋼鐵鋁代表性玩家",
-          "role_en": "Freeport-McMoRan: representative player in Raw materials / metals",
+          "ticker": "EMN",
+          "name_en": "Eastman",
+          "name_zh": "Eastman",
+          "role_zh": "Eastman：設備／品牌供應代表性玩家",
+          "role_en": "Eastman: representative player in Equipment / brand supply",
           "exchange": "NYSE"
         },
         {
           "ticker": "DOW",
           "name_en": "Dow",
           "name_zh": "陶氏化學",
-          "role_zh": "陶氏化學：原材料／鋼鐵鋁代表性玩家",
-          "role_en": "Dow: representative player in Raw materials / metals",
+          "role_zh": "陶氏化學：設備／品牌供應代表性玩家",
+          "role_en": "Dow: representative player in Equipment / brand supply",
           "exchange": "NYSE"
         }
       ]
     },
     {
-      "id": "components",
+      "id": "logistics",
       "order": 2,
-      "label_zh": "關鍵部件／動力系統",
-      "label_en": "Critical components / powertrain",
-      "summary_zh": "引擎、液壓、電力電子。",
-      "summary_en": "Engines, hydraulics, power electronics.",
+      "label_zh": "物流／配送",
+      "label_en": "Logistics / distribution",
+      "summary_zh": "鐵路與零擔至分支／工地。",
+      "summary_en": "Rail and LTL into branches/jobsites.",
       "players": [
-        {
-          "ticker": "ETN",
-          "name_en": "Eaton",
-          "name_zh": "伊頓",
-          "role_zh": "伊頓：關鍵部件／動力系統代表性玩家",
-          "role_en": "Eaton: representative player in Critical components / powertrain",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "PH",
-          "name_en": "Parker-Hannifin",
-          "name_zh": "派克漢尼汾",
-          "role_zh": "派克漢尼汾：關鍵部件／動力系統代表性玩家",
-          "role_en": "Parker-Hannifin: representative player in Critical components / powertrain",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "EMR",
-          "name_en": "Emerson",
-          "name_zh": "艾默生",
-          "role_zh": "艾默生：關鍵部件／動力系統代表性玩家",
-          "role_en": "Emerson: representative player in Critical components / powertrain",
-          "exchange": "NYSE"
-        }
-      ]
-    },
-    {
-      "id": "automation",
-      "order": 3,
-      "label_zh": "自動化／軟體",
-      "label_en": "Automation / software",
-      "summary_zh": "工控、感測與數位雙生。",
-      "summary_en": "Controls, sensors, digital twins.",
-      "players": [
-        {
-          "ticker": "ROK",
-          "name_en": "Rockwell Automation",
-          "name_zh": "羅克韋爾",
-          "role_zh": "羅克韋爾：自動化／軟體代表性玩家",
-          "role_en": "Rockwell Automation: representative player in Automation / software",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "HON",
-          "name_en": "Honeywell",
-          "name_zh": "漢威聯合",
-          "role_zh": "漢威聯合：自動化／軟體代表性玩家",
-          "role_en": "Honeywell: representative player in Automation / software",
-          "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "SNPS",
-          "name_en": "Synopsys",
-          "name_zh": "新思科技",
-          "role_zh": "新思科技：自動化／軟體代表性玩家",
-          "role_en": "Synopsys: representative player in Automation / software",
-          "exchange": "NASDAQ"
-        }
-      ]
-    },
-    {
-      "id": "dealers",
-      "order": 4,
-      "label_zh": "經銷／租賃通路",
-      "label_en": "Dealer / rental channel",
-      "summary_zh": "設備經銷與租賃。",
-      "summary_en": "Equipment dealers and rental.",
-      "players": [
-        {
-          "ticker": "CAT",
-          "name_en": "Caterpillar",
-          "name_zh": "開拓重工",
-          "role_zh": "開拓重工：經銷／租賃通路代表性玩家",
-          "role_en": "Caterpillar: representative player in Dealer / rental channel",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "DE",
-          "name_en": "Deere",
-          "name_zh": "強鹿公司 (Deere)",
-          "role_zh": "強鹿公司 (Deere)：經銷／租賃通路代表性玩家",
-          "role_en": "Deere: representative player in Dealer / rental channel",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "ETN",
-          "name_en": "Eaton",
-          "name_zh": "伊頓",
-          "role_zh": "伊頓：經銷／租賃通路代表性玩家",
-          "role_en": "Eaton: representative player in Dealer / rental channel",
-          "exchange": "NYSE"
-        }
-      ]
-    },
-    {
-      "id": "customers",
-      "order": 5,
-      "label_zh": "基建／能源／礦業客戶",
-      "label_en": "Infra / energy / mining customers",
-      "summary_zh": "工程、能源與礦業終端。",
-      "summary_en": "Construction, energy, mining.",
-      "players": [
-        {
-          "ticker": "XOM",
-          "name_en": "Exxonmobil",
-          "name_zh": "埃克森美孚",
-          "role_zh": "埃克森美孚：基建／能源／礦業客戶代表性玩家",
-          "role_en": "Exxonmobil: representative player in Infra / energy / mining customers",
-          "exchange": "NYSE"
-        },
         {
           "ticker": "UNP",
           "name_en": "Union Pacific",
           "name_zh": "聯合太平洋鐵路",
-          "role_zh": "聯合太平洋鐵路：基建／能源／礦業客戶代表性玩家",
-          "role_en": "Union Pacific: representative player in Infra / energy / mining customers",
+          "role_zh": "聯合太平洋鐵路：物流／配送代表性玩家",
+          "role_en": "Union Pacific: representative player in Logistics / distribution",
           "exchange": "NYSE"
         },
         {
-          "ticker": "NEE",
-          "name_en": "NextEra Energy",
-          "name_zh": "新紀元能源",
-          "role_zh": "新紀元能源：基建／能源／礦業客戶代表性玩家",
-          "role_en": "NextEra Energy: representative player in Infra / energy / mining customers",
+          "ticker": "ODFL",
+          "name_en": "Old Dominion Freight Line",
+          "name_zh": "Old Dominion",
+          "role_zh": "Old Dominion：物流／配送代表性玩家",
+          "role_en": "Old Dominion Freight Line: representative player in Logistics / distribution",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "SAIA",
+          "name_en": "Saia",
+          "name_zh": "Saia",
+          "role_zh": "Saia：物流／配送代表性玩家",
+          "role_en": "Saia: representative player in Logistics / distribution",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "contractor-channel",
+      "order": 3,
+      "label_zh": "承包商／零售通路",
+      "label_en": "Contractor / retail channel",
+      "summary_zh": "機電承包、租賃與家裝專業通路。",
+      "summary_en": "Mechanical contractors, rental, and pro retail channels.",
+      "players": [
+        {
+          "ticker": "FIX",
+          "name_en": "Comfort Systems USA",
+          "name_zh": "Comfort Systems USA",
+          "role_zh": "Comfort Systems USA：承包商／零售通路代表性玩家",
+          "role_en": "Comfort Systems USA: representative player in Contractor / retail channel",
           "exchange": "NYSE"
+        },
+        {
+          "ticker": "EME",
+          "name_en": "EMCOR",
+          "name_zh": "EMCOR",
+          "role_zh": "EMCOR：承包商／零售通路代表性玩家",
+          "role_en": "EMCOR: representative player in Contractor / retail channel",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "ACM",
+          "name_en": "Aecom",
+          "name_zh": "Aecom",
+          "role_zh": "Aecom：承包商／零售通路代表性玩家",
+          "role_en": "Aecom: representative player in Contractor / retail channel",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "payments",
+      "order": 4,
+      "label_zh": "支付／金融",
+      "label_en": "Payments / fintech",
+      "summary_zh": "卡組織與 B2B 支付。",
+      "summary_en": "Card rails and B2B payments.",
+      "players": [
+        {
+          "ticker": "V",
+          "name_en": "Visa",
+          "name_zh": "威士卡",
+          "role_zh": "威士卡：支付／金融代表性玩家",
+          "role_en": "Visa: representative player in Payments / fintech",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "MA",
+          "name_en": "Mastercard",
+          "name_zh": "萬事達卡",
+          "role_zh": "萬事達卡：支付／金融代表性玩家",
+          "role_en": "Mastercard: representative player in Payments / fintech",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "FISV",
+          "name_en": "Fiserv",
+          "name_zh": "Fiserv",
+          "role_zh": "Fiserv：支付／金融代表性玩家",
+          "role_en": "Fiserv: representative player in Payments / fintech",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "traffic",
+      "order": 5,
+      "label_zh": "流量／獲客",
+      "label_en": "Traffic / acquisition",
+      "summary_zh": "搜尋、社群與 B2B 獲客。",
+      "summary_en": "Search, social, and B2B acquisition.",
+      "players": [
+        {
+          "ticker": "GOOG",
+          "name_en": "Alphabet",
+          "name_zh": "Alphabet（Google）",
+          "role_zh": "Alphabet（Google）：流量／獲客代表性玩家",
+          "role_en": "Alphabet: representative player in Traffic / acquisition",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "META",
+          "name_en": "Meta Platforms",
+          "name_zh": "Meta (臉書)",
+          "role_zh": "Meta (臉書)：流量／獲客代表性玩家",
+          "role_en": "Meta Platforms: representative player in Traffic / acquisition",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "APP",
+          "name_en": "AppLovin",
+          "name_zh": "AppLovin",
+          "role_zh": "AppLovin：流量／獲客代表性玩家",
+          "role_en": "AppLovin: representative player in Traffic / acquisition",
+          "exchange": "NASDAQ"
         }
       ]
     }
   ],
   "competitors": [
     {
-      "ticker": "AIT",
-      "name_en": "Applied Industrial",
-      "name_zh": "Applied Industrial",
-      "basis_zh": "工業通路對手",
-      "basis_en": "Industrial distribution rival",
+      "ticker": "FERG",
+      "name_en": "Ferguson Enterprises",
+      "name_zh": "Ferguson",
+      "basis_zh": "水務／水暖批發對手",
+      "basis_en": "Waterworks / plumbing wholesale rival",
       "exchange": "NYSE"
     },
     {
-      "ticker": "MSM",
-      "name_en": "MSC Industrial",
-      "name_zh": "MSC Industrial",
-      "basis_zh": "工業通路對手",
-      "basis_en": "Industrial distribution rival",
+      "ticker": "WSO",
+      "name_en": "Watsco",
+      "name_zh": "Watsco",
+      "basis_zh": "機電批發鄰近",
+      "basis_en": "Mech wholesale adjacency",
       "exchange": "NYSE"
     },
     {
-      "ticker": "GWW",
-      "name_en": "Grainger",
-      "name_zh": "固安捷",
-      "basis_zh": "工業通路對手",
-      "basis_en": "Industrial distribution rival",
-      "exchange": "NYSE"
-    },
-    {
-      "ticker": "FAST",
-      "name_en": "Fastenal",
-      "name_zh": "Fastenal",
-      "basis_zh": "工業通路對手",
-      "basis_en": "Industrial distribution rival",
-      "exchange": "NASDAQ"
-    },
-    {
-      "ticker": "WCC",
-      "name_en": "WESCO International",
-      "name_zh": "WESCO",
-      "basis_zh": "工業通路對手",
-      "basis_en": "Industrial distribution rival",
+      "ticker": "HD",
+      "name_en": "The Home Depot",
+      "name_zh": "家得寶",
+      "basis_zh": "家裝專業通路壓力",
+      "basis_en": "Pro retail channel pressure",
       "exchange": "NYSE"
     }
   ]

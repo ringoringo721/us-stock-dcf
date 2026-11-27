@@ -6362,23 +6362,23 @@
   "GWW": [
     [
       "FAST",
-      "工業通路對手",
-      "Industrial distribution rival"
+      "MRO 工業經銷對手",
+      "MRO industrial distribution rival"
     ],
     [
       "MSM",
-      "工業通路對手",
-      "Industrial distribution rival"
+      "MRO 工業經銷對手",
+      "MRO industrial distribution rival"
     ],
     [
-      "WMT",
-      "工業通路對手",
-      "Industrial distribution rival"
+      "AIT",
+      "MRO 工業經銷對手",
+      "MRO industrial distribution rival"
     ],
     [
       "AMZN",
-      "工業通路對手",
-      "Industrial distribution rival"
+      "電商 MRO 壓力",
+      "E-comm MRO pressure"
     ]
   ],
   "B": [
@@ -6911,23 +6911,23 @@
   "FAST": [
     [
       "GWW",
-      "工業通路對手",
-      "Industrial distribution rival"
+      "MRO 工業經銷對手",
+      "MRO industrial distribution rival"
     ],
     [
       "MSM",
-      "工業通路對手",
-      "Industrial distribution rival"
+      "MRO 工業經銷對手",
+      "MRO industrial distribution rival"
     ],
     [
-      "WMT",
-      "工業通路對手",
-      "Industrial distribution rival"
+      "AIT",
+      "MRO 工業經銷對手",
+      "MRO industrial distribution rival"
     ],
     [
-      "AMZN",
-      "工業通路對手",
-      "Industrial distribution rival"
+      "DXPE",
+      "特種工業經銷對手",
+      "Specialty industrial distribution rival"
     ]
   ],
   "D": [
@@ -8786,29 +8786,24 @@
   ],
   "FERG": [
     [
-      "AIT",
-      "工業通路對手",
-      "Industrial distribution rival"
+      "WSO",
+      "暖通／水暖批發對手",
+      "HVAC / plumbing wholesale rival"
     ],
     [
-      "MSM",
-      "工業通路對手",
-      "Industrial distribution rival"
+      "CNM",
+      "水務批發對手",
+      "Waterworks wholesale rival"
     ],
     [
-      "GWW",
-      "工業通路對手",
-      "Industrial distribution rival"
+      "HD",
+      "家裝專業通路壓力",
+      "Pro retail channel pressure"
     ],
     [
-      "FAST",
-      "工業通路對手",
-      "Industrial distribution rival"
-    ],
-    [
-      "WCC",
-      "工業通路對手",
-      "Industrial distribution rival"
+      "LOW",
+      "家裝專業通路壓力",
+      "Pro retail channel pressure"
     ]
   ],
   "STT": [
@@ -9254,29 +9249,24 @@
   ],
   "DHI": [
     [
-      "PHM",
-      "Residential Construction產品／市場對手",
-      "Residential Construction product/market rival"
+      "LEN",
+      "住宅建商對手",
+      "Homebuilder rival"
     ],
     [
-      "LEN",
-      "Residential Construction產品／市場對手",
-      "Residential Construction product/market rival"
+      "PHM",
+      "住宅建商對手",
+      "Homebuilder rival"
     ],
     [
       "NVR",
-      "Residential Construction產品／市場對手",
-      "Residential Construction product/market rival"
+      "住宅建商對手",
+      "Homebuilder rival"
     ],
     [
       "TOL",
-      "Residential Construction產品／市場對手",
-      "Residential Construction product/market rival"
-    ],
-    [
-      "IBP",
-      "Residential Construction產品／市場對手",
-      "Residential Construction product/market rival"
+      "住宅建商對手",
+      "Homebuilder rival"
     ]
   ],
   "AIG": [
@@ -13233,28 +13223,23 @@
   "PHM": [
     [
       "DHI",
-      "Residential Construction產品／市場對手",
-      "Residential Construction product/market rival"
+      "住宅建商對手",
+      "Homebuilder rival"
     ],
     [
       "LEN",
-      "Residential Construction產品／市場對手",
-      "Residential Construction product/market rival"
+      "住宅建商對手",
+      "Homebuilder rival"
     ],
     [
       "NVR",
-      "Residential Construction產品／市場對手",
-      "Residential Construction product/market rival"
+      "住宅建商對手",
+      "Homebuilder rival"
     ],
     [
       "TOL",
-      "Residential Construction產品／市場對手",
-      "Residential Construction product/market rival"
-    ],
-    [
-      "IBP",
-      "Residential Construction產品／市場對手",
-      "Residential Construction product/market rival"
+      "住宅建商對手",
+      "Homebuilder rival"
     ]
   ],
   "MDB": [
@@ -14612,28 +14597,23 @@
   "LEN": [
     [
       "DHI",
-      "Residential Construction產品／市場對手",
-      "Residential Construction product/market rival"
+      "住宅建商對手",
+      "Homebuilder rival"
     ],
     [
       "PHM",
-      "Residential Construction產品／市場對手",
-      "Residential Construction product/market rival"
+      "住宅建商對手",
+      "Homebuilder rival"
     ],
     [
       "NVR",
-      "Residential Construction產品／市場對手",
-      "Residential Construction product/market rival"
+      "住宅建商對手",
+      "Homebuilder rival"
     ],
     [
       "TOL",
-      "Residential Construction產品／市場對手",
-      "Residential Construction product/market rival"
-    ],
-    [
-      "IBP",
-      "Residential Construction產品／市場對手",
-      "Residential Construction product/market rival"
+      "住宅建商對手",
+      "Homebuilder rival"
     ]
   ],
   "IFF": [
@@ -16534,28 +16514,23 @@
   "NVR": [
     [
       "DHI",
-      "Residential Construction產品／市場對手",
-      "Residential Construction product/market rival"
-    ],
-    [
-      "PHM",
-      "Residential Construction產品／市場對手",
-      "Residential Construction product/market rival"
+      "住宅建商對手",
+      "Homebuilder rival"
     ],
     [
       "LEN",
-      "Residential Construction產品／市場對手",
-      "Residential Construction product/market rival"
+      "住宅建商對手",
+      "Homebuilder rival"
+    ],
+    [
+      "PHM",
+      "住宅建商對手",
+      "Homebuilder rival"
     ],
     [
       "TOL",
-      "Residential Construction產品／市場對手",
-      "Residential Construction product/market rival"
-    ],
-    [
-      "IBP",
-      "Residential Construction產品／市場對手",
-      "Residential Construction product/market rival"
+      "住宅建商對手",
+      "Homebuilder rival"
     ]
   ],
   "HST": [
@@ -18318,29 +18293,24 @@
   ],
   "WCC": [
     [
+      "FERG",
+      "工業經銷鄰近",
+      "Industrial distribution adjacency"
+    ],
+    [
       "AIT",
-      "工業通路對手",
-      "Industrial distribution rival"
-    ],
-    [
-      "MSM",
-      "工業通路對手",
-      "Industrial distribution rival"
-    ],
-    [
-      "GWW",
-      "工業通路對手",
-      "Industrial distribution rival"
+      "工業經銷鄰近",
+      "Industrial distribution adjacency"
     ],
     [
       "FAST",
-      "工業通路對手",
-      "Industrial distribution rival"
+      "MRO 經銷鄰近",
+      "MRO distribution adjacency"
     ],
     [
       "DXPE",
-      "工業通路對手",
-      "Industrial distribution rival"
+      "特種工業經銷對手",
+      "Specialty industrial distribution rival"
     ]
   ],
   "FLUT": [
@@ -18476,28 +18446,23 @@
   "TOL": [
     [
       "DHI",
-      "Residential Construction產品／市場對手",
-      "Residential Construction product/market rival"
-    ],
-    [
-      "PHM",
-      "Residential Construction產品／市場對手",
-      "Residential Construction product/market rival"
+      "住宅建商對手",
+      "Homebuilder rival"
     ],
     [
       "LEN",
-      "Residential Construction產品／市場對手",
-      "Residential Construction product/market rival"
+      "住宅建商對手",
+      "Homebuilder rival"
+    ],
+    [
+      "PHM",
+      "住宅建商對手",
+      "Homebuilder rival"
     ],
     [
       "NVR",
-      "Residential Construction產品／市場對手",
-      "Residential Construction product/market rival"
-    ],
-    [
-      "IBP",
-      "Residential Construction產品／市場對手",
-      "Residential Construction product/market rival"
+      "住宅建商對手",
+      "Homebuilder rival"
     ]
   ],
   "RNR": [
@@ -19722,29 +19687,19 @@
   ],
   "WSO": [
     [
-      "AIT",
-      "工業通路對手",
-      "Industrial distribution rival"
+      "FERG",
+      "暖通／水暖批發對手",
+      "HVAC / plumbing wholesale rival"
     ],
     [
-      "MSM",
-      "工業通路對手",
-      "Industrial distribution rival"
+      "HD",
+      "家裝專業通路壓力",
+      "Pro retail channel pressure"
     ],
     [
-      "GWW",
-      "工業通路對手",
-      "Industrial distribution rival"
-    ],
-    [
-      "FAST",
-      "工業通路對手",
-      "Industrial distribution rival"
-    ],
-    [
-      "WCC",
-      "工業通路對手",
-      "Industrial distribution rival"
+      "LOW",
+      "家裝專業通路壓力",
+      "Pro retail channel pressure"
     ]
   ],
   "PNW": [
@@ -20475,29 +20430,19 @@
   ],
   "QXO": [
     [
-      "AIT",
-      "工業通路對手",
-      "Industrial distribution rival"
+      "BLDR",
+      "建材經銷對手",
+      "Building-products distribution rival"
     ],
     [
-      "MSM",
-      "工業通路對手",
-      "Industrial distribution rival"
-    ],
-    [
-      "GWW",
-      "工業通路對手",
-      "Industrial distribution rival"
-    ],
-    [
-      "FAST",
-      "工業通路對手",
-      "Industrial distribution rival"
+      "FERG",
+      "建材／水暖經銷鄰近",
+      "Building / plumbing wholesale adjacency"
     ],
     [
       "WCC",
-      "工業通路對手",
-      "Industrial distribution rival"
+      "工業經銷鄰近",
+      "Industrial distribution adjacency"
     ]
   ],
   "RTO": [
@@ -21975,28 +21920,23 @@
   "AIT": [
     [
       "MSM",
-      "工業通路對手",
-      "Industrial distribution rival"
-    ],
-    [
-      "GWW",
-      "工業通路對手",
-      "Industrial distribution rival"
+      "特種工業經銷對手",
+      "Specialty industrial distribution rival"
     ],
     [
       "FAST",
-      "工業通路對手",
-      "Industrial distribution rival"
+      "MRO 工業經銷對手",
+      "MRO industrial distribution rival"
     ],
     [
-      "WCC",
-      "工業通路對手",
-      "Industrial distribution rival"
+      "GWW",
+      "MRO 工業經銷對手",
+      "MRO industrial distribution rival"
     ],
     [
       "DXPE",
-      "工業通路對手",
-      "Industrial distribution rival"
+      "特種工業經銷對手",
+      "Specialty industrial distribution rival"
     ]
   ],
   "INIO": [
@@ -24791,29 +24731,19 @@
   ],
   "CNM": [
     [
-      "AIT",
-      "工業通路對手",
-      "Industrial distribution rival"
+      "FERG",
+      "水務／水暖批發對手",
+      "Waterworks / plumbing wholesale rival"
     ],
     [
-      "MSM",
-      "工業通路對手",
-      "Industrial distribution rival"
+      "WSO",
+      "機電批發鄰近",
+      "Mech wholesale adjacency"
     ],
     [
-      "GWW",
-      "工業通路對手",
-      "Industrial distribution rival"
-    ],
-    [
-      "FAST",
-      "工業通路對手",
-      "Industrial distribution rival"
-    ],
-    [
-      "WCC",
-      "工業通路對手",
-      "Industrial distribution rival"
+      "HD",
+      "家裝專業通路壓力",
+      "Pro retail channel pressure"
     ]
   ],
   "SNAP": [
@@ -26317,29 +26247,19 @@
   ],
   "POOL": [
     [
-      "AIT",
-      "工業通路對手",
-      "Industrial distribution rival"
+      "HD",
+      "泳池／戶外零售壓力",
+      "Pool / outdoor retail pressure"
     ],
     [
-      "MSM",
-      "工業通路對手",
-      "Industrial distribution rival"
+      "LOW",
+      "泳池／戶外零售壓力",
+      "Pool / outdoor retail pressure"
     ],
     [
-      "GWW",
-      "工業通路對手",
-      "Industrial distribution rival"
-    ],
-    [
-      "FAST",
-      "工業通路對手",
-      "Industrial distribution rival"
-    ],
-    [
-      "WCC",
-      "工業通路對手",
-      "Industrial distribution rival"
+      "FERG",
+      "水暖批發鄰近",
+      "Plumbing wholesale adjacency"
     ]
   ],
   "GAP": [
@@ -27839,29 +27759,19 @@
   ],
   "BLDR": [
     [
-      "CRH",
-      "建材／水泥骨材對手",
-      "Cement / aggregates rival"
+      "QXO",
+      "建材經銷對手",
+      "Building-products distribution rival"
     ],
     [
-      "VMC",
-      "建材／水泥骨材對手",
-      "Cement / aggregates rival"
+      "FERG",
+      "建材／水暖經銷鄰近",
+      "Building / plumbing wholesale adjacency"
     ],
     [
-      "MLM",
-      "建材／水泥骨材對手",
-      "Cement / aggregates rival"
-    ],
-    [
-      "AMRZ",
-      "建材／水泥骨材對手",
-      "Cement / aggregates rival"
-    ],
-    [
-      "EXP",
-      "建材／水泥骨材對手",
-      "Cement / aggregates rival"
+      "HD",
+      "家裝專業通路壓力",
+      "Pro retail channel pressure"
     ]
   ],
   "SBSW": [
@@ -28590,29 +28500,19 @@
   ],
   "XMTR": [
     [
-      "AIT",
-      "工業通路對手",
-      "Industrial distribution rival"
+      "ROK",
+      "工業數位化鄰近",
+      "Industrial digitalization adjacency"
     ],
     [
-      "MSM",
-      "工業通路對手",
-      "Industrial distribution rival"
+      "EMR",
+      "工業數位化鄰近",
+      "Industrial digitalization adjacency"
     ],
     [
-      "GWW",
-      "工業通路對手",
-      "Industrial distribution rival"
-    ],
-    [
-      "FAST",
-      "工業通路對手",
-      "Industrial distribution rival"
-    ],
-    [
-      "WCC",
-      "工業通路對手",
-      "Industrial distribution rival"
+      "HON",
+      "工業數位化鄰近",
+      "Industrial digitalization adjacency"
     ]
   ],
   "FSV": [
@@ -28992,29 +28892,24 @@
   ],
   "MSM": [
     [
-      "AIT",
-      "工業通路對手",
-      "Industrial distribution rival"
+      "FAST",
+      "MRO 工業經銷對手",
+      "MRO industrial distribution rival"
     ],
     [
       "GWW",
-      "工業通路對手",
-      "Industrial distribution rival"
+      "MRO 工業經銷對手",
+      "MRO industrial distribution rival"
     ],
     [
-      "FAST",
-      "工業通路對手",
-      "Industrial distribution rival"
-    ],
-    [
-      "WCC",
-      "工業通路對手",
-      "Industrial distribution rival"
+      "AIT",
+      "特種工業經銷對手",
+      "Specialty industrial distribution rival"
     ],
     [
       "DXPE",
-      "工業通路對手",
-      "Industrial distribution rival"
+      "特種工業經銷對手",
+      "Specialty industrial distribution rival"
     ]
   ],
   "MP": [
@@ -30391,29 +30286,19 @@
   ],
   "IBP": [
     [
-      "DHI",
-      "Residential Construction產品／市場對手",
-      "Residential Construction product/market rival"
+      "FIX",
+      "機電／特種安裝對手",
+      "Specialty install / mechanical rival"
     ],
     [
-      "PHM",
-      "Residential Construction產品／市場對手",
-      "Residential Construction product/market rival"
+      "EME",
+      "機電安裝對手",
+      "Specialty install / mechanical rival"
     ],
     [
-      "LEN",
-      "Residential Construction產品／市場對手",
-      "Residential Construction product/market rival"
-    ],
-    [
-      "NVR",
-      "Residential Construction產品／市場對手",
-      "Residential Construction product/market rival"
-    ],
-    [
-      "TOL",
-      "Residential Construction產品／市場對手",
-      "Residential Construction product/market rival"
+      "APG",
+      "特種承包對手",
+      "Specialty contractor rival"
     ]
   ],
   "HIMS": [

@@ -3,7 +3,7 @@
   "ticker": "LEN",
   "name_en": "Lennar",
   "name_zh": "Lennar",
-  "updatedAt": "2026-11-20",
+  "updatedAt": "2026-11-27",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -11,120 +11,120 @@
     "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
     "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
     "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
-    "modelId": "consumer-discretionary-v1",
+    "modelId": "residential-homebuilder-v1",
     "references": [
-      "Industry model `consumer-discretionary-v1`",
+      "Industry model `residential-homebuilder-v1`",
       "AAPL curated seed shape on main (schema reference)",
       "cache/us_universe.json screen: remaining US listings without supply-chain seed",
       "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
     ]
   },
   "model": {
-    "id": "consumer-discretionary-v1",
-    "label_zh": "非必需消費／餐旅價值鏈",
-    "label_en": "Consumer discretionary / hospitality value chain",
-    "description_zh": "原料／商品 → 物流 → 門市／平台 → 支付 → 行銷流量。",
-    "description_en": "Inputs/goods → logistics → stores/platforms → payments → marketing traffic."
+    "id": "residential-homebuilder-v1",
+    "label_zh": "住宅建商價值鏈",
+    "label_en": "Residential homebuilder value chain",
+    "description_zh": "木材／結構 → 飾面／系統 → 物流 → 支付 → 購屋流量（非餐旅消費墊）。",
+    "description_en": "Lumber/structure → finishes/systems → logistics → payments → homebuyer traffic (not F&B pad)."
   },
   "stages": [
     {
-      "id": "inputs",
+      "id": "lumber-structural",
       "order": 1,
-      "label_zh": "原料／商品供應",
-      "label_en": "Inputs / merchandise supply",
-      "summary_zh": "食材、商品與授權 IP。",
-      "summary_en": "Food, goods, licensed IP.",
+      "label_zh": "木材／結構供應",
+      "label_en": "Lumber / structural supply",
+      "summary_zh": "木材、結構板與建材經銷貨源。",
+      "summary_en": "Lumber, panels, and building-products distributor supply.",
       "players": [
         {
-          "ticker": "ADM",
-          "name_en": "Archer-Daniels-Midland",
-          "name_zh": "阿徹丹尼爾斯米德蘭",
-          "role_zh": "阿徹丹尼爾斯米德蘭：原料／商品供應代表性玩家",
-          "role_en": "Archer-Daniels-Midland: representative player in Inputs / merchandise supply",
+          "ticker": "WY",
+          "name_en": "Weyerhaeuser",
+          "name_zh": "Weyerhaeuser",
+          "role_zh": "Weyerhaeuser：木材／結構供應代表性玩家",
+          "role_en": "Weyerhaeuser: representative player in Lumber / structural supply",
           "exchange": "NYSE"
         },
         {
-          "ticker": "NKE",
-          "name_en": "Nike",
-          "name_zh": "耐吉",
-          "role_zh": "耐吉：原料／商品供應代表性玩家",
-          "role_en": "Nike: representative player in Inputs / merchandise supply",
+          "ticker": "BLDR",
+          "name_en": "Builders FirstSource",
+          "name_zh": "Builders FirstSource",
+          "role_zh": "Builders FirstSource：木材／結構供應代表性玩家",
+          "role_en": "Builders FirstSource: representative player in Lumber / structural supply",
           "exchange": "NYSE"
         },
         {
-          "ticker": "DIS",
-          "name_en": "Walt Disney",
-          "name_zh": "迪士尼",
-          "role_zh": "迪士尼：原料／商品供應代表性玩家",
-          "role_en": "Walt Disney: representative player in Inputs / merchandise supply",
+          "ticker": "SSD",
+          "name_en": "Simpson Manufacturing Co.",
+          "name_zh": "SSD",
+          "role_zh": "SSD：木材／結構供應代表性玩家",
+          "role_en": "Simpson Manufacturing Co.: representative player in Lumber / structural supply",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "finishes-systems",
+      "order": 2,
+      "label_zh": "飾面／建築系統",
+      "label_en": "Finishes / building systems",
+      "summary_zh": "隔熱、衛浴、塗料等飾面與系統。",
+      "summary_en": "Insulation, fixtures, coatings, and related systems.",
+      "players": [
+        {
+          "ticker": "OC",
+          "name_en": "Owens Corning",
+          "name_zh": "Owens Corning",
+          "role_zh": "Owens Corning：飾面／建築系統代表性玩家",
+          "role_en": "Owens Corning: representative player in Finishes / building systems",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "SHW",
+          "name_en": "Sherwin-Williams",
+          "name_zh": "宣偉塗料",
+          "role_zh": "宣偉塗料：飾面／建築系統代表性玩家",
+          "role_en": "Sherwin-Williams: representative player in Finishes / building systems",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "MAS",
+          "name_en": "Masco",
+          "name_zh": "Masco",
+          "role_zh": "Masco：飾面／建築系統代表性玩家",
+          "role_en": "Masco: representative player in Finishes / building systems",
           "exchange": "NYSE"
         }
       ]
     },
     {
       "id": "logistics",
-      "order": 2,
-      "label_zh": "物流／冷鏈",
-      "label_en": "Logistics / cold chain",
-      "summary_zh": "配送與庫存網路。",
-      "summary_en": "Distribution and inventory.",
+      "order": 3,
+      "label_zh": "物流／配送",
+      "label_en": "Logistics / distribution",
+      "summary_zh": "鐵路與零擔至工地／DC。",
+      "summary_en": "Rail and LTL into jobsites/DCs.",
       "players": [
-        {
-          "ticker": "UPS",
-          "name_en": "United Parcel Service",
-          "name_zh": "優比速",
-          "role_zh": "優比速：物流／冷鏈代表性玩家",
-          "role_en": "United Parcel Service: representative player in Logistics / cold chain",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "FDX",
-          "name_en": "FedEx",
-          "name_zh": "聯邦快遞",
-          "role_zh": "聯邦快遞：物流／冷鏈代表性玩家",
-          "role_en": "FedEx: representative player in Logistics / cold chain",
-          "exchange": "NYSE"
-        },
         {
           "ticker": "UNP",
           "name_en": "Union Pacific",
           "name_zh": "聯合太平洋鐵路",
-          "role_zh": "聯合太平洋鐵路：物流／冷鏈代表性玩家",
-          "role_en": "Union Pacific: representative player in Logistics / cold chain",
+          "role_zh": "聯合太平洋鐵路：物流／配送代表性玩家",
+          "role_en": "Union Pacific: representative player in Logistics / distribution",
           "exchange": "NYSE"
-        }
-      ]
-    },
-    {
-      "id": "stores",
-      "order": 3,
-      "label_zh": "門市／數位平台",
-      "label_en": "Stores / digital platforms",
-      "summary_zh": "直營、加盟與 App。",
-      "summary_en": "Owned, franchise, apps.",
-      "players": [
+        },
         {
-          "ticker": "SBUX",
-          "name_en": "Starbucks",
-          "name_zh": "星巴克",
-          "role_zh": "星巴克：門市／數位平台代表性玩家",
-          "role_en": "Starbucks: representative player in Stores / digital platforms",
+          "ticker": "JBHT",
+          "name_en": "J.B. Hunt Transport Services",
+          "name_zh": "J.B. Hunt",
+          "role_zh": "J.B. Hunt：物流／配送代表性玩家",
+          "role_en": "J.B. Hunt Transport Services: representative player in Logistics / distribution",
           "exchange": "NASDAQ"
         },
         {
-          "ticker": "MCD",
-          "name_en": "McDonald's",
-          "name_zh": "麥當勞",
-          "role_zh": "麥當勞：門市／數位平台代表性玩家",
-          "role_en": "McDonald's: representative player in Stores / digital platforms",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "MAR",
-          "name_en": "Marriott International",
-          "name_zh": "萬豪國際",
-          "role_zh": "萬豪國際：門市／數位平台代表性玩家",
-          "role_en": "Marriott International: representative player in Stores / digital platforms",
+          "ticker": "ODFL",
+          "name_en": "Old Dominion Freight Line",
+          "name_zh": "Old Dominion",
+          "role_zh": "Old Dominion：物流／配送代表性玩家",
+          "role_en": "Old Dominion Freight Line: representative player in Logistics / distribution",
           "exchange": "NASDAQ"
         }
       ]
@@ -132,67 +132,67 @@
     {
       "id": "payments",
       "order": 4,
-      "label_zh": "支付／忠誠",
-      "label_en": "Payments / loyalty",
-      "summary_zh": "卡支付與會員體系。",
-      "summary_en": "Card rails and loyalty.",
+      "label_zh": "支付／金融",
+      "label_en": "Payments / fintech",
+      "summary_zh": "卡組織與購屋相關支付軌道。",
+      "summary_en": "Card rails and homebuyer payment rails.",
       "players": [
         {
           "ticker": "V",
           "name_en": "Visa",
           "name_zh": "威士卡",
-          "role_zh": "威士卡：支付／忠誠代表性玩家",
-          "role_en": "Visa: representative player in Payments / loyalty",
+          "role_zh": "威士卡：支付／金融代表性玩家",
+          "role_en": "Visa: representative player in Payments / fintech",
           "exchange": "NYSE"
         },
         {
           "ticker": "MA",
           "name_en": "Mastercard",
           "name_zh": "萬事達卡",
-          "role_zh": "萬事達卡：支付／忠誠代表性玩家",
-          "role_en": "Mastercard: representative player in Payments / loyalty",
+          "role_zh": "萬事達卡：支付／金融代表性玩家",
+          "role_en": "Mastercard: representative player in Payments / fintech",
           "exchange": "NYSE"
         },
         {
-          "ticker": "AXP",
-          "name_en": "American Express",
-          "name_zh": "美國運通",
-          "role_zh": "美國運通：支付／忠誠代表性玩家",
-          "role_en": "American Express: representative player in Payments / loyalty",
-          "exchange": "NYSE"
+          "ticker": "FISV",
+          "name_en": "Fiserv",
+          "name_zh": "Fiserv",
+          "role_zh": "Fiserv：支付／金融代表性玩家",
+          "role_en": "Fiserv: representative player in Payments / fintech",
+          "exchange": "NASDAQ"
         }
       ]
     },
     {
       "id": "traffic",
       "order": 5,
-      "label_zh": "行銷／流量",
-      "label_en": "Marketing / traffic",
-      "summary_zh": "搜尋、社群與旅遊 OTA。",
-      "summary_en": "Search, social, travel OTAs.",
+      "label_zh": "流量／獲客",
+      "label_en": "Traffic / acquisition",
+      "summary_zh": "搜尋、社群與房產資訊流量。",
+      "summary_en": "Search, social, and housing-info traffic.",
       "players": [
         {
           "ticker": "GOOG",
           "name_en": "Alphabet",
           "name_zh": "Alphabet（Google）",
-          "role_zh": "Alphabet（Google）：行銷／流量代表性玩家",
-          "role_en": "Alphabet: representative player in Marketing / traffic",
+          "role_zh": "Alphabet（Google）：流量／獲客代表性玩家",
+          "role_en": "Alphabet: representative player in Traffic / acquisition",
           "exchange": "NASDAQ"
         },
         {
           "ticker": "META",
           "name_en": "Meta Platforms",
           "name_zh": "Meta (臉書)",
-          "role_zh": "Meta (臉書)：行銷／流量代表性玩家",
-          "role_en": "Meta Platforms: representative player in Marketing / traffic",
+          "role_zh": "Meta (臉書)：流量／獲客代表性玩家",
+          "role_en": "Meta Platforms: representative player in Traffic / acquisition",
           "exchange": "NASDAQ"
         },
         {
-          "ticker": "BKNG",
-          "name_en": "Booking",
-          "name_zh": "Booking 控股",
-          "role_zh": "Booking 控股：行銷／流量代表性玩家",
-          "role_en": "Booking: representative player in Marketing / traffic",
+          "ticker": "ZG",
+          "name_en": "Zillow",
+          "name_zh": "Zillow",
+          "role_zh": "Zillow：流量／獲客代表性玩家",
+          "role_en": "Zillow: representative player in Traffic / acquisition",
           "exchange": "NASDAQ"
         }
       ]
@@ -203,40 +203,32 @@
       "ticker": "DHI",
       "name_en": "D.R. Horton",
       "name_zh": "D.R. Horton",
-      "basis_zh": "Residential Construction產品／市場對手",
-      "basis_en": "Residential Construction product/market rival",
+      "basis_zh": "住宅建商對手",
+      "basis_en": "Homebuilder rival",
       "exchange": "NYSE"
     },
     {
       "ticker": "PHM",
       "name_en": "PulteGroup",
       "name_zh": "PulteGroup",
-      "basis_zh": "Residential Construction產品／市場對手",
-      "basis_en": "Residential Construction product/market rival",
+      "basis_zh": "住宅建商對手",
+      "basis_en": "Homebuilder rival",
       "exchange": "NYSE"
     },
     {
       "ticker": "NVR",
       "name_en": "NVR",
       "name_zh": "NVR",
-      "basis_zh": "Residential Construction產品／市場對手",
-      "basis_en": "Residential Construction product/market rival",
+      "basis_zh": "住宅建商對手",
+      "basis_en": "Homebuilder rival",
       "exchange": "NYSE"
     },
     {
       "ticker": "TOL",
       "name_en": "Toll Brothers",
       "name_zh": "Toll Brothers",
-      "basis_zh": "Residential Construction產品／市場對手",
-      "basis_en": "Residential Construction product/market rival",
-      "exchange": "NYSE"
-    },
-    {
-      "ticker": "IBP",
-      "name_en": "Installed Building Products",
-      "name_zh": "IBP",
-      "basis_zh": "Residential Construction產品／市場對手",
-      "basis_en": "Residential Construction product/market rival",
+      "basis_zh": "住宅建商對手",
+      "basis_en": "Homebuilder rival",
       "exchange": "NYSE"
     }
   ]

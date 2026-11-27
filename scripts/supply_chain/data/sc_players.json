@@ -3265,5 +3265,184 @@
       "META",
       "APP"
     ]
+  },
+  "residential-homebuilder-v1": {
+    "lumber-structural": [
+      "WY",
+      "LPX",
+      "BLDR"
+    ],
+    "finishes-systems": [
+      "OC",
+      "MAS",
+      "SHW"
+    ],
+    "logistics": [
+      "UNP",
+      "ODFL",
+      "JBHT"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "AXP"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "ZG"
+    ]
+  },
+  "installed-building-products-v1": {
+    "insulation-materials": [
+      "OC",
+      "DOW",
+      "EMN"
+    ],
+    "logistics": [
+      "ODFL",
+      "JBHT",
+      "XPO"
+    ],
+    "builder-channel": [
+      "DHI",
+      "LEN",
+      "PHM"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "FISV"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "APP"
+    ]
+  },
+  "building-products-distribution-v1": {
+    "lumber-millwork": [
+      "WY",
+      "LPX",
+      "OC"
+    ],
+    "logistics": [
+      "UNP",
+      "ODFL",
+      "SAIA"
+    ],
+    "builder-channel": [
+      "DHI",
+      "LEN",
+      "PHM"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "FISV"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "APP"
+    ]
+  },
+  "mech-plumbing-wholesale-v1": {
+    "brand-supply": [
+      "MAS",
+      "WTS",
+      "PNR"
+    ],
+    "logistics": [
+      "UNP",
+      "ODFL",
+      "XPO"
+    ],
+    "contractor-channel": [
+      "URI",
+      "FIX",
+      "EME"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "FISV"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "APP"
+    ]
+  },
+  "mro-industrial-distribution-v1": {
+    "brand-supply": [
+      "ITW",
+      "SWK",
+      "PH"
+    ],
+    "logistics": [
+      "UPS",
+      "ODFL",
+      "JBHT"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "FISV"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "APP"
+    ]
+  },
+  "electrical-distribution-v1": {
+    "brand-supply": [
+      "ETN",
+      "HUBB",
+      "AYI"
+    ],
+    "logistics": [
+      "ODFL",
+      "XPO",
+      "JBHT"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "FISV"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "APP"
+    ]
+  },
+  "digital-mfg-marketplace-v1": {
+    "cloud-infra": [
+      "AMZN",
+      "MSFT",
+      "GOOG"
+    ],
+    "cad-cam": [
+      "ADSK",
+      "PTC",
+      "ANSS"
+    ],
+    "logistics": [
+      "UPS",
+      "FDX",
+      "EXPD"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "traffic": [
+      "META",
+      "PINS",
+      "APP"
+    ]
   }
 }
