@@ -1,12 +1,13 @@
 {
-  "megaTotal": 160,
+  "megaTotal": 159,
   "excludedAAPL": true,
-  "written": 2,
+  "written": 3,
   "failures": [],
   "tickers": [
-    "NFLX",
-    "DIS"
+    "WMT",
+    "COST",
+    "TJX"
   ],
   "dryRun": false,
-  "date": "2026-11-26"
+  "date": "2026-11-27"
 }

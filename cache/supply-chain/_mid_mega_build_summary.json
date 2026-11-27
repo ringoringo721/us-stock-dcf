@@ -1,12 +1,14 @@
 {
-  "midTotal": 149,
-  "written": 1,
+  "midTotal": 154,
+  "written": 3,
   "skippedExisting": [],
   "failures": [],
   "tickers": [
-    "HLT"
+    "TGT",
+    "ROST",
+    "NKE"
   ],
   "dryRun": false,
-  "date": "2026-11-25",
+  "date": "2026-11-27",
   "chartsDir": "/agent/repos/us-stock-dcf/cache/price_charts"
 }

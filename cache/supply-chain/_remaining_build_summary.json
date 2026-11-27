@@ -1,14 +1,22 @@
 {
   "bandMin": 0.0,
   "bandMax": 50000000000.0,
-  "bandTotal": 1041,
-  "written": 1,
+  "bandTotal": 1019,
+  "written": 9,
   "skippedExisting": [],
   "failures": [],
   "tickers": [
-    "LLYVK"
+    "TPR",
+    "RL",
+    "DECK",
+    "ONON",
+    "LEVI",
+    "VFC",
+    "CROX",
+    "GIL",
+    "BIRK"
   ],
   "dryRun": false,
-  "date": "2026-11-26",
+  "date": "2026-11-27",
   "chartsDir": "/agent/repos/us-stock-dcf/cache/price_charts"
 }
