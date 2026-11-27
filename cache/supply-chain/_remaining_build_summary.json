@@ -2,7 +2,7 @@
   "bandMin": 0.0,
   "bandMax": 50000000000.0,
   "bandTotal": 1019,
-  "written": 16,
+  "written": 9,
   "skippedExisting": [],
   "failures": [],
   "tickers": [
@@ -12,16 +12,9 @@
     "LEN",
     "NVR",
     "TOL",
-    "WCC",
     "WSO",
-    "QXO",
-    "AIT",
     "CNM",
-    "POOL",
-    "BLDR",
-    "IBP",
-    "XMTR",
-    "MSM"
+    "POOL"
   ],
   "dryRun": false,
   "date": "2026-11-27",

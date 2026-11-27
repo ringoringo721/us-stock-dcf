@@ -76,16 +76,6 @@
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "URI": {
-      "ticker": "URI",
-      "price": 1015.72,
-      "previousClose": 1029.68,
-      "changePct": -1.356,
-      "mcap": 62889.9,
-      "currency": "USD",
-      "asOf": "2026-11-25",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
     "FIX": {
       "ticker": "FIX",
       "price": 1099.58,
@@ -102,6 +92,16 @@
       "previousClose": 631.98,
       "changePct": -0.516,
       "mcap": 27526.6,
+      "currency": "USD",
+      "asOf": "2026-11-25",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "ACM": {
+      "ticker": "ACM",
+      "price": 83.43,
+      "previousClose": 80.81,
+      "changePct": 3.242,
+      "mcap": 10746.6,
       "currency": "USD",
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"

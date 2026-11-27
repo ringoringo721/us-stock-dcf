@@ -26,12 +26,12 @@
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "WY": {
-      "ticker": "WY",
-      "price": 20.52,
-      "previousClose": 20.21,
-      "changePct": 1.534,
-      "mcap": 14781.5,
+    "OC": {
+      "ticker": "OC",
+      "price": 121.9,
+      "previousClose": 115.87,
+      "changePct": 5.204,
+      "mcap": 9401.9,
       "currency": "USD",
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
@@ -52,16 +52,6 @@
       "previousClose": 48.26,
       "changePct": 3.274,
       "mcap": 5904.8,
-      "currency": "USD",
-      "asOf": "2026-11-25",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "OC": {
-      "ticker": "OC",
-      "price": 121.9,
-      "previousClose": 115.87,
-      "changePct": 5.204,
-      "mcap": 9401.9,
       "currency": "USD",
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"

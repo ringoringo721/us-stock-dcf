@@ -3627,7 +3627,7 @@
     "lumber-structural": [
       "WY",
       "BLDR",
-      "LPX"
+      "SSD"
     ],
     "finishes-systems": [
       "OC",
@@ -3653,7 +3653,7 @@
   "PHM": {
     "lumber-structural": [
       "LPX",
-      "WY",
+      "OC",
       "BLDR"
     ],
     "finishes-systems": [
@@ -3681,7 +3681,7 @@
     "lumber-structural": [
       "BLDR",
       "WY",
-      "LPX"
+      "TREX"
     ],
     "finishes-systems": [
       "MAS",
@@ -3853,7 +3853,7 @@
     "contractor-channel": [
       "FIX",
       "URI",
-      "EME"
+      "APG"
     ],
     "payments": [
       "V",
@@ -3879,8 +3879,8 @@
     ],
     "contractor-channel": [
       "URI",
-      "FIX",
-      "EME"
+      "EME",
+      "APG"
     ],
     "payments": [
       "V",
@@ -3905,9 +3905,9 @@
       "SAIA"
     ],
     "contractor-channel": [
-      "URI",
       "FIX",
-      "EME"
+      "EME",
+      "ACM"
     ],
     "payments": [
       "V",

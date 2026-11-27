@@ -104,14 +104,6 @@
       "summary_en": "Mechanical contractors, rental, and pro retail channels.",
       "players": [
         {
-          "ticker": "URI",
-          "name_en": "United Rentals",
-          "name_zh": "United Rentals",
-          "role_zh": "United Rentals：承包商／零售通路代表性玩家",
-          "role_en": "United Rentals: representative player in Contractor / retail channel",
-          "exchange": "NYSE"
-        },
-        {
           "ticker": "FIX",
           "name_en": "Comfort Systems USA",
           "name_zh": "Comfort Systems USA",
@@ -125,6 +117,14 @@
           "name_zh": "EMCOR",
           "role_zh": "EMCOR：承包商／零售通路代表性玩家",
           "role_en": "EMCOR: representative player in Contractor / retail channel",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "ACM",
+          "name_en": "Aecom",
+          "name_zh": "Aecom",
+          "role_zh": "Aecom：承包商／零售通路代表性玩家",
+          "role_en": "Aecom: representative player in Contractor / retail channel",
           "exchange": "NYSE"
         }
       ]
