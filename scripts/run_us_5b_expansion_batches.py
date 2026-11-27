@@ -92,8 +92,49 @@ def run_batch(symbols: list[str], batch_idx: int, work_root: Path) -> dict:
         for file in src.glob("*"):
             if file.is_file():
                 shutil.copy2(file, dest / file.name)
+    # Match valuation_audit expand_all_us: ingest → capture FMP models → package.
+    # Without capture, company pages show FMP_SOURCE_UNAVAILABLE / 「尚無此股票的 FMP 模型來源」.
     for command in (
         ["node", str(ROOT / "scripts" / "build_us_expansion.cjs"), "ingest", str(out / "market.json"), str(out)],
+    ):
+        result = subprocess.run(command, cwd=ROOT, capture_output=True, text=True, check=False)
+        if result.returncode != 0:
+            return {
+                "batch": batch_idx,
+                "symbols": symbols,
+                "ok": False,
+                "build_seconds": build_seconds,
+                "error": f"{' '.join(command)} failed: {result.stderr or result.stdout}",
+            }
+    market = json.loads((out / "market.json").read_text(encoding="utf-8"))
+    available = sorted(market.keys())
+    if available:
+        capture_env = os.environ.copy()
+        capture_env["CAPTURE_MARKET_FILE"] = str(out / "market.json")
+        capture_env["CAPTURE_PARALLELISM"] = "1"
+        capture_env.setdefault("FMP_REQUEST_DELAY", "1")
+        capture = subprocess.run(
+            [
+                "node",
+                str(ROOT / "scripts" / "capture_company_data.cjs"),
+                ",".join(available),
+                str(out / "fmp_model_data.js"),
+            ],
+            cwd=ROOT,
+            env=capture_env,
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        if capture.returncode != 0:
+            return {
+                "batch": batch_idx,
+                "symbols": symbols,
+                "ok": False,
+                "build_seconds": build_seconds,
+                "error": f"capture_company_data failed: {capture.stderr or capture.stdout}",
+            }
+    for command in (
         ["node", str(ROOT / "scripts" / "build_us_expansion.cjs"), "package", str(out)],
         ["node", str(ROOT / "scripts" / "build_us_expansion.cjs"), "integrate", str(out)],
     ):

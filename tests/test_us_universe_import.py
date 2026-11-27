@@ -5,6 +5,9 @@ from scripts.import_us_universe import (
     normalize_exchange,
     is_excluded_security,
     listing_exclusion_reason,
+    catalogue_write_block_reason,
+    MIN_ELIGIBLE_ABSOLUTE,
+    MIN_ELIGIBLE_PRIOR_RATIO,
 )
 
 
@@ -98,6 +101,23 @@ class UsUniverseImportTest(unittest.TestCase):
             }),
             "debtNoteName",
         )
+
+    def test_catalogue_write_block_refuses_empty_or_truncated_screen(self):
+        self.assertIn("eligibleCountBelowAbsoluteFloor", catalogue_write_block_reason(0, None))
+        self.assertIn(
+            "eligibleCountBelowAbsoluteFloor",
+            catalogue_write_block_reason(MIN_ELIGIBLE_ABSOLUTE - 1, 1350),
+        )
+        # Absolute floor passes but prior-ratio floor still blocks a steep drop.
+        prior = 1332
+        truncated = int(prior * MIN_ELIGIBLE_PRIOR_RATIO) - 1
+        self.assertGreaterEqual(truncated, MIN_ELIGIBLE_ABSOLUTE)
+        self.assertIn(
+            "eligibleCountBelowPriorFloor",
+            catalogue_write_block_reason(truncated, prior),
+        )
+        self.assertIsNone(catalogue_write_block_reason(prior, prior))
+        self.assertIsNone(catalogue_write_block_reason(MIN_ELIGIBLE_ABSOLUTE, None))
 
 
 if __name__ == "__main__":
