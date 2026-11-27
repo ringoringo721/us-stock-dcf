@@ -36,12 +36,12 @@
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "IP": {
-      "ticker": "IP",
-      "price": 32.08,
-      "previousClose": 30.62,
-      "changePct": 4.768,
-      "mcap": 16989.6,
+    "CE": {
+      "ticker": "CE",
+      "price": 45.44,
+      "previousClose": 44.36,
+      "changePct": 2.435,
+      "mcap": null,
       "currency": "USD",
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"

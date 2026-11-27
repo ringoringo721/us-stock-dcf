@@ -2,19 +2,12 @@
   "bandMin": 0.0,
   "bandMax": 50000000000.0,
   "bandTotal": 1019,
-  "written": 9,
+  "written": 2,
   "skippedExisting": [],
   "failures": [],
   "tickers": [
-    "TPR",
-    "RL",
-    "DECK",
-    "ONON",
     "LEVI",
-    "VFC",
-    "CROX",
-    "GIL",
-    "BIRK"
+    "GIL"
   ],
   "dryRun": false,
   "date": "2026-11-27",
