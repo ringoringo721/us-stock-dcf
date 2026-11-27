@@ -2,19 +2,11 @@
   "bandMin": 0.0,
   "bandMax": 50000000000.0,
   "bandTotal": 1019,
-  "written": 9,
+  "written": 1,
   "skippedExisting": [],
   "failures": [],
   "tickers": [
-    "FERG",
-    "DHI",
-    "PHM",
-    "LEN",
-    "NVR",
-    "TOL",
-    "WSO",
-    "CNM",
-    "POOL"
+    "PHM"
   ],
   "dryRun": false,
   "date": "2026-11-27",
