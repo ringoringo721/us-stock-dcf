@@ -44,19 +44,19 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "DD",
-          "name_en": "DuPont",
-          "name_zh": "杜邦",
-          "role_zh": "杜邦：鞋材／化學原料代表性玩家",
-          "role_en": "DuPont: representative player in Footwear materials / chemicals",
-          "exchange": "NYSE"
-        },
-        {
           "ticker": "EMN",
           "name_en": "Eastman",
           "name_zh": "Eastman",
           "role_zh": "Eastman：鞋材／化學原料代表性玩家",
           "role_en": "Eastman: representative player in Footwear materials / chemicals",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "PPG",
+          "name_en": "PPG Industries",
+          "name_zh": "PPG Industries",
+          "role_zh": "PPG Industries：鞋材／化學原料代表性玩家",
+          "role_en": "PPG Industries: representative player in Footwear materials / chemicals",
           "exchange": "NYSE"
         }
       ]
@@ -104,6 +104,14 @@
       "summary_en": "Sporting specialty and e-comm distribution customers.",
       "players": [
         {
+          "ticker": "M",
+          "name_en": "Macy's",
+          "name_zh": "Macy's",
+          "role_zh": "Macy's：專賣／電商通路代表性玩家",
+          "role_en": "Macy's: representative player in Specialty / e-comm channel",
+          "exchange": "NYSE"
+        },
+        {
           "ticker": "DKS",
           "name_en": "Dick's Sporting Goods",
           "name_zh": "Dick's Sporting Goods",
@@ -117,14 +125,6 @@
           "name_zh": "亞馬遜",
           "role_zh": "亞馬遜：專賣／電商通路代表性玩家",
           "role_en": "Amazon.com: representative player in Specialty / e-comm channel",
-          "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "URBN",
-          "name_en": "Urban Outfitters",
-          "name_zh": "Urban Outfitters",
-          "role_zh": "Urban Outfitters：專賣／電商通路代表性玩家",
-          "role_en": "Urban Outfitters: representative player in Specialty / e-comm channel",
           "exchange": "NASDAQ"
         }
       ]
@@ -154,12 +154,12 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "PYPL",
-          "name_en": "PayPal",
-          "name_zh": "PayPal",
-          "role_zh": "PayPal：支付／金融代表性玩家",
-          "role_en": "PayPal: representative player in Payments / fintech",
-          "exchange": "NASDAQ"
+          "ticker": "AXP",
+          "name_en": "American Express",
+          "name_zh": "美國運通",
+          "role_zh": "美國運通：支付／金融代表性玩家",
+          "role_en": "American Express: representative player in Payments / fintech",
+          "exchange": "NYSE"
         }
       ]
     },

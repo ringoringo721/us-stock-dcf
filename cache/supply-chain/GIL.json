@@ -44,19 +44,19 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "DD",
-          "name_en": "DuPont",
-          "name_zh": "杜邦",
-          "role_zh": "杜邦：紡織／化學原料代表性玩家",
-          "role_en": "DuPont: representative player in Textile / chemical inputs",
+          "ticker": "LYB",
+          "name_en": "LyondellBasell",
+          "name_zh": "LyondellBasell",
+          "role_zh": "LyondellBasell：紡織／化學原料代表性玩家",
+          "role_en": "LyondellBasell: representative player in Textile / chemical inputs",
           "exchange": "NYSE"
         },
         {
-          "ticker": "EMN",
-          "name_en": "Eastman",
-          "name_zh": "Eastman",
-          "role_zh": "Eastman：紡織／化學原料代表性玩家",
-          "role_en": "Eastman: representative player in Textile / chemical inputs",
+          "ticker": "IP",
+          "name_en": "International Paper",
+          "name_zh": "IP",
+          "role_zh": "IP：紡織／化學原料代表性玩家",
+          "role_en": "International Paper: representative player in Textile / chemical inputs",
           "exchange": "NYSE"
         }
       ]
@@ -70,27 +70,27 @@
       "summary_en": "Freight into wholesale/channels.",
       "players": [
         {
-          "ticker": "UPS",
-          "name_en": "United Parcel Service",
-          "name_zh": "優比速",
-          "role_zh": "優比速：物流／配送代表性玩家",
-          "role_en": "United Parcel Service: representative player in Logistics / distribution",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "FDX",
-          "name_en": "FedEx",
-          "name_zh": "聯邦快遞",
-          "role_zh": "聯邦快遞：物流／配送代表性玩家",
-          "role_en": "FedEx: representative player in Logistics / distribution",
-          "exchange": "NYSE"
-        },
-        {
           "ticker": "UNP",
           "name_en": "Union Pacific",
           "name_zh": "聯合太平洋鐵路",
           "role_zh": "聯合太平洋鐵路：物流／配送代表性玩家",
           "role_en": "Union Pacific: representative player in Logistics / distribution",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "JBHT",
+          "name_en": "J.B. Hunt Transport Services",
+          "name_zh": "J.B. Hunt",
+          "role_zh": "J.B. Hunt：物流／配送代表性玩家",
+          "role_en": "J.B. Hunt Transport Services: representative player in Logistics / distribution",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "XPO",
+          "name_en": "XPO Logistics",
+          "name_zh": "XPO Logistics",
+          "role_zh": "XPO Logistics：物流／配送代表性玩家",
+          "role_en": "XPO Logistics: representative player in Logistics / distribution",
           "exchange": "NYSE"
         }
       ]
@@ -154,12 +154,12 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "PYPL",
-          "name_en": "PayPal",
-          "name_zh": "PayPal",
-          "role_zh": "PayPal：支付／金融代表性玩家",
-          "role_en": "PayPal: representative player in Payments / fintech",
-          "exchange": "NASDAQ"
+          "ticker": "GPN",
+          "name_en": "Global Payments",
+          "name_zh": "Global Payments",
+          "role_zh": "Global Payments：支付／金融代表性玩家",
+          "role_en": "Global Payments: representative player in Payments / fintech",
+          "exchange": "NYSE"
         }
       ]
     },

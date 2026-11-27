@@ -3107,13 +3107,13 @@
   "athletic-footwear-brand-v1": {
     "materials": [
       "DOW",
-      "DD",
-      "EMN"
+      "CE",
+      "WLK"
     ],
     "logistics": [
       "UPS",
       "FDX",
-      "EXPD"
+      "ODFL"
     ],
     "retail-channel": [
       "DKS",
@@ -3123,23 +3123,23 @@
     "payments": [
       "V",
       "MA",
-      "PYPL"
+      "AXP"
     ],
     "traffic": [
       "GOOG",
       "META",
-      "PINS"
+      "SNAP"
     ]
   },
   "apparel-brand-v1": {
     "materials": [
-      "DOW",
       "DD",
-      "LYB"
+      "LYB",
+      "IFF"
     ],
     "logistics": [
       "UPS",
-      "FDX",
+      "CHRW",
       "EXPD"
     ],
     "retail-channel": [
@@ -3161,13 +3161,13 @@
   "blank-apparel-mfg-v1": {
     "materials": [
       "DOW",
-      "DD",
-      "EMN"
+      "LYB",
+      "IP"
     ],
     "logistics": [
-      "UPS",
-      "FDX",
-      "UNP"
+      "UNP",
+      "JBHT",
+      "XPO"
     ],
     "mass-channel": [
       "WMT",
@@ -3177,7 +3177,7 @@
     "payments": [
       "V",
       "MA",
-      "PYPL"
+      "GPN"
     ],
     "traffic": [
       "GOOG",
@@ -3194,17 +3194,17 @@
     "logistics": [
       "UPS",
       "FDX",
-      "EXPD"
+      "SAIA"
     ],
     "real-estate": [
       "SPG",
-      "MAC",
-      "KIM"
+      "REG",
+      "FRT"
     ],
     "payments": [
       "V",
       "MA",
-      "PYPL"
+      "FISV"
     ],
     "traffic": [
       "GOOG",
@@ -3214,9 +3214,9 @@
   },
   "luxury-accessories-v1": {
     "materials": [
-      "DOW",
-      "DD",
-      "EMN"
+      "PPG",
+      "SHW",
+      "ECL"
     ],
     "logistics": [
       "UPS",
@@ -3225,13 +3225,13 @@
     ],
     "wholesale-dept": [
       "M",
-      "TJX",
-      "ROST"
+      "BURL",
+      "TJX"
     ],
     "payments": [
       "V",
       "MA",
-      "PYPL"
+      "AXP"
     ],
     "traffic": [
       "GOOG",

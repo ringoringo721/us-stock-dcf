@@ -36,14 +36,6 @@
       "summary_en": "Fiber, dye, and textile-related chemicals.",
       "players": [
         {
-          "ticker": "DOW",
-          "name_en": "Dow",
-          "name_zh": "陶氏化學",
-          "role_zh": "陶氏化學：紡織／化學原料代表性玩家",
-          "role_en": "Dow: representative player in Textile / chemical inputs",
-          "exchange": "NYSE"
-        },
-        {
           "ticker": "DD",
           "name_en": "DuPont",
           "name_zh": "杜邦",
@@ -57,6 +49,14 @@
           "name_zh": "LyondellBasell",
           "role_zh": "LyondellBasell：紡織／化學原料代表性玩家",
           "role_en": "LyondellBasell: representative player in Textile / chemical inputs",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "IP",
+          "name_en": "International Paper",
+          "name_zh": "IP",
+          "role_zh": "IP：紡織／化學原料代表性玩家",
+          "role_en": "International Paper: representative player in Textile / chemical inputs",
           "exchange": "NYSE"
         }
       ]
@@ -78,20 +78,20 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "FDX",
-          "name_en": "FedEx",
-          "name_zh": "聯邦快遞",
-          "role_zh": "聯邦快遞：物流／配送代表性玩家",
-          "role_en": "FedEx: representative player in Logistics / distribution",
-          "exchange": "NYSE"
+          "ticker": "CHRW",
+          "name_en": "C.H. Robinson Worldwide",
+          "name_zh": "C.H. Robinson",
+          "role_zh": "C.H. Robinson：物流／配送代表性玩家",
+          "role_en": "C.H. Robinson Worldwide: representative player in Logistics / distribution",
+          "exchange": "NASDAQ"
         },
         {
-          "ticker": "EXPD",
-          "name_en": "Expeditors",
-          "name_zh": "Expeditors",
-          "role_zh": "Expeditors：物流／配送代表性玩家",
-          "role_en": "Expeditors: representative player in Logistics / distribution",
-          "exchange": "NYSE"
+          "ticker": "JBHT",
+          "name_en": "J.B. Hunt Transport Services",
+          "name_zh": "J.B. Hunt",
+          "role_zh": "J.B. Hunt：物流／配送代表性玩家",
+          "role_en": "J.B. Hunt Transport Services: representative player in Logistics / distribution",
+          "exchange": "NASDAQ"
         }
       ]
     },
@@ -104,20 +104,20 @@
       "summary_en": "Off-price and department wholesale customers.",
       "players": [
         {
+          "ticker": "WMT",
+          "name_en": "Walmart",
+          "name_zh": "沃爾瑪",
+          "role_zh": "沃爾瑪：離價／百貨通路代表性玩家",
+          "role_en": "Walmart: representative player in Off-price / department channel",
+          "exchange": "NASDAQ"
+        },
+        {
           "ticker": "TJX",
           "name_en": "TJX Companies",
           "name_zh": "TJX 公司",
           "role_zh": "TJX 公司：離價／百貨通路代表性玩家",
           "role_en": "TJX Companies: representative player in Off-price / department channel",
           "exchange": "NYSE"
-        },
-        {
-          "ticker": "ROST",
-          "name_en": "Ross",
-          "name_zh": "羅斯百貨",
-          "role_zh": "羅斯百貨：離價／百貨通路代表性玩家",
-          "role_en": "Ross: representative player in Off-price / department channel",
-          "exchange": "NASDAQ"
         },
         {
           "ticker": "M",

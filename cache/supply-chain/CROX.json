@@ -44,19 +44,19 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "DD",
-          "name_en": "DuPont",
-          "name_zh": "杜邦",
-          "role_zh": "杜邦：鞋材／化學原料代表性玩家",
-          "role_en": "DuPont: representative player in Footwear materials / chemicals",
+          "ticker": "CE",
+          "name_en": "Celanese",
+          "name_zh": "Celanese",
+          "role_zh": "Celanese：鞋材／化學原料代表性玩家",
+          "role_en": "Celanese: representative player in Footwear materials / chemicals",
           "exchange": "NYSE"
         },
         {
-          "ticker": "EMN",
-          "name_en": "Eastman",
-          "name_zh": "Eastman",
-          "role_zh": "Eastman：鞋材／化學原料代表性玩家",
-          "role_en": "Eastman: representative player in Footwear materials / chemicals",
+          "ticker": "LYB",
+          "name_en": "LyondellBasell",
+          "name_zh": "LyondellBasell",
+          "role_zh": "LyondellBasell：鞋材／化學原料代表性玩家",
+          "role_en": "LyondellBasell: representative player in Footwear materials / chemicals",
           "exchange": "NYSE"
         }
       ]
@@ -78,19 +78,19 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "FDX",
-          "name_en": "FedEx",
-          "name_zh": "聯邦快遞",
-          "role_zh": "聯邦快遞：物流／配送代表性玩家",
-          "role_en": "FedEx: representative player in Logistics / distribution",
-          "exchange": "NYSE"
+          "ticker": "JBHT",
+          "name_en": "J.B. Hunt Transport Services",
+          "name_zh": "J.B. Hunt",
+          "role_zh": "J.B. Hunt：物流／配送代表性玩家",
+          "role_en": "J.B. Hunt Transport Services: representative player in Logistics / distribution",
+          "exchange": "NASDAQ"
         },
         {
-          "ticker": "EXPD",
-          "name_en": "Expeditors",
-          "name_zh": "Expeditors",
-          "role_zh": "Expeditors：物流／配送代表性玩家",
-          "role_en": "Expeditors: representative player in Logistics / distribution",
+          "ticker": "XPO",
+          "name_en": "XPO Logistics",
+          "name_zh": "XPO Logistics",
+          "role_zh": "XPO Logistics：物流／配送代表性玩家",
+          "role_en": "XPO Logistics: representative player in Logistics / distribution",
           "exchange": "NYSE"
         }
       ]
@@ -104,11 +104,19 @@
       "summary_en": "Sporting specialty and e-comm distribution customers.",
       "players": [
         {
-          "ticker": "DKS",
-          "name_en": "Dick's Sporting Goods",
-          "name_zh": "Dick's Sporting Goods",
-          "role_zh": "Dick's Sporting Goods：專賣／電商通路代表性玩家",
-          "role_en": "Dick's Sporting Goods: representative player in Specialty / e-comm channel",
+          "ticker": "WMT",
+          "name_en": "Walmart",
+          "name_zh": "沃爾瑪",
+          "role_zh": "沃爾瑪：專賣／電商通路代表性玩家",
+          "role_en": "Walmart: representative player in Specialty / e-comm channel",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "TGT",
+          "name_en": "Target",
+          "name_zh": "目標百貨 (Target)",
+          "role_zh": "目標百貨 (Target)：專賣／電商通路代表性玩家",
+          "role_en": "Target: representative player in Specialty / e-comm channel",
           "exchange": "NYSE"
         },
         {
@@ -117,14 +125,6 @@
           "name_zh": "亞馬遜",
           "role_zh": "亞馬遜：專賣／電商通路代表性玩家",
           "role_en": "Amazon.com: representative player in Specialty / e-comm channel",
-          "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "URBN",
-          "name_en": "Urban Outfitters",
-          "name_zh": "Urban Outfitters",
-          "role_zh": "Urban Outfitters：專賣／電商通路代表性玩家",
-          "role_en": "Urban Outfitters: representative player in Specialty / e-comm channel",
           "exchange": "NASDAQ"
         }
       ]
@@ -188,12 +188,12 @@
           "exchange": "NASDAQ"
         },
         {
-          "ticker": "PINS",
-          "name_en": "Pinterest",
-          "name_zh": "Pinterest",
-          "role_zh": "Pinterest：流量／行銷代表性玩家",
-          "role_en": "Pinterest: representative player in Traffic / marketing",
-          "exchange": "NYSE"
+          "ticker": "APP",
+          "name_en": "AppLovin",
+          "name_zh": "AppLovin",
+          "role_zh": "AppLovin：流量／行銷代表性玩家",
+          "role_en": "AppLovin: representative player in Traffic / marketing",
+          "exchange": "NASDAQ"
         }
       ]
     }

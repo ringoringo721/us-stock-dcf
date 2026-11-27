@@ -35,14 +35,6 @@
       "summary_en": "Packaged food and household/personal-care supply.",
       "players": [
         {
-          "ticker": "PG",
-          "name_en": "Procter & Gamble",
-          "name_zh": "寶僑",
-          "role_zh": "寶僑：CPG／主食供應代表性玩家",
-          "role_en": "Procter & Gamble: representative player in CPG / staples supply",
-          "exchange": "NYSE"
-        },
-        {
           "ticker": "KO",
           "name_en": "Coca-Cola",
           "name_zh": "可口可樂",
@@ -57,6 +49,14 @@
           "role_zh": "百事：CPG／主食供應代表性玩家",
           "role_en": "PepsiCo: representative player in CPG / staples supply",
           "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "GIS",
+          "name_en": "General Mills",
+          "name_zh": "通用磨坊",
+          "role_zh": "通用磨坊：CPG／主食供應代表性玩家",
+          "role_en": "General Mills: representative player in CPG / staples supply",
+          "exchange": "NYSE"
         }
       ]
     },
@@ -85,11 +85,11 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "VFC",
-          "name_en": "V.F.",
-          "name_zh": "V.F.",
-          "role_zh": "V.F.：軟線／服飾供應代表性玩家",
-          "role_en": "V.F.: representative player in Softlines / apparel supply",
+          "ticker": "GIL",
+          "name_en": "Gildan Activewear",
+          "name_zh": "Gildan Activewear",
+          "role_zh": "Gildan Activewear：軟線／服飾供應代表性玩家",
+          "role_en": "Gildan Activewear: representative player in Softlines / apparel supply",
           "exchange": "NYSE"
         }
       ]
@@ -103,28 +103,28 @@
       "summary_en": "Rail, LTL, and parcel into DCs/stores.",
       "players": [
         {
-          "ticker": "UPS",
-          "name_en": "United Parcel Service",
-          "name_zh": "優比速",
-          "role_zh": "優比速：物流／配送代表性玩家",
-          "role_en": "United Parcel Service: representative player in Logistics / distribution",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "FDX",
-          "name_en": "FedEx",
-          "name_zh": "聯邦快遞",
-          "role_zh": "聯邦快遞：物流／配送代表性玩家",
-          "role_en": "FedEx: representative player in Logistics / distribution",
-          "exchange": "NYSE"
-        },
-        {
           "ticker": "UNP",
           "name_en": "Union Pacific",
           "name_zh": "聯合太平洋鐵路",
           "role_zh": "聯合太平洋鐵路：物流／配送代表性玩家",
           "role_en": "Union Pacific: representative player in Logistics / distribution",
           "exchange": "NYSE"
+        },
+        {
+          "ticker": "ODFL",
+          "name_en": "Old Dominion Freight Line",
+          "name_zh": "Old Dominion",
+          "role_zh": "Old Dominion：物流／配送代表性玩家",
+          "role_en": "Old Dominion Freight Line: representative player in Logistics / distribution",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "JBHT",
+          "name_en": "J.B. Hunt Transport Services",
+          "name_zh": "J.B. Hunt",
+          "role_zh": "J.B. Hunt：物流／配送代表性玩家",
+          "role_en": "J.B. Hunt Transport Services: representative player in Logistics / distribution",
+          "exchange": "NASDAQ"
         }
       ]
     },

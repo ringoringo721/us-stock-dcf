@@ -51,11 +51,11 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "LEVI",
-          "name_en": "Levi's",
-          "name_zh": "Levi's",
-          "role_zh": "Levi's：品牌過剩貨源代表性玩家",
-          "role_en": "Levi's: representative player in Brand excess supply",
+          "ticker": "RL",
+          "name_en": "Ralph Lauren",
+          "name_zh": "Ralph Lauren",
+          "role_zh": "Ralph Lauren：品牌過剩貨源代表性玩家",
+          "role_en": "Ralph Lauren: representative player in Brand excess supply",
           "exchange": "NYSE"
         }
       ]
@@ -85,12 +85,12 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "EXPD",
-          "name_en": "Expeditors",
-          "name_zh": "Expeditors",
-          "role_zh": "Expeditors：物流／倉儲代表性玩家",
-          "role_en": "Expeditors: representative player in Logistics / warehousing",
-          "exchange": "NYSE"
+          "ticker": "SAIA",
+          "name_en": "Saia",
+          "name_zh": "Saia",
+          "role_zh": "Saia：物流／倉儲代表性玩家",
+          "role_en": "Saia: representative player in Logistics / warehousing",
+          "exchange": "NASDAQ"
         }
       ]
     },
@@ -111,19 +111,19 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "MAC",
-          "name_en": "Macerich",
-          "name_zh": "Macerich",
-          "role_zh": "Macerich：商場／地產代表性玩家",
-          "role_en": "Macerich: representative player in Malls / real estate",
-          "exchange": "NYSE"
+          "ticker": "REG",
+          "name_en": "Regency Centers",
+          "name_zh": "Regency Centers",
+          "role_zh": "Regency Centers：商場／地產代表性玩家",
+          "role_en": "Regency Centers: representative player in Malls / real estate",
+          "exchange": "NASDAQ"
         },
         {
-          "ticker": "KIM",
-          "name_en": "Kimco Realty",
-          "name_zh": "Kimco",
-          "role_zh": "Kimco：商場／地產代表性玩家",
-          "role_en": "Kimco Realty: representative player in Malls / real estate",
+          "ticker": "FRT",
+          "name_en": "Federal Realty",
+          "name_zh": "Federal Realty",
+          "role_zh": "Federal Realty：商場／地產代表性玩家",
+          "role_en": "Federal Realty: representative player in Malls / real estate",
           "exchange": "NYSE"
         }
       ]
@@ -153,11 +153,11 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "PYPL",
-          "name_en": "PayPal",
-          "name_zh": "PayPal",
-          "role_zh": "PayPal：支付／金融代表性玩家",
-          "role_en": "PayPal: representative player in Payments / fintech",
+          "ticker": "FISV",
+          "name_en": "Fiserv",
+          "name_zh": "Fiserv",
+          "role_zh": "Fiserv：支付／金融代表性玩家",
+          "role_en": "Fiserv: representative player in Payments / fintech",
           "exchange": "NASDAQ"
         }
       ]

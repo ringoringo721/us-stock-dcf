@@ -26,12 +26,12 @@
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "DD": {
-      "ticker": "DD",
-      "price": 153.62,
-      "previousClose": 150.71,
-      "changePct": 1.931,
-      "mcap": 20359.6,
+    "WLK": {
+      "ticker": "WLK",
+      "price": 62.59,
+      "previousClose": 60.53,
+      "changePct": 3.403,
+      "mcap": 8004.4,
       "currency": "USD",
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
@@ -56,22 +56,22 @@
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "FDX": {
-      "ticker": "FDX",
-      "price": 308.87,
-      "previousClose": 308.29,
-      "changePct": 0.188,
-      "mcap": 72337.2,
-      "currency": "USD",
-      "asOf": "2026-11-25",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
     "EXPD": {
       "ticker": "EXPD",
       "price": 198.19,
       "previousClose": 197.81,
       "changePct": 0.192,
       "mcap": 25588.5,
+      "currency": "USD",
+      "asOf": "2026-11-25",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "ODFL": {
+      "ticker": "ODFL",
+      "price": 174.66,
+      "previousClose": 169.57,
+      "changePct": 3.002,
+      "mcap": 35986.9,
       "currency": "USD",
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
@@ -86,22 +86,22 @@
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
+    "M": {
+      "ticker": "M",
+      "price": 24.12,
+      "previousClose": 24.48,
+      "changePct": -1.471,
+      "mcap": 6299.6,
+      "currency": "USD",
+      "asOf": "2026-11-25",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
     "AMZN": {
       "ticker": "AMZN",
       "price": 244.43,
       "previousClose": 252.29,
       "changePct": -3.115,
       "mcap": 2643046.0,
-      "currency": "USD",
-      "asOf": "2026-11-25",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "URBN": {
-      "ticker": "URBN",
-      "price": 76.74,
-      "previousClose": 85.58,
-      "changePct": -10.33,
-      "mcap": 6573.6,
       "currency": "USD",
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
@@ -126,12 +126,12 @@
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "PYPL": {
-      "ticker": "PYPL",
-      "price": 57.81,
-      "previousClose": 56.17,
-      "changePct": 2.92,
-      "mcap": 48020.4,
+    "AXP": {
+      "ticker": "AXP",
+      "price": 312.39,
+      "previousClose": 308.63,
+      "changePct": 1.218,
+      "mcap": 209473.7,
       "currency": "USD",
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"

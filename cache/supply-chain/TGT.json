@@ -44,19 +44,19 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "KO",
-          "name_en": "Coca-Cola",
-          "name_zh": "可口可樂",
-          "role_zh": "可口可樂：CPG／主食供應代表性玩家",
-          "role_en": "Coca-Cola: representative player in CPG / staples supply",
+          "ticker": "CLX",
+          "name_en": "Clorox",
+          "name_zh": "高樂氏",
+          "role_zh": "高樂氏：CPG／主食供應代表性玩家",
+          "role_en": "Clorox: representative player in CPG / staples supply",
           "exchange": "NYSE"
         },
         {
-          "ticker": "PEP",
-          "name_en": "PepsiCo",
-          "name_zh": "百事",
-          "role_zh": "百事：CPG／主食供應代表性玩家",
-          "role_en": "PepsiCo: representative player in CPG / staples supply",
+          "ticker": "KMB",
+          "name_en": "Kimberly-Clark",
+          "name_zh": "金百利克拉克",
+          "role_zh": "金百利克拉克：CPG／主食供應代表性玩家",
+          "role_en": "Kimberly-Clark: representative player in CPG / staples supply",
           "exchange": "NASDAQ"
         }
       ]
@@ -86,12 +86,12 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "VFC",
-          "name_en": "V.F.",
-          "name_zh": "V.F.",
-          "role_zh": "V.F.：軟線／服飾供應代表性玩家",
-          "role_en": "V.F.: representative player in Softlines / apparel supply",
-          "exchange": "NYSE"
+          "ticker": "LULU",
+          "name_en": "Lululemon",
+          "name_zh": "露露檸檬",
+          "role_zh": "露露檸檬：軟線／服飾供應代表性玩家",
+          "role_en": "Lululemon: representative player in Softlines / apparel supply",
+          "exchange": "NASDAQ"
         }
       ]
     },
@@ -120,12 +120,12 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "UNP",
-          "name_en": "Union Pacific",
-          "name_zh": "聯合太平洋鐵路",
-          "role_zh": "聯合太平洋鐵路：物流／配送代表性玩家",
-          "role_en": "Union Pacific: representative player in Logistics / distribution",
-          "exchange": "NYSE"
+          "ticker": "CHRW",
+          "name_en": "C.H. Robinson Worldwide",
+          "name_zh": "C.H. Robinson",
+          "role_zh": "C.H. Robinson：物流／配送代表性玩家",
+          "role_en": "C.H. Robinson Worldwide: representative player in Logistics / distribution",
+          "exchange": "NASDAQ"
         }
       ]
     },
@@ -154,12 +154,12 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "PYPL",
-          "name_en": "PayPal",
-          "name_zh": "PayPal",
-          "role_zh": "PayPal：支付／金融代表性玩家",
-          "role_en": "PayPal: representative player in Payments / fintech",
-          "exchange": "NASDAQ"
+          "ticker": "AXP",
+          "name_en": "American Express",
+          "name_zh": "美國運通",
+          "role_zh": "美國運通：支付／金融代表性玩家",
+          "role_en": "American Express: representative player in Payments / fintech",
+          "exchange": "NYSE"
         }
       ]
     },
@@ -188,12 +188,12 @@
           "exchange": "NASDAQ"
         },
         {
-          "ticker": "APP",
-          "name_en": "AppLovin",
-          "name_zh": "AppLovin",
-          "role_zh": "AppLovin：流量／行銷代表性玩家",
-          "role_en": "AppLovin: representative player in Traffic / marketing",
-          "exchange": "NASDAQ"
+          "ticker": "PINS",
+          "name_en": "Pinterest",
+          "name_zh": "Pinterest",
+          "role_zh": "Pinterest：流量／行銷代表性玩家",
+          "role_en": "Pinterest: representative player in Traffic / marketing",
+          "exchange": "NYSE"
         }
       ]
     }

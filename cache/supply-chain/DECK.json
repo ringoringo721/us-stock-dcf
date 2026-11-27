@@ -44,11 +44,11 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "DD",
-          "name_en": "DuPont",
-          "name_zh": "杜邦",
-          "role_zh": "杜邦：鞋材／化學原料代表性玩家",
-          "role_en": "DuPont: representative player in Footwear materials / chemicals",
+          "ticker": "WLK",
+          "name_en": "Westlake",
+          "name_zh": "Westlake",
+          "role_zh": "Westlake：鞋材／化學原料代表性玩家",
+          "role_en": "Westlake: representative player in Footwear materials / chemicals",
           "exchange": "NYSE"
         },
         {
@@ -78,20 +78,20 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "FDX",
-          "name_en": "FedEx",
-          "name_zh": "聯邦快遞",
-          "role_zh": "聯邦快遞：物流／配送代表性玩家",
-          "role_en": "FedEx: representative player in Logistics / distribution",
-          "exchange": "NYSE"
-        },
-        {
           "ticker": "EXPD",
           "name_en": "Expeditors",
           "name_zh": "Expeditors",
           "role_zh": "Expeditors：物流／配送代表性玩家",
           "role_en": "Expeditors: representative player in Logistics / distribution",
           "exchange": "NYSE"
+        },
+        {
+          "ticker": "ODFL",
+          "name_en": "Old Dominion Freight Line",
+          "name_zh": "Old Dominion",
+          "role_zh": "Old Dominion：物流／配送代表性玩家",
+          "role_en": "Old Dominion Freight Line: representative player in Logistics / distribution",
+          "exchange": "NASDAQ"
         }
       ]
     },
@@ -112,19 +112,19 @@
           "exchange": "NYSE"
         },
         {
+          "ticker": "M",
+          "name_en": "Macy's",
+          "name_zh": "Macy's",
+          "role_zh": "Macy's：專賣／電商通路代表性玩家",
+          "role_en": "Macy's: representative player in Specialty / e-comm channel",
+          "exchange": "NYSE"
+        },
+        {
           "ticker": "AMZN",
           "name_en": "Amazon.com",
           "name_zh": "亞馬遜",
           "role_zh": "亞馬遜：專賣／電商通路代表性玩家",
           "role_en": "Amazon.com: representative player in Specialty / e-comm channel",
-          "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "URBN",
-          "name_en": "Urban Outfitters",
-          "name_zh": "Urban Outfitters",
-          "role_zh": "Urban Outfitters：專賣／電商通路代表性玩家",
-          "role_en": "Urban Outfitters: representative player in Specialty / e-comm channel",
           "exchange": "NASDAQ"
         }
       ]
@@ -154,12 +154,12 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "PYPL",
-          "name_en": "PayPal",
-          "name_zh": "PayPal",
-          "role_zh": "PayPal：支付／金融代表性玩家",
-          "role_en": "PayPal: representative player in Payments / fintech",
-          "exchange": "NASDAQ"
+          "ticker": "AXP",
+          "name_en": "American Express",
+          "name_zh": "美國運通",
+          "role_zh": "美國運通：支付／金融代表性玩家",
+          "role_en": "American Express: representative player in Payments / fintech",
+          "exchange": "NYSE"
         }
       ]
     },

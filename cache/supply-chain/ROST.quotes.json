@@ -26,22 +26,22 @@
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "VFC": {
-      "ticker": "VFC",
-      "price": 21.47,
-      "previousClose": 20.91,
-      "changePct": 2.678,
-      "mcap": 8451.4,
-      "currency": "USD",
-      "asOf": "2026-11-25",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
     "LEVI": {
       "ticker": "LEVI",
       "price": 24.49,
       "previousClose": 24.5,
       "changePct": -0.041,
       "mcap": 9391.2,
+      "currency": "USD",
+      "asOf": "2026-11-25",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "GAP": {
+      "ticker": "GAP",
+      "price": 23.21,
+      "previousClose": 22.64,
+      "changePct": 2.518,
+      "mcap": 8153.0,
       "currency": "USD",
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
@@ -56,42 +56,42 @@
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "FDX": {
-      "ticker": "FDX",
-      "price": 308.87,
-      "previousClose": 308.29,
-      "changePct": 0.188,
-      "mcap": 72337.2,
+    "ODFL": {
+      "ticker": "ODFL",
+      "price": 174.66,
+      "previousClose": 169.57,
+      "changePct": 3.002,
+      "mcap": 35986.9,
       "currency": "USD",
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "EXPD": {
-      "ticker": "EXPD",
-      "price": 198.19,
-      "previousClose": 197.81,
-      "changePct": 0.192,
-      "mcap": 25588.5,
+    "SAIA": {
+      "ticker": "SAIA",
+      "price": 325.3,
+      "previousClose": 317.24,
+      "changePct": 2.541,
+      "mcap": 8679.1,
       "currency": "USD",
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "SPG": {
-      "ticker": "SPG",
-      "price": 233.98,
-      "previousClose": 229.83,
-      "changePct": 1.806,
-      "mcap": 75704.5,
+    "REG": {
+      "ticker": "REG",
+      "price": 75.52,
+      "previousClose": 74.94,
+      "changePct": 0.774,
+      "mcap": 13829.3,
       "currency": "USD",
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "MAC": {
-      "ticker": "MAC",
-      "price": 24.31,
-      "previousClose": 24.1,
-      "changePct": 0.871,
-      "mcap": 7172.8,
+    "FRT": {
+      "ticker": "FRT",
+      "price": 114.25,
+      "previousClose": 112.55,
+      "changePct": 1.51,
+      "mcap": 9930.1,
       "currency": "USD",
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
@@ -156,12 +156,12 @@
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "PINS": {
-      "ticker": "PINS",
-      "price": 19.71,
-      "previousClose": 18.5,
-      "changePct": 6.541,
-      "mcap": 9865.4,
+    "APP": {
+      "ticker": "APP",
+      "price": 378.95,
+      "previousClose": 381.11,
+      "changePct": -0.567,
+      "mcap": 114161.7,
       "currency": "USD",
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"

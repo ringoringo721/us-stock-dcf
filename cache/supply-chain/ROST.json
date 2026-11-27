@@ -44,19 +44,19 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "VFC",
-          "name_en": "V.F.",
-          "name_zh": "V.F.",
-          "role_zh": "V.F.：品牌過剩貨源代表性玩家",
-          "role_en": "V.F.: representative player in Brand excess supply",
-          "exchange": "NYSE"
-        },
-        {
           "ticker": "LEVI",
           "name_en": "Levi's",
           "name_zh": "Levi's",
           "role_zh": "Levi's：品牌過剩貨源代表性玩家",
           "role_en": "Levi's: representative player in Brand excess supply",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "GAP",
+          "name_en": "Gap",
+          "name_zh": "Gap",
+          "role_zh": "Gap：品牌過剩貨源代表性玩家",
+          "role_en": "Gap: representative player in Brand excess supply",
           "exchange": "NYSE"
         }
       ]
@@ -78,20 +78,20 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "FDX",
-          "name_en": "FedEx",
-          "name_zh": "聯邦快遞",
-          "role_zh": "聯邦快遞：物流／倉儲代表性玩家",
-          "role_en": "FedEx: representative player in Logistics / warehousing",
-          "exchange": "NYSE"
+          "ticker": "ODFL",
+          "name_en": "Old Dominion Freight Line",
+          "name_zh": "Old Dominion",
+          "role_zh": "Old Dominion：物流／倉儲代表性玩家",
+          "role_en": "Old Dominion Freight Line: representative player in Logistics / warehousing",
+          "exchange": "NASDAQ"
         },
         {
-          "ticker": "EXPD",
-          "name_en": "Expeditors",
-          "name_zh": "Expeditors",
-          "role_zh": "Expeditors：物流／倉儲代表性玩家",
-          "role_en": "Expeditors: representative player in Logistics / warehousing",
-          "exchange": "NYSE"
+          "ticker": "SAIA",
+          "name_en": "Saia",
+          "name_zh": "Saia",
+          "role_zh": "Saia：物流／倉儲代表性玩家",
+          "role_en": "Saia: representative player in Logistics / warehousing",
+          "exchange": "NASDAQ"
         }
       ]
     },
@@ -104,19 +104,19 @@
       "summary_en": "Mall and retail real-estate landlords.",
       "players": [
         {
-          "ticker": "SPG",
-          "name_en": "Simon Property",
-          "name_zh": "西蒙地產",
-          "role_zh": "西蒙地產：商場／地產代表性玩家",
-          "role_en": "Simon Property: representative player in Malls / real estate",
-          "exchange": "NYSE"
+          "ticker": "REG",
+          "name_en": "Regency Centers",
+          "name_zh": "Regency Centers",
+          "role_zh": "Regency Centers：商場／地產代表性玩家",
+          "role_en": "Regency Centers: representative player in Malls / real estate",
+          "exchange": "NASDAQ"
         },
         {
-          "ticker": "MAC",
-          "name_en": "Macerich",
-          "name_zh": "Macerich",
-          "role_zh": "Macerich：商場／地產代表性玩家",
-          "role_en": "Macerich: representative player in Malls / real estate",
+          "ticker": "FRT",
+          "name_en": "Federal Realty",
+          "name_zh": "Federal Realty",
+          "role_zh": "Federal Realty：商場／地產代表性玩家",
+          "role_en": "Federal Realty: representative player in Malls / real estate",
           "exchange": "NYSE"
         },
         {
@@ -188,12 +188,12 @@
           "exchange": "NASDAQ"
         },
         {
-          "ticker": "PINS",
-          "name_en": "Pinterest",
-          "name_zh": "Pinterest",
-          "role_zh": "Pinterest：流量／行銷代表性玩家",
-          "role_en": "Pinterest: representative player in Traffic / marketing",
-          "exchange": "NYSE"
+          "ticker": "APP",
+          "name_en": "AppLovin",
+          "name_zh": "AppLovin",
+          "role_zh": "AppLovin：流量／行銷代表性玩家",
+          "role_en": "AppLovin: representative player in Traffic / marketing",
+          "exchange": "NASDAQ"
         }
       ]
     }

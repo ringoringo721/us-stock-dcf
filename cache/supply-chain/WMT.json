@@ -85,11 +85,11 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "VFC",
-          "name_en": "V.F.",
-          "name_zh": "V.F.",
-          "role_zh": "V.F.：軟線／服飾供應代表性玩家",
-          "role_en": "V.F.: representative player in Softlines / apparel supply",
+          "ticker": "GIL",
+          "name_en": "Gildan Activewear",
+          "name_zh": "Gildan Activewear",
+          "role_zh": "Gildan Activewear：軟線／服飾供應代表性玩家",
+          "role_en": "Gildan Activewear: representative player in Softlines / apparel supply",
           "exchange": "NYSE"
         }
       ]
@@ -103,27 +103,27 @@
       "summary_en": "Rail, LTL, and parcel into DCs/stores.",
       "players": [
         {
-          "ticker": "UPS",
-          "name_en": "United Parcel Service",
-          "name_zh": "優比速",
-          "role_zh": "優比速：物流／配送代表性玩家",
-          "role_en": "United Parcel Service: representative player in Logistics / distribution",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "FDX",
-          "name_en": "FedEx",
-          "name_zh": "聯邦快遞",
-          "role_zh": "聯邦快遞：物流／配送代表性玩家",
-          "role_en": "FedEx: representative player in Logistics / distribution",
-          "exchange": "NYSE"
-        },
-        {
           "ticker": "UNP",
           "name_en": "Union Pacific",
           "name_zh": "聯合太平洋鐵路",
           "role_zh": "聯合太平洋鐵路：物流／配送代表性玩家",
           "role_en": "Union Pacific: representative player in Logistics / distribution",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "JBHT",
+          "name_en": "J.B. Hunt Transport Services",
+          "name_zh": "J.B. Hunt",
+          "role_zh": "J.B. Hunt：物流／配送代表性玩家",
+          "role_en": "J.B. Hunt Transport Services: representative player in Logistics / distribution",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "XPO",
+          "name_en": "XPO Logistics",
+          "name_zh": "XPO Logistics",
+          "role_zh": "XPO Logistics：物流／配送代表性玩家",
+          "role_en": "XPO Logistics: representative player in Logistics / distribution",
           "exchange": "NYSE"
         }
       ]

@@ -36,27 +36,27 @@
       "summary_en": "Leather processing and coating chemicals.",
       "players": [
         {
-          "ticker": "DOW",
-          "name_en": "Dow",
-          "name_zh": "陶氏化學",
-          "role_zh": "陶氏化學：皮料／化學原料代表性玩家",
-          "role_en": "Dow: representative player in Leather / chemical inputs",
+          "ticker": "PPG",
+          "name_en": "PPG Industries",
+          "name_zh": "PPG Industries",
+          "role_zh": "PPG Industries：皮料／化學原料代表性玩家",
+          "role_en": "PPG Industries: representative player in Leather / chemical inputs",
           "exchange": "NYSE"
         },
         {
-          "ticker": "DD",
-          "name_en": "DuPont",
-          "name_zh": "杜邦",
-          "role_zh": "杜邦：皮料／化學原料代表性玩家",
-          "role_en": "DuPont: representative player in Leather / chemical inputs",
+          "ticker": "SHW",
+          "name_en": "Sherwin-Williams",
+          "name_zh": "宣偉塗料",
+          "role_zh": "宣偉塗料：皮料／化學原料代表性玩家",
+          "role_en": "Sherwin-Williams: representative player in Leather / chemical inputs",
           "exchange": "NYSE"
         },
         {
-          "ticker": "EMN",
-          "name_en": "Eastman",
-          "name_zh": "Eastman",
-          "role_zh": "Eastman：皮料／化學原料代表性玩家",
-          "role_en": "Eastman: representative player in Leather / chemical inputs",
+          "ticker": "ECL",
+          "name_en": "Ecolab",
+          "name_zh": "藝康集團",
+          "role_zh": "藝康集團：皮料／化學原料代表性玩家",
+          "role_en": "Ecolab: representative player in Leather / chemical inputs",
           "exchange": "NYSE"
         }
       ]
@@ -112,20 +112,20 @@
           "exchange": "NYSE"
         },
         {
+          "ticker": "BURL",
+          "name_en": "Burlington",
+          "name_zh": "Burlington",
+          "role_zh": "Burlington：百貨／離價通路代表性玩家",
+          "role_en": "Burlington: representative player in Department / off-price channel",
+          "exchange": "NYSE"
+        },
+        {
           "ticker": "TJX",
           "name_en": "TJX Companies",
           "name_zh": "TJX 公司",
           "role_zh": "TJX 公司：百貨／離價通路代表性玩家",
           "role_en": "TJX Companies: representative player in Department / off-price channel",
           "exchange": "NYSE"
-        },
-        {
-          "ticker": "ROST",
-          "name_en": "Ross",
-          "name_zh": "羅斯百貨",
-          "role_zh": "羅斯百貨：百貨／離價通路代表性玩家",
-          "role_en": "Ross: representative player in Department / off-price channel",
-          "exchange": "NASDAQ"
         }
       ]
     },
@@ -154,12 +154,12 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "PYPL",
-          "name_en": "PayPal",
-          "name_zh": "PayPal",
-          "role_zh": "PayPal：支付／金融代表性玩家",
-          "role_en": "PayPal: representative player in Payments / fintech",
-          "exchange": "NASDAQ"
+          "ticker": "AXP",
+          "name_en": "American Express",
+          "name_zh": "美國運通",
+          "role_zh": "美國運通：支付／金融代表性玩家",
+          "role_en": "American Express: representative player in Payments / fintech",
+          "exchange": "NYSE"
         }
       ]
     },

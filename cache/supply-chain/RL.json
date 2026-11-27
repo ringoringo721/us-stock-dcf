@@ -36,14 +36,6 @@
       "summary_en": "Fiber, dye, and textile-related chemicals.",
       "players": [
         {
-          "ticker": "DOW",
-          "name_en": "Dow",
-          "name_zh": "陶氏化學",
-          "role_zh": "陶氏化學：紡織／化學原料代表性玩家",
-          "role_en": "Dow: representative player in Textile / chemical inputs",
-          "exchange": "NYSE"
-        },
-        {
           "ticker": "DD",
           "name_en": "DuPont",
           "name_zh": "杜邦",
@@ -52,11 +44,19 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "LYB",
-          "name_en": "LyondellBasell",
-          "name_zh": "LyondellBasell",
-          "role_zh": "LyondellBasell：紡織／化學原料代表性玩家",
-          "role_en": "LyondellBasell: representative player in Textile / chemical inputs",
+          "ticker": "IFF",
+          "name_en": "International Flavors & Fragrances",
+          "name_zh": "國際香精香料",
+          "role_zh": "國際香精香料：紡織／化學原料代表性玩家",
+          "role_en": "International Flavors & Fragrances: representative player in Textile / chemical inputs",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "PPG",
+          "name_en": "PPG Industries",
+          "name_zh": "PPG Industries",
+          "role_zh": "PPG Industries：紡織／化學原料代表性玩家",
+          "role_en": "PPG Industries: representative player in Textile / chemical inputs",
           "exchange": "NYSE"
         }
       ]
@@ -78,20 +78,20 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "FDX",
-          "name_en": "FedEx",
-          "name_zh": "聯邦快遞",
-          "role_zh": "聯邦快遞：物流／配送代表性玩家",
-          "role_en": "FedEx: representative player in Logistics / distribution",
-          "exchange": "NYSE"
-        },
-        {
           "ticker": "EXPD",
           "name_en": "Expeditors",
           "name_zh": "Expeditors",
           "role_zh": "Expeditors：物流／配送代表性玩家",
           "role_en": "Expeditors: representative player in Logistics / distribution",
           "exchange": "NYSE"
+        },
+        {
+          "ticker": "CHRW",
+          "name_en": "C.H. Robinson Worldwide",
+          "name_zh": "C.H. Robinson",
+          "role_zh": "C.H. Robinson：物流／配送代表性玩家",
+          "role_en": "C.H. Robinson Worldwide: representative player in Logistics / distribution",
+          "exchange": "NASDAQ"
         }
       ]
     },
@@ -104,6 +104,14 @@
       "summary_en": "Off-price and department wholesale customers.",
       "players": [
         {
+          "ticker": "M",
+          "name_en": "Macy's",
+          "name_zh": "Macy's",
+          "role_zh": "Macy's：離價／百貨通路代表性玩家",
+          "role_en": "Macy's: representative player in Off-price / department channel",
+          "exchange": "NYSE"
+        },
+        {
           "ticker": "TJX",
           "name_en": "TJX Companies",
           "name_zh": "TJX 公司",
@@ -112,20 +120,12 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "ROST",
-          "name_en": "Ross",
-          "name_zh": "羅斯百貨",
-          "role_zh": "羅斯百貨：離價／百貨通路代表性玩家",
-          "role_en": "Ross: representative player in Off-price / department channel",
+          "ticker": "URBN",
+          "name_en": "Urban Outfitters",
+          "name_zh": "Urban Outfitters",
+          "role_zh": "Urban Outfitters：離價／百貨通路代表性玩家",
+          "role_en": "Urban Outfitters: representative player in Off-price / department channel",
           "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "M",
-          "name_en": "Macy's",
-          "name_zh": "Macy's",
-          "role_zh": "Macy's：離價／百貨通路代表性玩家",
-          "role_en": "Macy's: representative player in Off-price / department channel",
-          "exchange": "NYSE"
         }
       ]
     },
@@ -154,12 +154,12 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "PYPL",
-          "name_en": "PayPal",
-          "name_zh": "PayPal",
-          "role_zh": "PayPal：支付／金融代表性玩家",
-          "role_en": "PayPal: representative player in Payments / fintech",
-          "exchange": "NASDAQ"
+          "ticker": "AXP",
+          "name_en": "American Express",
+          "name_zh": "美國運通",
+          "role_zh": "美國運通：支付／金融代表性玩家",
+          "role_en": "American Express: representative player in Payments / fintech",
+          "exchange": "NYSE"
         }
       ]
     },

@@ -44,19 +44,19 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "DD",
-          "name_en": "DuPont",
-          "name_zh": "杜邦",
-          "role_zh": "杜邦：鞋材／化學原料代表性玩家",
-          "role_en": "DuPont: representative player in Footwear materials / chemicals",
+          "ticker": "CE",
+          "name_en": "Celanese",
+          "name_zh": "Celanese",
+          "role_zh": "Celanese：鞋材／化學原料代表性玩家",
+          "role_en": "Celanese: representative player in Footwear materials / chemicals",
           "exchange": "NYSE"
         },
         {
-          "ticker": "EMN",
-          "name_en": "Eastman",
-          "name_zh": "Eastman",
-          "role_zh": "Eastman：鞋材／化學原料代表性玩家",
-          "role_en": "Eastman: representative player in Footwear materials / chemicals",
+          "ticker": "WLK",
+          "name_en": "Westlake",
+          "name_zh": "Westlake",
+          "role_zh": "Westlake：鞋材／化學原料代表性玩家",
+          "role_en": "Westlake: representative player in Footwear materials / chemicals",
           "exchange": "NYSE"
         }
       ]
@@ -86,12 +86,12 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "EXPD",
-          "name_en": "Expeditors",
-          "name_zh": "Expeditors",
-          "role_zh": "Expeditors：物流／配送代表性玩家",
-          "role_en": "Expeditors: representative player in Logistics / distribution",
-          "exchange": "NYSE"
+          "ticker": "ODFL",
+          "name_en": "Old Dominion Freight Line",
+          "name_zh": "Old Dominion",
+          "role_zh": "Old Dominion：物流／配送代表性玩家",
+          "role_en": "Old Dominion Freight Line: representative player in Logistics / distribution",
+          "exchange": "NASDAQ"
         }
       ]
     },
@@ -154,12 +154,12 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "PYPL",
-          "name_en": "PayPal",
-          "name_zh": "PayPal",
-          "role_zh": "PayPal：支付／金融代表性玩家",
-          "role_en": "PayPal: representative player in Payments / fintech",
-          "exchange": "NASDAQ"
+          "ticker": "AXP",
+          "name_en": "American Express",
+          "name_zh": "美國運通",
+          "role_zh": "美國運通：支付／金融代表性玩家",
+          "role_en": "American Express: representative player in Payments / fintech",
+          "exchange": "NYSE"
         }
       ]
     },
@@ -188,11 +188,11 @@
           "exchange": "NASDAQ"
         },
         {
-          "ticker": "PINS",
-          "name_en": "Pinterest",
-          "name_zh": "Pinterest",
-          "role_zh": "Pinterest：流量／行銷代表性玩家",
-          "role_en": "Pinterest: representative player in Traffic / marketing",
+          "ticker": "SNAP",
+          "name_en": "Snap",
+          "name_zh": "Snap",
+          "role_zh": "Snap：流量／行銷代表性玩家",
+          "role_en": "Snap: representative player in Traffic / marketing",
           "exchange": "NYSE"
         }
       ]

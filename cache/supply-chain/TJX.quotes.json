@@ -36,12 +36,12 @@
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "LEVI": {
-      "ticker": "LEVI",
-      "price": 24.49,
-      "previousClose": 24.5,
-      "changePct": -0.041,
-      "mcap": 9391.2,
+    "RL": {
+      "ticker": "RL",
+      "price": 400.71,
+      "previousClose": 397.39,
+      "changePct": 0.835,
+      "mcap": 23690.1,
       "currency": "USD",
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
@@ -66,12 +66,12 @@
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "EXPD": {
-      "ticker": "EXPD",
-      "price": 198.19,
-      "previousClose": 197.81,
-      "changePct": 0.192,
-      "mcap": 25588.5,
+    "SAIA": {
+      "ticker": "SAIA",
+      "price": 325.3,
+      "previousClose": 317.24,
+      "changePct": 2.541,
+      "mcap": 8679.1,
       "currency": "USD",
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
@@ -86,22 +86,22 @@
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "MAC": {
-      "ticker": "MAC",
-      "price": 24.31,
-      "previousClose": 24.1,
-      "changePct": 0.871,
-      "mcap": 7172.8,
+    "REG": {
+      "ticker": "REG",
+      "price": 75.52,
+      "previousClose": 74.94,
+      "changePct": 0.774,
+      "mcap": 13829.3,
       "currency": "USD",
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "KIM": {
-      "ticker": "KIM",
-      "price": 26.05,
-      "previousClose": 25.79,
-      "changePct": 1.008,
-      "mcap": 17310.0,
+    "FRT": {
+      "ticker": "FRT",
+      "price": 114.25,
+      "previousClose": 112.55,
+      "changePct": 1.51,
+      "mcap": 9930.1,
       "currency": "USD",
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
@@ -126,12 +126,12 @@
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "PYPL": {
-      "ticker": "PYPL",
-      "price": 57.81,
-      "previousClose": 56.17,
-      "changePct": 2.92,
-      "mcap": 48020.4,
+    "FISV": {
+      "ticker": "FISV",
+      "price": 59.78,
+      "previousClose": 58.62,
+      "changePct": 1.979,
+      "mcap": 31805.8,
       "currency": "USD",
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"

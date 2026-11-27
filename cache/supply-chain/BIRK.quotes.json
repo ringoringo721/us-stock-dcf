@@ -26,22 +26,22 @@
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "DD": {
-      "ticker": "DD",
-      "price": 153.62,
-      "previousClose": 150.71,
-      "changePct": 1.931,
-      "mcap": 20359.6,
-      "currency": "USD",
-      "asOf": "2026-11-25",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
     "EMN": {
       "ticker": "EMN",
       "price": 61.64,
       "previousClose": 60.74,
       "changePct": 1.482,
       "mcap": 7047.1,
+      "currency": "USD",
+      "asOf": "2026-11-25",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "PPG": {
+      "ticker": "PPG",
+      "price": 124.61,
+      "previousClose": 121.42,
+      "changePct": 2.627,
+      "mcap": 27526.3,
       "currency": "USD",
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
@@ -76,6 +76,16 @@
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
+    "M": {
+      "ticker": "M",
+      "price": 24.12,
+      "previousClose": 24.48,
+      "changePct": -1.471,
+      "mcap": 6299.6,
+      "currency": "USD",
+      "asOf": "2026-11-25",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
     "DKS": {
       "ticker": "DKS",
       "price": 158.59,
@@ -92,16 +102,6 @@
       "previousClose": 252.29,
       "changePct": -3.115,
       "mcap": 2643046.0,
-      "currency": "USD",
-      "asOf": "2026-11-25",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "URBN": {
-      "ticker": "URBN",
-      "price": 76.74,
-      "previousClose": 85.58,
-      "changePct": -10.33,
-      "mcap": 6573.6,
       "currency": "USD",
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
@@ -126,12 +126,12 @@
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "PYPL": {
-      "ticker": "PYPL",
-      "price": 57.81,
-      "previousClose": 56.17,
-      "changePct": 2.92,
-      "mcap": 48020.4,
+    "AXP": {
+      "ticker": "AXP",
+      "price": 312.39,
+      "previousClose": 308.63,
+      "changePct": 1.218,
+      "mcap": 209473.7,
       "currency": "USD",
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"

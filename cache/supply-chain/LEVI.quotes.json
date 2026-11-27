@@ -16,16 +16,6 @@
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "DOW": {
-      "ticker": "DOW",
-      "price": 29.66,
-      "previousClose": 28.95,
-      "changePct": 2.453,
-      "mcap": 21470.3,
-      "currency": "USD",
-      "asOf": "2026-11-25",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
     "DD": {
       "ticker": "DD",
       "price": 153.62,
@@ -46,6 +36,16 @@
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
+    "IP": {
+      "ticker": "IP",
+      "price": 32.08,
+      "previousClose": 30.62,
+      "changePct": 4.768,
+      "mcap": 16989.6,
+      "currency": "USD",
+      "asOf": "2026-11-25",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
     "UPS": {
       "ticker": "UPS",
       "price": 111.47,
@@ -56,22 +56,32 @@
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "FDX": {
-      "ticker": "FDX",
-      "price": 308.87,
-      "previousClose": 308.29,
-      "changePct": 0.188,
-      "mcap": 72337.2,
+    "CHRW": {
+      "ticker": "CHRW",
+      "price": 144.82,
+      "previousClose": 140.53,
+      "changePct": 3.053,
+      "mcap": 16790.7,
       "currency": "USD",
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "EXPD": {
-      "ticker": "EXPD",
-      "price": 198.19,
-      "previousClose": 197.81,
-      "changePct": 0.192,
-      "mcap": 25588.5,
+    "JBHT": {
+      "ticker": "JBHT",
+      "price": 227.92,
+      "previousClose": 223.47,
+      "changePct": 1.991,
+      "mcap": 21246.4,
+      "currency": "USD",
+      "asOf": "2026-11-25",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "WMT": {
+      "ticker": "WMT",
+      "price": 131.94,
+      "previousClose": 132.31,
+      "changePct": -0.28,
+      "mcap": 1049989.0,
       "currency": "USD",
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
@@ -82,16 +92,6 @@
       "previousClose": 143.86,
       "changePct": 1.55,
       "mcap": 160717.2,
-      "currency": "USD",
-      "asOf": "2026-11-25",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "ROST": {
-      "ticker": "ROST",
-      "price": 223.26,
-      "previousClose": 226.18,
-      "changePct": -1.291,
-      "mcap": 71617.6,
       "currency": "USD",
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"

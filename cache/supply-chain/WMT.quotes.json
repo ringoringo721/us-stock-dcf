@@ -66,32 +66,12 @@
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
     },
-    "VFC": {
-      "ticker": "VFC",
-      "price": 21.47,
-      "previousClose": 20.91,
-      "changePct": 2.678,
-      "mcap": 8451.4,
-      "currency": "USD",
-      "asOf": "2026-11-25",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "UPS": {
-      "ticker": "UPS",
-      "price": 111.47,
-      "previousClose": 110.83,
-      "changePct": 0.577,
-      "mcap": 83787.2,
-      "currency": "USD",
-      "asOf": "2026-11-25",
-      "source": "FMP historical-price-eod via cache/price_charts"
-    },
-    "FDX": {
-      "ticker": "FDX",
-      "price": 308.87,
-      "previousClose": 308.29,
-      "changePct": 0.188,
-      "mcap": 72337.2,
+    "GIL": {
+      "ticker": "GIL",
+      "price": 35.02,
+      "previousClose": 35.0,
+      "changePct": 0.057,
+      "mcap": 6485.8,
       "currency": "USD",
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"
@@ -102,6 +82,26 @@
       "previousClose": 290.83,
       "changePct": 2.596,
       "mcap": 177312.3,
+      "currency": "USD",
+      "asOf": "2026-11-25",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "JBHT": {
+      "ticker": "JBHT",
+      "price": 227.92,
+      "previousClose": 223.47,
+      "changePct": 1.991,
+      "mcap": 21246.4,
+      "currency": "USD",
+      "asOf": "2026-11-25",
+      "source": "FMP historical-price-eod via cache/price_charts"
+    },
+    "XPO": {
+      "ticker": "XPO",
+      "price": 176.6,
+      "previousClose": 172.26,
+      "changePct": 2.519,
+      "mcap": 20575.5,
       "currency": "USD",
       "asOf": "2026-11-25",
       "source": "FMP historical-price-eod via cache/price_charts"

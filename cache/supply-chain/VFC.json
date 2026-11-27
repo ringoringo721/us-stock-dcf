@@ -36,14 +36,6 @@
       "summary_en": "Fiber, dye, and textile-related chemicals.",
       "players": [
         {
-          "ticker": "DOW",
-          "name_en": "Dow",
-          "name_zh": "陶氏化學",
-          "role_zh": "陶氏化學：紡織／化學原料代表性玩家",
-          "role_en": "Dow: representative player in Textile / chemical inputs",
-          "exchange": "NYSE"
-        },
-        {
           "ticker": "DD",
           "name_en": "DuPont",
           "name_zh": "杜邦",
@@ -57,6 +49,14 @@
           "name_zh": "LyondellBasell",
           "role_zh": "LyondellBasell：紡織／化學原料代表性玩家",
           "role_en": "LyondellBasell: representative player in Textile / chemical inputs",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "EMN",
+          "name_en": "Eastman",
+          "name_zh": "Eastman",
+          "role_zh": "Eastman：紡織／化學原料代表性玩家",
+          "role_en": "Eastman: representative player in Textile / chemical inputs",
           "exchange": "NYSE"
         }
       ]
@@ -86,12 +86,12 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "EXPD",
-          "name_en": "Expeditors",
-          "name_zh": "Expeditors",
-          "role_zh": "Expeditors：物流／配送代表性玩家",
-          "role_en": "Expeditors: representative player in Logistics / distribution",
-          "exchange": "NYSE"
+          "ticker": "ODFL",
+          "name_en": "Old Dominion Freight Line",
+          "name_zh": "Old Dominion",
+          "role_zh": "Old Dominion：物流／配送代表性玩家",
+          "role_en": "Old Dominion Freight Line: representative player in Logistics / distribution",
+          "exchange": "NASDAQ"
         }
       ]
     },
@@ -104,6 +104,14 @@
       "summary_en": "Off-price and department wholesale customers.",
       "players": [
         {
+          "ticker": "DKS",
+          "name_en": "Dick's Sporting Goods",
+          "name_zh": "Dick's Sporting Goods",
+          "role_zh": "Dick's Sporting Goods：離價／百貨通路代表性玩家",
+          "role_en": "Dick's Sporting Goods: representative player in Off-price / department channel",
+          "exchange": "NYSE"
+        },
+        {
           "ticker": "TJX",
           "name_en": "TJX Companies",
           "name_zh": "TJX 公司",
@@ -112,20 +120,12 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "ROST",
-          "name_en": "Ross",
-          "name_zh": "羅斯百貨",
-          "role_zh": "羅斯百貨：離價／百貨通路代表性玩家",
-          "role_en": "Ross: representative player in Off-price / department channel",
+          "ticker": "AMZN",
+          "name_en": "Amazon.com",
+          "name_zh": "亞馬遜",
+          "role_zh": "亞馬遜：離價／百貨通路代表性玩家",
+          "role_en": "Amazon.com: representative player in Off-price / department channel",
           "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "M",
-          "name_en": "Macy's",
-          "name_zh": "Macy's",
-          "role_zh": "Macy's：離價／百貨通路代表性玩家",
-          "role_en": "Macy's: representative player in Off-price / department channel",
-          "exchange": "NYSE"
         }
       ]
     },
@@ -154,12 +154,12 @@
           "exchange": "NYSE"
         },
         {
-          "ticker": "PYPL",
-          "name_en": "PayPal",
-          "name_zh": "PayPal",
-          "role_zh": "PayPal：支付／金融代表性玩家",
-          "role_en": "PayPal: representative player in Payments / fintech",
-          "exchange": "NASDAQ"
+          "ticker": "AXP",
+          "name_en": "American Express",
+          "name_zh": "美國運通",
+          "role_zh": "美國運通：支付／金融代表性玩家",
+          "role_en": "American Express: representative player in Payments / fintech",
+          "exchange": "NYSE"
         }
       ]
     },
@@ -188,11 +188,11 @@
           "exchange": "NASDAQ"
         },
         {
-          "ticker": "PINS",
-          "name_en": "Pinterest",
-          "name_zh": "Pinterest",
-          "role_zh": "Pinterest：流量／行銷代表性玩家",
-          "role_en": "Pinterest: representative player in Traffic / marketing",
+          "ticker": "SNAP",
+          "name_en": "Snap",
+          "name_zh": "Snap",
+          "role_zh": "Snap：流量／行銷代表性玩家",
+          "role_en": "Snap: representative player in Traffic / marketing",
           "exchange": "NYSE"
         }
       ]

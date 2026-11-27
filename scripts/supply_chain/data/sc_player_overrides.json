@@ -3190,5 +3190,410 @@
       "SHW",
       "HUBB"
     ]
+  },
+  "NKE": {
+    "materials": [
+      "DOW",
+      "CE",
+      "WLK"
+    ],
+    "logistics": [
+      "UPS",
+      "FDX",
+      "ODFL"
+    ],
+    "retail-channel": [
+      "DKS",
+      "AMZN",
+      "URBN"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "AXP"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "SNAP"
+    ]
+  },
+  "ONON": {
+    "materials": [
+      "DOW",
+      "CE",
+      "EMN"
+    ],
+    "logistics": [
+      "UPS",
+      "FDX",
+      "CHRW"
+    ],
+    "retail-channel": [
+      "DKS",
+      "AMZN",
+      "ANF"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "SNAP"
+    ]
+  },
+  "DECK": {
+    "materials": [
+      "DOW",
+      "WLK",
+      "EMN"
+    ],
+    "logistics": [
+      "UPS",
+      "EXPD",
+      "ODFL"
+    ],
+    "retail-channel": [
+      "DKS",
+      "M",
+      "AMZN"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "AXP"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "PINS"
+    ]
+  },
+  "CROX": {
+    "materials": [
+      "DOW",
+      "CE",
+      "LYB"
+    ],
+    "logistics": [
+      "UPS",
+      "JBHT",
+      "XPO"
+    ],
+    "retail-channel": [
+      "WMT",
+      "TGT",
+      "AMZN"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "APP"
+    ]
+  },
+  "BIRK": {
+    "materials": [
+      "DOW",
+      "EMN",
+      "PPG"
+    ],
+    "logistics": [
+      "UPS",
+      "FDX",
+      "EXPD"
+    ],
+    "retail-channel": [
+      "M",
+      "DKS",
+      "AMZN"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "AXP"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "PINS"
+    ]
+  },
+  "LEVI": {
+    "materials": [
+      "DD",
+      "LYB",
+      "IP"
+    ],
+    "logistics": [
+      "UPS",
+      "CHRW",
+      "JBHT"
+    ],
+    "retail-channel": [
+      "WMT",
+      "TJX",
+      "M"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "PINS"
+    ]
+  },
+  "VFC": {
+    "materials": [
+      "DD",
+      "LYB",
+      "EMN"
+    ],
+    "logistics": [
+      "UPS",
+      "FDX",
+      "ODFL"
+    ],
+    "retail-channel": [
+      "DKS",
+      "TJX",
+      "AMZN"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "AXP"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "SNAP"
+    ]
+  },
+  "RL": {
+    "materials": [
+      "DD",
+      "IFF",
+      "PPG"
+    ],
+    "logistics": [
+      "UPS",
+      "EXPD",
+      "CHRW"
+    ],
+    "retail-channel": [
+      "M",
+      "TJX",
+      "URBN"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "AXP"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "PINS"
+    ]
+  },
+  "GIL": {
+    "materials": [
+      "DOW",
+      "LYB",
+      "IP"
+    ],
+    "logistics": [
+      "UNP",
+      "JBHT",
+      "XPO"
+    ],
+    "mass-channel": [
+      "WMT",
+      "TGT",
+      "AMZN"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "GPN"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "APP"
+    ]
+  },
+  "TJX": {
+    "brand-supply": [
+      "NKE",
+      "VFC",
+      "RL"
+    ],
+    "logistics": [
+      "UPS",
+      "FDX",
+      "SAIA"
+    ],
+    "real-estate": [
+      "SPG",
+      "REG",
+      "FRT"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "FISV"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "PINS"
+    ]
+  },
+  "ROST": {
+    "brand-supply": [
+      "NKE",
+      "LEVI",
+      "GAP"
+    ],
+    "logistics": [
+      "UPS",
+      "ODFL",
+      "SAIA"
+    ],
+    "real-estate": [
+      "REG",
+      "FRT",
+      "KIM"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "APP"
+    ]
+  },
+  "TPR": {
+    "materials": [
+      "PPG",
+      "SHW",
+      "ECL"
+    ],
+    "logistics": [
+      "UPS",
+      "FDX",
+      "EXPD"
+    ],
+    "wholesale-dept": [
+      "M",
+      "BURL",
+      "TJX"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "AXP"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "PINS"
+    ]
+  },
+  "WMT": {
+    "cpg-staples": [
+      "PG",
+      "KO",
+      "PEP"
+    ],
+    "softlines": [
+      "NKE",
+      "LEVI",
+      "GIL"
+    ],
+    "logistics": [
+      "UNP",
+      "JBHT",
+      "XPO"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "APP"
+    ]
+  },
+  "TGT": {
+    "cpg-staples": [
+      "PG",
+      "CLX",
+      "KMB"
+    ],
+    "softlines": [
+      "NKE",
+      "LEVI",
+      "LULU"
+    ],
+    "logistics": [
+      "UPS",
+      "FDX",
+      "CHRW"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "AXP"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "PINS"
+    ]
+  },
+  "COST": {
+    "cpg-staples": [
+      "KO",
+      "PEP",
+      "GIS"
+    ],
+    "softlines": [
+      "NKE",
+      "LEVI",
+      "GIL"
+    ],
+    "logistics": [
+      "UNP",
+      "ODFL",
+      "JBHT"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "APP"
+    ]
   }
 }
