@@ -3595,5 +3595,466 @@
       "META",
       "APP"
     ]
+  },
+  "DHI": {
+    "lumber-structural": [
+      "WY",
+      "LPX",
+      "BLDR"
+    ],
+    "finishes-systems": [
+      "OC",
+      "MAS",
+      "SHW"
+    ],
+    "logistics": [
+      "UNP",
+      "ODFL",
+      "JBHT"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "AXP"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "ZG"
+    ]
+  },
+  "LEN": {
+    "lumber-structural": [
+      "WY",
+      "BLDR",
+      "LPX"
+    ],
+    "finishes-systems": [
+      "OC",
+      "SHW",
+      "MAS"
+    ],
+    "logistics": [
+      "UNP",
+      "JBHT",
+      "ODFL"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "FISV"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "ZG"
+    ]
+  },
+  "PHM": {
+    "lumber-structural": [
+      "LPX",
+      "WY",
+      "BLDR"
+    ],
+    "finishes-systems": [
+      "FBIN",
+      "OC",
+      "SHW"
+    ],
+    "logistics": [
+      "UNP",
+      "ODFL",
+      "XPO"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "AXP"
+    ],
+    "traffic": [
+      "GOOG",
+      "ZG",
+      "META"
+    ]
+  },
+  "NVR": {
+    "lumber-structural": [
+      "BLDR",
+      "WY",
+      "LPX"
+    ],
+    "finishes-systems": [
+      "MAS",
+      "OC",
+      "SHW"
+    ],
+    "logistics": [
+      "ODFL",
+      "XPO",
+      "SAIA"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "AXP"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "ZG"
+    ]
+  },
+  "TOL": {
+    "lumber-structural": [
+      "WY",
+      "LPX",
+      "OC"
+    ],
+    "finishes-systems": [
+      "TT",
+      "CARR",
+      "SHW"
+    ],
+    "logistics": [
+      "UNP",
+      "ODFL",
+      "CHRW"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "AXP"
+    ],
+    "traffic": [
+      "GOOG",
+      "ZG",
+      "META"
+    ]
+  },
+  "IBP": {
+    "insulation-materials": [
+      "OC",
+      "DOW",
+      "EMN"
+    ],
+    "logistics": [
+      "ODFL",
+      "JBHT",
+      "XPO"
+    ],
+    "builder-channel": [
+      "DHI",
+      "LEN",
+      "PHM"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "FISV"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "APP"
+    ]
+  },
+  "BLDR": {
+    "lumber-millwork": [
+      "WY",
+      "LPX",
+      "OC"
+    ],
+    "logistics": [
+      "UNP",
+      "ODFL",
+      "SAIA"
+    ],
+    "builder-channel": [
+      "DHI",
+      "LEN",
+      "PHM"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "FISV"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "APP"
+    ]
+  },
+  "QXO": {
+    "lumber-millwork": [
+      "OC",
+      "TREX",
+      "SSD"
+    ],
+    "logistics": [
+      "ODFL",
+      "XPO",
+      "JBHT"
+    ],
+    "builder-channel": [
+      "DHI",
+      "PHM",
+      "TOL"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "GPN"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "PINS"
+    ]
+  },
+  "FERG": {
+    "brand-supply": [
+      "MAS",
+      "WTS",
+      "PNR"
+    ],
+    "logistics": [
+      "UNP",
+      "ODFL",
+      "XPO"
+    ],
+    "contractor-channel": [
+      "URI",
+      "FIX",
+      "EME"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "FISV"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "APP"
+    ]
+  },
+  "WSO": {
+    "brand-supply": [
+      "TT",
+      "CARR",
+      "LII"
+    ],
+    "logistics": [
+      "ODFL",
+      "JBHT",
+      "XPO"
+    ],
+    "contractor-channel": [
+      "FIX",
+      "URI",
+      "EME"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "AXP"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "APP"
+    ]
+  },
+  "POOL": {
+    "brand-supply": [
+      "PNR",
+      "WTS",
+      "AOS"
+    ],
+    "logistics": [
+      "ODFL",
+      "UPS",
+      "JBHT"
+    ],
+    "contractor-channel": [
+      "URI",
+      "FIX",
+      "EME"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "PINS"
+    ]
+  },
+  "CNM": {
+    "brand-supply": [
+      "WMS",
+      "EMN",
+      "DOW"
+    ],
+    "logistics": [
+      "UNP",
+      "ODFL",
+      "SAIA"
+    ],
+    "contractor-channel": [
+      "URI",
+      "FIX",
+      "EME"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "FISV"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "APP"
+    ]
+  },
+  "FAST": {
+    "brand-supply": [
+      "ITW",
+      "SWK",
+      "SSD"
+    ],
+    "logistics": [
+      "UPS",
+      "ODFL",
+      "JBHT"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "FISV"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "APP"
+    ]
+  },
+  "GWW": {
+    "brand-supply": [
+      "ITW",
+      "SWK",
+      "SNA"
+    ],
+    "logistics": [
+      "UPS",
+      "FDX",
+      "ODFL"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "AXP"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "APP"
+    ]
+  },
+  "AIT": {
+    "brand-supply": [
+      "PH",
+      "EMR",
+      "IR"
+    ],
+    "logistics": [
+      "ODFL",
+      "JBHT",
+      "XPO"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "FISV"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "APP"
+    ]
+  },
+  "MSM": {
+    "brand-supply": [
+      "LECO",
+      "ITW",
+      "SWK"
+    ],
+    "logistics": [
+      "UPS",
+      "ODFL",
+      "CHRW"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "GPN"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "PINS"
+    ]
+  },
+  "WCC": {
+    "brand-supply": [
+      "ETN",
+      "HUBB",
+      "AYI"
+    ],
+    "logistics": [
+      "ODFL",
+      "XPO",
+      "JBHT"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "FISV"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "APP"
+    ]
+  },
+  "XMTR": {
+    "cloud-infra": [
+      "AMZN",
+      "MSFT",
+      "GOOG"
+    ],
+    "cad-cam": [
+      "ADSK",
+      "PTC",
+      "ANSS"
+    ],
+    "logistics": [
+      "UPS",
+      "FDX",
+      "EXPD"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "traffic": [
+      "META",
+      "PINS",
+      "APP"
+    ]
   }
 }
