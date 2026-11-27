@@ -233,7 +233,7 @@
   async function hydrateUsExpansion(ticker) {
     if (!expansionEligible(ticker)) throw new Error('COMPANY_DATA_HTTP_404');
     const statementsResponse = await root.fetch(
-      `cache/financials/${encodeURIComponent(ticker)}_statements_v2.json`);
+      `/cache/financials/${encodeURIComponent(ticker)}_statements_v2.json`);
     if (!statementsResponse.ok) {
       throw new Error(`COMPANY_STATEMENTS_HTTP_${statementsResponse.status}`);
     }
@@ -337,7 +337,7 @@
   function load(ticker) {
     if (!/^[A-Z0-9][A-Z0-9.-]{0,14}$/.test(ticker)) return Promise.reject(new Error('INVALID_COMPANY_SYMBOL'));
     if (!cache.has(ticker)) cache.set(ticker, (async () => {
-      const response = await root.fetch(`cache/company/${encodeURIComponent(ticker)}.json`);
+      const response = await root.fetch(`/cache/company/${encodeURIComponent(ticker)}.json`);
       if (response.ok) {
         const data = await response.json();
         if (data.symbol !== ticker) throw new Error('COMPANY_DATA_SECURITY_MISMATCH');
@@ -357,7 +357,7 @@
 
   function loadTranslations() {
     if (!translationCache) translationCache = (async () => {
-      const response = await root.fetch('cache/news_translations.json');
+      const response = await root.fetch('/cache/news_translations.json');
       if (!response.ok) throw new Error(`NEWS_TRANSLATION_HTTP_${response.status}`);
       const data = await response.json();
       if (data.version !== 1 || data.language !== 'zh-Hant' || data.provider !== 'Vertex AI'

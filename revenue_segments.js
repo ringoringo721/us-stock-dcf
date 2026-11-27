@@ -355,12 +355,12 @@
       // Prefer period-specific files so Preview without FMP_API_KEY can still show quarters.
       // Annual `{ticker}.json` must never satisfy a quarterly UI (no FY amounts in Q columns).
       if (period === 'quarter') {
-        return readOneCache(`cache/revenue_segments/${enc}.quarter.json`).then((record) => {
+        return readOneCache(`/cache/revenue_segments/${enc}.quarter.json`).then((record) => {
           if (record.period !== 'quarter') throw new Error('SEGMENT_CACHE_PERIOD_MISMATCH');
           return record;
         });
       }
-      return readOneCache(`cache/revenue_segments/${enc}.json`).then((record) => {
+      return readOneCache(`/cache/revenue_segments/${enc}.json`).then((record) => {
         const cachePeriod = record.period || 'annual';
         if (period !== 'annual' && cachePeriod !== period) {
           throw new Error('SEGMENT_CACHE_PERIOD_MISMATCH');

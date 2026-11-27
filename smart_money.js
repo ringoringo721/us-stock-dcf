@@ -565,7 +565,7 @@
 
   function loadStockCache(ticker) {
     const symbol = encodeURIComponent(String(ticker || '').toUpperCase());
-    return fetch(`cache/smart-money/${symbol}.json`, { cache: 'no-store' }).then(async (response) => {
+    return fetch(`/cache/smart-money/${symbol}.json`, { cache: 'no-store' }).then(async (response) => {
       if (!response.ok) throw new Error(`SMART_MONEY_CACHE_MISS:${response.status}`);
       const body = await response.json();
       if (!body || body.ticker !== String(ticker).toUpperCase()) throw new Error('SMART_MONEY_CACHE_MISMATCH');
@@ -590,7 +590,7 @@
     }
     const tryNext = (index) => {
       if (index >= keys.length) return Promise.reject(new Error('FUND_CACHE_MISS'));
-      return fetch(`cache/smart-money/funds/${keys[index]}.json`, { cache: 'no-store' }).then(async (response) => {
+      return fetch(`/cache/smart-money/funds/${keys[index]}.json`, { cache: 'no-store' }).then(async (response) => {
         if (!response.ok) return tryNext(index + 1);
         return response.json();
       }).catch(() => tryNext(index + 1));
@@ -706,7 +706,7 @@
 
   function loadCuratedByTickerIndex() {
     if (curatedByTickerPromise) return curatedByTickerPromise;
-    curatedByTickerPromise = fetch('cache/smart-money/curated-by-ticker.json', { cache: 'no-store' })
+    curatedByTickerPromise = fetch('/cache/smart-money/curated-by-ticker.json', { cache: 'no-store' })
       .then(async (response) => {
         if (!response.ok) throw new Error(`CURATED_INDEX_MISS:${response.status}`);
         return response.json();
@@ -869,7 +869,7 @@
 
   function loadForm4Cache(ticker) {
     const symbol = encodeURIComponent(String(ticker || '').toUpperCase());
-    return fetch(`cache/smart-money/form4/${symbol}.json`, { cache: 'no-store' }).then(async (response) => {
+    return fetch(`/cache/smart-money/form4/${symbol}.json`, { cache: 'no-store' }).then(async (response) => {
       if (!response.ok) throw new Error(`FORM4_CACHE_MISS:${response.status}`);
       const body = await response.json();
       if (!body || body.ticker !== String(ticker).toUpperCase()) throw new Error('FORM4_CACHE_MISMATCH');
@@ -1133,7 +1133,7 @@
   }
 
   function loadFundsDirectory() {
-    return fetch('cache/smart-money/funds/index.json', { cache: 'no-store' }).then(async (response) => {
+    return fetch('/cache/smart-money/funds/index.json', { cache: 'no-store' }).then(async (response) => {
       if (!response.ok) throw new Error(`FUNDS_INDEX_MISS:${response.status}`);
       const body = await response.json();
       const managers = Array.isArray(body?.managers) ? body.managers : [];
@@ -1484,7 +1484,7 @@
 
   function loadHolderFundsIndex() {
     if (holderFundsPromise) return holderFundsPromise;
-    holderFundsPromise = fetch('cache/smart-money/funds/holder-funds.json', { cache: 'no-store' })
+    holderFundsPromise = fetch('/cache/smart-money/funds/holder-funds.json', { cache: 'no-store' })
       .then(async (response) => {
         if (!response.ok) throw new Error(`HOLDER_FUNDS_MISS:${response.status}`);
         const body = await response.json();

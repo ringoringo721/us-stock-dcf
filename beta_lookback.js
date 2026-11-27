@@ -164,7 +164,7 @@
       throw err;
     }
     const promise = (async () => {
-      const chartPath = `cache/price_charts/${encodeURIComponent(ticker)}.json`;
+      const chartPath = `/cache/price_charts/${encodeURIComponent(ticker)}.json`;
       let chartError = null;
       // Prefer published price_charts (same cache as Profile charts) — any US/HK listing.
       try {
@@ -175,7 +175,7 @@
       }
       // Benchmark bootstrap / committed beta benchmarks (Yahoo or FMP-shaped).
       try {
-        const bench = await fetchSeries(`cache/beta_benchmarks/${encodeURIComponent(ticker)}.json`);
+        const bench = await fetchSeries(`/cache/beta_benchmarks/${encodeURIComponent(ticker)}.json`);
         return validateSeries(bench, ticker, { allowBootstrap: true });
       } catch (_) { /* fall through to FMP */ }
       // On-demand FMP only when static caches miss — minimize API use.

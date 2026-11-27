@@ -165,14 +165,14 @@
   function loadRates(reload = false, target = 'USD', capturedSource = null) {
     if (!['USD', 'HKD'].includes(target)) throw new TypeError('Unsupported calculation currency');
     if (capturedSource && (target !== 'HKD' || !/^[a-f0-9]{64}$/.test(capturedSource.sha256)
-        || capturedSource.path !== `cache/fx/hk_expansion_${capturedSource.sha256}.json`)) {
+        || capturedSource.path !== `/cache/fx/hk_expansion_${capturedSource.sha256}.json`)) {
       throw new TypeError('Invalid captured HKD FX source');
     }
     const key = capturedSource?.path || target;
     if (reload) delete pending[key];
     if (!pending[key]) {
       const file = target === 'HKD' ? 'hkd_rates.json' : 'usd_rates.json';
-      pending[key] = fetch(capturedSource?.path || `cache/fx/${file}`).then(response => {
+      pending[key] = fetch(capturedSource?.path || `/cache/fx/${file}`).then(response => {
         if (!response.ok) throw new Error(`Historical FX HTTP ${response.status}`);
         return response.json();
       }).catch(error => { delete pending[key]; throw error; });

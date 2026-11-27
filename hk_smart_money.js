@@ -696,7 +696,7 @@
   /** Browser: committed seed first (Preview-safe); live API only when seed missing. */
   function loadStockCache(ticker) {
     const symbol = String(ticker || '').toUpperCase();
-    return fetch(`cache/hk-smart-money/${symbol}.json`, { cache: 'no-store' }).then(async (response) => {
+    return fetch(`/cache/hk-smart-money/${symbol}.json`, { cache: 'no-store' }).then(async (response) => {
       if (!response.ok) return null;
       const body = await response.json();
       return { ...body, source: body.source || 'cache', ticker: symbol };
