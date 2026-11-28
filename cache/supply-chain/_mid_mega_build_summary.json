@@ -1,13 +1,12 @@
 {
   "midTotal": 154,
-  "written": 2,
+  "written": 1,
   "skippedExisting": [],
   "failures": [],
   "tickers": [
-    "GWW",
-    "FAST"
+    "RELX"
   ],
   "dryRun": false,
-  "date": "2026-11-27",
+  "date": "2026-11-28",
   "chartsDir": "/agent/repos/us-stock-dcf/cache/price_charts"
 }

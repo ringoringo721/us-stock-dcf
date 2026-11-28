@@ -4056,5 +4056,173 @@
       "PINS",
       "APP"
     ]
+  },
+  "CART": {
+    "grocery-partners": [
+      "WMT",
+      "KR",
+      "COST"
+    ],
+    "cloud-infra": [
+      "MSFT",
+      "GOOG",
+      "ORCL"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "traffic": [
+      "META",
+      "APP",
+      "SNAP"
+    ],
+    "insurance-trust": [
+      "CB",
+      "PGR",
+      "ALL"
+    ]
+  },
+  "MTCH": {
+    "cloud-infra": [
+      "MSFT",
+      "AMZN",
+      "EQIX"
+    ],
+    "app-distribution": [
+      "AAPL",
+      "GOOG"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "traffic": [
+      "APP",
+      "PINS",
+      "TTD"
+    ]
+  },
+  "ZG": {
+    "cloud-infra": [
+      "MSFT",
+      "AMZN",
+      "ORCL"
+    ],
+    "mortgage-capital": [
+      "BAC",
+      "JPM",
+      "WFC"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "traffic": [
+      "META",
+      "SNAP",
+      "APP"
+    ],
+    "housing-demand": [
+      "DHI",
+      "LEN",
+      "PHM"
+    ]
+  },
+  "RELX": {
+    "cloud-infra": [
+      "AMZN",
+      "MSFT",
+      "EQIX"
+    ],
+    "cybersecurity": [
+      "CRWD",
+      "ZS",
+      "S"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "GPN"
+    ],
+    "traffic": [
+      "META",
+      "APP",
+      "PINS"
+    ]
+  },
+  "TRI": {
+    "cloud-infra": [
+      "AMZN",
+      "MSFT",
+      "GOOG"
+    ],
+    "cybersecurity": [
+      "PANW",
+      "FTNT",
+      "OKTA"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "FISV"
+    ],
+    "traffic": [
+      "META",
+      "RDDT",
+      "SNAP"
+    ]
+  },
+  "MELI": {
+    "cloud-infra": [
+      "MSFT",
+      "ORCL",
+      "EQIX"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "ITUB"
+    ],
+    "logistics": [
+      "UPS",
+      "FDX",
+      "EXPD"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "APP"
+    ]
+  },
+  "TCOM": {
+    "inventory": [
+      "0753.HK",
+      "0670.HK",
+      "HTHT"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "1398.HK"
+    ],
+    "cloud-trust": [
+      "MSFT",
+      "AMZN",
+      "9988.HK"
+    ],
+    "traffic": [
+      "0700.HK",
+      "BIDU",
+      "1024.HK"
+    ],
+    "loyalty": [
+      "2318.HK",
+      "1299.HK",
+      "0005.HK"
+    ]
   }
 }

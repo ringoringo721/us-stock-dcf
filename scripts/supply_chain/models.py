@@ -4090,6 +4090,70 @@ MODELS: dict[str, dict] = {
         ],
     },
 
+    # Batch 8 — platform / info / misc wrong-concept rebuilds
+    "grocery-delivery-marketplace-v1": {
+        "label_zh": "雜貨即配市集價值鏈",
+        "label_en": "Grocery delivery marketplace value chain",
+        "description_zh": "超市商戶 → 雲基建 → 支付 → 流量 → 保險／信任（市集抽成＋廣告，非自營倉配、非 SaaS 渠道墊）。",
+        "description_en": "Grocery merchants → cloud → payments → traffic → insurance/trust (take-rate + ads; not 1P warehouse, not SaaS channel pad).",
+        "stages": [
+            {"id": "grocery-partners", "order": 1, "label_zh": "超市／雜貨商戶", "label_en": "Grocery merchant partners", "summary_zh": "上架 Instacart 等市集的連鎖超市與量販。", "summary_en": "Grocery and club chains listed on the marketplace."},
+            {"id": "cloud-infra", "order": 2, "label_zh": "雲端／平台基建", "label_en": "Cloud / platform infra", "summary_zh": "訂單、目錄與廣告平台雲算力。", "summary_en": "Cloud compute under orders, catalog, and ads."},
+            {"id": "payments", "order": 3, "label_zh": "支付／清算", "label_en": "Payments / clearing", "summary_zh": "消費者付款與商戶撥款軌道。", "summary_en": "Consumer pay-in and merchant payouts."},
+            {"id": "traffic", "order": 4, "label_zh": "流量／獲客", "label_en": "Traffic / acquisition", "summary_zh": "社群與應用廣告獲客（非即配對手）。", "summary_en": "Social and app-ads acquisition — not delivery rivals."},
+            {"id": "insurance-trust", "order": 5, "label_zh": "保險／信任", "label_en": "Insurance / trust", "summary_zh": "gig 配送責任與信任相關保險夥伴。", "summary_en": "Liability and trust insurers around gig delivery."},
+        ],
+    },
+    "dating-apps-v1": {
+        "label_zh": "約會 App 價值鏈",
+        "label_en": "Dating apps value chain",
+        "description_zh": "雲基建 → App 商店分發 → 支付 → 廣告獲客（訂閱／增值，非影音內容墊）。",
+        "description_en": "Cloud → app-store distribution → payments → paid acquisition (subs/IAP — not streaming content pad).",
+        "stages": [
+            {"id": "cloud-infra", "order": 1, "label_zh": "雲端／平台基建", "label_en": "Cloud / platform infra", "summary_zh": "配對與訊息後端雲與互連。", "summary_en": "Cloud and interconnect behind matching and messaging."},
+            {"id": "app-distribution", "order": 2, "label_zh": "App 商店／裝置分發", "label_en": "App store / device distribution", "summary_zh": "iOS／Android 應用分發軌道。", "summary_en": "iOS and Android app-distribution rails."},
+            {"id": "payments", "order": 3, "label_zh": "支付／訂閱清算", "label_en": "Payments / subscription rails", "summary_zh": "訂閱與應用內購清算。", "summary_en": "Subscription and in-app purchase rails."},
+            {"id": "traffic", "order": 4, "label_zh": "廣告／獲客", "label_en": "Ads / acquisition", "summary_zh": "效果廣告與應用推廣（社交約會對手放對手弧）。", "summary_en": "Performance ads and app UA — social dating rivals stay on the rival arc."},
+        ],
+    },
+    "housing-portal-v1": {
+        "label_zh": "房產流量入口價值鏈",
+        "label_en": "Housing portal / lead-gen value chain",
+        "description_zh": "雲基建 → 按揭／交易資金夥伴 → 支付 → 付費流量 → 住房需求（Premier Agent／租賃導流，非串流內容墊）。",
+        "description_en": "Cloud → mortgage/transaction capital → payments → paid traffic → housing demand (Premier Agent / rentals lead-gen — not streaming content pad).",
+        "stages": [
+            {"id": "cloud-infra", "order": 1, "label_zh": "雲端／平台基建", "label_en": "Cloud / platform infra", "summary_zh": "房源與代理人工具雲基建。", "summary_en": "Cloud under listings and agent tools."},
+            {"id": "mortgage-capital", "order": 2, "label_zh": "按揭／交易資金", "label_en": "Mortgage / transaction capital", "summary_zh": "房貸與結算相關銀行夥伴。", "summary_en": "Mortgage and closing bank partners."},
+            {"id": "payments", "order": 3, "label_zh": "支付／清算", "label_en": "Payments / clearing", "summary_zh": "廣告主與消費者支付軌道。", "summary_en": "Advertiser and consumer payment rails."},
+            {"id": "traffic", "order": 4, "label_zh": "付費流量／獲客", "label_en": "Paid traffic / acquisition", "summary_zh": "社群與應用廣告買量（對手入口放對手弧）。", "summary_en": "Social and app paid acquisition — rival portals stay on the rival arc."},
+            {"id": "housing-demand", "order": 5, "label_zh": "住房需求", "label_en": "Housing demand", "summary_zh": "住宅建商與住房週期節點。", "summary_en": "Homebuilders and housing-cycle nodes."},
+        ],
+    },
+    "professional-info-v1": {
+        "label_zh": "專業資訊／分析價值鏈",
+        "label_en": "Professional information / analytics value chain",
+        "description_zh": "雲基建 → 資安 → 支付 → 流量／分發（法律／科研／風險／新聞資訊訂閱，非交易所 venues、非工業材料墊）。",
+        "description_en": "Cloud → cybersecurity → payments → traffic/distribution (legal/STM/risk/news info subs — not exchange venues, not industrials materials).",
+        "stages": [
+            {"id": "cloud-infra", "order": 1, "label_zh": "雲端／平台基建", "label_en": "Cloud / platform infra", "summary_zh": "資訊產品與分析平台雲算力。", "summary_en": "Cloud under info products and analytics platforms."},
+            {"id": "cybersecurity", "order": 2, "label_zh": "資安／信任", "label_en": "Cybersecurity / trust", "summary_zh": "企業資安與端點防護夥伴。", "summary_en": "Enterprise security and endpoint partners."},
+            {"id": "payments", "order": 3, "label_zh": "支付／訂閱清算", "label_en": "Payments / subscription rails", "summary_zh": "企業訂閱與商務清算。", "summary_en": "Enterprise subscription and commercial rails."},
+            {"id": "traffic", "order": 4, "label_zh": "流量／專業獲客", "label_en": "Traffic / professional acquisition", "summary_zh": "品牌與專業受眾獲客（資訊同業放對手弧）。", "summary_en": "Brand and professional-audience acquisition — info peers stay on the rival arc."},
+        ],
+    },
+    "latam-marketplace-v1": {
+        "label_zh": "拉美電商市集價值鏈",
+        "label_en": "LatAm ecommerce marketplace value chain",
+        "description_zh": "雲基建 → 支付／銀行軌道 → 物流 → 流量（市集抽成＋金融，非美股 CPG 進貨零售墊）。",
+        "description_en": "Cloud → payments/banking rails → logistics → traffic (take-rate + fintech — not US CPG retail supply pad).",
+        "stages": [
+            {"id": "cloud-infra", "order": 1, "label_zh": "雲端／平台基建", "label_en": "Cloud / platform infra", "summary_zh": "市集與支付後端雲（電商對手不上雲段）。", "summary_en": "Marketplace and payments cloud — ecommerce rivals stay off this stage."},
+            {"id": "payments", "order": 2, "label_zh": "支付／銀行軌道", "label_en": "Payments / banking rails", "summary_zh": "卡組織與拉美銀行清算鄰近。", "summary_en": "Card rails and LatAm banking adjacency."},
+            {"id": "logistics", "order": 3, "label_zh": "物流／快遞夥伴", "label_en": "Logistics / parcel partners", "summary_zh": "跨境與區域包裹／貨代夥伴。", "summary_en": "Cross-border and regional parcel/freight partners."},
+            {"id": "traffic", "order": 4, "label_zh": "流量／獲客", "label_en": "Traffic / acquisition", "summary_zh": "搜尋與社群獲客。", "summary_en": "Search and social acquisition."},
+        ],
+    },
+
 }
 
 
@@ -4281,7 +4345,7 @@ TICKER_MODEL: dict[str, str] = {
     "WDC": "semiconductor-memory-v1",  # storage / NAND adjacency
     # DASH/UBER/LYFT → rideshare-v1; GRAB → sea-superapp-v1; ABNB/BKNG/EXPE → lodging/OTA (above)
     "JCI": "industrials-v1",  # HVAC / building systems more than bulk materials
-    "RELX": "capital-markets-v1",  # info / analytics / risk data adjacency
+    "RELX": "professional-info-v1",  # STM / risk / exhibitions info — not exchange venues
     "MSTR": "saas-cloud-v1",
     "VRT": "industrials-v1",  # datacenter thermal / power systems
     "BE": "industrials-v1",
@@ -4554,6 +4618,13 @@ TICKER_MODEL: dict[str, str] = {
     "FIVE": "value-specialty-retail-v1",
     "EBAY": "online-marketplace-v1",
     "ETSY": "online-marketplace-v1",
+    # Batch 8 — platform / info / misc wrong-concept (DCF-192)
+    "CART": "grocery-delivery-marketplace-v1",  # Instacart grocery marketplace — not saas-cloud
+    "MTCH": "dating-apps-v1",  # dating subs — not internet content dump
+    "ZG": "housing-portal-v1",  # housing lead-gen portal — not internet content dump
+    "TRI": "professional-info-v1",  # Thomson Reuters info — not industrials materials
+    "MELI": "latam-marketplace-v1",  # LatAm marketplace + fintech — not US CPG ecommerce pad
+    "TCOM": "ota-marketplace-v1",  # Trip.com China/Asia OTA — not F&B discretionary
     # Racing / iGaming / wagering hubs (not casino-resort hospitality pad)
     "CHDN": "us-racing-gaming-v1",
     "DKNG": "us-racing-gaming-v1",

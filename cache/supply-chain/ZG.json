@@ -3,7 +3,7 @@
   "ticker": "ZG",
   "name_en": "Zillow",
   "name_zh": "Zillow",
-  "updatedAt": "2026-11-20",
+  "updatedAt": "2026-11-28",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -11,190 +11,189 @@
     "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
     "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
     "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
-    "modelId": "internet-platform-v1",
+    "modelId": "housing-portal-v1",
     "references": [
-      "Industry model `internet-platform-v1`",
+      "Industry model `housing-portal-v1`",
       "AAPL curated seed shape on main (schema reference)",
       "cache/us_universe.json screen: remaining US listings without supply-chain seed",
       "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
     ]
   },
   "model": {
-    "id": "internet-platform-v1",
-    "label_zh": "網際網路平台價值鏈",
-    "label_en": "Internet platform value chain",
-    "description_zh": "雲端／基礎建設 → 內容／創作者 → 廣告／變現 → 裝置／作業系統 → 支付／商務。",
-    "description_en": "Cloud/infra → content/creators → ads/monetization → devices/OS → payments/commerce."
+    "id": "housing-portal-v1",
+    "label_zh": "房產流量入口價值鏈",
+    "label_en": "Housing portal / lead-gen value chain",
+    "description_zh": "雲基建 → 按揭／交易資金夥伴 → 支付 → 付費流量 → 住房需求（Premier Agent／租賃導流，非串流內容墊）。",
+    "description_en": "Cloud → mortgage/transaction capital → payments → paid traffic → housing demand (Premier Agent / rentals lead-gen — not streaming content pad)."
   },
   "stages": [
     {
-      "id": "infra",
+      "id": "cloud-infra",
       "order": 1,
-      "label_zh": "雲端／網路基礎設施",
-      "label_en": "Cloud / network infrastructure",
-      "summary_zh": "運算、頻寬與 CDN／雲資源。",
-      "summary_en": "Compute, bandwidth, CDN/cloud.",
+      "label_zh": "雲端／平台基建",
+      "label_en": "Cloud / platform infra",
+      "summary_zh": "房源與代理人工具雲基建。",
+      "summary_en": "Cloud under listings and agent tools.",
       "players": [
         {
-          "ticker": "EQIX",
-          "name_en": "Equinix",
-          "name_zh": "Equinix",
-          "role_zh": "Equinix：雲端／網路基礎設施代表性玩家",
-          "role_en": "Equinix: representative player in Cloud / network infrastructure",
+          "ticker": "MSFT",
+          "name_en": "Microsoft",
+          "name_zh": "微軟",
+          "role_zh": "微軟：雲端／平台基建代表性玩家",
+          "role_en": "Microsoft: representative player in Cloud / platform infra",
           "exchange": "NASDAQ"
         },
         {
-          "ticker": "ANET",
-          "name_en": "Arista Networks",
-          "name_zh": "Arista 網路",
-          "role_zh": "Arista 網路：雲端／網路基礎設施代表性玩家",
-          "role_en": "Arista Networks: representative player in Cloud / network infrastructure",
+          "ticker": "AMZN",
+          "name_en": "Amazon.com",
+          "name_zh": "亞馬遜",
+          "role_zh": "亞馬遜：雲端／平台基建代表性玩家",
+          "role_en": "Amazon.com: representative player in Cloud / platform infra",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "ORCL",
+          "name_en": "Oracle",
+          "name_zh": "甲骨文",
+          "role_zh": "甲骨文：雲端／平台基建代表性玩家",
+          "role_en": "Oracle: representative player in Cloud / platform infra",
           "exchange": "NYSE"
-        },
-        {
-          "ticker": "CSCO",
-          "name_en": "Cisco Systems",
-          "name_zh": "思科",
-          "role_zh": "思科：雲端／網路基礎設施代表性玩家",
-          "role_en": "Cisco Systems: representative player in Cloud / network infrastructure",
-          "exchange": "NASDAQ"
         }
       ]
     },
     {
-      "id": "content",
+      "id": "mortgage-capital",
       "order": 2,
-      "label_zh": "內容／創作者生態",
-      "label_en": "Content / creator ecosystem",
-      "summary_zh": "媒體、音樂、短影音與創作者工具。",
-      "summary_en": "Media, music, short-form, creator tools.",
+      "label_zh": "按揭／交易資金",
+      "label_en": "Mortgage / transaction capital",
+      "summary_zh": "房貸與結算相關銀行夥伴。",
+      "summary_en": "Mortgage and closing bank partners.",
       "players": [
         {
-          "ticker": "NFLX",
-          "name_en": "Netflix",
-          "name_zh": "網飛",
-          "role_zh": "網飛：內容／創作者生態代表性玩家",
-          "role_en": "Netflix: representative player in Content / creator ecosystem",
-          "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "SPOT",
-          "name_en": "Spotify Technology S.A.",
-          "name_zh": "Spotify",
-          "role_zh": "Spotify：內容／創作者生態代表性玩家",
-          "role_en": "Spotify Technology S.A.: representative player in Content / creator ecosystem",
+          "ticker": "BAC",
+          "name_en": "Bank of America",
+          "name_zh": "美國銀行",
+          "role_zh": "美國銀行：按揭／交易資金代表性玩家",
+          "role_en": "Bank of America: representative player in Mortgage / transaction capital",
           "exchange": "NYSE"
         },
         {
-          "ticker": "DIS",
-          "name_en": "Walt Disney",
-          "name_zh": "迪士尼",
-          "role_zh": "迪士尼：內容／創作者生態代表性玩家",
-          "role_en": "Walt Disney: representative player in Content / creator ecosystem",
+          "ticker": "JPM",
+          "name_en": "JPMorgan Chase & Co.",
+          "name_zh": "摩根大通",
+          "role_zh": "摩根大通：按揭／交易資金代表性玩家",
+          "role_en": "JPMorgan Chase & Co.: representative player in Mortgage / transaction capital",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "WFC",
+          "name_en": "Wells Fargo",
+          "name_zh": "富國銀行",
+          "role_zh": "富國銀行：按揭／交易資金代表性玩家",
+          "role_en": "Wells Fargo: representative player in Mortgage / transaction capital",
           "exchange": "NYSE"
         }
       ]
     },
     {
-      "id": "ads",
+      "id": "payments",
       "order": 3,
-      "label_zh": "廣告／數據變現",
-      "label_en": "Ads / data monetization",
-      "summary_zh": "廣告科技與測量夥伴。",
-      "summary_en": "Ad-tech and measurement partners.",
-      "players": [
-        {
-          "ticker": "TTD",
-          "name_en": "Trade Desk",
-          "name_zh": "Trade Desk",
-          "role_zh": "Trade Desk：廣告／數據變現代表性玩家",
-          "role_en": "Trade Desk: representative player in Ads / data monetization",
-          "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "APP",
-          "name_en": "AppLovin",
-          "name_zh": "AppLovin",
-          "role_zh": "AppLovin：廣告／數據變現代表性玩家",
-          "role_en": "AppLovin: representative player in Ads / data monetization",
-          "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "SNAP",
-          "name_en": "Snap",
-          "name_zh": "Snap",
-          "role_zh": "Snap：廣告／數據變現代表性玩家",
-          "role_en": "Snap: representative player in Ads / data monetization",
-          "exchange": "NYSE"
-        }
-      ]
-    },
-    {
-      "id": "devices",
-      "order": 4,
-      "label_zh": "裝置／作業系統入口",
-      "label_en": "Devices / OS entry points",
-      "summary_zh": "手機、瀏覽器與 OS 分發。",
-      "summary_en": "Phones, browsers, OS distribution.",
-      "players": [
-        {
-          "ticker": "AAPL",
-          "name_en": "Apple",
-          "name_zh": "蘋果",
-          "role_zh": "蘋果：裝置／作業系統入口代表性玩家",
-          "role_en": "Apple: representative player in Devices / OS entry points",
-          "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "005930.KS",
-          "name_en": "Samsung Electronics",
-          "name_zh": "三星電子",
-          "role_zh": "三星電子：裝置／作業系統入口代表性玩家",
-          "role_en": "Samsung Electronics: representative player in Devices / OS entry points",
-          "exchange": "KRX",
-          "listedInApp": false
-        },
-        {
-          "ticker": "SONY",
-          "name_en": "Sony",
-          "name_zh": "Sony",
-          "role_zh": "Sony：裝置／作業系統入口代表性玩家",
-          "role_en": "Sony: representative player in Devices / OS entry points",
-          "exchange": "NYSE"
-        }
-      ]
-    },
-    {
-      "id": "commerce",
-      "order": 5,
-      "label_zh": "支付／商務閉環",
-      "label_en": "Payments / commerce loop",
-      "summary_zh": "支付網路與電商履約。",
-      "summary_en": "Payment networks and commerce fulfillment.",
+      "label_zh": "支付／清算",
+      "label_en": "Payments / clearing",
+      "summary_zh": "廣告主與消費者支付軌道。",
+      "summary_en": "Advertiser and consumer payment rails.",
       "players": [
         {
           "ticker": "V",
           "name_en": "Visa",
           "name_zh": "威士卡",
-          "role_zh": "威士卡：支付／商務閉環代表性玩家",
-          "role_en": "Visa: representative player in Payments / commerce loop",
+          "role_zh": "威士卡：支付／清算代表性玩家",
+          "role_en": "Visa: representative player in Payments / clearing",
           "exchange": "NYSE"
         },
         {
           "ticker": "MA",
           "name_en": "Mastercard",
           "name_zh": "萬事達卡",
-          "role_zh": "萬事達卡：支付／商務閉環代表性玩家",
-          "role_en": "Mastercard: representative player in Payments / commerce loop",
+          "role_zh": "萬事達卡：支付／清算代表性玩家",
+          "role_en": "Mastercard: representative player in Payments / clearing",
           "exchange": "NYSE"
         },
         {
-          "ticker": "SHOP",
-          "name_en": "Shopify",
-          "name_zh": "Shopify",
-          "role_zh": "Shopify：支付／商務閉環代表性玩家",
-          "role_en": "Shopify: representative player in Payments / commerce loop",
+          "ticker": "PYPL",
+          "name_en": "PayPal",
+          "name_zh": "PayPal",
+          "role_zh": "PayPal：支付／清算代表性玩家",
+          "role_en": "PayPal: representative player in Payments / clearing",
           "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "traffic",
+      "order": 4,
+      "label_zh": "付費流量／獲客",
+      "label_en": "Paid traffic / acquisition",
+      "summary_zh": "社群與應用廣告買量（對手入口放對手弧）。",
+      "summary_en": "Social and app paid acquisition — rival portals stay on the rival arc.",
+      "players": [
+        {
+          "ticker": "META",
+          "name_en": "Meta Platforms",
+          "name_zh": "Meta (臉書)",
+          "role_zh": "Meta (臉書)：付費流量／獲客代表性玩家",
+          "role_en": "Meta Platforms: representative player in Paid traffic / acquisition",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "SNAP",
+          "name_en": "Snap",
+          "name_zh": "Snap",
+          "role_zh": "Snap：付費流量／獲客代表性玩家",
+          "role_en": "Snap: representative player in Paid traffic / acquisition",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "APP",
+          "name_en": "AppLovin",
+          "name_zh": "AppLovin",
+          "role_zh": "AppLovin：付費流量／獲客代表性玩家",
+          "role_en": "AppLovin: representative player in Paid traffic / acquisition",
+          "exchange": "NASDAQ"
+        }
+      ]
+    },
+    {
+      "id": "housing-demand",
+      "order": 5,
+      "label_zh": "住房需求",
+      "label_en": "Housing demand",
+      "summary_zh": "住宅建商與住房週期節點。",
+      "summary_en": "Homebuilders and housing-cycle nodes.",
+      "players": [
+        {
+          "ticker": "DHI",
+          "name_en": "D.R. Horton",
+          "name_zh": "D.R. Horton",
+          "role_zh": "D.R. Horton：住房需求代表性玩家",
+          "role_en": "D.R. Horton: representative player in Housing demand",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "LEN",
+          "name_en": "Lennar",
+          "name_zh": "Lennar",
+          "role_zh": "Lennar：住房需求代表性玩家",
+          "role_en": "Lennar: representative player in Housing demand",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "PHM",
+          "name_en": "PulteGroup",
+          "name_zh": "PulteGroup",
+          "role_zh": "PulteGroup：住房需求代表性玩家",
+          "role_en": "PulteGroup: representative player in Housing demand",
+          "exchange": "NYSE"
         }
       ]
     }
@@ -204,16 +203,24 @@
       "ticker": "CSGP",
       "name_en": "CoStar",
       "name_zh": "科斯塔集團",
-      "basis_zh": "房仲／房產數據對手",
-      "basis_en": "Listings / real-estate data rival",
+      "basis_zh": "房產數據／入口對手",
+      "basis_en": "Real-estate data / portal rival",
       "exchange": "NASDAQ"
     },
     {
       "ticker": "COMP",
       "name_en": "Compass",
       "name_zh": "Compass",
-      "basis_zh": "房仲／房產數據對手",
-      "basis_en": "Listings / real-estate data rival",
+      "basis_zh": "經紀／房源入口對手",
+      "basis_en": "Brokerage / listings portal rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "CBRE",
+      "name_en": "CBRE Group Inc.",
+      "name_zh": "CBRE",
+      "basis_zh": "房產服務／交易對手",
+      "basis_en": "Real-estate services rival",
       "exchange": "NYSE"
     }
   ]

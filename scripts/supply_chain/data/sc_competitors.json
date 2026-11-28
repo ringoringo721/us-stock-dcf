@@ -5774,23 +5774,23 @@
   "MELI": [
     [
       "AMZN",
-      "電商平台對手",
-      "E-commerce platform rival"
+      "電商／市集對手",
+      "Ecommerce / marketplace rival"
     ],
     [
       "BABA",
-      "電商平台對手",
-      "E-commerce platform rival"
+      "電商／市集對手",
+      "Ecommerce / marketplace rival"
     ],
     [
       "SE",
-      "電商平台對手",
-      "E-commerce platform rival"
+      "區域電商／金融對手",
+      "Regional ecommerce / fintech rival"
     ],
     [
       "SHOP",
-      "電商平台對手",
-      "E-commerce platform rival"
+      "商家／市集平台對手",
+      "Merchant / marketplace platform rival"
     ]
   ],
   "NOC": [
@@ -6264,23 +6264,18 @@
     ],
     [
       "SPGI",
-      "專業資訊／風險數據對手",
-      "Professional info / risk-data rival"
+      "專業數據／分析對手",
+      "Professional data / analytics rival"
     ],
     [
       "MCO",
-      "專業資訊／風險數據對手",
-      "Professional info / risk-data rival"
+      "信用／風險資訊對手",
+      "Credit / risk information rival"
     ],
     [
-      "ICE",
-      "專業資訊／風險數據對手",
-      "Professional info / risk-data rival"
-    ],
-    [
-      "NDAQ",
-      "專業資訊／風險數據對手",
-      "Professional info / risk-data rival"
+      "EFX",
+      "風險／身分數據對手",
+      "Risk / identity data rival"
     ]
   ],
   "APO": [
@@ -8213,23 +8208,18 @@
     ],
     [
       "SPGI",
-      "專業資訊／風險數據對手",
-      "Professional info / risk-data rival"
+      "專業數據／分析對手",
+      "Professional data / analytics rival"
     ],
     [
       "MCO",
-      "專業資訊／風險數據對手",
-      "Professional info / risk-data rival"
+      "信用／風險資訊對手",
+      "Credit / risk information rival"
     ],
     [
-      "ICE",
-      "專業資訊／風險數據對手",
-      "Professional info / risk-data rival"
-    ],
-    [
-      "NDAQ",
-      "專業資訊／風險數據對手",
-      "Professional info / risk-data rival"
+      "TRU",
+      "信用／風險數據對手",
+      "Credit / risk data rival"
     ]
   ],
   "HONA": [
@@ -11929,28 +11919,23 @@
   "TCOM": [
     [
       "BKNG",
-      "Travel Services產品／市場對手",
-      "Travel Services product/market rival"
+      "全球 OTA 對手",
+      "Global OTA rival"
+    ],
+    [
+      "EXPE",
+      "全球 OTA 對手",
+      "Global OTA rival"
     ],
     [
       "ABNB",
-      "Travel Services產品／市場對手",
-      "Travel Services product/market rival"
+      "住宿預訂對手",
+      "Lodging booking rival"
     ],
     [
-      "RCL",
-      "Travel Services產品／市場對手",
-      "Travel Services product/market rival"
-    ],
-    [
-      "CCL",
-      "Travel Services產品／市場對手",
-      "Travel Services product/market rival"
-    ],
-    [
-      "VIK",
-      "Travel Services產品／市場對手",
-      "Travel Services product/market rival"
+      "3690.HK",
+      "中國本地生活／酒旅對手",
+      "China local-life / travel rival"
     ]
   ],
   "TDY": [
@@ -18896,14 +18881,19 @@
   ],
   "CART": [
     [
-      "VRSK",
-      "Software - Services產品／市場對手",
-      "Software - Services product/market rival"
+      "DASH",
+      "即配／本地物流對手",
+      "Delivery / local logistics rival"
     ],
     [
-      "IREN",
-      "Software - Services產品／市場對手",
-      "Software - Services product/market rival"
+      "UBER",
+      "即配／出行平台對手",
+      "Delivery / mobility platform rival"
+    ],
+    [
+      "AMZN",
+      "雜貨／電商即配對手",
+      "Grocery / ecommerce delivery rival"
     ]
   ],
   "REG": [
@@ -23947,29 +23937,14 @@
   ],
   "MTCH": [
     [
-      "GOOG",
-      "網路內容／搜尋對手",
-      "Internet content / search rival"
-    ],
-    [
       "META",
-      "網路內容／搜尋對手",
-      "Internet content / search rival"
+      "社交／約會注意力對手",
+      "Social / dating attention rival"
     ],
     [
-      "SPOT",
-      "網路內容／搜尋對手",
-      "Internet content / search rival"
-    ],
-    [
-      "DASH",
-      "網路內容／搜尋對手",
-      "Internet content / search rival"
-    ],
-    [
-      "BIDU",
-      "網路內容／搜尋對手",
-      "Internet content / search rival"
+      "SNAP",
+      "社交／約會注意力對手",
+      "Social / dating attention rival"
     ]
   ],
   "JEF": [
@@ -27559,13 +27534,18 @@
   "ZG": [
     [
       "CSGP",
-      "房仲／房產數據對手",
-      "Listings / real-estate data rival"
+      "房產數據／入口對手",
+      "Real-estate data / portal rival"
     ],
     [
       "COMP",
-      "房仲／房產數據對手",
-      "Listings / real-estate data rival"
+      "經紀／房源入口對手",
+      "Brokerage / listings portal rival"
+    ],
+    [
+      "CBRE",
+      "房產服務／交易對手",
+      "Real-estate services rival"
     ]
   ],
   "FAF": [

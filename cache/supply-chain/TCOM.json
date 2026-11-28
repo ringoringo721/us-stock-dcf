@@ -2,8 +2,8 @@
   "version": 1,
   "ticker": "TCOM",
   "name_en": "Trip.com",
-  "name_zh": "攜程集團",
-  "updatedAt": "2026-11-20",
+  "name_zh": "攜程",
+  "updatedAt": "2026-11-28",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -11,189 +11,198 @@
     "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
     "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
     "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
-    "modelId": "consumer-discretionary-v1",
+    "modelId": "ota-marketplace-v1",
     "references": [
-      "Industry model `consumer-discretionary-v1`",
+      "Industry model `ota-marketplace-v1`",
       "AAPL curated seed shape on main (schema reference)",
       "cache/us_universe.json screen: remaining US listings without supply-chain seed",
       "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
     ]
   },
   "model": {
-    "id": "consumer-discretionary-v1",
-    "label_zh": "非必需消費／餐旅價值鏈",
-    "label_en": "Consumer discretionary / hospitality value chain",
-    "description_zh": "原料／商品 → 物流 → 門市／平台 → 支付 → 行銷流量。",
-    "description_en": "Inputs/goods → logistics → stores/platforms → payments → marketing traffic."
+    "id": "ota-marketplace-v1",
+    "label_zh": "線上旅遊代理（OTA）價值鏈",
+    "label_en": "Online travel agency (OTA) value chain",
+    "description_zh": "航司／住宿庫存 → 支付 → 雲／身分 → 搜尋流量 → 會員／忠誠夥伴。直銷酒店對手放對手弧。",
+    "description_en": "Airline/lodging inventory → payments → cloud/identity → search traffic → loyalty partners. Direct-hotel rivals stay on the rival arc."
   },
   "stages": [
     {
-      "id": "inputs",
+      "id": "inventory",
       "order": 1,
-      "label_zh": "原料／商品供應",
-      "label_en": "Inputs / merchandise supply",
-      "summary_zh": "食材、商品與授權 IP。",
-      "summary_en": "Food, goods, licensed IP.",
+      "label_zh": "航司／住宿庫存供給",
+      "label_en": "Airline / lodging inventory",
+      "summary_zh": "OTA 佣金背後的航司與飯店庫存 API（非對手直銷品牌名單）。",
+      "summary_en": "Airline and hotel inventory APIs behind OTA commissions — not direct-booking rival pads.",
       "players": [
         {
-          "ticker": "ADM",
-          "name_en": "Archer-Daniels-Midland",
-          "name_zh": "阿徹丹尼爾斯米德蘭",
-          "role_zh": "阿徹丹尼爾斯米德蘭：原料／商品供應代表性玩家",
-          "role_en": "Archer-Daniels-Midland: representative player in Inputs / merchandise supply",
-          "exchange": "NYSE"
+          "ticker": "0753.HK",
+          "name_en": "Air China",
+          "name_zh": "中國國航",
+          "role_zh": "中國國航：航司／住宿庫存供給代表性玩家",
+          "role_en": "Air China: representative player in Airline / lodging inventory",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "NKE",
-          "name_en": "Nike",
-          "name_zh": "耐吉",
-          "role_zh": "耐吉：原料／商品供應代表性玩家",
-          "role_en": "Nike: representative player in Inputs / merchandise supply",
-          "exchange": "NYSE"
+          "ticker": "0670.HK",
+          "name_en": "China Eastern",
+          "name_zh": "東方航空",
+          "role_zh": "東方航空：航司／住宿庫存供給代表性玩家",
+          "role_en": "China Eastern: representative player in Airline / lodging inventory",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "DIS",
-          "name_en": "Walt Disney",
-          "name_zh": "迪士尼",
-          "role_zh": "迪士尼：原料／商品供應代表性玩家",
-          "role_en": "Walt Disney: representative player in Inputs / merchandise supply",
-          "exchange": "NYSE"
-        }
-      ]
-    },
-    {
-      "id": "logistics",
-      "order": 2,
-      "label_zh": "物流／冷鏈",
-      "label_en": "Logistics / cold chain",
-      "summary_zh": "配送與庫存網路。",
-      "summary_en": "Distribution and inventory.",
-      "players": [
-        {
-          "ticker": "UPS",
-          "name_en": "United Parcel Service",
-          "name_zh": "優比速",
-          "role_zh": "優比速：物流／冷鏈代表性玩家",
-          "role_en": "United Parcel Service: representative player in Logistics / cold chain",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "FDX",
-          "name_en": "FedEx",
-          "name_zh": "聯邦快遞",
-          "role_zh": "聯邦快遞：物流／冷鏈代表性玩家",
-          "role_en": "FedEx: representative player in Logistics / cold chain",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "UNP",
-          "name_en": "Union Pacific",
-          "name_zh": "聯合太平洋鐵路",
-          "role_zh": "聯合太平洋鐵路：物流／冷鏈代表性玩家",
-          "role_en": "Union Pacific: representative player in Logistics / cold chain",
-          "exchange": "NYSE"
-        }
-      ]
-    },
-    {
-      "id": "stores",
-      "order": 3,
-      "label_zh": "門市／數位平台",
-      "label_en": "Stores / digital platforms",
-      "summary_zh": "直營、加盟與 App。",
-      "summary_en": "Owned, franchise, apps.",
-      "players": [
-        {
-          "ticker": "SBUX",
-          "name_en": "Starbucks",
-          "name_zh": "星巴克",
-          "role_zh": "星巴克：門市／數位平台代表性玩家",
-          "role_en": "Starbucks: representative player in Stores / digital platforms",
-          "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "MCD",
-          "name_en": "McDonald's",
-          "name_zh": "麥當勞",
-          "role_zh": "麥當勞：門市／數位平台代表性玩家",
-          "role_en": "McDonald's: representative player in Stores / digital platforms",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "MAR",
-          "name_en": "Marriott International",
-          "name_zh": "萬豪國際",
-          "role_zh": "萬豪國際：門市／數位平台代表性玩家",
-          "role_en": "Marriott International: representative player in Stores / digital platforms",
+          "ticker": "HTHT",
+          "name_en": "H World",
+          "name_zh": "華住",
+          "role_zh": "華住：航司／住宿庫存供給代表性玩家",
+          "role_en": "H World: representative player in Airline / lodging inventory",
           "exchange": "NASDAQ"
         }
       ]
     },
     {
       "id": "payments",
-      "order": 4,
-      "label_zh": "支付／忠誠",
-      "label_en": "Payments / loyalty",
-      "summary_zh": "卡支付與會員體系。",
-      "summary_en": "Card rails and loyalty.",
+      "order": 2,
+      "label_zh": "支付／清算",
+      "label_en": "Payments / clearing",
+      "summary_zh": "旅客付款與商戶撥款軌道。",
+      "summary_en": "Traveler pay-in and merchant payouts.",
       "players": [
         {
           "ticker": "V",
           "name_en": "Visa",
           "name_zh": "威士卡",
-          "role_zh": "威士卡：支付／忠誠代表性玩家",
-          "role_en": "Visa: representative player in Payments / loyalty",
+          "role_zh": "威士卡：支付／清算代表性玩家",
+          "role_en": "Visa: representative player in Payments / clearing",
           "exchange": "NYSE"
         },
         {
           "ticker": "MA",
           "name_en": "Mastercard",
           "name_zh": "萬事達卡",
-          "role_zh": "萬事達卡：支付／忠誠代表性玩家",
-          "role_en": "Mastercard: representative player in Payments / loyalty",
+          "role_zh": "萬事達卡：支付／清算代表性玩家",
+          "role_en": "Mastercard: representative player in Payments / clearing",
           "exchange": "NYSE"
         },
         {
-          "ticker": "AXP",
-          "name_en": "American Express",
-          "name_zh": "美國運通",
-          "role_zh": "美國運通：支付／忠誠代表性玩家",
-          "role_en": "American Express: representative player in Payments / loyalty",
-          "exchange": "NYSE"
+          "ticker": "1398.HK",
+          "name_en": "ICBC",
+          "name_zh": "工商銀行",
+          "role_zh": "工商銀行：支付／清算代表性玩家",
+          "role_en": "ICBC: representative player in Payments / clearing",
+          "exchange": "HKEX",
+          "listedInApp": false
+        }
+      ]
+    },
+    {
+      "id": "cloud-trust",
+      "order": 3,
+      "label_zh": "雲／身分與信任",
+      "label_en": "Cloud / identity & trust",
+      "summary_zh": "預訂平台雲算力與身分／資安基礎設施。",
+      "summary_en": "Booking-platform cloud compute and identity/security infra.",
+      "players": [
+        {
+          "ticker": "MSFT",
+          "name_en": "Microsoft",
+          "name_zh": "微軟",
+          "role_zh": "微軟：雲／身分與信任代表性玩家",
+          "role_en": "Microsoft: representative player in Cloud / identity & trust",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "AMZN",
+          "name_en": "Amazon.com",
+          "name_zh": "亞馬遜",
+          "role_zh": "亞馬遜：雲／身分與信任代表性玩家",
+          "role_en": "Amazon.com: representative player in Cloud / identity & trust",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "9988.HK",
+          "name_en": "Alibaba",
+          "name_zh": "阿里巴巴",
+          "role_zh": "阿里巴巴：雲／身分與信任代表性玩家",
+          "role_en": "Alibaba: representative player in Cloud / identity & trust",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     },
     {
       "id": "traffic",
-      "order": 5,
-      "label_zh": "行銷／流量",
-      "label_en": "Marketing / traffic",
-      "summary_zh": "搜尋、社群與旅遊 OTA。",
-      "summary_en": "Search, social, travel OTAs.",
+      "order": 4,
+      "label_zh": "搜尋／流量獲客",
+      "label_en": "Search / traffic acquisition",
+      "summary_zh": "搜尋與社群流量入口（非對手 OTA）。",
+      "summary_en": "Search and social acquisition — not rival OTAs.",
       "players": [
         {
-          "ticker": "GOOG",
-          "name_en": "Alphabet",
-          "name_zh": "Alphabet（Google）",
-          "role_zh": "Alphabet（Google）：行銷／流量代表性玩家",
-          "role_en": "Alphabet: representative player in Marketing / traffic",
+          "ticker": "0700.HK",
+          "name_en": "Tencent",
+          "name_zh": "騰訊",
+          "role_zh": "騰訊：搜尋／流量獲客代表性玩家",
+          "role_en": "Tencent: representative player in Search / traffic acquisition",
+          "exchange": "HKEX",
+          "listedInApp": false
+        },
+        {
+          "ticker": "BIDU",
+          "name_en": "Baidu",
+          "name_zh": "百度",
+          "role_zh": "百度：搜尋／流量獲客代表性玩家",
+          "role_en": "Baidu: representative player in Search / traffic acquisition",
           "exchange": "NASDAQ"
         },
         {
-          "ticker": "META",
-          "name_en": "Meta Platforms",
-          "name_zh": "Meta (臉書)",
-          "role_zh": "Meta (臉書)：行銷／流量代表性玩家",
-          "role_en": "Meta Platforms: representative player in Marketing / traffic",
-          "exchange": "NASDAQ"
+          "ticker": "1024.HK",
+          "name_en": "Kuaishou",
+          "name_zh": "快手",
+          "role_zh": "快手：搜尋／流量獲客代表性玩家",
+          "role_en": "Kuaishou: representative player in Search / traffic acquisition",
+          "exchange": "HKEX",
+          "listedInApp": false
+        }
+      ]
+    },
+    {
+      "id": "loyalty",
+      "order": 5,
+      "label_zh": "會員／支付卡忠誠",
+      "label_en": "Membership / card loyalty",
+      "summary_zh": "聯名卡與會員權益變現夥伴。",
+      "summary_en": "Co-brand cards and membership-benefit partners.",
+      "players": [
+        {
+          "ticker": "2318.HK",
+          "name_en": "Ping An",
+          "name_zh": "中國平安",
+          "role_zh": "中國平安：會員／支付卡忠誠代表性玩家",
+          "role_en": "Ping An: representative player in Membership / card loyalty",
+          "exchange": "HKEX",
+          "listedInApp": false
         },
         {
-          "ticker": "BKNG",
-          "name_en": "Booking",
-          "name_zh": "Booking 控股",
-          "role_zh": "Booking 控股：行銷／流量代表性玩家",
-          "role_en": "Booking: representative player in Marketing / traffic",
-          "exchange": "NASDAQ"
+          "ticker": "1299.HK",
+          "name_en": "AIA",
+          "name_zh": "友邦",
+          "role_zh": "友邦：會員／支付卡忠誠代表性玩家",
+          "role_en": "AIA: representative player in Membership / card loyalty",
+          "exchange": "HKEX",
+          "listedInApp": false
+        },
+        {
+          "ticker": "0005.HK",
+          "name_en": "HSBC",
+          "name_zh": "滙豐",
+          "role_zh": "滙豐：會員／支付卡忠誠代表性玩家",
+          "role_en": "HSBC: representative player in Membership / card loyalty",
+          "exchange": "HKEX",
+          "listedInApp": false
         }
       ]
     }
@@ -203,41 +212,34 @@
       "ticker": "BKNG",
       "name_en": "Booking",
       "name_zh": "Booking 控股",
-      "basis_zh": "Travel Services產品／市場對手",
-      "basis_en": "Travel Services product/market rival",
+      "basis_zh": "全球 OTA 對手",
+      "basis_en": "Global OTA rival",
+      "exchange": "NASDAQ"
+    },
+    {
+      "ticker": "EXPE",
+      "name_en": "Expedia",
+      "name_zh": "Expedia",
+      "basis_zh": "全球 OTA 對手",
+      "basis_en": "Global OTA rival",
       "exchange": "NASDAQ"
     },
     {
       "ticker": "ABNB",
       "name_en": "Airbnb",
       "name_zh": "Airbnb",
-      "basis_zh": "Travel Services產品／市場對手",
-      "basis_en": "Travel Services product/market rival",
+      "basis_zh": "住宿預訂對手",
+      "basis_en": "Lodging booking rival",
       "exchange": "NASDAQ"
     },
     {
-      "ticker": "RCL",
-      "name_en": "Royal Caribbean",
-      "name_zh": "皇家加勒比",
-      "basis_zh": "Travel Services產品／市場對手",
-      "basis_en": "Travel Services product/market rival",
-      "exchange": "NYSE"
-    },
-    {
-      "ticker": "CCL",
-      "name_en": "Carnival",
-      "name_zh": "嘉年華郵輪",
-      "basis_zh": "Travel Services產品／市場對手",
-      "basis_en": "Travel Services product/market rival",
-      "exchange": "NYSE"
-    },
-    {
-      "ticker": "VIK",
-      "name_en": "Viking",
-      "name_zh": "Viking",
-      "basis_zh": "Travel Services產品／市場對手",
-      "basis_en": "Travel Services product/market rival",
-      "exchange": "NYSE"
+      "ticker": "3690.HK",
+      "name_en": "Meituan",
+      "name_zh": "美團",
+      "basis_zh": "中國本地生活／酒旅對手",
+      "basis_en": "China local-life / travel rival",
+      "exchange": "HKEX",
+      "listedInApp": false
     }
   ]
 }

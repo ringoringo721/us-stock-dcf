@@ -3,7 +3,7 @@
   "ticker": "TRI",
   "name_en": "Thomson Reuters",
   "name_zh": "Thomson Reuters",
-  "updatedAt": "2026-11-20",
+  "updatedAt": "2026-11-28",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -11,188 +11,154 @@
     "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
     "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
     "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
-    "modelId": "industrials-v1",
+    "modelId": "professional-info-v1",
     "references": [
-      "Industry model `industrials-v1`",
+      "Industry model `professional-info-v1`",
       "AAPL curated seed shape on main (schema reference)",
       "cache/us_universe.json screen: remaining US listings without supply-chain seed",
       "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
     ]
   },
   "model": {
-    "id": "industrials-v1",
-    "label_zh": "工業製造價值鏈",
-    "label_en": "Industrial manufacturing value chain",
-    "description_zh": "原材料 → 關鍵部件 → 製造自動化 → 經銷／租賃 → 終端基建客戶。",
-    "description_en": "Raw materials → critical parts → automation → dealers/rental → end infrastructure."
+    "id": "professional-info-v1",
+    "label_zh": "專業資訊／分析價值鏈",
+    "label_en": "Professional information / analytics value chain",
+    "description_zh": "雲基建 → 資安 → 支付 → 流量／分發（法律／科研／風險／新聞資訊訂閱，非交易所 venues、非工業材料墊）。",
+    "description_en": "Cloud → cybersecurity → payments → traffic/distribution (legal/STM/risk/news info subs — not exchange venues, not industrials materials)."
   },
   "stages": [
     {
-      "id": "materials",
+      "id": "cloud-infra",
       "order": 1,
-      "label_zh": "原材料／鋼鐵鋁",
-      "label_en": "Raw materials / metals",
-      "summary_zh": "鋼、鋁與基礎材料。",
-      "summary_en": "Steel, aluminum, base materials.",
+      "label_zh": "雲端／平台基建",
+      "label_en": "Cloud / platform infra",
+      "summary_zh": "資訊產品與分析平台雲算力。",
+      "summary_en": "Cloud under info products and analytics platforms.",
       "players": [
         {
-          "ticker": "NUE",
-          "name_en": "Nucor",
-          "name_zh": "紐柯",
-          "role_zh": "紐柯：原材料／鋼鐵鋁代表性玩家",
-          "role_en": "Nucor: representative player in Raw materials / metals",
-          "exchange": "NYSE"
+          "ticker": "AMZN",
+          "name_en": "Amazon.com",
+          "name_zh": "亞馬遜",
+          "role_zh": "亞馬遜：雲端／平台基建代表性玩家",
+          "role_en": "Amazon.com: representative player in Cloud / platform infra",
+          "exchange": "NASDAQ"
         },
         {
-          "ticker": "FCX",
-          "name_en": "Freeport-McMoRan",
-          "name_zh": "自由港麥克莫蘭",
-          "role_zh": "自由港麥克莫蘭：原材料／鋼鐵鋁代表性玩家",
-          "role_en": "Freeport-McMoRan: representative player in Raw materials / metals",
-          "exchange": "NYSE"
+          "ticker": "MSFT",
+          "name_en": "Microsoft",
+          "name_zh": "微軟",
+          "role_zh": "微軟：雲端／平台基建代表性玩家",
+          "role_en": "Microsoft: representative player in Cloud / platform infra",
+          "exchange": "NASDAQ"
         },
         {
-          "ticker": "DOW",
-          "name_en": "Dow",
-          "name_zh": "陶氏化學",
-          "role_zh": "陶氏化學：原材料／鋼鐵鋁代表性玩家",
-          "role_en": "Dow: representative player in Raw materials / metals",
-          "exchange": "NYSE"
+          "ticker": "GOOG",
+          "name_en": "Alphabet",
+          "name_zh": "Alphabet（Google）",
+          "role_zh": "Alphabet（Google）：雲端／平台基建代表性玩家",
+          "role_en": "Alphabet: representative player in Cloud / platform infra",
+          "exchange": "NASDAQ"
         }
       ]
     },
     {
-      "id": "components",
+      "id": "cybersecurity",
       "order": 2,
-      "label_zh": "關鍵部件／動力系統",
-      "label_en": "Critical components / powertrain",
-      "summary_zh": "引擎、液壓、電力電子。",
-      "summary_en": "Engines, hydraulics, power electronics.",
+      "label_zh": "資安／信任",
+      "label_en": "Cybersecurity / trust",
+      "summary_zh": "企業資安與端點防護夥伴。",
+      "summary_en": "Enterprise security and endpoint partners.",
       "players": [
         {
-          "ticker": "ETN",
-          "name_en": "Eaton",
-          "name_zh": "伊頓",
-          "role_zh": "伊頓：關鍵部件／動力系統代表性玩家",
-          "role_en": "Eaton: representative player in Critical components / powertrain",
-          "exchange": "NYSE"
+          "ticker": "PANW",
+          "name_en": "Palo Alto Networks",
+          "name_zh": "派拓網路",
+          "role_zh": "派拓網路：資安／信任代表性玩家",
+          "role_en": "Palo Alto Networks: representative player in Cybersecurity / trust",
+          "exchange": "NASDAQ"
         },
         {
-          "ticker": "PH",
-          "name_en": "Parker-Hannifin",
-          "name_zh": "派克漢尼汾",
-          "role_zh": "派克漢尼汾：關鍵部件／動力系統代表性玩家",
-          "role_en": "Parker-Hannifin: representative player in Critical components / powertrain",
-          "exchange": "NYSE"
+          "ticker": "FTNT",
+          "name_en": "Fortinet",
+          "name_zh": "飛塔資訊",
+          "role_zh": "飛塔資訊：資安／信任代表性玩家",
+          "role_en": "Fortinet: representative player in Cybersecurity / trust",
+          "exchange": "NASDAQ"
         },
         {
-          "ticker": "EMR",
-          "name_en": "Emerson",
-          "name_zh": "艾默生",
-          "role_zh": "艾默生：關鍵部件／動力系統代表性玩家",
-          "role_en": "Emerson: representative player in Critical components / powertrain",
-          "exchange": "NYSE"
+          "ticker": "OKTA",
+          "name_en": "Okta",
+          "name_zh": "Okta",
+          "role_zh": "Okta：資安／信任代表性玩家",
+          "role_en": "Okta: representative player in Cybersecurity / trust",
+          "exchange": "NASDAQ"
         }
       ]
     },
     {
-      "id": "automation",
+      "id": "payments",
       "order": 3,
-      "label_zh": "自動化／軟體",
-      "label_en": "Automation / software",
-      "summary_zh": "工控、感測與數位雙生。",
-      "summary_en": "Controls, sensors, digital twins.",
+      "label_zh": "支付／訂閱清算",
+      "label_en": "Payments / subscription rails",
+      "summary_zh": "企業訂閱與商務清算。",
+      "summary_en": "Enterprise subscription and commercial rails.",
       "players": [
         {
-          "ticker": "ROK",
-          "name_en": "Rockwell Automation",
-          "name_zh": "羅克韋爾",
-          "role_zh": "羅克韋爾：自動化／軟體代表性玩家",
-          "role_en": "Rockwell Automation: representative player in Automation / software",
+          "ticker": "V",
+          "name_en": "Visa",
+          "name_zh": "威士卡",
+          "role_zh": "威士卡：支付／訂閱清算代表性玩家",
+          "role_en": "Visa: representative player in Payments / subscription rails",
           "exchange": "NYSE"
         },
         {
-          "ticker": "HON",
-          "name_en": "Honeywell",
-          "name_zh": "漢威聯合",
-          "role_zh": "漢威聯合：自動化／軟體代表性玩家",
-          "role_en": "Honeywell: representative player in Automation / software",
-          "exchange": "NASDAQ"
+          "ticker": "MA",
+          "name_en": "Mastercard",
+          "name_zh": "萬事達卡",
+          "role_zh": "萬事達卡：支付／訂閱清算代表性玩家",
+          "role_en": "Mastercard: representative player in Payments / subscription rails",
+          "exchange": "NYSE"
         },
         {
-          "ticker": "SNPS",
-          "name_en": "Synopsys",
-          "name_zh": "新思科技",
-          "role_zh": "新思科技：自動化／軟體代表性玩家",
-          "role_en": "Synopsys: representative player in Automation / software",
+          "ticker": "FISV",
+          "name_en": "Fiserv",
+          "name_zh": "Fiserv",
+          "role_zh": "Fiserv：支付／訂閱清算代表性玩家",
+          "role_en": "Fiserv: representative player in Payments / subscription rails",
           "exchange": "NASDAQ"
         }
       ]
     },
     {
-      "id": "dealers",
+      "id": "traffic",
       "order": 4,
-      "label_zh": "經銷／租賃通路",
-      "label_en": "Dealer / rental channel",
-      "summary_zh": "設備經銷與租賃。",
-      "summary_en": "Equipment dealers and rental.",
+      "label_zh": "流量／專業獲客",
+      "label_en": "Traffic / professional acquisition",
+      "summary_zh": "品牌與專業受眾獲客（資訊同業放對手弧）。",
+      "summary_en": "Brand and professional-audience acquisition — info peers stay on the rival arc.",
       "players": [
         {
-          "ticker": "CAT",
-          "name_en": "Caterpillar",
-          "name_zh": "開拓重工",
-          "role_zh": "開拓重工：經銷／租賃通路代表性玩家",
-          "role_en": "Caterpillar: representative player in Dealer / rental channel",
+          "ticker": "META",
+          "name_en": "Meta Platforms",
+          "name_zh": "Meta (臉書)",
+          "role_zh": "Meta (臉書)：流量／專業獲客代表性玩家",
+          "role_en": "Meta Platforms: representative player in Traffic / professional acquisition",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "RDDT",
+          "name_en": "Reddit",
+          "name_zh": "Reddit",
+          "role_zh": "Reddit：流量／專業獲客代表性玩家",
+          "role_en": "Reddit: representative player in Traffic / professional acquisition",
           "exchange": "NYSE"
         },
         {
-          "ticker": "DE",
-          "name_en": "Deere",
-          "name_zh": "強鹿公司 (Deere)",
-          "role_zh": "強鹿公司 (Deere)：經銷／租賃通路代表性玩家",
-          "role_en": "Deere: representative player in Dealer / rental channel",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "ETN",
-          "name_en": "Eaton",
-          "name_zh": "伊頓",
-          "role_zh": "伊頓：經銷／租賃通路代表性玩家",
-          "role_en": "Eaton: representative player in Dealer / rental channel",
-          "exchange": "NYSE"
-        }
-      ]
-    },
-    {
-      "id": "customers",
-      "order": 5,
-      "label_zh": "基建／能源／礦業客戶",
-      "label_en": "Infra / energy / mining customers",
-      "summary_zh": "工程、能源與礦業終端。",
-      "summary_en": "Construction, energy, mining.",
-      "players": [
-        {
-          "ticker": "XOM",
-          "name_en": "Exxonmobil",
-          "name_zh": "埃克森美孚",
-          "role_zh": "埃克森美孚：基建／能源／礦業客戶代表性玩家",
-          "role_en": "Exxonmobil: representative player in Infra / energy / mining customers",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "UNP",
-          "name_en": "Union Pacific",
-          "name_zh": "聯合太平洋鐵路",
-          "role_zh": "聯合太平洋鐵路：基建／能源／礦業客戶代表性玩家",
-          "role_en": "Union Pacific: representative player in Infra / energy / mining customers",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "NEE",
-          "name_en": "NextEra Energy",
-          "name_zh": "新紀元能源",
-          "role_zh": "新紀元能源：基建／能源／礦業客戶代表性玩家",
-          "role_en": "NextEra Energy: representative player in Infra / energy / mining customers",
+          "ticker": "SNAP",
+          "name_en": "Snap",
+          "name_zh": "Snap",
+          "role_zh": "Snap：流量／專業獲客代表性玩家",
+          "role_en": "Snap: representative player in Traffic / professional acquisition",
           "exchange": "NYSE"
         }
       ]
@@ -211,33 +177,25 @@
       "ticker": "SPGI",
       "name_en": "S&P Global",
       "name_zh": "標普全球",
-      "basis_zh": "專業資訊／風險數據對手",
-      "basis_en": "Professional info / risk-data rival",
+      "basis_zh": "專業數據／分析對手",
+      "basis_en": "Professional data / analytics rival",
       "exchange": "NYSE"
     },
     {
       "ticker": "MCO",
       "name_en": "Moody's",
       "name_zh": "穆迪評級",
-      "basis_zh": "專業資訊／風險數據對手",
-      "basis_en": "Professional info / risk-data rival",
+      "basis_zh": "信用／風險資訊對手",
+      "basis_en": "Credit / risk information rival",
       "exchange": "NYSE"
     },
     {
-      "ticker": "ICE",
-      "name_en": "Intercontinental Exchange",
-      "name_zh": "洲際交易所",
-      "basis_zh": "專業資訊／風險數據對手",
-      "basis_en": "Professional info / risk-data rival",
+      "ticker": "TRU",
+      "name_en": "TransUnion",
+      "name_zh": "全聯徵信 (TransUnion)",
+      "basis_zh": "信用／風險數據對手",
+      "basis_en": "Credit / risk data rival",
       "exchange": "NYSE"
-    },
-    {
-      "ticker": "NDAQ",
-      "name_en": "Nasdaq",
-      "name_zh": "納斯達克",
-      "basis_zh": "專業資訊／風險數據對手",
-      "basis_en": "Professional info / risk-data rival",
-      "exchange": "NASDAQ"
     }
   ]
 }
