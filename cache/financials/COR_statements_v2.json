@@ -1630,10 +1630,10 @@
         "otherPayables": 0,
         "accruedExpenses": 3260406000,
         "shortTermDebt": 203208000,
-        "capitalLeaseObligationsCurrent": 0,
+        "capitalLeaseObligationsCurrent": 321234000,
         "taxPayables": 0,
         "deferredRevenue": 0,
-        "otherCurrentLiabilities": 905879000,
+        "otherCurrentLiabilities": 584645000,
         "totalCurrentLiabilities": 62380893000,
         "longTermDebt": 11062938000,
         "capitalLeaseObligationsNonCurrent": 1873603000,
@@ -1642,7 +1642,7 @@
         "otherNonCurrentLiabilities": 6346609000,
         "totalNonCurrentLiabilities": 21042844000,
         "otherLiabilities": 0,
-        "capitalLeaseObligations": 1873603000,
+        "capitalLeaseObligations": 2194837000,
         "totalLiabilities": 83423737000,
         "treasuryStock": -11445759000,
         "preferredStock": 0,
@@ -1656,8 +1656,8 @@
         "minorityInterest": 194252000,
         "totalLiabilitiesAndTotalEquity": 87104977000,
         "totalInvestments": 0,
-        "totalDebt": 11266146000,
-        "netDebt": 6385811000
+        "totalDebt": 13460983000,
+        "netDebt": 8580648000
       },
       {
         "date": "2026-06-30",
