@@ -3444,5 +3444,124 @@
       "PINS",
       "APP"
     ]
+  },
+  "grocery-delivery-marketplace-v1": {
+    "grocery-partners": [
+      "WMT",
+      "KR",
+      "COST"
+    ],
+    "cloud-infra": [
+      "MSFT",
+      "GOOG",
+      "ORCL"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "traffic": [
+      "META",
+      "APP",
+      "SNAP"
+    ],
+    "insurance-trust": [
+      "CB",
+      "PGR",
+      "ALL"
+    ]
+  },
+  "dating-apps-v1": {
+    "cloud-infra": [
+      "MSFT",
+      "AMZN",
+      "EQIX"
+    ],
+    "app-distribution": [
+      "AAPL",
+      "GOOG"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "traffic": [
+      "APP",
+      "PINS",
+      "TTD"
+    ]
+  },
+  "housing-portal-v1": {
+    "cloud-infra": [
+      "MSFT",
+      "AMZN",
+      "ORCL"
+    ],
+    "mortgage-capital": [
+      "BAC",
+      "JPM",
+      "WFC"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "PYPL"
+    ],
+    "traffic": [
+      "META",
+      "SNAP",
+      "APP"
+    ],
+    "housing-demand": [
+      "DHI",
+      "LEN",
+      "PHM"
+    ]
+  },
+  "professional-info-v1": {
+    "cloud-infra": [
+      "AMZN",
+      "MSFT",
+      "GOOG"
+    ],
+    "cybersecurity": [
+      "CRWD",
+      "PANW",
+      "FTNT"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "FISV"
+    ],
+    "traffic": [
+      "META",
+      "APP",
+      "SNAP"
+    ]
+  },
+  "latam-marketplace-v1": {
+    "cloud-infra": [
+      "MSFT",
+      "ORCL",
+      "EQIX"
+    ],
+    "payments": [
+      "V",
+      "MA",
+      "ITUB"
+    ],
+    "logistics": [
+      "UPS",
+      "FDX",
+      "EXPD"
+    ],
+    "traffic": [
+      "GOOG",
+      "META",
+      "APP"
+    ]
   }
 }

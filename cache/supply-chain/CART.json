@@ -1,9 +1,9 @@
 {
   "version": 1,
   "ticker": "CART",
-  "name_en": "Maplebear",
-  "name_zh": "Maplebear",
-  "updatedAt": "2026-11-20",
+  "name_en": "Instacart",
+  "name_zh": "Instacart",
+  "updatedAt": "2026-11-28",
   "source": {
     "type": "curated",
     "basis": "Industry value-chain template + curated product/market rivals for US mcap band $0–$50B (remaining after ≥$50B batches). Not a live supplier API dump. Gemini drafts were unavailable (billing); content is template-curated with automated schema/繁中 gates. Preview-before-merge.",
@@ -11,188 +11,188 @@
     "notes_en": "Industry value-chain template plus curated rivals for remaining US listings under $50B mcap (after mega ≥$100B and mid-mega $50–100B). No live supplier API. FMP peers are not used as the value chain. Roles/ranks follow a public industry structure — not a full BOM or spend share. Competitors follow true product/market rivalry (AAPL lesson). Gemini drafts unavailable due to billing; curated templates + review gates used instead.",
     "competitorRationale_zh": "競爭弧只列與該公司主力產品／市場重疊的對手；供應鏈階段玩家與競爭對手分開。",
     "competitorRationale_en": "Rival arc lists product/market overlaps only; stage players are separate from rivals.",
-    "modelId": "saas-cloud-v1",
+    "modelId": "grocery-delivery-marketplace-v1",
     "references": [
-      "Industry model `saas-cloud-v1`",
+      "Industry model `grocery-delivery-marketplace-v1`",
       "AAPL curated seed shape on main (schema reference)",
       "cache/us_universe.json screen: remaining US listings without supply-chain seed",
       "Mega/mid-mega batch patterns (entity gates, short_brand_en, industry models)"
     ]
   },
   "model": {
-    "id": "saas-cloud-v1",
-    "label_zh": "軟體／雲端價值鏈",
-    "label_en": "Software / cloud value chain",
-    "description_zh": "算力／矽晶 → 雲端基礎設施 → 資料／資安層 → 系統整合 → 企業通路。",
-    "description_en": "Compute/silicon → cloud infra → data/security → SI partners → enterprise channel."
+    "id": "grocery-delivery-marketplace-v1",
+    "label_zh": "雜貨即配市集價值鏈",
+    "label_en": "Grocery delivery marketplace value chain",
+    "description_zh": "超市商戶 → 雲基建 → 支付 → 流量 → 保險／信任（市集抽成＋廣告，非自營倉配、非 SaaS 渠道墊）。",
+    "description_en": "Grocery merchants → cloud → payments → traffic → insurance/trust (take-rate + ads; not 1P warehouse, not SaaS channel pad)."
   },
   "stages": [
     {
-      "id": "silicon",
+      "id": "grocery-partners",
       "order": 1,
-      "label_zh": "算力／加速矽晶",
-      "label_en": "Compute / accelerator silicon",
-      "summary_zh": "CPU／GPU／自研加速相關供應。",
-      "summary_en": "CPU/GPU and accelerator supply.",
+      "label_zh": "超市／雜貨商戶",
+      "label_en": "Grocery merchant partners",
+      "summary_zh": "上架 Instacart 等市集的連鎖超市與量販。",
+      "summary_en": "Grocery and club chains listed on the marketplace.",
       "players": [
         {
-          "ticker": "NVDA",
-          "name_en": "NVIDIA",
-          "name_zh": "輝達",
-          "role_zh": "輝達：算力／加速矽晶代表性玩家",
-          "role_en": "NVIDIA: representative player in Compute / accelerator silicon",
-          "exchange": "NASDAQ"
+          "ticker": "WMT",
+          "name_en": "Walmart",
+          "name_zh": "沃爾瑪",
+          "role_zh": "沃爾瑪：超市／雜貨商戶代表性玩家",
+          "role_en": "Walmart: representative player in Grocery merchant partners",
+          "exchange": "NYSE"
         },
         {
-          "ticker": "AMD",
-          "name_en": "Advanced Micro Devices",
-          "name_zh": "超微半導體",
-          "role_zh": "超微半導體：算力／加速矽晶代表性玩家",
-          "role_en": "Advanced Micro Devices: representative player in Compute / accelerator silicon",
-          "exchange": "NASDAQ"
+          "ticker": "KR",
+          "name_en": "Kroger",
+          "name_zh": "Kroger",
+          "role_zh": "Kroger：超市／雜貨商戶代表性玩家",
+          "role_en": "Kroger: representative player in Grocery merchant partners",
+          "exchange": "NYSE"
         },
         {
-          "ticker": "AVGO",
-          "name_en": "Broadcom",
-          "name_zh": "博通",
-          "role_zh": "博通：算力／加速矽晶代表性玩家",
-          "role_en": "Broadcom: representative player in Compute / accelerator silicon",
+          "ticker": "COST",
+          "name_en": "Costco Wholesale",
+          "name_zh": "好市多",
+          "role_zh": "好市多：超市／雜貨商戶代表性玩家",
+          "role_en": "Costco Wholesale: representative player in Grocery merchant partners",
           "exchange": "NASDAQ"
         }
       ]
     },
     {
-      "id": "infra",
+      "id": "cloud-infra",
       "order": 2,
-      "label_zh": "資料中心／雲端基礎設施",
-      "label_en": "Data center / cloud infrastructure",
-      "summary_zh": "機房、網路與基礎雲資源。",
-      "summary_en": "Colo, networking, base cloud.",
-      "players": [
-        {
-          "ticker": "EQIX",
-          "name_en": "Equinix",
-          "name_zh": "Equinix",
-          "role_zh": "Equinix：資料中心／雲端基礎設施代表性玩家",
-          "role_en": "Equinix: representative player in Data center / cloud infrastructure",
-          "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "DLR",
-          "name_en": "Digital Realty",
-          "name_zh": "Digital Realty",
-          "role_zh": "Digital Realty：資料中心／雲端基礎設施代表性玩家",
-          "role_en": "Digital Realty: representative player in Data center / cloud infrastructure",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "ANET",
-          "name_en": "Arista Networks",
-          "name_zh": "Arista 網路",
-          "role_zh": "Arista 網路：資料中心／雲端基礎設施代表性玩家",
-          "role_en": "Arista Networks: representative player in Data center / cloud infrastructure",
-          "exchange": "NYSE"
-        }
-      ]
-    },
-    {
-      "id": "data-security",
-      "order": 3,
-      "label_zh": "資料平台／資安",
-      "label_en": "Data platform / security",
-      "summary_zh": "資料、身分與資安控制層。",
-      "summary_en": "Data, identity, and security layer.",
+      "label_zh": "雲端／平台基建",
+      "label_en": "Cloud / platform infra",
+      "summary_zh": "訂單、目錄與廣告平台雲算力。",
+      "summary_en": "Cloud compute under orders, catalog, and ads.",
       "players": [
         {
           "ticker": "MSFT",
           "name_en": "Microsoft",
           "name_zh": "微軟",
-          "role_zh": "微軟：資料平台／資安代表性玩家",
-          "role_en": "Microsoft: representative player in Data platform / security",
+          "role_zh": "微軟：雲端／平台基建代表性玩家",
+          "role_en": "Microsoft: representative player in Cloud / platform infra",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "GOOG",
+          "name_en": "Alphabet",
+          "name_zh": "Alphabet（Google）",
+          "role_zh": "Alphabet（Google）：雲端／平台基建代表性玩家",
+          "role_en": "Alphabet: representative player in Cloud / platform infra",
           "exchange": "NASDAQ"
         },
         {
           "ticker": "ORCL",
           "name_en": "Oracle",
           "name_zh": "甲骨文",
-          "role_zh": "甲骨文：資料平台／資安代表性玩家",
-          "role_en": "Oracle: representative player in Data platform / security",
+          "role_zh": "甲骨文：雲端／平台基建代表性玩家",
+          "role_en": "Oracle: representative player in Cloud / platform infra",
+          "exchange": "NYSE"
+        }
+      ]
+    },
+    {
+      "id": "payments",
+      "order": 3,
+      "label_zh": "支付／清算",
+      "label_en": "Payments / clearing",
+      "summary_zh": "消費者付款與商戶撥款軌道。",
+      "summary_en": "Consumer pay-in and merchant payouts.",
+      "players": [
+        {
+          "ticker": "V",
+          "name_en": "Visa",
+          "name_zh": "威士卡",
+          "role_zh": "威士卡：支付／清算代表性玩家",
+          "role_en": "Visa: representative player in Payments / clearing",
           "exchange": "NYSE"
         },
         {
-          "ticker": "CSCO",
-          "name_en": "Cisco Systems",
-          "name_zh": "思科",
-          "role_zh": "思科：資料平台／資安代表性玩家",
-          "role_en": "Cisco Systems: representative player in Data platform / security",
+          "ticker": "MA",
+          "name_en": "Mastercard",
+          "name_zh": "萬事達卡",
+          "role_zh": "萬事達卡：支付／清算代表性玩家",
+          "role_en": "Mastercard: representative player in Payments / clearing",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "PYPL",
+          "name_en": "PayPal",
+          "name_zh": "PayPal",
+          "role_zh": "PayPal：支付／清算代表性玩家",
+          "role_en": "PayPal: representative player in Payments / clearing",
           "exchange": "NASDAQ"
         }
       ]
     },
     {
-      "id": "integrators",
+      "id": "traffic",
       "order": 4,
-      "label_zh": "系統整合／顧問",
-      "label_en": "Systems integrators / consulting",
-      "summary_zh": "導入、客製與營運夥伴。",
-      "summary_en": "Implementation and ops partners.",
+      "label_zh": "流量／獲客",
+      "label_en": "Traffic / acquisition",
+      "summary_zh": "社群與應用廣告獲客（非即配對手）。",
+      "summary_en": "Social and app-ads acquisition — not delivery rivals.",
       "players": [
         {
-          "ticker": "ACN",
-          "name_en": "Accenture",
-          "name_zh": "埃森哲",
-          "role_zh": "埃森哲：系統整合／顧問代表性玩家",
-          "role_en": "Accenture: representative player in Systems integrators / consulting",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "IBM",
-          "name_en": "IBM",
-          "name_zh": "IBM",
-          "role_zh": "IBM：系統整合／顧問代表性玩家",
-          "role_en": "IBM: representative player in Systems integrators / consulting",
-          "exchange": "NYSE"
-        },
-        {
-          "ticker": "CTSH",
-          "name_en": "Cognizant",
-          "name_zh": "高知特",
-          "role_zh": "高知特：系統整合／顧問代表性玩家",
-          "role_en": "Cognizant: representative player in Systems integrators / consulting",
+          "ticker": "META",
+          "name_en": "Meta Platforms",
+          "name_zh": "Meta (臉書)",
+          "role_zh": "Meta (臉書)：流量／獲客代表性玩家",
+          "role_en": "Meta Platforms: representative player in Traffic / acquisition",
           "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "APP",
+          "name_en": "AppLovin",
+          "name_zh": "AppLovin",
+          "role_zh": "AppLovin：流量／獲客代表性玩家",
+          "role_en": "AppLovin: representative player in Traffic / acquisition",
+          "exchange": "NASDAQ"
+        },
+        {
+          "ticker": "SNAP",
+          "name_en": "Snap",
+          "name_zh": "Snap",
+          "role_zh": "Snap：流量／獲客代表性玩家",
+          "role_en": "Snap: representative player in Traffic / acquisition",
+          "exchange": "NYSE"
         }
       ]
     },
     {
-      "id": "channel",
+      "id": "insurance-trust",
       "order": 5,
-      "label_zh": "企業銷售／市集通路",
-      "label_en": "Enterprise sales / marketplace",
-      "summary_zh": "直銷、ISV 市集與經銷。",
-      "summary_en": "Direct, ISV marketplace, resellers.",
+      "label_zh": "保險／信任",
+      "label_en": "Insurance / trust",
+      "summary_zh": "gig 配送責任與信任相關保險夥伴。",
+      "summary_en": "Liability and trust insurers around gig delivery.",
       "players": [
         {
-          "ticker": "CDW",
-          "name_en": "CDW",
-          "name_zh": "CDW",
-          "role_zh": "CDW：企業銷售／市集通路代表性玩家",
-          "role_en": "CDW: representative player in Enterprise sales / marketplace",
-          "exchange": "NASDAQ"
-        },
-        {
-          "ticker": "SNX",
-          "name_en": "TD Synnex",
-          "name_zh": "SYNNEX",
-          "role_zh": "SYNNEX：企業銷售／市集通路代表性玩家",
-          "role_en": "TD Synnex: representative player in Enterprise sales / marketplace",
+          "ticker": "CB",
+          "name_en": "Chubb",
+          "name_zh": "安達保險",
+          "role_zh": "安達保險：保險／信任代表性玩家",
+          "role_en": "Chubb: representative player in Insurance / trust",
           "exchange": "NYSE"
         },
         {
-          "ticker": "DELL",
-          "name_en": "Dell Technologies",
-          "name_zh": "戴爾",
-          "role_zh": "戴爾：企業銷售／市集通路代表性玩家",
-          "role_en": "Dell Technologies: representative player in Enterprise sales / marketplace",
+          "ticker": "PGR",
+          "name_en": "Progressive",
+          "name_zh": "前進保險",
+          "role_zh": "前進保險：保險／信任代表性玩家",
+          "role_en": "Progressive: representative player in Insurance / trust",
+          "exchange": "NYSE"
+        },
+        {
+          "ticker": "ALL",
+          "name_en": "Allstate",
+          "name_zh": "全州保險",
+          "role_zh": "全州保險：保險／信任代表性玩家",
+          "role_en": "Allstate: representative player in Insurance / trust",
           "exchange": "NYSE"
         }
       ]
@@ -200,19 +200,27 @@
   ],
   "competitors": [
     {
-      "ticker": "VRSK",
-      "name_en": "Verisk",
-      "name_zh": "威瑞斯克",
-      "basis_zh": "Software - Services產品／市場對手",
-      "basis_en": "Software - Services product/market rival",
+      "ticker": "DASH",
+      "name_en": "DoorDash",
+      "name_zh": "DoorDash",
+      "basis_zh": "即配／本地物流對手",
+      "basis_en": "Delivery / local logistics rival",
       "exchange": "NASDAQ"
     },
     {
-      "ticker": "IREN",
-      "name_en": "Iris Energy",
-      "name_zh": "Iris Energy",
-      "basis_zh": "Software - Services產品／市場對手",
-      "basis_en": "Software - Services product/market rival",
+      "ticker": "UBER",
+      "name_en": "Uber",
+      "name_zh": "Uber",
+      "basis_zh": "即配／出行平台對手",
+      "basis_en": "Delivery / mobility platform rival",
+      "exchange": "NYSE"
+    },
+    {
+      "ticker": "AMZN",
+      "name_en": "Amazon.com",
+      "name_zh": "亞馬遜",
+      "basis_zh": "雜貨／電商即配對手",
+      "basis_en": "Grocery / ecommerce delivery rival",
       "exchange": "NASDAQ"
     }
   ]
